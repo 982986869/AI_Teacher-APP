@@ -1,0 +1,1908 @@
+{
+  "mock_id": 220,
+  "name": "Mock Test - 02",
+  "instruction": "This question paper contains three sections - A, B and C. Each part is compulsory. Section - A has 20 MCQs, attempt any 16 out of 20. Section - B has 20 MCQs, attempt any 16 out of 20 Section - C has 10 MCQs, attempt any 8 out of 10. There is no negative marking. All questions carry equal marks.",
+  "totalQuestions": 50,
+  "questions": [
+    {
+      "n": 1,
+      "question_id": 58921,
+      "question_text": "A relation R on a non &ndash; empty set A is an equivalence relation if it is",
+      "question_html": "<p>A relation R on a non &ndash; empty set A is an equivalence relation if&nbsp;it is</p>",
+      "options": [
+        {
+          "id": 190873,
+          "text": "reflexive",
+          "html": "reflexive",
+          "is_correct": false
+        },
+        {
+          "id": 190871,
+          "text": "reflexive, symmetric and transitive",
+          "html": "reflexive, symmetric and transitive",
+          "is_correct": true
+        },
+        {
+          "id": 190872,
+          "text": "symmetric and transitive",
+          "html": "symmetric and transitive",
+          "is_correct": false
+        },
+        {
+          "id": 190874,
+          "text": "reflexive, antisymmetric, transitive",
+          "html": "reflexive, antisymmetric, transitive",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "reflexive, symmetric and transitive",
+      "correct_option_ids": [
+        190871
+      ],
+      "explanation": "By definition of Equivalence Relation, a relation is said to be equivalence if it is reflexive, symmetric and transitive.",
+      "solution": ""
+    },
+    {
+      "n": 2,
+      "question_id": 59865,
+      "question_text": "Corner points of the feasible region for an LPP are (0, 2), (3, 0), (6, 0), (6, 8) and (0, 5). Let F = 4x + 6y be the objective function. Maximum of F &ndash; Minimum of F =",
+      "question_html": "<p>Corner points of the feasible region for an LPP are (0, 2), (3, 0), (6, 0), (6, 8) and (0, 5). Let F = 4x + 6y be the objective function. Maximum of F &ndash; Minimum of F =</p>",
+      "options": [
+        {
+          "id": 194648,
+          "text": "18",
+          "html": "18",
+          "is_correct": false
+        },
+        {
+          "id": 194645,
+          "text": "60",
+          "html": "60",
+          "is_correct": true
+        },
+        {
+          "id": 194646,
+          "text": "48",
+          "html": "48",
+          "is_correct": false
+        },
+        {
+          "id": 194647,
+          "text": "42",
+          "html": "42",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "60",
+      "correct_option_ids": [
+        194645
+      ],
+      "explanation": "Here the objective function is given by : F = 4x +6y . Corner points Z = 4x +6 y (0, 2 ) 12(Min.) (3,0) 12.(Min.) (6,0 ) 24 (6 , 8 ) 72 (0 , 5 ) 30 Maximum of F &ndash; Minimum of F = 72 &ndash; 12 = 30 .",
+      "solution": ""
+    },
+    {
+      "n": 3,
+      "question_id": 59339,
+      "question_text": "Derivative of cos(sin x) w.r.t. sin x is",
+      "question_html": "<p>Derivative of cos(sin x) w.r.t. sin x is</p>",
+      "options": [
+        {
+          "id": 192546,
+          "text": "{tex}{\\sec ^2}\\left( {\\frac{3x}{{\\sqrt {2{x^2} + 1} }}} \\right){/tex}",
+          "html": "<span class=\"math-tex\">{tex}{\\sec ^2}\\left( {\\frac{3x}{{\\sqrt {2{x^2} + 1} }}} \\right){/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 192545,
+          "text": "{tex}{\\sec ^2}\\left( {\\frac{x}{{\\sqrt {{x^2} + 1} }}} \\right){/tex}",
+          "html": "<span class=\"math-tex\">{tex}{\\sec ^2}\\left( {\\frac{x}{{\\sqrt {{x^2} + 1} }}} \\right){/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 192544,
+          "text": "&ndash; sin(sin x)",
+          "html": "&ndash; sin(sin x)",
+          "is_correct": true
+        },
+        {
+          "id": 192543,
+          "text": "&ndash; sin(sin x)cosx",
+          "html": "&ndash; sin(sin x)cosx",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "&ndash; sin(sin x)",
+      "correct_option_ids": [
+        192544
+      ],
+      "explanation": "Let y = cos(sinx), z = sinx , then , {tex}\\frac{{dy}}{{dz}} = \\frac{{\\frac{{dy}}{{dx}}}}{{\\frac{{dz}}{{dx}}}} = \\frac{{ - \\sin (\\sin x)\\cos x}}{{\\cos x}} = - \\sin (\\sin x){/tex}",
+      "solution": ""
+    },
+    {
+      "n": 4,
+      "question_id": 269292,
+      "question_text": "The vertices of a a ABC are A(-2, 4), B( 2, -6) and C(5, 4). The area of a ABC is",
+      "question_html": "<p>The vertices of a a ABC are A(-2, 4), B( 2, -6) and C(5, 4). The area of a ABC is</p>",
+      "options": [
+        {
+          "id": 382585,
+          "text": "32 sq units",
+          "html": "32 sq units",
+          "is_correct": false
+        },
+        {
+          "id": 382583,
+          "text": "17.5 sq units",
+          "html": "17.5 sq units",
+          "is_correct": false
+        },
+        {
+          "id": 382586,
+          "text": "28 sq units",
+          "html": "28 sq units",
+          "is_correct": false
+        },
+        {
+          "id": 382584,
+          "text": "35 sq units",
+          "html": "35 sq units",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "35 sq units",
+      "correct_option_ids": [
+        382584
+      ],
+      "explanation": "{tex}\\Delta=\\frac{1}{2}\\left|\\begin{array}{rrr} -2 & 4 & 1 \\\\ 2 & -6 & 1 \\\\ 5 & 4 & 1 \\end{array}\\right|={/tex} {tex}\\frac{1}{2}\\left|\\begin{array}{rrr} -2 & 4 & 1 \\\\ 4 & -10 & 0 \\\\ 7 & 0 & 0 \\end{array}\\right|{/tex} = 35 sq units",
+      "solution": ""
+    },
+    {
+      "n": 5,
+      "question_id": 59869,
+      "question_text": "Feasible region (shaded) for a LPP is shown in Figure. Maximize Z = 5x + 7y.",
+      "question_html": "<p>Feasible region (shaded) for a LPP is shown in Figure. Maximize Z = 5x + 7y.<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/math/52042_0.jpg\" style=\"width: 200px; height: 153px;\" /></p>",
+      "options": [
+        {
+          "id": 194664,
+          "text": "49",
+          "html": "49",
+          "is_correct": false
+        },
+        {
+          "id": 194661,
+          "text": "43",
+          "html": "43",
+          "is_correct": true
+        },
+        {
+          "id": 194663,
+          "text": "47",
+          "html": "47",
+          "is_correct": false
+        },
+        {
+          "id": 194662,
+          "text": "45",
+          "html": "45",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "43",
+      "correct_option_ids": [
+        194661
+      ],
+      "explanation": "Corner points Z = 5x + 7y O(0,0) 0 B (3,4) 43 A(7,0) 35 C(0,2) 14 Hence the maximum value is 43",
+      "solution": ""
+    },
+    {
+      "n": 6,
+      "question_id": 264958,
+      "question_text": "The minimum value of f(x) = x 4 - x 2 - 2x + 6 is",
+      "question_html": "<p>The minimum value of f(x) = x<sup>4</sup> - x<sup>2</sup> - 2x + 6 is</p>",
+      "options": [
+        {
+          "id": 379956,
+          "text": "6",
+          "html": "6",
+          "is_correct": false
+        },
+        {
+          "id": 379957,
+          "text": "4",
+          "html": "4",
+          "is_correct": true
+        },
+        {
+          "id": 379959,
+          "text": "10",
+          "html": "10",
+          "is_correct": false
+        },
+        {
+          "id": 379958,
+          "text": "8",
+          "html": "8",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "4",
+      "correct_option_ids": [
+        379957
+      ],
+      "explanation": "f(x) = x 4 - x 2 - 2x + 6 {tex}\\Rightarrow{/tex} f&#39;(x) = 4x 3 - 2x - 2 put f&#39;(x) = 0 {tex}\\Rightarrow{/tex} 4x 3 - 2x -2 = 0 (x - 1) (4x 2 + 4x + 2) = 0 {tex}\\Rightarrow{/tex} x = 1 f\"(x) = 12x 2 - 2 f\"(1) = 10 > 0 local minima at x = 1 {tex}\\Rightarrow{/tex} f(1) = 4",
+      "solution": ""
+    },
+    {
+      "n": 7,
+      "question_id": 59248,
+      "question_text": "Find the area of the triangle with vertices (0,0), (4,2), and (1,1).",
+      "question_html": "<p>Find the area of the triangle with vertices (0,0), (4,2), and (1,1).</p>",
+      "options": [
+        {
+          "id": 192179,
+          "text": "1 sq.unit",
+          "html": "1 sq.unit",
+          "is_correct": true
+        },
+        {
+          "id": 192180,
+          "text": "2 sq.unit",
+          "html": "2&nbsp;sq.unit",
+          "is_correct": false
+        },
+        {
+          "id": 192182,
+          "text": "0 sq.unit",
+          "html": "0&nbsp;sq.unit",
+          "is_correct": false
+        },
+        {
+          "id": 192181,
+          "text": "5 sq.unit",
+          "html": "5&nbsp;sq.unit",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "1 sq.unit",
+      "correct_option_ids": [
+        192179
+      ],
+      "explanation": "{tex}\\frac{1}{2}\\left| {\\begin{array}{*{20}{c}} 0&0&1 \\\\ 4&2&1 \\\\ 1&1&1 \\end{array}} \\right| = \\frac{1}{2}[ 1(4 - 2)] = \\frac{1}{2}(2) = 1{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 8,
+      "question_id": 263576,
+      "question_text": "The circumference of a circle is measured as 28 cm with an error of 0.01 cm. The percentage error in the area is",
+      "question_html": "<p>The circumference of a circle is measured as 28 cm with an error of 0.01 cm. The percentage error in the area is</p>",
+      "options": [
+        {
+          "id": 379110,
+          "text": "{tex}\\frac{1}{7}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{7}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 379109,
+          "text": "0.01",
+          "html": "0.01",
+          "is_correct": false
+        },
+        {
+          "id": 379111,
+          "text": "{tex}\\frac{1}{6}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{6}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 379108,
+          "text": "{tex}\\frac{1}{14}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{14}{/tex}</span>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{1}{14}{/tex}",
+      "correct_option_ids": [
+        379108
+      ],
+      "explanation": "Given that circumference is = C = 2 {tex}\\pi{/tex} r = 28 cm That means r = {tex}\\frac{14}\\pi{/tex} {tex}\\Delta{/tex} C = 2 {tex}\\pi\\Delta{/tex} r = 0.01 {tex}\\Delta{/tex} r = ( {tex}\\frac{0.01}{2\\pi}{/tex} ) We all know that area of a circle is = A = {tex}\\pi{/tex} r 2 {tex}\\Delta{/tex} A= 2 {tex}\\pi{/tex} r {tex}\\times{/tex} dr So finally, {tex}\\left(\\frac{\\Delta \\mathrm{A}}{\\mathrm{A}}\\right) \\times 100=2 \\times \\frac{\\frac{0.01}{2 \\pi}}{\\frac{14}{\\pi}} \\times 100{/tex} = {tex}\\frac1{14} {/tex}",
+      "solution": ""
+    },
+    {
+      "n": 9,
+      "question_id": 264603,
+      "question_text": "Let X 1 and X 2 are optimal solutions of a LPP, then",
+      "question_html": "<p>Let X<sub>1</sub> and X<sub>2</sub> are optimal solutions of a LPP, then</p>",
+      "options": [
+        {
+          "id": 379644,
+          "text": "{tex}X=\\lambda X_{1}+(1-\\lambda) X_{2}, \\lambda \\in R{/tex} is also an optimal solution",
+          "html": "<span class=\"math-tex\">{tex}X=\\lambda X_{1}+(1-\\lambda) X_{2}, \\lambda \\in R{/tex}</span>&nbsp;is also an optimal solution&nbsp;",
+          "is_correct": false
+        },
+        {
+          "id": 379647,
+          "text": "{tex}X=\\lambda X_{1}+(1+\\lambda) X_{2}, \\lambda \\in R{/tex} gives an optimal solution",
+          "html": "<span class=\"math-tex\">{tex}X=\\lambda X_{1}+(1+\\lambda) X_{2}, \\lambda \\in R{/tex}</span>&nbsp;gives an optimal solution",
+          "is_correct": false
+        },
+        {
+          "id": 379646,
+          "text": "{tex}X=\\lambda X_{1}+(1+\\lambda) X_{2}, 0 \\leq \\lambda \\leq 1{/tex} give an optimal solution",
+          "html": "<span class=\"math-tex\">{tex}X=\\lambda X_{1}+(1+\\lambda) X_{2}, 0 \\leq \\lambda \\leq 1{/tex}</span>&nbsp;give an optimal solution",
+          "is_correct": false
+        },
+        {
+          "id": 379645,
+          "text": "{tex}X=\\lambda X_{1}+(1-\\lambda) X_{2}, 0 \\leq \\lambda \\leq 1{/tex} gives an optimal solution",
+          "html": "<span class=\"math-tex\">{tex}X=\\lambda X_{1}+(1-\\lambda) X_{2}, 0 \\leq \\lambda \\leq 1{/tex}</span>&nbsp;gives an optimal solution",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "{tex}X=\\lambda X_{1}+(1-\\lambda) X_{2}, 0 \\leq \\lambda \\leq 1{/tex} gives an optimal solution",
+      "correct_option_ids": [
+        379645
+      ],
+      "explanation": "X = {tex}\\lambda X_{1}+(1-\\lambda) X_{2}{/tex} , 0 {tex}\\leq{/tex} {tex}\\lambda{/tex} {tex}\\leq{/tex} 1 gives an optimal solution A set &#39;A&#39; is convex if, for any two points, x 1 , x 1 {tex}\\in{/tex} A, and {tex}\\lambda \\in[0,1]{/tex} imply that {tex}\\lambda \\mathrm{x}_{1}+(1-\\lambda) x_{2} \\in A{/tex} since, here X 1 and X 2 are optimal solutions Therefore, their convex combination will also be an optimal solution Thus, X = {tex}\\lambda X_{1}+(1-\\lambda) X_{2}{/tex} , 0 {tex}\\leq{/tex} {tex}\\lambda{/tex} {tex}\\leq{/tex} 1 gives an optimal solution.",
+      "solution": ""
+    },
+    {
+      "n": 10,
+      "question_id": 59200,
+      "question_text": "Rank of a non-zero matrix is always",
+      "question_html": "<p>Rank of a non-zero matrix is always</p>",
+      "options": [
+        {
+          "id": 191989,
+          "text": "greater than 1",
+          "html": "greater than 1",
+          "is_correct": false
+        },
+        {
+          "id": 191988,
+          "text": "equal to 1",
+          "html": "equal to 1",
+          "is_correct": false
+        },
+        {
+          "id": 191987,
+          "text": "{tex} \\geqslant {/tex} 1",
+          "html": "<span class=\"math-tex\">{tex} \\geqslant {/tex}</span>1",
+          "is_correct": true
+        },
+        {
+          "id": 191990,
+          "text": "0",
+          "html": "0",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex} \\geqslant {/tex} 1",
+      "correct_option_ids": [
+        191987
+      ],
+      "explanation": "Rank of a non zero matrix is always greater than or equal to 1.",
+      "solution": ""
+    },
+    {
+      "n": 11,
+      "question_id": 265112,
+      "question_text": "Given f(x) = 4x 8 , then",
+      "question_html": "<p>Given f(x) = 4x<sup>8</sup>, then</p>",
+      "options": [
+        {
+          "id": 380197,
+          "text": "{tex}f\\left(\\frac{1}{2}\\right)=-f' \\left(-\\frac{1}{2}\\right){/tex}",
+          "html": "<span class=\"math-tex\">{tex}f\\left(\\frac{1}{2}\\right)=-f' \\left(-\\frac{1}{2}\\right){/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 380196,
+          "text": "{tex}f^{\\prime}\\left(\\frac{1}{2}\\right)=f^{\\prime}\\left(-\\frac{1}{2}\\right){/tex}",
+          "html": "<span class=\"math-tex\">{tex}f^{\\prime}\\left(\\frac{1}{2}\\right)=f^{\\prime}\\left(-\\frac{1}{2}\\right){/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 380198,
+          "text": "{tex}f\\left(-\\frac{1}{2}\\right)=f\\left(-\\frac{1}{2}\\right){/tex}",
+          "html": "<span class=\"math-tex\">{tex}f\\left(-\\frac{1}{2}\\right)=f\\left(-\\frac{1}{2}\\right){/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 380199,
+          "text": "{tex}f\\left(\\frac{1}{2}\\right)=f^{\\prime}\\left(-\\frac{1}{2}\\right){/tex}",
+          "html": "<span class=\"math-tex\">{tex}f\\left(\\frac{1}{2}\\right)=f^{\\prime}\\left(-\\frac{1}{2}\\right){/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}f\\left(-\\frac{1}{2}\\right)=f\\left(-\\frac{1}{2}\\right){/tex}",
+      "correct_option_ids": [
+        380198
+      ],
+      "explanation": "f(x) = 4x 8 f&#39;(x) = 32x 7 Consider option ( {tex}f^{\\prime}\\left(\\frac{1}{2}\\right)=f^{\\prime}\\left(-\\frac{1}{2}\\right){/tex} ) {tex}\\mathrm{f}^{\\prime}\\left(\\frac{1}{2}\\right)=32\\left(\\frac{1}{2}\\right)^{7}{/tex} = {tex}32\\left(\\frac{1}{128}\\right){/tex} = 4 {tex}f^{\\prime}\\left(-\\frac{1}{2}\\right)=32\\left(-\\frac{1}{2}\\right)^{7}{/tex} = {tex}32\\left(-\\frac{1}{128}\\right){/tex} = -4 {tex}\\mathrm{f}^{\\prime}\\left(\\frac{1}{2}\\right) \\neq \\mathrm{f}^{\\prime}\\left(-\\frac{1}{2}\\right){/tex} Consider option ( {tex}f\\left(\\frac{1}{2}\\right)=-f' \\left(-\\frac{1}{2}\\right){/tex} ) {tex}\\mathrm{f}\\left(\\frac{1}{2}\\right)=4\\left(\\frac{1}{2}\\right)^{8}=4\\left(\\frac{1}{256}\\right){/tex} = 64 {tex}f^{\\prime}\\left(-\\frac{1}{2}\\right)=32\\left(-\\frac{1}{2}\\right)^{7}{/tex} = {tex}32\\left(-\\frac{1}{128}\\right)={/tex} = -4 {tex}\\mathrm{f}\\left(\\frac{1}{2}\\right) \\neq \\mathrm{f}^{\\prime}\\left(-\\frac{1}{2}\\right){/tex} Consider option ( {tex}f\\left(-\\frac{1}{2}\\right)=f\\left(-\\frac{1}{2}\\right){/tex} ) {tex}f\\left(-\\frac{1}{2}\\right)=4\\left(-\\frac{1}{2}\\right)^{8}{/tex} = {tex}4\\left(\\frac{1}{256}\\right){/tex} = 64 {tex}\\therefore \\mathrm{f}\\left(-\\frac{1}{2}\\right)=\\mathrm{f}\\left(-\\frac{1}{2}\\right){/tex} Consider option ( {tex}f\\left(\\frac{1}{2}\\right)=f^{\\prime}\\left(-\\frac{1}{2}\\right){/tex} ) {tex}f\\left(\\frac{1}{2}\\right)=4\\left(\\frac{1}{2}\\right)^{8}=4\\left(\\frac{1}{256}\\right){/tex} = 64 {tex}\\mathrm{f}^{\\prime}\\left(-\\frac{1}{2}\\right)=32\\left(-\\frac{1}{2}\\right)^{7}{/tex} = {tex}32\\left(-\\frac{1}{128}\\right){/tex} = -4 {tex}\\mathrm{f}\\left(\\frac{1}{2}\\right) \\neq \\mathrm{f}^{\\prime}\\left(-\\frac{1}{2}\\right){/tex}",
+      "solution": ""
+    },
+    {
+      "n": 12,
+      "question_id": 59812,
+      "question_text": "Let R be the feasible region for a linear programming problem,and let Z = ax + by be the objective function. If R is bounded, then the objective function Z has both a maximum and a minimum value on R and",
+      "question_html": "<p>Let R be the feasible region for a linear programming problem,and let Z = ax + by be the objective function. If R is bounded, then the objective function Z has both a maximum and a minimum value on R and</p>\r\n",
+      "options": [
+        {
+          "id": 194433,
+          "text": "each of these occurs at a corner point (vertex) of R.",
+          "html": "each of these occurs at a corner point (vertex) of R.",
+          "is_correct": true
+        },
+        {
+          "id": 194436,
+          "text": "each of these occurs at the midpoints of the edges of R",
+          "html": "each of these occurs at the midpoints of the edges of R",
+          "is_correct": false
+        },
+        {
+          "id": 194435,
+          "text": "each of these occurs at some points except corner points of R.",
+          "html": "each of these occurs at some points except corner points of R.",
+          "is_correct": false
+        },
+        {
+          "id": 194434,
+          "text": "each of these occurs at the centre of R.",
+          "html": "each of these occurs at the centre of R.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "each of these occurs at a corner point (vertex) of R.",
+      "correct_option_ids": [
+        194433
+      ],
+      "explanation": "Let R be the feasible region for a linear programming problem,and let Z = ax + by be the objective function. If R is bounded, then the objective function Z has both a maximum and a minimum value on R and each of these occurs at a corner point (vertex) of R.",
+      "solution": ""
+    },
+    {
+      "n": 13,
+      "question_id": 271346,
+      "question_text": "If y = cot -1 {tex}\\left(\\frac{1-x}{1+x}\\right){/tex} then {tex}\\frac{d y}{d x}={/tex} ?",
+      "question_html": "<p>If y = cot<sup>-1</sup>&nbsp;<span class=\"math-tex\">{tex}\\left(\\frac{1-x}{1+x}\\right){/tex}</span>&nbsp;then&nbsp;<span class=\"math-tex\">{tex}\\frac{d y}{d x}={/tex}</span>&nbsp;?</p>",
+      "options": [
+        {
+          "id": 385012,
+          "text": "{tex}\\frac{-1}{\\left(1+x^{2}\\right)}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{-1}{\\left(1+x^{2}\\right)}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 385014,
+          "text": "{tex}\\frac{1}{\\left(1+x^{2}\\right)^{3 / 2}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{\\left(1+x^{2}\\right)^{3 / 2}}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 385013,
+          "text": "{tex}\\frac{1}{\\left(1+x^{2}\\right)}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{\\left(1+x^{2}\\right)}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 385015,
+          "text": "{tex}\\frac{1}{\\left(1-x^{2}\\right)^{3 / 4}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{\\left(1-x^{2}\\right)^{3 / 4}}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{1}{\\left(1+x^{2}\\right)}{/tex}",
+      "correct_option_ids": [
+        385013
+      ],
+      "explanation": "Given that {tex}y=\\cot ^{-1}\\left(\\frac{1-x}{1+x}\\right){/tex} Let x = {tex}\\tan \\theta \\Rightarrow \\theta=\\tan ^{-1} x{/tex} and using {tex}\\cot ^{-1} x=\\frac{\\pi}{2}-\\tan ^{-1} x{/tex} Hence, {tex}y=\\frac{\\pi}{2}-\\tan ^{-1}\\left(\\frac{1-\\tan \\theta}{1+\\tan \\theta}\\right){/tex} Using {tex}\\tan \\left(\\frac{\\pi}{4}-x\\right)=\\frac{1-\\tan x}{1+\\tan x}{/tex} , we obtain {tex}y=\\frac{\\pi}{2}-\\tan ^{-1} \\tan \\left(\\frac{\\pi}{4}-\\theta\\right){/tex} {tex}=\\frac{\\pi}{2}-\\left(\\frac{\\pi}{4}-\\theta\\right){/tex} {tex}=\\frac{\\pi}{4}+\\theta=\\frac{\\pi}{4}+\\tan ^{-1} x{/tex} Differentiating with respect to x, we obtain {tex}\\frac{d y}{d x}=\\frac{1}{1+x^{2}}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 14,
+      "question_id": 263226,
+      "question_text": "If {tex}y=\\frac{a x+b}{x^{2}+c}{/tex} , then (2xy 1 + y) y 3 =",
+      "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}y=\\frac{a x+b}{x^{2}+c}{/tex}</span>, then (2xy<sub>1</sub>&nbsp;+ y) y<sub>3</sub>&nbsp;=</p>",
+      "options": [
+        {
+          "id": 378790,
+          "text": "3 (xy 2 + y 1 ) y 1",
+          "html": "3 (xy<sub>2</sub> + y<sub>1</sub>) y<sub>1</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 378789,
+          "text": "3 (xy 1 + y 2 ) y 2",
+          "html": "3 (xy<sub>1</sub>&nbsp;+ y<sub>2</sub>) y<sub>2</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 378791,
+          "text": "4 (xy 1 + y 2 ) y 2",
+          "html": "4 (xy<sub>1</sub> + y<sub>2</sub>) y<sub>2</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 378788,
+          "text": "3 (xy 2 + y 1 ) y 2",
+          "html": "3 (xy<sub>2</sub> + y<sub>1</sub>) y<sub>2</sub>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "3 (xy 2 + y 1 ) y 2",
+      "correct_option_ids": [
+        378788
+      ],
+      "explanation": "{tex}y=\\frac{a x+b}{x^{2}+c}{/tex} {tex}\\Rightarrow{/tex} y(x 2 + c) = ax + b Differentiating both sides w.r.t. x we get y 1 (x 2 + c) + 2xy = a Again differentiating w.r.t to x we get y 2 (x 2 +c) + 2xy 1 + 2y + 2xy 1 = 0 {tex}\\Rightarrow{/tex} y 2 (x 2 + c) = -(4xy 1 + 2y) ...(i) Again differentiating w.r.t to x we get y 3 (x 2 + c) + 2xy 2 + 4xy 2 + 4y 1 + 2y 1 = 0 {tex}\\Rightarrow{/tex} y 3 (x 2 + c) = -(6xy 2 + 6y 1 ) ...(ii) {tex}\\frac{y_{2}}{y_{3}}=\\frac{2 x y_{1}+y}{3 x y_{2}+3 y_{1}}{/tex} {tex}\\Rightarrow{/tex} y 3 (2xy 1 + y) = 3y 2 (xy 2 + y 1 )",
+      "solution": ""
+    },
+    {
+      "n": 15,
+      "question_id": 265233,
+      "question_text": "If {tex}f(x)=\\left\\{\\begin{array}{cc} \\frac{|x+2|}{\\tan ^{-1}(x+2)} & , x \\neq-2 \\\\ 2 & , x=-2 \\end{array}\\right.{/tex} then f(x) is",
+      "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}f(x)=\\left\\{\\begin{array}{cc} \\frac{|x+2|}{\\tan ^{-1}(x+2)} &amp; , x \\neq-2 \\\\ 2 &amp; , x=-2 \\end{array}\\right.{/tex}</span>then f(x) is</p>",
+      "options": [
+        {
+          "id": 380303,
+          "text": "continuous but derivable at x = &ndash;2",
+          "html": "continuous but&nbsp;derivable at x = &ndash;2",
+          "is_correct": false
+        },
+        {
+          "id": 380302,
+          "text": "differentiable at x = &ndash;2",
+          "html": "differentiable at x = &ndash;2",
+          "is_correct": false
+        },
+        {
+          "id": 380300,
+          "text": "not continuous at x = &ndash;2",
+          "html": "not continuous at x = &ndash;2",
+          "is_correct": true
+        },
+        {
+          "id": 380301,
+          "text": "continuous at x = &ndash;2",
+          "html": "continuous at x = &ndash;2",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "not continuous at x = &ndash;2",
+      "correct_option_ids": [
+        380300
+      ],
+      "explanation": "Given that {tex}f(x)=\\left\\{\\begin{array}{c} \\frac{|x+2|}{\\tan ^{-1}(x+2)}, x \\neq-2 \\\\ 2, x=-2 \\end{array}\\right.{/tex} {tex}\\Rightarrow f(x)=\\left\\{\\begin{array}{l} \\frac{-(x+2)}{\\tan ^{-1}(x+2)}, x<-2 \\\\ \\frac{(x+2)}{\\tan ^{-1}(x+2)}, x>-2 \\\\ ~~~~~~~~2 ~~~~~~~,x=-2 \\end{array}\\right.{/tex} Checking the continuity at x = -2, LHL: {tex}\\lim \\limits_{x \\rightarrow-2^{-}} f(x)=\\lim \\limits_{h \\rightarrow 0} f(-2-h)=\\lim\\limits _{h \\rightarrow 0} \\frac{-(-2-h+2)}{\\tan ^{-1}(-2-h+2)}=\\frac{h}{\\tan ^{-1}(-h)}=-1{/tex} RHL: {tex}\\lim \\limits_{x \\rightarrow-2^{+}} f(x)=\\lim \\limits_{h \\rightarrow 0} f(-2+h)=\\lim\\limits_{h \\rightarrow 0} \\frac{(-2+h+2)}{\\tan ^{-1}(-2+h+2)}=\\frac{h}{\\tan ^{-1}(h)}=1{/tex} And f(-2) = 2 {tex}\\because \\mathrm{LHL} \\neq \\mathrm{RHL} \\neq \\mathrm{f}(-2){/tex} Hence, f(x) is not continuous at x =-2.",
+      "solution": ""
+    },
+    {
+      "n": 16,
+      "question_id": 271316,
+      "question_text": "If y = {tex}\\sqrt{x \\sin x}{/tex} then {tex}\\frac{d y}{d x}{/tex} = ?",
+      "question_html": "<p>If y =&nbsp;<span class=\"math-tex\">{tex}\\sqrt{x \\sin x}{/tex}</span>&nbsp;then&nbsp;<span class=\"math-tex\">{tex}\\frac{d y}{d x}{/tex}</span>&nbsp;= ?</p>",
+      "options": [
+        {
+          "id": 384920,
+          "text": "{tex}\\frac{-1}{2 \\sqrt{x \\sin x}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{-1}{2 \\sqrt{x \\sin x}}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 384917,
+          "text": "{tex}\\frac{(x \\cos x+\\sin x)}{2 \\sqrt{{x} \\sin x}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{(x \\cos x+\\sin x)}{2 \\sqrt{{x} \\sin x}}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 384918,
+          "text": "{tex}\\frac{1}{2}{/tex} (x cos x +sin x). {tex}\\sqrt{x \\sin x}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>(x cos x +sin x).&nbsp;<span class=\"math-tex\">{tex}\\sqrt{x \\sin x}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 384919,
+          "text": "{tex}\\frac{1}{2 \\sqrt{x \\sin x}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{2 \\sqrt{x \\sin x}}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{(x \\cos x+\\sin x)}{2 \\sqrt{{x} \\sin x}}{/tex}",
+      "correct_option_ids": [
+        384917
+      ],
+      "explanation": "Given that y = {tex}\\sqrt{x \\sin x}{/tex} Squaring both sides, we obtain y 2 = xsinx Differentiating with respect to x, we obtain 2y {tex}\\frac{d y}{d x}{/tex} = xcos x + sinx or {tex}\\frac{d y}{d x}=\\frac{x \\cos x+\\sin x}{2 y}{/tex} Hence, {tex}\\frac{d y}{d x}=\\frac{x \\cos x+\\sin x}{2 \\sqrt{x \\sin x}}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 17,
+      "question_id": 263553,
+      "question_text": "If there is an error of a% in measuring the edge of a cube, then percentage error in its surface is:",
+      "question_html": "<p>If there is an error of a% in measuring the edge of a cube, then percentage error in its surface is:</p>",
+      "options": [
+        {
+          "id": 379060,
+          "text": "2a%",
+          "html": "2a%",
+          "is_correct": true
+        },
+        {
+          "id": 379062,
+          "text": "3a%",
+          "html": "3a%",
+          "is_correct": false
+        },
+        {
+          "id": 379063,
+          "text": "4a%",
+          "html": "4a%",
+          "is_correct": false
+        },
+        {
+          "id": 379061,
+          "text": "{tex}\\frac{a}{2} \\%{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{a}{2} \\%{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "2a%",
+      "correct_option_ids": [
+        379060
+      ],
+      "explanation": "Given that % Error in measuring the edge of a cube [ {tex}(\\frac{\\Delta L}L) \\times{/tex} 100] is = a (if L is edge of the cube) We have to find out ( {tex}(\\frac{\\Delta A}A) \\times{/tex} 100 = ? (If let the surface of the cube is A) By the formula of approximation of derivation we get, {tex}\\left(\\frac{\\Delta \\mathrm{A}}{\\mathrm{A}}\\right) \\times 100=2 \\times\\left(\\frac{\\Delta \\mathrm{L}}{\\mathrm{L}}\\right) \\times 100{/tex} = 2a",
+      "solution": ""
+    },
+    {
+      "n": 18,
+      "question_id": 264962,
+      "question_text": "The value of {tex}\\tan \\left\\{\\cos ^{-1} \\frac{1}{5 \\sqrt{2}}-\\sin ^{-1} \\frac{4}{\\sqrt{17}}\\right\\} {/tex} is",
+      "question_html": "<p>The value of&nbsp;<span class=\"math-tex\">{tex}\\tan \\left\\{\\cos ^{-1} \\frac{1}{5 \\sqrt{2}}-\\sin ^{-1} \\frac{4}{\\sqrt{17}}\\right\\} {/tex}</span>&nbsp;is</p>",
+      "options": [
+        {
+          "id": 379966,
+          "text": "{tex}\\frac{\\sqrt{3}}{29}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{\\sqrt{3}}{29}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 379964,
+          "text": "{tex}\\frac{\\sqrt{29}}{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{\\sqrt{29}}{3}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 379965,
+          "text": "{tex}\\frac{29}{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{29}{3}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 379967,
+          "text": "{tex}\\frac{3}{29}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{3}{29}{/tex}</span>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{3}{29}{/tex}",
+      "correct_option_ids": [
+        379967
+      ],
+      "explanation": "To find the value of {tex}\\tan \\left\\{\\cos ^{-1} \\frac{1}{5 \\sqrt{2}}-\\sin ^{-1} \\frac{4}{\\sqrt{17}}\\right\\}{/tex} Put, {tex}\\cos ^{-1} \\frac{1}{5 \\sqrt{2}}=u{/tex} and {tex}\\sin ^{-1} \\frac{4}{\\sqrt{17}}=v{/tex} {tex}\\frac{1}{5 \\sqrt{2}}=\\cos u{/tex} and {tex}\\frac{4}{\\sqrt{17}}=\\sin v{/tex} {tex}\\Rightarrow{/tex} tan u = 7 and tan z = 4 Using properties of trigonometry. {tex}\\tan \\left\\{\\cos ^{-1} \\frac{1}{5 \\sqrt{2}}-\\sin ^{-1} \\frac{4}{\\sqrt{17}}\\right\\}{/tex} = tan (y - z) tan (y - z) {tex}=\\frac{\\tan y-\\tan z}{1+\\tan y \\tan z}=\\frac{7-4}{1+28}{/tex} {tex}=\\frac{3}{29}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 19,
+      "question_id": 263952,
+      "question_text": "If from Lagrange&rsquo;s mean value theorem, we have {tex}{f}^{\\prime}(\\mathrm{x})=\\frac{\\mathrm{f}(\\mathrm{b})-\\mathrm{f}(\\mathrm{a})}{\\mathrm{b}-\\mathrm{a}}{/tex} , then",
+      "question_html": "<p>If from Lagrange&rsquo;s mean value theorem, we have&nbsp;<span class=\"math-tex\">{tex}{f}^{\\prime}(\\mathrm{x})=\\frac{\\mathrm{f}(\\mathrm{b})-\\mathrm{f}(\\mathrm{a})}{\\mathrm{b}-\\mathrm{a}}{/tex}</span>, then</p>",
+      "options": [
+        {
+          "id": 379413,
+          "text": "a < x 1 {tex}\\le{/tex} b",
+          "html": "a &lt; x<sub>1</sub> <span class=\"math-tex\">{tex}\\le{/tex}</span> b",
+          "is_correct": false
+        },
+        {
+          "id": 379414,
+          "text": "a {tex}\\le{/tex} x 1 < b",
+          "html": "a <span class=\"math-tex\">{tex}\\le{/tex}</span> x<sub>1</sub>&lt; b",
+          "is_correct": false
+        },
+        {
+          "id": 379412,
+          "text": "a < x 1 < b",
+          "html": "a &lt; x<sub>1</sub>&lt; b",
+          "is_correct": true
+        },
+        {
+          "id": 379415,
+          "text": "a {tex}\\le{/tex} x 1 {tex}\\le{/tex} b",
+          "html": "a <span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;x<sub>1</sub> <span class=\"math-tex\">{tex}\\le{/tex}</span> b",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "a < x 1 < b",
+      "correct_option_ids": [
+        379412
+      ],
+      "explanation": "{tex}\\because{/tex} {tex}\\mathrm{f}^{\\prime}(\\mathrm{x})=\\frac{\\mathrm{f}(\\mathrm{b})-\\mathrm{f}(\\mathrm{a})}{\\mathrm{b}-\\mathrm{a}}{/tex} In the Lagrange&rsquo;s Mean Value Theorem, c {tex}\\in{/tex} (a, b) such that {tex}f^{\\prime}(c)=\\frac{f(b)-f(a)}{b-a}{/tex} f is continuous on [a, b] and differentiable on (a, b), then there exists a real number x {tex}\\in{/tex} (a, b) Therefore, in the case of x 1 , {tex}\\mathrm{f}^{\\prime}\\left(\\mathrm{x}_{1}\\right)=\\frac{\\mathrm{f}(\\mathrm{b})-\\mathrm{f}(\\mathrm{a})}{\\mathrm{b}-\\mathrm{a}}{/tex} , then x 1 {tex}\\in{/tex} (a, b) {tex}\\therefore{/tex} a < x 1 < b. This is the required solution.",
+      "solution": ""
+    },
+    {
+      "n": 20,
+      "question_id": 265029,
+      "question_text": "The point on the curve y 2 = 4x which is nearest to the point (2,1) is",
+      "question_html": "<p>The point on the curve y<sup>2</sup> = 4x which is nearest to the point (2,1) is</p>",
+      "options": [
+        {
+          "id": 380050,
+          "text": "(1, -2)",
+          "html": "(1, -2)",
+          "is_correct": false
+        },
+        {
+          "id": 380048,
+          "text": "(1, {tex}2 \\sqrt{2}{/tex} )",
+          "html": "(1, <span class=\"math-tex\">{tex}2 \\sqrt{2}{/tex}</span>)",
+          "is_correct": false
+        },
+        {
+          "id": 380051,
+          "text": "(-2, 1)",
+          "html": "(-2, 1)",
+          "is_correct": false
+        },
+        {
+          "id": 380049,
+          "text": "(1, 2)",
+          "html": "(1, 2)",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "(1, 2)",
+      "correct_option_ids": [
+        380049
+      ],
+      "explanation": "y 2 = 4x {tex}\\Rightarrow{/tex} x = {tex}\\frac{y^{2}}{4}{/tex} {tex}\\Rightarrow{/tex} d = {tex}\\sqrt{(x-2)^{2}+(y-1)^{2}}{/tex} {tex}\\Rightarrow{/tex} d 2 = (x - 2) 2 + (y - 1) 2 {tex}\\Rightarrow{/tex} d 2 = {tex}\\left(\\frac{y^{2}}{4}-2\\right)^{2}{/tex} + (y - 1) 2 Let u = {tex}\\left(\\frac{y^{2}}{4}-2\\right)^{2}{/tex} + (y - 1) 2 {tex}\\Rightarrow{/tex} {tex}\\frac{d u}{d y}{/tex} = 2 {tex}\\left(\\frac{y^{2}}{4}-2\\right) \\frac{y}{2}{/tex} + 2(y - 1) To find minima {tex}\\frac{d u}{d y}{/tex} = 0 2 {tex}\\left(\\frac{y^{2}}{4}-2\\right) \\frac{y}{2}{/tex} + 2(y - 1) = 0 {tex}\\Rightarrow{/tex} y = 2 {tex}\\Rightarrow{/tex} x = 1 {tex}\\left(x=\\frac{y^{2}}{4}\\right){/tex} {tex}\\frac{d^{2} u}{d y^{2}}{/tex} = {tex}\\frac{3 y^{2}}{4}{/tex} {tex}\\Rightarrow{/tex} {tex}\\left(\\frac{d^{2} u}{d y^{2}}\\right)_{(1,2)}{/tex} = 3 > 0 Hence, nearest point is (1, 2).",
+      "solution": ""
+    },
+    {
+      "n": 21,
+      "question_id": 58914,
+      "question_text": "Let A = {1, 2, 3} and R = {(1, 2), (2, 3), (1, 3)} be a relation on A. Then, R is",
+      "question_html": "<p>Let A = {1, 2, 3} and R = {(1, 2), (2, 3), (1, 3)} be a relation on A. Then, R is</p>",
+      "options": [
+        {
+          "id": 190846,
+          "text": "None of these.",
+          "html": "None of these.",
+          "is_correct": false
+        },
+        {
+          "id": 190843,
+          "text": "transitive",
+          "html": "transitive",
+          "is_correct": true
+        },
+        {
+          "id": 190845,
+          "text": "symmetric",
+          "html": "symmetric",
+          "is_correct": false
+        },
+        {
+          "id": 190844,
+          "text": "reflexive",
+          "html": "reflexive",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "transitive",
+      "correct_option_ids": [
+        190843
+      ],
+      "explanation": "R = {(1, 2), (2, 3), (1, 3)} satisfying only the property of transitive relation. i.e Its transitive i.e (a,b) {tex} \\in {/tex} R and (b,c) &isin; R {tex}\\rightarrow{/tex} (a,c) {tex} \\in {/tex} R {tex}\\forall{/tex} a,b,c {tex} \\in {/tex} A",
+      "solution": ""
+    },
+    {
+      "n": 22,
+      "question_id": 263113,
+      "question_text": "The distance moved by a particle travelling in a straight line in t seconds is given by s = 45t + 11t 2 - t 3 . The time taken by the particle to come to rest is",
+      "question_html": "<p>The distance moved by a particle travelling in a straight line in t seconds is given by s = 45t + 11t<sup>2</sup>&nbsp;- t<sup>3</sup>. The time taken by the particle to come to rest is</p>",
+      "options": [
+        {
+          "id": 378684,
+          "text": "9 sec",
+          "html": "9 sec",
+          "is_correct": true
+        },
+        {
+          "id": 378686,
+          "text": "3/5 sec",
+          "html": "3/5 sec",
+          "is_correct": false
+        },
+        {
+          "id": 378687,
+          "text": "2 sec",
+          "html": "2 sec",
+          "is_correct": false
+        },
+        {
+          "id": 378685,
+          "text": "5/3 sec",
+          "html": "5/3 sec",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "9 sec",
+      "correct_option_ids": [
+        378684
+      ],
+      "explanation": "{tex}s=45 t+11 t^{2}-t^{3}{/tex} {tex}\\frac{d s}{d t}=45+22 t-3 t^{2}{/tex} Given that particle moves in a straight line. {tex}\\Rightarrow \\frac{d s}{d t}=0{/tex} {tex}\\Rightarrow 3 t^{2}-22 t-45=0{/tex} by solving the above quadratic equation we get {tex} t=9 \\text { or } t \\neq \\frac{-5}{3}{/tex} (time cannot be negative) {tex}\\Rightarrow{/tex} t = 9 sec",
+      "solution": ""
+    },
+    {
+      "n": 23,
+      "question_id": 59860,
+      "question_text": "Maximize Z = 100x + 120y , subject to constraints 2x + 3y &le; 30, 3x + y &le; 17, x &ge; 0, y &ge; 0.",
+      "question_html": "<p>Maximize Z = 100x + 120y , subject to constraints 2x + 3y &le; 30, 3x + y &le; 17, x &ge; 0, y &ge; 0.</p>",
+      "options": [
+        {
+          "id": 194627,
+          "text": "1280",
+          "html": "1280",
+          "is_correct": false
+        },
+        {
+          "id": 194625,
+          "text": "1260",
+          "html": "1260",
+          "is_correct": true
+        },
+        {
+          "id": 194626,
+          "text": "1200",
+          "html": "1200",
+          "is_correct": false
+        },
+        {
+          "id": 194628,
+          "text": "1300",
+          "html": "1300",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "1260",
+      "correct_option_ids": [
+        194625
+      ],
+      "explanation": "We have , Maximize Z = 100x + 120y , subject to constraints 2x + 3y &le; 30, 3x + y &le; 17, x &ge; 0, y &ge; 0. Corner points Z = 100x +120 y P( 0 , 0 ) 0 Q(3 , 8) 1260&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.(Max.) R( 0, 10 ) 1200 S(17/3 , 0 ) 1700/3 Hence the maximum value is 1260",
+      "solution": ""
+    },
+    {
+      "n": 24,
+      "question_id": 260551,
+      "question_text": "The equation of tangent to the curve y (1 + x 2 ) = 2 - x, where it crosses x-axis is:",
+      "question_html": "<p>The equation of tangent to the curve y (1 + x<sup>2</sup>) = 2 -&nbsp;x, where it crosses x-axis is:</p>",
+      "options": [
+        {
+          "id": 377240,
+          "text": "x + 5y = 2",
+          "html": "x + 5y = 2",
+          "is_correct": true
+        },
+        {
+          "id": 377242,
+          "text": "5x - y = 2",
+          "html": "5x - y = 2",
+          "is_correct": false
+        },
+        {
+          "id": 377243,
+          "text": "5x + y = 2",
+          "html": "5x + y = 2",
+          "is_correct": false
+        },
+        {
+          "id": 377241,
+          "text": "x - 5y = 2",
+          "html": "x - 5y = 2",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "x + 5y = 2",
+      "correct_option_ids": [
+        377240
+      ],
+      "explanation": "We have, equation of the curve y(1 + x 2 ) = 2 - x ...(i) It is given that the curve crosses x-axis Putting y = 0 in equation (i), we get {tex}\\therefore{/tex} 0(1 + x 2 ) = 2 - x {tex}\\Rightarrow{/tex} x = 2 So the curves passes through the point (2, 0) Now differentiating equation (i) w.r.t. x, we get {tex}\\therefore y \\times(0+2 x)+\\left(1+x^{2}\\right) \\cdot \\frac{d y}{d x}{/tex} = 0 - 1 {tex}\\Rightarrow \\frac{d y}{d x}=\\frac{-1-2 x y}{1+x^{2}}{/tex} {tex}\\therefore \\left(\\frac{d y}{d x}\\right)_{(2,0)}=\\frac{-1-2 \\times 0}{1+2^{2}}=-\\frac{1}{5}{/tex} = slope of tangent to the curve {tex}\\therefore{/tex} Equation of tangent of the curve passing through (2, 0) is y - 0 = {tex}-\\frac{1}{5}{/tex} (x - 2) or x + 5y = 2",
+      "solution": ""
+    },
+    {
+      "n": 25,
+      "question_id": 263728,
+      "question_text": "Let {tex}f(x)=\\frac{\\tan \\left(\\frac{\\pi}{4}-x\\right)}{\\cot 2 x}, x \\neq \\frac{\\pi}{4}{/tex} The value which should be assigned to f(x) at {tex}x=\\frac{\\pi}{4}{/tex} , so that it is continuous everywhere is",
+      "question_html": "<p>Let&nbsp;<span class=\"math-tex\">{tex}f(x)=\\frac{\\tan \\left(\\frac{\\pi}{4}-x\\right)}{\\cot 2 x}, x \\neq \\frac{\\pi}{4}{/tex}</span>&nbsp;The value which should be assigned to f(x) at&nbsp;<span class=\"math-tex\">{tex}x=\\frac{\\pi}{4}{/tex}</span>, so that it is continuous everywhere is</p>",
+      "options": [
+        {
+          "id": 379260,
+          "text": "1",
+          "html": "1",
+          "is_correct": false
+        },
+        {
+          "id": 379261,
+          "text": "1/2",
+          "html": "1/2",
+          "is_correct": true
+        },
+        {
+          "id": 379262,
+          "text": "2",
+          "html": "2",
+          "is_correct": false
+        },
+        {
+          "id": 379263,
+          "text": "3",
+          "html": "3",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "1/2",
+      "correct_option_ids": [
+        379261
+      ],
+      "explanation": "If f(x) is continuous at {tex}x=\\frac{\\pi}{4}{/tex} {tex}\\lim _\\limits{x \\rightarrow \\frac{\\pi}{4}} f(x)=f\\left(\\frac{\\pi}{4}\\right){/tex} {tex}\\Rightarrow \\lim _\\limits{x \\rightarrow \\frac{\\pi}{4}} \\frac{\\tan \\left(\\frac{\\pi}{4}-x\\right)}{\\cot 2 x}=f\\left(\\frac{\\pi}{4}\\right){/tex} If {tex}\\frac{\\pi}{4}-x=y{/tex} then {tex}x \\rightarrow \\frac{\\pi}{4}{/tex} and {tex}y \\rightarrow 0{/tex} {tex}\\therefore \\lim _\\limits{y \\rightarrow 0}\\left(\\frac{\\tan y}{\\cot 2\\left(\\frac{\\pi}{4}-y\\right)}\\right)=f\\left(\\frac{\\pi}{4}\\right){/tex} {tex}\\Rightarrow \\lim _\\limits{y \\rightarrow 0}\\left(\\frac{\\tan y}{\\cot \\left(\\frac{\\pi}{2}-2 y\\right)}\\right)=f\\left(\\frac{\\pi}{4}\\right){/tex} {tex}\\Rightarrow \\lim _\\limits{y \\rightarrow 0}\\left(\\frac{\\tan y}{\\tan 2 y}\\right)=f\\left(\\frac{\\pi}{4}\\right){/tex} {tex}\\Rightarrow \\lim _\\limits{y \\rightarrow 0}\\left(\\frac{\\frac{\\tan y}{y}}{\\frac{\\tan 2 y}{y}}\\right)=f\\left(\\frac{\\pi}{4}\\right){/tex} {tex}\\Rightarrow \\lim _\\limits{y \\rightarrow 0}\\left(\\frac{\\frac{\\tan y}{y}}{\\frac{2 \\tan 2 y}{2 y}}\\right)=f\\left(\\frac{\\pi}{4}\\right){/tex} {tex}\\Rightarrow \\frac{1}{2} \\lim _\\limits{y \\rightarrow 0}\\left(\\frac{\\frac{\\tan y}{y}}{\\frac{\\tan 2 y}{2 y}}\\right)=f\\left(\\frac{\\pi}{4}\\right){/tex} {tex}\\Rightarrow \\frac{1}{2}\\left(\\frac{\\lim _{y \\rightarrow 0} \\frac{\\tan y}{y}}{\\lim _{y \\rightarrow 0} \\frac{\\tan 2 y}{2 y}}\\right)=f\\left(\\frac{\\pi}{4}\\right){/tex} {tex}\\Rightarrow \\frac{1}{2}\\left(\\frac{1}{1}\\right)=f\\left(\\frac{\\pi}{4}\\right){/tex} {tex}\\Rightarrow f\\left(\\frac{\\pi}{4}\\right)=\\frac{1}{2}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 26,
+      "question_id": 59107,
+      "question_text": "{tex}4{\\tan ^{ - 1}}\\left( {\\frac{1}{5}} \\right) - {\\tan ^{ - 1}}\\left( {\\frac{1}{{239}}} \\right) = {/tex}",
+      "question_html": "<p><span class=\"math-tex\">{tex}4{\\tan ^{ - 1}}\\left( {\\frac{1}{5}} \\right) - {\\tan ^{ - 1}}\\left( {\\frac{1}{{239}}} \\right) = {/tex}</span></p>",
+      "options": [
+        {
+          "id": 191615,
+          "text": "{tex}\\frac{\\pi }{4}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 191618,
+          "text": "{tex}\\pi {/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\pi {/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 191617,
+          "text": "{tex}\\frac{\\pi }{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{3}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 191616,
+          "text": "{tex}\\frac{\\pi }{2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{\\pi }{4}{/tex}",
+      "correct_option_ids": [
+        191615
+      ],
+      "explanation": "{tex}4{\\tan ^{ - 1}}\\frac{1}{5} - {\\tan ^{ - 1}}\\frac{1}{{239}}{/tex} {tex} = 2\\left( {2{{\\tan }^{ - 1}}\\frac{1}{5}} \\right) - {\\tan ^{ - 1}}\\frac{1}{{239}}{/tex} {tex} = 2\\left( {2{{\\tan }^{ - 1}}\\frac{{2.\\frac{1}{5}}}{{1 - \\frac{1}{{25}}}}} \\right) - {\\tan ^{ - 1}}\\frac{1}{{239}}{/tex} {tex} = 2{\\tan ^{ - 1}}\\frac{5}{{12}} - {\\tan ^{ - 1}}\\frac{1}{{239}}{/tex} {tex} = 2{\\tan ^{ - 1}}\\frac{{2.\\frac{5}{{12}}}}{{1 - \\frac{{25}}{{144}}}} - {\\tan ^{ - 1}}\\frac{1}{{239}}{/tex} {tex} \\Rightarrow {\\tan ^{ - 1}}\\frac{{120}}{{119}} - {\\tan ^{ - 1}}\\frac{1}{{239}}{/tex} {tex} \\Rightarrow {\\tan ^{ - 1}}\\left( {\\frac{{\\frac{{120}}{{119}} - \\frac{1}{{239}}}}{{1 + \\frac{{120}}{{119}}.\\frac{1}{{239}}}}} \\right){/tex} {tex}=tan^{-1}(1)=\\frac{\\pi}{4}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 27,
+      "question_id": 260947,
+      "question_text": "Let R be the relation in the set {1, 2, 3, 4} given by R = {(1, 2), (2, 2), (1, 1), (4, 4), (1, 3), (3, 3), (3, 2)}. Choose the correct answer.",
+      "question_html": "<p>Let R be the relation in the set {1, 2, 3, 4} given by R = {(1, 2), (2, 2), (1, 1), (4, 4), (1, 3), (3, 3), (3, 2)}. Choose the correct answer.</p>",
+      "options": [
+        {
+          "id": 377873,
+          "text": "R is reflexive and transitive but not symmetric.",
+          "html": "R is reflexive and transitive but not symmetric.",
+          "is_correct": true
+        },
+        {
+          "id": 377875,
+          "text": "R is an equivalence relation.",
+          "html": "R is an equivalence relation.",
+          "is_correct": false
+        },
+        {
+          "id": 377874,
+          "text": "R is symmetric and transitive but not reflexive.",
+          "html": "R is symmetric and transitive but not reflexive.",
+          "is_correct": false
+        },
+        {
+          "id": 377872,
+          "text": "R is reflexive and symmetric but not transitive.",
+          "html": "R is reflexive and symmetric but not transitive.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "R is reflexive and transitive but not symmetric.",
+      "correct_option_ids": [
+        377873
+      ],
+      "explanation": "R is reflexive and transitive but not symmetric.",
+      "solution": ""
+    },
+    {
+      "n": 28,
+      "question_id": 269089,
+      "question_text": "The principal value of cot -1 {tex}(-\\sqrt{3}){/tex} is",
+      "question_html": "<p>The principal value of cot<sup>-1&nbsp;</sup><span class=\"math-tex\">{tex}(-\\sqrt{3}){/tex}</span>&nbsp;is</p>",
+      "options": [
+        {
+          "id": 382247,
+          "text": "{tex}-\\frac{\\pi}{6}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}-\\frac{\\pi}{6}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 382248,
+          "text": "{tex}\\frac{\\pi}{6}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{\\pi}{6}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 382250,
+          "text": "{tex}\\frac{5 \\pi}{6}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{5 \\pi}{6}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 382249,
+          "text": "{tex}\\frac{2 \\pi}{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{2 \\pi}{3}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{5 \\pi}{6}{/tex}",
+      "correct_option_ids": [
+        382250
+      ],
+      "explanation": "Let the principle value be given by x also, let x = cot -1 {tex}(-\\sqrt{3}){/tex} {tex}\\Rightarrow{/tex} cot x = {tex}-\\sqrt{3}{/tex} {tex}\\Rightarrow{/tex} cot x = -cot {tex}\\left(\\frac{\\pi}{6}\\right){/tex} ( {tex}\\because{/tex} cot {tex}\\left(\\frac{\\pi}{6}\\right)=\\sqrt{3}{/tex} ) {tex}\\Rightarrow{/tex} cot x = cot {tex}\\left(\\pi-\\frac{\\pi}{6}\\right){/tex} ( {tex}\\because{/tex} - cot ( {tex}\\theta{/tex} ) = cot ( {tex}\\pi-\\theta{/tex} )) {tex}\\Rightarrow x=\\frac{5 \\pi}{6}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 29,
+      "question_id": 264607,
+      "question_text": "Function f(x) = log a x is increasing on R , if",
+      "question_html": "<p>Function f(x) = log<sub>a</sub> x is increasing on R , if</p>",
+      "options": [
+        {
+          "id": 379653,
+          "text": "a > 1",
+          "html": "a &gt; 1",
+          "is_correct": true
+        },
+        {
+          "id": 379652,
+          "text": "0 < a < 1",
+          "html": "0 &lt; a &lt; 1",
+          "is_correct": false
+        },
+        {
+          "id": 379655,
+          "text": "a > 0",
+          "html": "a &gt; 0",
+          "is_correct": false
+        },
+        {
+          "id": 379654,
+          "text": "a < 1",
+          "html": "a &lt; 1",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "a > 1",
+      "correct_option_ids": [
+        379653
+      ],
+      "explanation": "a > 1",
+      "solution": ""
+    },
+    {
+      "n": 30,
+      "question_id": 269073,
+      "question_text": "If A and B are square matrices of the same order then (A + B)(A - B) = ?",
+      "question_html": "<p>If A and B are square matrices of the same order then (A + B)(A - B) = ?</p>",
+      "options": [
+        {
+          "id": 382223,
+          "text": "(A 2 - B 2 )",
+          "html": "(A<sup>2</sup> - B<sup>2</sup>)",
+          "is_correct": false
+        },
+        {
+          "id": 382226,
+          "text": "A 2 - AB - BA - B 2",
+          "html": "A<sup>2</sup> - AB -&nbsp;BA - B<sup>2</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 382224,
+          "text": "A 2 + AB - BA - B 2",
+          "html": "A<sup>2</sup> + AB - BA - B<sup>2</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 382225,
+          "text": "A 2 - AB + BA - B 2",
+          "html": "A<sup>2</sup> - AB + BA - B<sup>2</sup>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "A 2 - AB + BA - B 2",
+      "correct_option_ids": [
+        382225
+      ],
+      "explanation": "Since A and B are square matrices of same order. (A + B)(A - B) = A 2 - AB + BA - B 2",
+      "solution": ""
+    },
+    {
+      "n": 31,
+      "question_id": 260692,
+      "question_text": "If {tex}y=\\sqrt{\\sin x+y}{/tex} then {tex}\\frac{d y}{d x}{/tex} is equal to",
+      "question_html": "<p>If <span class=\"math-tex\">{tex}y=\\sqrt{\\sin x+y}{/tex}</span> then <span class=\"math-tex\">{tex}\\frac{d y}{d x}{/tex}</span>is equal to</p>",
+      "options": [
+        {
+          "id": 377621,
+          "text": "{tex}\\frac{\\cos x}{1-2 y}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{\\cos x}{1-2 y}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 377620,
+          "text": "{tex}\\frac{\\cos x}{2 y-1}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{\\cos x}{2 y-1}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 377623,
+          "text": "{tex}\\frac{\\sin x}{2 y-1}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{\\sin x}{2 y-1}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 377622,
+          "text": "{tex}\\frac{\\sin x}{1-2 y}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{\\sin x}{1-2 y}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{\\cos x}{2 y-1}{/tex}",
+      "correct_option_ids": [
+        377620
+      ],
+      "explanation": "{tex}\\because y=(\\sin x+y)^{1/2}{/tex} {tex}\\therefore \\frac{d y}{d x}=\\frac{1}{2}(\\sin x+y)^{-1 / 2} \\cdot \\frac{d}{d x}(\\sin x+y){/tex} {tex}\\Rightarrow \\frac{d y}{d x}=\\frac{1}{2} \\cdot \\frac{1}{(\\sin x+y)^{1/2}} \\cdot\\left(\\cos x+\\frac{d y}{d x}\\right){/tex} {tex}\\Rightarrow \\frac{d y}{d x}=\\frac{1}{2 y}\\left(\\cos x+\\frac{d y}{d x}\\right)\\left[\\because(\\sin x+y)^{1 / 2}=y\\right]{/tex} {tex}\\Rightarrow \\frac{d y}{d x}\\left(1-\\frac{1}{2 y}\\right)=\\frac{\\cos x}{2 y}{/tex} {tex}\\therefore \\frac{d y}{d x}=\\frac{\\cos x}{2 y} \\cdot \\frac{2 y}{2 y-1}=\\frac{\\cos x}{2 y-1}{/tex} . Which is the required solution.",
+      "solution": ""
+    },
+    {
+      "n": 32,
+      "question_id": 260418,
+      "question_text": "The value of c in Mean value theorem for the function f (x) = x (x - 2), x {tex}\\in{/tex} [1, 2] is",
+      "question_html": "<p>The value of c in Mean value theorem for the function f (x) = x (x -&nbsp;2), x <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;[1, 2] is</p>",
+      "options": [
+        {
+          "id": 377028,
+          "text": "{tex}\\frac{3}{2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{3}{2}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 377031,
+          "text": "{tex}\\frac{1}{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 377029,
+          "text": "{tex}\\frac{2}{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{2}{3}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 377030,
+          "text": "{tex}\\frac{1}{2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{3}{2}{/tex}",
+      "correct_option_ids": [
+        377028
+      ],
+      "explanation": "We have f&#39;(c) = {tex}\\frac{f(b)-f(a)}{b-a}{/tex} Here a = 1, b = 2 Put the value of c in f&#39;(x) = 2x -2 Hence, 2c - 2 = {tex}\\frac{f(2)-f(1)}{2-1}{/tex} = 2(2 - 2) - (-1) = 2(c - 1) = 1 c = 3\\2",
+      "solution": ""
+    },
+    {
+      "n": 33,
+      "question_id": 260558,
+      "question_text": "The two curves x 3 - 3xy 2 + 2 = 0 and 3x 2 y - y 3 - 2 = 0 intersect at an angle of",
+      "question_html": "<p>The two curves x<sup>3</sup>&nbsp;-&nbsp;3xy<sup>2</sup> + 2 = 0 and 3x<sup>2</sup>y -&nbsp;y<sup>3</sup>&nbsp;-&nbsp;2 = 0 intersect at an angle of</p>",
+      "options": [
+        {
+          "id": 377264,
+          "text": "{tex}\\frac{\\pi}{4}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{\\pi}{4}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 377267,
+          "text": "{tex}\\frac{\\pi}{6}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{\\pi}{6}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 377265,
+          "text": "{tex}\\frac{\\pi}{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{\\pi}{3}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 377266,
+          "text": "{tex}\\frac{\\pi}{2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{\\pi}{2}{/tex}</span>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{\\pi}{2}{/tex}",
+      "correct_option_ids": [
+        377266
+      ],
+      "explanation": "Given equation of curves are x 3 - 3xy 2 + 2 = 0 ...(i) and 3x 2 y - y 3 - 2 = 0 ...(ii) Differentiating equation (i) w.r.t. x, we get {tex}3 x^{2}-3 x \\cdot 2 y \\frac{d y}{d x}-3 y^{2} \\cdot 1+0=0{/tex} {tex}\\Rightarrow \\left(\\frac{d y}{d x}\\right)_{1}=\\frac{x^{2}-y^{2}}{2 x y}{/tex} Differentiating equation (ii) w.r.t. x, we get {tex}3 x^{2} \\frac{d y}{d x}+6 x y-3 y^{2} \\frac{d y}{d x}+0=0{/tex} {tex}\\Rightarrow \\left(\\frac{d y}{d x}\\right)_{2}=\\frac{2 x y}{y^{2}-x^{2}}{/tex} Now {tex}\\left(\\frac{d y}{d x}\\right)_{1}\\left(\\frac{d y}{d x}\\right)_{2}=-1{/tex} Hence, the curves intersect at right angle.",
+      "solution": ""
+    },
+    {
+      "n": 34,
+      "question_id": 59118,
+      "question_text": "The value of sin {tex}\\left( {2{{\\cos }^{ - 1}}\\left( { - \\frac{3}{5}} \\right)} \\right){/tex} is",
+      "question_html": "<p>The value of sin<span class=\"math-tex\">{tex}\\left( {2{{\\cos }^{ - 1}}\\left( { - \\frac{3}{5}} \\right)} \\right){/tex}</span>&nbsp;is</p>",
+      "options": [
+        {
+          "id": 191661,
+          "text": "{tex}\\frac{7}{{25}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{7}{{25}}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 191662,
+          "text": "{tex}-\\frac{7}{{25}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}-\\frac{7}{{25}}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 191660,
+          "text": "{tex}\\frac{{24}}{{25}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{{24}}{{25}}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 191659,
+          "text": "{tex} - \\frac{{24}}{{25}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex} - \\frac{{24}}{{25}}{/tex}</span>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "{tex} - \\frac{{24}}{{25}}{/tex}",
+      "correct_option_ids": [
+        191659
+      ],
+      "explanation": "put {tex}\\;{\\cos ^{ - 1}}\\left( { - \\frac{3}{5}} \\right) = \\theta \\implies\\cos \\theta \\; = - \\frac{3}{5}\\;{/tex} therefore the given expression is {tex}\\;\\sin 2\\theta \\; = 2sin\\theta cos\\theta = \\frac{{2.4}}{5}.\\left( { - \\frac{3}{5}} \\right) = \\left( { - \\frac{{24}}{{25}}} \\right).\\;{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 35,
+      "question_id": 269008,
+      "question_text": "If (A - 2B) = {tex}\\left[\\begin{array}{cc} 1 & -2 \\\\ 3 & 0 \\end{array}\\right]{/tex} and (2A - 3B) = {tex}\\left[\\begin{array}{rr} -2 & 2 \\\\ 3 & -3 \\end{array}\\right]{/tex} then B = ?",
+      "question_html": "<p>If (A - 2B) =<span class=\"math-tex\">{tex}\\left[\\begin{array}{cc} 1 &amp; -2 \\\\ 3 &amp; 0 \\end{array}\\right]{/tex}</span> and (2A - 3B) =<span class=\"math-tex\">{tex}\\left[\\begin{array}{rr} -2 &amp; 2 \\\\ 3 &amp; -3 \\end{array}\\right]{/tex}</span> then B = ?</p>",
+      "options": [
+        {
+          "id": 382157,
+          "text": "{tex}\\left[\\begin{array}{cc} 4 & -6 \\\\ 3 & -3 \\end{array}\\right]{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\left[\\begin{array}{cc} 4 &amp; -6 \\\\ 3 &amp; -3 \\end{array}\\right]{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 382158,
+          "text": "{tex}\\left[\\begin{array}{cc} -4 & -6 \\\\ 3 & 3 \\end{array}\\right]{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\left[\\begin{array}{cc} -4 &amp; -6 \\\\ 3 &amp; 3 \\end{array}\\right]{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 382155,
+          "text": "{tex}\\left[\\begin{array}{rr} 6 & -4 \\\\ -3 & 3 \\end{array}\\right]{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\left[\\begin{array}{rr} 6 &amp; -4 \\\\ -3 &amp; 3 \\end{array}\\right]{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 382156,
+          "text": "{tex}\\left[\\begin{array}{rr} -4 & 6 \\\\ -3 & -3 \\end{array}\\right]{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\left[\\begin{array}{rr} -4 &amp; 6 \\\\ -3 &amp; -3 \\end{array}\\right]{/tex}</span>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "{tex}\\left[\\begin{array}{rr} -4 & 6 \\\\ -3 & -3 \\end{array}\\right]{/tex}",
+      "correct_option_ids": [
+        382156
+      ],
+      "explanation": "{tex}(A-2 B)=\\left(\\begin{array}{cc} 1 & -2 \\\\ 3 & 0 \\end{array}\\right){/tex} Multiplying equation by 2 {tex}2 A-4 B=\\left(\\begin{array}{cc} 2 & -4 \\\\ 6 & 0 \\end{array}\\right){/tex} ...(i) {tex}2 A-3 B=\\left(\\begin{array}{cc} -2 & 2 \\\\ 3 & -3 \\end{array}\\right){/tex} ...(ii) (ii) - (i) {tex}B=\\left(\\begin{array}{cc} -2 & 2 \\\\ 3 & -3 \\end{array}\\right)-\\left(\\begin{array}{cc} 2 & -4 \\\\ 6 & 0 \\end{array}\\right){/tex} {tex}=\\left(\\begin{array}{cc} -4 & 6 \\\\ -3 & -3 \\end{array}\\right){/tex}",
+      "solution": ""
+    },
+    {
+      "n": 36,
+      "question_id": 264685,
+      "question_text": "The corner points of the feasible region determined by the following system of linear inequalities: 2x + y {tex}\\le{/tex} 10, x + 3y {tex}\\le{/tex} 15, x, y {tex}\\ge{/tex} 0 are (0, 0), (5, 0), (3, 4) and (0, 5). Let Z = px + qy, where p, q {tex}\\ge{/tex} 0. Condition on p and q so that the maximum of Z occurs at both (3, 4) and (0, 5) is",
+      "question_html": "<p>The corner points of the feasible region determined by the following system of linear inequalities:<br />\r\n2x + y <span class=\"math-tex\">{tex}\\le{/tex}</span> 10, x + 3y <span class=\"math-tex\">{tex}\\le{/tex}</span> 15, x, y <span class=\"math-tex\">{tex}\\ge{/tex}</span> 0 are (0, 0), (5, 0), (3, 4) and (0, 5). Let Z = px + qy, where p, q <span class=\"math-tex\">{tex}\\ge{/tex}</span> 0. Condition on p and q so that the maximum of Z occurs at both (3, 4) and (0, 5) is</p>",
+      "options": [
+        {
+          "id": 379740,
+          "text": "p = q",
+          "html": "p = q",
+          "is_correct": false
+        },
+        {
+          "id": 379741,
+          "text": "p = 2q",
+          "html": "p = 2q",
+          "is_correct": false
+        },
+        {
+          "id": 379742,
+          "text": "p = 3q",
+          "html": "p = 3q",
+          "is_correct": false
+        },
+        {
+          "id": 379743,
+          "text": "q = 3p",
+          "html": "q = 3p",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "q = 3p",
+      "correct_option_ids": [
+        379743
+      ],
+      "explanation": "The maximum value of Z is unique. It is given that the maximum value of Z occurs at two points (3,4) and (0,5) {tex}\\therefore{/tex} Value of Z at (3, 4) = Value of Z at (0, 5) {tex}\\Rightarrow{/tex} p(3) + q(4) = p(0) + q(5) {tex}\\Rightarrow{/tex} 3p + 4q = 5q {tex}\\Rightarrow{/tex} q = 3p",
+      "solution": ""
+    },
+    {
+      "n": 37,
+      "question_id": 59279,
+      "question_text": "If the value of a third order determinant is 11, then the value of the square of the determinant formed by the cofactors will be",
+      "question_html": "<p>If the value of a third order determinant is 11, then the value of the square of the determinant formed by the cofactors will be</p>",
+      "options": [
+        {
+          "id": 192303,
+          "text": "14641",
+          "html": "14641",
+          "is_correct": true
+        },
+        {
+          "id": 192306,
+          "text": "11",
+          "html": "11",
+          "is_correct": false
+        },
+        {
+          "id": 192304,
+          "text": "1331",
+          "html": "1331",
+          "is_correct": false
+        },
+        {
+          "id": 192305,
+          "text": "121",
+          "html": "121",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "14641",
+      "correct_option_ids": [
+        192303
+      ],
+      "explanation": "Since the matrix formed by the cofactors is adj(A) and we know that |adj(A)|=|A| 2 for third order square matrix. So, |adj(A)| 2 = |A| 4 and |A|=11 {tex}\\Rightarrow{/tex} |adj(A)| 2 =(11) 4 =14641",
+      "solution": ""
+    },
+    {
+      "n": 38,
+      "question_id": 59430,
+      "question_text": "For a real number x, let [x] denote the greatest integer less than or equal to x and f (x) = {tex}\\frac{{\\tan (\\pi [x - \\pi ])}}{{1 + {{[x]}^2}}}{/tex} ,then",
+      "question_html": "<p>For a real number x, let [x] denote the greatest integer less than or equal to x and f (x) = <span class=\"math-tex\">{tex}\\frac{{\\tan (\\pi [x - \\pi ])}}{{1 + {{[x]}^2}}}{/tex}</span>,then</p>",
+      "options": [
+        {
+          "id": 192910,
+          "text": "f &lsquo;(x) exists for all x but f &lsquo;&rsquo;(x) does not exist",
+          "html": "f &lsquo;(x) exists for all x but f &lsquo;&rsquo;(x) does not exist",
+          "is_correct": false
+        },
+        {
+          "id": 192909,
+          "text": "continuous for some x",
+          "html": "continuous for some x",
+          "is_correct": false
+        },
+        {
+          "id": 192907,
+          "text": "f &lsquo;(x) exists for all x",
+          "html": "f &lsquo;(x) exists for all x",
+          "is_correct": true
+        },
+        {
+          "id": 192908,
+          "text": "continuous at all x but f &lsquo;(x) does not exist",
+          "html": "continuous at all x but f &lsquo;(x) does not exist",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "f &lsquo;(x) exists for all x",
+      "correct_option_ids": [
+        192907
+      ],
+      "explanation": "Since {tex} [x- \\pi ]{/tex} is an integer for all {tex} x \\in R\\; \\&\\; \\tan n\\pi \\; = 0\\;\\forall\\;n\\; \\in I\\ {/tex} .Therefore, f(x)= 0 for all x in R. So, f(x) is a constant and hence derivatives of f(x) of all order exist.",
+      "solution": ""
+    },
+    {
+      "n": 39,
+      "question_id": 263696,
+      "question_text": "The function {tex}f(x)=\\left\\{\\begin{array}{cc} x^{2} a & , \\ \\ \\ \\ \\ \\ \\ 0 \\leq x<1 \\\\ a & , \\quad 1 \\leq x<\\sqrt{2} \\\\ \\frac{2 b^{2}-4 b}{x^{2}} & , \\quad \\sqrt{2} \\leq x<\\infty \\end{array}\\right.{/tex} is continuous for {tex}0 \\leq x<\\infty,{/tex} then the most suitable values of a and b are",
+      "question_html": "<p>The function&nbsp;<span class=\"math-tex\">{tex}f(x)=\\left\\{\\begin{array}{cc} x^{2} a &amp; , \\ \\ \\ \\ \\ \\ \\ 0 \\leq x&lt;1 \\\\ a &amp; , \\quad 1 \\leq x&lt;\\sqrt{2} \\\\ \\frac{2 b^{2}-4 b}{x^{2}} &amp; , \\quad \\sqrt{2} \\leq x&lt;\\infty \\end{array}\\right.{/tex}</span>&nbsp;is continuous for&nbsp;<span class=\"math-tex\">{tex}0 \\leq x&lt;\\infty,{/tex}</span>&nbsp;then the most suitable values of a and b are&nbsp;</p>",
+      "options": [
+        {
+          "id": 379234,
+          "text": "a = -1, b = 1",
+          "html": "a = -1, b = 1",
+          "is_correct": false
+        },
+        {
+          "id": 379233,
+          "text": "a = -1, b = 1 +",
+          "html": "a = -1, b = 1<sup>+</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 379235,
+          "text": "a = 1, b = 1",
+          "html": "a = 1, b = 1",
+          "is_correct": false
+        },
+        {
+          "id": 379232,
+          "text": "a = - 1, b = -1",
+          "html": "a = - 1, b = -1",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "a = - 1, b = -1",
+      "correct_option_ids": [
+        379232
+      ],
+      "explanation": "f(x) is continuous at x = 1 {tex}\\Rightarrow \\lim _\\limits{x \\rightarrow 1} f(x)=f(1){/tex} {tex}\\Rightarrow \\lim _\\limits{h \\rightarrow 0} f(1+h)=a{/tex} {tex}\\Rightarrow \\lim _\\limits{h \\rightarrow 0} \\frac{(1+h)^{2}}{a}=a{/tex} {tex}\\Rightarrow \\frac{1}{a}=a{/tex} {tex}\\Rightarrow{/tex} a 2 = 1 {tex}\\Rightarrow a=\\pm 1{/tex} Consider, {tex}\\lim _\\limits{x \\rightarrow \\sqrt{2}} \\frac{2 b^{2}-4 b}{x^{2}}=a{/tex} b 2 - 2b = {tex}\\pm 1{/tex} for a = 1 using formulas for quadratic equation {tex}b^{2}-2 b-1=0 \\Rightarrow b=1 \\pm \\sqrt{2}{/tex} for a = -1 b 2 - 2b = -1 b 2 - 2b + 1 = 0 (b - 1) 2 = 0 b = 1 a = -1, b = 1",
+      "solution": ""
+    },
+    {
+      "n": 40,
+      "question_id": 58954,
+      "question_text": "The range of {tex}f(x) = \\frac{{x - 3}}{{3 - x}},x \\ne 3\\;{/tex} is",
+      "question_html": "<p>The range of <span class=\"math-tex\">{tex}f(x) = \\frac{{x - 3}}{{3 - x}},x \\ne 3\\;{/tex}</span> is</p>",
+      "options": [
+        {
+          "id": 191006,
+          "text": "1",
+          "html": "1",
+          "is_correct": false
+        },
+        {
+          "id": 191005,
+          "text": "{1}",
+          "html": "{1}",
+          "is_correct": false
+        },
+        {
+          "id": 191004,
+          "text": "&ndash; 1",
+          "html": "&ndash; 1",
+          "is_correct": false
+        },
+        {
+          "id": 191003,
+          "text": "R-{&ndash; 1}",
+          "html": "R-{&ndash; 1}",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "R-{&ndash; 1}",
+      "correct_option_ids": [
+        191003
+      ],
+      "explanation": "We have , {tex}f(x) = \\frac{{x - 3}}{{3 - x}},x \\ne 3{/tex} , {tex} \\Rightarrow f(x) = \\frac{{ - (3 - x)}}{{(3 - x)}} \\Rightarrow f(x) = - 1{/tex} . Therefore , range of f(x) isR- {-1}. Which is the required solution.",
+      "solution": ""
+    },
+    {
+      "n": 41,
+      "question_id": 261567,
+      "question_text": "If 3tan &ndash;1 x + cot &ndash;1 x = {tex}\\pi{/tex} , then x equals",
+      "question_html": "<p>If 3tan<sup>&ndash;1</sup> x + cot<sup>&ndash;1</sup> x = <span class=\"math-tex\">{tex}\\pi{/tex}</span>, then x equals</p>",
+      "options": [
+        {
+          "id": 378074,
+          "text": "-1",
+          "html": "-1",
+          "is_correct": false
+        },
+        {
+          "id": 378073,
+          "text": "1",
+          "html": "1",
+          "is_correct": true
+        },
+        {
+          "id": 378075,
+          "text": "{tex}\\frac{1}{2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 378072,
+          "text": "0",
+          "html": "0",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "1",
+      "correct_option_ids": [
+        378073
+      ],
+      "explanation": "We know that {tex}tan^{-1}x + cot^{-1}x = \\frac {\\pi}2{/tex} Now, {tex}3 tan^{-1}x+cot^{-1}x= \\pi\\\\ \\Rightarrow 2tan^{-1}x+tan^{-1}x+cot^{-1}x= \\pi\\\\ \\Rightarrow 2tan^{-1}x + \\frac{\\pi}2= \\pi\\\\ \\Rightarrow 2tan^{-1}x=\\frac {\\pi}2\\\\ \\Rightarrow tan^{-1}x= \\frac{\\pi}4\\\\ \\Rightarrow x=tan\\frac{\\pi}4\\\\ \\Rightarrow x=1 {/tex}",
+      "solution": ""
+    },
+    {
+      "n": 42,
+      "question_id": 264626,
+      "question_text": "The optimal valuie of the objective function is attained at the points",
+      "question_html": "<p>The optimal valuie of the objective function is attained at the points</p>",
+      "options": [
+        {
+          "id": 379683,
+          "text": "given by intersection of inequations with y-axis only",
+          "html": "given by intersection of inequations with y-axis only",
+          "is_correct": false
+        },
+        {
+          "id": 379682,
+          "text": "given by corner points of the feasible region",
+          "html": "given by corner points of the feasible region",
+          "is_correct": true
+        },
+        {
+          "id": 379680,
+          "text": "given by intersection of inequations with the axes only",
+          "html": "given by intersection of inequations with the axes only",
+          "is_correct": false
+        },
+        {
+          "id": 379681,
+          "text": "given by intersection of inequations with x-axis only",
+          "html": "given by intersection of inequations with x-axis only",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "given by corner points of the feasible region",
+      "correct_option_ids": [
+        379682
+      ],
+      "explanation": "It is known that the optimal value of the objective function is attained at any of the corner point. Thus, the optimal value of the objective function is attained at the points given by corner points of the feasible region.",
+      "solution": ""
+    },
+    {
+      "n": 43,
+      "question_id": 263954,
+      "question_text": "Rolle&rsquo;s theorem is applicable in case of ϕ (x) = a sinx , a > 0 in",
+      "question_html": "<p>Rolle&rsquo;s theorem is applicable in case of&nbsp;ϕ&nbsp;(x) = a<sup>sinx</sup>, a &gt; 0 in</p>",
+      "options": [
+        {
+          "id": 379417,
+          "text": "any interval",
+          "html": "any interval",
+          "is_correct": false
+        },
+        {
+          "id": 379419,
+          "text": "the interval [1, {tex}\\pi{/tex} ]",
+          "html": "the interval [1, <span class=\"math-tex\">{tex}\\pi{/tex}</span>]",
+          "is_correct": false
+        },
+        {
+          "id": 379416,
+          "text": "the interval [0, {tex}\\pi{/tex} ]",
+          "html": "the interval [0, <span class=\"math-tex\">{tex}\\pi{/tex}</span>]",
+          "is_correct": true
+        },
+        {
+          "id": 379418,
+          "text": "the interval (0, {tex}\\pi{/tex} /2)",
+          "html": "the interval (0, <span class=\"math-tex\">{tex}\\pi{/tex}</span>/2)",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "the interval [0, {tex}\\pi{/tex} ]",
+      "correct_option_ids": [
+        379416
+      ],
+      "explanation": "&Phi;(x) = a Sin x , a > 0 Differentiating the above-mentioned function, with respect to &lsquo;x&rsquo;, we get {tex}\\Phi{/tex} &#39;(x) = (cos x a Sin x ) . log a Let &Phi;&rsquo;(c) = 0 {tex}\\Rightarrow{/tex} log a (cos c a Sin c ) = 0 {tex}\\Rightarrow{/tex} cos c a Sin c = 0 {tex}\\Rightarrow{/tex} cos c = 0 {tex}\\Rightarrow{/tex} {tex}\\operatorname{cosc}=\\cos \\frac{\\pi}{2}{/tex} {tex}\\therefore \\mathrm{c}=\\frac{\\pi}{2}{/tex} Also, the above-mentioned function, is derivable and continuous on the interval [0, {tex}\\pi{/tex} ]. Thus, here Rolle&rsquo;s Theorem is applicable on the above mentioned function in the interval [0, {tex}\\pi{/tex} ].",
+      "solution": ""
+    },
+    {
+      "n": 44,
+      "question_id": 269002,
+      "question_text": "If {tex}A=\\left[\\begin{array}{rr} 2 & 0 \\\\ -3 & 1 \\end{array}\\right]{/tex} and {tex}B=\\left[\\begin{array}{rr} 4 & -3 \\\\ -6 & 2 \\end{array}\\right]{/tex} are such that 4A + 3X = 5B then X = ?",
+      "question_html": "<p>If <span class=\"math-tex\">{tex}A=\\left[\\begin{array}{rr} 2 &amp; 0 \\\\ -3 &amp; 1 \\end{array}\\right]{/tex}</span> and <span class=\"math-tex\">{tex}B=\\left[\\begin{array}{rr} 4 &amp; -3 \\\\ -6 &amp; 2 \\end{array}\\right]{/tex}</span> are such that 4A + 3X = 5B then X = ?</p>",
+      "options": [
+        {
+          "id": 382153,
+          "text": "{tex}\\left[\\begin{array}{rr} -4 & 5 \\\\ 6 & -2 \\end{array}\\right]{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\left[\\begin{array}{rr} -4 &amp; 5 \\\\ 6 &amp; -2 \\end{array}\\right]{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 382152,
+          "text": "{tex}\\left[\\begin{array}{rr} 4 & 5 \\\\ -6 & -2 \\end{array}\\right]{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\left[\\begin{array}{rr} 4 &amp; 5 \\\\ -6 &amp; -2 \\end{array}\\right]{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 382154,
+          "text": "{tex}\\left[\\begin{array}{rr} 4 &- 5 \\\\ -6 & -2 \\end{array}\\right]{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\left[\\begin{array}{rr} 4 &amp;- 5 \\\\ -6 &amp; -2 \\end{array}\\right]{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 382151,
+          "text": "{tex}\\left[\\begin{array}{rr} 4 & -5 \\\\ -6 & 2 \\end{array}\\right]{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\left[\\begin{array}{rr} 4 &amp; -5 \\\\ -6 &amp; 2 \\end{array}\\right]{/tex}</span>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "{tex}\\left[\\begin{array}{rr} 4 & -5 \\\\ -6 & 2 \\end{array}\\right]{/tex}",
+      "correct_option_ids": [
+        382151
+      ],
+      "explanation": "4A + 3X = 5B {tex}\\Rightarrow 4\\left[\\begin{array}{cc} 2 & 0 \\\\ -3 & 1 \\end{array}\\right]+3 x=5\\left[\\begin{array}{cc} 4 & -3 \\\\ -6 & 2 \\end{array}\\right]{/tex} {tex}\\Rightarrow 3 X=5\\left[\\begin{array}{cc} 4 & -3 \\\\ -6 & 2 \\end{array}\\right]-4\\left[\\begin{array}{cc} 2 & 0 \\\\ -3 & 1 \\end{array}\\right]{/tex} {tex}\\Rightarrow 3 X=\\left[\\begin{array}{cc} 20 & -15 \\\\ -30 & 10 \\end{array}\\right]-\\left[\\begin{array}{cc} 8 & 0 \\\\ -12 & 4 \\end{array}\\right]{/tex} {tex}\\Rightarrow 3 X=\\left[\\begin{array}{cc} 12 & -15 \\\\ -18 & 6 \\end{array}\\right]{/tex} Dividing by 3 {tex}\\Rightarrow X=\\left[\\begin{array}{cc} 4 & -5 \\\\ -6 & 2 \\end{array}\\right]{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 45,
+      "question_id": 260948,
+      "question_text": "Let R be the relation in the set N given by R = {(a, b) : a = b &ndash; 2, b > 6}.",
+      "question_html": "<p>Let R be the relation in the set N given by R = {(a, b) : a = b &ndash; 2, b &gt; 6}.</p>",
+      "options": [
+        {
+          "id": 377879,
+          "text": "(8, 7) {tex}\\in{/tex} R",
+          "html": "(8, 7) <span class=\"math-tex\">{tex}\\in{/tex}</span> R",
+          "is_correct": false
+        },
+        {
+          "id": 377878,
+          "text": "(6, 8) {tex}\\in{/tex} R",
+          "html": "(6, 8) <span class=\"math-tex\">{tex}\\in{/tex}</span> R",
+          "is_correct": true
+        },
+        {
+          "id": 377876,
+          "text": "(2, 4) {tex}\\in{/tex} R",
+          "html": "(2, 4) <span class=\"math-tex\">{tex}\\in{/tex}</span> R",
+          "is_correct": false
+        },
+        {
+          "id": 377877,
+          "text": "(3, 8) {tex}\\in{/tex} R",
+          "html": "(3, 8) <span class=\"math-tex\">{tex}\\in{/tex}</span> R",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "(6, 8) {tex}\\in{/tex} R",
+      "correct_option_ids": [
+        377878
+      ],
+      "explanation": "(6, 8) {tex}\\in{/tex} R as b - 2 = 8 - 2 = 6 and b>6 .",
+      "solution": ""
+    },
+    {
+      "n": 46,
+      "question_id": 576570,
+      "question_text": "Instructions for Question 46 to 50: Three schools DPS, CVC and KVS decided to organize a fair for collecting money for helping the flood victims. They sold handmade fans, mats and plates from recycled material at a cost of ₹25, ₹100 and ₹50 each respectively. The numbers of articles sold are given as: School /Article DPS CVC KVS Handmade fans 40 25 35 Mats 50 40 50 Plates 20 30 40 What is the total money (in ₹) collected by the school DPS?",
+      "question_html": "<b>Instructions for Question 46 to 50:</b><br><p>Three schools DPS, CVC and KVS decided to organize a fair for collecting money for helping the flood victims. They sold handmade fans, mats and plates from recycled material at a cost of ₹25, ₹100 and ₹50 each respectively. The numbers of articles sold are given as:<br />\n<img alt=\"\" data-imgur-src=\"hWCc28u.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1630320896-k8d9md.jpg\" style=\"width: 300px; height: 187px;\" /></p>\n\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td><strong>School /Article</strong></td>\n\t\t\t<td><strong>DPS</strong></td>\n\t\t\t<td><strong>CVC</strong></td>\n\t\t\t<td><strong>KVS</strong></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>Handmade fans</td>\n\t\t\t<td>40</td>\n\t\t\t<td>25</td>\n\t\t\t<td>35</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>Mats</td>\n\t\t\t<td>50</td>\n\t\t\t<td>40</td>\n\t\t\t<td>50</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>Plates</td>\n\t\t\t<td>20</td>\n\t\t\t<td>30</td>\n\t\t\t<td>40</td>\n\t\t</tr>\n\t</tbody>\n</table><br><p>What is the total money (in ₹) collected by the school DPS?</p>",
+      "options": [
+        {
+          "id": 1111130,
+          "text": "6,125",
+          "html": "6,125",
+          "is_correct": false
+        },
+        {
+          "id": 1111128,
+          "text": "700",
+          "html": "700",
+          "is_correct": false
+        },
+        {
+          "id": 1111131,
+          "text": "7,875",
+          "html": "7,875",
+          "is_correct": false
+        },
+        {
+          "id": 1111129,
+          "text": "7,000",
+          "html": "7,000",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "7,000",
+      "correct_option_ids": [
+        1111129
+      ],
+      "explanation": "7,000",
+      "solution": ""
+    },
+    {
+      "n": 47,
+      "question_id": 576583,
+      "question_text": "Instructions for Question 46 to 50: Three schools DPS, CVC and KVS decided to organize a fair for collecting money for helping the flood victims. They sold handmade fans, mats and plates from recycled material at a cost of ₹25, ₹100 and ₹50 each respectively. The numbers of articles sold are given as: School /Article DPS CVC KVS Handmade fans 40 25 35 Mats 50 40 50 Plates 20 30 40 What is the total amount of money (in ₹) collected by schools CVC and KVS?",
+      "question_html": "<b>Instructions for Question 46 to 50:</b><br><p>Three schools DPS, CVC and KVS decided to organize a fair for collecting money for helping the flood victims. They sold handmade fans, mats and plates from recycled material at a cost of ₹25, ₹100 and ₹50 each respectively. The numbers of articles sold are given as:<br />\n<img alt=\"\" data-imgur-src=\"hWCc28u.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1630320896-k8d9md.jpg\" style=\"width: 300px; height: 187px;\" /></p>\n\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td><strong>School /Article</strong></td>\n\t\t\t<td><strong>DPS</strong></td>\n\t\t\t<td><strong>CVC</strong></td>\n\t\t\t<td><strong>KVS</strong></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>Handmade fans</td>\n\t\t\t<td>40</td>\n\t\t\t<td>25</td>\n\t\t\t<td>35</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>Mats</td>\n\t\t\t<td>50</td>\n\t\t\t<td>40</td>\n\t\t\t<td>50</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>Plates</td>\n\t\t\t<td>20</td>\n\t\t\t<td>30</td>\n\t\t\t<td>40</td>\n\t\t</tr>\n\t</tbody>\n</table><br><p>What is the total amount of money (in ₹) collected by schools CVC and KVS?</p>",
+      "options": [
+        {
+          "id": 1111181,
+          "text": "15,725",
+          "html": "15,725",
+          "is_correct": false
+        },
+        {
+          "id": 1111182,
+          "text": "21,000",
+          "html": "21,000",
+          "is_correct": false
+        },
+        {
+          "id": 1111184,
+          "text": "13,1253",
+          "html": "13,1253",
+          "is_correct": false
+        },
+        {
+          "id": 1111180,
+          "text": "14,000",
+          "html": "14,000",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "14,000",
+      "correct_option_ids": [
+        1111180
+      ],
+      "explanation": "14,000",
+      "solution": ""
+    },
+    {
+      "n": 48,
+      "question_id": 576640,
+      "question_text": "Instructions for Question 46 to 50: Three schools DPS, CVC and KVS decided to organize a fair for collecting money for helping the flood victims. They sold handmade fans, mats and plates from recycled material at a cost of ₹25, ₹100 and ₹50 each respectively. The numbers of articles sold are given as: School /Article DPS CVC KVS Handmade fans 40 25 35 Mats 50 40 50 Plates 20 30 40 What is the total amount of money collected by all three schools DPS, CVC and KVS?",
+      "question_html": "<b>Instructions for Question 46 to 50:</b><br><p>Three schools DPS, CVC and KVS decided to organize a fair for collecting money for helping the flood victims. They sold handmade fans, mats and plates from recycled material at a cost of ₹25, ₹100 and ₹50 each respectively. The numbers of articles sold are given as:<br />\n<img alt=\"\" data-imgur-src=\"hWCc28u.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1630320896-k8d9md.jpg\" style=\"width: 300px; height: 187px;\" /></p>\n\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td><strong>School /Article</strong></td>\n\t\t\t<td><strong>DPS</strong></td>\n\t\t\t<td><strong>CVC</strong></td>\n\t\t\t<td><strong>KVS</strong></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>Handmade fans</td>\n\t\t\t<td>40</td>\n\t\t\t<td>25</td>\n\t\t\t<td>35</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>Mats</td>\n\t\t\t<td>50</td>\n\t\t\t<td>40</td>\n\t\t\t<td>50</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>Plates</td>\n\t\t\t<td>20</td>\n\t\t\t<td>30</td>\n\t\t\t<td>40</td>\n\t\t</tr>\n\t</tbody>\n</table><br><p>What is the total amount of money collected by all three schools DPS, CVC and KVS?</p>",
+      "options": [
+        {
+          "id": 1111409,
+          "text": "₹17,125",
+          "html": "₹17,125",
+          "is_correct": false
+        },
+        {
+          "id": 1111404,
+          "text": "₹15,775",
+          "html": "₹15,775",
+          "is_correct": false
+        },
+        {
+          "id": 1111408,
+          "text": "₹21,000",
+          "html": "₹21,000",
+          "is_correct": true
+        },
+        {
+          "id": 1111406,
+          "text": "₹14,000",
+          "html": "₹14,000",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "₹21,000",
+      "correct_option_ids": [
+        1111408
+      ],
+      "explanation": "₹21,000",
+      "solution": ""
+    },
+    {
+      "n": 49,
+      "question_id": 576670,
+      "question_text": "Instructions for Question 46 to 50: Three schools DPS, CVC and KVS decided to organize a fair for collecting money for helping the flood victims. They sold handmade fans, mats and plates from recycled material at a cost of ₹25, ₹100 and ₹50 each respectively. The numbers of articles sold are given as: School /Article DPS CVC KVS Handmade fans 40 25 35 Mats 50 40 50 Plates 20 30 40 If the number of handmade fans and plates are interchanged for all the schools, then what is the total money collected by all schools?",
+      "question_html": "<b>Instructions for Question 46 to 50:</b><br><p>Three schools DPS, CVC and KVS decided to organize a fair for collecting money for helping the flood victims. They sold handmade fans, mats and plates from recycled material at a cost of ₹25, ₹100 and ₹50 each respectively. The numbers of articles sold are given as:<br />\n<img alt=\"\" data-imgur-src=\"hWCc28u.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1630320896-k8d9md.jpg\" style=\"width: 300px; height: 187px;\" /></p>\n\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td><strong>School /Article</strong></td>\n\t\t\t<td><strong>DPS</strong></td>\n\t\t\t<td><strong>CVC</strong></td>\n\t\t\t<td><strong>KVS</strong></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>Handmade fans</td>\n\t\t\t<td>40</td>\n\t\t\t<td>25</td>\n\t\t\t<td>35</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>Mats</td>\n\t\t\t<td>50</td>\n\t\t\t<td>40</td>\n\t\t\t<td>50</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>Plates</td>\n\t\t\t<td>20</td>\n\t\t\t<td>30</td>\n\t\t\t<td>40</td>\n\t\t</tr>\n\t</tbody>\n</table><br><p>If the number of handmade fans and plates are interchanged for all the schools, then what is the total money collected by all schools?</p>",
+      "options": [
+        {
+          "id": 1111525,
+          "text": "₹6,750",
+          "html": "₹6,750",
+          "is_correct": false
+        },
+        {
+          "id": 1111530,
+          "text": "₹5,000",
+          "html": "₹5,000",
+          "is_correct": false
+        },
+        {
+          "id": 1111524,
+          "text": "₹18,000",
+          "html": "₹18,000",
+          "is_correct": false
+        },
+        {
+          "id": 1111531,
+          "text": "₹21,250",
+          "html": "₹21,250",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "₹21,250",
+      "correct_option_ids": [
+        1111531
+      ],
+      "explanation": "₹21,250",
+      "solution": ""
+    },
+    {
+      "n": 50,
+      "question_id": 576702,
+      "question_text": "Instructions for Question 46 to 50: Three schools DPS, CVC and KVS decided to organize a fair for collecting money for helping the flood victims. They sold handmade fans, mats and plates from recycled material at a cost of ₹25, ₹100 and ₹50 each respectively. The numbers of articles sold are given as: School /Article DPS CVC KVS Handmade fans 40 25 35 Mats 50 40 50 Plates 20 30 40 How many articles (in total) are sold by three schools?",
+      "question_html": "<b>Instructions for Question 46 to 50:</b><br><p>Three schools DPS, CVC and KVS decided to organize a fair for collecting money for helping the flood victims. They sold handmade fans, mats and plates from recycled material at a cost of ₹25, ₹100 and ₹50 each respectively. The numbers of articles sold are given as:<br />\n<img alt=\"\" data-imgur-src=\"hWCc28u.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1630320896-k8d9md.jpg\" style=\"width: 300px; height: 187px;\" /></p>\n\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td><strong>School /Article</strong></td>\n\t\t\t<td><strong>DPS</strong></td>\n\t\t\t<td><strong>CVC</strong></td>\n\t\t\t<td><strong>KVS</strong></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>Handmade fans</td>\n\t\t\t<td>40</td>\n\t\t\t<td>25</td>\n\t\t\t<td>35</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>Mats</td>\n\t\t\t<td>50</td>\n\t\t\t<td>40</td>\n\t\t\t<td>50</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>Plates</td>\n\t\t\t<td>20</td>\n\t\t\t<td>30</td>\n\t\t\t<td>40</td>\n\t\t</tr>\n\t</tbody>\n</table><br><p>How many articles (in total) are sold by three schools?</p>",
+      "options": [
+        {
+          "id": 1111653,
+          "text": "230",
+          "html": "230",
+          "is_correct": false
+        },
+        {
+          "id": 1111659,
+          "text": "330",
+          "html": "330",
+          "is_correct": true
+        },
+        {
+          "id": 1111655,
+          "text": "130",
+          "html": "130",
+          "is_correct": false
+        },
+        {
+          "id": 1111658,
+          "text": "430",
+          "html": "430",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "330",
+      "correct_option_ids": [
+        1111659
+      ],
+      "explanation": "330",
+      "solution": ""
+    }
+  ]
+}

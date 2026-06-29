@@ -1,0 +1,2897 @@
+{
+  "chapter": "Integrals",
+  "chapter_id": 1291,
+  "tests": [
+    {
+      "test_id": 3618,
+      "test_name": "Integrals Test-01",
+      "is_paid": false,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59431,
+          "question_text": "If {tex}\\int {f(x)dx = g(x)+C} {/tex} then",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}\\int {f(x)dx = g(x)+C} {/tex}</span> then</p>",
+          "options": [
+            {
+              "id": 192914,
+              "text": "g (x) + f (x) =constant.",
+              "html": "g (x) + f (x) =constant.",
+              "is_correct": false
+            },
+            {
+              "id": 192911,
+              "text": "{tex}\\frac{d}{{dx}}(g(x)+C) = f(x){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{d}{{dx}}(g(x)+C) = f(x){/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192912,
+              "text": "g (x) = f (x)",
+              "html": "g (x) = f (x)",
+              "is_correct": false
+            },
+            {
+              "id": 192913,
+              "text": "{tex}\\frac{d}{{dx}}(f(x)) = g(x){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{d}{{dx}}(f(x)) = g(x){/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{d}{{dx}}(g(x)+C) = f(x){/tex}",
+          "correct_option_ids": [
+            192911
+          ],
+          "explanation": "{tex}{ \\Rightarrow \\frac{d}{{dx}}(g(x)+C) = \\frac{d}{{dx}}\\int f(x)dx=f(x)} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59432,
+          "question_text": "{tex}\\frac{d}{{dx}}(\\int {f(x)dx)} {/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\frac{d}{{dx}}(\\int {f(x)dx)} {/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192917,
+              "text": "x",
+              "html": "x",
+              "is_correct": false
+            },
+            {
+              "id": 192915,
+              "text": "f(x)",
+              "html": "f(x)",
+              "is_correct": true
+            },
+            {
+              "id": 192916,
+              "text": "{tex}\\frac{{[(f{{(x)}]^2}}}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{[(f{{(x)}]^2}}}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192918,
+              "text": "{tex}\\frac{{f{{(x)}}}}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{f{{(x)}}}}{2}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "f(x)",
+          "correct_option_ids": [
+            192915
+          ],
+          "explanation": "{tex}\\frac{d}{{dx}}\\left( {\\int {f(x)dx} } \\right) = f(x){/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59433,
+          "question_text": "{tex}\\int {{e^{ - \\log |x|}}dx} {/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {{e^{ - \\log |x|}}dx} {/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192922,
+              "text": "{tex} {e^{ - \\log |x|}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} {e^{ - \\log |x|}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192919,
+              "text": "{tex}\\log \\left| x \\right|+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\log \\left| x \\right|+C{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192921,
+              "text": "{tex} - x{e^{ - \\log |x|}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - x{e^{ - \\log |x|}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192920,
+              "text": "{tex} - {e^{ - \\log |x|}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - {e^{ - \\log |x|}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\log \\left| x \\right|+C{/tex}",
+          "correct_option_ids": [
+            192919
+          ],
+          "explanation": "{tex}\\int {{e^{ - \\log x}}dx = \\int {{e^{\\log {x^{ - 1}}}}dx} } = \\int {{x^{ - 1}}dx = \\log \\left| x \\right|}+C{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59434,
+          "question_text": "{tex}\\int {\\tan x} {\\ sec ^2x}{/tex} dx is not equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {\\tan x} {\\ sec ^2x}{/tex}</span> dx is not equal to</p>",
+          "options": [
+            {
+              "id": 192924,
+              "text": "{tex}\\frac{{{{\\sec }^2}x}}{2}+C'{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{{{\\sec }^2}x}}{2}+C'{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192925,
+              "text": "{tex}\\frac{1}{2}{(\\cos x)^{ - 2}}+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{(\\cos x)^{ - 2}}+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192923,
+              "text": "None of these",
+              "html": "None of these",
+              "is_correct": true
+            },
+            {
+              "id": 192926,
+              "text": "{tex}\\frac{{{{\\tan }^2}x}}{2}+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{{{\\tan }^2}x}}{2}+C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "None of these",
+          "correct_option_ids": [
+            192923
+          ],
+          "explanation": "Let tanx = t, then sec 2 xdx = dt {tex} \\implies \\frac{{{t^2}}}{2}+C \\implies \\frac{{ta{n^2}x}}{2}+C = \\frac{1}{2}{(\\cos x)^{ - 2}}+C'{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59435,
+          "question_text": "If {tex}\\int {f(x)} {/tex} dx = g (x) + C and also {tex}\\int {f(x)} {/tex} dx = h(x) + D, then",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}\\int {f(x)} {/tex}</span> dx = g (x) + C and also <span class=\"math-tex\">{tex}\\int {f(x)} {/tex}</span> dx = h(x) + D, then</p>",
+          "options": [
+            {
+              "id": 192930,
+              "text": "{tex}\\frac {g(x)}{h(x)}={/tex} constant",
+              "html": "<span class=\"math-tex\">{tex}\\frac {g(x)}{h(x)}={/tex}</span>&nbsp;constant",
+              "is_correct": false
+            },
+            {
+              "id": 192927,
+              "text": "g (x) - h (x) = constant",
+              "html": "g (x) - h (x) = constant",
+              "is_correct": true
+            },
+            {
+              "id": 192929,
+              "text": "h (x) + g (x) = constant",
+              "html": "h (x) + g (x) = constant",
+              "is_correct": false
+            },
+            {
+              "id": 192928,
+              "text": "g (x) . h (x) = constant",
+              "html": "g (x) . h (x) = constant",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "g (x) - h (x) = constant",
+          "correct_option_ids": [
+            192927
+          ],
+          "explanation": "Since g(x) and h(x) are integrals of the same function, therefore; g(x) &ndash; h(x) is constant. &#39;OR&#39; [g(x)+C] - [f(x)+D] = 0 {tex}\\Rightarrow{/tex} g(x) - f(x) = D-C, Which is a constant of integration.",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59436,
+          "question_text": "One value of {tex}\\int {f'(x)} {/tex} dx is",
+          "question_html": "<p>One value of<span class=\"math-tex\">{tex}\\int {f'(x)} {/tex}</span> dx is</p>",
+          "options": [
+            {
+              "id": 192932,
+              "text": "{tex}\\frac{{\\int {f(x)} {)^2}}}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{\\int {f(x)} {)^2}}}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192933,
+              "text": "F&#39;&#39;(x)",
+              "html": "F&#39;&#39;(x)",
+              "is_correct": false
+            },
+            {
+              "id": 192934,
+              "text": "F&#39;&#39;(x) 2",
+              "html": "F&#39;&#39;(x)<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 192931,
+              "text": "f (x)",
+              "html": "f (x)",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "f (x)",
+          "correct_option_ids": [
+            192931
+          ],
+          "explanation": "As {tex}\\left( {\\int {f'(x)dx} } \\right) = f(x) + C,{/tex} therefore,one value of {tex}\\left( {\\int {f'(x)dx} } \\right){/tex} is f(x).",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59437,
+          "question_text": "If {tex}\\;\\int {g(x)dx = g(x),} {/tex} then {tex}\\int {g(x)} \\left( {\\frac{{1 + \\sin x}}{{1 + \\cos x}}} \\right) dx{/tex} is equal to",
+          "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\;\\int {g(x)dx = g(x),} {/tex}</span>then <span class=\"math-tex\">{tex}\\int {g(x)} \\left( {\\frac{{1 + \\sin x}}{{1 + \\cos x}}} \\right) dx{/tex}</span>&nbsp;is equal to&nbsp;</p>",
+          "options": [
+            {
+              "id": 192937,
+              "text": "{tex}\\frac{1}{2}g(x){\\sec ^2}\\frac{x}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}g(x){\\sec ^2}\\frac{x}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192935,
+              "text": "g (x) tan {tex}\\frac{x}{2}{/tex} + C",
+              "html": "g (x) tan <span class=\"math-tex\">{tex}\\frac{x}{2}{/tex}</span>+ C",
+              "is_correct": true
+            },
+            {
+              "id": 192936,
+              "text": "{tex}\\frac{{g(x)}}{{1 + \\cos x}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{g(x)}}{{1 + \\cos x}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192938,
+              "text": "g(x) tan x + C",
+              "html": "g(x) tan x + C",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "g (x) tan {tex}\\frac{x}{2}{/tex} + C",
+          "correct_option_ids": [
+            192935
+          ],
+          "explanation": "{tex}\\int {g(x)\\left( {\\frac{{1 + \\sin x}}{{1 + \\cos x}}} \\right)dx} {/tex} {tex} = \\int {g(x)\\left\\{ {\\frac{1}{{1 + \\cos x}} + \\frac{{\\sin x}}{{1 + \\cos x}}} \\right\\}dx}{/tex} {tex} = \\int {g(x)\\left\\{ {\\frac{1}{2}{{\\sec }^2}\\frac{x}{2} + \\tan \\frac{x}{2}} \\right\\}dx}{/tex} {tex} = g(x)tan\\frac{x}{2} +C{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59438,
+          "question_text": "{tex}\\int {{{\\sec }^2}x} {/tex} {tex}cose{c^2}x{/tex} dx is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {{{\\sec }^2}x} {/tex}</span><span class=\"math-tex\">{tex}cose{c^2}x{/tex}</span>&nbsp;dx is equal to</p>",
+          "options": [
+            {
+              "id": 192940,
+              "text": "tan x + cot x + C",
+              "html": "tan x + cot x + C",
+              "is_correct": false
+            },
+            {
+              "id": 192942,
+              "text": "tan 2 x + cos 2 x + C",
+              "html": "tan<sup>2</sup>x + cos<sup>2</sup>x + C",
+              "is_correct": false
+            },
+            {
+              "id": 192939,
+              "text": "tan x &ndash; cot x + C",
+              "html": "tan x &ndash; cot x + C",
+              "is_correct": true
+            },
+            {
+              "id": 192941,
+              "text": "tan x . cot 2x + C",
+              "html": "tan x . cot 2x + C",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "tan x &ndash; cot x + C",
+          "correct_option_ids": [
+            192939
+          ],
+          "explanation": "{tex} \\int {{{\\sec }^2}x\\;cose{c^2}x\\:dx}{/tex} {tex} = \\int {\\frac{1}{{{{\\sin }^2}x{{\\cos }^2}x}}} dx {/tex} {tex} = \\int {\\frac{{{{\\sin }^2}x + {{\\cos }^2}x}}{{{{\\sin }^2}x{{\\cos }^2}x}}} dx{/tex} {tex}= \\int {(se{c^2}x + \\cos e{c^2}x)} dx {/tex} = tan x - cot x+C",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59439,
+          "question_text": "{tex}\\int {\\frac{{\\log {x^n}}}{x}} dx,n \\in N,{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {\\frac{{\\log {x^n}}}{x}} dx,n \\in N,{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192944,
+              "text": "{tex}\\frac{{{{(\\log x)}^2}}}{{2n}} + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{{{(\\log x)}^2}}}{{2n}} + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192946,
+              "text": "{tex}\\frac{{{{(\\log x)}}}}{{2n}} + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{{{(\\log x)}}}}{{2n}} + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192945,
+              "text": "{tex}n{(\\log x)^2} + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}n{(\\log x)^2} + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192943,
+              "text": "{tex}\\frac{{n{{(\\log x)}^2}}}{2} + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{n{{(\\log x)}^2}}}{2} + C{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{n{{(\\log x)}^2}}}{2} + C{/tex}",
+          "correct_option_ids": [
+            192943
+          ],
+          "explanation": "{tex}n\\int {\\frac{{\\log x}}{x}} dx {/tex} {tex}= n{\\int {(logx)} ^1}\\frac{1}{x}dx{/tex} [take log x = t then {tex}\\frac1x{/tex} dx = dt] {tex}=\\frac{{n{{(logx)}^2}}}{2} + c{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59440,
+          "question_text": "{tex}\\int {(\\tan x + cot\\;x)} {/tex} dx is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {(\\tan x + cot\\;x)} {/tex}</span> dx is equal to</p>",
+          "options": [
+            {
+              "id": 192950,
+              "text": "{tex}log{\\text{ }}\\left| {{\\text{ }}sin{\\text{ }}x{\\text{ }} - {\\text{ }}cos{\\text{ }}x} \\right|+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}log{\\text{ }}\\left| {{\\text{ }}sin{\\text{ }}x{\\text{ }} - {\\text{ }}cos{\\text{ }}x} \\right|+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192948,
+              "text": "{tex}log{\\text{ }}\\left| {{\\text{ }}sin{\\text{ }}x{\\text{ }} + {\\text{ }}cos{\\text{ }}x} \\right|+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}log{\\text{ }}\\left| {{\\text{ }}sin{\\text{ }}x{\\text{ }} + {\\text{ }}cos{\\text{ }}x} \\right|+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192947,
+              "text": "{tex}\\begin{array}{*{20}{l}} {log{\\text{ }}\\left| {{\\text{ }}tan{\\text{ }}x} \\right|} \\end{array}+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {log{\\text{ }}\\left| {{\\text{ }}tan{\\text{ }}x} \\right|} \\end{array}+C{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192949,
+              "text": "{tex}\\begin{array}{*{20}{l}} {log{\\text{ }}\\left| {{\\text{ cot }}x} \\right|} \\end{array}+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {log{\\text{ }}\\left| {{\\text{ cot }}x} \\right|} \\end{array}+C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\begin{array}{*{20}{l}} {log{\\text{ }}\\left| {{\\text{ }}tan{\\text{ }}x} \\right|} \\end{array}+C{/tex}",
+          "correct_option_ids": [
+            192947
+          ],
+          "explanation": "{tex} \\left[ { - \\log \\left| {{\\text{ cos}}x} \\right| + \\log \\left| {{\\text{ sin }}x} \\right|} \\right] = \\log {\\text{ }}\\left| {{\\text{ }}tan{\\text{ }}x} \\right|+C \\\\{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59441,
+          "question_text": "{tex}\\int {\\frac{{\\sin 2x}}{{3 + 4{{\\sin }^2}x}}dx} {/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {\\frac{{\\sin 2x}}{{3 + 4{{\\sin }^2}x}}dx} {/tex}</span>is equal to</p>",
+          "options": [
+            {
+              "id": 192953,
+              "text": "{tex}\\frac{2}{9}{\\tan ^{ - 1}}\\left( {3\\tan \\frac{x}{2}} \\right)+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{9}{\\tan ^{ - 1}}\\left( {3\\tan \\frac{x}{2}} \\right)+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192952,
+              "text": "{tex}\\frac{2}{3}\\log \\left( {\\tan \\frac{x}{2}} \\right)+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{3}\\log \\left( {\\tan \\frac{x}{2}} \\right)+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192954,
+              "text": "{tex}\\frac{1}{3}\\log (5 + 7{\\sec ^2}x)+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}\\log (5 + 7{\\sec ^2}x)+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192951,
+              "text": "{tex}\\frac{1}{4}\\log (3 + 4{\\sin ^2}x)+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{4}\\log (3 + 4{\\sin ^2}x)+C{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{4}\\log (3 + 4{\\sin ^2}x)+C{/tex}",
+          "correct_option_ids": [
+            192951
+          ],
+          "explanation": "{tex}\\because \\frac{d}{{dx}}(3 + 4{\\sin ^2}x) = 0 + 4.2\\sin x\\cos x = 4\\sin 2x{/tex} {tex} \\therefore \\int {\\frac{{\\sin 2x}}{{3 + 4{{\\sin }^2}x}}dx} = \\frac{1}{4}\\int {\\frac{{4\\sin 2x}}{{3 + 4{{\\sin }^2}x}}dx} = \\frac{1}{4}\\log (3 + 4{\\sin ^2}x) {/tex} OR Let 3+4sin 2 x=t Then 4sin 2x dx=dt",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59442,
+          "question_text": "{tex}\\int {\\frac{{\\cos x}}{{\\cos (x - a)}}} {/tex} dx is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {\\frac{{\\cos x}}{{\\cos (x - a)}}} {/tex}</span> dx is equal to</p>",
+          "options": [
+            {
+              "id": 192956,
+              "text": "x cos a &ndash; sin a log | cos ( x &ndash; a) |",
+              "html": "x cos a &ndash; sin a log | cos ( x &ndash; a) |",
+              "is_correct": false
+            },
+            {
+              "id": 192955,
+              "text": "{tex}x\\;cos\\;a + sin\\;a\\; log\\;| cos\\;(x – a)|+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x\\;cos\\;a + sin\\;a\\; log\\;| cos\\;(x – a)|+C{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192957,
+              "text": "sin a &ndash; sin a log | cos ( x &ndash; a) |",
+              "html": "sin a &ndash; sin a log | cos ( x &ndash; a) |",
+              "is_correct": false
+            },
+            {
+              "id": 192958,
+              "text": "cos a &ndash; sin a log | sin ( x &ndash; a) | + C",
+              "html": "cos a &ndash; sin a log | sin ( x &ndash; a) | + C",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}x\\;cos\\;a + sin\\;a\\; log\\;| cos\\;(x – a)|+C{/tex}",
+          "correct_option_ids": [
+            192955
+          ],
+          "explanation": "{tex}\\int {\\frac{{cos((x - a) + a)}}{{cos(x - a)}}} dx{/tex} {tex} = \\int {\\frac{{cos(x - a)cosa - sin(x - a)sina}}{{cos(x - a)}}dx} \\;{/tex} {tex} = \\int {\\left\\{ {cosa - sina\\;tan(x - a)} \\right\\}dx}{/tex} = {tex} \\\\x\\;cos\\;a + sin\\;a\\; log\\;| cos\\;(x – a)|+C{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59443,
+          "question_text": "Which of the following is different from {tex}\\int {\\frac{1}{{1 + {x^2}}}dx?} {/tex}",
+          "question_html": "<p>Which of the following is different from <span class=\"math-tex\">{tex}\\int {\\frac{1}{{1 + {x^2}}}dx?} {/tex}</span></p>",
+          "options": [
+            {
+              "id": 192960,
+              "text": "{tex} - {\\cot ^{ - 1}}x+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - {\\cot ^{ - 1}}x+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192962,
+              "text": "{tex}{\\tan ^{ - 1}}x+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\tan ^{ - 1}}x+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192961,
+              "text": "{tex}\\frac{\\pi }{2} - {\\cot ^{ - 1}}x+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2} - {\\cot ^{ - 1}}x+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192959,
+              "text": "none of these",
+              "html": "none of these",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "none of these",
+          "correct_option_ids": [
+            192959
+          ],
+          "explanation": "{tex}= {\\tan ^{ - 1}}x = \\frac{\\pi }{2} - {\\cot ^{ - 1}}x = \\int {\\frac{1}{{1 + {x^2}}}dx = - \\int {\\frac{{ - 1}}{{1 + {x^2}}}} } dx = - {\\cot ^{ - 1}}x+C\\\\{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59444,
+          "question_text": "{tex}\\int {\\frac{{x\\cos x}}{{\\sqrt {x\\sin x + \\cos x} }}dx}{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {\\frac{{x\\cos x}}{{\\sqrt {x\\sin x + \\cos x} }}dx}{/tex}</span> is equal to&nbsp;</p>",
+          "options": [
+            {
+              "id": 192965,
+              "text": "{tex}\\frac{2}{3}{(x\\sin x + \\cos x)^{3/2}} + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{3}{(x\\sin x + \\cos x)^{3/2}} + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192966,
+              "text": "{tex}\\frac{3}{5}{(x\\cos x - \\sin x)^{3/2}} + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{5}{(x\\cos x - \\sin x)^{3/2}} + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192963,
+              "text": "{tex}2{(x\\;\\sin x + \\cos \\;x)^{1/2}} + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2{(x\\;\\sin x + \\cos \\;x)^{1/2}} + C{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192964,
+              "text": "{tex}\\frac{1}{2}{(x\\sin x + \\cos x)^{1/2}} + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{(x\\sin x + \\cos x)^{1/2}} + C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}2{(x\\;\\sin x + \\cos \\;x)^{1/2}} + C{/tex}",
+          "correct_option_ids": [
+            192963
+          ],
+          "explanation": "Substitute x sinx + cos x = t 2 {tex}\\implies{/tex} (x cos x)dx = 2tdt {tex}\\int2 dt=2\\:t+C\\implies 2(x\\:sin x + cos x)^{1/2}+C{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59445,
+          "question_text": "{tex}\\int {\\sqrt {{a^2} - {x^2}} } {/tex} dx is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {\\sqrt {{a^2} - {x^2}} } {/tex}</span> dx is equal to</p>",
+          "options": [
+            {
+              "id": 192970,
+              "text": "{tex}\\frac{a}{2}\\sqrt {{a^2} - {x^2}} + \\frac{{{x^2}}}{2}\\log \\left| {x + \\sqrt {{a^2} - {x^2}} } \\right| + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{a}{2}\\sqrt {{a^2} - {x^2}} + \\frac{{{x^2}}}{2}\\log \\left| {x + \\sqrt {{a^2} - {x^2}} } \\right| + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192967,
+              "text": "{tex}\\frac{x}{2}\\sqrt {{a^2} - {x^2}} + \\frac{{{a^2}}}{2}{\\sin ^{ - 1}}\\left( {\\frac{x}{a}} \\right)+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{x}{2}\\sqrt {{a^2} - {x^2}} + \\frac{{{a^2}}}{2}{\\sin ^{ - 1}}\\left( {\\frac{x}{a}} \\right)+C{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192968,
+              "text": "{tex}\\frac{x}{2}\\sqrt {{a^2} - {x^2}} - \\frac{{{a^2}}}{2}{\\sin ^{ - 1}}\\left( {\\frac{x}{a}} \\right)+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{x}{2}\\sqrt {{a^2} - {x^2}} - \\frac{{{a^2}}}{2}{\\sin ^{ - 1}}\\left( {\\frac{x}{a}} \\right)+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192969,
+              "text": "{tex}\\frac{x}{2}\\sqrt {{a^2} - {x^2}} + \\frac{{{a^2}}}{2}\\log \\left| {x + \\sqrt {{a^2} - {x^2}} } \\right| + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{x}{2}\\sqrt {{a^2} - {x^2}} + \\frac{{{a^2}}}{2}\\log \\left| {x + \\sqrt {{a^2} - {x^2}} } \\right| + C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{x}{2}\\sqrt {{a^2} - {x^2}} + \\frac{{{a^2}}}{2}{\\sin ^{ - 1}}\\left( {\\frac{x}{a}} \\right)+C{/tex}",
+          "correct_option_ids": [
+            192967
+          ],
+          "explanation": "Put x = asin t then, dx = a cost dt {tex}\\\\\\Rightarrow\\int {{{a^2}. {cos^2t}}}\\;dt=a^2\\int \\frac{1+cos\\;2t}{2}\\;dt {/tex} {tex}= \\frac{x}{2}\\sqrt {{a^2} - {x^2}} + \\frac{{{a^2}}}{2}{\\sin ^{ - 1}}\\left( {\\frac{x}{a}} \\right) + C {/tex}",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3619,
+      "test_name": "Integrals Test-02",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59446,
+          "question_text": "{tex}\\int {{x^{ - 1}}} {/tex} dx is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {{x^{ - 1}}} {/tex}</span> dx is equal to</p>",
+          "options": [
+            {
+              "id": 192971,
+              "text": "{tex}{\\log _e}\\left| x \\right|+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\log _e}\\left| x \\right|+C{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192972,
+              "text": "{tex}{\\log _{10}}x+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\log _{10}}x+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192973,
+              "text": "{tex}\\frac{{{x^e}}}{e}+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{{x^e}}}{e}+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192974,
+              "text": "{tex}{\\log _e}x^2+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\log _e}x^2+C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}{\\log _e}\\left| x \\right|+C{/tex}",
+          "correct_option_ids": [
+            192971
+          ],
+          "explanation": "{tex}\\int \\frac1x\\;dx = {\\log _e}\\left| x \\right| +C{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59447,
+          "question_text": "If {tex}\\int {f(x)} {/tex} dx = f (x), then",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}\\int {f(x)} {/tex}</span> dx = f (x), then</p>",
+          "options": [
+            {
+              "id": 192975,
+              "text": "{tex}f(x)=e^x{/tex}",
+              "html": "<span class=\"math-tex\">{tex}f(x)=e^x{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192977,
+              "text": "f(x) = 0",
+              "html": "f(x) = 0",
+              "is_correct": false
+            },
+            {
+              "id": 192976,
+              "text": "f(x) = a x",
+              "html": "f(x) = a<sup>x</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 192978,
+              "text": "f (x) = x",
+              "html": "f (x) = x",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}f(x)=e^x{/tex}",
+          "correct_option_ids": [
+            192975
+          ],
+          "explanation": "{tex}{\\frac{d}{{dx}}} (f(x)) = f(x){/tex} It implies that the function remains same after integrating or differentiating it. So the function must be e x",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59448,
+          "question_text": "{tex}\\int {{{\\tan }^2}} {/tex} x dx is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {{{\\tan }^2}} {/tex}</span>x dx is equal to</p>",
+          "options": [
+            {
+              "id": 192981,
+              "text": "{tex}2tan\\:x\\;{\\sec ^2}x+C{/tex}",
+              "html": "&nbsp;<span class=\"math-tex\">{tex}2tan\\:x\\;{\\sec ^2}x+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192979,
+              "text": "tan x &ndash; x + C",
+              "html": "tan x &ndash; x + C",
+              "is_correct": true
+            },
+            {
+              "id": 192980,
+              "text": "tan x +2x + C",
+              "html": "tan x +2x + C",
+              "is_correct": false
+            },
+            {
+              "id": 192982,
+              "text": "{tex}\\frac{tan^3x}{3}+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{tan^3x}{3}+C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "tan x &ndash; x + C",
+          "correct_option_ids": [
+            192979
+          ],
+          "explanation": "{tex}\\int {({{\\sec }^2}x - 1)dx = \\int {{{\\sec }^2}xdx - } } \\int {dx} = \\tan x - x + C{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59449,
+          "question_text": "{tex}\\int {\\frac{1}{{\\sqrt {1 - x} }}dx} {/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {\\frac{1}{{\\sqrt {1 - x} }}dx} {/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192984,
+              "text": "{tex}\\sqrt {1 - x} {/tex} + C",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt {1 - x} {/tex}</span>+ C",
+              "is_correct": false
+            },
+            {
+              "id": 192983,
+              "text": "{tex} - 2\\sqrt {1 - x} {/tex} + C",
+              "html": "<span class=\"math-tex\">{tex} - 2\\sqrt {1 - x} {/tex}</span>&nbsp;+ C",
+              "is_correct": true
+            },
+            {
+              "id": 192985,
+              "text": "{tex}2\\sqrt {1 - x}+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2\\sqrt {1 - x}+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192986,
+              "text": "{tex}3\\sqrt {x-2}+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}3\\sqrt {x-2}+C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex} - 2\\sqrt {1 - x} {/tex} + C",
+          "correct_option_ids": [
+            192983
+          ],
+          "explanation": "{tex}\\int {(1 - x} {)^{ - 1/2}}dx {/tex} {tex}= \\frac{{{{(1 - x)}^{1/2}}}}{{(1/2)( - 1)}}{/tex} +C {tex}= - 2\\sqrt {1 - x} {/tex} + C",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59450,
+          "question_text": "An antiderivative of {tex}\\frac{x}{{{{\\cos }^2}x}}{/tex} is equal to",
+          "question_html": "<p>An antiderivative of <span class=\"math-tex\">{tex}\\frac{x}{{{{\\cos }^2}x}}{/tex}</span>is equal to</p>",
+          "options": [
+            {
+              "id": 192990,
+              "text": "{tex}x\\cos x + \\log \\left| {\\tan x} \\right|+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x\\cos x + \\log \\left| {\\tan x} \\right|+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192987,
+              "text": "{tex}x\\tan x + \\log \\left| {\\cos x} \\right|+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x\\tan x + \\log \\left| {\\cos x} \\right|+C{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192989,
+              "text": "cot x + C",
+              "html": "cot x + C",
+              "is_correct": false
+            },
+            {
+              "id": 192988,
+              "text": "x tanx + C",
+              "html": "x tanx + C",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}x\\tan x + \\log \\left| {\\cos x} \\right|+C{/tex}",
+          "correct_option_ids": [
+            192987
+          ],
+          "explanation": "{tex} \\int {\\frac{x}{{{{\\cos }^2}x}}} dx {/tex} {tex}\\\\ = \\int {x{{\\sec }^2}xdx\\;\\;}{/tex} ( Using By Part taking x as I function ) {tex}= x\\tan x - \\int {\\tan xdx\\;\\;} {/tex} {tex}= x\\tan x + \\log \\left| {\\cos x} \\right| + C{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59451,
+          "question_text": "{tex}\\int {\\log } {/tex} x dx is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {\\log } {/tex}</span> x dx is equal to</p>",
+          "options": [
+            {
+              "id": 192993,
+              "text": "{tex}\\frac{1}{2}{(\\log x)^2}{/tex} + C",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{(\\log x)^2}{/tex}</span>&nbsp;+ C",
+              "is_correct": false
+            },
+            {
+              "id": 192994,
+              "text": "{tex}x+log\\;x+C{/tex}",
+              "html": "&nbsp;<span class=\"math-tex\">{tex}x+log\\;x+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192992,
+              "text": "{tex}\\frac{1}{x}{/tex} + C",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{x}{/tex}</span>&nbsp;+ C",
+              "is_correct": false
+            },
+            {
+              "id": 192991,
+              "text": "x log x &ndash; x + C",
+              "html": "x log x &ndash; x + C",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "x log x &ndash; x + C",
+          "correct_option_ids": [
+            192991
+          ],
+          "explanation": "{tex}\\int {1.(logx)dx = logx.x - \\int {\\frac{1}{x}} } .xdx{/tex} ( Using By Part, Taking log x as I and 1 as II function ) {tex} \\implies log\\;x.x-x+C{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59452,
+          "question_text": "If f (x) be a function such that {tex}\\frac{d}{{dx}}(f(x)) = \\log x,{/tex} then f (x) is equal to",
+          "question_html": "<p>If f (x) be a function such that<span class=\"math-tex\">{tex}\\frac{d}{{dx}}(f(x)) = \\log x,{/tex}</span>then f (x) is equal to</p>",
+          "options": [
+            {
+              "id": 192997,
+              "text": "x log (x e) + C",
+              "html": "x log (x e) + C",
+              "is_correct": false
+            },
+            {
+              "id": 192996,
+              "text": "{tex}\\frac{{\\log x}}{x}{/tex} + C",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{\\log x}}{x}{/tex}</span>&nbsp;+ C",
+              "is_correct": false
+            },
+            {
+              "id": 192998,
+              "text": "{tex}x\\log \\left( {\\frac{e}{x}} \\right){/tex} + C",
+              "html": "<span class=\"math-tex\">{tex}x\\log \\left( {\\frac{e}{x}} \\right){/tex}</span>&nbsp;+ C",
+              "is_correct": false
+            },
+            {
+              "id": 192995,
+              "text": "{tex}x\\log \\left( {\\frac{x}{e}} \\right){/tex} + C",
+              "html": "<span class=\"math-tex\">{tex}x\\log \\left( {\\frac{x}{e}} \\right){/tex}</span>&nbsp;+ C",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}x\\log \\left( {\\frac{x}{e}} \\right){/tex} + C",
+          "correct_option_ids": [
+            192995
+          ],
+          "explanation": "Integrating both sides, we get {tex}\\int\\frac{d}{{dx}}(f(x))dx = \\int\\log x\\;dx\\;we\\;get\\;f(x)=\\int\\log xdx{/tex} {tex}\\int {\\log xdx = x\\log x - x = x(\\log x - 1)} {/tex} {tex} = x(\\log x - \\log e) = x\\{ \\log \\left( {\\frac{x}{e}} \\right)\\} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59453,
+          "question_text": "{tex}\\int {\\frac{{f'(x)}}{{\\sqrt {f(x)} }}} dx{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {\\frac{{f'(x)}}{{\\sqrt {f(x)} }}} dx{/tex}</span>&nbsp;is equal to</p>",
+          "options": [
+            {
+              "id": 192999,
+              "text": "{tex}2\\sqrt {f(x)} {/tex} + C",
+              "html": "<span class=\"math-tex\">{tex}2\\sqrt {f(x)} {/tex}</span>&nbsp;+ C",
+              "is_correct": true
+            },
+            {
+              "id": 193002,
+              "text": "{tex}\\frac{1}{2}\\log \\left| {f(x)} \\right|{/tex} + C",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}\\log \\left| {f(x)} \\right|{/tex}</span>&nbsp;+ C",
+              "is_correct": false
+            },
+            {
+              "id": 193000,
+              "text": "log ( f(x) ) + C",
+              "html": "log ( f(x) ) + C",
+              "is_correct": false
+            },
+            {
+              "id": 193001,
+              "text": "f(x) + C",
+              "html": "f(x) + C",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}2\\sqrt {f(x)} {/tex} + C",
+          "correct_option_ids": [
+            192999
+          ],
+          "explanation": "{tex}\\int {\\frac{{f'(x)}}{{f(x)}}} dx = \\int {{{(f(x))}^{ - 1/2}}f'(x)dx = \\frac{{{{(f(x))}^{1/2}}}}{{1/2}}+C} = 2\\sqrt {f(x)} +C{/tex} OR Substitute {tex}f(x)=t^2{/tex} then, {tex}f'(x)dx=2t\\;dt{/tex} {tex}\\Rightarrow\\int 2dt=2t+C=2\\sqrt{f(x)}+C{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59454,
+          "question_text": "{tex}\\int {\\log \\left( {\\frac{1}{x} - 1} \\right)} {/tex} dx is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {\\log \\left( {\\frac{1}{x} - 1} \\right)} {/tex}</span>dx is equal to</p>",
+          "options": [
+            {
+              "id": 193005,
+              "text": "log 2x + C",
+              "html": "log 2x + C",
+              "is_correct": false
+            },
+            {
+              "id": 193004,
+              "text": "{tex}\\frac{1}{2}\\log (2-x)+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}\\log (2-x)+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193003,
+              "text": "{tex}(x-1)\\log (1-x)+1-x\\ln x+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}(x-1)\\log (1-x)+1-x\\ln x+C{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193006,
+              "text": "{tex}(3x+1)\\log (2+x)+1-x\\ln 2x+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}(3x+1)\\log (2+x)+1-x\\ln 2x+C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}(x-1)\\log (1-x)+1-x\\ln x+C{/tex}",
+          "correct_option_ids": [
+            193003
+          ],
+          "explanation": "{tex}\\int {log(1 - x)dx - \\int {\\log x\\ dx}} \\Rightarrow(x-1)\\log (1-x)+1-x\\ln x+C {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59455,
+          "question_text": "{tex}\\int {(\\log (\\log x) + {{(\\log x)}^{ - 1}})} {/tex} dx is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {(\\log (\\log x) + {{(\\log x)}^{ - 1}})} {/tex}</span>dx is equal to</p>",
+          "options": [
+            {
+              "id": 193007,
+              "text": "x log (log x) + C",
+              "html": "x log (log x) + C",
+              "is_correct": true
+            },
+            {
+              "id": 193008,
+              "text": "x log (log x) + {tex}\\frac{x}{{\\log x}}{/tex} + C",
+              "html": "x log (log x) + <span class=\"math-tex\">{tex}\\frac{x}{{\\log x}}{/tex}</span>&nbsp;+ C",
+              "is_correct": false
+            },
+            {
+              "id": 193010,
+              "text": "{tex}x-\\frac{\\log2x-1}{x+2}+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x-\\frac{\\log2x-1}{x+2}+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193009,
+              "text": "x log (log x) {tex} - \\frac{x}{{\\log x}}{/tex} + C",
+              "html": "x log (log x) <span class=\"math-tex\">{tex} - \\frac{x}{{\\log x}}{/tex}</span>&nbsp;+ C",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "x log (log x) + C",
+          "correct_option_ids": [
+            193007
+          ],
+          "explanation": "{tex}\\int {log(logx)dx + \\int {\\frac{1}{{\\log x}}dx = \\log (logx).x - \\int {\\frac{1}{{\\log x}}.\\frac{1}{x}.xdx + \\int {\\frac{1}{{\\log x}}dx+C} } } } =\\:x\\:log(log\\:x)+C{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59456,
+          "question_text": "Compute {tex}\\int_8^2 2 f(x) d x{/tex} if {tex}\\int_2^8 f(x)=-3{/tex} .",
+          "question_html": "<p>Compute <span class=\"math-tex\">{tex}\\int_8^2 2 f(x) d x{/tex}</span> if <span class=\"math-tex\">{tex}\\int_2^8 f(x)=-3{/tex}</span>.</p>",
+          "options": [
+            {
+              "id": 193013,
+              "text": "84",
+              "html": "84",
+              "is_correct": false
+            },
+            {
+              "id": 193011,
+              "text": "6",
+              "html": "6",
+              "is_correct": true
+            },
+            {
+              "id": 193012,
+              "text": "-4",
+              "html": "-4",
+              "is_correct": false
+            },
+            {
+              "id": 193014,
+              "text": "-8",
+              "html": "-8",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "6",
+          "correct_option_ids": [
+            193011
+          ],
+          "explanation": "{tex}\\int_8^2 2 f(x) d x=-2 \\int_2^8 f(x) d x{/tex} {tex}=-2(-3){/tex} {tex}=6{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59457,
+          "question_text": "{tex}\\int {(1 - \\cos x)} {/tex} {tex}\\cos e{c^2}\\;x{/tex} dx is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {(1 - \\cos x)} {/tex}</span><span class=\"math-tex\">{tex}\\cos e{c^2}\\;x{/tex}</span> dx is equal to</p>",
+          "options": [
+            {
+              "id": 193017,
+              "text": "{tex}\\frac{1}{2}\\tan x + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}\\tan x + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193016,
+              "text": "{tex}\\cot \\frac{x}{2} + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\cot \\frac{x}{2} + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193015,
+              "text": "{tex}\\tan \\frac{x}{2} + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\tan \\frac{x}{2} + C{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193018,
+              "text": "{tex}3\\cot \\frac{2x}{3} + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}3\\cot \\frac{2x}{3} + C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\tan \\frac{x}{2} + C{/tex}",
+          "correct_option_ids": [
+            193015
+          ],
+          "explanation": "{tex}\\int {(cose{c^2}x - cot\\;x\\;cosec\\;x)} dx = ( - cot\\;x + cosec\\;x)+C = \\frac{{1 - \\cos x}}{{\\sin x}}+C = \\tan \\frac{x}{2}+C{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59458,
+          "question_text": "{tex}\\int {\\sqrt {{x^2} + {a^2}}\\ dx} {/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {\\sqrt {{x^2} + {a^2}}\\ dx} {/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 193021,
+              "text": "{tex}\\frac{x}{2}\\sqrt {{x^2} + {a^2}} - \\frac{{{a^2}}}{2}\\log (x + \\sqrt {({x^2} + {a^2})} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{x}{2}\\sqrt {{x^2} + {a^2}} - \\frac{{{a^2}}}{2}\\log (x + \\sqrt {({x^2} + {a^2})} {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193019,
+              "text": "{tex}\\frac{x}{2}\\sqrt {{x^2} + {a^2}} + \\frac{{{a^2}}}{2}\\log (x + \\sqrt {({x^2} + {a^2})} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{x}{2}\\sqrt {{x^2} + {a^2}} + \\frac{{{a^2}}}{2}\\log (x + \\sqrt {({x^2} + {a^2})} {/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193022,
+              "text": "{tex}\\tan^{-1}(x^2+x+2)+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\tan^{-1}(x^2+x+2)+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193020,
+              "text": "{tex}\\frac{x}{2}\\sqrt {{x^2} + {a^2}} + \\frac{{{a^2}}}{2}{\\sin ^{ - 1}}\\left( {\\frac{x}{a}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{x}{2}\\sqrt {{x^2} + {a^2}} + \\frac{{{a^2}}}{2}{\\sin ^{ - 1}}\\left( {\\frac{x}{a}} \\right){/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{x}{2}\\sqrt {{x^2} + {a^2}} + \\frac{{{a^2}}}{2}\\log (x + \\sqrt {({x^2} + {a^2})} {/tex}",
+          "correct_option_ids": [
+            193019
+          ],
+          "explanation": "= {tex}\\frac{x}{2}\\sqrt {{x^2} + {a^2}} + \\frac{{{a^2}}}{2}\\log (x + \\sqrt {({x^2} + {a^2})} {/tex} Standard Formulae Can be done by By-Part taking &#39;1&#39; as the second function and {tex}\\sqrt{{a^2}+{x^2}}{/tex} as first function.",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59459,
+          "question_text": "{tex}\\int {\\frac{{\\cos x}}{{(1 + \\sin x)(2 + \\sin x)}}dx = } {/tex}",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {\\frac{{\\cos x}}{{(1 + \\sin x)(2 + \\sin x)}}dx = } {/tex}</span></p>",
+          "options": [
+            {
+              "id": 193024,
+              "text": "{tex}\\log \\left( {\\frac{{2-\\sin x}}{{1-\\sin x}}} \\right) + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\log \\left( {\\frac{{2-\\sin x}}{{1-\\sin x}}} \\right) + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193026,
+              "text": "{tex}\\log \\left( {\\frac{{2 + \\sin x}}{{1-\\sin2x}}} \\right) + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\log \\left( {\\frac{{2 + \\sin x}}{{1-\\sin2x}}} \\right) + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193023,
+              "text": "{tex}\\log \\left( {\\frac{{1 + \\sin x}}{{2 + \\sin x}}} \\right) + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\log \\left( {\\frac{{1 + \\sin x}}{{2 + \\sin x}}} \\right) + C{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193025,
+              "text": "log (1-sin x).(2-sin x) + C",
+              "html": "log (1-sin x).(2-sin x) + C",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\log \\left( {\\frac{{1 + \\sin x}}{{2 + \\sin x}}} \\right) + C{/tex}",
+          "correct_option_ids": [
+            193023
+          ],
+          "explanation": "substituting sin x = t implies cos x dx = dt {tex}\\int {\\frac{{\\cos x}}{{(1 + sinx)(2 + sinx)}}dx }{/tex} {tex}= \\int \\frac{dt}{(1 + t)(2 + t)}{/tex} {tex}= \\int {(\\frac{1}{1 + t}}) - \\frac{1}{2 + t}dt {/tex} {tex}= log\\left| \\frac{1 + t}{2 + t} \\right|+ C {/tex} {tex}= \\log \\frac{1 + \\;sin x}{2 + sin x} + C{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59460,
+          "question_text": "{tex}\\int {{e^x}(f(x) + f'(x))} {/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {{e^x}(f(x) + f'(x))} {/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 193029,
+              "text": "{tex}{e^x}+f(x)+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{e^x}+f(x)+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193030,
+              "text": "{tex}{e^{f(x)}}+f(e^x)+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{e^{f(x)}}+f(e^x)+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193027,
+              "text": "{tex}{e^x}f(x){/tex} + C",
+              "html": "<span class=\"math-tex\">{tex}{e^x}f(x){/tex}</span>&nbsp;+ C",
+              "is_correct": true
+            },
+            {
+              "id": 193028,
+              "text": "{tex}{e^x}(f(x) - f'(x))+ C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{e^x}(f(x) - f'(x))+ C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}{e^x}f(x){/tex} + C",
+          "correct_option_ids": [
+            193027
+          ],
+          "explanation": "{tex}\\int {{e^x}(f(x) + f'(x))dx= \\int {e^x}\\;f(x)dx+\\int {e^x}\\;f'(x)dx}{/tex} {tex}\\implies f(x){e^x}-\\int f'(x){e^x}dx+\\int f'(x){e^x}dx+C{/tex} (Using By Part, taking f(x) as I function) {tex}\\Rightarrow f(x){e^x}+C{/tex} It is a standard formula.",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3620,
+      "test_name": "Integrals Test-03",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59461,
+          "question_text": "{tex}\\int {|x|dx} {/tex}",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {|x|dx} {/tex}</span></p>",
+          "options": [
+            {
+              "id": 193032,
+              "text": "{tex} - \\frac{{{2x^2}}}{3}+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{{{2x^2}}}{3}+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193031,
+              "text": "{tex}\\frac{{x|x|}}{2}+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{x|x|}}{2}+C{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193033,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 193034,
+              "text": "{tex}\\frac{{{x^2}}}{2}{/tex} + C",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{{x^2}}}{2}{/tex}</span>&nbsp;+ C",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{x|x|}}{2}+C{/tex}",
+          "correct_option_ids": [
+            193031
+          ],
+          "explanation": "(Case 1) for x > 0: {tex}\\Rightarrow∫ |x|\\: dx = ∫ x\\: dx =(1/2) x^2+C'{/tex} (Case 2) for x < 0 : {tex}\\Rightarrow∫ |x|\\: dx = ∫ −x\\: dx = −(1/2)x^2+C'' {/tex} Combining both cases, we have {tex}( \\frac12)x|x| + C {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59462,
+          "question_text": "{tex}\\int {(\\sin (\\log x) + \\cos (\\log x))} {/tex} dx is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {(\\sin (\\log x) + \\cos (\\log x))} {/tex}</span> dx is equal to</p>",
+          "options": [
+            {
+              "id": 193036,
+              "text": "x cos (log x) + C",
+              "html": "x cos (log x) + C",
+              "is_correct": false
+            },
+            {
+              "id": 193038,
+              "text": "log ( sin x - cos x) + c",
+              "html": "log ( sin x - cos x) + c",
+              "is_correct": false
+            },
+            {
+              "id": 193037,
+              "text": "sin (log x) &ndash; cos (log x) + C",
+              "html": "sin (log x) &ndash; cos (log x) + C",
+              "is_correct": false
+            },
+            {
+              "id": 193035,
+              "text": "x sin (log x) +C",
+              "html": "x sin (log x) +C",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "x sin (log x) +C",
+          "correct_option_ids": [
+            193035
+          ],
+          "explanation": "{tex}\\int {(sin(log\\;x) + cos(log \\;x))dx}{/tex} ( Use By Part, Take 1 as II function ) {tex}= \\int {\\sin (log\\;x).1dx} + \\int {\\cos (\\log\\;x)dx}{/tex} {tex}= (\\sin (\\log x)). x - \\int {\\cos (\\log x)\\frac{1}{x}.xdx + \\int {\\cos (log\\;x)dx.} }{/tex} {tex} = x\\sin (\\log x)+C{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59463,
+          "question_text": "{tex}\\int {{{\\tan }^{ - 1}}x} {/tex} dx is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {{{\\tan }^{ - 1}}x} {/tex}</span>&nbsp;dx is equal to</p>",
+          "options": [
+            {
+              "id": 193041,
+              "text": "{tex}x\\;{\\tan ^{ - 1}}x + \\log\\;(1 + {x^2})+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x\\;{\\tan ^{ - 1}}x + \\log\\;(1 + {x^2})+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193039,
+              "text": "{tex}x\\;{\\tan ^{ - 1}}x - \\frac{1}{2}\\log (1 + {x^2})+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x\\;{\\tan ^{ - 1}}x - \\frac{1}{2}\\log (1 + {x^2})+C{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193040,
+              "text": "{tex}x\\;{\\tan ^{ - 1}}x + \\frac{1}{2}\\log (1 + {x^2})+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x\\;{\\tan ^{ - 1}}x + \\frac{1}{2}\\log (1 + {x^2})+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193042,
+              "text": "{tex}2x\\;{\\tan ^{ - 1}}x + \\log\\;(1-{x^2})+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2x\\;{\\tan ^{ - 1}}x + \\log\\;(1-{x^2})+C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}x\\;{\\tan ^{ - 1}}x - \\frac{1}{2}\\log (1 + {x^2})+C{/tex}",
+          "correct_option_ids": [
+            193039
+          ],
+          "explanation": "{tex} = \\int {1.{{\\tan }^{ - 1}}x\\;dx} {/tex} (Apply By Part, Take 1 as II function ) {tex} = (ta{n^{ - 1}}x)x - \\int {\\frac{1}{{1 + {x^2}}}.xdx} {/tex} {tex}= x\\;{\\tan ^{ - 1}} - \\frac{1}{2}\\int {\\frac{{2x}}{{1 + {x^2}}}} dx {/tex} {tex} = x\\;{\\tan ^{ - 1}} - \\frac{1}{2}\\log \\left| {1 + {x^2}} \\right|+C {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59464,
+          "question_text": "{tex}\\int\\limits_a^b {\\frac{{\\log x}}{x}dx} {/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_a^b {\\frac{{\\log x}}{x}dx} {/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 193045,
+              "text": "log (a+b).log (b&ndash;a)",
+              "html": "log (a+b).log (b&ndash;a)",
+              "is_correct": false
+            },
+            {
+              "id": 193043,
+              "text": "{tex}\\frac{1}{2}\\log(ab).log \\left( {\\frac{b}{a}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}\\log(ab).log \\left( {\\frac{b}{a}} \\right){/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193046,
+              "text": "{tex}\\frac{log\\;(b-a)}{b-a}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{log\\;(b-a)}{b-a}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193044,
+              "text": "{tex}\\log(ab).log{(\\frac{b}{a}}){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\log(ab).log{(\\frac{b}{a}}){/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{2}\\log(ab).log \\left( {\\frac{b}{a}} \\right){/tex}",
+          "correct_option_ids": [
+            193043
+          ],
+          "explanation": "{tex}= {\\int\\limits_a^b {{{(log\\;x)}^{^1}}} ^{}}(\\frac{1}{x})dx{/tex} (let log x = t then 1x dx = dt) {tex}= \\left[ {\\frac{{{{(log\\;x)}^2}}}{2}} \\right]_a^b \\\\ {/tex} = {tex} \\frac{1}{2}{/tex} [(log b) 2 &minus; (log a) 2 ] = {tex}\\\\ \\frac{1}{2}{/tex} (log b + log a)(log b &minus; log a) {tex}= \\frac{1}{2}\\log (ab)\\log \\frac{b}{a} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59465,
+          "question_text": "If {tex}\\int\\limits_{ - 2}^5 {f(x)dx = 4,\\int\\limits_0^5 {(1 + f(x))dx = 7,} } {/tex} then the value of the integral {tex}\\int\\limits_{ - 2}^0 {f(x)} {/tex} dx is equal to",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}\\int\\limits_{ - 2}^5 {f(x)dx = 4,\\int\\limits_0^5 {(1 + f(x))dx = 7,} } {/tex}</span> then the value of the integral <span class=\"math-tex\">{tex}\\int\\limits_{ - 2}^0 {f(x)} {/tex}</span> dx is equal to</p>",
+          "options": [
+            {
+              "id": 193049,
+              "text": "5",
+              "html": "5",
+              "is_correct": false
+            },
+            {
+              "id": 193050,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            },
+            {
+              "id": 193047,
+              "text": "2",
+              "html": "2",
+              "is_correct": true
+            },
+            {
+              "id": 193048,
+              "text": "&ndash;3",
+              "html": "&ndash;3",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "2",
+          "correct_option_ids": [
+            193047
+          ],
+          "explanation": "{tex} \\because \\int\\limits_0^5 {(1 + f(x))dx }{/tex} = 7 {tex} \\therefore \\int\\limits_0^5 {dx + \\int\\limits_0^5 {f(x)dx } } {/tex} = 7 {tex}\\Rightarrow \\left[ x \\right]_0^5 + \\int\\limits_0^5 {f(x)dx} {/tex} = 7 {tex} \\Rightarrow \\int\\limits_0^5 {f(x)dx} {/tex} = 7 - 5 = 2, Also, {tex}\\int\\limits_{ - 2}^5 {f(x)dx} {/tex} = 4 {tex} \\Rightarrow \\int\\limits_{ - 2}^0 {f(x)dx} + \\int\\limits_0^5 {f(x)dx} {/tex} = 4 {tex}\\Rightarrow\\int\\limits_{ - 2}^0 {f(x)dx}{/tex} = 2",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59466,
+          "question_text": "If f(x) = f (a &ndash;x), then , {tex}\\int\\limits_0^a {xf(x)dx} {/tex} is equal to",
+          "question_html": "<p>If f(x) = f (a &ndash;x), then , <span class=\"math-tex\">{tex}\\int\\limits_0^a {xf(x)dx} {/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 193051,
+              "text": "{tex}\\frac{a}{2}\\int\\limits_0^a {f(x)dx} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{a}{2}\\int\\limits_0^a {f(x)dx} {/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193052,
+              "text": "{tex}\\frac{{{a^2}}}{2}\\int\\limits_0^a {f(x)dx} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{{a^2}}}{2}\\int\\limits_0^a {f(x)dx} {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193054,
+              "text": "{tex} - \\frac{{{a^2}}}{2}\\int\\limits_0^a {f(x)dx} {/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{{{a^2}}}{2}\\int\\limits_0^a {f(x)dx} {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193053,
+              "text": "{tex}\\int\\limits_0^a {f(x)dx} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\int\\limits_0^a {f(x)dx} {/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{a}{2}\\int\\limits_0^a {f(x)dx} {/tex}",
+          "correct_option_ids": [
+            193051
+          ],
+          "explanation": "{tex} I = \\int\\limits_0^a {xf(x)d} x{/tex} ....(1) {tex} \\Rightarrow I = \\int\\limits_0^a {(a - x)f(a - x)dx} \\Rightarrow \\int\\limits_0^a {f(a - x)dx}{/tex} ....(2) Adding (1) and (2), 2I = {tex} \\int\\limits_0^a {af(x)dx } \\\\{/tex} {tex}\\Rightarrow I = \\frac{a}{2}\\int\\limits_0^a {f(x)dx.}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59467,
+          "question_text": "{tex}\\int {\\frac{{\\cos 4x + 1}}{{\\cot x + \\tan x}}dx} {/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {\\frac{{\\cos 4x + 1}}{{\\cot x + \\tan x}}dx} {/tex}</span> is equal to</p>\r\n",
+          "options": [
+            {
+              "id": 193058,
+              "text": "{tex} - \\frac{1}{2}{\\sin ^2}6x + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{1}{2}{\\sin ^2}6x + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193056,
+              "text": "{tex}\\frac{1}{6}{\\cos ^3}2x + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{6}{\\cos ^3}2x + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193055,
+              "text": "{tex} - \\frac{1}{6}{\\cos ^3}2x + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{1}{6}{\\cos ^3}2x + C{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193057,
+              "text": "{tex} - \\frac{1}{6}{\\sin ^3}2x + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{1}{6}{\\sin ^3}2x + C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex} - \\frac{1}{6}{\\cos ^3}2x + C{/tex}",
+          "correct_option_ids": [
+            193055
+          ],
+          "explanation": "{tex} \\int {\\frac{{\\cos 4x + 1}}{{\\tan x + \\cot x}}dx }{/tex} {tex}= \\int {\\frac{{2\\;{{\\cos }^2}2x}}{{2\\;cosec\\;2x}}dx }{/tex} {tex}= \\int {\\frac{{2\\;{{\\cos }^2}2x}}{{2\\;cosec\\;2x}}dx}{/tex} substitute cos2x = t , then -2 sin2x dx = dt {tex} \\frac{-1}{2}\\int \\frac{t^2}{2}dt\\Rightarrow= \\frac{{ - 1}}{2}\\left( {\\frac{{{{\\cos }^3}2x}}{3}} \\right) +C\\\\{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59468,
+          "question_text": "{tex}\\int\\limits_0^\\pi {\\sqrt {1 - \\cos x} } {/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_0^\\pi {\\sqrt {1 - \\cos x} } {/tex}</span>&nbsp;is equal to</p>",
+          "options": [
+            {
+              "id": 193059,
+              "text": "{tex}2\\sqrt 2 {/tex}",
+              "html": "<span class=\"math-tex\">{tex}2\\sqrt 2 {/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193060,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 193061,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 193062,
+              "text": "{tex}\\frac{\\sqrt{3}}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\sqrt{3}}{2}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}2\\sqrt 2 {/tex}",
+          "correct_option_ids": [
+            193059
+          ],
+          "explanation": "= {tex} \\sqrt 2 \\int\\limits_0^\\pi {\\sin \\frac{x}{2}dx = \\sqrt 2 \\left[ {\\frac{{ - \\operatorname{cos} \\frac{x}{2}}}{{\\frac{1}{2}}}} \\right]_0^\\pi } {/tex} = {tex} - 2\\sqrt 2 \\left[ {\\cos \\frac{\\pi }{2} - \\cos 0} \\right] = 2\\sqrt {2}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59469,
+          "question_text": "{tex}\\int\\limits_0^\\pi {\\sqrt {1 + \\cos x} } {/tex} dx is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_0^\\pi {\\sqrt {1 + \\cos x} } {/tex}</span> dx is equal to</p>",
+          "options": [
+            {
+              "id": 193065,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 193064,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 193066,
+              "text": "{tex}\\sqrt 2 {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt 2 {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193063,
+              "text": "{tex}2\\sqrt 2 {/tex}",
+              "html": "<span class=\"math-tex\">{tex}2\\sqrt 2 {/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}2\\sqrt 2 {/tex}",
+          "correct_option_ids": [
+            193063
+          ],
+          "explanation": "{tex} = \\sqrt[{}]{2}\\int\\limits_0^\\pi {\\cos \\frac{x}{2}} dx {/tex} {tex}= \\sqrt 2 \\left[ {\\frac{\\sin{\\frac{x}{2}}}{\\frac{1}{2}}} \\right]_0^\\pi {/tex} {tex}= 2\\sqrt{2}(sin\\frac{\\pi }{2} - sin0) {/tex} = 2 {tex}\\sqrt 2 {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59470,
+          "question_text": "{tex}\\int\\limits_0^{\\pi /2} {\\log (\\sin x)} \\ dx{/tex}",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_0^{\\pi /2} {\\log (\\sin x)} \\ dx{/tex}</span></p>",
+          "options": [
+            {
+              "id": 193070,
+              "text": "{tex}-\\pi \\;log{\\text{ }}5{/tex}",
+              "html": "<span class=\"math-tex\">{tex}-\\pi \\;log{\\text{ }}5{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193068,
+              "text": "{tex}\\frac{\\pi }{2}\\ log\\;3{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}\\ log\\;3{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193069,
+              "text": "{tex}\\pi \\;log{\\text{ }}2{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi \\;log{\\text{ }}2{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193067,
+              "text": "{tex} - \\frac{\\pi }{2}\\log 2{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{\\pi }{2}\\log 2{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex} - \\frac{\\pi }{2}\\log 2{/tex}",
+          "correct_option_ids": [
+            193067
+          ],
+          "explanation": "{tex}I=\\int\\limits_0^{\\frac\\pi 2} {\\log (\\sin x)} \\ dx {/tex} .......(1) {tex}I=\\int\\limits_0^{\\frac\\pi 2} {\\log (\\sin \\frac{\\pi}{2}-x)} \\ dx{/tex} .......(2) Adding (1) and (2) {tex}2I=\\int\\limits_0^{\\frac\\pi 2} {\\log (\\sin x\\cos x)} \\ dx=\\int\\limits_0^{\\frac\\pi 2} {\\log (\\frac{\\sin 2x}{2})} \\ dx{/tex} {tex}\\\\2I=\\int\\limits_0^{\\frac\\pi 2} {\\log (\\sin 2x)} \\ dx\\;-\\int\\limits_0^{\\frac\\pi 2} {\\log 2} \\ dx{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59471,
+          "question_text": "{tex}\\int\\limits_0^1 {{e^ - }^{{{\\sin }^2}x}} {/tex} dx is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_0^1 {{e^ - }^{{{\\sin }^2}x}} {/tex}</span>dx is equal to</p>",
+          "options": [
+            {
+              "id": 193072,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 193073,
+              "text": "{tex}1 + \\frac{1}{e}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}1 + \\frac{1}{e}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193074,
+              "text": "&ndash; 1",
+              "html": "&ndash; 1",
+              "is_correct": false
+            },
+            {
+              "id": 193071,
+              "text": "None of these",
+              "html": "None of these",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "None of these",
+          "correct_option_ids": [
+            193071
+          ],
+          "explanation": "{tex}\\int\\limits_0^1 {{e^ - }^{{{\\sin }^2}x}} {/tex} dx cannot be evaluated",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59472,
+          "question_text": "If {tex}\\int\\limits_0^a {{x^m}} {(a - x)^n}dx{/tex} {tex} = \\lambda \\int\\limits_0^1 {{x^n}{{(a - x)}^m}} {/tex} dx, then {tex}\\lambda {/tex} is equal",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}\\int\\limits_0^a {{x^m}} {(a - x)^n}dx{/tex}</span><span class=\"math-tex\">{tex} = \\lambda \\int\\limits_0^1 {{x^n}{{(a - x)}^m}} {/tex}</span>dx, then <span class=\"math-tex\">{tex}\\lambda {/tex}</span> is equal</p>",
+          "options": [
+            {
+              "id": 193078,
+              "text": "{tex}\\sqrt{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193075,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            },
+            {
+              "id": 193076,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193077,
+              "text": "&ndash; 1",
+              "html": "&ndash; 1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            193075
+          ],
+          "explanation": "I = {tex} \\int\\limits_0^a {{x^m}{{(a - x)}^n}dx}{/tex} ....(1) {tex}\\\\ \\Rightarrow \\int\\limits_0^a {{x^n}{{(a - x)}^m}dx} {/tex} So, we must have; {tex}\\lambda{/tex} is equal to 1.",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59473,
+          "question_text": "{tex}\\int\\limits_0^{\\frac \\pi 2} {\\sin x} \\sin2x\\ dx{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_0^{\\frac \\pi 2} {\\sin x} \\sin2x\\ dx{/tex}</span>&nbsp;is equal to</p>",
+          "options": [
+            {
+              "id": 193082,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 193081,
+              "text": "{tex}\\frac{\\pi }{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193079,
+              "text": "{tex}\\frac{2}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{3}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193080,
+              "text": "{tex}\\frac{2\\pi }{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2\\pi }{3}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{2}{3}{/tex}",
+          "correct_option_ids": [
+            193079
+          ],
+          "explanation": "{tex} = 2\\int\\limits_0^{\\frac\\pi 2} {{\\sin }^2}x\\cos xdx {/tex} Substitute sin x = t, then cosx dx = dt {tex}\\Rightarrow2\\int\\limits_0^{1}t^2\\ dt= 2\\left[ {\\frac{{{{t }^3}}}{3}} \\right]_0^{1}{/tex} = {tex}\\frac23{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59474,
+          "question_text": "{tex}\\int\\limits_0^\\pi {\\sqrt {1 + \\sin x} } {/tex} dx is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_0^\\pi {\\sqrt {1 + \\sin x} } {/tex}</span>dx is equal to</p>",
+          "options": [
+            {
+              "id": 193083,
+              "text": "4",
+              "html": "4",
+              "is_correct": true
+            },
+            {
+              "id": 193085,
+              "text": "{tex}2\\sqrt 2 {/tex}",
+              "html": "<span class=\"math-tex\">{tex}2\\sqrt 2 {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193086,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 193084,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "4",
+          "correct_option_ids": [
+            193083
+          ],
+          "explanation": "{tex}\\int\\limits_0^\\pi {(sin\\frac{x}{2}+cos\\frac{x}{2})dx\\\\} \\Rightarrow 2 \\left[{-\\cos {\\frac{x}{2}}}+{\\sin {\\frac{x}{2}}}\\right]_0^\\pi\\Rightarrow4{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59475,
+          "question_text": "{tex}\\int\\limits_0^1 {\\frac{{1 - x}}{{1 + x}}} \\;{/tex} dx is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_0^1 {\\frac{{1 - x}}{{1 + x}}} \\;{/tex}</span> dx is equal to</p>",
+          "options": [
+            {
+              "id": 193088,
+              "text": "1 &ndash; 2 log 2",
+              "html": "1 &ndash; 2 log 2",
+              "is_correct": false
+            },
+            {
+              "id": 193089,
+              "text": "{tex}\\sqrt 2 \\log 2 - 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt 2 \\log 2 - 1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193087,
+              "text": "2 log 2 &ndash; 1",
+              "html": "2 log 2 &ndash; 1",
+              "is_correct": true
+            },
+            {
+              "id": 193090,
+              "text": "2 log 2 + 1",
+              "html": "2 log 2 + 1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "2 log 2 &ndash; 1",
+          "correct_option_ids": [
+            193087
+          ],
+          "explanation": "{tex} = \\int\\limits_0^1 {( - 1 + \\frac{2}{{1 + x}})dx} {/tex} {tex}= \\left[ { - x + 2\\log (1 + x)} \\right]_0^1{/tex}",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3621,
+      "test_name": "Integrals Test-04",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59476,
+          "question_text": "{tex}\\int\\limits_0^2 {\\left[ {{x^2}} \\right]} dx{/tex} equals, where [.] denotes Greatest Integer Function",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_0^2 {\\left[ {{x^2}} \\right]} dx{/tex}</span> equals, where [.] denotes Greatest Integer Function</p>",
+          "options": [
+            {
+              "id": 193092,
+              "text": "{tex}\\frac{8}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{8}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193094,
+              "text": "{tex}\\sqrt5-4{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt5-4{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193093,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            },
+            {
+              "id": 193091,
+              "text": "{tex}5 - \\sqrt 3 - \\sqrt 2 {/tex}",
+              "html": "<span class=\"math-tex\">{tex}5 - \\sqrt 3 - \\sqrt 2 {/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}5 - \\sqrt 3 - \\sqrt 2 {/tex}",
+          "correct_option_ids": [
+            193091
+          ],
+          "explanation": "{tex} = \\int\\limits_0^1 {\\left[ {{x^2}} \\right]} dx + \\int\\limits_1^{\\sqrt 2 } {\\left[ {{x^2}} \\right]} dx+\\int\\limits_{\\sqrt 2 }^{\\sqrt 3 } {\\left[ {{x^2}} \\right]} dx + \\int\\limits_{\\sqrt 3 }^2 {\\left[ {{x^2}} \\right]} dx {/tex} {tex}= \\int\\limits_0^1 {0\\;dx + \\int\\limits_1^{\\sqrt 2 } {1\\;dx + \\int\\limits_{\\sqrt 2 }^{\\sqrt 3 } {2\\;dx + \\int\\limits_{\\sqrt 3 }^{ 2 } {3\\;dx}}}}{/tex} {tex}\\Rightarrow 0 + (\\sqrt2-1)+2(\\sqrt {3}-\\sqrt{2}+3(2-\\sqrt3){/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59477,
+          "question_text": "{tex}\\int\\limits_1^e {\\frac{{1 + \\ln x}}{{2x}}} dx{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_1^e {\\frac{{1 + \\ln x}}{{2x}}} dx{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 193095,
+              "text": "{tex}\\frac{3}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{4}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193098,
+              "text": "{tex}\\frac{1}{e}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{e}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193097,
+              "text": "{tex}\\frac{1}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193096,
+              "text": "e",
+              "html": "e",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{3}{4}{/tex}",
+          "correct_option_ids": [
+            193095
+          ],
+          "explanation": "{tex}\\frac{1}{2} \\int\\limits_1^e {\\frac{{1}}{{x}}} dx+\\int\\limits_1^e {\\frac{{ \\ln x}}{{x}}} dx{/tex} {tex}= \\frac{1}{2}\\left[ {\\log x + \\frac{{{{(logx)}^2}}}{2}} \\right]_1^e{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59478,
+          "question_text": "{tex}\\int\\limits_0^{\\frac\\pi 6} {\\frac{{\\cos 2x}}{{{{(\\cos x - \\sin x)}^2}}}dx} {/tex}",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_0^{\\frac\\pi 6} {\\frac{{\\cos 2x}}{{{{(\\cos x - \\sin x)}^2}}}dx} {/tex}</span></p>",
+          "options": [
+            {
+              "id": 193099,
+              "text": "{tex} - \\log \\left( {\\frac{{\\sqrt 3 - 1}}{2}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\log \\left( {\\frac{{\\sqrt 3 - 1}}{2}} \\right){/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193100,
+              "text": "{tex} - \\log \\left( {\\frac{{\\sqrt 3 + 1}}{2}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\log \\left( {\\frac{{\\sqrt 3 + 1}}{2}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193101,
+              "text": "{tex}\\log \\left( {\\frac{{\\sqrt 3 + 1}}{\\sqrt2}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\log \\left( {\\frac{{\\sqrt 3 + 1}}{\\sqrt2}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193102,
+              "text": "{tex}\\ln 2 -\\ln \\sqrt3{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\ln 2 -\\ln \\sqrt3{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex} - \\log \\left( {\\frac{{\\sqrt 3 - 1}}{2}} \\right){/tex}",
+          "correct_option_ids": [
+            193099
+          ],
+          "explanation": "{tex}\\int\\limits_0^{\\frac\\pi 6}{\\frac{{\\cos 2x}{(cosx - sinx)}^2}dx }{/tex} {tex}= \\int\\limits_0^{\\frac \\pi 6} {\\frac{{{{\\cos }^2}x - {{\\sin }^2}x}}{(cosx - sinx)}}dx {/tex} {tex}= \\int\\limits_0^{\\frac \\pi 6} {\\frac{{\\cos x + \\sin x}}{{\\cos x - \\sin x}}dx}{/tex} {tex} = \\int\\limits_0^{\\frac \\pi 6} \\tan (x+\\frac{\\pi}{4}){dx} {/tex} = {tex} \\left[ {\\log \\left| {\\sec(x+\\frac{\\pi}{4}} \\right|} \\right]_0^{\\frac \\pi 6}{/tex} = {tex} - \\log (\\frac{{\\sqrt 3 - 1}}{2}){/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59479,
+          "question_text": "{tex}\\int {{{\\tan }^{ - 1}}} \\left( {\\frac{{3x - {x^3}}}{{1 - 3{x^2}}}} \\right){/tex} dx can be evaluated by the substitution",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {{{\\tan }^{ - 1}}} \\left( {\\frac{{3x - {x^3}}}{{1 - 3{x^2}}}} \\right){/tex}</span> dx can be evaluated by the substitution</p>",
+          "options": [
+            {
+              "id": 193106,
+              "text": "x = sec {tex}\\theta {/tex}",
+              "html": "x = sec <span class=\"math-tex\">{tex}\\theta {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193105,
+              "text": "x = sin {tex}\\theta {/tex}",
+              "html": "x = sin <span class=\"math-tex\">{tex}\\theta {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193103,
+              "text": "x = tan {tex}\\theta {/tex}",
+              "html": "x = tan <span class=\"math-tex\">{tex}\\theta {/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193104,
+              "text": "x = cos {tex}\\theta {/tex}",
+              "html": "x = cos<span class=\"math-tex\">{tex}\\theta {/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "x = tan {tex}\\theta {/tex}",
+          "correct_option_ids": [
+            193103
+          ],
+          "explanation": "For {tex}x = \\tan \\theta ,{\\tan ^{ - 1}}\\left( {\\frac{{3x - {x^3}}}{{1 - 3{x^2}}}} \\right) = {\\tan ^{ - 1}}\\left( {\\frac{{3\\tan \\theta - {{\\tan }^3}\\theta }}{{1 - 3{{\\tan }^2}\\theta }}} \\right) = {\\tan ^{ - 1}}(\\tan 3\\theta ) = 3\\theta \\\\ {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59480,
+          "question_text": "{tex}\\int {\\frac{{\\cos (\\log x)}}{x}dx} {/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {\\frac{{\\cos (\\log x)}}{x}dx} {/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 193107,
+              "text": "sin(log x)+C",
+              "html": "sin(log x)+C",
+              "is_correct": true
+            },
+            {
+              "id": 193110,
+              "text": "{tex}\\log (\\sin x)+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\log (\\sin x)+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193108,
+              "text": "&ndash; sin (log x)+C",
+              "html": "&ndash; sin (log x)+C",
+              "is_correct": false
+            },
+            {
+              "id": 193109,
+              "text": "{tex}\\frac{{\\sin (\\log x)}}{x} +C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{\\sin (\\log x)}}{x} +C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "sin(log x)+C",
+          "correct_option_ids": [
+            193107
+          ],
+          "explanation": "Put log x = t , we get ; {tex}\\int {\\frac{{\\cos (\\log x)}}{x}} dx = \\int {\\cos tdt = \\sin t} = \\sin (\\log x)+C{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59481,
+          "question_text": "{tex}\\int {\\frac{1}{{{e^x} + 1}}dx} {/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {\\frac{1}{{{e^x} + 1}}dx} {/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 193112,
+              "text": "log {tex}(1 + {e^{ - 2x}})+C{/tex}",
+              "html": "log <span class=\"math-tex\">{tex}(1 + {e^{ - 2x}})+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193113,
+              "text": "{tex}\\log ({e^{ 3x}} + x)+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\log ({e^{ 3x}} + x)+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193111,
+              "text": "&ndash; log(1 + e -x ) + C",
+              "html": "&ndash; log(1 + e<sup>-x</sup>)&nbsp;+ C",
+              "is_correct": true
+            },
+            {
+              "id": 193114,
+              "text": "{tex}\\log ({e^{ -2x}} -2 x)+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\log ({e^{ -2x}} -2 x)+C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "&ndash; log(1 + e -x ) + C",
+          "correct_option_ids": [
+            193111
+          ],
+          "explanation": "{tex}\\int {\\frac{{{e^{ - x}}}}{{1 + {e^{ - x}}}}} dx = - \\int {\\frac{{ - {e^{ - x}}}}{{1 + {e^{ - x}}}}} dx = - \\log (1 + {e^{ - x}})+C{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59482,
+          "question_text": "{tex}\\int {\\frac{1}{{1 + 3\\;{{\\sin }^2}x}}dx} {/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {\\frac{1}{{1 + 3\\;{{\\sin }^2}x}}dx} {/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 193115,
+              "text": "{tex}\\frac{1}{2}{\\tan ^{ - 1}}(2\\tan x){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{\\tan ^{ - 1}}(2\\tan x){/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193117,
+              "text": "{tex}\\frac{1}{2}{\\tan ^{ - 1}}\\left( {\\frac{{\\tan x}}{2}} \\right)+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{\\tan ^{ - 1}}\\left( {\\frac{{\\tan x}}{2}} \\right)+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193118,
+              "text": "{tex}{\\cot ^{ - 1}}\\left( {\\frac{{\\tan 3x}}{2}} \\right)+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\cot ^{ - 1}}\\left( {\\frac{{\\tan 3x}}{2}} \\right)+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193116,
+              "text": "{tex}{\\tan ^{ - 1}}(2\\tan x^2)+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\tan ^{ - 1}}(2\\tan x^2)+C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{2}{\\tan ^{ - 1}}(2\\tan x){/tex}",
+          "correct_option_ids": [
+            193115
+          ],
+          "explanation": "Dividing numerator and denominator by cos 2 x and substituting tanx = t, we get : {tex} \\int {\\frac{1}{{1\\;+\\;3\\;{{\\sin }^2}x}}dx = \\int {\\frac{{{{\\sec }^2}x\\;dx}}{{{{\\sec }^2}x + 3\\;{{\\tan }^2}x}} = \\int {\\frac{{dt}}{{1 + 4{t^2}}}} } } = \\frac{1}{2}{\\tan ^{ - 1}}(2\\tan x)+C{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59483,
+          "question_text": "{tex}\\int {\\frac{{\\sec x \\ cosec x}}{{\\log (\\tan x)}}dx} {/tex} is equal",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {\\frac{{\\sec x \\ cosec x}}{{\\log (\\tan x)}}dx} {/tex}</span> is equal</p>",
+          "options": [
+            {
+              "id": 193122,
+              "text": "log (tan x)+C",
+              "html": "log (tan x)+C",
+              "is_correct": false
+            },
+            {
+              "id": 193119,
+              "text": "log |log (tan x)|+C",
+              "html": "log |log (tan x)|+C",
+              "is_correct": true
+            },
+            {
+              "id": 193120,
+              "text": "tan (log x)+C",
+              "html": "tan (log x)+C",
+              "is_correct": false
+            },
+            {
+              "id": 193121,
+              "text": "tan {log (log x) }+C",
+              "html": "tan {log (log x) }+C",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "log |log (tan x)|+C",
+          "correct_option_ids": [
+            193119
+          ],
+          "explanation": "Substitute log(tan x) = t, then {tex} \\frac{1}{{\\tan x}}{\\sec ^2}xdx = \\sec x \\ cosec\\;{{dx}}=dt{/tex} {tex}\\Rightarrow \\int \\frac{dt}{t}=\\log t+C=(\\log(\\log (\\tan x )+C{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59484,
+          "question_text": "{tex}\\int {\\frac{1}{{{x^2}}}\\sin \\left( {\\frac{1}{x}} \\right)} dx{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {\\frac{1}{{{x^2}}}\\sin \\left( {\\frac{1}{x}} \\right)} dx{/tex}</span>&nbsp;is equal to</p>",
+          "options": [
+            {
+              "id": 193124,
+              "text": "{tex}\\cos \\left( {\\frac{1}{{{x^2}}}} \\right) + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\cos \\left( {\\frac{1}{{{x^2}}}} \\right) + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193125,
+              "text": "{tex} - \\cos \\left( {\\frac{1}{{{x^2}}}} \\right) + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\cos \\left( {\\frac{1}{{{x^2}}}} \\right) + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193123,
+              "text": "{tex}\\cos \\left( {\\frac{1}{x}} \\right) + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\cos \\left( {\\frac{1}{x}} \\right) + C{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193126,
+              "text": "{tex} - \\sin \\left( {\\frac{1}{x}} \\right) + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\sin \\left( {\\frac{1}{x}} \\right) + C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\cos \\left( {\\frac{1}{x}} \\right) + C{/tex}",
+          "correct_option_ids": [
+            193123
+          ],
+          "explanation": "Let {tex}\\frac{1}{x} = t{/tex} , {tex}- \\frac{1}{{{x^2}}}dx = dt = \\int {\\sin t( - dt) = \\int {( - \\sin t)dt = \\cos t + C} } {/tex} . Which is the required solution.",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59485,
+          "question_text": "{tex}\\int {\\frac{{{x^2} - 1}}{{{x^4} + 3{x^2} + 1}}} dx{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {\\frac{{{x^2} - 1}}{{{x^4} + 3{x^2} + 1}}} dx{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 193128,
+              "text": "{tex}{\\tan ^{ - 1}}\\left( {{x^2} + 1} \\right) + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\left( {{x^2} + 1} \\right) + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193127,
+              "text": "{tex}{\\tan ^{ - 1}}\\left( {x + \\frac{1}{x}} \\right) + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\left( {x + \\frac{1}{x}} \\right) + C{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193129,
+              "text": "{tex}\\tan \\left( {x + \\frac{1}{x}} \\right) + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\tan \\left( {x + \\frac{1}{x}} \\right) + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193130,
+              "text": "{tex}{\\tan ^{ - 1}}\\left( {{3x^2} + 2x} \\right) + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\left( {{3x^2} + 2x} \\right) + C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}{\\tan ^{ - 1}}\\left( {x + \\frac{1}{x}} \\right) + C{/tex}",
+          "correct_option_ids": [
+            193127
+          ],
+          "explanation": "Divide num. and deno. by x 2 Substitute {tex}x+\\frac1x=t{/tex} then {tex}(1-\\frac{1}{x^2})dx=dt{/tex} {tex} \\Rightarrow \\int\\frac{\\ dt}{t^2+1}{/tex} {tex} \\Rightarrow \\tan^{-1}(x+\\frac1x)+C{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59486,
+          "question_text": "{tex}\\int\\limits_{ - 1/2}^{1/2} {\\cos x\\log \\left( {\\frac{{1 + x}}{{1 - x}}} \\right)} dx{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_{ - 1/2}^{1/2} {\\cos x\\log \\left( {\\frac{{1 + x}}{{1 - x}}} \\right)} dx{/tex}</span>&nbsp;is equal to</p>",
+          "options": [
+            {
+              "id": 193133,
+              "text": "&ndash; 1",
+              "html": "&ndash; 1",
+              "is_correct": false
+            },
+            {
+              "id": 193132,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 193134,
+              "text": "{tex}\\frac{\\pi}{5}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi}{5}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193131,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            193131
+          ],
+          "explanation": "{tex}f(x)=\\int\\limits_{ - 1/2}^{1/2} {\\cos x\\log \\left( {\\frac{{1 + x}}{{1 - x}}} \\right)} dx{/tex} {tex} f(-x)=\\int\\limits_{ - 1/2}^{1/2} {\\cos (-x)\\log \\left( {\\frac{{1 - x}}{{1 + x}}} \\right)} dx=-f(x){/tex} Hence, f(x) is odd function.",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59487,
+          "question_text": "{tex}\\int\\limits_0^2 {\\left[ {2x} \\right]} {/tex} is equal to , where [.] denotes the Greatest Integer Function",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_0^2 {\\left[ {2x} \\right]} {/tex}</span> is equal to , where [.] denotes the Greatest Integer Function</p>",
+          "options": [
+            {
+              "id": 193136,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 193138,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 193137,
+              "text": "4",
+              "html": "4",
+              "is_correct": false
+            },
+            {
+              "id": 193135,
+              "text": "3",
+              "html": "3",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "3",
+          "correct_option_ids": [
+            193135
+          ],
+          "explanation": "{tex} = {\\int\\limits_0^{1/2} {\\left[ {2x} \\right]dx+\\int\\limits_{1/2}^1 {\\left[ {2x} \\right]dx + \\int\\limits_1^{3/2} {\\left[ {2x} \\right]dx + \\int\\limits_{3/2}^2 {\\left[ {2x} \\right]dx} }}}}{/tex} {tex}{=0+ \\int\\limits_{1/2}^1 {1dx + \\int\\limits_1^{3/2} {2dx + \\int\\limits_{3/2}^2 {3dx} \\\\}}} = 3{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59488,
+          "question_text": "{tex}\\int\\limits_{ - 8}^8 {({{\\sin }^{93}}x + {x^{295}})} {/tex} dx is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_{ - 8}^8 {({{\\sin }^{93}}x + {x^{295}})} {/tex}</span> dx is equal to</p>",
+          "options": [
+            {
+              "id": 193139,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            },
+            {
+              "id": 193140,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 193141,
+              "text": "2( 8 295 + 1)",
+              "html": "2( 8<sup>295</sup>&nbsp;+ 1)",
+              "is_correct": false
+            },
+            {
+              "id": 193142,
+              "text": "2 + 8 295",
+              "html": "2 + 8<sup>295</sup>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            193139
+          ],
+          "explanation": "Given function is an odd function. Whenever f(x) is an odd function {tex}\\int\\limits_{ - a}^a {f(x)dx} {/tex} = 0",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59489,
+          "question_text": "{tex}\\int\\limits_0^{\\frac \\pi 2} {\\frac{1}{{1 + \\sqrt {\\cot x} }}dx} {/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_0^{\\frac \\pi 2} {\\frac{1}{{1 + \\sqrt {\\cot x} }}dx} {/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 193146,
+              "text": "{tex}-\\pi{/tex}",
+              "html": "<span class=\"math-tex\">{tex}-\\pi{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193143,
+              "text": "{tex}\\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193144,
+              "text": "{tex}\\pi {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193145,
+              "text": "{tex}\\frac{3\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3\\pi }{4}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{\\pi }{4}{/tex}",
+          "correct_option_ids": [
+            193143
+          ],
+          "explanation": "= {tex}I = \\int\\limits_0^{\\frac{\\pi }{2}} {\\frac{{\\sqrt {\\sin x} }}{{\\sqrt {\\sin x} + \\sqrt {\\cos x} }}dx} {/tex} ...(1) = {tex}I = \\int\\limits_0^{\\frac{\\pi }{2}} {\\frac{{\\sqrt {\\cos x} }}{{\\sqrt {\\sin x} + \\sqrt {\\cos x} }}dx} {/tex} ....(2) Adding (1) and (2), we get; = {tex}2I = \\int\\limits_0^{\\frac{\\pi }{2}} {\\frac{{\\sqrt {\\sin x} + \\sqrt {\\cos x} }}{{\\sqrt {\\sin x} + \\sqrt {\\cos x} }}dx = } \\int\\limits_0^{\\frac{\\pi }{2}} {1.dx} = [x]_0^{\\frac{\\pi }{2}}{/tex} {tex}\\Rightarrow I = \\frac{\\pi}{4}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59490,
+          "question_text": "{tex}\\int\\limits_{ - \\frac\\pi {12}}^{\\frac\\pi {12}} {\\frac{1}{{\\cos 2x}}dx = } {/tex}",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_{ - \\frac\\pi {12}}^{\\frac\\pi {12}} {\\frac{1}{{\\cos 2x}}dx = } {/tex}</span></p>",
+          "options": [
+            {
+              "id": 193149,
+              "text": "{tex}\\frac{1}{3}\\log 2{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}\\log 2{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193148,
+              "text": "log 3",
+              "html": "log 3",
+              "is_correct": false
+            },
+            {
+              "id": 193150,
+              "text": "log9",
+              "html": "log9",
+              "is_correct": false
+            },
+            {
+              "id": 193147,
+              "text": "{tex}\\frac{1}{2}\\log 3{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}\\log 3{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{2}\\log 3{/tex}",
+          "correct_option_ids": [
+            193147
+          ],
+          "explanation": "= {tex}2\\int\\limits_0^{\\frac{\\pi }{2}} {\\sec 2x} dx = 2{\\left[ {\\frac{{\\log |\\tan \\left( {\\frac{\\pi }{4} + x} \\right)}}{2}} \\right]_0}^{\\frac{\\pi }{{12}}}{/tex} = {tex} \\log |\\tan \\frac{\\pi }{3}| - \\log |\\tan \\frac{\\pi }{4}|{/tex} = {tex}\\log \\sqrt 3 - \\log 1 = \\frac{1}{2}\\log 3{/tex}",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3622,
+      "test_name": "Integrals Test-05",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59491,
+          "question_text": "The function {tex}f(x) = \\int\\limits_0^x {\\log (t + \\sqrt {1 + {t^2})} dt} {/tex} is",
+          "question_html": "<p>The function<span class=\"math-tex\">{tex}f(x) = \\int\\limits_0^x {\\log (t + \\sqrt {1 + {t^2})} dt} {/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193154,
+              "text": "Neither odd nor Even",
+              "html": "Neither odd nor Even",
+              "is_correct": false
+            },
+            {
+              "id": 193153,
+              "text": "a periodic function",
+              "html": "a periodic function",
+              "is_correct": false
+            },
+            {
+              "id": 193151,
+              "text": "an even function",
+              "html": "an even function",
+              "is_correct": true
+            },
+            {
+              "id": 193152,
+              "text": "an odd function",
+              "html": "an odd function",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "an even function",
+          "correct_option_ids": [
+            193151
+          ],
+          "explanation": "t = -u f(-x) = {tex}\\int\\limits_0^x {\\log ( - u + \\sqrt {1 + {u^2}} } )( - du){/tex} = {tex} - \\int\\limits_0^\\pi {\\log \\left( {\\frac{{1 + u + {u^2}}}{{\\sqrt {1 + {u^2} + u} }}} \\right)} ( - du){/tex} = {tex}\\int\\limits_0^x {\\log (u + \\sqrt {1 + {u^2}} } )du{/tex} = f(x) {tex}\\Rightarrow{/tex} f(-x) = f(x) {tex}\\Rightarrow{/tex} f is an even function",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59492,
+          "question_text": "{tex}\\int\\limits_{ - \\frac\\pi 2}^{\\frac \\pi 2} {\\cos } \\;{/tex} t dt is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_{ - \\frac\\pi 2}^{\\frac \\pi 2} {\\cos } \\;{/tex}</span>t dt is equal to</p>",
+          "options": [
+            {
+              "id": 193158,
+              "text": "&ndash; 1",
+              "html": "&ndash; 1",
+              "is_correct": false
+            },
+            {
+              "id": 193156,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 193155,
+              "text": "2",
+              "html": "2",
+              "is_correct": true
+            },
+            {
+              "id": 193157,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "2",
+          "correct_option_ids": [
+            193155
+          ],
+          "explanation": "{tex} = \\left[ {\\sin t} \\right]_{ - \\frac \\pi 2}^{\\frac \\pi 2} = \\sin \\frac{\\pi }{2} - \\sin (\\frac{{ - \\pi }}{2}) {/tex} = 1 + 1 = 2",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59493,
+          "question_text": "{tex}\\int\\limits_{ - 1}^1 {\\left| {2x - 1} \\right|} {/tex} dx is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_{ - 1}^1 {\\left| {2x - 1} \\right|} {/tex}</span>dx is equal to</p>",
+          "options": [
+            {
+              "id": 193160,
+              "text": "{tex}\\frac{{ - 1}}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{ - 1}}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193159,
+              "text": "{tex}\\frac{5}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{5}{2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193161,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193162,
+              "text": "&ndash; 2",
+              "html": "&ndash; 2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{5}{2}{/tex}",
+          "correct_option_ids": [
+            193159
+          ],
+          "explanation": "{tex} = \\int\\limits_{ - 1}^{1/2} {\\left| {2x - 1} \\right|dx + \\int\\limits_{1/2}^1 {\\left| {2x - 1} \\right|} } dx {/tex} {tex} = \\int\\limits_{ - 1}^{1/2} {( - (2x - 1))dx + \\int\\limits_{1/2}^1 {(2x - 1)dx}}{/tex} {tex} = (\\frac{1}{2} - \\frac{1}{4}) - ( - 1 - 1) + (1 - 1) - (\\frac{1}{4} - \\frac{1}{2}){/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59494,
+          "question_text": "{tex}\\int\\limits_0^{\\frac \\pi 2} {\\frac{1}{{1 + \\tan x}}} dx{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_0^{\\frac \\pi 2} {\\frac{1}{{1 + \\tan x}}} dx{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 193163,
+              "text": "{tex}\\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193164,
+              "text": "{tex}\\pi {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193165,
+              "text": "{tex}\\frac{3\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3\\pi }{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193166,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{\\pi }{4}{/tex}",
+          "correct_option_ids": [
+            193163
+          ],
+          "explanation": "{tex}I = \\int\\limits_0^{\\frac \\pi 2} {\\frac{1}{{1 + \\tan x}}dx}{/tex} {tex}\\int\\limits_0^{\\frac \\pi 2} {\\frac{{\\cos x}}{{\\cos x + \\sin x}}dx}{/tex} ....(1) Then, {tex} I = \\int\\limits_0^{\\frac \\pi 2} {\\frac{{\\cos (\\frac{\\pi }{2} - x)}}{{\\cos (\\frac{\\pi }{2} - x) + sin(\\frac{\\pi }{2} - x)}}} \\ dx {/tex} {tex}= \\int\\limits_0^{\\frac \\pi 2} {\\frac{{\\sin x}}{{\\sin x + \\cos x}}dx}{/tex} ...(2) adding 1 and 2, we get... {tex} 2I = \\int\\limits_0^{\\frac{\\pi}{2}}dx = \\frac{\\pi }{2}{/tex} {tex}\\Rightarrow I=\\frac{\\pi}{4}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59495,
+          "question_text": "{tex}\\int\\limits_0^{\\pi /2} {\\frac{1}{{1 + \\sin x}}} dx{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_0^{\\pi /2} {\\frac{1}{{1 + \\sin x}}} dx{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 193170,
+              "text": "{tex}\\frac{3}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193167,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            },
+            {
+              "id": 193169,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193168,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            193167
+          ],
+          "explanation": "{tex} I = \\int\\limits_0^{\\pi /2} {\\frac{1}{{1 + \\sin x}}dx}{/tex} {tex} \\\\ = \\int\\limits_0^{\\pi /2} {\\frac{{1 - \\sin x}}{{1 - {{\\sin }^2}x}}} dx {/tex} ....(multiply num. and deno. by [1 - sinx ]) {tex}= \\int\\limits_0^{\\pi /2} {\\frac{{1 - \\sin x}}{{{{\\cos }^2}x}}} dx {/tex} {tex} = \\left[ {\\tan x - \\sec x} \\right]_0^{\\pi /2}{/tex} {tex}= \\left[ {\\frac{{\\sin x - 1}}{{\\cos x}}} \\right]_0^{\\pi /2} {/tex} {tex}= \\left[ {\\frac{{ - \\cos x}}{{1 + \\sin x}}} \\right]_0^{\\pi /2}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59496,
+          "question_text": "{tex}\\int\\limits_0^{\\pi /2} {\\log \\left| {\\cos x} \\right|} {/tex} dx is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_0^{\\pi /2} {\\log \\left| {\\cos x} \\right|} {/tex}</span>dx is equal to</p>",
+          "options": [
+            {
+              "id": 193171,
+              "text": "{tex} - \\frac{\\pi }{2}\\log 2{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{\\pi }{2}\\log 2{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193172,
+              "text": "{tex}\\pi \\;log{\\text{ }}2{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi \\;log{\\text{ }}2{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193173,
+              "text": "{tex}\\frac{\\pi }{2}\\;\\log 3{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}\\;\\log 3{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193174,
+              "text": "{tex}-\\frac{\\pi }{3}\\;\\log 3{/tex}",
+              "html": "<span class=\"math-tex\">{tex}-\\frac{\\pi }{3}\\;\\log 3{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex} - \\frac{\\pi }{2}\\log 2{/tex}",
+          "correct_option_ids": [
+            193171
+          ],
+          "explanation": "{tex}\\int\\limits_0^{\\pi /2} {\\log \\left| {\\cos x} \\right|} dx{/tex} {tex}= \\int\\limits_0^{\\pi /2} {\\log \\left| {\\cos (\\frac{\\pi }{2} - x)} \\right|} dx {/tex} {tex} = \\int\\limits_0^{\\pi /2} {\\log \\left| {\\sin x} \\right|dx} {/tex} {tex} = - \\frac{\\pi }{2}\\;\\log 2{/tex} (standard result)",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59497,
+          "question_text": "{tex}\\int\\limits_{-2}^2 {\\left[ x \\right]} \\;dx{/tex} is equal to, where [.] denotes Greatest Integer function.",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_{-2}^2 {\\left[ x \\right]} \\;dx{/tex}</span>&nbsp;is equal to, where [.] denotes Greatest Integer function.</p>",
+          "options": [
+            {
+              "id": 193175,
+              "text": "&ndash; 2",
+              "html": "&ndash; 2",
+              "is_correct": true
+            },
+            {
+              "id": 193176,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 193177,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 193178,
+              "text": "4",
+              "html": "4",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "&ndash; 2",
+          "correct_option_ids": [
+            193175
+          ],
+          "explanation": "{tex}\\int _ { - 2 } ^ { 2 } [ x ] d x = \\int _ { - 2 } ^ { - 1 } [ x ] d x + \\int _ { - 1 } ^ { 0 } [ x ] d x + \\int _ { 0 } ^ { 1 } [ x ] d x + \\int _ { 1 } ^ { 2 } [ x ] d x{/tex} {tex}\\Longrightarrow \\int _ { - 2 } ^ { - 1 } ( - 2 ) d x + \\int _ { - 1 } ^ { 0 } ( - 1 ) d x + \\int _ { 0 } ^ { 1 } 0 d x + \\int _ { 1 } ^ { 2 } 1 d x{/tex} {tex}\\Longrightarrow [ - 2 x ] _ { - 2 } ^ { - 1 } + [ - x ] _ { - 1 } ^ { 0 } + [ 0 ] _ { 0 } ^ { 1 } + [ x ] _ { 1 } ^ { 2 } \\Longrightarrow - 2{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59498,
+          "question_text": "{tex}\\int\\limits_{ - \\pi /2}^{\\pi /2} {{{\\sin }^9}x\\;dx} {/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_{ - \\pi /2}^{\\pi /2} {{{\\sin }^9}x\\;dx} {/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 193182,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 193180,
+              "text": "{tex}\\frac{{8.4.2}}{{9.7.5.3}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{8.4.2}}{{9.7.5.3}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193179,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            },
+            {
+              "id": 193181,
+              "text": "{tex}\\frac{{2.8.4.2}}{{9.7.5.3}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{2.8.4.2}}{{9.7.5.3}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            193179
+          ],
+          "explanation": "Note that sin 9 x is an odd function, therefore, {tex}\\int\\limits_{ - \\pi /2}^{\\pi /2} {{{\\sin }^9}xdx = 0} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59499,
+          "question_text": "{tex}\\int\\limits_0^{\\pi /2} {\\log } {/tex} (tan x) dx is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_0^{\\pi /2} {\\log } {/tex}</span>&nbsp;(tan x) dx is equal to</p>",
+          "options": [
+            {
+              "id": 193186,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 193183,
+              "text": "{tex}\\int\\limits_0^{\\pi /2} {\\log } {/tex} (cot x ) dx",
+              "html": "<span class=\"math-tex\">{tex}\\int\\limits_0^{\\pi /2} {\\log } {/tex}</span>&nbsp;(cot x ) dx",
+              "is_correct": true
+            },
+            {
+              "id": 193185,
+              "text": "{tex} - \\frac{\\pi }{2}\\log 2{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{\\pi }{2}\\log 2{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193184,
+              "text": "{tex}\\frac{\\pi }{2}\\log 2{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}\\log 2{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\int\\limits_0^{\\pi /2} {\\log } {/tex} (cot x ) dx",
+          "correct_option_ids": [
+            193183
+          ],
+          "explanation": "{tex}\\int\\limits_0^{\\pi /2} {\\log (\\tan x)dx} = \\int\\limits_0^{\\pi /2} {\\log (\\tan (\\frac{\\pi }{2} - x)} )dx.\\implies\\int\\limits_0^{\\pi /2} {\\log (\\cot x)\\ dx}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59500,
+          "question_text": "{tex}\\int\\limits_0^{\\pi /2} {\\log } {/tex} (cot x) dx is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_0^{\\pi /2} {\\log } {/tex}</span>(cot x) dx is equal to</p>",
+          "options": [
+            {
+              "id": 193190,
+              "text": "{tex} \\frac{3\\pi }{2}\\;\\log 5{/tex}",
+              "html": "<span class=\"math-tex\">{tex} \\frac{3\\pi }{2}\\;\\log 5{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193187,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            },
+            {
+              "id": 193188,
+              "text": "{tex}\\frac{\\pi }{2}\\log 2{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}\\log 2{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193189,
+              "text": "{tex} - \\frac{\\pi }{2}\\;\\log 3{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{\\pi }{2}\\;\\log 3{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            193187
+          ],
+          "explanation": "{tex}\\int\\limits_0^{\\pi /2} {\\log (\\cot x)dx} {/tex} {tex} I= \\int\\limits_0^{\\pi /2} {\\left\\{ {\\log (\\cos x) - \\log (\\sin x)} \\right\\}dx} \\;\\;\\dots \\dots(1){/tex} {tex} I=\\int\\limits_0^{\\pi /2} {\\left\\{ {\\log (\\sin x) - \\log (\\cos x)}\\right\\}dx}\\;\\;\\;\\dots\\dots(2){/tex} Adding (1) and (2) {tex}2I=\\int\\limits_0^{\\pi /2} 0.\\ dx \\implies 0{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59501,
+          "question_text": "{tex}\\int\\limits_{ - 2}^2 {x\\left| x \\right|} dx{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_{ - 2}^2 {x\\left| x \\right|} dx{/tex}</span>is equal to</p>",
+          "options": [
+            {
+              "id": 193191,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            },
+            {
+              "id": 193194,
+              "text": "{tex}\\frac{8}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{8}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193192,
+              "text": "{tex}\\frac{{ - 8}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{ - 8}}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193193,
+              "text": "-2",
+              "html": "-2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            193191
+          ],
+          "explanation": "f(x) = x|x| is an odd function as : {tex}f( - x) = ( - x)\\left| { - x} \\right|= - x\\left| x \\right| = - f(x){/tex} {tex}\\Rightarrow\\int\\limits_{ - 2}^2 {x\\left| x \\right|dx} = 0{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59502,
+          "question_text": "{tex}\\int {\\frac{{{{\\tan }^{ - 1}}x}}{{1 + {x^2}}}dx} {/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {\\frac{{{{\\tan }^{ - 1}}x}}{{1 + {x^2}}}dx} {/tex}</span> is equal to&nbsp;</p>",
+          "options": [
+            {
+              "id": 193196,
+              "text": "{tex}(\\log (1 + {x^2})){\\tan ^{ - 1}}x+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}(\\log (1 + {x^2})){\\tan ^{ - 1}}x+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193198,
+              "text": "{tex}{{{\\tan }^{ - 1}}x}+{{{\\sec }^{ - 1}}x}+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{{{\\tan }^{ - 1}}x}+{{{\\sec }^{ - 1}}x}+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193197,
+              "text": "{tex}\\log\\;\\left| {{{\\tan }^{ - 1}}x} \\right|+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\log\\;\\left| {{{\\tan }^{ - 1}}x} \\right|+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193195,
+              "text": "{tex}\\frac{1}{2}{({\\tan ^{ - 1}}x)^2}+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{({\\tan ^{ - 1}}x)^2}+C{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{2}{({\\tan ^{ - 1}}x)^2}+C{/tex}",
+          "correct_option_ids": [
+            193195
+          ],
+          "explanation": "Subsitute tan -1 x = t then {tex}\\frac{1}{1+x^2}dx=dt{/tex} {tex}\\Rightarrow\\int t\\;dt = \\frac{t^2}{2}+C \\Rightarrow \\frac{({tan^{-1}x})^{2}}{2}+C{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59503,
+          "question_text": "The value of the integral {tex}\\int\\limits_0^1 {{e^{{x^2}}}} {/tex} dx lies in",
+          "question_html": "<p>The value of the integral <span class=\"math-tex\">{tex}\\int\\limits_0^1 {{e^{{x^2}}}} {/tex}</span>dx lies in</p>",
+          "options": [
+            {
+              "id": 193200,
+              "text": "{tex}(e,\\infty){/tex}",
+              "html": "<span class=\"math-tex\">{tex}(e,\\infty){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193199,
+              "text": "[1, e]",
+              "html": "[1, e]",
+              "is_correct": true
+            },
+            {
+              "id": 193202,
+              "text": "(0,1)",
+              "html": "(0,1)",
+              "is_correct": false
+            },
+            {
+              "id": 193201,
+              "text": "{tex}(-\\infty,1){/tex}",
+              "html": "<span class=\"math-tex\">{tex}(-\\infty,1){/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "[1, e]",
+          "correct_option_ids": [
+            193199
+          ],
+          "explanation": "{tex}0 \\leqslant x \\leqslant 1 \\Rightarrow 0 \\leqslant {x^2} \\leqslant 1{/tex} {tex} \\Rightarrow \\int\\limits_0^1 {1dx \\leqslant \\int\\limits_0^1 {{e^{{x^2}}}dx \\leqslant \\int\\limits_0^1{edx }}}{/tex} {tex}\\Rightarrow 1 \\leqslant \\int\\limits_0^1 {{e^{{x^2}}}dx \\leqslant e} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59504,
+          "question_text": "{tex}\\int\\limits_0^2 {\\sqrt {\\frac{{2 + x}}{{2 - x}}} dx} {/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int\\limits_0^2 {\\sqrt {\\frac{{2 + x}}{{2 - x}}} dx} {/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 193205,
+              "text": "{tex}\\pi + 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi + 1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193203,
+              "text": "{tex}\\pi + 2{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi + 2{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193206,
+              "text": "{tex}\\frac{\\pi }{2} + 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2} + 1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193204,
+              "text": "{tex}\\pi + \\frac{3}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi + \\frac{3}{2}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\pi + 2{/tex}",
+          "correct_option_ids": [
+            193203
+          ],
+          "explanation": "{tex}\\int\\limits_0^2 {\\sqrt {\\frac{{2 + x}}{{2 - x}}dx} } {/tex} {tex} = \\int\\limits_0^2 {\\frac{{2 + x}}{{\\sqrt {4 - {x^2}} }}} dx{/tex} {tex} = 2\\int\\limits_0^2 {\\frac{1}{{\\sqrt {4 - {x^2}} }}} dx + \\int\\limits_0^2 {\\frac{{xdx}}{{\\sqrt {4 - {x^2}} }}} {/tex} {tex} = 2\\left[ {{{\\sin }^{ - 1}}(\\frac{x}{2})} \\right]_0^2 - \\frac{1}{2}.\\int\\limits_0^2 {\\frac{{ - 2x}}{{\\sqrt {4 - {x^2}} }}} dx{/tex} {tex} \\\\ = 2(\\frac{\\pi }{2}) - \\frac{1}{2}\\left[ {\\frac{{\\sqrt {4 - {x^2}} }}{{1/2}}} \\right]_0^2{/tex} {tex}= \\pi - (0 - 2) = \\pi + 2{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59434,
+          "question_text": "{tex}\\int {\\tan x} {\\ sec ^2x}{/tex} dx is not equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\int {\\tan x} {\\ sec ^2x}{/tex}</span> dx is not equal to</p>",
+          "options": [
+            {
+              "id": 192923,
+              "text": "None of these",
+              "html": "None of these",
+              "is_correct": true
+            },
+            {
+              "id": 192926,
+              "text": "{tex}\\frac{{{{\\tan }^2}x}}{2}+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{{{\\tan }^2}x}}{2}+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192925,
+              "text": "{tex}\\frac{1}{2}{(\\cos x)^{ - 2}}+C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{(\\cos x)^{ - 2}}+C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192924,
+              "text": "{tex}\\frac{{{{\\sec }^2}x}}{2}+C'{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{{{\\sec }^2}x}}{2}+C'{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "None of these",
+          "correct_option_ids": [
+            192923
+          ],
+          "explanation": "Let tanx = t, then sec 2 xdx = dt {tex} \\implies \\frac{{{t^2}}}{2}+C \\implies \\frac{{ta{n^2}x}}{2}+C = \\frac{1}{2}{(\\cos x)^{ - 2}}+C'{/tex}",
+          "solution": ""
+        }
+      ]
+    }
+  ],
+  "totalQuestions": 75
+}

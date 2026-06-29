@@ -1,0 +1,58 @@
+[
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "topic": "Basic Concepts (XII-2.1)",
+    "topic_id": 11610,
+    "card_id": 4603,
+    "type": 1,
+    "text": "sin : R {tex}\\to{/tex} [-1, 1] cos : R {tex}\\to{/tex} [-1, 1]",
+    "text_html": "<p>sin : R <span class=\"math-tex\">{tex}\\to{/tex}</span> [-1, 1]<br />\ncos : R <span class=\"math-tex\">{tex}\\to{/tex}</span> [-1, 1]</p>",
+    "answer": "",
+    "answer_html": ""
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "topic": "Basic Concepts (XII-2.1)",
+    "topic_id": 11610,
+    "card_id": 4602,
+    "type": 1,
+    "text": "tan : R - {x : x = {tex}\\frac{(2 \\mathrm{n}+1) \\pi}{2}{/tex} , n {tex}\\in{/tex} Z} {tex}\\to{/tex} R cot : R - {x : x = n {tex}\\pi{/tex} , n {tex}\\in{/tex} Z} {tex}\\to{/tex} R",
+    "text_html": "<p>tan : R - {x : x = <span class=\"math-tex\">{tex}\\frac{(2 \\mathrm{n}+1) \\pi}{2}{/tex}</span>, n <span class=\"math-tex\">{tex}\\in{/tex}</span> Z} <span class=\"math-tex\">{tex}\\to{/tex}</span> R<br />\ncot : R - {x : x = n<span class=\"math-tex\">{tex}\\pi{/tex}</span>, n <span class=\"math-tex\">{tex}\\in{/tex}</span> Z} <span class=\"math-tex\">{tex}\\to{/tex}</span> R</p>",
+    "answer": "",
+    "answer_html": ""
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "topic": "Basic Concepts (XII-2.1)",
+    "topic_id": 11610,
+    "card_id": 4601,
+    "type": 1,
+    "text": "sec : R - {x : x = {tex}\\frac{(2 \\mathrm{n}+1) \\pi}{2}{/tex} , n {tex}\\in{/tex} Z} {tex}\\to{/tex} R - (-1, 1) cosec : R - {x : x = n {tex}\\pi{/tex} , n {tex}\\in{/tex} Z} {tex}\\to{/tex} R - (-1, 1)",
+    "text_html": "<p>sec : R - {x : x = <span class=\"math-tex\">{tex}\\frac{(2 \\mathrm{n}+1) \\pi}{2}{/tex}</span>, n <span class=\"math-tex\">{tex}\\in{/tex}</span> Z} <span class=\"math-tex\">{tex}\\to{/tex}</span> R - (-1, 1)<br />\ncosec : R - {x : x = n<span class=\"math-tex\">{tex}\\pi{/tex}</span>, n <span class=\"math-tex\">{tex}\\in{/tex}</span> Z} <span class=\"math-tex\">{tex}\\to{/tex}</span> R - (-1, 1)</p>",
+    "answer": "",
+    "answer_html": ""
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "topic": "Basic Concepts (XII-2.1)",
+    "topic_id": 11610,
+    "card_id": 4600,
+    "type": 1,
+    "text": "The domains and ranges (principal value branches) of inverse trigonometric functions are given in the following table: sin -1 : [-1, 1] {tex}\\to{/tex} {tex}\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} cos -1 : [-1, 1] {tex}\\to{/tex} [0, {tex}\\pi{/tex} ] cosec -1 : R - (-1, 1) {tex}\\to{/tex} {tex}\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} - {0} sec -1 : R - (-1, 1) {tex}\\to{/tex} [0, {tex}\\pi{/tex} ] - {tex}\\left\\{\\frac{\\pi}{2}\\right\\}{/tex} tan -1 : R {tex}\\to{/tex} {tex}\\left(\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right){/tex} cot -1 : R {tex}\\to{/tex} (0, {tex}\\pi{/tex} )",
+    "text_html": "<p>The domains and ranges (principal value branches) of inverse trigonometric functions are given in the following table:</p>\n\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td>sin<sup>-1</sup> :</td>\n\t\t\t<td>[-1, 1]</td>\n\t\t\t<td><span class=\"math-tex\">{tex}\\to{/tex}</span></td>\n\t\t\t<td><span class=\"math-tex\">{tex}\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex}</span></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>cos<sup>-1</sup> :</td>\n\t\t\t<td>[-1, 1]</td>\n\t\t\t<td><span class=\"math-tex\">{tex}\\to{/tex}</span></td>\n\t\t\t<td>[0, <span class=\"math-tex\">{tex}\\pi{/tex}</span>]</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>cosec<sup>-1</sup> :</td>\n\t\t\t<td><strong>R </strong>- (-1, 1)</td>\n\t\t\t<td><span class=\"math-tex\">{tex}\\to{/tex}</span></td>\n\t\t\t<td><span class=\"math-tex\">{tex}\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex}</span> - {0}</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>sec<sup>-1</sup> :</td>\n\t\t\t<td><strong>R</strong> - (-1, 1)</td>\n\t\t\t<td><span class=\"math-tex\">{tex}\\to{/tex}</span></td>\n\t\t\t<td>[0, <span class=\"math-tex\">{tex}\\pi{/tex}</span>] - <span class=\"math-tex\">{tex}\\left\\{\\frac{\\pi}{2}\\right\\}{/tex}</span></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>tan<sup>-1</sup> :</td>\n\t\t\t<td><strong>R</strong></td>\n\t\t\t<td><span class=\"math-tex\">{tex}\\to{/tex}</span></td>\n\t\t\t<td><span class=\"math-tex\">{tex}\\left(\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right){/tex}</span></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>cot<sup>-1</sup> :</td>\n\t\t\t<td><strong>R</strong></td>\n\t\t\t<td><span class=\"math-tex\">{tex}\\to{/tex}</span></td>\n\t\t\t<td>(0, <span class=\"math-tex\">{tex}\\pi{/tex}</span>)</td>\n\t\t</tr>\n\t</tbody>\n</table>",
+    "answer": "",
+    "answer_html": ""
+  }
+]

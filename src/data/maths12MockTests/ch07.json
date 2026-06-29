@@ -1,0 +1,1908 @@
+{
+  "mock_id": 225,
+  "name": "Mock Test - 07",
+  "instruction": "This question paper contains three sections &ndash; A, B and C. Each part is compulsory. Section - A has 20 MCQs, attempt any 16 out of 20. 3 . Section - B has 20 MCQs, attempt any 16 out of 20 Section - C has 10 MCQs, attempt any 8 out of 10. There is no negative marking. All questions carry equal marks.",
+  "totalQuestions": 50,
+  "questions": [
+    {
+      "n": 1,
+      "question_id": 269580,
+      "question_text": "let A = R - (3) and B = R - 1 Then, f : A {tex}\\rightarrow B: f(x)=\\frac{(x-2)}{(x-3)} \\text { is }{/tex}",
+      "question_html": "<p>let A = R - (3) and B = R - 1 Then, f : A&nbsp;<span class=\"math-tex\">{tex}\\rightarrow B: f(x)=\\frac{(x-2)}{(x-3)} \\text { is }{/tex}</span></p>",
+      "options": [
+        {
+          "id": 382861,
+          "text": "many-one and into",
+          "html": "many-one and into",
+          "is_correct": false
+        },
+        {
+          "id": 382860,
+          "text": "one-one and onto",
+          "html": "one-one and onto",
+          "is_correct": true
+        },
+        {
+          "id": 382862,
+          "text": "many-one and onto",
+          "html": "many-one and onto",
+          "is_correct": false
+        },
+        {
+          "id": 382859,
+          "text": "one-one and into",
+          "html": "one-one and into",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "one-one and onto",
+      "correct_option_ids": [
+        382860
+      ],
+      "explanation": "Given: Let A = R - {3}, B = R - {1} f: A {tex}\\rightarrow{/tex} B f(x) = {tex}\\frac{x-2}{x-3}{/tex} x {tex}\\in{/tex} A Step 1: Injective or One-One function: Let f(x) = f(y), x, y {tex}\\ne{/tex} 3 {tex}\\frac{x-2}{x-3}=\\frac{y-2}{y-3}{/tex} (x - 2)(y - 3) = (y - 2)(x - 3) xy - 2y - 3x + 6 = xy - 2x - 3y + 6xy - 2y - 3x + 6 = xy - 2x - 3y + 6 - 2x + 3y = - 2x + 3x - 2x + 3y = - 2x + 3x x = y Hence f is one-one Step 2 : Surjective or One-to function: Let y {tex}\\in{/tex} B such that y {tex}\\ne{/tex} 1 y = {tex}\\frac{x-2}{x-3}{/tex} y(x - 3) = (x - 2)y(x - 3) = (x - 2) yx - 3y = x - 2yx - 3y = x - 2 yx - x = 3y - 2yx - x = 3y - 2 x(y - 1) = 3y - 2 x = {tex}\\frac{3 y-2}{y-1}{/tex} x {tex}\\in{/tex} A since y {tex}\\ne{/tex} 1 Hence there exists x {tex}\\in{/tex} A for every y {tex}\\in{/tex} B such that f(x) = y f is onto Hence f is bijective.",
+      "solution": ""
+    },
+    {
+      "n": 2,
+      "question_id": 260543,
+      "question_text": "The corner points of the feasible region determined by the system of linear constraints are (0, 0), (0, 40), (20, 40), (60, 20), (60, 0). The objective function is Z = 4x + 3y. Compare the quantity in Column A and Column B: Column A Column B Maximum of Z 325",
+      "question_html": "<p>The corner points of the feasible region determined by the system of linear constraints are (0, 0), (0, 40), (20, 40), (60, 20), (60, 0). The objective function is Z = 4x + 3y. Compare the quantity in Column A and Column B:</p>\r\n\r\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td style=\"text-align:center\"><strong>Column A</strong></td>\r\n\t\t\t<td style=\"text-align:center\"><strong>Column B</strong></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td style=\"text-align:center\">Maximum of Z</td>\r\n\t\t\t<td style=\"text-align:center\">325</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>",
+      "options": [
+        {
+          "id": 377225,
+          "text": "The quantity in column B is greater",
+          "html": "The quantity in column B is greater",
+          "is_correct": true
+        },
+        {
+          "id": 377224,
+          "text": "The quantity in column A is greater",
+          "html": "The quantity in column A is greater",
+          "is_correct": false
+        },
+        {
+          "id": 377227,
+          "text": "The relationship can not be determined on the basis of the information supplied",
+          "html": "The relationship can not be determined on the basis of the information supplied",
+          "is_correct": false
+        },
+        {
+          "id": 377226,
+          "text": "The two quantities are equal",
+          "html": "The two quantities are equal",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "The quantity in column B is greater",
+      "correct_option_ids": [
+        377225
+      ],
+      "explanation": "Corner Points Corresponding Value of Z = 4x + 3y (0, 0) 0 (0, 40) 120 (20, 40) 200 (60, 20) 300 (Maximum) (60, 0) 240 So, maximum value of Z = 300 < 325. Therefore, the quantity in column B is greater. Which is the required solution.",
+      "solution": ""
+    },
+    {
+      "n": 3,
+      "question_id": 263177,
+      "question_text": "If y = ax n+1 + bx -n , then {tex}x^{2} \\frac{d^{2} y}{d x^{2}}={/tex}",
+      "question_html": "<p>If y = ax<sup>n+1</sup>&nbsp;+ bx<sup>-n</sup>, then&nbsp;<span class=\"math-tex\">{tex}x^{2} \\frac{d^{2} y}{d x^{2}}={/tex}</span></p>",
+      "options": [
+        {
+          "id": 378732,
+          "text": "n (n - 1) y",
+          "html": "n (n - 1) y",
+          "is_correct": false
+        },
+        {
+          "id": 378735,
+          "text": "n 2 y",
+          "html": "n<sup>2</sup>y",
+          "is_correct": false
+        },
+        {
+          "id": 378734,
+          "text": "ny",
+          "html": "ny",
+          "is_correct": false
+        },
+        {
+          "id": 378733,
+          "text": "n (n + 1) y",
+          "html": "n (n + 1) y",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "n (n + 1) y",
+      "correct_option_ids": [
+        378733
+      ],
+      "explanation": "Here, y = ax n+1 + bx -n {tex}\\Rightarrow \\frac{dy}{dx}{/tex} = a (n + 1) x n - bn x -n-1 {tex}\\Rightarrow \\frac{d^2y}{dx^2}{/tex} = a n.(n + 1) x n-1 + b n.(n + 1) x -n-2 } {tex}\\therefore{/tex} {tex}x^2\\frac{d^2y}{dx^2}{/tex} = x 2 {a n (n + 1) x n-1 + b n (n + 1) x n-2 } = n (n + 1) (ax n+1 + bx -n ) = n (n + 1)y",
+      "solution": ""
+    },
+    {
+      "n": 4,
+      "question_id": 262417,
+      "question_text": "If the determinant {tex}\\left|\\begin{array}{ccc} a & b & 2 a \\alpha+3 b \\\\ b & c & 2 b \\alpha+3 c \\\\ 2 a \\alpha+3 b & 2 b \\alpha+3 c & 0 \\end{array}\\right|{/tex} = 0, then the nature of a,b,c will be",
+      "question_html": "<p>If the determinant&nbsp;<span class=\"math-tex\">{tex}\\left|\\begin{array}{ccc} a &amp; b &amp; 2 a \\alpha+3 b \\\\ b &amp; c &amp; 2 b \\alpha+3 c \\\\ 2 a \\alpha+3 b &amp; 2 b \\alpha+3 c &amp; 0 \\end{array}\\right|{/tex}</span>&nbsp;= 0, then the nature of a,b,c will be</p>",
+      "options": [
+        {
+          "id": 378363,
+          "text": "a, b, c are in A.P.",
+          "html": "a, b, c are in A.P.",
+          "is_correct": false
+        },
+        {
+          "id": 378362,
+          "text": "a, b, c are in G.P. only",
+          "html": "a, b, c are in G.P. only",
+          "is_correct": false
+        },
+        {
+          "id": 378360,
+          "text": "a, b, c are in H.P.",
+          "html": "a, b, c are in H.P.",
+          "is_correct": false
+        },
+        {
+          "id": 378361,
+          "text": "{tex}\\alpha{/tex} is a root of 4ax 2 + 12bx + 9c = 0 or,a, b, c are in G.P.",
+          "html": "<span class=\"math-tex\">{tex}\\alpha{/tex}</span>&nbsp;is a root of 4ax<sup>2</sup> + 12bx + 9c = 0 or,a, b, c are in G.P.",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "{tex}\\alpha{/tex} is a root of 4ax 2 + 12bx + 9c = 0 or,a, b, c are in G.P.",
+      "correct_option_ids": [
+        378361
+      ],
+      "explanation": "{tex}\\alpha\\;satisfies\\;the\\;given\\;equation\\;under\\;the\\;condition\\;that\\;the\\;a,b,c\\;are\\;in\\;GP.{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 5,
+      "question_id": 59814,
+      "question_text": "In Corner point method for solving a linear programming problem the first step is to",
+      "question_html": "<p>In Corner point method for solving a linear programming problem the first step is to</p>",
+      "options": [
+        {
+          "id": 194443,
+          "text": "Find the infeasible region of the linear programming problem and determine its complement",
+          "html": "Find the infeasible region of the linear programming problem and determine its complement",
+          "is_correct": false
+        },
+        {
+          "id": 194444,
+          "text": "Find the infeasible regions of the linear programming problem and determine theunion of the infeasible regions",
+          "html": "Find the infeasible regions of the linear programming problem and determine theunion of the infeasible regions",
+          "is_correct": false
+        },
+        {
+          "id": 194442,
+          "text": "Find the feasible region of the linear programming problem and determine its center points (vertices).",
+          "html": "Find the feasible region of the linear programming problem and determine its center points (vertices).",
+          "is_correct": false
+        },
+        {
+          "id": 194441,
+          "text": "Find the feasible region of the linear programming problem and determine its corner points (vertices).",
+          "html": "Find the feasible region of the linear programming problem and determine its corner points (vertices).",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Find the feasible region of the linear programming problem and determine its corner points (vertices).",
+      "correct_option_ids": [
+        194441
+      ],
+      "explanation": "In Corner point method for solving a linear programming problem the first step is : To find the feasible region of the linear programming problem and determine its corner points (vertices) either by inspection or by solving the two equations of the lines intersecting at that point.",
+      "solution": ""
+    },
+    {
+      "n": 6,
+      "question_id": 271445,
+      "question_text": "f(x) = sin x is increasing in",
+      "question_html": "<p>f(x) = sin x is increasing in</p>",
+      "options": [
+        {
+          "id": 385248,
+          "text": "{tex}\\left(\\frac{\\pi}{2}, \\pi\\right){/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\left(\\frac{\\pi}{2}, \\pi\\right){/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 385251,
+          "text": "{tex}\\left(\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right){/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\left(\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right){/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 385249,
+          "text": "{tex}\\left(\\pi, \\frac{3 \\pi}{2}\\right){/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\left(\\pi, \\frac{3 \\pi}{2}\\right){/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 385250,
+          "text": "{tex}(0, \\pi){/tex}",
+          "html": "<span class=\"math-tex\">{tex}(0, \\pi){/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\left(\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right){/tex}",
+      "correct_option_ids": [
+        385251
+      ],
+      "explanation": "{tex}\\left(\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right){/tex} Given function,f(x) is sin x {tex}\\therefore {/tex} f&#39;(x) = cos x {tex}\\Rightarrow{/tex} f&#39;(x) = cos x = 0 {tex}\\Rightarrow{/tex} for {tex}x \\in\\left(\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right){/tex} f&#39;(x) is increasing,we {tex}\\therefore {/tex} f(x) is increasing in {tex}\\left(\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right){/tex} . Which is the required solution.",
+      "solution": ""
+    },
+    {
+      "n": 7,
+      "question_id": 59270,
+      "question_text": "If A and B are square matrices of same order and A&rsquo; denotes the transpose of A, then",
+      "question_html": "<p>If A and B are square matrices of same order and A&rsquo; denotes the transpose of A, then</p>",
+      "options": [
+        {
+          "id": 192268,
+          "text": "(AB)&rsquo; = A&rsquo;B&rsquo;",
+          "html": "(AB)&rsquo; = A&rsquo;B&rsquo;",
+          "is_correct": false
+        },
+        {
+          "id": 192267,
+          "text": "(AB)&rsquo; = B&rsquo;A&rsquo;",
+          "html": "(AB)&rsquo; = B&rsquo;A&rsquo;",
+          "is_correct": true
+        },
+        {
+          "id": 192270,
+          "text": "AB = O {tex} \\Rightarrow {/tex} A = 0 or B = 0",
+          "html": "AB = O <span class=\"math-tex\">{tex} \\Rightarrow {/tex}</span> A = 0 or B = 0",
+          "is_correct": false
+        },
+        {
+          "id": 192269,
+          "text": "AB = O {tex} \\Rightarrow {/tex} |A| = 0 and |B| = 0",
+          "html": "AB = O <span class=\"math-tex\">{tex} \\Rightarrow {/tex}</span>|A| = 0 and |B| = 0",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "(AB)&rsquo; = B&rsquo;A&rsquo;",
+      "correct_option_ids": [
+        192267
+      ],
+      "explanation": "By the property of transpose of a matrix, (AB)&rsquo; = B&rsquo;A&rsquo;.",
+      "solution": ""
+    },
+    {
+      "n": 8,
+      "question_id": 263565,
+      "question_text": "If the ratio of base radius and height of a cone is 1:2 and percentage error in radius is x%, then the error in its volume is",
+      "question_html": "<p>If the ratio of base radius and height of a cone is 1:2 and percentage error in radius is x%, then the error in its volume is</p>",
+      "options": [
+        {
+          "id": 379091,
+          "text": "15 {tex}\\lambda{/tex} %",
+          "html": "15<span class=\"math-tex\">{tex}\\lambda{/tex}</span>%",
+          "is_correct": false
+        },
+        {
+          "id": 379088,
+          "text": "3&lambda;%",
+          "html": "3&lambda;%",
+          "is_correct": true
+        },
+        {
+          "id": 379090,
+          "text": "13 {tex}\\lambda{/tex} %",
+          "html": "13<span class=\"math-tex\">{tex}\\lambda{/tex}</span>%",
+          "is_correct": false
+        },
+        {
+          "id": 379089,
+          "text": "{tex}\\lambda{/tex} %",
+          "html": "<span class=\"math-tex\">{tex}\\lambda{/tex}</span>%",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "3&lambda;%",
+      "correct_option_ids": [
+        379088
+      ],
+      "explanation": "Given that the radius is half than the height of the cone so Suppose h = 2x (where x is radius and h is height of the cone) Volume of the cone = v {tex}=\\left(\\frac{1}{3}\\right) \\times \\pi x^{2} \\times h{/tex} {tex}=\\left(\\frac{2}{3}\\right) \\times \\pi x^{3}{/tex} (because h = 2x ) {tex}\\Delta v=\\left(\\frac{2}{3}\\right) \\pi \\times 3 x^{2} \\Delta x{/tex} {tex}\\Delta{/tex} v = 2 {tex}\\pi{/tex} x 2 {tex}\\Delta{/tex} x Therefore finally , we obtain {tex}\\left(\\frac{\\Delta \\mathrm{v}}{\\mathrm{v}}\\right) \\times 100=3 \\cdot\\left(\\frac{\\Delta \\mathrm{x}}{\\mathrm{x}}\\right) \\times 100{/tex} = 3 {tex}\\lambda{/tex} %",
+      "solution": ""
+    },
+    {
+      "n": 9,
+      "question_id": 59808,
+      "question_text": "In linear programming infeasible solutions",
+      "question_html": "<p>In linear programming infeasible solutions</p>",
+      "options": [
+        {
+          "id": 194417,
+          "text": "fall outside the feasible region",
+          "html": "fall outside the feasible region",
+          "is_correct": true
+        },
+        {
+          "id": 194420,
+          "text": "fall inside the a regular polygon",
+          "html": "fall inside the a regular polygon",
+          "is_correct": false
+        },
+        {
+          "id": 194419,
+          "text": "fall inside the feasible region",
+          "html": "fall inside the feasible region",
+          "is_correct": false
+        },
+        {
+          "id": 194418,
+          "text": "fall on the x = 0 plane",
+          "html": "fall on the x = 0 plane",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "fall outside the feasible region",
+      "correct_option_ids": [
+        194417
+      ],
+      "explanation": "In linear programming infeasible solutions fall outside the feasible region. In other words, it the region other than the feasible region is called the infeasible region.",
+      "solution": ""
+    },
+    {
+      "n": 10,
+      "question_id": 260304,
+      "question_text": "The matrix A = {tex}\\left[\\begin{array}{lll} {0} & {0} & {5} \\\\ {0} & {5} & {0} \\\\ {5} & {0} & {0} \\end{array}\\right]{/tex} is a",
+      "question_html": "<p>The matrix A =&nbsp;<span class=\"math-tex\">{tex}\\left[\\begin{array}{lll} {0} &amp; {0} &amp; {5} \\\\ {0} &amp; {5} &amp; {0} \\\\ {5} &amp; {0} &amp; {0} \\end{array}\\right]{/tex}</span> is a</p>\r\n",
+      "options": [
+        {
+          "id": 376871,
+          "text": "square matrix",
+          "html": "square matrix",
+          "is_correct": true
+        },
+        {
+          "id": 376869,
+          "text": "diagonal matrix",
+          "html": "diagonal matrix",
+          "is_correct": false
+        },
+        {
+          "id": 376868,
+          "text": "scalar matrix",
+          "html": "scalar matrix",
+          "is_correct": false
+        },
+        {
+          "id": 376870,
+          "text": "unit matrix",
+          "html": "unit matrix",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "square matrix",
+      "correct_option_ids": [
+        376871
+      ],
+      "explanation": "square matrix, In a given matrix the number of rows is equal to the number of columns.",
+      "solution": ""
+    },
+    {
+      "n": 11,
+      "question_id": 59329,
+      "question_text": "{tex}\\mathop {Lt}\\limits_{x \\to \\infty } \\;{\\left( {\\;\\frac{{2x + 3}}{{2x + 1}}} \\right)^x}{/tex} is equal to",
+      "question_html": "<p><span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to \\infty } \\;{\\left( {\\;\\frac{{2x + 3}}{{2x + 1}}} \\right)^x}{/tex}</span>is equal to</p>",
+      "options": [
+        {
+          "id": 192506,
+          "text": "{tex}-{e^{1/2}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}-{e^{1/2}}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 192504,
+          "text": "e",
+          "html": "e",
+          "is_correct": false
+        },
+        {
+          "id": 192505,
+          "text": "{tex}{e^{1/2}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}{e^{1/2}}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 192503,
+          "text": "{tex}{e^2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}{e^2}{/tex}</span>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "{tex}{e^2}{/tex}",
+      "correct_option_ids": [
+        192503
+      ],
+      "explanation": "We know that, {tex}{\\lim _{x \\to \\infty }}{(1 + \\frac{a}{x})^x} = {e^a}{/tex} ....(1) Now, {tex}{\\lim _{x \\to \\infty }}{\\left( {\\frac{{2x + 3}}{{2x + 1}}} \\right)^x} = {\\lim _{x \\to \\infty }}{\\left( {1 + \\frac{2}{{2x + 1}}} \\right)^x} = {e^2},{/tex} by eq(1)",
+      "solution": ""
+    },
+    {
+      "n": 12,
+      "question_id": 59819,
+      "question_text": "If two corner points of the feasible region are both optimal solutions of the same type, i.e., both produce the same maximum or minimum.",
+      "question_html": "<p>If two corner points of the feasible region are both optimal solutions of the same type, i.e., both produce the same maximum or minimum.</p>",
+      "options": [
+        {
+          "id": 194463,
+          "text": "then no point on the line segment joining these two points is an optimal solution of the same type",
+          "html": "then no point on the line segment joining these two points is an optimal solution of the same type",
+          "is_correct": false
+        },
+        {
+          "id": 194461,
+          "text": "then any point on the line segment joining these two points is also an optimal solution of the same type",
+          "html": "then any point on the line segment joining these two points is also an optimal solution of the same type",
+          "is_correct": true
+        },
+        {
+          "id": 194462,
+          "text": "then any point on the line segment joining these two points is also an optimal solution of the opposite type",
+          "html": "then any point on the line segment joining these two points is also an optimal solution of the opposite type",
+          "is_correct": false
+        },
+        {
+          "id": 194464,
+          "text": "then no point on the line segment joining these two points is an optimal solution of the opposite type",
+          "html": "then no point on the line segment joining these two points is an optimal solution of the opposite type",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "then any point on the line segment joining these two points is also an optimal solution of the same type",
+      "correct_option_ids": [
+        194461
+      ],
+      "explanation": "If two corner points of the feasible region are both optimal solutions of the same type, i.e., both produce the same maximum or minimum , then any point on the line segment joining these two points is also an optimal solution of the same type .",
+      "solution": ""
+    },
+    {
+      "n": 13,
+      "question_id": 264560,
+      "question_text": "If the function f(x) = kx 3 - 9x 2 + 9 x + 3 is monotonically increasing in every interval, then",
+      "question_html": "<p>If the function f(x) = kx<sup>3</sup> - 9x<sup>2 </sup>+ 9 x + 3 is monotonically increasing in every interval, then</p>",
+      "options": [
+        {
+          "id": 379587,
+          "text": "{tex}k\\ge3{/tex}",
+          "html": "<span class=\"math-tex\">{tex}k\\ge3{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 379585,
+          "text": "{tex}k \\leq 3{/tex}",
+          "html": "<span class=\"math-tex\">{tex}k \\leq 3{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 379584,
+          "text": "k < 3",
+          "html": "k &lt; 3",
+          "is_correct": false
+        },
+        {
+          "id": 379586,
+          "text": "k > 3",
+          "html": "k &gt; 3",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "k > 3",
+      "correct_option_ids": [
+        379586
+      ],
+      "explanation": "f(x) = kx 3 - 9x 2 + 9x + 3 f&#39;(x) = 3kx 2 - 18x + 9 = 3(kx 2 - 6x + 3) Given: f(x) is monotonically increasing in every interval. {tex}\\Rightarrow{/tex} f&#39;(x) > 0 {tex}\\Rightarrow{/tex} 3(kx 2 - 6x + 3) > 0 {tex}\\Rightarrow{/tex} (kx 2 - 6x = 3) > 0 {tex}\\Rightarrow{/tex} K > 0 and (-6) 2 - 4(k)(3) < 0 [ {tex}\\because{/tex} ax 2 + bx + c > 0 and D is c < 0] {tex}\\Rightarrow{/tex} k > 0 and (-6) 2 - 4(k) (3) < 0 {tex}\\Rightarrow{/tex} k > 0 and 36 - 12k < 0 {tex}\\Rightarrow{/tex} k > 0 and 12k > 36 {tex}\\Rightarrow{/tex} k > 0 and k > 3 {tex}\\Rightarrow{/tex} k > 3",
+      "solution": ""
+    },
+    {
+      "n": 14,
+      "question_id": 263652,
+      "question_text": "The function {tex}f(x)=\\left\\{\\begin{array}{ll} \\frac{e^{1 / x}-1}{e^{1 / x}+1}, & x \\neq 0 \\\\ 0, & x=0 \\end{array}\\right.{/tex}",
+      "question_html": "<p>The function&nbsp;<span class=\"math-tex\">{tex}f(x)=\\left\\{\\begin{array}{ll} \\frac{e^{1 / x}-1}{e^{1 / x}+1}, &amp; x \\neq 0 \\\\ 0, &amp; x=0 \\end{array}\\right.{/tex}</span></p>",
+      "options": [
+        {
+          "id": 379191,
+          "text": "is continuous at x = 1",
+          "html": "is continuous at x = 1",
+          "is_correct": false
+        },
+        {
+          "id": 379188,
+          "text": "is continuous at x = 0",
+          "html": "is continuous at x = 0",
+          "is_correct": false
+        },
+        {
+          "id": 379190,
+          "text": "is not continuous at x = 0, but can be made continuous at x = 0",
+          "html": "is not continuous at x = 0, but can be made continuous at x = 0",
+          "is_correct": false
+        },
+        {
+          "id": 379189,
+          "text": "is not continuous at x = 0",
+          "html": "is not continuous at x = 0",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "is not continuous at x = 0",
+      "correct_option_ids": [
+        379189
+      ],
+      "explanation": "Given: {tex}f(x)=\\left\\{\\begin{array}{ll} \\frac{e^{1 / x}-1}{e^{1 / x}+1}, & x \\neq 0 \\\\ 0, & x=0 \\end{array}\\right.{/tex} We have {tex}\\lim _\\limits{x \\rightarrow 0} f(x)=\\lim _\\limits{x \\rightarrow 0}\\left(\\frac{e^{\\frac{1}{x}}-1}{e^{\\frac{1}{x}}+1}\\right){/tex} If {tex}e^{\\frac{1}{x}}=t,{/tex} then {tex}x \\rightarrow 0, t \\rightarrow \\infty{/tex} Also, f(0) = 0 {tex}\\therefore \\lim _\\limits{x \\rightarrow 0} f(x) \\neq f(0){/tex} Hence, f(x) is discontinuous at x = 0",
+      "solution": ""
+    },
+    {
+      "n": 15,
+      "question_id": 266980,
+      "question_text": "If {tex}f(x)=\\left\\{\\begin{array}{ccc} \\frac{1-\\sin ^{2} x}{3 \\cos ^{2} x} & , & x<\\frac{\\pi}{2} \\\\ a & , & x=\\frac{\\pi}{2} \\\\ \\frac{b(1-\\sin x)}{(\\pi-2 x)^{2}} & , & x>\\frac{\\pi}{2} \\end{array}\\right.{/tex} Then, f(x) is continuous at {tex}x=\\frac{\\pi}{2}{/tex} , if",
+      "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}f(x)=\\left\\{\\begin{array}{ccc} \\frac{1-\\sin ^{2} x}{3 \\cos ^{2} x} &amp; , &amp; x&lt;\\frac{\\pi}{2} \\\\ a &amp; , &amp; x=\\frac{\\pi}{2} \\\\ \\frac{b(1-\\sin x)}{(\\pi-2 x)^{2}} &amp; , &amp; x&gt;\\frac{\\pi}{2} \\end{array}\\right.{/tex}</span>&nbsp;Then, f(x) is continuous at&nbsp;<span class=\"math-tex\">{tex}x=\\frac{\\pi}{2}{/tex}</span>, if</p>",
+      "options": [
+        {
+          "id": 380824,
+          "text": "{tex}a=\\frac{1}{3},{/tex} b = 2",
+          "html": "<span class=\"math-tex\">{tex}a=\\frac{1}{3},{/tex}</span> b = 2",
+          "is_correct": false
+        },
+        {
+          "id": 380825,
+          "text": "{tex}a=\\frac{1}{3}, b=\\frac{8}{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}a=\\frac{1}{3}, b=\\frac{8}{3}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 380826,
+          "text": "{tex}a=\\frac{2}{3}, b=\\frac{8}{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}a=\\frac{2}{3}, b=\\frac{8}{3}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 380827,
+          "text": "{tex}a=\\frac{4}{3}, b=\\frac{7}{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}a=\\frac{4}{3}, b=\\frac{7}{3}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}a=\\frac{1}{3}, b=\\frac{8}{3}{/tex}",
+      "correct_option_ids": [
+        380825
+      ],
+      "explanation": "Let f(x) be continuous at x = {tex}\\frac{\\pi}{2}{/tex} Then LHL = {tex}\\mathop {\\lim }\\limits_{x \\to {{(\\frac{\\pi }{2})}^ - }} \\frac{{1 - {{\\sin }^2}x}}{{3{{\\cos }^2}x}}{/tex} {tex}\\Rightarrow{/tex} a = {tex}\\mathop {\\lim }\\limits_{x \\to {{(\\frac{\\pi }{2})}^ - }} \\frac{{{{\\cos }^2}x}}{{3{{\\cos }^2}x}}{/tex} = {tex}\\frac{1}{3}{/tex} {tex}\\Rightarrow{/tex} a = {tex}\\frac{1}{3}{/tex} Again, RHL = {tex}\\mathop {\\lim }\\limits_{x \\to {{(\\frac{\\pi }{2})}^ + }} \\frac{{b(1 - \\sin x)}}{{{{(\\pi - 2x)}^2}}}{/tex} {tex}\\Rightarrow{/tex} a = {tex}\\mathop {\\lim }\\limits_{h \\to 0} \\frac{{b(1 - \\sin (\\frac{\\pi }{2} + h))}}{{{{[\\pi - 2(\\frac{\\pi }{2} + h)]}^2}}}{/tex} = b {tex}\\mathop {\\lim }\\limits_{h \\to 0} \\frac{{(1 - \\cos \\,h)}}{{{{[\\pi - \\pi - 2h)}^2}}}{/tex} = b {tex}\\mathop {\\lim }\\limits_{h \\to 0} \\frac{{(1 - \\cos \\,h)}}{{4{h^2}}}{/tex} = b {tex}\\mathop {\\lim }\\limits_{h \\to 0} \\frac{{2{{\\sin }^2}\\frac{h}{2}}}{{\\frac{{{h^2}}}{4} \\times {4^2}}}{/tex} {tex}\\Rightarrow{/tex} a = {tex}\\frac{2b}{16}{/tex} {tex}\\Rightarrow{/tex} {tex}\\frac{1}{3}{/tex} = {tex}\\frac{b}{8}{/tex} {tex}\\Rightarrow{/tex} b = {tex}\\frac{8}{3}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 16,
+      "question_id": 263562,
+      "question_text": "If log e 4 = 1.3868, then log e 4.01 =",
+      "question_html": "<p>If log<sub>e</sub>&nbsp;4 = 1.3868, then log<sub>e</sub>&nbsp;4.01 =</p>",
+      "options": [
+        {
+          "id": 379079,
+          "text": "1.3689",
+          "html": "1.3689",
+          "is_correct": false
+        },
+        {
+          "id": 379078,
+          "text": "1.3898",
+          "html": "1.3898",
+          "is_correct": false
+        },
+        {
+          "id": 379077,
+          "text": "1.3968",
+          "html": "1.3968",
+          "is_correct": false
+        },
+        {
+          "id": 379076,
+          "text": "1.3893",
+          "html": "1.3893",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "1.3893",
+      "correct_option_ids": [
+        379076
+      ],
+      "explanation": "let y = f(x) = logx Let x = 4, X + {tex}\\Delta{/tex} x = 4.01, {tex}\\Delta{/tex} x = 0.01, For x = 4, y = log4 = 1.3868, y = logx {tex}\\frac{d y}{d x}=\\frac{1}{x}=\\frac{1}{4}{/tex} &Delta;y = dy {tex}=\\left(\\frac{d y}{d x}\\right) \\cdot d x{/tex} {tex}=\\left(\\frac{1}{4}\\right) \\times 0.01{/tex} {tex}\\Delta{/tex} y = 0.0025 So, log(4.01) = y + {tex}\\Delta{/tex} y = 1.3893",
+      "solution": ""
+    },
+    {
+      "n": 17,
+      "question_id": 271335,
+      "question_text": "If y = tan -1 {tex}\\left(\\frac{1-\\cos x}{\\sin x}\\right){/tex} then {tex}\\frac{d y}{d x}={/tex} ?",
+      "question_html": "<p>If y = tan<sup>-1</sup>&nbsp;<span class=\"math-tex\">{tex}\\left(\\frac{1-\\cos x}{\\sin x}\\right){/tex}</span>&nbsp;then&nbsp;<span class=\"math-tex\">{tex}\\frac{d y}{d x}={/tex}</span>&nbsp;?</p>\r\n",
+      "options": [
+        {
+          "id": 384970,
+          "text": "-1",
+          "html": "-1",
+          "is_correct": false
+        },
+        {
+          "id": 384971,
+          "text": "{tex}\\frac {1} {2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac {1} {2}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 384972,
+          "text": "{tex}\\frac {-1} {2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac {-1} {2}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 384969,
+          "text": "1",
+          "html": "1",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\frac {1} {2}{/tex}",
+      "correct_option_ids": [
+        384971
+      ],
+      "explanation": "Given that y = {tex}\\tan ^{-1}\\left(\\frac{1-\\cos x}{\\sin x}\\right){/tex} Using 1 - cos x = 2sin 2 {tex}\\frac {x} {2}{/tex} and Using sin x = 2 sin x {tex}\\frac{x}{2} \\cos \\frac{x}{2}{/tex} , we obtain y = {tex}\\tan ^{-1}\\left(\\frac{2 \\sin ^{2} \\frac{x}{2}}{2 \\sin \\frac{x}{2} \\cos \\frac{x}{2}}\\right){/tex} or y = {tex}\\tan ^{-1} \\tan \\frac{x}{2}{/tex} {tex}y=\\frac{x}{2}{/tex} Differentiating with respect to x, we obtain {tex}\\frac{d y}{d x}=\\frac{1}{2}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 18,
+      "question_id": 269129,
+      "question_text": "The value of tan -1 {tex}\\left(\\tan \\frac{7 \\pi}{6}\\right){/tex} is",
+      "question_html": "<p>The value of tan<sup>-1&nbsp;</sup><span class=\"math-tex\">{tex}\\left(\\tan \\frac{7 \\pi}{6}\\right){/tex}</span>&nbsp;is</p>",
+      "options": [
+        {
+          "id": 382280,
+          "text": "{tex}\\frac{\\pi}{2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{\\pi}{2}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 382279,
+          "text": "{tex}\\frac{7\\pi}{6}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{7\\pi}{6}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 382282,
+          "text": "{tex}\\frac{\\pi}{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{\\pi}{3}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 382281,
+          "text": "{tex}\\frac{\\pi}{6}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{\\pi}{6}{/tex}</span>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{\\pi}{6}{/tex}",
+      "correct_option_ids": [
+        382281
+      ],
+      "explanation": "Let x = tan -1 {tex}\\left(tan \\frac{7 \\pi}{6}\\right){/tex} {tex}\\Rightarrow{/tex} tan x = tan {tex}\\left(\\frac{7 \\pi}{6}\\right){/tex} Here the range of principle value of tan is {tex}\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} {tex}\\Rightarrow x=\\frac{7 \\pi}{6} \\notin\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} Therefore for all values of x in range {tex}\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} , the value of tan -1 {tex}\\left(tan \\frac{7 \\pi}{6}\\right){/tex} is {tex}\\Rightarrow{/tex} tan x = tan {tex}\\left(\\pi+\\frac{\\pi}{6}\\right){/tex} [ {tex}\\because{/tex} tan {tex}\\left(\\frac{7 \\pi}{6}\\right){/tex} = {tex}\\left(\\pi+\\frac{\\pi}{6}\\right){/tex} ] {tex}\\Rightarrow{/tex} tan x = tan {tex}\\left(\\frac{\\pi}{6}\\right){/tex} ( {tex}\\because{/tex} tan {tex}(\\pi + \\theta){/tex} = tan {tex}\\theta{/tex} ) {tex}\\Rightarrow \\mathrm{X}=\\frac{\\pi}{6}{/tex} . Which is the required solution.",
+      "solution": ""
+    },
+    {
+      "n": 19,
+      "question_id": 265539,
+      "question_text": "The function f(x) = 1 + |cos x| is",
+      "question_html": "<p>The function f(x) = 1 + |cos x| is</p>",
+      "options": [
+        {
+          "id": 380447,
+          "text": "not differentiable at x = n {tex}\\pi{/tex} , n {tex}\\in{/tex} Z",
+          "html": "not differentiable at x = n<span class=\"math-tex\">{tex}\\pi{/tex}</span>, n<span class=\"math-tex\">{tex}\\in{/tex}</span>Z",
+          "is_correct": false
+        },
+        {
+          "id": 380445,
+          "text": "continuous no where",
+          "html": "continuous no where",
+          "is_correct": false
+        },
+        {
+          "id": 380444,
+          "text": "continuous everywhere",
+          "html": "continuous everywhere",
+          "is_correct": true
+        },
+        {
+          "id": 380446,
+          "text": "not differentiable at x = 0",
+          "html": "not differentiable at x = 0",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "continuous everywhere",
+      "correct_option_ids": [
+        380444
+      ],
+      "explanation": "Given that f(x) = 1 + |cos x|. From the graph it is evident that it is continuous everywhere.",
+      "solution": ""
+    },
+    {
+      "n": 20,
+      "question_id": 59393,
+      "question_text": "An edge of a variable cube is increasing at the rate of 3cm/sec. Find the rate at which the volume of the cube is increasing when the edge is 10cm long.",
+      "question_html": "<p>An edge of a variable cube is increasing at the rate of 3cm/sec. Find the rate at which the volume of the cube is increasing when the edge is 10cm long.</p>",
+      "options": [
+        {
+          "id": 192759,
+          "text": "{tex}900{ cm }^{ 3 }/sec{/tex}",
+          "html": "<span class=\"math-tex\">{tex}900{ cm }^{ 3 }/sec{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 192762,
+          "text": "{tex}700{ cm }^{ 3 }/sec{/tex}",
+          "html": "<span class=\"math-tex\">{tex}700{ cm }^{ 3 }/sec{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 192761,
+          "text": "{tex}400{ cm }^{ 3 }/sec{/tex}",
+          "html": "<span class=\"math-tex\">{tex}400{ cm }^{ 3 }/sec{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 192760,
+          "text": "{tex}800{ cm }^{ 3 }/sec{/tex}",
+          "html": "<span class=\"math-tex\">{tex}800{ cm }^{ 3 }/sec{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}900{ cm }^{ 3 }/sec{/tex}",
+      "correct_option_ids": [
+        192759
+      ],
+      "explanation": "Let the side of the cube is x Given {tex} \\frac { dx }{ dt } =3cm/sec{/tex} We have volume of a cube = V = x 3 Now, {tex}\\frac { dV }{ dt } =\\frac { d }{ dt } \\left( { x }^{ 3 } \\right) =\\frac { d }{ dx } \\left( { x }^{ 3 } \\right) \\frac { dx }{ dt } =3{ x }^{ 2 }.\\frac { dx }{ dt } =9{ x }^{ 2 }{/tex} When x = 10 cm then {tex}\\frac { dV }{ dt } =\\quad 9.{ \\left( 10 \\right) }^{ 2 }=900{ cm }^{ 3 }/sec{/tex} . Which is the required solution.",
+      "solution": ""
+    },
+    {
+      "n": 21,
+      "question_id": 263283,
+      "question_text": "Which of the following functions from {tex}A=\\{x \\in R:-1 \\leq x \\leq 1\\}{/tex} to itself are bijections?",
+      "question_html": "<p>Which of the following functions from <span class=\"math-tex\">{tex}A=\\{x \\in R:-1 \\leq x \\leq 1\\}{/tex}</span> to itself are bijections?</p>",
+      "options": [
+        {
+          "id": 378918,
+          "text": "{tex}f(x)=\\sin \\frac{\\pi x}{4}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}f(x)=\\sin \\frac{\\pi x}{4}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 378917,
+          "text": "{tex}f(x)=\\sin \\frac{\\pi x}{2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}f(x)=\\sin \\frac{\\pi x}{2}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 378916,
+          "text": "f(x) = |x|",
+          "html": "f(x) = |x|",
+          "is_correct": false
+        },
+        {
+          "id": 378919,
+          "text": "{tex}f(x)=\\sin \\frac{\\pi x}{6}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}f(x)=\\sin \\frac{\\pi x}{6}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}f(x)=\\sin \\frac{\\pi x}{2}{/tex}",
+      "correct_option_ids": [
+        378917
+      ],
+      "explanation": "It is bijection as it is one-one and onto. Range of f(x) {tex}\\in{/tex} [-1, 1]",
+      "solution": ""
+    },
+    {
+      "n": 22,
+      "question_id": 59389,
+      "question_text": "Tangents to the curve y = x 3 at the points (1, 1) and ( &ndash; 1, &ndash; 1) are",
+      "question_html": "<p>Tangents to the curve y = x<sup>3</sup> at the points (1, 1) and ( &ndash; 1, &ndash; 1) are</p>",
+      "options": [
+        {
+          "id": 192744,
+          "text": "perpendicular",
+          "html": "perpendicular",
+          "is_correct": false
+        },
+        {
+          "id": 192743,
+          "text": "parallel",
+          "html": "parallel",
+          "is_correct": true
+        },
+        {
+          "id": 192745,
+          "text": "intersecting but not at right angles",
+          "html": "intersecting but not at right angles",
+          "is_correct": false
+        },
+        {
+          "id": 192746,
+          "text": "at right angles",
+          "html": "at right angles",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "parallel",
+      "correct_option_ids": [
+        192743
+      ],
+      "explanation": "y = x 3 {tex} \\frac { { dy } }{ { dx } } =\\frac { d }{ { dx } } ({ x^{ 3 } })=3{ x^{ 2 } }{/tex} So, {tex}\\frac { { dy } }{ { dx } } \\quad at\\quad (1,1)=3{/tex} and {tex} \\frac { { dy } }{ { dx } } \\quad at\\;(–1,–1)=3{/tex} Since the slopes are equal, the tangents are parallel.",
+      "solution": ""
+    },
+    {
+      "n": 23,
+      "question_id": 59868,
+      "question_text": "Determine the maximum value of Z = 3x + 4y if the feasible region (shaded) for a LPP is shown in Figure above.",
+      "question_html": "<p>Determine the maximum value of Z = 3x + 4y if the feasible region (shaded) for a LPP is shown in Figure above.<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/math/52041_0.jpg\" /></p>",
+      "options": [
+        {
+          "id": 194657,
+          "text": "196",
+          "html": "196",
+          "is_correct": true
+        },
+        {
+          "id": 194659,
+          "text": "216",
+          "html": "216",
+          "is_correct": false
+        },
+        {
+          "id": 194658,
+          "text": "206",
+          "html": "206",
+          "is_correct": false
+        },
+        {
+          "id": 194660,
+          "text": "226",
+          "html": "226",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "196",
+      "correct_option_ids": [
+        194657
+      ],
+      "explanation": "Here , maximize Z = 3x+4y , Corner points Z = 3x + 4 y C( 0 ,38 ) 132 B ( 52 ,0) 156 D(44 , 16) 196 Hence the maximum value is 196",
+      "solution": ""
+    },
+    {
+      "n": 24,
+      "question_id": 264590,
+      "question_text": "If the function f(x) = cos |x| - 2ax + b increases along the entire number scale, then",
+      "question_html": "<p>If the function f(x) = cos |x| - 2ax + b increases along the entire number scale, then</p>",
+      "options": [
+        {
+          "id": 379619,
+          "text": "{tex}a>-\\frac{3}{2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}a&gt;-\\frac{3}{2}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 379618,
+          "text": "{tex}a \\leq-\\frac{1}{2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}a \\leq-\\frac{1}{2}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 379617,
+          "text": "{tex}a=\\frac{1}{2} b{/tex}",
+          "html": "<span class=\"math-tex\">{tex}a=\\frac{1}{2} b{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 379616,
+          "text": "a = b",
+          "html": "a = b",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}a \\leq-\\frac{1}{2}{/tex}",
+      "correct_option_ids": [
+        379618
+      ],
+      "explanation": "{tex}a \\leq-\\frac{1}{2}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 25,
+      "question_id": 59328,
+      "question_text": "{tex}\\mathop {Lt}\\limits_{x \\to \\infty } \\;{\\left( {1 + \\frac{3}{x}} \\right)^x}{/tex} is equal to",
+      "question_html": "<p><span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to \\infty } \\;{\\left( {1 + \\frac{3}{x}} \\right)^x}{/tex}</span> is equal to</p>",
+      "options": [
+        {
+          "id": 192501,
+          "text": "3 e",
+          "html": "3 e",
+          "is_correct": false
+        },
+        {
+          "id": 192500,
+          "text": "{tex}{e^{1/3}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}{e^{1/3}}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 192499,
+          "text": "e 3",
+          "html": "e<sup>3</sup>",
+          "is_correct": true
+        },
+        {
+          "id": 192502,
+          "text": "2 e",
+          "html": "2 e",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "e 3",
+      "correct_option_ids": [
+        192499
+      ],
+      "explanation": "{tex}\\mathop {\\lim }\\limits_{x \\to \\infty } {\\left( {1 + \\frac{3}{x}} \\right)^x} {/tex} {tex}= \\mathop {\\lim }\\limits_{t \\to {0^ + }} {\\left( {1 + 3t} \\right)^{\\frac{1}{t}}} = \\mathop {\\lim }\\limits_{3t \\to {0^ + }} {\\left[ {{{\\left( {1 + 3t} \\right)}^{\\frac{1}{{3t}}}}} \\right]^3} = {e^3}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 26,
+      "question_id": 265061,
+      "question_text": "The value of {tex}\\cos ^{-1}\\left(\\cos \\frac{5 \\pi}{3}\\right)+\\sin ^{-1}\\left(\\sin \\frac{5 \\pi}{3}\\right){/tex} is",
+      "question_html": "<p>The value of&nbsp;<span class=\"math-tex\">{tex}\\cos ^{-1}\\left(\\cos \\frac{5 \\pi}{3}\\right)+\\sin ^{-1}\\left(\\sin \\frac{5 \\pi}{3}\\right){/tex}</span>&nbsp;is</p>",
+      "options": [
+        {
+          "id": 380111,
+          "text": "0",
+          "html": "0",
+          "is_correct": true
+        },
+        {
+          "id": 380110,
+          "text": "{tex}\\frac{10 \\pi}{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{10 \\pi}{3}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 380109,
+          "text": "{tex}\\frac{5 \\pi}{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{5 \\pi}{3}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 380108,
+          "text": "{tex}\\frac{\\pi}{2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{\\pi}{2}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "0",
+      "correct_option_ids": [
+        380111
+      ],
+      "explanation": "{tex}\\cos ^{-1}\\left(\\cos \\frac{5 \\pi}{3}\\right)+\\sin ^{-1}\\left(\\sin \\frac{5 \\pi}{3}\\right){/tex} {tex}=\\cos ^{-1}\\left(\\cos \\left(2 \\pi-\\frac{\\pi}{3}\\right)\\right){/tex} {tex}+\\sin ^{-1}\\left(\\sin \\left(2 \\pi-\\frac{\\pi}{3}\\right)\\right){/tex} {tex}=\\cos ^{-1}\\left(\\cos \\left(\\frac{\\pi}{3}\\right)\\right){/tex} {tex}+\\sin ^{-1}\\left(-\\sin \\left(\\frac{\\pi}{3}\\right)\\right){/tex} {tex}=\\cos ^{-1}\\left(\\cos \\left(\\frac{\\pi}{3}\\right)\\right){/tex} {tex}-\\sin ^{-1}\\left(\\sin \\left(\\frac{\\pi}{3}\\right)\\right){/tex} {tex}=\\frac{\\pi}{3}-\\frac{\\pi}{3}{/tex} = 0",
+      "solution": ""
+    },
+    {
+      "n": 27,
+      "question_id": 58907,
+      "question_text": "If R is a relation from a non &ndash; empty set A to a non &ndash; empty set B, then",
+      "question_html": "<p>If R is a relation from a non &ndash; empty set A to a non &ndash; empty set B, then</p>",
+      "options": [
+        {
+          "id": 190816,
+          "text": "{tex}R = A \\cup B{/tex}",
+          "html": "<span class=\"math-tex\">{tex}R = A \\cup B{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 190815,
+          "text": "{tex} R \\subseteq A \\times B{/tex}",
+          "html": "<span class=\"math-tex\">{tex} R \\subseteq A \\times B{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 190818,
+          "text": "{tex}R = A \\cap B{/tex}",
+          "html": "<span class=\"math-tex\">{tex}R = A \\cap B{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 190817,
+          "text": "{tex}R = A \\times B{/tex}",
+          "html": "<span class=\"math-tex\">{tex}R = A \\times B{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex} R \\subseteq A \\times B{/tex}",
+      "correct_option_ids": [
+        190815
+      ],
+      "explanation": "Let A and B be two sets. Then a relation R from set A to set B is a subset of A&times;B.Thus, R is a relation from A to B {tex} \\Leftrightarrow R \\subseteq A \\times B{/tex} .",
+      "solution": ""
+    },
+    {
+      "n": 28,
+      "question_id": 59074,
+      "question_text": "If {tex}\\sin {\\text{ }}A{\\text{ }} + {\\text{ }}\\cos {\\text{ }}A{\\text{ }} = {\\text{ }}1{/tex} , then sin 2A is equal to",
+      "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\sin {\\text{ }}A{\\text{ }} + {\\text{ }}\\cos {\\text{ }}A{\\text{ }} = {\\text{ }}1{/tex}</span>, then sin 2A is equal to</p>",
+      "options": [
+        {
+          "id": 191483,
+          "text": "0",
+          "html": "0",
+          "is_correct": true
+        },
+        {
+          "id": 191485,
+          "text": "1",
+          "html": "1",
+          "is_correct": false
+        },
+        {
+          "id": 191486,
+          "text": "{tex}\\frac{1}{2}{/tex} .",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>.",
+          "is_correct": false
+        },
+        {
+          "id": 191484,
+          "text": "2",
+          "html": "2",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "0",
+      "correct_option_ids": [
+        191483
+      ],
+      "explanation": "{tex}{/tex} {tex}{({\\mathop{\\rm sin}\\nolimits} A + {\\mathop{\\rm cos}\\nolimits} A)^2}=si{n^2}A + co{s^2}A + 2sinAcosA\\; {/tex} 1 = 1 + sin 2A So, sin 2A = 0 Hence, A = 0",
+      "solution": ""
+    },
+    {
+      "n": 29,
+      "question_id": 263057,
+      "question_text": "The distance moved by the particle in time t is given by {tex}x=t^{3}-12 t^{2}+6 t+8{/tex} . At the instant when its acceleration is zero, the velocity is",
+      "question_html": "<p>The distance moved by the particle in time t is given by <span class=\"math-tex\">{tex}x=t^{3}-12 t^{2}+6 t+8{/tex}</span>. At the instant when its acceleration is zero, the velocity is</p>",
+      "options": [
+        {
+          "id": 378662,
+          "text": "48",
+          "html": "48",
+          "is_correct": false
+        },
+        {
+          "id": 378663,
+          "text": "-48",
+          "html": "-48",
+          "is_correct": false
+        },
+        {
+          "id": 378660,
+          "text": "42",
+          "html": "42",
+          "is_correct": false
+        },
+        {
+          "id": 378661,
+          "text": "-42",
+          "html": "-42",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "-42",
+      "correct_option_ids": [
+        378661
+      ],
+      "explanation": "{tex}x=t^{3}-12 t^{2}+6 t+8{/tex} Differentiating with respect to t, {tex}v=\\frac{d x}{d t}=3 t^{2}-24 t+6{/tex} {tex}a=\\frac{d^{2} x}{d t^{2}}=6 t-24{/tex} Given that a = 0 {tex}a=\\frac{d^{2} x}{d t^{2}}=6 t-24{/tex} {tex}\\Rightarrow \\frac{d^{2} x}{d t^{2}}=0{/tex} {tex}\\Rightarrow 6 t-24=0 \\Rightarrow t=4{/tex} Velocity v at t = 4, {tex}v=\\frac{d x}{d t}=3 t^{2}-24 t+6{/tex} {tex}v=3 \\times 4^{2}-24 \\times 4+6{/tex} v = - 42",
+      "solution": ""
+    },
+    {
+      "n": 30,
+      "question_id": 260315,
+      "question_text": "If x, y {tex}\\in{/tex} R, then the determinant {tex}\\Delta=\\left|\\begin{array}{ccc} {\\cos x} & {-\\sin x} & {1} \\\\ {\\sin x} & {\\cos x} & {1} \\\\ {\\cos (x+y)} & {-\\sin (x+y)} & {0} \\end{array}\\right|{/tex} is in:",
+      "question_html": "<p>If x, y <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp; R, then the determinant&nbsp;<span class=\"math-tex\">{tex}\\Delta=\\left|\\begin{array}{ccc} {\\cos x} &amp; {-\\sin x} &amp; {1} \\\\ {\\sin x} &amp; {\\cos x} &amp; {1} \\\\ {\\cos (x+y)} &amp; {-\\sin (x+y)} &amp; {0} \\end{array}\\right|{/tex}</span>&nbsp;is in:</p>\r\n",
+      "options": [
+        {
+          "id": 376882,
+          "text": "{tex}[-\\sqrt{2}, 1]{/tex}",
+          "html": "<span class=\"math-tex\">{tex}[-\\sqrt{2}, 1]{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 376880,
+          "text": "{tex}[-\\sqrt{2}, \\sqrt{2}]{/tex}",
+          "html": "<span class=\"math-tex\">{tex}[-\\sqrt{2}, \\sqrt{2}]{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 376881,
+          "text": "[&ndash;1, 1]",
+          "html": "[&ndash;1, 1]",
+          "is_correct": false
+        },
+        {
+          "id": 376883,
+          "text": "{tex}[1,-\\sqrt{2}]{/tex}",
+          "html": "<span class=\"math-tex\">{tex}[1,-\\sqrt{2}]{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}[-\\sqrt{2}, \\sqrt{2}]{/tex}",
+      "correct_option_ids": [
+        376880
+      ],
+      "explanation": "Applying R 3 {tex}\\rightarrow{/tex} R 3 &ndash; cos y R 1 + sin y R 2 , we get {tex}\\Delta=\\left|\\begin{array}{ccc} {\\cos x} & {-\\sin x} & {1} \\\\ {\\sin x} & {\\cos x} & {1} \\\\ {0} & {0} & {\\sin y-\\cos y} \\end{array}\\right|{/tex} Expanding along R 3 , we have {tex}\\Delta{/tex} = (siny &ndash; cosy) (cos 2 x + sin 2 x) {tex}=(\\sin y-\\cos y){/tex} {tex}=\\sqrt{2}\\left[\\frac{1}{\\sqrt{2}} \\sin y-\\frac{1}{\\sqrt{2}} \\cos y\\right]{/tex} {tex}=\\sqrt{2}\\left[\\cos \\frac{\\pi}{4} \\sin y-\\sin \\frac{\\pi}{4} \\cos y\\right]{/tex} {tex}=\\sqrt{2} \\sin \\left(y-\\frac{\\pi}{4}\\right){/tex} Therefore,the required answer is {tex}-\\sqrt{2} \\leq \\Delta \\leq \\sqrt{2}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 31,
+      "question_id": 260406,
+      "question_text": "The function f (x) = |x| + |x - 1| is",
+      "question_html": "<p>The function f (x) =&nbsp;|x| + |x - 1| is</p>",
+      "options": [
+        {
+          "id": 377000,
+          "text": "continuous at x = 0 as well as at x = 1.",
+          "html": "continuous at x = 0 as well as at x = 1.",
+          "is_correct": true
+        },
+        {
+          "id": 377002,
+          "text": "discontinuous at x = 0 as well as at x = 1.",
+          "html": "discontinuous at x = 0 as well as at x = 1.",
+          "is_correct": false
+        },
+        {
+          "id": 377003,
+          "text": "continuous at x = 0 but not at x = 1.",
+          "html": "continuous at x = 0 but not at x = 1.",
+          "is_correct": false
+        },
+        {
+          "id": 377001,
+          "text": "continuous at x = 1 but not at x = 0.",
+          "html": "continuous at x = 1 but not at x = 0.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "continuous at x = 0 as well as at x = 1.",
+      "correct_option_ids": [
+        377000
+      ],
+      "explanation": "continuous at x = 0 as well as at x = 1.",
+      "solution": ""
+    },
+    {
+      "n": 32,
+      "question_id": 263737,
+      "question_text": "If {tex}f(x)=\\left\\{\\begin{array}{cc} a x^{2}+b & ,\\ \\ \\ 0 \\leq x<1 \\\\ 4 & , \\ \\ \\ \\ \\ \\ \\ \\ \\quad x=1 \\\\ x+3 & , \\quad 1<x \\leq 2 \\end{array}\\right.{/tex} then the value of (a, b) for which f(x) cannot be continuous at x = 1, is",
+      "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}f(x)=\\left\\{\\begin{array}{cc} a x^{2}+b &amp; ,\\ \\ \\ 0 \\leq x&lt;1 \\\\ 4 &amp; , \\ \\ \\ \\ \\ \\ \\ \\ \\quad x=1 \\\\ x+3 &amp; , \\quad 1&lt;x \\leq 2 \\end{array}\\right.{/tex}</span>&nbsp;then the value of (a, b) for which f(x) cannot be continuous at x = 1, is</p>",
+      "options": [
+        {
+          "id": 379274,
+          "text": "(4, 0)",
+          "html": "(4, 0)",
+          "is_correct": false
+        },
+        {
+          "id": 379273,
+          "text": "(3, 1)",
+          "html": "(3, 1)",
+          "is_correct": false
+        },
+        {
+          "id": 379272,
+          "text": "(2, 2)",
+          "html": "(2, 2)",
+          "is_correct": false
+        },
+        {
+          "id": 379275,
+          "text": "(5, 2)",
+          "html": "(5, 2)",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "(5, 2)",
+      "correct_option_ids": [
+        379275
+      ],
+      "explanation": "If f(x) is continuous at x = 1, then {tex}\\lim _\\limits{x \\rightarrow 1^{-}} f(x)=f(1){/tex} {tex}\\Rightarrow \\lim _\\limits{h \\rightarrow 0} f(1-h)=4{/tex} [ {tex}\\because{/tex} f(1) = 4] {tex}\\Rightarrow \\lim _\\limits{h \\rightarrow 0} a(1-h)^{2}+b=4{/tex} {tex}\\Rightarrow{/tex} (a + b) = 4 Thus, the possible values of (a, b) can be (2, 2), (3, 1), (4, 0) but (a, b) {tex}\\neq{/tex} (5, 2) Hence, for (a, b) = (5, 2) f(x) cannot be continuous at x = 1",
+      "solution": ""
+    },
+    {
+      "n": 33,
+      "question_id": 265000,
+      "question_text": "If x lies in the interval [0, 1], then the least value of x 2 + x + 1 is",
+      "question_html": "<p>If x lies in the interval [0, 1], then the least value of x<sup>2</sup> + x + 1 is</p>",
+      "options": [
+        {
+          "id": 380023,
+          "text": "2",
+          "html": "2",
+          "is_correct": false
+        },
+        {
+          "id": 380022,
+          "text": "1",
+          "html": "1",
+          "is_correct": true
+        },
+        {
+          "id": 380020,
+          "text": "3",
+          "html": "3",
+          "is_correct": false
+        },
+        {
+          "id": 380021,
+          "text": "{tex}\\frac{3}{4}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{3}{4}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "1",
+      "correct_option_ids": [
+        380022
+      ],
+      "explanation": "f(x) = x 2 + x + 1 f&#39;(x) = 2x + 1 To find minima f&#39;(x) = 0 2x + 1 = 0 {tex}\\Rightarrow{/tex} x = {tex}\\frac{-1}{2} \\notin{/tex} [0, 1] f(0) = 0 and f(1) = 3 > 0 Hence, at x = 1 function has minima.",
+      "solution": ""
+    },
+    {
+      "n": 34,
+      "question_id": 269152,
+      "question_text": "The principal value of cosec -1 {tex}\\left(cosec (\\frac{4 \\pi}{3}\\right)){/tex} is",
+      "question_html": "<p>The principal value of cosec<sup>-1&nbsp;</sup><span class=\"math-tex\">{tex}\\left(cosec (\\frac{4 \\pi}{3}\\right)){/tex}</span>&nbsp;is</p>",
+      "options": [
+        {
+          "id": 382313,
+          "text": "{tex}\\frac{2 \\pi}{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{2 \\pi}{3}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 382311,
+          "text": "{tex}\\frac{\\pi}{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{\\pi}{3}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 382312,
+          "text": "{tex}\\frac{-\\pi}{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{-\\pi}{3}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 382314,
+          "text": "{tex}\\frac{2 \\pi}{4}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{2 \\pi}{4}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{-\\pi}{3}{/tex}",
+      "correct_option_ids": [
+        382312
+      ],
+      "explanation": "Let x = cosec -1 {tex}\\left(cosec (\\frac{4 \\pi}{3}\\right)){/tex} {tex}\\Rightarrow{/tex} cosec x = cosec {tex}\\left(\\frac{4 \\pi}{3}\\right){/tex} Here range of principle value of cosec is {tex}\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} {tex}\\Rightarrow x=\\frac{4 \\pi}{3} \\notin\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} Hence, for all values of x in range {tex}\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} , the value of cosec -1 {tex}\\left(cosec (\\frac{4 \\pi}{3}\\right)){/tex} is {tex}\\Rightarrow{/tex} cosec x = cosec {tex}\\left(\\pi+\\frac{\\pi}{3}\\right){/tex} ( {tex}\\because{/tex} cosec {tex}\\left(\\frac{4 \\pi}{3}\\right){/tex} = cosec {tex}\\left(\\pi+\\frac{\\pi}{3}\\right){/tex} ) {tex}\\Rightarrow{/tex} cosec x = cosec {tex}\\left(-\\frac{\\pi}{3}\\right){/tex} ( {tex}\\because{/tex} cosec {tex}(\\pi+\\theta){/tex} = cosec ( {tex}-\\theta{/tex} )) {tex}\\Rightarrow x=-\\frac{\\pi}{3}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 35,
+      "question_id": 262025,
+      "question_text": "If A, B are two n {tex}\\times{/tex} n non - singular matrices, then what can you infer about AB?",
+      "question_html": "<p>If A, B are two n <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;n non - singular matrices, then what can you infer about AB?</p>\r\n",
+      "options": [
+        {
+          "id": 378199,
+          "text": "(AB) -1 does not exist",
+          "html": "(AB)<sup>-1</sup>&nbsp;does not exist",
+          "is_correct": false
+        },
+        {
+          "id": 378196,
+          "text": "AB is non-singular",
+          "html": "AB is non-singular",
+          "is_correct": true
+        },
+        {
+          "id": 378197,
+          "text": "AB is singular",
+          "html": "AB is singular",
+          "is_correct": false
+        },
+        {
+          "id": 378198,
+          "text": "(AB) -1 = A -1 B -1",
+          "html": "(AB)<sup>-1</sup>&nbsp;= A<sup>-1</sup>B<sup>-1</sup>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "AB is non-singular",
+      "correct_option_ids": [
+        378196
+      ],
+      "explanation": "If A and B are non - singular then |AB| {tex}\\ne{/tex} 0 = AB is non - singular matrix, As |AB = |A||B|",
+      "solution": ""
+    },
+    {
+      "n": 36,
+      "question_id": 59872,
+      "question_text": "The feasible region for a LPP is shown in Figure. Evaluate Z = 4x + y at each of the corner points of this region. Find the minimum value of Z, if it exists",
+      "question_html": "<p>The feasible region for a LPP is shown in Figure. Evaluate Z = 4x + y at each of the corner points of this region. Find the minimum value of Z, if it exists<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/math/52045_0.jpg\" style=\"width: 250px; height: 252px;\" /></p>",
+      "options": [
+        {
+          "id": 194673,
+          "text": "Minimum value = 2",
+          "html": "Minimum value = 2",
+          "is_correct": true
+        },
+        {
+          "id": 194676,
+          "text": "Minimum value = 5",
+          "html": "Minimum value = 5",
+          "is_correct": false
+        },
+        {
+          "id": 194674,
+          "text": "Minimum value = 3",
+          "html": "Minimum value = 3",
+          "is_correct": false
+        },
+        {
+          "id": 194675,
+          "text": "Minimum value = 4",
+          "html": "Minimum value = 4",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Minimum value = 2",
+      "correct_option_ids": [
+        194673
+      ],
+      "explanation": "Corner points Z = 4x + y (0, 2 ) 2 (0,3) 3 (2,1) 9 Hence the minimum value is 2",
+      "solution": ""
+    },
+    {
+      "n": 37,
+      "question_id": 269044,
+      "question_text": "If the matrix {tex}A=\\left[\\begin{array}{cc} 3-2 x & x+1 \\\\ 2 & 4 \\end{array}\\right]{/tex} is singular then x = ?.",
+      "question_html": "<p>If the matrix <span class=\"math-tex\">{tex}A=\\left[\\begin{array}{cc} 3-2 x &amp; x+1 \\\\ 2 &amp; 4 \\end{array}\\right]{/tex}</span> is singular then x = ?.</p>\r\n",
+      "options": [
+        {
+          "id": 382182,
+          "text": "-2",
+          "html": "-2",
+          "is_correct": false
+        },
+        {
+          "id": 382181,
+          "text": "-1",
+          "html": "-1",
+          "is_correct": false
+        },
+        {
+          "id": 382180,
+          "text": "1",
+          "html": "1",
+          "is_correct": true
+        },
+        {
+          "id": 382179,
+          "text": "0",
+          "html": "0",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "1",
+      "correct_option_ids": [
+        382180
+      ],
+      "explanation": "When a given matrix is singular then the given matrix determinant is 0. |A| = 0 Given, {tex}A=\\left(\\begin{array}{cc} 3-2 x & x+1 \\\\ 2 & 4 \\end{array}\\right) {/tex} |A| = 0 4(3 - 2x) - 2(x + 1) = 0 12 - 8x - 2x - 2 = 0 10 - 10x = 0 10(1 - x) = 0 x = 1",
+      "solution": ""
+    },
+    {
+      "n": 38,
+      "question_id": 260369,
+      "question_text": "The tangent to the curve given by x = e t {tex}\\times{/tex} cost, y = e t {tex}\\times{/tex} sin t at t = {tex}\\frac{\\pi}{4}{/tex} makes with x-axis an angle:",
+      "question_html": "<p>The tangent to the curve given by x = e<sup>t</sup> <span class=\"math-tex\">{tex}\\times{/tex}</span> cost, y = e<sup>t</sup> <span class=\"math-tex\">{tex}\\times{/tex}</span> sin t at t = <span class=\"math-tex\">{tex}\\frac{\\pi}{4}{/tex}</span>&nbsp;makes with x-axis an angle:</p>",
+      "options": [
+        {
+          "id": 376919,
+          "text": "{tex}\\frac{\\pi}{2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{\\pi}{2}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 376916,
+          "text": "0",
+          "html": "0",
+          "is_correct": false
+        },
+        {
+          "id": 376917,
+          "text": "{tex}\\frac{\\pi}{4}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{\\pi}{4}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 376918,
+          "text": "{tex}\\frac{\\pi}{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{\\pi}{3}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{\\pi}{2}{/tex}",
+      "correct_option_ids": [
+        376919
+      ],
+      "explanation": "{tex}\\frac{d x}{d t}=-e^{t} \\cdot \\sin t+e^{t} \\cos t, {/tex} {tex}\\frac{d y}{d t}=e^{t} \\cos t+e^{t} \\sin t{/tex} Therefore, {tex}\\left(\\frac{d y}{d x}\\right)_{t=\\frac{\\pi}{4}}=\\frac{\\cos t+\\sin t}{\\cos t-\\sin t}=\\frac{\\sqrt{2}}{0}{/tex} and hence this option is correct",
+      "solution": ""
+    },
+    {
+      "n": 39,
+      "question_id": 59333,
+      "question_text": "If x p y q = (x +y) p+q , then {tex}\\frac{{dy}}{{dx}}{/tex} is equal to",
+      "question_html": "<p>If &nbsp;x<sup>p</sup>&nbsp;y<sup>q</sup>&nbsp;= (x +y)<sup>p+q</sup>, then <span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}}{/tex}</span> is equal to</p>",
+      "options": [
+        {
+          "id": 192522,
+          "text": "{tex}\\frac{y}{{x - y}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{y}{{x - y}}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 192519,
+          "text": "{tex}\\frac{y}{x}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{y}{x}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 192521,
+          "text": "{tex}\\frac{y}{{x + y}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{y}{{x + y}}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 192520,
+          "text": "{tex}\\frac{x}{y}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{x}{y}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{y}{x}{/tex}",
+      "correct_option_ids": [
+        192519
+      ],
+      "explanation": "Given, x p y q = (x +y) p+q Taking log on both sides we get: plogx + q logy = (p + q)log(x + y). Differentiating both sides w.r.t. x we get , {tex}\\begin{gathered} \\frac{p}{x} + \\frac{q}{y}\\frac{{dy}}{{dx}}\\end{gathered} {/tex} = (p + q) {tex}\\left( {\\frac{1}{{x + y}}} \\right)\\left( {1 + \\frac{{dy}}{{dx}}} \\right) \\Rightarrow \\frac{{dy}}{{dx}}\\left( {\\frac{q}{y} - \\frac{{p + q}}{{x + y}}} \\right)= \\frac{{p + q}}{{x + y}} - \\frac{p}{x} {/tex} {tex}\\Rightarrow\\frac{dy}{dx}=\\left[\\frac{x\\left(p+q\\right)-p\\left(x+y\\right)}{x\\left(x+y\\right)}\\right]\\left[\\frac{y\\left(x+y\\right)}{q\\left(x+y\\right)-y\\left(p+q\\right)}\\right]{/tex} {tex}\\Rightarrow\\frac{dy}{dx}=\\frac yx{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 40,
+      "question_id": 263252,
+      "question_text": "Let f : R {tex}\\to{/tex} R be given by f (x) = [x] 2 + [x + 1] - 3, where [x] denotes the greatest integer less than or equal to x. Then, f (x) is",
+      "question_html": "<p>Let f : R <span class=\"math-tex\">{tex}\\to{/tex}</span> R be given by f (x) = [x]<sup>2</sup> + [x + 1] - 3, where [x] denotes the greatest integer less than or equal to x. Then, f (x) is</p>",
+      "options": [
+        {
+          "id": 378848,
+          "text": "many-one and onto",
+          "html": "many-one and onto",
+          "is_correct": false
+        },
+        {
+          "id": 378851,
+          "text": "one-one and onto",
+          "html": "one-one and onto",
+          "is_correct": false
+        },
+        {
+          "id": 378849,
+          "text": "many-one and into",
+          "html": "many-one and into",
+          "is_correct": true
+        },
+        {
+          "id": 378850,
+          "text": "one-one and into",
+          "html": "one-one and into",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "many-one and into",
+      "correct_option_ids": [
+        378849
+      ],
+      "explanation": "Given that f : R {tex}\\to{/tex} R be given by f(x) = [x] 2 + [x + 1] - 3 As [x] is the greatest integer so for different values of x, we will get same value of f(x). [x] 2 + [x + 1] will always be an integer. So, f is many-one. Similarly, in this function co domain is mapped with at most one element of domain because for every x {tex}\\in{/tex} R, f(x) {tex}\\in{/tex} Z. So, f is into.",
+      "solution": ""
+    },
+    {
+      "n": 41,
+      "question_id": 270681,
+      "question_text": "If tan -1 3x + tan -1 2x = {tex}\\frac{\\pi}{4}{/tex} then x = ?",
+      "question_html": "<p>If&nbsp;tan<sup>-1</sup>&nbsp;3x + tan<sup>-1</sup>&nbsp;2x&nbsp;= <span class=\"math-tex\">{tex}\\frac{\\pi}{4}{/tex}</span> then x = ?</p>",
+      "options": [
+        {
+          "id": 384202,
+          "text": "{tex}\\frac{1}{4}{/tex} or -2",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span>&nbsp;or -2",
+          "is_correct": false
+        },
+        {
+          "id": 384203,
+          "text": "{tex}\\frac{1}{6}{/tex} or -1",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{6}{/tex}</span>&nbsp;or -1",
+          "is_correct": true
+        },
+        {
+          "id": 384201,
+          "text": "{tex}\\frac{1}{3}{/tex} or -3",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}{/tex}</span>&nbsp;or -3",
+          "is_correct": false
+        },
+        {
+          "id": 384200,
+          "text": "{tex}\\frac{1}{2}{/tex} or -2",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>&nbsp;or -2",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{1}{6}{/tex} or -1",
+      "correct_option_ids": [
+        384203
+      ],
+      "explanation": "It is given : tan -1 3x + tan -1 2x = {tex}\\frac{\\pi}{4}{/tex} We have to find: The value of x Since we know that, tan -1 x + tan -1 y = tan -1 {tex}\\left(\\frac{x+y}{1-x y}\\right){/tex} {tex}\\Rightarrow{/tex} tan -1 3x + tan -1 2x = tan -1 {tex}\\left(\\frac{3 x+2 x}{1-(3 x \\times 2 x)}\\right){/tex} {tex}=\\tan ^{-1}\\left(\\frac{5 x}{1-6 x^{2}}\\right){/tex} Now since tan -1 3x + tan -1 2x = {tex}\\frac{\\pi}{4}{/tex} tan -1 3x + tan -1 2x = tan -1 1 ( {tex}\\because{/tex} tan {tex}\\frac{\\pi}{4}{/tex} = 1) {tex}\\Rightarrow{/tex} tan -1 ( {tex}\\frac{5 x}{1-6 x^{2}}{/tex} ) = tan -1 1 {tex}\\Rightarrow \\frac{5 x}{1-6 x^{2}}{/tex} = 1 {tex}\\Rightarrow{/tex} 6 x 2 + 5x - 1 = 0 {tex}\\Rightarrow{/tex} x = {tex}\\frac{1}{6}{/tex} or x = -1. Which is the required solution.",
+      "solution": ""
+    },
+    {
+      "n": 42,
+      "question_id": 59915,
+      "question_text": "Let A and B be independent events with P(A) = 0.3 and P(B) = 0.4. Find P(A &cup; B).",
+      "question_html": "<p>Let A and B be independent events with P(A) = 0.3 and P(B) = 0.4. Find P(A &cup; B).</p>",
+      "options": [
+        {
+          "id": 194848,
+          "text": "0.62",
+          "html": "0.62",
+          "is_correct": false
+        },
+        {
+          "id": 194847,
+          "text": "0.55",
+          "html": "0.55",
+          "is_correct": false
+        },
+        {
+          "id": 194845,
+          "text": "0.58",
+          "html": "0.58",
+          "is_correct": true
+        },
+        {
+          "id": 194846,
+          "text": "0.51",
+          "html": "0.51",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "0.58",
+      "correct_option_ids": [
+        194845
+      ],
+      "explanation": "Let A and B be independent events with P (A) = 0.3 and P(B) = 0.4 Since the events are independent, P(A {tex}\\cap{/tex} B) = P(A) {tex}\\cdot{/tex} P(B) Therefore P(A {tex}\\cup{/tex} B) = P(A) + P(B) = 0.3 + 0.4 - 0.12 = 0.58",
+      "solution": ""
+    },
+    {
+      "n": 43,
+      "question_id": 59299,
+      "question_text": "Let f (x) = [x], then f (x) is",
+      "question_html": "<p>Let f (x) = [x], then f (x) is</p>",
+      "options": [
+        {
+          "id": 192385,
+          "text": "continuous nowhere",
+          "html": "continuous nowhere",
+          "is_correct": false
+        },
+        {
+          "id": 192383,
+          "text": "differentiable for all {tex}x \\in ({\\mathbf{R}} - I){/tex}",
+          "html": "differentiable for all <span class=\"math-tex\">{tex}x \\in ({\\mathbf{R}} - I){/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 192386,
+          "text": "continuous for all {tex}x \\in {\\mathbf{R}}{/tex}",
+          "html": "continuous for all <span class=\"math-tex\">{tex}x \\in {\\mathbf{R}}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 192384,
+          "text": "differentiable for all {tex}x \\in {\\mathbf{R}}{/tex}",
+          "html": "differentiable for all <span class=\"math-tex\">{tex}x \\in {\\mathbf{R}}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "differentiable for all {tex}x \\in ({\\mathbf{R}} - I){/tex}",
+      "correct_option_ids": [
+        192383
+      ],
+      "explanation": "f(x) = [x] is derivable at all x except at integral points i.e. on R &ndash; I .",
+      "solution": ""
+    },
+    {
+      "n": 44,
+      "question_id": 260429,
+      "question_text": "If {tex}A=\\left[\\begin{array}{ccc} {2} & {\\lambda} & {-3} \\\\ {0} & {2} & {5} \\\\ {1} & {1} & {3} \\end{array}\\right]{/tex} , then A -1 exists if.",
+      "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}A=\\left[\\begin{array}{ccc} {2} &amp; {\\lambda} &amp; {-3} \\\\ {0} &amp; {2} &amp; {5} \\\\ {1} &amp; {1} &amp; {3} \\end{array}\\right]{/tex}</span>, then A<sup>-1</sup> exists if.</p>",
+      "options": [
+        {
+          "id": 377051,
+          "text": "None of these",
+          "html": "None of these",
+          "is_correct": true
+        },
+        {
+          "id": 377049,
+          "text": "{tex}\\lambda \\ne{/tex} 2",
+          "html": "<span class=\"math-tex\">{tex}\\lambda \\ne{/tex}</span>&nbsp;2",
+          "is_correct": false
+        },
+        {
+          "id": 377048,
+          "text": "{tex}\\lambda{/tex} = 2",
+          "html": "<span class=\"math-tex\">{tex}\\lambda{/tex}</span> = 2",
+          "is_correct": false
+        },
+        {
+          "id": 377050,
+          "text": "{tex}\\lambda \\ne{/tex} -2",
+          "html": "<span class=\"math-tex\">{tex}\\lambda \\ne{/tex}</span>&nbsp;&nbsp;-2",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "None of these",
+      "correct_option_ids": [
+        377051
+      ],
+      "explanation": "We have, {tex}A=\\left[\\begin{array}{ccc} {2} & {\\lambda} & {-3} \\\\ {0} & {2} & {5} \\\\ {1} & {1} & {3} \\end{array}\\right]{/tex} A -1 exists if |A| {tex}\\ne{/tex} 0 Now |A| = 2(6 - 5) - {tex}\\lambda{/tex} (-5) - 3(-2) = 8 + 5 {tex}\\lambda{/tex} {tex}\\neq{/tex} 0 {tex}\\Rightarrow{/tex} 5 {tex}\\lambda \\ne{/tex} -8 {tex}\\Rightarrow \\lambda \\neq \\frac{-8}{5}{/tex} So, A -1 exists if and only if {tex}\\neq \\frac{-8}{5}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 45,
+      "question_id": 263244,
+      "question_text": "f : R {tex}\\to{/tex} R given by {tex}f(x)=x+\\sqrt{x^{2}}{/tex} is",
+      "question_html": "<p>f : R <span class=\"math-tex\">{tex}\\to{/tex}</span> R given by&nbsp;<span class=\"math-tex\">{tex}f(x)=x+\\sqrt{x^{2}}{/tex}</span> is</p>",
+      "options": [
+        {
+          "id": 378827,
+          "text": "none of these",
+          "html": "none of these",
+          "is_correct": true
+        },
+        {
+          "id": 378824,
+          "text": "injective",
+          "html": "injective",
+          "is_correct": false
+        },
+        {
+          "id": 378825,
+          "text": "surjective",
+          "html": "surjective",
+          "is_correct": false
+        },
+        {
+          "id": 378826,
+          "text": "bijective",
+          "html": "bijective",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "none of these",
+      "correct_option_ids": [
+        378827
+      ],
+      "explanation": "Given function is f : R {tex}\\to{/tex} R given by {tex}f(x)=x+\\sqrt{x^{2}}{/tex} For this function if we take x = 2 and x = -2 we will get two values of f(x). Hence, it is not a function.",
+      "solution": ""
+    },
+    {
+      "n": 46,
+      "question_id": 579010,
+      "question_text": "Instructions for Question 46 to 50: Three schools A, B and C organized a mela for collecting funds for helping the rehabilitation of flood victims. They sold handmade fans, mats, and plates from recycled material at a cost of ₹ 25, ₹ 100 and ₹ 50 each. The number of articles sold by school A, B, C are given below. Article School A B C Fans 40 25 35 Mats 50 40 50 Plates 20 30 40 If P be a 3 {tex}\\times{/tex} 3 matrix represent the sale of handmade fans, mats and plates by three schools A, B and C, then",
+      "question_html": "<b>Instructions for Question 46 to 50:</b><br><p>Three schools A, B and C organized a mela for collecting funds for helping the rehabilitation of flood victims. They sold handmade fans, mats, and plates from recycled material at a cost of ₹&nbsp;25, ₹&nbsp;100 and ₹&nbsp;50 each. The number of articles sold by school A, B, C are given below.<br />\n<img alt=\"\" data-imgur-src=\"3tzTYeY.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1628763257-55syym.jpg\" style=\"width: 200px; height: 111px;\" /></p>\n\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td width=\"200\">Article</td>\n\t\t\t<td width=\"200\">School</td>\n\t\t\t<td width=\"200\">A</td>\n\t\t\t<td width=\"200\">B</td>\n\t\t\t<td width=\"200\">C</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"2\" width=\"200\">Fans</td>\n\t\t\t<td width=\"200\">40</td>\n\t\t\t<td width=\"200\">25</td>\n\t\t\t<td width=\"200\">35</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"2\" width=\"200\">Mats</td>\n\t\t\t<td width=\"200\">50</td>\n\t\t\t<td width=\"200\">40</td>\n\t\t\t<td width=\"200\">50</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"2\" width=\"200\">Plates</td>\n\t\t\t<td width=\"200\">20</td>\n\t\t\t<td width=\"200\">30</td>\n\t\t\t<td width=\"200\">40</td>\n\t\t</tr>\n\t</tbody>\n</table><br><p>If P be a 3 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;3 matrix represent the sale of handmade fans, mats and plates by three schools A, B and C, then</p>",
+      "options": [
+        {
+          "id": 1120014,
+          "text": "P = {tex}\\overset{\\begin{array}{ccc}&&Fans&Mats&Plates\\end{array}}{\\begin{array}{c}A\\\\B\\\\C\\end{array}\\begin{bmatrix}25&35&40\\\\40&40&50\\\\20&30&20\\end{bmatrix}}{/tex}",
+          "html": "P =&nbsp;<span class=\"math-tex\">{tex}\\overset{\\begin{array}{ccc}&amp;&amp;Fans&amp;Mats&amp;Plates\\end{array}}{\\begin{array}{c}A\\\\B\\\\C\\end{array}\\begin{bmatrix}25&amp;35&amp;40\\\\40&amp;40&amp;50\\\\20&amp;30&amp;20\\end{bmatrix}}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 1119999,
+          "text": "P = {tex}\\overset{\\begin{array}{ccc}& & Fans & Mats&Plates\\end{array}}{\\begin{array}{c}A\\\\B\\\\C\\end{array}\\begin{bmatrix}40&50&20\\\\25&40&30\\\\35&50&40\\end{bmatrix}}{/tex}",
+          "html": "P =&nbsp;<span class=\"math-tex\">{tex}\\overset{\\begin{array}{ccc}&amp; &amp; Fans &amp; Mats&amp;Plates\\end{array}}{\\begin{array}{c}A\\\\B\\\\C\\end{array}\\begin{bmatrix}40&amp;50&amp;20\\\\25&amp;40&amp;30\\\\35&amp;50&amp;40\\end{bmatrix}}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 1120007,
+          "text": "P = {tex}\\overset{\\begin{array}{ccc}&&Fans&Mats&Plates\\end{array}}{\\begin{array}{c}A\\\\B\\\\C\\end{array}\\begin{bmatrix}25&40&20\\\\35&40&30\\\\40&50&20\\end{bmatrix}}{/tex}",
+          "html": "P =&nbsp;<span class=\"math-tex\">{tex}\\overset{\\begin{array}{ccc}&amp;&amp;Fans&amp;Mats&amp;Plates\\end{array}}{\\begin{array}{c}A\\\\B\\\\C\\end{array}\\begin{bmatrix}25&amp;40&amp;20\\\\35&amp;40&amp;30\\\\40&amp;50&amp;20\\end{bmatrix}}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 1120008,
+          "text": "P = {tex}\\overset{\\begin{array}{ccc}&&Fans&Mats&Plates\\end{array}}{\\begin{array}{c}A\\\\B\\\\C\\end{array}\\begin{bmatrix}40&25&35\\\\50&40&50\\\\20&30&40\\end{bmatrix}}{/tex}",
+          "html": "P =&nbsp;<span class=\"math-tex\">{tex}\\overset{\\begin{array}{ccc}&amp;&amp;Fans&amp;Mats&amp;Plates\\end{array}}{\\begin{array}{c}A\\\\B\\\\C\\end{array}\\begin{bmatrix}40&amp;25&amp;35\\\\50&amp;40&amp;50\\\\20&amp;30&amp;40\\end{bmatrix}}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "P = {tex}\\overset{\\begin{array}{ccc}& & Fans & Mats&Plates\\end{array}}{\\begin{array}{c}A\\\\B\\\\C\\end{array}\\begin{bmatrix}40&50&20\\\\25&40&30\\\\35&50&40\\end{bmatrix}}{/tex}",
+      "correct_option_ids": [
+        1119999
+      ],
+      "explanation": "Clearly, P = {tex}\\overset{\\begin{array}{ccc}&&Fans&Mats&Plates\\end{array}}{\\begin{array}{c}A\\\\B\\\\C\\end{array}\\begin{bmatrix}40&50&20\\\\25&40&30\\\\35&50&40\\end{bmatrix}}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 47,
+      "question_id": 579094,
+      "question_text": "Instructions for Question 46 to 50: Three schools A, B and C organized a mela for collecting funds for helping the rehabilitation of flood victims. They sold handmade fans, mats, and plates from recycled material at a cost of ₹ 25, ₹ 100 and ₹ 50 each. The number of articles sold by school A, B, C are given below. Article School A B C Fans 40 25 35 Mats 50 40 50 Plates 20 30 40 If Q be a 3 {tex}\\times{/tex} 1 matrix represent the sale prices (in ₹) of given products per unit, then",
+      "question_html": "<b>Instructions for Question 46 to 50:</b><br><p>Three schools A, B and C organized a mela for collecting funds for helping the rehabilitation of flood victims. They sold handmade fans, mats, and plates from recycled material at a cost of ₹&nbsp;25, ₹&nbsp;100 and ₹&nbsp;50 each. The number of articles sold by school A, B, C are given below.<br />\n<img alt=\"\" data-imgur-src=\"3tzTYeY.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1628763257-55syym.jpg\" style=\"width: 200px; height: 111px;\" /></p>\n\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td width=\"200\">Article</td>\n\t\t\t<td width=\"200\">School</td>\n\t\t\t<td width=\"200\">A</td>\n\t\t\t<td width=\"200\">B</td>\n\t\t\t<td width=\"200\">C</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"2\" width=\"200\">Fans</td>\n\t\t\t<td width=\"200\">40</td>\n\t\t\t<td width=\"200\">25</td>\n\t\t\t<td width=\"200\">35</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"2\" width=\"200\">Mats</td>\n\t\t\t<td width=\"200\">50</td>\n\t\t\t<td width=\"200\">40</td>\n\t\t\t<td width=\"200\">50</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"2\" width=\"200\">Plates</td>\n\t\t\t<td width=\"200\">20</td>\n\t\t\t<td width=\"200\">30</td>\n\t\t\t<td width=\"200\">40</td>\n\t\t</tr>\n\t</tbody>\n</table><br><p>If Q be a 3 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;1 matrix represent the sale prices (in ₹) of given products per unit, then</p>",
+      "options": [
+        {
+          "id": 1120347,
+          "text": "Q = {tex}\\begin{bmatrix}25\\\\100\\\\50\\end{bmatrix}\\begin{array}{c}Fans\\\\Mats\\\\Plates\\end{array}{/tex}",
+          "html": "Q =&nbsp;<span class=\"math-tex\">{tex}\\begin{bmatrix}25\\\\100\\\\50\\end{bmatrix}\\begin{array}{c}Fans\\\\Mats\\\\Plates\\end{array}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 1120338,
+          "text": "Q = {tex}\\begin{bmatrix}25\\\\50\\\\100\\end{bmatrix}\\begin{array}{c}Fans\\\\Mats\\\\Plates\\end{array}{/tex}",
+          "html": "Q =&nbsp;<span class=\"math-tex\">{tex}\\begin{bmatrix}25\\\\50\\\\100\\end{bmatrix}\\begin{array}{c}Fans\\\\Mats\\\\Plates\\end{array}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 1120344,
+          "text": "Q = {tex}\\overset{\\begin{array}{ccc}Fans&Mats&Plates\\end{array}}{\\begin{bmatrix}25&50&100\\end{bmatrix}}{/tex}",
+          "html": "Q =&nbsp;<span class=\"math-tex\">{tex}\\overset{\\begin{array}{ccc}Fans&amp;Mats&amp;Plates\\end{array}}{\\begin{bmatrix}25&amp;50&amp;100\\end{bmatrix}}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 1120345,
+          "text": "Q = {tex}\\overset{\\begin{array}{ccc}Fans&Mats&Plates\\end{array}}{\\begin{bmatrix}25&100&50\\end{bmatrix}}{/tex}",
+          "html": "Q =&nbsp;<span class=\"math-tex\">{tex}\\overset{\\begin{array}{ccc}Fans&amp;Mats&amp;Plates\\end{array}}{\\begin{bmatrix}25&amp;100&amp;50\\end{bmatrix}}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Q = {tex}\\begin{bmatrix}25\\\\100\\\\50\\end{bmatrix}\\begin{array}{c}Fans\\\\Mats\\\\Plates\\end{array}{/tex}",
+      "correct_option_ids": [
+        1120347
+      ],
+      "explanation": "Since Q is a 3 {tex}\\times{/tex} 1 matrix, therefore Q = {tex}\\begin{bmatrix}25\\\\100\\\\50\\end{bmatrix}\\begin{array}{c}Fans\\\\Mats\\\\Plates\\end{array}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 48,
+      "question_id": 579163,
+      "question_text": "Instructions for Question 46 to 50: Three schools A, B and C organized a mela for collecting funds for helping the rehabilitation of flood victims. They sold handmade fans, mats, and plates from recycled material at a cost of ₹ 25, ₹ 100 and ₹ 50 each. The number of articles sold by school A, B, C are given below. Article School A B C Fans 40 25 35 Mats 50 40 50 Plates 20 30 40 The funds collected by school A by selling the given articles is",
+      "question_html": "<b>Instructions for Question 46 to 50:</b><br><p>Three schools A, B and C organized a mela for collecting funds for helping the rehabilitation of flood victims. They sold handmade fans, mats, and plates from recycled material at a cost of ₹&nbsp;25, ₹&nbsp;100 and ₹&nbsp;50 each. The number of articles sold by school A, B, C are given below.<br />\n<img alt=\"\" data-imgur-src=\"3tzTYeY.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1628763257-55syym.jpg\" style=\"width: 200px; height: 111px;\" /></p>\n\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td width=\"200\">Article</td>\n\t\t\t<td width=\"200\">School</td>\n\t\t\t<td width=\"200\">A</td>\n\t\t\t<td width=\"200\">B</td>\n\t\t\t<td width=\"200\">C</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"2\" width=\"200\">Fans</td>\n\t\t\t<td width=\"200\">40</td>\n\t\t\t<td width=\"200\">25</td>\n\t\t\t<td width=\"200\">35</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"2\" width=\"200\">Mats</td>\n\t\t\t<td width=\"200\">50</td>\n\t\t\t<td width=\"200\">40</td>\n\t\t\t<td width=\"200\">50</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"2\" width=\"200\">Plates</td>\n\t\t\t<td width=\"200\">20</td>\n\t\t\t<td width=\"200\">30</td>\n\t\t\t<td width=\"200\">40</td>\n\t\t</tr>\n\t</tbody>\n</table><br><p>The funds collected by school A by selling the given articles is</p>",
+      "options": [
+        {
+          "id": 1120617,
+          "text": "₹ 8000",
+          "html": "₹ 8000",
+          "is_correct": false
+        },
+        {
+          "id": 1120615,
+          "text": "₹ 7875",
+          "html": "₹ 7875",
+          "is_correct": false
+        },
+        {
+          "id": 1120614,
+          "text": "₹ 6125",
+          "html": "₹&nbsp;6125",
+          "is_correct": false
+        },
+        {
+          "id": 1120613,
+          "text": "₹ 7000",
+          "html": "₹&nbsp;7000",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "₹ 7000",
+      "correct_option_ids": [
+        1120613
+      ],
+      "explanation": "Clearly, total funds collected by each school is given by the matrix PQ = {tex}\\left[\\begin{array}{ccc} 40 & 50 & 20 \\\\ 25 & 40 & 30 \\\\ 35 & 50 & 40 \\end{array}\\right]\\left[\\begin{array}{c} 25 \\\\ 100 \\\\ 50 \\end{array}\\right]{/tex} = {tex}\\left[\\begin{array}{c} 1000+5000+1000 \\\\ 625+4000+1500 \\\\ 875+5000+2000 \\end{array}\\right]=\\left[\\begin{array}{l} 7000 \\\\ 6125 \\\\ 7875 \\end{array}\\right]{/tex} {tex}\\therefore{/tex} Funds collected by school A is ₹ 7000 Funds collected by school B is ₹ 6125 Funds collected by school C is ₹ 7875",
+      "solution": ""
+    },
+    {
+      "n": 49,
+      "question_id": 579245,
+      "question_text": "Instructions for Question 46 to 50: Three schools A, B and C organized a mela for collecting funds for helping the rehabilitation of flood victims. They sold handmade fans, mats, and plates from recycled material at a cost of ₹ 25, ₹ 100 and ₹ 50 each. The number of articles sold by school A, B, C are given below. Article School A B C Fans 40 25 35 Mats 50 40 50 Plates 20 30 40 The funds collected by school B by selling the given articles is",
+      "question_html": "<b>Instructions for Question 46 to 50:</b><br><p>Three schools A, B and C organized a mela for collecting funds for helping the rehabilitation of flood victims. They sold handmade fans, mats, and plates from recycled material at a cost of ₹&nbsp;25, ₹&nbsp;100 and ₹&nbsp;50 each. The number of articles sold by school A, B, C are given below.<br />\n<img alt=\"\" data-imgur-src=\"3tzTYeY.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1628763257-55syym.jpg\" style=\"width: 200px; height: 111px;\" /></p>\n\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td width=\"200\">Article</td>\n\t\t\t<td width=\"200\">School</td>\n\t\t\t<td width=\"200\">A</td>\n\t\t\t<td width=\"200\">B</td>\n\t\t\t<td width=\"200\">C</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"2\" width=\"200\">Fans</td>\n\t\t\t<td width=\"200\">40</td>\n\t\t\t<td width=\"200\">25</td>\n\t\t\t<td width=\"200\">35</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"2\" width=\"200\">Mats</td>\n\t\t\t<td width=\"200\">50</td>\n\t\t\t<td width=\"200\">40</td>\n\t\t\t<td width=\"200\">50</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"2\" width=\"200\">Plates</td>\n\t\t\t<td width=\"200\">20</td>\n\t\t\t<td width=\"200\">30</td>\n\t\t\t<td width=\"200\">40</td>\n\t\t</tr>\n\t</tbody>\n</table><br><p>The funds collected by school B by selling the given articles is</p>",
+      "options": [
+        {
+          "id": 1120939,
+          "text": "₹ 7125",
+          "html": "₹ 7125",
+          "is_correct": false
+        },
+        {
+          "id": 1120937,
+          "text": "₹ 5125",
+          "html": "₹ 5125",
+          "is_correct": false
+        },
+        {
+          "id": 1120938,
+          "text": "₹ 6125",
+          "html": "₹ 6125",
+          "is_correct": true
+        },
+        {
+          "id": 1120940,
+          "text": "₹ 8125",
+          "html": "₹ 8125",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "₹ 6125",
+      "correct_option_ids": [
+        1120938
+      ],
+      "explanation": "₹ 6125",
+      "solution": ""
+    },
+    {
+      "n": 50,
+      "question_id": 579378,
+      "question_text": "Instructions for Question 46 to 50: Three schools A, B and C organized a mela for collecting funds for helping the rehabilitation of flood victims. They sold handmade fans, mats, and plates from recycled material at a cost of ₹ 25, ₹ 100 and ₹ 50 each. The number of articles sold by school A, B, C are given below. Article School A B C Fans 40 25 35 Mats 50 40 50 Plates 20 30 40 The total funds collected for the required purpose is",
+      "question_html": "<b>Instructions for Question 46 to 50:</b><br><p>Three schools A, B and C organized a mela for collecting funds for helping the rehabilitation of flood victims. They sold handmade fans, mats, and plates from recycled material at a cost of ₹&nbsp;25, ₹&nbsp;100 and ₹&nbsp;50 each. The number of articles sold by school A, B, C are given below.<br />\n<img alt=\"\" data-imgur-src=\"3tzTYeY.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1628763257-55syym.jpg\" style=\"width: 200px; height: 111px;\" /></p>\n\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td width=\"200\">Article</td>\n\t\t\t<td width=\"200\">School</td>\n\t\t\t<td width=\"200\">A</td>\n\t\t\t<td width=\"200\">B</td>\n\t\t\t<td width=\"200\">C</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"2\" width=\"200\">Fans</td>\n\t\t\t<td width=\"200\">40</td>\n\t\t\t<td width=\"200\">25</td>\n\t\t\t<td width=\"200\">35</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"2\" width=\"200\">Mats</td>\n\t\t\t<td width=\"200\">50</td>\n\t\t\t<td width=\"200\">40</td>\n\t\t\t<td width=\"200\">50</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"2\" width=\"200\">Plates</td>\n\t\t\t<td width=\"200\">20</td>\n\t\t\t<td width=\"200\">30</td>\n\t\t\t<td width=\"200\">40</td>\n\t\t</tr>\n\t</tbody>\n</table><br><p>The total funds collected for the required purpose is</p>",
+      "options": [
+        {
+          "id": 1121478,
+          "text": "₹ 21000",
+          "html": "₹&nbsp;21000",
+          "is_correct": true
+        },
+        {
+          "id": 1121481,
+          "text": "₹ 30000",
+          "html": "₹ 30000",
+          "is_correct": false
+        },
+        {
+          "id": 1121485,
+          "text": "₹ 35000",
+          "html": "₹ 35000",
+          "is_correct": false
+        },
+        {
+          "id": 1121472,
+          "text": "₹ 20000",
+          "html": "₹&nbsp;20000",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "₹ 21000",
+      "correct_option_ids": [
+        1121478
+      ],
+      "explanation": "Total funds collected for the required purpose = X (7000 + 6125 + 7875) = ₹ 21000",
+      "solution": ""
+    }
+  ]
+}

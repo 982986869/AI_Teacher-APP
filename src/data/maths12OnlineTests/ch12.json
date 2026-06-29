@@ -1,0 +1,2897 @@
+{
+  "chapter": "Linear Programming",
+  "chapter_id": 1296,
+  "tests": [
+    {
+      "test_id": 3573,
+      "test_name": "Linear Programming Test-01",
+      "is_paid": false,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59805,
+          "question_text": "A linear programming problem is one that is concerned with",
+          "question_html": "<p>A linear programming problem is one that is concerned with</p>",
+          "options": [
+            {
+              "id": 194408,
+              "text": "finding the upper limits of a linear function of several variables",
+              "html": "finding the upper limits of a linear function of several variables",
+              "is_correct": false
+            },
+            {
+              "id": 194407,
+              "text": "finding the lower limit of a linear function of several variables",
+              "html": "finding the lower limit of a linear function of several variables",
+              "is_correct": false
+            },
+            {
+              "id": 194406,
+              "text": "finding the limiting values of a linear function of several variables",
+              "html": "finding the limiting values of a linear function of several variables",
+              "is_correct": false
+            },
+            {
+              "id": 194405,
+              "text": "finding the optimal value (maximum or minimum) of a linear function of several variables",
+              "html": "finding the optimal value (maximum or minimum) of a linear function of several variables",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "finding the optimal value (maximum or minimum) of a linear function of several variables",
+          "correct_option_ids": [
+            194405
+          ],
+          "explanation": "A linear programming problem is one that is concerned with finding the optimal value (maximum or minimum) of a linear function of several variables .",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59806,
+          "question_text": "Which of the following types of problems cannot be solved by linear programming methods",
+          "question_html": "<p>Which of the following types of problems cannot be solved by linear programming methods</p>",
+          "options": [
+            {
+              "id": 194412,
+              "text": "Transportation problems",
+              "html": "Transportation problems",
+              "is_correct": false
+            },
+            {
+              "id": 194409,
+              "text": "Traffic signal control",
+              "html": "Traffic signal control",
+              "is_correct": true
+            },
+            {
+              "id": 194410,
+              "text": "Diet problems",
+              "html": "Diet problems",
+              "is_correct": false
+            },
+            {
+              "id": 194411,
+              "text": "Manufacturing problems",
+              "html": "Manufacturing problems",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Traffic signal control",
+          "correct_option_ids": [
+            194409
+          ],
+          "explanation": "Traffic signal control types of problems cannot be solved by linear programming methods, because there is no need for optimization in such problems.",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59807,
+          "question_text": "In linear programming feasible region (or solution region) for the problem is",
+          "question_html": "<p>In linear programming feasible region (or solution region) for the problem is</p>",
+          "options": [
+            {
+              "id": 194413,
+              "text": "The common region determined by all the constraints including the non &ndash; negative constraints x {tex} \\geqslant {/tex} 0, y {tex} \\geqslant {/tex} 0",
+              "html": "The common region determined by all the constraints including the non &ndash; negative constraints x <span class=\"math-tex\">{tex} \\geqslant {/tex}</span> 0, y<span class=\"math-tex\">{tex} \\geqslant {/tex}</span> 0",
+              "is_correct": true
+            },
+            {
+              "id": 194415,
+              "text": "The common region determined by all the x {tex} \\geqslant {/tex} 0, y {tex} \\geqslant {/tex} 0 and the objective function",
+              "html": "The common region determined by all the x <span class=\"math-tex\">{tex} \\geqslant {/tex}</span> 0, y <span class=\"math-tex\">{tex} \\geqslant {/tex}</span> 0 and the objective function",
+              "is_correct": false
+            },
+            {
+              "id": 194416,
+              "text": "The common region determined by all the x {tex} \\geqslant {/tex} 0 and the objective function",
+              "html": "The common region determined by all the x <span class=\"math-tex\">{tex} \\geqslant {/tex}</span> 0 and the objective function",
+              "is_correct": false
+            },
+            {
+              "id": 194414,
+              "text": "The common region determined by all the objective functions including the non &ndash; negative constraints x {tex} \\geqslant {/tex} 0, y {tex} \\geqslant {/tex} 0",
+              "html": "The common region determined by all the objective functions including the non &ndash; negative constraints x <span class=\"math-tex\">{tex} \\geqslant {/tex}</span> 0, y <span class=\"math-tex\">{tex} \\geqslant {/tex}</span> 0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "The common region determined by all the constraints including the non &ndash; negative constraints x {tex} \\geqslant {/tex} 0, y {tex} \\geqslant {/tex} 0",
+          "correct_option_ids": [
+            194413
+          ],
+          "explanation": "In linear programming feasible region (or solution region) for the problem is given by the common region determined by all the constraints including the non &ndash; negative constraints x {tex} \\geqslant {/tex} 0, y {tex} \\geqslant {/tex} 0",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59808,
+          "question_text": "In linear programming infeasible solutions",
+          "question_html": "<p>In linear programming infeasible solutions</p>",
+          "options": [
+            {
+              "id": 194419,
+              "text": "fall inside the feasible region",
+              "html": "fall inside the feasible region",
+              "is_correct": false
+            },
+            {
+              "id": 194420,
+              "text": "fall inside the a regular polygon",
+              "html": "fall inside the a regular polygon",
+              "is_correct": false
+            },
+            {
+              "id": 194417,
+              "text": "fall outside the feasible region",
+              "html": "fall outside the feasible region",
+              "is_correct": true
+            },
+            {
+              "id": 194418,
+              "text": "fall on the x = 0 plane",
+              "html": "fall on the x = 0 plane",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "fall outside the feasible region",
+          "correct_option_ids": [
+            194417
+          ],
+          "explanation": "In linear programming infeasible solutions fall outside the feasible region. In other words, it the region other than the feasible region is called the infeasible region.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59809,
+          "question_text": "In linear programming, optimal solution",
+          "question_html": "<p>In linear programming, optimal solution</p>",
+          "options": [
+            {
+              "id": 194422,
+              "text": "satisfies all the constraints only",
+              "html": "satisfies all the constraints only",
+              "is_correct": false
+            },
+            {
+              "id": 194423,
+              "text": "maximizes the objective function only",
+              "html": "maximizes the objective function only",
+              "is_correct": false
+            },
+            {
+              "id": 194421,
+              "text": "satisfies all the constraints as well as the objective function",
+              "html": "satisfies all the constraints as well as the objective function",
+              "is_correct": true
+            },
+            {
+              "id": 194424,
+              "text": "is not unique",
+              "html": "is not unique",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "satisfies all the constraints as well as the objective function",
+          "correct_option_ids": [
+            194421
+          ],
+          "explanation": "In linear programming, any point in the feasible region which gives that gives the optimal value (maximum or minimum) of the objective function is called optimal solution. In other words, it satisfies all the constraints as well as the objective function.",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59810,
+          "question_text": "Let R be the feasible region (convex polygon) for a linear programming problem and let Z = ax + by be the objective function. When Z has an optimal value (maximum or minimum), where the variables x and y are subject to constraints described by linear inequalities,",
+          "question_html": "<p>Let R be the feasible region (convex polygon) for a linear programming problem and let Z = ax + by be the objective function. When Z has an optimal value (maximum or minimum), where the variables x and y are subject to constraints described by linear inequalities,</p>",
+          "options": [
+            {
+              "id": 194428,
+              "text": "optimal value must occur at the endpoints of the corner points (vertices) of the feasible region.",
+              "html": "optimal value must occur at the endpoints of the corner points (vertices) of the feasible region.",
+              "is_correct": false
+            },
+            {
+              "id": 194426,
+              "text": "optimal value must occur at the midpoints of the corner points (vertices) of the feasible region.",
+              "html": "optimal value must occur at the midpoints of the corner points (vertices) of the feasible region.",
+              "is_correct": false
+            },
+            {
+              "id": 194427,
+              "text": "optimal value must occur at the centroid of the feasible region.",
+              "html": "optimal value must occur at the centroid of the feasible region.",
+              "is_correct": false
+            },
+            {
+              "id": 194425,
+              "text": "optimal value must occur at a corner point (vertex) of the feasible region.",
+              "html": "optimal value must occur at a corner point (vertex) of the feasible region.",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "optimal value must occur at a corner point (vertex) of the feasible region.",
+          "correct_option_ids": [
+            194425
+          ],
+          "explanation": "Let R be the feasible region (convex polygon) for a linear programming problem and let Z = ax + by be the objective function. When Z has an optimal value (maximum or minimum), where the variables x and y are subject to constraints described by linear inequalities then , optimal value must occur at a corner point (vertex) of the feasible region.",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59811,
+          "question_text": "Let R be the feasible region for a linear programming problem, and let Z = ax + by be the objective function. If R is bounded, then",
+          "question_html": "<p>Let R be the feasible region for a linear programming problem, and let Z = ax + by be the objective function. If R is bounded, then</p>",
+          "options": [
+            {
+              "id": 194429,
+              "text": "the objective function Z has both a maximum and a minimum value on R",
+              "html": "the objective function Z has both a maximum and a minimum value on R",
+              "is_correct": true
+            },
+            {
+              "id": 194430,
+              "text": "the objective function Z has only a maximum value on R",
+              "html": "the objective function Z has only a maximum value on R",
+              "is_correct": false
+            },
+            {
+              "id": 194432,
+              "text": "the objective function Z has no minimum value on R",
+              "html": "the objective function Z has no minimum value on R",
+              "is_correct": false
+            },
+            {
+              "id": 194431,
+              "text": "the objective function Z has only a minimum value on R",
+              "html": "the objective function Z has only a minimum value on R",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "the objective function Z has both a maximum and a minimum value on R",
+          "correct_option_ids": [
+            194429
+          ],
+          "explanation": "Let R be the feasible region for a linear programming problem, and let Z = ax + by be the objective function. If R is bounded, then the objective function Z has both a maximum and a minimum value on R and each of these occur at the corner point (vertex) of R.",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59812,
+          "question_text": "Let R be the feasible region for a linear programming problem,and let Z = ax + by be the objective function. If R is bounded, then the objective function Z has both a maximum and a minimum value on R and",
+          "question_html": "<p>Let R be the feasible region for a linear programming problem,and let Z = ax + by be the objective function. If R is bounded, then the objective function Z has both a maximum and a minimum value on R and</p>\r\n",
+          "options": [
+            {
+              "id": 194436,
+              "text": "each of these occurs at the midpoints of the edges of R",
+              "html": "each of these occurs at the midpoints of the edges of R",
+              "is_correct": false
+            },
+            {
+              "id": 194434,
+              "text": "each of these occurs at the centre of R.",
+              "html": "each of these occurs at the centre of R.",
+              "is_correct": false
+            },
+            {
+              "id": 194435,
+              "text": "each of these occurs at some points except corner points of R.",
+              "html": "each of these occurs at some points except corner points of R.",
+              "is_correct": false
+            },
+            {
+              "id": 194433,
+              "text": "each of these occurs at a corner point (vertex) of R.",
+              "html": "each of these occurs at a corner point (vertex) of R.",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "each of these occurs at a corner point (vertex) of R.",
+          "correct_option_ids": [
+            194433
+          ],
+          "explanation": "Let R be the feasible region for a linear programming problem,and let Z = ax + by be the objective function. If R is bounded, then the objective function Z has both a maximum and a minimum value on R and each of these occurs at a corner point (vertex) of R.",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59813,
+          "question_text": "A maximum or a minimum may not exist for a linear programming problem if",
+          "question_html": "<p>A maximum or a minimum may not exist for a linear programming problem if</p>",
+          "options": [
+            {
+              "id": 194437,
+              "text": "The feasible region is unbounded",
+              "html": "The feasible region is unbounded",
+              "is_correct": true
+            },
+            {
+              "id": 194439,
+              "text": "If the constraints are non-linear",
+              "html": "If the constraints are non-linear",
+              "is_correct": false
+            },
+            {
+              "id": 194438,
+              "text": "If the objective function is continuous",
+              "html": "If the objective function is continuous",
+              "is_correct": false
+            },
+            {
+              "id": 194440,
+              "text": "The feasible region is bounded",
+              "html": "The feasible region is bounded",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "The feasible region is unbounded",
+          "correct_option_ids": [
+            194437
+          ],
+          "explanation": "A maximum or a minimum may or may not exist for a linear programming problem if the feasible region is unbounded. However if it exits it must occur at the corner points of R.",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59814,
+          "question_text": "In Corner point method for solving a linear programming problem the first step is to",
+          "question_html": "<p>In Corner point method for solving a linear programming problem the first step is to</p>",
+          "options": [
+            {
+              "id": 194442,
+              "text": "Find the feasible region of the linear programming problem and determine its center points (vertices).",
+              "html": "Find the feasible region of the linear programming problem and determine its center points (vertices).",
+              "is_correct": false
+            },
+            {
+              "id": 194441,
+              "text": "Find the feasible region of the linear programming problem and determine its corner points (vertices).",
+              "html": "Find the feasible region of the linear programming problem and determine its corner points (vertices).",
+              "is_correct": true
+            },
+            {
+              "id": 194443,
+              "text": "Find the infeasible region of the linear programming problem and determine its complement",
+              "html": "Find the infeasible region of the linear programming problem and determine its complement",
+              "is_correct": false
+            },
+            {
+              "id": 194444,
+              "text": "Find the infeasible regions of the linear programming problem and determine theunion of the infeasible regions",
+              "html": "Find the infeasible regions of the linear programming problem and determine theunion of the infeasible regions",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Find the feasible region of the linear programming problem and determine its corner points (vertices).",
+          "correct_option_ids": [
+            194441
+          ],
+          "explanation": "In Corner point method for solving a linear programming problem the first step is : To find the feasible region of the linear programming problem and determine its corner points (vertices) either by inspection or by solving the two equations of the lines intersecting at that point.",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59815,
+          "question_text": "In Corner point method for solving a linear programming problem the second step after finding the feasible region of the linear programming problem and determining its corner points is",
+          "question_html": "<p>In Corner point method for solving a linear programming problem the second step after finding the feasible region of the linear programming problem and determining its corner points is</p>",
+          "options": [
+            {
+              "id": 194445,
+              "text": "Evaluate the objective function Z = ax + by at each corner point.",
+              "html": "Evaluate the objective function Z = ax + by at each corner point.",
+              "is_correct": true
+            },
+            {
+              "id": 194447,
+              "text": "Evaluate the objective function Z = ax + by at the center point",
+              "html": "Evaluate the objective function Z = ax + by at the center point",
+              "is_correct": false
+            },
+            {
+              "id": 194446,
+              "text": "Evaluate the objective function Z = ax + by at the mid points",
+              "html": "Evaluate the objective function Z = ax + by at the mid points",
+              "is_correct": false
+            },
+            {
+              "id": 194448,
+              "text": "Evaluate the objective function Z = ax + by at the End points",
+              "html": "Evaluate the objective function Z = ax + by at the End&nbsp;points",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Evaluate the objective function Z = ax + by at each corner point.",
+          "correct_option_ids": [
+            194445
+          ],
+          "explanation": "In Corner point method for solving a linear programming problem the second step after finding the feasible region of the linear programming problem and determining its corner points is : To evaluate the objective function Z = ax + by at each corner point.",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59816,
+          "question_text": "In Corner point method for solving a linear programming problem one finds the feasible region of the linear programming problem ,determines its corner points and evaluates the objective function Z = ax + by at each corner point. If M and m respectively be the largest and smallest values at corner points then",
+          "question_html": "<p>In Corner point method for solving a linear programming problem one finds the feasible region of the linear programming problem ,determines its corner points and evaluates the objective function Z = ax + by at each corner point. If M and m respectively be the largest and smallest values at corner points then</p>",
+          "options": [
+            {
+              "id": 194452,
+              "text": "If the feasible region is bounded, M and m respectively are the maximum values of the objective function",
+              "html": "If the feasible region is bounded, M and m respectively are the maximum values of the objective function",
+              "is_correct": false
+            },
+            {
+              "id": 194449,
+              "text": "If the feasible region is bounded, M and m respectively are the maximum and minimum values of the objective function",
+              "html": "If the feasible region is bounded, M and m respectively are the maximum and minimum values of the objective function",
+              "is_correct": true
+            },
+            {
+              "id": 194451,
+              "text": "If the feasible region is bounded, M and m respectively are the minimum and maximum values of the objective function",
+              "html": "If the feasible region is bounded, M and m respectively are the minimum and maximum values of the objective function",
+              "is_correct": false
+            },
+            {
+              "id": 194450,
+              "text": "If the feasible region is unbounded, M and m respectively are the maximum and minimum values of the objective function",
+              "html": "If the feasible region is unbounded, M and m respectively are the maximum and minimum values of the objective function",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "If the feasible region is bounded, M and m respectively are the maximum and minimum values of the objective function",
+          "correct_option_ids": [
+            194449
+          ],
+          "explanation": "In Corner point method for solving a linear programming problem one finds the feasible region of the linear programming problem ,determines its corner points and evaluates the objective function Z = ax + by at each corner point. If Mand m respectively be the largest and smallest values at corner points then If the feasible region is bounded, M and m respectively are the maximum and minimum values of the objective function .",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59817,
+          "question_text": "In Corner point method for solving a linear programming problem one finds the feasible region of the linear programming problem ,determines its corner points and evaluates the objective function Z = ax + by at each corner point. Let M and m respectively be the largest and smallest values at corner points. In case feasible region is unbounded, M is the maximum value of the objective function if",
+          "question_html": "<p>In Corner point method for solving a linear programming problem one finds the feasible region of the linear programming problem ,determines its corner points and evaluates the objective function Z = ax + by at each corner point. Let M and m respectively be the largest and smallest values at corner points. In case feasible region is unbounded, M is the maximum value of the objective function if</p>",
+          "options": [
+            {
+              "id": 194453,
+              "text": "The open half plane determined by ax + by > M has no point in common with the feasible region",
+              "html": "The open half plane determined by ax + by &gt; M has no point in common with the feasible region",
+              "is_correct": true
+            },
+            {
+              "id": 194456,
+              "text": "The open half plane determined by ax + by < M has points in common with the feasible region",
+              "html": "The open half plane determined by ax + by &lt;&nbsp;M has points in common with the feasible region",
+              "is_correct": false
+            },
+            {
+              "id": 194455,
+              "text": "The open half plane determined by ax + by < M has no point in common with the feasible region",
+              "html": "The open half plane determined by ax + by &lt; M has no point in common with the feasible region",
+              "is_correct": false
+            },
+            {
+              "id": 194454,
+              "text": "The open half plane determined by ax + by > M has points in common with the feasible region",
+              "html": "The open half plane determined by ax + by &gt; M has points in common with the feasible region",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "The open half plane determined by ax + by > M has no point in common with the feasible region",
+          "correct_option_ids": [
+            194453
+          ],
+          "explanation": "In Corner point method for solving a linear programming problem one finds the feasible region of the linear programming problem ,determines its corner points and evaluates the objective function Z = ax + by at each corner point. Let M and m respectively be the largest and smallest values at corner points. In case feasible region is unbounded, M is the maximum value of the objective function if the open half plane determined by ax + by > M has no point in common with the feasible region . Otherwise, Z has no maximum value.",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59818,
+          "question_text": "In Corner point method for solving a linear programming problem one finds the feasible region of the linear programming problem ,determines its corner points and evaluates the objective function Z = ax + by at each corner point. Let M and m respectively be the largest and smallest values at corner points. In case feasible region is unbounded, m is the minimum value of the objective function",
+          "question_html": "<p>In Corner point method for solving a linear programming problem one finds the feasible region of the linear programming problem ,determines its corner points and evaluates the objective function Z = ax + by at each corner point. Let M and m respectively be the largest and smallest values at corner points. In case feasible region is unbounded, m is the minimum value of the objective function</p>",
+          "options": [
+            {
+              "id": 194457,
+              "text": "if the open half plane determined by ax + by < m has no point in common with the feasible region",
+              "html": "if the open half plane determined by ax + by &lt; m has no point in common with the feasible region",
+              "is_correct": true
+            },
+            {
+              "id": 194459,
+              "text": "if the open half plane determined by ax + by > m has no point in common with the feasible region",
+              "html": "if the open half plane determined by ax + by &gt; m has no point in common with the feasible region",
+              "is_correct": false
+            },
+            {
+              "id": 194460,
+              "text": "if the open half plane determined by ax + by > m has points in common with the feasible region",
+              "html": "if the open half plane determined by ax + by &gt;&nbsp;m has points in common with the feasible region",
+              "is_correct": false
+            },
+            {
+              "id": 194458,
+              "text": "if the open half plane determined by ax + by < m has points in common with the feasible region",
+              "html": "if the open half plane determined by ax + by &lt; m has points in common with the feasible region",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "if the open half plane determined by ax + by < m has no point in common with the feasible region",
+          "correct_option_ids": [
+            194457
+          ],
+          "explanation": "In Corner point method for solving a linear programming problem one finds the feasible region of the linear programming problem ,determines its corner points and evaluates the objective function Z = ax + by at each corner point. Let M and m respectively be the largest and smallest values at corner points. In case feasible region is unbounded, m is the minimum value of the objective function if the open half plane determined by ax + by < m has no point in common with the feasible region . Otherwise, Z has no minimum point.",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59819,
+          "question_text": "If two corner points of the feasible region are both optimal solutions of the same type, i.e., both produce the same maximum or minimum.",
+          "question_html": "<p>If two corner points of the feasible region are both optimal solutions of the same type, i.e., both produce the same maximum or minimum.</p>",
+          "options": [
+            {
+              "id": 194461,
+              "text": "then any point on the line segment joining these two points is also an optimal solution of the same type",
+              "html": "then any point on the line segment joining these two points is also an optimal solution of the same type",
+              "is_correct": true
+            },
+            {
+              "id": 194462,
+              "text": "then any point on the line segment joining these two points is also an optimal solution of the opposite type",
+              "html": "then any point on the line segment joining these two points is also an optimal solution of the opposite type",
+              "is_correct": false
+            },
+            {
+              "id": 194463,
+              "text": "then no point on the line segment joining these two points is an optimal solution of the same type",
+              "html": "then no point on the line segment joining these two points is an optimal solution of the same type",
+              "is_correct": false
+            },
+            {
+              "id": 194464,
+              "text": "then no point on the line segment joining these two points is an optimal solution of the opposite type",
+              "html": "then no point on the line segment joining these two points is an optimal solution of the opposite type",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "then any point on the line segment joining these two points is also an optimal solution of the same type",
+          "correct_option_ids": [
+            194461
+          ],
+          "explanation": "If two corner points of the feasible region are both optimal solutions of the same type, i.e., both produce the same maximum or minimum , then any point on the line segment joining these two points is also an optimal solution of the same type .",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3575,
+      "test_name": "Linear Programming   Test-03",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59835,
+          "question_text": "Maximize Z = &ndash; x + 2y, subject to the constraints: x &ge; 3, x + y &ge; 5, x + 2y &ge; 6, y &ge; 0.",
+          "question_html": "<p>Maximize Z = &ndash; x + 2y, subject to the constraints: x &ge; 3, x + y &ge; 5, x + 2y &ge; 6, y &ge; 0.</p>",
+          "options": [
+            {
+              "id": 194528,
+              "text": "Maximum Z = 14 at (2, 6)",
+              "html": "Maximum Z = 14 at (2, 6)",
+              "is_correct": false
+            },
+            {
+              "id": 194527,
+              "text": "Maximum Z = 12 at (2, 6)",
+              "html": "Maximum Z = 12 at (2, 6)",
+              "is_correct": false
+            },
+            {
+              "id": 194525,
+              "text": "Z has no maximum value",
+              "html": "Z has no maximum value",
+              "is_correct": true
+            },
+            {
+              "id": 194526,
+              "text": "Maximum Z = 10 at (2, 6)",
+              "html": "Maximum Z = 10 at (2, 6)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Z has no maximum value",
+          "correct_option_ids": [
+            194525
+          ],
+          "explanation": "Objective function is Z = - x + 2 y &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(1). The given constraints are : x &ge; 3, x + y &ge; 5, x + 2y &ge; 6, y &ge; 0. Corner points Z = - x + 2y D(6,0 ) -6 A(4,1) -2 B(3,2) 1 Here, the open half plane has points in common with the feasible region. Therefore, Z has no maximum value.",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59836,
+          "question_text": "One kind of cake requires 200g of flour and 25g of fat, and another kind of cake requires 100g of flour and 50g of fat. Find the maximum number of cakes which can be made from 5kg of flour and 1 kg of fat assuming that there is no shortage of the other ingredients used in making the cakes.",
+          "question_html": "<p>One kind of cake requires 200g of flour and 25g of fat, and another kind of cake requires 100g of flour and 50g of fat. Find the maximum number of cakes which can be made from 5kg of flour and 1 kg of fat assuming that there is no shortage of the other ingredients used in making the cakes.</p>",
+          "options": [
+            {
+              "id": 194531,
+              "text": "Maximum number of cakes = 33 , 22 of kind one and 11 cakes of another kind",
+              "html": "Maximum number of cakes = 33 , 22 of kind one and 11 cakes of another kind",
+              "is_correct": false
+            },
+            {
+              "id": 194529,
+              "text": "Maximum number of cakes = 30 , 20 of kind one and 10 cakes of another kind",
+              "html": "Maximum number of cakes = 30 , 20 of kind one and 10 cakes of another kind",
+              "is_correct": true
+            },
+            {
+              "id": 194532,
+              "text": "Maximum number of cakes = 34 , 27 of kind one and 7 cakes of another kind",
+              "html": "Maximum number of cakes = 34 , 27 of kind one and 7 cakes of another kind",
+              "is_correct": false
+            },
+            {
+              "id": 194530,
+              "text": "Maximum number of cakes = 32 , 20 of kind one and 12 cakes of another kind",
+              "html": "Maximum number of cakes = 32 , 20 of kind one and 12 cakes of another kind",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Maximum number of cakes = 30 , 20 of kind one and 10 cakes of another kind",
+          "correct_option_ids": [
+            194529
+          ],
+          "explanation": "Let number of cakes of first type = x And number of cakes of second type = y Therefore , the above L.P.P. is given as : Minimise , Z = x +y , subject to the constraints : 200x +100y &le; 5000 and. 25x +50y &le; 1000, i.e. 2x + y &le; 50 and x +2y &le; 40 x, y &ge; 0. The corner points can be obtained by constructing the lines x+2y=40 , 2x+y= 50 and x+2y = 40. The points so obtained are (0,0),(25,0), (20,10), and (0,20). Corner points Z = x + y O( 0 , 0 ) 0 D(25,0 ) 25 A(20,10) 30&hellip;&hellip;&hellip;&hellip;&hellip;..(Max.) B(0,20) 20 Here Z = 30 is maximum. i.e Maximum number of cakes = 30 , 20 of kind one and 10 cakes of another kind .",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59837,
+          "question_text": "A factory makes tennis rackets and cricket bats. A tennis racket takes 1.5 hours of machine time and 3 hours of craftsman&rsquo;s time in its making while a cricket bat takes 3 hours of machine time and 1 hour of craftsman&rsquo;s time. In a day, the factory has the availability of not more than 42 hours of machine time and 24 hours of craftsman&rsquo;s time. What number of rackets and bats must be made if the factory is to work at full capacity?",
+          "question_html": "<p>A factory makes tennis rackets and cricket bats. A tennis racket takes 1.5 hours of machine time and 3 hours of craftsman&rsquo;s time in its making while a cricket bat takes 3 hours of machine time and 1 hour of craftsman&rsquo;s time. In a day, the factory has the availability of not more than 42 hours of machine time and 24 hours of craftsman&rsquo;s time. What number of rackets and bats must be made if the factory is to work at full capacity?</p>",
+          "options": [
+            {
+              "id": 194534,
+              "text": "3 tennis rackets and 13 cricket bats",
+              "html": "3 tennis rackets and 13 cricket bats",
+              "is_correct": false
+            },
+            {
+              "id": 194533,
+              "text": "4 tennis rackets and 12 cricket bats",
+              "html": "4 tennis rackets and 12 cricket bats",
+              "is_correct": true
+            },
+            {
+              "id": 194536,
+              "text": "5 tennis rackets and 15 cricket bats",
+              "html": "5 tennis rackets and 15 cricket bats",
+              "is_correct": false
+            },
+            {
+              "id": 194535,
+              "text": "4 tennis rackets and 14 cricket bats",
+              "html": "4 tennis rackets and 14 cricket bats",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "4 tennis rackets and 12 cricket bats",
+          "correct_option_ids": [
+            194533
+          ],
+          "explanation": "Let number of rackets made = x And number of bats made = y Therefore , the above L.P.P. is given as : Maximise , Z = x +y , subject to the constraints : 1.5x +3y &le; 42 and. 3x +y &le; 24, i.e.0.5x + y &le; 14 i.e. x +2y &le; 28 and 3x +y &le; 24 , x, y &ge; 0. Corner points Z = x + y O( 0 , 0 ) 0 D(0,14 ) 14 A(8,0) 8 B(4,12) 16&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(Max.) Here Z = 16 is maximum. i.e Maximum number of rackets = 4 and number of bats = 12.",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59838,
+          "question_text": "A factory makes tennis rackets and cricket bats. A tennis racket takes 1.5 hours of machine time and 3 hours of craftsman&rsquo;s time in its making while a cricket bat takes 3 hours of machine time and 1 hour of craftsman&rsquo;s time. In a day, the factory has the availability of not more than 42 hours of machine time and 24 hours of craftsman&rsquo;s time. If the profit on a racket and on a bat is Rs 20 and Rs 10 respectively, find the maximum profit of the factory when it works at full capacity?",
+          "question_html": "<p>A factory makes tennis rackets and cricket bats. A tennis racket takes 1.5 hours of machine time and 3 hours of craftsman&rsquo;s time in its making while a cricket bat takes 3 hours of machine time and 1 hour of craftsman&rsquo;s time. In a day, the factory has the availability of not more than 42 hours of machine time and 24 hours of craftsman&rsquo;s time. If the profit on a racket and on a bat is Rs 20 and Rs 10 respectively, find the maximum profit of the factory when it works at full capacity?</p>",
+          "options": [
+            {
+              "id": 194537,
+              "text": "Maximum profit = Rs 200",
+              "html": "Maximum profit = Rs 200",
+              "is_correct": true
+            },
+            {
+              "id": 194538,
+              "text": "Maximum profit = Rs 210",
+              "html": "Maximum profit = Rs 210",
+              "is_correct": false
+            },
+            {
+              "id": 194539,
+              "text": "Maximum profit = Rs 220",
+              "html": "Maximum profit = Rs 220",
+              "is_correct": false
+            },
+            {
+              "id": 194540,
+              "text": "Maximum profit = Rs 230",
+              "html": "Maximum profit = Rs 230",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Maximum profit = Rs 200",
+          "correct_option_ids": [
+            194537
+          ],
+          "explanation": "Let number of rackets made = x And number of bats made = y Therefore , the above L.P.P. is given as : Maximise , Z = x +y , subject to the constraints : 1.5x +3y &le; 42 and. 3x +y &le; 24, i.e.0.5x + y &le; 14 i.e. x +2y &le; 28 and 3x +y &le; 24 , x, y &ge; 0. Corner points Z = x + y O( 0 , 0 ) 0 D(0,14 ) 14 A(8,0) 8 B(4,12) 16&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(Max.) Here Z = 16 is maximum. i.e Maximum number of rackets = 4 and number of bats = 12. Here , profit function is P = 20x + 10y Profit is maximum at x = 4 and y = 12 . Therefore , maximum profit = 20(4) + 10 ( 12) = 200.i.e. Rs.200.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59839,
+          "question_text": "A manufacturer produces nuts and bolts. It takes 1 hour of work on machine A and 3 hours on machine B to produce a package of nuts. It takes 3 hours on machine A and 1 hour on machine B to produce a package of bolts. He earns a profit of Rs17.50 per package on nuts and Rs 7.00 per package on bolts. How many packages of each should be produced each day so as to maximise his profit, if he operates his machines for at the most 12 hours a day?",
+          "question_html": "<p>A manufacturer produces nuts and bolts. It takes 1 hour of work on machine A and 3 hours on machine B to produce a package of nuts. It takes 3 hours on machine A and 1 hour on machine B to produce a package of bolts. He earns a profit of Rs17.50 per package on nuts and Rs 7.00 per package on bolts. How many packages of each should be produced each day so as to maximise his profit, if he operates his machines for at the most 12 hours a day?</p>",
+          "options": [
+            {
+              "id": 194544,
+              "text": "4 packages of nuts and 4 packages of bolts; Maximum profit = Rs 76.50",
+              "html": "4 packages of nuts and 4 packages of bolts; Maximum profit = Rs 76.50",
+              "is_correct": false
+            },
+            {
+              "id": 194543,
+              "text": "4 packages of nuts and 3 packages of bolts; Maximum profit = Rs 75.50.",
+              "html": "4 packages of nuts and 3 packages of bolts; Maximum profit = Rs 75.50.",
+              "is_correct": false
+            },
+            {
+              "id": 194542,
+              "text": "3 packages of nuts and 4 packages of bolts; Maximum profit = Rs 74.50.",
+              "html": "3 packages of nuts and 4 packages of bolts; Maximum profit = Rs 74.50.",
+              "is_correct": false
+            },
+            {
+              "id": 194541,
+              "text": "3 packages of nuts and 3 packages of bolts; Maximum profit = Rs 73.50.",
+              "html": "3 packages of nuts and 3 packages of bolts; Maximum profit = Rs 73.50.",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "3 packages of nuts and 3 packages of bolts; Maximum profit = Rs 73.50.",
+          "correct_option_ids": [
+            194541
+          ],
+          "explanation": "Let number of packages of nuts produced = x And number of packages of bolts produced = y Therefore , the above L.P.P. is given as : Maximise , Z = 17.50x +7y , subject to the constraints : x +3y &le; 12 and. 3x +y &le; 12, x, y &ge; 0. Corner points Z =17.50 x +7 y O( 0 , 0 ) 0 D(4,0 ) 70 A(0,4) 28 B(3,3) 73.50&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(Max.) Here Z = 73.50 is maximum. i.e 3 packages of nuts and 3 packages of bolts; Maximum profit = Rs 73.50.",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59840,
+          "question_text": "A factory manufactures two types of screws, A and B. Each type of screw requires the use of two machines, an automatic and a hand operated. It takes 4 minutes on the automatic and 6 minutes on hand operated machines to manufacture a package of screws A, while it takes 6 minutes on automatic and 3 minutes on the hand operated machines to manufacture a package of screws B. Each machine is available for at the most 4 hours on any day. The manufacturer can sell a package of screws A at a profit of Rs 7 and screws B at a profit of Rs 10. Assuming that he can sell all the screws he manufactures, how many packages of each type should the factory owner produce in a day in order to maximize his profit? Determine the maximum profit.",
+          "question_html": "<p>A factory manufactures two types of screws, A and B. Each type of screw requires the use of two machines, an automatic and a hand operated. It takes 4 minutes on the automatic and 6 minutes on hand operated machines to manufacture a package of screws A, while it takes 6 minutes on automatic and 3 minutes on the hand operated machines to manufacture a package of screws B. Each machine is available for at the most 4 hours on any day. The manufacturer can sell a package of screws A at a profit of Rs 7 and screws B at a profit of Rs 10. Assuming that he can sell all the screws he manufactures, how many packages of each type should the factory owner produce in a day in order to maximize his profit? Determine the maximum profit.</p>",
+          "options": [
+            {
+              "id": 194547,
+              "text": "30 packages of screws A and 22 packages of screws B; Maximum profit = Rs 412",
+              "html": "30 packages of screws A and 22 packages of screws B; Maximum profit = Rs 412",
+              "is_correct": false
+            },
+            {
+              "id": 194548,
+              "text": "32 packages of screws A and 22 packages of screws B; Maximum profit = Rs 414",
+              "html": "32 packages of screws A and 22 packages of screws B; Maximum profit = Rs 414",
+              "is_correct": false
+            },
+            {
+              "id": 194546,
+              "text": "32 packages of screws A and 20 packages of screws B; Maximum profit = Rs 412",
+              "html": "32 packages of screws A and 20 packages of screws B; Maximum profit = Rs 412",
+              "is_correct": false
+            },
+            {
+              "id": 194545,
+              "text": "30 packages of screws A and 20 packages of screws B; Maximum profit = Rs.410",
+              "html": "30 packages of screws A and 20 packages of screws B; Maximum profit = Rs.410",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "30 packages of screws A and 20 packages of screws B; Maximum profit = Rs.410",
+          "correct_option_ids": [
+            194545
+          ],
+          "explanation": "Let number of packages of screws A produced = x And number of packages of screws B produced = y Therefore , the above L.P.P. is given as : Maximise , Z = 7x +10y , subject to the constraints : 4x +6y &le; 240 and. 6x +3y &le; 240 i.e. 2x +3y &le; 120 and 2x +y &le; 80 , x, y &ge; 0. Corner points Z =7 x +10 y O( 0 , 0 ) 0 D(40,0 ) 280 A(0,40) 400 B(30,20) 410&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(Max.) Here Z = 410 is maximum. i.e 30 packages of screws A and 20 packages of screws B; Maximum profit = Rs.410.",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59841,
+          "question_text": "A cottage industry manufactures pedestal lamps and wooden shades, each requiring the use of a grinding/cutting machine and a sprayer. It takes 2 hours on grinding/cutting machine and 3 hours on the sprayer to manufacture a pedestal lamp. It takes 1 hour on the grinding/cutting machine and 2 hours on the sprayer to manufacture a shade. On any day, the sprayer is available for at the most 20 hours and the grinding/cutting machine for at the most 12 hours. The profit from the sale of a lamp is Rs 5 and that from a shade is Rs 3. Assuming that the manufacturer can sell all the lamps and shades that he produces, how should he schedule his daily production in order to maximize his profit?",
+          "question_html": "<p>A cottage industry manufactures pedestal lamps and wooden shades, each requiring the use of a grinding/cutting machine and a sprayer. It takes 2 hours on grinding/cutting machine and 3 hours on the sprayer to manufacture a pedestal lamp. It takes 1 hour on the grinding/cutting machine and 2 hours on the sprayer to manufacture a shade. On any day, the sprayer is available for at the most 20 hours and the grinding/cutting machine for at the most 12 hours. The profit from the sale of a lamp is Rs 5 and that from a shade is Rs 3. Assuming that the manufacturer can sell all the lamps and shades that he produces, how should he schedule his daily production in order to maximize his profit?</p>",
+          "options": [
+            {
+              "id": 194550,
+              "text": "5 Pedestal lamps and 4 wooden shades; Maximum profit = Rs 35",
+              "html": "5 Pedestal lamps and 4 wooden shades; Maximum profit = Rs 35",
+              "is_correct": false
+            },
+            {
+              "id": 194552,
+              "text": "5 Pedestal lamps and 5 wooden shades; Maximum profit = Rs 38",
+              "html": "5 Pedestal lamps and 5 wooden shades; Maximum profit = Rs 38",
+              "is_correct": false
+            },
+            {
+              "id": 194551,
+              "text": "4 Pedestal lamps and 5 wooden shades; Maximum profit = Rs 36",
+              "html": "4 Pedestal lamps and 5 wooden shades; Maximum profit = Rs 36",
+              "is_correct": false
+            },
+            {
+              "id": 194549,
+              "text": "4 Pedestal lamps and 4 wooden shades; Maximum profit = Rs 32",
+              "html": "4 Pedestal lamps and 4 wooden shades; Maximum profit = Rs 32",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "4 Pedestal lamps and 4 wooden shades; Maximum profit = Rs 32",
+          "correct_option_ids": [
+            194549
+          ],
+          "explanation": "Let number of pedestal lamps manufactured = x And number of wooden shades manufactured = y Therefore , the above L.P.P. is given as : Maximise , Z = 5x +3y , subject to the constraints : 2x +y &le; 12 and. 3x +2y &le; 20 , x, y &ge; 0. Corner points Z =5x +3 y O( 0 , 0 ) 0 D(6,0 ) 30 A(0,10) 30 B(4,4) 32&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(Max.) Here Z = 32 is maximum. i.e 30 packages of screws A and 20 packages of screws B; Maximum profit = Rs 410. i.e. 4 Pedestal lamps and 4 wooden shades; Maximum profit = Rs 32 .",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59842,
+          "question_text": "A company manufactures two types of novelty souvenirs made of plywood. Souvenirs of type &#39;A&#39; require 5 minutes each for cutting and 10 minutes each for assembling. Souvenirs of type B require 8 minutes each for cutting and 8 minutes each for assembling. There are 3 hours 20 minutes available for cutting and 4hours for assembling. The profit is Rs 5 each for type A and Rs 6 each for type B souvenirs. How many souvenirs of each type should the company manufacture in order to maximize the profit?",
+          "question_html": "<p>A company manufactures two types of novelty souvenirs made of plywood. Souvenirs of type &#39;A&#39; require 5 minutes each for cutting and 10 minutes each for assembling. Souvenirs of type B require 8 minutes each for cutting and 8 minutes each for assembling. There are 3 hours 20 minutes available for cutting and 4hours for assembling. The profit is Rs 5 each for type A and Rs 6 each for type B souvenirs. How many souvenirs of each type should the company manufacture in order to maximize the profit?</p>",
+          "options": [
+            {
+              "id": 194554,
+              "text": "7 Souvenir of types A and 210 of Souvenir of type B; Maximum profit = Rs 161",
+              "html": "7 Souvenir of types A and 210 of Souvenir of type B; Maximum profit = Rs 161",
+              "is_correct": false
+            },
+            {
+              "id": 194555,
+              "text": "9 Souvenir of types A and 21 of Souvenir of type B; Maximum profit = Rs 163",
+              "html": "9 Souvenir of types A and 21 of Souvenir of type B; Maximum profit = Rs 163",
+              "is_correct": false
+            },
+            {
+              "id": 194556,
+              "text": "8 Souvenir of types A and 27 of Souvenir of type B; Maximum profit = Rs 170",
+              "html": "8 Souvenir of types A and 27 of Souvenir of type B; Maximum profit = Rs 170",
+              "is_correct": false
+            },
+            {
+              "id": 194553,
+              "text": "8 Souvenir of types A and 20 of Souvenir of type B; Maximum profit = Rs 160",
+              "html": "8 Souvenir of types A and 20 of Souvenir of type B; Maximum profit = Rs 160",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "8 Souvenir of types A and 20 of Souvenir of type B; Maximum profit = Rs 160",
+          "correct_option_ids": [
+            194553
+          ],
+          "explanation": "Let number of souvenirs of type A = x And number of souvenirs of type B = y Therefore , the above L.P.P. is given as : Maximise , Z = 5x +6y , subject to the constraints : 5x +8y &le; 200 and. 10x +8y &le; 240 , x, y &ge; 0. Corner points Z =5x +6 y O( 0 , 0 ) 0 D(0,25 ) 150 A(24,0) 120 B(8,20) 160&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(Max.) Here Z = 160 is maximum. i.e. 8 Souvenir of types A and 20 of Souvenir of type B; Maximum profit = Rs 160.",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59843,
+          "question_text": "A merchant plans to sell two type of personal computers &ndash; a desktop model and a portable model that will cost Rs 25000 and Rs 40000 respectively. He estimates that the total monthly demand of computers will not exceed 250 units. Determine the number of units of each type of computers which the merchant should stock to get maximum profit if he does not want to invest more than Rs 70 lakhs and if his profit on the desktop model is Rs 4500 and on portable model is Rs 5000.",
+          "question_html": "<p>A merchant plans to sell two type of personal computers &ndash; a desktop model and a portable model that will cost Rs 25000 and Rs 40000 respectively. He estimates that the total monthly demand of computers will not exceed 250 units. Determine the number of units of each type of computers which the merchant should stock to get maximum profit if he does not want to invest more than Rs 70 lakhs and if his profit on the desktop model is Rs 4500 and on portable model is Rs 5000.</p>",
+          "options": [
+            {
+              "id": 194558,
+              "text": "220 units of desktop model and 50 units of portable model; Maximum profit = Rs 1150020",
+              "html": "220 units of desktop model and 50 units of portable model; Maximum profit = Rs 1150020",
+              "is_correct": false
+            },
+            {
+              "id": 194557,
+              "text": "200 units of desktop model and 50 units of portable model; Maximum profit = Rs 1150000",
+              "html": "200 units of desktop model and 50 units of portable model; Maximum profit = Rs 1150000",
+              "is_correct": true
+            },
+            {
+              "id": 194560,
+              "text": "260 units of desktop model and 50 units of portable model; Maximum profit = Rs 1150400",
+              "html": "260 units of desktop model and 50 units of portable model; Maximum profit = Rs 1150400",
+              "is_correct": false
+            },
+            {
+              "id": 194559,
+              "text": "240 units of desktop model and 50 units of portable model; Maximum profit = Rs 1150040",
+              "html": "240 units of desktop model and 50 units of portable model; Maximum profit = Rs 1150040",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "200 units of desktop model and 50 units of portable model; Maximum profit = Rs 1150000",
+          "correct_option_ids": [
+            194557
+          ],
+          "explanation": "Let number of desktop model computers = x And number of portable model computers = y Therefore , the above L.P.P. is given as: Maximise , Z = 4500x +5000y , subject to the constraints : x +y &le; 250 and 25000x +40000y &le; 700000 .i.e. x +y &le; 250 and 5x +8y &le; 1400 , x, y &ge; 0. Corner points Z =4500x +5000 y O( 0 , 0 ) 0 D(250,0 ) 1125000 A(0,175) 87500 B(200,50) 1150000&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(Max.) Here Z = 1150000 is maximum. i.e. 200 units of desktop model and 50 units of portable model; Maximum profit = Rs 1150000.",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59844,
+          "question_text": "A diet is to contain at least 80 units of vitamin A and 100 units of minerals. Two foods F1 and F2 are available. Food F1 costs Rs 4 per unit food and F2 costs Rs 6 per unit. One unit of food F1 contains 3 units of vitamin A and 4 units of minerals. One unit of food F2 contains 6 units of vitamin A and 3 units of minerals. Formulate this as a linear programming problem. Find the minimum cost for diet that consists of mixture of these two foods and also meets the minimal nutritional requirements.",
+          "question_html": "<p>A diet is to contain at least 80 units of vitamin A and 100 units of minerals. Two foods F1 and F2 are available. Food F1 costs Rs 4 per unit food and F2 costs Rs 6 per unit. One unit of food F1 contains 3 units of vitamin A and 4 units of minerals. One unit of food F2 contains 6 units of vitamin A and 3 units of minerals. Formulate this as a linear programming problem. Find the minimum cost for diet that consists of mixture of these two foods and also meets the minimal nutritional requirements.</p>",
+          "options": [
+            {
+              "id": 194564,
+              "text": "Minimum cost = Rs 134",
+              "html": "Minimum cost = Rs 134",
+              "is_correct": false
+            },
+            {
+              "id": 194561,
+              "text": "Minimum cost = Rs 104",
+              "html": "Minimum cost = Rs 104",
+              "is_correct": true
+            },
+            {
+              "id": 194563,
+              "text": "Minimum cost = Rs 124",
+              "html": "Minimum cost = Rs 124",
+              "is_correct": false
+            },
+            {
+              "id": 194562,
+              "text": "Minimum cost = Rs 114",
+              "html": "Minimum cost = Rs 114",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Minimum cost = Rs 104",
+          "correct_option_ids": [
+            194561
+          ],
+          "explanation": "Let number of units of food F1 = x And number of units of food F2 = y Therefore , the above L.P.P. is given as : Minimise , Z = 4x +6y , subject to the constraints : 3 x + 6y &ge; 80, 4x + 3y &ge; 100, x,y &ge; 0., Corner points Z =4x +6 y B(80/3 , 0 ) 320/3 D(24,4/3 ) 104&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(Min.) A(0,100/3) 200 Corner points Z =4x +6 y B(80/3 , 0 ) 320/3 D(24,4/3 ) 104&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(Min.) A(0,100/3) 200 Here Z = 104 is minimum. i.e. Minimum cost = Rs 104.",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59845,
+          "question_text": "There are two types of fertilizers F1 and F2. F1 consists of 10% nitrogen and 6% phosphoric acid and F2 consists of 5% nitrogen and 10% phosphoric acid. After testing the soil conditions, a farmer finds that she needs at least 14 kg of nitrogen and 14 kg of phosphoric acid for her crop. If F1 costs Rs 6/kg and F2 costs Rs 5/kg, determine how much of each type of fertilizer should be used so that nutrient requirements are met at a minimum cost. What is the minimum cost?",
+          "question_html": "<p>There are two types of fertilizers F1 and F2. F1 consists of 10% nitrogen and 6% phosphoric acid and F2 consists of 5% nitrogen and 10% phosphoric acid. After testing the soil conditions, a farmer finds that she needs at least 14 kg of nitrogen and 14 kg of phosphoric acid for her crop. If F1 costs Rs 6/kg and F2 costs Rs 5/kg, determine how much of each type of fertilizer should be used so that nutrient requirements are met at a minimum cost. What is the minimum cost?</p>",
+          "options": [
+            {
+              "id": 194565,
+              "text": "100 kg of fertilizer F1 and 80 kg of fertilizer F2; Minimum cost = Rs 1000",
+              "html": "100 kg of fertilizer F1 and 80 kg of fertilizer F2; Minimum cost = Rs 1000",
+              "is_correct": true
+            },
+            {
+              "id": 194566,
+              "text": "110 kg of fertilizer F1 and 80 kg of fertilizer F2; Minimum cost = Rs 1100",
+              "html": "110 kg of fertilizer F1 and 80 kg of fertilizer F2; Minimum cost = Rs 1100",
+              "is_correct": false
+            },
+            {
+              "id": 194568,
+              "text": "130 kg of fertilizer F1 and 80 kg of fertilizer F2; Minimum cost = Rs 1300",
+              "html": "130 kg of fertilizer F1 and 80 kg of fertilizer F2; Minimum cost = Rs 1300",
+              "is_correct": false
+            },
+            {
+              "id": 194567,
+              "text": "120 kg of fertilizer F1 and 80 kg of fertilizer F2; Minimum cost = Rs 1200",
+              "html": "120 kg of fertilizer F1 and 80 kg of fertilizer F2; Minimum cost = Rs 1200",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "100 kg of fertilizer F1 and 80 kg of fertilizer F2; Minimum cost = Rs 1000",
+          "correct_option_ids": [
+            194565
+          ],
+          "explanation": "Let number of kgs. of fertilizer F1 = x And number of kgs. of fertilizer F2 = y Therefore , the above L.P.P. is given as : Minimise , Z = 6x +5y , subject to the constraints : 10/100 x + 5/100y &ge; 14 and 6/100x + 10/100y &ge; 14, i.e. 2 x + y &ge; 280 and 3x + 5y &ge; 700, x,y &ge; 0., Corner points Z =6x +5 y A ( 0 , 280 ) 1400 D(700/3,0 ) 1400 B(100,80) 1000&hellip;&hellip;&hellip;&hellip;.(Min.) Corner points Z =6x +5 y A ( 0 , 280 ) 1400 D(700/3,0 ) 1400 B(100,80) 1000&hellip;&hellip;&hellip;&hellip;.(Min.) Here Z = 1000 is minimum. i.e. 100 kg of fertilizer F1 and 80 kg of fertilizer F2; Minimum cost = Rs 1000.",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59846,
+          "question_text": "The corner points of the feasible region determined by the following system of linear inequalities:2x + y &le; 10, x + 3y &le; 15, x, y &ge; 0 are (0, 0), (5, 0), (3, 4) and (0, 5). Let Z = px + qy, where p, q > 0. Condition on p and q so that the maximum of Z occurs at both (3, 4) and (0, 5) is",
+          "question_html": "<p>The corner points of the feasible region determined by the following system of linear inequalities:2x + y &le; 10, x + 3y &le; 15, x, y &ge; 0 are (0, 0), (5, 0), (3, 4) and (0, 5). Let Z = px + qy, where p, q &gt; 0. Condition on p and q so that the maximum of Z occurs at both (3, 4) and (0, 5) is</p>",
+          "options": [
+            {
+              "id": 194569,
+              "text": "q = 3p",
+              "html": "q = 3p",
+              "is_correct": true
+            },
+            {
+              "id": 194570,
+              "text": "p = 3q",
+              "html": "p = 3q",
+              "is_correct": false
+            },
+            {
+              "id": 194572,
+              "text": "p = q",
+              "html": "p = q",
+              "is_correct": false
+            },
+            {
+              "id": 194571,
+              "text": "p = 2q",
+              "html": "p = 2q",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "q = 3p",
+          "correct_option_ids": [
+            194569
+          ],
+          "explanation": "Here Z = px +qy , subject to constraints : 2x + y &le; 10, x + 3y &le; 15, x, y &ge; 0 As it is given that Z is maximum at ( 3 ,4 ) and ( 0, 5 ). Therefore , 3p + 4q = 0p + 5q , which gives 3p = q .",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59847,
+          "question_text": "A farmer mixes two brands P and Q of cattle feed. Brand P, costing ₹ 250 per bag, contains 3 units of nutritional element A, 2.5 units of element B and 2 units of element C. Brand Q costing ₹ 200 per bag contains 1.5 units of nutritional element A, 11.25 units of element B, and 3 units of element C. The minimum requirements of nutrients A, B and C are 18 units, 45 units and 24 units respectively. Determine the number of bags of each brand which should be mixed in order to produce a mixture having a minimum cost per bag? What is the minimum cost of the mixture per bag?",
+          "question_html": "<p>A farmer mixes two brands P and Q of cattle feed. Brand P, costing ₹ 250 per bag, contains 3 units of nutritional element A, 2.5 units of element B and 2 units of element C. Brand Q costing ₹ 200 per bag contains 1.5 units of nutritional element A, 11.25 units of element B, and 3 units of element C. The minimum requirements of nutrients A, B and C are 18 units, 45 units and 24 units respectively. Determine the number of bags of each brand which should be mixed in order to produce a mixture having a minimum cost per bag? What is the minimum cost of the mixture per bag?</p>",
+          "options": [
+            {
+              "id": 194574,
+              "text": "4 bags of brand P and 6 bags of brand Q; Minimum cost of the mixture = Rs 2150",
+              "html": "4 bags of brand P and 6 bags of brand Q; Minimum cost of the mixture = Rs 2150",
+              "is_correct": false
+            },
+            {
+              "id": 194575,
+              "text": "5 bags of brand P and 6 bags of brand Q; Minimum cost of the mixture = Rs2250",
+              "html": "5 bags of brand P and 6 bags of brand Q; Minimum cost of the mixture = Rs2250",
+              "is_correct": false
+            },
+            {
+              "id": 194573,
+              "text": "3 bags of brand P and 6 bags of brand Q; Minimum cost of the mixture = Rs 1950",
+              "html": "3 bags of brand P and 6 bags of brand Q; Minimum cost of the mixture = Rs 1950",
+              "is_correct": true
+            },
+            {
+              "id": 194576,
+              "text": "6 bags of brand P and 6 bags of brand Q; Minimum cost of the mixture = Rs2350",
+              "html": "6 bags of brand P and 6 bags of brand Q; Minimum cost of the mixture = Rs2350",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "3 bags of brand P and 6 bags of brand Q; Minimum cost of the mixture = Rs 1950",
+          "correct_option_ids": [
+            194573
+          ],
+          "explanation": "Let number of bags of cattle feed of brand P = x And number of bags of cattle feed of brand Q = y Therefore , the above L.P.P. is given as : Minimise , Z = 250x +200y , subject to the constraints : 3 x + 1.5y &ge; 80, 2.5x + 11.25y &ge; 45, 2x + 3y &ge; 24 , x,y &ge; 0., Corner points Z =250x +200 y C( 0,12 ) 2400 B (18,0) 4500 D(3,6 ) 1950&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(Min.) A(9,2) 2650 Here Z = 1950 is minimum. i.e. 3 bags of brand P and 6 bags of brand Q; Minimum cost of the mixture = Rs 1950 .",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59848,
+          "question_text": "A dietician wishes to mix together two kinds of food X and Y in such a way that the mixture contains at least 10 units of vitamin A, 12 units of vitamin B and 8 units of vitamin C. The vitamin contents of one kg food is given below: Food Vitamin A Vitamin B Vitamin C X 1 2 3 Y 2 2 1 One kg of food X costs Rs 16 and one kg of food Y costs Rs 20. Find the least cost of the mixture which will produce the required diet?",
+          "question_html": "<p>A dietician wishes to mix together two kinds of food X and Y in such a way that the mixture contains at least 10 units of vitamin A, 12 units of vitamin B and 8 units of vitamin C. The vitamin contents of one kg food is given below:</p>\r\n\r\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\">Food</p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\">Vitamin A</p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\">Vitamin B</p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\">Vitamin C</p>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\">X</p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\">1</p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\">2</p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\">3</p>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\">Y</p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\">2</p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\">2</p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\">1</p>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>One kg of food X costs Rs 16 and one kg of food Y costs Rs 20. Find the least cost of the mixture which will produce the required diet?</p>",
+          "options": [
+            {
+              "id": 194578,
+              "text": "Least cost of the mixture is Rs.122 (2 kg of Food X and 4 kg of food Y).",
+              "html": "Least cost of the mixture is Rs.122 (2 kg of Food X and 4 kg of food Y).",
+              "is_correct": false
+            },
+            {
+              "id": 194577,
+              "text": "Least cost of the mixture is Rs 112 (2 kg of Food X and 4 kg of food Y).",
+              "html": "Least cost of the mixture is Rs 112 (2 kg of Food X and 4 kg of food Y).",
+              "is_correct": true
+            },
+            {
+              "id": 194579,
+              "text": "Least cost of the mixture is Rs 132 (3 kg of Food X and 4 kg of food Y).",
+              "html": "Least cost of the mixture is Rs 132 (3 kg of Food X and 4 kg of food Y).",
+              "is_correct": false
+            },
+            {
+              "id": 194580,
+              "text": "Least cost of the mixture is Rs 142 (2 kg of Food X and 5 kg of food Y).",
+              "html": "Least cost of the mixture is Rs 142 (2 kg of Food X and 5 kg of food Y).",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Least cost of the mixture is Rs 112 (2 kg of Food X and 4 kg of food Y).",
+          "correct_option_ids": [
+            194577
+          ],
+          "explanation": "Let number of kgs of food of brand X = x And number of kgs of food of brand Y = y Therefore , the above L.P.P. is given as : Minimise , Z = 16x +20y , subject to the constraints : x + 2y &ge; 10,2x + 2y &ge;12,3x + y &ge;8,x,y &ge; 0., Corner points Z =16x +20 y C(10 , 0 ) 160 B (0,8) 160 D(1,5 ) 116 A(2,4) 112&hellip;&hellip;&hellip;&hellip;&hellip;..(Min.) Here Z = 112 is minimum. i.e. Least cost of the mixture is Rs.112 (2 kg of Food X and 4 kg of food Y).",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59849,
+          "question_text": "An aeroplane can carry a maximum of 200 passengers. A profit of Rs.1000 is made on each executive class ticket and a profit of Rs 600 is made on each economy class ticket. The airline reserves at least 20 seats for executive class. However, at least 4 times as many passengers prefer to travel by economy class than by the executive class. Determine how many tickets of each type must be sold in order to maximise the profit for the airline. What is the maximum profit ?",
+          "question_html": "<p>An aeroplane can carry a maximum of 200 passengers. A profit of Rs.1000 is made on each executive class ticket and a profit of Rs 600 is made on each economy class ticket. The airline reserves at least 20 seats for executive class. However, at least 4 times as many passengers prefer to travel by economy class than by the executive class. Determine how many tickets of each type must be sold in order to maximise the profit for the airline. What is the maximum profit ?</p>",
+          "options": [
+            {
+              "id": 194584,
+              "text": "45 tickets of executive class and 160 tickets of economy class; Maximum profit = Rs 156000",
+              "html": "45 tickets of executive class and 160 tickets of economy class; Maximum profit = Rs 156000",
+              "is_correct": false
+            },
+            {
+              "id": 194581,
+              "text": "40 tickets of executive class and 160 tickets of economy class; Maximum profit = Rs 136000",
+              "html": "40 tickets of executive class and 160 tickets of economy class; Maximum profit = Rs 136000",
+              "is_correct": true
+            },
+            {
+              "id": 194582,
+              "text": "42 tickets of executive class and 160 tickets of economy class; Maximum profit = Rs 139000",
+              "html": "42 tickets of executive class and 160 tickets of economy class; Maximum profit = Rs 139000",
+              "is_correct": false
+            },
+            {
+              "id": 194583,
+              "text": "44 tickets of executive class and 160 tickets of economy class; Maximum profit = Rs 146000",
+              "html": "44 tickets of executive class and 160 tickets of economy class; Maximum profit = Rs 146000",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "40 tickets of executive class and 160 tickets of economy class; Maximum profit = Rs 136000",
+          "correct_option_ids": [
+            194581
+          ],
+          "explanation": "Let number of executive class tickets = x And number of economy class tickets = y Therefore , the above L.P.P. is given as : Minimise , Z = 1000x +600y , subject to the constraints : x + y &le; 200, 4x - y &le; 0, x &ge; 20,x,y &ge; 0., Corner points Z =1000x +600 y C(20 ,80 ) 68000 B (40,160) 136000 D(20,180 ) 12800 Here Z = 136000 is maximum. i.e. 40 tickets of executive class and 160 tickets of economy class; Maximum profit = Rs 136000 .",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3576,
+      "test_name": "Linear Programming   Test-04",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59850,
+          "question_text": "Two godowns A and B have grain capacity of 100 quintals and 50 quintals respectively. They supply to 3 ration shops, D, E and F whose requirements are 60, 50 and 40 quintals respectively. The cost of transportation per quintal from the godowns to the shops are given in the following table: Transportation cost per quintal (in Rs) From/To A B D 6 4 E 3 2 F 2.5 3 How should the supplies be transported in order that the transportation cost is minimum? What is the minimum cost?",
+          "question_html": "<p>Two godowns A and B have grain capacity of 100 quintals and 50 quintals respectively. They supply to 3 ration shops, D, E and F whose requirements are 60, 50 and 40 quintals respectively. The cost of transportation per quintal from the godowns to the shops are given in the following table:</p>\r\n\r\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td colspan=\"3\" style=\"text-align: center;\">Transportation cost per quintal (in Rs)</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td style=\"text-align: center;\">From/To</td>\r\n\t\t\t<td style=\"text-align: center;\">A</td>\r\n\t\t\t<td style=\"text-align: center;\">B</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td style=\"text-align: center;\">D</td>\r\n\t\t\t<td style=\"text-align: center;\">6</td>\r\n\t\t\t<td style=\"text-align: center;\">4</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td style=\"text-align: center;\">E</td>\r\n\t\t\t<td style=\"text-align: center;\">3</td>\r\n\t\t\t<td style=\"text-align: center;\">2</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td style=\"text-align: center;\">F</td>\r\n\t\t\t<td style=\"text-align: center;\">2.5</td>\r\n\t\t\t<td style=\"text-align: center;\">3</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>How should the supplies be transported in order that the transportation cost is minimum? What is the minimum cost?</p>",
+          "options": [
+            {
+              "id": 194587,
+              "text": "From A : 10,52, 42 units; From B: 50,0,0 units to D, E and F respectively and minimum cost = Rs 550",
+              "html": "From A : 10,52, 42 units; From B: 50,0,0 units to D, E and F respectively and minimum cost = Rs 550",
+              "is_correct": false
+            },
+            {
+              "id": 194588,
+              "text": "From A : 10,53, 44 units; From B: 50,0,0 units to D, E and F respectively and minimum cost = Rs 570",
+              "html": "From A : 10,53, 44 units; From B: 50,0,0 units to D, E and F respectively and minimum cost = Rs 570",
+              "is_correct": false
+            },
+            {
+              "id": 194585,
+              "text": "From A : 10,50, 40 units; From B: 50,0,0 units to D, E and F respectively and minimum cost = Rs 510",
+              "html": "From A : 10,50, 40 units; From B: 50,0,0 units to D, E and F respectively and minimum cost = Rs 510",
+              "is_correct": true
+            },
+            {
+              "id": 194586,
+              "text": "From A : 12,52, 40 units; From B: 50,0,0 units to D, E and F respectively and minimum cost = Rs 530",
+              "html": "From A : 12,52, 40 units; From B: 50,0,0 units to D, E and F respectively and minimum cost = Rs 530",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "From A : 10,50, 40 units; From B: 50,0,0 units to D, E and F respectively and minimum cost = Rs 510",
+          "correct_option_ids": [
+            194585
+          ],
+          "explanation": "Let the number of units of grain transported from godown A to D = x And the number of units of grain transported from godown A to E = y Therefore , the number of units of grain transported from godown A to F = 100 &ndash; (x+y) Therefore , the number of units of grain transported from godown B to D = 60 &ndash; x The number of units of grain transported from godown B to E = 50 &ndash; y The number of units of grain transported from godown B to F = x + y &ndash; 60 . Here , the objective function is :Minimise Z = 2.5x + 1.5y + 410 . , subject to constraints : 60 - x &ge; 0,50 - y &ge; 0 ,100 &ndash; (x + y) &ge; 0 , (x + y) - 60 &ge; 0 , x,y &ge; 0., Corner points Z = 2.5x +1.5 y + 410 C(60 , 0 ) 560 B (60,40) 620 D(50,50 ) 610 A(10,50) 510&hellip;&hellip;&hellip;&hellip;&hellip;..(Min.) Here Z = 510 is minimum.i.e. From A : 10,50, 40 units; From B: 50,0,0 units to D, E and F respectively and minimum cost = Rs 510 .",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59851,
+          "question_text": "An oil company has two depots A and B with capacities of 7000 L and 4000 L respectively. The company is to supply oil to three petrol pumps, D, E and F whose requirements are 4500L, 3000L and 3500L respectively. The distances (in km) between the depots and the petrol pumps is given in the following table: Distance in (km) From/To A B D 7 3 E 6 4 F 3 2 Assuming that the transportation cost of 10 litres of oil is Re 1 per km, how should the delivery be scheduled in order that the transportation cost is minimum?What is the minimum cost?",
+          "question_html": "<p>An oil company has two depots A and B with capacities of 7000 L and 4000 L respectively. The company is to supply oil to three petrol pumps, D, E and F whose requirements are 4500L, 3000L and 3500L respectively. The distances (in km) between the depots and the petrol pumps is given in the following table:</p>\r\n\r\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td colspan=\"3\">\r\n\t\t\t<p style=\"text-align: center;\">Distance in (km)</p>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\">From/To</p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\">A</p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\">B</p>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\">D</p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\">7</p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\">3</p>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\">E</p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\">6</p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\">4</p>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\">F</p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\">3</p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\">2</p>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>Assuming that the transportation cost of 10 litres of oil is Re 1 per km, how should the delivery be scheduled in order that the transportation cost is minimum?What is the minimum cost?</p>",
+          "options": [
+            {
+              "id": 194591,
+              "text": "From A: 540, 3000 and 3500 litres; From B: 4000, 0, 0 litres to D, E and F respectively; Minimum cost = Rs 4700",
+              "html": "From A: 540, 3000 and 3500 litres; From B: 4000, 0, 0 litres to D, E and F respectively; Minimum cost = Rs 4700",
+              "is_correct": false
+            },
+            {
+              "id": 194589,
+              "text": "From A: 500, 3000 and 3500 litres; From B: 4000, 0, 0 litres to D, E and F respectively; Minimum cost = Rs 4400",
+              "html": "From A: 500, 3000 and 3500 litres; From B: 4000, 0, 0 litres to D, E and F respectively; Minimum cost = Rs 4400",
+              "is_correct": true
+            },
+            {
+              "id": 194592,
+              "text": "From A: 550, 3000 and 3500 litres; From B: 4000, 0, 0 litres to D, E and F respectively; Minimum cost = Rs 4800",
+              "html": "From A: 550, 3000 and 3500 litres; From B: 4000, 0, 0 litres to D, E and F respectively; Minimum cost = Rs 4800",
+              "is_correct": false
+            },
+            {
+              "id": 194590,
+              "text": "From A: 520, 3000 and 3500 litres; From B: 4000, 0, 0 litres to D, E and F respectively; Minimum cost = Rs 4600",
+              "html": "From A: 520, 3000 and 3500 litres; From B: 4000, 0, 0 litres to D, E and F respectively; Minimum cost = Rs 4600",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "From A: 500, 3000 and 3500 litres; From B: 4000, 0, 0 litres to D, E and F respectively; Minimum cost = Rs 4400",
+          "correct_option_ids": [
+            194589
+          ],
+          "explanation": "Here objective function is : Z = 3x + y + 39500 , subject to constraints : : x + y &le; 7000, x &le; 4500, x + y &ge; 3500, , y &le; 3000x , x,y &ge; 0 Corner points Z = 3x + y + 39500 C(3500 , 0 ) 50000 B (4500,0) 53000 D(4500,2500 ) 55500 A(4000,3000) 54500 E(500 , 3000) 44000&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.(Min.) Here Z = 4400 is minimum.i.e. . From A: 500, 3000 and 3500 litres; From B: 4000, 0, 0 litres to D, E and F respectively; Minimum cost = Rs 4400 .",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59852,
+          "question_text": "A fruit grower can use two types of fertilizer in his garden, brand P and brand Q. The amounts (in kg) of nitrogen, phosphoric acid, potash, and chlorine in a bag of each brand are given in the table. Tests indicate that the garden needs at least 240 kg of phosphoric acid, at least 270 kg of potash and at most 310 kg of chlorine.If the grower wants to minimise the amount of nitrogen added to the garden, how many bags of each brand should be used? What is the minimum amount of nitrogen added in the garden? should the delivery be scheduled in order that the transportation cost is minimum? Kg per bag Brand P Brand Q Nitrogen Phosphoric acid Potash Chlorine 3 1 3 1.5 3.5 2 1.5 2",
+          "question_html": "<p>A fruit grower can use two types of fertilizer in his garden, brand P and brand Q. The amounts (in kg) of nitrogen, phosphoric acid, potash, and chlorine in a bag of each brand are given in the table. Tests indicate that the garden needs at least 240 kg of phosphoric acid, at least 270 kg of potash and at most 310 kg of chlorine.If the grower wants to minimise the amount of nitrogen added to the garden, how many bags of each brand should be used? What is the minimum amount of nitrogen added in the garden? should the delivery be scheduled in order that the transportation cost is minimum?</p>\r\n\r\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td colspan=\"3\" style=\"text-align: center;\">Kg per bag</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>&nbsp;</td>\r\n\t\t\t<td style=\"text-align: center;\">Brand P</td>\r\n\t\t\t<td style=\"text-align: center;\">Brand Q</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td style=\"text-align: center;\">Nitrogen<br />\r\n\t\t\tPhosphoric acid<br />\r\n\t\t\tPotash<br />\r\n\t\t\tChlorine</td>\r\n\t\t\t<td style=\"text-align: center;\">3<br />\r\n\t\t\t1<br />\r\n\t\t\t3<br />\r\n\t\t\t1.5</td>\r\n\t\t\t<td style=\"text-align: center;\">3.5<br />\r\n\t\t\t2<br />\r\n\t\t\t1.5<br />\r\n\t\t\t2</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>",
+          "options": [
+            {
+              "id": 194595,
+              "text": "50 bags of brand P and 100 bags of brand Q; Minimum amount of nitrogen = 490 kg.",
+              "html": "50 bags of brand P and 100 bags of brand Q; Minimum amount of nitrogen = 490 kg.",
+              "is_correct": false
+            },
+            {
+              "id": 194594,
+              "text": "45 bags of brand P and 105 bags of brand Q; Minimum amount of nitrogen = 480 kg.",
+              "html": "45 bags of brand P and 105 bags of brand Q; Minimum amount of nitrogen = 480 kg.",
+              "is_correct": false
+            },
+            {
+              "id": 194593,
+              "text": "40 bags of brand P and 100 bags of brand Q; Minimum amount of nitrogen = 470 kg",
+              "html": "40 bags of brand P and 100 bags of brand Q; Minimum amount of nitrogen = 470 kg",
+              "is_correct": true
+            },
+            {
+              "id": 194596,
+              "text": "47 bags of brand P and 107 bags of brand Q; Minimum amount of nitrogen = 499 kg.",
+              "html": "47 bags of brand P and 107 bags of brand Q; Minimum amount of nitrogen = 499 kg.",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "40 bags of brand P and 100 bags of brand Q; Minimum amount of nitrogen = 470 kg",
+          "correct_option_ids": [
+            194593
+          ],
+          "explanation": "Let the number of bags used for fertilizer of brand P = x And the number of bags used for fertilizer of brand Q = y . Here , Z = 3x + 3.5y subject to constraints : :1.5 x +2 y &le; 310, x + 2y &ge; 240, 3x + 1.5y &ge; 270 , x,y &ge; 0 Corner points Z =3x + 3.5 y C(40 ,100 ) 470&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.(Min.) B (140,50) 595 D(20,140 ) 550 Here Z = 470 is minimum i.e. 40 bags of brand P and 100 bags of brand Q; Minimum amount of nitrogen = 470 kg.",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59853,
+          "question_text": "A fruit grower can use two types of fertilizer in his garden, brand P and brand Q. The amounts (in kg) of nitrogen, phosphoric acid, potash, and chlorine in a bag of each brand are given in the table. Tests indicate that the garden needs at least 240 kg of phosphoric acid, at least 270 kg of potash and at most 310 kg of chlorine. Kg per bag Brand P Brand Q Nitrogen Phosphoric acid Potash Chlorine 3 1 3 1.5 3.5 2 1.5 2 If the grower wants to maximise the amount of nitrogen added to the garden, how many bags of each brand should be added? What is the maximum amount of nitrogen added?",
+          "question_html": "<p>A fruit grower can use two types of fertilizer in his garden, brand P and brand Q. The amounts (in kg) of nitrogen, phosphoric acid, potash, and chlorine in a bag of each brand are given in the table. Tests indicate that the garden needs at least 240 kg of phosphoric acid, at least 270 kg of potash and at most 310 kg of chlorine.</p>\n\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td colspan=\"3\">\n\t\t\t<p style=\"text-align: center;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kg per bag</p>\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>\n\t\t\t<p style=\"text-align: center;\">&nbsp;</p>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t<p style=\"text-align: center;\">Brand P</p>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t<p style=\"text-align: center;\">Brand Q</p>\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>\n\t\t\t<p style=\"text-align: center;\">Nitrogen</p>\n\n\t\t\t<p style=\"text-align: center;\">Phosphoric acid</p>\n\n\t\t\t<p style=\"text-align: center;\">Potash</p>\n\n\t\t\t<p style=\"text-align: center;\">Chlorine</p>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t<p style=\"text-align: center;\">3</p>\n\n\t\t\t<p style=\"text-align: center;\">1</p>\n\n\t\t\t<p style=\"text-align: center;\">3</p>\n\n\t\t\t<p style=\"text-align: center;\">1.5</p>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t<p style=\"text-align: center;\">3.5</p>\n\n\t\t\t<p style=\"text-align: center;\">2</p>\n\n\t\t\t<p style=\"text-align: center;\">1.5</p>\n\n\t\t\t<p style=\"text-align: center;\">2</p>\n\t\t\t</td>\n\t\t</tr>\n\t</tbody>\n</table>\n\n<p>If the grower wants to maximise the amount of nitrogen added to the garden, how many bags of each brand should be added? What is the maximum amount of nitrogen added?</p>",
+          "options": [
+            {
+              "id": 194598,
+              "text": "145 bags of brand P and 55 bags of brand Q; Maximum amount of nitrogen = 555 kg",
+              "html": "145 bags of brand P and 55 bags of brand Q; Maximum amount of nitrogen = 555 kg",
+              "is_correct": false
+            },
+            {
+              "id": 194597,
+              "text": "140 bags of brand P and 50 bags of brand Q; Maximum amount of nitrogen = 595 kg",
+              "html": "140 bags of brand P and 50 bags of brand Q; Maximum amount of nitrogen = 595 kg",
+              "is_correct": true
+            },
+            {
+              "id": 194599,
+              "text": "150 bags of brand P and 50 bags of brand Q; Maximum amount of nitrogen = 625 kg",
+              "html": "150 bags of brand P and 50 bags of brand Q; Maximum amount of nitrogen = 625 kg",
+              "is_correct": false
+            },
+            {
+              "id": 194600,
+              "text": "160 bags of brand P and 52 bags of brand Q; Maximum amount of nitrogen = 635 kg",
+              "html": "160 bags of brand P and 52 bags of brand Q; Maximum amount of nitrogen = 635 kg",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "140 bags of brand P and 50 bags of brand Q; Maximum amount of nitrogen = 595 kg",
+          "correct_option_ids": [
+            194597
+          ],
+          "explanation": "Let the number of bags used for fertilizer of brand P = x And the number of bags used for fertilizer of brand Q = y . Here , Z = 3x + 3.5y subject to constraints : :1.5 x +2 y &le; 310, x + 2y &ge; 240, 3x + 1.5y &ge; 270 , x,y &ge; 0 Corner points Z =3x + 3.5 y C(40 ,100 ) 470&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.(Min.) B (140,50) 595&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;..(Max.) D(20,140 ) 550 Here Z = 595 is maximum i.e. 140 bags of brand P and 50 bags of brand Q; Maximum amount of nitrogen = 595 kg .",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59854,
+          "question_text": "A toy company manufactures two types of dolls, A and B. Market tests and available resources have indicated that the combined production level should not exceed 1200 dolls per week and the demand for dolls of type B is at most half of that for dolls of type A. Further, the production level of dolls of type A can exceed three times the production of dolls of other type by at most 600 units. If the company makes profit of Rs 12 and Rs 16 per doll respectively on dolls A and B, how many of each should be produced weekly in order to maximise the profit?",
+          "question_html": "<p>A toy company manufactures two types of dolls, A and B. Market tests and available resources have indicated that the combined production level should not exceed 1200 dolls per week and the demand for dolls of type B is at most half of that for dolls of type A. Further, the production level of dolls of type A can exceed three times the production of dolls of other type by at most 600 units. If the company makes profit of Rs 12 and Rs 16 per doll respectively on dolls A and B, how many of each should be produced weekly in order to maximise the profit?</p>",
+          "options": [
+            {
+              "id": 194602,
+              "text": "820 dolls of type A and 420 dolls of type B; Maximum profit = Rs 16200",
+              "html": "820 dolls of type A and 420 dolls of type B; Maximum profit = Rs 16200",
+              "is_correct": false
+            },
+            {
+              "id": 194603,
+              "text": "830 dolls of type A and 430 dolls of type B; Maximum profit = Rs 16300",
+              "html": "830 dolls of type A and 430 dolls of type B; Maximum profit = Rs 16300",
+              "is_correct": false
+            },
+            {
+              "id": 194601,
+              "text": "800 dolls of type A and 400 dolls of type B; Maximum profit = Rs 16000",
+              "html": "800 dolls of type A and 400 dolls of type B; Maximum profit = Rs 16000",
+              "is_correct": true
+            },
+            {
+              "id": 194604,
+              "text": "840 dolls of type A and 404 dolls of type B; Maximum profit = Rs 16500",
+              "html": "840 dolls of type A and 404 dolls of type B; Maximum profit = Rs 16500",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "800 dolls of type A and 400 dolls of type B; Maximum profit = Rs 16000",
+          "correct_option_ids": [
+            194601
+          ],
+          "explanation": "Here , Maximise Z = 12x + 16y , subject to constraints : : x + y &le; 1200, x - 2y &ge; 0, x - 3y &le; 600 , x,y &ge; 0 Corner points Z = 12x +16 y C(0, 0 ) 0 B (600,0) 7200 D(1050,150 ) 15000 A(800,400) 16000&hellip;&hellip;&hellip;&hellip;&hellip;..(Max.) Here Z = 16000 is maximum.i.e. 800 dolls of type A and 400 dolls of type B; Maximum profit = Rs 16000 .",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59855,
+          "question_text": "Determine the maximum value of Z = 11x + 7y subject to the constraints :2x + y &le; 6, x &le; 2, x &ge; 0, y &ge; 0.",
+          "question_html": "<p>Determine the maximum value of Z = 11x + 7y subject to the constraints :2x + y &le; 6, x &le; 2, x &ge; 0, y &ge; 0.</p>",
+          "options": [
+            {
+              "id": 194606,
+              "text": "43",
+              "html": "43",
+              "is_correct": false
+            },
+            {
+              "id": 194607,
+              "text": "45",
+              "html": "45",
+              "is_correct": false
+            },
+            {
+              "id": 194608,
+              "text": "47",
+              "html": "47",
+              "is_correct": false
+            },
+            {
+              "id": 194605,
+              "text": "42",
+              "html": "42",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "42",
+          "correct_option_ids": [
+            194605
+          ],
+          "explanation": "Here , maximize Z = 11x + 7y , subject to the constraints :2x + y &le; 6, x &le; 2, x &ge; 0, y &ge; 0. Corner points Z = 11x +7 y C(0, 0 ) 0 B (2,0) 22 D(2,2 ) 36 A(0,6) 42 Hence the maximum value is 42",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59856,
+          "question_text": "Maximize Z = 3x + 4y, subject to the constraints : x + y &le; 1, x &ge; 0, y &ge; 0.",
+          "question_html": "<p>Maximize Z = 3x + 4y, subject to the constraints : x + y &le; 1, x &ge; 0, y &ge; 0.</p>",
+          "options": [
+            {
+              "id": 194612,
+              "text": "6",
+              "html": "6",
+              "is_correct": false
+            },
+            {
+              "id": 194610,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            },
+            {
+              "id": 194609,
+              "text": "4",
+              "html": "4",
+              "is_correct": true
+            },
+            {
+              "id": 194611,
+              "text": "5",
+              "html": "5",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "4",
+          "correct_option_ids": [
+            194609
+          ],
+          "explanation": "According to the question, maximize , Z = 3x + 4y, subject to the constraints: x + y &le; 1, x &ge; 0, y &ge; 0. Corner points Z = 3x +4 y C(0, 0 ) 0 B (1,0) 3 D(0,1 ) 4 Hence the maximum value is 4",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59857,
+          "question_text": "Maximise the function Z = 11x + 7y, subject to the constraints: x &le; 3, y &le; 2,x &ge; 0, y &ge; 0.",
+          "question_html": "<p>Maximise the function Z = 11x + 7y, subject to the constraints: x &le; 3, y &le; 2,x &ge; 0, y &ge; 0.</p>",
+          "options": [
+            {
+              "id": 194615,
+              "text": "49",
+              "html": "49",
+              "is_correct": false
+            },
+            {
+              "id": 194616,
+              "text": "50",
+              "html": "50",
+              "is_correct": false
+            },
+            {
+              "id": 194614,
+              "text": "48",
+              "html": "48",
+              "is_correct": false
+            },
+            {
+              "id": 194613,
+              "text": "47",
+              "html": "47",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "47",
+          "correct_option_ids": [
+            194613
+          ],
+          "explanation": "We have , Maximise the function Z = 11x + 7y, subject to the constraints: x &le; 3, y &le; 2,x &ge; 0, y &ge; 0. Corner points Z = 11x +7 y C(0, 0 ) 0 B (3,0) 33 D(0,2 ) 14 A( 3, 2 ) 47 Hence the function has maximum value of 47",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59858,
+          "question_text": "Minimise Z = 13x &ndash; 15y subject to the constraints : x + y &le; 7, 2x &ndash; 3y + 6 &ge; 0 , x &ge; 0, y &ge; 0.",
+          "question_html": "<p>Minimise Z = 13x &ndash; 15y subject to the constraints : x + y &le; 7, 2x &ndash; 3y + 6 &ge; 0 , x &ge; 0, y &ge; 0.</p>",
+          "options": [
+            {
+              "id": 194619,
+              "text": "&ndash; 34",
+              "html": "&ndash; 34",
+              "is_correct": false
+            },
+            {
+              "id": 194620,
+              "text": "&ndash; 23",
+              "html": "&ndash; 23",
+              "is_correct": false
+            },
+            {
+              "id": 194618,
+              "text": "&ndash; 32",
+              "html": "&ndash; 32",
+              "is_correct": false
+            },
+            {
+              "id": 194617,
+              "text": "&ndash; 39",
+              "html": "&ndash; 39",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "&ndash; 39",
+          "correct_option_ids": [
+            194617
+          ],
+          "explanation": "Here , Minimise Z = 13x &ndash; 15y subject to the constraints : x + y &le; 7, 2x &ndash; 3y + 6 &ge; 0 , x &ge; 0, y &ge; 0. Corner points Z = 13x - 15 y C( - 3 , 0 ) -39 B (7,0) 91 D(4,3) 7 Hence the minimum value of the function is -39",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59859,
+          "question_text": "Maximise Z = x + y subject to x + 4y &le; 8, 2x + 3y &le; 12, 3x + y &le; 9, x &ge; 0, y &ge; 0.",
+          "question_html": "<p>Maximise Z = x + y subject to x + 4y &le; 8, 2x + 3y &le; 12, 3x + y &le; 9, x &ge; 0, y &ge; 0.</p>",
+          "options": [
+            {
+              "id": 194624,
+              "text": "{tex}2\\frac{{10}}{{11}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2\\frac{{10}}{{11}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194622,
+              "text": "{tex}3\\frac{9}{{11}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}3\\frac{9}{{11}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194623,
+              "text": "{tex}3\\frac{{19}}{{31}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}3\\frac{{19}}{{31}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194621,
+              "text": "3 {tex}\\frac{{10}}{{11}}{/tex}",
+              "html": "3<span class=\"math-tex\">{tex}\\frac{{10}}{{11}}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "3 {tex}\\frac{{10}}{{11}}{/tex}",
+          "correct_option_ids": [
+            194621
+          ],
+          "explanation": "Here , Maximise Z = x + y subject to x + 4y &le; 8, 2x + 3y &le; 12, 3x + y &le; 9, x &ge; 0, y &ge; 0. Corner points Z = x + y P( 0 , 0 ) 0 Q(3 , 0) 3 R( 0, 2 ) 2 S(28/11 , 15/11 ) 43/11&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.(Max.) Hence the maximum value is 43/11 = 3 {tex}10\\over11{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59860,
+          "question_text": "Maximize Z = 100x + 120y , subject to constraints 2x + 3y &le; 30, 3x + y &le; 17, x &ge; 0, y &ge; 0.",
+          "question_html": "<p>Maximize Z = 100x + 120y , subject to constraints 2x + 3y &le; 30, 3x + y &le; 17, x &ge; 0, y &ge; 0.</p>",
+          "options": [
+            {
+              "id": 194627,
+              "text": "1280",
+              "html": "1280",
+              "is_correct": false
+            },
+            {
+              "id": 194626,
+              "text": "1200",
+              "html": "1200",
+              "is_correct": false
+            },
+            {
+              "id": 194625,
+              "text": "1260",
+              "html": "1260",
+              "is_correct": true
+            },
+            {
+              "id": 194628,
+              "text": "1300",
+              "html": "1300",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1260",
+          "correct_option_ids": [
+            194625
+          ],
+          "explanation": "We have , Maximize Z = 100x + 120y , subject to constraints 2x + 3y &le; 30, 3x + y &le; 17, x &ge; 0, y &ge; 0. Corner points Z = 100x +120 y P( 0 , 0 ) 0 Q(3 , 8) 1260&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.(Max.) R( 0, 10 ) 1200 S(17/3 , 0 ) 1700/3 Hence the maximum value is 1260",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59861,
+          "question_text": "Maximize Z = 5x+3y , subject to constraints x + y &le; 300 , 2x + y &le; 360, x &ge; 0, y &ge; 0.",
+          "question_html": "<p>Maximize Z = 5x+3y , subject to constraints x + y &le; 300 , 2x + y &le; 360, x &ge; 0, y &ge; 0.</p>",
+          "options": [
+            {
+              "id": 194632,
+              "text": "1050",
+              "html": "1050",
+              "is_correct": false
+            },
+            {
+              "id": 194630,
+              "text": "1030",
+              "html": "1030",
+              "is_correct": false
+            },
+            {
+              "id": 194629,
+              "text": "1020",
+              "html": "1020",
+              "is_correct": true
+            },
+            {
+              "id": 194631,
+              "text": "1040",
+              "html": "1040",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1020",
+          "correct_option_ids": [
+            194629
+          ],
+          "explanation": "Here , Maximize Z = 5x+3y , subject to constraints x + y &le; 300 , 2x + y &le; 360, x &ge; 0, y &ge; 0. Corner points Z = 5x +3 y P(0, 300) 900 Q(180, 0) 900 R(60, 240) 1020&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;..(Max.) S(0, 0) 0 Hence, the maximum value is 1020",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59862,
+          "question_text": "Maximize Z = 50x + 60y , subject to constraints x +2 y &le; 50 , x +y &ge; 30, x, y &ge; 0.",
+          "question_html": "<p>Maximize Z = 50x + 60y , subject to constraints x +2 y &le; 50 , x +y &ge; 30, x, y &ge; 0.</p>",
+          "options": [
+            {
+              "id": 194633,
+              "text": "2500",
+              "html": "2500",
+              "is_correct": true
+            },
+            {
+              "id": 194635,
+              "text": "1525",
+              "html": "1525",
+              "is_correct": false
+            },
+            {
+              "id": 194634,
+              "text": "1600",
+              "html": "1600",
+              "is_correct": false
+            },
+            {
+              "id": 194636,
+              "text": "1547",
+              "html": "1547",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "2500",
+          "correct_option_ids": [
+            194633
+          ],
+          "explanation": "Here , Maximize Z = 50x+60y , subject to constraints x +2 y &le; 50 , x + y &ge; 30, x, y &ge; 0. Corner points Z = 50x +60 y P( 50 ,0 ) 2500 Q(0 , 30) 1800 R( 10, 20 ) 1700 Hence, the maximum value is 2500",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59863,
+          "question_text": "Minimize Z = 50x+60y , subject to constraints x +2 y &le; 50 , x + y &ge; 30, x, y &ge; 0.",
+          "question_html": "<p>Minimize Z = 50x+60y , subject to constraints x +2 y &le; 50 , x + y &ge; 30, x, y &ge; 0.</p>",
+          "options": [
+            {
+              "id": 194640,
+              "text": "1200",
+              "html": "1200",
+              "is_correct": false
+            },
+            {
+              "id": 194639,
+              "text": "1800",
+              "html": "1800",
+              "is_correct": false
+            },
+            {
+              "id": 194638,
+              "text": "1550",
+              "html": "1550",
+              "is_correct": false
+            },
+            {
+              "id": 194637,
+              "text": "1700",
+              "html": "1700",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "1700",
+          "correct_option_ids": [
+            194637
+          ],
+          "explanation": "Here , Maximize Z = 50x+60y , subject to constraints x +2 y &le; 50 , x + y &ge; 30, x, y &ge; 0. Corner points Z = 50x +60 y P( 50 ,0 ) 2500 Q(0 , 30) 1800 R( 10, 20 ) 1700 Hence the minimum value is 1700",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59864,
+          "question_text": "Corner points of the feasible region for an LPP are (0, 2), (3, 0), (6, 0), (6, 8) and (0, 5).Let F = 4x + 6y be the objective function. The Minimum value of F occurs at",
+          "question_html": "<p>Corner points of the feasible region for an LPP are (0, 2), (3, 0), (6, 0), (6, 8) and (0, 5).Let F = 4x + 6y be the objective function. The Minimum value of F occurs at</p>",
+          "options": [
+            {
+              "id": 194644,
+              "text": "(0, 2) only",
+              "html": "(0, 2) only",
+              "is_correct": false
+            },
+            {
+              "id": 194642,
+              "text": "the mid-point of the line segment joining the points (0, 2) and (3, 0) only",
+              "html": "the mid-point of the line segment joining the points (0, 2) and (3, 0) only",
+              "is_correct": false
+            },
+            {
+              "id": 194643,
+              "text": "(3, 0) only",
+              "html": "(3, 0) only",
+              "is_correct": false
+            },
+            {
+              "id": 194641,
+              "text": "any point on the line segment joining the points (0, 2) and (3, 0).",
+              "html": "any point on the line segment joining the points (0, 2) and (3, 0).",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "any point on the line segment joining the points (0, 2) and (3, 0).",
+          "correct_option_ids": [
+            194641
+          ],
+          "explanation": "Here the objective function is given by : F = 4x +6y. Corner points Corresponding value of F = 4x + 6y (0, 2) 12 {tex}\\leftarrow{/tex} Minimum (3, 0) 12 {tex}\\leftarrow{/tex} Minimum (6, 0) 24 (6, 8) 72 (0, 5) 30 Hence it is clear that the minimum value occurs at any point on the line joining the points (0,2) and (3,0)",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3577,
+      "test_name": "Linear Programming   Test-05",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59865,
+          "question_text": "Corner points of the feasible region for an LPP are (0, 2), (3, 0), (6, 0), (6, 8) and (0, 5). Let F = 4x + 6y be the objective function. Maximum of F &ndash; Minimum of F =",
+          "question_html": "<p>Corner points of the feasible region for an LPP are (0, 2), (3, 0), (6, 0), (6, 8) and (0, 5). Let F = 4x + 6y be the objective function. Maximum of F &ndash; Minimum of F =</p>",
+          "options": [
+            {
+              "id": 194647,
+              "text": "42",
+              "html": "42",
+              "is_correct": false
+            },
+            {
+              "id": 194646,
+              "text": "48",
+              "html": "48",
+              "is_correct": false
+            },
+            {
+              "id": 194648,
+              "text": "18",
+              "html": "18",
+              "is_correct": false
+            },
+            {
+              "id": 194645,
+              "text": "60",
+              "html": "60",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "60",
+          "correct_option_ids": [
+            194645
+          ],
+          "explanation": "Here the objective function is given by : F = 4x +6y . Corner points Z = 4x +6 y (0, 2 ) 12(Min.) (3,0) 12.(Min.) (6,0 ) 24 (6 , 8 ) 72 (0 , 5 ) 30 Maximum of F &ndash; Minimum of F = 72 &ndash; 12 = 30 .",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59866,
+          "question_text": "Corner points of the feasible region determined by the system of linear constraints are (0, 3), (1, 1) and (3, 0). Let Z = px+qy, where p, q > 0. Condition on p and q so that the minimum of Z occurs at (3, 0) and (1, 1) is",
+          "question_html": "<p>Corner points of the feasible region determined by the system of linear constraints are (0, 3), (1, 1) and (3, 0). Let Z = px+qy, where p, q &gt; 0. Condition on p and q so that the minimum of Z occurs at (3, 0) and (1, 1) is</p>",
+          "options": [
+            {
+              "id": 194649,
+              "text": "{tex}p = \\frac{q}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}p = \\frac{q}{2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194652,
+              "text": "p = 3q",
+              "html": "p = 3q",
+              "is_correct": false
+            },
+            {
+              "id": 194651,
+              "text": "p = q",
+              "html": "p = q",
+              "is_correct": false
+            },
+            {
+              "id": 194650,
+              "text": "p = 2q",
+              "html": "p = 2q",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}p = \\frac{q}{2}{/tex}",
+          "correct_option_ids": [
+            194649
+          ],
+          "explanation": "We have Z = px + qy , At ( 3, 0 ) Z = 3p &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.(1) At ( 1 , 1) Z = p + q &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(2) Therefore , from (1) and (2) : We have : p = q/2 .",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59867,
+          "question_text": "In a LPP, the linear inequalities or restrictions on the variables are called",
+          "question_html": "<p>In a LPP, the linear inequalities or restrictions on the variables are called</p>",
+          "options": [
+            {
+              "id": 194654,
+              "text": "Constraints",
+              "html": "Constraints",
+              "is_correct": false
+            },
+            {
+              "id": 194653,
+              "text": "Linear constraints",
+              "html": "Linear constraints",
+              "is_correct": true
+            },
+            {
+              "id": 194656,
+              "text": "Limits",
+              "html": "Limits",
+              "is_correct": false
+            },
+            {
+              "id": 194655,
+              "text": "Inequalities",
+              "html": "Inequalities",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Linear constraints",
+          "correct_option_ids": [
+            194653
+          ],
+          "explanation": "In a LPP, the linear inequalities or restrictions on the variables are called Linear constraints.",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59868,
+          "question_text": "Determine the maximum value of Z = 3x + 4y if the feasible region (shaded) for a LPP is shown in Figure above.",
+          "question_html": "<p>Determine the maximum value of Z = 3x + 4y if the feasible region (shaded) for a LPP is shown in Figure above.<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/math/52041_0.jpg\" /></p>",
+          "options": [
+            {
+              "id": 194660,
+              "text": "226",
+              "html": "226",
+              "is_correct": false
+            },
+            {
+              "id": 194659,
+              "text": "216",
+              "html": "216",
+              "is_correct": false
+            },
+            {
+              "id": 194658,
+              "text": "206",
+              "html": "206",
+              "is_correct": false
+            },
+            {
+              "id": 194657,
+              "text": "196",
+              "html": "196",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "196",
+          "correct_option_ids": [
+            194657
+          ],
+          "explanation": "Here , maximize Z = 3x+4y , Corner points Z = 3x + 4 y C( 0 ,38 ) 132 B ( 52 ,0) 156 D(44 , 16) 196 Hence the maximum value is 196",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59869,
+          "question_text": "Feasible region (shaded) for a LPP is shown in Figure. Maximize Z = 5x + 7y.",
+          "question_html": "<p>Feasible region (shaded) for a LPP is shown in Figure. Maximize Z = 5x + 7y.<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/math/52042_0.jpg\" style=\"width: 200px; height: 153px;\" /></p>",
+          "options": [
+            {
+              "id": 194662,
+              "text": "45",
+              "html": "45",
+              "is_correct": false
+            },
+            {
+              "id": 194664,
+              "text": "49",
+              "html": "49",
+              "is_correct": false
+            },
+            {
+              "id": 194661,
+              "text": "43",
+              "html": "43",
+              "is_correct": true
+            },
+            {
+              "id": 194663,
+              "text": "47",
+              "html": "47",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "43",
+          "correct_option_ids": [
+            194661
+          ],
+          "explanation": "Corner points Z = 5x + 7y O(0,0) 0 B (3,4) 43 A(7,0) 35 C(0,2) 14 Hence the maximum value is 43",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59870,
+          "question_text": "The feasible region for a LPP is shown in Figure. Find the minimum value of Z = 11x + 7y.",
+          "question_html": "<p>The feasible region for a LPP is shown in Figure. Find the minimum value of Z = 11x + 7y.<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/math/52043_0.jpg\" style=\"width: 300px; height: 236px;\" /></p>",
+          "options": [
+            {
+              "id": 194666,
+              "text": "20",
+              "html": "20",
+              "is_correct": false
+            },
+            {
+              "id": 194667,
+              "text": "22",
+              "html": "22",
+              "is_correct": false
+            },
+            {
+              "id": 194665,
+              "text": "21",
+              "html": "21",
+              "is_correct": true
+            },
+            {
+              "id": 194668,
+              "text": "19",
+              "html": "19",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "21",
+          "correct_option_ids": [
+            194665
+          ],
+          "explanation": "Corner points Z = 11x + 7y (0, 5 ) 35 (0,3) 21 (3,2 ) 47 Hence the minimum value is 21",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59871,
+          "question_text": "The feasible region for a LPP is shown in Figure. Find the maximum value of Z = 11x + 7y.",
+          "question_html": "<p>The feasible region for a LPP is shown in Figure. Find the maximum value of Z = 11x + 7y.<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/math/52044_0.jpg\" style=\"width: 300px; height: 234px;\" /></p>",
+          "options": [
+            {
+              "id": 194672,
+              "text": "50",
+              "html": "50",
+              "is_correct": false
+            },
+            {
+              "id": 194670,
+              "text": "48",
+              "html": "48",
+              "is_correct": false
+            },
+            {
+              "id": 194671,
+              "text": "49",
+              "html": "49",
+              "is_correct": false
+            },
+            {
+              "id": 194669,
+              "text": "47",
+              "html": "47",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "47",
+          "correct_option_ids": [
+            194669
+          ],
+          "explanation": "Corner points Z = 11x + 7y (0, 5 ) 35 (0,3) 21 (3,2 ) 47 The maximum value is 47",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59872,
+          "question_text": "The feasible region for a LPP is shown in Figure. Evaluate Z = 4x + y at each of the corner points of this region. Find the minimum value of Z, if it exists",
+          "question_html": "<p>The feasible region for a LPP is shown in Figure. Evaluate Z = 4x + y at each of the corner points of this region. Find the minimum value of Z, if it exists<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/math/52045_0.jpg\" style=\"width: 250px; height: 252px;\" /></p>",
+          "options": [
+            {
+              "id": 194674,
+              "text": "Minimum value = 3",
+              "html": "Minimum value = 3",
+              "is_correct": false
+            },
+            {
+              "id": 194675,
+              "text": "Minimum value = 4",
+              "html": "Minimum value = 4",
+              "is_correct": false
+            },
+            {
+              "id": 194676,
+              "text": "Minimum value = 5",
+              "html": "Minimum value = 5",
+              "is_correct": false
+            },
+            {
+              "id": 194673,
+              "text": "Minimum value = 2",
+              "html": "Minimum value = 2",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "Minimum value = 2",
+          "correct_option_ids": [
+            194673
+          ],
+          "explanation": "Corner points Z = 4x + y (0, 2 ) 2 (0,3) 3 (2,1) 9 Hence the minimum value is 2",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59873,
+          "question_text": "In Figure, the feasible region (shaded) for a LPP is shown. Determine the maximum and minimum value of Z = x + 2y",
+          "question_html": "<p>In Figure, the feasible region (shaded) for a LPP is shown. Determine the maximum and minimum value of Z = x + 2y<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/math/52046_0.jpg\" style=\"width: 300px; height: 244px;\" /></p>",
+          "options": [
+            {
+              "id": 194680,
+              "text": "Maximum = 10, minimum = 3 {tex}\\frac{1}{4}{/tex}",
+              "html": "Maximum = 10, minimum = 3<span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194678,
+              "text": "Maximum = 8, minimum = 3 {tex}\\frac{1}{6}{/tex}",
+              "html": "Maximum = 8, minimum = 3<span class=\"math-tex\">{tex}\\frac{1}{6}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194679,
+              "text": "Maximum = 7, minimum = 3 {tex}\\frac{1}{9}{/tex}",
+              "html": "Maximum = 7, minimum = 3<span class=\"math-tex\">{tex}\\frac{1}{9}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194677,
+              "text": "Maximum = 9, minimum = 3 {tex}\\frac{1}{7}{/tex}",
+              "html": "Maximum = 9, minimum = 3<span class=\"math-tex\">{tex}\\frac{1}{7}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "Maximum = 9, minimum = 3 {tex}\\frac{1}{7}{/tex}",
+          "correct_option_ids": [
+            194677
+          ],
+          "explanation": "Corner points Z = x +2 y P(3/13,24/13 ) 51/13 Q(3/2,15/4) 9&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.(Max.) R(7/2,3/4 ) 5 S(18/7,2/7) 22/7&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(Min.) Hence the maximum value is 9 and the minimum value is 3 {tex}1\\over7{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59874,
+          "question_text": "Determine the minimum value of Z = 3x + 4y if the feasible region (shaded) for a LPP is shown in Figure above.",
+          "question_html": "<p>Determine the minimum value of Z = 3x + 4y if the feasible region (shaded) for a LPP is shown in Figure above.<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/math/52047_0.jpg\" style=\"width: 250px; height: 220px;\" /></p>",
+          "options": [
+            {
+              "id": 194682,
+              "text": "112",
+              "html": "112",
+              "is_correct": false
+            },
+            {
+              "id": 194684,
+              "text": "196",
+              "html": "196",
+              "is_correct": false
+            },
+            {
+              "id": 194681,
+              "text": "152",
+              "html": "152",
+              "is_correct": true
+            },
+            {
+              "id": 194683,
+              "text": "154",
+              "html": "154",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "152",
+          "correct_option_ids": [
+            194681
+          ],
+          "explanation": "Here , minimize Z = 3x + 4y , Corner points Z = 3x + 4y C( 0, 38 ) 152&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(Min.) B ( 52, 0) 156 D(44, 16) 196 The minimum value is 152",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59875,
+          "question_text": "The feasible region for an LPP is shown below: Let z = 3x - 4y be the objective function. Minimum of z occurs at",
+          "question_html": "<p>The feasible region for an LPP is shown below:<br />\r\nLet z = 3x - 4y be the objective function. Minimum of z occurs at<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1712635470-wkry6x.jpg\" style=\"height:221px; width:280px\" /></p>",
+          "options": [
+            {
+              "id": 194687,
+              "text": "(5, 0)",
+              "html": "(5, 0)",
+              "is_correct": false
+            },
+            {
+              "id": 194686,
+              "text": "(0, 0)",
+              "html": "(0, 0)",
+              "is_correct": false
+            },
+            {
+              "id": 194688,
+              "text": "(4, 10)",
+              "html": "(4, 10)",
+              "is_correct": false
+            },
+            {
+              "id": 194685,
+              "text": "(0, 8)",
+              "html": "(0, 8)",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "(0, 8)",
+          "correct_option_ids": [
+            194685
+          ],
+          "explanation": "Corner points Z = 3x - 4y (0, 0) 0 (5,0) 15 (6,8) -14 (6 ,5) -2 (4,10) -28 (0,8) -32(Min.) The minimum value occurs at (0,8)",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59876,
+          "question_text": "The feasible solution for an LPP is shown in Figure. Let Z = 3x &ndash; 4y be the objective function. Maximum value of Z occurs at",
+          "question_html": "<p>The feasible solution for an LPP is shown in Figure. Let Z = 3x &ndash; 4y be the objective function. Maximum value of Z occurs at<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/math/52049_0.jpg\" style=\"width: 180px; height: 285px;\" /></p>",
+          "options": [
+            {
+              "id": 194689,
+              "text": "(5, 0)",
+              "html": "(5, 0)",
+              "is_correct": true
+            },
+            {
+              "id": 194692,
+              "text": "(4, 10)",
+              "html": "(4, 10)",
+              "is_correct": false
+            },
+            {
+              "id": 194691,
+              "text": "(6, 8)",
+              "html": "(6, 8)",
+              "is_correct": false
+            },
+            {
+              "id": 194690,
+              "text": "(6, 5)",
+              "html": "(6, 5)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "(5, 0)",
+          "correct_option_ids": [
+            194689
+          ],
+          "explanation": "Corner points Z = 3x - 4y (0, 0 ) 0 (5,0) 15 (6,8 ) -14 (6 , 5 ) -2 (4,10) -28 (0,8) -32 The maximum value occurs at (5,0)",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59877,
+          "question_text": "The feasible solution for a LPP is shown in Figure. Let Z = 3x &ndash; 4y be the objective function. (Maximum value of Z + Minimum value of Z) is equal to",
+          "question_html": "<p>The feasible solution for a LPP is shown in Figure. Let Z = 3x &ndash; 4y be the objective function. (Maximum value of Z + Minimum value of Z) is equal to<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/math/52050_0.jpg\" style=\"width: 181px; height: 284px;\" /></p>",
+          "options": [
+            {
+              "id": 194696,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 194694,
+              "text": "13",
+              "html": "13",
+              "is_correct": false
+            },
+            {
+              "id": 194693,
+              "text": "- 17",
+              "html": "- 17",
+              "is_correct": true
+            },
+            {
+              "id": 194695,
+              "text": "&ndash; 13",
+              "html": "&ndash; 13",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "- 17",
+          "correct_option_ids": [
+            194693
+          ],
+          "explanation": "Corner points Z = 3x - 4y (0, 0 ) 0 (5,0) 15(Max.) (6,8 ) -14 (6 , 5 ) -2 (4,10) -28 (0,8) -32&hellip;&hellip;&hellip;&hellip;&hellip;..(Min.) Maximum value of Z + Minimum value of Z = 15 + ( -32) = - 17 .",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59878,
+          "question_text": "The feasible region for an LPP is shown in the Figure. Let F = 3x - 4y be the objective function. Maximum value of F is.",
+          "question_html": "<p>The feasible region for an LPP is shown in the Figure. Let F = 3x -&nbsp;4y be the objective function. Maximum value of F is.<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/math/52051_0.jpg\" style=\"width: 200px; height: 227px;\" /></p>",
+          "options": [
+            {
+              "id": 194699,
+              "text": "8",
+              "html": "8",
+              "is_correct": false
+            },
+            {
+              "id": 194700,
+              "text": "- 18",
+              "html": "- 18",
+              "is_correct": false
+            },
+            {
+              "id": 194698,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 194697,
+              "text": "12",
+              "html": "12",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "12",
+          "correct_option_ids": [
+            194697
+          ],
+          "explanation": "Corner points Z = 3x - 4y (0, 0 ) 0 (0,4) -16 (12,6) 12&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.(Max.)",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59879,
+          "question_text": "The feasible region for an LPP is shown in the Figure. Let F = 3x &ndash; 4y be the objective function. Minimum value of F is.",
+          "question_html": "<p>The feasible region for an LPP is shown in the Figure. Let F = 3x &ndash; 4y be the objective function.&nbsp;Minimum value of F is.<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/math/52052_0.jpg\" style=\"width: 200px; height: 229px;\" /></p>",
+          "options": [
+            {
+              "id": 194703,
+              "text": "- 16",
+              "html": "- 16",
+              "is_correct": false
+            },
+            {
+              "id": 194704,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 194701,
+              "text": "does not exist",
+              "html": "does not exist",
+              "is_correct": true
+            },
+            {
+              "id": 194702,
+              "text": "12",
+              "html": "12",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "does not exist",
+          "correct_option_ids": [
+            194701
+          ],
+          "explanation": "The minimum value for the above feasible region does not exist.",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3574,
+      "test_name": "Linear Programming Test-02",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59820,
+          "question_text": "In a LPP, the objective function is always",
+          "question_html": "<p>In a LPP, the objective function is always</p>",
+          "options": [
+            {
+              "id": 194465,
+              "text": "Linear",
+              "html": "Linear",
+              "is_correct": true
+            },
+            {
+              "id": 194466,
+              "text": "Constant",
+              "html": "Constant",
+              "is_correct": false
+            },
+            {
+              "id": 194467,
+              "text": "Quadratic",
+              "html": "Quadratic",
+              "is_correct": false
+            },
+            {
+              "id": 194468,
+              "text": "Cubic",
+              "html": "Cubic",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Linear",
+          "correct_option_ids": [
+            194465
+          ],
+          "explanation": "In an LPP, the objective function is always linear. This is because these problems are always subjected to linear inequalities, where we maximise or minimise the linear functions.",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59821,
+          "question_text": "The optimal value of the objective function Z = ax + by may or may not exist, if the feasible region for a LPP is ________.",
+          "question_html": "<p>The optimal value of the objective function Z = ax + by may or may not exist, if the feasible region for a LPP is ________.</p>",
+          "options": [
+            {
+              "id": 194471,
+              "text": "A circle",
+              "html": "A circle",
+              "is_correct": false
+            },
+            {
+              "id": 194470,
+              "text": "Bounded",
+              "html": "Bounded",
+              "is_correct": false
+            },
+            {
+              "id": 194469,
+              "text": "Unbounded",
+              "html": "Unbounded",
+              "is_correct": true
+            },
+            {
+              "id": 194472,
+              "text": "A Square",
+              "html": "A Square",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Unbounded",
+          "correct_option_ids": [
+            194469
+          ],
+          "explanation": "The optimal value of the objective function Z = ax + by may or may not exist, if the feasible region for an LPP is unbounded. This is because the maximum or minimum value of the objective function may not exist. Even if it exists it must occur in a corner point of the feasible region.",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59822,
+          "question_text": "In an LPP if the objective function Z = ax + by has the same maximum value on two corner points of the feasible region, then every point on the line segment joining these two points give the same ________ value.",
+          "question_html": "<p>In an LPP if the objective function Z = ax + by has the same maximum value on two corner points of the feasible region, then every point on the line segment joining these two points give the same ________ value.</p>",
+          "options": [
+            {
+              "id": 194476,
+              "text": "Mean value",
+              "html": "Mean value",
+              "is_correct": false
+            },
+            {
+              "id": 194474,
+              "text": "Minimum value",
+              "html": "Minimum value",
+              "is_correct": false
+            },
+            {
+              "id": 194475,
+              "text": "zero",
+              "html": "zero",
+              "is_correct": false
+            },
+            {
+              "id": 194473,
+              "text": "Maximum value",
+              "html": "Maximum value",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "Maximum value",
+          "correct_option_ids": [
+            194473
+          ],
+          "explanation": "In an LPP if the objective function Z = ax + by has the same maximum value on two corner points of the feasible region, then every point on the line segment joining these two points give the same maximum value . If the problem has multiple optimal solutions at the corner points, then both the points will have the same (maximum or minimum)value.",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59823,
+          "question_text": "In linear programming problems the function whose maxima or minima are to be found is called",
+          "question_html": "<p>In linear programming problems the function whose maxima or minima are to be found is called</p>",
+          "options": [
+            {
+              "id": 194479,
+              "text": "Selection function",
+              "html": "Selection function",
+              "is_correct": false
+            },
+            {
+              "id": 194477,
+              "text": "Objective function",
+              "html": "Objective function",
+              "is_correct": true
+            },
+            {
+              "id": 194478,
+              "text": "Subjective function",
+              "html": "Subjective function",
+              "is_correct": false
+            },
+            {
+              "id": 194480,
+              "text": "Delta function",
+              "html": "Delta function",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Objective function",
+          "correct_option_ids": [
+            194477
+          ],
+          "explanation": "In linear programming problems the function whose maxima or minima are to be found is called Objective function . A linear function which has to be maximised or minimised is called as the linear objective function.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59824,
+          "question_text": "In linear programming problems the optimum solution",
+          "question_html": "<p>In linear programming problems the optimum solution</p>",
+          "options": [
+            {
+              "id": 194482,
+              "text": "satisfies a set of quadratic inequalities (called constraints)",
+              "html": "satisfies a set of quadratic inequalities (called constraints)",
+              "is_correct": false
+            },
+            {
+              "id": 194484,
+              "text": "satisfies a set of piecewise &ndash; linear inequalities (called constraints)",
+              "html": "satisfies a set of piecewise &ndash; linear inequalities (called constraints)",
+              "is_correct": false
+            },
+            {
+              "id": 194481,
+              "text": "satisfies a set of linear inequalities (called linear constraints)",
+              "html": "satisfies a set of linear inequalities (called linear constraints)",
+              "is_correct": true
+            },
+            {
+              "id": 194483,
+              "text": "satisfies a set of cubic inequalities (called constraints)",
+              "html": "satisfies a set of cubic inequalities (called constraints)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "satisfies a set of linear inequalities (called linear constraints)",
+          "correct_option_ids": [
+            194481
+          ],
+          "explanation": "In linear programming problems the optimum solution satisfies a set of linear inequalities (called linear constraints) .",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59825,
+          "question_text": "Maximise Z = 3x + 4y subject to the constraints: x + y &le; 4, x &ge; 0, y &ge; 0.",
+          "question_html": "<p>Maximise Z = 3x + 4y subject to the constraints: x + y &le; 4, x &ge; 0, y &ge; 0.</p>",
+          "options": [
+            {
+              "id": 194487,
+              "text": "Maximum Z = 18 at (1, 4)",
+              "html": "Maximum Z = 18 at (1, 4)",
+              "is_correct": false
+            },
+            {
+              "id": 194486,
+              "text": "Maximum Z = 17 at (0, 5)",
+              "html": "Maximum Z = 17 at (0, 5)",
+              "is_correct": false
+            },
+            {
+              "id": 194485,
+              "text": "Maximum Z = 16 at (0, 4)",
+              "html": "Maximum Z = 16 at (0, 4)",
+              "is_correct": true
+            },
+            {
+              "id": 194488,
+              "text": "Maximum Z = 19 at (1, 5)",
+              "html": "Maximum Z = 19 at (1, 5)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Maximum Z = 16 at (0, 4)",
+          "correct_option_ids": [
+            194485
+          ],
+          "explanation": "Objective function is Z = 3x + 4 y &hellip;&hellip;(1). The given constraints are : x + y &le; 4, x &ge; 0, y &ge; 0. The corner points obtained by constructing the line x+ y= 4, are (0,0),(0,4) and (4,0). Corner points Z = 3x +4y O ( 0 ,0 ) Z = 3(0)+4(0) = 0 A ( 4 , 0 ) Z = 3(4) + 4 (0) = 12 B ( 0 , 4 ) Z = 3(0) + 4 ( 4) = 16 &hellip;( Max. ) therefore Z = 16 is maximum at ( 0 , 4 ) .",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59826,
+          "question_text": "Minimise Z = &ndash; 3x + 4 y subject to x + 2y &le; 8, 3x + 2y &le; 12, x &ge; 0, y &ge; 0.",
+          "question_html": "<p>Minimise Z = &ndash; 3x + 4 y subject to x + 2y &le; 8, 3x + 2y &le; 12, x &ge; 0, y &ge; 0.</p>",
+          "options": [
+            {
+              "id": 194489,
+              "text": "Minimum Z = &ndash; 12 at (4, 0)",
+              "html": "Minimum Z = &ndash; 12 at (4, 0)",
+              "is_correct": true
+            },
+            {
+              "id": 194492,
+              "text": "Minimum Z = &ndash; 15 at (5, 1)",
+              "html": "Minimum Z = &ndash; 15 at (5, 1)",
+              "is_correct": false
+            },
+            {
+              "id": 194491,
+              "text": "Minimum Z = &ndash; 14 at (5, 0)",
+              "html": "Minimum Z = &ndash; 14 at (5, 0)",
+              "is_correct": false
+            },
+            {
+              "id": 194490,
+              "text": "Minimum Z = &ndash; 13 at (4, 1)",
+              "html": "Minimum Z = &ndash; 13 at (4, 1)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Minimum Z = &ndash; 12 at (4, 0)",
+          "correct_option_ids": [
+            194489
+          ],
+          "explanation": "Objective function is Z = - 3x + 4 y &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(1). The given constraints are : x + 2y &le; 8, 3x + 2y &le; 12, x &ge; 0, y &ge; 0. The corner points obtained by constructing the line x+2y=8 and 3x +2y = 12 are (0,0),(0,2),(3,0) and (20/19,45/19) Corner points Z = 5x + 3 y O(0 , 0 ) 0 B ( 2 , 0 ) 10 C( 0 , 3 ) 9 D ( 20/19 , 45/19 ) 235/19 &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.(Max.) Here , Z = -12 is minimum at C ( 4 , 0 )",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59827,
+          "question_text": "Minimize Z = 3x + 5y such that x + 3y &ge; 3, x + y &ge; 2, x, y &ge; 0.",
+          "question_html": "<p>Minimize Z = 3x + 5y such that x + 3y &ge; 3, x + y &ge; 2, x, y &ge; 0.</p>",
+          "options": [
+            {
+              "id": 194494,
+              "text": "Minimum Z = 8 at {tex}\\left( {\\frac{3}{2},\\;\\frac{1}{2}} \\right){/tex}",
+              "html": "Minimum Z = 8 at <span class=\"math-tex\">{tex}\\left( {\\frac{3}{2},\\;\\frac{1}{2}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194496,
+              "text": "Minimum Z = 10 at {tex}\\left( {\\frac{3}{2},\\;\\frac{1}{2}} \\right){/tex}",
+              "html": "Minimum Z = 10 at <span class=\"math-tex\">{tex}\\left( {\\frac{3}{2},\\;\\frac{1}{2}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194495,
+              "text": "Minimum Z = 9 at {tex}\\left( {\\frac{3}{2},\\;\\frac{1}{2}} \\right){/tex} 110 V 60 Hz",
+              "html": "Minimum Z = 9 at <span class=\"math-tex\">{tex}\\left( {\\frac{3}{2},\\;\\frac{1}{2}} \\right){/tex}</span> 110 V 60 Hz",
+              "is_correct": false
+            },
+            {
+              "id": 194493,
+              "text": "Minimum Z = 7 at {tex}\\left( {\\frac{3}{2},\\;\\frac{1}{2}} \\right){/tex}",
+              "html": "Minimum Z = 7 at <span class=\"math-tex\">{tex}\\left( {\\frac{3}{2},\\;\\frac{1}{2}} \\right){/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "Minimum Z = 7 at {tex}\\left( {\\frac{3}{2},\\;\\frac{1}{2}} \\right){/tex}",
+          "correct_option_ids": [
+            194493
+          ],
+          "explanation": "Objective function is Z = 3x + 5 y &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(1). The given constraints are : x + 3y &ge; 3, x + y &ge; 2, x, y &ge; 0 . The corner points obtained by drawing the lines x+3y=3 and x+y=2 are (0,0), (3,0),(0,2) and (3/2,1/2) Corner points Z = 3x + 5 y A(3 , 0 ) 9 B ( 0 ,2 ) 10 C( 3/2 , 1/2 ) 7&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;..( Min. ) Here Z = 7 is minimum at ( {tex}\\frac{3}{2}{/tex} , {tex}\\frac{1}{2}{/tex} )",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59828,
+          "question_text": "Maximise Z = 5x + 3y subject to 3x + 5y &le; 15, 5x + 2y &le; 10, x &ge; 0, y &ge; 0.",
+          "question_html": "<p>Maximise Z = 5x + 3y subject to 3x + 5y &le; 15, 5x + 2y &le; 10, x &ge; 0, y &ge; 0.</p>",
+          "options": [
+            {
+              "id": 194499,
+              "text": "Maximum Z = {tex}\\frac{{255}}{{19}}\\;at\\;\\left( {\\frac{{20}}{{19}},\\;\\frac{{45}}{{19}}} \\right){/tex}",
+              "html": "Maximum Z = <span class=\"math-tex\">{tex}\\frac{{255}}{{19}}\\;at\\;\\left( {\\frac{{20}}{{19}},\\;\\frac{{45}}{{19}}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194500,
+              "text": "Maximum Z = {tex}\\frac{{275}}{{19}}\\;at\\;\\left( {\\frac{{20}}{{19}},\\;\\frac{{45}}{{19}}} \\right){/tex}",
+              "html": "Maximum Z = <span class=\"math-tex\">{tex}\\frac{{275}}{{19}}\\;at\\;\\left( {\\frac{{20}}{{19}},\\;\\frac{{45}}{{19}}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194497,
+              "text": "Maximum Z = {tex}\\frac{{235}}{{19}}\\;at\\;\\left( {\\frac{{20}}{{19}},\\;\\frac{{45}}{{19}}} \\right){/tex}",
+              "html": "Maximum Z = <span class=\"math-tex\">{tex}\\frac{{235}}{{19}}\\;at\\;\\left( {\\frac{{20}}{{19}},\\;\\frac{{45}}{{19}}} \\right){/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194498,
+              "text": "Maximum Z = {tex}\\frac{{245}}{{19}}\\;at\\;\\left( {\\frac{{20}}{{19}},\\;\\frac{{45}}{{19}}} \\right){/tex}",
+              "html": "Maximum Z = <span class=\"math-tex\">{tex}\\frac{{245}}{{19}}\\;at\\;\\left( {\\frac{{20}}{{19}},\\;\\frac{{45}}{{19}}} \\right){/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Maximum Z = {tex}\\frac{{235}}{{19}}\\;at\\;\\left( {\\frac{{20}}{{19}},\\;\\frac{{45}}{{19}}} \\right){/tex}",
+          "correct_option_ids": [
+            194497
+          ],
+          "explanation": "Objective function is Z = 5x + 3 y &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(1). The given constraints are : 3x + 5y &le; 15, 5x + 2y &le; 10, x &ge; 0, y &ge; 0. The corner points obtained by drawing the lines 3x+5y=15 and 5x+2y=10 are (0,0),(0,3), (2,0) and (20/19,45/19) Corner points Z = 5x + 3 y O(0 , 0 ) 0 B ( 2 , 0 ) 10 C( 0 , 3 ) 9 D ( 20/19 , 45/19 ) 235/19 &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.(Max.) Here , Z = 235/19 is maximum at ( 20/19 , 45/19 ) .",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59829,
+          "question_text": "Maximize Z = 3x + 2y subject to x + 2y &le; 10, 3x + y &le; 15, x, y &ge; 0.",
+          "question_html": "<p>Maximize Z = 3x + 2y subject to x + 2y &le; 10, 3x + y &le; 15, x, y &ge; 0.</p>",
+          "options": [
+            {
+              "id": 194501,
+              "text": "Maximum Z = 18 at (4, 3)",
+              "html": "Maximum Z = 18 at (4, 3)",
+              "is_correct": true
+            },
+            {
+              "id": 194503,
+              "text": "Maximum Z = 22 at (4, 3)",
+              "html": "Maximum Z = 22 at (4, 3)",
+              "is_correct": false
+            },
+            {
+              "id": 194504,
+              "text": "Maximum Z = 24 at (4, 3)",
+              "html": "Maximum Z = 24 at (4, 3)",
+              "is_correct": false
+            },
+            {
+              "id": 194502,
+              "text": "Maximum Z = 20 at (4, 3)",
+              "html": "Maximum Z = 20 at (4, 3)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Maximum Z = 18 at (4, 3)",
+          "correct_option_ids": [
+            194501
+          ],
+          "explanation": "Objective function is Z = 3x + 2 y &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(1). The given constraints are : x + 2y &le; 10, 3x + y &le; 15, x, y &ge; 0. The corner points obtained by drawing the lines 3x+y=15 and x+2y=10 graphically are (0,0),(0,5), (5,0) and (4,3). Corner points Z = 3x + 2y O(0 ,0 ) 0 A(5,0) 15 B(0,5) 10 C(4,3) 18&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;..(Max.) Here , Z = 18 is maximum at ( 4, 3 ).",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59830,
+          "question_text": "Minimize Z = x + 2y subject to 2x + y &ge; 3, x + 2y &ge; 6, x, y &ge; 0.",
+          "question_html": "<p>Minimize Z = x + 2y subject to 2x + y &ge; 3, x + 2y &ge; 6, x, y &ge; 0.</p>",
+          "options": [
+            {
+              "id": 194506,
+              "text": "Minimum Z = 7 at all the points on the line segment joining the points (6, 0) and (0, 3)",
+              "html": "Minimum Z = 7 at all the points on the line segment joining the points (6, 0) and (0, 3)",
+              "is_correct": false
+            },
+            {
+              "id": 194507,
+              "text": "Minimum Z = 8 at all the points on the line segment joining the points (6, 0) and (0, 3)",
+              "html": "Minimum Z = 8 at all the points on the line segment joining the points (6, 0) and (0, 3)",
+              "is_correct": false
+            },
+            {
+              "id": 194508,
+              "text": "Minimum Z = 9 at all the points (6, 0) and (0, 3)",
+              "html": "Minimum Z = 9 at all the points (6, 0) and (0, 3)",
+              "is_correct": false
+            },
+            {
+              "id": 194505,
+              "text": "Minimum Z = 6 at all the points on the line segment joining the points (6, 0) and (0, 3)",
+              "html": "Minimum Z = 6 at all the points on the line segment joining the points (6, 0) and (0, 3)",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "Minimum Z = 6 at all the points on the line segment joining the points (6, 0) and (0, 3)",
+          "correct_option_ids": [
+            194505
+          ],
+          "explanation": "Objective function is Z = x + 2 y &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(1). The given constraints are : 2x + y &ge; 3, x + 2y &ge; 6, x, y &ge; 0 . Corner points Z = x + 2y A(0 ,3 ) 6&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;..(Minimum) B(6,0) 6&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(Minimum) Here , Z = 18 is minimum at ( 0, 3 ) and ( 6 , 0 ) . Minimum Z = 6 at all the points on the line segment joining the points (6, 0) and (0, 3).",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59831,
+          "question_text": "Minimize Z = 5x + 10 y subject to x + 2y &le; 120, x + y &ge; 60, x &ndash; 2y &ge; 0, x, y &ge; 0",
+          "question_html": "<p>Minimize Z = 5x + 10 y subject to x + 2y &le; 120, x + y &ge; 60, x &ndash; 2y &ge; 0, x, y &ge; 0</p>",
+          "options": [
+            {
+              "id": 194511,
+              "text": "Minimum Z = 320 at (60, 0)",
+              "html": "Minimum Z = 320 at (60, 0)",
+              "is_correct": false
+            },
+            {
+              "id": 194512,
+              "text": "Minimum Z = 330 at (60, 0)",
+              "html": "Minimum Z = 330 at (60, 0)",
+              "is_correct": false
+            },
+            {
+              "id": 194510,
+              "text": "Minimum Z = 310 at (60, 0)",
+              "html": "Minimum Z = 310 at (60, 0)",
+              "is_correct": false
+            },
+            {
+              "id": 194509,
+              "text": "Minimum Z = 300 at (60, 0)",
+              "html": "Minimum Z = 300 at (60, 0)",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "Minimum Z = 300 at (60, 0)",
+          "correct_option_ids": [
+            194509
+          ],
+          "explanation": "Objective function is Z = 5x + 10 y &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(1). The given constraints are : x + 2y &le; 120, x + y &ge; 60, x &ndash; 2y &ge; 0, x, y &ge; 0 . The corner points are obtained by drawing the lines x+2y =120, x+y = 60 and x-2y = 0. The points so obtained are (60,30),(120,0), (60,0) and (40,20) Corner points Z = 5x + 10y D(60 ,30 ) 600 A(120,0) 600 B(60,0) 300&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;..(Min.) C(40,20) 400 Here , Z = 300 is minimum at ( 60, 0 ).",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59832,
+          "question_text": "Minimize Z = x + 2y subject to x + 2y &ge; 100, 2x &ndash; y &le; 0, 2x + y &le; 200; x, y &ge; 0.",
+          "question_html": "<p>Minimize Z = x + 2y subject to x + 2y &ge; 100, 2x &ndash; y &le; 0, 2x + y &le; 200; x, y &ge; 0.</p>",
+          "options": [
+            {
+              "id": 194514,
+              "text": "Minimum Z = 120 at all the points on the line segment joining the points (0, 50) and (20, 40)",
+              "html": "Minimum Z = 120 at all the points on the line segment joining the points (0, 50) and (20, 40)",
+              "is_correct": false
+            },
+            {
+              "id": 194513,
+              "text": "Minimum Z = 100 at all the points on the line segment joining the points (0, 50) and (20, 40)",
+              "html": "Minimum Z = 100 at all the points on the line segment joining the points (0, 50) and (20, 40)",
+              "is_correct": true
+            },
+            {
+              "id": 194515,
+              "text": "Minimum Z = 140 at all the points on the line segment joining the points (0, 50) and (20, 40)",
+              "html": "Minimum Z = 140 at all the points on the line segment joining the points (0, 50) and (20, 40)",
+              "is_correct": false
+            },
+            {
+              "id": 194516,
+              "text": "Minimum Z = 150 at all the points on the line segment joining the points (0, 50) and (20, 40)",
+              "html": "Minimum Z = 150 at all the points on the line segment joining the points (0, 50) and (20, 40)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Minimum Z = 100 at all the points on the line segment joining the points (0, 50) and (20, 40)",
+          "correct_option_ids": [
+            194513
+          ],
+          "explanation": "Objective function is Z = x + 2 y &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(1). The given constraints are : x + 2y &ge; 100, 2x &ndash; y &le; 0, 2x + y &le; 200; x, y &ge; 0. The corner points are obtained by drawing the lines x+2y=100, 2x-y=0 and 2x+y=200. The points so obtained are (0,50),(20,40), (50,100) and (0,200) Corner points Z = x + 2y D(0 ,50 ) 100&hellip;&hellip;&hellip;&hellip;&hellip;..(Min.) A(20,40) 100&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;..(Min.) B(50,100) 250 C(0,200) 400 Here , Z = 100 is minimum at ( 0, 50) and ( 20 ,40). Minimum Z = 100 at all the points on the line segment joining the points (0, 50) and (20, 40).",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59833,
+          "question_text": "Maximize Z = x + y, subject to x &ndash; y &le; &ndash;1, &ndash;x + y &le; 0, x, y &ge; 0.",
+          "question_html": "<p>Maximize Z = x + y, subject to x &ndash; y &le; &ndash;1, &ndash;x + y &le; 0, x, y &ge; 0.</p>",
+          "options": [
+            {
+              "id": 194518,
+              "text": "Maximum Z = 8 at (2, 6)a",
+              "html": "Maximum Z = 8 at (2, 6)a",
+              "is_correct": false
+            },
+            {
+              "id": 194517,
+              "text": "Z has no maximum value",
+              "html": "Z has no maximum value",
+              "is_correct": true
+            },
+            {
+              "id": 194519,
+              "text": "Maximum Z = 12 at (2, 6)",
+              "html": "Maximum Z = 12 at (2, 6)",
+              "is_correct": false
+            },
+            {
+              "id": 194520,
+              "text": "Maximum Z = 14 at (2, 6)",
+              "html": "Maximum Z = 14 at (2, 6)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Z has no maximum value",
+          "correct_option_ids": [
+            194517
+          ],
+          "explanation": "Objective function is Z = x + y &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(1). The given constraints are : x &ndash; y &le; &ndash;1, &ndash;x + y &le; 0, x, y &ge; 0. Here , there is no common feasible region between the lines x &ndash; y = - 1 and - x + y = 0 . Therefore , it has no solution. Thus , Z has no maximum value .",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59834,
+          "question_text": "Reshma wishes to mix two types of food P and Q in such a way that the vitamin contents of the mixture contain at least 8 units of vitamin A and 11 units of vitamin B. Food P costs Rs 60/kg and Food Q costs Rs 80/kg. Food P contains 3 units/kg of Vitamin A and 5 units / kg of Vitamin B while food Q contains 4 units/kg of Vitamin A and 2 units/kg of vitamin B. Determine the minimum cost of the mixture.",
+          "question_html": "<p>Reshma wishes to mix two types of food P and Q in such a way that the vitamin contents of the mixture contain at least 8 units of vitamin A and 11 units of vitamin B. Food P costs Rs 60/kg and Food Q costs Rs 80/kg. Food P contains 3 units/kg of Vitamin A and 5 units / kg of Vitamin B while food Q contains 4 units/kg of Vitamin A and 2 units/kg of vitamin B. Determine the minimum cost of the mixture.</p>",
+          "options": [
+            {
+              "id": 194522,
+              "text": "Minimum cost = Rs 170 at all points lying on segment joining {tex}\\left( {\\frac{8}{3},\\;0} \\right)\\;and\\;\\left( {2,\\frac{1}{2}} \\right){/tex}",
+              "html": "Minimum cost = Rs 170 at all points lying on segment joining <span class=\"math-tex\">{tex}\\left( {\\frac{8}{3},\\;0} \\right)\\;and\\;\\left( {2,\\frac{1}{2}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194524,
+              "text": "Minimum cost = Rs 150 at all points lying on segment joining {tex}\\left( {\\frac{8}{3},\\;0} \\right)\\;and\\;\\left( {2,\\frac{1}{2}} \\right){/tex}",
+              "html": "Minimum cost = Rs 150 at all points lying on segment joining <span class=\"math-tex\">{tex}\\left( {\\frac{8}{3},\\;0} \\right)\\;and\\;\\left( {2,\\frac{1}{2}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194521,
+              "text": "Minimum cost = Rs 160 at all points lying on segment joining {tex}\\left( {\\frac{8}{3},\\;0} \\right)\\;and\\;\\left( {2,\\frac{1}{2}} \\right){/tex}",
+              "html": "Minimum cost = Rs 160 at all points lying on segment joining <span class=\"math-tex\">{tex}\\left( {\\frac{8}{3},\\;0} \\right)\\;and\\;\\left( {2,\\frac{1}{2}} \\right){/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194523,
+              "text": "Minimum cost = Rs 180 at all points lying on segment joining {tex}\\left( {\\frac{8}{3},\\;0} \\right)\\;and\\;\\left( {2,\\frac{1}{2}} \\right){/tex}",
+              "html": "Minimum cost = Rs 180 at all points lying on segment joining <span class=\"math-tex\">{tex}\\left( {\\frac{8}{3},\\;0} \\right)\\;and\\;\\left( {2,\\frac{1}{2}} \\right){/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Minimum cost = Rs 160 at all points lying on segment joining {tex}\\left( {\\frac{8}{3},\\;0} \\right)\\;and\\;\\left( {2,\\frac{1}{2}} \\right){/tex}",
+          "correct_option_ids": [
+            194521
+          ],
+          "explanation": "Let number of food type P = x And number of units of food type Q = y Therefore , the above L.P.P. is given as : Minimise , Z = 60x +80y , subject to the constraints : 3 x + 4y &ge; 8, 5x + 2y &ge; 11, x,y &ge; 0. The corner points can be obtained by drawing the lines 3x+4y=8 and 5x+2y=11 graphically. The points so obtained are (8/3,0), (2,1/2), (0,11/2) Corner points Z = - x + 2y D(8/3,0 ) 160&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.(Min.) A(2,1/2) 160&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(Min.) B(0,11/2) 440 Here Z = 160 is minimum. i.e. Minimum cost = Rs 160 at all points lying on segment joining {tex}\\left( {\\frac{8}{3},\\;0} \\right)\\;and\\;\\left( {2,\\frac{1}{2}} \\right){/tex} .",
+          "solution": ""
+        }
+      ]
+    }
+  ],
+  "totalQuestions": 75
+}

@@ -1,0 +1,2891 @@
+{
+  "chapter": "Vector Algebra",
+  "chapter_id": 1294,
+  "tests": [
+    {
+      "test_id": 3633,
+      "test_name": "Vector Algebra Test-01",
+      "is_paid": false,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59655,
+          "question_text": "Vector has",
+          "question_html": "<p>Vector has</p>",
+          "options": [
+            {
+              "id": 193808,
+              "text": "direction",
+              "html": "direction",
+              "is_correct": false
+            },
+            {
+              "id": 193806,
+              "text": "magnitude as well as direction",
+              "html": "magnitude as well as direction",
+              "is_correct": true
+            },
+            {
+              "id": 193807,
+              "text": "magnitude",
+              "html": "magnitude",
+              "is_correct": false
+            },
+            {
+              "id": 193809,
+              "text": "Change",
+              "html": "Change",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "magnitude as well as direction",
+          "correct_option_ids": [
+            193806
+          ],
+          "explanation": "A vector has both magnitude as well as direction.",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59656,
+          "question_text": "Position vectors of points A, B, C, etc., with respect to the origin O are generally denoted by",
+          "question_html": "<p>Position vectors of points A, B, C, etc., with respect to the origin O are generally denoted by</p>",
+          "options": [
+            {
+              "id": 193811,
+              "text": "{tex}\\vec A,\\;\\vec B,\\vec C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec A,\\;\\vec B,\\vec C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193813,
+              "text": "{tex}\\overrightarrow {AB} {/tex} , {tex}\\overrightarrow {BC} {/tex} , {tex}\\overrightarrow {CA} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\overrightarrow {AB} {/tex}</span>,&nbsp;<span class=\"math-tex\">{tex}\\overrightarrow {BC} {/tex}</span>,&nbsp;<span class=\"math-tex\">{tex}\\overrightarrow {CA} {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193810,
+              "text": "{tex}\\vec a,\\;\\vec b,\\vec c{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec a,\\;\\vec b,\\vec c{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193812,
+              "text": "{tex}\\overrightarrow {OA} ,\\;\\overrightarrow {OB} ,\\overrightarrow {OC} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\overrightarrow {OA} ,\\;\\overrightarrow {OB} ,\\overrightarrow {OC} {/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\overrightarrow {OA} ,\\;\\overrightarrow {OB} ,\\overrightarrow {OC} {/tex}",
+          "correct_option_ids": [
+            193812
+          ],
+          "explanation": "Position vectors of any point in space are usually calculated from the origin, so we write {tex}\\overrightarrow {OA} ,\\;\\overrightarrow {OB} ,\\overrightarrow {OC} {/tex} for three points A ,B,C in space to represent the origin as the initial point.",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59657,
+          "question_text": "Direction angles are",
+          "question_html": "<p>Direction angles are&nbsp;</p>",
+          "options": [
+            {
+              "id": 193817,
+              "text": "The angles denoted by {tex}\\overrightarrow a ,\\overrightarrow b ,\\overrightarrow c {/tex}",
+              "html": "The angles denoted by <span class=\"math-tex\">{tex}\\overrightarrow a ,\\overrightarrow b ,\\overrightarrow c {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193815,
+              "text": "The angles {tex}\\alpha ,\\beta ,\\gamma {/tex} made by the perpendicular to position vector {tex}\\vec r{/tex} with the negative directions of x, y and z-axes respectively",
+              "html": "The angles <span class=\"math-tex\">{tex}\\alpha ,\\beta ,\\gamma {/tex}</span> made by the perpendicular to position vector <span class=\"math-tex\">{tex}\\vec r{/tex}</span>&nbsp;with the negative&nbsp;directions of x, y and z-axes respectively",
+              "is_correct": false
+            },
+            {
+              "id": 193816,
+              "text": "The angles that show the tip of the vector",
+              "html": "The angles that show the tip of the vector",
+              "is_correct": false
+            },
+            {
+              "id": 193814,
+              "text": "The angles {tex}\\alpha ,\\beta ,\\gamma {/tex} made by the position vector {tex}\\vec r{/tex} with the positive directions of x, y and z-axes respectively",
+              "html": "The angles <span class=\"math-tex\">{tex}\\alpha ,\\beta ,\\gamma {/tex}</span> made by the position vector <span class=\"math-tex\">{tex}\\vec r{/tex}</span>&nbsp;with the positive directions of x, y and z-axes respectively",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "The angles {tex}\\alpha ,\\beta ,\\gamma {/tex} made by the position vector {tex}\\vec r{/tex} with the positive directions of x, y and z-axes respectively",
+          "correct_option_ids": [
+            193814
+          ],
+          "explanation": "the angles {tex}\\alpha ,\\beta ,\\gamma {/tex} are called direction angles, which the position vector {tex}\\overrightarrow r {/tex} makes with the positive x-axis ,y-axis and z-axis respectively.",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59658,
+          "question_text": "Direction cosines",
+          "question_html": "<p>Direction cosines</p>",
+          "options": [
+            {
+              "id": 193818,
+              "text": "are cosines of Direction angles",
+              "html": "are cosines of Direction angles",
+              "is_correct": true
+            },
+            {
+              "id": 193821,
+              "text": "are cotangents of Direction angles",
+              "html": "are cotangents of Direction angles",
+              "is_correct": false
+            },
+            {
+              "id": 193820,
+              "text": "are tangents of Direction angles",
+              "html": "are tangents of Direction angles",
+              "is_correct": false
+            },
+            {
+              "id": 193819,
+              "text": "are sines of Direction angles",
+              "html": "are sines of Direction angles",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "are cosines of Direction angles",
+          "correct_option_ids": [
+            193818
+          ],
+          "explanation": "Cosines of the angles {tex}\\alpha ,\\beta ,\\gamma {/tex} are called direction cosines.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59659,
+          "question_text": "If l, m and n are direction cosines of the position vector OP the coordinates of P are",
+          "question_html": "<p>If l, m and n are direction cosines of the position vector OP the coordinates of P are</p>",
+          "options": [
+            {
+              "id": 193824,
+              "text": "lr, m and nr",
+              "html": "lr, m and nr",
+              "is_correct": false
+            },
+            {
+              "id": 193822,
+              "text": "lr, mr and nr",
+              "html": "lr, mr and nr",
+              "is_correct": true
+            },
+            {
+              "id": 193823,
+              "text": "l, mr and nr",
+              "html": "l, mr and nr",
+              "is_correct": false
+            },
+            {
+              "id": 193825,
+              "text": "lr, mr and n",
+              "html": "lr, mr and n",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "lr, mr and nr",
+          "correct_option_ids": [
+            193822
+          ],
+          "explanation": "If l, m, and n are the direction cosines of vector {tex}\\overrightarrow r {/tex} denoted by {tex}\\overrightarrow {OP} {/tex} , then, the coordinates of point P are given by: lr, mr and nr respectively.",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59660,
+          "question_text": "Define Zero Vector",
+          "question_html": "<p>Define Zero Vector</p>",
+          "options": [
+            {
+              "id": 193827,
+              "text": "A vector whose initial points are at origin",
+              "html": "A vector whose initial points are at origin",
+              "is_correct": false
+            },
+            {
+              "id": 193826,
+              "text": "A vector whose initial and terminal points coincide",
+              "html": "A vector whose initial and terminal points coincide",
+              "is_correct": true
+            },
+            {
+              "id": 193829,
+              "text": "A vector whose initial and final points are different",
+              "html": "A vector whose initial and final points are different",
+              "is_correct": false
+            },
+            {
+              "id": 193828,
+              "text": "A vector whose terminal points are at origin",
+              "html": "A vector whose terminal points are at origin",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "A vector whose initial and terminal points coincide",
+          "correct_option_ids": [
+            193826
+          ],
+          "explanation": "A vector whose initial and terminal points coincides is called Zero Vector. The magnitude of Zero Vector is also Zero.",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59661,
+          "question_text": "Unit Vector is",
+          "question_html": "<p>Unit Vector is</p>",
+          "options": [
+            {
+              "id": 193831,
+              "text": "A vector whose direction angle &alpha; is unity",
+              "html": "A vector whose direction angle &alpha; is unity",
+              "is_correct": false
+            },
+            {
+              "id": 193832,
+              "text": "A vector whose direction angle &beta; is unity",
+              "html": "A vector whose direction angle &beta; is unity",
+              "is_correct": false
+            },
+            {
+              "id": 193833,
+              "text": "A vector whose direction angle &gamma; is unity",
+              "html": "A vector whose direction angle &gamma; is unity",
+              "is_correct": false
+            },
+            {
+              "id": 193830,
+              "text": "A vector whose magnitude is unity",
+              "html": "A vector whose magnitude is unity",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "A vector whose magnitude is unity",
+          "correct_option_ids": [
+            193830
+          ],
+          "explanation": "The vector whose magnitude is always 1 or unity is called a Unit Vector.",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59662,
+          "question_text": "The unit vector in the direction of a given vector {tex}\\vec a{/tex} is denoted by",
+          "question_html": "<p>The unit vector in the direction of a given vector&nbsp;<span class=\"math-tex\">{tex}\\vec a{/tex}</span> is denoted by</p>",
+          "options": [
+            {
+              "id": 193836,
+              "text": "{tex}\\overset{\\ddot{\\ }}{\\mathop{a}}\\,{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\overset{\\ddot{\\ }}{\\mathop{a}}\\,{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193837,
+              "text": "{tex}\\dddot a{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\dddot a{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193834,
+              "text": "{tex}\\hat a{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\hat a{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193835,
+              "text": "{tex}\\dot a{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\dot a{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\hat a{/tex}",
+          "correct_option_ids": [
+            193834
+          ],
+          "explanation": "{tex}\\widehat a = \\frac{{\\overrightarrow a }}{{\\left| {\\overrightarrow a } \\right|}}{/tex} , is called the unit vector of a given vector {tex}\\vec a{/tex} in the direction of {tex}\\vec a{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59663,
+          "question_text": "Coinitial Vectors are",
+          "question_html": "<p>Coinitial Vectors are</p>",
+          "options": [
+            {
+              "id": 193839,
+              "text": "Two or more vectors having the same final point",
+              "html": "Two or more vectors having the same final point",
+              "is_correct": false
+            },
+            {
+              "id": 193840,
+              "text": "Two or more force vectors having the same initial point",
+              "html": "Two or more force vectors having the same initial point",
+              "is_correct": false
+            },
+            {
+              "id": 193838,
+              "text": "Two or more vectors having the same initial point",
+              "html": "Two or more vectors having the same initial point",
+              "is_correct": true
+            },
+            {
+              "id": 193841,
+              "text": "Two or more pseudo vectors having the same initial point",
+              "html": "Two or more pseudo vectors having the same initial point",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Two or more vectors having the same initial point",
+          "correct_option_ids": [
+            193838
+          ],
+          "explanation": "Two vectors whose initial point is same are called co- initial vectors.",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59664,
+          "question_text": "Vectors A and B are Collinear",
+          "question_html": "<p>Vectors A and B are Collinear</p>",
+          "options": [
+            {
+              "id": 193844,
+              "text": "if they are have equal magnitude",
+              "html": "if they are have equal magnitude",
+              "is_correct": false
+            },
+            {
+              "id": 193843,
+              "text": "if they are in the same line",
+              "html": "if they are in the same line",
+              "is_correct": false
+            },
+            {
+              "id": 193842,
+              "text": "if they are parallel to the same line irrespective of their magnitudes and directions.",
+              "html": "if they are parallel to the same line irrespective of their magnitudes and directions.",
+              "is_correct": true
+            },
+            {
+              "id": 193845,
+              "text": "if the direction cosines of one are negatives of the other",
+              "html": "if the direction cosines of one are negatives of the other",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "if they are parallel to the same line irrespective of their magnitudes and directions.",
+          "correct_option_ids": [
+            193842
+          ],
+          "explanation": "Two vectors A and B are said to be collinear , if they are parallel to the same line irrespective of their magnitudes and directions.",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59665,
+          "question_text": "Vectors A and B are equal",
+          "question_html": "<p>Vectors A and B are equal</p>",
+          "options": [
+            {
+              "id": 193849,
+              "text": "if they have the same magnitude",
+              "html": "if they have the same magnitude",
+              "is_correct": false
+            },
+            {
+              "id": 193847,
+              "text": "if they have the same magnitude and opposite direction",
+              "html": "if they have the same magnitude and opposite direction",
+              "is_correct": false
+            },
+            {
+              "id": 193846,
+              "text": "if they have the same magnitude and direction",
+              "html": "if they have the same magnitude and direction",
+              "is_correct": true
+            },
+            {
+              "id": 193848,
+              "text": "if they have the same direction",
+              "html": "if they have the same direction",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "if they have the same magnitude and direction",
+          "correct_option_ids": [
+            193846
+          ],
+          "explanation": "Two vectors having same magnitude as well as same direction are always equal.",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59666,
+          "question_text": "Negative of a Vector {tex}\\vec a{/tex} is a",
+          "question_html": "<p>Negative of a Vector&nbsp;<span class=\"math-tex\">{tex}\\vec a{/tex}</span> is a</p>",
+          "options": [
+            {
+              "id": 193850,
+              "text": "A vector whose magnitude is the same as that of {tex}\\vec a{/tex} but the direction is opposite to that of {tex}\\vec a{/tex}",
+              "html": "A vector whose magnitude is the same as that of&nbsp;<span class=\"math-tex\">{tex}\\vec a{/tex}</span>&nbsp;but the direction is opposite to that of &nbsp;<span class=\"math-tex\">{tex}\\vec a{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193853,
+              "text": "A vector whose magnitude is the same as that of {tex}\\vec a{/tex} but direction is 120&deg; to that of {tex}\\vec a{/tex}",
+              "html": "A vector whose magnitude is the same as that&nbsp;of &nbsp;<span class=\"math-tex\">{tex}\\vec a{/tex}</span>&nbsp;but direction is 120&deg; to that of &nbsp;<span class=\"math-tex\">{tex}\\vec a{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193851,
+              "text": "A scalar whose magnitude is the same as that {tex}\\vec a{/tex}",
+              "html": "A scalar whose magnitude is the same as that <span class=\"math-tex\">{tex}\\vec a{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193852,
+              "text": "A vector whose magnitude is the same as that of {tex}\\vec a{/tex} but the direction is perpendicular to that of {tex}\\vec a{/tex}",
+              "html": "A vector whose magnitude is the same as that&nbsp;of &nbsp;<span class=\"math-tex\">{tex}\\vec a{/tex}</span>&nbsp;but the direction is perpendicular to that of <span class=\"math-tex\">{tex}\\vec a{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "A vector whose magnitude is the same as that of {tex}\\vec a{/tex} but the direction is opposite to that of {tex}\\vec a{/tex}",
+          "correct_option_ids": [
+            193850
+          ],
+          "explanation": "Negative of {tex}\\vec a{/tex} is equal to - {tex}\\vec a{/tex} , i.e. A vector whose magnitude is the same as that of {tex}\\vec a{/tex} ,but direction is opposite to that of {tex}\\vec a{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59667,
+          "question_text": "If {tex}\\lambda {/tex} is a real number {tex}\\lambda {/tex} {tex}\\vec a{/tex} is a",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}\\lambda {/tex}</span> is a real number <span class=\"math-tex\">{tex}\\lambda {/tex}</span><span class=\"math-tex\">{tex}\\vec a{/tex}</span> is a</p>",
+          "options": [
+            {
+              "id": 193856,
+              "text": "unit vector",
+              "html": "unit vector",
+              "is_correct": false
+            },
+            {
+              "id": 193857,
+              "text": "inner product",
+              "html": "inner product",
+              "is_correct": false
+            },
+            {
+              "id": 193855,
+              "text": "scalar",
+              "html": "scalar",
+              "is_correct": false
+            },
+            {
+              "id": 193854,
+              "text": "vector",
+              "html": "vector",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "vector",
+          "correct_option_ids": [
+            193854
+          ],
+          "explanation": "If a vector is multiplied by any scalar then , the result is always a vector.",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59668,
+          "question_text": "For vector addition which of the following is correct?",
+          "question_html": "<p>For vector addition which of the following is correct?</p>",
+          "options": [
+            {
+              "id": 193861,
+              "text": "| {tex}\\vec a + \\vec b{/tex} | = {tex}\\vec a{/tex}",
+              "html": "|<span class=\"math-tex\">{tex}\\vec a + \\vec b{/tex}</span>| = <span class=\"math-tex\">{tex}\\vec a{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193859,
+              "text": "| {tex}\\vec a + \\vec b{/tex} | = {tex}\\vec a + \\vec b{/tex}",
+              "html": "|<span class=\"math-tex\">{tex}\\vec a + \\vec b{/tex}</span>| = <span class=\"math-tex\">{tex}\\vec a + \\vec b{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193860,
+              "text": "{tex}\\overrightarrow a - \\overrightarrow b = \\overrightarrow b - \\overrightarrow a {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\overrightarrow a - \\overrightarrow b = \\overrightarrow b - \\overrightarrow a {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193858,
+              "text": "{tex}\\vec a + \\vec b = \\vec b + \\vec a{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec a + \\vec b = \\vec b + \\vec a{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\vec a + \\vec b = \\vec b + \\vec a{/tex}",
+          "correct_option_ids": [
+            193858
+          ],
+          "explanation": "Addition of two vectors i.e. vector addition is commutative. i.e. {tex}\\vec a + \\vec b = \\vec b + \\vec a{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59669,
+          "question_text": "For a vector addition which of the following is correct?",
+          "question_html": "<p>For a vector addition which of the following is correct?</p>",
+          "options": [
+            {
+              "id": 193863,
+              "text": "{tex}\\left( {\\vec a + \\vec b} \\right) + \\vec c \\ne \\vec a + \\left( {\\vec b + \\vec c} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left( {\\vec a + \\vec b} \\right) + \\vec c \\ne \\vec a + \\left( {\\vec b + \\vec c} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193865,
+              "text": "{tex}\\left( {\\vec a + \\vec b} \\right) + \\vec c \\geqslant \\vec a + \\left( {\\vec b + \\vec c} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left( {\\vec a + \\vec b} \\right) + \\vec c \\geqslant \\vec a + \\left( {\\vec b + \\vec c} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193864,
+              "text": "{tex}\\left( {\\vec a + \\vec b} \\right) + \\vec c < \\vec a + \\left( {\\vec b + \\vec c} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left( {\\vec a + \\vec b} \\right) + \\vec c &lt; \\vec a + \\left( {\\vec b + \\vec c} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193862,
+              "text": "{tex}\\left( {\\vec a + \\vec b} \\right) + \\vec c = \\vec a + \\left( {\\vec b + \\vec c} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left( {\\vec a + \\vec b} \\right) + \\vec c = \\vec a + \\left( {\\vec b + \\vec c} \\right){/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\left( {\\vec a + \\vec b} \\right) + \\vec c = \\vec a + \\left( {\\vec b + \\vec c} \\right){/tex}",
+          "correct_option_ids": [
+            193862
+          ],
+          "explanation": "Addition of two vectors i.e. vector addition is associative. i.e. {tex}\\left( {\\vec a + \\vec b} \\right) + \\vec c = \\vec a + \\left( {\\vec b + \\vec c} \\right){/tex} .",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3634,
+      "test_name": "Vector Algebra Test-02",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59670,
+          "question_text": "Correct form of distributive law is",
+          "question_html": "<p>Correct form of distributive law is</p>",
+          "options": [
+            {
+              "id": 193866,
+              "text": "{tex}k\\vec a + m\\vec a = \\left( {k + m} \\right)\\vec a{/tex}",
+              "html": "<span class=\"math-tex\">{tex}k\\vec a + m\\vec a = \\left( {k + m} \\right)\\vec a{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193869,
+              "text": "{tex}k\\vec a + m\\vec a \\ne \\left( {k + m} \\right)\\vec a{/tex}",
+              "html": "<span class=\"math-tex\">{tex}k\\vec a + m\\vec a \\ne \\left( {k + m} \\right)\\vec a{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193868,
+              "text": "{tex}k\\vec a + m\\vec a > \\left( {k + m} \\right)\\vec a{/tex}",
+              "html": "<span class=\"math-tex\">{tex}k\\vec a + m\\vec a &gt; \\left( {k + m} \\right)\\vec a{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193867,
+              "text": "{tex}k\\vec a + m\\vec a < \\left( {k + m} \\right)\\vec a{/tex}",
+              "html": "<span class=\"math-tex\">{tex}k\\vec a + m\\vec a &lt; \\left( {k + m} \\right)\\vec a{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}k\\vec a + m\\vec a = \\left( {k + m} \\right)\\vec a{/tex}",
+          "correct_option_ids": [
+            193866
+          ],
+          "explanation": "Distributive law is given by : {tex}k\\vec a + m\\vec a = \\left( {k + m} \\right)\\vec a{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59671,
+          "question_text": "If P 1 (x 1 ,y 1 ,z 1 ) and P 2 (x 2 ,y 2 ,z 2 ) are any two points, then the vector joining P 1 and P 2 is the vector P 1 P 2 . The magnitude of the vector {tex}\\overrightarrow {{P_1}{P_2}} {/tex} is",
+          "question_html": "<p>If P<sub>1</sub>(x<sub>1</sub>,y<sub>1</sub>,z<sub>1</sub>) and P<sub>2</sub>(x<sub>2</sub>,y<sub>2</sub>,z<sub>2</sub>) are any two points, then the vector joining P<sub>1</sub>&nbsp;and P<sub>2&nbsp;</sub>is the vector P<sub>1</sub>P<sub>2</sub>. The magnitude of the vector <span class=\"math-tex\">{tex}\\overrightarrow {{P_1}{P_2}} {/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193873,
+              "text": "{tex}\\sqrt {{{\\left( {{x_2} - {x_1}} \\right)}^2} + {{\\left( {{y_2} - {y_1}} \\right)}^2} + {{\\left( {{z_2} + {z_1}} \\right)}^2}} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt {{{\\left( {{x_2} - {x_1}} \\right)}^2} + {{\\left( {{y_2} - {y_1}} \\right)}^2} + {{\\left( {{z_2} + {z_1}} \\right)}^2}} {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193871,
+              "text": "{tex}\\sqrt {{{\\left( {{x_2} + {x_1}} \\right)}^2} + {{\\left( {{y_2} - {y_1}} \\right)}^2} + {{\\left( {{z_2} - {z_1}} \\right)}^2}} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt {{{\\left( {{x_2} + {x_1}} \\right)}^2} + {{\\left( {{y_2} - {y_1}} \\right)}^2} + {{\\left( {{z_2} - {z_1}} \\right)}^2}} {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193870,
+              "text": "{tex}\\sqrt {{{\\left( {{x_2} - {x_1}} \\right)}^2} + {{\\left( {{y_2} - {y_1}} \\right)}^2} + {{\\left( {{z_2} - {z_1}} \\right)}^2}} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt {{{\\left( {{x_2} - {x_1}} \\right)}^2} + {{\\left( {{y_2} - {y_1}} \\right)}^2} + {{\\left( {{z_2} - {z_1}} \\right)}^2}} {/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193872,
+              "text": "{tex}\\sqrt {{{\\left( {{x_2} - {x_1}} \\right)}^2} + {{\\left( {{y_2} + {y_1}} \\right)}^2} + {{\\left( {{z_2} - {z_1}} \\right)}^2}} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt {{{\\left( {{x_2} - {x_1}} \\right)}^2} + {{\\left( {{y_2} + {y_1}} \\right)}^2} + {{\\left( {{z_2} - {z_1}} \\right)}^2}} {/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\sqrt {{{\\left( {{x_2} - {x_1}} \\right)}^2} + {{\\left( {{y_2} - {y_1}} \\right)}^2} + {{\\left( {{z_2} - {z_1}} \\right)}^2}} {/tex}",
+          "correct_option_ids": [
+            193870
+          ],
+          "explanation": "If P 1 (x 1 ,y 1 ,z 1 ) and P 2 (x 2 ,y 2 ,z 2 ) are any two points, then the vector joining P 1 and P 2 is the vector P 1 P 2 , then : {tex}\\left| {\\overrightarrow {{P_1}{P_2}} } \\right| = {/tex} {tex}\\sqrt {{{\\left( {{x_2} - {x_1}} \\right)}^2} + {{\\left( {{y_2} - {y_1}} \\right)}^2} + {{\\left( {{z_2} - {z_1}} \\right)}^2}} {/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59672,
+          "question_text": "If {tex}\\vec a,\\;\\vec b\\;{/tex} and {tex}\\;\\vec c{/tex} are any three vectors then the correct expression for distributivity of scalar product over addition is",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}\\vec a,\\;\\vec b\\;{/tex}</span>and&nbsp;<span class=\"math-tex\">{tex}\\;\\vec c{/tex}</span> are any three vectors then the correct expression for distributivity of scalar product over addition is</p>",
+          "options": [
+            {
+              "id": 193874,
+              "text": "{tex}\\vec a.\\left( {\\vec b + \\vec c} \\right) = \\vec a.\\vec b + \\vec a.\\vec c{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec a.\\left( {\\vec b + \\vec c} \\right) = \\vec a.\\vec b + \\vec a.\\vec c{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193876,
+              "text": "{tex}\\overrightarrow a .\\left( {\\overrightarrow b + \\overrightarrow c } \\right) \\ge \\overrightarrow a .\\overrightarrow b + \\overrightarrow a .\\overrightarrow c {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\overrightarrow a .\\left( {\\overrightarrow b + \\overrightarrow c } \\right) \\ge \\overrightarrow a .\\overrightarrow b + \\overrightarrow a .\\overrightarrow c {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193875,
+              "text": "{tex}\\vec a.\\left( {\\vec b + \\vec c} \\right) \\ne \\vec a.\\vec b + \\vec a.\\vec c{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec a.\\left( {\\vec b + \\vec c} \\right) \\ne \\vec a.\\vec b + \\vec a.\\vec c{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193877,
+              "text": "{tex}\\vec a.\\left( {\\vec b + \\vec c} \\right) < \\vec a.\\vec b + \\vec a.\\vec c{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec a.\\left( {\\vec b + \\vec c} \\right) &lt; \\vec a.\\vec b + \\vec a.\\vec c{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\vec a.\\left( {\\vec b + \\vec c} \\right) = \\vec a.\\vec b + \\vec a.\\vec c{/tex}",
+          "correct_option_ids": [
+            193874
+          ],
+          "explanation": "If {tex}\\vec a,\\;\\vec b\\;{/tex} and {tex}\\;\\vec c{/tex} are any three vectors then the correct expression for distributivity of scalar product over addition is: {tex}\\vec a.\\left( {\\vec b + \\vec c} \\right) = \\vec a.\\vec b + \\vec a.\\vec c{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59673,
+          "question_text": "Magnitude of the vector {tex}\\vec a = \\hat i + \\hat j + \\hat k{/tex} is",
+          "question_html": "<p>Magnitude of the vector <span class=\"math-tex\">{tex}\\vec a = \\hat i + \\hat j + \\hat k{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193880,
+              "text": "1- {tex}\\sqrt 3 {/tex}",
+              "html": "1-<span class=\"math-tex\">{tex}\\sqrt 3 {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193879,
+              "text": "1+ {tex}\\sqrt 3 {/tex}",
+              "html": "1+<span class=\"math-tex\">{tex}\\sqrt 3 {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193878,
+              "text": "{tex}\\sqrt 3 \\;{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt 3 \\;{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193881,
+              "text": "{tex}\\sqrt 2 {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt 2 {/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\sqrt 3 \\;{/tex}",
+          "correct_option_ids": [
+            193878
+          ],
+          "explanation": "We have : {tex}\\overrightarrow a = \\widehat i + \\widehat j + \\widehat k{/tex} , then , {tex}\\left| {\\overrightarrow a } \\right| = \\sqrt {{1^2} + {1^2} + {1^2}} = \\sqrt 3 {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59674,
+          "question_text": "Unit vectors along the axes OX, OY and OZ are denoted by",
+          "question_html": "<p>Unit vectors along the axes OX, OY and OZ are denoted by</p>\r\n",
+          "options": [
+            {
+              "id": 193883,
+              "text": "{tex}\\hat{i},~\\overset{\\ddot{\\ }}{\\mathop{j}}\\,and~\\hat{p}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\hat{i},~\\overset{\\ddot{\\ }}{\\mathop{j}}\\,and~\\hat{p}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193885,
+              "text": "{tex}\\hat{i},~\\overset{\\ddot{\\ }}{\\mathop{j}}\\,and~\\hat{k}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\hat{i},~\\overset{\\ddot{\\ }}{\\mathop{j}}\\,and~\\hat{k}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193882,
+              "text": "{tex}\\hat i,\\;\\hat j\\;and\\;\\hat k{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\hat i,\\;\\hat j\\;and\\;\\hat k{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193884,
+              "text": "{tex}\\bar i,\\;\\hat j\\;and\\;\\hat k{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\bar i,\\;\\hat j\\;and\\;\\hat k{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\hat i,\\;\\hat j\\;and\\;\\hat k{/tex}",
+          "correct_option_ids": [
+            193882
+          ],
+          "explanation": "{tex}\\hat i,\\;\\hat j\\;and\\;\\hat k{/tex} represents the unit vectors along the co ordinate axes i.e. OX ,OY and OZ respectively.",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59675,
+          "question_text": "If a vector {tex}\\vec r{/tex} is expressed in component form as {tex}\\vec r = x\\hat i + y\\hat j + z\\hat k{/tex} then the magnitude of the vector {tex}\\vec r{/tex} is",
+          "question_html": "<p>If a vector <span class=\"math-tex\">{tex}\\vec r{/tex}</span> is expressed in component form as <span class=\"math-tex\">{tex}\\vec r = x\\hat i + y\\hat j + z\\hat k{/tex}</span> then the magnitude of the vector <span class=\"math-tex\">{tex}\\vec r{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193888,
+              "text": "{tex}\\sqrt {{x^2} + 2{y^2} + {z^2}} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt {{x^2} + 2{y^2} + {z^2}} {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193886,
+              "text": "{tex}\\sqrt {{x^2} + {y^2} + {z^2}} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt {{x^2} + {y^2} + {z^2}} {/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193887,
+              "text": "{tex}\\sqrt {2{x^2} + {y^2} + {z^2}} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt {2{x^2} + {y^2} + {z^2}} {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193889,
+              "text": "{tex}\\sqrt {{x^2} + {y^2} + 2{z^2}} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt {{x^2} + {y^2} + 2{z^2}} {/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\sqrt {{x^2} + {y^2} + {z^2}} {/tex}",
+          "correct_option_ids": [
+            193886
+          ],
+          "explanation": "If {tex}\\vec r = x\\hat i + y\\hat j + z\\hat k {/tex} , then , {tex} \\left| {\\overrightarrow r } \\right| = \\sqrt {{x^2} + {y^2} + {z^2}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59676,
+          "question_text": "If a vector {tex}\\vec r{/tex} is expressed in component form as {tex}\\vec r = x\\hat i + y\\hat j + z\\hat k{/tex} then x, y and z are referred to as",
+          "question_html": "<p>If a vector <span class=\"math-tex\">{tex}\\vec r{/tex}</span> is expressed in component form as <span class=\"math-tex\">{tex}\\vec r = x\\hat i + y\\hat j + z\\hat k{/tex}</span> then x, y and z are referred to as</p>",
+          "options": [
+            {
+              "id": 193892,
+              "text": "unit scalars",
+              "html": "unit scalars",
+              "is_correct": false
+            },
+            {
+              "id": 193891,
+              "text": "unit vectors",
+              "html": "unit vectors",
+              "is_correct": false
+            },
+            {
+              "id": 193893,
+              "text": "scaling factors",
+              "html": "scaling factors",
+              "is_correct": false
+            },
+            {
+              "id": 193890,
+              "text": "vector components or rectangular components",
+              "html": "vector components or rectangular components",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "vector components or rectangular components",
+          "correct_option_ids": [
+            193890
+          ],
+          "explanation": "In {tex}\\vec r = x\\hat i + y\\hat j + z\\hat k{/tex} , x , y and z represents the components of {tex}\\overrightarrow r {/tex} along x-axis ,y-axis and z-axis respectively.",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59677,
+          "question_text": "Which of the following is a vector?",
+          "question_html": "<p>Which of the following is a vector?</p>",
+          "options": [
+            {
+              "id": 193895,
+              "text": "charge",
+              "html": "charge",
+              "is_correct": false
+            },
+            {
+              "id": 193894,
+              "text": "acceleration",
+              "html": "acceleration",
+              "is_correct": true
+            },
+            {
+              "id": 193897,
+              "text": "energy",
+              "html": "energy",
+              "is_correct": false
+            },
+            {
+              "id": 193896,
+              "text": "mass",
+              "html": "mass",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "acceleration",
+          "correct_option_ids": [
+            193894
+          ],
+          "explanation": "Acceleration is a vector quantity because acceleration is defined as the rate of change of velocity w.r.t. time and velocity specifies direction.",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59678,
+          "question_text": "In the figure which are the Equal vectors?",
+          "question_html": "<p>In the figure which are the Equal vectors?<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/math/51851_0.jpg\" style=\"width: 100px; height: 100px;\" /></p>",
+          "options": [
+            {
+              "id": 193901,
+              "text": "vectors {tex}\\vec b\\;and\\;\\vec c{/tex}",
+              "html": "vectors&nbsp;&nbsp;<span class=\"math-tex\">{tex}\\vec b\\;and\\;\\vec c{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193900,
+              "text": "vectors {tex}\\vec c\\;and\\;\\vec d{/tex}",
+              "html": "vectors <span class=\"math-tex\">{tex}\\vec c\\;and\\;\\vec d{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193899,
+              "text": "vectors {tex}\\vec a\\;and\\;\\vec d{/tex}",
+              "html": "vectors&nbsp;&nbsp;<span class=\"math-tex\">{tex}\\vec a\\;and\\;\\vec d{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193898,
+              "text": "vectors {tex}\\vec b\\;and\\;\\vec d{/tex}",
+              "html": "vectors <span class=\"math-tex\">{tex}\\vec b\\;and\\;\\vec d{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "vectors {tex}\\vec b\\;and\\;\\vec d{/tex}",
+          "correct_option_ids": [
+            193898
+          ],
+          "explanation": "vectors {tex}\\vec b\\;and\\;\\vec d{/tex} are equal vectors because they have equal magnitude and same direction.",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59679,
+          "question_text": "Which of the following condition is true for equal vectors?",
+          "question_html": "<p>Which of the following condition is true for equal vectors?</p>",
+          "options": [
+            {
+              "id": 193903,
+              "text": "They have the same direction but not same magnitude",
+              "html": "They have the same direction but not same magnitude",
+              "is_correct": false
+            },
+            {
+              "id": 193905,
+              "text": "They are parallel to the same line",
+              "html": "They are parallel to the same line",
+              "is_correct": false
+            },
+            {
+              "id": 193902,
+              "text": "They have the same magnitude and direction",
+              "html": "They have the same magnitude and direction",
+              "is_correct": true
+            },
+            {
+              "id": 193904,
+              "text": "They have the same initial point",
+              "html": "They have the same initial point",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "They have the same magnitude and direction",
+          "correct_option_ids": [
+            193902
+          ],
+          "explanation": "Two vectors are said to be equal, if they have the same magnitude and direction. They will be coinitial if they have the same initial point and they will be collinear if both the vectors are parallel to the same line.",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59680,
+          "question_text": "{tex}\\vec a{/tex} and {tex} - \\vec a{/tex} are",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\vec a{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex} - \\vec a{/tex}</span>&nbsp;are</p>",
+          "options": [
+            {
+              "id": 193906,
+              "text": "collinear",
+              "html": "collinear",
+              "is_correct": true
+            },
+            {
+              "id": 193907,
+              "text": "equal",
+              "html": "equal",
+              "is_correct": false
+            },
+            {
+              "id": 193908,
+              "text": "not equal and not collinear",
+              "html": "not equal and not collinear",
+              "is_correct": false
+            },
+            {
+              "id": 193909,
+              "text": "orthogonal vectors",
+              "html": "orthogonal vectors",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "collinear",
+          "correct_option_ids": [
+            193906
+          ],
+          "explanation": "{tex}\\vec a{/tex} and {tex} - \\vec a{/tex} are collinear vectors, because they are parallel in direction and having the same magnitude.",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59681,
+          "question_text": "If two vectors have their corresponding direction cosines equal then the two vectors",
+          "question_html": "<p>If two vectors have their corresponding direction cosines equal then the two vectors</p>",
+          "options": [
+            {
+              "id": 193913,
+              "text": "are at an angle of 55&deg;",
+              "html": "are at an angle of 55&deg;",
+              "is_correct": false
+            },
+            {
+              "id": 193912,
+              "text": "are at an angle of 45&deg;",
+              "html": "are at an angle of 45&deg;",
+              "is_correct": false
+            },
+            {
+              "id": 193910,
+              "text": "are parallel",
+              "html": "are parallel",
+              "is_correct": true
+            },
+            {
+              "id": 193911,
+              "text": "are perpendicular",
+              "html": "are perpendicular",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "are parallel",
+          "correct_option_ids": [
+            193910
+          ],
+          "explanation": "If the direction cosines of two vectors are the same, then the vectors are said to be parallel.",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59682,
+          "question_text": "In triangle ABC, which of the following is not true:",
+          "question_html": "<p>In triangle ABC, which of the following is not true:<br />\n<img alt=\"\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/xWjBHNE.png\" style=\"height:71px; width:120px\" /></p>",
+          "options": [
+            {
+              "id": 193917,
+              "text": "{tex}\\vec {AB} - \\vec {CB} + \\vec {CA} = \\vec 0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec {AB} - \\vec {CB} + \\vec {CA} = \\vec 0{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193914,
+              "text": "{tex}\\vec {AB} + \\vec {BC} + \\vec {CA} = \\vec 0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec {AB} + \\vec {BC} + \\vec {CA} = \\vec 0{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193915,
+              "text": "{tex}\\vec {AB} + \\vec {BC} + \\vec {AC} = \\vec 0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec {AB} + \\vec {BC} + \\vec {AC} = \\vec 0{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193916,
+              "text": "{tex}\\vec {AB} + \\vec {BC} - \\vec {CA} = \\vec 0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec {AB} + \\vec {BC} - \\vec {CA} = \\vec 0{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\vec {AB} + \\vec {BC} - \\vec {CA} = \\vec 0{/tex}",
+          "correct_option_ids": [
+            193916
+          ],
+          "explanation": "{tex}\\vec {AB} + \\vec {BC} - \\vec {CA} = \\vec 0{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59683,
+          "question_text": "If {tex}\\vec a{/tex} and {tex}\\vec b{/tex} are two collinear vectors, then which of the following are incorrect:",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}\\vec a{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\vec b{/tex}</span>&nbsp;are two collinear vectors, then which of the following are incorrect:</p>",
+          "options": [
+            {
+              "id": 193921,
+              "text": "the respective components of {tex}\\vec a\\;and\\;\\vec b{/tex} are not proportional",
+              "html": "the respective components of <span class=\"math-tex\">{tex}\\vec a\\;and\\;\\vec b{/tex}</span> are not proportional",
+              "is_correct": false
+            },
+            {
+              "id": 193918,
+              "text": "both the vectors {tex}\\vec a{/tex} and {tex}\\vec b{/tex} have same direction, but different magnitudes.",
+              "html": "both the vectors <span class=\"math-tex\">{tex}\\vec a{/tex}</span> and <span class=\"math-tex\">{tex}\\vec b{/tex}</span> have same direction, but different magnitudes.",
+              "is_correct": true
+            },
+            {
+              "id": 193919,
+              "text": "{tex}\\vec b{/tex} = {tex}\\lambda \\vec a{/tex} for some scalar {tex}\\lambda{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec b{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\lambda \\vec a{/tex}</span> for some scalar&nbsp;<span class=\"math-tex\">{tex}\\lambda{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193920,
+              "text": "{tex}\\vec a = \\; \\pm \\;\\vec b{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec a = \\; \\pm \\;\\vec b{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "both the vectors {tex}\\vec a{/tex} and {tex}\\vec b{/tex} have same direction, but different magnitudes.",
+          "correct_option_ids": [
+            193918
+          ],
+          "explanation": "If {tex}\\vec a{/tex} and {tex}\\vec b{/tex} are two collinear vectors, then, they are parallel to the same line irrespective of their magnitudes and directions.",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59684,
+          "question_text": "Magnitude of the vector {tex}\\vec a =2 \\hat {i} - 7\\hat j - 3\\hat k{/tex} is",
+          "question_html": "<p>Magnitude of the vector <span class=\"math-tex\">{tex}\\vec a =2 \\hat {i} - 7\\hat j - 3\\hat k{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193923,
+              "text": "{tex}\\sqrt {61} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt {61} {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193924,
+              "text": "{tex}\\sqrt {63} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt {63} {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193922,
+              "text": "{tex}\\sqrt {62} \\;{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt {62} \\;{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193925,
+              "text": "{tex}\\sqrt {65} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt {65} {/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\sqrt {62} \\;{/tex}",
+          "correct_option_ids": [
+            193922
+          ],
+          "explanation": "We have: {tex}\\vec a = 2\\hat {i} - 7\\hat j - 3\\hat k{/tex} , then, {tex}\\left| {\\overrightarrow a } \\right| = \\sqrt {{2^2} + {{( - 7)}^2} + {{( - 3)}^2}} = \\sqrt {4 + 49 + 9} = \\sqrt {62}{/tex} .",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3635,
+      "test_name": "Vector Algebra Test-03",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59685,
+          "question_text": "Magnitude of the vector {tex}\\vec a = \\frac{1}{{\\sqrt 3 }}\\hat i + \\frac{1}{{\\sqrt 3 }}\\hat j + \\frac{1}{{\\sqrt 3 }}\\hat k{/tex} is",
+          "question_html": "<p>Magnitude of the vector <span class=\"math-tex\">{tex}\\vec a = \\frac{1}{{\\sqrt 3 }}\\hat i + \\frac{1}{{\\sqrt 3 }}\\hat j + \\frac{1}{{\\sqrt 3 }}\\hat k{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193928,
+              "text": "1.5",
+              "html": "1.5",
+              "is_correct": false
+            },
+            {
+              "id": 193929,
+              "text": "0.5",
+              "html": "0.5",
+              "is_correct": false
+            },
+            {
+              "id": 193927,
+              "text": "{tex}\\sqrt 3 {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt 3 {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193926,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            193926
+          ],
+          "explanation": "We have : {tex}\\vec a = \\frac{1}{{\\sqrt 3 }}\\hat i + \\frac{1}{{\\sqrt 3 }}\\hat j + \\frac{1}{{\\sqrt 3 }}\\hat k{/tex} , then, {tex}\\left| {\\overrightarrow a } \\right| = \\sqrt {{{\\left( {\\frac{1}{{\\sqrt 3 }}} \\right)}^2} + {{\\left( {\\frac{1}{{\\sqrt 3 }}} \\right)}^2} + {{\\left( {\\frac{1}{{\\sqrt 3 }}} \\right)}^2}} = \\sqrt {\\frac{1}{3} + \\frac{1}{3} + \\frac{1}{3}} = \\sqrt {\\frac{3}{3}} = 1.{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59686,
+          "question_text": "Find the vector components of the vector with initial point (2, 1) and terminal point (&ndash; 5, 7).",
+          "question_html": "<p>Find the vector components of the vector with initial point (2, 1) and terminal point (&ndash; 5, 7).</p>\r\n",
+          "options": [
+            {
+              "id": 193933,
+              "text": "{tex}7\\hat i\\;and - 6\\hat j{/tex}",
+              "html": "<span class=\"math-tex\">{tex}7\\hat i\\;and - 6\\hat j{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193931,
+              "text": "{tex}7\\hat i\\;and\\;6\\hat j{/tex}",
+              "html": "<span class=\"math-tex\">{tex}7\\hat i\\;and\\;6\\hat j{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193932,
+              "text": "{tex} - 7\\hat i\\;and - 6\\hat j{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - 7\\hat i\\;and - 6\\hat j{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193930,
+              "text": "{tex} - 7\\hat i\\;and\\;6\\hat j{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - 7\\hat i\\;and\\;6\\hat j{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex} - 7\\hat i\\;and\\;6\\hat j{/tex}",
+          "correct_option_ids": [
+            193930
+          ],
+          "explanation": "The scalar and vector components of the vector with initial point (2, 1) and terminal point (&ndash; 5, 7) is given by : (- 5 &ndash; 2 ) i.e. &ndash; 7 and (7 &ndash; 1 ) i.e. 6. Therefore, the scalar components are &ndash; 7 and 6 .,and vector components are - {tex}7\\hat i\\;and\\;6\\hat j.{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59687,
+          "question_text": "Find the values of x and y so that the vectors {tex}2 \\hat{i}+3 \\hat{j}{/tex} and {tex}x \\hat{i}+y \\hat{j}{/tex} are equal.",
+          "question_html": "<p>Find the values of x and y so that the vectors <span class=\"math-tex\">{tex}2 \\hat{i}+3 \\hat{j}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}x \\hat{i}+y \\hat{j}{/tex}</span>&nbsp;are equal.</p>",
+          "options": [
+            {
+              "id": 193935,
+              "text": "x = 3, y = 3",
+              "html": "x = 3, y = 3",
+              "is_correct": false
+            },
+            {
+              "id": 193937,
+              "text": "x = 2, y = 2",
+              "html": "x = 2, y = 2",
+              "is_correct": false
+            },
+            {
+              "id": 193934,
+              "text": "x = 2, y = 3",
+              "html": "x = 2, y = 3",
+              "is_correct": true
+            },
+            {
+              "id": 193936,
+              "text": "x = 3, y = 2",
+              "html": "x = 3, y = 2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "x = 2, y = 3",
+          "correct_option_ids": [
+            193934
+          ],
+          "explanation": "{tex}\\Rightarrow 2\\hat i + 3\\hat j\\; = \\;x\\hat i + y\\hat j \\Rightarrow x = 2,y = 3 \\\\\\\\\\\\ {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59688,
+          "question_text": "Find the sum of the vectors {tex}\\vec a = \\hat i - 2\\hat j + \\hat k,\\;\\vec b = - 2\\hat i + 4\\hat j + 5\\hat k\\;{/tex} and {tex}\\vec c = \\hat i - 6\\hat j - 7\\hat k{/tex}",
+          "question_html": "<p>Find the sum of the vectors<span class=\"math-tex\">{tex}\\vec a = \\hat i - 2\\hat j + \\hat k,\\;\\vec b = - 2\\hat i + 4\\hat j + 5\\hat k\\;{/tex}</span> and <span class=\"math-tex\">{tex}\\vec c = \\hat i - 6\\hat j - 7\\hat k{/tex}</span></p>",
+          "options": [
+            {
+              "id": 193938,
+              "text": "{tex} - 4\\hat j - \\hat k{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - 4\\hat j - \\hat k{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193941,
+              "text": "{tex} - \\hat i + 4\\hat j - \\hat k{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\hat i + 4\\hat j - \\hat k{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193940,
+              "text": "{tex} - \\hat i - 4\\hat j - \\hat k{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\hat i - 4\\hat j - \\hat k{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193939,
+              "text": "{tex}\\hat i - 4\\hat j - \\hat k{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\hat i - 4\\hat j - \\hat k{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex} - 4\\hat j - \\hat k{/tex}",
+          "correct_option_ids": [
+            193938
+          ],
+          "explanation": "We have: vectors {tex}\\vec{a}=\\hat{i}-2\\hat{j}+\\hat{k},~\\vec{b}=-2\\hat{i}+4\\hat{j}+5\\hat{k}~and~\\vec{c}=\\hat{i}-6\\hat{j}-7\\hat{k}{/tex} {tex}\\Rightarrow \\vec a +\\vec b +\\vec c=\\hat i -2\\hat j+\\hat k+(-2\\hat i +4 \\hat j+5\\hat k)+\\hat i-6\\hat j -7\\hat k{/tex} {tex}\\Rightarrow \\vec a +\\vec b+\\vec c= 0\\hat i -4\\hat j -\\hat k{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59689,
+          "question_text": "Write down a unit vector in XY-plane, making an angle of 30&deg; with the positive direction of x-axis.",
+          "question_html": "<p>Write down a unit vector in XY-plane, making an angle of 30&deg; with the positive direction of x-axis.</p>",
+          "options": [
+            {
+              "id": 193943,
+              "text": "{tex}\\frac{{\\sqrt 3 }}{2}\\hat i - \\frac{1}{2}\\hat j{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{\\sqrt 3 }}{2}\\hat i - \\frac{1}{2}\\hat j{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193945,
+              "text": "{tex} - \\frac{{\\sqrt 3 }}{2}\\hat i - \\frac{1}{2}\\hat j{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{{\\sqrt 3 }}{2}\\hat i - \\frac{1}{2}\\hat j{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193942,
+              "text": "{tex}\\frac{{\\sqrt 3 }}{2}\\hat i + \\frac{1}{2}\\hat j{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{\\sqrt 3 }}{2}\\hat i + \\frac{1}{2}\\hat j{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193944,
+              "text": "{tex} - \\frac{{\\sqrt 3 }}{2}\\hat i + \\frac{1}{2}\\hat j{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{{\\sqrt 3 }}{2}\\hat i + \\frac{1}{2}\\hat j{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{\\sqrt 3 }}{2}\\hat i + \\frac{1}{2}\\hat j{/tex}",
+          "correct_option_ids": [
+            193942
+          ],
+          "explanation": "Let {tex}\\overrightarrow r = x\\widehat i + y\\widehat j {/tex} be a unit vector in XY plane,making angle 30 0 with positive X axis ,so we have the vector as {tex}\\overrightarrow r = \\cos {30^0}\\hat i + \\sin {30^0}\\hat j{/tex} {tex}x = \\frac{{\\sqrt 3 }}{2};y = \\frac{1}{2},\\left( {\\because \\left| {\\overrightarrow r } \\right| = 1} \\right).{/tex} {tex}\\therefore \\overrightarrow r = \\frac{{\\sqrt 3 }}{2}\\widehat i + \\frac{1}{2}\\widehat j{/tex} is the required vector.",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59690,
+          "question_text": "Find the value of x for which {tex}x\\left( {\\hat i + \\hat j + \\hat k} \\right){/tex} is a unit vector.",
+          "question_html": "<p>Find the value of x for which <span class=\"math-tex\">{tex}x\\left( {\\hat i + \\hat j + \\hat k} \\right){/tex}</span>&nbsp;is a unit vector.</p>",
+          "options": [
+            {
+              "id": 193948,
+              "text": "{tex} \\pm \\frac{1}{{\\sqrt 7 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} \\pm \\frac{1}{{\\sqrt 7 }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193947,
+              "text": "{tex} \\pm \\frac{1}{{\\sqrt 5 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} \\pm \\frac{1}{{\\sqrt 5 }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193946,
+              "text": "{tex} \\pm \\frac{1}{{\\sqrt 3 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} \\pm \\frac{1}{{\\sqrt 3 }}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193949,
+              "text": "{tex} \\pm \\frac{1}{{\\sqrt 2 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} \\pm \\frac{1}{{\\sqrt 2 }}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex} \\pm \\frac{1}{{\\sqrt 3 }}{/tex}",
+          "correct_option_ids": [
+            193946
+          ],
+          "explanation": "As {tex}x{/tex} {tex}\\left( {\\hat i + \\hat j + \\hat k} \\right){/tex} is a unit vector, therefore, {tex} \\left| {x\\left( {\\hat i + \\hat j + \\hat k} \\right)} \\right| = 1 \\Rightarrow x\\sqrt {1 + 1 + 1} = 1 \\Rightarrow x = \\frac{1}{{\\sqrt 3 }} \\\\ {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59691,
+          "question_text": "Show that the points A(1, &ndash; 2, &ndash; 8), B (5, 0, &ndash; 2) and C (11, 3, 7) are collinear, and find the ratio in which B divides AC.",
+          "question_html": "<p>Show that the points A(1, &ndash; 2, &ndash; 8), B (5, 0, &ndash; 2) and C (11, 3, 7) are collinear, and find the ratio in which B divides AC.</p>",
+          "options": [
+            {
+              "id": 193951,
+              "text": "2 :4",
+              "html": "2 :4",
+              "is_correct": false
+            },
+            {
+              "id": 193953,
+              "text": "2 :1",
+              "html": "2 :1",
+              "is_correct": false
+            },
+            {
+              "id": 193950,
+              "text": "2 : 3",
+              "html": "2 : 3",
+              "is_correct": true
+            },
+            {
+              "id": 193952,
+              "text": "3 :2",
+              "html": "3 :2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "2 : 3",
+          "correct_option_ids": [
+            193950
+          ],
+          "explanation": "{tex}\\overrightarrow {AB} = 4\\widehat i + 2\\widehat j + 6\\widehat k = 2\\left( {2\\widehat i + \\widehat j + 3\\widehat k} \\right){/tex} {tex} \\overrightarrow {BC} = 6\\widehat i + 3\\widehat j + 9\\widehat k = 3(2\\widehat i + \\widehat j + 3\\widehat k){/tex} {tex} \\therefore \\overrightarrow {AB} = 2 \\times \\frac{{\\overrightarrow {BC} }}{3} {/tex} Therefore , AB and BC are parallel, but point B is common , so points , A,B,C are collinear. As {tex}\\frac{{\\overrightarrow {AB} }}{{\\overrightarrow {BC} }} = \\frac{2}{3}{/tex} , thus , point B divides AC in the ratio 2 : 3.",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59692,
+          "question_text": "Find the position vector of a point R which divides the line joining two points P and Q whose position vectors are {tex}\\left( {2\\vec a + \\vec b} \\right){/tex} and {tex}\\left( {\\vec a - 3\\vec b} \\right){/tex} externally in the ratio 1 : 2. Also, show that P is the mid point of the line segment RQ.",
+          "question_html": "<p>Find the position vector of a point R which divides the line joining two points P and Q whose position vectors are <span class=\"math-tex\">{tex}\\left( {2\\vec a + \\vec b} \\right){/tex}</span>and<span class=\"math-tex\">{tex}\\left( {\\vec a - 3\\vec b} \\right){/tex}</span> externally in the ratio 1 : 2. Also, show that P is the mid point of the line segment RQ.</p>",
+          "options": [
+            {
+              "id": 193955,
+              "text": "{tex}5\\vec a + 5\\vec b{/tex}",
+              "html": "<span class=\"math-tex\">{tex}5\\vec a + 5\\vec b{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193957,
+              "text": "{tex}3\\vec a + 3\\vec b{/tex}",
+              "html": "<span class=\"math-tex\">{tex}3\\vec a + 3\\vec b{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193954,
+              "text": "{tex}3\\vec a + 5\\vec b{/tex}",
+              "html": "<span class=\"math-tex\">{tex}3\\vec a + 5\\vec b{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193956,
+              "text": "{tex}5\\vec a + 3\\vec b{/tex}",
+              "html": "<span class=\"math-tex\">{tex}5\\vec a + 3\\vec b{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}3\\vec a + 5\\vec b{/tex}",
+          "correct_option_ids": [
+            193954
+          ],
+          "explanation": "Let position vector of point R be {tex}\\overrightarrow r {/tex} . As point R divides externally the line segment PQ in the ratio 1:2 .therefore , {tex} \\overrightarrow r = \\frac{{1\\left( {\\overrightarrow a - 3\\overrightarrow b } \\right) - 2\\left( {2\\overrightarrow a + \\overrightarrow b } \\right)}}{{1 - 2}} {/tex} {tex} = \\frac{{\\left( { - 3\\overrightarrow a - 5\\overrightarrow b } \\right)}}{{ - 1}}{/tex} {tex}\\overrightarrow r = 3\\overrightarrow a + 5\\overrightarrow b \\\\ {/tex} Also , mid point of the line segment RQ is : {tex}= \\frac{{3\\overrightarrow a + 5\\overrightarrow b + \\overrightarrow a - 3\\overrightarrow b }}{2} = \\frac{{4\\overrightarrow a + 2\\overrightarrow b }}{2} = 2\\overrightarrow a + \\overrightarrow b{/tex} ,w hich is the position vector of point P.Therefore , P is the mid point of line segment RQ.",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59693,
+          "question_text": "Let {tex}\\vec a = \\hat i + 4\\hat j + 2\\hat k\\;,\\;\\;\\vec b = 3\\hat i - 2\\hat j + 7\\hat k {/tex} and {tex}\\;\\vec c = 2\\hat i - \\hat j + 4\\hat k\\;{/tex} . Find a vector {tex}\\vec d{/tex} which is perpendicular to both {tex}\\vec a\\;{/tex} and {tex}\\;\\vec b{/tex} and {tex}\\vec c.\\vec d = 15.{/tex}",
+          "question_html": "<p>Let &nbsp;<span class=\"math-tex\">{tex}\\vec a = \\hat i + 4\\hat j + 2\\hat k\\;,\\;\\;\\vec b = 3\\hat i - 2\\hat j + 7\\hat k {/tex}</span>&nbsp; and&nbsp;<span class=\"math-tex\">{tex}\\;\\vec c = 2\\hat i - \\hat j + 4\\hat k\\;{/tex}</span> . Find a vector <span class=\"math-tex\">{tex}\\vec d{/tex}</span> which is perpendicular to both <span class=\"math-tex\">{tex}\\vec a\\;{/tex}</span>and&nbsp;<span class=\"math-tex\">{tex}\\;\\vec b{/tex}</span>&nbsp;and&nbsp;&nbsp;<span class=\"math-tex\">{tex}\\vec c.\\vec d = 15.{/tex}</span></p>",
+          "options": [
+            {
+              "id": 193961,
+              "text": "{tex}\\frac{1}{3}\\left( { - 160\\hat i - 5\\hat j + 70\\hat k} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}\\left( { - 160\\hat i - 5\\hat j + 70\\hat k} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193960,
+              "text": "{tex}\\frac{1}{3}\\left( {160\\hat i + 5\\hat j - 70\\hat k} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}\\left( {160\\hat i + 5\\hat j - 70\\hat k} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193959,
+              "text": "{tex}\\frac{1}{3}\\left( {160\\hat i - 5\\hat j +70\\hat k} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}\\left( {160\\hat i - 5\\hat j +70\\hat k} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193958,
+              "text": "{tex}\\frac{1}{3}\\left( {160\\hat i - 5\\hat j - 70\\hat k} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}\\left( {160\\hat i - 5\\hat j - 70\\hat k} \\right){/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{3}\\left( {160\\hat i - 5\\hat j - 70\\hat k} \\right){/tex}",
+          "correct_option_ids": [
+            193958
+          ],
+          "explanation": "Let {tex}\\overrightarrow{d}=\\lambda (\\overrightarrow{a}\\times \\overrightarrow{b}),{/tex} {tex}\\therefore \\vec d = \\lambda \\left| {\\begin{array}{*{20}{c}} {\\hat i}&{\\hat j}&{\\hat k} \\\\ 1&4&2 \\\\ 3&{ - 2}&7 \\end{array}} \\right|{/tex} {tex}=\\lambda(32\\hat i -\\hat j-14 \\hat k){/tex} Also, {tex}\\vec c.\\vec d{/tex} = 15 {tex}\\Rightarrow (2\\hat i -\\hat j+ 4\\hat k).\\lambda(32 \\hat i -\\hat j-14 \\hat k)=15{/tex} {tex}\\Rightarrow 9\\lambda=15\\Rightarrow \\lambda=\\frac{5}{3}{/tex} {tex}\\therefore \\vec d=\\frac{5}{3}(32 \\hat i -\\hat j-14 \\hat k){/tex} {tex}=\\frac{160}{3}\\hat i-\\frac{5}{3}\\hat j -\\frac{70}{3}\\hat k{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59694,
+          "question_text": "The scalar product of the vector {tex}\\hat i + \\hat j + \\hat k{/tex} with a unit vector along the sum of vectors {tex}2\\hat i + 4\\hat j - 5\\hat k\\;{/tex} and {tex}\\lambda \\hat i + 2\\hat j + 3\\hat k{/tex} is equal to one. Find the value of {tex}\\;\\lambda {/tex} .",
+          "question_html": "<p>The scalar product of the vector <span class=\"math-tex\">{tex}\\hat i + \\hat j + \\hat k{/tex}</span> with a unit vector along the sum of vectors <span class=\"math-tex\">{tex}2\\hat i + 4\\hat j - 5\\hat k\\;{/tex}</span> and <span class=\"math-tex\">{tex}\\lambda \\hat i + 2\\hat j + 3\\hat k{/tex}</span> is equal to one. Find the value of<span class=\"math-tex\">{tex}\\;\\lambda {/tex}</span>.</p>",
+          "options": [
+            {
+              "id": 193965,
+              "text": "{tex}\\lambda {/tex} = -2",
+              "html": "<span class=\"math-tex\">{tex}\\lambda {/tex}</span> = -2",
+              "is_correct": false
+            },
+            {
+              "id": 193964,
+              "text": "{tex}\\lambda {/tex} = 2",
+              "html": "<span class=\"math-tex\">{tex}\\lambda {/tex}</span> = 2",
+              "is_correct": false
+            },
+            {
+              "id": 193962,
+              "text": "{tex}\\lambda {/tex} = 1",
+              "html": "<span class=\"math-tex\">{tex}\\lambda {/tex}</span> = 1",
+              "is_correct": true
+            },
+            {
+              "id": 193963,
+              "text": "{tex}\\lambda {/tex} = -1",
+              "html": "<span class=\"math-tex\">{tex}\\lambda {/tex}</span> = -1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\lambda {/tex} = 1",
+          "correct_option_ids": [
+            193962
+          ],
+          "explanation": "Let {tex}\\overrightarrow{a}=\\widehat{i}+\\widehat{j}+\\widehat{k},\\overrightarrow{b}=2\\widehat{i}+4\\widehat{j}-5\\widehat{k}{/tex} and {tex}\\overrightarrow{c}=\\lambda \\widehat{i}+2\\widehat{j}+3\\widehat{k},{/tex} {tex}\\vec b +\\vec c =(\\lambda+2)\\hat i +6\\hat j-2\\hat k{/tex} {tex}\\Rightarrow |\\vec b+\\vec c|=\\sqrt{(\\lambda+2)^2+40}{/tex} Therefore, a unit vector along {tex}\\overrightarrow{b}+\\overrightarrow{c}{/tex} is given by: {tex}\\frac{\\vec b +\\vec c}{|\\vec b+\\vec c|}=\\frac{(\\lambda+2)\\hat i +6 \\hat j-2\\hat k}{\\sqrt{(\\lambda+2)^2+40}}=1{/tex} Also, scalar product of {tex}\\hat{i}+\\hat{j}+\\hat{k}{/tex} with above unit vector is 1. {tex}\\therefore(\\hat i+ \\hat j+\\hat k).\\frac{(\\lambda+2)\\hat i +6 \\hat j-2\\hat k}{\\sqrt{(\\lambda+2)^2+40}}=1{/tex} {tex}\\Rightarrow (\\lambda+6)^2=(\\lambda+2)^2+40\\Rightarrow \\lambda=1{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59695,
+          "question_text": "The scalar product of two nonzero vectors {tex}\\vec a\\;{/tex} and {tex}\\;\\vec b{/tex} is denoted by",
+          "question_html": "<p>The scalar product of two nonzero vectors <span class=\"math-tex\">{tex}\\vec a\\;{/tex}</span>and&nbsp;<span class=\"math-tex\">{tex}\\;\\vec b{/tex}</span> is denoted by</p>",
+          "options": [
+            {
+              "id": 193967,
+              "text": "{tex}\\overrightarrow {ab} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\overrightarrow {ab} {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193968,
+              "text": "{tex}\\overrightarrow a \\times\\overrightarrow b {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\overrightarrow a \\times\\overrightarrow b {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193969,
+              "text": "ab",
+              "html": "ab",
+              "is_correct": false
+            },
+            {
+              "id": 193966,
+              "text": "{tex}\\vec a.\\vec b{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec a.\\vec b{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\vec a.\\vec b{/tex}",
+          "correct_option_ids": [
+            193966
+          ],
+          "explanation": "The scalar product of two nonzero vectors {tex}\\vec a\\;{/tex} and {tex}\\;\\vec b{/tex} is denoted by {tex}\\overrightarrow a \\overrightarrow {.b} {/tex} .and is defined by {tex}\\overrightarrow a \\overrightarrow {.b} {/tex} = {tex}\\left| {\\overrightarrow a } \\right|\\left| {\\overrightarrow b } \\right|\\cos \\theta {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59696,
+          "question_text": "The scalar product of two nonzero vectors {tex}\\vec a\\;{/tex} and {tex}\\;\\vec b{/tex} is defined as",
+          "question_html": "<p>The scalar product of two nonzero vectors &nbsp;<span class=\"math-tex\">{tex}\\vec a\\;{/tex}</span>and&nbsp;<span class=\"math-tex\">{tex}\\;\\vec b{/tex}</span> is defined as</p>",
+          "options": [
+            {
+              "id": 193973,
+              "text": "{tex}\\vec a.\\vec b = 2\\left| {\\vec a} \\right|\\left| {\\vec b} \\right|\\sin \\theta {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec a.\\vec b = 2\\left| {\\vec a} \\right|\\left| {\\vec b} \\right|\\sin \\theta {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193970,
+              "text": "{tex}\\vec a.\\vec b = \\left| {\\vec a} \\right|\\left| {\\vec b} \\right|\\cos \\theta {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec a.\\vec b = \\left| {\\vec a} \\right|\\left| {\\vec b} \\right|\\cos \\theta {/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193972,
+              "text": "{tex}\\vec a.\\vec b = 2\\left| {\\vec a} \\right|\\left| {\\vec b} \\right|\\cos \\theta {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec a.\\vec b = 2\\left| {\\vec a} \\right|\\left| {\\vec b} \\right|\\cos \\theta {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193971,
+              "text": "{tex}\\vec a.\\vec b = \\left| {\\vec a} \\right|\\left| {\\vec b} \\right|\\sin \\theta {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec a.\\vec b = \\left| {\\vec a} \\right|\\left| {\\vec b} \\right|\\sin \\theta {/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\vec a.\\vec b = \\left| {\\vec a} \\right|\\left| {\\vec b} \\right|\\cos \\theta {/tex}",
+          "correct_option_ids": [
+            193970
+          ],
+          "explanation": "The scalar product of two nonzero vectors {tex}\\vec a\\;{/tex} and {tex}\\;\\vec b{/tex} is defined as: {tex}\\vec a.\\vec b = \\left| {\\vec a} \\right|\\left| {\\vec b} \\right|\\cos \\theta {/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59697,
+          "question_text": "If {tex}\\vec a = {a_1}\\hat i + {a_2}\\hat j + {a_3}\\hat k\\;{/tex} and {tex}\\vec b = {b_1}\\hat i + {b_2}\\hat j + {b_3}\\hat k{/tex} then the dot product {tex}\\vec a.\\vec b = {/tex}",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}\\vec a = {a_1}\\hat i + {a_2}\\hat j + {a_3}\\hat k\\;{/tex}</span> and <span class=\"math-tex\">{tex}\\vec b = {b_1}\\hat i + {b_2}\\hat j + {b_3}\\hat k{/tex}</span> then the dot product <span class=\"math-tex\">{tex}\\vec a.\\vec b = {/tex}</span></p>",
+          "options": [
+            {
+              "id": 193977,
+              "text": "{tex}{a_1}{b_1} - {a_2}{b_2} - {a_3}{b_3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{a_1}{b_1} - {a_2}{b_2} - {a_3}{b_3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193976,
+              "text": "{tex}{a_1}{b_1} + {a_2}{b_2} - {a_3}{b_3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{a_1}{b_1} + {a_2}{b_2} - {a_3}{b_3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193975,
+              "text": "{tex}{a_1}{b_1} - {a_2}{b_2} + {a_3}{b_3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{a_1}{b_1} - {a_2}{b_2} + {a_3}{b_3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193974,
+              "text": "{tex}{a_1}{b_1} + {a_2}{b_2} + {a_3}{b_3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{a_1}{b_1} + {a_2}{b_2} + {a_3}{b_3}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}{a_1}{b_1} + {a_2}{b_2} + {a_3}{b_3}{/tex}",
+          "correct_option_ids": [
+            193974
+          ],
+          "explanation": "If {tex}\\vec a = {a_1}\\hat i + {a_2}\\hat j + {a_3}\\hat k\\;and\\;\\vec b = {b_1}\\hat i + {b_2}\\hat j + {b_3}\\hat k{/tex} then {tex}\\vec a.\\vec b = {/tex} {tex}{a_1}{b_1} + {a_2}{b_2} + {a_3}{b_3}{/tex} {tex}( {\\because \\widehat i.\\widehat i = \\widehat j.\\widehat j = \\widehat k.\\widehat k = 1\\,and\\,\\widehat i.\\widehat j = \\widehat j.\\widehat k = \\widehat k.\\widehat i = 0}){/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59698,
+          "question_text": "If {tex}\\theta {/tex} is the angle between vectors {tex}\\vec a{/tex} and {tex}\\vec b{/tex} then the cross product {tex}\\vec a \\times \\vec b = {/tex}",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}\\theta {/tex}</span> is the angle between vectors <span class=\"math-tex\">{tex}\\vec a{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\vec b{/tex}</span> then the cross product <span class=\"math-tex\">{tex}\\vec a \\times \\vec b = {/tex}</span></p>",
+          "options": [
+            {
+              "id": 193979,
+              "text": "{tex}2\\left| a \\right|\\left| b \\right|\\sin \\theta \\hat n{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2\\left| a \\right|\\left| b \\right|\\sin \\theta \\hat n{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193980,
+              "text": "{tex}\\left| a \\right|\\left| b \\right|\\sin \\theta {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left| a \\right|\\left| b \\right|\\sin \\theta {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193978,
+              "text": "{tex}\\left| {\\overrightarrow a } \\right|\\left| {\\overrightarrow b } \\right|\\sin \\theta \\hat n{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left| {\\overrightarrow a } \\right|\\left| {\\overrightarrow b } \\right|\\sin \\theta \\hat n{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193981,
+              "text": "{tex}\\left| a \\right|\\left| b \\right|\\cos \\theta {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left| a \\right|\\left| b \\right|\\cos \\theta {/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\left| {\\overrightarrow a } \\right|\\left| {\\overrightarrow b } \\right|\\sin \\theta \\hat n{/tex}",
+          "correct_option_ids": [
+            193978
+          ],
+          "explanation": "If {tex}\\theta {/tex} is the angle between vectors {tex}\\vec a\\;{/tex} and {tex}\\;\\vec b{/tex} then, the cross product: {tex}\\vec a \\times \\vec b = {/tex} {tex}\\left| {\\overrightarrow a } \\right|\\left| {\\overrightarrow b } \\right|\\sin \\theta \\hat n{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59699,
+          "question_text": "Find the unit vector in the direction of the vector {tex}\\vec a = \\hat i + \\hat j + 2\\hat k{/tex}",
+          "question_html": "<p>Find the unit vector in the direction of the vector&nbsp;<span class=\"math-tex\">{tex}\\vec a = \\hat i + \\hat j + 2\\hat k{/tex}</span></p>",
+          "options": [
+            {
+              "id": 193984,
+              "text": "{tex}\\vec a = \\frac{1}{{\\sqrt 6 }}\\hat i - \\frac{1}{{\\sqrt 6 }}\\hat j + \\frac{2}{{\\sqrt 6 }}\\hat k{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec a = \\frac{1}{{\\sqrt 6 }}\\hat i - \\frac{1}{{\\sqrt 6 }}\\hat j + \\frac{2}{{\\sqrt 6 }}\\hat k{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193982,
+              "text": "{tex}\\vec a = \\frac{1}{{\\sqrt 6 }}\\hat i + \\frac{1}{{\\sqrt 6 }}\\hat j + \\frac{2}{{\\sqrt 6 }}\\hat k{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec a = \\frac{1}{{\\sqrt 6 }}\\hat i + \\frac{1}{{\\sqrt 6 }}\\hat j + \\frac{2}{{\\sqrt 6 }}\\hat k{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193985,
+              "text": "{tex}\\vec a = \\frac{1}{{\\sqrt 6 }}\\hat i + \\frac{1}{{\\sqrt 6 }}\\hat j - \\frac{2}{{\\sqrt 6 }}\\hat k{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec a = \\frac{1}{{\\sqrt 6 }}\\hat i + \\frac{1}{{\\sqrt 6 }}\\hat j - \\frac{2}{{\\sqrt 6 }}\\hat k{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193983,
+              "text": "{tex}\\vec a = - \\frac{1}{{\\sqrt 6 }}\\hat i + \\frac{1}{{\\sqrt 6 }}\\hat j + \\frac{2}{{\\sqrt 6 }}\\hat k{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec a = - \\frac{1}{{\\sqrt 6 }}\\hat i + \\frac{1}{{\\sqrt 6 }}\\hat j + \\frac{2}{{\\sqrt 6 }}\\hat k{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\vec a = \\frac{1}{{\\sqrt 6 }}\\hat i + \\frac{1}{{\\sqrt 6 }}\\hat j + \\frac{2}{{\\sqrt 6 }}\\hat k{/tex}",
+          "correct_option_ids": [
+            193982
+          ],
+          "explanation": "We have: vector {tex}\\overrightarrow a = \\hat i + \\hat j + 2\\hat k,{/tex} {tex}\\widehat a = \\frac{{\\overrightarrow a }}{{\\left| {\\overrightarrow a } \\right|}} = \\frac{{\\hat i + \\hat j + 2\\hat k}}{{\\sqrt {{1^2} + {1^2} + {2^2}} }} = \\frac{{\\hat i + \\hat j + 2\\hat k}}{{\\sqrt 6 }} = \\frac{{\\hat i}}{{\\sqrt 6 }} + \\frac{{\\hat j}}{{\\sqrt 6 }} + \\frac{{2\\hat k}}{{\\sqrt 6 }}{/tex}",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3636,
+      "test_name": "Vector Algebra Test-04",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59700,
+          "question_text": "Find the unit vector in the direction of vector {tex}\\overrightarrow {PQ} {/tex} , where P and Q are the points (1, 2, 3) and (4, 5, 6), respectively",
+          "question_html": "<p>Find the unit vector in the direction of vector <span class=\"math-tex\">{tex}\\overrightarrow {PQ} {/tex}</span> , where P and Q are the points (1, 2, 3) and (4, 5, 6), respectively</p>",
+          "options": [
+            {
+              "id": 193987,
+              "text": "{tex} - \\frac{1}{{\\sqrt 3 }}\\hat i + \\frac{1}{{\\sqrt 3 }}\\hat j + \\frac{1}{{\\sqrt 3 }}\\hat k{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{1}{{\\sqrt 3 }}\\hat i + \\frac{1}{{\\sqrt 3 }}\\hat j + \\frac{1}{{\\sqrt 3 }}\\hat k{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193986,
+              "text": "{tex}\\frac{1}{{\\sqrt 3 }}\\hat i + \\frac{1}{{\\sqrt 3 }}\\hat j + \\frac{1}{{\\sqrt 3 }}\\hat k{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{\\sqrt 3 }}\\hat i + \\frac{1}{{\\sqrt 3 }}\\hat j + \\frac{1}{{\\sqrt 3 }}\\hat k{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193988,
+              "text": "{tex}\\frac{1}{{\\sqrt 3 }}\\hat i - \\frac{1}{{\\sqrt 3 }}\\hat j + \\frac{1}{{\\sqrt 3 }}\\hat k{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{\\sqrt 3 }}\\hat i - \\frac{1}{{\\sqrt 3 }}\\hat j + \\frac{1}{{\\sqrt 3 }}\\hat k{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193989,
+              "text": "{tex}\\frac{1}{{\\sqrt 3 }}\\hat i + \\frac{1}{{\\sqrt 3 }}\\hat j - \\frac{1}{{\\sqrt 3 }}\\hat k{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{\\sqrt 3 }}\\hat i + \\frac{1}{{\\sqrt 3 }}\\hat j - \\frac{1}{{\\sqrt 3 }}\\hat k{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{{\\sqrt 3 }}\\hat i + \\frac{1}{{\\sqrt 3 }}\\hat j + \\frac{1}{{\\sqrt 3 }}\\hat k{/tex}",
+          "correct_option_ids": [
+            193986
+          ],
+          "explanation": "{tex}\\overrightarrow{PQ}=3\\widehat{i}+3\\widehat{j}+3\\widehat{k}{/tex} , then {tex}\\hat{PQ}=\\frac{\\vec{PQ}}{|\\vec {PQ}|}=\\frac{3\\hat i +3 \\hat j +3 \\hat k}{\\sqrt{3^2+3^2+3^2}}{/tex} {tex}=\\frac{3\\hat i +3 \\hat j +3 \\hat k}{\\sqrt{27}}=\\frac{3(\\hat i +\\hat j +\\hat j)}{3\\sqrt3}{/tex} {tex}=\\frac{1}{\\sqrt3}\\hat i+\\frac{1}{\\sqrt3}\\hat j +\\frac{1}{\\sqrt 3}\\hat k{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59701,
+          "question_text": "Find a vector in the direction of vector {tex}5\\hat i - \\hat j + 2\\hat k{/tex} which has a magnitude of 8 units.",
+          "question_html": "<p>Find a vector in the direction of vector <span class=\"math-tex\">{tex}5\\hat i - \\hat j + 2\\hat k{/tex}</span> which has a magnitude of 8 units.</p>",
+          "options": [
+            {
+              "id": 193993,
+              "text": "{tex}\\frac{{40}}{{\\sqrt {30} }}\\hat i - \\frac{8}{{\\sqrt {30} }}\\hat j - \\frac{{16}}{{\\sqrt {30} }}\\hat k{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{40}}{{\\sqrt {30} }}\\hat i - \\frac{8}{{\\sqrt {30} }}\\hat j - \\frac{{16}}{{\\sqrt {30} }}\\hat k{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193991,
+              "text": "{tex} - \\frac{{40}}{{\\sqrt {30} }}\\hat i - \\frac{8}{{\\sqrt {30} }}\\hat j + \\frac{{16}}{{\\sqrt {30} }}\\hat k{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{{40}}{{\\sqrt {30} }}\\hat i - \\frac{8}{{\\sqrt {30} }}\\hat j + \\frac{{16}}{{\\sqrt {30} }}\\hat k{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193992,
+              "text": "{tex}\\frac{{40}}{{\\sqrt {30} }}\\hat i + \\frac{8}{{\\sqrt {30} }}\\hat j + \\frac{{16}}{{\\sqrt {30} }}\\hat k{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{40}}{{\\sqrt {30} }}\\hat i + \\frac{8}{{\\sqrt {30} }}\\hat j + \\frac{{16}}{{\\sqrt {30} }}\\hat k{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193990,
+              "text": "{tex}\\frac{{40}}{{\\sqrt {30} }}\\hat i - \\frac{8}{{\\sqrt {30} }}\\hat j + \\frac{{16}}{{\\sqrt {30} }}\\hat k{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{40}}{{\\sqrt {30} }}\\hat i - \\frac{8}{{\\sqrt {30} }}\\hat j + \\frac{{16}}{{\\sqrt {30} }}\\hat k{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{40}}{{\\sqrt {30} }}\\hat i - \\frac{8}{{\\sqrt {30} }}\\hat j + \\frac{{16}}{{\\sqrt {30} }}\\hat k{/tex}",
+          "correct_option_ids": [
+            193990
+          ],
+          "explanation": "Let {tex}\\overrightarrow{a}=5\\widehat{i}-\\widehat{j}+2\\widehat{k}{/tex} then, {tex}8\\hat a = 8\\frac{\\vec a}{|\\vec a|}{/tex} = {tex}8.\\frac{5 \\hat i-\\hat j +2 \\hat k}{\\sqrt{5^2+(-1)^2+2^2}}{/tex} {tex}=\\frac{8(5 \\hat i-\\hat j +2 \\hat k)}{\\sqrt{30}}{/tex} {tex}=\\frac{40}{\\sqrt{30}}\\hat i -\\frac{8}{\\sqrt{30}}\\hat j +\\frac{16}{\\sqrt{30}}\\hat k{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59702,
+          "question_text": "Find the direction cosines of the vector {tex}\\hat i + 2\\hat j + 3\\hat k{/tex}",
+          "question_html": "<p>Find the direction cosines of the vector <span class=\"math-tex\">{tex}\\hat i + 2\\hat j + 3\\hat k{/tex}</span></p>",
+          "options": [
+            {
+              "id": 193994,
+              "text": "{tex}\\frac{1}{{\\sqrt {14} }},\\;\\frac{2}{{\\sqrt {14} }},\\;\\frac{3}{{\\sqrt {14} }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{\\sqrt {14} }},\\;\\frac{2}{{\\sqrt {14} }},\\;\\frac{3}{{\\sqrt {14} }}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193996,
+              "text": "{tex}\\frac{1}{{\\sqrt {14} }},\\; - \\frac{2}{{\\sqrt {14} }},\\;\\frac{3}{{\\sqrt {14} }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{\\sqrt {14} }},\\; - \\frac{2}{{\\sqrt {14} }},\\;\\frac{3}{{\\sqrt {14} }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193997,
+              "text": "{tex}\\frac{1}{{\\sqrt {14} }},\\;\\frac{2}{{\\sqrt {14} }},\\; - \\frac{3}{{\\sqrt {14} }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{\\sqrt {14} }},\\;\\frac{2}{{\\sqrt {14} }},\\; - \\frac{3}{{\\sqrt {14} }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193995,
+              "text": "{tex} - \\frac{1}{{\\sqrt {14} }},\\;\\frac{2}{{\\sqrt {14} }},\\;\\frac{3}{{\\sqrt {14} }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{1}{{\\sqrt {14} }},\\;\\frac{2}{{\\sqrt {14} }},\\;\\frac{3}{{\\sqrt {14} }}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{{\\sqrt {14} }},\\;\\frac{2}{{\\sqrt {14} }},\\;\\frac{3}{{\\sqrt {14} }}{/tex}",
+          "correct_option_ids": [
+            193994
+          ],
+          "explanation": "Let {tex}\\overrightarrow a =\\hat i + 2\\hat j + 3\\hat k {/tex} , Then , {tex}\\widehat a = \\frac{{\\overrightarrow a }}{{\\left| {\\overrightarrow a } \\right|}} = \\frac{{\\widehat i + 2\\widehat j + 3\\widehat k}}{{\\sqrt {{1^2} + {2^2} + {3^2}} }} = \\frac{{\\widehat i + 2\\widehat j + 3\\widehat k}}{{\\sqrt {14} }}{/tex} Therefore , the D.C.&rsquo;s of vector a are : {tex}\\frac{1}{{\\sqrt {14} }},\\;\\frac{2}{{\\sqrt {14} }},\\;\\frac{3}{{\\sqrt {14} }}.{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59703,
+          "question_text": "Find the direction cosines of the vector joining the points A(1, 2, &ndash;3) and B(&ndash;1, &ndash;2, 1), directed from A to B.",
+          "question_html": "<p>Find the direction cosines of the vector joining the points A(1, 2, &ndash;3) and B(&ndash;1, &ndash;2, 1), directed from A to B.</p>",
+          "options": [
+            {
+              "id": 194000,
+              "text": "{tex} - \\frac{1}{3},\\;\\frac{2}{3},\\frac{2}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{1}{3},\\;\\frac{2}{3},\\frac{2}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194001,
+              "text": "{tex}\\; - \\frac{1}{3},\\; - \\frac{2}{3}, - \\frac{2}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\; - \\frac{1}{3},\\; - \\frac{2}{3}, - \\frac{2}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193999,
+              "text": "{tex}\\frac{1}{3},\\; - \\frac{2}{3},\\frac{2}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3},\\; - \\frac{2}{3},\\frac{2}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193998,
+              "text": "{tex} - \\frac{1}{3},\\; - \\frac{2}{3},\\frac{2}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{1}{3},\\; - \\frac{2}{3},\\frac{2}{3}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex} - \\frac{1}{3},\\; - \\frac{2}{3},\\frac{2}{3}{/tex}",
+          "correct_option_ids": [
+            193998
+          ],
+          "explanation": "We have: {tex}\\overrightarrow{AB}=-2\\widehat{i}-4\\widehat{j}+4\\widehat{k}{/tex} , then, {tex}\\hat {AB}=\\frac{\\vec {AB}}{|\\vec {AB}|}{/tex} {tex}=\\frac{-2\\hat i -4\\hat j +4 \\hat k}{\\sqrt{(-2)^2+(-4)^2+4^2}}{/tex} {tex}=\\frac{-2\\hat i -4\\hat j +4 \\hat k}{\\sqrt{36}}{/tex} {tex}=\\frac{-2\\hat i }{6}-\\frac{4\\hat j}{6}+\\frac{4\\hat k}{6}{/tex} {tex}=\\frac{-1\\hat i }{3}-\\frac{2\\hat j}{3}+\\frac{2\\hat k}{3}{/tex} Therefore, the D.C.&rsquo;s of vector AB are given by: {tex}-\\frac{1}{3},~-\\frac{2}{3},\\frac{2}{3}{/tex} . Which is the required solution.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59704,
+          "question_text": "Find the angle between two vectors {tex}\\vec a{/tex} and {tex}\\vec b{/tex} with magnitudes {tex}\\sqrt 3 {/tex} and 2, respectively, having {tex}\\vec a\\;.\\vec b = \\sqrt 6 {/tex}",
+          "question_html": "<p>Find the angle between two vectors <span class=\"math-tex\">{tex}\\vec a{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\vec b{/tex}</span> with magnitudes <span class=\"math-tex\">{tex}\\sqrt 3 {/tex}</span> and 2, respectively, having <span class=\"math-tex\">{tex}\\vec a\\;.\\vec b = \\sqrt 6 {/tex}</span></p>",
+          "options": [
+            {
+              "id": 194003,
+              "text": "{tex}\\frac{\\pi }{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194002,
+              "text": "{tex}\\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194004,
+              "text": "{tex}\\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194005,
+              "text": "{tex}\\frac{\\pi }{5}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{5}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{\\pi }{4}{/tex}",
+          "correct_option_ids": [
+            194002
+          ],
+          "explanation": "{tex} \\left| {\\overrightarrow a } \\right| = \\sqrt 3 ,\\left| {\\overrightarrow b } \\right| = 2,\\overrightarrow a .\\overrightarrow b = \\sqrt 6 ,{/tex} {tex}\\Rightarrow \\overrightarrow a .\\overrightarrow b = \\left| {\\overrightarrow a } \\right|.\\left| {\\overrightarrow b } \\right|\\cos \\theta \\Rightarrow \\sqrt 6{/tex} {tex} = 2\\sqrt 3 \\cos \\theta{/tex} {tex}\\Rightarrow \\cos \\theta = \\frac{1}{{\\sqrt 2 }} \\Rightarrow \\theta = \\frac{\\pi }{4} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59705,
+          "question_text": "Find the angle between two vectors {tex}\\hat i - 2\\hat j + 3\\hat k{/tex} and {tex}3\\hat i - 2\\hat j + \\hat k\\;{/tex}",
+          "question_html": "<p>Find the angle between two vectors <span class=\"math-tex\">{tex}\\hat i - 2\\hat j + 3\\hat k{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}3\\hat i - 2\\hat j + \\hat k\\;{/tex}</span></p>",
+          "options": [
+            {
+              "id": 194009,
+              "text": "{tex}{\\cos ^{ - 1}}\\left( {\\frac{5}{9}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\cos ^{ - 1}}\\left( {\\frac{5}{9}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194006,
+              "text": "{tex}{\\cos ^{ - 1}}\\left( {\\frac{5}{7}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\cos ^{ - 1}}\\left( {\\frac{5}{7}} \\right){/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194008,
+              "text": "{tex}{\\cos ^{ - 1}}\\left( {\\frac{6}{7}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\cos ^{ - 1}}\\left( {\\frac{6}{7}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194007,
+              "text": "{tex}{\\cos ^{ - 1}}\\left( {\\frac{4}{7}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\cos ^{ - 1}}\\left( {\\frac{4}{7}} \\right){/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}{\\cos ^{ - 1}}\\left( {\\frac{5}{7}} \\right){/tex}",
+          "correct_option_ids": [
+            194006
+          ],
+          "explanation": "{tex}\\overrightarrow a = \\widehat i - 2\\widehat j + 3\\widehat k,\\overrightarrow b = 3\\widehat i - 2\\widehat j + \\widehat k \\Rightarrow \\left| {\\overrightarrow a } \\right| = \\sqrt {14} ,\\left| {\\overrightarrow b } \\right| = \\sqrt {14} ,\\overrightarrow a .\\overrightarrow b = 10, {/tex} {tex} \\Rightarrow \\frac{{\\overrightarrow a .\\overrightarrow b }}{{\\left| {\\overrightarrow a } \\right|\\left| {\\overrightarrow b } \\right|}} = \\cos \\theta \\Rightarrow \\frac{{10}}{{14}} = \\cos \\theta {/tex} {tex}\\Rightarrow \\cos \\theta = \\frac{5}{7} \\Rightarrow \\theta = {\\cos ^{ - 1}}\\frac{5}{7} \\\\\\\\\\\\ {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59706,
+          "question_text": "Find the projection of the vector {tex}\\hat i - \\hat j{/tex} on the vector {tex}\\hat i + \\hat j{/tex}",
+          "question_html": "<p>Find the projection of the vector <span class=\"math-tex\">{tex}\\hat i - \\hat j{/tex}</span>&nbsp;on the vector&nbsp;<span class=\"math-tex\">{tex}\\hat i + \\hat j{/tex}</span></p>\r\n",
+          "options": [
+            {
+              "id": 194010,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            },
+            {
+              "id": 194012,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 194011,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 194013,
+              "text": "&ndash;1",
+              "html": "&ndash;1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            194010
+          ],
+          "explanation": "Let {tex}\\overrightarrow a = \\widehat i - \\widehat j,\\overrightarrow b = \\widehat i + \\widehat j{/tex} , then,projection of vector a on vector b is given by : {tex}\\frac{{\\overrightarrow a .\\overrightarrow b }}{{\\left| {\\overrightarrow b } \\right|}} = \\frac{{(\\widehat i - \\widehat j).(\\widehat i + \\widehat j)}}{{\\sqrt 2 }} = \\frac{0}{{\\sqrt 2 }} = 0{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59707,
+          "question_text": "Find the projection of the vector {tex}\\hat i + 3\\hat j + 7\\hat k{/tex} on the vector {tex}7\\hat i - \\hat j + 8\\hat k{/tex} .",
+          "question_html": "<p>Find the projection of the vector&nbsp;<span class=\"math-tex\">{tex}\\hat i + 3\\hat j + 7\\hat k{/tex}</span> on the vector&nbsp; <span class=\"math-tex\">{tex}7\\hat i - \\hat j + 8\\hat k{/tex}</span> .</p>",
+          "options": [
+            {
+              "id": 194016,
+              "text": "{tex}\\frac{{60}}{{\\sqrt {134} }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{60}}{{\\sqrt {134} }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194014,
+              "text": "{tex}\\frac{{60}}{{\\sqrt {114} }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{60}}{{\\sqrt {114} }}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194017,
+              "text": "{tex}\\frac{{60}}{{\\sqrt {124} }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{60}}{{\\sqrt {124} }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194015,
+              "text": "{tex}\\frac{{66}}{{\\sqrt {114} }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{66}}{{\\sqrt {114} }}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{60}}{{\\sqrt {114} }}{/tex}",
+          "correct_option_ids": [
+            194014
+          ],
+          "explanation": "Let {tex}\\overrightarrow a = \\widehat i + 3\\widehat j + 7\\widehat k,\\overrightarrow b = 7\\widehat i - \\widehat j + 8\\widehat k{/tex} , then projection of vector a on vector b is given by : {tex}\\frac{{\\overrightarrow a .\\overrightarrow b }}{{\\left| {\\overrightarrow b } \\right|}} = \\frac{{(\\widehat i + 3\\widehat j + 7\\widehat k).(7\\widehat i - \\widehat j + 8\\widehat k)}}{{\\sqrt {49 + 1 + 64} }} {/tex} {tex}\\\\ = \\frac{{7 - 3 + 56}}{{\\sqrt {114} }} = \\frac{{60}}{{\\sqrt {114} }}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59708,
+          "question_text": "Find {tex}\\left| {\\vec a} \\right|{/tex} and {tex}\\left| {\\vec b} \\right|{/tex} , if {tex}\\;\\left( {\\vec a + \\vec b} \\right).\\left( {\\vec a - \\vec b} \\right) = 8{/tex} and {tex}\\left| {\\vec a} \\right| = 8\\;\\left| {\\vec b} \\right|{/tex} .",
+          "question_html": "<p>Find <span class=\"math-tex\">{tex}\\left| {\\vec a} \\right|{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\left| {\\vec b} \\right|{/tex}</span>, if&nbsp;<span class=\"math-tex\">{tex}\\;\\left( {\\vec a + \\vec b} \\right).\\left( {\\vec a - \\vec b} \\right) = 8{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\left| {\\vec a} \\right| = 8\\;\\left| {\\vec b} \\right|{/tex}</span>.</p>",
+          "options": [
+            {
+              "id": 194021,
+              "text": "{tex}\\frac{{21\\sqrt 2 }}{{3\\sqrt 7 }}{/tex} , {tex}\\frac{{2\\sqrt 6 }}{{3\\sqrt 7 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{21\\sqrt 2 }}{{3\\sqrt 7 }}{/tex}</span>,<span class=\"math-tex\">{tex}\\frac{{2\\sqrt 6 }}{{3\\sqrt 7 }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194020,
+              "text": "{tex}\\frac{{19\\sqrt 2 }}{{3\\sqrt 7 }}{/tex} , {tex}\\frac{{2\\sqrt 5 }}{{3\\sqrt 7 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{19\\sqrt 2 }}{{3\\sqrt 7 }}{/tex}</span>,<span class=\"math-tex\">{tex}\\frac{{2\\sqrt 5 }}{{3\\sqrt 7 }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194019,
+              "text": "{tex}\\frac{{17\\sqrt 2 }}{{3\\sqrt 7 }}{/tex} , {tex}\\frac{{2\\sqrt 3 }}{{3\\sqrt 7 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{17\\sqrt 2 }}{{3\\sqrt 7 }}{/tex}</span>,<span class=\"math-tex\">{tex}\\frac{{2\\sqrt 3 }}{{3\\sqrt 7 }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194018,
+              "text": "{tex}\\frac{{16\\sqrt 2 }}{{3\\sqrt 7 }}{/tex} , {tex}\\frac{{2\\sqrt 2 }}{{3\\sqrt 7 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{16\\sqrt 2 }}{{3\\sqrt 7 }}{/tex}</span>,<span class=\"math-tex\">{tex}\\frac{{2\\sqrt 2 }}{{3\\sqrt 7 }}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{16\\sqrt 2 }}{{3\\sqrt 7 }}{/tex} , {tex}\\frac{{2\\sqrt 2 }}{{3\\sqrt 7 }}{/tex}",
+          "correct_option_ids": [
+            194018
+          ],
+          "explanation": "{tex}(\\overrightarrow a + \\overrightarrow b ).(\\overrightarrow a - \\overrightarrow b ) = 8{/tex} {tex}\\Rightarrow |\\overrightarrow a|^2- |\\overrightarrow b|^2=8{/tex} {tex}\\Rightarrow 64|\\overrightarrow b|^2- |\\overrightarrow b|^2=8\\Rightarrow 63|\\overrightarrow b|^2=8 \\Rightarrow |\\overrightarrow b| =\\sqrt{\\frac{8}{63}}=\\frac{2\\sqrt2}{3\\sqrt7}{/tex} {tex}\\Rightarrow |\\overrightarrow a|=8|\\overrightarrow b|\\Rightarrow |\\overrightarrow a|=\\frac{16\\sqrt2}{3\\sqrt7}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59709,
+          "question_text": "Evaluate the product of {tex}\\left( {3\\vec a - 5\\vec b} \\right).\\left( {2\\vec a + 7\\vec b} \\right){/tex}",
+          "question_html": "<p>Evaluate the product of&nbsp;<span class=\"math-tex\">{tex}\\left( {3\\vec a - 5\\vec b} \\right).\\left( {2\\vec a + 7\\vec b} \\right){/tex}</span></p>",
+          "options": [
+            {
+              "id": 194025,
+              "text": "7 {tex}{\\left| {\\vec a} \\right|^2} + 13\\vec a.\\vec b - 45{\\left| {\\vec b} \\right|^2}{/tex}",
+              "html": "7<span class=\"math-tex\">{tex}{\\left| {\\vec a} \\right|^2} + 13\\vec a.\\vec b - 45{\\left| {\\vec b} \\right|^2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194023,
+              "text": "6 {tex}{\\left| {\\vec a} \\right|^2} + 11\\vec a.\\vec b - 30{\\left| {\\vec b} \\right|^2}{/tex}",
+              "html": "6<span class=\"math-tex\">{tex}{\\left| {\\vec a} \\right|^2} + 11\\vec a.\\vec b - 30{\\left| {\\vec b} \\right|^2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194024,
+              "text": "6 {tex}{\\left| {\\vec a} \\right|^2} + 13\\vec a.\\vec b - 35{\\left| {\\vec b} \\right|^2}{/tex}",
+              "html": "6<span class=\"math-tex\">{tex}{\\left| {\\vec a} \\right|^2} + 13\\vec a.\\vec b - 35{\\left| {\\vec b} \\right|^2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194022,
+              "text": "6 {tex}{\\left| {\\vec a} \\right|^2} + 11\\vec a.\\vec b - 35{\\left| {\\vec b} \\right|^2}{/tex}",
+              "html": "6<span class=\"math-tex\">{tex}{\\left| {\\vec a} \\right|^2} + 11\\vec a.\\vec b - 35{\\left| {\\vec b} \\right|^2}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "6 {tex}{\\left| {\\vec a} \\right|^2} + 11\\vec a.\\vec b - 35{\\left| {\\vec b} \\right|^2}{/tex}",
+          "correct_option_ids": [
+            194022
+          ],
+          "explanation": "{tex}\\left( {3\\vec a - 5\\vec b} \\right).\\left( {2\\vec a + 7\\vec b} \\right){/tex} = {tex}6 \\vec { a } \\cdot \\vec { a } + 21 \\overline { a } \\cdot \\overline { b } - 10 \\vec { b } \\cdot \\vec { a } - 35 \\vec { b } \\cdot \\vec { b } = 6 | \\vec { a } | ^ { 2 } + 11 \\vec { a } \\vec { b } - 35 | \\vec { b } | ^ { 2 }{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59710,
+          "question_text": "Find the magnitude of two vectors {tex}\\;\\vec a\\;and\\;\\vec b{/tex} , having the same magnitude and such that the angle between them is 30&deg; and their scalar product is {tex}2\\sqrt 3 {/tex}",
+          "question_html": "<p>Find the magnitude of two vectors<span class=\"math-tex\">{tex}\\;\\vec a\\;and\\;\\vec b{/tex}</span>, having the same magnitude and such that the angle between them is 30&deg; and their scalar product is <span class=\"math-tex\">{tex}2\\sqrt 3 {/tex}</span></p>\r\n",
+          "options": [
+            {
+              "id": 194028,
+              "text": "{tex}\\left| {\\vec a} \\right| = 2,\\left| {\\vec b} \\right| = 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left| {\\vec a} \\right| = 2,\\left| {\\vec b} \\right| = 1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194027,
+              "text": "{tex}\\left| {\\vec a} \\right| = 1,\\left| {\\vec b} \\right| = 2{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left| {\\vec a} \\right| = 1,\\left| {\\vec b} \\right| = 2{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194029,
+              "text": "{tex}\\left| {\\vec a} \\right| = 1,\\left| {\\vec b} \\right| = 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left| {\\vec a} \\right| = 1,\\left| {\\vec b} \\right| = 1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194026,
+              "text": "{tex}\\left| {\\vec a} \\right| = 2,\\left| {\\vec b} \\right| = 2{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left| {\\vec a} \\right| = 2,\\left| {\\vec b} \\right| = 2{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\left| {\\vec a} \\right| = 2,\\left| {\\vec b} \\right| = 2{/tex}",
+          "correct_option_ids": [
+            194026
+          ],
+          "explanation": "It is given that: {tex}\\left| {\\vec a} \\right| = \\left| {\\vec b} \\right|,\\theta = {30^ \\circ },\\overrightarrow a. \\overrightarrow b = 2\\sqrt 3 {/tex} {tex}\\Rightarrow | \\vec { a } | \\cdot | \\vec { b } | \\cos 30 ^ { \\circ } = 2 \\sqrt { 3 }{/tex} {tex}\\Rightarrow | \\vec { a } | ^ { 2 }.\\frac { \\sqrt { 3 } } { 2 } = 2 \\sqrt { 3 }{/tex} {tex}\\Rightarrow | \\vec { a } | ^ { 2 } = 4 \\Rightarrow | \\vec { a } | = 2 = | \\vec { b } |{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59711,
+          "question_text": "Find {tex}\\left| {\\vec x} \\right|{/tex} , if for a unit vector {tex}\\widehat a,\\;\\left( {2\\vec x - 3\\vec a} \\right).\\left( {2\\vec x + 3\\vec a} \\right) = 91{/tex}",
+          "question_html": "<p>Find <span class=\"math-tex\">{tex}\\left| {\\vec x} \\right|{/tex}</span>, if for a unit vector <span class=\"math-tex\">{tex}\\widehat a,\\;\\left( {2\\vec x - 3\\vec a} \\right).\\left( {2\\vec x + 3\\vec a} \\right) = 91{/tex}</span></p>",
+          "options": [
+            {
+              "id": 194033,
+              "text": "{tex}\\sqrt {19} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt {19} {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194031,
+              "text": "{tex}\\sqrt {15} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt {15} {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194032,
+              "text": "{tex}\\sqrt {17} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt {17} {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194030,
+              "text": "5",
+              "html": "5",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "5",
+          "correct_option_ids": [
+            194030
+          ],
+          "explanation": "It is given that : {tex} \\left( {2\\overrightarrow x - 3\\overrightarrow a } \\right).\\left( {2\\overrightarrow x + 3\\overrightarrow a } \\right) = 91 {/tex} {tex}\\Rightarrow 4{\\left| {\\overrightarrow x } \\right|^2} - 9{\\left| {\\overrightarrow a } \\right|^2} {/tex} {tex} = 91 \\Rightarrow 4{\\left| {\\overrightarrow x } \\right|^2} - 9.1 = 91 {/tex} {tex} \\Rightarrow 4{\\left| {\\overrightarrow x } \\right|^2} = 100 \\Rightarrow \\left| {\\overrightarrow x } \\right| = 5 \\\\{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59712,
+          "question_text": "If {tex}\\vec a = 2\\hat i + 2\\hat j + 3\\hat k,\\;\\vec b = - \\hat i + 2\\hat j + \\hat k\\;and\\;\\vec c = 3\\hat i + \\hat j\\;{/tex} are such that {tex}\\vec a + \\lambda \\vec b{/tex} is perpendicular to {tex}\\vec c{/tex} , then the value of {tex}\\lambda {/tex} is",
+          "question_html": "<p>If<span class=\"math-tex\">{tex}\\vec a = 2\\hat i + 2\\hat j + 3\\hat k,\\;\\vec b = - \\hat i + 2\\hat j + \\hat k\\;and\\;\\vec c = 3\\hat i + \\hat j\\;{/tex}</span>are such that <span class=\"math-tex\">{tex}\\vec a + \\lambda \\vec b{/tex}</span> is perpendicular to <span class=\"math-tex\">{tex}\\vec c{/tex}</span>, then the value of <span class=\"math-tex\">{tex}\\lambda {/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 194037,
+              "text": "11",
+              "html": "11",
+              "is_correct": false
+            },
+            {
+              "id": 194035,
+              "text": "7",
+              "html": "7",
+              "is_correct": false
+            },
+            {
+              "id": 194034,
+              "text": "8",
+              "html": "8",
+              "is_correct": true
+            },
+            {
+              "id": 194036,
+              "text": "9",
+              "html": "9",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "8",
+          "correct_option_ids": [
+            194034
+          ],
+          "explanation": "If {tex}\\vec{a}=2\\hat{i}+2\\hat{j}+3\\hat{k},~\\vec{b}=-\\hat{i}+2\\hat{j}+\\hat{k}~and~\\vec{c}=3\\hat{i}+\\hat{j}~{/tex} are such that {tex}\\vec{a}+\\lambda \\vec{b} {/tex} is perpendicular to {tex}\\vec{c}, then (\\vec{a}+\\lambda \\vec{b} ).\\vec{c}=0{/tex} . {tex}[(2\\hat i +2\\hat j +3 \\hat k)+\\lambda(-\\hat i +2 \\hat j+\\hat k)].(3\\hat i +\\hat j)=0{/tex} {tex}\\Rightarrow [(2-\\lambda)\\hat i +(2+2\\lambda)\\hat j+(3+\\lambda)\\hat k].(3\\hat i+\\hat j)=0{/tex} {tex}\\Rightarrow 6-3\\lambda+2+2\\lambda=0\\Rightarrow \\lambda=8{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59713,
+          "question_text": "If {tex}\\vec a,\\vec b,\\vec c{/tex} are unit vectors such that {tex}\\vec a + \\vec b + \\vec c = 0{/tex} find the value of {tex}\\vec a.\\vec b + \\vec b.\\vec c + \\vec c.\\vec a{/tex} .",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}\\vec a,\\vec b,\\vec c{/tex}</span> are unit vectors such that <span class=\"math-tex\">{tex}\\vec a + \\vec b + \\vec c = 0{/tex}</span>&nbsp;find the value of&nbsp;<span class=\"math-tex\">{tex}\\vec a.\\vec b + \\vec b.\\vec c + \\vec c.\\vec a{/tex}</span>.</p>",
+          "options": [
+            {
+              "id": 194039,
+              "text": "{tex}\\frac{3}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194041,
+              "text": "{tex}\\frac{5}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{5}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194038,
+              "text": "{tex}\\frac{{ - 3}}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{ - 3}}{2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194040,
+              "text": "{tex}\\frac{{ - 5}}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{ - 5}}{2}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{ - 3}}{2}{/tex}",
+          "correct_option_ids": [
+            194038
+          ],
+          "explanation": "It is given that: If {tex}\\vec{a},\\vec{b},\\vec{c}{/tex} are unit vectors such that {tex}\\vec{a}+\\vec{b}+\\vec{c}=0,{/tex} then: {tex}(\\vec a +\\vec b+\\vec c).(\\vec a +\\vec b+\\vec c)=\\vec 0 .\\vec 0{/tex} {tex}\\Rightarrow |\\vec a|^2+|\\vec b|^2+|\\vec c|^2+2(\\vec a.\\vec b+\\vec b.\\vec c+\\vec c.\\vec a)=0{/tex} {tex}\\Rightarrow 1+1+1+2(\\vec a.\\vec b+\\vec b.\\vec c+\\vec c.\\vec a)=0{/tex} {tex}\\Rightarrow (\\vec a.\\vec b+\\vec b.\\vec c+\\vec c.\\vec a)=-\\frac{3}{2}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59714,
+          "question_text": "If the vertices A, B, C of a triangle ABC are (1, 2, 3), (&ndash;1, 0, 0), (0, 1, 2), respectively, then find {tex}\\angle ABC.{\\text{ }}[\\angle ABC{/tex} is the angle between the vectors {tex}\\overrightarrow {BA} \\;and\\;\\overrightarrow {BC} \\;{/tex} ]",
+          "question_html": "<p>If the vertices A, B, C of a triangle ABC are (1, 2, 3), (&ndash;1, 0, 0), (0, 1, 2), respectively, then find <span class=\"math-tex\">{tex}\\angle ABC.{\\text{ }}[\\angle ABC{/tex}</span> is the angle between the vectors <span class=\"math-tex\">{tex}\\overrightarrow {BA} \\;and\\;\\overrightarrow {BC} \\;{/tex}</span>]</p>",
+          "options": [
+            {
+              "id": 194045,
+              "text": "{tex}{\\cos ^{ - 1}}\\left( {\\frac{{15}}{{\\sqrt {102} }}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\cos ^{ - 1}}\\left( {\\frac{{15}}{{\\sqrt {102} }}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194043,
+              "text": "{tex}{\\cos ^{ - 1}}\\left( {\\frac{{11}}{{\\sqrt {102} }}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\cos ^{ - 1}}\\left( {\\frac{{11}}{{\\sqrt {102} }}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194042,
+              "text": "{tex}{\\cos ^{ - 1}}\\left( {\\frac{{10}}{{\\sqrt {102} }}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\cos ^{ - 1}}\\left( {\\frac{{10}}{{\\sqrt {102} }}} \\right){/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194044,
+              "text": "{tex}{\\cos ^{ - 1}}\\left( {\\frac{{13}}{{\\sqrt {102} }}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\cos ^{ - 1}}\\left( {\\frac{{13}}{{\\sqrt {102} }}} \\right){/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}{\\cos ^{ - 1}}\\left( {\\frac{{10}}{{\\sqrt {102} }}} \\right){/tex}",
+          "correct_option_ids": [
+            194042
+          ],
+          "explanation": "Position vectors of the points A , B and C are {tex}\\widehat{i}+2\\widehat{j}+3\\widehat{k},-\\widehat{i},and \\ \\widehat{j}+2\\widehat{k}{/tex} respectively. Then; {tex}cos\\theta=\\frac{\\vec{BA}\\vec{BC}}{|\\vec {BA}||\\vec{BC}|}{/tex} {tex}=\\frac{(2\\hat i+2\\hat j+3\\hat k).(\\hat i+\\hat j+2\\hat k)}{\\sqrt{17}\\sqrt6}{/tex} {tex}\\Rightarrow cos\\theta=\\frac{10}{\\sqrt{102}}{/tex} {tex}\\Rightarrow \\angle ABC=cos^{-1}(\\frac{10}{\\sqrt{102}}){/tex}",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3637,
+      "test_name": "Vector Algebra Test-05",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59715,
+          "question_text": "If {tex}\\vec a{/tex} is a non zero vector of magnitude &lsquo;a&rsquo; and {tex}\\lambda {/tex} a non zero scalar, then {tex}\\lambda \\vec a{/tex} is a unit vector if",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}\\vec a{/tex}</span> is a non zero vector of magnitude &lsquo;a&rsquo; and <span class=\"math-tex\">{tex}\\lambda {/tex}</span> a non zero scalar, then <span class=\"math-tex\">{tex}\\lambda \\vec a{/tex}</span> is a unit vector if</p>",
+          "options": [
+            {
+              "id": 194049,
+              "text": "{tex}\\lambda = \\; - 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\lambda = \\; - 1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194046,
+              "text": "a = {tex}\\frac{1}{{\\left| \\lambda \\right|}}{/tex}",
+              "html": "a = <span class=\"math-tex\">{tex}\\frac{1}{{\\left| \\lambda \\right|}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194047,
+              "text": "a = {tex}\\left| \\lambda \\right|{/tex}",
+              "html": "a = <span class=\"math-tex\">{tex}\\left| \\lambda \\right|{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194048,
+              "text": "{tex}\\lambda = 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\lambda = 1{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "a = {tex}\\frac{1}{{\\left| \\lambda \\right|}}{/tex}",
+          "correct_option_ids": [
+            194046
+          ],
+          "explanation": "{tex}\\lambda \\vec a{/tex} is a unit vector if and only if {tex}\\vec a{/tex} is equal to {tex}\\frac{1}{{\\left| \\lambda \\right|}}{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59716,
+          "question_text": "Find {tex}\\left| {\\vec a \\times \\vec b} \\right|{/tex} , if {tex}\\vec a = 3\\hat i + \\hat j + 2\\hat k\\;{/tex} and {tex}\\;\\vec b = 2\\hat i - 2\\hat j + 4\\hat k{/tex}",
+          "question_html": "<p>Find&nbsp;<span class=\"math-tex\">{tex}\\left| {\\vec a \\times \\vec b} \\right|{/tex}</span>, if <span class=\"math-tex\">{tex}\\vec a = 3\\hat i + \\hat j + 2\\hat k\\;{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\;\\vec b = 2\\hat i - 2\\hat j + 4\\hat k{/tex}</span></p>",
+          "options": [
+            {
+              "id": 194052,
+              "text": "{tex}17\\sqrt 2 {/tex}",
+              "html": "<span class=\"math-tex\">{tex}17\\sqrt 2 {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194051,
+              "text": "{tex}19\\sqrt 3 {/tex}",
+              "html": "<span class=\"math-tex\">{tex}19\\sqrt 3 {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194053,
+              "text": "{tex}19\\sqrt 5 {/tex}",
+              "html": "<span class=\"math-tex\">{tex}19\\sqrt 5 {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194050,
+              "text": "{tex}8\\sqrt 3 {/tex}",
+              "html": "<span class=\"math-tex\">{tex}8\\sqrt 3 {/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}8\\sqrt 3 {/tex}",
+          "correct_option_ids": [
+            194050
+          ],
+          "explanation": "{tex}\\vec a \\times \\vec b = \\left| {\\begin{array}{*{20}{c}} {\\hat i}&{\\hat j}&{\\hat k} \\\\ 3&1&2 \\\\ 2&{ - 2}&4 \\end{array}} \\right| = 8\\hat i - 8\\hat j - 8\\hat k{/tex} {tex}\\therefore \\;|\\vec a \\times \\vec b| = \\sqrt {{8^2} + {{( - 8)}^2} + {{( - 8)}^2}} = 8\\sqrt 3 {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59717,
+          "question_text": "Find a unit vector perpendicular to each of the vector {tex}\\vec a + \\vec b\\;{/tex} and {tex}\\vec a - \\vec b{/tex} , where {tex}\\vec a = 3\\hat i + 2\\hat j + 2\\hat k\\;{/tex} and {tex}\\;\\vec b = \\hat i + 2\\hat j - 2\\hat k{/tex} .",
+          "question_html": "<p>Find a unit vector perpendicular to each of the vector&nbsp;<span class=\"math-tex\">{tex}\\vec a + \\vec b\\;{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\vec a - \\vec b{/tex}</span>, where <span class=\"math-tex\">{tex}\\vec a = 3\\hat i + 2\\hat j + 2\\hat k\\;{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\;\\vec b = \\hat i + 2\\hat j - 2\\hat k{/tex}</span>.</p>",
+          "options": [
+            {
+              "id": 194056,
+              "text": "{tex} \\pm \\frac{1}{3}\\hat i \\pm \\frac{2}{3}\\hat j \\pm \\frac{1}{3}\\hat k{/tex}",
+              "html": "<span class=\"math-tex\">{tex} \\pm \\frac{1}{3}\\hat i \\pm \\frac{2}{3}\\hat j \\pm \\frac{1}{3}\\hat k{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194057,
+              "text": "{tex} \\pm \\frac{2}{3}\\hat i \\pm \\frac{1}{3}\\hat j \\pm \\frac{1}{3}\\hat k{/tex}",
+              "html": "<span class=\"math-tex\">{tex} \\pm \\frac{2}{3}\\hat i \\pm \\frac{1}{3}\\hat j \\pm \\frac{1}{3}\\hat k{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194055,
+              "text": "{tex} \\pm \\frac{2}{3}\\hat i \\pm \\frac{2}{3}\\hat j \\pm \\frac{2}{3}\\hat k{/tex}",
+              "html": "<span class=\"math-tex\">{tex} \\pm \\frac{2}{3}\\hat i \\pm \\frac{2}{3}\\hat j \\pm \\frac{2}{3}\\hat k{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194054,
+              "text": "{tex} \\pm \\frac{2}{3}\\hat i \\mp \\frac{2}{3}\\hat j \\mp \\frac{1}{3}\\hat k{/tex}",
+              "html": "<span class=\"math-tex\">{tex} \\pm \\frac{2}{3}\\hat i \\mp \\frac{2}{3}\\hat j \\mp \\frac{1}{3}\\hat k{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex} \\pm \\frac{2}{3}\\hat i \\mp \\frac{2}{3}\\hat j \\mp \\frac{1}{3}\\hat k{/tex}",
+          "correct_option_ids": [
+            194054
+          ],
+          "explanation": "It is given that: {tex}\\vec a = 3\\hat i+2 \\hat j+2 \\hat k{/tex} and {tex}\\vec b=\\hat i +2 \\hat j-2\\hat k{/tex} {tex}\\therefore \\vec a +\\vec b=4\\hat i+4\\hat j{/tex} and {tex}\\vec a -\\vec b=2\\hat i +4 \\hat k{/tex} {tex}\\therefore (\\vec a + \\vec b) \\times (\\vec a - \\vec b) = \\left| {\\begin{array}{*{20}{c}} {\\hat i}&{\\hat j}&{\\hat k} \\\\ 4&4&0 \\\\ 2&0&4 \\end{array}} \\right| = 16\\hat i - 16\\hat j - 8\\hat k{/tex} {tex}\\therefore| (\\vec a + \\vec b) \\times (\\vec a - \\vec b) |= \\sqrt{576}=24{/tex} Therefore, the unit vector perpendicular to both the vectors {tex}(\\overrightarrow{a}+\\overrightarrow{b}){/tex} and {tex}(\\overrightarrow{a}-\\overrightarrow{b}){/tex} is given by: {tex}=\\pm \\frac{(16\\widehat{i}-16\\widehat{j}-8\\widehat{k})}{24}=\\pm \\frac{1}{3}(2\\widehat{i}-2\\widehat{j}-\\widehat{k}) .{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59718,
+          "question_text": "If a unit vector {tex}\\vec a{/tex} makes angles {tex} \\frac{\\pi }{3}\\;with\\;{\\hat i }\\; \\frac{{\\pi }}{{4}}\\;with\\; {\\hat j}\\; and\\; an\\; acute \\;angle\\; \\theta\\; with\\; {\\hat k}{/tex} , then find {tex}\\theta {/tex}",
+          "question_html": "<p>If a unit vector <span class=\"math-tex\">{tex}\\vec a{/tex}</span> makes angles <span class=\"math-tex\">{tex} \\frac{\\pi }{3}\\;with\\;{\\hat i }\\; \\frac{{\\pi }}{{4}}\\;with\\; {\\hat j}\\; and\\; an\\; acute \\;angle\\; \\theta\\; with\\; {\\hat k}{/tex}</span> , then find <span class=\"math-tex\">{tex}\\theta {/tex}</span></p>",
+          "options": [
+            {
+              "id": 194059,
+              "text": "{tex}\\frac{\\pi }{{10}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{{10}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194060,
+              "text": "{tex}2\\frac{\\pi }{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2\\frac{\\pi }{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194058,
+              "text": "{tex}\\frac{\\pi }{3}\\;{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{3}\\;{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194061,
+              "text": "{tex}\\frac{\\pi }{5}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{5}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{\\pi }{3}\\;{/tex}",
+          "correct_option_ids": [
+            194058
+          ],
+          "explanation": "Let {tex}\\overrightarrow{a}={{a}_{1}}\\widehat{i}+{{a}_{2}}\\widehat{j}+{{a}_{3}}\\widehat{k},{/tex} It is given that {tex}\\left| \\overrightarrow{a} \\right|=1{/tex} , then, {tex}\\Rightarrow a^2_1+a^2_2+a^2_3=1{/tex} ....(1) {tex}\\therefore \\vec a.\\hat i =(a_1\\hat i+a_2\\hat j+a_3\\hat k).\\hat i{/tex} {tex}\\Rightarrow |\\vec a||\\hat i|cos\\frac{\\pi}{3}=a_1 \\Rightarrow a_1=\\frac{1}{2}{/tex} {tex}\\therefore \\vec a.\\hat j =(a_1\\hat i+a_2\\hat j+a_3\\hat k).\\hat j{/tex} {tex}\\Rightarrow |\\vec a||\\hat j|cos\\frac{\\pi}{4}=a_2 \\Rightarrow a_2=\\frac{1}{\\sqrt2}{/tex} {tex}\\therefore \\vec a.\\hat k =(a_1\\hat i+a_2\\hat j+a_3\\hat k).\\hat k{/tex} {tex}\\Rightarrow |\\vec a||\\hat k|cos{\\theta}=a_3 \\Rightarrow a_3=\\cos\\theta{/tex} Putting these values in (1), we get: {tex}\\frac{1}{4} + \\frac{1}{2} + {\\cos ^2}\\theta = 1{/tex} {tex}\\Rightarrow \\frac{3}{4} = 1 - {\\cos ^2}\\theta \\Rightarrow {\\sin ^2}\\theta = \\frac{3}{4} \\Rightarrow \\sin \\theta = \\frac{{\\sqrt 3 }}{2} \\Rightarrow \\theta = {60^ \\circ }{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59719,
+          "question_text": "If a unit vector {tex}\\vec a{/tex} makes angles {tex}\\frac{\\pi }{3}\\;with\\;\\hat i,\\;\\frac{\\pi }{4}\\;with\\;\\hat j\\;and\\;an\\;acute\\;angle\\;\\theta \\;with\\;\\hat k\\;{/tex} , then the components of {tex}\\vec a{/tex} are",
+          "question_html": "<p>If a unit vector <span class=\"math-tex\">{tex}\\vec a{/tex}</span> makes angles <span class=\"math-tex\">{tex}\\frac{\\pi }{3}\\;with\\;\\hat i,\\;\\frac{\\pi }{4}\\;with\\;\\hat j\\;and\\;an\\;acute\\;angle\\;\\theta \\;with\\;\\hat k\\;{/tex}</span> , then the components of <span class=\"math-tex\">{tex}\\vec a{/tex}</span> are</p>",
+          "options": [
+            {
+              "id": 194063,
+              "text": "{tex}\\frac{1}{2},\\;\\frac{1}{{\\sqrt 2 }},\\;\\frac{1}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2},\\;\\frac{1}{{\\sqrt 2 }},\\;\\frac{1}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194065,
+              "text": "{tex}\\frac{1}{3},\\;\\frac{1}{{\\sqrt 3 }},\\;\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3},\\;\\frac{1}{{\\sqrt 3 }},\\;\\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194062,
+              "text": "{tex}\\frac{1}{2},\\;\\frac{1}{{\\sqrt 2 }},\\;\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2},\\;\\frac{1}{{\\sqrt 2 }},\\;\\frac{1}{2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194064,
+              "text": "{tex}\\frac{1}{3},\\;\\frac{1}{{\\sqrt 2 }},\\;\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3},\\;\\frac{1}{{\\sqrt 2 }},\\;\\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{2},\\;\\frac{1}{{\\sqrt 2 }},\\;\\frac{1}{2}{/tex}",
+          "correct_option_ids": [
+            194062
+          ],
+          "explanation": "Let, {tex}\\overrightarrow a = {a_1}\\hat i + {a_2}\\hat j + {a_3}\\hat k{/tex} , then, {tex}\\Rightarrow a^2_1+a^2_2+a_3^2=1{/tex} .....(1) {tex}\\therefore \\vec a.\\hat i = (a_1\\hat i +a_2 \\hat j+a_3\\hat k).\\hat i\\Rightarrow |\\vec a||\\hat i|cos\\frac{\\pi}{3}=a_1\\Rightarrow a_1=\\frac{1}{2}{/tex} {tex}\\therefore \\vec a.\\hat j= (a_1\\hat i +a_2 \\hat j+a_3\\hat k).\\hat j\\Rightarrow |\\vec a||\\hat j|cos\\frac{\\pi}{4}=a_2\\Rightarrow a_2=\\frac{1}{\\sqrt2}{/tex} {tex}\\therefore \\vec a.\\hat k= (a_1\\hat i +a_2 \\hat j+a_3\\hat k).\\hat k\\Rightarrow |\\vec a||\\hat k|cos\\frac{\\pi}{4}=a_3\\Rightarrow a_3=\\cos\\theta{/tex} Putting these values in (1) , we get : {tex}\\frac{1}{4}+\\frac{1}{2}+cos^2\\theta=1{/tex} {tex}\\Rightarrow \\frac{3}{4}=1-cos^2\\theta \\Rightarrow sin^2\\theta=\\frac{3}{4}\\Rightarrow sin\\theta =\\frac{\\sqrt3}{2}\\Rightarrow \\theta =60^o{/tex} {tex}\\therefore a_3=cos60^o=\\frac{1}{2}{/tex} {tex}\\Rightarrow \\vec a=\\frac{1}{2}\\hat i+\\frac{1}{\\sqrt2}\\hat j+\\frac{1}{2}\\hat k{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59720,
+          "question_text": "Find {tex}\\lambda \\;and\\;\\mu \\;if\\;\\left( {2\\hat i + 6\\hat j + 27\\hat k} \\right) \\times \\left( {\\hat i + \\lambda \\hat j + \\mu \\hat k} \\right) = \\vec 0{/tex}",
+          "question_html": "<p>Find <span class=\"math-tex\">{tex}\\lambda \\;and\\;\\mu \\;if\\;\\left( {2\\hat i + 6\\hat j + 27\\hat k} \\right) \\times \\left( {\\hat i + \\lambda \\hat j + \\mu \\hat k} \\right) = \\vec 0{/tex}</span></p>",
+          "options": [
+            {
+              "id": 194067,
+              "text": "5, {tex}\\frac{{27}}{2}{/tex}",
+              "html": "5, <span class=\"math-tex\">{tex}\\frac{{27}}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194068,
+              "text": "3, {tex}\\frac{{27}}{5}{/tex}",
+              "html": "3, <span class=\"math-tex\">{tex}\\frac{{27}}{5}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194066,
+              "text": "3, {tex}\\frac{{27}}{2}{/tex}",
+              "html": "3, <span class=\"math-tex\">{tex}\\frac{{27}}{2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194069,
+              "text": "4, {tex}\\frac{{27}}{2}{/tex}",
+              "html": "4, <span class=\"math-tex\">{tex}\\frac{{27}}{2}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "3, {tex}\\frac{{27}}{2}{/tex}",
+          "correct_option_ids": [
+            194066
+          ],
+          "explanation": "It is given that: {tex}\\left( {2\\hat i + 6\\hat j + 27\\hat k} \\right)X\\left( {\\hat i + \\lambda \\hat j + \\mu \\hat k} \\right) = \\overrightarrow 0 {/tex} {tex}\\left| {\\matrix{ {\\hat i} & {\\hat j} & {\\hat k} \\cr 2 & 6 & {27} \\cr 1 & \\lambda & \\mu \\cr } } \\right| = \\hat i\\left( {6\\mu - 27\\lambda } \\right) - \\hat j\\left( {2\\mu - 27} \\right) + \\hat k\\left( {2\\lambda - 6} \\right) = \\overrightarrow 0 {/tex} , equating the coefficients of {tex}\\hat i,\\hat j,\\hat k{/tex} on both sides,we get {tex}\\left( {6\\mu - 27\\lambda } \\right) = 0,\\left( {2\\mu - 27} \\right) = 0,\\left( {2\\lambda - 6} \\right) = 0.{/tex} solving,we get {tex}{\\lambda = 3,\\mu = {{27} \\over 2}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59721,
+          "question_text": "Let the vectors {tex}\\vec a\\;{/tex} and {tex}\\vec b{/tex} be such that {tex}\\left| {\\vec a} \\right| = 3\\;{/tex} and {tex}\\;\\left| b \\right| = \\frac{{\\sqrt 2 }}{3},\\;{/tex} then {tex}\\;\\vec a \\times \\vec b{/tex} is a unit vector if the angle between {tex}\\vec a\\;{/tex} and {tex}\\vec b\\;{/tex} is",
+          "question_html": "<p>Let the vectors <span class=\"math-tex\">{tex}\\vec a\\;{/tex}</span> and <span class=\"math-tex\">{tex}\\vec b{/tex}</span> be such that <span class=\"math-tex\">{tex}\\left| {\\vec a} \\right| = 3\\;{/tex}</span> and <span class=\"math-tex\">{tex}\\;\\left| b \\right| = \\frac{{\\sqrt 2 }}{3},\\;{/tex}</span>&nbsp;then <span class=\"math-tex\">{tex}\\;\\vec a \\times \\vec b{/tex}</span> is a unit vector if the angle between <span class=\"math-tex\">{tex}\\vec a\\;{/tex}</span> and <span class=\"math-tex\">{tex}\\vec b\\;{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 194071,
+              "text": "{tex}\\frac{\\pi }{6}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{6}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194072,
+              "text": "{tex}\\frac{\\pi }{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194073,
+              "text": "{tex}\\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194070,
+              "text": "{tex}\\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{\\pi }{4}{/tex}",
+          "correct_option_ids": [
+            194070
+          ],
+          "explanation": "It is given that {tex}\\overrightarrow{a}\\times \\overrightarrow{b}{/tex} is a unit vector, then: {tex}\\Rightarrow |\\vec a\\times \\vec b|=1\\Rightarrow |\\vec a||\\vec b|sin\\theta =1{/tex} {tex}\\Rightarrow 3.\\frac{\\sqrt2}{3}sin\\theta=1\\Rightarrow sin\\theta =\\frac{1}{\\sqrt2}\\Rightarrow \\theta =\\frac{\\pi}{4}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59722,
+          "question_text": "If {tex}\\theta {/tex} is the angle between two vectors {tex}\\;\\vec a\\;{/tex} and {tex}\\vec b{/tex} , then {tex}\\vec a.\\vec b \\geq 0{/tex} only when",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}\\theta {/tex}</span> is the angle between two vectors<span class=\"math-tex\">{tex}\\;\\vec a\\;{/tex}</span>and <span class=\"math-tex\">{tex}\\vec b{/tex}</span>, then <span class=\"math-tex\">{tex}\\vec a.\\vec b \\geq 0{/tex}</span> only when</p>",
+          "options": [
+            {
+              "id": 194074,
+              "text": "{tex}0 \\leqslant \\theta \\leqslant \\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}0 \\leqslant \\theta \\leqslant \\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194076,
+              "text": "{tex}0 < \\theta < \\pi {/tex}",
+              "html": "<span class=\"math-tex\">{tex}0 &lt; \\theta &lt; \\pi {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194077,
+              "text": "{tex}0 \\leqslant \\theta \\leqslant \\pi {/tex}",
+              "html": "<span class=\"math-tex\">{tex}0 \\leqslant \\theta \\leqslant \\pi {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194075,
+              "text": "{tex}0 < \\theta < \\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}0 &lt; \\theta &lt; \\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}0 \\leqslant \\theta \\leqslant \\frac{\\pi }{2}{/tex}",
+          "correct_option_ids": [
+            194074
+          ],
+          "explanation": "{tex}\\vec a.\\vec b=|\\vec a||\\vec b|cos\\theta{/tex} , Also, {tex}\\vec a .\\vec b \\geq 0{/tex} {tex}\\Rightarrow |\\vec a||\\vec b|cos\\theta \\Rightarrow cos\\theta\\leq 0\\Rightarrow 0\\leq\\theta\\leq\\frac{\\pi}{2}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59723,
+          "question_text": "Let {tex}\\vec a{/tex} and {tex}\\vec b{/tex} be two unit vectors and &theta; is the angle between them. Then {tex}\\vec a + \\vec b{/tex} is a unit vector if",
+          "question_html": "<p>Let <span class=\"math-tex\">{tex}\\vec a{/tex}</span> and <span class=\"math-tex\">{tex}\\vec b{/tex}</span> be two unit vectors and &theta; is the angle between them. Then <span class=\"math-tex\">{tex}\\vec a + \\vec b{/tex}</span> is a unit vector if</p>",
+          "options": [
+            {
+              "id": 194078,
+              "text": "{tex}\\theta = \\frac{{2\\pi }}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\theta = \\frac{{2\\pi }}{3}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194079,
+              "text": "{tex}\\theta = \\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\theta = \\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194080,
+              "text": "{tex}\\theta = \\frac{\\pi }{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\theta = \\frac{\\pi }{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194081,
+              "text": "{tex}\\theta = \\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\theta = \\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\theta = \\frac{{2\\pi }}{3}{/tex}",
+          "correct_option_ids": [
+            194078
+          ],
+          "explanation": "It is given that {tex}|\\vec a|=|\\vec b|=1{/tex} {tex}\\therefore |\\vec a+\\vec b|^2=(\\vec a+\\vec b).(\\vec a+\\vec b)=|\\vec a|^2+|\\vec b|^2+2\\vec a.\\vec b{/tex} {tex}\\Rightarrow |\\vec a+\\vec b|^2=1+1+2|\\vec a||\\vec b|cos\\theta=2+2cos\\theta{/tex} It is given that {tex}(\\vec a+\\vec b){/tex} is a unit vector. Therefore, 2 + 2 {tex}cos\\theta{/tex} = 1 Therefore, {tex}\\theta=\\frac{2\\pi}{3}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59724,
+          "question_text": "If {tex}\\theta {/tex} is the angle between any two vectors {tex}\\vec a{/tex} and {tex}\\vec b{/tex} , then {tex}\\left| {\\vec a.\\vec b} \\right| = \\left| {\\vec a \\times \\vec b} \\right|{/tex} when &theta; is equal to",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}\\theta {/tex}</span> is the angle between any two vectors <span class=\"math-tex\">{tex}\\vec a{/tex}</span> and <span class=\"math-tex\">{tex}\\vec b{/tex}</span>, then <span class=\"math-tex\">{tex}\\left| {\\vec a.\\vec b} \\right| = \\left| {\\vec a \\times \\vec b} \\right|{/tex}</span> when &theta; is equal to</p>",
+          "options": [
+            {
+              "id": 194082,
+              "text": "{tex}\\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194084,
+              "text": "{tex}\\pi{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194083,
+              "text": "{tex}\\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{\\pi }{4}{/tex}",
+          "correct_option_ids": [
+            194082
+          ],
+          "explanation": "We have: {tex}|\\vec a.\\vec b|=|\\vec a \\times \\vec b|{/tex} {tex}\\Rightarrow |\\vec a||\\vec b|cos\\theta =|\\vec a||\\vec b|sin\\theta{/tex} {tex}\\Rightarrow cos\\theta=\\sin\\theta{/tex} {tex}\\Rightarrow tan\\theta =1\\Rightarrow \\theta=\\frac{\\pi}{4}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59725,
+          "question_text": "Find the area of the triangle with vertices A(1, 1, 2), B(2, 3, 5) and C(1, 5, 5).",
+          "question_html": "<p>Find the area of the triangle with vertices A(1, 1, 2), B(2, 3, 5) and C(1, 5, 5).</p>",
+          "options": [
+            {
+              "id": 194087,
+              "text": "{tex}\\frac{{\\sqrt {65} }}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{\\sqrt {65} }}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194088,
+              "text": "{tex}\\frac{{\\sqrt {65} }}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{\\sqrt {65} }}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194086,
+              "text": "{tex}\\frac{{\\sqrt {61} }}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{\\sqrt {61} }}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194085,
+              "text": "{tex}\\frac{{\\sqrt {61} }}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{\\sqrt {61} }}{2}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{\\sqrt {61} }}{2}{/tex}",
+          "correct_option_ids": [
+            194085
+          ],
+          "explanation": "Given position vector of A , {tex}\\overrightarrow {OA} = \\hat i + \\hat j + 2\\hat k{/tex} position vector of B, {tex}\\overrightarrow {OB} = 2\\hat i + 3\\hat j + 5\\hat k{/tex} and that of C, {tex}\\overrightarrow {OC} = \\hat i + 5\\hat j + 5\\hat k{/tex} therefore, {tex}\\overrightarrow {AB} = \\overrightarrow {OB} - \\overrightarrow {OA} = \\left( {2\\hat i + 3\\hat j + 5\\hat k} \\right) - \\left( {\\hat i + \\hat j + 2\\hat k} \\right) = \\hat i + 2\\hat j + 3\\hat k{/tex} (by triangle law of vector addition) thus we may write {tex}\\vec{AB}=\\hat i +2\\hat j+3\\hat k{/tex} , {tex}\\vec{AC}=4\\hat j+3\\hat k,{/tex} {tex}\\therefore \\overrightarrow{AB}\\times \\overrightarrow{AC}=\\left| {\\begin{array}{*{20}{c}} {\\hat i}&{\\hat j}&{\\hat k} \\\\ 1&2&3 \\\\ 0&4&3 \\end{array}} \\right|=-6\\hat i-3\\hat j+4\\hat k{/tex} {tex}\\Rightarrow |\\overrightarrow{AB}\\times\\vec{AC}|=\\sqrt{61}{/tex} {tex}\\Rightarrow\\frac{1}{2} |\\overrightarrow{AB}\\times\\vec{AC}|=\\frac{1}{2}\\sqrt{61}{/tex} Therefore, the area of triangle ABC is = {tex}{1 \\over 2}\\sqrt {61} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59726,
+          "question_text": "Find the area of the parallelogram whose adjacent sides are determined by the vectors {tex}\\vec{a}=\\hat{i}-\\hat{j}+3 \\hat{k}{/tex} and {tex}\\vec{b}=2 \\hat{i}-7 \\hat{j}+\\hat{k}{/tex} .",
+          "question_html": "<p>Find the area of the parallelogram whose adjacent sides are determined by the vectors&nbsp;<span class=\"math-tex\">{tex}\\vec{a}=\\hat{i}-\\hat{j}+3 \\hat{k}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\vec{b}=2 \\hat{i}-7 \\hat{j}+\\hat{k}{/tex}</span>.</p>",
+          "options": [
+            {
+              "id": 194089,
+              "text": "{tex}15\\sqrt 2 {/tex}",
+              "html": "<span class=\"math-tex\">{tex}15\\sqrt 2 {/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194091,
+              "text": "{tex}11\\sqrt 3 {/tex}",
+              "html": "<span class=\"math-tex\">{tex}11\\sqrt 3 {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194092,
+              "text": "{tex}15\\sqrt 3 {/tex}",
+              "html": "<span class=\"math-tex\">{tex}15\\sqrt 3 {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194090,
+              "text": "{tex}11\\sqrt 2 {/tex}",
+              "html": "<span class=\"math-tex\">{tex}11\\sqrt 2 {/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}15\\sqrt 2 {/tex}",
+          "correct_option_ids": [
+            194089
+          ],
+          "explanation": "It is given that: {tex}\\vec a =\\hat i -\\hat j+3\\hat k{/tex} and {tex}\\vec b=2\\hat i -7\\hat j+\\hat k{/tex} {tex}\\vec { a } \\times \\vec { b } = \\left| \\begin{array} { c c c } { \\hat { i } } & { \\hat { j } } & { \\tilde { k } } \\\\ { 1 } & { - 1 } & { 3 } \\\\ { 2 } & { - 7 } & { 1 } \\end{array} \\right| = 20 \\hat { i } + \\hat { 5 } \\hat { j } - 5 \\hat { k }{/tex} {tex}|\\vec a \\times \\vec b| =\\sqrt{450}=15\\sqrt2{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59727,
+          "question_text": "Area of a rectangle having vertices A, B, C and D with position vectors {tex} - \\hat i + \\frac{1}{2}\\hat j + 4\\hat k{/tex} , {tex}\\hat i + \\frac{1}{2}\\hat j + 4\\hat k{/tex} , {tex}\\hat i - \\frac{1}{2}\\hat j + 4\\hat k{/tex} and {tex}- \\hat i - \\frac{1}{2}\\hat j + 4\\hat k{/tex} , respectively is",
+          "question_html": "<p>Area of a rectangle having vertices A, B, C and D with position vectors <span class=\"math-tex\">{tex} - \\hat i + \\frac{1}{2}\\hat j + 4\\hat k{/tex}</span>, <span class=\"math-tex\">{tex}\\hat i + \\frac{1}{2}\\hat j + 4\\hat k{/tex}</span>,&nbsp;<span class=\"math-tex\">{tex}\\hat i - \\frac{1}{2}\\hat j + 4\\hat k{/tex}</span> and <span class=\"math-tex\">{tex}- \\hat i - \\frac{1}{2}\\hat j + 4\\hat k{/tex}</span>, respectively is</p>",
+          "options": [
+            {
+              "id": 194094,
+              "text": "1/2",
+              "html": "1/2",
+              "is_correct": false
+            },
+            {
+              "id": 194096,
+              "text": "4",
+              "html": "4",
+              "is_correct": false
+            },
+            {
+              "id": 194093,
+              "text": "2",
+              "html": "2",
+              "is_correct": true
+            },
+            {
+              "id": 194095,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "2",
+          "correct_option_ids": [
+            194093
+          ],
+          "explanation": "We have: {tex}​​\\overrightarrow {OA} = - \\hat i + {1 \\over 2}\\hat j + 4\\hat k{/tex} (position vector of A) similarly , {tex}\\overrightarrow {OB} = \\hat i + {1 \\over 2}\\hat j + 4\\hat k{/tex} , {tex}\\overrightarrow {OC} = \\hat i - {1 \\over 2}\\hat j + 4\\hat k{/tex} , {tex}\\overrightarrow {OD} = - \\hat i - {1 \\over 2}\\hat j + 4\\hat k{/tex} : ,where {tex}\\overrightarrow {AB} = \\overrightarrow {OB} - \\overrightarrow {OA} = \\left( {\\hat i + {1 \\over 2}\\hat j + 4\\hat k} \\right) - \\left( { - \\hat i + {1 \\over 2}\\hat j + 4\\hat k} \\right) = 2\\hat i + 0\\hat j + 0\\hat k{/tex} (by triangle law of vector addition),similarly {tex}\\overrightarrow {AD} = 0\\hat i - \\hat j + 0\\hat k{/tex} , Therefore , area of rectangle ABCD is given by {tex}\\left| {\\overrightarrow {AB} X} \\right.\\left. {\\overrightarrow {AD} } \\right|{/tex} ,where {tex}\\overrightarrow {AB} X\\overrightarrow {AD} = {/tex} {tex}\\left| {\\matrix{ {\\hat i} & {\\hat j} & {\\hat k} \\cr 2 & 0 & 0 \\cr 0 & { - 1} & 0 \\cr } } \\right| = \\hat i\\left( {0 - 0} \\right) - \\hat j\\left( {0 - 0} \\right) + \\hat k\\left( { - 2 - 0} \\right){/tex} = {tex} - 2\\hat k{/tex} , {tex}\\left| {\\overrightarrow {AB} X} \\right.\\left. {\\overrightarrow {AD} } \\right|{/tex} = {tex}\\sqrt {{0^2} + {0^2} + {{\\left( { - 2} \\right)}^2}} = {/tex} 2 sq. units.",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59728,
+          "question_text": "A girl walks 4 km towards west, then she walks 3 km in a direction 30&deg; east of north and stops. Determine the girl&rsquo;s displacement from her initial point of departure.",
+          "question_html": "<p>A girl walks 4 km towards west, then she walks 3 km in a direction 30&deg; east of north and stops. Determine the girl&rsquo;s displacement from her initial point of departure.</p>\r\n",
+          "options": [
+            {
+              "id": 194099,
+              "text": "{tex}\\frac{5}{2}\\hat i + \\frac{{3\\sqrt 3 }}{2}\\hat j{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{5}{2}\\hat i + \\frac{{3\\sqrt 3 }}{2}\\hat j{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194100,
+              "text": "{tex}\\frac{5}{2}\\hat i - \\frac{{3\\sqrt 3 }}{2}\\hat j{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{5}{2}\\hat i - \\frac{{3\\sqrt 3 }}{2}\\hat j{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194098,
+              "text": "{tex}\\frac{{ - 5}}{2}\\hat i - \\frac{{3\\sqrt 3 }}{2}\\hat j{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{ - 5}}{2}\\hat i - \\frac{{3\\sqrt 3 }}{2}\\hat j{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194097,
+              "text": "{tex}\\frac{{ - 5}}{2}\\hat i + \\frac{{3\\sqrt 3 }}{2}\\hat j{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{ - 5}}{2}\\hat i + \\frac{{3\\sqrt 3 }}{2}\\hat j{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{ - 5}}{2}\\hat i + \\frac{{3\\sqrt 3 }}{2}\\hat j{/tex}",
+          "correct_option_ids": [
+            194097
+          ],
+          "explanation": "Let {tex}\\overrightarrow r = - x\\widehat i + y\\widehat j{/tex} , {tex}x = \\frac{5}{2},y = \\frac{{3\\sqrt 3 }}{2}{/tex} {tex}\\therefore \\overrightarrow r = \\frac{{ - 5}}{2}\\widehat i + \\frac{{3\\sqrt 3 }}{2}\\widehat j{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59729,
+          "question_text": "The two adjacent sides of a parallelogram are {tex}2\\hat i - 4\\hat j + 5\\hat k\\;{/tex} and {tex}\\hat i - 2\\hat j - 3\\hat k{/tex} . Find the unit vector parallel to its diagonal. Also, find its area.",
+          "question_html": "<p>The two adjacent sides of a parallelogram are <span class=\"math-tex\">{tex}2\\hat i - 4\\hat j + 5\\hat k\\;{/tex}</span> and <span class=\"math-tex\">{tex}\\hat i - 2\\hat j - 3\\hat k{/tex}</span>. Find the unit vector parallel to its diagonal. Also, find its area.</p>",
+          "options": [
+            {
+              "id": 194104,
+              "text": "{tex}\\frac{1}{7}\\left( {3\\hat i - 6\\hat j - 7\\hat k} \\right);15\\sqrt 5 {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{7}\\left( {3\\hat i - 6\\hat j - 7\\hat k} \\right);15\\sqrt 5 {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194103,
+              "text": "{tex}\\;\\frac{1}{7}\\left( { - 3\\hat i - 6\\hat j + 2\\hat k} \\right);13\\sqrt 5 {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\;\\frac{1}{7}\\left( { - 3\\hat i - 6\\hat j + 2\\hat k} \\right);13\\sqrt 5 {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194101,
+              "text": "{tex}\\frac{1}{7}\\left( {3\\hat i - 6\\hat j + 2\\hat k} \\right);11\\sqrt 5 {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{7}\\left( {3\\hat i - 6\\hat j + 2\\hat k} \\right);11\\sqrt 5 {/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194102,
+              "text": "{tex}\\frac{1}{7}\\left( {3\\hat i - 6\\hat j - 2\\hat k} \\right);12\\sqrt 5 {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{7}\\left( {3\\hat i - 6\\hat j - 2\\hat k} \\right);12\\sqrt 5 {/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{7}\\left( {3\\hat i - 6\\hat j + 2\\hat k} \\right);11\\sqrt 5 {/tex}",
+          "correct_option_ids": [
+            194101
+          ],
+          "explanation": "We have, Diagonal AC as, {tex}\\vec{AC}=(\\hat i - 2\\hat j -3\\hat k )+(2\\hat i-4\\hat j +5\\hat k)=3\\hat i-6\\hat j+2\\hat k{/tex} {tex}\\Rightarrow |\\vec{AC}|=\\sqrt{(3)^2+(-6)^2+(2)^2}=\\sqrt{49}=7{/tex} A unit vector parallel to {tex}\\vec AC{/tex} is given by: {tex}\\frac{\\vec{AC}}{|\\vec {AC}|}=\\frac{3\\hat i -6\\hat j+2\\hat k}{7}= \\frac{3}{7}\\hat i-\\frac{6}{7}\\hat j+\\frac{2}{7}\\hat k{/tex} Also, area of parallelogram {tex}\\Rightarrow |\\vec{AB}\\times\\vec{AD}|{/tex} {tex} = \\left| {\\begin{array}{*{20}{c}} {\\hat i}&{\\hat j}&{\\hat k} \\\\ 2&{ - 4}&5 \\\\ 1&{ - 2}&{ - 3} \\end{array}} \\right|{/tex} = {tex}|22\\hat i +11 \\hat j|{/tex} {tex}=\\sqrt{22^2+11^2}=\\sqrt{605}=11\\sqrt5{/tex}",
+          "solution": ""
+        }
+      ]
+    }
+  ],
+  "totalQuestions": 75
+}

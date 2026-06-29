@@ -1,0 +1,2897 @@
+{
+  "chapter": "Determinants",
+  "chapter_id": 1288,
+  "tests": [
+    {
+      "test_id": 3603,
+      "test_name": "Determinants Test-01",
+      "is_paid": false,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59206,
+          "question_text": "Let A = {tex}\\left[ {\\begin{array}{*{20}{c}} 1&{a(b + c)}&{bc} \\\\ 1&{b(c + a)}&{ca} \\\\ 1&{c(a + b)}&{ab} \\end{array}} \\right] {/tex} , then Det. A is",
+          "question_html": "<p>Let A =<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 1&amp;{a(b + c)}&amp;{bc} \\\\ 1&amp;{b(c + a)}&amp;{ca} \\\\ 1&amp;{c(a + b)}&amp;{ab} \\end{array}} \\right] {/tex}</span>, then Det. A is</p>",
+          "options": [
+            {
+              "id": 192011,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            },
+            {
+              "id": 192012,
+              "text": "ab +bc+ca",
+              "html": "ab +bc+ca",
+              "is_correct": false
+            },
+            {
+              "id": 192014,
+              "text": "ab+bc+ca - 1",
+              "html": "ab+bc+ca - 1",
+              "is_correct": false
+            },
+            {
+              "id": 192013,
+              "text": "1+ab+bc+ca",
+              "html": "1+ab+bc+ca",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            192011
+          ],
+          "explanation": "{tex}\\left[ {\\begin{array}{*{20}{c}} 1&{a(b + c)}&{bc} \\\\ 1&{b(c + a)}&{ca} \\\\ 1&{c(a + b)}&{ab} \\end{array}} \\right] \\Rightarrow {/tex} det.A = {tex}\\left| {\\begin{array}{*{20}{c}} 1&{a(b + c)}&{bc} \\\\ 1&{b(c + a)}&{ca} \\\\ 1&{c(a + b)}&{ab} \\end{array}} \\right|{/tex} Apply C 2 {tex}\\rightarrow {/tex} C 2 + C 3 {tex}\\Rightarrow {/tex} det.A = {tex}\\left| {\\begin{array}{*{20}{c}} 1&{ab + ac + bc}&{bc} \\\\ 1&{bc + ca + ab}&{ca} \\\\ 1&{ca + bc + ab}&{ab} \\end{array}} \\right|{/tex} {tex} \\Rightarrow (ab + bc + ca)\\left| {\\begin{array}{*{20}{c}} 1&1&{bc} \\\\ 1&1&{ca} \\\\ 1&1&{ab} \\end{array}} \\right|{/tex} = 0",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59207,
+          "question_text": "{tex}\\left| {\\begin{array}{*{20}{c}} 1&1&1 \\\\ e&0&{\\sqrt 2 } \\\\ 2&2&2 \\end{array}} \\right| {/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} 1&amp;1&amp;1 \\\\ e&amp;0&amp;{\\sqrt 2 } \\\\ 2&amp;2&amp;2 \\end{array}} \\right| {/tex}</span>is equal to</p>",
+          "options": [
+            {
+              "id": 192017,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 192016,
+              "text": "3e",
+              "html": "3e",
+              "is_correct": false
+            },
+            {
+              "id": 192018,
+              "text": "2e",
+              "html": "2e",
+              "is_correct": false
+            },
+            {
+              "id": 192015,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            192015
+          ],
+          "explanation": "{tex}\\left| {\\begin{array}{*{20}{c}} 1&1&1 \\\\ e&0&{\\sqrt 2 } \\\\ 2&2&2 \\end{array}} \\right| = 2\\left| {\\begin{array}{*{20}{c}} 1&1&1 \\\\ e&0&{\\sqrt 2 } \\\\ 1&1&1 \\end{array}} \\right| = 0{/tex} , because, row 1 and row 3 are identical. Therefore determinant will be zero.",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59208,
+          "question_text": "If A, B be two square matrices such that |AB|=O, then",
+          "question_html": "<p>If A, B be two square matrices such that |AB|=O, then</p>",
+          "options": [
+            {
+              "id": 192021,
+              "text": "BA",
+              "html": "BA",
+              "is_correct": false
+            },
+            {
+              "id": 192022,
+              "text": "Det.=A =0",
+              "html": "Det.=A =0",
+              "is_correct": false
+            },
+            {
+              "id": 192019,
+              "text": "Det. A=0 or Det. B =0 or both A and B =0",
+              "html": "Det. A=0 or Det. B =0 or both&nbsp;A and B =0",
+              "is_correct": true
+            },
+            {
+              "id": 192020,
+              "text": "Det.B=0",
+              "html": "Det.B=0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Det. A=0 or Det. B =0 or both A and B =0",
+          "correct_option_ids": [
+            192019
+          ],
+          "explanation": "If A B be two square matrices such that AB=O, then, |AB| = O {tex}\\Rightarrow{/tex} |A||B| = O {tex}\\Rightarrow {/tex} either |A| = 0 or |B| = 0",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59209,
+          "question_text": "A square matrix A is invertible if det A is equal to",
+          "question_html": "<p>A square matrix A is invertible if&nbsp;det A is equal to</p>",
+          "options": [
+            {
+              "id": 192025,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192024,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 192023,
+              "text": "non zero",
+              "html": "non zero",
+              "is_correct": true
+            },
+            {
+              "id": 192026,
+              "text": "&ndash;1",
+              "html": "&ndash;1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "non zero",
+          "correct_option_ids": [
+            192023
+          ],
+          "explanation": "Only non-singular matrices possess inverse.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59210,
+          "question_text": "If A and B are square matrices of order 3, then",
+          "question_html": "<p>If A and B are square matrices of order 3, then</p>",
+          "options": [
+            {
+              "id": 192028,
+              "text": "adj(AB) = adj A adj B",
+              "html": "adj(AB) = adj A adj B",
+              "is_correct": false
+            },
+            {
+              "id": 192027,
+              "text": "|B| = 0 AB = O {tex}\\left| B \\right| = 0{/tex} {tex}\\Rightarrow {/tex} |A| = 0",
+              "html": "|B| = 0 AB = O&nbsp;<span class=\"math-tex\">{tex}\\left| B \\right| = 0{/tex}</span><span class=\"math-tex\">{tex}\\Rightarrow {/tex}</span>&nbsp;|A| = 0",
+              "is_correct": true
+            },
+            {
+              "id": 192030,
+              "text": "adj(AB) {tex}\\ne{/tex} adj A adj B",
+              "html": "adj(AB) <span class=\"math-tex\">{tex}\\ne{/tex}</span>&nbsp;adj A adj B",
+              "is_correct": false
+            },
+            {
+              "id": 192029,
+              "text": "AB = O {tex}\\Rightarrow {/tex} |A| = 0 and |B| = 0",
+              "html": "AB = O&nbsp;<span class=\"math-tex\">{tex}\\Rightarrow {/tex}</span>&nbsp;|A| = 0 and |B| = 0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "|B| = 0 AB = O {tex}\\left| B \\right| = 0{/tex} {tex}\\Rightarrow {/tex} |A| = 0",
+          "correct_option_ids": [
+            192027
+          ],
+          "explanation": "If A B be two square matrices of order 3 and if |B|=0, AB=0 then this is possible only if |A| may be zero",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59211,
+          "question_text": "The value of the determinant {tex}\\left| {\\begin{array}{*{20}{c}} 1&x&{{x^3}} \\\\ 1&y&{{y^3}} \\\\ 1&z&{{z^3}} \\end{array}} \\right|{/tex} is",
+          "question_html": "<p>The value of the determinant <span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} 1&amp;x&amp;{{x^3}} \\\\ 1&amp;y&amp;{{y^3}} \\\\ 1&amp;z&amp;{{z^3}} \\end{array}} \\right|{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 192032,
+              "text": "2(x &ndash; y)(y &ndash; z)(z &ndash; x)",
+              "html": "2(x &ndash; y)(y &ndash; z)(z &ndash; x)",
+              "is_correct": false
+            },
+            {
+              "id": 192033,
+              "text": "(x &ndash; y)(y &ndash; z)(z &ndash; x)",
+              "html": "(x &ndash; y)(y &ndash; z)(z &ndash; x)",
+              "is_correct": false
+            },
+            {
+              "id": 192031,
+              "text": "(x&ndash;y)(y&ndash;z)(z&ndash;x)(x+y+z)",
+              "html": "(x&ndash;y)(y&ndash;z)(z&ndash;x)(x+y+z)",
+              "is_correct": true
+            },
+            {
+              "id": 192034,
+              "text": "4(x &ndash; y)(y &ndash; z)(z &ndash; x)",
+              "html": "4(x &ndash; y)(y &ndash; z)(z &ndash; x)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "(x&ndash;y)(y&ndash;z)(z&ndash;x)(x+y+z)",
+          "correct_option_ids": [
+            192031
+          ],
+          "explanation": "{tex}\\left| {\\begin{array}{*{20}{c}} 1&x&{{x^3}} \\\\ 1&y&{{y^3}} \\\\ 1&z&{{z^3}} \\end{array}} \\right|{/tex} Apply, R 1 {tex}\\rightarrow{/tex} R 1 - R 2 , R 2 {tex}\\rightarrow{/tex} R 2 - R 3 {tex}\\left| {\\begin{array}{*{20}{c}} 0&{x - y}&{{x^3} - {y^3}} \\\\ 0&{y - z}&{{y^3} - {z^3}} \\\\ 1&z&{{z^3}} \\end{array}} \\right|{/tex} {tex}\\Rightarrow{/tex} (x-y)(y-z) {tex}\\left| {\\begin{array}{*{20}{c}} 0&1&{{x^2} + {y^2} + xy} \\\\ 0&1&{{y^2} + {z^2} + yz} \\\\ 1&z&{{z^3}} \\end{array}} \\right|{/tex} = (x - y)(y - z)(y 2 + z 2 + yz - x 2 - y 2 - xy) = (x - y)(y - z)(z - x)(x + y + z)",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59212,
+          "question_text": "One root of the equation {tex}\\left| {\\begin{array}{*{20}{c}} {3x - 8}&3&3 \\\\ 3&{3x - 8}&3 \\\\ 3&3&{3x - 8} \\end{array}} \\right|{/tex} = 0 is",
+          "question_html": "<p>One root of the equation <span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} {3x - 8}&amp;3&amp;3 \\\\ 3&amp;{3x - 8}&amp;3 \\\\ 3&amp;3&amp;{3x - 8} \\end{array}} \\right|{/tex}</span> = 0 is</p>",
+          "options": [
+            {
+              "id": 192036,
+              "text": "{tex}\\frac{1}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192038,
+              "text": "{tex}\\frac{4}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{4}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192037,
+              "text": "8",
+              "html": "8",
+              "is_correct": false
+            },
+            {
+              "id": 192035,
+              "text": "{tex}\\frac{2}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{3}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{2}{3}{/tex}",
+          "correct_option_ids": [
+            192035
+          ],
+          "explanation": "{tex}\\left| {\\begin{array}{*{20}{c}} {3x - 8}&3&3 \\\\ 3&{3x - 8}&3 \\\\ 3&3&{3x - 8} \\end{array}} \\right| = 0{/tex} Apply, R 1 {tex}\\rightarrow {/tex} R 1 + R 2 + R 3 , {tex}\\left| {\\begin{array}{*{20}{c}} {3x - 2}&{3x - 2}&{3x - 2} \\\\ 3&{3x - 8}&3 \\\\ 3&3&{3x - 8} \\end{array}} \\right| = 0{/tex} {tex}\\Rightarrow {/tex} {tex}(3x - 2)\\left| {\\begin{array}{*{20}{c}} 1&1&1 \\\\ 3&{3x - 8}&3 \\\\ 3&3&{3x - 8} \\end{array}} \\right| = 0{/tex} {tex}\\Rightarrow {/tex} either( 3x - 2) = 0 OR {tex}\\left| {\\begin{array}{*{20}{c}} 1&1&1 \\\\ 3&{3x - 8}&3 \\\\ 3&3&{3x - 8} \\end{array}} \\right| = 0{/tex} {tex}\\Rightarrow {/tex} x = {tex}\\frac{2}{3}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59213,
+          "question_text": "{tex}\\begin{gathered} A = \\left| {\\begin{array}{*{20}{c}} {\\frac{1}{a}}&{{a^2}}&{bc} \\\\ {\\frac{1}{b}}&{{b^2}}&{ac} \\\\ {\\frac{1}{c}}&{{c^2}}&{ab} \\end{array}} \\right| \\\\ \\\\ \\end{gathered} {/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\begin{gathered} A = \\left| {\\begin{array}{*{20}{c}} {\\frac{1}{a}}&amp;{{a^2}}&amp;{bc} \\\\ {\\frac{1}{b}}&amp;{{b^2}}&amp;{ac} \\\\ {\\frac{1}{c}}&amp;{{c^2}}&amp;{ab} \\end{array}} \\right| \\\\ \\\\ \\end{gathered} {/tex}</span>is equal to</p>",
+          "options": [
+            {
+              "id": 192040,
+              "text": "&ndash;1",
+              "html": "&ndash;1",
+              "is_correct": false
+            },
+            {
+              "id": 192042,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 192041,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192039,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            192039
+          ],
+          "explanation": "{tex} \\left| {\\matrix{ {{1 \\over a}} & {{a^2}} & {bc} \\cr {{1 \\over b}} & {{b^2}} & {ac} \\cr {{1 \\over c}} & {{c^2}} & {ab} \\cr } } \\right|{/tex} Apply, R 1 {tex}\\rightarrow {/tex} aR 1 , R 2 {tex}\\rightarrow {/tex} bR, R 3 {tex}\\rightarrow {/tex} cR 3 {tex} \\Rightarrow \\left| {\\matrix{ 1 & {{a^3}} & {abc} \\cr 1 & {{b^3}} & {abc} \\cr 1 & {{c^3}} & {abc} \\cr } } \\right| {/tex} {tex} \\Rightarrow abc\\left| {\\matrix{ 1 & {{a^3}} & 1 \\cr 1 & {{b^3}} & 1 \\cr 1 & {{c^3}} & 1 \\cr } } \\right|{/tex} C 1 and C 3 identical {tex}\\Rightarrow 0{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59214,
+          "question_text": "If A ,B and C be the three square matrices such that A = B + C, then Det A is equal to",
+          "question_html": "<p>If A ,B and C be the three square matrices such that A = B + C, then Det A is equal to</p>",
+          "options": [
+            {
+              "id": 192043,
+              "text": "None of these",
+              "html": "None of these",
+              "is_correct": true
+            },
+            {
+              "id": 192044,
+              "text": "det B",
+              "html": "det B",
+              "is_correct": false
+            },
+            {
+              "id": 192045,
+              "text": "det B + detC",
+              "html": "det B + detC",
+              "is_correct": false
+            },
+            {
+              "id": 192046,
+              "text": "det C",
+              "html": "det C",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "None of these",
+          "correct_option_ids": [
+            192043
+          ],
+          "explanation": "Because, if A=B+C then |A| = |B+C|",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59215,
+          "question_text": "If {tex}\\omega{/tex} a non-real cube root of unity and n is not a multiple of 3, then {tex}\\Delta{/tex} = {tex}\\left|\\begin{array}{ccc} 1 & \\omega^{n} & \\omega^{2 n} \\\\ \\omega^{2 n} & 1 & \\omega^{n} \\\\ \\omega^{n} & \\omega^{2 n} & 1 \\end{array}\\right|{/tex} is equal to",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}\\omega{/tex}</span>&nbsp;a non-real cube root of unity and n is not a multiple of 3, then&nbsp;<span class=\"math-tex\">{tex}\\Delta{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\left|\\begin{array}{ccc} 1 &amp; \\omega^{n} &amp; \\omega^{2 n} \\\\ \\omega^{2 n} &amp; 1 &amp; \\omega^{n} \\\\ \\omega^{n} &amp; \\omega^{2 n} &amp; 1 \\end{array}\\right|{/tex}</span>&nbsp;is equal to</p>",
+          "options": [
+            {
+              "id": 192048,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192049,
+              "text": "&ndash;1",
+              "html": "&ndash;1",
+              "is_correct": false
+            },
+            {
+              "id": 192047,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            },
+            {
+              "id": 192050,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            192047
+          ],
+          "explanation": ". {tex}\\left| {\\matrix{ 1 & {{\\omega ^n}} & {{\\omega ^{2n}}} \\cr {{\\omega ^{2n}}} & 1 & {{\\omega ^n}} \\cr {{\\omega ^n}} & {{\\omega ^{2n}}} & 1 \\cr } } \\right|{/tex} {tex}Apply,{R_1} \\to {\\omega ^n}{R_1}{/tex} {tex}{1 \\over {{\\omega ^n}}}\\left| {\\matrix{ {{\\omega ^n}} & {{\\omega ^{2n}}} & {{\\omega ^{3n}}} \\cr {{\\omega ^{2n}}} & 1 & {{\\omega ^n}} \\cr {{\\omega ^n}} & {{\\omega ^{2n}}} & 1 \\cr } } \\right|{/tex} (multiply and divide by {tex}{{\\omega ^n}}{/tex} ) and {tex}{{\\omega ^{3n}}}{/tex} = 1 and taking {tex}{{\\omega ^n}}{/tex} common from C 1 {tex}{{{\\omega ^n}} \\over {{\\omega ^n}}}\\left| {\\matrix{ 1 & {{\\omega ^{2n}}} & 1 \\cr {{\\omega ^n}} & 1 & {{\\omega ^n}} \\cr 1 & {{\\omega ^{2n}}} & 1 \\cr } } \\right|{/tex} Since C 1 and C 3 are identical So value is equal to 0",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59216,
+          "question_text": "If {tex}\\omega {/tex} is non real cube root of unity, then {tex}\\left| {\\begin{array}{*{20}{c}} 2&{2\\omega }&{ - {\\omega ^2}} \\\\ 1&1&1 \\\\ 1&{ - 1}&0 \\end{array}} \\right|{/tex} is equal to",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}\\omega {/tex}</span>&nbsp;is non real cube root of unity, then<span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} 2&amp;{2\\omega }&amp;{ - {\\omega ^2}} \\\\ 1&amp;1&amp;1 \\\\ 1&amp;{ - 1}&amp;0 \\end{array}} \\right|{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192052,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192053,
+              "text": "&ndash;1",
+              "html": "&ndash;1",
+              "is_correct": false
+            },
+            {
+              "id": 192054,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 192051,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            192051
+          ],
+          "explanation": "Expanding along R 3 {tex} = 1(2\\omega + {\\omega ^2}) + 1(2 + {\\omega ^2}) = (2 + 2\\omega + 2{\\omega ^2} = 2(1 + \\omega + {\\omega ^2}) = 2(0) = 0 {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59217,
+          "question_text": "{tex}\\left| {\\begin{array}{*{20}{c}} {1 + a}&b&c \\\\ a&{1 + b}&c \\\\\\ a&b&{1 + c} \\end{array}} \\right|{/tex} =",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} {1 + a}&amp;b&amp;c \\\\ a&amp;{1 + b}&amp;c \\\\\\ a&amp;b&amp;{1 + c} \\end{array}} \\right|{/tex}</span> =</p>",
+          "options": [
+            {
+              "id": 192058,
+              "text": "a - b - c",
+              "html": "a -&nbsp;b -&nbsp;c",
+              "is_correct": false
+            },
+            {
+              "id": 192057,
+              "text": "a + b + c",
+              "html": "a + b + c",
+              "is_correct": false
+            },
+            {
+              "id": 192056,
+              "text": "abc",
+              "html": "abc",
+              "is_correct": false
+            },
+            {
+              "id": 192055,
+              "text": "1+a+b+c",
+              "html": "1+a+b+c",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "1+a+b+c",
+          "correct_option_ids": [
+            192055
+          ],
+          "explanation": "{tex} \\left| {\\matrix{ {1 + a} & b & c \\cr a & {1 + b} & c \\cr a & b & {1 + c} \\cr } } \\right|{/tex} Apply, C 1 {tex}\\rightarrow{/tex} C 1 + C 2 + C 3 {tex} \\Rightarrow \\left| {\\matrix{ {1 + a + b + c} & b & c \\cr {1 + a + b + c} & {1 + b} & c \\cr {1 + a + b + c} & b & {1 + c} \\cr } } \\right| {/tex} {tex} \\Rightarrow (1 + a + b + c)\\left| {\\matrix{ 1 & b & c \\cr 1 & {1 + b} & c \\cr 1 & b & {1 + c} \\cr } } \\right|{/tex} Apply R 1 {tex}\\rightarrow{/tex} R 1 - R 2 {tex} \\Rightarrow (1 + a + b + c)\\left| {\\matrix{ 0 & { - 1} & 0 \\cr 1 & {1 + b} & c \\cr 1 & b & {1 + c} \\cr } } \\right|{/tex} now expanding along R 1 {tex}\\Rightarrow{/tex} ( 1 + a + b + c)(1(1 + c - c)) = 1 + a + b + c",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59218,
+          "question_text": "The determinant {tex}\\left| {\\begin{array}{*{20}{c}} a&{bc}&{a(b + c)} \\\\ b&{ac}&{b(c + a)} \\\\ c&{ab}&{c(a + b)} \\end{array}} \\right|{/tex} =",
+          "question_html": "<p>The determinant <span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} a&amp;{bc}&amp;{a(b + c)} \\\\ b&amp;{ac}&amp;{b(c + a)} \\\\ c&amp;{ab}&amp;{c(a + b)} \\end{array}} \\right|{/tex}</span> =</p>",
+          "options": [
+            {
+              "id": 192059,
+              "text": "(ab + bc + ca ) (a&ndash;b) (b&ndash;c) (c&ndash;a)",
+              "html": "(ab + bc + ca ) (a&ndash;b) (b&ndash;c) (c&ndash;a)",
+              "is_correct": true
+            },
+            {
+              "id": 192061,
+              "text": "abc (a&ndash;b) (b&ndash;c) (c&ndash;a)",
+              "html": "abc (a&ndash;b) (b&ndash;c) (c&ndash;a)",
+              "is_correct": false
+            },
+            {
+              "id": 192062,
+              "text": "abc (a+b) (b+c) (c+a)",
+              "html": "abc (a+b) (b+c) (c+a)",
+              "is_correct": false
+            },
+            {
+              "id": 192060,
+              "text": "abc(ab + bc + ca)",
+              "html": "abc(ab + bc + ca)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "(ab + bc + ca ) (a&ndash;b) (b&ndash;c) (c&ndash;a)",
+          "correct_option_ids": [
+            192059
+          ],
+          "explanation": "{tex}\\left| {\\begin{array}{*{20}{c}} a&{bc}&{a(b + c)} \\\\ b&{ac}&{b(c + a)} \\\\ c&{ab}&{c(a + b)} \\end{array}} \\right| \\Rightarrow \\left| {\\begin{array}{*{20}{c}} a&{bc}&{ab + ac} \\\\ b&{ac}&{bc + ab} \\\\ c&{ab}&{ca + bc} \\end{array}} \\right|{/tex} Apply, C 3 {tex}\\rightarrow{/tex} C 3 + C 2 , {tex}\\left| {\\begin{array}{*{20}{c}} a&{bc}&{ab + bc + ac} \\\\ b&{ac}&{bc + ab + ca} \\\\ c&{ab}&{ca + bc + ab} \\end{array}} \\right|{/tex} {tex} \\Rightarrow (ab + bc + ca)\\left| {\\begin{array}{*{20}{c}} a&{bc}&1 \\\\ b&{ac}&1 \\\\ c&{ab}&1 \\end{array}} \\right|,{/tex} Apply, R 1 {tex}\\to{/tex} R 1 - R 2 , R 2 {tex}\\to{/tex} R 2 - R 3 {tex}( a b + b c + c a ) \\left| \\begin{array} { c c c } { a - b } & { - c ( a - b ) } & { 0 } \\\\ { b - c } & { - a ( b - c ) } & { 0 } \\\\ { c } & { a b } & { 1 } \\end{array} \\right|{/tex} {tex}( a - b ) ( b - c ) ( a b + b c + c a ) \\left| \\begin{array} { c c c } { 1 } & { - c } & { 0 } \\\\ { 1 } & { - a } & { 0 } \\\\ { c } & { a b } & { 1 } \\end{array} \\right|{/tex} expanding along C 3 {tex} \\Rightarrow (a - b)(b - c)(ab + bc + ca)( - a + c) {/tex} {tex}\\Rightarrow (a - b)(b - c)(c - a)(ab + bc + ca) {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59219,
+          "question_text": "The value of the determinant {tex}\\left| {\\begin{array}{*{20}{c}} 1&0&0 \\\\ 2&{\\cos x}&{\\sin x} \\\\ 3&{\\sin x}&{\\cos x} \\end{array}} \\right|{/tex} is",
+          "question_html": "<p>The value of the determinant <span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} 1&amp;0&amp;0 \\\\ 2&amp;{\\cos x}&amp;{\\sin x} \\\\ 3&amp;{\\sin x}&amp;{\\cos x} \\end{array}} \\right|{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 192064,
+              "text": "sin2x",
+              "html": "sin2x",
+              "is_correct": false
+            },
+            {
+              "id": 192063,
+              "text": "cos2x",
+              "html": "cos2x",
+              "is_correct": true
+            },
+            {
+              "id": 192066,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192065,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "cos2x",
+          "correct_option_ids": [
+            192063
+          ],
+          "explanation": "expanding along R 1 1(cos 2 x - sin 2 x ) = cos2x",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59220,
+          "question_text": "If A = {tex}\\left[ {\\begin{array}{*{20}{c}} 1&0&0 \\\\ 2&{\\cos x}&{\\sin x} \\\\ 3&{\\sin x}&{ - \\cos x} \\end{array}} \\right]{/tex} , then det. A is equal to",
+          "question_html": "<p>If A = <span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 1&amp;0&amp;0 \\\\ 2&amp;{\\cos x}&amp;{\\sin x} \\\\ 3&amp;{\\sin x}&amp;{ - \\cos x} \\end{array}} \\right]{/tex}</span>, then det. A is equal to</p>",
+          "options": [
+            {
+              "id": 192067,
+              "text": "&ndash;1",
+              "html": "&ndash;1",
+              "is_correct": true
+            },
+            {
+              "id": 192070,
+              "text": "sin2x",
+              "html": "sin2x",
+              "is_correct": false
+            },
+            {
+              "id": 192068,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192069,
+              "text": "cos2x",
+              "html": "cos2x",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "&ndash;1",
+          "correct_option_ids": [
+            192067
+          ],
+          "explanation": "{tex}\\det (A) = \\left| {\\matrix{ 1 & 0 & 0 \\cr 2 & {\\cos \\theta } & {\\sin \\theta } \\cr 3 & {\\sin \\theta } & { - \\cos \\theta } \\cr } } \\right|{/tex} Expanding along R 1 {tex} 1( - {\\cos ^2}\\theta - {\\sin ^2}\\theta ) - 1({\\cos ^2}\\theta + {\\sin ^2}\\theta ) = - 1 {/tex}",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3604,
+      "test_name": "Determinants Test-02",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59221,
+          "question_text": "The value of the determinant {tex}\\left| {\\begin{array}{*{20}{c}} 1&a&{b + c} \\\\ 1&b&{c + a} \\\\ 1&c&{a + b} \\end{array}} \\right|{/tex} is",
+          "question_html": "<p>The value of the determinant <span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} 1&amp;a&amp;{b + c} \\\\ 1&amp;b&amp;{c + a} \\\\ 1&amp;c&amp;{a + b} \\end{array}} \\right|{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 192071,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            },
+            {
+              "id": 192073,
+              "text": "1 + a + b + c",
+              "html": "1 + a + b + c",
+              "is_correct": false
+            },
+            {
+              "id": 192072,
+              "text": "a + b + c",
+              "html": "a&nbsp;+ b + c",
+              "is_correct": false
+            },
+            {
+              "id": 192074,
+              "text": "a + b + c - 1",
+              "html": "a + b + c - 1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            192071
+          ],
+          "explanation": "{tex}\\left| {\\begin{array}{*{20}{c}} 1&a&{b + c} \\\\ 1&b&{c + a} \\\\ 1&c&{a + b} \\end{array}} \\right|{/tex} Apply, C 2 {tex}\\rightarrow{/tex} C 2 + C 3 , {tex}\\left| {\\begin{array}{*{20}{c}} 1&{a + b + c}&{b + c} \\\\ 1&{a + b + c}&{c + a} \\\\ 1&{a + b + c}&{a + b} \\end{array}} \\right|{/tex} {tex}\\Rightarrow{/tex} (a + b + c) {tex}\\left| {\\begin{array}{*{20}{c}} 1&1&{b + c} \\\\ 1&1&{c + a} \\\\ 1&1&{a + b} \\end{array}} \\right|{/tex} = 0 (C 1 = C 2 ) Since, C 1 and C 2 are identical =(a+b+c) {tex}\\times{/tex} 0 = 0",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59222,
+          "question_text": "If {tex}\\left| {\\begin{array}{*{20}{c}} 1&3&9 \\\\ 1&x&{{x^2}} \\\\ 4&{16}&{64} \\end{array}} \\right| = 0{/tex} {tex} \\Rightarrow {/tex} , then",
+          "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} 1&amp;3&amp;9 \\\\ 1&amp;x&amp;{{x^2}} \\\\ 4&amp;{16}&amp;{64} \\end{array}} \\right| = 0{/tex}</span><span class=\"math-tex\">{tex} \\Rightarrow {/tex}</span>, then</p>",
+          "options": [
+            {
+              "id": 192076,
+              "text": "x = 2",
+              "html": "x = 2",
+              "is_correct": false
+            },
+            {
+              "id": 192077,
+              "text": "x = 2 or 6",
+              "html": "x = 2 or 6",
+              "is_correct": false
+            },
+            {
+              "id": 192078,
+              "text": "x = 6",
+              "html": "x =&nbsp;6",
+              "is_correct": false
+            },
+            {
+              "id": 192075,
+              "text": "x = 4 or 3",
+              "html": "x = 4 or 3",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "x = 4 or 3",
+          "correct_option_ids": [
+            192075
+          ],
+          "explanation": "{tex}\\left| {\\begin{array}{*{20}{c}} 1&3&9 \\\\ 1&x&{{x^2}} \\\\ 4&{16}&{64} \\end{array}} \\right| = 0{/tex} {tex} \\Rightarrow {/tex} because, the value of the determinant is zero only when the two of its rows or column are identical, which is possible only when either x = 3 or x = 4 .",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59223,
+          "question_text": "{tex}\\left| {\\begin{array}{*{20}{c}} 1&1&1 \\\\ 4&3&2 \\\\ {{4^2}}&{{3^2}}&{{2^2}} \\end{array}} \\right|{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} 1&amp;1&amp;1 \\\\ 4&amp;3&amp;2 \\\\ {{4^2}}&amp;{{3^2}}&amp;{{2^2}} \\end{array}} \\right|{/tex}</span>is equal to</p>",
+          "options": [
+            {
+              "id": 192082,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 192081,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192080,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 192079,
+              "text": "-2",
+              "html": "-2",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "-2",
+          "correct_option_ids": [
+            192079
+          ],
+          "explanation": "{tex}\\left| {\\begin{array}{*{20}{c}} 1&1&1 \\\\ 4&3&2 \\\\ {{4^2}}&{{3^2}}&{{2^2}} \\end{array}} \\right| \\Rightarrow \\left| {\\begin{array}{*{20}{c}} 1&1&1 \\\\ 4&3&2 \\\\ {16}&9&4 \\end{array}} \\right|{/tex} Apply, C 1 {tex}\\rightarrow{/tex} C 1 - C 3, C 2 {tex}\\rightarrow{/tex} C 2 - C 3 {tex}\\left| {\\begin{array}{*{20}{c}} 0&0&1 \\\\ 2&1&2 \\\\ {12}&5&4 \\end{array}} \\right| = 10 - 12 = - 2{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59224,
+          "question_text": "{tex}\\left| {\\begin{array}{*{20}{c}} {x + 1}&{x + 2}&{x + 3} \\\\ {x + 2}&{x + 4}&{x + 6} \\\\ {x + 4}&{x + 9}&{x + 14} \\end{array}} \\right| = {/tex}",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} {x + 1}&amp;{x + 2}&amp;{x + 3} \\\\ {x + 2}&amp;{x + 4}&amp;{x + 6} \\\\ {x + 4}&amp;{x + 9}&amp;{x + 14} \\end{array}} \\right| = {/tex}</span></p>",
+          "options": [
+            {
+              "id": 192085,
+              "text": "x+2",
+              "html": "x+2",
+              "is_correct": false
+            },
+            {
+              "id": 192086,
+              "text": "x-2",
+              "html": "x-2",
+              "is_correct": false
+            },
+            {
+              "id": 192083,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            },
+            {
+              "id": 192084,
+              "text": "&ndash;2",
+              "html": "&ndash;2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            192083
+          ],
+          "explanation": "{tex}\\left| {\\begin{array}{*{20}{c}} {x + 1}&{x + 2}&{x + 3} \\\\ {x + 2}&{x + 4}&{x + 6} \\\\ {x + 4}&{x + 9}&{x + 14} \\end{array}} \\right| {/tex} Apply, C 1 {tex}\\rightarrow{/tex} C 1 - C 2 , C 2 {tex}\\rightarrow{/tex} C 2 -C 3 {tex}\\left| {\\begin{array}{*{20}{c}} { - 1}&{ - 1}&{x + 3} \\\\ { - 2}&{ - 2}&{x + 6} \\\\ { - 5}&{ - 5}&{x + 14} \\end{array}} \\right| = 0{/tex} Because, Here, row 1 and row 2 are identical.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59225,
+          "question_text": "The value of determinant {tex}\\left| {\\begin{array}{*{20}{c}} x&a&a&a \\\\ a&x&a&a \\\\ a&a&x&a \\\\ a&a&a&x \\end{array}} \\right|{/tex} is",
+          "question_html": "<p>The value of determinant <span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} x&amp;a&amp;a&amp;a \\\\ a&amp;x&amp;a&amp;a \\\\ a&amp;a&amp;x&amp;a \\\\ a&amp;a&amp;a&amp;x \\end{array}} \\right|{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 192087,
+              "text": "(x + 3a)( x - a) 3",
+              "html": "(x + 3a)( x - a)<sup>3</sup>&nbsp;",
+              "is_correct": true
+            },
+            {
+              "id": 192089,
+              "text": "a 4",
+              "html": "a<sup>4</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 192088,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 192090,
+              "text": "a 2",
+              "html": "a<sup>2</sup>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "(x + 3a)( x - a) 3",
+          "correct_option_ids": [
+            192087
+          ],
+          "explanation": "{tex}\\left| {\\begin{array}{*{20}{c}} x&a&a&a \\\\ a&x&a&a \\\\ a&a&x&a \\\\ a&a&a&x \\end{array}} \\right|{/tex} Apply, C 1 {tex}\\rightarrow{/tex} C 1 +C 2 +C 3 +C 4 , {tex}\\left| {\\begin{array}{*{20}{c}} x+3a&a&a&a \\\\ x+3a&x&a&a \\\\ x+3a&a&x&a \\\\ x+3a&a&a&x \\end{array}} \\right|{/tex} {tex}\\Rightarrow (x+3a)\\left| {\\begin{array}{*{20}{c}} 1&a&a&a \\\\ 1&x&a&a \\\\ 1&a&x&a \\\\ 1&a&a&x \\end{array}} \\right|{/tex} Apply, R 1 {tex}\\rightarrow{/tex} R 1 - R 2 , {tex}\\Rightarrow (x+3a)\\left| {\\begin{array}{*{20}{c}} 0&a-x&0&0 \\\\ 1&x&a&a \\\\ 1&a&x&a \\\\ 1&a&a&x \\end{array}} \\right|{/tex} {tex} \\Rightarrow (x + 3a)(a - x)\\left| {\\begin{array}{*{20}{c}} 1&a&a \\\\ 1&x&a \\\\ 1&a&x \\end{array}} \\right|{/tex} Apply , R 1 {tex}\\rightarrow{/tex} R 1 - R 2 , R 2 {tex}\\rightarrow{/tex} R 2 - R 3 , {tex} \\Rightarrow (x + 3a)(a - x)\\left| {\\begin{array}{*{20}{c}} 0&a-x&0 \\\\ 0&x-a&a-x \\\\ 1&a&x \\end{array}} \\right|{/tex} {tex} \\Rightarrow (x + 3a)(a - x)^3\\left| {\\begin{array}{*{20}{c}} 0&1&0 \\\\ 0&-1&1\\\\ 1&a&x \\end{array}} \\right|{/tex} = (x +3a)(a - x) 3 (1) = (x + 3a)(a - x) 3",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59226,
+          "question_text": "If D = {tex}\\left| {\\begin{array}{*{20}{c}} 1&2&3 \\\\ 2&{ - 1}&0 \\\\ 3&4&5 \\end{array}} \\right|{/tex} , then {tex}\\left| {\\begin{array}{*{20}{c}} 1&6&3 \\\\ 4&{ - 6}&0 \\\\ 3&{12}&5 \\end{array}} \\right|{/tex} is equal to",
+          "question_html": "<p>If D = <span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} 1&amp;2&amp;3 \\\\ 2&amp;{ - 1}&amp;0 \\\\ 3&amp;4&amp;5 \\end{array}} \\right|{/tex}</span>, then<span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} 1&amp;6&amp;3 \\\\ 4&amp;{ - 6}&amp;0 \\\\ 3&amp;{12}&amp;5 \\end{array}} \\right|{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192094,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 192091,
+              "text": "6D",
+              "html": "6D",
+              "is_correct": true
+            },
+            {
+              "id": 192092,
+              "text": "2D",
+              "html": "2D",
+              "is_correct": false
+            },
+            {
+              "id": 192093,
+              "text": "3D",
+              "html": "3D",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "6D",
+          "correct_option_ids": [
+            192091
+          ],
+          "explanation": "{tex}\\left| {\\begin{array}{*{20}{c}} 1&2&3 \\\\ 2&{ - 1}&0 \\\\ 3&4&5 \\end{array}} \\right|{/tex} = 1(-5) - 2(10) +3(11) = - 5 -20 +33 = 8 {tex}\\left| {\\begin{array}{*{20}{c}} 1&6&3 \\\\ 4&{ - 6}&0 \\\\ 3&{12}&5 \\end{array}} \\right|{/tex} = 1(-30) - 6(20) + 3(66) = -30 -120 +198 = 48 D = 8 {tex}\\Rightarrow{/tex} 6D = 48",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59227,
+          "question_text": "Determinate it {tex}\\left[ {\\begin{array}{*{20}{c}} {1 + x}&2&3&4 \\\\ 1&{2 + x}&3&4 \\\\ 1&2&{3 + x}&4 \\\\ 1&2&3&{4 + x} \\end{array}} \\right]{/tex}",
+          "question_html": "<p>Determinate it<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} {1 + x}&amp;2&amp;3&amp;4 \\\\ 1&amp;{2 + x}&amp;3&amp;4 \\\\ 1&amp;2&amp;{3 + x}&amp;4 \\\\ 1&amp;2&amp;3&amp;{4 + x} \\end{array}} \\right]{/tex}</span></p>",
+          "options": [
+            {
+              "id": 192097,
+              "text": "(x + 10)x 2",
+              "html": "(x + 10)x<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 192095,
+              "text": "x 3 (x + 10)",
+              "html": "x<sup>3</sup>(x + 10)",
+              "is_correct": true
+            },
+            {
+              "id": 192098,
+              "text": "(x + 10)2x 2",
+              "html": "(x + 10)2x<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 192096,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "x 3 (x + 10)",
+          "correct_option_ids": [
+            192095
+          ],
+          "explanation": "{tex}\\left| {\\begin{array}{*{20}{c}} {1 + x}&2&3&4 \\\\ 1&{2 + x}&3&4 \\\\ 1&2&{3 + x}&4 \\\\ 1&2&3&{4 + x} \\end{array}} \\right|{/tex} Apply, C 1 {tex}\\rightarrow{/tex} C 1 + C 2 + C 3 {tex} \\Rightarrow \\left| {\\begin{array}{*{20}{c}} {10 + x}&2&3&4 \\\\ {10 + x}&{2 + x}&3&4 \\\\ {10 + x}&2&{3 + x}&4 \\\\ {10 + x}&2&3&{4 + x} \\end{array}} \\right|{/tex} {tex} \\Rightarrow (10 + x)\\left| {\\begin{array}{*{20}{c}} 1&2&3&4 \\\\ 1&{2 + x}&3&4 \\\\ 1&2&{3 + x}&4 \\\\ 1&2&3&{4 + x} \\end{array}} \\right|{/tex} Apply, R 1 {tex}\\rightarrow{/tex} R 1 - R 2 {tex} \\Rightarrow (10 + x)\\left| {\\begin{array}{*{20}{c}} 0&{ - x}&0&0 \\\\ 1&{2 + x}&3&4 \\\\ 1&2&{3 + x}&4 \\\\ 1&2&3&{4 + x} \\end{array}} \\right|{/tex} {tex} \\Rightarrow (10 + x)\\left| {\\begin{array}{*{20}{c}} 1&{3 + x}&4 \\\\ 1&3&4 \\\\ 1&3&{4 + x} \\end{array}} \\right|{/tex} Apply, R 1 {tex}\\rightarrow{/tex} R 1 - R 2 {tex} \\Rightarrow (10 + x)\\left| {\\begin{array}{*{20}{c}} 0&x&0 \\\\ 1&3&4 \\\\ 1&3&{4 + x} \\end{array}} \\right| \\Rightarrow (10 + x){x^3}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59228,
+          "question_text": "The only integral root of the equation det. {tex}\\left| {\\begin{array}{*{20}{c}} {2 - y}&2&3 \\\\ 2&{5 - y}&6 \\\\ 3&4&{10 - y} \\end{array}} \\right| = 0{/tex} is",
+          "question_html": "<p>The only integral root of the equation det. <span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} {2 - y}&amp;2&amp;3 \\\\ 2&amp;{5 - y}&amp;6 \\\\ 3&amp;4&amp;{10 - y} \\end{array}} \\right| = 0{/tex}</span>&nbsp;is</p>",
+          "options": [
+            {
+              "id": 192100,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 192099,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            },
+            {
+              "id": 192102,
+              "text": "4",
+              "html": "4",
+              "is_correct": false
+            },
+            {
+              "id": 192101,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            192099
+          ],
+          "explanation": "The value of determinant is 0 if any two rows or column are identical and Clearly, y = 1 satisfies it. {tex}\\left[ {{C_3} = 3{C_1}} \\right]{/tex} if we take common as 3 from C 3 .Then, C 1 And C 3 Becomes identical after putting y = 1.",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59229,
+          "question_text": "Solution set of the equation {tex}\\left| {\\begin{array}{*{20}{c}} x&{ - 6}&{ - 1} \\\\ 2&{ - 3x}&{x - 3} \\\\ { - 3}&{2x}&{x + 2} \\end{array}} \\right| = 0{/tex} is",
+          "question_html": "<p>Solution set of the equation <span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} x&amp;{ - 6}&amp;{ - 1} \\\\ 2&amp;{ - 3x}&amp;{x - 3} \\\\ { - 3}&amp;{2x}&amp;{x + 2} \\end{array}} \\right| = 0{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 192106,
+              "text": "{ 2 , 1, 5 }",
+              "html": "{ 2 , 1, 5 }",
+              "is_correct": false
+            },
+            {
+              "id": 192103,
+              "text": "{ 2 , &ndash;3 ,1}",
+              "html": "{ 2 , &ndash;3 ,1}",
+              "is_correct": true
+            },
+            {
+              "id": 192105,
+              "text": "{ 2 , 0 ,1 }",
+              "html": "{ 2 , 0 ,1 }",
+              "is_correct": false
+            },
+            {
+              "id": 192104,
+              "text": "{ &ndash;3 , 1, 5 }",
+              "html": "{ &ndash;3 , 1, 5 }",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{ 2 , &ndash;3 ,1}",
+          "correct_option_ids": [
+            192103
+          ],
+          "explanation": "Expanding along R 1 [x(-3x(x+2) - 2x(x-3) ] + 6[2(x +2) + 3(x - 3)] -1 (4x - 9x) = 0 {tex}\\Rightarrow{/tex} -5x 3 + 35 x - 30 = 0 {tex}\\Rightarrow{/tex} ( x - 1)( x - 2)( x + 3) = 0 {tex}\\Rightarrow{/tex} x = 1, 2, -3",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59230,
+          "question_text": "Solution set of the equation {tex}\\left| {\\begin{array}{*{20}{c}} x&3&7 \\\\ 2&x&2 \\\\ 7&6&x \\end{array}} \\right| = 0{/tex} is",
+          "question_html": "<p>Solution set of the equation <span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} x&amp;3&amp;7 \\\\ 2&amp;x&amp;2 \\\\ 7&amp;6&amp;x \\end{array}} \\right| = 0{/tex}</span>&nbsp; is</p>",
+          "options": [
+            {
+              "id": 192108,
+              "text": "{ 1, 2 ,7 }",
+              "html": "{ 1, 2 ,7 }",
+              "is_correct": false
+            },
+            {
+              "id": 192109,
+              "text": "{ 2 , 5, 6 }",
+              "html": "{ 2 , 5, 6 }",
+              "is_correct": false
+            },
+            {
+              "id": 192110,
+              "text": "{ 9 , 6, 7 }",
+              "html": "{ 9&nbsp;, 6, 7&nbsp;}",
+              "is_correct": false
+            },
+            {
+              "id": 192107,
+              "text": "{ &ndash;9 ,2 , 7 }",
+              "html": "{ &ndash;9 ,2 , 7 }",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{ &ndash;9 ,2 , 7 }",
+          "correct_option_ids": [
+            192107
+          ],
+          "explanation": "x(x 2 - 12) - 3(2x -14) + 7(12 - 7x) = 0 {tex}\\Rightarrow{/tex} x 3 - 67x +126 = 0 {tex}\\Rightarrow{/tex} (x - 2)(x - 7)(x + 9) = 0 {tex}\\Rightarrow{/tex} x = 2, 7, -9",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59231,
+          "question_text": "{tex}\\left| {\\begin{array}{*{20}{c}} 1&2&3 \\\\ 3&5&7 \\\\ 8&{14}&{20} \\end{array}} \\right|{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} 1&amp;2&amp;3 \\\\ 3&amp;5&amp;7 \\\\ 8&amp;{14}&amp;{20} \\end{array}} \\right|{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192112,
+              "text": "a positive real number",
+              "html": "a positive real number",
+              "is_correct": false
+            },
+            {
+              "id": 192114,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192111,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            },
+            {
+              "id": 192113,
+              "text": "a negative real number",
+              "html": "a negative real number",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            192111
+          ],
+          "explanation": "{tex}\\left| {\\matrix{ 1 & 2 & 3 \\cr 3 & 5 & 7 \\cr 8 & {14} & {20} \\cr } } \\right|{/tex} Apply, C 1 {tex}\\rightarrow{/tex} C 1 - C 2 , C 2 {tex}\\rightarrow{/tex} C 2 - C 3 {tex} \\left| {\\matrix{ { - 1} & { - 1} & 3 \\cr { - 2} & { - 2} & 7 \\cr { - 6} & { - 6} & {20} \\cr } } \\right| = 0{/tex} (C 1 = C 2 )",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59232,
+          "question_text": "If f(x) = {tex}\\left| {\\begin{array}{*{20}{c}} {2\\cos x}&1&0 \\\\ 1&{2\\cos x}&1 \\\\ 0&1&{2\\cos x} \\end{array}} \\right|{/tex} then, {tex}f^{\\prime}\\left(\\frac{\\pi}{6}\\right){/tex}",
+          "question_html": "<p>If f(x) = <span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} {2\\cos x}&amp;1&amp;0 \\\\ 1&amp;{2\\cos x}&amp;1 \\\\ 0&amp;1&amp;{2\\cos x} \\end{array}} \\right|{/tex}</span> then,<span class=\"math-tex\">{tex}f^{\\prime}\\left(\\frac{\\pi}{6}\\right){/tex}</span></p>",
+          "options": [
+            {
+              "id": 192117,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192115,
+              "text": "&ndash;7",
+              "html": "&ndash;7",
+              "is_correct": true
+            },
+            {
+              "id": 192118,
+              "text": "4",
+              "html": "4",
+              "is_correct": false
+            },
+            {
+              "id": 192116,
+              "text": "-5",
+              "html": "-5",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "&ndash;7",
+          "correct_option_ids": [
+            192115
+          ],
+          "explanation": "&ndash;7",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59233,
+          "question_text": "{tex}\\left| {\\begin{array}{*{20}{c}} { - a + b + c}&{ - 2a}&{ - 2a} \\\\ { - 2b}&{ - b + c + a}&{ - 2b} \\\\ { - 2c}&{ - 2c}&{ - c + a + b} \\end{array}} \\right|{/tex} is",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} { - a + b + c}&amp;{ - 2a}&amp;{ - 2a} \\\\ { - 2b}&amp;{ - b + c + a}&amp;{ - 2b} \\\\ { - 2c}&amp;{ - 2c}&amp;{ - c + a + b} \\end{array}} \\right|{/tex}</span>is</p>",
+          "options": [
+            {
+              "id": 192120,
+              "text": "a perfect square",
+              "html": "a perfect square",
+              "is_correct": false
+            },
+            {
+              "id": 192121,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 192122,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192119,
+              "text": "a perfect cube",
+              "html": "a perfect cube",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "a perfect cube",
+          "correct_option_ids": [
+            192119
+          ],
+          "explanation": "{tex}\\left| {\\begin{array}{*{20}{c}} { - a + b + c}&{ - 2a}&{ - a - b - c} \\\\ { - 2b}&{ - b + c + a}&{ - 2b} \\\\ { - 2c}&{ - 2c}&{ - c + a + b} \\end{array}} \\right|{/tex} Apply, R 1 {tex}\\rightarrow{/tex} R 1 + R 2 + R 3 , {tex} \\Rightarrow \\left| {\\begin{array}{*{20}{c}} { - a - b - c}&{ - a - b - c}&{ - a - b - c} \\\\ { - 2b}&{ - b + c + a}&{ - 2b} \\\\ { - 2c}&{ - 2c}&{ - c + a + b} \\end{array}} \\right|{/tex} {tex} \\Rightarrow (a + b + c)\\left| {\\begin{array}{*{20}{c}} { - 1}&{ - 1}&{ - 1} \\\\ { - 2b}&{ - b + c + a}&{ - 2b} \\\\ { - 2c}&{ - 2c}&{ - c + a + b} \\end{array}} \\right|{/tex} Apply, C 1 {tex}\\rightarrow{/tex} C 1 - C 2 , {tex} \\Rightarrow (a + b + c)\\left| {\\matrix{ 0 & { - 1} & { - 1} \\cr { - b - c - a} & { - b + c + a} & { - 2b} \\cr 0 & { - 2c} & { - c + a + b} \\cr } } \\right| {/tex} {tex}\\Rightarrow {(a + b + c)^2}\\left| {\\matrix{ 0 & { - 1} & { - 1} \\cr { - 1} & { - b + c + a} & { - 2b} \\cr 0 & { - 2c} & { - c + a + b} \\cr } } \\right| {/tex} now expanding along C 1 {tex} \\Rightarrow {/tex} (a + b + c) 2 (1(c - a - b - 2c)) {tex}\\Rightarrow {/tex} - (a + b + c) 3",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59234,
+          "question_text": "If D = {tex}\\left| {\\begin{array}{*{20}{c}} {x + \\lambda }&x&x \\\\ x&{x + \\lambda }&x \\\\ x&x&{x + \\lambda } \\end{array}} \\right|{/tex} , then D is equal to",
+          "question_html": "<p>If D =<span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} {x + \\lambda }&amp;x&amp;x \\\\ x&amp;{x + \\lambda }&amp;x \\\\ x&amp;x&amp;{x + \\lambda } \\end{array}} \\right|{/tex}</span>, then D is equal to</p>",
+          "options": [
+            {
+              "id": 192123,
+              "text": "{tex}{\\lambda ^2}\\left( {3x{\\text{ }} + \\lambda \\;} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\lambda ^2}\\left( {3x{\\text{ }} + \\lambda \\;} \\right){/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192125,
+              "text": "{tex}{x^2}({\\text{ x }} + {\\text{ 3}}\\;){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{x^2}({\\text{ x }} + {\\text{ 3}}\\;){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192126,
+              "text": "{tex}{2x^2}({\\text{ x }} + {\\text{ 2}}\\;){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{2x^2}({\\text{ x }} + {\\text{ 2}}\\;){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192124,
+              "text": "{tex}{\\lambda ^2}({\\text{x }} + {\\text{ 3}}\\;){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\lambda ^2}({\\text{x }} + {\\text{ 3}}\\;){/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}{\\lambda ^2}\\left( {3x{\\text{ }} + \\lambda \\;} \\right){/tex}",
+          "correct_option_ids": [
+            192123
+          ],
+          "explanation": "D = {tex}\\left| {\\begin{array}{*{20}{c}} {x + \\lambda }&x&x \\\\ x&{x + \\lambda }&x \\\\ x&x&{x + \\lambda } \\end{array}} \\right|{/tex} Apply, C 1 {tex}\\rightarrow{/tex} C 1 +C 2 +C 3 , D= {tex}\\left| {\\begin{array}{*{20}{c}} {3x + \\lambda }&x&x \\\\ {3x + \\lambda }&{x + \\lambda }&x \\\\ {3x + \\lambda }&x&{x + \\lambda } \\end{array}} \\right|{/tex} {tex} \\Rightarrow (3x + \\lambda )\\left| {\\matrix{ 1 & x & x \\cr 1 & {\\lambda + x} & x \\cr 1 & x & {\\lambda + x} \\cr } } \\right| {/tex} Apply, R 1 {tex}\\rightarrow{/tex} R 1 - R 3 {tex} D = (3x + \\lambda )\\left| {\\matrix{ 0 & 0 & { - \\lambda } \\cr 1 & {\\lambda + x} & x \\cr 1 & x & {\\lambda + x} \\cr } } \\right| {/tex} expanding along R 1 {tex} D = (3x + \\lambda )( - \\lambda (x - \\lambda - x)){/tex} {tex} D = {\\lambda ^2}(3x + \\lambda ) {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59235,
+          "question_text": "One of the factors of {tex}\\left| {\\begin{array}{*{20}{c}} a&b&c&d \\\\ b&c&d&a \\\\ c&d&a&b \\\\ d&a&b&c \\end{array}} \\right|{/tex} is:",
+          "question_html": "<p>One of the factors of <span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} a&amp;b&amp;c&amp;d \\\\ b&amp;c&amp;d&amp;a \\\\ c&amp;d&amp;a&amp;b \\\\ d&amp;a&amp;b&amp;c \\end{array}} \\right|{/tex}</span> is:</p>",
+          "options": [
+            {
+              "id": 192129,
+              "text": "ab+bc+cd+da",
+              "html": "ab+bc+cd+da",
+              "is_correct": false
+            },
+            {
+              "id": 192130,
+              "text": "ab-bc-cd-da",
+              "html": "ab-bc-cd-da",
+              "is_correct": false
+            },
+            {
+              "id": 192127,
+              "text": "a+b+c+d",
+              "html": "a+b+c+d",
+              "is_correct": true
+            },
+            {
+              "id": 192128,
+              "text": "abcd",
+              "html": "abcd",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "a+b+c+d",
+          "correct_option_ids": [
+            192127
+          ],
+          "explanation": "{tex}\\Delta=\\left| {\\begin{array}{*{20}{c}} a&b&c&d \\\\ b&c&d&a \\\\ c&d&a&b \\\\ d&a&b&c \\end{array}} \\right|{/tex} Apply, C 1 {tex}\\rightarrow{/tex} C 1 +C 2 +C 3 +C 4, {tex}\\Delta=\\left| {\\begin{array}{*{20}{c}} a+b+c+d&b&c&d \\\\ a+b+c+d&c&d&a \\\\ a+b+c+d&d&a&b \\\\ a+b+c+d&a&b&c \\end{array}} \\right|{/tex} {tex} = (a + b + c + d)\\left| {\\begin{array}{*{20}{c}} 1&b&c&d \\\\ 1&c&d&a \\\\ 1&d&a&b \\\\ 1&a&b&c \\end{array}} \\right|{/tex} Therefore, one of the factors of given determinants is (a + b + c +d ).",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3605,
+      "test_name": "Determinants Test-03",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59236,
+          "question_text": "{tex}\\left| {\\begin{array}{*{20}{c}} {a - b - c}&{2a}&{2a} \\\\ {2b}&{b - c - a}&{2b} \\\\ {2c}&{2c}&{c - a - b} \\end{array}} \\right| = {/tex}",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} {a - b - c}&amp;{2a}&amp;{2a} \\\\ {2b}&amp;{b - c - a}&amp;{2b} \\\\ {2c}&amp;{2c}&amp;{c - a - b} \\end{array}} \\right| = {/tex}</span></p>",
+          "options": [
+            {
+              "id": 192132,
+              "text": "2(a + b +c) 2",
+              "html": "2(a + b +c)<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 192133,
+              "text": "4(a + b + c ) 3",
+              "html": "4(a + b + c )<sup>3</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 192131,
+              "text": "None of these",
+              "html": "None of these",
+              "is_correct": true
+            },
+            {
+              "id": 192134,
+              "text": "-2( a + b + c) 3",
+              "html": "-2( a + b + c)<sup>3</sup>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "None of these",
+          "correct_option_ids": [
+            192131
+          ],
+          "explanation": "{tex}\\Delta=\\left| {\\begin{array}{*{20}{c}} {a - b - c}&{2a}&{2a} \\\\ {2b}&{b - c - a}&{2b} \\\\ {2c}&{2c}&{c - a - b} \\end{array}} \\right| {/tex} , Apply, R 1 {tex}\\rightarrow{/tex} R 1 + R 2 + R 3 , {tex}\\Delta=\\left| {\\begin{array}{*{20}{c}} {a + b + c}&{a+b+c}&{a+b+c} \\\\ {2b}&{b - c - a}&{2b} \\\\ {2c}&{2c}&{c - a - b} \\end{array}} \\right| {/tex} {tex} \\Rightarrow (a + b + c)\\left| {\\begin{array}{*{20}{c}} 1&1&1 \\\\ {2b}&{b - c - a}&{2b} \\\\ {2c}&{2c}&{c - a - b} \\end{array}} \\right|{/tex} Apply, C 3 {tex}\\rightarrow{/tex} C 3 - C 1 , C 2 {tex}\\rightarrow{/tex} C 2 - C 1 {tex}\\Delta = (a + b + c)\\left| {\\begin{array}{*{20}{c}} 1&0&0 \\\\ {2b}&{ - (a + b + c)}&0 \\\\ {2c}&0&{ - (a + b + c)} \\end{array}} \\right|{/tex} = (a + b +c) 3",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59237,
+          "question_text": "The roots of the equation det. {tex}\\left| {\\begin{array}{*{20}{c}} {1 - x}&2&3 \\\\ 0&{2 - x}&0 \\\\ 0&2&{3 - x} \\end{array}} \\right| = 0{/tex} are",
+          "question_html": "<p>The roots of the equation det.&nbsp;<span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} {1 - x}&amp;2&amp;3 \\\\ 0&amp;{2 - x}&amp;0 \\\\ 0&amp;2&amp;{3 - x} \\end{array}} \\right| = 0{/tex}</span>&nbsp; are</p>",
+          "options": [
+            {
+              "id": 192138,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            },
+            {
+              "id": 192135,
+              "text": "1 , 2 and 3",
+              "html": "1 , 2&nbsp;and 3",
+              "is_correct": true
+            },
+            {
+              "id": 192137,
+              "text": "1 and 3",
+              "html": "1 and 3",
+              "is_correct": false
+            },
+            {
+              "id": 192136,
+              "text": "2 and 3",
+              "html": "2 and 3",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1 , 2 and 3",
+          "correct_option_ids": [
+            192135
+          ],
+          "explanation": "Expanding along C 1 {tex}\\left| {\\begin{array}{*{20}{c}} {1 - x}&2&3 \\\\ 0&{2 - x}&0 \\\\ 0&2&{3 - x} \\end{array}} \\right| = 0 \\Rightarrow {/tex} (1 - x)(2 - x)(3 - x) = 0 {tex}\\Rightarrow{/tex} x = 1, 2 ,3.",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59238,
+          "question_text": "If A + B + C = {tex}\\pi {/tex} , then the value of {tex}\\left| {\\begin{array}{*{20}{c}} {\\sin (A + B + C)}&{\\sin B}&{\\cos C} \\\\ { - \\sin B}&0&{\\tan A} \\\\ {\\cos (A + B)}&{ - \\tan A}&0 \\end{array}} \\right|{/tex} is equal to",
+          "question_html": "<p>If &nbsp;A + B + C =&nbsp;<span class=\"math-tex\">{tex}\\pi {/tex}</span>, then the value of <span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} {\\sin (A + B + C)}&amp;{\\sin B}&amp;{\\cos C} \\\\ { - \\sin B}&amp;0&amp;{\\tan A} \\\\ {\\cos (A + B)}&amp;{ - \\tan A}&amp;0 \\end{array}} \\right|{/tex}</span>&nbsp;is equal to</p>",
+          "options": [
+            {
+              "id": 192141,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 192140,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192139,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            },
+            {
+              "id": 192142,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            192139
+          ],
+          "explanation": "{tex}\\left| {\\matrix{ {\\sin (A + B + C)} & {\\sin B} & {\\cos C} \\cr { - \\sin B} & 0 & {\\tan A} \\cr {\\cos (A + B)} & { - \\tan A} & 0 \\cr } } \\right| {/tex} {tex} \\Rightarrow \\left| {\\matrix{ {\\sin (\\pi )} & {\\sin B} & {\\cos C} \\cr { - \\sin B} & 0 & {\\tan A} \\cr {\\cos (\\pi - C)} & { - \\tan A} & 0 \\cr } } \\right| {/tex} {tex} \\Rightarrow \\left| {\\matrix{ 0 & {\\sin B} & {\\cos C} \\cr { - \\sin B} & 0 & {\\tan A} \\cr { - \\cos C} & { - \\tan A} & 0 \\cr } } \\right|{/tex} Now expanding along R 1 {tex} \\Rightarrow 0 - \\sin B(0 + \\tan A\\cos C) + \\cos C(\\tan A\\sin B - 0) {/tex} {tex}\\Rightarrow - \\tan A\\sin B\\cos C + \\tan A\\sin B\\cos C = 0 {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59239,
+          "question_text": "If {tex}\\Delta = \\left| {\\begin{array}{*{20}{c}} 0&a&b \\\\ { - a}&0&c \\\\ { - b}&{ - c}&0 \\end{array}} \\right|{/tex} , then equals",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}\\Delta = \\left| {\\begin{array}{*{20}{c}} 0&amp;a&amp;b \\\\ { - a}&amp;0&amp;c \\\\ { - b}&amp;{ - c}&amp;0 \\end{array}} \\right|{/tex}</span> , then equals</p>",
+          "options": [
+            {
+              "id": 192143,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            },
+            {
+              "id": 192144,
+              "text": "2abc",
+              "html": "2abc",
+              "is_correct": false
+            },
+            {
+              "id": 192145,
+              "text": "&ndash;abc",
+              "html": "&ndash;abc",
+              "is_correct": false
+            },
+            {
+              "id": 192146,
+              "text": "3abc",
+              "html": "3abc",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            192143
+          ],
+          "explanation": "We know that the determinant of a skew symmetric matrix of odd order is always zero and of even order is a non zero perfect square. In the given question which is a skew symmetric matrix of odd order so determinant is zero.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59240,
+          "question_text": "If the entries in a 3 x 3 determinant are either 0 or 1 , then the greatest value of this determinant is :",
+          "question_html": "<p>If the entries in a 3 x 3 determinant are either 0 or 1 , then the greatest value of this determinant is :</p>",
+          "options": [
+            {
+              "id": 192149,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192150,
+              "text": "none of these.",
+              "html": "none of these.",
+              "is_correct": false
+            },
+            {
+              "id": 192148,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 192147,
+              "text": "2",
+              "html": "2",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "2",
+          "correct_option_ids": [
+            192147
+          ],
+          "explanation": "Greatest value = 2 .",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59241,
+          "question_text": "If {tex}\\left| {\\begin{array}{*{20}{c}} 1&3&9 \\\\ 1&x&{{x^2}} \\\\ 4&6&9 \\end{array}} \\right| = 0{/tex} , then x =",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} 1&amp;3&amp;9 \\\\ 1&amp;x&amp;{{x^2}} \\\\ 4&amp;6&amp;9 \\end{array}} \\right| = 0{/tex}</span> , then x =</p>",
+          "options": [
+            {
+              "id": 192151,
+              "text": "3 or {tex}\\frac{3}{2}{/tex}",
+              "html": "3 or&nbsp;<span class=\"math-tex\">{tex}\\frac{3}{2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192152,
+              "text": "3 or 6",
+              "html": "3 or 6",
+              "is_correct": false
+            },
+            {
+              "id": 192153,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            },
+            {
+              "id": 192154,
+              "text": "6",
+              "html": "6",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "3 or {tex}\\frac{3}{2}{/tex}",
+          "correct_option_ids": [
+            192151
+          ],
+          "explanation": "Given: {tex}\\left| {\\begin{array}{*{20}{c}} 1&3&9 \\\\ 1&x&{{x^2}} \\\\ 4&6&9 \\end{array}} \\right| = 0{/tex} Apply, R 2 {tex}\\rightarrow{/tex} R 2 - R 1 ,we get {tex}\\left| {\\begin{array}{*{20}{c}} 1&3&9 \\\\ 0&{x - 3}&{{x^2} - 9} \\\\ 4&6&9 \\end{array}} \\right| = 0 \\Rightarrow (x - 3)\\left| {\\begin{array}{*{20}{c}} 1&3&9 \\\\ 0&1&{x + 3} \\\\ 4&6&9 \\end{array}} \\right| = 0{/tex} Apply, R 3 {tex}\\rightarrow{/tex} R 3 - 4R 1 ,we get {tex} \\Rightarrow (x - 3)\\left| {\\begin{array}{*{20}{c}} 1&3&9 \\\\ 0&1&{x + 3} \\\\ 0&{ - 6}&{ - 27} \\end{array}} \\right| = 0{/tex} {tex}\\Rightarrow{/tex} (x -3 )( 6x -9) = 0 {tex}\\Rightarrow{/tex} x = 3, {tex}\\frac {3}{2}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59242,
+          "question_text": "The determinant {tex}\\left| {\\begin{array}{*{20}{c}} {a - b}&{b - c}&{c - a} \\\\ {x - y}&{y - z}&{z - x} \\\\ {p - q}&{q - r}&{r - p} \\end{array}} \\right|{/tex} is equal to",
+          "question_html": "<p>The determinant <span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} {a - b}&amp;{b - c}&amp;{c - a} \\\\ {x - y}&amp;{y - z}&amp;{z - x} \\\\ {p - q}&amp;{q - r}&amp;{r - p} \\end{array}} \\right|{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192156,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192157,
+              "text": "&ndash;1",
+              "html": "&ndash;1",
+              "is_correct": false
+            },
+            {
+              "id": 192155,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            },
+            {
+              "id": 192158,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            192155
+          ],
+          "explanation": "{tex}\\left| {\\begin{array}{*{20}{c}} {a - b}&{b - c}&{c - a} \\\\ {x - y}&{y - z}&{z - x} \\\\ {p - q}&{q - r}&{r - p} \\end{array}} \\right|{/tex} Apply, C 1 {tex}\\rightarrow{/tex} C 1 + C 2 + C 3 {tex}\\left| {\\begin{array}{*{20}{c}} 0&{b - c}&{c - a} \\\\ 0&{y - z}&{z - x} \\\\ 0&{q - r}&{r - p} \\end{array}} \\right| = 0{/tex} (Since C 1 = 0)",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59243,
+          "question_text": "If {tex}\\frac{1}{a}+\\frac{1}{b}+\\frac{1}{c}=0{/tex} , then {tex}\\left| {\\begin{array}{*{20}{c}} {1 + a}&1&1 \\\\ 1&{1 + b}&1 \\\\ 1&1&{1 + c} \\end{array}} \\right| = {/tex}",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}\\frac{1}{a}+\\frac{1}{b}+\\frac{1}{c}=0{/tex}</span>, then <span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} {1 + a}&amp;1&amp;1 \\\\ 1&amp;{1 + b}&amp;1 \\\\ 1&amp;1&amp;{1 + c} \\end{array}} \\right| = {/tex}</span></p>",
+          "options": [
+            {
+              "id": 192159,
+              "text": "abc",
+              "html": "abc",
+              "is_correct": true
+            },
+            {
+              "id": 192160,
+              "text": "&ndash;abc",
+              "html": "&ndash;abc",
+              "is_correct": false
+            },
+            {
+              "id": 192162,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192161,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "abc",
+          "correct_option_ids": [
+            192159
+          ],
+          "explanation": "Given: {tex} \\left| {\\matrix{ {1 + a} & 1 & 1 \\cr 1 & {1 + b} & 1 \\cr 1 & 1 & {1 + c} \\cr } } \\right| {/tex} {tex} \\Rightarrow abc\\left| {\\matrix{ {1 + {1 \\over a}} & {{1 \\over a}} & {{1 \\over a}} \\cr {{1 \\over b}} & {1 + {1 \\over b}} & {{1 \\over b}} \\cr {{1 \\over c}} & {{1 \\over c}} & {1 + {1 \\over c}} \\cr } } \\right|{/tex} ,take common a,b and c from first ,second and third row Apply, R 1 {tex}\\rightarrow{/tex} R 1 + R 2 + R 3 {tex}abc\\left| {\\matrix{ {1 + {1 \\over a} + {1 \\over b} + {1 \\over c}} & {1 + {1 \\over a} + {1 \\over b} + {1 \\over c}} & {1 + {1 \\over a} + {1 \\over b} + {1 \\over c}} \\cr {{1 \\over b}} & {1 + {1 \\over b}} & {{1 \\over b}} \\cr {{1 \\over c}} & {{1 \\over c}} & {1 + {1 \\over c}} \\cr } } \\right|({1 \\over a} + {1 \\over b} + {1 \\over c} = 0) {/tex} {tex}\\Rightarrow abc\\left| {\\matrix{ 1 & 1 & 1 \\cr {{1 \\over b}} & {1 + {1 \\over b}} & {{1 \\over b}} \\cr {{1 \\over c}} & {{1 \\over c}} & {1 + {1 \\over c}} \\cr } } \\right|{/tex} Apply C 2 {tex}\\rightarrow{/tex} C 2 - C 1 , C 3 {tex}\\rightarrow{/tex} C 3 - C 1 {tex}\\Rightarrow abc\\left| {\\matrix{ 1 & 0 & 0 \\cr {{1 \\over b}} & 1 & 0 \\cr {{1 \\over c}} & 0 & 1 \\cr } } \\right| {/tex} expanding along R 1 {tex} \\Rightarrow {/tex} (abc)(1) (1 - 0) =abc",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59244,
+          "question_text": "A determinant is unaltered, if",
+          "question_html": "<p>A determinant is unaltered, if</p>",
+          "options": [
+            {
+              "id": 192164,
+              "text": "Two columns are interchanged",
+              "html": "Two columns are interchanged",
+              "is_correct": false
+            },
+            {
+              "id": 192165,
+              "text": "Every element in a column is multiplied by the same factor",
+              "html": "Every element in a column is multiplied by the same factor",
+              "is_correct": false
+            },
+            {
+              "id": 192166,
+              "text": "Two rows are interchanged",
+              "html": "Two rows are interchanged",
+              "is_correct": false
+            },
+            {
+              "id": 192163,
+              "text": "To each element of any row is added the corresponding element of the other row multiplied by a given factor",
+              "html": "To each element of any row is added the corresponding element of the other row multiplied by a given factor",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "To each element of any row is added the corresponding element of the other row multiplied by a given factor",
+          "correct_option_ids": [
+            192163
+          ],
+          "explanation": "This is because of the elementary transformations of determinants. The value of determinant remains unaffected by applying elementary transformations.",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59245,
+          "question_text": "If {tex}\\left| {\\begin{array}{*{20}{c}} a&b&c \\\\ m&n&p \\\\ x&y&z \\end{array}} \\right| ={/tex} k, then {tex}\\left| {\\begin{array}{*{20}{c}} {6a}&{2b}&{2c} \\\\ {3m}&n&p \\\\ {3x}&y&z \\end{array}} \\right| = {/tex}",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} a&amp;b&amp;c \\\\ m&amp;n&amp;p \\\\ x&amp;y&amp;z \\end{array}} \\right| ={/tex}</span>&nbsp;k, then&nbsp;<span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} {6a}&amp;{2b}&amp;{2c} \\\\ {3m}&amp;n&amp;p \\\\ {3x}&amp;y&amp;z \\end{array}} \\right| = {/tex}</span></p>",
+          "options": [
+            {
+              "id": 192170,
+              "text": "{tex}\\frac{6}{k}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{6}{k}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192169,
+              "text": "3k",
+              "html": "3k",
+              "is_correct": false
+            },
+            {
+              "id": 192167,
+              "text": "6k",
+              "html": "6k",
+              "is_correct": true
+            },
+            {
+              "id": 192168,
+              "text": "2k",
+              "html": "2k",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "6k",
+          "correct_option_ids": [
+            192167
+          ],
+          "explanation": "{tex}\\left| {\\begin{array}{*{20}{c}} {6a}&{2b}&{2c} \\\\ {3m}&n&p \\\\ {3x}&y&z \\end{array}} \\right| = 3\\left| {\\begin{array}{*{20}{c}} {2a}&{2b}&{2c} \\\\ m&n&p \\\\ x&y&z \\end{array}} \\right| = 6\\left| {\\begin{array}{*{20}{c}} a&b&c \\\\ m&n&p \\\\ x&y&z \\end{array}} \\right| = 6k{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59246,
+          "question_text": "If {tex}A = \\left| {\\begin{array}{*{20}{c}} { - 1}&2&4 \\\\ 3&1&0 \\\\ { - 2}&4&2 \\end{array}} \\right|{/tex} and {tex}B = \\left| {\\begin{array}{*{20}{c}} { - 2}&4&2 \\\\ 6&2&0 \\\\ { - 2}&4&8 \\end{array}} \\right|{/tex} , then B is given by",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}A = \\left| {\\begin{array}{*{20}{c}} { - 1}&amp;2&amp;4 \\\\ 3&amp;1&amp;0 \\\\ { - 2}&amp;4&amp;2 \\end{array}} \\right|{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}B = \\left| {\\begin{array}{*{20}{c}} { - 2}&amp;4&amp;2 \\\\ 6&amp;2&amp;0 \\\\ { - 2}&amp;4&amp;8 \\end{array}} \\right|{/tex}</span>, then B is given by</p>",
+          "options": [
+            {
+              "id": 192174,
+              "text": "B = 6A",
+              "html": "B = 6A",
+              "is_correct": false
+            },
+            {
+              "id": 192171,
+              "text": "B = &ndash;4A",
+              "html": "B = &ndash;4A",
+              "is_correct": true
+            },
+            {
+              "id": 192173,
+              "text": "B = &ndash; A",
+              "html": "B = &ndash; A",
+              "is_correct": false
+            },
+            {
+              "id": 192172,
+              "text": "B = 4A",
+              "html": "B = 4A",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "B = &ndash;4A",
+          "correct_option_ids": [
+            192171
+          ],
+          "explanation": "{tex}\\left| {\\begin{array}{*{20}{c}} { - 2}&4&2 \\\\ 6&2&0 \\\\ { - 2}&4&8 \\end{array}} \\right|{/tex} = -2(16) - 4(48) + 2(56) = -168 {tex}\\left| {\\begin{array}{*{20}{c}} { - 1}&2&4 \\\\ 3&1&0 \\\\ { - 2}&4&2 \\end{array}} \\right|{/tex} = -1(2) - 2(6) + 4(14) = 42 {tex}\\Rightarrow{/tex} |B| = -168 = -4(42) = -4|A|. Which is the required solution.",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59247,
+          "question_text": "Find the area of triangle with vertices (1 ,1) , (2, 2) and (3, 3).",
+          "question_html": "<p>Find the area of triangle with vertices (1 ,1) , (2, 2) and (3, 3).</p>",
+          "options": [
+            {
+              "id": 192177,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 192178,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            },
+            {
+              "id": 192175,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            },
+            {
+              "id": 192176,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            192175
+          ],
+          "explanation": "AREA OF TRIANGLE= {tex}{1 \\over 2}\\left| {\\matrix{ 1 & 1 & 1 \\cr 2 & 2 & 1 \\cr 3 & 3 & 1 \\cr } } \\right|{/tex} (Since C 1 and C 2 are identical) So, value of determinant = 0 Hence, area of triangle = 0",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59248,
+          "question_text": "Find the area of the triangle with vertices (0,0), (4,2), and (1,1).",
+          "question_html": "<p>Find the area of the triangle with vertices (0,0), (4,2), and (1,1).</p>",
+          "options": [
+            {
+              "id": 192181,
+              "text": "5 sq.unit",
+              "html": "5&nbsp;sq.unit",
+              "is_correct": false
+            },
+            {
+              "id": 192180,
+              "text": "2 sq.unit",
+              "html": "2&nbsp;sq.unit",
+              "is_correct": false
+            },
+            {
+              "id": 192182,
+              "text": "0 sq.unit",
+              "html": "0&nbsp;sq.unit",
+              "is_correct": false
+            },
+            {
+              "id": 192179,
+              "text": "1 sq.unit",
+              "html": "1 sq.unit",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "1 sq.unit",
+          "correct_option_ids": [
+            192179
+          ],
+          "explanation": "{tex}\\frac{1}{2}\\left| {\\begin{array}{*{20}{c}} 0&0&1 \\\\ 4&2&1 \\\\ 1&1&1 \\end{array}} \\right| = \\frac{1}{2}[ 1(4 - 2)] = \\frac{1}{2}(2) = 1{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59249,
+          "question_text": "A(adj A) is equal to",
+          "question_html": "<p>A(adj A) is equal to</p>",
+          "options": [
+            {
+              "id": 192186,
+              "text": "A",
+              "html": "A",
+              "is_correct": false
+            },
+            {
+              "id": 192183,
+              "text": "|A|I",
+              "html": "<br />\r\n|A|I",
+              "is_correct": true
+            },
+            {
+              "id": 192185,
+              "text": "O",
+              "html": "O",
+              "is_correct": false
+            },
+            {
+              "id": 192184,
+              "text": "I",
+              "html": "I",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "|A|I",
+          "correct_option_ids": [
+            192183
+          ],
+          "explanation": "Since, we know that {tex}{A^{ - 1}} = {{adjA} \\over {\\left| A \\right|}}{/tex} pre multiply by A, {tex}A{A^{ - 1}} = {{AadjA} \\over {\\left| A \\right|}}{/tex} {tex} I = {{AadjA} \\over {\\left| A \\right|}} \\Rightarrow AadjA = \\left| A \\right|I {/tex} (since AA -1 =I)",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59250,
+          "question_text": "The inverse of the matrix A = {tex}\\left[ {\\begin{array}{*{20}{c}} 0&1&0 \\\\ 1&0&0 \\\\ 0&0&1 \\end{array}} \\right]{/tex} is",
+          "question_html": "<p>The inverse of the matrix A = <span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 0&amp;1&amp;0 \\\\ 1&amp;0&amp;0 \\\\ 0&amp;0&amp;1 \\end{array}} \\right]{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 192187,
+              "text": "A",
+              "html": "A",
+              "is_correct": true
+            },
+            {
+              "id": 192189,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 1&1&0 \\\\ 1&1&0 \\\\ 0&0&1 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 1&amp;1&amp;0 \\\\ 1&amp;1&amp;0 \\\\ 0&amp;0&amp;1 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192190,
+              "text": "-A&#39;",
+              "html": "-A&#39;",
+              "is_correct": false
+            },
+            {
+              "id": 192188,
+              "text": "A&rsquo;",
+              "html": "A&rsquo;",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "A",
+          "correct_option_ids": [
+            192187
+          ],
+          "explanation": "|A| = {tex}\\left| {\\begin{array}{*{20}{c}} 0&1&0 \\\\ 1&0&0 \\\\ 0&0&1 \\end{array}} \\right|{/tex} = -1 Adj. A = {tex}\\left[ {\\begin{array}{*{20}{c}} 0&{ - 1}&0 \\\\ { - 1}&0&0 \\\\ 0&0&{ - 1} \\end{array}} \\right]{/tex} A -1 = {tex}\\frac{Adj.A}{|A|}{/tex} = {tex}\\left[ {\\begin{array}{*{20}{c}} 0&1&0 \\\\ 1&0&0 \\\\ 0&0&1 \\end{array}} \\right]{/tex} = A",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3606,
+      "test_name": "Determinants Test-04",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59251,
+          "question_text": "If A and B are invertible matrices of order 3, then det(adj A) =",
+          "question_html": "<p>If A and B are invertible matrices of order 3, then det(adj A) =</p>",
+          "options": [
+            {
+              "id": 192193,
+              "text": "(det A) 2",
+              "html": "(det A)<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 192191,
+              "text": "|A| 2",
+              "html": "|A|<sup>2</sup>",
+              "is_correct": true
+            },
+            {
+              "id": 192192,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192194,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "|A| 2",
+          "correct_option_ids": [
+            192191
+          ],
+          "explanation": "Let A be a non singular square matrix of order n then, det(adjA) = |A| n-1 Here order is 3 so det(adj A) = |A| 3-1 = |A| 2",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59252,
+          "question_text": "If A is a square matrix of order 2, then det (adj A) =",
+          "question_html": "<p>If A is a square matrix of order 2, then det (adj A) =</p>",
+          "options": [
+            {
+              "id": 192198,
+              "text": "2A 2",
+              "html": "2A<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 192195,
+              "text": "|A|",
+              "html": "|A|",
+              "is_correct": true
+            },
+            {
+              "id": 192196,
+              "text": "A 2 = O",
+              "html": "A<sup>2</sup>&nbsp;= O",
+              "is_correct": false
+            },
+            {
+              "id": 192197,
+              "text": "I",
+              "html": "I",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "|A|",
+          "correct_option_ids": [
+            192195
+          ],
+          "explanation": "Let A be a square matrix of order 2 then |adj A| = |A|, because |adj A| =|A| n-1 where n is the order of square matrix.",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59253,
+          "question_text": "If A is a non singular matrix of order 3 , then |adj(A 3 )|=",
+          "question_html": "<p>If A is a non singular matrix of order 3 , then |adj(A<sup>3</sup>)|=</p>",
+          "options": [
+            {
+              "id": 192201,
+              "text": "|A| 9",
+              "html": "|A|<sup>9</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 192200,
+              "text": "|A| 8",
+              "html": "|A|<sup>8</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 192202,
+              "text": "|A| 7",
+              "html": "|A|<sup>7</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 192199,
+              "text": "|A| 6",
+              "html": "|A|<sup>6</sup>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "|A| 6",
+          "correct_option_ids": [
+            192199
+          ],
+          "explanation": "If A is a non singular matrix of order 3, then |adj(A 3 )| = (|A 3 |) 2 = (|AAA|) 2 = (|A| |A| |A|) 2 = (|A| 3 ) 2 = |A| 6 .",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59254,
+          "question_text": "If I 3 is the identity matrix of order 3, then I 3 -1 is",
+          "question_html": "<p>If I<sub>3</sub> is the identity matrix of order 3, then I<sub>3</sub><sup>-1</sup>&nbsp; is</p>",
+          "options": [
+            {
+              "id": 192206,
+              "text": "2I 2",
+              "html": "2I<sub>2</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 192203,
+              "text": "I 3",
+              "html": "I<sub>3</sub>",
+              "is_correct": true
+            },
+            {
+              "id": 192205,
+              "text": "3I 3",
+              "html": "3I<sub>3</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 192204,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "I 3",
+          "correct_option_ids": [
+            192203
+          ],
+          "explanation": "Because, the inverse of an identity matrix is an identity matrix itself.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59255,
+          "question_text": "The roots of the equation {tex}\\left| {\\begin{array}{*{20}{c}} 1&4&{20} \\\\ 1&{ - 2}&5 \\\\ 1&{2x}&{5{x^2}} \\end{array}} \\right| = 0{/tex} are",
+          "question_html": "<p>The roots of the equation <span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} 1&amp;4&amp;{20} \\\\ 1&amp;{ - 2}&amp;5 \\\\ 1&amp;{2x}&amp;{5{x^2}} \\end{array}} \\right| = 0{/tex}</span> are</p>",
+          "options": [
+            {
+              "id": 192210,
+              "text": "1 , 2",
+              "html": "1 , 2",
+              "is_correct": false
+            },
+            {
+              "id": 192207,
+              "text": "&ndash;1 , 2",
+              "html": "&ndash;1 , 2",
+              "is_correct": true
+            },
+            {
+              "id": 192209,
+              "text": "1 , &ndash;2",
+              "html": "1 , &ndash;2",
+              "is_correct": false
+            },
+            {
+              "id": 192208,
+              "text": "&ndash;1, &ndash; 2",
+              "html": "&ndash;1, &ndash; 2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "&ndash;1 , 2",
+          "correct_option_ids": [
+            192207
+          ],
+          "explanation": "{tex}\\left| {\\begin{array}{*{20}{c}} 1&4&{20} \\\\ 1&{ - 2}&5 \\\\ 1&{2x}&{5{x^2}} \\end{array}} \\right| = 0{/tex} Apply, R 3 {tex}\\rightarrow{/tex} R 3 - R 1 , R 2 {tex}\\rightarrow{/tex} R 2 - R 1 , {tex}\\Rightarrow{/tex} {tex}\\left| {\\begin{array}{*{20}{c}} 1&4&{20} \\\\ 0&{ - 6}&{ - 15} \\\\ 0&{2x - 4}&{5{x^2} - 20} \\end{array}} \\right| = 0{/tex} {tex}\\Rightarrow{/tex} -6(5x 2 - 20) + 15(2x - 4) =0 {tex}\\Rightarrow{/tex} (x - 2)(x + 1) = 0 {tex}\\Rightarrow{/tex} x= 2 , -1.",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59256,
+          "question_text": "The value of det A where A= {tex}\\left[ {\\begin{array}{*{20}{c}} 1&{\\sin \\theta }&1 \\\\ { - \\sin \\theta }&1&{\\sin \\theta } \\\\ { - 1}&{ - \\sin \\theta }&1 \\end{array}} \\right]{/tex} lies in the interval",
+          "question_html": "<p>The value of det A where A=<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 1&amp;{\\sin \\theta }&amp;1 \\\\ { - \\sin \\theta }&amp;1&amp;{\\sin \\theta } \\\\ { - 1}&amp;{ - \\sin \\theta }&amp;1 \\end{array}} \\right]{/tex}</span> lies in the interval</p>",
+          "options": [
+            {
+              "id": 192211,
+              "text": "[2,4]",
+              "html": "[2,4]",
+              "is_correct": true
+            },
+            {
+              "id": 192213,
+              "text": "(1,2)",
+              "html": "(1,2)",
+              "is_correct": false
+            },
+            {
+              "id": 192214,
+              "text": "(2,1)",
+              "html": "(2,1)",
+              "is_correct": false
+            },
+            {
+              "id": 192212,
+              "text": "[ 0 ,2 ]",
+              "html": "[ 0 ,2 ]&nbsp;",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "[2,4]",
+          "correct_option_ids": [
+            192211
+          ],
+          "explanation": "{tex} A = \\left[ {\\matrix{ 1 & {\\sin \\theta } & 1 \\cr { - \\sin \\theta } & 1 & {\\sin \\theta } \\cr { - 1} & { - \\sin \\theta } & 1 \\cr } } \\right] {/tex} {tex} \\left| A \\right| = \\left| {\\matrix{ 1 & {\\sin \\theta } & 1 \\cr { - \\sin \\theta } & 1 & {\\sin \\theta } \\cr { - 1} & { - \\sin \\theta } & 1 \\cr } } \\right|{/tex} Apply, R 1 {tex}\\rightarrow{/tex} R 1 + R 3 {tex} \\left| A \\right| = \\left| {\\matrix{ 0 & 0 & 2 \\cr { - \\sin \\theta } & 1 & {\\sin \\theta } \\cr { - 1} & { - \\sin \\theta } & 1 \\cr } } \\right|{/tex} now expanding along R 1 {tex}\\left| A \\right| = 2({\\sin ^2}\\theta + 1){/tex} now, {tex}- 1 \\le \\sin \\theta \\le 1 {/tex} {tex}\\Rightarrow 0 \\le {\\sin ^2}\\theta \\le 1 {/tex} {tex} \\Rightarrow 1 \\le {\\sin ^2}\\theta + 1 \\le 2 {/tex} {tex} \\Rightarrow 2 \\le 2({\\sin ^2}\\theta + 1) \\le 4 {/tex} {tex} \\Rightarrow 2 \\le \\left| A \\right| \\le 4 {/tex} So, |A| lies on [2,4]",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59257,
+          "question_text": "{tex}\\left| {\\begin{array}{*{20}{c}} {{a_1}}&{{b_1}}&{{c_1}}&{{d_1}} \\\\ 0&{{a_2}}&{{b_2}}&{{c_2}} \\\\ 0&0&{{a_3}}&{{b_3}} \\\\ 0&0&0&{{a_4}} \\end{array}} \\right|{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} {{a_1}}&amp;{{b_1}}&amp;{{c_1}}&amp;{{d_1}} \\\\ 0&amp;{{a_2}}&amp;{{b_2}}&amp;{{c_2}} \\\\ 0&amp;0&amp;{{a_3}}&amp;{{b_3}} \\\\ 0&amp;0&amp;0&amp;{{a_4}} \\end{array}} \\right|{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192216,
+              "text": "a 1 + a 2 + a 3 + a 4",
+              "html": "a<sub>1</sub>+ a<sub>2&nbsp;</sub>+ a<sub>3 </sub>+ a<sub>4</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 192217,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 192215,
+              "text": "a 1 a 2 a 3 a 4",
+              "html": "a<sub>1</sub>a<sub>2</sub>a<sub>3</sub>a<sub>4</sub>",
+              "is_correct": true
+            },
+            {
+              "id": 192218,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "a 1 a 2 a 3 a 4",
+          "correct_option_ids": [
+            192215
+          ],
+          "explanation": "The determinant of a lower triangular or an upper triangular matrix is equal to the product of the diagonal elements.",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59258,
+          "question_text": "If A is a non singular matrix and A&rsquo; denotes the transpose of A, then",
+          "question_html": "<p>If A is a non singular matrix and A&rsquo; denotes the transpose of A, then</p>",
+          "options": [
+            {
+              "id": 192221,
+              "text": "|AA&#39;| {tex} \\ne {/tex} |A 2 |",
+              "html": "|AA&#39;|&nbsp;<span class=\"math-tex\">{tex} \\ne {/tex}</span>|A<sup>2</sup>|",
+              "is_correct": false
+            },
+            {
+              "id": 192220,
+              "text": "|A| {tex}\\ne {/tex} |A&#39;|",
+              "html": "|A|<span class=\"math-tex\">{tex}\\ne {/tex}</span>|A&#39;|",
+              "is_correct": false
+            },
+            {
+              "id": 192222,
+              "text": "|A| - |A&#39;| {tex}\\ne{/tex} 0",
+              "html": "|A| -&nbsp;|A&#39;|&nbsp;<span class=\"math-tex\">{tex}\\ne{/tex}</span>&nbsp;0",
+              "is_correct": false
+            },
+            {
+              "id": 192219,
+              "text": "|A| + |A&#39;| {tex}\\ne{/tex} 0",
+              "html": "|A| + |A&#39;|&nbsp;<span class=\"math-tex\">{tex}\\ne{/tex}</span>&nbsp;0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "|A| + |A&#39;| {tex}\\ne{/tex} 0",
+          "correct_option_ids": [
+            192219
+          ],
+          "explanation": "Because, the determinant of a matrix and its transpose are always equal that is |A| = |A&#39;|",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59259,
+          "question_text": "If A and B are square matrices of order 3, such that Det.A = &ndash;1, Det.B =3 then, the determinant of 3AB is equal to",
+          "question_html": "<p>If A and B are square matrices of order 3, such that Det.A = &ndash;1, Det.B =3 then, the determinant of 3AB is equal to</p>",
+          "options": [
+            {
+              "id": 192226,
+              "text": "81",
+              "html": "81",
+              "is_correct": false
+            },
+            {
+              "id": 192224,
+              "text": "&ndash;9",
+              "html": "&ndash;9",
+              "is_correct": false
+            },
+            {
+              "id": 192223,
+              "text": "-81",
+              "html": "-81",
+              "is_correct": true
+            },
+            {
+              "id": 192225,
+              "text": "&ndash;27",
+              "html": "&ndash;27",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "-81",
+          "correct_option_ids": [
+            192223
+          ],
+          "explanation": "|3AB| = 3 3 |A||B| = 27(-1)(3) = -81",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59260,
+          "question_text": "A square matrix A is called singular if det. A is",
+          "question_html": "<p>A square matrix A is called singular if det. A is</p>",
+          "options": [
+            {
+              "id": 192229,
+              "text": "Negative",
+              "html": "Negative",
+              "is_correct": false
+            },
+            {
+              "id": 192227,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            },
+            {
+              "id": 192228,
+              "text": "Positive",
+              "html": "Positive",
+              "is_correct": false
+            },
+            {
+              "id": 192230,
+              "text": "Non&ndash;zero",
+              "html": "Non&ndash;zero",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            192227
+          ],
+          "explanation": "For a singular matrix, |A| = 0.",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59261,
+          "question_text": "The value of det. {tex}\\left[ {\\begin{array}{*{20}{c}} a&0&0&0 \\\\ 2&b&0&0 \\\\ 4&6&c&0 \\\\ 6&8&{10}&d \\end{array}} \\right]{/tex} is",
+          "question_html": "<p>The value of det.<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} a&amp;0&amp;0&amp;0 \\\\ 2&amp;b&amp;0&amp;0 \\\\ 4&amp;6&amp;c&amp;0 \\\\ 6&amp;8&amp;{10}&amp;d \\end{array}} \\right]{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 192232,
+              "text": "a + b + c + d",
+              "html": "a + b + c + d",
+              "is_correct": false
+            },
+            {
+              "id": 192233,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 192231,
+              "text": "abcd",
+              "html": "abcd",
+              "is_correct": true
+            },
+            {
+              "id": 192234,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "abcd",
+          "correct_option_ids": [
+            192231
+          ],
+          "explanation": "The determinant of a lower triangular or an upper triangular matrix is equal to the product of the diagonal elements.",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59262,
+          "question_text": "The system AX = B of n equations in n unknowns has infinitely many solutions if",
+          "question_html": "<p>The system AX = B of n equations in n unknowns has infinitely many solutions if</p>",
+          "options": [
+            {
+              "id": 192236,
+              "text": "if det. A {tex}\\ne{/tex} 0, (adjA)B {tex}\\ne{/tex} O",
+              "html": "if det. A<span class=\"math-tex\">{tex}\\ne{/tex}</span>&nbsp;0,&nbsp; (adjA)B<span class=\"math-tex\">{tex}\\ne{/tex}</span>&nbsp;O",
+              "is_correct": false
+            },
+            {
+              "id": 192237,
+              "text": "if det.A = 0, ( adj A)B {tex} \\ne {/tex} O",
+              "html": "if det.A = 0, ( adj A)B<span class=\"math-tex\">{tex} \\ne {/tex}</span>O",
+              "is_correct": false
+            },
+            {
+              "id": 192238,
+              "text": "det. A {tex}\\ne{/tex} 0",
+              "html": "det. A<span class=\"math-tex\">{tex}\\ne{/tex}</span>0",
+              "is_correct": false
+            },
+            {
+              "id": 192235,
+              "text": "if det. A = 0 , ( adj A ) B =O",
+              "html": "if det. A = 0 , ( adj A ) B =O",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "if det. A = 0 , ( adj A ) B =O",
+          "correct_option_ids": [
+            192235
+          ],
+          "explanation": "If det. A = 0, (adj A) B =O {tex} \\Rightarrow {/tex} The system AX = B of n equations in n unknowns may be consistent with infinitely many solutions or it may be inconsistent.",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59263,
+          "question_text": "If A is a skew-symmetric matrix of odd order n, then",
+          "question_html": "<p>If A is a skew-symmetric matrix of odd order n, then</p>",
+          "options": [
+            {
+              "id": 192241,
+              "text": "|A| = |A&#39;|",
+              "html": "|A|&nbsp;= |A&#39;|",
+              "is_correct": false
+            },
+            {
+              "id": 192242,
+              "text": "|A| = 1",
+              "html": "|A| = 1",
+              "is_correct": false
+            },
+            {
+              "id": 192240,
+              "text": "|A| = -1",
+              "html": "|A| = -1",
+              "is_correct": false
+            },
+            {
+              "id": 192239,
+              "text": "|A| = 0",
+              "html": "|A| = 0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "|A| = 0",
+          "correct_option_ids": [
+            192239
+          ],
+          "explanation": "Since, A is a skew-symmetric matrix. {tex}\\therefore{/tex} A&#39; = - A {tex}\\Rightarrow{/tex} |A&#39;| = |-A| {tex}\\Rightarrow{/tex} |A&#39;| = (-1) n |A| [ {tex}\\because{/tex} |KA| = k n |A|, if A is order n] {tex}\\Rightarrow{/tex} {tex}|A|=(-1)^n|A|{/tex} {tex}\\left[\\because|A|=\\left|A^{\\prime}\\right|\\right]{/tex} {tex}\\Rightarrow{/tex} |A| = -|A| [ {tex}\\because{/tex} n is odd] {tex}\\Rightarrow{/tex} 2|A| = 0 {tex}\\Rightarrow{/tex} |A| = 0",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59264,
+          "question_text": "For an invertible square matrix of order 3 with real entries A -1 = A 2 , then det. A =",
+          "question_html": "<p>For an invertible square matrix of order 3 with real entries A<sup>-1</sup>&nbsp;= A<sup>2</sup>,&nbsp;then det. A =</p>",
+          "options": [
+            {
+              "id": 192246,
+              "text": "4",
+              "html": "4",
+              "is_correct": false
+            },
+            {
+              "id": 192244,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            },
+            {
+              "id": 192243,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            },
+            {
+              "id": 192245,
+              "text": "{tex}\\frac{1}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            192243
+          ],
+          "explanation": "A 2 = I {tex}\\Rightarrow{/tex} A 2 A -1 = IA -1 {tex}\\Rightarrow{/tex} A = A -1 and it is possible only if A is an identity matrix and determinant of the identity matrix is equal to 1",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59265,
+          "question_text": "The value of the determinant of a skew symmetric matrix of even order is",
+          "question_html": "<p>The value of the determinant of a skew symmetric matrix of even order is</p>",
+          "options": [
+            {
+              "id": 192250,
+              "text": "Positive",
+              "html": "Positive",
+              "is_correct": false
+            },
+            {
+              "id": 192249,
+              "text": "Negative",
+              "html": "Negative",
+              "is_correct": false
+            },
+            {
+              "id": 192247,
+              "text": "A non zero perfect square",
+              "html": "A non zero perfect square",
+              "is_correct": true
+            },
+            {
+              "id": 192248,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "A non zero perfect square",
+          "correct_option_ids": [
+            192247
+          ],
+          "explanation": "The determinant of a skew symmetric matrix of even order is A non zero perfect square and odd order is equal to 0.",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3607,
+      "test_name": "Determinants Test-05",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59266,
+          "question_text": "If A is a square matrix such that A 2 = A, then, det.(A) = ______",
+          "question_html": "<p>If A is a square matrix such that A<sup>2</sup>&nbsp;= A, then, det.(A) = ______</p>",
+          "options": [
+            {
+              "id": 192253,
+              "text": "1 or - 1",
+              "html": "1 or - 1",
+              "is_correct": false
+            },
+            {
+              "id": 192254,
+              "text": "0 or - 1",
+              "html": "0 or - 1",
+              "is_correct": false
+            },
+            {
+              "id": 192251,
+              "text": "0 or 1",
+              "html": "0 or 1",
+              "is_correct": true
+            },
+            {
+              "id": 192252,
+              "text": "2 or -2",
+              "html": "2 or -2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0 or 1",
+          "correct_option_ids": [
+            192251
+          ],
+          "explanation": "Since, A 2 = A {tex}\\Rightarrow{/tex} |A| 2 = |A| {tex}\\therefore{/tex} (Det. A)(Det. A) = Det.A, {tex}\\therefore{/tex} det.A [ det.A - 1 ] = 0. {tex}\\therefore{/tex} det.A = 0 or 1.",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59267,
+          "question_text": "If A&rsquo; is the transpose of a square matrix A, then",
+          "question_html": "<p>If A&rsquo; is the transpose of a square matrix A, then</p>",
+          "options": [
+            {
+              "id": 192257,
+              "text": "|A| + |A&#39;| = 0",
+              "html": "|A| + |A&#39;| = 0",
+              "is_correct": false
+            },
+            {
+              "id": 192255,
+              "text": "|A| = |A&#39;|",
+              "html": "|A| = |A&#39;|",
+              "is_correct": true
+            },
+            {
+              "id": 192256,
+              "text": "|A| {tex} \\ne{/tex} |A&#39;|",
+              "html": "|A|&nbsp;<span class=\"math-tex\">{tex} \\ne{/tex}</span>&nbsp;|A&#39;|",
+              "is_correct": false
+            },
+            {
+              "id": 192258,
+              "text": "|A| - |A&#39;| = 0",
+              "html": "|A| -&nbsp;|A&#39;| = 0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "|A| = |A&#39;|",
+          "correct_option_ids": [
+            192255
+          ],
+          "explanation": "The determinant of a matrix A and its transpose always same. Because if we interchange the rows into column in a determinant the value of determinant remains unaltered.",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59268,
+          "question_text": "Let A and B be {tex}3{\\text{ }} \\times {\\text{ }}3{/tex} matrices, then AB = O implies",
+          "question_html": "<p>Let A and B be <span class=\"math-tex\">{tex}3{\\text{ }} \\times {\\text{ }}3{/tex}</span> matrices, then AB = O implies</p>",
+          "options": [
+            {
+              "id": 192262,
+              "text": "A =O or B = O",
+              "html": "A =O or B = O",
+              "is_correct": false
+            },
+            {
+              "id": 192259,
+              "text": "either |A| = 0 or |B| = 0",
+              "html": "either |A| = 0 or |B| = 0&nbsp;",
+              "is_correct": true
+            },
+            {
+              "id": 192261,
+              "text": "|A| = 0 & |B| = 0",
+              "html": "|A| = 0 &amp; |B| = 0",
+              "is_correct": false
+            },
+            {
+              "id": 192260,
+              "text": "A=O & B = O",
+              "html": "A=O &amp; B = O",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "either |A| = 0 or |B| = 0",
+          "correct_option_ids": [
+            192259
+          ],
+          "explanation": "If AB=0, Then |AB|=0 and if |AB| = 0 {tex}\\Rightarrow{/tex} either |A| = 0 or |B| = 0",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59269,
+          "question_text": "If A and B are any 2 {tex}\\times{/tex} 2 matrices, then det. (A+B) = 0 implies",
+          "question_html": "<p>If A and B are any 2&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;2&nbsp;matrices, then det. (A+B) = 0 implies</p>",
+          "options": [
+            {
+              "id": 192265,
+              "text": "det A = 0 and det B = 0",
+              "html": "det A = 0 and det B = 0",
+              "is_correct": false
+            },
+            {
+              "id": 192266,
+              "text": "det A = 0 or det B = 0",
+              "html": "det A = 0 or det B = 0",
+              "is_correct": false
+            },
+            {
+              "id": 192264,
+              "text": "detA + det B = 0",
+              "html": "detA + det B = 0",
+              "is_correct": false
+            },
+            {
+              "id": 192263,
+              "text": "None of these",
+              "html": "None of these",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "None of these",
+          "correct_option_ids": [
+            192263
+          ],
+          "explanation": "If det (A+B) = 0 implies that A+B a Singular matrix.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59270,
+          "question_text": "If A and B are square matrices of same order and A&rsquo; denotes the transpose of A, then",
+          "question_html": "<p>If A and B are square matrices of same order and A&rsquo; denotes the transpose of A, then</p>",
+          "options": [
+            {
+              "id": 192269,
+              "text": "AB = O {tex} \\Rightarrow {/tex} |A| = 0 and |B| = 0",
+              "html": "AB = O <span class=\"math-tex\">{tex} \\Rightarrow {/tex}</span>|A| = 0 and |B| = 0",
+              "is_correct": false
+            },
+            {
+              "id": 192267,
+              "text": "(AB)&rsquo; = B&rsquo;A&rsquo;",
+              "html": "(AB)&rsquo; = B&rsquo;A&rsquo;",
+              "is_correct": true
+            },
+            {
+              "id": 192268,
+              "text": "(AB)&rsquo; = A&rsquo;B&rsquo;",
+              "html": "(AB)&rsquo; = A&rsquo;B&rsquo;",
+              "is_correct": false
+            },
+            {
+              "id": 192270,
+              "text": "AB = O {tex} \\Rightarrow {/tex} A = 0 or B = 0",
+              "html": "AB = O <span class=\"math-tex\">{tex} \\Rightarrow {/tex}</span> A = 0 or B = 0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "(AB)&rsquo; = B&rsquo;A&rsquo;",
+          "correct_option_ids": [
+            192267
+          ],
+          "explanation": "By the property of transpose of a matrix, (AB)&rsquo; = B&rsquo;A&rsquo;.",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59271,
+          "question_text": "In a third order determinant, each element of the first column consists of sum of two terms, each element of the second column consists of sum of three terms and each element of the third column consists of sum of four terms. Then it can be decomposed into n determinants, where n has value",
+          "question_html": "<p>In a third order determinant, each element of the first column consists of sum of two terms, each element of the second column consists of sum of three terms and each element of the third column consists of sum of four terms. Then it can be decomposed into n determinants, where n has value</p>",
+          "options": [
+            {
+              "id": 192272,
+              "text": "16",
+              "html": "16",
+              "is_correct": false
+            },
+            {
+              "id": 192273,
+              "text": "9",
+              "html": "9",
+              "is_correct": false
+            },
+            {
+              "id": 192274,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192271,
+              "text": "24",
+              "html": "24",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "24",
+          "correct_option_ids": [
+            192271
+          ],
+          "explanation": "N = {tex}2{\\text{ }} \\times 3{\\text{ }} \\times {\\text{ }}4{/tex} = 24.",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59272,
+          "question_text": "If each element of a 3 {tex}\\times{/tex} 3 matrix A is multiplied by 3, then the determinant of the newly formed matrix is",
+          "question_html": "<p>If each element of a 3&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span> 3 matrix A is multiplied by 3, then the determinant of the newly formed matrix is</p>\r\n",
+          "options": [
+            {
+              "id": 192277,
+              "text": "9 det A",
+              "html": "9 det A",
+              "is_correct": false
+            },
+            {
+              "id": 192278,
+              "text": "3 det A",
+              "html": "3 det A",
+              "is_correct": false
+            },
+            {
+              "id": 192276,
+              "text": "(det det A) 3",
+              "html": "(det det A)<sup>3</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 192275,
+              "text": "27 det A",
+              "html": "27 det A",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "27 det A",
+          "correct_option_ids": [
+            192275
+          ],
+          "explanation": "|3A| = 3 3 |A| = 27|A| if A is a square matrix of order n, then |kA|=k n |A| where n is the order of matrix",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59273,
+          "question_text": "If A is a non singular matrix of order 3, then |adj(adj A)|",
+          "question_html": "<p>If A is a non singular matrix of order 3, then |adj(adj A)|</p>",
+          "options": [
+            {
+              "id": 192281,
+              "text": "|A| 3",
+              "html": "|A|<sup>3</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 192280,
+              "text": "|A| 6",
+              "html": "|A|<sup>6</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 192279,
+              "text": "|A| 4",
+              "html": "|A|<sup>4</sup>",
+              "is_correct": true
+            },
+            {
+              "id": 192282,
+              "text": "|A| 2",
+              "html": "|A|<sup>2</sup>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "|A| 4",
+          "correct_option_ids": [
+            192279
+          ],
+          "explanation": "|adj.(adj.A) = |A| n+1 , where n is order of matrix. Here n = 3.",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59274,
+          "question_text": "If the matrix AB = O, then",
+          "question_html": "<p>If the matrix AB = O, then</p>",
+          "options": [
+            {
+              "id": 192284,
+              "text": "A = O or B = O",
+              "html": "A = O or B = O",
+              "is_correct": false
+            },
+            {
+              "id": 192285,
+              "text": "A = O and B = O",
+              "html": "A = O and B = O",
+              "is_correct": false
+            },
+            {
+              "id": 192283,
+              "text": "It is not necessary that either A = O or B = O",
+              "html": "It is not necessary that either A = O or B = O",
+              "is_correct": true
+            },
+            {
+              "id": 192286,
+              "text": "It is necessary that either A = O or B = O",
+              "html": "It is necessary that either A = O or B = O",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "It is not necessary that either A = O or B = O",
+          "correct_option_ids": [
+            192283
+          ],
+          "explanation": "If the matrix AB = O, then, matrix A can be a non zero matrix as well as matrix B can be a non zero matrix because for the multiplication of two matrices to be equal to 0 the matrices need not to be equal to 0. So, it is not necessary that either A = 0 or B = 0.",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59275,
+          "question_text": "{tex}\\left| {\\begin{array}{*{20}{c}} 0&{a - b}&{a - c} \\\\ {b - a}&0&{b - c} \\\\ {c - a}&{c - b}&0 \\end{array}} \\right|{/tex} =",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} 0&amp;{a - b}&amp;{a - c} \\\\ {b - a}&amp;0&amp;{b - c} \\\\ {c - a}&amp;{c - b}&amp;0 \\end{array}} \\right|{/tex}</span> =</p>",
+          "options": [
+            {
+              "id": 192289,
+              "text": "abc",
+              "html": "abc",
+              "is_correct": false
+            },
+            {
+              "id": 192287,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            },
+            {
+              "id": 192288,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192290,
+              "text": "-1",
+              "html": "-1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            192287
+          ],
+          "explanation": "Because, the determinant of a skew symmetric matrix of odd order is always zero and of even order is a non zero perfect square and the given determinant is skew symmetric and it&#39;s order is 3 that is odd so it&#39;s determinant is 0",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59276,
+          "question_text": "If A is a square matrix such that A 3 = I, then A -1 is equal to",
+          "question_html": "<p>If A is a square matrix such that A<sup>3</sup> = I, then A<sup>-1</sup> is equal to</p>",
+          "options": [
+            {
+              "id": 192294,
+              "text": "I 2",
+              "html": "I<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 192293,
+              "text": "I",
+              "html": "I",
+              "is_correct": false
+            },
+            {
+              "id": 192292,
+              "text": "A",
+              "html": "A",
+              "is_correct": false
+            },
+            {
+              "id": 192291,
+              "text": "A 2",
+              "html": "A<sup>2</sup>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "A 2",
+          "correct_option_ids": [
+            192291
+          ],
+          "explanation": "A 3 = I Pre multiply A -1 {tex}\\Rightarrow {/tex} A -1 AA 2 = A -1 I {tex}\\Rightarrow {/tex} A 2 = A -1 (SINCE A -1 A=I) {tex}\\Rightarrow {/tex} A -1 = A 2",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59277,
+          "question_text": "The system of equations AX = B of n equations in n unknowns has a unique solution if",
+          "question_html": "<p>The system of equations AX = B of n equations in n unknowns has a unique solution if</p>",
+          "options": [
+            {
+              "id": 192297,
+              "text": "Det. A = 0 , (adj.A)B = O",
+              "html": "Det. A = 0 , (adj.A)B = O",
+              "is_correct": false
+            },
+            {
+              "id": 192296,
+              "text": "Det. {tex}A{\\text{ }} \\ne {\\text{ }}0{/tex} , ( adj. A) B = O",
+              "html": "Det. <span class=\"math-tex\">{tex}A{\\text{ }} \\ne {\\text{ }}0{/tex}</span> , ( adj. A)&nbsp;B = O",
+              "is_correct": false
+            },
+            {
+              "id": 192295,
+              "text": "Det. {tex}A{\\text{ }} \\ne {\\text{ }}0{/tex}",
+              "html": "Det. <span class=\"math-tex\">{tex}A{\\text{ }} \\ne {\\text{ }}0{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192298,
+              "text": "Det. {tex}A{\\text{ }} = {\\text{ }}0{/tex}",
+              "html": "Det. <span class=\"math-tex\">{tex}A{\\text{ }} = {\\text{ }}0{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Det. {tex}A{\\text{ }} \\ne {\\text{ }}0{/tex}",
+          "correct_option_ids": [
+            192295
+          ],
+          "explanation": "The system of equations AX = B of n equations in n unknowns has a unique solution if X = A -1 B {tex} \\Rightarrow {/tex} A -1 exists only if {tex}\\left| A \\right| \\ne 0{/tex} ,",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59278,
+          "question_text": "The point (3, 2) is reflected in the y &ndash; axis and then moved a distance of 5 units towards the negative side of y - axis .The co-ordinates of the point thus obtained are:",
+          "question_html": "<p>The point (3, 2) is reflected in the y &ndash; axis and then moved a distance of 5 units towards the negative side of y - axis .The co-ordinates of the point thus obtained are:</p>",
+          "options": [
+            {
+              "id": 192301,
+              "text": "(&ndash;3,3)",
+              "html": "(&ndash;3,3)",
+              "is_correct": false
+            },
+            {
+              "id": 192299,
+              "text": "(&ndash;3,&ndash;3)",
+              "html": "(&ndash;3,&ndash;3)",
+              "is_correct": true
+            },
+            {
+              "id": 192302,
+              "text": "(3,&ndash;3)",
+              "html": "(3,&ndash;3)",
+              "is_correct": false
+            },
+            {
+              "id": 192300,
+              "text": "(3,3)",
+              "html": "(3,3)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "(&ndash;3,&ndash;3)",
+          "correct_option_ids": [
+            192299
+          ],
+          "explanation": "Reflection in the y-axis gives the new position as (-3, 2). When it is moved towards the negative side of y-axis through 5 units, then new position is (-3, 2, -5) i.e. (-3, -3).",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59279,
+          "question_text": "If the value of a third order determinant is 11, then the value of the square of the determinant formed by the cofactors will be",
+          "question_html": "<p>If the value of a third order determinant is 11, then the value of the square of the determinant formed by the cofactors will be</p>",
+          "options": [
+            {
+              "id": 192304,
+              "text": "1331",
+              "html": "1331",
+              "is_correct": false
+            },
+            {
+              "id": 192306,
+              "text": "11",
+              "html": "11",
+              "is_correct": false
+            },
+            {
+              "id": 192305,
+              "text": "121",
+              "html": "121",
+              "is_correct": false
+            },
+            {
+              "id": 192303,
+              "text": "14641",
+              "html": "14641",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "14641",
+          "correct_option_ids": [
+            192303
+          ],
+          "explanation": "Since the matrix formed by the cofactors is adj(A) and we know that |adj(A)|=|A| 2 for third order square matrix. So, |adj(A)| 2 = |A| 4 and |A|=11 {tex}\\Rightarrow{/tex} |adj(A)| 2 =(11) 4 =14641",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59280,
+          "question_text": "The system of equations x + 2y = 5, 4x + 8y =20 has",
+          "question_html": "<p>The system of equations x + 2y = 5, 4x + 8y =20 has</p>",
+          "options": [
+            {
+              "id": 192310,
+              "text": "Two solution",
+              "html": "Two solution",
+              "is_correct": false
+            },
+            {
+              "id": 192308,
+              "text": "no solution",
+              "html": "no solution",
+              "is_correct": false
+            },
+            {
+              "id": 192307,
+              "text": "infinitely many solutions",
+              "html": "infinitely many solutions",
+              "is_correct": true
+            },
+            {
+              "id": 192309,
+              "text": "a unique solution",
+              "html": "a unique solution",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "infinitely many solutions",
+          "correct_option_ids": [
+            192307
+          ],
+          "explanation": "x + 2y = 5, 4x + 8y = 20 {tex}\\Rightarrow {/tex} A = {tex}\\left[ {\\begin{array}{*{20}{c}} 1&2 \\\\ 4&8 \\end{array}} \\right]{/tex} , X = {tex}\\left[ {\\begin{array}{*{20}{c}} x \\\\ y \\end{array}} \\right]{/tex} , B = {tex}\\left[ {\\begin{array}{*{20}{c}} 5 \\\\ {20} \\end{array}} \\right]{/tex} |A| = 8 -8 = 0 adjA = {tex}\\left[ {\\begin{array}{*{20}{c}} 8&{ - 2} \\\\ { - 4}&1 \\end{array}} \\right]{/tex} now (adj A)B= {tex}\\left[ {\\begin{array}{*{20}{c}} 8&{ - 2} \\\\ { - 4}&1 \\end{array}} \\right]\\left[ {\\begin{array}{*{20}{c}} 5 \\\\ {20} \\end{array}} \\right] = \\left[ {\\begin{array}{*{20}{c}} {40 - 40} \\\\ { - 20 + 20} \\end{array}} \\right] = \\left[ {\\begin{array}{*{20}{c}} 0 \\\\ 0 \\end{array}} \\right]{/tex} {tex}\\Rightarrow {/tex} (adj A)B = 0 Since, |A|=0 and (adjA)B=0 So, the pair of equation have infinitely many solutions",
+          "solution": ""
+        }
+      ]
+    }
+  ],
+  "totalQuestions": 75
+}

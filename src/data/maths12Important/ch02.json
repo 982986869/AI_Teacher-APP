@@ -1,0 +1,1267 @@
+[
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 1165645,
+    "question_html": "<p>sin<span class=\"math-tex\">{tex}\\left[\\frac{\\pi}{3}+\\sin ^{-1}\\left(\\frac{1}{2}\\right)\\right]{/tex}</span>&nbsp;is equal to</p>",
+    "question_text": "sin {tex}\\left[\\frac{\\pi}{3}+\\sin ^{-1}\\left(\\frac{1}{2}\\right)\\right]{/tex} is equal to",
+    "options": [
+      {
+        "id": 2374863,
+        "text": "1",
+        "html": "<p style=\"display:inline\">1</p>",
+        "is_correct": true,
+        "explanation": "{tex}\\sin \\left[\\frac{\\pi}{3}+\\sin ^{-1}\\left(\\frac{1}{2}\\right)\\right]{/tex} = sin {tex}\\left(\\frac{\\pi}{3}+\\frac{\\pi}{6}\\right){/tex} = sin {tex}\\left(\\frac{\\pi}{2}\\right){/tex} = 1"
+      },
+      {
+        "id": 2374864,
+        "text": "{tex}\\frac 12{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac 12{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2374865,
+        "text": "{tex}\\frac 13{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac 13{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2374866,
+        "text": "{tex}\\frac 14{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac 14{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2374863
+    ],
+    "correct_option_text": "1",
+    "explanation": "{tex}\\sin \\left[\\frac{\\pi}{3}+\\sin ^{-1}\\left(\\frac{1}{2}\\right)\\right]{/tex} = sin {tex}\\left(\\frac{\\pi}{3}+\\frac{\\pi}{6}\\right){/tex} = sin {tex}\\left(\\frac{\\pi}{2}\\right){/tex} = 1",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 259321,
+    "question_html": "<p><span class=\"math-tex\">{tex}\\tan ^{-1} \\sqrt{3}-~\\sec ^{-1}(-2){/tex}</span>&nbsp;is equal to&nbsp;</p>",
+    "question_text": "{tex}\\tan ^{-1} \\sqrt{3}-~\\sec ^{-1}(-2){/tex} is equal to",
+    "options": [
+      {
+        "id": 376308,
+        "text": "{tex}\\pi{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\pi{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 376309,
+        "text": "{tex}-\\frac{\\pi}{3}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}-\\frac{\\pi}{3}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "Let us take {tex}\\tan ^{-1}(\\sqrt{3})=x{/tex} Then we get, {tex}tanx=\\sqrt{3}=tan \\frac{\\pi}{3}{/tex} {tex}\\Rightarrow ~x=\\frac{\\pi}3{/tex} We know that range of the principle value branch of tan -1 is {tex}\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} Therefore,x = {tex}\\tan ^{-1}(\\sqrt{3})=\\frac{\\pi}{3}{/tex} Let {tex}\\sec ^{-1}(-2)=y{/tex} then we get, {tex}\\text { sec } \\mathrm{y}=-2=-\\sec \\frac{\\pi}{3}=\\sec \\left(\\pi-\\frac{\\pi}{3}\\right)=\\sec \\left(\\frac{2 \\pi}{3}\\right){/tex} We know that range of the principle value branch of sec -1 is {tex}[0, \\pi]{/tex} Therefore, {tex}\\sec ^{-1}(-2)=\\frac{2 \\pi}{3}{/tex} Hence, {tex}\\tan ^{-1} \\sqrt{3}-~\\sec ^{-1}(-2){/tex} = {tex}\\frac{\\pi}3{/tex} {tex}-\\frac{2 \\pi}{3}= -\\frac {\\pi}3{/tex}"
+      },
+      {
+        "id": 376310,
+        "text": "{tex}\\frac{\\pi}{3}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{\\pi}{3}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 376311,
+        "text": "{tex}\\frac{2 \\pi}{3}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{2 \\pi}{3}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      376309
+    ],
+    "correct_option_text": "{tex}-\\frac{\\pi}{3}{/tex}",
+    "explanation": "Let us take {tex}\\tan ^{-1}(\\sqrt{3})=x{/tex} Then we get, {tex}tanx=\\sqrt{3}=tan \\frac{\\pi}{3}{/tex} {tex}\\Rightarrow ~x=\\frac{\\pi}3{/tex} We know that range of the principle value branch of tan -1 is {tex}\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} Therefore,x = {tex}\\tan ^{-1}(\\sqrt{3})=\\frac{\\pi}{3}{/tex} Let {tex}\\sec ^{-1}(-2)=y{/tex} then we get, {tex}\\text { sec } \\mathrm{y}=-2=-\\sec \\frac{\\pi}{3}=\\sec \\left(\\pi-\\frac{\\pi}{3}\\right)=\\sec \\left(\\frac{2 \\pi}{3}\\right){/tex} We know that range of the principle value branch of sec -1 is {tex}[0, \\pi]{/tex} Therefore, {tex}\\sec ^{-1}(-2)=\\frac{2 \\pi}{3}{/tex} Hence, {tex}\\tan ^{-1} \\sqrt{3}-~\\sec ^{-1}(-2){/tex} = {tex}\\frac{\\pi}3{/tex} {tex}-\\frac{2 \\pi}{3}= -\\frac {\\pi}3{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 1140901,
+    "question_html": "<p>The principal value of&nbsp;<span class=\"math-tex\">{tex}\\left[\\tan ^{-1} \\sqrt{3}-\\cot ^{-1}(-\\sqrt{3})\\right]{/tex}</span>&nbsp;is:</p>",
+    "question_text": "The principal value of {tex}\\left[\\tan ^{-1} \\sqrt{3}-\\cot ^{-1}(-\\sqrt{3})\\right]{/tex} is:",
+    "options": [
+      {
+        "id": 2310806,
+        "text": "{tex}\\pi{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\pi{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2310807,
+        "text": "{tex}-\\frac {\\pi}{2}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}-\\frac {\\pi}{2}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "{tex}-\\frac {\\pi}{2}{/tex}"
+      },
+      {
+        "id": 2310808,
+        "text": "0",
+        "html": "<p style=\"display:inline\">0</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2310809,
+        "text": "{tex}2\\sqrt 3{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}2\\sqrt 3{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2310807
+    ],
+    "correct_option_text": "{tex}-\\frac {\\pi}{2}{/tex}",
+    "explanation": "{tex}-\\frac {\\pi}{2}{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 1165762,
+    "question_html": "<p>If cos <span class=\"math-tex\">{tex}\\left(\\sin ^{-1} \\frac{2}{\\sqrt{5}}+\\cos ^{-1} \\text x\\right){/tex}</span> = 0, then x is equal to</p>",
+    "question_text": "If cos {tex}\\left(\\sin ^{-1} \\frac{2}{\\sqrt{5}}+\\cos ^{-1} \\text x\\right){/tex} = 0, then x is equal to",
+    "options": [
+      {
+        "id": 2374995,
+        "text": "{tex}\\frac{1}{\\sqrt{5}}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{1}{\\sqrt{5}}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2374996,
+        "text": "{tex}-\\frac{2}{\\sqrt{5}}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}-\\frac{2}{\\sqrt{5}}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2374997,
+        "text": "{tex}\\frac{2}{\\sqrt{5}}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{2}{\\sqrt{5}}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "{tex}\\frac{2}{\\sqrt{5}}{/tex}"
+      },
+      {
+        "id": 2374998,
+        "text": "1",
+        "html": "<p style=\"display:inline\">1</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2374997
+    ],
+    "correct_option_text": "{tex}\\frac{2}{\\sqrt{5}}{/tex}",
+    "explanation": "{tex}\\frac{2}{\\sqrt{5}}{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 1140931,
+    "question_html": "<p>What is the domain of the function cos<sup>-1</sup>(2x - 3)?</p>",
+    "question_text": "What is the domain of the function cos -1 (2x - 3)?",
+    "options": [
+      {
+        "id": 2310858,
+        "text": "[-1, 1]",
+        "html": "<p style=\"display:inline\">[-1, 1]</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2310859,
+        "text": "[1, 3]",
+        "html": "<p style=\"display:inline\">[1, 3]</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2310860,
+        "text": "(-1, 1)",
+        "html": "<p style=\"display:inline\">(-1, 1)</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2310861,
+        "text": "[1, 2]",
+        "html": "<p style=\"display:inline\">[1, 2]</p>",
+        "is_correct": true,
+        "explanation": "Let, f(x) = cos -1 (2x - 3) -1 {tex}\\leq{/tex} 2x - 3 {tex}\\leq{/tex} 1 {tex}\\Rightarrow{/tex} 2 {tex}\\leq{/tex} 2x {tex}\\leq{/tex} 4 {tex}\\Rightarrow{/tex} 1 {tex}\\leq{/tex} x {tex}\\leq{/tex} 2 {tex}\\therefore{/tex} x {tex}\\in{/tex} [1, 2] or domain of x is [1, 2]."
+      }
+    ],
+    "correct_option_ids": [
+      2310861
+    ],
+    "correct_option_text": "[1, 2]",
+    "explanation": "Let, f(x) = cos -1 (2x - 3) -1 {tex}\\leq{/tex} 2x - 3 {tex}\\leq{/tex} 1 {tex}\\Rightarrow{/tex} 2 {tex}\\leq{/tex} 2x {tex}\\leq{/tex} 4 {tex}\\Rightarrow{/tex} 1 {tex}\\leq{/tex} x {tex}\\leq{/tex} 2 {tex}\\therefore{/tex} x {tex}\\in{/tex} [1, 2] or domain of x is [1, 2].",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 1141019,
+    "question_html": "<p>The principal value of cos <sup>-1</sup><span class=\"math-tex\">{tex}\\left(\\frac{1}{2}\\right)+\\sin ^{-1}\\left(-\\frac{1}{\\sqrt{2}}\\right){/tex}</span>&nbsp;is</p>",
+    "question_text": "The principal value of cos -1 {tex}\\left(\\frac{1}{2}\\right)+\\sin ^{-1}\\left(-\\frac{1}{\\sqrt{2}}\\right){/tex} is",
+    "options": [
+      {
+        "id": 2311094,
+        "text": "{tex}\\frac {\\pi}{12}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac {\\pi}{12}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "{tex}\\cos ^{-1}\\left(\\frac{1}{2}\\right)+\\sin ^{-1}\\left(-\\frac{1}{\\sqrt{2}}\\right){/tex} {tex}= \\cos ^{-1}\\left(\\cos \\frac{\\pi}{3}\\right)-\\sin ^{-1}\\left(\\frac{1}{\\sqrt{2}}\\right){/tex} {tex}\\left[\\sin ^{-1}(-\\theta)=-\\sin ^{-1} \\theta\\right]{/tex} {tex}=\\frac{\\pi}{3}-\\sin ^{-1}\\left(\\sin \\frac{\\pi}{4}\\right){/tex} = {tex}\\frac{\\pi}{3}-\\frac{\\pi}{4}=\\frac{\\pi}{12}{/tex}"
+      },
+      {
+        "id": 2311095,
+        "text": "{tex}\\pi{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\pi{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2311096,
+        "text": "{tex}\\frac {\\pi}{3}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac {\\pi}{3}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2311097,
+        "text": "{tex}\\frac {\\pi}{6}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac {\\pi}{6}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2311094
+    ],
+    "correct_option_text": "{tex}\\frac {\\pi}{12}{/tex}",
+    "explanation": "{tex}\\cos ^{-1}\\left(\\frac{1}{2}\\right)+\\sin ^{-1}\\left(-\\frac{1}{\\sqrt{2}}\\right){/tex} {tex}= \\cos ^{-1}\\left(\\cos \\frac{\\pi}{3}\\right)-\\sin ^{-1}\\left(\\frac{1}{\\sqrt{2}}\\right){/tex} {tex}\\left[\\sin ^{-1}(-\\theta)=-\\sin ^{-1} \\theta\\right]{/tex} {tex}=\\frac{\\pi}{3}-\\sin ^{-1}\\left(\\sin \\frac{\\pi}{4}\\right){/tex} = {tex}\\frac{\\pi}{3}-\\frac{\\pi}{4}=\\frac{\\pi}{12}{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 882470,
+    "question_html": "<p>The value of&nbsp;<span class=\"math-tex\">{tex}\\sin ^{-1}\\left(\\cos \\frac{3 \\pi}{5}\\right){/tex}</span>&nbsp;is:</p>",
+    "question_text": "The value of {tex}\\sin ^{-1}\\left(\\cos \\frac{3 \\pi}{5}\\right){/tex} is:",
+    "options": [
+      {
+        "id": 1860670,
+        "text": "{tex}\\frac{\\pi}{10}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{\\pi}{10}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 1860671,
+        "text": "{tex}\\frac{3 \\pi}{5}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{3 \\pi}{5}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 1860672,
+        "text": "{tex}\\frac{-\\pi}{10}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{-\\pi}{10}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "{tex}\\sin ^{-1}\\left(\\cos \\frac{3 \\pi}{5}\\right){/tex} = sin -1 sin {tex}\\left(\\frac {\\pi}2- \\frac{3 \\pi}{5}\\right){/tex} = sin -1 sin {tex}(\\frac {5\\pi - 6\\pi}{10}){/tex} = sin -1 sin {tex}(\\frac {-\\pi}{10}){/tex} = {tex}\\frac{-\\pi}{10}{/tex}"
+      },
+      {
+        "id": 1860673,
+        "text": "{tex}\\frac{-3 \\pi}{5}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{-3 \\pi}{5}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      1860672
+    ],
+    "correct_option_text": "{tex}\\frac{-\\pi}{10}{/tex}",
+    "explanation": "{tex}\\sin ^{-1}\\left(\\cos \\frac{3 \\pi}{5}\\right){/tex} = sin -1 sin {tex}\\left(\\frac {\\pi}2- \\frac{3 \\pi}{5}\\right){/tex} = sin -1 sin {tex}(\\frac {5\\pi - 6\\pi}{10}){/tex} = sin -1 sin {tex}(\\frac {-\\pi}{10}){/tex} = {tex}\\frac{-\\pi}{10}{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 269047,
+    "question_html": "<p>The principal value of cos<sup>-1&nbsp;</sup><span class=\"math-tex\">{tex}\\left(\\frac{-1}{\\sqrt{2}}\\right){/tex}</span>&nbsp;is</p>",
+    "question_text": "The principal value of cos -1 {tex}\\left(\\frac{-1}{\\sqrt{2}}\\right){/tex} is",
+    "options": [
+      {
+        "id": 382187,
+        "text": "{tex}\\frac{-\\pi}{4}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{-\\pi}{4}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 382188,
+        "text": "{tex}\\frac{\\pi}{4}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{\\pi}{4}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 382189,
+        "text": "{tex}\\frac{3\\pi}{4}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{3\\pi}{4}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "Let the principle value be given by x also, let x = cos -1 {tex}\\left(\\frac{-1}{\\sqrt{2}}\\right){/tex} {tex}\\Rightarrow \\cos x=\\frac{-1}{\\sqrt{2}}{/tex} {tex}\\Rightarrow \\cos x=-\\cos \\left(\\frac{\\pi}{4}\\right)\\left(\\because \\cos \\left(\\frac{\\pi}{4}\\right)=\\frac{1}{\\sqrt{2}}\\right){/tex} {tex}\\Rightarrow {/tex} cos x = cos ( {tex}\\pi-\\frac{\\pi}{4}{/tex} ) ( {tex}\\because{/tex} -cos ( {tex}\\theta{/tex} ) = cos ( {tex}\\pi-\\theta{/tex} )} {tex}\\Rightarrow x=\\frac{3 \\pi}{4}{/tex}"
+      },
+      {
+        "id": 382190,
+        "text": "{tex}\\frac{5\\pi}{4}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{5\\pi}{4}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      382189
+    ],
+    "correct_option_text": "{tex}\\frac{3\\pi}{4}{/tex}",
+    "explanation": "Let the principle value be given by x also, let x = cos -1 {tex}\\left(\\frac{-1}{\\sqrt{2}}\\right){/tex} {tex}\\Rightarrow \\cos x=\\frac{-1}{\\sqrt{2}}{/tex} {tex}\\Rightarrow \\cos x=-\\cos \\left(\\frac{\\pi}{4}\\right)\\left(\\because \\cos \\left(\\frac{\\pi}{4}\\right)=\\frac{1}{\\sqrt{2}}\\right){/tex} {tex}\\Rightarrow {/tex} cos x = cos ( {tex}\\pi-\\frac{\\pi}{4}{/tex} ) ( {tex}\\because{/tex} -cos ( {tex}\\theta{/tex} ) = cos ( {tex}\\pi-\\theta{/tex} )} {tex}\\Rightarrow x=\\frac{3 \\pi}{4}{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 1336309,
+    "question_html": "<p>The value of sin<sup>-1</sup><span class=\"math-tex\">{tex}\\left(\\cos \\frac{3 \\pi}{5}\\right){/tex}</span>&nbsp;is</p>",
+    "question_text": "The value of sin -1 {tex}\\left(\\cos \\frac{3 \\pi}{5}\\right){/tex} is",
+    "options": [
+      {
+        "id": 2677001,
+        "text": "{tex}\\frac{\\pi}{10}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{\\pi}{10}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2677002,
+        "text": "{tex}\\frac{3 \\pi}{5}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{3 \\pi}{5}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2677003,
+        "text": "{tex}\\frac{-\\pi}{10}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{-\\pi}{10}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "{tex} \\sin ^{-1}\\left(\\cos \\frac{3 \\pi}{5}\\right) {/tex} {tex}= \\sin ^{-1}\\left(\\sin \\left(\\frac{\\pi}{2}-\\frac{3 \\pi}{5}\\right)\\right) {/tex} {tex}= \\sin ^{-1} \\sin \\left(\\frac{5 \\pi-6 \\pi}{10}\\right) {/tex} {tex}= \\sin ^{-1} \\sin \\left(-\\frac{\\pi}{10}\\right) {/tex} {tex}= -\\frac{\\pi}{10} \\epsilon\\left[-\\frac{\\pi}{2} , \\frac{\\pi}{2}\\right]{/tex}"
+      },
+      {
+        "id": 2677004,
+        "text": "{tex}\\frac{-3 \\pi}{5}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{-3 \\pi}{5}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2677003
+    ],
+    "correct_option_text": "{tex}\\frac{-\\pi}{10}{/tex}",
+    "explanation": "{tex} \\sin ^{-1}\\left(\\cos \\frac{3 \\pi}{5}\\right) {/tex} {tex}= \\sin ^{-1}\\left(\\sin \\left(\\frac{\\pi}{2}-\\frac{3 \\pi}{5}\\right)\\right) {/tex} {tex}= \\sin ^{-1} \\sin \\left(\\frac{5 \\pi-6 \\pi}{10}\\right) {/tex} {tex}= \\sin ^{-1} \\sin \\left(-\\frac{\\pi}{10}\\right) {/tex} {tex}= -\\frac{\\pi}{10} \\epsilon\\left[-\\frac{\\pi}{2} , \\frac{\\pi}{2}\\right]{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 1336303,
+    "question_html": "<p>The domain of the function f(x) = sin<sup>-1</sup> (2x) is</p>",
+    "question_text": "The domain of the function f(x) = sin -1 (2x) is",
+    "options": [
+      {
+        "id": 2676989,
+        "text": "[0, 1]",
+        "html": "<p style=\"display:inline\">[0, 1]</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2676990,
+        "text": "[-1, 1]",
+        "html": "<p style=\"display:inline\">[-1, 1]</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2676991,
+        "text": "{tex}\\left[-\\frac{1}{2}, \\frac{1}{2}\\right]{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\left[-\\frac{1}{2}, \\frac{1}{2}\\right]{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "{tex} f(x)=\\sin ^{-1} 2 x {/tex} {tex} \\text { Let } \\sin ^{-1} 2 x=\\theta {/tex} {tex}\\sin \\theta=2 x {/tex} {tex} -1 \\leq \\sin \\theta \\leq 1 {/tex} {tex} -1 \\leq 2 x \\leq 1 {/tex} {tex} -\\frac{1}{2} \\leq x \\leq \\frac{1}{2} {/tex} {tex} x \\in\\left[-\\frac{1}{2}, \\frac{1}{2}\\right]{/tex}"
+      },
+      {
+        "id": 2676992,
+        "text": "[-2, 2]",
+        "html": "<p style=\"display:inline\">[-2, 2]</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2676991
+    ],
+    "correct_option_text": "{tex}\\left[-\\frac{1}{2}, \\frac{1}{2}\\right]{/tex}",
+    "explanation": "{tex} f(x)=\\sin ^{-1} 2 x {/tex} {tex} \\text { Let } \\sin ^{-1} 2 x=\\theta {/tex} {tex}\\sin \\theta=2 x {/tex} {tex} -1 \\leq \\sin \\theta \\leq 1 {/tex} {tex} -1 \\leq 2 x \\leq 1 {/tex} {tex} -\\frac{1}{2} \\leq x \\leq \\frac{1}{2} {/tex} {tex} x \\in\\left[-\\frac{1}{2}, \\frac{1}{2}\\right]{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 256874,
+    "question_html": "<p>If sin<sup>-1</sup> x = y, then</p>",
+    "question_text": "If sin -1 x = y, then",
+    "options": [
+      {
+        "id": 375182,
+        "text": "{tex}-\\frac{\\pi}{2} \\leq y \\leq \\frac{\\pi}{2}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}-\\frac{\\pi}{2} \\leq y \\leq \\frac{\\pi}{2}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "sin -1 x = y {tex}\\Rightarrow{/tex} siny = x We know that range of the principle value branch of {tex}sin^{-1}x{/tex} is {tex}\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} Because, we know that {tex}-1\\le siny\\le 1{/tex} {tex}\\Rightarrow {/tex} {tex}sin(-\\frac {\\pi}{2})\\le siny \\le sin(\\frac{\\pi}{2}){/tex} Therefore, {tex}-\\frac{\\pi}{2} \\leq y \\leq \\frac{\\pi}{2}{/tex}"
+      },
+      {
+        "id": 375183,
+        "text": "{tex}0 \\leq y \\leq \\pi{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}0 \\leq y \\leq \\pi{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 375184,
+        "text": "{tex}0<y<\\pi{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}0&lt;y&lt;\\pi{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 375185,
+        "text": "{tex}-\\frac{\\pi}{2}<y<\\frac{\\pi}{2}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}-\\frac{\\pi}{2}&lt;y&lt;\\frac{\\pi}{2}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      375182
+    ],
+    "correct_option_text": "{tex}-\\frac{\\pi}{2} \\leq y \\leq \\frac{\\pi}{2}{/tex}",
+    "explanation": "sin -1 x = y {tex}\\Rightarrow{/tex} siny = x We know that range of the principle value branch of {tex}sin^{-1}x{/tex} is {tex}\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} Because, we know that {tex}-1\\le siny\\le 1{/tex} {tex}\\Rightarrow {/tex} {tex}sin(-\\frac {\\pi}{2})\\le siny \\le sin(\\frac{\\pi}{2}){/tex} Therefore, {tex}-\\frac{\\pi}{2} \\leq y \\leq \\frac{\\pi}{2}{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 1153207,
+    "question_html": "<p><strong>Assertion (A):</strong> Maximum value of (cos<sup>-1</sup> x) <sup>2</sup> is <span class=\"math-tex\">{tex}\\pi^2{/tex}</span><strong>.<br />\nReason (R):</strong> Range of the principal value branch of cos<sup>-1</sup>x is <span class=\"math-tex\">{tex}\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex}</span>.</p>",
+    "question_text": "Assertion (A): Maximum value of (cos -1 x) 2 is {tex}\\pi^2{/tex} . Reason (R): Range of the principal value branch of cos -1 x is {tex}\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} .",
+    "options": [
+      {
+        "id": 2339614,
+        "text": "Both A and R are true and R is the correct explanation of A.",
+        "html": "<p style=\"display:inline\">Both A and R are true and R is the correct explanation of A.</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2339615,
+        "text": "Both A and R are true but R is not the correct explanation of A.",
+        "html": "<p style=\"display:inline\">Both A and R are true but R is not the correct explanation of A.</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2339616,
+        "text": "A is true but R is false.",
+        "html": "<p style=\"display:inline\">A is true but R is false.</p>",
+        "is_correct": true,
+        "explanation": "A is true but R is false. Explanation: A: The maximum value of (cos -1 x) 2 is {tex}\\pi^2{/tex} (true) R: Range of the principal value branch of cos -1 x is {tex}\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} . (false) The range of the principal value branch of cos -1 x is {tex}[-\\pi, \\pi]{/tex} ."
+      },
+      {
+        "id": 2339617,
+        "text": "A is false but R is true.",
+        "html": "<p style=\"display:inline\">A is false but R is true.</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2339616
+    ],
+    "correct_option_text": "A is true but R is false.",
+    "explanation": "A is true but R is false. Explanation: A: The maximum value of (cos -1 x) 2 is {tex}\\pi^2{/tex} (true) R: Range of the principal value branch of cos -1 x is {tex}\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} . (false) The range of the principal value branch of cos -1 x is {tex}[-\\pi, \\pi]{/tex} .",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 1345916,
+    "question_html": "<p><strong>Assertion (A):</strong> The range of the function f(x) = 2 sin<sup>-1</sup> x + <span class=\"math-tex\">{tex}\\frac {3\\pi}{2}{/tex}</span>, where x <span class=\"math-tex\">{tex}\\in{/tex}</span>[-1, 1], is <span class=\"math-tex\">{tex}\\left[\\frac{\\pi}{2}, \\frac{5 \\pi}{2}\\right]{/tex}</span>.<br />\n<strong>Reason (R):</strong> The range of the principal value branch of sin<sup>-1</sup> (x) is [0, <span class=\"math-tex\">{tex}\\pi{/tex}</span>].</p>",
+    "question_text": "Assertion (A): The range of the function f(x) = 2 sin -1 x + {tex}\\frac {3\\pi}{2}{/tex} , where x {tex}\\in{/tex} [-1, 1], is {tex}\\left[\\frac{\\pi}{2}, \\frac{5 \\pi}{2}\\right]{/tex} . Reason (R): The range of the principal value branch of sin -1 (x) is [0, {tex}\\pi{/tex} ].",
+    "options": [
+      {
+        "id": 2690717,
+        "text": "Both A and R are true and R is the correct explanation of A.",
+        "html": "<p style=\"display:inline\">Both A and R are true and R is the correct explanation of A.</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2690718,
+        "text": "Both A and R are true but R is not the correct explanation of A.",
+        "html": "<p style=\"display:inline\">Both A and R are true but R is not the correct explanation of A.</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2690719,
+        "text": "A is true but R is false.",
+        "html": "<p style=\"display:inline\">A is true but R is false.</p>",
+        "is_correct": true,
+        "explanation": "A is true but R is false."
+      },
+      {
+        "id": 2690720,
+        "text": "A is false but R is true.",
+        "html": "<p style=\"display:inline\">A is false but R is true.</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2690719
+    ],
+    "correct_option_text": "A is true but R is false.",
+    "explanation": "A is true but R is false.",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 792460,
+    "question_html": "<p><strong>Assertion (A):</strong> Principal value of tan<sup>-1</sup> <span class=\"math-tex\">{tex}(-\\sqrt{3}){/tex}</span> is <span class=\"math-tex\">{tex}-\\frac{\\pi}{3}{/tex}</span>.<br />\r\n<strong>Reason (R):</strong> tan<sup>-1</sup>: R <span class=\"math-tex\">{tex}\\to{/tex}</span> <span class=\"math-tex\">{tex}\\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right){/tex}</span> so for any x <span class=\"math-tex\">{tex}\\in{/tex}</span> R, tan<sup>-1</sup>(x) represent an angle in <span class=\"math-tex\">{tex}\\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right){/tex}</span>.</p>",
+    "question_text": "Assertion (A): Principal value of tan -1 {tex}(-\\sqrt{3}){/tex} is {tex}-\\frac{\\pi}{3}{/tex} . Reason (R): tan -1 : R {tex}\\to{/tex} {tex}\\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right){/tex} so for any x {tex}\\in{/tex} R, tan -1 (x) represent an angle in {tex}\\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right){/tex} .",
+    "options": [
+      {
+        "id": 1634286,
+        "text": "Both A and R are true and R is the correct explanation of A.",
+        "html": "<p style=\"display:inline\">Both A and R are true and R is the correct explanation of A.</p>",
+        "is_correct": true,
+        "explanation": "Both A and R are true and R is the correct explanation of A."
+      },
+      {
+        "id": 1634287,
+        "text": "Both A and R are true but R is not the correct explanation of A.",
+        "html": "<p style=\"display:inline\">Both A and R are true but R is not the correct explanation of A.</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 1634288,
+        "text": "A is true but R is false.",
+        "html": "<p style=\"display:inline\">A is true but R is false.</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 1634289,
+        "text": "A is false but R is true.",
+        "html": "<p style=\"display:inline\">A is false but R is true.</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      1634286
+    ],
+    "correct_option_text": "Both A and R are true and R is the correct explanation of A.",
+    "explanation": "Both A and R are true and R is the correct explanation of A.",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 1153219,
+    "question_html": "<p><strong>Assertion (A):</strong> All trigonometric functions have their inverses over their respective domains.<br />\n<strong>Reason (R):</strong> The inverse of tan<sup>-1</sup> x exists for some x <span class=\"math-tex\">{tex}\\in{/tex}</span> <span class=\"math-tex\">{tex}\\mathbb R{/tex}</span>.</p>",
+    "question_text": "Assertion (A): All trigonometric functions have their inverses over their respective domains. Reason (R): The inverse of tan -1 x exists for some x {tex}\\in{/tex} {tex}\\mathbb R{/tex} .",
+    "options": [
+      {
+        "id": 2339638,
+        "text": "Both A and R are true and R is the correct explanation of A.",
+        "html": "<p style=\"display:inline\">Both A and R are true and R is the correct explanation of A.</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2339639,
+        "text": "Both A and R are true but R is not the correct explanation of A.",
+        "html": "<p style=\"display:inline\">Both A and R are true but R is not the correct explanation of A.</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2339640,
+        "text": "A is true but R is false.",
+        "html": "<p style=\"display:inline\">A is true but R is false.</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2339641,
+        "text": "A is false but R is true.",
+        "html": "<p style=\"display:inline\">A is false but R is true.</p>",
+        "is_correct": true,
+        "explanation": "A is false but R is true. Explanation: Assertion (A): All trigonometric functions have their inverses over their respective domains. (false) As all trigonometric functions are periodic functions and hence manyone functions. Therefore trigonometric functions are not invertible over their respective domains. Reason (R): The inverse of tan -1 x exists for some x {tex}\\in{/tex} R ( true)"
+      }
+    ],
+    "correct_option_ids": [
+      2339641
+    ],
+    "correct_option_text": "A is false but R is true.",
+    "explanation": "A is false but R is true. Explanation: Assertion (A): All trigonometric functions have their inverses over their respective domains. (false) As all trigonometric functions are periodic functions and hence manyone functions. Therefore trigonometric functions are not invertible over their respective domains. Reason (R): The inverse of tan -1 x exists for some x {tex}\\in{/tex} R ( true)",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 115111,
+    "question_html": "<p>Find the value of <span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\left( { - \\frac{1}{{\\sqrt 3 }}} \\right) + {\\cot ^{ - 1}}\\left( {\\frac{1}{{\\sqrt 3 }}} \\right) + {\\tan ^{ - 1}}\\left[ {\\sin \\left( {\\frac{{ - \\pi }}{2}} \\right)} \\right]{/tex}</span>.</p>\r\n",
+    "question_text": "Find the value of {tex}{\\tan ^{ - 1}}\\left( { - \\frac{1}{{\\sqrt 3 }}} \\right) + {\\cot ^{ - 1}}\\left( {\\frac{1}{{\\sqrt 3 }}} \\right) + {\\tan ^{ - 1}}\\left[ {\\sin \\left( {\\frac{{ - \\pi }}{2}} \\right)} \\right]{/tex} .",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "We have, {tex}{\\tan ^{ - 1}}\\left( { - \\frac{1}{{\\sqrt 3 }}} \\right) + {\\cot ^{ - 1}}\\left( {\\frac{1}{{\\sqrt 3 }}} \\right) + {\\tan ^{ - 1}}\\left[ {\\sin \\left( {\\frac{{ - \\pi }}{2}} \\right)} \\right]{/tex} . {tex} = {\\tan ^{ - 1}}\\left( {\\tan \\frac{{5\\pi }}{6}} \\right) + {\\cot ^{ - 1}}\\left( {\\cot \\frac{\\pi }{3}} \\right) + {\\tan ^{ - 1}}( - 1){/tex} . {tex}= {\\tan ^{ - 1}}\\left[ {\\tan \\left( {\\pi - \\frac{\\pi }{6}} \\right)} \\right] + {\\cot ^{ - 1}}\\left[ {\\cot \\left( {\\frac{\\pi }{3}} \\right)} \\right]{/tex} {tex}+ ta{n^{ - 1}}\\left[ {\\tan \\left( {\\pi - \\frac{\\pi }{4}} \\right)} \\right]{/tex} {tex}= {\\tan ^{ - 1}}\\left( { - \\tan \\frac{\\pi }{6}} \\right) + {\\cot ^{ - 1}}\\left( {\\cot \\frac{\\pi }{3}} \\right) + {\\tan ^{ - 1}}{/tex} {tex}\\left( { - \\tan \\frac{\\pi }{4}} \\right){/tex} {tex}\\left[ \\begin{gathered} \\because {\\tan ^{ - 1}}\\left( {\\tan x} \\right) = x,x \\in \\left( { - \\frac{\\pi }{2},\\frac{\\pi }{2}} \\right) \\hfill \\\\ {\\cot ^{ - 1}}(\\cot x) = x,x \\in (0,\\;\\pi ) \\hfill \\\\ and\\;{\\tan ^{ - 1}}( - x) = - {\\tan ^{ - 1}}x \\hfill \\\\ \\end{gathered} \\right]{/tex} {tex}= - \\frac{\\pi }{6} + \\frac{\\pi }{3} - \\frac{\\pi }{4} = \\frac{{ - 2\\pi + 4\\pi - 3\\pi }}{{12}}{/tex} {tex} = \\frac{{ - 5\\pi + 4\\pi }}{{12}} = \\frac{{ - \\pi }}{{12}}{/tex}",
+    "solution": "We have, {tex}{\\tan ^{ - 1}}\\left( { - \\frac{1}{{\\sqrt 3 }}} \\right) + {\\cot ^{ - 1}}\\left( {\\frac{1}{{\\sqrt 3 }}} \\right) + {\\tan ^{ - 1}}\\left[ {\\sin \\left( {\\frac{{ - \\pi }}{2}} \\right)} \\right]{/tex} . {tex} = {\\tan ^{ - 1}}\\left( {\\tan \\frac{{5\\pi }}{6}} \\right) + {\\cot ^{ - 1}}\\left( {\\cot \\frac{\\pi }{3}} \\right) + {\\tan ^{ - 1}}( - 1){/tex} . {tex}= {\\tan ^{ - 1}}\\left[ {\\tan \\left( {\\pi - \\frac{\\pi }{6}} \\right)} \\right] + {\\cot ^{ - 1}}\\left[ {\\cot \\left( {\\frac{\\pi }{3}} \\right)} \\right]{/tex} {tex}+ ta{n^{ - 1}}\\left[ {\\tan \\left( {\\pi - \\frac{\\pi }{4}} \\right)} \\right]{/tex} {tex}= {\\tan ^{ - 1}}\\left( { - \\tan \\frac{\\pi }{6}} \\right) + {\\cot ^{ - 1}}\\left( {\\cot \\frac{\\pi }{3}} \\right) + {\\tan ^{ - 1}}{/tex} {tex}\\left( { - \\tan \\frac{\\pi }{4}} \\right){/tex} {tex}\\left[ \\begin{gathered} \\because {\\tan ^{ - 1}}\\left( {\\tan x} \\right) = x,x \\in \\left( { - \\frac{\\pi }{2},\\frac{\\pi }{2}} \\right) \\hfill \\\\ {\\cot ^{ - 1}}(\\cot x) = x,x \\in (0,\\;\\pi ) \\hfill \\\\ and\\;{\\tan ^{ - 1}}( - x) = - {\\tan ^{ - 1}}x \\hfill \\\\ \\end{gathered} \\right]{/tex} {tex}= - \\frac{\\pi }{6} + \\frac{\\pi }{3} - \\frac{\\pi }{4} = \\frac{{ - 2\\pi + 4\\pi - 3\\pi }}{{12}}{/tex} {tex} = \\frac{{ - 5\\pi + 4\\pi }}{{12}} = \\frac{{ - \\pi }}{{12}}{/tex}",
+    "solution_html": "<p>We have, <span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\left( { - \\frac{1}{{\\sqrt 3 }}} \\right) + {\\cot ^{ - 1}}\\left( {\\frac{1}{{\\sqrt 3 }}} \\right) + {\\tan ^{ - 1}}\\left[ {\\sin \\left( {\\frac{{ - \\pi }}{2}} \\right)} \\right]{/tex}</span>.<br />\r\n<span class=\"math-tex\">{tex} = {\\tan ^{ - 1}}\\left( {\\tan \\frac{{5\\pi }}{6}} \\right) + {\\cot ^{ - 1}}\\left( {\\cot \\frac{\\pi }{3}} \\right) + {\\tan ^{ - 1}}( - 1){/tex}</span>.<br />\r\n<span class=\"math-tex\">{tex}= {\\tan ^{ - 1}}\\left[ {\\tan \\left( {\\pi - \\frac{\\pi }{6}} \\right)} \\right] + {\\cot ^{ - 1}}\\left[ {\\cot \\left( {\\frac{\\pi }{3}} \\right)} \\right]{/tex}</span><span class=\"math-tex\">{tex}+ ta{n^{ - 1}}\\left[ {\\tan \\left( {\\pi - \\frac{\\pi }{4}} \\right)} \\right]{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}= {\\tan ^{ - 1}}\\left( { - \\tan \\frac{\\pi }{6}} \\right) + {\\cot ^{ - 1}}\\left( {\\cot \\frac{\\pi }{3}} \\right) + {\\tan ^{ - 1}}{/tex}</span><span class=\"math-tex\">{tex}\\left( { - \\tan \\frac{\\pi }{4}} \\right){/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\left[ \\begin{gathered} \\because {\\tan ^{ - 1}}\\left( {\\tan x} \\right) = x,x \\in \\left( { - \\frac{\\pi }{2},\\frac{\\pi }{2}} \\right) \\hfill \\\\ {\\cot ^{ - 1}}(\\cot x) = x,x \\in (0,\\;\\pi ) \\hfill \\\\ and\\;{\\tan ^{ - 1}}( - x) = - {\\tan ^{ - 1}}x \\hfill \\\\ \\end{gathered} \\right]{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}= - \\frac{\\pi }{6} + \\frac{\\pi }{3} - \\frac{\\pi }{4} = \\frac{{ - 2\\pi + 4\\pi - 3\\pi }}{{12}}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} = \\frac{{ - 5\\pi + 4\\pi }}{{12}} = \\frac{{ - \\pi }}{{12}}{/tex}</span></p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 1016383,
+    "question_html": "<p>Simplify <span class=\"math-tex\">{tex}\\sec ^{-1}\\left(\\frac{1}{2 \\mathrm{x}^2-1}\\right){/tex}</span>, 0 &lt; x &lt; <span class=\"math-tex\">{tex}\\frac{1}{\\sqrt{2}}{/tex}</span>.</p>",
+    "question_text": "Simplify {tex}\\sec ^{-1}\\left(\\frac{1}{2 \\mathrm{x}^2-1}\\right){/tex} , 0 < x < {tex}\\frac{1}{\\sqrt{2}}{/tex} .",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Let x = cos {tex}\\theta{/tex} {tex}\\therefore{/tex} {tex}\\theta{/tex} = cos -1 x sec -1 {tex}\\left(\\frac{1}{2 x^2-1}\\right){/tex} = sec -1 {tex}\\left(\\frac{1}{2 \\cos ^2 \\theta-1}\\right){/tex} = sec -1 {tex}\\left(\\frac{1}{\\cos 2 \\theta}\\right){/tex} = sec -1 (sec 2 {tex}\\theta{/tex} ) = 2 {tex}\\theta{/tex} = 2 cos -1 x",
+    "solution": "Let x = cos {tex}\\theta{/tex} {tex}\\therefore{/tex} {tex}\\theta{/tex} = cos -1 x sec -1 {tex}\\left(\\frac{1}{2 x^2-1}\\right){/tex} = sec -1 {tex}\\left(\\frac{1}{2 \\cos ^2 \\theta-1}\\right){/tex} = sec -1 {tex}\\left(\\frac{1}{\\cos 2 \\theta}\\right){/tex} = sec -1 (sec 2 {tex}\\theta{/tex} ) = 2 {tex}\\theta{/tex} = 2 cos -1 x",
+    "solution_html": "<p>Let x = cos <span class=\"math-tex\">{tex}\\theta{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span> <span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;= cos<sup>-1</sup>&nbsp;x<br />\r\nsec<sup>-1</sup><span class=\"math-tex\">{tex}\\left(\\frac{1}{2 x^2-1}\\right){/tex}</span>&nbsp;= sec<sup>-1</sup><span class=\"math-tex\">{tex}\\left(\\frac{1}{2 \\cos ^2 \\theta-1}\\right){/tex}</span>= sec<sup>-1</sup><span class=\"math-tex\">{tex}\\left(\\frac{1}{\\cos 2 \\theta}\\right){/tex}</span> = sec<sup>-1</sup>(sec 2<span class=\"math-tex\">{tex}\\theta{/tex}</span>)<br />\r\n= 2<span class=\"math-tex\">{tex}\\theta{/tex}</span><br />\r\n= 2 cos<sup>-1</sup> x</p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 1165624,
+    "question_html": "<p>Prove that <span class=\"math-tex\">{tex}\\sin ^{-1}(2 x \\sqrt{1-x^{2}}=2 \\cos ^{-1} x{/tex}</span>, <span class=\"math-tex\">{tex}\\frac{1}{\\sqrt{2}}{/tex}</span> <span class=\"math-tex\">{tex}\\le{/tex}</span> x <span class=\"math-tex\">{tex}\\le{/tex}</span> 1.</p>",
+    "question_text": "Prove that {tex}\\sin ^{-1}(2 x \\sqrt{1-x^{2}}=2 \\cos ^{-1} x{/tex} , {tex}\\frac{1}{\\sqrt{2}}{/tex} {tex}\\le{/tex} x {tex}\\le{/tex} 1.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Let y = sin -1 (2x {tex}\\sqrt{1-x^2}{/tex} ) let x = cos {tex}\\theta{/tex} {tex}\\Rightarrow{/tex} {tex}\\theta{/tex} = cos -1 x {tex}\\theta{/tex} {tex}\\leq{/tex} {tex}\\theta{/tex} {tex}\\leq{/tex} {tex}\\frac {\\pi} 4{/tex} {tex}\\Rightarrow{/tex} y = sin -1 (2cos {tex}\\theta{/tex} {tex}\\sqrt{1-\\sin ^2 \\theta}{/tex} ) = sin -1 sin 2 {tex}\\theta{/tex} = 2 {tex}\\theta{/tex} [ {tex}\\theta{/tex} {tex}\\leq{/tex} {tex}\\theta{/tex} {tex}\\leq{/tex} {tex}\\frac {\\pi}4{/tex} {tex}\\Rightarrow{/tex} {tex}\\theta{/tex} {tex}\\leq{/tex} 2 {tex}\\theta{/tex} {tex}\\leq{/tex} {tex}\\frac {\\pi} 2{/tex} ] {tex}\\Rightarrow{/tex} 2cos -1 x Hence Proved",
+    "solution": "Let y = sin -1 (2x {tex}\\sqrt{1-x^2}{/tex} ) let x = cos {tex}\\theta{/tex} {tex}\\Rightarrow{/tex} {tex}\\theta{/tex} = cos -1 x {tex}\\theta{/tex} {tex}\\leq{/tex} {tex}\\theta{/tex} {tex}\\leq{/tex} {tex}\\frac {\\pi} 4{/tex} {tex}\\Rightarrow{/tex} y = sin -1 (2cos {tex}\\theta{/tex} {tex}\\sqrt{1-\\sin ^2 \\theta}{/tex} ) = sin -1 sin 2 {tex}\\theta{/tex} = 2 {tex}\\theta{/tex} [ {tex}\\theta{/tex} {tex}\\leq{/tex} {tex}\\theta{/tex} {tex}\\leq{/tex} {tex}\\frac {\\pi}4{/tex} {tex}\\Rightarrow{/tex} {tex}\\theta{/tex} {tex}\\leq{/tex} 2 {tex}\\theta{/tex} {tex}\\leq{/tex} {tex}\\frac {\\pi} 2{/tex} ] {tex}\\Rightarrow{/tex} 2cos -1 x Hence Proved",
+    "solution_html": "<p>Let y = sin<sup>-1</sup>(2x <span class=\"math-tex\">{tex}\\sqrt{1-x^2}{/tex}</span>)<br />\nlet x = cos <span class=\"math-tex\">{tex}\\theta{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> <span class=\"math-tex\">{tex}\\theta{/tex}</span> = cos<sup>-1</sup> x <span class=\"math-tex\">{tex}\\theta{/tex}</span> <span class=\"math-tex\">{tex}\\leq{/tex}</span> <span class=\"math-tex\">{tex}\\theta{/tex}</span> <span class=\"math-tex\">{tex}\\leq{/tex}</span> <span class=\"math-tex\">{tex}\\frac {\\pi} 4{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> y = sin<sup>-1</sup>(2cos <span class=\"math-tex\">{tex}\\theta{/tex}</span> <span class=\"math-tex\">{tex}\\sqrt{1-\\sin ^2 \\theta}{/tex}</span>)<br />\n= sin<sup>-1</sup> sin 2 <span class=\"math-tex\">{tex}\\theta{/tex}</span><br />\n= 2<span class=\"math-tex\">{tex}\\theta{/tex}</span> [<span class=\"math-tex\">{tex}\\theta{/tex}</span> <span class=\"math-tex\">{tex}\\leq{/tex}</span> <span class=\"math-tex\">{tex}\\theta{/tex}</span> <span class=\"math-tex\">{tex}\\leq{/tex}</span> <span class=\"math-tex\">{tex}\\frac {\\pi}4{/tex}</span> <span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> <span class=\"math-tex\">{tex}\\theta{/tex}</span> <span class=\"math-tex\">{tex}\\leq{/tex}</span> 2<span class=\"math-tex\">{tex}\\theta{/tex}</span> <span class=\"math-tex\">{tex}\\leq{/tex}</span> <span class=\"math-tex\">{tex}\\frac {\\pi} 2{/tex}</span>]<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> 2cos<sup>-1</sup> x<br />\nHence Proved</p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 182135,
+    "question_html": "<p>Find the value of <span class=\"math-tex\">{tex}\\cos ^{-1} \\frac{1}{2}+2 \\sin ^{-1} \\frac{1}{2}{/tex}</span>.</p>\r\n",
+    "question_text": "Find the value of {tex}\\cos ^{-1} \\frac{1}{2}+2 \\sin ^{-1} \\frac{1}{2}{/tex} .",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Let {tex}\\cos ^{-1}\\left(\\frac{1}{2}\\right)=x{/tex} . Then, {tex}\\cos x=\\frac{1}{2}=\\cos \\left(\\frac{\\pi}{3}\\right){/tex} . {tex}\\therefore \\cos ^{-1}\\left(\\frac{1}{2}\\right)=\\frac{\\pi}{3}{/tex} Let {tex}\\sin ^{-1}\\left(\\frac{1}{2}\\right)=y{/tex} . Then, {tex}\\sin y=\\frac{1}{2}=\\sin \\left(\\frac{\\pi}{6}\\right){/tex} . {tex}\\therefore \\sin ^{-1}\\left(\\frac{1}{2}\\right)=\\frac{\\pi}{6}{/tex} {tex}\\therefore \\cos ^{-1}\\left(\\frac{1}{2}\\right)+2 \\sin ^{-1}\\left(\\frac{1}{2}\\right){/tex} {tex}=\\frac{\\pi}{3}+\\frac{2 \\pi}{6}=\\frac{\\pi}{3}+\\frac{\\pi}{3}=\\frac{2 \\pi}{3}{/tex}",
+    "solution": "Let {tex}\\cos ^{-1}\\left(\\frac{1}{2}\\right)=x{/tex} . Then, {tex}\\cos x=\\frac{1}{2}=\\cos \\left(\\frac{\\pi}{3}\\right){/tex} . {tex}\\therefore \\cos ^{-1}\\left(\\frac{1}{2}\\right)=\\frac{\\pi}{3}{/tex} Let {tex}\\sin ^{-1}\\left(\\frac{1}{2}\\right)=y{/tex} . Then, {tex}\\sin y=\\frac{1}{2}=\\sin \\left(\\frac{\\pi}{6}\\right){/tex} . {tex}\\therefore \\sin ^{-1}\\left(\\frac{1}{2}\\right)=\\frac{\\pi}{6}{/tex} {tex}\\therefore \\cos ^{-1}\\left(\\frac{1}{2}\\right)+2 \\sin ^{-1}\\left(\\frac{1}{2}\\right){/tex} {tex}=\\frac{\\pi}{3}+\\frac{2 \\pi}{6}=\\frac{\\pi}{3}+\\frac{\\pi}{3}=\\frac{2 \\pi}{3}{/tex}",
+    "solution_html": "<p>Let <span class=\"math-tex\">{tex}\\cos ^{-1}\\left(\\frac{1}{2}\\right)=x{/tex}</span>. Then,&nbsp;<span class=\"math-tex\">{tex}\\cos x=\\frac{1}{2}=\\cos \\left(\\frac{\\pi}{3}\\right){/tex}</span>.<br />\r\n<span class=\"math-tex\">{tex}\\therefore \\cos ^{-1}\\left(\\frac{1}{2}\\right)=\\frac{\\pi}{3}{/tex}</span><br />\r\nLet <span class=\"math-tex\">{tex}\\sin ^{-1}\\left(\\frac{1}{2}\\right)=y{/tex}</span>. Then, <span class=\"math-tex\">{tex}\\sin y=\\frac{1}{2}=\\sin \\left(\\frac{\\pi}{6}\\right){/tex}</span>.<br />\r\n<span class=\"math-tex\">{tex}\\therefore \\sin ^{-1}\\left(\\frac{1}{2}\\right)=\\frac{\\pi}{6}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\therefore \\cos ^{-1}\\left(\\frac{1}{2}\\right)+2 \\sin ^{-1}\\left(\\frac{1}{2}\\right){/tex}</span> <span class=\"math-tex\">{tex}=\\frac{\\pi}{3}+\\frac{2 \\pi}{6}=\\frac{\\pi}{3}+\\frac{\\pi}{3}=\\frac{2 \\pi}{3}{/tex}</span></p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 182152,
+    "question_html": "<p>For the principal value, evaluate <span class=\"math-tex\">{tex}\\cot \\left[\\sin ^{-1}\\left\\{\\cos \\left(\\tan ^{-1} 1\\right)\\right\\}\\right]{/tex}</span></p>",
+    "question_text": "For the principal value, evaluate {tex}\\cot \\left[\\sin ^{-1}\\left\\{\\cos \\left(\\tan ^{-1} 1\\right)\\right\\}\\right]{/tex}",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "We know that {tex}\\tan ^{-1} 1=\\frac{\\pi}{4}{/tex} . {tex}\\therefore \\quad \\cot \\left[\\sin ^{-1}\\left\\{\\cos \\left(\\tan ^{-1} 1\\right)\\right\\}\\right]{/tex} {tex}=\\cot \\left\\{\\sin ^{-1}\\left(\\cos \\frac{\\pi}{4}\\right)\\right\\}{/tex} {tex}=\\cot \\left(\\sin ^{-1} \\frac{1}{\\sqrt{2}}\\right)=\\cot \\frac{\\pi}{4}=1{/tex}",
+    "solution": "We know that {tex}\\tan ^{-1} 1=\\frac{\\pi}{4}{/tex} . {tex}\\therefore \\quad \\cot \\left[\\sin ^{-1}\\left\\{\\cos \\left(\\tan ^{-1} 1\\right)\\right\\}\\right]{/tex} {tex}=\\cot \\left\\{\\sin ^{-1}\\left(\\cos \\frac{\\pi}{4}\\right)\\right\\}{/tex} {tex}=\\cot \\left(\\sin ^{-1} \\frac{1}{\\sqrt{2}}\\right)=\\cot \\frac{\\pi}{4}=1{/tex}",
+    "solution_html": "<p>We know that <span class=\"math-tex\">{tex}\\tan ^{-1} 1=\\frac{\\pi}{4}{/tex}</span>.<br />\r\n<span class=\"math-tex\">{tex}\\therefore \\quad \\cot \\left[\\sin ^{-1}\\left\\{\\cos \\left(\\tan ^{-1} 1\\right)\\right\\}\\right]{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\cot \\left\\{\\sin ^{-1}\\left(\\cos \\frac{\\pi}{4}\\right)\\right\\}{/tex}</span> <span class=\"math-tex\">{tex}=\\cot \\left(\\sin ^{-1} \\frac{1}{\\sqrt{2}}\\right)=\\cot \\frac{\\pi}{4}=1{/tex}</span></p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 262771,
+    "question_html": "<p>For the principal values, evaluate <span class=\"math-tex\">{tex}\\sin ^{-1}\\left[\\cos \\left\\{2 cosec ^{-1}(-2)\\right\\}\\right]{/tex}</span></p>",
+    "question_text": "For the principal values, evaluate {tex}\\sin ^{-1}\\left[\\cos \\left\\{2 cosec ^{-1}(-2)\\right\\}\\right]{/tex}",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "First of all we need to find the principal value for cosec &ndash;1 (&ndash;2) Let, cosec &ndash;1 (-2 )= Y {tex}\\Rightarrow{/tex} cosec y = &ndash;2 {tex}\\Rightarrow{/tex} &ndash;cosec y = 2 {tex}\\Rightarrow{/tex} &ndash;cosec {tex}\\frac{\\pi}{6}{/tex} = 2 As we know that cosec(&ndash; {tex}\\theta{/tex} ) = &ndash;cosec {tex}\\theta{/tex} {tex}\\therefore{/tex} &ndash;cosec {tex}\\frac{\\pi}{6}{/tex} = cosec {tex}\\left(\\frac{-\\pi}{6}\\right){/tex} The range of principal value of cosec &ndash;1 (-2) is {tex}\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} &ndash;{0} and cosec {tex}\\left(\\frac{-\\pi}{6}\\right){/tex} = &ndash;2 Thus,the princi value of cosec &ndash;1 (&ndash;2) is {tex}\\frac{-\\pi}{6}{/tex} . &there4; Now, the question changes to Sin &ndash;1 [cos {tex}\\frac{-\\pi}{6}{/tex} ] Cos(&ndash; {tex}\\theta{/tex} ) = cos( {tex}\\theta{/tex} ) &there4; we can write the above expression as Sin &ndash;1 [cos {tex}\\frac{\\pi}{6}{/tex} ] Let, Sin &ndash;1 {tex}\\left(\\frac{\\sqrt{3}}{2}\\right){/tex} = Y {tex}\\Rightarrow{/tex} sin y = {tex}\\frac{\\sqrt{3}}{2}{/tex} {tex}\\Rightarrow{/tex} Y = {tex}\\frac{\\pi}{3}{/tex} The range of principal value of sin &ndash;1 is {tex}\\left(\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right){/tex} and sin {tex}\\left(\\frac{\\pi}{3}\\right)=\\frac{\\sqrt{3}}{2}{/tex} Therefore, the principal value of Sin &ndash;1 {tex}\\left(\\frac{\\sqrt{3}}{2}\\right){/tex} is {tex}\\frac{\\pi}{3}{/tex} Hence, the principal value of the given equation is {tex}\\frac{\\pi}{3}{/tex}",
+    "solution": "First of all we need to find the principal value for cosec &ndash;1 (&ndash;2) Let, cosec &ndash;1 (-2 )= Y {tex}\\Rightarrow{/tex} cosec y = &ndash;2 {tex}\\Rightarrow{/tex} &ndash;cosec y = 2 {tex}\\Rightarrow{/tex} &ndash;cosec {tex}\\frac{\\pi}{6}{/tex} = 2 As we know that cosec(&ndash; {tex}\\theta{/tex} ) = &ndash;cosec {tex}\\theta{/tex} {tex}\\therefore{/tex} &ndash;cosec {tex}\\frac{\\pi}{6}{/tex} = cosec {tex}\\left(\\frac{-\\pi}{6}\\right){/tex} The range of principal value of cosec &ndash;1 (-2) is {tex}\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} &ndash;{0} and cosec {tex}\\left(\\frac{-\\pi}{6}\\right){/tex} = &ndash;2 Thus,the princi value of cosec &ndash;1 (&ndash;2) is {tex}\\frac{-\\pi}{6}{/tex} . &there4; Now, the question changes to Sin &ndash;1 [cos {tex}\\frac{-\\pi}{6}{/tex} ] Cos(&ndash; {tex}\\theta{/tex} ) = cos( {tex}\\theta{/tex} ) &there4; we can write the above expression as Sin &ndash;1 [cos {tex}\\frac{\\pi}{6}{/tex} ] Let, Sin &ndash;1 {tex}\\left(\\frac{\\sqrt{3}}{2}\\right){/tex} = Y {tex}\\Rightarrow{/tex} sin y = {tex}\\frac{\\sqrt{3}}{2}{/tex} {tex}\\Rightarrow{/tex} Y = {tex}\\frac{\\pi}{3}{/tex} The range of principal value of sin &ndash;1 is {tex}\\left(\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right){/tex} and sin {tex}\\left(\\frac{\\pi}{3}\\right)=\\frac{\\sqrt{3}}{2}{/tex} Therefore, the principal value of Sin &ndash;1 {tex}\\left(\\frac{\\sqrt{3}}{2}\\right){/tex} is {tex}\\frac{\\pi}{3}{/tex} Hence, the principal value of the given equation is {tex}\\frac{\\pi}{3}{/tex}",
+    "solution_html": "<p>First of all we need to find the principal value for cosec<sup>&ndash;1</sup>(&ndash;2)<br />\nLet,<br />\ncosec<sup>&ndash;1</sup>(-2 )=<span style=\"font-size: 10.8333px;\">Y</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;cosec y = &ndash;2<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;&ndash;cosec y = 2<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;&ndash;cosec&nbsp;<span class=\"math-tex\">{tex}\\frac{\\pi}{6}{/tex}</span>&nbsp;= 2<br />\nAs we know that cosec(&ndash;<span class=\"math-tex\">{tex}\\theta{/tex}</span>) = &ndash;cosec<span class=\"math-tex\">{tex}\\theta{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;&ndash;cosec&nbsp;<span class=\"math-tex\">{tex}\\frac{\\pi}{6}{/tex}</span>&nbsp;= cosec&nbsp;<span class=\"math-tex\">{tex}\\left(\\frac{-\\pi}{6}\\right){/tex}</span><br />\nThe range of principal value of cosec<sup>&ndash;1</sup>&nbsp;(-2) is&nbsp;<span class=\"math-tex\">{tex}\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex}</span>&ndash;{0} and<br />\ncosec&nbsp;<span class=\"math-tex\">{tex}\\left(\\frac{-\\pi}{6}\\right){/tex}</span>&nbsp;= &ndash;2<br />\nThus,the princi value of cosec<sup>&ndash;1</sup>(&ndash;2) is&nbsp;<span class=\"math-tex\">{tex}\\frac{-\\pi}{6}{/tex}</span>.</p>\n\n<p>&there4;&nbsp;Now, the question changes to<br />\nSin<sup>&ndash;1</sup>[cos<span class=\"math-tex\">{tex}\\frac{-\\pi}{6}{/tex}</span>]<br />\nCos(&ndash;<span class=\"math-tex\">{tex}\\theta{/tex}</span>) = cos(<span class=\"math-tex\">{tex}\\theta{/tex}</span>)<br />\n&there4;&nbsp;we can write the above expression as<br />\nSin<sup>&ndash;1</sup>[cos<span class=\"math-tex\">{tex}\\frac{\\pi}{6}{/tex}</span>]<br />\nLet,<br />\nSin<sup>&ndash;1</sup><span class=\"math-tex\">{tex}\\left(\\frac{\\sqrt{3}}{2}\\right){/tex}</span>&nbsp;<span style=\"font-size: 10.8333px;\">= Y</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;sin y =&nbsp;<span class=\"math-tex\">{tex}\\frac{\\sqrt{3}}{2}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;Y =&nbsp;<span class=\"math-tex\">{tex}\\frac{\\pi}{3}{/tex}</span><br />\nThe range of principal value of sin<sup>&ndash;1</sup>&nbsp;is&nbsp;<span class=\"math-tex\">{tex}\\left(\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right){/tex}</span>&nbsp;and sin&nbsp;<span class=\"math-tex\">{tex}\\left(\\frac{\\pi}{3}\\right)=\\frac{\\sqrt{3}}{2}{/tex}</span><br />\nTherefore, the principal value of Sin<sup>&ndash;1</sup><span class=\"math-tex\">{tex}\\left(\\frac{\\sqrt{3}}{2}\\right){/tex}</span>&nbsp;is&nbsp;<span class=\"math-tex\">{tex}\\frac{\\pi}{3}{/tex}</span><br />\nHence, the principal value of the given equation is&nbsp;<span class=\"math-tex\">{tex}\\frac{\\pi}{3}{/tex}</span></p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 1480821,
+    "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\tan ^{-1}\\left(\\frac{y}{x}\\right)=\\log \\sqrt{x^{2}+y^{2}} {/tex}</span>, prove that&nbsp;<span class=\"math-tex\">{tex}\\frac{d y}{d x}=\\frac{x+y}{x-y}{/tex}</span>.</p>",
+    "question_text": "If {tex}\\tan ^{-1}\\left(\\frac{y}{x}\\right)=\\log \\sqrt{x^{2}+y^{2}} {/tex} , prove that {tex}\\frac{d y}{d x}=\\frac{x+y}{x-y}{/tex} .",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Given that, {tex} \\log \\sqrt{x^2+y^2}=\\tan ^{-1}\\left(\\frac{y}{x}\\right){/tex} Prove that, {tex} \\frac{d y}{d x}=\\frac{x+y}{x-y} {/tex} {tex} \\Rightarrow \\frac{1}{2} \\log \\left(x^2+y^2\\right)=\\tan ^{-1}\\left(\\frac{y}{x}\\right) \\left[\\frac{d}{d x}(\\log x)=\\frac{1}{x}\\right] {/tex} {tex} \\Rightarrow \\frac{1}{2}\\left(\\frac{1}{x^2+y^2}\\left(2 x+2 y \\frac{d y}{d x}\\right)\\right)=\\frac{1}{1+\\left(\\frac{y}{x}\\right)^2}\\left(\\frac{x \\frac{d y}{d x}-y}{x^2}\\right) {/tex} {tex} \\frac{\\not 2\\left(x+y \\frac{d y}{d x}\\right)}{2\\left(x^2+y^2\\right)}=\\frac{x^2}{x^2+y^2}\\left(\\frac{x \\frac{d y}{d x}-y}{x^2}\\right) {/tex} {tex} \\frac{d y}{d x}(y-x)={-y-x}{/tex} {tex} \\frac{d y}{d x}=\\frac{x+y}{x-y} {/tex} Hence proved",
+    "solution": "Given that, {tex} \\log \\sqrt{x^2+y^2}=\\tan ^{-1}\\left(\\frac{y}{x}\\right){/tex} Prove that, {tex} \\frac{d y}{d x}=\\frac{x+y}{x-y} {/tex} {tex} \\Rightarrow \\frac{1}{2} \\log \\left(x^2+y^2\\right)=\\tan ^{-1}\\left(\\frac{y}{x}\\right) \\left[\\frac{d}{d x}(\\log x)=\\frac{1}{x}\\right] {/tex} {tex} \\Rightarrow \\frac{1}{2}\\left(\\frac{1}{x^2+y^2}\\left(2 x+2 y \\frac{d y}{d x}\\right)\\right)=\\frac{1}{1+\\left(\\frac{y}{x}\\right)^2}\\left(\\frac{x \\frac{d y}{d x}-y}{x^2}\\right) {/tex} {tex} \\frac{\\not 2\\left(x+y \\frac{d y}{d x}\\right)}{2\\left(x^2+y^2\\right)}=\\frac{x^2}{x^2+y^2}\\left(\\frac{x \\frac{d y}{d x}-y}{x^2}\\right) {/tex} {tex} \\frac{d y}{d x}(y-x)={-y-x}{/tex} {tex} \\frac{d y}{d x}=\\frac{x+y}{x-y} {/tex} Hence proved",
+    "solution_html": "<p>Given that,<br />\r\n<span class=\"math-tex\">{tex} \\log \\sqrt{x^2+y^2}=\\tan ^{-1}\\left(\\frac{y}{x}\\right){/tex}</span><br />\r\nProve that,<br />\r\n<span class=\"math-tex\">{tex} \\frac{d y}{d x}=\\frac{x+y}{x-y} {/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\Rightarrow \\frac{1}{2} \\log \\left(x^2+y^2\\right)=\\tan ^{-1}\\left(\\frac{y}{x}\\right) \\left[\\frac{d}{d x}(\\log x)=\\frac{1}{x}\\right] {/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\Rightarrow \\frac{1}{2}\\left(\\frac{1}{x^2+y^2}\\left(2 x+2 y \\frac{d y}{d x}\\right)\\right)=\\frac{1}{1+\\left(\\frac{y}{x}\\right)^2}\\left(\\frac{x \\frac{d y}{d x}-y}{x^2}\\right) {/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\frac{\\not 2\\left(x+y \\frac{d y}{d x}\\right)}{2\\left(x^2+y^2\\right)}=\\frac{x^2}{x^2+y^2}\\left(\\frac{x \\frac{d y}{d x}-y}{x^2}\\right) {/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\frac{d y}{d x}(y-x)={-y-x}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\frac{d y}{d x}=\\frac{x+y}{x-y} {/tex}</span><br />\r\nHence proved</p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 115109,
+    "question_html": "<p>Evaluate&nbsp;<span class=\"math-tex\">{tex}\\cos\\left[ {{{ \\cos }^{ - 1}}\\left( {\\frac{{ - \\sqrt 3 }}{2}} \\right) + \\frac{\\pi }{6}} \\right]{/tex}</span></p>",
+    "question_text": "Evaluate {tex}\\cos\\left[ {{{ \\cos }^{ - 1}}\\left( {\\frac{{ - \\sqrt 3 }}{2}} \\right) + \\frac{\\pi }{6}} \\right]{/tex}",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "We have, {tex}\\cos\\left[{{{\\cos }^{ - 1}}\\left( {\\frac{{ - \\sqrt 3 }}{2}} \\right) + \\frac{\\pi }{6}} \\right]{/tex} {tex} \\cos\\left[ {{{ \\cos }^{ - 1}}\\left({\\ -cos \\frac{{\\pi }}{6}} \\right) + \\frac{\\pi }{6}} \\right]{/tex} {tex}{/tex} {tex} = \\cos \\left[ {{{\\cos }^{ - 1}}\\left( {\\cos \\frac{{5\\pi }}{6}} \\right) + \\frac{\\pi }{6}} \\right]{/tex} {tex} = \\cos \\left( {\\frac{{5\\pi }}{6} + \\frac{\\pi }{6}} \\right)\\{ \\because {\\cos ^{ - 1}}\\cos x = x,\\;x \\in [0,\\pi ]\\}{/tex} {tex}= \\cos \\left( {\\frac{{6\\pi }}{6}} \\right){/tex} {tex} = \\cos \\left( \\pi \\right) = - 1{/tex}",
+    "solution": "We have, {tex}\\cos\\left[{{{\\cos }^{ - 1}}\\left( {\\frac{{ - \\sqrt 3 }}{2}} \\right) + \\frac{\\pi }{6}} \\right]{/tex} {tex} \\cos\\left[ {{{ \\cos }^{ - 1}}\\left({\\ -cos \\frac{{\\pi }}{6}} \\right) + \\frac{\\pi }{6}} \\right]{/tex} {tex}{/tex} {tex} = \\cos \\left[ {{{\\cos }^{ - 1}}\\left( {\\cos \\frac{{5\\pi }}{6}} \\right) + \\frac{\\pi }{6}} \\right]{/tex} {tex} = \\cos \\left( {\\frac{{5\\pi }}{6} + \\frac{\\pi }{6}} \\right)\\{ \\because {\\cos ^{ - 1}}\\cos x = x,\\;x \\in [0,\\pi ]\\}{/tex} {tex}= \\cos \\left( {\\frac{{6\\pi }}{6}} \\right){/tex} {tex} = \\cos \\left( \\pi \\right) = - 1{/tex}",
+    "solution_html": "<p>We have, <span class=\"math-tex\">{tex}\\cos\\left[{{{\\cos }^{ - 1}}\\left( {\\frac{{ - \\sqrt 3 }}{2}} \\right) + \\frac{\\pi }{6}} \\right]{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\cos\\left[ {{{ \\cos }^{ - 1}}\\left({\\ -cos \\frac{{\\pi }}{6}} \\right) + \\frac{\\pi }{6}} \\right]{/tex}</span> <span class=\"math-tex\">{tex}{/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex} = \\cos \\left[ {{{\\cos }^{ - 1}}\\left( {\\cos \\frac{{5\\pi }}{6}} \\right) + \\frac{\\pi }{6}} \\right]{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} = \\cos \\left( {\\frac{{5\\pi }}{6} + \\frac{\\pi }{6}} \\right)\\{ \\because {\\cos ^{ - 1}}\\cos x = x,\\;x \\in [0,\\pi ]\\}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}= \\cos \\left( {\\frac{{6\\pi }}{6}} \\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex} = \\cos \\left( \\pi \\right) = - 1{/tex}</span></p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 182248,
+    "question_html": "<p>Evaluate:- <span class=\"math-tex\">{tex}\\tan ^{-1}\\left(-\\frac{1}{\\sqrt{3}}\\right)+\\cot ^{-1}\\left(\\frac{1}{\\sqrt{3}}\\right)+\\tan ^{-1}\\left(\\sin \\left(-\\frac{\\pi}{2}\\right)\\right){/tex}</span></p>",
+    "question_text": "Evaluate:- {tex}\\tan ^{-1}\\left(-\\frac{1}{\\sqrt{3}}\\right)+\\cot ^{-1}\\left(\\frac{1}{\\sqrt{3}}\\right)+\\tan ^{-1}\\left(\\sin \\left(-\\frac{\\pi}{2}\\right)\\right){/tex}",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}\\tan ^{-1}\\left(-\\frac{1}{\\sqrt{3}}\\right)+\\cot ^{-1}\\left(\\frac{1}{\\sqrt{3}}\\right)+\\tan ^{-1}\\left(\\sin \\left(-\\frac{\\pi}{2}\\right)\\right){/tex} {tex}=-\\frac{\\pi}{6}+\\frac{\\pi}{3}+\\tan ^{-1}(-1){/tex} {tex}=-\\frac{\\pi}{6}+\\frac{\\pi}{3}-\\frac{\\pi}{4}{/tex} {tex}=-\\frac{\\pi}{12}{/tex}",
+    "solution": "{tex}\\tan ^{-1}\\left(-\\frac{1}{\\sqrt{3}}\\right)+\\cot ^{-1}\\left(\\frac{1}{\\sqrt{3}}\\right)+\\tan ^{-1}\\left(\\sin \\left(-\\frac{\\pi}{2}\\right)\\right){/tex} {tex}=-\\frac{\\pi}{6}+\\frac{\\pi}{3}+\\tan ^{-1}(-1){/tex} {tex}=-\\frac{\\pi}{6}+\\frac{\\pi}{3}-\\frac{\\pi}{4}{/tex} {tex}=-\\frac{\\pi}{12}{/tex}",
+    "solution_html": "<p><span class=\"math-tex\">{tex}\\tan ^{-1}\\left(-\\frac{1}{\\sqrt{3}}\\right)+\\cot ^{-1}\\left(\\frac{1}{\\sqrt{3}}\\right)+\\tan ^{-1}\\left(\\sin \\left(-\\frac{\\pi}{2}\\right)\\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=-\\frac{\\pi}{6}+\\frac{\\pi}{3}+\\tan ^{-1}(-1){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=-\\frac{\\pi}{6}+\\frac{\\pi}{3}-\\frac{\\pi}{4}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=-\\frac{\\pi}{12}{/tex}</span></p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 182150,
+    "question_html": "<p>For the principal value, evaluate <span class=\"math-tex\">{tex}\\tan ^{-1}\\left\\{2 \\cos \\left(2 \\sin ^{-1} \\frac{1}{2}\\right)\\right\\}{/tex}</span>.</p>",
+    "question_text": "For the principal value, evaluate {tex}\\tan ^{-1}\\left\\{2 \\cos \\left(2 \\sin ^{-1} \\frac{1}{2}\\right)\\right\\}{/tex} .",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "We know that {tex}\\sin ^{-1} \\frac{1}{2}=\\frac{\\pi}{6}{/tex} . {tex}\\therefore \\quad \\tan ^{-1}\\left\\{2 \\cos \\left(2 \\sin ^{-1} \\frac{1}{2}\\right)\\right\\}{/tex} {tex}=\\tan ^{-1}\\left\\{2 \\cos \\left(2 \\times \\frac{\\pi}{6}\\right)\\right\\}{/tex} {tex}=\\tan ^{-1}\\left(2 \\cos \\frac{\\pi}{3}\\right)=\\tan ^{-1}\\left(2 \\times \\frac{1}{2}\\right)=\\tan ^{-1} 1=\\frac{\\pi}{4}{/tex}",
+    "solution": "We know that {tex}\\sin ^{-1} \\frac{1}{2}=\\frac{\\pi}{6}{/tex} . {tex}\\therefore \\quad \\tan ^{-1}\\left\\{2 \\cos \\left(2 \\sin ^{-1} \\frac{1}{2}\\right)\\right\\}{/tex} {tex}=\\tan ^{-1}\\left\\{2 \\cos \\left(2 \\times \\frac{\\pi}{6}\\right)\\right\\}{/tex} {tex}=\\tan ^{-1}\\left(2 \\cos \\frac{\\pi}{3}\\right)=\\tan ^{-1}\\left(2 \\times \\frac{1}{2}\\right)=\\tan ^{-1} 1=\\frac{\\pi}{4}{/tex}",
+    "solution_html": "<p>We know that <span class=\"math-tex\">{tex}\\sin ^{-1} \\frac{1}{2}=\\frac{\\pi}{6}{/tex}</span>.<br />\r\n<span class=\"math-tex\">{tex}\\therefore \\quad \\tan ^{-1}\\left\\{2 \\cos \\left(2 \\sin ^{-1} \\frac{1}{2}\\right)\\right\\}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\tan ^{-1}\\left\\{2 \\cos \\left(2 \\times \\frac{\\pi}{6}\\right)\\right\\}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\tan ^{-1}\\left(2 \\cos \\frac{\\pi}{3}\\right)=\\tan ^{-1}\\left(2 \\times \\frac{1}{2}\\right)=\\tan ^{-1} 1=\\frac{\\pi}{4}{/tex}</span></p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 182826,
+    "question_html": "<p>Using the principal values, write the value of <span class=\"math-tex\">{tex}\\cos ^ { - 1 } \\left( \\frac { 1 } { 2 } \\right) + 2 \\sin ^ { - 1 } \\left( \\frac { 1 } { 2 } \\right).{/tex}</span></p>",
+    "question_text": "Using the principal values, write the value of {tex}\\cos ^ { - 1 } \\left( \\frac { 1 } { 2 } \\right) + 2 \\sin ^ { - 1 } \\left( \\frac { 1 } { 2 } \\right).{/tex}",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "We have, cos -1 {tex}\\left(\\frac{1}{2}\\right){/tex} = cos -1 {tex}\\left(\\cos \\frac{\\pi}{3}\\right){/tex} = {tex}\\frac{\\pi}{3}{/tex} {tex}\\left[\\because \\frac{\\pi}{3} \\in[0, \\pi]\\right]{/tex} Also sin -1 {tex}\\left(-\\frac{1}{2}\\right){/tex} = sin -1 (-sin {tex}\\frac{\\pi}{6}{/tex} ) = sin -1 {tex}\\left(\\sin \\left(-\\frac{\\pi}{6}\\right)\\right){/tex} = - {tex}\\frac{\\pi}{6}{/tex} {tex}\\left[\\because-\\frac{\\pi}{6} \\in\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]\\right]{/tex} {tex}\\therefore{/tex} cos -1 {tex}\\left(\\frac{1}{2}\\right){/tex} - 2sin -1 {tex}\\left(-\\frac{1}{2}\\right){/tex} = {tex}\\frac{\\pi}{3}{/tex} - 2 {tex}\\left(-\\frac{\\pi}{6}\\right){/tex} = {tex}\\frac{\\pi}{3}{/tex} + {tex}\\frac{\\pi}{3}{/tex} = {tex}\\frac{2\\pi}{3}{/tex}",
+    "solution": "We have, cos -1 {tex}\\left(\\frac{1}{2}\\right){/tex} = cos -1 {tex}\\left(\\cos \\frac{\\pi}{3}\\right){/tex} = {tex}\\frac{\\pi}{3}{/tex} {tex}\\left[\\because \\frac{\\pi}{3} \\in[0, \\pi]\\right]{/tex} Also sin -1 {tex}\\left(-\\frac{1}{2}\\right){/tex} = sin -1 (-sin {tex}\\frac{\\pi}{6}{/tex} ) = sin -1 {tex}\\left(\\sin \\left(-\\frac{\\pi}{6}\\right)\\right){/tex} = - {tex}\\frac{\\pi}{6}{/tex} {tex}\\left[\\because-\\frac{\\pi}{6} \\in\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]\\right]{/tex} {tex}\\therefore{/tex} cos -1 {tex}\\left(\\frac{1}{2}\\right){/tex} - 2sin -1 {tex}\\left(-\\frac{1}{2}\\right){/tex} = {tex}\\frac{\\pi}{3}{/tex} - 2 {tex}\\left(-\\frac{\\pi}{6}\\right){/tex} = {tex}\\frac{\\pi}{3}{/tex} + {tex}\\frac{\\pi}{3}{/tex} = {tex}\\frac{2\\pi}{3}{/tex}",
+    "solution_html": "<p>We have,&nbsp;cos<sup>-1</sup><span class=\"math-tex\">{tex}\\left(\\frac{1}{2}\\right){/tex}</span>&nbsp;= cos<sup>-1</sup><span class=\"math-tex\">{tex}\\left(\\cos \\frac{\\pi}{3}\\right){/tex}</span><br />\n=&nbsp;<span class=\"math-tex\">{tex}\\frac{\\pi}{3}{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\left[\\because \\frac{\\pi}{3} \\in[0, \\pi]\\right]{/tex}</span><br />\nAlso sin<sup>-1</sup><span class=\"math-tex\">{tex}\\left(-\\frac{1}{2}\\right){/tex}</span>&nbsp;= sin<sup>-1</sup> (-sin <span class=\"math-tex\">{tex}\\frac{\\pi}{6}{/tex}</span>)<br />\n= sin<sup>-1</sup>&nbsp;<span class=\"math-tex\">{tex}\\left(\\sin \\left(-\\frac{\\pi}{6}\\right)\\right){/tex}</span><br />\n= -<span class=\"math-tex\">{tex}\\frac{\\pi}{6}{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\left[\\because-\\frac{\\pi}{6} \\in\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]\\right]{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;cos<sup>-1</sup><span class=\"math-tex\">{tex}\\left(\\frac{1}{2}\\right){/tex}</span>&nbsp;- 2sin<sup>-1</sup><span class=\"math-tex\">{tex}\\left(-\\frac{1}{2}\\right){/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\frac{\\pi}{3}{/tex}</span>- 2<span class=\"math-tex\">{tex}\\left(-\\frac{\\pi}{6}\\right){/tex}</span><br />\n=&nbsp;<span class=\"math-tex\">{tex}\\frac{\\pi}{3}{/tex}</span>&nbsp;+&nbsp;<span class=\"math-tex\">{tex}\\frac{\\pi}{3}{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\frac{2\\pi}{3}{/tex}</span></p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 115124,
+    "question_html": "<p>Find the value of <span class=\"math-tex\">{tex}\\sin \\left[ {2{{\\cot }^{ - 1}}\\left( {\\frac{{ - 5}}{{12}}} \\right)} \\right]{/tex}</span></p>\r\n",
+    "question_text": "Find the value of {tex}\\sin \\left[ {2{{\\cot }^{ - 1}}\\left( {\\frac{{ - 5}}{{12}}} \\right)} \\right]{/tex}",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Let {tex}{\\cot ^{ - 1}}\\left( {\\frac{{ - 5}}{{12}}} \\right) = y{/tex} Then {tex}\\cot y = \\frac{{ - 5}}{{12}}{/tex} Now, {tex}\\sin \\left[ {2{{\\cot }^{ - 1}}\\left( {\\frac{{ - 5}}{{12}}} \\right)} \\right] = \\sin 2y{/tex} {tex}= 2\\sin y\\cos y = 2\\left( {\\frac{{12}}{{13}}} \\right)\\left( {\\frac{{ - 5}}{{13}}} \\right){/tex} {tex}\\left[ {{\\text{since}}\\;\\cot y < 0,\\;{\\text{so}}\\;y \\in \\left( {\\frac{\\pi }{2},\\pi } \\right)} \\right]{/tex} {tex}= \\frac{{ - 120}}{{169}}{/tex}",
+    "solution": "Let {tex}{\\cot ^{ - 1}}\\left( {\\frac{{ - 5}}{{12}}} \\right) = y{/tex} Then {tex}\\cot y = \\frac{{ - 5}}{{12}}{/tex} Now, {tex}\\sin \\left[ {2{{\\cot }^{ - 1}}\\left( {\\frac{{ - 5}}{{12}}} \\right)} \\right] = \\sin 2y{/tex} {tex}= 2\\sin y\\cos y = 2\\left( {\\frac{{12}}{{13}}} \\right)\\left( {\\frac{{ - 5}}{{13}}} \\right){/tex} {tex}\\left[ {{\\text{since}}\\;\\cot y < 0,\\;{\\text{so}}\\;y \\in \\left( {\\frac{\\pi }{2},\\pi } \\right)} \\right]{/tex} {tex}= \\frac{{ - 120}}{{169}}{/tex}",
+    "solution_html": "<p>Let <span class=\"math-tex\">{tex}{\\cot ^{ - 1}}\\left( {\\frac{{ - 5}}{{12}}} \\right) = y{/tex}</span><br />\r\nThen <span class=\"math-tex\">{tex}\\cot y = \\frac{{ - 5}}{{12}}{/tex}</span><br />\r\nNow,<br />\r\n<span class=\"math-tex\">{tex}\\sin \\left[ {2{{\\cot }^{ - 1}}\\left( {\\frac{{ - 5}}{{12}}} \\right)} \\right] = \\sin 2y{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}= 2\\sin y\\cos y = 2\\left( {\\frac{{12}}{{13}}} \\right)\\left( {\\frac{{ - 5}}{{13}}} \\right){/tex}</span> <span class=\"math-tex\">{tex}\\left[ {{\\text{since}}\\;\\cot y &lt; 0,\\;{\\text{so}}\\;y \\in \\left( {\\frac{\\pi }{2},\\pi } \\right)} \\right]{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}= \\frac{{ - 120}}{{169}}{/tex}</span></p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 115120,
+    "question_html": "<p>Evaluate: <span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\sqrt 3 - {\\sec ^{ - 1}}( - 2){/tex}</span>.</p>",
+    "question_text": "Evaluate: {tex}{\\tan ^{ - 1}}\\sqrt 3 - {\\sec ^{ - 1}}( - 2){/tex} .",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}{\\tan ^{ - 1}}\\sqrt 3 - {\\sec ^{ - 1}}( - 2){/tex} {tex} = {\\tan ^{ - 1}}\\sqrt 3 - \\left[ { \\pi - {{\\sec }^{ - 1}}2} \\right]{/tex} {tex} = \\frac{\\pi }{3} - \\pi + {\\cos ^{ - 1}}\\left( {\\frac{1}{2}} \\right){/tex} {tex}= - \\frac{{2\\pi }}{3} + \\frac{\\pi }{3} = - \\frac{\\pi }{3}{/tex}",
+    "solution": "{tex}{\\tan ^{ - 1}}\\sqrt 3 - {\\sec ^{ - 1}}( - 2){/tex} {tex} = {\\tan ^{ - 1}}\\sqrt 3 - \\left[ { \\pi - {{\\sec }^{ - 1}}2} \\right]{/tex} {tex} = \\frac{\\pi }{3} - \\pi + {\\cos ^{ - 1}}\\left( {\\frac{1}{2}} \\right){/tex} {tex}= - \\frac{{2\\pi }}{3} + \\frac{\\pi }{3} = - \\frac{\\pi }{3}{/tex}",
+    "solution_html": "<p><span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\sqrt 3 - {\\sec ^{ - 1}}( - 2){/tex}</span> <span class=\"math-tex\">{tex} = {\\tan ^{ - 1}}\\sqrt 3 - \\left[ { \\pi - {{\\sec }^{ - 1}}2} \\right]{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} = \\frac{\\pi }{3} - \\pi + {\\cos ^{ - 1}}\\left( {\\frac{1}{2}} \\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}= - \\frac{{2\\pi }}{3} + \\frac{\\pi }{3} = - \\frac{\\pi }{3}{/tex}</span></p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 1728318,
+    "question_html": "<p>Evaluate:&nbsp;<span class=\"math-tex\">{tex}\\tan ^{-1}\\left[2 \\sin \\left(2 \\cos ^{-1} \\frac{\\sqrt{3}}{2}\\right)\\right]{/tex}</span></p>",
+    "question_text": "Evaluate: {tex}\\tan ^{-1}\\left[2 \\sin \\left(2 \\cos ^{-1} \\frac{\\sqrt{3}}{2}\\right)\\right]{/tex}",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}\\tan ^{-1}\\left[2 \\sin \\left(2 \\cos ^{-1} \\frac{\\sqrt{3}}{2}\\right)\\right]{/tex} {tex}=\\tan ^{-1}\\left[2 \\sin \\left(2 \\times \\frac{\\pi}{6}\\right)\\right]=\\tan ^{-1}\\left[2 \\sin \\frac{\\pi}{3}\\right]{/tex} {tex}=\\tan ^{-1}\\left[2 \\times \\frac{\\sqrt{3}}{2}\\right]=\\tan ^{-1} \\sqrt{3}=\\frac{\\pi}{3}{/tex}",
+    "solution": "{tex}\\tan ^{-1}\\left[2 \\sin \\left(2 \\cos ^{-1} \\frac{\\sqrt{3}}{2}\\right)\\right]{/tex} {tex}=\\tan ^{-1}\\left[2 \\sin \\left(2 \\times \\frac{\\pi}{6}\\right)\\right]=\\tan ^{-1}\\left[2 \\sin \\frac{\\pi}{3}\\right]{/tex} {tex}=\\tan ^{-1}\\left[2 \\times \\frac{\\sqrt{3}}{2}\\right]=\\tan ^{-1} \\sqrt{3}=\\frac{\\pi}{3}{/tex}",
+    "solution_html": "<p><span class=\"math-tex\">{tex}\\tan ^{-1}\\left[2 \\sin \\left(2 \\cos ^{-1} \\frac{\\sqrt{3}}{2}\\right)\\right]{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\tan ^{-1}\\left[2 \\sin \\left(2 \\times \\frac{\\pi}{6}\\right)\\right]=\\tan ^{-1}\\left[2 \\sin \\frac{\\pi}{3}\\right]{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\tan ^{-1}\\left[2 \\times \\frac{\\sqrt{3}}{2}\\right]=\\tan ^{-1} \\sqrt{3}=\\frac{\\pi}{3}{/tex}</span></p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 1728408,
+    "question_html": "<p>Solve for <span class=\"math-tex\">{tex}x{/tex}</span>,&nbsp;<span class=\"math-tex\">{tex}2 \\tan ^{-1} x+\\sin ^{-1}\\left(\\frac{2 x}{1+x^{2}}\\right)=4 \\sqrt{3}{/tex}</span></p>",
+    "question_text": "Solve for {tex}x{/tex} , {tex}2 \\tan ^{-1} x+\\sin ^{-1}\\left(\\frac{2 x}{1+x^{2}}\\right)=4 \\sqrt{3}{/tex}",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}2 \\tan ^{-1} x+\\sin ^{-1}\\left(\\frac{2 x}{1+x^{2}}\\right)=4 \\sqrt{3}{/tex} {tex} \\Rightarrow 2 \\tan ^{-1} x+2 \\tan ^{-1} x=4 \\sqrt{3}{/tex} {tex}\\Rightarrow \\tan ^{-1} {x}=\\sqrt{3} \\notin\\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right){/tex} {tex}\\therefore x=\\tan (\\sqrt{3}){/tex} which has no solution.",
+    "solution": "{tex}2 \\tan ^{-1} x+\\sin ^{-1}\\left(\\frac{2 x}{1+x^{2}}\\right)=4 \\sqrt{3}{/tex} {tex} \\Rightarrow 2 \\tan ^{-1} x+2 \\tan ^{-1} x=4 \\sqrt{3}{/tex} {tex}\\Rightarrow \\tan ^{-1} {x}=\\sqrt{3} \\notin\\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right){/tex} {tex}\\therefore x=\\tan (\\sqrt{3}){/tex} which has no solution.",
+    "solution_html": "<p><span class=\"math-tex\">{tex}2 \\tan ^{-1} x+\\sin ^{-1}\\left(\\frac{2 x}{1+x^{2}}\\right)=4 \\sqrt{3}{/tex}</span>&nbsp;<span class=\"math-tex\">{tex} \\Rightarrow 2 \\tan ^{-1} x+2 \\tan ^{-1} x=4 \\sqrt{3}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\tan ^{-1} {x}=\\sqrt{3} \\notin\\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\therefore x=\\tan (\\sqrt{3}){/tex}</span> which has no solution.</p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 264852,
+    "question_html": "<p>Write the value of&nbsp;<span class=\"math-tex\">{tex}\\sin ^{-1}\\left(\\frac{1}{3}\\right)-\\cos ^{-1}\\left(-\\frac{1}{3}\\right){/tex}</span></p>",
+    "question_text": "Write the value of {tex}\\sin ^{-1}\\left(\\frac{1}{3}\\right)-\\cos ^{-1}\\left(-\\frac{1}{3}\\right){/tex}",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Given {tex}\\sin ^{-1}\\left(\\frac{1}{3}\\right)-\\cos ^{-1}\\left(-\\frac{1}{3}\\right){/tex} We know that cos -1 (- {tex}\\theta{/tex} ) = {tex}\\pi{/tex} - cos -1 {tex}\\theta{/tex} {tex}=\\sin ^{-1}\\left(\\frac{1}{3}\\right)-\\left[\\pi-\\cos ^{-1}\\left(\\frac{1}{3}\\right)\\right]{/tex} {tex}=\\sin ^{-1}\\left(\\frac{1}{3}\\right)-\\pi+\\cos ^{-1}\\left(\\frac{1}{3}\\right){/tex} {tex}=\\sin ^{-1}\\left(\\frac{1}{3}\\right)+\\cos ^{-1}\\left(\\frac{1}{3}\\right)-\\pi{/tex} {tex}=\\frac{\\pi}{2}-\\pi{/tex} {tex}=-\\frac{\\pi}{2}{/tex} Therefore we have, {tex} \\sin ^{-1}\\left(\\frac{1}{3}\\right)-\\cos ^{-1}\\left(-\\frac{1}{3}\\right)=-\\frac{\\pi}{2}{/tex}",
+    "solution": "Given {tex}\\sin ^{-1}\\left(\\frac{1}{3}\\right)-\\cos ^{-1}\\left(-\\frac{1}{3}\\right){/tex} We know that cos -1 (- {tex}\\theta{/tex} ) = {tex}\\pi{/tex} - cos -1 {tex}\\theta{/tex} {tex}=\\sin ^{-1}\\left(\\frac{1}{3}\\right)-\\left[\\pi-\\cos ^{-1}\\left(\\frac{1}{3}\\right)\\right]{/tex} {tex}=\\sin ^{-1}\\left(\\frac{1}{3}\\right)-\\pi+\\cos ^{-1}\\left(\\frac{1}{3}\\right){/tex} {tex}=\\sin ^{-1}\\left(\\frac{1}{3}\\right)+\\cos ^{-1}\\left(\\frac{1}{3}\\right)-\\pi{/tex} {tex}=\\frac{\\pi}{2}-\\pi{/tex} {tex}=-\\frac{\\pi}{2}{/tex} Therefore we have, {tex} \\sin ^{-1}\\left(\\frac{1}{3}\\right)-\\cos ^{-1}\\left(-\\frac{1}{3}\\right)=-\\frac{\\pi}{2}{/tex}",
+    "solution_html": "<p>Given&nbsp;&nbsp;<span class=\"math-tex\">{tex}\\sin ^{-1}\\left(\\frac{1}{3}\\right)-\\cos ^{-1}\\left(-\\frac{1}{3}\\right){/tex}</span><br />\nWe&nbsp;know that cos<sup>-1</sup>&nbsp;(-<span class=\"math-tex\">{tex}\\theta{/tex}</span>) =&nbsp;<span class=\"math-tex\">{tex}\\pi{/tex}</span>&nbsp;- cos<sup>-1</sup>&nbsp;<span class=\"math-tex\">{tex}\\theta{/tex}</span><br />\n<span class=\"math-tex\">{tex}=\\sin ^{-1}\\left(\\frac{1}{3}\\right)-\\left[\\pi-\\cos ^{-1}\\left(\\frac{1}{3}\\right)\\right]{/tex}</span><br />\n<span class=\"math-tex\">{tex}=\\sin ^{-1}\\left(\\frac{1}{3}\\right)-\\pi+\\cos ^{-1}\\left(\\frac{1}{3}\\right){/tex}</span><br />\n<span class=\"math-tex\">{tex}=\\sin ^{-1}\\left(\\frac{1}{3}\\right)+\\cos ^{-1}\\left(\\frac{1}{3}\\right)-\\pi{/tex}</span><br />\n<span class=\"math-tex\">{tex}=\\frac{\\pi}{2}-\\pi{/tex}</span><br />\n<span class=\"math-tex\">{tex}=-\\frac{\\pi}{2}{/tex}</span><br />\nTherefore we have,<br />\n<span class=\"math-tex\">{tex} \\sin ^{-1}\\left(\\frac{1}{3}\\right)-\\cos ^{-1}\\left(-\\frac{1}{3}\\right)=-\\frac{\\pi}{2}{/tex}</span></p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 115118,
+    "question_html": "<p>Find the value of <span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\left( {\\tan \\frac{{9\\pi }}{8}} \\right){/tex}</span></p>",
+    "question_text": "Find the value of {tex}{\\tan ^{ - 1}}\\left( {\\tan \\frac{{9\\pi }}{8}} \\right){/tex}",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}{\\tan ^{ - 1}}\\left( {\\tan \\frac{{9\\pi }}{8}} \\right){/tex} {tex} = {\\tan ^{ - 1}}\\tan \\left( {\\pi + \\frac{\\pi }{8}} \\right){/tex} {tex} = {\\tan ^{ - 1}}\\left( {\\tan \\left( {\\frac{\\pi }{8}} \\right)} \\right){/tex} {tex} = \\frac{\\pi }{8}{/tex}",
+    "solution": "{tex}{\\tan ^{ - 1}}\\left( {\\tan \\frac{{9\\pi }}{8}} \\right){/tex} {tex} = {\\tan ^{ - 1}}\\tan \\left( {\\pi + \\frac{\\pi }{8}} \\right){/tex} {tex} = {\\tan ^{ - 1}}\\left( {\\tan \\left( {\\frac{\\pi }{8}} \\right)} \\right){/tex} {tex} = \\frac{\\pi }{8}{/tex}",
+    "solution_html": "<p><span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\left( {\\tan \\frac{{9\\pi }}{8}} \\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex} = {\\tan ^{ - 1}}\\tan \\left( {\\pi + \\frac{\\pi }{8}} \\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex} = {\\tan ^{ - 1}}\\left( {\\tan \\left( {\\frac{\\pi }{8}} \\right)} \\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex} = \\frac{\\pi }{8}{/tex}</span></p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 1246021,
+    "question_html": "<p>Find the value of x, if <span class=\"math-tex\">{tex}\\tan \\left[\\sec ^{-1}\\left(\\frac{1}{x}\\right)\\right]{/tex}</span> = sin (tan<sup>-1</sup> 2), x &gt; 0.</p>",
+    "question_text": "Find the value of x, if {tex}\\tan \\left[\\sec ^{-1}\\left(\\frac{1}{x}\\right)\\right]{/tex} = sin (tan -1 2), x > 0.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}\\tan \\left(\\sec ^{-1} \\frac{1}{x}\\right)=\\sin \\left(\\tan ^{-1} 2\\right) {/tex} {tex}\\Rightarrow \\tan \\left(\\tan ^{-1} \\frac{\\sqrt{1-x^2}}{x}\\right)=\\sin \\left(\\sin ^{-1} \\frac{2}{\\sqrt{5}}\\right){/tex} {tex}\\Rightarrow \\frac{\\sqrt{1-x^2}}{x}=\\frac{2}{\\sqrt{5}} \\Rightarrow \\frac{1-x^2}{x^2}=\\frac{4}{5}{/tex} {tex}\\Rightarrow{/tex} 9x 2 = 5 {tex}\\Rightarrow{/tex} x 2 = {tex}\\frac{5}{9} \\Rightarrow x=\\frac{\\sqrt{5}}{3}{/tex} , {x > 0}",
+    "solution": "{tex}\\tan \\left(\\sec ^{-1} \\frac{1}{x}\\right)=\\sin \\left(\\tan ^{-1} 2\\right) {/tex} {tex}\\Rightarrow \\tan \\left(\\tan ^{-1} \\frac{\\sqrt{1-x^2}}{x}\\right)=\\sin \\left(\\sin ^{-1} \\frac{2}{\\sqrt{5}}\\right){/tex} {tex}\\Rightarrow \\frac{\\sqrt{1-x^2}}{x}=\\frac{2}{\\sqrt{5}} \\Rightarrow \\frac{1-x^2}{x^2}=\\frac{4}{5}{/tex} {tex}\\Rightarrow{/tex} 9x 2 = 5 {tex}\\Rightarrow{/tex} x 2 = {tex}\\frac{5}{9} \\Rightarrow x=\\frac{\\sqrt{5}}{3}{/tex} , {x > 0}",
+    "solution_html": "<p><span class=\"math-tex\">{tex}\\tan \\left(\\sec ^{-1} \\frac{1}{x}\\right)=\\sin \\left(\\tan ^{-1} 2\\right) {/tex}</span> <span class=\"math-tex\">{tex}\\Rightarrow \\tan \\left(\\tan ^{-1} \\frac{\\sqrt{1-x^2}}{x}\\right)=\\sin \\left(\\sin ^{-1} \\frac{2}{\\sqrt{5}}\\right){/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow \\frac{\\sqrt{1-x^2}}{x}=\\frac{2}{\\sqrt{5}} \\Rightarrow \\frac{1-x^2}{x^2}=\\frac{4}{5}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> 9x<sup>2</sup> = 5 <span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> x<sup>2</sup> = <span class=\"math-tex\">{tex}\\frac{5}{9} \\Rightarrow x=\\frac{\\sqrt{5}}{3}{/tex}</span>, {x &gt; 0}</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 182165,
+    "question_html": "<p>For the principal value, evaluate <span class=\"math-tex\">{tex}\\tan ^{-1}\\left\\{2 \\sin \\left(4 \\cos ^{-1} \\frac{\\sqrt{3}}{2}\\right)\\right\\}{/tex}</span>.</p>",
+    "question_text": "For the principal value, evaluate {tex}\\tan ^{-1}\\left\\{2 \\sin \\left(4 \\cos ^{-1} \\frac{\\sqrt{3}}{2}\\right)\\right\\}{/tex} .",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}\\tan ^{-1}\\left(2 \\sin \\left(4 \\cos ^{-1} \\frac{\\sqrt{3}}{2}\\right)\\right){/tex} {tex}=\\tan ^{-1}\\left(2 \\sin \\left(4 \\times \\frac{\\pi}{6}\\right)\\right){/tex} {tex}=\\tan ^{-1}\\left(2 \\times \\frac{\\sqrt{3}}{2}\\right)=\\tan ^{-1}(\\sqrt{3}){/tex} We know that, for any x {tex}\\in{/tex} R, tan -1 x represents an angle in {tex}\\left(\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right){/tex} whose tangent is x. {tex}\\therefore \\tan ^{-1}(\\sqrt{3})=\\frac{\\pi}{3}{/tex} {tex}\\therefore{/tex} Principle value of {tex}\\tan ^{-1}\\left(2 \\sin \\left(4 \\cos ^{-1} \\frac{\\sqrt{3}}{2}\\right)\\right){/tex} is {tex}\\frac{\\pi}{3}{/tex} .",
+    "solution": "{tex}\\tan ^{-1}\\left(2 \\sin \\left(4 \\cos ^{-1} \\frac{\\sqrt{3}}{2}\\right)\\right){/tex} {tex}=\\tan ^{-1}\\left(2 \\sin \\left(4 \\times \\frac{\\pi}{6}\\right)\\right){/tex} {tex}=\\tan ^{-1}\\left(2 \\times \\frac{\\sqrt{3}}{2}\\right)=\\tan ^{-1}(\\sqrt{3}){/tex} We know that, for any x {tex}\\in{/tex} R, tan -1 x represents an angle in {tex}\\left(\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right){/tex} whose tangent is x. {tex}\\therefore \\tan ^{-1}(\\sqrt{3})=\\frac{\\pi}{3}{/tex} {tex}\\therefore{/tex} Principle value of {tex}\\tan ^{-1}\\left(2 \\sin \\left(4 \\cos ^{-1} \\frac{\\sqrt{3}}{2}\\right)\\right){/tex} is {tex}\\frac{\\pi}{3}{/tex} .",
+    "solution_html": "<p><span class=\"math-tex\">{tex}\\tan ^{-1}\\left(2 \\sin \\left(4 \\cos ^{-1} \\frac{\\sqrt{3}}{2}\\right)\\right){/tex}</span> <span class=\"math-tex\">{tex}=\\tan ^{-1}\\left(2 \\sin \\left(4 \\times \\frac{\\pi}{6}\\right)\\right){/tex}</span> <span class=\"math-tex\">{tex}=\\tan ^{-1}\\left(2 \\times \\frac{\\sqrt{3}}{2}\\right)=\\tan ^{-1}(\\sqrt{3}){/tex}</span><br />\r\nWe know that, for any x <span class=\"math-tex\">{tex}\\in{/tex}</span> R, tan<sup>-1</sup>x represents an angle in <span class=\"math-tex\">{tex}\\left(\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right){/tex}</span> whose tangent is x.<br />\r\n<span class=\"math-tex\">{tex}\\therefore \\tan ^{-1}(\\sqrt{3})=\\frac{\\pi}{3}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span> Principle value of <span class=\"math-tex\">{tex}\\tan ^{-1}\\left(2 \\sin \\left(4 \\cos ^{-1} \\frac{\\sqrt{3}}{2}\\right)\\right){/tex}</span> is <span class=\"math-tex\">{tex}\\frac{\\pi}{3}{/tex}</span>.</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 182168,
+    "question_html": "<p>Evaluate:-&nbsp;<span class=\"math-tex\">{tex}\\tan ^{-1}\\left(-\\frac{1}{\\sqrt{3}}\\right)+\\tan ^{-1}(-\\sqrt{3})+\\tan ^{-1}\\left(\\sin \\left(-\\frac{\\pi}{2}\\right)\\right){/tex}</span></p>",
+    "question_text": "Evaluate:- {tex}\\tan ^{-1}\\left(-\\frac{1}{\\sqrt{3}}\\right)+\\tan ^{-1}(-\\sqrt{3})+\\tan ^{-1}\\left(\\sin \\left(-\\frac{\\pi}{2}\\right)\\right){/tex}",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}\\tan ^{-1}\\left(-\\frac{1}{\\sqrt{3}}\\right)+\\tan ^{-1}(-\\sqrt{3})+\\tan ^{-1}\\left(\\sin \\left(-\\frac{\\pi}{2}\\right)\\right){/tex} {tex}=\\tan ^{-1}\\left(-\\frac{1}{\\sqrt{3}}\\right)+\\tan ^{-1}(-\\sqrt{3})+\\tan ^{-1}(-1){/tex} We know that, for any x {tex}\\in{/tex} R, tan -1 x represents an angle in {tex}\\left(\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right){/tex} whose tangent is x. {tex}\\therefore \\tan ^{-1}\\left(-\\frac{1}{\\sqrt{3}}\\right)=-\\frac{\\pi}{6}{/tex} {tex}\\tan ^{-1}(-\\sqrt{3})=-\\frac{\\pi}{3}{/tex} {tex}\\tan ^{-1}(-1)=-\\frac{\\pi}{4}{/tex} {tex}\\Rightarrow \\tan ^{-1}\\left(-\\frac{1}{\\sqrt{3}}\\right)+\\tan ^{-1}(-\\sqrt{3})+\\tan ^{-1}(-1){/tex} {tex}=-\\frac{\\pi}{6}-\\frac{\\pi}{3}-\\frac{\\pi}{4}=-\\frac{3 \\pi}{4}{/tex} {tex}\\therefore{/tex} Principle value of {tex}\\tan ^{-1}\\left(-\\frac{1}{\\sqrt{3}}\\right)+\\tan ^{-1}(-\\sqrt{3})+\\tan ^{-1}\\left(\\sin \\left(-\\frac{\\pi}{2}\\right)\\right){/tex} is {tex}-\\frac{3 \\pi}{4}{/tex} .",
+    "solution": "{tex}\\tan ^{-1}\\left(-\\frac{1}{\\sqrt{3}}\\right)+\\tan ^{-1}(-\\sqrt{3})+\\tan ^{-1}\\left(\\sin \\left(-\\frac{\\pi}{2}\\right)\\right){/tex} {tex}=\\tan ^{-1}\\left(-\\frac{1}{\\sqrt{3}}\\right)+\\tan ^{-1}(-\\sqrt{3})+\\tan ^{-1}(-1){/tex} We know that, for any x {tex}\\in{/tex} R, tan -1 x represents an angle in {tex}\\left(\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right){/tex} whose tangent is x. {tex}\\therefore \\tan ^{-1}\\left(-\\frac{1}{\\sqrt{3}}\\right)=-\\frac{\\pi}{6}{/tex} {tex}\\tan ^{-1}(-\\sqrt{3})=-\\frac{\\pi}{3}{/tex} {tex}\\tan ^{-1}(-1)=-\\frac{\\pi}{4}{/tex} {tex}\\Rightarrow \\tan ^{-1}\\left(-\\frac{1}{\\sqrt{3}}\\right)+\\tan ^{-1}(-\\sqrt{3})+\\tan ^{-1}(-1){/tex} {tex}=-\\frac{\\pi}{6}-\\frac{\\pi}{3}-\\frac{\\pi}{4}=-\\frac{3 \\pi}{4}{/tex} {tex}\\therefore{/tex} Principle value of {tex}\\tan ^{-1}\\left(-\\frac{1}{\\sqrt{3}}\\right)+\\tan ^{-1}(-\\sqrt{3})+\\tan ^{-1}\\left(\\sin \\left(-\\frac{\\pi}{2}\\right)\\right){/tex} is {tex}-\\frac{3 \\pi}{4}{/tex} .",
+    "solution_html": "<p><span class=\"math-tex\">{tex}\\tan ^{-1}\\left(-\\frac{1}{\\sqrt{3}}\\right)+\\tan ^{-1}(-\\sqrt{3})+\\tan ^{-1}\\left(\\sin \\left(-\\frac{\\pi}{2}\\right)\\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\tan ^{-1}\\left(-\\frac{1}{\\sqrt{3}}\\right)+\\tan ^{-1}(-\\sqrt{3})+\\tan ^{-1}(-1){/tex}</span><br />\r\nWe know that, for any x <span class=\"math-tex\">{tex}\\in{/tex}</span> R, tan<sup>-1</sup>x represents an angle in <span class=\"math-tex\">{tex}\\left(\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right){/tex}</span> whose tangent is x.<br />\r\n<span class=\"math-tex\">{tex}\\therefore \\tan ^{-1}\\left(-\\frac{1}{\\sqrt{3}}\\right)=-\\frac{\\pi}{6}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\tan ^{-1}(-\\sqrt{3})=-\\frac{\\pi}{3}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\tan ^{-1}(-1)=-\\frac{\\pi}{4}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\tan ^{-1}\\left(-\\frac{1}{\\sqrt{3}}\\right)+\\tan ^{-1}(-\\sqrt{3})+\\tan ^{-1}(-1){/tex}</span> <span class=\"math-tex\">{tex}=-\\frac{\\pi}{6}-\\frac{\\pi}{3}-\\frac{\\pi}{4}=-\\frac{3 \\pi}{4}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span> Principle value of <span class=\"math-tex\">{tex}\\tan ^{-1}\\left(-\\frac{1}{\\sqrt{3}}\\right)+\\tan ^{-1}(-\\sqrt{3})+\\tan ^{-1}\\left(\\sin \\left(-\\frac{\\pi}{2}\\right)\\right){/tex}</span> is <span class=\"math-tex\">{tex}-\\frac{3 \\pi}{4}{/tex}</span>.</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 182240,
+    "question_html": "<p>Evaluate:- <span class=\"math-tex\">{tex}\\cot ^{-1} \\frac{1}{\\sqrt{3}}-cosec ^{-1}(-2)+\\sec ^{-1}\\left(\\frac{2}{\\sqrt{3}}\\right){/tex}</span>.</p>",
+    "question_text": "Evaluate:- {tex}\\cot ^{-1} \\frac{1}{\\sqrt{3}}-cosec ^{-1}(-2)+\\sec ^{-1}\\left(\\frac{2}{\\sqrt{3}}\\right){/tex} .",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}\\cot ^{-1} \\frac{1}{\\sqrt{3}}-\\ cosec ^{-1}(-2)+\\sec ^{-1}\\left(\\frac{2}{\\sqrt{3}}\\right){/tex} {tex}=\\frac{\\pi}{6}-\\left(-\\frac{\\pi}{6}\\right)+\\frac{\\pi}{3}{/tex} {tex}=\\frac{\\pi}{6}+\\frac{\\pi}{6}+\\frac{\\pi}{3}{/tex} {tex}=\\frac{4 \\pi}{6}{/tex} {tex}=\\frac{2 \\pi}{3}{/tex}",
+    "solution": "{tex}\\cot ^{-1} \\frac{1}{\\sqrt{3}}-\\ cosec ^{-1}(-2)+\\sec ^{-1}\\left(\\frac{2}{\\sqrt{3}}\\right){/tex} {tex}=\\frac{\\pi}{6}-\\left(-\\frac{\\pi}{6}\\right)+\\frac{\\pi}{3}{/tex} {tex}=\\frac{\\pi}{6}+\\frac{\\pi}{6}+\\frac{\\pi}{3}{/tex} {tex}=\\frac{4 \\pi}{6}{/tex} {tex}=\\frac{2 \\pi}{3}{/tex}",
+    "solution_html": "<p><span class=\"math-tex\">{tex}\\cot ^{-1} \\frac{1}{\\sqrt{3}}-\\ cosec ^{-1}(-2)+\\sec ^{-1}\\left(\\frac{2}{\\sqrt{3}}\\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\frac{\\pi}{6}-\\left(-\\frac{\\pi}{6}\\right)+\\frac{\\pi}{3}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\frac{\\pi}{6}+\\frac{\\pi}{6}+\\frac{\\pi}{3}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\frac{4 \\pi}{6}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\frac{2 \\pi}{3}{/tex}</span></p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 182242,
+    "question_html": "<p>Evaluate:- <span class=\"math-tex\">{tex}\\cot ^{-1}\\left\\{2 \\cos \\left(\\sin ^{-1} \\frac{\\sqrt{3}}{2}\\right)\\right\\}{/tex}</span></p>",
+    "question_text": "Evaluate:- {tex}\\cot ^{-1}\\left\\{2 \\cos \\left(\\sin ^{-1} \\frac{\\sqrt{3}}{2}\\right)\\right\\}{/tex}",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}\\cot ^{-1}\\left\\{2 \\cos \\left(\\sin ^{-1} \\frac{\\sqrt{3}}{2}\\right)\\right\\}{/tex} {tex}=\\cot ^{-1}\\left\\{2 \\cos \\left(\\frac{\\pi}{3}\\right)\\right\\}{/tex} {tex}=\\cot ^{-1}\\left\\{2 \\times \\frac{1}{2}\\right\\}{/tex} = cot -1 (1) {tex}=\\frac{\\pi}{4}{/tex}",
+    "solution": "{tex}\\cot ^{-1}\\left\\{2 \\cos \\left(\\sin ^{-1} \\frac{\\sqrt{3}}{2}\\right)\\right\\}{/tex} {tex}=\\cot ^{-1}\\left\\{2 \\cos \\left(\\frac{\\pi}{3}\\right)\\right\\}{/tex} {tex}=\\cot ^{-1}\\left\\{2 \\times \\frac{1}{2}\\right\\}{/tex} = cot -1 (1) {tex}=\\frac{\\pi}{4}{/tex}",
+    "solution_html": "<p><span class=\"math-tex\">{tex}\\cot ^{-1}\\left\\{2 \\cos \\left(\\sin ^{-1} \\frac{\\sqrt{3}}{2}\\right)\\right\\}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\cot ^{-1}\\left\\{2 \\cos \\left(\\frac{\\pi}{3}\\right)\\right\\}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\cot ^{-1}\\left\\{2 \\times \\frac{1}{2}\\right\\}{/tex}</span><br />\r\n= cot<sup>-1</sup>(1)<br />\r\n<span class=\"math-tex\">{tex}=\\frac{\\pi}{4}{/tex}</span></p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 182138,
+    "question_html": "<p>For the principal value, evaluate <span class=\"math-tex\">{tex}\\sin ^{-1}\\left(-\\frac{1}{2}\\right)+2 \\cos ^{-1}\\left(-\\frac{\\sqrt{3}}{2}\\right){/tex}</span>.</p>",
+    "question_text": "For the principal value, evaluate {tex}\\sin ^{-1}\\left(-\\frac{1}{2}\\right)+2 \\cos ^{-1}\\left(-\\frac{\\sqrt{3}}{2}\\right){/tex} .",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Let {tex}\\sin ^{-1}\\left(-\\frac{1}{2}\\right)=x{/tex} . Then, {tex}\\sin x=-\\frac{1}{2}=\\sin \\left(-\\frac{\\pi}{6}\\right){/tex} {tex}\\therefore \\sin ^{-1}\\left(-\\frac{1}{2}\\right)=-\\frac{\\pi}{6}{/tex} Let {tex}\\cos ^{-1}\\left(\\frac{-\\sqrt{3}}{2}\\right)=y{/tex} . Then, {tex}\\cos y=\\frac{-\\sqrt{3}}{2}=\\cos \\left(\\pi-\\frac{\\pi}{6}\\right){/tex} {tex}\\therefore \\cos ^{-1}\\left(\\frac{-\\sqrt{3}}{2}\\right)=\\frac{5 \\pi}{6}{/tex} {tex}\\therefore \\sin ^{-1}\\left(-\\frac{1}{2}\\right)+2 \\cos ^{-1}\\left(\\frac{-\\sqrt{3}}{2}\\right){/tex} {tex}=-\\frac{\\pi}{6}+\\frac{10 \\pi}{6}=\\frac{-\\pi+10 \\pi}{6}=\\frac{9 \\pi}{6}=\\frac{3 \\pi}{2}{/tex}",
+    "solution": "Let {tex}\\sin ^{-1}\\left(-\\frac{1}{2}\\right)=x{/tex} . Then, {tex}\\sin x=-\\frac{1}{2}=\\sin \\left(-\\frac{\\pi}{6}\\right){/tex} {tex}\\therefore \\sin ^{-1}\\left(-\\frac{1}{2}\\right)=-\\frac{\\pi}{6}{/tex} Let {tex}\\cos ^{-1}\\left(\\frac{-\\sqrt{3}}{2}\\right)=y{/tex} . Then, {tex}\\cos y=\\frac{-\\sqrt{3}}{2}=\\cos \\left(\\pi-\\frac{\\pi}{6}\\right){/tex} {tex}\\therefore \\cos ^{-1}\\left(\\frac{-\\sqrt{3}}{2}\\right)=\\frac{5 \\pi}{6}{/tex} {tex}\\therefore \\sin ^{-1}\\left(-\\frac{1}{2}\\right)+2 \\cos ^{-1}\\left(\\frac{-\\sqrt{3}}{2}\\right){/tex} {tex}=-\\frac{\\pi}{6}+\\frac{10 \\pi}{6}=\\frac{-\\pi+10 \\pi}{6}=\\frac{9 \\pi}{6}=\\frac{3 \\pi}{2}{/tex}",
+    "solution_html": "<p>Let <span class=\"math-tex\">{tex}\\sin ^{-1}\\left(-\\frac{1}{2}\\right)=x{/tex}</span>. Then, <span class=\"math-tex\">{tex}\\sin x=-\\frac{1}{2}=\\sin \\left(-\\frac{\\pi}{6}\\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\therefore \\sin ^{-1}\\left(-\\frac{1}{2}\\right)=-\\frac{\\pi}{6}{/tex}</span><br />\r\nLet <span class=\"math-tex\">{tex}\\cos ^{-1}\\left(\\frac{-\\sqrt{3}}{2}\\right)=y{/tex}</span>. Then, <span class=\"math-tex\">{tex}\\cos y=\\frac{-\\sqrt{3}}{2}=\\cos \\left(\\pi-\\frac{\\pi}{6}\\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\therefore \\cos ^{-1}\\left(\\frac{-\\sqrt{3}}{2}\\right)=\\frac{5 \\pi}{6}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\therefore \\sin ^{-1}\\left(-\\frac{1}{2}\\right)+2 \\cos ^{-1}\\left(\\frac{-\\sqrt{3}}{2}\\right){/tex}</span> <span class=\"math-tex\">{tex}=-\\frac{\\pi}{6}+\\frac{10 \\pi}{6}=\\frac{-\\pi+10 \\pi}{6}=\\frac{9 \\pi}{6}=\\frac{3 \\pi}{2}{/tex}</span></p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 182245,
+    "question_html": "<p>Evaluate:- <span class=\"math-tex\">{tex}cosec ^{-1}\\left(-\\frac{2}{\\sqrt{3}}\\right)+2 \\cot ^{-1}(-1){/tex}</span></p>",
+    "question_text": "Evaluate:- {tex}cosec ^{-1}\\left(-\\frac{2}{\\sqrt{3}}\\right)+2 \\cot ^{-1}(-1){/tex}",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}cosec ^{-1}\\left(-\\frac{2}{\\sqrt{3}}\\right)+2 \\cot ^{-1}(-1){/tex} {tex}=-\\frac{\\pi}{3}+2 \\times\\left(\\frac{3 \\pi}{4}\\right){/tex} {tex}=-\\frac{\\pi}{3}+\\frac{3 \\pi}{2}{/tex} {tex}=\\frac{7 \\pi}{6}{/tex}",
+    "solution": "{tex}cosec ^{-1}\\left(-\\frac{2}{\\sqrt{3}}\\right)+2 \\cot ^{-1}(-1){/tex} {tex}=-\\frac{\\pi}{3}+2 \\times\\left(\\frac{3 \\pi}{4}\\right){/tex} {tex}=-\\frac{\\pi}{3}+\\frac{3 \\pi}{2}{/tex} {tex}=\\frac{7 \\pi}{6}{/tex}",
+    "solution_html": "<p><span class=\"math-tex\">{tex}cosec ^{-1}\\left(-\\frac{2}{\\sqrt{3}}\\right)+2 \\cot ^{-1}(-1){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=-\\frac{\\pi}{3}+2 \\times\\left(\\frac{3 \\pi}{4}\\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=-\\frac{\\pi}{3}+\\frac{3 \\pi}{2}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\frac{7 \\pi}{6}{/tex}</span></p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 182161,
+    "question_html": "<p>Find the principal value of each of <span class=\"math-tex\">{tex}\\tan ^{-1}\\left(2 \\cos \\frac{2 \\pi}{3}\\right){/tex}</span>.</p>",
+    "question_text": "Find the principal value of each of {tex}\\tan ^{-1}\\left(2 \\cos \\frac{2 \\pi}{3}\\right){/tex} .",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}\\tan ^{-1}\\left(2 \\cos \\frac{2 \\pi}{3}\\right){/tex} {tex}=\\tan ^{-1}\\left(2 \\times \\frac{-1}{2}\\right){/tex} = tan -1 (-1) We know that, for any x {tex}\\in{/tex} R, tan -1 x represents an angle in {tex}\\left(\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right){/tex} whose tangent is x. {tex}\\therefore \\tan ^{-1}(-1)=-\\frac{\\pi}{4}{/tex} {tex}\\therefore{/tex} Principle value of {tex}\\tan ^{-1}\\left(2 \\cos \\frac{2 \\pi}{3}\\right){/tex} is {tex}-\\frac{\\pi}{4}{/tex} .",
+    "solution": "{tex}\\tan ^{-1}\\left(2 \\cos \\frac{2 \\pi}{3}\\right){/tex} {tex}=\\tan ^{-1}\\left(2 \\times \\frac{-1}{2}\\right){/tex} = tan -1 (-1) We know that, for any x {tex}\\in{/tex} R, tan -1 x represents an angle in {tex}\\left(\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right){/tex} whose tangent is x. {tex}\\therefore \\tan ^{-1}(-1)=-\\frac{\\pi}{4}{/tex} {tex}\\therefore{/tex} Principle value of {tex}\\tan ^{-1}\\left(2 \\cos \\frac{2 \\pi}{3}\\right){/tex} is {tex}-\\frac{\\pi}{4}{/tex} .",
+    "solution_html": "<p><span class=\"math-tex\">{tex}\\tan ^{-1}\\left(2 \\cos \\frac{2 \\pi}{3}\\right){/tex}</span> <span class=\"math-tex\">{tex}=\\tan ^{-1}\\left(2 \\times \\frac{-1}{2}\\right){/tex}</span> = tan<sup>-1</sup>(-1)<br />\r\nWe know that, for any x <span class=\"math-tex\">{tex}\\in{/tex}</span> R, tan<sup>-1</sup>x represents an angle in <span class=\"math-tex\">{tex}\\left(\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right){/tex}</span> whose tangent is x.<br />\r\n<span class=\"math-tex\">{tex}\\therefore \\tan ^{-1}(-1)=-\\frac{\\pi}{4}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span> Principle value of <span class=\"math-tex\">{tex}\\tan ^{-1}\\left(2 \\cos \\frac{2 \\pi}{3}\\right){/tex}</span> is <span class=\"math-tex\">{tex}-\\frac{\\pi}{4}{/tex}</span>.</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 182133,
+    "question_html": "<p>Find the principal value of <span class=\"math-tex\">{tex}\\cos ^{-1}\\left(\\tan \\frac{3 \\pi}{4}\\right){/tex}</span>.</p>",
+    "question_text": "Find the principal value of {tex}\\cos ^{-1}\\left(\\tan \\frac{3 \\pi}{4}\\right){/tex} .",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}\\cos ^{-1}\\left(\\tan \\frac{3 \\pi}{4}\\right){/tex} {tex}=\\cos ^{-1}\\left(\\tan \\left(\\frac{\\pi}{2}+\\frac{\\pi}{4}\\right)\\right){/tex} = cos -1 (-1) For any x {tex}\\in{/tex} [-1, 1], cos -1 x represents an angle in [0, {tex}\\pi{/tex} ] whose cosine is x. cos -1 (-1) = {tex}\\pi{/tex} {tex}\\therefore{/tex} Principle value of {tex}\\cos ^{-1}\\left(\\tan \\frac{3 \\pi}{4}\\right){/tex} is {tex}\\pi{/tex} .",
+    "solution": "{tex}\\cos ^{-1}\\left(\\tan \\frac{3 \\pi}{4}\\right){/tex} {tex}=\\cos ^{-1}\\left(\\tan \\left(\\frac{\\pi}{2}+\\frac{\\pi}{4}\\right)\\right){/tex} = cos -1 (-1) For any x {tex}\\in{/tex} [-1, 1], cos -1 x represents an angle in [0, {tex}\\pi{/tex} ] whose cosine is x. cos -1 (-1) = {tex}\\pi{/tex} {tex}\\therefore{/tex} Principle value of {tex}\\cos ^{-1}\\left(\\tan \\frac{3 \\pi}{4}\\right){/tex} is {tex}\\pi{/tex} .",
+    "solution_html": "<p><span class=\"math-tex\">{tex}\\cos ^{-1}\\left(\\tan \\frac{3 \\pi}{4}\\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\cos ^{-1}\\left(\\tan \\left(\\frac{\\pi}{2}+\\frac{\\pi}{4}\\right)\\right){/tex}</span><br />\r\n= cos<sup>-1</sup>(-1)<br />\r\nFor any x <span class=\"math-tex\">{tex}\\in{/tex}</span> [-1, 1], cos<sup>-1</sup>x represents an angle in [0, <span class=\"math-tex\">{tex}\\pi{/tex}</span>] whose cosine is x.<br />\r\ncos<sup>-1</sup>(-1) = <span class=\"math-tex\">{tex}\\pi{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span> Principle value of <span class=\"math-tex\">{tex}\\cos ^{-1}\\left(\\tan \\frac{3 \\pi}{4}\\right){/tex}</span> is <span class=\"math-tex\">{tex}\\pi{/tex}</span>.</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 182162,
+    "question_html": "<p>For the principal value, evaluate <span class=\"math-tex\">{tex}\\tan ^{-1}(-1)+\\cos ^{-1}\\left(-\\frac{1}{\\sqrt{2}}\\right){/tex}</span>.</p>",
+    "question_text": "For the principal value, evaluate {tex}\\tan ^{-1}(-1)+\\cos ^{-1}\\left(-\\frac{1}{\\sqrt{2}}\\right){/tex} .",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Let tan -1 (-1) = x. Then, tan x = -1 {tex}=\\tan \\left(\\frac{-\\pi}{4}\\right){/tex} {tex}\\therefore \\tan ^{-1}(-1)=\\frac{- \\pi}{4}{/tex} Let {tex}\\cos ^{-1}\\left(\\frac{-1}{\\sqrt{2}}\\right)=y{/tex} . Then, {tex}\\cos y=\\frac{-1}{\\sqrt{2}}=-\\cos \\left(\\frac{\\pi}{4}\\right)=\\cos \\left(\\pi-\\frac{\\pi}{4}\\right){/tex} {tex}\\therefore \\cos ^{-1}\\left(\\frac{-1}{\\sqrt{2}}\\right)=\\frac{3 \\pi}{4}{/tex} {tex}\\therefore \\tan ^{-1}(-1)+\\cos ^{-1}\\left(\\frac{-1}{\\sqrt{2}}\\right){/tex} {tex}=\\frac{- \\pi}{4}+\\frac{3 \\pi}{4}=\\frac{2 \\pi}{4}=\\frac{ \\pi}{2}{/tex}",
+    "solution": "Let tan -1 (-1) = x. Then, tan x = -1 {tex}=\\tan \\left(\\frac{-\\pi}{4}\\right){/tex} {tex}\\therefore \\tan ^{-1}(-1)=\\frac{- \\pi}{4}{/tex} Let {tex}\\cos ^{-1}\\left(\\frac{-1}{\\sqrt{2}}\\right)=y{/tex} . Then, {tex}\\cos y=\\frac{-1}{\\sqrt{2}}=-\\cos \\left(\\frac{\\pi}{4}\\right)=\\cos \\left(\\pi-\\frac{\\pi}{4}\\right){/tex} {tex}\\therefore \\cos ^{-1}\\left(\\frac{-1}{\\sqrt{2}}\\right)=\\frac{3 \\pi}{4}{/tex} {tex}\\therefore \\tan ^{-1}(-1)+\\cos ^{-1}\\left(\\frac{-1}{\\sqrt{2}}\\right){/tex} {tex}=\\frac{- \\pi}{4}+\\frac{3 \\pi}{4}=\\frac{2 \\pi}{4}=\\frac{ \\pi}{2}{/tex}",
+    "solution_html": "<p>Let tan<sup>-1</sup>(-1) = x. Then, tan x = -1 <span class=\"math-tex\">{tex}=\\tan \\left(\\frac{-\\pi}{4}\\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\therefore \\tan ^{-1}(-1)=\\frac{- \\pi}{4}{/tex}</span><br />\r\nLet <span class=\"math-tex\">{tex}\\cos ^{-1}\\left(\\frac{-1}{\\sqrt{2}}\\right)=y{/tex}</span>. Then, <span class=\"math-tex\">{tex}\\cos y=\\frac{-1}{\\sqrt{2}}=-\\cos \\left(\\frac{\\pi}{4}\\right)=\\cos \\left(\\pi-\\frac{\\pi}{4}\\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\therefore \\cos ^{-1}\\left(\\frac{-1}{\\sqrt{2}}\\right)=\\frac{3 \\pi}{4}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\therefore \\tan ^{-1}(-1)+\\cos ^{-1}\\left(\\frac{-1}{\\sqrt{2}}\\right){/tex}</span> <span class=\"math-tex\">{tex}=\\frac{- \\pi}{4}+\\frac{3 \\pi}{4}=\\frac{2 \\pi}{4}=\\frac{ \\pi}{2}{/tex}</span></p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 182260,
+    "question_html": "<p>Evaluate:- cos<sup>-1</sup>(cos(-680&deg;))</p>",
+    "question_text": "Evaluate:- cos -1 (cos(-680&deg;))",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "cos -1 {cos(-680 o )} = cos -1 (cos 680 o ) {tex}=\\cos ^{-1}\\left\\{\\cos \\left(680 \\times \\frac{\\pi}{180}\\right)\\right\\}{/tex} {tex}=\\cos ^{-1}\\left(\\cos \\frac{34 \\pi}{9}\\right){/tex} {tex}=\\cos ^{-1}\\left\\{\\cos \\left(4 \\pi-\\frac{2 \\pi}{9}\\right)\\right\\}{/tex} {tex}=\\cos ^{-1}\\left(\\cos \\frac{2 \\pi}{9}\\right)=\\frac{2 \\pi}{9}{/tex}",
+    "solution": "cos -1 {cos(-680 o )} = cos -1 (cos 680 o ) {tex}=\\cos ^{-1}\\left\\{\\cos \\left(680 \\times \\frac{\\pi}{180}\\right)\\right\\}{/tex} {tex}=\\cos ^{-1}\\left(\\cos \\frac{34 \\pi}{9}\\right){/tex} {tex}=\\cos ^{-1}\\left\\{\\cos \\left(4 \\pi-\\frac{2 \\pi}{9}\\right)\\right\\}{/tex} {tex}=\\cos ^{-1}\\left(\\cos \\frac{2 \\pi}{9}\\right)=\\frac{2 \\pi}{9}{/tex}",
+    "solution_html": "<p>cos<sup>-1</sup>{cos(-680<sup>o</sup>)} = cos<sup>-1</sup>(cos 680<sup>o</sup>)<span class=\"math-tex\">{tex}=\\cos ^{-1}\\left\\{\\cos \\left(680 \\times \\frac{\\pi}{180}\\right)\\right\\}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\cos ^{-1}\\left(\\cos \\frac{34 \\pi}{9}\\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\cos ^{-1}\\left\\{\\cos \\left(4 \\pi-\\frac{2 \\pi}{9}\\right)\\right\\}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\cos ^{-1}\\left(\\cos \\frac{2 \\pi}{9}\\right)=\\frac{2 \\pi}{9}{/tex}</span></p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 182252,
+    "question_html": "<p>Evaluate:&nbsp;<span class=\"math-tex\">{tex}\\sin ^{-1}\\left(\\sin \\frac{2 \\pi}{3}\\right){/tex}</span></p>",
+    "question_text": "Evaluate: {tex}\\sin ^{-1}\\left(\\sin \\frac{2 \\pi}{3}\\right){/tex}",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}\\sin ^{-1}\\left(\\sin \\frac{2 \\pi}{3}\\right) \\neq \\frac{2 \\pi}{3}{/tex} as {tex}\\frac{2 \\pi}{3}{/tex} does not lie between {tex}-\\frac{\\pi}{2}{/tex} and {tex}\\frac{\\pi}{2}{/tex} . Now, {tex}\\sin ^{-1}\\left(\\sin \\frac{2 \\pi}{3}\\right)=\\sin ^{-1}\\left\\{\\sin \\left(\\pi-\\frac{\\pi}{3}\\right)\\right\\}{/tex} {tex}\\left[\\because \\sin \\frac{2 \\pi}{3}=\\sin \\left(\\pi-\\frac{\\pi}{3}\\right)\\right]{/tex} {tex}=\\sin ^{-1}\\left(\\sin \\frac{\\pi}{3}\\right){/tex} {tex}[\\because \\sin (\\pi-\\theta)=\\sin \\theta]{/tex} {tex}=\\frac{\\pi}{3}{/tex}",
+    "solution": "{tex}\\sin ^{-1}\\left(\\sin \\frac{2 \\pi}{3}\\right) \\neq \\frac{2 \\pi}{3}{/tex} as {tex}\\frac{2 \\pi}{3}{/tex} does not lie between {tex}-\\frac{\\pi}{2}{/tex} and {tex}\\frac{\\pi}{2}{/tex} . Now, {tex}\\sin ^{-1}\\left(\\sin \\frac{2 \\pi}{3}\\right)=\\sin ^{-1}\\left\\{\\sin \\left(\\pi-\\frac{\\pi}{3}\\right)\\right\\}{/tex} {tex}\\left[\\because \\sin \\frac{2 \\pi}{3}=\\sin \\left(\\pi-\\frac{\\pi}{3}\\right)\\right]{/tex} {tex}=\\sin ^{-1}\\left(\\sin \\frac{\\pi}{3}\\right){/tex} {tex}[\\because \\sin (\\pi-\\theta)=\\sin \\theta]{/tex} {tex}=\\frac{\\pi}{3}{/tex}",
+    "solution_html": "<p><span class=\"math-tex\">{tex}\\sin ^{-1}\\left(\\sin \\frac{2 \\pi}{3}\\right) \\neq \\frac{2 \\pi}{3}{/tex}</span> as <span class=\"math-tex\">{tex}\\frac{2 \\pi}{3}{/tex}</span> does not lie between <span class=\"math-tex\">{tex}-\\frac{\\pi}{2}{/tex}</span> and <span class=\"math-tex\">{tex}\\frac{\\pi}{2}{/tex}</span>.<br />\r\nNow, <span class=\"math-tex\">{tex}\\sin ^{-1}\\left(\\sin \\frac{2 \\pi}{3}\\right)=\\sin ^{-1}\\left\\{\\sin \\left(\\pi-\\frac{\\pi}{3}\\right)\\right\\}{/tex}</span> <span class=\"math-tex\">{tex}\\left[\\because \\sin \\frac{2 \\pi}{3}=\\sin \\left(\\pi-\\frac{\\pi}{3}\\right)\\right]{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\sin ^{-1}\\left(\\sin \\frac{\\pi}{3}\\right){/tex}</span> <span class=\"math-tex\">{tex}[\\because \\sin (\\pi-\\theta)=\\sin \\theta]{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\frac{\\pi}{3}{/tex}</span></p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 182140,
+    "question_html": "<p>For the principal value, evaluate <span class=\"math-tex\">{tex}\\sin ^{-1}\\left(-\\frac{\\sqrt{3}}{2}\\right)+\\cos ^{-1}\\left(\\frac{\\sqrt{3}}{2}\\right){/tex}</span></p>",
+    "question_text": "For the principal value, evaluate {tex}\\sin ^{-1}\\left(-\\frac{\\sqrt{3}}{2}\\right)+\\cos ^{-1}\\left(\\frac{\\sqrt{3}}{2}\\right){/tex}",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}\\sin ^{-1}\\left(-\\frac{\\sqrt{3}}{2}\\right)+\\cos ^{-1}\\left(\\frac{\\sqrt{3}}{2}\\right){/tex} {tex}=-\\frac{\\pi}{3}+\\frac{\\pi}{6}{/tex} {Since, sin -1 x = An angle in {tex}\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} whose sine is x and cos -1 x = An angle in [0, {tex}\\pi{/tex} ] whose cosine is x} {tex}=-\\frac{\\pi}{6}{/tex} Hence, {tex}\\sin ^{-1}\\left(-\\frac{\\sqrt{3}}{2}\\right)+\\cos ^{-1}\\left(\\frac{\\sqrt{3}}{2}\\right)=-\\frac{\\pi}{6}{/tex}",
+    "solution": "{tex}\\sin ^{-1}\\left(-\\frac{\\sqrt{3}}{2}\\right)+\\cos ^{-1}\\left(\\frac{\\sqrt{3}}{2}\\right){/tex} {tex}=-\\frac{\\pi}{3}+\\frac{\\pi}{6}{/tex} {Since, sin -1 x = An angle in {tex}\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} whose sine is x and cos -1 x = An angle in [0, {tex}\\pi{/tex} ] whose cosine is x} {tex}=-\\frac{\\pi}{6}{/tex} Hence, {tex}\\sin ^{-1}\\left(-\\frac{\\sqrt{3}}{2}\\right)+\\cos ^{-1}\\left(\\frac{\\sqrt{3}}{2}\\right)=-\\frac{\\pi}{6}{/tex}",
+    "solution_html": "<p><span class=\"math-tex\">{tex}\\sin ^{-1}\\left(-\\frac{\\sqrt{3}}{2}\\right)+\\cos ^{-1}\\left(\\frac{\\sqrt{3}}{2}\\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=-\\frac{\\pi}{3}+\\frac{\\pi}{6}{/tex}</span> {Since, sin<sup>-1</sup>x = An angle in <span class=\"math-tex\">{tex}\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex}</span> whose sine is x and cos<sup>-1</sup> x = An angle in [0, <span class=\"math-tex\">{tex}\\pi{/tex}</span>] whose cosine is x}<br />\r\n<span class=\"math-tex\">{tex}=-\\frac{\\pi}{6}{/tex}</span><br />\r\nHence,<br />\r\n<span class=\"math-tex\">{tex}\\sin ^{-1}\\left(-\\frac{\\sqrt{3}}{2}\\right)+\\cos ^{-1}\\left(\\frac{\\sqrt{3}}{2}\\right)=-\\frac{\\pi}{6}{/tex}</span></p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 261025,
+    "question_html": "<p>Find the value of&nbsp;tan<sup>&ndash;1</sup>(1) + cos<sup>&ndash;1</sup>&nbsp;<span class=\"math-tex\">{tex}(-\\frac{1}{2})+\\sin ^{-1}(-\\frac{1}{2}){/tex}</span></p>",
+    "question_text": "Find the value of tan &ndash;1 (1) + cos &ndash;1 {tex}(-\\frac{1}{2})+\\sin ^{-1}(-\\frac{1}{2}){/tex}",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Let us consider tan -1 (1) = x then we obtain tan x = 1 = tan {tex}\\frac{\\pi}{4}{/tex} We know that range of the principle value branch of tan -1 is {tex}\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} Thus, tan -1 (1) = {tex}\\frac{\\pi}{4}{/tex} Let {tex}\\cos ^{-1}\\left(-\\frac{1}{2}\\right)=y{/tex} cos y = {tex}-\\frac{1}{2}=\\cos \\left(\\pi-\\frac{\\pi}{3}\\right)=\\cos \\left(\\frac{2 \\pi}{3}\\right){/tex} We know that range of the principle value branch of cos -1 is [0, {tex}\\pi{/tex} ] Thus, {tex}\\cos ^{-1}\\left(-\\frac{1}{2}\\right)=\\frac{2 \\pi}{3}{/tex} Let sin -1 {tex}\\left(-\\frac{1}{2}\\right)=z{/tex} {tex}\\sin z=-\\sin \\frac{\\pi}{6}=\\sin \\left(-\\frac{\\pi}{6}\\right){/tex} We know that range of the principle value branch of sin -1 is {tex}\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} Thus, sin -1 {tex}\\left(-\\frac{1}{2}\\right)=-\\frac{\\pi}{6}{/tex} Now,we have {tex}\\tan ^{-1}(1)+\\cos ^{-1}\\left(-\\frac{1}{2}\\right)+\\sin \\left(-\\frac{1}{2}\\right){/tex} = {tex}\\frac{\\pi}{4}+\\frac{2 \\pi}{3}-\\frac{\\pi}{6}=\\frac{3 \\pi+8 \\pi-2 \\pi}{12}=\\frac{9 \\pi}{12}=\\frac{3 \\pi}{4}{/tex}",
+    "solution": "Let us consider tan -1 (1) = x then we obtain tan x = 1 = tan {tex}\\frac{\\pi}{4}{/tex} We know that range of the principle value branch of tan -1 is {tex}\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} Thus, tan -1 (1) = {tex}\\frac{\\pi}{4}{/tex} Let {tex}\\cos ^{-1}\\left(-\\frac{1}{2}\\right)=y{/tex} cos y = {tex}-\\frac{1}{2}=\\cos \\left(\\pi-\\frac{\\pi}{3}\\right)=\\cos \\left(\\frac{2 \\pi}{3}\\right){/tex} We know that range of the principle value branch of cos -1 is [0, {tex}\\pi{/tex} ] Thus, {tex}\\cos ^{-1}\\left(-\\frac{1}{2}\\right)=\\frac{2 \\pi}{3}{/tex} Let sin -1 {tex}\\left(-\\frac{1}{2}\\right)=z{/tex} {tex}\\sin z=-\\sin \\frac{\\pi}{6}=\\sin \\left(-\\frac{\\pi}{6}\\right){/tex} We know that range of the principle value branch of sin -1 is {tex}\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} Thus, sin -1 {tex}\\left(-\\frac{1}{2}\\right)=-\\frac{\\pi}{6}{/tex} Now,we have {tex}\\tan ^{-1}(1)+\\cos ^{-1}\\left(-\\frac{1}{2}\\right)+\\sin \\left(-\\frac{1}{2}\\right){/tex} = {tex}\\frac{\\pi}{4}+\\frac{2 \\pi}{3}-\\frac{\\pi}{6}=\\frac{3 \\pi+8 \\pi-2 \\pi}{12}=\\frac{9 \\pi}{12}=\\frac{3 \\pi}{4}{/tex}",
+    "solution_html": "<p>Let us&nbsp;consider tan<sup>-1</sup>(1) = x then we obtain<br />\ntan x = 1 = tan<span class=\"math-tex\">{tex}\\frac{\\pi}{4}{/tex}</span>&nbsp;<br />\nWe know that range of the principle value branch of tan<sup>-1</sup>&nbsp;is&nbsp;<span class=\"math-tex\">{tex}\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex}</span><br />\nThus, tan<sup>-1</sup> (1) =&nbsp;<span class=\"math-tex\">{tex}\\frac{\\pi}{4}{/tex}</span><br />\nLet&nbsp;<span class=\"math-tex\">{tex}\\cos ^{-1}\\left(-\\frac{1}{2}\\right)=y{/tex}</span><br />\ncos y =&nbsp;<span class=\"math-tex\">{tex}-\\frac{1}{2}=\\cos \\left(\\pi-\\frac{\\pi}{3}\\right)=\\cos \\left(\\frac{2 \\pi}{3}\\right){/tex}</span><br />\nWe know that range of the principle value branch of cos<sup>-1</sup>&nbsp;is [0, <span class=\"math-tex\">{tex}\\pi{/tex}</span>]<br />\nThus,&nbsp;<span class=\"math-tex\">{tex}\\cos ^{-1}\\left(-\\frac{1}{2}\\right)=\\frac{2 \\pi}{3}{/tex}</span><br />\nLet sin<sup>-1</sup>&nbsp;<span class=\"math-tex\">{tex}\\left(-\\frac{1}{2}\\right)=z{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\sin z=-\\sin \\frac{\\pi}{6}=\\sin \\left(-\\frac{\\pi}{6}\\right){/tex}</span><br />\nWe know that range of the principle value branch of sin<sup>-1</sup>&nbsp;is&nbsp;<span class=\"math-tex\">{tex}\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex}</span><br />\nThus, sin<sup>-1</sup>&nbsp;<span class=\"math-tex\">{tex}\\left(-\\frac{1}{2}\\right)=-\\frac{\\pi}{6}{/tex}</span><br />\nNow,we have<br />\n<span class=\"math-tex\">{tex}\\tan ^{-1}(1)+\\cos ^{-1}\\left(-\\frac{1}{2}\\right)+\\sin \\left(-\\frac{1}{2}\\right){/tex}</span><br />\n=&nbsp;<span class=\"math-tex\">{tex}\\frac{\\pi}{4}+\\frac{2 \\pi}{3}-\\frac{\\pi}{6}=\\frac{3 \\pi+8 \\pi-2 \\pi}{12}=\\frac{9 \\pi}{12}=\\frac{3 \\pi}{4}{/tex}</span></p>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 1274963,
+    "question_html": "<p><strong>Read the following text carefully and answer the questions that follow:</strong><br />\r\nToday in the class of Mathematics, Mrs. Pandey is explaining the inverse trigonometric function. She draws the graph of the sin<sup>-1</sup>x and write down the following about the principal value of branch function sin<sup>-1</sup>x:<br />\r\n<strong>Principal value of branch function sin<sup>-1</sup>x:</strong> It is a function with domain [-1, 1] and range <span class=\"math-tex\">{tex}\\left[\\frac{-3 \\pi}{2}, \\frac{-\\pi}{2}\\right]{/tex}</span>,&nbsp;<span class=\"math-tex\">{tex}\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex}</span> or <span class=\"math-tex\">{tex}\\left[\\frac{\\pi}{2}, \\frac{3 \\pi}{2}\\right]{/tex}</span> and so on corresponding to each interval, we get a branch of the function sin<sup>-1</sup>x. The branch with range <span class=\"math-tex\">{tex}\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex}</span> is called the principal value branch. Thus, sin<sup>-1</sup>x:<br />\r\n[-1, 1] <span class=\"math-tex\">{tex}\\rightarrow\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex}</span><br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1685445479-3f3dn2.jpg\" /></p>\r\n\r\n<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li>Find the domain of sin<sup>-1</sup><span class=\"math-tex\">{tex}\\sqrt{x-1}{/tex}</span>. (1)</li>\r\n\t<li>Find the domain of sin<sup>-1</sup>[x]. (1)</li>\r\n\t<li>Find the value <span class=\"math-tex\">{tex}\\sin\\left[\\frac{\\pi}{3}-\\sin ^{-1}\\left(-\\frac{1}{2}\\right)\\right]{/tex}</span>. (2)<br />\r\n\t<strong>OR</strong><br />\r\n\tThe principal value of cos<sup>-1</sup>(cos<span class=\"math-tex\">{tex}\\frac {2\\pi}3{/tex}</span>) + sin<sup>-1</sup>(sin<span class=\"math-tex\">{tex}\\frac {2\\pi}3{/tex}</span>) is <span class=\"math-tex\">{tex}\\pi{/tex}</span>. (2)</li>\r\n</ol>",
+    "question_text": "Read the following text carefully and answer the questions that follow: Today in the class of Mathematics, Mrs. Pandey is explaining the inverse trigonometric function. She draws the graph of the sin -1 x and write down the following about the principal value of branch function sin -1 x: Principal value of branch function sin -1 x: It is a function with domain [-1, 1] and range {tex}\\left[\\frac{-3 \\pi}{2}, \\frac{-\\pi}{2}\\right]{/tex} , {tex}\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} or {tex}\\left[\\frac{\\pi}{2}, \\frac{3 \\pi}{2}\\right]{/tex} and so on corresponding to each interval, we get a branch of the function sin -1 x. The branch with range {tex}\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} is called the principal value branch. Thus, sin -1 x: [-1, 1] {tex}\\rightarrow\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} Find the domain of sin -1 {tex}\\sqrt{x-1}{/tex} . (1) Find the domain of sin -1 [x]. (1) Find the value {tex}\\sin\\left[\\frac{\\pi}{3}-\\sin ^{-1}\\left(-\\frac{1}{2}\\right)\\right]{/tex} . (2) OR The principal value of cos -1 (cos {tex}\\frac {2\\pi}3{/tex} ) + sin -1 (sin {tex}\\frac {2\\pi}3{/tex} ) is {tex}\\pi{/tex} . (2)",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Let f(x) = sin -1 {tex}\\sqrt{x-1}{/tex} {tex}\\Rightarrow{/tex} 0 {tex}\\leq{/tex} x - 1 {tex}\\leq{/tex} 1 {tex}\\Rightarrow{/tex} 1 {tex}\\leq{/tex} x {tex}\\leq{/tex} 2 {tex}\\therefore{/tex} x {tex}\\in{/tex} [1, 2] [ {tex}\\because \\sqrt{x-1} \\geq 0 {/tex} and {tex}-1 \\leq \\sqrt{x-1} \\leq 1{/tex} ] we know that, Domain of sin -1 is [-1, 1] {tex}\\therefore{/tex} Domain of sin -1 [x] is {x : -1 {tex}\\leq{/tex} [x] {tex}\\leq{/tex} 1} But {x} = {tex}\\left\\{\\begin{array}{rr} -1 \\forall & -1 \\leq x<0 \\\\ 0 \\forall & 0 \\leq x<1 \\\\ 1 \\forall & 1 \\leq x<2 \\end{array}\\right.{/tex} {tex}\\therefore{/tex} Domain of sin -1 [x] is [-1, 2) {tex}\\sin\\left[\\frac{\\pi}{3}-\\sin ^{-1}\\left(-\\frac{1}{2}\\right)\\right]{/tex} = {tex}\\sin\\left[\\frac{\\pi}{3}+\\sin ^{-1}\\left(-\\frac{1}{2}\\right)\\right]{/tex} [ {tex}\\because{/tex} sin -1 (- {tex}\\theta{/tex} ) = -sin {tex}\\theta{/tex} ] = sin {tex}\\left[\\frac{\\pi}{3}+\\sin ^{-1}\\left(\\sin \\frac{\\pi}{6}\\right)\\right]{/tex} = sin {tex}\\left[\\frac{\\pi}{3}+\\frac{\\pi}{6}\\right]{/tex} = sin {tex}\\left[\\frac{2 \\pi+\\pi}{6}\\right]{/tex} = sin {tex}\\left(\\frac{3 \\pi}{6}\\right){/tex} = sin {tex}\\left(\\frac{\\pi}{2}\\right){/tex} = 1 OR Let, y = cos -1 (cos {tex}\\frac {2\\pi}3{/tex} ) + sin -1 (sin {tex}\\frac {2\\pi}3{/tex} ) = {tex}\\frac {2\\pi}3{/tex} + sin -1 (sin( {tex}\\pi-\\frac{\\pi}{3}{/tex} )) = {tex}\\frac {2\\pi}3{/tex} + sin -1 (sin {tex}\\frac \\pi 3{/tex} ) = {tex}\\frac {2\\pi}3{/tex} + {tex}\\frac \\pi 3{/tex} = {tex}\\pi{/tex} {tex}\\therefore{/tex} Principal value of cos -1 (cos {tex}\\frac {2\\pi}3{/tex} ) + sin -1 (sin {tex}\\frac {2\\pi}3{/tex} ) = {tex}\\pi{/tex} .",
+    "solution": "Let f(x) = sin -1 {tex}\\sqrt{x-1}{/tex} {tex}\\Rightarrow{/tex} 0 {tex}\\leq{/tex} x - 1 {tex}\\leq{/tex} 1 {tex}\\Rightarrow{/tex} 1 {tex}\\leq{/tex} x {tex}\\leq{/tex} 2 {tex}\\therefore{/tex} x {tex}\\in{/tex} [1, 2] [ {tex}\\because \\sqrt{x-1} \\geq 0 {/tex} and {tex}-1 \\leq \\sqrt{x-1} \\leq 1{/tex} ] we know that, Domain of sin -1 is [-1, 1] {tex}\\therefore{/tex} Domain of sin -1 [x] is {x : -1 {tex}\\leq{/tex} [x] {tex}\\leq{/tex} 1} But {x} = {tex}\\left\\{\\begin{array}{rr} -1 \\forall & -1 \\leq x<0 \\\\ 0 \\forall & 0 \\leq x<1 \\\\ 1 \\forall & 1 \\leq x<2 \\end{array}\\right.{/tex} {tex}\\therefore{/tex} Domain of sin -1 [x] is [-1, 2) {tex}\\sin\\left[\\frac{\\pi}{3}-\\sin ^{-1}\\left(-\\frac{1}{2}\\right)\\right]{/tex} = {tex}\\sin\\left[\\frac{\\pi}{3}+\\sin ^{-1}\\left(-\\frac{1}{2}\\right)\\right]{/tex} [ {tex}\\because{/tex} sin -1 (- {tex}\\theta{/tex} ) = -sin {tex}\\theta{/tex} ] = sin {tex}\\left[\\frac{\\pi}{3}+\\sin ^{-1}\\left(\\sin \\frac{\\pi}{6}\\right)\\right]{/tex} = sin {tex}\\left[\\frac{\\pi}{3}+\\frac{\\pi}{6}\\right]{/tex} = sin {tex}\\left[\\frac{2 \\pi+\\pi}{6}\\right]{/tex} = sin {tex}\\left(\\frac{3 \\pi}{6}\\right){/tex} = sin {tex}\\left(\\frac{\\pi}{2}\\right){/tex} = 1 OR Let, y = cos -1 (cos {tex}\\frac {2\\pi}3{/tex} ) + sin -1 (sin {tex}\\frac {2\\pi}3{/tex} ) = {tex}\\frac {2\\pi}3{/tex} + sin -1 (sin( {tex}\\pi-\\frac{\\pi}{3}{/tex} )) = {tex}\\frac {2\\pi}3{/tex} + sin -1 (sin {tex}\\frac \\pi 3{/tex} ) = {tex}\\frac {2\\pi}3{/tex} + {tex}\\frac \\pi 3{/tex} = {tex}\\pi{/tex} {tex}\\therefore{/tex} Principal value of cos -1 (cos {tex}\\frac {2\\pi}3{/tex} ) + sin -1 (sin {tex}\\frac {2\\pi}3{/tex} ) = {tex}\\pi{/tex} .",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li>\r\n\t<p>Let f(x) = sin<sup>-1</sup><span class=\"math-tex\">{tex}\\sqrt{x-1}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> 0 <span class=\"math-tex\">{tex}\\leq{/tex}</span> x - 1 <span class=\"math-tex\">{tex}\\leq{/tex}</span> 1<br />\r\n\t<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> 1 <span class=\"math-tex\">{tex}\\leq{/tex}</span> x <span class=\"math-tex\">{tex}\\leq{/tex}</span> 2<br />\r\n\t<span class=\"math-tex\">{tex}\\therefore{/tex}</span> x <span class=\"math-tex\">{tex}\\in{/tex}</span> [1, 2] [<span class=\"math-tex\">{tex}\\because \\sqrt{x-1} \\geq 0 {/tex}</span> and <span class=\"math-tex\">{tex}-1 \\leq \\sqrt{x-1} \\leq 1{/tex}</span>]</p>\r\n\t</li>\r\n\t<li>\r\n\t<p>we know that, Domain of sin<sup>-1</sup> is [-1, 1]<br />\r\n\t<span class=\"math-tex\">{tex}\\therefore{/tex}</span> Domain of sin<sup>-1</sup>[x] is {x : -1 <span class=\"math-tex\">{tex}\\leq{/tex}</span> [x] <span class=\"math-tex\">{tex}\\leq{/tex}</span> 1}<br />\r\n\tBut {x} = <span class=\"math-tex\">{tex}\\left\\{\\begin{array}{rr} -1 \\forall &amp; -1 \\leq x&lt;0 \\\\ 0 \\forall &amp; 0 \\leq x&lt;1 \\\\ 1 \\forall &amp; 1 \\leq x&lt;2 \\end{array}\\right.{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\therefore{/tex}</span> Domain of sin<sup>-1</sup>[x] is [-1, 2)</p>\r\n\t</li>\r\n\t<li>\r\n\t<p><span class=\"math-tex\">{tex}\\sin\\left[\\frac{\\pi}{3}-\\sin ^{-1}\\left(-\\frac{1}{2}\\right)\\right]{/tex}</span><br />\r\n\t= <span class=\"math-tex\">{tex}\\sin\\left[\\frac{\\pi}{3}+\\sin ^{-1}\\left(-\\frac{1}{2}\\right)\\right]{/tex}</span> [<span class=\"math-tex\">{tex}\\because{/tex}</span> sin<sup>-1</sup>(-<span class=\"math-tex\">{tex}\\theta{/tex}</span>) = -sin<span class=\"math-tex\">{tex}\\theta{/tex}</span>]<br />\r\n\t= sin<span class=\"math-tex\">{tex}\\left[\\frac{\\pi}{3}+\\sin ^{-1}\\left(\\sin \\frac{\\pi}{6}\\right)\\right]{/tex}</span><br />\r\n\t= sin<span class=\"math-tex\">{tex}\\left[\\frac{\\pi}{3}+\\frac{\\pi}{6}\\right]{/tex}</span><br />\r\n\t= sin<span class=\"math-tex\">{tex}\\left[\\frac{2 \\pi+\\pi}{6}\\right]{/tex}</span><br />\r\n\t= sin<span class=\"math-tex\">{tex}\\left(\\frac{3 \\pi}{6}\\right){/tex}</span><br />\r\n\t= sin<span class=\"math-tex\">{tex}\\left(\\frac{\\pi}{2}\\right){/tex}</span> = 1<br />\r\n\t<strong>OR</strong><br />\r\n\tLet,<br />\r\n\ty = cos<sup>-1</sup>(cos<span class=\"math-tex\">{tex}\\frac {2\\pi}3{/tex}</span>) + sin<sup>-1</sup>(sin<span class=\"math-tex\">{tex}\\frac {2\\pi}3{/tex}</span>)<br />\r\n\t= <span class=\"math-tex\">{tex}\\frac {2\\pi}3{/tex}</span> + sin<sup>-1</sup>(sin(<span class=\"math-tex\">{tex}\\pi-\\frac{\\pi}{3}{/tex}</span>))<br />\r\n\t= <span class=\"math-tex\">{tex}\\frac {2\\pi}3{/tex}</span> + sin<sup>-1</sup>(sin <span class=\"math-tex\">{tex}\\frac \\pi 3{/tex}</span>)<br />\r\n\t= <span class=\"math-tex\">{tex}\\frac {2\\pi}3{/tex}</span> + <span class=\"math-tex\">{tex}\\frac \\pi 3{/tex}</span> = <span class=\"math-tex\">{tex}\\pi{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\therefore{/tex}</span> Principal value of cos<sup>-1</sup>(cos<span class=\"math-tex\">{tex}\\frac {2\\pi}3{/tex}</span>) + sin<sup>-1</sup>(sin<span class=\"math-tex\">{tex}\\frac {2\\pi}3{/tex}</span>) = <span class=\"math-tex\">{tex}\\pi{/tex}</span>.</p>\r\n\t</li>\r\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 1274959,
+    "question_html": "<p><strong>Read the following text carefully and answer the questions that follow:</strong><br />\r\nRajni is preparing for her board exams. So,&nbsp;she decided to prepare chart of formulas of maths and important facts related to each chapter, For&nbsp;the chapter Inverse Trigonometric Functions she has prepared the following table to remember the principal branch values of inverse trigonometric functions.</p>\r\n\r\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%\">\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th scope=\"col\">Inverse</th>\r\n\t\t\t<th scope=\"col\">Domain</th>\r\n\t\t\t<th scope=\"col\">Principal Value Branch</th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td style=\"text-align:center\">sin<sup>-1</sup></td>\r\n\t\t\t<td style=\"text-align:center\">[-1, 1]</td>\r\n\t\t\t<td style=\"text-align:center\"><span class=\"math-tex\">{tex}\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex}</span></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td style=\"text-align:center\">cos<sup>-1</sup></td>\r\n\t\t\t<td style=\"text-align:center\">[-1, 1]</td>\r\n\t\t\t<td style=\"text-align:center\">[0, <span class=\"math-tex\">{tex}\\pi{/tex}</span>]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td style=\"text-align:center\">cosec<sup>-1</sup></td>\r\n\t\t\t<td style=\"text-align:center\">R&nbsp;- (-1 , 1)</td>\r\n\t\t\t<td style=\"text-align:center\"><span class=\"math-tex\">{tex}\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]-\\{0\\}{/tex}</span></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td style=\"text-align:center\">sec<sup>-1</sup></td>\r\n\t\t\t<td style=\"text-align:center\">R&nbsp;- (-1, 1)</td>\r\n\t\t\t<td style=\"text-align:center\"><span class=\"math-tex\">{tex}[0, \\pi]{/tex}</span>&nbsp;- {<span class=\"math-tex\">{tex}\\frac{\\pi}{2}{/tex}</span>}</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td style=\"text-align:center\">tan<sup>-1</sup></td>\r\n\t\t\t<td style=\"text-align:center\">R</td>\r\n\t\t\t<td style=\"text-align:center\"><span class=\"math-tex\">{tex}\\left(\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right){/tex}</span></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td style=\"text-align:center\">cot<sup>-1</sup></td>\r\n\t\t\t<td style=\"text-align:center\">R</td>\r\n\t\t\t<td style=\"text-align:center\">(0, <span class=\"math-tex\">{tex}\\pi{/tex}</span>)</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li>Find the principal value of cosec<sup>-1</sup>(-1). (1)</li>\r\n\t<li>Find the principal value of sec<sup>-1</sup>(-2). (1)</li>\r\n\t<li>Solve the following equation: <span class=\"math-tex\">{tex}\\tan ^{-1}\\left(\\frac{x+1}{x-1}\\right)+\\tan ^{-1}\\left(\\frac{x-1}{x}\\right){/tex}</span> = tan<sup>-1</sup>(-7). (2)<br />\r\n\t<strong>OR</strong><br />\r\n\tShow that&nbsp; sin<sup>-1</sup><span class=\"math-tex\">{tex}2 x \\sqrt{1-x^2}{/tex}</span> = 2 sin<sup>-1</sup>x. (2)</li>\r\n</ol>",
+    "question_text": "Read the following text carefully and answer the questions that follow: Rajni is preparing for her board exams. So, she decided to prepare chart of formulas of maths and important facts related to each chapter, For the chapter Inverse Trigonometric Functions she has prepared the following table to remember the principal branch values of inverse trigonometric functions. Inverse Domain Principal Value Branch sin -1 [-1, 1] {tex}\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} cos -1 [-1, 1] [0, {tex}\\pi{/tex} ] cosec -1 R - (-1 , 1) {tex}\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]-\\{0\\}{/tex} sec -1 R - (-1, 1) {tex}[0, \\pi]{/tex} - { {tex}\\frac{\\pi}{2}{/tex} } tan -1 R {tex}\\left(\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right){/tex} cot -1 R (0, {tex}\\pi{/tex} ) Find the principal value of cosec -1 (-1). (1) Find the principal value of sec -1 (-2). (1) Solve the following equation: {tex}\\tan ^{-1}\\left(\\frac{x+1}{x-1}\\right)+\\tan ^{-1}\\left(\\frac{x-1}{x}\\right){/tex} = tan -1 (-7). (2) OR Show that sin -1 {tex}2 x \\sqrt{1-x^2}{/tex} = 2 sin -1 x. (2)",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Let cosec -1 (-1) = y Then, cosec y = -1 Since the range of principal value branch of y = cosec -1 x is {tex}\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} - {0} and cosec {tex}\\left(-\\frac{\\pi}{2}\\right){/tex} = -1, we have y = {tex}-\\frac {\\pi}{2}{/tex} . Since, {tex}-\\frac{\\pi}{2} \\in\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} - {0}. Thus, the principal value of cosec -1 (-1) is {tex}-\\frac {\\pi}{2}{/tex} . Let sec -1 (-2) = y Then, sec y = -2 {tex}\\Rightarrow{/tex} cos y = {tex}-\\frac 12{/tex} Now, cos y = {tex}-\\frac 12{/tex} = -cos {tex}\\frac {\\pi} 3{/tex} = cos {tex}\\left(\\pi-\\frac{\\pi}{3}\\right){/tex} = cos {tex}\\frac{2 \\pi}{3}{/tex} Therefore, y = {tex}\\frac{2 \\pi}{3}{/tex} {tex}\\cdot{/tex} Since {tex}\\frac{2 \\pi}{3}{/tex} {tex}\\in{/tex} [0, {tex}\\pi{/tex} ] - {tex}\\left\\{\\frac{\\pi}{2}\\right\\}{/tex} , the principal value of sec -1 (-2) is {tex}\\frac{2 \\pi}{3}{/tex} [ {tex}\\because{/tex} The range of the principal value branch of sec -1 x is [0, {tex}\\pi{/tex} ] - {tex}\\left\\{\\frac{\\pi}{2}\\right\\}{/tex} ] We have, {tex}\\tan ^{-1}\\left(\\frac{x+1}{x-1}\\right)+\\tan ^{-1}\\left(\\frac{x-1}{x}\\right){/tex} = tan -1 (-7) {tex}\\Rightarrow \\tan ^{-1}\\left[\\frac{\\frac{x+1}{x-1}+\\frac{x-1}{x}}{1-\\frac{x+1}{x-1} \\times \\frac{x-1}{x}}\\right]{/tex} = tan -1 (-7) [ {tex}\\because{/tex} tan -1 A + tan -1 B = {tex}\\left(\\frac{A+B}{1-A B}\\right){/tex} ] {tex}\\Rightarrow{/tex} {tex}\\frac{x(x+1)+(x-1)^2}{x(x-1)-\\left(x^2-1\\right)}{/tex} = -7 {tex}\\Rightarrow{/tex} 2x 2 - 8x + 8 = 0 {tex}\\Rightarrow{/tex} x 2 - 4x + 4 = 0 {tex}\\Rightarrow{/tex} (x- 2) 2 = 0 Hence, x = 2. OR Let x = sin {tex}\\theta{/tex} then, {tex}\\theta{/tex} = sin -1 x L.H.S. = sin -1 {tex}\\left(2 x \\sqrt{1-x^2}\\right){/tex} {tex}\\Rightarrow{/tex} sin -1 {tex}\\left(2 \\sin \\theta \\sqrt{1-\\sin ^2 \\theta}\\right){/tex} {tex}\\Rightarrow{/tex} sin -1 (2 sin {tex}\\theta{/tex} {tex}\\cdot{/tex} cos = {tex}\\theta{/tex} ) {tex}\\Rightarrow{/tex} sin -1 (sin 2 {tex}\\theta{/tex} ) = 2 {tex}\\theta{/tex} {tex}\\Rightarrow{/tex} = 2 sin -1 x = R.H.S.",
+    "solution": "Let cosec -1 (-1) = y Then, cosec y = -1 Since the range of principal value branch of y = cosec -1 x is {tex}\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} - {0} and cosec {tex}\\left(-\\frac{\\pi}{2}\\right){/tex} = -1, we have y = {tex}-\\frac {\\pi}{2}{/tex} . Since, {tex}-\\frac{\\pi}{2} \\in\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex} - {0}. Thus, the principal value of cosec -1 (-1) is {tex}-\\frac {\\pi}{2}{/tex} . Let sec -1 (-2) = y Then, sec y = -2 {tex}\\Rightarrow{/tex} cos y = {tex}-\\frac 12{/tex} Now, cos y = {tex}-\\frac 12{/tex} = -cos {tex}\\frac {\\pi} 3{/tex} = cos {tex}\\left(\\pi-\\frac{\\pi}{3}\\right){/tex} = cos {tex}\\frac{2 \\pi}{3}{/tex} Therefore, y = {tex}\\frac{2 \\pi}{3}{/tex} {tex}\\cdot{/tex} Since {tex}\\frac{2 \\pi}{3}{/tex} {tex}\\in{/tex} [0, {tex}\\pi{/tex} ] - {tex}\\left\\{\\frac{\\pi}{2}\\right\\}{/tex} , the principal value of sec -1 (-2) is {tex}\\frac{2 \\pi}{3}{/tex} [ {tex}\\because{/tex} The range of the principal value branch of sec -1 x is [0, {tex}\\pi{/tex} ] - {tex}\\left\\{\\frac{\\pi}{2}\\right\\}{/tex} ] We have, {tex}\\tan ^{-1}\\left(\\frac{x+1}{x-1}\\right)+\\tan ^{-1}\\left(\\frac{x-1}{x}\\right){/tex} = tan -1 (-7) {tex}\\Rightarrow \\tan ^{-1}\\left[\\frac{\\frac{x+1}{x-1}+\\frac{x-1}{x}}{1-\\frac{x+1}{x-1} \\times \\frac{x-1}{x}}\\right]{/tex} = tan -1 (-7) [ {tex}\\because{/tex} tan -1 A + tan -1 B = {tex}\\left(\\frac{A+B}{1-A B}\\right){/tex} ] {tex}\\Rightarrow{/tex} {tex}\\frac{x(x+1)+(x-1)^2}{x(x-1)-\\left(x^2-1\\right)}{/tex} = -7 {tex}\\Rightarrow{/tex} 2x 2 - 8x + 8 = 0 {tex}\\Rightarrow{/tex} x 2 - 4x + 4 = 0 {tex}\\Rightarrow{/tex} (x- 2) 2 = 0 Hence, x = 2. OR Let x = sin {tex}\\theta{/tex} then, {tex}\\theta{/tex} = sin -1 x L.H.S. = sin -1 {tex}\\left(2 x \\sqrt{1-x^2}\\right){/tex} {tex}\\Rightarrow{/tex} sin -1 {tex}\\left(2 \\sin \\theta \\sqrt{1-\\sin ^2 \\theta}\\right){/tex} {tex}\\Rightarrow{/tex} sin -1 (2 sin {tex}\\theta{/tex} {tex}\\cdot{/tex} cos = {tex}\\theta{/tex} ) {tex}\\Rightarrow{/tex} sin -1 (sin 2 {tex}\\theta{/tex} ) = 2 {tex}\\theta{/tex} {tex}\\Rightarrow{/tex} = 2 sin -1 x = R.H.S.",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li>\r\n\t<p>Let cosec<sup>-1</sup> (-1) = y<br />\r\n\tThen, cosec y = -1<br />\r\n\tSince the range of principal value branch of y = cosec<sup>-1</sup>x is <span class=\"math-tex\">{tex}\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex}</span> - {0} and cosec <span class=\"math-tex\">{tex}\\left(-\\frac{\\pi}{2}\\right){/tex}</span> = -1,<br />\r\n\twe have y = <span class=\"math-tex\">{tex}-\\frac {\\pi}{2}{/tex}</span>.<br />\r\n\tSince, <span class=\"math-tex\">{tex}-\\frac{\\pi}{2} \\in\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex}</span> - {0}.<br />\r\n\tThus, the principal value of cosec<sup>-1</sup>(-1) is <span class=\"math-tex\">{tex}-\\frac {\\pi}{2}{/tex}</span>.</p>\r\n\t</li>\r\n\t<li>\r\n\t<p>Let sec<sup>-1</sup>(-2) = y<br />\r\n\tThen, sec y = -2<br />\r\n\t<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> cos y = <span class=\"math-tex\">{tex}-\\frac 12{/tex}</span><br />\r\n\tNow, cos y = <span class=\"math-tex\">{tex}-\\frac 12{/tex}</span><br />\r\n\t= -cos<span class=\"math-tex\">{tex}\\frac {\\pi} 3{/tex}</span><br />\r\n\t= cos<span class=\"math-tex\">{tex}\\left(\\pi-\\frac{\\pi}{3}\\right){/tex}</span><br />\r\n\t= cos<span class=\"math-tex\">{tex}\\frac{2 \\pi}{3}{/tex}</span><br />\r\n\tTherefore, y = <span class=\"math-tex\">{tex}\\frac{2 \\pi}{3}{/tex}</span><span class=\"math-tex\">{tex}\\cdot{/tex}</span><br />\r\n\tSince <span class=\"math-tex\">{tex}\\frac{2 \\pi}{3}{/tex}</span> <span class=\"math-tex\">{tex}\\in{/tex}</span> [0, <span class=\"math-tex\">{tex}\\pi{/tex}</span>] - <span class=\"math-tex\">{tex}\\left\\{\\frac{\\pi}{2}\\right\\}{/tex}</span>, the principal value of sec<sup>-1</sup>(-2) is <span class=\"math-tex\">{tex}\\frac{2 \\pi}{3}{/tex}</span> [<span class=\"math-tex\">{tex}\\because{/tex}</span> The range of the principal value branch of sec<sup>-1</sup> x is [0,<span class=\"math-tex\">{tex}\\pi{/tex}</span>] - <span class=\"math-tex\">{tex}\\left\\{\\frac{\\pi}{2}\\right\\}{/tex}</span>]</p>\r\n\t</li>\r\n\t<li>\r\n\t<p>We have,<br />\r\n\t<span class=\"math-tex\">{tex}\\tan ^{-1}\\left(\\frac{x+1}{x-1}\\right)+\\tan ^{-1}\\left(\\frac{x-1}{x}\\right){/tex}</span>= tan<sup>-1</sup>(-7)<br />\r\n\t<span class=\"math-tex\">{tex}\\Rightarrow \\tan ^{-1}\\left[\\frac{\\frac{x+1}{x-1}+\\frac{x-1}{x}}{1-\\frac{x+1}{x-1} \\times \\frac{x-1}{x}}\\right]{/tex}</span> = tan<sup>-1</sup>(-7) [<span class=\"math-tex\">{tex}\\because{/tex}</span> tan<sup>-1</sup>A + tan<sup>-1</sup>B = <span class=\"math-tex\">{tex}\\left(\\frac{A+B}{1-A B}\\right){/tex}</span>]<br />\r\n\t<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> <span class=\"math-tex\">{tex}\\frac{x(x+1)+(x-1)^2}{x(x-1)-\\left(x^2-1\\right)}{/tex}</span> = -7<br />\r\n\t<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> 2x<sup>2</sup> - 8x + 8 = 0<br />\r\n\t<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> x<sup>2</sup> - 4x + 4 = 0<br />\r\n\t<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> (x- 2)<sup>2</sup> = 0<br />\r\n\tHence, x = 2.<br />\r\n\t<strong>OR</strong><br />\r\n\tLet x = sin<span class=\"math-tex\">{tex}\\theta{/tex}</span><br />\r\n\tthen, <span class=\"math-tex\">{tex}\\theta{/tex}</span> = sin<sup>-1</sup>x<br />\r\n\tL.H.S. = sin<sup>-1</sup><span class=\"math-tex\">{tex}\\left(2 x \\sqrt{1-x^2}\\right){/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> sin<sup>-1</sup><span class=\"math-tex\">{tex}\\left(2 \\sin \\theta \\sqrt{1-\\sin ^2 \\theta}\\right){/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> sin<sup>-1</sup>(2 sin<span class=\"math-tex\">{tex}\\theta{/tex}</span><span class=\"math-tex\">{tex}\\cdot{/tex}</span> cos = <span class=\"math-tex\">{tex}\\theta{/tex}</span>)<br />\r\n\t<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> sin<sup>-1</sup>(sin 2<span class=\"math-tex\">{tex}\\theta{/tex}</span>) = 2<span class=\"math-tex\">{tex}\\theta{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> = 2 sin<sup>-1</sup>x = R.H.S.</p>\r\n\t</li>\r\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 1275041,
+    "question_html": "<p><strong>Read the following text carefully and answer the questions that follow:</strong><br />\r\nTwo men on either side of a temple of 30 meters high observe its top at the angles of elevation <span class=\"math-tex\">{tex}\\alpha{/tex}</span> and <span class=\"math-tex\">{tex}\\beta{/tex}</span> respectively. (as shown in the figure above). The distance between the two men is <span class=\"math-tex\">{tex}40\\sqrt3{/tex}</span> meters and the distance between the first person A and the temple is <span class=\"math-tex\">{tex}30\\sqrt3{/tex}</span> meters.<br />\r\n<img alt=\"\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1630320883-kvv6c4.jpg\" style=\"height:106px; width:300px\" /></p>\r\n\r\n<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li>Find the measure of <span class=\"math-tex\">{tex}\\angle{/tex}</span>CAB = <span class=\"math-tex\">{tex}\\alpha{/tex}</span> in terms of sin and cos. (1)</li>\r\n\t<li>Find the measure of <span class=\"math-tex\">{tex}\\angle{/tex}</span>BCA = <span class=\"math-tex\">{tex}\\beta{/tex}</span>. (1)</li>\r\n\t<li>Find the measure of <span class=\"math-tex\">{tex}\\angle{/tex}</span>ABC. (2)<br />\r\n\t<strong>OR</strong><br />\r\n\tWhat is the Domain and Range of cos<sup>-1</sup>x. (2)</li>\r\n</ol>",
+    "question_text": "Read the following text carefully and answer the questions that follow: Two men on either side of a temple of 30 meters high observe its top at the angles of elevation {tex}\\alpha{/tex} and {tex}\\beta{/tex} respectively. (as shown in the figure above). The distance between the two men is {tex}40\\sqrt3{/tex} meters and the distance between the first person A and the temple is {tex}30\\sqrt3{/tex} meters. Find the measure of {tex}\\angle{/tex} CAB = {tex}\\alpha{/tex} in terms of sin and cos. (1) Find the measure of {tex}\\angle{/tex} BCA = {tex}\\beta{/tex} . (1) Find the measure of {tex}\\angle{/tex} ABC. (2) OR What is the Domain and Range of cos -1 x. (2)",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "in {tex}\\triangle{/tex} BDA AB 2 = AD 2 + BD 2 = {tex}(30 \\sqrt{3})^2{/tex} + (30) 2 = (60) 2 AB = 60 m Now, {tex}\\sin\\alpha=\\frac{BD}{AB}{/tex} {tex}\\sin\\alpha=\\frac{30}{60}=\\frac12{/tex} {tex}\\alpha=\\sin^{-1}\\left(\\frac12\\right){/tex} {tex}\\alpha{/tex} = sin -1 {tex}\\left(\\frac{1}{2}\\right){/tex} Again, In {tex}\\triangle{/tex} BDA {tex}\\cos\\alpha=\\frac{AD}{AB}=\\frac{30\\sqrt3}{60}=\\frac{\\sqrt3}2{/tex} {tex}\\alpha=\\cos^{-1}\\left(\\frac{\\sqrt3}2\\right){/tex} DC = AC - AD DC = {tex}40 \\sqrt{3}-30 \\sqrt{3}{/tex} DC = {tex}10 \\sqrt{3} \\mathrm{~m}{/tex} In {tex}\\triangle{/tex} BDC, {tex}\\tan\\beta=\\frac{BD}{DC}=\\frac{30}{10\\sqrt3}=\\sqrt3{/tex} {tex}\\beta = {/tex} tan -1 {tex}(\\sqrt{3}){/tex} {tex}\\because \\sin\\alpha=\\frac12{/tex} {tex}\\sin\\alpha=\\sin\\;30^\\circ{/tex} {tex}\\alpha=30^\\circ{/tex} {tex}\\tan\\beta=\\sqrt3{/tex} {tex}\\beta=60^\\circ{/tex} Now, In {tex}\\triangle{/tex} ABC {tex}\\angle{/tex} ABC + {tex}\\angle{/tex} BAC + {tex}\\angle{/tex} ACB = 180 o {tex}\\angle{/tex} ABC + 30 o + 60 o = 180 o {tex}\\angle{/tex} ABC = 90 o {tex}\\angle{/tex} ABC = {tex}\\frac\\pi2{/tex} OR Domain - [-1, 1] and range is [0, {tex}\\pi{/tex} ]",
+    "solution": "in {tex}\\triangle{/tex} BDA AB 2 = AD 2 + BD 2 = {tex}(30 \\sqrt{3})^2{/tex} + (30) 2 = (60) 2 AB = 60 m Now, {tex}\\sin\\alpha=\\frac{BD}{AB}{/tex} {tex}\\sin\\alpha=\\frac{30}{60}=\\frac12{/tex} {tex}\\alpha=\\sin^{-1}\\left(\\frac12\\right){/tex} {tex}\\alpha{/tex} = sin -1 {tex}\\left(\\frac{1}{2}\\right){/tex} Again, In {tex}\\triangle{/tex} BDA {tex}\\cos\\alpha=\\frac{AD}{AB}=\\frac{30\\sqrt3}{60}=\\frac{\\sqrt3}2{/tex} {tex}\\alpha=\\cos^{-1}\\left(\\frac{\\sqrt3}2\\right){/tex} DC = AC - AD DC = {tex}40 \\sqrt{3}-30 \\sqrt{3}{/tex} DC = {tex}10 \\sqrt{3} \\mathrm{~m}{/tex} In {tex}\\triangle{/tex} BDC, {tex}\\tan\\beta=\\frac{BD}{DC}=\\frac{30}{10\\sqrt3}=\\sqrt3{/tex} {tex}\\beta = {/tex} tan -1 {tex}(\\sqrt{3}){/tex} {tex}\\because \\sin\\alpha=\\frac12{/tex} {tex}\\sin\\alpha=\\sin\\;30^\\circ{/tex} {tex}\\alpha=30^\\circ{/tex} {tex}\\tan\\beta=\\sqrt3{/tex} {tex}\\beta=60^\\circ{/tex} Now, In {tex}\\triangle{/tex} ABC {tex}\\angle{/tex} ABC + {tex}\\angle{/tex} BAC + {tex}\\angle{/tex} ACB = 180 o {tex}\\angle{/tex} ABC + 30 o + 60 o = 180 o {tex}\\angle{/tex} ABC = 90 o {tex}\\angle{/tex} ABC = {tex}\\frac\\pi2{/tex} OR Domain - [-1, 1] and range is [0, {tex}\\pi{/tex} ]",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li>\r\n\t<p>in <span class=\"math-tex\">{tex}\\triangle{/tex}</span>BDA<br />\r\n\tAB<sup>2</sup> = AD<sup>2</sup> + BD<sup>2</sup><br />\r\n\t= <span class=\"math-tex\">{tex}(30 \\sqrt{3})^2{/tex}</span> + (30)<sup>2</sup><br />\r\n\t= (60)<sup>2</sup><br />\r\n\tAB = 60 m<br />\r\n\tNow, <span class=\"math-tex\">{tex}\\sin\\alpha=\\frac{BD}{AB}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\sin\\alpha=\\frac{30}{60}=\\frac12{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\alpha=\\sin^{-1}\\left(\\frac12\\right){/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\alpha{/tex}</span> = sin<sup>-1</sup><span class=\"math-tex\">{tex}\\left(\\frac{1}{2}\\right){/tex}</span><br />\r\n\tAgain, In <span class=\"math-tex\">{tex}\\triangle{/tex}</span>BDA<br />\r\n\t<span class=\"math-tex\">{tex}\\cos\\alpha=\\frac{AD}{AB}=\\frac{30\\sqrt3}{60}=\\frac{\\sqrt3}2{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\alpha=\\cos^{-1}\\left(\\frac{\\sqrt3}2\\right){/tex}</span></p>\r\n\t</li>\r\n\t<li>\r\n\t<p>DC = AC - AD<br />\r\n\tDC = <span class=\"math-tex\">{tex}40 \\sqrt{3}-30 \\sqrt{3}{/tex}</span><br />\r\n\tDC = <span class=\"math-tex\">{tex}10 \\sqrt{3} \\mathrm{~m}{/tex}</span><br />\r\n\tIn <span class=\"math-tex\">{tex}\\triangle{/tex}</span>BDC,<br />\r\n\t<span class=\"math-tex\">{tex}\\tan\\beta=\\frac{BD}{DC}=\\frac{30}{10\\sqrt3}=\\sqrt3{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\beta = {/tex}</span> tan<sup>-1</sup><span class=\"math-tex\">{tex}(\\sqrt{3}){/tex}</span></p>\r\n\t</li>\r\n\t<li>\r\n\t<p><span class=\"math-tex\">{tex}\\because \\sin\\alpha=\\frac12{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\sin\\alpha=\\sin\\;30^\\circ{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\alpha=30^\\circ{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\tan\\beta=\\sqrt3{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\beta=60^\\circ{/tex}</span><br />\r\n\tNow, In <span class=\"math-tex\">{tex}\\triangle{/tex}</span>ABC<br />\r\n\t<span class=\"math-tex\">{tex}\\angle{/tex}</span>ABC +<span class=\"math-tex\">{tex}\\angle{/tex}</span>BAC + <span class=\"math-tex\">{tex}\\angle{/tex}</span>ACB = 180<sup>o</sup><br />\r\n\t<span class=\"math-tex\">{tex}\\angle{/tex}</span>ABC + 30<sup>o</sup> + 60<sup>o</sup> = 180<sup>o</sup><br />\r\n\t<span class=\"math-tex\">{tex}\\angle{/tex}</span>ABC = 90<sup>o</sup><br />\r\n\t<span class=\"math-tex\">{tex}\\angle{/tex}</span>ABC = <span class=\"math-tex\">{tex}\\frac\\pi2{/tex}</span><br />\r\n\t<strong>OR</strong><br />\r\n\tDomain - [-1, 1] and range is [0, <span class=\"math-tex\">{tex}\\pi{/tex}</span>]</p>\r\n\t</li>\r\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Mathematics",
+    "subject_id": "1284",
+    "chapter": "Inverse Trigonometric Functions",
+    "chapter_id": 1286,
+    "question_id": 1275047,
+    "question_html": "<p><strong>Read the following text carefully and answer the questions that follow:</strong><br />\r\nThe Government of India is planning to fix a hoarding board at the face of a building on the road of a busy market for awareness on COVID-19 protocol. Ram, Robert, and Rahim are the three engineers who are working on this project. A is considered to be a person viewing the hoarding board 20 metres away from the building, standing at the edge of a pathway nearby. Ram, Robert and Rahim suggested to the firm to place the hoarding board at three different locations namely C, D and E. C is at the height of 10 metres from the ground level. For the viewer, A, the angle of elevation of &ldquo;D&rdquo; is double the angle of elevation of C The angle of elevation of E is triple the angle of elevation of C for the same viewer. Look at the figure given:<br />\r\n<img alt=\"\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1630320887-9w4msv.jpg\" style=\"height:143px; width:250px\" /></p>\r\n\r\n<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li>Find the measure of <span class=\"math-tex\">{tex}\\angle{/tex}</span>CAB and <span class=\"math-tex\">{tex}\\angle{/tex}</span> DAB. (1)</li>\r\n\t<li>Find the measure of <span class=\"math-tex\">{tex}\\angle{/tex}</span>EAB. (1)</li>\r\n\t<li>A&#39; is another viewer standing on the same line of observation across the road. If the width of the road is 5 meters, then find the difference between <span class=\"math-tex\">{tex}\\angle{/tex}</span>CAB and <span class=\"math-tex\">{tex}\\angle{/tex}</span>CA&#39;B. (2)<br />\r\n\t<strong>OR</strong><br />\r\n\tWhat is the Domain and Range of tan<sup>-1</sup>x. (2)</li>\r\n</ol>",
+    "question_text": "Read the following text carefully and answer the questions that follow: The Government of India is planning to fix a hoarding board at the face of a building on the road of a busy market for awareness on COVID-19 protocol. Ram, Robert, and Rahim are the three engineers who are working on this project. A is considered to be a person viewing the hoarding board 20 metres away from the building, standing at the edge of a pathway nearby. Ram, Robert and Rahim suggested to the firm to place the hoarding board at three different locations namely C, D and E. C is at the height of 10 metres from the ground level. For the viewer, A, the angle of elevation of &ldquo;D&rdquo; is double the angle of elevation of C The angle of elevation of E is triple the angle of elevation of C for the same viewer. Look at the figure given: Find the measure of {tex}\\angle{/tex} CAB and {tex}\\angle{/tex} DAB. (1) Find the measure of {tex}\\angle{/tex} EAB. (1) A&#39; is another viewer standing on the same line of observation across the road. If the width of the road is 5 meters, then find the difference between {tex}\\angle{/tex} CAB and {tex}\\angle{/tex} CA&#39;B. (2) OR What is the Domain and Range of tan -1 x. (2)",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "In {tex}\\triangle{/tex} ABC, tan A = {tex}\\frac{BC}{AB}{/tex} tan A = {tex}\\frac{10}{20}{/tex} tan A = {tex}\\frac1{2}{/tex} {tex}\\angle A{/tex} = tan -1 {tex}\\frac12{/tex} {tex}\\angle CAB{/tex} = tan -1 {tex}(\\frac{1}{2}){/tex} Now, {tex}\\angle DAB=2 \\times \\angle CAB{/tex} = 2 {tex}\\times{/tex} tan -1 {tex}\\frac12{/tex} Using 2tan -1 x = {tex}\\tan^{-1}\\left(\\frac{2x}{1-x^2}\\right){/tex} {tex}=\\tan^{-1}\\left(\\frac{2\\times{\\frac12}}{1-\\left({\\frac12}\\right)^2}\\right){/tex} {tex}=\\tan ^{-1}\\left(\\frac{1}{\\frac{3}{4}}\\right)=\\tan ^{-1}\\left(\\frac{4}{3}\\right){/tex} {tex}\\angle DAB=\\tan^{-1}\\left(\\frac43\\right){/tex} {tex}\\angle EAB = 3×\\angle CAB{/tex} {tex}=3×\\tan^{-1}\\left(\\frac12\\right){/tex} Using 3tan -1 x {tex}=\\tan^{-1}\\left(\\frac{3x-x^3}{1-3x^2}\\right){/tex} {tex}\\angle EAB=\\tan^{-1}\\left(\\frac{3\\times\\frac12-\\left(\\frac12\\right)^3}{1-3\\left(\\frac12\\right)^2}\\right){/tex} {tex}\\angle EAB=\\tan^{-1}\\left(\\frac{\\frac{11}8}{\\frac14}\\right)=\\tan^{-1}\\left(\\frac{11}2\\right){/tex} {tex}\\angle EAB{/tex} = tan -1 {tex}(\\frac{11}{2}){/tex} In {tex}\\triangle{/tex} A&#39;BC tan A&#39; = {tex}\\frac{BC}{A'B}{/tex} tan A&#39; = {tex}\\frac{10}{25}{/tex} tan A&#39; = {tex}\\frac25{/tex} {tex}\\angle A'{/tex} = tan -1 {tex}\\frac25{/tex} {tex}\\angle CA'B{/tex} = tan -1 {tex}\\frac25{/tex} Now, the difference {tex}\\angle CAB- \\angle CA'B{/tex} = {tex}\\tan^{-1}\\left(\\frac12\\right)-\\tan^{-1}\\left(\\frac25\\right){/tex} Using tan -1 x - tan -1 y = tan -1 {tex}\\frac{x-y}{1+xy}{/tex} = {tex}\\tan^{-1}\\left[\\frac{\\frac12-\\frac25}{1+\\frac12\\times\\frac25}\\right]{/tex} = {tex}\\tan^{-1}\\left[\\frac{\\frac1{10}}{\\frac65}\\right]=\\;\\tan^{-1}\\left(\\frac1{12}\\right){/tex} {tex}\\angle CAB- \\angle CA'B={/tex} tan -1 {tex}(\\frac{1}{12}){/tex} OR Domain of tan -1 x is R i.e. all real numbers. Range - R {tex}\\left(-\\frac\\pi2,\\frac\\pi2\\right){/tex}",
+    "solution": "In {tex}\\triangle{/tex} ABC, tan A = {tex}\\frac{BC}{AB}{/tex} tan A = {tex}\\frac{10}{20}{/tex} tan A = {tex}\\frac1{2}{/tex} {tex}\\angle A{/tex} = tan -1 {tex}\\frac12{/tex} {tex}\\angle CAB{/tex} = tan -1 {tex}(\\frac{1}{2}){/tex} Now, {tex}\\angle DAB=2 \\times \\angle CAB{/tex} = 2 {tex}\\times{/tex} tan -1 {tex}\\frac12{/tex} Using 2tan -1 x = {tex}\\tan^{-1}\\left(\\frac{2x}{1-x^2}\\right){/tex} {tex}=\\tan^{-1}\\left(\\frac{2\\times{\\frac12}}{1-\\left({\\frac12}\\right)^2}\\right){/tex} {tex}=\\tan ^{-1}\\left(\\frac{1}{\\frac{3}{4}}\\right)=\\tan ^{-1}\\left(\\frac{4}{3}\\right){/tex} {tex}\\angle DAB=\\tan^{-1}\\left(\\frac43\\right){/tex} {tex}\\angle EAB = 3×\\angle CAB{/tex} {tex}=3×\\tan^{-1}\\left(\\frac12\\right){/tex} Using 3tan -1 x {tex}=\\tan^{-1}\\left(\\frac{3x-x^3}{1-3x^2}\\right){/tex} {tex}\\angle EAB=\\tan^{-1}\\left(\\frac{3\\times\\frac12-\\left(\\frac12\\right)^3}{1-3\\left(\\frac12\\right)^2}\\right){/tex} {tex}\\angle EAB=\\tan^{-1}\\left(\\frac{\\frac{11}8}{\\frac14}\\right)=\\tan^{-1}\\left(\\frac{11}2\\right){/tex} {tex}\\angle EAB{/tex} = tan -1 {tex}(\\frac{11}{2}){/tex} In {tex}\\triangle{/tex} A&#39;BC tan A&#39; = {tex}\\frac{BC}{A'B}{/tex} tan A&#39; = {tex}\\frac{10}{25}{/tex} tan A&#39; = {tex}\\frac25{/tex} {tex}\\angle A'{/tex} = tan -1 {tex}\\frac25{/tex} {tex}\\angle CA'B{/tex} = tan -1 {tex}\\frac25{/tex} Now, the difference {tex}\\angle CAB- \\angle CA'B{/tex} = {tex}\\tan^{-1}\\left(\\frac12\\right)-\\tan^{-1}\\left(\\frac25\\right){/tex} Using tan -1 x - tan -1 y = tan -1 {tex}\\frac{x-y}{1+xy}{/tex} = {tex}\\tan^{-1}\\left[\\frac{\\frac12-\\frac25}{1+\\frac12\\times\\frac25}\\right]{/tex} = {tex}\\tan^{-1}\\left[\\frac{\\frac1{10}}{\\frac65}\\right]=\\;\\tan^{-1}\\left(\\frac1{12}\\right){/tex} {tex}\\angle CAB- \\angle CA'B={/tex} tan -1 {tex}(\\frac{1}{12}){/tex} OR Domain of tan -1 x is R i.e. all real numbers. Range - R {tex}\\left(-\\frac\\pi2,\\frac\\pi2\\right){/tex}",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li>\r\n\t<p>In <span class=\"math-tex\">{tex}\\triangle{/tex}</span>ABC,<br />\r\n\ttan A = <span class=\"math-tex\">{tex}\\frac{BC}{AB}{/tex}</span><br />\r\n\ttan A = <span class=\"math-tex\">{tex}\\frac{10}{20}{/tex}</span><br />\r\n\ttan A = <span class=\"math-tex\">{tex}\\frac1{2}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\angle A{/tex}</span> = tan<sup>-1</sup> <span class=\"math-tex\">{tex}\\frac12{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\angle CAB{/tex}</span> = tan<sup>-1</sup><span class=\"math-tex\">{tex}(\\frac{1}{2}){/tex}</span><br />\r\n\tNow,<br />\r\n\t<span class=\"math-tex\">{tex}\\angle DAB=2 \\times \\angle CAB{/tex}</span><br />\r\n\t= 2 <span class=\"math-tex\">{tex}\\times{/tex}</span> tan<sup>-1</sup> <span class=\"math-tex\">{tex}\\frac12{/tex}</span><br />\r\n\tUsing 2tan<sup>-1</sup>x = <span class=\"math-tex\">{tex}\\tan^{-1}\\left(\\frac{2x}{1-x^2}\\right){/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}=\\tan^{-1}\\left(\\frac{2\\times{\\frac12}}{1-\\left({\\frac12}\\right)^2}\\right){/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}=\\tan ^{-1}\\left(\\frac{1}{\\frac{3}{4}}\\right)=\\tan ^{-1}\\left(\\frac{4}{3}\\right){/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\angle DAB=\\tan^{-1}\\left(\\frac43\\right){/tex}</span></p>\r\n\t</li>\r\n\t<li>\r\n\t<p><span class=\"math-tex\">{tex}\\angle EAB = 3×\\angle CAB{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}=3×\\tan^{-1}\\left(\\frac12\\right){/tex}</span><br />\r\n\tUsing 3tan<sup>-1</sup>x <span class=\"math-tex\">{tex}=\\tan^{-1}\\left(\\frac{3x-x^3}{1-3x^2}\\right){/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\angle EAB=\\tan^{-1}\\left(\\frac{3\\times\\frac12-\\left(\\frac12\\right)^3}{1-3\\left(\\frac12\\right)^2}\\right){/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\angle EAB=\\tan^{-1}\\left(\\frac{\\frac{11}8}{\\frac14}\\right)=\\tan^{-1}\\left(\\frac{11}2\\right){/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\angle EAB{/tex}</span> = tan<sup>-1 </sup><span class=\"math-tex\">{tex}(\\frac{11}{2}){/tex}</span></p>\r\n\t</li>\r\n\t<li>\r\n\t<p>In <span class=\"math-tex\">{tex}\\triangle{/tex}</span>A&#39;BC<br />\r\n\ttan A&#39; = <span class=\"math-tex\">{tex}\\frac{BC}{A'B}{/tex}</span><br />\r\n\ttan A&#39; = <span class=\"math-tex\">{tex}\\frac{10}{25}{/tex}</span><br />\r\n\ttan A&#39; = <span class=\"math-tex\">{tex}\\frac25{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\angle A'{/tex}</span> = tan<sup>-1</sup> <span class=\"math-tex\">{tex}\\frac25{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\angle CA'B{/tex}</span> = tan<sup>-1</sup> <span class=\"math-tex\">{tex}\\frac25{/tex}</span><br />\r\n\tNow, the difference<br />\r\n\t<span class=\"math-tex\">{tex}\\angle CAB- \\angle CA'B{/tex}</span> = <span class=\"math-tex\">{tex}\\tan^{-1}\\left(\\frac12\\right)-\\tan^{-1}\\left(\\frac25\\right){/tex}</span><br />\r\n\tUsing tan<sup>-1</sup>x - tan<sup>-1</sup>y = tan<sup>-1</sup> <span class=\"math-tex\">{tex}\\frac{x-y}{1+xy}{/tex}</span><br />\r\n\t= <span class=\"math-tex\">{tex}\\tan^{-1}\\left[\\frac{\\frac12-\\frac25}{1+\\frac12\\times\\frac25}\\right]{/tex}</span><br />\r\n\t= <span class=\"math-tex\">{tex}\\tan^{-1}\\left[\\frac{\\frac1{10}}{\\frac65}\\right]=\\;\\tan^{-1}\\left(\\frac1{12}\\right){/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\angle CAB- \\angle CA'B={/tex}</span> tan<sup>-1 </sup><span class=\"math-tex\">{tex}(\\frac{1}{12}){/tex}</span><br />\r\n\t<strong>OR</strong><br />\r\n\tDomain of tan<sup>-1</sup>x is R i.e. all real numbers.<br />\r\n\tRange - R <span class=\"math-tex\">{tex}\\left(-\\frac\\pi2,\\frac\\pi2\\right){/tex}</span></p>\r\n\t</li>\r\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  }
+]

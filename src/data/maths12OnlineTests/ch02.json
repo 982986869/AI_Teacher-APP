@@ -1,0 +1,2897 @@
+{
+  "chapter": "Inverse Trigonometric Functions",
+  "chapter_id": 1286,
+  "tests": [
+    {
+      "test_id": 3593,
+      "test_name": "Inverse Trigonometric Functions Test-01",
+      "is_paid": false,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59056,
+          "question_text": "The value of cos 2 15 o - cos 2 30 o + cos 2 45 o - cos 2 60 o + cos 2 75 o is",
+          "question_html": "<p>The value of cos<sup>2</sup>15<sup>o&nbsp;</sup>- cos<sup>2</sup>30<sup>o&nbsp;</sup>+ cos<sup>2</sup>45<sup>o&nbsp;</sup>- cos<sup>2</sup>60<sup>o&nbsp;</sup>+ cos<sup>2</sup>75<sup>o</sup> is&nbsp;</p>",
+          "options": [
+            {
+              "id": 191411,
+              "text": "1/2",
+              "html": "1/2",
+              "is_correct": true
+            },
+            {
+              "id": 191412,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 191413,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 191414,
+              "text": "1/4",
+              "html": "1/4",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1/2",
+          "correct_option_ids": [
+            191411
+          ],
+          "explanation": "{tex}{\\cos ^2}{15^o} - {\\cos ^2}{30^o} + {\\cos ^2}{45^o} - {\\cos ^2}{60^o} + {\\cos ^2}{75^o}{/tex} {tex}= {\\sin ^2}{75^o} + {\\cos ^2}{75^o} + {\\cos ^2}{45^o} - {\\cos ^2}{60^o} + {\\cos ^2}{30^o}{/tex} {tex} = 1 + {\\left( {\\frac{1}{{\\sqrt 2 }}} \\right)^2} - {\\left( {\\frac{1}{2}} \\right)^2} - {\\left( {\\frac{{\\sqrt 3 }}{2}} \\right)^2} = \\frac{1}{2}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59057,
+          "question_text": "The maximum value of sinx + cosx is",
+          "question_html": "<p>The maximum value of sinx + cosx&nbsp;is</p>",
+          "options": [
+            {
+              "id": 191415,
+              "text": "{tex}\\sqrt 2 {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt 2 {/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191418,
+              "text": "{tex}\\frac{1}{{\\sqrt 2 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{\\sqrt 2 }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191417,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 191416,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\sqrt 2 {/tex}",
+          "correct_option_ids": [
+            191415
+          ],
+          "explanation": "Since, range of sine and cosine function is [-1,1]. But, sine is increasing function and cosine is decreasing function the highest that both together attain is {tex}45^0{/tex} {tex}\\left( {\\frac{1}{{\\sqrt 2 }}} \\right) + \\left( {\\frac{1}{{\\sqrt 2 }}} \\right) = \\sqrt 2 {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59058,
+          "question_text": "The minimum value of sinx - cosx is",
+          "question_html": "<p>The minimum value of &nbsp;sinx - cosx&nbsp;is</p>",
+          "options": [
+            {
+              "id": 191419,
+              "text": "{tex} - \\sqrt 2 {/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\sqrt 2 {/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191422,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 191421,
+              "text": "-1",
+              "html": "-1",
+              "is_correct": false
+            },
+            {
+              "id": 191420,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex} - \\sqrt 2 {/tex}",
+          "correct_option_ids": [
+            191419
+          ],
+          "explanation": "Since, range of sine function and cosine function is [-1,1]. But, sine is increasing function and cosine is decreasing function. Therefore, the lowest that both together can attain is {tex}-45^0{/tex} . {tex}\\left( { - \\frac{1}{{\\sqrt 2 }}} \\right) + \\left( { - \\frac{1}{{\\sqrt 2 }}} \\right) = - \\sqrt 2 {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59059,
+          "question_text": "If {tex}5\\sin \\theta = 3{/tex} then, {tex}\\frac{{\\sec \\theta + \\ tan \\theta }}{{\\sec \\theta - \\tan \\theta }}{/tex} is equal to",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}5\\sin \\theta = 3{/tex}</span>&nbsp;then,&nbsp;<span class=\"math-tex\">{tex}\\frac{{\\sec \\theta + \\ tan \\theta }}{{\\sec \\theta - \\tan \\theta }}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 191426,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 191424,
+              "text": "{tex}\\frac{1}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191423,
+              "text": "4",
+              "html": "4",
+              "is_correct": true
+            },
+            {
+              "id": 191425,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "4",
+          "correct_option_ids": [
+            191423
+          ],
+          "explanation": "{tex} \\frac{{\\sec \\theta + \\ tan \\theta }}{{\\sec \\theta - \\tan \\theta }}=\\frac{ \\frac{1}{cos\\theta}+ \\frac{sin\\theta}{cos\\theta} }{\\frac{1}{cos\\theta}- \\frac{sin\\theta}{cos\\theta}}=\\frac{1+\\sin\\theta}{1-\\sin\\theta}=\\frac{1+\\frac{3}{5}}{1-\\frac{3}{5}}=4{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59060,
+          "question_text": "If {tex}\\sec \\theta = x + \\frac{1}{{4x}},x \\in R,x \\ne 0,{/tex} then the value of {tex}\\sec \\theta + \\tan \\theta {/tex} is",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}\\sec \\theta = x + \\frac{1}{{4x}},x \\in R,x \\ne 0,{/tex}</span>then the value of <span class=\"math-tex\">{tex}\\sec \\theta + \\tan \\theta {/tex}</span>&nbsp;is</p>",
+          "options": [
+            {
+              "id": 191428,
+              "text": "only {tex}\\frac{1}{{2x}}{/tex}",
+              "html": "only&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{{2x}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191427,
+              "text": "{tex}2x\\,\\,or\\,\\,\\frac{1}{{2x}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2x\\,\\,or\\,\\,\\frac{1}{{2x}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191429,
+              "text": "only 2x",
+              "html": "only 2x",
+              "is_correct": false
+            },
+            {
+              "id": 191430,
+              "text": "only {tex}\\frac{1}{{x}}{/tex}",
+              "html": "only&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{{x}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}2x\\,\\,or\\,\\,\\frac{1}{{2x}}{/tex}",
+          "correct_option_ids": [
+            191427
+          ],
+          "explanation": "{tex}\\sec \\theta = x + \\frac{1}{{4x}},x \\in R,x \\ne 0,{/tex} {tex}\\sec \\theta = x + \\frac{1}{{4x}}{/tex} {tex} \\Rightarrow \\tan \\theta = \\sqrt {{{\\sec }^2}\\theta - 1} = \\sqrt {{{\\left( {x + \\frac{1}{{4x}}} \\right)}^2} - 1} {/tex} {tex} \\Rightarrow \\tan \\theta = \\sqrt {{x^2} + \\frac{1}{{{{(4x)}^2}}} + \\frac{1}{2} - 1} = \\sqrt {{{\\left( {x + \\frac{1}{{4x}}} \\right)}^2}} {/tex} {tex}tan \\theta = \\left( {x - \\frac{1}{{4x}}} \\right){/tex} {tex} \\Rightarrow {/tex} {tex}\\tan \\theta = x - \\frac{1}{{4x}},x \\in R,x \\ne 0,{/tex} {tex} \\Rightarrow {/tex} {tex}\\sec \\theta + \\tan \\theta = x + \\frac{1}{{4x}} + x - \\frac{1}{{4x}} = 2x{/tex} When we will take negative value with tan we will get answer as 1/2x",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59061,
+          "question_text": "{tex}\\cos 2\\theta {/tex} is not equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\cos 2\\theta {/tex}</span> is not equal to</p>",
+          "options": [
+            {
+              "id": 191432,
+              "text": "{tex}1 - 2{\\sin ^2}\\theta {/tex}",
+              "html": "<span class=\"math-tex\">{tex}1 - 2{\\sin ^2}\\theta {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191433,
+              "text": "{tex}2{\\cos ^2}\\theta - 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2{\\cos ^2}\\theta - 1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191431,
+              "text": "{tex}\\frac{{1 + {{\\tan }^2}\\theta }}{{1 - {{\\tan }^2}\\theta }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{1 + {{\\tan }^2}\\theta }}{{1 - {{\\tan }^2}\\theta }}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191434,
+              "text": "{tex}\\frac{{1 - {{\\tan }^2}\\theta }}{{1 + {{\\tan }^2}\\theta }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{1 - {{\\tan }^2}\\theta }}{{1 + {{\\tan }^2}\\theta }}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{1 + {{\\tan }^2}\\theta }}{{1 - {{\\tan }^2}\\theta }}{/tex}",
+          "correct_option_ids": [
+            191431
+          ],
+          "explanation": "{tex}\\cos 2\\theta {/tex} is equals to {tex}cos(\\theta + \\theta ) = cos\\theta .cos\\theta - sin\\theta .sin\\theta = {\\cos ^2}\\theta - {\\sin ^2}\\theta {/tex} {tex} = \\frac{{co{s^2}\\theta - si{n^2}\\theta }}{{co{s^2}\\theta + si{n^2}\\theta }} = \\frac{{1 - {{\\tan }^2}\\theta }}{{1 + {{\\tan }^2}\\theta }}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59062,
+          "question_text": "When {tex}x = \\frac{\\pi }{2},{/tex} then tan x is",
+          "question_html": "<p>When <span class=\"math-tex\">{tex}x = \\frac{\\pi }{2},{/tex}</span>&nbsp;then tan x is</p>",
+          "options": [
+            {
+              "id": 191436,
+              "text": "{tex} - \\,\\infty {/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\,\\infty {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191437,
+              "text": "{tex}\\frac{1}{{\\sqrt 3 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{\\sqrt 3 }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191438,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 191435,
+              "text": "not defined",
+              "html": "not defined",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "not defined",
+          "correct_option_ids": [
+            191435
+          ],
+          "explanation": "{tex}\\tan \\left( {\\frac{\\pi }{2}} \\right)\\,\\, = \\frac{{\\sin \\left( {\\frac{\\pi }{2}} \\right)}}{{\\cos \\left( {\\frac{\\pi }{2}} \\right)}}\\,\\, = \\frac{1}{0}\\,\\, = {/tex} not defined",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59063,
+          "question_text": "tanx is periodic with period",
+          "question_html": "<p>tanx is periodic with period</p>",
+          "options": [
+            {
+              "id": 191439,
+              "text": "{tex}\\pi {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi {/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191442,
+              "text": "{tex}\\frac{{3\\pi }}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{3\\pi }}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191440,
+              "text": "{tex}\\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191441,
+              "text": "{tex}\\frac{\\pi }{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{3}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\pi {/tex}",
+          "correct_option_ids": [
+            191439
+          ],
+          "explanation": "The values of tanx repeats after an interval of {tex}\\pi {/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59064,
+          "question_text": "The period of the function f(x) = tan3x is",
+          "question_html": "<p>The period of the function f(x) = tan3x is</p>",
+          "options": [
+            {
+              "id": 191444,
+              "text": "{tex}2\\pi {/tex}",
+              "html": "<span class=\"math-tex\">{tex}2\\pi {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191446,
+              "text": "{tex}\\pi {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191443,
+              "text": "{tex}\\frac{\\pi }{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{3}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191445,
+              "text": "{tex}\\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{\\pi }{3}{/tex}",
+          "correct_option_ids": [
+            191443
+          ],
+          "explanation": "f(x) = tan3x, as the period of tanx = {tex}\\pi \\Rightarrow \\;3x = \\;\\pi \\Rightarrow x = \\frac{\\pi }{3}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59065,
+          "question_text": "{tex}{\\sin ^2}{25^0} + {\\sin ^2}{65^0}{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}{\\sin ^2}{25^0} + {\\sin ^2}{65^0}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 191450,
+              "text": "{tex}\\frac{1}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191448,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 191447,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            },
+            {
+              "id": 191449,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            191447
+          ],
+          "explanation": "{tex}{\\sin ^2}{25^0} + {\\sin ^2}{65^0}{/tex} = {tex}{\\sin ^2}{(90^0-65^0)} + {\\sin ^2}{65^0}{/tex} = {tex}{\\cos ^2}{65^0} + {\\sin ^2}{65^0} = 1{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59066,
+          "question_text": "If {tex}\\;x + y = \\frac{\\pi }{4}{/tex} then (1 + tanx)(1 + tany) is equal to",
+          "question_html": "<p>If<span class=\"math-tex\">{tex}\\;x + y = \\frac{\\pi }{4}{/tex}</span>&nbsp;then&nbsp;(1 + tanx)(1 + tany)&nbsp;is equal to</p>",
+          "options": [
+            {
+              "id": 191452,
+              "text": "-1",
+              "html": "-1",
+              "is_correct": false
+            },
+            {
+              "id": 191454,
+              "text": "-2",
+              "html": "-2",
+              "is_correct": false
+            },
+            {
+              "id": 191453,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 191451,
+              "text": "2",
+              "html": "2",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "2",
+          "correct_option_ids": [
+            191451
+          ],
+          "explanation": "If {tex}\\;x + y = \\frac{\\pi }{4}{/tex} then (1 + tanx)(1 + tany) {tex} \\Rightarrow (1 + \\tan x)(1 + \\tan \\left( {\\frac{\\pi }{4} - x} \\right)){/tex} {tex} \\Rightarrow (1 + \\tan x)\\left( {1 + \\frac{{1 - \\tan x}}{{1 + tanx}}} \\right){/tex} {tex} \\Rightarrow (1 + \\tan x)\\left( {\\frac{2}{{1 + \\tan x}}} \\right) = 2{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59067,
+          "question_text": "The period of the function f(x) = cos4x + tan3x is",
+          "question_html": "<p>The period of the function f(x) = cos4x + tan3x&nbsp;is</p>",
+          "options": [
+            {
+              "id": 191455,
+              "text": "{tex}\\pi {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi {/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191457,
+              "text": "{tex}\\frac{\\pi }{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191456,
+              "text": "{tex}\\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191458,
+              "text": "{tex}\\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\pi {/tex}",
+          "correct_option_ids": [
+            191455
+          ],
+          "explanation": "{tex}f\\left( \\pi \\right) = \\left( {cos\\;4\\pi + tan3\\pi \\;} \\right) {/tex} gives the same value as f (0).Therefore,the period of the function is {tex}\\pi {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59068,
+          "question_text": "{tex}\\frac{{\\cos {8^0} - \\sin {8^0}}}{{\\cos {8^0} + \\sin {8^0}}}{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\frac{{\\cos {8^0} - \\sin {8^0}}}{{\\cos {8^0} + \\sin {8^0}}}{/tex}</span>&nbsp;is equal to</p>",
+          "options": [
+            {
+              "id": 191460,
+              "text": "{tex}\\tan {53^0}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\tan {53^0}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191462,
+              "text": "{tex}\\tan {62^0}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\tan {62^0}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191459,
+              "text": "{tex}\\tan {37^0}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\tan {37^0}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191461,
+              "text": "{tex}\\tan {82^0}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\tan {82^0}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\tan {37^0}{/tex}",
+          "correct_option_ids": [
+            191459
+          ],
+          "explanation": "{tex}\\frac{{\\cos {8^0} - \\sin {8^0}}}{{\\cos {8^0} + \\sin {8^0}}} {/tex} {tex} =\\frac{{\\frac{{\\cos {8^0}}}{{\\cos {8^0}}} - \\frac{{\\sin {8^0}}}{{\\cos {8^0}}}}}{{\\frac{{\\cos {8^0}}}{{\\cos {8^0}}} + \\frac{{\\sin {8^0}}}{{\\cos {8^0}}}}} {/tex} {tex}= \\frac{{1 - \\tan {8^0}}}{{1 + \\tan {8^0}}} = \\tan ({45^0} - {8^0}) = \\tan {37^0}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59069,
+          "question_text": "The general solution of the equation {tex}\\cot \\theta - \\tan \\theta = \\sec \\theta {/tex} is _____ where {tex}(n \\in I){/tex} .",
+          "question_html": "<p>The general solution of the equation <span class=\"math-tex\">{tex}\\cot \\theta - \\tan \\theta = \\sec \\theta {/tex}</span>&nbsp;is _____ where&nbsp;<span class=\"math-tex\">{tex}(n \\in I){/tex}</span>.</p>",
+          "options": [
+            {
+              "id": 191466,
+              "text": "{tex}2n\\pi \\pm \\frac{\\pi }{6}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2n\\pi \\pm \\frac{\\pi }{6}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191465,
+              "text": "{tex}2n\\pi + \\frac{\\pi }{6}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2n\\pi + \\frac{\\pi }{6}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191464,
+              "text": "{tex}n\\pi + \\frac{\\pi }{6}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}n\\pi + \\frac{\\pi }{6}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191463,
+              "text": "{tex}n\\;\\pi + {( - 1)^n}\\frac{\\pi }{6}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}n\\;\\pi + {( - 1)^n}\\frac{\\pi }{6}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}n\\;\\pi + {( - 1)^n}\\frac{\\pi }{6}{/tex}",
+          "correct_option_ids": [
+            191463
+          ],
+          "explanation": "{tex}\\cot \\theta - \\tan \\theta = \\sec\\theta{/tex} {tex} \\Rightarrow \\frac{{\\cos \\theta }}{{\\sin \\theta }} - \\frac{{\\sin \\theta }}{{\\cos \\theta }} =\\frac{1}{\\cos\\theta}{/tex} {tex} \\Rightarrow \\frac{{{{\\cos }^2}\\theta - {{\\sin }^2}\\theta }}{{\\sin \\theta .\\cos \\theta }} = \\frac{1}{{\\cos \\theta }}\\\\ {/tex} {tex} \\Rightarrow {\\cos ^2}\\theta - {\\sin ^2}\\theta = \\sin \\theta {/tex} {tex}\\Rightarrow \\cos2\\theta=sin\\theta{/tex} {tex} \\Rightarrow \\sin \\left( {\\frac{\\pi }{2} - 2\\theta } \\right)\\,\\, = \\sin \\theta{/tex} {tex} \\Rightarrow \\frac{\\pi }{2} - 2\\theta = \\theta \\,\\,\\,\\,\\,\\, \\Rightarrow \\theta = \\frac{\\pi }{6}{/tex} General solution is {tex}\\theta = n\\pi + {\\left( { - 1} \\right)^n}\\frac{\\pi }{6}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59070,
+          "question_text": "{tex}\\sin {265^0} - \\cos {265^0}{/tex} is",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\sin {265^0} - \\cos {265^0}{/tex}</span>&nbsp;is</p>",
+          "options": [
+            {
+              "id": 191467,
+              "text": "Negative",
+              "html": "Negative",
+              "is_correct": true
+            },
+            {
+              "id": 191468,
+              "text": "Positive",
+              "html": "Positive",
+              "is_correct": false
+            },
+            {
+              "id": 191470,
+              "text": "Non-negative",
+              "html": "Non-negative",
+              "is_correct": false
+            },
+            {
+              "id": 191469,
+              "text": "Zero",
+              "html": "Zero",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Negative",
+          "correct_option_ids": [
+            191467
+          ],
+          "explanation": "{tex}\\sin {265^0} - \\cos {265^0}=-cos {5^0} + \\sin {5^0}{/tex} between {tex}0\\space to\\space 90^0,\\space cos\\theta>sin\\theta {/tex} , therefore answer is negative.",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3594,
+      "test_name": "Inverse Trigonometric Functions Test-02",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59071,
+          "question_text": "The value of {tex}\\cos {15^0} - \\sin {15^0}{/tex} is",
+          "question_html": "<p>The value of&nbsp;<span class=\"math-tex\">{tex}\\cos {15^0} - \\sin {15^0}{/tex}</span>&nbsp;is</p>",
+          "options": [
+            {
+              "id": 191473,
+              "text": "{tex}\\frac{1}{{2\\sqrt 2 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{2\\sqrt 2 }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191474,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 191471,
+              "text": "{tex}\\frac{1}{{\\sqrt 2 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{\\sqrt 2 }}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191472,
+              "text": "{tex} - \\frac{1}{{\\sqrt 2 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{1}{{\\sqrt 2 }}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{{\\sqrt 2 }}{/tex}",
+          "correct_option_ids": [
+            191471
+          ],
+          "explanation": "{tex}cos{15^0} - sin{15^0} = \\frac{{\\sqrt 3 + 1}}{{2\\sqrt 2 }} - \\frac{{\\sqrt 3 - 1}}{{2\\sqrt 2 }} = \\frac{2}{{2\\sqrt 2 }} = \\frac{1}{{\\sqrt 2 }}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59072,
+          "question_text": "The value of {tex}\\tan {15^0} + \\cot {15^0}{/tex} is",
+          "question_html": "<p>The value of <span class=\"math-tex\">{tex}\\tan {15^0} + \\cot {15^0}{/tex}</span>is</p>",
+          "options": [
+            {
+              "id": 191477,
+              "text": "{tex}\\sqrt 3 {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt 3 {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191475,
+              "text": "4",
+              "html": "4",
+              "is_correct": true
+            },
+            {
+              "id": 191478,
+              "text": "Not defined",
+              "html": "Not defined",
+              "is_correct": false
+            },
+            {
+              "id": 191476,
+              "text": "{tex}2\\sqrt 3 {/tex}",
+              "html": "<span class=\"math-tex\">{tex}2\\sqrt 3 {/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "4",
+          "correct_option_ids": [
+            191475
+          ],
+          "explanation": "{tex}{/tex} {tex}\\tan {15^0} + \\cot {15^0} = \\frac{{\\sqrt 3 - 1}}{{\\sqrt 3 + 1}} + \\frac{{\\sqrt 3 + 1}}{{\\sqrt 3 - 1}}{/tex} {tex}= \\frac{{{{(\\sqrt 3 - 1)}^2} + {{(\\sqrt 3 + 1)}^2}}}{2}\\; {/tex} {tex} \\frac{8}{2} = 4{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59073,
+          "question_text": "{tex}\\sin {200^0} + \\cos {200^0}{/tex} is",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\sin {200^0} + \\cos {200^0}{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 191482,
+              "text": "Zero or positive",
+              "html": "Zero or positive",
+              "is_correct": false
+            },
+            {
+              "id": 191481,
+              "text": "Zero",
+              "html": "Zero",
+              "is_correct": false
+            },
+            {
+              "id": 191479,
+              "text": "Negative",
+              "html": "Negative",
+              "is_correct": true
+            },
+            {
+              "id": 191480,
+              "text": "Positive",
+              "html": "Positive",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Negative",
+          "correct_option_ids": [
+            191479
+          ],
+          "explanation": "Because, both {tex}sin{200^0}\\;\\;and\\;\\;cos{200^0}{/tex} lies in 3rd quadrant. In 3rd quadrant, values of both sine and cosine functions are negative.",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59074,
+          "question_text": "If {tex}\\sin {\\text{ }}A{\\text{ }} + {\\text{ }}\\cos {\\text{ }}A{\\text{ }} = {\\text{ }}1{/tex} , then sin 2A is equal to",
+          "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\sin {\\text{ }}A{\\text{ }} + {\\text{ }}\\cos {\\text{ }}A{\\text{ }} = {\\text{ }}1{/tex}</span>, then sin 2A is equal to</p>",
+          "options": [
+            {
+              "id": 191485,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 191484,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 191486,
+              "text": "{tex}\\frac{1}{2}{/tex} .",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>.",
+              "is_correct": false
+            },
+            {
+              "id": 191483,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            191483
+          ],
+          "explanation": "{tex}{/tex} {tex}{({\\mathop{\\rm sin}\\nolimits} A + {\\mathop{\\rm cos}\\nolimits} A)^2}=si{n^2}A + co{s^2}A + 2sinAcosA\\; {/tex} 1 = 1 + sin 2A So, sin 2A = 0 Hence, A = 0",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59075,
+          "question_text": "The value of {tex}\\cos {105^0}{/tex} is",
+          "question_html": "<p>The value of <span class=\"math-tex\">{tex}\\cos {105^0}{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 191489,
+              "text": "{tex} - \\frac{{\\sqrt 3 + 1}}{{2\\sqrt 2 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{{\\sqrt 3 + 1}}{{2\\sqrt 2 }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191490,
+              "text": "{tex}\\frac{{\\sqrt 3 + 1}}{{2\\sqrt 2 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{\\sqrt 3 + 1}}{{2\\sqrt 2 }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191487,
+              "text": "{tex}\\frac{{1 - \\sqrt 3 }}{{2\\sqrt 2 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{1 - \\sqrt 3 }}{{2\\sqrt 2 }}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191488,
+              "text": "{tex}\\frac{{\\sqrt 3 - 1}}{{2\\sqrt 2 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{\\sqrt 3 - 1}}{{2\\sqrt 2 }}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{1 - \\sqrt 3 }}{{2\\sqrt 2 }}{/tex}",
+          "correct_option_ids": [
+            191487
+          ],
+          "explanation": "The value of {tex}\\cos {105^0}{/tex} = {tex}\\cos {(90 + 15)^0} = - \\sin {15^0} = \\frac{{1 - \\sqrt 3 }}{{2\\sqrt 2 }}{/tex} ,",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59076,
+          "question_text": "{tex}\\sin \\left\\{ {{{\\sin }^{ - 1}}(\\frac{{\\sqrt 3 }}{5}) + {{\\cos }^{ - 1}}(\\frac{{\\sqrt 3 }}{5})} \\right\\}{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\sin \\left\\{ {{{\\sin }^{ - 1}}(\\frac{{\\sqrt 3 }}{5}) + {{\\cos }^{ - 1}}(\\frac{{\\sqrt 3 }}{5})} \\right\\}{/tex}</span>&nbsp;is equal to</p>",
+          "options": [
+            {
+              "id": 191491,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            },
+            {
+              "id": 191492,
+              "text": "{tex}\\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191494,
+              "text": "{tex}\\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191493,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            191491
+          ],
+          "explanation": "{tex}\\sin \\left\\{ {{{\\sin }^{ - 1}}(\\frac{{\\sqrt 3 }}{5}) + {{\\cos }^{ - 1}}(\\frac{{\\sqrt 3 }}{5})} \\right\\}{/tex} = sin( {tex}\\pi /2{/tex} ) = 1.[ {tex}{{{\\sin }^{ - 1}}(x) + {{\\cos }^{ - 1}}(x)}=\\frac{\\pi}{2} {/tex} ]",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59077,
+          "question_text": "The value of the expression {tex}\\sin \\theta + \\cos \\theta {/tex} lies between",
+          "question_html": "<p>The value of the expression <span class=\"math-tex\">{tex}\\sin \\theta + \\cos \\theta {/tex}</span>&nbsp;lies between</p>",
+          "options": [
+            {
+              "id": 191495,
+              "text": "{tex} - \\sqrt 2 {/tex} and {tex}\\sqrt 2 {/tex} both inclusive",
+              "html": "<span class=\"math-tex\">{tex} - \\sqrt 2 {/tex}</span> and <span class=\"math-tex\">{tex}\\sqrt 2 {/tex}</span>&nbsp;both inclusive",
+              "is_correct": true
+            },
+            {
+              "id": 191496,
+              "text": "0 and {tex}\\sqrt 2 {/tex} both inclusive",
+              "html": "0 and <span class=\"math-tex\">{tex}\\sqrt 2 {/tex}</span>&nbsp;both inclusive",
+              "is_correct": false
+            },
+            {
+              "id": 191497,
+              "text": "-2 and 2 both inclusive",
+              "html": "-2 and 2 both inclusive",
+              "is_correct": false
+            },
+            {
+              "id": 191498,
+              "text": "0 and 2 both inclusive",
+              "html": "0 and 2 both inclusive",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex} - \\sqrt 2 {/tex} and {tex}\\sqrt 2 {/tex} both inclusive",
+          "correct_option_ids": [
+            191495
+          ],
+          "explanation": "Minimum value = {tex}\\left( { - \\frac{1}{{\\sqrt 2 }}} \\right) + \\left( { - \\frac{1}{{\\sqrt 2 }}} \\right) = - \\sqrt 2 {/tex} and maximum value = {tex}\\left( { \\frac{1}{{\\sqrt 2 }}} \\right) + \\left( { \\frac{1}{{\\sqrt 2 }}} \\right) = \\sqrt 2 {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59078,
+          "question_text": "{tex}\\sin \\left( {{{\\sin }^{ - 1}}\\frac{1}{2} + {{\\cos }^{ - 1}}\\frac{1}{2}} \\right){/tex} equals",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\sin \\left( {{{\\sin }^{ - 1}}\\frac{1}{2} + {{\\cos }^{ - 1}}\\frac{1}{2}} \\right){/tex}</span> equals</p>",
+          "options": [
+            {
+              "id": 191502,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 191501,
+              "text": "{tex} - \\frac{1}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{1}{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191500,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191499,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            191499
+          ],
+          "explanation": "We know that {tex} sin^{-1}x+cos^{-1}x=\\frac{\\pi}{2}{/tex} {tex}\\therefore \\sin \\left( {{{\\sin }^{ - 1}}\\frac{1}{2} + {{\\cos }^{ - 1}}\\frac{1}{2}} \\right) = \\sin \\left( {\\frac{\\pi }{2}} \\right) = 1{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59079,
+          "question_text": "The range of tan -1 x is",
+          "question_html": "<p>The range of &nbsp;tan<sup>-1</sup>x is</p>",
+          "options": [
+            {
+              "id": 191503,
+              "text": "{tex}\\left( {\\frac{{ - \\pi }}{2},\\frac{\\pi }{2}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left( {\\frac{{ - \\pi }}{2},\\frac{\\pi }{2}} \\right){/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191504,
+              "text": "R",
+              "html": "R",
+              "is_correct": false
+            },
+            {
+              "id": 191506,
+              "text": "{tex}\\left[- {\\frac{\\pi }{2}, \\frac{\\pi }{2}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[- {\\frac{\\pi }{2}, \\frac{\\pi }{2}} \\right]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191505,
+              "text": "{tex}\\left( {\\pi ,\\,\\,\\pi } \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left( {\\pi ,\\,\\,\\pi } \\right){/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\left( {\\frac{{ - \\pi }}{2},\\frac{\\pi }{2}} \\right){/tex}",
+          "correct_option_ids": [
+            191503
+          ],
+          "explanation": "The domain range of tan function is {tex}(- \\frac{\\pi }{2}\\;,\\;\\frac{\\pi }{2}\\;){/tex} and R. But, tan function is one-one and onto only when we shrink range to (-1,1). Now tan function which is one and onto has domain {tex}(- \\frac{\\pi }{2}\\;,\\;\\frac{\\pi }{2}\\;){/tex} and range (-1,1) Hence, domain and range of {tex}{\\tan ^{ - 1}}{/tex} function is (-1,1 ) to {tex}(- \\frac{\\pi }{2}\\;,\\;\\frac{\\pi }{2}\\;){/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59080,
+          "question_text": "If {tex}\\theta = {\\tan ^{ - 1}}x{/tex} , then sin 2&theta; is equal to",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}\\theta = {\\tan ^{ - 1}}x{/tex}</span>, then sin 2&theta; is equal to</p>",
+          "options": [
+            {
+              "id": 191508,
+              "text": "{tex}\\frac{{2x}}{{1 - {x^2}}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{2x}}{{1 - {x^2}}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191509,
+              "text": "{tex}\\frac{{1 - {x^2}}}{{1 + {x^2}}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{1 - {x^2}}}{{1 + {x^2}}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191507,
+              "text": "{tex}\\frac{{2x}}{{1 + {x^2}}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{2x}}{{1 + {x^2}}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191510,
+              "text": "{tex}\\frac{{1 + {x^2}}}{{1 - {x^2}}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{1 + {x^2}}}{{1 - {x^2}}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{2x}}{{1 + {x^2}}}{/tex}",
+          "correct_option_ids": [
+            191507
+          ],
+          "explanation": "{tex}\\theta = {\\tan ^{ - 1}}x {/tex} . {tex}\\\\\\Rightarrow x = \\tan \\theta {/tex} We know that {tex}\\sin 2\\theta = \\frac{{2\\tan \\theta }}{{1 + {{\\tan }^2}\\theta }}= \\frac{{2x}}{{1 + {x^2}}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59081,
+          "question_text": "If {tex}{\\sin ^{ - 1}}x = \\frac{\\pi }{5},{/tex} then {tex}{\\cos ^{ - 1}}x{/tex} is equal to",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}{\\sin ^{ - 1}}x = \\frac{\\pi }{5},{/tex}</span> then <span class=\"math-tex\">{tex}{\\cos ^{ - 1}}x{/tex}</span>&nbsp;is equal to</p>",
+          "options": [
+            {
+              "id": 191514,
+              "text": "{tex}\\frac{{7\\pi }}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{7\\pi }}{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191512,
+              "text": "{tex}\\frac{\\pi }{{10}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{{10}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191513,
+              "text": "{tex}\\frac{{5\\pi }}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{5\\pi }}{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191511,
+              "text": "{tex}\\frac{{3\\pi }}{{10}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{3\\pi }}{{10}}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{3\\pi }}{{10}}{/tex}",
+          "correct_option_ids": [
+            191511
+          ],
+          "explanation": "{tex} {\\sin ^{ - 1}}x + {\\cos ^{ - 1}}x = {\\pi \\over 2}{/tex} {tex} {\\cos ^{ - 1}}x = {\\pi \\over 2} - {\\sin ^{ - 1}}x\\; = {\\pi \\over 2} - {\\pi \\over 5} = {{3\\pi } \\over {10}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59082,
+          "question_text": "The principal value of {tex}{\\sin ^{ - 1}}(\\sin \\;\\frac{3\\pi }{4}\\;) = \\ldots \\ldots \\;{/tex}",
+          "question_html": "<p>The principal value of <span class=\"math-tex\">{tex}{\\sin ^{ - 1}}(\\sin \\;\\frac{3\\pi }{4}\\;) = \\ldots \\ldots \\;{/tex}</span></p>",
+          "options": [
+            {
+              "id": 191515,
+              "text": "{tex}\\frac{\\pi }{4}\\;\\;{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4}\\;\\;{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191518,
+              "text": "{tex}\\frac{{ - \\pi }}{4}\\;\\;{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{ - \\pi }}{4}\\;\\;{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191516,
+              "text": "{tex}\\frac{{3\\pi }}{4}\\;\\;{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{3\\pi }}{4}\\;\\;{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191517,
+              "text": "{tex}\\frac{{5\\pi }}{4}\\;\\;{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{5\\pi }}{4}\\;\\;{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{\\pi }{4}\\;\\;{/tex}",
+          "correct_option_ids": [
+            191515
+          ],
+          "explanation": "{tex}{\\sin ^{ - 1}}(\\sin\\frac{3\\pi }{4}\\;\\;)\\;\\; = {\\sin ^{ - 1}}(\\sin \\left( {\\pi - \\frac{\\pi }{4}} \\right) \\\\ {/tex} {tex}= {\\sin ^{ - 1}}(\\sin \\frac{\\pi }{4}) = \\frac{\\pi }{4}\\;\\;{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59083,
+          "question_text": "{tex}co{t^{ - 1}}(21) + co{t^{ - 1}}(13) + co{t^{ - 1}}( - 8){/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}co{t^{ - 1}}(21) + co{t^{ - 1}}(13) + co{t^{ - 1}}( - 8){/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 191521,
+              "text": "{tex}\\pi {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191520,
+              "text": "{tex}{\\cot ^{ - 1}}26{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\cot ^{ - 1}}26{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191522,
+              "text": "2 {tex}\\pi {/tex}",
+              "html": "2<span class=\"math-tex\">{tex}\\pi {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191519,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            191519
+          ],
+          "explanation": "{tex}{\\cot ^{ - 1}}21 + {\\cot ^{ - 1}}13 - {\\cot ^{ - 1}}8{/tex} {tex}\\Rightarrow {\\tan ^{ - 1}}\\left( {\\frac{1}{{21}}} \\right) + {\\tan ^{ - 1}}\\left( {\\frac{1}{{13}}} \\right) - {\\tan ^{ - 1}}\\left( {\\frac{1}{8}} \\right)\\\\ {/tex} {tex}\\ \\Rightarrow {\\tan ^{ - 1}}\\left[ {\\frac{{\\frac{1}{{21}} + \\frac{1}{{13}}}}{{1 - \\frac{1}{{21}}.\\frac{1}{{13}}}}} \\right] - {\\tan ^{ - 1}}\\left( {\\frac{1}{8}} \\right)\\,\\,\\,\\,\\,\\,\\,\\,\\,\\,\\,\\,\\,\\,\\,\\left( {\\,\\,\\frac{1}{{21}}.\\frac{1}{{13}} < 1} \\right)\\\\{/tex} {tex}\\Rightarrow {\\tan ^{ - 1}}\\left[ {\\frac{{\\frac{{34}}{{21.13}}}}{{\\frac{{272}}{{21.13}}}}} \\right] - {\\tan ^{ - 1}}\\left( {\\frac{1}{8}} \\right)\\\\ {/tex} {tex} \\Rightarrow {\\tan ^{ - 1}}\\left( {\\frac{{34}}{{272}}} \\right)\\, - {\\tan ^{ - 1}}\\left( {\\frac{1}{8}} \\right) {/tex} {tex}\\Rightarrow {\\tan ^{ - 1}}\\left( {\\frac{1}{8}} \\right) - {\\tan ^{ - 1}}\\left( {\\frac{1}{8}} \\right) = 0{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59084,
+          "question_text": "{tex}\\sin ({\\cot ^{ - 1}}x){/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\sin ({\\cot ^{ - 1}}x){/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 191525,
+              "text": "{tex}\\frac{x}{{\\sqrt {1 + {x^2}} }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{x}{{\\sqrt {1 + {x^2}} }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191524,
+              "text": "{tex}\\sqrt {1 + {x^2}} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt {1 + {x^2}} {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191523,
+              "text": "{tex}\\frac{1}{{\\sqrt {1 + {x^2}} }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{\\sqrt {1 + {x^2}} }}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191526,
+              "text": "{tex}x\\sqrt {1 + {x^2}} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}x\\sqrt {1 + {x^2}} {/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{{\\sqrt {1 + {x^2}} }}{/tex}",
+          "correct_option_ids": [
+            191523
+          ],
+          "explanation": "{tex}{\\cot ^{ - 1}}x = \\theta \\Rightarrow x = \\cot \\theta \\Rightarrow \\cot \\theta = \\frac{x}{1} {/tex} {tex}\\ sin(cot^{-1}x)= \\sin \\theta = \\frac{{Perp.}}{{Hyp.}} = \\frac{1}{{\\sqrt {{x^2} + 1} }}.{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59085,
+          "question_text": "{tex}{\\cos ^{ - 1}}\\left( {\\cos \\left( { - \\frac{\\pi }{3}} \\right)} \\right){/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}{\\cos ^{ - 1}}\\left( {\\cos \\left( { - \\frac{\\pi }{3}} \\right)} \\right){/tex}</span>is equal to</p>",
+          "options": [
+            {
+              "id": 191530,
+              "text": "{tex}-\\frac{{2\\pi }}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}-\\frac{{2\\pi }}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191529,
+              "text": "{tex}\\frac{{2\\pi }}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{2\\pi }}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191527,
+              "text": "{tex}\\frac{\\pi }{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{3}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191528,
+              "text": "{tex}\\frac{{ - \\pi }}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{ - \\pi }}{3}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{\\pi }{3}{/tex}",
+          "correct_option_ids": [
+            191527
+          ],
+          "explanation": "{tex}{\\cos ^{ - 1}}\\left( {\\cos \\left( { - \\frac{\\pi }{3}} \\right)} \\right){/tex} = {tex}{\\cos ^{ - 1}}(\\cos \\frac{\\pi }{3}) = \\frac{\\pi }{3}{/tex} , because, {tex}\\cos \\theta {/tex} is positive in fourth quadrant.",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3595,
+      "test_name": "Inverse Trigonometric Functions Test-03",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59086,
+          "question_text": "If {tex}2{\\tan ^{ - 1}}\\left( {{\\text{cos x}}} \\right){/tex} = {tex}{\\tan ^{ - 1}}\\left( {2\\;cosecx} \\right){/tex} , then x =",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}2{\\tan ^{ - 1}}\\left( {{\\text{cos x}}} \\right){/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\left( {2\\;cosecx} \\right){/tex}</span>, then x =</p>",
+          "options": [
+            {
+              "id": 191532,
+              "text": "{tex}\\frac{\\pi }{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191534,
+              "text": "{tex}\\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191531,
+              "text": "{tex}\\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191533,
+              "text": "{tex}\\frac{\\pi }{6}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{6}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{\\pi }{4}{/tex}",
+          "correct_option_ids": [
+            191531
+          ],
+          "explanation": "{tex}2{\\tan ^{ - 1}}\\left( {\\cos x} \\right)\\, = {\\tan ^{ - 1}}2\\left( {\\cos ecx} \\right){/tex} {tex}\\\\{\\tan ^{ - 1}}\\left( {\\frac{{2\\cos x}}{{1 - {{\\cos }^2}x}}} \\right)\\,\\, = \\,{\\tan ^{ - 1}}\\left( {\\frac{2}{{sinx}}} \\right)\\,\\,\\,\\,\\,\\,\\,\\,\\,\\,\\,\\,2{\\tan ^{ - 1}}\\left( x \\right)\\,\\, = {\\tan ^{ - 1}}\\left( {\\frac{{2x}}{{1 - {x^2}}}} \\right)\\\\{/tex} {tex} \\Rightarrow \\frac{{2\\cos x}}{{{{\\sin }^2}x}} = \\frac{2}{{sinx}}{/tex} {tex}\\Rightarrow \\cot x = cot(\\frac{\\pi}{4})\\,\\,\\, \\Rightarrow x = \\frac{\\pi }{4}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59087,
+          "question_text": "{tex}{\\cos ^{ - 1}}\\left( {\\cos \\frac{{5\\pi }}{4}} \\right){/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}{\\cos ^{ - 1}}\\left( {\\cos \\frac{{5\\pi }}{4}} \\right){/tex}</span>is equal to</p>",
+          "options": [
+            {
+              "id": 191538,
+              "text": "{tex}-\\frac{{5\\pi }}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}-\\frac{{5\\pi }}{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191535,
+              "text": "{tex}\\frac{{3\\pi }}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{3\\pi }}{4}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191537,
+              "text": "{tex}\\frac{{5\\pi }}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{5\\pi }}{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191536,
+              "text": "{tex} - \\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{3\\pi }}{4}{/tex}",
+          "correct_option_ids": [
+            191535
+          ],
+          "explanation": "We know that principle value branch of {tex}{\\cos ^{ - 1}}{/tex} is {tex}[0,\\pi]{/tex} and {tex}\\frac{{3\\pi }}{4} \\notin [0,\\pi ]{/tex} but {tex}\\left( {2\\pi - \\frac{{5\\pi }}{4}} \\right) \\in [0,\\pi ]{/tex} {tex}\\therefore {\\cos ^{ - 1}}\\left( {\\cos \\frac{{5\\pi }}{4}} \\right) = {\\cos ^{ - 1}}\\left( {\\cos \\left( {2\\pi - \\frac{{5\\pi }}{4}} \\right)} \\right) = {\\cos ^{ - 1}}\\left( {\\cos \\left( {\\frac{{3\\pi }}{4}} \\right)} \\right) = \\frac{{3\\pi }}{4}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59088,
+          "question_text": "If {tex}co{s^{( - 1)}}x + co{s^{( - 1)}}y = 2\\pi {/tex} , then the value of {tex}si{n^{( - 1)}}x + si{n^{( - 1)}}y{/tex} is",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}co{s^{( - 1)}}x + co{s^{( - 1)}}y = 2\\pi {/tex}</span>, then the value of <span class=\"math-tex\">{tex}si{n^{( - 1)}}x + si{n^{( - 1)}}y{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 191542,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 191539,
+              "text": "{tex} - \\pi {/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\pi {/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191541,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 191540,
+              "text": "{tex}\\pi {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi {/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex} - \\pi {/tex}",
+          "correct_option_ids": [
+            191539
+          ],
+          "explanation": "{tex}{\\cos ^{ - 1}}\\left( x \\right)\\, + {\\cos ^{ - 1}}\\left( y \\right)\\, = 2\\pi {/tex} {tex}\\Rightarrow \\frac{\\pi }{2} - {\\sin ^{ - 1}}\\left( x \\right) + \\frac{\\pi }{2} - {\\sin ^{ - 1}}\\left( y \\right)\\, = 2\\pi ,\\,\\,\\,\\,{\\sin ^{ - 1}}\\left( x \\right) + {\\cos ^{ - 1}}\\left( x \\right) = \\frac{\\pi }{2} {/tex} {tex} \\Rightarrow {\\sin ^{ - 1}}\\left( x \\right) + {\\sin ^{ - 1}}\\left( y \\right) = - \\pi {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59089,
+          "question_text": "if {tex}\\theta = co{s^{- 1}}\\left( {\\frac{1}{x}} \\right),{/tex} then tan &theta; is equal to",
+          "question_html": "<p>if <span class=\"math-tex\">{tex}\\theta = co{s^{- 1}}\\left( {\\frac{1}{x}} \\right),{/tex}</span> then tan &theta; is equal to</p>",
+          "options": [
+            {
+              "id": 191544,
+              "text": "{tex}\\sqrt {{x^2} - 1} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt {{x^2} - 1} {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191543,
+              "text": "{tex}\\frac{{\\sqrt {{x^2} - 1} }}{x}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{\\sqrt {{x^2} - 1} }}{x}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191546,
+              "text": "{tex}2\\sqrt {{x^2} + 1} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}2\\sqrt {{x^2} + 1} {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191545,
+              "text": "{tex}\\frac{{x\\sqrt {1 - {x^2}} }}{{\\left| x \\right|}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{x\\sqrt {1 - {x^2}} }}{{\\left| x \\right|}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{\\sqrt {{x^2} - 1} }}{x}{/tex}",
+          "correct_option_ids": [
+            191543
+          ],
+          "explanation": "if {tex}\\theta = {\\cos ^{ - 1}}\\left( {\\frac{1}{x}} \\right){/tex} {tex} \\Rightarrow \\cos \\theta = \\frac{1}{x} = \\frac{{Base}}{{Hyp.}} \\Rightarrow \\tan \\theta = \\frac{{Perp.}}{{Base}} = \\frac{{\\sqrt {{x^2} - 1} }}{x}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59090,
+          "question_text": "If {tex}cos(2\\,si{n^{ - 1}}x) = \\frac{1}{9}{/tex} then x =",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}cos(2\\,si{n^{ - 1}}x) = \\frac{1}{9}{/tex}</span>then x =</p>",
+          "options": [
+            {
+              "id": 191549,
+              "text": "{tex}\\frac{2}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191548,
+              "text": "{tex}\\frac{{ - 2}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{ - 2}}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191547,
+              "text": "{tex} \\pm \\frac{2}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} \\pm \\frac{2}{3}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191550,
+              "text": "{tex}\\frac{1}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex} \\pm \\frac{2}{3}{/tex}",
+          "correct_option_ids": [
+            191547
+          ],
+          "explanation": "Put, {tex}{\\sin ^{ - 1}}x = \\theta \\Rightarrow \\sin \\theta {/tex} {tex}\\cos 2\\theta = \\frac{1}{9} \\Rightarrow 1 - 2{\\sin ^2}\\theta = \\frac{1}{9} \\Rightarrow 1 - 2{x^2} = \\frac{1}{9} \\Rightarrow x = \\pm \\frac{2}{3}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59091,
+          "question_text": "{tex}2{\\cos ^{ - 1}}x = {\\cos ^{ - 1}}(2x^2-1){/tex} holds true for all",
+          "question_html": "<p><span class=\"math-tex\">{tex}2{\\cos ^{ - 1}}x = {\\cos ^{ - 1}}(2x^2-1){/tex}</span>holds true for all</p>",
+          "options": [
+            {
+              "id": 191554,
+              "text": "{tex}\\left| x \\right| = \\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left| x \\right| = \\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191551,
+              "text": "{tex}1 \\geqslant x \\geqslant 0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}1 \\geqslant x \\geqslant 0{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191552,
+              "text": "{tex}\\left| x \\right| \\leqslant 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left| x \\right| \\leqslant 1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191553,
+              "text": "{tex}\\left| x \\right| \\leqslant \\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left| x \\right| \\leqslant \\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}1 \\geqslant x \\geqslant 0{/tex}",
+          "correct_option_ids": [
+            191551
+          ],
+          "explanation": "let {tex}x = \\cos \\theta{/tex} {tex}{\\cos ^{ - 1}}(2{x^2} - 1) \\Rightarrow {\\cos ^{ - 1}}(2{\\cos ^2}\\theta - 1){/tex} {tex}\\Rightarrow {\\cos ^{ - 1}}(\\cos 2\\theta ) = 2\\theta = 2{\\cos ^{ - 1}}x{/tex} if and only if {tex}0 \\leqslant 2\\theta \\leqslant \\pi \\Rightarrow 0 \\leqslant \\theta \\leqslant \\frac{x}{2}{/tex} {tex}0 \\leqslant \\pi \\leqslant 1{/tex} {tex}\\Rightarrow \\cos 0 \\geqslant \\cos \\theta \\geqslant \\cos \\left( {\\frac{x}{2}} \\right){/tex} since cosine is decreasing function {tex}\\Rightarrow 1 \\geqslant x \\geqslant 0{/tex} This is true for all real values of x {tex}\\in {/tex} [0,1]",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59092,
+          "question_text": "{tex}{\\cos ^{ - 1}}(\\cos x) = x{/tex} is satisfied by,",
+          "question_html": "<p><span class=\"math-tex\">{tex}{\\cos ^{ - 1}}(\\cos x) = x{/tex}</span> is satisfied by,</p>",
+          "options": [
+            {
+              "id": 191557,
+              "text": "{tex}x \\in [ - 1,1]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x \\in [ - 1,1]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191555,
+              "text": "{tex}x \\in [0,\\pi ]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x \\in [0,\\pi ]{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191558,
+              "text": "{tex}x \\in [0,-1]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x \\in [0,-1]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191556,
+              "text": "{tex}x \\in [0,1]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x \\in [0,1]{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}x \\in [0,\\pi ]{/tex}",
+          "correct_option_ids": [
+            191555
+          ],
+          "explanation": "{tex}{\\cos ^{ - 1}}(\\cos x) = x{/tex} if {tex}0 \\leqslant x \\leqslant \\pi {/tex} i.e. if , {tex}x \\in [0,\\pi ]{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59093,
+          "question_text": "{tex}{\\tan ^{ - 1}}\\frac{1}{7} + 2{\\tan ^{ - 1}}\\frac{1}{3}{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\frac{1}{7} + 2{\\tan ^{ - 1}}\\frac{1}{3}{/tex}</span>is equal to</p>",
+          "options": [
+            {
+              "id": 191559,
+              "text": "{tex}\\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191561,
+              "text": "{tex}\\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191562,
+              "text": "{tex}\\frac{{4\\pi }}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{4\\pi }}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191560,
+              "text": "{tex}\\frac{{3\\pi }}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{3\\pi }}{4}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{\\pi }{4}{/tex}",
+          "correct_option_ids": [
+            191559
+          ],
+          "explanation": "{tex}{\\tan ^{ - 1}}\\frac{1}{7} + 2{\\tan ^{ - 1}}\\frac{3}{4} \\Rightarrow {\\tan ^{ - 1}}\\frac{1}{7} + {\\tan ^{ - 1}}\\frac{{2.\\frac{1}{3}}}{{1 - {{\\left( {\\frac{1}{3}} \\right)}^2}}}{/tex} {tex}={\\tan ^{ - 1}}\\frac{1}{7} + 2{\\tan ^{ - 1}}\\frac{3}{4} \\Rightarrow {\\tan ^{ - 1}}\\frac{{\\frac{1}{7} + \\frac{3}{4}}}{{1 - \\frac{1}{7}.\\frac{3}{4}}} \\Rightarrow {\\tan ^{ - 1}}(1) = \\frac{\\pi }{4}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59094,
+          "question_text": "The value of {tex}{\\tan ^{ - 1}}\\left( {\\frac{a}{b}} \\right) - {\\tan ^{ - 1}}\\left( {\\frac{{a - b}}{{a + b}}} \\right){/tex} is {tex}\\left( {a,\\,\\,b > 0} \\right){/tex}",
+          "question_html": "<p>The value of <span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\left( {\\frac{a}{b}} \\right) - {\\tan ^{ - 1}}\\left( {\\frac{{a - b}}{{a + b}}} \\right){/tex}</span>is <span class=\"math-tex\">{tex}\\left( {a,\\,\\,b &gt; 0} \\right){/tex}</span></p>",
+          "options": [
+            {
+              "id": 191564,
+              "text": "{tex}\\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191566,
+              "text": "{tex} - \\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191565,
+              "text": "{tex} - \\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191563,
+              "text": "{tex}\\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{\\pi }{4}{/tex}",
+          "correct_option_ids": [
+            191563
+          ],
+          "explanation": "{tex}{\\tan ^{ - 1}}\\left( {\\frac{a}{b}} \\right) - {\\tan ^{ - 1}}\\left( {\\frac{{a - b}}{{a + b}}} \\right) = {\\tan ^{ - 1}}\\left( {\\frac{{\\frac{a}{b} - \\frac{{a - b}}{{a + b}}}}{{1 + \\frac{a}{b}.\\frac{{a - b}}{{a + b}}}}} \\right){/tex} {tex} \\Rightarrow {\\tan ^{ - 1}}\\left( {\\frac{{{a^2} + ab - ab + {b^2}}}{{ab + {b^2} + {a^2} - ab}}} \\right) = {\\tan ^{ - 1}}(1) = \\frac{\\pi }{4}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59095,
+          "question_text": "If x > 0, then {tex}{\\tan ^{ - 1}}x + {\\tan ^{ - 1}}\\left( {\\frac{1}{x}} \\right){/tex} is equal to",
+          "question_html": "<p>If x &gt; 0,&nbsp;then <span class=\"math-tex\">{tex}{\\tan ^{ - 1}}x + {\\tan ^{ - 1}}\\left( {\\frac{1}{x}} \\right){/tex}</span>is equal to</p>",
+          "options": [
+            {
+              "id": 191569,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 191570,
+              "text": "{tex}\\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191568,
+              "text": "tan 1",
+              "html": "tan 1",
+              "is_correct": false
+            },
+            {
+              "id": 191567,
+              "text": "{tex}\\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{\\pi }{2}{/tex}",
+          "correct_option_ids": [
+            191567
+          ],
+          "explanation": "{tex}{\\tan ^{ - 1}}x + {\\tan ^{ - 1}}\\left( {\\frac{1}{x}} \\right){/tex} {tex}{\\tan ^{ - 1}}x + {\\cot ^{ - 1}}x = \\frac{\\pi }{2}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59096,
+          "question_text": "{tex}{\\tan ^{ - 1}}x + {\\tan ^{ - 1}}\\left( {\\frac{1}{x}} \\right) = \\frac{\\pi }{2}{/tex} holds true for",
+          "question_html": "<p><span class=\"math-tex\">{tex}{\\tan ^{ - 1}}x + {\\tan ^{ - 1}}\\left( {\\frac{1}{x}} \\right) = \\frac{\\pi }{2}{/tex}</span> holds true for</p>",
+          "options": [
+            {
+              "id": 191573,
+              "text": "all x > 1",
+              "html": "all x &gt; 1",
+              "is_correct": false
+            },
+            {
+              "id": 191572,
+              "text": "all {tex}x \\in R{\\text{ }} - {\\text{ }}\\left\\{ 0 \\right\\}{/tex}",
+              "html": "all <span class=\"math-tex\">{tex}x \\in R{\\text{ }} - {\\text{ }}\\left\\{ 0 \\right\\}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191574,
+              "text": "all {tex}x \\in R{/tex}",
+              "html": "all <span class=\"math-tex\">{tex}x \\in R{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191571,
+              "text": "all x>0",
+              "html": "all x&gt;0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "all x>0",
+          "correct_option_ids": [
+            191571
+          ],
+          "explanation": "{tex}{\\tan ^{ - 1}}x + {\\tan ^{ - 1}}\\left( {\\frac{1}{x}} \\right) = \\frac{\\pi }{2}{/tex} {tex}{\\tan ^{ - 1}}\\left( {\\frac{1}{x}} \\right) = \\frac{\\pi }{2} - {\\tan ^{ - 1}}x = {\\cot ^{ - 1}}x\\;\\forall x \\in R{/tex} {tex}\\therefore {\\tan ^{ - 1}}\\left( {\\frac{1}{x}} \\right) = {\\cot ^{ - 1}}x{/tex} {tex} \\Rightarrow {/tex} x > 0 Since, we know that {tex}{\\tan ^{ - 1}}\\left( {\\frac{1}{x}} \\right) = {\\cot ^{ - 1}}x{/tex} when x>0",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59097,
+          "question_text": "Which of the following is different from {tex}2{\\tan ^{ - 1}}x{/tex} ?",
+          "question_html": "<p>Which of the following is different from <span class=\"math-tex\">{tex}2{\\tan ^{ - 1}}x{/tex}</span> ?</p>",
+          "options": [
+            {
+              "id": 191575,
+              "text": "None of these",
+              "html": "None of these",
+              "is_correct": true
+            },
+            {
+              "id": 191577,
+              "text": "{tex}{\\cos ^{ - 1}}\\left( {\\frac{{1 - {x^2}}}{{1 + {x^2}}}} \\right),\\left| x \\right| \\geqslant 0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\cos ^{ - 1}}\\left( {\\frac{{1 - {x^2}}}{{1 + {x^2}}}} \\right),\\left| x \\right| \\geqslant 0{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191576,
+              "text": "{tex}{\\sin ^{ - 1}}\\left( {\\frac{{2x}}{{1 - {x^2}}}} \\right),\\left| x \\right| \\leqslant 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\sin ^{ - 1}}\\left( {\\frac{{2x}}{{1 - {x^2}}}} \\right),\\left| x \\right| \\leqslant 1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191578,
+              "text": "{tex}{\\tan ^{ - 1}}\\left( {\\frac{{2x}}{{1 - {x^2}}}} \\right),\\left| x \\right| < 1{/tex} .",
+              "html": "<span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\left( {\\frac{{2x}}{{1 - {x^2}}}} \\right),\\left| x \\right| &lt; 1{/tex}</span>.",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "None of these",
+          "correct_option_ids": [
+            191575
+          ],
+          "explanation": "2 tan -1 x {tex}=\\cos ^{-1}\\left(\\frac{1-x^{2}}{1+x^{2}}\\right){/tex} {tex}=\\sin ^{-1}\\left(\\frac{2 x}{1+x^{2}}\\right){/tex}",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59098,
+          "question_text": "{tex}3{\\sin ^{ - 1}}x = {\\sin ^{ - 1}}{/tex} {tex}(3x - 4{x^3}){/tex} holds good for all",
+          "question_html": "<p><span class=\"math-tex\">{tex}3{\\sin ^{ - 1}}x = {\\sin ^{ - 1}}{/tex}</span><span class=\"math-tex\">{tex}(3x - 4{x^3}){/tex}</span> holds good for all</p>",
+          "options": [
+            {
+              "id": 191582,
+              "text": "{tex}\\left| x \\right|= 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left| x \\right|= 1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191581,
+              "text": "{tex}\\left| x \\right| \\leqslant 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left| x \\right| \\leqslant 1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191579,
+              "text": "{tex}\\left| x \\right| \\leqslant \\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left| x \\right| \\leqslant \\frac{1}{2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191580,
+              "text": "{tex}0 \\leqslant x \\leqslant 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}0 \\leqslant x \\leqslant 1{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\left| x \\right| \\leqslant \\frac{1}{2}{/tex}",
+          "correct_option_ids": [
+            191579
+          ],
+          "explanation": "Let {tex}sin^{-1}=\\theta \\Rightarrow \\sin{\\theta}=x{/tex} Consider, RHS: {tex}{\\sin ^{ - 1}}(3\\sin \\theta - 4{\\sin ^3}\\theta ) = {\\sin ^{ - 1}}(\\sin 3\\theta ) = 3\\theta {/tex} if and only if {tex}3\\theta \\in \\left[ {\\frac{{ - \\pi }}{2},\\frac{\\pi }{2}} \\right]{/tex} {tex}=3sin^{-1}\\theta{/tex} Here, it is given {tex}3{\\sin ^{ - 1}}x = {\\sin ^{ - 1}}(3x - 4{x^3}){/tex} i.e, {tex}\\frac{{ - \\pi }}{2} \\leqslant 3\\theta \\leqslant \\frac{\\pi }{2} \\Rightarrow \\frac{{ - \\pi }}{6} \\leqslant \\theta \\leqslant \\frac{\\pi }{6}{/tex} {tex} \\Rightarrow \\sin \\left( {\\frac{{ - \\pi }}{6}} \\right) \\leqslant \\sin \\theta \\leqslant \\sin \\left( {\\frac{\\pi }{6}} \\right){/tex} {tex} \\Rightarrow \\frac{{ - 1}}{2} \\leqslant x \\leqslant \\frac{1}{2} \\Rightarrow \\left| x \\right| \\leqslant \\frac{1}{2}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59099,
+          "question_text": "The relation {tex}\\cos e c^{-1}\\left(\\frac{x^2+1}{2 x}\\right)=2 \\cot ^{-1} x{/tex} is valid for",
+          "question_html": "<p>The relation <span class=\"math-tex\">{tex}\\cos e c^{-1}\\left(\\frac{x^2+1}{2 x}\\right)=2 \\cot ^{-1} x{/tex}</span> is valid for&nbsp;</p>",
+          "options": [
+            {
+              "id": 191586,
+              "text": "{tex}x \\leq 0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x \\leq 0{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191583,
+              "text": "{tex}x{\\text{ }} \\geq {\\text{ }}1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x{\\text{ }} \\geq {\\text{ }}1{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191584,
+              "text": "{tex}x{\\text{ }} \\geq{\\text{ }}0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x{\\text{ }} \\geq{\\text{ }}0{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191585,
+              "text": "{tex}x \\leq 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x \\leq 1{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}x{\\text{ }} \\geq {\\text{ }}1{/tex}",
+          "correct_option_ids": [
+            191583
+          ],
+          "explanation": "In the given question the relation is true for all real values of x greater than or equal to 1.",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59100,
+          "question_text": "If {tex}\\left( {{{\\cos }^{ - 1}}x + {{\\sin }^{ - 1}}x} \\right) = \\frac{\\pi }{2}{/tex} , then x =",
+          "question_html": "<p>If<span class=\"math-tex\">{tex}\\left( {{{\\cos }^{ - 1}}x + {{\\sin }^{ - 1}}x} \\right) = \\frac{\\pi }{2}{/tex}</span>, then x =</p>",
+          "options": [
+            {
+              "id": 191590,
+              "text": "None of these.",
+              "html": "None of these.",
+              "is_correct": false
+            },
+            {
+              "id": 191588,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 191587,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191589,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{2}{/tex}",
+          "correct_option_ids": [
+            191587
+          ],
+          "explanation": "Because {tex}\\sin^{-1}x\\;+\\;\\cos^{-1}x\\;=\\;\\frac{\\mathrm\\pi}2{/tex} then, x {tex}=\\;\\frac12{/tex} because {tex}\\sin^{-1}\\frac12\\;=\\;\\frac{\\mathrm\\pi}6{/tex} {tex}\\cos^{-1}\\frac12=\\frac{\\mathrm\\pi}3{/tex} . Which is the required solution.",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3596,
+      "test_name": "Inverse Trigonometric Functions Test-04",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59101,
+          "question_text": "{tex}{\\tan ^{ - 1}}( - 2) + {\\tan ^{ - 1}}( - 3){/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}{\\tan ^{ - 1}}( - 2) + {\\tan ^{ - 1}}( - 3){/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 191594,
+              "text": "{tex}\\frac{{-3\\pi }}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{-3\\pi }}{4}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191593,
+              "text": "{tex} - \\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191591,
+              "text": "{tex}\\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191592,
+              "text": "{tex}\\frac{{3\\pi }}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{3\\pi }}{4}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{-3\\pi }}{4}{/tex}",
+          "correct_option_ids": [
+            191594
+          ],
+          "explanation": "{tex}{\\tan ^{ - 1}}( - 2) + {\\tan ^{ - 1}}( - 3){/tex} as we know; {tex}\\tan^{-1} x+ \\tan^{-1} y = -\\pi + tan^{-1}(\\frac{x+y}{1-xy}) \\; if \\; xy>1, x<0,y<0{/tex} {tex}= -\\pi + {\\tan ^{ - 1}}\\left( {\\frac{{ - 2 + ( - 3)}}{{1 - ( - 2)( - 3)}}} \\right){/tex} {tex} = -\\pi + {\\tan ^{ - 1}}\\left( {\\frac{{( - 5)}}{{( - 5)}}} \\right) = -\\pi + {\\tan ^{ - 1}}(1) = -\\pi + \\frac{\\pi }{4} = \\frac{-3\\pi }{4}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59102,
+          "question_text": "The number of solutions of the equation {tex}{\\sin ^{ - 1}}x - {\\cos ^{ - 1}}x = {\\sin ^{ - 1}}\\left( {\\frac{1}{2}} \\right){/tex} is",
+          "question_html": "<p>The number of solutions of the equation <span class=\"math-tex\">{tex}{\\sin ^{ - 1}}x - {\\cos ^{ - 1}}x = {\\sin ^{ - 1}}\\left( {\\frac{1}{2}} \\right){/tex}</span>is</p>",
+          "options": [
+            {
+              "id": 191598,
+              "text": "Infinite.",
+              "html": "Infinite.",
+              "is_correct": false
+            },
+            {
+              "id": 191595,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            },
+            {
+              "id": 191597,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            },
+            {
+              "id": 191596,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            191595
+          ],
+          "explanation": "{tex}{\\sin ^{ - 1}}x - {\\cos ^{ - 1}}x = {\\sin ^{ - 1}}\\frac{1}{2}{/tex} {tex} \\Rightarrow {\\sin ^{ - 1}}x - {\\cos ^{ - 1}}x = \\frac{\\pi }{6}{/tex} {tex} \\Rightarrow {\\sin ^{ - 1}}x - \\left( {\\frac{\\pi }{2} - {{\\sin }^{ - 1}}x} \\right) = \\frac{\\pi }{6}{/tex} {tex} \\Rightarrow 2{\\sin ^{ - 1}}x = \\frac{\\pi }{6} + \\frac{\\pi }{2} = \\frac{{2\\pi }}{3}{/tex} {tex} \\Rightarrow {\\sin ^{ - 1}}x = \\frac{\\pi }{3} \\Rightarrow x = \\frac{{\\sqrt 3 }}{2}{/tex} Hence, there is only one solution",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59103,
+          "question_text": "Domain of f(x) = {tex}{\\sin ^{ - 1}}x - se{c^{ - 1}}x\\;{/tex} is",
+          "question_html": "<p>Domain of f(x) = <span class=\"math-tex\">{tex}{\\sin ^{ - 1}}x - se{c^{ - 1}}x\\;{/tex}</span>is</p>",
+          "options": [
+            {
+              "id": 191602,
+              "text": "{ 0, -1}",
+              "html": "{ 0, -1}",
+              "is_correct": false
+            },
+            {
+              "id": 191601,
+              "text": "0 or 1",
+              "html": "0 or 1",
+              "is_correct": false
+            },
+            {
+              "id": 191599,
+              "text": "{ -1 ,1}",
+              "html": "{ -1 ,1}",
+              "is_correct": true
+            },
+            {
+              "id": 191600,
+              "text": "{ 0, 1}",
+              "html": "{ 0, 1}",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{ -1 ,1}",
+          "correct_option_ids": [
+            191599
+          ],
+          "explanation": "Since, Domain of {tex}{\\sin ^{ - 1}}x{/tex} is [ -1,1 ] and domain of {tex}\\sec ^{ - 1}x{/tex} is R - ( -1,1 ), D f = { -1,1 }.",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59104,
+          "question_text": "The number of solutions of the equation {tex}{\\cos ^{ - 1}}(1 - x) - 2{\\cos ^{ - 1}}x = \\frac{\\pi }{2}{/tex} is",
+          "question_html": "<p>The number of solutions of the equation <span class=\"math-tex\">{tex}{\\cos ^{ - 1}}(1 - x) - 2{\\cos ^{ - 1}}x = \\frac{\\pi }{2}{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 191605,
+              "text": "more than one",
+              "html": "more than one",
+              "is_correct": false
+            },
+            {
+              "id": 191606,
+              "text": "None of these.",
+              "html": "None of these.",
+              "is_correct": false
+            },
+            {
+              "id": 191603,
+              "text": "One",
+              "html": "One",
+              "is_correct": true
+            },
+            {
+              "id": 191604,
+              "text": "two",
+              "html": "two",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "One",
+          "correct_option_ids": [
+            191603
+          ],
+          "explanation": "As no value of x in ( 0, 1) can satisfy the given equation.Thus, the given equation has only one solution.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59105,
+          "question_text": "{tex}{\\tan ^{ - 1}}\\frac{1}{4} + {\\tan ^{ - 1}}\\frac{2}{9} = {/tex}",
+          "question_html": "<p><span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\frac{1}{4} + {\\tan ^{ - 1}}\\frac{2}{9} = {/tex}</span></p>",
+          "options": [
+            {
+              "id": 191608,
+              "text": "{tex}\\frac{1}{2}{\\sin ^{ - 1}}\\frac{3}{5}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{\\sin ^{ - 1}}\\frac{3}{5}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191609,
+              "text": "{tex}\\frac{1}{2}{\\tan ^{ - 1}}\\frac{3}{5}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{\\tan ^{ - 1}}\\frac{3}{5}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191610,
+              "text": "{tex}\\frac{1}{2}{\\tan ^{ - 1}}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{\\tan ^{ - 1}}\\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191607,
+              "text": "{tex}\\frac{1}{2}{\\cos ^{ - 1}}\\frac{3}{5}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{\\cos ^{ - 1}}\\frac{3}{5}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{2}{\\cos ^{ - 1}}\\frac{3}{5}{/tex}",
+          "correct_option_ids": [
+            191607
+          ],
+          "explanation": "{tex}{\\tan ^{ - 1}}\\left( {\\frac{1}{4}} \\right) + {\\tan ^{ - 1}}\\left( {\\frac{2}{9}} \\right) = {\\tan ^{ - 1}}\\left( {\\frac{{\\frac{1}{4} + \\frac{2}{9}}}{{1 - \\frac{1}{4}.\\frac{2}{9}}}} \\right){/tex} {tex}={\\tan ^{ - 1}}\\left( {\\frac{{17}}{{34}}} \\right) = {\\tan ^{ - 1}}\\left( {\\frac{1}{2}} \\right) = \\frac{1}{2}(2{\\tan ^{ - 1}}\\left( {\\frac{1}{2}} \\right)){/tex} {tex} \\Rightarrow \\frac{1}{2}{\\cos ^{ - 1}}\\left( {\\frac{{1 - {{\\left( {\\frac{1}{2}} \\right)}^2}}}{{1 + {{\\left( {\\frac{1}{2}} \\right)}^2}}}} \\right) = \\frac{1}{2}{\\cos ^{ - 1}}\\left( {\\frac{3}{5}} \\right),{/tex} {tex}\\left\\{ {\\because \\;2{{\\tan }^{ - 1}}x = {{\\cos }^{ - 1}}\\frac{{1 - {x^2}}}{{1 + {x^2}}}} \\right\\}{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59106,
+          "question_text": "{tex}\\cos \\left( {{{\\cos }^{ - 1}}\\left( {\\frac{7}{{25}}} \\right)} \\right) = {/tex}",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\cos \\left( {{{\\cos }^{ - 1}}\\left( {\\frac{7}{{25}}} \\right)} \\right) = {/tex}</span></p>",
+          "options": [
+            {
+              "id": 191613,
+              "text": "{tex}\\frac{{24}}{{25}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{24}}{{25}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191611,
+              "text": "None of these",
+              "html": "None of these",
+              "is_correct": true
+            },
+            {
+              "id": 191614,
+              "text": "{tex}\\frac{{25}}{{24}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{25}}{{24}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191612,
+              "text": "{tex}\\frac{{25}}{7}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{25}}{7}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "None of these",
+          "correct_option_ids": [
+            191611
+          ],
+          "explanation": "We know that {tex}cos : [0,1] \\rightarrow [-1,1]{/tex} is bijective function {tex}\\Rightarrow cos^{-1}:[-1,1]\\rightarrow [0,1]{/tex} is inverse of cos function. . {tex}\\Rightarrow \\cos ({\\cos ^{ - 1}}x)\\,\\, = x{/tex} when {tex}x \\in [-1,1]{/tex} here, {tex}cos ({\\cos ^{ - 1}}\\frac{7}{{25}})\\, = \\frac{7}{{25}},\\,\\,\\,\\,\\,\\,\\,\\,\\,\\frac{7}{{25}}\\, \\in [ - 1,1\\,]{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59107,
+          "question_text": "{tex}4{\\tan ^{ - 1}}\\left( {\\frac{1}{5}} \\right) - {\\tan ^{ - 1}}\\left( {\\frac{1}{{239}}} \\right) = {/tex}",
+          "question_html": "<p><span class=\"math-tex\">{tex}4{\\tan ^{ - 1}}\\left( {\\frac{1}{5}} \\right) - {\\tan ^{ - 1}}\\left( {\\frac{1}{{239}}} \\right) = {/tex}</span></p>",
+          "options": [
+            {
+              "id": 191615,
+              "text": "{tex}\\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191616,
+              "text": "{tex}\\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191618,
+              "text": "{tex}\\pi {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191617,
+              "text": "{tex}\\frac{\\pi }{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{3}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{\\pi }{4}{/tex}",
+          "correct_option_ids": [
+            191615
+          ],
+          "explanation": "{tex}4{\\tan ^{ - 1}}\\frac{1}{5} - {\\tan ^{ - 1}}\\frac{1}{{239}}{/tex} {tex} = 2\\left( {2{{\\tan }^{ - 1}}\\frac{1}{5}} \\right) - {\\tan ^{ - 1}}\\frac{1}{{239}}{/tex} {tex} = 2\\left( {2{{\\tan }^{ - 1}}\\frac{{2.\\frac{1}{5}}}{{1 - \\frac{1}{{25}}}}} \\right) - {\\tan ^{ - 1}}\\frac{1}{{239}}{/tex} {tex} = 2{\\tan ^{ - 1}}\\frac{5}{{12}} - {\\tan ^{ - 1}}\\frac{1}{{239}}{/tex} {tex} = 2{\\tan ^{ - 1}}\\frac{{2.\\frac{5}{{12}}}}{{1 - \\frac{{25}}{{144}}}} - {\\tan ^{ - 1}}\\frac{1}{{239}}{/tex} {tex} \\Rightarrow {\\tan ^{ - 1}}\\frac{{120}}{{119}} - {\\tan ^{ - 1}}\\frac{1}{{239}}{/tex} {tex} \\Rightarrow {\\tan ^{ - 1}}\\left( {\\frac{{\\frac{{120}}{{119}} - \\frac{1}{{239}}}}{{1 + \\frac{{120}}{{119}}.\\frac{1}{{239}}}}} \\right){/tex} {tex}=tan^{-1}(1)=\\frac{\\pi}{4}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59108,
+          "question_text": "{tex}{\\sin ^{ - 1}}\\left( {\\frac{1}{{\\sqrt 5 }}} \\right) + {\\cot ^{ - 1}}(3) = {/tex}",
+          "question_html": "<p><span class=\"math-tex\">{tex}{\\sin ^{ - 1}}\\left( {\\frac{1}{{\\sqrt 5 }}} \\right) + {\\cot ^{ - 1}}(3) = {/tex}</span></p>",
+          "options": [
+            {
+              "id": 191619,
+              "text": "{tex}\\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191621,
+              "text": "{tex}\\frac{\\pi }{6}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{6}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191620,
+              "text": "{tex}\\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191622,
+              "text": "{tex}\\frac{\\pi }{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{3}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{\\pi }{4}{/tex}",
+          "correct_option_ids": [
+            191619
+          ],
+          "explanation": "{tex}si{n^{ - 1}}\\left( {\\frac{1}{{\\sqrt 5 }}} \\right) + co{t^{ - 1}}(3){/tex} {tex} \\Rightarrow {\\tan ^{ - 1}}\\left( {\\frac{1}{2}} \\right) + ta{n^{ - 1}}\\left( {\\frac{1}{3}} \\right){/tex} because {tex}\\,\\frac{1}{2}.\\frac{1}{3} < 1{/tex} {tex} \\Rightarrow {\\tan ^{ - 1}}\\left( {\\frac{{\\left( {\\frac{1}{2}} \\right) + \\left( {\\frac{1}{3}} \\right)}}{{1 - \\left( {\\frac{1}{2}} \\right)\\left( {\\frac{1}{3}} \\right)}}} \\right){/tex} {tex}\\Rightarrow {\\tan ^{ - 1}}(1) = \\frac{\\pi }{4}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59109,
+          "question_text": "The solution of the equation {tex}{\\cos ^{ - 1}}(\\sqrt 3 x) + {\\cos ^{ - 1}}x = \\frac{\\pi }{2}{/tex} is given by",
+          "question_html": "<p>The solution of the equation <span class=\"math-tex\">{tex}{\\cos ^{ - 1}}(\\sqrt 3 x) + {\\cos ^{ - 1}}x = \\frac{\\pi }{2}{/tex}</span>&nbsp;is given by</p>",
+          "options": [
+            {
+              "id": 191626,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 191624,
+              "text": "{tex} - \\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191623,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191625,
+              "text": "{tex} \\pm \\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} \\pm \\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{2}{/tex}",
+          "correct_option_ids": [
+            191623
+          ],
+          "explanation": "{tex}{\\cos ^{ - 1}}(\\sqrt 3 x) + {\\cos ^{ - 1}}x = \\frac{\\pi }{2}{/tex} {tex} \\Rightarrow {\\cos ^{ - 1}}(\\sqrt 3 x) = \\frac{\\pi }{2} - {\\cos ^{ - 1}}x = ({\\sin ^{ - 1}}x){/tex} {tex} \\Rightarrow \\sqrt 3 x = \\cos ({\\sin ^{ - 1}}x) = \\sqrt {1 - {x^2}} {/tex} {tex} \\Rightarrow 3{x^2} = 1 - {x^2} \\Rightarrow x = \\pm \\frac{1}{2}{/tex} x= - {tex}\\frac{1}{2}{/tex} does not satisfy the given equation. Consider {tex}{\\cos ^{ - 1}}\\left( {\\frac{{ - \\sqrt 3 }}{2}} \\right) + \\,{\\sin ^{ - 1}}\\left( {\\frac{{ - 1}}{2}} \\right){/tex} {tex}\\Rightarrow \\frac{{2\\pi }}{3} - \\frac{\\pi }{3}\\, = \\frac{\\pi }{3}{/tex} ,which does not satisfy given equation",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59110,
+          "question_text": "If {tex}{\\cos ^{ - 1}}x + {\\sin ^{ - 1}}\\left( {\\frac{x}{2}} \\right) = \\frac{\\pi }{6},{/tex} then x =",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}{\\cos ^{ - 1}}x + {\\sin ^{ - 1}}\\left( {\\frac{x}{2}} \\right) = \\frac{\\pi }{6},{/tex}</span> then x =</p>",
+          "options": [
+            {
+              "id": 191630,
+              "text": "{tex} \\pm \\sqrt {3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} \\pm \\sqrt {3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191627,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            },
+            {
+              "id": 191629,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 191628,
+              "text": "{tex}\\frac{1}{{\\sqrt 2 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{\\sqrt 2 }}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            191627
+          ],
+          "explanation": "{tex}{\\cos ^{ - 1}}x + {\\sin ^{ - 1}}\\left( {\\frac{x}{2}} \\right) = \\frac{\\pi }{6}{/tex} , {tex} \\Rightarrow {\\sin ^{ - 1}}\\left( {\\frac{x}{2}} \\right) = \\frac{\\pi }{6} - {\\cos ^{ - 1}}x{/tex} {tex} \\Rightarrow \\left( {\\frac{x}{2}} \\right) = \\sin \\left( {\\frac{\\pi }{6} - {{\\cos }^{ - 1}}x} \\right){/tex} {tex} \\Rightarrow \\frac{x}{2} = \\frac{1}{2}.x - \\frac{{\\sqrt 3 }}{2}\\sin ({\\cos ^{ - 1}}x){/tex} {tex}\\Rightarrow \\sin ({\\cos ^{ - 1}}x) = 0{/tex} {tex}\\Rightarrow \\sqrt{1-x^2}=0{/tex} {tex}{\\sqrt {1 - {x^2}} {\\mkern 1mu} {\\mkern 1mu} = 0}{/tex} {tex}{ \\Rightarrow {\\mkern 1mu} {\\mkern 1mu} 1 - {x^2}{\\mkern 1mu} = 0{\\mkern 1mu} {\\mkern 1mu} {\\mkern 1mu} {\\mkern 1mu} \\Rightarrow {\\mkern 1mu} {\\mkern 1mu} x = \\pm 1}{/tex} {tex}{x = - 1{\\mkern 1mu} not \\;possible{\\mkern 1mu} {\\mkern 1mu} {\\mkern 1mu} {\\mkern 1mu} {{\\cos }^{ - 1}}\\left( { - 1} \\right){\\mkern 1mu} {\\mkern 1mu} + {{\\sin }^{ - 1}}\\left( {\\frac{{ - 1}}{2}} \\right){\\mkern 1mu} {\\mkern 1mu} = {\\mkern 1mu} {\\mkern 1mu} \\pi + \\frac{{5\\pi }}{6}{\\mkern 1mu} \\ne \\frac{\\pi }{6}}{/tex} {tex}{{\\mkern 1mu} \\therefore {\\mkern 1mu} x = 1}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59111,
+          "question_text": "If {tex}{\\tan ^{ - 1}}x + {\\tan ^{ - 1}}\\frac{1}{7} = \\frac{\\pi }{4}{/tex} , then x =",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}{\\tan ^{ - 1}}x + {\\tan ^{ - 1}}\\frac{1}{7} = \\frac{\\pi }{4}{/tex}</span>, then x =</p>",
+          "options": [
+            {
+              "id": 191633,
+              "text": "{tex}\\frac{4}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{4}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191634,
+              "text": "{tex}\\frac{7}{6}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{7}{6}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191631,
+              "text": "{tex}\\frac{3}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{4}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191632,
+              "text": "{tex}\\frac{6}{7}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{6}{7}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{3}{4}{/tex}",
+          "correct_option_ids": [
+            191631
+          ],
+          "explanation": "Given that : {tex}{\\tan ^{ - 1}}x = \\frac{\\pi }{4} - {\\tan ^{ - 1}}\\left( {\\frac{1}{7}} \\right){/tex} {tex}\\\\{\\tan ^{ - 1}}x={\\tan ^{ - 1}}1-{\\tan ^{ - 1}}(\\frac{1}{7}){/tex} since {tex}(1.\\frac{1}{7})<1{/tex} {tex}{\\tan ^{ - 1}}x ={\\tan ^{ - 1}}(\\frac{{1 - \\frac{1}{7}}}{{1 + \\frac{1}{7}}}) ={\\tan ^{ - 1}}\\frac{6}{8} ={\\tan ^{ - 1}} \\frac{3}{4}{/tex} {tex}{\\tan ^{ - 1}}x ={\\tan ^{ - 1}}\\frac{3}{4} {/tex} {tex}\\therefore\\,\\,x=\\frac{3}{4} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59112,
+          "question_text": "tan -1 3 - tan -1 2 =",
+          "question_html": "<p>tan<sup>-1</sup>3 - tan<sup>-1</sup>2 =&nbsp;</p>",
+          "options": [
+            {
+              "id": 191636,
+              "text": "{tex}{\\tan ^{ - 1}}\\left( {\\frac{2}{3}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\left( {\\frac{2}{3}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191635,
+              "text": "{tex}{\\tan ^{ - 1}}\\left( {\\frac{1}{7}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\left( {\\frac{1}{7}} \\right){/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191638,
+              "text": "{tex}{\\tan ^{ - 1}}\\left( {\\frac{1}{5}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\left( {\\frac{1}{5}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191637,
+              "text": "{tex}{\\tan ^{ - 1}}\\left( {\\frac{3}{2}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\left( {\\frac{3}{2}} \\right){/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}{\\tan ^{ - 1}}\\left( {\\frac{1}{7}} \\right){/tex}",
+          "correct_option_ids": [
+            191635
+          ],
+          "explanation": "{tex}{\\tan ^{ - 1}}(3)\\, - \\,{\\tan ^{ - 1}}(2){/tex} {tex}{\\cot ^{ - 1}}\\left( {\\frac{1}{3}} \\right) - {\\cot ^{ - 1}}\\left( {\\frac{1}{2}} \\right)\\,\\,\\,\\,\\,\\,2.3 = 6\\, > 1{/tex} {tex}\\Rightarrow \\,\\,\\frac{\\pi }{2} - \\,{\\tan ^{ - 1}}\\left( {\\frac{1}{3}} \\right) - \\frac{\\pi }{2} + {\\tan ^{ - 1}}\\left( {\\frac{1}{2}} \\right)\\,\\,\\,\\,\\,\\,\\,\\,\\,\\,\\,[as\\;{\\tan ^{ - 1}}x + {\\cot ^{ - 1}}x\\, = \\,\\frac{\\pi }{2}]{/tex} {tex} \\Rightarrow \\,\\,\\left[ {{{\\tan }^{ - 1}}\\left( {\\frac{1}{2}} \\right) - {{\\tan }^{ - 1}}\\left( {\\frac{1}{3}} \\right)} \\right]{/tex} {tex} \\Rightarrow \\,{\\tan ^{ - 1}}\\left[ {\\frac{{\\left( {\\frac{1}{2}} \\right) - \\left( {\\frac{1}{3}} \\right)}}{{1 + \\left( {\\frac{1}{2}} \\right)\\left( {\\frac{1}{3}} \\right)}}} \\right]\\,\\,\\, = {\\tan ^{ - 1}}\\left( {\\frac{{1/6}}{{7/6}}} \\right)\\,\\, = {\\tan ^{ - 1}}\\left( {\\frac{1}{7}} \\right){/tex}",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59113,
+          "question_text": "The value of cos -1 (-1) - sin -1 (1) is",
+          "question_html": "<p>The value of cos<sup>-1</sup>(-1) - sin<sup>-1</sup>(1)&nbsp;is</p>",
+          "options": [
+            {
+              "id": 191639,
+              "text": "{tex}\\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191641,
+              "text": "{tex}\\pi {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191642,
+              "text": "{tex}\\frac{{3\\pi }}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{3\\pi }}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191640,
+              "text": "{tex} - \\frac{{3\\pi }}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{{3\\pi }}{2}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{\\pi }{2}{/tex}",
+          "correct_option_ids": [
+            191639
+          ],
+          "explanation": "Let {tex}{\\cos ^{ - 1}}\\left( { - 1} \\right) = A\\,\\,\\, \\Rightarrow \\cos A = - 1\\,\\,\\,\\, \\Rightarrow \\,\\cos A = \\cos \\pi \\,\\,\\therefore A = \\pi {/tex} and {tex}{\\sin ^{ - 1}}\\left( 1 \\right)\\, = B\\,\\, \\Rightarrow \\,\\,\\sin B = 1\\,\\, \\Rightarrow \\,\\,\\sin B = \\sin \\left( {\\frac{\\pi }{2}} \\right){/tex} {tex}\\therefore \\,B = \\left( {\\frac{\\pi }{2}} \\right){/tex} {tex}\\therefore {\\cos ^{ - 1}}\\left( { - 1} \\right) - {\\sin ^{ - 1}}\\left( 1 \\right) = \\pi - \\frac{\\pi }{2}\\,\\, = \\frac{\\pi }{2}{/tex} .Which is the required solution.",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59114,
+          "question_text": "If {tex}3{\\sin ^{ - 1}}\\left( {\\frac{{2x}}{{1 + {x^2}}}} \\right) - 4{\\cos ^{ - 1}}\\left( {\\frac{{1 - {x^2}}}{{1 + {x^2}}}} \\right) + 2{\\tan ^{ - 1}}\\left( {\\frac{{2x}}{{1 - {x^2}}}} \\right) = \\frac{\\pi }{3}{/tex} . Then, x =",
+          "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}3{\\sin ^{ - 1}}\\left( {\\frac{{2x}}{{1 + {x^2}}}} \\right) - 4{\\cos ^{ - 1}}\\left( {\\frac{{1 - {x^2}}}{{1 + {x^2}}}} \\right) + 2{\\tan ^{ - 1}}\\left( {\\frac{{2x}}{{1 - {x^2}}}} \\right) = \\frac{\\pi }{3}{/tex}</span>. Then, x =</p>",
+          "options": [
+            {
+              "id": 191645,
+              "text": "{tex}1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191646,
+              "text": "{tex}\\frac{1}{{\\sqrt 2 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{\\sqrt 2 }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191643,
+              "text": "{tex}\\frac{1}{{\\sqrt 3 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{\\sqrt 3 }}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191644,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{{\\sqrt 3 }}{/tex}",
+          "correct_option_ids": [
+            191643
+          ],
+          "explanation": "We have to find: {tex}3{\\sin ^{ - 1}}\\left( {\\frac{{2x}}{{1 + {x^2}}}} \\right) - 4{\\cos ^{ - 1}}\\left( {\\frac{{1 - {x^2}}}{{1 + {x^2}}}} \\right) + 2{\\tan ^{ - 1}}\\left( {\\frac{{2x}}{{1 - {x^2}}}} \\right) = \\frac{\\pi }{3}{/tex} Put x = tan {tex}\\theta{/tex} {tex}3{\\sin ^{ - 1}}\\left( {\\frac{{2\\tan \\theta }}{{1 + {{\\tan }^2}\\theta }}} \\right) - 4{\\cos ^{ - 1}}\\left( {\\frac{{1 - {{\\tan }^2}\\theta }}{{1 + {{\\tan }^2}\\theta }}} \\right) + 2{\\tan ^{ - 1}}\\left( {\\frac{{2\\tan \\theta }}{{1 - {{\\tan }^2}\\theta }}} \\right)\\,\\, = \\frac{\\pi }{3}{/tex} {tex}3{\\sin ^{ - 1}}(\\sin 2\\theta )\\, - 4{\\cos ^{ - 1}}(\\cos 2\\theta ) + 2{\\tan ^{ - 1}}\\left( {\\tan 2\\theta } \\right)\\, = \\frac{\\pi }{3}{/tex} {tex}3.2\\theta \\, - 4.2\\theta \\, + 2.2\\theta \\, = \\,\\frac{\\pi }{3}\\,\\,\\,\\, \\Rightarrow 2\\theta = \\frac{\\pi }{3}\\,\\,\\, \\Rightarrow \\theta = \\frac{\\pi }{6}{/tex} {tex}\\therefore \\,\\,{\\tan ^{ - 1}}x = \\frac{\\pi }{6}\\,\\,\\,\\, \\Rightarrow \\,\\,x = \\tan \\left( {\\frac{\\pi }{6}} \\right)\\,\\, = \\frac{1}{{\\sqrt 3 }}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59115,
+          "question_text": "{tex}{\\cot ^{ - 1}}\\left( {\\frac{5}{3}} \\right) + {\\cot^{ - 1}}\\left( {\\frac{4}{5}} \\right) = {/tex}",
+          "question_html": "<p><span class=\"math-tex\">{tex}{\\cot ^{ - 1}}\\left( {\\frac{5}{3}} \\right) + {\\cot^{ - 1}}\\left( {\\frac{4}{5}} \\right) = {/tex}</span></p>",
+          "options": [
+            {
+              "id": 191647,
+              "text": "{tex}{\\tan ^{ - 1}}\\left( {\\frac{{37}}{{5}}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\left( {\\frac{{37}}{{5}}} \\right){/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191649,
+              "text": "{tex}{\\cot ^{ - 1}}\\left( {\\frac{{27}}{{11}}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\cot ^{ - 1}}\\left( {\\frac{{27}}{{11}}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191648,
+              "text": "{tex}{\\cos ^{ - 1}}\\left( {\\frac{{27}}{{2\\sqrt {38} }}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\cos ^{ - 1}}\\left( {\\frac{{27}}{{2\\sqrt {38} }}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191650,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}{\\tan ^{ - 1}}\\left( {\\frac{{37}}{{5}}} \\right){/tex}",
+          "correct_option_ids": [
+            191647
+          ],
+          "explanation": "{tex}{\\cot ^{ - 1}}\\left( {\\frac{5}{3}} \\right) =tan^{-1}(\\frac{3}{5}){/tex} and {tex}{\\cot ^{ - 1}}\\left( {\\frac{4}{5}} \\right) =tan^{-1}(\\frac{5}{4}) {/tex} {tex}{\\cot ^{ - 1}}\\left( {\\frac{5}{3}} \\right) + {\\cot^{ - 1}}\\left( {\\frac{4}{5}} \\right) \\Rightarrow {\\tan ^{ - 1}}\\left( {\\frac{3}{5}} \\right) + {\\tan ^{ - 1}}\\left( {\\frac{5}{4}} \\right) \\Rightarrow {\\tan ^{ - 1}}\\left( {\\frac{{\\left( {\\frac{3}{5}} \\right) + \\left( {\\frac{5}{4}} \\right)}}{{1 - \\left( {\\frac{3}{5}} \\right)\\left( {\\frac{5}{4}} \\right)}}} \\right){/tex} {tex}\\Rightarrow tan^{-1}(\\frac{37}{5}){/tex} .",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3597,
+      "test_name": "Inverse Trigonometric Functions Test-05",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59116,
+          "question_text": "The values of x which satisfy the trigonometric equation {tex}{\\tan ^{ - 1}}\\left( {\\frac{{x - 1}}{{x - 2}}} \\right) + {\\tan ^{ - 1}}\\left( {\\frac{{x + 1}}{{x + 2}}} \\right) = \\frac{\\pi }{4}{/tex} are :",
+          "question_html": "<p>The values of x which satisfy the trigonometric equation <span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\left( {\\frac{{x - 1}}{{x - 2}}} \\right) + {\\tan ^{ - 1}}\\left( {\\frac{{x + 1}}{{x + 2}}} \\right) = \\frac{\\pi }{4}{/tex}</span> are :</p>",
+          "options": [
+            {
+              "id": 191652,
+              "text": "{tex} \\pm \\sqrt 2 {/tex}",
+              "html": "<span class=\"math-tex\">{tex} \\pm \\sqrt 2 {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191651,
+              "text": "{tex} \\pm \\frac{1}{{\\sqrt 2 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} \\pm \\frac{1}{{\\sqrt 2 }}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191654,
+              "text": "{tex} \\pm 2{/tex}",
+              "html": "<span class=\"math-tex\">{tex} \\pm 2{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191653,
+              "text": "{tex} \\pm \\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} \\pm \\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex} \\pm \\frac{1}{{\\sqrt 2 }}{/tex}",
+          "correct_option_ids": [
+            191651
+          ],
+          "explanation": "{tex}{\\tan ^{ - 1}}\\left( {\\frac{{x - 1}}{{x - 2}}} \\right)\\, + \\,\\,{\\tan ^{ - 1}}\\left( {\\frac{{x + 1}}{{x + 2}}} \\right)\\,\\, = \\frac{\\pi }{4}{/tex} {tex}{\\tan ^{ - 1}}\\left[ {\\frac{{\\left( {\\frac{{x - 1}}{{x - 2}}} \\right)\\, + \\left( {\\frac{{x + 1}}{{x + 2}}} \\right)}}{{1 - \\left( {\\frac{{x - 1}}{{x - 2}}} \\right)\\left( {\\frac{{x + 1}}{{x + 2}}} \\right)}}} \\right]\\,\\,\\,\\,\\, = \\,\\frac{\\Pi }{4}{/tex} {tex}{\\tan ^{ - 1}}\\left[ {\\frac{{\\left( {x - 1} \\right)\\,\\left( {x + 2} \\right) + \\left( {x + 1} \\right)\\left( {x - 2} \\right)}}{{\\left( {x - 2} \\right)\\left( {x + 2} \\right) - \\left( {x + 1} \\right)\\left( {x - 1} \\right)}}} \\right]\\,\\,\\, = \\,\\frac{\\Pi }{4}{/tex} {tex}\\left( {\\frac{{{x^2}\\, + x - 2 + {x^2} - x - 2}}{{{x^2}\\, - 4 - {x^2} + 1}}} \\right)\\, = {\\tan ^{ - 1}}\\left( {\\frac{\\Pi }{4}} \\right){/tex} {tex}\\left( {\\frac{{2{x^2} - 4}}{{ - 3}}} \\right)\\, = \\,1{/tex} {tex}\\therefore \\,\\,2{x^2} - 4 = - 3{/tex} {tex} \\Rightarrow \\,\\,\\,2{x^2} = \\,1{/tex} {tex}x = \\pm \\frac{1}{\\sqrt 2 }{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59117,
+          "question_text": "{tex}{\\cot ^{ - 1}}\\left( {\\frac{{ab + 1}}{{a - b}}} \\right) + {\\cot ^{ - 1}}\\left( {\\frac{{bc + 1}}{{b - c}}} \\right) + {\\cot ^{ - 1}}\\left( {\\frac{{ca + 1}}{{c - a}}} \\right) = {/tex}",
+          "question_html": "<p><span class=\"math-tex\">{tex}{\\cot ^{ - 1}}\\left( {\\frac{{ab + 1}}{{a - b}}} \\right) + {\\cot ^{ - 1}}\\left( {\\frac{{bc + 1}}{{b - c}}} \\right) + {\\cot ^{ - 1}}\\left( {\\frac{{ca + 1}}{{c - a}}} \\right) = {/tex}</span></p>",
+          "options": [
+            {
+              "id": 191657,
+              "text": "-1",
+              "html": "-1",
+              "is_correct": false
+            },
+            {
+              "id": 191656,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 191658,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 191655,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            191655
+          ],
+          "explanation": "we know that {tex}{\\cot ^{ - 1}}\\left[ {\\frac{{xy + 1}}{{x - y}}} \\right]\\,\\, = {\\cot ^{ - 1}}x - {\\cot ^{ - 1}}y{/tex} {tex}{\\cot ^{ - 1}}\\left( {\\frac{{ab + 1}}{{a - b}}} \\right) + {\\cot ^{ - 1}}\\left( {\\frac{{bc + 1}}{{b - c}}} \\right) + {\\cot ^{ - 1}}\\left( {\\frac{{ca + 1}}{{c - a}}} \\right) {/tex} = cot -1 a - cot -1 b + cot -1 b - cot -1 c + cot -1 c - cot -1 a = 0",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59118,
+          "question_text": "The value of sin {tex}\\left( {2{{\\cos }^{ - 1}}\\left( { - \\frac{3}{5}} \\right)} \\right){/tex} is",
+          "question_html": "<p>The value of sin<span class=\"math-tex\">{tex}\\left( {2{{\\cos }^{ - 1}}\\left( { - \\frac{3}{5}} \\right)} \\right){/tex}</span>&nbsp;is</p>",
+          "options": [
+            {
+              "id": 191662,
+              "text": "{tex}-\\frac{7}{{25}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}-\\frac{7}{{25}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191659,
+              "text": "{tex} - \\frac{{24}}{{25}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{{24}}{{25}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191660,
+              "text": "{tex}\\frac{{24}}{{25}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{24}}{{25}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191661,
+              "text": "{tex}\\frac{7}{{25}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{7}{{25}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex} - \\frac{{24}}{{25}}{/tex}",
+          "correct_option_ids": [
+            191659
+          ],
+          "explanation": "put {tex}\\;{\\cos ^{ - 1}}\\left( { - \\frac{3}{5}} \\right) = \\theta \\implies\\cos \\theta \\; = - \\frac{3}{5}\\;{/tex} therefore the given expression is {tex}\\;\\sin 2\\theta \\; = 2sin\\theta cos\\theta = \\frac{{2.4}}{5}.\\left( { - \\frac{3}{5}} \\right) = \\left( { - \\frac{{24}}{{25}}} \\right).\\;{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59119,
+          "question_text": "tan(sin -1 x) is equal to",
+          "question_html": "<p>tan(sin<sup>-1</sup>x)&nbsp;is equal to</p>",
+          "options": [
+            {
+              "id": 191663,
+              "text": "{tex}\\frac{x}{{\\sqrt {1 - {x^2}} }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{x}{{\\sqrt {1 - {x^2}} }}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191666,
+              "text": "{tex}\\frac{x}{{\\sqrt {1 + {x^2}} }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{x}{{\\sqrt {1 + {x^2}} }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191664,
+              "text": "{tex}\\frac{{ - x}}{{\\sqrt {1 - {x^2}} }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{ - x}}{{\\sqrt {1 - {x^2}} }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191665,
+              "text": "{tex}\\frac{{\\left| x \\right|}}{{\\sqrt {1 - {x^2}} }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{\\left| x \\right|}}{{\\sqrt {1 - {x^2}} }}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{x}{{\\sqrt {1 - {x^2}} }}{/tex}",
+          "correct_option_ids": [
+            191663
+          ],
+          "explanation": "Put {tex}{\\sin ^{ - 1}}x = \\theta \\Rightarrow x = \\sin \\theta{/tex} {tex} \\Rightarrow \\sin \\theta = \\frac{x}{1} = \\frac{{Perp.}}{{Hyp.}} {/tex} {tex}\\tan({\\sin ^{ - 1}}x)=\\tan \\theta = \\frac{{Perp.}}{{Base.}} = \\frac{x}{{\\sqrt {1 - {x^2}} }}.{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59120,
+          "question_text": "cot(cos -1 x ) is equal to",
+          "question_html": "<p>cot(cos<sup>-1</sup>x ) is equal to</p>",
+          "options": [
+            {
+              "id": 191668,
+              "text": "{tex}\\frac{{\\left| x \\right|}}{{\\sqrt {1 - {x^2}} }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{\\left| x \\right|}}{{\\sqrt {1 - {x^2}} }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191669,
+              "text": "{tex}\\frac{{ - x}}{{\\sqrt {1 - {x^2}} }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{ - x}}{{\\sqrt {1 - {x^2}} }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191670,
+              "text": "{tex}\\frac{x}{{\\sqrt {1 + {x^2}} }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{x}{{\\sqrt {1 + {x^2}} }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191667,
+              "text": "{tex}\\frac{x}{{\\sqrt {1 - {x^2}} }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{x}{{\\sqrt {1 - {x^2}} }}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{x}{{\\sqrt {1 - {x^2}} }}{/tex}",
+          "correct_option_ids": [
+            191667
+          ],
+          "explanation": "{tex}co{s^{ - 1}}x = \\theta \\Rightarrow x = \\cos \\theta{/tex} {tex}\\Rightarrow \\cos \\theta = \\frac{x}{1} = \\frac{{Base.}}{{Hyp.}}{/tex} {tex}cot(co{s^{ - 1}}x) = \\cot \\theta = \\frac{{Base.}}{{Perp.}} = \\frac{x}{{\\sqrt {1 - {x^2}} }}.{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59121,
+          "question_text": "cos( tan -1 x) is equal to",
+          "question_html": "<p>cos( tan<sup>-1</sup>x) is equal to</p>",
+          "options": [
+            {
+              "id": 191671,
+              "text": "{tex}\\frac{1}{{\\sqrt {1 + {x^2}} }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{\\sqrt {1 + {x^2}} }}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191672,
+              "text": "{tex} - \\frac{1}{{\\sqrt {1 + {x^2}} }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{1}{{\\sqrt {1 + {x^2}} }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191674,
+              "text": "{tex}-\\frac{{\\sqrt {1 + {x^2}} }}{x}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}-\\frac{{\\sqrt {1 + {x^2}} }}{x}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191673,
+              "text": "{tex}\\frac{{\\sqrt {1 + {x^2}} }}{x}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{\\sqrt {1 + {x^2}} }}{x}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{{\\sqrt {1 + {x^2}} }}{/tex}",
+          "correct_option_ids": [
+            191671
+          ],
+          "explanation": "Put ,tan -1 x = {tex}\\theta{/tex} {tex}\\Rightarrow{/tex} x= tan {tex}\\theta{/tex} {tex}\\Rightarrow \\tan \\theta = \\frac{x}{1} = \\frac{{Perp.}}{{Base.}} \\Rightarrow \\cos \\theta = \\frac{{Base.}}{{Hyp.}} = \\frac{1}{{\\sqrt {1 + {x^2}} }}.{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59122,
+          "question_text": "{tex}\\tan \\frac{1}{2}\\left[ {{{\\sin }^{ - 1}}\\left( {\\frac{{2x}}{{1 + {x^2}}}} \\right) + {{\\cos }^{ - 1}}\\left( {\\frac{{1 - {y^2}}}{{1 + {y^2}}}} \\right)} \\right]{/tex} is equal to",
+          "question_html": "<p><br />\r\n<span class=\"math-tex\">{tex}\\tan \\frac{1}{2}\\left[ {{{\\sin }^{ - 1}}\\left( {\\frac{{2x}}{{1 + {x^2}}}} \\right) + {{\\cos }^{ - 1}}\\left( {\\frac{{1 - {y^2}}}{{1 + {y^2}}}} \\right)} \\right]{/tex}</span> is equal to&nbsp;</p>",
+          "options": [
+            {
+              "id": 191676,
+              "text": "{tex}\\frac{{x - y}}{{1 + xy}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{x - y}}{{1 + xy}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191677,
+              "text": "{tex}\\frac{1}{2}\\left( {\\frac{{x + y}}{{1 - xy}}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}\\left( {\\frac{{x + y}}{{1 - xy}}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191678,
+              "text": "{tex}\\frac{1}{2}\\left( {\\frac{{x - y}}{{1 + xy}}} \\right).{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}\\left( {\\frac{{x - y}}{{1 + xy}}} \\right).{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191675,
+              "text": "{tex}\\frac{{x + y}}{{1 - xy}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{x + y}}{{1 - xy}}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{x + y}}{{1 - xy}}{/tex}",
+          "correct_option_ids": [
+            191675
+          ],
+          "explanation": "we know that {tex}{\\sin ^{ - 1}}\\left( {\\frac{{2x}}{{1 + {x^2}}}} \\right) = 2{\\tan ^{ - 1}}x\\,\\,\\,\\,\\,and\\,\\,{\\cos ^{ - 1}}\\left( {\\frac{{1 - {y^2}}}{{1 + {y^2}}}} \\right) = 2{\\tan ^{ - 1}}y{/tex} {tex}\\tan \\left\\{ {\\frac{1}{2}{{\\sin }^{ - 1}}\\left( {\\frac{{2x}}{{1 + {x^2}}}} \\right) + \\frac{1}{2}{{\\cos }^{ - 1}}\\left( {\\frac{{1 - {y^2}}}{{1 + {y^2}}}} \\right)} \\right\\}{/tex} {tex}=\\tan \\left\\{ {\\frac{1}{2}.2{{\\tan }^{ - 1}}x + \\frac{1}{2}.2{{\\tan }^{ - 1}}y} \\right\\}{/tex} {tex} = \\tan \\left( {{{\\tan }^{ - 1}}\\left( {\\frac{{x + y}}{{1 - xy}}} \\right)} \\right) = \\frac{{x + y}}{{1 - xy}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59123,
+          "question_text": "If {tex}{\\tan ^{ - 1}}\\frac{{x - 1}}{{x + 1}} + {\\tan ^{ - 1}}\\frac{{2x - 1}}{{2x + 1}} = {\\tan ^{ - 1}}\\frac{{23}}{{36}}{/tex} . Then, x =",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\frac{{x - 1}}{{x + 1}} + {\\tan ^{ - 1}}\\frac{{2x - 1}}{{2x + 1}} = {\\tan ^{ - 1}}\\frac{{23}}{{36}}{/tex}</span>. Then, x =</p>",
+          "options": [
+            {
+              "id": 191681,
+              "text": "{tex}\\frac{4}{3}\\;or\\;\\frac{{ - 3}}{8}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{4}{3}\\;or\\;\\frac{{ - 3}}{8}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191679,
+              "text": "{tex}\\frac{4}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{4}{3}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191682,
+              "text": "{tex}-\\frac{4}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}-\\frac{4}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191680,
+              "text": "{tex}\\frac{{ - 3}}{8}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{ - 3}}{8}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{4}{3}{/tex}",
+          "correct_option_ids": [
+            191679
+          ],
+          "explanation": "{tex}{\\tan ^{ - 1}}\\frac{{x - 1}}{{x + 1}} + {\\tan ^{ - 1}}\\frac{{2x - 1}}{{2x + 1}} = {\\tan ^{ - 1}}\\frac{{23}}{{26}} \\Rightarrow {\\tan ^{ - 1}}\\left( {\\frac{{\\frac{{x - 1}}{{x + 1}} + \\frac{{2x - 1}}{{2x + 1}}}}{{1 - \\frac{{x - 1}}{{x + 1}}.\\frac{{2x - 1}}{{2x + 1}}}}} \\right) = {\\tan ^{ - 1}}\\frac{{23}}{{36}}{/tex} {tex} \\Rightarrow {\\tan ^{ - 1}}\\left( {\\frac{{(2{x^2} + x - 2x - 1) + (2{x^2} - x + 2x - 1)}}{{(2{x^2} + 2x + x - 1) - (2{x^2} - 2x - x - 1)}}} \\right) = {\\tan ^{ - 1}}\\frac{{23}}{{36}}{/tex} {tex} \\Rightarrow {\\tan ^{ - 1}}\\left( {\\frac{{4{x^2} - 2}}{{6x}}} \\right) = {\\tan ^{ - 1}}\\frac{{23}}{{36}} \\Rightarrow \\frac{{4{x^2} - 2}}{{6x}} = \\frac{{23}}{{36}} \\Rightarrow \\frac{{2{x^2} - 1}}{{3x}} = \\frac{{23}}{{36}} \\Rightarrow x = \\frac{4}{3}, - \\frac{3}{8}{/tex} x = {tex}-\\frac{3}{8}{/tex} rejected, as it does not satisfy the equation.",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59124,
+          "question_text": "{tex}{\\tan ^{ - 1}}\\left( {\\frac{{a - b}}{{1 + ab}}} \\right) + {\\tan ^{ - 1}}\\left( {\\frac{{b - c}}{{1 + bc}}} \\right) + {\\tan ^{ - 1}}\\left( {\\frac{{c - a}}{{1 + ca}}} \\right){/tex} , a, b, c > 0; is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\left( {\\frac{{a - b}}{{1 + ab}}} \\right) + {\\tan ^{ - 1}}\\left( {\\frac{{b - c}}{{1 + bc}}} \\right) + {\\tan ^{ - 1}}\\left( {\\frac{{c - a}}{{1 + ca}}} \\right){/tex}</span>, a, b, c &gt; 0; is equal to</p>",
+          "options": [
+            {
+              "id": 191683,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            },
+            {
+              "id": 191684,
+              "text": "{tex}\\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191685,
+              "text": "{tex}\\pi {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191686,
+              "text": "{tex}\\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            191683
+          ],
+          "explanation": "We know that {tex}{\\tan ^{ - 1}}\\left( {\\frac{{x - y}}{{1 + xy}}} \\right)\\,\\, = \\,\\,{\\tan ^{ - 1}}x\\, - {\\tan ^{ - 1}}y{/tex} {tex}{\\tan ^{ - 1}}\\left( {\\frac{{a - b}}{{1 + ab}}} \\right) + {\\tan ^{ - 1}}\\left( {\\frac{{b - c}}{{1 + bc}}} \\right) + {\\tan ^{ - 1}}\\left( {\\frac{{c - a}}{{1 + ca}}} \\right){/tex} {tex}{\\tan ^{ - 1}}a - {\\tan ^{ - 1}}b + {\\tan ^{ - 1}}b - {\\tan ^{ - 1}}c + {\\tan ^{ - 1}}c - {\\tan ^{ - 1}}a = 0{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59125,
+          "question_text": "If and x + y + z = xyz, then a value of {tex}{\\tan ^{ - 1}}x + {\\tan ^{ - 1}}y + {\\tan ^{ - 1}}z{/tex} is",
+          "question_html": "<p>If and x + y + z = xyz, then a value of&nbsp;&nbsp;<span class=\"math-tex\">{tex}{\\tan ^{ - 1}}x + {\\tan ^{ - 1}}y + {\\tan ^{ - 1}}z{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 191688,
+              "text": "{tex}\\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191689,
+              "text": "{tex}\\frac{{3\\pi }}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{3\\pi }}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191687,
+              "text": "{tex}\\pi {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi {/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191690,
+              "text": "{tex}\\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\pi {/tex}",
+          "correct_option_ids": [
+            191687
+          ],
+          "explanation": "{tex}{\\tan ^{ - 1}}x\\, + \\,\\,{\\tan ^{ - 1}}y\\,\\, + \\,\\,{\\tan ^{ - 1}}z{/tex} {tex}= \\,{\\tan ^{ - 1}}\\left[ {\\frac{{x + y}}{{1 - xy}}} \\right]\\,\\, + {\\tan ^{ - 1}}z{/tex} {tex}= \\,{\\tan ^{ - 1}}\\left[ {\\frac{{\\frac{{x + y}}{{1 - xy}} + z}}{{1 - \\left( {\\frac{{x + y}}{{1 - xy}}} \\right)z}}} \\right]{/tex} {tex}= \\,\\,{\\tan ^{ - 1}}\\left[ {\\frac{{\\frac{{x + y + z - xyz}}{{1 - xy}}}}{{\\frac{{1 - xy - xz - yz}}{{1 - xy}}}}} \\right]{/tex} {tex} = {\\tan ^{ - 1}}\\left[ {\\frac{{xyz - xyz}}{{1 - xy - xz - yz}}} \\right]\\,\\,\\,\\,\\,x\\, + y\\, + z\\, = \\,xyz\\\\{/tex} {tex} = {\\tan ^{ - 1}}\\left( 0 \\right)\\, = \\pi {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59126,
+          "question_text": "If xy + yz +zx = 1, then value of tan -1 x + tan -1 y + tan -1 z is",
+          "question_html": "<p>If xy + yz +zx = 1,&nbsp;then value of tan<sup>-1</sup>x + tan<sup>-1</sup>y + tan<sup>-1</sup>z&nbsp;is</p>",
+          "options": [
+            {
+              "id": 191694,
+              "text": "{tex}\\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191692,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 191691,
+              "text": "{tex}\\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191693,
+              "text": "{tex}\\pi {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi {/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{\\pi }{2}{/tex}",
+          "correct_option_ids": [
+            191691
+          ],
+          "explanation": "{tex}{\\tan ^{ - 1}}x\\, + \\,\\,{\\tan ^{ - 1}}y\\,\\, + \\,\\,{\\tan ^{ - 1}}z\\,\\\\\\,\\, {/tex} {tex}\\Rightarrow \\,{\\tan ^{ - 1}}\\left[ {\\frac{{x + y}}{{1 - xy}}} \\right]\\,\\, + {\\tan ^{ - 1}}z{/tex} {tex}\\Rightarrow \\,{\\tan ^{ - 1}}\\left[ {\\frac{{\\frac{{x + y}}{{1 - xy}} + z}}{{1 - \\left( {\\frac{{x + y}}{{1 - xy}}} \\right)z}}} \\right]{/tex} {tex}= \\,\\,{\\tan ^{ - 1}}\\left[ {\\frac{{\\frac{{x + y + z - xyz}}{{1 - xy}}}}{{\\frac{{1 - xy - xz - yz}}{{1 - xy}}}}} \\right]{/tex} {tex}= \\,\\,{\\tan ^{ - 1}}\\left[ {\\frac{{x + y + z - xyz}}{{1 - xy - xz - yz}}} \\right]\\,{/tex} {tex} = {\\tan ^{ - 1}}\\left[ {\\frac{{x + y + z - xyz}}{{1 - 1}}} \\right]\\,\\,\\, = \\frac{\\pi }{2}{/tex} {tex}[as \\; xz\\, + yz\\, + xy\\, = 1]{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59127,
+          "question_text": "If {tex}{\\sin ^{ - 1}}x + {\\sin ^{ - 1}}y = \\frac{{2\\pi }}{3}{/tex} . Then, {tex}co{s^{ - 1}}x + {\\cos ^{ - 1}}y{/tex} =",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}{\\sin ^{ - 1}}x + {\\sin ^{ - 1}}y = \\frac{{2\\pi }}{3}{/tex}</span>. Then,&nbsp;<span class=\"math-tex\">{tex}co{s^{ - 1}}x + {\\cos ^{ - 1}}y{/tex}</span> =&nbsp;</p>",
+          "options": [
+            {
+              "id": 191695,
+              "text": "{tex}\\frac{\\pi }{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{3}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191696,
+              "text": "{tex}\\frac{{2\\pi }}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{2\\pi }}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191697,
+              "text": "{tex}\\frac{\\pi }{6}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{6}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191698,
+              "text": "{tex}\\pi {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi {/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{\\pi }{3}{/tex}",
+          "correct_option_ids": [
+            191695
+          ],
+          "explanation": "{tex}{\\sin ^{ - 1}}x + {\\cos ^{ - 1}}y\\, = \\,\\frac{{2\\pi }}{3}{/tex} {tex}\\Rightarrow \\frac{\\pi }{2} - {\\cos ^{ - 1}}x + \\frac{\\pi }{2} - {\\cos ^{ - 1}}y = \\frac{{2\\pi }}{3}{/tex} {tex} \\Rightarrow \\pi - \\left( {{{\\cos }^{ - 1}}x + {{\\cos }^{ - 1}}y} \\right) = \\frac{{2\\pi }}{3}\\,\\,{/tex} {tex}\\therefore \\,\\,\\,\\left( {{{\\cos }^{ - 1}}x + {{\\cos }^{ - 1}}y} \\right) = \\pi - \\frac{{2\\pi }}{3}\\,\\,\\, = \\frac{\\pi }{3}\\,{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59128,
+          "question_text": "{tex}{\\sin ^{ - 1}}\\left( {\\frac{3}{5}} \\right) + {\\tan ^{ - 1}}\\left( {\\frac{1}{7}} \\right) = {/tex}",
+          "question_html": "<p><span class=\"math-tex\">{tex}{\\sin ^{ - 1}}\\left( {\\frac{3}{5}} \\right) + {\\tan ^{ - 1}}\\left( {\\frac{1}{7}} \\right) = {/tex}</span></p>",
+          "options": [
+            {
+              "id": 191701,
+              "text": "{tex}{\\cos ^{ - 1}}\\left( {\\frac{4}{5}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\cos ^{ - 1}}\\left( {\\frac{4}{5}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191700,
+              "text": "{tex}\\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191702,
+              "text": "{tex}\\pi {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191699,
+              "text": "{tex}\\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{\\pi }{4}{/tex}",
+          "correct_option_ids": [
+            191699
+          ],
+          "explanation": "{tex}{\\sin ^{ - 1}}\\left( {\\frac{3}{5}} \\right) + {\\tan ^{ - 1}}\\left( {\\frac{1}{7}} \\right)\\\\ {/tex} {tex} = {\\tan ^{ - 1}( {\\frac{3}{4}) }}+ {\\tan ^{ - 1}({\\frac{1}{7}}}){/tex} {tex} = {\\tan ^{ - 1}}\\left( {\\frac{{\\frac{3}{4} + \\left( {\\frac{1}{7}} \\right)}}{{1 - \\left( {\\frac{3}{4}} \\right)\\left( {\\ frac{1}{7}} \\right)}}} \\right)\\,\\, = {\\tan ^{ - 1}}\\left( {\\frac{{\\frac{{25}}{{28}}}}{{\\frac{{25}}{{28}}}}} \\right) = {\\tan ^{ - 1}}\\left( 1 \\right) = \\frac{\\pi }{4}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59129,
+          "question_text": "If {tex}{\\cot ^{ - 1}}\\left( {\\sqrt {\\cos \\alpha } } \\right) + {\\tan ^{ - 1}}\\left( {\\sqrt {\\cos \\alpha } } \\right) = \\mu {/tex} , then sin&micro; is equal to",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}{\\cot ^{ - 1}}\\left( {\\sqrt {\\cos \\alpha } } \\right) + {\\tan ^{ - 1}}\\left( {\\sqrt {\\cos \\alpha } } \\right) = \\mu {/tex}</span>, then sin&micro; is equal to</p>",
+          "options": [
+            {
+              "id": 191703,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            },
+            {
+              "id": 191705,
+              "text": "{tex}{\\tan ^2}\\alpha {/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\tan ^2}\\alpha {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191704,
+              "text": "{tex}tan{\\text{ }}2\\alpha {/tex}",
+              "html": "<span class=\"math-tex\">{tex}tan{\\text{ }}2\\alpha {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191706,
+              "text": "{tex}{\\cot ^2}\\left( {\\frac{\\alpha }{2}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\cot ^2}\\left( {\\frac{\\alpha }{2}} \\right){/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            191703
+          ],
+          "explanation": "{tex}{\\cot ^{ - 1}}\\left( {\\sqrt {\\cos \\alpha } } \\right) + {\\tan ^{ - 1}}\\left( {\\sqrt {\\cos \\alpha } } \\right) = \\mu {/tex} Let {tex}{\\sqrt {\\cos \\alpha } }=\\theta{/tex} {tex}{\\cot ^{ - 1}}\\theta + {\\tan ^{ - 1}}\\theta =\\mu\\implies\\frac{\\pi }{2}=\\mu{/tex} {tex}\\therefore sin\\mu= \\sin \\frac{\\pi }{2} = 1.{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59130,
+          "question_text": "The value of tan 2 (sec -1 2) + cot 2 (cosec -1 3) is equal to",
+          "question_html": "<p>The value of tan<sup>2</sup>(sec<sup>-1</sup>2) + cot<sup>2</sup>(cosec<sup>-1</sup>&nbsp;3) is equal to</p>",
+          "options": [
+            {
+              "id": 191708,
+              "text": "5",
+              "html": "5",
+              "is_correct": false
+            },
+            {
+              "id": 191710,
+              "text": "6",
+              "html": "6",
+              "is_correct": false
+            },
+            {
+              "id": 191707,
+              "text": "11",
+              "html": "11",
+              "is_correct": true
+            },
+            {
+              "id": 191709,
+              "text": "13",
+              "html": "13",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "11",
+          "correct_option_ids": [
+            191707
+          ],
+          "explanation": "Put sec -1 2 = A, cosec -1 3 = B tan 2 (sec -1 2) + cot 2 (cosec -1 3) = tan 2 A + cot 2 B = sec 2 A - 1 + cosec 2 B - 1 {tex}\\Rightarrow{/tex} [sec(sec -1 2)] 2 + [ cosec(cosec -1 3)] 2 - 2 = 4 + 9 -2 = 11",
+          "solution": ""
+        }
+      ]
+    }
+  ],
+  "totalQuestions": 75
+}

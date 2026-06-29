@@ -1,0 +1,2897 @@
+{
+  "chapter": "Matrices",
+  "chapter_id": 1287,
+  "tests": [
+    {
+      "test_id": 3598,
+      "test_name": "Matrices Test-01",
+      "is_paid": false,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59131,
+          "question_text": "The number of all possible matrices of order {tex}3 \\times 3{/tex} with each entry 0 or 1 is",
+          "question_html": "<p>The number of all possible matrices of order <span class=\"math-tex\">{tex}3 \\times 3{/tex}</span> with each entry 0 or&nbsp;1 is</p>",
+          "options": [
+            {
+              "id": 191714,
+              "text": "27",
+              "html": "27",
+              "is_correct": false
+            },
+            {
+              "id": 191713,
+              "text": "81",
+              "html": "81",
+              "is_correct": false
+            },
+            {
+              "id": 191712,
+              "text": "18",
+              "html": "18",
+              "is_correct": false
+            },
+            {
+              "id": 191711,
+              "text": "512",
+              "html": "512",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "512",
+          "correct_option_ids": [
+            191711
+          ],
+          "explanation": "As order of 3 {tex}\\times{/tex} 3 matrix contains 9 elements. Each element can be selected in 2 ways (it can be either 0 or 1 ). Hence, all the nine netries can be chosen in 2 9 = 512 ways (by the multiplication principle)",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59132,
+          "question_text": "I 2 is the matrix",
+          "question_html": "<p>I<sub>2</sub> is the matrix</p>",
+          "options": [
+            {
+              "id": 191718,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 1&1 \\\\ 0&1 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 1&amp;1 \\\\ 0&amp;1 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191717,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 0&1 \\\\ 1&0 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 0&amp;1 \\\\ 1&amp;0 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191716,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 1&1 \\\\ 1&1 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 1&amp;1 \\\\ 1&amp;1 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191715,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 0&1 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 1&amp;0 \\\\ 0&amp;1 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 0&1 \\end{array}} \\right]{/tex}",
+          "correct_option_ids": [
+            191715
+          ],
+          "explanation": "It is an identity matrix with the order 2 {tex}\\times{/tex} 2, I 2 = {tex} \\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 0&1 \\end{array}} \\right]{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59133,
+          "question_text": "If A is a matrix of order 3 {tex}\\times{/tex} 4 , then each row of A has",
+          "question_html": "<p>If A is a matrix of order 3&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;4&nbsp;, then each row of A has</p>",
+          "options": [
+            {
+              "id": 191719,
+              "text": "4 elements",
+              "html": "4 elements",
+              "is_correct": true
+            },
+            {
+              "id": 191721,
+              "text": "12 elements",
+              "html": "12 elements",
+              "is_correct": false
+            },
+            {
+              "id": 191722,
+              "text": "7 elements",
+              "html": "7 elements",
+              "is_correct": false
+            },
+            {
+              "id": 191720,
+              "text": "3 elements",
+              "html": "3 elements",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "4 elements",
+          "correct_option_ids": [
+            191719
+          ],
+          "explanation": "A = {tex}{\\left[ \\begin{gathered} \\begin{array}{*{20}{c}} {{a_{11}}}&{{a_{12}}}&{{a_{13}}}&{{a_{14}}} \\end{array} \\\\ \\begin{array}{*{20}{c}} {{a_{21}}}&{{a_{22}}}&{{a_{23}}}&{{a_{24}}} \\end{array} \\\\ \\begin{array}{*{20}{c}} {{a_{31}}}&{{a_{32}}}&{{a_{33}}}&{{a_{34}}} \\end{array} \\\\ \\end{gathered} \\right]_{3 \\times 4}}{/tex} ,therefore matrix A m has 4 elements in each row.",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59134,
+          "question_text": "If P is of order {tex}{\\text{2 }} \\times {\\text{ 3}}{/tex} and Q is of order {tex}3{\\text{ }} \\times {\\text{ 2}}{/tex} , then PQ is of order",
+          "question_html": "<p>If P is of order <span class=\"math-tex\">{tex}{\\text{2 }} \\times {\\text{ 3}}{/tex}</span> and Q is of order <span class=\"math-tex\">{tex}3{\\text{ }} \\times {\\text{ 2}}{/tex}</span>, then PQ is of order</p>",
+          "options": [
+            {
+              "id": 191724,
+              "text": "{tex}3{\\text{ }} \\times {\\text{ 2}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}3{\\text{ }} \\times {\\text{ 2}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191726,
+              "text": "{tex}{\\text{2 }} \\times {\\text{ 3}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\text{2 }} \\times {\\text{ 3}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191723,
+              "text": "{tex}{\\text{2 }} \\times {\\text{ 2}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\text{2 }} \\times {\\text{ 2}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191725,
+              "text": "{tex}3{\\text{ }} \\times {\\text{ 3}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}3{\\text{ }} \\times {\\text{ 3}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}{\\text{2 }} \\times {\\text{ 2}}{/tex}",
+          "correct_option_ids": [
+            191723
+          ],
+          "explanation": "Here, matrix P is of order {tex}{\\text{2 }} \\times {\\text{ 3}}{/tex} and matrix Q is of order {tex}{\\text{3 }} \\times {\\text{ 2}}{/tex} , then, the product PQ is defined only when : no. of columns in P = no. of rows in Q. And the order of resulting matrix is given by : rows in P x columns in Q.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59135,
+          "question_text": "The number of all the possible matrices of order 2 {tex}\\times{/tex} 2 with each entry 0, 1 or 2 is",
+          "question_html": "<p>The number of all the possible matrices of order 2&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;2&nbsp;with each entry 0, 1 or 2 is</p>",
+          "options": [
+            {
+              "id": 191729,
+              "text": "64",
+              "html": "64",
+              "is_correct": false
+            },
+            {
+              "id": 191727,
+              "text": "81",
+              "html": "81",
+              "is_correct": true
+            },
+            {
+              "id": 191730,
+              "text": "36",
+              "html": "36",
+              "is_correct": false
+            },
+            {
+              "id": 191728,
+              "text": "12",
+              "html": "12",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "81",
+          "correct_option_ids": [
+            191727
+          ],
+          "explanation": "The number of elements in a 2 {tex}\\times{/tex} 2 matrix is the product 2 {tex}\\times{/tex} 2 =4 Each element can either be a 0,1 or 2. Given this, the total possible matrices that can be selected is 3 4 . 3 2 {tex}\\times{/tex} 2 = 3 4 = 81",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59136,
+          "question_text": "If A = {tex}\\left[ {\\begin{array}{*{20}{c}} 0&0&0 \\\\ 0&0&0 \\\\ 0&1&0 \\end{array}} \\right]{/tex} then A is",
+          "question_html": "<p>If A =<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 0&amp;0&amp;0 \\\\ 0&amp;0&amp;0 \\\\ 0&amp;1&amp;0 \\end{array}} \\right]{/tex}</span> then A&nbsp;is</p>",
+          "options": [
+            {
+              "id": 191732,
+              "text": "an idempotent matrix",
+              "html": "an idempotent matrix",
+              "is_correct": false
+            },
+            {
+              "id": 191734,
+              "text": "upper triangular matrix",
+              "html": "upper triangular matrix",
+              "is_correct": false
+            },
+            {
+              "id": 191733,
+              "text": "an invertible matrix",
+              "html": "an invertible matrix",
+              "is_correct": false
+            },
+            {
+              "id": 191731,
+              "text": "a nilpotent matrix",
+              "html": "a nilpotent matrix",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "a nilpotent matrix",
+          "correct_option_ids": [
+            191731
+          ],
+          "explanation": "A square matrix A for which A n = 0, where n is a positive integer, is called a Nilpotent matrix. The determinant and trace of the matrix is always Zero for a Nilpotent Matrix. For the given matrix \"A\", determinant (A)=0 and trace(A) = 0.",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59137,
+          "question_text": "If A and B are symmetric matrices of the same order, then",
+          "question_html": "<p>If A and B are symmetric matrices of the same order, then</p>",
+          "options": [
+            {
+              "id": 191738,
+              "text": "AB &ndash; BA is a symmetric matrix",
+              "html": "AB &ndash; BA is a symmetric matrix",
+              "is_correct": false
+            },
+            {
+              "id": 191736,
+              "text": "A &ndash; B is a skew-symmetric matrix",
+              "html": "A &ndash; B is a skew-symmetric matrix",
+              "is_correct": false
+            },
+            {
+              "id": 191737,
+              "text": "AB is symmetric matrix",
+              "html": "AB is symmetric matrix",
+              "is_correct": false
+            },
+            {
+              "id": 191735,
+              "text": "AB + BA is a symmetric matrix",
+              "html": "AB + BA is a symmetric matrix",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "AB + BA is a symmetric matrix",
+          "correct_option_ids": [
+            191735
+          ],
+          "explanation": "If A and B are symmetric matrices of the same order, then AB + BA is always a symmetric matrix.",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59138,
+          "question_text": "A square matrix A = [a ij ] nxn is called a diagonal matrix if a ij = 0 for",
+          "question_html": "<p>A square matrix A = [a<sub>ij</sub>]<sub>nxn</sub>&nbsp;is called a diagonal matrix if a<sub>ij</sub>&nbsp;= 0 for</p>",
+          "options": [
+            {
+              "id": 191741,
+              "text": "{tex}i>j{/tex}",
+              "html": "<span class=\"math-tex\">{tex}i&gt;j{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191740,
+              "text": "{tex}i<j{/tex}",
+              "html": "<span class=\"math-tex\">{tex}i&lt;j{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191739,
+              "text": "{tex}i{\\text{ }} \\ne {\\text{ }}j{/tex}",
+              "html": "<span class=\"math-tex\">{tex}i{\\text{ }} \\ne {\\text{ }}j{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191742,
+              "text": "i = j",
+              "html": "i = j",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}i{\\text{ }} \\ne {\\text{ }}j{/tex}",
+          "correct_option_ids": [
+            191739
+          ],
+          "explanation": "In a diagonal matrix all elements except diagonal elements are zero.i.e. a ij = 0 , if i {tex}\\ne{/tex} j.",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59139,
+          "question_text": "If a square matrix A has two identical rows or columns, then det.A is:",
+          "question_html": "<p>If a square matrix A has two identical rows or columns, then det.A is:</p>",
+          "options": [
+            {
+              "id": 191744,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 191746,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 191743,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            },
+            {
+              "id": 191745,
+              "text": "-1",
+              "html": "-1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            191743
+          ],
+          "explanation": "Det.A = 0. If two rows or column of a matrix are identical then determinant of such a matrix is zero.",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59140,
+          "question_text": "The order of [x y z] {tex}\\left[ {\\begin{array}{*{20}{c}} a&h&g \\\\ h&b&f \\\\ g&f&c \\end{array}} \\right]\\left[ {\\begin{array}{*{20}{c}} x \\\\ y \\\\ z \\end{array}} \\right]{/tex} is",
+          "question_html": "<p>The order of [x y z] <span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} a&amp;h&amp;g \\\\ h&amp;b&amp;f \\\\ g&amp;f&amp;c \\end{array}} \\right]\\left[ {\\begin{array}{*{20}{c}} x \\\\ y \\\\ z \\end{array}} \\right]{/tex}</span>is</p>",
+          "options": [
+            {
+              "id": 191749,
+              "text": "{tex}1 \\times 3{/tex}",
+              "html": "<span class=\"math-tex\">{tex}1 \\times 3{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191750,
+              "text": "{tex}3 \\times 3{/tex}",
+              "html": "<span class=\"math-tex\">{tex}3 \\times 3{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191748,
+              "text": "{tex}3 \\times 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}3 \\times 1{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191747,
+              "text": "{tex}1 \\times 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}1 \\times 1{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}3 \\times 1{/tex}",
+          "correct_option_ids": [
+            191748
+          ],
+          "explanation": "{tex}{\\left[ {xyz} \\right]_{1{\\text{ }}\\times{\\text{ }}3}}{/tex} {tex}{\\left[ {\\begin{array}{*{20}{c}} a&h&g \\\\ h&b&f \\\\ g&f&c \\end{array}} \\right]_{3\\times3}}{\\left[ {\\begin{array}{*{20}{c}} x \\\\ y \\\\ z \\end{array}} \\right]_{3\\times1}}{/tex} = {tex}{\\left[ A \\right]_{1{\\text{ }}\\times{\\text{ }}1}}{/tex} . ( where ; matrix A denotes the product of three given matrices.)",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59141,
+          "question_text": "If the matrix A is both symmetric and skew symmetric, then",
+          "question_html": "<p>If the matrix A is both symmetric and skew symmetric, then</p>",
+          "options": [
+            {
+              "id": 191753,
+              "text": "A is a square matrix",
+              "html": "A is a square matrix",
+              "is_correct": false
+            },
+            {
+              "id": 191751,
+              "text": "A is a zero matrix",
+              "html": "A is a zero matrix",
+              "is_correct": true
+            },
+            {
+              "id": 191754,
+              "text": "A is a non-zero matrix",
+              "html": "A is a non-zero&nbsp;matrix",
+              "is_correct": false
+            },
+            {
+              "id": 191752,
+              "text": "A is a diagonal matrix",
+              "html": "A is a diagonal matrix",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "A is a zero matrix",
+          "correct_option_ids": [
+            191751
+          ],
+          "explanation": "Only a null matrix can be symmetric as well as skew symmetric. In Symmetric Matrix A T = A, Skew Symmetric Matrix A T = -A, Given that the matrix is satisfying both the properties. Therefore, Equating the RHS we get A = -A i.e, 2A = 0. Therefore A = 0, which is a null matrix.",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59142,
+          "question_text": "A square matrix A is called idempotent if",
+          "question_html": "<p>A square matrix A is called idempotent if</p>",
+          "options": [
+            {
+              "id": 191756,
+              "text": "A 2 = O",
+              "html": "A<sup>2</sup> = O",
+              "is_correct": false
+            },
+            {
+              "id": 191755,
+              "text": "A 2 = A",
+              "html": "A<sup>2</sup> = A",
+              "is_correct": true
+            },
+            {
+              "id": 191757,
+              "text": "2A = I",
+              "html": "2A = I",
+              "is_correct": false
+            },
+            {
+              "id": 191758,
+              "text": "A 2 = I",
+              "html": "A<sup>2</sup> = I",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "A 2 = A",
+          "correct_option_ids": [
+            191755
+          ],
+          "explanation": "If the product of any square matrix with itself is the matrix itself, then the matrix is called Idempotent.",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59143,
+          "question_text": "If {tex}\\begin{bmatrix}a&b\\\\c&-a\\end{bmatrix}{/tex} is a square root of the {tex}2 \\times 2\\;{/tex} identity matrix, then a, b, c satisfy the relation",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}\\begin{bmatrix}a&amp;b\\\\c&amp;-a\\end{bmatrix}{/tex}</span>is a square root of the <span class=\"math-tex\">{tex}2 \\times 2\\;{/tex}</span> identity matrix, then a, b, c satisfy the relation</p>",
+          "options": [
+            {
+              "id": 191761,
+              "text": "1+ a 2 - bc = 0",
+              "html": "1+ a<sup>2</sup>&nbsp;-&nbsp;bc = 0&nbsp;",
+              "is_correct": false
+            },
+            {
+              "id": 191762,
+              "text": "1 + a 2 + bc = 0",
+              "html": "&nbsp;1 + a<sup>2</sup>&nbsp;+ bc = 0&nbsp;",
+              "is_correct": false
+            },
+            {
+              "id": 191760,
+              "text": "1 - a 2 + bc = 0",
+              "html": "&nbsp;1 - a<sup>2</sup>&nbsp;+ bc = 0&nbsp;&nbsp;",
+              "is_correct": false
+            },
+            {
+              "id": 191759,
+              "text": "a 2 + bc =1",
+              "html": "a<sup>2</sup>&nbsp;+ bc =1&nbsp;",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "a 2 + bc =1",
+          "correct_option_ids": [
+            191759
+          ],
+          "explanation": "{tex}\\begin{bmatrix}a&b\\\\c&-a\\end{bmatrix}\\begin{bmatrix}a&b\\\\c&-a\\end{bmatrix}{/tex} = {tex}\\begin{bmatrix}1&0\\\\0&1\\end{bmatrix}{/tex} {tex}\\Rightarrow{/tex} a 2 + bc =1",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59144,
+          "question_text": "If A and B are invertible matrices of the same order, then (AB) -1 is equal to",
+          "question_html": "<p>If A and B are invertible matrices of the same order, then (AB)<sup>-1</sup> is equal to</p>",
+          "options": [
+            {
+              "id": 191766,
+              "text": "A -1 B -1",
+              "html": "A<sup>-1</sup>B<sup>-1</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 191764,
+              "text": "A -1 B",
+              "html": "A<sup>-1</sup>B",
+              "is_correct": false
+            },
+            {
+              "id": 191763,
+              "text": "B -1 A -1",
+              "html": "B<sup>-1</sup>A<sup>-1</sup>",
+              "is_correct": true
+            },
+            {
+              "id": 191765,
+              "text": "AB -1",
+              "html": "AB<sup>-1</sup>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "B -1 A -1",
+          "correct_option_ids": [
+            191763
+          ],
+          "explanation": "By the property of inverse (AB) -1 is equal to B -1 A -1 .",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59145,
+          "question_text": "If A = {tex}\\left[ {\\begin{array}{*{20}{c}} 0&0&0&0 \\\\ 0&0&0&0 \\\\ 1&0&0&0 \\\\ 0&1&0&0 \\end{array}} \\right]{/tex} , then",
+          "question_html": "<p>If A&nbsp;=<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 0&amp;0&amp;0&amp;0 \\\\ 0&amp;0&amp;0&amp;0 \\\\ 1&amp;0&amp;0&amp;0 \\\\ 0&amp;1&amp;0&amp;0 \\end{array}} \\right]{/tex}</span>, then</p>",
+          "options": [
+            {
+              "id": 191769,
+              "text": "A 2 = I",
+              "html": "A<sup>2</sup>&nbsp;= I",
+              "is_correct": false
+            },
+            {
+              "id": 191768,
+              "text": "A 3 = O",
+              "html": "A<sup>3</sup>&nbsp;= O",
+              "is_correct": false
+            },
+            {
+              "id": 191770,
+              "text": "A 3 = I",
+              "html": "A<sup>3</sup>&nbsp;= I",
+              "is_correct": false
+            },
+            {
+              "id": 191767,
+              "text": "A 2 = O",
+              "html": "A<sup>2</sup>&nbsp;= O",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "A 2 = O",
+          "correct_option_ids": [
+            191767
+          ],
+          "explanation": "If any row or column of a square matrix is 0, then its product with itself is always a zero matrix.",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3599,
+      "test_name": "Matrices Test-02",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59146,
+          "question_text": "If A = {tex}\\left[ {\\begin{array}{*{20}{c}} 0&0&0 \\\\ 0&0&0 \\\\ 1&0&0 \\end{array}} \\right]{/tex}",
+          "question_html": "<p>If A =<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 0&amp;0&amp;0 \\\\ 0&amp;0&amp;0 \\\\ 1&amp;0&amp;0 \\end{array}} \\right]{/tex}</span></p>",
+          "options": [
+            {
+              "id": 191771,
+              "text": "A 2 = O",
+              "html": "A<sup>2</sup>&nbsp;= O",
+              "is_correct": true
+            },
+            {
+              "id": 191772,
+              "text": "A 2 = A",
+              "html": "A<sup>2</sup>&nbsp;= A",
+              "is_correct": false
+            },
+            {
+              "id": 191773,
+              "text": "A 3 = A",
+              "html": "A<sup>3</sup> = A",
+              "is_correct": false
+            },
+            {
+              "id": 191774,
+              "text": "A 4 = A",
+              "html": "A<sup>4</sup> = A",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "A 2 = O",
+          "correct_option_ids": [
+            191771
+          ],
+          "explanation": "If any row or column of a square matrix is 0, then its product with itself is always a zero matrix.",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59147,
+          "question_text": "Let A be any m {tex}\\times{/tex} n matrix, then A 2 can be found only when",
+          "question_html": "<p>Let A be any m <span class=\"math-tex\">{tex}\\times{/tex}</span> n matrix, then A<sup>2</sup>&nbsp;can be found only when</p>",
+          "options": [
+            {
+              "id": 191775,
+              "text": "m = n",
+              "html": "m = n",
+              "is_correct": true
+            },
+            {
+              "id": 191778,
+              "text": "m {tex}\\ne{/tex} n",
+              "html": "m <span class=\"math-tex\">{tex}\\ne{/tex}</span>&nbsp;n",
+              "is_correct": false
+            },
+            {
+              "id": 191776,
+              "text": "m > n",
+              "html": "m &gt; n",
+              "is_correct": false
+            },
+            {
+              "id": 191777,
+              "text": "m < n",
+              "html": "m &lt; n",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "m = n",
+          "correct_option_ids": [
+            191775
+          ],
+          "explanation": "The product of any matrix with itself can be found only when it is a square matrix .i.e. m = n.",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59148,
+          "question_text": "If A and B are any two matrices, then",
+          "question_html": "<p>If A and B are any two matrices, then</p>\r\n",
+          "options": [
+            {
+              "id": 191779,
+              "text": "AB may or may not be defined.",
+              "html": "AB may or may not be defined.",
+              "is_correct": true
+            },
+            {
+              "id": 191780,
+              "text": "A 2 = O",
+              "html": "A<sup>2&nbsp;</sup>= O",
+              "is_correct": false
+            },
+            {
+              "id": 191782,
+              "text": "2A 2",
+              "html": "2A<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 191781,
+              "text": "AB = O",
+              "html": "AB = O",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "AB may or may not be defined.",
+          "correct_option_ids": [
+            191779
+          ],
+          "explanation": "Let matrix A is of order m x n and matrix B is of order p x q. Then, the product AB is defined only when number of columns in A is equal to number of rows in B i.e n = p. Therefore, If A and B are any two matrices, then AB may or may not be defined.",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59149,
+          "question_text": "A square matrix A = [a ij ] nxn is called a lower triangular matrix if a ij = 0 for",
+          "question_html": "<p>A square matrix A = [a<sub>ij</sub>]<sub>nxn</sub>&nbsp;is called a lower triangular matrix if a<sub>ij</sub>&nbsp;= 0&nbsp;for</p>",
+          "options": [
+            {
+              "id": 191783,
+              "text": "i is less than j",
+              "html": "i is less than j",
+              "is_correct": true
+            },
+            {
+              "id": 191786,
+              "text": "i {tex}\\ne{/tex} j",
+              "html": "i&nbsp;<span class=\"math-tex\">{tex}\\ne{/tex}</span> j",
+              "is_correct": false
+            },
+            {
+              "id": 191785,
+              "text": "i is greater than j",
+              "html": "i is greater than j",
+              "is_correct": false
+            },
+            {
+              "id": 191784,
+              "text": "i = j",
+              "html": "i = j",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "i is less than j",
+          "correct_option_ids": [
+            191783
+          ],
+          "explanation": "Lower triangular matrix is given by : {tex}\\left[ {\\begin{array}{*{20}{c}} {{a_{11}}}&0&0 \\\\ {{a_{21}}}&{{a_{22}}}&0 \\\\ {{a_{31}}}&{{a_{32}}}&{{a_{33}}} \\end{array}} \\right]{/tex} ,Here, a ij = 0, if i is less than j and a ij {tex}\\ne{/tex} 0, if i is greater than j.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59150,
+          "question_text": "A square matrix A = [a ij ] n {tex}\\times{/tex} n is called an upper triangular if a ij = 0 for",
+          "question_html": "<p>A square matrix A = [a<sub>ij</sub>]<sub>n<span class=\"math-tex\">{tex}\\times{/tex}</span>n</sub>&nbsp;is called an upper triangular if a<sub>ij</sub>&nbsp;= 0&nbsp;for</p>",
+          "options": [
+            {
+              "id": 191787,
+              "text": "i is greater than j",
+              "html": "i is greater than j",
+              "is_correct": true
+            },
+            {
+              "id": 191790,
+              "text": "i {tex}\\ne{/tex} j",
+              "html": "i&nbsp;<span class=\"math-tex\">{tex}\\ne{/tex}</span> j",
+              "is_correct": false
+            },
+            {
+              "id": 191788,
+              "text": "i is less than j",
+              "html": "i is less than j",
+              "is_correct": false
+            },
+            {
+              "id": 191789,
+              "text": "i = j",
+              "html": "i = j",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "i is greater than j",
+          "correct_option_ids": [
+            191787
+          ],
+          "explanation": "Upper Triangular matrix is given by: {tex}\\left[ {\\begin{array}{*{20}{c}} {{a_{11}}}&{{a_{12}}}&{{a_{13}}} \\\\ 0&{{a_{22}}}&{{a_{23}}} \\\\ 0&0&{{a_{33}}} \\end{array}} \\right]{/tex} . Here, a ij = 0, if i is greater than j.and a ij {tex}\\ne{/tex} 0, if i is less than j.",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59151,
+          "question_text": "If {tex}\\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 1&1 \\end{array}} \\right]{/tex} , then for all natural numbers n, A n is equal to",
+          "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 1&amp;0 \\\\ 1&amp;1 \\end{array}} \\right]{/tex}</span>, then for all natural numbers n, A<sub>n</sub>&nbsp;is equal to</p>",
+          "options": [
+            {
+              "id": 191791,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ n&1 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 1&amp;0 \\\\ n&amp;1 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191794,
+              "text": "{tex}2\\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 1&n \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2\\left[ {\\begin{array}{*{20}{c}} 1&amp;0 \\\\ 1&amp;n \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191792,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} n&0 \\\\ 1&1 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} n&amp;0 \\\\ 1&amp;1 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191793,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 1&n \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 1&amp;0 \\\\ 1&amp;n \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ n&1 \\end{array}} \\right]{/tex}",
+          "correct_option_ids": [
+            191791
+          ],
+          "explanation": "{tex}A = \\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 1&1 \\end{array}} \\right]{/tex} , A 2 = A.A = {tex}\\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 1&1 \\end{array}} \\right]\\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 1&1 \\end{array}} \\right] = \\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 2&1 \\end{array}} \\right]{/tex} A 3 = A.A.A = {tex}\\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 1&1 \\end{array}} \\right]\\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 1&1 \\end{array}} \\right]\\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 1&1 \\end{array}} \\right] = \\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 3&1 \\end{array}} \\right]{/tex} , ...A n = A.A.A........A (n -times ) = {tex}\\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ n&1 \\end{array}} \\right]{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59152,
+          "question_text": "If A = [a ij ] 2X2 where a ij = i + j, then A is equal to",
+          "question_html": "<p>If A = [a<sub>ij</sub>]<sub>2X2</sub>&nbsp;&nbsp;where a<sub>ij</sub>&nbsp;= i + j,&nbsp;then A is equal to</p>",
+          "options": [
+            {
+              "id": 191795,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 2&3 \\\\ 3&4 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 2&amp;3 \\\\ 3&amp;4 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191797,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 1&1 \\\\ 2&2 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 1&amp;1 \\\\ 2&amp;2 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191798,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 1&2 \\\\ 1&2 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 1&amp;2 \\\\ 1&amp;2 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191796,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 1&2 \\\\ 3&4 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 1&amp;2 \\\\ 3&amp;4 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 2&3 \\\\ 3&4 \\end{array}} \\right]{/tex}",
+          "correct_option_ids": [
+            191795
+          ],
+          "explanation": "If A = [a ij ] 2X2 where a ij = i + j then, A = {tex} \\left[ {\\begin{array}{*{20}{c}} {{a_{11}}}&{{a_{12}}} \\\\ {{a_{21}}}&{{a_{22}}} \\end{array}} \\right] = \\left[ {\\begin{array}{*{20}{c}} 2&3 \\\\ 3&4 \\end{array}} \\right]{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59153,
+          "question_text": "If {tex}A = \\left[ {\\begin{array}{*{20}{c}} 0&c&{ - b} \\\\ { - c}&0&a \\\\ b&{ - a}&0 \\end{array}} \\right]{/tex} and {tex}B = \\left[ {\\begin{array}{*{20}{c}} {{a^2}}&{ab}&{ac} \\\\ {ab}&{{b^2}}&{bc} \\\\ {ac}&{bc}&{{c^2}} \\end{array}} \\right]{/tex} then AB =",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}A = \\left[ {\\begin{array}{*{20}{c}} 0&amp;c&amp;{ - b} \\\\ { - c}&amp;0&amp;a \\\\ b&amp;{ - a}&amp;0 \\end{array}} \\right]{/tex}</span>and <span class=\"math-tex\">{tex}B = \\left[ {\\begin{array}{*{20}{c}} {{a^2}}&amp;{ab}&amp;{ac} \\\\ {ab}&amp;{{b^2}}&amp;{bc} \\\\ {ac}&amp;{bc}&amp;{{c^2}} \\end{array}} \\right]{/tex}</span>then AB =</p>",
+          "options": [
+            {
+              "id": 191802,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 191801,
+              "text": "A 3",
+              "html": "A<sup>3</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 191799,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            },
+            {
+              "id": 191800,
+              "text": "B 2",
+              "html": "B<sup>2</sup>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            191799
+          ],
+          "explanation": "AB = {tex}\\left[ {\\begin{array}{*{20}{c}} 0&c&{ - b} \\\\ { - c}&0&a \\\\ b&{ - a}&0 \\end{array}} \\right]\\left[ {\\begin{array}{*{20}{c}} {{a^2}}&{ab}&{ac} \\\\ {ab}&{{b^2}}&{bc} \\\\ {ac}&{bc}&{{c^2}} \\end{array}} \\right]{/tex} {tex} = \\left[ {\\begin{array}{*{20}{c}} {abc - abc}&{{b^2}c - {b^2}c}&{b{c^2} - b{c^2}} \\\\ { - {a^2}c + {a^2}c}&{ - abc + abc}&{ - a{c^2} + a{c^2}} \\\\ {{a^2}b - {a^2}b}&{a{b^2} - a{b^2}}&{abc - abc} \\end{array}} \\right]{/tex} {tex}=\\left[ {\\begin{array}{*{20}{c}} 0&0&0 \\\\ 0&0&0 \\\\ 0&0&0 \\end{array}} \\right] = \\;0{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59154,
+          "question_text": "If {tex}A = \\left[ {\\begin{array}{*{20}{c}} 1&1&1 \\\\ 1&2&3 \\\\ 1&3&4 \\end{array}} \\right]{/tex} , then adj(adj A) =",
+          "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}A = \\left[ {\\begin{array}{*{20}{c}} 1&amp;1&amp;1 \\\\ 1&amp;2&amp;3 \\\\ 1&amp;3&amp;4 \\end{array}} \\right]{/tex}</span>, then adj(adj A) =</p>",
+          "options": [
+            {
+              "id": 191806,
+              "text": "- A 2",
+              "html": "- A<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 191804,
+              "text": "A",
+              "html": "A",
+              "is_correct": false
+            },
+            {
+              "id": 191805,
+              "text": "A 2",
+              "html": "A<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 191803,
+              "text": "- A",
+              "html": "- A",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "- A",
+          "correct_option_ids": [
+            191803
+          ],
+          "explanation": "We know that if A is non - singular matrix, then A(adjA) = |A| n-2 A, where n is order of square matrix A. Now, {tex}|A| = \\left| {\\begin{array}{*{20}{c}} 1&1&1 \\\\ 1&2&3 \\\\ 1&3&4 \\end{array}} \\right| = - 1 \\ne 0{/tex} {tex}\\therefore{/tex} A is non - singular {tex}\\therefore {/tex} A(adj A) = |A| 3-2 A (Here n = 3) = |A| A = (-1) A = - A",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59155,
+          "question_text": "If I = {tex}\\left[\\begin{array}{ll} 1 & 0 \\\\ 0 & 1 \\end{array}\\right]{/tex} , J = {tex}\\left[\\begin{array}{rr} 0 & 1 \\\\ -1 & 0 \\end{array}\\right]{/tex} and B = {tex}\\left[\\begin{array}{rr} \\cos \\theta & \\sin \\theta \\\\ -\\sin \\theta & \\cos \\theta \\end{array}\\right]{/tex} , then B equals",
+          "question_html": "<p>If I =&nbsp;<span class=\"math-tex\">{tex}\\left[\\begin{array}{ll} 1 &amp; 0 \\\\ 0 &amp; 1 \\end{array}\\right]{/tex}</span>, J =&nbsp;<span class=\"math-tex\">{tex}\\left[\\begin{array}{rr} 0 &amp; 1 \\\\ -1 &amp; 0 \\end{array}\\right]{/tex}</span>&nbsp;and B =&nbsp;<span class=\"math-tex\">{tex}\\left[\\begin{array}{rr} \\cos \\theta &amp; \\sin \\theta \\\\ -\\sin \\theta &amp; \\cos \\theta \\end{array}\\right]{/tex}</span>,&nbsp;then B equals</p>",
+          "options": [
+            {
+              "id": 191808,
+              "text": "I sin {tex}\\theta {/tex} + J cos {tex}\\theta {/tex}",
+              "html": "I sin&nbsp;<span class=\"math-tex\">{tex}\\theta {/tex}</span>&nbsp;+ J cos&nbsp;<span class=\"math-tex\">{tex}\\theta {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191810,
+              "text": "- I cos {tex}\\theta {/tex} + J sin {tex}\\theta {/tex}",
+              "html": "- I cos<span class=\"math-tex\">{tex}\\theta {/tex}</span>&nbsp;+ J sin<span class=\"math-tex\">{tex}\\theta {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191809,
+              "text": "I cos {tex}\\theta {/tex} - J sin {tex}\\theta {/tex}",
+              "html": "I cos<span class=\"math-tex\">{tex}\\theta {/tex}</span>&nbsp;- J sin<span class=\"math-tex\">{tex}\\theta {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191807,
+              "text": "I cos {tex}\\theta{/tex} + J sin {tex}\\theta{/tex}",
+              "html": "I cos<span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;+ J sin<span class=\"math-tex\">{tex}\\theta{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "I cos {tex}\\theta{/tex} + J sin {tex}\\theta{/tex}",
+          "correct_option_ids": [
+            191807
+          ],
+          "explanation": "{tex}I = \\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 0&1 \\end{array}} \\right]{/tex} {tex}\\therefore I\\cos \\theta = \\left[ {\\begin{array}{*{20}{c}} {\\cos \\theta }&0 \\\\ 0&{\\cos \\theta } \\end{array}} \\right]{/tex} {tex}J = \\left[ {\\begin{array}{*{20}{c}} 0&1 \\\\ { - 1}&0 \\end{array}} \\right]{/tex} {tex}\\therefore j\\sin \\theta = \\left[ {\\begin{array}{*{20}{c}} 0&{\\sin \\theta } \\\\ { - \\sin \\theta }&0 \\end{array}} \\right]{/tex} {tex}\\therefore I\\cos \\theta + J\\sin \\theta = \\left[ {\\begin{array}{*{20}{c}} {\\cos \\theta }&1 \\\\ 0&{\\cos \\theta } \\end{array}} \\right] + \\left[ {\\begin{array}{*{20}{c}} 0&{\\sin \\theta } \\\\ { - \\sin \\theta }&0 \\end{array}} \\right]{/tex} {tex} = \\left[ {\\begin{array}{*{20}{c}} {\\cos \\theta }&{\\sin \\theta } \\\\ { - \\sin \\theta }&{\\cos \\theta } \\end{array}} \\right] = B{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59156,
+          "question_text": "If for a matrix A, A 2 + I = O where I is the identity matrix, then A equals",
+          "question_html": "<p>If for a matrix A, A<sup>2</sup>&nbsp;+ I = O&nbsp;where I is the identity matrix, then A equals</p>",
+          "options": [
+            {
+              "id": 191813,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 1&2 \\\\ { - 1}&1 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 1&amp;2 \\\\ { - 1}&amp;1 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191811,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} i&0 \\\\ 0&{ - i} \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} i&amp;0 \\\\ 0&amp;{ - i} \\end{array}} \\right]{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191814,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} { - 1}&0 \\\\ 0&{ - 1} \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} { - 1}&amp;0 \\\\ 0&amp;{ - 1} \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191812,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 0&1 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 1&amp;0 \\\\ 0&amp;1 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\left[ {\\begin{array}{*{20}{c}} i&0 \\\\ 0&{ - i} \\end{array}} \\right]{/tex}",
+          "correct_option_ids": [
+            191811
+          ],
+          "explanation": "We have , A 2 + I = A.A + I, {tex}\\left[ {\\begin{array}{*{20}{c}} i&0 \\\\ 0&{ - i} \\end{array}} \\right]\\left[ {\\begin{array}{*{20}{c}} i&0 \\\\ 0&{ - i} \\end{array}} \\right] + \\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 0&1 \\end{array}} \\right]{/tex} {tex} \\Rightarrow \\left[ {\\begin{array}{*{20}{c}} {{i^2}}&0 \\\\ 0&{{i^2}} \\end{array}} \\right]+\\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 0&1 \\end{array}} \\right] {/tex} {tex} \\Rightarrow \\left[ {\\begin{array}{*{20}{c}} { - 1}&0 \\\\ 0&{ - 1} \\end{array}} \\right] + \\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 0&1 \\end{array}} \\right]{/tex} {tex} = \\left[ {\\begin{array}{*{20}{c}} 0&0 \\\\ 0&0 \\end{array}} \\right] = \\;O{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59157,
+          "question_text": "If A and B are two matrices such that A + B and AB are both defined, then",
+          "question_html": "<p>If A and B are two matrices such that A + B and AB are both defined, then</p>",
+          "options": [
+            {
+              "id": 191815,
+              "text": "A and B are square matrices of same order",
+              "html": "A and B are square matrices of same order",
+              "is_correct": true
+            },
+            {
+              "id": 191816,
+              "text": "A, B are square matrices not necessarily of same order",
+              "html": "A, B are square matrices not necessarily of same order",
+              "is_correct": false
+            },
+            {
+              "id": 191817,
+              "text": "A and B can be any matrices",
+              "html": "A and B can be any matrices",
+              "is_correct": false
+            },
+            {
+              "id": 191818,
+              "text": "number of columns of A {tex}\\neq{/tex} number of rows of B.",
+              "html": "number of columns of A <span class=\"math-tex\">{tex}\\neq{/tex}</span>&nbsp;number of rows of B.",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "A and B are square matrices of same order",
+          "correct_option_ids": [
+            191815
+          ],
+          "explanation": "We know that if A and B are of the matrix of same order then both operations A + B and AB are well defined.",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59158,
+          "question_text": "From the matrix equation AB = AC we can conclude B = C, provided",
+          "question_html": "<p>From the matrix equation AB = AC we can conclude B = C, provided</p>\r\n",
+          "options": [
+            {
+              "id": 191821,
+              "text": "A is symmetric matrix",
+              "html": "A is symmetric&nbsp;matrix",
+              "is_correct": false
+            },
+            {
+              "id": 191819,
+              "text": "A is non-singular matrix",
+              "html": "A is non-singular matrix",
+              "is_correct": true
+            },
+            {
+              "id": 191820,
+              "text": "A is singular matrix",
+              "html": "A is singular&nbsp;matrix",
+              "is_correct": false
+            },
+            {
+              "id": 191822,
+              "text": "A is square matrix",
+              "html": "A is square matrix",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "A is non-singular matrix",
+          "correct_option_ids": [
+            191819
+          ],
+          "explanation": "Here, only non- singular matrices obey cancellation laws.",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59159,
+          "question_text": "If A and B are two non-zero square matrices such that AB = 0, then",
+          "question_html": "<p>If A and B are two non-zero square matrices such that AB = 0, then</p>",
+          "options": [
+            {
+              "id": 191823,
+              "text": "either of them is singular",
+              "html": "either of them is singular",
+              "is_correct": true
+            },
+            {
+              "id": 191824,
+              "text": "both A and B are singular",
+              "html": "both A and B are singular",
+              "is_correct": false
+            },
+            {
+              "id": 191826,
+              "text": "B are singular",
+              "html": "B are singular",
+              "is_correct": false
+            },
+            {
+              "id": 191825,
+              "text": "neither matrix is singular",
+              "html": "neither matrix is singular",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "either of them is singular",
+          "correct_option_ids": [
+            191823
+          ],
+          "explanation": "The product of two non-zero matrices can be a zero matrix if one of the two given matrices should be singular.",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59160,
+          "question_text": "If A and B are two matrices such that AB = B and BA = A, then A 2 + B 2 is equal to",
+          "question_html": "<p>If A and B are two matrices such that AB = B and BA = A, then A<sup>2</sup> + B<sup>2</sup> is equal to</p>",
+          "options": [
+            {
+              "id": 191829,
+              "text": "2 AB",
+              "html": "2 AB",
+              "is_correct": false
+            },
+            {
+              "id": 191827,
+              "text": "A + B",
+              "html": "A + B",
+              "is_correct": true
+            },
+            {
+              "id": 191828,
+              "text": "2 BA",
+              "html": "2 BA",
+              "is_correct": false
+            },
+            {
+              "id": 191830,
+              "text": "AB",
+              "html": "AB",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "A + B",
+          "correct_option_ids": [
+            191827
+          ],
+          "explanation": "AB = B {tex}\\Rightarrow {/tex} (AB)A = BA {tex}\\Rightarrow {/tex} A(BA) = BA {tex}\\Rightarrow {/tex} A(A) = A, {tex}\\Rightarrow {/tex} A 2 = A AB = B {tex}\\Rightarrow {/tex} B(AB) = BB {tex}\\Rightarrow {/tex} (BA)B = B 2 {tex}\\Rightarrow {/tex} AB = B 2 {tex}\\Rightarrow {/tex} B = B 2 {tex}\\therefore{/tex} A 2 + B 2 = A + B",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3600,
+      "test_name": "Matrices Test-03",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59161,
+          "question_text": "If A + B = {tex}\\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 1&1 \\end{array}} \\right]{/tex} and A &ndash; 2 B = {tex}\\left[ {\\begin{array}{*{20}{c}} { - 1}&1 \\\\ 1&{ - 1} \\end{array}} \\right]{/tex} , then A = ?",
+          "question_html": "<p>If A + B = <span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 1&amp;0 \\\\ 1&amp;1 \\end{array}} \\right]{/tex}</span> and A &ndash; 2 B =<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} { - 1}&amp;1 \\\\ 1&amp;{ - 1} \\end{array}} \\right]{/tex}</span>, then A =&nbsp;?</p>",
+          "options": [
+            {
+              "id": 191831,
+              "text": "{tex}\\frac{1}{3}\\left[ {\\begin{array}{*{20}{c}} 1&1 \\\\ 3&1 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}\\left[ {\\begin{array}{*{20}{c}} 1&amp;1 \\\\ 3&amp;1 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191833,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 1&1 \\\\ 2&1 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 1&amp;1 \\\\ 2&amp;1 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191834,
+              "text": "{tex}\\frac{1}{2}\\left[ {\\begin{array}{*{20}{c}} 2&1 \\\\ 1&2 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}\\left[ {\\begin{array}{*{20}{c}} 2&amp;1 \\\\ 1&amp;2 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191832,
+              "text": "{tex}\\frac{1}{3}\\left[ {\\begin{array}{*{20}{c}} 2&1 \\\\ 1&2 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}\\left[ {\\begin{array}{*{20}{c}} 2&amp;1 \\\\ 1&amp;2 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{3}\\left[ {\\begin{array}{*{20}{c}} 1&1 \\\\ 3&1 \\end{array}} \\right]{/tex}",
+          "correct_option_ids": [
+            191831
+          ],
+          "explanation": "A + B = {tex}\\left[\\begin{array}{ll} 1 & 0 \\\\ 1 & 1 \\end{array}\\right]{/tex} ...(i) A - 2B = {tex}\\left[\\begin{array}{rr} -1 & 1 \\\\ 1 & -1 \\end{array}\\right]{/tex} ...(ii) adding 2 {tex}\\times{/tex} (i) and (ii), we get 2A + 2B = {tex}\\left[\\begin{array}{ll} 2 & 0 \\\\ 2 & 2 \\end{array}\\right]{/tex} ...(iii) A - 2B = {tex}\\left[\\begin{array}{rr} -1 & 1 \\\\ 1 & -1 \\end{array}\\right]{/tex} ...(iv) adding (iii) and (iv), we get {tex}\\Rightarrow{/tex} 3A = {tex}\\left[\\begin{array}{cc} 2 & 0 \\\\ 2 & 2 \\end{array}\\right]+\\left[\\begin{array}{cc} -1 & 1 \\\\ 1 & -1 \\end{array}\\right]{/tex} {tex}\\Rightarrow{/tex} A = {tex}\\frac{1}{3}\\left[\\begin{array}{ll} 1 & 1 \\\\ 3 & 1 \\end{array}\\right]{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59162,
+          "question_text": "The order of the single matrix obtained from {tex}{\\left[ {\\begin{array}{*{20}{c}} 1&{ - 1} \\\\ 0&2 \\\\ 2&3 \\end{array}} \\right]_{3 \\times 2}}\\left\\{ {{{\\left[ {\\begin{array}{*{20}{c}} { - 1}&0&2 \\\\ 2&0&1 \\end{array}} \\right]}_{2 \\times 3}} - {{\\left[ {\\begin{array}{*{20}{c}} 0&1&{23} \\\\ 1&0&{21} \\end{array}} \\right]}_{2 \\times 3}}} \\right\\}{/tex} is",
+          "question_html": "<p>The order of the single matrix obtained from &nbsp;<span class=\"math-tex\">{tex}{\\left[ {\\begin{array}{*{20}{c}} 1&amp;{ - 1} \\\\ 0&amp;2 \\\\ 2&amp;3 \\end{array}} \\right]_{3 \\times 2}}\\left\\{ {{{\\left[ {\\begin{array}{*{20}{c}} { - 1}&amp;0&amp;2 \\\\ 2&amp;0&amp;1 \\end{array}} \\right]}_{2 \\times 3}} - {{\\left[ {\\begin{array}{*{20}{c}} 0&amp;1&amp;{23} \\\\ 1&amp;0&amp;{21} \\end{array}} \\right]}_{2 \\times 3}}} \\right\\}{/tex}</span>&nbsp;is&nbsp;</p>",
+          "options": [
+            {
+              "id": 191835,
+              "text": "3 {tex}\\times{/tex} 3",
+              "html": "3&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;3",
+              "is_correct": true
+            },
+            {
+              "id": 191838,
+              "text": "2 {tex}\\times{/tex} 3",
+              "html": "2 <span class=\"math-tex\">{tex}\\times{/tex}</span> 3",
+              "is_correct": false
+            },
+            {
+              "id": 191837,
+              "text": "3 {tex}\\times{/tex} 2",
+              "html": "3 <span class=\"math-tex\">{tex}\\times{/tex}</span> 2",
+              "is_correct": false
+            },
+            {
+              "id": 191836,
+              "text": "2 {tex}\\times{/tex} 2",
+              "html": "2 <span class=\"math-tex\">{tex}\\times{/tex}</span> 2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "3 {tex}\\times{/tex} 3",
+          "correct_option_ids": [
+            191835
+          ],
+          "explanation": "{tex}{\\left[ {\\begin{array}{*{20}{c}} 1 \\\\ 0 \\\\ 2 \\end{array}\\;\\;\\begin{array}{*{20}{c}} { - 1} \\\\ 2 \\\\ 3 \\end{array}} \\right]_{3\\times2}}\\left\\{ {{{\\left[ {\\begin{array}{*{20}{c}} { - 1} \\\\ 2 \\end{array}\\;\\;\\begin{array}{*{20}{c}} 0 \\\\ 0 \\end{array}\\;\\;\\begin{array}{*{20}{c}} 2 \\\\ 1 \\end{array}} \\right]}_{2\\times3}} - \\;\\;{{\\left[ {\\begin{array}{*{20}{c}} 0 \\\\ 1 \\end{array}\\;\\;\\begin{array}{*{20}{c}} 1 \\\\ 0 \\end{array}\\;\\;\\begin{array}{*{20}{c}} {23} \\\\ {21} \\end{array}} \\right]}_{2\\times3}}} \\right\\}{/tex} {tex} = {\\left[ {\\begin{array}{*{20}{c}} 1 \\\\ 0 \\\\ 2 \\end{array}\\;\\;\\begin{array}{*{20}{c}} { - 1} \\\\ 2 \\\\ 3 \\end{array}} \\right]_{3\\times2}}{\\left[ {\\begin{array}{*{20}{c}} { - 1} \\\\ 1 \\end{array}\\;\\;\\begin{array}{*{20}{c}} { - 1} \\\\ 0 \\end{array}\\;\\;\\begin{array}{*{20}{c}} { - 21} \\\\ { - 20} \\end{array}} \\right]_{2\\times3}}{/tex} {tex} = {\\left[ {\\begin{array}{*{20}{c}} { - 2}&{ - 1}&{ - 1} \\\\ 2&0&{ - 40} \\\\ 1&{ - 2}&{ - 102} \\end{array}} \\right]_{3\\times3}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59163,
+          "question_text": "Adj.(KA) = ______",
+          "question_html": "<p>Adj.(KA) = ______</p>",
+          "options": [
+            {
+              "id": 191839,
+              "text": "K n-1 Adj. A",
+              "html": "K<sup>n-1</sup>&nbsp;Adj. A",
+              "is_correct": true
+            },
+            {
+              "id": 191840,
+              "text": "K Adj. A",
+              "html": "K Adj. A",
+              "is_correct": false
+            },
+            {
+              "id": 191842,
+              "text": "K n+1 Adj. A",
+              "html": "K<sup>n+1</sup>&nbsp;Adj. A",
+              "is_correct": false
+            },
+            {
+              "id": 191841,
+              "text": "K n Adj.A",
+              "html": "K<sup>n&nbsp;</sup>Adj.A",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "K n-1 Adj. A",
+          "correct_option_ids": [
+            191839
+          ],
+          "explanation": "Adj. (KA) = K n-1 Adj.A, where K is a scalar and A is a n {tex}\\times{/tex} n matrix.",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59164,
+          "question_text": "If A and B are any two square matrices of the same order, then",
+          "question_html": "<p>If A and B are any two square matrices of the same order, then</p>",
+          "options": [
+            {
+              "id": 191843,
+              "text": "(AB) t = B t A t",
+              "html": "(AB)<sup>t</sup>&nbsp;= B<sup>t</sup>A<sup>t</sup>",
+              "is_correct": true
+            },
+            {
+              "id": 191845,
+              "text": "(AB) t = A t B t",
+              "html": "(AB)<sup>t</sup>&nbsp;= A<sup>t</sup>B<sup>t</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 191846,
+              "text": "AB = O",
+              "html": "AB = O",
+              "is_correct": false
+            },
+            {
+              "id": 191844,
+              "text": "adj(AB) = adj(A) adj (B)",
+              "html": "adj(AB) = adj(A) adj (B)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "(AB) t = B t A t",
+          "correct_option_ids": [
+            191843
+          ],
+          "explanation": "By using the property of transpose, therefore (AB ) {tex}^t{/tex} = B {tex}^t{/tex} A {tex}^t{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59165,
+          "question_text": "If A is any square matrix, then",
+          "question_html": "<p>If A is any square matrix, then</p>",
+          "options": [
+            {
+              "id": 191849,
+              "text": "A + A t is skew-symmetric",
+              "html": "A + A<sup>t</sup> is skew-symmetric",
+              "is_correct": false
+            },
+            {
+              "id": 191847,
+              "text": "A + A t is symmetric",
+              "html": "A + A<sup>t</sup> is symmetric",
+              "is_correct": true
+            },
+            {
+              "id": 191850,
+              "text": "A - A t is skew-symmetric",
+              "html": "A -&nbsp;A<sup>t</sup> is skew-symmetric",
+              "is_correct": false
+            },
+            {
+              "id": 191848,
+              "text": "A - A t is symmetric",
+              "html": "A - A<sup>t</sup> is symmetric",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "A + A t is symmetric",
+          "correct_option_ids": [
+            191847
+          ],
+          "explanation": "For every square matrix (A + A&rsquo; ) is always symmetric. Since (A+A&#39;)&#39;=A&#39;+A=A+A&#39;",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59166,
+          "question_text": "If A is any square matrix then which of the following is not symmetric?",
+          "question_html": "<p>If A is any square matrix then which of the following is not symmetric?</p>",
+          "options": [
+            {
+              "id": 191853,
+              "text": "AA t",
+              "html": "AA<sup>t</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 191851,
+              "text": "A - A t",
+              "html": "A - A<sup>t</sup>",
+              "is_correct": true
+            },
+            {
+              "id": 191852,
+              "text": "A+A t",
+              "html": "A+A<sup>t</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 191854,
+              "text": "A t A",
+              "html": "A<sup>t</sup>A",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "A - A t",
+          "correct_option_ids": [
+            191851
+          ],
+          "explanation": "For every square matrix (A &ndash; A&rsquo; ) is always skew &ndash; symmetric.",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59167,
+          "question_text": "Each diagonal element of a skew-symmetric matrix is",
+          "question_html": "<p>Each diagonal element of a skew-symmetric matrix is</p>",
+          "options": [
+            {
+              "id": 191857,
+              "text": "non-real",
+              "html": "non-real",
+              "is_correct": false
+            },
+            {
+              "id": 191855,
+              "text": "Zero",
+              "html": "Zero",
+              "is_correct": true
+            },
+            {
+              "id": 191856,
+              "text": "Positive",
+              "html": "Positive",
+              "is_correct": false
+            },
+            {
+              "id": 191858,
+              "text": "negative",
+              "html": "negative",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Zero",
+          "correct_option_ids": [
+            191855
+          ],
+          "explanation": "The diagonal elements of a skew-symmetric matrix is zero.",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59168,
+          "question_text": "The matrix {tex}\\left[ {\\begin{array}{*{20}{c}} 0&1 \\\\ 1&0 \\end{array}} \\right]{/tex} is",
+          "question_html": "<p>The matrix <span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 0&amp;1 \\\\ 1&amp;0 \\end{array}} \\right]{/tex}</span> is</p>\r\n",
+          "options": [
+            {
+              "id": 191862,
+              "text": "a skew- symmetric matrix",
+              "html": "a skew- symmetric matrix",
+              "is_correct": false
+            },
+            {
+              "id": 191861,
+              "text": "a unit matrix",
+              "html": "a unit matrix",
+              "is_correct": false
+            },
+            {
+              "id": 191860,
+              "text": "a diagonal matrix",
+              "html": "a diagonal matrix",
+              "is_correct": false
+            },
+            {
+              "id": 191859,
+              "text": "a symmetric matrix",
+              "html": "a symmetric matrix",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "a symmetric matrix",
+          "correct_option_ids": [
+            191859
+          ],
+          "explanation": "Symmetric matrix. Since, A&rsquo; = A, therefore, {tex}\\left[ {\\begin{array}{*{20}{c}} 0&1 \\\\ 1&0 \\end{array}} \\right]{/tex} = {tex}\\left[ {\\begin{array}{*{20}{c}} 0&1 \\\\ 1&0 \\end{array}} \\right]{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59169,
+          "question_text": "If {tex}A = \\left[ {\\begin{array}{*{20}{c}} 0&2&{ - 3} \\\\ { - 2}&0&{ - 1} \\\\ 3&1&0 \\end{array}} \\right]{/tex} then A is a",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}A = \\left[ {\\begin{array}{*{20}{c}} 0&amp;2&amp;{ - 3} \\\\ { - 2}&amp;0&amp;{ - 1} \\\\ 3&amp;1&amp;0 \\end{array}} \\right]{/tex}</span>then A is a</p>",
+          "options": [
+            {
+              "id": 191865,
+              "text": "diagonal matrix",
+              "html": "diagonal matrix",
+              "is_correct": false
+            },
+            {
+              "id": 191863,
+              "text": "skew-symmetric matrix",
+              "html": "skew-symmetric matrix",
+              "is_correct": true
+            },
+            {
+              "id": 191866,
+              "text": "Antisymmetric matrix",
+              "html": "Antisymmetric matrix",
+              "is_correct": false
+            },
+            {
+              "id": 191864,
+              "text": "symmetric matrix",
+              "html": "symmetric matrix",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "skew-symmetric matrix",
+          "correct_option_ids": [
+            191863
+          ],
+          "explanation": "The diagonal elements of a skew &ndash; symmetric matrix is always zero and the elements a ij = - a ji.",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59170,
+          "question_text": "If A = {tex}\\left[ {\\begin{array}{*{20}{c}} 0&2&3 \\\\ { - 2}&0&{ - 7} \\\\ { - 3}&7&0 \\end{array}} \\right]{/tex} , then, which of the following is true:",
+          "question_html": "<p>If A =&nbsp;<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 0&amp;2&amp;3 \\\\ { - 2}&amp;0&amp;{ - 7} \\\\ { - 3}&amp;7&amp;0 \\end{array}} \\right]{/tex}</span>, then, which of the following is true:</p>",
+          "options": [
+            {
+              "id": 191868,
+              "text": "A = A&rsquo;",
+              "html": "A = A&rsquo;",
+              "is_correct": false
+            },
+            {
+              "id": 191870,
+              "text": "None of these",
+              "html": "None of these",
+              "is_correct": false
+            },
+            {
+              "id": 191867,
+              "text": "A = - A&rsquo;",
+              "html": "A = - A&rsquo;",
+              "is_correct": true
+            },
+            {
+              "id": 191869,
+              "text": "A&#39; = - A",
+              "html": "A&#39; = - A",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "A = - A&rsquo;",
+          "correct_option_ids": [
+            191867
+          ],
+          "explanation": "In given question the matrix A is a skew &ndash; symmetric matrix. Thus, A = - A&rsquo;",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59171,
+          "question_text": "If A and B are symmetric matrices of order n ( A {tex} \\ne {/tex} B), then",
+          "question_html": "<p>If A and B are symmetric matrices of order n ( A<span class=\"math-tex\">{tex} \\ne {/tex}</span> B), then</p>\r\n",
+          "options": [
+            {
+              "id": 191874,
+              "text": "A + B is a zero matrix",
+              "html": "A + B is a zero matrix",
+              "is_correct": false
+            },
+            {
+              "id": 191872,
+              "text": "A + B is skew symmetric",
+              "html": "A + B is skew symmetric",
+              "is_correct": false
+            },
+            {
+              "id": 191871,
+              "text": "A + B is symmetric",
+              "html": "A + B is symmetric",
+              "is_correct": true
+            },
+            {
+              "id": 191873,
+              "text": "A + B is a diagonal matrix",
+              "html": "A + B is a diagonal matrix",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "A + B is symmetric",
+          "correct_option_ids": [
+            191871
+          ],
+          "explanation": "Sum of two symmetric matrices is also symmetric.",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59172,
+          "question_text": "If {tex}A = \\left[ {\\begin{array}{*{20}{c}} 0&{ - 1}&2 \\\\ 1&0&3 \\\\ { - 2}&{ - 3}&0 \\end{array}} \\right]{/tex} , A + 2A t equals",
+          "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}A = \\left[ {\\begin{array}{*{20}{c}} 0&amp;{ - 1}&amp;2 \\\\ 1&amp;0&amp;3 \\\\ { - 2}&amp;{ - 3}&amp;0 \\end{array}} \\right]{/tex}</span>, A + 2A<sup>t</sup>&nbsp; equals</p>",
+          "options": [
+            {
+              "id": 191878,
+              "text": "2A 2",
+              "html": "2A<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 191876,
+              "text": "-A t",
+              "html": "-A<sup>t</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 191875,
+              "text": "A t",
+              "html": "A<sup>t</sup>",
+              "is_correct": true
+            },
+            {
+              "id": 191877,
+              "text": "A",
+              "html": "A",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "A t",
+          "correct_option_ids": [
+            191875
+          ],
+          "explanation": "To find: Thus,A + 2A&#39; = {tex}\\left[ {\\begin{array}{*{20}{c}} 0&{ - 1}&2 \\\\ 1&0&3 \\\\ { - 2}&{ - 3}&0 \\end{array}} \\right] + \\left[ {\\begin{array}{*{20}{c}} 0&2&{ - 4} \\\\ { - 2}&0&{ - 6} \\\\ 4&6&0 \\end{array}} \\right] = \\left[ {\\begin{array}{*{20}{c}} 0&1&{ - 2} \\\\ { - 1}&0&{ - 3} \\\\ 2&3&0 \\end{array}} \\right]{/tex} = A&#39;",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59173,
+          "question_text": "If A is a square matrix, then A &ndash; A&rsquo; is a",
+          "question_html": "<p>If A is a square matrix, then A &ndash; A&rsquo; is a</p>",
+          "options": [
+            {
+              "id": 191879,
+              "text": "skew-symmetric matrix",
+              "html": "skew-symmetric matrix",
+              "is_correct": true
+            },
+            {
+              "id": 191880,
+              "text": "diagonal matrix",
+              "html": "diagonal matrix",
+              "is_correct": false
+            },
+            {
+              "id": 191882,
+              "text": "Antisymmetric matrix",
+              "html": "Antisymmetric matrix",
+              "is_correct": false
+            },
+            {
+              "id": 191881,
+              "text": "symmetric matrix",
+              "html": "symmetric matrix",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "skew-symmetric matrix",
+          "correct_option_ids": [
+            191879
+          ],
+          "explanation": "The difference of a matrix A and its transpose is always skew &ndash; symmetric.",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59174,
+          "question_text": "If A is a square matrix such that A 2 = I, then A -1 is equal to",
+          "question_html": "<p>If A is a square matrix such that A<sup>2</sup>&nbsp;= I,&nbsp;then A<sup>-1</sup> is equal to</p>",
+          "options": [
+            {
+              "id": 191884,
+              "text": "O",
+              "html": "O",
+              "is_correct": false
+            },
+            {
+              "id": 191883,
+              "text": "A",
+              "html": "A",
+              "is_correct": true
+            },
+            {
+              "id": 191885,
+              "text": "I",
+              "html": "I",
+              "is_correct": false
+            },
+            {
+              "id": 191886,
+              "text": "A + I",
+              "html": "A + I",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "A",
+          "correct_option_ids": [
+            191883
+          ],
+          "explanation": "If A and B are two square matrices of the same order and the product AB = I, matrix B is called the inverse of matrix A.Therefore, if A 2 = I, then matrix A is the inverse of itself.",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59175,
+          "question_text": "The system of linear equations ax + by = 0, cx + dy = 0 has a non-trival solution if",
+          "question_html": "<p>The system of linear equations ax + by = 0, cx + dy = 0 has a non-trival solution if</p>",
+          "options": [
+            {
+              "id": 191889,
+              "text": "ac + bd = 0",
+              "html": "ac + bd = 0",
+              "is_correct": false
+            },
+            {
+              "id": 191890,
+              "text": "ad &ndash; bc > 0",
+              "html": "ad &ndash; bc &gt;&nbsp;0",
+              "is_correct": false
+            },
+            {
+              "id": 191887,
+              "text": "ad &ndash; bc = 0",
+              "html": "ad &ndash; bc = 0",
+              "is_correct": true
+            },
+            {
+              "id": 191888,
+              "text": "ad &ndash; bc < 0",
+              "html": "ad &ndash; bc &lt; 0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "ad &ndash; bc = 0",
+          "correct_option_ids": [
+            191887
+          ],
+          "explanation": "The given system of equations has a non &ndash; trivial solution if: {tex}\\left| {\\begin{array}{*{20}{c}} a&b \\\\ c&d \\end{array}} \\right| = 0 \\Rightarrow ad - bc = 0{/tex} .",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3601,
+      "test_name": "Matrices Test-04",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59176,
+          "question_text": "Two matrices A and B are multiplicative inverse of each other only if",
+          "question_html": "<p>Two matrices A and B are multiplicative inverse of each other only if</p>",
+          "options": [
+            {
+              "id": 191893,
+              "text": "AB = BA",
+              "html": "AB = BA",
+              "is_correct": false
+            },
+            {
+              "id": 191891,
+              "text": "AB = BA = I",
+              "html": "AB = BA = I",
+              "is_correct": true
+            },
+            {
+              "id": 191894,
+              "text": "AB = O, BA = I",
+              "html": "AB = O, BA = I",
+              "is_correct": false
+            },
+            {
+              "id": 191892,
+              "text": "AB = BA = O",
+              "html": "AB = BA = O",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "AB = BA = I",
+          "correct_option_ids": [
+            191891
+          ],
+          "explanation": "If AB = BA = I, then A and B are inverse of each other. i.e. A is inverse of B and B is inverse of A.",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59177,
+          "question_text": "If A and B are square matrices of the same order, then (A + B) 2 = A 2 + 2AB + B 2 implies",
+          "question_html": "<p>If A and B are square matrices of the same order, then (A + B)<sup>2</sup>&nbsp;= A<sup>2</sup>&nbsp;+ 2AB + B<sup>2</sup>&nbsp;implies</p>",
+          "options": [
+            {
+              "id": 191896,
+              "text": "AB = O",
+              "html": "AB = O",
+              "is_correct": false
+            },
+            {
+              "id": 191897,
+              "text": "AB + BA = O",
+              "html": "AB + BA = O",
+              "is_correct": false
+            },
+            {
+              "id": 191895,
+              "text": "AB = BA",
+              "html": "AB = BA",
+              "is_correct": true
+            },
+            {
+              "id": 191898,
+              "text": "AB - BA = O",
+              "html": "AB -&nbsp;BA = O",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "AB = BA",
+          "correct_option_ids": [
+            191895
+          ],
+          "explanation": "If A and B are square matrices of same order, then, product of the matrices is not commutative.Therefore, the given result is true only when AB = BA.",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59178,
+          "question_text": "Let A = {tex}\\left[ {\\begin{array}{*{20}{c}} 1&0&0 \\\\ 5&2&0 \\\\ { - 1}&6&1 \\end{array}} \\right]{/tex} , then adj (A) is",
+          "question_html": "<p>Let A =&nbsp;<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 1&amp;0&amp;0 \\\\ 5&amp;2&amp;0 \\\\ { - 1}&amp;6&amp;1 \\end{array}} \\right]{/tex}</span>, then adj (A) is</p>",
+          "options": [
+            {
+              "id": 191901,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 2&0&0 \\\\ { - 25}&2&0 \\\\ { - 32}&{36}&1 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 2&amp;0&amp;0 \\\\ { - 25}&amp;2&amp;0 \\\\ { - 32}&amp;{36}&amp;1 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191900,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 2&{ - 5}&{32} \\\\ 0&1&6 \\\\ 0&0&2 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 2&amp;{ - 5}&amp;{32} \\\\ 0&amp;1&amp;6 \\\\ 0&amp;0&amp;2 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191902,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 2&{ - 25}&{ - 32} \\\\ 0&2&{ - 36} \\\\ 0&0&1 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 2&amp;{ - 25}&amp;{ - 32} \\\\ 0&amp;2&amp;{ - 36} \\\\ 0&amp;0&amp;1 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191899,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 2&0&0 \\\\ { - 5}&1&0 \\\\ {32}&{ - 6}&2 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 2&amp;0&amp;0 \\\\ { - 5}&amp;1&amp;0 \\\\ {32}&amp;{ - 6}&amp;2 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 2&0&0 \\\\ { - 5}&1&0 \\\\ {32}&{ - 6}&2 \\end{array}} \\right]{/tex}",
+          "correct_option_ids": [
+            191899
+          ],
+          "explanation": "adj. A = {tex}\\left[ {\\begin{array}{*{20}{c}} 2&{ - 5}&{32} \\\\ 0&1&{ - 6} \\\\ 0&0&2 \\end{array}} \\right] = \\left[ {\\begin{array}{*{20}{c}} 2&0&0 \\\\ { - 5}&1&0 \\\\ {32}&{ - 6}&2 \\end{array}} \\right]{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59179,
+          "question_text": "The transformation &lsquo;orthogonal projection on X-axis&rsquo; is given by the matrix",
+          "question_html": "<p>The transformation &lsquo;orthogonal projection on X-axis&rsquo; is given by the matrix</p>",
+          "options": [
+            {
+              "id": 191906,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 0&0 \\\\ 0&1 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 0&amp;0 \\\\ 0&amp;1 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191903,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 0&0 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 1&amp;0 \\\\ 0&amp;0 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191904,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 0&0 \\\\ 1&0 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 0&amp;0 \\\\ 1&amp;0 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191905,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 0&1 \\\\ 0&0 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 0&amp;1 \\\\ 0&amp;0 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 0&0 \\end{array}} \\right]{/tex}",
+          "correct_option_ids": [
+            191903
+          ],
+          "explanation": "The orthogonal projection on x-axis is given by: {tex}\\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 0&0 \\end{array}} \\right]{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59180,
+          "question_text": "The equations, x + 4y &ndash; 2z = 3, 3x + y + 5z = 7, 2x + 3y +z = 5 have",
+          "question_html": "<p>The equations, x + 4y &ndash; 2z = 3, 3x + y + 5z = 7, 2x + 3y +z = 5 have</p>",
+          "options": [
+            {
+              "id": 191908,
+              "text": "a unique solution",
+              "html": "a unique solution",
+              "is_correct": false
+            },
+            {
+              "id": 191909,
+              "text": "infinitely many solutions",
+              "html": "infinitely many solutions",
+              "is_correct": false
+            },
+            {
+              "id": 191907,
+              "text": "no solution",
+              "html": "no solution",
+              "is_correct": true
+            },
+            {
+              "id": 191910,
+              "text": "two solution",
+              "html": "two solution",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "no solution",
+          "correct_option_ids": [
+            191907
+          ],
+          "explanation": "The given system of equations does not have solution if : {tex}\\left| {\\begin{array}{*{20}{c}} 1&4&{ - 2} \\\\ 3&1&5 \\\\ 2&3&1 \\end{array}} \\right| = 0 \\Rightarrow 1( - 14) - 4( - 7) - 2(7) = 0{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59181,
+          "question_text": "Let a, b, c, d, u, v be integers. If the system of equations, ax + by = u, cx + dy = v, has a unique solution in integers, then",
+          "question_html": "<p>Let a, b, c, d, u, v be integers. If the system of equations, ax + by = u, cx + dy = v, has a unique solution in integers, then</p>",
+          "options": [
+            {
+              "id": 191913,
+              "text": "ad &ndash; bc = {tex} \\pm {/tex} 1",
+              "html": "ad &ndash; bc = <span class=\"math-tex\">{tex} \\pm {/tex}</span>1",
+              "is_correct": false
+            },
+            {
+              "id": 191912,
+              "text": "ad &ndash; bc = - 1",
+              "html": "ad &ndash; bc = - 1",
+              "is_correct": false
+            },
+            {
+              "id": 191914,
+              "text": "ad &ndash; bc = 1",
+              "html": "ad &ndash; bc = 1",
+              "is_correct": false
+            },
+            {
+              "id": 191911,
+              "text": "ad - bc need not be equal to {tex} \\pm 1{/tex} .",
+              "html": "ad - bc need not be equal to <span class=\"math-tex\">{tex} \\pm 1{/tex}</span>.",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "ad - bc need not be equal to {tex} \\pm 1{/tex} .",
+          "correct_option_ids": [
+            191911
+          ],
+          "explanation": "ax + by = u , cx +dy = v, {tex}\\Delta = \\left| {\\begin{array}{*{20}{c}} a&b \\\\ c&d \\end{array}} \\right| = ad - bc;{/tex} {tex}{\\Delta _1} = \\left| {\\begin{array}{*{20}{c}} u&b \\\\ v&d \\end{array}} \\right| = ud - bv;{/tex} {tex}{\\Delta _2} = \\left| {\\begin{array}{*{20}{c}} a&u \\\\ c&v \\end{array}} \\right| = av - cu;{/tex} {tex} \\Rightarrow x = \\frac{{{\\Delta _1}}}{\\Delta } = \\frac{{ud - bv}}{{ad - bc}},y = \\frac{{{\\Delta _2}}}{\\Delta } = \\frac{{av - cu}}{{ad - bc}}{/tex} since the solution is unique in integers. {tex}\\begin{gathered} \\Delta = \\pm 1 \\;, ad - bc = \\pm 1 \\\\ \\end{gathered} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59182,
+          "question_text": "The system of equations, x + y + z = 6, x + 2y + 3z = 14, x + 3y + 5z = 20 has",
+          "question_html": "<p>The system of equations, x + y + z = 6, x + 2y + 3z = 14, x + 3y + 5z = 20 has</p>\r\n",
+          "options": [
+            {
+              "id": 191916,
+              "text": "only finitely many solutions",
+              "html": "only finitely many solutions",
+              "is_correct": false
+            },
+            {
+              "id": 191917,
+              "text": "infinitely many solutions",
+              "html": "infinitely many solutions",
+              "is_correct": false
+            },
+            {
+              "id": 191915,
+              "text": "no solution",
+              "html": "no solution",
+              "is_correct": true
+            },
+            {
+              "id": 191918,
+              "text": "a unique solution",
+              "html": "a unique solution",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "no solution",
+          "correct_option_ids": [
+            191915
+          ],
+          "explanation": "The given system of equations does not has a solution if: {tex}\\left| {\\begin{array}{*{20}{c}} 1&1&1 \\\\ 1&2&3 \\\\ 1&3&5 \\end{array}} \\right| = 0 {/tex} {tex}\\Rightarrow{/tex} 1(10 - 9) - 1(5 - 3) + 1(3 - 2) = 0 {tex}\\Rightarrow{/tex} 1 - 2 + 1 = 0",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59183,
+          "question_text": "If I n is the identity matrix of order n, then (I n ) -1",
+          "question_html": "<p>If I<sub>n</sub> is the identity matrix of order n, then (I<sub>n</sub>)<sup>-1</sup></p>",
+          "options": [
+            {
+              "id": 191922,
+              "text": "nI n",
+              "html": "nI<sub>n</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 191919,
+              "text": "= I n",
+              "html": "= I<sub>n</sub>",
+              "is_correct": true
+            },
+            {
+              "id": 191921,
+              "text": "= O",
+              "html": "= O",
+              "is_correct": false
+            },
+            {
+              "id": 191920,
+              "text": "does not exist",
+              "html": "does not exist",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "= I n",
+          "correct_option_ids": [
+            191919
+          ],
+          "explanation": "Inverse of any identity matrix is always an identity matrix.",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59184,
+          "question_text": "If A and B are square matrices of the same order and AB = 3I, then A -1 is equal to",
+          "question_html": "<p>If A and B are square matrices of the same order and AB = 3I, then A<sup>-1</sup> is equal to</p>",
+          "options": [
+            {
+              "id": 191924,
+              "text": "3 B",
+              "html": "3 B",
+              "is_correct": false
+            },
+            {
+              "id": 191926,
+              "text": "B -1",
+              "html": "B<sup>-1</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 191923,
+              "text": "{tex}\\frac{1}{3}B{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}B{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191925,
+              "text": "3B -1",
+              "html": "3B<sup>-1</sup>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{3}B{/tex}",
+          "correct_option_ids": [
+            191923
+          ],
+          "explanation": "If A and B are square matrices of the same order and AB = 3 I, then , {tex}\\frac{1}{3}AB = I{A^{ - 1}} = \\frac{1}{3}B.{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59185,
+          "question_text": "If {tex}A = \\left[ {\\begin{array}{*{20}{c}} 1&1&3 \\\\ 5&2&6 \\\\ { - 2}&{ - 1}&{ - 3} \\end{array}} \\right]{/tex} . Then |A| is",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}A = \\left[ {\\begin{array}{*{20}{c}} 1&amp;1&amp;3 \\\\ 5&amp;2&amp;6 \\\\ { - 2}&amp;{ - 1}&amp;{ - 3} \\end{array}} \\right]{/tex}</span>. Then |A| is</p>",
+          "options": [
+            {
+              "id": 191928,
+              "text": "Idempotent",
+              "html": "Idempotent",
+              "is_correct": false
+            },
+            {
+              "id": 191929,
+              "text": "Symmetric",
+              "html": "Symmetric",
+              "is_correct": false
+            },
+            {
+              "id": 191930,
+              "text": "Asymmetric",
+              "html": "Asymmetric",
+              "is_correct": false
+            },
+            {
+              "id": 191927,
+              "text": "Nilpotent",
+              "html": "Nilpotent",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "Nilpotent",
+          "correct_option_ids": [
+            191927
+          ],
+          "explanation": "The given matrix A is nilpotent, because |A| = 0, as determinant of a nilpotent matrix is zero.",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59186,
+          "question_text": "Let for any matrix M, M -1 exist. Which of the following is not true.",
+          "question_html": "<p>Let for any matrix M, M<sup>-1</sup>&nbsp;exist.&nbsp;Which of the following is not true.</p>",
+          "options": [
+            {
+              "id": 191933,
+              "text": "(M -1 ) -1 = M",
+              "html": "(M<sup>-1</sup>)<sup>-1&nbsp;</sup>= M&nbsp;",
+              "is_correct": false
+            },
+            {
+              "id": 191934,
+              "text": "(M 1 ) -1 = M",
+              "html": "(M<sup>1</sup>)<sup>-1&nbsp;</sup>= M&nbsp;",
+              "is_correct": false
+            },
+            {
+              "id": 191931,
+              "text": "(M -1 ) -1 = (M -1 ) 1",
+              "html": "(M<sup>-1</sup>)<sup>-1&nbsp;</sup>=&nbsp;(M<sup>-1</sup>)<sup>1</sup>",
+              "is_correct": true
+            },
+            {
+              "id": 191932,
+              "text": "(M -1 ) 2 = (M 2 ) - 1",
+              "html": "(M<sup>-1</sup>)<sup>2</sup><sup>&nbsp;</sup>=&nbsp;(M<sup>2</sup>)<sup>-</sup><sup>1</sup>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "(M -1 ) -1 = (M -1 ) 1",
+          "correct_option_ids": [
+            191931
+          ],
+          "explanation": "Clearly , (M -1 ) -1 = (M -1 ) 1 is not true.",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59187,
+          "question_text": "The system of linear equations x + y + z = 2, 2x + y - z = 3, 3x + 2y - kz = 4 has a unique solution if ,",
+          "question_html": "<p>The system of linear equations x + y + z = 2, 2x + y - z = 3, 3x + 2y - kz = 4 has a unique solution if ,</p>\r\n",
+          "options": [
+            {
+              "id": 191937,
+              "text": "-2 < k < 2",
+              "html": "-2 &lt; k &lt; 2",
+              "is_correct": false
+            },
+            {
+              "id": 191935,
+              "text": "{tex}k \\ne 0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}k \\ne 0{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191938,
+              "text": "k = 0",
+              "html": "k = 0",
+              "is_correct": false
+            },
+            {
+              "id": 191936,
+              "text": "-1 < k < 1",
+              "html": "-1 &lt; k &lt; 1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}k \\ne 0{/tex}",
+          "correct_option_ids": [
+            191935
+          ],
+          "explanation": "In the given question the system of linear equation has unique solution if: {tex}\\left| {\\begin{array}{*{20}{c}} 1&1&1 \\\\ 2&1&{ - 1} \\\\ 3&2&{ - k} \\end{array}} \\right| \\ne 0 \\Rightarrow 1( - k + 2) \\ - 1( - 2k + 3) + 1(4 - 3) \\ne 0 \\Rightarrow k \\ne 0{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59188,
+          "question_text": "If A = {tex}\\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 0&1 \\end{array}} \\right]{/tex} , then A 4 =",
+          "question_html": "<p>If A =&nbsp;<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 1&amp;0 \\\\ 0&amp;1 \\end{array}} \\right]{/tex}</span>, then A<sup>4</sup> =</p>",
+          "options": [
+            {
+              "id": 191940,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 1&1 \\\\ 0&0 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 1&amp;1 \\\\ 0&amp;0 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191942,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 0&1 \\\\ 1&0 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 0&amp;1 \\\\ 1&amp;0 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191939,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 0&1 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 1&amp;0 \\\\ 0&amp;1 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191941,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 0&0 \\\\ 1&1 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 0&amp;0 \\\\ 1&amp;1 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 0&1 \\end{array}} \\right]{/tex}",
+          "correct_option_ids": [
+            191939
+          ],
+          "explanation": "In the given question the given matrix is an Identity matrix, and I n = I.I.I .......... .I(n times) = I.",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59189,
+          "question_text": "The system of equations x + 2y = 11, -2 x &ndash; 4y = 22 has",
+          "question_html": "<p>The system of equations x + 2y = 11, -2 x &ndash; 4y = 22 has</p>\r\n",
+          "options": [
+            {
+              "id": 191946,
+              "text": "infinitely many solutions",
+              "html": "infinitely many solutions",
+              "is_correct": false
+            },
+            {
+              "id": 191944,
+              "text": "finitely many solutions",
+              "html": "finitely many solutions",
+              "is_correct": false
+            },
+            {
+              "id": 191943,
+              "text": "no solution",
+              "html": "no solution",
+              "is_correct": true
+            },
+            {
+              "id": 191945,
+              "text": "only one solution",
+              "html": "only one solution",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "no solution",
+          "correct_option_ids": [
+            191943
+          ],
+          "explanation": "For no solution, we have: {tex}\\frac{{{a_1}}}{{{a_2}}} = \\frac{{{b_1}}}{{{b_2}}} \\ne \\frac{{{c_1}}}{{{c_2}}}{/tex} , for the given system of equations we have : {tex}\\frac{1}{{ - 2}} = \\frac{2}{{ - 4}} \\ne \\frac{{11}}{{22}}{/tex} . Therefore, the system of the linear equations has no solution.",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59190,
+          "question_text": "The equations 2x + 3y = 7, 14x + 21y = 49 has",
+          "question_html": "<p>The equations 2x + 3y = 7, 14x + 21y = 49 has</p>\r\n",
+          "options": [
+            {
+              "id": 191949,
+              "text": "no solution",
+              "html": "no solution",
+              "is_correct": false
+            },
+            {
+              "id": 191950,
+              "text": "finitely many solutions",
+              "html": "finitely many solutions",
+              "is_correct": false
+            },
+            {
+              "id": 191948,
+              "text": "a unique solution",
+              "html": "a unique solution",
+              "is_correct": false
+            },
+            {
+              "id": 191947,
+              "text": "infinitely many solutions",
+              "html": "infinitely many solutions",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "infinitely many solutions",
+          "correct_option_ids": [
+            191947
+          ],
+          "explanation": "For infinitely many solutions , {tex}\\frac{{{a_1}}}{{{a_2}}} = \\frac{{{b_1}}}{{{b_2}}} = \\frac{{{c_1}}}{{{c_2}}}.{/tex} , for given system of equations we have : {tex}\\frac{2}{{14}} = \\frac{3}{{21}} = \\frac{7}{{49}}{/tex} .",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3602,
+      "test_name": "Matrices Test-05",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59191,
+          "question_text": "For what value of {tex}\\lambda {/tex} the following system of equations does not have a solution x + y + z = 6, 4x + {tex}\\lambda {/tex} y - {tex}\\lambda {/tex} z = 0, 3x + 2y &ndash; 4z = - 5 ?",
+          "question_html": "<p>For what value of <span class=\"math-tex\">{tex}\\lambda {/tex}</span> the following system of equations does not have a solution x + y + z = 6, 4x + <span class=\"math-tex\">{tex}\\lambda {/tex}</span>y - <span class=\"math-tex\">{tex}\\lambda {/tex}</span>z = 0, 3x + 2y &ndash; 4z = - 5 ?</p>\r\n",
+          "options": [
+            {
+              "id": 191954,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 191952,
+              "text": "-3",
+              "html": "-3",
+              "is_correct": false
+            },
+            {
+              "id": 191953,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 191951,
+              "text": "3",
+              "html": "3",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "3",
+          "correct_option_ids": [
+            191951
+          ],
+          "explanation": "The given system of equations does not have solution if {tex}\\left| {\\begin{array}{*{20}{c}} 1&1&1 \\\\ 4&\\lambda &{ - \\lambda } \\\\ 3&2&{ - 4} \\end{array}} \\right| = 0 \\Rightarrow \\left| {\\begin{array}{*{20}{c}} 0&0&1 \\\\ {4 + \\lambda }&{2\\lambda }&{ - \\lambda } \\\\ 7&6&4 \\end{array}} \\right| = 0{/tex} {tex}\\Rightarrow (24 + 6\\lambda - 14\\lambda ) = 0 \\Rightarrow \\lambda = 3 {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59192,
+          "question_text": "The value of {tex}\\lambda {/tex} , for which system of equations. x + y + z = 1, x + 2y + 2z = 3, x + 2y + {tex}\\lambda {/tex} z = 4, have no solution is",
+          "question_html": "<p>The value of&nbsp;<span class=\"math-tex\">{tex}\\lambda {/tex}</span>, for which system of equations. x + y + z = 1, x + 2y + 2z = 3, x + 2y + <span class=\"math-tex\">{tex}\\lambda {/tex}</span>z = 4, have no solution is</p>",
+          "options": [
+            {
+              "id": 191956,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 191958,
+              "text": "3.",
+              "html": "3.",
+              "is_correct": false
+            },
+            {
+              "id": 191955,
+              "text": "2",
+              "html": "2",
+              "is_correct": true
+            },
+            {
+              "id": 191957,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "2",
+          "correct_option_ids": [
+            191955
+          ],
+          "explanation": "The given system of equations does not have solution if : {tex}\\left| {\\matrix{ 1 & 1 & 1 \\cr 1 & 2 & 2 \\cr 1 & 2 & \\lambda \\cr } } \\right| \\buildrel\\textstyle.\\over= 0 \\Rightarrow 1(2\\lambda - 4) - 1(\\lambda - 2) + 1(2 - 2) = 0 \\Rightarrow \\lambda = 2{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59193,
+          "question_text": "The system of equations, x + y = 2 and 2x + 2y = 3 has",
+          "question_html": "<p>The system of equations, x + y = 2 and 2x + 2y = 3 has</p>\r\n",
+          "options": [
+            {
+              "id": 191961,
+              "text": "finitely many solutions",
+              "html": "finitely many solutions",
+              "is_correct": false
+            },
+            {
+              "id": 191959,
+              "text": "no solution",
+              "html": "no solution",
+              "is_correct": true
+            },
+            {
+              "id": 191962,
+              "text": "infinitely many solutions",
+              "html": "infinitely many solutions",
+              "is_correct": false
+            },
+            {
+              "id": 191960,
+              "text": "a unique solution",
+              "html": "a unique solution",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "no solution",
+          "correct_option_ids": [
+            191959
+          ],
+          "explanation": "For No solution, {tex}\\frac{{{a_1}}}{{{a_2}}} = \\frac{{{b_1}}}{{{b_2}}} \\ne \\frac{{{c_1}}}{{{c_2}}}{/tex} , for given system of equations we have: {tex}\\frac{1}{2} = \\frac{1}{2} \\ne \\frac{2}{3}{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59194,
+          "question_text": "The equations x + 2y + 2z = 1 and 2x + 4y + 4z = 9 have",
+          "question_html": "<p>The equations x + 2y + 2z = 1 and 2x + 4y + 4z = 9 have</p>",
+          "options": [
+            {
+              "id": 191966,
+              "text": "infinitely many solutions",
+              "html": "infinitely many solutions",
+              "is_correct": false
+            },
+            {
+              "id": 191963,
+              "text": "no solution",
+              "html": "no solution",
+              "is_correct": true
+            },
+            {
+              "id": 191965,
+              "text": "only one solution",
+              "html": "only one solution",
+              "is_correct": false
+            },
+            {
+              "id": 191964,
+              "text": "only two solutions",
+              "html": "only two solutions",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "no solution",
+          "correct_option_ids": [
+            191963
+          ],
+          "explanation": "The given system of equations does not have solution if {tex}\\left| {\\begin{array}{*{20}{c}} 1 \\\\ 2 \\end{array}\\;\\;\\begin{array}{*{20}{c}} 2 \\\\ 4 \\end{array}\\;\\;\\begin{array}{*{20}{c}} 2 \\\\ 4 \\end{array}} \\right|{/tex} = 0",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59195,
+          "question_text": "If the system of equations x + 4ay + az = 0, x + 3by + bz = 0 and x + 2 cy +cz = 0 have a non-zero solution,then a, b, c are in",
+          "question_html": "<p>If the system of equations x + 4ay + az = 0, x + 3by + bz = 0 and x + 2 cy +cz = 0 have a non-zero solution,then a, b, c are in</p>",
+          "options": [
+            {
+              "id": 191968,
+              "text": "G.P.",
+              "html": "G.P.",
+              "is_correct": false
+            },
+            {
+              "id": 191967,
+              "text": "H.P.",
+              "html": "H.P.",
+              "is_correct": true
+            },
+            {
+              "id": 191970,
+              "text": "H.M",
+              "html": "H.M",
+              "is_correct": false
+            },
+            {
+              "id": 191969,
+              "text": "A.P.",
+              "html": "A.P.",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "H.P.",
+          "correct_option_ids": [
+            191967
+          ],
+          "explanation": "The system of linear equation has non trivial solution if : {tex}\\begin{gathered} \\left| {\\begin{array}{*{20}{c}} 1&{4a}&a \\\\ 1&{3b}&b \\\\ 1&{2c}&c \\end{array}} \\right| = 0 \\end{gathered}{/tex} {tex}\\begin{gathered}\\Rightarrow \\left| {\\begin{array}{*{20}{c}} 1&{4a}&a \\\\ 0&{3b - 4a}&{b - a} \\\\ 0&{2c - 4a}&{c - a} \\end{array}} \\right| = 0 \\end{gathered} {/tex} {tex}\\begin{gathered} \\Rightarrow bc + ab - 2ac = 0 \\end{gathered} {/tex} {tex} \\Rightarrow \\frac{2}{b} = \\frac{1}{a} + \\frac{1}{c}{/tex} . Thus , a , b, c are in H.P.",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59196,
+          "question_text": "The system of equations, x + y + z = 1, 3x + 6y + z = 8, {tex}\\alpha {/tex} x + 2y + 3z = 1 has a unique solution for",
+          "question_html": "<p>The system of equations, x + y + z = 1, 3x + 6y + z = 8, <span class=\"math-tex\">{tex}\\alpha {/tex}</span>x + 2y + 3z = 1 has a unique solution for</p>\r\n",
+          "options": [
+            {
+              "id": 191973,
+              "text": "{tex}\\alpha {/tex} not equal to 0",
+              "html": "<span class=\"math-tex\">{tex}\\alpha {/tex}</span>&nbsp;not equal to 0",
+              "is_correct": false
+            },
+            {
+              "id": 191972,
+              "text": "all real {tex}\\alpha {/tex}",
+              "html": "all real <span class=\"math-tex\">{tex}\\alpha {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191974,
+              "text": "all rational {tex}\\alpha {/tex}",
+              "html": "all rational <span class=\"math-tex\">{tex}\\alpha {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191971,
+              "text": "all integral {tex}\\alpha {/tex}",
+              "html": "all integral <span class=\"math-tex\">{tex}\\alpha {/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "all integral {tex}\\alpha {/tex}",
+          "correct_option_ids": [
+            191971
+          ],
+          "explanation": "The given system of equations has unique solution, if: {tex}\\left| {\\begin{array}{*{20}{c}} 1&1&1 \\\\ 3&6&1 \\\\ \\alpha &2&3 \\end{array}} \\right| \\ne 0{/tex} {tex}\\Rightarrow{/tex} 1(18 - 2) - 1(9 - {tex}\\alpha{/tex} ) + 1(6 - 6 {tex}\\alpha{/tex} ) {tex}\\ne{/tex} 0 {tex}\\Rightarrow{/tex} 13 - 5 {tex}\\alpha{/tex} {tex}\\ne{/tex} 0 {tex} \\Rightarrow \\alpha \\ne \\frac{{13}}{5}.{/tex} ( Since {tex}\\alpha {/tex} is not integral value) Thus, unique solution exists for all integral values of {tex}\\alpha {/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59197,
+          "question_text": "If A = {tex}\\left[ {\\begin{array}{*{20}{c}} 0&0&0 \\\\ 1&0&0 \\\\ 0&1&0 \\end{array}} \\right]{/tex}",
+          "question_html": "<p>If A =&nbsp;<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 0&amp;0&amp;0 \\\\ 1&amp;0&amp;0 \\\\ 0&amp;1&amp;0 \\end{array}} \\right]{/tex}</span></p>",
+          "options": [
+            {
+              "id": 191978,
+              "text": "A 2 = A",
+              "html": "A<sup>2</sup> = A",
+              "is_correct": false
+            },
+            {
+              "id": 191975,
+              "text": "A 3 = O",
+              "html": "A<sup>3</sup>&nbsp;= O",
+              "is_correct": true
+            },
+            {
+              "id": 191976,
+              "text": "A 2 = O",
+              "html": "A<sup>2&nbsp;</sup>= O",
+              "is_correct": false
+            },
+            {
+              "id": 191977,
+              "text": "A 2 = I",
+              "html": "A<sup>2</sup> = I",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "A 3 = O",
+          "correct_option_ids": [
+            191975
+          ],
+          "explanation": "{tex}A^{3}=\\left[\\begin{array}{lll} 0 & 0 & 0 \\\\ 1 & 0 & 0 \\\\ 0 & 1 & 0 \\end{array}\\right]\\left[\\begin{array}{lll} 0 & 0 & 0 \\\\ 1 & 0 & 0 \\\\ 0 & 1 & 0 \\end{array}\\right]\\left[\\begin{array}{lll} 0 & 0 & 0 \\\\ 1 & 0 & 0 \\\\ 0 & 1 & 0 \\end{array}\\right]{/tex} {tex}A^{3}=\\left[\\begin{array}{lll} 0 & 0 & 0 \\\\ 0 & 0 & 0 \\\\ 1 & 0 & 0 \\end{array}\\right]\\left[\\begin{array}{lll} 0 & 0 & 0 \\\\ 1 & 0 & 0 \\\\ 0 & 1 & 0 \\end{array}\\right]{/tex} {tex}A^{3}=\\left[\\begin{array}{lll} 0 & 0 & 0 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{array}\\right]{/tex} A 3 = 0",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59198,
+          "question_text": "The matrix of the transformation &#39;reflection in the line x + y = 0 &lsquo; is",
+          "question_html": "<p>The matrix of the transformation &#39;reflection in the line x + y = 0 &lsquo; is</p>",
+          "options": [
+            {
+              "id": 191980,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 0&1 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 1&amp;0 \\\\ 0&amp;1 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191981,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} { - 1}&0 \\\\ 0&{ - 1} \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} { - 1}&amp;0 \\\\ 0&amp;{ - 1} \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191982,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 0&1 \\\\ 1&0 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 0&amp;1 \\\\ 1&amp;0 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 191979,
+              "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 0&{ - 1} \\\\ { - 1}&0 \\end{array}} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 0&amp;{ - 1} \\\\ { - 1}&amp;0 \\end{array}} \\right]{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 0&{ - 1} \\\\ { - 1}&0 \\end{array}} \\right]{/tex}",
+          "correct_option_ids": [
+            191979
+          ],
+          "explanation": "Suppose x&#39; and y&#39; be the reflection of x and y, therefore : {tex}\\left[ {\\begin{array}{*{20}{c}} {x'} \\\\ {y'} \\end{array}} \\right] = \\left[ {\\begin{array}{*{20}{c}} 0&{ - 1} \\\\ { - 1}&0 \\end{array}} \\right]\\left[ {\\begin{array}{*{20}{c}} x \\\\ y \\end{array}} \\right] = \\left[ {\\begin{array}{*{20}{c}} { - y} \\\\ { - x} \\end{array}} \\right]{/tex} {tex}\\Rightarrow x'=-y,\\;y'=-x{/tex} Therefore, reflection is on the line - x - y = 0 {tex}\\Rightarrow{/tex} x + y = 0.",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59199,
+          "question_text": "If A = [x y z], B= {tex} \\left[ {\\begin{array}{*{20}{c}} a&h&g \\\\ h&b&f \\\\ g&f&c \\end{array}} \\right]{/tex} and C = [xyz] t , then ABC is",
+          "question_html": "<p>If A = [x y z], B=<span class=\"math-tex\">{tex} \\left[ {\\begin{array}{*{20}{c}} a&amp;h&amp;g \\\\ h&amp;b&amp;f \\\\ g&amp;f&amp;c \\end{array}} \\right]{/tex}</span>and C = [xyz]<sup>t</sup>,&nbsp;then ABC is</p>",
+          "options": [
+            {
+              "id": 191984,
+              "text": "3 {tex}\\times{/tex} 3 matrix",
+              "html": "3&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span> 3 matrix",
+              "is_correct": false
+            },
+            {
+              "id": 191986,
+              "text": "2 {tex}\\times{/tex} 2 matrix",
+              "html": "2&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;2&nbsp;matrix",
+              "is_correct": false
+            },
+            {
+              "id": 191985,
+              "text": "not defined",
+              "html": "not defined",
+              "is_correct": false
+            },
+            {
+              "id": 191983,
+              "text": "1 {tex}\\times{/tex} 1 matrix",
+              "html": "1 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;1 matrix",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "1 {tex}\\times{/tex} 1 matrix",
+          "correct_option_ids": [
+            191983
+          ],
+          "explanation": "Here [A] 1 {tex}\\times{/tex} 3 , [B] {tex}3\\times3{/tex} {tex}\\Rightarrow{/tex} [AB] 1 {tex}\\times{/tex} 3 , [C] 3 {tex}\\times{/tex} 1 {tex}\\Rightarrow{/tex} [ABC] 1 {tex}\\times{/tex} 1",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59200,
+          "question_text": "Rank of a non-zero matrix is always",
+          "question_html": "<p>Rank of a non-zero matrix is always</p>",
+          "options": [
+            {
+              "id": 191989,
+              "text": "greater than 1",
+              "html": "greater than 1",
+              "is_correct": false
+            },
+            {
+              "id": 191990,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 191987,
+              "text": "{tex} \\geqslant {/tex} 1",
+              "html": "<span class=\"math-tex\">{tex} \\geqslant {/tex}</span>1",
+              "is_correct": true
+            },
+            {
+              "id": 191988,
+              "text": "equal to 1",
+              "html": "equal to 1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex} \\geqslant {/tex} 1",
+          "correct_option_ids": [
+            191987
+          ],
+          "explanation": "Rank of a non zero matrix is always greater than or equal to 1.",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59201,
+          "question_text": "The value of k for which the system of equations, x + ky + 3z = 0, 3x + ky &ndash; 2z = 0, 2x + 3y &ndash; 4z = 0, have a non-trival solution is",
+          "question_html": "<p>The value of k for which the system of equations, x + ky + 3z = 0, 3x + ky &ndash; 2z = 0, 2x + 3y &ndash; 4z = 0, have a non-trival solution is</p>",
+          "options": [
+            {
+              "id": 191993,
+              "text": "33",
+              "html": "33",
+              "is_correct": false
+            },
+            {
+              "id": 191991,
+              "text": "{tex}\\frac{{33}}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{33}}{2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 191994,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 191992,
+              "text": "{tex}\\frac{2}{{33}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{{33}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{33}}{2}{/tex}",
+          "correct_option_ids": [
+            191991
+          ],
+          "explanation": "The given system of equations has a non-trivial solution if : {tex} \\left| {\\begin{array}{*{20}{c}} 1&k&3 \\\\ 3&k&{ - 2} \\\\ 2&3&{ - 4} \\end{array}} \\right| = 0 \\Rightarrow 1( - 4k + 6) - k( - 12 + 4) + 3(9 - 2k) = 0\\Rightarrow k = \\frac{{33}}{2}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59202,
+          "question_text": "If {tex}A = \\left[ {\\begin{array}{*{20}{c}} 1&2&{ - 1} \\\\ { - 1}&1&2 \\\\ 2&{ - 1}&1 \\end{array}} \\right]{/tex} then det.(adj (adj A)) =",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}A = \\left[ {\\begin{array}{*{20}{c}} 1&amp;2&amp;{ - 1} \\\\ { - 1}&amp;1&amp;2 \\\\ 2&amp;{ - 1}&amp;1 \\end{array}} \\right]{/tex}</span>then det.(adj (adj A)) =</p>\r\n",
+          "options": [
+            {
+              "id": 191996,
+              "text": "14 2",
+              "html": "14<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 191998,
+              "text": "13",
+              "html": "13",
+              "is_correct": false
+            },
+            {
+              "id": 191995,
+              "text": "14 4",
+              "html": "14<sup>4</sup>",
+              "is_correct": true
+            },
+            {
+              "id": 191997,
+              "text": "14 3",
+              "html": "14<sup>3</sup>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "14 4",
+          "correct_option_ids": [
+            191995
+          ],
+          "explanation": "We know that Adj.(Adj.A) = |A| n-2 A if |A| {tex} \\ne {/tex} 0,where n is the order of matrix A. Therefore, Adj.(Adj.A) = |A|.A, Det.(Adj.(Adj.A)) = |A| 3 .|A| = |A| 4 = 14 4",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59203,
+          "question_text": "The system of equations, 3x + y &ndash; z = 0, 5x + 2y &ndash; 3z = 2, 15x + 6y &ndash; 9z = 5 has",
+          "question_html": "<p>The system of equations, 3x + y &ndash; z = 0, 5x + 2y &ndash; 3z = 2, 15x + 6y &ndash; 9z = 5 has</p>\r\n",
+          "options": [
+            {
+              "id": 192002,
+              "text": "infinitely many solutions",
+              "html": "infinitely many solutions",
+              "is_correct": false
+            },
+            {
+              "id": 191999,
+              "text": "no solution",
+              "html": "no solution",
+              "is_correct": true
+            },
+            {
+              "id": 192001,
+              "text": "a unique solution",
+              "html": "a unique solution",
+              "is_correct": false
+            },
+            {
+              "id": 192000,
+              "text": "two distinct solutions",
+              "html": "two distinct solutions",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "no solution",
+          "correct_option_ids": [
+            191999
+          ],
+          "explanation": "The given system of equations does not has a solution if: {tex} \\left| {\\begin{array}{*{20}{c}} 3&1&{ - 1} \\\\ 5&2&{ - 3} \\\\ {15}&6&{ - 9} \\end{array}} \\right| = 0 \\Rightarrow {/tex} 3(-18 + 18) - 1(-45 + 45) -1( 30 - 30) = 0",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59204,
+          "question_text": "The number of solutions of 2x + y = 4, x &ndash; 2y = 2, 3x + 5y = 6 is",
+          "question_html": "<p>The number of solutions of 2x + y = 4, x &ndash; 2y = 2,&nbsp; 3x + 5y = 6 is</p>\r\n",
+          "options": [
+            {
+              "id": 192006,
+              "text": "Infinitely many solution",
+              "html": "Infinitely many solution",
+              "is_correct": false
+            },
+            {
+              "id": 192004,
+              "text": "No solution",
+              "html": "<p style=\"text-align: justify;\">No solution</p>",
+              "is_correct": false
+            },
+            {
+              "id": 192005,
+              "text": "Two solution",
+              "html": "Two solution",
+              "is_correct": false
+            },
+            {
+              "id": 192003,
+              "text": "One solution",
+              "html": "One solution",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "One solution",
+          "correct_option_ids": [
+            192003
+          ],
+          "explanation": "For Unique solution , {tex}\\frac{{{a_1}}}{{{a_2}}} \\ne \\frac{{{b_1}}}{{{b_2}}},{/tex} for given system of equations we have: {tex}\\frac{2}{1} \\ne \\frac{1}{{ - 2}},\\frac{1}{3} \\ne \\frac{{ - 2}}{5},\\frac{3}{2} \\ne \\frac{5}{1}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59205,
+          "question_text": "The system of equations, x + 2y = 5 , 4x + 8y = 20 has",
+          "question_html": "<p>The system of equations, x + 2y = 5 , 4x + 8y = 20 has</p>",
+          "options": [
+            {
+              "id": 192007,
+              "text": "infinitely many solutions",
+              "html": "infinitely many solutions",
+              "is_correct": true
+            },
+            {
+              "id": 192008,
+              "text": "no solution",
+              "html": "no solution",
+              "is_correct": false
+            },
+            {
+              "id": 192009,
+              "text": "a unique solution",
+              "html": "a unique solution",
+              "is_correct": false
+            },
+            {
+              "id": 192010,
+              "text": "Two solution",
+              "html": "Two solution",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "infinitely many solutions",
+          "correct_option_ids": [
+            192007
+          ],
+          "explanation": "For Infinitely many solutions, {tex}\\frac{{{a_1}}}{{{a_2}}} = \\frac{{{b_1}}}{{{b_2}}} = \\frac{{{c_1}}}{{{c_2}}}{/tex} , for the given system of equations have: {tex}\\frac{1}{4} = \\frac{2}{8} = \\frac{5}{{20}}{/tex} . Therefore, the given system of linear equation has infinitely many solution.",
+          "solution": ""
+        }
+      ]
+    }
+  ],
+  "totalQuestions": 75
+}

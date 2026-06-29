@@ -1,0 +1,2859 @@
+{
+  "chapter": "Continuity and Differentiability",
+  "chapter_id": 1289,
+  "tests": [
+    {
+      "test_id": 3608,
+      "test_name": "Continuity and Differentiability Test-01",
+      "is_paid": false,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59281,
+          "question_text": "{tex}\\mathop {Lt}\\limits_{x \\to 0} \\;\\;\\frac{{1 - \\cos x}}{x}{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to 0} \\;\\;\\frac{{1 - \\cos x}}{x}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192312,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192311,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            },
+            {
+              "id": 192313,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192314,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            192311
+          ],
+          "explanation": "{tex}\\mathop {\\lim }\\limits_{x \\to 0} \\frac{{1 - \\cos x}}{x} {/tex} {tex}= \\mathop {\\lim }\\limits_{x \\to 0} \\frac{{(1 - \\cos x)(1 + \\cos x)}}{{x(1 + \\cos x)}} = \\mathop {\\lim }\\limits_{x \\to 0} \\frac{{sinx}}{x}.\\frac{{\\sin x}}{{(1 + \\cos x)}} = 0{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59282,
+          "question_text": "{tex}\\mathop {\\lim }\\limits_{x \\to 0} \\frac{{2\\sin x - \\sin 2x}}{{{x^3}}}{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\mathop {\\lim }\\limits_{x \\to 0} \\frac{{2\\sin x - \\sin 2x}}{{{x^3}}}{/tex}</span>is equal to</p>",
+          "options": [
+            {
+              "id": 192318,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 192317,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 192315,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            },
+            {
+              "id": 192316,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            192315
+          ],
+          "explanation": "{tex}\\mathop {\\lim }\\limits_{x \\to 0} \\frac{{2\\sin x - \\sin 2x}}{{{x^3}}} {/tex} {tex} = \\mathop {\\lim }\\limits_{x \\to 0} \\frac{{2\\sin x(1 - \\cos x)}}{{{x^3}}} = 2\\mathop {\\lim }\\limits_{x \\to 0} \\frac{{\\sin x}}{x}.\\frac{{1 - \\operatorname{cosx} }}{{{x^2}}}= 2\\times1\\times\\frac{1}{2} = 1{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59283,
+          "question_text": "{tex}\\mathop {Lt}\\limits_{x \\to \\pi /4} \\;\\;\\;\\frac{{\\cos x - \\sin x}}{{x - \\frac{\\pi }{4}}}{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to \\pi /4} \\;\\;\\;\\frac{{\\cos x - \\sin x}}{{x - \\frac{\\pi }{4}}}{/tex}</span> is equal to</p>\r\n",
+          "options": [
+            {
+              "id": 192320,
+              "text": "{tex} - \\frac{1}{{\\sqrt 2 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{1}{{\\sqrt 2 }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192319,
+              "text": "{tex} - \\frac{2}{{\\sqrt 2 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{2}{{\\sqrt 2 }}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192321,
+              "text": "{tex}\\frac{2}{{\\sqrt 2 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{{\\sqrt 2 }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192322,
+              "text": "&ndash; 1",
+              "html": "&ndash; 1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex} - \\frac{2}{{\\sqrt 2 }}{/tex}",
+          "correct_option_ids": [
+            192319
+          ],
+          "explanation": "{tex}\\mathop {\\lim }\\limits_{x \\to \\frac{\\pi }{4}} \\frac{{\\cos x - \\sin x}}{{x - \\frac{\\pi }{4}}}{/tex} {tex} = \\mathop {\\lim }\\limits_{x \\to \\frac{\\pi }{4}} \\frac{{ - \\sin x - \\cos x}}{1}= - \\sin \\frac{\\pi }{4} - \\cos \\frac{\\pi }{4}= - \\frac{2}{{\\sqrt 2 }} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59284,
+          "question_text": "If [x] stands for the integral part of x, then",
+          "question_html": "<p>If [x] stands for the integral part of x, then</p>",
+          "options": [
+            {
+              "id": 192324,
+              "text": "{tex}\\mathop {Lt}\\limits_{x \\to {1^ - }} \\;\\;\\;\\left[ x \\right] = 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to {1^ - }} \\;\\;\\;\\left[ x \\right] = 1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192323,
+              "text": "{tex}\\mathop {Lt}\\limits_{x \\to {1^ + }}{/tex} [x] = 1",
+              "html": "<span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to {1^ + }}{/tex}</span>[x] = 1",
+              "is_correct": true
+            },
+            {
+              "id": 192325,
+              "text": "{tex}\\mathop {Lt}\\limits_{x \\to 1} \\;\\;\\;\\left[ x \\right] = 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to 1} \\;\\;\\;\\left[ x \\right] = 1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192326,
+              "text": "{tex}\\mathop {Lt}\\limits_{x \\to 1} \\;\\;\\;\\left[ x \\right] = -1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to 1} \\;\\;\\;\\left[ x \\right] = -1{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\mathop {Lt}\\limits_{x \\to {1^ + }}{/tex} [x] = 1",
+          "correct_option_ids": [
+            192323
+          ],
+          "explanation": "The [x] is defined as the value which takes the nearest small integer in every integer interval. For example in the interval {tex}0≤x<1{/tex} the value of the function is 0 since it is the lowest integer in that interval . Hence {tex}\\lim_{x\\rightarrow1^+}{/tex} [x] [ since {tex}1\\leq x<2{/tex} ] which gives the value as 1, which is the lowest integer of that interval.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59285,
+          "question_text": "{tex}\\mathop {Lt}\\limits_{x \\to \\frac{\\pi }{2}} {/tex} [sinx] is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to \\frac{\\pi }{2}} {/tex}</span>[sinx] is equal to</p>",
+          "options": [
+            {
+              "id": 192328,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            },
+            {
+              "id": 192327,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 192330,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 192329,
+              "text": "&ndash; 1",
+              "html": "&ndash; 1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            192328
+          ],
+          "explanation": "{tex}\\lim_{x\\rightarrow\\frac{\\mathrm\\pi}2}\\left[\\sin x\\right]=1{/tex} [ since {tex}\\frac{\\mathrm\\pi}2-h\\leq x\\leq\\frac{\\mathrm\\pi}2+h{/tex} ]",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59286,
+          "question_text": "{tex}\\mathop {Lt}\\limits_{x \\to 0} \\;\\;\\frac{{1 - \\cos x}}{{{x^2}}}{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to 0} \\;\\;\\frac{{1 - \\cos x}}{{{x^2}}}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192333,
+              "text": "&ndash; 1",
+              "html": "&ndash; 1",
+              "is_correct": false
+            },
+            {
+              "id": 192334,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 192332,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192331,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{2}{/tex}",
+          "correct_option_ids": [
+            192331
+          ],
+          "explanation": "{tex}\\mathop {\\lim }\\limits_{x \\to 0} \\frac{{1 - \\cos x}}{{{x^2}}} = \\mathop {\\lim }\\limits_{x \\to 0} \\frac{{\\sin x}}{{2x}} = \\frac{1}{2}{/tex} (Using L&rsquo;hospital Rule ).",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59287,
+          "question_text": "{tex}\\mathop {Lt}\\limits_{x \\to - 2} \\frac{{\\sqrt {{x^2} + 5} - 3}}{{x + 2}}{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to - 2} \\frac{{\\sqrt {{x^2} + 5} - 3}}{{x + 2}}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192335,
+              "text": "{tex} - \\frac{2}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{2}{3}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192336,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 192338,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192337,
+              "text": "{tex}\\frac{2}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{3}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex} - \\frac{2}{3}{/tex}",
+          "correct_option_ids": [
+            192335
+          ],
+          "explanation": "{tex}\\mathop {\\lim }\\limits_{x \\to - 2} \\frac{{\\sqrt {{x^2} + 5} - 3}}{{x + 2}}{/tex} {tex}= \\mathop {\\lim }\\limits_{x \\to - 2} \\frac{{{x^2} + 5 - 9}}{{(x + 2)(\\sqrt {{x^2} + 5} + 3)}} = \\mathop {\\lim }\\limits_{x \\to - 2} \\frac{{x - 2}}{{(\\sqrt {{x^2} + 5} + 3)}} = \\frac{{ - 4}}{{3 + 3}} = - \\frac{2}{3}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59288,
+          "question_text": "{tex}\\mathop {Lt}\\limits_{h \\to 0} \\;\\;\\;\\left( {\\frac{1}{{h\\sqrt[3]{{8 + h}}}} - \\frac{1}{{2h}}} \\right){/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{h \\to 0} \\;\\;\\;\\left( {\\frac{1}{{h\\sqrt[3]{{8 + h}}}} - \\frac{1}{{2h}}} \\right){/tex}</span>is equal to</p>",
+          "options": [
+            {
+              "id": 192341,
+              "text": "{tex}\\frac{1}{{24}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{24}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192342,
+              "text": "{tex}-\\frac{1}{{24}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}-\\frac{1}{{24}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192340,
+              "text": "{tex}\\frac{1}{{48}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{48}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192339,
+              "text": "{tex} - \\frac{1}{{48}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{1}{{48}}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex} - \\frac{1}{{48}}{/tex}",
+          "correct_option_ids": [
+            192339
+          ],
+          "explanation": "{tex}\\mathop {\\lim }\\limits_{h \\to 0} \\left( {\\frac{1}{{h\\sqrt[3]{{8 + h}}}} - \\frac{1}{{2h}}} \\right){/tex} {tex}=\\lim_{h\\rightarrow0}\\frac1h\\left\\{\\frac12\\left(1+\\frac h8\\right)^{-\\frac13}-\\frac12\\right\\}\\\\{/tex} {tex}=\\lim_{h\\rightarrow0}\\frac1h.\\frac12\\left\\{1-\\frac13.\\frac h8+\\frac{\\left(-{\\displaystyle\\frac13}\\right){\\displaystyle\\left(-\\frac53\\right)}}2\\frac{h^2}{64}+...-1\\right\\}\\\\{/tex} {tex}=\\lim_{h\\rightarrow0}\\frac1{2h}\\left\\{-\\frac h{24}+\\frac5{18}.\\frac{h^2}{64}+...\\right\\}\\\\{/tex} {tex}=\\lim_{h\\rightarrow0}\\frac12\\left\\{-\\frac1{24}+\\frac5{18}.\\frac h{64}+...\\right\\}{/tex} {tex}=-\\frac1{48}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59289,
+          "question_text": "{tex}\\mathop {Lt}\\limits_{x \\to \\pi } \\;\\;\\;\\frac{{1 + {{\\cos }^3}x}}{{{{(x - \\pi )}^2}}}{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to \\pi } \\;\\;\\;\\frac{{1 + {{\\cos }^3}x}}{{{{(x - \\pi )}^2}}}{/tex}</span>&nbsp;is equal to</p>",
+          "options": [
+            {
+              "id": 192344,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192346,
+              "text": "{tex}\\frac{2}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192345,
+              "text": "{tex}\\frac{1}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192343,
+              "text": "{tex}\\frac{3}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{2}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{3}{2}{/tex}",
+          "correct_option_ids": [
+            192343
+          ],
+          "explanation": "{tex}\\mathop {\\lim }\\limits_{x \\to \\pi } \\frac{{1 + {{\\cos }^3}x}}{{{{\\left( {x - \\pi } \\right)}^2}}}{/tex} {tex} = \\mathop {\\lim }\\limits_{h \\to 0} \\frac{{1 + {{\\cos }^3}(\\pi + h)}}{{{{\\left( h \\right)}^2}}}{/tex} {tex} = \\mathop {\\lim }\\limits_{h \\to 0} \\frac{{1 - {{\\cos }^3}h}}{{{{\\left( h \\right)}^2}}}{/tex} {tex} = \\mathop {\\lim }\\limits_{h \\to 0} \\frac{{1 - \\cosh }}{{{h^2}}}.\\mathop {\\lim }\\limits_{h \\to 0} (1 + \\cosh + {\\cos ^2}h){/tex} {tex}= \\frac{1}{2}(1 + 1 + 1) = \\frac{3}{2}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59290,
+          "question_text": "{tex}\\mathop {Lt}\\limits_{x \\to - 3} \\;\\;\\;\\frac{{\\sqrt {{x^2} + 7} - 4}}{{x + 3}}{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to - 3} \\;\\;\\;\\frac{{\\sqrt {{x^2} + 7} - 4}}{{x + 3}}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192350,
+              "text": "{tex}-\\frac{4}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}-\\frac{4}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192347,
+              "text": "{tex} - \\frac{3}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{3}{4}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192348,
+              "text": "{tex}\\frac{3}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192349,
+              "text": "{tex}\\frac{4}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{4}{3}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex} - \\frac{3}{4}{/tex}",
+          "correct_option_ids": [
+            192347
+          ],
+          "explanation": "{tex}\\begin{gathered} \\mathop {\\lim }\\limits_{x \\to - 3} \\frac{{\\sqrt {{x^2} + 7} - 4}}{{x + 3}} \\end{gathered} {/tex} {tex}= \\mathop {\\lim }\\limits_{x \\to - 3} \\frac{{{x^2} + 7 - 16}}{{(x + 3)(\\sqrt {{x^2} + 7} + 4)}} = \\mathop {\\lim }\\limits_{x \\to - 3} \\frac{{{x^2} - 9}}{{(x + 3)(\\sqrt {{x^2} + 7} + 4)}} = \\mathop {\\lim }\\limits_{x \\to - 3} \\frac{{x - 3}}{{(\\sqrt {{x^2} + 7} + 4)}}= \\frac{{ - 3 - 3}}{{(\\sqrt {9 + 7} + 4)}}= \\frac{{ - 6}}{8} = \\frac{{ - 3}}{4}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59291,
+          "question_text": "If k be an integer, then {tex}\\mathop {Lt}\\limits_{x \\to k} \\;\\;{/tex} (x &ndash;[x])",
+          "question_html": "<p>If k be an integer, then <span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to k} \\;\\;{/tex}</span> (x &ndash;[x])</p>",
+          "options": [
+            {
+              "id": 192354,
+              "text": "is equal to 0",
+              "html": "is equal to 0",
+              "is_correct": false
+            },
+            {
+              "id": 192353,
+              "text": "is equal to &ndash; 1",
+              "html": "is equal to &ndash; 1",
+              "is_correct": false
+            },
+            {
+              "id": 192352,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192351,
+              "text": "does not exists",
+              "html": "does not exists",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "does not exists",
+          "correct_option_ids": [
+            192351
+          ],
+          "explanation": "does not exists",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59292,
+          "question_text": "{tex}\\mathop {Lt}\\limits_{x \\to 0} \\;\\;\\;\\frac{{x\\cos x - \\log (1 + x)}}{{{x^2}}}{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to 0} \\;\\;\\;\\frac{{x\\cos x - \\log (1 + x)}}{{{x^2}}}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192355,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192356,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 192357,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192358,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{2}{/tex}",
+          "correct_option_ids": [
+            192355
+          ],
+          "explanation": "{tex}\\begin{gathered} \\mathop {\\lim }\\limits_{x \\to 0} \\frac{{x\\cos x - \\log (1 + x)}}{{{x^2}}}\\end{gathered} {/tex} {tex} = \\mathop {\\lim }\\limits_{x \\to 0} \\frac{{\\cos x - x\\sin x - \\frac{1}{{1 + x}}}}{{2x}} = \\mathop {\\lim }\\limits_{x \\to 0} \\frac{{ - sinx - (x\\cos x + \\sin x) + \\frac{1}{{{{(1 + x)}^2}}}}}{2}= \\frac{1}{2}{/tex} ( using L&rsquo;Hospital Rule)",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59293,
+          "question_text": "{tex}\\mathop {Lt}\\limits_{x \\to 0} \\;\\;\\;\\frac{{1 - \\cos 4x}}{{{x^2}}}{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to 0} \\;\\;\\;\\frac{{1 - \\cos 4x}}{{{x^2}}}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192359,
+              "text": "8",
+              "html": "8",
+              "is_correct": true
+            },
+            {
+              "id": 192362,
+              "text": "4",
+              "html": "4",
+              "is_correct": false
+            },
+            {
+              "id": 192360,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192361,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "8",
+          "correct_option_ids": [
+            192359
+          ],
+          "explanation": "{tex}\\underset{x\\to 0}{\\mathop{\\lim }}\\,\\frac{1-\\cos 4x}{{{x}^{2}}}{/tex} {tex} =\\underset{x\\to 0}{\\mathop{\\lim }}\\,\\frac{4\\sin 4x}{2x}{/tex} {tex} =\\underset{x\\to 0}{\\mathop{\\lim }}\\,\\frac{16\\cos 4x}{2}=8 {/tex} ( using L&rsquo;Hospital Rule)",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59294,
+          "question_text": "{tex}\\mathop {Lt}\\limits_{x \\to 0} \\;\\;\\;\\frac{{\\cos ec\\;x - \\cot x}}{x}{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to 0} \\;\\;\\;\\frac{{\\cos ec\\;x - \\cot x}}{x}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192366,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 192364,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192365,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 192363,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{2}{/tex}",
+          "correct_option_ids": [
+            192363
+          ],
+          "explanation": "{tex}\\mathop {\\lim }\\limits_{x \\to 0} \\frac{{\\cos ecx - \\cot x}}{x}{/tex} {tex} = \\mathop {\\lim }\\limits_{x \\to 0} \\frac{{1 - \\cos x}}{{x\\sin x}}= \\mathop {\\lim }\\limits_{x \\to 0} \\frac{{(1 - \\cos x)(1 + \\cos x)}}{{x\\sin x(1 + \\cos x)}} = \\mathop {\\lim }\\limits_{x \\to 0} \\frac{{\\sin x}}{x}.\\frac{1}{{1 + \\cos x}} = \\frac{1}{2}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59295,
+          "question_text": "{tex}\\mathop {Lt}\\limits_{x \\to 0} \\;\\;\\frac{{1 - \\cos x}}{{x\\sin x}}{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to 0} \\;\\;\\frac{{1 - \\cos x}}{{x\\sin x}}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192368,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 192369,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192370,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 192367,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{2}{/tex}",
+          "correct_option_ids": [
+            192367
+          ],
+          "explanation": "{tex}\\mathop {\\lim }\\limits_{x \\to 0} \\frac{{1 - \\cos x}}{{x\\sin x}} {/tex} {tex} = \\mathop {\\lim }\\limits_{x \\to 0} \\frac{{1 - {{\\cos }^2}x}}{{x\\sin x(1 + \\cos x)}}\\mathop {\\lim }\\limits_{x \\to 0} \\frac{{\\sin x}}{x}.\\frac{1}{{1 + \\cos x}} = 1.\\frac{1}{{1 + 1}} = \\frac{1}{2}{/tex}",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3609,
+      "test_name": "Continuity and Differentiability Test-02",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59296,
+          "question_text": "{tex}\\mathop {Lt}\\limits_{x \\to 0} \\;\\;\\frac{{\\tan x}}{{\\log (1 + x)}}{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to 0} \\;\\;\\frac{{\\tan x}}{{\\log (1 + x)}}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192371,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            },
+            {
+              "id": 192373,
+              "text": "does not exist",
+              "html": "does not exist",
+              "is_correct": false
+            },
+            {
+              "id": 192372,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 192374,
+              "text": "does exist",
+              "html": "does exist",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            192371
+          ],
+          "explanation": "{tex}\\mathop {\\lim }\\limits_{x \\to 0} \\frac{{tanx}}{{log(1 + x)}} = \\mathop {\\lim }\\limits_{x \\to 0} \\frac{{tanx}}{x}\\frac{x}{{log(1 + x)}} = \\mathop {\\lim }\\limits_{x \\to 0} \\frac{{tanx}}{x}.\\mathop {\\lim }\\limits_{x \\to 0} \\frac{1}{{\\frac{1}{x}log(1 + x)}} = 1.\\frac{1}{1} = 1{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59297,
+          "question_text": "The function f (x) = 1 + |sin x| is",
+          "question_html": "<p>The function f (x) = 1 + |sin x|&nbsp;is</p>",
+          "options": [
+            {
+              "id": 192377,
+              "text": "differentiable nowhere",
+              "html": "differentiable nowhere",
+              "is_correct": false
+            },
+            {
+              "id": 192378,
+              "text": "differentiable everywhere",
+              "html": "differentiable everywhere",
+              "is_correct": false
+            },
+            {
+              "id": 192375,
+              "text": "continuous everywhere",
+              "html": "continuous everywhere",
+              "is_correct": true
+            },
+            {
+              "id": 192376,
+              "text": "continuous nowhere",
+              "html": "continuous nowhere",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "continuous everywhere",
+          "correct_option_ids": [
+            192375
+          ],
+          "explanation": "f(x) = 1 + |sinx| is not derivable at those x for which x for which sinx = 0, however, 1 + |sinx| is continuous everywhere (being the sum of two continuous functions)",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59298,
+          "question_text": "The function, f (x) = (x &ndash; a) sin {tex}\\frac{1}{{x - a}}{/tex} for x {tex} \\ne {/tex} a and f (a) = 0 is",
+          "question_html": "<p>The function, f (x) = (x &ndash; a) sin <span class=\"math-tex\">{tex}\\frac{1}{{x - a}}{/tex}</span>for x<span class=\"math-tex\">{tex} \\ne {/tex}</span> a and f (a) = 0 is</p>",
+          "options": [
+            {
+              "id": 192382,
+              "text": "continuous at x = a",
+              "html": "continuous at x = a",
+              "is_correct": false
+            },
+            {
+              "id": 192379,
+              "text": "Continuous but not derivable at x = a",
+              "html": "Continuous but not derivable at x = a",
+              "is_correct": true
+            },
+            {
+              "id": 192381,
+              "text": "Derivable at x = a",
+              "html": "Derivable at x = a",
+              "is_correct": false
+            },
+            {
+              "id": 192380,
+              "text": "Not continuous at x = a",
+              "html": "Not continuous at x = a",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Continuous but not derivable at x = a",
+          "correct_option_ids": [
+            192379
+          ],
+          "explanation": "{tex}\\mathop {\\lim }\\limits_{x \\to a} (x - a)\\sin \\frac{1}{{(x - a)}} {/tex} {tex}= \\mathop {\\lim }\\limits_{h \\to 0} h\\sin \\frac{1}{h} = 0 = f(a){/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59299,
+          "question_text": "Let f (x) = [x], then f (x) is",
+          "question_html": "<p>Let f (x) = [x], then f (x) is</p>",
+          "options": [
+            {
+              "id": 192385,
+              "text": "continuous nowhere",
+              "html": "continuous nowhere",
+              "is_correct": false
+            },
+            {
+              "id": 192386,
+              "text": "continuous for all {tex}x \\in {\\mathbf{R}}{/tex}",
+              "html": "continuous for all <span class=\"math-tex\">{tex}x \\in {\\mathbf{R}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192384,
+              "text": "differentiable for all {tex}x \\in {\\mathbf{R}}{/tex}",
+              "html": "differentiable for all <span class=\"math-tex\">{tex}x \\in {\\mathbf{R}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192383,
+              "text": "differentiable for all {tex}x \\in ({\\mathbf{R}} - I){/tex}",
+              "html": "differentiable for all <span class=\"math-tex\">{tex}x \\in ({\\mathbf{R}} - I){/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "differentiable for all {tex}x \\in ({\\mathbf{R}} - I){/tex}",
+          "correct_option_ids": [
+            192383
+          ],
+          "explanation": "f(x) = [x] is derivable at all x except at integral points i.e. on R &ndash; I .",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59300,
+          "question_text": "The function f (x) = [x] is",
+          "question_html": "<p>The function f (x) = [x] is</p>",
+          "options": [
+            {
+              "id": 192389,
+              "text": "a constant function",
+              "html": "a constant function",
+              "is_correct": false
+            },
+            {
+              "id": 192388,
+              "text": "continuous for all x",
+              "html": "continuous for all x",
+              "is_correct": false
+            },
+            {
+              "id": 192390,
+              "text": "derivable for all x",
+              "html": "derivable for all x",
+              "is_correct": false
+            },
+            {
+              "id": 192387,
+              "text": "discontinuous only for integral x",
+              "html": "discontinuous only for integral x",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "discontinuous only for integral x",
+          "correct_option_ids": [
+            192387
+          ],
+          "explanation": "Case 1 Let c be a real number which is not equal to any integer. for all real numbers close to c the value of the function is equal to [c]; i.e., {tex}\\lim_{x\\rightarrow c}f(x)=\\lim_{x\\rightarrow c}\\left[x\\right]=\\left[c\\right]{/tex} . Also f(c) = [c] and hence the function is continuous at all real numbers not equal to integers. Case 2 Let c be an integer. Then we can find a sufficiently small real number {tex}r>0{/tex} such that [c - r ]= c - 1 whereas [c + r ] = c This, in terms of limits mean that {tex}\\lim_{x\\rightarrow c^-}f(x)=c-1,\\;\\lim_{x\\rightarrow c^+}f(x)=c{/tex} Since these limits cannot be equal to each other for any c, the function is discontinuous at every integral point.",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59301,
+          "question_text": "If f(x) is a polynomial of degree m {tex}( \\geqslant 1)\\;{/tex} , then which of the following is not true?",
+          "question_html": "<p>If f(x) is a polynomial of degree m <span class=\"math-tex\">{tex}( \\geqslant 1)\\;{/tex}</span>, then which of the following is not true?</p>",
+          "options": [
+            {
+              "id": 192394,
+              "text": "f is continuous at all {tex}x \\in \\;{\\mathbf{R}}{/tex}",
+              "html": "f is continuous at all <span class=\"math-tex\">{tex}x \\in \\;{\\mathbf{R}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192392,
+              "text": "f is derivable at all {tex}x \\in \\;{\\mathbf{R}}{/tex}",
+              "html": "f is derivable at all <span class=\"math-tex\">{tex}x \\in \\;{\\mathbf{R}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192393,
+              "text": "{tex}\\frac{{{d^n}y}}{{d{x^n}}} = 0{/tex} for all n > m",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{{d^n}y}}{{d{x^n}}} = 0{/tex}</span>&nbsp;for all n &gt; m",
+              "is_correct": false
+            },
+            {
+              "id": 192391,
+              "text": "f is differential at all {tex}x \\in \\;{\\mathbf{R}}{/tex}",
+              "html": "f is differential at all <span class=\"math-tex\">{tex}x \\in \\;{\\mathbf{R}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "f is derivable at all {tex}x \\in \\;{\\mathbf{R}}{/tex}",
+          "correct_option_ids": [
+            192392
+          ],
+          "explanation": "Because a polynomial is everywhere differentiable",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59302,
+          "question_text": "If f(x) = x |x| {tex}\\forall x \\in {\\mathbf{R}},{/tex} then",
+          "question_html": "<p>If f(x) = x |x|&nbsp;<span class=\"math-tex\">{tex}\\forall x \\in {\\mathbf{R}},{/tex}</span> then</p>",
+          "options": [
+            {
+              "id": 192397,
+              "text": "f is derivable at x = 0 and f &lsquo;(0) = 1",
+              "html": "f is derivable at x = 0 and f &lsquo;(0) = 1",
+              "is_correct": false
+            },
+            {
+              "id": 192395,
+              "text": "None of these",
+              "html": "None of these",
+              "is_correct": true
+            },
+            {
+              "id": 192398,
+              "text": "f is discontinuous at x = 0",
+              "html": "f is discontinuous at x = 0",
+              "is_correct": false
+            },
+            {
+              "id": 192396,
+              "text": "f is derivable at x = 0 but f&rsquo;(0) {tex} \\ne {/tex} 1",
+              "html": "f is derivable at x = 0 but f&rsquo;(0) <span class=\"math-tex\">{tex} \\ne {/tex}</span>1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "None of these",
+          "correct_option_ids": [
+            192395
+          ],
+          "explanation": "Here, f(x) = x|x|, which is product of two continuous functions. Hence, f is continuous {tex}\\forall x \\in R{/tex} Also, f &#39; (x) {tex}=x.\\frac x{\\left|x\\right|}+\\left|x\\right|.1{/tex} {tex}=\\left|x+\\right|\\left|x\\right|=2\\left|x\\right|{/tex} , Therefore f &#39; (x) exists at all {tex}x \\in {\\mathbf{R}}{/tex} Further, f &#39; (0) = 2. |0| = 0",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59303,
+          "question_text": "Let f(x) {tex} = \\left\\{ \\begin{gathered} 1 + x\\;if\\;x > 0 \\\\ \\;\\;x\\;\\;\\;\\;if\\;x \\leqslant 0 \\\\ \\end{gathered} \\right.{/tex} then {tex}\\mathop {Lt}\\limits_{x \\to 0} {/tex} f(x) is equal to",
+          "question_html": "<p>Let f(x) <span class=\"math-tex\">{tex} = \\left\\{ \\begin{gathered} 1 + x\\;if\\;x &gt; 0 \\\\ \\;\\;x\\;\\;\\;\\;if\\;x \\leqslant 0 \\\\ \\end{gathered} \\right.{/tex}</span> then&nbsp;<span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to 0} {/tex}</span>f(x) is equal to</p>",
+          "options": [
+            {
+              "id": 192400,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192399,
+              "text": "None of these",
+              "html": "None of these",
+              "is_correct": true
+            },
+            {
+              "id": 192402,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 192401,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "None of these",
+          "correct_option_ids": [
+            192399
+          ],
+          "explanation": "{tex} \\mathop {\\lim }\\limits_{x \\to {0^ + }} f(x) = \\mathop {\\lim }\\limits_{x \\to {0^ + }} (1 + x) = 1{/tex} {tex}\\ \\mathop {\\lim }\\limits_{x \\to {0^ - }} f(x) = \\mathop {\\lim }\\limits_{x \\to {0^ - }} x = 0, \\\\ {/tex} {tex}\\therefore \\mathop {\\lim }\\limits_{x \\to 0} f(x) {/tex} does not exist",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59304,
+          "question_text": "If f (x) = (1 &ndash; x) tan {tex}\\frac{{\\pi x}}{2}{/tex} , then {tex}\\mathop {Lt}\\limits_{x \\to 1} {/tex} f(x) is equal to",
+          "question_html": "<p>If f (x) = (1 &ndash; x) tan <span class=\"math-tex\">{tex}\\frac{{\\pi x}}{2}{/tex}</span>, then <span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to 1} {/tex}</span> f(x) is equal to</p>",
+          "options": [
+            {
+              "id": 192406,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192405,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 192404,
+              "text": "{tex}\\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192403,
+              "text": "{tex}\\frac{2}{\\pi }{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{\\pi }{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{2}{\\pi }{/tex}",
+          "correct_option_ids": [
+            192403
+          ],
+          "explanation": "{tex}\\mathop {\\lim }\\limits_{x \\to 1} f(x) = \\mathop {\\lim }\\limits_{x \\to 1} (1 - x)\\tan \\frac{\\pi }{2}x{/tex} {tex}= \\mathop {\\lim }\\limits_{h \\to 0} ( - h)\\tan \\left( {\\frac{\\pi }{2}(1 + h)} \\right) = \\mathop {\\lim }\\limits_{h \\to 0} \\frac{h}{{\\tan \\left( {\\frac{\\pi }{2}h} \\right)}} = \\frac{2}{\\pi }{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59305,
+          "question_text": "If both f and g are defined in a nhd of 0; f(0) = 0 = g(0) and f&lsquo;(0) = 8 = g&rsquo;(0), then {tex}\\mathop {Lt}\\limits_{x \\to 0} \\;\\;\\;\\frac{{f(x)}}{{g(x)}}{/tex} is equal to",
+          "question_html": "<p>If both f and g are defined in a nhd of 0; f(0) = 0 = g(0) and f&lsquo;(0) = 8 = g&rsquo;(0), then <span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to 0} \\;\\;\\;\\frac{{f(x)}}{{g(x)}}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192407,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            },
+            {
+              "id": 192408,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 192410,
+              "text": "25",
+              "html": "25",
+              "is_correct": false
+            },
+            {
+              "id": 192409,
+              "text": "16",
+              "html": "16",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            192407
+          ],
+          "explanation": "{tex}\\mathop {\\lim }\\limits_{x \\to 0} \\frac{{f(x)}}{{g(x)}} = \\mathop {\\lim }\\limits_{x \\to 0} \\frac{{f'(x)}}{{g'(x)}} = \\frac{{f'(0)}}{{g'(0)}} = 1{/tex} ( by using L&rsquo;Hospital Rule )",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59306,
+          "question_text": "The derivative of f(x) = | x | at x = 0 is",
+          "question_html": "<p>The derivative of f(x) = | x | at x = 0 is</p>",
+          "options": [
+            {
+              "id": 192411,
+              "text": "None of these",
+              "html": "None of these",
+              "is_correct": true
+            },
+            {
+              "id": 192413,
+              "text": "&ndash; 1",
+              "html": "&ndash; 1",
+              "is_correct": false
+            },
+            {
+              "id": 192412,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192414,
+              "text": "All of these",
+              "html": "All of these",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "None of these",
+          "correct_option_ids": [
+            192411
+          ],
+          "explanation": "{tex}f'(x) = \\frac{d}{{dx}}(\\left| x \\right|) = \\frac{x}{{\\left| x \\right|}},{/tex} which does not exist at x = 0 .",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59307,
+          "question_text": "If x + |y| = 2y, then y as a function of x is",
+          "question_html": "<p>If &nbsp;x + |y| = 2y,&nbsp;then y as a function of x is</p>",
+          "options": [
+            {
+              "id": 192418,
+              "text": "not defined for all real x",
+              "html": "not defined for all real x",
+              "is_correct": false
+            },
+            {
+              "id": 192416,
+              "text": "not continuous at x = 0",
+              "html": "not continuous at x = 0",
+              "is_correct": false
+            },
+            {
+              "id": 192415,
+              "text": "such that {tex}\\frac{{dy}}{{dx}} = \\frac{1}{3}{/tex} for x < 0",
+              "html": "such that <span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}} = \\frac{1}{3}{/tex}</span> for x &lt; 0",
+              "is_correct": true
+            },
+            {
+              "id": 192417,
+              "text": "differentiable for all x",
+              "html": "differentiable for all x",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "such that {tex}\\frac{{dy}}{{dx}} = \\frac{1}{3}{/tex} for x < 0",
+          "correct_option_ids": [
+            192415
+          ],
+          "explanation": "{tex}x+\\vert y\\vert=2y\\Rightarrow x=2y-\\vert y\\vert{/tex} when {tex}y\\geqslant0\\;then\\;x=2y-y\\Rightarrow x=y\\;for\\;y \\geqslant 0\\;i.e. y= x\\;for\\;x \\geqslant 0\\; {/tex} and when {tex} \\;y < 0, then \\;x=2y-(-y)\\Rightarrow x=3y\\;for\\;y < 0\\;i.e.\\;y= 1/3\\;x\\;for\\;\\;x < 0.{/tex} We have , {tex}y = \\left\\{ {\\begin{array}{*{20}{c}} x \\\\ {\\frac{1}{3}x} \\end{array}} \\right.\\begin{array}{*{20}{c}} , \\\\ , \\end{array}\\begin{array}{*{20}{c}} x \\\\ x \\end{array}\\begin{array}{*{20}{c}} \\geqslant \\\\ < \\end{array}\\begin{array}{*{20}{c}} 0 \\\\ 0 \\end{array}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59308,
+          "question_text": "Let f(x) =|x - 1|, then",
+          "question_html": "<p>Let f(x) =|x - 1|,&nbsp;then</p>",
+          "options": [
+            {
+              "id": 192422,
+              "text": "f(x 2 ) = (f(x)) 2",
+              "html": "f(x<sup>2</sup>)&nbsp;= (f(x))<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 192420,
+              "text": "f (x + y) = f (x) + f(y)",
+              "html": "f (x + y) = f (x) + f(y)",
+              "is_correct": false
+            },
+            {
+              "id": 192421,
+              "text": "f(|x|) = |f(x)|",
+              "html": "f(|x|) = |f(x)|",
+              "is_correct": false
+            },
+            {
+              "id": 192419,
+              "text": "f (x) is not derivable at x = 1.",
+              "html": "f (x) is not derivable at x = 1.",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "f (x) is not derivable at x = 1.",
+          "correct_option_ids": [
+            192419
+          ],
+          "explanation": "Here, {tex}f\\left( x \\right) = \\left| {x - 1} \\right|\\;x \\in R.{/tex} So {tex}\\;f\\left( x \\right) {/tex} is not derivable when x - 1 = 0 i.e. at x = 1",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59309,
+          "question_text": "If f(x) = {tex}x\\left( {\\sqrt x - \\sqrt {x + 1} } \\right),{/tex} then",
+          "question_html": "<p>If f(x) = <span class=\"math-tex\">{tex}x\\left( {\\sqrt x - \\sqrt {x + 1} } \\right),{/tex}</span> then</p>",
+          "options": [
+            {
+              "id": 192426,
+              "text": "f (x) is not continuous but differentiable at x = 0",
+              "html": "f (x) is not continuous but differentiable at x = 0",
+              "is_correct": false
+            },
+            {
+              "id": 192425,
+              "text": "f (x) is continuous but not differentiable at x = 0",
+              "html": "f (x) is continuous but not differentiable at x = 0",
+              "is_correct": false
+            },
+            {
+              "id": 192423,
+              "text": "f (x) is not differentiable at x = 0",
+              "html": "f (x) is not differentiable at x = 0",
+              "is_correct": true
+            },
+            {
+              "id": 192424,
+              "text": "f(x) is differentiable at x = 0",
+              "html": "f(x) is differentiable at x = 0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "f (x) is not differentiable at x = 0",
+          "correct_option_ids": [
+            192423
+          ],
+          "explanation": "If f(x) is differential at a point x = a then f(x) is also continuous at x = and left hand limit at that point is equal to right hand limit at that point. And if left hand limit is not equal to right hand limit then function is discontinuous and hence not differentiable at that point. {tex}f(x)=x(\\sqrt{x}-\\sqrt{x+1}){/tex} We will find the left and right hand limit at x = 0 to check if function f(x) is continuous at x = 0. (L.H.L at x = 0) {tex}=\\lim _\\limits{x \\rightarrow 0^{-}} f(x){/tex} {tex}=\\lim _\\limits{h \\rightarrow 0} f(-h){/tex} {tex}=\\lim _\\limits{h \\rightarrow 0}-h(\\sqrt{-h}-\\sqrt{-h+1}){/tex} As, we can see that square-root of negative number is not defined. So, limit does not exist. (R.H.L at x = 0) {tex}=\\lim _\\limits{x \\rightarrow 0^{+}} f(x){/tex} {tex}=\\lim _\\limits{h \\rightarrow 0} f(h){/tex} {tex}=\\lim _\\limits{h \\rightarrow 0} h(\\sqrt{h}-\\sqrt{h+1}){/tex} = 0 So. here left hand limit at x = 0 is not equal to right hand limit at x = 0. So, the function is discontinuous and also not differentiable at x = 0 Hence, f(x) is not differential at x = 0.",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59310,
+          "question_text": "In case of strict increasing functions, slope of the tangent and hence derivative is",
+          "question_html": "<p>In case of strict increasing functions, slope of the tangent and hence derivative is</p>",
+          "options": [
+            {
+              "id": 192428,
+              "text": "negative",
+              "html": "negative",
+              "is_correct": false
+            },
+            {
+              "id": 192430,
+              "text": "positive",
+              "html": "positive",
+              "is_correct": false
+            },
+            {
+              "id": 192427,
+              "text": "either positive or zero",
+              "html": "either positive or zero",
+              "is_correct": true
+            },
+            {
+              "id": 192429,
+              "text": "zero",
+              "html": "zero",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "either positive or zero",
+          "correct_option_ids": [
+            192427
+          ],
+          "explanation": "If f is strictly increasing function , then f &lsquo; (x) can be 0 also. For example, f(x) = x 3 is strictly increasing, but its derivative is 0 at x = 0. As another example, take f(x) = x + cosx; here f &lsquo;(x) = 1 &ndash; sinx, which is either +ve or 0 and the function x + cos x is strictly increasing.",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3610,
+      "test_name": "Continuity and Differentiability Test-03",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59311,
+          "question_text": "Let f(x) = x &ndash; [x], then f &lsquo; (x) = 1 for",
+          "question_html": "<p>Let f(x) = x &ndash; [x], then f &lsquo; (x) = 1 for</p>",
+          "options": [
+            {
+              "id": 192431,
+              "text": "all {tex}x \\in ({\\mathbf{R - I)}}{/tex}",
+              "html": "all <span class=\"math-tex\">{tex}x \\in ({\\mathbf{R - I)}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192433,
+              "text": "all {tex}x \\in {\\mathbf{R}}{/tex}",
+              "html": "all <span class=\"math-tex\">{tex}x \\in {\\mathbf{R}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192432,
+              "text": "all {tex}x \\in {\\mathbf{R}}{/tex} &ndash; {0]",
+              "html": "all&nbsp;<span class=\"math-tex\">{tex}x \\in {\\mathbf{R}}{/tex}</span> &ndash; {0]",
+              "is_correct": false
+            },
+            {
+              "id": 192434,
+              "text": "all {tex}x \\in {\\mathbf{I}}{/tex}",
+              "html": "all <span class=\"math-tex\">{tex}x \\in {\\mathbf{I}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "all {tex}x \\in ({\\mathbf{R - I)}}{/tex}",
+          "correct_option_ids": [
+            192431
+          ],
+          "explanation": "f(x) = x -[x] is derivable at all x {tex} \\in {/tex} R &ndash; I , and f &lsquo;(x) = 1 for all x {tex} \\in {/tex} R &ndash; I .",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59312,
+          "question_text": "Let f (x + y) = f(x) + f(y) {tex}\\forall {/tex} x, y {tex} \\in {\\mathbf{R}}{/tex} . Suppose that f (6) = 5 and f &lsquo; (0) = 1, then f &lsquo; (6) is equal to",
+          "question_html": "<p>Let f (x + y) = f(x) + f(y) <span class=\"math-tex\">{tex}\\forall {/tex}</span> x, y <span class=\"math-tex\">{tex} \\in {\\mathbf{R}}{/tex}</span>. Suppose that f (6) = 5 and f &lsquo; (0) = 1, then f &lsquo; (6) is equal to</p>",
+          "options": [
+            {
+              "id": 192438,
+              "text": "15",
+              "html": "15",
+              "is_correct": false
+            },
+            {
+              "id": 192435,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            },
+            {
+              "id": 192437,
+              "text": "25",
+              "html": "25",
+              "is_correct": false
+            },
+            {
+              "id": 192436,
+              "text": "30",
+              "html": "30",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            192435
+          ],
+          "explanation": "{tex}\\begin{gathered} f'(6) = \\mathop {\\lim }\\limits_{h \\to 0} \\frac{{f(6 + h) - f(6)}}{h}\\end{gathered} {/tex} = {tex}\\mathop {\\lim }\\limits_{h \\to 0} \\frac{{f(6 + h) - f(6 + 0)}}{h}{/tex} {tex} = \\mathop {\\lim }\\limits_{h \\to 0} \\frac{{f(6) + f(h) - \\left\\{ {f(6) + f(0)} \\right\\}}}{h}{/tex} {tex} = \\mathop {\\lim }\\limits_{h \\to 0} \\frac{{f(h) - f(0)}}{h} = f'(0) = 1{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59313,
+          "question_text": "If x sin (a + y) = sin y, then {tex}\\frac{{dy}}{{dx}}{/tex} is equal to",
+          "question_html": "<p>If x sin (a + y) = sin y, then <span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192441,
+              "text": "{tex}\\frac{{\\sin (a + y)}}{{\\sin a}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{\\sin (a + y)}}{{\\sin a}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192442,
+              "text": "{tex}\\frac{{\\sin a}}{{\\sin (a + y)}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{\\sin a}}{{\\sin (a + y)}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192439,
+              "text": "{tex}\\frac{{{{\\sin }^2}(a + y)}}{{\\sin a}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{{{\\sin }^2}(a + y)}}{{\\sin a}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192440,
+              "text": "{tex}\\frac{{\\sin a}}{{{{\\sin }^2}(a + y)}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{\\sin a}}{{{{\\sin }^2}(a + y)}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{{{\\sin }^2}(a + y)}}{{\\sin a}}{/tex}",
+          "correct_option_ids": [
+            192439
+          ],
+          "explanation": "{tex}\\begin{gathered} x\\sin (a + y) = \\sin y\\end{gathered} {/tex} {tex} \\Rightarrow x = \\frac{{\\sin y}}{{\\sin (a + y)}}{/tex} {tex} \\Rightarrow \\frac{{dx}}{{dy}} = \\frac{{\\sin (a + y)\\cos y - \\sin y\\cos (a + y)}}{{{{\\sin }^2}(a + y)}}{/tex} {tex} = \\frac{{\\sin (a + y - y)}}{{{{\\sin }^2}(a + y)}} = \\frac{{\\operatorname{sina} }}{{{{\\sin }^2}(a + y)}}{/tex} {tex} \\Rightarrow \\frac{{dy}}{{dx}} = \\frac{{{{\\sin }^2}(a + y)}}{{\\sin a}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59314,
+          "question_text": "If f (x) {tex} = \\frac{1}{{3x + 1}},{/tex} then f &lsquo; (0)",
+          "question_html": "<p>If f (x) <span class=\"math-tex\">{tex} = \\frac{1}{{3x + 1}},{/tex}</span> then f &lsquo; (0)</p>",
+          "options": [
+            {
+              "id": 192445,
+              "text": "vanishes",
+              "html": "vanishes",
+              "is_correct": false
+            },
+            {
+              "id": 192443,
+              "text": "is negative",
+              "html": "is negative",
+              "is_correct": true
+            },
+            {
+              "id": 192444,
+              "text": "is positive",
+              "html": "is positive",
+              "is_correct": false
+            },
+            {
+              "id": 192446,
+              "text": "does not exist",
+              "html": "does not exist",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "is negative",
+          "correct_option_ids": [
+            192443
+          ],
+          "explanation": "{tex}\\begin{gathered} f(x) = \\frac{1}{{3x + 1}} \\Rightarrow f'(x) = \\frac{{ - 1}}{{{{(3x + 1)}^2}}}.3 \\end{gathered} {/tex} {tex} \\Rightarrow f'(0) = \\frac{{ - 3}}{1} = - 3 {/tex} i.e. negative.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59315,
+          "question_text": "Let f be a function satisfying f(x + y) = f(x) + f(y) for all x, y {tex} \\in {\\mathbf{R}},{/tex} then f &lsquo; (x) =",
+          "question_html": "<p>Let f be a function satisfying f(x + y) = f(x) + f(y) for all x, y <span class=\"math-tex\">{tex} \\in {\\mathbf{R}},{/tex}</span>then f &lsquo; (x) =</p>",
+          "options": [
+            {
+              "id": 192449,
+              "text": "f (0) for all {tex}x \\in {\\mathbf{R}}{/tex}",
+              "html": "f (0) for all <span class=\"math-tex\">{tex}x \\in {\\mathbf{R}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192448,
+              "text": "0 for all {tex}x \\in {\\mathbf{R}}{/tex}",
+              "html": "0 for all <span class=\"math-tex\">{tex}x \\in {\\mathbf{R}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192447,
+              "text": "f &lsquo; (0) for all {tex}x \\in {\\mathbf{R}}{/tex}",
+              "html": "f &lsquo; (0) for all <span class=\"math-tex\">{tex}x \\in {\\mathbf{R}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192450,
+              "text": "f &#39;&#39; (0) for all {tex}x \\in {\\mathbf{R}}{/tex}",
+              "html": "f &#39;&#39; (0) for all <span class=\"math-tex\">{tex}x \\in {\\mathbf{R}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "f &lsquo; (0) for all {tex}x \\in {\\mathbf{R}}{/tex}",
+          "correct_option_ids": [
+            192447
+          ],
+          "explanation": "{tex}\\begin{gathered} f'(x) = \\mathop {\\lim }\\limits_{h \\to 0} \\frac{{f(x + h) - f(x)}}{h} \\end{gathered} {/tex} = {tex}\\mathop {\\lim }\\limits_{h \\to 0} \\frac{{f(x + h) - f(x + 0)}}{h} = \\mathop {\\lim }\\limits_{h \\to 0} \\frac{{f(x) + f(h) - (f(x) + f(0))}}{h} = \\mathop {\\lim }\\limits_{h \\to 0} \\frac{{f(h) - f(0)}}{h} = f'(0) {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59316,
+          "question_text": "Let f and g be differentiable functions such that fog= I, the identity function. If g&rsquo;(a) = 2 and g(a)=b, then f &lsquo;(b)=",
+          "question_html": "<p>Let f and g be differentiable functions such that fog= I, the identity function. If g&rsquo;(a) = 2 and g(a)=b, then f &lsquo;(b)=</p>",
+          "options": [
+            {
+              "id": 192451,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192452,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 192454,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192453,
+              "text": "&ndash; 2",
+              "html": "&ndash; 2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{2}{/tex}",
+          "correct_option_ids": [
+            192451
+          ],
+          "explanation": "{tex} (fog)'(x) = 1\\forall x{/tex} {tex} \\Rightarrow (fog)'(a) = 1 {/tex} {tex} \\Rightarrow f'(g(a))g'(a) = 1 {/tex} {tex}\\Rightarrow f'(b)g'(a) = \\frac12 {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59317,
+          "question_text": "Differential coefficient of a function f(g(x)) w.r.t. the function g (x) is",
+          "question_html": "<p>Differential coefficient of a function f(g(x)) w.r.t. the function g (x) is</p>",
+          "options": [
+            {
+              "id": 192457,
+              "text": "{tex}\\frac{{f'(g(x))}}{{g'(x)}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{f'(g(x))}}{{g'(x)}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192456,
+              "text": "f &lsquo;(g (x)) g&rsquo; (x)",
+              "html": "f &lsquo;(g (x)) g&rsquo; (x)",
+              "is_correct": false
+            },
+            {
+              "id": 192455,
+              "text": "f&lsquo;(g (x))",
+              "html": "f&lsquo;(g (x))",
+              "is_correct": true
+            },
+            {
+              "id": 192458,
+              "text": "{tex}\\frac{{f'(g(2x))}}{{g'(2x)}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{f'(g(2x))}}{{g'(2x)}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "f&lsquo;(g (x))",
+          "correct_option_ids": [
+            192455
+          ],
+          "explanation": "{tex}\\frac{d}{{d(g(x))}}\\left( {f(g(x)} \\right) = f'(g(x)){/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59318,
+          "question_text": "If a function f is derivable at x = a, then {tex}\\mathop {Lt}\\limits_{h \\to 0} \\;\\;\\;\\frac{{f(a - h) - f(a)}}{h}{/tex} is equal to",
+          "question_html": "<p>If a function f is derivable at x = a, then <span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{h \\to 0} \\;\\;\\;\\frac{{f(a - h) - f(a)}}{h}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192461,
+              "text": "does not exist",
+              "html": "does not exist",
+              "is_correct": false
+            },
+            {
+              "id": 192460,
+              "text": "f &lsquo;(a)",
+              "html": "f &lsquo;(a)",
+              "is_correct": false
+            },
+            {
+              "id": 192459,
+              "text": "&ndash; f &lsquo;(a)",
+              "html": "&ndash; f &lsquo;(a)",
+              "is_correct": true
+            },
+            {
+              "id": 192462,
+              "text": "does exist",
+              "html": "does exist",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "&ndash; f &lsquo;(a)",
+          "correct_option_ids": [
+            192459
+          ],
+          "explanation": "{tex}\\begin{gathered} \\mathop {\\lim }\\limits_{h \\to 0} \\frac{{f(a - h) - f(a)}}{h} \\end{gathered} {/tex} = {tex}\\mathop {\\lim }\\limits_{t \\to 0} \\frac{{f(a + t) - f(a)}}{{ - t}}(put..h = - t,as..h \\to 0,t \\to 0){/tex} {tex} \\Rightarrow - \\mathop {\\lim }\\limits_{t \\to 0} \\frac{{f(a + t) - f(a)}}{t} = - f'(a){/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59319,
+          "question_text": "If {tex}y = {\\tan ^{ - 1}}{/tex} x and {tex}z = {\\cot ^{ - 1}}x{/tex} then {tex}\\frac{{dy}}{{dz}}{/tex} is equal to",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}y = {\\tan ^{ - 1}}{/tex}</span>x and <span class=\"math-tex\">{tex}z = {\\cot ^{ - 1}}x{/tex}</span> then <span class=\"math-tex\">{tex}\\frac{{dy}}{{dz}}{/tex}</span>is equal to</p>",
+          "options": [
+            {
+              "id": 192465,
+              "text": "{tex}\\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192466,
+              "text": "{tex}\\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192464,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192463,
+              "text": "&ndash; 1",
+              "html": "&ndash; 1",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "&ndash; 1",
+          "correct_option_ids": [
+            192463
+          ],
+          "explanation": "{tex}\\frac{{dy}}{{dz}} = \\frac{{\\frac{d}{{dx}}({{\\tan }^{ - 1}}x)}}{{\\frac{d}{{dx}}({{\\cot }^{ - 1}}x)}} = \\frac{{\\frac{1}{{1 + {x^2}}}}}{{ - \\frac{1}{{1 + {x^2}}}}} = - 1{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59320,
+          "question_text": "{tex}\\frac{d}{{dx}}({\\cos ^{ - 1}}x) = - \\frac{1}{{\\sqrt {1 - {x^2}} }}{/tex} where",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\frac{d}{{dx}}({\\cos ^{ - 1}}x) = - \\frac{1}{{\\sqrt {1 - {x^2}} }}{/tex}</span>where</p>",
+          "options": [
+            {
+              "id": 192469,
+              "text": "{tex} - 1 \\leqslant x \\leqslant 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - 1 \\leqslant x \\leqslant 1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192468,
+              "text": "{tex} - 1 \\leqslant x < 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - 1 \\leqslant x &lt; 1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192470,
+              "text": "{tex} - 1 < x \\leqslant 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - 1 &lt; x \\leqslant 1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192467,
+              "text": "-1 < x < 1",
+              "html": "-1 &lt; x &lt; 1",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "-1 < x < 1",
+          "correct_option_ids": [
+            192467
+          ],
+          "explanation": "{tex}\\frac{d}{{dx}}({\\cos ^{ - 1}}x) = - \\frac{1}{{\\sqrt {1 - {x^2}} }}{/tex} , is valid only if , {tex}1 - \\;{x^2} > {\\text{ }}0, {/tex} i.e. if {tex} {x^2} < {\\text{ }}1{\\text{ }}i.e.{\\text{ }}if\\left| x \\right| < {\\text{ }}1{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59321,
+          "question_text": "If f (x) = x tan -1 x then f &lsquo; (1 ) is equal to",
+          "question_html": "<p>If f (x) = x tan<sup>-1</sup>&nbsp;x then f &lsquo; (1 ) is equal to</p>",
+          "options": [
+            {
+              "id": 192473,
+              "text": "{tex}\\frac{1}{2} - \\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2} - \\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192472,
+              "text": "{tex}\\frac{\\pi }{4} - \\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4} - \\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192474,
+              "text": "{tex}\\frac{1}{2} - \\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2} - \\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192471,
+              "text": "{tex}\\frac{\\pi }{4} + \\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4} + \\frac{1}{2}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{\\pi }{4} + \\frac{1}{2}{/tex}",
+          "correct_option_ids": [
+            192471
+          ],
+          "explanation": "{tex}\\begin{gathered} f'(x) = \\frac{d}{{dx}}(x{\\tan ^{ - 1}}x) = \\frac{x}{{1 + {x^2}}} + {\\tan ^{ - 1}}x\\end{gathered} {/tex} {tex}\\Rightarrow f'(1) = \\frac{1}{{1 + 1}} + {\\tan ^{ - 1}}1 = \\frac{1}{2} + \\frac{\\pi }{4}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59322,
+          "question_text": "{tex}\\frac{d}{{dx}}({\\tan ^{ - 1}}(\\cot x)){/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\frac{d}{{dx}}({\\tan ^{ - 1}}(\\cot x)){/tex}</span>is equal to</p>",
+          "options": [
+            {
+              "id": 192477,
+              "text": "sin 2 x",
+              "html": "sin<sup>2</sup>x",
+              "is_correct": false
+            },
+            {
+              "id": 192475,
+              "text": "&ndash; 1",
+              "html": "&ndash; 1",
+              "is_correct": true
+            },
+            {
+              "id": 192476,
+              "text": "-cosec 2 x",
+              "html": "-cosec<sup>2</sup>x",
+              "is_correct": false
+            },
+            {
+              "id": 192478,
+              "text": "cos 2 x",
+              "html": "cos<sup>2</sup>x",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "&ndash; 1",
+          "correct_option_ids": [
+            192475
+          ],
+          "explanation": "{tex}\\frac{d}{{dx}}({\\tan ^{ - 1}}(\\cot x)){/tex} = {tex} \\frac{d}{{dx}}({\\tan ^{ - 1}}(\\tan (\\frac{\\pi }{2} - x))) = \\frac{d}{{dx}}(\\frac{\\pi }{2} - x) = - 1{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59323,
+          "question_text": "{tex}\\frac{d}{{dx}}({\\tan ^{ - 1}}(\\sec x + \\tan x){/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\frac{d}{{dx}}({\\tan ^{ - 1}}(\\sec x + \\tan x){/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192479,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192482,
+              "text": "{tex}\\frac{1}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192481,
+              "text": "{tex}\\frac{1}{{2\\sec x(\\sec x + \\tan x)}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{2\\sec x(\\sec x + \\tan x)}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192480,
+              "text": "{tex} - \\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{2}{/tex}",
+          "correct_option_ids": [
+            192479
+          ],
+          "explanation": "{tex}\\frac{d}{{dx}}({\\tan ^{ - 1}}(\\sec x + \\tan x)) {/tex} {tex} = \\frac{{\\sec x\\tan x + {{\\sec }^2}x}}{{1 + {{(\\sec x + \\tan x)}^2}}} = \\frac{{\\sec x(\\sec x + \\tan x)}}{{2\\sec x(\\sec x + \\tan x)}} = \\frac{1}{2}{/tex} . Which is the required solution.",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59324,
+          "question_text": "{tex}\\mathop {Lt}\\limits_{x \\to 0}{(1 + 2x)^{\\frac{{x + 3}}{x}}}{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to 0}{(1 + 2x)^{\\frac{{x + 3}}{x}}}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192486,
+              "text": "2e 3",
+              "html": "2e<sup>3</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 192484,
+              "text": "{tex}{e^{3/2}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{e^{3/2}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192485,
+              "text": "e 3",
+              "html": "e<sup>3</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 192483,
+              "text": "e 6",
+              "html": "e<sup>6</sup>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "e 6",
+          "correct_option_ids": [
+            192483
+          ],
+          "explanation": "{tex}\\mathop {\\lim }\\limits_{x \\to 0} {\\left( {1 + 2x} \\right)^{\\frac{{x + 3}}{x}}} {/tex} = {tex}\\mathop {\\lim }\\limits_{x \\to 0} {\\left( {1 + 2x} \\right)^1}{\\left( {1 + 2x} \\right)^{\\frac{3}{x}}}= \\mathop {\\lim }\\limits_{x \\to 0} {\\left( {1 + 2x} \\right)^{\\frac{3}{x}}} = \\mathop {\\lim }\\limits_{2x \\to 0} {\\left\\{ {{{\\left( {1 + 2x} \\right)}^{\\frac{1}{{2x}}}}} \\right\\}^6} = {e^6}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59325,
+          "question_text": "Let f(x) = {tex}\\left\\{ \\begin{gathered} {e^{1/x}},x < 0 \\\\ \\;\\;\\;\\;\\;x,x \\geqslant 0 \\\\ \\end{gathered} \\right.,then\\mathop {Lt}\\limits_{x \\to 0} \\;\\;f(x){/tex}",
+          "question_html": "<p>Let f(x) = <span class=\"math-tex\">{tex}\\left\\{ \\begin{gathered} {e^{1/x}},x &lt; 0 \\\\ \\;\\;\\;\\;\\;x,x \\geqslant 0 \\\\ \\end{gathered} \\right.,then\\mathop {Lt}\\limits_{x \\to 0} \\;\\;f(x){/tex}</span></p>",
+          "options": [
+            {
+              "id": 192490,
+              "text": "does exist",
+              "html": "does exist",
+              "is_correct": false
+            },
+            {
+              "id": 192489,
+              "text": "does not exist",
+              "html": "does not exist",
+              "is_correct": false
+            },
+            {
+              "id": 192487,
+              "text": "is equal to 0",
+              "html": "is equal to 0",
+              "is_correct": true
+            },
+            {
+              "id": 192488,
+              "text": "is equal to non &ndash; zero real number",
+              "html": "is equal to non &ndash; zero real number",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "is equal to 0",
+          "correct_option_ids": [
+            192487
+          ],
+          "explanation": "{tex}\\begin{gathered} \\mathop {\\lim }\\limits_{x \\to {0^ - }} f(x) = \\mathop {\\lim }\\limits_{x \\to {0^ - }} {e^{\\frac{1}{x}}} = 0, \\end{gathered} {/tex} {tex}\\mathop {\\lim }\\limits_{x \\to {0^ + }} f(x) = \\mathop {\\lim }\\limits_{x \\to {0^ + }} x = 0 \\therefore \\mathop {\\lim }\\limits_{x \\to 0} f(x) = 0 {/tex}",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3611,
+      "test_name": "Continuity and Differentiability Test-04",
+      "is_paid": true,
+      "questionCount": 14,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59327,
+          "question_text": "{tex}\\mathop {Lt}\\limits_{x \\to 0} \\;\\frac{{x({e^{\\sin }}^x - 1)}}{{1 - \\cos x}}{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to 0} \\;\\frac{{x({e^{\\sin }}^x - 1)}}{{1 - \\cos x}}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192495,
+              "text": "2",
+              "html": "2",
+              "is_correct": true
+            },
+            {
+              "id": 192498,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192497,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192496,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "2",
+          "correct_option_ids": [
+            192495
+          ],
+          "explanation": "{tex}\\begin{gathered} \\mathop {\\lim }\\limits_{x \\to 0} \\frac{{x({e^{\\sin x}} - 1)}}{{1 - \\cos x}}\\end{gathered} {/tex} {tex} = \\mathop {\\lim }\\limits_{x \\to 0} \\frac{{\\frac{{({e^{\\sin x}} - 1)}}{x}}}{{\\frac{{1 - \\cos x}}{{{x^2}}}}} = \\mathop {\\lim }\\limits_{x \\to 0} \\frac{{({e^{\\sin x}} - 1)}}{{\\sin x}}.\\frac{{\\sin x}}{x}.2 = 2 \\left( {\\because \\mathop {\\lim }\\limits_{x \\to 0} \\frac{{1 - \\cos x}}{{{x^2}}} = \\frac{1}{2}} \\right) {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59328,
+          "question_text": "{tex}\\mathop {Lt}\\limits_{x \\to \\infty } \\;{\\left( {1 + \\frac{3}{x}} \\right)^x}{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to \\infty } \\;{\\left( {1 + \\frac{3}{x}} \\right)^x}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192501,
+              "text": "3 e",
+              "html": "3 e",
+              "is_correct": false
+            },
+            {
+              "id": 192502,
+              "text": "2 e",
+              "html": "2 e",
+              "is_correct": false
+            },
+            {
+              "id": 192499,
+              "text": "e 3",
+              "html": "e<sup>3</sup>",
+              "is_correct": true
+            },
+            {
+              "id": 192500,
+              "text": "{tex}{e^{1/3}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{e^{1/3}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "e 3",
+          "correct_option_ids": [
+            192499
+          ],
+          "explanation": "{tex}\\mathop {\\lim }\\limits_{x \\to \\infty } {\\left( {1 + \\frac{3}{x}} \\right)^x} {/tex} {tex}= \\mathop {\\lim }\\limits_{t \\to {0^ + }} {\\left( {1 + 3t} \\right)^{\\frac{1}{t}}} = \\mathop {\\lim }\\limits_{3t \\to {0^ + }} {\\left[ {{{\\left( {1 + 3t} \\right)}^{\\frac{1}{{3t}}}}} \\right]^3} = {e^3}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59329,
+          "question_text": "{tex}\\mathop {Lt}\\limits_{x \\to \\infty } \\;{\\left( {\\;\\frac{{2x + 3}}{{2x + 1}}} \\right)^x}{/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to \\infty } \\;{\\left( {\\;\\frac{{2x + 3}}{{2x + 1}}} \\right)^x}{/tex}</span>is equal to</p>",
+          "options": [
+            {
+              "id": 192504,
+              "text": "e",
+              "html": "e",
+              "is_correct": false
+            },
+            {
+              "id": 192503,
+              "text": "{tex}{e^2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{e^2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192505,
+              "text": "{tex}{e^{1/2}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{e^{1/2}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192506,
+              "text": "{tex}-{e^{1/2}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}-{e^{1/2}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}{e^2}{/tex}",
+          "correct_option_ids": [
+            192503
+          ],
+          "explanation": "We know that, {tex}{\\lim _{x \\to \\infty }}{(1 + \\frac{a}{x})^x} = {e^a}{/tex} ....(1) Now, {tex}{\\lim _{x \\to \\infty }}{\\left( {\\frac{{2x + 3}}{{2x + 1}}} \\right)^x} = {\\lim _{x \\to \\infty }}{\\left( {1 + \\frac{2}{{2x + 1}}} \\right)^x} = {e^2},{/tex} by eq(1)",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59330,
+          "question_text": "If y = e 2x+3 log x , then {tex}\\frac{{dy}}{{dx}}{/tex} is equal to",
+          "question_html": "<p>If y = e<sup>2x+3 log x</sup>, then <span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192508,
+              "text": "x 2 e 2x (2 + 3x)",
+              "html": "x<sup>2</sup>e<sup>2x</sup>(2 + 3x)",
+              "is_correct": false
+            },
+            {
+              "id": 192510,
+              "text": "x 3x e 2",
+              "html": "x<sup>3x</sup>&nbsp;e<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 192509,
+              "text": "x 3 e 2x",
+              "html": "x<sup>3</sup>&nbsp;e<sup>2x</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 192507,
+              "text": "x 2 e 2x (2x + 3)",
+              "html": "x<sup>2</sup>&nbsp;e<sup>2x</sup>&nbsp;(2x + 3)",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "x 2 e 2x (2x + 3)",
+          "correct_option_ids": [
+            192507
+          ],
+          "explanation": "y = e 2x+3 log x = e 2x + 3 logx {tex} = {e^{2x}}{e^{\\log {x^3}}} = {x^3}{e^{2x}} \\Rightarrow \\frac{{dy}}{{dx}} = {x^3}2{e^{2x}} + 3{x^2}{e^{2x}}{/tex} {tex} = {x^2}{e^{2x}}(2x + 3) {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59331,
+          "question_text": "If {tex}y = \\frac{{{e^x} - {e^{ - x}}}}{{{e^x} + {e^{ - x}}}},{/tex} then {tex}\\frac{{dy}}{{dx}}{/tex} is equal to",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}y = \\frac{{{e^x} - {e^{ - x}}}}{{{e^x} + {e^{ - x}}}},{/tex}</span> then <span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192511,
+              "text": "1 + y 2",
+              "html": "1 + y<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 192512,
+              "text": "y 2 + 1",
+              "html": "y<sup>2</sup>&nbsp;+ 1",
+              "is_correct": false
+            },
+            {
+              "id": 192514,
+              "text": "y 2 - 1",
+              "html": "y<sup>2</sup>&nbsp;-&nbsp;1",
+              "is_correct": false
+            },
+            {
+              "id": 192513,
+              "text": "1 - y 2",
+              "html": "1 - y<sup>2</sup>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "1 - y 2",
+          "correct_option_ids": [
+            192513
+          ],
+          "explanation": "Solution. {tex}\\frac{{dy}}{{dx}} = \\frac{d}{{dx}}\\left( {\\frac{{{e^x} - {e^{ - x}}}}{{{e^x} + {e^{ - x}}}}} \\right) {/tex} {tex}= \\frac{{({e^x} + {e^{ - x}})({e^x} + {e^{ - x}}) - ({e^x} - {e^{ - x}})({e^x} - {e^{ - x}})}}{{{{({e^x} + {e^{ - x}})}^2}}}= \\frac{{{{({e^x} + {e^{ - x}})}^2}}}{{{{({e^x} + {e^{ - x}})}^2}}} - \\frac{{{{({e^x} - {e^{ - x}})}^2}}}{{{{({e^x} + {e^{ - x}})}^2}}} = 1 - {y^2}{/tex} . Which is the required solution.",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59332,
+          "question_text": "{tex}\\frac{d}{{dx}}(\\log |x|){/tex} is equal to {tex}\\left( {x \\ne 0} \\right){/tex}",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\frac{d}{{dx}}(\\log |x|){/tex}</span>is equal to <span class=\"math-tex\">{tex}\\left( {x \\ne 0} \\right){/tex}</span></p>",
+          "options": [
+            {
+              "id": 192518,
+              "text": "{tex}\\frac{1}{x}{/tex} or {tex}- \\frac{1}{x}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{x}{/tex}</span>&nbsp;or&nbsp;<span class=\"math-tex\">{tex}- \\frac{1}{x}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192517,
+              "text": "{tex}\\frac{1}{{\\left| x \\right|}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{\\left| x \\right|}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192516,
+              "text": "{tex} \\pm \\frac{1}{x}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} \\pm \\frac{1}{x}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192515,
+              "text": "{tex}\\frac{1}{x}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{x}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{x}{/tex}",
+          "correct_option_ids": [
+            192515
+          ],
+          "explanation": "{tex}\\frac{d}{{dx}}(\\log \\left| x \\right|) = \\frac{1}{{\\left| x \\right|}}\\frac{x}{{\\left| x \\right|}} = \\frac{x}{{{{\\left| x \\right|}^2}}} = \\frac{x}{{{x^2}}} = \\frac{1}{x}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59333,
+          "question_text": "If x p y q = (x +y) p+q , then {tex}\\frac{{dy}}{{dx}}{/tex} is equal to",
+          "question_html": "<p>If &nbsp;x<sup>p</sup>&nbsp;y<sup>q</sup>&nbsp;= (x +y)<sup>p+q</sup>, then <span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192520,
+              "text": "{tex}\\frac{x}{y}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{x}{y}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192519,
+              "text": "{tex}\\frac{y}{x}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{y}{x}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192521,
+              "text": "{tex}\\frac{y}{{x + y}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{y}{{x + y}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192522,
+              "text": "{tex}\\frac{y}{{x - y}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{y}{{x - y}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{y}{x}{/tex}",
+          "correct_option_ids": [
+            192519
+          ],
+          "explanation": "Given, x p y q = (x +y) p+q Taking log on both sides we get: plogx + q logy = (p + q)log(x + y). Differentiating both sides w.r.t. x we get , {tex}\\begin{gathered} \\frac{p}{x} + \\frac{q}{y}\\frac{{dy}}{{dx}}\\end{gathered} {/tex} = (p + q) {tex}\\left( {\\frac{1}{{x + y}}} \\right)\\left( {1 + \\frac{{dy}}{{dx}}} \\right) \\Rightarrow \\frac{{dy}}{{dx}}\\left( {\\frac{q}{y} - \\frac{{p + q}}{{x + y}}} \\right)= \\frac{{p + q}}{{x + y}} - \\frac{p}{x} {/tex} {tex}\\Rightarrow\\frac{dy}{dx}=\\left[\\frac{x\\left(p+q\\right)-p\\left(x+y\\right)}{x\\left(x+y\\right)}\\right]\\left[\\frac{y\\left(x+y\\right)}{q\\left(x+y\\right)-y\\left(p+q\\right)}\\right]{/tex} {tex}\\Rightarrow\\frac{dy}{dx}=\\frac yx{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59334,
+          "question_text": "If f(x) be any function which assumes only positive values and f&rsquo;(x) exists then, f&rsquo;(x) is equal to",
+          "question_html": "<p>If f(x) be any function which assumes only positive values and f&rsquo;(x) exists then, f&rsquo;(x) is equal to</p>",
+          "options": [
+            {
+              "id": 192526,
+              "text": "{tex}f(x)\\frac{d}{{dx}}\\left\\{ {{2e^{\\log }}(f(2x))} \\right\\}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}f(x)\\frac{d}{{dx}}\\left\\{ {{2e^{\\log }}(f(2x))} \\right\\}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192523,
+              "text": "{tex}f(x)\\frac{d}{{dx}}\\left\\{ {\\log (f(x))} \\right\\}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}f(x)\\frac{d}{{dx}}\\left\\{ {\\log (f(x))} \\right\\}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192524,
+              "text": "{tex}f(x)\\frac{d}{{dx}}\\left( {{e^{f(x)}}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}f(x)\\frac{d}{{dx}}\\left( {{e^{f(x)}}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192525,
+              "text": "{tex}f(x)\\frac{d}{{dx}}\\left\\{ {{e^{\\log }}(f(x))} \\right\\}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}f(x)\\frac{d}{{dx}}\\left\\{ {{e^{\\log }}(f(x))} \\right\\}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}f(x)\\frac{d}{{dx}}\\left\\{ {\\log (f(x))} \\right\\}{/tex}",
+          "correct_option_ids": [
+            192523
+          ],
+          "explanation": "{tex}\\frac{d}{{dx}}\\left( {f(x)} \\right)= \\frac{d}{{dx}}\\left( {{e^{\\log f(x)}}} \\right) = {e^{\\log f(x)}}\\frac{d}{{dx}}\\left( {\\log f(x)} \\right) = f(x)\\frac{d}{{dx}}\\left( {\\log f(x)} \\right){/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59335,
+          "question_text": "{tex}\\frac{d}{{dx}}\\left( {\\log \\left| {\\tan \\frac{x}{2}} \\right|} \\right){/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\frac{d}{{dx}}\\left( {\\log \\left| {\\tan \\frac{x}{2}} \\right|} \\right){/tex}</span>is equal to</p>",
+          "options": [
+            {
+              "id": 192530,
+              "text": "{tex}\\frac{2}{{\\cos x}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{{\\cos x}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192528,
+              "text": "{tex}\\frac{2}{{\\sin x}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{{\\sin x}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192527,
+              "text": "cosec x",
+              "html": "cosec x",
+              "is_correct": true
+            },
+            {
+              "id": 192529,
+              "text": "{tex}\\frac{1}{{\\tan \\frac{x}{2}}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{\\tan \\frac{x}{2}}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "cosec x",
+          "correct_option_ids": [
+            192527
+          ],
+          "explanation": "{tex}\\frac{d}{{dx}}\\left( {\\log \\left| {\\tan \\frac{x}{2}} \\right|} \\right) {/tex} {tex}= \\frac{1}{{\\left( {\\left| {\\tan \\frac{x}{2}} \\right|} \\right)}}\\frac{d}{{dx}}\\left( {\\tan \\frac{x}{2}} \\right) = \\frac{1}{{\\left( {\\left| {\\tan \\frac{x}{2}} \\right|} \\right)}}\\frac{1}{2}{\\sec ^2}\\frac{x}{2} = \\frac{1}{{2\\sin \\frac{x}{2}\\cos \\frac{x}{2}}} = \\frac{1}{{\\sin x}} = cosec x {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59336,
+          "question_text": "The differential coefficient of log (|log x|) w.r.t. log x is",
+          "question_html": "<p>The differential coefficient of log (|log x|) w.r.t. log x is</p>",
+          "options": [
+            {
+              "id": 192531,
+              "text": "{tex}\\frac{1}{{\\log x}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{\\log x}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192532,
+              "text": "{tex}\\frac{1}{{x\\left| {\\log x} \\right|}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{x\\left| {\\log x} \\right|}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192533,
+              "text": "{tex}\\frac{1}{{x\\log x}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{x\\log x}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192534,
+              "text": "{tex}-\\frac{1}{{x\\log x}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}-\\frac{1}{{x\\log x}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{{\\log x}}{/tex}",
+          "correct_option_ids": [
+            192531
+          ],
+          "explanation": "Let y = log(|logx|) and z = logx, then we have; {tex}\\frac{{dy}}{{dz}} = \\frac{{\\frac{{dy}}{{dx}}}}{{\\frac{{dz}}{{dx}}}} = \\left( {\\frac{1}{{\\log x}}.\\frac{1}{x}} \\right)/\\left( {\\frac{1}{x}} \\right){/tex} {tex} \\Rightarrow \\frac{1}{{\\log x}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59337,
+          "question_text": "If x = acos 3 t, y = asin 3 t, then {tex}\\frac{{dy}}{{dx}}{/tex} is equal to",
+          "question_html": "<p>If x = acos<sup>3</sup>t, y = asin<sup>3</sup>t, then <span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192537,
+              "text": "cosec t",
+              "html": "cosec t",
+              "is_correct": false
+            },
+            {
+              "id": 192536,
+              "text": "cos t",
+              "html": "cos t",
+              "is_correct": false
+            },
+            {
+              "id": 192538,
+              "text": "cot t",
+              "html": "cot t",
+              "is_correct": false
+            },
+            {
+              "id": 192535,
+              "text": "&ndash; tan t",
+              "html": "&ndash; tan t",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "&ndash; tan t",
+          "correct_option_ids": [
+            192535
+          ],
+          "explanation": "We have to find: {tex}\\frac{{dy}}{{dx}} = \\frac{{\\frac{{dy}}{{dt}}}}{{\\frac{{dx}}{{dt}}}} = \\frac{{3a{{\\sin }^2}t\\cos t}}{{3a{{\\cos }^2}t( - \\sin t)}} = - \\tan t{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59338,
+          "question_text": "Derivative of sin 3 x w.r.t cos 3 x is",
+          "question_html": "<p>Derivative of sin<sup>3</sup>x w.r.t cos<sup>3</sup>x is</p>",
+          "options": [
+            {
+              "id": 192539,
+              "text": "&ndash; tan x",
+              "html": "&ndash; tan x",
+              "is_correct": true
+            },
+            {
+              "id": 192541,
+              "text": "tan x",
+              "html": "tan x",
+              "is_correct": false
+            },
+            {
+              "id": 192540,
+              "text": "tan 3 x",
+              "html": "tan<sup>3</sup>x",
+              "is_correct": false
+            },
+            {
+              "id": 192542,
+              "text": "cot x",
+              "html": "cot x",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "&ndash; tan x",
+          "correct_option_ids": [
+            192539
+          ],
+          "explanation": "Let y = sin 3 x and z = cos 3 x, then , {tex}\\frac{{dy}}{{dz}} = \\frac{{\\frac{{dy}}{{dx}}}}{{\\frac{{dz}}{{dx}}}} = \\frac{{3{{\\sin }^2}x\\cos x}}{{3{{\\cos }^2}x( - \\sin x)}} = - \\tan x{/tex} . Which is the required solution.",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59339,
+          "question_text": "Derivative of cos(sin x) w.r.t. sin x is",
+          "question_html": "<p>Derivative of cos(sin x) w.r.t. sin x is</p>",
+          "options": [
+            {
+              "id": 192546,
+              "text": "{tex}{\\sec ^2}\\left( {\\frac{3x}{{\\sqrt {2{x^2} + 1} }}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\sec ^2}\\left( {\\frac{3x}{{\\sqrt {2{x^2} + 1} }}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192543,
+              "text": "&ndash; sin(sin x)cosx",
+              "html": "&ndash; sin(sin x)cosx",
+              "is_correct": false
+            },
+            {
+              "id": 192545,
+              "text": "{tex}{\\sec ^2}\\left( {\\frac{x}{{\\sqrt {{x^2} + 1} }}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\sec ^2}\\left( {\\frac{x}{{\\sqrt {{x^2} + 1} }}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192544,
+              "text": "&ndash; sin(sin x)",
+              "html": "&ndash; sin(sin x)",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "&ndash; sin(sin x)",
+          "correct_option_ids": [
+            192544
+          ],
+          "explanation": "Let y = cos(sinx), z = sinx , then , {tex}\\frac{{dy}}{{dz}} = \\frac{{\\frac{{dy}}{{dx}}}}{{\\frac{{dz}}{{dx}}}} = \\frac{{ - \\sin (\\sin x)\\cos x}}{{\\cos x}} = - \\sin (\\sin x){/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59340,
+          "question_text": "If {tex}y = {\\sin ^{ - 1}}x{/tex} and {tex}z = {\\cos ^{ - 1}}\\sqrt {1 - {x^2}} ,{/tex} then {tex}\\frac{{dy}}{{dz}}{/tex} is equal to (0 < x < 1)",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}y = {\\sin ^{ - 1}}x{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}z = {\\cos ^{ - 1}}\\sqrt {1 - {x^2}} ,{/tex}</span> then <span class=\"math-tex\">{tex}\\frac{{dy}}{{dz}}{/tex}</span> is equal to (0 &lt; x &lt; 1)</p>",
+          "options": [
+            {
+              "id": 192549,
+              "text": "{tex}\\sqrt {1 - {x^2}} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt {1 - {x^2}} {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192550,
+              "text": "{tex}{\\cos ^{ - 1}}x{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\cos ^{ - 1}}x{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192547,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            },
+            {
+              "id": 192548,
+              "text": "{tex}\\frac{1}{{\\sqrt {1 - {x^2}} }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{\\sqrt {1 - {x^2}} }}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            192547
+          ],
+          "explanation": "{tex} y = {\\sin ^{ - 1}}x,0 < x < 1 {/tex} , 0 < x < 1 {tex}z = {\\cos ^{ - 1}}\\sqrt {1 - {x^2}}{/tex} {tex} = {\\cos ^{ - 1}}(\\sqrt {1 - {{\\sin }^2}y} ) {/tex} {tex} \\left( {\\because y = {{\\sin }^{ - 1}}x \\Rightarrow \\left( {x = \\sin y} \\right)} \\right) {/tex} {tex}\\Rightarrow y = z \\Rightarrow \\frac{{dy}}{{dz}} = 1 \\\\ {/tex}",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3612,
+      "test_name": "Continuity and Differentiability Test-05",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59341,
+          "question_text": "If f (x) = tan -1 x and g (x) = tan -1 {tex}\\left( {\\frac{{x + 1}}{{1 - x}}} \\right),{/tex} then",
+          "question_html": "<p>If f (x) = tan<sup>-1</sup>x and g (x) = tan<sup>-1</sup><span class=\"math-tex\">{tex}\\left( {\\frac{{x + 1}}{{1 - x}}} \\right),{/tex}</span> then</p>",
+          "options": [
+            {
+              "id": 192553,
+              "text": "f (x) = g(x)",
+              "html": "f (x) = g(x)",
+              "is_correct": false
+            },
+            {
+              "id": 192554,
+              "text": "f (x) = 2g(x)",
+              "html": "f (x) = 2g(x)",
+              "is_correct": false
+            },
+            {
+              "id": 192552,
+              "text": "D f = D g",
+              "html": "D<sub>f</sub>&nbsp;= D<sub>g</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 192551,
+              "text": "f &lsquo; (x) = g &lsquo; (x)",
+              "html": "f &lsquo; (x) = g &lsquo; (x)",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "f &lsquo; (x) = g &lsquo; (x)",
+          "correct_option_ids": [
+            192551
+          ],
+          "explanation": "{tex}g(x) = {\\tan ^{ - 1}}\\left( {\\frac{{1 + x}}{{1 - x}}} \\right) \\Rightarrow g'(x) = \\frac{1}{{1 + {{\\left( {\\frac{{1 + x}}{{1 - x}}} \\right)}^2}}}\\frac{{(1 - x).1 - (1 + x).( - 1)}}{{{{(1 - x)}^2}}} = \\frac{1}{{(1 + {x^2})}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59342,
+          "question_text": "Derivative of log|x| w.r.t. |x| is",
+          "question_html": "<p>Derivative of log|x| w.r.t. |x| is</p>",
+          "options": [
+            {
+              "id": 192557,
+              "text": "{tex} \\pm \\frac{1}{x}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} \\pm \\frac{1}{x}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192555,
+              "text": "{tex}\\frac{1}{{\\left| x \\right|}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{\\left| x \\right|}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192558,
+              "text": "{tex}-\\frac{1}{x}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}-\\frac{1}{x}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192556,
+              "text": "{tex}\\frac{1}{x}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{x}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{{\\left| x \\right|}}{/tex}",
+          "correct_option_ids": [
+            192555
+          ],
+          "explanation": "{tex}\\frac{d}{{d\\left| x \\right|}}\\left( {\\log \\left| x \\right|} \\right) = \\frac{1}{{\\left| x \\right|}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59343,
+          "question_text": "If {tex}\\sqrt x + \\sqrt y = \\sqrt {a,} {/tex} then {tex}{\\left( {\\frac{{{d^2}y}}{{d{x^2}}}} \\right)_{x = a}}{/tex} is equal to",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}\\sqrt x + \\sqrt y = \\sqrt {a,} {/tex}</span> then <span class=\"math-tex\">{tex}{\\left( {\\frac{{{d^2}y}}{{d{x^2}}}} \\right)_{x = a}}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192559,
+              "text": "{tex}\\frac{1}{{2a}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{2a}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192562,
+              "text": "{tex}\\frac{1}{{4a}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{4a}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192561,
+              "text": "{tex}\\frac{1}{a}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{a}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192560,
+              "text": "a",
+              "html": "a",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{{2a}}{/tex}",
+          "correct_option_ids": [
+            192559
+          ],
+          "explanation": "{tex}\\sqrt x + \\sqrt y = \\sqrt a ........(1){/tex} {tex} \\Rightarrow \\frac{1}{{2\\sqrt x }} + \\frac{1}{{2\\sqrt y }}\\frac{{dy}}{{dx}} = 0{/tex} {tex} \\Rightarrow \\frac{{dy}}{{dx}} = - \\frac{{\\sqrt y }}{{\\sqrt x }}.......(2){/tex} {tex}\\Rightarrow \\frac{{{d^2}y}}{{d{x^2}}} = - \\frac{{\\sqrt x \\frac{1}{2}{y^{ - \\frac{1}{2}}}\\frac{{dy}}{{dx}} - \\sqrt y \\frac{1}{2}{x^{ - \\frac{1}{2}}}}}{x}{/tex} {tex} = \\frac{{ - \\left( {\\frac{{\\sqrt x }}{{2\\sqrt y }}\\left( { - \\frac{{\\sqrt y }}{{\\sqrt x }}} \\right) - \\frac{{\\sqrt y }}{{2\\sqrt x }}} \\right)}}{x}{/tex} {tex} = \\frac{{\\sqrt x + \\sqrt y }}{{2x\\sqrt x }} = \\frac{{\\sqrt a }}{{2x\\sqrt x .}} = \\frac{{\\sqrt a }}{{2a\\sqrt a }} = \\frac{1}{{2a}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59344,
+          "question_text": "If y 2 = ax 2 + b, then {tex}\\frac{{{d^2}y}}{{d{x^2}}}{/tex} is equal to",
+          "question_html": "<p>If y<sup>2</sup>&nbsp;= ax<sup>2</sup>+ b, then <span class=\"math-tex\">{tex}\\frac{{{d^2}y}}{{d{x^2}}}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192564,
+              "text": "{tex}\\frac{{ab}}{{{x^3}}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{ab}}{{{x^3}}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192566,
+              "text": "{tex}\\frac{{ab}}{{{x^2}}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{ab}}{{{x^2}}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192563,
+              "text": "{tex}\\frac{{ab}}{{{y^3}}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{ab}}{{{y^3}}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192565,
+              "text": "{tex}\\frac{{ab}}{{{y^2}}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{ab}}{{{y^2}}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{ab}}{{{y^3}}}{/tex}",
+          "correct_option_ids": [
+            192563
+          ],
+          "explanation": "{tex}{y^2} = a{x^2} + b \\Rightarrow 2y\\frac{{dy}}{{dx}} = 2ax \\Rightarrow y\\frac{{dy}}{{dx}} = ax{/tex} {tex} \\Rightarrow \\frac{{dy}}{{dx}} = \\frac{{ax}}{y} \\Rightarrow \\frac{{{d^2}y}}{{d{x^2}}} = \\frac{{ya - ax\\frac{{dy}}{{dx}}}}{{{y^2}}}{/tex} {tex} = \\frac{{ya - ax\\frac{{ax}}{y}}}{{{y^2}}} = \\frac{{a({y^2} - a{x^2})}}{{{y^3}}} = \\frac{{ab}}{{{y^3}}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59345,
+          "question_text": "If x = at 2 ,y = 2 a t, then {tex}\\frac{{{d^2}y}}{{d{x^2}}}{/tex} =",
+          "question_html": "<p>If x = at<sup>2</sup>&nbsp;,y = 2 a t, then&nbsp;&nbsp;<span class=\"math-tex\">{tex}\\frac{{{d^2}y}}{{d{x^2}}}{/tex}</span>&nbsp;=</p>",
+          "options": [
+            {
+              "id": 192569,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 192567,
+              "text": "{tex} - \\frac{1}{{2a\\;{t^3}}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} - \\frac{1}{{2a\\;{t^3}}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192568,
+              "text": "{tex}\\frac{1}{{\\;{t^2}}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{\\;{t^2}}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192570,
+              "text": "{tex}\\frac{1}{{\\;{2t^2}}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{\\;{2t^2}}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex} - \\frac{1}{{2a\\;{t^3}}}{/tex}",
+          "correct_option_ids": [
+            192567
+          ],
+          "explanation": "{tex}\\frac{{dy}}{{dx}} = \\frac{{\\frac{{dy}}{{dt}}}}{{\\frac{{dx}}{{dt}}}} = \\frac{{2a}}{{2at}} = \\frac{1}{t}{/tex} {tex}\\Rightarrow \\frac{{{d^2}y}}{{d{x^2}}} = \\frac{d}{{dx}}\\left( {\\frac{1}{t}} \\right) = - \\frac{1}{{{t^2}}}\\frac{{dt}}{{dx}} = - \\frac{1}{{{t^2}}}.\\frac{1}{{2at}} = - \\frac{1}{{2a{t^3}}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59346,
+          "question_text": "If f (x)= x 2 g(x) and g (x) is twice differentiable then f&rsquo;(x) is equal to",
+          "question_html": "<p>If f (x)= x<sup>2</sup>g(x)&nbsp;and g (x) is twice differentiable then f&rsquo;(x) is equal to</p>",
+          "options": [
+            {
+              "id": 192574,
+              "text": "None of these",
+              "html": "None of these",
+              "is_correct": true
+            },
+            {
+              "id": 192573,
+              "text": "2 g&rsquo;&rsquo;(x)",
+              "html": "2 g&rsquo;&rsquo;(x)",
+              "is_correct": false
+            },
+            {
+              "id": 192572,
+              "text": "{tex}{x^2}g''(x) + 2\\;x\\;g'(x) + 2\\;g(x){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{x^2}g''(x) + 2\\;x\\;g'(x) + 2\\;g(x){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192571,
+              "text": "{tex}{x^2}g''(x) + 4\\;x\\;g'(x) + 2\\;g(x){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{x^2}g''(x) + 4\\;x\\;g'(x) + 2\\;g(x){/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "None of these",
+          "correct_option_ids": [
+            192574
+          ],
+          "explanation": "f(x)=x 2 g(x) {tex}\\Rightarrow{/tex} f&#39;(x)=x 2 g&#39;(x)+2xg(x) {tex}\\Rightarrow{/tex} f&#39;&#39;(x)=x 2 g&#39;&#39;(x)+2xg&#39;(x)+2xg&#39;(x)+2g(x) {tex}\\Rightarrow{/tex} f&#39;&#39;(x)=x 2 g&#39;&#39;(x)+4xg&#39;(x)+2g(x) {tex}\\Rightarrow{/tex} f&#39;&#39;&#39;(x)=x 2 g&#39;&#39;&#39;(x)+2xg&#39;&#39;(x)+4xg&#39;&#39;(x)+4g&#39;(x)+2g&#39;(x) {tex}\\Rightarrow{/tex} f&#39;&#39;&#39;(x)=x 2 g&#39;&#39;&#39;(x)+6xg&#39;&#39;(x)+6g&#39;(x) {tex}\\Rightarrow{/tex} f&#39;&#39;&#39;(x)=0+6xg&#39;&#39;(x)+6g&#39;(x) [since g(x) is twice differentiable, therefore g&#39;&#39;&#39;(x)=0] Therefore, f&#39;&#39;&#39;(x)=6xg&#39;&#39;(x)+6g&#39;(x)",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59347,
+          "question_text": "If y = ae mx + be -mx , then y 2 is equal to",
+          "question_html": "<p>If y = ae<sup>mx</sup>&nbsp;+ be<sup>-mx</sup>, then y<sub>2</sub> is equal to</p>",
+          "options": [
+            {
+              "id": 192577,
+              "text": "my 1",
+              "html": "my<sub>1</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 192578,
+              "text": "-my 2",
+              "html": "-my<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 192576,
+              "text": "-m 2 y",
+              "html": "-m<sup>2</sup>y",
+              "is_correct": false
+            },
+            {
+              "id": 192575,
+              "text": "m 2 y",
+              "html": "m<sup>2</sup>y",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "m 2 y",
+          "correct_option_ids": [
+            192575
+          ],
+          "explanation": "{tex}\\begin{gathered} y = a{e^{mx}} + b{e^{ - mx}} \\Rightarrow {y_1} \\end{gathered} {/tex} {tex} = am{e^{mx}} + ( - m)b{e^{ - mx}} \\Rightarrow {y_2} = a{m^2}{e^{mx}} + ({m^2})b{e^{ - mx}}{/tex} {tex} \\Rightarrow {y_2} = {m^2}(a{e^{mx}} + b{e^{ - mx}}) \\Rightarrow {y_2} = {m^2}y{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59348,
+          "question_text": "If y = a sin mx + b cos m x, then {tex}\\frac{{{d^2}y}}{{d{x^2}}}{/tex} is equal to",
+          "question_html": "<p>If y = a sin mx + b cos m x, then <span class=\"math-tex\">{tex}\\frac{{{d^2}y}}{{d{x^2}}}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192581,
+              "text": "my 1",
+              "html": "my<sub>1</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 192582,
+              "text": "m 2 y 2",
+              "html": "m<sup>2</sup>y<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 192579,
+              "text": "-m 2 y",
+              "html": "-m<sup>2</sup>y",
+              "is_correct": true
+            },
+            {
+              "id": 192580,
+              "text": "m 2 y",
+              "html": "m<sup>2</sup>y",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "-m 2 y",
+          "correct_option_ids": [
+            192579
+          ],
+          "explanation": "{tex}\\begin{gathered} y = a\\sin mx + b\\cos mx \\Rightarrow {y_1} \\end{gathered} {/tex} {tex} = am\\cos mx - bm\\sin mx{/tex} {tex} \\Rightarrow {y_2} = - a{m^2}\\sin mx - b{m^2}\\cos mx{/tex} {tex} \\Rightarrow {y_2} = - {m^2}(a\\sin mx + b\\cos mx) = - {m^2}y{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59349,
+          "question_text": "If {tex}y = \\frac{{\\log x}}{x},{/tex} then {tex}\\frac{{{d^2}y}}{{d{x^2}}} = {/tex}",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}y = \\frac{{\\log x}}{x},{/tex}</span>&nbsp;then&nbsp;<span class=\"math-tex\">{tex}\\frac{{{d^2}y}}{{d{x^2}}} = {/tex}</span></p>",
+          "options": [
+            {
+              "id": 192585,
+              "text": "{tex}\\frac{{2\\log x - 3}}{{{x^4}}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{2\\log x - 3}}{{{x^4}}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192583,
+              "text": "{tex}\\frac{{2\\log x - 3}}{{{x^3}}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{2\\log x - 3}}{{{x^3}}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192584,
+              "text": "{tex}\\frac{{3 - 2\\log x}}{{{x^3}}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{3 - 2\\log x}}{{{x^3}}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192586,
+              "text": "{tex}\\frac{{2\\log x + 3}}{{{x^3}}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{2\\log x + 3}}{{{x^3}}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{2\\log x - 3}}{{{x^3}}}{/tex}",
+          "correct_option_ids": [
+            192583
+          ],
+          "explanation": "{tex}\\frac{d}{{dx}}\\left( {\\frac{{\\log x}}{x}} \\right) = \\frac{{x.\\frac{1}{x} - \\log x.1}}{{{x^2}}} = \\frac{{1 - \\log x}}{{{x^2}}}{/tex} {tex} \\Rightarrow \\frac{d}{{dx}}\\left( {\\frac{{1 - \\log x}}{{{x^2}}}} \\right) {/tex} {tex}= \\frac{{{x^2}.( - \\frac{1}{x}) - (1 - \\log x).2x}}{{{x^4}}} = \\frac{{ - x - 2x + 2x\\log x}}{{{x^4}}} = \\frac{{x(2\\log x - 3)}}{{{x^4}}} = \\frac{{2\\log x - 3}}{{{x^3}}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59350,
+          "question_text": "If f is derivable at x = a , then {tex}\\mathop {Lt}\\limits_{x \\to a} \\;\\;\\frac{{xf(a) - af(x)}}{{x - a}}{/tex} is equal to",
+          "question_html": "<p>If f is derivable at x = a , then <span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to a} \\;\\;\\frac{{xf(a) - af(x)}}{{x - a}}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192590,
+              "text": "f &lsquo;(9a)",
+              "html": "f &lsquo;(9a)",
+              "is_correct": false
+            },
+            {
+              "id": 192587,
+              "text": "{tex}f(a) - a\\;f'(a){/tex}",
+              "html": "<span class=\"math-tex\">{tex}f(a) - a\\;f'(a){/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192589,
+              "text": "f &lsquo;(a)",
+              "html": "f &lsquo;(a)",
+              "is_correct": false
+            },
+            {
+              "id": 192588,
+              "text": "af&lsquo;(9a) &ndash; f(a)",
+              "html": "af&lsquo;(9a) &ndash; f(a)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}f(a) - a\\;f'(a){/tex}",
+          "correct_option_ids": [
+            192587
+          ],
+          "explanation": "{tex}\\begin{gathered} \\mathop {\\lim }\\limits_{x \\to a} \\frac{{xf(a) - af(x)}}{{x - a}} \\end{gathered} {/tex} {tex}= \\mathop {\\lim }\\limits_{h \\to 0} \\frac{{(a + h)f(a) - af(a + h)}}{h} = \\mathop {\\lim }\\limits_{h \\to 0} \\left\\{ {\\frac{{hf(a)}}{h} - \\frac{{af(a + h) -a f(a)}}{h}} \\right\\} = f(a) - af'(a) {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59351,
+          "question_text": "The derivative of an even function is",
+          "question_html": "<p>The derivative of an even function is</p>",
+          "options": [
+            {
+              "id": 192594,
+              "text": "Positive",
+              "html": "Positive",
+              "is_correct": false
+            },
+            {
+              "id": 192591,
+              "text": "an odd function",
+              "html": "an odd function",
+              "is_correct": true
+            },
+            {
+              "id": 192592,
+              "text": "an even function",
+              "html": "an even function",
+              "is_correct": false
+            },
+            {
+              "id": 192593,
+              "text": "negative",
+              "html": "negative",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "an odd function",
+          "correct_option_ids": [
+            192591
+          ],
+          "explanation": "The derivative of an even function is an odd function.",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59352,
+          "question_text": "The derivate of an odd function is",
+          "question_html": "<p>The derivate of an odd function is</p>",
+          "options": [
+            {
+              "id": 192598,
+              "text": "Positive",
+              "html": "Positive",
+              "is_correct": false
+            },
+            {
+              "id": 192596,
+              "text": "an odd function",
+              "html": "an odd function",
+              "is_correct": false
+            },
+            {
+              "id": 192597,
+              "text": "negative",
+              "html": "negative",
+              "is_correct": false
+            },
+            {
+              "id": 192595,
+              "text": "an even function",
+              "html": "an even function",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "an even function",
+          "correct_option_ids": [
+            192595
+          ],
+          "explanation": "The derivate of an odd function is an even function",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59353,
+          "question_text": "If {tex}y = \\frac{x}{2}\\sqrt {{x^2} + 1} + \\frac{1}{2}\\log (x + \\sqrt {{x^2} + 1} ),{/tex} then {tex}\\frac{{dy}}{{dx}}{/tex} is equal to",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}y = \\frac{x}{2}\\sqrt {{x^2} + 1} + \\frac{1}{2}\\log (x + \\sqrt {{x^2} + 1} ),{/tex}</span> then <span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192600,
+              "text": "{tex}2\\sqrt {{x^2} + 1} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}2\\sqrt {{x^2} + 1} {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192602,
+              "text": "{tex}2\\sqrt {{x^2} - 1} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}2\\sqrt {{x^2} - 1} {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192601,
+              "text": "{tex}\\frac{1}{{\\sqrt {{x^2} + 1} }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{\\sqrt {{x^2} + 1} }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192599,
+              "text": "{tex}\\sqrt {{x^2} + 1} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt {{x^2} + 1} {/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\sqrt {{x^2} + 1} {/tex}",
+          "correct_option_ids": [
+            192599
+          ],
+          "explanation": "{tex}y=\\frac x2\\sqrt{x^2+1}+\\frac12\\log\\left(x+\\sqrt{x^2+1}\\right){/tex} {tex}\\Rightarrow\\frac{dy}{dx}=\\frac12\\left[x\\frac1{2\\sqrt{x^2+1}}\\left(2x\\right)+\\sqrt{x^2+1}\\right]+\\frac12\\left[\\frac1{x+\\sqrt{x^2+1}}\\left\\{1+\\frac1{2\\sqrt{x^2+1}}\\left(2x\\right)\\right\\}\\right]{/tex} {tex}\\Rightarrow\\frac{dy}{dx}=\\frac12\\left[\\frac{x^2}{\\sqrt{x^2+1}}+\\sqrt{x^2+1}\\right]+\\frac12\\left[\\frac1{x+\\sqrt{x^2+1}}\\left\\{\\frac{\\sqrt{x^2+1}{\\displaystyle+}{\\displaystyle x}}{\\sqrt{x^2+1}}\\right\\}\\right]{/tex} {tex}\\Rightarrow\\frac{dy}{dx}=\\frac12\\left[\\frac{x^2+x^2+1}{\\sqrt{x^2+1}}\\right]+\\frac12\\left[\\frac1{\\sqrt{x^2+1}}\\right]{/tex} {tex}\\Rightarrow\\frac{dy}{dx}=\\frac12\\left[\\frac{2x^2+1}{\\sqrt{x^2+1}}+\\frac{\\displaystyle1}{\\displaystyle\\sqrt{x^2+1}}\\right]{/tex} {tex}\\Rightarrow\\frac{dy}{dx}=\\frac12\\left[\\frac{2x^2+1+1}{\\sqrt{x^2+1}}\\right]{/tex} {tex}\\Rightarrow\\frac{dy}{dx}=\\frac12\\left[\\frac{2x^2+2}{\\sqrt{x^2+1}}\\right]{/tex} {tex}\\Rightarrow\\frac{dy}{dx}=\\left[\\frac{x^2+1}{\\sqrt{x^2+1}}\\right]{/tex} {tex}\\Rightarrow\\frac{dy}{dx}=\\sqrt{x^2+1}{/tex} . Which is the required solution.",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59354,
+          "question_text": "If {tex}y = x\\sqrt {1 - {x^2}} + {\\sin ^{ - 1}}x,{/tex} then {tex}\\frac{{dy}}{{dx}}{/tex} is equal to",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}y = x\\sqrt {1 - {x^2}} + {\\sin ^{ - 1}}x,{/tex}</span>then <span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192603,
+              "text": "{tex}2\\sqrt {1 - {x^2}} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}2\\sqrt {1 - {x^2}} {/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192604,
+              "text": "{tex}\\sqrt {1 - {x^2}} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt {1 - {x^2}} {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192606,
+              "text": "{tex}4\\sqrt {1 - {x^2}} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}4\\sqrt {1 - {x^2}} {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192605,
+              "text": "{tex}\\frac{1}{{\\sqrt {1 - {x^2}} }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{\\sqrt {1 - {x^2}} }}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}2\\sqrt {1 - {x^2}} {/tex}",
+          "correct_option_ids": [
+            192603
+          ],
+          "explanation": "{tex}y=x\\sqrt{1-x^2}+\\sin^{-1}\\left(x\\right){/tex} {tex}\\Rightarrow\\frac{dy}{dx}=x\\left\\{\\frac1{2\\sqrt{1-x^2}}\\left(-2x\\right)\\right\\}+\\sqrt{1-x^2}+\\frac1{\\sqrt{1-x^2}}{/tex} {tex}\\Rightarrow\\frac{dy}{dx}=\\frac{-x^2}{\\sqrt{1-x^2}}+\\sqrt{1-x^2}+\\frac1{\\sqrt{1-x^2}}{/tex} {tex}\\Rightarrow\\frac{dy}{dx}=\\frac{-x^2+1-x^2+1}{\\sqrt{1-x^2}}{/tex} {tex}\\Rightarrow\\frac{dy}{dx}=\\frac{-2x^2+2}{\\sqrt{1-x^2}}{/tex} {tex}\\Rightarrow\\frac{dy}{dx}=2\\sqrt{1-x^2}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59355,
+          "question_text": "{tex}\\frac{{{d^4}}}{{d{x^4}}}({\\sin ^3}x){/tex} is equal to",
+          "question_html": "<p><span class=\"math-tex\">{tex}\\frac{{{d^4}}}{{d{x^4}}}({\\sin ^3}x){/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 192609,
+              "text": "{tex}\\frac{3}{4}\\sin x - \\frac{{{3^4}\\cos 3x}}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{4}\\sin x - \\frac{{{3^4}\\cos 3x}}{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192608,
+              "text": "{tex}\\frac{3}{4}\\cos x - \\frac{{{3^4}\\cos 3x}}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{4}\\cos x - \\frac{{{3^4}\\cos 3x}}{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192607,
+              "text": "{tex}\\frac{{3\\sin x - {3^4}\\sin 3x}}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{3\\sin x - {3^4}\\sin 3x}}{4}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192610,
+              "text": "{tex}\\frac{1}{4}\\sin x - \\frac{{{3^4}\\cos 2x}}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{4}\\sin x - \\frac{{{3^4}\\cos 2x}}{4}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{3\\sin x - {3^4}\\sin 3x}}{4}{/tex}",
+          "correct_option_ids": [
+            192607
+          ],
+          "explanation": "{tex}\\frac{d}{{dx}}({\\sin ^3}x) = 3{\\sin ^2}x\\cos x{/tex} {tex}\\frac{{{d^2}}}{{d{x^2}}}({\\sin ^3}x) = \\frac{d}{{dx}}(3{\\sin ^2}x\\cos x) = 6\\sin x{\\cos ^2}x - 3{\\sin ^3}x{/tex} {tex}\\frac{{{d^3}}}{{d{x^3}}}({\\sin ^3}x) = \\frac{d}{{dx}}(6{\\sin ^2}x{\\cos ^2}x - 3{\\sin ^3}x){/tex} {tex} = 6{\\cos ^3}x - 12{\\sin ^2}x\\cos x - 9{\\sin ^2}x\\cos x = 6{\\cos ^3}x - 21{\\sin ^2}x\\cos x{/tex} {tex}\\frac{{{d^4}}}{{d{x^4}}}({\\sin ^3}x) = \\frac{d}{{dx}}(6{\\cos ^3}x - 21{\\sin ^2}x\\cos x) = - 18{\\cos ^2}x\\sin x - 42\\sin x{\\cos ^2}x + 21{\\sin ^3}x{/tex} {tex} = 60\\sin x{\\cos ^2}x + 21{\\sin ^3}x = - 60\\sin x(1 - {\\sin ^2}x) + 21{\\sin ^3}x{/tex} {tex} = - 60\\sin x + 60{\\sin ^3}x + 21{\\sin ^3}x = - 60\\sin x + 81{\\sin ^3}x{/tex} {tex} = - 60\\sin x + 81\\left[ {\\frac{{3\\sin x - \\sin 3x}}{4}} \\right] = \\frac{{3\\sin z - {3^4}\\sin 3z}}{4}{/tex}",
+          "solution": ""
+        }
+      ]
+    }
+  ],
+  "totalQuestions": 74
+}

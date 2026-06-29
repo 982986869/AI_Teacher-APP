@@ -19,6 +19,7 @@ import { chapterList as chemChapters,    getQuestions as getChem }    from '../d
 import { chapterList as mathsChapters,   getQuestions as getMaths }   from '../data/mathsBank';
 import { chapterList as bioChapters,     getQuestions as getBio }     from '../data/biologyBank';
 import { getChemistry12OnlineChapters, getChemistry12OnlineTests } from '../data/chemistry12OnlineTests';
+import { getMaths12OnlineChapters, getMaths12OnlineTests } from '../data/maths12OnlineTests';
 import { getChapters, getQuestionsByPath } from '../api/resourcesApi';
 
 const LETTERS = 'ABCDEFGHIJ'.split('');
@@ -58,9 +59,10 @@ const C = {
 };
 
 // On Class 12, Physics online tests come from the DB (the `online12` flag routes
-// the chapter list + questions through the API) and Chemistry ships locally with
-// its real test groupings (the `chem12` flag \u2192 chemistry12OnlineTests). Other
-// subjects (and Class 11) stay on the generic offline banks.
+// the chapter list + questions through the API) and Chemistry & Mathematics ship
+// locally with their real test groupings (the `chem12` / `maths12` flags \u2192
+// chemistry12OnlineTests / maths12OnlineTests). Other subjects (and Class 11)
+// stay on the generic offline banks.
 const buildSubjects = (selectedClass, phys12Chapters) => {
   const isC12 = selectedClass === 'Class 12';
   const phys = isC12
@@ -69,10 +71,13 @@ const buildSubjects = (selectedClass, phys12Chapters) => {
   const chem = isC12
     ? { chapters: getChemistry12OnlineChapters(), getQuestions: null, chem12: true }
     : { chapters: chemChapters, getQuestions: getChem };
+  const maths = isC12
+    ? { chapters: getMaths12OnlineChapters(), getQuestions: null, maths12: true }
+    : { chapters: mathsChapters, getQuestions: getMaths };
   return [
     { key: 'physics',   name: 'Physics',   emoji: '\u269B\uFE0F', tile: C.mintSoft,  chapters: phys.chapters, getQuestions: phys.getQuestions, online12: phys.online12 },
     { key: 'chemistry', name: 'Chemistry', emoji: '\u{1F9EA}',    tile: C.peachSoft, chapters: chem.chapters, getQuestions: chem.getQuestions, chem12: chem.chem12 },
-    { key: 'maths',     name: 'Maths',     emoji: '\u{1F4D0}',    tile: C.sandSoft,  chapters: mathsChapters, getQuestions: getMaths },
+    { key: 'maths',     name: 'Maths',     emoji: '\u{1F4D0}',    tile: C.sandSoft,  chapters: maths.chapters, getQuestions: maths.getQuestions, maths12: maths.maths12 },
     { key: 'biology',   name: 'Biology',   emoji: '\u{1F9EC}',    tile: C.lilacSoft, chapters: bioChapters,   getQuestions: getBio },
   ];
 };
@@ -166,6 +171,10 @@ export default function OnlineTestsScreen({ onBack, onStartTest = () => {}, sele
     let tests;
     if (subject.chem12) {
       tests = getChemistry12OnlineTests(chapter.id).map((t) => ({
+        label: t.name, questions: t.questions, isPaid: t.isPaid,
+      }));
+    } else if (subject.maths12) {
+      tests = getMaths12OnlineTests(chapter.id).map((t) => ({
         label: t.name, questions: t.questions, isPaid: t.isPaid,
       }));
     } else {

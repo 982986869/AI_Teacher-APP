@@ -3,6 +3,17 @@ import {
   View, Text, ScrollView, Pressable, StyleSheet, StatusBar, SafeAreaView, Modal,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import MathText from '../components/MathText';
+
+// Render question/option content that may carry LaTeX ({tex}…{/tex}) or HTML as
+// MathText (MathJax SVG); plain strings fall back to a normal <Text> so the
+// text-only banks (Chemistry/Physics/Biology online tests) are unchanged and
+// keep their text styling. Maths online tests pass HTML+{tex} so formulas render.
+const hasMath = (s) => typeof s === 'string' && (/\{tex\}/.test(s) || /<[a-z!/][^>]*>/i.test(s));
+const RichText = ({ value, style, fontSize, color }) =>
+  hasMath(value)
+    ? <MathText value={value} fontSize={fontSize} color={color} style={style} />
+    : <Text style={style}>{value}</Text>;
 
 // ----- Theme (dark, matches app) -----
 const COLORS = {
@@ -169,7 +180,7 @@ export default function TestQuestionScreen({
           </View>
 
           {/* Question */}
-          <Text style={styles.questionText}>{current.text}</Text>
+          <RichText value={current.text} style={styles.questionText} fontSize={15} color={COLORS.text} />
 
           {/* Options */}
           <View style={styles.options}>
@@ -178,7 +189,12 @@ export default function TestQuestionScreen({
               return (
                 <Pressable key={opt.key} onPress={() => select(opt.key)} style={[styles.option, active && styles.optionActive]}>
                   <Text style={[styles.optKey, active && styles.optKeyActive]}>{opt.key}</Text>
-                  <Text style={[styles.optLabel, active && styles.optLabelActive]}>{opt.label}</Text>
+                  <RichText
+                    value={opt.label}
+                    style={[styles.optLabel, active && styles.optLabelActive]}
+                    fontSize={14.5}
+                    color={active ? COLORS.dark : COLORS.textSecondary}
+                  />
                 </Pressable>
               );
             })}
