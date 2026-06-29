@@ -12,7 +12,6 @@ import { Ionicons } from '@expo/vector-icons';
 import MCQ_DATA, { getMcqSubtopics } from '../data/mcqPractice';
 import { getMcqSubtopics as apiMcqSubtopics } from '../api/mcqPracticeApi';
 import { getChapters } from '../api/resourcesApi';
-import { getChemistry12PracticeChapters, getChemistry12PracticeSubtopics } from '../data/chemistry12Practice';
 import { useAuth } from '../context/AuthContext';
 
 const slugify = (s) =>
@@ -63,15 +62,10 @@ function ChapterCard({ subject, chapter, classLevel = 11, local = false, localTo
   const toggle = () => {
     setOpen((v) => !v);
     if (subtopics == null) {
-      if (local) {
-        // Local bank (Class 12 Chemistry only).
-        setSubtopics(getChemistry12PracticeSubtopics(chapter));
-      } else {
-        // DB-backed (incl. Class 12 Physics, imported at class_level=12).
-        apiMcqSubtopics(slugify(subject), slugify(chapter), classLevel)
-          .then((list) => setSubtopics(Array.isArray(list) ? list : []))
-          .catch(() => setSubtopics([]));
-      }
+      // DB-backed (incl. Class 12 Physics & Chemistry, imported at class_level=12).
+      apiMcqSubtopics(slugify(subject), slugify(chapter), classLevel)
+        .then((list) => setSubtopics(Array.isArray(list) ? list : []))
+        .catch(() => setSubtopics([]));
     }
   };
 
@@ -121,28 +115,24 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
   const { selectedClass } = useAuth();
   const classLevel = classNum(selectedClass);
   const subjMeta = SUBJECTS.find((s) => s.name === subject) || SUBJECTS[0];
-  // Class 12 Physics practice is DB-backed (imported at class_level=12) → fetch
-  // its chapters from the API. Class 12 Chemistry still uses its local bank.
-  // Every other subject/class keeps the DB-backed MCQ_DATA static bank.
-  const isPhys12 = subject === 'Physics' && classLevel === 12;
-  const isChem12 = subject === 'Chemistry' && classLevel === 12;
-  const localChapters = isChem12 ? getChemistry12PracticeChapters() : null;
+  // Class 12 Physics & Chemistry practice are DB-backed (imported at class_level=12)
+  // → fetch their chapters from the API and use API subtopics. Every other
+  // subject/class keeps the DB-backed MCQ_DATA static bank.
+  const isDb12 = classLevel === 12 && (subject === 'Physics' || subject === 'Chemistry');
   const [apiChapters, setApiChapters] = useState(null); // null = loading
   useEffect(() => {
-    if (!isPhys12) { setApiChapters(null); return undefined; }
+    if (!isDb12) { setApiChapters(null); return undefined; }
     let alive = true;
     setApiChapters(null);
-    getChapters('physics', undefined, 12)
+    getChapters(slugify(subject), undefined, 12)
       .then((chs) => { if (alive) setApiChapters((chs || []).map((c) => c.name)); })
       .catch(() => { if (alive) setApiChapters([]); });
     return () => { alive = false; };
-  }, [isPhys12]);
-  const chaptersLoading = isPhys12 && apiChapters == null;
-  const chapters = isPhys12
+  }, [isDb12, subject]);
+  const chaptersLoading = isDb12 && apiChapters == null;
+  const chapters = isDb12
     ? (apiChapters || [])
-    : localChapters
-      ? localChapters.map((c) => c.name)
-      : Object.keys(MCQ_DATA[subject] || {});
+    : Object.keys(MCQ_DATA[subject] || {});
 
   return (
     <SafeAreaView style={st.safe}>
@@ -192,8 +182,6 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
         ) : (
           chapters.map((ch) => (
             <ChapterCard key={ch} subject={subject} chapter={ch} classLevel={classLevel}
-              local={!!localChapters}
-              localTotal={localChapters ? (localChapters.find((c) => c.name === ch) || {}).total || 0 : 0}
               onStart={onStartChapter} onStartSubtopic={onStartSubtopic} />
           ))
         )}

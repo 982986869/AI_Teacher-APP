@@ -9,8 +9,6 @@ import { WebView } from 'react-native-webview';
 
 import { getExemplarSolutions, getNcertChapters, getChapters, getQuestionsByPath, getNotesByPath } from '../api/resourcesApi';
 import { buildFragmentFromQuestions, buildPyqDocument } from '../utils/pyqDocument';
-import { getChemistry12Ncert1Html } from '../data/chemistry12Ncert1';
-import { getChemistry12Ncert2Html } from '../data/chemistry12Ncert2';
 import { getChemistry12Papers, getChemistry12PaperDoc } from '../data/chemistry12Papers';
 import { useAuth } from '../context/AuthContext';
 import { ClassTabs } from '../components/ClassPicker';
@@ -777,38 +775,24 @@ const ResourcesScreen = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isClass12Exemplar, activeSubject?.name, activeChapter?.name, exemplarRetry]);
 
-  // Class 12 Chemistry NCERT Solutions Part-I also ship locally (full MathJax HTML
-  // doc per chapter, built from src/data/chemistry12Ncert1) — rendered in a WebView
-  // like the Physics DB path.
-  const chem12Ncert1Html = (
-    activeResType?.type === 'ncert1' && activeChapter && showCards &&
-    activeClass === 'Class 12' && activeSubject?.name === 'Chemistry'
-  ) ? getChemistry12Ncert1Html(activeChapter.name) : null;
-
-  // Class 12 Chemistry NCERT Solutions Part-II also ship locally.
-  const chem12Ncert2Html = (
-    activeResType?.type === 'ncert2' && activeChapter && showCards &&
-    activeClass === 'Class 12' && activeSubject?.name === 'Chemistry'
-  ) ? getChemistry12Ncert2Html(activeChapter.name) : null;
-
   const exemplarActive = !!(activeSubject && activeResType?.type === 'exemplar' && activeChapter && showCards && !isClass12Exemplar);
 
-  // Class 12 Physics NCERT Part-I & Part-II come from the DB too (questions table,
-  // type_key='ncert1'/'ncert2') — rendered as MathJax cards in a WebView, exactly
-  // like Exemplar. Other subjects' ncert2 still uses the DB-backed Ncert2Screen.
-  const isPhysics12Ncert1 = !!(
+  // Class 12 Physics & Chemistry NCERT Part-I & Part-II come from the DB (questions
+  // table, type_key='ncert1'/'ncert2') — rendered as MathJax cards in a WebView,
+  // exactly like Exemplar. Other subjects' ncert2 still uses the DB-backed Ncert2Screen.
+  const isC12Ncert1 = !!(
     activeResType?.type === 'ncert1' && activeChapter && showCards &&
-    activeClass === 'Class 12' && activeSubject?.name === 'Physics'
+    activeClass === 'Class 12' && (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry')
   );
-  const isPhysics12Ncert2 = !!(
+  const isC12Ncert2 = !!(
     activeResType?.type === 'ncert2' && activeChapter && showCards &&
-    activeClass === 'Class 12' && activeSubject?.name === 'Physics'
+    activeClass === 'Class 12' && (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry')
   );
   const [phy12Ncert1, setPhy12Ncert1] = useState({ loading: false, error: null, html: '' });
   const [phy12Ncert2, setPhy12Ncert2] = useState({ loading: false, error: null, html: '' });
   const [docRetry, setDocRetry] = useState(0); // bumps NCERT/paper re-fetches on Retry
   useEffect(() => {
-    if (!isPhysics12Ncert1) return undefined;
+    if (!isC12Ncert1) return undefined;
     let alive = true;
     setPhy12Ncert1({ loading: true, error: null, html: '' });
     getQuestionsByPath(slugify(activeSubject.name), slugify(activeChapter.name), 'ncert1', 12)
@@ -816,9 +800,9 @@ const ResourcesScreen = () => {
       .catch((e) => { if (alive) setPhy12Ncert1({ loading: false, error: e?.message || 'Could not load NCERT solutions.', html: '' }); });
     return () => { alive = false; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isPhysics12Ncert1, activeSubject?.name, activeChapter?.name, docRetry]);
+  }, [isC12Ncert1, activeSubject?.name, activeChapter?.name, docRetry]);
   useEffect(() => {
-    if (!isPhysics12Ncert2) return undefined;
+    if (!isC12Ncert2) return undefined;
     let alive = true;
     setPhy12Ncert2({ loading: true, error: null, html: '' });
     getQuestionsByPath(slugify(activeSubject.name), slugify(activeChapter.name), 'ncert2', 12)
@@ -826,7 +810,7 @@ const ResourcesScreen = () => {
       .catch((e) => { if (alive) setPhy12Ncert2({ loading: false, error: e?.message || 'Could not load NCERT solutions.', html: '' }); });
     return () => { alive = false; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isPhysics12Ncert2, activeSubject?.name, activeChapter?.name, docRetry]);
+  }, [isC12Ncert2, activeSubject?.name, activeChapter?.name, docRetry]);
 
   // Class 12 Physics Last Year Papers are DB-backed: the list (metadata) and the
   // tapped paper's question/answer HTML both come from the API.
@@ -891,6 +875,27 @@ const ResourcesScreen = () => {
     return () => { alive = false; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ncert2ListActive, activeSubject?.name, activeClass]);
+
+  // Class 12 Physics/Chemistry NCERT Part-I & Part-II live in the questions table,
+  // and each part only covers SOME chapters (Part-I and Part-II split the syllabus).
+  // Fetch the chapters that actually have the active part's section so the list
+  // hides the rest — otherwise tapping a chapter without that part 404s.
+  const [c12NcertAvail, setC12NcertAvail] = useState({ loading: false, chapters: null });
+  const c12NcertListActive = !!(
+    activeSubject && !showCards && activeClass === 'Class 12' &&
+    (activeResType?.type === 'ncert1' || activeResType?.type === 'ncert2') &&
+    (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry')
+  );
+  useEffect(() => {
+    if (!c12NcertListActive) { setC12NcertAvail({ loading: false, chapters: null }); return undefined; }
+    let alive = true;
+    setC12NcertAvail({ loading: true, chapters: null });
+    getChapters(slugify(activeSubject.name), activeResType.type, 12)
+      .then((chs) => { if (alive) setC12NcertAvail({ loading: false, chapters: (chs || []).map((c) => c.name) }); })
+      .catch(() => { if (alive) setC12NcertAvail({ loading: false, chapters: [] }); });
+    return () => { alive = false; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [c12NcertListActive, activeSubject?.name, activeResType?.type]);
 
   // Class 12 Physics/Chemistry Revision Notes: not every chapter has notes (e.g.
   // Chemistry's exemplar-only chapters). Fetch the chapters that actually have a
@@ -1030,7 +1035,7 @@ const ResourcesScreen = () => {
   }
 
   // ── LEVEL 4 (DB): Class 12 Physics NCERT Part-I — MathJax cards in a WebView ──
-  if (isPhysics12Ncert1) {
+  if (isC12Ncert1) {
     return (
       <SafeAreaView style={s.safe}>
         <StatusBar barStyle="dark-content" backgroundColor="#fff" />
@@ -1042,31 +1047,6 @@ const ResourcesScreen = () => {
           <Text style={s.pageSub}>NCERT Solutions · Part I</Text>
         </View>
         <DocWebView state={phy12Ncert1} onRetry={() => setDocRetry((k) => k + 1)} emptyText="No NCERT Part-I solutions for this chapter yet." />
-      </SafeAreaView>
-    );
-  }
-
-  // ── LEVEL 4 (local): Class 12 Chemistry NCERT Part-I — MathJax cards in WebView ─
-  if (chem12Ncert1Html) {
-    return (
-      <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
-        <BackHeader onBack={() => setShowCards(false)} />
-        <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
-        <View style={s.pageTitleWrap}>
-          <Text style={s.pageTitle}>{activeChapter.name}</Text>
-          <Text style={s.pageSub}>NCERT Solutions · Part I</Text>
-        </View>
-        <WebView
-          originWhitelist={['*']}
-          source={{ html: chem12Ncert1Html }}
-          style={{ flex: 1, backgroundColor: '#F4F4F5' }}
-          javaScriptEnabled
-          domStorageEnabled
-          mixedContentMode="always"
-          androidLayerType={Platform.OS === 'android' ? 'hardware' : undefined}
-        />
       </SafeAreaView>
     );
   }
@@ -1125,7 +1105,7 @@ const ResourcesScreen = () => {
   }
 
   // ── NCERT Part-II (DB): Class 12 Physics — MathJax cards in a WebView ──
-  if (isPhysics12Ncert2) {
+  if (isC12Ncert2) {
     return (
       <SafeAreaView style={s.safe}>
         <StatusBar barStyle="dark-content" backgroundColor="#fff" />
@@ -1137,31 +1117,6 @@ const ResourcesScreen = () => {
           <Text style={s.pageSub}>NCERT Solutions · Part II</Text>
         </View>
         <DocWebView state={phy12Ncert2} onRetry={() => setDocRetry((k) => k + 1)} emptyText="No NCERT Part-II solutions for this chapter yet." />
-      </SafeAreaView>
-    );
-  }
-
-  // ── LEVEL 4 (local): Class 12 Chemistry NCERT Part-II — MathJax cards in WebView ─
-  if (chem12Ncert2Html) {
-    return (
-      <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
-        <BackHeader onBack={() => setShowCards(false)} />
-        <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
-        <View style={s.pageTitleWrap}>
-          <Text style={s.pageTitle}>{activeChapter.name}</Text>
-          <Text style={s.pageSub}>NCERT Solutions · Part II</Text>
-        </View>
-        <WebView
-          originWhitelist={['*']}
-          source={{ html: chem12Ncert2Html }}
-          style={{ flex: 1, backgroundColor: '#F4F4F5' }}
-          javaScriptEnabled
-          domStorageEnabled
-          mixedContentMode="always"
-          androidLayerType={Platform.OS === 'android' ? 'hardware' : undefined}
-        />
       </SafeAreaView>
     );
   }
@@ -1356,12 +1311,17 @@ const ResourcesScreen = () => {
       activeSubject.chapters;
     // Revision Notes (Class 12 Physics/Chemistry): hide chapters with no notes.
     const isNotesList = activeResType?.type === 'notes' && Array.isArray(notesAvail.chapters);
+    // Class 12 Physics/Chemistry NCERT Part-I/II: hide chapters that don't have
+    // that part (each part covers only half the syllabus) so they never 404.
+    const isC12NcertList = Array.isArray(c12NcertAvail.chapters);
     const chaptersToShow =
-      isNcert2 && ncert2.chapters.length > 0
-        ? subjectChapters.filter((c) => ncert2.chapters.includes(c.name))
-        : isNotesList
-          ? subjectChapters.filter((c) => notesAvail.chapters.some((n) => slugify(n) === slugify(c.name)))
-          : subjectChapters;
+      isC12NcertList
+        ? subjectChapters.filter((c) => c12NcertAvail.chapters.some((n) => slugify(n) === slugify(c.name)))
+        : isNcert2 && ncert2.chapters.length > 0
+          ? subjectChapters.filter((c) => ncert2.chapters.includes(c.name))
+          : isNotesList
+            ? subjectChapters.filter((c) => notesAvail.chapters.some((n) => slugify(n) === slugify(c.name)))
+            : subjectChapters;
     return (
       <SafeAreaView style={s.safe}>
         <StatusBar barStyle="dark-content" backgroundColor="#fff" />
@@ -1374,12 +1334,12 @@ const ResourcesScreen = () => {
           <Text style={s.boardLabel}>{activeSubject.name} Chapters</Text>
         </View>
         <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
-          {(isNcert2 && ncert2.loading) || notesAvail.loading ? (
+          {(isNcert2 && ncert2.loading) || notesAvail.loading || c12NcertAvail.loading ? (
             <View style={{ paddingVertical: 48, alignItems: 'center', gap: 12 }}>
               <ActivityIndicator size="large" color="#1f8a93" />
               <Text style={{ color: '#64748b', fontSize: 13 }}>Loading chapters…</Text>
             </View>
-          ) : (isNcert2 || isNotesList) && chaptersToShow.length === 0 ? (
+          ) : (isNcert2 || isNotesList || isC12NcertList) && chaptersToShow.length === 0 ? (
             <View style={{ paddingVertical: 48, alignItems: 'center' }}>
               <Text style={{ color: '#94a3b8', fontSize: 14 }}>No chapters available yet.</Text>
             </View>
