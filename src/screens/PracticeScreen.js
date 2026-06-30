@@ -6,14 +6,14 @@ import { WebView } from 'react-native-webview';
 import { getQuestionsByPath, getChapters } from '../api/resourcesApi';
 import { buildFragmentFromQuestions, buildPyqDocument } from '../utils/pyqDocument';
 import { getMcqChapterTest, getMcqSubtopicTest } from '../api/mcqPracticeApi';
-import { getMaths12PracticeTest, isLocalMaths12PracticeId } from '../data/maths12Practice';
+// Class 12 Chemistry & Mathematics practice questions are DB-backed (served via mcqPracticeApi).
 import { getMaths12ImportantHtml, getMaths12ImportantChapters } from '../data/maths12Important';
 import { getMaths12PyqHtml, getMaths12PyqChapters } from '../data/maths12Pyq';
 import { getMaths12MockList, getMaths12MockQuestions, isLocalMaths12MockId } from '../data/maths12MockTests';
 import McqTestScreen from './McqTestScreen';
 import McqQuizScreen from './McqQuizScreen';
 import McqPracticeScreen from './McqPracticeScreen';
-import TestQuestionScreen from './testQuestionScreen';
+import TestQuestionScreen from './TestQuestionScreen';
 import MockResultScreen from './MockResultScreen';
 import ChapterListScreen from './ChapterListScreen';
 import OnlineTestsScreen from './OnlineTestsScreen';
@@ -416,17 +416,8 @@ const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
   useEffect(() => {
     let alive = true;
     setState({ loading: true, questions: null });
-    // Class 12 Mathematics practice questions are bundled locally (no API).
-    // (Class 12 Physics & Chemistry are DB-backed and fall through to getMcqSubtopicTest.)
-    if (isLocalMaths12PracticeId(subtopicId)) {
-      const data = getMaths12PracticeTest(subtopicId);
-      setState({
-        loading: false,
-        questions: (data && data.questions) || [],
-        subtopicName: data && data.subtopic && data.subtopic.name,
-      });
-      return () => { alive = false; };
-    }
+    // All Class 12 subjects (Physics, Chemistry, Mathematics) are DB-backed →
+    // questions come from the API.
     // Subtopic selected → that subtopic's questions; else the whole chapter.
     const req = subtopicId != null
       ? getMcqSubtopicTest(subtopicId)
