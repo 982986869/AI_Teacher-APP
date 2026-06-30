@@ -10,11 +10,8 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import MCQ_DATA, { getMcqSubtopics } from '../data/mcqPractice';
-import { getMcqSubtopics as apiMcqSubtopics } from '../api/mcqPracticeApi';
+import { getMcqSubtopics as apiMcqSubtopics, getMcqChaptersWithContent } from '../api/mcqPracticeApi';
 import { getChapters } from '../api/resourcesApi';
-// Class 12 Chemistry is DB-backed (this branch's migration); Mathematics ships a
-// local practice bank from main.
-import { getMaths12PracticeChapters, getMaths12PracticeSubtopics } from '../data/maths12Practice';
 import { useAuth } from '../context/AuthContext';
 
 const slugify = (s) =>
@@ -54,26 +51,21 @@ function ProgressBar({ answered, total, score }) {
   );
 }
 
-function ChapterCard({ subject, chapter, classLevel = 11, local = false, localTotal = 0, onStart, onStartSubtopic }) {
+function ChapterCard({ subject, chapter, classLevel = 11, onStart, onStartSubtopic }) {
   const [open, setOpen] = useState(false);
   const [subtopics, setSubtopics] = useState(null); // [{ id, name, questionCount }] | null
   const data = (MCQ_DATA[subject] && MCQ_DATA[subject][chapter]) || {};
-  // Local (Class 12 Physics) chapters have no stored attempt progress yet.
-  const p = local ? { answered: 0, total: localTotal, score: 0 } : (data.progress || { answered: 0, total: 50, score: 0 });
+  // Class 12 (DB-backed) chapters have no stored attempt progress yet.
+  const p = data.progress || { answered: 0, total: 50, score: 0 };
   const started = p.answered > 0;
 
   const toggle = () => {
     setOpen((v) => !v);
     if (subtopics == null) {
-      if (local) {
-        // Local bank (Class 12 Mathematics).
-        setSubtopics(getMaths12PracticeSubtopics(chapter));
-      } else {
-        // DB-backed (incl. Class 12 Physics & Chemistry, imported at class_level=12).
-        apiMcqSubtopics(slugify(subject), slugify(chapter), classLevel)
-          .then((list) => setSubtopics(Array.isArray(list) ? list : []))
-          .catch(() => setSubtopics([]));
-      }
+      // DB-backed (incl. Class 12 Physics, Chemistry & Mathematics, at class_level=12).
+      apiMcqSubtopics(slugify(subject), slugify(chapter), classLevel)
+        .then((list) => setSubtopics(Array.isArray(list) ? list : []))
+        .catch(() => setSubtopics([]));
     }
   };
 
@@ -123,12 +115,16 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
   const { selectedClass } = useAuth();
   const classLevel = classNum(selectedClass);
   const subjMeta = SUBJECTS.find((s) => s.name === subject) || SUBJECTS[0];
-  // Class 12 Physics & Chemistry practice are DB-backed (imported at class_level=12)
-  // → fetch their chapters from the API and use API subtopics. Class 12 Mathematics
-  // uses its local bank. Every other subject/class keeps the MCQ_DATA static bank.
-  const isDb12 = classLevel === 12 && (subject === 'Physics' || subject === 'Chemistry');
-  const isMaths12 = subject === 'Mathematics' && classLevel === 12;
-  const localChapters = isMaths12 ? getMaths12PracticeChapters() : null;
+  // Biology isn't offered in Class 12 — hide it from the picker there, and fall
+  // back to Physics if it was the active subject when the class switched.
+  const subjectOptions = SUBJECTS.filter((s) => !(classLevel === 12 && s.name === 'Biology'));
+  useEffect(() => {
+    if (classLevel === 12 && subject === 'Biology') setSubject('Physics');
+  }, [classLevel, subject]);
+  // Class 12 Physics, Chemistry & Mathematics practice are DB-backed (imported at
+  // class_level=12) → fetch their chapters from the API and use API subtopics.
+  // Every other subject/class keeps the DB-backed MCQ_DATA static bank.
+  const isDb12 = classLevel === 12 && (subject === 'Physics' || subject === 'Chemistry' || subject === 'Mathematics');
   const [apiChapters, setApiChapters] = useState(null); // null = loading
   useEffect(() => {
     if (!isDb12) { setApiChapters(null); return undefined; }
@@ -142,9 +138,27 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
   const chaptersLoading = isDb12 && apiChapters == null;
   const chapters = isDb12
     ? (apiChapters || [])
-    : localChapters
-      ? localChapters.map((c) => c.name)
-      : Object.keys(MCQ_DATA[subject] || {});
+    : Object.keys(MCQ_DATA[subject] || {});
+
+  // Hide chapters that have no MCQ content (no subtopics/questions in the DB).
+  // `avail.slugs` = Set of chapter slugs that actually have questions. While
+  // loading we show nothing yet; on error we fall back to showing all chapters.
+  const [avail, setAvail] = useState({ loading: true, slugs: null });
+  useEffect(() => {
+    let alive = true;
+    setAvail({ loading: true, slugs: null });
+    getMcqChaptersWithContent(slugify(subject), classLevel)
+      .then((chs) => {
+        if (alive) setAvail({ loading: false, slugs: new Set((chs || []).map((c) => c.slug)) });
+      })
+      .catch(() => { if (alive) setAvail({ loading: false, slugs: null }); });
+    return () => { alive = false; };
+  }, [subject, classLevel]);
+
+  const visibleChapters = avail.slugs
+    ? chapters.filter((ch) => avail.slugs.has(slugify(ch)))
+    : chapters;
+  const listLoading = chaptersLoading || avail.loading;
 
   return (
     <SafeAreaView style={st.safe}>
@@ -168,14 +182,14 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
           </View>
           <View style={{ flex: 1 }}>
             <Text style={st.subjName}>{subject}</Text>
-            <Text style={st.subjSub}>{chapters.length} chapters</Text>
+            <Text style={st.subjSub}>{visibleChapters.length} chapters</Text>
           </View>
           <Ionicons name={picker ? 'chevron-up' : 'chevron-down'} size={20} color={C.muted} />
         </Pressable>
 
         {picker && (
           <View style={st.subjList}>
-            {SUBJECTS.map((s) => (
+            {subjectOptions.map((s) => (
               <Pressable key={s.name} style={st.subjOption}
                 onPress={() => { setSubject(s.name); setPicker(false); }}>
                 <Text style={{ fontSize: 18 }}>{s.emoji}</Text>
@@ -187,15 +201,13 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
           </View>
         )}
 
-        {chaptersLoading ? (
+        {listLoading ? (
           <Text style={st.subMeta}>Loading chapters…</Text>
-        ) : chapters.length === 0 ? (
+        ) : visibleChapters.length === 0 ? (
           <Text style={st.subMeta}>No chapters available yet.</Text>
         ) : (
-          chapters.map((ch) => (
+          visibleChapters.map((ch) => (
             <ChapterCard key={ch} subject={subject} chapter={ch} classLevel={classLevel}
-              local={!!localChapters}
-              localTotal={localChapters ? (localChapters.find((c) => c.name === ch) || {}).total || 0 : 0}
               onStart={onStartChapter} onStartSubtopic={onStartSubtopic} />
           ))
         )}

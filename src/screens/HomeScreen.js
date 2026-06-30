@@ -70,8 +70,11 @@ const TypingDots = () => {
 
 // ─── Main HomeScreen ──────────────────────────────────────────────────────────
 const HomeScreen = ({ navigation }) => {
-  const { user } = useAuth();
+  const { user, selectedClass } = useAuth();
   const firstName = user?.name?.split(' ')[0] || 'Saurabh';
+  // Biology isn't offered in Class 12 — hide it from the subject chips there.
+  const subjectChips = Object.keys(SUBJECT_QS)
+    .filter((subj) => !(selectedClass === 'Class 12' && subj === 'Biology'));
 
   const [charIdx, setCharIdx]           = useState(0);
   const [showCharModal, setShowCharModal] = useState(false);
@@ -298,7 +301,7 @@ const HomeScreen = ({ navigation }) => {
             <Text style={s.chipLbl}>YOUR SUBJECTS</Text>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}
               contentContainerStyle={{ gap: 8 }}>
-              {Object.keys(SUBJECT_QS).map(subj => (
+              {subjectChips.map(subj => (
                 <TouchableOpacity key={subj}
                   style={[s.chip, activeSubject === subj && s.chipOn]}
                   onPress={() => setActiveSubject(subj)}>

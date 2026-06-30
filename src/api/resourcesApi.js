@@ -34,13 +34,14 @@ export const getNotesByPath = async (subjectSlug, chapterSlug, classLevel = 11) 
 // Last Year Papers (DB-backed). List returns [{ code, year, setLabel, name }];
 // getPaper returns one paper's { code, year, setLabel, name, questionPaperHtml,
 // answerKeyHtml }. code carries slashes (55/1/1) so it goes as a query param.
+// `year` disambiguates the code — CBSE reuses the same code across years.
 export const getPapers = async (subjectSlug, classLevel = 12) =>
   (await axiosInstance.get(`/api/resources/papers/${subjectSlug}`,
     { params: { class: classLevel } })).data.data;
 
-export const getPaper = async (subjectSlug, code, classLevel = 12) =>
+export const getPaper = async (subjectSlug, code, classLevel = 12, year) =>
   (await axiosInstance.get(`/api/resources/paper/${subjectSlug}`,
-    { params: { class: classLevel, code } })).data.data;
+    { params: { class: classLevel, code, ...(year != null ? { year } : {}) } })).data.data;
 
 // MCQ Practice: real MCQs for a chapter, shaped for McqTestScreen
 // ({ cat, question, options: string[], correct: index }).

@@ -2,12 +2,15 @@
 
 const { Router } = require('express')
 const { authenticate } = require('../middleware/auth')
-const { getSubtopics, getTest, getChapterTest, submit, getProgress } = require('../controllers/mcqPractice.controller')
+const { getChaptersWithContent, getSubtopics, getTest, getChapterTest, submit, getProgress } = require('../controllers/mcqPractice.controller')
 
 const router = Router()
 
 // All MCQ Practice routes require a valid JWT.
 router.use(authenticate)
+
+// Chapters of a subject that actually have MCQ content (hide empty chapters)
+router.get('/:subjectSlug/chapters', getChaptersWithContent)
 
 // Subtopics of a chapter (with question counts)
 router.get('/:subjectSlug/:chapterSlug/subtopics', getSubtopics)

@@ -31,7 +31,7 @@ async function authenticate(req, res, next) {
   try {
     user = await db.user.findUnique({
       where: { id: decoded.sub },
-      select: { id: true, name: true, email: true, phone: true, grade: true },
+      select: { id: true, name: true, email: true, phone: true, grade: true, role: true },
     })
   } catch (err) {
     // Transient DB issue (e.g. Supabase pooler connection reset / P1001). Surface a
@@ -47,4 +47,17 @@ async function authenticate(req, res, next) {
   next()
 }
 
-module.exports = { authenticate }
+/**
+ * Gate a route to ADMIN users only. Must run after `authenticate`.
+ * Used for destructive content-management endpoints (e.g. importing /
+ * deleting Last Year Papers) that students must never reach.
+ */
+function requireAdmin(req, res, next) {
+  if (!req.user) return next(new AppError('Authentication required', 401))
+  if (req.user.role !== 'ADMIN') {
+    return next(new AppError('Admin access required', 403))
+  }
+  next()
+}
+
+module.exports = { authenticate, requireAdmin }

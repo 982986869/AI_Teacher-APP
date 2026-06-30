@@ -66,15 +66,49 @@ async function listPapers(req, res, next) {
   } catch (err) { next(err) }
 }
 
-// GET /api/resources/paper/:subjectSlug?class=12&code=55/1/1  → one paper (both HTMLs)
-// code is a query param so its slashes don't break route matching.
+// GET /api/resources/paper/:subjectSlug?class=12&code=55/1/1&year=2020 → one paper
+// code is a query param so its slashes don't break route matching. `year`
+// disambiguates the code (CBSE reuses it across years); omit → latest year.
 async function getPaper(req, res, next) {
   try {
-    const code = String(req.query.code || '')
-    const data = await svc.getPaper(req.params.subjectSlug, classOf(req), code)
+    const data = await svc.getPaper(req.params.subjectSlug, classOf(req), {
+      extUid: req.query.extUid || req.query.ext_uid,
+      code: req.query.code,
+      year: req.query.year,
+    })
     if (!data) return ApiResponse.error(res, 'Paper not found', 404)
     return ApiResponse.success(res, data)
   } catch (err) { next(err) }
 }
 
-module.exports = { getSubjects, getChapters, getSections, getQuestions, getQuestionsByPath, getNotesByPath, listPapers, getPaper, getMcqByPath }
+// POST /api/resources/papers/:subjectSlug?class=12&replace=true
+// Body: { papers: [ ...rawExtractionJson | mappedPaper ] } (or a bare array).
+// `replace=true` wipes existing papers for the subject+class before inserting.
+async function importPapers(req, res, next) {
+  try {
+    const papers = Array.isArray(req.body) ? req.body : req.body?.papers
+    if (!Array.isArray(papers) || papers.length === 0) {
+      return ApiResponse.error(res, 'Body must include a non-empty `papers` array', 400)
+    }
+    const replace = req.query.replace === 'true' || req.query.replace === '1'
+    const result = await svc.upsertPapers(req.params.subjectSlug, classOf(req), papers, { replace })
+    if (!result) return ApiResponse.error(res, 'Subject not found', 404)
+    return ApiResponse.success(res, result, 'Papers imported', 201)
+  } catch (err) { next(err) }
+}
+
+// DELETE /api/resources/papers/:subjectSlug?class=12[&code=56/1/1&year=2019]
+// Without code → deletes ALL papers for the subject+class.
+async function deletePapers(req, res, next) {
+  try {
+    const result = await svc.deletePapers(req.params.subjectSlug, classOf(req), {
+      extUid: req.query.extUid || req.query.ext_uid,
+      code: req.query.code,
+      year: req.query.year,
+    })
+    if (!result) return ApiResponse.error(res, 'Subject not found', 404)
+    return ApiResponse.success(res, result, 'Papers deleted')
+  } catch (err) { next(err) }
+}
+
+module.exports = { getSubjects, getChapters, getSections, getQuestions, getQuestionsByPath, getNotesByPath, listPapers, getPaper, importPapers, deletePapers, getMcqByPath }

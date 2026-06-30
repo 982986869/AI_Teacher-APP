@@ -3,6 +3,12 @@ import axiosInstance from './axiosInstance';
 // MCQ Practice (DB-backed). Flow: list subtopics → start test → submit → score.
 // classLevel (9–12) selects the grade; defaults to 11 for back-compat.
 
+// Chapters of a subject that actually have MCQ content: [{ id, name, slug }].
+// Chapters with no subtopics/questions are excluded — used to hide empty chapters.
+export const getMcqChaptersWithContent = async (subjectSlug, classLevel = 11) =>
+  (await axiosInstance.get(`/api/mcq-practice/${subjectSlug}/chapters`,
+    { params: { class: classLevel } })).data.data;
+
 // Subtopics of a chapter: [{ id, name, questionCount }]
 export const getMcqSubtopics = async (subjectSlug, chapterSlug, classLevel = 11) =>
   (await axiosInstance.get(

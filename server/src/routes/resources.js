@@ -1,7 +1,7 @@
 'use strict'
 
 const { Router } = require('express')
-const { authenticate } = require('../middleware/auth')
+const { authenticate, requireAdmin } = require('../middleware/auth')
 const {
   getSubjects,
   getChapters,
@@ -11,6 +11,8 @@ const {
   getNotesByPath,
   listPapers,
   getPaper,
+  importPapers,
+  deletePapers,
   getMcqByPath,
 } = require('../controllers/resources.controller')
 const { getExemplar } = require('../controllers/exemplar.controller')
@@ -40,10 +42,20 @@ router.get('/mcq/:subjectSlug/:chapterSlug', getMcqByPath)
 router.get('/papers/:subjectSlug', listPapers)            // list (metadata)
 router.get('/paper/:subjectSlug', getPaper)               // one paper: ?code=55/1/1
 
-// ─── Exemplar Solutions (DB-backed; ?subject=&class=&chapter=) ─────────────────
-router.get('/exemplar', getExemplar)
+// ─── Last Year Papers: admin write/delete (ADMIN role only) ────────────────────
+// POST   /papers/:subjectSlug?class=12&replace=true   bulk import/upsert
+// DELETE /papers/:subjectSlug?class=12[&code=&year=]   delete all / one
+router.post('/papers/:subjectSlug',   requireAdmin, importPapers)
+router.delete('/papers/:subjectSlug', requireAdmin, deletePapers)
 
-// ─── NCERT Solutions Part-I/II (DB-backed; ?part=&subject=&class=&chapter=) ─────
+// ─── Exemplar / NCERT (DEPRECATED) ─────────────────────────────────────────────
+// These read the legacy standalone tables (exemplar_solutions / ncert_solutions),
+// which only ever held Class 11. Exemplar/NCERT are now consolidated into the
+// section model for ALL classes — use the generic content endpoints instead:
+//   /content/:subjectSlug/:chapterSlug/exemplar_notes?class=
+//   /content/:subjectSlug/:chapterSlug/ncert1?class=   (and ncert2)
+// Kept here only for backward-compatibility; remove once no client calls them.
+router.get('/exemplar', getExemplar)
 router.get('/ncert/chapters', getNcertChapters)
 router.get('/ncert', getNcert)
 

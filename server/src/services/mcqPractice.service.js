@@ -5,6 +5,23 @@ const db = require('../config/database')
 const num = (v) => (typeof v === 'bigint' ? Number(v) : v)
 const LETTERS = 'ABCDEFGHIJ'.split('')
 
+// ─── Chapters of a subject that actually have MCQ practice content ────────────
+// A chapter "has content" when it owns at least one subtopic that has at least
+// one MCQ question. Used to hide empty chapters from the MCQ Practice list.
+async function listChaptersWithContent(subjectSlug, classLevel = 11) {
+  const subject = await db.subjects.findUnique({ where: { slug: subjectSlug } })
+  if (!subject) return null
+  const rows = await db.chapters.findMany({
+    where: {
+      subject_id: subject.id,
+      class_level: classLevel,
+      subtopics: { some: { mcq_questions: { some: {} } } },
+    },
+    orderBy: { position: 'asc' },
+  })
+  return rows.map((c) => ({ id: num(c.id), name: c.name, slug: c.slug, position: c.position }))
+}
+
 // ─── Subtopics of a chapter (with question counts) ────────────────────────────
 async function listSubtopics(subjectSlug, chapterSlug, classLevel = 11) {
   const subject = await db.subjects.findUnique({ where: { slug: subjectSlug } })
@@ -171,4 +188,4 @@ async function getProgress(subjectSlug, chapterSlug, userId, classLevel = 11) {
   return { chapter: { total, answered, score: pct(correct, answered) }, subtopics }
 }
 
-module.exports = { listSubtopics, getSubtopicTest, getChapterTest, gradeSubmission, submitTest, getProgress }
+module.exports = { listChaptersWithContent, listSubtopics, getSubtopicTest, getChapterTest, gradeSubmission, submitTest, getProgress }
