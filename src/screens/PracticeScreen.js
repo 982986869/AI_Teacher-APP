@@ -7,7 +7,6 @@ import { getQuestionsByPath, getChapters } from '../api/resourcesApi';
 import { buildFragmentFromQuestions, buildPyqDocument } from '../utils/pyqDocument';
 import { getMcqChapterTest, getMcqSubtopicTest } from '../api/mcqPracticeApi';
 import { getChemistry12PracticeTest, isLocalChem12PracticeId } from '../data/chemistry12Practice';
-import { getMaths12PracticeTest, isLocalMaths12PracticeId } from '../data/maths12Practice';
 import { getChemistry12ImportantHtml, getChemistry12ImportantChapters } from '../data/chemistry12Important';
 import { getMaths12ImportantHtml, getMaths12ImportantChapters } from '../data/maths12Important';
 import { getChemistry12PyqHtml, getChemistry12PyqChapters } from '../data/chemistry12Pyq';
@@ -414,12 +413,10 @@ const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
   useEffect(() => {
     let alive = true;
     setState({ loading: true, questions: null });
-    // Class 12 Chemistry & Mathematics practice questions are bundled locally
-    // (no API). (Class 12 Physics is DB-backed and falls through to getMcqSubtopicTest.)
-    if (isLocalChem12PracticeId(subtopicId) || isLocalMaths12PracticeId(subtopicId)) {
-      const data = isLocalMaths12PracticeId(subtopicId)
-        ? getMaths12PracticeTest(subtopicId)
-        : getChemistry12PracticeTest(subtopicId);
+    // Class 12 Chemistry practice questions are bundled locally (no API).
+    // (Class 12 Physics & Mathematics are DB-backed → fall through to getMcqSubtopicTest.)
+    if (isLocalChem12PracticeId(subtopicId)) {
+      const data = getChemistry12PracticeTest(subtopicId);
       setState({
         loading: false,
         questions: (data && data.questions) || [],
