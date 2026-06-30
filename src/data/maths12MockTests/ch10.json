@@ -1,0 +1,1908 @@
+{
+  "mock_id": 228,
+  "name": "Mock Test - 10",
+  "instruction": "This question paper contains three sections &ndash; A, B and C. Each part is compulsory. Section - A has 20 MCQs, attempt any 16 out of 20. 3 . Section - B has 20 MCQs, attempt any 16 out of 20 Section - C has 10 MCQs, attempt any 8 out of 10. There is no negative marking. All questions carry equal marks.",
+  "totalQuestions": 50,
+  "questions": [
+    {
+      "n": 1,
+      "question_id": 270805,
+      "question_text": "Let f(x) = cos -1 {tex}(3 x-1){/tex} find domain of f(x)",
+      "question_html": "<p>Let f(x) =&nbsp; cos<sup>-1</sup>&nbsp;<span class=\"math-tex\">{tex}(3 x-1){/tex}</span>find domain of f(x)</p>",
+      "options": [
+        {
+          "id": 384322,
+          "text": "{tex}\\left[\\frac{-2}{3}, \\frac{2}{3}\\right]{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\left[\\frac{-2}{3}, \\frac{2}{3}\\right]{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 384320,
+          "text": "{tex}\\left(0, \\frac{2}{3}\\right){/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\left(0, \\frac{2}{3}\\right){/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 384323,
+          "text": "{tex}\\left[\\frac{2}{3}, \\frac{-2}{3}\\right]{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\left[\\frac{2}{3}, \\frac{-2}{3}\\right]{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 384321,
+          "text": "{tex}\\left[0, \\frac{2}{3}\\right]{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\left[0, \\frac{2}{3}\\right]{/tex}</span>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "{tex}\\left[0, \\frac{2}{3}\\right]{/tex}",
+      "correct_option_ids": [
+        384321
+      ],
+      "explanation": "f(x) = cos -1 (3x - 1) The domain for function cos -1 x is [-1, 1] and range is [0, {tex}\\pi{/tex} ] When a function is multiplied by an integer, the domain of the function is decreased by the same number. So, domain of cos -1 x is [-1, 1] Multiply function by 3 {tex}\\Rightarrow{/tex} domain of cos -1 3x is {tex}\\left[\\frac{-1}{3}, \\frac{1}{3}\\right]{/tex} {tex}\\Rightarrow{/tex} domain of cos -1 (3x - 1) is {tex}\\left[\\frac{1}{3}-\\frac{1}{3}, \\frac{1}{3}+\\frac{1}{3}\\right]{/tex} i.e. {tex}\\left[0, \\frac{2}{3}\\right]{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 2,
+      "question_id": 59818,
+      "question_text": "In Corner point method for solving a linear programming problem one finds the feasible region of the linear programming problem ,determines its corner points and evaluates the objective function Z = ax + by at each corner point. Let M and m respectively be the largest and smallest values at corner points. In case feasible region is unbounded, m is the minimum value of the objective function",
+      "question_html": "<p>In Corner point method for solving a linear programming problem one finds the feasible region of the linear programming problem ,determines its corner points and evaluates the objective function Z = ax + by at each corner point. Let M and m respectively be the largest and smallest values at corner points. In case feasible region is unbounded, m is the minimum value of the objective function</p>",
+      "options": [
+        {
+          "id": 194459,
+          "text": "if the open half plane determined by ax + by > m has no point in common with the feasible region",
+          "html": "if the open half plane determined by ax + by &gt; m has no point in common with the feasible region",
+          "is_correct": false
+        },
+        {
+          "id": 194457,
+          "text": "if the open half plane determined by ax + by < m has no point in common with the feasible region",
+          "html": "if the open half plane determined by ax + by &lt; m has no point in common with the feasible region",
+          "is_correct": true
+        },
+        {
+          "id": 194458,
+          "text": "if the open half plane determined by ax + by < m has points in common with the feasible region",
+          "html": "if the open half plane determined by ax + by &lt; m has points in common with the feasible region",
+          "is_correct": false
+        },
+        {
+          "id": 194460,
+          "text": "if the open half plane determined by ax + by > m has points in common with the feasible region",
+          "html": "if the open half plane determined by ax + by &gt;&nbsp;m has points in common with the feasible region",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "if the open half plane determined by ax + by < m has no point in common with the feasible region",
+      "correct_option_ids": [
+        194457
+      ],
+      "explanation": "In Corner point method for solving a linear programming problem one finds the feasible region of the linear programming problem ,determines its corner points and evaluates the objective function Z = ax + by at each corner point. Let M and m respectively be the largest and smallest values at corner points. In case feasible region is unbounded, m is the minimum value of the objective function if the open half plane determined by ax + by < m has no point in common with the feasible region . Otherwise, Z has no minimum point.",
+      "solution": ""
+    },
+    {
+      "n": 3,
+      "question_id": 59352,
+      "question_text": "The derivate of an odd function is",
+      "question_html": "<p>The derivate of an odd function is</p>",
+      "options": [
+        {
+          "id": 192595,
+          "text": "an even function",
+          "html": "an even function",
+          "is_correct": true
+        },
+        {
+          "id": 192596,
+          "text": "an odd function",
+          "html": "an odd function",
+          "is_correct": false
+        },
+        {
+          "id": 192597,
+          "text": "negative",
+          "html": "negative",
+          "is_correct": false
+        },
+        {
+          "id": 192598,
+          "text": "Positive",
+          "html": "Positive",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "an even function",
+      "correct_option_ids": [
+        192595
+      ],
+      "explanation": "The derivate of an odd function is an even function",
+      "solution": ""
+    },
+    {
+      "n": 4,
+      "question_id": 260807,
+      "question_text": "The approximate change in the volume of a cube of side x metres caused by increasing the side by 3% is",
+      "question_html": "<p>The approximate change in the volume of a cube of side x metres caused by increasing the side by 3% is</p>",
+      "options": [
+        {
+          "id": 377769,
+          "text": "0.6 x 3 m 3",
+          "html": "0.6 x<sup>3</sup> m<sup>3</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 377768,
+          "text": "0.06 x 3 m 3",
+          "html": "0.06 x<sup>3</sup> m<sup>3</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 377771,
+          "text": "0.9 x 3 m 3",
+          "html": "0.9 x<sup>3</sup> m<sup>3</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 377770,
+          "text": "0.09 x 3 m 3",
+          "html": "0.09 x<sup>3</sup> m<sup>3</sup>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "0.09 x 3 m 3",
+      "correct_option_ids": [
+        377770
+      ],
+      "explanation": "It is given that side of the cube is x Therefore, the volume of a cube (V) is: V = x 3 {tex}\\Rightarrow \\mathrm{dV}=\\left(\\frac{\\mathrm{dV}}{\\mathrm{dx}}\\right) \\Delta \\mathrm{x}{/tex} = (3x 2 ) {tex}\\Delta x{/tex} = (3x 2 )(0.03x) {tex}~~~~~...(\\because~~\\Delta x=3\\%~of~x=\\frac3{100} x=0.03x){/tex} = 0.09 x 3 Therefore, the approximate change in the volume of a cube of side x metres caused by increasing the side by 3% is 0.09 x 3",
+      "solution": ""
+    },
+    {
+      "n": 5,
+      "question_id": 264596,
+      "question_text": "The solution set of the inequation 2x + y > 5 is",
+      "question_html": "<p>The solution set of the inequation 2x + y &gt; 5 is</p>",
+      "options": [
+        {
+          "id": 379624,
+          "text": "half plane that contains the origin",
+          "html": "half plane that contains the origin",
+          "is_correct": false
+        },
+        {
+          "id": 379627,
+          "text": "full plane that contains the origin",
+          "html": "full plane that contains the origin",
+          "is_correct": false
+        },
+        {
+          "id": 379625,
+          "text": "open half plane not containing the origin",
+          "html": "open half plane not containing the origin",
+          "is_correct": true
+        },
+        {
+          "id": 379626,
+          "text": "whole xy-plane except the points lying on the line 2x + y = 5",
+          "html": "whole xy-plane except the points lying on the line 2x + y = 5",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "open half plane not containing the origin",
+      "correct_option_ids": [
+        379625
+      ],
+      "explanation": "open half plane not containing the origin On putting x = 0, y = 0 in the given inequality, we get 0 > 5, which is absurd. Therefore, the solution set of the given inequality does not include the origin. Thus, the solution set of the given inequality consists of the open half plane not containing the origin.",
+      "solution": ""
+    },
+    {
+      "n": 6,
+      "question_id": 59161,
+      "question_text": "If A + B = {tex}\\left[ {\\begin{array}{*{20}{c}} 1&0 \\\\ 1&1 \\end{array}} \\right]{/tex} and A &ndash; 2 B = {tex}\\left[ {\\begin{array}{*{20}{c}} { - 1}&1 \\\\ 1&{ - 1} \\end{array}} \\right]{/tex} , then A = ?",
+      "question_html": "<p>If A + B = <span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 1&amp;0 \\\\ 1&amp;1 \\end{array}} \\right]{/tex}</span> and A &ndash; 2 B =<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} { - 1}&amp;1 \\\\ 1&amp;{ - 1} \\end{array}} \\right]{/tex}</span>, then A =&nbsp;?</p>",
+      "options": [
+        {
+          "id": 191831,
+          "text": "{tex}\\frac{1}{3}\\left[ {\\begin{array}{*{20}{c}} 1&1 \\\\ 3&1 \\end{array}} \\right]{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}\\left[ {\\begin{array}{*{20}{c}} 1&amp;1 \\\\ 3&amp;1 \\end{array}} \\right]{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 191834,
+          "text": "{tex}\\frac{1}{2}\\left[ {\\begin{array}{*{20}{c}} 2&1 \\\\ 1&2 \\end{array}} \\right]{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}\\left[ {\\begin{array}{*{20}{c}} 2&amp;1 \\\\ 1&amp;2 \\end{array}} \\right]{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 191833,
+          "text": "{tex}\\left[ {\\begin{array}{*{20}{c}} 1&1 \\\\ 2&1 \\end{array}} \\right]{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 1&amp;1 \\\\ 2&amp;1 \\end{array}} \\right]{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 191832,
+          "text": "{tex}\\frac{1}{3}\\left[ {\\begin{array}{*{20}{c}} 2&1 \\\\ 1&2 \\end{array}} \\right]{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}\\left[ {\\begin{array}{*{20}{c}} 2&amp;1 \\\\ 1&amp;2 \\end{array}} \\right]{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{1}{3}\\left[ {\\begin{array}{*{20}{c}} 1&1 \\\\ 3&1 \\end{array}} \\right]{/tex}",
+      "correct_option_ids": [
+        191831
+      ],
+      "explanation": "A + B = {tex}\\left[\\begin{array}{ll} 1 & 0 \\\\ 1 & 1 \\end{array}\\right]{/tex} ...(i) A - 2B = {tex}\\left[\\begin{array}{rr} -1 & 1 \\\\ 1 & -1 \\end{array}\\right]{/tex} ...(ii) adding 2 {tex}\\times{/tex} (i) and (ii), we get 2A + 2B = {tex}\\left[\\begin{array}{ll} 2 & 0 \\\\ 2 & 2 \\end{array}\\right]{/tex} ...(iii) A - 2B = {tex}\\left[\\begin{array}{rr} -1 & 1 \\\\ 1 & -1 \\end{array}\\right]{/tex} ...(iv) adding (iii) and (iv), we get {tex}\\Rightarrow{/tex} 3A = {tex}\\left[\\begin{array}{cc} 2 & 0 \\\\ 2 & 2 \\end{array}\\right]+\\left[\\begin{array}{cc} -1 & 1 \\\\ 1 & -1 \\end{array}\\right]{/tex} {tex}\\Rightarrow{/tex} A = {tex}\\frac{1}{3}\\left[\\begin{array}{ll} 1 & 1 \\\\ 3 & 1 \\end{array}\\right]{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 7,
+      "question_id": 59422,
+      "question_text": "Let f (x) be differentiable in (0, 4) and f (2) = f (3) and S = {c : 2 < c < 3, f&rsquo; (c) = 0 } then",
+      "question_html": "<p>Let f (x) be differentiable in (0, 4) and f (2) = f (3) and S = {c : 2 &lt; c &lt; 3, f&rsquo; (c) = 0 } then</p>",
+      "options": [
+        {
+          "id": 192875,
+          "text": "S has atleast one point",
+          "html": "S has atleast one point",
+          "is_correct": true
+        },
+        {
+          "id": 192877,
+          "text": "S = { }",
+          "html": "S = { }",
+          "is_correct": false
+        },
+        {
+          "id": 192876,
+          "text": "S has exactly one point",
+          "html": "S has exactly one point",
+          "is_correct": false
+        },
+        {
+          "id": 192878,
+          "text": "S has exactly Two point",
+          "html": "S has exactly Two&nbsp;point",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "S has atleast one point",
+      "correct_option_ids": [
+        192875
+      ],
+      "explanation": "Since, given f(x) is differentiable in (2,3) and f(2) = f(3) we have conditions of Rolle&#39;s theorem are satisfied by f(x) in [2,3]. Hence, there exist atleast one real c in (2,3) s.t.f&#39;(c) = 0. Therefore, the set S contains atleast one element.",
+      "solution": ""
+    },
+    {
+      "n": 8,
+      "question_id": 59203,
+      "question_text": "The system of equations, 3x + y &ndash; z = 0, 5x + 2y &ndash; 3z = 2, 15x + 6y &ndash; 9z = 5 has",
+      "question_html": "<p>The system of equations, 3x + y &ndash; z = 0, 5x + 2y &ndash; 3z = 2, 15x + 6y &ndash; 9z = 5 has</p>\r\n",
+      "options": [
+        {
+          "id": 192001,
+          "text": "a unique solution",
+          "html": "a unique solution",
+          "is_correct": false
+        },
+        {
+          "id": 192000,
+          "text": "two distinct solutions",
+          "html": "two distinct solutions",
+          "is_correct": false
+        },
+        {
+          "id": 192002,
+          "text": "infinitely many solutions",
+          "html": "infinitely many solutions",
+          "is_correct": false
+        },
+        {
+          "id": 191999,
+          "text": "no solution",
+          "html": "no solution",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "no solution",
+      "correct_option_ids": [
+        191999
+      ],
+      "explanation": "The given system of equations does not has a solution if: {tex} \\left| {\\begin{array}{*{20}{c}} 3&1&{ - 1} \\\\ 5&2&{ - 3} \\\\ {15}&6&{ - 9} \\end{array}} \\right| = 0 \\Rightarrow {/tex} 3(-18 + 18) - 1(-45 + 45) -1( 30 - 30) = 0",
+      "solution": ""
+    },
+    {
+      "n": 9,
+      "question_id": 59875,
+      "question_text": "The feasible region for an LPP is shown below: Let z = 3x - 4y be the objective function. Minimum of z occurs at",
+      "question_html": "<p>The feasible region for an LPP is shown below:<br />\r\nLet z = 3x - 4y be the objective function. Minimum of z occurs at<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1712635470-wkry6x.jpg\" style=\"height:221px; width:280px\" /></p>",
+      "options": [
+        {
+          "id": 194685,
+          "text": "(0, 8)",
+          "html": "(0, 8)",
+          "is_correct": true
+        },
+        {
+          "id": 194687,
+          "text": "(5, 0)",
+          "html": "(5, 0)",
+          "is_correct": false
+        },
+        {
+          "id": 194688,
+          "text": "(4, 10)",
+          "html": "(4, 10)",
+          "is_correct": false
+        },
+        {
+          "id": 194686,
+          "text": "(0, 0)",
+          "html": "(0, 0)",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "(0, 8)",
+      "correct_option_ids": [
+        194685
+      ],
+      "explanation": "Corner points Z = 3x - 4y (0, 0) 0 (5,0) 15 (6,8) -14 (6 ,5) -2 (4,10) -28 (0,8) -32(Min.) The minimum value occurs at (0,8)",
+      "solution": ""
+    },
+    {
+      "n": 10,
+      "question_id": 59370,
+      "question_text": "Let f (x) = tan x &ndash; 4x, then in the interval {tex}\\left[ { - \\frac{\\pi }{3},\\frac{\\pi }{3}} \\right],f(x)\\;{/tex} is",
+      "question_html": "<p>Let f (x) = tan x &ndash; 4x, then in the interval <span class=\"math-tex\">{tex}\\left[ { - \\frac{\\pi }{3},\\frac{\\pi }{3}} \\right],f(x)\\;{/tex}</span>is</p>",
+      "options": [
+        {
+          "id": 192670,
+          "text": "Neither decreasing function nor increasing function",
+          "html": "Neither decreasing function nor increasing function",
+          "is_correct": false
+        },
+        {
+          "id": 192667,
+          "text": "a decreasing function",
+          "html": "a decreasing function",
+          "is_correct": true
+        },
+        {
+          "id": 192669,
+          "text": "a constant function",
+          "html": "a constant function",
+          "is_correct": false
+        },
+        {
+          "id": 192668,
+          "text": "an increasing function",
+          "html": "an increasing function",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "a decreasing function",
+      "correct_option_ids": [
+        192667
+      ],
+      "explanation": "{tex}f'(x) = {\\sec ^2}x - 4 < 0,{/tex} where {tex}x \\in \\left( { - \\frac{\\pi }{3},\\frac{\\pi }{3}} \\right).{/tex} {tex} \\left( {\\because x \\in \\left( { - \\frac{\\pi }{3},\\frac{\\pi }{3}} \\right) \\Rightarrow 1 \\leqslant \\sec x < 2 \\Rightarrow 1 \\leqslant {{\\sec }^2}x < 4} \\right){/tex}",
+      "solution": ""
+    },
+    {
+      "n": 11,
+      "question_id": 265190,
+      "question_text": "If f(x) = |x - 3| and g(x) = fof(x), then for x > 10, g&#39;(x) is equal to",
+      "question_html": "<p>If f(x) = |x - 3|&nbsp;and g(x) = fof(x), then for x &gt; 10, g&#39;(x) is equal to</p>",
+      "options": [
+        {
+          "id": 380257,
+          "text": "-1",
+          "html": "-1",
+          "is_correct": false
+        },
+        {
+          "id": 380259,
+          "text": "2",
+          "html": "2",
+          "is_correct": false
+        },
+        {
+          "id": 380256,
+          "text": "1",
+          "html": "1",
+          "is_correct": true
+        },
+        {
+          "id": 380258,
+          "text": "0",
+          "html": "0",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "1",
+      "correct_option_ids": [
+        380256
+      ],
+      "explanation": "f(x) = |x - 3| g(x) = fof(x) g(x) = f(|x - 3|) g(x) = |x - 3| - 3 g(x) = x - 3 - 3 ( {tex}\\because{/tex} x > 10) g(x) = x - 6 g&#39;(x) = 1",
+      "solution": ""
+    },
+    {
+      "n": 12,
+      "question_id": 59876,
+      "question_text": "The feasible solution for an LPP is shown in Figure. Let Z = 3x &ndash; 4y be the objective function. Maximum value of Z occurs at",
+      "question_html": "<p>The feasible solution for an LPP is shown in Figure. Let Z = 3x &ndash; 4y be the objective function. Maximum value of Z occurs at<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/math/52049_0.jpg\" style=\"width: 180px; height: 285px;\" /></p>",
+      "options": [
+        {
+          "id": 194690,
+          "text": "(6, 5)",
+          "html": "(6, 5)",
+          "is_correct": false
+        },
+        {
+          "id": 194691,
+          "text": "(6, 8)",
+          "html": "(6, 8)",
+          "is_correct": false
+        },
+        {
+          "id": 194692,
+          "text": "(4, 10)",
+          "html": "(4, 10)",
+          "is_correct": false
+        },
+        {
+          "id": 194689,
+          "text": "(5, 0)",
+          "html": "(5, 0)",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "(5, 0)",
+      "correct_option_ids": [
+        194689
+      ],
+      "explanation": "Corner points Z = 3x - 4y (0, 0 ) 0 (5,0) 15 (6,8 ) -14 (6 , 5 ) -2 (4,10) -28 (0,8) -32 The maximum value occurs at (5,0)",
+      "solution": ""
+    },
+    {
+      "n": 13,
+      "question_id": 271319,
+      "question_text": "If x y = y x then {tex}\\frac{d y}{d x}={/tex} ?",
+      "question_html": "<p>If x<sup>y</sup>&nbsp;= y<sup>x</sup>&nbsp;then&nbsp;<span class=\"math-tex\">{tex}\\frac{d y}{d x}={/tex}</span>&nbsp;?</p>",
+      "options": [
+        {
+          "id": 384932,
+          "text": "{tex}\\frac{y(y-x \\log x)}{x(x-y \\log y)}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{y(y-x \\log x)}{x(x-y \\log y)}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 384930,
+          "text": "{tex}\\frac{y(y-x \\log y)}{x(x-y \\log x)}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{y(y-x \\log y)}{x(x-y \\log x)}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 384929,
+          "text": "{tex}\\frac{(y-x \\log y)}{(x-y \\log x)}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{(y-x \\log y)}{(x-y \\log x)}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 384931,
+          "text": "{tex}\\frac{y(y+x \\log y)}{x(x+y \\log x)}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{y(y+x \\log y)}{x(x+y \\log x)}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{y(y-x \\log y)}{x(x-y \\log x)}{/tex}",
+      "correct_option_ids": [
+        384930
+      ],
+      "explanation": "given that x y = y y Taking log both sides, we obtain y log e x = c log e y (Since log a b c = c log a b) Differentiating with respect to x, we obtain {tex}\\frac{y}{x}+\\log _{e} x \\frac{d y}{d x}=\\frac{x}{y} \\frac{d y}{d x}+\\log _{e} y{/tex} {tex}\\Rightarrow \\frac{x-y \\log _{e} x}{y} \\frac{d y}{d x}{/tex} {tex}=\\frac{y-x \\log _{e} y}{x}{/tex} Hence {tex}\\frac{d y}{d x}=\\frac{y\\left(y-x \\log _{e} y\\right)}{x\\left(x-y \\log _{e} x\\right)}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 14,
+      "question_id": 260684,
+      "question_text": "The function {tex}f(x)=\\frac{4-x^{2}}{4 x-x^{3}}{/tex} is",
+      "question_html": "<p>The function&nbsp;<span class=\"math-tex\">{tex}f(x)=\\frac{4-x^{2}}{4 x-x^{3}}{/tex}</span>&nbsp;is</p>",
+      "options": [
+        {
+          "id": 377588,
+          "text": "discontinuous at only one point",
+          "html": "discontinuous at only one point",
+          "is_correct": false
+        },
+        {
+          "id": 377591,
+          "text": "discontinuous at exactly four points",
+          "html": "discontinuous at exactly four&nbsp;points",
+          "is_correct": false
+        },
+        {
+          "id": 377590,
+          "text": "discontinuous at exactly three points",
+          "html": "discontinuous at exactly three points",
+          "is_correct": true
+        },
+        {
+          "id": 377589,
+          "text": "discontinuous at exactly two points",
+          "html": "discontinuous at exactly two points",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "discontinuous at exactly three points",
+      "correct_option_ids": [
+        377590
+      ],
+      "explanation": "We have, {tex}f(x)=\\frac{4-x^{2}}{4 x-x^{3}}{/tex} {tex}=\\frac{\\left(4-x^{2}\\right)}{x\\left(4-x^{2}\\right)}{/tex} {tex}=\\frac{\\left(4-x^{2}\\right)}{x\\left(2^{2}-x^{2}\\right)}=\\frac{4-x^{2}}{x(2+x)(2-x)}{/tex} Clearly, f(x) is discontinuous at exactly three points x = 0, x = -2 and x = 2.",
+      "solution": ""
+    },
+    {
+      "n": 15,
+      "question_id": 265252,
+      "question_text": "If {tex}f(x)=\\sqrt{1-\\sqrt{1-x^{2}}}{/tex} , then f(x) is",
+      "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}f(x)=\\sqrt{1-\\sqrt{1-x^{2}}}{/tex}</span>, then f(x) is</p>",
+      "options": [
+        {
+          "id": 380314,
+          "text": "continuous and differentiable on [&ndash;1, 1]",
+          "html": "continuous and differentiable on [&ndash;1, 1]",
+          "is_correct": false
+        },
+        {
+          "id": 380315,
+          "text": "continuous and differentiable on [1, -1]",
+          "html": "continuous and differentiable on [1, -1]",
+          "is_correct": false
+        },
+        {
+          "id": 380312,
+          "text": "continuous on [&ndash;1, 1] and differentiable on (&ndash;1, 0) {tex}\\cup{/tex} (0, 1)",
+          "html": "continuous on [&ndash;1, 1] and differentiable on (&ndash;1, 0) <span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;(0, 1)",
+          "is_correct": true
+        },
+        {
+          "id": 380313,
+          "text": "continuous on [&ndash;1, 1] and differentiable on (&ndash;1, 1)",
+          "html": "continuous on [&ndash;1, 1] and differentiable on (&ndash;1, 1)",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "continuous on [&ndash;1, 1] and differentiable on (&ndash;1, 0) {tex}\\cup{/tex} (0, 1)",
+      "correct_option_ids": [
+        380312
+      ],
+      "explanation": "Given that {tex}f(x)=\\sqrt{1-\\sqrt{1-x^{2}}}{/tex} So, the function will be defined for those values of x for which 1-x 2 {tex}\\ge{/tex} 0 {tex}\\Rightarrow{/tex} x 2 {tex}\\le{/tex} 1 {tex}\\Rightarrow{/tex} |x| {tex}\\le{/tex} 1 {tex}\\Rightarrow{/tex} -1 {tex}\\le{/tex} x {tex}\\le{/tex} 1 {tex}\\therefore{/tex} Function is continuous in [-1, 1]. Now, we will check the differentiability at x = 0 LHD at x =0, {tex}\\lim \\limits_{x \\rightarrow 0^{-}} \\frac{f(x)-f(0)}{x-0}=\\lim \\limits_{h \\rightarrow 0} \\frac{f(0-h)-f(0)}{0-h-0}{/tex} {tex}=\\lim \\limits_{h \\rightarrow 0} \\frac{\\sqrt{1-\\sqrt{1-(0-h)^{2}}}-(0)}{-h}=-\\infty{/tex} {tex}\\because{/tex} LHD does not exist, so f(x) is not differentiable at x = 0 {tex}\\therefore{/tex} f(x) is not differentiable at x =0.",
+      "solution": ""
+    },
+    {
+      "n": 16,
+      "question_id": 59153,
+      "question_text": "If {tex}A = \\left[ {\\begin{array}{*{20}{c}} 0&c&{ - b} \\\\ { - c}&0&a \\\\ b&{ - a}&0 \\end{array}} \\right]{/tex} and {tex}B = \\left[ {\\begin{array}{*{20}{c}} {{a^2}}&{ab}&{ac} \\\\ {ab}&{{b^2}}&{bc} \\\\ {ac}&{bc}&{{c^2}} \\end{array}} \\right]{/tex} then AB =",
+      "question_html": "<p>If <span class=\"math-tex\">{tex}A = \\left[ {\\begin{array}{*{20}{c}} 0&amp;c&amp;{ - b} \\\\ { - c}&amp;0&amp;a \\\\ b&amp;{ - a}&amp;0 \\end{array}} \\right]{/tex}</span>and <span class=\"math-tex\">{tex}B = \\left[ {\\begin{array}{*{20}{c}} {{a^2}}&amp;{ab}&amp;{ac} \\\\ {ab}&amp;{{b^2}}&amp;{bc} \\\\ {ac}&amp;{bc}&amp;{{c^2}} \\end{array}} \\right]{/tex}</span>then AB =</p>",
+      "options": [
+        {
+          "id": 191800,
+          "text": "B 2",
+          "html": "B<sup>2</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 191801,
+          "text": "A 3",
+          "html": "A<sup>3</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 191802,
+          "text": "1",
+          "html": "1",
+          "is_correct": false
+        },
+        {
+          "id": 191799,
+          "text": "0",
+          "html": "0",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "0",
+      "correct_option_ids": [
+        191799
+      ],
+      "explanation": "AB = {tex}\\left[ {\\begin{array}{*{20}{c}} 0&c&{ - b} \\\\ { - c}&0&a \\\\ b&{ - a}&0 \\end{array}} \\right]\\left[ {\\begin{array}{*{20}{c}} {{a^2}}&{ab}&{ac} \\\\ {ab}&{{b^2}}&{bc} \\\\ {ac}&{bc}&{{c^2}} \\end{array}} \\right]{/tex} {tex} = \\left[ {\\begin{array}{*{20}{c}} {abc - abc}&{{b^2}c - {b^2}c}&{b{c^2} - b{c^2}} \\\\ { - {a^2}c + {a^2}c}&{ - abc + abc}&{ - a{c^2} + a{c^2}} \\\\ {{a^2}b - {a^2}b}&{a{b^2} - a{b^2}}&{abc - abc} \\end{array}} \\right]{/tex} {tex}=\\left[ {\\begin{array}{*{20}{c}} 0&0&0 \\\\ 0&0&0 \\\\ 0&0&0 \\end{array}} \\right] = \\;0{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 17,
+      "question_id": 271408,
+      "question_text": "If f(x) = {tex}\\left\\{\\begin{array}{c} \\mathrm{kx}+5, \\text { when } \\mathrm{x} \\leq 2 \\\\ \\mathrm{x}+1, \\text { when } \\mathrm{x}>2 \\end{array}\\right.{/tex} is continuous at x = 2 then k = ?",
+      "question_html": "<p>If f(x) =&nbsp;<span class=\"math-tex\">{tex}\\left\\{\\begin{array}{c} \\mathrm{kx}+5, \\text { when } \\mathrm{x} \\leq 2 \\\\ \\mathrm{x}+1, \\text { when } \\mathrm{x}&gt;2 \\end{array}\\right.{/tex}</span>is continuous at x = 2 then k = ?</p>\r\n",
+      "options": [
+        {
+          "id": 385164,
+          "text": "2",
+          "html": "2",
+          "is_correct": false
+        },
+        {
+          "id": 385167,
+          "text": "-3",
+          "html": "-3",
+          "is_correct": false
+        },
+        {
+          "id": 385166,
+          "text": "-1",
+          "html": "-1",
+          "is_correct": true
+        },
+        {
+          "id": 385165,
+          "text": "-2",
+          "html": "-2",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "-1",
+      "correct_option_ids": [
+        385166
+      ],
+      "explanation": "For continuity left hand limit must be equal to right hand limit and value at the point. Continuous at x = 2.. L.H.L = {tex}\\lim _{x \\rightarrow 2^{-}}(k x+5){/tex} {tex}\\Rightarrow \\lim _{h \\rightarrow 0}(k(2-h)+5){/tex} {tex}\\Rightarrow{/tex} k(2 - 0) + 5 = 2k + 5 R.H.L = {tex}\\lim _{x \\rightarrow 2^{+}}(x+1){/tex} {tex}\\Rightarrow \\lim _{h \\rightarrow 0}(2+h+1){/tex} {tex}\\Rightarrow{/tex} 2 + 0 + 1 = 3 As f(x) is continuous,we get {tex}\\because{/tex} 2k + 5 = 3 k = -1.",
+      "solution": ""
+    },
+    {
+      "n": 18,
+      "question_id": 260260,
+      "question_text": "Which of the following is the principal value branch of cosec &ndash;1 x?",
+      "question_html": "<p>Which of the following is the principal value branch of cosec<sup>&ndash;1</sup>x?</p>",
+      "options": [
+        {
+          "id": 376736,
+          "text": "{tex}\\left(\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right){/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\left(\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right){/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 376739,
+          "text": "{tex}\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]-\\{0\\}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]-\\{0\\}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 376738,
+          "text": "{tex}\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 376737,
+          "text": "{tex}[0, \\pi]-\\left\\{\\frac{\\pi}{2}\\right\\}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}[0, \\pi]-\\left\\{\\frac{\\pi}{2}\\right\\}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]-\\{0\\}{/tex}",
+      "correct_option_ids": [
+        376739
+      ],
+      "explanation": "We know that the principal value branch of cosec -1 x is {tex}\\left[\\frac{-\\pi}{2}, \\frac{\\pi}{2}\\right]-\\{0\\}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 19,
+      "question_id": 59300,
+      "question_text": "The function f (x) = [x] is",
+      "question_html": "<p>The function f (x) = [x] is</p>",
+      "options": [
+        {
+          "id": 192388,
+          "text": "continuous for all x",
+          "html": "continuous for all x",
+          "is_correct": false
+        },
+        {
+          "id": 192389,
+          "text": "a constant function",
+          "html": "a constant function",
+          "is_correct": false
+        },
+        {
+          "id": 192387,
+          "text": "discontinuous only for integral x",
+          "html": "discontinuous only for integral x",
+          "is_correct": true
+        },
+        {
+          "id": 192390,
+          "text": "derivable for all x",
+          "html": "derivable for all x",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "discontinuous only for integral x",
+      "correct_option_ids": [
+        192387
+      ],
+      "explanation": "Case 1 Let c be a real number which is not equal to any integer. for all real numbers close to c the value of the function is equal to [c]; i.e., {tex}\\lim_{x\\rightarrow c}f(x)=\\lim_{x\\rightarrow c}\\left[x\\right]=\\left[c\\right]{/tex} . Also f(c) = [c] and hence the function is continuous at all real numbers not equal to integers. Case 2 Let c be an integer. Then we can find a sufficiently small real number {tex}r>0{/tex} such that [c - r ]= c - 1 whereas [c + r ] = c This, in terms of limits mean that {tex}\\lim_{x\\rightarrow c^-}f(x)=c-1,\\;\\lim_{x\\rightarrow c^+}f(x)=c{/tex} Since these limits cannot be equal to each other for any c, the function is discontinuous at every integral point.",
+      "solution": ""
+    },
+    {
+      "n": 20,
+      "question_id": 59154,
+      "question_text": "If {tex}A = \\left[ {\\begin{array}{*{20}{c}} 1&1&1 \\\\ 1&2&3 \\\\ 1&3&4 \\end{array}} \\right]{/tex} , then adj(adj A) =",
+      "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}A = \\left[ {\\begin{array}{*{20}{c}} 1&amp;1&amp;1 \\\\ 1&amp;2&amp;3 \\\\ 1&amp;3&amp;4 \\end{array}} \\right]{/tex}</span>, then adj(adj A) =</p>",
+      "options": [
+        {
+          "id": 191805,
+          "text": "A 2",
+          "html": "A<sup>2</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 191803,
+          "text": "- A",
+          "html": "- A",
+          "is_correct": true
+        },
+        {
+          "id": 191806,
+          "text": "- A 2",
+          "html": "- A<sup>2</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 191804,
+          "text": "A",
+          "html": "A",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "- A",
+      "correct_option_ids": [
+        191803
+      ],
+      "explanation": "We know that if A is non - singular matrix, then A(adjA) = |A| n-2 A, where n is order of square matrix A. Now, {tex}|A| = \\left| {\\begin{array}{*{20}{c}} 1&1&1 \\\\ 1&2&3 \\\\ 1&3&4 \\end{array}} \\right| = - 1 \\ne 0{/tex} {tex}\\therefore{/tex} A is non - singular {tex}\\therefore {/tex} A(adj A) = |A| 3-2 A (Here n = 3) = |A| A = (-1) A = - A",
+      "solution": ""
+    },
+    {
+      "n": 21,
+      "question_id": 268699,
+      "question_text": "Let R a relation on N x N defined by (a,b) R (c,d) = a + d = b + c Then R is",
+      "question_html": "<p>Let R a relation on N x N defined by (a,b) R (c,d) = a + d = b + c Then R is</p>",
+      "options": [
+        {
+          "id": 382109,
+          "text": "Symmetric and transitive but not reflexive",
+          "html": "Symmetric and transitive but not reflexive",
+          "is_correct": false
+        },
+        {
+          "id": 382110,
+          "text": "An equivalence relation",
+          "html": "An equivalence relation",
+          "is_correct": true
+        },
+        {
+          "id": 382108,
+          "text": "Reflexive and transitive but not symmetric",
+          "html": "Reflexive and transitive but not symmetric",
+          "is_correct": false
+        },
+        {
+          "id": 382107,
+          "text": "Reflexive and symmetric but not transitive",
+          "html": "Reflexive and symmetric but not transitive",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "An equivalence relation",
+      "correct_option_ids": [
+        382110
+      ],
+      "explanation": "Here (a, b) R (c, d) {tex}\\Leftrightarrow {/tex} a + d = b + c. Now (a, b) R (a, b) if a + b = b+ a, which is true. {tex}\\therefore{/tex} relation R is reflexive. Now (a, b) R (c, d) {tex}\\Rightarrow{/tex} a + d = b + c {tex}\\Rightarrow{/tex} d + a = c + b {tex}\\Rightarrow{/tex} c + b = d + a {tex}\\Rightarrow{/tex} (c, d) R (a, b) {tex}\\therefore{/tex} relation R is symmetric. Now (a, b) R (c, d) and (c, d) R (e, f) {tex}\\Rightarrow{/tex} a + d = b + c and c + f = d + e {tex}\\Rightarrow{/tex} (a + d) + (c + f) = (b + c) + (d + e) {tex}\\Rightarrow{/tex} a + f = b + e {tex}\\Rightarrow{/tex} (a, b) R (e, f) {tex}\\therefore{/tex} relation R is transitive. Now R is reflexive, symmetric and transitive. {tex}\\Leftrightarrow {/tex} a relation R is an equivalence relation.",
+      "solution": ""
+    },
+    {
+      "n": 22,
+      "question_id": 271446,
+      "question_text": "f(x)= {tex}\\frac{2 x}{\\log x}{/tex} is increasing in",
+      "question_html": "<p>f(x)=&nbsp;<span class=\"math-tex\">{tex}\\frac{2 x}{\\log x}{/tex}</span>&nbsp;is increasing in</p>",
+      "options": [
+        {
+          "id": 385253,
+          "text": "(1, e)",
+          "html": "(1, e)",
+          "is_correct": false
+        },
+        {
+          "id": 385252,
+          "text": "(0, 1)",
+          "html": "(0, 1)",
+          "is_correct": false
+        },
+        {
+          "id": 385254,
+          "text": "{tex}(e, \\infty){/tex}",
+          "html": "<span class=\"math-tex\">{tex}(e, \\infty){/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 385255,
+          "text": "{tex}(-\\infty, e){/tex}",
+          "html": "<span class=\"math-tex\">{tex}(-\\infty, e){/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}(e, \\infty){/tex}",
+      "correct_option_ids": [
+        385254
+      ],
+      "explanation": "Given, {tex}\\Rightarrow f(x)=\\frac{2 x}{\\log x}{/tex} {tex}\\Rightarrow f^{\\prime}(x)=\\frac{2 . \\log x-2}{\\log ^{2} x}{/tex} Put f&#39;(x) = 0 We get {tex}\\Rightarrow \\frac{2 . \\log x-2}{\\log ^{2} x}=0{/tex} {tex}\\Rightarrow{/tex} 2.log x = 2 log x = 1 {tex}\\Rightarrow{/tex} x = e We only have one critical point Therefore, we can directly say x > e f(x) would be increasing {tex}\\therefore{/tex} f(x) will be increasing in {tex}(e, \\infty){/tex}",
+      "solution": ""
+    },
+    {
+      "n": 23,
+      "question_id": 59855,
+      "question_text": "Determine the maximum value of Z = 11x + 7y subject to the constraints :2x + y &le; 6, x &le; 2, x &ge; 0, y &ge; 0.",
+      "question_html": "<p>Determine the maximum value of Z = 11x + 7y subject to the constraints :2x + y &le; 6, x &le; 2, x &ge; 0, y &ge; 0.</p>",
+      "options": [
+        {
+          "id": 194607,
+          "text": "45",
+          "html": "45",
+          "is_correct": false
+        },
+        {
+          "id": 194606,
+          "text": "43",
+          "html": "43",
+          "is_correct": false
+        },
+        {
+          "id": 194605,
+          "text": "42",
+          "html": "42",
+          "is_correct": true
+        },
+        {
+          "id": 194608,
+          "text": "47",
+          "html": "47",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "42",
+      "correct_option_ids": [
+        194605
+      ],
+      "explanation": "Here , maximize Z = 11x + 7y , subject to the constraints :2x + y &le; 6, x &le; 2, x &ge; 0, y &ge; 0. Corner points Z = 11x +7 y C(0, 0 ) 0 B (2,0) 22 D(2,2 ) 36 A(0,6) 42 Hence the maximum value is 42",
+      "solution": ""
+    },
+    {
+      "n": 24,
+      "question_id": 59374,
+      "question_text": "Let f (x) =x 3 - 6x 2 + 9x + 18 then f (x) is strictly decreasing in",
+      "question_html": "<p>Let f (x) =x<sup>3</sup>&nbsp;- 6x<sup>2</sup>&nbsp;+ 9x + 18&nbsp;then f (x) is strictly&nbsp;decreasing in</p>",
+      "options": [
+        {
+          "id": 192684,
+          "text": "{tex}\\left[ {3,\\infty } \\right){/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\left[ {3,\\infty } \\right){/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 192686,
+          "text": "{tex}\\left( { - \\infty ,1} \\right]{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\left( { - \\infty ,1} \\right]{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 192683,
+          "text": "(1, 3)",
+          "html": "(1, 3)",
+          "is_correct": true
+        },
+        {
+          "id": 192685,
+          "text": "{tex}\\left[ { - \\infty ,1} \\right){/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\left[ { - \\infty ,1} \\right){/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "(1, 3)",
+      "correct_option_ids": [
+        192683
+      ],
+      "explanation": "{tex}f'(x) = 3{x^2} - 12x + 9 {/tex} {tex}= 3(x - 1)(x - 3) < 0 {/tex} if {tex}(x - 1)(x - 3) < 0 {/tex} i.e, if {tex}x \\in (1,3). {/tex} Hence, f is strictly decreasing on (1,3)",
+      "solution": ""
+    },
+    {
+      "n": 25,
+      "question_id": 260693,
+      "question_text": "The derivative of {tex}\\cos ^{-1}\\left(2 x^{2}-1\\right){/tex} w.r.t. {tex}\\cos ^{-1} x{/tex} is",
+      "question_html": "<p>The derivative of <span class=\"math-tex\">{tex}\\cos ^{-1}\\left(2 x^{2}-1\\right){/tex}</span>w.r.t. <span class=\"math-tex\">{tex}\\cos ^{-1} x{/tex}</span>&nbsp;is</p>",
+      "options": [
+        {
+          "id": 377624,
+          "text": "2",
+          "html": "2",
+          "is_correct": true
+        },
+        {
+          "id": 377627,
+          "text": "{tex}1-x^{2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}1-x^{2}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 377626,
+          "text": "{tex}\\frac{2}{x}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{2}{x}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 377625,
+          "text": "{tex}\\frac{-1}{2 \\sqrt{1-x^{2}}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{-1}{2 \\sqrt{1-x^{2}}}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "2",
+      "correct_option_ids": [
+        377624
+      ],
+      "explanation": "let {tex}u=\\cos ^{-1}\\left(2 x^{2}-1\\right){/tex} and {tex}v=\\cos ^{-1} x{/tex} {tex}\\therefore \\frac{d u}{d x}=\\frac{-1}{\\sqrt{1-\\left(2 x^{2}-1\\right)^{2}}} .4 x=\\frac{-4 x}{\\sqrt{1-\\left(4 x^{4}+1-4 x^{2}\\right)}}{/tex} {tex}=\\frac{-4 x}{\\sqrt{-4 x^{4}+4 x^{2}}}=\\frac{-4 x}{\\sqrt{4 x^{2}\\left(1-x^{2}\\right)}}{/tex} {tex}=\\frac{-2}{\\sqrt{1-x^{2}}}{/tex} and {tex}\\frac{d v}{d x}=\\frac{-1}{\\sqrt{1-x^{2}}}{/tex} {tex}\\therefore \\frac{d u}{d v}=\\frac{d u / d x}{d v / d x}=\\frac{-2 / \\sqrt{1-x^{2}}}{-1 \\sqrt{1-x^{2}}}=2{/tex} . Which is the required solution.",
+      "solution": ""
+    },
+    {
+      "n": 26,
+      "question_id": 259405,
+      "question_text": "The principal value of sin &ndash;1 {tex}\\left(\\frac{-\\sqrt{3}}{2}\\right){/tex} is",
+      "question_html": "<p>The principal value of sin<sup>&ndash;1</sup>&nbsp;<span class=\"math-tex\">{tex}\\left(\\frac{-\\sqrt{3}}{2}\\right){/tex}</span>&nbsp;is</p>",
+      "options": [
+        {
+          "id": 376369,
+          "text": "{tex}-\\frac{\\pi}{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}-\\frac{\\pi}{3}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 376368,
+          "text": "{tex}-\\frac{2 \\pi}{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}-\\frac{2 \\pi}{3}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 376370,
+          "text": "{tex}\\frac{4 \\pi}{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{4 \\pi}{3}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 376371,
+          "text": "{tex}\\frac{5 \\pi}{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{5 \\pi}{3}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}-\\frac{\\pi}{3}{/tex}",
+      "correct_option_ids": [
+        376369
+      ],
+      "explanation": "sin -1 {tex}\\left(\\frac{-\\sqrt{3}}{2}\\right)=\\sin ^{-1}\\left(-\\sin \\frac{\\pi}{3}\\right)=-\\sin ^{-1}\\left(\\sin \\frac{\\pi}{3}\\right)=-\\frac{\\pi}{3}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 27,
+      "question_id": 58947,
+      "question_text": "Let R be the relation in the set {1, 2, 3, 4} given by R = {(1, 2), (2, 2), (1, 1), (4, 4), (1, 3), (3, 3), (3, 2)}. Then R is",
+      "question_html": "<p>Let R be the relation in the set {1, 2, 3, 4} given by R = {(1, 2), (2, 2), (1, 1), (4, 4), (1, 3), (3, 3), (3, 2)}. Then R is</p>",
+      "options": [
+        {
+          "id": 190975,
+          "text": "Reflexive and transitive but not symmetric",
+          "html": "Reflexive and transitive but not symmetric",
+          "is_correct": true
+        },
+        {
+          "id": 190978,
+          "text": "An equivalence relation.",
+          "html": "An equivalence relation.",
+          "is_correct": false
+        },
+        {
+          "id": 190977,
+          "text": "Symmetric and transitive but not reflexive.",
+          "html": "Symmetric and transitive but not reflexive.",
+          "is_correct": false
+        },
+        {
+          "id": 190976,
+          "text": "Reflexive and symmetric but not transitive",
+          "html": "Reflexive and symmetric but not transitive",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Reflexive and transitive but not symmetric",
+      "correct_option_ids": [
+        190975
+      ],
+      "explanation": "The relation R is not symmetric, (1,2) {tex} \\in {/tex} R , but (2,1) {tex} \\notin {/tex} R , (1,3) {tex} \\in {/tex} R ,but (3,1) {tex} \\notin {/tex} R , (3,2) {tex} \\in {/tex} R, but (2,3) {tex} \\notin {/tex} R.",
+      "solution": ""
+    },
+    {
+      "n": 28,
+      "question_id": 59111,
+      "question_text": "If {tex}{\\tan ^{ - 1}}x + {\\tan ^{ - 1}}\\frac{1}{7} = \\frac{\\pi }{4}{/tex} , then x =",
+      "question_html": "<p>If <span class=\"math-tex\">{tex}{\\tan ^{ - 1}}x + {\\tan ^{ - 1}}\\frac{1}{7} = \\frac{\\pi }{4}{/tex}</span>, then x =</p>",
+      "options": [
+        {
+          "id": 191632,
+          "text": "{tex}\\frac{6}{7}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{6}{7}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 191633,
+          "text": "{tex}\\frac{4}{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{4}{3}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 191631,
+          "text": "{tex}\\frac{3}{4}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{3}{4}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 191634,
+          "text": "{tex}\\frac{7}{6}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{7}{6}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{3}{4}{/tex}",
+      "correct_option_ids": [
+        191631
+      ],
+      "explanation": "Given that : {tex}{\\tan ^{ - 1}}x = \\frac{\\pi }{4} - {\\tan ^{ - 1}}\\left( {\\frac{1}{7}} \\right){/tex} {tex}\\\\{\\tan ^{ - 1}}x={\\tan ^{ - 1}}1-{\\tan ^{ - 1}}(\\frac{1}{7}){/tex} since {tex}(1.\\frac{1}{7})<1{/tex} {tex}{\\tan ^{ - 1}}x ={\\tan ^{ - 1}}(\\frac{{1 - \\frac{1}{7}}}{{1 + \\frac{1}{7}}}) ={\\tan ^{ - 1}}\\frac{6}{8} ={\\tan ^{ - 1}} \\frac{3}{4}{/tex} {tex}{\\tan ^{ - 1}}x ={\\tan ^{ - 1}}\\frac{3}{4} {/tex} {tex}\\therefore\\,\\,x=\\frac{3}{4} {/tex}",
+      "solution": ""
+    },
+    {
+      "n": 29,
+      "question_id": 59150,
+      "question_text": "A square matrix A = [a ij ] n {tex}\\times{/tex} n is called an upper triangular if a ij = 0 for",
+      "question_html": "<p>A square matrix A = [a<sub>ij</sub>]<sub>n<span class=\"math-tex\">{tex}\\times{/tex}</span>n</sub>&nbsp;is called an upper triangular if a<sub>ij</sub>&nbsp;= 0&nbsp;for</p>",
+      "options": [
+        {
+          "id": 191790,
+          "text": "i {tex}\\ne{/tex} j",
+          "html": "i&nbsp;<span class=\"math-tex\">{tex}\\ne{/tex}</span> j",
+          "is_correct": false
+        },
+        {
+          "id": 191789,
+          "text": "i = j",
+          "html": "i = j",
+          "is_correct": false
+        },
+        {
+          "id": 191787,
+          "text": "i is greater than j",
+          "html": "i is greater than j",
+          "is_correct": true
+        },
+        {
+          "id": 191788,
+          "text": "i is less than j",
+          "html": "i is less than j",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "i is greater than j",
+      "correct_option_ids": [
+        191787
+      ],
+      "explanation": "Upper Triangular matrix is given by: {tex}\\left[ {\\begin{array}{*{20}{c}} {{a_{11}}}&{{a_{12}}}&{{a_{13}}} \\\\ 0&{{a_{22}}}&{{a_{23}}} \\\\ 0&0&{{a_{33}}} \\end{array}} \\right]{/tex} . Here, a ij = 0, if i is greater than j.and a ij {tex}\\ne{/tex} 0, if i is less than j.",
+      "solution": ""
+    },
+    {
+      "n": 30,
+      "question_id": 264980,
+      "question_text": "The function f(x) = {tex}\\sum\\limits_{r=1}^{5}{/tex} ( x - r) 2 assumes minimum value at x =",
+      "question_html": "<p>The function f(x) = <span class=\"math-tex\">{tex}\\sum\\limits_{r=1}^{5}{/tex}</span>( x - r)<sup>2</sup> assumes minimum value at x =</p>",
+      "options": [
+        {
+          "id": 380003,
+          "text": "2",
+          "html": "2",
+          "is_correct": false
+        },
+        {
+          "id": 380000,
+          "text": "5",
+          "html": "5",
+          "is_correct": false
+        },
+        {
+          "id": 380001,
+          "text": "{tex}\\frac{5}{2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{5}{2}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 380002,
+          "text": "3",
+          "html": "3",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "3",
+      "correct_option_ids": [
+        380002
+      ],
+      "explanation": "f(x) = {tex}\\sum_{r=1}^{5}{/tex} (x - r) 2 f(x) = (x - 1) 2 + (x - 2) 2 + (x - 3) 2 + (x - 4) 2 + ( x - 5) 2 {tex}\\Rightarrow{/tex} f&#39;(x) = 2(x - 1 + x - 2 + x - 3 + x - 4 + x - 5) {tex}\\Rightarrow{/tex} f&#39;(x) = 2(5x - 15) f&#39;(x) = 0 2(5x - 15) = 0 {tex}\\Rightarrow{/tex} x = 3 f\"(x) = 10 > 0 function has minima at x = 3",
+      "solution": ""
+    },
+    {
+      "n": 31,
+      "question_id": 265292,
+      "question_text": "Let {tex}f(x)=\\left\\{\\begin{array}{cc} \\frac{1}{|x|} & \\text { for }|x| \\geq 1 \\\\ a x^{2}+b & \\text { for }|x|<1 \\end{array}\\right.{/tex} If f(x) is continuous and differentiable at any point, then",
+      "question_html": "<p>Let&nbsp;<span class=\"math-tex\">{tex}f(x)=\\left\\{\\begin{array}{cc} \\frac{1}{|x|} &amp; \\text { for }|x| \\geq 1 \\\\ a x^{2}+b &amp; \\text { for }|x|&lt;1 \\end{array}\\right.{/tex}</span>If f(x) is continuous and differentiable at any point, then</p>",
+      "options": [
+        {
+          "id": 380332,
+          "text": "{tex}\\mathrm{a}=\\frac{-1}{2}, \\mathrm{b}=\\frac{3}{2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\mathrm{a}=\\frac{-1}{2}, \\mathrm{b}=\\frac{3}{2}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 380334,
+          "text": "none of these",
+          "html": "none of these",
+          "is_correct": false
+        },
+        {
+          "id": 380335,
+          "text": "a = 1, b = &ndash;1",
+          "html": "a = 1, b = &ndash;1",
+          "is_correct": false
+        },
+        {
+          "id": 380333,
+          "text": "{tex}a=\\frac{1}{2}, b=-\\frac{3}{2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}a=\\frac{1}{2}, b=-\\frac{3}{2}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\mathrm{a}=\\frac{-1}{2}, \\mathrm{b}=\\frac{3}{2}{/tex}",
+      "correct_option_ids": [
+        380332
+      ],
+      "explanation": "Given that {tex}f(x)=\\left\\{\\begin{aligned} \\frac{-1}{x}, & x \\leq-1 \\\\ a x^{2}+b, &-1<x<1 \\\\ \\frac{1}{x}, x & \\geq 1 \\end{aligned}\\right\\}{/tex} {tex}\\because{/tex} f(x) is continuous and differentiable at any point, consider x =1. {tex}\\lim \\limits_{x \\rightarrow 1} \\frac{1}{x}=\\lim _{x \\rightarrow 1} a x^{2}+b{/tex} {tex} \\Rightarrow{/tex} a + b = 1 Also, {tex}\\Rightarrow \\lim \\limits_{x \\rightarrow 1^{-}} \\frac{f(x)-f(1)}{x-1}=\\lim \\limits_{x \\rightarrow 1^{+}} \\frac{f(x)-f(1)}{x-1}{/tex} {tex}\\Rightarrow \\lim \\limits_{x \\rightarrow 1} \\frac{a x^{2}-a}{x-1}=\\lim \\frac{1-x}{x(x-1)}{/tex} {tex}\\Rightarrow \\lim \\limits_{x \\rightarrow 1} a(x+1)=\\lim \\limits_{x \\rightarrow 1}(-x){/tex} {tex}\\Rightarrow a=\\frac{-1}{2}{/tex} Putting above value in a + b = 1,we get {tex}\\mathrm{b}=\\frac{3}{2}{/tex} . Which is the required value of a and b.",
+      "solution": ""
+    },
+    {
+      "n": 32,
+      "question_id": 263957,
+      "question_text": "The value of e in Rolle&rsquo;s theorem show f(x) = 2x 3 &ndash; 5x 2 &ndash; 4x + 3, is x {tex}\\in{/tex} [1/3, 3].",
+      "question_html": "<p>The value of e in Rolle&rsquo;s theorem show f(x) = 2x<sup>3</sup>&nbsp;&ndash; 5x<sup>2</sup>&nbsp;&ndash; 4x + 3, is x&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>[1/3, 3].</p>",
+      "options": [
+        {
+          "id": 379423,
+          "text": "{tex}\\frac{2}{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{2}{3}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 379422,
+          "text": "-2",
+          "html": "-2",
+          "is_correct": false
+        },
+        {
+          "id": 379421,
+          "text": "{tex}-\\frac{1}{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}-\\frac{1}{3}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 379420,
+          "text": "2",
+          "html": "2",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "2",
+      "correct_option_ids": [
+        379420
+      ],
+      "explanation": "f(x) = 2x 3 &ndash; 5x 2 &ndash; 4x + 3 f&rsquo;(x) = 6x 2 &ndash; 10x &ndash; 4 f&rsquo;(c) = 6c 2 &ndash; 10c &ndash; 4 {tex}\\therefore{/tex} f&rsquo;(c) = 0 {tex}\\Rightarrow{/tex} 6c 2 &ndash; 10c &ndash; 4 = 0 {tex}\\Rightarrow{/tex} 3c 2 &ndash; 5c &ndash; 2 = 0 {tex}\\Rightarrow{/tex} 3c 2 + c &ndash; 6c &ndash; 2 = 0 {tex}\\Rightarrow{/tex} c (3c + 1) &ndash; 2 (3c + 1) = 0 {tex}\\Rightarrow{/tex} (3c + 1) (c &ndash; 2) = 0 {tex}\\Rightarrow{/tex} c = 2 or {tex}c=-\\frac{1}{3}{/tex} {tex}\\therefore{/tex} c = 2 {tex}\\in{/tex} {tex}\\left(\\frac{1}{3}, 3\\right){/tex} Thus, as per Rolle&rsquo;s Theorem, c = 2 Є {tex}\\left(\\frac{1}{3}, 3\\right){/tex} . So, the required value of c = 2",
+      "solution": ""
+    },
+    {
+      "n": 33,
+      "question_id": 264042,
+      "question_text": "The equation of the normal to the curve 3x 2 - y 2 = 8 which is parallel to x+3y = 8 is",
+      "question_html": "<p>The equation of the normal to the curve 3x<sup>2</sup> - y<sup>2</sup> = 8 which is parallel to x+3y = 8 is</p>",
+      "options": [
+        {
+          "id": 379469,
+          "text": "x - 3y + 8 = 0",
+          "html": "x - 3y + 8 = 0",
+          "is_correct": false
+        },
+        {
+          "id": 379470,
+          "text": "{tex}x+3 y \\pm 8=0{/tex}",
+          "html": "<span class=\"math-tex\">{tex}x+3 y \\pm 8=0{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 379468,
+          "text": "x - 3y = 8",
+          "html": "x - 3y = 8",
+          "is_correct": false
+        },
+        {
+          "id": 379471,
+          "text": "x + 3y = 0",
+          "html": "x + 3y = 0",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}x+3 y \\pm 8=0{/tex}",
+      "correct_option_ids": [
+        379470
+      ],
+      "explanation": "The slope of the line x + 3y = 8 is {tex}\\frac{-1}{3}{/tex} 3x 2 - y 2 = 8 {tex}6 x-2 y \\frac{d y}{d x}=0{/tex} {tex}\\Rightarrow \\frac{d y}{d x}=\\frac{3 x}{y}{/tex} Slope of tangent {tex}=\\frac{3 x}{y}{/tex} {tex}\\Rightarrow{/tex} Slope of normal {tex}=\\frac{-y}{3 x}{/tex} Slope of tangent = Slope of normal {tex}\\frac{-y}{3 x}=\\frac{-1}{3}{/tex} x = y Put it in 3x 2 - y 2 = 8 {tex}x=\\pm 2{/tex} Let, equation of normal parallel to the given line x + 3y = k For x = 2 {tex}\\Rightarrow{/tex} y = 2 {tex}\\Rightarrow{/tex} k = 8 For x = -2 {tex}\\Rightarrow{/tex} y = -2 {tex}\\Rightarrow{/tex} k = -8 Hence, equation of the normals are {tex}x+3 y \\pm 8=0{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 34,
+      "question_id": 265024,
+      "question_text": "If {tex}u=\\cot ^{-1}\\{\\sqrt{\\tan \\theta}\\}{/tex} {tex}-\\tan ^{-1}\\{\\sqrt{\\tan \\theta}\\}{/tex} then, {tex}\\tan \\left(\\frac{\\pi}{4}-\\frac{u}{2}\\right)={/tex}",
+      "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}u=\\cot ^{-1}\\{\\sqrt{\\tan \\theta}\\}{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}-\\tan ^{-1}\\{\\sqrt{\\tan \\theta}\\}{/tex}</span>&nbsp;then,&nbsp;<span class=\"math-tex\">{tex}\\tan \\left(\\frac{\\pi}{4}-\\frac{u}{2}\\right)={/tex}</span></p>",
+      "options": [
+        {
+          "id": 380044,
+          "text": "{tex}\\sqrt{\\tan \\theta}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\sqrt{\\tan \\theta}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 380047,
+          "text": "cot {tex}\\theta{/tex}",
+          "html": "cot&nbsp;<span class=\"math-tex\">{tex}\\theta{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 380045,
+          "text": "{tex}\\sqrt{\\cot \\theta}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\sqrt{\\cot \\theta}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 380046,
+          "text": "tan {tex}\\theta{/tex}",
+          "html": "tan&nbsp;<span class=\"math-tex\">{tex}\\theta{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\sqrt{\\tan \\theta}{/tex}",
+      "correct_option_ids": [
+        380044
+      ],
+      "explanation": "{tex}u=\\cot ^{-1}\\{\\sqrt{\\tan \\theta}\\}-\\tan ^{-1}\\{\\sqrt{\\tan \\theta}{/tex} Put, {tex}\\sqrt{\\tan \\theta}=z{/tex} {tex}\\Rightarrow{/tex} u = cot -1 x - tan -1 z {tex}\\Rightarrow u=\\frac{\\pi}{2}{/tex} - tan -1 z - tan -1 z {tex}\\Rightarrow \\mathrm{u}=\\frac{\\pi}{2}{/tex} - 2 tan -1 z {tex}\\Rightarrow{/tex} 2 tan -1 z {tex}=\\frac{\\pi}{2}-u{/tex} {tex}\\Rightarrow \\tan ^{-1} z=\\frac{\\pi}{4}-\\frac{u}{2}{/tex} {tex}\\Rightarrow z=\\tan \\left(\\frac{\\pi}{4}-\\frac{u}{2}\\right){/tex} {tex}\\Rightarrow \\sqrt{\\tan \\theta}=\\tan \\left(\\frac{\\pi}{4}-\\frac{u}{2}\\right){/tex}",
+      "solution": ""
+    },
+    {
+      "n": 35,
+      "question_id": 261564,
+      "question_text": "The normal to the curve x 2 = 4y, passing through (1, 2) is",
+      "question_html": "<p>The normal to the curve x<sup>2</sup> = 4y,&nbsp;passing through (1, 2) is</p>",
+      "options": [
+        {
+          "id": 378068,
+          "text": "x + y = 3",
+          "html": "x + y = 3",
+          "is_correct": true
+        },
+        {
+          "id": 378070,
+          "text": "x + y = 1",
+          "html": "x + y = 1",
+          "is_correct": false
+        },
+        {
+          "id": 378069,
+          "text": "x - y = 3",
+          "html": "x - y = 3",
+          "is_correct": false
+        },
+        {
+          "id": 378071,
+          "text": "x - y = 1",
+          "html": "x - y = 1",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "x + y = 3",
+      "correct_option_ids": [
+        378068
+      ],
+      "explanation": "The given curve is x 2 = 4y Differentiating w.r.t. x, we get {tex}2 \\mathrm{x}=4 \\frac{\\mathrm{d} \\mathrm{y}}{\\mathrm{dx}}{/tex} {tex}\\Rightarrow \\frac{d y}{d x}=\\frac{x}{2}{/tex} Thus, the slope of the normal to the given curve at point (h, k) is {tex}\\frac{\\frac{-1}{1}}{\\left.\\frac{d y}{d x}\\right]_{(h, k)}}=\\frac{-2}{h}{/tex} Then, the equation of the normal to the curve at (h, k) is {tex}\\Rightarrow y-k=\\frac{-2}{h}(x-h){/tex} Now, it is given that the normal passes through the point (1, 2) Therefore,we obtain {tex}\\Rightarrow 2-\\mathrm{k}=\\frac{-2}{\\mathrm{h}}(1-\\mathrm{h}){/tex} ......(i) Since, (h, k) lies on the curve x 2 = 4y, we have h 2 = 4k {tex}\\Rightarrow \\mathrm{k}=\\frac{\\mathrm{h}^{2}}{4}{/tex} Now putting the value of k in (i), we get {tex}\\frac{h^{2}}{4}=2+\\frac{2}{h}(1-h){/tex} {tex}\\Rightarrow \\frac{\\mathrm{h}^{3}}{4}=2 \\mathrm{h}+2-2 \\mathrm{h}=2{/tex} {tex}\\Rightarrow{/tex} h 3 = 8 {tex}\\Rightarrow{/tex} h = 2 Therefore, the equation of the normal is given as: {tex}\\Rightarrow y-1=\\frac{-2}{2}(x-2){/tex} {tex}\\Rightarrow{/tex} y - 1 = -(x - 2) {tex}\\Rightarrow{/tex} x + y = 3. Which is the required solution.",
+      "solution": ""
+    },
+    {
+      "n": 36,
+      "question_id": 59819,
+      "question_text": "If two corner points of the feasible region are both optimal solutions of the same type, i.e., both produce the same maximum or minimum.",
+      "question_html": "<p>If two corner points of the feasible region are both optimal solutions of the same type, i.e., both produce the same maximum or minimum.</p>",
+      "options": [
+        {
+          "id": 194463,
+          "text": "then no point on the line segment joining these two points is an optimal solution of the same type",
+          "html": "then no point on the line segment joining these two points is an optimal solution of the same type",
+          "is_correct": false
+        },
+        {
+          "id": 194464,
+          "text": "then no point on the line segment joining these two points is an optimal solution of the opposite type",
+          "html": "then no point on the line segment joining these two points is an optimal solution of the opposite type",
+          "is_correct": false
+        },
+        {
+          "id": 194462,
+          "text": "then any point on the line segment joining these two points is also an optimal solution of the opposite type",
+          "html": "then any point on the line segment joining these two points is also an optimal solution of the opposite type",
+          "is_correct": false
+        },
+        {
+          "id": 194461,
+          "text": "then any point on the line segment joining these two points is also an optimal solution of the same type",
+          "html": "then any point on the line segment joining these two points is also an optimal solution of the same type",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "then any point on the line segment joining these two points is also an optimal solution of the same type",
+      "correct_option_ids": [
+        194461
+      ],
+      "explanation": "If two corner points of the feasible region are both optimal solutions of the same type, i.e., both produce the same maximum or minimum , then any point on the line segment joining these two points is also an optimal solution of the same type .",
+      "solution": ""
+    },
+    {
+      "n": 37,
+      "question_id": 59230,
+      "question_text": "Solution set of the equation {tex}\\left| {\\begin{array}{*{20}{c}} x&3&7 \\\\ 2&x&2 \\\\ 7&6&x \\end{array}} \\right| = 0{/tex} is",
+      "question_html": "<p>Solution set of the equation <span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} x&amp;3&amp;7 \\\\ 2&amp;x&amp;2 \\\\ 7&amp;6&amp;x \\end{array}} \\right| = 0{/tex}</span>&nbsp; is</p>",
+      "options": [
+        {
+          "id": 192107,
+          "text": "{ &ndash;9 ,2 , 7 }",
+          "html": "{ &ndash;9 ,2 , 7 }",
+          "is_correct": true
+        },
+        {
+          "id": 192108,
+          "text": "{ 1, 2 ,7 }",
+          "html": "{ 1, 2 ,7 }",
+          "is_correct": false
+        },
+        {
+          "id": 192109,
+          "text": "{ 2 , 5, 6 }",
+          "html": "{ 2 , 5, 6 }",
+          "is_correct": false
+        },
+        {
+          "id": 192110,
+          "text": "{ 9 , 6, 7 }",
+          "html": "{ 9&nbsp;, 6, 7&nbsp;}",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{ &ndash;9 ,2 , 7 }",
+      "correct_option_ids": [
+        192107
+      ],
+      "explanation": "x(x 2 - 12) - 3(2x -14) + 7(12 - 7x) = 0 {tex}\\Rightarrow{/tex} x 3 - 67x +126 = 0 {tex}\\Rightarrow{/tex} (x - 2)(x - 7)(x + 9) = 0 {tex}\\Rightarrow{/tex} x = 2, 7, -9",
+      "solution": ""
+    },
+    {
+      "n": 38,
+      "question_id": 59136,
+      "question_text": "If A = {tex}\\left[ {\\begin{array}{*{20}{c}} 0&0&0 \\\\ 0&0&0 \\\\ 0&1&0 \\end{array}} \\right]{/tex} then A is",
+      "question_html": "<p>If A =<span class=\"math-tex\">{tex}\\left[ {\\begin{array}{*{20}{c}} 0&amp;0&amp;0 \\\\ 0&amp;0&amp;0 \\\\ 0&amp;1&amp;0 \\end{array}} \\right]{/tex}</span> then A&nbsp;is</p>",
+      "options": [
+        {
+          "id": 191733,
+          "text": "an invertible matrix",
+          "html": "an invertible matrix",
+          "is_correct": false
+        },
+        {
+          "id": 191734,
+          "text": "upper triangular matrix",
+          "html": "upper triangular matrix",
+          "is_correct": false
+        },
+        {
+          "id": 191731,
+          "text": "a nilpotent matrix",
+          "html": "a nilpotent matrix",
+          "is_correct": true
+        },
+        {
+          "id": 191732,
+          "text": "an idempotent matrix",
+          "html": "an idempotent matrix",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "a nilpotent matrix",
+      "correct_option_ids": [
+        191731
+      ],
+      "explanation": "A square matrix A for which A n = 0, where n is a positive integer, is called a Nilpotent matrix. The determinant and trace of the matrix is always Zero for a Nilpotent Matrix. For the given matrix \"A\", determinant (A)=0 and trace(A) = 0.",
+      "solution": ""
+    },
+    {
+      "n": 39,
+      "question_id": 59289,
+      "question_text": "{tex}\\mathop {Lt}\\limits_{x \\to \\pi } \\;\\;\\;\\frac{{1 + {{\\cos }^3}x}}{{{{(x - \\pi )}^2}}}{/tex} is equal to",
+      "question_html": "<p><span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to \\pi } \\;\\;\\;\\frac{{1 + {{\\cos }^3}x}}{{{{(x - \\pi )}^2}}}{/tex}</span>&nbsp;is equal to</p>",
+      "options": [
+        {
+          "id": 192343,
+          "text": "{tex}\\frac{3}{2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{3}{2}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 192346,
+          "text": "{tex}\\frac{2}{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{2}{3}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 192345,
+          "text": "{tex}\\frac{1}{3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 192344,
+          "text": "{tex}\\frac{1}{2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{3}{2}{/tex}",
+      "correct_option_ids": [
+        192343
+      ],
+      "explanation": "{tex}\\mathop {\\lim }\\limits_{x \\to \\pi } \\frac{{1 + {{\\cos }^3}x}}{{{{\\left( {x - \\pi } \\right)}^2}}}{/tex} {tex} = \\mathop {\\lim }\\limits_{h \\to 0} \\frac{{1 + {{\\cos }^3}(\\pi + h)}}{{{{\\left( h \\right)}^2}}}{/tex} {tex} = \\mathop {\\lim }\\limits_{h \\to 0} \\frac{{1 - {{\\cos }^3}h}}{{{{\\left( h \\right)}^2}}}{/tex} {tex} = \\mathop {\\lim }\\limits_{h \\to 0} \\frac{{1 - \\cosh }}{{{h^2}}}.\\mathop {\\lim }\\limits_{h \\to 0} (1 + \\cosh + {\\cos ^2}h){/tex} {tex}= \\frac{1}{2}(1 + 1 + 1) = \\frac{3}{2}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 40,
+      "question_id": 270795,
+      "question_text": "Let f (x) = {tex}\\sqrt{9-x^{2}}{/tex} then, dom f(x) =?",
+      "question_html": "<p>Let f (x) =&nbsp;<span class=\"math-tex\">{tex}\\sqrt{9-x^{2}}{/tex}</span> then, dom f(x) =?</p>",
+      "options": [
+        {
+          "id": 384282,
+          "text": "[3, {tex}\\infty{/tex} )",
+          "html": "&nbsp;[3, <span class=\"math-tex\">{tex}\\infty{/tex}</span>)",
+          "is_correct": false
+        },
+        {
+          "id": 384281,
+          "text": "(- {tex}\\infty{/tex} , -3 ]",
+          "html": "(-<span class=\"math-tex\">{tex}\\infty{/tex}</span>, -3 ]",
+          "is_correct": false
+        },
+        {
+          "id": 384280,
+          "text": "[-3, 3]",
+          "html": "[-3, 3]",
+          "is_correct": true
+        },
+        {
+          "id": 384283,
+          "text": "(- {tex}\\infty{/tex} , -3] {tex}\\cup{/tex} (4, {tex}\\infty{/tex} )",
+          "html": "(-<span class=\"math-tex\">{tex}\\infty{/tex}</span>, -3] <span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;(4, <span class=\"math-tex\">{tex}\\infty{/tex}</span>)",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "[-3, 3]",
+      "correct_option_ids": [
+        384280
+      ],
+      "explanation": "f(x) = {tex}\\sqrt{9-x^{2}}{/tex} domain of the function can be defined for {tex}\\sqrt{9-x^{2}} \\geq 0{/tex} {tex}\\Rightarrow{/tex} {tex}\\sqrt{9-x^{2}} \\geq 0{/tex} {tex}\\Rightarrow{/tex} 9 - x 2 {tex}\\ge{/tex} 0 {tex}\\Rightarrow{/tex} x 2 {tex}\\le{/tex} 9 {tex}\\Rightarrow{/tex} -3 {tex}\\le{/tex} x {tex}\\le{/tex} 3 Therefore, domain of f(x) is [-3, 3]",
+      "solution": ""
+    },
+    {
+      "n": 41,
+      "question_id": 59110,
+      "question_text": "If {tex}{\\cos ^{ - 1}}x + {\\sin ^{ - 1}}\\left( {\\frac{x}{2}} \\right) = \\frac{\\pi }{6},{/tex} then x =",
+      "question_html": "<p>If <span class=\"math-tex\">{tex}{\\cos ^{ - 1}}x + {\\sin ^{ - 1}}\\left( {\\frac{x}{2}} \\right) = \\frac{\\pi }{6},{/tex}</span> then x =</p>",
+      "options": [
+        {
+          "id": 191628,
+          "text": "{tex}\\frac{1}{{\\sqrt 2 }}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{{\\sqrt 2 }}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 191629,
+          "text": "0",
+          "html": "0",
+          "is_correct": false
+        },
+        {
+          "id": 191630,
+          "text": "{tex} \\pm \\sqrt {3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex} \\pm \\sqrt {3}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 191627,
+          "text": "1",
+          "html": "1",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "1",
+      "correct_option_ids": [
+        191627
+      ],
+      "explanation": "{tex}{\\cos ^{ - 1}}x + {\\sin ^{ - 1}}\\left( {\\frac{x}{2}} \\right) = \\frac{\\pi }{6}{/tex} , {tex} \\Rightarrow {\\sin ^{ - 1}}\\left( {\\frac{x}{2}} \\right) = \\frac{\\pi }{6} - {\\cos ^{ - 1}}x{/tex} {tex} \\Rightarrow \\left( {\\frac{x}{2}} \\right) = \\sin \\left( {\\frac{\\pi }{6} - {{\\cos }^{ - 1}}x} \\right){/tex} {tex} \\Rightarrow \\frac{x}{2} = \\frac{1}{2}.x - \\frac{{\\sqrt 3 }}{2}\\sin ({\\cos ^{ - 1}}x){/tex} {tex}\\Rightarrow \\sin ({\\cos ^{ - 1}}x) = 0{/tex} {tex}\\Rightarrow \\sqrt{1-x^2}=0{/tex} {tex}{\\sqrt {1 - {x^2}} {\\mkern 1mu} {\\mkern 1mu} = 0}{/tex} {tex}{ \\Rightarrow {\\mkern 1mu} {\\mkern 1mu} 1 - {x^2}{\\mkern 1mu} = 0{\\mkern 1mu} {\\mkern 1mu} {\\mkern 1mu} {\\mkern 1mu} \\Rightarrow {\\mkern 1mu} {\\mkern 1mu} x = \\pm 1}{/tex} {tex}{x = - 1{\\mkern 1mu} not \\;possible{\\mkern 1mu} {\\mkern 1mu} {\\mkern 1mu} {\\mkern 1mu} {{\\cos }^{ - 1}}\\left( { - 1} \\right){\\mkern 1mu} {\\mkern 1mu} + {{\\sin }^{ - 1}}\\left( {\\frac{{ - 1}}{2}} \\right){\\mkern 1mu} {\\mkern 1mu} = {\\mkern 1mu} {\\mkern 1mu} \\pi + \\frac{{5\\pi }}{6}{\\mkern 1mu} \\ne \\frac{\\pi }{6}}{/tex} {tex}{{\\mkern 1mu} \\therefore {\\mkern 1mu} x = 1}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 42,
+      "question_id": 59857,
+      "question_text": "Maximise the function Z = 11x + 7y, subject to the constraints: x &le; 3, y &le; 2,x &ge; 0, y &ge; 0.",
+      "question_html": "<p>Maximise the function Z = 11x + 7y, subject to the constraints: x &le; 3, y &le; 2,x &ge; 0, y &ge; 0.</p>",
+      "options": [
+        {
+          "id": 194613,
+          "text": "47",
+          "html": "47",
+          "is_correct": true
+        },
+        {
+          "id": 194616,
+          "text": "50",
+          "html": "50",
+          "is_correct": false
+        },
+        {
+          "id": 194615,
+          "text": "49",
+          "html": "49",
+          "is_correct": false
+        },
+        {
+          "id": 194614,
+          "text": "48",
+          "html": "48",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "47",
+      "correct_option_ids": [
+        194613
+      ],
+      "explanation": "We have , Maximise the function Z = 11x + 7y, subject to the constraints: x &le; 3, y &le; 2,x &ge; 0, y &ge; 0. Corner points Z = 11x +7 y C(0, 0 ) 0 B (3,0) 33 D(0,2 ) 14 A( 3, 2 ) 47 Hence the function has maximum value of 47",
+      "solution": ""
+    },
+    {
+      "n": 43,
+      "question_id": 59342,
+      "question_text": "Derivative of log|x| w.r.t. |x| is",
+      "question_html": "<p>Derivative of log|x| w.r.t. |x| is</p>",
+      "options": [
+        {
+          "id": 192556,
+          "text": "{tex}\\frac{1}{x}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{x}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 192558,
+          "text": "{tex}-\\frac{1}{x}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}-\\frac{1}{x}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 192557,
+          "text": "{tex} \\pm \\frac{1}{x}{/tex}",
+          "html": "<span class=\"math-tex\">{tex} \\pm \\frac{1}{x}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 192555,
+          "text": "{tex}\\frac{1}{{\\left| x \\right|}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{{\\left| x \\right|}}{/tex}</span>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{1}{{\\left| x \\right|}}{/tex}",
+      "correct_option_ids": [
+        192555
+      ],
+      "explanation": "{tex}\\frac{d}{{d\\left| x \\right|}}\\left( {\\log \\left| x \\right|} \\right) = \\frac{1}{{\\left| x \\right|}}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 44,
+      "question_id": 59397,
+      "question_text": "If the curve ay + x 2 = 7 and x 3 = y cut orthogonally at (1, 1), then the value of a is:",
+      "question_html": "<p>If the curve ay + x<sup>2</sup>&nbsp;= 7&nbsp;and x<sup>3</sup>&nbsp;= y&nbsp;cut orthogonally at (1, 1), then the value of a is:&nbsp;</p>",
+      "options": [
+        {
+          "id": 192777,
+          "text": "1",
+          "html": "1",
+          "is_correct": false
+        },
+        {
+          "id": 192776,
+          "text": "&ndash; 6",
+          "html": "&ndash; 6",
+          "is_correct": false
+        },
+        {
+          "id": 192775,
+          "text": "6",
+          "html": "6",
+          "is_correct": true
+        },
+        {
+          "id": 192778,
+          "text": "0",
+          "html": "0",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "6",
+      "correct_option_ids": [
+        192775
+      ],
+      "explanation": "{tex}ay+{ x^{ 2 } }=7\\Rightarrow a.\\frac { dy }{ dx } +2x=0\\Rightarrow \\frac { dy }{ dx } ={ m }_{ 1 }=\\frac { -2x }{ a } ...(i){/tex} {tex}\\\\ y={ x }^{ 3 }\\Rightarrow \\frac { { dy } }{ { dx } } =\\frac { d }{ { dx } } ({ x^{ 3 } })=3{ x^{ 2 } }\\Rightarrow \\frac { dy }{ dx } ={ m }_{ 2 }=3{ x^{ 2 } }.....(ii){/tex} Now, at (1,1) {tex} { m }_{ 1 }=\\frac { -2 }{ a } and\\quad { m }_{ 2 }=3{/tex} Two curves cut orthogonally means m 1 , m 2 = -1 {tex}\\\\ \\Rightarrow \\frac { -2 }{ a } .3=-1\\Rightarrow a=6\\\\ {/tex}",
+      "solution": ""
+    },
+    {
+      "n": 45,
+      "question_id": 58994,
+      "question_text": "Let {tex}f{\\text{ }}:{\\text{ }}R{\\text{ }} \\to {\\text{ }}R{/tex} be defined by f (x) = {tex}\\;\\frac{1}{x}{/tex} , {tex}\\forall{/tex} {tex}x \\in R{/tex} . Then f is",
+      "question_html": "<p>Let <span class=\"math-tex\">{tex}f{\\text{ }}:{\\text{ }}R{\\text{ }} \\to {\\text{ }}R{/tex}</span> be defined by f (x) = <span class=\"math-tex\">{tex}\\;\\frac{1}{x}{/tex}</span>&nbsp;,&nbsp;<span class=\"math-tex\">{tex}\\forall{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}x \\in R{/tex}</span> . Then f is</p>",
+      "options": [
+        {
+          "id": 191166,
+          "text": "one &ndash; one",
+          "html": "one &ndash; one",
+          "is_correct": false
+        },
+        {
+          "id": 191165,
+          "text": "Onto",
+          "html": "Onto",
+          "is_correct": false
+        },
+        {
+          "id": 191163,
+          "text": "f is not defined",
+          "html": "f is not defined",
+          "is_correct": true
+        },
+        {
+          "id": 191164,
+          "text": "Bijective",
+          "html": "Bijective",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "f is not defined",
+      "correct_option_ids": [
+        191163
+      ],
+      "explanation": "Because , {tex}\\frac{1}{x}\\;\\;is{\\text{ }}not{\\text{ }}defined{\\text{ }}for{\\text{ }}x\\ = 0,{/tex} {tex}\\;as\\;0 \\in R,\\;\\therefore f{\\text{ }}is{\\text{ }}not{\\text{ }}defined.{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 46,
+      "question_id": 578700,
+      "question_text": "Instructions for Question 46 to 50: If there is a statement involving the natural number n such that The statement is true for n = 1 When the statement is true for n = k (where k is some positive integer), then the statement is also true for n = k + 1. Then, the statement is true for all natural numbers n. Also, if A is a square matrix of order n, then A 2 is defined as AA. In general, A m = AA .... A (m times), where m is any positive integer. If A = {tex}\\left[\\begin{array}{ll} 3 & -4 \\\\ 1 & -1 \\end{array}\\right]{/tex} , then for any positive integer n,",
+      "question_html": "<b>Instructions for Question 46 to 50:</b><br><p>If there is a statement involving the natural number n such that</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>The statement is true for n = 1</li>\r\n\t<li>When the statement is true for n = k (where k is some positive integer), then the statement is also true for n = k + 1.</li>\r\n</ol>\r\n\r\n<p>Then, the statement is true for all natural numbers n.<br />\r\nAlso, if A is a square matrix of order n, then A<sup>2</sup> is defined as AA. In general, A<sup>m</sup> = AA .... A (m times), where m is any positive integer.</p><br><p>If A =&nbsp;<span class=\"math-tex\">{tex}\\left[\\begin{array}{ll} 3 &amp; -4 \\\\ 1 &amp; -1 \\end{array}\\right]{/tex}</span>,&nbsp;then for any positive integer n,</p>",
+      "options": [
+        {
+          "id": 1118763,
+          "text": "A n = {tex}\\left[\\begin{array}{cc} 3 n & -8 n \\\\ 1 & -n \\end{array}\\right]{/tex}",
+          "html": "A<sup>n</sup>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\left[\\begin{array}{cc} 3 n &amp; -8 n \\\\ 1 &amp; -n \\end{array}\\right]{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 1118764,
+          "text": "A n = {tex}\\left[\\begin{array}{cc} 1+3 n & -4 n \\\\ n & 1-3 n \\end{array}\\right]{/tex}",
+          "html": "A<sup>n</sup>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\left[\\begin{array}{cc} 1+3 n &amp; -4 n \\\\ n &amp; 1-3 n \\end{array}\\right]{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 1118762,
+          "text": "A n = {tex}\\left[\\begin{array}{cc} 1+2 n & -4 n \\\\ n & 1-2 n \\end{array}\\right]{/tex}",
+          "html": "A<sup>n</sup>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\left[\\begin{array}{cc} 1+2 n &amp; -4 n \\\\ n &amp; 1-2 n \\end{array}\\right]{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 1118761,
+          "text": "A n = {tex}\\left[\\begin{array}{cc} 3 n & -4 n \\\\ n & -n \\end{array}\\right]{/tex}",
+          "html": "A<sup>n</sup>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\left[\\begin{array}{cc} 3 n &amp; -4 n \\\\ n &amp; -n \\end{array}\\right]{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "A n = {tex}\\left[\\begin{array}{cc} 1+2 n & -4 n \\\\ n & 1-2 n \\end{array}\\right]{/tex}",
+      "correct_option_ids": [
+        1118762
+      ],
+      "explanation": "We have, A = {tex}\\left[\\begin{array}{ll} 3 & -4 \\\\ 1 & -1 \\end{array}\\right]{/tex} {tex}\\therefore{/tex} A 2 = {tex}\\left[\\begin{array}{rr} 3 & -4 \\\\ 1 & -1 \\end{array}\\right]\\left[\\begin{array}{cc} 3 & -4 \\\\ 1 & -1 \\end{array}\\right]=\\left[\\begin{array}{cc} 5 & -8 \\\\ 2 & -3 \\end{array}\\right]{/tex} , which can be obtained from A n = {tex}\\left[\\begin{array}{cc} 1+2 n & -4 n \\\\ n & 1-2 n \\end{array}\\right]{/tex} for n = 2.",
+      "solution": ""
+    },
+    {
+      "n": 47,
+      "question_id": 578744,
+      "question_text": "Instructions for Question 46 to 50: If there is a statement involving the natural number n such that The statement is true for n = 1 When the statement is true for n = k (where k is some positive integer), then the statement is also true for n = k + 1. Then, the statement is true for all natural numbers n. Also, if A is a square matrix of order n, then A 2 is defined as AA. In general, A m = AA .... A (m times), where m is any positive integer. If A = {tex}\\left[\\begin{array}{ll} 1 & 2 \\\\ 0 & 1 \\end{array}\\right]{/tex} , then |A n |, where n {tex}\\in{/tex} N, is equal to",
+      "question_html": "<b>Instructions for Question 46 to 50:</b><br><p>If there is a statement involving the natural number n such that</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>The statement is true for n = 1</li>\r\n\t<li>When the statement is true for n = k (where k is some positive integer), then the statement is also true for n = k + 1.</li>\r\n</ol>\r\n\r\n<p>Then, the statement is true for all natural numbers n.<br />\r\nAlso, if A is a square matrix of order n, then A<sup>2</sup> is defined as AA. In general, A<sup>m</sup> = AA .... A (m times), where m is any positive integer.</p><br><p>If A =&nbsp;<span class=\"math-tex\">{tex}\\left[\\begin{array}{ll} 1 &amp; 2 \\\\ 0 &amp; 1 \\end{array}\\right]{/tex}</span>, then |A<sup>n</sup>|, where n&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N, is equal to</p>",
+      "options": [
+        {
+          "id": 1118936,
+          "text": "3 n",
+          "html": "3<sup>n</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 1118940,
+          "text": "1",
+          "html": "1",
+          "is_correct": true
+        },
+        {
+          "id": 1118934,
+          "text": "2 n",
+          "html": "2<sup>n</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 1118938,
+          "text": "n",
+          "html": "n",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "1",
+      "correct_option_ids": [
+        1118940
+      ],
+      "explanation": "We have, A = {tex}\\left[\\begin{array}{ll} 1 & 2 \\\\ 0 & 1 \\end{array}\\right]{/tex} {tex}\\therefore{/tex} |A| = {tex}\\left|\\begin{array}{ll} 1 & 2 \\\\ 0 & 1 \\end{array}\\right|{/tex} = 1 - 0 = 1 Also, |A n | = |A {tex}\\cdot{/tex} A ...A (n times)| = |A| n = 1 n = 1",
+      "solution": ""
+    },
+    {
+      "n": 48,
+      "question_id": 578807,
+      "question_text": "Instructions for Question 46 to 50: If there is a statement involving the natural number n such that The statement is true for n = 1 When the statement is true for n = k (where k is some positive integer), then the statement is also true for n = k + 1. Then, the statement is true for all natural numbers n. Also, if A is a square matrix of order n, then A 2 is defined as AA. In general, A m = AA .... A (m times), where m is any positive integer. If A = {tex}\\left[\\begin{array}{ll} 1 & 0 \\\\ 1 & 1 \\end{array}\\right]{/tex} and I = {tex}\\left[\\begin{array}{ll} 1 & 0 \\\\ 0 & 1 \\end{array}\\right]{/tex} , then which of the following holds for all natural numbers n {tex}\\geq{/tex} 1?",
+      "question_html": "<b>Instructions for Question 46 to 50:</b><br><p>If there is a statement involving the natural number n such that</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>The statement is true for n = 1</li>\r\n\t<li>When the statement is true for n = k (where k is some positive integer), then the statement is also true for n = k + 1.</li>\r\n</ol>\r\n\r\n<p>Then, the statement is true for all natural numbers n.<br />\r\nAlso, if A is a square matrix of order n, then A<sup>2</sup> is defined as AA. In general, A<sup>m</sup> = AA .... A (m times), where m is any positive integer.</p><br><p>If A =&nbsp;<span class=\"math-tex\">{tex}\\left[\\begin{array}{ll} 1 &amp; 0 \\\\ 1 &amp; 1 \\end{array}\\right]{/tex}</span>&nbsp;and I =&nbsp;<span class=\"math-tex\">{tex}\\left[\\begin{array}{ll} 1 &amp; 0 \\\\ 0 &amp; 1 \\end{array}\\right]{/tex}</span>,&nbsp;then which of the following holds for all natural numbers n <span class=\"math-tex\">{tex}\\geq{/tex}</span> 1?</p>",
+      "options": [
+        {
+          "id": 1119182,
+          "text": "A n = 2 n-1 A - (n - 1)I",
+          "html": "A<sup>n</sup>&nbsp;= 2<sup>n-1</sup>&nbsp;A - (n - 1)I",
+          "is_correct": false
+        },
+        {
+          "id": 1119186,
+          "text": "A n = 2 n-1 A + (n - 1)I",
+          "html": "A<sup>n</sup>&nbsp;= 2<sup>n-1</sup>&nbsp;A + (n - 1)I",
+          "is_correct": false
+        },
+        {
+          "id": 1119180,
+          "text": "A n = nA - (n - 1)I",
+          "html": "A<sup>n</sup>&nbsp;= nA - (n - 1)I",
+          "is_correct": true
+        },
+        {
+          "id": 1119184,
+          "text": "A n = nA + (n - 1)I",
+          "html": "A<sup>n</sup>&nbsp;= nA + (n - 1)I",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "A n = nA - (n - 1)I",
+      "correct_option_ids": [
+        1119180
+      ],
+      "explanation": "For n = 1, all options are true, A 2 = A {tex}\\cdot{/tex} A = {tex}\\left[\\begin{array}{ll} 1 & 0 \\\\ 1 & 1 \\end{array}\\right]\\left[\\begin{array}{ll} 1 & 0 \\\\ 1 & 1 \\end{array}\\right]=\\left[\\begin{array}{ll} 1 & 0 \\\\ 2 & 1 \\end{array}\\right]{/tex} and A 3 = A 2 {tex}\\cdot{/tex} A = {tex}\\left[\\begin{array}{ll} 1 & 0 \\\\ 2 & 1 \\end{array}\\right]\\left[\\begin{array}{ll} 1 & 0 \\\\ 1 & 1 \\end{array}\\right]=\\left[\\begin{array}{ll} 1 & 0 \\\\ 3 & 1 \\end{array}\\right]{/tex} Putting n = 3, in (a), we get A 3 = 3A - 2I = 3 {tex}\\left[\\begin{array}{ll} 1 & 0 \\\\ 1 & 1 \\end{array}\\right]-\\left[\\begin{array}{ll} 2 & 0 \\\\ 0 & 2 \\end{array}\\right]{/tex} = {tex}\\left[\\begin{array}{ll} 3 & 0 \\\\ 3 & 3 \\end{array}\\right]-\\left[\\begin{array}{ll} 2 & 0 \\\\ 0 & 2 \\end{array}\\right]=\\left[\\begin{array}{ll} 1 & 0 \\\\ 3 & 1 \\end{array}\\right]{/tex} , which is true. All other options are different from A 3 = 3A - 2I for n = 3.",
+      "solution": ""
+    },
+    {
+      "n": 49,
+      "question_id": 578866,
+      "question_text": "Instructions for Question 46 to 50: If there is a statement involving the natural number n such that The statement is true for n = 1 When the statement is true for n = k (where k is some positive integer), then the statement is also true for n = k + 1. Then, the statement is true for all natural numbers n. Also, if A is a square matrix of order n, then A 2 is defined as AA. In general, A m = AA .... A (m times), where m is any positive integer. Let A = {tex}\\left[\\begin{array}{lll} a & 0 & 0 \\\\ 0 & a & 0 \\\\ 0 & 0 & a \\end{array}\\right]{/tex} and A n = [a ij ] 3 {tex}\\times{/tex} 3 for some positive integer n, then the cofactor of a 13 is",
+      "question_html": "<b>Instructions for Question 46 to 50:</b><br><p>If there is a statement involving the natural number n such that</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>The statement is true for n = 1</li>\r\n\t<li>When the statement is true for n = k (where k is some positive integer), then the statement is also true for n = k + 1.</li>\r\n</ol>\r\n\r\n<p>Then, the statement is true for all natural numbers n.<br />\r\nAlso, if A is a square matrix of order n, then A<sup>2</sup> is defined as AA. In general, A<sup>m</sup> = AA .... A (m times), where m is any positive integer.</p><br><p>Let A =&nbsp;<span class=\"math-tex\">{tex}\\left[\\begin{array}{lll} a &amp; 0 &amp; 0 \\\\ 0 &amp; a &amp; 0 \\\\ 0 &amp; 0 &amp; a \\end{array}\\right]{/tex}</span>&nbsp;and A<sup>n</sup>&nbsp;= [a<sub>ij</sub>]<sub>3<span class=\"math-tex\">{tex}\\times{/tex}</span>3</sub>&nbsp;for some positive integer n, then the cofactor of a<sub>13</sub>&nbsp;is</p>",
+      "options": [
+        {
+          "id": 1119436,
+          "text": "2a n",
+          "html": "2a<sup>n</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 1119439,
+          "text": "0",
+          "html": "0",
+          "is_correct": true
+        },
+        {
+          "id": 1119431,
+          "text": "-a n",
+          "html": "-a<sup>n</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 1119428,
+          "text": "a n",
+          "html": "a<sup>n</sup>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "0",
+      "correct_option_ids": [
+        1119439
+      ],
+      "explanation": "We have, A = {tex}\\left[\\begin{array}{lll} a & 0 & 0 \\\\ 0 & a & 0 \\\\ 0 & 0 & a \\end{array}\\right]{/tex} {tex}\\therefore{/tex} A 2 = A {tex}\\cdot{/tex} A = {tex}\\left[\\begin{array}{lll} a & 0 & 0 \\\\ 0 & a & 0 \\\\ 0 & 0 & a \\end{array}\\right]\\left[\\begin{array}{lll} a & 0 & 0 \\\\ 0 & a & 0 \\\\ 0 & 0 & a \\end{array}\\right]{/tex} = {tex}\\left[\\begin{array}{ccc} a^{2} & 0 & 0 \\\\ 0 & a^{2} & 0 \\\\ 0 & 0 & a^{2} \\end{array}\\right]{/tex} Similarly, A n = {tex}\\left[\\begin{array}{ccc} a^{n} & 0 & 0 \\\\ 0 & a^{n} & 0 \\\\ 0 & 0 & a^{n} \\end{array}\\right]{/tex} Now, cofactor of a 13 = (-1) 1+3 {tex}\\left|\\begin{array}{ll} 0 & a^{n} \\\\ 0 & 0 \\end{array}\\right|{/tex} = 0",
+      "solution": ""
+    },
+    {
+      "n": 50,
+      "question_id": 578929,
+      "question_text": "Instructions for Question 46 to 50: If there is a statement involving the natural number n such that The statement is true for n = 1 When the statement is true for n = k (where k is some positive integer), then the statement is also true for n = k + 1. Then, the statement is true for all natural numbers n. Also, if A is a square matrix of order n, then A 2 is defined as AA. In general, A m = AA .... A (m times), where m is any positive integer. If A is a square matrix such that |A| = 2, then for any positive integer n, |A n | is equal to",
+      "question_html": "<b>Instructions for Question 46 to 50:</b><br><p>If there is a statement involving the natural number n such that</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>The statement is true for n = 1</li>\r\n\t<li>When the statement is true for n = k (where k is some positive integer), then the statement is also true for n = k + 1.</li>\r\n</ol>\r\n\r\n<p>Then, the statement is true for all natural numbers n.<br />\r\nAlso, if A is a square matrix of order n, then A<sup>2</sup> is defined as AA. In general, A<sup>m</sup> = AA .... A (m times), where m is any positive integer.</p><br><p>If A is a square matrix such that |A| = 2, then for any positive integer n, |A<sup>n</sup>| is equal to</p>",
+      "options": [
+        {
+          "id": 1119689,
+          "text": "0",
+          "html": "0",
+          "is_correct": false
+        },
+        {
+          "id": 1119694,
+          "text": "n 2",
+          "html": "n<sup>2</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 1119691,
+          "text": "2n",
+          "html": "2n",
+          "is_correct": false
+        },
+        {
+          "id": 1119692,
+          "text": "2 n",
+          "html": "2<sup>n</sup>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "2 n",
+      "correct_option_ids": [
+        1119692
+      ],
+      "explanation": "We have, |A| = 2 and |A n | = |A {tex}\\cdot{/tex} A ...A (n-times)| = |A| |A| ... |A| (n-times) = |A| n = 2 n",
+      "solution": ""
+    }
+  ]
+}

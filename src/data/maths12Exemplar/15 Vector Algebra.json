@@ -1,0 +1,2037 @@
+[
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260479,
+    "q_no": "1",
+    "question_text": "Find the unit vector in the direction of sum of vectors {tex}\\vec{a}=2 \\hat{i}-\\hat{j}+\\hat{k}{/tex} and {tex}\\vec{b}=2 \\hat{j}+\\hat{k}{/tex} .",
+    "question_html": "<p>Find the unit vector in the direction of sum of vectors <span class=\"math-tex\">{tex}\\vec{a}=2 \\hat{i}-\\hat{j}+\\hat{k}{/tex}</span> and <span class=\"math-tex\">{tex}\\vec{b}=2 \\hat{j}+\\hat{k}{/tex}</span>.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "We have, {tex}\\overrightarrow{\\mathrm{a}}=2 \\hat{\\mathrm{i}}-\\hat{\\mathrm{j}}+\\hat{\\mathrm{k}}{/tex} {tex}\\overrightarrow{\\mathrm{b}}=2 \\hat{\\mathrm{j}}+\\hat{\\mathrm{k}}{/tex} Since, unit vector is needed to be found in the direction of the sum of vectors {tex}\\vec a{/tex} and {tex}\\vec b{/tex} . So, add vectors {tex}\\vec a{/tex} and {tex}\\vec b{/tex} . Let, {tex}\\vec{\\mathrm{c}}=\\vec{\\mathrm{a}}+\\vec{\\mathrm{b}}{/tex} Substituting the values of vectors {tex}\\vec a{/tex} and {tex}\\vec b{/tex} . {tex}\\Rightarrow \\vec{\\mathrm{c}}=(2 \\hat{1}-\\hat{\\jmath}+\\hat{\\mathrm{k}})+(2 \\hat{\\mathrm{j}}+\\hat{\\mathrm{k}}){/tex} {tex}\\Rightarrow \\vec{\\mathrm{c}}=2 \\hat{\\mathrm{i}}-\\hat{\\mathrm{j}}+\\hat{\\mathrm{k}}+2 \\hat{\\mathrm{j}}+\\hat{\\mathrm{k}}{/tex} {tex}\\Rightarrow \\vec{\\mathrm{c}}=2 \\hat{\\mathrm{i}}-\\hat{\\mathrm{j}}+2 \\hat{\\mathrm{j}}+\\hat{\\mathrm{k}}+\\hat{\\mathrm{k}}{/tex} {tex}\\Rightarrow \\vec{\\mathrm{c}}=2 \\hat{i}+\\hat{\\jmath}+2 \\hat{\\mathrm{k}}{/tex} We know that, a unit vector in a normed vector space is a vector (often a spatial vector) of length 1. To find a unit vector with the same direction as a given vector, we divide by the magnitude of the vector. For finding unit vector, we have the formula: {tex}\\widehat{c}=\\frac{\\vec{c}}{|\\vec{c}|}{/tex} Substitute the value of {tex}\\vec c{/tex} . {tex}\\Rightarrow \\widehat{c}=\\frac{2 \\hat{\\imath}+\\hat{\\jmath}+2 \\hat{k}}{|2 \\hat{\\imath}+\\hat{\\jmath}+2 \\hat{k}|}{/tex} Here, {tex}|2 \\hat{\\imath}+\\hat{\\jmath}+2 \\hat{k}|=\\sqrt{2^{2}+1^{2}+2^{2}}{/tex} . {tex}\\Rightarrow \\hat{c}=\\frac{2 \\hat{\\imath}+\\hat{\\jmath}+2 \\hat{k}}{\\sqrt{2^{2}+1^{2}+2^{2}}}{/tex} {tex}\\Rightarrow \\widehat{c}=\\frac{2 \\hat{\\imath}+\\hat{\\jmath}+2 \\hat{k}}{\\sqrt{4+1+4}}{/tex} {tex}\\Rightarrow \\widehat{c}=\\frac{2 \\hat{\\imath}+\\hat{\\jmath}+2 \\hat{k}}{\\sqrt{9}}{/tex} {tex}\\Rightarrow \\widehat{c}=\\frac{2 \\hat{\\imath}+\\hat{\\jmath}+2 \\hat{k}}{3}{/tex} .. Thus, unit vector in the direction of sum of vectors {tex}\\vec a{/tex} and {tex}\\vec b{/tex} is {tex}\\frac{2 \\hat{i}+\\hat{j}+2 \\tilde{k}}{3}{/tex} .",
+    "solution_html": "<p>We have,&nbsp;<br />\n<span class=\"math-tex\">{tex}\\overrightarrow{\\mathrm{a}}=2 \\hat{\\mathrm{i}}-\\hat{\\mathrm{j}}+\\hat{\\mathrm{k}}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\overrightarrow{\\mathrm{b}}=2 \\hat{\\mathrm{j}}+\\hat{\\mathrm{k}}{/tex}</span><br />\nSince, unit vector is needed to be found in the direction of the sum of vectors&nbsp;<span class=\"math-tex\">{tex}\\vec a{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\vec b{/tex}</span>.<br />\nSo, add vectors&nbsp;<span class=\"math-tex\">{tex}\\vec a{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\vec b{/tex}</span>.<br />\nLet,&nbsp;<br />\n<span class=\"math-tex\">{tex}\\vec{\\mathrm{c}}=\\vec{\\mathrm{a}}+\\vec{\\mathrm{b}}{/tex}</span><br />\nSubstituting the values of vectors&nbsp;<span class=\"math-tex\">{tex}\\vec a{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\vec b{/tex}</span>.<br />\n<span class=\"math-tex\">{tex}\\Rightarrow \\vec{\\mathrm{c}}=(2 \\hat{1}-\\hat{\\jmath}+\\hat{\\mathrm{k}})+(2 \\hat{\\mathrm{j}}+\\hat{\\mathrm{k}}){/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow \\vec{\\mathrm{c}}=2 \\hat{\\mathrm{i}}-\\hat{\\mathrm{j}}+\\hat{\\mathrm{k}}+2 \\hat{\\mathrm{j}}+\\hat{\\mathrm{k}}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow \\vec{\\mathrm{c}}=2 \\hat{\\mathrm{i}}-\\hat{\\mathrm{j}}+2 \\hat{\\mathrm{j}}+\\hat{\\mathrm{k}}+\\hat{\\mathrm{k}}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow \\vec{\\mathrm{c}}=2 \\hat{i}+\\hat{\\jmath}+2 \\hat{\\mathrm{k}}{/tex}</span></p>\n\n<p>We know that, a unit vector in a normed vector space is a vector (often a spatial vector) of length 1.<br />\nTo find a unit vector with the same direction as a given vector, we divide by the magnitude of the vector.<br />\nFor finding unit vector, we have the formula:<br />\n<span class=\"math-tex\">{tex}\\widehat{c}=\\frac{\\vec{c}}{|\\vec{c}|}{/tex}</span><br />\nSubstitute the value of&nbsp;<span class=\"math-tex\">{tex}\\vec c{/tex}</span>.<br />\n<span class=\"math-tex\">{tex}\\Rightarrow \\widehat{c}=\\frac{2 \\hat{\\imath}+\\hat{\\jmath}+2 \\hat{k}}{|2 \\hat{\\imath}+\\hat{\\jmath}+2 \\hat{k}|}{/tex}</span><br />\nHere,&nbsp;<span class=\"math-tex\">{tex}|2 \\hat{\\imath}+\\hat{\\jmath}+2 \\hat{k}|=\\sqrt{2^{2}+1^{2}+2^{2}}{/tex}</span>.<br />\n<span class=\"math-tex\">{tex}\\Rightarrow \\hat{c}=\\frac{2 \\hat{\\imath}+\\hat{\\jmath}+2 \\hat{k}}{\\sqrt{2^{2}+1^{2}+2^{2}}}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow \\widehat{c}=\\frac{2 \\hat{\\imath}+\\hat{\\jmath}+2 \\hat{k}}{\\sqrt{4+1+4}}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow \\widehat{c}=\\frac{2 \\hat{\\imath}+\\hat{\\jmath}+2 \\hat{k}}{\\sqrt{9}}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow \\widehat{c}=\\frac{2 \\hat{\\imath}+\\hat{\\jmath}+2 \\hat{k}}{3}{/tex}</span>..<br />\nThus, unit vector in the direction of sum of vectors&nbsp;<span class=\"math-tex\">{tex}\\vec a{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\vec b{/tex}</span>&nbsp;is&nbsp;<span class=\"math-tex\">{tex}\\frac{2 \\hat{i}+\\hat{j}+2 \\tilde{k}}{3}{/tex}</span>.</p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260503,
+    "q_no": "2(1)",
+    "question_text": "If {tex}\\vec{a}=\\hat{i}+\\hat{j}+2 \\hat{k}{/tex} and {tex}\\vec{b}=2 \\hat{i}+\\hat{j}-2 \\hat{k}{/tex} , find the unit vector in the direction of 6 {tex}\\vec b{/tex} .",
+    "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\vec{a}=\\hat{i}+\\hat{j}+2 \\hat{k}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\vec{b}=2 \\hat{i}+\\hat{j}-2 \\hat{k}{/tex}</span>, find the unit&nbsp;vector in the direction of 6<span class=\"math-tex\">{tex}\\vec b{/tex}</span>.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "We have, {tex}\\vec{\\mathrm{a}}=\\hat{\\mathrm{i}}+\\hat{\\mathrm{j}}+2 \\hat{\\mathrm{k}}{/tex} {tex}\\vec{\\mathrm{b}}=2 \\hat{\\mathrm{i}}+\\hat{\\mathrm{j}}-2 \\hat{\\mathrm{k}}{/tex} We need to find the unit vector in the direction of 6 {tex}\\vec b{/tex} . First, let us calculate 6 {tex}\\vec b{/tex} . As we have, {tex}\\vec{\\mathrm{b}}=2 \\hat{\\mathrm{i}}+\\hat{\\mathrm{j}}-2 \\hat{\\mathrm{k}}{/tex} Multiply it by 6 on both sides. {tex}\\Rightarrow 6 \\vec{\\mathrm{b}}=6(2 \\hat{\\mathrm{i}}+\\hat{\\mathrm{j}}-2 \\hat{\\mathrm{k}}){/tex} For finding unit vector, we have the formula: {tex}6 \\hat{\\mathrm{b}}=\\frac{6 \\vec{\\mathrm{b}}}{|6 \\vec{\\mathrm{b}}|}{/tex} Now we know the value of 6 {tex}\\vec b{/tex} , so just substitute the value in the above equation. {tex}\\Rightarrow 6 \\hat{\\mathrm{b}}=\\frac{12 \\hat{1}+6 \\hat{\\jmath}-12 \\hat{\\mathrm{k}}}{|12 \\hat{1}+6 \\hat{\\jmath}-12 \\hat{\\mathrm{k}}|}{/tex} Here, {tex}|12 \\hat{\\imath}+6 \\hat{\\jmath}-12 \\hat{\\mathrm{k}}|=\\sqrt{12^{2}+6^{2}+(-12)^{2}}{/tex} {tex}\\Rightarrow 6 \\hat{\\mathrm{b}}=\\frac{12 \\hat{\\mathrm{i}}+6 \\hat{\\mathrm{j}}-12 \\hat{\\mathrm{k}}}{\\sqrt{144+36+144}}{/tex} {tex}\\Rightarrow 6 \\hat{\\mathrm{b}}=\\frac{12 \\hat{\\mathrm{i}}+6 \\hat{\\mathrm{j}}-12 \\hat{\\mathrm{k}}}{\\sqrt{324}}{/tex} {tex}\\Rightarrow 6 \\hat{\\mathrm{b}}=\\frac{12 \\hat{\\mathrm{i}}+6 \\hat{\\mathrm{j}}-12 \\hat{\\mathrm{k}}}{18}{/tex} Let us simplify. {tex}\\Rightarrow 6 \\widehat{\\mathrm{b}}=\\frac{6(2 \\hat{\\mathrm{i}}+\\hat{\\mathrm{j}}-2 \\hat{\\mathrm{k}})}{18}{/tex} {tex}\\Rightarrow 6 \\widehat{\\mathrm{b}}=\\frac{2 \\hat{\\mathrm{i}}+\\hat{\\mathrm{j}}-2 \\hat{\\mathrm{k}}}{3}{/tex} Thus, unit vector in the direction of {tex}6\\vec b{/tex} is {tex}\\frac{2 \\hat{i}+\\hat{j}-2 \\hat{k}}{3}{/tex} .",
+    "solution_html": "<p>We have,<br />\n<span class=\"math-tex\">{tex}\\vec{\\mathrm{a}}=\\hat{\\mathrm{i}}+\\hat{\\mathrm{j}}+2 \\hat{\\mathrm{k}}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\vec{\\mathrm{b}}=2 \\hat{\\mathrm{i}}+\\hat{\\mathrm{j}}-2 \\hat{\\mathrm{k}}{/tex}</span><br />\nWe need to find the unit vector in the direction of&nbsp;6<span class=\"math-tex\">{tex}\\vec b{/tex}</span>.<br />\nFirst, let us calculate 6<span class=\"math-tex\">{tex}\\vec b{/tex}</span>.<br />\nAs we have,<br />\n<span class=\"math-tex\">{tex}\\vec{\\mathrm{b}}=2 \\hat{\\mathrm{i}}+\\hat{\\mathrm{j}}-2 \\hat{\\mathrm{k}}{/tex}</span><br />\nMultiply it by 6 on both sides.<br />\n<span class=\"math-tex\">{tex}\\Rightarrow 6 \\vec{\\mathrm{b}}=6(2 \\hat{\\mathrm{i}}+\\hat{\\mathrm{j}}-2 \\hat{\\mathrm{k}}){/tex}</span><br />\nFor finding unit vector, we have the formula:<br />\n<span class=\"math-tex\">{tex}6 \\hat{\\mathrm{b}}=\\frac{6 \\vec{\\mathrm{b}}}{|6 \\vec{\\mathrm{b}}|}{/tex}</span><br />\nNow we know the value of&nbsp;6<span class=\"math-tex\">{tex}\\vec b{/tex}</span>, so just substitute the value in the above equation.<br />\n<span class=\"math-tex\">{tex}\\Rightarrow 6 \\hat{\\mathrm{b}}=\\frac{12 \\hat{1}+6 \\hat{\\jmath}-12 \\hat{\\mathrm{k}}}{|12 \\hat{1}+6 \\hat{\\jmath}-12 \\hat{\\mathrm{k}}|}{/tex}</span><br />\nHere,&nbsp;<span class=\"math-tex\">{tex}|12 \\hat{\\imath}+6 \\hat{\\jmath}-12 \\hat{\\mathrm{k}}|=\\sqrt{12^{2}+6^{2}+(-12)^{2}}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow 6 \\hat{\\mathrm{b}}=\\frac{12 \\hat{\\mathrm{i}}+6 \\hat{\\mathrm{j}}-12 \\hat{\\mathrm{k}}}{\\sqrt{144+36+144}}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow 6 \\hat{\\mathrm{b}}=\\frac{12 \\hat{\\mathrm{i}}+6 \\hat{\\mathrm{j}}-12 \\hat{\\mathrm{k}}}{\\sqrt{324}}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow 6 \\hat{\\mathrm{b}}=\\frac{12 \\hat{\\mathrm{i}}+6 \\hat{\\mathrm{j}}-12 \\hat{\\mathrm{k}}}{18}{/tex}</span><br />\nLet us simplify.<br />\n<span class=\"math-tex\">{tex}\\Rightarrow 6 \\widehat{\\mathrm{b}}=\\frac{6(2 \\hat{\\mathrm{i}}+\\hat{\\mathrm{j}}-2 \\hat{\\mathrm{k}})}{18}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow 6 \\widehat{\\mathrm{b}}=\\frac{2 \\hat{\\mathrm{i}}+\\hat{\\mathrm{j}}-2 \\hat{\\mathrm{k}}}{3}{/tex}</span><br />\nThus, unit vector in the direction of&nbsp;<span class=\"math-tex\">{tex}6\\vec b{/tex}</span>&nbsp;is&nbsp;<span class=\"math-tex\">{tex}\\frac{2 \\hat{i}+\\hat{j}-2 \\hat{k}}{3}{/tex}</span>.</p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260505,
+    "q_no": "2(2)",
+    "question_text": "If {tex}\\vec{a}=\\hat{i}+\\hat{j}+2 \\hat{k}{/tex} and {tex}\\vec{b}=2 \\hat{i}+\\hat{j}-2 \\hat{k}{/tex} , find the unit vector in the direction of {tex}2\\vec a - \\vec b{/tex} .",
+    "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\vec{a}=\\hat{i}+\\hat{j}+2 \\hat{k}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\vec{b}=2 \\hat{i}+\\hat{j}-2 \\hat{k}{/tex}</span>, find the unit&nbsp;vector in the direction of&nbsp;<span class=\"math-tex\">{tex}2\\vec a - \\vec b{/tex}</span>.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "We need to find the unit vector in the direction of {tex}2\\vec a - \\vec b{/tex} . First, let us calculate {tex}2\\vec a - \\vec b{/tex} . As we have, {tex}\\vec{a}=\\hat{i}+\\hat{j}+2 \\hat{k}{/tex} ...(a) {tex}\\vec{\\mathrm{b}}=2 \\hat{i}+\\hat{\\jmath}-2 \\hat{\\mathrm{k}}{/tex} ...(b) Then multiply equation (a) by 2 on both sides, {tex}2 \\vec{\\mathrm{a}}=2(\\hat{\\mathrm{i}}+\\hat{\\mathrm{j}}+2 \\hat{\\mathrm{k}}){/tex} We can easily multiply vector by a scalar by multiplying similar components, that is, vector&rsquo;s magnitude by the scalar&rsquo;s magnitude. {tex}\\Rightarrow 2 \\vec{\\mathrm{a}}=2 \\hat{\\mathrm{i}}+2 \\hat{\\mathrm{j}}+4 \\hat{\\mathrm{k}}{/tex} Subtract (b) from (c). We get, {tex}2 \\vec{\\mathrm{a}}-\\vec{\\mathrm{b}}=(2 \\hat{\\mathrm{i}}+2 \\hat{\\mathrm{j}}+4 \\hat{\\mathrm{k}})-(2 \\hat{\\mathrm{i}}+\\hat{\\mathrm{j}}-2 \\hat{\\mathrm{k}}){/tex} {tex}\\Rightarrow 2 \\vec{\\mathrm{a}}-\\vec{\\mathrm{b}}=2 \\hat{i}-2 \\hat{\\mathrm{i}}+2 \\hat{\\mathrm{j}}-\\hat{\\mathrm{j}}+4 \\hat{\\mathrm{k}}+ 2\\vec k{/tex} {tex}\\Rightarrow 2 \\vec{\\mathrm{a}}-\\vec{\\mathrm{b}}=\\hat{\\mathrm{j}}+6 \\hat{\\mathrm{k}}{/tex} For finding unit vector, we have the formula: {tex}2 \\hat{a}-\\widehat{b}=\\frac{2 \\vec{a}-\\vec{b}}{|2 \\vec{a}-\\vec{b}|}{/tex} Now we know the value of {tex}2 \\vec{a}-\\vec{b}{/tex} , so we just need to substitute in the above equation. {tex}\\Rightarrow 2 \\hat{a}-\\widehat{b}=\\frac{\\hat{\\jmath}+6 \\hat{k}}{|\\hat{\\jmath}+6 \\hat{k}|}{/tex} Here, {tex}\\text { }|\\hat{\\jmath}+6 \\hat{\\mathrm{k}}|=\\sqrt{1^{2}+6^{2}}{/tex} {tex}\\Rightarrow 2 \\hat{a}-\\widehat{b}=\\frac{\\hat{\\jmath}+6 \\hat{k}}{\\sqrt{1^{2}+6^{2}}}{/tex} {tex}\\Rightarrow 2 \\hat{\\mathrm{a}}-\\hat{\\mathrm{b}}=\\frac{\\hat{\\mathrm{j}}+6 \\hat{\\mathrm{k}}}{\\sqrt{1+36}}{/tex} {tex}\\Rightarrow 2 \\hat{a}-\\hat{b}=\\frac{\\hat{\\jmath}+6 \\hat{k}}{\\sqrt{37}}{/tex} Thus, unit vector in the direction of {tex}2\\vec a - \\vec b{/tex} is {tex}\\frac{\\hat{\\jmath}+6 \\hat{k}}{\\sqrt{37}}{/tex} .",
+    "solution_html": "<p>We need to find the unit vector in the direction of&nbsp;<span class=\"math-tex\">{tex}2\\vec a - \\vec b{/tex}</span>.<br />\nFirst, let us calculate&nbsp;<span class=\"math-tex\">{tex}2\\vec a - \\vec b{/tex}</span>.<br />\nAs we have,<br />\n<span class=\"math-tex\">{tex}\\vec{a}=\\hat{i}+\\hat{j}+2 \\hat{k}{/tex}</span>&nbsp;...(a)<br />\n<span class=\"math-tex\">{tex}\\vec{\\mathrm{b}}=2 \\hat{i}+\\hat{\\jmath}-2 \\hat{\\mathrm{k}}{/tex}</span>&nbsp;...(b)<br />\nThen multiply equation (a) by 2 on both sides,<br />\n<span class=\"math-tex\">{tex}2 \\vec{\\mathrm{a}}=2(\\hat{\\mathrm{i}}+\\hat{\\mathrm{j}}+2 \\hat{\\mathrm{k}}){/tex}</span><br />\nWe can easily multiply vector by a scalar by multiplying similar components, that is, vector&rsquo;s magnitude by the scalar&rsquo;s magnitude.<br />\n<span class=\"math-tex\">{tex}\\Rightarrow 2 \\vec{\\mathrm{a}}=2 \\hat{\\mathrm{i}}+2 \\hat{\\mathrm{j}}+4 \\hat{\\mathrm{k}}{/tex}</span><br />\nSubtract (b) from (c). We get,<br />\n<span class=\"math-tex\">{tex}2 \\vec{\\mathrm{a}}-\\vec{\\mathrm{b}}=(2 \\hat{\\mathrm{i}}+2 \\hat{\\mathrm{j}}+4 \\hat{\\mathrm{k}})-(2 \\hat{\\mathrm{i}}+\\hat{\\mathrm{j}}-2 \\hat{\\mathrm{k}}){/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow 2 \\vec{\\mathrm{a}}-\\vec{\\mathrm{b}}=2 \\hat{i}-2 \\hat{\\mathrm{i}}+2 \\hat{\\mathrm{j}}-\\hat{\\mathrm{j}}+4 \\hat{\\mathrm{k}}+ 2\\vec k{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow 2 \\vec{\\mathrm{a}}-\\vec{\\mathrm{b}}=\\hat{\\mathrm{j}}+6 \\hat{\\mathrm{k}}{/tex}</span><br />\nFor finding unit vector, we have the formula:<br />\n<span class=\"math-tex\">{tex}2 \\hat{a}-\\widehat{b}=\\frac{2 \\vec{a}-\\vec{b}}{|2 \\vec{a}-\\vec{b}|}{/tex}</span><br />\nNow we know the value of&nbsp;<span class=\"math-tex\">{tex}2 \\vec{a}-\\vec{b}{/tex}</span>, so we just need to substitute in the above equation.<br />\n<span class=\"math-tex\">{tex}\\Rightarrow 2 \\hat{a}-\\widehat{b}=\\frac{\\hat{\\jmath}+6 \\hat{k}}{|\\hat{\\jmath}+6 \\hat{k}|}{/tex}</span><br />\n&nbsp;Here,<span class=\"math-tex\">{tex}\\text { }|\\hat{\\jmath}+6 \\hat{\\mathrm{k}}|=\\sqrt{1^{2}+6^{2}}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow 2 \\hat{a}-\\widehat{b}=\\frac{\\hat{\\jmath}+6 \\hat{k}}{\\sqrt{1^{2}+6^{2}}}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow 2 \\hat{\\mathrm{a}}-\\hat{\\mathrm{b}}=\\frac{\\hat{\\mathrm{j}}+6 \\hat{\\mathrm{k}}}{\\sqrt{1+36}}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow 2 \\hat{a}-\\hat{b}=\\frac{\\hat{\\jmath}+6 \\hat{k}}{\\sqrt{37}}{/tex}</span><br />\nThus, unit vector in the direction of&nbsp;<span class=\"math-tex\">{tex}2\\vec a - \\vec b{/tex}</span>&nbsp;is&nbsp;<span class=\"math-tex\">{tex}\\frac{\\hat{\\jmath}+6 \\hat{k}}{\\sqrt{37}}{/tex}</span>.</p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 126236,
+    "q_no": "3",
+    "question_text": "Find a unit vector in the direction of {tex}\\overrightarrow {PQ} {/tex} , where P and Q have co-ordinates (5, 0, 8) and (3, 3, 2) respectively.",
+    "question_html": "<p>Find a unit vector in the direction of <span class=\"math-tex\">{tex}\\overrightarrow {PQ} {/tex}</span> , where P and Q have co-ordinates (5, 0, 8) and (3, 3, 2) respectively.</p>\r\n",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "Since, the coordinates of P and Q are (5, 0, 8) and (3, 3, 2) respectively. {tex}\\therefore \\overrightarrow {PQ} = \\overrightarrow {OQ} - \\overrightarrow {OP} {/tex} {tex}= \\left( {3\\hat i + 3\\hat j + 2\\hat k} \\right) - \\left( {5\\hat i + 0\\hat j + 8\\hat k} \\right){/tex} {tex} = - 2\\hat i + 3\\hat j - 6\\hat k{/tex} {tex}\\therefore{/tex} Unit vector in the direction of {tex}\\overrightarrow {PQ} = \\frac{{\\overrightarrow {PQ} }}{{\\left| {\\overrightarrow {PQ} } \\right|}} = \\frac{{ - 2\\hat i + 3\\hat j - 6\\hat k}}{{\\sqrt {{2^2} + {3^2} + {6^2}} }}{/tex} {tex}= \\frac{{ - 2\\hat i + 3\\hat j - 6\\hat k}}{{\\sqrt {49} }} = \\frac{{ - 2\\hat i + 3\\hat j - 6\\hat k}}{7}{/tex}",
+    "solution_html": "<p>Since, the coordinates of P and Q are (5, 0, 8) and (3, 3, 2) respectively.</p>\r\n\r\n<p><span class=\"math-tex\">{tex}\\therefore \\overrightarrow {PQ} = \\overrightarrow {OQ} - \\overrightarrow {OP} {/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex}= \\left( {3\\hat i + 3\\hat j + 2\\hat k} \\right) - \\left( {5\\hat i + 0\\hat j + 8\\hat k} \\right){/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex} = - 2\\hat i + 3\\hat j - 6\\hat k{/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex}\\therefore{/tex}</span> Unit vector in the direction of <span class=\"math-tex\">{tex}\\overrightarrow {PQ} = \\frac{{\\overrightarrow {PQ} }}{{\\left| {\\overrightarrow {PQ} } \\right|}} = \\frac{{ - 2\\hat i + 3\\hat j - 6\\hat k}}{{\\sqrt {{2^2} + {3^2} + {6^2}} }}{/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex}= \\frac{{ - 2\\hat i + 3\\hat j - 6\\hat k}}{{\\sqrt {49} }} = \\frac{{ - 2\\hat i + 3\\hat j - 6\\hat k}}{7}{/tex}</span></p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 126237,
+    "q_no": "4",
+    "question_text": "If {tex}\\vec a{/tex} and {tex}\\vec b{/tex} are the position vectors of A and B respectively, find the position vector of a point C in BA produced such that {tex}\\vec {BC}{/tex} = 1.5 {tex}\\vec {BA}{/tex} .",
+    "question_html": "<p>If &nbsp;<span class=\"math-tex\">{tex}\\vec a{/tex}</span> and <span class=\"math-tex\">{tex}\\vec b{/tex}</span>&nbsp; are the position vectors of A and B respectively, find the position vector of a point C in BA produced such that <span class=\"math-tex\">{tex}\\vec {BC}{/tex}</span> = 1.5 <span class=\"math-tex\">{tex}\\vec {BA}{/tex}</span>.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "Since, {tex}\\overrightarrow {OA} = \\vec a{/tex} and {tex}\\overrightarrow {OB} = \\vec b{/tex} {tex}\\therefore \\overrightarrow {BA} = \\overrightarrow {OA} - \\overrightarrow {OB} = \\vec a - \\vec b{/tex} And {tex}1.5\\overrightarrow {BA} = 1.5\\left( {\\vec a - \\vec b} \\right){/tex} Since, {tex}\\overrightarrow {BC} = 1.5\\overrightarrow {BA} = 1.5(\\vec a - \\vec b){/tex} {tex}\\overrightarrow {OC} - \\overrightarrow {OB} = 1.5\\vec a - 1.5\\vec b{/tex} {tex}\\overrightarrow {OC} = 1.5\\vec a - 1.5\\vec b + \\vec b\\,\\,\\left[ {\\because \\overrightarrow {OB} = \\vec b} \\right]{/tex} {tex}= 1.5\\vec a - 0.5\\vec b{/tex} {tex} = \\frac{{3\\vec a - \\vec b}}{2}{/tex} Graphically, explanation of the above solution is given below",
+    "solution_html": "<p>Since, <span class=\"math-tex\">{tex}\\overrightarrow {OA} = \\vec a{/tex}</span> and <span class=\"math-tex\">{tex}\\overrightarrow {OB} = \\vec b{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\therefore \\overrightarrow {BA} = \\overrightarrow {OA} - \\overrightarrow {OB} = \\vec a - \\vec b{/tex}</span>&nbsp;<br />\r\nAnd <span class=\"math-tex\">{tex}1.5\\overrightarrow {BA} = 1.5\\left( {\\vec a - \\vec b} \\right){/tex}</span>&nbsp;<br />\r\nSince, <span class=\"math-tex\">{tex}\\overrightarrow {BC} = 1.5\\overrightarrow {BA} = 1.5(\\vec a - \\vec b){/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\overrightarrow {OC} - \\overrightarrow {OB} = 1.5\\vec a - 1.5\\vec b{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\overrightarrow {OC} = 1.5\\vec a - 1.5\\vec b + \\vec b\\,\\,\\left[ {\\because \\overrightarrow {OB} = \\vec b} \\right]{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}= 1.5\\vec a - 0.5\\vec b{/tex}</span>&nbsp;&nbsp;<br />\r\n<span class=\"math-tex\">{tex} = \\frac{{3\\vec a - \\vec b}}{2}{/tex}</span>&nbsp;<br />\r\nGraphically, explanation of the above solution is given below<br />\r\n<img id=\"Picture 3\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/static/ncertexem/12/math/ch10/image186.png\" /></p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260519,
+    "q_no": "5",
+    "question_text": "Using vectors, find the value of k such that the points (k, -10, 3), (1, -1, 3) and (3, 5, 3) are collinear.",
+    "question_html": "<p>Using vectors, find the value of k such that the points (k, -10, 3), (1, -1, 3) and (3, 5, 3) are collinear.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "Let the points are A(k, -10, 3), B(1, -1, 3) and C(3, 5, 3) {tex}\\therefore{/tex} {tex}\\vec{A B}=\\vec{O B}-\\vec{O A}{/tex} [By Traingle Law of vectors] {tex}=(\\hat{i}-\\hat{j}+3 \\hat{k})-(k \\hat{i}-10 \\hat{j}+3 \\hat{k})=(1-k) \\hat{i}+9 \\hat{j}{/tex} and {tex}\\vec {B C}=\\vec{O C}-\\vec{O B}{/tex} {tex}=(3 \\hat{i}+5 \\hat{j}+3 \\hat{k})-(\\hat{i}-\\hat{j}+3 \\hat{k})=2 \\hat{i}+6 \\hat{j}{/tex} If point A, B, C are collinear then there exists some scalar {tex}\\lambda{/tex} such that {tex}\\Rightarrow \\vec{A B}=\\lambda \\vec{B C}{/tex} {tex}(1-k) \\hat{i}+9 \\hat{j}=\\lambda(2 \\hat{i}+6 \\hat{j}){/tex} Comparing coefficients we get 1 - k = 2 {tex}\\lambda{/tex} and 9 = 6 {tex}\\lambda{/tex} {tex}\\therefore{/tex} 3 - 3k = 9 {tex}\\therefore{/tex} k = -2.",
+    "solution_html": "<p>Let the points are A(k, -10, 3), B(1, -1, 3) and C(3, 5, 3)<br />\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\vec{A B}=\\vec{O B}-\\vec{O A}{/tex}</span>&nbsp; [By Traingle Law of vectors]<br />\n<span class=\"math-tex\">{tex}=(\\hat{i}-\\hat{j}+3 \\hat{k})-(k \\hat{i}-10 \\hat{j}+3 \\hat{k})=(1-k) \\hat{i}+9 \\hat{j}{/tex}</span><br />\nand&nbsp;<span class=\"math-tex\">{tex}\\vec {B C}=\\vec{O C}-\\vec{O B}{/tex}</span><br />\n<span class=\"math-tex\">{tex}=(3 \\hat{i}+5 \\hat{j}+3 \\hat{k})-(\\hat{i}-\\hat{j}+3 \\hat{k})=2 \\hat{i}+6 \\hat{j}{/tex}</span><br />\nIf point A, B, C&nbsp;are collinear then there exists some scalar <span class=\"math-tex\">{tex}\\lambda{/tex}</span>&nbsp;such that<br />\n<span class=\"math-tex\">{tex}\\Rightarrow \\vec{A B}=\\lambda \\vec{B C}{/tex}</span><br />\n<span class=\"math-tex\">{tex}(1-k) \\hat{i}+9 \\hat{j}=\\lambda(2 \\hat{i}+6 \\hat{j}){/tex}</span><br />\nComparing coefficients we get 1 - k = 2 <span class=\"math-tex\">{tex}\\lambda{/tex}</span>&nbsp;and 9 = 6<span class=\"math-tex\">{tex}\\lambda{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;3 - 3k = 9<br />\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;k = -2.</p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 126238,
+    "q_no": "6",
+    "question_text": "A vector {tex}\\vec r{/tex} is inclined at equal angles to the three axes. If the magnitude of {tex}\\vec r{/tex} is {tex}2\\sqrt 3 {/tex} units, find {tex}\\vec r{/tex}",
+    "question_html": "<p>A vector <span class=\"math-tex\">{tex}\\vec r{/tex}</span> is inclined at equal angles to the three axes. If the magnitude of <span class=\"math-tex\">{tex}\\vec r{/tex}</span> is <span class=\"math-tex\">{tex}2\\sqrt 3 {/tex}</span> units, find <span class=\"math-tex\">{tex}\\vec r{/tex}</span></p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "We have, {tex}\\left| {\\vec r} \\right| = 2\\sqrt 3 {/tex} Since, {tex}{\\vec r}{/tex} is equally inclined to the three axes, {tex}{/tex} so direction cosines of the unit vector {tex}{\\vec r}{/tex} will be same i.e.,l = m = n. We know that, l 2 + m 2 + n 2 = 1 {tex} \\Rightarrow {l^2} + {l^2} + {l^2} = 1{/tex} {tex} \\Rightarrow {l^2} = \\frac{1}{3}{/tex} {tex} \\Rightarrow l = \\pm \\left( {\\frac{1}{{\\sqrt 3 }}} \\right){/tex} So, {tex}\\hat r = \\pm \\frac{1}{{\\sqrt 3 }}\\hat i \\pm \\frac{1}{{\\sqrt 3 }}\\hat j \\pm \\frac{1}{{\\sqrt 3 }}\\hat k{/tex} {tex}\\therefore \\vec r = \\hat r\\left| {\\vec r} \\right|\\,\\,\\left[ {\\because \\vec r = \\frac{{\\vec r}}{{\\left| {\\vec r} \\right|}}} \\right]{/tex} {tex}= \\left[ { \\pm \\frac{1}{{\\sqrt 3 }}\\hat i \\pm \\frac{1}{{\\sqrt 3 }}\\hat j \\pm \\frac{1}{{\\sqrt 3 }}\\hat k} \\right]2\\sqrt 3 \\,\\,\\left[ {\\because \\left| r \\right| = 2\\sqrt 3 } \\right]{/tex} {tex}= \\pm 2\\hat i \\pm 2\\hat j \\pm 2\\hat k = \\pm 2\\left( {\\hat i + \\hat j + \\hat k} \\right){/tex}",
+    "solution_html": "<p>We have, <span class=\"math-tex\">{tex}\\left| {\\vec r} \\right| = 2\\sqrt 3 {/tex}</span><br />\r\nSince, <span class=\"math-tex\">{tex}{\\vec r}{/tex}</span> is equally inclined to the three axes, <span class=\"math-tex\">{tex}{/tex}</span> so direction cosines of the unit vector <span class=\"math-tex\">{tex}{\\vec r}{/tex}</span> will be same i.e.,l = m = n.<br />\r\nWe know that,<br />\r\nl<sup>2</sup> + m<sup>2</sup> + n<sup>2</sup> = 1<br />\r\n<span class=\"math-tex\">{tex} \\Rightarrow {l^2} + {l^2} + {l^2} = 1{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\Rightarrow {l^2} = \\frac{1}{3}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\Rightarrow l = \\pm \\left( {\\frac{1}{{\\sqrt 3 }}} \\right){/tex}</span><br />\r\nSo, <span class=\"math-tex\">{tex}\\hat r = \\pm \\frac{1}{{\\sqrt 3 }}\\hat i \\pm \\frac{1}{{\\sqrt 3 }}\\hat j \\pm \\frac{1}{{\\sqrt 3 }}\\hat k{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\therefore \\vec r = \\hat r\\left| {\\vec r} \\right|\\,\\,\\left[ {\\because \\vec r = \\frac{{\\vec r}}{{\\left| {\\vec r} \\right|}}} \\right]{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}= \\left[ { \\pm \\frac{1}{{\\sqrt 3 }}\\hat i \\pm \\frac{1}{{\\sqrt 3 }}\\hat j \\pm \\frac{1}{{\\sqrt 3 }}\\hat k} \\right]2\\sqrt 3 \\,\\,\\left[ {\\because \\left| r \\right| = 2\\sqrt 3 } \\right]{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}= \\pm 2\\hat i \\pm 2\\hat j \\pm 2\\hat k = \\pm 2\\left( {\\hat i + \\hat j + \\hat k} \\right){/tex}</span></p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 126239,
+    "q_no": "7",
+    "question_text": "A vector {tex}\\vec r{/tex} has magnitude 14 units and direction ratios 2, 3, -6. Find the direction cosines and components of {tex}\\vec r{/tex} , given that {tex}\\vec r{/tex} makes an acute angle with x-axis.",
+    "question_html": "<p>A vector <span class=\"math-tex\">{tex}\\vec r{/tex}</span> has magnitude 14 units and direction ratios 2, 3, -6. Find the direction cosines and components of <span class=\"math-tex\">{tex}\\vec r{/tex}</span>, given that <span class=\"math-tex\">{tex}\\vec r{/tex}</span> makes an acute angle with x-axis.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "Here, {tex}\\left| {\\vec r} \\right| = 14,\\vec a = 2k,\\vec b = 3k{/tex} and {tex}\\vec c = - 6k{/tex} {tex}\\therefore{/tex} Direction cosines l, m and n are {tex}l = \\frac{{\\vec a}}{{\\left| {\\vec r} \\right|}} = \\frac{{2k}}{{14}} = \\frac{k}{7}{/tex} {tex}m = \\frac{{\\vec b}}{{\\left| {\\vec r} \\right|}} = \\frac{{3k}}{{14}}{/tex} And {tex}n = \\frac{{\\vec c}}{{\\left| {\\vec r} \\right|}} = \\frac{{ - 6k}}{{14}} = \\frac{{ - 3k}}{7}{/tex} Also, we know that {tex}{l^2} + {m^2} + {n^2} = 1{/tex} {tex}\\Rightarrow \\frac{{{k^2}}}{{49}} + \\frac{{9{k^2}}}{{196}} + \\frac{{9{k^2}}}{{49}} = 1{/tex} {tex} \\Rightarrow \\frac{{4{k^2} + 9{k^2} + 36{k^2}}}{{196}} = 1{/tex} {tex} \\Rightarrow {k^2} = \\frac{{196}}{{49}} = 4{/tex} {tex} {k} = \\pm 2{/tex} So, the direction cosines (l, m, n) are {tex}\\frac{2}{7},\\frac{3}{7}{/tex} and {tex}\\frac{{ - 6}}{7}{/tex} [since, {tex}\\vec r{/tex} makes an acute angle with X-axis] {tex}Now, \\vec r = \\hat r.\\left| {\\vec r} \\right|{/tex} {tex}\\Rightarrow \\vec r = \\left( {l\\hat i + m\\hat j + n\\hat k} \\right)\\left| {\\vec r} \\right|{/tex} {tex}= \\left( {\\frac{{ 2}}{7}\\hat i + \\frac{3}{7}\\hat j - \\frac{6}{7}\\hat k} \\right).14{/tex} {tex} = 4\\hat i + 6\\hat j - 12\\hat k{/tex}",
+    "solution_html": "<p>Here, <span class=\"math-tex\">{tex}\\left| {\\vec r} \\right| = 14,\\vec a = 2k,\\vec b = 3k{/tex}</span> and <span class=\"math-tex\">{tex}\\vec c = - 6k{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span> Direction cosines l, m and n are<br />\r\n<span class=\"math-tex\">{tex}l = \\frac{{\\vec a}}{{\\left| {\\vec r} \\right|}} = \\frac{{2k}}{{14}} = \\frac{k}{7}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}m = \\frac{{\\vec b}}{{\\left| {\\vec r} \\right|}} = \\frac{{3k}}{{14}}{/tex}</span><br />\r\nAnd <span class=\"math-tex\">{tex}n = \\frac{{\\vec c}}{{\\left| {\\vec r} \\right|}} = \\frac{{ - 6k}}{{14}} = \\frac{{ - 3k}}{7}{/tex}</span><br />\r\nAlso, we know that<br />\r\n<span class=\"math-tex\">{tex}{l^2} + {m^2} + {n^2} = 1{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\frac{{{k^2}}}{{49}} + \\frac{{9{k^2}}}{{196}} + \\frac{{9{k^2}}}{{49}} = 1{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\Rightarrow \\frac{{4{k^2} + 9{k^2} + 36{k^2}}}{{196}} = 1{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\Rightarrow {k^2} = \\frac{{196}}{{49}} = 4{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} {k} = \\pm 2{/tex}</span><br />\r\nSo, the direction cosines (l, m, n) are <span class=\"math-tex\">{tex}\\frac{2}{7},\\frac{3}{7}{/tex}</span> and <span class=\"math-tex\">{tex}\\frac{{ - 6}}{7}{/tex}</span><br />\r\n[since, <span class=\"math-tex\">{tex}\\vec r{/tex}</span> makes an acute angle with X-axis]<br />\r\n<span class=\"math-tex\">{tex}Now, \\vec r = \\hat r.\\left| {\\vec r} \\right|{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\vec r = \\left( {l\\hat i + m\\hat j + n\\hat k} \\right)\\left| {\\vec r} \\right|{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}= \\left( {\\frac{{ 2}}{7}\\hat i + \\frac{3}{7}\\hat j - \\frac{6}{7}\\hat k} \\right).14{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} = 4\\hat i + 6\\hat j - 12\\hat k{/tex}</span></p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260526,
+    "q_no": "8",
+    "question_text": "Find a vector of magnitude 6, which is perpendicular to both the vectors {tex}2 \\hat{i}-\\hat{j}+2 \\hat{k}{/tex} and {tex}4 \\hat{i}-\\hat{j}+3 \\hat{k}{/tex} .",
+    "question_html": "<p>Find a vector of magnitude 6, which is perpendicular to both the vectors <span class=\"math-tex\">{tex}2 \\hat{i}-\\hat{j}+2 \\hat{k}{/tex}</span> and <span class=\"math-tex\">{tex}4 \\hat{i}-\\hat{j}+3 \\hat{k}{/tex}</span>.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "Let the vectors be {tex}\\vec a{/tex} and {tex}\\vec b{/tex} , such that {tex}\\vec{\\mathrm{a}}=2 \\hat{\\mathrm{i}}-\\hat{\\mathrm{j}}+2 \\hat{\\mathrm{k}}{/tex} {tex}\\vec{\\mathrm{b}}=4 \\hat{\\mathrm{i}}-\\hat{\\mathrm{j}}+3 \\hat{\\mathrm{k}}{/tex} We need to find a vector perpendicular to both the vectors {tex}\\vec a{/tex} and {tex}\\vec b{/tex} . Any vector perpendicular to both {tex}\\vec a{/tex} and {tex}\\vec b{/tex} can be given as, {tex}\\vec{\\mathrm{a}} \\times \\vec{\\mathrm{b}}=\\left|\\begin{array}{ccc} {\\hat{i}} & {\\hat{\\mathrm{j}}} & {\\hat{\\mathrm{k}}} \\\\ {2} & {-1} & {2} \\\\ {4} & {-1} & {3} \\end{array}\\right|{/tex} {tex}\\Rightarrow \\vec{\\mathrm{a}} \\times \\vec{\\mathrm{b}}{/tex} = {tex}\\hat i{/tex} ((-1)(3) - (2) (-1) - {tex}\\vec j{/tex} ((2)(3) - (2)(4)) + {tex}\\vec k{/tex} ((2)(-1) - (-1)(4)) {tex}\\Rightarrow \\vec{\\mathrm{a}} \\times \\vec{\\mathrm{b}}=-\\hat{\\mathrm{i}}+2 \\hat{\\mathrm{j}}+2 \\hat{\\mathrm{k}}{/tex} Let {tex}\\vec{\\mathrm{r}}=-\\hat{\\mathrm{i}}+2 \\hat{\\mathrm{j}}+2 \\hat{\\mathrm{k}}{/tex} As we know, a unit vector in a normed vector space is a vector (often a spatial vector) of length 1. So, A vector of magnitude 6 in the direction of {tex}\\vec r{/tex} is given by, {tex}\\text { vector }=6 \\times \\frac{\\vec{\\mathrm{r}}}{|\\vec{\\mathrm{r}}|}{/tex} {tex}\\Rightarrow \\text { vector }=6 \\times \\frac{-\\hat{\\imath}+2 \\hat{\\jmath}+2 \\hat{\\mathrm{k}}}{|-\\hat{\\imath}+2 \\hat{\\jmath}+2 \\hat{\\mathrm{k}}|}{/tex} Where, {tex}|-\\hat{\\mathbf{i}}+2 \\hat{\\mathbf{j}}+2 \\hat{\\mathbf{k}}|=\\sqrt{(-1)^{2}+(2)^{2}+(2)^{2}}{/tex} {tex}\\Rightarrow \\text { vector }=6 \\times \\frac{-\\hat{1}+2 \\hat{\\jmath}+2 \\hat{\\mathrm{k}}}{\\sqrt{(-1)^{2}+(2)^{2}+(2)^{2}}}{/tex} {tex}\\Rightarrow \\text { vector }=6 \\times \\frac{(-\\hat{1}+2 \\hat{\\jmath}+2 \\hat{\\mathrm{k}})}{\\sqrt{1+4+4}}{/tex} {tex}\\Rightarrow \\text { vector }=6 \\times \\frac{-\\hat{\\imath}+2 \\hat{\\jmath}+2 \\hat{\\mathrm{k}}}{\\sqrt{9}}`{/tex} {tex}\\Rightarrow \\text { vector }=2 \\times(-\\hat{i}+2 \\hat{\\jmath}+2 \\hat{\\mathrm{k}}){/tex} {tex}\\Rightarrow \\text { vector }=-2 \\hat{i}+4 \\hat{\\jmath}+4 \\hat{k}{/tex} Thus, required vector is {tex}-2 \\hat{i}+4 \\hat{\\jmath}+4 \\hat{k}{/tex} .",
+    "solution_html": "<p>Let the vectors be&nbsp;<span class=\"math-tex\">{tex}\\vec a{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\vec b{/tex}</span>, such that<br />\n<span class=\"math-tex\">{tex}\\vec{\\mathrm{a}}=2 \\hat{\\mathrm{i}}-\\hat{\\mathrm{j}}+2 \\hat{\\mathrm{k}}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\vec{\\mathrm{b}}=4 \\hat{\\mathrm{i}}-\\hat{\\mathrm{j}}+3 \\hat{\\mathrm{k}}{/tex}</span><br />\nWe need to find a vector perpendicular to both the vectors&nbsp;<span class=\"math-tex\">{tex}\\vec a{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\vec b{/tex}</span>.<br />\nAny vector perpendicular to both&nbsp;<span class=\"math-tex\">{tex}\\vec a{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\vec b{/tex}</span>&nbsp;can be given as,<br />\n<span class=\"math-tex\">{tex}\\vec{\\mathrm{a}} \\times \\vec{\\mathrm{b}}=\\left|\\begin{array}{ccc} {\\hat{i}} &amp; {\\hat{\\mathrm{j}}} &amp; {\\hat{\\mathrm{k}}} \\\\ {2} &amp; {-1} &amp; {2} \\\\ {4} &amp; {-1} &amp; {3} \\end{array}\\right|{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow \\vec{\\mathrm{a}} \\times \\vec{\\mathrm{b}}{/tex}</span>&nbsp;= <span class=\"math-tex\">{tex}\\hat i{/tex}</span>((-1)(3) - (2) (-1) -&nbsp;<span class=\"math-tex\">{tex}\\vec j{/tex}</span>((2)(3) - (2)(4)) +&nbsp;<span class=\"math-tex\">{tex}\\vec k{/tex}</span>&nbsp;((2)(-1) - (-1)(4))<br />\n<span class=\"math-tex\">{tex}\\Rightarrow \\vec{\\mathrm{a}} \\times \\vec{\\mathrm{b}}=-\\hat{\\mathrm{i}}+2 \\hat{\\mathrm{j}}+2 \\hat{\\mathrm{k}}{/tex}</span><br />\nLet<br />\n<span class=\"math-tex\">{tex}\\vec{\\mathrm{r}}=-\\hat{\\mathrm{i}}+2 \\hat{\\mathrm{j}}+2 \\hat{\\mathrm{k}}{/tex}</span><br />\nAs we know,&nbsp;a unit vector in a normed vector space is a vector (often a spatial vector) of length 1.<br />\nSo,<br />\nA vector of magnitude 6 in the direction of&nbsp;<span class=\"math-tex\">{tex}\\vec r{/tex}</span>&nbsp;is given by,<br />\n<span class=\"math-tex\">{tex}\\text { vector }=6 \\times \\frac{\\vec{\\mathrm{r}}}{|\\vec{\\mathrm{r}}|}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow \\text { vector }=6 \\times \\frac{-\\hat{\\imath}+2 \\hat{\\jmath}+2 \\hat{\\mathrm{k}}}{|-\\hat{\\imath}+2 \\hat{\\jmath}+2 \\hat{\\mathrm{k}}|}{/tex}</span><br />\nWhere,&nbsp;<span class=\"math-tex\">{tex}|-\\hat{\\mathbf{i}}+2 \\hat{\\mathbf{j}}+2 \\hat{\\mathbf{k}}|=\\sqrt{(-1)^{2}+(2)^{2}+(2)^{2}}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow \\text { vector }=6 \\times \\frac{-\\hat{1}+2 \\hat{\\jmath}+2 \\hat{\\mathrm{k}}}{\\sqrt{(-1)^{2}+(2)^{2}+(2)^{2}}}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow \\text { vector }=6 \\times \\frac{(-\\hat{1}+2 \\hat{\\jmath}+2 \\hat{\\mathrm{k}})}{\\sqrt{1+4+4}}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow \\text { vector }=6 \\times \\frac{-\\hat{\\imath}+2 \\hat{\\jmath}+2 \\hat{\\mathrm{k}}}{\\sqrt{9}}`{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow \\text { vector }=2 \\times(-\\hat{i}+2 \\hat{\\jmath}+2 \\hat{\\mathrm{k}}){/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow \\text { vector }=-2 \\hat{i}+4 \\hat{\\jmath}+4 \\hat{k}{/tex}</span><br />\nThus, required vector is&nbsp;<span class=\"math-tex\">{tex}-2 \\hat{i}+4 \\hat{\\jmath}+4 \\hat{k}{/tex}</span>.</p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 126240,
+    "q_no": "9",
+    "question_text": "Find the angle between the vector {tex}2\\hat i - \\hat j + \\hat k{/tex} and {tex}3\\hat i + 4\\hat j - \\hat k{/tex}",
+    "question_html": "<p>Find the angle between the vector <span class=\"math-tex\">{tex}2\\hat i - \\hat j + \\hat k{/tex}</span> and <span class=\"math-tex\">{tex}3\\hat i + 4\\hat j - \\hat k{/tex}</span></p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "Let {tex}\\vec a = 2\\hat i - \\hat j - \\hat k{/tex} and {tex}\\vec b = 3\\hat i + 4\\hat j - \\hat k{/tex} We know that, angle between two vectors {tex}\\vec a{/tex} and {tex}\\vec b{/tex} is given by {tex}\\cos \\theta = \\frac{{\\vec a.\\vec b}}{{\\left| {\\vec a} \\right|\\left| {\\vec b} \\right|}}{/tex} {tex}= \\frac{{\\left( {2i - j + k} \\right)\\left( {3i + 4j - k} \\right)}}{{\\sqrt {4 + 1 + 1} \\sqrt {9 + 16 + 1} }}{/tex} {tex}= \\frac{{6 - 4 - 1}}{{\\sqrt 6 \\sqrt {26} }} = \\frac{1}{{2\\sqrt {39} }}{/tex} {tex}\\theta = {\\cos ^{ - 1}}\\left( {\\frac{1}{{2\\sqrt {39} }}} \\right){/tex}",
+    "solution_html": "<p>Let <span class=\"math-tex\">{tex}\\vec a = 2\\hat i - \\hat j - \\hat k{/tex}</span> and <span class=\"math-tex\">{tex}\\vec b = 3\\hat i + 4\\hat j - \\hat k{/tex}</span></p>\r\n\r\n<p>We know that, angle between two vectors <span class=\"math-tex\">{tex}\\vec a{/tex}</span> and <span class=\"math-tex\">{tex}\\vec b{/tex}</span> is given by</p>\r\n\r\n<p><span class=\"math-tex\">{tex}\\cos \\theta = \\frac{{\\vec a.\\vec b}}{{\\left| {\\vec a} \\right|\\left| {\\vec b} \\right|}}{/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex}= \\frac{{\\left( {2i - j + k} \\right)\\left( {3i + 4j - k} \\right)}}{{\\sqrt {4 + 1 + 1} \\sqrt {9 + 16 + 1} }}{/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex}= \\frac{{6 - 4 - 1}}{{\\sqrt 6 \\sqrt {26} }} = \\frac{1}{{2\\sqrt {39} }}{/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex}\\theta = {\\cos ^{ - 1}}\\left( {\\frac{1}{{2\\sqrt {39} }}} \\right){/tex}</span></p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 261573,
+    "q_no": "10",
+    "question_text": "If {tex}\\vec{a}+\\vec{b}+\\vec{c}=0{/tex} , show that {tex}a \\times \\vec{b}=\\vec{b} \\times \\vec{c}=\\vec{c} \\times \\vec{a}{/tex} . Interpret the result geometrically?",
+    "question_html": "<p>If <span class=\"math-tex\">{tex}\\vec{a}+\\vec{b}+\\vec{c}=0{/tex}</span> , show that <span class=\"math-tex\">{tex}a \\times \\vec{b}=\\vec{b} \\times \\vec{c}=\\vec{c} \\times \\vec{a}{/tex}</span> . Interpret the result geometrically?</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "Since, {tex}\\vec{\\mathrm{a}}+\\vec{\\mathrm{b}}+\\vec{\\mathrm{c}}=0{/tex} {tex}\\Rightarrow{/tex} {tex}\\vec{b}=-\\vec{c}-\\vec{a}{/tex} Now, {tex}\\vec{a} \\times \\vec{b}=\\vec{a} \\times(-\\vec{c}-\\vec{a}){/tex} {tex}=\\vec{a} \\times -\\vec{c}-\\vec{a} \\times \\vec{a}=\\vec{a} \\times -\\vec{c}{/tex} {tex}\\Rightarrow{/tex} {tex}\\vec{a} \\times \\vec{b}=\\vec{c} \\times \\vec{a}{/tex} ...(i) Also, {tex}\\bar{b} \\times \\vec{c}=(-\\vec{c}-\\vec{a}) \\times \\vec{c}{/tex} {tex}=-\\vec{c} \\times \\vec{c}-\\vec{a} \\times \\vec{c}=-\\vec{a} \\times \\vec{c}{/tex} {tex}=-\\vec{c} \\times \\vec{c}-\\vec{a} \\times \\vec{c}=-\\vec{a} \\times \\vec{c} = \\vec{c} \\times \\vec{a}{/tex} ...(ii) From (i) and (ii) {tex}\\vec{a} \\times \\vec{b}=\\vec{b} \\times \\vec{c}=\\vec{c} \\times \\vec{a}{/tex} Geometrical interpretation of the result If ABCD is a parallelogram such that {tex}\\vec{A B}{/tex} = {tex}\\vec{a}{/tex} and {tex}\\vec{A D}{/tex} = {tex}\\vec{b}{/tex} and these adjacent sides are making angle {tex}\\theta{/tex} between each other, then Area of the parallelogram {tex}A B C D=|\\vec{a}||\\vec{b}||\\sin \\theta=| \\vec{a} \\times \\vec{b} |{/tex} since parallelogram on the same base and between the same parallels are equal we have {tex}|\\vec{a} \\times \\vec{b}|=|\\vec{a} \\times \\vec{c}|=|\\vec{b} \\times \\vec{c}|{/tex} This also implies that, {tex}\\vec{a} \\times \\vec{b}=\\vec{a} \\times \\vec{c}=\\vec{b} \\times \\vec{c}{/tex} So, the area of the parallelograms formed by taking any two sides represented by {tex}\\vec{a}{/tex} , {tex}\\vec b{/tex} and {tex}\\vec c{/tex} as adjacent are equal.",
+    "solution_html": "<p>Since,&nbsp;<span class=\"math-tex\">{tex}\\vec{\\mathrm{a}}+\\vec{\\mathrm{b}}+\\vec{\\mathrm{c}}=0{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\vec{b}=-\\vec{c}-\\vec{a}{/tex}</span><br />\r\nNow,&nbsp;<span class=\"math-tex\">{tex}\\vec{a} \\times \\vec{b}=\\vec{a} \\times(-\\vec{c}-\\vec{a}){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\vec{a} \\times -\\vec{c}-\\vec{a} \\times \\vec{a}=\\vec{a} \\times -\\vec{c}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\vec{a} \\times \\vec{b}=\\vec{c} \\times \\vec{a}{/tex}</span>&nbsp;...(i)<br />\r\nAlso,&nbsp;<span class=\"math-tex\">{tex}\\bar{b} \\times \\vec{c}=(-\\vec{c}-\\vec{a}) \\times \\vec{c}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=-\\vec{c} \\times \\vec{c}-\\vec{a} \\times \\vec{c}=-\\vec{a} \\times \\vec{c}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=-\\vec{c} \\times \\vec{c}-\\vec{a} \\times \\vec{c}=-\\vec{a} \\times \\vec{c} = \\vec{c} \\times \\vec{a}{/tex}</span>&nbsp;...(ii)<br />\r\nFrom (i) and (ii)&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\vec{a} \\times \\vec{b}=\\vec{b} \\times \\vec{c}=\\vec{c} \\times \\vec{a}{/tex}</span><br />\r\n<strong>Geometrical interpretation of the result</strong><br />\r\nIf ABCD&nbsp;is a parallelogram such that&nbsp;<span class=\"math-tex\">{tex}\\vec{A B}{/tex}</span>&nbsp;= <span class=\"math-tex\">{tex}\\vec{a}{/tex}</span>&nbsp;and <span class=\"math-tex\">{tex}\\vec{A D}{/tex}</span>&nbsp;= <span class=\"math-tex\">{tex}\\vec{b}{/tex}</span>&nbsp;and these adjacent sides are making angle <span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;between each other, then Area of the parallelogram <span class=\"math-tex\">{tex}A B C D=|\\vec{a}||\\vec{b}||\\sin \\theta=| \\vec{a} \\times \\vec{b} |{/tex}</span><br />\r\nsince parallelogram on the same base and between the same parallels are equal<br />\r\n<img alt=\"\" data-imgur-src=\"oR35qxZ.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/oR35qxZ.png\" style=\"width: 150px; height: 73px;\" /><br />\r\nwe have&nbsp;<span class=\"math-tex\">{tex}|\\vec{a} \\times \\vec{b}|=|\\vec{a} \\times \\vec{c}|=|\\vec{b} \\times \\vec{c}|{/tex}</span><br />\r\nThis also implies that,&nbsp;<span class=\"math-tex\">{tex}\\vec{a} \\times \\vec{b}=\\vec{a} \\times \\vec{c}=\\vec{b} \\times \\vec{c}{/tex}</span><br />\r\nSo, the area of the parallelograms formed by taking any two sides represented by <span class=\"math-tex\">{tex}\\vec{a}{/tex}</span>, <span class=\"math-tex\">{tex}\\vec b{/tex}</span> and <span class=\"math-tex\">{tex}\\vec c{/tex}</span> as adjacent are equal.</p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 126241,
+    "q_no": "11",
+    "question_text": "Find the sine of the angle between the vectors {tex}\\vec a = 3\\hat i + \\hat j + 2\\hat k{/tex} and {tex}\\vec b = 2\\hat i - 2\\hat j + 4\\hat k{/tex}",
+    "question_html": "<p>Find the sine of the angle between the vectors <span class=\"math-tex\">{tex}\\vec a = 3\\hat i + \\hat j + 2\\hat k{/tex}</span> and <span class=\"math-tex\">{tex}\\vec b = 2\\hat i - 2\\hat j + 4\\hat k{/tex}</span></p>\r\n",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "Here, a 1 = 3, a 2 = 1, a 3 = 2 and b 1 = 2, b 2 = -2, b 3 = 4 We know that, {tex}\\cos \\theta = \\frac{{{a_1}{b_1} + {a_2}{b_2} + {a_3}{b_3}}}{{\\sqrt {a_1^2 + a_2^2 + a_3^2} \\sqrt {b_1^2 + b_2^2 + b_3^2} }}{/tex} {tex}= \\frac{{3 \\times 2 + 1 \\times \\left( { - 2} \\right) + 2 \\times 4}}{{\\sqrt {{3^2} + {1^2} + {2^2}\\sqrt {{2^2} + {{\\left( { - 2} \\right)}^2} + {4^2}} } }}{/tex} {tex}= \\frac{{6 - 2 + 8}}{{\\sqrt {14} \\sqrt {24} }} = \\frac{{12}}{{2\\sqrt {14} \\sqrt 6 }} = \\frac{6}{{\\sqrt {84} }} = \\frac{6}{{2\\sqrt {21} }} = \\frac{3}{{\\sqrt {21} }}{/tex} {tex}\\therefore \\sin \\theta = \\sqrt {1 - {{\\cos }^2}\\theta } {/tex} {tex}= \\sqrt {1 - \\frac{9}{{21}}} = \\sqrt {\\frac{{12}}{{21}}} = \\frac{{2\\sqrt 3 }}{{\\sqrt 3 \\sqrt 7 }} = \\frac{2}{{\\sqrt 7 }}{/tex}",
+    "solution_html": "<p>Here, a<sub>1</sub> = 3, a<sub>2</sub> = 1, a<sub>3</sub> = 2 and b<sub>1</sub> = 2, b<sub>2</sub> = -2, b<sub>3</sub> = 4</p>\r\n\r\n<p>We know that,</p>\r\n\r\n<p><span class=\"math-tex\">{tex}\\cos \\theta = \\frac{{{a_1}{b_1} + {a_2}{b_2} + {a_3}{b_3}}}{{\\sqrt {a_1^2 + a_2^2 + a_3^2} \\sqrt {b_1^2 + b_2^2 + b_3^2} }}{/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex}= \\frac{{3 \\times 2 + 1 \\times \\left( { - 2} \\right) + 2 \\times 4}}{{\\sqrt {{3^2} + {1^2} + {2^2}\\sqrt {{2^2} + {{\\left( { - 2} \\right)}^2} + {4^2}} } }}{/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex}= \\frac{{6 - 2 + 8}}{{\\sqrt {14} \\sqrt {24} }} = \\frac{{12}}{{2\\sqrt {14} \\sqrt 6 }} = \\frac{6}{{\\sqrt {84} }} = \\frac{6}{{2\\sqrt {21} }} = \\frac{3}{{\\sqrt {21} }}{/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex}\\therefore \\sin \\theta = \\sqrt {1 - {{\\cos }^2}\\theta } {/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex}= \\sqrt {1 - \\frac{9}{{21}}} = \\sqrt {\\frac{{12}}{{21}}} = \\frac{{2\\sqrt 3 }}{{\\sqrt 3 \\sqrt 7 }} = \\frac{2}{{\\sqrt 7 }}{/tex}</span></p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 126242,
+    "q_no": "12",
+    "question_text": "If A, B, C, D are the points with position vectors {tex}\\hat i +\\hat j - \\hat k,2\\hat i - \\hat j + 3\\hat k,2\\hat i - 3\\hat k{/tex} and {tex}3\\hat i - 2\\hat j + \\hat k{/tex} respectively, find the projection of {tex}\\overrightarrow {AB} {/tex} along {tex}\\overrightarrow {CD} {/tex}",
+    "question_html": "<p>If A, B, C, D are the points with position vectors <span class=\"math-tex\">{tex}\\hat i +\\hat j - \\hat k,2\\hat i - \\hat j + 3\\hat k,2\\hat i - 3\\hat k{/tex}</span> and <span class=\"math-tex\">{tex}3\\hat i - 2\\hat j + \\hat k{/tex}</span> respectively, find the projection of <span class=\"math-tex\">{tex}\\overrightarrow {AB} {/tex}</span> along <span class=\"math-tex\">{tex}\\overrightarrow {CD} {/tex}</span></p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "Here, {tex}\\overrightarrow {OA} = \\hat i + \\hat j - \\hat k,{/tex} {tex}\\overrightarrow {OB} = 2\\hat i - \\hat j + 3\\hat k,\\overrightarrow {OC} = 2\\hat i - 3\\hat k{/tex} and {tex}\\overrightarrow {OD} = 3\\hat i - 2\\hat j + \\hat k{/tex} {tex}\\therefore \\overrightarrow {AB} = \\overrightarrow {OB} - \\overrightarrow {OA} {/tex} {tex}= \\left( {2 - 1} \\right)\\hat i + \\left( { - 1 - 1} \\right)\\hat j + \\left( {3 + 1} \\right)\\hat k{/tex} {tex} = \\hat i - 2\\hat j + 4\\hat k{/tex} And {tex}\\overrightarrow {CD} = \\overrightarrow {OD} - \\overrightarrow {OC} {/tex} {tex}= \\left( {3 - 2} \\right)\\hat i + \\left( { - 2 - 0} \\right)\\hat j + \\left( {1 + 3} \\right)\\hat k{/tex} {tex} = \\hat i - 2\\hat j + 4\\hat k{/tex} So, the projection of {tex}\\overrightarrow {AB} {/tex} along {tex}\\overrightarrow {CD} = \\overrightarrow {AB} .\\frac{{\\overrightarrow {CD} }}{{\\left| {\\overrightarrow {CD} } \\right|}}{/tex} {tex}= \\frac{{\\left( {\\hat i - 2\\hat j + 4\\hat k} \\right).\\left( {\\hat i - 2\\hat j + 4\\hat k} \\right)}}{{\\sqrt {{1^2} + {2^2} + {4^2}} }}{/tex} {tex}= \\frac{{1 + 4 + 16}}{{\\sqrt {21} }} = \\frac{{21}}{{\\sqrt {21} }}{/tex} {tex} = \\sqrt {21} {/tex} units",
+    "solution_html": "<p>Here, <span class=\"math-tex\">{tex}\\overrightarrow {OA} = \\hat i + \\hat j - \\hat k,{/tex}</span> <span class=\"math-tex\">{tex}\\overrightarrow {OB} = 2\\hat i - \\hat j + 3\\hat k,\\overrightarrow {OC} = 2\\hat i - 3\\hat k{/tex}</span> and <span class=\"math-tex\">{tex}\\overrightarrow {OD} = 3\\hat i - 2\\hat j + \\hat k{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\therefore \\overrightarrow {AB} = \\overrightarrow {OB} - \\overrightarrow {OA} {/tex}</span> <span class=\"math-tex\">{tex}= \\left( {2 - 1} \\right)\\hat i + \\left( { - 1 - 1} \\right)\\hat j + \\left( {3 + 1} \\right)\\hat k{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} = \\hat i - 2\\hat j + 4\\hat k{/tex}</span><br />\r\nAnd <span class=\"math-tex\">{tex}\\overrightarrow {CD} = \\overrightarrow {OD} - \\overrightarrow {OC} {/tex}</span> <span class=\"math-tex\">{tex}= \\left( {3 - 2} \\right)\\hat i + \\left( { - 2 - 0} \\right)\\hat j + \\left( {1 + 3} \\right)\\hat k{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} = \\hat i - 2\\hat j + 4\\hat k{/tex}</span><br />\r\nSo, the projection of <span class=\"math-tex\">{tex}\\overrightarrow {AB} {/tex}</span> along <span class=\"math-tex\">{tex}\\overrightarrow {CD} = \\overrightarrow {AB} .\\frac{{\\overrightarrow {CD} }}{{\\left| {\\overrightarrow {CD} } \\right|}}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}= \\frac{{\\left( {\\hat i - 2\\hat j + 4\\hat k} \\right).\\left( {\\hat i - 2\\hat j + 4\\hat k} \\right)}}{{\\sqrt {{1^2} + {2^2} + {4^2}} }}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}= \\frac{{1 + 4 + 16}}{{\\sqrt {21} }} = \\frac{{21}}{{\\sqrt {21} }}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} = \\sqrt {21} {/tex}</span> units</p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 153693,
+    "q_no": "13",
+    "question_text": "Using vectors, find the area of the {tex}\\Delta A B C,{/tex} whose vertices are A (1, 2, 3), B(2, -1, 4) and C(4, 5, -1).",
+    "question_html": "<p>Using vectors, find the area of the&nbsp;<span class=\"math-tex\">{tex}\\Delta A B C,{/tex}</span>&nbsp;whose vertices are A (1, 2, 3),&nbsp;B(2, -1, 4) and C(4, 5, -1).</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "Given , ΔABC, whose vertices are A (1, 2, 3), B(2, -1, 4) and C(4, 5, -1). Let the position vectors of the vertices A, B and C of {tex}\\Delta A B C{/tex} is {tex}\\vec { O A } = \\hat { i } + 2 \\hat { j } + \\hat { 3 k }{/tex} {tex} \\vec { O B } = 2 \\hat { i } - \\hat { j } + 4 \\hat { k }{/tex} and {tex}\\vec { O C } = 4 \\hat { i } + 5 \\hat { j } - \\hat { k }{/tex} We know that , {tex}\\vec { A B } = \\vec { O B } - \\vec { O A }{/tex} {tex}= ( 2 \\hat { i } - \\hat { j } + 4 \\hat { k } ) - ( \\hat { i } + 2 \\hat { j } + 3 \\hat { k } ){/tex} {tex}= \\hat { i } - 3 \\hat { j } + \\hat { k }{/tex} also , {tex}\\vec { A C } = \\vec { O C } - \\vec { O A }{/tex} {tex}= ( 4 \\hat { i } + 5 \\hat { j } - \\hat { k } ) - ( \\hat { i } + 2 \\hat { j } + 3 \\hat { k } ){/tex} {tex}= ( 3 \\hat { i } + 3 \\hat { j } - 4 \\hat { k } ){/tex} Now, {tex}\\vec { A B } \\times \\vec { A C } = \\left| \\begin{array} { c c c } { \\hat { i } } & { \\hat { j } } & { \\hat { k } } \\\\ { 1 } & { - 3 } & { 1 } \\\\ { 3 } & { 3 } & { - 4 } \\end{array} \\right|{/tex} {tex}= \\hat { i } ( 12 - 3 ) - \\hat { j } ( - 4 - 3 ) + \\hat { k } ( 3 + 9 ){/tex} {tex}= 9 \\hat { i } + 7 \\hat { j } + 12 \\hat { k }{/tex} {tex}| \\vec { A B } \\times \\vec { A C } | = \\sqrt { ( 9 ) ^ { 2 } + ( 7 ) ^ { 2 } + ( 12 ) ^ { 2 } }{/tex} {tex}= \\sqrt { 81 + 49 + 144 }{/tex} {tex} = \\sqrt { 274 }{/tex} {tex}\\therefore{/tex} Area of {tex}\\Delta A B C = \\frac { 1 } { 2 } | \\vec { A B } \\times \\vec { A C } |{/tex} {tex}= \\frac { 1 } { 2 } \\sqrt { 274 }{/tex} {tex}= \\frac { \\sqrt { 274 } } { 2 } {/tex} {tex}\\therefore \\ Area = \\frac { \\sqrt { 274 } } { 2 } {/tex} sq units.",
+    "solution_html": "<html><body><p>Given , ΔABC, whose vertices are A (1, 2, 3), B(2, -1, 4) and C(4, 5, -1).</p>\n<p>Let the position vectors of the vertices A, B and C of <span class=\"math-tex\">{tex}\\Delta A B C{/tex}</span>  is <br/>\n<span class=\"math-tex\">{tex}\\vec { O A } = \\hat { i } + 2 \\hat { j } + \\hat { 3 k }{/tex}</span></p>\n<p><span class=\"math-tex\">{tex} \\vec { O B } = 2 \\hat { i } - \\hat { j } + 4 \\hat { k }{/tex}</span> and <br/>\n<span class=\"math-tex\">{tex}\\vec { O C } = 4 \\hat { i } + 5 \\hat { j } - \\hat { k }{/tex}</span><br/>\n<img alt=\"\" data-imgur-src=\"ZkGx0GT.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/ZkGx0GT.png\" style=\"width: 220px; height: 98px;\"/></p>\n<p>We know that , <span class=\"math-tex\">{tex}\\vec { A B } = \\vec { O B } - \\vec { O A }{/tex}</span><br/>\n<span class=\"math-tex\">{tex}= ( 2 \\hat { i } - \\hat { j } + 4 \\hat { k } ) - ( \\hat { i } + 2 \\hat { j } + 3 \\hat { k } ){/tex}</span><br/>\n<span class=\"math-tex\">{tex}= \\hat { i } - 3 \\hat { j } + \\hat { k }{/tex}</span><br/>\nalso ,  <span class=\"math-tex\">{tex}\\vec { A C } = \\vec { O C } - \\vec { O A }{/tex}</span><br/>\n<span class=\"math-tex\">{tex}= ( 4 \\hat { i } + 5 \\hat { j } - \\hat { k } ) - ( \\hat { i } + 2 \\hat { j } + 3 \\hat { k } ){/tex}</span><br/>\n<span class=\"math-tex\">{tex}= ( 3 \\hat { i } + 3 \\hat { j } - 4 \\hat { k } ){/tex}</span><br/>\nNow, <span class=\"math-tex\">{tex}\\vec { A B } \\times \\vec { A C } = \\left| \\begin{array} { c c c } { \\hat { i } } &amp; { \\hat { j } } &amp; { \\hat { k } } \\\\ { 1 } &amp; { - 3 } &amp; { 1 } \\\\ { 3 } &amp; { 3 } &amp; { - 4 } \\end{array} \\right|{/tex}</span><br/>\n<span class=\"math-tex\">{tex}= \\hat { i } ( 12 - 3 ) - \\hat { j } ( - 4 - 3 ) + \\hat { k } ( 3 + 9 ){/tex}</span><br/>\n<span class=\"math-tex\">{tex}= 9 \\hat { i } + 7 \\hat { j } + 12 \\hat { k }{/tex}</span><br/>\n<span class=\"math-tex\">{tex}| \\vec { A B } \\times \\vec { A C } | = \\sqrt { ( 9 ) ^ { 2 } + ( 7 ) ^ { 2 } + ( 12 ) ^ { 2 } }{/tex}</span></p>\n<p><span class=\"math-tex\">{tex}= \\sqrt { 81 + 49 + 144 }{/tex}</span></p>\n<p><span class=\"math-tex\">{tex} = \\sqrt { 274 }{/tex}</span><br/>\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span> Area of <span class=\"math-tex\">{tex}\\Delta A B C = \\frac { 1 } { 2 } | \\vec { A B } \\times \\vec { A C } |{/tex}</span><br/>\n<span class=\"math-tex\">{tex}= \\frac { 1 } { 2 } \\sqrt { 274 }{/tex}</span></p>\n<p><span class=\"math-tex\">{tex}= \\frac { \\sqrt { 274 } } { 2 } {/tex}</span></p>\n<p><span class=\"math-tex\">{tex}\\therefore \\ Area = \\frac { \\sqrt { 274 } } { 2 } {/tex}</span>sq units.</p></body></html>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 126243,
+    "q_no": "14",
+    "question_text": "Using vectors, prove that the parallelogram on the same base and between the same parallels are equal in area.",
+    "question_html": "<p>Using vectors, prove that the parallelogram on the same base and between the same parallels are equal in area.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "Let ABCD and ABFE are parallelograms on the same base AB and between the same parallel line AB and DF. Let {tex}\\overrightarrow {AB} = \\vec a{/tex} and {tex}\\overrightarrow {AD} = \\vec b{/tex} {tex}\\therefore{/tex} Area of parallelogram {tex}\\overrightarrow {ABCD} = \\vec a \\times \\vec b{/tex} Now, area of parallelogram of {tex}\\overrightarrow {ABFE} = \\overrightarrow {AB} \\times \\overrightarrow {AE} {/tex} {tex} = \\overrightarrow {AB} \\times \\left( {\\overrightarrow {AD} + \\overrightarrow {DE} } \\right){/tex} {tex} = \\overrightarrow {AB} \\times \\left( {\\vec b + k\\vec a} \\right){/tex} [Let {tex}\\overrightarrow {DE} = k\\vec a{/tex} , where k is a scalar] {tex} = \\vec a \\times \\left( {\\vec b + k\\vec a} \\right){/tex} {tex}= \\left( {\\vec a \\times \\vec b} \\right) + \\left( {\\vec a \\times k\\vec a} \\right){/tex} {tex} = \\left( {\\vec a \\times \\vec b} \\right) + k\\left( {\\vec a \\times \\vec a} \\right){/tex} {tex} = \\left( {\\vec a \\times \\vec b} \\right)\\,\\,\\left[ {\\because \\vec a \\times \\vec a = 0} \\right]{/tex} = Area of parallelogram ABCD. Hence proved",
+    "solution_html": "<p>Let ABCD and ABFE are parallelograms on the same base AB and between the same parallel line AB and DF.<br />\r\n<img id=\"Picture 7\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/static/ncertexem/12/math/ch10/image282.png\" /><br />\r\nLet <span class=\"math-tex\">{tex}\\overrightarrow {AB} = \\vec a{/tex}</span> and <span class=\"math-tex\">{tex}\\overrightarrow {AD} = \\vec b{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span>Area of parallelogram <span class=\"math-tex\">{tex}\\overrightarrow {ABCD} = \\vec a \\times \\vec b{/tex}</span>&nbsp;<br />\r\nNow, area of parallelogram of <span class=\"math-tex\">{tex}\\overrightarrow {ABFE} = \\overrightarrow {AB} \\times \\overrightarrow {AE} {/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex} = \\overrightarrow {AB} \\times \\left( {\\overrightarrow {AD} + \\overrightarrow {DE} } \\right){/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex} = \\overrightarrow {AB} \\times \\left( {\\vec b + k\\vec a} \\right){/tex}</span> [Let <span class=\"math-tex\">{tex}\\overrightarrow {DE} = k\\vec a{/tex}</span>, where k is a scalar]<br />\r\n<span class=\"math-tex\">{tex} = \\vec a \\times \\left( {\\vec b + k\\vec a} \\right){/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}= \\left( {\\vec a \\times \\vec b} \\right) + \\left( {\\vec a \\times k\\vec a} \\right){/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex} = \\left( {\\vec a \\times \\vec b} \\right) + k\\left( {\\vec a \\times \\vec a} \\right){/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex} = \\left( {\\vec a \\times \\vec b} \\right)\\,\\,\\left[ {\\because \\vec a \\times \\vec a = 0} \\right]{/tex}</span>&nbsp;<br />\r\n= Area of parallelogram ABCD.<br />\r\nHence proved</p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 267958,
+    "q_no": "15",
+    "question_text": "If a, b, c are the lengths of the sides opposite respectively to the angles A, B, C of a triangle ABC, show that {tex}\\cos B=\\frac{c^{2}+a^{2}-b^{2}}{2 a c}{/tex}",
+    "question_html": "<p>If a, b, c are the lengths of the sides opposite respectively to the angles A, B, C of a triangle ABC, show that&nbsp;<span class=\"math-tex\">{tex}\\cos B=\\frac{c^{2}+a^{2}-b^{2}}{2 a c}{/tex}</span></p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "In ABC we have {tex}\\overrightarrow{B C}+\\overrightarrow{C A}=\\overrightarrow{B A}{/tex} {tex}\\Rightarrow \\quad \\overrightarrow{B C}+\\overrightarrow{C A}=-\\overrightarrow{A B}{/tex} Now {tex}\\Rightarrow \\quad \\vec{a}+\\vec{b}=-\\vec{c}{/tex} {tex}\\Rightarrow \\quad \\vec{a}+\\vec{b}+\\vec{c}=\\overrightarrow{0}{/tex} {tex}\\Rightarrow \\quad \\vec{a}+\\vec{c}=-\\vec{b}{/tex} {tex}\\Rightarrow \\quad|\\vec{a}+\\vec{c}|^{2}=|\\vec{b}|^{2}{/tex} Using identity in LHS ( a+ b) 2 = a 2 + b 2 + 2ab {tex}{/tex} {tex}\\Rightarrow \\quad|\\vec{a}|^{2}+|\\vec{c}|^{2}+2 \\vec{a} \\cdot \\vec{c}=|\\vec{b}|^{2}{/tex} {tex}\\Rightarrow \\quad|\\vec{a}|^{2}+|\\vec{c}|^{2}+2|\\vec{a}||\\vec{c}| \\cos (\\pi-B)=|\\vec{b}|^{2}{/tex} {tex}\\Rightarrow \\quad a^{2}+c^{2}+2 a c(-\\cos B)=b^{2}{/tex} {tex}\\Rightarrow \\quad 2 a c (cos B)=a^{2}+c^{2}-b^{2} {/tex} {tex}\\Rightarrow \\cos B=\\frac{a^{2}+c^{2}-b^{2}}{2 a c}{/tex}",
+    "solution_html": "<p>In ABC we have<br />\r\n<span class=\"math-tex\">{tex}\\overrightarrow{B C}+\\overrightarrow{C A}=\\overrightarrow{B A}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\quad \\overrightarrow{B C}+\\overrightarrow{C A}=-\\overrightarrow{A B}{/tex}</span></p>\r\n\r\n<p>Now<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\quad \\vec{a}+\\vec{b}=-\\vec{c}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\quad \\vec{a}+\\vec{b}+\\vec{c}=\\overrightarrow{0}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\quad \\vec{a}+\\vec{c}=-\\vec{b}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\quad|\\vec{a}+\\vec{c}|^{2}=|\\vec{b}|^{2}{/tex}</span></p>\r\n\r\n<p>Using identity in LHS ( a+ b)<sup>2</sup>&nbsp;= a<sup>2</sup>&nbsp;+ b<sup>2</sup>+ 2ab<span class=\"math-tex\">{tex}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\quad|\\vec{a}|^{2}+|\\vec{c}|^{2}+2 \\vec{a} \\cdot \\vec{c}=|\\vec{b}|^{2}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\quad|\\vec{a}|^{2}+|\\vec{c}|^{2}+2|\\vec{a}||\\vec{c}| \\cos (\\pi-B)=|\\vec{b}|^{2}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\quad a^{2}+c^{2}+2 a c(-\\cos B)=b^{2}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\quad 2 a c (cos B)=a^{2}+c^{2}-b^{2} {/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex}\\Rightarrow \\cos B=\\frac{a^{2}+c^{2}-b^{2}}{2 a c}{/tex}</span></p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 126233,
+    "q_no": "16",
+    "question_text": "If {tex}\\vec a,\\vec b,\\vec c{/tex} determine the vertices of a triangle, show that {tex}\\frac{1}{2}\\left[ {\\vec b \\times \\vec c + \\vec c \\times \\vec a + \\vec a \\times \\vec b} \\right]{/tex} gives the vector area of the triangle. Hence deduce the condition that the three points {tex}\\vec a,\\vec b,\\vec c{/tex} are collinear. Also, find the unit vector normal to the plane of the triangle.",
+    "question_html": "<p>If <span class=\"math-tex\">{tex}\\vec a,\\vec b,\\vec c{/tex}</span> determine the vertices of a triangle, show that <span class=\"math-tex\">{tex}\\frac{1}{2}\\left[ {\\vec b \\times \\vec c + \\vec c \\times \\vec a + \\vec a \\times \\vec b} \\right]{/tex}</span>gives the vector area of the triangle. Hence deduce the condition that the three points <span class=\"math-tex\">{tex}\\vec a,\\vec b,\\vec c{/tex}</span> are collinear. Also, find the unit vector normal to the plane of the triangle.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "Since, {tex}\\vec a,\\vec b{/tex} and {tex}\\vec c{/tex} are the vertices of a {tex}\\triangle ABC{/tex} as shown. {tex}\\therefore {/tex} Area of {tex}\\triangle ABC = \\frac{1}{2}\\left| {\\overrightarrow {AB} \\times \\overrightarrow {AC} } \\right|{/tex} Now, {tex}\\overrightarrow {AB} = \\vec b - \\vec a{/tex} and {tex}\\overrightarrow {AC} = \\vec c - \\vec a{/tex} {tex}\\therefore {/tex} Area of {tex}\\triangle ABC = \\frac{1}{2}\\left| {(\\vec b - \\vec a) \\times (\\vec c - \\vec a)} \\right|{/tex} {tex}= \\frac{1}{2}\\left| {\\vec b \\times \\vec c - \\vec b \\times \\vec a - \\vec a \\times \\vec c + \\vec a \\times \\vec a} \\right|{/tex} {tex}= \\frac{1}{2}\\left| {\\vec b \\times \\vec c + \\vec a \\times \\vec b + \\vec c \\times \\vec a + 0} \\right|{/tex} {tex}= \\frac{1}{2}\\left| {\\vec b \\times \\vec c + \\vec a \\times \\vec b + \\vec c \\times \\vec a} \\right|{/tex} ...(i) For three points to be collinear, area of the {tex}\\triangle ABC{/tex} should be equal to zero. {tex}\\Rightarrow \\frac{1}{2}\\left[ {\\vec b \\times \\vec c + \\vec c \\times \\vec a + \\vec a \\times \\vec b} \\right] = 0{/tex} {tex}\\Rightarrow \\vec b \\times \\vec c + \\vec c \\times \\vec a + \\vec a \\times \\vec b = 0{/tex} ...(ii) This is the required condition for collinearity of three points {tex}\\vec a,\\vec b{/tex} and {tex}\\vec c{/tex} Let {tex}\\hat n{/tex} be the unit vector normal to the plane of the {tex}\\triangle ABC{/tex} {tex}\\therefore \\hat n = \\frac{{\\overrightarrow {AB} \\times \\overrightarrow {AC} }}{{\\left| {\\overrightarrow {AB} \\times \\overrightarrow {AC} } \\right|}}{/tex} {tex}= \\frac{{\\vec a \\times \\vec b + \\vec b \\times \\vec c + \\vec c \\times \\vec a}}{{\\left| {\\vec a \\times \\vec b + \\vec b \\times \\vec c + \\vec c \\times \\vec a} \\right|}}{/tex}",
+    "solution_html": "<p>Since, <span class=\"math-tex\">{tex}\\vec a,\\vec b{/tex}</span> and <span class=\"math-tex\">{tex}\\vec c{/tex}</span> are the vertices of a <span class=\"math-tex\">{tex}\\triangle ABC{/tex}</span> as shown.<br />\r\n<img id=\"Picture 9\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/static/ncertexem/12/math/ch10/image297.jpg\" /><br />\r\n<span class=\"math-tex\">{tex}\\therefore {/tex}</span> Area of <span class=\"math-tex\">{tex}\\triangle ABC = \\frac{1}{2}\\left| {\\overrightarrow {AB} \\times \\overrightarrow {AC} } \\right|{/tex}</span>&nbsp;<br />\r\nNow, <span class=\"math-tex\">{tex}\\overrightarrow {AB} = \\vec b - \\vec a{/tex}</span> and <span class=\"math-tex\">{tex}\\overrightarrow {AC} = \\vec c - \\vec a{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\therefore {/tex}</span> Area of <span class=\"math-tex\">{tex}\\triangle ABC = \\frac{1}{2}\\left| {(\\vec b - \\vec a) \\times (\\vec c - \\vec a)} \\right|{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}= \\frac{1}{2}\\left| {\\vec b \\times \\vec c - \\vec b \\times \\vec a - \\vec a \\times \\vec c + \\vec a \\times \\vec a} \\right|{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}= \\frac{1}{2}\\left| {\\vec b \\times \\vec c + \\vec a \\times \\vec b + \\vec c \\times \\vec a + 0} \\right|{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}= \\frac{1}{2}\\left| {\\vec b \\times \\vec c + \\vec a \\times \\vec b + \\vec c \\times \\vec a} \\right|{/tex}</span>...(i)<br />\r\nFor three points to be collinear, area of the <span class=\"math-tex\">{tex}\\triangle ABC{/tex}</span> should be equal to zero.<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\frac{1}{2}\\left[ {\\vec b \\times \\vec c + \\vec c \\times \\vec a + \\vec a \\times \\vec b} \\right] = 0{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\vec b \\times \\vec c + \\vec c \\times \\vec a + \\vec a \\times \\vec b = 0{/tex}</span> ...(ii)<br />\r\nThis is the required condition for collinearity of three points <span class=\"math-tex\">{tex}\\vec a,\\vec b{/tex}</span> and <span class=\"math-tex\">{tex}\\vec c{/tex}</span>&nbsp;<br />\r\nLet <span class=\"math-tex\">{tex}\\hat n{/tex}</span> be the unit vector normal to the plane of the <span class=\"math-tex\">{tex}\\triangle ABC{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\therefore \\hat n = \\frac{{\\overrightarrow {AB} \\times \\overrightarrow {AC} }}{{\\left| {\\overrightarrow {AB} \\times \\overrightarrow {AC} } \\right|}}{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}= \\frac{{\\vec a \\times \\vec b + \\vec b \\times \\vec c + \\vec c \\times \\vec a}}{{\\left| {\\vec a \\times \\vec b + \\vec b \\times \\vec c + \\vec c \\times \\vec a} \\right|}}{/tex}</span></p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260702,
+    "q_no": "17",
+    "question_text": "Show that area of the parallelogram whose diagonals are represented by {tex}\\vec a{/tex} and {tex}\\vec b{/tex} is given by {tex}\\frac{1}{2}|\\vec{a} \\times \\vec{b}|{/tex} . Also find the area of the parallelogram whose diagonals are {tex}2 \\hat{i}-\\hat{j}+\\hat{k}{/tex} and {tex}\\hat{i}+3 \\hat{j}-\\hat{k}{/tex} .",
+    "question_html": "<p>Show that area of the parallelogram whose diagonals are represented by&nbsp;<span class=\"math-tex\">{tex}\\vec a{/tex}</span> and <span class=\"math-tex\">{tex}\\vec b{/tex}</span> is given by&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{2}|\\vec{a} \\times \\vec{b}|{/tex}</span>. Also find the area of the parallelogram whose diagonals are&nbsp;<span class=\"math-tex\">{tex}2 \\hat{i}-\\hat{j}+\\hat{k}{/tex}</span> and&nbsp;<span class=\"math-tex\">{tex}\\hat{i}+3 \\hat{j}-\\hat{k}{/tex}</span>.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "Let ABCD be a parallelogram such the {tex}\\vec{A B}=\\vec{p}, \\vec{A D}=\\vec{q} \\Rightarrow \\vec{B C}=\\vec{q}{/tex} {tex}\\therefore \\vec{A C}=\\vec{A B}+\\vec{B C}=\\vec{p}+\\vec{q}=\\vec{a}{/tex} .....(i) [By triangle law of vectors] And {tex}\\vec{B D}=\\vec{B A}+\\vec{A D}=-\\vec{p}+\\vec{q}=\\vec{b}{/tex} .....(ii) Adding (i) and (ii), we get {tex}\\bar{a}+\\bar{b}=2 \\bar{q}{/tex} Subtracting (ii) from Eq. (i), we get {tex}\\vec{a}-\\vec{b}=2 \\vec{p}{/tex} {tex}\\Rightarrow \\vec{p}=\\frac{1}{2}(\\vec{a}-\\vec{b}){/tex} Now, {tex}\\vec{p} \\times \\vec{q}=\\frac{1}{4}(\\vec{a}-\\vec{b}) \\times(\\vec{a}+\\vec{b}){/tex} {tex}=\\frac{1}{4}(\\bar{a} \\times \\bar{a}+\\bar{a} \\times \\bar{b}-\\vec{b} \\times \\bar{a}-\\bar{b} \\times \\bar{b}){/tex} So, the area of a parallelogram ABCD = {tex}|\\vec{p} \\times \\vec{q}|=\\frac{1}{2}|\\vec{a} \\times \\vec{b}|{/tex} Now, area of a parallelogram, whose diagonals are {tex}2 i-j+k{/tex} and {tex}i+3 j-\\dot{k}{/tex} {tex}=\\frac{1}{2}|(2 i-j+k) \\times(i+3 j-k)|{/tex} {tex}=\\frac{1}{2}\\left|\\begin{array}{ccc} {\\hat{i}} & {\\hat{j}} & {\\hat{k}} \\\\ {2} & {-1} & {1} \\\\ {1} & {3} & {-1} \\end{array}\\right|{/tex} {tex}=\\frac{1}{2}|i(1-3)-j(-2-1)+k(6+1)|{/tex} {tex}=\\frac{1}{2}|-2 \\hat{i}+3 \\hat{j}+7 \\hat{k}|=\\frac{1}{2} \\sqrt{4+9+49}=\\frac{1}{2} \\sqrt{62} \\text { sq. units }{/tex} .",
+    "solution_html": "<p>Let ABCD&nbsp;be a parallelogram such the&nbsp;<br />\r\n<img alt=\"\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/2aYViBv.png\" style=\"height:100px; width:150px\" /><br />\r\n<span class=\"math-tex\">{tex}\\vec{A B}=\\vec{p}, \\vec{A D}=\\vec{q} \\Rightarrow \\vec{B C}=\\vec{q}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\therefore \\vec{A C}=\\vec{A B}+\\vec{B C}=\\vec{p}+\\vec{q}=\\vec{a}{/tex}</span>&nbsp;.....(i) [By triangle law of vectors]<br />\r\nAnd&nbsp;<span class=\"math-tex\">{tex}\\vec{B D}=\\vec{B A}+\\vec{A D}=-\\vec{p}+\\vec{q}=\\vec{b}{/tex}</span>&nbsp; .....(ii)<br />\r\nAdding (i) and (ii), we get<br />\r\n<span class=\"math-tex\">{tex}\\bar{a}+\\bar{b}=2 \\bar{q}{/tex}</span><br />\r\nSubtracting (ii) from Eq. (i), we get<br />\r\n<span class=\"math-tex\">{tex}\\vec{a}-\\vec{b}=2 \\vec{p}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\vec{p}=\\frac{1}{2}(\\vec{a}-\\vec{b}){/tex}</span><br />\r\nNow,&nbsp;<span class=\"math-tex\">{tex}\\vec{p} \\times \\vec{q}=\\frac{1}{4}(\\vec{a}-\\vec{b}) \\times(\\vec{a}+\\vec{b}){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\frac{1}{4}(\\bar{a} \\times \\bar{a}+\\bar{a} \\times \\bar{b}-\\vec{b} \\times \\bar{a}-\\bar{b} \\times \\bar{b}){/tex}</span><br />\r\nSo, the area of a parallelogram ABCD =&nbsp;<span class=\"math-tex\">{tex}|\\vec{p} \\times \\vec{q}|=\\frac{1}{2}|\\vec{a} \\times \\vec{b}|{/tex}</span><br />\r\nNow, area of a parallelogram, whose diagonals are<strong>&nbsp;<span class=\"math-tex\">{tex}2 i-j+k{/tex}</span>&nbsp;</strong>and&nbsp;<span class=\"math-tex\">{tex}i+3 j-\\dot{k}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\frac{1}{2}|(2 i-j+k) \\times(i+3 j-k)|{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\frac{1}{2}\\left|\\begin{array}{ccc} {\\hat{i}} &amp; {\\hat{j}} &amp; {\\hat{k}} \\\\ {2} &amp; {-1} &amp; {1} \\\\ {1} &amp; {3} &amp; {-1} \\end{array}\\right|{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\frac{1}{2}|i(1-3)-j(-2-1)+k(6+1)|{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\frac{1}{2}|-2 \\hat{i}+3 \\hat{j}+7 \\hat{k}|=\\frac{1}{2} \\sqrt{4+9+49}=\\frac{1}{2} \\sqrt{62} \\text { sq. units }{/tex}</span>.</p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 126234,
+    "q_no": "18",
+    "question_text": "If {tex}\\vec a = \\hat i + \\hat j + \\hat k{/tex} and {tex}\\vec b = \\hat j - \\hat k{/tex} find a vector {tex}\\vec c{/tex} such that {tex}\\vec a \\times \\vec c = \\vec b{/tex} and {tex}\\vec a.\\vec c = 3{/tex}",
+    "question_html": "<p>If <span class=\"math-tex\">{tex}\\vec a = \\hat i + \\hat j + \\hat k{/tex}</span> and <span class=\"math-tex\">{tex}\\vec b = \\hat j - \\hat k{/tex}</span> find a vector <span class=\"math-tex\">{tex}\\vec c{/tex}</span> such that <span class=\"math-tex\">{tex}\\vec a \\times \\vec c = \\vec b{/tex}</span> and <span class=\"math-tex\">{tex}\\vec a.\\vec c = 3{/tex}</span></p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "Let {tex}\\vec c = x\\hat i + y\\hat j + z\\hat k{/tex} And {tex}\\vec a = \\hat i + \\hat j + \\hat k{/tex} and {tex}\\vec b = \\hat j - \\hat k{/tex} For {tex}\\vec a \\times \\vec c = \\vec b,{/tex} {tex}\\left| {\\begin{array}{*{20}{c}} {\\hat i}&{\\hat j}&{\\hat k} \\\\ 1&1&1 \\\\ x&y&z \\end{array}} \\right| = \\hat j - \\hat k{/tex} {tex}\\Rightarrow \\hat i\\left( {z - y} \\right) - \\hat j\\left( {z - x} \\right) + \\hat k\\left( {y - x} \\right) = \\hat j - \\hat k{/tex} {tex}\\therefore z - y = 0{/tex} ...(i) x - z = 1 ...(ii) x - y = 1 ...(iii) Also, {tex}\\vec a.\\vec c = 3{/tex} {tex}\\left( {\\hat i + \\hat j + \\hat k} \\right).\\left( {x\\hat i + y\\hat j + z\\hat k} \\right) = 3{/tex} {tex} \\Rightarrow x + y + z = 3{/tex} ...(iv) On adding Eqs. (ii) and (iii), we get 2x - y - z = 2 ...(v) On solving Eqs. (iv) and (v), we get {tex}x = \\frac{5}{3}{/tex} {tex}\\therefore y = \\frac{5}{3} - 1 = \\frac{2}{3}{/tex} and {tex}z = \\frac{2}{3}{/tex} Now, {tex}\\vec c = \\frac{5}{3}\\hat i + \\frac{2}{3}\\hat j + \\frac{2}{3}\\hat k{/tex} {tex} = \\frac{1}{3}\\left( {5\\hat i + 2\\hat j + 2\\hat k} \\right){/tex}",
+    "solution_html": "<p>Let <span class=\"math-tex\">{tex}\\vec c = x\\hat i + y\\hat j + z\\hat k{/tex}</span></p>\r\n\r\n<p>And <span class=\"math-tex\">{tex}\\vec a = \\hat i + \\hat j + \\hat k{/tex}</span> and <span class=\"math-tex\">{tex}\\vec b = \\hat j - \\hat k{/tex}</span></p>\r\n\r\n<p>For <span class=\"math-tex\">{tex}\\vec a \\times \\vec c = \\vec b,{/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} {\\hat i}&amp;{\\hat j}&amp;{\\hat k} \\\\ 1&amp;1&amp;1 \\\\ x&amp;y&amp;z \\end{array}} \\right| = \\hat j - \\hat k{/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex}\\Rightarrow \\hat i\\left( {z - y} \\right) - \\hat j\\left( {z - x} \\right) + \\hat k\\left( {y - x} \\right) = \\hat j - \\hat k{/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex}\\therefore z - y = 0{/tex}</span> ...(i)</p>\r\n\r\n<p>x - z = 1 ...(ii)</p>\r\n\r\n<p>x - y = 1 ...(iii)</p>\r\n\r\n<p>Also, <span class=\"math-tex\">{tex}\\vec a.\\vec c = 3{/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex}\\left( {\\hat i + \\hat j + \\hat k} \\right).\\left( {x\\hat i + y\\hat j + z\\hat k} \\right) = 3{/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex} \\Rightarrow x + y + z = 3{/tex}</span> ...(iv)</p>\r\n\r\n<p>On adding Eqs. (ii) and (iii), we get</p>\r\n\r\n<p>2x - y - z = 2 ...(v)</p>\r\n\r\n<p>On solving Eqs. (iv) and (v), we get</p>\r\n\r\n<p><span class=\"math-tex\">{tex}x = \\frac{5}{3}{/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex}\\therefore y = \\frac{5}{3} - 1 = \\frac{2}{3}{/tex}</span> and <span class=\"math-tex\">{tex}z = \\frac{2}{3}{/tex}</span></p>\r\n\r\n<p>Now, <span class=\"math-tex\">{tex}\\vec c = \\frac{5}{3}\\hat i + \\frac{2}{3}\\hat j + \\frac{2}{3}\\hat k{/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex} = \\frac{1}{3}\\left( {5\\hat i + 2\\hat j + 2\\hat k} \\right){/tex}</span></p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260563,
+    "q_no": "19",
+    "question_text": "The vector in the direction of the vector {tex}\\hat{i}-2 \\hat{j}+2 \\hat{k}{/tex} that has magnitude 9 is",
+    "question_html": "<p>The vector in the direction of the vector <span class=\"math-tex\">{tex}\\hat{i}-2 \\hat{j}+2 \\hat{k}{/tex}</span> that has magnitude 9 is</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 377284,
+        "text": "{tex}\\hat{i}-2 \\hat{j}+2 \\hat{k}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\hat{i}-2 \\hat{j}+2 \\hat{k}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377285,
+        "text": "{tex}\\frac{\\hat{i}-2 \\hat{j}+2 \\hat{k}}{3}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{\\hat{i}-2 \\hat{j}+2 \\hat{k}}{3}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377286,
+        "text": "{tex}3(\\hat{i}-2 \\hat{j}+2 \\hat{k}){/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}3(\\hat{i}-2 \\hat{j}+2 \\hat{k}){/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "Let {tex}\\vec{a}=\\hat{i}-2 \\hat{j}+2 \\hat{k}{/tex} Unit vector in the direction of a vector {tex}\\vec a{/tex} {tex}=\\frac{\\vec{a}}{|\\vec{a}|}=\\frac{\\hat{i}-2 \\hat{j}+2 \\hat{k}}{\\sqrt{1^{2}+2^{2}+2^{2}}}=\\frac{i-2 \\hat{j}+2 \\hat{k}}{3}{/tex} {tex}\\therefore{/tex} Vector in the direction of {tex}\\vec{a}{/tex} with magnitude 9 {tex}=9 \\cdot \\frac{i-2 j+2 k}{3}=3(i-2 j+2 k){/tex} ."
+      },
+      {
+        "id": 377287,
+        "text": "{tex}9(\\hat{i}-2 \\hat{j}+2 \\hat{k}){/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}9(\\hat{i}-2 \\hat{j}+2 \\hat{k}){/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_text": "{tex}3(\\hat{i}-2 \\hat{j}+2 \\hat{k}){/tex}",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260569,
+    "q_no": "20",
+    "question_text": "The position vector of the point which divides the join of points {tex}2 \\vec{a}-3 \\vec{b}{/tex} and {tex}\\vec{a}+\\vec{b}{/tex} in the ratio 3: 1 is",
+    "question_html": "<p>The position vector of the point which divides the join of points <span class=\"math-tex\">{tex}2 \\vec{a}-3 \\vec{b}{/tex}</span>&nbsp;and <span class=\"math-tex\">{tex}\\vec{a}+\\vec{b}{/tex}</span>&nbsp;in the ratio 3: 1 is</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 377304,
+        "text": "{tex}\\frac{3 \\vec{a}-2 \\vec{b}}{2}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{3 \\vec{a}-2 \\vec{b}}{2}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377305,
+        "text": "{tex}\\frac{7 \\vec{a}-8 \\vec{b}}{4}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{7 \\vec{a}-8 \\vec{b}}{4}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377306,
+        "text": "{tex}\\frac{3 \\vec{a}}{4}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{3 \\vec{a}}{4}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377307,
+        "text": "{tex}\\frac{5 \\vec{a}}{4}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{5 \\vec{a}}{4}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "We have points {tex}A(2 \\bar{a}-3 \\bar{b}){/tex} and {tex}B(\\bar{a}+\\bar{b}){/tex} Let point C divides A B in the ratio 3: 1 {tex}\\therefore{/tex} Position vector of point C = {tex}\\frac{3(\\vec{a}+\\vec{b})+1(2 \\vec{a}-3 \\vec{b})}{3+1}=\\frac{5 \\vec{a}}{4}{/tex} ."
+      }
+    ],
+    "correct_option_text": "{tex}\\frac{5 \\vec{a}}{4}{/tex}",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260575,
+    "q_no": "21",
+    "question_text": "The vector having initial and terminal points as (2,5,0) and (-3,7,4) respectively is",
+    "question_html": "<p>The vector having initial and terminal points as (2,5,0)&nbsp;and (-3,7,4)&nbsp;respectively is</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 377324,
+        "text": "{tex}-i+12 j+4 \\dot{k}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}-i+12 j+4 \\dot{k}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377325,
+        "text": "{tex}5 i+2 j-4 k{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}5 i+2 j-4 k{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377326,
+        "text": "{tex}-5 \\hat{i}+2 \\hat{j}+4 \\hat{k}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}-5 \\hat{i}+2 \\hat{j}+4 \\hat{k}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "We have points A(2, 5, 0) and B(-3, 7, 4) i.e., {tex}\\vec{O B}=-3 \\hat{i}+7 \\hat{j}+4 \\hat{k}{/tex} and {tex}\\vec{O A}=2 \\hat{i}+5 \\hat{j}{/tex} {tex}\\vec{A B}=\\vec{O B}-\\vec{O A}=(-3 \\hat{i}+7 \\hat{j}+4 \\hat{k})-(2 \\hat{i}+5 \\hat{j})=-5 \\hat{i}+2 \\hat{j}+4 \\hat{k}{/tex} ."
+      },
+      {
+        "id": 377327,
+        "text": "{tex}\\hat{i}+\\hat{j}+\\hat{k}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\hat{i}+\\hat{j}+\\hat{k}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_text": "{tex}-5 \\hat{i}+2 \\hat{j}+4 \\hat{k}{/tex}",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260580,
+    "q_no": "22",
+    "question_text": "The angle between two vectors {tex}\\vec a{/tex} and {tex}\\vec b{/tex} with magnitudes {tex}\\sqrt3{/tex} and 4, respectively, and {tex}\\vec{a} \\cdot \\vec{b}=2 \\sqrt{3}{/tex} is",
+    "question_html": "<p>The angle between two vectors <span class=\"math-tex\">{tex}\\vec a{/tex}</span> and <span class=\"math-tex\">{tex}\\vec b{/tex}</span> with magnitudes <span class=\"math-tex\">{tex}\\sqrt3{/tex}</span>&nbsp;and 4, respectively, and <span class=\"math-tex\">{tex}\\vec{a} \\cdot \\vec{b}=2 \\sqrt{3}{/tex}</span> is</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 377344,
+        "text": "{tex}\\frac{\\pi}{6}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{\\pi}{6}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377345,
+        "text": "{tex}\\frac{\\pi}{3}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{\\pi}{3}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "Given that, {tex}|\\vec{\\mathrm{a}}|=\\sqrt{3}{/tex} , {tex}|\\vec{\\mathrm{b}}|=4{/tex} and {tex}\\vec a{/tex} . {tex}\\vec b{/tex} = {tex}2 \\sqrt3{/tex} Let {tex}\\theta{/tex} be the angle between vector a and b. Then, {tex}\\vec a{/tex} . {tex}\\vec b{/tex} = {tex}|\\vec{a}||\\vec{b}| \\cos \\theta{/tex} {tex}\\Rightarrow 2 \\sqrt{3}=\\sqrt{3} .4 \\cos \\theta{/tex} {tex}\\Rightarrow \\cos \\theta=\\frac{2 \\sqrt{3}}{\\sqrt{3} \\cdot 4}=\\frac{1}{2}{/tex} {tex}\\Rightarrow \\theta=\\frac{\\pi}{3}{/tex} ."
+      },
+      {
+        "id": 377346,
+        "text": "{tex}\\frac{\\pi}{2 }{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{\\pi}{2 }{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377347,
+        "text": "{tex}\\frac{5\\pi}{2}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{5\\pi}{2}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_text": "{tex}\\frac{\\pi}{3}{/tex}",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260595,
+    "q_no": "23",
+    "question_text": "Find the value of {tex}\\lambda{/tex} such that the vectors {tex}\\vec{a}=2 \\hat{i}+\\lambda \\hat{j}+\\hat{k}{/tex} and {tex}\\vec{b}=\\hat{i}+2 \\hat{j}+3 \\hat{k}{/tex} are orthogonal.",
+    "question_html": "<p>Find the value of&nbsp;<span class=\"math-tex\">{tex}\\lambda{/tex}</span>&nbsp;such that the vectors&nbsp;<span class=\"math-tex\">{tex}\\vec{a}=2 \\hat{i}+\\lambda \\hat{j}+\\hat{k}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\vec{b}=\\hat{i}+2 \\hat{j}+3 \\hat{k}{/tex}</span>&nbsp;are orthogonal.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 377388,
+        "text": "0",
+        "html": "<p>0</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377389,
+        "text": "1",
+        "html": "<p>1</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377390,
+        "text": "{tex}\\frac 32{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac 32{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377391,
+        "text": "{tex}\\frac {-5}{ 2}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac {-5}{ 2}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "Given that {tex}\\vec a{/tex} and {tex}\\vec b{/tex} are orthogonal. {tex}\\Rightarrow \\vec{a} \\cdot \\vec{b}=0{/tex} {tex}\\Rightarrow \\vec{\\mathrm{a}} \\cdot \\vec{\\mathrm{b}}=(2 \\hat{\\mathrm{i}}+\\lambda \\hat{\\mathrm{j}}+\\hat{\\mathrm{k}}) \\cdot(\\hat{\\mathrm{i}}+2 \\hat{\\mathrm{j}}+3 \\hat{\\mathrm{k}})=0{/tex} {tex}\\Rightarrow 2+2 \\lambda+3=0{/tex} {tex}(\\because \\hat{{i}}. \\hat{{j}}=0, \\hat{{j}} \\cdot \\hat{{k}}=0, \\hat{{k}} \\cdot \\hat{{i}}=0){/tex} {tex}\\Rightarrow 2 \\lambda=-5{/tex} {tex}\\Rightarrow \\lambda=-\\frac{5}{2}{/tex}"
+      }
+    ],
+    "correct_option_text": "{tex}\\frac {-5}{ 2}{/tex}",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260598,
+    "q_no": "24",
+    "question_text": "The value of {tex}\\lambda{/tex} for which the vectors {tex}3 \\hat{i}-6 \\hat{j}+\\hat{k}{/tex} and {tex}2 \\hat{i}-4 \\hat{j}+\\lambda \\hat{k}{/tex} are parallel is",
+    "question_html": "<p>The value of&nbsp;<span class=\"math-tex\">{tex}\\lambda{/tex}</span>&nbsp;for which the vectors&nbsp;<span class=\"math-tex\">{tex}3 \\hat{i}-6 \\hat{j}+\\hat{k}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}2 \\hat{i}-4 \\hat{j}+\\lambda \\hat{k}{/tex}</span>&nbsp;are parallel is&nbsp;</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 377392,
+        "text": "{tex}\\frac{2}{3}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{2}{3}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "Given that, {tex}(3 \\hat{i}-6 \\hat{\\jmath}+\\hat{k}){/tex} and {tex}(2 \\hat{\\imath}-4 \\hat{\\jmath}+\\lambda \\hat{k}){/tex} are parallel {tex}\\Rightarrow \\frac{3}{2}=\\frac{-6}{-4}=\\frac{1}{\\lambda}{/tex} {tex}\\Rightarrow \\lambda=\\frac{2}{3}{/tex} ."
+      },
+      {
+        "id": 377393,
+        "text": "{tex}\\frac{3}{2}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{3}{2}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377394,
+        "text": "{tex}\\frac{5}{2}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{5}{2}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377395,
+        "text": "{tex}\\frac{2}{5}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{2}{5}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_text": "{tex}\\frac{2}{3}{/tex}",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260602,
+    "q_no": "25",
+    "question_text": "The vectors from origin to the points A and B are {tex}\\vec{a}=2 \\hat{i}-3 \\hat{j}+2 \\hat{k}{/tex} and {tex}\\vec{b}=2 \\hat{i}+3 \\hat{j}+\\hat{k}{/tex} ,respectively, then the area of triangle OAB is",
+    "question_html": "<p>The vectors from origin to the points A and B are <span class=\"math-tex\">{tex}\\vec{a}=2 \\hat{i}-3 \\hat{j}+2 \\hat{k}{/tex}</span> and <span class=\"math-tex\">{tex}\\vec{b}=2 \\hat{i}+3 \\hat{j}+\\hat{k}{/tex}</span>,respectively, then the area of triangle OAB is</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 377404,
+        "text": "340",
+        "html": "<p>340</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377405,
+        "text": "{tex}\\sqrt{25}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\sqrt{25}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377406,
+        "text": "{tex}\\sqrt{229 }{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\sqrt{229 }{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377407,
+        "text": "{tex}\\frac{1}{2}\\sqrt{229}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{1}{2}\\sqrt{229}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "Given that, vector from the origin to the point A, {tex}\\vec{\\mathrm{OA}}=2 \\hat{\\mathrm{i}}-3 \\hat{\\mathrm{j}}+2 \\hat{\\mathrm{k}}{/tex} and vector from the origin to point B, {tex}\\vec{\\mathrm{OB}}=2 \\hat{\\mathrm{i}}+3 \\hat{\\mathrm{j}}+\\hat{\\mathrm{k}}{/tex} Area of {tex}\\triangle {OAB}{/tex} = {tex}\\frac{1}{2}|\\vec{\\mathrm{OA}} \\times \\vec{\\mathrm{OB}}|{/tex} {tex}=\\frac{1}{2}|(2 \\hat{i}-3 \\hat{\\jmath}+2 \\hat{k}) \\times(2 \\hat{i}+3 \\hat{\\jmath}+\\hat{k})|{/tex} {tex}=\\frac{1}{2}\\left|\\begin{array}{ccc} {\\hat{1}} & {\\hat{\\jmath}} & {\\hat{k}} \\\\ {2} & {-3} & {2} \\\\ {2} & {3} & {1} \\end{array}\\right|{/tex} {tex}=\\frac{1}{2}|\\hat{\\imath}(-3-6)-\\hat{\\jmath}(2-4)+\\hat{\\mathrm{k}}(6+6)|{/tex} {tex}=\\frac{1}{2}|(-9 \\hat{1}+2 \\hat{j}+12 \\hat{k})|{/tex} {tex}=\\frac{1}{2} \\sqrt{(-9)^{2}+(2)^{2}+(12)^{2}}{/tex} {tex}=\\frac{1}{2} \\sqrt{81+4+144}{/tex} {tex}=\\frac{1}{2} \\sqrt{229}{/tex} ."
+      }
+    ],
+    "correct_option_text": "{tex}\\frac{1}{2}\\sqrt{229}{/tex}",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260605,
+    "q_no": "26",
+    "question_text": "For any vector {tex}\\vec a{/tex} , the value of {tex}(\\vec{a} \\times \\hat{i})^{2}+(\\vec{a} \\times \\hat{j})^{2}+(\\vec{a} \\times \\hat{k})^{2}{/tex} is equal to",
+    "question_html": "<p>For any vector <span class=\"math-tex\">{tex}\\vec a{/tex}</span>, the value of&nbsp;<span class=\"math-tex\">{tex}(\\vec{a} \\times \\hat{i})^{2}+(\\vec{a} \\times \\hat{j})^{2}+(\\vec{a} \\times \\hat{k})^{2}{/tex}</span>&nbsp;is equal to&nbsp;</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 377408,
+        "text": "{tex}\\vec {a^2}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\vec {a^2}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377409,
+        "text": "{tex}3\\vec {a^2}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}3\\vec {a^2}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377410,
+        "text": "{tex}4\\vec {a^2}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}4\\vec {a^2}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377411,
+        "text": "{tex}2\\vec {a^2}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}2\\vec {a^2}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "Let {tex}\\vec{a}=a_{1} \\hat{i}+a_{2} \\hat{\\jmath}+a_{3} \\hat{k}{/tex} , then {tex}\\vec{\\mathrm{a}} \\times \\hat{\\mathrm{i}}=\\left(\\mathrm{a}_{1} \\hat{\\mathrm{i}}+\\mathrm{a}_{2} \\hat{\\mathrm{j}}+\\mathrm{a}_{3} \\hat{\\mathrm{k}}\\right) \\times \\hat{\\mathrm{i}}{/tex} = {tex}a_{1} \\hat{\\imath} \\times \\hat{\\imath}+a_{2} \\hat{\\jmath} \\times \\hat{\\imath}+a_{3} \\hat{k} \\times \\hat{\\imath}{/tex} {tex}\\Rightarrow \\vec{\\mathrm{a}} \\times \\hat{\\mathrm{i}}=0-\\mathrm{a}_{2} \\hat{\\mathrm{k}}+\\mathrm{a}_{3} \\hat{\\mathrm{j}}(\\because \\hat{\\mathrm{i}} \\times \\hat{\\mathrm{i}}=0, \\hat{\\mathrm{j}} \\times \\hat{\\mathrm{i}}=-\\hat{\\mathrm{k}}, \\hat{\\mathrm{k}} \\times \\hat{\\mathrm{i}}=\\hat{\\mathrm{j}}){/tex} {tex}\\Rightarrow \\vec{\\mathrm{a}} \\times \\hat{\\mathrm{i}}=-\\mathrm{a}_{2} \\hat{\\mathrm{k}}+\\mathrm{a}_{3} \\hat{\\mathrm{j}}{/tex} {tex}\\Rightarrow|\\vec{\\mathrm{a}} \\times \\hat{\\mathrm{i}}|^{2}=\\mathrm{a}_{2}^{2}+\\mathrm{a}_{3}^{2}{/tex} Similarly, we get {tex}\\Rightarrow|\\vec{\\mathrm{a}} \\times \\hat{\\mathrm{j}}|^{2}=\\mathrm{a}_{1}^{2}+\\mathrm{a}_{3}^{2}{/tex} {tex}\\Rightarrow|\\vec{\\mathrm{a}} \\times \\hat{\\mathrm{k}}|^{2}=\\mathrm{a}_{1}^{2}+\\mathrm{a}_{2}^{2}{/tex} {tex}\\therefore|\\vec{\\mathrm{a}} \\times \\hat{\\mathrm{i}}|^{2}+|\\vec{\\mathrm{a}} \\times \\hat{\\mathrm{j}}|^{2}+|\\vec{\\mathrm{a}} \\times \\hat{\\mathrm{k}}|^{2}{/tex} = {tex}a_{2}^{2}+a_{3}^{2}+a_{1}^{2}+a_{3}^{2}+a_{1}^{2}+a_{2}^{2}{/tex} {tex}=2\\left(a_{1}^{2}+a_{2}^{2}+a_{3}^{2}\\right)=2|\\vec{a}|^{2}(\\because|\\vec{a}|=\\sqrt{a_{1}^{2}+a_{2}^{2}+a_{3}^{2}}){/tex} ."
+      }
+    ],
+    "correct_option_text": "{tex}2\\vec {a^2}{/tex}",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260704,
+    "q_no": "27",
+    "question_text": "If {tex}|\\vec{a}|=10{/tex} , {tex}|\\vec{b}|=2{/tex} , and {tex}\\vec{a} \\cdot \\vec{b}=12{/tex} , then value of {tex}|\\vec{a} \\times \\vec{b}|{/tex} is",
+    "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}|\\vec{a}|=10{/tex}</span>,&nbsp;<span class=\"math-tex\">{tex}|\\vec{b}|=2{/tex}</span>, and&nbsp;<span class=\"math-tex\">{tex}\\vec{a} \\cdot \\vec{b}=12{/tex}</span>, then value of&nbsp;<span class=\"math-tex\">{tex}|\\vec{a} \\times \\vec{b}|{/tex}</span>&nbsp;is&nbsp;</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 377656,
+        "text": "5",
+        "html": "<p>5</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377657,
+        "text": "10",
+        "html": "<p>10</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377658,
+        "text": "14",
+        "html": "<p>14</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377659,
+        "text": "16",
+        "html": "<p>16</p>",
+        "is_correct": true,
+        "explanation": "Given that, {tex}|\\vec{\\mathrm{a}}|=10{/tex} , {tex}|\\vec{\\mathrm{b}}|=2{/tex} and {tex}\\vec{\\mathrm{a}} \\cdot \\vec{\\mathrm{b}}=12{/tex} Let &theta; be the angle between vector a and b. Then, {tex}\\vec{\\mathrm{a}} \\cdot \\vec{\\mathrm{b}}=|\\vec{\\mathrm{a}}||\\vec{\\mathrm{b}}| \\cos \\theta{/tex} {tex}\\Rightarrow 12=10 \\times 2 \\cos \\theta{/tex} {tex}\\Rightarrow \\cos \\theta=\\frac{12}{20}=\\frac{3}{5}{/tex} {tex}\\Rightarrow \\sin \\theta=\\sqrt{1-\\cos ^{2} \\theta}=\\sqrt{1-\\left(\\frac{3}{5}\\right)^{2}}=\\sqrt{1-\\frac{9}{25}}{/tex} {tex}\\Rightarrow \\sin \\theta=\\pm \\frac{4}{5}{/tex} Now, {tex}|\\vec{\\mathrm{a}} \\times \\vec{\\mathrm{b}}|=|\\vec{\\mathrm{a}}||\\vec{\\mathrm{b}}| \\sin \\theta{/tex} {tex}\\Rightarrow|\\vec{\\mathrm{a}} \\times \\vec{\\mathrm{b}}|=10 \\times 2 \\times \\frac{4}{5}=16{/tex} ."
+      }
+    ],
+    "correct_option_text": "16",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260616,
+    "q_no": "28",
+    "question_text": "The vectors {tex}\\lambda \\hat{i}+\\hat{j}+2 \\hat{k}{/tex} , {tex}\\hat{i}+\\lambda \\hat{j}-\\hat{k}{/tex} , and {tex}2 \\hat{i}-\\hat{j}+\\lambda \\hat{k}{/tex} are coplanar if",
+    "question_html": "<p>The vectors&nbsp;<span class=\"math-tex\">{tex}\\lambda \\hat{i}+\\hat{j}+2 \\hat{k}{/tex}</span>,&nbsp;<span class=\"math-tex\">{tex}\\hat{i}+\\lambda \\hat{j}-\\hat{k}{/tex}</span>, and&nbsp;<span class=\"math-tex\">{tex}2 \\hat{i}-\\hat{j}+\\lambda \\hat{k}{/tex}</span>&nbsp; are coplanar if&nbsp;</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 377432,
+        "text": "{tex}\\lambda=-2{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\lambda=-2{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "Given that, {tex}\\lambda \\hat{{1}}+\\hat{{j}}+2 \\hat{{k}}{/tex} , {tex}\\hat{{1}}+\\lambda \\hat{{j}}-\\hat{{k}}{/tex} , and {tex}2 \\hat{1}-\\hat{\\jmath}+\\lambda \\hat{k}{/tex} are coplanar. Let {tex}\\vec{\\mathrm{a}}=\\lambda \\hat{\\mathrm{i}}+\\hat{\\mathrm{j}}+2 \\hat{\\mathrm{k}}{/tex} , {tex}\\vec{\\mathrm{b}}=\\hat{\\mathrm{i}}+\\lambda \\hat{\\mathrm{j}}-\\hat{\\mathrm{k}}{/tex} and {tex}\\vec{\\mathrm{c}}=2 \\hat{\\mathrm{i}}-\\hat{\\mathrm{j}}+\\lambda \\hat{\\mathrm{k}}{/tex} Now, {tex}\\vec a{/tex} , {tex}\\vec b{/tex} , {tex}\\vec c{/tex} are coplanar If, {tex}\\left|\\begin{array}{ccc} {\\lambda} & {1} & {2} \\\\ {1} & {\\lambda} & {-1} \\\\ {2} & {-1} & {\\lambda} \\end{array}\\right|=0{/tex} {tex}\\Rightarrow \\lambda\\left(\\lambda^{2}-1\\right)-1(\\lambda+2)+2(-1-2 \\lambda)=0{/tex} {tex}\\Rightarrow \\lambda^{3}-\\lambda-\\lambda-2-2-4 \\lambda=0{/tex} {tex}\\Rightarrow \\lambda^{3}-6 \\lambda-4=0{/tex} {tex}\\Rightarrow(\\lambda+2)\\left(\\lambda^{2}-2 \\lambda-2\\right)=0{/tex} {tex}\\Rightarrow \\lambda=-2{/tex} and {tex}\\lambda=\\frac{2 \\pm \\sqrt{(-2)^{2}-4 \\times 1 \\times-2}}{2}=\\frac{2 \\pm \\sqrt{12}}{2}{/tex} {tex}\\Rightarrow \\lambda=-2{/tex} and {tex}\\lambda=1 \\pm \\sqrt{3}{/tex} ."
+      },
+      {
+        "id": 377433,
+        "text": "{tex}\\lambda=0{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\lambda=0{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377434,
+        "text": "{tex}\\lambda=1{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\lambda=1{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377435,
+        "text": "{tex}\\lambda=-1{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\lambda=-1{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_text": "{tex}\\lambda=-2{/tex}",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 138134,
+    "q_no": "29",
+    "question_text": "If {tex} \\vec { a } , \\vec { b } , \\vec { c }{/tex} are unit vectors such that {tex} \\vec { a } + \\vec { b } + \\vec { c } = \\vec { 0 },{/tex} then write the value of {tex} \\vec { a } \\cdot \\vec { b } + \\vec { b } \\vec { c } + \\vec { c } \\cdot \\vec { a }.{/tex}",
+    "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex} \\vec { a } , \\vec { b } , \\vec { c }{/tex}</span>&nbsp;are unit vectors such that&nbsp;<span class=\"math-tex\">{tex} \\vec { a } + \\vec { b } + \\vec { c } = \\vec { 0 },{/tex}</span>&nbsp;then write the value of&nbsp;<span class=\"math-tex\">{tex} \\vec { a } \\cdot \\vec { b } + \\vec { b } \\vec { c } + \\vec { c } \\cdot \\vec { a }.{/tex}</span></p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "Here, we have to find the value of {tex} \\vec { a } \\cdot \\vec { b } + \\vec { b } \\cdot\\vec { c } + \\vec { c } \\cdot \\vec { a }.{/tex} Given, {tex} | \\vec { a } | = | \\vec { b } | = | \\vec { c } | = 1{/tex} and {tex} \\vec { a } + \\vec { b } + \\vec { c } = \\vec { 0 }.{/tex} Now,consider, {tex} \\vec { a } + \\vec { b } + \\vec { c } = \\vec { 0 }{/tex} {tex} \\Rightarrow \\quad ( \\vec { a } + \\vec { b } + \\vec { c } ) ^ { 2 } = ( \\vec { 0 } ) ^ { 2 }{/tex} {tex} \\Rightarrow \\quad \\vec { ( a } + \\vec { b } + \\vec { c } ). \\ \\vec { ( a } + \\vec { b } + \\vec { c } ) = \\vec { 0 } .\\vec { 0 }{/tex} {tex} \\Rightarrow \\vec { a } .\\vec { a } + \\vec { a }.\\vec { b } + \\vec { a } .\\vec { c } + \\vec { b }. \\vec { a } + \\vec { b } .\\vec { b } + \\vec { b } \\cdot \\vec { c }+ \\vec { a }.\\vec { c }{/tex} {tex} +\\vec { c }. \\vec { b } + \\vec { c } .\\vec { c } = 0{/tex} {tex} \\Rightarrow | \\vec { a } | ^ { 2 } + | \\vec { b } | ^ { 2 } + | \\vec { c } | ^ { 2 } + 2 ( \\vec { a }. \\vec { b } + \\vec { b }. \\vec { c } + \\vec { c } . \\vec { c })= 0{/tex} {tex} \\left[ \\because \\vec { x }. \\vec { y } = \\vec { y } .\\vec { x } \\text { and } \\vec { x }. \\vec { x } = | \\vec { x } | ^ { 2 } \\right]{/tex} {tex} \\Rightarrow 1 + 1 + 1 + 2 \\vec { ( a }. \\vec { b } + \\vec { b }. \\vec { c } + \\vec { c }. \\vec { a } ) = 0{/tex} {tex} [ \\because | \\vec { a } | = | \\vec { b } | = | \\vec { c } | = 1 ]{/tex} {tex} \\Rightarrow \\quad \\vec { a }. \\vec { b } + \\vec { b }. \\vec { c } + \\vec { c }. \\vec { a } = \\frac { - 3 } { 2 }{/tex}",
+    "solution_html": "<p>Here, we have to find&nbsp; the value of&nbsp;<span class=\"math-tex\">{tex} \\vec { a } \\cdot \\vec { b } + \\vec { b } \\cdot\\vec { c } + \\vec { c } \\cdot \\vec { a }.{/tex}</span>Given,&nbsp;<span class=\"math-tex\">{tex} | \\vec { a } | = | \\vec { b } | = | \\vec { c } | = 1{/tex}</span>and&nbsp;<span class=\"math-tex\">{tex} \\vec { a } + \\vec { b } + \\vec { c } = \\vec { 0 }.{/tex}</span><br />\r\nNow,consider,&nbsp;<span class=\"math-tex\">{tex} \\vec { a } + \\vec { b } + \\vec { c } = \\vec { 0 }{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\Rightarrow \\quad ( \\vec { a } + \\vec { b } + \\vec { c } ) ^ { 2 } = ( \\vec { 0 } ) ^ { 2 }{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\Rightarrow \\quad \\vec { ( a } + \\vec { b } + \\vec { c } ). \\ \\vec { ( a } + \\vec { b } + \\vec { c } ) = \\vec { 0 } .\\vec { 0 }{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\Rightarrow \\vec { a } .\\vec { a } + \\vec { a }.\\vec { b } + \\vec { a } .\\vec { c } + \\vec { b }. \\vec { a } + \\vec { b } .\\vec { b } + \\vec { b } \\cdot \\vec { c }+ \\vec { a }.\\vec { c }{/tex}</span><span class=\"math-tex\">{tex} +\\vec { c }. \\vec { b } + \\vec { c } .\\vec { c } = 0{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\Rightarrow | \\vec { a } | ^ { 2 } + | \\vec { b } | ^ { 2 } + | \\vec { c } | ^ { 2 } + 2 ( \\vec { a }. \\vec { b } + \\vec { b }. \\vec { c } + \\vec { c } . \\vec { c })= 0{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\left[ \\because \\vec { x }. \\vec { y } = \\vec { y } .\\vec { x } \\text { and } \\vec { x }. \\vec { x } = | \\vec { x } | ^ { 2 } \\right]{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\Rightarrow 1 + 1 + 1 + 2 \\vec { ( a }. \\vec { b } + \\vec { b }. \\vec { c } + \\vec { c }. \\vec { a } ) = 0{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} [ \\because | \\vec { a } | = | \\vec { b } | = | \\vec { c } | = 1 ]{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\Rightarrow \\quad \\vec { a }. \\vec { b } + \\vec { b }. \\vec { c } + \\vec { c }. \\vec { a } = \\frac { - 3 } { 2 }{/tex}</span></p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260715,
+    "q_no": "30",
+    "question_text": "Projection vector of {tex}\\vec{a}{/tex} on {tex}\\vec{b}{/tex} is",
+    "question_html": "<p>Projection vector of <span class=\"math-tex\">{tex}\\vec{a}{/tex}</span> on <span class=\"math-tex\">{tex}\\vec{b}{/tex}</span> is</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 377700,
+        "text": "{tex}\\left(\\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{b}|^{2}}\\right){\\vec{b}}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\left(\\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{b}|^{2}}\\right){\\vec{b}}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "Let {tex}\\theta{/tex} be the angle between {tex}\\vec a{/tex} and {tex}\\vec b{/tex} . From figure we can see that , length OL is the projection of {tex}\\vec a{/tex} on {tex}\\vec b{/tex} and {tex}\\vec {OL}{/tex} is the projection vector {tex}\\vec a {/tex} and {tex}\\vec b{/tex} . In {tex}\\triangle OLA{/tex} , we have {tex}\\cos \\theta=\\frac{0 \\mathrm{L}}{\\mathrm{OA}}{/tex} {tex}\\Rightarrow \\mathrm{OL}=\\mathrm{OA} \\cos \\theta{/tex} {tex}\\Rightarrow \\mathrm{OL}=|\\vec{\\mathrm{a}}| \\cos \\theta{/tex} {tex}\\Rightarrow \\mathrm{OL}=|\\vec{\\mathrm{a}}|\\left\\{\\frac{(\\vec{\\mathrm{a}}, \\vec{\\mathrm{b}})}{|\\vec{\\mathrm{a}}||\\vec{\\mathrm{b}}|}\\right\\}\\left(\\because \\cos \\theta=\\frac{(\\vec{\\mathrm{a}} \\cdot \\vec{\\mathrm{b}})}{|\\vec{\\mathrm{a}}||\\vec{\\mathrm{b}}|}\\right){/tex} {tex}\\Rightarrow \\mathrm{OL}=\\frac{\\vec{\\mathrm{a}} \\cdot \\vec{\\mathrm{b}}}{|\\vec{\\mathrm{b}}|}{/tex} Now, {tex}\\vec{\\mathrm{OL}}=(\\mathrm{OL}) \\hat{\\mathrm{b}}{/tex} {tex}\\Rightarrow \\vec{\\mathrm{OL}}=\\left\\{\\frac{\\vec{\\mathrm{a}} \\vec{\\mathrm{b}}}{|\\vec{\\mathrm{b}}|}\\right\\} \\widehat{\\mathrm{b}}{/tex} {tex}\\Rightarrow \\vec{\\mathrm{OL}}=\\left\\{\\frac{\\vec{\\mathrm{a}} \\vec{\\mathrm{b}}}{|\\vec{\\mathrm{b}}|}\\right\\} \\frac{\\vec{\\mathrm{b}}}{|\\vec{\\mathrm{b}}|}=\\left\\{\\frac{\\vec{\\mathrm{a}} \\cdot \\vec{\\mathrm{b}}}{|\\vec{\\mathrm{b}}|^{2}}\\right\\} \\vec{\\mathrm{b}}{/tex} . Which is the required solution."
+      },
+      {
+        "id": 377701,
+        "text": "{tex}\\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{b}|}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{b}|}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377702,
+        "text": "{tex}\\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{a}|}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{a}|}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377703,
+        "text": "{tex}\\left(\\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{a}|^{2}}\\right) \\hat{b}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\left(\\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{a}|^{2}}\\right) \\hat{b}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_text": "{tex}\\left(\\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{b}|^{2}}\\right){\\vec{b}}{/tex}",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260705,
+    "q_no": "31",
+    "question_text": "If {tex}\\vec{a}{/tex} , {tex}\\vec{b}{/tex} , {tex} \\vec{c}{/tex} are three vectors such that {tex}\\vec{a}+\\vec{b}+\\vec{c}=\\vec{0}{/tex} and {tex}|\\vec{a}|=2,|\\vec{b}|=3,|\\vec{c}|=5{/tex} , then value of {tex}\\vec{a} \\cdot \\vec{b}+\\vec{b} \\cdot \\vec{c}+\\vec{c} \\cdot \\vec{a}{/tex} is",
+    "question_html": "<p>If <span class=\"math-tex\">{tex}\\vec{a}{/tex}</span>,&nbsp;<span class=\"math-tex\">{tex}\\vec{b}{/tex}</span>,&nbsp;<span class=\"math-tex\">{tex} \\vec{c}{/tex}</span> are three vectors such that <span class=\"math-tex\">{tex}\\vec{a}+\\vec{b}+\\vec{c}=\\vec{0}{/tex}</span> and <span class=\"math-tex\">{tex}|\\vec{a}|=2,|\\vec{b}|=3,|\\vec{c}|=5{/tex}</span>, then value of <span class=\"math-tex\">{tex}\\vec{a} \\cdot \\vec{b}+\\vec{b} \\cdot \\vec{c}+\\vec{c} \\cdot \\vec{a}{/tex}</span> is</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 377660,
+        "text": "0",
+        "html": "<p>0</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377661,
+        "text": "1",
+        "html": "<p>1</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377662,
+        "text": "-19",
+        "html": "<p>-19</p>",
+        "is_correct": true,
+        "explanation": "Given that, {tex}\\vec{|a|}=2{/tex} , {tex}|\\vec{\\mathrm{b}}|=3{/tex} , {tex}\\vec{|c|}=5{/tex} and {tex}\\vec{a}+\\vec{b}+\\vec{c}=0{/tex} {tex}\\Rightarrow(\\vec{a}+\\vec{b}+\\vec{c}) \\cdot(\\vec{a}+\\vec{b}+\\vec{c})=0{/tex} {tex}\\Rightarrow \\vec{\\mathrm{a}}^{2}+\\vec{\\mathrm{a}} \\cdot \\vec{\\mathrm{b}}+\\vec{\\mathrm{a}} \\cdot \\vec{\\mathrm{c}}+\\vec{\\mathrm{b}} \\cdot \\vec{\\mathrm{a}}+\\vec{\\mathrm{b}}^{2}+\\vec{\\mathrm{b}} \\cdot \\vec{\\mathrm{c}}+\\vec{\\mathrm{c}} \\cdot \\vec{\\mathrm{a}}+\\vec{\\mathrm{c}} \\cdot \\vec{\\mathrm{b}}+\\vec{\\mathrm{c}}^{2}=0{/tex} {tex}\\Rightarrow \\vec{\\mathrm{a}}^{2}+\\vec{\\mathrm{b}}^{2}+\\vec{\\mathrm{c}}^{2}+2(\\vec{\\mathrm{a}} \\cdot \\vec{\\mathrm{b}}+\\vec{\\mathrm{b}} \\cdot \\vec{\\mathrm{c}}+\\vec{\\mathrm{c}} \\cdot \\vec{\\mathrm{a}})=0{/tex} {tex}\\Rightarrow{/tex} 4 + 9 + 25 + {tex}2(\\vec{a} \\cdot \\vec{b}+\\vec{b} \\cdot \\vec{c}+\\vec{c} \\cdot \\vec{a})=0{/tex} {tex}(\\ |\\vec{\\mathrm{a}}|=2,| \\vec{\\mathrm{b}}|=3, \\vec{\\mathrm|{C}}|=5){/tex} {tex}\\Rightarrow \\vec{\\mathrm{a}} \\cdot \\vec{\\mathrm{b}}+\\vec{\\mathrm{b}} \\cdot \\vec{\\mathrm{c}}+\\vec{\\mathrm{c}} \\cdot \\vec{\\mathrm{a}}=-\\frac{38}{2}=-19{/tex} ."
+      },
+      {
+        "id": 377663,
+        "text": "38",
+        "html": "<p>38</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_text": "-19",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260635,
+    "q_no": "32",
+    "question_text": "If {tex}|\\vec{a}|=4{/tex} and {tex}-3 \\leq \\lambda \\leq 2{/tex} , then the range of {tex}|\\lambda \\vec{a}|{/tex} is",
+    "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}|\\vec{a}|=4{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}-3 \\leq \\lambda \\leq 2{/tex}</span>, then the range of&nbsp;<span class=\"math-tex\">{tex}|\\lambda \\vec{a}|{/tex}</span>&nbsp;is</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 377484,
+        "text": "[0, 8]",
+        "html": "<p>[0, 8]</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377485,
+        "text": "[-12, 8]",
+        "html": "<p>[-12, 8]</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377486,
+        "text": "[0, 12]",
+        "html": "<p>[0, 12]</p>",
+        "is_correct": true,
+        "explanation": "Given that, {tex}|\\vec{\\mathrm{a}}|=4{/tex} and {tex}-3 \\leq \\lambda \\leq 2{/tex} We know that, {tex}|\\lambda \\vec{\\mathrm{a}}|=|\\lambda||\\vec{\\mathrm{a}}|{/tex} {tex}\\Rightarrow|\\lambda \\vec{a}|=|-3||\\vec{a}|=3.4=12{/tex} at {tex}\\lambda=-3{/tex} {tex}\\Rightarrow|\\lambda \\vec{\\mathrm{a}}|=|0||\\vec{\\mathrm{a}}|=0.4=0{/tex} at {tex} \\lambda=0{/tex} {tex}\\Rightarrow|\\lambda \\vec{\\mathrm{a}}|=|2||\\vec{\\mathrm{a}}|=2.4=8{/tex} at {tex} \\lambda=2{/tex} Hence, the range of {tex}|\\lambda \\vec{\\mathrm{a}}|{/tex} is [0, 12]."
+      },
+      {
+        "id": 377487,
+        "text": "[8, 12]",
+        "html": "<p>[8, 12]</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_text": "[0, 12]",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260638,
+    "q_no": "33",
+    "question_text": "The number of vectors of unit length perpendicular to the vectors {tex}\\vec{a}=2 \\hat{i}+\\hat{j}+2 \\hat{k}{/tex} and {tex}\\vec{b}=\\hat{j}+\\hat{k}{/tex}",
+    "question_html": "<p>The number of vectors of unit length perpendicular to the vectors&nbsp;<span class=\"math-tex\">{tex}\\vec{a}=2 \\hat{i}+\\hat{j}+2 \\hat{k}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\vec{b}=\\hat{j}+\\hat{k}{/tex}</span></p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 377496,
+        "text": "one",
+        "html": "<p>one</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377497,
+        "text": "three",
+        "html": "<p>three</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377498,
+        "text": "two",
+        "html": "<p>two</p>",
+        "is_correct": true,
+        "explanation": "Given that, {tex}\\vec{a}=2 \\hat{1}+\\hat{j}+2 \\hat{k}{/tex} , {tex}\\vec{\\mathrm{b}}=\\hat{\\mathrm{j}}+\\hat{\\mathrm{k}}{/tex} Now, a vector which is perpendicular to both {tex}\\vec a{/tex} and {tex}\\vec b{/tex} is given by {tex}\\vec{a} \\times \\vec{b}{/tex} = {tex}\\left|\\begin{array}{lll} {\\hat{1}} & {\\hat{{j}}} & {\\hat{{k}}} \\\\ {2} & {1} & {2} \\\\ {0} & {1} & {1} \\end{array}\\right|{/tex} = {tex}\\vec i{/tex} (1 - 2) - {tex}\\vec j{/tex} (2 - 0) + {tex}\\vec j=k{/tex} (2 - 0) = {tex}-\\hat{i}-2 \\hat{j}+2 \\hat{k}{/tex} Now, {tex}\\vec{a} \\times \\vec{b}{/tex} = {tex}\\sqrt{(-1)^{2}+(-2)^{2}+(2)^{2}}{/tex} = {tex}\\sqrt{1+4+4}{/tex} = {tex}\\sqrt{9}{/tex} = 3 {tex}\\therefore{/tex} the required unit vector {tex}=\\frac{\\vec{a} \\times \\vec{b}}{|\\vec{a} \\times \\vec{b}|}=\\frac{-i-2 \\hat{j}+2 \\hat{k}}{3}=\\frac{-1}{3} \\hat{\\imath}-\\frac{2}{3} \\hat{\\jmath}+\\frac{2}{3} k{/tex} There are two perpendicular directions to any plane. Thus, another unit vector perpendicular to {tex}\\vec a{/tex} and {tex}\\vec b{/tex} is given by {tex}-\\frac{\\vec{a} \\times \\vec{b}}{|\\vec{a} \\times \\vec{b}|}=\\frac{\\vec{b} \\times \\vec{a}}{|\\vec{b} \\times \\vec{a}|}{/tex} {tex}\\Rightarrow \\frac{\\vec{b} \\times \\vec{a}}{|\\vec{b} \\times \\vec{a}|}=\\frac{1}{3} \\hat{\\imath}+\\frac{2}{3} \\hat{\\jmath}-\\frac{2}{3} k{/tex} Hence, there are two unit length vectors perpendicular to the {tex}\\vec a{/tex} and {tex}\\vec b{/tex} ."
+      },
+      {
+        "id": 377499,
+        "text": "infinite",
+        "html": "<p>infinite</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_text": "two",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 355933,
+    "q_no": "34",
+    "question_text": "The vector {tex}\\vec a + \\vec b {/tex} bisects the angle between the non-collinear vectors {tex}\\vec a{/tex} and {tex}\\vec b{/tex} if ________.",
+    "question_html": "<p>The vector&nbsp;<span class=\"math-tex\">{tex}\\vec a + \\vec b {/tex}</span>&nbsp;bisects the angle between the non-collinear vectors&nbsp;<span class=\"math-tex\">{tex}\\vec a{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\vec b{/tex}</span> if ________.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 355934,
+    "q_no": "35",
+    "question_text": "If {tex}\\vec r. \\vec a = 0{/tex} , {tex}\\vec r. \\vec b = 0{/tex} , and {tex}\\vec r. \\vec c = 0{/tex} for some non-zero vector {tex}\\vec r{/tex} , then the value of {tex}\\vec a (\\vec b \\times \\vec c){/tex} is ________.",
+    "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\vec r. \\vec a = 0{/tex}</span>,&nbsp;<span class=\"math-tex\">{tex}\\vec r. \\vec b = 0{/tex}</span>, and&nbsp;<span class=\"math-tex\">{tex}\\vec r. \\vec c = 0{/tex}</span>&nbsp;for some non-zero vector&nbsp;<span class=\"math-tex\">{tex}\\vec r{/tex}</span>, then the value of&nbsp;<span class=\"math-tex\">{tex}\\vec a (\\vec b \\times \\vec c){/tex}</span>&nbsp;is ________.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 355935,
+    "q_no": "36",
+    "question_text": "The vectors {tex}\\vec a = 3\\hat i - 2\\hat j + 2\\hat k{/tex} and {tex}\\vec b = -\\hat i - 2\\hat k{/tex} are the adjacent sides of a parallelogram. The acute angle between its diagonals is ________.",
+    "question_html": "<p>The vectors&nbsp;<span class=\"math-tex\">{tex}\\vec a = 3\\hat i - 2\\hat j + 2\\hat k{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\vec b = -\\hat i - 2\\hat k{/tex}</span>&nbsp;are the adjacent sides of a parallelogram. The acute angle between its diagonals is ________.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 355936,
+    "q_no": "37",
+    "question_text": "The values of k for which {tex}|k \\vec a | <|\\vec a|{/tex} and {tex}k \\vec a + \\frac{1}{2}\\vec a{/tex} is parallel to {tex}\\vec a {/tex} holds true are ________.",
+    "question_html": "<p>The values of k&nbsp;for which&nbsp;<span class=\"math-tex\">{tex}|k \\vec a | &lt;|\\vec a|{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}k \\vec a + \\frac{1}{2}\\vec a{/tex}</span>&nbsp;is parallel to&nbsp;<span class=\"math-tex\">{tex}\\vec a {/tex}</span>&nbsp;holds true are ________.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 355937,
+    "q_no": "38",
+    "question_text": "The value of the expression {tex}{\\left| {\\overrightarrow a \\times \\overrightarrow b } \\right|^2}{/tex} + {tex}{\\left( {\\overrightarrow a . \\overrightarrow b } \\right)^2}{/tex} is ________.",
+    "question_html": "<p>The value of the expression&nbsp;<span class=\"math-tex\">{tex}{\\left| {\\overrightarrow a \\times \\overrightarrow b } \\right|^2}{/tex}</span>&nbsp;+&nbsp;<span class=\"math-tex\">{tex}{\\left( {\\overrightarrow a . \\overrightarrow b } \\right)^2}{/tex}</span>&nbsp;is ________.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 355938,
+    "q_no": "39",
+    "question_text": "If {tex}{\\left| {\\overrightarrow a \\times \\overrightarrow b } \\right|^2}{/tex} + {tex}{\\left| {\\overrightarrow a . \\overrightarrow b } \\right|^2}{/tex} = 144 and {tex}\\left| {\\overrightarrow a } \\right|{/tex} = 4, then {tex}\\left| {\\overrightarrow b } \\right|{/tex} is equal to ________.",
+    "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}{\\left| {\\overrightarrow a \\times \\overrightarrow b } \\right|^2}{/tex}</span>&nbsp;+&nbsp;<span class=\"math-tex\">{tex}{\\left| {\\overrightarrow a . \\overrightarrow b } \\right|^2}{/tex}</span>&nbsp;= 144 and&nbsp;<span class=\"math-tex\">{tex}\\left| {\\overrightarrow a } \\right|{/tex}</span>&nbsp; = 4, then&nbsp;<span class=\"math-tex\">{tex}\\left| {\\overrightarrow b } \\right|{/tex}</span> is equal to ________.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 355939,
+    "q_no": "40",
+    "question_text": "If {tex}\\vec a {/tex} is non-zero vector, then {tex}(\\vec a. \\hat i)\\hat i{/tex} + {tex}(\\vec a. \\hat j)\\hat j{/tex} + {tex}(\\vec a. \\hat k)\\hat k{/tex} equals ________.",
+    "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\vec a {/tex}</span>&nbsp;is non-zero vector, then&nbsp;<span class=\"math-tex\">{tex}(\\vec a. \\hat i)\\hat i{/tex}</span>&nbsp;+&nbsp;<span class=\"math-tex\">{tex}(\\vec a. \\hat j)\\hat j{/tex}</span>&nbsp;+&nbsp;<span class=\"math-tex\">{tex}(\\vec a. \\hat k)\\hat k{/tex}</span>&nbsp;equals ________.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 338066,
+    "q_no": "41",
+    "question_text": "If {tex}\\left| {\\overrightarrow a } \\right|{/tex} = {tex}\\left| {\\overrightarrow b } \\right|{/tex} , then necessarily it implies {tex}\\vec a = \\pm \\vec b{/tex} .",
+    "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\left| {\\overrightarrow a } \\right|{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\left| {\\overrightarrow b } \\right|{/tex}</span>, then necessarily it implies&nbsp;<span class=\"math-tex\">{tex}\\vec a = \\pm \\vec b{/tex}</span>.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 513199,
+        "text": "True",
+        "html": "True",
+        "is_correct": true,
+        "explanation": "True"
+      },
+      {
+        "id": 513200,
+        "text": "False",
+        "html": "False",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_text": "True",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 338070,
+    "q_no": "42",
+    "question_text": "Position vector of a point P is a vector whose initial point is origin.",
+    "question_html": "<p>Position vector of a point P is a vector whose initial point is origin.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 513207,
+        "text": "True",
+        "html": "True",
+        "is_correct": true,
+        "explanation": "True"
+      },
+      {
+        "id": 513208,
+        "text": "False",
+        "html": "False",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_text": "True",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 338074,
+    "q_no": "43",
+    "question_text": "If {tex}\\left| {\\overrightarrow a + \\overrightarrow b } \\right|{/tex} = {tex}\\left| {\\overrightarrow a - \\overrightarrow b } \\right|{/tex} , then the vectors {tex}\\vec a {/tex} and {tex}\\vec b {/tex} are orthogonal.",
+    "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\left| {\\overrightarrow a + \\overrightarrow b } \\right|{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\left| {\\overrightarrow a - \\overrightarrow b } \\right|{/tex}</span>, then the vectors&nbsp;<span class=\"math-tex\">{tex}\\vec a {/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\vec b {/tex}</span>&nbsp;are orthogonal.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 513215,
+        "text": "True",
+        "html": "True",
+        "is_correct": true,
+        "explanation": "True"
+      },
+      {
+        "id": 513216,
+        "text": "False",
+        "html": "False",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_text": "True",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 338079,
+    "q_no": "44",
+    "question_text": "The formula {tex}(\\vec a + \\vec b)^2{/tex} = {tex}\\vec a^2{/tex} + {tex}\\vec b^2{/tex} + {tex}2\\vec a \\times \\vec b{/tex} is valid for non-zero vectors {tex}\\vec a {/tex} and {tex}\\vec b{/tex} .",
+    "question_html": "<p>The formula&nbsp;<span class=\"math-tex\">{tex}(\\vec a + \\vec b)^2{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\vec a^2{/tex}</span>&nbsp;+&nbsp;<span class=\"math-tex\">{tex}\\vec b^2{/tex}</span>&nbsp;+&nbsp;<span class=\"math-tex\">{tex}2\\vec a \\times \\vec b{/tex}</span>&nbsp;is valid for non-zero vectors&nbsp;<span class=\"math-tex\">{tex}\\vec a {/tex}</span>&nbsp;and&nbsp;&nbsp;<span class=\"math-tex\">{tex}\\vec b{/tex}</span>.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 513225,
+        "text": "True",
+        "html": "True",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 513226,
+        "text": "False",
+        "html": "False",
+        "is_correct": true,
+        "explanation": "False"
+      }
+    ],
+    "correct_option_text": "False",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Exercise 10.3",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 338089,
+    "q_no": "45",
+    "question_text": "If {tex}\\vec a {/tex} and {tex}\\vec b{/tex} are adjacent sides of a rhombus, then {tex}\\vec a .\\vec b = 0{/tex} .",
+    "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\vec a {/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\vec b{/tex}</span>&nbsp; are adjacent sides of&nbsp;a rhombus, then&nbsp;<span class=\"math-tex\">{tex}\\vec a .\\vec b = 0{/tex}</span>.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 513245,
+        "text": "True",
+        "html": "True",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 513246,
+        "text": "False",
+        "html": "False",
+        "is_correct": true,
+        "explanation": "False"
+      }
+    ],
+    "correct_option_text": "False",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Examples 10.2",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 126244,
+    "q_no": "1",
+    "question_text": "Find the unit vector in the direction of the sum of the vectors {tex}\\vec a = 2\\hat i - \\hat j + 2\\hat k{/tex} and {tex}\\vec b = - \\hat i + \\hat j + 3\\hat k{/tex}",
+    "question_html": "<p>Find the unit vector in the direction of the sum of the vectors <span class=\"math-tex\">{tex}\\vec a = 2\\hat i - \\hat j + 2\\hat k{/tex}</span> and <span class=\"math-tex\">{tex}\\vec b = - \\hat i + \\hat j + 3\\hat k{/tex}</span></p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "Let {tex}\\vec c{/tex} denote the sum of {tex}\\vec a{/tex} and {tex}\\vec b{/tex} . We have {tex}\\vec c = \\left( {2\\hat i - \\hat j + 2\\hat k} \\right) + \\left( { - \\hat i + \\hat j + 3\\hat k} \\right) = \\hat i + 5\\hat k{/tex} Now {tex}\\left| {\\vec c} \\right| = \\sqrt {{1^2} + {5^2}} = \\sqrt {26} {/tex} Thus, the required unit vector is {tex}\\vec c = \\frac{{\\vec c}}{{\\left| {\\vec c} \\right|}} = \\frac{1}{{\\sqrt {26} }}\\left( {\\hat i - 5\\hat k} \\right) = \\frac{1}{{\\sqrt {26} }}\\hat i + \\frac{5}{{\\sqrt {26} }}\\hat k{/tex}",
+    "solution_html": "<p>Let <span class=\"math-tex\">{tex}\\vec c{/tex}</span> denote the sum of <span class=\"math-tex\">{tex}\\vec a{/tex}</span> and <span class=\"math-tex\">{tex}\\vec b{/tex}</span>. We have</p>\r\n\r\n<p><span class=\"math-tex\">{tex}\\vec c = \\left( {2\\hat i - \\hat j + 2\\hat k} \\right) + \\left( { - \\hat i + \\hat j + 3\\hat k} \\right) = \\hat i + 5\\hat k{/tex}</span></p>\r\n\r\n<p>Now <span class=\"math-tex\">{tex}\\left| {\\vec c} \\right| = \\sqrt {{1^2} + {5^2}} = \\sqrt {26} {/tex}</span></p>\r\n\r\n<p>Thus, the required unit vector is <span class=\"math-tex\">{tex}\\vec c = \\frac{{\\vec c}}{{\\left| {\\vec c} \\right|}} = \\frac{1}{{\\sqrt {26} }}\\left( {\\hat i - 5\\hat k} \\right) = \\frac{1}{{\\sqrt {26} }}\\hat i + \\frac{5}{{\\sqrt {26} }}\\hat k{/tex}</span></p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Examples 10.2",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 126245,
+    "q_no": "2",
+    "question_text": "Find a vector of magnitude 11 in the direction opposite to that of {tex}\\overrightarrow {PQ} {/tex} , where P and Q are the points (1, 3, 2) and (-1, 0, 8) respectively.",
+    "question_html": "<p>Find a vector of magnitude 11 in the direction opposite to that of <span class=\"math-tex\">{tex}\\overrightarrow {PQ} {/tex}</span>, where P and Q are the points (1, 3, 2) and (-1, 0, 8) respectively.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "The vector with initial point P(1, 3, 2) and terminal point Q(-1, 0, 8) is given by {tex}\\overrightarrow {PQ} = \\left( { - 1 - 1} \\right)\\hat i + \\left( {0 - 3} \\right)\\hat j + \\left( {8 - 2} \\right)\\hat k {/tex} {tex}= - 2\\hat i - 3\\hat j + 6\\hat k{/tex} Thus, {tex}\\overrightarrow {QP} = - \\overrightarrow {PQ} = 2\\hat i + 3\\hat j - 6\\hat k{/tex} {tex}\\Rightarrow \\left| {\\overrightarrow {QP} } \\right| = \\sqrt {{2^2} + {3^2} + {{\\left( { - 6} \\right)}^2}} {/tex} {tex}= \\sqrt {4 + 9 + 36} = \\sqrt {49} = 7{/tex} Therefore, unit vector in the direction of {tex}{\\overrightarrow {QP} }{/tex} is given by {tex}\\hat {QP} = \\frac{{\\overrightarrow {QP} }}{{\\left| {\\overrightarrow {QP} } \\right|}} = \\frac{{2\\hat i + 3\\hat j - 6\\hat k}}{7}{/tex} Hence, the required vector of magnitude 11 in direction of {tex}\\overrightarrow {QP} {/tex} is 11 {tex}\\overrightarrow {QP} = 11\\left( {\\frac{{2i + 3j - 6k}}{7}} \\right) {/tex} {tex}= \\frac{{22}}{7}\\hat i + \\frac{{33}}{7}\\hat j - \\frac{{66}}{7}\\hat k{/tex}",
+    "solution_html": "<p>The vector with initial point P(1, 3, 2) and terminal point Q(-1, 0, 8) is given by</p>\r\n\r\n<p><span class=\"math-tex\">{tex}\\overrightarrow {PQ} = \\left( { - 1 - 1} \\right)\\hat i + \\left( {0 - 3} \\right)\\hat j + \\left( {8 - 2} \\right)\\hat k {/tex}</span> <span class=\"math-tex\">{tex}= - 2\\hat i - 3\\hat j + 6\\hat k{/tex}</span></p>\r\n\r\n<p>Thus, <span class=\"math-tex\">{tex}\\overrightarrow {QP} = - \\overrightarrow {PQ} = 2\\hat i + 3\\hat j - 6\\hat k{/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex}\\Rightarrow \\left| {\\overrightarrow {QP} } \\right| = \\sqrt {{2^2} + {3^2} + {{\\left( { - 6} \\right)}^2}} {/tex}</span> <span class=\"math-tex\">{tex}= \\sqrt {4 + 9 + 36} = \\sqrt {49} = 7{/tex}</span></p>\r\n\r\n<p>Therefore, unit vector in the direction of <span class=\"math-tex\">{tex}{\\overrightarrow {QP} }{/tex}</span> is given by</p>\r\n\r\n<p><span class=\"math-tex\">{tex}\\hat {QP} = \\frac{{\\overrightarrow {QP} }}{{\\left| {\\overrightarrow {QP} } \\right|}} = \\frac{{2\\hat i + 3\\hat j - 6\\hat k}}{7}{/tex}</span></p>\r\n\r\n<p>Hence, the required vector of magnitude 11 in direction of <span class=\"math-tex\">{tex}\\overrightarrow {QP} {/tex}</span> is 11 <span class=\"math-tex\">{tex}\\overrightarrow {QP} = 11\\left( {\\frac{{2i + 3j - 6k}}{7}} \\right) {/tex}</span> <span class=\"math-tex\">{tex}= \\frac{{22}}{7}\\hat i + \\frac{{33}}{7}\\hat j - \\frac{{66}}{7}\\hat k{/tex}</span></p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Examples 10.2",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 268306,
+    "q_no": "3",
+    "question_text": "Find the position vector of a point R which divides the line joining the two points P and Q with position vectors {tex}\\overrightarrow{O P}=2 \\vec{a}+\\vec{b} \\text { and } \\overrightarrow{O Q}=\\vec{a}-2 \\vec{b}{/tex} , respectively in the ratio 1 :2 internally and externally.",
+    "question_html": "<p>Find the position vector of a point R which divides the line joining the two points P and Q with position vectors <span class=\"math-tex\">{tex}\\overrightarrow{O P}=2 \\vec{a}+\\vec{b} \\text { and } \\overrightarrow{O Q}=\\vec{a}-2 \\vec{b}{/tex}</span>, respectively in the ratio 1 :2 internally and externally.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "Point R divides the line joining the two points $P$ and $Q$ in the ratio 1: 2 internally. Position vector of point R {tex}=\\frac{1(\\overrightarrow{a}-2 \\overrightarrow{b})+2(2 \\overrightarrow{a}+\\overrightarrow{b})}{1+2}=\\frac{5 \\overrightarrow{a}}{3}{/tex} Point R divides the line joining the two points P and Q in the ratio 1: 2 externally Position vector of point R {tex}=\\frac{1(\\overrightarrow {a}-2 \\overrightarrow{b})-2(2 \\overrightarrow{a}+\\overrightarrow{b})}{1-2}=\\frac{-3 \\overrightarrow{a}-4 \\overrightarrow{b}}{-1}=3 \\overrightarrow{a}+4 \\overrightarrow{b}{/tex}",
+    "solution_html": "<p>Point R divides the line joining the two points $P$ and $Q$ in the ratio 1: 2 internally.<br />\nPosition vector of point R&nbsp;<span class=\"math-tex\">{tex}=\\frac{1(\\overrightarrow{a}-2 \\overrightarrow{b})+2(2 \\overrightarrow{a}+\\overrightarrow{b})}{1+2}=\\frac{5 \\overrightarrow{a}}{3}{/tex}</span><br />\nPoint R&nbsp;divides the line joining the two points P&nbsp;and Q&nbsp;in the ratio 1: 2 externally<br />\nPosition vector of point R&nbsp;<span class=\"math-tex\">{tex}=\\frac{1(\\overrightarrow {a}-2 \\overrightarrow{b})-2(2 \\overrightarrow{a}+\\overrightarrow{b})}{1-2}=\\frac{-3 \\overrightarrow{a}-4 \\overrightarrow{b}}{-1}=3 \\overrightarrow{a}+4 \\overrightarrow{b}{/tex}</span></p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Examples 10.2",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 126246,
+    "q_no": "4",
+    "question_text": "If the points {tex}\\left( { - 1, - 1,2} \\right),\\left( {2,m,5} \\right){/tex} and {tex}\\left( {3,11,6} \\right){/tex} are collinear, find the value of m.",
+    "question_html": "<p>If the points <span class=\"math-tex\">{tex}\\left( { - 1, - 1,2} \\right),\\left( {2,m,5} \\right){/tex}</span> and <span class=\"math-tex\">{tex}\\left( {3,11,6} \\right){/tex}</span> are collinear, find the value of m.</p>\r\n",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "Let the given points be A(-1, -1, 2), B(2, m, 5) and {tex}C\\left( {3,11,6} \\right){/tex} . Then {tex}\\overrightarrow {AB} = \\left( {2 + 1} \\right)\\hat i + \\left( {m + 1} \\right)\\hat j + \\left( {5 - 2} \\right)\\hat k {/tex} {tex}= 3\\hat i + \\left( {m + 1} \\right)\\hat j + 3\\hat k{/tex} And {tex}\\overrightarrow {AC} = \\left( {3 + 1} \\right)\\hat i + \\left( {11 + 1} \\right)\\hat j + \\left( {6 - 2} \\right)\\hat k {/tex} {tex}= 4\\hat i + 12\\hat j + 4\\hat k{/tex} Since A, B, C are collinear, we have {tex}\\overrightarrow {AB} = \\lambda \\overrightarrow {AC} {/tex} i.e., {tex}\\left( {3\\hat i + \\left( {m + 1} \\right)\\hat j + 3\\hat k} \\right) = \\lambda \\left( {4\\hat i + 12\\hat j + 4\\hat k} \\right){/tex} {tex} \\Rightarrow 3 = 4\\lambda {/tex} and {tex}m + 1 = 12\\lambda {/tex} (solving equations) Therefore, m = 8.",
+    "solution_html": "<p>Let the given points be A(-1, -1, 2), B(2, m, 5) and <span class=\"math-tex\">{tex}C\\left( {3,11,6} \\right){/tex}</span>. Then <span class=\"math-tex\">{tex}\\overrightarrow {AB} = \\left( {2 + 1} \\right)\\hat i + \\left( {m + 1} \\right)\\hat j + \\left( {5 - 2} \\right)\\hat k {/tex}</span> <span class=\"math-tex\">{tex}= 3\\hat i + \\left( {m + 1} \\right)\\hat j + 3\\hat k{/tex}</span></p>\r\n\r\n<p>And <span class=\"math-tex\">{tex}\\overrightarrow {AC} = \\left( {3 + 1} \\right)\\hat i + \\left( {11 + 1} \\right)\\hat j + \\left( {6 - 2} \\right)\\hat k {/tex}</span> <span class=\"math-tex\">{tex}= 4\\hat i + 12\\hat j + 4\\hat k{/tex}</span></p>\r\n\r\n<p>Since A, B, C are collinear, we have <span class=\"math-tex\">{tex}\\overrightarrow {AB} = \\lambda \\overrightarrow {AC} {/tex}</span> i.e.,</p>\r\n\r\n<p><span class=\"math-tex\">{tex}\\left( {3\\hat i + \\left( {m + 1} \\right)\\hat j + 3\\hat k} \\right) = \\lambda \\left( {4\\hat i + 12\\hat j + 4\\hat k} \\right){/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex} \\Rightarrow 3 = 4\\lambda {/tex}</span> and <span class=\"math-tex\">{tex}m + 1 = 12\\lambda {/tex}</span> (solving equations)</p>\r\n\r\n<p>Therefore, m = 8.</p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Examples 10.2",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 126247,
+    "q_no": "5",
+    "question_text": "Find a vector {tex}\\vec r{/tex} of magnitude {tex}3\\sqrt 2 {/tex} units which makes an angle of {tex}\\frac{\\pi }{4}{/tex} and {tex}\\frac{\\pi }{2}{/tex} with y and z - axes, respectively.",
+    "question_html": "<p>Find a vector <span class=\"math-tex\">{tex}\\vec r{/tex}</span> of magnitude <span class=\"math-tex\">{tex}3\\sqrt 2 {/tex}</span> units which makes an angle of <span class=\"math-tex\">{tex}\\frac{\\pi }{4}{/tex}</span> and <span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span> with y and z - axes, respectively.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "Here {tex}m = \\cos \\frac{\\pi }{4} = \\frac{1}{{\\sqrt 2 }}{/tex} and {tex}n = \\cos \\frac{\\pi }{2} = 0{/tex} Therefore, l 2 + m 2 + n 2 = 1 gives {tex}{l^2} + \\frac{1}{2} + 0 = 1{/tex} {tex} \\Rightarrow l = \\pm \\frac{1}{{\\sqrt 2 }}{/tex} Hence, the required vector {tex}\\vec r = 3\\sqrt 2 \\left( {l\\hat i + m\\hat j + n\\hat k} \\right){/tex} is given by {tex}\\vec r = 3\\sqrt 2 \\left( { \\pm \\frac{1}{{\\sqrt 2 }}\\hat i + \\frac{1}{{\\sqrt 2 }}\\hat j + 0\\hat k} \\right) = \\vec r = \\pm 3\\hat i + 3\\hat j.{/tex}",
+    "solution_html": "<p>Here <span class=\"math-tex\">{tex}m = \\cos \\frac{\\pi }{4} = \\frac{1}{{\\sqrt 2 }}{/tex}</span> and <span class=\"math-tex\">{tex}n = \\cos \\frac{\\pi }{2} = 0{/tex}</span><br />\r\nTherefore, l<sup>2</sup> + m<sup>2</sup> + n<sup>2</sup> = 1 gives<br />\r\n<span class=\"math-tex\">{tex}{l^2} + \\frac{1}{2} + 0 = 1{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\Rightarrow l = \\pm \\frac{1}{{\\sqrt 2 }}{/tex}</span><br />\r\nHence, the required vector <span class=\"math-tex\">{tex}\\vec r = 3\\sqrt 2 \\left( {l\\hat i + m\\hat j + n\\hat k} \\right){/tex}</span> is given by<br />\r\n<span class=\"math-tex\">{tex}\\vec r = 3\\sqrt 2 \\left( { \\pm \\frac{1}{{\\sqrt 2 }}\\hat i + \\frac{1}{{\\sqrt 2 }}\\hat j + 0\\hat k} \\right) = \\vec r = \\pm 3\\hat i + 3\\hat j.{/tex}</span></p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Examples 10.2",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 126248,
+    "q_no": "6",
+    "question_text": "If {tex}\\vec a = 2\\hat i - \\hat j + \\hat k,\\vec b = \\hat i + \\hat j - 2\\hat k{/tex} and {tex}\\vec c = \\hat i + 3\\hat j - \\hat k{/tex} find {tex}\\lambda {/tex} such that {tex}\\vec a{/tex} is perpendicular to {tex}\\lambda \\vec b + \\vec c{/tex}",
+    "question_html": "<p>If <span class=\"math-tex\">{tex}\\vec a = 2\\hat i - \\hat j + \\hat k,\\vec b = \\hat i + \\hat j - 2\\hat k{/tex}</span> and <span class=\"math-tex\">{tex}\\vec c = \\hat i + 3\\hat j - \\hat k{/tex}</span> find <span class=\"math-tex\">{tex}\\lambda {/tex}</span> such that <span class=\"math-tex\">{tex}\\vec a{/tex}</span> is perpendicular to <span class=\"math-tex\">{tex}\\lambda \\vec b + \\vec c{/tex}</span></p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "We have {tex}\\lambda \\vec b + \\vec c = \\lambda \\left( {\\hat i + \\hat j - 2\\hat k} \\right) + \\left( {\\hat i + 3\\hat j - \\hat k} \\right){/tex} {tex}= \\left( {\\lambda +1} \\right)\\hat i + \\left( {\\lambda + 3} \\right)\\hat j - \\left( {2\\lambda + 1} \\right)\\hat k{/tex} Since {tex}\\vec a \\bot \\left( {\\lambda \\vec b + \\vec c} \\right),\\vec a.\\left( {\\lambda \\vec b + \\vec c} \\right) = 0{/tex} {tex} \\Rightarrow \\left( {2\\hat i - \\hat j + \\hat k} \\right).\\left[ {\\left( {\\lambda + 1} \\right)\\hat i + \\left( {\\lambda + 3} \\right)\\hat j - \\left( {2\\lambda + 1} \\right)\\hat k} \\right] = 0{/tex} {tex}\\Rightarrow 2\\left( {\\lambda + 1} \\right) - \\left( {\\lambda + 3} \\right) - \\left( {2\\lambda + 1} \\right) = 0{/tex} {tex} \\Rightarrow \\lambda = - 2{/tex}",
+    "solution_html": "<p>We have</p>\r\n\r\n<p><span class=\"math-tex\">{tex}\\lambda \\vec b + \\vec c = \\lambda \\left( {\\hat i + \\hat j - 2\\hat k} \\right) + \\left( {\\hat i + 3\\hat j - \\hat k} \\right){/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex}= \\left( {\\lambda +1} \\right)\\hat i + \\left( {\\lambda + 3} \\right)\\hat j - \\left( {2\\lambda + 1} \\right)\\hat k{/tex}</span></p>\r\n\r\n<p>Since <span class=\"math-tex\">{tex}\\vec a \\bot \\left( {\\lambda \\vec b + \\vec c} \\right),\\vec a.\\left( {\\lambda \\vec b + \\vec c} \\right) = 0{/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex} \\Rightarrow \\left( {2\\hat i - \\hat j + \\hat k} \\right).\\left[ {\\left( {\\lambda + 1} \\right)\\hat i + \\left( {\\lambda + 3} \\right)\\hat j - \\left( {2\\lambda + 1} \\right)\\hat k} \\right] = 0{/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex}\\Rightarrow 2\\left( {\\lambda + 1} \\right) - \\left( {\\lambda + 3} \\right) - \\left( {2\\lambda + 1} \\right) = 0{/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex} \\Rightarrow \\lambda = - 2{/tex}</span></p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Examples 10.2",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260342,
+    "q_no": "7",
+    "question_text": "Find all vectors of magnitude {tex}10 \\sqrt{3}{/tex} that are perpendicular to the plane of {tex}\\hat{i}+2 \\hat{j}+\\hat{k}{/tex} and {tex}-\\hat{i}+3 \\hat{j}+4 \\hat{k}{/tex}",
+    "question_html": "<p>Find all vectors of magnitude <span class=\"math-tex\">{tex}10 \\sqrt{3}{/tex}</span> that are perpendicular to the plane of <span class=\"math-tex\">{tex}\\hat{i}+2 \\hat{j}+\\hat{k}{/tex}</span> and <span class=\"math-tex\">{tex}-\\hat{i}+3 \\hat{j}+4 \\hat{k}{/tex}</span></p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "Let {tex}\\vec{a}=\\hat{i}+2 \\hat{j}+\\hat{k}{/tex} and {tex}\\vec{b}=-\\hat{i}+3 \\hat{j}+4 \\hat{k}{/tex} . Then {tex}\\vec{a} \\times \\vec{b}{/tex} = {tex}\\left|\\begin{array}{ccc} {\\hat{i}} & {\\hat{j}} & {\\hat{k}} \\\\ {1} & {2} & {1} \\\\ {-1} & {3} & {4} \\end{array}\\right|{/tex} = {tex}\\hat i{/tex} (8 + 3) - {tex}\\hat j{/tex} (4 + 1) + {tex}\\hat k{/tex} (3 + 2) = 5 {tex}\\hat i{/tex} - 5 {tex}\\hat j{/tex} + 5 {tex}\\hat k{/tex} {tex}\\Rightarrow |\\vec{a} \\times \\vec{b}|=\\sqrt{(5)^{2}+(-5)^{2}+(5)^{2}}=\\sqrt{3(5)^{2}}=5 \\sqrt{3}{/tex} . Therefore, unit vector perpendicular to the plane of {tex}\\vec a{/tex} and {tex}\\vec b{/tex} is given by {tex}\\frac{\\vec{a} \\times \\vec{b}}{|\\vec{a} \\times \\vec{b}|}=\\frac{5 \\hat{i}-5 \\hat{j}+5 \\hat{k}}{5 \\sqrt{3}}{/tex} Hence, vectors of the magnitude of {tex}10 \\sqrt3{/tex} that are perpendicular to plane of {tex}\\vec a {/tex} and {tex}\\vec b{/tex} are {tex}\\pm 10 \\sqrt{3}\\left(\\frac{5 \\hat{i}-5 \\hat{j}+5 \\hat{k}}{5 \\sqrt{3}}\\right){/tex} , i.e., {tex}\\pm 10(\\hat{i}-\\hat{j}+\\hat{k}){/tex} .",
+    "solution_html": "<p>Let&nbsp;<span class=\"math-tex\">{tex}\\vec{a}=\\hat{i}+2 \\hat{j}+\\hat{k}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\vec{b}=-\\hat{i}+3 \\hat{j}+4 \\hat{k}{/tex}</span>. Then&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\vec{a} \\times \\vec{b}{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\left|\\begin{array}{ccc} {\\hat{i}} &amp; {\\hat{j}} &amp; {\\hat{k}} \\\\ {1} &amp; {2} &amp; {1} \\\\ {-1} &amp; {3} &amp; {4} \\end{array}\\right|{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\hat i{/tex}</span>(8&nbsp;+ 3) - <span class=\"math-tex\">{tex}\\hat j{/tex}</span>(4 + 1) +&nbsp;<span class=\"math-tex\">{tex}\\hat k{/tex}</span>(3 +&nbsp;2) = 5<span class=\"math-tex\">{tex}\\hat i{/tex}</span>&nbsp;- 5<span class=\"math-tex\">{tex}\\hat j{/tex}</span>&nbsp;+ 5<span class=\"math-tex\">{tex}\\hat k{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow |\\vec{a} \\times \\vec{b}|=\\sqrt{(5)^{2}+(-5)^{2}+(5)^{2}}=\\sqrt{3(5)^{2}}=5 \\sqrt{3}{/tex}</span>.<br />\r\nTherefore, unit vector perpendicular to the plane of <span class=\"math-tex\">{tex}\\vec a{/tex}</span> and&nbsp;<span class=\"math-tex\">{tex}\\vec b{/tex}</span>&nbsp;is given by<br />\r\n<span class=\"math-tex\">{tex}\\frac{\\vec{a} \\times \\vec{b}}{|\\vec{a} \\times \\vec{b}|}=\\frac{5 \\hat{i}-5 \\hat{j}+5 \\hat{k}}{5 \\sqrt{3}}{/tex}</span><br />\r\nHence, vectors of the magnitude of <span class=\"math-tex\">{tex}10 \\sqrt3{/tex}</span> that are perpendicular to plane of <span class=\"math-tex\">{tex}\\vec a {/tex}</span> and <span class=\"math-tex\">{tex}\\vec b{/tex}</span>&nbsp;are&nbsp;<span class=\"math-tex\">{tex}\\pm 10 \\sqrt{3}\\left(\\frac{5 \\hat{i}-5 \\hat{j}+5 \\hat{k}}{5 \\sqrt{3}}\\right){/tex}</span>, i.e.,&nbsp;<span class=\"math-tex\">{tex}\\pm 10(\\hat{i}-\\hat{j}+\\hat{k}){/tex}</span>.</p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Examples 10.2",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260699,
+    "q_no": "8",
+    "question_text": "Using vectors, prove that cos (A - B) = cosA cosB + sinA sinB.",
+    "question_html": "<p>Using vectors, prove that cos (A - B) = cosA cosB + sinA sinB.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "Let {tex}\\hat{\\mathrm{OP}}{/tex} and {tex}\\hat{\\mathrm{OQ}}{/tex} be unit vectors making angles A and B, respectively, with positive direction of x-axis. Then {tex}\\angle QOP{/tex} = A - B We know {tex}\\hat{\\mathrm{OP}}{/tex} = {tex}\\vec{\\mathrm{OM}}+\\vec{\\mathrm{MP}}{/tex} = {tex}\\hat{i} \\cos \\mathrm{A}+\\hat{j} \\sin \\mathrm{A}{/tex} and {tex}\\hat{\\mathrm{OQ}}=\\vec{\\mathrm{ON}}+\\vec{\\mathrm{NQ}}=\\hat{i} \\cos \\mathrm{B}+\\hat{j} \\sin \\mathrm{B}{/tex} . By definition {tex}\\hat{\\mathrm{OP}} \\cdot \\hat{\\mathrm{OQ}}=|\\hat{\\mathrm{OP}}||\\hat{\\mathrm{OQ}}| \\cos (\\mathrm{A}-\\mathrm{B}){/tex} = cos (A - B) ...(1) {tex}(\\cdot \\cdot|\\hat{\\mathrm{OP}}|=1|\\hat{\\mathrm{OQ}}|){/tex} In terms of components, we have {tex}\\hat{\\mathrm{OP}} \\cdot \\hat{\\mathrm{OQ}}=(\\hat{i} \\cos \\mathrm{A}+\\hat{j} \\sin \\mathrm{A}) \\cdot(\\hat{i} \\cos \\mathrm{B}+\\hat{j} \\sin \\mathrm{B}){/tex} = cosA cosB + sinA sinB ... (2) From (1) and (2), we get cos (A - B) = cosA cosB + sinA sinB.",
+    "solution_html": "<html><body><p>Let <span class=\"math-tex\">{tex}\\hat{\\mathrm{OP}}{/tex}</span> and <span class=\"math-tex\">{tex}\\hat{\\mathrm{OQ}}{/tex}</span> be unit vectors making angles A and B, respectively, with positive direction of x-axis. Then <span class=\"math-tex\">{tex}\\angle QOP{/tex}</span> = A - B<br/>\n<img alt=\"\" data-imgur-src=\"3dZrBCQ.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/3dZrBCQ.png\" style=\"width: 250px; height: 210px;\"/><br/>\nWe know <span class=\"math-tex\">{tex}\\hat{\\mathrm{OP}}{/tex}</span> = <span class=\"math-tex\">{tex}\\vec{\\mathrm{OM}}+\\vec{\\mathrm{MP}}{/tex}</span> = <span class=\"math-tex\">{tex}\\hat{i} \\cos \\mathrm{A}+\\hat{j} \\sin \\mathrm{A}{/tex}</span> and <span class=\"math-tex\">{tex}\\hat{\\mathrm{OQ}}=\\vec{\\mathrm{ON}}+\\vec{\\mathrm{NQ}}=\\hat{i} \\cos \\mathrm{B}+\\hat{j} \\sin \\mathrm{B}{/tex}</span>.<br/>\nBy definition <span class=\"math-tex\">{tex}\\hat{\\mathrm{OP}} \\cdot \\hat{\\mathrm{OQ}}=|\\hat{\\mathrm{OP}}||\\hat{\\mathrm{OQ}}| \\cos (\\mathrm{A}-\\mathrm{B}){/tex}</span> <br/>\n= cos (A - B) ...(1) <span class=\"math-tex\">{tex}(\\cdot \\cdot|\\hat{\\mathrm{OP}}|=1|\\hat{\\mathrm{OQ}}|){/tex}</span><br/>\nIn terms of components, we have<br/>\n<span class=\"math-tex\">{tex}\\hat{\\mathrm{OP}} \\cdot \\hat{\\mathrm{OQ}}=(\\hat{i} \\cos \\mathrm{A}+\\hat{j} \\sin \\mathrm{A}) \\cdot(\\hat{i} \\cos \\mathrm{B}+\\hat{j} \\sin \\mathrm{B}){/tex}</span> <br/>\n= cosA cosB + sinA sinB ... (2)<br/>\nFrom (1) and (2), we get<br/>\ncos (A - B) = cosA cosB + sinA sinB.</p></body></html>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Examples 10.2",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 126722,
+    "q_no": "9",
+    "question_text": "Prove that in a {tex}\\triangle ABC,\\frac{{\\sin A}}{a} = \\frac{{\\sin B}}{b} = \\frac{{\\sin C}}{c}{/tex} where a, b, c represents the magnitude of the sides opposite to vertices A, B, C respectively.",
+    "question_html": "<p>Prove that in a <span class=\"math-tex\">{tex}\\triangle ABC,\\frac{{\\sin A}}{a} = \\frac{{\\sin B}}{b} = \\frac{{\\sin C}}{c}{/tex}</span> where a, b, c represents the magnitude of the sides opposite to vertices A, B, C respectively.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [],
+    "correct_option_text": "",
+    "solution_text": "Let the three sides of the triangle BC, CA and AB be represented by {tex}\\vec a,\\vec b{/tex} and {tex}\\vec c{/tex} , respectively in the figure. We have {tex}\\vec a + \\vec b + \\vec c = \\vec 0.{/tex} i.e., {tex}\\vec a + \\vec b = - \\vec c{/tex} Which pre-cross multiplying by {tex}\\vec a{/tex} , and post cross multiplying by {tex}\\vec b{/tex} , given {tex}\\vec a \\times \\vec b = \\vec c \\times \\vec a{/tex} and {tex}\\vec a \\times \\vec b = \\vec b \\times \\vec c{/tex} respectively. Therefore, {tex}\\vec a \\times \\vec b = \\vec b \\times \\vec c = \\vec c \\times \\vec a{/tex} {tex}\\Rightarrow \\left| {\\vec a \\times \\vec b} \\right|\\left| {\\vec b \\times \\vec c} \\right|\\left| {\\vec c \\times \\vec b} \\right|{/tex} {tex}\\Rightarrow \\left| {\\vec a} \\right|\\left| {\\vec b} \\right|\\sin \\left( {\\pi - C} \\right) = \\left| {\\vec b} \\right|\\left| {\\vec c} \\right|\\sin \\left( {\\pi - A} \\right)\\left| {\\vec c} \\right|\\left| {\\vec a} \\right|\\sin \\left( {\\pi - B} \\right){/tex} {tex} \\Rightarrow ab\\sin C = bc\\sin A = ca\\sin B{/tex} {tex}\\Rightarrow \\left| {\\vec a \\times \\vec b} \\right| = \\left| {\\vec b \\times \\vec c} \\right| = \\left| {\\vec c \\times \\vec b} \\right|{/tex} Dividing by abc, we get {tex}\\frac{{\\sin C}}{c} = \\frac{{\\sin A}}{a} = \\frac{{\\sin B}}{b}{/tex} {tex}i.e,\\,\\frac{{\\sin A}}{a} = \\frac{{\\sin B}}{b} = \\frac{{\\sin C}}{c}{/tex}",
+    "solution_html": "<p>Let the three sides of the triangle BC, CA and AB be represented by <span class=\"math-tex\">{tex}\\vec a,\\vec b{/tex}</span> and <span class=\"math-tex\">{tex}\\vec c{/tex}</span>, respectively in the figure.<br />\r\n<img alt=\"\" data-imgur-src=\"N3V3QLD.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/N3V3QLD.png\" style=\"width: 150px; height: 132px;\" /><br />\r\nWe have <span class=\"math-tex\">{tex}\\vec a + \\vec b + \\vec c = \\vec 0.{/tex}</span> i.e., <span class=\"math-tex\">{tex}\\vec a + \\vec b = - \\vec c{/tex}</span>&nbsp;<br />\r\nWhich pre-cross multiplying by <span class=\"math-tex\">{tex}\\vec a{/tex}</span>, and post cross multiplying by <span class=\"math-tex\">{tex}\\vec b{/tex}</span>, given <span class=\"math-tex\">{tex}\\vec a \\times \\vec b = \\vec c \\times \\vec a{/tex}</span>&nbsp;and <span class=\"math-tex\">{tex}\\vec a \\times \\vec b = \\vec b \\times \\vec c{/tex}</span>&nbsp;respectively. Therefore,<br />\r\n<span class=\"math-tex\">{tex}\\vec a \\times \\vec b = \\vec b \\times \\vec c = \\vec c \\times \\vec a{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\left| {\\vec a \\times \\vec b} \\right|\\left| {\\vec b \\times \\vec c} \\right|\\left| {\\vec c \\times \\vec b} \\right|{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\left| {\\vec a} \\right|\\left| {\\vec b} \\right|\\sin \\left( {\\pi - C} \\right) = \\left| {\\vec b} \\right|\\left| {\\vec c} \\right|\\sin \\left( {\\pi - A} \\right)\\left| {\\vec c} \\right|\\left| {\\vec a} \\right|\\sin \\left( {\\pi - B} \\right){/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex} \\Rightarrow ab\\sin C = bc\\sin A = ca\\sin B{/tex}</span>&nbsp; <span class=\"math-tex\">{tex}\\Rightarrow \\left| {\\vec a \\times \\vec b} \\right| = \\left| {\\vec b \\times \\vec c} \\right| = \\left| {\\vec c \\times \\vec b} \\right|{/tex}</span>&nbsp;<br />\r\nDividing by abc, we get<br />\r\n<span class=\"math-tex\">{tex}\\frac{{\\sin C}}{c} = \\frac{{\\sin A}}{a} = \\frac{{\\sin B}}{b}{/tex}</span> <span class=\"math-tex\">{tex}i.e,\\,\\frac{{\\sin A}}{a} = \\frac{{\\sin B}}{b} = \\frac{{\\sin C}}{c}{/tex}</span></p>",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Examples 10.2",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260372,
+    "q_no": "10",
+    "question_text": "The magnitude of the vector {tex}6 \\hat{i}+2 \\hat{j}+3 \\hat{k}{/tex} is",
+    "question_html": "<p>The magnitude of the vector <span class=\"math-tex\">{tex}6 \\hat{i}+2 \\hat{j}+3 \\hat{k}{/tex}</span> is</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 376928,
+        "text": "5",
+        "html": "<p>5</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 376929,
+        "text": "7",
+        "html": "<p>7</p>",
+        "is_correct": true,
+        "explanation": "7"
+      },
+      {
+        "id": 376930,
+        "text": "12",
+        "html": "<p>12</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 376931,
+        "text": "1",
+        "html": "<p>1</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_text": "7",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Examples 10.2",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260382,
+    "q_no": "11",
+    "question_text": "The position vector of the point which divides the join of points with position vectors {tex}\\vec a + \\vec b{/tex} and {tex}2\\vec a - \\vec b{/tex} in the ratio 1 : 2 is",
+    "question_html": "<p>The position vector of the point which divides the join of points with position vectors <span class=\"math-tex\">{tex}\\vec a + \\vec b{/tex}</span> and <span class=\"math-tex\">{tex}2\\vec a - \\vec b{/tex}</span> in the ratio 1 : 2 is</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 376956,
+        "text": "{tex}\\frac{3 \\vec{a}+2 \\vec{b}}{3}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{3 \\vec{a}+2 \\vec{b}}{3}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 376957,
+        "text": "{tex}\\vec a{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\vec a{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 376958,
+        "text": "{tex}\\frac{5 \\vec{a}- \\vec{b}}{3}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{5 \\vec{a}- \\vec{b}}{3}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 376959,
+        "text": "{tex}\\frac{4 \\vec{a}+\\vec{b}}{3}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{4 \\vec{a}+\\vec{b}}{3}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "{tex}\\frac{4 \\vec{a}+\\vec{b}}{3}{/tex} is the correct answer. Applying section formula the position vector of the required point is {tex}\\frac{2(\\vec{a}+\\vec{b})+1(2 \\vec{a}-\\vec{b})}{2+1}=\\frac{4 \\vec{a}+\\vec{b}}{3}{/tex} ."
+      }
+    ],
+    "correct_option_text": "{tex}\\frac{4 \\vec{a}+\\vec{b}}{3}{/tex}",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Examples 10.2",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260419,
+    "q_no": "12",
+    "question_text": "The vector with initial point P (2, -3, 5) and terminal point Q(3, -4, 7) is",
+    "question_html": "<p>The vector with initial point P (2, -3, 5) and terminal point Q(3, -4, 7) is</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 377032,
+        "text": "5 {tex}\\hat{i}{/tex} - 7 {tex}\\hat{j}{/tex} +12 {tex}\\hat {k}{/tex}",
+        "html": "<p>5<span class=\"math-tex\">{tex}\\hat{i}{/tex}</span>-&nbsp;7<span class=\"math-tex\">{tex}\\hat{j}{/tex}</span>+12<span class=\"math-tex\">{tex}\\hat {k}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377033,
+        "text": "- {tex}\\hat{i}{/tex} + {tex}\\hat{j}{/tex} - 2 {tex}\\hat {k}{/tex}",
+        "html": "<p>-<span class=\"math-tex\">{tex}\\hat{i}{/tex}</span>&nbsp;+&nbsp;<span class=\"math-tex\">{tex}\\hat{j}{/tex}</span>&nbsp;- 2<span class=\"math-tex\">{tex}\\hat {k}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377034,
+        "text": "5 {tex}\\hat{i}{/tex} - 7 {tex}\\hat{j}{/tex} -12 {tex}\\hat {k}{/tex}",
+        "html": "<p>5<span class=\"math-tex\">{tex}\\hat{i}{/tex}</span>-&nbsp;7<span class=\"math-tex\">{tex}\\hat{j}{/tex}</span>-12<span class=\"math-tex\">{tex}\\hat {k}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377035,
+        "text": "{tex}\\hat{i}{/tex} - {tex}\\hat{j}{/tex} +2 {tex}\\hat {k}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\hat{i}{/tex}</span>-<span class=\"math-tex\">{tex}\\hat{j}{/tex}</span>+2<span class=\"math-tex\">{tex}\\hat {k}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "To find the vector we need to find the {tex}\\vec{PQ}{/tex} = {tex}3\\hat{i}-4\\hat{j}+7\\hat{k}-(2\\hat{i}+3\\hat{j}-5\\hat{k}){/tex} . Hence, the vector formed by above points is with the following (1,-1,2)."
+      }
+    ],
+    "correct_option_text": "{tex}\\hat{i}{/tex} - {tex}\\hat{j}{/tex} +2 {tex}\\hat {k}{/tex}",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Examples 10.2",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260426,
+    "q_no": "13",
+    "question_text": "The angle between the vectors {tex}\\hat{\\text i}-\\hat{\\text j}{/tex} and {tex}\\hat{\\text j}-\\hat{\\text k}{/tex} is",
+    "question_html": "<p>The angle between the vectors <span class=\"math-tex\">{tex}\\hat{\\text i}-\\hat{\\text j}{/tex}</span> and <span class=\"math-tex\">{tex}\\hat{\\text j}-\\hat{\\text k}{/tex}</span> is</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 377040,
+        "text": "{tex}\\frac{\\pi}{3}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{\\pi}{3}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377041,
+        "text": "{tex}\\frac{2\\pi}{3}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{2\\pi}{3}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "{tex}\\frac{2\\pi}{3}{/tex} is the correct answer. Apply the formula cos {tex}\\theta{/tex} = {tex}\\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{a}| \\cdot|\\vec{b}|}{/tex} ."
+      },
+      {
+        "id": 377042,
+        "text": "{tex}-\\frac{\\pi}{3}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}-\\frac{\\pi}{3}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377043,
+        "text": "0",
+        "html": "<p>0</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_text": "{tex}\\frac{2\\pi}{3}{/tex}",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Examples 10.2",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260437,
+    "q_no": "14",
+    "question_text": "The value of {tex}\\lambda{/tex} for which the two vectors {tex}2 \\hat{i}-\\hat{j}+2 \\hat{k}{/tex} and {tex}3 \\hat{i}+\\lambda \\hat{j}+\\hat{k}{/tex} are perpendicular is",
+    "question_html": "<p>The value of <span class=\"math-tex\">{tex}\\lambda{/tex}</span>&nbsp;for which the two vectors <span class=\"math-tex\">{tex}2 \\hat{i}-\\hat{j}+2 \\hat{k}{/tex}</span> and <span class=\"math-tex\">{tex}3 \\hat{i}+\\lambda \\hat{j}+\\hat{k}{/tex}</span> are perpendicular is</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 377052,
+        "text": "2",
+        "html": "<p>2</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377053,
+        "text": "4",
+        "html": "<p>4</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377054,
+        "text": "6",
+        "html": "<p>6</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377055,
+        "text": "8",
+        "html": "<p>8</p>",
+        "is_correct": true,
+        "explanation": "We know that, dot product of two orthogonal vectors is always 0. Hence, ( {tex}2 \\hat{i}-\\hat{j}+2 \\hat{k}{/tex} ) . ( {tex}3 \\hat{i}+\\lambda \\hat{j}+\\hat{k}{/tex} ) = 0 {tex}\\Rightarrow{/tex} 6 - {tex}\\lambda{/tex} + 2 = 0 {tex}\\Rightarrow{/tex} {tex}\\lambda{/tex} = 8"
+      }
+    ],
+    "correct_option_text": "8",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Examples 10.2",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260442,
+    "q_no": "15",
+    "question_text": "The area of the parallelogram whose adjacent sides are {tex}\\hat{i}+\\hat{k}{/tex} and {tex}2 \\hat{i}+\\hat{j}+\\hat{k}{/tex} is",
+    "question_html": "<p>The area of the parallelogram whose adjacent sides are <span class=\"math-tex\">{tex}\\hat{i}+\\hat{k}{/tex}</span>&nbsp; and <span class=\"math-tex\">{tex}2 \\hat{i}+\\hat{j}+\\hat{k}{/tex}</span> is</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 377060,
+        "text": "{tex}\\sqrt2{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\sqrt2{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377061,
+        "text": "{tex}\\sqrt3{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\sqrt3{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "{tex}\\sqrt3{/tex} is the correct answer. Area of the parallelogram whose adjacent sides are {tex}\\vec a{/tex} and {tex}\\vec b{/tex} is {tex}|\\vec{a} \\times \\hat{b}|{/tex} ."
+      },
+      {
+        "id": 377062,
+        "text": "3",
+        "html": "<p>3</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377063,
+        "text": "4",
+        "html": "<p>4</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_text": "{tex}\\sqrt3{/tex}",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Examples 10.2",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 730141,
+    "q_no": "16",
+    "question_text": "If {tex} | \\vec { a } | = 8 , | \\vec { b } | = 3{/tex} and {tex} | \\vec { a } \\times \\vec { b } | = 12,{/tex} then value of {tex} \\vec { a }{/tex} . {tex} \\vec { b }{/tex} is",
+    "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex} | \\vec { a } | = 8 , | \\vec { b } | = 3{/tex}</span> and&nbsp;<span class=\"math-tex\">{tex} | \\vec { a } \\times \\vec { b } | = 12,{/tex}</span>&nbsp;then value of&nbsp;<span class=\"math-tex\">{tex} \\vec { a }{/tex}</span>.<span class=\"math-tex\">{tex} \\vec { b }{/tex}</span>&nbsp;is</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 1519980,
+        "text": "{tex}6\\sqrt3{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}6\\sqrt3{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 1519981,
+        "text": "{tex}8\\sqrt3{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}8\\sqrt3{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 1519982,
+        "text": "{tex}12\\sqrt3{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}12\\sqrt3{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "Using the formula {tex}|\\vec a \\times \\vec b| = |\\vec a|.|\\vec b| |sin \\theta|{/tex} we get {tex}\\theta = \\pm \\frac {\\pi}{6}{/tex} therefore, {tex}\\vec a . \\vec b = |\\vec a|.|\\vec b| cos \\theta{/tex} {tex}8 \\times 3 \\times \\frac {\\sqrt3}{2}=12\\sqrt3{/tex}"
+      },
+      {
+        "id": 1519983,
+        "text": "{tex}16\\sqrt3{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}16\\sqrt3{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_text": "{tex}12\\sqrt3{/tex}",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Examples 10.2",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260716,
+    "q_no": "17",
+    "question_text": "The 2 vectors {tex}\\hat{j}+\\hat{k}{/tex} and {tex}3 \\hat{i}-\\hat{j}+4 \\hat{k}{/tex} represents the two sides AB and AC, respectively of a {tex} \\triangle{/tex} ABC. The length of the median through A is",
+    "question_html": "<p>The 2 vectors&nbsp;<span class=\"math-tex\">{tex}\\hat{j}+\\hat{k}{/tex}</span>&nbsp;and <span class=\"math-tex\">{tex}3 \\hat{i}-\\hat{j}+4 \\hat{k}{/tex}</span> represents the two sides AB and AC, respectively of a <span class=\"math-tex\">{tex} \\triangle{/tex}</span>ABC. The length of the median through A is</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 377704,
+        "text": "{tex}\\frac{\\sqrt{34}}{2}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{\\sqrt{34}}{2}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "In {tex}\\triangle ABC,{/tex} Using the triangle law of vector addition, we have {tex}\\overrightarrow{B C}=\\overrightarrow{A C}-\\overrightarrow{A B}{/tex} {tex}=(3 \\hat{i}-\\hat{j}+4 \\hat{k})-(\\hat{j}+\\hat{k}){/tex} {tex}\\therefore \\overrightarrow{B D}=\\frac{1}{2} \\overrightarrow{B C}=\\frac{3}{2} \\hat{i}-\\hat{j}+\\frac{3}{2} \\hat{k}{/tex} (since AD is the median) In {tex}\\triangle \\mathrm{ABD},{/tex} using the triangle law of vector addition, we have {tex}\\overrightarrow{A D}=\\overrightarrow{A B}+\\overrightarrow{B D}{/tex} {tex}=(\\hat{j}+\\hat{k})+\\left(\\frac{3}{2} \\hat{i}-\\hat{j}+\\frac{3}{2} \\hat{k}\\right){/tex} {tex}=\\frac{3}{2} \\hat{i}+0 \\hat{j}+\\frac{5}{2} \\hat{k}{/tex} {tex}\\therefore A D=\\sqrt{\\left(\\frac{3}{2}\\right)^{2}+0^{2}+\\left(\\frac{5}{2}\\right)^{2}}=\\frac{1}{2} \\sqrt{34}{/tex} Hence, the length of the median through A is {tex}\\frac{1}{2} \\sqrt{34} \\text { units. }{/tex}"
+      },
+      {
+        "id": 377705,
+        "text": "{tex}\\frac{\\sqrt {48}}{2}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{\\sqrt {48}}{2}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377706,
+        "text": "{tex}\\sqrt{18}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\sqrt{18}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377707,
+        "text": "{tex}\\sqrt{22}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\sqrt{22}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_text": "{tex}\\frac{\\sqrt{34}}{2}{/tex}",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Examples 10.2",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260446,
+    "q_no": "18",
+    "question_text": "The projection of vector {tex}\\vec{a}=2 \\hat{i}-\\hat{j}+\\hat{k}{/tex} along {tex}\\vec{b}=\\hat{i}+2 \\hat{j}+2 \\hat{k}{/tex} is",
+    "question_html": "<p>The projection of vector <span class=\"math-tex\">{tex}\\vec{a}=2 \\hat{i}-\\hat{j}+\\hat{k}{/tex}</span> along <span class=\"math-tex\">{tex}\\vec{b}=\\hat{i}+2 \\hat{j}+2 \\hat{k}{/tex}</span> is</p>\r\n",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 377068,
+        "text": "{tex}\\frac{2}{3}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{2}{3}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "{tex}\\frac{2}{3}{/tex} is the correct answer. Projection of a vector {tex}\\vec a{/tex} on {tex}\\vec b{/tex} is {tex}\\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{b}|}=\\frac{(2 \\hat{i}-\\hat{j}+\\hat{k}) \\cdot(\\hat{i}+2 \\hat{j}+2 \\hat{k})}{\\sqrt{1+4+4}}=\\frac{2}{3}{/tex} ."
+      },
+      {
+        "id": 377069,
+        "text": "{tex}\\frac{1}{3}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{1}{3}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377070,
+        "text": "2",
+        "html": "<p>2</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377071,
+        "text": "{tex}\\sqrt 6{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\sqrt 6{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_text": "{tex}\\frac{2}{3}{/tex}",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Examples 10.2",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260454,
+    "q_no": "19",
+    "question_text": "If {tex}\\vec a{/tex} and {tex}\\vec b{/tex} are unit vectors, then what is the angle between {tex}\\vec a{/tex} and {tex}\\vec b{/tex} for {tex}\\sqrt{3} \\vec{a}-\\vec{b}{/tex} to be a unit vector?",
+    "question_html": "<p>If <span class=\"math-tex\">{tex}\\vec a{/tex}</span> and <span class=\"math-tex\">{tex}\\vec b{/tex}</span> are unit vectors, then what is the angle between <span class=\"math-tex\">{tex}\\vec a{/tex}</span> and <span class=\"math-tex\">{tex}\\vec b{/tex}</span> for <span class=\"math-tex\">{tex}\\sqrt{3} \\vec{a}-\\vec{b}{/tex}</span>&nbsp;to be a unit vector?</p>\r\n",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 377080,
+        "text": "30 o",
+        "html": "<p>30<sup>o</sup></p>",
+        "is_correct": true,
+        "explanation": "30 o is the correct answer. We have {tex}|a| = 1 & |b| = 1{/tex} {tex}|√3a- b| = 1{/tex} {tex}|√3a- b|^2 = 1{/tex} {tex}3|a|^2 + |b|^2 - 2√3a.b = 1{/tex} {tex}3 + 1 - 2√3|a||b|cos θ = 1{/tex} {tex}2√3|a||b|cos θ = 3{/tex} {tex}cos θ = √3/2\\\\ So, θ = {tex}\\pi{/tex} /6{/tex}"
+      },
+      {
+        "id": 377081,
+        "text": "45 o",
+        "html": "<p>45<sup>o</sup></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377082,
+        "text": "60 o",
+        "html": "<p>60<sup>o</sup></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377083,
+        "text": "90 o",
+        "html": "<p>90<sup>o</sup></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_text": "30 o",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Examples 10.2",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260463,
+    "q_no": "20",
+    "question_text": "The unit vector perpendicular to the vectors {tex}\\hat{i}-\\hat{j}{/tex} and {tex}\\hat{i}+\\hat{j}{/tex} forming a right-handed system is",
+    "question_html": "<p>The unit vector perpendicular to the vectors <span class=\"math-tex\">{tex}\\hat{i}-\\hat{j}{/tex}</span> and <span class=\"math-tex\">{tex}\\hat{i}+\\hat{j}{/tex}</span> forming a right-handed system is</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 377084,
+        "text": "{tex}\\hat{k}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\hat{k}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "{tex}\\hat{k}{/tex} is the correct answer. Required unit vector is {tex}\\frac{(\\hat{i}-\\hat{j}) \\times(\\hat{i}+\\hat{j})}{(| \\hat{i}-\\hat{j}) \\times(\\hat{i}+\\hat{j}) |}=\\frac{2 \\hat{k}}{2}=\\hat{k}{/tex} ."
+      },
+      {
+        "id": 377085,
+        "text": "{tex}-\\hat{k}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}-\\hat{k}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377086,
+        "text": "{tex}\\frac{\\hat{i}-\\hat{j}}{\\sqrt{2}}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{\\hat{i}-\\hat{j}}{\\sqrt{2}}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377087,
+        "text": "{tex}\\frac{\\hat{i}+\\hat{j}}{\\sqrt{2}}{/tex}",
+        "html": "<p><span class=\"math-tex\">{tex}\\frac{\\hat{i}+\\hat{j}}{\\sqrt{2}}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_text": "{tex}\\hat{k}{/tex}",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  },
+  {
+    "exercise": "Examples 10.2",
+    "subject": "Mathematics",
+    "book": "Class 12 - Mathematics - Exemplar Book by NCERT",
+    "chapter": "Vector Algebra",
+    "question_id": 260473,
+    "q_no": "21",
+    "question_text": "If {tex}|\\vec{a}|=3{/tex} and {tex}-1 \\leq k \\leq 2{/tex} , then {tex}|k \\vec{a}|{/tex} lies in the interval.",
+    "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}|\\vec{a}|=3{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}-1 \\leq k \\leq 2{/tex}</span>, then&nbsp;<span class=\"math-tex\">{tex}|k \\vec{a}|{/tex}</span>&nbsp;lies in the interval.</p>",
+    "marks": 0,
+    "youtube_id": "",
+    "options": [
+      {
+        "id": 377088,
+        "text": "[0, 6]",
+        "html": "<p>[0, 6]</p>",
+        "is_correct": true,
+        "explanation": "[0, 6] is the correct answer. The smallest value of {tex}|k \\vec{a}|{/tex} will exist at numerically smallest value of k, i.e., at k = 0, which gives {tex}|k \\vec{a}|=|k||\\vec{a}|=0 \\times 3=0{/tex} The numerically greatest value of k is 2 at which {tex}|k \\vec{a}|{/tex} = 6."
+      },
+      {
+        "id": 377089,
+        "text": "[- 3, 6]",
+        "html": "<p>[- 3, 6]</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377090,
+        "text": "[3, 6]",
+        "html": "<p>[3, 6]</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 377091,
+        "text": "[1, 2]",
+        "html": "<p>[1, 2]</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_text": "[0, 6]",
+    "solution_text": "",
+    "solution_html": "",
+    "numeric_solution_text": "",
+    "numeric_solution_html": ""
+  }
+]

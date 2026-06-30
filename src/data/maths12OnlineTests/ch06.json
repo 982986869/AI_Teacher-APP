@@ -1,0 +1,2897 @@
+{
+  "chapter": "Application of Derivatives",
+  "chapter_id": 1290,
+  "tests": [
+    {
+      "test_id": 3613,
+      "test_name": "Applicartions of Derivatives Test-01",
+      "is_paid": false,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59356,
+          "question_text": "The instantaneous rate of change at t = 1 for the function f (t) =te -t + 9 is",
+          "question_html": "<p>The instantaneous rate of change at t = 1 for the function f (t) =te<sup>-t</sup>&nbsp;+ 9&nbsp;is</p>",
+          "options": [
+            {
+              "id": 192612,
+              "text": "9",
+              "html": "9",
+              "is_correct": false
+            },
+            {
+              "id": 192613,
+              "text": "&ndash; 1",
+              "html": "&ndash; 1",
+              "is_correct": false
+            },
+            {
+              "id": 192614,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 192611,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            192611
+          ],
+          "explanation": "{tex}f'(t) = t{e^{ - t}}( - 1) + {e^{ - t}} \\Rightarrow f'(1) = - {e^{ - 1}} + {e^{ - 1}} = 0 {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59357,
+          "question_text": "If the graph of a differentiable function y = f (x) meets the lines y = &ndash; 1 and y = 1, then the graph",
+          "question_html": "<p>If the graph of a differentiable function y = f (x) meets the lines y = &ndash; 1 and y = 1, then the graph</p>",
+          "options": [
+            {
+              "id": 192615,
+              "text": "meets the line y = 0 at least once",
+              "html": "meets the line y = 0 at least once",
+              "is_correct": true
+            },
+            {
+              "id": 192616,
+              "text": "meets the line y = 0 at least twice",
+              "html": "meets the line y = 0 at least twice",
+              "is_correct": false
+            },
+            {
+              "id": 192617,
+              "text": "meets the line y = 0 at least thrice",
+              "html": "meets the line y = 0 at least thrice",
+              "is_correct": false
+            },
+            {
+              "id": 192618,
+              "text": "does not meet the line y = 0",
+              "html": "does not meet the line y = 0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "meets the line y = 0 at least once",
+          "correct_option_ids": [
+            192615
+          ],
+          "explanation": "Since the graph cuts the lines y = -1 and y = 1, therefore, it must cut the line y = 0 at least once as the graph is a continuous curve in this case.",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59358,
+          "question_text": "Let f be a real valued function defined on (0, 1) {tex} \\cup {/tex} (2, 4) such that f &#39;(x) = 0 for every x, then",
+          "question_html": "<p>Let f be a real valued function defined on (0, 1) <span class=\"math-tex\">{tex} \\cup {/tex}</span>&nbsp;(2, 4) such that f &#39;(x) = 0 for every x, then</p>",
+          "options": [
+            {
+              "id": 192621,
+              "text": "f is not a constant function",
+              "html": "f is not a constant function",
+              "is_correct": false
+            },
+            {
+              "id": 192619,
+              "text": "f is constant function if f {tex}\\left( {\\frac{1}{2}} \\right){/tex} = f(3)",
+              "html": "f is constant function if f<span class=\"math-tex\">{tex}\\left( {\\frac{1}{2}} \\right){/tex}</span>= f(3)",
+              "is_correct": true
+            },
+            {
+              "id": 192620,
+              "text": "f is a constant function",
+              "html": "f is a constant function",
+              "is_correct": false
+            },
+            {
+              "id": 192622,
+              "text": "f is a constant function if f {tex}\\left( {\\frac{1}{2}} \\right){/tex} = 0",
+              "html": "f is a constant function if f <span class=\"math-tex\">{tex}\\left( {\\frac{1}{2}} \\right){/tex}</span> = 0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "f is constant function if f {tex}\\left( {\\frac{1}{2}} \\right){/tex} = f(3)",
+          "correct_option_ids": [
+            192619
+          ],
+          "explanation": "f &#39;(x) = 0 {tex} \\Rightarrow {/tex} f (x) is constant in (0,1) and also in (2,4). But this does not mean that f(x) has the same value in both the intervals. However, if f(c) = f(d), where c {tex} \\in {/tex} ( 0,1) and d {tex} \\in {/tex} (2,4) then f(x) assumes the same value at all x {tex} \\in {/tex} (0,1) U (2, 4) and hence f is a constant function.",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59359,
+          "question_text": "In case of decreasing functions, slope of tangent and hence derivative is",
+          "question_html": "<p>In case of&nbsp;decreasing functions, slope of tangent and hence derivative is</p>",
+          "options": [
+            {
+              "id": 192623,
+              "text": "Either negative or zero",
+              "html": "Either negative or zero",
+              "is_correct": true
+            },
+            {
+              "id": 192626,
+              "text": "Positive",
+              "html": "Positive",
+              "is_correct": false
+            },
+            {
+              "id": 192625,
+              "text": "Zero",
+              "html": "Zero",
+              "is_correct": false
+            },
+            {
+              "id": 192624,
+              "text": "Negative",
+              "html": "Negative",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Either negative or zero",
+          "correct_option_ids": [
+            192623
+          ],
+          "explanation": "In case of a decreasing function, slope of tangent and hence derivative is either negative or zero because decreasing function change sign from positive to negative and making obtuse angle measured clockwise.Hence, negative and will be zero at peak.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59360,
+          "question_text": "The function f (x) = 2 &ndash; 3 x is",
+          "question_html": "<p>The function f (x) = 2 &ndash; 3 x is</p>",
+          "options": [
+            {
+              "id": 192629,
+              "text": "neither decreasing nor increasing",
+              "html": "neither decreasing nor increasing",
+              "is_correct": false
+            },
+            {
+              "id": 192627,
+              "text": "strictly decreasing",
+              "html": "strictly&nbsp;decreasing",
+              "is_correct": true
+            },
+            {
+              "id": 192630,
+              "text": "Constant",
+              "html": "Constant",
+              "is_correct": false
+            },
+            {
+              "id": 192628,
+              "text": "increasing",
+              "html": "increasing",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "strictly decreasing",
+          "correct_option_ids": [
+            192627
+          ],
+          "explanation": "f (x) = 2 &ndash; 3x {tex} \\Rightarrow {/tex} f &#39; (x) = - 3 < 0 for all x {tex} \\in {/tex} R. So, f is strictly decreasing function.",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59361,
+          "question_text": "The function f(x) = x 2 &ndash; 2x is increasing in the interval",
+          "question_html": "<p>The function f(x) = x<sup>2</sup> &ndash; 2x is increasing in the interval</p>",
+          "options": [
+            {
+              "id": 192634,
+              "text": "{tex}x \\ne - 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x \\ne - 1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192632,
+              "text": "{tex}x \\geqslant - 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x \\geqslant - 1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192631,
+              "text": "{tex}x \\geqslant 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x \\geqslant 1{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192633,
+              "text": "{tex}x \\ne 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x \\ne 1{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}x \\geqslant 1{/tex}",
+          "correct_option_ids": [
+            192631
+          ],
+          "explanation": "f(x) = x 2 - 2x {tex}\\Rightarrow{/tex} f&#39;(x) = 2x - 2 = 2(x - 1) So , f( x) is increasing if 2(x-1) {tex} \\ge {/tex} 0 , i.e.if x {tex} \\ge {/tex} 1",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59362,
+          "question_text": "The function f (x) = x 2 , for all real x, is",
+          "question_html": "<p>The function f (x) = x<sup>2</sup>, for all real x, is</p>",
+          "options": [
+            {
+              "id": 192638,
+              "text": "Constant",
+              "html": "Constant",
+              "is_correct": false
+            },
+            {
+              "id": 192637,
+              "text": "Decreasing",
+              "html": "Decreasing",
+              "is_correct": false
+            },
+            {
+              "id": 192635,
+              "text": "Neither decreasing nor increasing",
+              "html": "Neither decreasing nor increasing",
+              "is_correct": true
+            },
+            {
+              "id": 192636,
+              "text": "Increasing",
+              "html": "Increasing",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Neither decreasing nor increasing",
+          "correct_option_ids": [
+            192635
+          ],
+          "explanation": "f(x) = x 2 {tex}\\Rightarrow {/tex} f&#39;(x) = 2x for all x in R. Since f &lsquo;(x) = 2x > 0 for x >0, and f &lsquo; (x) = 2x< 0 for x < 0, therefore on R, f is neither increasing nor decreasing. Infact , f is strict increasing on [ 0, {tex}\\infty {/tex} ) and strict decreasing on (- {tex}\\infty ,0\\;{/tex} ].",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59363,
+          "question_text": "The function f(x) = mx + c where m, c are constants, is a strict decreasing function for all {tex}x \\in {\\mathbf{R}}{/tex} , if",
+          "question_html": "<p>The function f(x) = mx + c where m, c are constants, is a strict decreasing function for all <span class=\"math-tex\">{tex}x \\in {\\mathbf{R}}{/tex}</span>&nbsp;, if</p>",
+          "options": [
+            {
+              "id": 192641,
+              "text": "m = 0",
+              "html": "m = 0",
+              "is_correct": false
+            },
+            {
+              "id": 192642,
+              "text": "{tex}m \\geqslant 0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}m \\geqslant 0{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192640,
+              "text": "m > 0",
+              "html": "m &gt; 0",
+              "is_correct": false
+            },
+            {
+              "id": 192639,
+              "text": "m< 0",
+              "html": "m&lt; 0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "m< 0",
+          "correct_option_ids": [
+            192639
+          ],
+          "explanation": "f(x) = mx + c is strict decreasing on R if f &#39;(x) < 0 i.e. if m < 0.",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59364,
+          "question_text": "The function f(x) = tan -1 x is",
+          "question_html": "<p>The function f(x) = tan<sup>-1</sup>x&nbsp; is</p>",
+          "options": [
+            {
+              "id": 192643,
+              "text": "strict increasing",
+              "html": "strict increasing",
+              "is_correct": true
+            },
+            {
+              "id": 192644,
+              "text": "strictly decreasing",
+              "html": "strictly decreasing",
+              "is_correct": false
+            },
+            {
+              "id": 192645,
+              "text": "neither increasing nor decreasing",
+              "html": "neither increasing nor decreasing",
+              "is_correct": false
+            },
+            {
+              "id": 192646,
+              "text": "differentiable nowhere",
+              "html": "differentiable nowhere",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "strict increasing",
+          "correct_option_ids": [
+            192643
+          ],
+          "explanation": "{tex}f'(x) = \\frac{d}{{dx}}({\\tan ^{ - 1}}x) {/tex} {tex}= \\frac{1}{{1 + {x^2}}} > 0\\forall x \\in R.{/tex} Therefore, f is strictly increasing on R.",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59365,
+          "question_text": "Let f (x) = x 3 - 6x 2 + 9x + 8, then f (x) is decreasing in",
+          "question_html": "<p>Let f (x) = x<sup>3</sup>&nbsp;- 6x<sup>2</sup>&nbsp;+ 9x + 8,&nbsp; then f (x) is decreasing in</p>",
+          "options": [
+            {
+              "id": 192649,
+              "text": "{tex}[3,\\infty ]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}[3,\\infty ]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192650,
+              "text": "{tex}\\left( { - \\;\\infty ,1} \\right) \\cup (3,\\infty ){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left( { - \\;\\infty ,1} \\right) \\cup (3,\\infty ){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192648,
+              "text": "{tex}( - \\infty ,1){/tex}",
+              "html": "<span class=\"math-tex\">{tex}( - \\infty ,1){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192647,
+              "text": "[1, 3]",
+              "html": "[1, 3]",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "[1, 3]",
+          "correct_option_ids": [
+            192647
+          ],
+          "explanation": "Here , {tex} f'(x) = 3{x^2} - 12x + 9 {/tex} {tex} = 3(x - 1)(x - 3) \\leq0 \\Leftrightarrow x \\in [1,3]{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59366,
+          "question_text": "The interval in which the function f is given by f(x) = x 2 e -x is strictly increasing, is:",
+          "question_html": "<p>The interval in which the function f is given by f(x) = x<sup>2</sup>e<sup>-x</sup> is strictly increasing, is:</p>",
+          "options": [
+            {
+              "id": 192652,
+              "text": "{tex}(-\\infty, \\infty){/tex}",
+              "html": "<span class=\"math-tex\">{tex}(-\\infty, \\infty){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192651,
+              "text": "(0, 2)",
+              "html": "(0, 2)",
+              "is_correct": true
+            },
+            {
+              "id": 192654,
+              "text": "{tex}(2, \\infty){/tex}",
+              "html": "<span class=\"math-tex\">{tex}(2, \\infty){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192653,
+              "text": "{tex}(-\\infty, 0){/tex}",
+              "html": "<span class=\"math-tex\">{tex}(-\\infty, 0){/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "(0, 2)",
+          "correct_option_ids": [
+            192651
+          ],
+          "explanation": "Here,it is given that the function {tex} f'(x) = \\frac{d}{{dx}}({x^2}{e^{ - x}}){/tex} {tex} = {x^2}{e^{ - x}}( - 1) + 2x{e^{ - x}} {/tex} {tex} \\Rightarrow f'(x) = {e^{ - x}}(2x - {x^2}) > 0{/tex} if {tex} (2x - {x^2}) > 0 {/tex} i.e. if x(x &ndash; 2 ) < 0 i.e. if 0 < x < 2. Hence f is strictly increasing on (0,2)",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59367,
+          "question_text": "At (0, 0) the curve y = x 3 + x",
+          "question_html": "<p>At (0, 0) the curve y = x<sup>3</sup>&nbsp;+ x</p>",
+          "options": [
+            {
+              "id": 192657,
+              "text": "makes an angle of {tex}{60^o}{/tex} with OX",
+              "html": "makes an angle of <span class=\"math-tex\">{tex}{60^o}{/tex}</span> with OX",
+              "is_correct": false
+            },
+            {
+              "id": 192658,
+              "text": "touches Y &ndash; axis",
+              "html": "touches Y&nbsp;&ndash; axis",
+              "is_correct": false
+            },
+            {
+              "id": 192655,
+              "text": "bisects the angle between the axis",
+              "html": "bisects the angle between the axis",
+              "is_correct": true
+            },
+            {
+              "id": 192656,
+              "text": "touches X &ndash; axis",
+              "html": "touches X &ndash; axis",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "bisects the angle between the axis",
+          "correct_option_ids": [
+            192655
+          ],
+          "explanation": "{tex}{\\left( {\\frac{{dy}}{{dx}}} \\right)_{\\left( {0,0} \\right)}} = 1{/tex} and hence the tangent to the curve at ( 0 , 0 ) makes an angle of {tex}\\frac{\\pi }{4}{/tex} with +ve X-axis.",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59368,
+          "question_text": "Let f (x) = x &ndash; cos x, {tex}x \\in {\\mathbf{R,}}{/tex} then f is",
+          "question_html": "<p>Let f (x) = x &ndash; cos x, <span class=\"math-tex\">{tex}x \\in {\\mathbf{R,}}{/tex}</span> then f is</p>",
+          "options": [
+            {
+              "id": 192659,
+              "text": "an increasing function",
+              "html": "an increasing function",
+              "is_correct": true
+            },
+            {
+              "id": 192661,
+              "text": "a decreasing function",
+              "html": "a decreasing function",
+              "is_correct": false
+            },
+            {
+              "id": 192662,
+              "text": "an even function",
+              "html": "an even&nbsp;function",
+              "is_correct": false
+            },
+            {
+              "id": 192660,
+              "text": "an odd function",
+              "html": "an odd function",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "an increasing function",
+          "correct_option_ids": [
+            192659
+          ],
+          "explanation": "{tex} f'(x) = 1 + \\sin x \\geqslant 0\\forall x \\in R.{/tex} {tex}\\left( {\\because - 1 \\leqslant \\sin x \\leqslant 1,\\therefore 0 \\leqslant 1 + \\sin x \\leqslant 2} \\right){/tex} Hence an increasing function.",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59369,
+          "question_text": "In {tex}\\left( {0,\\frac{\\pi }{2}} \\right){/tex} , the function f (x) = {tex}\\frac{x}{{\\sin x}}{/tex} is",
+          "question_html": "<p>In <span class=\"math-tex\">{tex}\\left( {0,\\frac{\\pi }{2}} \\right){/tex}</span>, the function f (x) = <span class=\"math-tex\">{tex}\\frac{x}{{\\sin x}}{/tex}</span>is</p>",
+          "options": [
+            {
+              "id": 192663,
+              "text": "an increasing function",
+              "html": "an increasing function",
+              "is_correct": true
+            },
+            {
+              "id": 192664,
+              "text": "a decreasing function",
+              "html": "a decreasing function",
+              "is_correct": false
+            },
+            {
+              "id": 192666,
+              "text": "both decreasing function and increasing function",
+              "html": "both decreasing function and increasing function",
+              "is_correct": false
+            },
+            {
+              "id": 192665,
+              "text": "a constant function",
+              "html": "a constant function",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "an increasing function",
+          "correct_option_ids": [
+            192663
+          ],
+          "explanation": "{tex}f'(x) = \\frac{{\\sin x - x\\cos x}}{{{{\\sin }^2}x}} = \\frac{{\\cos x}}{{{{\\sin }^2}x}}(\\tan x - x) > 0.{/tex} Hence an increasing function.",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59370,
+          "question_text": "Let f (x) = tan x &ndash; 4x, then in the interval {tex}\\left[ { - \\frac{\\pi }{3},\\frac{\\pi }{3}} \\right],f(x)\\;{/tex} is",
+          "question_html": "<p>Let f (x) = tan x &ndash; 4x, then in the interval <span class=\"math-tex\">{tex}\\left[ { - \\frac{\\pi }{3},\\frac{\\pi }{3}} \\right],f(x)\\;{/tex}</span>is</p>",
+          "options": [
+            {
+              "id": 192670,
+              "text": "Neither decreasing function nor increasing function",
+              "html": "Neither decreasing function nor increasing function",
+              "is_correct": false
+            },
+            {
+              "id": 192667,
+              "text": "a decreasing function",
+              "html": "a decreasing function",
+              "is_correct": true
+            },
+            {
+              "id": 192668,
+              "text": "an increasing function",
+              "html": "an increasing function",
+              "is_correct": false
+            },
+            {
+              "id": 192669,
+              "text": "a constant function",
+              "html": "a constant function",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "a decreasing function",
+          "correct_option_ids": [
+            192667
+          ],
+          "explanation": "{tex}f'(x) = {\\sec ^2}x - 4 < 0,{/tex} where {tex}x \\in \\left( { - \\frac{\\pi }{3},\\frac{\\pi }{3}} \\right).{/tex} {tex} \\left( {\\because x \\in \\left( { - \\frac{\\pi }{3},\\frac{\\pi }{3}} \\right) \\Rightarrow 1 \\leqslant \\sec x < 2 \\Rightarrow 1 \\leqslant {{\\sec }^2}x < 4} \\right){/tex}",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3614,
+      "test_name": "Applicartions of Derivatives Test-02",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59371,
+          "question_text": "Let f (x) = {tex}{x^3} + \\frac{3}{2}{x^2} + 3x + 3,{/tex} then f (x) is",
+          "question_html": "<p>Let f (x) = <span class=\"math-tex\">{tex}{x^3} + \\frac{3}{2}{x^2} + 3x + 3,{/tex}</span> then f (x) is</p>",
+          "options": [
+            {
+              "id": 192673,
+              "text": "an even function",
+              "html": "an even function",
+              "is_correct": false
+            },
+            {
+              "id": 192672,
+              "text": "an odd function",
+              "html": "an odd function",
+              "is_correct": false
+            },
+            {
+              "id": 192674,
+              "text": "a decreasing function",
+              "html": "a&nbsp;decreasing function",
+              "is_correct": false
+            },
+            {
+              "id": 192671,
+              "text": "an increasing function",
+              "html": "an increasing function",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "an increasing function",
+          "correct_option_ids": [
+            192671
+          ],
+          "explanation": "{tex}f'(x) = 3{x^2} + 3x + 3{/tex} {tex} = 3\\left\\{ {{{\\left( {x + \\frac{1}{2}} \\right)}^2} + \\frac{3}{4}} \\right\\} \\geqslant \\frac{9}{4}{/tex} Hence an increasing function.",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59372,
+          "question_text": "Let f (x) {tex} = \\frac{x}{{1 + x}}{/tex} &ndash; log(1 + x), where x > 0, then f is",
+          "question_html": "<p>Let f (x) <span class=\"math-tex\">{tex} = \\frac{x}{{1 + x}}{/tex}</span> &ndash; log(1 + x), where x &gt; 0, then f is</p>",
+          "options": [
+            {
+              "id": 192677,
+              "text": "neither increasing nor decreasing",
+              "html": "neither increasing nor decreasing",
+              "is_correct": false
+            },
+            {
+              "id": 192678,
+              "text": "Constant function",
+              "html": "Constant function",
+              "is_correct": false
+            },
+            {
+              "id": 192675,
+              "text": "a decreasing function",
+              "html": "a decreasing function",
+              "is_correct": true
+            },
+            {
+              "id": 192676,
+              "text": "an increasing function",
+              "html": "an increasing function",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "a decreasing function",
+          "correct_option_ids": [
+            192675
+          ],
+          "explanation": "{tex}f'(x) = \\frac{1}{{{{(1 + x)}^2}}} - \\frac{1}{{1 + x}} = \\frac{{ - x}}{{{{(1 + x)}^2}}} < 0.{/tex} Hence decreasing function.",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59373,
+          "question_text": "Let f(x) = x 4 &ndash; 4x, then",
+          "question_html": "<p>Let f(x) = x<sup>4</sup> &ndash; 4x, then</p>",
+          "options": [
+            {
+              "id": 192681,
+              "text": "f is increasing in {tex}\\left[ { - \\infty ,1} \\right){/tex}",
+              "html": "f is increasing in <span class=\"math-tex\">{tex}\\left[ { - \\infty ,1} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192680,
+              "text": "f is decreasing in {tex}\\left[ {1,\\infty } \\right){/tex}",
+              "html": "f is decreasing in <span class=\"math-tex\">{tex}\\left[ {1,\\infty } \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192682,
+              "text": "none of these",
+              "html": "none of these",
+              "is_correct": true
+            },
+            {
+              "id": 192679,
+              "text": "f is increasing in {tex}\\left( {1,\\infty } \\right]{/tex}",
+              "html": "f is increasing in <span class=\"math-tex\">{tex}\\left( {1,\\infty } \\right]{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "none of these",
+          "correct_option_ids": [
+            192682
+          ],
+          "explanation": "f (x) = x 4 &ndash; 4x f&#39;(x) = 4(x 3 ) - 4 = 4(x 3 - 1) = 4 {(x 2 ) + x + 1)} (x-1) = f &lsquo;(x) > 0, if,(x - 1) > 0, and f &lsquo;(x) <0, if (x -1 ) < 0. So,f is decreasing on ( - ∞ ∞ {tex}∞{/tex} ,1] and f is increasing on [1, {tex}∞{/tex} )",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59374,
+          "question_text": "Let f (x) =x 3 - 6x 2 + 9x + 18 then f (x) is strictly decreasing in",
+          "question_html": "<p>Let f (x) =x<sup>3</sup>&nbsp;- 6x<sup>2</sup>&nbsp;+ 9x + 18&nbsp;then f (x) is strictly&nbsp;decreasing in</p>",
+          "options": [
+            {
+              "id": 192684,
+              "text": "{tex}\\left[ {3,\\infty } \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ {3,\\infty } \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192685,
+              "text": "{tex}\\left[ { - \\infty ,1} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left[ { - \\infty ,1} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192686,
+              "text": "{tex}\\left( { - \\infty ,1} \\right]{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left( { - \\infty ,1} \\right]{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192683,
+              "text": "(1, 3)",
+              "html": "(1, 3)",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "(1, 3)",
+          "correct_option_ids": [
+            192683
+          ],
+          "explanation": "{tex}f'(x) = 3{x^2} - 12x + 9 {/tex} {tex}= 3(x - 1)(x - 3) < 0 {/tex} if {tex}(x - 1)(x - 3) < 0 {/tex} i.e, if {tex}x \\in (1,3). {/tex} Hence, f is strictly decreasing on (1,3)",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59375,
+          "question_text": "Let g (x) be continuous at &lsquo;a&rsquo; and g(a) &ne; 0. Let f be a function such that f &lsquo;(x) = g(x)(x - a) 2 , then",
+          "question_html": "<p>Let g (x) be continuous at&nbsp; &lsquo;a&rsquo; and g(a) &ne; 0. Let f be a function such that f &lsquo;(x) = g(x)(x - a)<sup>2</sup>&nbsp;, then</p>",
+          "options": [
+            {
+              "id": 192690,
+              "text": "f is decreasing at a if g (a) < 0",
+              "html": "f is decreasing at a if g (a) &lt; 0",
+              "is_correct": false
+            },
+            {
+              "id": 192687,
+              "text": "f is increasing at a if g (a) > 0",
+              "html": "f is increasing at a if g (a) &gt; 0",
+              "is_correct": true
+            },
+            {
+              "id": 192688,
+              "text": "f is increasing at a if g (a) < 0",
+              "html": "f is increasing at a if g (a) &lt; 0",
+              "is_correct": false
+            },
+            {
+              "id": 192689,
+              "text": "f is decreasing at a if g (a) >0",
+              "html": "f is decreasing at a if g (a) &gt;0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "f is increasing at a if g (a) > 0",
+          "correct_option_ids": [
+            192687
+          ],
+          "explanation": "Since g is continuous at a , therefore , if g(a) > 0, then there is a neighbourhood of a, say (a - e, a + e) in which g ( x ) is positive. This means that f &lsquo;(x) >0 in this neighbourhood of a and Hence, f (x) is increasing at a.",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59376,
+          "question_text": "The function f (x) = a x + b is strict increasing for all {tex}x \\in {\\mathbf{R}}\\;{/tex} if",
+          "question_html": "<p>The function f (x) = a x + b is strict increasing for all <span class=\"math-tex\">{tex}x \\in {\\mathbf{R}}\\;{/tex}</span> if</p>",
+          "options": [
+            {
+              "id": 192694,
+              "text": "a {tex}\\ne{/tex} 0",
+              "html": "a <span class=\"math-tex\">{tex}\\ne{/tex}</span>&nbsp;0",
+              "is_correct": false
+            },
+            {
+              "id": 192693,
+              "text": "a = 0",
+              "html": "a = 0",
+              "is_correct": false
+            },
+            {
+              "id": 192691,
+              "text": "a > 0",
+              "html": "a &gt; 0",
+              "is_correct": true
+            },
+            {
+              "id": 192692,
+              "text": "a < 0",
+              "html": "a &lt; 0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "a > 0",
+          "correct_option_ids": [
+            192691
+          ],
+          "explanation": "Since f &lsquo;(x ) = a, therefore, f(x) is strictly increasing on R if a >0.",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59377,
+          "question_text": "The function f (x ) = a x + b is strict decreasing for all {tex}x \\in {\\mathbf{R}}\\;{/tex} if",
+          "question_html": "<p>The function f (x ) = a x + b is strict decreasing for all <span class=\"math-tex\">{tex}x \\in {\\mathbf{R}}\\;{/tex}</span> if</p>",
+          "options": [
+            {
+              "id": 192695,
+              "text": "a<0",
+              "html": "a&lt;0",
+              "is_correct": true
+            },
+            {
+              "id": 192697,
+              "text": "a = 0",
+              "html": "a = 0",
+              "is_correct": false
+            },
+            {
+              "id": 192698,
+              "text": "a {tex}\\ne{/tex} 0",
+              "html": "a <span class=\"math-tex\">{tex}\\ne{/tex}</span>&nbsp;0",
+              "is_correct": false
+            },
+            {
+              "id": 192696,
+              "text": "a> 0",
+              "html": "a&gt; 0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "a<0",
+          "correct_option_ids": [
+            192695
+          ],
+          "explanation": "Since f &lsquo;(x ) = a, therefore, f ( x ) is strictly decreasing on R if a<0.",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59378,
+          "question_text": "The function f (x) = x 2 - 2x is strict decreasing in the interval",
+          "question_html": "<p>The function f (x) = x<sup>2</sup>&nbsp;- 2x&nbsp;is strict decreasing in the interval</p>",
+          "options": [
+            {
+              "id": 192699,
+              "text": "{tex} ({\\text{ }}-\\infty ,{\\text{ }}1){/tex}",
+              "html": "<span class=\"math-tex\">{tex} ({\\text{ }}-\\infty ,{\\text{ }}1){/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192701,
+              "text": "R",
+              "html": "R",
+              "is_correct": false
+            },
+            {
+              "id": 192702,
+              "text": "{tex} [-1,\\infty ) {/tex}",
+              "html": "<span class=\"math-tex\">{tex} [-1,\\infty ) {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192700,
+              "text": "{tex} [1,\\infty ) {/tex}",
+              "html": "<span class=\"math-tex\">{tex} [1,\\infty ) {/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex} ({\\text{ }}-\\infty ,{\\text{ }}1){/tex}",
+          "correct_option_ids": [
+            192699
+          ],
+          "explanation": "f &lsquo; (x ) = 2x &ndash; 2 = 2 ( x - 1) <0 if x < 1 i.e. x {tex}x \\in \\left( { - \\infty ,1} \\right) {/tex} . Hence f is strict decreasing in {tex}\\left( { - \\infty ,1} \\right){/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59379,
+          "question_text": "For the curvex = t 2 - 1, y = t 2 - t ,tangent is parallel to X &ndash; axis where",
+          "question_html": "<p>For the curvex = t<sup>2</sup>&nbsp;- 1, y = t<sup>2</sup>&nbsp;- t&nbsp;,tangent is parallel to X &ndash; axis where</p>",
+          "options": [
+            {
+              "id": 192703,
+              "text": "{tex}t = \\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}t = \\frac{1}{2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192704,
+              "text": "{tex}t = \\frac{1}{{\\sqrt 3 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}t = \\frac{1}{{\\sqrt 3 }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192706,
+              "text": "{tex}t = - \\frac{1}{{\\sqrt 3 }}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}t = - \\frac{1}{{\\sqrt 3 }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192705,
+              "text": "t = 0",
+              "html": "t = 0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}t = \\frac{1}{2}{/tex}",
+          "correct_option_ids": [
+            192703
+          ],
+          "explanation": "{tex}\\frac{{dy}}{{dx}} = 0 \\Rightarrow \\frac{{dy}}{{dt}} = 0 \\Rightarrow 2t - 1 = 0 \\Rightarrow t = \\frac{1}{2}.{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59380,
+          "question_text": "The equation of the normal to the curve y = sinx at (0, 0) is",
+          "question_html": "<p>The equation of the normal to the curve y = sinx at (0, 0) is</p>",
+          "options": [
+            {
+              "id": 192708,
+              "text": "x = 0",
+              "html": "x = 0",
+              "is_correct": false
+            },
+            {
+              "id": 192709,
+              "text": "y = 0",
+              "html": "y = 0",
+              "is_correct": false
+            },
+            {
+              "id": 192710,
+              "text": "x &ndash; y = 0",
+              "html": "x &ndash; y = 0",
+              "is_correct": false
+            },
+            {
+              "id": 192707,
+              "text": "x + y = 0",
+              "html": "x + y = 0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "x + y = 0",
+          "correct_option_ids": [
+            192707
+          ],
+          "explanation": "Since , {tex}\\frac{{dy}}{{dx}} = \\cos x,{/tex} therefore , slope of tangent at ( 0 , 0 ) = cos 0 = 1 and hence slope of normal at ( 0 , 0 ) is - 1 . Equation of normal at (0,0) is, y - 0 = slope of normal {tex}\\times{/tex} ( x - 0) y = -1(x) x + y = 0",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59381,
+          "question_text": "The tangent to the parabola x 2 = 2y at the point {tex}\\left( {1,\\frac{1}{2}} \\right){/tex} makes with the X-axis an angle of",
+          "question_html": "<p>The tangent to the parabola x<sup>2</sup>&nbsp;= 2y&nbsp;at the point <span class=\"math-tex\">{tex}\\left( {1,\\frac{1}{2}} \\right){/tex}</span> makes with the X-axis an angle of</p>",
+          "options": [
+            {
+              "id": 192713,
+              "text": "0&deg;",
+              "html": "0&deg;",
+              "is_correct": false
+            },
+            {
+              "id": 192714,
+              "text": "60&deg;",
+              "html": "60&deg;",
+              "is_correct": false
+            },
+            {
+              "id": 192711,
+              "text": "45&deg;",
+              "html": "45&deg;",
+              "is_correct": true
+            },
+            {
+              "id": 192712,
+              "text": "30&deg;",
+              "html": "30&deg;",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "45&deg;",
+          "correct_option_ids": [
+            192711
+          ],
+          "explanation": "{tex}{x^2} = 2y \\Rightarrow y = \\frac{1}{2}{x^2} \\Rightarrow \\left( {\\frac{{dy}}{{dx}}} \\right) = x{/tex} Therefore, slope of tangent at (1, {tex}\\frac{1}{2}{/tex} ) = 1. Hence, required angle is 45&deg;",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59382,
+          "question_text": "The curve y = {tex}a\\;{x^3} + b{x^2} + c\\;x{/tex} is inclined at {tex}{45^\\circ }{/tex} to the X &ndash; axis at (0, 0) but it touches X &ndash; axis at (1, 0) , then the values of a, b, c, are given by",
+          "question_html": "<p>The curve y = <span class=\"math-tex\">{tex}a\\;{x^3} + b{x^2} + c\\;x{/tex}</span> is inclined at <span class=\"math-tex\">{tex}{45^\\circ }{/tex}</span> to the X &ndash; axis at (0, 0) but it touches X &ndash; axis at (1, 0) , then the values of a, b, c, are given by</p>",
+          "options": [
+            {
+              "id": 192718,
+              "text": "a = &ndash; 1, b = 2, c = 1.",
+              "html": "a = &ndash; 1, b = 2, c = 1.",
+              "is_correct": false
+            },
+            {
+              "id": 192716,
+              "text": "a = 1, b = 1, c = &ndash; 2",
+              "html": "a = 1, b = 1, c = &ndash; 2",
+              "is_correct": false
+            },
+            {
+              "id": 192717,
+              "text": "a = &ndash; 2, b = 1, c = 1",
+              "html": "a = &ndash; 2, b = 1, c = 1",
+              "is_correct": false
+            },
+            {
+              "id": 192715,
+              "text": "a = 1, b = &ndash; 2, c = 1",
+              "html": "a = 1, b = &ndash; 2, c = 1",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "a = 1, b = &ndash; 2, c = 1",
+          "correct_option_ids": [
+            192715
+          ],
+          "explanation": "{tex}y = a{x^3} + b{x^2} + cx{/tex} {tex}\\Rightarrow \\frac{{dy}}{{dx}}{/tex} {tex}= 3a{x^2} + 2bx + c.{/tex} At ( 0 , 0) , slope of tangent = {tex}\\tan {45^ \\circ }{/tex} = 1. {tex} \\Rightarrow {/tex} c = 1. At ( 1 ,0 ) , slope of tangent = 0. {tex} \\Rightarrow {/tex} 3a+2b+c=0. From this,we get ,3a+2b=-1........(1) Also, when x = 1 , y = 0 , therefore , a + b + c = 0 . From this,we get, a+b=-1.......(2) From(1) and (2),we get, a=1 ,b= -2 and c =1",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59383,
+          "question_text": "The normal to the curve x = a {tex}\\left( {\\cos \\theta + \\theta \\sin \\theta } \\right),{/tex} y = a {tex}\\left( {\\sin \\theta - \\theta \\cos \\theta } \\right){/tex} at any point {tex}\\theta {/tex} is such that",
+          "question_html": "<p>The normal to the curve x = a <span class=\"math-tex\">{tex}\\left( {\\cos \\theta + \\theta \\sin \\theta } \\right),{/tex}</span>y = a <span class=\"math-tex\">{tex}\\left( {\\sin \\theta - \\theta \\cos \\theta } \\right){/tex}</span>at any point <span class=\"math-tex\">{tex}\\theta {/tex}</span> is such that</p>",
+          "options": [
+            {
+              "id": 192721,
+              "text": "it makes a constant angle with X &ndash; axis",
+              "html": "it makes a constant angle with X &ndash; axis",
+              "is_correct": false
+            },
+            {
+              "id": 192720,
+              "text": "it passes through the origin",
+              "html": "it passes through the origin",
+              "is_correct": false
+            },
+            {
+              "id": 192719,
+              "text": "it is at a constant distance from the origin",
+              "html": "it is at a constant distance from the origin",
+              "is_correct": true
+            },
+            {
+              "id": 192722,
+              "text": "it makes a constant angle with Y &ndash; axis",
+              "html": "it makes a constant angle with Y&nbsp;&ndash; axis",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "it is at a constant distance from the origin",
+          "correct_option_ids": [
+            192719
+          ],
+          "explanation": "Equation of normal at {tex}\\theta{/tex} {tex} is\\ xcos\\theta + ysin\\theta - a=0{/tex} . So,normal is at a fixed distance a from the origin.",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59384,
+          "question_text": "The normal to the curve 2 y = 3 &ndash; x 2 at (1, 1) is",
+          "question_html": "<p>The normal to the curve 2 y = 3 &ndash; x<sup>2&nbsp;</sup>at (1, 1) is</p>",
+          "options": [
+            {
+              "id": 192724,
+              "text": "x + y + 1 = 0",
+              "html": "x + y + 1 = 0",
+              "is_correct": false
+            },
+            {
+              "id": 192725,
+              "text": "x &ndash; y + 1 + 0",
+              "html": "x &ndash; y + 1 + 0",
+              "is_correct": false
+            },
+            {
+              "id": 192723,
+              "text": "x &ndash; y = 0",
+              "html": "x &ndash; y = 0",
+              "is_correct": true
+            },
+            {
+              "id": 192726,
+              "text": "&ndash; y = 0",
+              "html": "&ndash; y = 0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "x &ndash; y = 0",
+          "correct_option_ids": [
+            192723
+          ],
+          "explanation": "{tex}2y=3-{ x }^{ 2 }{/tex} {tex}\\Rightarrow 2\\frac { dy }{ dx } =-2x{/tex} {tex} \\Rightarrow \\frac { dy }{ dx } =-x{/tex} {tex}\\\\ \\Rightarrow \\frac { dy }{ dx } at(1,1)=-1{/tex} Slope of tangent = m = -1 Hence, equation of normal is {tex} y-{ y }_{ 1 }=\\frac { -1 }{ m } \\left( x-{ x }_{ 1 } \\right) \\\\ {/tex} {tex}\\Rightarrow y-1=1(x-1){/tex} {tex}\\Rightarrow x-y=0{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59385,
+          "question_text": "The equation of the tangent to the curve y 2 = 4ax at the point (at 2 , 2at) is",
+          "question_html": "<p>The equation of the tangent to the curve y<sup>2</sup>&nbsp;= 4ax&nbsp;at the point (at<sup>2</sup>, 2at)&nbsp;is</p>",
+          "options": [
+            {
+              "id": 192727,
+              "text": "ty = x +at 2",
+              "html": "ty = x +at<sup>2</sup>&nbsp;",
+              "is_correct": true
+            },
+            {
+              "id": 192729,
+              "text": "tx + y =a t 3",
+              "html": "tx + y =a t<sup>3</sup>&nbsp;",
+              "is_correct": false
+            },
+            {
+              "id": 192730,
+              "text": "tx - y =a t 3",
+              "html": "tx -&nbsp;y =a t<sup>3</sup>&nbsp;",
+              "is_correct": false
+            },
+            {
+              "id": 192728,
+              "text": "ty = x &ndash; at 2",
+              "html": "ty = x &ndash; at<sup>2</sup>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "ty = x +at 2",
+          "correct_option_ids": [
+            192727
+          ],
+          "explanation": "{tex}{ y }^{ 2 }=4ax{/tex} {tex}\\\\ \\Rightarrow 2y\\frac { dy }{ dx } =4a{/tex} {tex}\\\\ \\Rightarrow \\frac { { dy } }{ { dx } } =\\frac { 2a }{ y }{/tex} {tex} \\Rightarrow \\frac { { dy } }{ { dx } } {/tex} at {tex}(a{ t^{ 2 } },2at){/tex} is {tex}\\frac { { 2a } }{ { 2at } } =\\frac { 1 }{ t } {/tex} {tex}\\Rightarrow {/tex} Slope of tangent {tex}=m=\\frac { 1 }{ t } {/tex} Hence, equation of tangent is {tex} y-{ y }_{ 1 }=m\\left( x-{ x }_{ 1 } \\right) {/tex} {tex}\\\\ \\Rightarrow y-2at=\\frac { 1 }{ t } (x-a{ t^{ 2 } }){/tex} {tex}\\Rightarrow yt-2a{ t^{ 2 } }=x-a{ t^{ 2 } }{/tex} {tex}\\Rightarrow yt=x+a{ t^{ 2 } }{/tex}",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3615,
+      "test_name": "Applicartions of Derivatives Test-03",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59386,
+          "question_text": "The equation of the tangent to the curve y = e 2x at the point (0, 1) is",
+          "question_html": "<p>The equation of the tangent to the curve y = e<sup>2x</sup>&nbsp;at the point (0, 1) is</p>",
+          "options": [
+            {
+              "id": 192733,
+              "text": "y + 1 = 2 x",
+              "html": "y + 1 = 2 x",
+              "is_correct": false
+            },
+            {
+              "id": 192731,
+              "text": "y &ndash; 1 = 2 x",
+              "html": "y &ndash; 1 = 2 x",
+              "is_correct": true
+            },
+            {
+              "id": 192734,
+              "text": "y + 1 = 3 x",
+              "html": "y + 1 = 3&nbsp;x",
+              "is_correct": false
+            },
+            {
+              "id": 192732,
+              "text": "1 &ndash; y = 2 x",
+              "html": "1 &ndash; y = 2 x",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "y &ndash; 1 = 2 x",
+          "correct_option_ids": [
+            192731
+          ],
+          "explanation": "{tex}y={ e }^{ 2x }{/tex} {tex} \\Rightarrow \\frac { { dy } }{ { dx } } =2{ e }^{ 2x }{/tex} {tex}\\Rightarrow \\frac { { dy } }{ { dx } } \\quad at\\quad (0,1)=2{/tex} {tex}\\Rightarrow{/tex} Slope of tangent = m = 2 Hence , equation of tangent is y - y 1 = m(x - x 1 ) {tex}\\Rightarrow{/tex} y - 1 = 2x",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59387,
+          "question_text": "The curves x= y 2 and xy = k cut orthogonally when",
+          "question_html": "<p>The curves x= y<sup>2</sup>&nbsp;and xy = k&nbsp;cut&nbsp;orthogonally when&nbsp;</p>",
+          "options": [
+            {
+              "id": 192737,
+              "text": "{tex}6{ k }^{ 2 }=1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}6{ k }^{ 2 }=1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192736,
+              "text": "{tex}4{ k }^{ 2 }=1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}4{ k }^{ 2 }=1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192738,
+              "text": "{tex}10{ k }^{ 2 }=1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}10{ k }^{ 2 }=1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192735,
+              "text": "8k 2 = 1",
+              "html": "8k<sup>2</sup>&nbsp;= 1",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "8k 2 = 1",
+          "correct_option_ids": [
+            192735
+          ],
+          "explanation": "Let {tex}(\\alpha,\\beta){/tex} be the point of intersection of the given curves Now, {tex}x={ y }^{ 2 }\\Rightarrow 2y\\frac { { dy } }{ { dx } } =1\\Rightarrow \\frac { dy }{ dx } =\\frac { 1 }{ 2y } .....(i){/tex} {tex}xy=k\\Rightarrow x.\\frac { dy }{ dx } +y=0\\Rightarrow \\frac { dy }{ dx } =\\frac { -y }{ x } ...(ii){/tex} {tex} { m }_{ 1 }=\\quad { \\left( { \\frac { { dy } }{ { dx } } } \\right) _{ \\left( { \\alpha ,\\beta } \\right) } }={ \\left( { \\frac { { 1 } }{ { 2y } } } \\right) _{ \\left( { \\alpha ,\\beta } \\right) } }=\\frac { { 1 } }{ { 2\\beta } }\\ ,{ m }_{ 2 }=\\quad { \\left( { \\frac { { dy } }{ { dx } } } \\right) _{ \\left( { \\alpha ,\\beta } \\right) } }={ \\left( { \\frac { { -y } }{ { x } } } \\right) _{ \\left( { \\alpha ,\\beta } \\right) } }=\\frac { { -\\beta } }{ { \\alpha } }{/tex} Two curves cut orthogonallly means m 1 .m 2 = -1 {tex} \\Rightarrow \\frac { { 1 } }{ { 2\\beta } } .\\frac { { -\\beta } }{ { \\alpha } } =-1\\Rightarrow 2\\alpha =1\\Rightarrow \\alpha =\\frac { 1 }{ 2 } ....(iii){/tex} Since {tex}{ \\left( { \\alpha ,\\beta } \\right) }\\quad lies\\quad on\\quad x={ y }^{ 2 }\\quad we\\quad have\\quad \\alpha ={ \\beta }^{ 2 }\\Rightarrow { \\beta }^{ 2 }=\\frac { 1 }{ 2 } ....(iv){/tex} Also, Since, {tex}{ \\left( { \\alpha ,\\beta } \\right) }\\quad lies\\quad on\\quad xy=k,\\quad we\\quad get\\quad \\alpha .\\beta =k\\Rightarrow { { k }^{ 2 }={ \\alpha }^{ 2 }.\\beta }^{ 2 }{/tex} {tex} \\Rightarrow { { k }^{ 2 }=\\frac { 1 }{ 4 } .\\frac { 1 }{ 2 } =\\frac { 1 }{ 8 } }\\quad \\quad \\quad from\\quad (iii)\\quad and\\quad (iv){/tex} {tex}\\\\ \\Rightarrow 8{ k }^{ 2 }=1{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59388,
+          "question_text": "The slope of the tangent to the curve x = a sint, y = a {tex}\\left\\{ {\\cos t + \\log (\\tan \\frac{t}{2})} \\right\\}{/tex} at the point &lsquo;t&rsquo; is",
+          "question_html": "<p>The slope of the tangent to the curve x = a sint, y = a <span class=\"math-tex\">{tex}\\left\\{ {\\cos t + \\log (\\tan \\frac{t}{2})} \\right\\}{/tex}</span> at the point &lsquo;t&rsquo; is</p>",
+          "options": [
+            {
+              "id": 192741,
+              "text": "{tex}\\tan \\frac{t}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\tan \\frac{t}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192740,
+              "text": "tan t",
+              "html": "tan t",
+              "is_correct": false
+            },
+            {
+              "id": 192739,
+              "text": "cot t",
+              "html": "cot t",
+              "is_correct": true
+            },
+            {
+              "id": 192742,
+              "text": "{tex}\\tan \\frac{t}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\tan \\frac{t}{4}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "cot t",
+          "correct_option_ids": [
+            192739
+          ],
+          "explanation": "Given, {tex} x=asint,y=a\\left\\{ { \\cos t+\\log (\\tan \\frac { t }{ 2 } ) } \\right\\}{/tex} {tex} { { dx } }{ { dt } } =a\\cos t,\\frac { { dy } }{ { dt } } =a\\left[ -\\sin t+\\frac { 1 }{ \\tan \\frac { t }{ 2 } } .{ sec }^{ 2 }\\frac { t }{ 2 } .\\frac { 1 }{ 2 } \\right] =a\\left[ -\\sin t+\\frac { 1 }{ 2sin\\frac { t }{ 2 } .cos\\frac { t }{ 2 } } \\right] =a\\left[ -\\sin t+\\frac { 1 }{ sint } \\right] =a\\frac { { cos }^{ 2 }t }{ sint } {/tex} Slope of the tangent {tex}=\\frac { { dy } }{ { dx } } =\\frac { { \\frac { { dy } }{ { dt } } } }{ { \\frac { { dx } }{ { dt } } } } =\\frac { { a\\frac { { cos }^{ 2 }t }{ sint } } }{ { a\\cos t } } =\\cot t{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59389,
+          "question_text": "Tangents to the curve y = x 3 at the points (1, 1) and ( &ndash; 1, &ndash; 1) are",
+          "question_html": "<p>Tangents to the curve y = x<sup>3</sup> at the points (1, 1) and ( &ndash; 1, &ndash; 1) are</p>",
+          "options": [
+            {
+              "id": 192745,
+              "text": "intersecting but not at right angles",
+              "html": "intersecting but not at right angles",
+              "is_correct": false
+            },
+            {
+              "id": 192744,
+              "text": "perpendicular",
+              "html": "perpendicular",
+              "is_correct": false
+            },
+            {
+              "id": 192743,
+              "text": "parallel",
+              "html": "parallel",
+              "is_correct": true
+            },
+            {
+              "id": 192746,
+              "text": "at right angles",
+              "html": "at right angles",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "parallel",
+          "correct_option_ids": [
+            192743
+          ],
+          "explanation": "y = x 3 {tex} \\frac { { dy } }{ { dx } } =\\frac { d }{ { dx } } ({ x^{ 3 } })=3{ x^{ 2 } }{/tex} So, {tex}\\frac { { dy } }{ { dx } } \\quad at\\quad (1,1)=3{/tex} and {tex} \\frac { { dy } }{ { dx } } \\quad at\\;(–1,–1)=3{/tex} Since the slopes are equal, the tangents are parallel.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59390,
+          "question_text": "The line {tex}\\frac{x}{a} + \\frac{y}{b} = 1{/tex} touches the curve {tex}y = b{e^{ - x/a}}{/tex} at the point",
+          "question_html": "<p>The line&nbsp;<span class=\"math-tex\">{tex}\\frac{x}{a} + \\frac{y}{b} = 1{/tex}</span> touches the curve&nbsp;<span class=\"math-tex\">{tex}y = b{e^{ - x/a}}{/tex}</span> at the point</p>",
+          "options": [
+            {
+              "id": 192748,
+              "text": "( &ndash; a ,ba)",
+              "html": "( &ndash; a ,ba)",
+              "is_correct": false
+            },
+            {
+              "id": 192749,
+              "text": "{tex}\\left( {a,\\frac{a}{b}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left( {a,\\frac{a}{b}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192750,
+              "text": "(a,-a)",
+              "html": "(a,-a)",
+              "is_correct": false
+            },
+            {
+              "id": 192747,
+              "text": "(0,b)",
+              "html": "(0,b)",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "(0,b)",
+          "correct_option_ids": [
+            192747
+          ],
+          "explanation": "Given {tex}y=b{ e^{ -x/a } }....(i){/tex} Then, Slope of the tangent at any point (x,y) for the curve (i) is {tex} \\frac { { dy } }{ { dx } } =\\frac { { -b } }{ a } { e^{ -x/a } }{/tex} Slope of the line {tex}\\frac{x}{a}+\\frac{y}{b}=1{/tex} is {tex}\\frac{dy}{dx}=\\frac{-b}{a}{/tex} If the line touches the curve then {tex} \\frac { { -b } }{ a } { e^{ -x/a } }=\\frac { { -b } }{ a } {/tex} {tex} \\Rightarrow { e^{ -x/a } }=1{/tex} {tex} \\Rightarrow \\frac { x }{ a } =0{/tex} {tex} \\Rightarrow x=0{/tex} Now, put x= 0 in (i), we get y = b Hence, we have the line touches the curve at (0,b) which is a point on the Y-axis.",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59391,
+          "question_text": "Tangents to the curve x 2 + y 2 = 2 at the points (1, 1) and ( &ndash; 1, 1)",
+          "question_html": "<p>Tangents to the curve &nbsp;x<sup>2</sup>&nbsp;+ y<sup>2</sup>&nbsp;= 2 at the points (1, 1) and ( &ndash; 1, 1)</p>",
+          "options": [
+            {
+              "id": 192754,
+              "text": "Perpendicular",
+              "html": "Perpendicular",
+              "is_correct": false
+            },
+            {
+              "id": 192752,
+              "text": "parallel",
+              "html": "parallel",
+              "is_correct": false
+            },
+            {
+              "id": 192751,
+              "text": "at right angles",
+              "html": "at right angles",
+              "is_correct": true
+            },
+            {
+              "id": 192753,
+              "text": "intersecting but not at right angles",
+              "html": "intersecting but not at right angles",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "at right angles",
+          "correct_option_ids": [
+            192751
+          ],
+          "explanation": "{tex}{x^2} + {y^2} = 2 \\Rightarrow 2x + 2y\\frac{{dy}}{{dx}} {/tex} {tex}= 0 \\Rightarrow \\frac{{dy}}{{dx}} = \\frac{{ - x}}{y}{/tex} therefore , slope of tangent at (1,1) = - 1 and the slope of tangent at ( - 1 ,1 )= 1 . Now product of the slopes=1&times;-1= -1 Hence , the two tangents are at right angles.",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59392,
+          "question_text": "Equation of the tangent to the curve {tex}{\\left( {\\frac{x}{a}} \\right)^n} + {\\left( {\\frac{y}{b}} \\right)^n} = 2{/tex} at the point (a, b) is",
+          "question_html": "<p>Equation of the tangent to the curve <span class=\"math-tex\">{tex}{\\left( {\\frac{x}{a}} \\right)^n} + {\\left( {\\frac{y}{b}} \\right)^n} = 2{/tex}</span> at the point (a, b) is</p>",
+          "options": [
+            {
+              "id": 192758,
+              "text": "{tex}\\frac{x}{a} + \\frac{y}{b} = -1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{x}{a} + \\frac{y}{b} = -1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192755,
+              "text": "{tex}\\frac{x}{a} + \\frac{y}{b} = 2{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{x}{a} + \\frac{y}{b} = 2{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192757,
+              "text": "{tex}\\frac{x}{a} + \\frac{y}{b} = 0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{x}{a} + \\frac{y}{b} = 0{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192756,
+              "text": "{tex}\\frac{x}{a} + \\frac{y}{b} = 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{x}{a} + \\frac{y}{b} = 1{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{x}{a} + \\frac{y}{b} = 2{/tex}",
+          "correct_option_ids": [
+            192755
+          ],
+          "explanation": "Given curve is {tex}{\\left( {\\frac{x}{a}} \\right)^n} + {\\left( {\\frac{y}{b}} \\right)^n} = 2{/tex} {tex} \\Rightarrow n{ \\left( { \\frac { x }{ a } } \\right) ^{ n-1 } }\\frac { 1 }{ a } +n{ \\left( { \\frac { y }{ b } } \\right) ^{ n-1 } }\\frac { 1 }{ b } \\frac { { dy } }{ { dx } } =0{/tex} {tex} \\Rightarrow \\frac { { dy } }{ { dx } } =\\frac { { -b } }{ a } { \\left( { \\frac { { xb } }{ { ya } } } \\right) ^{ n-1 } }{/tex} Hence, Slope of tangent at (a,b)= {tex}\\frac{-b}{a}{/tex} Therefore, equation of tangent at (a,b) is ( y - b)= {tex}\\frac{-b}{a}(x-a){/tex} {tex}\\Rightarrow{/tex} a(y - b) = -b(x - a) {tex}\\Rightarrow{/tex} bx + ay = 2ab {tex}\\Rightarrow \\frac{x}{a}+\\frac{y}{b}=2{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59393,
+          "question_text": "An edge of a variable cube is increasing at the rate of 3cm/sec. Find the rate at which the volume of the cube is increasing when the edge is 10cm long.",
+          "question_html": "<p>An edge of a variable cube is increasing at the rate of 3cm/sec. Find the rate at which the volume of the cube is increasing when the edge is 10cm long.</p>",
+          "options": [
+            {
+              "id": 192760,
+              "text": "{tex}800{ cm }^{ 3 }/sec{/tex}",
+              "html": "<span class=\"math-tex\">{tex}800{ cm }^{ 3 }/sec{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192761,
+              "text": "{tex}400{ cm }^{ 3 }/sec{/tex}",
+              "html": "<span class=\"math-tex\">{tex}400{ cm }^{ 3 }/sec{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192759,
+              "text": "{tex}900{ cm }^{ 3 }/sec{/tex}",
+              "html": "<span class=\"math-tex\">{tex}900{ cm }^{ 3 }/sec{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192762,
+              "text": "{tex}700{ cm }^{ 3 }/sec{/tex}",
+              "html": "<span class=\"math-tex\">{tex}700{ cm }^{ 3 }/sec{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}900{ cm }^{ 3 }/sec{/tex}",
+          "correct_option_ids": [
+            192759
+          ],
+          "explanation": "Let the side of the cube is x Given {tex} \\frac { dx }{ dt } =3cm/sec{/tex} We have volume of a cube = V = x 3 Now, {tex}\\frac { dV }{ dt } =\\frac { d }{ dt } \\left( { x }^{ 3 } \\right) =\\frac { d }{ dx } \\left( { x }^{ 3 } \\right) \\frac { dx }{ dt } =3{ x }^{ 2 }.\\frac { dx }{ dt } =9{ x }^{ 2 }{/tex} When x = 10 cm then {tex}\\frac { dV }{ dt } =\\quad 9.{ \\left( 10 \\right) }^{ 2 }=900{ cm }^{ 3 }/sec{/tex} . Which is the required solution.",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59394,
+          "question_text": "The slope of the tangent to the curve x = a ( cos &theta; + &theta; sin &theta;),y = a (sin &theta; &ndash; &theta; cos &theta;) at any point &lsquo;&theta;&rsquo; is",
+          "question_html": "<p>The slope of the tangent&nbsp;to the curve x = a ( cos &theta; + &theta; sin &theta;),y = a (sin &theta; &ndash; &theta; cos &theta;) at any point &lsquo;&theta;&rsquo; is</p>",
+          "options": [
+            {
+              "id": 192764,
+              "text": "cot &theta;",
+              "html": "cot &theta;",
+              "is_correct": false
+            },
+            {
+              "id": 192763,
+              "text": "tan &theta;",
+              "html": "tan &theta;",
+              "is_correct": true
+            },
+            {
+              "id": 192765,
+              "text": "&ndash; tan &theta;",
+              "html": "&ndash; tan &theta;",
+              "is_correct": false
+            },
+            {
+              "id": 192766,
+              "text": "&ndash; cot &theta;",
+              "html": "&ndash; cot &theta;",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "tan &theta;",
+          "correct_option_ids": [
+            192763
+          ],
+          "explanation": "Given {tex} x=a(cos\\theta +\\theta sin\\theta ),\\quad y=a(sin\\theta –\\theta cos\\theta ){/tex} {tex}\\frac { { dx } }{ { d\\theta } } =a\\left[ -sin\\theta +\\theta .cos\\theta +sin\\theta \\right] =a\\theta \\cos \\theta ,\\frac { { dy } }{ { d\\theta } } =a\\left[ cos\\theta -\\left( \\theta .-\\sin \\theta +cos\\theta \\right) \\right] =a\\theta \\sin \\theta {/tex} Slope of the tangent {tex}=\\frac { { dy } }{ { dx } } =\\frac { { \\frac { { dy } }{ { d\\theta } } } }{ { \\frac { { dx } }{ { d\\theta } } } } =\\frac { { a\\theta sin\\theta } }{ { a\\theta cos\\theta } } =tan\\theta {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59395,
+          "question_text": "The curve y = {tex}{x^{\\frac15}}{/tex} has at (0, 0)",
+          "question_html": "<p>The curve y = <span class=\"math-tex\">{tex}{x^{\\frac15}}{/tex}</span> has at (0, 0)</p>",
+          "options": [
+            {
+              "id": 192769,
+              "text": "oblique tangent",
+              "html": "oblique tangent",
+              "is_correct": false
+            },
+            {
+              "id": 192767,
+              "text": "a vertical tangent",
+              "html": "a vertical tangent",
+              "is_correct": true
+            },
+            {
+              "id": 192768,
+              "text": "a horizontal tangent",
+              "html": "a horizontal tangent",
+              "is_correct": false
+            },
+            {
+              "id": 192770,
+              "text": "no tangent",
+              "html": "no tangent",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "a vertical tangent",
+          "correct_option_ids": [
+            192767
+          ],
+          "explanation": "{tex}y={ x^{ \\frac { { 1 } }{ 5 } } }{/tex} {tex} \\frac { { dy } }{ { dx } } =\\frac { 1 }{ 5 } { x^{ \\frac { { -4 } }{ 5 } } }{/tex} when x = 0, Slope of the tangent {tex}\\frac { { dy } }{ { dx } } =\\infty{/tex} Which means the tangent is parallel to Y - axis implies the tangent is vertical.",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59396,
+          "question_text": "The point on the curve y 2 = x where tangent makes an angle of 45 o with the X &ndash; axis is",
+          "question_html": "<p>The point on the curve&nbsp; y<sup>2</sup>&nbsp;= x where tangent makes an angle of 45<sup>o</sup> with the X &ndash; axis is</p>",
+          "options": [
+            {
+              "id": 192771,
+              "text": "{tex}\\left( {\\frac{1}{4},\\frac{1}{2}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left( {\\frac{1}{4},\\frac{1}{2}} \\right){/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192774,
+              "text": "(2, &ndash; 2)",
+              "html": "(2, &ndash; 2)",
+              "is_correct": false
+            },
+            {
+              "id": 192773,
+              "text": "(4, 2)",
+              "html": "(4, 2)",
+              "is_correct": false
+            },
+            {
+              "id": 192772,
+              "text": "{tex}\\left( {\\frac{1}{2},\\frac{1}{4}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left( {\\frac{1}{2},\\frac{1}{4}} \\right){/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\left( {\\frac{1}{4},\\frac{1}{2}} \\right){/tex}",
+          "correct_option_ids": [
+            192771
+          ],
+          "explanation": "Given y 2 = x {tex}\\ \\Rightarrow 2y\\frac { dy }{ dx } =1{/tex} {tex} \\Rightarrow \\frac { dy }{ dx } =\\frac { 1 }{ 2y } {/tex} Let {tex}(\\alpha,\\beta){/tex} be the required point, then {tex}\\beta^2=\\alpha{/tex} ...(i) and {tex}{ \\left( { \\frac { { dy } }{ { dx } } } \\right) _{ \\left( { \\alpha ,\\beta } \\right) } }=\\tan { 45^{ 0 } } =1{/tex} {tex}\\Rightarrow \\frac { 1 }{ { 2\\beta } } =1{/tex} {tex} \\Rightarrow \\beta =\\frac { 1 }{ 2 } {/tex} {tex}\\\\ \\Rightarrow \\alpha ={ \\beta ^{ 2 } }={ \\left( { \\frac { 1 }{ 2 } } \\right) ^{ 2 } }=\\frac { 1 }{ 4 } {/tex} Hence, the required point is ( {tex}{ \\frac { 1 }{ 4 } ,\\frac { 1 }{ 2 } }{/tex} )",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59397,
+          "question_text": "If the curve ay + x 2 = 7 and x 3 = y cut orthogonally at (1, 1), then the value of a is:",
+          "question_html": "<p>If the curve ay + x<sup>2</sup>&nbsp;= 7&nbsp;and x<sup>3</sup>&nbsp;= y&nbsp;cut orthogonally at (1, 1), then the value of a is:&nbsp;</p>",
+          "options": [
+            {
+              "id": 192776,
+              "text": "&ndash; 6",
+              "html": "&ndash; 6",
+              "is_correct": false
+            },
+            {
+              "id": 192775,
+              "text": "6",
+              "html": "6",
+              "is_correct": true
+            },
+            {
+              "id": 192778,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 192777,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "6",
+          "correct_option_ids": [
+            192775
+          ],
+          "explanation": "{tex}ay+{ x^{ 2 } }=7\\Rightarrow a.\\frac { dy }{ dx } +2x=0\\Rightarrow \\frac { dy }{ dx } ={ m }_{ 1 }=\\frac { -2x }{ a } ...(i){/tex} {tex}\\\\ y={ x }^{ 3 }\\Rightarrow \\frac { { dy } }{ { dx } } =\\frac { d }{ { dx } } ({ x^{ 3 } })=3{ x^{ 2 } }\\Rightarrow \\frac { dy }{ dx } ={ m }_{ 2 }=3{ x^{ 2 } }.....(ii){/tex} Now, at (1,1) {tex} { m }_{ 1 }=\\frac { -2 }{ a } and\\quad { m }_{ 2 }=3{/tex} Two curves cut orthogonally means m 1 , m 2 = -1 {tex}\\\\ \\Rightarrow \\frac { -2 }{ a } .3=-1\\Rightarrow a=6\\\\ {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59398,
+          "question_text": "The point on the curve {tex}y = {(x - 3)^2}{/tex} where the tangent is parallel to the chord joining (3, 0) and (4, 1) is",
+          "question_html": "<p>The point on the curve <span class=\"math-tex\">{tex}y = {(x - 3)^2}{/tex}</span> where the tangent is parallel to the chord joining (3, 0) and (4, 1) is</p>",
+          "options": [
+            {
+              "id": 192779,
+              "text": "( {tex}\\frac{7}{2}{/tex} , {tex}\\frac{1}{4}{/tex} )",
+              "html": "( <span class=\"math-tex\">{tex}\\frac{7}{2}{/tex}</span> , <span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span> )",
+              "is_correct": true
+            },
+            {
+              "id": 192781,
+              "text": "( {tex}\\frac{-5}{2}{/tex} , {tex}\\frac{1}{4}{/tex} )",
+              "html": "(<span class=\"math-tex\">{tex}\\frac{-5}{2}{/tex}</span>,&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span>)",
+              "is_correct": false
+            },
+            {
+              "id": 192780,
+              "text": "( {tex}\\frac{5}{2}{/tex} , {tex}\\frac{1}{4}{/tex} )",
+              "html": "(<span class=\"math-tex\">{tex}\\frac{5}{2}{/tex}</span>,&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span>)",
+              "is_correct": false
+            },
+            {
+              "id": 192782,
+              "text": "( {tex}\\frac{-7}{2}{/tex} , {tex}\\frac{1}{4}{/tex} )",
+              "html": "(<span class=\"math-tex\">{tex}\\frac{-7}{2}{/tex}</span>, <span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span>)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "( {tex}\\frac{7}{2}{/tex} , {tex}\\frac{1}{4}{/tex} )",
+          "correct_option_ids": [
+            192779
+          ],
+          "explanation": "Given, y = (x - 3) 2 {tex}\\\\ \\Rightarrow \\frac { { dy } }{ { dx } } =2(x-3)\\\\ {/tex} Let {tex}(\\alpha ,\\beta ){/tex} be the required point, then {tex}\\beta = (\\alpha -3)^2{/tex} ...(i) and {tex} { \\left( { \\frac { { dy } }{ { dx } } } \\right) _{ \\left( { \\alpha ,\\beta } \\right) } }{/tex} = slope of the line joining (3,0) and (4,1) {tex} \\Rightarrow 2(\\alpha -3)=\\frac { 1-0 }{ 4-3 } =1\\\\ {/tex} {tex}\\\\ \\Rightarrow \\alpha =\\frac { 7 }{ 2 }{/tex} {tex}\\Rightarrow (\\frac { 7 }{ 2 } -3)^{ 2 }=\\frac { 1 }{ 4 }{/tex} Hence, the required point is {tex}\\left( { \\frac { 7 }{ 2 } ,\\frac { 1 }{ 4 } } \\right) {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59399,
+          "question_text": "Tangents to the curve y= x 3 + 3x at x = -1 and x = 1 are",
+          "question_html": "<p>Tangents to the curve y= x<sup>3</sup>&nbsp;+ 3x at x = -1&nbsp;and x = 1 are</p>",
+          "options": [
+            {
+              "id": 192786,
+              "text": "intersecting at an angle of {tex}{45^o}{/tex} .",
+              "html": "intersecting at an angle of <span class=\"math-tex\">{tex}{45^o}{/tex}</span>.",
+              "is_correct": false
+            },
+            {
+              "id": 192783,
+              "text": "parallel",
+              "html": "parallel",
+              "is_correct": true
+            },
+            {
+              "id": 192785,
+              "text": "intersecting at right angles",
+              "html": "intersecting at right angles",
+              "is_correct": false
+            },
+            {
+              "id": 192784,
+              "text": "intersecting obliquely but not at an angle of {tex}{45^o}{/tex}",
+              "html": "intersecting obliquely but not at an angle of <span class=\"math-tex\">{tex}{45^o}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "parallel",
+          "correct_option_ids": [
+            192783
+          ],
+          "explanation": "Given y =x 3 + 3x {tex} \\Rightarrow \\frac { { dy } }{ { dx } } =3{ x^{ 2 } }+3{/tex} Slope of tangent at x = 1 = 6 and Slope of tangent at x = -1 = 6 Hence, the two tangents are parallel.",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59400,
+          "question_text": "f(x) = x x has a stationary point at",
+          "question_html": "<p>f(x) = x<sup>x</sup>&nbsp;has a stationary point at</p>",
+          "options": [
+            {
+              "id": 192788,
+              "text": "x = e",
+              "html": "x = e",
+              "is_correct": false
+            },
+            {
+              "id": 192789,
+              "text": "x = 1",
+              "html": "x = 1",
+              "is_correct": false
+            },
+            {
+              "id": 192790,
+              "text": "{tex}x = \\sqrt e {/tex}",
+              "html": "<span class=\"math-tex\">{tex}x = \\sqrt e {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192787,
+              "text": "{tex}x = \\frac{1}{e}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x = \\frac{1}{e}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}x = \\frac{1}{e}{/tex}",
+          "correct_option_ids": [
+            192787
+          ],
+          "explanation": "Consider f(x) = y =x x Then, log y = log x x = x.logx {tex}\\Rightarrow f'(x)={ x^{ x } }(1+\\log x)\\quad {/tex} {tex}\\Rightarrow (1+\\log x)=0.......(\\because { x^{ x } }\\neq 0)\\\\ {/tex} {tex}\\Rightarrow \\log x=-1 \\Rightarrow x=e^{-1}{/tex}",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3616,
+      "test_name": "Applicartions of Derivatives Test-04",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59401,
+          "question_text": "The smallest value of the polynomial x 3 - 18x 2 + 96x in [0, 9] is",
+          "question_html": "<p>The smallest value of the polynomial x<sup>3</sup>&nbsp;- 18x<sup>2</sup>&nbsp;+ 96x&nbsp;in&nbsp;[0, 9] is</p>",
+          "options": [
+            {
+              "id": 192793,
+              "text": "135",
+              "html": "135",
+              "is_correct": false
+            },
+            {
+              "id": 192791,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            },
+            {
+              "id": 192792,
+              "text": "126",
+              "html": "126",
+              "is_correct": false
+            },
+            {
+              "id": 192794,
+              "text": "160",
+              "html": "160",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            192791
+          ],
+          "explanation": "Let f(x) = x 3 - 18x 2 + 96x {tex}\\Rightarrow{/tex} f&#39;(x) = 3x 2 - 36x + 96 = 3[x 2 - 12x +32] = 3(x - 4)(x - 8) For maximum and minimum values of x, we have f&#39;(x) = 0 {tex}\\Rightarrow{/tex} 3(x - 4)(x - 8) {tex}\\Rightarrow{/tex} x = 4, 8 Both of these values lies in the given interval [0,9] Now, f&#39;&#39;(x) = 6x - 36 When x = 8 we get f&#39;&#39;(x) = 12 > 0 Since at x = 8, f&#39;(x)= 0 and f&#39;&#39;(x)>0, we get f(x) is minimum at x = 8 in (0,9) Now, we have to find minimum values at the end points of the given interval We have, f(0) = 0 and f(9) = 135 Hence, the minimum value of f(x) = 0 at x= 0 in [0,9]",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59402,
+          "question_text": "Given that f (x) = {tex}{x^{1/x}}{/tex} , x > 0 has the maximum value at x = e,then",
+          "question_html": "<p>Given that f (x) = <span class=\"math-tex\">{tex}{x^{1/x}}{/tex}</span> , x &gt; 0 has the maximum value at x = e,then</p>",
+          "options": [
+            {
+              "id": 192797,
+              "text": "{tex}{e^\\pi } = {\\pi ^e}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{e^\\pi } = {\\pi ^e}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192798,
+              "text": "{tex}{e^\\pi } \\leqslant {\\pi ^e}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{e^\\pi } \\leqslant {\\pi ^e}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192795,
+              "text": "{tex}{e^\\pi } > {\\pi ^e}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{e^\\pi } &gt; {\\pi ^e}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192796,
+              "text": "{tex}{e^\\pi } < {\\pi ^e}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{e^\\pi } &lt; {\\pi ^e}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}{e^\\pi } > {\\pi ^e}{/tex}",
+          "correct_option_ids": [
+            192795
+          ],
+          "explanation": "Let y = f(x) = {tex}x^{\\frac{1}{x}}{/tex} Then, log y = log {tex}x^{\\frac{1}{x}}{/tex} = {tex}\\frac{1}{x}{/tex} . logx {tex} \\Rightarrow \\frac { 1 }{ y } \\frac { { dy } }{ { dx } } =\\frac { 1 }{ x } .\\frac { 1 }{ x } +logx.\\frac { -1 }{ x^{ 2 } } =\\frac { 1-\\log x\\quad }{ x^{ 2 } } \\\\ {/tex} {tex}\\Rightarrow f'(x)={ x^{ \\frac { 1 }{ x } } }(\\frac { 1-\\log x\\quad }{ x^{ 2 } } )\\quad {/tex} {tex} f'(x)=0\\Rightarrow (1-\\log x)=0.......(\\because { x^{ \\frac{1}{x}} }\\neq 0)\\\\{/tex} {tex} \\Rightarrow \\log x=1\\Rightarrow x=e\\\\{/tex} {tex} \\therefore f~ \\left( e \\right) >f\\left( ~ \\pi ~ \\right){/tex} {tex} \\\\ \\Rightarrow { { e }^{ \\frac { 1 }{ e } } }>{ { \\pi }^{ \\frac { 1 }{ \\pi } } }\\\\{/tex} {tex} { \\Rightarrow \\left( { { e }^{ \\frac { 1 }{ e } } } \\right) }^{ \\pi e }>{ \\left( { { \\pi }^{ \\frac { 1 }{ \\pi } } } \\right) }^{ \\pi e }{/tex} {tex}\\Rightarrow { { e }^{ \\pi } }>{ { \\pi }^{ e } }{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59403,
+          "question_text": "If f (x) = {tex}x + \\frac{1}{x},{/tex} then",
+          "question_html": "<p>If f (x) = <span class=\"math-tex\">{tex}x + \\frac{1}{x},{/tex}</span> then</p>",
+          "options": [
+            {
+              "id": 192802,
+              "text": "relative minimum does not exist",
+              "html": "relative minimum does not exist",
+              "is_correct": false
+            },
+            {
+              "id": 192799,
+              "text": "relative minimum > relative maximum",
+              "html": "relative minimum &gt; relative maximum",
+              "is_correct": true
+            },
+            {
+              "id": 192801,
+              "text": "relative maximum > relative minimum",
+              "html": "relative maximum &gt; relative minimum",
+              "is_correct": false
+            },
+            {
+              "id": 192800,
+              "text": "relative maximum does not exist",
+              "html": "relative maximum does not exist",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "relative minimum > relative maximum",
+          "correct_option_ids": [
+            192799
+          ],
+          "explanation": "f(x) = x + {tex}\\frac{1}{x}{/tex} Then, f&#39;(x) = 1 - {tex}\\frac{1}{x^2}{/tex} For, relative maximum and minimum values of x, we have f&#39;(x) =0 {tex}\\Rightarrow{/tex} 1 - {tex}\\frac{1}{x^2}{/tex} = 0 {tex}\\Rightarrow{/tex} x 2 = 1 {tex}\\Rightarrow{/tex} x = {tex}\\pm 1{/tex} Now, f&#39;&#39;(x) = {tex}\\frac{2}{x^3}{/tex} When , x = 1, we get f&#39;&#39;(x) = 2>0 and when x= -1, we get f&#39;&#39;(x) = -2 <0 f(x) = x + {tex}\\frac{1}{x}{/tex} has a local maximum at x = -1 and a local minimum at x= 1. Now, the maximum value = f(-1) =-2 and minimum value = f(1) =2",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59404,
+          "question_text": "Let f(x) = x 25 (1 - x) 75 for all {tex}x \\in \\left[ {0,1} \\right],{/tex} then f (x) assumes its maximum value at",
+          "question_html": "<p>Let f(x) = x<sup>25</sup>&nbsp;(1 - x)<sup>75</sup> for all <span class=\"math-tex\">{tex}x \\in \\left[ {0,1} \\right],{/tex}</span> then f (x) assumes its maximum value at</p>",
+          "options": [
+            {
+              "id": 192803,
+              "text": "{tex}\\frac{1}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192806,
+              "text": "{tex}\\frac{1}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192804,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 192805,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{4}{/tex}",
+          "correct_option_ids": [
+            192803
+          ],
+          "explanation": "Given f(x) = x 25 (1 - x) 75 f&#39;(x) = x 25 . 75(1 - x) 74 (-1)+(1 - x) 75 . 25x 24 = 25x 24 (1 - x) 74 {-3x + (1-x)} = 25x 24 (1 - x) 74 (1 - 4x) For maximum value of f(x) we have f&#39;(x) = 0 {tex}\\Rightarrow{/tex} 25x 24 (1 - x) 74 (1 - 4x) = 0 {tex}\\Rightarrow{/tex} x = 0, x = 1, x= {tex}\\frac{1}{4}{/tex} All the values of x {tex}\\in{/tex} [0,1] Note that f(0) = f(1) = 0 and f( {tex}\\frac{1}{4}{/tex} ) = {tex}\\frac{3^{75}}{4^{100}}{/tex} So, f(x) is maximum at x = {tex}\\frac{1}{4}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59405,
+          "question_text": "Minimum value of the function f(x) = x 2 + x + 1 is",
+          "question_html": "<p>Minimum value of the function&nbsp;f(x) = x<sup>2</sup>&nbsp;+ x + 1 is</p>",
+          "options": [
+            {
+              "id": 192807,
+              "text": "{tex}\\frac { 3 }{ 4 } {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac { 3 }{ 4 } {/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192810,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 192808,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            },
+            {
+              "id": 192809,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac { 3 }{ 4 } {/tex}",
+          "correct_option_ids": [
+            192807
+          ],
+          "explanation": "Given, f(x) = x 2 + x +1 {tex}\\Rightarrow {/tex} f&#39;(x) = 2x + 1 For minimum value of f(x) we have f&#39;(x) = 0 {tex}\\Rightarrow{/tex} 2x + 1 = 0 {tex}\\Rightarrow{/tex} x = {tex}\\frac{-1}{2}{/tex} Now, f&#39;&#39;(x) = 2 >0, hence the minimum of f(x) exist at x = {tex}\\frac{-1}{2}{/tex} and minimum value = f( {tex}\\frac{-1}{2}{/tex} ) = {tex}\\frac{3}{4}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59406,
+          "question_text": "If x is real, the minimum value of x 2 - 8x + 17 is",
+          "question_html": "<p>If x is&nbsp;real, the minimum value of x<sup>2</sup>&nbsp;- 8x + 17&nbsp;is</p>",
+          "options": [
+            {
+              "id": 192814,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 192812,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 192811,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            },
+            {
+              "id": 192813,
+              "text": "&ndash; 1",
+              "html": "&ndash; 1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            192811
+          ],
+          "explanation": "Given f(x) = x 2 - 8x + 17 {tex}\\Rightarrow{/tex} f&#39;(x) = 2x - 8 For minimum valye of f(x) we have f&#39;(x) = 0 {tex}\\Rightarrow{/tex} 2x - 8 = 0 {tex}\\Rightarrow{/tex} x = {tex}\\frac{8}{2}{/tex} = 4 Now, f&#39;&#39;(x) = 2 > 0, hence the minimum of f(x) exist at x = 4 and minimum value = f(4) = 1",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59407,
+          "question_text": "a log x +bx 2 + x has its extreme values at x =&ndash; 1 and x = 2, then",
+          "question_html": "<p>a log x +bx<sup>2</sup>&nbsp;+ x &nbsp;has its extreme values at x =&ndash; 1 and x = 2, then</p>",
+          "options": [
+            {
+              "id": 192818,
+              "text": "a = -2,b = {tex} - \\frac{1}{2}{/tex}",
+              "html": "a = -2,b =&nbsp;<span class=\"math-tex\">{tex} - \\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192816,
+              "text": "a = 2, b = &ndash; 1",
+              "html": "a = 2, b = &ndash; 1",
+              "is_correct": false
+            },
+            {
+              "id": 192817,
+              "text": "a = -2, b = {tex} \\frac{1}{2}{/tex}",
+              "html": "a = -2,&nbsp;b =&nbsp;<span class=\"math-tex\">{tex} \\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192815,
+              "text": "a = 2, b = {tex}-\\frac{1}{2}{/tex}",
+              "html": "a = 2, b =&nbsp;<span class=\"math-tex\">{tex}-\\frac{1}{2}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "a = 2, b = {tex}-\\frac{1}{2}{/tex}",
+          "correct_option_ids": [
+            192815
+          ],
+          "explanation": "Let f(x) = alogx + bx 2 + x {tex}f'(x)=a.\\frac { 1 }{ x } +2bx+1{/tex} For maximum and minimum value of f(x) we have f&#39;(x) = 0 Therefore, at x = -1 and x = 2 we have 2bx 2 + x + a = 0 i.e, a + 2b = 1....(i) and a + 8b = 2....(ii) (ii) - (i ) gives b = {tex}-\\frac{1}{2}{/tex} Now , from (i) we get a = 2 {tex}\\Rightarrow {/tex} a = 2, b = {tex}-\\frac{1}{2}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59408,
+          "question_text": "The maximum value of {tex}\\frac{{{\\text{log}}x}}{x}{/tex} in {tex}0{\\text{ }} < {\\text{ }}x{\\text{ }} < \\infty {/tex} is",
+          "question_html": "<p>The maximum value of <span class=\"math-tex\">{tex}\\frac{{{\\text{log}}x}}{x}{/tex}</span> in <span class=\"math-tex\">{tex}0{\\text{ }} &lt; {\\text{ }}x{\\text{ }} &lt; \\infty {/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 192822,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192820,
+              "text": "&ndash; e",
+              "html": "&ndash; e",
+              "is_correct": false
+            },
+            {
+              "id": 192819,
+              "text": "{tex}\\frac{1}{e}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{e}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192821,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{e}{/tex}",
+          "correct_option_ids": [
+            192819
+          ],
+          "explanation": "Consider f(x) = {tex}\\frac{logx}{x}{/tex} Then, f&#39;(x) = {tex}=\\frac { x.\\frac { 1 }{ x } -logx.1 }{ x^{ 2 } } \\quad =\\frac { 1-logx }{ x^{ 2 } } {/tex} For maximum or minimum values of x we have f&#39;(x) = 0 f&#39;(x) = 0 {tex}\\Rightarrow{/tex} (1 - logx) = 0 {tex}\\Rightarrow{/tex} logx = 1 {tex}\\Rightarrow{/tex} x = e. Now, f&#39;(x) {tex}=\\frac { x^{ 2 }.\\frac { -1 }{ x } -\\left( 1-logx \\right) 2x }{ x^{ 4 } } =\\left[ \\frac { -3+2logx }{ x^{ 3 } } \\right] {/tex} f&#39;&#39;(x) at {tex} at\\quad x={ e }=\\frac { -3 }{ e^{ 3 } } <0{/tex} Therefore f(x) is maximum at x = e and the max. value {tex}=\\frac { loge }{ e } =\\frac { 1 }{ e } \\\\ \\\\ {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59409,
+          "question_text": "maximum value of f(x)=sinx in [ {tex}\\pi{/tex} ,2 {tex}\\pi{/tex} ] is",
+          "question_html": "<p>maximum value of f(x)=sinx in [<span class=\"math-tex\">{tex}\\pi{/tex}</span>,2<span class=\"math-tex\">{tex}\\pi{/tex}</span>]&nbsp;is&nbsp;</p>",
+          "options": [
+            {
+              "id": 192825,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192824,
+              "text": "{tex}\\frac{1}{\\sqrt2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{\\sqrt2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192823,
+              "text": "0",
+              "html": "0&nbsp;",
+              "is_correct": true
+            },
+            {
+              "id": 192826,
+              "text": "-1",
+              "html": "-1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            192823
+          ],
+          "explanation": "we have, f(x)=sinx,then, f&#39;(x)=cosx For stationary points,we must have f&#39;(x)=0 {tex}\\Rightarrow{/tex} cosx=0 {tex}\\Rightarrow{/tex} x= {tex}\\frac{3 {tex}\\pi{/tex} }{2} [\\because x\\in[ {tex}\\pi{/tex} ,2 {tex}\\pi{/tex} ]\\ ]{/tex} Now ,f( {tex}\\pi{/tex} )=sin {tex}\\pi{/tex} =0, f( {tex}\\frac{3 {tex}\\pi{/tex} }{2}{/tex} )=sin {tex}\\frac{3 {tex}\\pi{/tex} }{2}{/tex} =-1 and f(2 {tex}\\pi{/tex} )=sin2 {tex}\\pi{/tex} =0 Hence,the maximum value of f(x) is 0.",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59410,
+          "question_text": "The function f (x) = {tex}x + \\frac{4}{x}{/tex} has",
+          "question_html": "<p>The function f (x) = <span class=\"math-tex\">{tex}x + \\frac{4}{x}{/tex}</span> has</p>",
+          "options": [
+            {
+              "id": 192828,
+              "text": "a local maxima at x =2 and a local minima at x = &ndash; 2",
+              "html": "a local maxima at x =2 and a local minima at x = &ndash; 2",
+              "is_correct": false
+            },
+            {
+              "id": 192827,
+              "text": "local minima at x = 2 and a local maxima at x = &ndash; 2",
+              "html": "local minima at x = 2 and a local maxima at x = &ndash; 2",
+              "is_correct": true
+            },
+            {
+              "id": 192830,
+              "text": "No maximum and minimum",
+              "html": "No maximum and minimum&nbsp;",
+              "is_correct": false
+            },
+            {
+              "id": 192829,
+              "text": "absolute maxima at x = 2 and absolute minima at x = &ndash; 2",
+              "html": "absolute maxima at x = 2 and absolute minima at x = &ndash; 2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "local minima at x = 2 and a local maxima at x = &ndash; 2",
+          "correct_option_ids": [
+            192827
+          ],
+          "explanation": "Given , f(x) = x + {tex}\\frac{4}{x}{/tex} {tex} \\Rightarrow f'(x)=1-\\frac { 4 }{ { { x^{ 2 } } } }{/tex} {tex}\\Rightarrow f'(x)=0{/tex} {tex}\\Rightarrow x=\\pm 2{/tex} {tex}\\Rightarrow f''(x)=\\frac { 8 }{ { { x^{ 3 } } } } {/tex} {tex}\\Rightarrow f''(2)=\\frac { 8 }{ 8 } =1>0{/tex} {tex}\\Rightarrow f''(-2)=\\frac { 8 }{ { -8 } } =-1<0{/tex} So, f(x) has a local minima at x = 2 and a local minima at x= -2.",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59411,
+          "question_text": "The minimum value of {tex}\\frac{x}{{\\log x}},x > 1,{/tex} is",
+          "question_html": "<p>The minimum value of <span class=\"math-tex\">{tex}\\frac{x}{{\\log x}},x &gt; 1,{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 192832,
+              "text": "{tex}\\frac{1}{e}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{e}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192833,
+              "text": "&ndash; e",
+              "html": "&ndash; e",
+              "is_correct": false
+            },
+            {
+              "id": 192831,
+              "text": "e",
+              "html": "e",
+              "is_correct": true
+            },
+            {
+              "id": 192834,
+              "text": "{tex}\\frac{2}{e}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{e}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "e",
+          "correct_option_ids": [
+            192831
+          ],
+          "explanation": "{tex}f(x)=\\frac { x }{ { \\log x } }{/tex} {tex} \\\\ \\Rightarrow f'(x)=\\frac { logx.1-x.\\frac { 1 }{ x } }{ { (\\log x) }^{ 2 } } {/tex} For maximum or minimum values of x we have f&#39;(x) = 0 {tex} f'(x)=0\\Rightarrow \\frac { { \\log x-1 } }{ { { { (\\log x) }^{ 2 } } } } =0\\Rightarrow (\\log x-1)=0{/tex} {tex}\\\\ \\Rightarrow \\log x=1\\Rightarrow x=e{/tex} Now, {tex}f''(x)=(\\log x-1)\\frac { -2 }{ { (\\log x) }^{ 3 } } \\quad +{ (\\log x) }^{ -2 }.\\frac { 1 }{ x } {/tex} {tex}f''(e)=\\frac { 1 }{ e } >0{/tex} Hence, f(x) has a minimum value f(e) = e.",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59412,
+          "question_text": "Minimum value of x &ndash;sin x in [0, {tex}\\pi{/tex} ] is",
+          "question_html": "<p>Minimum value of x &ndash;sin x in [0, <span class=\"math-tex\">{tex}\\pi{/tex}</span>] is</p>",
+          "options": [
+            {
+              "id": 192836,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192838,
+              "text": "{tex}\\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192837,
+              "text": "{tex}\\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192835,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            192835
+          ],
+          "explanation": "Given, f(x) = x - sinx f&#39;(x) = 1 - cosx For maximum or minimum values of f(x), we have f&#39;(x) = 0 Now, f&#39;(x) = 0 {tex}\\Rightarrow 1-cosx=0\\Rightarrow cosx=1\\Rightarrow x=0{/tex} Now, f(0) = 0 -sin 0 = {tex}\\pi-0=\\pi{/tex} Hence, minimum value of f(x) is 0.",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59413,
+          "question_text": "Maximum value of x + cos x in {tex} \\left[ 0,\\frac { \\pi }{ 2 } \\right]{/tex} is",
+          "question_html": "<p>Maximum value of x + cos x in <span class=\"math-tex\">{tex} \\left[ 0,\\frac { \\pi }{ 2 } \\right]{/tex}</span>&nbsp;is</p>",
+          "options": [
+            {
+              "id": 192839,
+              "text": "{tex}\\frac { \\pi }{ 2 } {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac { \\pi }{ 2 } {/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192840,
+              "text": "&ndash; 1 + {tex}\\pi{/tex}",
+              "html": "&ndash; 1 + <span class=\"math-tex\">{tex}\\pi{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192841,
+              "text": "{tex}\\frac{\\pi }{2}-1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}-1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192842,
+              "text": "{tex}\\frac{\\pi }{2}+1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}+1{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac { \\pi }{ 2 } {/tex}",
+          "correct_option_ids": [
+            192839
+          ],
+          "explanation": "f(x) = x + cosx f&#39;(x) = 1 - sinx For maximum and minimum values of f(x) , we have f&#39;(x) = 0 Now, f&#39;(x) = 0 {tex}\\Rightarrow 1–sinx=0\\Rightarrow x=\\frac { \\pi }{ 2 } {/tex} Hence, maximum value of f(x) is {tex}f(\\frac { \\pi }{ 2 } )=\\frac { \\pi }{ 2 } {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59414,
+          "question_text": "Let f (x) =x 3 , then f (x) has a",
+          "question_html": "<p>Let f (x) =x<sup>3</sup>, then f (x) has a</p>",
+          "options": [
+            {
+              "id": 192844,
+              "text": "local minima at x = 0",
+              "html": "local minima at x = 0",
+              "is_correct": false
+            },
+            {
+              "id": 192846,
+              "text": "point of inflexion at x = 1",
+              "html": "point of inflexion at x = 1",
+              "is_correct": false
+            },
+            {
+              "id": 192845,
+              "text": "local maxima at x = 0",
+              "html": "local maxima at x = 0",
+              "is_correct": false
+            },
+            {
+              "id": 192843,
+              "text": "point of inflexion at x = 0",
+              "html": "point of inflexion at x = 0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "point of inflexion at x = 0",
+          "correct_option_ids": [
+            192843
+          ],
+          "explanation": "Given f(x) = x 3 f&#39;(x) = 3x 2 For point of inflexion, we have f&#39;(x) = 0 {tex} f'(x)=0\\Rightarrow 3{ x }^{ 2 }=0\\Rightarrow x=0{/tex} Hence, f(x) has a point of inflexion at x = 0. But x = 0 is not a local extremum as we cannot find an interval I around x = 0 such that {tex}f(0)\\ge f(x)\\quad or\\quad f(0)\\le f(x)\\quad \\quad for\\quad all\\quad x\\epsilon I\\\\ {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59415,
+          "question_text": "Let f(x) = x|x|, then f (x) has",
+          "question_html": "<p>Let f(x) = x|x|, then f (x) has</p>",
+          "options": [
+            {
+              "id": 192849,
+              "text": "local minima at x = 0",
+              "html": "local minima at x = 0",
+              "is_correct": false
+            },
+            {
+              "id": 192850,
+              "text": "point of inflexion at x = 1",
+              "html": "point of inflexion at x = 1",
+              "is_correct": false
+            },
+            {
+              "id": 192847,
+              "text": "point of inflexion at x = 0",
+              "html": "point of inflexion at x = 0",
+              "is_correct": true
+            },
+            {
+              "id": 192848,
+              "text": "local maxima at x = 0",
+              "html": "local maxima at x = 0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "point of inflexion at x = 0",
+          "correct_option_ids": [
+            192847
+          ],
+          "explanation": "Given, f(x) = x|x| {tex}=\\left\\{\\begin{array}{l}-x^2,\\quad x<0\\\\\\;\\;x^2,\\;\\;\\;x>0\\end{array}\\right.{/tex} {tex} \\Rightarrow f'(x)=-2x{/tex} when x < 0 and 2x when x > 0 {tex} f'(x)=0\\Rightarrow x=0{/tex} Hence f(x) has a point of inflexion at x = 0. But, x = 0 is not a local extreme as we cannot find an interval I around x = 0 such that {tex}f(0)\\ge f(x)~ or~ f(0)\\le f(x)\\quad ~ \\forall x\\in I{/tex}",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3617,
+      "test_name": "Applicartions of Derivatives Test-05",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59416,
+          "question_text": "Find the slope of the normal to the curve {tex}x=a{ cos }^{ 3 }\\theta ,y=a{ sin }^{ 3 }\\theta{/tex} at {tex}\\theta =\\frac { \\pi }{ 4 } {/tex}",
+          "question_html": "<p>Find the slope of the normal to the curve <span class=\"math-tex\">{tex}x=a{ cos }^{ 3 }\\theta ,y=a{ sin }^{ 3 }\\theta{/tex}</span>&nbsp;at&nbsp;<span class=\"math-tex\">{tex}\\theta =\\frac { \\pi }{ 4 } {/tex}</span></p>",
+          "options": [
+            {
+              "id": 192854,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 192852,
+              "text": "0",
+              "html": "&nbsp;0",
+              "is_correct": false
+            },
+            {
+              "id": 192853,
+              "text": "-1",
+              "html": "-1",
+              "is_correct": false
+            },
+            {
+              "id": 192851,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            192851
+          ],
+          "explanation": "x = acos 3 {tex}\\theta{/tex} , y = asin 3 {tex}\\theta{/tex} = {tex}\\frac { { dx } }{ { d\\theta } } =-3a{ cos}^{ 2 }\\theta sin\\theta , \\frac { { dy } }{ { d\\theta } } =3a{ sin }^{ 2 }\\theta cos\\theta {/tex} Slope of tangent = {tex}=\\frac { { dy } }{ { dx } } =\\frac { { \\frac { { dy } }{ { d\\theta } } } }{ { \\frac { { dx } }{ { d\\theta } } } } =\\frac { -3{ acos }^{ 2 }\\theta sin\\theta }{ 3{ asin }^{ 2 }\\theta cos\\theta } =-tan\\theta {/tex} Slope of normal is {tex} \\frac { -1 }{ \\frac { { dy } }{ { dx } } } =\\frac { -1 }{ -tan\\theta } =cot\\theta {/tex} When , Slope of normal {tex}=cot\\frac { \\pi }{ 4 } =1{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59417,
+          "question_text": "For which value of {tex}x{/tex} will {tex}(x-1)(3-x){/tex} have its maximum?",
+          "question_html": "<p>For which value of <span class=\"math-tex\">{tex}x{/tex}</span> will <span class=\"math-tex\">{tex}(x-1)(3-x){/tex}</span> have its maximum?</p>",
+          "options": [
+            {
+              "id": 192855,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 192857,
+              "text": "2",
+              "html": "2",
+              "is_correct": true
+            },
+            {
+              "id": 192856,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 192858,
+              "text": "-2",
+              "html": "-2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "2",
+          "correct_option_ids": [
+            192857
+          ],
+          "explanation": "Let, {tex}{y}=({x}-1)(3-{x})=4 {x}-{x}^2-3{/tex} Then, {tex}{dy} / {dx}=0{/tex} Or {tex}4-2 x=0{/tex} Or {tex}2 x=4{/tex} Or {tex}x=2{/tex} Now, {tex}\\left[d^2 y / d x^2\\right]=-2{/tex} which is negative. Therefore, {tex}(x-1)(3-x){/tex} will have its maximum at {tex}x=2{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59418,
+          "question_text": "The minimum value of sin x {tex}\\cdot{/tex} cos x is",
+          "question_html": "<p>The minimum value of sin x <span class=\"math-tex\">{tex}\\cdot{/tex}</span>&nbsp;cos x is</p>",
+          "options": [
+            {
+              "id": 192859,
+              "text": "{tex} \\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex} \\frac{1}{2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192860,
+              "text": "{tex}\\frac{1}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192861,
+              "text": "{tex}\\sqrt 2{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt 2{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192862,
+              "text": "{tex}2 \\sqrt 2{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2 \\sqrt 2{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex} \\frac{1}{2}{/tex}",
+          "correct_option_ids": [
+            192859
+          ],
+          "explanation": "Let f(x) = sinx . cosx {tex}\\Rightarrow f(x) = \\frac{1}{2}(sin2x){/tex} Now, f&#39;(x)= {tex}\\frac{1}{2}(cos2x).2= cos2x{/tex} For maximum and minimum values of x, we have f&#39;(x) = 0 f&#39;(x) = 0 {tex}\\Rightarrow cos2x=0{/tex} {tex}\\Rightarrow x=\\frac{\\pi}{4}{/tex} Now, f&#39;&#39;(x) = -2sin2x i.e, f&#39;&#39;( {tex}\\frac{\\pi}{4}{/tex} ) = -2sin {tex}\\frac{\\pi}{2}{/tex} = -2 < 0 Hence, f(x) has a maximum value at x = {tex}\\frac{\\pi}{4}{/tex} and the max value of f( {tex}\\frac{\\pi}{4}{/tex} ) = sin {tex}\\frac{\\pi}{4}{/tex} cos {tex}\\frac{\\pi}{4}{/tex} = {tex}\\frac{1}{2}{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59419,
+          "question_text": "The maximum value of {tex}\\left(\\frac{1}{x}\\right)^{x}{/tex} is:",
+          "question_html": "<p>The maximum value of&nbsp;<span class=\"math-tex\">{tex}\\left(\\frac{1}{x}\\right)^{x}{/tex}</span>&nbsp;is:</p>",
+          "options": [
+            {
+              "id": 192863,
+              "text": "{tex}{ e }^{ 1/e }{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{ e }^{ 1/e }{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192865,
+              "text": "e",
+              "html": "e",
+              "is_correct": false
+            },
+            {
+              "id": 192866,
+              "text": "{tex}(\\frac {1}{e}) ^\\frac {1}{e}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}(\\frac {1}{e}) ^\\frac {1}{e}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192864,
+              "text": "{tex}{ e }^{ e }{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{ e }^{ e }{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}{ e }^{ 1/e }{/tex}",
+          "correct_option_ids": [
+            192863
+          ],
+          "explanation": "Let y = f(x) = {tex}\\frac{1}{x}^x{/tex} Then, log y = log {tex}\\frac{1}{x}^x{/tex} = xlog {tex}\\frac{1}{x}{/tex} = -xlogx {tex} \\Rightarrow \\frac { 1 }{ y } \\frac { { dy } }{ { dx } } =-\\left( x.\\frac { 1 }{ x } +logx.1 \\right) =-\\left( 1+\\log x \\right){/tex} {tex} \\\\ \\Rightarrow f'(x)=-{ { \\frac { 1 }{ x } }^{ x } }\\left( 1+\\log x \\right) \\quad {/tex} {tex}f'(x)=0\\Rightarrow (1+\\log x)=0{/tex} {tex} \\Rightarrow \\log x=-1\\Rightarrow x=\\frac { 1 }{ e } {/tex} The maximum value of f(x) = {tex}= f(\\frac{1}{e})=e^{ 1/e }{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59420,
+          "question_text": "The function f(x) = |x| has",
+          "question_html": "<p>The function f(x) = |x|&nbsp;has</p>",
+          "options": [
+            {
+              "id": 192867,
+              "text": "only one minima",
+              "html": "only one minima",
+              "is_correct": true
+            },
+            {
+              "id": 192869,
+              "text": "no maxima or minima",
+              "html": "no maxima or minima",
+              "is_correct": false
+            },
+            {
+              "id": 192868,
+              "text": "only one maxima",
+              "html": "only one maxima",
+              "is_correct": false
+            },
+            {
+              "id": 192870,
+              "text": "only two maxima",
+              "html": "only two&nbsp;maxima",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "only one minima",
+          "correct_option_ids": [
+            192867
+          ],
+          "explanation": "Given, {tex} f(x)=\\left| x \\right| =\\begin{matrix} -{ x },\\quad x<0 \\\\ { x },x>0 \\end{matrix}{/tex} {tex}\\\\ \\Rightarrow f'(x)=-1{/tex} when x< 0 and 1 when x > 0 But, we have f&#39;(x) does not exist at x = 0, hence we have x = 0 is a critical point At x = 0, we get f(0) = 0 For any other value of x, we have f(x) > 0 , hence f(x) has a minimum at x= 0.",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59421,
+          "question_text": "If a differentiable function f (x) has a relative minimum at x = 0, then the function y = f (x) + a x + b has a relative minimum at x = 0 for",
+          "question_html": "<p>If a differentiable function f (x) has a relative minimum at x = 0, then the function y = f (x) + a x + b has a relative minimum at x = 0 for</p>",
+          "options": [
+            {
+              "id": 192871,
+              "text": "all b if a = 0",
+              "html": "all b if a = 0",
+              "is_correct": true
+            },
+            {
+              "id": 192873,
+              "text": "all b > 0",
+              "html": "all b &gt; 0",
+              "is_correct": false
+            },
+            {
+              "id": 192872,
+              "text": "all a and all b",
+              "html": "all a and all b",
+              "is_correct": false
+            },
+            {
+              "id": 192874,
+              "text": "all a > 0",
+              "html": "all a &gt; 0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "all b if a = 0",
+          "correct_option_ids": [
+            192871
+          ],
+          "explanation": "If a differentiable function f(x) has a relative minimum at x= 0, we have f&#39;(0) = 0 and f&#39;(0) > 0 Now, consider the given function y = f(x) + ax +b For this function to have a relative minimum at x = 0, we have y 1 (0) = 0 and y 2 (0) > 0 Now, {tex}{ y_{ 1 } }(0)=f'(0)+a{/tex} and {tex}{ y_{ 2 } }(0)=f''(0)>0{/tex} Since, y 1 (0) = 0, we get f&#39;(0) + a = 0 implies a = 0",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59422,
+          "question_text": "Let f (x) be differentiable in (0, 4) and f (2) = f (3) and S = {c : 2 < c < 3, f&rsquo; (c) = 0 } then",
+          "question_html": "<p>Let f (x) be differentiable in (0, 4) and f (2) = f (3) and S = {c : 2 &lt; c &lt; 3, f&rsquo; (c) = 0 } then</p>",
+          "options": [
+            {
+              "id": 192877,
+              "text": "S = { }",
+              "html": "S = { }",
+              "is_correct": false
+            },
+            {
+              "id": 192878,
+              "text": "S has exactly Two point",
+              "html": "S has exactly Two&nbsp;point",
+              "is_correct": false
+            },
+            {
+              "id": 192876,
+              "text": "S has exactly one point",
+              "html": "S has exactly one point",
+              "is_correct": false
+            },
+            {
+              "id": 192875,
+              "text": "S has atleast one point",
+              "html": "S has atleast one point",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "S has atleast one point",
+          "correct_option_ids": [
+            192875
+          ],
+          "explanation": "Since, given f(x) is differentiable in (2,3) and f(2) = f(3) we have conditions of Rolle&#39;s theorem are satisfied by f(x) in [2,3]. Hence, there exist atleast one real c in (2,3) s.t.f&#39;(c) = 0. Therefore, the set S contains atleast one element.",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59423,
+          "question_text": "Every continuous function is",
+          "question_html": "<p>Every continuous function is</p>",
+          "options": [
+            {
+              "id": 192881,
+              "text": "Increasing",
+              "html": "Increasing",
+              "is_correct": false
+            },
+            {
+              "id": 192880,
+              "text": "decreasing",
+              "html": "decreasing",
+              "is_correct": false
+            },
+            {
+              "id": 192879,
+              "text": "not differentiable",
+              "html": "not differentiable",
+              "is_correct": true
+            },
+            {
+              "id": 192882,
+              "text": "differentiable",
+              "html": "differentiable",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "not differentiable",
+          "correct_option_ids": [
+            192879
+          ],
+          "explanation": "Given {tex} f(x)=\\left| x \\right| =\\begin{matrix} -{ x },\\quad x<0 \\\\ { x },x>0 \\end{matrix}{/tex} {tex}\\\\ \\Rightarrow f'(x)=-1{/tex} when x<0 and 1 when x > 0 But, we have f&#39;(x) does not exist at x= 0, hence we get the function is not differentiable at x = 0 Clearly, the function is continuous as we can draw the graph of this without lifting the pen from the paper Therefore, Every continuous function is not differentiable.",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59424,
+          "question_text": "Rolle&rsquo;s Theorem is not applicable to the function f(x)= |x| for {tex} - 2 \\leqslant x \\leqslant 2{/tex} because",
+          "question_html": "<p>Rolle&rsquo;s Theorem is not applicable to the function f(x)= |x|&nbsp;for <span class=\"math-tex\">{tex} - 2 \\leqslant x \\leqslant 2{/tex}</span> because</p>",
+          "options": [
+            {
+              "id": 192885,
+              "text": "f ( &ndash; 2) = f (2)",
+              "html": "f ( &ndash; 2) = f (2)",
+              "is_correct": false
+            },
+            {
+              "id": 192886,
+              "text": "f (x) is non continuous for {tex} - 2 \\leqslant x \\leqslant 2{/tex}",
+              "html": "f (x) is non continuous for <span class=\"math-tex\">{tex} - 2 \\leqslant x \\leqslant 2{/tex}</span>&nbsp;",
+              "is_correct": false
+            },
+            {
+              "id": 192884,
+              "text": "f (x) is continuous for {tex} - 2 \\leqslant x \\leqslant 2{/tex}",
+              "html": "f (x) is continuous for <span class=\"math-tex\">{tex} - 2 \\leqslant x \\leqslant 2{/tex}</span>&nbsp;",
+              "is_correct": false
+            },
+            {
+              "id": 192883,
+              "text": "f (x) is not derivable for x = 0",
+              "html": "f (x) is not derivable for x = 0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "f (x) is not derivable for x = 0",
+          "correct_option_ids": [
+            192883
+          ],
+          "explanation": "Rolle&#39;s theorm states that if f(x) is continuous in [a,b] f(x) is differentiable in(a,b) f(a)=f(b) Then,there exists at-least one value c in (a,b) such that f&#39;(c)=0 Since f(x)=|x| is not differentiable at x=0 {tex}\\in{/tex} [-4,4] .Therefore,f(x) is not differentiable in[-4,4] .Thus,one of the conditions of Rolle&#39;s theorm is not satisfied by f(x) and hence Rolle&#39;s theorm is not applicable to the given function.",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59425,
+          "question_text": "Find the approximate value of f(2.01) where f(x) = 4x 2 + 5x +2.",
+          "question_html": "<p>Find the approximate value of f(2.01) where f(x) = 4x<sup>2</sup>&nbsp;+ 5x +2.</p>",
+          "options": [
+            {
+              "id": 192890,
+              "text": "23.21",
+              "html": "23.21",
+              "is_correct": false
+            },
+            {
+              "id": 192889,
+              "text": "29.21",
+              "html": "29.21",
+              "is_correct": false
+            },
+            {
+              "id": 192888,
+              "text": "27.21",
+              "html": "27.21",
+              "is_correct": false
+            },
+            {
+              "id": 192887,
+              "text": "28.21",
+              "html": "28.21",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "28.21",
+          "correct_option_ids": [
+            192887
+          ],
+          "explanation": "f(x) = 4x 2 + 5x +2 Let x = 2 and {tex}\\Delta x{/tex} = 0.01 Then, f(2.01) = f(x + {tex}\\Delta x{/tex} ) = 4( x + {tex}\\Delta x{/tex} ) 2 + 5(x + {tex}\\Delta x{/tex} ) + 2 Now, {tex} \\triangle y=f(x+\\triangle x)-f(x){/tex} {tex} \\therefore f(x+\\triangle x)=f(x)+\\triangle y{/tex} {tex} \\approx f(x)+f'(x).\\triangle x{/tex} {tex}f(2.01)\\approx \\left( 4{ x }^{ 2 }+5x+2 \\right) +\\left( 8x+5 \\right) \\triangle x{/tex} {tex}={ 4\\left( 2 \\right) }^{ 2 }+5{ \\left( 2 \\right) }+2+\\left[ 8(2)+5 \\right] .\\left( 0.01 \\right){/tex} {tex} =16+10+2+(21).\\left( 0.01 \\right) {/tex} {tex} =28+0.21{/tex} {tex}=28.21{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59426,
+          "question_text": "Find the approximate value of f(5.001) where {tex}f(x)={ x }^{ 3 }-7{ x }^{ 2 }+15{/tex}",
+          "question_html": "<p>Find the approximate value of f(5.001) where&nbsp;<span class=\"math-tex\">{tex}f(x)={ x }^{ 3 }-7{ x }^{ 2 }+15{/tex}</span></p>",
+          "options": [
+            {
+              "id": 192892,
+              "text": "{tex}-35.005{/tex}",
+              "html": "<span class=\"math-tex\">{tex}-35.005{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192891,
+              "text": "-34.995",
+              "html": "-34.995",
+              "is_correct": true
+            },
+            {
+              "id": 192894,
+              "text": "-31.995",
+              "html": "-31.995",
+              "is_correct": false
+            },
+            {
+              "id": 192893,
+              "text": "-33.995",
+              "html": "-33.995",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "-34.995",
+          "correct_option_ids": [
+            192891
+          ],
+          "explanation": "f(x) = x 3 - 7x 2 +15 Let x = 5 and {tex}\\Delta x{/tex} = 0.001 Then, f(5.001) = f(x+ {tex}\\Delta x{/tex} ) = (x+ {tex}\\Delta x{/tex} ) 3 - 7(x+ {tex}\\Delta x{/tex} ) 2 + 15 Now, {tex}\\triangle y=f(x+\\triangle x)-f(x){/tex} {tex} \\therefore f(x+\\triangle x)=f(x)+\\triangle y{/tex} {tex}\\\\ \\approx f(x)+f'(x).\\triangle x{/tex} {tex}\\\\ f(5.001)\\approx \\left( { x }^{ 3 }-7{ x }^{ 2 }+15 \\right) +\\left( 3{ x }^{ 2 }-14x \\right) \\triangle x{/tex} {tex}\\\\ ={ \\left( 5 \\right) }^{ 3 }-7{ \\left( 5 \\right) }^{ 2 }+15+\\left[ 3{ \\left( 5 \\right) }^{ 2 }-14(5) \\right] .\\left( 0.001 \\right) {/tex} {tex}\\\\ =125-175+15+(75-70).\\left( 0.001 \\right) {/tex} {tex}=-35+5.\\left( 0.001 \\right) =-34.995{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59427,
+          "question_text": "If the radius of a sphere is measures as 7m with an error of 0.02m then find the approximate error in calculating its volume.",
+          "question_html": "<p>If the radius of a sphere is measures as 7m with an error of 0.02m then find the approximate error in calculating its&nbsp;volume.</p>",
+          "options": [
+            {
+              "id": 192897,
+              "text": "{tex}1.96\\pi \\quad { m }^{ 2 }{/tex}",
+              "html": "<span class=\"math-tex\">{tex}1.96\\pi \\quad { m }^{ 2 }{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192898,
+              "text": "{tex}4.96\\pi \\quad { m }^{ 2 }{/tex}",
+              "html": "<span class=\"math-tex\">{tex}4.96\\pi \\quad { m }^{ 2 }{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192895,
+              "text": "{tex}3.92\\pi \\quad { m }^{ 3 }{/tex}",
+              "html": "<span class=\"math-tex\">{tex}3.92\\pi \\quad { m }^{ 3 }{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192896,
+              "text": "{tex}2.16\\pi \\quad { m }^{ 2 }{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2.16\\pi \\quad { m }^{ 2 }{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}3.92\\pi \\quad { m }^{ 3 }{/tex}",
+          "correct_option_ids": [
+            192895
+          ],
+          "explanation": "Given , radius of the sphere is 7 m Error in the measurement of radius = {tex}\\Delta r{/tex} = 0.02 m We have volume of sphere = {tex}V={ \\frac { 4 }{ 3 } }\\pi { r }^{ 3 }{/tex} Now, {tex}dV=\\left( \\frac { dV }{ dx } \\right) \\triangle r={ \\frac { 4 }{ 3 } }\\pi .3{ r }^{ 2 }\\triangle r=4\\pi { r }^{ 2 }.\\triangle r{/tex} {tex}\\ =4\\pi \\times 49\\times 0.02=3.92\\pi \\;{ m }^{ 3 }{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59428,
+          "question_text": "If the radius of a sphere is measured as 9 m with an error of 0.03 m, then find the approximate error in calculating the surface area",
+          "question_html": "<p>If the radius of a sphere is measured as 9 m&nbsp;with an error of 0.03 m, then find the approximate error in calculating the surface area</p>",
+          "options": [
+            {
+              "id": 192902,
+              "text": "{tex}3.16\\pi\\; { m }^{ 2 }{/tex}",
+              "html": "<span class=\"math-tex\">{tex}3.16\\pi\\; { m }^{ 2 }{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192901,
+              "text": "{tex}1.08\\pi { \\quad m }^{ 2 }{/tex}",
+              "html": "<span class=\"math-tex\">{tex}1.08\\pi { \\quad m }^{ 2 }{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 192899,
+              "text": "{tex}2.16\\pi\\; { m }^{ 2 }{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2.16\\pi\\; { m }^{ 2 }{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 192900,
+              "text": "{tex}1.16\\pi { \\quad m }^{ 2 }{/tex}",
+              "html": "<span class=\"math-tex\">{tex}1.16\\pi { \\quad m }^{ 2 }{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}2.16\\pi\\; { m }^{ 2 }{/tex}",
+          "correct_option_ids": [
+            192899
+          ],
+          "explanation": "Given, radius of the sphere is 9 m Error in the measurement of radius = {tex}\\Delta r{/tex} = 0.03 m We have Surface area of a sphere = S = {tex}4\\pi r^2{/tex} Now, dS = {tex}\\left( \\frac { dS }{ dr } \\right) \\triangle r=8\\pi r\\triangle r=8\\pi .9\\times 0.03=2.16\\pi \\quad { m }^{ 2 }{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59429,
+          "question_text": "Find the approximate change in the volume V of a cube of side x metres caused by increasing the side by 1%",
+          "question_html": "<p>Find the approximate change in the volume V of a cube of side x metres caused by increasing the side by 1%</p>",
+          "options": [
+            {
+              "id": 192903,
+              "text": "3%",
+              "html": "3%<s></s>",
+              "is_correct": true
+            },
+            {
+              "id": 192906,
+              "text": "4%",
+              "html": "4%",
+              "is_correct": false
+            },
+            {
+              "id": 192904,
+              "text": "2%",
+              "html": "2%",
+              "is_correct": false
+            },
+            {
+              "id": 192905,
+              "text": "1%",
+              "html": "1%",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "3%",
+          "correct_option_ids": [
+            192903
+          ],
+          "explanation": "Given, the side of the cube is x We have volume of a cube = V = x 3 Now, {tex} dV=\\left( \\frac { dV }{ dx } \\right) \\triangle x=3{ x }^{ 2 }\\triangle x{/tex} Change in th side = {tex}\\Delta x{/tex} = 0.01x Thus, the approximate change in volume = dV = 3x 2 ( 0.01 x) = 0.03 x 3 m 3 therefore, volume is increased approximately by 3 percentage.",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59430,
+          "question_text": "For a real number x, let [x] denote the greatest integer less than or equal to x and f (x) = {tex}\\frac{{\\tan (\\pi [x - \\pi ])}}{{1 + {{[x]}^2}}}{/tex} ,then",
+          "question_html": "<p>For a real number x, let [x] denote the greatest integer less than or equal to x and f (x) = <span class=\"math-tex\">{tex}\\frac{{\\tan (\\pi [x - \\pi ])}}{{1 + {{[x]}^2}}}{/tex}</span>,then</p>",
+          "options": [
+            {
+              "id": 192908,
+              "text": "continuous at all x but f &lsquo;(x) does not exist",
+              "html": "continuous at all x but f &lsquo;(x) does not exist",
+              "is_correct": false
+            },
+            {
+              "id": 192909,
+              "text": "continuous for some x",
+              "html": "continuous for some x",
+              "is_correct": false
+            },
+            {
+              "id": 192907,
+              "text": "f &lsquo;(x) exists for all x",
+              "html": "f &lsquo;(x) exists for all x",
+              "is_correct": true
+            },
+            {
+              "id": 192910,
+              "text": "f &lsquo;(x) exists for all x but f &lsquo;&rsquo;(x) does not exist",
+              "html": "f &lsquo;(x) exists for all x but f &lsquo;&rsquo;(x) does not exist",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "f &lsquo;(x) exists for all x",
+          "correct_option_ids": [
+            192907
+          ],
+          "explanation": "Since {tex} [x- \\pi ]{/tex} is an integer for all {tex} x \\in R\\; \\&\\; \\tan n\\pi \\; = 0\\;\\forall\\;n\\; \\in I\\ {/tex} .Therefore, f(x)= 0 for all x in R. So, f(x) is a constant and hence derivatives of f(x) of all order exist.",
+          "solution": ""
+        }
+      ]
+    }
+  ],
+  "totalQuestions": 75
+}

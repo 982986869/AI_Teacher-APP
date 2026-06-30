@@ -1,0 +1,2897 @@
+{
+  "chapter": "Probability",
+  "chapter_id": 1297,
+  "tests": [
+    {
+      "test_id": 3578,
+      "test_name": "Probability   Test-01",
+      "is_paid": false,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59880,
+          "question_text": "The conditional probability of an event E, given the occurrence of the event F is given by",
+          "question_html": "<p>The conditional probability of an event E, given the occurrence of the event F is given by</p>",
+          "options": [
+            {
+              "id": 194708,
+              "text": "{tex}{\\text{P}}({\\text{E}}|{\\text{F}}){\\text{}} = \\frac{{P\\left( {E\\mathop \\cap \\nolimits F} \\right)}}{{P\\left( E \\right)}},\\;P(F) \\ne 0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\text{P}}({\\text{E}}|{\\text{F}}){\\text{}} = \\frac{{P\\left( {E\\mathop \\cap \\nolimits F} \\right)}}{{P\\left( E \\right)}},\\;P(F) \\ne 0{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194707,
+              "text": "{tex}{\\text{P}}({\\text{E}}|{\\text{F}}){\\text{}} = \\frac{{P\\left( {E\\mathop \\cup \\nolimits^ F} \\right)}}{{P\\left( F \\right)}},\\;P(F) \\ne 0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\text{P}}({\\text{E}}|{\\text{F}}){\\text{}} = \\frac{{P\\left( {E\\mathop \\cup \\nolimits^ F} \\right)}}{{P\\left( F \\right)}},\\;P(F) \\ne 0{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194705,
+              "text": "{tex}\\text{P}(\\text{E }\\!\\!~\\!\\!\\text{ }|\\text{ }\\!\\!~\\!\\!\\text{ F})\\text{ }\\!\\!~\\!\\!\\text{ }=\\frac{P\\left( E\\mathop{\\cap }^{}F \\right)}{P\\left( F \\right)},~P(F)\\ne 0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\text{P}(\\text{E }\\!\\!~\\!\\!\\text{ }|\\text{ }\\!\\!~\\!\\!\\text{ F})\\text{ }\\!\\!~\\!\\!\\text{ }=\\frac{P\\left( E\\mathop{\\cap }^{}F \\right)}{P\\left( F \\right)},~P(F)\\ne 0{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194706,
+              "text": "{tex}{\\text{P}}({\\text{E}}|{\\text{F}}){\\text{}} = \\frac{{P\\left( {E\\mathop \\cap \\nolimits^ F} \\right)}}{{P\\left( F \\right)}},\\;P(F) < 0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\text{P}}({\\text{E}}|{\\text{F}}){\\text{}} = \\frac{{P\\left( {E\\mathop \\cap \\nolimits^ F} \\right)}}{{P\\left( F \\right)}},\\;P(F) &lt; 0{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\text{P}(\\text{E }\\!\\!~\\!\\!\\text{ }|\\text{ }\\!\\!~\\!\\!\\text{ F})\\text{ }\\!\\!~\\!\\!\\text{ }=\\frac{P\\left( E\\mathop{\\cap }^{}F \\right)}{P\\left( F \\right)},~P(F)\\ne 0{/tex}",
+          "correct_option_ids": [
+            194705
+          ],
+          "explanation": "The conditional probability of an event E, given the occurrence of the event F is given by : {tex}\\text{P}(\\text{E }\\!\\!~\\!\\!\\text{ }|\\text{ }\\!\\!~\\!\\!\\text{ F})\\text{ }\\!\\!~\\!\\!\\text{ }=\\frac{P\\left( E\\mathop{\\cap }^{}F \\right)}{P\\left( F \\right)},~P(F)\\ne 0{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59881,
+          "question_text": "The conditional probability of an event E, given the occurrence of the event F lies between",
+          "question_html": "<p>The conditional probability of an event E, given the occurrence of the event F lies between</p>",
+          "options": [
+            {
+              "id": 194711,
+              "text": "0 < P (E|F) < 1",
+              "html": "0 &lt; P (E|F) &lt; 1",
+              "is_correct": false
+            },
+            {
+              "id": 194712,
+              "text": "0 {tex}\\le{/tex} P (E|F) < 1",
+              "html": "0 <span class=\"math-tex\">{tex}\\le{/tex}</span> P (E|F) &lt; 1",
+              "is_correct": false
+            },
+            {
+              "id": 194709,
+              "text": "0 {tex}\\le{/tex} P (E|F) {tex}\\le{/tex} 1",
+              "html": "0 <span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;P (E|F) <span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;1",
+              "is_correct": true
+            },
+            {
+              "id": 194710,
+              "text": "0 < P (E|F) {tex}\\le{/tex} 1",
+              "html": "0 &lt; P (E|F) <span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0 {tex}\\le{/tex} P (E|F) {tex}\\le{/tex} 1",
+          "correct_option_ids": [
+            194709
+          ],
+          "explanation": "As the probability of any event always lies between 0 and 1. Therefore, 0 {tex}\\le{/tex} P (E|F) {tex}\\le{/tex} 1.",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59882,
+          "question_text": "The conditional probability of the event E, given that F has occurred is given by",
+          "question_html": "<p>The conditional probability of the event E, given that F has occurred is given by</p>",
+          "options": [
+            {
+              "id": 194716,
+              "text": "P (E&prime;|F) = P (E|F)",
+              "html": "P (E&prime;|F) = P (E|F)",
+              "is_correct": false
+            },
+            {
+              "id": 194715,
+              "text": "P (E&prime;|F) = &ndash; 1 + P (E|F)",
+              "html": "P (E&prime;|F) = &ndash; 1 + P (E|F)",
+              "is_correct": false
+            },
+            {
+              "id": 194713,
+              "text": "P (E&prime;|F) = 1 &ndash; P (E|F)",
+              "html": "P (E&prime;|F) = 1 &ndash; P (E|F)",
+              "is_correct": true
+            },
+            {
+              "id": 194714,
+              "text": "P (E&prime;|F) = 1",
+              "html": "P (E&prime;|F) = 1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "P (E&prime;|F) = 1 &ndash; P (E|F)",
+          "correct_option_ids": [
+            194713
+          ],
+          "explanation": "We know that P(S/F) = 1 {tex}\\Rightarrow{/tex} P(E {tex}\\cup{/tex} E&#39;|F) = 1 Since, E {tex}\\cup{/tex} E&#39; = S {tex}\\Rightarrow{/tex} P(E/F) + P(E&#39;/F) = 1 (Since E and E&#39; are disjoint events) {tex}\\Rightarrow{/tex} P(E&#39;/F) = 1 - P(E/F)",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59883,
+          "question_text": "If E, F and G are events with P(G) {tex}\\ne{/tex} 0 then P ((E &cup; F)|G) given by",
+          "question_html": "<p>If E, F and G are events &nbsp;with P(G) <span class=\"math-tex\">{tex}\\ne{/tex}</span>&nbsp;0 then P ((E &cup; F)|G) &nbsp;given by</p>",
+          "options": [
+            {
+              "id": 194719,
+              "text": "P (E|G) + P (F|G) &ndash; P ((E &cap; F)|F)",
+              "html": "P (E|G) + P (F|G) &ndash; P ((E &cap; F)|F)",
+              "is_correct": false
+            },
+            {
+              "id": 194720,
+              "text": "P (G|E) + P (F|G) &ndash; P ((E &cap; F)|E)",
+              "html": "P (G|E) + P (F|G) &ndash; P ((E &cap; F)|E)",
+              "is_correct": false
+            },
+            {
+              "id": 194717,
+              "text": "P (E|G) + P (F|G) &ndash; P ((E &cap; F)|G)",
+              "html": "P (E|G) + P (F|G) &ndash; P ((E &cap; F)|G)",
+              "is_correct": true
+            },
+            {
+              "id": 194718,
+              "text": "P (E|G) + P (G|F) &ndash; P ((E &cap; F)|G)",
+              "html": "P (E|G) + P (G|F) &ndash; P ((E &cap; F)|G)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "P (E|G) + P (F|G) &ndash; P ((E &cap; F)|G)",
+          "correct_option_ids": [
+            194717
+          ],
+          "explanation": "P(EUF/G) = {tex}\\frac{P[(EUF)∩G]}{P(G)}{/tex} = {tex}\\frac{P[(E∩G)U(F∩G]}{P(G)}{/tex} = {tex}\\frac{P(E∩G)+P(F∩G)-P(E∩G∩F∩G)​​}{P(G)}{/tex} = {tex}\\frac{P(E∩G)​​}{P(G)}{/tex} + {tex}\\frac{P(F∩G)​​}{P(G)}{/tex} - {tex}\\frac{P(E∩F∩G)​​}{P(G)}{/tex} = P (E|G) + P (F|G) &ndash; P ((E &cap; F)|G)",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59884,
+          "question_text": "If E and F are events then P(E {tex}\\cap{/tex} F) =",
+          "question_html": "<p>If E and F are&nbsp;events then P(E <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;F) =</p>",
+          "options": [
+            {
+              "id": 194721,
+              "text": "P(E) P(F|E), P(E) {tex}\\ne{/tex} 0",
+              "html": "P(E) P(F|E), P(E) <span class=\"math-tex\">{tex}\\ne{/tex}</span>&nbsp;0",
+              "is_correct": true
+            },
+            {
+              "id": 194722,
+              "text": "P(E {tex}\\cup{/tex} F) P(F|E), P(E) {tex}\\ne{/tex} 0",
+              "html": "P(E <span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;F) P(F|E), P(E) <span class=\"math-tex\">{tex}\\ne{/tex}</span>&nbsp;0",
+              "is_correct": false
+            },
+            {
+              "id": 194723,
+              "text": "P(E) P(E|F), P(E) {tex}\\ne{/tex} 0",
+              "html": "P(E) P(E|F), P(E) <span class=\"math-tex\">{tex}\\ne{/tex}</span>&nbsp;0",
+              "is_correct": false
+            },
+            {
+              "id": 194724,
+              "text": "P(E {tex}\\cap{/tex} F) P(F|E), P(E) {tex}\\ne{/tex} 0",
+              "html": "P(E <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;F) P(F|E), P(E) <span class=\"math-tex\">{tex}\\ne{/tex}</span>&nbsp;0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "P(E) P(F|E), P(E) {tex}\\ne{/tex} 0",
+          "correct_option_ids": [
+            194721
+          ],
+          "explanation": "If E and F are events then P(E {tex}\\cap{/tex} F) = P(E) P(F|E), P(E) {tex}\\ne{/tex} 0. By the definition of the conditional probability of two events.",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59885,
+          "question_text": "Two coins are tossed once, where E : tail appears on one coin, F : one coin shows head. Find P(E/F)",
+          "question_html": "<p>Two coins are tossed once, where E : tail appears on one coin, F : one coin shows head. Find&nbsp;P(E/F)</p>\r\n",
+          "options": [
+            {
+              "id": 194728,
+              "text": "0.33",
+              "html": "0.33",
+              "is_correct": false
+            },
+            {
+              "id": 194725,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            },
+            {
+              "id": 194726,
+              "text": "0.23",
+              "html": "0.23",
+              "is_correct": false
+            },
+            {
+              "id": 194727,
+              "text": "0.24",
+              "html": "0.24",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            194725
+          ],
+          "explanation": "S = {HH, HT, TH, TT} E = {HT , TH} F= {HT , TH} {tex} \\Rightarrow P(E) = \\frac{2}{4} = \\frac{1}{2},P(F) = \\frac{2}{4} = \\frac{1}{2},P(E \\cap F) = \\frac{1}{2}{/tex} {tex} \\Rightarrow P(E/F) = \\frac{{P(E \\cap F)}}{{P(F)}} = \\frac{{1/2}}{{1/2}} = 1 {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59886,
+          "question_text": "Two coins are tossed once ,where E :no tail appears , F : no head appears. Find P(E/F).",
+          "question_html": "<p>Two coins are tossed once ,where E :no tail appears , F : no head appears. Find P(E/F).</p>",
+          "options": [
+            {
+              "id": 194732,
+              "text": "0.25",
+              "html": "0.25",
+              "is_correct": false
+            },
+            {
+              "id": 194731,
+              "text": "0.24",
+              "html": "0.24",
+              "is_correct": false
+            },
+            {
+              "id": 194729,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            },
+            {
+              "id": 194730,
+              "text": "0.22",
+              "html": "0.22",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            194729
+          ],
+          "explanation": "S= {HH, HT, TH , TT} E ={HH} F= {TT} {tex}E \\cap F = \\phi {/tex} {tex}\\Rightarrow P(E) = \\frac{1}{4},P(F) = \\frac{1}{4},P(E \\cap F) = 0 {/tex} {tex} \\Rightarrow P(E/F) = \\frac{{P(E \\cap F)}}{{P(F)}} = \\frac{0}{{1/4}} = 0 {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59887,
+          "question_text": "Given that E and F are events such that P(E) = 0.6, P(F) = 0.3 and P(E {tex}\\cap{/tex} F) = 0.2, find P(E|F) and P(F|E)",
+          "question_html": "<p>Given that E and F are events such that P(E) = 0.6, P(F) = 0.3 and P(E <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;F) = 0.2, find P(E|F) and P(F|E)</p>",
+          "options": [
+            {
+              "id": 194735,
+              "text": "P(E|F) = {tex}\\frac{2}{4}{/tex} , P(F|E) = {tex}\\frac{1}{3}{/tex}",
+              "html": "P(E|F) =<span class=\"math-tex\">{tex}\\frac{2}{4}{/tex}</span>, P(F|E) = <span class=\"math-tex\">{tex}\\frac{1}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194733,
+              "text": "P(E|F) = {tex}\\frac{2}{3}{/tex} , P(F|E) = {tex}\\frac{1}{3}{/tex}",
+              "html": "P(E|F) =<span class=\"math-tex\">{tex}\\frac{2}{3}{/tex}</span>, P(F|E) = <span class=\"math-tex\">{tex}\\frac{1}{3}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194736,
+              "text": "P(E|F) = {tex}\\frac{2}{5}{/tex} , P(F|E) = {tex}\\frac{1}{4}{/tex}",
+              "html": "P(E|F) =<span class=\"math-tex\">{tex}\\frac{2}{5}{/tex}</span>, P(F|E) = <span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194734,
+              "text": "P(E|F) = {tex}\\frac{2}{3}{/tex} , P(F|E) = {tex}\\frac{1}{4}{/tex}",
+              "html": "P(E|F) =<span class=\"math-tex\">{tex}\\frac{2}{3}{/tex}</span>, P(F|E) = <span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "P(E|F) = {tex}\\frac{2}{3}{/tex} , P(F|E) = {tex}\\frac{1}{3}{/tex}",
+          "correct_option_ids": [
+            194733
+          ],
+          "explanation": "We have, P(E) = 0.6, P(F) = 0.3 and P(E {tex}\\cap{/tex} F) = 0.2, then, P(E/F) = {tex}\\frac{P(E \\cap F)}{P(F)}=\\frac{0.2}{0.3}=\\frac{2}{3}{/tex} P(F/E) = {tex}\\frac{P(E \\cap F)}{P(E)}=\\frac{0.2}{0.6}=\\frac{1}{3}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59888,
+          "question_text": "Compute P(A|B), if P(B) = 0.5 and P (A {tex}\\cap{/tex} B) = 0.32",
+          "question_html": "<p>Compute P(A|B), if P(B) = 0.5 and P (A <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B) = 0.32</p>",
+          "options": [
+            {
+              "id": 194740,
+              "text": "P(A|B) = {tex}\\frac{{16}}{{33}}{/tex}",
+              "html": "P(A|B) = <span class=\"math-tex\">{tex}\\frac{{16}}{{33}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194739,
+              "text": "P(A|B) = {tex}\\frac{{16}}{{29}}{/tex}",
+              "html": "P(A|B) = <span class=\"math-tex\">{tex}\\frac{{16}}{{29}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194738,
+              "text": "P(A|B) = {tex}\\frac{{15}}{{27}}{/tex}",
+              "html": "P(A|B) = <span class=\"math-tex\">{tex}\\frac{{15}}{{27}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194737,
+              "text": "P(A|B) = {tex}\\frac{{16}}{{25}}{/tex}",
+              "html": "P(A|B) = <span class=\"math-tex\">{tex}\\frac{{16}}{{25}}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "P(A|B) = {tex}\\frac{{16}}{{25}}{/tex}",
+          "correct_option_ids": [
+            194737
+          ],
+          "explanation": "We have, P(B) = 0.5 and P (A {tex}\\cap{/tex} B) = 0.32 {tex}P\\left( {A/B} \\right) = \\frac{{P(A \\cap B)}}{{P(B)}} = \\frac{{0.32}}{{0.5}} = \\frac{{16}}{{25}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59889,
+          "question_text": "If P (A) = 0.8, P (B) = 0.5 and P(B|A) = 0.4, find P(A &cap; B)",
+          "question_html": "<p>If P (A) = 0.8, P (B) = 0.5 and P(B|A) = 0.4, find P(A &cap; B)&nbsp;</p>",
+          "options": [
+            {
+              "id": 194741,
+              "text": "0.32",
+              "html": "0.32",
+              "is_correct": true
+            },
+            {
+              "id": 194742,
+              "text": "0.35",
+              "html": "0.35",
+              "is_correct": false
+            },
+            {
+              "id": 194744,
+              "text": "0.29",
+              "html": "0.29",
+              "is_correct": false
+            },
+            {
+              "id": 194743,
+              "text": "0.37",
+              "html": "0.37",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0.32",
+          "correct_option_ids": [
+            194741
+          ],
+          "explanation": "We have , P (A) = 0.8, P (B) = 0.5 and P(B|A) = 0.4 {tex} P\\left( {B/A} \\right) = \\frac{{P(A \\cap B)}}{{P(A)}} \\Rightarrow P(A \\cap B) = P(A) \\times P\\left( {B/A} \\right) = 0.8 \\times 0.4 = 0.32 \\\\ {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59890,
+          "question_text": "If P (A) = 0.8, P (B) = 0.5 and P(B|A) = 0.4, find P(A|B)",
+          "question_html": "<p>If P (A) = 0.8, P (B) = 0.5 and P(B|A) = 0.4, find P(A|B)</p>",
+          "options": [
+            {
+              "id": 194748,
+              "text": "0.68",
+              "html": "0.68",
+              "is_correct": false
+            },
+            {
+              "id": 194745,
+              "text": "0.64",
+              "html": "0.64",
+              "is_correct": true
+            },
+            {
+              "id": 194747,
+              "text": "0.62",
+              "html": "0.62",
+              "is_correct": false
+            },
+            {
+              "id": 194746,
+              "text": "0.66",
+              "html": "0.66",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0.64",
+          "correct_option_ids": [
+            194745
+          ],
+          "explanation": "We have , P (A) = 0.8, P (B) = 0.5 and P(B|A) = 0.4 {tex}P\\left( {B/A} \\right) = \\frac{{P(A \\cap B)}}{{P(A)}} \\Rightarrow P(A \\cap B) = P(A) \\times P\\left( {B/A} \\right) = 0.8 \\times 0.4 = 0.32{/tex} {tex} P\\left( {A/B} \\right) = \\frac{{P(A \\cap B)}}{{P(B)}} = \\frac{{0.32}}{{0.5}} = 0.64{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59891,
+          "question_text": "If P (A) = 0.8, P (B) = 0.5 and P(B|A) = 0.4, find P(A {tex}\\cup{/tex} B)",
+          "question_html": "<p>If P (A) = 0.8, P (B) = 0.5 and P(B|A) = 0.4, find P(A <span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;B)</p>",
+          "options": [
+            {
+              "id": 194750,
+              "text": "0.95",
+              "html": "0.95",
+              "is_correct": false
+            },
+            {
+              "id": 194751,
+              "text": "0.25",
+              "html": "0.25",
+              "is_correct": false
+            },
+            {
+              "id": 194749,
+              "text": "0.98",
+              "html": "0.98",
+              "is_correct": true
+            },
+            {
+              "id": 194752,
+              "text": "1.00",
+              "html": "1.00",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0.98",
+          "correct_option_ids": [
+            194749
+          ],
+          "explanation": "We have, P (A) = 0.8, P (B) = 0.5 and P(B|A) = 0.4 {tex} P\\left( {B/A} \\right) = \\frac{{P(A \\cap B)}}{{P(A)}} \\Rightarrow {/tex} {tex}P(A \\cap B){/tex} = P(A) {tex}\\times{/tex} P(B/A) = 0.8 {tex}\\times{/tex} 0.4 = 0.32 {tex} \\therefore P\\left( {A \\cup B} \\right){/tex} = P(A) + P(B) - P(A {tex}\\cap{/tex} B) = 0.8 + 0.5 - 0.32 = 1.30 - 0.32 = 0.98",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59892,
+          "question_text": "Evaluate {tex}P(A \\cup B){/tex} , if 2P(A) = P(B) = {tex}\\frac{5}{{13}}{/tex} and P(A|B) = {tex}\\frac{2}{5}{/tex}",
+          "question_html": "<p>Evaluate <span class=\"math-tex\">{tex}P(A \\cup B){/tex}</span>, if 2P(A) = P(B) =<span class=\"math-tex\">{tex}\\frac{5}{{13}}{/tex}</span> and P(A|B) =<span class=\"math-tex\">{tex}\\frac{2}{5}{/tex}</span></p>",
+          "options": [
+            {
+              "id": 194755,
+              "text": "{tex}\\frac{{11}}{{27}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{11}}{{27}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194753,
+              "text": "{tex}\\frac{{11}}{{26}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{11}}{{26}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194756,
+              "text": "{tex}\\frac{{11}}{{29}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{11}}{{29}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194754,
+              "text": "{tex}\\frac{{15}}{{26}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{15}}{{26}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{11}}{{26}}{/tex}",
+          "correct_option_ids": [
+            194753
+          ],
+          "explanation": "if {tex} 2P(A) = P(B) =\\frac{5}{{13}}{/tex} , therefore {tex} P(A) = \\frac{5}{{26}} P(A/B) = \\frac{2}{5} \\Rightarrow \\frac{{P(A \\cap B)}}{{P(B)}} = \\frac{2}{5}{/tex} {tex} \\Rightarrow P(A \\cap B) = \\frac{2}{5} \\times P(B) = \\frac{2}{5} \\times \\frac{5}{{13}} = \\frac{2}{{13}}{/tex} {tex} \\therefore P(A \\cup B) = P(A) + P(B) - P(A \\cap B) {/tex} {tex} = \\frac{5}{{26}} + \\frac{5}{{13}} - \\frac{2}{{13}} = \\frac{{11}}{{26}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59893,
+          "question_text": "If P(A) = {tex}\\frac{6}{{11}}{/tex} , P(B) = {tex}\\frac{5}{{11}}{/tex} and P(A &cup; B) = {tex}\\frac{7}{{11}}.{/tex} find P(A|B)",
+          "question_html": "<p>If P(A) =<span class=\"math-tex\">{tex}\\frac{6}{{11}}{/tex}</span>, P(B) =<span class=\"math-tex\">{tex}\\frac{5}{{11}}{/tex}</span>&nbsp;and P(A &cup; B) = <span class=\"math-tex\">{tex}\\frac{7}{{11}}.{/tex}</span>&nbsp;find P(A|B)</p>\r\n",
+          "options": [
+            {
+              "id": 194760,
+              "text": "{tex}\\frac{5}{7}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{5}{7}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194759,
+              "text": "{tex}\\frac{2}{5}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{5}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194757,
+              "text": "{tex}\\frac{4}{5}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{4}{5}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194758,
+              "text": "{tex}\\frac{3}{7}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{7}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{4}{5}{/tex}",
+          "correct_option_ids": [
+            194757
+          ],
+          "explanation": "{tex} \\\\ \\therefore P(A \\cup B) = P(A) + P(B) - P(A \\cap B){/tex} {tex} \\Rightarrow \\frac{7}{{11}} = \\frac{6}{{11}} + \\frac{5}{{11}} - P(A \\cap B){/tex} {tex}\\Rightarrow P(A \\cap B) = \\frac{4}{{11}} {/tex} {tex}P(A/B) = \\frac{{P(A \\cap B)}}{{P(B)}} = \\frac{{4/11}}{{5/11}} = \\frac{4}{5}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59894,
+          "question_text": "If P(A) = {tex}\\frac{6}{{11}}{/tex} , P(B) = {tex}\\frac{5}{{11}}{/tex} and P(A &cup; B) = {tex}\\frac{7}{{11}}.{/tex} Find P(B|A)",
+          "question_html": "<p>If P(A) =<span class=\"math-tex\">{tex}\\frac{6}{{11}}{/tex}</span>, P(B) =<span class=\"math-tex\">{tex}\\frac{5}{{11}}{/tex}</span>&nbsp;and P(A &cup; B) = <span class=\"math-tex\">{tex}\\frac{7}{{11}}.{/tex}</span>&nbsp;Find P(B|A)</p>",
+          "options": [
+            {
+              "id": 194762,
+              "text": "{tex}\\frac{4}{5}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{4}{5}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194764,
+              "text": "{tex}\\frac{3}{5}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{5}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194761,
+              "text": "{tex}\\frac{2}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{3}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194763,
+              "text": "{tex}\\frac{1}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{2}{3}{/tex}",
+          "correct_option_ids": [
+            194761
+          ],
+          "explanation": "If P(A) = {tex}\\frac{6}{{11}}{/tex} , P(B) = {tex}\\frac{5}{{11}}{/tex} and P(A {tex}\\cup{/tex} B) = {tex}\\frac{7}{{11}}{/tex} {tex}\\therefore P(A \\cup B) {/tex} = P(A) + P(B) - {tex}P(A \\cap B){/tex} {tex}\\Rightarrow \\frac{7}{{11}} = \\frac{6}{{11}} + \\frac{5}{{11}} - P(A \\cap B) {/tex} {tex}\\Rightarrow P(A \\cap B) = \\frac{4}{{11}} {/tex} {tex} P(B/A) = \\frac{{P(A \\cap B)}}{{P(A)}} = \\frac{{4/11}}{{6/11}} = \\frac{2}{3}{/tex}",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3579,
+      "test_name": "Probability   Test-02",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59895,
+          "question_text": "A coin is tossed three times if E: head on third toss, F: heads on first two tosses. Find P(E|F)",
+          "question_html": "<p>A coin is tossed three times&nbsp;if E: head on third toss, F: heads on first two tosses. Find P(E|F)</p>\r\n",
+          "options": [
+            {
+              "id": 194768,
+              "text": "{tex}\\frac{2}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194765,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194767,
+              "text": "{tex}\\frac{1}{5}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{5}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194766,
+              "text": "{tex}\\frac{1}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{2}{/tex}",
+          "correct_option_ids": [
+            194765
+          ],
+          "explanation": "S = {HHH, HHT, HTH, THH, HTT, THT, TTH, TTT} E = {HHH, HTH, THH , TTH } F ={HHH, HHT } {tex} E \\cap F = \\{ HHH\\}{/tex} {tex} \\Rightarrow P(E) = \\frac{4}{8} = \\frac{1}{2},P(F) = \\frac{2}{8} {/tex} {tex}= \\frac{1}{4},P(E \\cap F) = \\frac{1}{8}{/tex} {tex} \\Rightarrow P(E/F) = \\frac{{P(E \\cap F)}}{{P(F)}} = \\frac{{1/8}}{{1/4}} = \\frac{1}{2} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59896,
+          "question_text": "A coin is tossed three times if E: at least two heads, F: at most two heads. Find P(E|F)",
+          "question_html": "<p>A coin is tossed three times if E: at least two heads, F: at most two heads. Find P(E|F)</p>",
+          "options": [
+            {
+              "id": 194772,
+              "text": "{tex}\\frac{2}{7}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{7}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194771,
+              "text": "{tex}\\frac{2}{5}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{5}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194769,
+              "text": "{tex}\\frac{3}{7}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{7}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194770,
+              "text": "{tex}\\;\\frac{2}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\;\\frac{2}{3}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{3}{7}{/tex}",
+          "correct_option_ids": [
+            194769
+          ],
+          "explanation": "S = {HHH, HHT, HTH, THH, HTT, THT, TTH, TTT} E = {HHH, HHT, HTH, THH} F = {HHT, HTH, THH, HTT, THT, TTH, TTT} {tex} \\Rightarrow P(E) = \\frac{4}{8} = \\frac{1}{2},P(F) = \\frac{7}{8},P(E \\cap F) = \\frac{3}{8} {/tex} {tex}\\Rightarrow P(E/F) = \\frac{{P(E \\cap F)}}{{P(F)}} = \\frac{{3/8}}{{7/8}} = \\frac{3}{7} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59897,
+          "question_text": "A coin is tossed three times, E: at most two tails, F: at least one tail. Find P(E|F)",
+          "question_html": "<p>A coin is tossed three times, E: at most two tails, F: at least one tail. Find P(E|F)</p>",
+          "options": [
+            {
+              "id": 194776,
+              "text": "{tex}\\frac{4}{7}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{4}{7}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194775,
+              "text": "{tex}\\frac{3}{7}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{7}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194773,
+              "text": "{tex}\\frac{6}{7}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{6}{7}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194774,
+              "text": "{tex}\\frac{2}{7}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{7}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{6}{7}{/tex}",
+          "correct_option_ids": [
+            194773
+          ],
+          "explanation": "S = {HHH, HHT, HTH, THH, HTT, THT, TTH, TTT} E = {HHH, HHT, HTH, THH, HTT, THT, TTH} F= {HHT, HTH, THH, HTT, THT, TTH, TTT} {tex}\\Rightarrow P(E) = \\frac{7}{8},P(F) = \\frac{7}{8},P(E \\cap F) = \\frac{6}{8}{/tex} {tex}\\Rightarrow P(E/F) = \\frac{{P(E \\cap F)}}{{P(F)}} = \\frac{{6/8}}{{7/8}} = \\frac{6}{7} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59898,
+          "question_text": "A black and a red dice are rolled. Find the conditional probability of obtaining a sum greater than 9, given that the black die resulted in a 5.",
+          "question_html": "<p>A black and a red dice are rolled. Find the conditional probability of obtaining a sum greater than 9, given that the black die resulted in a 5.</p>",
+          "options": [
+            {
+              "id": 194777,
+              "text": "{tex}\\frac{1}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194779,
+              "text": "{tex}\\frac{5}{9}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{5}{9}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194780,
+              "text": "{tex}\\frac{4}{9}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{4}{9}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194778,
+              "text": "{tex}\\frac{2}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{3}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{3}{/tex}",
+          "correct_option_ids": [
+            194777
+          ],
+          "explanation": "n(S)=36. Let A = event of getting sum greater than 9. = {(4,6),(5,5),(6,4),(5,6),(6,5),(6,6)} And B = event of getting 5 on black die. ={(5,1),(5,2),(5,3),(5,4),(5,5),(5,6)} {tex} \\Rightarrow A \\cap B = \\{ (5,5),(5,6)\\}{/tex} {tex} \\Rightarrow P(A \\cap B) = \\frac{2}{{36}} = \\frac{1}{{18}}, P(B) = \\frac{6}{{36}} = \\frac{1}{6}{/tex} {tex}\\Rightarrow P(A/B) = \\frac{{P(A \\cap B)}}{{P(B)}}{/tex} {tex}= \\frac{{1/18}}{{1/6}} = \\frac{6}{{18}} = \\frac{1}{3} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59899,
+          "question_text": "A black and a red dice are rolled. Find the conditional probability of obtaining the sum 8, given that the red die resulted in a number less than 4.",
+          "question_html": "<p>A black and a red dice are rolled. Find the conditional probability of obtaining the sum 8, given that the red die resulted in a number less than 4.</p>",
+          "options": [
+            {
+              "id": 194781,
+              "text": "{tex}\\frac{1}{9}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{9}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194784,
+              "text": "{tex}\\frac{7}{9}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{7}{9}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194782,
+              "text": "{tex}\\frac{4}{9}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{4}{9}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194783,
+              "text": "{tex}\\frac{5}{9}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{5}{9}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{9}{/tex}",
+          "correct_option_ids": [
+            194781
+          ],
+          "explanation": "n(S) = 36. Let A = event of getting sum 8. = {(2, 6), (3, 5), (4, 4), (5, 3), (6, 2)} And B = event of getting a number less than 4 on red die. = {(1, 1), (2, 1), (3, 1), (4, 1), (5, 1), (6, 1), (1, 2), (2, 2), (3, 2), (4, 2), (5, 2), (6, 2), (1, 3), (2, 3), (3, 3), (4, 3), (5, 3), (6, 3)}. {tex}\\\\ \\Rightarrow A \\cap B {/tex} = {(5, 3), (6, 2)} {tex}\\Rightarrow P(A \\cap B) = \\frac{2}{{36}} = \\frac{1}{{18}}, P(B) = \\frac{{18}}{{36}} = \\frac{1}{2} {/tex} {tex} \\Rightarrow P(A/B) = \\frac{{P(A \\cap B)}}{{P(B)}} {/tex} {tex}= \\frac{{1/18}}{{1/2}} = \\frac{2}{{18}} = \\frac{1}{9} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59900,
+          "question_text": "An instructor has a question bank consisting of 300 easy True / False questions, 200 difficult True / False questions, 500 easy multiple-choice questions, and 400 difficult multiple-choice questions. If a question is selected at random from the question bank, what is the probability that it will be an easy question given that it is a multiple-choice question?",
+          "question_html": "<p>An instructor has a question bank consisting of 300 easy True / False questions, 200 difficult True / False questions, 500 easy multiple-choice questions, and 400 difficult multiple-choice questions. If a question is selected at random from the question bank, what is the probability that it will be an easy question given that it is a multiple-choice question?</p>",
+          "options": [
+            {
+              "id": 194787,
+              "text": "{tex}\\frac{7}{9}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{7}{9}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194785,
+              "text": "{tex}\\frac{5}{9}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{5}{9}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194786,
+              "text": "{tex}\\frac{1}{9}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{9}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194788,
+              "text": "{tex}\\frac{4}{9}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{4}{9}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{5}{9}{/tex}",
+          "correct_option_ids": [
+            194785
+          ],
+          "explanation": "Questions True/False MCQ Easy 300 500 Difficult 200 400 Total = 1400, therefore n(S) = 1400 Let A = event of getting easy question B = event of getting multiple choice question. {tex}\\Rightarrow{/tex} n(A) = 800, n(B) = 900, {tex}n(A \\cap B){/tex} = 500 {tex}\\therefore P(A/B) = \\frac{{P(A \\cap B)}}{{P(B)}} = \\frac{{500/1400}}{{900/1400}} = \\frac{5}{9} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59901,
+          "question_text": "Consider the experiment of throwing a die, if a multiple of 3 comes up, throw the die again and if any other number comes, toss a coin. Find the conditional probability of the event &lsquo;the coin shows a tail&rsquo;, given that &lsquo;at least one die shows a 3&rsquo;.",
+          "question_html": "<p>Consider the experiment of throwing a die, if a multiple of 3 comes up, throw the die again and if any other number comes, toss a coin. Find the conditional probability of the event &lsquo;the coin shows a tail&rsquo;, given that &lsquo;at least one die shows a 3&rsquo;.</p>",
+          "options": [
+            {
+              "id": 194792,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 194789,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            },
+            {
+              "id": 194791,
+              "text": "0.5",
+              "html": "0.5",
+              "is_correct": false
+            },
+            {
+              "id": 194790,
+              "text": "0.2",
+              "html": "0.2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            194789
+          ],
+          "explanation": "S = {(3,1), (3,2), (3,3), (3,4), (3,5), (3,6), (6,1), (6,2), (6,3), (6,4), (6,5), (6,6), (1,H), (2,H), (4,H), (5,H), (1,T), (2,T), (4,T), (5,T)} Let A = event that coin shows a tail. i.e. A = { (1,T), (2,T), (4,T), (5,T)} and B = event that atleast one die shows 3. B = {(3,1), (3,2), (3,3), (3,4), (3,5), (3,6),(6,3)} {tex} \\ (A \\cap B) = \\phi ,P(A \\cap B) = 0, P(B) = 7/20.{/tex} {tex} \\therefore P(A/B) = \\frac{{P(A \\cap B)}}{{P(B)}} = \\frac{0}{{7/20}} = 0 \\\\ {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59902,
+          "question_text": "If P(A) = {tex}\\frac{1}{2}{/tex} , P(B) = 0, then P(A|B) is",
+          "question_html": "<p>If P(A) = <span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>, P(B) = 0, then P(A|B) is</p>",
+          "options": [
+            {
+              "id": 194794,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194793,
+              "text": "not defined",
+              "html": "not defined",
+              "is_correct": true
+            },
+            {
+              "id": 194796,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 194795,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "not defined",
+          "correct_option_ids": [
+            194793
+          ],
+          "explanation": "We know that : {tex} \\\\ P(A/B) = \\frac{{P(A \\cap B)}}{{P(B)}} = \\frac{{P(A \\cap B)}}{0} \\\\{/tex} which is not defined",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59903,
+          "question_text": "If A and B are events such that P(A|B) = P(B|A), then",
+          "question_html": "<p>If A and B are events such that P(A|B) = P(B|A), then</p>\r\n",
+          "options": [
+            {
+              "id": 194797,
+              "text": "P(A) = P(B)",
+              "html": "P(A) = P(B)",
+              "is_correct": true
+            },
+            {
+              "id": 194800,
+              "text": "A &cap; B = {tex}\\emptyset {/tex}",
+              "html": "A &cap; B = <span class=\"math-tex\">{tex}\\emptyset {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194799,
+              "text": "A = B",
+              "html": "A = B",
+              "is_correct": false
+            },
+            {
+              "id": 194798,
+              "text": "A &sub; B but A &ne; B",
+              "html": "A &sub; B but A &ne; B",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "P(A) = P(B)",
+          "correct_option_ids": [
+            194797
+          ],
+          "explanation": "It is given that : P( A | B) = P( B | A) {tex} \\Rightarrow \\frac{{P(A \\cap B)}}{{P(B)}} = \\frac{{P(B \\cap A)}}{{P(A)}} {/tex} {tex}\\Rightarrow \\frac{1}{{P(B)}} = \\frac{1}{{P(A)}} \\Rightarrow P(A) = P(B) {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59904,
+          "question_text": "If E and F are independent, then _____",
+          "question_html": "<p>If E and F are independent, then _____</p>",
+          "options": [
+            {
+              "id": 194802,
+              "text": "P (E &cap; F) = P (E) P (F|E)",
+              "html": "P (E &cap; F) = P (E) P (F|E)",
+              "is_correct": false
+            },
+            {
+              "id": 194803,
+              "text": "P (E &cap; F) = P (E) P (E|F)",
+              "html": "P (E &cap; F) = P (E) P (E|F)",
+              "is_correct": false
+            },
+            {
+              "id": 194801,
+              "text": "P (E &cap; F) = P (E) P (F)",
+              "html": "P (E &cap; F) = P (E) P (F)",
+              "is_correct": true
+            },
+            {
+              "id": 194804,
+              "text": "P (E &cap; F) =P (E &cup; F)",
+              "html": "P (E &cap; F) =P (E &cup; F)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "P (E &cap; F) = P (E) P (F)",
+          "correct_option_ids": [
+            194801
+          ],
+          "explanation": "we know that {tex}P(E/F) =\\frac{P(E∩F)}{P(F)}{/tex} {tex}{/tex} If E and F are independent, then P(E/F) = P(E) and P(F/E) = P(F) P (E &cap; F) = P (E) P (F).",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59905,
+          "question_text": "If E and F are independent, then which one of the following is right?",
+          "question_html": "<p>If E and F are independent, then which one of the following is right?</p>",
+          "options": [
+            {
+              "id": 194806,
+              "text": "P (E|F) = P (F), P (F) &ne; 0",
+              "html": "P (E|F) = P (F), P (F) &ne; 0",
+              "is_correct": false
+            },
+            {
+              "id": 194805,
+              "text": "P (E|F) = P (E), P (F) &ne; 0",
+              "html": "P (E|F) = P (E), P (F) &ne; 0",
+              "is_correct": true
+            },
+            {
+              "id": 194807,
+              "text": "P (E|F) = P (E&rsquo;), P (F) &ne; 0E&rsquo; is complement of E",
+              "html": "P (E|F) = P (E&rsquo;), P (F) &ne; 0E&rsquo; is complement of E",
+              "is_correct": false
+            },
+            {
+              "id": 194808,
+              "text": "P (E|F) =P (E&rsquo;&cup; F)E&rsquo; is complement of E",
+              "html": "P (E|F) =P (E&rsquo;&cup; F)E&rsquo; is complement of E",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "P (E|F) = P (E), P (F) &ne; 0",
+          "correct_option_ids": [
+            194805
+          ],
+          "explanation": "If E and F are independent, then P (E|F) = P (E), P (F) &ne; 0 .",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59906,
+          "question_text": "Let (E 1 , E 2 ,....,E n ) be a partition of a sample space and suppose that each of E 1 , E 2 ,.....,E n has nonzero probability. Let A be any event associated with S, then",
+          "question_html": "<p>Let (E<sub>1</sub>&nbsp;, E<sub>2</sub>,....,E<sub>n</sub>)&nbsp;be a partition of a sample space and suppose that each of E<sub>1</sub>&nbsp;, E<sub>2</sub>,.....,E<sub>n</sub> has nonzero probability. Let A be any event associated with S, then</p>",
+          "options": [
+            {
+              "id": 194810,
+              "text": "P(A) = P(E 2 ) P (A|E 1 ) + P (E 2 ) P (A|E 2 ) + ... + P (E n ) P(A|E n )",
+              "html": "P(A) = P(E<sub>2</sub>) P (A|E<sub>1</sub>) + P (E<sub>2</sub>) P (A|E<sub>2</sub>) + ... + P (E<sub>n</sub>) P(A|E<sub>n</sub>)",
+              "is_correct": false
+            },
+            {
+              "id": 194811,
+              "text": "P(A) = P(E 1 ) P (A|E 1 ) + P (E 1 ) P (A|E 2 ) + ... + P (E n ) P(A|E n )",
+              "html": "P(A) = P(E<sub>1</sub>) P (A|E<sub>1</sub>) + P (E<sub>1</sub>) P (A|E<sub>2</sub>) + ... + P (E<sub>n</sub>) P(A|E<sub>n</sub>)",
+              "is_correct": false
+            },
+            {
+              "id": 194809,
+              "text": "P(A) = P(E 1 ) P (A|E 1 ) + P (E 2 ) P (A|E 2 ) + ... + P (E n ) P(A|E n )",
+              "html": "P(A) = P(E<sub>1</sub>) P (A|E<sub>1</sub>) + P (E<sub>2</sub>) P (A|E<sub>2</sub>) + ... + P (E<sub>n</sub>) P(A|E<sub>n</sub>)",
+              "is_correct": true
+            },
+            {
+              "id": 194812,
+              "text": "P(A) = P(E 0 ) P (A|E 1 ) + P (E 1 ) P (A|E 2 ) + ... + P (E n &ndash; 1) P(A|E n )",
+              "html": "P(A) = P(E<sub>0</sub>) P (A|E<sub>1</sub>) + P (E<sub>1</sub>) P (A|E<sub>2</sub>) + ... + P (E<sub>n</sub> &ndash; 1) P(A|E<sub>n</sub>)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "P(A) = P(E 1 ) P (A|E 1 ) + P (E 2 ) P (A|E 2 ) + ... + P (E n ) P(A|E n )",
+          "correct_option_ids": [
+            194809
+          ],
+          "explanation": "Let {E 1 , E 2 , ...,E n ) be a partition of a sample space and suppose that each of E 1 , E 2 , ..., E n has a nonzero probability. Let A be any event associated with S, then P(A) = P(E 1 ) P (A|E 1 ) + P (E 2 ) P (A|E 2 ) + ... + P (E n ) P(A|E n ) by addition law of probability.",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59907,
+          "question_text": "If P(A) = {tex}\\frac{6}{{11}}{/tex} , P(B) = {tex}\\frac{5}{{11}}{/tex} and P(A &cup; B) = {tex}\\frac{7}{{11}}.{/tex} find P(A&cap;B)",
+          "question_html": "<p>If P(A) =<span class=\"math-tex\">{tex}\\frac{6}{{11}}{/tex}</span>, P(B) =<span class=\"math-tex\">{tex}\\frac{5}{{11}}{/tex}</span>and P(A &cup; B) =<span class=\"math-tex\">{tex}\\frac{7}{{11}}.{/tex}</span>find P(A&cap;B)</p>",
+          "options": [
+            {
+              "id": 194813,
+              "text": "{tex}\\frac{4}{{11}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{4}{{11}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194815,
+              "text": "{tex}\\frac{4}{{13}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{4}{{13}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194816,
+              "text": "{tex}\\frac{5}{{17}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{5}{{17}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194814,
+              "text": "{tex}\\frac{5}{{11}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{5}{{11}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{4}{{11}}{/tex}",
+          "correct_option_ids": [
+            194813
+          ],
+          "explanation": "If P(A) = {tex}\\frac{6}{{11}}{/tex} , P(B) = {tex}\\frac{5}{{11}}{/tex} and P(A &cup; B) = {tex}\\frac{7}{{11}}.{/tex} P(A {tex}\\cup{/tex} B) = P(A) + P(B) - P(A {tex}\\cap{/tex} B) {tex}{/tex} {tex}\\Rightarrow \\frac{7}{{11}} \\ = \\frac{6}{{11}} + \\frac{5}{{11}} - P(A \\cap B) {/tex} {tex}\\\\ \\Rightarrow P(A \\cap B) = \\frac{4}{{11}} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59908,
+          "question_text": "Two events A and B will be independent, if",
+          "question_html": "<p>Two events A and B will be independent, if</p>\r\n",
+          "options": [
+            {
+              "id": 194817,
+              "text": "P(A&prime;B&prime;) = [1 &ndash; P(A)] [1 &ndash; P(B)]",
+              "html": "P(A&prime;B&prime;) = [1 &ndash; P(A)] [1 &ndash; P(B)]",
+              "is_correct": true
+            },
+            {
+              "id": 194818,
+              "text": "A and B are mutually exclusive",
+              "html": "A and B are mutually exclusive",
+              "is_correct": false
+            },
+            {
+              "id": 194819,
+              "text": "P(A) = P(B)",
+              "html": "P(A) = P(B)",
+              "is_correct": false
+            },
+            {
+              "id": 194820,
+              "text": "P(A) + P(B) = 1",
+              "html": "P(A) + P(B) = 1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "P(A&prime;B&prime;) = [1 &ndash; P(A)] [1 &ndash; P(B)]",
+          "correct_option_ids": [
+            194817
+          ],
+          "explanation": "Two events A and B will be independent, then {tex}P(A\\cap{B}) =P(A).P(B){/tex} {tex}P(A'\\cap{B' })=P(AUB)' = 1- P(AUB) \\\\=1-P(A)-P(B)-P(A).P(B) \\\\=[1-P(A)][1-P(B)]=P(A').P(B'){/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59909,
+          "question_text": "If P(A) = {tex}\\frac{3}{5}{/tex} and P(B) = {tex}\\frac{1}{5}{/tex} , find P (A {tex}\\cap{/tex} B) if A and B are independent events.",
+          "question_html": "<p>If P(A) = <span class=\"math-tex\">{tex}\\frac{3}{5}{/tex}</span> and P(B) = <span class=\"math-tex\">{tex}\\frac{1}{5}{/tex}</span>, find P (A <span class=\"math-tex\">{tex}\\cap{/tex}</span> B) if A and B are independent events.</p>",
+          "options": [
+            {
+              "id": 194821,
+              "text": "{tex}\\frac{3}{{25}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{{25}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194824,
+              "text": "{tex}\\frac{8}{{25}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{8}{{25}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194822,
+              "text": "{tex}\\frac{4}{{25}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{4}{{25}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194823,
+              "text": "{tex}\\frac{7}{{25}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{7}{{25}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{3}{{25}}{/tex}",
+          "correct_option_ids": [
+            194821
+          ],
+          "explanation": "Since A and B are independent events. Therefore, {tex}P(A \\cap B) = P(A). \\ P(B){/tex} = {tex}\\frac{3}{5} \\times \\frac{1}{5}=\\frac{3}{25}{/tex} . Which is the required solution.",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3580,
+      "test_name": "Probability   Test-03",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59910,
+          "question_text": "Two cards are drawn at random and without replacement from a pack of 52 playing cards. Find the probability that both the cards are black.",
+          "question_html": "<p>Two cards are drawn at random and without replacement from a pack of 52 playing cards. Find the probability that both the cards are black.</p>\r\n",
+          "options": [
+            {
+              "id": 194828,
+              "text": "{tex}\\frac{{29}}{{102}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{29}}{{102}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194826,
+              "text": "{tex}\\frac{{23}}{{102}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{23}}{{102}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194827,
+              "text": "{tex}\\frac{{27}}{{102}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{27}}{{102}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194825,
+              "text": "{tex}\\frac{{25}}{{102}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{25}}{{102}}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{25}}{{102}}{/tex}",
+          "correct_option_ids": [
+            194825
+          ],
+          "explanation": "Required probability : P(BB) = P(B) {tex}\\times{/tex} P(B/B) &hellip;&hellip;&hellip;&hellip;&hellip;{B means black card} {tex} \\Rightarrow \\frac{{26}}{{52}} \\times \\frac{{25}}{{51}} = \\frac{{25}}{{102}}{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59911,
+          "question_text": "A box of oranges is inspected by examining three randomly selected oranges drawn without replacement. If all the three oranges are good, the box is approved for sale, otherwise, it is rejected. Find the probability that a box containing 15 oranges out of which 12 are good and 3 are bad ones will be approved for sale.",
+          "question_html": "<p>A box of oranges is inspected by examining three randomly selected oranges drawn without replacement. If all the three oranges are good, the box is approved for sale, otherwise, it is rejected. Find the probability that a box containing 15 oranges out of which 12 are good and 3 are bad ones will be approved for sale.</p>\r\n",
+          "options": [
+            {
+              "id": 194831,
+              "text": "{tex}\\frac{{41}}{{91}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{41}}{{91}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194830,
+              "text": "{tex}\\frac{{47}}{{91}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{47}}{{91}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194829,
+              "text": "{tex}\\frac{{44}}{{91}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{44}}{{91}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194832,
+              "text": "{tex}\\frac{{49}}{{91}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{49}}{{91}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{44}}{{91}}{/tex}",
+          "correct_option_ids": [
+            194829
+          ],
+          "explanation": "Total oranges = 15, Good Oranges = 12 Therefore, Required Probability = {tex}\\frac{{12}}{{15}} \\times \\frac{{11}}{{14}} \\times \\frac{{10}}{{13}} = \\frac{{44}}{{91}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59912,
+          "question_text": "Given that the events A and B are such that P(A) = {tex}\\frac{1}{2}{/tex} , P (A &cup; B) = {tex}\\frac{3}{5}{/tex} , and P(B) = p. Find p if A and B are mutually exclusive.",
+          "question_html": "<p>Given that the events A and B are such that P(A) =&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>, P (A &cup; B) = <span class=\"math-tex\">{tex}\\frac{3}{5}{/tex}</span>, and P(B) = p. Find p if A and B are mutually exclusive.</p>",
+          "options": [
+            {
+              "id": 194834,
+              "text": "{tex}\\frac{2}{{10}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{{10}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194835,
+              "text": "{tex}\\frac{3}{{10}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{{10}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194833,
+              "text": "{tex}\\frac{1}{{10}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{10}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194836,
+              "text": "{tex}\\frac{7}{{10}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{7}{{10}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{{10}}{/tex}",
+          "correct_option_ids": [
+            194833
+          ],
+          "explanation": "Since A and B are mutually exclusive events. {tex}A\\cap{B}=\\phi{/tex} {tex}P(A \\cap B) = 0 {/tex} {tex}P(A \\cup B){/tex} = P(A) + P(B) - {tex}P(A \\cap B){/tex} {tex}\\Rightarrow{/tex} {tex}\\frac{3}{5}=\\frac{1}{2}+p-0{/tex} {tex}\\Rightarrow{/tex} p = {tex}\\frac{1}{10}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59913,
+          "question_text": "Given that the events A and B are such that P(A) = {tex}\\frac{1}{2}{/tex} , P (A &cup; B) = {tex}\\frac{3}{5}{/tex} and P(B) = p. Find p if they are independent.",
+          "question_html": "<p>Given that the events A and B are such that P(A) =<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>, P (A &cup; B) =<span class=\"math-tex\">{tex}\\frac{3}{5}{/tex}</span>and P(B) = p. Find p if they are&nbsp;independent.</p>",
+          "options": [
+            {
+              "id": 194839,
+              "text": "{tex}\\frac{1}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194838,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194840,
+              "text": "{tex}\\frac{1}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194837,
+              "text": "{tex}\\frac{1}{5}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{5}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{5}{/tex}",
+          "correct_option_ids": [
+            194837
+          ],
+          "explanation": "Since A and B are independent events. Therefore, P( A {tex}\\cap{/tex} B) = P(A).P(B) P(A {tex}\\cup{/tex} B)=P(A) + P(B) - P(A {tex}\\cap{/tex} B) {tex}\\Rightarrow \\frac{3}{5}=\\frac{1}{2}+{/tex} p - P(A).P(B) {tex}\\Rightarrow \\frac{1}{10}=p-\\frac{1}{2}p\\Rightarrow p=\\frac{1}{5}{/tex} .Which is the required solution.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59914,
+          "question_text": "Let A and B be independent events with P(A) = 0.3 and P(B) = 0.4. Find P(A {tex}\\cap{/tex} B)",
+          "question_html": "<p>Let A and B be independent events with P(A) = 0.3 and P(B) = 0.4. Find P(A <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B)</p>",
+          "options": [
+            {
+              "id": 194841,
+              "text": "0.12",
+              "html": "0.12",
+              "is_correct": true
+            },
+            {
+              "id": 194843,
+              "text": "0.14",
+              "html": "0.14",
+              "is_correct": false
+            },
+            {
+              "id": 194842,
+              "text": "0.10",
+              "html": "0.10",
+              "is_correct": false
+            },
+            {
+              "id": 194844,
+              "text": "0.15",
+              "html": "0.15",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0.12",
+          "correct_option_ids": [
+            194841
+          ],
+          "explanation": "Let A and B be independent events with P (A) = 0.3 and P(B) = 0.4 {tex} P(A \\cap B) = P(A).P(B) {/tex} {tex}\\Rightarrow P(A \\cap B){/tex} = 0.3 {tex}\\times{/tex} 0.4 = 0.12",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59915,
+          "question_text": "Let A and B be independent events with P(A) = 0.3 and P(B) = 0.4. Find P(A &cup; B).",
+          "question_html": "<p>Let A and B be independent events with P(A) = 0.3 and P(B) = 0.4. Find P(A &cup; B).</p>",
+          "options": [
+            {
+              "id": 194847,
+              "text": "0.55",
+              "html": "0.55",
+              "is_correct": false
+            },
+            {
+              "id": 194845,
+              "text": "0.58",
+              "html": "0.58",
+              "is_correct": true
+            },
+            {
+              "id": 194846,
+              "text": "0.51",
+              "html": "0.51",
+              "is_correct": false
+            },
+            {
+              "id": 194848,
+              "text": "0.62",
+              "html": "0.62",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0.58",
+          "correct_option_ids": [
+            194845
+          ],
+          "explanation": "Let A and B be independent events with P (A) = 0.3 and P(B) = 0.4 Since the events are independent, P(A {tex}\\cap{/tex} B) = P(A) {tex}\\cdot{/tex} P(B) Therefore P(A {tex}\\cup{/tex} B) = P(A) + P(B) = 0.3 + 0.4 - 0.12 = 0.58",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59916,
+          "question_text": "Let A and B be independent events with P(A) = 0.3 and P(B) = 0.4. Find P (A|B)",
+          "question_html": "<p>Let A and B be independent events with P(A) = 0.3 and P(B) = 0.4. Find P (A|B)</p>",
+          "options": [
+            {
+              "id": 194850,
+              "text": "0.2",
+              "html": "0.2",
+              "is_correct": false
+            },
+            {
+              "id": 194851,
+              "text": "0.33",
+              "html": "0.33",
+              "is_correct": false
+            },
+            {
+              "id": 194849,
+              "text": "0.3",
+              "html": "0.3",
+              "is_correct": true
+            },
+            {
+              "id": 194852,
+              "text": "0.27",
+              "html": "0.27",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0.3",
+          "correct_option_ids": [
+            194849
+          ],
+          "explanation": "Let A and B be independent events with P (A) = 0.3 and P(B) = 0.4 P(A/B) = P(A) = 0.3.",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59917,
+          "question_text": "Let A and B be independent events with P (A) = 0.3 and P(B) = 0.4. Find P(B|A).",
+          "question_html": "<p>Let A and B be independent events with P (A) = 0.3 and P(B) = 0.4. Find P(B|A).</p>",
+          "options": [
+            {
+              "id": 194855,
+              "text": "0.2",
+              "html": "0.2",
+              "is_correct": false
+            },
+            {
+              "id": 194853,
+              "text": "0.4",
+              "html": "0.4",
+              "is_correct": true
+            },
+            {
+              "id": 194854,
+              "text": "0.3",
+              "html": "0.3",
+              "is_correct": false
+            },
+            {
+              "id": 194856,
+              "text": "0.5",
+              "html": "0.5",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0.4",
+          "correct_option_ids": [
+            194853
+          ],
+          "explanation": "Let A and B be independent events with P (A) = 0.3 and P(B) = 0.4. P(B/A) = P(B) = 0.4",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59918,
+          "question_text": "If A and B are two events such that P(A) = {tex}\\frac{1}{4}{/tex} , P(B) = {tex}\\frac{1}{2}{/tex} and {tex}P(A \\cap B) = \\frac{1}{8}{/tex} , Find P(not A and not B).",
+          "question_html": "<p>If A and B are two events such that P(A) = <span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span>, P(B) = <span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>&nbsp;and <span class=\"math-tex\">{tex}P(A \\cap B) = \\frac{1}{8}{/tex}</span>, Find P(not A and not B).</p>",
+          "options": [
+            {
+              "id": 194858,
+              "text": "{tex}\\frac{3}{5}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{5}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194860,
+              "text": "{tex}\\frac{1}{8}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{8}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194857,
+              "text": "{tex}\\frac{3}{8}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{8}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194859,
+              "text": "{tex}\\frac{2}{5}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{5}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{3}{8}{/tex}",
+          "correct_option_ids": [
+            194857
+          ],
+          "explanation": "Since A and B are independent events, not A and not B are also independent events. {tex} \\ P(\\overline A \\overline B ) = P(\\overline A )P(\\overline {B)}{/tex} = {tex}\\left(1-\\frac{1}{4}\\right)\\left(1-\\frac{1}{2}\\right){/tex} = {tex}\\frac{3}{4} \\times \\frac{1}{2}=\\frac{3}{8}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59919,
+          "question_text": "If A and B are two events such that A &sub; B and P(B) &ne; 0, then which of the following is correct?",
+          "question_html": "<p>If A and B are two events such that A &sub; B and P(B) &ne; 0, then which of the following is correct?</p>",
+          "options": [
+            {
+              "id": 194863,
+              "text": "P(A|B) < P(A)",
+              "html": "P(A|B) &lt; P(A)",
+              "is_correct": false
+            },
+            {
+              "id": 194862,
+              "text": "P(A| B) = {tex}\\frac{{{\\text{P}}({\\text{B}})}}{{{\\text{P}}({\\text{A}})}}{/tex}",
+              "html": "P(A| B) =<span class=\"math-tex\">{tex}\\frac{{{\\text{P}}({\\text{B}})}}{{{\\text{P}}({\\text{A}})}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194861,
+              "text": "P(A|B) &ge; P(A)",
+              "html": "P(A|B) &ge; P(A)",
+              "is_correct": true
+            },
+            {
+              "id": 194864,
+              "text": "P(A|B) = P(A)",
+              "html": "P(A|B) =&nbsp;P(A)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "P(A|B) &ge; P(A)",
+          "correct_option_ids": [
+            194861
+          ],
+          "explanation": "Since, {tex}\\space A\\subset{B},\\space\\space \\space A\\cap{B} =A{/tex} {tex}P(A/B) =\\frac{P(A\\cap{B})}{P(B)} =\\frac{P(A)}{P(B)}{/tex} But P(B)&le;1&there4; P(AB)&ge;P(A), is the correct option",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59920,
+          "question_text": "The probability of obtaining an even prime number on each die, when a pair of dice is rolled is:",
+          "question_html": "<p>The probability of obtaining an even prime number on each die, when a pair of dice is rolled&nbsp;is:</p>\r\n",
+          "options": [
+            {
+              "id": 194866,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 194865,
+              "text": "{tex}\\frac{1}{{36}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{36}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194868,
+              "text": "{tex}\\frac{1}{12}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{12}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194867,
+              "text": "{tex}\\frac{1}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{{36}}{/tex}",
+          "correct_option_ids": [
+            194865
+          ],
+          "explanation": "Clearly, n(s) = 36. Favourable cases are {2, 2} Therefore required probability = {tex}\\frac{1}{36}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59921,
+          "question_text": "If E 1 , E 2 ,.....,E n are mutually exclusive and exhaustive events associated with a samplespace, and A is any event of non zero probability, then",
+          "question_html": "<p>If E<sub>1</sub>, E<sub>2</sub>,.....,E<sub>n</sub> are mutually exclusive and exhaustive events associated with a samplespace, and A is any event of non zero probability, then</p>",
+          "options": [
+            {
+              "id": 194871,
+              "text": "{tex}P\\left( {{E_i}{\\text{|}}A} \\right) = \\frac{{P\\left( {{E_i}} \\right)P(A|{E_i})}}{{\\mathop \\sum \\nolimits_{i = 1}^n P\\left( {{E_i}} \\right)P(A|{E_{i - 2}})}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}P\\left( {{E_i}{\\text{|}}A} \\right) = \\frac{{P\\left( {{E_i}} \\right)P(A|{E_i})}}{{\\mathop \\sum \\nolimits_{i = 1}^n P\\left( {{E_i}} \\right)P(A|{E_{i - 2}})}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194869,
+              "text": "{tex}P\\left( {{E_i}{\\text{|}}A} \\right) = \\frac{{P\\left( {{E_i}} \\right)P(A|{E_i})}}{{\\mathop \\sum \\nolimits_{i = 1}^n P\\left( {{E_i}} \\right)P(A|{E_i})}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}P\\left( {{E_i}{\\text{|}}A} \\right) = \\frac{{P\\left( {{E_i}} \\right)P(A|{E_i})}}{{\\mathop \\sum \\nolimits_{i = 1}^n P\\left( {{E_i}} \\right)P(A|{E_i})}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194872,
+              "text": "{tex}P\\left( {{E_i}{\\text{|}}A} \\right) = \\frac{{P\\left( {{E_i}} \\right)P({E_i}|A)}}{{\\mathop \\sum \\nolimits_{i = 1}^n P\\left( {{E_i}} \\right)P(A|{E_i})}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}P\\left( {{E_i}{\\text{|}}A} \\right) = \\frac{{P\\left( {{E_i}} \\right)P({E_i}|A)}}{{\\mathop \\sum \\nolimits_{i = 1}^n P\\left( {{E_i}} \\right)P(A|{E_i})}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194870,
+              "text": "{tex}P\\left( {{E_i}{\\text{|}}A} \\right) = \\frac{{P\\left( {{E_i}} \\right)P(A|{E_i})}}{{\\mathop \\sum \\nolimits_{i = 1}^n P\\left( {{E_{i - 1}}} \\right)P(A|{E_i})}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}P\\left( {{E_i}{\\text{|}}A} \\right) = \\frac{{P\\left( {{E_i}} \\right)P(A|{E_i})}}{{\\mathop \\sum \\nolimits_{i = 1}^n P\\left( {{E_{i - 1}}} \\right)P(A|{E_i})}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}P\\left( {{E_i}{\\text{|}}A} \\right) = \\frac{{P\\left( {{E_i}} \\right)P(A|{E_i})}}{{\\mathop \\sum \\nolimits_{i = 1}^n P\\left( {{E_i}} \\right)P(A|{E_i})}}{/tex}",
+          "correct_option_ids": [
+            194869
+          ],
+          "explanation": "If E 1 , E 2 ,.....,E n are mutually exclusive and exhaustive events associated with a sample space, and A is any event of non zero probability, then According to Bay&rsquo;s theorem: {tex}P\\left( {{E_i}{\\text{|}}A} \\right) = \\frac{{P\\left( {{E_i}} \\right)P(A|{E_i})}}{{\\mathop \\sum \\nolimits_{i = 1}^n P\\left( {{E_i}} \\right)P(A|{E_i})}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59922,
+          "question_text": "A bag contains 4 red and 4 black balls, another bag contains 2 red and 6 black balls. One of the two bags is selected at random and a ball is drawn from the bag which is found to be red. Find the probability that the ball is drawn from the first bag.",
+          "question_html": "<p>A bag contains 4 red and 4 black balls, another bag contains 2 red and 6 black balls. One of the two bags is selected at random and a ball is drawn from the bag which is found to be red. Find the probability that the ball is drawn from the first bag.</p>",
+          "options": [
+            {
+              "id": 194876,
+              "text": "{tex}\\frac{1}{5}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{5}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194874,
+              "text": "{tex}\\frac{1}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194875,
+              "text": "{tex}\\frac{1}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194873,
+              "text": "{tex}\\frac{2}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{3}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{2}{3}{/tex}",
+          "correct_option_ids": [
+            194873
+          ],
+          "explanation": "Let {tex}{E_1}{/tex} and {tex}{E_2}{/tex} are events of selection of the first and second bag respectively {tex}\\therefore P({E_1}) = P({E_2}) = \\frac{1}{2}{/tex} Let A = event of getting a red ball. {tex}\\therefore P \\left( \\mathrm { A } / E _ { 1 } \\right) = \\frac { 4 } { 8 } = \\frac { 1 } { 2 }{/tex} , {tex}P \\left( \\mathrm { A } / \\mathrm { E } _ { 2 } \\right) = \\frac { 2 } { 8 } = \\frac { 1 } { 4 }{/tex} {tex}\\Rightarrow P \\left( E _ { 1 } / \\mathrm { A } \\right){/tex} {tex}= \\frac { P \\left( E _ { 1 } \\right) P \\left( \\mathrm { A } / E _ { 1 } \\right) } { P \\left( E _ { 1 } \\right) P \\left( \\mathrm { A } / E _ { 1 } \\right) + P \\left( E _ { 2 } \\right) P \\left( \\mathrm { A } / E _ { 2 } \\right) }{/tex} {tex}= \\frac { \\frac { 1 } { 2 } \\times \\frac { 1 } { 2 } } { \\frac { 1 } { 2 } \\times \\frac { 1 } { 2 } + \\frac { 1 } { 2 } \\times \\frac { 1 } { 4 } } = \\frac { 2 } { 3 }{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59923,
+          "question_text": "Of the students in a college, it is known that 60% reside in hostel and 40% are day scholars (not residing in hostel). Previous year results report that 30% of all students who reside in hostel attain A grade and 20% of day scholars attain A grade in their annual examination. At the end of the year, one student is chosen at random from the college and he has an A grade, what is the probability that the student is a hostlier?",
+          "question_html": "<p>Of the students in a college, it is known that 60% reside in hostel and 40% are day scholars (not residing in hostel). Previous year results report that 30% of all students who reside in hostel attain A grade and 20% of day scholars attain A grade in their annual examination. At the end of the year, one student is chosen at random from the college and he has an A grade, what is the probability that the student is a hostlier?</p>",
+          "options": [
+            {
+              "id": 194878,
+              "text": "{tex}\\frac{2}{{13}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{{13}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194877,
+              "text": "{tex}\\frac{9}{{13}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{9}{{13}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194879,
+              "text": "{tex}\\frac{3}{{13}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{{13}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194880,
+              "text": "{tex}\\frac{5}{{13}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{5}{{13}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{9}{{13}}{/tex}",
+          "correct_option_ids": [
+            194877
+          ],
+          "explanation": "Let {tex}{{E}_{1}}\\space {/tex} and {tex}{{E}_{2}}{/tex} are events of selection of a hostlier and a day scholar respectively. Let A = event of getting grade A. {tex}\\\\P(A/{{E}_{1}}) =\\frac{30}{100}{/tex} = 0.3, {tex}P(A/{{E}_{2}}) =\\frac{20}{100}{/tex} = 0.2 {tex}P({{E}_{1}}) =\\frac{60}{100}{/tex} = 0.6, {tex}P({{E}_{2}}) =\\frac{40}{100}{/tex} = 0.4 {tex}P({{E}_{1}}/A){/tex} = {tex}\\frac{P({{A/E}_{1}}).P({{E}_{1}})}{P(A/{{E}_{1}}).P({{E}_{1}})+P({A/{E}_{2}})P({{E}_{2}})}{/tex} = {tex}\\frac{(0.6)(0.3)}{(0.6)(0.3)+(0.4)(0.2)} {/tex} {tex}=\\frac{9}{13} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59924,
+          "question_text": "In answering a question on a multiple-choice test, a student either knows the answer or guesses. Let {tex}\\frac{3}{4}{/tex} be the probability that he knows the answer and {tex}\\frac{1}{4}{/tex} be the probability that he guesses. Assuming that a student who guesses at the answer will be correct with probability {tex}\\frac{1}{4}{/tex} . What is the probability that the student knows the answer given that he answered it correctly?",
+          "question_html": "<p>In answering a question on a multiple-choice test, a student either knows the answer or guesses. Let <span class=\"math-tex\">{tex}\\frac{3}{4}{/tex}</span>&nbsp;be the probability that he knows the answer and <span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span> be the probability that he guesses. Assuming that a student who guesses at the answer will be correct with probability <span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span>. What is the probability that the student knows the answer given that he answered it correctly?</p>",
+          "options": [
+            {
+              "id": 194884,
+              "text": "{tex}\\frac{{11}}{{13}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{11}}{{13}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194883,
+              "text": "{tex}\\frac{9}{{13}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{9}{{13}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194881,
+              "text": "{tex}\\frac{{12}}{{13}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{12}}{{13}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194882,
+              "text": "{tex}\\frac{7}{{13}}\\;{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{7}{{13}}\\;{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{12}}{{13}}{/tex}",
+          "correct_option_ids": [
+            194881
+          ],
+          "explanation": "Let E 1 and E 2 are events that the student knows the answer and the student guesses respectively. {tex}P({{E}_{1}})=\\frac{3}{4},P({{E}_{2}})=\\frac{1}{4}{/tex} . Let A = event that the student answers correctly. {tex}P({{E}_{1}})=\\frac{3}{4},P({{E}_{2}})=\\frac{1}{4}{/tex} {tex}P(A/{{E}_{1}})=1{/tex} ( as it is sure event ) {tex}P(A/{{E}_{2}})=\\frac{1}{4}{/tex} {tex}P({{E}_{1}}/A)=\\frac{P({{E}_{1}}).P(A/{{E}_{1}})}{P({{E}_{1}}).P(A/{{E}_{1}})+P({{E}_{2}}).P(A/{{E}_{2}})}{/tex} {tex}=\\frac{\\frac{3}{4}}{\\frac{3}{4}+\\frac{1}{16}}=\\frac{12}{13}{/tex}",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3581,
+      "test_name": "Probability   Test-04",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59925,
+          "question_text": "A laboratory blood test is 99% effective in detecting a certain disease when it is in fact, present. However, the test also yields a false positive result for 0.5% of the healthy person tested (i.e. if a healthy person is tested, then, with probability 0.005, the test will imply he has the disease). If 0.1 percent of the population actually has the disease, what is the probability that a person has the disease given that his test result is positive?",
+          "question_html": "<p>A laboratory blood test is 99% effective in detecting a certain disease when it is in fact, present. However, the test also yields a false positive result for 0.5% of the healthy person tested (i.e. if a healthy person is tested, then, with probability 0.005, the test will imply he has the disease). If 0.1 percent of the population actually has the disease, what is the probability that a person has the disease given that his test result is positive?</p>",
+          "options": [
+            {
+              "id": 194888,
+              "text": "{tex}\\frac{{27}}{{133}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{27}}{{133}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194885,
+              "text": "{tex}\\frac{{22}}{{133}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{22}}{{133}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194886,
+              "text": "{tex}\\frac{{23}}{{133}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{23}}{{133}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194887,
+              "text": "{tex}\\frac{{25}}{{133}}\\;{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{25}}{{133}}\\;{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{22}}{{133}}{/tex}",
+          "correct_option_ids": [
+            194885
+          ],
+          "explanation": "Let E 1 and E 2 are events that a person has a disease and the person has not diseased. {tex}\\therefore P({{E}_{1}})=\\frac{0.1}{100}{/tex} , {tex}P({{E}_{2}})=\\frac{99.9}{100}{/tex} . Let A = event that the test result is positive. {tex}\\therefore{/tex} P(A|E 1 ) = {tex}\\frac{99}{100},{/tex} P(A|E 2 ) = {tex}\\frac{0.5}{100}{/tex} {tex}\\Rightarrow{/tex} P(E 1 |A) = {tex}\\frac{{P({E_1})P(A|{E_1})}}{{P({E_1})P(A|{E_1}) + P({E_2})P(A|{E_2})}}{/tex} = {tex} \\frac{{\\frac{{0.1}}{{100}} \\times \\frac{{99}}{{100}}}}{{\\frac{{0.1}}{{100}} \\times \\frac{{99}}{{100}} + \\frac{{99.9}}{{100}} \\times \\frac{{0.5}}{{100}}}}{/tex} = {tex}\\frac{198}{1197}{/tex} = {tex}\\frac{{22}}{{133}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59926,
+          "question_text": "There are three coins. One is a two headed coin (having head on both faces), another is a biased coin that comes up heads 75% of the time and third is an unbiased coin. One of the three coins is chosen at random and tossed, it shows heads, what is the probability that it was the two headed coin?",
+          "question_html": "<p>There are three coins. One is a two headed coin (having head on both faces), another is a biased coin that comes up heads 75% of the time and third is an unbiased coin. One of the three coins is chosen at random and tossed, it shows heads, what is the probability that it was the two headed coin?</p>",
+          "options": [
+            {
+              "id": 194892,
+              "text": "{tex}\\frac{5}{9}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{5}{9}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194891,
+              "text": "{tex}\\frac{1}{9}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{9}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194889,
+              "text": "{tex}\\frac{4}{9}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{4}{9}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194890,
+              "text": "{tex}\\frac29{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac29{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{4}{9}{/tex}",
+          "correct_option_ids": [
+            194889
+          ],
+          "explanation": "Let {tex}{{E}_{1}} , {{E}_{2}}{/tex} and {tex}{{E}_{3}}{/tex} and are events of selection of a two headed coin, biased coin and unbiased coin respectively. {tex}\\therefore P({{E}_{1}})=P({{E}_{2}})=P({{E}_{2}})=\\frac{1}{3}.{/tex} Let A = event of getting head. {tex}P(A/{{E}_{1}})=1,P(A/{{E}_{2}})=\\frac{3}{4},P(A/{{E}_{3}})=\\frac{1}{2}.{/tex} {tex}P({{E}_{1}}/A){/tex} = {tex}\\frac{P(A/{{E}_{1}}).P({{E}_{1}})}{P(A/{{E}_{1}}).P({{E}_{1}})+P(A/{{E}_{2}}).P({{E}_{2}})+P(A/{{E}_{3}}).P({{E}_{3}})}{/tex} = {tex} \\frac{\\frac{1}{3}.1}{\\frac{1}{3}.1+\\frac{1}{3}.\\frac{3}{4}+\\frac{1}{3}\\frac{1}{2}}\\\\{/tex} = {tex}\\frac{4}{9}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59927,
+          "question_text": "An insurance company insured 2000 scooter drivers, 4000 car drivers and 6000 truck drivers. The probability of an accidents are 0.01, 0.03 and 0.15 respectively. One of the insured persons meets with an accident. What is the probability that he is a scooter driver?",
+          "question_html": "<p>An insurance company insured 2000 scooter drivers, 4000 car drivers and 6000 truck drivers. The probability of an accidents are 0.01, 0.03 and 0.15 respectively. One of the insured persons meets with an accident. What is the probability that he is a scooter driver?</p>",
+          "options": [
+            {
+              "id": 194893,
+              "text": "{tex}\\frac{1}{{52}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{52}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194895,
+              "text": "{tex}\\frac{5}{{52}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{5}{{52}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194894,
+              "text": "{tex}\\frac{3}{{52}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{{52}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194896,
+              "text": "{tex}\\frac{1}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{{52}}{/tex}",
+          "correct_option_ids": [
+            194893
+          ],
+          "explanation": "Let, E 1 , E 2 and E 3 are events of selection of a scooter driver, car driver and truck driver respectively. {tex}\\therefore P({{E}_{1}})=\\frac{2000}{12000}=\\frac{1}{6}{/tex} , {tex}P({{E}_{2}})=\\frac{4000}{12000}=\\frac{1}{3}{/tex} , {tex}P({{E}_{3}})=\\frac{6000}{12000}=\\frac{1}{2}{/tex} . Let A = event that the insured person meet with the accident. {tex}\\therefore{/tex} P(A|E 1 ) = 0.01, P(A|E 2 ) = 0.03, P(A|E 3 ) = 0.15 {tex}\\Rightarrow{/tex} P(E 1 |A) = {tex}\\frac{{P({E_1})P(A|{E_1})}}{{P({E_1})P(A|{E_1}) + P({E_2})P(A|{E_2}) + P({E_3})P(A|{E_3})}}{/tex} {tex} = \\frac{{\\frac{1}{6} \\times 0.01}}{{\\frac{1}{6} \\times 0.01 + \\frac{1}{3} \\times 0.03 + \\frac{1}{2} \\times 0.15}} = \\frac{1}{{52}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59928,
+          "question_text": "A random variable is a real-valued function whose domain is the",
+          "question_html": "<p>A random variable is a real-valued function whose domain is the&nbsp;</p>",
+          "options": [
+            {
+              "id": 194897,
+              "text": "sample space of a random experiment",
+              "html": "sample space of a random experiment",
+              "is_correct": true
+            },
+            {
+              "id": 194900,
+              "text": "set of irrational numbers",
+              "html": "set of irrational numbers",
+              "is_correct": false
+            },
+            {
+              "id": 194898,
+              "text": "set of real numbers",
+              "html": "set of real numbers",
+              "is_correct": false
+            },
+            {
+              "id": 194899,
+              "text": "set of integers",
+              "html": "set of integers",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "sample space of a random experiment",
+          "correct_option_ids": [
+            194897
+          ],
+          "explanation": "A random variable is a real-valued function whose domain is the sample space of a random experiment.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59929,
+          "question_text": "Let X be a random variable assuming values x 1 , x 2 ,....,x n with probabilities p 1 , p 2 , ...,pn, respectively such that p i &ge; 0, {tex}\\mathop \\sum \\limits_{i = 1}^n {p_i} = 1{/tex} . Mean of X denoted by {tex}\\mu {/tex} is defined as",
+          "question_html": "<p>Let X be a random variable assuming values x<sub>1</sub>, x<sub>2</sub>,....,x<sub>n</sub>&nbsp;with probabilities p<sub>1</sub>, p<sub>2</sub>, ...,pn, respectively such that p<sub>i</sub>&nbsp;&ge; 0,<span class=\"math-tex\">{tex}\\mathop \\sum \\limits_{i = 1}^n {p_i} = 1{/tex}</span>. Mean of X denoted by <span class=\"math-tex\">{tex}\\mu {/tex}</span> is defined as</p>",
+          "options": [
+            {
+              "id": 194903,
+              "text": "{tex}\\mu = \\;\\mathop \\sum \\limits_{i - 1}^n {p_i}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\mu = \\;\\mathop \\sum \\limits_{i - 1}^n {p_i}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194902,
+              "text": "{tex}\\mu = \\;\\mathop \\sum \\limits_{i - 1}^n {x_i}{p_{i + 1}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\mu = \\;\\mathop \\sum \\limits_{i - 1}^n {x_i}{p_{i + 1}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194904,
+              "text": "{tex}\\mu = \\;\\mathop \\sum \\limits_{i - 1}^n {x_i}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\mu = \\;\\mathop \\sum \\limits_{i - 1}^n {x_i}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194901,
+              "text": "{tex}\\mu = \\;\\mathop \\sum \\limits_{i - 1}^n {x_i}{p_i}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\mu = \\;\\mathop \\sum \\limits_{i - 1}^n {x_i}{p_i}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\mu = \\;\\mathop \\sum \\limits_{i - 1}^n {x_i}{p_i}{/tex}",
+          "correct_option_ids": [
+            194901
+          ],
+          "explanation": "Let X be a random variable assuming values x 1 , x 2 ,....,x n with probabilities p 1 , p 2 , ...,p n , respectively such that pi &ge; 0, {tex}\\mathop \\sum \\limits_{i = 1}^n {p_i} = 1{/tex} . Mean of X denoted by {tex}\\mu {/tex} is defined as: {tex}\\mu = \\;\\mathop \\sum \\limits_{i - 1}^n {x_i}{p_i}{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59930,
+          "question_text": "Let X be a random variable assuming values x 1 , x 2 ,....,x n with probabilities p 1 , p 2 , ...,p n , respectively such that pi {tex}\\ge{/tex} 0, {tex}\\mathop \\sum \\limits_{i = 1}^n {p_i} {/tex} = 1. If E is the expectation, mean of X is denoted by {tex}\\mu {/tex} , variance denoted by {tex}\\sigma {/tex} 2 , is defined as",
+          "question_html": "<p>Let X be a random variable assuming values x<sub>1</sub>, x<sub>2</sub>,....,x<sub>n</sub> with probabilities p<sub>1</sub>, p<sub>2</sub>, ...,p<sub>n</sub>, respectively such that pi <span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;0,<span class=\"math-tex\">{tex}\\mathop \\sum \\limits_{i = 1}^n {p_i} {/tex}</span> = 1. If E is the expectation, mean of X is denoted by <span class=\"math-tex\">{tex}\\mu {/tex}</span>, variance denoted by <span class=\"math-tex\">{tex}\\sigma {/tex}</span><sup>2</sup>, is defined as</p>",
+          "options": [
+            {
+              "id": 194907,
+              "text": "{tex}\\sigma {/tex} 2 = E(X &ndash; {tex}\\mu {/tex} ) 3",
+              "html": "<span class=\"math-tex\">{tex}\\sigma {/tex}</span><sup>2</sup> = E(X &ndash; <span class=\"math-tex\">{tex}\\mu {/tex}</span>)<sup>3</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 194906,
+              "text": "{tex}\\sigma {/tex} 2 = E(X + {tex}\\mu {/tex} ) 2",
+              "html": "<span class=\"math-tex\">{tex}\\sigma {/tex}</span><sup>2</sup> = E(X + <span class=\"math-tex\">{tex}\\mu {/tex}</span>)<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 194908,
+              "text": "{tex}\\sigma {/tex} 2 = E(X &ndash; {tex}\\mu {/tex} )",
+              "html": "<span class=\"math-tex\">{tex}\\sigma {/tex}</span><sup>2</sup> = E(X &ndash; <span class=\"math-tex\">{tex}\\mu {/tex}</span>)",
+              "is_correct": false
+            },
+            {
+              "id": 194905,
+              "text": "{tex}\\sigma {/tex} 2 = E(X &ndash; {tex}\\mu{/tex} ) 2",
+              "html": "<span class=\"math-tex\">{tex}\\sigma {/tex}</span><sup>2</sup> = E(X &ndash; <span class=\"math-tex\">{tex}\\mu{/tex}</span>)<sup>2</sup>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\sigma {/tex} 2 = E(X &ndash; {tex}\\mu{/tex} ) 2",
+          "correct_option_ids": [
+            194905
+          ],
+          "explanation": "Let X be a random variable assuming values x 1 , x 2 ,....,x n with probabilities p 1 , p 2 , ...,p n , respectively such that pi {tex}\\ge{/tex} 0, {tex}\\mathop \\sum \\limits_{i = 1}^n {p_i} {/tex} = 1. If E is the expectation, mean of X is denoted by {tex}\\mu{/tex} , variance denoted by {tex}\\sigma {/tex} 2 , is defined as: {tex}\\sigma {/tex} 2 = E(X &ndash; {tex}\\mu {/tex} ) 2",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59931,
+          "question_text": "A random variable X taking values 0, 1, 2, ..., n is said to have a binomial distribution with parameters n and p, if its probability distribution is given by",
+          "question_html": "<p>A random variable X taking values 0, 1, 2, ..., n is said to have a binomial distribution with parameters n and p, if its probability distribution is given by</p>",
+          "options": [
+            {
+              "id": 194912,
+              "text": "P(X = r) = {tex} C_r^n{p^r}{q^{n - r - 2}}{/tex}",
+              "html": "P(X = r) =&nbsp;<span class=\"math-tex\">{tex} C_r^n{p^r}{q^{n - r - 2}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194910,
+              "text": "P(X = r) = {tex}C_{r - 2}^n{p^r}{q^{n - r}}{/tex}",
+              "html": "P(X = r) =&nbsp;<span class=\"math-tex\">{tex}C_{r - 2}^n{p^r}{q^{n - r}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194911,
+              "text": "P(X = r) = {tex}C_r^n{p^{2r}}{q^{n - r}}{/tex}",
+              "html": "P(X&nbsp;= r) =&nbsp;<span class=\"math-tex\">{tex}C_r^n{p^{2r}}{q^{n - r}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194909,
+              "text": "P(X = r) = {tex}C_r^n{p^r}{q^{n - r}}{/tex}",
+              "html": "P(X = r) =&nbsp;<span class=\"math-tex\">{tex}C_r^n{p^r}{q^{n - r}}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "P(X = r) = {tex}C_r^n{p^r}{q^{n - r}}{/tex}",
+          "correct_option_ids": [
+            194909
+          ],
+          "explanation": "A random variable X taking values 0, 1, 2, ..., n is said to have a binomial distribution with parameters n and p, if its probability distribution is given by: P(X = r) = {tex} C_r^n{p^r}{q^{n - r}}{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59932,
+          "question_text": "State which of the following is a probability distribution of a random variable.",
+          "question_html": "<p>State which of the following is a probability distribution of a random variable.</p>",
+          "options": [
+            {
+              "id": 194915,
+              "text": "Y &ndash; 1 0 1 P(Y) 0.6 0.1 0.2",
+              "html": "<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>Y</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>&nbsp;&ndash; 1</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>0</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>1</strong></p>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>P(Y)</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>0.6</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>0.1</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>0.2</strong></p>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>",
+              "is_correct": false
+            },
+            {
+              "id": 194914,
+              "text": "X 0 1 2 3 4 P(X) 0.1 0.5 0.2 &ndash; 0.1 0.3",
+              "html": "<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>X</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>0</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>1</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>2</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>3</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>4</strong></p>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>P(X)</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>0.1</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>0.5</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>0.2</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>&nbsp;&ndash; 0.1</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>0.3</strong></p>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>",
+              "is_correct": false
+            },
+            {
+              "id": 194913,
+              "text": "X 0 1 2 P(X) 0.4 0.4 0.2",
+              "html": "<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>X</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>0</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>1</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>2</strong></p>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>P(X)</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>0.4</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>0.4</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>0.2</strong></p>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>",
+              "is_correct": true
+            },
+            {
+              "id": 194916,
+              "text": "Z 3 2 1 0 &ndash; 1 P(Z) 0.3 0.2 0.4 0.1 0.05",
+              "html": "<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>Z</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>3</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>2</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>1</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>0</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>&nbsp;&ndash; 1</strong></p>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>P(Z)</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>0.3</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>0.2</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>0.4</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>0.1</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>0.05</strong></p>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "X 0 1 2 P(X) 0.4 0.4 0.2",
+          "correct_option_ids": [
+            194913
+          ],
+          "explanation": "Sum of probabilities = {tex}\\sum\\limits_{i = 1}^n {{X_i}}{/tex} = 0.4 + 0.4 + 0.2 = 1 Therefore, X 0 1 2 P(X) 0.4 0.4 0.2 is a probability distribution. Which is the required solution.",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59933,
+          "question_text": "An urn contains 5 red and 2 black balls. Two balls are randomly drawn. Let X represent the number of black balls. What are the possible values of X? Is X a random variable?",
+          "question_html": "<p>An urn contains 5 red and 2 black balls. Two balls are randomly drawn. Let X represent the number of black balls. What are the possible values of X? Is X a random variable?</p>",
+          "options": [
+            {
+              "id": 194918,
+              "text": "X = 2, 1, 3; yes",
+              "html": "X = 2, 1, 3; yes",
+              "is_correct": false
+            },
+            {
+              "id": 194920,
+              "text": "X = 2, 3, 5; yes",
+              "html": "X = 2, 3, 5; yes",
+              "is_correct": false
+            },
+            {
+              "id": 194917,
+              "text": "X = 0, 1, 2; yes",
+              "html": "X = 0, 1, 2; yes",
+              "is_correct": true
+            },
+            {
+              "id": 194919,
+              "text": "X = 2, 3, 4; no",
+              "html": "X = 2, 3, 4; no",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "X = 0, 1, 2; yes",
+          "correct_option_ids": [
+            194917
+          ],
+          "explanation": "An urn contains 5 red and 2 black balls. Two balls are randomly drawn. Let X represent the number of black balls, therefore the possible values of X = 0, 1, 2. Yes, X is a random variable.",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59934,
+          "question_text": "Let X represent the difference between the number of heads and the number of tails obtained when a coin is tossed 6 times. What are possible values of X?",
+          "question_html": "<p>Let X represent the difference between the number of heads and the number of tails obtained when a coin is tossed 6 times. What are possible values of X?</p>",
+          "options": [
+            {
+              "id": 194922,
+              "text": "X = 6, 4, 2, 1",
+              "html": "X = 6, 4, 2, 1",
+              "is_correct": false
+            },
+            {
+              "id": 194921,
+              "text": "X = 6, 4, 2, 0",
+              "html": "X = 6, 4, 2, 0",
+              "is_correct": true
+            },
+            {
+              "id": 194924,
+              "text": "X = 6, 3, 2, 1",
+              "html": "X = 6, 3, 2, 1",
+              "is_correct": false
+            },
+            {
+              "id": 194923,
+              "text": "X = 6, 5, 2, 0",
+              "html": "X = 6, 5, 2, 0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "X = 6, 4, 2, 0",
+          "correct_option_ids": [
+            194921
+          ],
+          "explanation": "Let X represent the difference between the number of heads and the number of tails obtained when a coin is tossed 6 times. When a coin is tossed 6 times, we have 64 outcomes which consist of: (i) 6 heads and 0 tails (ii) 5 heads and 1 tail (iii) 4 heads and 2 tails (iv) 3 heads and 3 tails (v) 2 heads and 4 tails (vi) 1 head and 5 tails (vii) 0 head and 6 tails. Let X represents the difference between the number of heads and tails. X = 6 - 0 = 6 X = 5 - 1 = 4 X = 4 - 2 = 2 X = 3 - 3 = 0 X = 4 - 2 = 2 X = 5 - 1 = 4 X = 6 - 0 = 6 . Therefore , X = 6, 4, 2, 0",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59935,
+          "question_text": "Find the mean number of heads in three tosses of a fair coin.",
+          "question_html": "<p>Find the mean number of heads in three tosses of a fair coin.</p>",
+          "options": [
+            {
+              "id": 194927,
+              "text": "1.2",
+              "html": "1.2",
+              "is_correct": false
+            },
+            {
+              "id": 194928,
+              "text": "1.4",
+              "html": "1.4",
+              "is_correct": false
+            },
+            {
+              "id": 194925,
+              "text": "1.5",
+              "html": "1.5",
+              "is_correct": true
+            },
+            {
+              "id": 194926,
+              "text": "1.0",
+              "html": "1.0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1.5",
+          "correct_option_ids": [
+            194925
+          ],
+          "explanation": "Let X is the random variable of &ldquo;number of heads&ldquo; X = 0, 1, 2, 3. P(X = 0) = P( {tex}\\overline H\\overline H\\overline H{/tex} )= {tex}\\frac{1}{2}\\times\\frac{1}{2}\\times\\frac{1}{2}=\\frac{1}{8}{/tex} P(X = 1) = P( {tex}H\\bar H\\bar H{/tex} or {tex}\\bar HH\\bar H{/tex} or {tex}\\bar H\\bar HH{/tex} ) = {tex}3\\times \\frac{1}{2}\\times\\frac{1}{2}\\times\\frac{1}{2}=\\frac{3}{8}{/tex} P(X = 2) = P( {tex}HH\\bar H{/tex} or {tex}H\\bar HH{/tex} or {tex}\\overline H HH{/tex} ) = {tex}3\\times \\frac{1}{2}\\times\\frac{1}{2}\\times\\frac{1}{2}=\\frac{3}{8}{/tex} P(X = 3) = P(HHH) = {tex}\\frac{1}{2}\\times\\frac{1}{2}\\times\\frac{1}{2}=\\frac{1}{8}{/tex} Therefore, the probability distribution is: X 0 1 2 3 P(X) {tex}\\frac{1}{8}{/tex} {tex}\\frac{3}{8}{/tex} {tex}\\frac{3}{8}{/tex} {tex}\\frac{1}{8}{/tex} Therefore, Mean of Heads is : E(X) = {tex} \\sum\\limits_{i = 1}^n {{X_i}P({X_i}) } {/tex} = {tex} 0 \\times \\frac{1}{8} + 1 \\times \\frac{3}{8} + 2 \\times \\frac{3}{8} + 3 \\times \\frac{1}{8} = \\frac{{12}}{8}{/tex} = 1.5",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59936,
+          "question_text": "Two dice are thrown simultaneously. If X denotes the number of sixes, find the expectation of X.",
+          "question_html": "<p>Two dice are thrown simultaneously. If X denotes the number of sixes, find the expectation of X.</p>",
+          "options": [
+            {
+              "id": 194932,
+              "text": "{tex}\\frac{1}{6}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{6}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194930,
+              "text": "{tex}\\frac{1}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194931,
+              "text": "{tex}\\frac{1}{5}\\;{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{5}\\;{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194929,
+              "text": "{tex}\\frac{1}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{3}{/tex}",
+          "correct_option_ids": [
+            194929
+          ],
+          "explanation": "Let A = event of getting 6 on the dice. A = {(6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6), (1, 6), (2, 6), (3, 6), (4, 6), (5, 6)} Let X is the random variable of &ldquo; number of sixes &ldquo;. Therefore, X = 0, 1, 2. P(X = 0) = {tex}1-\\frac{11}{36}=\\frac{25}{36}{/tex} ; P( X = 1)= {tex}\\frac{10}{36}{/tex} ; P(X = 2) = {tex}\\frac{1}{36}{/tex} Therefore, the probability distribution is : X 0 1 2 P(X) {tex}\\frac{25}{36}{/tex} {tex}\\frac{10}{36}{/tex} {tex}\\frac{1}{36}{/tex} Therefore, Expectations of X : E(X) = {tex}\\sum_{i=1}^{n} X_{i} P\\left(X_{i}\\right){/tex} = {tex} 0 \\times \\frac{{25}}{{36}} + 1 \\times \\frac{{10}}{{36}} + 2 \\times \\frac{1}{{36}}{/tex} = {tex}\\frac{12}{36}=\\frac{1}{3}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59937,
+          "question_text": "Two numbers are selected at random (without replacement) from the first six positive integers. Let X denote the larger of the two numbers obtained. Find E(X).",
+          "question_html": "<p>Two numbers are selected at random (without replacement) from the first six positive integers. Let X denote the larger of the two numbers obtained. Find E(X).</p>\r\n",
+          "options": [
+            {
+              "id": 194933,
+              "text": "{tex}\\frac{{14}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{14}}{3}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194936,
+              "text": "{tex}\\frac{{16}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{16}}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194934,
+              "text": "{tex}\\frac{{10}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{10}}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194935,
+              "text": "{tex}\\frac{{11}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{11}}{3}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{14}}{3}{/tex}",
+          "correct_option_ids": [
+            194933
+          ],
+          "explanation": "The first 6 positive integers are 1, 2, 3, 4, 5, 6. As 1 is the smallest positive integer. Therefore, X = 2, 3, 4, 5, 6. P (X = 2) = P{(1, 2) or (2, 1)} = {tex}\\frac{1}{6}\\times\\frac{1}{5}+\\frac{1}{6}\\times \\frac{1}{5}=\\frac{2}{30}{/tex} P(X = 3) = P{(number < 3, 3) or (3, number < 3)} {tex}=\\frac{2}{6}\\times\\frac{1}{5}+\\frac{1}{6}\\times \\frac{2}{5}=\\frac{4}{30}{/tex} P(X = 4) = P{(number < 4, 4) or (4, number < 4)} {tex}=\\frac{3}{6}\\times\\frac{1}{5}+\\frac{1}{6}\\times \\frac{3}{5}=\\frac{6}{30}{/tex} P(X = 5) = P{(number < 5, 5) or (5, number < 5)} {tex}=\\frac{4}{6}\\times\\frac{1}{5}+\\frac{1}{6}\\times \\frac{4}{5}=\\frac{8}{30}{/tex} P(X = 6) = P{(number < 6, 6) or (6, number < 6)} {tex}=\\frac{5}{6}\\times\\frac{1}{5}+\\frac{1}{6}\\times \\frac{5}{5}=\\frac{10}{30}{/tex} Therefore, the probability distribution is: X 2 3 4 5 6 P(X) {tex}\\frac{2}{30}{/tex} {tex}\\frac{4}{30}{/tex} {tex}\\frac{6}{30}{/tex} {tex}\\frac{8}{30}{/tex} {tex}\\frac{10}{30}{/tex} Therefore, Expectations of X: E(X) = {tex}\\sum\\limits_{i = 1}^n {{X_i}P({X_i})}{/tex} = {tex}2 \\times \\frac{2}{30}+3 \\times \\frac{4}{30}+4 \\times \\frac{6}{30}+5 \\times \\frac{8}{30}+6 \\times \\frac{10}{30}{/tex} = {tex}\\frac{140}{30}=\\frac{14}{3}{/tex} which is the required solution.",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59938,
+          "question_text": "In a meeting, 70% of the members favour and 30% oppose a certain proposal.A member is selected at random and we take X = 0 if he opposed, and X = 1 if he is in favour. Find E(X) and Var (X).",
+          "question_html": "<p>In a meeting, 70% of the members favour and 30% oppose a certain proposal.A member is selected at random and we take X = 0 if he opposed, and X = 1 if he is in favour. Find E(X) and Var (X).</p>",
+          "options": [
+            {
+              "id": 194940,
+              "text": "E(X) = 0.9 and Var (X) = 0.29",
+              "html": "E(X) = 0.9 and Var (X) = 0.29",
+              "is_correct": false
+            },
+            {
+              "id": 194939,
+              "text": "E(X) = 0.8 and Var (X) = 0.14",
+              "html": "E(X) = 0.8 and Var (X) = 0.14",
+              "is_correct": false
+            },
+            {
+              "id": 194938,
+              "text": "E(X) = 0.6 and Var (X) = 0.22",
+              "html": "E(X) = 0.6 and Var (X) = 0.22",
+              "is_correct": false
+            },
+            {
+              "id": 194937,
+              "text": "E(X) = 0.7 and Var (X) = 0.21",
+              "html": "E(X) = 0.7 and Var (X) = 0.21",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "E(X) = 0.7 and Var (X) = 0.21",
+          "correct_option_ids": [
+            194937
+          ],
+          "explanation": "Here X = 0, 1. P(X = 0) = {tex}\\frac{30}{100}{/tex} ; P(X = 1) = {tex}\\frac{70}{100}.{/tex} Therefore, the probability distribution is: X 0 1 P(X) {tex}\\frac{30}{100}{/tex} {tex}\\frac{70}{100}{/tex} Therefore, Expectations of X : E(X) = {tex} \\sum\\limits_{i = 1}^n {{X_i}P({X_i}) = 0 + \\frac{{70}}{{100}} } {/tex} = 0.7 E(X 2 ) = {tex} \\sum\\limits_{i = 1}^n {{X_i}^2P({X_i}) = 0 + \\frac{{70}}{{100}} } {/tex} = 0.7 {tex}\\Rightarrow{/tex} Mean = 0.7 Var(X) = E(X 2 ) - [ E(X) ] 2 = 0.7 - 0.49 = 0.21",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59939,
+          "question_text": "The mean of the numbers obtained on throwing a die having written 1 on three faces, 2 on two faces and 5 on one face is",
+          "question_html": "<p>The mean of the numbers obtained on throwing a die having written 1 on three faces, 2 on two faces and 5 on one face is</p>",
+          "options": [
+            {
+              "id": 194941,
+              "text": "2",
+              "html": "2",
+              "is_correct": true
+            },
+            {
+              "id": 194944,
+              "text": "5",
+              "html": "5",
+              "is_correct": false
+            },
+            {
+              "id": 194943,
+              "text": "4",
+              "html": "4",
+              "is_correct": false
+            },
+            {
+              "id": 194942,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "2",
+          "correct_option_ids": [
+            194941
+          ],
+          "explanation": "Let X be the random variable which denote the number obtained on the die. Therefore, X = 1, 2 or 5 Therefore, the probability distribution of X is: X 1 2 5 P(X) {tex}\\frac{3}{6}{/tex} {tex}\\frac{2}{6}{/tex} {tex}\\frac{1}{6}{/tex} XP(X) {tex}\\frac{3}{6}{/tex} {tex}\\frac{4}{6}{/tex} {tex}\\frac{5}{6}{/tex} Therefore, required mean = {tex}\\frac{3}{6}+\\frac{4}{6}+\\frac{5}{6}{/tex} = 2",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3582,
+      "test_name": "Probability   Test-05",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59940,
+          "question_text": "Suppose that two cards are drawn at random from a deck of cards. Let X be the number of aces obtained. Then the value of E(X) is:",
+          "question_html": "<p>Suppose that two cards are drawn at random from a deck of cards. Let X be the number of aces obtained. Then the value of E(X) is:</p>",
+          "options": [
+            {
+              "id": 194946,
+              "text": "{tex}\\frac{5}{{13}}\\;{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{5}{{13}}\\;{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194947,
+              "text": "{tex}\\frac{1}{{13}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{13}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194945,
+              "text": "{tex}\\frac{{37}}{{221}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{37}}{{221}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194948,
+              "text": "{tex}\\frac{2}{{13}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{{13}}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{2}{{13}}{/tex}",
+          "correct_option_ids": [
+            194948
+          ],
+          "explanation": "The possible values of X are 0, 1 and 2. As we know that pack of cards contains 4 aces. P(X = 0) = {tex} \\frac{{{}^{48}{C_2}}}{{{}^{52}{C_2}}} = \\frac{{48 \\times 47}}{{52 \\times 51}} = \\frac{{2256}}{{2652}} {/tex} P(X = 1) = {tex} \\frac{{{}^4{C_1} \\times {}^{48}{C_1}}}{{{}^{52}{C_2}}} = \\frac{{4 \\times 48 \\times 2}}{{52 \\times 51}} = \\frac{{384}}{{2652}}{/tex} P(X = 2) = {tex} \\frac{{{}^4{C_2}}}{{{}^{52}{C_2}}} = \\frac{{4 \\times 3}}{{52 \\times 51}} = \\frac{{12}}{{2652}} {/tex} Therefore, the probability distribution of X is: X 0 1 2 P(X) {tex}\\frac{2256}{2652}{/tex} {tex}\\frac{384}{2652}{/tex} {tex}\\frac{12}{2652}{/tex} XP(X) 0 {tex}\\frac{384}{2652}{/tex} {tex}\\frac{24}{2652}{/tex} Therefore required value of: E(X) is = 0 + {tex}\\frac{384}{2652}{/tex} + {tex}\\frac {24}{2652}{/tex} = {tex}\\frac{408}{2652}{/tex} = {tex}\\frac{2}{13}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59941,
+          "question_text": "Which of the following conditions do Bernoulli trials satisfy?",
+          "question_html": "<p>Which of the following conditions do Bernoulli trials satisfy?</p>",
+          "options": [
+            {
+              "id": 194949,
+              "text": "finite number of independent trials",
+              "html": "finite number of independent trials",
+              "is_correct": true
+            },
+            {
+              "id": 194952,
+              "text": "infinite number of dependent trials",
+              "html": "infinite number of dependent trials",
+              "is_correct": false
+            },
+            {
+              "id": 194951,
+              "text": "finite number of dependent trials",
+              "html": "finite number of dependent trials",
+              "is_correct": false
+            },
+            {
+              "id": 194950,
+              "text": "infinite number of independent trials",
+              "html": "infinite number of independent trials",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "finite number of independent trials",
+          "correct_option_ids": [
+            194949
+          ],
+          "explanation": "Bernoulli trials satisfies the finite number of independent trials.",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59942,
+          "question_text": "Bernoulli trials satisfy ________ condition.",
+          "question_html": "<p>Bernoulli trials satisfy ________ condition.&nbsp;</p>",
+          "options": [
+            {
+              "id": 194953,
+              "text": "Each trial has exactly two outcomes: success or failure and the probability of success or failure remains the same in each trial.",
+              "html": "Each trial has exactly two outcomes: success or failure and the probability of success or failure remains the same in each trial.",
+              "is_correct": true
+            },
+            {
+              "id": 194955,
+              "text": "Each trial has exactly two outcomes: success or failure and the probability of success or failure can vary in each trial.",
+              "html": "Each trial has exactly two outcomes: success or failure and the probability of success or failure can vary in each trial.",
+              "is_correct": false
+            },
+            {
+              "id": 194954,
+              "text": "Each trial has exactly three outcomes: success or failure and the probability of success or failure remains the same in each trial.",
+              "html": "Each trial has exactly three outcomes: success or failure and the probability of success or failure remains the same in each trial.",
+              "is_correct": false
+            },
+            {
+              "id": 194956,
+              "text": "Each trial has a finite number of outcomes and the probability of each outcome remains the same in each trial.",
+              "html": "Each trial has a finite number of outcomes and the probability of each outcome remains the same in each trial.",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Each trial has exactly two outcomes: success or failure and the probability of success or failure remains the same in each trial.",
+          "correct_option_ids": [
+            194953
+          ],
+          "explanation": "Bernoulli trials are true only when Each trial has exactly two outcomes: success or failure and the probability of success or failure remains the same in each trial.",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59943,
+          "question_text": "A die is thrown 6 times. If &lsquo;getting an odd number&rsquo; is a success, what is the probability of 5 such successes?",
+          "question_html": "<p>A die is thrown 6 times. If &lsquo;getting an odd number&rsquo; is a success, what is the probability of 5 such successes?</p>",
+          "options": [
+            {
+              "id": 194958,
+              "text": "{tex}\\frac{1}{{32}}\\;{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{32}}\\;{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194957,
+              "text": "{tex}\\frac{3}{{32}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{{32}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194959,
+              "text": "{tex}\\frac{5}{{32}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{5}{{32}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194960,
+              "text": "{tex}\\frac{7}{{32}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{7}{{32}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{3}{{32}}{/tex}",
+          "correct_option_ids": [
+            194957
+          ],
+          "explanation": "p = probability of success = {tex}\\frac{3}{6}{/tex} = {tex}\\frac{1}{2}{/tex} . q = probability of failure = 1 &ndash; p = 1 &ndash; {tex}\\frac{1}{2}{/tex} = {tex}\\frac{1}{2}{/tex} . let x be the number of successes, then x has the binomial distribution with : n = 6, p = {tex}\\frac{1}{2}{/tex} , q = {tex}\\frac{1}{2}{/tex} . {tex}\\therefore P(x = r) = {}^n{C_r}{q^{n - r}}{p^r}{/tex} P(5 successes) = P (x = 5) = {tex}{}^6{C_5}{\\left( {\\frac{1}{2}} \\right)^{6 - 5}}{\\left( {\\frac{1}{2}} \\right)^5} = \\frac{6}{{64}} = \\frac{3}{{32}}{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59944,
+          "question_text": "A die is thrown 6 times. If &lsquo;getting an odd number&rsquo; is a success, what is the probability of at least 5 successes?",
+          "question_html": "<p>A die is thrown 6 times. If &lsquo;getting an odd number&rsquo; is a success, what is the probability of at least 5 successes?</p>",
+          "options": [
+            {
+              "id": 194964,
+              "text": "{tex}\\frac{9}{{64}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{9}{{64}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194962,
+              "text": "{tex}\\frac{3}{{64}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{{64}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194963,
+              "text": "{tex}\\frac{5}{{64}}\\;{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{5}{{64}}\\;{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194961,
+              "text": "{tex}\\frac{7}{{64}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{7}{{64}}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{7}{{64}}{/tex}",
+          "correct_option_ids": [
+            194961
+          ],
+          "explanation": "p = probability of success = {tex}\\frac{3}{6}{/tex} = {tex}\\frac{1}{2}{/tex} . q = probability of failure = 1 &ndash; p = 1 &ndash; {tex}\\frac{1}{2}{/tex} = {tex}\\frac{1}{2}{/tex} let x be the number of successes, then x has the binomial distribution with : n = 6 , p = {tex}\\frac{1}{2}{/tex} , q = {tex}\\frac{1}{2}{/tex} . {tex}\\therefore P(x = r) = {}^n{C_r}{q^{n - r}}{p^r}{/tex} P(atleast 5 successes) = P (x {tex}\\ge{/tex} 5) = {tex}{}^6{C_5}{\\left( {\\frac{1}{2}} \\right)^{6 - 5}}{\\left( {\\frac{1}{2}} \\right)^5} + {}^6{C_6}{\\left( {\\frac{1}{2}} \\right)^{6 - 6}}{\\left( {\\frac{1}{2}} \\right)^6} = \\frac{7}{{64}}{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59945,
+          "question_text": "A die is thrown 6 times. If getting an odd number is a success, what is the probability of at most 5 successes?",
+          "question_html": "<p>A die is thrown 6 times. If getting an odd number&nbsp;is a success, what is the probability of at most 5 successes?</p>",
+          "options": [
+            {
+              "id": 194965,
+              "text": "{tex}\\frac{{63}}{{64}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{63}}{{64}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194967,
+              "text": "{tex}\\frac{{37}}{{64}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{37}}{{64}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194966,
+              "text": "{tex}\\frac{{21}}{{64}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{21}}{{64}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194968,
+              "text": "{tex}\\frac{{49}}{{64}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{49}}{{64}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{63}}{{64}}{/tex}",
+          "correct_option_ids": [
+            194965
+          ],
+          "explanation": "p = probability of success = {tex}\\frac{3}{6}{/tex} = {tex}\\frac{1}{2}{/tex} , q = probability of failure = 1 &ndash; p = 1 &ndash; {tex}\\frac{1}{2}{/tex} = {tex}\\frac{1}{2}{/tex} . Let x be the number of successes, then x has the binomial distribution with: n = 6, p = {tex}\\frac{1}{2}{/tex} , q = {tex}\\frac{1}{2}{/tex} . {tex}\\therefore p(x = r) = {}^n{C_r}{q^{n - r}}{p^r}{/tex} P(atmost 5 successes) = P (x {tex}\\le{/tex} 5) = 1 - P(x > 5 = 1 &ndash; P(x = 6) = {tex}1 - {}^6{C_6}{\\left( {\\frac{1}{2}} \\right)^{6 - 6}}{\\left( {\\frac{1}{2}} \\right)^6} = 1 - \\frac{1}{{64}} = \\frac{{63}}{{64}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59946,
+          "question_text": "A pair of dice is thrown 4 times. If getting a doublet is considered a success, find the probability of two successes.",
+          "question_html": "<p>A pair of dice is thrown 4 times. If getting a doublet is considered a success, find the probability of two successes.</p>",
+          "options": [
+            {
+              "id": 194969,
+              "text": "{tex}\\frac{{25}}{{216}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{25}}{{216}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194972,
+              "text": "{tex}\\frac{{41}}{{216}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{41}}{{216}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194970,
+              "text": "{tex}\\frac{{19}}{{216}}\\;{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{19}}{{216}}\\;{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194971,
+              "text": "{tex}\\frac{{37}}{{216}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{37}}{{216}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{25}}{{216}}{/tex}",
+          "correct_option_ids": [
+            194969
+          ],
+          "explanation": "When a die is tossed, then the doublets are {(1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6)}. Therefore, probability of getting doublet = p = {tex}{\\text{ }}\\frac{6}{{36}}{\\text{ }} = {\\text{ }}\\frac{1}{6}{/tex} and q = 1 &ndash; {tex}{\\text{ }}\\frac{1}{6}{/tex} = {tex}\\frac{5}{6}{/tex} . Let x be the number of successes, then x has the binomial distribution with: n = 4, p = {tex}{\\text{ }}\\frac{1}{6}{/tex} , q = {tex}\\frac{5}{6}{/tex} . {tex}\\therefore p(x = r) = {}^n{C_r}{q^{n - r}}{p^r}{/tex} . P (2 successes) = P (x = 2) = {tex}{}^4{C_2}{\\left( {\\frac{5}{6}} \\right)^{4 - 2}}{\\left( {\\frac{1}{6}} \\right)^2} = \\frac{{25}}{{216}}{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59947,
+          "question_text": "Five cards are drawn successively with replacement from a well-shuffled deck of 52 cards. What is the probability that all the five cards are spades?",
+          "question_html": "<p>Five cards are drawn successively with replacement from a well-shuffled deck of 52 cards. What is the probability that all the five cards are spades?</p>",
+          "options": [
+            {
+              "id": 194975,
+              "text": "{tex}\\frac{5}{{1024}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{5}{{1024}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194976,
+              "text": "{tex}\\frac{7}{{1024}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{7}{{1024}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194973,
+              "text": "{tex}\\frac{1}{{1024}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{{1024}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194974,
+              "text": "{tex}\\frac{3}{{1024}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{{1024}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{{1024}}{/tex}",
+          "correct_option_ids": [
+            194973
+          ],
+          "explanation": "Here , probability of getting a spade from a deck of 52 cards = {tex}\\frac{13}{52}{/tex} = {tex}\\frac{1}{4}{/tex} . p = {tex}\\frac{1}{4}{/tex} , q = {tex}\\frac{3}{4}{/tex} . let , x is the number of spades, then x has the binomial distribution with n = 5 , p = {tex}\\frac{1}{4}{/tex} , q = {tex}\\frac{3}{4}{/tex} . P(all 5 cards are spades)= P (x = 5) = {tex}{}^5{C_5}{\\left( {\\frac{3}{4}} \\right)^0}{\\left( {\\frac{1}{4}} \\right)^5} = \\frac{1}{{1024}}{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59948,
+          "question_text": "Five cards are drawn successively with replacement from a well &ndash; shuffled deck of 52 cards. What is the probability that only 3 cards are spades?",
+          "question_html": "<p>Five cards are drawn successively with replacement from a well &ndash; shuffled deck of 52 cards. What is the probability that only 3 cards are spades?</p>",
+          "options": [
+            {
+              "id": 194979,
+              "text": "{tex}\\frac{{57}}{{512}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{57}}{{512}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194977,
+              "text": "{tex}\\frac{{45}}{{512}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{45}}{{512}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194980,
+              "text": "{tex}\\frac{{77}}{{512}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{77}}{{512}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194978,
+              "text": "{tex}\\frac{{41}}{{512}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{41}}{{512}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{45}}{{512}}{/tex}",
+          "correct_option_ids": [
+            194977
+          ],
+          "explanation": "Here, probability of getting a spade from a deck of 52 cards = {tex}\\frac{13}{52}{/tex} = {tex}\\frac{1}{4}{/tex} . p = {tex}\\frac{1}{4}{/tex} , q = {tex}\\frac{3}{4}{/tex} . let, x is the number of spades, then x has the binomial distribution with n = 5, p = {tex}\\frac{1}{4}{/tex} , q = {tex}\\frac{3}{4}{/tex} . P(only 3 cards are spades) = P(x = 3) = {tex}{}^5{C_3}{\\left( {\\frac{3}{4}} \\right)^{5 - 3}}{\\left( {\\frac{1}{4}} \\right)^3} = \\frac{{45}}{{512}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59949,
+          "question_text": "Five cards are drawn successively with replacement from a well-shuffled deck of 52 cards. What is the probability that none is a spade?",
+          "question_html": "<p>Five cards are drawn successively with replacement from a well-shuffled deck of 52 cards. What is the probability that none is a spade?</p>",
+          "options": [
+            {
+              "id": 194983,
+              "text": "{tex}\\frac{{237}}{{1024}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{237}}{{1024}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194984,
+              "text": "{tex}\\frac{{249}}{{1024}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{249}}{{1024}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194981,
+              "text": "{tex}\\frac{{243}}{{1024}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{243}}{{1024}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194982,
+              "text": "{tex}\\frac{{217}}{{1024}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{217}}{{1024}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{243}}{{1024}}{/tex}",
+          "correct_option_ids": [
+            194981
+          ],
+          "explanation": "Here, the probability of getting a spade from a deck of 52 cards = {tex}\\frac{13}{52}{/tex} = {tex}\\frac{1}{4}{/tex} . p = {tex}\\frac{1}{4}{/tex} , q = {tex}\\frac{3}{4}{/tex} Let, x is the number of spades, then x has the binomial distribution with n = 5, p = {tex}\\frac{1}{4}{/tex} , q = {tex}\\frac{3}{4}{/tex} . P(none is a spade) = P(x = 0) = {tex}{}^5{C_0}{\\left( {\\frac{3}{4}} \\right)^{5 - 0}}{\\left( {\\frac{1}{4}} \\right)^0} = \\frac{{243}}{{1024}}{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59950,
+          "question_text": "On a multiple choice examination with three possible answers for each of the five questions, what is the probability that a candidate would get four or more correct answers just by guessing?",
+          "question_html": "<p>On a multiple choice examination with three possible answers for each of the five questions, what is the probability that a candidate would get four or more correct answers just by guessing?</p>",
+          "options": [
+            {
+              "id": 194986,
+              "text": "{tex}\\frac{9}{{243}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{9}{{243}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194985,
+              "text": "{tex}\\frac{{11}}{{243}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{11}}{{243}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194987,
+              "text": "{tex}\\frac{{13}}{{243}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{13}}{{243}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194988,
+              "text": "{tex}\\frac{{17}}{{243}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{17}}{{243}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{11}}{{243}}{/tex}",
+          "correct_option_ids": [
+            194985
+          ],
+          "explanation": "Let x be the number of correct answers, then x has the binomial distribution with n = 5, p = {tex}\\frac 13{/tex} and q = {tex}\\frac 23{/tex} . Therefore , required probability = P (x &ge; 4).= P (x = 4) + P (x = 5). {tex} = {}^5{C_4}{\\left( {\\frac{2}{3}} \\right)^{5 - 4}}{\\left( {\\frac{1}{3}} \\right)^4} + {}^5{C_5}{\\left( {\\frac{2}{3}} \\right)^{5 - 5}}{\\left( {\\frac{1}{3}} \\right)^5} = \\frac{{11}}{{243}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59951,
+          "question_text": "Find the probability of getting 5 exactly twice in 7 throws of a die.",
+          "question_html": "<p>Find the probability of getting 5 exactly twice in 7 throws of a die.</p>",
+          "options": [
+            {
+              "id": 194992,
+              "text": "{tex}\\frac{5}{{12}}{\\left( {\\frac{5}{6}} \\right)^5}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{5}{{12}}{\\left( {\\frac{5}{6}} \\right)^5}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194991,
+              "text": "{tex}\\frac{7}{{12}}{\\left( {\\frac{1}{6}} \\right)^5}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{7}{{12}}{\\left( {\\frac{1}{6}} \\right)^5}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194990,
+              "text": "{tex}\\frac{7}{{12}}{\\left( {\\frac{5}{6}} \\right)^4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{7}{{12}}{\\left( {\\frac{5}{6}} \\right)^4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194989,
+              "text": "{tex}\\frac{7}{{12}}{\\left( {\\frac{5}{6}} \\right)^5}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{7}{{12}}{\\left( {\\frac{5}{6}} \\right)^5}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{7}{{12}}{\\left( {\\frac{5}{6}} \\right)^5}{/tex}",
+          "correct_option_ids": [
+            194989
+          ],
+          "explanation": "Probability of getting 5 on throwing a die = {tex}\\frac{1}{6}{/tex} . Therefore, p = {tex}\\frac{1}{6}{/tex} and q = {tex}\\frac{5}{6}{/tex} . We have n = 7, then using binomial distribution , Required probability = P (x = 2) {tex} = {}^7{C_2}{\\left( {\\frac{5}{6}} \\right)^{7 - 2}}{\\left( {\\frac{1}{6}} \\right)^2} = \\frac{7}{{12}}{\\left( {\\frac{5}{6}} \\right)^5}{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59952,
+          "question_text": "Find the probability of throwing at most 2 sixes in 6 throws of a single die.",
+          "question_html": "<p>Find the probability of throwing at most 2 sixes in 6 throws of a single die.</p>",
+          "options": [
+            {
+              "id": 194993,
+              "text": "{tex}\\frac{{35}}{{18}}{\\left( {\\frac{5}{6}} \\right)^4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{35}}{{18}}{\\left( {\\frac{5}{6}} \\right)^4}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194995,
+              "text": "{tex}{\\left( {\\frac{5}{6}} \\right)^4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\left( {\\frac{5}{6}} \\right)^4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194994,
+              "text": "{tex}\\frac{{35}}{{18}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{35}}{{18}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194996,
+              "text": "{tex}\\frac{{35}}{{19}}{\\left( {\\frac{5}{6}} \\right)^3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{35}}{{19}}{\\left( {\\frac{5}{6}} \\right)^3}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{35}}{{18}}{\\left( {\\frac{5}{6}} \\right)^4}{/tex}",
+          "correct_option_ids": [
+            194993
+          ],
+          "explanation": "Probability of getting 6 = {tex}\\frac{1}{6}{/tex} . Therefore, p = {tex}\\frac{1}{6}{/tex} and q = {tex}\\frac{5}{6}{/tex} . Using binomial distribution with n = 6, we have the required probability: = P(x {tex}\\le{/tex} 2) = P (x = 0) + P (x = 1) + P (x = 2) {tex} = {}^6{C_0}{\\left( {\\frac{5}{6}} \\right)^{6 - 0}}{\\left( {\\frac{1}{6}} \\right)^0} + {}^6{C_1}{\\left( {\\frac{5}{6}} \\right)^{6 - 1}}{\\left( {\\frac{1}{6}} \\right)^1} + {}^6{C_2}{\\left( {\\frac{5}{6}} \\right)^{6 - 2}}{\\left( {\\frac{1}{6}} \\right)^2} = \\frac{{35}}{{18}}{\\left( {\\frac{5}{6}} \\right)^4}{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59953,
+          "question_text": "In a box containing 100 bulbs, 10 are defective. The probability that out of a sample of 5 bulbs, none is defective is",
+          "question_html": "<p>In a box containing 100 bulbs, 10 are defective. The probability that out of a sample of 5 bulbs, none is defective is</p>",
+          "options": [
+            {
+              "id": 195000,
+              "text": "{tex}\\frac{9}{{10}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{9}{{10}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194999,
+              "text": "{tex}{\\left( {\\frac{1}{2}} \\right)^5}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\left( {\\frac{1}{2}} \\right)^5}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194997,
+              "text": "{tex}{\\left( {\\frac{9}{{10}}} \\right)^5}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\left( {\\frac{9}{{10}}} \\right)^5}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194998,
+              "text": "0.1",
+              "html": "0.1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}{\\left( {\\frac{9}{{10}}} \\right)^5}{/tex}",
+          "correct_option_ids": [
+            194997
+          ],
+          "explanation": "Probability of defective bulbs = p = {tex}\\frac{10}{100}=\\frac{1}{10}{/tex} Probability of non defective bulb = q = {tex}1-\\frac{1}{10}=\\frac{9}{10}{/tex} Let x be the number of defective bulbs. Therefore, x is the binomial distribution with n = 5 , p = {tex}\\frac{1}{10}{/tex} , q = {tex}\\frac{9}{10}{/tex} . Required probability = P (x = 0) {tex} = {}^5{C_0}{\\left( {\\frac{9}{{10}}} \\right)^5}{\\left( {\\frac{1}{{10}}} \\right)^0} = {\\left( {\\frac{9}{{10}}} \\right)^5}{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59937,
+          "question_text": "Two numbers are selected at random (without replacement) from the first six positive integers. Let X denote the larger of the two numbers obtained. Find E(X).",
+          "question_html": "<p>Two numbers are selected at random (without replacement) from the first six positive integers. Let X denote the larger of the two numbers obtained. Find E(X).</p>\r\n",
+          "options": [
+            {
+              "id": 194936,
+              "text": "{tex}\\frac{{16}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{16}}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194935,
+              "text": "{tex}\\frac{{11}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{11}}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 194933,
+              "text": "{tex}\\frac{{14}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{14}}{3}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 194934,
+              "text": "{tex}\\frac{{10}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{10}}{3}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{14}}{3}{/tex}",
+          "correct_option_ids": [
+            194933
+          ],
+          "explanation": "The first 6 positive integers are 1, 2, 3, 4, 5, 6. As 1 is the smallest positive integer. Therefore, X = 2, 3, 4, 5, 6. P (X = 2) = P{(1, 2) or (2, 1)} = {tex}\\frac{1}{6}\\times\\frac{1}{5}+\\frac{1}{6}\\times \\frac{1}{5}=\\frac{2}{30}{/tex} P(X = 3) = P{(number < 3, 3) or (3, number < 3)} {tex}=\\frac{2}{6}\\times\\frac{1}{5}+\\frac{1}{6}\\times \\frac{2}{5}=\\frac{4}{30}{/tex} P(X = 4) = P{(number < 4, 4) or (4, number < 4)} {tex}=\\frac{3}{6}\\times\\frac{1}{5}+\\frac{1}{6}\\times \\frac{3}{5}=\\frac{6}{30}{/tex} P(X = 5) = P{(number < 5, 5) or (5, number < 5)} {tex}=\\frac{4}{6}\\times\\frac{1}{5}+\\frac{1}{6}\\times \\frac{4}{5}=\\frac{8}{30}{/tex} P(X = 6) = P{(number < 6, 6) or (6, number < 6)} {tex}=\\frac{5}{6}\\times\\frac{1}{5}+\\frac{1}{6}\\times \\frac{5}{5}=\\frac{10}{30}{/tex} Therefore, the probability distribution is: X 2 3 4 5 6 P(X) {tex}\\frac{2}{30}{/tex} {tex}\\frac{4}{30}{/tex} {tex}\\frac{6}{30}{/tex} {tex}\\frac{8}{30}{/tex} {tex}\\frac{10}{30}{/tex} Therefore, Expectations of X: E(X) = {tex}\\sum\\limits_{i = 1}^n {{X_i}P({X_i})}{/tex} = {tex}2 \\times \\frac{2}{30}+3 \\times \\frac{4}{30}+4 \\times \\frac{6}{30}+5 \\times \\frac{8}{30}+6 \\times \\frac{10}{30}{/tex} = {tex}\\frac{140}{30}=\\frac{14}{3}{/tex} which is the required solution.",
+          "solution": ""
+        }
+      ]
+    }
+  ],
+  "totalQuestions": 75
+}

@@ -1,0 +1,2891 @@
+{
+  "chapter": "Application of Integrals",
+  "chapter_id": 1292,
+  "tests": [
+    {
+      "test_id": 3623,
+      "test_name": " Applications of Integrals Test-01",
+      "is_paid": false,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59505,
+          "question_text": "The area enclosed by the ellipse {tex}\\frac{{{x^2}}}{{{a^2}}} + \\frac{{{y^2}}}{{{b^2}}} = 1{/tex} is equal to",
+          "question_html": "<p>The area enclosed by the ellipse <span class=\"math-tex\">{tex}\\frac{{{x^2}}}{{{a^2}}} + \\frac{{{y^2}}}{{{b^2}}} = 1{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 193207,
+              "text": "{tex}\\pi ab{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi ab{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193208,
+              "text": "{tex}\\pi^2{/tex} ab",
+              "html": "<span class=\"math-tex\">{tex}\\pi^2{/tex}</span>ab",
+              "is_correct": false
+            },
+            {
+              "id": 193210,
+              "text": "{tex}\\pi{/tex} ab 2",
+              "html": "<span class=\"math-tex\">{tex}\\pi{/tex}</span>ab<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 193209,
+              "text": "{tex}\\pi{/tex} a 2 b",
+              "html": "<span class=\"math-tex\">{tex}\\pi{/tex}</span>a<sup>2</sup>b",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\pi ab{/tex}",
+          "correct_option_ids": [
+            193207
+          ],
+          "explanation": "Area of standard ellipse is given by : {tex}\\pi a b.{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59506,
+          "question_text": "The area of the loop between the curve y = a sin x and the x &ndash; axis and x= 0 , {tex}x = \\pi .{/tex} is",
+          "question_html": "<p>The area of the loop between the curve y = a sin x and the x &ndash; axis and x= 0 , <span class=\"math-tex\">{tex}x = \\pi .{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193212,
+              "text": "a",
+              "html": "a",
+              "is_correct": false
+            },
+            {
+              "id": 193211,
+              "text": "2a square units",
+              "html": "2a square units",
+              "is_correct": true
+            },
+            {
+              "id": 193213,
+              "text": "3a",
+              "html": "3a",
+              "is_correct": false
+            },
+            {
+              "id": 193214,
+              "text": "4a",
+              "html": "4a",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "2a square units",
+          "correct_option_ids": [
+            193211
+          ],
+          "explanation": "Required area = {tex}\\int\\limits_0^\\pi {a\\operatorname{sinx} } dx {/tex} {tex} = a\\left[ { - \\cos x} \\right]_0^\\pi {/tex} {tex} = a( - \\cos \\pi + \\cos 0) = a(1 + 1) = 2a{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59507,
+          "question_text": "The area enclosed between the curves y = x 3 , x- axis and two ordinates x = 1 to x = 2 is [in square units]",
+          "question_html": "<p>The area enclosed between the curves y = x<sup>3</sup>, x- axis and two ordinates x = 1 to x = 2 is [in square units]</p>",
+          "options": [
+            {
+              "id": 193216,
+              "text": "{tex}\\frac{5}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{5}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193218,
+              "text": "{tex}\\frac{5}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{5}{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193215,
+              "text": "{tex}\\frac{{15}}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{15}}{4}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193217,
+              "text": "{tex}\\frac{{12}}{5}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{12}}{5}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{15}}{4}{/tex}",
+          "correct_option_ids": [
+            193215
+          ],
+          "explanation": "Required area: = {tex}\\int\\limits_1^2 {y.dx} {/tex} = {tex}∫_1^2x^3 dx{/tex} = {tex}[\\frac{x^4}{4}]_1^2{/tex} = {tex}\\frac{2^4}{4}-\\frac{1^4}{4}{/tex} = {tex}\\frac{16}{4}-\\frac{1}{4}{/tex} = {tex}\\frac{15}{4}{/tex} sq units",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59508,
+          "question_text": "Area of the region bounded by the curves y = e x , x = a , x = b and the x- axis is given by",
+          "question_html": "<p>Area of the region bounded by the curves y = e<sup>x</sup>, x = a , x = b and the x- axis is given by</p>",
+          "options": [
+            {
+              "id": 193222,
+              "text": "e b+a",
+              "html": "e<sup>b+a</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 193220,
+              "text": "e b + e a",
+              "html": "e<sup>b</sup>&nbsp;+ e<sup>a</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 193219,
+              "text": "e b - e a",
+              "html": "e<sup>b</sup>&nbsp;- e<sup>a</sup>",
+              "is_correct": true
+            },
+            {
+              "id": 193221,
+              "text": "e b-a",
+              "html": "e<sup>b-a</sup>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "e b - e a",
+          "correct_option_ids": [
+            193219
+          ],
+          "explanation": "Required area = {tex}\\int\\limits_a^b {{e^x}dx} = \\left[ {{e^x}} \\right]_a^b = {e^b} - {e^a}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59509,
+          "question_text": "AOB is the positive quadrant of the ellipse {tex}\\frac{{{x^2}}}{{{a^2}}} + \\frac{{{y^2}}}{{{b^2}}} = 1{/tex} in which OA = a and OB = b. The area between the arc AB and chord AB of the ellipse is",
+          "question_html": "<p>AOB is the positive quadrant of the ellipse <span class=\"math-tex\">{tex}\\frac{{{x^2}}}{{{a^2}}} + \\frac{{{y^2}}}{{{b^2}}} = 1{/tex}</span> in which OA = a and OB = b. The area between the arc AB and chord AB of the ellipse is</p>",
+          "options": [
+            {
+              "id": 193224,
+              "text": "{tex}\\frac{1}{4}ab(\\pi - 4){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{4}ab(\\pi - 4){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193225,
+              "text": "{tex}\\frac{1}{2}ab(\\pi + 2){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}ab(\\pi + 2){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193223,
+              "text": "{tex}\\frac{1}{4}ab(\\pi - 2){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{4}ab(\\pi - 2){/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193226,
+              "text": "{tex}\\frac{1}{4}ab(\\pi + 4){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{4}ab(\\pi + 4){/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{4}ab(\\pi - 2){/tex}",
+          "correct_option_ids": [
+            193223
+          ],
+          "explanation": "Required area := {tex}\\frac{1}{4}{/tex} area of ellipse &ndash; area of right angled triangle AOB. = {tex}\\frac{1}{4}{/tex} {tex}\\pi {/tex} ab &ndash; {tex}\\frac{1}{2}{/tex} ab = {tex}\\frac{{ab}}{4}{/tex} ( {tex}\\pi {/tex} - 2 ) .",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59510,
+          "question_text": "Area bounded by the curve y = x 3 , the x-axis and the ordinates x = -2 and x = 1 is",
+          "question_html": "<p>Area bounded by the curve y = x<sup>3</sup>, the x-axis and the ordinates x = -2 and x = 1 is</p>",
+          "options": [
+            {
+              "id": 193230,
+              "text": "6",
+              "html": "6",
+              "is_correct": false
+            },
+            {
+              "id": 193228,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 193229,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            },
+            {
+              "id": 193227,
+              "text": "{tex}\\frac{{17}}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{17}}{4}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{17}}{4}{/tex}",
+          "correct_option_ids": [
+            193227
+          ],
+          "explanation": "Required area {tex}\\int\\limits_{ - 2}^1 {{x^3}dx}{/tex} = {tex}\\int\\limits_{ - 2}^0 {{x^3}dx}{/tex} + {tex}\\int\\limits_{ 0}^1 {{x^3}dx}{/tex} = {tex}\\left[\\frac{x^4}{4}\\right]_{-2}^0{/tex} + {tex}\\left.[\\frac{x^4}{4}]\\right._{0}^1{/tex} = {tex}\\left[0-\\frac{(-2)^4}{4}\\right]{/tex} + {tex}\\left[\\frac{1}{4}-0\\right]{/tex} = {tex}\\frac{16}{4}{/tex} + {tex}\\frac{1}{4}{/tex} = {tex}\\frac{17}{4}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59511,
+          "question_text": "The area bounded by the curve y = x 3 , the x &ndash; axis and two ordinates x = 1 and x = 2 is",
+          "question_html": "<p>The area bounded by the curve y = x<sup>3</sup>, the x &ndash; axis and two ordinates x = 1 and x = 2 is</p>",
+          "options": [
+            {
+              "id": 193233,
+              "text": "{tex}\\frac{{17}}{2}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{17}}{2}{/tex}</span> sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193232,
+              "text": "{tex}\\frac{{15}}{2}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{15}}{2}{/tex}</span>sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193231,
+              "text": "{tex}\\frac{{15}}{4}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{15}}{4}{/tex}</span> sq. units",
+              "is_correct": true
+            },
+            {
+              "id": 193234,
+              "text": "{tex}\\frac{{17}}{4}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{17}}{4}{/tex}</span> sq. units",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{15}}{4}{/tex} sq. units",
+          "correct_option_ids": [
+            193231
+          ],
+          "explanation": "{tex}\\int\\limits_1^2 {\\left| y \\right|dx} = \\int\\limits_1^2 {{{\\left| x \\right|}^3}dx = \\int\\limits_1^2 {{x^3}dx} = \\left[ {\\frac{{{x^4}}}{4}} \\right]} _1^2 = \\left[ {\\frac{{16}}{4} - \\frac{1}{4}} \\right] = \\frac{{15}}{4}{/tex} sq.units.",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59512,
+          "question_text": "If A is the area between the curve y = sin2x , x &ndash; axis and the lines x = {tex}\\frac{\\pi }{4}{/tex} and x = {tex}\\frac{{3\\pi }}{4}{/tex} is :",
+          "question_html": "<p>If A is the area between the curve y = sin2x , x &ndash; axis and the lines x = <span class=\"math-tex\">{tex}\\frac{\\pi }{4}{/tex}</span> and x = <span class=\"math-tex\">{tex}\\frac{{3\\pi }}{4}{/tex}</span>&nbsp;is :</p>",
+          "options": [
+            {
+              "id": 193237,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            },
+            {
+              "id": 193235,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            },
+            {
+              "id": 193238,
+              "text": "4",
+              "html": "4",
+              "is_correct": false
+            },
+            {
+              "id": 193236,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            193235
+          ],
+          "explanation": "Required area : = {tex} \\int\\limits_{\\frac{\\pi }{4}}^{\\frac{\\pi }{2}} {ydx} + \\int\\limits_{\\frac{\\pi }{2}}^{\\frac{{3\\pi }}{4}} { - ydx} \\\\{/tex} = {tex}\\int\\limits_{\\frac{\\pi }{4}}^{\\frac{\\pi }{2}} {\\sin 2x.dx} - \\int\\limits_{\\frac{\\pi }{2}}^{\\frac{{3\\pi }}{4}} {\\sin 2x.dx} \\\\{/tex} = {tex}\\left[ {\\frac{{ - \\cos 2x}}{2}} \\right]_{\\frac{\\pi }{4}}^{\\frac{\\pi }{2}} + \\left[ {\\frac{{\\cos 2x}}{2}} \\right]_{\\frac{\\pi }{2}}^{\\frac{{3\\pi }}{4}} \\\\ {/tex} = {tex} \\frac{1}{2} + \\frac{1}{2} {/tex} = 1",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59513,
+          "question_text": "The area bounded by y = 2cosx , x = 0 to x = 2 {tex}\\pi{/tex} and the axis of x in square units is -",
+          "question_html": "<p>The area bounded by y = 2cosx , x = 0 to x = 2<span class=\"math-tex\">{tex}\\pi{/tex}</span> and the axis of x in square units is -</p>",
+          "options": [
+            {
+              "id": 193239,
+              "text": "8",
+              "html": "8",
+              "is_correct": true
+            },
+            {
+              "id": 193242,
+              "text": "7",
+              "html": "7",
+              "is_correct": false
+            },
+            {
+              "id": 193241,
+              "text": "6",
+              "html": "6",
+              "is_correct": false
+            },
+            {
+              "id": 193240,
+              "text": "4",
+              "html": "4",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "8",
+          "correct_option_ids": [
+            193239
+          ],
+          "explanation": "Required area: = {tex}\\int\\limits_0^{\\frac{\\pi }{2}} {ydx} \\\\ {/tex} = {tex}\\int\\limits_0^{\\frac{\\pi }{2}} {2\\cos xdx} \\\\ {/tex} = {tex} \\left[ {2\\sin x} \\right]_0^{\\frac{\\pi }{2}} {/tex} = 2 Therefore, total area from x = 0 to x = 2 {tex}\\pi {/tex} is 4 {tex}\\times{/tex} 2 = 8 sq. units.",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59514,
+          "question_text": "The area of the figure bounded by the curve y = log e x , the x &ndash; axis and the straight line x = e is",
+          "question_html": "<p>The area of the figure bounded by the curve y = log<sub>e</sub>x&nbsp;, the x &ndash; axis and the straight line x = e is</p>",
+          "options": [
+            {
+              "id": 193245,
+              "text": "5 - e",
+              "html": "5 - e",
+              "is_correct": false
+            },
+            {
+              "id": 193244,
+              "text": "3 + e",
+              "html": "3 + e",
+              "is_correct": false
+            },
+            {
+              "id": 193246,
+              "text": "3 - e",
+              "html": "3 -&nbsp;e",
+              "is_correct": false
+            },
+            {
+              "id": 193243,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            193243
+          ],
+          "explanation": "Required area : {tex} \\int\\limits_1^e {{{\\log }_e}xdx} \\\\ {/tex} = {tex}\\left[ {x\\log x - x} \\right]_1^e \\\\{/tex} = {tex} (e\\log e - e){/tex} - {tex}(1\\log 1 - 1) {/tex} = 1",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59515,
+          "question_text": "The area enclosed by the curve {tex}y = 2\\sqrt {1 - {x^2}} ,x \\in \\left[ {0,1} \\right]{/tex} is",
+          "question_html": "<p>The area enclosed by the curve <span class=\"math-tex\">{tex}y = 2\\sqrt {1 - {x^2}} ,x \\in \\left[ {0,1} \\right]{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193247,
+              "text": "{tex}\\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193249,
+              "text": "{tex}\\pi {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193248,
+              "text": "{tex}\\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193250,
+              "text": "{tex}\\frac{\\pi }{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{3}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{\\pi }{2}{/tex}",
+          "correct_option_ids": [
+            193247
+          ],
+          "explanation": "Required area : = {tex}\\int\\limits_0^1 {ydx} {/tex} = {tex}\\int\\limits_0^1 {2\\sqrt {1 - {x^2}} dx} \\\\ {/tex} = {tex} 2\\left[ {\\frac{{x\\sqrt {1 - {x^2}} }}{2} + \\frac{1}{2}{{\\sin }^{ - 1}}x} \\right]_0^1 \\\\ {/tex} = {tex}2(\\frac{1}{2}{\\sin ^{ - 1}}1) {/tex} = {tex} \\frac{\\pi }{2} \\\\ {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59516,
+          "question_text": "The area of the region between the curve y = 4 &ndash;x 2 , {tex}0 \\leqslant x \\leqslant 3{/tex} and the x &ndash;axis is equal to",
+          "question_html": "<p>The area of the region between the curve y = 4 &ndash;x<sup>2</sup>&nbsp;,&nbsp;<span class=\"math-tex\">{tex}0 \\leqslant x \\leqslant 3{/tex}</span> and the x &ndash;axis is equal to</p>",
+          "options": [
+            {
+              "id": 193254,
+              "text": "{tex}\\frac{7}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{7}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193253,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            },
+            {
+              "id": 193252,
+              "text": "{tex}\\frac{{16}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{16}}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193251,
+              "text": "{tex}\\frac{{23}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{23}}{3}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{23}}{3}{/tex}",
+          "correct_option_ids": [
+            193251
+          ],
+          "explanation": "y = {tex}4 - {x^2} > 0 \\Rightarrow - 2 < x < 2 \\\\{/tex} And {tex}y = 4 - {x^2} < 0 \\Rightarrow x < - 2 {/tex} or x > 2 Required area: = {tex}\\int\\limits_0^2 {(4 - {x^2})dx} + \\left| {\\int\\limits_2^3 {(4 - {x^2})} dx} \\right| \\\\ {/tex} = {tex}\\frac{{16}}{3} + \\left| { - \\frac{7}{3}} \\right| \\\\{/tex} = {tex} \\frac{{23}}{3}{/tex} sq.units",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59517,
+          "question_text": "The area bounded by the curve |x|+ y = 1 and the x-axis is",
+          "question_html": "<p>The area bounded by the curve |x|+&nbsp;y = 1&nbsp;and the x-axis is</p>",
+          "options": [
+            {
+              "id": 193258,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193255,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            },
+            {
+              "id": 193256,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 193257,
+              "text": "4",
+              "html": "4",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            193255
+          ],
+          "explanation": "The given curve consists of two straight lines x + y = 1 (x &ge; 0) and -x + y = 1 (x < 0) Required area: = {tex}2\\int\\limits_0^1 {ydx}{/tex} = {tex}2\\int\\limits_0^1 {(1 - \\left| x \\right|} )dx \\\\ {/tex} = {tex} 2\\int\\limits_0^1 {(1 - x)dx} {/tex} = {tex} 2\\left[ {x - \\frac{{{x^2}}}{2}} \\right]_0^1 \\\\{/tex} = 1 sq.unit",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59518,
+          "question_text": "The area of the region bounded by the ellipse {tex}\\frac{{{x^2}}}{{25}} + \\frac{{{y^2}}}{{16}} = 1{/tex} is",
+          "question_html": "<p>The area of the region bounded by the ellipse <span class=\"math-tex\">{tex}\\frac{{{x^2}}}{{25}} + \\frac{{{y^2}}}{{16}} = 1{/tex}</span>is</p>",
+          "options": [
+            {
+              "id": 193261,
+              "text": "16 {tex}\\pi^2{/tex} sq. units",
+              "html": "16<span class=\"math-tex\">{tex}\\pi^2{/tex}</span> sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193260,
+              "text": "20 {tex}\\pi^2{/tex} sq. units",
+              "html": "20<span class=\"math-tex\">{tex}\\pi^2{/tex}</span> sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193262,
+              "text": "25 {tex}\\pi {/tex} sq. units",
+              "html": "25<span class=\"math-tex\">{tex}\\pi {/tex}</span> sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193259,
+              "text": "20 {tex}\\pi {/tex} sq. units",
+              "html": "20<span class=\"math-tex\">{tex}\\pi {/tex}</span> sq. units",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "20 {tex}\\pi {/tex} sq. units",
+          "correct_option_ids": [
+            193259
+          ],
+          "explanation": "The area of the standard ellipse is given by ; {tex}\\pi a b.{/tex} Here, a = 5 and b = 4 Therefore, the area of curve is {tex}\\pi \\left( 5 \\right)\\left( 4 \\right) = 20\\pi .{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59519,
+          "question_text": "The area of the curve x 2 + y 2 = 2ax is",
+          "question_html": "<p>The area of the curve x<sup>2</sup>&nbsp;+ y<sup>2</sup>&nbsp;= 2ax is</p>",
+          "options": [
+            {
+              "id": 193263,
+              "text": "{tex}\\pi {a^2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi {a^2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193265,
+              "text": "{tex}4\\pi {a^2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}4\\pi {a^2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193266,
+              "text": "{tex}3\\pi {a^2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}3\\pi {a^2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193264,
+              "text": "{tex}2\\pi {a^2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2\\pi {a^2}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\pi {a^2}{/tex}",
+          "correct_option_ids": [
+            193263
+          ],
+          "explanation": "Given equation is of a circle; (x - a) 2 + y 2 = a 2 Its radius is equal to a. Therefore required area is = {tex}\\pi {a^2}.{/tex}",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3624,
+      "test_name": "Applications of Integrals Test-02",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59520,
+          "question_text": "The area bounded by the curve y = 4x - x 2 and the x- axis is equal to",
+          "question_html": "<p>The area bounded by the curve y = 4x - x<sup>2</sup> and the x- axis is equal to</p>",
+          "options": [
+            {
+              "id": 193270,
+              "text": "{tex}\\frac{{30}}{7}{\\text{ }}sq.{\\text{ }}units{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{30}}{7}{\\text{ }}sq.{\\text{ }}units{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193268,
+              "text": "{tex}\\frac{{31}}{7}{\\text{ }}sq.{\\text{ }}units{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{31}}{7}{\\text{ }}sq.{\\text{ }}units{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193269,
+              "text": "{tex}\\frac{{34}}{3}{\\text{ }}sq.{\\text{ }}units{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{34}}{3}{\\text{ }}sq.{\\text{ }}units{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193267,
+              "text": "{tex}\\frac{{32}}{3}{\\text{ }}sq.{\\text{ }}units{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{32}}{3}{\\text{ }}sq.{\\text{ }}units{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{32}}{3}{\\text{ }}sq.{\\text{ }}units{/tex}",
+          "correct_option_ids": [
+            193267
+          ],
+          "explanation": "For x &ndash; axis , y = 0, Therefore, {tex}4x{\\text{ }}-{\\text{ }}{x^2} = {\\text{ }}0\\;{/tex} Therefore , x = 0 or x = 4. Required area : {tex}\\int\\limits_0^4 {y.dx}{/tex} = {tex}\\int\\limits_0^4 {(4x - {x^2}).dx} \\\\ {/tex} = {tex}\\left[ {2{x^2} - \\frac{{{x^3}}}{3}} \\right]_0^4{/tex} = 32 - {tex}\\frac{{64}}{3}{/tex} - 0 = {tex}\\frac{{32}}{3} \\\\ {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59521,
+          "question_text": "The area bounded by the curve y 2 = x, line y = 4 and y &ndash; axis is equal to",
+          "question_html": "<p>The area bounded by the curve y<sup>2</sup>= x, line y = 4&nbsp;and y &ndash; axis is equal to</p>",
+          "options": [
+            {
+              "id": 193274,
+              "text": "none of these",
+              "html": "none of these",
+              "is_correct": false
+            },
+            {
+              "id": 193271,
+              "text": "{tex}\\frac{{64}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{64}}{3}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193273,
+              "text": "{tex}\\frac{{44}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{44}}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193272,
+              "text": "{tex}\\frac{{16}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{16}}{3}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{64}}{3}{/tex}",
+          "correct_option_ids": [
+            193271
+          ],
+          "explanation": "{tex}\\frac{{64}}{3}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59522,
+          "question_text": "The area bounded by y = log x , the x &ndash; axis and the ordinates x = 1 and x = 2 is",
+          "question_html": "<p>The area bounded by y = log x , the x &ndash; axis and the ordinates x = 1 and x = 2 is</p>",
+          "options": [
+            {
+              "id": 193278,
+              "text": "log 5",
+              "html": "log 5",
+              "is_correct": false
+            },
+            {
+              "id": 193276,
+              "text": "log ( {tex}\\frac{2}{e}{/tex} )",
+              "html": "log ( <span class=\"math-tex\">{tex}\\frac{2}{e}{/tex}</span> )",
+              "is_correct": false
+            },
+            {
+              "id": 193277,
+              "text": "log 4",
+              "html": "log 4",
+              "is_correct": false
+            },
+            {
+              "id": 193275,
+              "text": "{tex}\\log \\left( {\\;\\frac{4}{e}\\;} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\log \\left( {\\;\\frac{4}{e}\\;} \\right){/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\log \\left( {\\;\\frac{4}{e}\\;} \\right){/tex}",
+          "correct_option_ids": [
+            193275
+          ],
+          "explanation": "Required area: = {tex}\\int\\limits_1^2 {y.dx}{/tex} = {tex} \\int\\limits_1^2 {\\log xdx} {/tex} = {tex} \\left[ {x\\log x-x} \\right]_1^2 {/tex} = 2 log 2 - 2 - log 1 + 1 = 2 log 2 - 1 = 2 log 2 - log e = log 4 - log e = {tex}\\log \\left( {\\frac{4}{e}} \\right) {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59523,
+          "question_text": "Area lying in the first quadrant and bounded by the circle x 2 + y 2 = 4 and the line x = y {tex}\\sqrt 3 {/tex} is",
+          "question_html": "<p>Area lying in the first quadrant and bounded by the circle x<sup>2</sup>&nbsp;+ y<sup>2</sup>&nbsp;= 4 and the line x = y<span class=\"math-tex\">{tex}\\sqrt 3 {/tex}</span>&nbsp;is</p>",
+          "options": [
+            {
+              "id": 193282,
+              "text": "{tex}\\frac{\\pi }{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193280,
+              "text": "{tex}\\frac{\\pi }{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193281,
+              "text": "{tex}\\pi{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193279,
+              "text": "{tex}\\frac{\\pi }{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{3}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{\\pi }{3}{/tex}",
+          "correct_option_ids": [
+            193279
+          ],
+          "explanation": "The given circle is x 2 + y 2 = 4&hellip;.(1) Its centre is (0,0) and radius = 2. The given line is x = {tex}\\sqrt 3 {/tex} y &hellip;&hellip;&hellip;.(2) Therefore, we have When y = 1, x = {tex}\\sqrt 3 {/tex} . The required area is: {tex}\\int\\limits_0^{\\sqrt 3 } {\\frac{x}{{\\sqrt 3 }}dx} + \\int\\limits_{\\sqrt 3 }^2 {\\sqrt {4 - {x^2}} dx} \\\\{/tex} = {tex} \\frac{1}{{\\sqrt 3 }}\\left[ {\\frac{{{x^2}}}{2}} \\right]_0^{\\sqrt 3 } \\\\ {/tex} + {tex}\\left[ {\\frac{{x\\sqrt {4 - {x^2}} }}{2} + \\frac{4}{2}{{\\sin }^{ - 1}}\\left( {\\frac{x}{2}} \\right)} \\right]_{\\sqrt 3 }^2 \\\\{/tex} = {tex}\\frac{\\pi }{3} \\\\{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59524,
+          "question_text": "The area of the circle x 2 + y 2 = 16 exterior to the parabola y 2 = 6x is",
+          "question_html": "<p>The area of the circle x<sup>2</sup> + y<sup>2</sup> = 16 exterior to the parabola y<sup>2</sup> = 6x is</p>",
+          "options": [
+            {
+              "id": 193285,
+              "text": "{tex}\\frac{{4(4\\pi + \\sqrt 3 )}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{4(4\\pi + \\sqrt 3 )}}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193286,
+              "text": "{tex}\\frac{{4(8\\pi + \\sqrt 3 )}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{4(8\\pi + \\sqrt 3 )}}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193284,
+              "text": "{tex}\\frac{{4(4\\pi - \\sqrt 3 )}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{4(4\\pi - \\sqrt 3 )}}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193283,
+              "text": "{tex}\\frac{{4(8\\pi - \\sqrt 3 )}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{4(8\\pi - \\sqrt 3 )}}{3}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{4(8\\pi - \\sqrt 3 )}}{3}{/tex}",
+          "correct_option_ids": [
+            193283
+          ],
+          "explanation": "Required area : {tex}4\\int\\limits_0^4 {\\sqrt {16 - {x^2}} dx}{/tex} - {tex}∫_0^2√6x dx+∫_2^4√(16-x^2 ) dx{/tex} = {tex}4\\left[ {\\frac{{x\\sqrt {16 - {x^2}} }}{2} + \\frac{{16}}{2}{{\\sin }^{ - 1}}\\frac{x}{4}} \\right]_0^4 - {/tex} {tex}2\\sqrt 6 \\left[ {\\frac{{{x^{3/2}}}}{{3/2}}} \\right]_0^2 \\\\ {/tex} {tex}-2\\left[ {\\frac{{x\\sqrt {16 - {x^2}} }}{2} \\\\ + \\frac{{16}}{2}{{\\sin }^{ - 1}}\\frac{x}{4}} \\right]_0^4 \\\\ {/tex} = {tex}\\frac{4}{3}(8\\pi - \\sqrt 3 ) \\\\{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59525,
+          "question_text": "Area bounded by the curves satisfying the conditions {tex}\\frac{{{x^2}}}{{25}} + \\frac{{{y^2}}}{{36}} \\leqslant 1 \\leqslant \\frac{x}{5} + \\frac{y}{6}{/tex} is given by",
+          "question_html": "<p>Area bounded by the curves satisfying the conditions <span class=\"math-tex\">{tex}\\frac{{{x^2}}}{{25}} + \\frac{{{y^2}}}{{36}} \\leqslant 1 \\leqslant \\frac{x}{5} + \\frac{y}{6}{/tex}</span> is given by</p>",
+          "options": [
+            {
+              "id": 193290,
+              "text": "30 ( {tex}\\frac{\\pi}{2}{/tex} - 1) sq. units",
+              "html": "30 (<span class=\"math-tex\">{tex}\\frac{\\pi}{2}{/tex}</span> - 1) sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193288,
+              "text": "{tex}\\frac{{15}}{4}{/tex} ( {tex}\\frac{\\pi}{2}{/tex} - 1) sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{15}}{4}{/tex}</span> (<span class=\"math-tex\">{tex}\\frac{\\pi}{2}{/tex}</span> - 1) sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193287,
+              "text": "15( {tex}\\frac{\\pi}{2}{/tex} - 1) sq. units",
+              "html": "15(<span class=\"math-tex\">{tex}\\frac{\\pi}{2}{/tex}</span> - 1) sq. units",
+              "is_correct": true
+            },
+            {
+              "id": 193289,
+              "text": "{tex}\\frac{{15}}{2}{/tex} ( {tex}\\frac{\\pi}{2}{/tex} - 1) sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{15}}{2}{/tex}</span> (<span class=\"math-tex\">{tex}\\frac{\\pi}{2}{/tex}</span>- 1) sq. units",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "15( {tex}\\frac{\\pi}{2}{/tex} - 1) sq. units",
+          "correct_option_ids": [
+            193287
+          ],
+          "explanation": "Required area: {tex} = \\int\\limits_0^5 {\\left( {\\frac{6}{5}\\sqrt {{5^2} - {x^2}} - \\frac{6}{5}(5 - x)} \\right)dx} \\\\ {/tex} {tex}= \\frac{6}{5}\\left[ {\\frac{{x\\sqrt {{5^2} - {x^2}} }}{2} + \\frac{{{5^2}}}{2}{{\\sin }^{ - 1}}\\frac{x}{5} - 5x + \\frac{{{x^2}}}{2}} \\right]_0^5 {/tex} {tex}\\\\ = \\frac{6}{5}\\left[ {0 + \\frac{{{5^2}}}{2}{{\\sin }^{ - 1}}1 - {5^2} + \\frac{{{5^2}}}{2}} \\right]_{}^{} {/tex} {tex}\\\\ - \\frac{6}{5}\\left[ {0 + \\frac{{{5^2}}}{2}{{\\sin }^{ - 1}}0 - 0 + 0} \\right]_{}^{} {/tex} {tex}\\\\ = \\frac{6}{5}\\left[ {\\frac{{{5^2}}}{2}.\\frac{\\pi }{2} - \\frac{{{5^2}}}{2} - 0} \\right] = 15\\left( {\\frac{\\pi }{2} - 1} \\right) \\\\ {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59526,
+          "question_text": "The area bounded by the parabola y = x 2 + 1 and the straight line x + y = 3 is given by",
+          "question_html": "<p>The area bounded by the parabola y = x<sup>2</sup>&nbsp;+ 1 and the straight line x + y = 3 is given by</p>",
+          "options": [
+            {
+              "id": 193294,
+              "text": "{tex}\\begin{array}{*{20}{l}} {\\frac{{35}}{4}} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {\\frac{{35}}{4}} \\end{array}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193291,
+              "text": "{tex}\\begin{array}{*{20}{l}} {\\frac{9}{2}} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {\\frac{9}{2}} \\end{array}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193293,
+              "text": "{tex}\\begin{array}{*{20}{l}} {\\frac{{25}}{4}} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {\\frac{{25}}{4}} \\end{array}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193292,
+              "text": "{tex}\\begin{array}{*{20}{l}} {\\frac{{45}}{7}} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {\\frac{{45}}{7}} \\end{array}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\begin{array}{*{20}{l}} {\\frac{9}{2}} \\end{array}{/tex}",
+          "correct_option_ids": [
+            193291
+          ],
+          "explanation": "The two curves parabola and the line meet where, 3 - x = {tex} {x^2} + 1 \\\\{/tex} {tex}\\Rightarrow {x^2} + x - 2{/tex} = 0 {tex}\\\\ \\Rightarrow x = - 2,1. \\\\ {/tex} Required area ; {tex} \\int\\limits_{ - 2}^1 {\\{ 3 - x - ({x^2} + 1)\\} dx} \\\\{/tex} = {tex}\\left[ {2x - \\frac{{{x^2}}}{2} - \\frac{{{x^3}}}{3}} \\right]_{ - 2}^1 \\\\ {/tex} = {tex}\\frac{9}{2} \\\\ {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59527,
+          "question_text": "The area bounded by the curves {tex}{y^2}{/tex} = x andy = {tex}{x^2}{/tex} is",
+          "question_html": "<p>The area bounded by the curves <span class=\"math-tex\">{tex}{y^2}{/tex}</span> = x andy = <span class=\"math-tex\">{tex}{x^2}{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193295,
+              "text": "none of these",
+              "html": "none of these",
+              "is_correct": true
+            },
+            {
+              "id": 193296,
+              "text": "1 sq. units",
+              "html": "1 sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193297,
+              "text": "{tex}\\frac23{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac23{/tex}</span>&nbsp;sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193298,
+              "text": "{tex}\\frac12{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac12{/tex}</span>&nbsp;sq. units",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "none of these",
+          "correct_option_ids": [
+            193295
+          ],
+          "explanation": "The two curves meet in ( 0 , 0 ) and ( 1, 1 ).The required area lies above the curve y = x 2 and below x = y 2 and is equal to : {tex}\\int\\limits_0^1 {\\left( {\\sqrt x - {x^2}} \\right)dx} = \\left[ {\\frac{2}{3}{x^{\\frac{3}{2}}} - \\frac{{{x^3}}}{3}} \\right]_0^1 = \\frac{2}{3} - \\frac{1}{3} = \\frac{1}{3}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59528,
+          "question_text": "The area common to the circle x 2 + y 2 = 16a 2 and the parabola y 2 = 6ax is",
+          "question_html": "<p>The area common to the circle x<sup>2</sup>&nbsp;+ y<sup>2</sup>&nbsp;= 16a<sup>2</sup>&nbsp;and the parabola y<sup>2</sup> = 6ax is</p>",
+          "options": [
+            {
+              "id": 193302,
+              "text": "{tex}\\frac{{4{a^2}}}{3}(8\\pi - \\sqrt 3 ){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{4{a^2}}}{3}(8\\pi - \\sqrt 3 ){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193300,
+              "text": "{tex}\\frac{{4{a^2}}}{3}(4\\pi - \\sqrt 3 ){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{4{a^2}}}{3}(4\\pi - \\sqrt 3 ){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193301,
+              "text": "{tex}\\frac{{4{a^2}}}{3}(8\\pi + \\sqrt 3 ){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{4{a^2}}}{3}(8\\pi + \\sqrt 3 ){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193299,
+              "text": "{tex}\\frac{{4{a^2}}}{3}(4\\pi + \\sqrt 3 ){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{4{a^2}}}{3}(4\\pi + \\sqrt 3 ){/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{4{a^2}}}{3}(4\\pi + \\sqrt 3 ){/tex}",
+          "correct_option_ids": [
+            193299
+          ],
+          "explanation": "Required area: = {tex}2\\left[ {\\int\\limits_0^{2a} {\\sqrt {6ax} dx + \\int\\limits_{2a}^{4a} {\\sqrt {16{a^2} - {x^2}} dx} } } \\right] \\\\ {/tex} = {tex}2\\sqrt{6a}\\;\\left[\\frac{x^{\\displaystyle\\frac32}}{\\displaystyle\\frac32}\\right]_0^{2a}+2\\;\\left[\\frac{x\\sqrt{16a^2-x^2\\;}}2+\\frac{16a^2}2\\sin^{-1}\\frac x{4a}\\right]_{2a}^{4a}{/tex} = {tex}\\frac{4a^2}3\\left(4\\mathrm\\pi+\\sqrt3\\right){/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59529,
+          "question_text": "The area of the region bounded by the curves y = {tex}\\left| {x - 1} \\right|{/tex} and y = 3 - {tex}\\left| x \\right|{/tex} is",
+          "question_html": "<p>The area of the region bounded by the curves y = <span class=\"math-tex\">{tex}\\left| {x - 1} \\right|{/tex}</span> and y = 3 - <span class=\"math-tex\">{tex}\\left| x \\right|{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193304,
+              "text": "2 sq. units",
+              "html": "2 sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193306,
+              "text": "6 sq. units",
+              "html": "6 sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193305,
+              "text": "3 sq.units",
+              "html": "3 sq.units",
+              "is_correct": false
+            },
+            {
+              "id": 193303,
+              "text": "4 sq. units",
+              "html": "4 sq. units",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "4 sq. units",
+          "correct_option_ids": [
+            193303
+          ],
+          "explanation": "Required area: = {tex} \\int\\limits_{ - 1}^{ - 3} {(3 - \\left| x \\right| - \\left| {x - 1} \\right|)dx} {/tex} = {tex}\\left[ {3x - \\frac{{x\\left| x \\right|}}{2} - \\frac{{(x - 1)\\left| {x - 1} \\right|}}{2}} \\right]_{ - 1}^2 {/tex} = {tex}\\left( {2 - 2 - \\frac{1}{2}} \\right) - \\left( { - 3 + \\frac{1}{2} + 2} \\right){/tex} = 4",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59530,
+          "question_text": "The area bounded by the curves y = {tex}\\left| x \\right|{/tex} - 1 and y = - {tex}\\left| x \\right|{/tex} + 1 is",
+          "question_html": "<p>The area bounded by the curves y = <span class=\"math-tex\">{tex}\\left| x \\right|{/tex}</span> - 1 and y = -<span class=\"math-tex\">{tex}\\left| x \\right|{/tex}</span> + 1 is</p>",
+          "options": [
+            {
+              "id": 193307,
+              "text": "2",
+              "html": "2",
+              "is_correct": true
+            },
+            {
+              "id": 193308,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 193310,
+              "text": "4",
+              "html": "4",
+              "is_correct": false
+            },
+            {
+              "id": 193309,
+              "text": "2 {tex}\\sqrt 2 {/tex}",
+              "html": "2<span class=\"math-tex\">{tex}\\sqrt 2 {/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "2",
+          "correct_option_ids": [
+            193307
+          ],
+          "explanation": "The graph of modulus function is V-shaped graph. Therefore , from graph , the area is = {tex}\\sqrt 2 \\times \\sqrt 2 = 2.{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59531,
+          "question_text": "The area bounded by the parabola {tex}{y^2}{/tex} = x and the straight line 2y = x is",
+          "question_html": "<p>The area bounded by the parabola <span class=\"math-tex\">{tex}{y^2}{/tex}</span> = x and the straight line 2y = x is</p>",
+          "options": [
+            {
+              "id": 193313,
+              "text": "{tex}\\frac{2}{3}sq.{\\text{ }}units{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{3}sq.{\\text{ }}units{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193314,
+              "text": "{tex}\\frac{1}{3}sq.{\\text{ }}units{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}sq.{\\text{ }}units{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193311,
+              "text": "{tex}\\frac{4}{3}sq.{\\text{ }}units{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{4}{3}sq.{\\text{ }}units{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193312,
+              "text": "1 sq. units",
+              "html": "1 sq. units",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{4}{3}sq.{\\text{ }}units{/tex}",
+          "correct_option_ids": [
+            193311
+          ],
+          "explanation": "Required area : = {tex}\\int\\limits_0^4 {\\left( {\\sqrt x - \\frac{x}{2}} \\right)} dx \\\\ {/tex} = {tex}\\frac{2}{3}\\left[ {{x^{3/2}}} \\right]_0^4 - \\frac{1}{4}\\left[ {{x^2}} \\right]_0^4 \\\\ {/tex} = {tex}\\frac{2}{3}(8) - \\frac{1}{4}(16) {/tex} = {tex}\\frac{4}{3} \\\\ {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59532,
+          "question_text": "The area bounded by the ellipse x 2 + 9y 2 = 9 and the straight line x + 3y = 3 is",
+          "question_html": "<p>The area bounded by the ellipse x<sup>2</sup>&nbsp;+ 9y<sup>2</sup>&nbsp;= 9 and the straight line x + 3y = 3 is</p>",
+          "options": [
+            {
+              "id": 193317,
+              "text": "{tex}6\\pi {/tex}",
+              "html": "<span class=\"math-tex\">{tex}6\\pi {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193315,
+              "text": "{tex} \\frac{3}{4}(\\pi - 2){/tex}",
+              "html": "<span class=\"math-tex\">{tex} \\frac{3}{4}(\\pi - 2){/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193316,
+              "text": "{tex} \\frac{4}{3}(\\pi - 2){/tex}",
+              "html": "<span class=\"math-tex\">{tex} \\frac{4}{3}(\\pi - 2){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193318,
+              "text": "{tex}9\\pi {/tex}",
+              "html": "<span class=\"math-tex\">{tex}9\\pi {/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex} \\frac{3}{4}(\\pi - 2){/tex}",
+          "correct_option_ids": [
+            193315
+          ],
+          "explanation": "Required area: = {tex}\\int\\limits_0^3 {\\left( {\\frac{1}{3}\\sqrt {{3^2} - {x^2}} - \\frac{1}{3}(3 - x)} \\right)dx} {/tex} = {tex}\\frac{1}{3}\\left[ {\\frac{{x\\sqrt {{3^2} - {x^2}} }}{2} + \\frac{{{3^2}}}{2}{{\\sin }^{ - 1}}\\frac{x}{3} - 3x + \\frac{{{x^2}}}{2}} \\right]_0^3 {/tex} = {tex}\\frac{1}{3}\\left[ {0 + \\frac{{{3^2}}}{2}{{\\sin }^{ - 1}}1 - {3^2} + \\frac{{{3^2}}}{2}} \\right]_{}^{}{/tex} - {tex} \\frac{1}{3}\\left[ {0 + \\frac{{{3^2}}}{2}{{\\sin }^{ - 1}}0 - 0 + 0} \\right]_{}^{}{/tex} = {tex}\\frac{1}{3}\\left[ {\\frac{{{3^2}}}{2}.\\frac{\\pi }{2} - \\frac{{{3^2}}}{2} - 0} \\right]{/tex} = {tex}3/4\\left( {\\pi - 2} \\right){/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59533,
+          "question_text": "The area between the hyperbola {tex}xy = {c^2}{/tex} , then x &ndash; axis and the ordinates at a and b with a > b is :",
+          "question_html": "<p>The area between the hyperbola <span class=\"math-tex\">{tex}xy = {c^2}{/tex}</span> , then x &ndash; axis and the ordinates at a and b with a &gt; b is :</p>",
+          "options": [
+            {
+              "id": 193322,
+              "text": "{tex}{c^2}\\log \\left( {a+b} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{c^2}\\log \\left( {a+b} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193321,
+              "text": "{tex}{c^2}\\log \\left( {ab} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{c^2}\\log \\left( {ab} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193320,
+              "text": "{tex}{c^2}\\log \\left( {\\frac{b}{a}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{c^2}\\log \\left( {\\frac{b}{a}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193319,
+              "text": "{tex}{c^2}\\log \\left( {\\frac{a}{b}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{c^2}\\log \\left( {\\frac{a}{b}} \\right){/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}{c^2}\\log \\left( {\\frac{a}{b}} \\right){/tex}",
+          "correct_option_ids": [
+            193319
+          ],
+          "explanation": "Required area : = {tex}\\int\\limits_b^a {\\frac{{{c^2}}}{x}} dx {/tex} = {tex}{c^2}\\left[ {\\log x} \\right]_b^a \\\\ {/tex} = {tex}{c^2}(\\log a - \\log b) \\\\ {/tex} = {tex} {c^2}log\\left( {\\frac{a}{b}} \\right) \\\\ {/tex} . Which is the required solution.",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59534,
+          "question_text": "The area of the smaller portion of the circle x 2 + y 2 = 4 cut off by the line x = 1 is",
+          "question_html": "<p>The area of the smaller portion of the circle x<sup>2</sup>&nbsp;+ y<sup>2</sup>&nbsp;= 4 cut off by the line x = 1 is</p>",
+          "options": [
+            {
+              "id": 193326,
+              "text": "{tex}\\frac{{4\\pi + \\sqrt 3 }}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{4\\pi + \\sqrt 3 }}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193323,
+              "text": "{tex}\\frac{{4\\pi - 3\\sqrt 3 }}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{4\\pi - 3\\sqrt 3 }}{3}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193325,
+              "text": "{tex}\\frac{{4\\pi + 3\\sqrt 3 }}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{4\\pi + 3\\sqrt 3 }}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193324,
+              "text": "{tex}\\frac{{4\\pi - \\sqrt 3 }}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{4\\pi - \\sqrt 3 }}{3}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{4\\pi - 3\\sqrt 3 }}{3}{/tex}",
+          "correct_option_ids": [
+            193323
+          ],
+          "explanation": "Required area: = {tex} 2\\int\\limits_1^2 {\\sqrt {4 - {x^2}} dx} \\\\ {/tex} = {tex}2\\left[\\frac{x\\sqrt{4-x^2}}2+\\frac42\\sin^{-1}\\left(\\frac x2\\right)\\right]_1^2{/tex} = {tex}2\\left[\\frac42\\sin^{-1}\\left(1\\right)-\\frac{\\sqrt3}2-\\frac42\\sin^{-1}\\left(\\frac12\\right)\\right]{/tex} = {tex}\\frac{{4\\pi - 3\\sqrt 3 }}{3} \\\\{/tex}",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3625,
+      "test_name": "Applications of Integrals Test-03",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59535,
+          "question_text": "The area of the smaller segment cut off from the circle x 2 + y 2 = 9 by x = 1 is",
+          "question_html": "<p>The area of the smaller segment cut off from the circle x<sup>2</sup>&nbsp;+ y<sup>2</sup>&nbsp;= 9 by x = 1 is</p>",
+          "options": [
+            {
+              "id": 193328,
+              "text": "{tex}\\frac{1}{2}(9{\\sec ^{ - 1}}(3) - \\sqrt x ){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}(9{\\sec ^{ - 1}}(3) - \\sqrt x ){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193327,
+              "text": "{tex}9{\\sec ^{ - 1}}(3) - \\sqrt 8 {/tex}",
+              "html": "<span class=\"math-tex\">{tex}9{\\sec ^{ - 1}}(3) - \\sqrt 8 {/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193330,
+              "text": "{tex}9{\\sec ^{ - 1}}(4) + \\sqrt 8 {/tex}",
+              "html": "<span class=\"math-tex\">{tex}9{\\sec ^{ - 1}}(4) + \\sqrt 8 {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193329,
+              "text": "{tex}\\sqrt 8 - 9{\\sec ^{ - 1}}(3){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt 8 - 9{\\sec ^{ - 1}}(3){/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}9{\\sec ^{ - 1}}(3) - \\sqrt 8 {/tex}",
+          "correct_option_ids": [
+            193327
+          ],
+          "explanation": "Required area: = {tex}2\\int\\limits_1^3 {\\sqrt {9 - {x^2}} dx}{/tex} = {tex}2\\left[\\frac{x\\sqrt{9-x^2}}2+\\frac92\\sin^{-1}\\left(\\frac x3\\right)\\right]_1^3{/tex} = {tex}2\\left[\\frac92\\sin^{-1}\\left(1\\right)-\\frac{2\\sqrt2}2-\\frac92\\sin^{-1}\\left(\\frac13\\right)\\right]{/tex} = {tex}9.\\frac{\\pi }{2} - 2\\sqrt 2 - 9.{\\sin ^{ - 1}}\\left( {\\frac{1}{3}} \\right){/tex} = {tex}9\\left[ {\\frac{\\pi }{2} - {{\\sin }^{ - 1}}\\left( {\\frac{1}{3}} \\right)} \\right] - 2\\sqrt 2{/tex} = {tex}9{\\cos ^{ - 1}}\\frac{1}{3} - 2\\sqrt 2{/tex} = {tex}9{\\sec ^{ - 1}}3 - \\sqrt 8 {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59536,
+          "question_text": "The area enclosed by the curve {tex}x{y^2} = {\\text{ }}{a^2}\\left( {a{\\text{ }}-{\\text{ }}x{\\text{ }}} \\right){/tex} and the y &ndash; axis is",
+          "question_html": "<p>The area enclosed by the curve <span class=\"math-tex\">{tex}x{y^2} = {\\text{ }}{a^2}\\left( {a{\\text{ }}-{\\text{ }}x{\\text{ }}} \\right){/tex}</span> and the y &ndash; axis is</p>",
+          "options": [
+            {
+              "id": 193331,
+              "text": "{tex}\\pi {a^2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi {a^2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193332,
+              "text": "{tex}2\\pi {/tex}",
+              "html": "<span class=\"math-tex\">{tex}2\\pi {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193333,
+              "text": "{tex}\\pi {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193334,
+              "text": "{tex}3\\pi {/tex}",
+              "html": "<span class=\"math-tex\">{tex}3\\pi {/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\pi {a^2}{/tex}",
+          "correct_option_ids": [
+            193331
+          ],
+          "explanation": "Required area: = {tex}2\\int_0^aa\\sqrt{\\frac{a-x}x}dx{/tex} {tex}={/tex} {tex}2a\\int_0^a\\sqrt{\\frac{a-x}x}dx{/tex} Put {tex}x=a\\sin^2\\theta{/tex} , On differentiating, we get {tex}dx=2a\\;\\sin\\theta\\;\\cos\\theta\\;d\\theta{/tex} For Limits, at {tex}x=0,\\;\\theta=0{/tex} and at {tex}x=a,\\;\\theta=\\frac{\\mathrm\\pi}2{/tex} {tex}=2a\\int_0^\\frac{\\mathrm\\pi}2\\sqrt{\\frac{a-a\\sin^2\\theta}{a\\sin^2\\theta}}2a\\;\\sin\\theta\\;\\cos\\theta\\;d\\theta{/tex} {tex}={(2a)^2}\\int\\limits_0^{\\pi /2} {{{\\cos }^2}\\theta d\\theta } {/tex} {tex}= 2{a^2}.\\int\\limits_0^{\\pi /2} {(1 + cos2\\theta )d\\theta } {/tex} {tex} = 2{a^2}.\\left| {\\theta + \\frac{{\\sin 2\\theta }}{2}} \\right|_0^{\\pi /2} {/tex} {tex}= 2{a^2}\\left[ {\\frac{\\pi }{2} + 0 - 0} \\right] = \\pi {a^2} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59537,
+          "question_text": "The area bounded by the curves {tex}{y^2} = {x^{3\\;\\;}}and\\;\\left| y \\right| = 2x{/tex} is given by",
+          "question_html": "<p>The area bounded by the curves <span class=\"math-tex\">{tex}{y^2} = {x^{3\\;\\;}}and\\;\\left| y \\right| = 2x{/tex}</span> is given by</p>",
+          "options": [
+            {
+              "id": 193335,
+              "text": "2",
+              "html": "2",
+              "is_correct": true
+            },
+            {
+              "id": 193337,
+              "text": "{tex}\\frac{{32}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{32}}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193336,
+              "text": "{tex}\\frac{{32}}{5}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{32}}{5}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "2",
+          "correct_option_ids": [
+            193335
+          ],
+          "explanation": "Both {tex}{y^2} = {x^3}{/tex} and {tex}\\left| y \\right| = 2x\\;{/tex} are symmetric about y &ndash; axis and on solving them we get : {tex}x = 0 , \\sqrt 2 {/tex} Required area : {tex}2\\int\\limits_0^{\\sqrt 2 } {(2x - {x^3})dx} {/tex} {tex}= 2\\left[ {{x^2} - \\frac{{{x^4}}}{4}} \\right]_0^{\\sqrt 2 } = 2sq.units {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59538,
+          "question_text": "The area bounded by the curves y 2 = 4x and y = x is equal to",
+          "question_html": "<p>The area bounded by the curves y<sup>2</sup>&nbsp;= 4x and y = x is equal to</p>",
+          "options": [
+            {
+              "id": 193340,
+              "text": "{tex}\\frac{{35}}{6}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{35}}{6}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193338,
+              "text": "{tex}\\frac{8}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{8}{3}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193339,
+              "text": "{tex}\\frac{1}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193341,
+              "text": "{tex}\\frac{{39}}{6}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{39}}{6}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{8}{3}{/tex}",
+          "correct_option_ids": [
+            193338
+          ],
+          "explanation": "The two curves y 2 = 4x and y = x meet where x 2 = 4x i.e ..where x = 0 or x = 4 . Moreover, the parabola lies above the line y = x between x = 0 and x = 4 . Hence, the required area is: {tex}\\int\\limits_0^4 {\\left( {\\sqrt {4x} - x} \\right)dx} = \\int\\limits_0^4 {\\left( {2{x^{\\frac{1}{2}}} - x} \\right)} dx {/tex} {tex}= \\left[ {\\frac{{2{x^{\\frac{3}{2}}}}}{{3/2}} - \\frac{{{x^2}}}{2}} \\right]_0^4 {/tex} {tex} = \\frac{4}{3}\\left( {{4^{\\frac{3}{2}}}} \\right) - \\frac{{16}}{2} = \\frac{{32}}{3} - 8 = \\frac{8}{3} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59539,
+          "question_text": "The area included between the curves {tex}\\sqrt x + \\;\\sqrt {\\left| y \\right|} = 1{/tex} and {tex}\\left| x \\right| + \\left| y \\right| = 1{/tex} is equal to",
+          "question_html": "<p>The area included between the curves <span class=\"math-tex\">{tex}\\sqrt x + \\;\\sqrt {\\left| y \\right|} = 1{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\left| x \\right| + \\left| y \\right| = 1{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 193343,
+              "text": "{tex}\\frac{1}{6}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{6}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193344,
+              "text": "{tex}\\frac{4}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{4}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193342,
+              "text": "{tex}\\frac{2}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{3}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193345,
+              "text": "{tex}\\frac{5}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{5}{3}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{2}{3}{/tex}",
+          "correct_option_ids": [
+            193342
+          ],
+          "explanation": "Required area : {tex}=2\\int\\limits_0^1 {(2\\sqrt x - 2x)dx} {/tex} {tex}= 2\\int\\limits_0^1 {(1 - x) - {{(1 - \\sqrt x )}^2}} dx{/tex} {tex}= \\frac{2}{3}sq.units {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59540,
+          "question_text": "The area of the figure bounded by y = e x , y = e -x and the straight line x = 1 is",
+          "question_html": "<p>The area of the figure bounded by y = e<sup>x</sup>, y = e<sup>-x</sup>&nbsp; and the straight line x = 1 is</p>",
+          "options": [
+            {
+              "id": 193347,
+              "text": "e &ndash; {tex}\\frac1e{/tex}",
+              "html": "e &ndash; <span class=\"math-tex\">{tex}\\frac1e{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193348,
+              "text": "e + {tex}\\frac2e{/tex}",
+              "html": "e +&nbsp;<span class=\"math-tex\">{tex}\\frac2e{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193349,
+              "text": "e + {tex}\\frac1e{/tex}",
+              "html": "e +&nbsp;<span class=\"math-tex\">{tex}\\frac1e{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193346,
+              "text": "e + {tex}\\frac{1}{e}{/tex} - 2",
+              "html": "e + <span class=\"math-tex\">{tex}\\frac{1}{e}{/tex}</span>- 2",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "e + {tex}\\frac{1}{e}{/tex} - 2",
+          "correct_option_ids": [
+            193346
+          ],
+          "explanation": "Required area: = {tex}\\int\\limits_0^1 {({e^x} - {e^{ - x}})dx} = \\left[ {{e^x} + {e^{ - x}}} \\right]_0^1 = e + \\frac{1}{e} - 2 {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59541,
+          "question_text": "The area enclosed between the curves y = {tex}\\sqrt {x\\;\\;} ,\\;x = 2y + 3\\;{/tex} and the x-axis is",
+          "question_html": "<p>The area enclosed between the curves y = <span class=\"math-tex\">{tex}\\sqrt {x\\;\\;} ,\\;x = 2y + 3\\;{/tex}</span>and the x-axis is</p>",
+          "options": [
+            {
+              "id": 193350,
+              "text": "9",
+              "html": "9",
+              "is_correct": true
+            },
+            {
+              "id": 193352,
+              "text": "27",
+              "html": "27",
+              "is_correct": false
+            },
+            {
+              "id": 193351,
+              "text": "18",
+              "html": "18",
+              "is_correct": false
+            },
+            {
+              "id": 193353,
+              "text": "36",
+              "html": "36",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "9",
+          "correct_option_ids": [
+            193350
+          ],
+          "explanation": "The two curves meet where; {tex}\\sqrt x = \\frac{{x - 3}}{2}{/tex} ...(i) {tex}\\Rightarrow{/tex} 4x = x 2 - 6x + 9 {tex}\\Rightarrow{/tex} x 2 - 10x + 9 = 0 {tex}\\Rightarrow{/tex} x = 9,1. Therefore, the two curves meet where x = 9. Therefore, required area: {tex} =\\int\\limits_0^9 {\\sqrt x dx - \\int\\limits_3^9 {\\frac{{x - 3}}{2}dx} } = \\frac{2}{3}\\left[ {{x^{\\frac{3}{2}}}} \\right]_0^9 - \\frac{1}{2}\\left[ {\\frac{{{{(x - 3)}^2}}}{2}} \\right]_3^9 = 9 \\\\ {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59542,
+          "question_text": "The positive value of the parameter a for which the area of the figure bounded by y = sin ax , y = 0 , x = {tex}\\frac{\\pi }{a}{/tex} and {tex}x = \\frac{{\\pi \\;}}{{3a}}{/tex} is 3 is equal to",
+          "question_html": "<p>The positive value of the parameter a for which the area of the figure bounded by y = sin ax , y = 0 , x = <span class=\"math-tex\">{tex}\\frac{\\pi }{a}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}x = \\frac{{\\pi \\;}}{{3a}}{/tex}</span> is 3 is equal to</p>",
+          "options": [
+            {
+              "id": 193356,
+              "text": "{tex}\\frac{{2 + \\sqrt 3 }}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{2 + \\sqrt 3 }}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193354,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193355,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 193357,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{2}{/tex}",
+          "correct_option_ids": [
+            193354
+          ],
+          "explanation": "We have : {tex}\\int\\limits_{\\frac{\\pi }{{3a}}}^{\\frac{\\pi }{a}} {\\sin axdx} = 3 \\Rightarrow\\left[-\\frac{\\cos{\\displaystyle a}{\\displaystyle x}}a\\right]_{\\textstyle\\frac\\pi{3a}}^{\\textstyle\\frac\\pi a}=3\\Rightarrow \\frac{1}{a}\\left( {1 + \\frac{1}{2}} \\right) = 3 \\Rightarrow a = \\frac{1}{2} \\\\ {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59543,
+          "question_text": "The area bounded by the parabola y 2 = 4x and the line x + y = 3 is",
+          "question_html": "<p>The area bounded by the parabola y<sup>2</sup>&nbsp;= 4x and the line x + y = 3 is</p>",
+          "options": [
+            {
+              "id": 193359,
+              "text": "{tex}\\frac{{16}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{16}}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193360,
+              "text": "{tex}\\frac{{32}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{32}}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193361,
+              "text": "{tex}\\frac{{28}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{28}}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193358,
+              "text": "{tex}\\frac{{64}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{64}}{3}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{64}}{3}{/tex}",
+          "correct_option_ids": [
+            193358
+          ],
+          "explanation": "Required area: = {tex}\\int\\limits_{ - 6}^2 {\\left[ {\\frac{{{y^2}}}{4} - (3 - y)} \\right]} dy = \\left[ {\\frac{{{y^3}}}{{12}} - 3y + \\frac{{{y^2}}}{2}} \\right]_{ - 6}^2 = \\frac{{64}}{3} \\\\ {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59544,
+          "question_text": "The area bounded by the curve y = x 2 + 1 and the line x + y = 3 is",
+          "question_html": "<p>The area bounded by the curve&nbsp;y = x<sup>2</sup>&nbsp;+ 1 and the line x + y = 3 is</p>",
+          "options": [
+            {
+              "id": 193365,
+              "text": "{tex}\\frac{{16}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{16}}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193362,
+              "text": "{tex}\\frac{9}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{9}{2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193364,
+              "text": "{tex}\\frac{{32}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{32}}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193363,
+              "text": "{tex}\\frac{{35}}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{35}}{3}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{9}{2}{/tex}",
+          "correct_option_ids": [
+            193362
+          ],
+          "explanation": "The two curves parabola and the line meet where, 3 - x = x 2 + 1 {tex}\\Leftrightarrow{/tex} x 2 + x - 2 = 0 {tex}\\Leftrightarrow{/tex} x = - 2,1 Therefore, the required area is: {tex} \\int\\limits_{ - 2}^1 {({y_{line}} - {y_{parabola}})} dx {/tex} {tex}= \\int\\limits_{ - 2}^1 {\\left\\{ {3 - x - ({x^2} + 1)} \\right\\}dx} {/tex} {tex}= \\left[ {2x - \\frac{{{x^2}}}{2} - \\frac{{{x^3}}}{3}} \\right]_{ - 2}^1 = \\frac{9}{2} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59545,
+          "question_text": "The area of the region bounded by y = | x - 1| and y = 1 is",
+          "question_html": "<p>The area of the region bounded by y = | x - 1|&nbsp;and y = 1 is</p>",
+          "options": [
+            {
+              "id": 193366,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            },
+            {
+              "id": 193368,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193369,
+              "text": "{tex}\\frac{1}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193367,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            193366
+          ],
+          "explanation": "Required area : {tex}\\left| {\\int\\limits_0^1 {\\left[ {(x - 1) - (1 - x)} \\right]} dx} \\right| = 1{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59546,
+          "question_text": "The area bounded by the curve {tex}\\sqrt x + \\sqrt y = 1{/tex} and the coordinate axes is",
+          "question_html": "<p>The area&nbsp;bounded by the curve <span class=\"math-tex\">{tex}\\sqrt x + \\sqrt y = 1{/tex}</span> and the coordinate axes is</p>",
+          "options": [
+            {
+              "id": 193372,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 193370,
+              "text": "{tex}\\frac{1}{6}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{6}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193373,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 193371,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{6}{/tex}",
+          "correct_option_ids": [
+            193370
+          ],
+          "explanation": "The area bounded by curve and coordinates axis : {tex}\\int\\limits_0^1 {ydx} = \\int\\limits_0^1 {{{(1 - \\sqrt x )}^2}dx} = \\int\\limits_0^1 {(1 - 2\\sqrt x } + x)dx = 1 - \\frac{4}{3} + \\frac{1}{2} = \\frac{1}{6}sq.units{/tex} .Which is the required solution.",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59547,
+          "question_text": "The area of the region bounded by the curve x 2 = 4y and the straight line x = 4y - 2 is",
+          "question_html": "<p>The area of the region bounded by the curve x<sup>2</sup> = 4y and the straight line x = 4y -&nbsp;2 is</p>",
+          "options": [
+            {
+              "id": 193375,
+              "text": "{tex}\\frac{3}{8}{/tex} sq.units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{8}{/tex}</span>sq.units",
+              "is_correct": false
+            },
+            {
+              "id": 193377,
+              "text": "{tex}\\frac 78{/tex} sq.units",
+              "html": "<span class=\"math-tex\">{tex}\\frac 78{/tex}</span>&nbsp;sq.units",
+              "is_correct": false
+            },
+            {
+              "id": 193376,
+              "text": "{tex}\\frac{5}{8}{/tex} sq.units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{5}{8}{/tex}</span>&nbsp;sq.units",
+              "is_correct": false
+            },
+            {
+              "id": 193374,
+              "text": "{tex}\\frac{9}{8}{/tex} sq.units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{9}{8}{/tex}</span>&nbsp;sq.units",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{9}{8}{/tex} sq.units",
+          "correct_option_ids": [
+            193374
+          ],
+          "explanation": "Eliminating y , we get : {tex}{x^2} - x - 2 = 0 \\Rightarrow x = - 1,2{/tex} Required area : {tex}=\\int\\limits_{ - 1}^2 {\\left( {\\frac{x}{4} + \\frac{1}{2} - \\frac{{{x^2}}}{4}} \\right)} dx {/tex} {tex}= \\frac{1}{8}(4 - 1) + \\frac{3}{2} - \\frac{1}{{12}}(8 + 1) {/tex} {tex}= \\frac{3}{8} + \\frac{3}{2} - \\frac{3}{4} {/tex} {tex}= \\frac{9}{8}{/tex} sq.units",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59548,
+          "question_text": "If the area bounded by the curve y 2 = 16 x and the line y = mx is {tex}\\frac{2}{3}{/tex} , then m is equal to",
+          "question_html": "<p>If the area bounded by the curve y<sup>2</sup>&nbsp;= 16 x&nbsp;and the line y = mx is <span class=\"math-tex\">{tex}\\frac{2}{3}{/tex}</span>, then m is equal to</p>",
+          "options": [
+            {
+              "id": 193381,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 193380,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 193378,
+              "text": "4",
+              "html": "4",
+              "is_correct": true
+            },
+            {
+              "id": 193379,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "4",
+          "correct_option_ids": [
+            193378
+          ],
+          "explanation": "{tex}\\int_0^\\frac{16}{m^2}\\left[4\\sqrt x-mx\\right]dx=\\frac23{/tex} {tex}\\\\\\Rightarrow\\left[\\frac23\\left(4x^\\frac32\\right)-\\frac{mx^2}2\\right]_0^\\frac{16}{m^2}=\\frac23{/tex} {tex}\\\\\\Rightarrow\\frac83\\left(\\frac{16}{m^2}\\right)^\\frac32-\\frac m2\\left(\\frac{16}{m^2}\\right)^2=\\frac23{/tex} {tex}\\\\\\Rightarrow\\frac83\\left(\\frac{64}{m^3}\\right)-\\frac{128}{m^3}=\\frac23{/tex} {tex}\\\\\\Rightarrow\\frac1{m^3}\\left(\\frac{128}3\\right)=\\frac23{/tex} {tex}\\\\\\Rightarrow\\frac1{m^3}=\\frac1{64}{/tex} {tex}\\Rightarrow m=4{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59549,
+          "question_text": "The area of the region bunded by the curves y =|x - 2| , x = 3, x = 1 and the x &ndash; axis is",
+          "question_html": "<p>The area of the region bunded by the curves y =|x - 2| , x = 3, x = 1&nbsp;and the x &ndash; axis is</p>",
+          "options": [
+            {
+              "id": 193382,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            },
+            {
+              "id": 193384,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            },
+            {
+              "id": 193383,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 193385,
+              "text": "4",
+              "html": "4",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            193382
+          ],
+          "explanation": "Required area: {tex}\\int\\limits_1^3 {ydx} = \\int\\limits_1^3 {\\left| {x - 2} \\right|dx} {/tex} {tex}= \\int\\limits_1^2 {\\left| {x - 2} \\right|dx} + \\int\\limits_2^3 {\\left| {x - 2} \\right|dx} {/tex} {tex}= \\int\\limits_1^2 {(2 - x)dx} + \\int\\limits_2^3 {(x - 2)dx} {/tex} {tex}= \\left[ {2x - \\frac{{{x^2}}}{2}} \\right]_1^2 + \\left[ {\\frac{{{x^2}}}{2} - 2x} \\right]_2^3 = 1 {/tex}",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3626,
+      "test_name": "Applications of Integrals Test-04",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59550,
+          "question_text": "For which of the following values of m, is the area of the region bounded by the curve y = x - x 2 and the line y = mx equal to {tex}\\frac{9}{2}{/tex} ?",
+          "question_html": "<p>For which of the following values of m, is the area of the region bounded by the curve y = x - x<sup>2</sup> and the line y = mx equal to <span class=\"math-tex\">{tex}\\frac{9}{2}{/tex}</span>?</p>",
+          "options": [
+            {
+              "id": 193386,
+              "text": "-2",
+              "html": "-2",
+              "is_correct": true
+            },
+            {
+              "id": 193387,
+              "text": "-4",
+              "html": "-4",
+              "is_correct": false
+            },
+            {
+              "id": 193388,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 193389,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "-2",
+          "correct_option_ids": [
+            193386
+          ],
+          "explanation": "Required area: {tex} \\int\\limits_0^{1 - m} {(x - {x^2} - mx)dx} {/tex} {tex} = \\left[ {(1 - m)\\frac{{{x^2}}}{2} - \\frac{{{x^3}}}{3}} \\right]_0^{1 - m} {/tex} {tex} = \\frac{{{{(1 - m)}^3}}}{2} - \\frac{{{{(1 - m)}^3}}}{3} = \\frac{9}{2} {/tex} {tex}\\\\ \\Rightarrow \\frac{{{{(1 - m)}^3}}}{6} = \\frac{9}{2}{/tex} {tex} \\\\ \\Rightarrow \\\\{/tex} m = - 2",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59551,
+          "question_text": "The area bounded by the curve y = x|x|, x-axis and the ordinates x = -1 and x = 1 is given by",
+          "question_html": "<p>The area bounded by the curve y = x|x|, x-axis and the ordinates x = -1 and x = 1 is given by</p>",
+          "options": [
+            {
+              "id": 193393,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 193390,
+              "text": "{tex}\\frac{2}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{3}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193391,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193392,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{2}{3}{/tex}",
+          "correct_option_ids": [
+            193390
+          ],
+          "explanation": "Required area : {tex} = \\left| {\\int\\limits_{ - 1}^1 {x\\left| x \\right|dx} } \\right|{/tex} {tex}= \\left| {\\int\\limits_{ - 1}^0 {x\\left| x \\right|dx} + \\int\\limits_0^1 {x\\left| x \\right|dx} } \\right| {/tex} {tex}= \\left| {\\int\\limits_{ - 1}^0 { - {x^2}dx} } \\right| + \\int\\limits_0^1 {{x^2}dx} {/tex} {tex}= \\left| {\\left[ {\\frac{{ - {x^3}}}{3}} \\right]_{ - 1}^0} \\right| - \\left[ {\\frac{{{x^3}}}{3}} \\right]_0^1 {/tex} {tex}= \\frac{2}{3}{/tex} sq. units",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59552,
+          "question_text": "The area bounded by the curve y = x (x &ndash; 1) (x &ndash; 2) and the x-axis is equal to",
+          "question_html": "<p>The area bounded by the curve y = x (x &ndash; 1) (x &ndash; 2) and the x-axis is equal to</p>",
+          "options": [
+            {
+              "id": 193397,
+              "text": "2 sq.units",
+              "html": "2 sq.units",
+              "is_correct": false
+            },
+            {
+              "id": 193395,
+              "text": "1 sq.units",
+              "html": "1&nbsp;sq.units",
+              "is_correct": false
+            },
+            {
+              "id": 193394,
+              "text": "{tex}\\frac{1}{2}{/tex} sq.units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>sq.units",
+              "is_correct": true
+            },
+            {
+              "id": 193396,
+              "text": "{tex}\\frac{1}{4}{/tex} sq.units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span>sq.units",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{2}{/tex} sq.units",
+          "correct_option_ids": [
+            193394
+          ],
+          "explanation": "y = f(x) = x(x - 1)(x - 2) is +ve for x > 2, is &ndash; ve for 1 < x < 2; +ve for 0 < x < 1 , is &ndash; ve for x< 0. Required area: {tex} \\int\\limits_0^1 {ydx + \\left| {\\int\\limits_1^2 {ydx} } \\right|} {/tex} {tex} \\int\\limits_0^1 {({x^3} - 3{x^2} + 2{x}} )dx + \\left| {\\int\\limits_1^2 {({x^3} - 3{x^2} + 2{x}} )dx} \\right|{/tex} {tex}= \\left[ {\\frac{{{x^4}}}{4} - {x^3} + {x^2}} \\right]_0^1 + \\left| {\\left[ {\\frac{{{x^4}}}{4} - {x^3} + {x^2}} \\right]_1^2} \\right| {/tex} {tex} = \\frac{1}{2}{/tex} sq. units",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59553,
+          "question_text": "The area bounded by the curve y = 2x - x 2 and the line x + y = 0 is",
+          "question_html": "<p>The area bounded by the curve y = 2x - x<sup>2</sup> and the line x + y = 0 is</p>",
+          "options": [
+            {
+              "id": 193400,
+              "text": "{tex}\\frac{{19}}{6}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{19}}{6}{/tex}</span> sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193399,
+              "text": "{tex}\\frac{{35}}{6}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{35}}{6}{/tex}</span> sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193401,
+              "text": "{tex}\\frac{{22}}{6}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{22}}{6}{/tex}</span> sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193398,
+              "text": "{tex}\\frac{9}{2}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{9}{2}{/tex}</span> sq. units",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{9}{2}{/tex} sq. units",
+          "correct_option_ids": [
+            193398
+          ],
+          "explanation": "The equation y = 2x - x 2 i.e.y - 1 = - (x-1) 2 represents a downward parabola with vertex at (1,1) which meets x &ndash; axis where y = 0 .i .e . where x = 0, 2. Also , the line y = - x meets this parabola where &ndash; x = 2x - x 2 i.e. where x = 0 , 3. Therefore, required area is: {tex} \\int\\limits_0^3 {({y_{parabola}} - {y_{line}})dx} = \\int\\limits_0^3 {(2x - {x^2} - ( - x))dx} = \\left[ {\\frac{{3{x^2}}}{2} - \\frac{{{x^3}}}{3}} \\right]_0^3 = \\frac{{27}}{2} - 9 = \\frac{9}{2}{/tex} sq. units",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59554,
+          "question_text": "The area bounded by the curves {tex}y = \\sqrt x{/tex} , {tex}2y + 3 = x{/tex} and the x- axis in the first quadrant is",
+          "question_html": "<p>The area bounded by the curves <span class=\"math-tex\">{tex}y = \\sqrt x{/tex}</span>,&nbsp;<span class=\"math-tex\">{tex}2y + 3 = x{/tex}</span> and the x- axis in the first quadrant is</p>",
+          "options": [
+            {
+              "id": 193402,
+              "text": "9",
+              "html": "9",
+              "is_correct": true
+            },
+            {
+              "id": 193404,
+              "text": "25",
+              "html": "25",
+              "is_correct": false
+            },
+            {
+              "id": 193405,
+              "text": "81",
+              "html": "81",
+              "is_correct": false
+            },
+            {
+              "id": 193403,
+              "text": "36",
+              "html": "36",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "9",
+          "correct_option_ids": [
+            193402
+          ],
+          "explanation": "To find area the curves y = {tex}\\sqrt x {/tex} and x = 2y + 3 and x &ndash; axis in the first quadrant., We have ; {tex}{y^2}-{\\text{ }}2y{\\text{ }}-{\\text{ }}3{\\text{ }} = {\\text{ }}0{/tex} ,( y &ndash; 3 ) ( y + 1) = 0 . y = 3 , - 1. In first quadrant , y = 3 and x = 9. Therefore , required area is ; {tex} \\int\\limits_0^9 {\\sqrt x dx - \\int\\limits_3^9 {\\left( {\\frac{{x - 3}}{2}} \\right)} } = \\left[ {\\frac{{{x^{\\frac{3}{2}}}}}{{\\frac{3}{2}}}} \\right]_0^9 - \\frac{1}{2}\\left[ {\\frac{{{x^2}}}{2} - 3x} \\right]_3^9 = 9 \\\\ {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59555,
+          "question_text": "The area bounded by the curves y 2 = 20x and x 2 = 16y is equal to",
+          "question_html": "<p>The area bounded by the curves&nbsp;y<sup>2</sup>&nbsp;= 20x and x<sup>2</sup>&nbsp;= 16y is equal to</p>",
+          "options": [
+            {
+              "id": 193407,
+              "text": "{tex}100\\pi {\\text{ }}{/tex} sq.units",
+              "html": "<span class=\"math-tex\">{tex}100\\pi {\\text{ }}{/tex}</span>sq.units",
+              "is_correct": false
+            },
+            {
+              "id": 193408,
+              "text": "{tex}80\\pi {\\text{ }}{/tex} sq.units",
+              "html": "<span class=\"math-tex\">{tex}80\\pi {\\text{ }}{/tex}</span>sq.units",
+              "is_correct": false
+            },
+            {
+              "id": 193406,
+              "text": "{tex}\\frac{{320}}{3}{\\text{ }}{/tex} sq.units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{320}}{3}{\\text{ }}{/tex}</span>sq.units",
+              "is_correct": true
+            },
+            {
+              "id": 193409,
+              "text": "{tex}60\\pi {\\text{ }}{/tex} sq.units",
+              "html": "<span class=\"math-tex\">{tex}60\\pi {\\text{ }}{/tex}</span>sq.units",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{320}}{3}{\\text{ }}{/tex} sq.units",
+          "correct_option_ids": [
+            193406
+          ],
+          "explanation": "Eliminating y, we get: {tex}{x^4} = 256 \\times 20x{/tex} {tex} \\Rightarrow x = 0,x = 8{(10)^{\\frac{1}{3}}}{/tex} Required area: = {tex}\\int\\limits_0^{8{{(10)}^{\\frac{1}{3}}}} {\\left( {\\sqrt {20x} - \\frac{{{x^2}}}{{16}}} \\right)dx} {/tex} {tex} = \\frac{{640}}{3} - \\frac{{320}}{3} = \\frac{{320}}{3}{/tex} sq units",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59556,
+          "question_text": "The area bounded by the parabolas y = (x + 1) 2 ; and ;y = (x - 1) 2 and the line {tex}y = \\frac{1}{4}{/tex} is equal to",
+          "question_html": "<p>The area bounded by the parabolas y = (x + 1)<sup>2</sup>;&nbsp;and&nbsp;;y = (x - 1)<sup>2</sup>&nbsp;and the line&nbsp;<span class=\"math-tex\">{tex}y = \\frac{1}{4}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 193412,
+              "text": "{tex}\\frac{1}{6}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{6}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193413,
+              "text": "{tex}\\frac{4}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{4}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193411,
+              "text": "4",
+              "html": "4",
+              "is_correct": false
+            },
+            {
+              "id": 193410,
+              "text": "{tex}\\frac{1}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{3}{/tex}",
+          "correct_option_ids": [
+            193410
+          ],
+          "explanation": "The given curves are y = (x + 1) 2 ...(i) upward parabola with vertex at (-1 ,0) meeting y -axis at (0, 1) y = ( x - 1) 2 ...(ii) upward parabola with vertex at (1 ,0) meeting v-axis at (0,1) y = 1/4 ...(iii) a line parallel to x-axis meeting (i) at {tex}\\left(-\\frac{1}{2}, \\frac{1}{4}\\right),\\left(-\\frac{3}{2}, \\frac{1}{4}\\right){/tex} and meeting (ii) at {tex}\\left(\\frac{3}{2}, \\frac{1}{4}\\right),\\left(\\frac{1}{2}, \\frac{1}{4}\\right){/tex} . The graph is as shown The required area is the shaded portion given by AR (BPCQB) = 2 Ar(PQCP) (by symmetry) {tex}=2\\left[\\int\\limits_0^{1 / 2}\\left((x-1)^2-\\frac{1}{4}\\right) d x\\right]{/tex} = {tex}2\\left[\\left(\\frac{(x-1)^3}{3}-\\frac{x}{4}\\right)_0^{1 / 2}\\right]{/tex} {tex}=2\\left[\\left(-\\frac{1}{24}-\\frac{1}{8}\\right)-\\left(-\\frac{1}{3}\\right)\\right]{/tex} = {tex}2\\left[\\frac{-1-3+8}{24}\\right]=\\frac{1}{3} \\text { sq. units. }{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59557,
+          "question_text": "The area of the region { ( x , y ) : {tex}{x^2} + {y^2} \\leqslant 1 \\leqslant x + y\\;\\} {/tex} is equal to",
+          "question_html": "<p>The area of the region { ( x , y ) : <span class=\"math-tex\">{tex}{x^2} + {y^2} \\leqslant 1 \\leqslant x + y\\;\\} {/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 193417,
+              "text": "{tex}\\frac{1}{4}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span> sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193414,
+              "text": "{tex}\\frac{{\\pi - 2}}{4}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{\\pi - 2}}{4}{/tex}</span> sq. units",
+              "is_correct": true
+            },
+            {
+              "id": 193415,
+              "text": "{tex}\\frac{{3\\pi - 2}}{4}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{3\\pi - 2}}{4}{/tex}</span> sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193416,
+              "text": "{tex}\\frac{1}{2}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span> sq. units",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{\\pi - 2}}{4}{/tex} sq. units",
+          "correct_option_ids": [
+            193414
+          ],
+          "explanation": "{tex}\\frac{{\\pi - 2}}{4}{/tex} sq. units",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59558,
+          "question_text": "The area bounded by the parabolas y = 5x 2 and y - 9 = 2x 2 is",
+          "question_html": "<p>The area bounded by the parabolas y = 5x<sup>2</sup>&nbsp;and&nbsp;y - 9 = 2x<sup>2</sup> is</p>",
+          "options": [
+            {
+              "id": 193420,
+              "text": "{tex}4\\;\\sqrt {3\\;} \\;{/tex} sq.units",
+              "html": "<span class=\"math-tex\">{tex}4\\;\\sqrt {3\\;} \\;{/tex}</span>sq.units",
+              "is_correct": false
+            },
+            {
+              "id": 193421,
+              "text": "{tex}6\\;\\sqrt {2\\;} \\;{/tex} sq.units",
+              "html": "<span class=\"math-tex\">{tex}6\\;\\sqrt {2\\;} \\;{/tex}</span>sq.units",
+              "is_correct": false
+            },
+            {
+              "id": 193419,
+              "text": "{tex}12\\;\\sqrt 2 \\;{/tex} sq.units",
+              "html": "<span class=\"math-tex\">{tex}12\\;\\sqrt 2 \\;{/tex}</span>sq.units",
+              "is_correct": false
+            },
+            {
+              "id": 193418,
+              "text": "{tex}12\\;\\sqrt {3\\;}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}12\\;\\sqrt {3\\;}{/tex}</span>&nbsp;sq. units",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}12\\;\\sqrt {3\\;}{/tex} sq. units",
+          "correct_option_ids": [
+            193418
+          ],
+          "explanation": "Required area: {tex}\\int\\limits_{ - \\sqrt 3 }^{\\sqrt 3 } {(9 + 2{x^2} - 5{x^2})dx}{/tex} {tex} = 2\\int\\limits_0^{\\sqrt 3 } {(9 - 3{x^2})dx} {/tex} {tex}= 2\\left[ {9\\sqrt 3 - 3\\sqrt 3 } \\right] {/tex} {tex}= 12\\sqrt 3{/tex} sq.units",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59559,
+          "question_text": "The area enclosed by the parabola y 2 = 2x and its tangents through the point (-2, 0) is",
+          "question_html": "<p>The area enclosed by the parabola y<sup>2</sup>&nbsp;= 2x and its tangents through the point (-2, 0) is</p>",
+          "options": [
+            {
+              "id": 193425,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 193423,
+              "text": "4",
+              "html": "4",
+              "is_correct": false
+            },
+            {
+              "id": 193422,
+              "text": "{tex}\\frac{8}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{8}{3}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193424,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{8}{3}{/tex}",
+          "correct_option_ids": [
+            193422
+          ],
+          "explanation": "The tangents are {tex}y = mx + \\frac{a}{m},y = mx + \\frac{1}{{2m}},{/tex} since {tex}a = \\frac{1}{2}{/tex} . It passes through (-2, 0). {tex} \\therefore 4{m^2} = 1 \\Rightarrow m = \\pm \\frac{1}{2}{/tex} The tangents are: {tex}y = \\frac{x}{2} + 1,y = - \\frac{x}{2} - 1{/tex} Required area: {tex} = 2\\int\\limits_0^3 {\\left( {\\frac{{{y^2}}}{2} - 2y + 2} \\right)dy} {/tex} {tex}= 2\\left[ {\\frac{4}{3} - 4 + 4} \\right] {/tex} {tex} = \\frac{8}{3}{/tex} sq.units",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59560,
+          "question_text": "The area bounded by the angle bisectors of the lines {tex}{x^2} - {y^2} + 2y = 1{/tex} and {tex}x + y = 3{/tex} is",
+          "question_html": "<p>The area bounded by the angle bisectors of the lines <span class=\"math-tex\">{tex}{x^2} - {y^2} + 2y = 1{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}x + y = 3{/tex}</span> is&nbsp;</p>",
+          "options": [
+            {
+              "id": 193428,
+              "text": "4 sq. units",
+              "html": "4 sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193427,
+              "text": "3 sq.units",
+              "html": "3 sq.units",
+              "is_correct": false
+            },
+            {
+              "id": 193426,
+              "text": "2 sq. units",
+              "html": "2 sq. units",
+              "is_correct": true
+            },
+            {
+              "id": 193429,
+              "text": "6 sq. units",
+              "html": "6 sq. units",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "2 sq. units",
+          "correct_option_ids": [
+            193426
+          ],
+          "explanation": "The angle bisectors of the line given by {tex}{x^2}-{\\text{ }}{y^2} + 2y{\\text{ }} = {\\text{ }}1{/tex} are x = 0 , y = 1. Required area : = {tex}\\frac{1}{2}{\\text{ }}.2.2{\\text{ }} = {\\text{ }}2{\\text{ }}sq.{\\text{ }}units{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59561,
+          "question_text": "The area bounded by the curves y = x 2 and {tex}\\;y = \\frac{2}{{\\left( {1 + {x^2}} \\right)}}\\;{/tex} is equal to",
+          "question_html": "<p>The area bounded by the curves y = x<sup>2</sup> and&nbsp;<span class=\"math-tex\">{tex}\\;y = \\frac{2}{{\\left( {1 + {x^2}} \\right)}}\\;{/tex}</span>&nbsp;is equal to</p>",
+          "options": [
+            {
+              "id": 193433,
+              "text": "{tex}\\pi {/tex} {tex} + \\frac{2}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi {/tex}</span> <span class=\"math-tex\">{tex} + \\frac{2}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193432,
+              "text": "{tex}2\\pi - \\frac{1}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2\\pi - \\frac{1}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193430,
+              "text": "{tex}\\pi {/tex} {tex} - \\frac{2}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi {/tex}</span> <span class=\"math-tex\">{tex} - \\frac{2}{3}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193431,
+              "text": "{tex}2\\pi + \\frac{1}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2\\pi + \\frac{1}{3}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\pi {/tex} {tex} - \\frac{2}{3}{/tex}",
+          "correct_option_ids": [
+            193430
+          ],
+          "explanation": "Required area: = {tex}2\\left( {\\int\\limits_0^1 {\\frac{2}{{1 + {x^2}}}} dx - \\int\\limits_0^1 {{x^2}dx} } \\right) {/tex} {tex} = 2\\left[ {2{{\\tan }^{ - 1}}x} \\right]_0^1 - 2\\left[ {\\frac{{{x^3}}}{3}} \\right]_0^1{/tex} {tex} = \\pi - \\frac{2}{3}{/tex} sq.units",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59562,
+          "question_text": "The area bounded by x = sin t and y = cos t +3 , where -2008 < t < 2008 , is equal to",
+          "question_html": "<p>The area bounded by x = sin t and y = cos t +3 , where -2008 &lt; t &lt; 2008 , is equal to</p>",
+          "options": [
+            {
+              "id": 193436,
+              "text": "2 {tex}\\pi {/tex}",
+              "html": "2<span class=\"math-tex\">{tex}\\pi {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193434,
+              "text": "{tex}\\pi {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi {/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193437,
+              "text": "4 {tex}\\pi {/tex}",
+              "html": "4<span class=\"math-tex\">{tex}\\pi {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193435,
+              "text": "3 {tex}\\pi {/tex}",
+              "html": "3<span class=\"math-tex\">{tex}\\pi {/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\pi {/tex}",
+          "correct_option_ids": [
+            193434
+          ],
+          "explanation": "We have : sin t = x , cos t = y &ndash; 3 ., therefore , sin {tex}^2{/tex} t + cos {tex}^2{/tex} t = 1, {tex} \\Rightarrow {x^2} + {(y - 3)^2} = 1{/tex} It is a circle with centre ( 0, 3 ) and radius is 1. Therefore , area = {tex}\\pi {r^2} = \\pi \\times 1 = \\pi {/tex} . Which is the required solution.",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59563,
+          "question_text": "The area enclosed between the curves {tex}{y^2} = x\\;and\\;y = \\left| x \\right|{/tex} is",
+          "question_html": "<p>The area enclosed between the curves <span class=\"math-tex\">{tex}{y^2} = x\\;and\\;y = \\left| x \\right|{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193439,
+              "text": "1 sq. units",
+              "html": "1 sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193441,
+              "text": "{tex}\\frac{5}{3}{/tex} sq.units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{5}{3}{/tex}</span>sq.units",
+              "is_correct": false
+            },
+            {
+              "id": 193438,
+              "text": "{tex}\\frac{1}{6}sq.{\\text{ }}units{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{6}sq.{\\text{ }}units{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193440,
+              "text": "{tex}\\frac{2}{3}sq.{\\text{ }}units{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{3}sq.{\\text{ }}units{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{6}sq.{\\text{ }}units{/tex}",
+          "correct_option_ids": [
+            193438
+          ],
+          "explanation": "Required area : {tex} \\int\\limits_0^1 {(\\sqrt x - x)dx} {/tex} {tex}= \\left[ {\\frac{2}{3}{x^{\\frac{3}{2}}} - \\frac{{{x^2}}}{2}} \\right]_0^1 {/tex} {tex}= \\frac{1}{6}sq.units {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59564,
+          "question_text": "The area of the plane region bounded by the curves x + y 2 = 0 and x + 3y 2 = 1 is equal to",
+          "question_html": "<p>The area of the plane region bounded by the curves x + y<sup>2</sup>&nbsp;= 0 and x + 3y<sup>2</sup>&nbsp;= 1 is equal to</p>",
+          "options": [
+            {
+              "id": 193442,
+              "text": "{tex}\\frac{4}{3}{/tex} sq.units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{4}{3}{/tex}</span>sq.units",
+              "is_correct": true
+            },
+            {
+              "id": 193443,
+              "text": "{tex}\\frac{1}{3}{/tex} sq.units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}{/tex}</span>sq.units",
+              "is_correct": false
+            },
+            {
+              "id": 193444,
+              "text": "{tex}\\frac{5}{3}{/tex} sq.units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{5}{3}{/tex}</span>sq.units",
+              "is_correct": false
+            },
+            {
+              "id": 193445,
+              "text": "{tex}\\frac{7}{3}{/tex} sq.units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{7}{3}{/tex}</span>sq.units",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{4}{3}{/tex} sq.units",
+          "correct_option_ids": [
+            193442
+          ],
+          "explanation": "On solving the given curves, we get y = {tex} \\pm {/tex} 1 and x = - 2. Required area: {tex}\\left| {\\int\\limits_{ - 1}^1 {({x_1} - {x_2})dy} } \\right| {/tex} {tex} = \\left| {\\int\\limits_{ - 1}^1 {(1 - 3{y^2} + 2{y^2})dy} } \\right| {/tex} {tex} = \\left| {2\\int\\limits_0^1 {(1 - {y^2})dy} } \\right| {/tex} {tex} = \\left| {2\\left[ {y - \\frac{{{y^3}}}{3}} \\right]_0^1} \\right|{/tex} = {tex}\\frac{4}{3}{/tex} sq.units",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3627,
+      "test_name": "Applications of Integrals Test-05",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59565,
+          "question_text": "The area of the region bounded by the parabola (y - 2) 2 = x - 1, the tangent to the parabola at the point (2,3) and the x-axis is equal to",
+          "question_html": "<p>The area of the region bounded by the parabola (y - 2)<sup>2</sup>&nbsp;= x - 1,&nbsp;the tangent to the parabola at the point (2,3) and the x-axis is equal to</p>",
+          "options": [
+            {
+              "id": 193446,
+              "text": "9 sq. units",
+              "html": "9 sq. units",
+              "is_correct": true
+            },
+            {
+              "id": 193448,
+              "text": "12 sq. units",
+              "html": "12 sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193447,
+              "text": "6 sq. units",
+              "html": "6 sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193449,
+              "text": "14 sq. units",
+              "html": "14&nbsp;sq. units",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "9 sq. units",
+          "correct_option_ids": [
+            193446
+          ],
+          "explanation": "Given parabola is: {tex}{\\left( {y - 2} \\right)^2} = x - 1 \\Rightarrow \\frac{{dy}}{{dx}} = \\frac{1}{{2(y - 2)}} {/tex} When y = 3, x = 2 {tex}\\; \\therefore \\frac{{dy}}{{dx}} = \\frac{1}{2} \\\\{/tex} Therefore, tangent at ( 2, 3 ) is y &ndash; 3 = {tex}\\frac{1}{2}{/tex} ( x &ndash; 2 ). i.e. x &ndash; 2y + 4 = 0, therefore required area is: {tex} \\int\\limits_0^3 {{{(y - 2)}^2} + 1.dy} - \\int\\limits_0^3 {(2y - 4)dy} = \\left[ {\\frac{{{{(y - 2)}^3}}}{3} + y} \\right]_0^3 - \\left[ {{y^2} - 4y} \\right]_0^3 = 9 {/tex} sq. units",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59566,
+          "question_text": "The area bounded by the curves y = cos x and y = sin x between the ordinates x = 0 and {tex}x = \\frac{\\pi }{2}{/tex} is equal to",
+          "question_html": "<p>The area bounded by the curves y = cos x and y = sin x between the ordinates x = 0 and <span class=\"math-tex\">{tex}x = \\frac{\\pi }{2}{/tex}</span>is equal to</p>",
+          "options": [
+            {
+              "id": 193453,
+              "text": "{tex}\\left( {4\\sqrt 2 + 1\\;} \\right){/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\left( {4\\sqrt 2 + 1\\;} \\right){/tex}</span> sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193450,
+              "text": "{tex}2(\\sqrt 2 - 1){/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}2(\\sqrt 2 - 1){/tex}</span>sq. units",
+              "is_correct": true
+            },
+            {
+              "id": 193452,
+              "text": "{tex}\\left( {4\\sqrt 2 - 1\\;} \\right){/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\left( {4\\sqrt 2 - 1\\;} \\right){/tex}</span> sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193451,
+              "text": "{tex}2(\\sqrt 2 + 1){/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}2(\\sqrt 2 + 1){/tex}</span>sq. units",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}2(\\sqrt 2 - 1){/tex} sq. units",
+          "correct_option_ids": [
+            193450
+          ],
+          "explanation": "Required area = {tex}\\int\\limits_0^{\\frac{\\pi }{2}} {\\left| {\\sin x - \\cos x} \\right|dx} {/tex} {tex}= \\int\\limits_0^{\\frac{\\pi }{4}} {(\\cos x - \\sin x)dx + } \\int\\limits_{\\frac{\\pi }{4}}^{\\frac{\\pi }{2}} {(sinx - \\cos x)dx} {/tex} {tex}= \\left[ {\\sin x + \\cos x} \\right]_0^{\\frac{\\pi }{4}} + \\left[ { - cosx - sinx} \\right]_{\\frac{\\pi }{4}}^{\\frac{\\pi }{2}} {/tex} {tex}= \\frac{1}{{\\sqrt 2 }} + \\frac{1}{{\\sqrt 2 }} - (0 + 1) - \\left\\{ {1 - \\left( {\\frac{1}{{\\sqrt 2 }} + \\frac{1}{{\\sqrt 2 }}} \\right)} \\right\\} {/tex} {tex}= \\frac{4}{{\\sqrt 2 }} - 2 = 2\\sqrt 2 - 2 = 2(\\sqrt 2 - 1) {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59567,
+          "question_text": "The area bounded by the parabola y = x 2 and the line y = x is",
+          "question_html": "<p>The area bounded by the parabola y = x<sup>2</sup>&nbsp;and the line y = x is</p>",
+          "options": [
+            {
+              "id": 193455,
+              "text": "{tex}\\frac{1}{3}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}{/tex}</span> sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193454,
+              "text": "{tex}\\frac{1}{6}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{6}{/tex}</span> sq. units",
+              "is_correct": true
+            },
+            {
+              "id": 193457,
+              "text": "{tex}\\frac{1}{8}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{8}{/tex}</span> sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193456,
+              "text": "{tex}\\frac{1}{2}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span> sq. units",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{6}{/tex} sq. units",
+          "correct_option_ids": [
+            193454
+          ],
+          "explanation": "Required area: {tex}\\int\\limits_0^1 {(x - {x^2})dx} {/tex} {tex}= \\left[ {\\frac{{{x^2}}}{2} - \\frac{{{x^3}}}{3}} \\right]_0^1{/tex} {tex}= \\frac{1}{6}{/tex} sq.units.",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59568,
+          "question_text": "Let y be the function which passes through (1,2) having slope (2x + 1). The area bounded between the curve and the x-axis is",
+          "question_html": "<p>Let y be the function which passes through (1,2) having slope (2x + 1). The area bounded between the curve and the x-axis is</p>",
+          "options": [
+            {
+              "id": 193458,
+              "text": "{tex}\\frac{1}{6}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{6}{/tex}</span> sq. units",
+              "is_correct": true
+            },
+            {
+              "id": 193459,
+              "text": "6 sq. units",
+              "html": "6 sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193461,
+              "text": "4 sq. units",
+              "html": "4 sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193460,
+              "text": "{tex}\\frac{5}{6}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{5}{6}{/tex}</span> sq. units",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{6}{/tex} sq. units",
+          "correct_option_ids": [
+            193458
+          ],
+          "explanation": "Given slope of the curve is 2x + 1. {tex} \\therefore \\frac{{dy}}{{dx}} = 2x + 1 \\Rightarrow y = {x^2} + x + c {/tex} Also , it passes through (1, 2). {tex}\\therefore 2 = 1 + 1 + c \\Rightarrow c = 0{/tex} Equation of curve is: y =x 2 +x. Therefore , points of intersection of y = x ( x +1 ) and the x &ndash; axis are x = 0 , x = - 1. Required area: {tex}\\int\\limits_{ - 1}^0 {({x^2} + x)dx}{/tex} {tex} = \\left[ {\\frac{{{x^3}}}{3} + \\frac{{{x^2}}}{2}} \\right]_{ - 1}^0{/tex} {tex} = \\left| { - \\frac{1}{6}} \\right| = \\frac{1}{6}{/tex} sq. units",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59569,
+          "question_text": "The area bounded by the curves {tex}y = \\sqrt {5 - {x^2}\\;} \\;{/tex} and {tex}y = \\;\\left| {x - 1} \\right|{/tex} is",
+          "question_html": "<p>The area bounded by the curves <span class=\"math-tex\">{tex}y = \\sqrt {5 - {x^2}\\;} \\;{/tex}</span>and&nbsp;<span class=\"math-tex\">{tex}y = \\;\\left| {x - 1} \\right|{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193463,
+              "text": "{tex}\\frac{{5\\pi + 2}}{4}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{5\\pi + 2}}{4}{/tex}</span> sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193464,
+              "text": "{tex}\\frac{{5\\pi - 5}}{4}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{5\\pi - 5}}{4}{/tex}</span> sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193462,
+              "text": "{tex}\\frac{{5\\pi - 2}}{4}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{5\\pi - 2}}{4}{/tex}</span> sq. units",
+              "is_correct": true
+            },
+            {
+              "id": 193465,
+              "text": "{tex}\\frac{{\\pi - 5}}{4}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{\\pi - 5}}{4}{/tex}</span> sq. units",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{5\\pi - 2}}{4}{/tex} sq. units",
+          "correct_option_ids": [
+            193462
+          ],
+          "explanation": "Required area : {tex}\\int\\limits_{ - 1}^2 {\\sqrt {5 - {x^2}} dx} - \\int\\limits_{ - 1}^1 {(1 - x)dx} - \\int\\limits_1^2 {(x - 1)dx} {/tex} {tex}= \\left[ {\\frac{{x\\sqrt {5 - {x^2}} }}{2} + \\frac{5}{2}{{\\sin }^{ - 1}}\\frac{x}{{\\sqrt 5 }}} \\right]_{ - 1}^2 {/tex} {tex} - \\left[ {x - \\frac{{{x^2}}}{2}} \\right]_{ - 1}^1 - \\left[ {\\frac{{{x^2}}}{2} - x} \\right]_1^2 \\\\ {/tex} {tex}= \\left( {\\frac{{5\\pi - 2}}{4}} \\right)sq.units {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59570,
+          "question_text": "The area of the region bounded by the curves y = |x - 2|, x = 1, x = 3 and the x &ndash; axis is",
+          "question_html": "<p>The area of the region bounded by the curves y = |x - 2|, x = 1, x = 3 and the x &ndash; axis is</p>",
+          "options": [
+            {
+              "id": 193469,
+              "text": "4",
+              "html": "4",
+              "is_correct": false
+            },
+            {
+              "id": 193467,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 193468,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            },
+            {
+              "id": 193466,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            193466
+          ],
+          "explanation": "Required area is: {tex}\\int\\limits_1^3 {ydx} = \\int\\limits_1^3 {\\left| {x - 2} \\right|dx} {/tex} {tex}= \\int\\limits_1^2 {\\left| {x - 2} \\right|dx} + \\int\\limits_2^3 {\\left| {x - 2} \\right|dx} {/tex} {tex}= \\int\\limits_1^2 {\\left| {2 - x} \\right|dx} + \\int\\limits_2^3 {\\left| {x - 2} \\right|dx} {/tex} {tex}= \\left[ {2x - \\frac{{{x^2}}}{2}} \\right]_1^2 + \\left[ {\\frac{{{x^2}}}{2} - 2x} \\right]_2^3 = 1 {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59571,
+          "question_text": "The area enclosed between the curve {tex}y = {\\log _e}(x + e){/tex} and {tex}x = {\\log _e}\\frac{1}{y}{/tex} and the x- axis is",
+          "question_html": "<p>The area enclosed between the curve <span class=\"math-tex\">{tex}y = {\\log _e}(x + e){/tex}</span> and <span class=\"math-tex\">{tex}x = {\\log _e}\\frac{1}{y}{/tex}</span> and the x- axis is</p>",
+          "options": [
+            {
+              "id": 193470,
+              "text": "2 sq. unit",
+              "html": "2 sq. unit",
+              "is_correct": true
+            },
+            {
+              "id": 193473,
+              "text": "4 sq. units",
+              "html": "4 sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193472,
+              "text": "3 sq. units",
+              "html": "3 sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193471,
+              "text": "1 sq. units",
+              "html": "1 sq. units",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "2 sq. unit",
+          "correct_option_ids": [
+            193470
+          ],
+          "explanation": "Required area is : {tex} \\int\\limits_{1 - e}^0 {{{\\log }_e}(x + e).dx + \\int\\limits_0^\\infty {{e^{ - x}}dx} } {/tex} {tex} = \\left[ {x{{\\log }_e}(x - e)} \\right]_{1 - e}^0 - \\int\\limits_{1 - e}^0 {\\frac{x}{{x + e}}dx} - \\left[ {{e^{ - x}}} \\right]_0^\\infty {/tex} {tex} = \\int\\limits_0^{1 - e} {\\left( {1 - \\frac{e}{{x + e}}} \\right)dx} - {e^{ - \\infty }} + {e^0} {/tex} {tex} = \\left[ {x - e\\log (x + e)} \\right]_{1 - e}^0 - 0 + 1 = 2 \\\\{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59572,
+          "question_text": "The area bounded by y =| sinx |, the x &ndash; axis and the line {tex}\\left| x \\right| = \\pi {/tex} is",
+          "question_html": "<p>The area bounded by y =| sinx |, the x &ndash; axis and the line <span class=\"math-tex\">{tex}\\left| x \\right| = \\pi {/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193475,
+              "text": "6 sq. units",
+              "html": "6 sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193477,
+              "text": "8 sq. units",
+              "html": "8 sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193474,
+              "text": "4 sq. units",
+              "html": "4 sq. units",
+              "is_correct": true
+            },
+            {
+              "id": 193476,
+              "text": "2 sq. units",
+              "html": "2 sq. units",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "4 sq. units",
+          "correct_option_ids": [
+            193474
+          ],
+          "explanation": "Required area : {tex} = 2\\int\\limits_0^\\pi {\\sin xdx} = 2\\left[ { - \\cos x} \\right]_0^\\pi = 2[1 + 1] = 4sq.units {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59573,
+          "question_text": "The area bounded by the curves {tex}y = \\sqrt x,{/tex} 2y + 3 = x and the x-axis in the first quadrant is",
+          "question_html": "<p>The area bounded by the curves <span class=\"math-tex\">{tex}y = \\sqrt x,{/tex}</span>&nbsp;2y + 3 = x and the x-axis in the first quadrant is</p>",
+          "options": [
+            {
+              "id": 193479,
+              "text": "36",
+              "html": "36",
+              "is_correct": false
+            },
+            {
+              "id": 193480,
+              "text": "18",
+              "html": "18",
+              "is_correct": false
+            },
+            {
+              "id": 193478,
+              "text": "9",
+              "html": "9",
+              "is_correct": true
+            },
+            {
+              "id": 193481,
+              "text": "20",
+              "html": "20",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "9",
+          "correct_option_ids": [
+            193478
+          ],
+          "explanation": "Required area: {tex}\\int\\limits_0^9 {\\sqrt x dx} - \\int\\limits_3^9 {\\left( {\\frac{{x - 3}}{2}} \\right)dx} = \\left[ {\\frac{{{x^{\\frac{3}{2}}}}}{{3/2}}} \\right]_0^9 - \\frac{1}{2}\\left[ {\\frac{{{x^2}}}{2} - 3x} \\right]_3^9 = 9 \\\\ {/tex} sq.units",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59574,
+          "question_text": "The area bounded by the curve y = logx and y = 2x - 2x 2 is",
+          "question_html": "<p>The area bounded by the curve y = logx and y = 2x - 2x<sup>2</sup> is</p>",
+          "options": [
+            {
+              "id": 193484,
+              "text": "{tex}\\frac{1}{2}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span> sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193482,
+              "text": "{tex}\\frac{7}{{12}}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{7}{{12}}{/tex}</span> sq. units",
+              "is_correct": true
+            },
+            {
+              "id": 193483,
+              "text": "{tex}\\frac{3}{{12}}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{{12}}{/tex}</span> sq. units",
+              "is_correct": false
+            },
+            {
+              "id": 193485,
+              "text": "{tex}\\frac{1}{4}{/tex} sq. units",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span> sq. units",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{7}{{12}}{/tex} sq. units",
+          "correct_option_ids": [
+            193482
+          ],
+          "explanation": "Required area: {tex}\\int\\limits_0^1 {\\left[ {\\left( {2x - 2{x^2}} \\right) - \\left( {x\\log x} \\right)} \\right]} dx = \\left[ {{x^2} - \\frac{{2{x^3}}}{3} - \\left( {\\frac{{{x^2}}}{2}\\log x - \\frac{{{x^2}}}{4}} \\right)} \\right]_0^1 = \\frac{7}{{12}} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59575,
+          "question_text": "The area bounded by the curves y = |x - 1| and y = 1 is given by",
+          "question_html": "<p>The area bounded by the curves y = |x - 1| and y = 1 is given by</p>",
+          "options": [
+            {
+              "id": 193487,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 193486,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            },
+            {
+              "id": 193488,
+              "text": "{tex}\\frac{1}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193489,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1",
+          "correct_option_ids": [
+            193486
+          ],
+          "explanation": "The given curves are : (i) y = x &ndash; 1 , x > 1 . (ii) y = - ( x &ndash; 1 ) , x < 1. (iii) y = 1 these three lines enclose a triangle whose area is : {tex}\\frac{1}{2}{/tex} .base.height = {tex}\\frac{1}{2}{/tex} .2 .1 = 1 sq. unit.",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59576,
+          "question_text": "The area bounded by the lines y = 2 + x , y = 2 &ndash; x and x = 2 is",
+          "question_html": "<p>The area bounded by the lines y = 2 + x , y = 2 &ndash; x and x = 2 is</p>",
+          "options": [
+            {
+              "id": 193493,
+              "text": "16",
+              "html": "16",
+              "is_correct": false
+            },
+            {
+              "id": 193492,
+              "text": "8",
+              "html": "8",
+              "is_correct": false
+            },
+            {
+              "id": 193491,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            },
+            {
+              "id": 193490,
+              "text": "4",
+              "html": "4",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "4",
+          "correct_option_ids": [
+            193490
+          ],
+          "explanation": "Reqd. area sq.units {tex}= \\int_0^2 {\\left( {y - 2} \\right)} dy + \\int_2^0 {\\left( {2 - y} \\right)} dy + \\int_0^4 2 dy{/tex} {tex}= \\left[ {\\frac{{{y^2}}}{2} - 2y} \\right]_0^2 + \\left[ {2y - \\frac{{{y^2}}}{2}} \\right]_2^0 + \\left[ {2y} \\right]_0^4{/tex} = (2 - 4) - (4 - 2) + 8 = 4",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59577,
+          "question_text": "Ratio of the area cut off from a parabola by any double ordinate is that of the corresponding rectangle contained by that double ordinate and its distance from the vertex is",
+          "question_html": "<p>Ratio of the area cut off from a parabola by any double ordinate is that of the corresponding rectangle contained by that double ordinate and its distance from the vertex is</p>",
+          "options": [
+            {
+              "id": 193496,
+              "text": "1 : 3",
+              "html": "1 : 3",
+              "is_correct": false
+            },
+            {
+              "id": 193497,
+              "text": "1 : 1",
+              "html": "1 : 1",
+              "is_correct": false
+            },
+            {
+              "id": 193495,
+              "text": "1 : 2",
+              "html": "1 : 2",
+              "is_correct": false
+            },
+            {
+              "id": 193494,
+              "text": "2 : 3",
+              "html": "2 : 3",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "2 : 3",
+          "correct_option_ids": [
+            193494
+          ],
+          "explanation": "Let y 2 = 4x be a parabola and let x = b be a double ordinate. Then , A 1 = area enclosed by the parabola y 2 = 4ax and the double ordinate x = b. {tex}2\\int\\limits_0^2 {ydx} = 2\\int\\limits_0^b {\\sqrt {4ax} dx}{/tex} {tex}= 4\\sqrt a \\int\\limits_0^b {\\sqrt {{x^3}} dx} {/tex} {tex}= 4\\sqrt a \\left[ {\\frac{2}{3}{x^{\\frac{3}{2}}}} \\right]_0^b {/tex} {tex}= 4\\sqrt a .\\frac{2}{3}{b^{\\frac{3}{2}}} = \\frac{8}{3}{a^{\\frac{1}{2}}}{b^{\\frac{3}{2}}}{/tex} ....(1) And, A 2 = Area of the rectangle {tex}= 2\\sqrt {4ab} .b = 4{a^{\\frac{1}{2}}}{b^{\\frac{3}{2}}}{/tex} ....(2) Dividing (1) and (2), {tex}{A_1}:{A_2} {/tex} = {tex}\\frac{8}{3}{a^{\\frac{1}{2}}}{b^{\\frac{3}{2}}}:4{a^{\\frac{1}{2}}}{b^{\\frac{3}{2}}} = 2:3{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59578,
+          "question_text": "If the area cut off from a parabola by any double ordinate is k times the corresponding rectangle contained by that double ordinate and its distance from the vertex, then k is equal to",
+          "question_html": "<p>If the area cut off from a parabola by any double ordinate is k times the corresponding rectangle contained by that double ordinate and its distance from the vertex, then k is equal to</p>",
+          "options": [
+            {
+              "id": 193501,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            },
+            {
+              "id": 193498,
+              "text": "{tex}\\frac{2}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{3}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193499,
+              "text": "{tex}\\frac{1}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193500,
+              "text": "{tex}\\frac{3}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{2}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{2}{3}{/tex}",
+          "correct_option_ids": [
+            193498
+          ],
+          "explanation": "Required area : = {tex}2\\int\\limits_0^a {\\sqrt {4ax} dx} {/tex} {tex}= k\\alpha (2\\sqrt {4a\\alpha } ){/tex} {tex}= \\frac{{8\\sqrt a }}{3}{\\alpha ^{\\frac{3}{2}}}{/tex} {tex} = 4\\sqrt a k{\\alpha ^{\\frac{3}{2}}} \\Rightarrow k = \\frac{2}{3} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59579,
+          "question_text": "The larger area bounded by {tex}{y^2} = 4x{/tex} and {tex}{x^2} + {y^2} - 2x - 3 = 0\\;{/tex} is equal to",
+          "question_html": "<p>The larger area bounded by <span class=\"math-tex\">{tex}{y^2} = 4x{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}{x^2} + {y^2} - 2x - 3 = 0\\;{/tex}</span>is equal to</p>",
+          "options": [
+            {
+              "id": 193504,
+              "text": "{tex}2\\pi + \\frac{4}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2\\pi + \\frac{4}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193502,
+              "text": "{tex}2\\pi + \\frac{8}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2\\pi + \\frac{8}{3}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193503,
+              "text": "{tex}2\\pi + \\frac{2}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2\\pi + \\frac{2}{3}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193505,
+              "text": "{tex}\\;2\\pi - \\frac{4}{3}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\;2\\pi - \\frac{4}{3}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}2\\pi + \\frac{8}{3}{/tex}",
+          "correct_option_ids": [
+            193502
+          ],
+          "explanation": "We have , {tex} {x^2} + {y^2} - 2x - 3 = 0 \\Rightarrow {(x - 1)^2} + {y^2} = 4 \\\\{/tex} .It meets y 2 = 4x at x = 1. Required area {tex} = 2\\int\\limits_3^1 {\\sqrt {4x} dx} + {/tex} area of semi-circle with radius 1. = {tex}\\frac{8}{3}{/tex} + 2 {tex}\\pi {/tex} . sq. units",
+          "solution": ""
+        }
+      ]
+    }
+  ],
+  "totalQuestions": 75
+}

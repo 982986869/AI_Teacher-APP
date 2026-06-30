@@ -18,7 +18,9 @@ import { chapterList as physicsChapters, getQuestions as getPhysics, htmlToText 
 import { chapterList as chemChapters,    getQuestions as getChem }    from '../data/chemistryBank';
 import { chapterList as mathsChapters,   getQuestions as getMaths }   from '../data/mathsBank';
 import { chapterList as bioChapters,     getQuestions as getBio }     from '../data/biologyBank';
-
+// Class 12 Chemistry online tests are DB-backed (this branch's migration); Maths
+// ships local test groupings from main.
+import { getMaths12OnlineChapters, getMaths12OnlineTests } from '../data/maths12OnlineTests';
 import { getChapters, getQuestionsByPath } from '../api/resourcesApi';
 
 const LETTERS = 'ABCDEFGHIJ'.split('');
@@ -59,7 +61,9 @@ const C = {
 
 // On Class 12, Physics & Chemistry online tests come from the DB (the `online12`
 // flag routes the chapter list + questions through the API, then splits them into
-// 5 generic tests). Other subjects (and Class 11) stay on the generic offline banks.
+// 5 generic tests). Mathematics ships locally with its real test groupings (the
+// `maths12` flag \u2192 maths12OnlineTests). Other subjects (and Class 11) stay on the
+// generic offline banks.
 const buildSubjects = (selectedClass, c12) => {
   const isC12 = selectedClass === 'Class 12';
   const phys = isC12
@@ -68,10 +72,13 @@ const buildSubjects = (selectedClass, c12) => {
   const chem = isC12
     ? { chapters: c12.chemistry, getQuestions: null, online12: true }
     : { chapters: chemChapters, getQuestions: getChem };
+  const maths = isC12
+    ? { chapters: getMaths12OnlineChapters(), getQuestions: null, maths12: true }
+    : { chapters: mathsChapters, getQuestions: getMaths };
   return [
     { key: 'physics',   name: 'Physics',   emoji: '\u269B\uFE0F', tile: C.mintSoft,  chapters: phys.chapters, getQuestions: phys.getQuestions, online12: phys.online12 },
     { key: 'chemistry', name: 'Chemistry', emoji: '\u{1F9EA}',    tile: C.peachSoft, chapters: chem.chapters, getQuestions: chem.getQuestions, online12: chem.online12 },
-    { key: 'maths',     name: 'Maths',     emoji: '\u{1F4D0}',    tile: C.sandSoft,  chapters: mathsChapters, getQuestions: getMaths },
+    { key: 'maths',     name: 'Maths',     emoji: '\u{1F4D0}',    tile: C.sandSoft,  chapters: maths.chapters, getQuestions: maths.getQuestions, maths12: maths.maths12 },
     { key: 'biology',   name: 'Biology',   emoji: '\u{1F9EC}',    tile: C.lilacSoft, chapters: bioChapters,   getQuestions: getBio },
   ];
 };
@@ -162,14 +169,22 @@ export default function OnlineTestsScreen({ onBack, onStartTest = () => {}, sele
       );
     }
     const shortName = chapter.name.length > 26 ? chapter.name.slice(0, 24) + '\u2026' : chapter.name;
-    // Class 12 Chemistry ships its real, named tests per chapter (free + paid);
-    // every other path splits the chapter's questions into 5 roughly-equal tests.
-    const all = subject.online12 ? apiQuestions.list : (subject.getQuestions(chapter.id) || []);
-    const per = Math.ceil(all.length / TESTS_PER_CHAPTER) || 0;
-    const tests = Array.from({ length: TESTS_PER_CHAPTER }, (_, t) => ({
-      label: `${shortName} Test-${String(t + 1).padStart(2, '0')}`,
-      questions: all.slice(t * per, (t + 1) * per),
-    }));
+    // Class 12 Maths ships its real, named tests per chapter (free + paid); every
+    // other path (incl. DB-backed Physics & Chemistry) splits the chapter's
+    // questions into 5 roughly-equal tests.
+    let tests;
+    if (subject.maths12) {
+      tests = getMaths12OnlineTests(chapter.id).map((t) => ({
+        label: t.name, questions: t.questions, isPaid: t.isPaid,
+      }));
+    } else {
+      const all = subject.online12 ? apiQuestions.list : (subject.getQuestions(chapter.id) || []);
+      const per = Math.ceil(all.length / TESTS_PER_CHAPTER) || 0;
+      tests = Array.from({ length: TESTS_PER_CHAPTER }, (_, t) => ({
+        label: `${shortName} Test-${String(t + 1).padStart(2, '0')}`,
+        questions: all.slice(t * per, (t + 1) * per),
+      }));
+    }
     return (
       <SafeAreaView style={s.safe}>
         <StatusBar barStyle="dark-content" backgroundColor={C.headerMint} />

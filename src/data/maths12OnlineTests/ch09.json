@@ -1,0 +1,2897 @@
+{
+  "chapter": "Differential Equations",
+  "chapter_id": 1293,
+  "tests": [
+    {
+      "test_id": 3628,
+      "test_name": "Differential Equations Test-01",
+      "is_paid": false,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59580,
+          "question_text": "Differential equations are equations containing functions y = f(x), g(x) and",
+          "question_html": "<p>Differential equations are equations containing functions y = f(x), g(x) and</p>",
+          "options": [
+            {
+              "id": 193509,
+              "text": "tangent of y at zero",
+              "html": "tangent of y at zero",
+              "is_correct": false
+            },
+            {
+              "id": 193506,
+              "text": "derivatives of y",
+              "html": "derivatives of y",
+              "is_correct": true
+            },
+            {
+              "id": 193508,
+              "text": "minima of y",
+              "html": "minima of y",
+              "is_correct": false
+            },
+            {
+              "id": 193507,
+              "text": "maxima of y",
+              "html": "maxima of y",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "derivatives of y",
+          "correct_option_ids": [
+            193506
+          ],
+          "explanation": "Differential equations are equations containing functions y = f(x), g(x) and derivatives of y with respect to x.",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59581,
+          "question_text": "Order of a differential equation is defined as",
+          "question_html": "<p>Order of a differential equation is defined as</p>",
+          "options": [
+            {
+              "id": 193513,
+              "text": "the number of constant terms",
+              "html": "the number of constant terms",
+              "is_correct": false
+            },
+            {
+              "id": 193510,
+              "text": "the order of the highest order derivative of the dependent variable",
+              "html": "the order of the highest order derivative of the dependent variable",
+              "is_correct": true
+            },
+            {
+              "id": 193512,
+              "text": "the number of derivative terms",
+              "html": "the number of derivative terms",
+              "is_correct": false
+            },
+            {
+              "id": 193511,
+              "text": "the order of the lowest order derivative of the dependent variable",
+              "html": "the order of the lowest order derivative of the dependent variable",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "the order of the highest order derivative of the dependent variable",
+          "correct_option_ids": [
+            193510
+          ],
+          "explanation": "Order of a differential equation is defined as the order of the highest order derivative of the dependent variable present in the differential equation.",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59582,
+          "question_text": "Degree of a differential equation, when the equation is polynomial equation in y&prime; is",
+          "question_html": "<p>Degree of a differential equation, when the equation is polynomial equation in y&prime; is</p>",
+          "options": [
+            {
+              "id": 193514,
+              "text": "Highest power(positive integral index) of the highest order derivative in the given differential equation.",
+              "html": "Highest power(positive integral index) of the highest order derivative in the given differential equation.",
+              "is_correct": true
+            },
+            {
+              "id": 193516,
+              "text": "Lowest power(positive integral index) of the lowest order derivative in the given differential equation.",
+              "html": "Lowest power(positive integral index) of the lowest order derivative in the given differential equation.",
+              "is_correct": false
+            },
+            {
+              "id": 193517,
+              "text": "Highest(positive integral index) of the lowest order derivative in the given differential equation.",
+              "html": "Highest(positive integral index) of the lowest order derivative in the given differential equation.",
+              "is_correct": false
+            },
+            {
+              "id": 193515,
+              "text": "Lowest power(positive integral index) of the highest order derivative in the given differential equation.",
+              "html": "Lowest power(positive integral index) of the highest order derivative in the given differential equation.",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Highest power(positive integral index) of the highest order derivative in the given differential equation.",
+          "correct_option_ids": [
+            193514
+          ],
+          "explanation": "The power or index of the highest ordered derivative in the polynomial is the degree of the differential equation provided equation is in the standard form.",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59583,
+          "question_text": "The order of the equation {tex}\\frac{{{d^2}y}}{{d{x^2}}} + \\;y = 0{/tex} is",
+          "question_html": "<p>The order of the equation <span class=\"math-tex\">{tex}\\frac{{{d^2}y}}{{d{x^2}}} + \\;y = 0{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193521,
+              "text": "4",
+              "html": "4",
+              "is_correct": false
+            },
+            {
+              "id": 193520,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            },
+            {
+              "id": 193518,
+              "text": "2",
+              "html": "2",
+              "is_correct": true
+            },
+            {
+              "id": 193519,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "2",
+          "correct_option_ids": [
+            193518
+          ],
+          "explanation": "Since the equation has 2nd derivative as the highest derivative term.Hence, the order is 2",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59584,
+          "question_text": "The order of the equation {tex}\\frac{{{d^3}y}}{{d{x^3}}} + \\;{x^2}{/tex} {tex}{(\\frac{{{d^2}y}}{{d{x^2}}})^3}{/tex} = 0 is",
+          "question_html": "<p>The order of the equation <span class=\"math-tex\">{tex}\\frac{{{d^3}y}}{{d{x^3}}} + \\;{x^2}{/tex}</span><span class=\"math-tex\">{tex}{(\\frac{{{d^2}y}}{{d{x^2}}})^3}{/tex}</span>= 0 is</p>",
+          "options": [
+            {
+              "id": 193525,
+              "text": "4",
+              "html": "4",
+              "is_correct": false
+            },
+            {
+              "id": 193523,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 193524,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 193522,
+              "text": "3",
+              "html": "3",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "3",
+          "correct_option_ids": [
+            193522
+          ],
+          "explanation": "Since the highest derivative term is {tex}\\frac{{{d^3}y}}{{d{x^3}}} {/tex} hence the order is 3.",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59585,
+          "question_text": "The degree of the equation {tex}{(\\frac{{dy}}{{dx}})^2} + \\;\\frac{{dy}}{{dx}}-{\\text{ }}si{n^2}y{\\text{ }} = {\\text{ }}0{/tex} is",
+          "question_html": "<p>The degree of the equation<span class=\"math-tex\">{tex}{(\\frac{{dy}}{{dx}})^2} + \\;\\frac{{dy}}{{dx}}-{\\text{ }}si{n^2}y{\\text{ }} = {\\text{ }}0{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193528,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            },
+            {
+              "id": 193526,
+              "text": "2",
+              "html": "2",
+              "is_correct": true
+            },
+            {
+              "id": 193527,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 193529,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "2",
+          "correct_option_ids": [
+            193526
+          ],
+          "explanation": "the power of the highest order derivative i.e . {tex}{(\\frac{{dy}}{{dx}})^2}{/tex} is 2.hence the degree 2",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59586,
+          "question_text": "Find the order and degree of {tex}y\\prime \\prime \\prime + {\\text{ }}{y^2} + {\\text{ }}{e^{y{\\text{ }}\\prime }} = {\\text{ }}0{/tex} is",
+          "question_html": "<p>Find the order and degree of <span class=\"math-tex\">{tex}y\\prime \\prime \\prime + {\\text{ }}{y^2} + {\\text{ }}{e^{y{\\text{ }}\\prime }} = {\\text{ }}0{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193533,
+              "text": "4, degree undefined",
+              "html": "4, degree undefined",
+              "is_correct": false
+            },
+            {
+              "id": 193532,
+              "text": "2, degree undefined",
+              "html": "2, degree undefined",
+              "is_correct": false
+            },
+            {
+              "id": 193531,
+              "text": "1, degree undefined",
+              "html": "1, degree undefined",
+              "is_correct": false
+            },
+            {
+              "id": 193530,
+              "text": "3, degree undefined",
+              "html": "3, degree undefined",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "3, degree undefined",
+          "correct_option_ids": [
+            193530
+          ],
+          "explanation": "Order = 3 ,Since the highest order derivative is y&#39;&#39;&#39; but degree cannot be defined,because the derivative term y&rsquo; is present in exponential form.",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59587,
+          "question_text": "Determine order and degree (if defined) of {tex}\\frac{{{d^4}y}}{{d{x^4}}}{/tex} +sin(y&rsquo;&rsquo;&rsquo;) = 0",
+          "question_html": "<p>Determine order and degree (if defined) of&nbsp;<span class=\"math-tex\">{tex}\\frac{{{d^4}y}}{{d{x^4}}}{/tex}</span> +sin(y&rsquo;&rsquo;&rsquo;) = 0</p>",
+          "options": [
+            {
+              "id": 193536,
+              "text": "2, degree undefined",
+              "html": "2, degree undefined",
+              "is_correct": false
+            },
+            {
+              "id": 193534,
+              "text": "4, degree undefined",
+              "html": "4, degree undefined",
+              "is_correct": true
+            },
+            {
+              "id": 193535,
+              "text": "3, degree undefined",
+              "html": "3, degree undefined",
+              "is_correct": false
+            },
+            {
+              "id": 193537,
+              "text": "1, degree undefined",
+              "html": "1, degree undefined",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "4, degree undefined",
+          "correct_option_ids": [
+            193534
+          ],
+          "explanation": "Order = 4, degree not defined , because the function y&rsquo;&rsquo;&rsquo; present in the angle of sine function.",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59588,
+          "question_text": "Determine order and degree (if defined) of y&rsquo; + 5y = 0",
+          "question_html": "<p>Determine order and degree (if defined) of y&rsquo; + 5y = 0</p>",
+          "options": [
+            {
+              "id": 193539,
+              "text": "2, 1",
+              "html": "2, 1",
+              "is_correct": false
+            },
+            {
+              "id": 193541,
+              "text": "1,degree undefined",
+              "html": "1,degree undefined",
+              "is_correct": false
+            },
+            {
+              "id": 193540,
+              "text": "1, 2",
+              "html": "1, 2",
+              "is_correct": false
+            },
+            {
+              "id": 193538,
+              "text": "1, 1",
+              "html": "1, 1",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "1, 1",
+          "correct_option_ids": [
+            193538
+          ],
+          "explanation": "Order = 1, degree = 1. Since the equation has the highest derivative as y&#39; and its power is 1",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59589,
+          "question_text": "Determine order and degree (if defined) of {tex}{(\\frac{{ds}}{{dt}})^4}{/tex} + 3s {tex}\\frac{{{d^2}s}}{{d{t^2}}}{/tex} = 0",
+          "question_html": "<p>Determine order and degree (if defined) of <span class=\"math-tex\">{tex}{(\\frac{{ds}}{{dt}})^4}{/tex}</span> + 3s<span class=\"math-tex\">{tex}\\frac{{{d^2}s}}{{d{t^2}}}{/tex}</span> = 0</p>",
+          "options": [
+            {
+              "id": 193545,
+              "text": "1,degree undefined",
+              "html": "1,degree undefined",
+              "is_correct": false
+            },
+            {
+              "id": 193542,
+              "text": "2, 1",
+              "html": "2, 1",
+              "is_correct": true
+            },
+            {
+              "id": 193543,
+              "text": "2, 2",
+              "html": "2, 2",
+              "is_correct": false
+            },
+            {
+              "id": 193544,
+              "text": "1, 2",
+              "html": "1, 2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "2, 1",
+          "correct_option_ids": [
+            193542
+          ],
+          "explanation": "Order = 2, degree = 1.Since the equation has {tex}\\frac{{{d^2}s}}{{d{t^2}}}{/tex} as the highest derivative term.its order is 2 and its index is 1",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59590,
+          "question_text": "Determine order and degree(if defined) of {tex}{(\\frac{{{d^2}y}}{{d{x^2}}})^2} + {/tex} cos( {tex}\\frac{{dy}}{{dx}}{/tex} ) = 0",
+          "question_html": "<p>Determine order and degree(if defined) of<span class=\"math-tex\">{tex}{(\\frac{{{d^2}y}}{{d{x^2}}})^2} + {/tex}</span>cos(<span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}}{/tex}</span>) = 0</p>",
+          "options": [
+            {
+              "id": 193549,
+              "text": "3,1",
+              "html": "3,1",
+              "is_correct": false
+            },
+            {
+              "id": 193546,
+              "text": "2, degree undefined",
+              "html": "2, degree undefined",
+              "is_correct": true
+            },
+            {
+              "id": 193548,
+              "text": "0,degree undefined",
+              "html": "0,degree undefined",
+              "is_correct": false
+            },
+            {
+              "id": 193547,
+              "text": "1,degree undefined",
+              "html": "1,degree undefined",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "2, degree undefined",
+          "correct_option_ids": [
+            193546
+          ],
+          "explanation": "order = 2, degree not defined, because the function {tex}\\frac{{dy}}{{dx}}{/tex} present in angle of cosine function.",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59591,
+          "question_text": "Determine order and degree(if defined) of {tex}\\frac{{{d^2}y}}{{d{x^2}}} = cos3x + sin3x{/tex}",
+          "question_html": "<p>Determine order and degree(if defined) of <span class=\"math-tex\">{tex}\\frac{{{d^2}y}}{{d{x^2}}} = cos3x + sin3x{/tex}</span></p>\r\n",
+          "options": [
+            {
+              "id": 193552,
+              "text": "1,1",
+              "html": "1,1",
+              "is_correct": false
+            },
+            {
+              "id": 193551,
+              "text": "2,2",
+              "html": "2,2",
+              "is_correct": false
+            },
+            {
+              "id": 193550,
+              "text": "2,1",
+              "html": "2,1",
+              "is_correct": true
+            },
+            {
+              "id": 193553,
+              "text": "3,1",
+              "html": "3,1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "2,1",
+          "correct_option_ids": [
+            193550
+          ],
+          "explanation": "Order = 2 , degree = 1. Since the highest derivative term is {tex}\\frac{{{d^2}y}}{{d{x^2}}}{/tex} and its power is 1.",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59592,
+          "question_text": "What is the order of differential equation : {tex}\\frac{{{d^3}y}}{{d{x^3}}} + \\frac{{{d^2}y}}{{d{x^2}}} + {\\left( {\\frac{{dy}}{{dx}}} \\right)^2} = {e^x}{/tex}",
+          "question_html": "<p>What is the order of differential equation : <span class=\"math-tex\">{tex}\\frac{{{d^3}y}}{{d{x^3}}} + \\frac{{{d^2}y}}{{d{x^2}}} + {\\left( {\\frac{{dy}}{{dx}}} \\right)^2} = {e^x}{/tex}</span></p>",
+          "options": [
+            {
+              "id": 193554,
+              "text": "3",
+              "html": "3",
+              "is_correct": true
+            },
+            {
+              "id": 193557,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 193556,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 193555,
+              "text": "0",
+              "html": "0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "3",
+          "correct_option_ids": [
+            193554
+          ],
+          "explanation": "Order = 3. Since the third derivative is the highest derivative present in the equation. i.e. {tex}\\frac{{{d^3}y}}{{d{x^3}}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59593,
+          "question_text": "Function y = f(x) is said to satisfy a differential equation g(y, y&rsquo;, y&rsquo;&rsquo;...) = h(x), if",
+          "question_html": "<p>Function y = f(x) is said to satisfy a differential equation g(y, y&rsquo;, y&rsquo;&rsquo;...) = h(x), if</p>",
+          "options": [
+            {
+              "id": 193558,
+              "text": "y and its derivatives substituted in equation g(y, y&rsquo;, y&rsquo;&rsquo;...) =h(x) yield L.H.S. = R.H.S.",
+              "html": "y and its derivatives substituted in equation g(y, y&rsquo;, y&rsquo;&rsquo;...) =h(x) yield L.H.S. = R.H.S.",
+              "is_correct": true
+            },
+            {
+              "id": 193559,
+              "text": "y and its derivatives substituted in equation g (y, y&rsquo;, y&rsquo;&rsquo;...) = h(x) yield L.H.S. = 0",
+              "html": "y and its derivatives substituted in equation g (y, y&rsquo;, y&rsquo;&rsquo;...) = h(x) yield L.H.S. = 0",
+              "is_correct": false
+            },
+            {
+              "id": 193560,
+              "text": "If h(x) = 0",
+              "html": "If h(x) = 0",
+              "is_correct": false
+            },
+            {
+              "id": 193561,
+              "text": "y and its derivatives substituted in equation g (y, y&rsquo;, y&rsquo;&rsquo;...) = h(x) yield L.H.S. {tex} \\ne {/tex} R.H.S.",
+              "html": "y and its derivatives substituted in equation g (y, y&rsquo;, y&rsquo;&rsquo;...) = h(x) yield L.H.S. <span class=\"math-tex\">{tex} \\ne {/tex}</span> R.H.S.",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "y and its derivatives substituted in equation g(y, y&rsquo;, y&rsquo;&rsquo;...) =h(x) yield L.H.S. = R.H.S.",
+          "correct_option_ids": [
+            193558
+          ],
+          "explanation": "Function y = f(x) is said to satisfy a differential equation g (y, y&rsquo;, y&rsquo;&rsquo;...) =h(x) if y and its derivatives substituted in equation g(y, y&rsquo;, y&rsquo;&rsquo;...) = h(x) yield L.H.S. = R.H.S.",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59594,
+          "question_text": "A function f(x, y) is said to be homogenous function of degree n if",
+          "question_html": "<p>A function f(x, y) is said to be homogenous function of degree n if&nbsp;</p>",
+          "options": [
+            {
+              "id": 193563,
+              "text": "F(x, y) = y n g {tex}\\left(\\frac{x}{y}\\right){/tex}",
+              "html": "F(x, y) = y<sup>n</sup>g<span class=\"math-tex\">{tex}\\left(\\frac{x}{y}\\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193562,
+              "text": "F(x, y) = x n f {tex}\\left(\\frac{y}{x}\\right){/tex}",
+              "html": "F(x, y) = x<sup>n</sup>f<span class=\"math-tex\">{tex}\\left(\\frac{y}{x}\\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193565,
+              "text": "F(x, y) = x -n f {tex}\\left(\\frac{y}{x}\\right){/tex}",
+              "html": "F(x, y) = x<sup>-n</sup>&nbsp;f<span class=\"math-tex\">{tex}\\left(\\frac{y}{x}\\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193564,
+              "text": "Both F(x, y) = x n f {tex}\\left(\\frac{y}{x}\\right){/tex} and F(x, y) = y n g {tex}\\left(\\frac{x}{y}\\right){/tex}",
+              "html": "Both&nbsp;F(x, y) = x<sup>n</sup>f<span class=\"math-tex\">{tex}\\left(\\frac{y}{x}\\right){/tex}</span>&nbsp;and&nbsp;F(x, y) = y<sup>n</sup>g<span class=\"math-tex\">{tex}\\left(\\frac{x}{y}\\right){/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "Both F(x, y) = x n f {tex}\\left(\\frac{y}{x}\\right){/tex} and F(x, y) = y n g {tex}\\left(\\frac{x}{y}\\right){/tex}",
+          "correct_option_ids": [
+            193564
+          ],
+          "explanation": "Both F(x, y) = x n f {tex}\\left(\\frac{y}{x}\\right){/tex} and F(x, y) = y n g {tex}\\left(\\frac{x}{y}\\right){/tex}",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3629,
+      "test_name": "Differential Equations Test-02",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59595,
+          "question_text": "General solution of a given differential equation",
+          "question_html": "<p>General solution of a given differential equation</p>",
+          "options": [
+            {
+              "id": 193568,
+              "text": "contains exactly one arbitrary constant",
+              "html": "contains exactly one arbitrary constant",
+              "is_correct": false
+            },
+            {
+              "id": 193569,
+              "text": "contains exactly two arbitrary constants",
+              "html": "contains exactly two arbitrary constants",
+              "is_correct": false
+            },
+            {
+              "id": 193566,
+              "text": "contains arbitrary constants depending on the order of the differential equation",
+              "html": "contains arbitrary constants depending on the order of the differential equation",
+              "is_correct": true
+            },
+            {
+              "id": 193567,
+              "text": "does not contain arbitrary constants",
+              "html": "does not contain arbitrary constants",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "contains arbitrary constants depending on the order of the differential equation",
+          "correct_option_ids": [
+            193566
+          ],
+          "explanation": "The general solution of differential equation contains arbitrary constants equal to the order of differential equation",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59596,
+          "question_text": "Particular solution of a given differential equation",
+          "question_html": "<p>Particular solution of a given differential equation</p>",
+          "options": [
+            {
+              "id": 193573,
+              "text": "can contain exactly two arbitrary constants",
+              "html": "can contain exactly two arbitrary constants",
+              "is_correct": false
+            },
+            {
+              "id": 193570,
+              "text": "does not contain arbitrary constants",
+              "html": "does not contain arbitrary constants",
+              "is_correct": true
+            },
+            {
+              "id": 193571,
+              "text": "can contain arbitrary constants",
+              "html": "can contain arbitrary constants",
+              "is_correct": false
+            },
+            {
+              "id": 193572,
+              "text": "can contain exactly one arbitrary constant",
+              "html": "can contain exactly one arbitrary constant",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "does not contain arbitrary constants",
+          "correct_option_ids": [
+            193570
+          ],
+          "explanation": "Particular solution of a given differential equation does not contain arbitrary constants i.e. a,b ,c etc since the value of those arbitrary can be found out by substituting the given values.",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59597,
+          "question_text": "The number of arbitrary constants in the general solution of a differential equation of fourth order are:",
+          "question_html": "<p>The number of arbitrary constants in the general solution of a differential equation of fourth order are:</p>",
+          "options": [
+            {
+              "id": 193576,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 193575,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            },
+            {
+              "id": 193577,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 193574,
+              "text": "4",
+              "html": "4",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "4",
+          "correct_option_ids": [
+            193574
+          ],
+          "explanation": "4, because the no. of arbitrary constants is equal to order of the differential equation.",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59598,
+          "question_text": "The number of arbitrary constants in the particular solution of a differential equation of third order are:",
+          "question_html": "<p>The number of arbitrary constants in the particular solution of a differential equation of third order are:</p>",
+          "options": [
+            {
+              "id": 193580,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 193578,
+              "text": "0",
+              "html": "0",
+              "is_correct": true
+            },
+            {
+              "id": 193579,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 193581,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0",
+          "correct_option_ids": [
+            193578
+          ],
+          "explanation": "0, because the particular solution is free from arbitrary constants.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59599,
+          "question_text": "General solution of {tex}\\frac{{dy}}{{dx}} = \\;\\frac{{1 - cosx}}{{1 + cosx}}{/tex} is",
+          "question_html": "<p>General solution of <span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}} = \\;\\frac{{1 - cosx}}{{1 + cosx}}{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193585,
+              "text": "y = 2tan (x) &ndash; x + c",
+              "html": "y = 2tan (x) &ndash; x + c",
+              "is_correct": false
+            },
+            {
+              "id": 193582,
+              "text": "{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} = {\\text{ }}2tan\\left( {\\frac{x}{2}} \\right){\\text{ }}-{\\text{ }}x\\; + {\\text{ }}c} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} = {\\text{ }}2tan\\left( {\\frac{x}{2}} \\right){\\text{ }}-{\\text{ }}x\\; + {\\text{ }}c} \\end{array}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193584,
+              "text": "{tex}y{\\text{ }} = {\\text{ }}2tan\\left( {\\frac{x}{2}} \\right){\\text{ }} + {\\text{ }}x\\; + {\\text{ }}c{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y{\\text{ }} = {\\text{ }}2tan\\left( {\\frac{x}{2}} \\right){\\text{ }} + {\\text{ }}x\\; + {\\text{ }}c{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193583,
+              "text": "{tex}y{\\text{ }} = {\\text{ }}2ta{n^2}\\left( {\\frac{x}{2}} \\right){\\text{ }}--{\\text{ }}x\\; + {\\text{ }}c{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y{\\text{ }} = {\\text{ }}2ta{n^2}\\left( {\\frac{x}{2}} \\right){\\text{ }}--{\\text{ }}x\\; + {\\text{ }}c{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} = {\\text{ }}2tan\\left( {\\frac{x}{2}} \\right){\\text{ }}-{\\text{ }}x\\; + {\\text{ }}c} \\end{array}{/tex}",
+          "correct_option_ids": [
+            193582
+          ],
+          "explanation": "{tex}\\frac{{dy}}{{dx}} = \\frac{{1 - \\cos x}}{{1 + \\cos x}} = {\\tan ^2}\\frac{x}{2} {/tex} {tex}\\frac{{dy}}{{dx}}= {\\sec ^2}\\frac{x}{2} - 1 {/tex} {tex}\\left( {{{\\sec }^2}\\frac{x}{2} - 1} \\right)dx=dy{/tex} Integrating both sides, we get ; {tex}\\int_{}^{} \\left( {{{\\sec }^2}\\frac{x}{2} - 1} \\right)dx=\\int_{}^{} dy{/tex} {tex}y = 2tan\\frac{x}{2} - x + c\\;\\;.{/tex} Since, {tex}\\int_{}^{} sec ^2 \\frac{x}{2} dx = 2tan\\frac{x}{2} +c{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59600,
+          "question_text": "General solution of {tex}\\frac{{dy}}{{dx}} = \\sqrt[2]{{4 - \\;{y^2}}}{/tex} ( -2 < y < 2) is",
+          "question_html": "<p>General solution of <span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}} = \\sqrt[2]{{4 - \\;{y^2}}}{/tex}</span>( -2 &lt; y &lt; 2) is</p>",
+          "options": [
+            {
+              "id": 193586,
+              "text": "y = 2sin(x + c)",
+              "html": "y = 2sin(x + c)",
+              "is_correct": true
+            },
+            {
+              "id": 193588,
+              "text": "{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} = {\\text{ }}2sin{x^2} + {\\text{ }}c} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} = {\\text{ }}2sin{x^2} + {\\text{ }}c} \\end{array}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193587,
+              "text": "y = 2sin(2x) + c",
+              "html": "y = 2sin(2x) + c",
+              "is_correct": false
+            },
+            {
+              "id": 193589,
+              "text": "y = 2cosx + c",
+              "html": "y = 2cosx + c",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "y = 2sin(x + c)",
+          "correct_option_ids": [
+            193586
+          ],
+          "explanation": "{tex} \\frac{{dy}}{{dx}} = \\sqrt {4 - {y^2}}{/tex} {tex}\\Rightarrow \\int {\\frac{1}{{\\sqrt {{2^2} - {y^2}} }}} dy = \\int {1.dx} {/tex} {tex}\\frac{y}{2} = x + c{/tex} {tex} \\frac{y}{2} = \\sin (x + c) {/tex} {tex} y = 2sin(x + c) {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59601,
+          "question_text": "General solution of {tex}\\;\\frac{{dy}}{{dx}} + y = 1\\;(y\\; \\ne 1){/tex} is",
+          "question_html": "<p>General solution of <span class=\"math-tex\">{tex}\\;\\frac{{dy}}{{dx}} + y = 1\\;(y\\; \\ne 1){/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193592,
+              "text": "{tex}y{\\text{ }} = {\\text{ }}1{\\text{ }} + {\\text{ }}A{e^x}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y{\\text{ }} = {\\text{ }}1{\\text{ }} + {\\text{ }}A{e^x}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193593,
+              "text": "{tex}y{\\text{ }} = {\\text{ }}1{\\text{ }} + {\\text{ }}A{e^{ - 3x}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y{\\text{ }} = {\\text{ }}1{\\text{ }} + {\\text{ }}A{e^{ - 3x}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193590,
+              "text": "{tex}y{\\text{ }} = {\\text{ }}1{\\text{ }} + {\\text{ }}A{e^{ - x}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y{\\text{ }} = {\\text{ }}1{\\text{ }} + {\\text{ }}A{e^{ - x}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193591,
+              "text": "{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} = {\\text{ }}B{\\text{ }} + {\\text{ }}A{e^{ - x}}} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} = {\\text{ }}B{\\text{ }} + {\\text{ }}A{e^{ - x}}} \\end{array}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}y{\\text{ }} = {\\text{ }}1{\\text{ }} + {\\text{ }}A{e^{ - x}}{/tex}",
+          "correct_option_ids": [
+            193590
+          ],
+          "explanation": "{tex}\\frac{{dy}}{{dx}} + y = 1{/tex} {tex}\\frac{{dy}}{{dx}} + Py = Q {/tex} Here, {tex} \\ P = 1,Q = 1 {/tex} It is of the form of linear differential equation.hence the solution is y X IF = {tex}\\int Q(x) * IF \\ dx +c{/tex} {tex}\\Rightarrow I.F. = {e^{\\int {P.dx} }} = {e^{\\int {1.dx} }} = {e^x}{/tex} {tex}\\Rightarrow y.{e^x} = \\int {1. {e^x}} .dx {/tex} {tex} \\Rightarrow y = 1 + A{e^{ - x}} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59602,
+          "question_text": "General solution of {tex}se{c^2}xtany{\\text{ }}dx{\\text{ }} + {\\text{ }}se{c^2}y{\\text{ }}tanxdy{\\text{ }} = {\\text{ }}0{/tex} is",
+          "question_html": "<p>General solution of <span class=\"math-tex\">{tex}se{c^2}xtany{\\text{ }}dx{\\text{ }} + {\\text{ }}se{c^2}y{\\text{ }}tanxdy{\\text{ }} = {\\text{ }}0{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193597,
+              "text": "{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} = {\\text{ }}tan{x^2}tany{\\text{ }} + {\\text{ }}C} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} = {\\text{ }}tan{x^2}tany{\\text{ }} + {\\text{ }}C} \\end{array}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193595,
+              "text": "y = tan2x tany + C",
+              "html": "y = tan2x tany + C",
+              "is_correct": false
+            },
+            {
+              "id": 193596,
+              "text": "y = tanx tan2y + C",
+              "html": "y = tanx tan2y + C",
+              "is_correct": false
+            },
+            {
+              "id": 193594,
+              "text": "tanxtany = C",
+              "html": "tanxtany = C",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "tanxtany = C",
+          "correct_option_ids": [
+            193594
+          ],
+          "explanation": "{tex} {\\sec ^2}x\\tan ydx + {\\sec ^2}y\\operatorname{tanx} dy = 0{/tex} {tex}{\\sec ^2}x\\tan ydx = - {\\sec ^2}y\\operatorname{tanx} dy {/tex} {tex}\\int {\\frac{{{{\\sec }^2}x}}{{\\tan x}}} dx = - \\int {\\frac{{{{\\sec }^2}y}}{{\\tan y}}dy}{/tex} {tex}\\ln \\ tanx =- \\ln \\ tany + \\ ln c{/tex} Since {tex} \\int {\\frac{{{{\\ f'(x) }}}}{{\\ f( x)}}} dx = \\ln \\ f(x) +c{/tex} {tex}\\ln \\ tanx + \\ln \\ tany =ln \\;c{/tex} {tex} ln (\\ tanx + \\ tan y)=\\ ln c {/tex} {tex}\\ \\ tanx \\ tany =c{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59603,
+          "question_text": "Find the general solution of the differential equation {tex}\\left( {{e^x} + {\\text{ }}{e^{ - x}}} \\right){\\text{ }}dy{\\text{ }} - {\\text{ }}\\left( {{e^x} - {\\text{ }}{e^{ - x}}} \\right){\\text{ }}dx{\\text{ }} = {\\text{ }}0{/tex}",
+          "question_html": "<p>Find the general solution of the differential equation&nbsp;<span class=\"math-tex\">{tex}\\left( {{e^x} + {\\text{ }}{e^{ - x}}} \\right){\\text{ }}dy{\\text{ }} - {\\text{ }}\\left( {{e^x} - {\\text{ }}{e^{ - x}}} \\right){\\text{ }}dx{\\text{ }} = {\\text{ }}0{/tex}</span></p>\r\n",
+          "options": [
+            {
+              "id": 193601,
+              "text": "{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} = {\\text{ }}log\\left( {{e^{ - 2x}} + {\\text{ }}{e^{ - x}}} \\right){\\text{ }} + {\\text{ }}C} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} = {\\text{ }}log\\left( {{e^{ - 2x}} + {\\text{ }}{e^{ - x}}} \\right){\\text{ }} + {\\text{ }}C} \\end{array}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193598,
+              "text": "{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} = {\\text{ }}log|\\left( {{e^x} + {\\text{ }}{e^{ - x}}} \\right)|{\\text{ }} + {\\text{ }}C} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} = {\\text{ }}log|\\left( {{e^x} + {\\text{ }}{e^{ - x}}} \\right)|{\\text{ }} + {\\text{ }}C} \\end{array}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193599,
+              "text": "{tex}y{\\text{ }} = {\\text{ }}\\left( {{e^x} + {\\text{ }}{e^{ - x}}} \\right){\\text{ }} + {\\text{ }}C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y{\\text{ }} = {\\text{ }}\\left( {{e^x} + {\\text{ }}{e^{ - x}}} \\right){\\text{ }} + {\\text{ }}C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193600,
+              "text": "{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} = {\\text{ }}log\\left( {{e^{2x}} + {\\text{ }}{e^{ - x}}} \\right){\\text{ }} + {\\text{ }}C} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} = {\\text{ }}log\\left( {{e^{2x}} + {\\text{ }}{e^{ - x}}} \\right){\\text{ }} + {\\text{ }}C} \\end{array}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} = {\\text{ }}log|\\left( {{e^x} + {\\text{ }}{e^{ - x}}} \\right)|{\\text{ }} + {\\text{ }}C} \\end{array}{/tex}",
+          "correct_option_ids": [
+            193598
+          ],
+          "explanation": "{tex}({e^x} + {e^{ - x}})dy = ({e^x} - {e^{ - x}})dx{/tex} {tex}\\int {dy} = \\int {\\frac{{({e^x} - {e^{ - x}})}}{{({e^x} + {e^{ - x}})}}} dx {/tex} Since {tex}\\int {\\frac{{f'(x)}}{{f(x)}}} dx = \\ ln f(x) +c{/tex} {tex}y = \\log \\left| {({e^x} + {e^{ - x}})} \\right| + C{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59604,
+          "question_text": "General solution of {tex}\\frac{{dy}}{{dx}} = \\left( {\\;1 + {x^2}} \\right)(1 + {y^2}){/tex} is",
+          "question_html": "<p>General solution of <span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}} = \\left( {\\;1 + {x^2}} \\right)(1 + {y^2}){/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193602,
+              "text": "{tex}ta{n^{ - 1}}y{/tex} = x + {tex}\\frac{{{x^3}}}{3} + \\;C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}ta{n^{ - 1}}y{/tex}</span> = x + <span class=\"math-tex\">{tex}\\frac{{{x^3}}}{3} + \\;C{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193605,
+              "text": "{tex}co{t^{ - 1}}y{/tex} = x + {tex}\\frac{{{x^3}}}{3} + \\;C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}co{t^{ - 1}}y{/tex}</span> = x + <span class=\"math-tex\">{tex}\\frac{{{x^3}}}{3} + \\;C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193603,
+              "text": "{tex}co{s^{ - 1}}y{/tex} = x + {tex}\\frac{{{x^3}}}{3} + \\;C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}co{s^{ - 1}}y{/tex}</span> = x + <span class=\"math-tex\">{tex}\\frac{{{x^3}}}{3} + \\;C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193604,
+              "text": "{tex}si{n^{ - 1}}y{/tex} = x + {tex}\\frac{{{x^3}}}{3} + \\;C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}si{n^{ - 1}}y{/tex}</span> = x + <span class=\"math-tex\">{tex}\\frac{{{x^3}}}{3} + \\;C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}ta{n^{ - 1}}y{/tex} = x + {tex}\\frac{{{x^3}}}{3} + \\;C{/tex}",
+          "correct_option_ids": [
+            193602
+          ],
+          "explanation": "{tex}\\frac{{dy}}{{dx}} = \\left( {\\;1 + {x^2}} \\right)(1 + {y^2}){/tex} {tex}\\int {\\frac{1}{{1 + {y^2}}}} dy = \\int {(1 + {x^2}} )dx {/tex} Since {tex}\\int {\\frac {{dx }}{{1+x^2}}} =tan^ {{-1}} x +c {/tex} {tex}{\\tan ^{ - 1}}y = x + \\frac{{{x^3}}}{3} + C{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59605,
+          "question_text": "General solution of y log y dx &ndash; x dy = 0",
+          "question_html": "<p>General solution of y log y dx &ndash; x dy = 0</p>",
+          "options": [
+            {
+              "id": 193608,
+              "text": "{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} = {\\text{ }}{e^{ - cx}}} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} = {\\text{ }}{e^{ - cx}}} \\end{array}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193606,
+              "text": "{tex}y{\\text{ }} = {\\text{ }}{e^{cx}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y{\\text{ }} = {\\text{ }}{e^{cx}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193607,
+              "text": "{tex}{y^2} = {\\text{ }}{e^{cx}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{y^2} = {\\text{ }}{e^{cx}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193609,
+              "text": "{tex}y{\\text{ }} = {\\text{ }}{e^{cx}} + {\\text{ }}{e^{ - cx}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y{\\text{ }} = {\\text{ }}{e^{cx}} + {\\text{ }}{e^{ - cx}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}y{\\text{ }} = {\\text{ }}{e^{cx}}{/tex}",
+          "correct_option_ids": [
+            193606
+          ],
+          "explanation": "{tex}y\\log y \\ dx = x \\ dy{/tex} {tex}\\int {\\frac{1}{x}} dx = \\int {\\frac{1}{{y\\log y}}} dy{/tex} {tex} \\log \\left| x \\right| = \\log \\left| {\\log y} \\right| + \\log C {/tex} Since {tex}\\int \\frac {{f'(x)dx}}{f(x)} = log |f(x)|+c{/tex} and {tex}\\frac{{1}}{C} =c \\ a \\ new \\ constant{/tex} {tex}\\\\ \\log x = \\log (C\\log y) {/tex} {tex}x = C\\log y {/tex} {tex} \\log y = \\frac{1}{C}x {/tex} {tex}\\log y = cx {/tex} {tex}y = {e^{cx}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59606,
+          "question_text": "General solution of {tex}ydx + (x - {y^3})dy = 0{/tex} is",
+          "question_html": "<p>General solution of <span class=\"math-tex\">{tex}ydx + (x - {y^3})dy = 0{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193612,
+              "text": "xy = 3y + C",
+              "html": "xy = 3y + C",
+              "is_correct": false
+            },
+            {
+              "id": 193611,
+              "text": "{tex}xy = \\frac{{{y^4}}}{3} + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}xy = \\frac{{{y^4}}}{3} + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193613,
+              "text": "xy = 2y + C",
+              "html": "xy = 2y + C",
+              "is_correct": false
+            },
+            {
+              "id": 193610,
+              "text": "{tex}xy = \\frac{{{y^4}}}{4} + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}xy = \\frac{{{y^4}}}{4} + C{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}xy = \\frac{{{y^4}}}{4} + C{/tex}",
+          "correct_option_ids": [
+            193610
+          ],
+          "explanation": "{tex}\\frac{dx}{dy}+\\frac{x}{y}=y^{2} {/tex} Divide by ydy {tex}xe^{\\int \\frac{dy}{y}}=\\int y^{2} \\ e^{\\int \\frac{dy}{y}}dy+c {/tex} Since it is in linear differential equation in y, {tex}x e^{\\int P dy } = \\int Q(y)e^{\\int P dy }dy+c {/tex} is a solution for {tex} \\frac{dx}{dy}+Py=Q {/tex} {tex}xy=\\int y^{3} dy + c \\because e^{{logy}}=y{/tex} {tex}xy=\\frac{y^{4}}{4}+c {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59607,
+          "question_text": "General solution of {tex}\\frac{{dy}}{{dx}} = \\;si{n^{ - 1}}x{/tex} is",
+          "question_html": "<p>General solution of <span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}} = \\;si{n^{ - 1}}x{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193614,
+              "text": "y = {tex}xsi{n^{ - 1}}x{/tex} + {tex}\\sqrt[2]{{1 - {x^2}}} + \\;C{/tex}",
+              "html": "y = <span class=\"math-tex\">{tex}xsi{n^{ - 1}}x{/tex}</span> + <span class=\"math-tex\">{tex}\\sqrt[2]{{1 - {x^2}}} + \\;C{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193615,
+              "text": "y = {tex}xsi{n^{ - 1}}x{/tex} + {tex}\\sqrt[3]{{1 - {x^2}}} + \\;C{/tex}",
+              "html": "y = <span class=\"math-tex\">{tex}xsi{n^{ - 1}}x{/tex}</span> + <span class=\"math-tex\">{tex}\\sqrt[3]{{1 - {x^2}}} + \\;C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193616,
+              "text": "y = {tex}xsi{n^{ - 1}}x{/tex} + {tex}\\sqrt[2]{{1 - {x^3}}} + \\;C{/tex}",
+              "html": "y = <span class=\"math-tex\">{tex}xsi{n^{ - 1}}x{/tex}</span> + <span class=\"math-tex\">{tex}\\sqrt[2]{{1 - {x^3}}} + \\;C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193617,
+              "text": "y = {tex}xsi{n^{ - 1}}x{/tex} + {tex}\\sqrt[2]{{1 - {x^4}}} + \\;C{/tex}",
+              "html": "y = <span class=\"math-tex\">{tex}xsi{n^{ - 1}}x{/tex}</span> + <span class=\"math-tex\">{tex}\\sqrt[2]{{1 - {x^4}}} + \\;C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "y = {tex}xsi{n^{ - 1}}x{/tex} + {tex}\\sqrt[2]{{1 - {x^2}}} + \\;C{/tex}",
+          "correct_option_ids": [
+            193614
+          ],
+          "explanation": "{tex}dy=sin^{-1}x dx{/tex} {tex}\\\\\\int dy=\\int sin^{-1}x dx{/tex} {tex}y=sin^{-1}x\\int dx-\\int \\int dx . \\frac{\\mathrm{d} }{\\mathrm{d} x}sin^{-1}xdx+c{/tex} {tex}y=xsin^{-1}x-\\int \\frac{x}{\\sqrt{1-x^{2}}}dx{/tex} {tex}y=xsin^{-1}x-\\frac{1}{2}\\int \\frac{2x}{\\sqrt{1-x^{2}}}dx {/tex} {tex}y=xsin^{-1}x+\\frac{1}{2} 2{\\sqrt{1-x^{2}}}+c{/tex} {tex}y=xsin^{-1}x+{\\sqrt{1-x^{2}}}+c {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59608,
+          "question_text": "General solution of {tex}{e^x}tan{\\text{ }}y{\\text{ }}dx{\\text{ }} + {\\text{ }}\\left( {1{\\text{ }}-{\\text{ }}{e^x}} \\right){\\text{ }}se{c^2}y{\\text{ }}dy{\\text{ }} = {\\text{ }}0{/tex}",
+          "question_html": "<p>General solution of <span class=\"math-tex\">{tex}{e^x}tan{\\text{ }}y{\\text{ }}dx{\\text{ }} + {\\text{ }}\\left( {1{\\text{ }}-{\\text{ }}{e^x}} \\right){\\text{ }}se{c^2}y{\\text{ }}dy{\\text{ }} = {\\text{ }}0{/tex}</span></p>\r\n",
+          "options": [
+            {
+              "id": 193619,
+              "text": "{tex}tan{x^2} = C\\left( {\\;1 - {e^x}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}tan{x^2} = C\\left( {\\;1 - {e^x}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193621,
+              "text": "{tex}tan{y^3} = C\\left( {\\;1 - {e^x}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}tan{y^3} = C\\left( {\\;1 - {e^x}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193618,
+              "text": "{tex}tany = C\\left( {{e^x -1}} \\right)\\;{/tex}",
+              "html": "<span class=\"math-tex\">{tex}tany = C\\left( {{e^x -1}} \\right)\\;{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193620,
+              "text": "{tex}tan{y^2} = C\\left( {\\;1 - {e^x}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}tan{y^2} = C\\left( {\\;1 - {e^x}} \\right){/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}tany = C\\left( {{e^x -1}} \\right)\\;{/tex}",
+          "correct_option_ids": [
+            193618
+          ],
+          "explanation": "{tex}{e^{x} }{}tanydx=(e^{x}-1 )sec^{2}y dy{/tex} {tex} \\int\\frac{e^{x}dx }{e^{x}-1}= \\int \\frac{sec^{2}y dy}{tany}{/tex} {tex}\\log|e^{x}-1|+logc =log|tany|{/tex} {tex}\\\\log|c(e^{x}-1)| =log|tany|{/tex} {tex}\\\\c(e^{x}-1)=tany{/tex} . Which is the required solution.",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59609,
+          "question_text": "Find a particular solution of {tex}x\\left( {{x^2} - {\\text{ }}1} \\right)\\frac{{dx}}{{dy}}{/tex} = 1; y = 0 when x = 2.",
+          "question_html": "<p>Find a particular solution of <span class=\"math-tex\">{tex}x\\left( {{x^2} - {\\text{ }}1} \\right)\\frac{{dx}}{{dy}}{/tex}</span>= 1; y = 0 when x = 2.</p>\r\n",
+          "options": [
+            {
+              "id": 193624,
+              "text": "{tex}y = \\;\\frac{1}{2}\\log \\left( {\\frac{{{x^3} - 1}}{{{x^2}}}} \\right) - \\;\\frac{1}{2}log\\frac{3}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = \\;\\frac{1}{2}\\log \\left( {\\frac{{{x^3} - 1}}{{{x^2}}}} \\right) - \\;\\frac{1}{2}log\\frac{3}{4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193622,
+              "text": "{tex}\\frac{x^{4}}{4}-\\frac{x^{2}}{2}=y+2\\\\{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{x^{4}}{4}-\\frac{x^{2}}{2}=y+2\\\\{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193623,
+              "text": "{tex}y = \\;\\frac{1}{2}\\log \\left( {\\frac{{{x^2} - 1}}{{{x^2}}}} \\right) - \\;\\frac{1}{2}log\\frac{3}{7}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = \\;\\frac{1}{2}\\log \\left( {\\frac{{{x^2} - 1}}{{{x^2}}}} \\right) - \\;\\frac{1}{2}log\\frac{3}{7}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193625,
+              "text": "{tex}y = \\;\\frac{1}{2}\\log \\left( {\\frac{{{x^2} - 1}}{{{x^3}}}} \\right) + \\;\\frac{1}{2}log\\frac{3}{4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = \\;\\frac{1}{2}\\log \\left( {\\frac{{{x^2} - 1}}{{{x^3}}}} \\right) + \\;\\frac{1}{2}log\\frac{3}{4}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{x^{4}}{4}-\\frac{x^{2}}{2}=y+2\\\\{/tex}",
+          "correct_option_ids": [
+            193622
+          ],
+          "explanation": "{tex}x(x^{2}-1)dx=dy{/tex} {tex}\\int (x^{3}-x) dx=\\int dy{/tex} {tex}\\frac{x^{4}}{4}-\\frac{x^{2}}{2}=y+c{/tex} Here y = 0 when x = 2 {tex}\\frac{2^{4}}{4}-\\frac{2^{2}}{2}=0+c{/tex} {tex}4-2=c{/tex} {tex}\\therefore c = 2{/tex} Therefore,the required solution is {tex}\\frac{x^{4}}{4}-\\frac{x^{2}}{2}=y+2\\\\{/tex}",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3630,
+      "test_name": "Differential Equations Test-03",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59610,
+          "question_text": "Find a solution of {tex}\\cos \\left( {\\frac{{dy}}{{dx}}\\;} \\right) = a\\;(a\\; \\in \\;R){/tex} which satisfy the condition y = 1 when x = 0.",
+          "question_html": "<p>Find a solution of&nbsp;<span class=\"math-tex\">{tex}\\cos \\left( {\\frac{{dy}}{{dx}}\\;} \\right) = a\\;(a\\; \\in \\;R){/tex}</span>&nbsp;which satisfy the condition&nbsp;y = 1 when x = 0.</p>\r\n",
+          "options": [
+            {
+              "id": 193627,
+              "text": "{tex}cos\\frac{{y - 3}}{x} = a{/tex}",
+              "html": "<span class=\"math-tex\">{tex}cos\\frac{{y - 3}}{x} = a{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193626,
+              "text": "{tex}cos\\frac{{y - 1}}{x} = a\\;\\;{/tex}",
+              "html": "<span class=\"math-tex\">{tex}cos\\frac{{y - 1}}{x} = a\\;\\;{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193628,
+              "text": "{tex}cos\\frac{{y - 4}}{x} = a{/tex}",
+              "html": "<span class=\"math-tex\">{tex}cos\\frac{{y - 4}}{x} = a{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193629,
+              "text": "{tex}cos\\frac{{y - 10}}{x} = a{/tex}",
+              "html": "<span class=\"math-tex\">{tex}cos\\frac{{y - 10}}{x} = a{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}cos\\frac{{y - 1}}{x} = a\\;\\;{/tex}",
+          "correct_option_ids": [
+            193626
+          ],
+          "explanation": "{tex}\\frac{dy}{dx}=cos^{-1}a {/tex} {tex} \\int dy=cos^{-1}a\\int dx {/tex} {tex} y=xcos^{-1}a+c{/tex} When y = 1 , x = 0 , then 1=0 {tex}cos^{-1}a+c{/tex} {tex}c=1{/tex} {tex}\\therefore y=xcos^{-1}a+1{/tex} {tex}\\therefore \\frac{y-1}{x}=cos^{-1}a{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59611,
+          "question_text": "Find a particular solution of {tex}\\frac{{dy}}{{dx}} = y\\tan x{/tex} ; y =1 when x = 0",
+          "question_html": "<p>Find a particular solution of <span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}} = y\\tan x{/tex}</span>; y =1 when x = 0</p>",
+          "options": [
+            {
+              "id": 193633,
+              "text": "y = tan x",
+              "html": "y = tan x",
+              "is_correct": false
+            },
+            {
+              "id": 193630,
+              "text": "y = sec x",
+              "html": "y = sec x",
+              "is_correct": true
+            },
+            {
+              "id": 193631,
+              "text": "y = cos x",
+              "html": "y = cos x",
+              "is_correct": false
+            },
+            {
+              "id": 193632,
+              "text": "y = sin x",
+              "html": "y = sin x",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "y = sec x",
+          "correct_option_ids": [
+            193630
+          ],
+          "explanation": "{tex}\\frac{dy}{y}=tanx dx{/tex} {tex}\\int \\frac{dy}{y}=\\int tanx dx{/tex} {tex}\\\\log|y|=log|secx|+logc{/tex} {tex}log|y|=log|csecx|{/tex} {tex}y=csecx{/tex} here y=1 and x=0 gives {tex}1=c sec 0{/tex} hence c = 1 {tex}\\therefore y=secx{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59612,
+          "question_text": "For the differential equation {tex}xy\\frac{{dy}}{{dx}} = \\left( {x + 2\\;} \\right)(\\;y + 2){/tex} find the solution curve passing through the point (1, &ndash;1).",
+          "question_html": "<p>For the differential equation&nbsp;<span class=\"math-tex\">{tex}xy\\frac{{dy}}{{dx}} = \\left( {x + 2\\;} \\right)(\\;y + 2){/tex}</span> find the solution curve passing through the point (1, &ndash;1).</p>",
+          "options": [
+            {
+              "id": 193635,
+              "text": "{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} + {\\text{ }}x{\\text{ }} + {\\text{ }}2{\\text{ }} = {\\text{ }}log{\\text{ }}\\left( {{x^2}{{\\left( {y{\\text{ }} + {\\text{ }}2} \\right)}^2}} \\right)} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} + {\\text{ }}x{\\text{ }} + {\\text{ }}2{\\text{ }} = {\\text{ }}log{\\text{ }}\\left( {{x^2}{{\\left( {y{\\text{ }} + {\\text{ }}2} \\right)}^2}} \\right)} \\end{array}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193636,
+              "text": "{tex}\\begin{array}{*{20}{l}} {y{\\text{ }}-{\\text{ }}x{\\text{ }} - {\\text{ }}2{\\text{ }} = {\\text{ }}log{\\text{ }}\\left( {{x^2}{{\\left( {y{\\text{ }} + {\\text{ }}2} \\right)}^2}} \\right)} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {y{\\text{ }}-{\\text{ }}x{\\text{ }} - {\\text{ }}2{\\text{ }} = {\\text{ }}log{\\text{ }}\\left( {{x^2}{{\\left( {y{\\text{ }} + {\\text{ }}2} \\right)}^2}} \\right)} \\end{array}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193634,
+              "text": "{tex}\\begin{array}{*{20}{l}} {y{\\text{ }}-{\\text{ }}x{\\text{ }} + {\\text{ }}2{\\text{ }} = {\\text{ }}log{\\text{ }}\\left( {{x^2}{{\\left( {y{\\text{ }} + {\\text{ }}2} \\right)}^2}} \\right)} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {y{\\text{ }}-{\\text{ }}x{\\text{ }} + {\\text{ }}2{\\text{ }} = {\\text{ }}log{\\text{ }}\\left( {{x^2}{{\\left( {y{\\text{ }} + {\\text{ }}2} \\right)}^2}} \\right)} \\end{array}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193637,
+              "text": "{tex}y{\\text{ }}-{\\text{ }}x{\\text{ }} - {\\text{ }}2{\\text{ }} = {\\text{ }}log{\\text{ }}\\left( {{x^2}{{\\left( {y{\\text{ }} - {\\text{ }}2} \\right)}^2}} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}y{\\text{ }}-{\\text{ }}x{\\text{ }} - {\\text{ }}2{\\text{ }} = {\\text{ }}log{\\text{ }}\\left( {{x^2}{{\\left( {y{\\text{ }} - {\\text{ }}2} \\right)}^2}} \\right){/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\begin{array}{*{20}{l}} {y{\\text{ }}-{\\text{ }}x{\\text{ }} + {\\text{ }}2{\\text{ }} = {\\text{ }}log{\\text{ }}\\left( {{x^2}{{\\left( {y{\\text{ }} + {\\text{ }}2} \\right)}^2}} \\right)} \\end{array}{/tex}",
+          "correct_option_ids": [
+            193634
+          ],
+          "explanation": "{tex}\\frac{ydy}{y+2}=\\frac{(x+2)dx}{x} {/tex} {tex}\\int \\frac{ydy}{y+2}=\\int \\frac{(x+2)dx}{x}{/tex} {tex}\\int \\frac{y+2-2dy}{y+2}=\\int \\frac{(x+2)dx}{x}{/tex} {tex}\\int dy-\\int \\frac{2}{y+2}=\\int dx+\\int \\frac{2}{x}{/tex} {tex}y-2log|y+2|=x+2log|x|+c{/tex} Here x=1 and y=-1 implies {tex}-1-2log|-1+2|=1+2log|1|+c\\implies-1-2log|1|=1+c \\because log|1|=0\\implies\\therefore c=-2{/tex} Hence, {tex}y-2log|y+2|=x+2log|x|-2{/tex} {tex}y-x+2=2log|x|+2log|y+2|{/tex} {tex}y-x+2=2log|x(y+2)|{/tex} {tex}\\\\y-x+2=log|x^{2}(y+2)^{2}|{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59613,
+          "question_text": "Find the particular solution of the differential equation {tex}\\log \\left( {\\frac{{dy}}{{dx}}} \\right) = 3x + 4y{/tex} , given that y = 0 and x = 0.",
+          "question_html": "<p>Find the particular solution of the differential equation <span class=\"math-tex\">{tex}\\log \\left( {\\frac{{dy}}{{dx}}} \\right) = 3x + 4y{/tex}</span>, given that y = 0 and x = 0.</p>\r\n",
+          "options": [
+            {
+              "id": 193638,
+              "text": "{tex}4{e^{3x}} + 3{e^{ - 4y}} - 7 = 0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}4{e^{3x}} + 3{e^{ - 4y}} - 7 = 0{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193639,
+              "text": "{tex}4{e^{3x}} + 3{e^{ - 4y}} + 7 = 0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}4{e^{3x}} + 3{e^{ - 4y}} + 7 = 0{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193641,
+              "text": "{tex}4{e^{3x}} + 3{e^{ - 4y}} - 7 = 1{/tex}",
+              "html": "<span class=\"math-tex\">{tex}4{e^{3x}} + 3{e^{ - 4y}} - 7 = 1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193640,
+              "text": "{tex}4{e^{3x}} - 3{e^{ - 4y}} - 7 = 0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}4{e^{3x}} - 3{e^{ - 4y}} - 7 = 0{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}4{e^{3x}} + 3{e^{ - 4y}} - 7 = 0{/tex}",
+          "correct_option_ids": [
+            193638
+          ],
+          "explanation": "{tex}\\frac{dy}{dx}=e^{3x}e^{4y}{/tex} {tex}\\int {e^{-4y}}dy=\\int e^{3x}dx{/tex} {tex}\\frac{-e^{-4y}}{4}=\\frac{e^{3x}}{3}+c{/tex} here x = y =0 gives {tex}\\\\\\frac{-1}{4}=\\frac{1}{3}+c{/tex} {tex}\\therefore c=\\frac{-7}{12}{/tex} {tex}\\therefore \\frac{-e^{-4y}}{4}=\\frac{e^{3x}}{3}-\\frac{7}{12}{/tex} {tex}4e^{3x}+3e^{-4y}-7=0{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59614,
+          "question_text": "In a bank, the principal increases continuously at the rate of r% per year. Find the value of r if Rs.100 double itself in 10 years (log e 2 = 0.6931).",
+          "question_html": "<p>In a bank, the principal increases continuously at the rate of r% per year. Find the value of r if Rs.100 double itself in 10 years (log<sub>e</sub>2 = 0.6931).</p>",
+          "options": [
+            {
+              "id": 193645,
+              "text": "9.93%",
+              "html": "9.93%",
+              "is_correct": false
+            },
+            {
+              "id": 193643,
+              "text": "7.93%",
+              "html": "7.93%",
+              "is_correct": false
+            },
+            {
+              "id": 193642,
+              "text": "6.93%",
+              "html": "6.93%",
+              "is_correct": true
+            },
+            {
+              "id": 193644,
+              "text": "8.93%",
+              "html": "8.93%",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "6.93%",
+          "correct_option_ids": [
+            193642
+          ],
+          "explanation": "Let P be the principal at any time t. then, {tex}\\frac{{dP}}{{dt}} = \\frac{{rP}}{{100}} \\Rightarrow \\frac{{dP}}{{dt}} = \\frac{P}{{100}}{/tex} {tex} \\Rightarrow \\int {\\frac{1}{P}dP = \\int {\\frac{r}{{100}}dt} } {/tex} {tex} \\Rightarrow \\log P = \\frac{r}{{100}}t + \\log c{/tex} {tex} \\Rightarrow \\log \\frac{P}{c} = \\frac{r}{{100}}t{/tex} {tex}\\Rightarrow P = c{e^{\\frac{r}{{100}}}}{/tex} When P = 100 and t = 0., then, c = 100, Thus, we have: {tex}\\Rightarrow P=100 \\ {{e}^{{}^{r}\\!\\!\\diagup\\!\\!{}_{100}\\;}}{/tex} Now, suppose t = T, when P = 100., then; {tex}\\Rightarrow 200 = 100{e^{\\frac{T}{{100}}}}{/tex} {tex} \\Rightarrow {e^{\\frac{T}{{100}}}} = 2{/tex} {tex} \\Rightarrow T = 100\\log 2{/tex} = 100(0.6931) = 6.93%. Which is the required solution",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59615,
+          "question_text": "In a bank, principal increases continuously at the rate of 5% per year. An amount of Rs1000 is deposited with this bank, how much will it worth after 10 years {tex}\\left( {{e^{0.5}} = {\\text{ }}1.648} \\right).{/tex}",
+          "question_html": "<p>In a bank, principal increases continuously at the rate of 5% per year. An amount of Rs1000 is deposited with this bank, how much will it worth after 10 years <span class=\"math-tex\">{tex}\\left( {{e^{0.5}} = {\\text{ }}1.648} \\right).{/tex}</span></p>",
+          "options": [
+            {
+              "id": 193646,
+              "text": "Rs 1648",
+              "html": "Rs 1648",
+              "is_correct": true
+            },
+            {
+              "id": 193648,
+              "text": "Rs 1848",
+              "html": "Rs 1848",
+              "is_correct": false
+            },
+            {
+              "id": 193649,
+              "text": "Rs 1948",
+              "html": "Rs 1948",
+              "is_correct": false
+            },
+            {
+              "id": 193647,
+              "text": "Rs 1748",
+              "html": "Rs 1748",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Rs 1648",
+          "correct_option_ids": [
+            193646
+          ],
+          "explanation": "Here P is the principal at time t {tex}\\frac{{dP}}{{dt}} = \\frac{{5P}}{{100}} \\Rightarrow \\frac{{dP}}{{dt}} = \\frac{P}{{20}}{/tex} {tex} \\Rightarrow \\int_{}^{} {\\frac{1}{P}dP = \\int_{}^{} {\\frac{1}{{20}}dt} } {/tex} {tex}\\Rightarrow \\log P = \\frac{1}{{20}}t + \\log c{/tex} {tex} \\Rightarrow \\log \\frac{P}{c} = \\frac{1}{{20}}t{/tex} {tex}\\Rightarrow P =c {e^{\\frac{1}{{100}}}}{/tex} When P = 1000 and t = 0 ., then , c = 1000, therefore, we have : {tex} \\Rightarrow P = 1000{e^{\\frac{T}{{100}}}}{/tex} {tex}\\Rightarrow A = 1000{e^{\\frac{5}{{10}}}}{/tex} {tex}\\Rightarrow {e^{\\frac{5}{{10}}}} = A{/tex} {tex} \\Rightarrow A = 1000\\log 0.5{/tex} = 1000(1.648) = 1648",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59616,
+          "question_text": "Solution of {tex}\\frac{{dy}}{{dx}} = 1 + x + y + xy{/tex} is",
+          "question_html": "<p>Solution of <span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}} = 1 + x + y + xy{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193651,
+              "text": "{tex}\\log \\left| {1 + y} \\right| = x + \\frac{{{x^2}}}{2} + Cy{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\log \\left| {1 + y} \\right| = x + \\frac{{{x^2}}}{2} + Cy{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193653,
+              "text": "{tex}\\log \\left| {1 + y} \\right| = 3x + \\frac{{{x^2}}}{3} + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\log \\left| {1 + y} \\right| = 3x + \\frac{{{x^2}}}{3} + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193650,
+              "text": "{tex}\\log \\left| {1 + y} \\right| = x + \\frac{{{x^2}}}{2} + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\log \\left| {1 + y} \\right| = x + \\frac{{{x^2}}}{2} + C{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193652,
+              "text": "{tex}\\log \\left| {1 + y} \\right| = 2x + \\frac{{{x^2}}}{2} + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\log \\left| {1 + y} \\right| = 2x + \\frac{{{x^2}}}{2} + C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\log \\left| {1 + y} \\right| = x + \\frac{{{x^2}}}{2} + C{/tex}",
+          "correct_option_ids": [
+            193650
+          ],
+          "explanation": "{tex}\\frac{dy}{dx}=1+x+y(1+x){/tex} {tex}\\frac{dy}{dx}=(1+x)(1+y){/tex} {tex}\\int \\frac{dy}{1+y}=\\int (1+x)dx {/tex} {tex}\\log|1+y|=\\frac{(x)}{2}+\\frac{x^{2}}{4}+c{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59617,
+          "question_text": "Find the particular solution for (x + y)dy + (x &ndash;y) dx =0; y=1 when x =1",
+          "question_html": "<p>Find the particular solution for (x + y)dy + (x &ndash;y) dx =0; y=1 when x =1</p>\r\n",
+          "options": [
+            {
+              "id": 193656,
+              "text": "{tex}\\log \\left( {{x^2} + \\;{y^2}} \\right) - \\;2{\\tan ^{ - 1}}\\frac{y}{x}\\; = \\;\\frac{\\pi }{2} + \\log 2{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\log \\left( {{x^2} + \\;{y^2}} \\right) - \\;2{\\tan ^{ - 1}}\\frac{y}{x}\\; = \\;\\frac{\\pi }{2} + \\log 2{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193657,
+              "text": "{tex}\\log \\left( {{x^2} - \\;{y^3}} \\right) - \\;2{\\tan ^{ - 1}}\\frac{y}{x}\\; = \\;\\frac{\\pi }{2} - \\log 2{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\log \\left( {{x^2} - \\;{y^3}} \\right) - \\;2{\\tan ^{ - 1}}\\frac{y}{x}\\; = \\;\\frac{\\pi }{2} - \\log 2{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193654,
+              "text": "{tex}log|{x^2+y^2}|+2tan^{-1}\\frac{y}{x}=log2+\\frac{\\pi}{2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}log|{x^2+y^2}|+2tan^{-1}\\frac{y}{x}=log2+\\frac{\\pi}{2}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193655,
+              "text": "{tex}\\log \\left( {{x^2} - \\;{y^2}} \\right) + \\;2{\\tan ^{ - 1}}\\frac{y}{x}\\; = \\;\\frac{\\pi }{2} + \\log 2{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\log \\left( {{x^2} - \\;{y^2}} \\right) + \\;2{\\tan ^{ - 1}}\\frac{y}{x}\\; = \\;\\frac{\\pi }{2} + \\log 2{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}log|{x^2+y^2}|+2tan^{-1}\\frac{y}{x}=log2+\\frac{\\pi}{2}{/tex}",
+          "correct_option_ids": [
+            193654
+          ],
+          "explanation": "{tex}\\frac{dy}{dx}=\\frac{y-x}{x+y}{/tex} it is a homogenous equation Hence we put y=vx {tex}x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}let \\ y=vx{/tex} {tex}\\frac{dy}{dx}=v+x\\frac{\\mathrm{dv} }{\\mathrm{d} x}{/tex} {tex}v+x\\frac{\\mathrm{dv} }{\\mathrm{d} x}=\\frac{vx-x}{vx+x}{/tex} {tex}x\\frac{dv}{dx}=\\frac{v-1}{v+1}-v{/tex} {tex}x\\frac{dv}{dx}=\\frac{v-1-v^{2}-v}{v+1}{/tex} {tex}\\int \\frac{(v+1) dv}{1+v^{2}}=-\\int \\frac{dx}{x}{/tex} {tex}\\int \\frac{vdv}{1+v^{2}}+\\int \\frac{dv}{1+v^{2}}=-\\int \\frac{dx}{x}{/tex} {tex}\\frac{1}{2}log|1+v^{2}|+tan^{-1}v=-logx+c{/tex} {tex}log|1+v^{2}|+2tan^{-1}v+2logx=c {/tex} Resubstituting v=y/x we get {tex}log|\\frac{x^2+y^2}{x^2}|+2tan^{-1}\\frac{y}{x}+2logx=c{/tex} When x=y=1 we get, {tex}log|\\frac{1^2+1^2}{1^2}|+2tan^{-1}\\frac{1}{1}+log1=c{/tex} {tex}\\\\c=log2+\\frac{\\pi}{2}{/tex} {tex}log|\\frac{x^2+y^2}{x^2}|+2tan^{-1}\\frac{y}{x}+2logx=log2+\\frac{\\pi}{2}{/tex} {tex}\\\\log|{x^2+y^2}|+2tan^{-1}\\frac{y}{x}=log2+\\frac{\\pi}{2}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59618,
+          "question_text": "General solution of {tex}x\\frac{{dy}}{{dx}} + y - x + xycot\\;x = 0\\;(x\\; \\ne 0){/tex} is",
+          "question_html": "<p>General solution of&nbsp;<span class=\"math-tex\">{tex}x\\frac{{dy}}{{dx}} + y - x + xycot\\;x = 0\\;(x\\; \\ne 0){/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193658,
+              "text": "{tex}y = \\frac{1}{x} - \\cot x + \\frac{C}{{x\\sin x}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = \\frac{1}{x} - \\cot x + \\frac{C}{{x\\sin x}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193661,
+              "text": "{tex}y = \\frac{1}{x} + \\cot x - \\frac{C}{{x\\sin x}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = \\frac{1}{x} + \\cot x - \\frac{C}{{x\\sin x}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193660,
+              "text": "{tex}y = \\frac{1}{x} - \\cot x - \\frac{C}{{x\\sin x}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = \\frac{1}{x} - \\cot x - \\frac{C}{{x\\sin x}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193659,
+              "text": "{tex}y = \\frac{1}{x} + \\cot x + \\frac{C}{{x\\sin x}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = \\frac{1}{x} + \\cot x + \\frac{C}{{x\\sin x}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}y = \\frac{1}{x} - \\cot x + \\frac{C}{{x\\sin x}}{/tex}",
+          "correct_option_ids": [
+            193658
+          ],
+          "explanation": "{tex}\\frac{{dy}}{{dx}} + (\\frac{1}{x} + \\cot x)y = 1 \\Rightarrow P = \\left( {\\frac{1}{x} + \\cot x} \\right),Q = 1{/tex} {tex} \\Rightarrow I.F. = {e^{\\int {\\left( {\\frac{1}{x} + \\cot x} \\right)} dx}} = {e^{\\log x + \\log \\sin x}} = {e^{\\log (x\\sin x)}} = xsinx{/tex} {tex} \\Rightarrow y(x\\sin x) = \\int_{}^{} {1.x\\sin x \\Rightarrow } xy\\sin x = - x\\cos x + \\sin x + c{/tex} {tex}xysinx=-xcosx+sinx+c {/tex} Dividing by xsinx, we get {tex} y=-cotx+\\frac{1}{x}+\\frac{c}{xsinx}{/tex} It is a linear differential equation in y in the form of {tex}\\frac{dy}{dx}+Py=Q{/tex} hence solution is {tex}y.IF=\\int IF\\ \\ Q(x)dx+c{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59619,
+          "question_text": "To form a differential equation from a given function",
+          "question_html": "<p>To form a differential equation from a given function</p>",
+          "options": [
+            {
+              "id": 193664,
+              "text": "Differentiate the function twice and eliminate the arbitrary constants",
+              "html": "Differentiate the function twice and eliminate the arbitrary constants",
+              "is_correct": false
+            },
+            {
+              "id": 193665,
+              "text": "Differentiate the function once and add values to arbitrary constants",
+              "html": "Differentiate the function once and add values to arbitrary constants",
+              "is_correct": false
+            },
+            {
+              "id": 193662,
+              "text": "Differentiate the function successively as many times as the number of arbitrary constants",
+              "html": "Differentiate the function successively as many times as the number of arbitrary constants",
+              "is_correct": true
+            },
+            {
+              "id": 193663,
+              "text": "Differentiate the function once and eliminate the arbitrary constants",
+              "html": "Differentiate the function once and eliminate the arbitrary constants",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Differentiate the function successively as many times as the number of arbitrary constants",
+          "correct_option_ids": [
+            193662
+          ],
+          "explanation": "We shall differentiate the function equal to the number of arbitrary constant so that we get equations equal to arbitrary constant and then eliminate them to form a differential equation",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59620,
+          "question_text": "Forming a differential equation representing the given family of curves by eliminating arbitrary constants a and b from {tex}\\frac{x}{a} + \\;\\frac{y}{b} = 1{/tex} yields the differential equation",
+          "question_html": "<p>Forming a differential equation representing the given family of curves by eliminating arbitrary constants a and b from<span class=\"math-tex\">{tex}\\frac{x}{a} + \\;\\frac{y}{b} = 1{/tex}</span>yields the differential equation</p>\r\n",
+          "options": [
+            {
+              "id": 193666,
+              "text": "y&#39;&#39; = 0",
+              "html": "y&#39;&#39;&nbsp;= 0",
+              "is_correct": true
+            },
+            {
+              "id": 193669,
+              "text": "{tex}y''={{y}^{3}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y''={{y}^{3}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193668,
+              "text": "y&Prime; = 2y",
+              "html": "y&Prime; = 2y",
+              "is_correct": false
+            },
+            {
+              "id": 193667,
+              "text": "y&Prime; = y",
+              "html": "y&Prime; = y",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "y&#39;&#39; = 0",
+          "correct_option_ids": [
+            193666
+          ],
+          "explanation": "{tex}\\frac{1}{a}+\\frac{1}{b}\\frac{\\mathrm{dy} }{\\mathrm{d} x}=0 {/tex} {tex}\\frac{dy}{dx}=\\frac{-a}{b}{/tex} . {tex}\\frac{d^{2}y}{dx^{2}}=0{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59621,
+          "question_text": "Forming a differential equation representing the given family of curves by eliminating arbitrary constants a and b from {tex}{y^2} = {\\text{ }}a\\left( {{b^2}-{\\text{ }}{x^2}} \\right)\\;{/tex} yields the differential equation",
+          "question_html": "<p>Forming a differential equation representing the given family of curves by eliminating arbitrary constants a and b from <span class=\"math-tex\">{tex}{y^2} = {\\text{ }}a\\left( {{b^2}-{\\text{ }}{x^2}} \\right)\\;{/tex}</span> yields the differential equation</p>",
+          "options": [
+            {
+              "id": 193671,
+              "text": "{tex}yy''+y'^{2}-1=0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}yy''+y'^{2}-1=0{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193672,
+              "text": "{tex}yy''-y'^{2}+1=0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}yy''-y'^{2}+1=0{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193673,
+              "text": "{tex}yy''+y'^{2}=0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}yy''+y'^{2}=0{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193670,
+              "text": "{tex}yy''+y'^{2}+1=0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}yy''+y'^{2}+1=0{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}yy''+y'^{2}+1=0{/tex}",
+          "correct_option_ids": [
+            193670
+          ],
+          "explanation": "{tex}2yy'=-2x{/tex} {tex}\\\\yy'=-x{/tex} {tex}yy''+y'^{2}+1=0{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59622,
+          "question_text": "Forming a differential equation representing the curve {tex}y{\\text{ }} = {\\text{ }}a{\\text{ }}{e^{3x}} + {\\text{ }}b{e^{ - 2x}}{/tex} by eliminating arbitrary constants a and b.",
+          "question_html": "<p>Forming a differential equation representing the&nbsp;curve&nbsp;<span class=\"math-tex\">{tex}y{\\text{ }} = {\\text{ }}a{\\text{ }}{e^{3x}} + {\\text{ }}b{e^{ - 2x}}{/tex}</span> by eliminating arbitrary constants a and b.</p>\r\n",
+          "options": [
+            {
+              "id": 193677,
+              "text": "y&Prime; + y&prime;+ 6y = 0",
+              "html": "y&Prime; + y&prime;+ 6y = 0",
+              "is_correct": false
+            },
+            {
+              "id": 193676,
+              "text": "y&Prime; &ndash; y&prime;+ 6y = 0",
+              "html": "y&Prime; &ndash; y&prime;+ 6y = 0",
+              "is_correct": false
+            },
+            {
+              "id": 193675,
+              "text": "y&Prime; + y&prime;&ndash; 6y = 0",
+              "html": "y&Prime; + y&prime;&ndash; 6y = 0",
+              "is_correct": false
+            },
+            {
+              "id": 193674,
+              "text": "y&Prime; &ndash; y&prime;&ndash; 6y = 0",
+              "html": "y&Prime; &ndash; y&prime;&ndash; 6y = 0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "y&Prime; &ndash; y&prime;&ndash; 6y = 0",
+          "correct_option_ids": [
+            193674
+          ],
+          "explanation": "{tex}e^{-2x}y=ae^{x}+b {/tex} dividing by {tex} e^{-2x} {/tex} {tex}e^{-2x}\\frac{dy}{dx}-2e^{-2x}y=ae^{x}{/tex} . Dividing by {tex}e^x{/tex} {tex}e^{-3x}\\frac{dy}{dx}-2e^{-3x}y=a{/tex} {tex}e^{-3x}(\\frac{dy}{dx}-2y)=a{/tex} {tex}e^{-3x}\\frac{d^{2}y}{dx^{2}}-2\\frac{dy}{dx}-3e^{-3x}(\\frac{dy}{dx}-2y)=0{/tex} {tex}\\frac{d^{2}y}{dx^{2}}-5\\frac{dy}{dx}-6y=0{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59623,
+          "question_text": "Forming a differential equation representing the given family of curves by eliminating arbitrary constants a and b from {tex}y{\\text{ }} = {\\text{ }}{e^{2x}}\\left( {a{\\text{ }} + {\\text{ }}bx} \\right){/tex} yields the differential equation",
+          "question_html": "<p>Forming a differential equation representing the given family of curves by eliminating arbitrary constants a and b from <span class=\"math-tex\">{tex}y{\\text{ }} = {\\text{ }}{e^{2x}}\\left( {a{\\text{ }} + {\\text{ }}bx} \\right){/tex}</span> yields the differential equation</p>",
+          "options": [
+            {
+              "id": 193680,
+              "text": "y&Prime; &ndash; 4y&prime; - 4y = 0",
+              "html": "y&Prime; &ndash; 4y&prime; - 4y = 0",
+              "is_correct": false
+            },
+            {
+              "id": 193679,
+              "text": "y&Prime; + 4y&prime; + 4y = 0",
+              "html": "y&Prime; + 4y&prime; + 4y = 0",
+              "is_correct": false
+            },
+            {
+              "id": 193681,
+              "text": "y&Prime; + 4y&prime; - 4y = 0",
+              "html": "y&Prime; + 4y&prime; - 4y = 0",
+              "is_correct": false
+            },
+            {
+              "id": 193678,
+              "text": "y&Prime; &ndash; 4y&prime; + 4y = 0",
+              "html": "y&Prime; &ndash; 4y&prime; + 4y = 0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "y&Prime; &ndash; 4y&prime; + 4y = 0",
+          "correct_option_ids": [
+            193678
+          ],
+          "explanation": "{tex}e^{-2x}y=a+bx{/tex} {tex}e^{-2x}\\frac{dy}{dx}-2e^{-2x}y=b{/tex} {tex}e^{-2x}(\\frac{dy}{dx}-2y)=b{/tex} {tex}e^{-2x}(\\frac{d^{2}y}{dx^{2}}-2\\frac{dy}{dx})-2e^{-2x}(\\frac{dy}{dx}-2y)=0{/tex} {tex}\\frac{d^{2}y}{dx^{2}}-4\\frac{dy}{dx}+4y=0 {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59624,
+          "question_text": "Forming a differential equation representing the given family of curves by eliminating arbitrary constants a and b from y = e x (a cosx + b sinx) yields the differential equation",
+          "question_html": "<p>Forming a differential equation representing the given family of curves by eliminating arbitrary constants a and b from y = e<sup>x</sup>&nbsp;(a cosx + b sinx) yields the differential equation</p>",
+          "options": [
+            {
+              "id": 193685,
+              "text": "y&Prime; +2y&prime; + 2y = 0",
+              "html": "y&Prime; +2y&prime; + 2y = 0",
+              "is_correct": false
+            },
+            {
+              "id": 193684,
+              "text": "y&Prime; + 2y&prime; - 2y = 0",
+              "html": "y&Prime; + 2y&prime; - 2y = 0",
+              "is_correct": false
+            },
+            {
+              "id": 193683,
+              "text": "y&Prime; &ndash; 2y&prime; - 2y = 0",
+              "html": "y&Prime; &ndash; 2y&prime; - 2y = 0",
+              "is_correct": false
+            },
+            {
+              "id": 193682,
+              "text": "y&Prime; &ndash; 2y&prime; + 2y = 0",
+              "html": "y&Prime; &ndash; 2y&prime; + 2y = 0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "y&Prime; &ndash; 2y&prime; + 2y = 0",
+          "correct_option_ids": [
+            193682
+          ],
+          "explanation": "{tex}e^{-x}y=acosx+bsinx{/tex} {tex}e^{-x}\\frac{dy}{dx}-e^{-x}y=-asinx+bcosx{/tex} {tex}e^{-x}(\\frac{dy}{dx}-y)=-asinx+bcosx{/tex} {tex}e^{-x}(\\frac{d^{2}y}{dx^{2}}-\\frac{dy}{dx})-e^{-x}(\\frac{dy}{dx}-y)=-acosx-bsinx{/tex} {tex}\\frac{d^{2}y}{dx^{2}}-2\\frac{dy}{dx}+2y=0 {/tex}",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3631,
+      "test_name": "Differential Equations Test-04",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59625,
+          "question_text": "Differential equation of the family of circles touching the y-axis at origin is",
+          "question_html": "<p>Differential equation of the family of circles touching the y-axis at origin is</p>\r\n",
+          "options": [
+            {
+              "id": 193688,
+              "text": "{tex}\\begin{array}{*{20}{l}} {2yy\\prime {\\text{ }} + {\\text{ }}{x^2} = {\\text{ }}{y^2}} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {2yy\\prime {\\text{ }} + {\\text{ }}{x^2} = {\\text{ }}{y^2}} \\end{array}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193687,
+              "text": "{tex}2xyy\\prime {\\text{ }} - {\\text{ }}{x^2} = {\\text{ }}{y^2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2xyy\\prime {\\text{ }} - {\\text{ }}{x^2} = {\\text{ }}{y^2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193689,
+              "text": "{tex}2y\\prime {\\text{ }} - {\\text{ }}{x^2} = {\\text{ }}{y^2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2y\\prime {\\text{ }} - {\\text{ }}{x^2} = {\\text{ }}{y^2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193686,
+              "text": "{tex}2xyy\\prime {\\text{ }} + {\\text{ }}{x^2} = {\\text{ }}{y^2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2xyy\\prime {\\text{ }} + {\\text{ }}{x^2} = {\\text{ }}{y^2}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}2xyy\\prime {\\text{ }} + {\\text{ }}{x^2} = {\\text{ }}{y^2}{/tex}",
+          "correct_option_ids": [
+            193686
+          ],
+          "explanation": "the eqaution of the circle is {tex} (x-a)^{2}+y^{2}=a^{2}{/tex} equation (1) where a is radius of circle {tex}2(x-a)+2yy'=0 {/tex} {tex}(x-a)+yy'=0{/tex} {tex}(x-a)=-yy'{/tex} Putting in equation 1 we get {tex}(-yy')^{2}+y^{2}=(x+yy')^{2} \\implies y^{2}=x^{2}+2xyy'{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59626,
+          "question_text": "Differential equation of the family of parabolas having vertex at origin and axis along positive y-axis is",
+          "question_html": "<p>Differential equation of the family of parabolas having vertex at origin and axis along positive y-axis is</p>\r\n",
+          "options": [
+            {
+              "id": 193693,
+              "text": "{tex}\\begin{array}{*{20}{l}} {xy{\\prime ^2} + {\\text{ }}2y{\\text{ }} = {\\text{ }}0} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {xy{\\prime ^2} + {\\text{ }}2y{\\text{ }} = {\\text{ }}0} \\end{array}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193692,
+              "text": "y&prime; &ndash; 2y = 0",
+              "html": "y&prime; &ndash; 2y = 0",
+              "is_correct": false
+            },
+            {
+              "id": 193690,
+              "text": "xy&prime; &ndash; 2y = 0",
+              "html": "xy&prime; &ndash; 2y = 0",
+              "is_correct": true
+            },
+            {
+              "id": 193691,
+              "text": "xy&prime; + 2y = 0",
+              "html": "xy&prime; + 2y = 0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "xy&prime; &ndash; 2y = 0",
+          "correct_option_ids": [
+            193690
+          ],
+          "explanation": "Equation of parabola is {tex}x^{2}=4by {/tex} {tex}\\\\\\therefore \\frac{x^{2}}{y}=4b{/tex} {tex}\\frac{2xy-x^{2}\\frac{dy}{dx}}{y^{2}}=0{/tex} {tex}2xy-x^{2}\\frac{dy}{dx}=0{/tex} {tex}2y-x\\frac{dy}{dx}=0{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59627,
+          "question_text": "Differential equation of the family of ellipses having foci on y-axis and centre at origin is",
+          "question_html": "<p>Differential equation of the family of ellipses having foci on y-axis and centre at origin is</p>",
+          "options": [
+            {
+              "id": 193694,
+              "text": "{tex}xyy\\prime\\prime \\text{ }+\\text{ }x\\left( y\\prime \\right){}^\\text{2}\\text{ } - \\text{ }yy\\prime \\text{ }=\\text{ }0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}xyy\\prime\\prime \\text{ }+\\text{ }x\\left( y\\prime \\right){}^\\text{2}\\text{ } - \\text{ }yy\\prime \\text{ }=\\text{ }0{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193695,
+              "text": "{tex}xy\\prime\\prime \\text{ }+\\text{ }x\\left( y\\prime \\right){}^\\text{2}\\text{ } - \\text{ }yy\\prime \\text{ }=\\text{ }0 {/tex}",
+              "html": "<span class=\"math-tex\">{tex}xy\\prime\\prime \\text{ }+\\text{ }x\\left( y\\prime \\right){}^\\text{2}\\text{ } - \\text{ }yy\\prime \\text{ }=\\text{ }0 {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193696,
+              "text": "{tex}yy\\prime\\prime \\text{ }+\\text{ }x\\left( y\\prime \\right){}^\\text{2}\\text{ } - \\text{ }yy\\prime \\text{ }=\\text{ }0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}yy\\prime\\prime \\text{ }+\\text{ }x\\left( y\\prime \\right){}^\\text{2}\\text{ } - \\text{ }yy\\prime \\text{ }=\\text{ }0{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193697,
+              "text": "{tex}xyy\\prime\\prime \\text{ }-x\\left( y\\prime \\right){}^\\text{2}\\text{ }+yy\\prime \\text{ }=\\text{ }0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}xyy\\prime\\prime \\text{ }-x\\left( y\\prime \\right){}^\\text{2}\\text{ }+yy\\prime \\text{ }=\\text{ }0{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}xyy\\prime\\prime \\text{ }+\\text{ }x\\left( y\\prime \\right){}^\\text{2}\\text{ } - \\text{ }yy\\prime \\text{ }=\\text{ }0{/tex}",
+          "correct_option_ids": [
+            193694
+          ],
+          "explanation": "{tex}\\frac{{{x^2}}}{{{b^2}}} + \\frac{{{y^2}}}{{{a^2}}} = 1{/tex} {tex}\\\\ \\frac{{2x}}{{{b^2}}} + \\frac{{2y{y^,}}}{{{a^2}}} = 0{/tex} {tex} \\\\ \\frac{x}{{{b^2}}} = - \\frac{{y{y^,}}}{{{a^2}}} {/tex} {tex}\\frac{{y{y^,}}}{x} = - \\frac{{{a^2}}}{{{b^2}}}{/tex} Differentiating both sides again, {tex}\\frac{{x(y{y^{,,}} + {y^{{,^2}}} - y{y^,})}}{{{x^2}}} = 0{/tex} {tex} xy{y^{,,}} + x{y^{{,^2}}} - y{y^,} = 0{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59628,
+          "question_text": "Find the equation of a curve passing through the point (0, 0) and whose differential equation is y&prime; = e x sin x.",
+          "question_html": "<p>Find the equation of a curve passing through the point (0, 0) and whose differential equation is y&prime; = e<sup>x</sup>&nbsp;sin x.</p>",
+          "options": [
+            {
+              "id": 193698,
+              "text": "{tex}2y-1=\\left( {\\sin x - \\cos x} \\right){e^x} {/tex}",
+              "html": "<span class=\"math-tex\">{tex}2y-1=\\left( {\\sin x - \\cos x} \\right){e^x} {/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193701,
+              "text": "{tex}4y{\\text{ }}-{\\text{ }}1{\\text{ }} = {\\text{ }}{e^x}\\left( {{\\text{ }}sin{\\text{ }}x{\\text{ }}-{\\text{ }}cos{\\text{ }}2x} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}4y{\\text{ }}-{\\text{ }}1{\\text{ }} = {\\text{ }}{e^x}\\left( {{\\text{ }}sin{\\text{ }}x{\\text{ }}-{\\text{ }}cos{\\text{ }}2x} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193699,
+              "text": "{tex}\\begin{array}{*{20}{l}} {2y{\\text{ }} + {\\text{ }}1{\\text{ }} = {\\text{ }}{e^x}\\left( {{\\text{ }}sin2{\\text{ }}x{\\text{ }}-{\\text{ }}cos{\\text{ }}x} \\right)} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {2y{\\text{ }} + {\\text{ }}1{\\text{ }} = {\\text{ }}{e^x}\\left( {{\\text{ }}sin2{\\text{ }}x{\\text{ }}-{\\text{ }}cos{\\text{ }}x} \\right)} \\end{array}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193700,
+              "text": "{tex}\\begin{array}{*{20}{l}} {3y{\\text{ }}-{\\text{ }}1{\\text{ }} = {\\text{ }}{e^x}\\left( {{\\text{ }}sin{\\text{ }}x{\\text{ }}-{\\text{ }}cos2x} \\right)} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {3y{\\text{ }}-{\\text{ }}1{\\text{ }} = {\\text{ }}{e^x}\\left( {{\\text{ }}sin{\\text{ }}x{\\text{ }}-{\\text{ }}cos2x} \\right)} \\end{array}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}2y-1=\\left( {\\sin x - \\cos x} \\right){e^x} {/tex}",
+          "correct_option_ids": [
+            193698
+          ],
+          "explanation": "{tex}\\frac{{dy}}{{dx}} = {e^x}\\sin x {/tex} {tex}\\int {dy = \\int {{e^x}} } \\sin xdx {/tex} {tex} y = \\frac{1}{2}\\left( {\\sin x - \\cos x} \\right){e^x} + C{/tex} When x = y = 0 , we get {tex}0 = \\frac{1}{2}\\left( {\\sin 0 - \\cos 0} \\right){e^0} + C{/tex} {tex}\\\\C=\\frac{1}{2}{/tex} Hence, {tex}y = \\frac{1}{2}\\left( {\\sin x - \\cos x} \\right){e^x} + \\frac{1}{2} {/tex} {tex}2y-1=\\left( {\\sin x - \\cos x} \\right){e^x} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59629,
+          "question_text": "Find the equation of a curve passing through the point (0, &ndash;2) given that at any point (x, y) on the curve, the product of the slope of its tangent and y coordinate of the point is equal to the x coordinate of the point.",
+          "question_html": "<p>Find the equation of a curve passing through the point (0, &ndash;2) given that at any point (x, y) on the curve, the product of the slope of its tangent and y coordinate of the point is equal to the x coordinate of the point.</p>",
+          "options": [
+            {
+              "id": 193703,
+              "text": "{tex}{y^3}-{\\text{ }}{x^2} = {\\text{ }}4{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{y^3}-{\\text{ }}{x^2} = {\\text{ }}4{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193705,
+              "text": "{tex}{y^3}-{\\text{ }}{x^3} = {\\text{ }}4{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{y^3}-{\\text{ }}{x^3} = {\\text{ }}4{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193702,
+              "text": "{tex}{y^2}-{\\text{ }}{x^2} = {\\text{ }}4{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{y^2}-{\\text{ }}{x^2} = {\\text{ }}4{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193704,
+              "text": "{tex}{y^2}-{\\text{ }}{x^3} = {\\text{ }}4{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{y^2}-{\\text{ }}{x^3} = {\\text{ }}4{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}{y^2}-{\\text{ }}{x^2} = {\\text{ }}4{/tex}",
+          "correct_option_ids": [
+            193702
+          ],
+          "explanation": "Given that {tex} y\\frac{dy}{dx}=x {/tex} {tex}ydy=xdx{/tex} {tex}\\int ydy=\\int xdx{/tex} {tex}\\\\\\frac{y^{2}}{2}=\\frac{x^{2}}{2}+c{/tex} When x = 0 and y = 2, we get {tex}\\frac{-2^{2}}{2}=\\frac{0^{2}}{2}+c{/tex} c = 2 {tex}\\frac{y^{2}}{2}=\\frac{x^{2}}{2}+2{/tex} {tex}y^{2}-x^{2}=4{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59630,
+          "question_text": "At any point (x, y) of a curve, the slope of the tangent is twice the slope of the line segment joining the point of contact to the point (&ndash; 4, &ndash;3). Find the equation of the curve given that it passes through (&ndash;2, 1).",
+          "question_html": "<p>At any point (x, y) of a curve, the slope of the tangent is twice the slope of the line segment joining the point of contact to the point (&ndash; 4, &ndash;3). Find the equation of the curve given that it passes through (&ndash;2, 1).</p>",
+          "options": [
+            {
+              "id": 193708,
+              "text": "{tex}{\\left( {x{\\text{ }} + {\\text{ }}3} \\right)^2} = {\\text{ }}y{\\text{ }} + {\\text{ }}4{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\left( {x{\\text{ }} + {\\text{ }}3} \\right)^2} = {\\text{ }}y{\\text{ }} + {\\text{ }}4{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193707,
+              "text": "{tex}\\begin{array}{*{20}{l}} {{{\\left( {x{\\text{ }} + {\\text{ }}5} \\right)}^2} = {\\text{ }}2y{\\text{ }} + {\\text{ }}3} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {{{\\left( {x{\\text{ }} + {\\text{ }}5} \\right)}^2} = {\\text{ }}2y{\\text{ }} + {\\text{ }}3} \\end{array}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193706,
+              "text": "{tex}\\begin{array}{*{20}{l}} {{{\\left( {x{\\text{ }} + {\\text{ }}4} \\right)}^2} = {\\text{ }}y{\\text{ }} + {\\text{ }}3} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {{{\\left( {x{\\text{ }} + {\\text{ }}4} \\right)}^2} = {\\text{ }}y{\\text{ }} + {\\text{ }}3} \\end{array}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193709,
+              "text": "{tex}{\\left( {x{\\text{ }} + {\\text{ }}6} \\right)^2} = {\\text{ }}2y{\\text{ }} + {\\text{ }}3{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\left( {x{\\text{ }} + {\\text{ }}6} \\right)^2} = {\\text{ }}2y{\\text{ }} + {\\text{ }}3{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\begin{array}{*{20}{l}} {{{\\left( {x{\\text{ }} + {\\text{ }}4} \\right)}^2} = {\\text{ }}y{\\text{ }} + {\\text{ }}3} \\end{array}{/tex}",
+          "correct_option_ids": [
+            193706
+          ],
+          "explanation": "Given that {tex}\\frac{dy}{dx}=2\\frac{y+3}{x+4}{/tex} {tex}\\frac{dy}{y+3}=\\frac{2dx}{x+4}{/tex} {tex}\\\\\\int \\frac{dy}{y+3}=\\int \\frac{2dx}{x+4}{/tex} {tex}\\\\log|y+3|=2log|x+4|+logc{/tex} Here, x= -2 and y = 1 {tex}log|1+3|=2log|-2+4|+logc{/tex} {tex}log4=log4+logc{/tex} {tex}logc=0{/tex} {tex}\\log|y+3|=2log|x+4|{/tex} {tex}y+3=(x+4)^{2}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59631,
+          "question_text": "Solution of {tex}x\\;dy - ydx = \\;\\sqrt {{x^2} + {y^2}\\;} dx{/tex} is",
+          "question_html": "<p>Solution of <span class=\"math-tex\">{tex}x\\;dy - ydx = \\;\\sqrt {{x^2} + {y^2}\\;} dx{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193713,
+              "text": "{tex}y + \\sqrt {3 + {y^2}} = C{x^4}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y + \\sqrt {3 + {y^2}} = C{x^4}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193712,
+              "text": "{tex}y + \\sqrt {{x^2} + {y^3}} = C{x^2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y + \\sqrt {{x^2} + {y^3}} = C{x^2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193711,
+              "text": "{tex}y + \\sqrt {{x^3} + {y^2}} = C{x^2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y + \\sqrt {{x^3} + {y^2}} = C{x^2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193710,
+              "text": "{tex}y + \\sqrt {{x^2} + {y^2}} = C{x^2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y + \\sqrt {{x^2} + {y^2}} = C{x^2}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}y + \\sqrt {{x^2} + {y^2}} = C{x^2}{/tex}",
+          "correct_option_ids": [
+            193710
+          ],
+          "explanation": "{tex}\\frac{{dy}}{{dx}} = \\frac{{\\sqrt {{x^2} + {y^2}} + y}}{x}{/tex} Put y=vx, we have ; {tex}\\frac{{dy}}{{dx}} = v + x\\frac{{dv}}{{dx}}{/tex} {tex}\\Rightarrow v + x\\frac{{dv}}{{dx}} = \\sqrt {1 + {v^2}} + v \\Rightarrow \\int_{}^{} {\\frac{1}{{\\sqrt {1 + {v^2}} }}dv} = \\int {\\frac{1}{x}dx} {/tex} {tex} \\Rightarrow \\log |\\sqrt {1 + {v^2}} + v| = \\log |x| + \\log C \\Rightarrow |\\sqrt {1 + {v^2}} + v| = Cx{/tex} {tex}\\Rightarrow {(y + \\sqrt {{x^2} + {y^2}} )^2} = {C^2}{x^4}{/tex} {tex}\\Rightarrow {(y + \\sqrt {{x^2} + {y^2}} )} = {C}{x^2}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59632,
+          "question_text": "Variable separation method can be used to solve First Order, First Degree Differential Equations in which y&rsquo; is of the form.",
+          "question_html": "<p>Variable separation method can be used to solve First Order, First Degree Differential Equations in which y&rsquo; is of the form.</p>\r\n",
+          "options": [
+            {
+              "id": 193716,
+              "text": "{tex}y{{}^{2}}=\\text{ }cos\\text{ }\\left( g\\left( y \\right) \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}y{{}^{2}}=\\text{ }cos\\text{ }\\left( g\\left( y \\right) \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193717,
+              "text": "{tex}y{{}^{3}}=\\text{ }g\\left( y \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}y{{}^{3}}=\\text{ }g\\left( y \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193714,
+              "text": "y&rsquo; = h(x)g(y)",
+              "html": "y&rsquo; = h(x)g(y)",
+              "is_correct": true
+            },
+            {
+              "id": 193715,
+              "text": "{tex}y{{}^{2}}=\\text{ }sin\\text{ }\\left( h\\left( x \\right) \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}y{{}^{2}}=\\text{ }sin\\text{ }\\left( h\\left( x \\right) \\right){/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "y&rsquo; = h(x)g(y)",
+          "correct_option_ids": [
+            193714
+          ],
+          "explanation": "y&rsquo; = h(x)g(y) since we can segregate functions of y with dy and x with dx. {tex}\\frac{dy}{dx}=h(x)g(y){/tex} and {tex}\\frac{dy}{g(y)}=h(x)dx{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59633,
+          "question_text": "Solution of {tex}\\left\\{ {x\\cos \\left( {\\frac{y}{x}} \\right) + y\\sin \\left( {\\frac{y}{x}} \\right)} \\right\\}ydx = \\left\\{ {y\\sin \\left( {\\frac{y}{x}} \\right) - \\;x\\cos \\left( {\\frac{y}{x}} \\right)} \\right\\}xdy{/tex} is",
+          "question_html": "<p>Solution of<span class=\"math-tex\">{tex}\\left\\{ {x\\cos \\left( {\\frac{y}{x}} \\right) + y\\sin \\left( {\\frac{y}{x}} \\right)} \\right\\}ydx = \\left\\{ {y\\sin \\left( {\\frac{y}{x}} \\right) - \\;x\\cos \\left( {\\frac{y}{x}} \\right)} \\right\\}xdy{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193718,
+              "text": "{tex}xy\\;\\cos \\left| {\\frac{y}{x}} \\right| = C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}xy\\;\\cos \\left| {\\frac{y}{x}} \\right| = C{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193719,
+              "text": "{tex}y\\;\\cos \\left| {\\frac{y}{x}} \\right| = C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y\\;\\cos \\left| {\\frac{y}{x}} \\right| = C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193721,
+              "text": "{tex}xy\\;\\cos \\left| {\\frac{{3y}}{x}} \\right| = C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}xy\\;\\cos \\left| {\\frac{{3y}}{x}} \\right| = C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193720,
+              "text": "{tex}x\\;\\cos \\left| {\\frac{y}{x}} \\right| = C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x\\;\\cos \\left| {\\frac{y}{x}} \\right| = C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}xy\\;\\cos \\left| {\\frac{y}{x}} \\right| = C{/tex}",
+          "correct_option_ids": [
+            193718
+          ],
+          "explanation": "{tex}\\left\\{ {x\\cos \\left( {\\frac{y}{x}} \\right) + y\\sin \\left( {\\frac{y}{x}} \\right)} \\right\\}ydx = \\left\\{ {y\\sin \\left( {\\frac{y}{x}} \\right) - x\\cos \\left( {\\frac{y}{x}} \\right)} \\right\\}xdy{/tex} {tex}\\Rightarrow \\frac{{dy}}{{dx}} = \\frac{{y\\left\\{ {x\\cos \\left( {\\frac{y}{x}} \\right) + y\\sin \\left( {\\frac{y}{x}} \\right)} \\right\\}}}{{x\\left\\{ {y\\sin \\left( {\\frac{y}{x}} \\right) - x\\cos \\left( {\\frac{y}{x}} \\right)} \\right\\}}}{/tex} Putting y = vx, {tex} \\Rightarrow \\frac{{dy}}{{dx}} = v + x\\frac{{dv}}{{dx}}{/tex} {tex}v+x\\frac{dv}{dx}=v\\frac{xcosv+vsinx}{vxsinv-xcosv}{/tex} {tex}\\\\x\\frac{dv}{dx}=\\frac{vcosv+v^{2}sinx}{vsinv-cosv}-v{/tex} {tex}x\\frac{dv}{dx}=\\frac{vcosv+v^{2}sinx-v^{2}sinv+vcosv}{vsinv-cosv}{/tex} {tex}\\int \\frac{(vsinv-cosv)dv}{vcosv}=\\int \\frac{2dx}{x}{/tex} {tex}-log|vcosv|=2logx+logc{/tex} {tex}log|(vcosv)x^{2}c|=0{/tex} {tex}(vcosv)x^{2}c=1{/tex} {tex}\\frac{y}{x}cos(\\frac{y}{x})x^{2}=c'{/tex} {tex}xycos(\\frac{y}{x})=c \\because c'=c{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59634,
+          "question_text": "A differential equation of the form y&#39; = F(x,y) is homogeneous if",
+          "question_html": "<p>A differential equation of the form y&#39; = F(x,y) is homogeneous if</p>\r\n",
+          "options": [
+            {
+              "id": 193724,
+              "text": "F(x,y) is a homogeneous function of degree two",
+              "html": "F(x,y) is a homogeneous function of degree two",
+              "is_correct": false
+            },
+            {
+              "id": 193722,
+              "text": "F(x,y) is a homogeneous function of degree zero",
+              "html": "F(x,y) is a homogeneous function of degree zero",
+              "is_correct": true
+            },
+            {
+              "id": 193725,
+              "text": "F(x,y) is a homogeneous function of degree three",
+              "html": "F(x,y) is a homogeneous function of degree three",
+              "is_correct": false
+            },
+            {
+              "id": 193723,
+              "text": "F(x,y) is a homogeneous function of degree one",
+              "html": "F(x,y) is a homogeneous function of degree one",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "F(x,y) is a homogeneous function of degree zero",
+          "correct_option_ids": [
+            193722
+          ],
+          "explanation": "A differential equation of the form y&#39; = F(x,y) is homogeneous if F(x,y) is a homogeneous function of degree zero , so that we can convert it into variable separable form by y=vx.",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59635,
+          "question_text": "Solution of {tex}\\left( {{x^2}-{\\text{ }}{y^2}} \\right){\\text{ }}dx{\\text{ }} + {\\text{ }}2xy{\\text{ }}dy{\\text{ }} = {\\text{ }}0{/tex} is",
+          "question_html": "<p>Solution of <span class=\"math-tex\">{tex}\\left( {{x^2}-{\\text{ }}{y^2}} \\right){\\text{ }}dx{\\text{ }} + {\\text{ }}2xy{\\text{ }}dy{\\text{ }} = {\\text{ }}0{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193727,
+              "text": "{tex}{x^2} - {y^2} = Cx{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{x^2} - {y^2} = Cx{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193729,
+              "text": "{tex}{x^2} + {y^3} = Cx{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{x^2} + {y^3} = Cx{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193726,
+              "text": "{tex}{x^2} + {y^2} = Cx{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{x^2} + {y^2} = Cx{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193728,
+              "text": "{tex}{x^3} + {y^2} = Cx{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{x^3} + {y^2} = Cx{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}{x^2} + {y^2} = Cx{/tex}",
+          "correct_option_ids": [
+            193726
+          ],
+          "explanation": "{tex}({x^2} - {y^2})dx + 2xydy = 0 \\Rightarrow \\frac{{dy}}{{dx}} = \\frac{{{y^3} - {x^3}}}{{2xy}}{/tex} Put y = vx, we have; {tex}\\frac{{dy}}{{dx}} = v + x\\frac{{dv}}{{dx}}{/tex} {tex} \\Rightarrow \\frac{{dy}}{{dx}} = \\frac{{{y^2} - {x^2}}}{{2xy}} \\Rightarrow v + x\\frac{{dv}}{{dx}} = \\frac{{{v^2}{x^2} - {x^2}}}{{2xvx}} \\Rightarrow x\\frac{{dv}}{{dx}} = - \\left( {\\frac{{{v^2} + 1}}{{2v}}} \\right){/tex} {tex} \\Rightarrow \\int_{}^{} {\\frac{{2v}}{{{v^2} + 1}}dv} = - \\int_{}^{} {\\frac{1}{x}dx \\Rightarrow \\log |{v^2} + 1| = - \\log |x| + \\log C} {/tex} {tex} \\Rightarrow \\log |{v^2} + 1| + \\log |x| = \\log C \\Rightarrow ({v^2} + 1)|x| = C \\Rightarrow ({x^2} + {y^2}) = Cx{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59636,
+          "question_text": "Find the particular solution for {tex}{x^2}dy + (xy + {y^2})dx = 0 {/tex} ; y=1 when x =1",
+          "question_html": "<p>Find the particular solution for <span class=\"math-tex\">{tex}{x^2}dy + (xy + {y^2})dx = 0 {/tex}</span>; y=1 when x =1</p>\r\n",
+          "options": [
+            {
+              "id": 193733,
+              "text": "{tex}y - 2x = 3{x^{23}}y{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y - 2x = 3{x^{23}}y{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193731,
+              "text": "{tex}y + 2x = - 3{x^2}y{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y + 2x = - 3{x^2}y{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193730,
+              "text": "{tex}y + 2x = 3{x^2}y{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y + 2x = 3{x^2}y{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193732,
+              "text": "{tex}y - 2x = 3{x^2}y{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y - 2x = 3{x^2}y{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}y + 2x = 3{x^2}y{/tex}",
+          "correct_option_ids": [
+            193730
+          ],
+          "explanation": "{tex}{{x}^{2}}dy+(xy+{{y}^{2}})dx=0\\Rightarrow \\frac{dy}{dx}=-\\left( \\frac{xy+{{y}^{2}}}{{{x}^{2}}} \\right){/tex} Put {tex}y = vx \\ and \\ \\frac{dy}{dx}=v+x\\frac{dv}{dx}{/tex} {tex}\\Rightarrow v + x\\frac{{dv}}{{dx}} = - (v + {v^2}){/tex} {tex}\\Rightarrow x\\frac{dv}{dx}=-2v-v^2{/tex} {tex}\\Rightarrow xdv=-(v^2+2v)dx{/tex} {tex}\\Rightarrow \\int{\\frac{1}{v^2+2v}}dv=-\\int{\\frac{1}{x}}dx{/tex} {tex}\\Rightarrow \\int{\\frac{1}{(v+1)^2-1^2}}dv=-\\int{\\frac{1}{x}}dx{/tex} {tex}\\Rightarrow \\frac{1}{2}\\log \\left| {\\frac{v}{{v + 2}}} \\right| = - \\log x + \\log c{/tex} {tex}\\Rightarrow \\frac{1}{2}\\log \\left| {\\frac{v}{{v + 2}}} \\right| +logx^2= - \\log k {/tex} {tex}\\Rightarrow \\frac{1}{2}\\log \\left| {\\frac{vx^2}{{v + 2}}} \\right| = \\log k {/tex} {tex} \\Rightarrow \\left| {\\frac{{v{x^2}}}{{v + 2}}} \\right| = k \\Rightarrow \\frac{{{x^2}y}}{{y + 2x}} = k{/tex} When x = 1, and y = 1, k = {tex}\\frac{1}{3}{/tex} {tex}\\Rightarrow \\frac{{{x}^{2}}y}{y+2x}=\\frac{1}{3}\\Rightarrow 3{{x}^{2}}y=y+2x{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59637,
+          "question_text": "Find the particular solution for {tex}\\frac{{dy}}{{dx}} - \\;\\frac{y}{x} + {\\text{cosec}}\\left( {\\frac{y}{x}} \\right) = 0;y = 0\\;when\\;x = 1{/tex}",
+          "question_html": "<p>Find the particular solution for&nbsp;<span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}} - \\;\\frac{y}{x} + {\\text{cosec}}\\left( {\\frac{y}{x}} \\right) = 0;y = 0\\;when\\;x = 1{/tex}</span></p>\r\n",
+          "options": [
+            {
+              "id": 193734,
+              "text": "{tex}\\cos \\left( {\\frac{y}{x}} \\right) = \\;\\log \\left| {ex} \\right|{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\cos \\left( {\\frac{y}{x}} \\right) = \\;\\log \\left| {ex} \\right|{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193736,
+              "text": "{tex}\\cos \\left( {\\frac{{2y}}{x}} \\right) = \\;\\log \\left| {ex} \\right|{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\cos \\left( {\\frac{{2y}}{x}} \\right) = \\;\\log \\left| {ex} \\right|{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193735,
+              "text": "{tex}\\cos \\left( {\\frac{y}{x}} \\right) = \\;\\log \\left| {2ex} \\right|{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\cos \\left( {\\frac{y}{x}} \\right) = \\;\\log \\left| {2ex} \\right|{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193737,
+              "text": "{tex}\\cos \\left( {\\frac{y}{{2x}}} \\right) = \\;\\log \\left| {3ex} \\right|{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\cos \\left( {\\frac{y}{{2x}}} \\right) = \\;\\log \\left| {3ex} \\right|{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\cos \\left( {\\frac{y}{x}} \\right) = \\;\\log \\left| {ex} \\right|{/tex}",
+          "correct_option_ids": [
+            193734
+          ],
+          "explanation": "Let y = vx {tex}\\frac{dy}{dx}=v+x\\frac{dv}{dx}{/tex} Question becomes {tex} \\\\ v+x\\frac{dv}{dx}=v-cosecv{/tex} {tex}x\\frac{dv}{dx}=-cosecv{/tex} {tex}- \\int sinv dv=\\int \\frac{dx}{x}{/tex} {tex}\\\\cosv=logx+logc{/tex} {tex}cos(\\frac{y}{x})=logx+logc{/tex} when x = 1 and y = 0 {tex}cos(\\frac{0}{1})=log1+logc{/tex} { log c =1 } {tex}\\\\c=e{/tex} {tex}\\\\cos(\\frac{y}{x})=logx+loge{/tex} {tex}cos(\\frac{y}{x})=log|ex|{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59638,
+          "question_text": "Find the particular solution for {tex}2xy + {y^2} - 2{x^2}\\frac{{dy}}{{dx}}\\; = 0;\\;y = 2{/tex} when x = 1",
+          "question_html": "<p>Find the particular solution for <span class=\"math-tex\">{tex}2xy + {y^2} - 2{x^2}\\frac{{dy}}{{dx}}\\; = 0;\\;y = 2{/tex}</span>&nbsp;when x = 1</p>",
+          "options": [
+            {
+              "id": 193738,
+              "text": "{tex}y = \\frac{{2x}}{{1 - \\log \\left| x \\right|}}\\;\\left( {x\\; \\ne 0,x \\ne e} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = \\frac{{2x}}{{1 - \\log \\left| x \\right|}}\\;\\left( {x\\; \\ne 0,x \\ne e} \\right){/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193740,
+              "text": "{tex}y = \\frac{{3x}}{{1 - \\log \\left| x \\right|}}\\;\\left( {x\\; \\ne 0,x \\ne e} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = \\frac{{3x}}{{1 - \\log \\left| x \\right|}}\\;\\left( {x\\; \\ne 0,x \\ne e} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193739,
+              "text": "{tex}y = \\frac{{2x}}{{1 + \\log \\left| x \\right|}}\\;\\left( {x\\; \\ne 0,x \\ne e} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = \\frac{{2x}}{{1 + \\log \\left| x \\right|}}\\;\\left( {x\\; \\ne 0,x \\ne e} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193741,
+              "text": "{tex}y = \\frac{{5x}}{{1 + \\log \\left| x \\right|}}\\;\\left( {x\\; \\ne 0,x \\ne e} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = \\frac{{5x}}{{1 + \\log \\left| x \\right|}}\\;\\left( {x\\; \\ne 0,x \\ne e} \\right){/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}y = \\frac{{2x}}{{1 - \\log \\left| x \\right|}}\\;\\left( {x\\; \\ne 0,x \\ne e} \\right){/tex}",
+          "correct_option_ids": [
+            193738
+          ],
+          "explanation": "Let y = vx {tex} \\frac{dy}{dx}=v+x\\frac{dv}{dx}{/tex} Question becomes {tex}v+x\\frac{dv}{dx}=\\frac{2v+v^2}{2}{/tex} {tex}x\\frac{dv}{dx}=\\frac{2v+v^2}{2}-v{/tex} {tex}x\\frac{dv}{dx}=\\frac{2v+v^2-2v}{2}{/tex} {tex}2\\int \\frac{dv}{v^2}=\\int \\frac{dx}{x}{/tex} {tex}\\frac{-2}{v}=logx+c{/tex} When x=1 y=2 we get {tex}\\frac{-2x}{y}=logx+c{/tex} {tex}\\frac{-2}{2}=log1+c\\implies c=-1{/tex} {tex}\\frac{-2x}{y}=logx-1{/tex} {tex}y=\\frac{2x}{1-log|x|}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59639,
+          "question_text": "A homogeneous equation of the form {tex}\\frac{{dy}}{{dx}} = h\\left( {\\frac{x}{y}} \\right){/tex} can be solved by making the substitution",
+          "question_html": "<p>A homogeneous equation of the form <span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}} = h\\left( {\\frac{x}{y}} \\right){/tex}</span> can be solved by making the substitution</p>\r\n",
+          "options": [
+            {
+              "id": 193744,
+              "text": "{tex}\\nu = \\;yx{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\nu = \\;yx{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193745,
+              "text": "{tex}x = \\;\\nu {/tex}",
+              "html": "<span class=\"math-tex\">{tex}x = \\;\\nu {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193742,
+              "text": "{tex}x = \\;\\nu y{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x = \\;\\nu y{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193743,
+              "text": "{tex}y = \\;\\nu x{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = \\;\\nu x{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}x = \\;\\nu y{/tex}",
+          "correct_option_ids": [
+            193742
+          ],
+          "explanation": "A homogeneous equation of the form {tex}\\frac{{dy}}{{dx}} = h\\left( {\\frac{x}{y}} \\right){/tex} can be solved by making the substitution x= vy.so that it becomes variable separable form and integration is then possible",
+          "solution": ""
+        }
+      ]
+    },
+    {
+      "test_id": 3632,
+      "test_name": "Differential Equations Test-05",
+      "is_paid": true,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 59640,
+          "question_text": "Which of the following is a homogeneous differential equation?",
+          "question_html": "<p>Which of the following is a homogeneous differential equation?</p>\r\n",
+          "options": [
+            {
+              "id": 193748,
+              "text": "{tex}\\begin{array}{*{20}{l}} {\\left( {xy} \\right){\\text{ }}dx{\\text{ }}-{\\text{ }}\\left( {{x^3} + {\\text{ }}{y^3}} \\right){\\text{ }}dy{\\text{ }} = {\\text{ }}0} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {\\left( {xy} \\right){\\text{ }}dx{\\text{ }}-{\\text{ }}\\left( {{x^3} + {\\text{ }}{y^3}} \\right){\\text{ }}dy{\\text{ }} = {\\text{ }}0} \\end{array}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193746,
+              "text": "{tex}{y^2}dx{\\text{ }} + {\\text{ }}\\left( {{x^2}-{\\text{ }}xy{\\text{ }}-{\\text{ }}{y^2}} \\right){\\text{ }}dy{\\text{ }} = {\\text{ }}0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{y^2}dx{\\text{ }} + {\\text{ }}\\left( {{x^2}-{\\text{ }}xy{\\text{ }}-{\\text{ }}{y^2}} \\right){\\text{ }}dy{\\text{ }} = {\\text{ }}0{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193749,
+              "text": "{tex}\\left( {{x^3} + {\\text{ }}2{y^2}} \\right){\\text{ }}dx{\\text{ }} + {\\text{ }}2xy{\\text{ }}dy{\\text{ }} = {\\text{ }}0{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left( {{x^3} + {\\text{ }}2{y^2}} \\right){\\text{ }}dx{\\text{ }} + {\\text{ }}2xy{\\text{ }}dy{\\text{ }} = {\\text{ }}0{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193747,
+              "text": "{tex}\\begin{array}{*{20}{l}} {\\left( {4x{\\text{ }} + {\\text{ }}6y{\\text{ }} + {\\text{ }}5} \\right){\\text{ }}dy{\\text{ }}- {\\text{ }}\\left( {3y{\\text{ }} + {\\text{ }}2x{\\text{ }} + {\\text{ }}4} \\right){\\text{ }}dx{\\text{ }} = {\\text{ }}0} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {\\left( {4x{\\text{ }} + {\\text{ }}6y{\\text{ }} + {\\text{ }}5} \\right){\\text{ }}dy{\\text{ }}- {\\text{ }}\\left( {3y{\\text{ }} + {\\text{ }}2x{\\text{ }} + {\\text{ }}4} \\right){\\text{ }}dx{\\text{ }} = {\\text{ }}0} \\end{array}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}{y^2}dx{\\text{ }} + {\\text{ }}\\left( {{x^2}-{\\text{ }}xy{\\text{ }}-{\\text{ }}{y^2}} \\right){\\text{ }}dy{\\text{ }} = {\\text{ }}0{/tex}",
+          "correct_option_ids": [
+            193746
+          ],
+          "explanation": "it is a homogeneous differential equation ,because the degree of each individual term is same i.e. 2.",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 59641,
+          "question_text": "A first order linear differential equation, Is a differential equation of the form",
+          "question_html": "<p>A first order linear differential equation, Is a differential equation of the form</p>\r\n",
+          "options": [
+            {
+              "id": 193750,
+              "text": "{tex}\\frac{{dy}}{{dx}} + Py = Q\\;{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}} + Py = Q\\;{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193751,
+              "text": "{tex}\\frac{{dy}}{{dx}} + Px = Q{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}} + Px = Q{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193753,
+              "text": "{tex}\\frac{{dy}}{{dx}} = Q{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}} = Q{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193752,
+              "text": "{tex}\\frac{{dy}}{{dx}} + Py = 0\\;{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}} + Py = 0\\;{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{{dy}}{{dx}} + Py = Q\\;{/tex}",
+          "correct_option_ids": [
+            193750
+          ],
+          "explanation": "Here the degree and order of the equation is 1 and also is of the form {tex}\\frac{{dy}}{{dx}} + Py = Q\\;{/tex} hence it is linear differential equation in first order",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 59642,
+          "question_text": "Solution of {tex}\\frac{{dy}}{{dx}} = \\sec y{/tex} is",
+          "question_html": "<p>Solution of <span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}} = \\sec y{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193755,
+              "text": "{tex}x = co\\operatorname{s} y + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x = co\\operatorname{s} y + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193756,
+              "text": "{tex}x = \\sin 2y + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x = \\sin 2y + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193754,
+              "text": "{tex}x = \\sin y + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x = \\sin y + C{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193757,
+              "text": "{tex}x = co\\operatorname{s} 2y + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}x = co\\operatorname{s} 2y + C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}x = \\sin y + C{/tex}",
+          "correct_option_ids": [
+            193754
+          ],
+          "explanation": "{tex}cosydy=dx{/tex} {tex}\\int cosydy=\\int dx{/tex} {tex}siny+c=x{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 59643,
+          "question_text": "Solution of y&rsquo; = {tex}\\;\\frac{{x + y}}{x}{/tex} is",
+          "question_html": "<p>Solution of y&rsquo; =<span class=\"math-tex\">{tex}\\;\\frac{{x + y}}{x}{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193761,
+              "text": "{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} = {\\text{ }}x{\\text{ }}log\\left| {3x} \\right|{\\text{ }} + Cx} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} = {\\text{ }}x{\\text{ }}log\\left| {3x} \\right|{\\text{ }} + Cx} \\end{array}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193760,
+              "text": "{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} = {\\text{ }}log\\left| {2x} \\right|{\\text{ }} + Cx} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} = {\\text{ }}log\\left| {2x} \\right|{\\text{ }} + Cx} \\end{array}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193759,
+              "text": "{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} = {\\text{ }}log\\left| x \\right|{\\text{ }} + Cx} \\end{array}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\begin{array}{*{20}{l}} {y{\\text{ }} = {\\text{ }}log\\left| x \\right|{\\text{ }} + Cx} \\end{array}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193758,
+              "text": "{tex} y=x\\log \\left| x \\right| + Cx {/tex}",
+              "html": "<span class=\"math-tex\">{tex} y=x\\log \\left| x \\right| + Cx {/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex} y=x\\log \\left| x \\right| + Cx {/tex}",
+          "correct_option_ids": [
+            193758
+          ],
+          "explanation": "Converting the above equation in Linear differential equation we get {tex}\\frac{dy}{dx}=1+\\frac{y}{x}{/tex} {tex}\\frac{dy}{dx}+\\frac{-1}{x}y=1{/tex} {tex}ye^{\\int\\frac{-dx}{x} }=\\int e^{\\int\\frac{-dx}{x}}dx+c{/tex} {tex}y\\frac{1}{x}=\\int\\frac{1}{x}dx+c{/tex} {tex}\\frac{y}{x}=log|x|+c{/tex} {tex}y=xlog|x|+cx{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 59644,
+          "question_text": "Solution of (x &ndash; y) dy &ndash; (x + y) dx = 0 is",
+          "question_html": "<p>Solution of (x &ndash; y) dy &ndash; (x + y) dx = 0 is</p>\r\n",
+          "options": [
+            {
+              "id": 193765,
+              "text": "{tex}ta{n^{ - 1}}\\left( {\\frac{y}{x}} \\right) = \\;\\frac{1}{2}\\log \\left( {{x^3} + \\;{y^3}} \\right) + \\;C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}ta{n^{ - 1}}\\left( {\\frac{y}{x}} \\right) = \\;\\frac{1}{2}\\log \\left( {{x^3} + \\;{y^3}} \\right) + \\;C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193763,
+              "text": "{tex}ta{n^{ - 1}}\\left( {\\frac{y}{x}} \\right) = \\;\\frac{1}{2}\\log \\left( {{x^3} + \\;{y^2}} \\right) + \\;C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}ta{n^{ - 1}}\\left( {\\frac{y}{x}} \\right) = \\;\\frac{1}{2}\\log \\left( {{x^3} + \\;{y^2}} \\right) + \\;C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193764,
+              "text": "{tex}ta{n^{ - 1}}\\left( {\\frac{y}{x}} \\right) = \\;\\frac{1}{2}\\log \\left( {{x^2} + \\;{y^3}} \\right) + \\;C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}ta{n^{ - 1}}\\left( {\\frac{y}{x}} \\right) = \\;\\frac{1}{2}\\log \\left( {{x^2} + \\;{y^3}} \\right) + \\;C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193762,
+              "text": "{tex}ta{n^{ - 1}}\\left( {\\frac{y}{x}} \\right) = \\;\\frac{1}{2}\\log \\left( {{x^2} + \\;{y^2}} \\right) + \\;C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}ta{n^{ - 1}}\\left( {\\frac{y}{x}} \\right) = \\;\\frac{1}{2}\\log \\left( {{x^2} + \\;{y^2}} \\right) + \\;C{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}ta{n^{ - 1}}\\left( {\\frac{y}{x}} \\right) = \\;\\frac{1}{2}\\log \\left( {{x^2} + \\;{y^2}} \\right) + \\;C{/tex}",
+          "correct_option_ids": [
+            193762
+          ],
+          "explanation": "{tex}\\frac{dy}{dx}=\\frac{x+y}{x-y}{/tex} Let y = vx {tex}\\frac{dy}{dx}=v+x\\frac{dv}{dx}{/tex} {tex}\\\\v+x\\frac{dv}{dx}=\\frac{1+v}{1-v}{/tex} {tex}x\\frac{dv}{dx}=\\frac{1+v}{1-v}-v{/tex} {tex}x\\frac{dv}{dx}=\\frac{1+v-v+v^2}{1-v}{/tex} {tex}\\frac{1-v}{1+v^2}dv=\\frac{dx}{x}{/tex} {tex}\\int \\frac{dv}{1-v}-\\int \\frac{vdv}{1+v^2}=\\int \\frac{dx}{x}{/tex} {tex}tan^{-1}v-\\frac{1}{2}log|1+v^2|=logx+c{/tex} {tex}2tan^{-1}\\frac{y}{x}=log|1+\\frac{y^2}{x^2}|+logx^2+c{/tex} {tex}ta{n^{ - 1}}\\left( {\\frac{y}{x}} \\right) = \\;\\frac{1}{2}\\log \\left( {{x^2} + \\;{y^2}} \\right) + \\;C{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 59645,
+          "question_text": "Solution of {tex}(x + 1)\\frac{{dy}}{{dx}} = 2xy{/tex} is",
+          "question_html": "<p>Solution of <span class=\"math-tex\">{tex}(x + 1)\\frac{{dy}}{{dx}} = 2xy{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193768,
+              "text": "{tex}\\log y = \\left\\{ {x - \\log \\left| x \\right|} \\right\\} + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\log y = \\left\\{ {x - \\log \\left| x \\right|} \\right\\} + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193769,
+              "text": "{tex}log|y|=2(x+log|1-x|)+c{/tex}",
+              "html": "<span class=\"math-tex\">{tex}log|y|=2(x+log|1-x|)+c{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193766,
+              "text": "{tex}log|y|=2(x-log|1+x|)+c{/tex}",
+              "html": "<span class=\"math-tex\">{tex}log|y|=2(x-log|1+x|)+c{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193767,
+              "text": "{tex}\\log y = \\left\\{ {x + \\log \\left| x \\right|} \\right\\} + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\log y = \\left\\{ {x + \\log \\left| x \\right|} \\right\\} + C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}log|y|=2(x-log|1+x|)+c{/tex}",
+          "correct_option_ids": [
+            193766
+          ],
+          "explanation": "{tex}(x + 1)\\frac{{dy}}{{dx}} = 2xy{/tex} {tex}\\int {\\frac{1}{y}}dy = 2 \\int {\\frac{x}{{1 + x}}} dx{/tex} {tex}\\Rightarrow \\int {\\frac{1}{y}} dy = 2\\int {\\left( {1 - \\frac{1}{{1 + x}}} \\right)} dx {/tex} {tex}log|y|=2(x-log|1+x|)+c{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 59646,
+          "question_text": "Solution of differential equation {tex}\\frac{{dy}}{{dx}} = \\frac{{x + y}}{{x - y}}{/tex} is",
+          "question_html": "<p>Solution of differential equation <span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}} = \\frac{{x + y}}{{x - y}}{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193770,
+              "text": "{tex}{\\tan ^{ - 1}}\\left( {\\frac{y}{x}} \\right) = \\frac{1}{2}\\log ({x^2} + {y^2}) + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\left( {\\frac{y}{x}} \\right) = \\frac{1}{2}\\log ({x^2} + {y^2}) + C{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193772,
+              "text": "{tex}{\\tan ^{ - 1}}\\left( {\\frac{y}{x}} \\right) = \\log ({x^3} + {y^2}) + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\left( {\\frac{y}{x}} \\right) = \\log ({x^3} + {y^2}) + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193771,
+              "text": "{tex}{\\tan ^{ - 1}}\\left( {\\frac{y}{x}} \\right) = \\frac{1}{2}\\log ({x^3} + {y^2}) + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\left( {\\frac{y}{x}} \\right) = \\frac{1}{2}\\log ({x^3} + {y^2}) + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193773,
+              "text": "{tex}{\\tan ^{ - 1}}\\left( {\\frac{y}{x}} \\right) = 2\\log ({x^3} - {y^2}) + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\tan ^{ - 1}}\\left( {\\frac{y}{x}} \\right) = 2\\log ({x^3} - {y^2}) + C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}{\\tan ^{ - 1}}\\left( {\\frac{y}{x}} \\right) = \\frac{1}{2}\\log ({x^2} + {y^2}) + C{/tex}",
+          "correct_option_ids": [
+            193770
+          ],
+          "explanation": "{tex}\\frac{{dy}}{{dx}} = \\frac{{x + y}}{{x - y}}{/tex} Put y = vx and {tex}\\frac{{dy}}{{dx}} = v + x\\frac{{dv}}{{dx}}{/tex} {tex}\\frac{{dy}}{{dx}} = \\frac{{x + y}}{{x - y}} \\Rightarrow v + x\\frac{{dv}}{{dx}} = \\frac{{1 + v}}{{1 - v}} \\Rightarrow x\\frac{{dv}}{{dx}} = \\frac{{1 + {v^2}}}{{1 - v}}{/tex} {tex} \\Rightarrow \\int_{}^{} {\\frac{{1 - v}}{{1 + {v^2}}}dv = \\int_{}^{} {\\frac{1}{x}dx} \\Rightarrow \\int_{}^{} {\\frac{1}{{1 + {v^2}}}dv - \\frac{1}{2}\\int_{}^{} {\\frac{{2v}}{{1 + {v^2}}}dv = \\int_{}^{} {\\frac{1}{x}dx} } } } {/tex} {tex} \\Rightarrow {\\tan ^{ - 1}}v - \\frac{1}{2}\\log (1 + {v^2}) = \\log x + C{/tex} {tex} \\Rightarrow {\\tan ^{ - 1}}\\left( {\\frac{y}{x}} \\right) = \\frac{1}{2}\\log ({x^2} + {y^2}) + C{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 59647,
+          "question_text": "General solution of {tex}\\frac{{dy}}{{dx}} + \\;2y = \\sin x{/tex} is",
+          "question_html": "<p>General solution of <span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}} + \\;2y = \\sin x{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193776,
+              "text": "{tex}y = \\frac{1}{5}\\left( {2\\sin x - \\cos x} \\right) - C{e^{ - 2x}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = \\frac{1}{5}\\left( {2\\sin x - \\cos x} \\right) - C{e^{ - 2x}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193777,
+              "text": "{tex}y = \\frac{1}{5}\\left( {2\\sin x + \\cos x} \\right) - C{e^{ - 2x}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = \\frac{1}{5}\\left( {2\\sin x + \\cos x} \\right) - C{e^{ - 2x}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193775,
+              "text": "{tex}\\;y = {/tex} {tex}\\frac{1}{5}\\left( {2\\sin x + \\cos x} \\right) + C{e^{ - 2x}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\;y = {/tex}</span><span class=\"math-tex\">{tex}\\frac{1}{5}\\left( {2\\sin x + \\cos x} \\right) + C{e^{ - 2x}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193774,
+              "text": "{tex}y = \\frac{1}{5}\\left( {2\\sin x - \\cos x} \\right) + C{e^{ - 2x}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = \\frac{1}{5}\\left( {2\\sin x - \\cos x} \\right) + C{e^{ - 2x}}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}y = \\frac{1}{5}\\left( {2\\sin x - \\cos x} \\right) + C{e^{ - 2x}}{/tex}",
+          "correct_option_ids": [
+            193774
+          ],
+          "explanation": "{tex} \\frac{{dy}}{{dx}} + 2y = \\sin x \\Rightarrow P = 2,Q = \\sin x{/tex} {tex}\\Rightarrow I.F. = {e^{\\int {2dx} }} = {e^{2x}} {/tex} {tex}\\Rightarrow y{e^{2x}} = \\int {\\sin x.{e^{2x}}dx \\Rightarrow } y{e^{2x}} {/tex} {tex}= {e^{2x}}\\frac{1}{5}\\left( {2\\sin x - \\cos x} \\right) + C{/tex} {tex} \\Rightarrow y = \\frac{1}{5}\\left( {2\\sin x - \\cos x} \\right) + C{e^{ - 2x}} {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 59648,
+          "question_text": "General solution of {tex}\\frac{{dy}}{{dx}} + \\;3y = {e^{ - 2x}}{/tex} is",
+          "question_html": "<p>General solution of<span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}} + \\;3y = {e^{ - 2x}}{/tex}</span> is</p>\r\n",
+          "options": [
+            {
+              "id": 193778,
+              "text": "{tex}y = {e^{ - 2x}} + C{e^{ - 3x}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = {e^{ - 2x}} + C{e^{ - 3x}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193780,
+              "text": "{tex}y = {e^{ - 2x}} - C{e^{ - 5x}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = {e^{ - 2x}} - C{e^{ - 5x}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193781,
+              "text": "{tex}y = {e^{ - 3x}} - C{e^{ - 3x}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = {e^{ - 3x}} - C{e^{ - 3x}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193779,
+              "text": "{tex}y = {e^{ - 2x}} - C{e^{ - 3x}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = {e^{ - 2x}} - C{e^{ - 3x}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}y = {e^{ - 2x}} + C{e^{ - 3x}}{/tex}",
+          "correct_option_ids": [
+            193778
+          ],
+          "explanation": "{tex}\\frac{{dy}}{{dx}} + 3y = {e^{ - 2x}} \\Rightarrow P = 3,Q = {e^{ - 2x}}{/tex} {tex} \\Rightarrow I.F. = {e^{\\int_{}^{} {3.dx} }} = {e^{3x}}{/tex} {tex} \\Rightarrow y.{e^{3x}} = \\int_{}^{} {{e^{ - 2x}}{e^{3x}}dx} \\Rightarrow y.{e^{3x}} = \\int_{}^{} {{e^x}dx \\Rightarrow y.{e^{3x}} = {e^x} + C} {/tex} {tex} \\Rightarrow y = {e^{ - 2x}} + C{e^{ - 3x}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 59649,
+          "question_text": "General solution of {tex}\\frac{{dy}}{{dx}} + \\;\\frac{y}{x} = {x^2}{/tex} is",
+          "question_html": "<p>General solution of<span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}} + \\;\\frac{y}{x} = {x^2}{/tex}</span> is</p>\r\n",
+          "options": [
+            {
+              "id": 193785,
+              "text": "{tex}xy = \\frac{{{x^7}}}{4} + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}xy = \\frac{{{x^7}}}{4} + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193783,
+              "text": "{tex}xy = \\frac{{{x^5}}}{4} + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}xy = \\frac{{{x^5}}}{4} + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193784,
+              "text": "{tex}xy = \\frac{{{x^6}}}{4} + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}xy = \\frac{{{x^6}}}{4} + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193782,
+              "text": "{tex}xy = \\frac{{{x^4}}}{4} + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}xy = \\frac{{{x^4}}}{4} + C{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}xy = \\frac{{{x^4}}}{4} + C{/tex}",
+          "correct_option_ids": [
+            193782
+          ],
+          "explanation": "{tex}\\frac{{dy}}{{dx}} + \\frac{y}{x} = {x^2} \\\\ \\ Here \\ P = \\frac{1}{x},Q = {x^2} \\\\ \\Rightarrow I.F. = {e^{\\int {P.dx} }} = {e^{\\int {\\frac{1}{x}.dx} }} \\\\ = {e^{\\log \\left| x \\right|}} = x \\\\ \\Rightarrow y.x = \\int {x.{x^2}} dx \\Rightarrow xy \\\\ = \\frac{{{x^4}}}{4} + C \\\\ {/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 59650,
+          "question_text": "General solution of {tex}\\frac{{dy}}{{dx}} + \\left( {\\sec x} \\right)y = \\;\\tan x\\;\\left( {0 \\leqslant x < \\frac{\\pi }{2}} \\right){/tex} is",
+          "question_html": "<p>General solution of<span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}} + \\left( {\\sec x} \\right)y = \\;\\tan x\\;\\left( {0 \\leqslant x &lt; \\frac{\\pi }{2}} \\right){/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193786,
+              "text": "{tex}y\\left( {\\sec x + \\tan x} \\right) = \\sec x + \\tan x - x + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y\\left( {\\sec x + \\tan x} \\right) = \\sec x + \\tan x - x + C{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193788,
+              "text": "{tex}y\\left( {\\sec x + \\tan x} \\right) = \\sec x - \\tan x - x + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y\\left( {\\sec x + \\tan x} \\right)  = \\sec x - \\tan x - x + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193789,
+              "text": "{tex}y\\left( {\\sec x - \\tan x} \\right) = \\sec x - \\tan x - x + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y\\left( {\\sec x - \\tan x} \\right)  = \\sec x - \\tan x - x + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193787,
+              "text": "{tex}y\\left( {\\sec x - \\tan x} \\right) = \\sec x + \\tan x - x + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y\\left( {\\sec x - \\tan x} \\right) = \\sec x + \\tan x - x + C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}y\\left( {\\sec x + \\tan x} \\right) = \\sec x + \\tan x - x + C{/tex}",
+          "correct_option_ids": [
+            193786
+          ],
+          "explanation": "{tex}\\frac{{dy}}{{dx}} + \\sec x.y = \\tan x \\Rightarrow P = \\sec x,Q = \\tan x{/tex} {tex} \\Rightarrow I.F = {e^{\\int_{}^{} {\\sec xdx} }} = {e^{\\log |\\sec x + \\tan x|}} = \\log |\\sec x + \\tan x|{/tex} {tex} \\Rightarrow y.\\log |\\sec x + \\tan x| = \\int_{}^{} {\\tan x.\\log |\\sec x + \\tan x|dx} {/tex} {tex}\\Rightarrow y.\\log |\\sec x + \\tan x| = \\sec x + \\tan x - x + C{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 59651,
+          "question_text": "General solution of {tex}co{s^2}x\\frac{{dy}}{{dx}} + y = \\;\\tan x\\;\\left( {0 \\leqslant x < \\frac{\\pi }{2}} \\right){/tex} is",
+          "question_html": "<p>General solution of<span class=\"math-tex\">{tex}co{s^2}x\\frac{{dy}}{{dx}} + y = \\;\\tan x\\;\\left( {0 \\leqslant x &lt; \\frac{\\pi }{2}} \\right){/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193791,
+              "text": "{tex}y = \\left( {\\tan x + 1} \\right) + C{e^{ - \\tan x}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = \\left( {\\tan x + 1} \\right) + C{e^{ - \\tan x}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193790,
+              "text": "{tex}y = \\left( {\\tan x - 1} \\right) + C{e^{ - \\tan x}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = \\left( {\\tan x - 1} \\right) + C{e^{ - \\tan x}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193793,
+              "text": "{tex}y = \\left( {\\tan x + 1} \\right) - C{e^{ - \\tan x}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = \\left( {\\tan x + 1} \\right) - C{e^{ - \\tan x}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193792,
+              "text": "{tex}y = \\left( {\\tan x - 1} \\right) - C{e^{ - \\tan x}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = \\left( {\\tan x - 1} \\right) - C{e^{ - \\tan x}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}y = \\left( {\\tan x - 1} \\right) + C{e^{ - \\tan x}}{/tex}",
+          "correct_option_ids": [
+            193790
+          ],
+          "explanation": "{tex}\\frac{{dy}}{{dx}} + {\\sec ^2}x.y = \\tan x.{\\sec ^2}x \\Rightarrow P = {\\sec ^2}x,Q = \\tan x.{\\sec ^2}x{/tex} {tex} \\Rightarrow I.F. = {e^{\\int_{}^{} {{{\\sec }^2}xdx} }} = {e^{\\tan x}}{/tex} {tex}\\Rightarrow y.{e^{\\tan x}} = \\int_{}^{} {\\tan x{{\\sec }^2}x{e^{\\tan x}}dx \\Rightarrow y.{e^{\\tan x}} = (\\tan x - 1){e^{\\tan x}} + C} {/tex} {tex} \\Rightarrow y = (\\tan x - 1) + C{e^{ - \\tan x}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 59652,
+          "question_text": "General solution of {tex}x\\frac{{dy}}{{dx}} + 2y = {x^2}\\log x{/tex} is",
+          "question_html": "<p>General solution of&nbsp;<span class=\"math-tex\">{tex}x\\frac{{dy}}{{dx}} + 2y = {x^2}\\log x{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193796,
+              "text": "{tex}y = \\frac{{{x^2}}}{{16}}\\left( {4\\log \\left| x \\right| + \\;1} \\right) - C{x^{ - 2}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = \\frac{{{x^2}}}{{16}}\\left( {4\\log \\left| x \\right| + \\;1} \\right) - C{x^{ - 2}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193795,
+              "text": "{tex}y = \\frac{{{x^2}}}{{16}}\\left( {4\\log \\left| x \\right| + \\;1} \\right) + C{x^{ - 2}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = \\frac{{{x^2}}}{{16}}\\left( {4\\log \\left| x \\right| + \\;1} \\right) + C{x^{ - 2}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193794,
+              "text": "{tex}y = \\frac{{{x^2}}}{{16}}\\left( {4\\log \\left| x \\right| - \\;1} \\right) + C{x^{ - 2}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = \\frac{{{x^2}}}{{16}}\\left( {4\\log \\left| x \\right| - \\;1} \\right) + C{x^{ - 2}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193797,
+              "text": "{tex}y = \\frac{{{x^2}}}{{16}}\\left( {4\\log \\left| x \\right| + \\;1} \\right) + C{x^{ - 3}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = \\frac{{{x^2}}}{{16}}\\left( {4\\log \\left| x \\right| + \\;1} \\right) + C{x^{ - 3}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}y = \\frac{{{x^2}}}{{16}}\\left( {4\\log \\left| x \\right| - \\;1} \\right) + C{x^{ - 2}}{/tex}",
+          "correct_option_ids": [
+            193794
+          ],
+          "explanation": "{tex}\\frac{dy}{dx}+\\frac{2}{x}y=xlogx{/tex} {tex}ye^{\\int \\frac{2dx}{x}}=\\int e^{\\int \\frac{2dx}{x}}xlogx+C{/tex} {tex}yx^2=\\int x^3logxdx+c{/tex} {tex}yx^2=logx \\int x^3dx-\\int \\int x^3dx \\frac{d}{dx}logx+c {/tex} {tex}yx^2=logx \\frac{x^4}{4}-\\int \\frac{x^3}{4}dx+c{/tex} {tex}yx^2= \\frac{x^4}{4}logx-\\frac{x^4}{16}+c{/tex} {tex}y=\\frac{x^2}{4}logx-\\frac{x^2}{16}+cx^{-2}{/tex} {tex}y=\\frac{x^2}{16}(4logx-1)+cx^{-2}\\\\{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 59653,
+          "question_text": "General solution of {tex}xlogx\\frac{{dy}}{{dx}} + y = \\frac{2}{x}logx{/tex} is",
+          "question_html": "<p>General solution of&nbsp;<span class=\"math-tex\">{tex}xlogx\\frac{{dy}}{{dx}} + y = \\frac{2}{x}logx{/tex}</span>&nbsp; is</p>\r\n",
+          "options": [
+            {
+              "id": 193798,
+              "text": "{tex}y\\log x = \\frac{{ - 2}}{x}\\left( {1 + \\log \\left| x \\right|} \\right) + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y\\log x = \\frac{{ - 2}}{x}\\left( {1 + \\log \\left| x \\right|} \\right) + C{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193799,
+              "text": "{tex}y\\log x = \\frac{2}{x}\\left( {1 + \\log \\left| x \\right|} \\right) + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y\\log x = \\frac{2}{x}\\left( {1 + \\log \\left| x \\right|} \\right) + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193801,
+              "text": "{tex}y\\log x = \\frac{2}{x}\\left( {1 - \\log \\left| x \\right|} \\right) + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y\\log x = \\frac{2}{x}\\left( {1 - \\log \\left| x \\right|} \\right) + C{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193800,
+              "text": "{tex}y\\log x = \\frac{{ - 2}}{x}\\left( {1 - \\log \\left| x \\right|} \\right) + C{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y\\log x = \\frac{{ - 2}}{x}\\left( {1 - \\log \\left| x \\right|} \\right) + C{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}y\\log x = \\frac{{ - 2}}{x}\\left( {1 + \\log \\left| x \\right|} \\right) + C{/tex}",
+          "correct_option_ids": [
+            193798
+          ],
+          "explanation": "{tex}xlogx\\frac{{dy}}{{dx}} + y = \\frac{2}{x}logx\\;{/tex} Dividing by xlogx we get {tex}\\frac{{dy}}{{dx}} + \\frac{1}{{xlogx}}y = \\frac{2}{{{x^2}}}{/tex} it is a linear diff equation we get, {tex}y{e^{\\int {\\frac{{dx}}{{xlogx}}} }} = \\int {\\frac{2}{{{x^2}}}} {e^{\\int {\\frac{{dx}}{{xlogx}}} }}dx + c{/tex} {tex}ylogx = \\int {\\frac{2}{{{x^2}}}} logxdx + c{/tex} {tex}ylogx = 2[\\frac{{ - logx}}{x} - \\frac{1}{x}] + c{/tex} {tex}ylogx = - \\frac{2}{x}(1 + logx) + c{/tex} Since {tex}\\int {\\frac{1}{{{x^2}}}} logxdx = logx\\int {\\frac{1}{{{x^2}}}} dx - \\int {\\int {\\frac{1}{{{x^2}}}} } dx\\frac{{\\text{d}}}{{{\\text{d}}x}}logxdx{/tex} {tex}\\int {\\frac{1}{{{x^2}}}} logxdx = \\frac{{ - 1}}{x}logx - \\int {\\frac{{ - 1}}{x}} \\frac{1}{x}dx + c{/tex} {tex}\\int {\\frac{1}{{{x^2}}}} logxdx = \\frac{{ - 1}}{x}logx - \\frac{1}{x} + c{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 59654,
+          "question_text": "General solution of {tex}\\left( {1 + {x^2}} \\right)dy + 2xy\\;dx = \\cot x\\;dx\\;(x \\ne 0){/tex} is",
+          "question_html": "<p>General solution of&nbsp;<span class=\"math-tex\">{tex}\\left( {1 + {x^2}} \\right)dy + 2xy\\;dx = \\cot x\\;dx\\;(x \\ne 0){/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 193805,
+              "text": "{tex}y = {\\left( {1 + x} \\right)^{ - 1}}\\log \\left| {\\sin x} \\right| - C{(1 - {x^2})^{ - 1}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = {\\left( {1 + x} \\right)^{ - 1}}\\log \\left| {\\sin x} \\right| - C{(1 - {x^2})^{ - 1}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193803,
+              "text": "{tex}y = {\\left( {1 + x} \\right)^{ - 1}}\\log \\left| {\\sin x} \\right| - C{(1 + {x^2})^{ - 1}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = {\\left( {1 + x} \\right)^{ - 1}}\\log \\left| {\\sin x} \\right| - C{(1 + {x^2})^{ - 1}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 193802,
+              "text": "{tex}y(1+x^2)=log|sinx|+c{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y(1+x^2)=log|sinx|+c{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 193804,
+              "text": "{tex}y = {\\left( {1 + x} \\right)^{ - 1}}\\log \\left| {\\sin x} \\right| + C{(1 - {x^2})^{ - 1}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}y = {\\left( {1 + x} \\right)^{ - 1}}\\log \\left| {\\sin x} \\right| + C{(1 - {x^2})^{ - 1}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}y(1+x^2)=log|sinx|+c{/tex}",
+          "correct_option_ids": [
+            193802
+          ],
+          "explanation": "{tex}(1+x^2)dy=(cotx-2xy)dx{/tex} {tex}\\frac{dy}{dx}=\\frac{cotx-2xy}{1+x^2}{/tex} {tex}\\frac{dy}{dx}+\\frac{2x}{1+x^2}y=\\frac{cotx}{1+x^2}{/tex} It is a linear differential equation in y. Therefore, Solution is {tex}\\\\ye^{\\int \\frac{2xdx}{1+x^2}}=\\int \\frac{cotx}{1+x^2}e^{\\int \\frac{2xdx}{1+x^2}}dx+c{/tex} {tex}y(1+x^2)=\\int \\frac{cotx}{1+x^2}(1+x^2)dx+c{/tex} {tex}y(1+x^2)=\\int cotxdx+c{/tex} {tex}y(1+x^2)=log|sinx|+c{/tex}",
+          "solution": ""
+        }
+      ]
+    }
+  ],
+  "totalQuestions": 75
+}
