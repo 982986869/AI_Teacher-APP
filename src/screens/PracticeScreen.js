@@ -16,7 +16,7 @@ import { getMaths12MockList, getMaths12MockQuestions, isLocalMaths12MockId } fro
 import McqTestScreen from './McqTestScreen';
 import McqQuizScreen from './McqQuizScreen';
 import McqPracticeScreen from './McqPracticeScreen';
-import TestQuestionScreen from './testQuestionScreen';
+import TestQuestionScreen from './TestQuestionScreen';
 import MockResultScreen from './MockResultScreen';
 import ChapterListScreen from './ChapterListScreen';
 import OnlineTestsScreen from './OnlineTestsScreen';
