@@ -1249,6 +1249,24 @@ const ResourcesScreen = () => {
     );
   }
 
+  // ── NCERT Solutions Part-I — same Ailernova-style Examples / Chapter-end list
+  //    as Part-II. Class 12 Chemistry/Physics/Maths Part-I are handled above with
+  //    their own DB/local renderers; this catches the rest (e.g. Class 11 Chemistry),
+  //    replacing the old placeholder resource cards.
+  if (activeSubject && activeResType?.type === 'ncert1' && activeChapter && showCards) {
+    return (
+      <Ncert2Screen
+        subjectName={activeSubject.name}
+        chapterName={activeChapter.name}
+        part={1}
+        className={activeClass}
+        onBack={() => setShowCards(false)}
+        title={activeResType.name}
+        breadcrumb={['Home', activeClass, activeSubject.name, activeResType.name]}
+      />
+    );
+  }
+
   // ── LEVEL 4: Resource cards (PDF / Video / Notes) ─────────────────────────
   if (activeSubject && activeResType && activeChapter && showCards) {
     return (
