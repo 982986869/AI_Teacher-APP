@@ -7,8 +7,13 @@
 
 import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, StatusBar, Platform, TouchableOpacity } from 'react-native';
+import { useAuth } from '../../context/AuthContext';
 
 const ProfileSelectScreen = ({ onSelect }) => {
+  const { user, selectedClass } = useAuth();
+  // Show the signed-in student's name + grade (was hardcoded "Kj G12").
+  const studentName = (user?.name && String(user.name).trim()) || 'Student';
+  const grade = selectedClass ? `G${String(selectedClass).replace(/\D/g, '')}` : '';
   return (
     <SafeAreaView style={s.safe}>
       <StatusBar barStyle="dark-content" backgroundColor="#F4F4F6" />
@@ -28,7 +33,7 @@ const ProfileSelectScreen = ({ onSelect }) => {
         <TouchableOpacity style={s.role} activeOpacity={0.85} onPress={() => onSelect && onSelect('student')}>
           <Text style={s.lblLight}><Text style={s.b}>Student</Text> – Complete the daily workout</Text>
           <View style={[s.face, s.studentFace]}><Text style={{ fontSize: 58 }}>😉</Text></View>
-          <Text style={s.who}>Kj<Text style={s.whoGrade}> G12</Text></Text>
+          <Text style={s.who}>{studentName}{grade ? <Text style={s.whoGrade}> {grade}</Text> : null}</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
