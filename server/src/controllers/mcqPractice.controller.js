@@ -6,6 +6,14 @@ const svc = require('../services/mcqPractice.service')
 // Class/grade from ?class=12 (9–12). Defaults to 11 for back-compat.
 const classOf = (req) => parseInt(req.query.class, 10) || 11
 
+async function getChaptersWithContent(req, res, next) {
+  try {
+    const data = await svc.listChaptersWithContent(req.params.subjectSlug, classOf(req))
+    if (!data) return ApiResponse.error(res, 'Subject not found', 404)
+    return ApiResponse.success(res, data)
+  } catch (err) { next(err) }
+}
+
 async function getSubtopics(req, res, next) {
   try {
     const data = await svc.listSubtopics(req.params.subjectSlug, req.params.chapterSlug, classOf(req))
@@ -49,4 +57,4 @@ async function getProgress(req, res, next) {
   } catch (err) { next(err) }
 }
 
-module.exports = { getSubtopics, getTest, getChapterTest, submit, getProgress }
+module.exports = { getChaptersWithContent, getSubtopics, getTest, getChapterTest, submit, getProgress }

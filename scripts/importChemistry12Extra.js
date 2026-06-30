@@ -22,6 +22,7 @@
 
 const fs = require('fs')
 const path = require('path')
+const { ENSURE_PAPERS_EXT_UID, UPSERT_PAPER_SQL, upsertParams } = require('./lib/papersSchema')
 
 const ROOT = path.join(__dirname, '..')
 const DATA = path.join(ROOT, 'src', 'data')
@@ -189,9 +190,11 @@ function collectMockTests() {
 }
 
 // ── Papers (subject-level board papers + answer-key HTML) ────────────────────
-// NOTE: the papers table is keyed by (subject, class_level, code). Where the
-// dataset ships duplicate codes (a few do), the later file wins — same behaviour
-// as the Physics importer. Counts of duplicates are reported in the dry run.
+// NOTE: the papers table is keyed by (subject, class_level, code, YEAR). CBSE
+// reuses the same `code` (e.g. 56/1/1) every year, so a paper is identified by
+// code+year — keying on code alone collapsed 7 years into one row (only 27 of
+// 109 files survived). We dedup on `code|year`; a genuine same-code-same-year
+// dupe (a few exist) keeps the later file. Counts are reported in the dry run.
 function collectPapers() {
   const dir = path.join(DATA, 'chemistry12Papers')
   const seen = new Map()
@@ -199,6 +202,8 @@ function collectPapers() {
   const papers = jsonFiles(dir).map((file, i) => {
     const p = loadJson(file)
     return {
+      ext_uid: p.uuid,
+      paper_format: 'html',
       code: p.code,
       year: p.year != null ? parseInt(p.year, 10) : null,
       set_label: p.set != null ? String(p.set) : (p.code ? String(p.code).split('/').pop() : null),
@@ -207,8 +212,8 @@ function collectPapers() {
       answer_key_html: p.answer_key_html || null,
       position: i + 1,
     }
-  }).filter((p) => p.code)
-  for (const p of papers) { if (seen.has(p.code)) dupes++; seen.set(p.code, true) }
+  }).filter((p) => p.ext_uid && p.year != null)
+  for (const p of papers) { const k = `${p.code}|${p.year}`; if (seen.has(k)) dupes++; seen.set(k, true) }
   return { papers, distinct: seen.size, dupes }
 }
 
@@ -249,7 +254,7 @@ async function main() {
   }
   console.log(`\n### mock_tests: ${mocks.length} tests`)
   mocks.forEach((m) => console.log(`   #${m.id} ${m.name.padEnd(20)} ${m.questions.length} q (${m.section_count} sec)`))
-  console.log(`\n### papers: ${papers.length} files → ${distinct} distinct codes (${dupes} duplicate-code files collapse)`)
+  console.log(`\n### papers: ${papers.length} files → ${distinct} distinct papers (code+year) (${dupes} same-code+year dupes collapse)`)
 
   if (!LIVE) {
     console.log('\n[DRY RUN] Live: node scripts/importChemistry12Extra.js --live\n')
@@ -265,7 +270,9 @@ async function main() {
   try {
     await client.query(fs.readFileSync(path.join(ROOT, 'supabase', 'schema.sql'), 'utf8'))
     await client.query('alter table mock_tests add column if not exists class_level int not null default 11')
-    console.log('✓ Schema ensured (section_types, papers, mock_tests.class_level).')
+    // `papers` identity is the source ext_uid (uuid), not code+year (idempotent).
+    await client.query(ENSURE_PAPERS_EXT_UID)
+    console.log('✓ Schema ensured (section_types, papers(code,year), mock_tests.class_level).')
 
     const subjectId = (await client.query(
       `insert into subjects (name, slug) values ($1,$2)
@@ -313,16 +320,12 @@ async function main() {
     console.log(`   ✓ mock_tests   ${mocks.length} tests (subject=Chemistry, class_level=12)`)
 
     // ── Papers ──────────────────────────────────────────────────────────────
+    // Upsert-only (no delete): the canonical full Chemistry set (188 incl. PDFs)
+    // is owned by scripts/migrateChemistry12Papers.js — don't wipe it here.
     for (const p of papers) {
-      await client.query(
-        `insert into papers (subject_id, class_level, year, code, set_label, name, question_paper_html, answer_key_html, position)
-         values ($1,$2,$3,$4,$5,$6,$7,$8,$9)
-         on conflict (subject_id, class_level, code)
-         do update set year=excluded.year, set_label=excluded.set_label, name=excluded.name,
-           question_paper_html=excluded.question_paper_html, answer_key_html=excluded.answer_key_html, position=excluded.position`,
-        [subjectId, CLASS_LEVEL, p.year, p.code, p.set_label, p.name, p.question_paper_html, p.answer_key_html, p.position])
+      await client.query(UPSERT_PAPER_SQL, upsertParams(subjectId, CLASS_LEVEL, p))
     }
-    console.log(`   ✓ papers       ${distinct} distinct papers`)
+    console.log(`   ✓ papers       ${distinct} HTML papers upserted (full set: migrateChemistry12Papers.js)`)
     console.log('\n✓ Class 12 Chemistry extra import complete.')
   } finally {
     await client.end()

@@ -28,12 +28,35 @@ axiosInstance.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// Handle 401 globally
+// Retry transient failures for idempotent GET requests. The Supabase connection
+// pooler occasionally resets a connection, which the server surfaces as a 503
+// ("Service temporarily unavailable"); network blips/timeouts arrive with no
+// response. A couple of quick retries smooth these over so they don't show up as
+// "Could not load…" (e.g. Last Year Papers intermittently failing). POST/PUT are
+// never auto-retried — that could double-submit (mock attempts, MCQ submits).
+const MAX_RETRIES = 2;
+const isTransient = (error) => {
+  const status = error.response?.status;
+  return !error.response || status === 503 || status === 502 || status === 504;
+};
+
+// Handle 401 globally + retry transient GET failures
 axiosInstance.interceptors.response.use(
   (response) => response,
-  (error) => {
+  async (error) => {
     const status = error.response?.status;
-    const url = error.config?.url || '';
+    const config = error.config || {};
+    const url = config.url || '';
+
+    const method = (config.method || 'get').toLowerCase();
+    if (method === 'get' && isTransient(error)) {
+      config.__retryCount = (config.__retryCount || 0) + 1;
+      if (config.__retryCount <= MAX_RETRIES) {
+        await new Promise((resolve) => setTimeout(resolve, 400 * config.__retryCount));
+        return axiosInstance(config);
+      }
+    }
+
     // Auto-logout on 401, but NOT for the auth endpoints themselves — a wrong
     // password there should surface on the login screen, not wipe the session.
     const isAuthRoute = url.includes('/api/auth/');

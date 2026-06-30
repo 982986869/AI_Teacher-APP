@@ -20,6 +20,7 @@
 
 const fs = require('fs')
 const path = require('path')
+const { ENSURE_PAPERS_EXT_UID, UPSERT_PAPER_SQL, upsertParams } = require('./lib/papersSchema')
 
 const ROOT = path.join(__dirname, '..')
 const DATA = path.join(ROOT, 'src', 'data')
@@ -192,6 +193,8 @@ function collectPapers() {
   return jsonFiles(dir).map((file, i) => {
     const p = loadJson(file)
     return {
+      ext_uid: p.uuid,
+      paper_format: 'html',
       code: p.code,
       year: p.year != null ? parseInt(p.year, 10) : null,
       set_label: p.set != null ? String(p.set) : (p.code ? String(p.code).split('/').pop() : null),
@@ -259,7 +262,9 @@ async function main() {
     // Schema (idempotent: seeds new section_types + papers table) + mock class col.
     await client.query(fs.readFileSync(path.join(ROOT, 'supabase', 'schema.sql'), 'utf8'))
     await client.query('alter table mock_tests add column if not exists class_level int not null default 11')
-    console.log('✓ Schema ensured (section_types, papers, mock_tests.class_level).')
+    // `papers` identity is the source ext_uid (uuid), not code+year (idempotent).
+    await client.query(ENSURE_PAPERS_EXT_UID)
+    console.log('✓ Schema ensured (section_types, papers(ext_uid), mock_tests.class_level).')
 
     const subjectId = (await client.query(
       `insert into subjects (name, slug) values ('Physics','physics')
@@ -307,17 +312,14 @@ async function main() {
     }
     console.log(`   ✓ mock_tests   ${mocks.length} tests (class_level=12)`)
 
-    // ── Papers ──────────────────────────────────────────────────────────────
+    // ── Papers (upsert-only, no delete) ──────────────────────────────────────
+    // The canonical FULL set (109 HTML) is owned by scripts/migratePapers.js
+    // (--subject=physics). This in-repo set is a subset, so upsert-only refreshes
+    // those rows without wiping the full set.
     for (const p of papers) {
-      await client.query(
-        `insert into papers (subject_id, class_level, year, code, set_label, name, question_paper_html, answer_key_html, position)
-         values ($1,$2,$3,$4,$5,$6,$7,$8,$9)
-         on conflict (subject_id, class_level, code)
-         do update set year=excluded.year, set_label=excluded.set_label, name=excluded.name,
-           question_paper_html=excluded.question_paper_html, answer_key_html=excluded.answer_key_html, position=excluded.position`,
-        [subjectId, CLASS_LEVEL, p.year, p.code, p.set_label, p.name, p.question_paper_html, p.answer_key_html, p.position])
+      await client.query(UPSERT_PAPER_SQL, upsertParams(subjectId, CLASS_LEVEL, p))
     }
-    console.log(`   ✓ papers       ${papers.length} papers`)
+    console.log(`   ✓ papers       ${papers.length} HTML papers upserted (full set: migratePapers.js)`)
     console.log('\n✓ Extra import complete.')
   } finally {
     await client.end()

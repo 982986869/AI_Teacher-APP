@@ -18,7 +18,6 @@ import { chapterList as physicsChapters, getQuestions as getPhysics, htmlToText 
 import { chapterList as chemChapters,    getQuestions as getChem }    from '../data/chemistryBank';
 import { chapterList as mathsChapters,   getQuestions as getMaths }   from '../data/mathsBank';
 import { chapterList as bioChapters,     getQuestions as getBio }     from '../data/biologyBank';
-import { getMaths12OnlineChapters, getMaths12OnlineTests } from '../data/maths12OnlineTests';
 import { getChapters, getQuestionsByPath } from '../api/resourcesApi';
 
 const LETTERS = 'ABCDEFGHIJ'.split('');
@@ -57,11 +56,10 @@ const C = {
   headerMint: '#CDEFE2',
 };
 
-// On Class 12, Physics & Chemistry online tests come from the DB (the `online12`
-// flag routes the chapter list + questions through the API, then splits them into
-// 5 generic tests). Mathematics ships locally with its real test groupings (the
-// `maths12` flag -> maths12OnlineTests). Other subjects (and Class 11) stay on the
-// generic offline banks.
+// On Class 12, Physics, Chemistry & Maths online tests come from the DB (the
+// `online12` flag routes the chapter list + questions through the API, then splits
+// them into 5 generic tests). `apiSlug` is the DB subject slug ('mathematics' for
+// Maths). Other subjects (and Class 11) stay on the generic offline banks.
 const buildSubjects = (selectedClass, c12) => {
   const isC12 = selectedClass === 'Class 12';
   const phys = isC12
@@ -71,13 +69,14 @@ const buildSubjects = (selectedClass, c12) => {
     ? { chapters: c12.chemistry, getQuestions: null, online12: true }
     : { chapters: chemChapters, getQuestions: getChem };
   const maths = isC12
-    ? { chapters: getMaths12OnlineChapters(), getQuestions: null, maths12: true }
+    ? { chapters: c12.maths, getQuestions: null, online12: true }
     : { chapters: mathsChapters, getQuestions: getMaths };
   return [
-    { key: 'physics',   name: 'Physics',   emoji: '\u269B\uFE0F', tile: C.mintSoft,  chapters: phys.chapters, getQuestions: phys.getQuestions, online12: phys.online12 },
-    { key: 'chemistry', name: 'Chemistry', emoji: '\u{1F9EA}',    tile: C.peachSoft, chapters: chem.chapters, getQuestions: chem.getQuestions, online12: chem.online12 },
-    { key: 'maths',     name: 'Maths',     emoji: '\u{1F4D0}',    tile: C.sandSoft,  chapters: maths.chapters, getQuestions: maths.getQuestions, maths12: maths.maths12 },
-    { key: 'biology',   name: 'Biology',   emoji: '\u{1F9EC}',    tile: C.lilacSoft, chapters: bioChapters,   getQuestions: getBio },
+    { key: 'physics',   apiSlug: 'physics',     name: 'Physics',   emoji: '\u269B\uFE0F', tile: C.mintSoft,  chapters: phys.chapters, getQuestions: phys.getQuestions, online12: phys.online12 },
+    { key: 'chemistry', apiSlug: 'chemistry',   name: 'Chemistry', emoji: '\u{1F9EA}',    tile: C.peachSoft, chapters: chem.chapters, getQuestions: chem.getQuestions, online12: chem.online12 },
+    { key: 'maths',     apiSlug: 'mathematics', name: 'Maths',     emoji: '\u{1F4D0}',    tile: C.sandSoft,  chapters: maths.chapters, getQuestions: maths.getQuestions, online12: maths.online12 },
+    // Biology is not offered in Class 12 (PCM stream) \u2014 only list it for other classes.
+    ...(isC12 ? [] : [{ key: 'biology', apiSlug: 'biology', name: 'Biology', emoji: '\u{1F9EC}', tile: C.lilacSoft, chapters: bioChapters, getQuestions: getBio }]),
   ];
 };
 
@@ -88,18 +87,19 @@ export default function OnlineTestsScreen({ onBack, onStartTest = () => {}, sele
   // Class 12 Physics online tests are DB-backed: chapter list + per-chapter
   // questions are fetched from the API and normalized for TestQuestionScreen.
   const isClass12 = selectedClass === 'Class 12';
-  const [c12Chapters, setC12Chapters] = useState({ physics: [], chemistry: [] });
+  const [c12Chapters, setC12Chapters] = useState({ physics: [], chemistry: [], maths: [] });
   const [apiQuestions, setApiQuestions] = useState({ loading: false, list: [] });
   const SUBJECTS = buildSubjects(selectedClass, c12Chapters);
 
   useEffect(() => {
-    if (!isClass12) { setC12Chapters({ physics: [], chemistry: [] }); return undefined; }
+    if (!isClass12) { setC12Chapters({ physics: [], chemistry: [], maths: [] }); return undefined; }
     let alive = true;
     const norm = (chs) => (chs || []).map((c) => ({ id: c.slug, name: c.name, slug: c.slug }));
     Promise.all([
       getChapters('physics', 'online_test', 12).catch(() => []),
       getChapters('chemistry', 'online_test', 12).catch(() => []),
-    ]).then(([p, c]) => { if (alive) setC12Chapters({ physics: norm(p), chemistry: norm(c) }); });
+      getChapters('mathematics', 'online_test', 12).catch(() => []),
+    ]).then(([p, c, m]) => { if (alive) setC12Chapters({ physics: norm(p), chemistry: norm(c), maths: norm(m) }); });
     return () => { alive = false; };
   }, [isClass12]);
 
@@ -107,7 +107,7 @@ export default function OnlineTestsScreen({ onBack, onStartTest = () => {}, sele
     if (!subject?.online12 || !chapter) return undefined;
     let alive = true;
     setApiQuestions({ loading: true, list: [] });
-    getQuestionsByPath(subject.key, chapter.slug, 'online_test', 12)
+    getQuestionsByPath(subject.apiSlug, chapter.slug, 'online_test', 12)
       .then((qs) => { if (alive) setApiQuestions({ loading: false, list: (qs || []).map(normalizeApiQuestion) }); })
       .catch(() => { if (alive) setApiQuestions({ loading: false, list: [] }); });
     return () => { alive = false; };
@@ -167,21 +167,15 @@ export default function OnlineTestsScreen({ onBack, onStartTest = () => {}, sele
       );
     }
     const shortName = chapter.name.length > 26 ? chapter.name.slice(0, 24) + '\u2026' : chapter.name;
-    // Class 12 Mathematics ships its real, named tests per chapter (free + paid);
-    // every other path splits the chapter's questions into 5 roughly-equal tests.
-    let tests;
-    if (subject.maths12) {
-      tests = getMaths12OnlineTests(chapter.id).map((t) => ({
-        label: t.name, questions: t.questions, isPaid: t.isPaid,
-      }));
-    } else {
-      const all = subject.online12 ? apiQuestions.list : (subject.getQuestions(chapter.id) || []);
-      const per = Math.ceil(all.length / TESTS_PER_CHAPTER) || 0;
-      tests = Array.from({ length: TESTS_PER_CHAPTER }, (_, t) => ({
-        label: `${shortName} Test-${String(t + 1).padStart(2, '0')}`,
-        questions: all.slice(t * per, (t + 1) * per),
-      }));
-    }
+    // DB-backed (Class 12 Physics/Chemistry/Maths) pulls the chapter's questions
+    // from the API; offline subjects use their bank. Either way we split into 5
+    // roughly-equal tests.
+    const all = subject.online12 ? apiQuestions.list : (subject.getQuestions(chapter.id) || []);
+    const per = Math.ceil(all.length / TESTS_PER_CHAPTER) || 0;
+    const tests = Array.from({ length: TESTS_PER_CHAPTER }, (_, t) => ({
+      label: `${shortName} Test-${String(t + 1).padStart(2, '0')}`,
+      questions: all.slice(t * per, (t + 1) * per),
+    }));
     return (
       <SafeAreaView style={s.safe}>
         <StatusBar barStyle="dark-content" backgroundColor={C.headerMint} />

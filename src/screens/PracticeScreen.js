@@ -6,10 +6,9 @@ import { WebView } from 'react-native-webview';
 import { getQuestionsByPath, getChapters } from '../api/resourcesApi';
 import { buildFragmentFromQuestions, buildPyqDocument } from '../utils/pyqDocument';
 import { getMcqChapterTest, getMcqSubtopicTest } from '../api/mcqPracticeApi';
-// Class 12 Chemistry & Mathematics practice questions are DB-backed (served via mcqPracticeApi).
-import { getMaths12ImportantHtml, getMaths12ImportantChapters } from '../data/maths12Important';
-import { getMaths12PyqHtml, getMaths12PyqChapters } from '../data/maths12Pyq';
-import { getMaths12MockList, getMaths12MockQuestions, isLocalMaths12MockId } from '../data/maths12MockTests';
+// Class 12 Chemistry & Mathematics are DB/API-backed. We only keep the bundled
+// chapter-name lists (their slugs match the DB) to drive the menus; all PYQ /
+// Important / Practice / Mock content resolves through the API.
 import McqTestScreen from './McqTestScreen';
 import McqQuizScreen from './McqQuizScreen';
 import McqPracticeScreen from './McqPracticeScreen';
@@ -71,6 +70,12 @@ const SUBJECTS = [
   { name: 'Biology',     emoji: '🧬', topics: 18, done: 10 },
   { name: 'English',     emoji: '📝', topics: 15, done: 13 },
 ];
+
+// Biology is not offered in Class 12 (PCM stream) — drop it from any subject list
+// when Class 12 is selected. Mirrors the same filter in ResourcesScreen. Works for
+// both object lists ({ name }) and plain string lists.
+const dropBioForClass = (list, cls) =>
+  list.filter((sub) => !(cls === 'Class 12' && (sub.name || sub) === 'Biology'));
 
 // ── Previous Year Papers: 4 subjects, each with its chapter list ───────────────
 // Chapter lists mirror src/screens/ResourcesScreen.js SUBJECTS so the two stay
@@ -180,15 +185,9 @@ const PHYSICS12_IMP_CHAPTERS = [
   'Electronic Devices',
 ];
 
-// Class 12 Mathematics Important-Questions chapters (NCERT order). Unlike Physics
-// and Chemistry (both DB/API-backed), these ship locally in
-// src/data/maths12Important — the chapter list comes straight from that bundled
-// data so the two stay in sync.
-const MATHS12_IMP_CHAPTERS = getMaths12ImportantChapters();
-
-// Class 12 Chemistry chapters (NCERT order). Now DB/API-backed like Physics: the
-// PYQ / Important question content is fetched from the API per chapter (data seeded
-// at class_level=12). This hardcoded menu list mirrors the seeded chapters; their
+// Class 12 Chemistry chapters (NCERT order). DB/API-backed like Physics: the PYQ /
+// Important question content is fetched from the API per chapter (data seeded at
+// class_level=12). This hardcoded menu list mirrors the seeded chapters; their
 // slugs match the DB so availability + questions resolve through the API.
 const CHEMISTRY12_CHAPTERS = [
   'Solutions',
@@ -203,11 +202,25 @@ const CHEMISTRY12_CHAPTERS = [
   'Biomolecules',
 ];
 
-// Class 12 Mathematics Previous-Year-Question chapters (NCERT order). Like
-// Chemistry (and unlike Physics, which is DB/API-backed), these ship locally in
-// src/data/maths12Pyq — the chapter list comes straight from that bundled data
-// so the two stay in sync.
-const MATHS12_PYQ_CHAPTERS = getMaths12PyqChapters();
+// Class 12 Mathematics PYQ / Important-Questions chapters (NCERT order). The
+// actual chapter list shown is fetched from the DB by ChapterList; this inline
+// list only drives the "N chapters" count on the subject card — same pattern as
+// PHYSICS12_IMP_CHAPTERS / CHEMISTRY12_CHAPTERS (no local data-file dependency).
+const MATHS12_CHAPTERS = [
+  'Relations and Functions',
+  'Inverse Trigonometric Functions',
+  'Matrices',
+  'Determinants',
+  'Continuity and Differentiability',
+  'Application of Derivatives',
+  'Integrals',
+  'Application of Integrals',
+  'Differential Equations',
+  'Vector Algebra',
+  'Three Dimensional Geometry',
+  'Linear Programming',
+  'Probability',
+];
 
 // Important-Questions subject list for the chosen class. Class 11 keeps the
 // API-backed PYQ_SUBJECTS. Class 12 swaps Physics for its 14 chapters (API-backed,
@@ -216,10 +229,10 @@ const MATHS12_PYQ_CHAPTERS = getMaths12PyqChapters();
 // API with Class-11 chapter names.
 const impSubjectsForClass = (cls) => {
   if (cls === 'Class 12') {
-    return PYQ_SUBJECTS.map((sub) => {
+    return PYQ_SUBJECTS.filter((sub) => sub.name !== 'Biology').map((sub) => {
       if (sub.name === 'Physics') return { ...sub, chapters: PHYSICS12_IMP_CHAPTERS };
       if (sub.name === 'Chemistry') return { ...sub, chapters: CHEMISTRY12_CHAPTERS };
-      if (sub.name === 'Mathematics') return { ...sub, chapters: MATHS12_IMP_CHAPTERS };
+      if (sub.name === 'Mathematics') return { ...sub, chapters: MATHS12_CHAPTERS };
       return { ...sub, chapters: [], comingSoon: true };
     });
   }
@@ -233,10 +246,10 @@ const impSubjectsForClass = (cls) => {
 // the API with Class-11 chapter names.
 const pyqSubjectsForClass = (cls) => {
   if (cls === 'Class 12') {
-    return PYQ_SUBJECTS.map((sub) => {
+    return PYQ_SUBJECTS.filter((sub) => sub.name !== 'Biology').map((sub) => {
       if (sub.name === 'Physics') return { ...sub, chapters: PHYSICS12_IMP_CHAPTERS };
       if (sub.name === 'Chemistry') return { ...sub, chapters: CHEMISTRY12_CHAPTERS };
-      if (sub.name === 'Mathematics') return { ...sub, chapters: MATHS12_PYQ_CHAPTERS };
+      if (sub.name === 'Mathematics') return { ...sub, chapters: MATHS12_CHAPTERS };
       return { ...sub, chapters: [], comingSoon: true };
     });
   }
@@ -351,16 +364,20 @@ const ChapterList = ({
 }) => {
   const { selectedClass } = useAuth();
   const classLevel = classNum(selectedClass);
-  const [available, setAvailable] = useState(localChapters); // Set<slug> | null while loading
+  // localChapters (Set<slug>) → bundled-data mode: filter the candidate list.
+  // Otherwise → API mode: the chapter names + order come straight from the DB, so
+  // no local chapter list is needed (the DB is the single source of truth).
+  const [chapters, setChapters] = useState(
+    localChapters ? subject.chapters.filter((ch) => localChapters.has(slugify(ch))) : null
+  );
 
   useEffect(() => {
-    // Local data (e.g. Class 12 Physics) — availability is known up front.
-    if (localChapters) { setAvailable(localChapters); return; }
+    if (localChapters) { setChapters(subject.chapters.filter((ch) => localChapters.has(slugify(ch)))); return; }
     let alive = true;
-    setAvailable(null);
+    setChapters(null);
     getChapters(slugify(subject.name), sectionType, classLevel)
-      .then((chs) => { if (alive) setAvailable(new Set((chs || []).map((c) => c.slug))); })
-      .catch(() => { if (alive) setAvailable(new Set()); });
+      .then((chs) => { if (alive) setChapters((chs || []).map((c) => c.name)); })
+      .catch(() => { if (alive) setChapters([]); });
     return () => { alive = false; };
   }, [subject, sectionType, localChapters, classLevel]);
 
@@ -373,34 +390,41 @@ const ChapterList = ({
         <Text style={s.pageTitle}>{subject.name}</Text>
         <Text style={s.pageSub}>{subtitle}</Text>
       </View>
-      {subject.chapters.length === 0 ? (
+      {/* Only show chapters that actually have data for this section; hide the rest
+          (no more "Coming soon" rows). `available` is null while loading. */}
+      {chapters === null ? (
         <View style={s.emptyWrap}>
-          <Text style={s.emptyTitle}>Coming soon</Text>
-          <Text style={s.emptySub}>
-            Important questions for {subject.name} haven't been added for this class yet.
-          </Text>
+          <ActivityIndicator size="large" color="#1C1C1E" />
+          <Text style={[s.emptySub, { marginTop: 12 }]}>Loading…</Text>
         </View>
-      ) : (
-      <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
-        {subject.chapters.map((chapter, i) => {
-          const loading = available === null;
-          const has = !loading && available.has(slugify(chapter));
+      ) : (() => {
+        const visible = chapters;
+        if (visible.length === 0) {
           return (
-            <TouchableOpacity key={i} style={s.listRow} activeOpacity={0.8}
-              onPress={() => onPick(chapter)}>
-              <View style={s.listNum}><Text style={s.listNumTxt}>{i + 1}</Text></View>
-              <View style={{ flex: 1 }}>
-                <Text style={s.listRowTitle}>{chapter}</Text>
-                <Text style={s.listRowSub}>
-                  {loading ? 'Loading…' : has ? availableLabel : 'Coming soon'}
-                </Text>
-              </View>
-              <Text style={s.listArrow}>→</Text>
-            </TouchableOpacity>
+            <View style={s.emptyWrap}>
+              <Text style={s.emptyTitle}>Coming soon</Text>
+              <Text style={s.emptySub}>
+                {subject.name} content for this section hasn't been added for this class yet.
+              </Text>
+            </View>
           );
-        })}
-      </ScrollView>
-      )}
+        }
+        return (
+          <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
+            {visible.map((chapter, i) => (
+              <TouchableOpacity key={i} style={s.listRow} activeOpacity={0.8}
+                onPress={() => onPick(chapter)}>
+                <View style={s.listNum}><Text style={s.listNumTxt}>{i + 1}</Text></View>
+                <View style={{ flex: 1 }}>
+                  <Text style={s.listRowTitle}>{chapter}</Text>
+                  <Text style={s.listRowSub}>{availableLabel}</Text>
+                </View>
+                <Text style={s.listArrow}>→</Text>
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
+        );
+      })()}
     </SafeAreaView>
   );
 };
@@ -416,8 +440,6 @@ const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
   useEffect(() => {
     let alive = true;
     setState({ loading: true, questions: null });
-    // All Class 12 subjects (Physics, Chemistry, Mathematics) are DB-backed →
-    // questions come from the API.
     // Subtopic selected → that subtopic's questions; else the whole chapter.
     const req = subtopicId != null
       ? getMcqSubtopicTest(subtopicId)
@@ -512,25 +534,14 @@ const PracticeScreen = () => {
     setMockOpenSub(null);
   }, [selectedClass]);
 
-  // True when this subject's mocks ship locally (Class 12 Mathematics) rather than
-  // from the DB — mirrors how the rest of that Class 12 maths content is bundled.
-  // Class 12 Physics & Chemistry (and everything else) stay DB-backed.
-  const isLocalMock = (subject) =>
-    classNum(selectedClass) === 12 && subject === 'Mathematics';
-
-  // The bundled mock-test list for a Class 12 local-mock subject.
-  const localMockList = (subject) => getMaths12MockList();
+  // Biology isn't offered in Class 12 — if it was the active subject when the user
+  // switches to Class 12, fall back to Physics so the (now hidden) chip isn't stuck.
+  useEffect(() => {
+    if (selectedClass === 'Class 12' && activeSub === 'Biology') setActiveSub('Physics');
+  }, [selectedClass, activeSub]);
 
   // Fetch the DB mock-test list + this user's attempt summary for a subject.
   const loadSubjectTests = async (subject) => {
-    // Class 12 Mathematics ships mocks locally — no API, no attempts.
-    if (isLocalMock(subject)) {
-      setMockData(prev => ({
-        ...prev,
-        [subject]: { loading: false, error: '', tests: localMockList(subject), attempts: {} },
-      }));
-      return;
-    }
     const classLevel = classNum(selectedClass);
     setMockData(prev => ({
       ...prev,
@@ -566,20 +577,8 @@ const PracticeScreen = () => {
     if (willOpen && DB_MOCK_SUBJECTS.includes(subjectName) && !mockData[subjectName]) loadSubjectTests(subjectName);
   };
 
-  // Launch a test. Class 12 Mathematics mocks are bundled locally (no API call);
-  // everything else fetches the questions from the DB.
+  // Launch a test — fetch the questions from the DB (all subjects/classes).
   const startDbMock = (subject, test) => {
-    if (isLocalMaths12MockId(test.id)) {
-      const data = getMaths12MockQuestions(test.id);
-      setPhysMock({
-        subject, label: test.name, testId: test.id, status: 'ready',
-        questions: (data && data.questions) || [],
-        sections: (data && data.sections) || [],
-        durationMin: test.durationMin || 90,
-        name: test.name,
-      });
-      return;
-    }
     setPhysMock({ subject, label: test.name, testId: test.id, status: 'loading' });
     getMockTestQuestions(test.id)
       .then((data) => setPhysMock({
@@ -611,7 +610,7 @@ const PracticeScreen = () => {
     const sub = physMock && physMock.subject;
     setPhysMock(null);
     // Local Class 12 Mathematics mocks have no server-side attempt summary to refresh.
-    if (sub && DB_MOCK_SUBJECTS.includes(sub) && !isLocalMock(sub)) refreshAttempts(sub);
+    if (sub && DB_MOCK_SUBJECTS.includes(sub)) refreshAttempts(sub);
   };
 
   // Leaving the Practice tab resets all sub-navigation so it opens fresh next
@@ -641,11 +640,6 @@ const PracticeScreen = () => {
         <PyqWebView
           subject={pyqSubject.name}
           chapter={pyqChapter}
-          // Class 12 Mathematics ships locally; everything else (incl. Class 12
-          // Physics & Chemistry) fetches from the API.
-          html={selectedClass === 'Class 12' && pyqSubject.name === 'Mathematics'
-            ? getMaths12PyqHtml(pyqChapter)
-            : undefined}
         />
       </SafeAreaView>
     );
@@ -653,16 +647,10 @@ const PracticeScreen = () => {
 
   // ── PYQ LEVEL 2: Chapter list for the chosen subject ────────────────────────
   if (pyqOpen && pyqSubject) {
-    // "Coming soon" subjects pass an empty set so none show as available; Class 12
-    // Mathematics is bundled locally so its availability is known up front;
-    // everything else (incl. Class 12 Physics & Chemistry) queries the API for
-    // per-chapter availability.
-    const isMaths12Pyq = selectedClass === 'Class 12' && pyqSubject.name === 'Mathematics';
-    const localChapters = pyqSubject.comingSoon
-      ? new Set()
-      : isMaths12Pyq
-        ? new Set(getMaths12PyqChapters().map((c) => slugify(c)))
-        : null;
+    // "Coming soon" subjects pass an empty set so none show as available; every
+    // other subject (incl. Class 12 Physics, Chemistry & Maths) queries the API
+    // for per-chapter availability.
+    const localChapters = pyqSubject.comingSoon ? new Set() : null;
     return (
       <ChapterList
         subject={pyqSubject}
@@ -721,11 +709,6 @@ const PracticeScreen = () => {
           subject={impSubject.name}
           chapter={impChapter}
           sectionType="important_questions"
-          // Class 12 Mathematics ships locally; everything else (incl. Class 12
-          // Physics & Chemistry) fetches from the API.
-          html={selectedClass === 'Class 12' && impSubject.name === 'Mathematics'
-            ? getMaths12ImportantHtml(impChapter)
-            : undefined}
         />
       </SafeAreaView>
     );
@@ -733,16 +716,10 @@ const PracticeScreen = () => {
 
   // ── IMPORTANT QUESTIONS LEVEL 2: Chapter list for the chosen subject ─────────
   if (impOpen && impSubject) {
-    // "Coming soon" subjects pass an empty set so none show as available; Class 12
-    // Mathematics is bundled locally so its availability is known up front;
-    // everything else (incl. Class 12 Physics & Chemistry) queries the API for
-    // availability.
-    const isMaths12Imp = selectedClass === 'Class 12' && impSubject.name === 'Mathematics';
-    const localChapters = impSubject.comingSoon
-      ? new Set()
-      : isMaths12Imp
-        ? new Set(getMaths12ImportantChapters().map((c) => slugify(c)))
-        : null;
+    // "Coming soon" subjects pass an empty set so none show as available; every
+    // other subject (incl. Class 12 Physics, Chemistry & Maths) queries the API
+    // for per-chapter availability.
+    const localChapters = impSubject.comingSoon ? new Set() : null;
     return (
       <ChapterList
         subject={impSubject}
@@ -875,8 +852,7 @@ const PracticeScreen = () => {
         onExit={closePhysMock}
         onSubmit={(payload) => {
           // Persist the attempt to the DB (scored authoritatively server-side).
-          // Local Class 12 Mathematics mocks have no server record — skip the call.
-          if (physMock.testId != null && !isLocalMaths12MockId(physMock.testId)) {
+          if (physMock.testId != null) {
             submitMockTest(physMock.testId, payload).catch(() => {});
           }
         }}
@@ -896,7 +872,7 @@ const PracticeScreen = () => {
           <Text style={s.pageSub}>Pick a subject, then a mock test to begin</Text>
         </View>
         <ScrollView contentContainerStyle={{ padding: 16, paddingBottom: 32 }}>
-          {PYQ_SUBJECTS.map((subject) => {
+          {dropBioForClass(PYQ_SUBJECTS, selectedClass).map((subject) => {
             const isOpen = mockOpenSub === subject.name;
             const sd = mockData[subject.name];
             const tests = (sd && sd.tests) || [];
@@ -1042,7 +1018,7 @@ const PracticeScreen = () => {
         {/* Subject selector */}
         <ScrollView horizontal showsHorizontalScrollIndicator={false}
           contentContainerStyle={{ paddingHorizontal: 16, paddingVertical: 14, gap: 10 }}>
-          {SUBJECTS.map(sub => (
+          {dropBioForClass(SUBJECTS, selectedClass).map(sub => (
             <TouchableOpacity key={sub.name}
               style={[s.subChip, activeSub === sub.name && s.subChipActive]}
               onPress={() => setActiveSub(sub.name)}>

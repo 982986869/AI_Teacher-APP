@@ -108,14 +108,21 @@ create table if not exists papers (
   id                  bigint generated always as identity primary key,
   subject_id          bigint not null references subjects(id) on delete cascade,
   class_level         int  not null default 12,
-  year                int,
-  code                text not null,            -- '55/1/1'
+  ext_uid             text not null,            -- stable source id: uuid (HTML) | 'pdf:<id>' (PDF)
+  year                int,                      -- 2019
+  code                text,                     -- '55/1/1' (null for PDF-only papers)
   set_label           text,                     -- '1'
+  region              text,                     -- 'Delhi' | 'Outside Delhi' | 'Foreign' | …
   name                text,                     -- 'PHYSICS (Theory)'
+  paper_title         text,                     -- source title (esp. PDF papers)
+  pdf_file            text,                     -- PDF filename for download-only papers
+  paper_format        text not null default 'html',  -- 'html' | 'pdf'
   question_paper_html text,
   answer_key_html     text,
   position            int  not null default 0,
   created_at          timestamptz not null default now(),
-  unique (subject_id, class_level, code)
+  -- A paper is identified by its source ext_uid. code+year is NOT unique: some
+  -- HTML papers share code+year+set (distinct documents), and PDFs have no code.
+  unique (subject_id, class_level, ext_uid)
 );
 create index if not exists idx_papers_subject_class on papers(subject_id, class_level);
