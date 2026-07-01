@@ -595,7 +595,18 @@ const getResourceTypes = (subjectName, classLevel) => {
     // Science (Curiosity) / English (Poorvi): DB-backed Revision Notes (part=4),
     // rendered via the ncert2 WebView flow (HTML note cards).
     if (!/math|ganita/i.test(subjectName)) {
-      return [{ icon: '📝', name: 'Revision Notes', sub: 'Chapter Notes', type: 'ncert2', part: 4 }];
+      const notesTile = { icon: '📝', name: 'Revision Notes', sub: 'Chapter Notes', type: 'ncert2', part: 4 };
+      // English (Poorvi) also offers NCERT (textbook) Solutions. In Class 6 the
+      // ncert2 chapter list comes straight from the subject's local chapters
+      // (CLASS6_ENGLISH_CHAPTERS), so tapping it lists the chapters; each opens
+      // the DB-backed solution cards (part=2) once they're seeded.
+      if (/english|poorvi/i.test(subjectName)) {
+        return [
+          notesTile,
+          { icon: '📗', name: 'NCERT Solutions', sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
+        ];
+      }
+      return [notesTile];
     }
     // Maths: both tiles use the ncert2 WebView flow. `part` picks the dataset in
     // ncert_solutions: 2 = textbook, 3 = NCERT Exemplar (MCQs).
