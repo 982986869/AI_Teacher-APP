@@ -54,23 +54,18 @@ export function ClassPicker({ value, onChange }) {
 // Used at the top of the Practice and Resources tabs.
 export function ClassTabs({ value, onChange }) {
   return (
-    <ScrollView
-      horizontal
-      showsHorizontalScrollIndicator={false}
-      style={st.tabsScroll}
-      contentContainerStyle={st.tabsWrap}
-    >
+    <View style={st.tabsWrap}>
       {CLASSES.map((c) => {
         const active = c === value;
         const ready = isClassReady(c);
         return (
           <Pressable key={c} style={[st.tab, active && st.tabActive]} onPress={() => onChange(c)}>
-            <Text style={[st.tabTxt, active && st.tabTxtActive]}>{c}</Text>
+            <Text numberOfLines={1} style={[st.tabTxt, active && st.tabTxtActive]}>{c}</Text>
             {!ready && <View style={[st.tabDot, active && { backgroundColor: '#fff' }]} />}
           </Pressable>
         );
       })}
-    </ScrollView>
+    </View>
   );
 }
 
@@ -99,11 +94,10 @@ const st = StyleSheet.create({
   rowTxtActive: { color: TEAL, fontWeight: '800' },
   soon: { fontSize: 11, fontWeight: '800', color: INDIGO, backgroundColor: '#EAECFB', paddingVertical: 3, paddingHorizontal: 8, borderRadius: 8 },
 
-  tabsScroll: { backgroundColor: '#fff' },
-  tabsWrap: { flexDirection: 'row', gap: 8, paddingHorizontal: 16, paddingVertical: 10 },
-  tab: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 5, paddingVertical: 10, paddingHorizontal: 16, borderRadius: 12, borderWidth: 1.5, borderColor: '#E8E8E8', backgroundColor: '#F7F7F7' },
+  tabsWrap: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, paddingHorizontal: 16, paddingVertical: 10, backgroundColor: '#fff' },
+  tab: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 5, paddingVertical: 9, paddingHorizontal: 14, borderRadius: 12, borderWidth: 1.5, borderColor: '#D8D8DC', backgroundColor: '#fff' },
   tabActive: { backgroundColor: '#1C1C1E', borderColor: '#1C1C1E' },
-  tabTxt: { fontSize: 12.5, fontWeight: '800', color: '#8E8E93' },
+  tabTxt: { fontSize: 13, fontWeight: '800', color: '#3A3A3C' },
   tabTxtActive: { color: '#fff' },
   tabDot: { width: 5, height: 5, borderRadius: 2.5, backgroundColor: '#B0B0B6' },
 

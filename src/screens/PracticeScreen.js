@@ -63,14 +63,6 @@ const classNum = (c) => parseInt(String(c).replace(/\D/g, ''), 10) || 11;
 // buildFragmentFromQuestions + buildPyqDocument now live in utils/pyqDocument so
 // ResourcesScreen (Exemplar) can reuse the exact same card rendering.
 
-const SUBJECTS = [
-  { name: 'Physics',     emoji: '⚛️', topics: 24, done: 18 },
-  { name: 'Mathematics', emoji: '📐', topics: 32, done: 28 },
-  { name: 'Chemistry',   emoji: '🧪', topics: 20, done: 11 },
-  { name: 'Biology',     emoji: '🧬', topics: 18, done: 10 },
-  { name: 'English',     emoji: '📝', topics: 15, done: 13 },
-];
-
 // Biology is not offered in Class 12 (PCM stream) — drop it from any subject list
 // when Class 12 is selected. Mirrors the same filter in ResourcesScreen. Works for
 // both object lists ({ name }) and plain string lists.
@@ -486,7 +478,6 @@ const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
 
 const PracticeScreen = () => {
   const { selectedClass, setSelectedClass } = useAuth();
-  const [activeSub, setActiveSub] = useState('Physics');
 
   // Previous Year Papers navigation
   const [pyqOpen, setPyqOpen]       = useState(false);   // showing the PYQ subject list
@@ -533,12 +524,6 @@ const PracticeScreen = () => {
     setMockData({});
     setMockOpenSub(null);
   }, [selectedClass]);
-
-  // Biology isn't offered in Class 12 — if it was the active subject when the user
-  // switches to Class 12, fall back to Physics so the (now hidden) chip isn't stuck.
-  useEffect(() => {
-    if (selectedClass === 'Class 12' && activeSub === 'Biology') setActiveSub('Physics');
-  }, [selectedClass, activeSub]);
 
   // Fetch the DB mock-test list + this user's attempt summary for a subject.
   const loadSubjectTests = async (subject) => {
@@ -622,9 +607,6 @@ const PracticeScreen = () => {
     setMockOpen(false); setMockOpenSub(null); setPhysMock(null); setRetest(null);
     setChOpen(false); setChSel(null); setChResult(null);
   }, []));
-
-  const activeFull = SUBJECTS.find(s => s.name === activeSub) || SUBJECTS[0];
-  const pct = Math.round((activeFull.done / activeFull.topics) * 100);
 
   // ── PYQ LEVEL 3: Previous-year questions for a chapter (fetched from API) ────
   if (pyqOpen && pyqSubject && pyqChapter) {
@@ -1015,43 +997,8 @@ const PracticeScreen = () => {
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 32 }}>
 
-        {/* Subject selector */}
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{ paddingHorizontal: 16, paddingVertical: 14, gap: 10 }}>
-          {dropBioForClass(SUBJECTS, selectedClass).map(sub => (
-            <TouchableOpacity key={sub.name}
-              style={[s.subChip, activeSub === sub.name && s.subChipActive]}
-              onPress={() => setActiveSub(sub.name)}>
-              <Text style={{ fontSize: 16 }}>{sub.emoji}</Text>
-              <Text style={[s.subChipTxt, activeSub === sub.name && s.subChipTxtActive]}>{sub.name}</Text>
-            </TouchableOpacity>
-          ))}
-        </ScrollView>
-
-        {/* Active subject card */}
-        <View style={s.subjectCard}>
-          <View style={s.subjectCardTop}>
-            <View style={s.subjectIconBig}>
-              <Text style={{ fontSize: 34 }}>{activeFull.emoji}</Text>
-            </View>
-            <View style={{ flex: 1 }}>
-              <Text style={s.subjectCardTitle}>{activeFull.name}</Text>
-              <Text style={s.subjectCardSub}>{activeFull.done} / {activeFull.topics} topics completed</Text>
-              <View style={s.progBarBg}>
-                <View style={[s.progBarFill, { width: `${pct}%` }]} />
-              </View>
-            </View>
-            <View style={s.pctCircle}>
-              <Text style={s.pctTxt}>{pct}%</Text>
-            </View>
-          </View>
-          <TouchableOpacity style={s.startBtn}>
-            <Text style={s.startBtnTxt}>Start Practice Session  →</Text>
-          </TouchableOpacity>
-        </View>
-
         {/* Important Questions */}
-        <Text style={s.sectionTitle}>Important Questions</Text>
+        <Text style={[s.sectionTitle, { marginTop: 16 }]}>Important Questions</Text>
         <TouchableOpacity style={s.impBanner} activeOpacity={0.85} onPress={() => setImpOpen(true)}>
           <View style={s.impIconBox}>
             <Text style={{ fontSize: 24 }}>⭐</Text>

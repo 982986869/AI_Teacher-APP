@@ -192,6 +192,9 @@ export default function Ncert2Screen({
   className = 'Class 11',
   title = 'NCERT Solutions Part-II',
   breadcrumb = ['Home', 'Student Subscription', 'Resources', 'Textbook Chapters', 'Textbook Exercises'],
+  // Fallback sections ([{ key, label, html }]) shown when the API returns none —
+  // used for locally-defined chapter lists (e.g. Class 6 Maths) not yet in the DB.
+  localSections = null,
 }) {
   // Sections are DB-backed now. Same shape the old static getNcert2Sections()
   // returned ([{ key, label, html }]), so the list + WebView render unchanged.
@@ -208,15 +211,26 @@ export default function Ncert2Screen({
     setError(null);
     setOpenIndex(null);
     getNcertSolutions({ part, subject: subjectName, className, chapter: chapterName })
-      .then((d) => { if (alive) { setSections((d && d.sections) || []); setLoading(false); } })
+      .then((d) => {
+        if (!alive) return;
+        const apiSections = (d && d.sections) || [];
+        setSections(apiSections.length ? apiSections : (localSections || []));
+        setLoading(false);
+      })
       .catch((e) => {
-        if (alive) {
+        if (!alive) return;
+        // No DB content (e.g. Class 6) — fall back to the local section list
+        // instead of surfacing an error.
+        if (localSections && localSections.length) {
+          setSections(localSections);
+          setError(null);
+        } else {
           setError(e?.response?.data?.error || e?.message || 'Could not load solutions.');
-          setLoading(false);
         }
+        setLoading(false);
       });
     return () => { alive = false; };
-  }, [part, subjectName, chapterName, className, retry]);
+  }, [part, subjectName, chapterName, className, retry, localSections]);
 
   const handleBack = () => {
     if (openIndex != null) setOpenIndex(null);

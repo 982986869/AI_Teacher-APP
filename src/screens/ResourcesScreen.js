@@ -380,6 +380,46 @@ const SUBJECTS = [
   },
 ];
 
+// Textbook-Exercises sections for a Class 6 Maths chapter: an Examples set plus
+// two exercises numbered by the chapter (ch 1 → 1.1/1.2, ch 2 → 2.1/2.2, …).
+// `html` is empty for now — the section labels drive the Ncert2Screen list; the
+// solution content is populated separately.
+const class6MathsSections = (chapterNum) => [
+  { key: `ch${chapterNum}-examples`, label: 'Examples', html: '' },
+  { key: `ch${chapterNum}-ex-${chapterNum}-1`, label: `Exercise ${chapterNum}.1`, html: '' },
+  { key: `ch${chapterNum}-ex-${chapterNum}-2`, label: `Exercise ${chapterNum}.2`, html: '' },
+];
+
+// Class 6 Mathematics chapters (NCERT). Shown under the "Class 06 - Mathematics -
+// Revised" textbook tile for both Class 6 Maths entries. Each chapter carries its
+// Textbook-Exercises sections (Examples + Exercise n.1 / n.2).
+const CLASS6_MATHS_CHAPTERS = [
+  'Knowing our Numbers',
+  'Whole Numbers',
+  'Playing with Numbers',
+  'Basic Geometrical Ideas',
+  'Understanding Elementary Shapes',
+  'Integers',
+  'Fractions',
+  'Decimals',
+  'Data Handling',
+  'Mensuration',
+  'Algebra',
+  'Ratio and Proportion',
+].map((name, i) => ({ name, sections: class6MathsSections(i + 1) }));
+
+// Class 6 (CBSE) subjects — the old NCERT books plus the new-syllabus titles
+// (Science → Curiosity, Maths → Ganita Prakash, English → Poorvi). Maths carries
+// the NCERT chapter list; the other books' content is still coming soon. These
+// entries populate the Subjects picker when Class 6 is chosen.
+const SUBJECTS_CLASS6 = [
+  { name: 'Science (OLD)',          emoji: '🔬', bg: '#5AA84F', chapters: [], comingSoon: true },
+  { name: 'Maths (OLD)',            emoji: '📐', bg: '#E8703A', chapters: CLASS6_MATHS_CHAPTERS },
+  { name: 'Science (Curiosity)',    emoji: '🔬', bg: '#5AA84F', chapters: [], comingSoon: true },
+  { name: 'English (Poorvi)',       emoji: '📖', bg: '#7A6FD0', chapters: [], comingSoon: true },
+  { name: 'Maths (Ganita Prakash)', emoji: '📐', bg: '#E8703A', chapters: CLASS6_MATHS_CHAPTERS },
+];
+
 const RESOURCE_TYPES = [
   { icon: '📋', name: 'Revision Notes',         sub: '835 items',          type: 'notes'    },
   { icon: '🔄', name: 'Exemplar Solutions',      sub: 'Textbook Solutions', type: 'exemplar' },
@@ -476,6 +516,18 @@ const getResourceTypes = (subjectName, classLevel) => {
   const base = classLevel === 'Class 12'
     ? RESOURCE_TYPES
     : RESOURCE_TYPES.filter((rt) => rt.type !== 'papers');
+  // Class 6 books aren't split into Part-I / Part-II — replace both NCERT tiles
+  // with a single revised-book tile, e.g. "Class 06 - Mathematics - Revised".
+  if (classLevel === 'Class 6') {
+    const core = /math|ganita/i.test(subjectName) ? 'Mathematics'
+      : /science|curiosity/i.test(subjectName) ? 'Science'
+        : /english|poorvi/i.test(subjectName) ? 'English'
+          : subjectName;
+    const bookTile = { icon: '📗', name: `Class 06 - ${core} - Revised`, sub: 'Textbook Solutions', type: 'ncert2' };
+    return base
+      .filter((rt) => rt.type !== 'ncert1' && rt.type !== 'ncert2')
+      .flatMap((rt) => (rt.type === 'exemplar' ? [rt, bookTile] : [rt]));
+  }
   if (subjectName === 'Mathematics' && classLevel === 'Class 12') {
     return base;
   }
@@ -1203,6 +1255,7 @@ const ResourcesScreen = () => {
         onBack={() => setShowCards(false)}
         title={activeResType.name}
         breadcrumb={['Home', activeClass, activeSubject.name, activeResType.name]}
+        localSections={activeChapter.sections || null}
       />
     );
   }
@@ -1500,7 +1553,7 @@ const ResourcesScreen = () => {
         <Text style={s.boardLabel}>{activeClass}</Text>
       </View>
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
-        {SUBJECTS
+        {(activeClass === 'Class 6' ? SUBJECTS_CLASS6 : SUBJECTS)
           .filter((subject) => !(activeClass === 'Class 12' && subject.name === 'Biology'))
           .map((subject, i) => (
           <TouchableOpacity key={i} style={s.subjectRow} onPress={() => setActiveSubject(subject)} activeOpacity={0.8}>
