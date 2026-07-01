@@ -1,5 +1,5 @@
 // ClassPicker.js
-// Global class selector (Class 9–12) + a "coming soon" gate. The picker chip
+// Global class selector (Class 6–12) + a "coming soon" gate. The picker chip
 // lives in the Home top bar; the chosen class is stored app-wide in AuthContext
 // and decides which content the user sees. Only classes in READY have content.
 
@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import { View, Text, Pressable, Modal, ScrollView, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-export const CLASSES = ['Class 9', 'Class 10', 'Class 11', 'Class 12'];
+export const CLASSES = ['Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10', 'Class 11', 'Class 12'];
 export const READY = { 'Class 11': true };   // classes that currently have content
 export const isClassReady = (c) => !!READY[c];
 
@@ -50,11 +50,16 @@ export function ClassPicker({ value, onChange }) {
   );
 }
 
-// Side-by-side class chips (9–12) for quick switching — black & white theme.
+// Side-by-side class chips (6–12) for quick switching — black & white theme.
 // Used at the top of the Practice and Resources tabs.
 export function ClassTabs({ value, onChange }) {
   return (
-    <View style={st.tabsWrap}>
+    <ScrollView
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      style={st.tabsScroll}
+      contentContainerStyle={st.tabsWrap}
+    >
       {CLASSES.map((c) => {
         const active = c === value;
         const ready = isClassReady(c);
@@ -65,7 +70,7 @@ export function ClassTabs({ value, onChange }) {
           </Pressable>
         );
       })}
-    </View>
+    </ScrollView>
   );
 }
 
@@ -94,8 +99,9 @@ const st = StyleSheet.create({
   rowTxtActive: { color: TEAL, fontWeight: '800' },
   soon: { fontSize: 11, fontWeight: '800', color: INDIGO, backgroundColor: '#EAECFB', paddingVertical: 3, paddingHorizontal: 8, borderRadius: 8 },
 
-  tabsWrap: { flexDirection: 'row', gap: 8, paddingHorizontal: 16, paddingVertical: 10, backgroundColor: '#fff' },
-  tab: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 5, paddingVertical: 10, borderRadius: 12, borderWidth: 1.5, borderColor: '#E8E8E8', backgroundColor: '#F7F7F7' },
+  tabsScroll: { backgroundColor: '#fff' },
+  tabsWrap: { flexDirection: 'row', gap: 8, paddingHorizontal: 16, paddingVertical: 10 },
+  tab: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 5, paddingVertical: 10, paddingHorizontal: 16, borderRadius: 12, borderWidth: 1.5, borderColor: '#E8E8E8', backgroundColor: '#F7F7F7' },
   tabActive: { backgroundColor: '#1C1C1E', borderColor: '#1C1C1E' },
   tabTxt: { fontSize: 12.5, fontWeight: '800', color: '#8E8E93' },
   tabTxtActive: { color: '#fff' },
