@@ -398,6 +398,8 @@ const CLASS6_MATHS_CHAPTERS = [
   'Mensuration',
   'Algebra',
   'Ratio and Proportion',
+  'Symmetry',
+  'Practical Geometry',
 ].map((name) => ({ name }));
 
 // Class 6 Mathematics NCERT Exemplar chapters — the 12 textbook chapters plus
