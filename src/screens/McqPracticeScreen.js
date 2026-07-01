@@ -16,8 +16,8 @@ import { useAuth } from '../context/AuthContext';
 const slugify = (s) =>
   String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 
-// 'Class 11' → 11; defaults to 11.
-const classNum = (c) => parseInt(String(c).replace(/\D/g, ''), 10) || 11;
+// 'Class 8' → 8; null when unknown (the backend uses the student's saved class).
+const classNum = (c) => parseInt(String(c || '').replace(/\D/g, ''), 10) || null;
 
 const C = {
   purple: '#0C8F88', purpleDeep: '#26215C', purpleLight: '#EEEDFE',
@@ -50,7 +50,7 @@ function ProgressBar({ answered, total, score }) {
   );
 }
 
-function ChapterCard({ subject, chapter, classLevel = 11, onStart, onStartSubtopic }) {
+function ChapterCard({ subject, chapter, classLevel, onStart, onStartSubtopic }) {
   const [open, setOpen] = useState(false);
   const [subtopics, setSubtopics] = useState(null); // API: [{ id, name, questionCount }] | null
   const data = (MCQ_DATA[subject] && MCQ_DATA[subject][chapter]) || {};

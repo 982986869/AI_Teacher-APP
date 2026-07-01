@@ -3,6 +3,20 @@ import { View, Text, StyleSheet, Animated, Easing, TouchableOpacity } from 'reac
 import Svg, { G, Line, Rect, Polygon, Path, Text as SvgText } from 'react-native-svg';
 import { ChalkLine, ChalkStroke } from './WhiteboardCanvas';
 import { C } from './premiumTheme';
+import { selfCheckLine } from './teacherPersona';
+import { SubjectBoard, SUBJECT_BOARD_TYPES } from './subjectBoards';
+
+// ── marker underline — a chalk/marker stroke that "draws" under the active
+// formula token (Smart Whiteboard flourish); reads as her underlining it. ──────
+function MarkerUnderline({ active, color }) {
+  const w = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    const a = Animated.timing(w, { toValue: active ? 1 : 0, duration: active ? 440 : 160, easing: Easing.out(Easing.cubic), useNativeDriver: false });
+    a.start();
+    return () => a.stop();
+  }, [active, w]);
+  return <Animated.View style={{ height: 3, borderRadius: 2, marginTop: 2, backgroundColor: color, width: w.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }} />;
+}
 
 // ── Animated concept boards for the live lesson (cream / ink palette) ─────────
 // One entry point <LessonBoard/> switches on scene.boardType. Each board builds
@@ -10,12 +24,19 @@ import { C } from './premiumTheme';
 
 const AG = Animated.createAnimatedComponent(G);
 
-// pause-aware step counter — resets whenever resetKey changes (scene change).
-function useReveal(total, stepMs, { paused, skip, resetKey }) {
+// Reveal counter with TWO modes:
+//   • DIRECTED  (step != null) — the Teaching Director owns the timing; the board
+//     simply shows exactly `step` elements, in sync with the teacher's voice.
+//   • AUTONOMOUS (step == null) — legacy self-paced timer (kept as a fallback for
+//     any surface that renders a board without the Director).
+// Either way it resets whenever resetKey changes (a new scene).
+function useReveal(total, stepMs, { paused, skip, resetKey, step }) {
+  const directed = step != null;
   const [n, setN] = useState(skip ? total : (total > 0 ? 1 : 0));
   const pausedRef = useRef(paused);
   useEffect(() => { pausedRef.current = paused; }, [paused]);
   useEffect(() => {
+    if (directed) return undefined;            // director drives it — no internal timer
     if (skip) { setN(total); return undefined; }
     setN(total > 0 ? 1 : 0);
     if (total <= 1) return undefined;
@@ -27,7 +48,8 @@ function useReveal(total, stepMs, { paused, skip, resetKey }) {
     }, stepMs);
     return () => clearInterval(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [resetKey, skip, total, stepMs]);
+  }, [resetKey, skip, total, stepMs, directed]);
+  if (directed) return Math.max(0, Math.min(total, step)); // show exactly what the director asked for
   return n;
 }
 
@@ -35,21 +57,22 @@ function useReveal(total, stepMs, { paused, skip, resetKey }) {
 function FadeG({ children, show }) {
   const a = useRef(new Animated.Value(0)).current;
   useEffect(() => {
-    if (show) { Animated.timing(a, { toValue: 1, duration: 320, useNativeDriver: false }).start(); }
+    if (show) { Animated.timing(a, { toValue: 1, duration: 380, easing: Easing.out(Easing.cubic), useNativeDriver: false }).start(); }
     else a.setValue(0);
   }, [show, a]);
   return <AG opacity={a}>{children}</AG>;
 }
 
-// fade + rise a RN view
+// fade + rise a RN view — soft "settle" easing so each element eases into place
+// rather than popping (premium micro-motion).
 function Pop({ children, show, style }) {
   const a = useRef(new Animated.Value(0)).current;
   useEffect(() => {
-    if (show) Animated.timing(a, { toValue: 1, duration: 320, easing: Easing.out(Easing.cubic), useNativeDriver: true }).start();
+    if (show) Animated.timing(a, { toValue: 1, duration: 400, easing: Easing.bezier(0.22, 1, 0.36, 1), useNativeDriver: true }).start();
     else a.setValue(0);
   }, [show, a]);
   return (
-    <Animated.View style={[style, { opacity: a, transform: [{ translateY: a.interpolate({ inputRange: [0, 1], outputRange: [8, 0] }) }] }]}>
+    <Animated.View style={[style, { opacity: a, transform: [{ translateY: a.interpolate({ inputRange: [0, 1], outputRange: [10, 0] }) }] }]}>
       {children}
     </Animated.View>
   );
@@ -63,8 +86,8 @@ function svgLabel(x, y, text, color, size = 12, rotate) {
 }
 
 // ── TRIANGLE: base → height → hypotenuse, labels after each, legend ───────────
-function TriangleBoard({ scene, paused, skip, resetKey }) {
-  const n = useReveal(4, 900, { paused, skip, resetKey });
+function TriangleBoard({ scene, paused, skip, resetKey, step }) {
+  const n = useReveal(4, 900, { paused, skip, resetKey, step });
   const A = { x: 58, y: 150 };   // right angle
   const B = { x: 250, y: 150 };  // base end
   const Cc = { x: 58, y: 40 };   // height top
@@ -107,10 +130,10 @@ function LegendRich({ color, term, desc }) {
 }
 
 // ── FORMULA: parts reveal + highlight one by one ──────────────────────────────
-function FormulaBoard({ scene, paused, skip, resetKey }) {
+function FormulaBoard({ scene, paused, skip, resetKey, step }) {
   const parts = scene.formulaParts && scene.formulaParts.length ? scene.formulaParts : ['base²', '+ height²', '= hypotenuse²'];
   const colors = [C.orange, C.blue, C.green, C.ink];
-  const n = useReveal(parts.length, 1000, { paused, skip, resetKey });
+  const n = useReveal(parts.length, 1000, { paused, skip, resetKey, step });
   return (
     <View style={s.boardWrap}>
       <View style={s.formulaCard}>
@@ -118,6 +141,7 @@ function FormulaBoard({ scene, paused, skip, resetKey }) {
           {parts.map((p, i) => (
             <Pop key={i} show={i < n} style={[s.formulaTokWrap, i === n - 1 && !skip && s.formulaTokActive]}>
               <Text style={[s.formulaTok, { color: colors[i % colors.length] }]}>{p}</Text>
+              <MarkerUnderline active={i === n - 1 && !skip} color={colors[i % colors.length]} />
             </Pop>
           ))}
         </View>
@@ -134,8 +158,8 @@ function FormulaBoard({ scene, paused, skip, resetKey }) {
 }
 
 // ── PROOF: squares on each side → 9, 16, 25 → 9 + 16 = 25 ──────────────────────
-function ProofBoard({ scene, paused, skip, resetKey }) {
-  const n = useReveal(5, 1050, { paused, skip, resetKey });
+function ProofBoard({ scene, paused, skip, resetKey, step }) {
+  const n = useReveal(5, 1050, { paused, skip, resetKey, step });
   // triangle 3-4-5 (height=3 up, base=4 right) at right angle A
   const A = { x: 120, y: 150 };
   const B = { x: 190, y: 150 }; // base end (4 units → 70px)
@@ -194,10 +218,10 @@ function ProofBoard({ scene, paused, skip, resetKey }) {
 }
 
 // ── INTRO / SUMMARY / MISTAKE: soft points card ──────────────────────────────
-function PointsBoard({ scene, paused, skip, resetKey, intro, warn }) {
+function PointsBoard({ scene, paused, skip, resetKey, step, intro, warn }) {
   const points = (scene.diagram && scene.diagram.points) || [];
   const total = Math.max(1, points.length);
-  const n = useReveal(total, 700, { paused, skip, resetKey });
+  const n = useReveal(total, 700, { paused, skip, resetKey, step });
   if (!points.length) {
     return (
       <View style={[s.boardWrap, { alignItems: 'center', paddingVertical: 18 }]}>
@@ -208,7 +232,7 @@ function PointsBoard({ scene, paused, skip, resetKey, intro, warn }) {
   return (
     <View style={s.boardWrap}>
       {points.map((p, i) => (
-        <Pop key={i} show={i < n} style={s.pointRow}>
+        <Pop key={i} show={i < n} style={[s.pointRow, i === n - 1 && !skip && (warn ? s.pointRowWarnActive : s.pointRowActive)]}>
           <View style={[s.pointDot, warn && s.pointDotWarn]}><Text style={s.pointDotTxt}>{warn ? '!' : i + 1}</Text></View>
           <Text style={s.pointTxt}>{p}</Text>
         </Pop>
@@ -218,11 +242,11 @@ function PointsBoard({ scene, paused, skip, resetKey, intro, warn }) {
 }
 
 // ── CONCEPT (generic flow / points) ──────────────────────────────────────────
-function ConceptBoard({ scene, paused, skip, resetKey }) {
+function ConceptBoard({ scene, paused, skip, resetKey, step }) {
   const d = scene.diagram || {};
   const isFlow = d.shape === 'flow' && Array.isArray(d.steps) && d.steps.length > 0;
   const steps = isFlow ? d.steps.slice(0, 3) : [];
-  const n = useReveal(steps.length || 1, 850, { paused, skip, resetKey }); // always called
+  const n = useReveal(steps.length || 1, 850, { paused, skip, resetKey, step }); // always called
   if (isFlow) {
     return (
       <View style={[s.boardWrap, s.flowRow]}>
@@ -235,45 +259,98 @@ function ConceptBoard({ scene, paused, skip, resetKey }) {
       </View>
     );
   }
-  return <PointsBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} />;
+  return <PointsBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} step={step} />;
+}
+
+// ── CHART: axes drawn, then bars grow in one per beat (directed) ──────────────
+function ChartBoard({ scene, paused, skip, resetKey, step }) {
+  const chart = (scene.diagram && scene.diagram.chart) || {};
+  const values = Array.isArray(chart.values) && chart.values.length ? chart.values : [40, 70, 55, 90];
+  const labels = Array.isArray(chart.labels) ? chart.labels : [];
+  const n = useReveal(values.length, 700, { paused, skip, resetKey, step });
+  const max = Math.max(...values, 1);
+  const colors = [C.orange, C.blue, C.green, C.pink];
+  // layout inside a 300×176 viewBox
+  const baseY = 140; const leftX = 40; const plotW = 244; const plotH = 104;
+  const slot = plotW / values.length;
+  const bw = Math.min(38, slot * 0.6);
+  return (
+    <View style={s.boardWrap}>
+      <Svg width="100%" height={176} viewBox="0 0 300 176">
+        {/* axes */}
+        <Line x1={leftX} y1={baseY} x2={leftX + plotW} y2={baseY} stroke={C.dim} strokeWidth={2} />
+        <Line x1={leftX} y1={baseY} x2={leftX} y2={baseY - plotH - 8} stroke={C.dim} strokeWidth={2} />
+        {values.map((v, i) => {
+          if (i >= n) return null;
+          const h = Math.max(3, (v / max) * plotH);
+          const x = leftX + i * slot + (slot - bw) / 2;
+          const col = colors[i % colors.length];
+          return (
+            <G key={i}>
+              <Rect x={x} y={baseY - h} width={bw} height={h} rx={4} fill={col} opacity={0.9} />
+              {svgLabel(x + bw / 2, baseY - h - 5, String(v), col, 11)}
+              {!!labels[i] && svgLabel(x + bw / 2, baseY + 14, String(labels[i]).slice(0, 8), C.dim, 10)}
+            </G>
+          );
+        })}
+      </Svg>
+      {(!!chart.yAxis || !!chart.xAxis) && (
+        <Text style={s.chartAxes}>{[chart.yAxis, chart.xAxis].filter(Boolean).join('  vs  ')}</Text>
+      )}
+    </View>
+  );
 }
 
 // ── QUICK CHECK ──────────────────────────────────────────────────────────────
-function QuickCheckBoard({ scene, onContinue }) {
+// The board handles the tap + right/wrong marking; the human REACTION (her face,
+// her voice, the varied line of encouragement) is owned by the player via
+// onQuizResult, so a repeated miss can soften her tone across the whole lesson.
+function QuickCheckBoard({ scene, onContinue, onQuizResult, onReexplain, quizFb }) {
   const q = scene.quickCheck || {};
   const [picked, setPicked] = useState(null);
   const [revealed, setRevealed] = useState(false);
+  const [selfFb, setSelfFb] = useState('');
   const isMcq = Array.isArray(q.options) && q.options.length > 0;
+  const answer = (correct) => { if (onQuizResult) onQuizResult(correct); };
+  // A slow learner gets to try again: only the CORRECT choice locks the check —
+  // a wrong tap stays open so they can rethink, and each attempt is felt by the
+  // Emotion engine (which then eases her pace + softens her line).
+  const locked = picked != null && picked === q.answer;
+  const wrong = picked != null && picked !== q.answer;
   return (
     <View style={s.boardWrap}>
       <Text style={s.quizQ}>{q.question}</Text>
       {isMcq ? (
         <>
           {q.options.map((opt, i) => {
-            const answered = picked != null;
             const isAns = i === q.answer;
             const chosen = picked === i;
             const st = [s.opt];
-            if (answered && isAns) st.push(s.optRight);
-            else if (answered && chosen && !isAns) st.push(s.optWrong);
+            if (locked && isAns) st.push(s.optRight);
+            else if (wrong && chosen) st.push(s.optWrong);
             return (
-              <TouchableOpacity key={i} style={st} activeOpacity={0.9} disabled={answered} onPress={() => setPicked(i)}>
+              <TouchableOpacity key={i} style={st} activeOpacity={0.9} disabled={locked} onPress={() => { setPicked(i); answer(i === q.answer); }}>
                 <Text style={s.optTxt}>{opt}</Text>
-                {answered && isAns && <Text style={s.optMark}>✓</Text>}
-                {answered && chosen && !isAns && <Text style={[s.optMark, { color: C.pink }]}>✕</Text>}
+                {locked && isAns && <Text style={s.optMark}>✓</Text>}
+                {wrong && chosen && <Text style={[s.optMark, { color: C.pink }]}>✕</Text>}
               </TouchableOpacity>
             );
           })}
           {picked != null && (
-            <Text style={[s.quizFb, { color: picked === q.answer ? C.green : C.pink }]}>
-              {picked === q.answer ? '🎉 Correct!' : '🤔 Almost — the right answer is highlighted.'}
+            <Text style={[s.quizFb, { color: locked ? C.green : C.pink }]}>
+              {(locked ? '🎉 ' : '💛 ') + ((quizFb && quizFb.line) || (locked ? 'Correct!' : 'Not quite — try once more.'))}
             </Text>
+          )}
+          {wrong && !!onReexplain && (
+            <TouchableOpacity style={s.reexplainBtn} activeOpacity={0.9} onPress={onReexplain}>
+              <Text style={s.reexplainTxt}>↺  Explain that again, slower</Text>
+            </TouchableOpacity>
           )}
         </>
       ) : (
         !revealed
-          ? <TouchableOpacity style={s.opt} activeOpacity={0.9} onPress={() => setRevealed(true)}><Text style={s.optTxt}>🤔 Tap to check yourself</Text></TouchableOpacity>
-          : <Text style={s.quizFb}>Say it in your own words, then continue 👍</Text>
+          ? <TouchableOpacity style={s.opt} activeOpacity={0.9} onPress={() => { setRevealed(true); setSelfFb(selfCheckLine()); }}><Text style={s.optTxt}>🤔 Tap to check yourself</Text></TouchableOpacity>
+          : <Text style={s.quizFb}>{selfFb || 'Say it in your own words, then continue.'} 👍</Text>
       )}
       {!!onContinue && (
         <TouchableOpacity style={s.continueBtn} activeOpacity={0.9} onPress={onContinue}><Text style={s.continueTxt}>Continue ›</Text></TouchableOpacity>
@@ -283,18 +360,24 @@ function QuickCheckBoard({ scene, onContinue }) {
 }
 
 // ── entry point ──────────────────────────────────────────────────────────────
-export default function LessonBoard({ scene, paused = false, skip = false, resetKey, onQuizContinue }) {
+export default function LessonBoard({ scene, paused = false, skip = false, resetKey, step, onQuizContinue, onQuizResult, onReexplain, quizFb }) {
   if (!scene) return null;
+  // Subject illustrations (physics / chemistry / biology / maths / history) render
+  // through their own engine, Director-controlled by `step` like every other board.
+  if (SUBJECT_BOARD_TYPES.includes(scene.boardType)) {
+    return <SubjectBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} step={step} />;
+  }
   switch (scene.boardType) {
-    case 'triangle': return <TriangleBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} />;
-    case 'formula': return <FormulaBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} />;
-    case 'proof': return <ProofBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} />;
-    case 'quickCheck': return <QuickCheckBoard scene={scene} onContinue={onQuizContinue} />;
-    case 'intro': return <PointsBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} intro />;
-    case 'mistake': return <PointsBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} warn />;
-    case 'summary': return <PointsBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} />;
+    case 'triangle': return <TriangleBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} step={step} />;
+    case 'formula': return <FormulaBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} step={step} />;
+    case 'chart': return <ChartBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} step={step} />;
+    case 'proof': return <ProofBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} step={step} />;
+    case 'quickCheck': return <QuickCheckBoard scene={scene} onContinue={onQuizContinue} onQuizResult={onQuizResult} onReexplain={onReexplain} quizFb={quizFb} />;
+    case 'intro': return <PointsBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} step={step} intro />;
+    case 'mistake': return <PointsBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} step={step} warn />;
+    case 'summary': return <PointsBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} step={step} />;
     case 'concept':
-    default: return <ConceptBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} />;
+    default: return <ConceptBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} step={step} />;
   }
 }
 
@@ -322,10 +405,13 @@ const s = StyleSheet.create({
   varList: { marginTop: 12, gap: 4, alignItems: 'center' },
   varLine: { fontSize: 13, fontWeight: '600', color: C.ink2 },
 
+  chartAxes: { fontSize: 11, fontWeight: '800', color: C.dim, marginTop: 6, textAlign: 'center' },
   sumPill: { marginTop: 10, backgroundColor: 'rgba(44,48,67,0.05)', borderWidth: 1, borderColor: C.line, borderRadius: 14, paddingVertical: 8, paddingHorizontal: 18 },
   sumTxt: { fontSize: 20, fontWeight: '900', letterSpacing: 0.5 },
 
-  pointRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10, marginTop: 10, alignSelf: 'stretch' },
+  pointRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10, marginTop: 10, alignSelf: 'stretch', borderRadius: 12, paddingVertical: 4, paddingHorizontal: 6, marginHorizontal: -6 },
+  pointRowActive: { backgroundColor: 'rgba(15,163,154,0.10)' },       // the point she's on right now
+  pointRowWarnActive: { backgroundColor: 'rgba(239,138,67,0.12)' },   // …on a common-mistake slide
   pointDot: { width: 22, height: 22, borderRadius: 11, backgroundColor: C.accent, alignItems: 'center', justifyContent: 'center', marginTop: 1 },
   pointDotWarn: { backgroundColor: C.orange },
   pointDotTxt: { color: '#fff', fontSize: 11, fontWeight: '900' },
@@ -345,4 +431,6 @@ const s = StyleSheet.create({
   quizFb: { fontSize: 13, fontWeight: '800', marginTop: 12, alignSelf: 'stretch' },
   continueBtn: { alignSelf: 'flex-end', marginTop: 14, backgroundColor: C.accent, borderRadius: 12, paddingVertical: 9, paddingHorizontal: 18 },
   continueTxt: { color: '#fff', fontSize: 13, fontWeight: '900' },
+  reexplainBtn: { alignSelf: 'flex-start', marginTop: 10, backgroundColor: 'rgba(15,163,154,0.10)', borderWidth: 1, borderColor: C.accent, borderRadius: 12, paddingVertical: 9, paddingHorizontal: 16 },
+  reexplainTxt: { color: C.accent, fontSize: 13, fontWeight: '900' },
 });

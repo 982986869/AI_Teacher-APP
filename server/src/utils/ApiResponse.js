@@ -9,8 +9,10 @@ class ApiResponse {
     return ApiResponse.success(res, data, message, 201)
   }
 
-  static error(res, message, statusCode = 400) {
-    return res.status(statusCode).json({ success: false, error: message })
+  static error(res, message, statusCode = 400, code = undefined) {
+    const body = { success: false, error: message }
+    if (code) body.code = code
+    return res.status(statusCode).json(body)
   }
 }
 

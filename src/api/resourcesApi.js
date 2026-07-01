@@ -7,7 +7,7 @@ export const getSubjects = async () =>
   (await axiosInstance.get('/api/resources/subjects')).data.data;
 
 // classLevel (9–12) selects the grade; defaults to 11 for back-compat.
-export const getChapters = async (subjectSlug, sectionType, classLevel = 11) =>
+export const getChapters = async (subjectSlug, sectionType, classLevel) =>
   (await axiosInstance.get(`/api/resources/subjects/${subjectSlug}/chapters`, {
     params: { class: classLevel, ...(sectionType ? { section: sectionType } : {}) },
   })).data.data;
@@ -19,7 +19,7 @@ export const getQuestions = async (sectionId) =>
   (await axiosInstance.get(`/api/resources/sections/${sectionId}/questions`)).data.data;
 
 // Convenience: questions straight from slugs (matches the screen navigation).
-export const getQuestionsByPath = async (subjectSlug, chapterSlug, sectionType, classLevel = 11) =>
+export const getQuestionsByPath = async (subjectSlug, chapterSlug, sectionType, classLevel) =>
   (await axiosInstance.get(
     `/api/resources/content/${subjectSlug}/${chapterSlug}/${sectionType}`,
     { params: { class: classLevel } }
@@ -27,24 +27,24 @@ export const getQuestionsByPath = async (subjectSlug, chapterSlug, sectionType, 
 
 // Revision Notes for a chapter (DB-backed). Returns { intro, blocks } where
 // blocks = [{ title, html }] — the flashcard-grouped notes the importer stored.
-export const getNotesByPath = async (subjectSlug, chapterSlug, classLevel = 11) =>
+export const getNotesByPath = async (subjectSlug, chapterSlug, classLevel) =>
   (await axiosInstance.get(`/api/resources/notes/${subjectSlug}/${chapterSlug}`,
     { params: { class: classLevel } })).data.data;
 
 // Last Year Papers (DB-backed). List returns [{ code, year, setLabel, name }];
 // getPaper returns one paper's { code, year, setLabel, name, questionPaperHtml,
 // answerKeyHtml }. code carries slashes (55/1/1) so it goes as a query param.
-export const getPapers = async (subjectSlug, classLevel = 12) =>
+export const getPapers = async (subjectSlug, classLevel) =>
   (await axiosInstance.get(`/api/resources/papers/${subjectSlug}`,
     { params: { class: classLevel } })).data.data;
 
-export const getPaper = async (subjectSlug, code, classLevel = 12) =>
+export const getPaper = async (subjectSlug, code, classLevel) =>
   (await axiosInstance.get(`/api/resources/paper/${subjectSlug}`,
     { params: { class: classLevel, code } })).data.data;
 
 // MCQ Practice: real MCQs for a chapter, shaped for McqTestScreen
 // ({ cat, question, options: string[], correct: index }).
-export const getMcqByPath = async (subjectSlug, chapterSlug, classLevel = 11) =>
+export const getMcqByPath = async (subjectSlug, chapterSlug, classLevel) =>
   (await axiosInstance.get(`/api/resources/mcq/${subjectSlug}/${chapterSlug}`,
     { params: { class: classLevel } })).data.data;
 

@@ -4,6 +4,8 @@ const KEYS = {
   AUTH_TOKEN:    '@ailernova_auth_token',
   USER:          '@ailernova_user',
   ACTIVE_LESSON: '@ailernova_active_lesson',
+  ACTIVE_MATCH:  '@ailernova_active_match',
+  PRACTICE_STREAK: '@ailernova_practice_streak',
 };
 
 // Legacy token returned by the still-mocked Google/OTP auth paths. It is NOT a
@@ -11,7 +13,6 @@ const KEYS = {
 const MOCK_TOKEN = 'mock-jwt-token-12345';
 
 export const saveToken = async (token) => {
-  console.log('[AUTH] saveToken -> stored token after login:', token);
   await AsyncStorage.setItem(KEYS.AUTH_TOKEN, token);
 };
 
@@ -19,11 +20,9 @@ export const getToken = async () => {
   const token = await AsyncStorage.getItem(KEYS.AUTH_TOKEN);
   // Defensively drop any old mock token so it can never be sent to the backend.
   if (token === MOCK_TOKEN) {
-    console.warn('[AUTH] Found legacy MOCK token in storage — clearing it. Log in with EMAIL to get a real JWT.');
     await AsyncStorage.removeItem(KEYS.AUTH_TOKEN);
     return null;
   }
-  console.log('[AUTH] getToken <- token loaded from storage:', token);
   return token;
 };
 
@@ -66,6 +65,54 @@ export const getActiveLesson = async () => {
 
 export const clearActiveLesson = async () => {
   try { await AsyncStorage.removeItem(KEYS.ACTIVE_LESSON); } catch (_) { /* ignore */ }
+};
+
+// Active Arena battle, so a student who closes the app mid-match can resume the SAME
+// match (same opponent/puzzle/clock — so the result still counts). Server /active is
+// the source of truth for the match; this just preserves local placements + identity.
+// Best-effort — failures never block the UI.
+export const saveActiveMatch = async (match) => {
+  try {
+    if (!match || !match.matchId) return;
+    await AsyncStorage.setItem(KEYS.ACTIVE_MATCH, JSON.stringify({
+      matchId: match.matchId,
+      placed: Array.isArray(match.placed) ? match.placed : [],
+      ts: match.startedAt || null,
+    }));
+  } catch (_) { /* ignore */ }
+};
+
+export const getActiveMatch = async () => {
+  try {
+    const raw = await AsyncStorage.getItem(KEYS.ACTIVE_MATCH);
+    return raw ? JSON.parse(raw) : null;
+  } catch (_) { return null; }
+};
+
+export const clearActiveMatch = async () => {
+  try { await AsyncStorage.removeItem(KEYS.ACTIVE_MATCH); } catch (_) { /* ignore */ }
+};
+
+// Daily practice streak. Bumps once per calendar day: same day → unchanged,
+// consecutive day → +1, gap → reset to 1. Returns the current streak count.
+const dayNumber = (d) => Math.floor((d.getTime() - d.getTimezoneOffset() * 60000) / 86400000);
+
+export const bumpPracticeStreak = async () => {
+  try {
+    const today = dayNumber(new Date());
+    const raw = await AsyncStorage.getItem(KEYS.PRACTICE_STREAK);
+    const prev = raw ? JSON.parse(raw) : null;
+    let streak = 1;
+    if (prev && typeof prev.day === 'number') {
+      if (prev.day === today) streak = prev.streak || 1;        // already counted today
+      else if (today - prev.day === 1) streak = (prev.streak || 0) + 1; // consecutive
+      else streak = 1;                                          // streak broken
+    }
+    await AsyncStorage.setItem(KEYS.PRACTICE_STREAK, JSON.stringify({ day: today, streak }));
+    return streak;
+  } catch (_) {
+    return 1;
+  }
 };
 
 export const clearAll = async () => {

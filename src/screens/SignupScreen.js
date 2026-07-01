@@ -27,7 +27,8 @@ const SignupScreen = ({ navigation }) => {
   const [email, setEmail]       = useState('');
   const [password, setPassword] = useState('');
   const [showPw, setShowPw]     = useState(false);
-  const [grade, setGrade]       = useState('');
+  // Role + class/stream are collected once in the setup step after signup (see
+  // CompleteProfileScreen) — never scattered on the signup form.
 
   // Phone state
   const [phone, setPhone]       = useState('');
@@ -47,7 +48,7 @@ const SignupScreen = ({ navigation }) => {
 
     try {
       setLoading(true);
-      const data = await signupWithEmail({ name, email, password, grade });
+      const data = await signupWithEmail({ name, email, password });
       await signIn(data);
     } catch (e) {
       setError(e?.response?.data?.message || 'Signup failed. Please try again.');
@@ -84,7 +85,6 @@ const SignupScreen = ({ navigation }) => {
       navigation.navigate('OTPScreen', {
         phone: `+91${phone}`,
         name: phoneName,
-        grade,
         mode: 'signup',
       });
     } catch (e) {
@@ -128,7 +128,6 @@ const SignupScreen = ({ navigation }) => {
                 </TouchableOpacity>
               }
             />
-            <InputField placeholder="Grade / Class (optional)" value={grade} onChangeText={setGrade} />
             <PrimaryButton title="Create account" onPress={handleEmailSignup} loading={loading} style={styles.mainBtn} />
           </>
         )}
@@ -147,7 +146,6 @@ const SignupScreen = ({ navigation }) => {
                 style={{ flex: 1, marginBottom: 0 }}
               />
             </View>
-            <InputField placeholder="Grade / Class (optional)" value={grade} onChangeText={setGrade} style={{ marginTop: 10 }} />
             <PrimaryButton title="Send OTP" onPress={handleSendOTP} loading={loading} style={styles.mainBtn} />
           </>
         )}

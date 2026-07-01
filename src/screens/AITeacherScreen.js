@@ -24,11 +24,15 @@ const GEN_STAGES = [
   'Almost ready — final touches…',
 ];
 
+// AI Teacher answers EVERY academic question, so it offers all subjects. Only the
+// explanation depth adapts to the student's class (enforced server-side from scope);
+// content restriction by stream lives on Practice/Resources, not here.
 const SUBJECTS = ['Physics', 'Maths', 'Chemistry', 'Biology', 'English', 'History'];
 
 const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack }) => {
-  const { user } = useAuth();
+  const { user, scope } = useAuth();
   const firstName = user?.name?.split(' ')[0] || 'Student';
+  const subjects = SUBJECTS;
 
   const [activeSubject, setActiveSubject] = useState(initialSubject);
   // 'learn' = generate a lesson; 'ask' = grounded RAG Q&A over uploaded material.
@@ -144,7 +148,9 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
     historyRef.current = [];
     pendingRef.current = null;
     try {
-      const payload = { topic: t, subject: activeSubject, gradeLevel: user?.grade || '8' };
+      // The backend is authoritative on grade (from the student's profile); we send
+      // the saved class for clarity but it cannot be used to request another class.
+      const payload = { topic: t, subject: activeSubject, gradeLevel: scope?.classNum ? String(scope.classNum) : (user?.grade || '') };
       const { lessonId: id, lesson } = await generateLesson(payload);
       if (!mountedRef.current) return;
       setLessonId(id);
@@ -158,7 +164,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
       saveActiveLesson({ lessonId: id, title: lesson.lessonTitle || t, subject: activeSubject, slideIndex: 0 });
       setSavedLesson(null);
     } catch (e) {
-      if (mountedRef.current) setError(e?.response?.data?.error || e?.message || 'Could not generate the lesson. Please try again.');
+      if (mountedRef.current) setError(e?.response?.data?.error || e?.response?.data?.message || e?.message || 'Could not generate the lesson. Please try again.');
     } finally {
       if (mountedRef.current) setLoading(false);
     }
@@ -283,7 +289,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
 
             <Text style={[st.label, { marginTop: 20 }]}>SUBJECT</Text>
             <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 8, paddingVertical: 2 }}>
-              {SUBJECTS.map((subj) => (
+              {subjects.map((subj) => (
                 <PressableScale key={subj} style={[st.chip, activeSubject === subj && st.chipOn]} onPress={() => setActiveSubject(subj)}
                   accessibilityLabel={`Subject ${subj}`} accessibilityState={{ selected: activeSubject === subj }}>
                   <Text style={[st.chipTxt, activeSubject === subj && st.chipTxtOn]}>{subj}</Text>

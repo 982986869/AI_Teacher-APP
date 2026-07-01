@@ -3,15 +3,21 @@ import {
   View, Text, StyleSheet, SafeAreaView, ScrollView,
   TouchableOpacity, StatusBar, Platform, Image, Dimensions, ActivityIndicator, Alert,
 } from 'react-native';
-import * as Print from 'expo-print';
-import * as Sharing from 'expo-sharing';
+// Optional native modules (PDF export + share). Required defensively so a build
+// that lacks the native module (e.g. Expo Go) degrades gracefully instead of
+// crashing the whole app at load time. Same pattern as expo-av/expo-camera here.
+let Print = null;
+try { Print = require('expo-print'); } catch (e) { Print = null; }
+let Sharing = null;
+try { Sharing = require('expo-sharing'); } catch (e) { Sharing = null; }
 import { WebView } from 'react-native-webview';
 
 import { getExemplarSolutions, getNcertChapters, getQuestionsByPath, getNotesByPath } from '../api/resourcesApi';
 import { buildFragmentFromQuestions, buildPyqDocument } from '../utils/pyqDocument';
+import { isAllowedSubject } from '../utils/personalization';
 import { getChemistry12ExemplarHtml } from '../data/chemistry12Exemplar';
 import { useAuth } from '../context/AuthContext';
-import { ClassTabs } from '../components/ClassPicker';
+import { ClassTabs, ComingSoon, isClassReady } from '../components/ClassPicker';
 import { getChapterNotes } from '../notes/index';
 import Ch2Images from '../notes/images/Ch2Images';
 import ChapterNotesScreen, { buildHTML } from './ChapterNotesScreen';
@@ -709,8 +715,8 @@ const buildPaperDoc = (html) =>
 // ── Main Screen ───────────────────────────────────────────────────────────────
 const ResourcesScreen = () => {
   const [activeBoard,   setActiveBoard]   = useState('CBSE');
-  // Class is the app-wide selection (synced with the Practice tab & Home).
-  const { selectedClass: activeClass, setSelectedClass: setActiveClass } = useAuth();
+  // Class mirrors the student's SAVED class (synced with the Practice tab & Home).
+  const { selectedClass: activeClass, setSelectedClass: setActiveClass, scope } = useAuth();
   const [activeSubject, setActiveSubject] = useState(null);
   const [activeResType, setActiveResType] = useState(null);
   const [activeChapter, setActiveChapter] = useState(null);
@@ -725,12 +731,16 @@ const ResourcesScreen = () => {
   // Generate a PDF of the chapter notes and hand it to the OS share/save sheet.
   const handleDownloadNotes = async () => {
     if (downloading || !activeSubject || !activeChapter) return;
+    if (!Print || typeof Print.printToFileAsync !== 'function') {
+      Alert.alert('Not available', 'PDF export isn’t available in this app build. You can still read the notes on screen.');
+      return;
+    }
     setDownloading(true);
     try {
       const notes = getChapterNotes(activeSubject.name, activeChapter.name);
       const html = buildHTML(notes, activeChapter.name);
       const { uri } = await Print.printToFileAsync({ html, base64: false });
-      if (await Sharing.isAvailableAsync()) {
+      if (Sharing && (await Sharing.isAvailableAsync())) {
         await Sharing.shareAsync(uri, {
           mimeType: 'application/pdf',
           dialogTitle: `${activeChapter.name} — Notes`,
@@ -1374,26 +1384,33 @@ const ResourcesScreen = () => {
         <Text style={s.headerTitle}>Resources</Text>
       </View>
       <Breadcrumb parts={['Home', 'Student Subscription']} />
-      <ClassTabs value={activeClass} onChange={setActiveClass} />
-      <View style={s.pageTitleWrap}>
-        <Text style={s.pageTitle}>Subjects</Text>
-        <Text style={s.pageSub}>Select a subject to explore</Text>
-        <Text style={s.boardLabel}>{activeClass}</Text>
-      </View>
-      <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
-        {SUBJECTS.map((subject, i) => (
-          <TouchableOpacity key={i} style={s.subjectRow} onPress={() => setActiveSubject(subject)} activeOpacity={0.8}>
-            <View style={[s.subjectIconWrap, { backgroundColor: subject.bg }]}>
-              <Text style={{ fontSize: 26 }}>{subject.emoji}</Text>
-            </View>
-            <View style={{ flex: 1 }}>
-              <Text style={s.subjectName}>{subject.name}</Text>
-              <Text style={s.subjectSub}>Tap to view resources</Text>
-            </View>
-            <Text style={s.listArrow}>→</Text>
-          </TouchableOpacity>
-        ))}
-      </ScrollView>
+      {/* Students are locked to their own class; only show the switcher if unset. */}
+      {!scope?.classNum && <ClassTabs value={activeClass} onChange={setActiveClass} />}
+      {scope?.role === 'student' && scope?.className && !isClassReady(scope.className) ? (
+        <ComingSoon label="Resources" />
+      ) : (
+        <>
+          <View style={s.pageTitleWrap}>
+            <Text style={s.pageTitle}>Subjects</Text>
+            <Text style={s.pageSub}>Select a subject to explore</Text>
+            <Text style={s.boardLabel}>{activeClass}</Text>
+          </View>
+          <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
+            {SUBJECTS.filter((subject) => isAllowedSubject(subject.name, scope?.classNum, scope?.stream)).map((subject, i) => (
+              <TouchableOpacity key={i} style={s.subjectRow} onPress={() => setActiveSubject(subject)} activeOpacity={0.8}>
+                <View style={[s.subjectIconWrap, { backgroundColor: subject.bg }]}>
+                  <Text style={{ fontSize: 26 }}>{subject.emoji}</Text>
+                </View>
+                <View style={{ flex: 1 }}>
+                  <Text style={s.subjectName}>{subject.name}</Text>
+                  <Text style={s.subjectSub}>Tap to view resources</Text>
+                </View>
+                <Text style={s.listArrow}>→</Text>
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
+        </>
+      )}
     </SafeAreaView>
   );
 };

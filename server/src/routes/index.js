@@ -13,6 +13,8 @@ router.use('/resources', require('./resources'))
 router.use('/mcq-practice', require('./mcqPractice'))
 router.use('/mock-tests', require('./mockTests'))
 router.use('/brain-gym',  require('./brainGym'))
+router.use('/arena',      require('./arena'))
+router.use('/parent',     require('./parent'))
 router.use('/learning',   require('./learning'))
 
 module.exports = router

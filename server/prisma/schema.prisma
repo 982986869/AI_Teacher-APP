@@ -652,3 +652,30 @@ model generation_history {
   @@map("generation_history")
 }
 
+// Arena battles — one row per asynchronous match (player vs bot/ghost opponent).
+// Accessed via raw SQL in services/arena; modelled here to keep the schema accurate.
+model arena_matches {
+  id             String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId         String    @db.Uuid
+  game           String    @default("no_attack")
+  puzzle         Json
+  status         String    @default("pending") // pending | done | abandoned
+  opponentName   String
+  opponentIsBot  Boolean   @default(true)
+  opponentSolved Boolean   @default(false)
+  opponentTimeMs Int       @default(0)
+  opponentScore  Int       @default(0)
+  userSolved     Boolean   @default(false)
+  userTimeMs     Int       @default(0)
+  userScore      Int       @default(0)
+  result         String? // win | loss | draw
+  xpEarned       Int       @default(0)
+  ratingBefore   Int       @default(1000)
+  ratingAfter    Int       @default(1000)
+  createdAt      DateTime  @default(now()) @db.Timestamptz(6)
+  completedAt    DateTime? @db.Timestamptz(6)
+
+  @@index([userId, createdAt(sort: Desc)], map: "arena_user_idx")
+  @@index([game, status, userSolved], map: "arena_ghost_idx")
+}
+

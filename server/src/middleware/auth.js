@@ -4,9 +4,11 @@ const jwt = require('jsonwebtoken')
 const db = require('../config/database')
 const { config } = require('../config/env')
 const { AppError } = require('./errorHandler')
+const { deriveScope } = require('../services/personalization/scope')
 
 /**
- * Verifies the Bearer token and attaches req.user.
+ * Verifies the Bearer token and attaches req.user (incl. personalization fields) and
+ * req.scope (normalized role/class/stream/subjects used to personalize + enforce).
  * Returns 401 for missing/invalid/expired tokens.
  */
 async function authenticate(req, res, next) {
@@ -29,10 +31,15 @@ async function authenticate(req, res, next) {
 
   let user
   try {
-    user = await db.user.findUnique({
-      where: { id: decoded.sub },
-      select: { id: true, name: true, email: true, phone: true, grade: true },
-    })
+    // Raw select so we get the personalization columns without needing a Prisma client
+    // regen; role::text avoids enum-value surprises.
+    const rows = await db.$queryRawUnsafe(
+      `SELECT id, name, email, phone, grade, role::text AS role,
+              board, stream, language, school, account_type, linked_student_id
+         FROM "users" WHERE id = $1::uuid LIMIT 1`,
+      decoded.sub,
+    )
+    user = rows && rows[0]
   } catch (err) {
     // Transient DB issue (e.g. Supabase pooler connection reset / P1001). Surface a
     // clean 503 instead of letting the rejection crash the whole server.
@@ -44,6 +51,7 @@ async function authenticate(req, res, next) {
   }
 
   req.user = user
+  req.scope = deriveScope(user)
   next()
 }
 

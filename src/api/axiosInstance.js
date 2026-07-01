@@ -14,15 +14,17 @@ const axiosInstance = axios.create({
 let onUnauthorized = null;
 export const setUnauthorizedHandler = (fn) => { onUnauthorized = fn; };
 
+// AuthContext registers this so a 422 PROFILE_INCOMPLETE (the backend refusing to
+// serve class-scoped content because the profile has no class) re-syncs the user and
+// routes them into onboarding/CompleteProfile — never silently shows another class.
+let onProfileIncomplete = null;
+export const setProfileIncompleteHandler = (fn) => { onProfileIncomplete = fn; };
+
 // Attach JWT to every request
 axiosInstance.interceptors.request.use(
   async (config) => {
     const token = await getToken();
     if (token) config.headers.Authorization = `Bearer ${token}`;
-    console.log(
-      '[AXIOS]', (config.method || 'get').toUpperCase(), config.url,
-      '| Authorization:', config.headers.Authorization || '(none)'
-    );
     return config;
   },
   (error) => Promise.reject(error)
@@ -40,6 +42,12 @@ axiosInstance.interceptors.response.use(
     if (status === 401 && !isAuthRoute && onUnauthorized) {
       console.warn('[AXIOS] 401 on', url, '— clearing stale session and routing to login.');
       onUnauthorized();
+    }
+    // Backend says the profile is incomplete → refresh scope so AppNavigator sends
+    // the user to CompleteProfile instead of showing an error.
+    if (status === 422 && error.response?.data?.code === 'PROFILE_INCOMPLETE' && onProfileIncomplete) {
+      console.warn('[AXIOS] PROFILE_INCOMPLETE on', url, '— re-syncing profile.');
+      onProfileIncomplete();
     }
     return Promise.reject(error);
   }

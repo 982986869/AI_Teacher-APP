@@ -448,7 +448,7 @@ async function ask(params) {
       ? `Here is the key idea. ${String(contexts[0].content).split('\n').slice(1).join(' ').slice(0, 160)} Clear?`
       : "This isn't in your material yet. Ask me about your topic and I'll explain it. Clear?"
   } else {
-    rawAnswer = await getAIProvider().generateTeacherResponse({ intent, language, contexts, lesson, history: trimmedHistory, question, slideIndex, level, studentContext })
+    rawAnswer = await getAIProvider().generateTeacherResponse({ intent, language, contexts, lesson, history: trimmedHistory, question, slideIndex, level, studentContext, gradeLevel })
   }
   const guarded = applyGuard(rawAnswer, { language })
   logEngagement({ userId, subject, intent, contexts })
@@ -503,7 +503,7 @@ async function askStream(params, { onMeta, onDelta } = {}) {
     if (onDelta) onDelta(raw)
   } else {
     raw = await getAIProvider().streamTeacherResponse(
-      { intent, language, contexts, lesson, history: history.slice(-8), question, slideIndex, level, studentContext },
+      { intent, language, contexts, lesson, history: history.slice(-8), question, slideIndex, level, studentContext, gradeLevel },
       (t) => { if (onDelta) onDelta(t) }
     )
   }
