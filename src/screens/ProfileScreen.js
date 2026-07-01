@@ -31,9 +31,15 @@ const MENU_ITEMS = [
 ];
 
 const ProfileScreen = () => {
-  const { user, signOut } = useAuth();
+  const { user, signOut, scope } = useAuth();
   const firstName = user?.name?.split(' ')[0] || 'Student';
   const [notifs, setNotifs] = useState(true);
+  // Real profile line from the user's scope (no hardcoded grade).
+  const profileLine = [
+    scope?.className,
+    scope?.stream ? scope.stream.toUpperCase() : null,
+    scope?.board,
+  ].filter(Boolean).join('  •  ') || 'Complete your profile';
 
   // Confirm, then clear token + user from AuthContext. AppNavigator swaps the
   // whole tree on `isAuthenticated`, so this returns to Login with no back-stack
@@ -60,7 +66,7 @@ const ProfileScreen = () => {
             <View style={s.avatarEdit}><Text style={{ fontSize: 10 }}>✏️</Text></View>
           </View>
           <Text style={s.profileName}>{user?.name || 'Student'}</Text>
-          <Text style={s.profileRole}>Grade 9  •  Curious Learner</Text>
+          <Text style={s.profileRole}>{profileLine}</Text>
           <Text style={s.profileEmail}>{user?.email || user?.phone || 'student@ailernova.com'}</Text>
           <View style={s.statsRow}>
             {[{ n: '29', l: 'Tests' }, { n: '1250', l: 'XP Points' }, { n: '7', l: 'Day Streak' }, { n: '#3', l: 'Rank' }].map((st, i) => (

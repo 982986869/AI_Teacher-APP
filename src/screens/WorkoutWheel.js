@@ -8,6 +8,8 @@ import {
 import Svg, { Path, Circle, G, Rect, Text as SvgText } from 'react-native-svg';
 import { useAuth } from '../context/AuthContext';
 import { FONT } from '../constants/fonts';
+import { initSounds, playLoop, playSound, stopSound } from '../utils/sound';
+import ArcTabs from './braingym/ArcTabs';
 
 const { width: SCREEN_W } = Dimensions.get('window');
 const WHEEL_SIZE = Math.min(SCREEN_W - 40, 330);
@@ -50,6 +52,9 @@ const COL = {
 // Faint radar rings behind the wheel.
 const RADAR_RINGS = [30, 46, 62, 78, 150, 166];
 
+// First-run coach mark shown once per app session.
+let coachSeen = false;
+
 const WorkoutWheel = ({
   topic = 'Exponents Basics & Evaluation',
   user = {},
@@ -61,6 +66,8 @@ const WorkoutWheel = ({
   onSelectSkill,
   activeTab = 'workout',
   onTabPress,
+  onBack,
+  onLeaderboard,
 }) => {
   const { user: authUser } = useAuth();
   const u = user || {};
@@ -85,6 +92,8 @@ const WorkoutWheel = ({
   const [spinning, setSpinning] = useState(false);
   const [landed, setLanded] = useState(null);
   const [showStreak, setShowStreak] = useState(true);
+  const [coach, setCoach] = useState(!coachSeen);
+  const dismissCoach = () => { coachSeen = true; setCoach(false); };
 
   const pulse = useRef(new Animated.Value(0)).current;
   const enter = useRef(new Animated.Value(0)).current;
@@ -104,6 +113,12 @@ const WorkoutWheel = ({
     return () => loop.stop();
   }, [enter, pulse]);
 
+  // Load the wheel sounds once; stop any looping tick if we leave mid-spin.
+  useEffect(() => {
+    initSounds();
+    return () => { stopSound('tick'); };
+  }, []);
+
   // Physically spin the wheel: rotate so the randomly chosen segment decelerates
   // to a stop under the top pointer. Does NOT auto-start — the user confirms after.
   const spinTo = () => {
@@ -119,10 +134,13 @@ const WorkoutWheel = ({
     if (delta < 0) delta += 360;
     const next = rotRef.current + 360 * 4 + delta;
     rotRef.current = next;
+    playLoop('tick'); // ratchet sound while it spins (no-op if assets are placeholders)
     Animated.timing(rotation, {
       toValue: next, duration: 2600, easing: Easing.out(Easing.cubic), useNativeDriver: true,
     }).start(({ finished }) => {
+      stopSound('tick');
       if (!finished || !mountedRef.current) return;
+      playSound('success'); // landed on a skill
       setSpinning(false);
       setLit(target);
       lastLitRef.current = target;
@@ -225,6 +243,7 @@ const WorkoutWheel = ({
         const i = indexFromRot(snapped);
         lastLitRef.current = i;
         setLit(i);
+        playSound('tick'); // soft click as the drag snaps onto a skill
         setLanded(dataRef.current[i]); // same "landed" path as a random spin
       });
     },
@@ -235,6 +254,9 @@ const WorkoutWheel = ({
   const pulseScale = pulse.interpolate({ inputRange: [0, 1], outputRange: [1, 1.05] });
   const enterScale = enter.interpolate({ inputRange: [0, 1], outputRange: [0.88, 1] });
   const btnPx = (WHEEL_SIZE * (2 * 58)) / VB;
+  // The category currently under the pointer (updates live as the wheel turns) —
+  // shown big below the wheel, Cuemath-style.
+  const cur = data[lit] || data[0] || { label: '', key: '' };
 
   return (
     <SafeAreaView style={s.safe}>
@@ -244,6 +266,12 @@ const WorkoutWheel = ({
       {/* Header */}
       <View style={s.header}>
         <View style={s.userRow}>
+          {!!onBack && (
+            <TouchableOpacity onPress={onBack} style={s.backBtn} activeOpacity={0.85}
+              accessibilityRole="button" accessibilityLabel="Back to home" hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}>
+              <Text style={s.backTxt}>‹</Text>
+            </TouchableOpacity>
+          )}
           <View style={s.avatar}><Text style={{ fontSize: 22 }}>🙂</Text></View>
           <View>
             <View style={{ flexDirection: 'row', alignItems: 'flex-start' }}>
@@ -255,7 +283,10 @@ const WorkoutWheel = ({
         </View>
         <View style={s.statsRow}>
           <View style={s.boltPill}><Text style={s.boltTxt}>⚡⚡⚡</Text></View>
-          <View style={s.circleBadge}><Text style={{ fontSize: 14 }}>🏆</Text></View>
+          <TouchableOpacity style={s.circleBadge} onPress={onLeaderboard} activeOpacity={0.85}
+            accessibilityRole="button" accessibilityLabel="Leaderboard">
+            <Text style={{ fontSize: 14 }}>🏆</Text>
+          </TouchableOpacity>
           <View style={[s.circleBadge, s.streakBadge]}><Text style={s.streakNum}>0</Text></View>
         </View>
       </View>
@@ -358,9 +389,10 @@ const WorkoutWheel = ({
           </View>
         </Animated.View>
 
-        {landed ? (
-          <View style={s.confirmWrap}>
-            <Text style={s.selected}>{EMOJI[landed.key]} {landed.label} selected!</Text>
+        <View style={s.confirmWrap}>
+          <Text style={s.catName} numberOfLines={1}>{EMOJI[cur.key] ? `${EMOJI[cur.key]}  ` : ''}{cur.label}</Text>
+          <Text style={s.catSub} numberOfLines={1}>{cur.sub || topic}</Text>
+          {!!landed && (
             <View style={s.confirmRow}>
               <TouchableOpacity style={s.confirmBtn} activeOpacity={0.9} onPress={() => onStart && onStart(landed)}>
                 <Text style={s.confirmTxt}>Start ▶</Text>
@@ -369,24 +401,33 @@ const WorkoutWheel = ({
                 <Text style={s.respinTxt}>↻ Spin again</Text>
               </TouchableOpacity>
             </View>
-          </View>
-        ) : (
-          <Text style={s.topic}>{topic}</Text>
-        )}
+          )}
+        </View>
       </View>
 
-      {/* Bottom tabs */}
-      <View style={s.tabs}>
-        {[{ key: 'practice', label: 'PRACTICE' }, { key: 'workout', label: 'WORKOUT' }, { key: 'arena', label: 'ARENA' }].map((t) => {
-          const active = activeTab === t.key;
-          return (
-            <TouchableOpacity key={t.key} style={[s.tab, active && s.tabActive]} activeOpacity={0.85}
-              onPress={() => onTabPress && onTabPress(t.key)}>
-              <Text style={[s.tabTxt, active && s.tabTxtActive]}>{t.label}</Text>
-            </TouchableOpacity>
-          );
-        })}
-      </View>
+      {/* Bottom tabs — Cuemath-style curved selector (active spins to centre) */}
+      <ArcTabs active={activeTab} onTabPress={onTabPress} />
+
+      {/* First-run coach mark */}
+      {coach && (
+        <View style={s.coachOverlay} pointerEvents="box-none">
+          <View style={s.coachCard}>
+            <Text style={s.coachTxt}>Select a challenge and{'\n'}tap START to begin.</Text>
+            <View style={s.coachRow}>
+              {!!onBack && (
+                <TouchableOpacity onPress={() => { dismissCoach(); onBack(); }} style={s.coachBack} activeOpacity={0.85}
+                  accessibilityRole="button" accessibilityLabel="Back">
+                  <Text style={s.coachBackTxt}>←</Text>
+                </TouchableOpacity>
+              )}
+              <TouchableOpacity onPress={dismissCoach} style={s.coachBtn} activeOpacity={0.9}
+                accessibilityRole="button" accessibilityLabel="Got it">
+                <Text style={s.coachBtnTxt}>Got it!</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      )}
     </SafeAreaView>
   );
 };
@@ -421,6 +462,22 @@ const s = StyleSheet.create({
 
   topic: { color: COL.white, fontSize: 17, fontFamily: FONT.bold, marginTop: 26, letterSpacing: -0.2, textAlign: 'center' },
   selected: { color: COL.green, fontSize: 17, fontFamily: FONT.black, textAlign: 'center', letterSpacing: 0.2 },
+
+  // Back button (top-left of the header) + big Cuemath-style category name below the wheel
+  backBtn: { width: 38, height: 38, borderRadius: 19, backgroundColor: '#16161A', borderWidth: 1.5, borderColor: COL.segStroke, alignItems: 'center', justifyContent: 'center' },
+  backTxt: { color: COL.white, fontSize: 24, fontFamily: FONT.black, marginTop: -3 },
+
+  // First-run coach mark
+  coachOverlay: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(0,0,0,0.55)', justifyContent: 'flex-end', padding: 22, paddingBottom: 110 },
+  coachCard: { alignItems: 'center', gap: 18 },
+  coachTxt: { color: '#fff', fontSize: 16, fontFamily: FONT.bold, textAlign: 'center', lineHeight: 23 },
+  coachRow: { flexDirection: 'row', alignItems: 'center', gap: 14, alignSelf: 'stretch', justifyContent: 'center' },
+  coachBack: { width: 46, height: 46, borderRadius: 23, borderWidth: 1.5, borderColor: 'rgba(255,255,255,0.4)', alignItems: 'center', justifyContent: 'center' },
+  coachBackTxt: { color: '#fff', fontSize: 20, fontWeight: '900' },
+  coachBtn: { backgroundColor: '#fff', borderRadius: 26, paddingVertical: 14, paddingHorizontal: 40 },
+  coachBtnTxt: { color: '#0B0B0D', fontSize: 15, fontFamily: FONT.black, letterSpacing: 0.3 },
+  catName: { color: COL.white, fontSize: 24, fontFamily: FONT.black, letterSpacing: 0.5, textAlign: 'center', marginTop: 22 },
+  catSub: { color: COL.sub, fontSize: 13, fontFamily: FONT.bold, textAlign: 'center', marginTop: 5, letterSpacing: 0.2 },
 
   // Top pointer (downward triangle) marking the landed segment
   pointer: {

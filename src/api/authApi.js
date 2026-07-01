@@ -20,6 +20,19 @@ export const signupWithEmail = async ({ name, email, password, grade }) => {
   return res.data.data;
 };
 
+// ─── Profile / personalization ──────────────────────────────────────────────────
+// GET current user + derived scope (role, class, stream, subjects).
+export const fetchMe = async () => {
+  const res = await axiosInstance.get('/api/auth/me');
+  return res.data.data; // { user, scope }
+};
+
+// PATCH profile (complete-profile / migration): grade, board, stream, language, school, accountType.
+export const updateProfileApi = async (patch) => {
+  const res = await axiosInstance.patch('/api/auth/profile', patch);
+  return res.data.data; // { user, scope }
+};
+
 // ─── Google Auth ──────────────────────────────────────────────────────────────
 
 export const loginWithGoogle = async ({ idToken }) => {

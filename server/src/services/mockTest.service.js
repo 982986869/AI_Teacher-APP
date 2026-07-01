@@ -11,9 +11,9 @@ const { AppError } = require('../middleware/errorHandler')
 const POINTS_PER_CORRECT = 1
 const NEGATIVE = 0
 
-// classLevel (9–12) separates Class 12 mocks from the original Class 11 rows;
-// defaults to 11 for back-compat (the column defaults existing rows to 11).
-async function listTests({ subject, classLevel = 11 } = {}) {
+// classLevel (the student's saved class) scopes the mocks. null → empty (never a
+// fallback class); the controller passes the authoritative class from req.scope.
+async function listTests({ subject, classLevel = null } = {}) {
   return db.$queryRawUnsafe(
     `SELECT id, subject, name,
             category_full_name AS "categoryFullName",
@@ -26,6 +26,16 @@ async function listTests({ subject, classLevel = 11 } = {}) {
       ORDER BY id`,
     subject || null, classLevel,
   )
+}
+
+// Lightweight class/subject lookup so the controller can enforce that a student only
+// opens tests for their own class + syllabus (the by-id endpoints are otherwise open).
+async function getTestMeta(id) {
+  const [row] = await db.$queryRawUnsafe(
+    `SELECT class_level AS "classLevel", subject FROM mock_tests WHERE id = $1`,
+    id,
+  )
+  return row || null
 }
 
 async function getTest(id) {
@@ -111,7 +121,7 @@ async function getQuestions(id) {
 
 // Per-test attempt summary for a user (best score), optionally filtered by subject.
 // Used to show "Attempted · Score x/total" in the mock-test list.
-async function listAttempts({ subject, userId, classLevel = 11 }) {
+async function listAttempts({ subject, userId, classLevel = null }) {
   if (!userId) return []
   return db.$queryRawUnsafe(
     `SELECT a.test_id AS "testId", count(*)::int AS attempts,
@@ -155,4 +165,4 @@ async function submit({ id, userId, answers = {}, timeTakenSec = 0 }) {
   return { total, attempted, correct, wrong, skipped: total - attempted, score, pointsPerCorrect: POINTS_PER_CORRECT, negative: NEGATIVE }
 }
 
-module.exports = { listTests, getTest, getQuestions, submit, listAttempts }
+module.exports = { listTests, getTest, getTestMeta, getQuestions, submit, listAttempts }

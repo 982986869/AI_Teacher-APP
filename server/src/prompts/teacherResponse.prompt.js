@@ -60,6 +60,20 @@ const LEVEL_LINE = {
 }
 const levelLine = (level) => LEVEL_LINE[level] || LEVEL_LINE.intermediate
 
+// Class-based depth floor. The teacher ALWAYS answers the question — this only sets
+// HOW DEEP to go, from the student's saved class. Never refuse or call a topic
+// "out of syllabus"; for a topic above the class, give the simple core idea.
+function classDepthLine(gradeLevel) {
+  const m = String(gradeLevel == null ? '' : gradeLevel).match(/\d{1,2}/)
+  const n = m ? parseInt(m[0], 10) : null
+  if (!n) return ''
+  const tail = ' Always answer — never say it is outside the syllabus. If the topic is from a higher class, give the simple core idea and you may note it is studied in more depth later.'
+  if (n <= 6) return `CLASS DEPTH — Class ${n}: use very simple everyday words and one daily-life example. No formulas, notation, or derivations.${tail}`
+  if (n <= 8) return `CLASS DEPTH — Class ${n}: simple, intuitive explanation with one everyday example. Only light, class-appropriate formulas.${tail}`
+  if (n <= 10) return `CLASS DEPTH — Class ${n}: board-level explanation — clear definition, standard formula, one simple example.${tail}`
+  return `CLASS DEPTH — Class ${n}: full higher-secondary depth — proper formulas, notation, a short derivation and a worked example where useful.`
+}
+
 // Adaptive re-explanation strategy — switch approach instead of repeating words.
 const STRATEGY_LINE = {
   simpler: 'RE-EXPLAIN: the student did not understand. Use even simpler, everyday words and shorter sentences. Do NOT repeat your previous phrasing.',
@@ -122,10 +136,11 @@ function studentMemoryBlock(sc) {
     + 'Just speak like a teacher who genuinely remembers them.\n'
 }
 
-function buildTeacherSystemPrompt({ intent, language, contexts = [], lesson = null, level = 'intermediate', strategy = null, studentContext = null }) {
+function buildTeacherSystemPrompt({ intent, language, contexts = [], lesson = null, level = 'intermediate', strategy = null, studentContext = null, gradeLevel = null }) {
   const shape = INTENT_SHAPE[intent] || INTENT_SHAPE.concept_explanation
   const strategyBlock = strategy && STRATEGY_LINE[strategy] ? `\n${STRATEGY_LINE[strategy]}\n` : ''
   const memoryBlock = studentMemoryBlock(studentContext)
+  const classDepth = classDepthLine(gradeLevel)
 
   const grounding = contexts.length
     ? 'GROUNDING (source = curriculum) — answer using the retrieved material below. Do NOT invent facts, numbers, or formulas that contradict it. If it only partially helps, use what fits and keep the rest minimal.\n\nRETRIEVED MATERIAL:\n'
@@ -141,7 +156,7 @@ function buildTeacherSystemPrompt({ intent, language, contexts = [], lesson = nu
 ${grounding}${lessonLine}
 ${memoryBlock}
 ${levelLine(level)}
-${strategyBlock}
+${classDepth ? `${classDepth}\n` : ''}${strategyBlock}
 ${shape}
 
 HOW A REAL TEACHER ANSWERS (follow exactly):

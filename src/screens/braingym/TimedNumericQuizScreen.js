@@ -376,8 +376,8 @@ const TimedNumericQuizScreen = ({ level = 1, skill = 'reasoning', onComplete, on
     );
   }
 
-  const q = qs[index];
-  const progress = (index / qs.length) * 100;
+  const q = qs[index] || { q: '', answer: 0 };
+  const progress = qs.length ? (index / qs.length) * 100 : 0;
 
   // ── Quiz board ──
   return (

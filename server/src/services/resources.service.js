@@ -73,7 +73,7 @@ async function listSubjects() {
 
 // ─── Chapters of a subject (by slug) ──────────────────────────────────────────
 // If sectionType is given, only chapters that actually have that section.
-async function listChapters(subjectSlug, sectionType, classLevel = 11) {
+async function listChapters(subjectSlug, sectionType, classLevel = null) {
   const subject = await db.subjects.findUnique({ where: { slug: subjectSlug } })
   if (!subject) return null
   const where = { subject_id: subject.id, class_level: classLevel }
@@ -107,7 +107,7 @@ async function listQuestions(sectionId) {
 }
 
 // ─── Convenience: questions by subject/chapter/section-type slugs ─────────────
-async function getQuestionsByPath(subjectSlug, chapterSlug, sectionType, classLevel = 11) {
+async function getQuestionsByPath(subjectSlug, chapterSlug, sectionType, classLevel = null) {
   const section = await db.sections.findFirst({
     where: {
       type_key: sectionType,
@@ -120,7 +120,7 @@ async function getQuestionsByPath(subjectSlug, chapterSlug, sectionType, classLe
 
 // ─── Revision Notes for a chapter (notes table, by slugs) ─────────────────────
 // Returns { intro, blocks } for the chapter's revision_notes section, or null.
-async function getNotesByPath(subjectSlug, chapterSlug, classLevel = 11) {
+async function getNotesByPath(subjectSlug, chapterSlug, classLevel = null) {
   const section = await db.sections.findFirst({
     where: {
       type_key: 'revision_notes',
@@ -135,7 +135,7 @@ async function getNotesByPath(subjectSlug, chapterSlug, classLevel = 11) {
 
 // ─── Last Year Papers (papers table, raw SQL — not a Prisma model) ────────────
 // List: metadata only (no heavy HTML). Detail: one paper's question + answer HTML.
-async function listPapers(subjectSlug, classLevel = 12) {
+async function listPapers(subjectSlug, classLevel = null) {
   return db.$queryRawUnsafe(
     `SELECT p.ext_uid AS "extUid", p.code, p.year, p.set_label AS "setLabel",
             p.region, p.name, p.paper_title AS "paperTitle",
@@ -279,7 +279,7 @@ async function deletePapers(subjectSlug, classLevel, { extUid, code, year } = {}
 // ─── MCQ questions for a chapter (across all its sections) ────────────────────
 // MCQs aren't a section type of their own — they live inside pyq /
 // important_questions flagged is_mcq. Gather all of them for the chapter.
-async function getMcqByPath(subjectSlug, chapterSlug, classLevel = 11) {
+async function getMcqByPath(subjectSlug, chapterSlug, classLevel = null) {
   const subject = await db.subjects.findUnique({ where: { slug: subjectSlug } })
   if (!subject) return null
   const chapter = await db.chapters.findFirst({

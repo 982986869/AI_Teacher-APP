@@ -5,13 +5,13 @@ import axiosInstance from './axiosInstance';
 
 // GET /api/mock-tests?subject=Physics&class=12 → { tests, total }
 // classLevel (9–12) separates Class 12 mocks from Class 11; defaults to 11.
-export const listMockTests = async (subject = 'Physics', classLevel = 11) => {
+export const listMockTests = async (subject = 'Physics', classLevel) => {
   const res = await axiosInstance.get('/api/mock-tests', { params: { ...(subject ? { subject } : {}), class: classLevel } });
   return res.data.data;
 };
 
 // GET /api/mock-tests/attempts?subject=Physics&class=12 → { attempts:[{ testId, attempts, bestScore, total }] }
-export const listMockAttempts = async (subject, classLevel = 11) => {
+export const listMockAttempts = async (subject, classLevel) => {
   const res = await axiosInstance.get('/api/mock-tests/attempts', { params: { ...(subject ? { subject } : {}), class: classLevel } });
   return res.data.data;
 };

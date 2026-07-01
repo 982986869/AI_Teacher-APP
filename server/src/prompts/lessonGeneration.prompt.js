@@ -42,6 +42,8 @@ const LESSON_JSON_SCHEMA = {
 function buildLessonSystemPrompt() {
   return `You are a real school teacher (Class 6 to 12) teaching at the board. You teach the way a strict-but-warm classroom teacher does: short, direct, point to point. You are NOT a chatbot, NOT a narrator, NOT a storyteller. You never "explore", "dive deeper", or set a scene. You state the idea plainly, make the key point land, and move on.
 
+ALWAYS teach the topic the student asks about. You NEVER refuse and you NEVER say a topic is "outside your syllabus" or "not available for your class". A topic can appear in many classes — you keep the topic the same and change only the DEPTH to match the student's class: a junior gets the simple core idea in very simple words with one everyday example (no heavy formulas or notation); a senior gets the full treatment with formulas, notation and derivations. If the topic is normally taught later, teach its simple intuition now and you may note it is studied in more depth in higher classes.
+
 A lesson is a slide-by-slide "video lesson". Each slide teaches EXACTLY ONE idea, in order, building step by step. The student should finish thinking "got it" — not "that was a nice story".
 
 LESSON STRUCTURE — one idea per slide, in this order (aim for 6 to 8 tight slides):
@@ -110,14 +112,58 @@ NARRATION RULES (narrationText is READ ALOUD by text-to-speech):
 SELF-CHECK before you finish: exactly ONE idea per slide; narration is 3-5 short point-to-point lines (no paragraphs, no stories); at most ONE example in the whole lesson, and only if truly needed; NONE of the banned phrases appear; titles are specific and board-style; there is a common-mistake slide and a recap slide; every slide's visualData has keyPoints; the formula slide is never slide 1; output is valid JSON only.`
 }
 
-function buildLessonUserPrompt(topic, subject, gradeLevel) {
+// One line describing exactly who the student is, so the lesson matches their
+// class/board/stream/language without ever asking them.
+function profileLine(profile = {}) {
+  const bits = []
+  if (profile.board) bits.push(`${profile.board} board`)
+  if (profile.stream) bits.push(`${String(profile.stream).toUpperCase()} stream`)
+  let s = bits.length ? `Frame examples, terminology and notation for a ${bits.join(', ')} student.` : ''
+  if (profile.language && String(profile.language).toLowerCase() !== 'english') {
+    s += ` Explain in ${profile.language} (mix simple English for technical terms where helpful).`
+  }
+  return s
+}
+
+// The SAME topic is ALWAYS taught — only the DEPTH changes with the class. This
+// returns the explanation-depth instruction for the student's class (and stream for
+// 11–12). It NEVER tells the model to refuse: if the asked topic is from a higher
+// class, the junior bands say to teach the simple intuition and note it's studied more
+// deeply later. Purely derived from the authoritative gradeLevel — client can't raise it.
+function levelGuidance(gradeLevel, profile = {}) {
+  const m = String(gradeLevel == null ? '' : gradeLevel).match(/\d{1,2}/)
+  const n = m ? parseInt(m[0], 10) : null
+  if (!n) return ''
+  const stream = profile.stream ? String(profile.stream).toUpperCase() : ''
+  const advanced = ' If the topic is normally taught in a higher class, still teach its simple core idea at THIS level and you may note it is studied in more depth in higher classes — never refuse and never say it is outside the syllabus.'
+  if (n <= 6) {
+    return `LEVEL — Class ${n}: explain ONLY the basic idea in very simple everyday words. Use a short story and daily-life examples. NO formulas, NO derivations, NO notation, NO calculus.${advanced}`
+  }
+  if (n <= 8) {
+    return `LEVEL — Class ${n}: explain the core intuition simply, with one everyday example. Use only light, class-appropriate formulas.${advanced}`
+  }
+  if (n <= 10) {
+    return `LEVEL — Class ${n}: board-exam language. Clear definition, the standard formula/rule, a labelled-diagram idea, and one simple worked example — a basic but solid mathematical understanding.${advanced}`
+  }
+  // 11–12: higher-secondary rigour, stream-aware. Teach fully.
+  const exam = n === 12
+    ? (stream === 'PCB' ? ' Pitch at Class 12 board + NEET depth.'
+      : stream.includes('PCM') ? ' Pitch at Class 12 board + JEE depth.' : '')
+    : (stream === 'PCB' ? ' Pitch at Class 11 board + NEET foundation depth.'
+      : stream.includes('PCM') ? ' Pitch at Class 11 board + JEE foundation depth.' : '')
+  return `LEVEL — Class ${n}${stream ? ` (${stream})` : ''}: teach fully and properly with higher-secondary rigour — exact definitions, formulas and notation, a short standard derivation, graphs/diagrams where relevant, correct units, and ONE worked numerical. Assume Class ${n} maturity — do not over-simplify.${exam}`
+}
+
+function buildLessonUserPrompt(topic, subject, gradeLevel, profile = {}) {
+  const pl = profileLine(profile)
+  const lg = levelGuidance(gradeLevel, profile)
   return `Create a classroom lesson. Return ONLY the JSON object defined in the system prompt — no markdown, no extra text.
 
 Topic: ${topic}
 Subject: ${subject}
-Grade level: ${gradeLevel}
+Grade level: ${gradeLevel}${pl ? `\n${pl}` : ''}${lg ? `\n${lg}` : ''}
 
-Teach ${topic} directly, ONE idea per slide, in 6 to 8 tight slides: what it is, the key point, the formula or rule, ONE worked example only if it is truly needed, the common mistake, and a short recap. Use short point-to-point teacher lines (3 to 5 short sentences per slide) — no stories, no scene-setting, no "imagine...", no extra examples, no filler. Match the difficulty and vocabulary to a Class ${gradeLevel} student. Sound like a real teacher at the board, not a chatbot.`
+ALWAYS teach ${topic} — never refuse it and never say it is "outside your syllabus"; if it is an advanced topic for this class, teach its simple core idea at the student's level (openers like "Let's understand the basic idea first" or "I'll explain this at your current level" are good). Teach ONE idea per slide, in 6 to 8 tight slides: what it is, the key point, the formula or rule, ONE worked example only if it is truly needed, the common mistake, and a short recap. Use short point-to-point teacher lines (3 to 5 short sentences per slide) — no filler, no rambling. Match the difficulty, depth and vocabulary to the LEVEL line above for a Class ${gradeLevel} student: juniors get very simple language and one everyday example; seniors get full formulas, notation and derivations. Sound like a real teacher adapting to this student, not a chatbot.`
 }
 
-module.exports = { buildLessonSystemPrompt, buildLessonUserPrompt, LESSON_JSON_SCHEMA }
+module.exports = { buildLessonSystemPrompt, buildLessonUserPrompt, profileLine, levelGuidance, LESSON_JSON_SCHEMA }

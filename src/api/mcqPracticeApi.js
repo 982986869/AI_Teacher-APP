@@ -10,7 +10,7 @@ export const getMcqChaptersWithContent = async (subjectSlug, classLevel = 11) =>
     { params: { class: classLevel } })).data.data;
 
 // Subtopics of a chapter: [{ id, name, questionCount }]
-export const getMcqSubtopics = async (subjectSlug, chapterSlug, classLevel = 11) =>
+export const getMcqSubtopics = async (subjectSlug, chapterSlug, classLevel) =>
   (await axiosInstance.get(
     `/api/mcq-practice/${subjectSlug}/${chapterSlug}/subtopics`,
     { params: { class: classLevel } }
@@ -24,7 +24,7 @@ export const getMcqSubtopicTest = async (subtopicId) =>
 
 // Chapter-level test: all MCQs of a chapter (across subtopics). Same question shape.
 // Returns { questions:[...] } (empty if chapter has no MCQs, e.g. Physics).
-export const getMcqChapterTest = async (subjectSlug, chapterSlug, classLevel = 11) =>
+export const getMcqChapterTest = async (subjectSlug, chapterSlug, classLevel) =>
   (await axiosInstance.get(`/api/mcq-practice/${subjectSlug}/${chapterSlug}/test`,
     { params: { class: classLevel } })).data.data;
 
@@ -37,6 +37,6 @@ export const submitMcqTest = async (subtopicId, answers) =>
 // Per-user progress for a chapter:
 //   { chapter:{ total, answered, score }, subtopics:[{ id, name, total, answered, score }] }
 // answered>0 on a subtopic = show "Resume" instead of "Start".
-export const getMcqProgress = async (subjectSlug, chapterSlug, classLevel = 11) =>
+export const getMcqProgress = async (subjectSlug, chapterSlug, classLevel) =>
   (await axiosInstance.get(`/api/mcq-practice/${subjectSlug}/${chapterSlug}/progress`,
     { params: { class: classLevel } })).data.data;

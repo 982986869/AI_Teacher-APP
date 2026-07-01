@@ -3,6 +3,13 @@ import { useAuth } from '../../context/AuthContext';
 import WorkoutWheel from '../WorkoutWheel';
 import TimedNumericQuizScreen from './TimedNumericQuizScreen';
 import ArenaScreen from './ArenaScreen';
+import ArenaWheel from './ArenaWheel';
+import ArenaBattle from './ArenaBattle';
+import ArenaRectBattle from './ArenaRectBattle';
+import ArenaFlipBattle from './ArenaFlipBattle';
+import PracticeDartboard from './PracticeDartboard';
+import PracticeTileGame from './PracticeTileGame';
+import PracticeReward from './PracticeReward';
 
 // Self-contained Brain Gym flow: Wheel → (Start) → Quiz → (back) → Wheel, with an
 // Arena/leaderboard branch. This is the SAME wiring the old HomeScreen used, but
@@ -20,8 +27,17 @@ const gradeToLevel = (grade) => {
 
 const BrainGymFlow = ({ onFinish }) => {
   const { user } = useAuth();
-  const [step, setStep] = useState('wheel'); // 'wheel' | 'quiz' | 'arena'
+  const [step, setStep] = useState('wheel'); // wheel|quiz|arena|sticky|leaderboard|practice|practiceGame|practiceReward
   const [skill, setSkill] = useState('reasoning');
+  const [practicePts, setPracticePts] = useState(5);
+  const [rewardTab, setRewardTab] = useState('practice'); // where the reward returns to
+
+  // Tabs LOOP inside Brain Gym: Workout (wheel) · Practice (dartboard) · Arena (hub).
+  const handleTab = (tab) => {
+    if (tab === 'arena') setStep('arena');
+    else if (tab === 'practice') setStep('practice');
+    else setStep('wheel'); // workout
+  };
 
   if (step === 'quiz') {
     return (
@@ -35,8 +51,72 @@ const BrainGymFlow = ({ onFinish }) => {
     );
   }
 
+  // Arena tab → the Cuemath-style game wheel. START → live 1v1 battle flow.
   if (step === 'arena') {
+    return (
+      <ArenaWheel
+        onBack={() => setStep('wheel')}
+        onStartGame={(gameKey) => {
+          if (gameKey === 'strategy') setStep('rectbattle');     // dots → Rectangle It
+          else if (gameKey === 'speedrush') setStep('arenaTiles'); // tiles falling game
+          else setStep('flipbattle');                            // logic → Flip It Up
+        }}
+        onTabPress={handleTab}
+      />
+    );
+  }
+  // Arena · STRATEGY → Rectangle It (best-of-3 dot duel vs a live opponent).
+  if (step === 'rectbattle') {
+    return <ArenaRectBattle onExit={() => setStep('arena')} onTabPress={handleTab} />;
+  }
+  // Arena · SPEED RUSH → the falling-tiles speed game; game over → arena reward.
+  if (step === 'arenaTiles') {
+    return (
+      <PracticeTileGame
+        skill="fluency"
+        level={2}
+        onExit={() => setStep('arena')}
+        onGameOver={(score) => { setPracticePts(Math.max(5, score)); setRewardTab('arena'); setStep('reward'); }}
+      />
+    );
+  }
+  // Arena · LOGIC → Flip It Up (Lights Out puzzle).
+  if (step === 'flipbattle') {
+    return <ArenaFlipBattle onExit={() => setStep('arena')} onTabPress={handleTab} />;
+  }
+  // (legacy) No Attack duel — kept for a future wheel segment.
+  if (step === 'battle') {
+    return <ArenaBattle onExit={() => setStep('arena')} />;
+  }
+  // Leaderboard is reached from the wheel's top trophy icon.
+  if (step === 'leaderboard') {
     return <ArenaScreen onBack={() => setStep('wheel')} />;
+  }
+
+  // Practice tab → numbered dartboard landing → (tap centre) → math-tile game.
+  if (step === 'practice') {
+    return (
+      <PracticeDartboard
+        activeTab="practice"
+        onTabPress={handleTab}
+        onBack={() => setStep('wheel')}
+        onPlay={() => setStep('practiceGame')}
+      />
+    );
+  }
+  if (step === 'practiceGame') {
+    return (
+      <PracticeTileGame
+        skill="fluency"
+        level={2}
+        onExit={() => setStep('practice')}
+        onGameOver={(score) => { setPracticePts(Math.max(5, score)); setRewardTab('practice'); setStep('reward'); }}
+      />
+    );
+  }
+  // Game over → +points burst → daily streak → back to the launching wheel (auto).
+  if (step === 'reward') {
+    return <PracticeReward points={practicePts} activeTab={rewardTab} onTabPress={handleTab} onDone={() => setStep(rewardTab)} />;
   }
 
   // step === 'wheel'
@@ -51,14 +131,14 @@ const BrainGymFlow = ({ onFinish }) => {
         { key: 'fluency',       label: 'FLUENCY',       progress: 0.55 },
       ]}
       activeTab="workout"
+      // Clean exit back to Home (works for the home-opened overlay too).
+      onBack={() => onFinish && onFinish()}
+      onLeaderboard={() => setStep('leaderboard')}
       // Start the spin → land on a skill → open the question/quiz screen.
       onStart={(s) => { setSkill(s?.key || 'reasoning'); setStep('quiz'); }}
       onSelectSkill={() => {}}
-      // ARENA tab → leaderboard; any other tab → finish to Home.
-      onTabPress={(tab) => {
-        if (tab === 'arena') setStep('arena');
-        else if (tab !== 'workout') onFinish && onFinish();
-      }}
+      // Tabs LOOP inside Brain Gym (use the wheel's back button to exit to Home).
+      onTabPress={handleTab}
     />
   );
 };

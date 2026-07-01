@@ -2,10 +2,11 @@ import React, { useState, useRef } from 'react';
 import {
   View, Text, StyleSheet, SafeAreaView, ScrollView,
   TouchableOpacity, StatusBar, Dimensions, TextInput,
-  Platform, KeyboardAvoidingView, Animated,
+  Platform, KeyboardAvoidingView, Animated, Easing, Modal,
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
 import AITeacherScreen from './AITeacherScreen';
+import BrainGymFlow from './braingym/BrainGymFlow';
 
 const { width } = Dimensions.get('window');
 const PAD = 16;
@@ -68,6 +69,26 @@ const TypingDots = () => {
   );
 };
 
+// ─── Mini spinning-wheel hint (for the Brain Gym home card) ──────────────────
+// A small radar ring whose bright top-arc rotates continuously — a subtle "this
+// spins" cue. Native-driven, cleans up on unmount.
+const SpinHint = () => {
+  const r = useRef(new Animated.Value(0)).current;
+  React.useEffect(() => {
+    const loop = Animated.loop(Animated.timing(r, { toValue: 1, duration: 5200, easing: Easing.linear, useNativeDriver: true }));
+    loop.start();
+    return () => loop.stop();
+  }, [r]);
+  const spin = r.interpolate({ inputRange: [0, 1], outputRange: ['0deg', '360deg'] });
+  return (
+    <View style={s.bgWheel}>
+      <Animated.View style={[s.bgRing1, { transform: [{ rotate: spin }] }]} />
+      <View style={s.bgRing2} />
+      <View style={s.bgHub}><Text style={s.bgHubTxt}>GO</Text></View>
+    </View>
+  );
+};
+
 // ─── Main HomeScreen ──────────────────────────────────────────────────────────
 const HomeScreen = ({ navigation }) => {
   const { user, selectedClass } = useAuth();
@@ -87,6 +108,10 @@ const HomeScreen = ({ navigation }) => {
   const [showAITeacher, setShowAITeacher] = useState(false);
   const [seedTopic, setSeedTopic]         = useState('');
 
+  // Brain Gym (spinning wheel) opens as a full-screen overlay from Home — so it's
+  // reachable any time, not just on the post-login flow (no logout needed).
+  const [showBrainGym, setShowBrainGym] = useState(false);
+
   const currentChar = CHARS[charIdx];
 
   const openAITeacher = (topic = '') => {
@@ -102,6 +127,17 @@ const HomeScreen = ({ navigation }) => {
         initialTopic={seedTopic}
         onBack={() => setShowAITeacher(false)}
       />
+    );
+  }
+
+  // ── Brain Gym spinning wheel (opened from the Home card) ──
+  // Full-screen Modal so the app's bottom tab bar is hidden — the wheel gets the
+  // whole screen and looks clean/professional (no double bottom bar).
+  if (showBrainGym) {
+    return (
+      <Modal visible animationType="slide" statusBarTranslucent onRequestClose={() => setShowBrainGym(false)}>
+        <BrainGymFlow onFinish={() => setShowBrainGym(false)} />
+      </Modal>
     );
   }
 
@@ -226,6 +262,18 @@ const HomeScreen = ({ navigation }) => {
             </TouchableOpacity>
           </View>
         </View>
+
+        {/* ── BRAIN GYM (spinning wheel) ── */}
+        <TouchableOpacity style={s.bgCard} activeOpacity={0.9} onPress={() => setShowBrainGym(true)}
+          accessibilityRole="button" accessibilityLabel="Open Brain Gym, spin the wheel and play">
+          <SpinHint />
+          <View style={{ flex: 1 }}>
+            <Text style={s.bgTag}>BRAIN GYM</Text>
+            <Text style={s.bgTitle}>Spin the wheel & play</Text>
+            <Text style={s.bgSub}>Reasoning · Application · Fluency · more</Text>
+          </View>
+          <View style={s.bgPlay}><Text style={s.bgPlayTxt}>▶</Text></View>
+        </TouchableOpacity>
 
         {/* ── QUICK ACTIONS ── */}
         <View style={s.qaCard}>
@@ -483,6 +531,19 @@ const s = StyleSheet.create({
   clPct:      { fontSize: 10, color: '#8E8E93', marginTop: 5, fontWeight: '600' },
   clResume:   { backgroundColor: '#F0F0F0', borderRadius: 11, paddingVertical: 9, paddingHorizontal: 13, borderWidth: 1.5, borderColor: '#E8E8E8' },
   clResumeTxt:{ fontSize: 13, fontWeight: '800', color: '#1C1C1E' },
+
+  // Brain Gym (spinning wheel) card — dark, matches the wheel aesthetic
+  bgCard:    { marginHorizontal: PAD, marginBottom: 8, backgroundColor: '#0E0E10', borderRadius: 22, padding: 16, flexDirection: 'row', alignItems: 'center', gap: 14 },
+  bgWheel:   { width: 56, height: 56, borderRadius: 28, alignItems: 'center', justifyContent: 'center', backgroundColor: '#16161A', borderWidth: 1.5, borderColor: '#2C2C30' },
+  bgRing1:   { position: 'absolute', width: 48, height: 48, borderRadius: 24, borderWidth: 2, borderColor: 'rgba(90,103,232,0.18)', borderTopColor: '#5A67E8' },
+  bgRing2:   { position: 'absolute', width: 34, height: 34, borderRadius: 17, borderWidth: 1, borderColor: 'rgba(255,255,255,0.12)' },
+  bgHub:     { width: 24, height: 24, borderRadius: 12, backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center' },
+  bgHubTxt:  { fontSize: 8.5, fontWeight: '900', color: '#0E0E10', letterSpacing: 0.3 },
+  bgTag:     { fontSize: 9, fontWeight: '900', color: '#8E92F0', letterSpacing: 1.4 },
+  bgTitle:   { fontSize: 16, fontWeight: '900', color: '#fff', marginTop: 3, letterSpacing: -0.3 },
+  bgSub:     { fontSize: 10.5, fontWeight: '600', color: '#8E8E93', marginTop: 3 },
+  bgPlay:    { width: 38, height: 38, borderRadius: 19, backgroundColor: '#5A67E8', alignItems: 'center', justifyContent: 'center', shadowColor: '#5A67E8', shadowOpacity: 0.5, shadowRadius: 10, shadowOffset: { width: 0, height: 4 }, elevation: 5 },
+  bgPlayTxt: { color: '#fff', fontSize: 14, fontWeight: '900', marginLeft: 2 },
 
   // Quick actions
   qaCard:  { backgroundColor: '#fff', marginHorizontal: PAD, marginBottom: 8, borderRadius: 20, borderWidth: 1.5, borderColor: '#F0F0F0', paddingVertical: 12, paddingHorizontal: 6 },

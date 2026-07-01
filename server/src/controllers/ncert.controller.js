@@ -2,6 +2,8 @@
 
 const db = require('../config/database')
 const ApiResponse = require('../utils/ApiResponse')
+const { resolveClassName } = require('../services/personalization/enforce')
+const { assertSubjectAllowed } = require('../services/personalization/enforce')
 
 // NCERT Solutions (Part-I / Part-II), DB-backed. Uses raw SQL so it works without
 // regenerating the Prisma client (the ncert_solutions model exists in schema.prisma
@@ -14,12 +16,13 @@ async function getNcert(req, res, next) {
   try {
     const part = parseInt(req.query.part, 10) || 2
     const subject = String(req.query.subject || '').trim()
-    const className = String(req.query.class || req.query.className || 'Class 11').trim()
+    const className = resolveClassName(req)
     const chapter = String(req.query.chapter || '').trim()
 
     if (!subject || !chapter) {
       return ApiResponse.error(res, 'subject and chapter are required', 400)
     }
+    assertSubjectAllowed(req, subject)
 
     const rows = await db.$queryRaw`
       SELECT "sectionKey", "sectionLabel", html
@@ -35,6 +38,7 @@ async function getNcert(req, res, next) {
 
     return ApiResponse.success(res, { part, subject, className, chapter, sections })
   } catch (err) {
+    if (err.status) return ApiResponse.error(res, err.message, err.status)
     next(err)
   }
 }
@@ -45,7 +49,7 @@ async function getNcertChapters(req, res, next) {
   try {
     const part = parseInt(req.query.part, 10) || 2
     const subject = String(req.query.subject || '').trim()
-    const className = String(req.query.class || req.query.className || 'Class 11').trim()
+    const className = resolveClassName(req)
 
     if (!subject) {
       return ApiResponse.error(res, 'subject is required', 400)

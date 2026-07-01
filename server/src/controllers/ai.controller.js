@@ -11,6 +11,15 @@ const lessonService = require('../services/lesson.service')
 const ApiResponse = require('../utils/ApiResponse')
 const { AppError } = require('../middleware/errorHandler')
 
+// The AI Teacher only ever knows the student's OWN class/stream (from req.scope) —
+// never a client-supplied gradeLevel. Returns the class string or null.
+// NOTE: the AI Teacher ALWAYS teaches the asked topic — it never refuses a question as
+// "out of syllabus". Only the explanation DEPTH changes with the class (see the
+// class-level guidance in lessonGeneration.prompt.js / the agent). Content restriction
+// by class/stream applies to Practice/Resources/BrainGym, NOT to what the teacher will
+// explain when a student asks.
+const scopeGrade = (req) => (req.scope && req.scope.classNum ? String(req.scope.classNum) : null)
+
 // ─── POST /api/ai/lesson/generate ────────────────────────────────────────────
 
 async function generateLesson(req, res, next) {
@@ -18,13 +27,20 @@ async function generateLesson(req, res, next) {
     const errors = validationResult(req)
     if (!errors.isEmpty()) return ApiResponse.error(res, errors.array()[0].msg, 422)
 
-    const { topic, subject, gradeLevel } = req.body
+    const { topic, subject } = req.body
+    // The AI always teaches at the student's OWN class — never asks, never higher,
+    // never a client-supplied grade.
+    const grade = scopeGrade(req)
+    if (!grade) return ApiResponse.error(res, 'Complete your class profile to start lessons.', 422, 'PROFILE_INCOMPLETE')
 
     const lesson = await aiService.generateLesson({
       userId: req.user.id,
       topic,
       subject,
-      gradeLevel,
+      gradeLevel: grade,
+      board: req.scope && req.scope.board,
+      stream: req.scope && req.scope.stream,
+      language: req.scope && req.scope.language,
     })
 
     return ApiResponse.created(
@@ -114,13 +130,15 @@ async function ask(req, res, next) {
     const errors = validationResult(req)
     if (!errors.isEmpty()) return ApiResponse.error(res, errors.array()[0].msg, 422)
 
-    const { text, subject, gradeLevel, lessonId, slideIndex, history, level, pending } = req.body
+    const { text, subject, lessonId, slideIndex, history, level, pending } = req.body
+    const grade = scopeGrade(req)
+    if (!grade) return ApiResponse.error(res, 'Complete your class profile to use the AI Teacher.', 422, 'PROFILE_INCOMPLETE')
 
     const result = await agentService.ask({
       userId: req.user.id,
       text,
       subject,
-      gradeLevel,
+      gradeLevel: grade,
       lessonId,
       slideIndex: slideIndex !== undefined && slideIndex !== null ? Number(slideIndex) : undefined,
       history,
@@ -141,6 +159,11 @@ async function askStream(req, res, next) {
   const errors = validationResult(req)
   if (!errors.isEmpty()) return ApiResponse.error(res, errors.array()[0].msg, 422)
 
+  const { text, subject, lessonId, slideIndex, history, level, pending } = req.body
+  // Need the class to know WHICH LEVEL to teach at — but we never refuse the topic.
+  const grade = scopeGrade(req)
+  if (!grade) return ApiResponse.error(res, 'Complete your class profile to use the AI Teacher.', 422, 'PROFILE_INCOMPLETE')
+
   res.set({
     'Content-Type': 'text/event-stream',
     'Cache-Control': 'no-cache, no-transform',
@@ -150,11 +173,10 @@ async function askStream(req, res, next) {
   if (res.flushHeaders) res.flushHeaders()
   const send = (event, data) => res.write(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`)
 
-  const { text, subject, gradeLevel, lessonId, slideIndex, history, level, pending } = req.body
   try {
     const final = await agentService.askStream(
       {
-        userId: req.user.id, text, subject, gradeLevel, lessonId,
+        userId: req.user.id, text, subject, gradeLevel: grade, lessonId,
         slideIndex: slideIndex !== undefined && slideIndex !== null ? Number(slideIndex) : undefined,
         history, level, pending,
       },
