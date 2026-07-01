@@ -473,13 +473,25 @@ const CLASS6_EXEMPLAR_SECTIONS = [
   { key: 'chapter-end', label: 'Chapter-end', questions: [] },
 ];
 
-// Class 6 English chapters (NCERT "Poorvi"). Shown under the English textbook
-// tile. Sections are DB-backed and fetched by Ncert2Screen — as with Maths we
-// don't attach a local `sections` scaffold (that would make Ncert2Screen skip
-// the API and show empty "coming soon" sections).
+// Class 6 English chapters (NCERT "Poorvi"). Shown under the English NCERT
+// Solutions tile. Each chapter carries a local `sections` scaffold — the standard
+// Poorvi sub-topics ("Let us ...") — so Ncert2Screen lists them right away and
+// shows each as "coming soon" until its solution HTML is seeded.
 const CLASS6_ENGLISH_CHAPTERS = [
-  'A Bottle of Dew',
-].map((name) => ({ name }));
+  {
+    name: 'A Bottle of Dew',
+    sections: [
+      { key: 'before-we-read',  label: 'Let us do these activities before we read' },
+      { key: 'discuss',         label: 'Let us discuss' },
+      { key: 'think-reflect',   label: 'Let us think and reflect' },
+      { key: 'learn',           label: 'Let us learn' },
+      { key: 'listen',          label: 'Let us listen' },
+      { key: 'speak',           label: 'Let us speak' },
+      { key: 'write',           label: 'Let us write' },
+      { key: 'explore',         label: 'Let us explore' },
+    ],
+  },
+];
 
 // Class 6 (CBSE) subjects — the old NCERT books plus the new-syllabus titles
 // (Science → Curiosity, Maths → Ganita Prakash, English → Poorvi). Maths carries
@@ -1376,7 +1388,9 @@ const ResourcesScreen = () => {
         onBack={() => setShowCards(false)}
         title={activeResType.name}
         breadcrumb={['Home', activeClass, activeSubject.name, activeResType.name]}
-        localSections={activeChapter.sections || null}
+        // Revision Notes (part 4) stays DB-backed; the local sub-topic scaffold
+        // (e.g. Class 6 English "Let us ..." sections) is for the solution tiles.
+        localSections={activeResType.part === 4 ? null : (activeChapter.sections || null)}
       />
     );
   }
