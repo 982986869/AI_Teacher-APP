@@ -408,6 +408,43 @@ const CLASS6_MATHS_CHAPTERS = [
   'Practical Geometry',
 ].map((name) => ({ name }));
 
+// Class 6 Science (Curiosity) & English (Poorvi) chapters — Revision Notes are
+// DB-backed (ncert_solutions part=4) and rendered by Ncert2Screen. Names must match
+// the DB exactly (apostrophes normalized to straight quotes by the importer).
+const CLASS6_SCIENCE_CURIOSITY_CHAPTERS = [
+  'The Wonderful World of Science',
+  'Diversity in the Living World',
+  'Mindful Eating: A Path to a Healthy Body',
+  'Exploring Magnets',
+  'Measurement of Length and Motion',
+  'Materials Around Us',
+  'Temperature and its Measurement',
+  'A Journey through States of Water',
+  'Methods of Separation in Everyday Life',
+  'Living Creatures: Exploring their Characteristics',
+  "Nature's Treasures",
+  'Beyond Earth',
+].map((name) => ({ name }));
+
+const CLASS6_ENGLISH_POORVI_CHAPTERS = [
+  'A Bottle of Dew',
+  'The Raven and the Fox',
+  'Rama to the Rescue',
+  'The Unlikely Best Friends',
+  "A Friend's Prayer",
+  'The Chair',
+  'Neem Baba',
+  'What a Bird Thought',
+  'Spices that Heal Us',
+  'Change of Heart',
+  'The Winner',
+  'Yoga - A Way of Life',
+  'Hamara Bharat- Incredible India!',
+  'The Kites',
+  'Ila Sachani: Embroidering Dreams with her Feet',
+  'National War Memorial',
+].map((name) => ({ name }));
+
 // Class 6 Mathematics NCERT Exemplar chapters — the 12 textbook chapters plus
 // Symmetry and Practical Geometry (14 total). Shown under the "Exemplar Solutions"
 // tile for the Class 6 Maths subjects (a different, longer list than the textbook).
@@ -436,6 +473,14 @@ const CLASS6_EXEMPLAR_SECTIONS = [
   { key: 'chapter-end', label: 'Chapter-end', questions: [] },
 ];
 
+// Class 6 English chapters (NCERT "Poorvi"). Shown under the English textbook
+// tile. Sections are DB-backed and fetched by Ncert2Screen — as with Maths we
+// don't attach a local `sections` scaffold (that would make Ncert2Screen skip
+// the API and show empty "coming soon" sections).
+const CLASS6_ENGLISH_CHAPTERS = [
+  'A Bottle of Dew',
+].map((name) => ({ name }));
+
 // Class 6 (CBSE) subjects — the old NCERT books plus the new-syllabus titles
 // (Science → Curiosity, Maths → Ganita Prakash, English → Poorvi). Maths carries
 // the NCERT textbook + Exemplar chapter lists; the other books' content is still
@@ -443,8 +488,8 @@ const CLASS6_EXEMPLAR_SECTIONS = [
 const SUBJECTS_CLASS6 = [
   { name: 'Science (OLD)',          emoji: '🔬', bg: '#5AA84F', chapters: [], comingSoon: true },
   { name: 'Maths (OLD)',            emoji: '📐', bg: '#E8703A', chapters: CLASS6_MATHS_CHAPTERS, exemplarChapters: CLASS6_MATHS_EXEMPLAR_CHAPTERS },
-  { name: 'Science (Curiosity)',    emoji: '🔬', bg: '#5AA84F', chapters: [], comingSoon: true },
-  { name: 'English (Poorvi)',       emoji: '📖', bg: '#7A6FD0', chapters: [], comingSoon: true },
+  { name: 'Science (Curiosity)',    emoji: '🔬', bg: '#5AA84F', chapters: CLASS6_SCIENCE_CURIOSITY_CHAPTERS },
+  { name: 'English (Poorvi)',       emoji: '📖', bg: '#7A6FD0', chapters: CLASS6_ENGLISH_POORVI_CHAPTERS },
   { name: 'Maths (Ganita Prakash)', emoji: '📐', bg: '#E8703A', chapters: CLASS6_MATHS_CHAPTERS, exemplarChapters: CLASS6_MATHS_EXEMPLAR_CHAPTERS },
 ];
 
@@ -547,14 +592,15 @@ const getResourceTypes = (subjectName, classLevel) => {
   // Class 6 books aren't split into Part-I / Part-II — replace both NCERT tiles
   // with a single revised-book tile, e.g. "Class 06 - Mathematics - Revised".
   if (classLevel === 'Class 6') {
-    const core = /math|ganita/i.test(subjectName) ? 'Mathematics'
-      : /science|curiosity/i.test(subjectName) ? 'Science'
-        : /english|poorvi/i.test(subjectName) ? 'English'
-          : subjectName;
-    // Both tiles use the ncert2 WebView flow (HTML + MathJax). `part` picks the
-    // dataset in ncert_solutions: 2 = textbook, 3 = NCERT Exemplar (MCQs).
-    const bookTile = { icon: '📗', name: `Class 06 - ${core} - Revised`, sub: 'Textbook Solutions', type: 'ncert2', part: 2 };
-    const exemplarTile = { icon: '🧩', name: `Class 06 - ${core} - Exemplar`, sub: 'Exemplar Solutions', type: 'ncert2', part: 3 };
+    // Science (Curiosity) / English (Poorvi): DB-backed Revision Notes (part=4),
+    // rendered via the ncert2 WebView flow (HTML note cards).
+    if (!/math|ganita/i.test(subjectName)) {
+      return [{ icon: '📝', name: 'Revision Notes', sub: 'Chapter Notes', type: 'ncert2', part: 4 }];
+    }
+    // Maths: both tiles use the ncert2 WebView flow. `part` picks the dataset in
+    // ncert_solutions: 2 = textbook, 3 = NCERT Exemplar (MCQs).
+    const bookTile = { icon: '📗', name: 'Class 06 - Mathematics - Revised', sub: 'Textbook Solutions', type: 'ncert2', part: 2 };
+    const exemplarTile = { icon: '🧩', name: 'Class 06 - Mathematics - Exemplar', sub: 'Exemplar Solutions', type: 'ncert2', part: 3 };
     return base
       .filter((rt) => rt.type !== 'ncert1' && rt.type !== 'ncert2')
       .flatMap((rt) => (rt.type === 'exemplar' ? [bookTile, exemplarTile] : [rt]));
