@@ -21,7 +21,7 @@ import { getMcqQuestions } from '../data/mcqQuestions';
 import { getSubtopicTest } from '../data/subtopicBank';
 import { listMockTests, getMockTestQuestions, listMockAttempts, submitMockTest } from '../api/mockTestsApi';
 import { useAuth } from '../context/AuthContext';
-import { ClassTabs, ComingSoon, isClassReady } from '../components/ClassPicker';
+import { ClassTabs, ComingSoon } from '../components/ClassPicker';
 
 // Subjects with DB-backed mock tests (served by mockTestsApi). The Mock Test
 // button opens a subject -> mock list flow that runs each test through the
@@ -478,7 +478,7 @@ const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
 };
 
 const PracticeScreen = () => {
-  const { selectedClass, setSelectedClass, scope } = useAuth();
+  const { selectedClass, setSelectedClass, scope, isClassReady } = useAuth();
 
   // Previous Year Papers navigation
   const [pyqOpen, setPyqOpen]       = useState(false);   // showing the PYQ subject list

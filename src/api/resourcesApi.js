@@ -6,6 +6,11 @@ import axiosInstance from './axiosInstance';
 export const getSubjects = async () =>
   (await axiosInstance.get('/api/resources/subjects')).data.data;
 
+// Which classes currently have content in the DB, e.g. ['Class 6','Class 11','Class 12'].
+// Drives the "show content vs coming-soon" gate — no hardcoded class list needed.
+export const getContentClasses = async () =>
+  (await axiosInstance.get('/api/resources/classes')).data.data.classes;
+
 // classLevel (9–12) selects the grade; defaults to 11 for back-compat.
 export const getChapters = async (subjectSlug, sectionType, classLevel) =>
   (await axiosInstance.get(`/api/resources/subjects/${subjectSlug}/chapters`, {

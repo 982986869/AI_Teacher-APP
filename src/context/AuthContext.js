@@ -4,6 +4,7 @@ import { setUnauthorizedHandler, setProfileIncompleteHandler } from '../api/axio
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { deriveScope } from '../utils/personalization';
 import { fetchMe, updateProfileApi } from '../api/authApi';
+import { getContentClasses } from '../api/resourcesApi';
 
 const AuthContext = createContext(null);
 
@@ -19,6 +20,10 @@ export const AuthProvider = ({ children }) => {
   // it is not a free class switcher. Starts null and is set from scope once the user
   // loads, so we never default anyone to Class 11.
   const [selectedClass, setSelClass]    = useState(null);
+  // Classes that currently have content, fetched from the backend (which reads the DB).
+  // null = not loaded yet. This replaces the old hardcoded READY map, so adding content
+  // to the DB automatically makes a class "ready" — no code change needed.
+  const [readyClasses, setReadyClasses] = useState(null);
 
   useEffect(() => {
     (async () => {
@@ -71,6 +76,21 @@ export const AuthProvider = ({ children }) => {
   // Derived scope (role, class, stream, subjects) — single source of truth for the UI.
   const scope = useMemo(() => deriveScope(user), [user]);
 
+  // Load (and refresh on login) the set of classes that have content in the DB.
+  useEffect(() => {
+    if (!token) return;
+    getContentClasses()
+      .then((list) => { if (Array.isArray(list)) setReadyClasses(new Set(list)); })
+      .catch(() => {});
+  }, [token]);
+
+  // Is a class ready to show content? Backend-driven; while it's still loading we stay
+  // optimistic (show content, which has its own loaders) rather than flashing "coming soon".
+  const isClassReady = useCallback(
+    (cls) => (!cls ? false : (readyClasses ? readyClasses.has(cls) : true)),
+    [readyClasses],
+  );
+
   // Keep the legacy selectedClass aligned to the user's real class.
   useEffect(() => {
     if (scope.className) setSelClass(scope.className);
@@ -114,6 +134,7 @@ export const AuthProvider = ({ children }) => {
       justLoggedIn,
       selectedClass, setSelectedClass,
       scope,                       // { role, classNum, className, stream, board, language, subjects, complete }
+      readyClasses, isClassReady,  // backend-driven "which classes have content" gate
       updateProfile,
       signIn, signOut, completeOnboarding,
     }}>

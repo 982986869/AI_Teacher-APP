@@ -27,16 +27,22 @@ const ringArc = (a0, a1, r) => {
 
 // STRATEGY top-left · LOGIC top-right · SPEED RUSH bottom (matches the screenshot)
 const SEGS = [
-  { key: 'strategy',  label: 'STRATEGY GAME', a0: 240, a1: 360, mid: 300, base: '#1C7A45' },
-  { key: 'logic',     label: 'LOGIC PUZZLE',  a0: 0,   a1: 120, mid: 60,  base: '#16161A' },
-  { key: 'speedrush', label: 'SPEED RUSH',    a0: 120, a1: 240, mid: 180, base: '#16161A' },
+  { key: 'strategy', label: 'STRATEGY GAME', a0: 240, a1: 360, mid: 300, base: '#1C7A45' },
+  { key: 'logic',    label: 'LOGIC PUZZLE',  a0: 0,   a1: 120, mid: 60,  base: '#16161A' },
+  { key: 'sticks',   label: 'MATCHSTICKS',   a0: 120, a1: 240, mid: 180, base: '#16161A' },
 ];
-const GAME_NAME = { speedrush: 'Multiplication Madness', strategy: 'Rectangle It', logic: 'Logic Puzzle' };
+const GAME_NAME = { sticks: 'Matchstick Move', strategy: 'Rectangle It', logic: 'Logic Puzzle' };
 const RADAR = [22, 38, 54, 70, 150, 168, 186];
 
 function Icon({ k, x, y, selected }) {
-  if (k === 'speedrush') {                         // pink answer-tile
-    return <Rect x={x - 16} y={y - 9} width={32} height={18} rx={9} fill="#F25CC1" />;
+  if (k === 'sticks') {                            // two crossed matchsticks (amber)
+    const col = selected ? '#1A1A1F' : '#F2A93B';
+    return (
+      <G>
+        <Rect x={x - 12} y={y - 3} width={24} height={5} rx={2.5} fill={col} transform={`rotate(-18 ${x} ${y})`} />
+        <Rect x={x - 12} y={y - 1} width={24} height={5} rx={2.5} fill={col} transform={`rotate(18 ${x} ${y})`} />
+      </G>
+    );
   }
   if (k === 'strategy') {                          // 2×2 dots (Rectangle It)
     const o = 7;
@@ -62,7 +68,7 @@ export default function ArenaWheel({ onStartGame, onTabPress, onBack }) {
   const { user } = useAuth();
   const name = user?.name || 'kumkum02';
   const grade = user?.grade || 'G11';
-  const [selected, setSelected] = useState('speedrush');
+  const [selected, setSelected] = useState('sticks');
 
   return (
     <SafeAreaView style={st.safe}>

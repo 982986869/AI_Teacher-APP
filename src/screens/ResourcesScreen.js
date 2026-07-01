@@ -16,7 +16,7 @@ import { getExemplarSolutions, getNcertChapters, getChapters, getQuestionsByPath
 import { buildFragmentFromQuestions, buildPyqDocument } from '../utils/pyqDocument';
 import { isAllowedSubject } from '../utils/personalization';
 import { useAuth } from '../context/AuthContext';
-import { ClassTabs, ComingSoon, isClassReady } from '../components/ClassPicker';
+import { ClassTabs, ComingSoon } from '../components/ClassPicker';
 import { getChapterNotes } from '../notes/index';
 import Ch2Images from '../notes/images/Ch2Images';
 import ChapterNotesScreen, { buildHTML } from './ChapterNotesScreen';
@@ -877,7 +877,7 @@ const buildPaperDoc = (html) =>
 const ResourcesScreen = () => {
   const [activeBoard,   setActiveBoard]   = useState('CBSE');
   // Class mirrors the student's SAVED class (synced with the Practice tab & Home).
-  const { selectedClass: activeClass, setSelectedClass: setActiveClass, scope } = useAuth();
+  const { selectedClass: activeClass, setSelectedClass: setActiveClass, scope, isClassReady } = useAuth();
   // Numeric grade parsed from 'Class 12' → 12 for the ?class= API param. No fallback:
   // the backend uses the student's saved class regardless of what we send.
   const classNum = parseInt(String(activeClass || '').replace(/\D/g, ''), 10) || null;
@@ -891,6 +891,22 @@ const ResourcesScreen = () => {
   const [showChapterEnd, setShowChapterEnd] = useState(false);
   const [activeSectionQs, setActiveSectionQs] = useState([]);
   const [downloading,    setDownloading]    = useState(false);
+
+  // Open a subject. When it has only ONE resource type, skip the redundant
+  // "resource type" screen (LEVEL 2) and jump straight to its chapters (LEVEL 3),
+  // so e.g. Class 6 English/Science go Subject → Chapters → content in one tap less.
+  const openSubject = (subject) => {
+    const types = getResourceTypes(subject.name, activeClass);
+    setActiveSubject(subject);
+    setActiveResType(types.length === 1 ? types[0] : null);
+  };
+  // True when the current subject auto-selected its (single) resource type, so the
+  // Chapters back button should return to the subjects list, not an empty LEVEL 2.
+  const singleResType = activeSubject && getResourceTypes(activeSubject.name, activeClass).length === 1;
+  const backFromChapters = () => {
+    if (singleResType) { setActiveSubject(null); setActiveResType(null); }
+    else setActiveResType(null);
+  };
 
   // Generate a PDF of the chapter notes and hand it to the OS share/save sheet.
   const handleDownloadNotes = async () => {
@@ -1570,7 +1586,7 @@ const ResourcesScreen = () => {
       <SafeAreaView style={s.safe}>
         <StatusBar barStyle="dark-content" backgroundColor="#fff" />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
-        <BackHeader onBack={() => setActiveResType(null)} />
+        <BackHeader onBack={backFromChapters} />
         <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name]} />
         <View style={s.pageTitleWrap}>
           <Text style={s.pageTitle}>Chapters</Text>
@@ -1666,9 +1682,12 @@ const ResourcesScreen = () => {
           <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
             {(activeClass === 'Class 6' ? SUBJECTS_CLASS6 : SUBJECTS)
               .filter((subject) => !(activeClass === 'Class 12' && subject.name === 'Biology'))
-              .filter((subject) => isAllowedSubject(subject.name, scope?.classNum, scope?.stream))
+              // Stream filter (hide Biology from PCM etc.) only applies to senior classes
+              // (11/12). Junior lists (e.g. Class 6's "Maths (OLD)", "English (Poorvi)")
+              // are already curated, so don't run them through the subject-name check.
+              .filter((subject) => (scope?.classNum >= 11 ? isAllowedSubject(subject.name, scope.classNum, scope.stream) : true))
               .map((subject, i) => (
-              <TouchableOpacity key={i} style={s.subjectRow} onPress={() => setActiveSubject(subject)} activeOpacity={0.8}>
+              <TouchableOpacity key={i} style={s.subjectRow} onPress={() => openSubject(subject)} activeOpacity={0.8}>
                 <View style={[s.subjectIconWrap, { backgroundColor: subject.bg }]}>
                   <Text style={{ fontSize: 26 }}>{subject.emoji}</Text>
                 </View>

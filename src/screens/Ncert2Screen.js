@@ -228,6 +228,8 @@ export default function Ncert2Screen({
     // away with no network dependency. Each section's own `html` supplies content.
     if (hasLocal) {
       setSections(localSections);
+      // A single section = no real choice → open its content straight away.
+      setOpenIndex(localSections.length === 1 ? 0 : null);
       setLoading(false);
       return () => { alive = false; };
     }
@@ -235,7 +237,11 @@ export default function Ncert2Screen({
     getNcertSolutions({ part, subject: subjectName, className, chapter: chapterName })
       .then((d) => {
         if (!alive) return;
-        setSections((d && d.sections) || []);
+        const secs = (d && d.sections) || [];
+        setSections(secs);
+        // Chapter opens straight to its content when there's only one section
+        // (e.g. Class 6 English/Science) — no pointless one-item list in between.
+        setOpenIndex(secs.length === 1 ? 0 : null);
         setLoading(false);
       })
       .catch((e) => {
@@ -247,7 +253,9 @@ export default function Ncert2Screen({
   }, [part, subjectName, chapterName, className, retry, localSections, hasLocal]);
 
   const handleBack = () => {
-    if (openIndex != null) setOpenIndex(null);
+    // With a single section we auto-open its content, so "back" from that content
+    // must return to the chapters list — not a pointless one-item section list.
+    if (openIndex != null && sections.length > 1) setOpenIndex(null);
     else if (onBack) onBack();
   };
 
@@ -299,7 +307,7 @@ export default function Ncert2Screen({
       ) : (
         <View style={{ flex: 1, backgroundColor: PAGE_BG }}>
           <View style={styles.subBreadcrumbWrap}>
-            <Breadcrumb items={breadcrumb} currentLabel={active.label} onCrumbPress={() => setOpenIndex(null)} />
+            <Breadcrumb items={breadcrumb} currentLabel={active.label} onCrumbPress={() => { if (sections.length > 1) setOpenIndex(null); else if (onBack) onBack(); }} />
           </View>
           <SectionContent
             html={active.html}

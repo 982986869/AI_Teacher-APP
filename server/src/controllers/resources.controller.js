@@ -119,4 +119,14 @@ async function deletePapers(req, res, next) {
   } catch (err) { next(err) }
 }
 
-module.exports = { getSubjects, getChapters, getSections, getQuestions, getQuestionsByPath, getNotesByPath, listPapers, getPaper, importPapers, deletePapers, getMcqByPath }
+// GET /api/resources/classes → { classes: ['Class 6','Class 11','Class 12'] }
+// Which classes currently have content — the app uses this instead of a hardcoded
+// list, so adding content to the DB automatically unlocks that class.
+async function getClasses(req, res, next) {
+  try {
+    const classes = await svc.listContentClasses()
+    return ApiResponse.success(res, { classes })
+  } catch (err) { next(err) }
+}
+
+module.exports = { getSubjects, getChapters, getSections, getQuestions, getQuestionsByPath, getNotesByPath, listPapers, getPaper, importPapers, deletePapers, getMcqByPath, getClasses }

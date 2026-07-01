@@ -7,6 +7,7 @@ import ArenaWheel from './ArenaWheel';
 import ArenaBattle from './ArenaBattle';
 import ArenaRectBattle from './ArenaRectBattle';
 import ArenaFlipBattle from './ArenaFlipBattle';
+import ArenaStickBattle from './ArenaStickBattle';
 import PracticeDartboard from './PracticeDartboard';
 import PracticeTileGame from './PracticeTileGame';
 import PracticeReward from './PracticeReward';
@@ -58,7 +59,7 @@ const BrainGymFlow = ({ onFinish }) => {
         onBack={() => setStep('wheel')}
         onStartGame={(gameKey) => {
           if (gameKey === 'strategy') setStep('rectbattle');     // dots → Rectangle It
-          else if (gameKey === 'speedrush') setStep('arenaTiles'); // tiles falling game
+          else if (gameKey === 'sticks') setStep('arenaSticks'); // Matchsticks puzzle
           else setStep('flipbattle');                            // logic → Flip It Up
         }}
         onTabPress={handleTab}
@@ -69,16 +70,11 @@ const BrainGymFlow = ({ onFinish }) => {
   if (step === 'rectbattle') {
     return <ArenaRectBattle onExit={() => setStep('arena')} onTabPress={handleTab} />;
   }
-  // Arena · SPEED RUSH → the falling-tiles speed game; game over → arena reward.
-  if (step === 'arenaTiles') {
-    return (
-      <PracticeTileGame
-        skill="fluency"
-        level={2}
-        onExit={() => setStep('arena')}
-        onGameOver={(score) => { setPracticePts(Math.max(5, score)); setRewardTab('arena'); setStep('reward'); }}
-      />
-    );
+  // Arena · MATCHSTICKS → Cuemath-style stick puzzle (self-contained: how-to → game
+  // → reward). Replaces the old falling-tiles game here; the tiles game still lives in
+  // the Practice tab below.
+  if (step === 'arenaSticks') {
+    return <ArenaStickBattle onExit={() => setStep('arena')} onTabPress={handleTab} />;
   }
   // Arena · LOGIC → Flip It Up (Lights Out puzzle).
   if (step === 'flipbattle') {

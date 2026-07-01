@@ -293,6 +293,29 @@ async function getMcqByPath(subjectSlug, chapterSlug, classLevel = null) {
   return rows.map(toMcq).filter(Boolean)
 }
 
+// Distinct classes ('Class N') that currently have ANY resources content in the DB.
+// This drives the app's "show content vs coming-soon" gate, so simply adding content
+// to the DB makes a class available automatically — no frontend/code change needed.
+async function listContentClasses() {
+  const set = new Set()
+  const add = (v) => {
+    if (v == null) return
+    const m = String(v).match(/\d{1,2}/)
+    if (!m) return
+    const n = parseInt(m[0], 10)
+    if (n >= 1 && n <= 12) set.add(n)
+  }
+  // Each source is best-effort — a missing/empty table must not fail the whole call.
+  const safe = async (sql, col) => {
+    try { (await db.$queryRawUnsafe(sql)).forEach((r) => add(r[col])) } catch (_) { /* skip this source */ }
+  }
+  await safe('SELECT DISTINCT class_level FROM chapters', 'class_level')
+  await safe('SELECT DISTINCT "className" FROM ncert_solutions', 'className')
+  await safe('SELECT DISTINCT "className" FROM exemplar_solutions', 'className')
+  await safe('SELECT DISTINCT class_level FROM mock_tests', 'class_level')
+  return Array.from(set).sort((a, b) => a - b).map((n) => `Class ${n}`)
+}
+
 module.exports = {
   listSubjects,
   listChapters,
@@ -305,4 +328,5 @@ module.exports = {
   upsertPapers,
   deletePapers,
   getMcqByPath,
+  listContentClasses,
 }
