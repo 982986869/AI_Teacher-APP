@@ -8,7 +8,7 @@ import { View, Text, Pressable, Modal, ScrollView, StyleSheet } from 'react-nati
 import { Ionicons } from '@expo/vector-icons';
 
 export const CLASSES = ['Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10', 'Class 11', 'Class 12'];
-export const READY = { 'Class 11': true };   // classes that currently have content
+export const READY = { 'Class 6': true, 'Class 11': true };   // classes that currently have content
 export const isClassReady = (c) => !!READY[c];
 
 const TEAL = '#0FA39A';

@@ -34,6 +34,12 @@ const SUBJECTS = [
   { name: 'Biology',     emoji: '🧬', bg: '#B0306B' },
 ];
 
+// Class 6 has a single combined Science (OLD) subject (DB-backed, class_level=6).
+const SUBJECTS_CLASS6 = [
+  { name: 'Science (OLD)', emoji: '🔬', bg: '#5AA84F' },
+];
+const subjectsForClass = (classLevel) => (classLevel === 6 ? SUBJECTS_CLASS6 : SUBJECTS);
+
 const pct = (n) => `${Math.round((n + Number.EPSILON) * 100) / 100}`;
 
 // A track with the answered portion split into green (correct) and red (wrong).
@@ -114,29 +120,31 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
   const [picker, setPicker] = useState(false);
   const { selectedClass } = useAuth();
   const classLevel = classNum(selectedClass);
-  const subjMeta = SUBJECTS.find((s) => s.name === subject) || SUBJECTS[0];
-  // Biology isn't offered in Class 12 — hide it from the picker there, and fall
-  // back to Physics if it was the active subject when the class switched.
-  const subjectOptions = SUBJECTS.filter((s) => !(classLevel === 12 && s.name === 'Biology'));
+  const subjectOptions = subjectsForClass(classLevel).filter((s) => !(classLevel === 12 && s.name === 'Biology'));
+  const subjMeta = subjectOptions.find((s) => s.name === subject) || subjectOptions[0];
+  // Keep the active subject valid for the selected class: Class 6 has only
+  // Science (OLD); Class 12 drops Biology. Reset when the current pick isn't offered.
   useEffect(() => {
-    if (classLevel === 12 && subject === 'Biology') setSubject('Physics');
-  }, [classLevel, subject]);
-  // Class 12 Physics, Chemistry & Mathematics practice are DB-backed (imported at
-  // class_level=12) → fetch their chapters from the API and use API subtopics.
-  // Every other subject/class keeps the DB-backed MCQ_DATA static bank.
-  const isDb12 = classLevel === 12 && (subject === 'Physics' || subject === 'Chemistry' || subject === 'Mathematics');
+    if (!subjectOptions.some((s) => s.name === subject)) setSubject(subjectOptions[0].name);
+  }, [classLevel, subject]); // eslint-disable-line react-hooks/exhaustive-deps
+  // DB-backed practice: Class 12 Physics/Chemistry/Mathematics (class_level=12) and
+  // Class 6 Science (OLD) (class_level=6) → fetch chapters from the API + API
+  // subtopics. Every other subject/class keeps the static MCQ_DATA bank.
+  const isDbApi =
+    (classLevel === 12 && (subject === 'Physics' || subject === 'Chemistry' || subject === 'Mathematics')) ||
+    (classLevel === 6 && subject === 'Science (OLD)');
   const [apiChapters, setApiChapters] = useState(null); // null = loading
   useEffect(() => {
-    if (!isDb12) { setApiChapters(null); return undefined; }
+    if (!isDbApi) { setApiChapters(null); return undefined; }
     let alive = true;
     setApiChapters(null);
-    getChapters(slugify(subject), undefined, 12)
+    getChapters(slugify(subject), undefined, classLevel)
       .then((chs) => { if (alive) setApiChapters((chs || []).map((c) => c.name)); })
       .catch(() => { if (alive) setApiChapters([]); });
     return () => { alive = false; };
-  }, [isDb12, subject]);
-  const chaptersLoading = isDb12 && apiChapters == null;
-  const chapters = isDb12
+  }, [isDbApi, subject, classLevel]);
+  const chaptersLoading = isDbApi && apiChapters == null;
+  const chapters = isDbApi
     ? (apiChapters || [])
     : Object.keys(MCQ_DATA[subject] || {});
 

@@ -60,7 +60,14 @@ const C = {
 // `online12` flag routes the chapter list + questions through the API, then splits
 // them into 5 generic tests). `apiSlug` is the DB subject slug ('mathematics' for
 // Maths). Other subjects (and Class 11) stay on the generic offline banks.
-const buildSubjects = (selectedClass, c12) => {
+const buildSubjects = (selectedClass, c12, c6Maths) => {
+  // Class 6 Maths (Ganita Prakash) online tests are DB-backed (online12 API path).
+  // Science (OLD) has no online_test data, so it is not listed here.
+  if (selectedClass === 'Class 6') {
+    return [
+      { key: 'maths-ganita-prakash', apiSlug: 'maths-ganita-prakash', name: 'Maths (Ganita Prakash)', emoji: '\u{1F4D0}', tile: C.sandSoft, chapters: c6Maths, getQuestions: null, online12: true },
+    ];
+  }
   const isC12 = selectedClass === 'Class 12';
   const phys = isC12
     ? { chapters: c12.physics, getQuestions: null, online12: true }
@@ -87,9 +94,11 @@ export default function OnlineTestsScreen({ onBack, onStartTest = () => {}, sele
   // Class 12 Physics online tests are DB-backed: chapter list + per-chapter
   // questions are fetched from the API and normalized for TestQuestionScreen.
   const isClass12 = selectedClass === 'Class 12';
+  const classNum = parseInt(String(selectedClass).replace(/\D/g, ''), 10) || 11;
   const [c12Chapters, setC12Chapters] = useState({ physics: [], chemistry: [], maths: [] });
+  const [c6Maths, setC6Maths] = useState([]);
   const [apiQuestions, setApiQuestions] = useState({ loading: false, list: [] });
-  const SUBJECTS = buildSubjects(selectedClass, c12Chapters);
+  const SUBJECTS = buildSubjects(selectedClass, c12Chapters, c6Maths);
 
   useEffect(() => {
     if (!isClass12) { setC12Chapters({ physics: [], chemistry: [], maths: [] }); return undefined; }
@@ -103,17 +112,26 @@ export default function OnlineTestsScreen({ onBack, onStartTest = () => {}, sele
     return () => { alive = false; };
   }, [isClass12]);
 
+  // Class 6 Maths (Ganita Prakash) online-test chapters (DB-backed).
+  useEffect(() => {
+    if (selectedClass !== 'Class 6') { setC6Maths([]); return undefined; }
+    let alive = true;
+    const norm = (chs) => (chs || []).map((c) => ({ id: c.slug, name: c.name, slug: c.slug }));
+    getChapters('maths-ganita-prakash', 'online_test', 6)
+      .then((chs) => { if (alive) setC6Maths(norm(chs)); })
+      .catch(() => { if (alive) setC6Maths([]); });
+    return () => { alive = false; };
+  }, [selectedClass]);
+
   useEffect(() => {
     if (!subject?.online12 || !chapter) return undefined;
     let alive = true;
     setApiQuestions({ loading: true, list: [] });
-    getQuestionsByPath(subject.apiSlug, chapter.slug, 'online_test', 12)
+    getQuestionsByPath(subject.apiSlug, chapter.slug, 'online_test', classNum)
       .then((qs) => { if (alive) setApiQuestions({ loading: false, list: (qs || []).map(normalizeApiQuestion) }); })
       .catch(() => { if (alive) setApiQuestions({ loading: false, list: [] }); });
     return () => { alive = false; };
   }, [subject, chapter]);
-
-  const TESTS_PER_CHAPTER = 5;
 
   const Header = ({ title, subtitle }) => (
     <View style={s.header}>
@@ -168,19 +186,20 @@ export default function OnlineTestsScreen({ onBack, onStartTest = () => {}, sele
     }
     const shortName = chapter.name.length > 26 ? chapter.name.slice(0, 24) + '\u2026' : chapter.name;
     // DB-backed (Class 12 Physics/Chemistry/Maths) pulls the chapter's questions
-    // from the API; offline subjects use their bank. Either way we split into 5
-    // roughly-equal tests.
+    // from the API; offline subjects use their bank. All of a chapter's questions
+    // are merged into a SINGLE test (no 5-way split).
     const all = subject.online12 ? apiQuestions.list : (subject.getQuestions(chapter.id) || []);
-    const per = Math.ceil(all.length / TESTS_PER_CHAPTER) || 0;
-    const tests = Array.from({ length: TESTS_PER_CHAPTER }, (_, t) => ({
-      label: `${shortName} Test-${String(t + 1).padStart(2, '0')}`,
-      questions: all.slice(t * per, (t + 1) * per),
-    }));
+    const tests = all.length ? [{ label: `${shortName} Test`, questions: all }] : [];
     return (
       <SafeAreaView style={s.safe}>
         <StatusBar barStyle="dark-content" backgroundColor={C.headerMint} />
-        <Header title={chapter.name} subtitle="Select an online test to explore" />
+        <Header title={chapter.name} subtitle="Start the chapter test" />
         <ScrollView contentContainerStyle={s.body} showsVerticalScrollIndicator={false}>
+          {tests.length === 0 && (
+            <View style={{ paddingVertical: 48, alignItems: 'center' }}>
+              <Text style={{ color: C.textMuted, fontSize: 14 }}>No questions available yet.</Text>
+            </View>
+          )}
           {tests.map((t, ti) => (
             <Pressable
               key={ti}

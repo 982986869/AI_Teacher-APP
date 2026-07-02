@@ -1,0 +1,31 @@
+{
+  "subject": "CBSE Class 06 - Science (OLD)",
+  "subject_id": 1595,
+  "chapters": 16,
+  "sections": {
+    "Practice": {
+      "extracted": 160,
+      "total_available": 2210,
+      "status": "preview only (paywall)"
+    },
+    "NCERT_Solutions": {
+      "pdfs": 16
+    },
+    "Revision_Notes": {
+      "pdfs": 16
+    },
+    "Worksheets": {
+      "pdfs": 16
+    },
+    "Flashcards": {
+      "cards": 510,
+      "chapters": 16,
+      "status": "done (free)"
+    },
+    "Online_Tests": {
+      "tests_fetched": 1,
+      "questions": 15,
+      "note": "mechanism works (GET+echo-submit); need per-chapter testPaperID list to fetch all ~16 free tests"
+    }
+  }
+}

@@ -10,6 +10,7 @@ import { WebView } from 'react-native-webview';
 import { getExemplarSolutions, getNcertChapters, getChapters, getQuestionsByPath, getNotesByPath, getPapers, getPaper } from '../api/resourcesApi';
 import { buildFragmentFromQuestions, buildPyqDocument } from '../utils/pyqDocument';
 import { useAuth } from '../context/AuthContext';
+import { API_BASE_URL } from '../constants/config';
 import { ClassTabs } from '../components/ClassPicker';
 import { getChapterNotes } from '../notes/index';
 import Ch2Images from '../notes/images/Ch2Images';
@@ -408,16 +409,45 @@ const CLASS6_MATHS_CHAPTERS = [
   'Ratio and Proportion',
 ].map((name, i) => ({ name, sections: class6MathsSections(i + 1) }));
 
+// Class 6 Maths — NEW syllabus (Ganita Prakash) chapters. Content is DB-backed
+// (subject slug 'maths-ganita-prakash', class_level=6): NCERT "Figure it Out"
+// solutions (ncert2), flash cards (revision_notes) and online tests (online_test).
+// Names MUST slugify to the chapter slugs the importer inserted.
+const CLASS6_GANITA_CHAPTERS = [
+  'Patterns in Mathematics',
+  'Lines and Angles',
+  'Number Play',
+  'Data Handling and Presentation',
+  'Prime Time',
+  'Perimeter and Area',
+  'Fractions',
+  'Playing with Constructions',
+  'Symmetry',
+  'The Other Side of Zero',
+].map((name) => ({ name }));
+
 // Class 6 (CBSE) subjects — the old NCERT books plus the new-syllabus titles
 // (Science → Curiosity, Maths → Ganita Prakash, English → Poorvi). Maths carries
 // the NCERT chapter list; the other books' content is still coming soon. These
 // entries populate the Subjects picker when Class 6 is chosen.
 const SUBJECTS_CLASS6 = [
-  { name: 'Science (OLD)',          emoji: '🔬', bg: '#5AA84F', chapters: [], comingSoon: true },
+  { name: 'Science (OLD)',          emoji: '🔬', bg: '#5AA84F', chapters: [
+    { name: 'Components of Food' },
+    { name: 'Sorting Materials into Groups' },
+    { name: 'Separation of Substances' },
+    { name: 'Getting To Know Plants' },
+    { name: 'Body Movements' },
+    { name: 'The Living Organisms and Their Surroundings' },
+    { name: 'Motion and Measurement of Distances' },
+    { name: 'Light Shadows and Reflections' },
+    { name: 'Electricity and Circuits' },
+    { name: 'Fun with Magnets' },
+    { name: 'Air around Us' },
+  ] },
   { name: 'Maths (OLD)',            emoji: '📐', bg: '#E8703A', chapters: CLASS6_MATHS_CHAPTERS },
   { name: 'Science (Curiosity)',    emoji: '🔬', bg: '#5AA84F', chapters: [], comingSoon: true },
   { name: 'English (Poorvi)',       emoji: '📖', bg: '#7A6FD0', chapters: [], comingSoon: true },
-  { name: 'Maths (Ganita Prakash)', emoji: '📐', bg: '#E8703A', chapters: CLASS6_MATHS_CHAPTERS },
+  { name: 'Maths (Ganita Prakash)', emoji: '📐', bg: '#E8703A', chapters: CLASS6_GANITA_CHAPTERS },
 ];
 
 const RESOURCE_TYPES = [
@@ -524,9 +554,18 @@ const getResourceTypes = (subjectName, classLevel) => {
         : /english|poorvi/i.test(subjectName) ? 'English'
           : subjectName;
     const bookTile = { icon: '📗', name: `Class 06 - ${core} - Revised`, sub: 'Textbook Solutions', type: 'ncert2' };
-    return base
+    const tiles = base
       .filter((rt) => rt.type !== 'ncert1' && rt.type !== 'ncert2')
       .flatMap((rt) => (rt.type === 'exemplar' ? [rt, bookTile] : [rt]));
+    // Ganita Prakash is DB-backed with NCERT solutions (ncert2) + flash-card
+    // Revision Notes only — no Exemplar content, so drop that tile and label the
+    // book tile plainly as "NCERT Solutions".
+    if (subjectName === 'Maths (Ganita Prakash)') {
+      return tiles
+        .filter((rt) => rt.type !== 'exemplar')
+        .map((rt) => (rt.type === 'ncert2' ? { ...rt, name: 'NCERT Solutions', sub: 'Textbook Solutions' } : rt));
+    }
+    return tiles;
   }
   if (subjectName === 'Mathematics' && classLevel === 'Class 12') {
     return base;
@@ -812,14 +851,14 @@ const ResourcesScreen = () => {
       // getChapterNotes() only holds Class 11 data and would leak Class 11 content
       // for chapters whose names exist in both classes (e.g. Relations and
       // Functions, Probability). Fetch the correct class-12 notes from the API.
-      const isDbNotes = activeClass === 'Class 12' && (
+      const isDbNotes = (activeClass === 'Class 12' && (
         activeSubject.name === 'Physics' ||
         activeSubject.name === 'Chemistry' ||
         activeSubject.name === 'Mathematics'
-      );
+      )) || (activeClass === 'Class 6' && activeSubject.name === 'Science (OLD)');
       let notes;
       if (isDbNotes) {
-        const d = await getNotesByPath(slugify(activeSubject.name), slugify(activeChapter.name), 12);
+        const d = await getNotesByPath(slugify(activeSubject.name), slugify(activeChapter.name), classNum);
         const sections = ((d && d.blocks) || []).map((b) => ({
           title: b.title,
           html: String(b.html || '').replace(/\{tex\}/g, '$').replace(/\{\/tex\}/g, '$'),
@@ -856,15 +895,16 @@ const ResourcesScreen = () => {
   // like PYQ/Important. Everything else uses the section-list endpoint below.
   const isClass12Exemplar = !!(
     activeResType?.type === 'exemplar' && activeChapter && showCards &&
-    activeClass === 'Class 12' &&
-    (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry' || activeSubject?.name === 'Mathematics')
+    ((activeClass === 'Class 12' &&
+      (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry' || activeSubject?.name === 'Mathematics')) ||
+     (activeClass === 'Class 6' && activeSubject?.name === 'Science (OLD)'))
   );
   const [phy12Exemplar, setPhy12Exemplar] = useState({ loading: false, error: null, html: '' });
   useEffect(() => {
     if (!isClass12Exemplar) return undefined;
     let alive = true;
     setPhy12Exemplar({ loading: true, error: null, html: '' });
-    getQuestionsByPath(slugify(activeSubject.name), slugify(activeChapter.name), 'exemplar_notes', 12)
+    getQuestionsByPath(slugify(activeSubject.name), slugify(activeChapter.name), 'exemplar_notes', classNum)
       .then((qs) => {
         if (!alive) return;
         const html = qs && qs.length ? buildPyqDocument(buildFragmentFromQuestions(qs)) : '';
@@ -892,8 +932,9 @@ const ResourcesScreen = () => {
   );
   const isC12Ncert2 = !!(
     activeResType?.type === 'ncert2' && activeChapter && showCards &&
-    activeClass === 'Class 12' &&
-    (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry' || activeSubject?.name === 'Mathematics')
+    ((activeClass === 'Class 12' &&
+      (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry' || activeSubject?.name === 'Mathematics')) ||
+     (activeClass === 'Class 6' && (activeSubject?.name === 'Science (OLD)' || activeSubject?.name === 'Maths (Ganita Prakash)')))
   );
   const [phy12Ncert1, setPhy12Ncert1] = useState({ loading: false, error: null, html: '' });
   const [phy12Ncert2, setPhy12Ncert2] = useState({ loading: false, error: null, html: '' });
@@ -912,7 +953,7 @@ const ResourcesScreen = () => {
     if (!isC12Ncert2) return undefined;
     let alive = true;
     setPhy12Ncert2({ loading: true, error: null, html: '' });
-    getQuestionsByPath(slugify(activeSubject.name), slugify(activeChapter.name), 'ncert2', 12)
+    getQuestionsByPath(slugify(activeSubject.name), slugify(activeChapter.name), 'ncert2', classNum)
       .then((qs) => { if (alive) setPhy12Ncert2({ loading: false, error: null, html: qs && qs.length ? buildPyqDocument(buildFragmentFromQuestions(qs)) : '' }); })
       .catch((e) => { if (alive) setPhy12Ncert2({ loading: false, error: e?.message || 'Could not load NCERT solutions.', html: '' }); });
     return () => { alive = false; };
@@ -987,7 +1028,8 @@ const ResourcesScreen = () => {
       (activeResType?.type === 'ncert1' || activeResType?.type === 'ncert2') &&
       (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry')) ||
      (activeClass === 'Class 11' && (activeSubject?.name === 'Chemistry' || activeSubject?.name === 'Physics') &&
-      activeResType?.type === 'ncert1'))
+      activeResType?.type === 'ncert1') ||
+     (activeClass === 'Class 6' && activeSubject?.name === 'Science (OLD)' && activeResType?.type === 'ncert2'))
   );
   useEffect(() => {
     if (!c12NcertListActive) { setC12NcertAvail({ loading: false, chapters: null }); return undefined; }
@@ -1006,14 +1048,15 @@ const ResourcesScreen = () => {
   const [notesAvail, setNotesAvail] = useState({ loading: false, chapters: null });
   const notesListActive = !!(
     activeSubject && activeResType?.type === 'notes' && !activeChapter &&
-    activeClass === 'Class 12' &&
-    (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry' || activeSubject?.name === 'Mathematics')
+    ((activeClass === 'Class 12' &&
+      (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry' || activeSubject?.name === 'Mathematics')) ||
+     (activeClass === 'Class 6' && (activeSubject?.name === 'Science (OLD)' || activeSubject?.name === 'Maths (Ganita Prakash)')))
   );
   useEffect(() => {
     if (!notesListActive) { setNotesAvail({ loading: false, chapters: null }); return undefined; }
     let alive = true;
     setNotesAvail({ loading: true, chapters: null });
-    getChapters(slugify(activeSubject.name), 'revision_notes', 12)
+    getChapters(slugify(activeSubject.name), 'revision_notes', classNum)
       .then((chs) => { if (alive) setNotesAvail({ loading: false, chapters: (chs || []).map((c) => c.name) }); })
       .catch(() => { if (alive) setNotesAvail({ loading: false, chapters: [] }); });
     return () => { alive = false; };
@@ -1046,15 +1089,16 @@ const ResourcesScreen = () => {
   // map blocks→sections and convert {tex} delimiters.
   const isPhysics12Notes = !!(
     activeSubject && activeResType && activeChapter && showNotes &&
-    activeClass === 'Class 12' &&
-    (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry' || activeSubject?.name === 'Mathematics')
+    ((activeClass === 'Class 12' &&
+      (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry' || activeSubject?.name === 'Mathematics')) ||
+     (activeClass === 'Class 6' && (activeSubject?.name === 'Science (OLD)' || activeSubject?.name === 'Maths (Ganita Prakash)')))
   );
   const [phy12Notes, setPhy12Notes] = useState({ loading: false, error: null, notes: null });
   useEffect(() => {
     if (!isPhysics12Notes) return undefined;
     let alive = true;
     setPhy12Notes({ loading: true, error: null, notes: null });
-    getNotesByPath(slugify(activeSubject.name), slugify(activeChapter.name), 12)
+    getNotesByPath(slugify(activeSubject.name), slugify(activeChapter.name), classNum)
       .then((d) => {
         if (!alive) return;
         const sections = ((d && d.blocks) || []).map((b) => ({
@@ -1260,6 +1304,31 @@ const ResourcesScreen = () => {
     );
   }
 
+  // ── LEVEL 4 (PDF): a chapter's downloadable PDF, opened inline in a WebView ──
+  // Served by the backend at /pdfs/class6-science/<dir>/<chapter-slug>.pdf.
+  if (activeSubject && activeResType?.type === 'pdf' && activeChapter && showCards) {
+    const pdfUrl = `${API_BASE_URL}/pdfs/class6-science/${activeResType.pdfDir}/${slugify(activeChapter.name)}.pdf`;
+    return (
+      <SafeAreaView style={s.safe}>
+        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <BackHeader onBack={() => setShowCards(false)} />
+        <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
+        <WebView
+          source={{ uri: pdfUrl }}
+          style={{ flex: 1 }}
+          originWhitelist={['*']}
+          startInLoadingState
+          renderLoading={() => (
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+              <ActivityIndicator size="large" color="#1f8a93" />
+            </View>
+          )}
+        />
+      </SafeAreaView>
+    );
+  }
+
   // ── LEVEL 4: Resource cards (PDF / Video / Notes) ─────────────────────────
   if (activeSubject && activeResType && activeChapter && showCards) {
     return (
@@ -1437,8 +1506,10 @@ const ResourcesScreen = () => {
     const isNotesList = activeResType?.type === 'notes' && Array.isArray(notesAvail.chapters);
     // Revision Notes for every other subject/class come from the bundled notes
     // registry — hide chapters that have no bundled notes entry.
-    const isDbNotesList = activeResType?.type === 'notes' && activeClass === 'Class 12' &&
-      (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry' || activeSubject?.name === 'Mathematics');
+    const isDbNotesList = activeResType?.type === 'notes' && (
+      (activeClass === 'Class 12' &&
+        (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry' || activeSubject?.name === 'Mathematics')) ||
+      (activeClass === 'Class 6' && (activeSubject?.name === 'Science (OLD)' || activeSubject?.name === 'Maths (Ganita Prakash)')));
     const isBundledNotesList = activeResType?.type === 'notes' && !isDbNotesList;
     // Class 12 Physics/Chemistry NCERT Part-I/II: hide chapters that don't have
     // that part (each part covers only half the syllabus) so they never 404.
@@ -1521,7 +1592,7 @@ const ResourcesScreen = () => {
         </View>
         <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
           {getResourceTypes(activeSubject.name, activeClass).map((rt, i) => (
-            <TouchableOpacity key={i} style={s.resTypeRow} onPress={() => { setActivePaper(null); setActiveResType(rt); }} activeOpacity={0.8}>
+            <TouchableOpacity key={i} style={s.resTypeRow} onPress={() => { setActivePaper(null); setActiveChapter(null); setShowCards(false); setShowNotes(false); setActiveResType(rt); }} activeOpacity={0.8}>
               <View style={s.resTypeIconWrap}>
                 <Text style={{ fontSize: 22 }}>{rt.icon}</Text>
               </View>

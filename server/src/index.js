@@ -5,6 +5,7 @@ require('dotenv').config()
 const { validateEnv } = require('./config/env')
 validateEnv() // Fail fast — crash on missing env vars before anything else starts
 
+const path = require('path')
 const express = require('express')
 const cors = require('cors')
 const helmet = require('helmet')
@@ -29,6 +30,16 @@ app.use(
 // ─── Body parsing ────────────────────────────────────────────────────────────
 app.use(express.json({ limit: '10mb' }))
 app.use(express.urlencoded({ extended: true }))
+
+// ─── Static PDFs (Class 6 Science NCERT / Worksheets / Notes) ─────────────────
+// Public (no auth) so the app's WebView can open them directly. Permissive CORP
+// so helmet's default same-origin policy doesn't block cross-origin loads.
+app.use('/pdfs', express.static(path.join(__dirname, '..', 'public', 'pdfs'), {
+  setHeaders: (res) => {
+    res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin')
+    res.setHeader('Content-Type', 'application/pdf')
+  },
+}))
 
 // ─── Routes ──────────────────────────────────────────────────────────────────
 app.use('/api', routes)
