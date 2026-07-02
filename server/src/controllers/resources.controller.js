@@ -5,8 +5,13 @@ const svc = require('../services/resources.service')
 const { resolveClassNum } = require('../services/personalization/enforce')
 const { isAllowedSubject } = require('../services/personalization/subjects')
 
-// Authoritative class — the student's own class overrides any ?class= param.
-const classOf = (req) => resolveClassNum(req)
+// Content browsing is driven by the class picker: honor the requested ?class= (any
+// "7" / "Class 7" form) and fall back to the student's own class only when absent.
+// (Practice content is browsable across classes via the picker, like the ncert flow.)
+const classOf = (req) => {
+  const m = String(req.query.class || '').match(/\d{1,2}/)
+  return m ? parseInt(m[0], 10) : resolveClassNum(req)
+}
 
 async function getSubjects(req, res, next) {
   try {

@@ -536,17 +536,20 @@ const SUBJECTS_CLASS6 = [
 // so the syllabus is visible, but tapping any subject lands on the ComingSoon
 // state (in both the Resources and Practice tabs).
 const SUBJECTS_CLASS7 = [
-  { name: 'Science (Curiosity)',              emoji: '🔬', bg: '#5AA84F', chapters: [], comingSoon: true },
+  // Seeded (className='Class 7'): NCERT Solutions (part 2) + Revision Notes (part 4);
+  // Science (Curiosity) also has Important Questions (part 5). Chapter lists are DB-driven.
+  { name: 'Science (Curiosity)',              emoji: '🔬', bg: '#5AA84F', chapters: [] },
+  { name: 'Social Science (Exploring Society)', emoji: '🌐', bg: '#2F80ED', chapters: [] },
+  { name: 'हिंदी (मल्हार)',                     emoji: '📚', bg: '#2F80ED', chapters: [] },
+  { name: 'English (Poorvi)',                 emoji: '📖', bg: '#7A6FD0', chapters: [] },
+  { name: 'Maths (Ganita Prakash)',           emoji: '📐', bg: '#E8703A', chapters: [] },
+  { name: 'Old - Science',                    emoji: '🔬', bg: '#5AA84F', chapters: [] },
+  // Not seeded yet — keep the "coming soon" empty state.
   { name: 'Reasoning & Mental Ability',       emoji: '🧠', bg: '#E8703A', chapters: [], comingSoon: true },
   { name: 'Old - English',                    emoji: '📖', bg: '#7A6FD0', chapters: [], comingSoon: true },
-  { name: 'Old - Social Sc',                  emoji: '🌐', bg: '#2F80ED', chapters: [], comingSoon: true },
-  { name: 'Old - Science',                    emoji: '🔬', bg: '#5AA84F', chapters: [], comingSoon: true },
+  { name: 'Old - Social Sc',                  emoji: '🌐', bg: '#2F80ED', chapters: [] },
   { name: 'Old - हिंदी',                       emoji: '📚', bg: '#2F80ED', chapters: [], comingSoon: true },
-  { name: 'Old - Maths',                      emoji: '📐', bg: '#E8703A', chapters: [], comingSoon: true },
-  { name: 'Maths (Ganita Prakash)',           emoji: '📐', bg: '#E8703A', chapters: [], comingSoon: true },
-  { name: 'हिंदी (मल्हार)',                     emoji: '📚', bg: '#2F80ED', chapters: [], comingSoon: true },
-  { name: 'English (Poorvi)',                 emoji: '📖', bg: '#7A6FD0', chapters: [], comingSoon: true },
-  { name: 'Social Science (Exploring Society)', emoji: '🌐', bg: '#2F80ED', chapters: [], comingSoon: true },
+  { name: 'Old - Maths',                      emoji: '📐', bg: '#E8703A', chapters: [] },
 ];
 
 const RESOURCE_TYPES = [
@@ -649,16 +652,12 @@ const getResourceTypes = (subjectName, classLevel) => {
   // (part=2, textbook sections) + Revision Notes (part=4, flash cards). Both use the
   // ncert2 WebView flow; each chapter list is fetched from the DB for its own part.
   if (classLevel === 'Class 7') {
-    const tiles = [
+    // Two tiles per subject — NCERT Solutions (part=2) + Revision Notes (part=4),
+    // both DB-backed via ncert2; chapter lists fetched from the DB per part.
+    return [
       { icon: '📗', name: 'NCERT Solutions', sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
       { icon: '📝', name: 'Revision Notes',  sub: 'Chapter Notes',      type: 'ncert2', part: 4 },
     ];
-    // Important Questions (part=5, MCQs grouped by VSA/SA/LA). Seeded for Science
-    // (Curiosity) so far; add other subjects as their part=5 data is seeded.
-    if (/curiosity/i.test(subjectName)) {
-      tiles.push({ icon: '⭐', name: 'Important Questions', sub: 'VSA / SA / LA', type: 'ncert2', part: 5 });
-    }
-    return tiles;
   }
   // Class 6 books aren't split into Part-I / Part-II — replace both NCERT tiles
   // with a single revised-book tile, e.g. "Class 06 - Mathematics - Revised".

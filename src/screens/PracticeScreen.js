@@ -54,8 +54,17 @@ function computeMockResult(payload) {
 }
 
 // Slug must match how rows were inserted (scripts/importResources.js slugify).
-const slugify = (s) =>
-  String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+// Slug for API lookups. Non-ASCII names (e.g. Devanagari "हिंदी (मल्हार)") produce
+// an empty base, so fall back to a stable hash slug. MUST stay byte-identical to the
+// seed's slugify (scripts/seedClass7IQPractice.js) so client lookups match DB slugs.
+const slugify = (s) => {
+  const base = String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  if (base) return base;
+  let h = 5381;
+  const str = String(s);
+  for (let i = 0; i < str.length; i++) h = ((h * 33) ^ str.charCodeAt(i)) >>> 0;
+  return 'u' + h.toString(36);
+};
 
 // 'Class 8' → 8; null when unknown (never defaults to a class — the backend uses the
 // student's saved class regardless of what we send).
@@ -215,11 +224,27 @@ const MATHS12_CHAPTERS = [
   'Probability',
 ];
 
+// Class 7 Important-Questions subjects (DB-backed, class_level=7, type_key=
+// 'important_questions'). Chapter lists mirror the seeded chapters; the ChapterList
+// still confirms per-chapter availability via the API. हिंदी (मल्हार) is coming-soon
+// because its Devanagari name has no ASCII slug (the API is slug-keyed).
+const CLASS7_IMP_SUBJECTS = [
+  { name: "Science (Curiosity)", emoji: "🔬", bg: "#5AA84F", chapters: ["The Ever-Evolving World of Science","Light: Shadows and Reflections","Life Processes in Plants","Life Processes in Animals","Measurement of Time and Motion","Heat Transfer in Nature","Adolescence: A Stage of Growth and Change","Changes Around Us: Physical and Chemical","The World of Metals and Non-metals","Electricity: Circuits and their Components","Exploring Substances: Acidic, Basic, and Neutral","Earth, Moon, and the Sun"] },
+  { name: "Social Science (Exploring Society)", emoji: "🌐", bg: "#2F80ED", chapters: ["Overall Map Questions","Geographical Diversity of India","From Barter to Money","The Constitution of India - An Introduction","From the Rulers to the Ruled: Types of Governments","How the Land Becomes Sacred","The Gupta Era: An Age of Tireless Creativity","The Age of Reorganisation","The Rise of Empires","New Beginnings: Cities and States","Climates of India","Understanding the Weather","Understanding Markets","The Story of Indian Farming","India and Her Neighbours","Empires and Kingdoms: 6th to 10th Centuries","Turning Tides: 11th and 12th Centuries","India, a Home to Many","The State, the Government, and You","Infrastructure: Engine of India's Development","Banks and the Magic of Finance"] },
+  { name: "हिंदी (मल्हार)", emoji: "📚", bg: "#2F80ED", chapters: ["माँ, कह एक कहानी (कविता)","चिड़िया (कविता)","बिरजू महाराज से साक्षात्कार नृत्यांगना सुधा चंद्रन","वर्षा-बहार (कविता)","गिरिधर कविराय की कुंडलिया (कविता)","नहीं होना बीमार (कहानी)","पानी रे पानी (निबंध)","फूल और काँटा (कविता)","तीन बुद्धिमान (लोककथा)","मीरा के पद (पद)","अपठित गद्यांश","अपठित काव्यांश","पत्र लेखन","अनुच्छेद लेखन","भाषा और लिपि","संज्ञा सर्वनाम और विशेषण","लिंग और वचन","क्रिया और क्रिया-विशेषण","मुहावरे और लोकोक्तियाँ","समास और विग्रह","विलोम शब्द","पर्यायवाची शब्द","संधि-विच्छेद","वर्ण-विच्छेद","उपसर्ग और प्रत्यय","अनेक के लिए एक शब्द","चित्र वर्णन","लघु कथा लेखन","संवाद लेखन","वाक्य के प्रकार","शब्द भेद","श्रुतिसम भिन्नात्मक शब्द","काल","कारक","वर्तनी","विराम चिह्नों का प्रयोग"] },
+  { name: "English (Poorvi)", emoji: "📖", bg: "#7A6FD0", chapters: ["The Day the River Spoke","My Dear Soldiers","A Homage to Our Brave Soldiers","Conquering the Summit","Travel","The Tunnel","North, South, East, West","Paper Boats","My Brother's Great Invention","Say the Right Thing","A Funny Man","Animals, Birds, and Dr. Dolittle","Three Days to See","Try Again","Rani Abbakka","Reading - Unseen Passage","Reading - Unseen Poem","Grammar - Preposition","Grammar - Adverb","Grammar - Conjunction","Grammar - Synonyms and Antonyms","Grammar - One Word Substitution","Grammar - Fill in the Blanks","Grammar - Editing & Omitting","Grammar - Gap Filling","Grammar - Jumble Words","Grammar - Helping Verbs","Grammar - Verbs","Grammar - Articles","Grammar - Adjectives","Grammar - Pronoun","Grammar - Noun","Grammar - Tenses","Grammar - Sentence Transformation","Grammar - Non-Finite Verbs","Grammar - Question Tags","Grammar - Sentence (parts and types)","Writing - Article","Writing - Letter","Writing - Short Story","Writing - Paragraph","Writing - Notice","Writing - Message","Writing - Application to Principal"] },
+  { name: "Maths (Ganita Prakash)", emoji: "📐", bg: "#E8703A", chapters: ["Large Numbers Around Us","Arithmetic Expressions","A Peek Beyond the Point","Expressions using Letter-Numbers","Parallel and Intersecting Lines","Number Play","A Tale of Three Intersecting Lines","Working with Fractions","Geometric Twins","Operations with Integers","Finding Common Ground","Another Peek Beyond the Point","Connecting the Dots","Constructions and Tilings","Finding the Unknown"] },
+  { name: "Old - Science", emoji: "🔬", bg: "#5AA84F", chapters: ["Nutrition in Plants","Nutrition in Animals","Fibre to Fabric (Deleted)","Heat","Acids Bases and Salts","Physical and Chemical Changes","Weather Climate and Adaptations of Animals to Climate (Deleted)","Winds Storms and Cyclones (Deleted)","Soil (Deleted)","Respiration in Organisms","Transportation in Animals and Plants","Reproduction in Plants","Motion and Time","Electric Current and its Effects","Light","Water A Precious Resource (Deleted)","Forests Our Lifeline","Waste water Story"] },
+  { name: "Reasoning & Mental Ability", emoji: "🧠", bg: "#E8703A", chapters: ["Reasoning & Mental Ability"] },
+  { name: "Old - Maths", emoji: "📐", bg: "#E8703A", chapters: ["Integers","Fractions and Decimals","Data Handling","Simple Equations","Lines and Angles","The Triangle and its Properties","Comparing Quantities","Rational Numbers","Perimeter and Area","Algebraic Expressions","Exponents and Powers","Symmetry","Visualising Solid Shapes"] },
+  { name: "Old - Social Sc", emoji: "🌐", bg: "#2F80ED", chapters: ["Tracing Changes Through a Thousand Years","Kings and Kingdoms","Delhi: 12th to 15th Century","The Mughal (16th to 17th Century)","Tribes Nomads and Settled Communities","Devotional Paths to the Divine","The Making of Regional Cultures","Eighteenth Century Political Formations","Environment","Inside our Earth","Our Changing Earth","Air","Water","Human Environment Interactions the Tropical and the Subtropical Region","Life in the Deserts","On Equality","Role of the Government in Health","How the State Government Works","Growing up as Boys and Girls","Women Change the world","Understanding Media","Market Around Us","A shirt in the market"] },
+];
+
 // Important-Questions subject list for the chosen class. Class 11 keeps the
 // API-backed PYQ_SUBJECTS. Class 12 swaps Physics for its 14 chapters (API-backed,
 // data in the DB at class_level=12) and Chemistry for its 10 chapters (bundled
 // locally); the other subjects are marked "coming soon" so they don't hit the
-// API with Class-11 chapter names.
+// API with Class-11 chapter names. Class 7 → the 6 new-syllabus subjects above.
 const impSubjectsForClass = (cls) => {
   if (cls === 'Class 12') {
     return PYQ_SUBJECTS.filter((sub) => sub.name !== 'Biology').map((sub) => {
@@ -229,6 +254,7 @@ const impSubjectsForClass = (cls) => {
       return { ...sub, chapters: [], comingSoon: true };
     });
   }
+  if (cls === 'Class 7') return CLASS7_IMP_SUBJECTS;
   return PYQ_SUBJECTS;
 };
 

@@ -35,6 +35,8 @@ const SUBJECTS = [
   { name: 'English (Poorvi)',                  flash: '24715', book: '22a0bc92-bf6e-48be-9b94-85ba0d2fa14e' },
   { name: 'Maths (Ganita Prakash)',            flash: '24649', book: 'efa0a1ce-e54e-4310-b18e-a491c6f23f5e' },
   { name: 'Old - Science',                     flash: '1525',  book: 'f0a26380-3173-4208-8a06-750afbc6110e' },
+  { name: 'Old - Maths',                       flash: '1509',  book: '795d22c9-7510-4ce1-b27b-7b46ebed5d02' },
+  { name: 'Old - Social Sc',                   flash: '1544',  book: '94be6b15-ebd4-48f7-991a-624c6950b269' },
 ]
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
@@ -136,8 +138,12 @@ async function main() {
   const outDir = path.join(ROOT, 'src', 'data', 'class7')
   fs.mkdirSync(outDir, { recursive: true })
 
+  // ONLY="old - maths,old - social" re-seeds just the matching subject(s).
+  const ONLY = (process.env.ONLY || '').toLowerCase().split(',').map((x) => x.trim()).filter(Boolean)
+  const subjects = ONLY.length ? SUBJECTS.filter((s) => ONLY.some((t) => s.name.toLowerCase().includes(t))) : SUBJECTS
+
   const rows = [] // { part, subject, className, chapter, sectionKey, sectionLabel, html, chapterPos, position }
-  for (const s of SUBJECTS) {
+  for (const s of subjects) {
     console.log(`\n=== ${s.name} ===`)
     const rev = await fetchRevision(s.flash)
     const ncert = await fetchNcert(s.book)
@@ -153,7 +159,7 @@ async function main() {
   const client = new Client({ connectionString: getDbUrl(), ssl: { rejectUnauthorized: false } })
   await client.connect(); console.log('✓ Connected.')
   try {
-    for (const s of SUBJECTS) for (const part of [2, 4]) {
+    for (const s of subjects) for (const part of [2, 4]) {
       await client.query('delete from ncert_solutions where part=$1 and subject=$2 and "className"=$3', [part, s.name, CLASS_NAME])
     }
     for (const r of rows) {
