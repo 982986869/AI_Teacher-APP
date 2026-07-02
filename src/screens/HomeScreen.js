@@ -5,6 +5,7 @@ import {
   Platform, KeyboardAvoidingView, Animated, Easing, Modal,
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
+import { ClassPicker } from '../components/ClassPicker';
 import AITeacherScreen from './AITeacherScreen';
 import BrainGymFlow from './braingym/BrainGymFlow';
 
@@ -91,7 +92,7 @@ const SpinHint = () => {
 
 // ─── Main HomeScreen ──────────────────────────────────────────────────────────
 const HomeScreen = ({ navigation }) => {
-  const { user, selectedClass } = useAuth();
+  const { user, selectedClass, setSelectedClass, scope } = useAuth();
   const firstName = user?.name?.split(' ')[0] || 'Saurabh';
   // Biology isn't offered in Class 12 — hide it from the subject chips there.
   const subjectChips = Object.keys(SUBJECT_QS)
@@ -167,6 +168,15 @@ const HomeScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </View>
+
+      {/* Tester-only class switcher — lets QA teammates browse every class from one
+          login instead of re-signing-in per class. Hidden for normal students. */}
+      {scope?.tester && (
+        <View style={s.testerBar}>
+          <Text style={s.testerLbl}>🧪 Viewing class</Text>
+          <ClassPicker value={selectedClass} onChange={setSelectedClass} />
+        </View>
+      )}
 
       <ScrollView style={s.screen} showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 16 }}>
 
@@ -472,6 +482,8 @@ const s = StyleSheet.create({
   brandLogoTxt:{ color: '#fff', fontSize: 12, fontWeight: '900' },
   brandName:   { fontSize: 20, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.5 },
   topbarRight: { flexDirection: 'row', alignItems: 'center', gap: 12 },
+  testerBar:   { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10, backgroundColor: '#FFF7ED', borderBottomWidth: 1, borderBottomColor: '#FDE7C8', paddingHorizontal: 20, paddingVertical: 8 },
+  testerLbl:   { fontSize: 12.5, fontWeight: '800', color: '#B45309', letterSpacing: -0.2 },
   bellBtn:     { width: 38, height: 38, backgroundColor: '#F5F5F5', borderRadius: 19, alignItems: 'center', justifyContent: 'center', borderWidth: 1.5, borderColor: '#EFEFEF', position: 'relative' },
   bellDot:     { position: 'absolute', top: 7, right: 7, width: 8, height: 8, backgroundColor: '#1C1C1E', borderRadius: 4, borderWidth: 2, borderColor: '#fff' },
   charRing:    { position: 'relative' },
