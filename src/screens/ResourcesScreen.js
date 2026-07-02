@@ -641,7 +641,19 @@ const getResourceTypes = (subjectName, classLevel) => {
     // under part=4 (textbook sections + revision notes). One tile → the chapter list
     // is fetched from the DB (not hardcoded) → each chapter opens its sections → content.
     if (!/math|ganita/i.test(subjectName)) {
-      return [{ icon: '📗', name: 'NCERT Solutions', sub: 'Chapter-wise solutions', type: 'ncert2', part: 4 }];
+      // Science (Curiosity) / English (Poorvi): Revision Notes content lives in the DB
+      // under part=4. Chapter lists for BOTH tiles are fetched from the DB (not hardcoded)
+      // for their own part, so each shows exactly what's seeded.
+      const notesTile = { icon: '📝', name: 'Revision Notes', sub: 'Chapter Notes', type: 'ncert2', part: 4 };
+      // English (Poorvi) & Science (Curiosity) also expose NCERT (textbook) Solutions
+      // (part=2) — shows its chapters once that dataset is seeded.
+      if (/poorvi|curiosity/i.test(subjectName)) {
+        return [
+          notesTile,
+          { icon: '📗', name: 'NCERT Solutions', sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
+        ];
+      }
+      return [notesTile];
     }
     // Maths (OLD): both tiles use the ncert2 WebView flow. `part` picks the dataset in
     // ncert_solutions: 2 = textbook, 3 = NCERT Exemplar (MCQs).
