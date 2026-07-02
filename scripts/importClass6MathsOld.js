@@ -21,12 +21,15 @@ const fs = require('fs')
 const path = require('path')
 
 const ROOT = path.join(__dirname, '..')
-const DIR = path.join(ROOT, 'src', 'data', 'class6MathsOld', 'chapters')
-const CHAPTERS_CONFIG = path.join(__dirname, 'class6MathsOld.chapters.json')
+// Reusable for other Class 6 textbooks via env, e.g. English (Poorvi) NCERT:
+//   SUBJECT='English (Poorvi)' SRC_SUBDIR=class6EnglishNcert CH_CONFIG=class6EnglishNcert.chapters.json \
+//     node scripts/importClass6MathsOld.js --live
+const DIR = path.join(ROOT, 'src', 'data', process.env.SRC_SUBDIR || 'class6MathsOld', 'chapters')
+const CHAPTERS_CONFIG = path.join(__dirname, process.env.CH_CONFIG || 'class6MathsOld.chapters.json')
 const LIVE = process.argv.includes('--live')
-const SUBJECT = 'Maths (OLD)'
-const CLASS_NAME = 'Class 6'
-const PART = 2
+const SUBJECT = process.env.SUBJECT || 'Maths (OLD)'
+const CLASS_NAME = process.env.CLASS_NAME || 'Class 6'
+const PART = parseInt(process.env.PART, 10) || 2
 
 const trim = (s) => (s == null ? '' : String(s)).trim()
 const num = (f) => { const m = String(f).match(/(\d+)/); return m ? parseInt(m[1], 10) : 999 }
