@@ -9,7 +9,7 @@ import OnboardingScreen from '../screens/OnboardingScreen';
 import BrainGymFlow from '../screens/braingym/BrainGymFlow';
 import MainNavigator from './MainNavigator';
 import CompleteProfileScreen from '../screens/CompleteProfileScreen';
-import ParentDashboardScreen from '../screens/ParentDashboardScreen';
+import ParentApp from '../screens/parent/ParentApp/ParentApp';
 import RoleHomeScreen from '../screens/RoleHomeScreen';
 
 const Stack = createNativeStackNavigator();
@@ -65,8 +65,8 @@ const AppNavigator = () => {
     // with no class, so this also lets a parent/teacher declare their role up front.
     screen = <Stack.Screen name="CompleteProfile" component={CompleteProfileScreen} />;
   } else if (scope.role === 'parent') {
-    // Parents never see the student flow or dashboard — only their read-only view.
-    screen = <Stack.Screen name="ParentApp" component={ParentDashboardScreen} />;
+    // Parents never see the student flow or dashboard — only their own parent app.
+    screen = <Stack.Screen name="ParentApp" component={ParentApp} />;
   } else if (scope.role === 'teacher' || scope.role === 'admin') {
     // Teacher / admin never leak into the student app.
     screen = (

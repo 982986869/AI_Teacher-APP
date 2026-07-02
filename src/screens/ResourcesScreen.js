@@ -1804,10 +1804,10 @@ const ResourcesScreen = () => {
         <Text style={s.headerTitle}>Resources</Text>
       </View>
       <Breadcrumb parts={['Home', 'Student Subscription']} />
-      {/* Students are locked to their own class; only show the switcher if unset. */}
-      {!scope?.classNum && <ClassTabs value={activeClass} onChange={setActiveClass} />}
-      {scope?.role === 'student' && scope?.className && !isClassReady(scope.className) ? (
-        <ComingSoon label="Resources" />
+      {/* Students are locked to their own class; only show the switcher if unset or tester. */}
+      {(!scope?.classNum || scope?.tester) && <ClassTabs value={activeClass} onChange={setActiveClass} />}
+      {scope?.role === 'student' && (scope?.tester ? activeClass : scope?.className) && !isClassReady(scope?.tester ? activeClass : scope.className) ? (
+        <ComingSoon label="Resources" className={scope?.tester ? activeClass : scope?.className} />
       ) : (
         <>
           <View style={s.pageTitleWrap}>
@@ -1821,7 +1821,7 @@ const ResourcesScreen = () => {
               // Stream filter (hide Biology from PCM etc.) only applies to senior classes
               // (11/12). Junior lists (e.g. Class 6's "Maths (OLD)", "English (Poorvi)")
               // are already curated, so don't run them through the subject-name check.
-              .filter((subject) => (scope?.classNum >= 11 ? isAllowedSubject(subject.name, scope.classNum, scope.stream) : true))
+              .filter((subject) => (classNum >= 11 ? isAllowedSubject(subject.name, classNum, scope.stream) : true))
               .map((subject, i) => (
               <TouchableOpacity key={i} style={s.subjectRow} onPress={() => openSubject(subject)} activeOpacity={0.8}>
                 <View style={[s.subjectIconWrap, { backgroundColor: subject.bg }]}>

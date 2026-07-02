@@ -15,6 +15,12 @@ const STREAMS = {
 const SENIOR_DEFAULT = ['Physics', 'Chemistry', 'Mathematics', 'Biology'];
 const ROLES = new Set(['student', 'parent', 'teacher', 'admin']);
 
+// QA/tester accounts can browse every class from one login (mirror of the server list
+// in scope.js — keep in sync). The backend still enforces this; this only unlocks the
+// class switcher + gates in the UI.
+const TESTER_EMAILS = new Set(['kjha70455@gmail.com']);
+const isTester = (user) => !!(user && user.email && TESTER_EMAILS.has(String(user.email).toLowerCase()));
+
 export const normalizeClass = (grade) => {
   if (grade == null) return null;
   const m = String(grade).match(/\d{1,2}/);
@@ -55,11 +61,13 @@ export const deriveScope = (user) => {
   const classNum = normalizeClass(user.grade);
   const stream = normalizeStream(user.stream) || normalizeStream(user.grade);
   const needsStream = classNum != null && classNum >= 11;
+  const tester = isTester(user);
   let complete;
   if (role === 'teacher' || role === 'admin' || role === 'parent') complete = true;
-  else complete = !!classNum && (!needsStream || !!stream);
+  else complete = tester || (!!classNum && (!needsStream || !!stream));
   return {
     role,
+    tester,
     classNum,
     className: classNum ? `Class ${classNum}` : null,
     stream: needsStream ? stream : null,

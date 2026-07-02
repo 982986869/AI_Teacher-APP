@@ -994,11 +994,13 @@ const PracticeScreen = () => {
         </View>
       </View>
 
-      {/* Students are locked to their own class; only show the switcher if unset. */}
-      {!scope?.classNum && <ClassTabs value={selectedClass} onChange={setSelectedClass} />}
+      {/* Students are locked to their own class; only show the switcher if unset or tester. */}
+      {(!scope?.classNum || scope?.tester) && <ClassTabs value={selectedClass} onChange={setSelectedClass} />}
 
       {/* No content seeded for the selected class (e.g. Class 7) → premium empty
-          state for everyone, never another class's content. isClassReady is
+          state for everyone, never another class's content. selectedClass is the
+          class being viewed (a tester's picked class, or a normal student's locked
+          saved class), so this gates the exact class on screen. isClassReady is
           optimistic while its backend list loads, so this never flashes early. */}
       {selectedClass && !isClassReady(selectedClass) ? (
         <ComingSoon label="Practice" className={selectedClass} />
