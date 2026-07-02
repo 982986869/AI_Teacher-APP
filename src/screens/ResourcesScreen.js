@@ -426,6 +426,21 @@ const CLASS6_SCIENCE_CURIOSITY_CHAPTERS = [
   'Beyond Earth',
 ].map((name) => ({ name }));
 
+// Every Poorvi chapter follows the same "Let us ..." activity layout, so each
+// chapter carries this shared sub-topic scaffold. Ncert2Screen lists them right
+// away under the NCERT Solutions tile and shows each as "coming soon" until its
+// solution HTML is seeded. Built fresh per chapter so each section's html can
+// later be filled in independently.
+const POORVI_SECTIONS = () => [
+  { key: 'before-we-read',  label: 'Let us do these activities before we read' },
+  { key: 'discuss',         label: 'Let us discuss' },
+  { key: 'think-reflect',   label: 'Let us think and reflect' },
+  { key: 'learn',           label: 'Let us learn' },
+  { key: 'listen',          label: 'Let us listen' },
+  { key: 'speak',           label: 'Let us speak' },
+  { key: 'write',           label: 'Let us write' },
+  { key: 'explore',         label: 'Let us explore' },
+];
 const CLASS6_ENGLISH_POORVI_CHAPTERS = [
   'A Bottle of Dew',
   'The Raven and the Fox',
@@ -443,7 +458,7 @@ const CLASS6_ENGLISH_POORVI_CHAPTERS = [
   'The Kites',
   'Ila Sachani: Embroidering Dreams with her Feet',
   'National War Memorial',
-].map((name) => ({ name }));
+].map((name) => ({ name, sections: POORVI_SECTIONS() }));
 
 // Class 6 Mathematics NCERT Exemplar chapters — the 12 textbook chapters plus
 // Symmetry and Practical Geometry (14 total). Shown under the "Exemplar Solutions"
@@ -471,26 +486,6 @@ const CLASS6_MATHS_EXEMPLAR_CHAPTERS = [
 const CLASS6_EXEMPLAR_SECTIONS = [
   { key: 'examples', label: 'Examples', questions: [] },
   { key: 'chapter-end', label: 'Chapter-end', questions: [] },
-];
-
-// Class 6 English chapters (NCERT "Poorvi"). Shown under the English NCERT
-// Solutions tile. Each chapter carries a local `sections` scaffold — the standard
-// Poorvi sub-topics ("Let us ...") — so Ncert2Screen lists them right away and
-// shows each as "coming soon" until its solution HTML is seeded.
-const CLASS6_ENGLISH_CHAPTERS = [
-  {
-    name: 'A Bottle of Dew',
-    sections: [
-      { key: 'before-we-read',  label: 'Let us do these activities before we read' },
-      { key: 'discuss',         label: 'Let us discuss' },
-      { key: 'think-reflect',   label: 'Let us think and reflect' },
-      { key: 'learn',           label: 'Let us learn' },
-      { key: 'listen',          label: 'Let us listen' },
-      { key: 'speak',           label: 'Let us speak' },
-      { key: 'write',           label: 'Let us write' },
-      { key: 'explore',         label: 'Let us explore' },
-    ],
-  },
 ];
 
 // Class 6 (CBSE) subjects — the old NCERT books plus the new-syllabus titles
@@ -608,11 +603,13 @@ const getResourceTypes = (subjectName, classLevel) => {
     // rendered via the ncert2 WebView flow (HTML note cards).
     if (!/math|ganita/i.test(subjectName)) {
       const notesTile = { icon: '📝', name: 'Revision Notes', sub: 'Chapter Notes', type: 'ncert2', part: 4 };
-      // English (Poorvi) also offers NCERT (textbook) Solutions. In Class 6 the
-      // ncert2 chapter list comes straight from the subject's local chapters
-      // (CLASS6_ENGLISH_CHAPTERS), so tapping it lists the chapters; each opens
-      // the DB-backed solution cards (part=2) once they're seeded.
-      if (/english|poorvi/i.test(subjectName)) {
+      // New-syllabus books — English (Poorvi) & Science (Curiosity) — also offer
+      // NCERT (textbook) Solutions. In Class 6 the ncert2 chapter list comes
+      // straight from the subject's local chapters (CLASS6_ENGLISH_POORVI_CHAPTERS
+      // / CLASS6_SCIENCE_CURIOSITY_CHAPTERS), so tapping lists the chapters; each
+      // opens the DB-backed solution cards (part=2) once they're seeded. Matched on
+      // "poorvi"/"curiosity" so the placeholder "Science (OLD)" book is excluded.
+      if (/poorvi|curiosity/i.test(subjectName)) {
         return [
           notesTile,
           { icon: '📗', name: 'NCERT Solutions', sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
