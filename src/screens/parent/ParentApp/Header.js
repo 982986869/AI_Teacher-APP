@@ -1,25 +1,25 @@
 // src/screens/parent/ParentApp/Header.js
 import React, { memo } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { C, s } from './constants';
+import { View, TouchableOpacity } from 'react-native';
+import { Dumbbell } from 'lucide-react-native';
+import { C, st, T } from './constants';
 
-function Header({ meta, child, onAvatar }) {
-  const initial = (child?.name || 'P').trim().charAt(0).toUpperCase();
+function Header({ meta, childName, onAvatar }) {
+  const initial = (childName || 'P').trim().charAt(0).toUpperCase();
   return (
-    <View style={s.header}>
+    <View style={st.header}>
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
-        <TouchableOpacity style={s.avatar} activeOpacity={0.85} onPress={onAvatar} accessibilityLabel="Account options">
-          <Text style={s.avatarTxt}>{initial}</Text>
+        <TouchableOpacity style={st.avatar} activeOpacity={0.85} onPress={onAvatar} accessibilityLabel="Account options">
+          <T w="xbold" s={22} c="#fff">{initial}</T>
         </TouchableOpacity>
         <View>
-          <Text style={s.hTitle}>{meta.title}</Text>
-          {meta.sub && !!child && <Text style={s.hSub}>{child.name}{child.className ? ` • ${child.className}` : ''}</Text>}
+          <T w="bold" s={23} c={C.ink}>{meta.title}</T>
+          {meta.sub && !!childName && <T w="med" s={13} c={C.muted}>{childName} • Math</T>}
         </View>
       </View>
-      <View style={s.gymPill}>
-        <Text style={s.gymPillTxt}>AI Gym</Text>
-        <View style={s.gymIcon}><MaterialCommunityIcons name="dumbbell" size={14} color={C.ink} /></View>
+      <View style={st.gymPill}>
+        <T w="bold" s={14} c={C.ink}>AI Gym</T>
+        <View style={st.gymIcon}><Dumbbell size={14} strokeWidth={2.6} color={C.ink} /></View>
       </View>
     </View>
   );
