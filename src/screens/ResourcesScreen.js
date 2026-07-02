@@ -602,20 +602,10 @@ const getResourceTypes = (subjectName, classLevel) => {
     // Science (Curiosity) / English (Poorvi): DB-backed Revision Notes (part=4),
     // rendered via the ncert2 WebView flow (HTML note cards).
     if (!/math|ganita/i.test(subjectName)) {
-      const notesTile = { icon: '📝', name: 'Revision Notes', sub: 'Chapter Notes', type: 'ncert2', part: 4 };
-      // New-syllabus books — English (Poorvi) & Science (Curiosity) — also offer
-      // NCERT (textbook) Solutions. In Class 6 the ncert2 chapter list comes
-      // straight from the subject's local chapters (CLASS6_ENGLISH_POORVI_CHAPTERS
-      // / CLASS6_SCIENCE_CURIOSITY_CHAPTERS), so tapping lists the chapters; each
-      // opens the DB-backed solution cards (part=2) once they're seeded. Matched on
-      // "poorvi"/"curiosity" so the placeholder "Science (OLD)" book is excluded.
-      if (/poorvi|curiosity/i.test(subjectName)) {
-        return [
-          notesTile,
-          { icon: '📗', name: 'NCERT Solutions', sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
-        ];
-      }
-      return [notesTile];
+      // Science (Curiosity) / English (Poorvi): ALL chapter content lives in the DB
+      // under part=4 (textbook sections + revision notes). One tile → the chapter list
+      // is fetched from the DB (not hardcoded) → each chapter opens its sections → content.
+      return [{ icon: '📗', name: 'NCERT Solutions', sub: 'Chapter-wise solutions', type: 'ncert2', part: 4 }];
     }
     // Maths: both tiles use the ncert2 WebView flow. `part` picks the dataset in
     // ncert_solutions: 2 = textbook, 3 = NCERT Exemplar (MCQs).
@@ -1092,19 +1082,21 @@ const ResourcesScreen = () => {
   // content (replaces the old static getNcert2Chapters()) when the Part-II
   // chapter list (LEVEL 3) is active. Section content is fetched in Ncert2Screen.
   const [ncert2, setNcert2] = useState({ loading: false, chapters: [] });
-  // Class 6 chapter lists are defined locally (not in the DB), so skip the DB
-  // availability fetch there — otherwise a hanging/empty response hides the list.
-  const ncert2ListActive = !!(activeSubject && activeResType?.type === 'ncert2' && !showCards && activeClass !== 'Class 6');
+  // The ncert2 chapter list is ALWAYS fetched from the DB (all classes incl. Class 6),
+  // for the resource-type's own `part` (2 = textbook, 3 = exemplar, 4 = revised books).
+  // Nothing is hardcoded — the list reflects exactly what's seeded.
+  const ncert2ListActive = !!(activeSubject && activeResType?.type === 'ncert2' && !showCards);
+  const ncert2Part = activeResType?.part || 2;
   useEffect(() => {
     if (!ncert2ListActive) { setNcert2({ loading: false, chapters: [] }); return undefined; }
     let alive = true;
     setNcert2({ loading: true, chapters: [] });
-    getNcertChapters({ part: 2, subject: activeSubject.name, className: activeClass })
+    getNcertChapters({ part: ncert2Part, subject: activeSubject.name, className: activeClass })
       .then((d) => { if (alive) setNcert2({ loading: false, chapters: (d && d.chapters) || [] }); })
       .catch(() => { if (alive) setNcert2({ loading: false, chapters: [] }); });
     return () => { alive = false; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ncert2ListActive, activeSubject?.name, activeClass]);
+  }, [ncert2ListActive, activeSubject?.name, activeClass, ncert2Part]);
 
   // Class 12 Physics/Chemistry NCERT Part-I & Part-II live in the questions table,
   // and each part only covers SOME chapters (Part-I and Part-II split the syllabus).
@@ -1587,7 +1579,7 @@ const ResourcesScreen = () => {
         : isMathsNcertList
           ? subjectChapters.filter((c) => ncertAvail.chapters.some((n) => slugify(n) === slugify(c.name)))
         : isNcert2 && ncert2.chapters.length > 0
-          ? subjectChapters.filter((c) => ncert2.chapters.includes(c.name))
+          ? ncert2.chapters.map((name) => ({ name }))   // straight from the DB — no hardcode
           : isNotesList
             ? subjectChapters.filter((c) => notesAvail.chapters.some((n) => slugify(n) === slugify(c.name)))
             : isBundledNotesList
