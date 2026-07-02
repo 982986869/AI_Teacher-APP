@@ -997,10 +997,11 @@ const PracticeScreen = () => {
       {/* Students are locked to their own class; only show the switcher if unset. */}
       {!scope?.classNum && <ClassTabs value={selectedClass} onChange={setSelectedClass} />}
 
-      {/* No content seeded for this student's class → premium empty state, never
-          another class's content. */}
-      {scope?.role === 'student' && scope?.className && !isClassReady(scope.className) ? (
-        <ComingSoon label="Practice" />
+      {/* No content seeded for the selected class (e.g. Class 7) → premium empty
+          state for everyone, never another class's content. isClassReady is
+          optimistic while its backend list loads, so this never flashes early. */}
+      {selectedClass && !isClassReady(selectedClass) ? (
+        <ComingSoon label="Practice" className={selectedClass} />
       ) : (
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 32 }}>
 

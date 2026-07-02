@@ -530,6 +530,25 @@ const SUBJECTS_CLASS6 = [
   { name: 'Maths (Ganita Prakash)', emoji: '📐', bg: '#E8703A', chapters: CLASS6_GANITA_CHAPTERS },
 ];
 
+// Class 7 (CBSE) subjects — new-syllabus books (Curiosity / Ganita Prakash /
+// Poorvi / Malhar / Exploring Society) plus the OLD NCERT books and Reasoning.
+// Content isn't seeded yet, so every entry is `comingSoon: true`: the list shows
+// so the syllabus is visible, but tapping any subject lands on the ComingSoon
+// state (in both the Resources and Practice tabs).
+const SUBJECTS_CLASS7 = [
+  { name: 'Science (Curiosity)',              emoji: '🔬', bg: '#5AA84F', chapters: [], comingSoon: true },
+  { name: 'Reasoning & Mental Ability',       emoji: '🧠', bg: '#E8703A', chapters: [], comingSoon: true },
+  { name: 'Old - English',                    emoji: '📖', bg: '#7A6FD0', chapters: [], comingSoon: true },
+  { name: 'Old - Social Sc',                  emoji: '🌐', bg: '#2F80ED', chapters: [], comingSoon: true },
+  { name: 'Old - Science',                    emoji: '🔬', bg: '#5AA84F', chapters: [], comingSoon: true },
+  { name: 'Old - हिंदी',                       emoji: '📚', bg: '#2F80ED', chapters: [], comingSoon: true },
+  { name: 'Old - Maths',                      emoji: '📐', bg: '#E8703A', chapters: [], comingSoon: true },
+  { name: 'Maths (Ganita Prakash)',           emoji: '📐', bg: '#E8703A', chapters: [], comingSoon: true },
+  { name: 'हिंदी (मल्हार)',                     emoji: '📚', bg: '#2F80ED', chapters: [], comingSoon: true },
+  { name: 'English (Poorvi)',                 emoji: '📖', bg: '#7A6FD0', chapters: [], comingSoon: true },
+  { name: 'Social Science (Exploring Society)', emoji: '🌐', bg: '#2F80ED', chapters: [], comingSoon: true },
+];
+
 const RESOURCE_TYPES = [
   { icon: '📋', name: 'Revision Notes',         sub: '835 items',          type: 'notes'    },
   { icon: '🔄', name: 'Exemplar Solutions',      sub: 'Textbook Solutions', type: 'exemplar' },
@@ -645,6 +664,17 @@ const getResourceTypes = (subjectName, classLevel) => {
       // under part=4. Chapter lists for BOTH tiles are fetched from the DB (not hardcoded)
       // for their own part, so each shows exactly what's seeded.
       const notesTile = { icon: '📝', name: 'Revision Notes', sub: 'Chapter Notes', type: 'ncert2', part: 4 };
+      // Science (OLD): the full Class 6 set — Revision Notes (part 4), NCERT Solutions
+      // (part 2), Exemplar Solutions (part 3) and a separate "Class 06 - Science -
+      // Revised" textbook tile (also part 2, same dataset). All DB-backed via ncert2.
+      if (/science \(old\)/i.test(subjectName)) {
+        return [
+          notesTile,
+          { icon: '📗', name: 'NCERT Solutions',              sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
+          { icon: '🧩', name: 'Exemplar Solutions',           sub: 'Exemplar Solutions', type: 'ncert2', part: 3 },
+          { icon: '📗', name: 'Class 06 - Science - Revised',  sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
+        ];
+      }
       // English (Poorvi) & Science (Curiosity) also expose NCERT (textbook) Solutions
       // (part=2) — shows its chapters once that dataset is seeded.
       if (/poorvi|curiosity/i.test(subjectName)) {
@@ -943,6 +973,9 @@ const ResourcesScreen = () => {
   // "resource type" screen (LEVEL 2) and jump straight to its chapters (LEVEL 3),
   // so e.g. Class 6 English/Science go Subject → Chapters → content in one tap less.
   const openSubject = (subject) => {
+    // No content yet (e.g. all Class 7 subjects): land on LEVEL 2, which renders
+    // the ComingSoon state instead of resource tiles.
+    if (subject.comingSoon) { setActiveSubject(subject); setActiveResType(null); return; }
     const types = getResourceTypes(subject.name, activeClass);
     setActiveSubject(subject);
     setActiveResType(types.length === 1 ? types[0] : null);
@@ -1724,6 +1757,10 @@ const ResourcesScreen = () => {
             </View>
           </View>
         </View>
+        {/* Subjects with no seeded content yet (e.g. all of Class 7) land here. */}
+        {activeSubject.comingSoon ? (
+          <ComingSoon className={activeClass} label={`${activeSubject.name} resources`} />
+        ) : (
         <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
           {getResourceTypes(activeSubject.name, activeClass).map((rt, i) => (
             <TouchableOpacity key={i} style={s.resTypeRow} onPress={() => { setActivePaper(null); setActiveChapter(null); setShowCards(false); setShowNotes(false); setActiveResType(rt); }} activeOpacity={0.8}>
@@ -1738,6 +1775,7 @@ const ResourcesScreen = () => {
             </TouchableOpacity>
           ))}
         </ScrollView>
+        )}
       </SafeAreaView>
     );
   }
@@ -1763,7 +1801,7 @@ const ResourcesScreen = () => {
             <Text style={s.boardLabel}>{activeClass}</Text>
           </View>
           <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
-            {(activeClass === 'Class 6' ? SUBJECTS_CLASS6 : SUBJECTS)
+            {(activeClass === 'Class 6' ? SUBJECTS_CLASS6 : activeClass === 'Class 7' ? SUBJECTS_CLASS7 : SUBJECTS)
               .filter((subject) => !(activeClass === 'Class 12' && subject.name === 'Biology'))
               // Stream filter (hide Biology from PCM etc.) only applies to senior classes
               // (11/12). Junior lists (e.g. Class 6's "Maths (OLD)", "English (Poorvi)")
