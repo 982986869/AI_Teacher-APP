@@ -645,6 +645,15 @@ const getResourceTypes = (subjectName, classLevel) => {
   const base = classLevel === 'Class 12'
     ? RESOURCE_TYPES
     : RESOURCE_TYPES.filter((rt) => rt.type !== 'papers');
+  // Class 7 — all subjects are DB-backed via ncert_solutions: NCERT Solutions
+  // (part=2, textbook sections) + Revision Notes (part=4, flash cards). Both use the
+  // ncert2 WebView flow; each chapter list is fetched from the DB for its own part.
+  if (classLevel === 'Class 7') {
+    return [
+      { icon: '📗', name: 'NCERT Solutions', sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
+      { icon: '📝', name: 'Revision Notes',  sub: 'Chapter Notes',      type: 'ncert2', part: 4 },
+    ];
+  }
   // Class 6 books aren't split into Part-I / Part-II — replace both NCERT tiles
   // with a single revised-book tile, e.g. "Class 06 - Mathematics - Revised".
   if (classLevel === 'Class 6') {

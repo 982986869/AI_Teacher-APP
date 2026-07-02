@@ -11,7 +11,7 @@ import { useAuth } from '../context/AuthContext';
 export const CLASSES = ['Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10', 'Class 11', 'Class 12'];
 // Classes that currently have seeded content in the DB. Anything else shows the
 // premium "coming soon" empty state instead of falling back to another class.
-export const READY = { 'Class 6': true, 'Class 11': true, 'Class 12': true };
+export const READY = { 'Class 6': true, 'Class 7': true, 'Class 11': true, 'Class 12': true };
 export const isClassReady = (c) => !!READY[c];
 
 const TEAL = '#0FA39A';
