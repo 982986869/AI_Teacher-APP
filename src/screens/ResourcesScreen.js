@@ -649,10 +649,16 @@ const getResourceTypes = (subjectName, classLevel) => {
   // (part=2, textbook sections) + Revision Notes (part=4, flash cards). Both use the
   // ncert2 WebView flow; each chapter list is fetched from the DB for its own part.
   if (classLevel === 'Class 7') {
-    return [
+    const tiles = [
       { icon: '📗', name: 'NCERT Solutions', sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
       { icon: '📝', name: 'Revision Notes',  sub: 'Chapter Notes',      type: 'ncert2', part: 4 },
     ];
+    // Important Questions (part=5, MCQs grouped by VSA/SA/LA). Seeded for Science
+    // (Curiosity) so far; add other subjects as their part=5 data is seeded.
+    if (/curiosity/i.test(subjectName)) {
+      tiles.push({ icon: '⭐', name: 'Important Questions', sub: 'VSA / SA / LA', type: 'ncert2', part: 5 });
+    }
+    return tiles;
   }
   // Class 6 books aren't split into Part-I / Part-II — replace both NCERT tiles
   // with a single revised-book tile, e.g. "Class 06 - Mathematics - Revised".
