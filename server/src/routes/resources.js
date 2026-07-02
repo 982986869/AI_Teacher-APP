@@ -14,6 +14,7 @@ const {
   importPapers,
   deletePapers,
   getMcqByPath,
+  getClasses,
 } = require('../controllers/resources.controller')
 const { getExemplar } = require('../controllers/exemplar.controller')
 const { getNcert, getNcertChapters } = require('../controllers/ncert.controller')
@@ -22,6 +23,9 @@ const router = Router()
 
 // All resources routes require a valid JWT.
 router.use(authenticate)
+
+// ─── Which classes have content (drives the "ready vs coming-soon" gate) ───────
+router.get('/classes',                           getClasses)
 
 // ─── Granular (REST) ──────────────────────────────────────────────────────────
 router.get('/subjects',                          getSubjects)

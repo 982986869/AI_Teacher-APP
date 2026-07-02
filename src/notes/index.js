@@ -7,6 +7,7 @@ import Physics12Notes   from './Physics12Notes';
 import ChemistryNotes   from './ChemistryNotes';
 import MathsNotes       from './MathsNotes';
 import BiologyNotes     from './BiologyNotes';
+import EnglishNotes     from './EnglishNotes';
 
 const NOTES_MAP = {
   // Class 11 + Class 12 notes share one map per subject; chapter names are unique
@@ -15,6 +16,9 @@ const NOTES_MAP = {
   'Chemistry':   { ...ChemistryNotes }, // Class 12 Chemistry notes are DB-backed
   'Mathematics': MathsNotes,
   'Biology':     BiologyNotes,
+  // Class 6 English — the Subjects picker names this book "English (Poorvi)", and
+  // notes are looked up by the raw subject name, so register under that exact key.
+  'English (Poorvi)': EnglishNotes,
 };
 
 /**

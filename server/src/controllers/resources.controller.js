@@ -2,13 +2,21 @@
 
 const ApiResponse = require('../utils/ApiResponse')
 const svc = require('../services/resources.service')
+const { resolveClassNum } = require('../services/personalization/enforce')
+const { isAllowedSubject } = require('../services/personalization/subjects')
 
-// Class/grade from ?class=12 (9–12). Defaults to 11 for back-compat.
-const classOf = (req) => parseInt(req.query.class, 10) || 11
+// Authoritative class — the student's own class overrides any ?class= param.
+const classOf = (req) => resolveClassNum(req)
 
 async function getSubjects(req, res, next) {
   try {
-    return ApiResponse.success(res, await svc.listSubjects())
+    const all = await svc.listSubjects()
+    // Students only see the subjects in their syllabus (class + stream).
+    const sc = req.scope
+    const list = (sc && sc.role === 'student' && sc.classNum && Array.isArray(all))
+      ? all.filter((s) => isAllowedSubject(s.name || s.title || s, sc.classNum, sc.stream))
+      : all
+    return ApiResponse.success(res, list)
   } catch (err) { next(err) }
 }
 
@@ -111,4 +119,14 @@ async function deletePapers(req, res, next) {
   } catch (err) { next(err) }
 }
 
-module.exports = { getSubjects, getChapters, getSections, getQuestions, getQuestionsByPath, getNotesByPath, listPapers, getPaper, importPapers, deletePapers, getMcqByPath }
+// GET /api/resources/classes → { classes: ['Class 6','Class 11','Class 12'] }
+// Which classes currently have content — the app uses this instead of a hardcoded
+// list, so adding content to the DB automatically unlocks that class.
+async function getClasses(req, res, next) {
+  try {
+    const classes = await svc.listContentClasses()
+    return ApiResponse.success(res, { classes })
+  } catch (err) { next(err) }
+}
+
+module.exports = { getSubjects, getChapters, getSections, getQuestions, getQuestionsByPath, getNotesByPath, listPapers, getPaper, importPapers, deletePapers, getMcqByPath, getClasses }

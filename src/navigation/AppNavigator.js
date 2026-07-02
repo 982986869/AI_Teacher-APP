@@ -8,20 +8,20 @@ import BrainGymScreen from '../screens/BrainGymScreen';
 import OnboardingScreen from '../screens/OnboardingScreen';
 import BrainGymFlow from '../screens/braingym/BrainGymFlow';
 import MainNavigator from './MainNavigator';
+import CompleteProfileScreen from '../screens/CompleteProfileScreen';
+import ParentDashboardScreen from '../screens/ParentDashboardScreen';
+import RoleHomeScreen from '../screens/RoleHomeScreen';
 
 const Stack = createNativeStackNavigator();
 const SPLASH_FALLBACK = 4000;
 
 const AppNavigator = () => {
-  const { isAuthenticated, hasOnboarded, loading, user, justLoggedIn } = useAuth();
+  const { isAuthenticated, hasOnboarded, loading, user, justLoggedIn, scope } = useAuth();
   const [showSplash, setShowSplash] = useState(true);
   const [gymDone, setGymDone]       = useState(false);   // BrainGym -> Onboarding
   const [workoutDone, setWorkoutDone] = useState(false); // WorkoutWheel -> Home
 
   const wasAuthed = useRef(isAuthenticated);
-
-  // TEMP DEBUG — remove once confirmed.
-  console.log('NAV STATE →', { loading, showSplash, isAuthenticated, hasOnboarded, justLoggedIn, gymDone, workoutDone });
 
   useEffect(() => {
     const t = setTimeout(() => setShowSplash(false), SPLASH_FALLBACK);
@@ -46,15 +46,34 @@ const AppNavigator = () => {
     return <SplashScreen onFinish={() => setShowSplash(false)} />;
   }
 
-  // Flow:
-  //   not signed in   -> Auth (Landing/Login/OTP)
-  //   !gymDone         -> BrainGym ("You're all set!")
-  //   !hasOnboarded    -> Onboarding (survey)
-  //   !workoutDone     -> WorkoutWheel   <-- after Onboarding
-  //   else             -> Home
+  // Flow (order matters — profile setup gates EVERYTHING):
+  //   not signed in    -> Auth (Landing/Login/OTP)
+  //   !scope.complete  -> CompleteProfile (role + class/stream/board/language)
+  //   role parent      -> ParentApp (read-only dashboard)
+  //   role teacher/admin -> RoleApp (teacher dashboard)
+  //   student:
+  //     !gymDone        -> BrainGym ("You're all set!")
+  //     !hasOnboarded   -> Onboarding (survey)
+  //     !workoutDone    -> WorkoutWheel
+  //     else            -> Home
   let screen;
   if (!isAuthenticated) {
     screen = <Stack.Screen name="Auth" component={AuthNavigator} />;
+  } else if (!scope.complete) {
+    // First-time / migration / Google or email signup: collect role + class/stream
+    // before the user can enter ANY part of the app. New users default to `student`
+    // with no class, so this also lets a parent/teacher declare their role up front.
+    screen = <Stack.Screen name="CompleteProfile" component={CompleteProfileScreen} />;
+  } else if (scope.role === 'parent') {
+    // Parents never see the student flow or dashboard — only their read-only view.
+    screen = <Stack.Screen name="ParentApp" component={ParentDashboardScreen} />;
+  } else if (scope.role === 'teacher' || scope.role === 'admin') {
+    // Teacher / admin never leak into the student app.
+    screen = (
+      <Stack.Screen name="RoleApp">
+        {props => <RoleHomeScreen {...props} role={scope.role} />}
+      </Stack.Screen>
+    );
   } else if (justLoggedIn && !gymDone) {
     screen = (
       <Stack.Screen name="BrainGym">

@@ -21,7 +21,7 @@ import { getMcqQuestions } from '../data/mcqQuestions';
 import { getSubtopicTest } from '../data/subtopicBank';
 import { listMockTests, getMockTestQuestions, listMockAttempts, submitMockTest } from '../api/mockTestsApi';
 import { useAuth } from '../context/AuthContext';
-import { ClassTabs } from '../components/ClassPicker';
+import { ClassTabs, ComingSoon } from '../components/ClassPicker';
 
 // Subjects with DB-backed mock tests (served by mockTestsApi). The Mock Test
 // button opens a subject -> mock list flow that runs each test through the
@@ -57,8 +57,9 @@ function computeMockResult(payload) {
 const slugify = (s) =>
   String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 
-// 'Class 11' → 11; defaults to 11. Tags which grade's content to fetch.
-const classNum = (c) => parseInt(String(c).replace(/\D/g, ''), 10) || 11;
+// 'Class 8' → 8; null when unknown (never defaults to a class — the backend uses the
+// student's saved class regardless of what we send).
+const classNum = (c) => parseInt(String(c || '').replace(/\D/g, ''), 10) || null;
 
 // buildFragmentFromQuestions + buildPyqDocument now live in utils/pyqDocument so
 // ResourcesScreen (Exemplar) can reuse the exact same card rendering.
@@ -477,7 +478,7 @@ const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
 };
 
 const PracticeScreen = () => {
-  const { selectedClass, setSelectedClass } = useAuth();
+  const { selectedClass, setSelectedClass, scope, isClassReady } = useAuth();
 
   // Previous Year Papers navigation
   const [pyqOpen, setPyqOpen]       = useState(false);   // showing the PYQ subject list
@@ -993,8 +994,14 @@ const PracticeScreen = () => {
         </View>
       </View>
 
-      <ClassTabs value={selectedClass} onChange={setSelectedClass} />
+      {/* Students are locked to their own class; only show the switcher if unset. */}
+      {!scope?.classNum && <ClassTabs value={selectedClass} onChange={setSelectedClass} />}
 
+      {/* No content seeded for this student's class → premium empty state, never
+          another class's content. */}
+      {scope?.role === 'student' && scope?.className && !isClassReady(scope.className) ? (
+        <ComingSoon label="Practice" />
+      ) : (
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 32 }}>
 
         {/* Important Questions */}
@@ -1070,6 +1077,7 @@ const PracticeScreen = () => {
         </View>
 
       </ScrollView>
+      )}
     </SafeAreaView>
   );
 };

@@ -2,6 +2,13 @@
 
 const db = require('../config/database')
 const ApiResponse = require('../utils/ApiResponse')
+const { resolveClassName } = require('../services/personalization/enforce')
+
+// NCERT textbook / exemplar / revision-note content is browsed via the app's class
+// picker (Class 6–12), so honor the requested ?class= first and only fall back to the
+// student's own class. Unlike practice/quizzes, read-only content isn't subject-gated
+// here — the picker is the authority for what the user is looking at.
+const classFor = (req) => String(req.query.class || req.query.className || '').trim() || resolveClassName(req) || ''
 
 // NCERT Solutions (Part-I / Part-II), DB-backed. Uses raw SQL so it works without
 // regenerating the Prisma client (the ncert_solutions model exists in schema.prisma
@@ -14,7 +21,7 @@ async function getNcert(req, res, next) {
   try {
     const part = parseInt(req.query.part, 10) || 2
     const subject = String(req.query.subject || '').trim()
-    const className = String(req.query.class || req.query.className || 'Class 11').trim()
+    const className = classFor(req)
     const chapter = String(req.query.chapter || '').trim()
 
     if (!subject || !chapter) {
@@ -35,6 +42,7 @@ async function getNcert(req, res, next) {
 
     return ApiResponse.success(res, { part, subject, className, chapter, sections })
   } catch (err) {
+    if (err.status) return ApiResponse.error(res, err.message, err.status)
     next(err)
   }
 }
@@ -45,7 +53,7 @@ async function getNcertChapters(req, res, next) {
   try {
     const part = parseInt(req.query.part, 10) || 2
     const subject = String(req.query.subject || '').trim()
-    const className = String(req.query.class || req.query.className || 'Class 11').trim()
+    const className = classFor(req)
 
     if (!subject) {
       return ApiResponse.error(res, 'subject is required', 400)

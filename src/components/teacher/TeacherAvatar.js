@@ -23,40 +23,35 @@ const VIDEO_OK = !!(ExpoAV && ExpoAV.Video);
 
 const AEllipse = Animated.createAnimatedComponent(Ellipse);
 const ARect = Animated.createAnimatedComponent(Rect);
+const ACircle = Animated.createAnimatedComponent(Circle);
 
-// Expression → brow + mouth shape (resting). Lip-sync overrides the mouth while
-// speaking, but the smile corners stay per-expression.
+// Expression → brow + mouth shape (resting) + gaze direction + optional one-shot
+// motion (`special`). Lip-sync overrides the mouth while speaking, but the smile
+// corners + brows stay per-expression. eyeDir = fixed pupil gaze { x:-1..1, y:-1..1 }
+// (null = free idle drift). This is the teacher's whole behavioural vocabulary.
 function expressionShapes(expr) {
   switch (expr) {
     case 'thinking':
-      return {
-        browL: 'M58 86 q12 -8 24 -3',   // raised inquisitive
-        browR: 'M118 83 q12 -2 24 4',
-        mouth: 'M88 140 q12 4 24 0',    // small, slightly pursed
-        eyeUp: -2,
-      };
+      return { browL: 'M58 86 q12 -8 24 -3', browR: 'M118 83 q12 -2 24 4', mouth: 'M88 140 q12 4 24 0', eyeUp: -2, eyeDir: { x: 0.6, y: -0.7 } }; // glances up, pondering
     case 'explaining':
-      return {
-        browL: 'M58 84 q12 -4 24 -1',
-        browR: 'M118 83 q12 -1 24 3',
-        mouth: 'M84 138 q16 8 32 0',    // open, mid-sentence
-        eyeUp: 0,
-      };
+      return { browL: 'M58 84 q12 -4 24 -1', browR: 'M118 83 q12 -1 24 3', mouth: 'M84 138 q16 8 32 0', eyeUp: 0, eyeDir: null };
     case 'encouraging':
-      return {
-        browL: 'M58 80 q12 -6 24 -2',   // lifted, warm
-        browR: 'M118 78 q12 -2 24 6',
-        mouth: 'M80 136 q20 16 40 0',   // big warm smile
-        eyeUp: 0,
-      };
+      return { browL: 'M58 80 q12 -6 24 -2', browR: 'M118 78 q12 -2 24 6', mouth: 'M80 136 q20 16 40 0', eyeUp: 0, eyeDir: null };
+    case 'surprise':
+      return { browL: 'M56 74 q12 -9 24 -3', browR: 'M118 73 q12 -3 24 7', mouth: 'M90 138 q10 12 20 0', eyeUp: -3, eyeDir: { x: 0, y: 0 }, special: 'flash' }; // brows way up, eyes wide, small O
+    case 'celebrate':
+      return { browL: 'M58 78 q12 -7 24 -2', browR: 'M118 76 q12 -2 24 7', mouth: 'M78 135 q22 18 44 0', eyeUp: 0, eyeDir: { x: 0, y: -0.3 }, happyEyes: true, special: 'bounce' }; // big grin + a little bounce
+    case 'writing':
+      return { browL: 'M58 85 q12 -4 24 -1', browR: 'M118 84 q12 -1 24 3', mouth: 'M88 139 q12 4 24 0', eyeUp: 1, eyeDir: { x: 0, y: 1 } }; // focused, looking DOWN at the board
+    case 'pointing':
+      return { browL: 'M58 82 q12 -5 24 -1', browR: 'M118 81 q12 -1 24 4', mouth: 'M84 137 q16 9 32 0', eyeUp: 0, eyeDir: { x: 1, y: 0.3 } }; // looks toward the board (aside)
+    case 'waiting':
+      return { browL: 'M58 83 q12 -5 24 -1', browR: 'M118 82 q12 -1 24 4', mouth: 'M84 138 q16 8 32 0', eyeUp: 0, eyeDir: null, calm: true }; // patient, gentle
+    case 'smile':
+      return { browL: 'M58 81 q12 -6 24 -2', browR: 'M118 80 q12 -2 24 5', mouth: 'M80 136 q20 15 40 0', eyeUp: 0, eyeDir: null };
     case 'happy':
     default:
-      return {
-        browL: 'M58 83 q12 -5 24 -1',
-        browR: 'M118 82 q12 -1 24 4',
-        mouth: 'M84 137 q16 11 32 0',   // gentle smile
-        eyeUp: 0,
-      };
+      return { browL: 'M58 83 q12 -5 24 -1', browR: 'M118 82 q12 -1 24 4', mouth: 'M84 137 q16 11 32 0', eyeUp: 0, eyeDir: null };
   }
 }
 
@@ -96,6 +91,8 @@ function TeacherAvatar({ state = 'idle', expression, size = 160, theme = 'dark',
   const mouth = useRef(new Animated.Value(0)).current;
   const pulse = useRef(new Animated.Value(0)).current;
   const dots = useRef(new Animated.Value(0)).current;
+  const breath = useRef(new Animated.Value(0)).current; // gentle idle breathing
+  const look = useRef(new Animated.Value(0)).current;   // slow pupil drift (alive eyes)
 
   // blink — periodic, with a natural double-blink now and then
   useEffect(() => {
@@ -126,6 +123,39 @@ function TeacherAvatar({ state = 'idle', expression, size = 160, theme = 'dark',
     return () => loop.stop();
   }, [sway]);
 
+  // soft idle breathing — a barely-there scale, always on (makes her feel alive)
+  useEffect(() => {
+    const loop = Animated.loop(Animated.sequence([
+      Animated.timing(breath, { toValue: 1, duration: 2000, easing: Easing.inOut(Easing.sin), useNativeDriver: true }),
+      Animated.timing(breath, { toValue: 0, duration: 2400, easing: Easing.inOut(Easing.sin), useNativeDriver: true }),
+    ]));
+    loop.start();
+    return () => loop.stop();
+  }, [breath]);
+
+  // slow pupil drift — eyes occasionally glance aside, then back to centre
+  useEffect(() => {
+    let cancelled = false;
+    const step = () => {
+      if (cancelled) return;
+      // While teaching she HOLDS eye contact (centre) and only flicks away briefly;
+      // when idle she lets her gaze wander more. Centre = looking at the student.
+      const amp = speaking ? 0.32 : 0.9;
+      const awayMs = speaking ? 380 : 520;
+      const awayHold = speaking ? 360 + Math.random() * 700 : 900 + Math.random() * 1800;
+      const centreHold = speaking ? 1600 + Math.random() * 2400 : 700 + Math.random() * 1600;
+      const to = (Math.random() * 2 - 1) * amp;
+      Animated.sequence([
+        Animated.timing(look, { toValue: to, duration: awayMs, easing: Easing.inOut(Easing.quad), useNativeDriver: false }),
+        Animated.delay(awayHold),
+        Animated.timing(look, { toValue: 0, duration: 420, easing: Easing.inOut(Easing.quad), useNativeDriver: false }),
+        Animated.delay(centreHold),
+      ]).start(() => step());
+    };
+    step();
+    return () => { cancelled = true; };
+  }, [look, speaking]);
+
   // glow
   useEffect(() => {
     const active = speaking || listening || thinking;
@@ -137,20 +167,32 @@ function TeacherAvatar({ state = 'idle', expression, size = 160, theme = 'dark',
     return () => loop.stop();
   }, [glow, speaking, listening, thinking]);
 
-  // lip-sync + speaking pulse ring
+  // lip-sync + speaking pulse ring — ORGANIC, not a fixed flap. Each "syllable"
+  // opens to a random amplitude over a random short duration, then eases mostly
+  // closed, so the mouth never loops the same shape twice (reads as real speech).
+  // When she stops, the mouth eases shut (120ms) instead of snapping.
   useEffect(() => {
-    let m; let p;
+    let cancelled = false; let p;
     if (speaking) {
-      m = Animated.loop(Animated.sequence([
-        Animated.timing(mouth, { toValue: 1, duration: 130, useNativeDriver: false }),
-        Animated.timing(mouth, { toValue: 0.3, duration: 110, useNativeDriver: false }),
-        Animated.timing(mouth, { toValue: 0.9, duration: 120, useNativeDriver: false }),
-        Animated.timing(mouth, { toValue: 0.15, duration: 130, useNativeDriver: false }),
-      ]));
-      p = Animated.loop(Animated.timing(pulse, { toValue: 1, duration: 1500, easing: Easing.out(Easing.quad), useNativeDriver: true }));
-      m.start(); p.start();
-    } else { mouth.setValue(0); pulse.setValue(0); }
-    return () => { m && m.stop(); p && p.stop(); };
+      const syllable = () => {
+        if (cancelled) return;
+        const open = 0.5 + Math.random() * 0.5;   // 0.5 … 1.0 aperture
+        const rest = 0.06 + Math.random() * 0.2;  // brief between-syllable close
+        const upMs = 66 + Math.round(Math.random() * 72);
+        const dnMs = 58 + Math.round(Math.random() * 84);
+        Animated.sequence([
+          Animated.timing(mouth, { toValue: open, duration: upMs, easing: Easing.out(Easing.quad), useNativeDriver: false }),
+          Animated.timing(mouth, { toValue: rest, duration: dnMs, easing: Easing.in(Easing.quad), useNativeDriver: false }),
+        ]).start(({ finished }) => { if (finished) syllable(); });
+      };
+      syllable();
+      p = Animated.loop(Animated.timing(pulse, { toValue: 1, duration: 1650, easing: Easing.out(Easing.quad), useNativeDriver: true }));
+      p.start();
+    } else {
+      Animated.timing(mouth, { toValue: 0, duration: 130, easing: Easing.inOut(Easing.quad), useNativeDriver: false }).start();
+      pulse.setValue(0);
+    }
+    return () => { cancelled = true; p && p.stop(); };
   }, [speaking, mouth, pulse]);
 
   // thinking dots
@@ -167,7 +209,7 @@ function TeacherAvatar({ state = 'idle', expression, size = 160, theme = 'dark',
   }, [thinking, dots]);
 
   const orb = size;
-  const glowOpacity = glow.interpolate({ inputRange: [0, 1], outputRange: [0.1, 0.55] });
+  const glowOpacity = glow.interpolate({ inputRange: [0, 1], outputRange: [0.06, 0.4] });
   const swayRotate = sway.interpolate({ inputRange: [-1, 1], outputRange: ['-2.6deg', '2.6deg'] });
   const swayY = sway.interpolate({ inputRange: [-1, 1], outputRange: [1.5, -1.5] });
   // eyelid height: 0 when open, ~14 when closed
@@ -176,6 +218,9 @@ function TeacherAvatar({ state = 'idle', expression, size = 160, theme = 'dark',
   // a big cartoon "O"). Only ever animates while `speaking` is true.
   const mouthRy = mouth.interpolate({ inputRange: [0, 1], outputRange: [0, 3.6] });
   const eyeY = 100 + (shp.eyeUp || 0);
+  const breathScale = breath.interpolate({ inputRange: [0, 1], outputRange: [1, 1.02] });
+  // horizontal pupil position for a given resting cx (drifts ±1.8px)
+  const lx = (base) => look.interpolate({ inputRange: [-1, 1], outputRange: [base - 1.8, base + 1.8] });
 
   return (
     <View style={[{ width: size, height: size, alignItems: 'center', justifyContent: 'center' }, style]}>
@@ -201,7 +246,7 @@ function TeacherAvatar({ state = 'idle', expression, size = 160, theme = 'dark',
       )}
 
       {/* the portrait — a REAL photo when `photo` is provided, else illustrated */}
-      <Animated.View style={[styles.frame, { width: size, height: size, borderRadius: size / 2, borderColor: accent, backgroundColor: theme === 'cream' ? '#FFF7EE' : '#11151D', transform: [{ rotate: swayRotate }, { translateY: swayY }] }]}>
+      <Animated.View style={[styles.frame, { width: size, height: size, borderRadius: size / 2, borderColor: accent, backgroundColor: theme === 'cream' ? '#FFF7EE' : '#11151D', transform: [{ rotate: swayRotate }, { translateY: swayY }, { scale: breathScale }] }]}>
         {useVid ? (
           <ExpoAV.Video
             source={video}
@@ -268,12 +313,12 @@ function TeacherAvatar({ state = 'idle', expression, size = 160, theme = 'dark',
           <G>
             <Ellipse cx="79" cy={eyeY} rx="9.5" ry="6" fill="#FBF8F3" />
             <Ellipse cx="121" cy={eyeY} rx="9.5" ry="6" fill="#FBF8F3" />
-            <Circle cx="80" cy={eyeY} r="4.2" fill="#5B3B22" />
-            <Circle cx="80" cy={eyeY} r="2" fill="#160F09" />
-            <Circle cx="81.4" cy={eyeY - 1.5} r="1.1" fill="#fff" opacity={0.95} />
-            <Circle cx="120" cy={eyeY} r="4.2" fill="#5B3B22" />
-            <Circle cx="120" cy={eyeY} r="2" fill="#160F09" />
-            <Circle cx="121.4" cy={eyeY - 1.5} r="1.1" fill="#fff" opacity={0.95} />
+            <ACircle cx={lx(80)} cy={eyeY} r="4.2" fill="#5B3B22" />
+            <ACircle cx={lx(80)} cy={eyeY} r="2" fill="#160F09" />
+            <ACircle cx={lx(81.4)} cy={eyeY - 1.5} r="1.1" fill="#fff" opacity={0.95} />
+            <ACircle cx={lx(120)} cy={eyeY} r="4.2" fill="#5B3B22" />
+            <ACircle cx={lx(120)} cy={eyeY} r="2" fill="#160F09" />
+            <ACircle cx={lx(121.4)} cy={eyeY - 1.5} r="1.1" fill="#fff" opacity={0.95} />
             {/* upper lash line */}
             <Path d={`M69 ${eyeY - 5} Q79 ${eyeY - 9} 89 ${eyeY - 5}`} fill="none" stroke="#241812" strokeWidth="2.2" strokeLinecap="round" />
             <Path d={`M111 ${eyeY - 5} Q121 ${eyeY - 9} 131 ${eyeY - 5}`} fill="none" stroke="#241812" strokeWidth="2.2" strokeLinecap="round" />
@@ -314,7 +359,9 @@ const styles = StyleSheet.create({
   ring: { position: 'absolute', borderWidth: 2 },
   frame: {
     overflow: 'hidden', borderWidth: 2, backgroundColor: '#11151D',
-    shadowColor: '#7C3AED', shadowOpacity: 0.5, shadowRadius: 18, shadowOffset: { width: 0, height: 0 }, elevation: 10,
+    // soft, layered drop shadow (real elevation) rather than a flat coloured glow —
+    // the animated colour halo lives in the `glow` view behind this.
+    shadowColor: '#1B2233', shadowOpacity: 0.26, shadowRadius: 22, shadowOffset: { width: 0, height: 10 }, elevation: 12,
   },
   thinkDots: { position: 'absolute', top: -2, flexDirection: 'row', gap: 6 },
   thinkDot: { width: 8, height: 8, borderRadius: 4 },

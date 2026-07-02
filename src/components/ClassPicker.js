@@ -6,9 +6,12 @@
 import React, { useState } from 'react';
 import { View, Text, Pressable, Modal, ScrollView, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useAuth } from '../context/AuthContext';
 
 export const CLASSES = ['Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10', 'Class 11', 'Class 12'];
-export const READY = { 'Class 6': true, 'Class 11': true };   // classes that currently have content
+// Classes that currently have seeded content in the DB. Anything else shows the
+// premium "coming soon" empty state instead of falling back to another class.
+export const READY = { 'Class 6': true, 'Class 11': true, 'Class 12': true };
 export const isClassReady = (c) => !!READY[c];
 
 const TEAL = '#0FA39A';
@@ -23,7 +26,7 @@ export function ClassPicker({ value, onChange }) {
     <>
       <Pressable style={st.chip} onPress={() => setOpen(true)} hitSlop={6}>
         <Ionicons name="school-outline" size={14} color={TEAL} />
-        <Text style={st.chipTxt}>{value || 'Class 11'}</Text>
+        <Text style={st.chipTxt}>{value || 'Select class'}</Text>
         <Ionicons name="chevron-down" size={14} color={TEAL} />
       </Pressable>
 
@@ -69,14 +72,27 @@ export function ClassTabs({ value, onChange }) {
   );
 }
 
-export function ComingSoon({ className = 'This class' }) {
+// Premium empty state for a class/subject whose content isn't seeded yet. Reads the
+// student's saved profile (class · board · stream) so it never implies switching to
+// another class. Pass `label` to name the specific section (e.g. "Mock Tests").
+export function ComingSoon({ className, label }) {
+  const { scope } = useAuth();
+  const cls = className || scope?.className || 'Your class';
+  const bits = [cls, scope?.board, scope?.stream ? String(scope.stream).toUpperCase() : null].filter(Boolean);
   return (
     <View style={st.csWrap}>
-      <View style={st.csIcon}><Ionicons name="construct-outline" size={36} color={INDIGO} /></View>
-      <Text style={st.csTitle}>{className} is coming soon</Text>
+      <View style={st.csIcon}><Ionicons name="sparkles-outline" size={34} color={INDIGO} /></View>
+      <Text style={st.csTitle}>{label ? `${label} for ${cls}` : `${cls} content`} is coming soon</Text>
       <Text style={st.csSub}>
-        We're putting together {className} content. Switch to Class 11 from the top bar to explore the full app right now.
+        We're building this for your syllabus. Please check back later — it will appear here automatically.
       </Text>
+      {bits.length > 0 && (
+        <View style={st.csTags}>
+          {bits.map((b) => (
+            <View key={b} style={st.csTag}><Text style={st.csTagTxt}>{b}</Text></View>
+          ))}
+        </View>
+      )}
     </View>
   );
 }
@@ -105,4 +121,7 @@ const st = StyleSheet.create({
   csIcon: { width: 76, height: 76, borderRadius: 24, backgroundColor: '#EAECFB', alignItems: 'center', justifyContent: 'center' },
   csTitle: { fontSize: 19, fontWeight: '900', color: INK, textAlign: 'center', letterSpacing: -0.3 },
   csSub: { fontSize: 13.5, fontWeight: '600', color: MUTED, textAlign: 'center', lineHeight: 20 },
+  csTags: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, justifyContent: 'center', marginTop: 4 },
+  csTag: { backgroundColor: '#F1F2F6', borderRadius: 999, paddingVertical: 6, paddingHorizontal: 12 },
+  csTagTxt: { fontSize: 12, fontWeight: '800', color: INK },
 });

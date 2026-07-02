@@ -3,15 +3,21 @@ import {
   View, Text, StyleSheet, SafeAreaView, ScrollView,
   TouchableOpacity, StatusBar, Platform, Image, Dimensions, ActivityIndicator, Alert,
 } from 'react-native';
-import * as Print from 'expo-print';
-import * as Sharing from 'expo-sharing';
+// Optional native modules (PDF export + share). Required defensively so a build
+// that lacks the native module (e.g. Expo Go) degrades gracefully instead of
+// crashing the whole app at load time. Same pattern as expo-av/expo-camera here.
+let Print = null;
+try { Print = require('expo-print'); } catch (e) { Print = null; }
+let Sharing = null;
+try { Sharing = require('expo-sharing'); } catch (e) { Sharing = null; }
 import { WebView } from 'react-native-webview';
 
 import { getExemplarSolutions, getNcertChapters, getChapters, getQuestionsByPath, getNotesByPath, getPapers, getPaper } from '../api/resourcesApi';
 import { buildFragmentFromQuestions, buildPyqDocument } from '../utils/pyqDocument';
+import { isAllowedSubject } from '../utils/personalization';
 import { useAuth } from '../context/AuthContext';
 import { API_BASE_URL } from '../constants/config';
-import { ClassTabs } from '../components/ClassPicker';
+import { ClassTabs, ComingSoon } from '../components/ClassPicker';
 import { getChapterNotes } from '../notes/index';
 import Ch2Images from '../notes/images/Ch2Images';
 import ChapterNotesScreen, { buildHTML } from './ChapterNotesScreen';
@@ -381,19 +387,11 @@ const SUBJECTS = [
   },
 ];
 
-// Textbook-Exercises sections for a Class 6 Maths chapter: an Examples set plus
-// two exercises numbered by the chapter (ch 1 → 1.1/1.2, ch 2 → 2.1/2.2, …).
-// `html` is empty for now — the section labels drive the Ncert2Screen list; the
-// solution content is populated separately.
-const class6MathsSections = (chapterNum) => [
-  { key: `ch${chapterNum}-examples`, label: 'Examples', html: '' },
-  { key: `ch${chapterNum}-ex-${chapterNum}-1`, label: `Exercise ${chapterNum}.1`, html: '' },
-  { key: `ch${chapterNum}-ex-${chapterNum}-2`, label: `Exercise ${chapterNum}.2`, html: '' },
-];
-
 // Class 6 Mathematics chapters (NCERT). Shown under the "Class 06 - Mathematics -
-// Revised" textbook tile for both Class 6 Maths entries. Each chapter carries its
-// Textbook-Exercises sections (Examples + Exercise n.1 / n.2).
+// Revised" textbook tile for both Class 6 Maths entries. Sections (Examples +
+// each Exercise) are DB-backed and fetched by Ncert2Screen — we deliberately do
+// NOT attach a local `sections` scaffold here, because a non-empty localSections
+// makes Ncert2Screen skip the API and show empty "coming soon" sections.
 const CLASS6_MATHS_CHAPTERS = [
   'Knowing our Numbers',
   'Whole Numbers',
@@ -407,7 +405,89 @@ const CLASS6_MATHS_CHAPTERS = [
   'Mensuration',
   'Algebra',
   'Ratio and Proportion',
-].map((name, i) => ({ name, sections: class6MathsSections(i + 1) }));
+  'Symmetry',
+  'Practical Geometry',
+].map((name) => ({ name }));
+
+// Class 6 Science (Curiosity) & English (Poorvi) chapters — Revision Notes are
+// DB-backed (ncert_solutions part=4) and rendered by Ncert2Screen. Names must match
+// the DB exactly (apostrophes normalized to straight quotes by the importer).
+const CLASS6_SCIENCE_CURIOSITY_CHAPTERS = [
+  'The Wonderful World of Science',
+  'Diversity in the Living World',
+  'Mindful Eating: A Path to a Healthy Body',
+  'Exploring Magnets',
+  'Measurement of Length and Motion',
+  'Materials Around Us',
+  'Temperature and its Measurement',
+  'A Journey through States of Water',
+  'Methods of Separation in Everyday Life',
+  'Living Creatures: Exploring their Characteristics',
+  "Nature's Treasures",
+  'Beyond Earth',
+].map((name) => ({ name }));
+
+// Every Poorvi chapter follows the same "Let us ..." activity layout, so each
+// chapter carries this shared sub-topic scaffold. Ncert2Screen lists them right
+// away under the NCERT Solutions tile and shows each as "coming soon" until its
+// solution HTML is seeded. Built fresh per chapter so each section's html can
+// later be filled in independently.
+const POORVI_SECTIONS = () => [
+  { key: 'before-we-read',  label: 'Let us do these activities before we read' },
+  { key: 'discuss',         label: 'Let us discuss' },
+  { key: 'think-reflect',   label: 'Let us think and reflect' },
+  { key: 'learn',           label: 'Let us learn' },
+  { key: 'listen',          label: 'Let us listen' },
+  { key: 'speak',           label: 'Let us speak' },
+  { key: 'write',           label: 'Let us write' },
+  { key: 'explore',         label: 'Let us explore' },
+];
+const CLASS6_ENGLISH_POORVI_CHAPTERS = [
+  'A Bottle of Dew',
+  'The Raven and the Fox',
+  'Rama to the Rescue',
+  'The Unlikely Best Friends',
+  "A Friend's Prayer",
+  'The Chair',
+  'Neem Baba',
+  'What a Bird Thought',
+  'Spices that Heal Us',
+  'Change of Heart',
+  'The Winner',
+  'Yoga - A Way of Life',
+  'Hamara Bharat- Incredible India!',
+  'The Kites',
+  'Ila Sachani: Embroidering Dreams with her Feet',
+  'National War Memorial',
+].map((name) => ({ name, sections: POORVI_SECTIONS() }));
+
+// Class 6 Mathematics NCERT Exemplar chapters — the 12 textbook chapters plus
+// Symmetry and Practical Geometry (14 total). Shown under the "Exemplar Solutions"
+// tile for the Class 6 Maths subjects (a different, longer list than the textbook).
+const CLASS6_MATHS_EXEMPLAR_CHAPTERS = [
+  'Knowing our Numbers',
+  'Whole Numbers',
+  'Playing with Numbers',
+  'Basic Geometrical Ideas',
+  'Understanding Elementary Shapes',
+  'Integers',
+  'Fractions',
+  'Decimals',
+  'Data Handling',
+  'Mensuration',
+  'Algebra',
+  'Ratio and Proportion',
+  'Symmetry',
+  'Practical Geometry',
+].map((name) => ({ name }));
+
+// Every Class 6 Maths Exemplar chapter opens to these two sections. The questions
+// are DB-backed (getExemplarSolutions) and fill in once seeded; until then the
+// section labels still render so the structure is visible.
+const CLASS6_EXEMPLAR_SECTIONS = [
+  { key: 'examples', label: 'Examples', questions: [] },
+  { key: 'chapter-end', label: 'Chapter-end', questions: [] },
+];
 
 // Class 6 Maths — NEW syllabus (Ganita Prakash) chapters. Content is DB-backed
 // (subject slug 'maths-ganita-prakash', class_level=6): NCERT "Figure it Out"
@@ -428,8 +508,8 @@ const CLASS6_GANITA_CHAPTERS = [
 
 // Class 6 (CBSE) subjects — the old NCERT books plus the new-syllabus titles
 // (Science → Curiosity, Maths → Ganita Prakash, English → Poorvi). Maths carries
-// the NCERT chapter list; the other books' content is still coming soon. These
-// entries populate the Subjects picker when Class 6 is chosen.
+// the NCERT textbook + Exemplar chapter lists; the other books' content is still
+// coming soon. These entries populate the Subjects picker when Class 6 is chosen.
 const SUBJECTS_CLASS6 = [
   { name: 'Science (OLD)',          emoji: '🔬', bg: '#5AA84F', chapters: [
     { name: 'Components of Food' },
@@ -444,9 +524,9 @@ const SUBJECTS_CLASS6 = [
     { name: 'Fun with Magnets' },
     { name: 'Air around Us' },
   ] },
-  { name: 'Maths (OLD)',            emoji: '📐', bg: '#E8703A', chapters: CLASS6_MATHS_CHAPTERS },
-  { name: 'Science (Curiosity)',    emoji: '🔬', bg: '#5AA84F', chapters: [], comingSoon: true },
-  { name: 'English (Poorvi)',       emoji: '📖', bg: '#7A6FD0', chapters: [], comingSoon: true },
+  { name: 'Maths (OLD)',            emoji: '📐', bg: '#E8703A', chapters: CLASS6_MATHS_CHAPTERS, exemplarChapters: CLASS6_MATHS_EXEMPLAR_CHAPTERS },
+  { name: 'Science (Curiosity)',    emoji: '🔬', bg: '#5AA84F', chapters: CLASS6_SCIENCE_CURIOSITY_CHAPTERS },
+  { name: 'English (Poorvi)',       emoji: '📖', bg: '#7A6FD0', chapters: CLASS6_ENGLISH_POORVI_CHAPTERS },
   { name: 'Maths (Ganita Prakash)', emoji: '📐', bg: '#E8703A', chapters: CLASS6_GANITA_CHAPTERS },
 ];
 
@@ -549,23 +629,27 @@ const getResourceTypes = (subjectName, classLevel) => {
   // Class 6 books aren't split into Part-I / Part-II — replace both NCERT tiles
   // with a single revised-book tile, e.g. "Class 06 - Mathematics - Revised".
   if (classLevel === 'Class 6') {
-    const core = /math|ganita/i.test(subjectName) ? 'Mathematics'
-      : /science|curiosity/i.test(subjectName) ? 'Science'
-        : /english|poorvi/i.test(subjectName) ? 'English'
-          : subjectName;
-    const bookTile = { icon: '📗', name: `Class 06 - ${core} - Revised`, sub: 'Textbook Solutions', type: 'ncert2' };
-    const tiles = base
-      .filter((rt) => rt.type !== 'ncert1' && rt.type !== 'ncert2')
-      .flatMap((rt) => (rt.type === 'exemplar' ? [rt, bookTile] : [rt]));
-    // Ganita Prakash is DB-backed with NCERT solutions (ncert2) + flash-card
-    // Revision Notes only — no Exemplar content, so drop that tile and label the
-    // book tile plainly as "NCERT Solutions".
+    // Maths (Ganita Prakash): DB section-model — NCERT Solutions (ncert2, no `part`,
+    // served via getQuestionsByPath) + flash-card Revision Notes (notes). No Exemplar.
     if (subjectName === 'Maths (Ganita Prakash)') {
-      return tiles
-        .filter((rt) => rt.type !== 'exemplar')
-        .map((rt) => (rt.type === 'ncert2' ? { ...rt, name: 'NCERT Solutions', sub: 'Textbook Solutions' } : rt));
+      const bookTile = { icon: '📗', name: 'NCERT Solutions', sub: 'Textbook Solutions', type: 'ncert2' };
+      return base
+        .filter((rt) => rt.type !== 'ncert1' && rt.type !== 'ncert2' && rt.type !== 'exemplar')
+        .concat(bookTile);
     }
-    return tiles;
+    // Science (Curiosity) / English (Poorvi): ALL chapter content lives in the DB
+    // under part=4 (textbook sections + revision notes). One tile → the chapter list
+    // is fetched from the DB (not hardcoded) → each chapter opens its sections → content.
+    if (!/math|ganita/i.test(subjectName)) {
+      return [{ icon: '📗', name: 'NCERT Solutions', sub: 'Chapter-wise solutions', type: 'ncert2', part: 4 }];
+    }
+    // Maths (OLD): both tiles use the ncert2 WebView flow. `part` picks the dataset in
+    // ncert_solutions: 2 = textbook, 3 = NCERT Exemplar (MCQs).
+    const bookTile = { icon: '📗', name: 'Class 06 - Mathematics - Revised', sub: 'Textbook Solutions', type: 'ncert2', part: 2 };
+    const exemplarTile = { icon: '🧩', name: 'Class 06 - Mathematics - Exemplar', sub: 'Exemplar Solutions', type: 'ncert2', part: 3 };
+    return base
+      .filter((rt) => rt.type !== 'ncert1' && rt.type !== 'ncert2')
+      .flatMap((rt) => (rt.type === 'exemplar' ? [bookTile, exemplarTile] : [rt]));
   }
   if (subjectName === 'Mathematics' && classLevel === 'Class 12') {
     return base;
@@ -827,10 +911,11 @@ const buildPaperDoc = (html) =>
 // ── Main Screen ───────────────────────────────────────────────────────────────
 const ResourcesScreen = () => {
   const [activeBoard,   setActiveBoard]   = useState('CBSE');
-  // Class is the app-wide selection (synced with the Practice tab & Home).
-  const { selectedClass: activeClass, setSelectedClass: setActiveClass } = useAuth();
-  // Numeric grade (9–12) parsed from 'Class 12' → 12, for the ?class= API param.
-  const classNum = parseInt(String(activeClass).replace(/\D/g, ''), 10) || 11;
+  // Class mirrors the student's SAVED class (synced with the Practice tab & Home).
+  const { selectedClass: activeClass, setSelectedClass: setActiveClass, scope, isClassReady } = useAuth();
+  // Numeric grade parsed from 'Class 12' → 12 for the ?class= API param. No fallback:
+  // the backend uses the student's saved class regardless of what we send.
+  const classNum = parseInt(String(activeClass || '').replace(/\D/g, ''), 10) || null;
   const [activeSubject, setActiveSubject] = useState(null);
   const [activeResType, setActiveResType] = useState(null);
   const [activeChapter, setActiveChapter] = useState(null);
@@ -842,9 +927,29 @@ const ResourcesScreen = () => {
   const [activeSectionQs, setActiveSectionQs] = useState([]);
   const [downloading,    setDownloading]    = useState(false);
 
+  // Open a subject. When it has only ONE resource type, skip the redundant
+  // "resource type" screen (LEVEL 2) and jump straight to its chapters (LEVEL 3),
+  // so e.g. Class 6 English/Science go Subject → Chapters → content in one tap less.
+  const openSubject = (subject) => {
+    const types = getResourceTypes(subject.name, activeClass);
+    setActiveSubject(subject);
+    setActiveResType(types.length === 1 ? types[0] : null);
+  };
+  // True when the current subject auto-selected its (single) resource type, so the
+  // Chapters back button should return to the subjects list, not an empty LEVEL 2.
+  const singleResType = activeSubject && getResourceTypes(activeSubject.name, activeClass).length === 1;
+  const backFromChapters = () => {
+    if (singleResType) { setActiveSubject(null); setActiveResType(null); }
+    else setActiveResType(null);
+  };
+
   // Generate a PDF of the chapter notes and hand it to the OS share/save sheet.
   const handleDownloadNotes = async () => {
     if (downloading || !activeSubject || !activeChapter) return;
+    if (!Print || typeof Print.printToFileAsync !== 'function') {
+      Alert.alert('Not available', 'PDF export isn’t available in this app build. You can still read the notes on screen.');
+      return;
+    }
     setDownloading(true);
     try {
       // Class 12 Physics/Chemistry/Mathematics notes are DB-backed; the bundled
@@ -869,7 +974,7 @@ const ResourcesScreen = () => {
       }
       const html = buildHTML(notes, activeChapter.name);
       const { uri } = await Print.printToFileAsync({ html, base64: false });
-      if (await Sharing.isAvailableAsync()) {
+      if (Sharing && (await Sharing.isAvailableAsync())) {
         await Sharing.shareAsync(uri, {
           mimeType: 'application/pdf',
           dialogTitle: `${activeChapter.name} — Notes`,
@@ -993,6 +1098,16 @@ const ResourcesScreen = () => {
   useEffect(() => {
     if (!exemplarActive) return undefined;
     let alive = true;
+    // Class 6 Maths Exemplar isn't in the DB yet — show the two local sections
+    // (Examples / Chapter-end) right away, and enrich from the DB if it responds
+    // with content. Never block on the network.
+    if (activeClass === 'Class 6') {
+      setExemplar({ loading: false, error: null, sections: CLASS6_EXEMPLAR_SECTIONS });
+      getExemplarSolutions({ subject: activeSubject.name, className: activeClass, chapter: activeChapter.name })
+        .then((d) => { if (alive && d && d.sections && d.sections.length) setExemplar({ loading: false, error: null, sections: d.sections }); })
+        .catch(() => { /* keep local sections */ });
+      return () => { alive = false; };
+    }
     setExemplar({ loading: true, error: null, sections: [] });
     getExemplarSolutions({ subject: activeSubject.name, className: activeClass, chapter: activeChapter.name })
       .then((d) => { if (alive) setExemplar({ loading: false, error: null, sections: (d && d.sections) || [] }); })
@@ -1005,17 +1120,21 @@ const ResourcesScreen = () => {
   // content (replaces the old static getNcert2Chapters()) when the Part-II
   // chapter list (LEVEL 3) is active. Section content is fetched in Ncert2Screen.
   const [ncert2, setNcert2] = useState({ loading: false, chapters: [] });
+  // The ncert2 chapter list is ALWAYS fetched from the DB (all classes incl. Class 6),
+  // for the resource-type's own `part` (2 = textbook, 3 = exemplar, 4 = revised books).
+  // Nothing is hardcoded — the list reflects exactly what's seeded.
   const ncert2ListActive = !!(activeSubject && activeResType?.type === 'ncert2' && !showCards);
+  const ncert2Part = activeResType?.part || 2;
   useEffect(() => {
-    if (!ncert2ListActive) return undefined;
+    if (!ncert2ListActive) { setNcert2({ loading: false, chapters: [] }); return undefined; }
     let alive = true;
     setNcert2({ loading: true, chapters: [] });
-    getNcertChapters({ part: 2, subject: activeSubject.name, className: activeClass })
+    getNcertChapters({ part: ncert2Part, subject: activeSubject.name, className: activeClass })
       .then((d) => { if (alive) setNcert2({ loading: false, chapters: (d && d.chapters) || [] }); })
       .catch(() => { if (alive) setNcert2({ loading: false, chapters: [] }); });
     return () => { alive = false; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ncert2ListActive, activeSubject?.name, activeClass]);
+  }, [ncert2ListActive, activeSubject?.name, activeClass, ncert2Part]);
 
   // Class 12 Physics/Chemistry NCERT Part-I & Part-II live in the questions table,
   // and each part only covers SOME chapters (Part-I and Part-II split the syllabus).
@@ -1294,12 +1413,14 @@ const ResourcesScreen = () => {
       <Ncert2Screen
         subjectName={activeSubject.name}
         chapterName={activeChapter.name}
-        part={2}
+        part={activeResType.part || 2}
         className={activeClass}
         onBack={() => setShowCards(false)}
         title={activeResType.name}
         breadcrumb={['Home', activeClass, activeSubject.name, activeResType.name]}
-        localSections={activeChapter.sections || null}
+        // Revision Notes (part 4) stays DB-backed; the local sub-topic scaffold
+        // (e.g. Class 6 English "Let us ..." sections) is for the solution tiles.
+        localSections={activeResType.part === 4 ? null : (activeChapter.sections || null)}
       />
     );
   }
@@ -1499,6 +1620,7 @@ const ResourcesScreen = () => {
     // Chapters can vary by class (e.g. Physics Class 12 has its own list); fall
     // back to the subject's default chapters when there's no class-specific set.
     const subjectChapters =
+      (activeResType?.type === 'exemplar' && activeSubject.exemplarChapters) ||
       (activeSubject.chaptersByClass && activeSubject.chaptersByClass[activeClass]) ||
       activeSubject.chapters;
     // Revision Notes (Class 12 Physics/Chemistry/Maths): DB-backed — hide chapters
@@ -1525,7 +1647,7 @@ const ResourcesScreen = () => {
         : isMathsNcertList
           ? subjectChapters.filter((c) => ncertAvail.chapters.some((n) => slugify(n) === slugify(c.name)))
         : isNcert2 && ncert2.chapters.length > 0
-          ? subjectChapters.filter((c) => ncert2.chapters.includes(c.name))
+          ? ncert2.chapters.map((name) => ({ name }))   // straight from the DB — no hardcode
           : isNotesList
             ? subjectChapters.filter((c) => notesAvail.chapters.some((n) => slugify(n) === slugify(c.name)))
             : isBundledNotesList
@@ -1535,7 +1657,7 @@ const ResourcesScreen = () => {
       <SafeAreaView style={s.safe}>
         <StatusBar barStyle="dark-content" backgroundColor="#fff" />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
-        <BackHeader onBack={() => setActiveResType(null)} />
+        <BackHeader onBack={backFromChapters} />
         <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name]} />
         <View style={s.pageTitleWrap}>
           <Text style={s.pageTitle}>Chapters</Text>
@@ -1617,28 +1739,39 @@ const ResourcesScreen = () => {
         <Text style={s.headerTitle}>Resources</Text>
       </View>
       <Breadcrumb parts={['Home', 'Student Subscription']} />
-      <ClassTabs value={activeClass} onChange={setActiveClass} />
-      <View style={s.pageTitleWrap}>
-        <Text style={s.pageTitle}>Subjects</Text>
-        <Text style={s.pageSub}>Select a subject to explore</Text>
-        <Text style={s.boardLabel}>{activeClass}</Text>
-      </View>
-      <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
-        {(activeClass === 'Class 6' ? SUBJECTS_CLASS6 : SUBJECTS)
-          .filter((subject) => !(activeClass === 'Class 12' && subject.name === 'Biology'))
-          .map((subject, i) => (
-          <TouchableOpacity key={i} style={s.subjectRow} onPress={() => setActiveSubject(subject)} activeOpacity={0.8}>
-            <View style={[s.subjectIconWrap, { backgroundColor: subject.bg }]}>
-              <Text style={{ fontSize: 26 }}>{subject.emoji}</Text>
-            </View>
-            <View style={{ flex: 1 }}>
-              <Text style={s.subjectName}>{subject.name}</Text>
-              <Text style={s.subjectSub}>Tap to view resources</Text>
-            </View>
-            <Text style={s.listArrow}>→</Text>
-          </TouchableOpacity>
-        ))}
-      </ScrollView>
+      {/* Students are locked to their own class; only show the switcher if unset. */}
+      {!scope?.classNum && <ClassTabs value={activeClass} onChange={setActiveClass} />}
+      {scope?.role === 'student' && scope?.className && !isClassReady(scope.className) ? (
+        <ComingSoon label="Resources" />
+      ) : (
+        <>
+          <View style={s.pageTitleWrap}>
+            <Text style={s.pageTitle}>Subjects</Text>
+            <Text style={s.pageSub}>Select a subject to explore</Text>
+            <Text style={s.boardLabel}>{activeClass}</Text>
+          </View>
+          <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
+            {(activeClass === 'Class 6' ? SUBJECTS_CLASS6 : SUBJECTS)
+              .filter((subject) => !(activeClass === 'Class 12' && subject.name === 'Biology'))
+              // Stream filter (hide Biology from PCM etc.) only applies to senior classes
+              // (11/12). Junior lists (e.g. Class 6's "Maths (OLD)", "English (Poorvi)")
+              // are already curated, so don't run them through the subject-name check.
+              .filter((subject) => (scope?.classNum >= 11 ? isAllowedSubject(subject.name, scope.classNum, scope.stream) : true))
+              .map((subject, i) => (
+              <TouchableOpacity key={i} style={s.subjectRow} onPress={() => openSubject(subject)} activeOpacity={0.8}>
+                <View style={[s.subjectIconWrap, { backgroundColor: subject.bg }]}>
+                  <Text style={{ fontSize: 26 }}>{subject.emoji}</Text>
+                </View>
+                <View style={{ flex: 1 }}>
+                  <Text style={s.subjectName}>{subject.name}</Text>
+                  <Text style={s.subjectSub}>Tap to view resources</Text>
+                </View>
+                <Text style={s.listArrow}>→</Text>
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
+        </>
+      )}
     </SafeAreaView>
   );
 };

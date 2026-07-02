@@ -15,6 +15,7 @@ const normCategory = (s) => (CATEGORIES.includes(s) ? s : 'reasoning')
 // ─── POST /api/brain-gym/results ──────────────────────────────────────────────
 async function submitResult(req, res, next) {
   try {
+    if (req.scope && req.scope.role !== 'student') return ApiResponse.error(res, 'Only students can attempt this.', 403)
     const errors = validationResult(req)
     if (!errors.isEmpty()) return ApiResponse.error(res, errors.array()[0].msg, 422)
 
@@ -84,7 +85,9 @@ async function getQuestions(req, res, next) {
 
     const category = normCategory(req.body.skill || req.body.category)
     const count = Math.min(20, Math.max(1, parseInt(req.body.count, 10) || 5))
-    const grade = req.user.grade || 'Class 9'
+    // Grade is the student's SAVED class — never a fallback. No class → onboarding.
+    const grade = req.user.grade
+    if (!grade) return ApiResponse.error(res, 'Complete your class profile to play BrainGym.', 422, 'PROFILE_INCOMPLETE')
     const teacherConcept = req.body.teacherConcept || req.body.topic || req.body.concept || null
 
     const { questions, difficulty, level } = await pipeline.getQuestions(db, {
@@ -116,6 +119,7 @@ async function getQuestions(req, res, next) {
 // effort: a failure here must never block the quiz UX.
 async function submitAttempts(req, res, next) {
   try {
+    if (req.scope && req.scope.role !== 'student') return ApiResponse.error(res, 'Only students can attempt this.', 403)
     const items = Array.isArray(req.body.items) ? req.body.items.slice(0, 50) : []
     const result = await pipeline.recordAttempts(db, {
       userId: req.user.id,
@@ -158,10 +162,10 @@ async function getAdaptiveQuestions(req, res, next) {
   try {
     const category = normCategory(req.query.category || req.query.skill)
     const count = Math.min(20, Math.max(1, parseInt(req.query.count, 10) || 5))
-    // Grade is server-authoritative (from the authenticated profile). A
-    // client-supplied grade is NEVER trusted — that would let a student request
-    // higher-class questions and bypass the guardrail.
-    const grade = req.user.grade || 'Class 9'
+    // Grade is server-authoritative (the student's SAVED class). A client-supplied
+    // grade is NEVER trusted, and there is NO default class — no class → onboarding.
+    const grade = req.user.grade
+    if (!grade) return ApiResponse.error(res, 'Complete your class profile to play BrainGym.', 422, 'PROFILE_INCOMPLETE')
     const subject = req.query.subject || 'Mental Math'
     // Optional SOFT teacher boost (from a lesson hand-off). Absent = pure mixed practice.
     const teacherConcept = req.query.teacherConcept || req.query.topic || req.query.concept || null
@@ -184,11 +188,12 @@ async function getAdaptiveQuestions(req, res, next) {
 // is never double-counted.
 async function submitAdaptive(req, res, next) {
   try {
+    if (req.scope && req.scope.role !== 'student') return ApiResponse.error(res, 'Only students can attempt this.', 403)
     const errors = validationResult(req)
     if (!errors.isEmpty()) return ApiResponse.error(res, errors.array()[0].msg, 422)
 
     const category = normCategory(req.body.category || req.body.skill)
-    const grade = req.user.grade || 'Class 9' // server-authoritative; client grade ignored
+    const grade = req.user.grade // server-authoritative; client grade ignored, no fallback
     const subject = req.body.subject || 'Mental Math'
     const totalTimeMs = Math.max(0, parseInt(req.body.timeMs, 10) || 0)
 
@@ -286,7 +291,7 @@ async function submitAdaptive(req, res, next) {
 // current mastery, and weakest concept in the lesson's subject. Read-only.
 async function recommend(req, res, next) {
   try {
-    const grade = req.user.grade || 'Class 9'
+    const grade = req.user.grade
     const subject = req.query.subject || null
     const chapter = req.query.chapter || null
     const rec = await teacherBridge.recommendPractice(db, { userId: req.user.id, subject, chapter, grade })

@@ -173,9 +173,10 @@ function buildMockDoubtAnswer(question, topic) {
 
 // ─── Public service functions ─────────────────────────────────────────────────
 
-async function generateLesson({ userId, topic, subject, gradeLevel }) {
+async function generateLesson({ userId, topic, subject, gradeLevel, board, stream, language }) {
   // Create a GENERATING placeholder — this ID is returned immediately in case of failure.
   const { id: lessonId } = await lessonService.createLesson({ userId, topic, subject, gradeLevel })
+  const profile = { board, stream, language } // student's syllabus → AI never asks
 
   try {
     const startTime = Date.now()
@@ -186,7 +187,7 @@ async function generateLesson({ userId, topic, subject, gradeLevel }) {
       payload = buildMockLesson(topic, subject, gradeLevel)
       generationModel = MOCK_MODEL
     } else {
-      payload = await getAIProvider().generateLesson(topic, subject, gradeLevel)
+      payload = await getAIProvider().generateLesson(topic, subject, gradeLevel, profile)
       generationModel = config.ai.lessonModel
     }
 

@@ -23,7 +23,7 @@ async function listChaptersWithContent(subjectSlug, classLevel = 11) {
 }
 
 // ─── Subtopics of a chapter (with question counts) ────────────────────────────
-async function listSubtopics(subjectSlug, chapterSlug, classLevel = 11) {
+async function listSubtopics(subjectSlug, chapterSlug, classLevel = null) {
   const subject = await db.subjects.findUnique({ where: { slug: subjectSlug } })
   if (!subject) return null
   const chapter = await db.chapters.findFirst({
@@ -116,7 +116,7 @@ async function gradeSubmission(subtopicId, answers) {
 }
 
 // ─── All MCQs of a chapter (across its subtopics) — chapter-level test ────────
-async function getChapterTest(subjectSlug, chapterSlug, classLevel = 11) {
+async function getChapterTest(subjectSlug, chapterSlug, classLevel = null) {
   const subject = await db.subjects.findUnique({ where: { slug: subjectSlug } })
   if (!subject) return null
   const chapter = await db.chapters.findFirst({
@@ -160,7 +160,7 @@ async function submitTest(userId, subtopicId, answers) {
 }
 
 // ─── Per-user progress for a chapter: each subtopic's answered/total/score ────
-async function getProgress(subjectSlug, chapterSlug, userId, classLevel = 11) {
+async function getProgress(subjectSlug, chapterSlug, userId, classLevel = null) {
   const rows = await db.$queryRawUnsafe(
     `select st.id::text as id, st.name, st.position,
        count(mq.id) as total,

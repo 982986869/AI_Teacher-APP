@@ -118,15 +118,38 @@ function kickerFor(boardType, idx) {
 const MISTAKE_RE = /mistake|misconception|common error|gets? it wrong|don.?t confuse|do not confuse|avoid this|be careful|watch out|the trap/i;
 const RECAP_RE = /recap|summary|takeaway|to sum up|in short|let.?s recap|quick recap|key takeaway|wrapping up/i;
 
+// ── Subject-visual detection — when a slide is about something we can DRAW, we
+// draw it instead of listing bullets. Conservative regexes (first strong match
+// wins) so we never mis-render a plain text slide. Must stay RN-free (this file
+// is used by the pure Teaching Director). Board renderers live in subjectBoards.js.
+const SUBJECT_SET = new Set(['freeBody', 'reaction', 'molecule', 'cell', 'numberLine', 'graphFn', 'timeline']);
+const SUBJECT_RES = [
+  ['freeBody', /free[- ]?body|net force|force diagram|forces acting|normal force|\btension\b|\bfriction\b|newton'?s (?:first|second|third)|weight.*(?:force|gravity)/i],
+  ['reaction', /\breaction\b|reactants?|\bproducts?\b|combustion|→|->|balance the equation|chemical equation|\byields\b/i],
+  ['molecule', /\bmolecule\b|covalent|\bbond(?:ing|ed|s)?\b|\bH2O\b|\bCO2\b|structural formula|atoms? (?:join|share|bond)/i],
+  ['cell', /\bcell\b|nucleus|\bmembrane\b|mitochondri|organelle|cytoplasm|chloroplast/i],
+  ['timeline', /\btimeline\b|\bcentury\b|\bdynasty\b|\bera\b|\bBCE?\b|\bAD\b|revolution|\bin \d{3,4}\b|\b\d{3,4}\s?(?:BC|BCE|CE)\b/i],
+  ['numberLine', /number line|\bintegers?\b|on a (?:number )?line|negative numbers?/i],
+  ['graphFn', /graph of|plot the (?:function|line|curve)|straight[- ]line graph|\bparabola\b|quadratic (?:graph|curve)|\bslope\b|y ?= ?[^=]/i],
+];
+function detectSubjectBoard(blob) {
+  for (const [type, re] of SUBJECT_RES) if (re.test(blob)) return type;
+  return null;
+}
+
 function boardTypeFor(slide, i, total, triangleLesson) {
   const blob = `${slide.slideTitle || ''} ${slide.explanation || ''} ${slide.narrationText || ''}`;
   if (i === 0) return 'intro';
   if (slide.visualType === 'FORMULA') return 'formula';
+  if (slide.visualType === 'CHART') return 'chart';
   if (slide.visualType === 'DIAGRAM' && (isTriangleText(blob) || triangleLesson)) return 'triangle';
   if (MISTAKE_RE.test(blob)) return 'mistake';
   if (RECAP_RE.test(blob)) return 'summary';
   // The final text-only slide is almost always the recap; otherwise it's a key idea.
   if (i === total - 1 && slide.visualType === 'NONE') return 'summary';
+  // Draw it if we can (physics/chem/bio/maths/history), else a generic concept board.
+  const subj = detectSubjectBoard(blob);
+  if (subj) return subj;
   return 'concept';
 }
 
@@ -141,6 +164,7 @@ function buildScene(slide, i, total, triangleLesson) {
   const scene = {
     id: `s${slide.slideNumber || i + 1}`,
     boardType,
+    visualType: slide.visualType || 'NONE', // kept so the Teaching Director can pick a richer template (analogy / worked-example / …)
     slideIndex: i,
     title: prettyMath(slide.slideTitle || ''),
     kicker: kickerFor(boardType, i + 1),
@@ -161,6 +185,23 @@ function buildScene(slide, i, total, triangleLesson) {
       shape: 'triangle',
       labels: { base: 'base', height: 'height', hyp: 'hypotenuse' },
       legend: true,
+    };
+  } else if (boardType === 'chart') {
+    const cd = v.data || {};
+    const labels = (Array.isArray(cd.labels) ? cd.labels : []).map((x) => String(x));
+    const values = (Array.isArray(cd.values) ? cd.values : []).map((x) => Number(x)).filter((x) => Number.isFinite(x));
+    scene.diagram = {
+      chart: { type: v.chartType || 'bar', labels, values, xAxis: v.xAxis || '', yAxis: v.yAxis || '' },
+      points: keyPoints,
+    };
+  } else if (SUBJECT_SET.has(boardType)) {
+    const comps = (Array.isArray(v.components) ? v.components : []).map(prettyMath).filter(Boolean);
+    scene.diagram = {
+      sci: boardType,
+      items: comps.length ? comps : keyPoints,
+      label: prettyMath(v.label || v.scenario || v.description || v.formula || v.comparison || ''),
+      steps: (Array.isArray(v.steps) ? v.steps : []).map(prettyMath),
+      points: keyPoints,
     };
   } else if (boardType === 'concept') {
     scene.diagram = {

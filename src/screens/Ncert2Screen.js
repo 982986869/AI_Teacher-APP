@@ -107,8 +107,20 @@ function buildDocument(fragmentHtml) {
 <body>${fragmentHtml}</body></html>`;
 }
 
-function SectionContent({ html, meta }) {
+function SectionContent({ html, meta, comingSoon }) {
   const [loading, setLoading] = useState(true);
+
+  // Locally-defined section whose content isn't added yet -> friendly placeholder.
+  if (!html && comingSoon) {
+    return (
+      <View style={styles.emptyWrap}>
+        <Text style={styles.emptyText}>{meta.label} — coming soon</Text>
+        <Text style={styles.emptyHint}>
+          Solutions for this section are being added and will appear here shortly.
+        </Text>
+      </View>
+    );
+  }
 
   // No content matched -> show what was looked up so a key/import problem is obvious.
   if (!html) {
@@ -198,8 +210,11 @@ export default function Ncert2Screen({
 }) {
   // Sections are DB-backed now. Same shape the old static getNcert2Sections()
   // returned ([{ key, label, html }]), so the list + WebView render unchanged.
-  const [sections, setSections] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // When localSections are supplied (e.g. Class 6, not yet in the DB) we show them
+  // immediately and let the API enrich them in the background — never blocking on it.
+  const hasLocal = !!(localSections && localSections.length);
+  const [sections, setSections] = useState(localSections || []);
+  const [loading, setLoading] = useState(!hasLocal);
   const [error, setError] = useState(null);
   const [retry, setRetry] = useState(0);
   const [openIndex, setOpenIndex] = useState(null);
@@ -207,33 +222,40 @@ export default function Ncert2Screen({
 
   useEffect(() => {
     let alive = true;
-    setLoading(true);
     setError(null);
     setOpenIndex(null);
+    // Locally-defined list (e.g. Class 6 Maths, not in the DB): render it straight
+    // away with no network dependency. Each section's own `html` supplies content.
+    if (hasLocal) {
+      setSections(localSections);
+      // A single section = no real choice → open its content straight away.
+      setOpenIndex(localSections.length === 1 ? 0 : null);
+      setLoading(false);
+      return () => { alive = false; };
+    }
+    setLoading(true);
     getNcertSolutions({ part, subject: subjectName, className, chapter: chapterName })
       .then((d) => {
         if (!alive) return;
-        const apiSections = (d && d.sections) || [];
-        setSections(apiSections.length ? apiSections : (localSections || []));
+        const secs = (d && d.sections) || [];
+        setSections(secs);
+        // Chapter opens straight to its content when there's only one section
+        // (e.g. Class 6 English/Science) — no pointless one-item list in between.
+        setOpenIndex(secs.length === 1 ? 0 : null);
         setLoading(false);
       })
       .catch((e) => {
         if (!alive) return;
-        // No DB content (e.g. Class 6) — fall back to the local section list
-        // instead of surfacing an error.
-        if (localSections && localSections.length) {
-          setSections(localSections);
-          setError(null);
-        } else {
-          setError(e?.response?.data?.error || e?.message || 'Could not load solutions.');
-        }
+        setError(e?.response?.data?.error || e?.message || 'Could not load solutions.');
         setLoading(false);
       });
     return () => { alive = false; };
-  }, [part, subjectName, chapterName, className, retry, localSections]);
+  }, [part, subjectName, chapterName, className, retry, localSections, hasLocal]);
 
   const handleBack = () => {
-    if (openIndex != null) setOpenIndex(null);
+    // With a single section we auto-open its content, so "back" from that content
+    // must return to the chapters list — not a pointless one-item section list.
+    if (openIndex != null && sections.length > 1) setOpenIndex(null);
     else if (onBack) onBack();
   };
 
@@ -285,10 +307,11 @@ export default function Ncert2Screen({
       ) : (
         <View style={{ flex: 1, backgroundColor: PAGE_BG }}>
           <View style={styles.subBreadcrumbWrap}>
-            <Breadcrumb items={breadcrumb} currentLabel={active.label} onCrumbPress={() => setOpenIndex(null)} />
+            <Breadcrumb items={breadcrumb} currentLabel={active.label} onCrumbPress={() => { if (sections.length > 1) setOpenIndex(null); else if (onBack) onBack(); }} />
           </View>
           <SectionContent
             html={active.html}
+            comingSoon={hasLocal}
             meta={{ subject: subjectName, chapter: chapterName, label: active.label }}
           />
         </View>

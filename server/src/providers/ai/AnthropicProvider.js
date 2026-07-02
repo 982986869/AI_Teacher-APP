@@ -66,7 +66,7 @@ class AnthropicProvider extends AIProvider {
     return this._client
   }
 
-  async generateLesson(topic, subject, gradeLevel) {
+  async generateLesson(topic, subject, gradeLevel, profile = {}) {
     const client = this._getClient()
 
     let message
@@ -75,7 +75,7 @@ class AnthropicProvider extends AIProvider {
         model: this.lessonModel,
         max_tokens: LESSON_MAX_TOKENS,
         system: buildLessonSystemPrompt(),
-        messages: [{ role: 'user', content: buildLessonUserPrompt(topic, subject, gradeLevel) }],
+        messages: [{ role: 'user', content: buildLessonUserPrompt(topic, subject, gradeLevel, profile) }],
       })
     } catch (err) {
       throw translateProviderError(err, 'lesson generation')
@@ -131,14 +131,14 @@ class AnthropicProvider extends AIProvider {
   }
 
   // Generate the grounded, teacher-style answer for a classified turn.
-  async generateTeacherResponse({ intent, language, contexts, lesson, history, question, slideIndex, level, strategy, studentContext }) {
+  async generateTeacherResponse({ intent, language, contexts, lesson, history, question, slideIndex, level, strategy, studentContext, gradeLevel }) {
     const client = this._getClient()
     let message
     try {
       message = await client.messages.create({
         model: this.doubtModel,
         max_tokens: TEACHER_MAX_TOKENS,
-        system: buildTeacherSystemPrompt({ intent, language, contexts, lesson, level, strategy, studentContext }),
+        system: buildTeacherSystemPrompt({ intent, language, contexts, lesson, level, strategy, studentContext, gradeLevel }),
         messages: buildTeacherMessages(history, question, slideIndex),
       })
     } catch (err) {
@@ -150,12 +150,12 @@ class AnthropicProvider extends AIProvider {
   }
 
   // Streaming variant — calls onText(delta) per chunk, resolves with the full text.
-  async streamTeacherResponse({ intent, language, contexts, lesson, history, question, slideIndex, level, strategy, studentContext }, onText) {
+  async streamTeacherResponse({ intent, language, contexts, lesson, history, question, slideIndex, level, strategy, studentContext, gradeLevel }, onText) {
     const client = this._getClient()
     const stream = client.messages.stream({
       model: this.doubtModel,
       max_tokens: TEACHER_MAX_TOKENS,
-      system: buildTeacherSystemPrompt({ intent, language, contexts, lesson, level, strategy, studentContext }),
+      system: buildTeacherSystemPrompt({ intent, language, contexts, lesson, level, strategy, studentContext, gradeLevel }),
       messages: buildTeacherMessages(history, question, slideIndex),
     })
     stream.on('text', (t) => { try { if (typeof onText === 'function') onText(t) } catch (e) { /* ignore sink errors */ } })

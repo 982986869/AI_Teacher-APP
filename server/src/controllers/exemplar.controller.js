@@ -2,6 +2,7 @@
 
 const db = require('../config/database')
 const ApiResponse = require('../utils/ApiResponse')
+const { resolveClassName, assertSubjectAllowed } = require('../services/personalization/enforce')
 
 // GET /api/resources/exemplar?subject=Physics&class=Class%2011&chapter=Gravitation
 // Returns the chapter's exemplar sections in the SAME shape the frontend used
@@ -9,12 +10,13 @@ const ApiResponse = require('../utils/ApiResponse')
 async function getExemplar(req, res, next) {
   try {
     const subject = String(req.query.subject || '').trim()
-    const className = String(req.query.class || req.query.className || 'Class 11').trim()
+    const className = resolveClassName(req)
     const chapter = String(req.query.chapter || '').trim()
 
     if (!subject || !chapter) {
       return ApiResponse.error(res, 'subject and chapter are required', 400)
     }
+    assertSubjectAllowed(req, subject)
 
     const rows = await db.exemplar_solutions.findMany({
       where: { subject, className, chapter },
@@ -43,6 +45,7 @@ async function getExemplar(req, res, next) {
 
     return ApiResponse.success(res, { subject, className, chapter, sections })
   } catch (err) {
+    if (err.status) return ApiResponse.error(res, err.message, err.status)
     next(err)
   }
 }
