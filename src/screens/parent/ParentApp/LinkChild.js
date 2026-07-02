@@ -1,8 +1,8 @@
-// src/screens/parent/ParentApp/LinkChild.js
+// src/screens/parent/ParentApp/LinkChild.js — real child linking (parentApi.linkChild).
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, TextInput, ActivityIndicator, Alert } from 'react-native';
+import { View, ScrollView, TouchableOpacity, TextInput, ActivityIndicator, Alert } from 'react-native';
 import { linkChild } from '../../../api/parentApi';
-import { C, s, Wordmark } from './constants';
+import { C, st, T, Wordmark } from './constants';
 import { LinkFamilyArt } from './illustrations';
 
 export default function LinkChild({ parentName, onLinked, onLogout }) {
@@ -19,26 +19,28 @@ export default function LinkChild({ parentName, onLinked, onLogout }) {
     finally { if (mnt.current) setLinking(false); }
   };
   return (
-    <View style={s.flexFill}>
-      <View style={s.header}>
+    <View style={st.screen}>
+      <View style={st.header}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
-          <View style={s.avatar}><Text style={s.avatarTxt}>{(parentName || 'P').charAt(0).toUpperCase()}</Text></View>
-          <View><Text style={s.hTitle}>Welcome</Text><Text style={s.hSub}>Parent account</Text></View>
+          <View style={st.avatar}><T w="xbold" s={22} c="#fff">{(parentName || 'P').charAt(0).toUpperCase()}</T></View>
+          <View><T w="bold" s={23} c={C.ink}>Welcome</T><T w="med" s={13} c={C.muted}>Parent account</T></View>
         </View>
-        <TouchableOpacity style={s.logoutBtn} activeOpacity={0.85} onPress={onLogout}><Text style={s.logoutTxt}>Log out</Text></TouchableOpacity>
+        <TouchableOpacity style={st.logoutBtn} activeOpacity={0.85} onPress={onLogout}><T w="xbold" s={12.5} c={C.muted}>Log out</T></TouchableOpacity>
       </View>
       <ScrollView contentContainerStyle={{ padding: 22, paddingTop: 8 }} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
         <View style={{ alignItems: 'center', marginTop: 8, marginBottom: 8 }}><Wordmark size={20} /></View>
-        <View style={s.linkArt}><LinkFamilyArt /></View>
-        <Text style={s.linkTitle}>Link your child</Text>
-        <Text style={s.linkSub}>Enter the email your child uses to log in. You'll then see their real progress, streaks and areas to focus — here.</Text>
-        <Text style={s.q}>Child's login email</Text>
+        <View style={st.linkArt}><LinkFamilyArt /></View>
+        <T w="xbold" s={24} c={C.ink} style={{ textAlign: 'center' }}>Link your child</T>
+        <T w="med" s={14} c={C.muted} style={{ textAlign: 'center', lineHeight: 21, marginTop: 10, marginBottom: 22, paddingHorizontal: 6 }}>
+          Enter the email your child uses to log in. You'll then see their real progress, streaks and areas to focus — here.
+        </T>
+        <T w="bold" s={14} c={C.ink} style={{ marginBottom: 8 }}>Child's login email</T>
         <TextInput
           value={email} onChangeText={setEmail} placeholder="child@email.com" placeholderTextColor={C.faint}
-          autoCapitalize="none" autoCorrect={false} keyboardType="email-address" returnKeyType="go" onSubmitEditing={doLink} style={s.input}
+          autoCapitalize="none" autoCorrect={false} keyboardType="email-address" returnKeyType="go" onSubmitEditing={doLink} style={st.input}
         />
-        <TouchableOpacity style={[s.primaryBtn, (!email.trim() || linking) && s.primaryBtnOff]} disabled={!email.trim() || linking} activeOpacity={0.9} onPress={doLink}>
-          {linking ? <ActivityIndicator color="#fff" /> : <Text style={s.primaryBtnTxt}>Link child</Text>}
+        <TouchableOpacity style={[st.primaryBtn, (!email.trim() || linking) && st.primaryBtnOff]} disabled={!email.trim() || linking} activeOpacity={0.9} onPress={doLink}>
+          {linking ? <ActivityIndicator color="#fff" /> : <T w="xbold" s={15} c="#fff">Link child</T>}
         </TouchableOpacity>
       </ScrollView>
     </View>

@@ -1,7 +1,7 @@
-// src/screens/parent/ParentApp/Skeleton.js
+// src/screens/parent/ParentApp/Skeleton.js — shimmer placeholder for the initial load.
 import React, { memo, useEffect, useRef } from 'react';
 import { View, Animated } from 'react-native';
-import { C, s } from './constants';
+import { st } from './constants';
 
 function Skeleton() {
   const p = useRef(new Animated.Value(0.4)).current;
@@ -14,11 +14,11 @@ function Skeleton() {
     return () => a.stop();
   }, [p]);
   const B = ({ w, h, r = 12, mt = 0, mb = 0 }) => (
-    <Animated.View style={{ width: w, height: h, borderRadius: r, backgroundColor: C.skeleton, opacity: p, marginTop: mt, marginBottom: mb }} />
+    <Animated.View style={[st.skelBlock, { width: w, height: h, borderRadius: r, opacity: p, marginTop: mt, marginBottom: mb }]} />
   );
   return (
-    <View style={s.flexFill}>
-      <View style={s.header}>
+    <View style={st.screen}>
+      <View style={st.header}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
           <B w={46} h={46} r={23} />
           <View><B w={90} h={18} /><B w={120} h={12} mt={6} /></View>

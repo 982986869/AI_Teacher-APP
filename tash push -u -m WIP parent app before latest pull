@@ -1,0 +1,145 @@
+warning: in the working copy of 'src/screens/parent/ParentApp/BottomNav.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/screens/parent/ParentApp/Header.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/screens/parent/ParentApp/constants.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/screens/parent/ParentApp/illustrations/LinkFamilyArt.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/screens/parent/ParentApp/illustrations/SleepyMonitor.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/screens/parent/ParentApp/illustrations/TrialHero.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/screens/parent/ParentApp/illustrations/index.js', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/package-lock.json b/package-lock.json[m
+[1mindex 913fb4d..02270aa 100644[m
+[1m--- a/package-lock.json[m
+[1m+++ b/package-lock.json[m
+[36m@@ -9,6 +9,7 @@[m
+       "version": "1.0.0",[m
+       "dependencies": {[m
+         "@expo-google-fonts/nunito": "^0.4.2",[m
+[32m+[m[32m        "@expo-google-fonts/poppins": "^0.4.1",[m
+         "@expo/ngrok": "^4.1.3",[m
+         "@expo/vector-icons": "^15.0.3",[m
+         "@react-native-async-storage/async-storage": "^2.2.0",[m
+[36m@@ -31,6 +32,7 @@[m
+         "expo-speech": "~14.0.8",[m
+         "expo-splash-screen": "~31.0.13",[m
+         "expo-status-bar": "~3.0.9",[m
+[32m+[m[32m        "lucide-react-native": "^1.23.0",[m
+         "pg": "^8.22.0",[m
+         "react": "19.1.0",[m
+         "react-native": "0.81.5",[m
+[36m@@ -1439,6 +1441,12 @@[m
+       "resolved": "https://registry.npmjs.org/@expo-google-fonts/nunito/-/nunito-0.4.2.tgz",[m
+       "integrity": "sha512-1KCWphw/I2ugqfs9iRHUCkPTnomNgGPtF4AvqVquoEKxr0EL+mcLNLgeixsslbaSFevRR6/KJAE3sc8g0VaY0Q=="[m
+     },[m
+[32m+[m[32m    "node_modules/@expo-google-fonts/poppins": {[m
+[32m+[m[32m      "version": "0.4.1",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@expo-google-fonts/poppins/-/poppins-0.4.1.tgz",[m
+[32m+[m[32m      "integrity": "sha512-LiX5oEryJqDt3UmWwr4oqf11hGMz/JEffkkNcZ3UtGwyoMFzXmBmTwcrAWrEttxypxmLNmPykDg+CY2VjKve9A==",[m
+[32m+[m[32m      "license": "MIT AND OFL-1.1"[m
+[32m+[m[32m    },[m
+     "node_modules/@expo/code-signing-certificates": {[m
+       "version": "0.0.6",[m
+       "resolved": "https://registry.npmjs.org/@expo/code-signing-certificates/-/code-signing-certificates-0.0.6.tgz",[m
+[36m@@ -7699,6 +7707,17 @@[m
+         "yallist": "^3.0.2"[m
+       }[m
+     },[m
+[32m+[m[32m    "node_modules/lucide-react-native": {[m
+[32m+[m[32m      "version": "1.23.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/lucide-react-native/-/lucide-react-native-1.23.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-lVPNyML/tJ1gj1m1QDbP4O/vZTs1cBa0+g4F8/Jjt5QcJ9H7BYbs2qRtQbngE+VH8I6CvHbtfRW9QbtGUTHSyg==",[m
+[32m+[m[32m      "license": "ISC",[m
+[32m+[m[32m      "peerDependencies": {[m
+[32m+[m[32m        "react": "^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0",[m
+[32m+[m[32m        "react-native": "*",[m
+[32m+[m[32m        "react-native-svg": "^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+     "node_modules/makeerror": {[m
+       "version": "1.0.12",[m
+       "resolved": "https://registry.npmjs.org/makeerror/-/makeerror-1.0.12.tgz",[m
+[36m@@ -9682,6 +9701,7 @@[m
+       "version": "15.12.1",[m
+       "resolved": "https://registry.npmjs.org/react-native-svg/-/react-native-svg-15.12.1.tgz",[m
+       "integrity": "sha512-vCuZJDf8a5aNC2dlMovEv4Z0jjEUET53lm/iILFnFewa15b4atjVxU6Wirm6O9y6dEsdjDZVD7Q3QM4T1wlI8g==",[m
+[32m+[m[32m      "peer": true,[m
+       "dependencies": {[m
+         "css-select": "^5.1.0",[m
+         "css-tree": "^1.1.3",[m
+[1mdiff --git a/package.json b/package.json[m
+[1mindex 70d4a30..74af8be 100644[m
+[1m--- a/package.json[m
+[1m+++ b/package.json[m
+[36m@@ -10,6 +10,7 @@[m
+   },[m
+   "dependencies": {[m
+     "@expo-google-fonts/nunito": "^0.4.2",[m
+[32m+[m[32m    "@expo-google-fonts/poppins": "^0.4.1",[m
+     "@expo/ngrok": "^4.1.3",[m
+     "@expo/vector-icons": "^15.0.3",[m
+     "@react-native-async-storage/async-storage": "^2.2.0",[m
+[36m@@ -32,6 +33,7 @@[m
+     "expo-speech": "~14.0.8",[m
+     "expo-splash-screen": "~31.0.13",[m
+     "expo-status-bar": "~3.0.9",[m
+[32m+[m[32m    "lucide-react-native": "^1.23.0",[m
+     "pg": "^8.22.0",[m
+     "react": "19.1.0",[m
+     "react-native": "0.81.5",[m
+[1mdiff --git a/src/screens/parent/ParentApp/BottomNav.js b/src/screens/parent/ParentApp/BottomNav.js[m
+[1mindex 4828c58..803fb55 100644[m
+[1m--- a/src/screens/parent/ParentApp/BottomNav.js[m
+[1m+++ b/src/screens/parent/ParentApp/BottomNav.js[m
+[36m@@ -1,18 +1,17 @@[m
+ // src/screens/parent/ParentApp/BottomNav.js[m
+ import React, { memo } from 'react';[m
+[31m-import { View, Text, TouchableOpacity } from 'react-native';[m
+[31m-import { Ionicons } from '@expo/vector-icons';[m
+[31m-import { C, s, TABS } from './constants';[m
+[32m+[m[32mimport { View, TouchableOpacity } from 'react-native';[m
+[32m+[m[32mimport { C, st, T, TABS } from './constants';[m
+ [m
+ function BottomNav({ tab, setTab }) {[m
+   return ([m
+[31m-    <View style={s.nav}>[m
+[31m-      {TABS.map(({ id, label, icon, color }) => {[m
+[32m+[m[32m    <View style={st.nav}>[m
+[32m+[m[32m      {TABS.map(({ id, label, Icon, color }) => {[m
+         const on = tab === id;[m
+         return ([m
+[31m-          <TouchableOpacity key={id} style={s.navItem} activeOpacity={0.8} onPress={() => setTab(id)}>[m
+[31m-            <Ionicons name={on ? icon : `${icon}-outline`} size={22} color={on ? color : C.ink} />[m
+[31m-            <Text style={{ fontSize: 11, fontWeight: on ? '700' : '500', color: on ? color : C.ink }}>{label}</Text>[m
+[32m+[m[32m          <TouchableOpacity key={id} style={st.navItem} onPress={() => setTab(id)}>[m
+[32m+[m[32m            <Icon size={22} color={on ? color : C.ink} strokeWidth={on ? 2.5 : 1.9} />[m
+[32m+[m[32m            <T w={on ? 'bold' : 'med'} s={11} c={on ? color : C.ink}>{label}</T>[m
+           </TouchableOpacity>[m
+         );[m
+       })}[m
+[1mdiff --git a/src/screens/parent/ParentApp/Header.js b/src/screens/parent/ParentApp/Header.js[m
+[1mindex 29758fa..d915a11 100644[m
+[1m--- a/src/screens/parent/ParentApp/Header.js[m
+[1m+++ b/src/screens/parent/ParentApp/Header.js[m
+[36m@@ -1,25 +1,25 @@[m
+ // src/screens/parent/ParentApp/Header.js[m
+ import React, { memo } from 'react';[m
+[31m-import { View, Text, TouchableOpacity } from 'react-native';[m
+[31m-import { MaterialCommunityIcons } from '@expo/vector-icons';[m
+[31m-import { C, s } from './constants';[m
+[32m+[m[32mimport { View, TouchableOpacity } from 'react-native';[m
+[32m+[m[32mimport { Dumbbell } from 'lucide-react-native';[m
+[32m+[m[32mimport { C, st, T } from './constants';[m
+ [m
+[31m-function Header({ meta, child, onAvatar }) {[m
+[31m-  const initial = (child?.name || 'P').trim().charAt(0).toUpperCase();[m
+[32m+[m[32mfunction Header({ meta, childName, onAvatar }) {[m
+[32m+[m[32m  const initial = (childName || 'P').trim().charAt(0).toUpperCase();[m
+   return ([m
+[31m-    <View style={s.header}>[m
+[32m+[m[32m    <View style={st.header}>[m
+       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>[m
+[31m-        <TouchableOpacity style={s.avatar} activeOpacity={0.85} onPress={onAvatar} accessibilityLabel="Account options">[m
+[31m-          <Text style={s.avatarTxt}>{initial}</Text>[m
+[32m+[m[32m        <TouchableOpacity style={st.avatar} activeOpacity={0.85} onPress={onAvatar} accessibilityLabel="Account options">[m
+[32m+[m[32m          <T w="xbold" s={22} c="#fff">{initial}</T>[m
+         </TouchableOpacity>[m
+         <View>[m
+[31m-          <Text style={s.hT

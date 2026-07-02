@@ -1,16 +1,16 @@
-// src/screens/parent/ParentApp/ErrorState.js
+// src/screens/parent/ParentApp/ErrorState.js — network/error state with retry.
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { C, s } from './constants';
+import { View, TouchableOpacity } from 'react-native';
+import { CloudOff } from 'lucide-react-native';
+import { C, st, T } from './constants';
 
 export default function ErrorState({ onRetry }) {
   return (
-    <View style={s.center}>
-      <View style={s.errIcon}><Ionicons name="cloud-offline-outline" size={34} color={C.muted} /></View>
-      <Text style={s.errTitle}>Couldn't load</Text>
-      <Text style={s.errText}>Check your connection and try again.</Text>
-      <TouchableOpacity style={s.retryBtn} activeOpacity={0.9} onPress={onRetry}><Text style={s.retryTxt}>Retry</Text></TouchableOpacity>
+    <View style={st.center}>
+      <View style={st.errIcon}><CloudOff size={34} color={C.muted} /></View>
+      <T w="xbold" s={18} c={C.ink}>Couldn't load</T>
+      <T w="med" s={14} c={C.muted} style={{ textAlign: 'center' }}>Check your connection and try again.</T>
+      <TouchableOpacity style={st.retryBtn} activeOpacity={0.9} onPress={onRetry}><T w="xbold" s={14} c="#fff">Retry</T></TouchableOpacity>
     </View>
   );
 }
