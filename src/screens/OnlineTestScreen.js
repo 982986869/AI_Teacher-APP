@@ -40,6 +40,7 @@ const SUBJECTS = [
   { name: 'Science (Curiosity)', emoji: '🔬', bg: '#0F8A5F' },
   { name: 'Old - Social Sc',     emoji: '🏛️', bg: '#8A5A2B' },
   { name: 'Old - Maths',         emoji: '➗', bg: '#0F6E56' },
+  { name: 'Old - हिंदी',          emoji: '📚', bg: '#2F80ED' },
 ];
 
 const fmt = (s) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
