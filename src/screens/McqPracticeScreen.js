@@ -64,8 +64,25 @@ const SUBJECTS_CLASS7 = [
   { name: 'Old - English',                      emoji: '📖', bg: '#7A6FD0' },
 ];
 
+// Class 8 MCQ Practice — DB-backed (class_level=8). Names must slugify to the
+// slugs the seed (scripts/seedClass8McqPractice.js) used.
+const SUBJECTS_CLASS8 = [
+  { name: 'Science (Curiosity)',                emoji: '🔬', bg: '#0F8A5F' },
+  { name: 'Social Science (Exploring Society)', emoji: '🌍', bg: '#B0306B' },
+  { name: 'हिंदी (मल्हार)',                      emoji: '📖', bg: '#D9822B' },
+  { name: 'English (Poorvi)',                   emoji: '✍️', bg: '#26215C' },
+  { name: 'Maths (Ganita Prakash)',             emoji: '📐', bg: '#0C8F88' },
+  { name: 'Old - Science',                      emoji: '⚗️', bg: '#5AA84F' },
+  { name: 'Reasoning & Mental Ability',         emoji: '🧠', bg: '#1C1C1E' },
+  { name: 'Old - Maths',                        emoji: '➗', bg: '#0F6E56' },
+  { name: 'Old - Social Sc',                    emoji: '🏛️', bg: '#8A5A2B' },
+];
+
 const subjectsForClass = (classLevel) =>
-  classLevel === 6 ? SUBJECTS_CLASS6 : classLevel === 7 ? SUBJECTS_CLASS7 : SUBJECTS;
+  classLevel === 6 ? SUBJECTS_CLASS6
+    : classLevel === 7 ? SUBJECTS_CLASS7
+    : classLevel === 8 ? SUBJECTS_CLASS8
+    : SUBJECTS;
 
 const pct = (n) => `${Math.round((n + Number.EPSILON) * 100) / 100}`;
 
@@ -161,7 +178,8 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
   const isDbApi =
     (classLevel === 12 && (subject === 'Physics' || subject === 'Chemistry' || subject === 'Mathematics')) ||
     (classLevel === 6 && subject === 'Science (OLD)') ||
-    classLevel === 7;
+    classLevel === 7 ||
+    classLevel === 8;
   const [apiChapters, setApiChapters] = useState(null); // null = loading
   useEffect(() => {
     if (!isDbApi) { setApiChapters(null); return undefined; }

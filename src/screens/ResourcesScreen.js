@@ -694,9 +694,40 @@ const getResourceTypes = (subjectName, classLevel) => {
     ];
   }
   // Class 8 — same DB-backed model as Class 7: NCERT Solutions (part=2, textbook) +
-  // Revision Notes (part=4, flash cards). Chapter lists fetched from the DB per part;
-  // tiles with no seeded chapters simply show empty (handled by the chapter list fetch).
+  // Revision Notes (part=4, flash cards). Some OLD subjects have MULTIPLE NCERT books,
+  // each seeded at its own `part` (see scripts/buildClass8Parts.js) → its own tile.
   if (classLevel === 'Class 8') {
+    // Old - Science / Old - Maths: NCERT textbook (part 2) + Exemplar (part 3).
+    if (subjectName === 'Old - Science') {
+      return [
+        { icon: '📗', name: 'NCERT Solutions',    sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
+        { icon: '🧩', name: 'Exemplar Solutions', sub: 'Exemplar Solutions', type: 'ncert2', part: 3 },
+        { icon: '📝', name: 'Revision Notes',     sub: 'Chapter Notes',      type: 'ncert2', part: 4 },
+      ];
+    }
+    if (subjectName === 'Old - Maths') {
+      return [
+        { icon: '📗', name: 'NCERT Solutions',    sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
+        { icon: '🧩', name: 'Exemplar Solutions', sub: 'Exemplar Solutions', type: 'ncert2', part: 3 },
+      ];
+    }
+    // Old - Social Sc: three NCERT books — History (part 2), Civics/Pol Sc (part 6),
+    // Geography (part 7) — plus Revision Notes (part 4).
+    if (subjectName === 'Old - Social Sc') {
+      return [
+        { icon: '📗', name: 'NCERT Solutions - History (OLD BOOK)',   sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
+        { icon: '📗', name: 'NCERT Solutions - Civics (OLD BOOK)',    sub: 'Textbook Solutions', type: 'ncert2', part: 6 },
+        { icon: '📗', name: 'NCERT Solutions - Geography (OLD BOOK)', sub: 'Textbook Solutions', type: 'ncert2', part: 7 },
+        { icon: '📝', name: 'Revision Notes',                         sub: 'Chapter Notes',      type: 'ncert2', part: 4 },
+      ];
+    }
+    // Old - English: two NCERT books — Honeydew (part 2) + It So Happened (part 6).
+    if (subjectName === 'Old - English') {
+      return [
+        { icon: '📗', name: 'NCERT Solutions - Honeydew (OLD BOOK)',       sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
+        { icon: '📗', name: 'NCERT Solutions - It So Happened (OLD BOOK)', sub: 'Textbook Solutions', type: 'ncert2', part: 6 },
+      ];
+    }
     return [
       { icon: '📗', name: 'NCERT Solutions', sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
       { icon: '📝', name: 'Revision Notes',  sub: 'Chapter Notes',      type: 'ncert2', part: 4 },
