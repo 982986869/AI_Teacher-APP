@@ -104,10 +104,14 @@ export default function CompleteProfileScreen() {
         patch.board = board || undefined;
         patch.language = language || undefined;
       }
-      await updateProfile(patch);
+      console.log('[COMPLETE] save role=', role, '| patch=', JSON.stringify(patch)); // TEMP diag
+      const data = await updateProfile(patch);
+      console.log('[COMPLETE] saved -> scope.role=', data?.scope?.role, '| account_type=', data?.user?.account_type); // TEMP diag
       // Navigation re-evaluates automatically once scope.complete flips true.
     } catch (e) {
+      console.log('[COMPLETE] save FAILED', e?.response?.status, e?.response?.data || e?.message); // TEMP diag
       Alert.alert('Could not save', e?.response?.data?.error || e?.response?.data?.message || e.message || 'Please try again.');
+    } finally {
       setSaving(false);
     }
   };

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState, useCallback, useMemo } from 'react';
+import React, { createContext, useContext, useEffect, useState, useCallback, useMemo, useRef } from 'react';
 import { saveToken, getToken, saveUser, getUser, clearAll } from '../utils/storage';
 import { setUnauthorizedHandler, setProfileIncompleteHandler } from '../api/axiosInstance';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -24,6 +24,11 @@ export const AuthProvider = ({ children }) => {
   // null = not loaded yet. This replaces the old hardcoded READY map, so adding content
   // to the DB automatically makes a class "ready" — no code change needed.
   const [readyClasses, setReadyClasses] = useState(null);
+  // Monotonic "user write" counter. Any authoritative setUser (login / updateProfile)
+  // bumps it; an in-flight best-effort fetchMe only applies its result if nothing newer
+  // has landed since — so a slow /me can never revert a role the user just changed
+  // (e.g. reverting a fresh 'parent' back to the stale 'student' row).
+  const userOp = useRef(0);
 
   useEffect(() => {
     (async () => {
@@ -37,8 +42,11 @@ export const AuthProvider = ({ children }) => {
         if (storedToken && storedUser) {
           setToken(storedToken);
           setUser(storedUser);
-          // Best-effort refresh so we get the latest personalization fields/scope.
-          fetchMe().then((d) => { if (d && d.user) { setUser(d.user); saveUser(d.user); } }).catch(() => {});
+          // Best-effort refresh — but never clobber a newer authoritative write.
+          const myOp = userOp.current;
+          fetchMe().then((d) => {
+            if (d && d.user && userOp.current === myOp) { setUser(d.user); saveUser(d.user); }
+          }).catch(() => {});
         }
         setHasOnboarded(onboarded === 'true');
         if (storedClass) setSelClass(storedClass);
@@ -55,6 +63,8 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const signIn = useCallback(async ({ token: t, user: u }) => {
+    console.log('[AUTH] signIn account_type=', u?.account_type, 'role=', u?.role); // TEMP diag
+    userOp.current += 1; // authoritative write — invalidate any in-flight fetchMe
     await Promise.all([saveToken(t), saveUser(u)]);
     setToken(t);
     setUser(u);
@@ -69,12 +79,20 @@ export const AuthProvider = ({ children }) => {
   // Complete-profile / migration: persist grade/board/stream/language/school/accountType.
   const updateProfile = useCallback(async (patch) => {
     const data = await updateProfileApi(patch);
-    if (data && data.user) { setUser(data.user); await saveUser(data.user); }
+    // TEMP diag: prove the parent/teacher role round-trips from the backend.
+    console.log('[AUTH] updateProfile patch=', JSON.stringify(patch),
+      '=> saved account_type=', data?.user?.account_type, '| server scope.role=', data?.scope?.role);
+    if (data && data.user) { userOp.current += 1; setUser(data.user); await saveUser(data.user); }
     return data;
   }, []);
 
   // Derived scope (role, class, stream, subjects) — single source of truth for the UI.
   const scope = useMemo(() => deriveScope(user), [user]);
+
+  // TEMP diag: watch the role the whole app routes on.
+  useEffect(() => {
+    console.log('[AUTH] SCOPE role=', scope?.role, '| complete=', scope?.complete, '| account_type=', user?.account_type);
+  }, [scope?.role, scope?.complete, user?.account_type]);
 
   // Load (and refresh on login) the set of classes that have content in the DB.
   useEffect(() => {
@@ -121,7 +139,8 @@ export const AuthProvider = ({ children }) => {
   // (scope.complete → false) and AppNavigator routes into CompleteProfile.
   useEffect(() => {
     setProfileIncompleteHandler(() => {
-      fetchMe().then((d) => { if (d && d.user) { setUser(d.user); saveUser(d.user); } }).catch(() => {});
+      const myOp = userOp.current;
+      fetchMe().then((d) => { if (d && d.user && userOp.current === myOp) { setUser(d.user); saveUser(d.user); } }).catch(() => {});
     });
     return () => setProfileIncompleteHandler(null);
   }, []);
