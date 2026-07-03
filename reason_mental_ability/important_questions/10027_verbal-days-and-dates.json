@@ -1,0 +1,568 @@
+{
+  "topic_id": 10027,
+  "topic_name": "Verbal - Days and Dates",
+  "subject": "Reasoning & Mental Ability",
+  "subject_id": 10014,
+  "grade": "CBSE Class 07",
+  "weight": 105,
+  "is_free": false,
+  "reported_count": 15,
+  "total_questions": 15,
+  "questions": [
+    {
+      "id": 604119,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "The calendar of year 1856 is same as which year?",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "1883",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "1884",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "1864",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "1880",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "1884",
+      "correct_answer_label": "B",
+      "correct_answer_images": [],
+      "explanation_text": "Given year 1856, when divided by 4 leaves a remainder of 0.\nNOTE: When the remainder is 0, 28 is added to the given year to get the result.\nSo, 1856 + 28 = 1884",
+      "explanation_images": []
+    },
+    {
+      "id": 604885,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "How many leap years do 100 years have?",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "25",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "24",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "4",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "26",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "24",
+      "correct_answer_label": "B",
+      "correct_answer_images": [],
+      "explanation_text": "The given year is divided by 4, and the quotient gives the number of leap years.\nHere, 100 {tex}\\div{/tex} 4 = 25.\nBut, as 100 is not a leap year {tex}\\Rightarrow{/tex} 25 - 1= 24 leap years.",
+      "explanation_images": []
+    },
+    {
+      "id": 604160,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "On 8th Feb, 2005 it was Tuesday. What was the day of the week on 8th Feb, 2004?",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "Tuesday",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "Saturday",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "Friday",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "Sunday",
+          "is_correct": true,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "Sunday",
+      "correct_answer_label": "D",
+      "correct_answer_images": [],
+      "explanation_text": "The year 2004 is a leap year. It has 2 odd days.\nThe day on 8th Feb 2004 is 2 days before the day on 8th Feb 2005.\nHence, this day is Sunday.",
+      "explanation_images": []
+    },
+    {
+      "id": 604107,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "On 1st Jan, 2005 Saturday falls. What day of the week was it on 1st Jan, 2006?",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "Saturday",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "Monday",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "Sunday",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "Tuesday",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "Sunday",
+      "correct_answer_label": "C",
+      "correct_answer_images": [],
+      "explanation_text": "The year 1985 is an ordinary year. So, it has 1 odd day.\nSo, the day on 19th June 1985 will be 1 day after the day on 19th June 1984.\nBut, 19th June 1984 is Monday.\nS0, 19th June 1985 is Tuesday.",
+      "explanation_images": []
+    },
+    {
+      "id": 604701,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "What was the day of the week on 16th August 1947?",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "Sunday",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "Monday",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "Saturday",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "Thursday",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "Saturday",
+      "correct_answer_label": "C",
+      "correct_answer_images": [],
+      "explanation_text": "15th August, 1947 = (1946 years + Period from 1st Jan, 1947 to 15th)\nCounting of odd days:\n1600 years have 0 odd day. 300 years have 1 odd day.\n47 years = (11 leap years + 36 ordinary years) = [(11 {tex}\\times{/tex} 2) + (36 {tex}\\times{/tex} 1) ]odd days = 58 odd days = 2 odd days\nJan, Feb, Mar, Apr, May, Jun, Jul, Aug.\n31 + 28 + 31 + 30 + 31 + 30 + 31 + 15 = 227 days = (32 weeks + 3 days) = 3\nTotal number of odd days = (0 + 1 + 2 + 3) odd days = 6 odd days\nHence, the required day was 'Saturday'.",
+      "explanation_images": []
+    },
+    {
+      "id": 604774,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "What was the day of the week on 17th June, 1998?",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "Wednesday",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "Saturday",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "Friday",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "Tuesday",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "Wednesday",
+      "correct_answer_label": "A",
+      "correct_answer_images": [],
+      "explanation_text": "17th June, 1998 = (1997 years + Period from 1.1.1998 to 17.6.1998)\nOdd days in 1600 years = 0\nOdd days in 300 years = (5 {tex}\\times{/tex} 3) 1\n97 years has 24 leap years + 73 ordinary years.\nNumber of odd days in 97 years (24 {tex}\\times{/tex} 2 + 73) = 121 = 2 odd days.\nJan, Feb, March, April, May, June\n(31 + 28 + 31 + 30 + 31 + 17) = 168 days\n168 days = 24 weeks = 0 odd day\nTotal number of odd days = (0 + 1 + 2 + 0) = 3.\nGiven day is Wednesday",
+      "explanation_images": []
+    },
+    {
+      "id": 604169,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "The calendar for the year 2018 will be the same for the year:",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "2023",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "2027",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "2029",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "2022",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "2029",
+      "correct_answer_label": "C",
+      "correct_answer_images": [],
+      "explanation_text": "How to find the years which have the same Calendars:\nLeap year calendar repeats every 28 years.\nHere 28 is distributed as 6 + 11 + 11\nRules:\nIf given year is at 1st position after Leap year then next repeated calendar year is Given Year + 6.\nIf given year is at 2nd position after Leap year then next repeated calendar year is Given Year + 11.\nIf given year is at 3rd position after Leap year then next repeated calendar year is Given Year + 11.\nNow, the given year is 2018.\nWe know that 2016 is a Leap year.\n2016 - LY; 2017 - 1st; 2018 - 2nd; 2019 - 3rd; 2020 - LY\nHere 2018 is at 2nd position after the Leap year.\nAccording to rule (b) the calendar of 2018 is repeated for the year is 2018 + 11 = 2029.",
+      "explanation_images": []
+    },
+    {
+      "id": 604766,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "What was the day on 25th Jan, 1981?",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "Monday",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "Friday",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "Sunday",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "Tuesday",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "Sunday",
+      "correct_answer_label": "C",
+      "correct_answer_images": [],
+      "explanation_text": "25 Jan, 1981 = (1980 years + Period from 1.1.1981 to 25.1.1981)\nOdd days in 1600 years = 0\nOdd days in 300 years = 1\n80 years = (60 ordinary years + 20 leap year) = (60 {tex}\\times{/tex} 1 + 20 {tex}\\times{/tex} 2) = 2 odd days\nJan = 25 days = (3 weeks + 4 days) = 4 odd days\nTotal number of odd days = (0 + 1 + 2 + 4) = 7= 0 odd day\nThe given day is Sunday.",
+      "explanation_images": []
+    },
+    {
+      "id": 604691,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "The calendar of the year 1897 can be used again in the year:",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "1908",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "1901",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "1903",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "1926",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "1903",
+      "correct_answer_label": "C",
+      "correct_answer_images": [],
+      "explanation_text": "Repetition of leap year\n{tex}\\Rightarrow{/tex} Add +28 to the Given Year.\nRepetition of a non-leap year\nStep 1: Add +11 to the Given Year. If Result is a leap year, Go to step 2.\nStep 2: Add +6 to the Given Year.\nSolution:\nThe given Year is 1897, Which is a non-leap year.\nStep 1: Add +11 to the given year (i.e 1897 + 11) = 1908, Which is a leap year.\nStep 2: Add +6 to the given year (i.e 1897 + 6) = 1903\nTherefore, The calendar of the year 1897 can be used again in the year 1903",
+      "explanation_images": []
+    },
+    {
+      "id": 604750,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "What was the day on 9th May 2001?",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "Wednesday",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "Saturday",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "Thursday",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "Tuesday",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "Wednesday",
+      "correct_answer_label": "A",
+      "correct_answer_images": [],
+      "explanation_text": "9th May, 2001 = (2000 years + Period from 1.1.2001 to 9.5.2001)\nOdd days in 1600 years = 0\nOdd days in 400 years = 0\nJan. Feb. March April May\n(31 + 28 + 31 + 30 + 9) = 129 days\n129 days = (18 weeks + 3 day) = 3 odd day\nTotal number of odd days = (0 + 0 + 3 ) = 3 odd day\nGiven day is Wednesday.",
+      "explanation_images": []
+    },
+    {
+      "id": 604714,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "The second & fourth Saturdays and every Sunday is a holiday. How many working days will be there in a month of 31 days beginning on a Friday?",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "24",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "23",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "22",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "25",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "24",
+      "correct_answer_label": "A",
+      "correct_answer_images": [],
+      "explanation_text": "Given that the month begins on a Friday and has 31 days\nSundays = 3rd, 10th, 17th, 24th, 31st\n{tex}\\Rightarrow{/tex} Total Sundays = 5\nEvery second & fourth Saturday is a holiday.\n2nd & 4th Saturday in every month = 2\nTotal days in the month = 31\nTotal working days = 31 - (5 + 2) = 24 days.",
+      "explanation_images": []
+    },
+    {
+      "id": 604244,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "What was the day on 2nd Jan 1901?",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "Tuesday",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "Wednesday",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "Monday",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "Sunday",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "Wednesday",
+      "correct_answer_label": "B",
+      "correct_answer_images": [],
+      "explanation_text": "2nd Jan 1901 means\n(1900 years and 2 days)\nNow, 1600 years have 0 odd day\n300 years have 1 odd day\n2 days have 2 odd day\nTotal no. of odd days = 0 + 1 + 2 = 3 days\nHence, the day on 2nd Jan 1901 was Wednesday.",
+      "explanation_images": []
+    },
+    {
+      "id": 604085,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "On 24th Nov 2007 Thursday falls. What day of the week was it on 10th Nov 2006?",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "Wednesday",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "Tuesday",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "Friday",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "Thursday",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "Wednesday",
+      "correct_answer_label": "A",
+      "correct_answer_images": [],
+      "explanation_text": "The year 2006 is an ordinary year. So, it has 1 odd day.\nSo, the day on 24th Nov, 2007 will be 1 day beyond the day on 24th Nov, 2006.\nBut, 24th Nov, 2007 is Thursday.\n24 - 10 = 14 days.\nTherefore, 2 weeks ago it is same day.\nThus, 10th Nov, 2006 is one day before 10th Nov, 2007 i.e. it is Wednesday.",
+      "explanation_images": []
+    },
+    {
+      "id": 604222,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "1.12.91 is the first Sunday. Which is the fourth Tuesday of December 91?",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "17.12.91",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "24.12.91",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "27.12.91",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "31.12.91",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "24.12.91",
+      "correct_answer_label": "B",
+      "correct_answer_images": [],
+      "explanation_text": "1/12/91 is the first Sunday of December 91\nSo, 3/12/91 is the first Tuesday of the month.\nClearly, 10/12/91, 17/12/91, 24/12/91, and 31/12/91 are also Tuesdays.\nSo, 24/12/91 is the fourth Tuesday.",
+      "explanation_images": []
+    },
+    {
+      "id": 604894,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "How many leap years do 300 years have?",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "75",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "74",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "72",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "73",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "72",
+      "correct_answer_label": "C",
+      "correct_answer_images": [],
+      "explanation_text": "The given year is divided by 4, and the quotient gives the number of leap years.\nHere, 300 {tex}\\times{/tex} 4 = 75.\nBut, as 100, 200 and 300 are not in leap years {tex}\\Rightarrow{/tex} 75 - 3 = 72 leap years.",
+      "explanation_images": []
+    }
+  ]
+}

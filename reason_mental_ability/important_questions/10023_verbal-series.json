@@ -1,0 +1,570 @@
+{
+  "topic_id": 10023,
+  "topic_name": "Verbal - Series",
+  "subject": "Reasoning & Mental Ability",
+  "subject_id": 10014,
+  "grade": "CBSE Class 07",
+  "weight": 101,
+  "is_free": false,
+  "reported_count": 15,
+  "total_questions": 15,
+  "questions": [
+    {
+      "id": 604382,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "Look carefully for the pattern, and then choose which pair of numbers comes next.\n42, 40, 38, 35, 33, 31, 28, ?, ?",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "25, 22",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "26, 23",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "26, 24",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "25, 23",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "26, 24",
+      "correct_answer_label": "C",
+      "correct_answer_images": [],
+      "explanation_text": "This is an alternating subtraction series in which 2 is subtracted twice, then 3 is subtracted once, then 2 is subtracted twice, and so on.",
+      "explanation_images": []
+    },
+    {
+      "id": 604536,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "What will come in place of the question mark (?) in the following number series?\n18, 29, 42, 53, ?, 77",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "66",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "64",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "71",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "65",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "66",
+      "correct_answer_label": "A",
+      "correct_answer_images": [],
+      "explanation_text": "Given number series - 18, 29, 42, 53, ?, 77\nThe pattern is as follows:\n18 + 11 = 29\n29 + 13 = 42\n42 + 11 = 53\n53 + 13 = 66\n66 + 11 = 77",
+      "explanation_images": []
+    },
+    {
+      "id": 604151,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "5760, 960, ?, 48, 16, 8",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "120",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "160",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "192",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "240",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "192",
+      "correct_answer_label": "C",
+      "correct_answer_images": [],
+      "explanation_text": "The pattern is 5760 {tex}\\div{/tex} 6, 960 {tex}\\div{/tex} 5, 48 {tex}\\div{/tex} 3, 16 {tex}\\div{/tex} 2.\nSo, missing term = 960 {tex}\\div{/tex} 5 = 192.",
+      "explanation_images": []
+    },
+    {
+      "id": 915793,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "One term in the number series is wrong. Find out the wrong term.\n2, 4, 6, 10, 14, 28, 30",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "4",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "10",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "14",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "30",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "10",
+      "correct_answer_label": "B",
+      "correct_answer_images": [],
+      "explanation_text": "The pattern is {tex}\\times{/tex} 2, + 2, {tex}\\times{/tex} 2, + 2,... So, 2 {tex}\\times{/tex} 2 = 4, 4 + 2 = 6, 6 {tex}\\times{/tex} 2 = 12 {tex}\\neq{/tex} 10, ...",
+      "explanation_images": []
+    },
+    {
+      "id": 1052491,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "Which of the following will be the second highest number, if middle digit and last digit of each of the given numbers are decreased and increased by 1 respectively?\n846, 942, 695, 786, 895",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "942",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "846",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "895",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "786",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "895",
+      "correct_answer_label": "C",
+      "correct_answer_images": [],
+      "explanation_text": "New numbers are: 837, 933, 686, 777, 886\nDescending order of the above numbers is: 933, 886, 837, 777, 686",
+      "explanation_images": []
+    },
+    {
+      "id": 604144,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "3, 7, 15, ?, 63, 127",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "30",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "31",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "47",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "52",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "31",
+      "correct_answer_label": "B",
+      "correct_answer_images": [],
+      "explanation_text": "Each number in the series is one more than twice the preceding number.\nSo, missing term = (15 {tex}\\times{/tex} 2) + 1 = 31",
+      "explanation_images": []
+    },
+    {
+      "id": 604810,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "Select the missing number from the given series.\n9, 18, 72, 576, ?",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "8116",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "8216",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "9016",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "9216",
+          "is_correct": true,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "9216",
+      "correct_answer_label": "D",
+      "correct_answer_images": [],
+      "explanation_text": "9, 18, 72, 576, ?\nPattern here is: {tex}\\times{/tex} 2, {tex}\\times{/tex} 4, {tex}\\times{/tex} 8, {tex}\\times{/tex} 16 and so on.\n9 {tex}\\times{/tex} 2 = 18\n18 {tex}\\times{/tex} 4 = 72\n72 {tex}\\times{/tex} 8 = 576\n576 {tex}\\times{/tex} 16 = 9216\nSo, the missing number will be 9216.",
+      "explanation_images": []
+    },
+    {
+      "id": 685953,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "Find the combination of numbers so that letters are arranged accordingly to form a meaningful word.\n\n\nY\nU\nS\nD\nT\n\n\n1\n2\n3\n4\n5",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "3, 5, 1, 2, 4",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "5, 3, 2, 4, 1",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "3, 5, 2, 4, 1",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "4, 5, 1, 2, 3",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "3, 5, 2, 4, 1",
+      "correct_answer_label": "C",
+      "correct_answer_images": [],
+      "explanation_text": "The meaningful word formed is STUDY i.e., 3, 5, 2, 4, 1.",
+      "explanation_images": []
+    },
+    {
+      "id": 685424,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "Five friends X, Y, Z, U and V are sitting in a row facing North. U is between V and Y. Y is to the immediate left of Z. X is to the immediate left of V. Who is in the middle?",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "U",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "X",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "Y",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "V",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "U",
+      "correct_answer_label": "A",
+      "correct_answer_images": [],
+      "explanation_text": "",
+      "explanation_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1652163212-7pu6vq.jpg"
+      ]
+    },
+    {
+      "id": 685766,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "Arrange the words in a meaningful logical order and then select the appropriate sequence from the options provided below the groups of words.\nFamily\nTown\nMember\nLocality\nCountry",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "3, 1, 2, 4, 5",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "3, 1, 2, 5, 4",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "3, 1, 4, 2, 5",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "3, 1, 4, 5, 2",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "3, 1, 4, 2, 5",
+      "correct_answer_label": "C",
+      "correct_answer_images": [],
+      "explanation_text": "The logical order is as follows, Member, Family, Locality, Town, Country.",
+      "explanation_images": []
+    },
+    {
+      "id": 1052446,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "If the middle digit of the greatest number is subtracted from the middle digit of the smallest number after adding one to each of the given numbers, then which of the following will be obtained?\n718 612 525 312 297",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "4",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "8",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "2",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "0",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "8",
+      "correct_answer_label": "B",
+      "correct_answer_images": [],
+      "explanation_text": "8",
+      "explanation_images": []
+    },
+    {
+      "id": 916363,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "How many 6's are there in the given series each of which is immediately preceded by 9 and immediately followed by 6?\n6 6 9 6 9 9 9 6 6 6 9 6 9 6 6 9 9 6 6 9 9 6 6 6",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "3",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "4",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "5",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "6",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "4",
+      "correct_answer_label": "B",
+      "correct_answer_images": [],
+      "explanation_text": "6 6 9 6 9 9 9 6 6 6 9 6 9 6 6 9 9 6 6 9 9 6 6 6",
+      "explanation_images": []
+    },
+    {
+      "id": 604131,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "A series is given, with one term missing. Choose the correct alternative from the given ones that will complete the series.\n5, 10, 30, ?, 600, 3600",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "120",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "100",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "90",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "60",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "120",
+      "correct_answer_label": "A",
+      "correct_answer_images": [],
+      "explanation_text": "5, 10, 30, ?, 600, 3600\n5 {tex}\\times{/tex} 2 = 10\n10 {tex}\\times{/tex} 3 = 30\n30 {tex}\\times{/tex} 4 = 120\n120 {tex}\\times{/tex} 5 = 600\n600 {tex}\\times{/tex} 6 = 3600\nSo, 120 will be the missing number.",
+      "explanation_images": []
+    },
+    {
+      "id": 604899,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "Choose the missing terms out of the given alternatives. A, B, N, C, D, O, E, F, P, ?, ?, ?",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "G, H, Q",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "J, K, L",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "G, H, J",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "G, H, I",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "G, H, Q",
+      "correct_answer_label": "A",
+      "correct_answer_images": [],
+      "explanation_text": "The series consists of 2 groups (A, B, C, D, E, F, ?, ?) and (N, O, P, ?). The series is made of two terms of the first group followed by one term of the second group.",
+      "explanation_images": []
+    },
+    {
+      "id": 867711,
+      "type": "VSA (Very Short Answer)",
+      "question_text": "Find the missing number which will complete the given series.\n8, 14, 26, ? , 68, 98",
+      "question_images": [],
+      "options": [
+        {
+          "label": "A",
+          "text": "32",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "B",
+          "text": "44",
+          "is_correct": true,
+          "option_images": []
+        },
+        {
+          "label": "C",
+          "text": "52",
+          "is_correct": false,
+          "option_images": []
+        },
+        {
+          "label": "D",
+          "text": "48",
+          "is_correct": false,
+          "option_images": []
+        }
+      ],
+      "correct_answer": "44",
+      "correct_answer_label": "B",
+      "correct_answer_images": [],
+      "explanation_text": "{tex}8 \\underset{+6}{\\longrightarrow} 14 \\underset{+12}{\\longrightarrow} 26 \\underset{+18}{\\longrightarrow} \\text { (44) } \\underset{+24}{\\longrightarrow} 68 \\underset{+30}{\\longrightarrow} 98{/tex}",
+      "explanation_images": []
+    }
+  ]
+}

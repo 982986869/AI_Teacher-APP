@@ -546,9 +546,9 @@ const SUBJECTS_CLASS7 = [
   { name: 'Old - Science',                    emoji: '🔬', bg: '#5AA84F', chapters: [] },
   // Not seeded yet — keep the "coming soon" empty state.
   { name: 'Reasoning & Mental Ability',       emoji: '🧠', bg: '#E8703A', chapters: [], comingSoon: true },
-  { name: 'Old - English',                    emoji: '📖', bg: '#7A6FD0', chapters: [], comingSoon: true },
+  { name: 'Old - English',                    emoji: '📖', bg: '#7A6FD0', chapters: [] },
   { name: 'Old - Social Sc',                  emoji: '🌐', bg: '#2F80ED', chapters: [] },
-  { name: 'Old - हिंदी',                       emoji: '📚', bg: '#2F80ED', chapters: [], comingSoon: true },
+  { name: 'Old - हिंदी',                       emoji: '📚', bg: '#2F80ED', chapters: [] },
   { name: 'Old - Maths',                      emoji: '📐', bg: '#E8703A', chapters: [] },
 ];
 
@@ -652,6 +652,23 @@ const getResourceTypes = (subjectName, classLevel) => {
   // (part=2, textbook sections) + Revision Notes (part=4, flash cards). Both use the
   // ncert2 WebView flow; each chapter list is fetched from the DB for its own part.
   if (classLevel === 'Class 7') {
+    // Old - English is the two OLD NCERT books, seeded into ncert_solutions under the
+    // SAME subject but distinct `part`s so each is its own tile: Honeycomb=part 2,
+    // An Alien Hand=part 6. (Last Year Papers pending — see seed notes.)
+    if (subjectName === 'Old - English') {
+      return [
+        { icon: '📗', name: 'NCERT Solutions - An Alien Hand (OLD BOOK)', sub: 'Textbook Solutions', type: 'ncert2', part: 6 },
+        { icon: '📗', name: 'NCERT Solutions - Honeycomb (OLD BOOK)',     sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
+      ];
+    }
+    // Old - हिंदी: two old books seeded into ncert_solutions under the same subject,
+    // Vasant Bhag-2 = part 2, Bal Mahabharat Katha = part 6.
+    if (subjectName === 'Old - हिंदी') {
+      return [
+        { icon: '📗', name: 'NCERT Solutions - वसंत भाग-२ (OLD BOOK)',        sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
+        { icon: '📗', name: 'NCERT Solutions - बाल महाभारत कथा (OLD BOOK)',   sub: 'Textbook Solutions', type: 'ncert2', part: 6 },
+      ];
+    }
     // Two tiles per subject — NCERT Solutions (part=2) + Revision Notes (part=4),
     // both DB-backed via ncert2; chapter lists fetched from the DB per part.
     return [
