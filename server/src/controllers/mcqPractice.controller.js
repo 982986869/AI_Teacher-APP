@@ -4,8 +4,13 @@ const ApiResponse = require('../utils/ApiResponse')
 const svc = require('../services/mcqPractice.service')
 const { resolveClassNum, assertSubjectAllowed } = require('../services/personalization/enforce')
 
-// Authoritative class — the student's own class overrides any ?class= param.
-const classOf = (req) => resolveClassNum(req)
+// MCQ Practice is browsable across classes via the class picker: honor the
+// requested ?class= (any "7" / "Class 7" form) and fall back to the student's own
+// class only when absent. (Matches the resources/ncert flow.)
+const classOf = (req) => {
+  const m = String(req.query.class || '').match(/\d{1,2}/)
+  return m ? parseInt(m[0], 10) : resolveClassNum(req)
+}
 const deslug = (s) => String(s || '').replace(/-/g, ' ')
 const guardSubject = (req) => assertSubjectAllowed(req, deslug(req.params.subjectSlug))
 

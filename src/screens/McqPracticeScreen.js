@@ -14,8 +14,17 @@ import { getMcqSubtopics as apiMcqSubtopics, getMcqChaptersWithContent } from '.
 import { getChapters } from '../api/resourcesApi';
 import { useAuth } from '../context/AuthContext';
 
-const slugify = (s) =>
-  String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+// Slugify with a stable hash fallback for names with no ASCII (Devanagari), so
+// Class 7 हिंदी resolves to the same slug the seed used. MUST stay byte-identical
+// to scripts/seedClass7McqPractice.js.
+const slugify = (s) => {
+  const base = String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  if (base) return base;
+  let h = 5381;
+  const str = String(s);
+  for (let i = 0; i < str.length; i++) h = ((h * 33) ^ str.charCodeAt(i)) >>> 0;
+  return 'u' + h.toString(36);
+};
 
 // 'Class 8' → 8; null when unknown (the backend uses the student's saved class).
 const classNum = (c) => parseInt(String(c || '').replace(/\D/g, ''), 10) || null;
@@ -38,7 +47,23 @@ const SUBJECTS = [
 const SUBJECTS_CLASS6 = [
   { name: 'Science (OLD)', emoji: '🔬', bg: '#5AA84F' },
 ];
-const subjectsForClass = (classLevel) => (classLevel === 6 ? SUBJECTS_CLASS6 : SUBJECTS);
+
+// Class 7 MCQ Practice — all DB-backed (class_level=7). Names must slugify to the
+// same slugs the seed (scripts/seedClass7McqPractice.js) used.
+const SUBJECTS_CLASS7 = [
+  { name: 'Science (Curiosity)',                emoji: '🔬', bg: '#0F8A5F' },
+  { name: 'Social Science (Exploring Society)', emoji: '🌍', bg: '#B0306B' },
+  { name: 'हिंदी (मल्हार)',                      emoji: '📖', bg: '#D9822B' },
+  { name: 'English (Poorvi)',                   emoji: '✍️', bg: '#26215C' },
+  { name: 'Maths (Ganita Prakash)',             emoji: '📐', bg: '#0C8F88' },
+  { name: 'Old - Science',                      emoji: '⚗️', bg: '#5AA84F' },
+  { name: 'Reasoning & Mental Ability',         emoji: '🧠', bg: '#1C1C1E' },
+  { name: 'Old - Maths',                        emoji: '➗', bg: '#0F6E56' },
+  { name: 'Old - Social Sc',                    emoji: '🏛️', bg: '#8A5A2B' },
+];
+
+const subjectsForClass = (classLevel) =>
+  classLevel === 6 ? SUBJECTS_CLASS6 : classLevel === 7 ? SUBJECTS_CLASS7 : SUBJECTS;
 
 const pct = (n) => `${Math.round((n + Number.EPSILON) * 100) / 100}`;
 
@@ -127,12 +152,14 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
   useEffect(() => {
     if (!subjectOptions.some((s) => s.name === subject)) setSubject(subjectOptions[0].name);
   }, [classLevel, subject]); // eslint-disable-line react-hooks/exhaustive-deps
-  // DB-backed practice: Class 12 Physics/Chemistry/Mathematics (class_level=12) and
-  // Class 6 Science (OLD) (class_level=6) → fetch chapters from the API + API
-  // subtopics. Every other subject/class keeps the static MCQ_DATA bank.
+  // DB-backed practice: Class 12 Physics/Chemistry/Mathematics (class_level=12),
+  // Class 6 Science (OLD) (class_level=6) and ALL Class 7 subjects (class_level=7)
+  // → fetch chapters + subtopics from the API. Everything else keeps the static
+  // MCQ_DATA bank.
   const isDbApi =
     (classLevel === 12 && (subject === 'Physics' || subject === 'Chemistry' || subject === 'Mathematics')) ||
-    (classLevel === 6 && subject === 'Science (OLD)');
+    (classLevel === 6 && subject === 'Science (OLD)') ||
+    classLevel === 7;
   const [apiChapters, setApiChapters] = useState(null); // null = loading
   useEffect(() => {
     if (!isDbApi) { setApiChapters(null); return undefined; }
