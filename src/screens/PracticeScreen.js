@@ -823,10 +823,10 @@ const PracticeScreen = () => {
   }
 
   // ── ONLINE TESTS ────────────────────────────────────────────────────────
-  // Class 7 → DB-backed, timed testpapers from examin8 (OnlineTestScreen manages
+  // Class 7 & 8 → DB-backed, timed testpapers from examin8 (OnlineTestScreen manages
   // its own subjects → chapters → tests → instruction → runner → result → review).
   // Other classes keep the offline-bank flow (OnlineTestsScreen).
-  if (chOpen && classNum(selectedClass) === 7) {
+  if (chOpen && (classNum(selectedClass) === 7 || classNum(selectedClass) === 8)) {
     return <OnlineTestScreen onExit={() => setChOpen(false)} />;
   }
   if (chOpen) {

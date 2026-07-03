@@ -35,13 +35,22 @@ const C = {
   amber: '#F5A623', amberBg: '#FFF4E0', blue: '#4AA8F0', grey: '#C7C7D1',
 };
 
-// Class 7 subjects that have online tests (must slugify to the seeded slug).
-const SUBJECTS = [
-  { name: 'Science (Curiosity)', emoji: '🔬', bg: '#0F8A5F' },
-  { name: 'Old - Social Sc',     emoji: '🏛️', bg: '#8A5A2B' },
-  { name: 'Old - Maths',         emoji: '➗', bg: '#0F6E56' },
-  { name: 'Old - हिंदी',          emoji: '📚', bg: '#2F80ED' },
-];
+// Subjects that have online tests, per class (must slugify to the seeded slug).
+// Class 8's Science (Curiosity) has no online tests, so only the OLD subjects appear.
+const SUBJECTS_BY_CLASS = {
+  7: [
+    { name: 'Science (Curiosity)', emoji: '🔬', bg: '#0F8A5F' },
+    { name: 'Old - Social Sc',     emoji: '🏛️', bg: '#8A5A2B' },
+    { name: 'Old - Maths',         emoji: '➗', bg: '#0F6E56' },
+    { name: 'Old - हिंदी',          emoji: '📚', bg: '#2F80ED' },
+  ],
+  8: [
+    { name: 'Old - Science',   emoji: '⚗️', bg: '#5AA84F' },
+    { name: 'Old - Social Sc', emoji: '🏛️', bg: '#8A5A2B' },
+    { name: 'Old - Maths',     emoji: '➗', bg: '#0F6E56' },
+  ],
+};
+const subjectsForClass = (classLevel) => SUBJECTS_BY_CLASS[classLevel] || SUBJECTS_BY_CLASS[7];
 
 const fmt = (s) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
 
@@ -203,7 +212,7 @@ export default function OnlineTestScreen({ onExit = () => {} }) {
           <Header onBack={onExit} title="Online Test" />
           <ScrollView contentContainerStyle={{ padding: 16, gap: 12 }}>
             <Text style={st.sectionHint}>Pick a subject to see chapter-wise timed tests.</Text>
-            {SUBJECTS.map((s) => (
+            {subjectsForClass(classLevel).map((s) => (
               <TouchableOpacity key={s.name} style={st.subjectCard} activeOpacity={0.85} onPress={() => openSubject(s)}>
                 <View style={[st.subjectEmoji, { backgroundColor: s.bg }]}><Text style={{ fontSize: 22 }}>{s.emoji}</Text></View>
                 <Text style={st.subjectName}>{s.name}</Text>
