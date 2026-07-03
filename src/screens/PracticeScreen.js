@@ -16,6 +16,7 @@ import TestQuestionScreen from './TestQuestionScreen';
 import MockResultScreen from './MockResultScreen';
 import ChapterListScreen from './ChapterListScreen';
 import OnlineTestsScreen from './OnlineTestsScreen';
+import OnlineTestScreen from './OnlineTestScreen';
 import { getQuestions, allQuestions } from '../data/questionBank';
 import { getMcqQuestions } from '../data/mcqQuestions';
 import { getSubtopicTest } from '../data/subtopicBank';
@@ -804,7 +805,13 @@ const PracticeScreen = () => {
     );
   }
 
-  // ── ONLINE TESTS: subject -> chapter list (all 4 subjects, offline banks) ───
+  // ── ONLINE TESTS ────────────────────────────────────────────────────────
+  // Class 7 → DB-backed, timed testpapers from examin8 (OnlineTestScreen manages
+  // its own subjects → chapters → tests → instruction → runner → result → review).
+  // Other classes keep the offline-bank flow (OnlineTestsScreen).
+  if (chOpen && classNum(selectedClass) === 7) {
+    return <OnlineTestScreen onExit={() => setChOpen(false)} />;
+  }
   if (chOpen) {
     return (
       <OnlineTestsScreen
