@@ -552,6 +552,23 @@ const SUBJECTS_CLASS7 = [
   { name: 'Old - Maths',                      emoji: '📐', bg: '#E8703A', chapters: [] },
 ];
 
+// Class 8 mirrors Class 7: NCERT Solutions (part 2) + Revision Notes (part 4),
+// seeded into ncert_solutions under className='Class 8'. Chapter lists are DB-driven.
+const SUBJECTS_CLASS8 = [
+  { name: 'Science (Curiosity)',                emoji: '🔬', bg: '#5AA84F', chapters: [] },
+  { name: 'Social Science (Exploring Society)', emoji: '🌐', bg: '#2F80ED', chapters: [] },
+  { name: 'हिंदी (मल्हार)',                     emoji: '📚', bg: '#2F80ED', chapters: [] },
+  { name: 'English (Poorvi)',                   emoji: '📖', bg: '#7A6FD0', chapters: [] },
+  { name: 'Maths (Ganita Prakash)',             emoji: '📐', bg: '#E8703A', chapters: [] },
+  { name: 'Old - Science',                      emoji: '🔬', bg: '#5AA84F', chapters: [] },
+  // IQ-only (no NCERT/flash) — keep the "coming soon" empty state in Resources.
+  { name: 'Reasoning & Mental Ability',         emoji: '🧠', bg: '#E8703A', chapters: [], comingSoon: true },
+  { name: 'Old - English',                      emoji: '📖', bg: '#7A6FD0', chapters: [] },
+  { name: 'Old - Social Sc',                    emoji: '🌐', bg: '#2F80ED', chapters: [] },
+  { name: 'Old - हिंदी',                        emoji: '📚', bg: '#2F80ED', chapters: [] },
+  { name: 'Old - Maths',                        emoji: '📐', bg: '#E8703A', chapters: [] },
+];
+
 const RESOURCE_TYPES = [
   { icon: '📋', name: 'Revision Notes',         sub: '835 items',          type: 'notes'    },
   { icon: '🔄', name: 'Exemplar Solutions',      sub: 'Textbook Solutions', type: 'exemplar' },
@@ -671,6 +688,15 @@ const getResourceTypes = (subjectName, classLevel) => {
     }
     // Two tiles per subject — NCERT Solutions (part=2) + Revision Notes (part=4),
     // both DB-backed via ncert2; chapter lists fetched from the DB per part.
+    return [
+      { icon: '📗', name: 'NCERT Solutions', sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
+      { icon: '📝', name: 'Revision Notes',  sub: 'Chapter Notes',      type: 'ncert2', part: 4 },
+    ];
+  }
+  // Class 8 — same DB-backed model as Class 7: NCERT Solutions (part=2, textbook) +
+  // Revision Notes (part=4, flash cards). Chapter lists fetched from the DB per part;
+  // tiles with no seeded chapters simply show empty (handled by the chapter list fetch).
+  if (classLevel === 'Class 8') {
     return [
       { icon: '📗', name: 'NCERT Solutions', sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
       { icon: '📝', name: 'Revision Notes',  sub: 'Chapter Notes',      type: 'ncert2', part: 4 },
@@ -1832,7 +1858,7 @@ const ResourcesScreen = () => {
             <Text style={s.boardLabel}>{activeClass}</Text>
           </View>
           <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
-            {(activeClass === 'Class 6' ? SUBJECTS_CLASS6 : activeClass === 'Class 7' ? SUBJECTS_CLASS7 : SUBJECTS)
+            {(activeClass === 'Class 6' ? SUBJECTS_CLASS6 : activeClass === 'Class 7' ? SUBJECTS_CLASS7 : activeClass === 'Class 8' ? SUBJECTS_CLASS8 : SUBJECTS)
               .filter((subject) => !(activeClass === 'Class 12' && subject.name === 'Biology'))
               // Stream filter (hide Biology from PCM etc.) only applies to senior classes
               // (11/12). Junior lists (e.g. Class 6's "Maths (OLD)", "English (Poorvi)")
