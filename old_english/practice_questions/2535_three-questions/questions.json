@@ -5,7 +5,7 @@
   "subject_id": 1919,
   "reported_total": 38,
   "extracted_questions": 38,
-  "questions_with_answer": 15,
+  "questions_with_answer": 38,
   "note": "Practice feed me correct answer nahi hota; jaha ID important-questions se match hua waha answer bhara hai (answer_source).",
   "questions": [
     {
@@ -18,30 +18,36 @@
           "id": 478615,
           "label": "A",
           "text": "to the axe kept nearby",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 478616,
           "label": "B",
           "text": "towards the bearded man",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 478618,
           "label": "C",
           "text": "to the seeds to be sown",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 478617,
           "label": "D",
           "text": "towards the evil bodyguard",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "towards the bearded man",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 478616,
+      "solution": "towards the bearded man"
     },
     {
       "id": 323680,
@@ -53,30 +59,36 @@
           "id": 478620,
           "label": "A",
           "text": "God-fearing",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 478622,
           "label": "B",
           "text": "wearing a long robe",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 478619,
           "label": "C",
           "text": "stabbed by the king",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 478621,
           "label": "D",
           "text": "the king’s enemy",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "the king’s enemy",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 478621,
+      "solution": "the king’s enemy"
     },
     {
       "id": 323681,
@@ -88,30 +100,36 @@
           "id": 478625,
           "label": "A",
           "text": "told tales",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 478626,
           "label": "B",
           "text": "were not surprized to meet the man",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 478623,
           "label": "C",
           "text": "slept for long",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 478624,
           "label": "D",
           "text": "nursed the wounds of the bearded man",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "nursed the wounds of the bearded man",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 478624,
+      "solution": "nursed the wounds of the bearded man"
     },
     {
       "id": 323682,
@@ -123,30 +141,36 @@
           "id": 478628,
           "label": "A",
           "text": "to do important work",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 478630,
           "label": "B",
           "text": "to do good to the person who needs your help at the moment",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 478629,
           "label": "C",
           "text": "to do hard work",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 478627,
           "label": "D",
           "text": "to do good to the people",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "to do good to the person who needs your help at the moment",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 478630,
+      "solution": "to do good to the person who needs your help at the moment"
     },
     {
       "id": 323683,
@@ -158,30 +182,36 @@
           "id": 478632,
           "label": "A",
           "text": "to find answers to the questions",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 478634,
           "label": "B",
           "text": "to announce a reward for those who could answer the questions",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 478631,
           "label": "C",
           "text": "to fetch wise men",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 478633,
           "label": "D",
           "text": "to look for the wise hermit",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "to announce a reward for those who could answer the questions",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 478634,
+      "solution": "to announce a reward for those who could answer the questions"
     },
     {
       "id": 351208,
@@ -193,30 +223,36 @@
           "id": 542018,
           "label": "A",
           "text": "Strong and energetic",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542020,
           "label": "B",
           "text": "Tall and dark",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542019,
           "label": "C",
           "text": "Young and handsome",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542017,
           "label": "D",
           "text": "Old and week",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Old and week",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 542017,
+      "solution": "The hermit was very old and he appeared to be very week and frail. He breathed heavily as he worked."
     },
     {
       "id": 351209,
@@ -228,30 +264,36 @@
           "id": 542021,
           "label": "A",
           "text": "He was digging the ground",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 542022,
           "label": "B",
           "text": "He was cleaning his hut",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542024,
           "label": "C",
           "text": "He was meditating",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542023,
           "label": "D",
           "text": "He was having his supper",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "He was digging the ground",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 542021,
+      "solution": "The hermit was busy digging the ground in front of his hut when the king approached him. He greeted the king and continued digging."
     },
     {
       "id": 351210,
@@ -263,30 +305,36 @@
           "id": 542028,
           "label": "A",
           "text": "A magician",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542026,
           "label": "B",
           "text": "An astrologer",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542027,
           "label": "C",
           "text": "A scientist",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542025,
           "label": "D",
           "text": "A hermit",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "A hermit",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 542025,
+      "solution": "The king decided to seek the advice of a certain hermit, who was well known for his wisdom and could possibly help him to find the right answers to his questions."
     },
     {
       "id": 351213,
@@ -298,30 +346,36 @@
           "id": 542039,
           "label": "A",
           "text": "He got petrified",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542038,
           "label": "B",
           "text": "He was enraged",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542037,
           "label": "C",
           "text": "He kept quiet",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 542040,
           "label": "D",
           "text": "He fainted",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "He kept quiet",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 542037,
+      "solution": "The hermit chose to be silent and kept on doing his work when the king approached him and put forward his three questions. He simply greeted the king and continued digging the ground without replying to his three questions."
     },
     {
       "id": 351214,
@@ -333,30 +387,36 @@
           "id": 542044,
           "label": "A",
           "text": "The king's guard",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542043,
           "label": "B",
           "text": "A horse",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542041,
           "label": "C",
           "text": "A bearded man",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 542042,
           "label": "D",
           "text": "A tiger",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "A bearded man",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 542041,
+      "solution": "The king was digging the ground when he saw a bearded man come running towards the hermit's house. The man was badly injured and blood was oozing out of his stomach."
     },
     {
       "id": 351217,
@@ -368,30 +428,36 @@
           "id": 542054,
           "label": "A",
           "text": "They ran away",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542053,
           "label": "B",
           "text": "They attended him immediately",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 542056,
           "label": "C",
           "text": "They called a doctor",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542055,
           "label": "D",
           "text": "They were indifferent",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "They attended him immediately",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 542053,
+      "solution": "The king and the hermit immediately took action on seeing blood flowing from the injured man's stomach. They hurriedly unfastened his clothes and attended his wound."
     },
     {
       "id": 351218,
@@ -403,30 +469,36 @@
           "id": 542058,
           "label": "A",
           "text": "Medicine",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542060,
           "label": "B",
           "text": "Wine",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542059,
           "label": "C",
           "text": "Juice",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542057,
           "label": "D",
           "text": "Freshwater",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Freshwater",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 542057,
+      "solution": "The injured man felt better after his wound was re-dressed and he asked for something to drink, so, the king gave him a glass of freshwater to drink."
     },
     {
       "id": 351219,
@@ -438,30 +510,36 @@
           "id": 542063,
           "label": "A",
           "text": "He started abusing the hermit",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542064,
           "label": "B",
           "text": "He started crying inconsolably",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542062,
           "label": "C",
           "text": "He attacked the king",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542061,
           "label": "D",
           "text": "He fell fainting on the ground",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "He fell fainting on the ground",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 542061,
+      "solution": "The bearded man was badly injured and as he reached the king, he fainted and fell to the ground."
     },
     {
       "id": 351220,
@@ -473,30 +551,36 @@
           "id": 542067,
           "label": "A",
           "text": "He too wanted to meet the hermit",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542068,
           "label": "B",
           "text": "He wanted to protect the king from any danger",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542065,
           "label": "C",
           "text": "He wanted to attack the king",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 542066,
           "label": "D",
           "text": "He was a spy from neighbouring kingdom",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "He wanted to attack the king",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 542065,
+      "solution": "The king had killed the bearded man's brother and taken away his property, so, to avenge his brother's death the bearded man followed the king. The man knew that it was a good opportunity to kill the king as he knew that the king had gone alone to see the hermit."
     },
     {
       "id": 351221,
@@ -508,30 +592,36 @@
           "id": 542070,
           "label": "A",
           "text": "The hermit did not like animals",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542069,
           "label": "B",
           "text": "The hermit received only common folks",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 542071,
           "label": "C",
           "text": "The king wanted to see the hermit secretly",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542072,
           "label": "D",
           "text": "The horse got injured badly",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "The hermit received only common folks",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 542069,
+      "solution": "The king got off his horse and went on foot to meet the hermit for he was well aware of the fact that the hermit received only common folks, so, to appear like a commoner he left his horse with his bodyguard and went on alone."
     },
     {
       "id": 351222,
@@ -543,30 +633,36 @@
           "id": 542074,
           "label": "A",
           "text": "The king",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542076,
           "label": "B",
           "text": "A ferocious lion",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542075,
           "label": "C",
           "text": "The hermit",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542073,
           "label": "D",
           "text": "King's bodyguard",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "King's bodyguard",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 542073,
+      "solution": "The bearded man was following the king to kill him to avenge his brother's death but the king's bodyguard spotted him and wounded him on recognition."
     },
     {
       "id": 351223,
@@ -578,30 +674,36 @@
           "id": 542080,
           "label": "A",
           "text": "William Shakespeare",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542078,
           "label": "B",
           "text": "Ruskin Bond",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542079,
           "label": "C",
           "text": "Oscar Wilde",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542077,
           "label": "D",
           "text": "Leo Tolstoy",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Leo Tolstoy",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 542077,
+      "solution": "Leo Tolstoy was the author of the story, Three questions. The plot revolved around a king who was seeking answers to his three questions and ultimately was enlightened by a hermit."
     },
     {
       "id": 351225,
@@ -613,30 +715,36 @@
           "id": 542085,
           "label": "A",
           "text": "What is the right time to begin an action?",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542087,
           "label": "B",
           "text": "What is the most important thing for him to do?",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542086,
           "label": "C",
           "text": "Who were the people to whom he should listen?",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542088,
           "label": "D",
           "text": "All of these",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "All of these",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 542088,
+      "solution": "The king wanted answers to the three questions for he believed that knowing them would improvise him as a ruler and would help him to reach pinnacles of success."
     },
     {
       "id": 351226,
@@ -648,30 +756,36 @@
           "id": 542090,
           "label": "A",
           "text": "A part of his kingdom to rule",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542092,
           "label": "B",
           "text": "He would make the person his successor",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542091,
           "label": "C",
           "text": "The person would be appointed as king's chief councilor",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 542089,
           "label": "D",
           "text": "A large sum of money",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "A large sum of money",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 542089,
+      "solution": "The king sent his messengers throughout his kingdom, promising a large sum of money to anyone who would answer his three questions."
     },
     {
       "id": 353799,
@@ -683,30 +797,36 @@
           "id": 548399,
           "label": "A",
           "text": "In a small forest",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 548400,
           "label": "B",
           "text": "In the snow-covered grounds",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 548402,
           "label": "C",
           "text": "Near the sea",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 548401,
           "label": "D",
           "text": "In the midst of a vast desert",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "In a small forest",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 548399,
+      "solution": "The hermit lived in a wood which he never left. He usually interacted solely with commoners and resided in a hut."
     },
     {
       "id": 633163,
@@ -718,30 +838,36 @@
           "id": 1302234,
           "label": "A",
           "text": "the subjects to lead a successful life",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302232,
           "label": "B",
           "text": "the king to lead a peaceful life",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302233,
           "label": "C",
           "text": "the king to lead a successful life",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302231,
           "label": "D",
           "text": "the hermit to go to the king",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "the king to lead a successful life",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302233,
+      "solution": "A king once thought that he would never fail if he knew three things."
     },
     {
       "id": 633169,
@@ -753,30 +879,36 @@
           "id": 1302251,
           "label": "A",
           "text": "they were lengthy",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302255,
           "label": "B",
           "text": "they were dull",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302254,
           "label": "C",
           "text": "they all were different",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302257,
           "label": "D",
           "text": "they served no purpose",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "they all were different",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302254,
+      "solution": "As the answers to his questions were so different, the king was not satisfied."
     },
     {
       "id": 633183,
@@ -788,30 +920,36 @@
           "id": 1302316,
           "label": "A",
           "text": "An enemy of the king",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302314,
           "label": "B",
           "text": "An enemy of the hermit",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302312,
           "label": "C",
           "text": "A friend of the king",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302311,
           "label": "D",
           "text": "A friend of the hermit",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "An enemy of the king",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302316,
+      "solution": "The wounded told the king that he was his enemy."
     },
     {
       "id": 633194,
@@ -823,30 +961,36 @@
           "id": 1302357,
           "label": "A",
           "text": "forgiveness",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302355,
           "label": "B",
           "text": "water",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302358,
           "label": "C",
           "text": "money",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302356,
           "label": "D",
           "text": "property",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "forgiveness",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302357,
+      "solution": "The bearded man felt grateful to the king who had saved his life and asked for forgiveness ​​​​​​​because he had actually come to kill the king."
     },
     {
       "id": 633204,
@@ -858,30 +1002,36 @@
           "id": 1302395,
           "label": "A",
           "text": "satisfied the king",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302396,
           "label": "B",
           "text": "failed to satisfy the king",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302398,
           "label": "C",
           "text": "amused the king",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302397,
           "label": "D",
           "text": "confused the king",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "satisfied the king",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302395,
+      "solution": "The answers of the hermit satisfied the king."
     },
     {
       "id": 633220,
@@ -893,30 +1043,36 @@
           "id": 1302458,
           "label": "A",
           "text": "horse",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302462,
           "label": "B",
           "text": "chariot",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302456,
           "label": "C",
           "text": "horse and bodyguard",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302460,
           "label": "D",
           "text": "bodyguard",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "horse and bodyguard",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302456,
+      "solution": "The king went alone in simple clothes leaving his horse and bodyguards behind."
     },
     {
       "id": 633224,
@@ -928,30 +1084,36 @@
           "id": 1302478,
           "label": "A",
           "text": "after the man befriended the king",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302477,
           "label": "B",
           "text": "never",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302475,
           "label": "C",
           "text": "immediately",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302476,
           "label": "D",
           "text": "after the digging work",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "after the man befriended the king",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302478,
+      "solution": "The hermit replied to the king&rsquo;s questions after the bearded man befriended the king."
     },
     {
       "id": 633229,
@@ -963,30 +1125,36 @@
           "id": 1302497,
           "label": "A",
           "text": "Because he wanted to replace the king",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302496,
           "label": "B",
           "text": "Because the king had seized his property",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302498,
           "label": "C",
           "text": "Because he had killed his brother and seized his property",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302495,
           "label": "D",
           "text": "Because king had killed his brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Because he had killed his brother and seized his property",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302498,
+      "solution": "The bearded man swore revenge on the king because the king had put his brother to death and seized his property."
     },
     {
       "id": 633244,
@@ -998,30 +1166,36 @@
           "id": 1302555,
           "label": "A",
           "text": "A scientist",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302556,
           "label": "B",
           "text": "A teacher",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302557,
           "label": "C",
           "text": "An astronomer",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302558,
           "label": "D",
           "text": "A king",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "A king",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302558,
+      "solution": "A king once thought that he would never fail if he knew the answer to three questions."
     },
     {
       "id": 633248,
@@ -1033,30 +1207,36 @@
           "id": 1302573,
           "label": "A",
           "text": "Went on alone",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302572,
           "label": "B",
           "text": "Left his horse with his bodyguard",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302571,
           "label": "C",
           "text": "Put on ordinary clothes",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302574,
           "label": "D",
           "text": "All of these",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "All of these",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302574,
+      "solution": "The king had known the hermit&rsquo;s nature of meeting only ordinary men. So he gave up his king&rsquo;s attire, he left behind his horse and bodyguards and went alone to meet him."
     },
     {
       "id": 633274,
@@ -1068,30 +1248,36 @@
           "id": 1302675,
           "label": "A",
           "text": "a wise hermit",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302677,
           "label": "B",
           "text": "his ministers",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302678,
           "label": "C",
           "text": "his councilors",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302676,
           "label": "D",
           "text": "an astrologer",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "a wise hermit",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302675,
+      "solution": "The king went to the woods to meet the hermit, who was renowned for his wisdom. The king thought, maybe he could give correct answers to his three questions."
     },
     {
       "id": 1206756,
@@ -1103,30 +1289,36 @@
           "id": 2480798,
           "label": "A",
           "text": "To announce the reward",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2480800,
           "label": "B",
           "text": "To find answers to his questions",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480799,
           "label": "C",
           "text": "To locate the hermit's house",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480797,
           "label": "D",
           "text": "To search for wise men",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "To announce the reward",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2480798,
+      "solution": "To announce the reward"
     },
     {
       "id": 1206758,
@@ -1138,30 +1330,36 @@
           "id": 2480807,
           "label": "A",
           "text": "If the matter needed sudden action",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2480808,
           "label": "B",
           "text": "If the council failed to arrive at a decision",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480805,
           "label": "C",
           "text": "To avoid distractions",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480806,
           "label": "D",
           "text": "To prepare timetables",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "If the matter needed sudden action",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2480807,
+      "solution": "If the matter needed sudden action"
     },
     {
       "id": 1206762,
@@ -1173,30 +1371,36 @@
           "id": 2480815,
           "label": "A",
           "text": "Frustrated",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2480814,
           "label": "B",
           "text": "Confused",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480816,
           "label": "C",
           "text": "Embarrassed",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480813,
           "label": "D",
           "text": "Betrayed",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Frustrated",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2480815,
+      "solution": "Frustrated"
     },
     {
       "id": 1206764,
@@ -1208,30 +1412,36 @@
           "id": 2480821,
           "label": "A",
           "text": "Helping the hermit",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2480823,
           "label": "B",
           "text": "Seizing the brother's property",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480824,
           "label": "C",
           "text": "Seeking answers from the hermit",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480822,
           "label": "D",
           "text": "Forgiving the injured man",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Helping the hermit",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2480821,
+      "solution": "Helping the hermit"
     },
     {
       "id": 1206768,
@@ -1243,30 +1453,36 @@
           "id": 2480835,
           "label": "A",
           "text": "By showing the value of forgiveness",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480836,
           "label": "B",
           "text": "By referring to a shared experience",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2480834,
           "label": "C",
           "text": "By illustrating the importance of hard work",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480833,
           "label": "D",
           "text": "By creating an opportunity to help another",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "By referring to a shared experience",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2480836,
+      "solution": "By referring to a shared experience"
     },
     {
       "id": 1206770,
@@ -1278,30 +1494,36 @@
           "id": 2480838,
           "label": "A",
           "text": "Every person we meet is important",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2480837,
           "label": "B",
           "text": "Time is the most valuable asset",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480840,
           "label": "C",
           "text": "While living in the present, we should also think about the future",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480839,
           "label": "D",
           "text": "There is no right or wrong, only actions matter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Every person we meet is important",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2480838,
+      "solution": "Every person we meet is important"
     },
     {
       "id": 1206774,
@@ -1313,30 +1535,38 @@
           "id": 2480847,
           "label": "A",
           "text": "Smart and courageous",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480846,
           "label": "B",
           "text": "Foolish and impulsive",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480845,
           "label": "C",
           "text": "Humble and capable",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2480848,
           "label": "D",
           "text": "Arrogant and fearsome",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Humble and capable",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2480845,
+      "solution": "Humble and capable"
     }
-  ]
+  ],
+  "answered": 38,
+  "answer_failed": 0
 }

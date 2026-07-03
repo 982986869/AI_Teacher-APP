@@ -5,7 +5,7 @@
   "subject_id": 1919,
   "reported_total": 23,
   "extracted_questions": 23,
-  "questions_with_answer": 12,
+  "questions_with_answer": 23,
   "note": "Practice feed me correct answer nahi hota; jaha ID important-questions se match hua waha answer bhara hai (answer_source).",
   "questions": [
     {
@@ -18,30 +18,36 @@
           "id": 796548,
           "label": "A",
           "text": "A joke",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796547,
           "label": "B",
           "text": "A mystery",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796550,
           "label": "C",
           "text": "A saga",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796549,
           "label": "D",
           "text": "A poem",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "A mystery",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796547,
+      "solution": "The poet found the fan's language a mystery because he could not comprehend it."
     },
     {
       "id": 462073,
@@ -53,30 +59,36 @@
           "id": 796551,
           "label": "A",
           "text": "When somebody oiled its motor",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796552,
           "label": "B",
           "text": "When someone discarded it",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796554,
           "label": "C",
           "text": "When someone cleaned its parts",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796553,
           "label": "D",
           "text": "When its blades stopped working",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "When somebody oiled its motor",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796551,
+      "solution": "A weird noise that the fan used to produce was immediately ceased once its motor was oiled and lubricated."
     },
     {
       "id": 462074,
@@ -88,30 +100,36 @@
           "id": 796556,
           "label": "A",
           "text": "Ruskin Bond",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796557,
           "label": "B",
           "text": "Robert Frost",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796558,
           "label": "C",
           "text": "William Shakespeare",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796555,
           "label": "D",
           "text": "Maude Rubin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "Maude Rubin",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796555,
+      "solution": "The poem was composed by Maude Rubin."
     },
     {
       "id": 462075,
@@ -123,30 +141,36 @@
           "id": 796562,
           "label": "A",
           "text": "The letters imprinted on the fan",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796561,
           "label": "B",
           "text": "The asymmetric blades of the fan",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796560,
           "label": "C",
           "text": "The bold colour of the fan",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796559,
           "label": "D",
           "text": "The fan's chatter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "The fan's chatter",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796559,
+      "solution": "The fan's motor was not oiled properly so it produced a weird noise that captured the poet's attention towards the fan. The fan appeared to be mysterious because of its chatter."
     },
     {
       "id": 462089,
@@ -158,30 +182,36 @@
           "id": 796617,
           "label": "A",
           "text": "By changing its wiring",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796615,
           "label": "B",
           "text": "By oiling it",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796616,
           "label": "C",
           "text": "By washing it",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796618,
           "label": "D",
           "text": "By cleaning it thoroughly",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "By oiling it",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796615,
+      "solution": "The fan was producing a weird noise as its motor was not well oiled. After proper lubrication, the noise ceased and the fan functioned perfectly."
     },
     {
       "id": 462090,
@@ -193,30 +223,36 @@
           "id": 796622,
           "label": "A",
           "text": "The washing machine",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796621,
           "label": "B",
           "text": "The electrician",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796620,
           "label": "C",
           "text": "The poet",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796619,
           "label": "D",
           "text": "The fan",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": "The fan",
-      "correct_answer_label": null,
-      "answer_source": "important_questions_text_only"
+      "correct_answer": "The fan",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796619,
+      "solution": "The fan appeared to be chattering because of the noise that its motor was producing. The noise captured the poet's attention and he was quite fascinated by it."
     },
     {
       "id": 462094,
@@ -228,30 +264,36 @@
           "id": 796638,
           "label": "A",
           "text": "The car",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796637,
           "label": "B",
           "text": "The poet",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796636,
           "label": "C",
           "text": "The toddler",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796635,
           "label": "D",
           "text": "The fan",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "The fan",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796635,
+      "solution": "The motor of the fan once properly oiled ceased to make any noise and functioned quite smoothly just like water runs on an even surface."
     },
     {
       "id": 462095,
@@ -263,30 +305,36 @@
           "id": 796642,
           "label": "A",
           "text": "New accessories",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796639,
           "label": "B",
           "text": "Oiling",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796640,
           "label": "C",
           "text": "Cleaning",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796641,
           "label": "D",
           "text": "To be painted",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Oiling",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796639,
+      "solution": "The talking fan seemed to be demanding some attention. Its motor required proper oiling and the moment it was oiled, the fan became silent and ran smoothly."
     },
     {
       "id": 462096,
@@ -298,30 +346,36 @@
           "id": 796643,
           "label": "A",
           "text": "That it functioned smoothly",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796646,
           "label": "B",
           "text": "That it became stagnant",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796644,
           "label": "C",
           "text": "That it ran with amazing high speed",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796645,
           "label": "D",
           "text": "That it moved very slowly",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": "That it functioned smoothly",
-      "correct_answer_label": null,
-      "answer_source": "important_questions_text_only"
+      "correct_answer": "That it functioned smoothly",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796643,
+      "solution": "The fan's motor lacked oiling and after proper oiling on its parts, the fan functioned perfectly and ran smoothly without making any noise."
     },
     {
       "id": 632897,
@@ -333,30 +387,36 @@
           "id": 1301278,
           "label": "A",
           "text": "participle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301275,
           "label": "B",
           "text": "verbal phrase",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1301277,
           "label": "C",
           "text": "clause",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301276,
           "label": "D",
           "text": "phrase",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "verbal phrase",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1301275,
+      "solution": "The phrase 'talking fan' is a verbal phrase."
     },
     {
       "id": 632904,
@@ -368,30 +428,36 @@
           "id": 1301301,
           "label": "A",
           "text": "a story",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301302,
           "label": "B",
           "text": "a tale",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301297,
           "label": "C",
           "text": "a mystery",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1301300,
           "label": "D",
           "text": "a fact",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "a mystery",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1301297,
+      "solution": "The language of the fan was first a mystery."
     },
     {
       "id": 632910,
@@ -403,30 +469,36 @@
           "id": 1301322,
           "label": "A",
           "text": "Whirled",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301319,
           "label": "B",
           "text": "Eddying",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301321,
           "label": "C",
           "text": "Rotating",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1301320,
           "label": "D",
           "text": "Encircling",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Rotating",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1301321,
+      "solution": "Whirling means Rotating (rapid round and round movement)."
     },
     {
       "id": 632919,
@@ -438,30 +510,36 @@
           "id": 1301352,
           "label": "A",
           "text": "poured water on It",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301353,
           "label": "B",
           "text": "oiled the motor of the fan",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1301351,
           "label": "C",
           "text": "shook it hard",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301354,
           "label": "D",
           "text": "cleaned the fan",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "oiled the motor of the fan",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1301353,
+      "solution": "One day someone oiled the motor of the fan, the mystery was spoiled because it stopped making noise, i.e., it stopped talking."
     },
     {
       "id": 632923,
@@ -473,30 +551,36 @@
           "id": 1301365,
           "label": "A",
           "text": "By stopping motor",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301363,
           "label": "B",
           "text": "By oiling",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1301364,
           "label": "C",
           "text": "By spoiling",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301366,
           "label": "D",
           "text": "By cleaning",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "By oiling",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1301363,
+      "solution": "One day someone oiled the motor of the fan and it stopped making noise, i.e., it stopped talking."
     },
     {
       "id": 632935,
@@ -508,30 +592,36 @@
           "id": 1301403,
           "label": "A",
           "text": "Sold it",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301406,
           "label": "B",
           "text": "Water it",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301405,
           "label": "C",
           "text": "Broke it",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301404,
           "label": "D",
           "text": "Oiled it",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "Oiled it",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1301404,
+      "solution": "One day someone oiled the motor of the fan and it stopped making noise, i.e., it stopped talking."
     },
     {
       "id": 632945,
@@ -543,30 +633,36 @@
           "id": 1301440,
           "label": "A",
           "text": "Difficult",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301441,
           "label": "B",
           "text": "Firmly",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301442,
           "label": "C",
           "text": "Strange",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1301439,
           "label": "D",
           "text": "Explained",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Strange",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1301442,
+      "solution": "Mystery means Strange (something that is difficult or impossible to understand)."
     },
     {
       "id": 1206761,
@@ -578,30 +674,36 @@
           "id": 2480810,
           "label": "A",
           "text": "Many people tried to repair the fan but could not.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480811,
           "label": "B",
           "text": "The poet could not hear others because of the fan.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480812,
           "label": "C",
           "text": "The poet could not understand what the fan tried to say.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2480809,
           "label": "D",
           "text": "Others could not hear what the poet said.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "The poet could not understand what the fan tried to say.",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2480812,
+      "solution": "The poet could not understand what the fan tried to say."
     },
     {
       "id": 1206763,
@@ -613,30 +715,36 @@
           "id": 2480818,
           "label": "A",
           "text": "The fan has been replaced.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480820,
           "label": "B",
           "text": "The poet is annoyed by the fan.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480817,
           "label": "C",
           "text": "The fan is now silent.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2480819,
           "label": "D",
           "text": "The fan's motor was damaged.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "The fan is now silent.",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2480817,
+      "solution": "The fan is now silent."
     },
     {
       "id": 1206765,
@@ -648,30 +756,36 @@
           "id": 2480826,
           "label": "A",
           "text": "The fan did not work anymore.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480827,
           "label": "B",
           "text": "The poet lost interest in the fan.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480825,
           "label": "C",
           "text": "People stopped using the fan.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480828,
           "label": "D",
           "text": "The poet could not hear the fan.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "The poet could not hear the fan.",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2480828,
+      "solution": "The poet could not hear the fan."
     },
     {
       "id": 1206767,
@@ -683,30 +797,36 @@
           "id": 2480829,
           "label": "A",
           "text": "When did the fan make the noise?",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480831,
           "label": "B",
           "text": "Who tried to oil the fan's motor?",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480832,
           "label": "C",
           "text": "Why did the fan stop moving?",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480830,
           "label": "D",
           "text": "What was the fan talking about?",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "What was the fan talking about?",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2480830,
+      "solution": "What was the fan talking about?"
     },
     {
       "id": 1206773,
@@ -718,30 +838,36 @@
           "id": 2480842,
           "label": "A",
           "text": "The poet's need to solve mysteries.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480841,
           "label": "B",
           "text": "The poet's love for fans.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480843,
           "label": "C",
           "text": "The poet's experience of trying to repair a fan.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480844,
           "label": "D",
           "text": "The poet's memories of a fan that made noise.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "The poet's memories of a fan that made noise.",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2480844,
+      "solution": "The poet's memories of a fan that made noise."
     },
     {
       "id": 1206775,
@@ -753,30 +879,36 @@
           "id": 2480849,
           "label": "A",
           "text": "Give human qualities to an object",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2480852,
           "label": "B",
           "text": "Use words that have several different meanings",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480850,
           "label": "C",
           "text": "Describe people and places vividly",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480851,
           "label": "D",
           "text": "Repeat certain words to convey a message",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Give human qualities to an object",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2480849,
+      "solution": "Give human qualities to an object"
     },
     {
       "id": 1206777,
@@ -788,30 +920,38 @@
           "id": 2480860,
           "label": "A",
           "text": "Passive",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480858,
           "label": "B",
           "text": "Irritated",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480857,
           "label": "C",
           "text": "Calm",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480859,
           "label": "D",
           "text": "Curious",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "Curious",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2480859,
+      "solution": "Curious"
     }
-  ]
+  ],
+  "answered": 23,
+  "answer_failed": 0
 }

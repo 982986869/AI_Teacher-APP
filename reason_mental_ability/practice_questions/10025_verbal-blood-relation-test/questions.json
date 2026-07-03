@@ -6,7 +6,7 @@
   "grade": "CBSE Class 07",
   "reported_total": 117,
   "extracted_questions": 117,
-  "questions_with_answer": 15,
+  "questions_with_answer": 117,
   "note": "Practice feed me correct answer nahi hota; jaha ID important-questions se match kiya waha answer bhara hai (answer_source dekho).",
   "questions": [
     {
@@ -19,30 +19,36 @@
           "id": 1211603,
           "label": "A",
           "text": "Uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211604,
           "label": "B",
           "text": "Cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211605,
           "label": "C",
           "text": "Father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211602,
           "label": "D",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Father",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211605,
+      "solution": "The boy in the photograph is the only son of the son of Suresh's mother i.e., the son of Suresh. Hence, Suresh is the father of boy."
     },
     {
       "id": 604150,
@@ -54,30 +60,36 @@
           "id": 1211622,
           "label": "A",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211625,
           "label": "B",
           "text": "Father-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211624,
           "label": "C",
           "text": "Husband",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211623,
           "label": "D",
           "text": "Grandfather",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Father-in-law",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211625,
+      "solution": "The girl is the wife of the grandson of Amit's mother i.e., the girl is the wife of the son of Amit. Hence, Amit is the father-in-law of the girl."
     },
     {
       "id": 604152,
@@ -89,30 +101,36 @@
           "id": 1211632,
           "label": "A",
           "text": "Father-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211631,
           "label": "B",
           "text": "Father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211633,
           "label": "C",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211630,
           "label": "D",
           "text": "Husband",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Father-in-law",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211632,
+      "solution": "The girl is the wife of the grandson of Vikas's mother i.e., the girl is the wife of the son of Vikas. Hence, Vikas is the father-in-law of the girl."
     },
     {
       "id": 604159,
@@ -124,30 +142,36 @@
           "id": 1211658,
           "label": "A",
           "text": "Brother-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211660,
           "label": "B",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211661,
           "label": "C",
           "text": "Sibling",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211659,
           "label": "D",
           "text": "Uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Brother-in-law",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211658,
+      "solution": "Nitin's daughter's mother is Nitin's wife; Nitin's wife's father - Nitin's father-in-law; Father-in-law's son - Nitin's brother-in-law. So, Varun is Nitin's brother-in-law."
     },
     {
       "id": 604171,
@@ -159,30 +183,36 @@
           "id": 1211707,
           "label": "A",
           "text": "Father or Uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211706,
           "label": "B",
           "text": "Uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211708,
           "label": "C",
           "text": "Nephew",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211709,
           "label": "D",
           "text": "Father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Father or Uncle",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211707,
+      "solution": "Madhav is the only son of one of the sons of Varman's father is Either Varman is the father or uncle of Madhav."
     },
     {
       "id": 604182,
@@ -194,30 +224,36 @@
           "id": 1211750,
           "label": "A",
           "text": "Father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211753,
           "label": "B",
           "text": "Father-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211751,
           "label": "C",
           "text": "Uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211752,
           "label": "D",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Uncle",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211751,
+      "solution": "Vansh's mother's husband is the father of Vansh. The Brother-in-law of Vansh's father is Vansh's uncle."
     },
     {
       "id": 604193,
@@ -229,30 +265,36 @@
           "id": 1211796,
           "label": "A",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211795,
           "label": "B",
           "text": "Aunt",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211794,
           "label": "C",
           "text": "Cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211797,
           "label": "D",
           "text": "Niece",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Aunt",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211795,
+      "solution": "E is the daughter of B and D is the brother of E. So, D is the son of B. Also, A is the sister of B. Thus, A is D's aunt."
     },
     {
       "id": 604203,
@@ -264,30 +306,36 @@
           "id": 1211835,
           "label": "A",
           "text": "Son",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211837,
           "label": "B",
           "text": "Grandfather",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211834,
           "label": "C",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211836,
           "label": "D",
           "text": "Grandson",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Grandson",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211836,
+      "solution": "Aniket is the brother of Dipanshu and Dipanshu is the son of Prem. So, Aniket is the son of Prem. Now, Nitesh is the father of Prem. Thus, Aniket is the grandson of Nitesh."
     },
     {
       "id": 604212,
@@ -299,30 +347,36 @@
           "id": 1211872,
           "label": "A",
           "text": "Father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211871,
           "label": "B",
           "text": "Son",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211870,
           "label": "C",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211873,
           "label": "D",
           "text": "Uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Father",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211872,
+      "solution": "My (Reena's) mother's husband does mean Reena's father."
     },
     {
       "id": 604217,
@@ -334,30 +388,36 @@
           "id": 1211890,
           "label": "A",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211893,
           "label": "B",
           "text": "Sibling",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211892,
           "label": "C",
           "text": "Cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211891,
           "label": "D",
           "text": "Uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Brother",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211890,
+      "solution": "The man in the photograph is the son of the only son of Lata's grandfather i.e., the man is the son of Lata's father. Hence, the man is the brother of Lata."
     },
     {
       "id": 604220,
@@ -369,30 +429,36 @@
           "id": 1211904,
           "label": "A",
           "text": "Cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211905,
           "label": "B",
           "text": "Sibling",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211902,
           "label": "C",
           "text": "uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211903,
           "label": "D",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Brother",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211903,
+      "solution": "He is the son of only son of my grandfather - Veena&rsquo;s Father&rsquo;s son\n\r\nTherefore, that boy is a Veena&rsquo;s brother."
     },
     {
       "id": 604225,
@@ -404,30 +470,36 @@
           "id": 1211922,
           "label": "A",
           "text": "Father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211918,
           "label": "B",
           "text": "Nephew",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211920,
           "label": "C",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211924,
           "label": "D",
           "text": "Maternal Uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Maternal Uncle",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211924,
+      "solution": "The man in the photo is the son of the sister of Bajpai. Hence, Bajpai is the maternal uncle of the man in the photograph."
     },
     {
       "id": 604231,
@@ -439,30 +511,36 @@
           "id": 1211949,
           "label": "A",
           "text": "Grandson",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211946,
           "label": "B",
           "text": "Son",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211947,
           "label": "C",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211948,
           "label": "D",
           "text": "Cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Grandson",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211949,
+      "solution": "Son of Q&rsquo;s son - Grandson; Brother of Q&rsquo;s grandson - Q's grandson.\n\r\nSo, P is Q&rsquo;s grandson."
     },
     {
       "id": 604232,
@@ -474,30 +552,36 @@
           "id": 1211951,
           "label": "A",
           "text": "Grandmother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211953,
           "label": "B",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211952,
           "label": "C",
           "text": "Mother-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211950,
           "label": "D",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Mother",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211953,
+      "solution": "Daughter of Abhijit's brother = niece of Abhijit. Thus the granddaughter of the woman is Abhijit's niece.\n\r\nHence, the woman is the mother of Abhijit."
     },
     {
       "id": 604237,
@@ -509,30 +593,36 @@
           "id": 1211970,
           "label": "A",
           "text": "Aunt",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211972,
           "label": "B",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211971,
           "label": "C",
           "text": "Niece",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211973,
           "label": "D",
           "text": "Cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Aunt",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211970,
+      "solution": "Ritka&rsquo;s mother&rsquo;s son - Ritka&rsquo;s brother.\n\r\nSo, Nirdosh is the son of Ritka&rsquo;s brother or Ritka is Nirdosh&rsquo;s aunt."
     },
     {
       "id": 604246,
@@ -544,30 +634,36 @@
           "id": 1212009,
           "label": "A",
           "text": "Uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212007,
           "label": "B",
           "text": "Son",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212008,
           "label": "C",
           "text": "Cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1212006,
           "label": "D",
           "text": "Nephew",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Cousin",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1212008,
+      "solution": "Brother of mother - Uncle; Uncle&rsquo;s son - Cousin."
     },
     {
       "id": 604257,
@@ -579,30 +675,36 @@
           "id": 1212051,
           "label": "A",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212052,
           "label": "B",
           "text": "Wife",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212049,
           "label": "C",
           "text": "Nephew",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212053,
           "label": "D",
           "text": "Niece",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Niece",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1212053,
+      "solution": "Aisha&rsquo;s mother&rsquo;s mother is man&rsquo;s mother i.e., Aisha&rsquo;s mother is man&rsquo;s sister or Aisha is man&rsquo;s niece."
     },
     {
       "id": 604365,
@@ -614,30 +716,36 @@
           "id": 1212478,
           "label": "A",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1212480,
           "label": "B",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212484,
           "label": "C",
           "text": "Grandmother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212482,
           "label": "D",
           "text": "Daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Mother",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1212478,
+      "solution": "The daughter of Shohbit's brother is the niece of Shohbit. Thus the granddaughter of the woman is Shohbit's niece. Hence, the lady is the mother of Shohbit."
     },
     {
       "id": 604375,
@@ -649,30 +757,36 @@
           "id": 1212525,
           "label": "A",
           "text": "Her niece",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212524,
           "label": "B",
           "text": "Her cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212522,
           "label": "C",
           "text": "Herself",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1212523,
           "label": "D",
           "text": "Her sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Herself",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1212522,
+      "solution": "My (Karina's) mother's husband does mean 'Karina father' and the only daughter of Karina's father is Karina herself. Therefore, in this case, Karina is talking about herself."
     },
     {
       "id": 604387,
@@ -684,30 +798,36 @@
           "id": 1212571,
           "label": "A",
           "text": "His cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212572,
           "label": "B",
           "text": "His uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212573,
           "label": "C",
           "text": "His nephew",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212570,
           "label": "D",
           "text": "His son",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "His son",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1212570,
+      "solution": "Since Hemant has no brother or sister, so he is his father&rsquo;s only son.\n\r\nSo, wife of Hemant&rsquo;s father&rsquo;s son - Hemant&rsquo;s wife.\n\r\nThus, Hemant&rsquo;s wife is the boy&rsquo;s mother or the boy is Hemant&rsquo;s son."
     },
     {
       "id": 604405,
@@ -719,30 +839,36 @@
           "id": 1212643,
           "label": "A",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212644,
           "label": "B",
           "text": "Cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212642,
           "label": "C",
           "text": "Brother-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1212645,
           "label": "D",
           "text": "Uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Brother-in-law",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1212642,
+      "solution": "Anup&rsquo;s daughter&rsquo;s mother - Anup&rsquo;s wife; Anup&rsquo;s wife&rsquo;s father - Anup&rsquo;s father-in-law; Father-in-law&rsquo;s son - Anup&rsquo;s brother-in-law.\n\r\nSo, Sandeep is Anup&rsquo;s brother-in-law."
     },
     {
       "id": 604418,
@@ -754,30 +880,36 @@
           "id": 1212692,
           "label": "A",
           "text": "Aunt",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212688,
           "label": "B",
           "text": "Nephew",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1212686,
           "label": "C",
           "text": "Sister-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212690,
           "label": "D",
           "text": "Niece",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Nephew",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1212688,
+      "solution": "Father of Shreya&rsquo;s son - Shreya&rsquo;s husband. So, Kalyan is the son of sister of Shreya&rsquo;s husband. Thus, Kalyan is Shreya&rsquo;s nephew."
     },
     {
       "id": 604419,
@@ -789,30 +921,36 @@
           "id": 1212698,
           "label": "A",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1212699,
           "label": "B",
           "text": "Nephew",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212700,
           "label": "C",
           "text": "Uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212701,
           "label": "D",
           "text": "Son-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Brother",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1212698,
+      "solution": "The father of the boy's uncle is the grandfather of the boy and daughter of the grandfather is sister of father."
     },
     {
       "id": 604429,
@@ -824,30 +962,36 @@
           "id": 1212741,
           "label": "A",
           "text": "Brother-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212738,
           "label": "B",
           "text": "Son",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212739,
           "label": "C",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1212740,
           "label": "D",
           "text": "Cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Brother",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1212739,
+      "solution": "Father's wife = mother. Hence, the daughter of the mother means sister and sister's younger brother means brother. Therefore, the boy is the brother of Deepak."
     },
     {
       "id": 604433,
@@ -859,30 +1003,36 @@
           "id": 1212756,
           "label": "A",
           "text": "Cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212754,
           "label": "B",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1212755,
           "label": "C",
           "text": "Niece",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212757,
           "label": "D",
           "text": "Sibling",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Sister",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1212754,
+      "solution": "Only child of Sumit's grandmother - Sumit&rsquo;s father/mother.\n\r\nDaughter of Sumit&rsquo;s father/mother - Sumit&rsquo;s sister."
     },
     {
       "id": 604441,
@@ -894,30 +1044,36 @@
           "id": 1212786,
           "label": "A",
           "text": "Daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212790,
           "label": "B",
           "text": "Cannot be determined",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212789,
           "label": "C",
           "text": "Nephew",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212787,
           "label": "D",
           "text": "Son",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Son",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1212787,
+      "solution": "The only daughter of the father of X's mother means mother of X.\n\r\nHence X is the son of the lady in the photograph."
     },
     {
       "id": 604445,
@@ -929,30 +1085,36 @@
           "id": 1212804,
           "label": "A",
           "text": "Cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212802,
           "label": "B",
           "text": "Aunt",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212803,
           "label": "C",
           "text": "Niece",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212805,
           "label": "D",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Mother",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1212805,
+      "solution": "Sarika is the only daughter of his father - Sarika.\n\r\nSo, Reeta is Sarika&rsquo;s daughter, i.e. Sarika is Reeta&rsquo;s mother."
     },
     {
       "id": 604452,
@@ -964,30 +1126,36 @@
           "id": 1212829,
           "label": "A",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1212832,
           "label": "B",
           "text": "Son",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212833,
           "label": "C",
           "text": "Data is inadequate",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212831,
           "label": "D",
           "text": "Uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Brother",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1212829,
+      "solution": "The man in the photograph is son of Anjali's grandfather's son i.e., the son of Anjali's father. Hence, the boy is the brother of Anjali."
     },
     {
       "id": 604462,
@@ -999,30 +1167,36 @@
           "id": 1212870,
           "label": "A",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1212872,
           "label": "B",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212871,
           "label": "C",
           "text": "Daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212873,
           "label": "D",
           "text": "Grandmother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Mother",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1212870,
+      "solution": "Only daughter of my mother - Myself.\n\r\nSo, the woman is boy&rsquo;s mother."
     },
     {
       "id": 604467,
@@ -1034,30 +1208,36 @@
           "id": 1212876,
           "label": "A",
           "text": "Father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212882,
           "label": "B",
           "text": "Uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1212878,
           "label": "C",
           "text": "Grandfather",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212885,
           "label": "D",
           "text": "Brother-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Uncle",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1212882,
+      "solution": "Father of Deepak's daughter's father = Deepak's father.\n\r\nHence, the person in the brother of Deepak's father.\n\r\nTherefore, the person is the uncle of Deepak."
     },
     {
       "id": 604477,
@@ -1069,30 +1249,36 @@
           "id": 1212930,
           "label": "A",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212932,
           "label": "B",
           "text": "Niece",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1212931,
           "label": "C",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212933,
           "label": "D",
           "text": "Maternal aunt",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Niece",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1212932,
+      "solution": "The man is the only son of the mother of the woman. Hence, the man is the maternal uncle of the woman. So, the woman is the niece of the man."
     },
     {
       "id": 604478,
@@ -1104,30 +1290,36 @@
           "id": 1212934,
           "label": "A",
           "text": "Uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212937,
           "label": "B",
           "text": "Daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212936,
           "label": "C",
           "text": "Daughter-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1212935,
           "label": "D",
           "text": "Cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Daughter-in-law",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1212936,
+      "solution": "Aamir&rsquo;s son&rsquo;s wife&rsquo;s daughter - Aamir&rsquo;s son&rsquo;s daughter; Mother of daughter of Aamir&rsquo;s son - Wife of Aamir&rsquo;s son. So, Aamir is the father-in-law of the lady."
     },
     {
       "id": 604486,
@@ -1139,30 +1331,36 @@
           "id": 1212969,
           "label": "A",
           "text": "Uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1212968,
           "label": "B",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212967,
           "label": "C",
           "text": "Father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212966,
           "label": "D",
           "text": "Grandfather",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Uncle",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1212969,
+      "solution": "Only daughter of Amitabh&rsquo;s mother - Amitabh&rsquo;s sister.\n\r\nSo, Ritik&rsquo;s mother is Amitabh&rsquo;s sister or Amitabh is the brother of Ritik&rsquo;s mother i.e. Ritik&rsquo;s maternal uncle."
     },
     {
       "id": 604490,
@@ -1174,30 +1372,36 @@
           "id": 1212985,
           "label": "A",
           "text": "Cannot be determined",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212983,
           "label": "B",
           "text": "Daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212982,
           "label": "C",
           "text": "Niece",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212984,
           "label": "D",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Sister",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1212984,
+      "solution": "Nalni is the daughter of the only son of Gopi's grandfather. Hence, it's clear that Nalni is the sister of Gopi."
     },
     {
       "id": 604499,
@@ -1209,30 +1413,36 @@
           "id": 1213025,
           "label": "A",
           "text": "Uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213028,
           "label": "B",
           "text": "Cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1213030,
           "label": "C",
           "text": "Father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213032,
           "label": "D",
           "text": "Grandfather",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Cousin",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1213028,
+      "solution": "The girl is the daughter of the sister of Sandeep's father. Hence, the girl is the cousin or Sandeep is the cousin of the girl."
     },
     {
       "id": 604500,
@@ -1244,30 +1454,36 @@
           "id": 1213038,
           "label": "A",
           "text": "Grand-daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213044,
           "label": "B",
           "text": "Daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1213036,
           "label": "C",
           "text": "Niece",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213040,
           "label": "D",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Daughter",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1213044,
+      "solution": "The only son of Bhaskar&rsquo;s father means Bhaskar himself.\n\r\nTherefore, Asha is the daughter of Bhaskar."
     },
     {
       "id": 604513,
@@ -1279,30 +1495,36 @@
           "id": 1213074,
           "label": "A",
           "text": "Daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213075,
           "label": "B",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1213079,
           "label": "C",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213076,
           "label": "D",
           "text": "Aunt",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Mother",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1213075,
+      "solution": "Only the child of my father means 'Abhishek' himself. This means the girl is the daughter of Abhishek. Hence, Abhisek's wife is the mother of the girl."
     },
     {
       "id": 604836,
@@ -1314,30 +1536,36 @@
           "id": 1214369,
           "label": "A",
           "text": "Father-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1214368,
           "label": "B",
           "text": "Husband",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214367,
           "label": "C",
           "text": "Father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214366,
           "label": "D",
           "text": "Grandfather",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Father-in-law",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1214369,
+      "solution": "The girl is the wife of the grandson of my mother - Sohan&rsquo;s daughter-in-law\n\r\nTherefore, Sohan is the Father-in-law of that girl."
     },
     {
       "id": 604844,
@@ -1349,30 +1577,36 @@
           "id": 1214401,
           "label": "A",
           "text": "Grandson",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1214400,
           "label": "B",
           "text": "Nephew",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214398,
           "label": "C",
           "text": "Son",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214399,
           "label": "D",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Grandson",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1214401,
+      "solution": "N is a son of T and J. So, K is a son of T and J.\n\r\nZ is the father of T\n\r\nTherefore, Z is the grandfather of K. So, K is the grandson of Z."
     },
     {
       "id": 604849,
@@ -1384,30 +1618,36 @@
           "id": 1214418,
           "label": "A",
           "text": "Son",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214421,
           "label": "B",
           "text": "Cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1214419,
           "label": "C",
           "text": "Brother-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214420,
           "label": "D",
           "text": "Nephew",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Cousin",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1214421,
+      "solution": "Brother of uncle&rsquo;s daughter - Uncle&rsquo;s son - Cousin.\n\r\nSo, the man is Malaika&rsquo;s cousin."
     },
     {
       "id": 604857,
@@ -1419,30 +1659,36 @@
           "id": 1214453,
           "label": "A",
           "text": "Father-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214447,
           "label": "B",
           "text": "Son",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214450,
           "label": "C",
           "text": "Father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1214452,
           "label": "D",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Father",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1214450,
+      "solution": "Daughter of grandmother - Aunt; Aunt&rsquo;s only brother - Father."
     },
     {
       "id": 604866,
@@ -1454,30 +1700,36 @@
           "id": 1214487,
           "label": "A",
           "text": "Son",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1214489,
           "label": "B",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214486,
           "label": "C",
           "text": "Father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214488,
           "label": "D",
           "text": "Uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Son",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1214487,
+      "solution": "His mother is the only daughter of my father - Herself that woman.\n\r\nTherefore, that man is a woman's son."
     },
     {
       "id": 605239,
@@ -1489,30 +1741,39 @@
           "id": 1215948,
           "label": "A",
           "text": "Granddaughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1215946,
           "label": "B",
           "text": "Husband",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1215949,
           "label": "C",
           "text": "Grandfather",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1215947,
           "label": "D",
           "text": "Wife",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Wife",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1215947,
+      "solution": "The relation can be represented as:\n\n\r\nSo, Chandni is wife of Deepak.",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/imgur/1633358804-42p9we.jpg"
+      ]
     },
     {
       "id": 605350,
@@ -1524,30 +1785,39 @@
           "id": 1216391,
           "label": "A",
           "text": "Daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1216392,
           "label": "B",
           "text": "Granddaughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1216393,
           "label": "C",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1216390,
           "label": "D",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Granddaughter",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1216392,
+      "solution": "The relation diagram can be represented as shown below:\n\n\r\nSo, Neha is the granddaughter of Mr. Jayant",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/imgur/1633358766-jxf7yd.jpg"
+      ]
     },
     {
       "id": 605353,
@@ -1559,30 +1829,39 @@
           "id": 1216405,
           "label": "A",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1216402,
           "label": "B",
           "text": "Aunt",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1216403,
           "label": "C",
           "text": "Niece",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1216404,
           "label": "D",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Niece",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1216403,
+      "solution": "We can clearly observe from the figure above that girl is the niece of the boy.",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/imgur/1633358768-srrpyh.jpg"
+      ]
     },
     {
       "id": 605362,
@@ -1594,30 +1873,39 @@
           "id": 1216441,
           "label": "A",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1216439,
           "label": "B",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1216438,
           "label": "C",
           "text": "Aunt",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1216440,
           "label": "D",
           "text": "Grandmother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Aunt",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1216438,
+      "solution": "The relation diagram can be represented as:\n\n\r\nSo, Risha is aunt to Harsh.",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/imgur/1633358832-hcxeds.jpg"
+      ]
     },
     {
       "id": 867681,
@@ -1629,30 +1917,36 @@
           "id": 1830550,
           "label": "A",
           "text": "Cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830549,
           "label": "B",
           "text": "Niece",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830548,
           "label": "C",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1830551,
           "label": "D",
           "text": "Data inadequate",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Sister",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1830548,
+      "solution": "Only child of my grandmother is my father. And my father's daughter is my sister."
     },
     {
       "id": 867682,
@@ -1664,30 +1958,36 @@
           "id": 1830554,
           "label": "A",
           "text": "Aunt",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830555,
           "label": "B",
           "text": "Sister-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830552,
           "label": "C",
           "text": "Niece",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1830553,
           "label": "D",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Niece",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1830552,
+      "solution": "The girl in the photograph is the daughter of Sachin's cousin. So, the girl is Sachin's niece."
     },
     {
       "id": 867684,
@@ -1699,30 +1999,36 @@
           "id": 1830562,
           "label": "A",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830561,
           "label": "B",
           "text": "Grand daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830563,
           "label": "C",
           "text": "None of these",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1830560,
           "label": "D",
           "text": "Daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "None of these",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1830563,
+      "solution": "The man's aunt is Geeta's aunt. So, Geeta is man's sister or cousin."
     },
     {
       "id": 867694,
@@ -1734,30 +2040,36 @@
           "id": 1830603,
           "label": "A",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830601,
           "label": "B",
           "text": "Daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1830600,
           "label": "C",
           "text": "Niece",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830602,
           "label": "D",
           "text": "Wife",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Daughter",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1830601,
+      "solution": "Poonam is the wife of Jai who is the father of Priya. So, Priya is the daughter of Poonam."
     },
     {
       "id": 867700,
@@ -1769,30 +2081,36 @@
           "id": 1830624,
           "label": "A",
           "text": "Cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830627,
           "label": "B",
           "text": "Data inadequate",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830626,
           "label": "C",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830625,
           "label": "D",
           "text": "Wife",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Wife",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1830625,
+      "solution": "The woman in the picture is the only child of her parents, so she is the wife of Varun."
     },
     {
       "id": 867704,
@@ -1804,30 +2122,36 @@
           "id": 1830641,
           "label": "A",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1830643,
           "label": "B",
           "text": "Mother-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830642,
           "label": "C",
           "text": "Aunt",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830640,
           "label": "D",
           "text": "Sister-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Mother",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1830641,
+      "solution": "Simmi is the daughter of Pinki's husband. So, Pinki is the mother of Simmi."
     },
     {
       "id": 867707,
@@ -1839,30 +2163,36 @@
           "id": 1830654,
           "label": "A",
           "text": "Either Sister-in-law or Daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830652,
           "label": "B",
           "text": "Sister-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830653,
           "label": "C",
           "text": "Daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830655,
           "label": "D",
           "text": "None of these",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "None of these",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1830655,
+      "solution": "None of these"
     },
     {
       "id": 867712,
@@ -1874,30 +2204,36 @@
           "id": 1830673,
           "label": "A",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1830672,
           "label": "B",
           "text": "Aunt",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830674,
           "label": "C",
           "text": "Wife",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830675,
           "label": "D",
           "text": "Daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Mother",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1830673,
+      "solution": "Only daughter of Garima's father is Garima herself. So, Garima is the mother of the person."
     },
     {
       "id": 867718,
@@ -1909,30 +2245,39 @@
           "id": 1830699,
           "label": "A",
           "text": "4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1830696,
           "label": "B",
           "text": "1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830698,
           "label": "C",
           "text": "3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830697,
           "label": "D",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "4",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1830699,
+      "solution": "A is the mother and hence female. B is the son and hence male. C is the husband and hence male. D is the daughter and hence female. E is the brother and hence male. F is the brother and hence male. So, there are four males.",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1653910162-6qnz3e.jpg"
+      ]
     },
     {
       "id": 867725,
@@ -1944,30 +2289,39 @@
           "id": 1830725,
           "label": "A",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830727,
           "label": "B",
           "text": "4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830726,
           "label": "C",
           "text": "3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1830724,
           "label": "D",
           "text": "1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "3",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1830726,
+      "solution": "Married couple A and C, has son B, son F and daughter D i.e. three children.",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1653910162-6qnz3e.jpg"
+      ]
     },
     {
       "id": 867729,
@@ -1979,30 +2333,39 @@
           "id": 1830740,
           "label": "A",
           "text": "Father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830743,
           "label": "B",
           "text": "Grand Father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830741,
           "label": "C",
           "text": "Uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1830742,
           "label": "D",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Uncle",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1830741,
+      "solution": "E is the brother of C who is the father of D. So, E is the uncle of D.",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1653910162-6qnz3e.jpg"
+      ]
     },
     {
       "id": 867733,
@@ -2014,30 +2377,39 @@
           "id": 1830756,
           "label": "A",
           "text": "AE",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830759,
           "label": "B",
           "text": "DF",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830758,
           "label": "C",
           "text": "AD",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1830757,
           "label": "D",
           "text": "BD",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "AD",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1830758,
+      "solution": "The females are only the mother A and the daughter D.",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1653910162-6qnz3e.jpg"
+      ]
     },
     {
       "id": 867739,
@@ -2049,30 +2421,36 @@
           "id": 1830780,
           "label": "A",
           "text": "Uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1830782,
           "label": "B",
           "text": "Father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830783,
           "label": "C",
           "text": "Grandfather",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830781,
           "label": "D",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Uncle",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1830780,
+      "solution": "B is the brother of G's father. So, B is the uncle of G."
     },
     {
       "id": 867747,
@@ -2084,30 +2462,36 @@
           "id": 1830809,
           "label": "A",
           "text": "Grandmother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830811,
           "label": "B",
           "text": "Daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830810,
           "label": "C",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830808,
           "label": "D",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Mother",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1830808,
+      "solution": "Only daughter of Koyal's mother is Koyal herself so, Koyal is the mother of Harsh."
     },
     {
       "id": 867751,
@@ -2119,30 +2503,36 @@
           "id": 1830827,
           "label": "A",
           "text": "None of these",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1830825,
           "label": "B",
           "text": "Grandmother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830824,
           "label": "C",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830826,
           "label": "D",
           "text": "Sister-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "None of these",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1830827,
+      "solution": "None of these"
     },
     {
       "id": 867752,
@@ -2154,30 +2544,36 @@
           "id": 1830829,
           "label": "A",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830828,
           "label": "B",
           "text": "Aunt",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830831,
           "label": "C",
           "text": "Daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830830,
           "label": "D",
           "text": "Grandmother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "Grandmother",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1830830,
+      "solution": "Abhinav's father's sister is his paternal aunt. So, the mother of Abhinav's paternal aunt is his paternal grandmother."
     },
     {
       "id": 867754,
@@ -2189,30 +2585,36 @@
           "id": 1830837,
           "label": "A",
           "text": "K",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830839,
           "label": "B",
           "text": "D",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830838,
           "label": "C",
           "text": "N",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830836,
           "label": "D",
           "text": "M",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "M",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1830836,
+      "solution": "M"
     },
     {
       "id": 867758,
@@ -2224,30 +2626,36 @@
           "id": 1830853,
           "label": "A",
           "text": "Grandfather",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830854,
           "label": "B",
           "text": "Uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830855,
           "label": "C",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830852,
           "label": "D",
           "text": "Father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Father",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1830852,
+      "solution": "Father"
     },
     {
       "id": 867764,
@@ -2259,30 +2667,36 @@
           "id": 1830878,
           "label": "A",
           "text": "Grandson",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830876,
           "label": "B",
           "text": "Son",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1830879,
           "label": "C",
           "text": "Cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830877,
           "label": "D",
           "text": "Father-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Son",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1830876,
+      "solution": "Kunal's son's wife's son is his grandson. So, father of Kunal's grandson is Kunal's son. Hence, the man is the son of Kunal's wife."
     },
     {
       "id": 867771,
@@ -2294,30 +2708,36 @@
           "id": 1830907,
           "label": "A",
           "text": "11",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830904,
           "label": "B",
           "text": "13",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1830906,
           "label": "C",
           "text": "14",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830905,
           "label": "D",
           "text": "12",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "13",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1830904,
+      "solution": "13"
     },
     {
       "id": 867777,
@@ -2329,30 +2749,36 @@
           "id": 1830931,
           "label": "A",
           "text": "Aunt",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830928,
           "label": "B",
           "text": "Sister-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830929,
           "label": "C",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830930,
           "label": "D",
           "text": "Mother-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Mother-in-law",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1830930,
+      "solution": "Mother-in-law"
     },
     {
       "id": 867780,
@@ -2364,30 +2790,36 @@
           "id": 1830942,
           "label": "A",
           "text": "Father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830943,
           "label": "B",
           "text": "Cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830941,
           "label": "C",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830940,
           "label": "D",
           "text": "Uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Uncle",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1830940,
+      "solution": "Karan is the brother of Vijay. Sneha who is the sister of Atul, is the daughter of Vijay. So, Karan is the uncle of Atul."
     },
     {
       "id": 867782,
@@ -2399,30 +2831,36 @@
           "id": 1830948,
           "label": "A",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830949,
           "label": "B",
           "text": "Father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830951,
           "label": "C",
           "text": "Father-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1830950,
           "label": "D",
           "text": "Brother-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Father-in-law",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1830951,
+      "solution": "Only daughter of Kartik's son is his grand daughter. So, mother of his grand daughter is Kartik's daughter-in-law. So, Kartik is the father-in-law of the woman."
     },
     {
       "id": 867784,
@@ -2434,30 +2872,36 @@
           "id": 1830958,
           "label": "A",
           "text": "Wife",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1830959,
           "label": "B",
           "text": "Cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830957,
           "label": "C",
           "text": "Sister-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1830956,
           "label": "D",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Wife",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1830958,
+      "solution": "Only daughter of Kritika's father's wife is Kritika herself. So, Aman is the husband of Kritika."
     },
     {
       "id": 916391,
@@ -2469,30 +2913,36 @@
           "id": 1940821,
           "label": "A",
           "text": "Nephew",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940819,
           "label": "B",
           "text": "Grandson",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940820,
           "label": "C",
           "text": "Uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940818,
           "label": "D",
           "text": "Maternal grandfather",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Maternal grandfather",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940818,
+      "solution": "S is the father of Q's mother."
     },
     {
       "id": 916393,
@@ -2504,30 +2954,36 @@
           "id": 1940826,
           "label": "A",
           "text": "Brothers",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940827,
           "label": "B",
           "text": "Sisters",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940828,
           "label": "C",
           "text": "Cousins",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940829,
           "label": "D",
           "text": "Not related",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Cousins",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940828,
+      "solution": "Because A and B are siblings therefore their kids are cousins."
     },
     {
       "id": 916395,
@@ -2539,30 +2995,36 @@
           "id": 1940836,
           "label": "A",
           "text": "Either (1) or (2)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940835,
           "label": "B",
           "text": "Only (2)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940834,
           "label": "C",
           "text": "Only (1)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940837,
           "label": "D",
           "text": "Both (1) and (2)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Both (1) and (2)",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940837,
+      "solution": "B is the daughter of C."
     },
     {
       "id": 916397,
@@ -2574,30 +3036,36 @@
           "id": 1940845,
           "label": "A",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940843,
           "label": "B",
           "text": "Aunt",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940842,
           "label": "C",
           "text": "Mother-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940844,
           "label": "D",
           "text": "Wife",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Wife",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940844,
+      "solution": "Abhishek is the only brother of Anshu and Neeta is sister-in-law of Anshu. So, Neeta is wife of Abhishek."
     },
     {
       "id": 916399,
@@ -2609,30 +3077,36 @@
           "id": 1940853,
           "label": "A",
           "text": "Daughter-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940851,
           "label": "B",
           "text": "Sister-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940850,
           "label": "C",
           "text": "Daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940852,
           "label": "D",
           "text": "Wife",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Daughter-in-law",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940853,
+      "solution": "The woman is his son's wife that is, daughter-in-law."
     },
     {
       "id": 916401,
@@ -2644,30 +3118,36 @@
           "id": 1940860,
           "label": "A",
           "text": "Granddaughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940858,
           "label": "B",
           "text": "Son",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940859,
           "label": "C",
           "text": "Daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940861,
           "label": "D",
           "text": "Grandson",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Granddaughter",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940860,
+      "solution": "D is the daughter of B's son."
     },
     {
       "id": 916403,
@@ -2679,30 +3159,36 @@
           "id": 1940869,
           "label": "A",
           "text": "Sister of Mother-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940867,
           "label": "B",
           "text": "Grandmother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940868,
           "label": "C",
           "text": "Sister of father-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940866,
           "label": "D",
           "text": "Sister-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Sister of father-in-law",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940868,
+      "solution": "Gauri's brother is the father-in-law of the person."
     },
     {
       "id": 916405,
@@ -2714,30 +3200,39 @@
           "id": 1940874,
           "label": "A",
           "text": "A and C",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940877,
           "label": "B",
           "text": "Can't be determined",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940876,
           "label": "C",
           "text": "A, B and D",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940875,
           "label": "D",
           "text": "C and F",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Can't be determined",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940877,
+      "solution": "m stands for Male, f stands for Female.\n\nThere are two males and 4 females in the family. A and F are parents of children D and E.",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671423158-fuu3nu.jpg"
+      ]
     },
     {
       "id": 916407,
@@ -2749,30 +3244,39 @@
           "id": 1940885,
           "label": "A",
           "text": "A and F",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940884,
           "label": "B",
           "text": "B and F",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940882,
           "label": "C",
           "text": "B and C",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940883,
           "label": "D",
           "text": "C and F",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "A and F",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940885,
+      "solution": "m stands for Male, f stands for Female.\n\nThere are two males and 4 females in the family. A and F are parents of children D and E",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671423158-fuu3nu.jpg"
+      ]
     },
     {
       "id": 916409,
@@ -2784,30 +3288,39 @@
           "id": 1940892,
           "label": "A",
           "text": "A and F",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940893,
           "label": "B",
           "text": "C and F",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940890,
           "label": "C",
           "text": "A and B",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940891,
           "label": "D",
           "text": "B and C",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "B and C",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940891,
+      "solution": "m stands for Male, f stands for Female.\n\nThere are two males and 4 females in the family. A and F are parents of children D and E.",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671423158-fuu3nu.jpg"
+      ]
     },
     {
       "id": 916411,
@@ -2819,30 +3332,36 @@
           "id": 1940898,
           "label": "A",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940901,
           "label": "B",
           "text": "Data inadequate",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940899,
           "label": "C",
           "text": "Grandmother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940900,
           "label": "D",
           "text": "Aunt",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Grandmother",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940899,
+      "solution": "A is the mother of M's father."
     },
     {
       "id": 916413,
@@ -2854,30 +3373,36 @@
           "id": 1940907,
           "label": "A",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940909,
           "label": "B",
           "text": "Can't be determined",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940908,
           "label": "C",
           "text": "Nephew",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940906,
           "label": "D",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Can't be determined",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940909,
+      "solution": "S is either the nephew or niece of P."
     },
     {
       "id": 916415,
@@ -2889,30 +3414,36 @@
           "id": 1940916,
           "label": "A",
           "text": "Either (1) or (2)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940915,
           "label": "B",
           "text": "Only (2)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940914,
           "label": "C",
           "text": "Only (1)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940917,
           "label": "D",
           "text": "Both (1) and (2)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Only (2)",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940915,
+      "solution": "D is the father of both A and B."
     },
     {
       "id": 916417,
@@ -2924,30 +3455,36 @@
           "id": 1940924,
           "label": "A",
           "text": "Sister-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940925,
           "label": "B",
           "text": "Cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940923,
           "label": "C",
           "text": "Daughter-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940922,
           "label": "D",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Daughter-in-law",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940923,
+      "solution": "A's sons are B and E. B's wife is C and E's wife is D."
     },
     {
       "id": 916419,
@@ -2959,30 +3496,36 @@
           "id": 1940932,
           "label": "A",
           "text": "Sister-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940930,
           "label": "B",
           "text": "Father-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940933,
           "label": "C",
           "text": "Daughter-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940931,
           "label": "D",
           "text": "Brother-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Brother-in-law",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940931,
+      "solution": "Mr. P is the husband of Mr. Q's sister-in-law."
     },
     {
       "id": 916421,
@@ -2994,30 +3537,36 @@
           "id": 1940941,
           "label": "A",
           "text": "Brother-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940940,
           "label": "B",
           "text": "Father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940938,
           "label": "C",
           "text": "Father-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940939,
           "label": "D",
           "text": "Husband",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Father-in-law",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940938,
+      "solution": "Nikhil is husband of Supriya who is mother-in-law of Sunita. So, Nikhil is father-in-law of Sunita."
     },
     {
       "id": 916427,
@@ -3029,30 +3578,36 @@
           "id": 1940965,
           "label": "A",
           "text": "Wife",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940964,
           "label": "B",
           "text": "Aunt",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940963,
           "label": "C",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940962,
           "label": "D",
           "text": "Sister-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Wife",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940965,
+      "solution": "Wife"
     },
     {
       "id": 916429,
@@ -3064,30 +3619,36 @@
           "id": 1940970,
           "label": "A",
           "text": "Daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940973,
           "label": "B",
           "text": "Wife",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940972,
           "label": "C",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940971,
           "label": "D",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Mother",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940972,
+      "solution": "Only daughter of Aarti's father is Aarti herself. So, Aarti is the mother of Abhinav."
     },
     {
       "id": 916431,
@@ -3099,30 +3660,36 @@
           "id": 1940978,
           "label": "A",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940980,
           "label": "B",
           "text": "Daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940981,
           "label": "C",
           "text": "Can't be determined",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940979,
           "label": "D",
           "text": "Son",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Can't be determined",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940981,
+      "solution": "P is father of T and T is brother of R. So, P is father of R. Hence, R could be either son or daughter of P."
     },
     {
       "id": 916433,
@@ -3134,30 +3701,36 @@
           "id": 1940988,
           "label": "A",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940989,
           "label": "B",
           "text": "Grandmother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940986,
           "label": "C",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940987,
           "label": "D",
           "text": "Mother-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Sister",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940988,
+      "solution": "Mitakshi's daughter's brother's mother is Mitakshi herself. So, the woman is the sister of Mitakshi."
     },
     {
       "id": 916435,
@@ -3169,30 +3742,36 @@
           "id": 1940994,
           "label": "A",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940997,
           "label": "B",
           "text": "Daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940995,
           "label": "C",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940996,
           "label": "D",
           "text": "Aunt",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Sister",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940994,
+      "solution": "Sister"
     },
     {
       "id": 916437,
@@ -3204,30 +3783,36 @@
           "id": 1941002,
           "label": "A",
           "text": "Daughter-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1941005,
           "label": "B",
           "text": "Sister-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1941004,
           "label": "C",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1941003,
           "label": "D",
           "text": "Daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Daughter-in-law",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1941002,
+      "solution": "Vishan is son of Priya and husband of Sonika. So, Sonika is daughter-in-law of Priya and Nikhil is husband of Priya. So, Sonika is daughter-in-law of Nikhil."
     },
     {
       "id": 916439,
@@ -3239,30 +3824,36 @@
           "id": 1941013,
           "label": "A",
           "text": "Son",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1941012,
           "label": "B",
           "text": "Husband",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1941010,
           "label": "C",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1941011,
           "label": "D",
           "text": "Brother-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Husband",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1941012,
+      "solution": "Ankita's brother's only sister is Ankita herself. So, father of Ankita's son is her husband."
     },
     {
       "id": 1052282,
@@ -3274,30 +3865,36 @@
           "id": 2165934,
           "label": "A",
           "text": "Cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165936,
           "label": "B",
           "text": "Nephew",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165933,
           "label": "C",
           "text": "Niece",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2165935,
           "label": "D",
           "text": "Aunt",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Niece",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2165933,
+      "solution": "Y is father of both sisters Q and X and P is brother of Y. So, P is the uncle of Q and X. Hence, X is the niece of P"
     },
     {
       "id": 1052402,
@@ -3309,30 +3906,36 @@
           "id": 2166418,
           "label": "A",
           "text": "Father-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166416,
           "label": "B",
           "text": "Son-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166420,
           "label": "C",
           "text": "Brother-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166414,
           "label": "D",
           "text": "Mother-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Father-in-law",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166418,
+      "solution": "B is the wife of C and C is the son of P. So, B is the daughter-in-law of P. P is the wife of Q, therefore Q is the father-in-law of B."
     },
     {
       "id": 1052406,
@@ -3344,30 +3947,36 @@
           "id": 2166433,
           "label": "A",
           "text": "Nephew",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166434,
           "label": "B",
           "text": "Uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166429,
           "label": "C",
           "text": "Cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166431,
           "label": "D",
           "text": "Grandfather",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Nephew",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166433,
+      "solution": "Z is the son of Q and P is the brother of Q. So, Z is the nephew of P."
     },
     {
       "id": 1052410,
@@ -3379,30 +3988,36 @@
           "id": 2166449,
           "label": "A",
           "text": "Mother-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166447,
           "label": "B",
           "text": "Sister-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166451,
           "label": "C",
           "text": "Aunt",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166445,
           "label": "D",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Mother-in-law",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166449,
+      "solution": "S is the daughter of Q and T is the husband of S. So, Q is the mother-in-law of T because of given that P and Q are sisters means Q is female."
     },
     {
       "id": 1052414,
@@ -3414,30 +4029,39 @@
           "id": 2166468,
           "label": "A",
           "text": "C and P are sisters",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166462,
           "label": "B",
           "text": "P and A are cousins",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166466,
           "label": "C",
           "text": "P is the maternal uncle of A",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166464,
           "label": "D",
           "text": "Q is the maternal grandfather of A",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "P is the maternal uncle of A",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166466,
+      "solution": "Let us draw generation diagram.\n\r\n\n\r\n(M stands for male and F stands for female) We look P, Q and C are siblings and A is the son of C. So, P is the maternal uncle of A.",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673498677-m577bx.jpg"
+      ]
     },
     {
       "id": 1052418,
@@ -3449,30 +4073,36 @@
           "id": 2166482,
           "label": "A",
           "text": "Son-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166480,
           "label": "B",
           "text": "Uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166477,
           "label": "C",
           "text": "Son",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166478,
           "label": "D",
           "text": "Cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Cousin",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166478,
+      "solution": "Father's wife means mother; mother's brother means maternal uncleand maternal uncle's son means cousin. So, Raman is Ravi's cousin."
     },
     {
       "id": 1052422,
@@ -3484,30 +4114,39 @@
           "id": 2166500,
           "label": "A",
           "text": "Husband",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166499,
           "label": "B",
           "text": "Sister-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166497,
           "label": "C",
           "text": "Brother-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166494,
           "label": "D",
           "text": "Daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Brother-in-law",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166497,
+      "solution": "Let us draw the generation diagram.\n\r\n\n\r\n(m stands for male and f stands for female) We see, N and M are brothers and Q is the wife of M. So, N is brother-in-law of Q.",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673499732-7hc9e4.jpg"
+      ]
     },
     {
       "id": 1052427,
@@ -3519,30 +4158,36 @@
           "id": 2166509,
           "label": "A",
           "text": "Maternal uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166513,
           "label": "B",
           "text": "Father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166515,
           "label": "C",
           "text": "Son-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166511,
           "label": "D",
           "text": "Brother-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Brother-in-law",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166511,
+      "solution": "The only daughter of the mother of Sahil's wife means Sahil's wife. Sister-in-law of the brother of the lady's sister is lady's sister-in-law.\n\r\nSo, the lady is the sister of Sahil."
     },
     {
       "id": 1052430,
@@ -3554,30 +4199,36 @@
           "id": 2166528,
           "label": "A",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166526,
           "label": "B",
           "text": "Father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166532,
           "label": "C",
           "text": "Can't be determined",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166530,
           "label": "D",
           "text": "Cousin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Brother",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166528,
+      "solution": "My grandfather's only son means my father. So, the girl is the sister of Rahul."
     },
     {
       "id": 1052435,
@@ -3589,30 +4240,39 @@
           "id": 2166546,
           "label": "A",
           "text": "Z - I {tex}\\times{/tex} Y + K",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166542,
           "label": "B",
           "text": "K + Y {tex}\\times{/tex} I - Z",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166544,
           "label": "C",
           "text": "K {tex}\\times{/tex} Y + I - Z",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166548,
           "label": "D",
           "text": "K + Y + Z - 1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "K + Y {tex}\\times{/tex} I - Z",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166542,
+      "solution": "Let us discuss\n\r\nK + Y means, K is the brother of Y\n\r\nY {tex}\\times{/tex} I means, Y is the father of I\n\r\nI - Z means, I is the sister of Z\n\r\n\n\r\nClearly, K's brother is Y and Y's daughter is I.",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673501531-eyuxf9.jpg"
+      ]
     },
     {
       "id": 1052439,
@@ -3624,30 +4284,39 @@
           "id": 2166559,
           "label": "A",
           "text": "P @ W $ Q * T # U",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166557,
           "label": "B",
           "text": "P @ Q $ T # W * U",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166563,
           "label": "C",
           "text": "P @ Q $ T # U * W",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166561,
           "label": "D",
           "text": "P @ Q $ W * T # U",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "P @ Q $ T # U * W",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166563,
+      "solution": "Let us discuss\n\r\nWe draw the diagram:\n\r\n\n\r\nSo, U is the father-in-law of P.",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673501959-vrudg9.jpg"
+      ]
     },
     {
       "id": 1052443,
@@ -3659,30 +4328,39 @@
           "id": 2166579,
           "label": "A",
           "text": "F3M5N3K",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166575,
           "label": "B",
           "text": "F5M3K",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166577,
           "label": "C",
           "text": "F3M5K",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166573,
           "label": "D",
           "text": "F9M4N3K",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "F3M5K",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166577,
+      "solution": "Let us consider this option,\n\r\n\n\r\nClearly, K's father is M and M's wife is F.",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673502237-hhjbwc.jpg"
+      ]
     },
     {
       "id": 1052448,
@@ -3694,30 +4372,36 @@
           "id": 2166590,
           "label": "A",
           "text": "P + N * M * Q",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166594,
           "label": "B",
           "text": "Q {tex}\\pi{/tex} M {tex}\\pi{/tex} N * P",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166592,
           "label": "C",
           "text": "Q * N * M + P",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166596,
           "label": "D",
           "text": "Q * N * M - P",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Q * N * M - P",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166596,
+      "solution": "Let us consider this option\n\r\nQ * N * M - P\n\r\nQ is the father of N and N is the father of M. So Q is the grandfather of M who is the sister of P. Hence, Q is the grandfather of P."
     },
     {
       "id": 1052452,
@@ -3729,30 +4413,39 @@
           "id": 2166612,
           "label": "A",
           "text": "N {tex}\\pi{/tex} C + F * M",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166607,
           "label": "B",
           "text": "N - Y + A {tex}\\pi{/tex} M",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166609,
           "label": "C",
           "text": "N {tex}\\pi{/tex} P - L + E - M",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166611,
           "label": "D",
           "text": "M - Y * P - N",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "N {tex}\\pi{/tex} P - L + E - M",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166609,
+      "solution": "Let us consider this option\n\r\n\n\r\nClearly, M's sister is E and E's mother is L.\n\r\nM's mother is L. L's sister is P.\n\r\nM's maternal aunt is P. P's brother is N.\n\r\nSo, N is maternal uncle of M.",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673502900-9gmtc3.jpg"
+      ]
     },
     {
       "id": 1052456,
@@ -3764,30 +4457,36 @@
           "id": 2166627,
           "label": "A",
           "text": "Husband",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166621,
           "label": "B",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166623,
           "label": "C",
           "text": "Father-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166625,
           "label": "D",
           "text": "Maternal uncle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Husband",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166627,
+      "solution": "Only daughter of woman's father is woman herself. So, man is the husband of woman."
     },
     {
       "id": 1052460,
@@ -3801,30 +4500,39 @@
           "id": 2166639,
           "label": "A",
           "text": "Grandson",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166644,
           "label": "B",
           "text": "Data inadequate",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166637,
           "label": "C",
           "text": "Nephew",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166641,
           "label": "D",
           "text": "Grand daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Data inadequate",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166644,
+      "solution": "We have,\n\r\n\n\r\nN is the mother of L and L is father of P. So, P's grandmother is N. Since, P is the sister of Q. So, Q is either grand daughter or grandson of N.",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673504462-zc89q9.jpg"
+      ]
     },
     {
       "id": 1052465,
@@ -3836,30 +4544,39 @@
           "id": 2166660,
           "label": "A",
           "text": "Nephew",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166653,
           "label": "B",
           "text": "Brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166656,
           "label": "C",
           "text": "Son",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166658,
           "label": "D",
           "text": "Grandson",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Grandson",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166658,
+      "solution": "We have,\n\r\n\n\r\nR is the daughter of S and Q is sister of R. So, Q is also daughter of S.\n\r\nAlso, P is the son of Q. So, P is grandson of S.",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673504847-32x46s.jpg"
+      ]
     },
     {
       "id": 1052469,
@@ -3871,30 +4588,39 @@
           "id": 2166670,
           "label": "A",
           "text": "F",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166672,
           "label": "B",
           "text": "G",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166676,
           "label": "C",
           "text": "E",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166675,
           "label": "D",
           "text": "B",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "B",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166675,
+      "solution": "Let us draw generation diagram.\n\r\n\n\r\n(m stands for male and f stands for female) C is son of G but G is not mother of C means G is father of C.\n\r\nE is wife of G and B is brother of G.\n\r\nSo, B is brother-in-law of E.",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673505170-jbkvv6.jpg"
+      ]
     },
     {
       "id": 1052473,
@@ -3906,30 +4632,39 @@
           "id": 2166688,
           "label": "A",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166690,
           "label": "B",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166692,
           "label": "C",
           "text": "Grandmother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166686,
           "label": "D",
           "text": "Grand daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Grandmother",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166692,
+      "solution": "We draw the diagram:\n\r\n\n\r\nM is father of N and 0 both. L is mother of M. So, L is grandmother of O.",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673505575-mswxnu.jpg"
+      ]
     },
     {
       "id": 1052477,
@@ -3941,30 +4676,36 @@
           "id": 2166708,
           "label": "A",
           "text": "Sister-in-law",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166704,
           "label": "B",
           "text": "Aunt",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166706,
           "label": "C",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166702,
           "label": "D",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Mother",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166702,
+      "solution": "Rohit's father's mother-in-law is his maternal grandmother. Also, the only daughter of Rohit's maternal grandmother is his mother."
     },
     {
       "id": 1052481,
@@ -3976,30 +4717,36 @@
           "id": 2166718,
           "label": "A",
           "text": "Son",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166720,
           "label": "B",
           "text": "Great grandson",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166722,
           "label": "C",
           "text": "Grandson",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166724,
           "label": "D",
           "text": "Father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Grandson",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166722,
+      "solution": "Grandson"
     },
     {
       "id": 1052485,
@@ -4011,30 +4758,39 @@
           "id": 2166737,
           "label": "A",
           "text": "O*P$M#R&pound;T",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166739,
           "label": "B",
           "text": "M&pound;O#T$P*R",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166733,
           "label": "C",
           "text": "R&pound;T#M#P*O",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166735,
           "label": "D",
           "text": "T&pound;R#M$P*O",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "T&pound;R#M$P*O",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166735,
+      "solution": "T &pound; R means R is brother of T\n\r\nR # M means M is father of R\n\r\nM $ P means P is sister of M\n\r\nP * O means O is mother of P\n\r\n\n\r\nM is father of both R and T. As, P is the sister of M. So, 0 is the grandmother of T.",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673507266-cwfcqq.jpg"
+      ]
     },
     {
       "id": 1052488,
@@ -4046,30 +4802,36 @@
           "id": 2166749,
           "label": "A",
           "text": "C",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166751,
           "label": "B",
           "text": "D",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166753,
           "label": "C",
           "text": "A",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166755,
           "label": "D",
           "text": "Data inadequate",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "D",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166751,
+      "solution": "A + B - C {tex}\\div{/tex} D, A is the mother of B, who is the brother of C, who is the daughter of D. So, D is the father of B and C."
     },
     {
       "id": 1052492,
@@ -4081,30 +4843,38 @@
           "id": 2166768,
           "label": "A",
           "text": "Aunt",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166772,
           "label": "B",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166765,
           "label": "C",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166770,
           "label": "D",
           "text": "Daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Sister",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166772,
+      "solution": "Only son of Woman's grandfather is woman's father. Also, the father of man's brother is woman's father. Hence, the woman is the sister of that man."
     }
-  ]
+  ],
+  "answered": 117,
+  "answer_failed": 0
 }

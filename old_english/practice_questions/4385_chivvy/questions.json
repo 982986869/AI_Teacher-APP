@@ -5,7 +5,7 @@
   "subject_id": 1919,
   "reported_total": 27,
   "extracted_questions": 27,
-  "questions_with_answer": 11,
+  "questions_with_answer": 27,
   "note": "Practice feed me correct answer nahi hota; jaha ID important-questions se match hua waha answer bhara hai (answer_source).",
   "questions": [
     {
@@ -18,30 +18,36 @@
           "id": 788825,
           "label": "A",
           "text": "Robert Frost",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788827,
           "label": "B",
           "text": "Ruskin Bond",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788826,
           "label": "C",
           "text": "Stephen Spender",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788824,
           "label": "D",
           "text": "Michael Rosen",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "Michael Rosen",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 788824,
+      "solution": "The poem Chivvy was composed by Michael Rosen. It craftily focused on the nagging behaviour of adults towards children. The poet points out a series of instructions given by the grown-ups."
     },
     {
       "id": 455061,
@@ -53,30 +59,36 @@
           "id": 788831,
           "label": "A",
           "text": "all of these",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 788830,
           "label": "B",
           "text": "don't stare",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788828,
           "label": "C",
           "text": "don't talk with your mouth full",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788829,
           "label": "D",
           "text": "don't pick your nose",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "all of these",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 788831,
+      "solution": "The poet points out a series of instructions given by the grown-ups. Children are directed to act according to the instructions issued by the adults."
     },
     {
       "id": 455104,
@@ -88,30 +100,36 @@
           "id": 789000,
           "label": "A",
           "text": "The adults",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 789001,
           "label": "B",
           "text": "The principal",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 789003,
           "label": "C",
           "text": "The teacher",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 789002,
           "label": "D",
           "text": "The doctor",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "The adults",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 789000,
+      "solution": "The adults constantly give a list of instructions to the children about how to sit, how to talk etc. to teach them good manners and provide them with proper grooming."
     },
     {
       "id": 455105,
@@ -123,30 +141,36 @@
           "id": 789007,
           "label": "A",
           "text": "All of these",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 789006,
           "label": "B",
           "text": "The children lose their innocence",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 789004,
           "label": "C",
           "text": "Children lose their spontaneity",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 789005,
           "label": "D",
           "text": "Children become dependent on their elders",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "All of these",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 789007,
+      "solution": "When the adults give too many instructions to their children, they tend to kill their child's ability to be decisive and use his mind to understand the gravity of a situation. These instructions kill their innocence and make them dependent on their elders."
     },
     {
       "id": 455106,
@@ -158,30 +182,36 @@
           "id": 789008,
           "label": "A",
           "text": "A child",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 789009,
           "label": "B",
           "text": "A driver",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 789010,
           "label": "C",
           "text": "A cook",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 789011,
           "label": "D",
           "text": "A robot",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "A child",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 789008,
+      "solution": "The adults direct the child to act according to the instructions issued by them. They try to administer each and every activity of the young child on the pretext of imparting good manners to him or her."
     },
     {
       "id": 455107,
@@ -193,30 +223,36 @@
           "id": 789014,
           "label": "A",
           "text": "To clean his shoes",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 789015,
           "label": "B",
           "text": "To clean his chair",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 789012,
           "label": "C",
           "text": "To clean his face",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 789013,
           "label": "D",
           "text": "To clean his bag",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "To clean his face",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 789012,
+      "solution": "The adults constantly nag the children around them and try to put all their actions under surveillance. Like the adult instructs the child to make less noise and carry a handkerchief to clean his face if required to do so."
     },
     {
       "id": 455109,
@@ -228,30 +264,36 @@
           "id": 789021,
           "label": "A",
           "text": "When someone guides the child",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 789020,
           "label": "B",
           "text": "When somebody helps the child",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 789023,
           "label": "C",
           "text": "All of these",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 789022,
           "label": "D",
           "text": "When someone gives a gift to the child",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "All of these",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 789023,
+      "solution": "The poet craftily focused on how the elders try to control the actions of a young child around them and try to put all his activities under surveillance. The child is taught good manners and etiquette like using the words thank you and sorry more often."
     },
     {
       "id": 455111,
@@ -263,30 +305,36 @@
           "id": 789029,
           "label": "A",
           "text": "His eyes",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 789030,
           "label": "B",
           "text": "His ears",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 789031,
           "label": "C",
           "text": "His lips",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 789028,
           "label": "D",
           "text": "His nose",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "His nose",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 789028,
+      "solution": "The child was instructed not to pick his or her nose for it is considered to be a bad practice. The elders try to impart good manners and etiquette to the young ones around them."
     },
     {
       "id": 455113,
@@ -298,30 +346,36 @@
           "id": 789036,
           "label": "A",
           "text": "Straight",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 789039,
           "label": "B",
           "text": "Slowly",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 789037,
           "label": "C",
           "text": "Stooping",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 789038,
           "label": "D",
           "text": "Carefully",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Straight",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 789036,
+      "solution": "A child should stand up straight for that depicts alertness, also, it is a good practice to stand up straight with an erect body posture."
     },
     {
       "id": 455114,
@@ -333,30 +387,36 @@
           "id": 789042,
           "label": "A",
           "text": "Communicative skills",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 789041,
           "label": "B",
           "text": "Bad manners",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 789043,
           "label": "C",
           "text": "Meditation",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 789040,
           "label": "D",
           "text": "Good manners",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "Good manners",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 789040,
+      "solution": "The elders try to teach and groom the children around them. They try to impart good manners and etiquette to the young ones. But at times they become too authoritative and nagging in the process."
     },
     {
       "id": 455116,
@@ -368,30 +428,36 @@
           "id": 789049,
           "label": "A",
           "text": "He feels glad",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 789048,
           "label": "B",
           "text": "He feels insulted",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 789051,
           "label": "C",
           "text": "He gets petrified",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 789050,
           "label": "D",
           "text": "He feels excited",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "He feels insulted",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 789048,
+      "solution": "The commanding and nagging behaviour of the elders make the child feel irritated and at times they feel insulted."
     },
     {
       "id": 455117,
@@ -403,30 +469,36 @@
           "id": 789055,
           "label": "A",
           "text": "To kill",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 789052,
           "label": "B",
           "text": "To nag",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 789054,
           "label": "C",
           "text": "To smile",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 789053,
           "label": "D",
           "text": "To admire",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "To nag",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 789052,
+      "solution": "The word Chivvy means to nag or to continuously urge someone to do something."
     },
     {
       "id": 455118,
@@ -438,30 +510,36 @@
           "id": 789059,
           "label": "A",
           "text": "Don't eat",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 789058,
           "label": "B",
           "text": "Don't exercise",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 789056,
           "label": "C",
           "text": "Don't stare",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 789057,
           "label": "D",
           "text": "Don't study",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Don't stare",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 789056,
+      "solution": "The grown-ups tell the children around not to stare at someone or something for it is not a good practice to do so and the elders want to inculcate good manners and etiquette in the child."
     },
     {
       "id": 632815,
@@ -473,30 +551,36 @@
           "id": 1300999,
           "label": "A",
           "text": "the father of man",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301002,
           "label": "B",
           "text": "learners, innocent and obedient",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1301000,
           "label": "C",
           "text": "learners",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301001,
           "label": "D",
           "text": "teachers in the making",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "learners, innocent and obedient",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1301002,
+      "solution": "The children always remain learners, innocent and obedient."
     },
     {
       "id": 632818,
@@ -508,30 +592,36 @@
           "id": 1301010,
           "label": "A",
           "text": "to be insulted",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301009,
           "label": "B",
           "text": "good manners",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301008,
           "label": "C",
           "text": "the way grown-ups instruct them",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1301007,
           "label": "D",
           "text": "to study",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "the way grown-ups instruct them",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1301008,
+      "solution": "The children do not like the way grown-ups instruct them. The grown-ups should be very tactful and careful in dealing with the children.​​​​​​​"
     },
     {
       "id": 632831,
@@ -543,30 +633,36 @@
           "id": 1301053,
           "label": "A",
           "text": "to avoid insult",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301052,
           "label": "B",
           "text": "to make them behave properly",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1301054,
           "label": "C",
           "text": "to be a laughing stock",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301051,
           "label": "D",
           "text": "to make them responsible",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "to make them behave properly",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1301052,
+      "solution": "The instruction given by the adults regarding noise is to make them behave properly."
     },
     {
       "id": 632837,
@@ -578,30 +674,36 @@
           "id": 1301071,
           "label": "A",
           "text": "attentive",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301074,
           "label": "B",
           "text": "Alerted",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301072,
           "label": "C",
           "text": "active",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301073,
           "label": "D",
           "text": "both attentive and active",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": "both attentive and active",
-      "correct_answer_label": null,
-      "answer_source": "important_questions_text_only"
+      "correct_answer": "both attentive and active",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1301073,
+      "solution": "The child is asked to stand straight to be both attentive and active."
     },
     {
       "id": 632843,
@@ -613,30 +715,36 @@
           "id": 1301093,
           "label": "A",
           "text": "An injured feet",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301091,
           "label": "B",
           "text": "Bad manners",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1301094,
           "label": "C",
           "text": "A mischievous activity",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301092,
           "label": "D",
           "text": "Shoes has worn up",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Bad manners",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1301091,
+      "solution": "The grown-ups tell the children not to drag their feet as it suggests bad manners."
     },
     {
       "id": 1206906,
@@ -648,30 +756,36 @@
           "id": 2481192,
           "label": "A",
           "text": "To ask for permission from his parents before talking.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481191,
           "label": "B",
           "text": "To not talk to others while they are eating.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481189,
           "label": "C",
           "text": "To raise his voice while talking.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2481190,
           "label": "D",
           "text": "To not interrupt others while talking.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "To raise his voice while talking.",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2481189,
+      "solution": "To raise his voice while talking."
     },
     {
       "id": 1206909,
@@ -683,30 +797,36 @@
           "id": 2481203,
           "label": "A",
           "text": "Exaggerate an incident in his life.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481202,
           "label": "B",
           "text": "Provide the main idea of the poem.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2481201,
           "label": "C",
           "text": "Express his doubts about something.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481204,
           "label": "D",
           "text": "Argue that his position is correct.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Provide the main idea of the poem.",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2481202,
+      "solution": "Provide the main idea of the poem."
     },
     {
       "id": 1206912,
@@ -718,30 +838,36 @@
           "id": 2481210,
           "label": "A",
           "text": "It describes some events vividly.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481212,
           "label": "B",
           "text": "It repeats the same word for emphasis.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2481209,
           "label": "C",
           "text": "It uses sounds to create drama.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481211,
           "label": "D",
           "text": "It compares two different objects.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "It repeats the same word for emphasis.",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2481212,
+      "solution": "It repeats the same word for emphasis."
     },
     {
       "id": 1206915,
@@ -753,30 +879,36 @@
           "id": 2481213,
           "label": "A",
           "text": "To be polite",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2481214,
           "label": "B",
           "text": "To be pleasant",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481215,
           "label": "C",
           "text": "To behard-working",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481216,
           "label": "D",
           "text": "To be compassionate",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "To be polite",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2481213,
+      "solution": "To be polite"
     },
     {
       "id": 1206918,
@@ -788,30 +920,36 @@
           "id": 2481227,
           "label": "A",
           "text": "How the words and actions of grown-ups do not match.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2481228,
           "label": "B",
           "text": "How the poet's mischievous nature affects the grown-ups.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481226,
           "label": "C",
           "text": "The inability of grown-ups to make correct decisions.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481225,
           "label": "D",
           "text": "The poet's arrogant attitude towards others.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "How the words and actions of grown-ups do not match.",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2481227,
+      "solution": "How the words and actions of grown-ups do not match."
     },
     {
       "id": 1206921,
@@ -823,30 +961,36 @@
           "id": 2481233,
           "label": "A",
           "text": "The instructions that adults give kids.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2481234,
           "label": "B",
           "text": "The need for parents to control their kids.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481235,
           "label": "C",
           "text": "The relationship between parents and their children.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481236,
           "label": "D",
           "text": "The different ways in which children try to please adults.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "The instructions that adults give kids.",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2481233,
+      "solution": "The instructions that adults give kids."
     },
     {
       "id": 1206927,
@@ -858,30 +1002,36 @@
           "id": 2481245,
           "label": "A",
           "text": "Confused",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481247,
           "label": "B",
           "text": "Worried",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481246,
           "label": "C",
           "text": "Annoyed",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2481248,
           "label": "D",
           "text": "Scared",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Annoyed",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2481246,
+      "solution": "Annoyed"
     },
     {
       "id": 1206930,
@@ -893,30 +1043,36 @@
           "id": 2481253,
           "label": "A",
           "text": "Angry",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481254,
           "label": "B",
           "text": "Curious",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481256,
           "label": "C",
           "text": "Amused",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481255,
           "label": "D",
           "text": "Irritated",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Irritated",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2481255,
+      "solution": "Irritated"
     },
     {
       "id": 1206933,
@@ -928,30 +1084,38 @@
           "id": 2481258,
           "label": "A",
           "text": "It describes the poet's chivvying nature.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481257,
           "label": "B",
           "text": "It recounts how adults chivvy the poet.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2481260,
           "label": "C",
           "text": "It explains why grown-ups dislike the poet's chivvying.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481259,
           "label": "D",
           "text": "It shows how grown-ups constantly chivvy each other.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "It recounts how adults chivvy the poet.",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2481257,
+      "solution": "It recounts how adults chivvy the poet."
     }
-  ]
+  ],
+  "answered": 27,
+  "answer_failed": 0
 }

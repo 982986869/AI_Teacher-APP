@@ -6,7 +6,7 @@
   "grade": "CBSE Class 07",
   "reported_total": 78,
   "extracted_questions": 78,
-  "questions_with_answer": 13,
+  "questions_with_answer": 78,
   "note": "Practice feed me correct answer nahi hota; jaha ID important-questions se match kiya waha answer bhara hai (answer_source dekho).",
   "questions": [
     {
@@ -21,30 +21,38 @@
           "id": 1832080,
           "label": "A",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832081,
           "label": "B",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1832083,
           "label": "C",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832082,
           "label": "D",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (B)",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832081,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671011535-m76pes.jpg"
+      ]
     },
     {
       "id": 868068,
@@ -58,30 +66,38 @@
           "id": 1832085,
           "label": "A",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832084,
           "label": "B",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1832087,
           "label": "C",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832086,
           "label": "D",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (A)",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832084,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671012276-ugdj8n.jpg"
+      ]
     },
     {
       "id": 868069,
@@ -95,30 +111,38 @@
           "id": 1832091,
           "label": "A",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832089,
           "label": "B",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832090,
           "label": "C",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1832088,
           "label": "D",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (C)",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832090,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671012724-fk62be.jpg"
+      ]
     },
     {
       "id": 868070,
@@ -132,30 +156,38 @@
           "id": 1832093,
           "label": "A",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832095,
           "label": "B",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1832094,
           "label": "C",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832092,
           "label": "D",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Figure (D)",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832095,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671013193-zgszkv.jpg"
+      ]
     },
     {
       "id": 868071,
@@ -169,30 +201,38 @@
           "id": 1832098,
           "label": "A",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832099,
           "label": "B",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832097,
           "label": "C",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1832096,
           "label": "D",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (B)",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832097,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671013719-vds3fn.jpg"
+      ]
     },
     {
       "id": 868072,
@@ -206,30 +246,38 @@
           "id": 1832101,
           "label": "A",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832102,
           "label": "B",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1832103,
           "label": "C",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832100,
           "label": "D",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (C)",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832102,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671014062-2j7t6k.jpg"
+      ]
     },
     {
       "id": 868073,
@@ -243,30 +291,38 @@
           "id": 1832104,
           "label": "A",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832105,
           "label": "B",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832107,
           "label": "C",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1832106,
           "label": "D",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (D)",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832107,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671014300-ee4t2a.jpg"
+      ]
     },
     {
       "id": 868074,
@@ -280,30 +336,38 @@
           "id": 1832111,
           "label": "A",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832110,
           "label": "B",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1832108,
           "label": "C",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832109,
           "label": "D",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (C)",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832110,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671014771-ztc92k.jpg"
+      ]
     },
     {
       "id": 868075,
@@ -317,30 +381,38 @@
           "id": 1832113,
           "label": "A",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832115,
           "label": "B",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832114,
           "label": "C",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832112,
           "label": "D",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (A)",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832112,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671015027-fsfpxr.jpg"
+      ]
     },
     {
       "id": 868076,
@@ -354,30 +426,38 @@
           "id": 1832116,
           "label": "A",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1832119,
           "label": "B",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832117,
           "label": "C",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832118,
           "label": "D",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (A)",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832116,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671015430-u559ga.jpg"
+      ]
     },
     {
       "id": 868077,
@@ -391,30 +471,38 @@
           "id": 1832120,
           "label": "A",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832122,
           "label": "B",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832123,
           "label": "C",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832121,
           "label": "D",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (B)",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832121,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671015962-en8xwn.jpg"
+      ]
     },
     {
       "id": 868078,
@@ -428,30 +516,38 @@
           "id": 1832127,
           "label": "A",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1832125,
           "label": "B",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832126,
           "label": "C",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832124,
           "label": "D",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (D)",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832127,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671016337-zz7yur.jpg"
+      ]
     },
     {
       "id": 868079,
@@ -465,30 +561,38 @@
           "id": 1832130,
           "label": "A",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832128,
           "label": "B",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1832129,
           "label": "C",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832131,
           "label": "D",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (A)",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832128,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671016882-uepnzz.jpg"
+      ]
     },
     {
       "id": 868080,
@@ -502,30 +606,38 @@
           "id": 1832132,
           "label": "A",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832134,
           "label": "B",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832135,
           "label": "C",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1832133,
           "label": "D",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (D)",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832135,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671017125-fa4j9p.jpg"
+      ]
     },
     {
       "id": 868081,
@@ -541,7 +653,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671017579-3bgsb9.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1832139,
@@ -549,7 +662,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671017654-fw9k6h.jpg"
-          ]
+          ],
+          "is_correct": true
         },
         {
           "id": 1832138,
@@ -557,7 +671,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671017615-dwaghj.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1832136,
@@ -565,12 +680,17 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671017538-pqrnnx.jpg"
-          ]
+          ],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832139,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671017654-fw9k6h.jpg"
+      ]
     },
     {
       "id": 868082,
@@ -586,7 +706,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671018194-tgajtp.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1832140,
@@ -594,7 +715,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671018130-tufve6.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1832141,
@@ -602,7 +724,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671018153-cm5p34.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1832143,
@@ -610,12 +733,17 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671018231-2d7mpu.jpg"
-          ]
+          ],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832143,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671018299-rw8zma.jpg"
+      ]
     },
     {
       "id": 868083,
@@ -631,7 +759,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671018590-rz6gvn.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1832144,
@@ -639,7 +768,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671018528-fv9y65.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1832147,
@@ -647,7 +777,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671018616-2tajzr.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1832145,
@@ -655,12 +786,17 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671018560-axedkm.jpg"
-          ]
+          ],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832145,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671018560-axedkm.jpg"
+      ]
     },
     {
       "id": 868084,
@@ -676,7 +812,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671018799-tjhnyj.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1832151,
@@ -684,7 +821,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671018869-ujtuf5.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1832149,
@@ -692,7 +830,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671018823-ws6dkf.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1832150,
@@ -700,12 +839,17 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671018847-fy75nq.jpg"
-          ]
+          ],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832150,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671018936-uc35cd.jpg"
+      ]
     },
     {
       "id": 868085,
@@ -721,7 +865,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671019289-et6un7.jpg"
-          ]
+          ],
+          "is_correct": true
         },
         {
           "id": 1832153,
@@ -729,7 +874,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671019347-x3qu9p.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1832154,
@@ -737,7 +883,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671019375-9nmpfv.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1832155,
@@ -745,12 +892,17 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671019405-gwv7as.jpg"
-          ]
+          ],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832152,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671019464-zcg23p.jpg"
+      ]
     },
     {
       "id": 868086,
@@ -766,7 +918,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671019689-z4ydn9.jpg"
-          ]
+          ],
+          "is_correct": true
         },
         {
           "id": 1832159,
@@ -774,7 +927,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671019796-xxnpbt.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1832158,
@@ -782,7 +936,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671019734-rry4md.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1832156,
@@ -790,12 +945,17 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671019656-wev9m8.jpg"
-          ]
+          ],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832157,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671019947-mpxnma.jpg"
+      ]
     },
     {
       "id": 916382,
@@ -809,30 +969,38 @@
           "id": 1940784,
           "label": "A",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940782,
           "label": "B",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940783,
           "label": "C",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940785,
           "label": "D",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (C)",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940784,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673245421-wjsp8p.jpg"
+      ]
     },
     {
       "id": 916384,
@@ -846,30 +1014,38 @@
           "id": 1940793,
           "label": "A",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940790,
           "label": "B",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940792,
           "label": "C",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940791,
           "label": "D",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Figure (A)",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940790,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673245934-mg3cjk.jpg"
+      ]
     },
     {
       "id": 916386,
@@ -883,30 +1059,38 @@
           "id": 1940798,
           "label": "A",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940800,
           "label": "B",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940801,
           "label": "C",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940799,
           "label": "D",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (A)",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940798,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673246359-8hkng2.jpg"
+      ]
     },
     {
       "id": 916388,
@@ -920,30 +1104,38 @@
           "id": 1940807,
           "label": "A",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940806,
           "label": "B",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940808,
           "label": "C",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940809,
           "label": "D",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (B)",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940807,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673246838-z2tx6q.jpg"
+      ]
     },
     {
       "id": 916390,
@@ -957,30 +1149,38 @@
           "id": 1940814,
           "label": "A",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940817,
           "label": "B",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940815,
           "label": "C",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940816,
           "label": "D",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (D)",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940817,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673247773-wqjgs2.jpg"
+      ]
     },
     {
       "id": 916392,
@@ -994,30 +1194,38 @@
           "id": 1940824,
           "label": "A",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940825,
           "label": "B",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940822,
           "label": "C",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940823,
           "label": "D",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Figure (C)",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940824,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673248194-4kffxt.jpg"
+      ]
     },
     {
       "id": 916394,
@@ -1031,30 +1239,38 @@
           "id": 1940832,
           "label": "A",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940830,
           "label": "B",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940831,
           "label": "C",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940833,
           "label": "D",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (D)",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940833,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673248876-yttyj5.jpg"
+      ]
     },
     {
       "id": 916396,
@@ -1068,30 +1284,38 @@
           "id": 1940839,
           "label": "A",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940840,
           "label": "B",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940841,
           "label": "C",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940838,
           "label": "D",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (A)",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940838,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673249391-mwt87t.jpg"
+      ]
     },
     {
       "id": 916398,
@@ -1105,30 +1329,38 @@
           "id": 1940848,
           "label": "A",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940849,
           "label": "B",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940847,
           "label": "C",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940846,
           "label": "D",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (D)",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940849,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673253475-rk7eyy.jpg"
+      ]
     },
     {
       "id": 916400,
@@ -1142,30 +1374,38 @@
           "id": 1940857,
           "label": "A",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940856,
           "label": "B",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940854,
           "label": "C",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940855,
           "label": "D",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Figure (D)",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940857,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673253781-pm8cc8.jpg"
+      ]
     },
     {
       "id": 916402,
@@ -1179,30 +1419,38 @@
           "id": 1940865,
           "label": "A",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940863,
           "label": "B",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940864,
           "label": "C",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940862,
           "label": "D",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (C)",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940864,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673254082-78dhnr.jpg"
+      ]
     },
     {
       "id": 916404,
@@ -1216,30 +1464,38 @@
           "id": 1940872,
           "label": "A",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940871,
           "label": "B",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940870,
           "label": "C",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940873,
           "label": "D",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (C)",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940872,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673254487-qdu2du.jpg"
+      ]
     },
     {
       "id": 916406,
@@ -1253,30 +1509,38 @@
           "id": 1940878,
           "label": "A",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940881,
           "label": "B",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940879,
           "label": "C",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940880,
           "label": "D",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (A)",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940878,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673254895-gnu32f.jpg"
+      ]
     },
     {
       "id": 916408,
@@ -1290,30 +1554,38 @@
           "id": 1940888,
           "label": "A",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940889,
           "label": "B",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940887,
           "label": "C",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940886,
           "label": "D",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (A)",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940886,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673255268-uz8jxb.jpg"
+      ]
     },
     {
       "id": 916410,
@@ -1327,30 +1599,38 @@
           "id": 1940897,
           "label": "A",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940896,
           "label": "B",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940895,
           "label": "C",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940894,
           "label": "D",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (C)",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940896,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673255609-epedyw.jpg"
+      ]
     },
     {
       "id": 916412,
@@ -1364,30 +1644,38 @@
           "id": 1940902,
           "label": "A",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940903,
           "label": "B",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940904,
           "label": "C",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940905,
           "label": "D",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (D)",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940905,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673256828-eurn76.jpg"
+      ]
     },
     {
       "id": 916414,
@@ -1401,30 +1689,38 @@
           "id": 1940912,
           "label": "A",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940911,
           "label": "B",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940910,
           "label": "C",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940913,
           "label": "D",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (A)",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940910,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673257284-5eqtxj.jpg"
+      ]
     },
     {
       "id": 916416,
@@ -1438,30 +1734,38 @@
           "id": 1940921,
           "label": "A",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940918,
           "label": "B",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940920,
           "label": "C",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940919,
           "label": "D",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (A)",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940918,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673257692-c3kyqs.jpg"
+      ]
     },
     {
       "id": 916418,
@@ -1475,30 +1779,38 @@
           "id": 1940929,
           "label": "A",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940926,
           "label": "B",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940928,
           "label": "C",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940927,
           "label": "D",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (A)",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940926,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673259157-h8v6zf.jpg"
+      ]
     },
     {
       "id": 916420,
@@ -1512,30 +1824,38 @@
           "id": 1940934,
           "label": "A",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940935,
           "label": "B",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940937,
           "label": "C",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940936,
           "label": "D",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (D)",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940937,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673258577-pec388.jpg"
+      ]
     },
     {
       "id": 916422,
@@ -1549,30 +1869,38 @@
           "id": 1940942,
           "label": "A",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940944,
           "label": "B",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940943,
           "label": "C",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940945,
           "label": "D",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (B)",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940943,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673260057-24q6ej.jpg"
+      ]
     },
     {
       "id": 916424,
@@ -1586,30 +1914,38 @@
           "id": 1940951,
           "label": "A",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940950,
           "label": "B",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940952,
           "label": "C",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940953,
           "label": "D",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Figure (A)",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940950,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673260800-znfm7g.jpg"
+      ]
     },
     {
       "id": 916426,
@@ -1623,30 +1959,38 @@
           "id": 1940959,
           "label": "A",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940960,
           "label": "B",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940961,
           "label": "C",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940958,
           "label": "D",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (D)",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940961,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673261451-atwaf2.jpg"
+      ]
     },
     {
       "id": 916428,
@@ -1660,30 +2004,38 @@
           "id": 1940968,
           "label": "A",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940967,
           "label": "B",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940969,
           "label": "C",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940966,
           "label": "D",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (A)",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940966,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673261952-4hen4r.jpg"
+      ]
     },
     {
       "id": 916430,
@@ -1697,30 +2049,38 @@
           "id": 1940975,
           "label": "A",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940977,
           "label": "B",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940976,
           "label": "C",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940974,
           "label": "D",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (D)",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940977,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673262747-nr2rzs.jpg"
+      ]
     },
     {
       "id": 916432,
@@ -1734,30 +2094,38 @@
           "id": 1940984,
           "label": "A",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940985,
           "label": "B",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940983,
           "label": "C",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940982,
           "label": "D",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (B)",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940983,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673263164-kmccn6.jpg"
+      ]
     },
     {
       "id": 916434,
@@ -1771,30 +2139,38 @@
           "id": 1940991,
           "label": "A",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940993,
           "label": "B",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940992,
           "label": "C",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940990,
           "label": "D",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Figure (B)",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940991,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673263685-hj2ss8.jpg"
+      ]
     },
     {
       "id": 916436,
@@ -1808,30 +2184,38 @@
           "id": 1940998,
           "label": "A",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1941001,
           "label": "B",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940999,
           "label": "C",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1941000,
           "label": "D",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (B)",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940999,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673264106-gjj9jc.jpg"
+      ]
     },
     {
       "id": 916438,
@@ -1845,30 +2229,38 @@
           "id": 1941008,
           "label": "A",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1941007,
           "label": "B",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1941006,
           "label": "C",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1941009,
           "label": "D",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (D)",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1941009,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673264652-hn6fhd.jpg"
+      ]
     },
     {
       "id": 916440,
@@ -1882,30 +2274,38 @@
           "id": 1941017,
           "label": "A",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1941016,
           "label": "B",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1941014,
           "label": "C",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1941015,
           "label": "D",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (B)",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1941015,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673265025-xn5yhq.jpg"
+      ]
     },
     {
       "id": 1052129,
@@ -1919,30 +2319,38 @@
           "id": 2165323,
           "label": "A",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165321,
           "label": "B",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165322,
           "label": "C",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2165324,
           "label": "D",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Figure (B)",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2165322,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674125807-tngh85.jpg"
+      ]
     },
     {
       "id": 1052131,
@@ -1956,30 +2364,38 @@
           "id": 2165332,
           "label": "A",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2165330,
           "label": "B",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165331,
           "label": "C",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165329,
           "label": "D",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (D)",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2165332,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674126560-9sh4nr.jpg"
+      ]
     },
     {
       "id": 1052133,
@@ -1993,30 +2409,38 @@
           "id": 2165337,
           "label": "A",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2165339,
           "label": "B",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165340,
           "label": "C",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165338,
           "label": "D",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Figure (A)",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2165337,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674127115-938pc5.jpg"
+      ]
     },
     {
       "id": 1052135,
@@ -2030,30 +2454,38 @@
           "id": 2165345,
           "label": "A",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165347,
           "label": "B",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2165346,
           "label": "C",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165348,
           "label": "D",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (C)",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2165347,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674128176-eb92qf.jpg"
+      ]
     },
     {
       "id": 1052137,
@@ -2067,30 +2499,38 @@
           "id": 2165354,
           "label": "A",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2165355,
           "label": "B",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165356,
           "label": "C",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165353,
           "label": "D",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (B)",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2165354,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674128522-38cf42.jpg"
+      ]
     },
     {
       "id": 1052140,
@@ -2104,30 +2544,38 @@
           "id": 2165367,
           "label": "A",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165366,
           "label": "B",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165368,
           "label": "C",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165365,
           "label": "D",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "Figure (A)",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2165365,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674128969-gd8fph.jpg"
+      ]
     },
     {
       "id": 1052143,
@@ -2141,30 +2589,38 @@
           "id": 2165377,
           "label": "A",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2165380,
           "label": "B",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165378,
           "label": "C",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165379,
           "label": "D",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (A)",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2165377,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674129629-4j97wr.jpg"
+      ]
     },
     {
       "id": 1052146,
@@ -2178,30 +2634,38 @@
           "id": 2165391,
           "label": "A",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165390,
           "label": "B",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165392,
           "label": "C",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165389,
           "label": "D",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (A)",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2165389,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674129937-64arex.jpg"
+      ]
     },
     {
       "id": 1052150,
@@ -2215,30 +2679,38 @@
           "id": 2165405,
           "label": "A",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2165408,
           "label": "B",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165407,
           "label": "C",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165406,
           "label": "D",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (A)",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2165405,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674130238-j7eszs.jpg"
+      ]
     },
     {
       "id": 1052154,
@@ -2252,30 +2724,38 @@
           "id": 2165421,
           "label": "A",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165424,
           "label": "B",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165422,
           "label": "C",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2165423,
           "label": "D",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (B)",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2165422,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674130537-h5sb4s.jpg"
+      ]
     },
     {
       "id": 1052158,
@@ -2289,30 +2769,38 @@
           "id": 2165437,
           "label": "A",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165438,
           "label": "B",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165440,
           "label": "C",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2165439,
           "label": "D",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (D)",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2165440,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674130952-d2j3pp.jpg"
+      ]
     },
     {
       "id": 1052162,
@@ -2326,30 +2814,38 @@
           "id": 2165455,
           "label": "A",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165456,
           "label": "B",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165454,
           "label": "C",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165453,
           "label": "D",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "Figure (A)",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2165453,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674131216-ap3x63.jpg"
+      ]
     },
     {
       "id": 1052165,
@@ -2363,30 +2859,38 @@
           "id": 2165468,
           "label": "A",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165467,
           "label": "B",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2165465,
           "label": "C",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165466,
           "label": "D",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (C)",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2165467,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674131443-w3g6bw.jpg"
+      ]
     },
     {
       "id": 1052170,
@@ -2400,30 +2904,38 @@
           "id": 2165486,
           "label": "A",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165488,
           "label": "B",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2165487,
           "label": "C",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2165485,
           "label": "D",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (D)",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2165488,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674186614-u5d6s7.jpg"
+      ]
     },
     {
       "id": 1052480,
@@ -2437,30 +2949,38 @@
           "id": 2166717,
           "label": "A",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166721,
           "label": "B",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166723,
           "label": "C",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166719,
           "label": "D",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (C)",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166721,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674110487-82xwm7.jpg"
+      ]
     },
     {
       "id": 1052484,
@@ -2474,30 +2994,38 @@
           "id": 2166740,
           "label": "A",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166736,
           "label": "B",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166734,
           "label": "C",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166738,
           "label": "D",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Figure (B)",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166736,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674112111-ghv66p.jpg"
+      ]
     },
     {
       "id": 1052489,
@@ -2511,30 +3039,38 @@
           "id": 2166756,
           "label": "A",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166750,
           "label": "B",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166752,
           "label": "C",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166754,
           "label": "D",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (C)",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166754,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674111244-rrrgv7.jpg"
+      ]
     },
     {
       "id": 1052493,
@@ -2548,30 +3084,38 @@
           "id": 2166766,
           "label": "A",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166771,
           "label": "B",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166767,
           "label": "C",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166769,
           "label": "D",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "Figure (C)",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166769,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674113095-npaxjj.jpg"
+      ]
     },
     {
       "id": 1052496,
@@ -2585,30 +3129,38 @@
           "id": 2166783,
           "label": "A",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166787,
           "label": "B",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166785,
           "label": "C",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166781,
           "label": "D",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (C)",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166785,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674119113-xac3e8.jpg"
+      ]
     },
     {
       "id": 1052502,
@@ -2622,30 +3174,38 @@
           "id": 2166802,
           "label": "A",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166806,
           "label": "B",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166804,
           "label": "C",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166807,
           "label": "D",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (B)",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166804,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674119646-htrv36.jpg"
+      ]
     },
     {
       "id": 1052506,
@@ -2659,30 +3219,38 @@
           "id": 2166823,
           "label": "A",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166821,
           "label": "B",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166817,
           "label": "C",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166819,
           "label": "D",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (D)",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166823,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674120123-fbqsk8.jpg"
+      ]
     },
     {
       "id": 1052510,
@@ -2696,30 +3264,38 @@
           "id": 2166834,
           "label": "A",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166839,
           "label": "B",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166837,
           "label": "C",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166835,
           "label": "D",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (B)",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166835,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674120604-xjfpn2.jpg"
+      ]
     },
     {
       "id": 1052514,
@@ -2733,30 +3309,38 @@
           "id": 2166856,
           "label": "A",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166854,
           "label": "B",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166855,
           "label": "C",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166853,
           "label": "D",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (D)",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166856,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674120956-ct4bb7.jpg"
+      ]
     },
     {
       "id": 1052518,
@@ -2770,30 +3354,38 @@
           "id": 2166872,
           "label": "A",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166869,
           "label": "B",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166871,
           "label": "C",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166870,
           "label": "D",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "Figure (B)",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166870,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674121501-ags2jy.jpg"
+      ]
     },
     {
       "id": 1052522,
@@ -2807,30 +3399,38 @@
           "id": 2166886,
           "label": "A",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166885,
           "label": "B",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166888,
           "label": "C",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166887,
           "label": "D",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (A)",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166885,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674121986-7jdtqd.jpg"
+      ]
     },
     {
       "id": 1052526,
@@ -2844,30 +3444,38 @@
           "id": 2166901,
           "label": "A",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166903,
           "label": "B",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166904,
           "label": "C",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166902,
           "label": "D",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (D)",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166904,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674122392-qrcsks.jpg"
+      ]
     },
     {
       "id": 1052530,
@@ -2881,30 +3489,38 @@
           "id": 2166920,
           "label": "A",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166919,
           "label": "B",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166917,
           "label": "C",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166918,
           "label": "D",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (C)",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166919,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674122983-384sz9.jpg"
+      ]
     },
     {
       "id": 1052538,
@@ -2918,30 +3534,40 @@
           "id": 2166952,
           "label": "A",
           "text": "Figure (D)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166951,
           "label": "B",
           "text": "Figure (C)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166950,
           "label": "C",
           "text": "Figure (B)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166949,
           "label": "D",
           "text": "Figure (A)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Figure (B)",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166950,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674125214-72ap7g.jpg"
+      ]
     }
-  ]
+  ],
+  "answered": 78,
+  "answer_failed": 0
 }

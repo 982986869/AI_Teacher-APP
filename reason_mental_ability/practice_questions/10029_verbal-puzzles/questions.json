@@ -6,7 +6,7 @@
   "grade": "CBSE Class 07",
   "reported_total": 76,
   "extracted_questions": 76,
-  "questions_with_answer": 15,
+  "questions_with_answer": 76,
   "note": "Practice feed me correct answer nahi hota; jaha ID important-questions se match kiya waha answer bhara hai (answer_source dekho).",
   "questions": [
     {
@@ -19,30 +19,36 @@
           "id": 1211264,
           "label": "A",
           "text": "₹150",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211263,
           "label": "B",
           "text": "₹300",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211262,
           "label": "C",
           "text": "₹240",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211265,
           "label": "D",
           "text": "₹185",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "₹240",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211262,
+      "solution": "Cost of 15 eggs = ₹75\n\r\nCost of 1 egg = ₹(75 {tex}\\div{/tex} 15) = ₹5\n\r\nCost of 4 dozens (4 {tex}\\times{/tex} 12 = 48) eggs = 5 {tex}\\times{/tex} 48 = ₹240"
     },
     {
       "id": 604061,
@@ -54,30 +60,36 @@
           "id": 1211268,
           "label": "A",
           "text": "75",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211269,
           "label": "B",
           "text": "70",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211267,
           "label": "C",
           "text": "80",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211266,
           "label": "D",
           "text": "85",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "75",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211268,
+      "solution": "Clearly, out of every 16 persons, there is one captain. So, number of captains {tex}\\frac{1200}{16}{/tex} = 75."
     },
     {
       "id": 604064,
@@ -89,30 +101,36 @@
           "id": 1211279,
           "label": "A",
           "text": "10",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211280,
           "label": "B",
           "text": "9",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211278,
           "label": "C",
           "text": "6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211281,
           "label": "D",
           "text": "30",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "10",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211279,
+      "solution": "175760 = 23 {tex}\\times{/tex} 2 {tex}\\times{/tex} 5 {tex}\\times{/tex} 133\n\r\n= 23 {tex}\\times{/tex} 2 {tex}\\times{/tex} 5 {tex}\\times{/tex} 133\n\r\nTo make a perfect cube, it must be divided by 2 {tex}\\times{/tex} 5 = 10"
     },
     {
       "id": 605022,
@@ -124,30 +142,39 @@
           "id": 1215111,
           "label": "A",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1215110,
           "label": "B",
           "text": "3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1215112,
           "label": "C",
           "text": "7",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1215113,
           "label": "D",
           "text": "9",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "3",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1215110,
+      "solution": "Clearly, the smallest such number is 3.\n\r\n\n\r\nThree ducks can be arranged as shown above to satisfy all the three given conditions.",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/imgur/1633358407-38tpzg.jpg"
+      ]
     },
     {
       "id": 685428,
@@ -159,30 +186,36 @@
           "id": 1429756,
           "label": "A",
           "text": "23rd March",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1429757,
           "label": "B",
           "text": "22nd March",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1429758,
           "label": "C",
           "text": "21st March",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1429755,
           "label": "D",
           "text": "24th March",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "23rd March",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1429756,
+      "solution": "23rd March"
     },
     {
       "id": 685437,
@@ -194,30 +227,36 @@
           "id": 1429792,
           "label": "A",
           "text": "Chetna",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1429791,
           "label": "B",
           "text": "Swati",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1429794,
           "label": "C",
           "text": "Chetna and Rajni",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1429793,
           "label": "D",
           "text": "Rajni",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Swati",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1429791,
+      "solution": "Badminton\r\n\t\t\tHockey\r\n\t\t\tLudo\r\n\t\t\tCricket\r\n\n\r\n\t\t\r\n\t\t\tSwati\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\n\r\n\t\t\r\n\t\t\tChetna\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t \r\n\n\r\n\t\t\r\n\t\t\tRajni\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t \r\n\t\t\t \r\n\n\r\n\t\r\n\r\n\r\nSwati likes to play all the four games."
     },
     {
       "id": 685441,
@@ -229,30 +268,36 @@
           "id": 1429808,
           "label": "A",
           "text": "72",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1429807,
           "label": "B",
           "text": "10",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1429809,
           "label": "C",
           "text": "56",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1429810,
           "label": "D",
           "text": "24",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "56",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1429809,
+      "solution": "Possible combinations = 8 {tex}\\times{/tex} 7 = 56"
     },
     {
       "id": 685451,
@@ -264,30 +309,36 @@
           "id": 1429849,
           "label": "A",
           "text": "Daughter",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1429850,
           "label": "B",
           "text": "Aunt",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1429847,
           "label": "C",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1429848,
           "label": "D",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "Mother",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1429848,
+      "solution": "Only child of Sonia's father is Sonia herself. So, the boy is the son of Sonia. Hence, Sonia is the mother of that boy."
     },
     {
       "id": 685472,
@@ -301,30 +352,36 @@
           "id": 1429932,
           "label": "A",
           "text": "20",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1429931,
           "label": "B",
           "text": "21",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1429934,
           "label": "C",
           "text": "18",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1429933,
           "label": "D",
           "text": "10",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "21",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1429931,
+      "solution": "Multiples of 3 are: 3, 6, 9, 12, 15, 18, 21, 24, 27, 30 i.e. 10 in number.\n\r\nSo, number of days Puneet go to the park = 31 - 10 = 21"
     },
     {
       "id": 685479,
@@ -336,30 +393,36 @@
           "id": 1429961,
           "label": "A",
           "text": "Rohit",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1429962,
           "label": "B",
           "text": "Mohit",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1429960,
           "label": "C",
           "text": "Anuj",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1429959,
           "label": "D",
           "text": "Sahil",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Rohit",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1429961,
+      "solution": "The order according to the heights is Rishi, Sahil, Anuj, Mohit, Rohit (Tallest)"
     },
     {
       "id": 685508,
@@ -373,30 +436,36 @@
           "id": 1430075,
           "label": "A",
           "text": "13th September",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1430078,
           "label": "B",
           "text": "14th September",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430077,
           "label": "C",
           "text": "15th September",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430076,
           "label": "D",
           "text": "11th September",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "13th September",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1430075,
+      "solution": "Second Thursday of September 20XX falls on 11th September. Two days after 11th September is 13th September. So, Kaushal will celebrate his daughter's birthday on 13th September."
     },
     {
       "id": 685513,
@@ -408,30 +477,36 @@
           "id": 1430096,
           "label": "A",
           "text": "C",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1430098,
           "label": "B",
           "text": "D",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430095,
           "label": "C",
           "text": "B",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430097,
           "label": "D",
           "text": "A",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "C",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1430096,
+      "solution": "C"
     },
     {
       "id": 685527,
@@ -445,30 +520,36 @@
           "id": 1430153,
           "label": "A",
           "text": "13",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430154,
           "label": "B",
           "text": "35",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430151,
           "label": "C",
           "text": "40",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1430152,
           "label": "D",
           "text": "50",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "40",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1430151,
+      "solution": "Number of caps = 5\n\r\nNumber of T-shirts = 8\n\r\nPossible combinations = 5 {tex}\\times{/tex} 8 = 40"
     },
     {
       "id": 685551,
@@ -480,30 +561,36 @@
           "id": 1430250,
           "label": "A",
           "text": "Niece",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1430247,
           "label": "B",
           "text": "Sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430249,
           "label": "C",
           "text": "Aunt",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430248,
           "label": "D",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Niece",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1430250,
+      "solution": "Kanika's mother's mother is her maternal grandmother. Only son of Kanika's maternal grandmother is her maternal uncle. So, Kanika is niece of that man."
     },
     {
       "id": 685575,
@@ -515,30 +602,36 @@
           "id": 1430344,
           "label": "A",
           "text": "C",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430345,
           "label": "B",
           "text": "A",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1430343,
           "label": "C",
           "text": "E",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430346,
           "label": "D",
           "text": "B",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "A",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1430345,
+      "solution": "A"
     },
     {
       "id": 685596,
@@ -550,30 +643,36 @@
           "id": 1430428,
           "label": "A",
           "text": "C",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430427,
           "label": "B",
           "text": "B",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430430,
           "label": "C",
           "text": "E",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1430429,
           "label": "D",
           "text": "D",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "E",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1430430,
+      "solution": "E"
     },
     {
       "id": 685618,
@@ -585,30 +684,36 @@
           "id": 1430515,
           "label": "A",
           "text": "C",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430518,
           "label": "B",
           "text": "A",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430517,
           "label": "C",
           "text": "D",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1430516,
           "label": "D",
           "text": "E",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "D",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1430517,
+      "solution": "D"
     },
     {
       "id": 685628,
@@ -620,30 +725,36 @@
           "id": 1430558,
           "label": "A",
           "text": "D",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430557,
           "label": "B",
           "text": "C",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430555,
           "label": "C",
           "text": "A",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430556,
           "label": "D",
           "text": "B",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "B",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1430556,
+      "solution": "B"
     },
     {
       "id": 685646,
@@ -655,30 +766,36 @@
           "id": 1430627,
           "label": "A",
           "text": "T",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430629,
           "label": "B",
           "text": "P",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430630,
           "label": "C",
           "text": "Q",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430628,
           "label": "D",
           "text": "R",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "R",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1430628,
+      "solution": "R"
     },
     {
       "id": 685657,
@@ -690,30 +807,36 @@
           "id": 1430672,
           "label": "A",
           "text": "S",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430671,
           "label": "B",
           "text": "R",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430674,
           "label": "C",
           "text": "T",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430673,
           "label": "D",
           "text": "Q",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "Q",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1430673,
+      "solution": "Q"
     },
     {
       "id": 685666,
@@ -725,30 +848,36 @@
           "id": 1430710,
           "label": "A",
           "text": "T",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430708,
           "label": "B",
           "text": "P",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430709,
           "label": "C",
           "text": "Q",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430707,
           "label": "D",
           "text": "S",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "S",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1430707,
+      "solution": "S"
     },
     {
       "id": 685688,
@@ -760,30 +889,36 @@
           "id": 1430799,
           "label": "A",
           "text": "S",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430800,
           "label": "B",
           "text": "T",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430795,
           "label": "C",
           "text": "R",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430797,
           "label": "D",
           "text": "P",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "P",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1430797,
+      "solution": "P"
     },
     {
       "id": 685700,
@@ -795,30 +930,36 @@
           "id": 1430839,
           "label": "A",
           "text": "T",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1430843,
           "label": "B",
           "text": "P",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430845,
           "label": "C",
           "text": "Q",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430841,
           "label": "D",
           "text": "R",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "T",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1430839,
+      "solution": "T"
     },
     {
       "id": 685710,
@@ -830,30 +971,36 @@
           "id": 1430886,
           "label": "A",
           "text": "P",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430888,
           "label": "B",
           "text": "Q",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1430884,
           "label": "C",
           "text": "R",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430883,
           "label": "D",
           "text": "T",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Q",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1430888,
+      "solution": "Q"
     },
     {
       "id": 685717,
@@ -865,30 +1012,36 @@
           "id": 1430917,
           "label": "A",
           "text": "39",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430915,
           "label": "B",
           "text": "29",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1430918,
           "label": "C",
           "text": "25",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430913,
           "label": "D",
           "text": "32",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "29",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1430915,
+      "solution": "The number is greater than 20 and less than 35. Therefore, the highest and lowest possible answers are 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, and 34. Since the unknown number has nine in one's place, the correct option will be 29."
     },
     {
       "id": 685726,
@@ -900,30 +1053,36 @@
           "id": 1430949,
           "label": "A",
           "text": "Mohit",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430947,
           "label": "B",
           "text": "Raj",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430948,
           "label": "C",
           "text": "Gaurav",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1430950,
           "label": "D",
           "text": "Ashish",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Gaurav",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1430948,
+      "solution": "Raj finished before Mohit but behind Gaurav. So, the order is Gaurav, Raj, Mohit. Ashish finished before Sanchit but behind Mohit. So, the order is Mohit, Ashish, Sanchit. Thus, the order is Gaurav, Raj, Mohit, Ashish, Sanchit. Clearly, Gaurav won the race."
     },
     {
       "id": 685731,
@@ -935,30 +1094,36 @@
           "id": 1430969,
           "label": "A",
           "text": "S",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1430967,
           "label": "B",
           "text": "R",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430968,
           "label": "C",
           "text": "P",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1430970,
           "label": "D",
           "text": "Q",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "S",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1430969,
+      "solution": "S"
     },
     {
       "id": 685742,
@@ -970,30 +1135,36 @@
           "id": 1431013,
           "label": "A",
           "text": "T",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431011,
           "label": "B",
           "text": "P",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431009,
           "label": "C",
           "text": "S",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431007,
           "label": "D",
           "text": "R",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "R",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431007,
+      "solution": "R"
     },
     {
       "id": 685749,
@@ -1005,30 +1176,36 @@
           "id": 1431040,
           "label": "A",
           "text": "57",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431041,
           "label": "B",
           "text": "59",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431039,
           "label": "C",
           "text": "56",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431042,
           "label": "D",
           "text": "60",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "60",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431042,
+      "solution": "60"
     },
     {
       "id": 685758,
@@ -1040,30 +1217,36 @@
           "id": 1431075,
           "label": "A",
           "text": "20",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431077,
           "label": "B",
           "text": "24",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1431076,
           "label": "C",
           "text": "22",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431078,
           "label": "D",
           "text": "26",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "24",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431077,
+      "solution": "24"
     },
     {
       "id": 685762,
@@ -1075,30 +1258,36 @@
           "id": 1431093,
           "label": "A",
           "text": "B",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1431091,
           "label": "B",
           "text": "T",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431094,
           "label": "C",
           "text": "Q",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431092,
           "label": "D",
           "text": "P",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "B",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431093,
+      "solution": "B"
     },
     {
       "id": 685772,
@@ -1110,30 +1299,36 @@
           "id": 1431132,
           "label": "A",
           "text": "Q",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431133,
           "label": "B",
           "text": "R",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1431134,
           "label": "C",
           "text": "T",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431131,
           "label": "D",
           "text": "P",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "R",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431133,
+      "solution": "R"
     },
     {
       "id": 685779,
@@ -1145,30 +1340,36 @@
           "id": 1431160,
           "label": "A",
           "text": "84",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431159,
           "label": "B",
           "text": "94",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1431161,
           "label": "C",
           "text": "92",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431162,
           "label": "D",
           "text": "98",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "94",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431159,
+      "solution": "94"
     },
     {
       "id": 685783,
@@ -1180,30 +1381,36 @@
           "id": 1431177,
           "label": "A",
           "text": "B",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431176,
           "label": "B",
           "text": "Q",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431175,
           "label": "C",
           "text": "T",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431178,
           "label": "D",
           "text": "A",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "A",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431178,
+      "solution": "A"
     },
     {
       "id": 685787,
@@ -1215,30 +1422,36 @@
           "id": 1431191,
           "label": "A",
           "text": "Raj",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1431193,
           "label": "B",
           "text": "Sachin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431192,
           "label": "C",
           "text": "Mohit",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431194,
           "label": "D",
           "text": "Varun",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Raj",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431191,
+      "solution": "We explain above conditions in tabular form:\n\r\n\r\n\r\n\t\r\n\t\t\r\n\t\t\t \r\n\t\t\tMaths\r\n\t\t\tScience\r\n\t\t\tComputer\r\n\t\t\tEnglish\r\n\n\r\n\t\t\r\n\t\t\tMohit\r\n\t\t\t{tex}\\checkmark{/tex}\r\n\t\t\t{tex}\\checkmark{/tex}\r\n\t\t\tx\r\n\t\t\t{tex}\\checkmark{/tex}\r\n\n\r\n\t\t\r\n\t\t\tVarun\r\n\t\t\tx\r\n\t\t\t{tex}\\checkmark{/tex}\r\n\t\t\t{tex}\\checkmark{/tex}\r\n\t\t\tx\r\n\n\r\n\t\t\r\n\t\t\tRaj\r\n\t\t\t{tex}\\checkmark{/tex}\r\n\t\t\t{tex}\\checkmark{/tex}\r\n\t\t\t{tex}\\checkmark{/tex}\r\n\t\t\t{tex}\\checkmark{/tex}\r\n\n\r\n\t\t\r\n\t\t\tSachin\r\n\t\t\tx\r\n\t\t\tx\r\n\t\t\tx\r\n\t\t\t{tex}\\checkmark{/tex}\r\n\n\r\n\t\r\n\r\n\r\nRaj is good in all subjects."
     },
     {
       "id": 685789,
@@ -1250,30 +1463,36 @@
           "id": 1431202,
           "label": "A",
           "text": "34",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431200,
           "label": "B",
           "text": "32",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1431201,
           "label": "C",
           "text": "33",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431199,
           "label": "D",
           "text": "31",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "32",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431200,
+      "solution": "32"
     },
     {
       "id": 685792,
@@ -1285,30 +1504,36 @@
           "id": 1431213,
           "label": "A",
           "text": "Tom",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1431214,
           "label": "B",
           "text": "Betty",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431212,
           "label": "C",
           "text": "David",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431211,
           "label": "D",
           "text": "Jack",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Tom",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431213,
+      "solution": "Tom"
     },
     {
       "id": 685802,
@@ -1320,30 +1545,36 @@
           "id": 1431256,
           "label": "A",
           "text": "Betty",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431252,
           "label": "B",
           "text": "David",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431251,
           "label": "C",
           "text": "Jack",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431254,
           "label": "D",
           "text": "Jim",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Jim",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431254,
+      "solution": "Jim"
     },
     {
       "id": 685810,
@@ -1355,30 +1586,36 @@
           "id": 1431284,
           "label": "A",
           "text": "99",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431285,
           "label": "B",
           "text": "97",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431283,
           "label": "C",
           "text": "98",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1431286,
           "label": "D",
           "text": "100",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "98",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431283,
+      "solution": "98"
     },
     {
       "id": 685812,
@@ -1390,30 +1627,36 @@
           "id": 1431296,
           "label": "A",
           "text": "Tom",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431298,
           "label": "B",
           "text": "Betty",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431294,
           "label": "C",
           "text": "David",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431290,
           "label": "D",
           "text": "Jack",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Jack",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431290,
+      "solution": "Jack"
     },
     {
       "id": 685821,
@@ -1425,30 +1668,36 @@
           "id": 1431329,
           "label": "A",
           "text": "99",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1431328,
           "label": "B",
           "text": "66",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431330,
           "label": "C",
           "text": "11",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431327,
           "label": "D",
           "text": "33",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "99",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431329,
+      "solution": "99"
     },
     {
       "id": 685824,
@@ -1460,30 +1709,36 @@
           "id": 1431342,
           "label": "A",
           "text": "Betty",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1431339,
           "label": "B",
           "text": "Jack",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431341,
           "label": "C",
           "text": "Tom",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431340,
           "label": "D",
           "text": "Jim",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Betty",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431342,
+      "solution": "Betty"
     },
     {
       "id": 685831,
@@ -1495,30 +1750,36 @@
           "id": 1431367,
           "label": "A",
           "text": "11",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431369,
           "label": "B",
           "text": "20",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1431370,
           "label": "C",
           "text": "21",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431368,
           "label": "D",
           "text": "18",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "20",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431369,
+      "solution": "Number of 3's in 1 to 10, 11 to 20, 21 to 29, 41 to 50, 51 to 60, 61 to 70, 71 to 80, 81 to 90, 91 to 100 are 9 and number of 3's in 30 to 40 are 11."
     },
     {
       "id": 685832,
@@ -1530,30 +1791,36 @@
           "id": 1431372,
           "label": "A",
           "text": "77",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431373,
           "label": "B",
           "text": "107",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431374,
           "label": "C",
           "text": "97",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1431371,
           "label": "D",
           "text": "87",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "97",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431374,
+      "solution": "97"
     },
     {
       "id": 685833,
@@ -1565,30 +1832,36 @@
           "id": 1431376,
           "label": "A",
           "text": "David",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1431378,
           "label": "B",
           "text": "Betty",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431375,
           "label": "C",
           "text": "Jim",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431377,
           "label": "D",
           "text": "Jack",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "David",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431376,
+      "solution": "David"
     },
     {
       "id": 685844,
@@ -1600,30 +1873,36 @@
           "id": 1431421,
           "label": "A",
           "text": "Son",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431419,
           "label": "B",
           "text": "Father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1431422,
           "label": "C",
           "text": "Mother and son",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431420,
           "label": "D",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Father",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431419,
+      "solution": "Father"
     },
     {
       "id": 685854,
@@ -1635,30 +1914,36 @@
           "id": 1431459,
           "label": "A",
           "text": "21",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431461,
           "label": "B",
           "text": "35",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431460,
           "label": "C",
           "text": "63",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431462,
           "label": "D",
           "text": "70",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "70",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431462,
+      "solution": "70"
     },
     {
       "id": 685855,
@@ -1670,30 +1955,36 @@
           "id": 1431466,
           "label": "A",
           "text": "Father and mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431465,
           "label": "B",
           "text": "Son",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1431464,
           "label": "C",
           "text": "Father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431463,
           "label": "D",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Son",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431465,
+      "solution": "Son"
     },
     {
       "id": 685865,
@@ -1705,30 +1996,36 @@
           "id": 1431504,
           "label": "A",
           "text": "39",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431505,
           "label": "B",
           "text": "36",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431503,
           "label": "C",
           "text": "38",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431506,
           "label": "D",
           "text": "30",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "30",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431506,
+      "solution": "30"
     },
     {
       "id": 685866,
@@ -1740,30 +2037,36 @@
           "id": 1431510,
           "label": "A",
           "text": "Father and son",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431509,
           "label": "B",
           "text": "Mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1431507,
           "label": "C",
           "text": "Son",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431508,
           "label": "D",
           "text": "Father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Mother",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431509,
+      "solution": "Mother"
     },
     {
       "id": 685882,
@@ -1775,30 +2078,36 @@
           "id": 1431572,
           "label": "A",
           "text": "Kunal",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1431571,
           "label": "B",
           "text": "Sachin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431574,
           "label": "C",
           "text": "Gaurav",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431573,
           "label": "D",
           "text": "Ravi",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Kunal",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431572,
+      "solution": "We solve the given information in tabular form\n\r\n\r\n\r\n\t\r\n\t\t\r\n\t\t\t \r\n\t\t\tHockey\r\n\t\t\tVolleyball\r\n\t\t\tBaseball\r\n\t\t\tCricket\r\n\t\t\tFootball\r\n\n\r\n\t\t\r\n\t\t\tRavi\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\tx\r\n\t\t\tx\r\n\n\r\n\t\t\r\n\t\t\tKunal\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\tx\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\tx\r\n\n\r\n\t\t\r\n\t\t\tSachin\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\tx\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\tx\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\n\r\n\t\t\r\n\t\t\tGaurav\r\n\t\t\tx\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\n\r\n\t\t\r\n\t\t\tMichael\r\n\t\t\tx\r\n\t\t\tx\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\tx\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\n\r\n\t\r\n\r\n\r\nKunal"
     },
     {
       "id": 685898,
@@ -1810,30 +2119,36 @@
           "id": 1431637,
           "label": "A",
           "text": "60",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431635,
           "label": "B",
           "text": "65",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1431636,
           "label": "C",
           "text": "75",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431638,
           "label": "D",
           "text": "70",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "65",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431635,
+      "solution": "65"
     },
     {
       "id": 685902,
@@ -1845,30 +2160,36 @@
           "id": 1431655,
           "label": "A",
           "text": "Gaurav",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1431651,
           "label": "B",
           "text": "Sachin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431657,
           "label": "C",
           "text": "Ravi",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431652,
           "label": "D",
           "text": "Kunal",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Gaurav",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431655,
+      "solution": "We solve the given information in tabular form\n\r\n\r\n\r\n\t\r\n\t\t\r\n\t\t\t \r\n\t\t\tHockey\r\n\t\t\tVolleyball\r\n\t\t\tBaseball\r\n\t\t\tCricket\r\n\t\t\tFootball\r\n\n\r\n\t\t\r\n\t\t\tRavi\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\tx\r\n\t\t\tx\r\n\n\r\n\t\t\r\n\t\t\tKunal\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\tx\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\tx\r\n\n\r\n\t\t\r\n\t\t\tSachin\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\tx\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\tx\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\n\r\n\t\t\r\n\t\t\tGaurav\r\n\t\t\tx\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\n\r\n\t\t\r\n\t\t\tMichael\r\n\t\t\tx\r\n\t\t\tx\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\tx\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\n\r\n\t\r\n\r\n\r\nGaurav"
     },
     {
       "id": 685919,
@@ -1880,30 +2201,36 @@
           "id": 1431719,
           "label": "A",
           "text": "1 and 1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431720,
           "label": "B",
           "text": "2 and 2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431721,
           "label": "C",
           "text": "3 and 3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1431722,
           "label": "D",
           "text": "4 and 3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "3 and 3",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431721,
+      "solution": "The difference between the two numbers is 0; therefore, the two numbers must be same. The sum of the two numbers is 6; therefore, the two numbers cannot exceed 3. The possibilities are as follows:\n\r\n\r\n\r\n\t\r\n\t\t\r\n\t\t\tSum\r\n\t\t\tDifference\r\n\n\r\n\t\r\n\t\r\n\t\t\r\n\t\t\t1 + 1 = 2\r\n\t\t\t1 - 1 = 0\r\n\n\r\n\t\t\r\n\t\t\t2 + 2 = 4\r\n\t\t\t2 - 2 = 0\r\n\n\r\n\t\t\r\n\t\t\t3 + 3 = 6\r\n\t\t\t3 - 3 = 0"
     },
     {
       "id": 685950,
@@ -1915,30 +2242,36 @@
           "id": 1431844,
           "label": "A",
           "text": "9 and 9",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1431843,
           "label": "B",
           "text": "9 and 8",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431845,
           "label": "C",
           "text": "10 and 9",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431846,
           "label": "D",
           "text": "8 and 8",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "9 and 9",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431844,
+      "solution": "9 and 9"
     },
     {
       "id": 685960,
@@ -1950,30 +2283,36 @@
           "id": 1431886,
           "label": "A",
           "text": "8 and 6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1431885,
           "label": "B",
           "text": "12 and 2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431883,
           "label": "C",
           "text": "7 and 7",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1431884,
           "label": "D",
           "text": "9 and 5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "8 and 6",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1431886,
+      "solution": "8 and 6"
     },
     {
       "id": 685992,
@@ -1985,30 +2324,36 @@
           "id": 1432012,
           "label": "A",
           "text": "18 and 10",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432011,
           "label": "B",
           "text": "16 and 8",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1432014,
           "label": "C",
           "text": "20 and 4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432013,
           "label": "D",
           "text": "14 and 10",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "16 and 8",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1432011,
+      "solution": "16 and 8"
     },
     {
       "id": 686010,
@@ -2020,30 +2365,36 @@
           "id": 1432085,
           "label": "A",
           "text": "Megha",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1432083,
           "label": "B",
           "text": "Priya",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432084,
           "label": "C",
           "text": "Latika",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432086,
           "label": "D",
           "text": "Garima",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Megha",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1432085,
+      "solution": "The order from the tallest to the shortest is, Manha, Garima, Priya, Latika, Megha."
     },
     {
       "id": 686014,
@@ -2055,30 +2406,36 @@
           "id": 1432102,
           "label": "A",
           "text": "6 and 2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432099,
           "label": "B",
           "text": "9 and 1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432101,
           "label": "C",
           "text": "10 and 2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432100,
           "label": "D",
           "text": "7 and 1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "7 and 1",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1432100,
+      "solution": "7 and 1"
     },
     {
       "id": 686036,
@@ -2090,30 +2447,36 @@
           "id": 1432194,
           "label": "A",
           "text": "Latika and Megha",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432191,
           "label": "B",
           "text": "Megha",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432189,
           "label": "C",
           "text": "Latika",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432193,
           "label": "D",
           "text": "Garima",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Garima",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1432193,
+      "solution": "The order from the tallest to the shortest is, Manha, Garima, Priya, Latika, Megha."
     },
     {
       "id": 686045,
@@ -2125,30 +2488,36 @@
           "id": 1432223,
           "label": "A",
           "text": "5 and 4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432224,
           "label": "B",
           "text": "7 and 6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432225,
           "label": "C",
           "text": "6 and 5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1432226,
           "label": "D",
           "text": "8 and 3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "6 and 5",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1432225,
+      "solution": "6 and 5"
     },
     {
       "id": 686046,
@@ -2160,30 +2529,36 @@
           "id": 1432230,
           "label": "A",
           "text": "Vaibhav",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1432228,
           "label": "B",
           "text": "Shalabh",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432227,
           "label": "C",
           "text": "Rahul",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432229,
           "label": "D",
           "text": "Shailesh",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Vaibhav",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1432230,
+      "solution": "Maths\r\n\t\t\tChemistry\r\n\t\t\tBiology\r\n\t\t\tPhysics\r\n\n\r\n\t\t\r\n\t\t\tRahul\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\tx\r\n\n\r\n\t\t\r\n\t\t\tShailesh\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\tx\r\n\t\t\tx\r\n\n\r\n\t\t\r\n\t\t\tVaibhav\r\n\t\t\tx\r\n\t\t\tx\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\n\r\n\t\t\r\n\t\t\tShalabh\r\n\t\t\tx\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\n\r\n\t\r\n\r\n\r\nVaibhav like Physics but not Chemistry."
     },
     {
       "id": 686068,
@@ -2195,30 +2570,36 @@
           "id": 1432318,
           "label": "A",
           "text": "8 and 6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432317,
           "label": "B",
           "text": "8 and 7",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432315,
           "label": "C",
           "text": "9 and 6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1432316,
           "label": "D",
           "text": "9 and 5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "9 and 6",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1432315,
+      "solution": "9 and 6"
     },
     {
       "id": 686077,
@@ -2230,30 +2611,36 @@
           "id": 1432351,
           "label": "A",
           "text": "1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432352,
           "label": "B",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432353,
           "label": "C",
           "text": "3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1432354,
           "label": "D",
           "text": "4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "3",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1432353,
+      "solution": "Maths\r\n\t\t\tChemistry\r\n\t\t\tBiology\r\n\t\t\tPhysics\r\n\n\r\n\t\t\r\n\t\t\tRahul\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\tx\r\n\n\r\n\t\t\r\n\t\t\tShailesh\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\tx\r\n\t\t\tx\r\n\n\r\n\t\t\r\n\t\t\tVaibhav\r\n\t\t\tx\r\n\t\t\tx\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\n\r\n\t\t\r\n\t\t\tShalabh\r\n\t\t\tx\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}"
     },
     {
       "id": 686078,
@@ -2265,30 +2652,36 @@
           "id": 1432357,
           "label": "A",
           "text": "11 and 4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432355,
           "label": "B",
           "text": "12 and 2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432356,
           "label": "C",
           "text": "10 and 4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1432358,
           "label": "D",
           "text": "10 and 5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "10 and 4",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1432356,
+      "solution": "10 and 4"
     },
     {
       "id": 686099,
@@ -2300,30 +2693,36 @@
           "id": 1432439,
           "label": "A",
           "text": "15 and 10",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432440,
           "label": "B",
           "text": "24 and 1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432442,
           "label": "C",
           "text": "20 and 5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1432441,
           "label": "D",
           "text": "21 and 4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "20 and 5",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1432442,
+      "solution": "20 and 5"
     },
     {
       "id": 686120,
@@ -2335,30 +2734,36 @@
           "id": 1432525,
           "label": "A",
           "text": "45 and 45",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432526,
           "label": "B",
           "text": "90 and 0",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432523,
           "label": "C",
           "text": "60 and 30",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1432524,
           "label": "D",
           "text": "50 and 40",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "60 and 30",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1432523,
+      "solution": "60 and 30"
     },
     {
       "id": 686132,
@@ -2372,30 +2777,36 @@
           "id": 1432568,
           "label": "A",
           "text": "35",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432569,
           "label": "B",
           "text": "42",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432567,
           "label": "C",
           "text": "30",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1432570,
           "label": "D",
           "text": "49",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "30",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1432567,
+      "solution": "Number of pens = 5\n\r\nNumber of students = 6\n\r\n{tex}\\therefore {/tex} Possible combinations = 5 {tex}\\times{/tex} 6 = 30"
     },
     {
       "id": 686153,
@@ -2407,30 +2818,36 @@
           "id": 1432635,
           "label": "A",
           "text": "Trishika",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1432638,
           "label": "B",
           "text": "Sidak and Sanchi",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432636,
           "label": "C",
           "text": "Sidak",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432637,
           "label": "D",
           "text": "Sanchi",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Trishika",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1432635,
+      "solution": "Trishika"
     },
     {
       "id": 686163,
@@ -2442,30 +2859,36 @@
           "id": 1432669,
           "label": "A",
           "text": "Hindi",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432668,
           "label": "B",
           "text": "English",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432670,
           "label": "C",
           "text": "Science",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1432667,
           "label": "D",
           "text": "Maths",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Maths",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1432667,
+      "solution": "Maths\r\n\t\t\tScience\r\n\t\t\tHindi\r\n\t\t\tEnglish\r\n\n\r\n\t\t\r\n\t\t\tKaran\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\tx\r\n\t\t\tx\r\n\t\t\tx\r\n\n\r\n\t\t\r\n\t\t\tKartik\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\tx\r\n\t\t\tx\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\n\r\n\t\t\r\n\t\t\tShikha\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\tx\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\n\r\n\t\t\r\n\t\t\tSonal\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\t{tex}\\sqrt{ }{/tex}\r\n\t\t\tx\r\n\n\r\n\t\r\n\r\n\r\nOnly Maths is liked by all the four students."
     },
     {
       "id": 686749,
@@ -2477,30 +2900,39 @@
           "id": 1434561,
           "label": "A",
           "text": "A",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1434564,
           "label": "B",
           "text": "Z",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1434563,
           "label": "C",
           "text": "X",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1434562,
           "label": "D",
           "text": "S",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "X",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1434563,
+      "solution": "Sitting arrangement is,\n\r\n\n\r\nor\n\r\nZ, S",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1652158068-6wjwax.jpg"
+      ]
     },
     {
       "id": 686781,
@@ -2512,30 +2944,36 @@
           "id": 1434692,
           "label": "A",
           "text": "24",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1434690,
           "label": "B",
           "text": "18",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1434689,
           "label": "C",
           "text": "10",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1434691,
           "label": "D",
           "text": "12",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "24",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1434692,
+      "solution": "Number of tops = 6\n\r\nNumber of pair of jeans = 4\n\r\n{tex}\\therefore{/tex} Possible combinations = 6 {tex}\\times{/tex} 4 = 24"
     },
     {
       "id": 686792,
@@ -2549,30 +2987,36 @@
           "id": 1434736,
           "label": "A",
           "text": "12",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1434735,
           "label": "B",
           "text": "17",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1434734,
           "label": "C",
           "text": "13",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1434733,
           "label": "D",
           "text": "15",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "13",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1434734,
+      "solution": "Dates on which Kirti goes to Karate classes are 2, 4, 8, 10, 12, 14, 16, 18, 22, 24, 26, 28, 30, i.e., 13 days."
     },
     {
       "id": 686794,
@@ -2584,30 +3028,36 @@
           "id": 1434743,
           "label": "A",
           "text": "17th October",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1434744,
           "label": "B",
           "text": "12th October",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1434741,
           "label": "C",
           "text": "14th October",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1434742,
           "label": "D",
           "text": "13th October",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "14th October",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1434741,
+      "solution": "According to Raghav, his sister's birthday could be on the dates 13th or 14th of October.\n\r\nAccording to Raghav's father, Raghav's sister's birthday could be on dates 14th, 15th or 16th of October.\n\r\nHence, Raghav's sister's birthday is on 14th October."
     },
     {
       "id": 686800,
@@ -2619,30 +3069,36 @@
           "id": 1434766,
           "label": "A",
           "text": "14",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1434767,
           "label": "B",
           "text": "12",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1434768,
           "label": "C",
           "text": "6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1434765,
           "label": "D",
           "text": "7",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "12",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1434767,
+      "solution": "Number of girls = 4\n\r\nNumber of boys = 3\n\r\n{tex}\\therefore{/tex} Possible combinations = 4 {tex}\\times{/tex} 3 = 12"
     },
     {
       "id": 686803,
@@ -2656,30 +3112,38 @@
           "id": 1434780,
           "label": "A",
           "text": "12",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1434779,
           "label": "B",
           "text": "16",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1434777,
           "label": "C",
           "text": "14",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1434778,
           "label": "D",
           "text": "15",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "12",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1434780,
+      "solution": "Dates on which Vishal goes to guitar classes are 4, 6, 10, 12, 14, 16, 18, 20, 24, 26, 28, 30 i.e., 12 in number."
     }
-  ]
+  ],
+  "answered": 76,
+  "answer_failed": 0
 }

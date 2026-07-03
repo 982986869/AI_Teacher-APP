@@ -6,7 +6,7 @@
   "grade": "CBSE Class 07",
   "reported_total": 42,
   "extracted_questions": 42,
-  "questions_with_answer": 15,
+  "questions_with_answer": 42,
   "note": "Practice feed me correct answer nahi hota; jaha ID important-questions se match kiya waha answer bhara hai (answer_source dekho).",
   "questions": [
     {
@@ -19,30 +19,36 @@
           "id": 1211330,
           "label": "A",
           "text": "Saturday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211331,
           "label": "B",
           "text": "Sunday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211333,
           "label": "C",
           "text": "Monday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211332,
           "label": "D",
           "text": "Friday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Saturday",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211330,
+      "solution": "We know that, after every 400 years, the same day occurs.\n\r\nThus, if 9th August 2016 is Saturday, before 400 years i.e., on 9th August 1616 has to be Saturday."
     },
     {
       "id": 604081,
@@ -54,30 +60,36 @@
           "id": 1211346,
           "label": "A",
           "text": "Monday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211348,
           "label": "B",
           "text": "Saturday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211349,
           "label": "C",
           "text": "Wednesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211347,
           "label": "D",
           "text": "Tuesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Saturday",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211348,
+      "solution": "The year 1996 is a leap year. So, it has 2 odd days. So, the day on 17th March, 1997 will be 2 days beyond the day on 17th March,1996.\n\r\nHere 17th March, 1997 is Monday. So, 17th March, 1996 is Saturday."
     },
     {
       "id": 604085,
@@ -89,30 +101,36 @@
           "id": 1211365,
           "label": "A",
           "text": "Thursday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211363,
           "label": "B",
           "text": "Tuesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211362,
           "label": "C",
           "text": "Wednesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211364,
           "label": "D",
           "text": "Friday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Wednesday",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211362,
+      "solution": "The year 2006 is an ordinary year. So, it has 1 odd day.\n\r\nSo, the day on 24th Nov, 2007 will be 1 day beyond the day on 24th Nov, 2006.\n\r\nBut, 24th Nov, 2007 is Thursday.\n\r\n24 - 10 = 14 days.\n\r\nTherefore, 2 weeks ago it is same day.\n\r\nThus, 10th Nov, 2006 is one day before 10th Nov, 2007 i.e. it is Wednesday."
     },
     {
       "id": 604096,
@@ -124,30 +142,36 @@
           "id": 1211406,
           "label": "A",
           "text": "Sunday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211407,
           "label": "B",
           "text": "Monday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211408,
           "label": "C",
           "text": "Tuesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211409,
           "label": "D",
           "text": "Friday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Sunday",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211406,
+      "solution": "15th August 2010 = (2009 years + Period 1.1.2010 to 15.8.2010)\n\r\nOdd days in 1600 years = 0\n\r\nOdd days in 400 years = 0\n\r\n9 years = (2 leap years + 7 ordinary years) = (2 {tex}\\times{/tex} 2 + 7 {tex}\\times{/tex} 1) = 11 odd days = 4 odd days.\n\r\nJan, Feb, March, April, May, June, July, Aug\n\r\n(31 + 28 + 31 + 30 + 31 + 30 + 31 + 15) = 227 days\n\r\n{tex}\\therefore{/tex} 227 days = (32 weeks + 3 days) = 3 odd days\n\r\nTotal number of odd days = (0 + 0 + 4 + 3) = 7 = 0 odd days.\n\r\nThe given day is Sunday."
     },
     {
       "id": 604102,
@@ -159,30 +183,36 @@
           "id": 1211430,
           "label": "A",
           "text": "Sunday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211432,
           "label": "B",
           "text": "Tuesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211431,
           "label": "C",
           "text": "Monday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211433,
           "label": "D",
           "text": "Wednesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Wednesday",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211433,
+      "solution": "Here from 4th December 1999 to 3rd January 2000,\n\r\nthere is a difference of 30 days.\n\r\nNumber of odd days = 30 {tex}\\div{/tex} 7 = 2 odd days\n\r\nThen no. of odd days = 2 {tex}\\Rightarrow{/tex} Tuesday and Wednesday(from Monday).\n\r\nHence on 3rd January, it is Wednesday."
     },
     {
       "id": 604107,
@@ -194,30 +224,36 @@
           "id": 1211453,
           "label": "A",
           "text": "Tuesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211450,
           "label": "B",
           "text": "Saturday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211452,
           "label": "C",
           "text": "Sunday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211451,
           "label": "D",
           "text": "Monday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Sunday",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211452,
+      "solution": "The year 1985 is an ordinary year. So, it has 1 odd day.\n\r\nSo, the day on 19th June 1985 will be 1 day after the day on 19th June 1984.\n\r\nBut, 19th June 1984 is Monday.\n\r\nS0, 19th June 1985 is Tuesday."
     },
     {
       "id": 604112,
@@ -229,30 +265,36 @@
           "id": 1211476,
           "label": "A",
           "text": "2009",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211475,
           "label": "B",
           "text": "2017",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211477,
           "label": "C",
           "text": "2002",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211474,
           "label": "D",
           "text": "1998",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "2002",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211477,
+      "solution": "Given year, 2013 when divided by 4 leaves a remainder of 1.\n\r\nNOTE: When the remainder is 1, 11 is subtracted from the given year to get the result.\n\r\nSo, 2013 - 11 = 2002"
     },
     {
       "id": 604119,
@@ -264,30 +306,36 @@
           "id": 1211499,
           "label": "A",
           "text": "1884",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211498,
           "label": "B",
           "text": "1883",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211500,
           "label": "C",
           "text": "1864",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211501,
           "label": "D",
           "text": "1880",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "1884",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211499,
+      "solution": "Given year 1856, when divided by 4 leaves a remainder of 0.\n\r\nNOTE: When the remainder is 0, 28 is added to the given year to get the result.\n\r\nSo, 1856 + 28 = 1884"
     },
     {
       "id": 604153,
@@ -299,30 +347,36 @@
           "id": 1211635,
           "label": "A",
           "text": "Friday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211636,
           "label": "B",
           "text": "Sunday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211637,
           "label": "C",
           "text": "Tuesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211634,
           "label": "D",
           "text": "Monday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Friday",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211635,
+      "solution": "On 31st December 2005, it was Saturday.\n\r\nNumber of odd days from 2006 to 2009 = (1 + 1 + 2 + 1) = 5 days.\n\r\nOn 31st December 2009, it was Thursday.\n\r\nThus, on 1st Jan, 2010 it is Friday"
     },
     {
       "id": 604160,
@@ -334,30 +388,36 @@
           "id": 1211665,
           "label": "A",
           "text": "Sunday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211664,
           "label": "B",
           "text": "Friday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211662,
           "label": "C",
           "text": "Tuesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211663,
           "label": "D",
           "text": "Saturday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Sunday",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211665,
+      "solution": "The year 2004 is a leap year. It has 2 odd days.\n\r\nThe day on 8th Feb 2004 is 2 days before the day on 8th Feb 2005.\n\r\nHence, this day is Sunday."
     },
     {
       "id": 604169,
@@ -369,30 +429,36 @@
           "id": 1211701,
           "label": "A",
           "text": "2022",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211698,
           "label": "B",
           "text": "2023",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211700,
           "label": "C",
           "text": "2029",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211699,
           "label": "D",
           "text": "2027",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "2029",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211700,
+      "solution": "How to find the years which have the same Calendars:\n\r\nLeap year calendar repeats every 28 years.\n\r\nHere 28 is distributed as 6 + 11 + 11\n\r\nRules:\n\r\n\r\n\r\n\t• If given year is at 1st position after Leap year then next repeated calendar year is Given Year + 6.\n\r\n\t• If given year is at 2nd position after Leap year then next repeated calendar year is Given Year + 11.\n\r\n\t• If given year is at 3rd position after Leap year then next repeated calendar year is Given Year + 11.\n\r\n\r\n\r\nNow, the given year is 2018.\n\r\nWe know that 2016 is a Leap year.\n\r\n2016 - LY; 2017 - 1st; 2018 - 2nd; 2019 - 3rd; 2020 - LY\n\r\nHere 2018 is at 2nd position after the Leap year.\n\r\nAccording to rule (b) the calendar of 2018 is repeated for the year is 2018 + 11 = 2029."
     },
     {
       "id": 604174,
@@ -404,30 +470,36 @@
           "id": 1211719,
           "label": "A",
           "text": "Saturday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211721,
           "label": "B",
           "text": "Tuesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211718,
           "label": "C",
           "text": "Wednesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211720,
           "label": "D",
           "text": "Monday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Wednesday",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211718,
+      "solution": "First, we count the number of odd days for the leftover days in the given period.\n\r\nHere, the given period is 15.8.2012 to 11.6.2013\n\r\n\r\n\r\n\t\r\n\t\t\r\n\t\t\tAug\r\n\t\t\tSept\r\n\t\t\tOct\r\n\t\t\tNov\r\n\t\t\tDec\r\n\t\t\tJan\r\n\t\t\tFeb\r\n\t\t\tMar\r\n\t\t\tApr\r\n\t\t\tMay\r\n\t\t\tJun\r\n\n\r\n\t\t\r\n\t\t\t16\r\n\t\t\t30\r\n\t\t\t31\r\n\t\t\t30\r\n\t\t\t31\r\n\t\t\t31\r\n\t\t\t28\r\n\t\t\t31\r\n\t\t\t30\r\n\t\t\t31\r\n\t\t\t11 (days left)\r\n\n\r\n\t\r\n\r\n\r\n2 + 2 + 3 + 2 + 3 + 3 + 0 + 3 + 2 + 3 + 4 (odd days) = 6 odd days\n\r\nSo, given day Thursday + 6 = Wednesday is the required result."
     },
     {
       "id": 604181,
@@ -439,30 +511,36 @@
           "id": 1211746,
           "label": "A",
           "text": "Wednesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211749,
           "label": "B",
           "text": "Sunday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211747,
           "label": "C",
           "text": "Monday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211748,
           "label": "D",
           "text": "Saturday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Saturday",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211748,
+      "solution": "First, we count the number of odd days for the leftover days in the given period. Here, the given period is 18.3.1994 to 25.2.1995\n\r\n\r\n\r\n\t\r\n\t\t\r\n\t\t\tMonth\r\n\t\t\tMar\r\n\t\t\tApr\r\n\t\t\tMay\r\n\t\t\tJun\r\n\t\t\tJul\r\n\t\t\tAug\r\n\t\t\tSep\r\n\t\t\tOct\r\n\t\t\tNov\r\n\t\t\tDec\r\n\t\t\tJan\r\n\t\t\tFeb\r\n\n\r\n\t\t\r\n\t\t\tDays\r\n\t\t\t13\r\n\t\t\t30\r\n\t\t\t31\r\n\t\t\t30\r\n\t\t\t31\r\n\t\t\t31\r\n\t\t\t30\r\n\t\t\t31\r\n\t\t\t30\r\n\t\t\t31\r\n\t\t\t31\r\n\t\t\t25\r\n\n\r\n\t\t\r\n\t\t\tOdd Days\r\n\t\t\t6\r\n\t\t\t2\r\n\t\t\t3\r\n\t\t\t2\r\n\t\t\t3\r\n\t\t\t3\r\n\t\t\t2\r\n\t\t\t3\r\n\t\t\t2\r\n\t\t\t3\r\n\t\t\t3\r\n\t\t\t4\r\n\n\r\n\t\r\n\r\n\r\nTherefore, No. of Odd Days = 6 + 2 + 3 + 2 + 3 + 3 + 2 + 3 + 2 + 3 + 3 + 4 = 36 = 1 odd day\n\r\nSo, given day Friday + 1 = Saturday is the required result."
     },
     {
       "id": 604190,
@@ -474,30 +552,36 @@
           "id": 1211783,
           "label": "A",
           "text": "2014",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211782,
           "label": "B",
           "text": "2012",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211784,
           "label": "C",
           "text": "2016",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211785,
           "label": "D",
           "text": "2010",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "2016",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211784,
+      "solution": "We already know that the calendar after a leap year repeats again after 28 years.\n\r\nHere 1988 is a Leap year, then the same calendar will be in the year = 1988 + 28 = 2016"
     },
     {
       "id": 604200,
@@ -509,30 +593,36 @@
           "id": 1211826,
           "label": "A",
           "text": "2036",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211823,
           "label": "B",
           "text": "2052",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211825,
           "label": "C",
           "text": "2048",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211822,
           "label": "D",
           "text": "2030",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "2052",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211823,
+      "solution": "Repetition of leap year {tex}\\Rightarrow{/tex} Add +28 to the Given Year.\n\r\nRepetition of non-leap year\n\r\nStep 1: Add +11 to the Given Year. If Result is a leap year, Go to step 2.\n\r\nStep 2:  Add +6 to the Given Year.\n\r\nSolution:\n\r\nThe given Year is 2024, Which is a leap year.\n\r\nSo, Add +28 to the given year (i.e 2024 + 28) = 2052\n\r\nTherefore, The calendar of the year 2024 can be used again in the year 2052."
     },
     {
       "id": 604208,
@@ -544,30 +634,36 @@
           "id": 1211857,
           "label": "A",
           "text": "1700",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211855,
           "label": "B",
           "text": "1200",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211856,
           "label": "C",
           "text": "2500",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211854,
           "label": "D",
           "text": "1900",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "1200",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211855,
+      "solution": "When a century year leaves a remainder 0, when divided by 400 then it is a leap year (366 days).\n\r\nSo, 1200 has 366 days."
     },
     {
       "id": 604214,
@@ -579,30 +675,36 @@
           "id": 1211880,
           "label": "A",
           "text": "Monday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211878,
           "label": "B",
           "text": "Sunday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211881,
           "label": "C",
           "text": "Friday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211879,
           "label": "D",
           "text": "Saturday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Sunday",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211878,
+      "solution": "First, we count the number of odd days for the leftover days in the given period. Here, the given period is 09-07-2013 to 07-01-2014\n\r\n\r\n\r\n\t\r\n\t\t\r\n\t\t\tMonth\r\n\t\t\tJul\r\n\t\t\tAug\r\n\t\t\tSep\r\n\t\t\tOct\r\n\t\t\tNov\r\n\t\t\tDec\r\n\t\t\tJan\r\n\n\r\n\t\t\r\n\t\t\tDays\r\n\t\t\t22\r\n\t\t\t31\r\n\t\t\t30\r\n\t\t\t31\r\n\t\t\t30\r\n\t\t\t31\r\n\t\t\t7\r\n\n\r\n\t\t\r\n\t\t\tOdd Days\r\n\t\t\t1\r\n\t\t\t3\r\n\t\t\t2\r\n\t\t\t3\r\n\t\t\t2\r\n\t\t\t3\r\n\t\t\t0\r\n\n\r\n\t\r\n\r\n\r\nTherefore, No. of Odd Days =  1 + 3 + 2 + 3 + 2 + 3 + 0 = 14 = 0 odd days\n\r\nSo, given day Sunday + 0 = Saturday is the required result."
     },
     {
       "id": 604222,
@@ -614,30 +716,36 @@
           "id": 1211913,
           "label": "A",
           "text": "31.12.91",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211912,
           "label": "B",
           "text": "27.12.91",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211911,
           "label": "C",
           "text": "24.12.91",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1211910,
           "label": "D",
           "text": "17.12.91",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "24.12.91",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211911,
+      "solution": "1/12/91 is the first Sunday of December 91\n\r\nSo, 3/12/91 is the first Tuesday of the month.\n\r\nClearly, 10/12/91, 17/12/91, 24/12/91, and 31/12/91 are also Tuesdays.\n\r\nSo, 24/12/91 is the fourth Tuesday."
     },
     {
       "id": 604229,
@@ -649,30 +757,36 @@
           "id": 1211940,
           "label": "A",
           "text": "Tuesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211941,
           "label": "B",
           "text": "Wednesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211939,
           "label": "C",
           "text": "Monday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211938,
           "label": "D",
           "text": "Sunday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Sunday",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211938,
+      "solution": "The year 2004 is a leap year. So, it has 2 odd days.\n\r\nBut, Feb 2004 is not included because we are calculating from March 2004 to March 2005. So it has 1 odd day only.\n\r\nThe day on 5th March 2005 will be 1 day beyond the day on 5th March 2004.\n\r\nGiven that, 5th March 2005 is Monday.\n\r\n5th March 2004 is Sunday (1 day before to 5th March 2005)."
     },
     {
       "id": 604244,
@@ -684,30 +798,36 @@
           "id": 1211999,
           "label": "A",
           "text": "Monday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211994,
           "label": "B",
           "text": "Tuesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1211998,
           "label": "C",
           "text": "Wednesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1212001,
           "label": "D",
           "text": "Sunday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Wednesday",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1211998,
+      "solution": "2nd Jan 1901 means\n\r\n(1900 years and 2 days)\n\r\nNow, 1600 years have 0 odd day\n\r\n300 years have 1 odd day\n\r\n2 days have 2 odd day\n\r\nTotal no. of odd days = 0 + 1 + 2 = 3 days\n\r\nHence, the day on 2nd Jan 1901 was Wednesday."
     },
     {
       "id": 604258,
@@ -719,30 +839,36 @@
           "id": 1212056,
           "label": "A",
           "text": "Wednesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1212054,
           "label": "B",
           "text": "Saturday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212055,
           "label": "C",
           "text": "Monday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212057,
           "label": "D",
           "text": "Friday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Wednesday",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1212056,
+      "solution": "16 June, 1993 = (1992 years + Period from 1.1.1993 to 16.6.1993)\n\r\nOdd days in 1600 years = 0\n\r\nOdd days in 300 years = 1\n\r\n92 years = (69 ordinary years + 23 leap year) = (69 {tex}\\times{/tex} 1 + 23 {tex}\\times{/tex} 2) = 3 odd days\n\r\nJan, Feb, March, April, May, June\n\r\n(31 + 28 + 31 + 30 + 31 + 16) = 167 days\n\r\n167 days = (23 weeks + 6 days) = 6 odd days.\n\r\nTotal number of odd days = (0 + 1 + 3 + 6) = 3 odd days\n\r\nGiven day is Wednesday."
     },
     {
       "id": 604264,
@@ -754,30 +880,36 @@
           "id": 1212078,
           "label": "A",
           "text": "1828",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1212080,
           "label": "B",
           "text": "1830",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212079,
           "label": "C",
           "text": "1850",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212081,
           "label": "D",
           "text": "1852",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "1828",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1212078,
+      "solution": "Given year 1856, when divided by 4 leaves a remainder of 0.\n\r\nNOTE: When the remainder is 0, 28 is subtracted to the given year to get the result.\n\r\nSo, 1856 - 28 = 1828"
     },
     {
       "id": 604275,
@@ -789,30 +921,36 @@
           "id": 1212124,
           "label": "A",
           "text": "Saturday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212125,
           "label": "B",
           "text": "Wednesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212122,
           "label": "C",
           "text": "Friday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1212123,
           "label": "D",
           "text": "Thursday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Thursday",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1212123,
+      "solution": "18 Feb, 2016 = (2015 years + Period from 1.1.2016 to 18.2.2016)\n\r\nOdd days in 1600 years = 0\n\r\nOdd days in 400 years = 0\n\r\n15 years = (12 ordinary years + 3 leap year) = (12 {tex}\\times{/tex} 1 + 3 {tex}\\times{/tex} 2)= 4 odd days\n\r\nJan Feb\n\r\n(31 + 18) = 49 days\n\r\n49 days = (7 weeks + 0 day) = 0 odd day\n\r\nTotal number of odd days = (0 + 0 + 4 + 0) = 4 odd day\n\r\nGiven day is Thursday"
     },
     {
       "id": 604650,
@@ -824,30 +962,36 @@
           "id": 1213626,
           "label": "A",
           "text": "Wednesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213623,
           "label": "B",
           "text": "Saturday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213625,
           "label": "C",
           "text": "Tuesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213622,
           "label": "D",
           "text": "Sunday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Sunday",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1213622,
+      "solution": "The year 2004 is a leap year. So, it has 2 odd days.\n\r\nBut, Feb 2004 not included because we are calculating from March 2004 to March 2005.\n\r\nSo it has 1 odd day only.\n\r\nThe day on 6th March, 2005 will be 1 day beyond the day on 6th March, 2004.\n\r\nGiven that, 6th March, 2005 is Monday.\n\r\n6th March, 2004 is Sunday (1 day before to 6th March, 2005)."
     },
     {
       "id": 604661,
@@ -859,30 +1003,36 @@
           "id": 1213663,
           "label": "A",
           "text": "Saturday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213668,
           "label": "B",
           "text": "Monday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213669,
           "label": "C",
           "text": "Tuesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213665,
           "label": "D",
           "text": "Friday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Friday",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1213665,
+      "solution": "The year 2006 is an ordinary year. So, it has 1 odd day.\n\r\nSo, the day on 8th Dec, 2007 will be 1 day beyond the day on 8th Dec, 2006.\n\r\nBut, 8th Dec, 2007 is Saturday\n\r\nSo, 8th Dec, 2006 is Friday."
     },
     {
       "id": 604671,
@@ -894,30 +1044,36 @@
           "id": 1213708,
           "label": "A",
           "text": "Wednesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213707,
           "label": "B",
           "text": "Tuesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1213706,
           "label": "C",
           "text": "Monday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213709,
           "label": "D",
           "text": "Sunday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Tuesday",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1213707,
+      "solution": "The year 2007 is an ordinary year. So, it has 1 odd day.\n\r\n1st day of the year 2007 was Monday\n\r\n1st day of the year 2008 will be 1 day beyond Monday\n\r\nHence, it will be Tuesday."
     },
     {
       "id": 604679,
@@ -929,30 +1085,36 @@
           "id": 1213741,
           "label": "A",
           "text": "2018",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1213739,
           "label": "B",
           "text": "2016",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213740,
           "label": "C",
           "text": "2017",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213738,
           "label": "D",
           "text": "2014",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "2018",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1213741,
+      "solution": "Count the number of odd days from the year 2007 onwards to get the sum equal to 0 odd days.\n\r\n\r\n\r\n\t\r\n\t\t\r\n\t\t\tYear\r\n\t\t\t2007\r\n\t\t\t2008\r\n\t\t\t2009\r\n\t\t\t2010\r\n\t\t\t2011\r\n\t\t\t2012\r\n\t\t\t2013\r\n\t\t\t2014\r\n\t\t\t2015\r\n\t\t\t2016\r\n\t\t\t2017\r\n\n\r\n\t\t\r\n\t\t\tOdd day\r\n\t\t\t1\r\n\t\t\t2\r\n\t\t\t1\r\n\t\t\t1\r\n\t\t\t1\r\n\t\t\t2\r\n\t\t\t1\r\n\t\t\t1\r\n\t\t\t1\r\n\t\t\t2\r\n\t\t\t1\r\n\n\r\n\t\r\n\r\n\r\nSum = 14 odd days = 0 odd days\n\r\n{tex}\\therefore{/tex} The calendar for the year 2018 will be the same for the year 2007."
     },
     {
       "id": 604691,
@@ -964,30 +1126,36 @@
           "id": 1213789,
           "label": "A",
           "text": "1926",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213787,
           "label": "B",
           "text": "1901",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213788,
           "label": "C",
           "text": "1903",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1213786,
           "label": "D",
           "text": "1908",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "1903",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1213788,
+      "solution": "Repetition of leap year\n\r\n{tex}\\Rightarrow{/tex} Add +28 to the Given Year.\n\r\nRepetition of a non-leap year\n\r\nStep 1: Add +11 to the Given Year. If Result is a leap year, Go to step 2.\n\r\nStep 2: Add +6 to the Given Year.\n\r\nSolution:\n\r\nThe given Year is 1897, Which is a non-leap year.\n\r\nStep 1: Add +11 to the given year (i.e 1897 + 11) = 1908, Which is a leap year.\n\r\nStep 2: Add +6 to the given year (i.e 1897 + 6) = 1903\n\r\nTherefore, The calendar of the year 1897 can be used again in the year 1903"
     },
     {
       "id": 604701,
@@ -999,30 +1167,36 @@
           "id": 1213827,
           "label": "A",
           "text": "Monday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213830,
           "label": "B",
           "text": "Thursday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213829,
           "label": "C",
           "text": "Saturday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1213826,
           "label": "D",
           "text": "Sunday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Saturday",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1213829,
+      "solution": "15th August, 1947 = (1946 years + Period from 1st Jan, 1947 to 15th)\n\r\nCounting of odd days:\n\r\n1600 years have 0 odd day. 300 years have 1 odd day.\n\r\n47 years = (11 leap years + 36 ordinary years) = [(11 {tex}\\times{/tex} 2) + (36 {tex}\\times{/tex} 1) ]odd days = 58 odd days = 2 odd days\n\r\nJan, Feb, Mar, Apr, May, Jun, Jul, Aug.\n\r\n31 + 28 + 31 + 30 + 31 + 30 + 31 + 15 = 227 days = (32 weeks + 3 days) = 3\n\r\nTotal number of odd days = (0 + 1 + 2 + 3) odd days = 6 odd days\n\r\nHence, the required day was 'Saturday'."
     },
     {
       "id": 604714,
@@ -1034,30 +1208,36 @@
           "id": 1213878,
           "label": "A",
           "text": "24",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1213880,
           "label": "B",
           "text": "22",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213881,
           "label": "C",
           "text": "25",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213879,
           "label": "D",
           "text": "23",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "24",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1213878,
+      "solution": "Given that the month begins on a Friday and has 31 days\n\r\nSundays = 3rd, 10th, 17th, 24th, 31st\n\r\n{tex}\\Rightarrow{/tex} Total Sundays = 5\n\r\nEvery second & fourth Saturday is a holiday.\n\r\n2nd & 4th Saturday in every month = 2\n\r\nTotal days in the month = 31\n\r\nTotal working days = 31 - (5 + 2) = 24 days."
     },
     {
       "id": 604723,
@@ -1069,30 +1249,36 @@
           "id": 1213914,
           "label": "A",
           "text": "Thursday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213916,
           "label": "B",
           "text": "Saturday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213915,
           "label": "C",
           "text": "Friday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213917,
           "label": "D",
           "text": "Sunday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Sunday",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1213917,
+      "solution": "28 May, 2006 = (2005 years + Period from 1.1.2006 to 28.5.2006)\n\r\nOdd days in 1600 years = 0\n\r\nOdd days in 400 years = 0\n\r\n5 years = (4 ordinary years + 1 leap years) = (4 {tex}\\times{/tex} 1 + 1 {tex}\\times{/tex} 2) = 6 odd days\n\r\nJan. Feb. March. April. May (31 + 28 + 31 + 30 + 28) = 148 days\n\r\n{tex}\\therefore{/tex} 148 days = 21 weeks + 1 day = 1 odd day\n\r\nTotal number of odd days = (0 + 0 + 6 + 1) = 7 = 0 odd day\n\r\nGiven day is Sunday."
     },
     {
       "id": 604731,
@@ -1104,30 +1290,36 @@
           "id": 1213948,
           "label": "A",
           "text": "Friday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213949,
           "label": "B",
           "text": "Wednesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213946,
           "label": "C",
           "text": "Sunday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213947,
           "label": "D",
           "text": "Saturday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Saturday",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1213947,
+      "solution": "1 Oct, 1994 = (1993 years + Period from 1.1.1993 to 1.10.1993)\n\r\nOdd days in 1600 years = 0\n\r\nOdd days in 300 years = 1\n\r\n93 years = (70 ordinary years + 23 leap year) = (70 {tex}\\times{/tex} 1 + 23 {tex}\\times{/tex} 2) = 4 odd days\n\r\nJan, Feb, March, April, May, June, July, Aug, sept, Oct\n\r\n(31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 1 ) = 274 days\n\r\n274 days = (39 weeks + 1 day) = 1 odd day.\n\r\nTotal number of odd days = (0 + 1 + 4 + 1) = 6 odd days.\n\r\nThe given day is Saturday."
     },
     {
       "id": 604742,
@@ -1139,30 +1331,36 @@
           "id": 1213993,
           "label": "A",
           "text": "Friday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213990,
           "label": "B",
           "text": "Monday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1213991,
           "label": "C",
           "text": "Saturday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1213992,
           "label": "D",
           "text": "Sunday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Saturday",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1213991,
+      "solution": "31st Dec, 2011 = (2010 years + Period from 1.1.2011 to 31.12.2011)\n\r\nOdd days in 2000 years = 0\n\r\n10 years has 2 leap years + 8 ordinary years.\n\r\nNumber of odd days in 10 years ( 2 {tex}\\times{/tex} 2 + 8) = 5 odd days.\n\r\n31st,Dec {tex}\\Rightarrow{/tex} complete year of 2011 (non-leap year) = 1 odd day.\n\r\nTotal number of odd days = (0 + 5 + 1) = 6.\n\r\nThe given day is saturday."
     },
     {
       "id": 604750,
@@ -1174,30 +1372,36 @@
           "id": 1214023,
           "label": "A",
           "text": "Saturday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214025,
           "label": "B",
           "text": "Tuesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214024,
           "label": "C",
           "text": "Thursday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214022,
           "label": "D",
           "text": "Wednesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "Wednesday",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1214022,
+      "solution": "9th May, 2001 = (2000 years + Period from 1.1.2001 to 9.5.2001)\n\r\nOdd days in 1600 years = 0\n\r\nOdd days in 400 years = 0\n\r\nJan. Feb. March April May\n\r\n(31 + 28 + 31 + 30 + 9) = 129 days\n\r\n129 days = (18 weeks + 3 day) = 3 odd day\n\r\nTotal number of odd days = (0 + 0 + 3 ) = 3 odd day\n\r\nGiven day is Wednesday."
     },
     {
       "id": 604759,
@@ -1209,30 +1413,36 @@
           "id": 1214061,
           "label": "A",
           "text": "Friday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214059,
           "label": "B",
           "text": "Wednesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214058,
           "label": "C",
           "text": "Saturday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1214060,
           "label": "D",
           "text": "Thursday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Saturday",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1214058,
+      "solution": "19th April, 1986 = (1985 years + Period from 1.1.1986 to 19.4.1986)\n\r\nOdd days in 1600 years = 0\n\r\nOdd days in 300 years = 1\n\r\n85 years has 21 leap years + 64 ordinary years.\n\r\nNumber of odd days in 85 years =( 21 {tex}\\times{/tex} 2 + 64) = 1 odd day.\n\r\nJan, Feb, March, April\n\r\n(31 + 28 + 31 + 19) = 109 days\n\r\n109 days = 15 weeks + 4 days = 4 odd day\n\r\nTotal number of odd days = (1 + 0 + 1 + 4) = 6\n\r\nGiven day is Saturday."
     },
     {
       "id": 604766,
@@ -1244,30 +1454,36 @@
           "id": 1214087,
           "label": "A",
           "text": "Friday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214086,
           "label": "B",
           "text": "Monday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214088,
           "label": "C",
           "text": "Sunday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1214089,
           "label": "D",
           "text": "Tuesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Sunday",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1214088,
+      "solution": "25 Jan, 1981 = (1980 years + Period from 1.1.1981 to 25.1.1981)\n\r\nOdd days in 1600 years = 0\n\r\nOdd days in 300 years = 1\n\r\n80 years = (60 ordinary years + 20 leap year) = (60 {tex}\\times{/tex} 1 + 20 {tex}\\times{/tex} 2) = 2 odd days\n\r\nJan = 25 days = (3 weeks + 4 days) = 4 odd days\n\r\nTotal number of odd days = (0 + 1 + 2 + 4) = 7= 0 odd day\n\r\nThe given day is Sunday."
     },
     {
       "id": 604774,
@@ -1279,30 +1495,36 @@
           "id": 1214121,
           "label": "A",
           "text": "Tuesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214119,
           "label": "B",
           "text": "Saturday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214118,
           "label": "C",
           "text": "Wednesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1214120,
           "label": "D",
           "text": "Friday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Wednesday",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1214118,
+      "solution": "17th June, 1998 = (1997 years + Period from 1.1.1998 to 17.6.1998)\n\r\nOdd days in 1600 years = 0\n\r\nOdd days in 300 years = (5 {tex}\\times{/tex} 3) 1\n\r\n97 years has 24 leap years + 73 ordinary years.\n\r\nNumber of odd days in 97 years (24 {tex}\\times{/tex} 2 + 73) = 121 = 2 odd days.\n\r\nJan, Feb, March, April, May, June\n\r\n(31 + 28 + 31 + 30 + 31 + 17) = 168 days\n\r\n168 days = 24 weeks = 0 odd day\n\r\nTotal number of odd days = (0 + 1 + 2 + 0) = 3.\n\r\nGiven day is Wednesday"
     },
     {
       "id": 604885,
@@ -1314,30 +1536,36 @@
           "id": 1214564,
           "label": "A",
           "text": "4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214562,
           "label": "B",
           "text": "25",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214565,
           "label": "C",
           "text": "26",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214563,
           "label": "D",
           "text": "24",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "24",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1214563,
+      "solution": "The given year is divided by 4, and the quotient gives the number of leap years.\n\r\nHere, 100 {tex}\\div{/tex} 4 = 25.\n\r\nBut, as 100 is not a leap year {tex}\\Rightarrow{/tex} 25 - 1= 24 leap years."
     },
     {
       "id": 604889,
@@ -1349,30 +1577,36 @@
           "id": 1214581,
           "label": "A",
           "text": "19th April, Saturday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214580,
           "label": "B",
           "text": "21th April, Sunday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214578,
           "label": "C",
           "text": "18th April, Friday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214579,
           "label": "D",
           "text": "20th April, Saturday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "20th April, Saturday",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1214579,
+      "solution": "Given Today is 20th January 2017, Sunday\n\r\nIn january, we have 31 days\n\r\nFebruary - 28 days (Non leap year)\n\r\nMarch - 31 days\n\r\nApril - 30 days\n\r\n{tex}\\Rightarrow{/tex} Remaining days {tex}\\Rightarrow{/tex} 31 - 20 = 11 in Jan\n\r\n+ 28 in Feb + 31 in Mar = 11 + 28 + 31 = 70 days\n\r\nMore 20 days to complete 90 days {tex}\\Rightarrow{/tex} upto 20th April\n\r\nTherefore, after 90 days from today i.e, 20th Jan 2017 is 20th Apr 2017.\n\r\nNow, the day of the week will be\n\r\n90/7 {tex}\\Rightarrow{/tex} Remainder '6'\n\r\nAs the day starts with '0' on Sunday\n\r\n6 {tex}\\Rightarrow{/tex} Saturday.\n\r\nThe required day is 20th April, Saturday."
     },
     {
       "id": 604894,
@@ -1384,30 +1618,36 @@
           "id": 1214600,
           "label": "A",
           "text": "72",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1214601,
           "label": "B",
           "text": "73",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214598,
           "label": "C",
           "text": "75",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214599,
           "label": "D",
           "text": "74",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "72",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1214600,
+      "solution": "The given year is divided by 4, and the quotient gives the number of leap years.\n\r\nHere, 300 {tex}\\times{/tex} 4 = 75.\n\r\nBut, as 100, 200 and 300 are not in leap years {tex}\\Rightarrow{/tex} 75 - 3 = 72 leap years."
     },
     {
       "id": 604897,
@@ -1419,30 +1659,36 @@
           "id": 1214616,
           "label": "A",
           "text": "Monday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214615,
           "label": "B",
           "text": "Sunday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214610,
           "label": "C",
           "text": "Saturday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1214612,
           "label": "D",
           "text": "Friday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Saturday",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1214610,
+      "solution": "350 days = (350 {tex}\\div{/tex} 7 = 50 weeks) i.e no odd days,\n\r\nSo it will be a Saturday."
     },
     {
       "id": 604901,
@@ -1454,30 +1700,38 @@
           "id": 1214628,
           "label": "A",
           "text": "Thursday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1214627,
           "label": "B",
           "text": "Tuesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214626,
           "label": "C",
           "text": "Wednesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1214629,
           "label": "D",
           "text": "Friday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Thursday",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1214628,
+      "solution": "First, we count the number of odd days for the leftover days in the given period.\n\r\nHere, the given period is 12.2.1986 to 1.1.1987\n\r\n\r\n\r\n\t\r\n\t\t\r\n\t\t\tFeb\r\n\t\t\tMar\r\n\t\t\tApr\r\n\t\t\tMay\r\n\t\t\tJune\r\n\t\t\tJuly\r\n\t\t\tAug\r\n\t\t\tSept\r\n\t\t\tOct\r\n\t\t\tNov\r\n\t\t\tDec\r\n\t\t\tJan\r\n\n\r\n\t\t\r\n\t\t\t16\r\n\t\t\t31\r\n\t\t\t30\r\n\t\t\t31\r\n\t\t\t30\r\n\t\t\t31\r\n\t\t\t31\r\n\t\t\t30\r\n\t\t\t31\r\n\t\t\t30\r\n\t\t\t31\r\n\t\t\t1 (day left)\r\n\n\r\n\t\r\n\r\n\r\n2 + 3 + 2 + 3 + 2 + 3 + 3 + 2 + 3 + 2 + 3 + 1 (odd days) = 1 odd day\n\r\nSo, given day Wednesday + 1 = Thursday is the required result."
     }
-  ]
+  ],
+  "answered": 42,
+  "answer_failed": 0
 }

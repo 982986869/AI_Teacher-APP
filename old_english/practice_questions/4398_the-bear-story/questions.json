@@ -5,7 +5,7 @@
   "subject_id": 1919,
   "reported_total": 28,
   "extracted_questions": 28,
-  "questions_with_answer": 13,
+  "questions_with_answer": 28,
   "note": "Practice feed me correct answer nahi hota; jaha ID important-questions se match hua waha answer bhara hai (answer_source).",
   "questions": [
     {
@@ -18,30 +18,36 @@
           "id": 788832,
           "label": "A",
           "text": "In an old manor house",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 788834,
           "label": "B",
           "text": "In a palace",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788833,
           "label": "C",
           "text": "In an appartment",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788835,
           "label": "D",
           "text": "In a hut",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "In an old manor house",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 788832,
+      "solution": "The lady lived in an old manor-house on the border of a big forest."
     },
     {
       "id": 455063,
@@ -53,30 +59,36 @@
           "id": 788839,
           "label": "A",
           "text": "A goat",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788836,
           "label": "B",
           "text": "A bear",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 788838,
           "label": "C",
           "text": "A dog",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788837,
           "label": "D",
           "text": "A cat",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "A bear",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 788836,
+      "solution": "The lady had a pet bear and she was very fond of it. She found the bear lying in the forest half dead of hunger."
     },
     {
       "id": 455064,
@@ -88,30 +100,36 @@
           "id": 788843,
           "label": "A",
           "text": "All of these",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 788842,
           "label": "B",
           "text": "Half dead",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788841,
           "label": "C",
           "text": "Helpless",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788840,
           "label": "D",
           "text": "Very small",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "All of these",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 788843,
+      "solution": "The bear was very small and helpless when the old lady found it lying almost half dead because of hunger in the forest."
     },
     {
       "id": 455066,
@@ -123,30 +141,36 @@
           "id": 788849,
           "label": "A",
           "text": "Ten",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788850,
           "label": "B",
           "text": "Seven",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788851,
           "label": "C",
           "text": "Five",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788848,
           "label": "D",
           "text": "Three",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Three",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 788848,
+      "solution": "The three dogs loved to play all sorts of games with the bear. They pulled the bear's ears and tail. The dogs teased him in every way but the amiable bear never lost his temper or got irritated."
     },
     {
       "id": 455067,
@@ -158,30 +182,36 @@
           "id": 788854,
           "label": "A",
           "text": "Milk",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788852,
           "label": "B",
           "text": "Meat",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 788853,
           "label": "C",
           "text": "Fruit",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788855,
           "label": "D",
           "text": "Vegetables",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Meat",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 788852,
+      "solution": "The bear had never tasted meat and ate bread, porridge, cabbage and turnip usually. He enjoyed his vegetarian meal a lot. He loved to eat fruits and had a robust appetite."
     },
     {
       "id": 455068,
@@ -193,30 +223,36 @@
           "id": 788858,
           "label": "A",
           "text": "Vegetables",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788857,
           "label": "B",
           "text": "Fruit",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788856,
           "label": "C",
           "text": "Bread",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788859,
           "label": "D",
           "text": "All of these",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "All of these",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 788859,
+      "solution": "The bear had never tasted meat. He ate bread, porridge, potato, cabbage, and turnip. He had a fine appetite and fruits were his favourite."
     },
     {
       "id": 455069,
@@ -228,30 +264,36 @@
           "id": 788862,
           "label": "A",
           "text": "Bananas",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788860,
           "label": "B",
           "text": "Apples",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 788861,
           "label": "C",
           "text": "Pears",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788863,
           "label": "D",
           "text": "Oranges",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Apples",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 788860,
+      "solution": "The ripen apples in the orchard captured the bear's attention in the autumn season. He used to sit and look with wistful eyes at the ripening apples in the orchard."
     },
     {
       "id": 455070,
@@ -263,30 +305,36 @@
           "id": 788866,
           "label": "A",
           "text": "Tuesday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788864,
           "label": "B",
           "text": "Sunday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 788865,
           "label": "C",
           "text": "Saturday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788867,
           "label": "D",
           "text": "Monday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Sunday",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 788864,
+      "solution": "Every Sunday the bear was chained when his mistress went to spend the afternoon with her married sister who lived in a solitary house on the other side of the mountain-lake."
     },
     {
       "id": 455072,
@@ -298,30 +346,36 @@
           "id": 788875,
           "label": "A",
           "text": "She promised to play with him",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788873,
           "label": "B",
           "text": "She promised to give him a new collar",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788874,
           "label": "C",
           "text": "She promised to give him chocolates",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788872,
           "label": "D",
           "text": "She promised to give an apple to him",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "She promised to give an apple to him",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 788872,
+      "solution": "The lady visited her sister every Sunday, leaving the bear on the chain the whole afternoon. She promised to give him an apple on returning from her sister's place if he behaved well."
     },
     {
       "id": 455073,
@@ -333,30 +387,36 @@
           "id": 788879,
           "label": "A",
           "text": "Shoe",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788878,
           "label": "B",
           "text": "Bag",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788877,
           "label": "C",
           "text": "Stick",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788876,
           "label": "D",
           "text": "Umbrella",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "Umbrella",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 788876,
+      "solution": "The old lady was enraged on seeing the bear in the forest for he had disobeyed her and in a fit of rage she hit the poor animal's nose with her umbrella."
     },
     {
       "id": 455074,
@@ -368,30 +428,36 @@
           "id": 788881,
           "label": "A",
           "text": "For her sister disliked the bear",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788880,
           "label": "B",
           "text": "For safety reasons",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 788882,
           "label": "C",
           "text": "For the bear was very mischievous",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788883,
           "label": "D",
           "text": "For she liked to travel alone",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "For safety reasons",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 788880,
+      "solution": "The mistress did not want to take the bear along to her sister's house because the road was not safe. It was about one hour's walk through the dense forest. It was not preferable for the bear to wander about in the forest, hence, he was never taken along."
     },
     {
       "id": 455075,
@@ -403,30 +469,36 @@
           "id": 788885,
           "label": "A",
           "text": "A tiger",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788887,
           "label": "B",
           "text": "Her friend",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788884,
           "label": "C",
           "text": "The bear",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 788886,
           "label": "D",
           "text": "The cook",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "The bear",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 788884,
+      "solution": "She was shocked and angry to see that in spite of ordering the bear to stay at the house, the bear followed her and came alongside."
     },
     {
       "id": 455076,
@@ -438,30 +510,36 @@
           "id": 788888,
           "label": "A",
           "text": "Enraged",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 788890,
           "label": "B",
           "text": "Puzzled",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788889,
           "label": "C",
           "text": "Delighted",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788891,
           "label": "D",
           "text": "Excited",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Enraged",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 788888,
+      "solution": "The lady lost her temper and hit the poor animal with her umbrella for being disobedient and following her stealthily."
     },
     {
       "id": 455078,
@@ -473,30 +551,36 @@
           "id": 788896,
           "label": "A",
           "text": "The same day in the evening",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 788898,
           "label": "B",
           "text": "After two days",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788899,
           "label": "C",
           "text": "After a week",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788897,
           "label": "D",
           "text": "The next day",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "The same day in the evening",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 788896,
+      "solution": "The old lady returned home from her married sister's place the same day she went, in the evening."
     },
     {
       "id": 455080,
@@ -508,30 +592,36 @@
           "id": 788905,
           "label": "A",
           "text": "Cunning",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788906,
           "label": "B",
           "text": "Short-tempered",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788904,
           "label": "C",
           "text": "Amiable",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 788907,
           "label": "D",
           "text": "Lazy",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Amiable",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 788904,
+      "solution": "The bear in the story was very friendly. He enjoyed playing with the children and dogs. He did not get angry even the old lady punished him for no reason."
     },
     {
       "id": 455081,
@@ -543,30 +633,36 @@
           "id": 788908,
           "label": "A",
           "text": "In the night",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 788909,
           "label": "B",
           "text": "In the afternoons",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788911,
           "label": "C",
           "text": "Never chained throughout the day",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 788910,
           "label": "D",
           "text": "Chained throughout the day",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "In the night",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 788908,
+      "solution": "The bear was chained only during the night. Bears enjoy their freedom and they lose their patience and become ill-tempered if they are put on-chain throughout the day."
     },
     {
       "id": 632943,
@@ -578,30 +674,36 @@
           "id": 1301432,
           "label": "A",
           "text": "an apple",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1301433,
           "label": "B",
           "text": "a parasol",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301431,
           "label": "C",
           "text": "a kitten",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301434,
           "label": "D",
           "text": "wild berries",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "an apple",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1301432,
+      "solution": "The lady promised him the gift of an apple on her return if he had been good during her absence."
     },
     {
       "id": 632947,
@@ -613,30 +715,36 @@
           "id": 1301447,
           "label": "A",
           "text": "A farmer",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301449,
           "label": "B",
           "text": "The lady",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301448,
           "label": "C",
           "text": "A cook",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1301450,
           "label": "D",
           "text": "An old woman",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "A cook",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1301448,
+      "solution": "A cook looked after the needs of the bear."
     },
     {
       "id": 632953,
@@ -648,30 +756,36 @@
           "id": 1301470,
           "label": "A",
           "text": "A tiger",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301469,
           "label": "B",
           "text": "A lion",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301467,
           "label": "C",
           "text": "Her pet bear",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1301468,
           "label": "D",
           "text": "A jungle bear",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Her pet bear",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1301467,
+      "solution": "The lady met her pet bear on the way."
     },
     {
       "id": 632959,
@@ -683,30 +797,36 @@
           "id": 1301487,
           "label": "A",
           "text": "cunning",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301489,
           "label": "B",
           "text": "cruel",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301488,
           "label": "C",
           "text": "selfish",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301490,
           "label": "D",
           "text": "friendly",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "friendly",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1301490,
+      "solution": "The bear was very friendly."
     },
     {
       "id": 633099,
@@ -718,30 +838,36 @@
           "id": 1301978,
           "label": "A",
           "text": "it was afraid of the lady",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1301976,
           "label": "B",
           "text": "it could not see",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301975,
           "label": "C",
           "text": "it was night time",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301977,
           "label": "D",
           "text": "it was afraid of the night",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "it was afraid of the lady",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1301978,
+      "solution": "The second bear did not attack the lady as it was afraid of the lady."
     },
     {
       "id": 633104,
@@ -753,30 +879,36 @@
           "id": 1301997,
           "label": "A",
           "text": "extremely hungry",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1301996,
           "label": "B",
           "text": "in a pool of blood",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301995,
           "label": "C",
           "text": "in a pitiable condition",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301998,
           "label": "D",
           "text": "all of a sudden",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "extremely hungry",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1301997,
+      "solution": "She had found the bear in the forest half dead of hunger."
     },
     {
       "id": 633109,
@@ -788,30 +920,36 @@
           "id": 1302015,
           "label": "A",
           "text": "slaying the dogs",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302018,
           "label": "B",
           "text": "playing with the kids",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302016,
           "label": "C",
           "text": "being teased by the dogs",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302017,
           "label": "D",
           "text": "sleeping with chains",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "being teased by the dogs",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302016,
+      "solution": "The strong bear did not mind being teased by the dogs. The three dogs loved to play all sorts of games and even tease him by pulling his ear and his stump of a tail, but he did not mind it in the least."
     },
     {
       "id": 633114,
@@ -823,30 +961,36 @@
           "id": 1302036,
           "label": "A",
           "text": "but she felt angry",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302038,
           "label": "B",
           "text": "but she felt annoying",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302037,
           "label": "C",
           "text": "as the bear did not belong to her",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302035,
           "label": "D",
           "text": "of the second bear",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "but she felt angry",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302036,
+      "solution": "The lady was not frightened but she felt angry."
     },
     {
       "id": 633119,
@@ -858,30 +1002,36 @@
           "id": 1302055,
           "label": "A",
           "text": "she came to know about the sister",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302058,
           "label": "B",
           "text": "she knew her fault",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302057,
           "label": "C",
           "text": "the cook told her the home situation",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302056,
           "label": "D",
           "text": "she visited her sister's wild bear",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "the cook told her the home situation",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302057,
+      "solution": "The lady realized her mistake when the cook told her the home situation."
     },
     {
       "id": 633124,
@@ -893,30 +1043,36 @@
           "id": 1302078,
           "label": "A",
           "text": "in times of need",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302076,
           "label": "B",
           "text": "on a holiday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302077,
           "label": "C",
           "text": "every Sunday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302075,
           "label": "D",
           "text": "every fourth Sunday",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "every Sunday",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302077,
+      "solution": "The lady visited her sister every Sunday."
     },
     {
       "id": 633129,
@@ -928,30 +1084,36 @@
           "id": 1302098,
           "label": "A",
           "text": "the bear fainted",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302097,
           "label": "B",
           "text": "the nose of the bear was injured",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302095,
           "label": "C",
           "text": "the parasol broke into two",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302096,
           "label": "D",
           "text": "she got injured",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "the parasol broke into two",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302095,
+      "solution": "The lady hit the bear so hard that the parasol broke into two."
     },
     {
       "id": 633133,
@@ -963,30 +1125,38 @@
           "id": 1302113,
           "label": "A",
           "text": "there was a lake",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302114,
           "label": "B",
           "text": "there was a forest",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302111,
           "label": "C",
           "text": "she was not afraid of the forest",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302112,
           "label": "D",
           "text": "she was concerned for his safety",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "she was concerned for his safety",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302112,
+      "solution": "The lady did not take her pet bear as she was concerned for his safety."
     }
-  ]
+  ],
+  "answered": 28,
+  "answer_failed": 0
 }

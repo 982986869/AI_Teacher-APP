@@ -5,7 +5,7 @@
   "subject_id": 1919,
   "reported_total": 29,
   "extracted_questions": 29,
-  "questions_with_answer": 11,
+  "questions_with_answer": 29,
   "note": "Practice feed me correct answer nahi hota; jaha ID important-questions se match hua waha answer bhara hai (answer_source).",
   "questions": [
     {
@@ -18,30 +18,36 @@
           "id": 796212,
           "label": "A",
           "text": "A mongoose",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796214,
           "label": "B",
           "text": "A butterfly",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796213,
           "label": "C",
           "text": "A peacock",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796211,
           "label": "D",
           "text": "A snake",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "A snake",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796211,
+      "solution": "The poet spotted a snake in the garden of his house. He felt afraid of it as he thought that the snake could bite and kill him."
     },
     {
       "id": 461989,
@@ -53,30 +59,36 @@
           "id": 796216,
           "label": "A",
           "text": "He was delighted",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796217,
           "label": "B",
           "text": "He got excited",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796215,
           "label": "C",
           "text": "He was petrified",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796218,
           "label": "D",
           "text": "He was enraged",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "He was petrified",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796215,
+      "solution": "The poet was scared to see the snake in his garden as he believed that it could kill and bite him."
     },
     {
       "id": 461990,
@@ -88,30 +100,36 @@
           "id": 796221,
           "label": "A",
           "text": "His brother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796222,
           "label": "B",
           "text": "His friend",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796219,
           "label": "C",
           "text": "His mother",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796220,
           "label": "D",
           "text": "His father",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "His mother",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796219,
+      "solution": "The poet's mother told him that the snake that he spotted in the garden was not venomous and ate insects only."
     },
     {
       "id": 461991,
@@ -123,30 +141,36 @@
           "id": 796225,
           "label": "A",
           "text": "Venomous",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796223,
           "label": "B",
           "text": "Harmless",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796224,
           "label": "C",
           "text": "Dangerous",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796226,
           "label": "D",
           "text": "Injured",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Harmless",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796223,
+      "solution": "The poet's mother told him that the snake that he spotted in the garden was not venomous and would not bite or kill him as he had presumed on seeing it."
     },
     {
       "id": 461992,
@@ -158,30 +182,36 @@
           "id": 796227,
           "label": "A",
           "text": "To not be scared",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796229,
           "label": "B",
           "text": "To hit the snake",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796230,
           "label": "C",
           "text": "To run away",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796228,
           "label": "D",
           "text": "To stand still",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "To not be scared",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796227,
+      "solution": "The poet's mother told him that the snake he had spotted in the garden was a harmless one and there was no need to be scared of it as the snake was a garden snake and fed on insects only."
     },
     {
       "id": 461994,
@@ -193,30 +223,36 @@
           "id": 796235,
           "label": "A",
           "text": "Wiggle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796238,
           "label": "B",
           "text": "Creep",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796236,
           "label": "C",
           "text": "Crawl",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796237,
           "label": "D",
           "text": "Slither",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Wiggle",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796235,
+      "solution": "The word used by the poet to project the movement of the snake in the poem was wiggle."
     },
     {
       "id": 461995,
@@ -228,30 +264,36 @@
           "id": 796240,
           "label": "A",
           "text": "Shirley Bauer",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796239,
           "label": "B",
           "text": "Muriel L. Sonne",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796242,
           "label": "C",
           "text": "Ruskin Bond",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796241,
           "label": "D",
           "text": "Robert Frost",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Muriel L. Sonne",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796239,
+      "solution": "The poem Garden snake was composed by the poet Muriel L. Sonne. The poem revolves around a garden snake that was spotted by the poet in the garden."
     },
     {
       "id": 461996,
@@ -263,30 +305,36 @@
           "id": 796246,
           "label": "A",
           "text": "Rat snake",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796245,
           "label": "B",
           "text": "Python",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796243,
           "label": "C",
           "text": "Garden snake",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796244,
           "label": "D",
           "text": "King Cobra",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Garden snake",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796243,
+      "solution": "The poet came across a garden snake in his garden and felt scared on seeing it."
     },
     {
       "id": 461997,
@@ -298,30 +346,36 @@
           "id": 796249,
           "label": "A",
           "text": "to giggle",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796247,
           "label": "B",
           "text": "to make a twisted movement",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796250,
           "label": "C",
           "text": "to lie down still",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796248,
           "label": "D",
           "text": "to wink one's eyes",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "to make a twisted movement",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796247,
+      "solution": "The word wiggle was used by the poet to describe the garden snake's movement. It refers to the twisted movement that the snake makes."
     },
     {
       "id": 461998,
@@ -333,30 +387,36 @@
           "id": 796254,
           "label": "A",
           "text": "He fainted",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796251,
           "label": "B",
           "text": "He ran away",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796253,
           "label": "C",
           "text": "He yelled",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796252,
           "label": "D",
           "text": "He started crying",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "He ran away",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796251,
+      "solution": "The poet was petrified when he spotted a snake as he thought that it would bite and kill him, so he ran away on spotting it initially."
     },
     {
       "id": 461999,
@@ -368,30 +428,36 @@
           "id": 796256,
           "label": "A",
           "text": "For he detested snakes",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796258,
           "label": "B",
           "text": "For his mother instructed him to do so",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796257,
           "label": "C",
           "text": "For he was allergic to snakes",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796255,
           "label": "D",
           "text": "For he got petrified",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "For he got petrified",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796255,
+      "solution": "The poet knew that snakes were venomous creatures and could harm humans, so, when he spotted the snake in the garden he got scared and ran away to save himself."
     },
     {
       "id": 462000,
@@ -403,30 +469,36 @@
           "id": 796262,
           "label": "A",
           "text": "Rodents",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796259,
           "label": "B",
           "text": "Insects",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796261,
           "label": "C",
           "text": "Plants",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796260,
           "label": "D",
           "text": "Grass",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Insects",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796259,
+      "solution": "The garden snakes feed on insects only. They are not poisonous and are quite harmless creatures."
     },
     {
       "id": 462002,
@@ -438,30 +510,36 @@
           "id": 796269,
           "label": "A",
           "text": "Village folks",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796268,
           "label": "B",
           "text": "Snake charmers",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796267,
           "label": "C",
           "text": "General people",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796270,
           "label": "D",
           "text": "Zoologists",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "General people",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796267,
+      "solution": "'They' refers to people in general who believe that snakes are venomous and dangerous creatures prominently."
     },
     {
       "id": 462003,
@@ -473,30 +551,36 @@
           "id": 796271,
           "label": "A",
           "text": "People in general",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796272,
           "label": "B",
           "text": "The poet",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796273,
           "label": "C",
           "text": "Poet's best friend",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796274,
           "label": "D",
           "text": "Poet's teacher",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "People in general",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796271,
+      "solution": "People, in general, say that some snakes are poisonous and dangerous."
     },
     {
       "id": 462004,
@@ -508,30 +592,36 @@
           "id": 796277,
           "label": "A",
           "text": "On the ceiling",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796276,
           "label": "B",
           "text": "On the road",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796275,
           "label": "C",
           "text": "On the grass",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796278,
           "label": "D",
           "text": "In the drain",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "On the grass",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796275,
+      "solution": "The poet spotted the snake wiggling on the grass in the garden."
     },
     {
       "id": 462005,
@@ -543,30 +633,36 @@
           "id": 796280,
           "label": "A",
           "text": "In the river",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796281,
           "label": "B",
           "text": "In the forest",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796279,
           "label": "C",
           "text": "In his garden",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796282,
           "label": "D",
           "text": "In a field",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "In his garden",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796279,
+      "solution": "The poet came across a snake in his garden and felt quite afraid of it as he thought that it would bite and kill him. He presumed it to be a venomous and dangerous one and therefore he ran away on seeing it when he saw the harmless creature."
     },
     {
       "id": 462006,
@@ -578,30 +674,36 @@
           "id": 796285,
           "label": "A",
           "text": "Venomous",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796283,
           "label": "B",
           "text": "Harmless",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796286,
           "label": "C",
           "text": "Ferocious",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796284,
           "label": "D",
           "text": "Dangerous",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Harmless",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796283,
+      "solution": "Garden snakes are supposedly harmless creatures that feed on insects solely for their survival."
     },
     {
       "id": 633184,
@@ -613,30 +715,36 @@
           "id": 1302315,
           "label": "A",
           "text": "stand aside quietly",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302313,
           "label": "B",
           "text": "hit the snake",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302318,
           "label": "C",
           "text": "wait for the guest",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302317,
           "label": "D",
           "text": "run away",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "stand aside quietly",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302315,
+      "solution": "The poet learns a lesson to stand aside quietly because his mother advises him to stand aside and make way for the garden snakes to pass."
     },
     {
       "id": 633192,
@@ -648,30 +756,36 @@
           "id": 1302350,
           "label": "A",
           "text": "creeps",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302347,
           "label": "B",
           "text": "wiggles",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302348,
           "label": "C",
           "text": "crawls",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302349,
           "label": "D",
           "text": "moves",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "wiggles",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302347,
+      "solution": "When the snake wiggles in the grass, the poet is advised to stand aside."
     },
     {
       "id": 633196,
@@ -683,30 +797,36 @@
           "id": 1302365,
           "label": "A",
           "text": "A Bear",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302364,
           "label": "B",
           "text": "A Snake",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302366,
           "label": "C",
           "text": "A Crocodile",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302363,
           "label": "D",
           "text": "A Lion",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "A Snake",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302364,
+      "solution": "The poet saw a snake."
     },
     {
       "id": 633202,
@@ -718,30 +838,36 @@
           "id": 1302390,
           "label": "A",
           "text": "In his school",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302387,
           "label": "B",
           "text": "In his house",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302389,
           "label": "C",
           "text": "In his garden",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302388,
           "label": "D",
           "text": "In a forest",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "In his garden",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302389,
+      "solution": "The poet saw the snake in his garden."
     },
     {
       "id": 633207,
@@ -753,30 +879,36 @@
           "id": 1302407,
           "label": "A",
           "text": "Bed",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302404,
           "label": "B",
           "text": "Grass",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302408,
           "label": "C",
           "text": "Roof",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302405,
           "label": "D",
           "text": "Road",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Grass",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302404,
+      "solution": "The snake wiggles in the grass."
     },
     {
       "id": 633212,
@@ -788,30 +920,36 @@
           "id": 1302430,
           "label": "A",
           "text": "Worms",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302428,
           "label": "B",
           "text": "Chapati",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302429,
           "label": "C",
           "text": "Insects",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302427,
           "label": "D",
           "text": "Food",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Insects",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302429,
+      "solution": "The snake eats up insects for his food."
     },
     {
       "id": 1206837,
@@ -823,30 +961,36 @@
           "id": 2481014,
           "label": "A",
           "text": "Hate",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481016,
           "label": "B",
           "text": "Irritation",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481015,
           "label": "C",
           "text": "Disgust",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481013,
           "label": "D",
           "text": "Fear",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "Fear",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2481013,
+      "solution": "Fear"
     },
     {
       "id": 1206841,
@@ -858,30 +1002,36 @@
           "id": 2481023,
           "label": "A",
           "text": "Mother was always kind to snakes.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481021,
           "label": "B",
           "text": "We must be kind to snakes.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481024,
           "label": "C",
           "text": "The kind of snake the poet met was harmless.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2481022,
           "label": "D",
           "text": "Most kind of snakes are good.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "The kind of snake the poet met was harmless.",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2481024,
+      "solution": "The kind of snake the poet met was harmless."
     },
     {
       "id": 1206843,
@@ -893,30 +1043,36 @@
           "id": 2481030,
           "label": "A",
           "text": "The snake stays on the grass.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481029,
           "label": "B",
           "text": "The snake eats insects.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2481032,
           "label": "C",
           "text": "The snake waits for people to pass by.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481031,
           "label": "D",
           "text": "The snake moves without noise.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "The snake eats insects.",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2481029,
+      "solution": "The snake eats insects"
     },
     {
       "id": 1206848,
@@ -928,30 +1084,36 @@
           "id": 2481037,
           "label": "A",
           "text": "Enthusiastic",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481039,
           "label": "B",
           "text": "Affectionate",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481044,
           "label": "C",
           "text": "Admiring",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481042,
           "label": "D",
           "text": "Thoughtful",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "Thoughtful",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2481042,
+      "solution": "Thoughtful"
     },
     {
       "id": 1206850,
@@ -963,30 +1125,36 @@
           "id": 2481049,
           "label": "A",
           "text": "What makes a snake harmless.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481047,
           "label": "B",
           "text": "The habits of a garden snake.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481045,
           "label": "C",
           "text": "Different kinds of snakes.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481051,
           "label": "D",
           "text": "The poet's meeting with a garden snake.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "The poet's meeting with a garden snake.",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2481051,
+      "solution": "The poet's meeting with a garden snake."
     },
     {
       "id": 1206852,
@@ -998,30 +1166,38 @@
           "id": 2481055,
           "label": "A",
           "text": "It uses humour to convey a message.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481053,
           "label": "B",
           "text": "Every pair of lines rhyme.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2481056,
           "label": "C",
           "text": "There are several comparisons between things.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2481054,
           "label": "D",
           "text": "It uses complex language.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Every pair of lines rhyme.",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2481053,
+      "solution": "Every pair of lines rhyme."
     }
-  ]
+  ],
+  "answered": 29,
+  "answer_failed": 0
 }

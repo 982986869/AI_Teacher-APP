@@ -5,7 +5,7 @@
   "subject_id": 1919,
   "reported_total": 36,
   "extracted_questions": 36,
-  "questions_with_answer": 15,
+  "questions_with_answer": 36,
   "note": "Practice feed me correct answer nahi hota; jaha ID important-questions se match hua waha answer bhara hai (answer_source).",
   "questions": [
     {
@@ -18,30 +18,36 @@
           "id": 454508,
           "label": "A",
           "text": "It takes around five to six weeks for a grub to become a complete ant.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 454510,
           "label": "B",
           "text": "In one to two weeks, a grub becomes a complete ant.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 454511,
           "label": "C",
           "text": "A grub grows into a complete ant in seven to eight weeks.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 454509,
           "label": "D",
           "text": "A grub takes two to three weeks. to become a complete ant.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "It takes around five to six weeks for a grub to become a complete ant.",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 454508,
+      "solution": "After two or three weeks, a grub becomes a cocoon. After another three weeks, the cocoon breaks and a complete ant appears."
     },
     {
       "id": 312437,
@@ -53,30 +59,36 @@
           "id": 454515,
           "label": "A",
           "text": "By carrying the grubs, worker ants provide them with fresh water.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 454514,
           "label": "B",
           "text": "The worker ants carry the grubs for feeding them.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 454513,
           "label": "C",
           "text": "The grubs are carried about by worker ants for swimming.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 454512,
           "label": "D",
           "text": "The worker ants carry the grubs about daily for airing, exercise and sunshine.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "The worker ants carry the grubs about daily for airing, exercise and sunshine.",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 454512,
+      "solution": "The worker ants carry the grubs about daily for airing, exercise and sunshine."
     },
     {
       "id": 312438,
@@ -88,30 +100,36 @@
           "id": 454517,
           "label": "A",
           "text": "They are trained for reading, writing and studying.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 454516,
           "label": "B",
           "text": "New ants are trained for jobs to be accomplished as workers, soldiers, builders, cleaners, etc.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 454519,
           "label": "C",
           "text": "They are trained for carrying food.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 454518,
           "label": "D",
           "text": "Old ants train the new ants for good behaviour.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "New ants are trained for jobs to be accomplished as workers, soldiers, builders, cleaners, etc.",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 454516,
+      "solution": "New ants are trained for jobs to be accomplished as workers, soldiers, builders, cleaners, etc."
     },
     {
       "id": 312441,
@@ -123,30 +141,36 @@
           "id": 454528,
           "label": "A",
           "text": "anthill",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 454531,
           "label": "B",
           "text": "branches",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 454530,
           "label": "C",
           "text": "burrow",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 454529,
           "label": "D",
           "text": "House",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "anthill",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 454528,
+      "solution": "anthill"
     },
     {
       "id": 312448,
@@ -158,30 +182,36 @@
           "id": 454547,
           "label": "A",
           "text": "The king ant",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 454546,
           "label": "B",
           "text": "The queen ant",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 454545,
           "label": "C",
           "text": "Worker ants",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 454544,
           "label": "D",
           "text": "Soldier ants",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Soldier ants",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 454544,
+      "solution": "Soldier ants"
     },
     {
       "id": 312541,
@@ -193,30 +223,36 @@
           "id": 454893,
           "label": "A",
           "text": "The elephant",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 454892,
           "label": "B",
           "text": "The ant",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 454894,
           "label": "C",
           "text": "The small boy",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 454895,
           "label": "D",
           "text": "The author",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "The ant",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 454892,
+      "solution": "The ant"
     },
     {
       "id": 462030,
@@ -228,30 +264,36 @@
           "id": 796381,
           "label": "A",
           "text": "A dwarf",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796379,
           "label": "B",
           "text": "An ant",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796382,
           "label": "C",
           "text": "A short old woman",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796380,
           "label": "D",
           "text": "A little girl",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "An ant",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796379,
+      "solution": "The ant was referred to as 'the tiny teacher' in the chapter for they are very hardworking and intelligent. There is a lot that we humans can learn from an ant's life and behaviour."
     },
     {
       "id": 462031,
@@ -263,30 +305,36 @@
           "id": 796385,
           "label": "A",
           "text": "Their legs",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796383,
           "label": "B",
           "text": "Their feelers",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796384,
           "label": "C",
           "text": "Their wings",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796386,
           "label": "D",
           "text": "Their eyes",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Their feelers",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796383,
+      "solution": "The ants use their antennae or feelers to talk or communicate with each other. Each ant greets all the other ants coming from the opposite direction by touching their feelers."
     },
     {
       "id": 462032,
@@ -298,30 +346,36 @@
           "id": 796390,
           "label": "A",
           "text": "King ant",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796388,
           "label": "B",
           "text": "Queen ant",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796389,
           "label": "C",
           "text": "Soldier ant",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796387,
           "label": "D",
           "text": "Worker ant",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "Worker ant",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796387,
+      "solution": "The worker ants feed and clean the grubs once they come out of the eggs. They also carry the grubs every day for airing, exercise, and sunshine."
     },
     {
       "id": 462033,
@@ -333,30 +387,36 @@
           "id": 796392,
           "label": "A",
           "text": "Fifty years",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796391,
           "label": "B",
           "text": "Fifteen years",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796393,
           "label": "C",
           "text": "Twenty years",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796394,
           "label": "D",
           "text": "Ten years",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Fifteen years",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796391,
+      "solution": "The queen ant's life span is about fifteen years. Her main task is to lay eggs."
     },
     {
       "id": 462034,
@@ -368,30 +428,36 @@
           "id": 796398,
           "label": "A",
           "text": "Twenty weeks",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796396,
           "label": "B",
           "text": "Six to seven weeks",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796395,
           "label": "C",
           "text": "Two to three weeks",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796397,
           "label": "D",
           "text": "Fifteen to sixteen weeks",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Two to three weeks",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796395,
+      "solution": "A grub becomes a cocoon in about two to three weeks and then it takes another three weeks to step out of the cocoon. Grubs become cocoons and lie without food and activity for three more weeks."
     },
     {
       "id": 462035,
@@ -403,30 +469,36 @@
           "id": 796399,
           "label": "A",
           "text": "Ants",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796402,
           "label": "B",
           "text": "All of these",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796401,
           "label": "C",
           "text": "Greenfly",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796400,
           "label": "D",
           "text": "Beetles",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "All of these",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796402,
+      "solution": "Beetles, lesser breeds of ants, and greenflies also live in the anthills along with Ants. Ants allow these other creatures to live in their anthills because of ants like the pleasant smell of some of these creatures. A few of them are treated like pets."
     },
     {
       "id": 462036,
@@ -438,30 +510,36 @@
           "id": 796404,
           "label": "A",
           "text": "Discipline",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796403,
           "label": "B",
           "text": "Hard work",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796406,
           "label": "C",
           "text": "All of these",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796405,
           "label": "D",
           "text": "Cleanliness",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "All of these",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796406,
+      "solution": "We can learn innumerable lessons from this tiny teacher. The ants are extremely hardworking and laborious. They peacefully divide their duties and accomplish their tasks very systematically. The ants are also cleaners."
     },
     {
       "id": 462037,
@@ -473,30 +551,36 @@
           "id": 796409,
           "label": "A",
           "text": "By dancing",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796408,
           "label": "B",
           "text": "By whispering",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796407,
           "label": "C",
           "text": "By touching their feelers",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796410,
           "label": "D",
           "text": "By flying above ants",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "By touching their feelers",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796407,
+      "solution": "The ants greet all other ants coming from the opposite direction by touching their feelers or antennae."
     },
     {
       "id": 462040,
@@ -508,30 +592,36 @@
           "id": 796420,
           "label": "A",
           "text": "The soldier ant",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796421,
           "label": "B",
           "text": "The queen ant",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796422,
           "label": "C",
           "text": "The grub",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796419,
           "label": "D",
           "text": "The worker ant",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "The worker ant",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796419,
+      "solution": "Worker ants are assigned the task of going out in search of food. They live in the reserved quarters and spend most of their time searching for food."
     },
     {
       "id": 462042,
@@ -543,30 +633,36 @@
           "id": 796430,
           "label": "A",
           "text": "Quarters",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796429,
           "label": "B",
           "text": "Nurseries",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796427,
           "label": "C",
           "text": "Barracks",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796428,
           "label": "D",
           "text": "Storehouses",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Barracks",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796427,
+      "solution": "Soldier ants live in the barracks inside the anthills and are given the task of safeguarding the grubs as well as the food collected by the worker ants."
     },
     {
       "id": 462043,
@@ -578,30 +674,36 @@
           "id": 796432,
           "label": "A",
           "text": "Enraged",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796434,
           "label": "B",
           "text": "Indifferent",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796433,
           "label": "C",
           "text": "Sad",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796431,
           "label": "D",
           "text": "Happy",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Happy",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796431,
+      "solution": "Each Ant greets all the others coming from the opposite direction by touching their feelers. They lead a very peaceful life and do not interfere in each other's work. They never fight or harm each other."
     },
     {
       "id": 462044,
@@ -613,30 +715,36 @@
           "id": 796436,
           "label": "A",
           "text": "The worm",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796437,
           "label": "B",
           "text": "The fly",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796438,
           "label": "C",
           "text": "The mosquito",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796435,
           "label": "D",
           "text": "The ant",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "The ant",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796435,
+      "solution": "Ants are termed to be the wisest, commonest, and the smallest creature on this planet by the author. Though it is very small in size, the ant is unbelievably intelligent and hard-working."
     },
     {
       "id": 462045,
@@ -648,30 +756,36 @@
           "id": 796441,
           "label": "A",
           "text": "To clean the anthills",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796440,
           "label": "B",
           "text": "To play with grubs",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796439,
           "label": "C",
           "text": "To give honeydew",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796442,
           "label": "D",
           "text": "To give off pleasant smells",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "To give honeydew",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796439,
+      "solution": "The ants train the greenflies to give honeydew with a touch of their antennae. They milk it just as we milk the cow. The greenfly is the ant's cow."
     },
     {
       "id": 462046,
@@ -683,30 +797,36 @@
           "id": 796444,
           "label": "A",
           "text": "The queen ant",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796445,
           "label": "B",
           "text": "The soldier ant",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796443,
           "label": "C",
           "text": "The worker ant",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796446,
           "label": "D",
           "text": "The grub",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": "The worker ant",
-      "correct_answer_label": null,
-      "answer_source": "important_questions_text_only"
+      "correct_answer": "The worker ant",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796443,
+      "solution": "The worker ants go out and spend most of their time searching for food. They reside in their own reserved quarters in an anthill."
     },
     {
       "id": 462047,
@@ -718,30 +838,36 @@
           "id": 796449,
           "label": "A",
           "text": "Blue",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796447,
           "label": "B",
           "text": "Black",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796450,
           "label": "C",
           "text": "Golden",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796448,
           "label": "D",
           "text": "Green",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Black",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796447,
+      "solution": "There are many kinds of ants. The commonest among them are red or black coloured ones."
     },
     {
       "id": 462048,
@@ -753,30 +879,36 @@
           "id": 796454,
           "label": "A",
           "text": "Eggs",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796452,
           "label": "B",
           "text": "Cubs",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796451,
           "label": "C",
           "text": "Grubs",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796453,
           "label": "D",
           "text": "Calves",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Grubs",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796451,
+      "solution": "Ant's young ones are known as grubs. They come out of the hatched eggs. They take around six weeks to become a perfect ant."
     },
     {
       "id": 462050,
@@ -788,30 +920,36 @@
           "id": 796459,
           "label": "A",
           "text": "Hundreds",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 796462,
           "label": "B",
           "text": "Millions",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796460,
           "label": "C",
           "text": "Thousands",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 796461,
           "label": "D",
           "text": "Tens",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Hundreds",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 796459,
+      "solution": "An anthill has hundreds of rooms and passages. In some of these rooms, the queen ant lays eggs, the others are divided into nurseries for grubs, barracks for the soldiers, and reserved quarters for the worker ants."
     },
     {
       "id": 632816,
@@ -823,30 +961,36 @@
           "id": 1301006,
           "label": "A",
           "text": "Burrow",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301005,
           "label": "B",
           "text": "Den",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1301003,
           "label": "C",
           "text": "Barracks",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301004,
           "label": "D",
           "text": "Stable",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Den",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1301005,
+      "solution": "A lion lives in a den."
     },
     {
       "id": 633231,
@@ -858,30 +1002,36 @@
           "id": 1302503,
           "label": "A",
           "text": "buildings",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302506,
           "label": "B",
           "text": "barracks",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302504,
           "label": "C",
           "text": "burrows",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302505,
           "label": "D",
           "text": "asylums",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "barracks",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302506,
+      "solution": "Soldiers have separate barracks. No worker has ever tried to live in a soldier&rsquo;s house."
     },
     {
       "id": 633250,
@@ -893,30 +1043,36 @@
           "id": 1302582,
           "label": "A",
           "text": "queen ant",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302579,
           "label": "B",
           "text": "sharing work",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302581,
           "label": "C",
           "text": "secret mission",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302580,
           "label": "D",
           "text": "hard work",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "sharing work",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302579,
+      "solution": "They live in peace as each one does their share of work intelligently and bravely."
     },
     {
       "id": 633266,
@@ -928,30 +1084,36 @@
           "id": 1302641,
           "label": "A",
           "text": "Always",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302643,
           "label": "B",
           "text": "Forever",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302639,
           "label": "C",
           "text": "Never",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302640,
           "label": "D",
           "text": "Sometimes",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Never",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302639,
+      "solution": "An ant&rsquo;s life is very peaceful. Each does its share of work intelligently and bravely, and never fights with other members of the group."
     },
     {
       "id": 633281,
@@ -963,30 +1125,36 @@
           "id": 1302703,
           "label": "A",
           "text": "Teaching and training",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302705,
           "label": "B",
           "text": "Crawling and moving",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302706,
           "label": "C",
           "text": "Moving and flying",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302704,
           "label": "D",
           "text": "Eating and walking",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Teaching and training",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302703,
+      "solution": "After the new ants appear they go for teaching and training. They learn their duties from old ants."
     },
     {
       "id": 633286,
@@ -998,30 +1166,36 @@
           "id": 1302723,
           "label": "A",
           "text": "Beetles",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302724,
           "label": "B",
           "text": "Lesser breeds of ants",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302725,
           "label": "C",
           "text": "Greenfly",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302726,
           "label": "D",
           "text": "All of these",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "All of these",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302726,
+      "solution": "An anthill is home not only for ants but also for some other creatures&mdash; beetles, lesser breeds of ants, and the greenfly."
     },
     {
       "id": 633291,
@@ -1033,30 +1207,36 @@
           "id": 1302746,
           "label": "A",
           "text": "As pets or playthings",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302743,
           "label": "B",
           "text": "All of these",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302745,
           "label": "C",
           "text": "For pleasant smell",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302744,
           "label": "D",
           "text": "For sweet juices",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "All of these",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302743,
+      "solution": "The alien creatures live in anthills for several reasons: some give off smell pleasant to the ants&rsquo; senses; others give sweet juices, and some are just pets or playthings like cats and dogs to human beings."
     },
     {
       "id": 633296,
@@ -1068,30 +1248,36 @@
           "id": 1302763,
           "label": "A",
           "text": "Honeydew",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302764,
           "label": "B",
           "text": "Milk",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302765,
           "label": "C",
           "text": "Water",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302766,
           "label": "D",
           "text": "Food",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Honeydew",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302763,
+      "solution": "The greenfly is the ants&rsquo; cow. The ants train it to give honeydew (like milk) with a touch of their antennae."
     },
     {
       "id": 633301,
@@ -1103,30 +1289,36 @@
           "id": 1302783,
           "label": "A",
           "text": "Animals",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302786,
           "label": "B",
           "text": "Mothers",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302785,
           "label": "C",
           "text": "Human beings",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302784,
           "label": "D",
           "text": "Birds",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Human beings",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302785,
+      "solution": "Human beings can learn a lot from this small teacher. We can learn from them hard work, sense of duty and discipline, cleanliness, loyalty and care for the young ones."
     },
     {
       "id": 633307,
@@ -1138,30 +1330,36 @@
           "id": 1302807,
           "label": "A",
           "text": "Hard work",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302810,
           "label": "B",
           "text": "All of these",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302808,
           "label": "C",
           "text": "Sense of duty",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302809,
           "label": "D",
           "text": "Discipline",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "All of these",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302810,
+      "solution": "Human beings can learn a lot from this small teacher. We can learn from the ant hard work, sense of duty and discipline, cleanliness, loyalty, and care for the young ones."
     },
     {
       "id": 633311,
@@ -1173,30 +1371,36 @@
           "id": 1302823,
           "label": "A",
           "text": "Children",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302826,
           "label": "B",
           "text": "Parents",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302824,
           "label": "C",
           "text": "Grandparents",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302825,
           "label": "D",
           "text": "Friends",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Children",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302823,
+      "solution": "Children are generally referred to as 'young ones'."
     },
     {
       "id": 633316,
@@ -1208,30 +1412,36 @@
           "id": 1302846,
           "label": "A",
           "text": "Three",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302844,
           "label": "B",
           "text": "Four",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302843,
           "label": "C",
           "text": "Two",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302845,
           "label": "D",
           "text": "Six",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Two",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302843,
+      "solution": "There are many kinds of ants. The commonest among them are the black or red ones."
     },
     {
       "id": 633321,
@@ -1243,30 +1453,38 @@
           "id": 1302864,
           "label": "A",
           "text": "peaceful",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302865,
           "label": "B",
           "text": "hard",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302863,
           "label": "C",
           "text": "sorrowful",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302866,
           "label": "D",
           "text": "uncomfortable",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "peaceful",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302864,
+      "solution": "An ant's life is very peaceful as each of them does its share of work intelligently and bravely and never fights with other members of the group."
     }
-  ]
+  ],
+  "answered": 36,
+  "answer_failed": 0
 }

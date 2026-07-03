@@ -5,7 +5,7 @@
   "subject_id": 1919,
   "reported_total": 35,
   "extracted_questions": 35,
-  "questions_with_answer": 13,
+  "questions_with_answer": 35,
   "note": "Practice feed me correct answer nahi hota; jaha ID important-questions se match hua waha answer bhara hai (answer_source).",
   "questions": [
     {
@@ -18,30 +18,36 @@
           "id": 478660,
           "label": "A",
           "text": "a wig",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 478662,
           "label": "B",
           "text": "a smile",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 478661,
           "label": "C",
           "text": "a coat",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 478659,
           "label": "D",
           "text": "a tail",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "a coat",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 478661,
+      "solution": "a coat"
     },
     {
       "id": 323691,
@@ -53,30 +59,36 @@
           "id": 478666,
           "label": "A",
           "text": "it looks strange",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 478665,
           "label": "B",
           "text": "it sends a caution to others",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 478664,
           "label": "C",
           "text": "it is never perpendicular",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 478663,
           "label": "D",
           "text": "its tip keeps pointing down",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "its tip keeps pointing down",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 478663,
+      "solution": "its tip keeps pointing down"
     },
     {
       "id": 323693,
@@ -88,30 +100,36 @@
           "id": 478668,
           "label": "A",
           "text": "only playing",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 478669,
           "label": "B",
           "text": "to do some funny tricks",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 478667,
           "label": "C",
           "text": "eating nuts",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 478670,
           "label": "D",
           "text": "to dance around the trees and play",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "to do some funny tricks",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 478669,
+      "solution": "to do some funny tricks"
     },
     {
       "id": 323694,
@@ -123,30 +141,36 @@
           "id": 478674,
           "label": "A",
           "text": "play at all times",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 478672,
           "label": "B",
           "text": "play with human beings",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 478671,
           "label": "C",
           "text": "play with nuts",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 478673,
           "label": "D",
           "text": "play around with trees",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "play with human beings",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 478672,
+      "solution": "play with human beings"
     },
     {
       "id": 448093,
@@ -158,30 +182,36 @@
           "id": 776555,
           "label": "A",
           "text": "A gray overcoat",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776556,
           "label": "B",
           "text": "An exclamatory mark",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776557,
           "label": "C",
           "text": "A white cloth",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776554,
           "label": "D",
           "text": "A question mark",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "A question mark",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 776554,
+      "solution": "The poet begins the poem with a description of the squirrel and says that he wore a question mark for the tail. The tail of a squirrel is twisted in the shape of a question mark which the poet represented in the poem."
     },
     {
       "id": 448094,
@@ -193,30 +223,36 @@
           "id": 776559,
           "label": "A",
           "text": "To climb up a tree",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776560,
           "label": "B",
           "text": "To play with the poet",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776558,
           "label": "C",
           "text": "To eat a nut",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 776561,
           "label": "D",
           "text": "To hide behind a tree",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "To eat a nut",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 776558,
+      "solution": "The poet described the squirrel in the first two lines and then said that he sat up to eat a nut."
     },
     {
       "id": 448095,
@@ -228,30 +264,36 @@
           "id": 776562,
           "label": "A",
           "text": "Tease and play",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 776565,
           "label": "B",
           "text": "Run around his tree",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776564,
           "label": "C",
           "text": "Climb his tree",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776563,
           "label": "D",
           "text": "Eat a nut",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Tease and play",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 776562,
+      "solution": "The poet said that the squirrel liked to tease and play. The poet had described the squirrel to be a very fun-loving creature who didn't know what sadness was and always liked to tease the others and play with them."
     },
     {
       "id": 448096,
@@ -263,30 +305,36 @@
           "id": 776566,
           "label": "A",
           "text": "Mildred Bowers Armstrong",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 776568,
           "label": "B",
           "text": "Frank Flynn",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776567,
           "label": "C",
           "text": "Kazi Nazrul Islam",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776569,
           "label": "D",
           "text": "Michael Rosen",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Mildred Bowers Armstrong",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 776566,
+      "solution": "The poem has been penned by the well-known children's book author of the 1950s Mildred Bowers Armstrong."
     },
     {
       "id": 448098,
@@ -298,30 +346,36 @@
           "id": 776576,
           "label": "A",
           "text": "abbccd",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776577,
           "label": "B",
           "text": "aabbcc",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776575,
           "label": "C",
           "text": "ababab",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776574,
           "label": "D",
           "text": "abcbdb",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "abcbdb",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 776574,
+      "solution": "The rhyme scheme of the poem is abcbdb because every second alternate line ends with a rhyming word that gives it the rhyme scheme."
     },
     {
       "id": 448103,
@@ -333,30 +387,36 @@
           "id": 776596,
           "label": "A",
           "text": "Tail, way",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776595,
           "label": "B",
           "text": "Play, tree",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776594,
           "label": "C",
           "text": "Play, way",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 776597,
           "label": "D",
           "text": "Tail, nut",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Play, way",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 776594,
+      "solution": "The words play and way at the end of the fourth and sixth line respectively, rhyme with the word gray in the poem."
     },
     {
       "id": 448104,
@@ -368,30 +428,36 @@
           "id": 776601,
           "label": "A",
           "text": "When birds sat on the tree",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776599,
           "label": "B",
           "text": "When he searched for nuts",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776600,
           "label": "C",
           "text": "When he was scared",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776598,
           "label": "D",
           "text": "When the others ran around the tree",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "When the others ran around the tree",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 776598,
+      "solution": "The poet mentioned in the poem that the squirrel liked to tease and play. So if the poet and his company ran around the squirrel's tree, he went the other way."
     },
     {
       "id": 448105,
@@ -403,30 +469,36 @@
           "id": 776605,
           "label": "A",
           "text": "A white overcoat",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776603,
           "label": "B",
           "text": "A furry overcoat",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776602,
           "label": "C",
           "text": "A gray overcoat",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 776604,
           "label": "D",
           "text": "A green overcoat",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "A gray overcoat",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 776602,
+      "solution": "The poet began the poem by describing the squirrel. He said that the squirrel wore an overcoat of grey and his tail was a question mark. The grey overcoat represented the grey colour of the squirrel."
     },
     {
       "id": 448106,
@@ -438,30 +510,36 @@
           "id": 776609,
           "label": "A",
           "text": "A squirrel toy",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776606,
           "label": "B",
           "text": "The squirrel",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 776607,
           "label": "C",
           "text": "Himself",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776608,
           "label": "D",
           "text": "His friend",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "The squirrel",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 776606,
+      "solution": "Throughout the poem, the poet has never mentioned the word squirrel but referred to the little creature as 'he'."
     },
     {
       "id": 448107,
@@ -473,30 +551,36 @@
           "id": 776610,
           "label": "A",
           "text": "A squirrel",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 776611,
           "label": "B",
           "text": "A kangaroo",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776612,
           "label": "C",
           "text": "A dog",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776613,
           "label": "D",
           "text": "A monkey",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "A squirrel",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 776610,
+      "solution": "The poet nowhere mentioned the word as squirrel except in the title but drew the poem with such powerful images that the reader could immediately connect the poem with the little creature without any space for doubt."
     },
     {
       "id": 448108,
@@ -508,30 +592,36 @@
           "id": 776616,
           "label": "A",
           "text": "Leaves",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776614,
           "label": "B",
           "text": "Nuts",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 776617,
           "label": "C",
           "text": "Cakes",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776615,
           "label": "D",
           "text": "Fruits",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Nuts",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 776614,
+      "solution": "It is understood from the poem that the squirrel loved to eat nuts as the poet had mentioned that he sat up straight to eat a nut."
     },
     {
       "id": 448109,
@@ -543,30 +633,36 @@
           "id": 776620,
           "label": "A",
           "text": "He liked to jump and play",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776618,
           "label": "B",
           "text": "He liked to tease and play",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 776619,
           "label": "C",
           "text": "He liked to sit and play",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776621,
           "label": "D",
           "text": "He liked to eat and play",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "He liked to tease and play",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 776618,
+      "solution": "The poet mentioned in the poem that the squirrel liked to tease and play and would run away in the opposite direction if he ran around his tree."
     },
     {
       "id": 448110,
@@ -578,30 +674,36 @@
           "id": 776625,
           "label": "A",
           "text": "Run along with him",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776623,
           "label": "B",
           "text": "Hide behind another tree",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776624,
           "label": "C",
           "text": "Climb up tree",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776622,
           "label": "D",
           "text": "Run the other way",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "Run the other way",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 776622,
+      "solution": "The poet stated in the poem that if he along with others would run around the squirrel's tree, he would instead go the other way as he liked to tease and play."
     },
     {
       "id": 448111,
@@ -613,30 +715,36 @@
           "id": 776627,
           "label": "A",
           "text": "The squirrel's dress",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776626,
           "label": "B",
           "text": "The squirrel's fur",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 776629,
           "label": "C",
           "text": "The squirrel's coat",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 776628,
           "label": "D",
           "text": "The squirrel's tail",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "The squirrel's fur",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 776626,
+      "solution": "The poet began the poem by describing the squirrel. She mentioned that the squirrel wore a grey overcoat which actually referred to the grey coloured fur of the squirrel."
     },
     {
       "id": 448218,
@@ -648,30 +756,36 @@
           "id": 777054,
           "label": "A",
           "text": "Metaphor",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 777055,
           "label": "B",
           "text": "Personification",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 777057,
           "label": "C",
           "text": "Alliteration",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 777056,
           "label": "D",
           "text": "Simile",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Metaphor",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 777054,
+      "solution": "The poet has described the squirrel with the use of metaphoric expressions such as grey overcoat and question mark for a tail. He has made comparisons with signs and colours to describe the squirrel and hence has made extensive use of metaphor in the poem."
     },
     {
       "id": 448224,
@@ -683,30 +797,36 @@
           "id": 777081,
           "label": "A",
           "text": "Yellow",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 777079,
           "label": "B",
           "text": "Brown",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 777078,
           "label": "C",
           "text": "Grey",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 777080,
           "label": "D",
           "text": "Red",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "Grey",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 777078,
+      "solution": "According to the poet's description, the squirrel is wearing a grey overcoat. The grey overcoat metaphorically symbolizes the fur of the squirrel which is grey in colour."
     },
     {
       "id": 448227,
@@ -718,30 +838,36 @@
           "id": 777093,
           "label": "A",
           "text": "Children",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 777090,
           "label": "B",
           "text": "The poet",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 777092,
           "label": "C",
           "text": "Other squirrels",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 777091,
           "label": "D",
           "text": "The people in the park",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "The poet",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 777090,
+      "solution": "The squirrel liked to tease the poet and play with him."
     },
     {
       "id": 448237,
@@ -753,30 +879,36 @@
           "id": 777133,
           "label": "A",
           "text": "The squirrel's hands",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 777132,
           "label": "B",
           "text": "The squirrel's appearance",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 777130,
           "label": "C",
           "text": "The squirrel's tail",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 777131,
           "label": "D",
           "text": "The squirrel's fur",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "The squirrel's tail",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 777130,
+      "solution": "The squirrel's tail has been compared with a question mark in the poem. We know this from the first line of the poem that stated, \"He wore a question mark for a tail\"."
     },
     {
       "id": 633091,
@@ -788,30 +920,36 @@
           "id": 1301944,
           "label": "A",
           "text": "go near him",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301943,
           "label": "B",
           "text": "chase him",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301945,
           "label": "C",
           "text": "run around his tree",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1301946,
           "label": "D",
           "text": "try to catch him",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "run around his tree",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1301945,
+      "solution": "The poet loves the game of hide and seek between him and the squirrel. If he ran around his tree (means came too close to his tree)., it would run and hide in the other direction."
     },
     {
       "id": 633096,
@@ -823,30 +961,36 @@
           "id": 1301963,
           "label": "A",
           "text": "quite straight",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301964,
           "label": "B",
           "text": "a little bent",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301965,
           "label": "C",
           "text": "hairless",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301966,
           "label": "D",
           "text": "curved at the end",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "curved at the end",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1301966,
+      "solution": "His tail is curved like a question mark at the end."
     },
     {
       "id": 633101,
@@ -858,30 +1002,36 @@
           "id": 1301983,
           "label": "A",
           "text": "the children",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301984,
           "label": "B",
           "text": "the poet",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1301985,
           "label": "C",
           "text": "another squirrel",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1301986,
           "label": "D",
           "text": "Everyone",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "the poet",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1301984,
+      "solution": "The squirrel likes to play. It is a fun-loving creature. The poet says that the squirrel liked teasing the poet because if he went too close, it ran away in another direction."
     },
     {
       "id": 633106,
@@ -893,30 +1043,36 @@
           "id": 1302004,
           "label": "A",
           "text": "going up and coming down the tree",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302006,
           "label": "B",
           "text": "playing the run and catch",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302003,
           "label": "C",
           "text": "playing lock and key",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302005,
           "label": "D",
           "text": "playing hide and seek",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "playing hide and seek",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302005,
+      "solution": "The poet loves the game of hide and seek between him and the squirrel. If he went too close to the squirrel, it would run and hide in the other direction."
     },
     {
       "id": 633111,
@@ -928,30 +1084,36 @@
           "id": 1302026,
           "label": "A",
           "text": "sleep",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302024,
           "label": "B",
           "text": "sing",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302023,
           "label": "C",
           "text": "dance",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302025,
           "label": "D",
           "text": "tease and play",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "tease and play",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302025,
+      "solution": "According to the poem, the squirrel liked to tease and play."
     },
     {
       "id": 633116,
@@ -963,30 +1125,36 @@
           "id": 1302046,
           "label": "A",
           "text": "cook's crest",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302045,
           "label": "B",
           "text": "poet overcast",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302043,
           "label": "C",
           "text": "squirrel's skin",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302044,
           "label": "D",
           "text": "crow feathers",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "squirrel's skin",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302043,
+      "solution": "The squirrel wears an overcoat of gray colour which is referred to as the squirrel's skin."
     },
     {
       "id": 633261,
@@ -998,30 +1166,36 @@
           "id": 1302625,
           "label": "A",
           "text": "simile",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302623,
           "label": "B",
           "text": "metaphor",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302626,
           "label": "C",
           "text": "rhyme",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302624,
           "label": "D",
           "text": "personification",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "simile",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302625,
+      "solution": "The poetic device used in the line is a simile. (A simile is nothing but a comparison between two very different objects. While comparing we need to use comparative words:  like, as etc.)"
     },
     {
       "id": 633265,
@@ -1033,30 +1207,36 @@
           "id": 1302646,
           "label": "A",
           "text": "gray",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1302644,
           "label": "B",
           "text": "greying",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302645,
           "label": "C",
           "text": "very thick",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302642,
           "label": "D",
           "text": "admirable",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "gray",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302646,
+      "solution": "The squirrel wears an overcoat of a gray colour."
     },
     {
       "id": 633290,
@@ -1068,30 +1248,36 @@
           "id": 1302741,
           "label": "A",
           "text": "lazy",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302740,
           "label": "B",
           "text": "inactive animal",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302738,
           "label": "C",
           "text": "clumsy",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1302735,
           "label": "D",
           "text": "agile",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "agile",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1302735,
+      "solution": "The squirrel is agile (that which is able to move quickly and easily​​​​​​)."
     },
     {
       "id": 1206776,
@@ -1103,30 +1289,36 @@
           "id": 2480854,
           "label": "A",
           "text": "Narrate",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480853,
           "label": "B",
           "text": "Advise",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480856,
           "label": "C",
           "text": "Describe",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2480855,
           "label": "D",
           "text": "Instruct",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Describe",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2480856,
+      "solution": "Describe"
     },
     {
       "id": 1206784,
@@ -1138,30 +1330,36 @@
           "id": 2480872,
           "label": "A",
           "text": "Mischievous",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2480871,
           "label": "B",
           "text": "Affectionate",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480869,
           "label": "C",
           "text": "Calm",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480870,
           "label": "D",
           "text": "Clever",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Mischievous",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2480872,
+      "solution": "Mischievous"
     },
     {
       "id": 1206786,
@@ -1173,30 +1371,36 @@
           "id": 2480878,
           "label": "A",
           "text": "Discuss the squirrel's eating habits.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480880,
           "label": "B",
           "text": "Admire the squirrel's beauty.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480877,
           "label": "C",
           "text": "Explain what makes the squirrel special.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480879,
           "label": "D",
           "text": "Compare the squirrel to a person.",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "Compare the squirrel to a person.",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2480879,
+      "solution": "Compare the squirrel to a person."
     },
     {
       "id": 1206788,
@@ -1208,30 +1412,38 @@
           "id": 2480882,
           "label": "A",
           "text": "Where the squirrel lives",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480884,
           "label": "B",
           "text": "What the squirrel looks like",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480883,
           "label": "C",
           "text": "How the squirrel moves",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2480881,
           "label": "D",
           "text": "How the squirrel acts",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "How the squirrel acts",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2480881,
+      "solution": "How the squirrel acts"
     }
-  ]
+  ],
+  "answered": 35,
+  "answer_failed": 0
 }

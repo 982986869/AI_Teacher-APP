@@ -6,7 +6,7 @@
   "grade": "CBSE Class 07",
   "reported_total": 75,
   "extracted_questions": 75,
-  "questions_with_answer": 13,
+  "questions_with_answer": 75,
   "note": "Practice feed me correct answer nahi hota; jaha ID important-questions se match kiya waha answer bhara hai (answer_source dekho).",
   "questions": [
     {
@@ -21,30 +21,36 @@
           "id": 1831982,
           "label": "A",
           "text": "6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1831983,
           "label": "B",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1831981,
           "label": "C",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1831980,
           "label": "D",
           "text": "3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
       "correct_answer": "3",
       "correct_answer_label": "D",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1831980,
+      "solution": "Adjacent faces of 3 are 1, 2, 5 and 6. Therefore, faces 3 and 4 are opposite."
     },
     {
       "id": 868043,
@@ -58,30 +64,36 @@
           "id": 1831985,
           "label": "A",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1831987,
           "label": "B",
           "text": "4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1831986,
           "label": "C",
           "text": "6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1831984,
           "label": "D",
           "text": "1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "6",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1831986,
+      "solution": "Rotate the 2nd dice such that it shows 3 only. Then compare the faces of the two dice."
     },
     {
       "id": 868044,
@@ -95,30 +107,36 @@
           "id": 1831989,
           "label": "A",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1831990,
           "label": "B",
           "text": "6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1831988,
           "label": "C",
           "text": "3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1831991,
           "label": "D",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "5",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1831989,
+      "solution": "Common adjacent faces of 4 and 6 are 1 and 5."
     },
     {
       "id": 868045,
@@ -132,30 +150,36 @@
           "id": 1831994,
           "label": "A",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1831992,
           "label": "B",
           "text": "1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1831993,
           "label": "C",
           "text": "6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1831995,
           "label": "D",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "1",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1831992,
+      "solution": "Adjacent faces of 1 are 2, 3, 5 and 6."
     },
     {
       "id": 868046,
@@ -169,30 +193,36 @@
           "id": 1831997,
           "label": "A",
           "text": "2 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1831998,
           "label": "B",
           "text": "1 and 3 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1831999,
           "label": "C",
           "text": "1, 2, 3 and 4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1831996,
           "label": "D",
           "text": "1 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "2 only",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1831997,
+      "solution": "2 only"
     },
     {
       "id": 868047,
@@ -206,30 +236,40 @@
           "id": 1832001,
           "label": "A",
           "text": "2 and 3 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832002,
           "label": "B",
           "text": "1 and 3 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1832000,
           "label": "C",
           "text": "1 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832003,
           "label": "D",
           "text": "1, 2 and 4 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "1 and 3 only",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832002,
+      "solution": "Opposite faces are  and",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671001771-mxez3q.jpg",
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671001818-f2n48u.jpg"
+      ]
     },
     {
       "id": 868048,
@@ -243,30 +283,40 @@
           "id": 1832004,
           "label": "A",
           "text": "1 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832005,
           "label": "B",
           "text": "1, 2 and 3 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832007,
           "label": "C",
           "text": "1, 2, 3 and 4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1832006,
           "label": "D",
           "text": "2 and 3 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "1, 2, 3 and 4",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832007,
+      "solution": "Opposite pairs are  and",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671002329-hm9c7a.jpg",
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671002367-z7p9fa.jpg"
+      ]
     },
     {
       "id": 868049,
@@ -280,30 +330,40 @@
           "id": 1832009,
           "label": "A",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832008,
           "label": "B",
           "text": "1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832010,
           "label": "C",
           "text": "3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1832011,
           "label": "D",
           "text": "4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "3",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832010,
+      "solution": "Opposite pairs are  and",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671002628-srgu24.jpg",
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671002667-akeeys.jpg"
+      ]
     },
     {
       "id": 868050,
@@ -317,30 +377,36 @@
           "id": 1832012,
           "label": "A",
           "text": "8",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832014,
           "label": "B",
           "text": "6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1832015,
           "label": "C",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832013,
           "label": "D",
           "text": "7",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "6",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832014,
+      "solution": "Bottom layer has 5 cubes and top layer has 1 cube."
     },
     {
       "id": 868051,
@@ -354,30 +420,36 @@
           "id": 1832019,
           "label": "A",
           "text": "6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832017,
           "label": "B",
           "text": "4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1832018,
           "label": "C",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832016,
           "label": "D",
           "text": "3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "4",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832017,
+      "solution": "Bottom layer has 3 cubes and top layer has 1 cube."
     },
     {
       "id": 868052,
@@ -391,30 +463,36 @@
           "id": 1832023,
           "label": "A",
           "text": "21",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832020,
           "label": "B",
           "text": "10",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832021,
           "label": "C",
           "text": "15",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832022,
           "label": "D",
           "text": "18",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "18",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832022,
+      "solution": "Each layer contains 9 cubes."
     },
     {
       "id": 868053,
@@ -428,30 +506,36 @@
           "id": 1832027,
           "label": "A",
           "text": "14",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832024,
           "label": "B",
           "text": "15",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1832026,
           "label": "C",
           "text": "16",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832025,
           "label": "D",
           "text": "13",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "15",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832024,
+      "solution": "The bottom layer contains 9 cubes, middle layer 5 cubes and top layer 1 cube."
     },
     {
       "id": 868054,
@@ -465,30 +549,36 @@
           "id": 1832029,
           "label": "A",
           "text": "16",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832030,
           "label": "B",
           "text": "12",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832031,
           "label": "C",
           "text": "11",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1832028,
           "label": "D",
           "text": "18",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "11",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832031,
+      "solution": "The bottom layer contains 9 cubes and middle and top layer contains 1 cube each."
     },
     {
       "id": 868055,
@@ -500,30 +590,36 @@
           "id": 1832033,
           "label": "A",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832034,
           "label": "B",
           "text": "4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832032,
           "label": "C",
           "text": "0",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1832035,
           "label": "D",
           "text": "8",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "0",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832032,
+      "solution": "Number of cubes unpainted = 0."
     },
     {
       "id": 868056,
@@ -535,30 +631,36 @@
           "id": 1832036,
           "label": "A",
           "text": "0",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1832037,
           "label": "B",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832039,
           "label": "C",
           "text": "8",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832038,
           "label": "D",
           "text": "4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "0",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832036,
+      "solution": "Number of cubes have only one face painted = 0"
     },
     {
       "id": 868057,
@@ -570,30 +672,36 @@
           "id": 1832041,
           "label": "A",
           "text": "1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832043,
           "label": "B",
           "text": "4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832042,
           "label": "C",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832040,
           "label": "D",
           "text": "0",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "0",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832040,
+      "solution": "Number of cubes have only two faces painted = 0"
     },
     {
       "id": 868058,
@@ -609,7 +717,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671007786-xt2pk5.jpg"
-          ]
+          ],
+          "is_correct": true
         },
         {
           "id": 1832046,
@@ -617,7 +726,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671007859-fvbdyd.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1832044,
@@ -625,7 +735,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671007761-thdz7t.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1832047,
@@ -633,12 +744,17 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671007881-wxg27q.jpg"
-          ]
+          ],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832045,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671007786-xt2pk5.jpg"
+      ]
     },
     {
       "id": 868059,
@@ -652,30 +768,36 @@
           "id": 1832049,
           "label": "A",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832051,
           "label": "B",
           "text": "3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1832048,
           "label": "C",
           "text": "6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832050,
           "label": "D",
           "text": "4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "3",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832051,
+      "solution": "3"
     },
     {
       "id": 868060,
@@ -691,7 +813,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671008412-zhvvga.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1832054,
@@ -699,7 +822,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671008473-s75dd2.jpg"
-          ]
+          ],
+          "is_correct": true
         },
         {
           "id": 1832053,
@@ -707,7 +831,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671008437-grkmfq.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1832055,
@@ -715,12 +840,17 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671008498-pnrw2d.jpg"
-          ]
+          ],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832054,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671008473-s75dd2.jpg"
+      ]
     },
     {
       "id": 868061,
@@ -734,30 +864,36 @@
           "id": 1832059,
           "label": "A",
           "text": "11",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832056,
           "label": "B",
           "text": "13",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832058,
           "label": "C",
           "text": "10",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832057,
           "label": "D",
           "text": "14",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "14",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832057,
+      "solution": "Number of cubes = 6 + 2 + 6 = 14"
     },
     {
       "id": 868062,
@@ -771,30 +907,36 @@
           "id": 1832061,
           "label": "A",
           "text": "20",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832060,
           "label": "B",
           "text": "24",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1832062,
           "label": "C",
           "text": "21",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832063,
           "label": "D",
           "text": "22",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "24",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832060,
+      "solution": "Number of cubes = 8 {tex}\\times{/tex} 3 = 24"
     },
     {
       "id": 868063,
@@ -808,30 +950,36 @@
           "id": 1832064,
           "label": "A",
           "text": "1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832065,
           "label": "B",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832066,
           "label": "C",
           "text": "3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832067,
           "label": "D",
           "text": "6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "6",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832067,
+      "solution": "Numbers on the opposite faces are (6, 5), (2, 4), (1, 3)."
     },
     {
       "id": 868064,
@@ -845,30 +993,36 @@
           "id": 1832068,
           "label": "A",
           "text": "3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1832071,
           "label": "B",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832070,
           "label": "C",
           "text": "1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832069,
           "label": "D",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "3",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832068,
+      "solution": "Numbers on the opposite faces are (1, 4), (2, 5) and (3, 6)."
     },
     {
       "id": 868065,
@@ -884,7 +1038,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671009796-zyfddq.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1832073,
@@ -892,7 +1047,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671009819-xa6xux.jpg"
-          ]
+          ],
+          "is_correct": true
         },
         {
           "id": 1832074,
@@ -900,7 +1056,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671009896-ucayb4.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1832075,
@@ -908,12 +1065,17 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671009970-ejwsfn.jpg"
-          ]
+          ],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832073,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1671009819-xa6xux.jpg"
+      ]
     },
     {
       "id": 868066,
@@ -927,30 +1089,36 @@
           "id": 1832076,
           "label": "A",
           "text": "1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1832079,
           "label": "B",
           "text": "3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832077,
           "label": "C",
           "text": "6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1832078,
           "label": "D",
           "text": "4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "1",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1832076,
+      "solution": "Numbers on the opposite faces are (1, 5), (2, 4) and (3, 6)."
     },
     {
       "id": 916313,
@@ -964,30 +1132,36 @@
           "id": 1940508,
           "label": "A",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940509,
           "label": "B",
           "text": "6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940507,
           "label": "C",
           "text": "4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940506,
           "label": "D",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "5",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940508,
+      "solution": "Adjacent faces of 5 are 1, 2, 4 and 6."
     },
     {
       "id": 916316,
@@ -1001,30 +1175,36 @@
           "id": 1940519,
           "label": "A",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940518,
           "label": "B",
           "text": "3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940521,
           "label": "C",
           "text": "Cannot be determined",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940520,
           "label": "D",
           "text": "6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "3",
       "correct_answer_label": "B",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940518,
+      "solution": "Make upside down of the second dice such that only one dot appears at the same position that is right face."
     },
     {
       "id": 916319,
@@ -1038,30 +1218,36 @@
           "id": 1940533,
           "label": "A",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940532,
           "label": "B",
           "text": "1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940530,
           "label": "C",
           "text": "6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940531,
           "label": "D",
           "text": "4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "1",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940532,
+      "solution": "1"
     },
     {
       "id": 916322,
@@ -1075,30 +1261,40 @@
           "id": 1940545,
           "label": "A",
           "text": "1 and 4 onky",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940542,
           "label": "B",
           "text": "1 and 2 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940543,
           "label": "C",
           "text": "2 and 4 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940544,
           "label": "D",
           "text": "2 and 3 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "2 and 3 only",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940544,
+      "solution": "Opposite faces are\n\nThese conditions of opposite faces are applicable in boxes (2) and (3) only.",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673237025-n43yz6.jpg",
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673237202-vpb9gp.jpg"
+      ]
     },
     {
       "id": 916325,
@@ -1112,30 +1308,36 @@
           "id": 1940555,
           "label": "A",
           "text": "3 and 4 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940557,
           "label": "B",
           "text": "2 and 3 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940554,
           "label": "C",
           "text": "1 and 4 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940556,
           "label": "D",
           "text": "1 and 2 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "1 and 4 only",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940554,
+      "solution": "Half shaded faces could not appear as shown in boxes (2) and (3)."
     },
     {
       "id": 916328,
@@ -1149,30 +1351,36 @@
           "id": 1940566,
           "label": "A",
           "text": "1 and 3 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940568,
           "label": "B",
           "text": "2 and 4 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940569,
           "label": "C",
           "text": "3 and 4 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940567,
           "label": "D",
           "text": "1 and 4 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "1 and 3 only",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940566,
+      "solution": "Two half shaded faces will be opposite to each other. So, boxes (2) and (4) cannot be formed."
     },
     {
       "id": 916331,
@@ -1186,30 +1394,39 @@
           "id": 1940580,
           "label": "A",
           "text": "3 and 4 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940581,
           "label": "B",
           "text": "1, 2, 3 and 4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940578,
           "label": "C",
           "text": "1 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940579,
           "label": "D",
           "text": "1 and 3 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "3 and 4 only",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940580,
+      "solution": "Pairs of opposite faces:",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673238219-b5kjjq.jpg"
+      ]
     },
     {
       "id": 916334,
@@ -1223,30 +1440,39 @@
           "id": 1940590,
           "label": "A",
           "text": "1 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940592,
           "label": "B",
           "text": "3 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940591,
           "label": "C",
           "text": "2 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940593,
           "label": "D",
           "text": "4 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "2 only",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940591,
+      "solution": "The faces  of the box formed must appear as shown on box (2).",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673238834-5rxmqa.jpg"
+      ]
     },
     {
       "id": 916337,
@@ -1260,30 +1486,36 @@
           "id": 1940605,
           "label": "A",
           "text": "4 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940603,
           "label": "B",
           "text": "2 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940602,
           "label": "C",
           "text": "1 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940604,
           "label": "D",
           "text": "3 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "1 only",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940602,
+      "solution": "Two half shaded faces will be opposite to each other."
     },
     {
       "id": 916340,
@@ -1297,30 +1529,39 @@
           "id": 1940617,
           "label": "A",
           "text": "3 and 4 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940616,
           "label": "B",
           "text": "4 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940615,
           "label": "C",
           "text": "2, 3 and 4 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940614,
           "label": "D",
           "text": "1 and 2 only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "3 and 4 only",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940617,
+      "solution": "Opposite pairs:",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673239348-yb47vw.jpg"
+      ]
     },
     {
       "id": 916343,
@@ -1334,30 +1575,36 @@
           "id": 1940626,
           "label": "A",
           "text": "7",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940627,
           "label": "B",
           "text": "9",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940628,
           "label": "C",
           "text": "10",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940629,
           "label": "D",
           "text": "8",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "7",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940626,
+      "solution": "Total number of cubes = 5 + 1 + 1 = 7"
     },
     {
       "id": 916346,
@@ -1371,30 +1618,36 @@
           "id": 1940640,
           "label": "A",
           "text": "18",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940641,
           "label": "B",
           "text": "20",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940639,
           "label": "C",
           "text": "14",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940638,
           "label": "D",
           "text": "10",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "14",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940639,
+      "solution": "The lower layer bears 10 blocks and upper layer has 4 blocks."
     },
     {
       "id": 916349,
@@ -1410,7 +1663,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673240059-k9mvbw.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1940652,
@@ -1418,7 +1672,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673240365-eag6ug.jpg"
-          ]
+          ],
+          "is_correct": true
         },
         {
           "id": 1940653,
@@ -1426,7 +1681,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673240391-5fpqdk.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1940651,
@@ -1434,12 +1690,18 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673240237-b2m7t9.jpg"
-          ]
+          ],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940652,
+      "solution": "Symbols on the opposite faces are ($, 0), (, #), (&copy;, @)",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673240811-kyfmhf.jpg"
+      ]
     },
     {
       "id": 916352,
@@ -1455,7 +1717,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673241129-zs2y6v.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1940665,
@@ -1463,7 +1726,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673241195-36qmsa.jpg"
-          ]
+          ],
+          "is_correct": true
         },
         {
           "id": 1940663,
@@ -1471,7 +1735,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673241152-snw6vc.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1940664,
@@ -1479,12 +1744,17 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673241172-epj9qh.jpg"
-          ]
+          ],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940665,
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673241195-36qmsa.jpg"
+      ]
     },
     {
       "id": 916355,
@@ -1498,30 +1768,36 @@
           "id": 1940675,
           "label": "A",
           "text": "75",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940676,
           "label": "B",
           "text": "80",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940674,
           "label": "C",
           "text": "78",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940677,
           "label": "D",
           "text": "82",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "75",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940675,
+      "solution": "Number of cubes = 15 {tex}\\times{/tex} 5 = 75"
     },
     {
       "id": 916358,
@@ -1535,30 +1811,36 @@
           "id": 1940687,
           "label": "A",
           "text": "3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940688,
           "label": "B",
           "text": "4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940686,
           "label": "C",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940689,
           "label": "D",
           "text": "Can't be determined",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "2",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940686,
+      "solution": "2"
     },
     {
       "id": 916361,
@@ -1574,7 +1856,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673241860-v9z2yj.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1940700,
@@ -1582,7 +1865,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673241820-2tk9nt.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1940698,
@@ -1590,7 +1874,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673241774-8zwdg6.jpg"
-          ]
+          ],
+          "is_correct": true
         },
         {
           "id": 1940699,
@@ -1598,12 +1883,18 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673241797-jfnj48.jpg"
-          ]
+          ],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940698,
+      "solution": "Opposite faces",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673242023-pvtz96.jpg"
+      ]
     },
     {
       "id": 916364,
@@ -1617,30 +1908,36 @@
           "id": 1940713,
           "label": "A",
           "text": "1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940712,
           "label": "B",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940711,
           "label": "C",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940710,
           "label": "D",
           "text": "4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "4",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940710,
+      "solution": "Number of dots on the opposite faces are (3, 2), (4, 6), (5, 1)"
     },
     {
       "id": 916367,
@@ -1654,30 +1951,36 @@
           "id": 1940722,
           "label": "A",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940724,
           "label": "B",
           "text": "3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940725,
           "label": "C",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940723,
           "label": "D",
           "text": "1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "5",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940725,
+      "solution": "Numbers on the opposite faces are (1, 2), (3, 6), (4, 5)"
     },
     {
       "id": 916370,
@@ -1693,7 +1996,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673243425-w8ke8z.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1940735,
@@ -1701,7 +2005,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673242915-xe8q5k.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1940734,
@@ -1709,7 +2014,8 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673242886-tfmb7q.jpg"
-          ]
+          ],
+          "is_correct": false
         },
         {
           "id": 1940737,
@@ -1717,12 +2023,15 @@
           "text": "",
           "option_images": [
             "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673242953-dgp78d.jpg"
-          ]
+          ],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940737,
+      "solution": "Symbols on the opposite faces are (■, =), (◎, +), ({tex}\\Uparrow{/tex}, {tex}\\square{/tex})"
     },
     {
       "id": 916373,
@@ -1736,30 +2045,36 @@
           "id": 1940749,
           "label": "A",
           "text": "6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940748,
           "label": "B",
           "text": "3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940747,
           "label": "C",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940746,
           "label": "D",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "2",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940746,
+      "solution": "Number of dots on the opposite faces are (1, 6), (2, 4), (3, 5)"
     },
     {
       "id": 916376,
@@ -1773,30 +2088,36 @@
           "id": 1940760,
           "label": "A",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940759,
           "label": "B",
           "text": "8",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940758,
           "label": "C",
           "text": "7",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940761,
           "label": "D",
           "text": "6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "6",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940761,
+      "solution": "Numbers on the opposite faces are (1, 6), (2, 5), (3, 4)\n\nSo, required sum = 2 + 4 = 6"
     },
     {
       "id": 916378,
@@ -1810,30 +2131,36 @@
           "id": 1940766,
           "label": "A",
           "text": "3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940767,
           "label": "B",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 1940769,
           "label": "C",
           "text": "6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940768,
           "label": "D",
           "text": "4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "2",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940767,
+      "solution": "Numbers on the opposite faces are (1, 3), (2, 5), (4, 6)."
     },
     {
       "id": 916380,
@@ -1847,30 +2174,36 @@
           "id": 1940776,
           "label": "A",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940774,
           "label": "B",
           "text": "1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940775,
           "label": "C",
           "text": "3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 1940777,
           "label": "D",
           "text": "4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "4",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 1940777,
+      "solution": "Numbers on the opposite faces are (1, 6), (2, 4) and (3, 5)."
     },
     {
       "id": 1052373,
@@ -1884,30 +2217,36 @@
           "id": 2166300,
           "label": "A",
           "text": "1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166294,
           "label": "B",
           "text": "6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166296,
           "label": "C",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166298,
           "label": "D",
           "text": "3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "6",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166294,
+      "solution": "Faces adjacent to face 6 are 1, 3, 4 and 5. Therefore, faces bearing 6 and 2 are opposite to each other."
     },
     {
       "id": 1052377,
@@ -1921,30 +2260,36 @@
           "id": 2166313,
           "label": "A",
           "text": "4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166311,
           "label": "B",
           "text": "3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166315,
           "label": "C",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166316,
           "label": "D",
           "text": "6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "5",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166315,
+      "solution": "Faces adjacent to face 2 are1, 3, 4 and 6."
     },
     {
       "id": 1052380,
@@ -1958,30 +2303,36 @@
           "id": 2166329,
           "label": "A",
           "text": "6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166327,
           "label": "B",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166325,
           "label": "C",
           "text": "1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166331,
           "label": "D",
           "text": "Cannot be determined",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "6",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166329,
+      "solution": "Faces adjacent to face 2 are 1, 3, 4 and 5."
     },
     {
       "id": 1052384,
@@ -1995,30 +2346,36 @@
           "id": 2166343,
           "label": "A",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166341,
           "label": "B",
           "text": "1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166345,
           "label": "C",
           "text": "3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166347,
           "label": "D",
           "text": "6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "2",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166343,
+      "solution": "Faces adjacent to face 2 are 1, 3, 4 and 6."
     },
     {
       "id": 1052389,
@@ -2032,30 +2389,36 @@
           "id": 2166360,
           "label": "A",
           "text": "4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166358,
           "label": "B",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166362,
           "label": "C",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166364,
           "label": "D",
           "text": "6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "5",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166362,
+      "solution": "5"
     },
     {
       "id": 1052393,
@@ -2069,30 +2432,36 @@
           "id": 2166373,
           "label": "A",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166379,
           "label": "B",
           "text": "Can't be determined",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166377,
           "label": "C",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166375,
           "label": "D",
           "text": "3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "5",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166377,
+      "solution": "You have to obtain a number opposite to 1. Rotate the figure (ii) horizontally such that 4 takes place of 5."
     },
     {
       "id": 1052398,
@@ -2106,30 +2475,36 @@
           "id": 2166393,
           "label": "A",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166391,
           "label": "B",
           "text": "1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166398,
           "label": "C",
           "text": "Can't be determined",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166395,
           "label": "D",
           "text": "4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "4",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166395,
+      "solution": "4"
     },
     {
       "id": 1052403,
@@ -2143,30 +2518,36 @@
           "id": 2166413,
           "label": "A",
           "text": "1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166415,
           "label": "B",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166417,
           "label": "C",
           "text": "4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166419,
           "label": "D",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "1",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166413,
+      "solution": "Faces adjacent to face 6 are 2, 3, 4 and 5."
     },
     {
       "id": 1052407,
@@ -2180,30 +2561,36 @@
           "id": 2166435,
           "label": "A",
           "text": "(2) only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166430,
           "label": "B",
           "text": "(1) and (3) only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166432,
           "label": "C",
           "text": "(2), (3) and (4) only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166436,
           "label": "D",
           "text": "(3) and (4) only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "(2) only",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166435,
+      "solution": "(2) only"
     },
     {
       "id": 1052411,
@@ -2217,30 +2604,36 @@
           "id": 2166446,
           "label": "A",
           "text": "(1) only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166450,
           "label": "B",
           "text": "(1), (3) and (4) only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166448,
           "label": "C",
           "text": "(1) and (3) only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166452,
           "label": "D",
           "text": "(1), (2), (3) and (4)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "(1) only",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166446,
+      "solution": "(1) only"
     },
     {
       "id": 1052415,
@@ -2254,30 +2647,36 @@
           "id": 2166465,
           "label": "A",
           "text": "(3) and (4) only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166463,
           "label": "B",
           "text": "(1) and (3) only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166467,
           "label": "C",
           "text": "(1), (2), (3) and (4)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166461,
           "label": "D",
           "text": "(1) and (2) only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "(1) and (3) only",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166463,
+      "solution": "(1) and (3) only"
     },
     {
       "id": 1052419,
@@ -2291,30 +2690,36 @@
           "id": 2166484,
           "label": "A",
           "text": "22",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166481,
           "label": "B",
           "text": "16",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166479,
           "label": "C",
           "text": "14",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166483,
           "label": "D",
           "text": "18",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "16",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166481,
+      "solution": "Numbers of cubes from bottom layer to top layer are 9, 5, 1 and 1 respectively."
     },
     {
       "id": 1052423,
@@ -2328,30 +2733,36 @@
           "id": 2166493,
           "label": "A",
           "text": "9",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166498,
           "label": "B",
           "text": "12",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166496,
           "label": "C",
           "text": "11",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166495,
           "label": "D",
           "text": "10",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "9",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166493,
+      "solution": "The middle layer has 7 cubes and top & bottom layers has 1 cube each."
     },
     {
       "id": 1052426,
@@ -2365,30 +2776,36 @@
           "id": 2166512,
           "label": "A",
           "text": "20",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166516,
           "label": "B",
           "text": "30",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166514,
           "label": "C",
           "text": "27",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166510,
           "label": "D",
           "text": "18",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "27",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166514,
+      "solution": "27"
     },
     {
       "id": 1052431,
@@ -2402,30 +2819,36 @@
           "id": 2166527,
           "label": "A",
           "text": "16",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166529,
           "label": "B",
           "text": "14",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166525,
           "label": "C",
           "text": "15",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166531,
           "label": "D",
           "text": "17",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "15",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166525,
+      "solution": "15"
     },
     {
       "id": 1052434,
@@ -2439,30 +2862,40 @@
           "id": 2166543,
           "label": "A",
           "text": "(2) and (3) only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166545,
           "label": "B",
           "text": "(1), (2) and (4) only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166547,
           "label": "C",
           "text": "(1), (2), (3) and (4)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166541,
           "label": "D",
           "text": "(1) only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "(2) and (3) only",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166543,
+      "solution": "When the Sheet (X) is folded to form a cube, the symbols on the opposite faces are ($, O), (▲, ) and (, ◻)",
+      "solution_images": [
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674104392-s7hwt6.jpg",
+        "https://media-mycbseguide.s3.amazonaws.com/images/question_images/1674104594-hsftmh.jpg"
+      ]
     },
     {
       "id": 1052438,
@@ -2476,30 +2909,36 @@
           "id": 2166558,
           "label": "A",
           "text": "3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166564,
           "label": "B",
           "text": "1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166560,
           "label": "C",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166562,
           "label": "D",
           "text": "6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "5",
       "correct_answer_label": "C",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166560,
+      "solution": "Number of dots on the opposite faces are (1, 6), (2, 3) and (4, 5)."
     },
     {
       "id": 1052442,
@@ -2513,30 +2952,36 @@
           "id": 2166578,
           "label": "A",
           "text": "IV only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166580,
           "label": "B",
           "text": "II and IV only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166576,
           "label": "C",
           "text": "I and III only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166574,
           "label": "D",
           "text": "I only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "IV only",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166578,
+      "solution": "IV only"
     },
     {
       "id": 1052447,
@@ -2550,30 +2995,36 @@
           "id": 2166593,
           "label": "A",
           "text": "(1), (2) and (4) only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166595,
           "label": "B",
           "text": "(1), (2), (3) and (4)",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166589,
           "label": "C",
           "text": "(3) only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166591,
           "label": "D",
           "text": "(2) only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "(2) only",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166591,
+      "solution": "(2) only"
     },
     {
       "id": 1052451,
@@ -2587,30 +3038,36 @@
           "id": 2166608,
           "label": "A",
           "text": "3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166605,
           "label": "B",
           "text": "4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166606,
           "label": "C",
           "text": "1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166610,
           "label": "D",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "3",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166608,
+      "solution": "The numbers on opposite faces are (1, 6); (2, 4) and (3, 5)."
     },
     {
       "id": 1052457,
@@ -2624,30 +3081,36 @@
           "id": 2166624,
           "label": "A",
           "text": "F and D",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166628,
           "label": "B",
           "text": "C and B",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166626,
           "label": "C",
           "text": "C and D",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166622,
           "label": "D",
           "text": "A and E",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "C and D",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166626,
+      "solution": "The letters on opposite faces are (A, E), (B, C) and (D, F)."
     },
     {
       "id": 1052461,
@@ -2661,30 +3124,36 @@
           "id": 2166643,
           "label": "A",
           "text": "None of these",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166638,
           "label": "B",
           "text": "(i) and (ii) only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166642,
           "label": "C",
           "text": "(ii) and (iii) only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166640,
           "label": "D",
           "text": "(ii) and (iv) only",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "None of these",
+      "correct_answer_label": "A",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166643,
+      "solution": "None of these"
     },
     {
       "id": 1052464,
@@ -2698,30 +3167,36 @@
           "id": 2166655,
           "label": "A",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166659,
           "label": "B",
           "text": "1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166654,
           "label": "C",
           "text": "6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166657,
           "label": "D",
           "text": "4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
       "correct_answer": "5",
       "correct_answer_label": "A",
-      "answer_source": "important_questions"
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166655,
+      "solution": "5"
     },
     {
       "id": 1052468,
@@ -2735,30 +3210,36 @@
           "id": 2166673,
           "label": "A",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166671,
           "label": "B",
           "text": "4",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166669,
           "label": "C",
           "text": "1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166674,
           "label": "D",
           "text": "5",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "4",
+      "correct_answer_label": "B",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166671,
+      "solution": "The numbers on opposite faces are: (1, 3), (2, 5) and (4, 6)."
     },
     {
       "id": 1052472,
@@ -2772,30 +3253,36 @@
           "id": 2166687,
           "label": "A",
           "text": "6",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166689,
           "label": "B",
           "text": "3",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166691,
           "label": "C",
           "text": "2",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166685,
           "label": "D",
           "text": "1",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "1",
+      "correct_answer_label": "D",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166685,
+      "solution": "The numbers on opposite faces are: (1, 5), (2, 4) and (3, 6)."
     },
     {
       "id": 1052476,
@@ -2809,30 +3296,38 @@
           "id": 2166701,
           "label": "A",
           "text": "%",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166705,
           "label": "B",
           "text": "$",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         },
         {
           "id": 2166703,
           "label": "C",
           "text": "&copy;",
-          "option_images": []
+          "option_images": [],
+          "is_correct": true
         },
         {
           "id": 2166707,
           "label": "D",
           "text": "#",
-          "option_images": []
+          "option_images": [],
+          "is_correct": false
         }
       ],
-      "correct_answer": null,
-      "correct_answer_label": null,
-      "answer_source": "not_available"
+      "correct_answer": "&copy;",
+      "correct_answer_label": "C",
+      "answer_source": "practice_attempt",
+      "correct_option_id": 2166703,
+      "solution": "&copy;"
     }
-  ]
+  ],
+  "answered": 75,
+  "answer_failed": 0
 }
