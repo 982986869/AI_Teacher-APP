@@ -1,9 +1,10 @@
 // src/screens/parent/ParentApp/LinkChild.js — real child linking (parentApi.linkChild).
 import React, { useState, useEffect, useRef } from 'react';
-import { View, ScrollView, TouchableOpacity, TextInput, ActivityIndicator, Alert } from 'react-native';
+import { View, ScrollView, TextInput, ActivityIndicator, Alert } from 'react-native';
 import { linkChild } from '../../../api/parentApi';
 import { C, st, T, Wordmark } from './constants';
 import { LinkFamilyArt } from './illustrations';
+import { PressableScale } from './anim';
 
 export default function LinkChild({ parentName, onLinked, onLogout }) {
   const [email, setEmail] = useState('');
@@ -25,7 +26,7 @@ export default function LinkChild({ parentName, onLinked, onLogout }) {
           <View style={st.avatar}><T w="xbold" s={22} c="#fff">{(parentName || 'P').charAt(0).toUpperCase()}</T></View>
           <View><T w="bold" s={23} c={C.ink}>Welcome</T><T w="med" s={13} c={C.muted}>Parent account</T></View>
         </View>
-        <TouchableOpacity style={st.logoutBtn} activeOpacity={0.85} onPress={onLogout}><T w="xbold" s={12.5} c={C.muted}>Log out</T></TouchableOpacity>
+        <PressableScale style={st.logoutBtn} onPress={onLogout}><T w="xbold" s={12.5} c={C.muted}>Log out</T></PressableScale>
       </View>
       <ScrollView contentContainerStyle={{ padding: 22, paddingTop: 8 }} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
         <View style={{ alignItems: 'center', marginTop: 8, marginBottom: 8 }}><Wordmark size={20} /></View>
@@ -39,9 +40,9 @@ export default function LinkChild({ parentName, onLinked, onLogout }) {
           value={email} onChangeText={setEmail} placeholder="child@email.com" placeholderTextColor={C.faint}
           autoCapitalize="none" autoCorrect={false} keyboardType="email-address" returnKeyType="go" onSubmitEditing={doLink} style={st.input}
         />
-        <TouchableOpacity style={[st.primaryBtn, (!email.trim() || linking) && st.primaryBtnOff]} disabled={!email.trim() || linking} activeOpacity={0.9} onPress={doLink}>
+        <PressableScale style={[st.primaryBtn, (!email.trim() || linking) && st.primaryBtnOff]} disabled={!email.trim() || linking} onPress={doLink}>
           {linking ? <ActivityIndicator color="#fff" /> : <T w="xbold" s={15} c="#fff">Link child</T>}
-        </TouchableOpacity>
+        </PressableScale>
       </ScrollView>
     </View>
   );

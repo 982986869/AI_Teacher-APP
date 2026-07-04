@@ -1,37 +1,28 @@
-// src/screens/parent/ParentApp/Skeleton.js — shimmer placeholder for the initial load.
-import React, { memo, useEffect, useRef } from 'react';
-import { View, Animated } from 'react-native';
+// src/screens/parent/ParentApp/Skeleton.js — loading placeholder. Identical block
+// layout to before; the only change is a sweeping shimmer highlight (via the shared
+// Shimmer primitive) instead of a plain opacity pulse.
+import React, { memo } from 'react';
+import { View } from 'react-native';
 import { st } from './constants';
+import { Shimmer } from './anim';
 
 function Skeleton() {
-  const p = useRef(new Animated.Value(0.4)).current;
-  useEffect(() => {
-    const a = Animated.loop(Animated.sequence([
-      Animated.timing(p, { toValue: 1, duration: 700, useNativeDriver: true }),
-      Animated.timing(p, { toValue: 0.4, duration: 700, useNativeDriver: true }),
-    ]));
-    a.start();
-    return () => a.stop();
-  }, [p]);
-  const B = ({ w, h, r = 12, mt = 0, mb = 0 }) => (
-    <Animated.View style={[st.skelBlock, { width: w, height: h, borderRadius: r, opacity: p, marginTop: mt, marginBottom: mb }]} />
-  );
   return (
     <View style={st.screen}>
       <View style={st.header}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
-          <B w={46} h={46} r={23} />
-          <View><B w={90} h={18} /><B w={120} h={12} mt={6} /></View>
+          <Shimmer w={46} h={46} r={23} />
+          <View><Shimmer w={90} h={18} /><Shimmer w={120} h={12} mt={6} /></View>
         </View>
-        <B w={78} h={34} r={17} />
+        <Shimmer w={78} h={34} r={17} />
       </View>
       <View style={{ paddingHorizontal: 18 }}>
-        <B w={140} h={12} mt={22} mb={12} />
-        <View style={{ flexDirection: 'row', gap: 10 }}><B w={220} h={70} r={16} /><B w={140} h={70} r={16} /></View>
-        <B w={120} h={12} mt={24} mb={12} />
-        <B w={'100%'} h={230} r={20} />
-        <B w={120} h={12} mt={24} mb={12} />
-        <B w={'100%'} h={150} r={20} />
+        <Shimmer w={140} h={12} mt={22} mb={12} />
+        <View style={{ flexDirection: 'row', gap: 10 }}><Shimmer w={220} h={70} r={16} /><Shimmer w={140} h={70} r={16} /></View>
+        <Shimmer w={120} h={12} mt={24} mb={12} />
+        <Shimmer w={'100%'} h={230} r={20} />
+        <Shimmer w={120} h={12} mt={24} mb={12} />
+        <Shimmer w={'100%'} h={150} r={20} />
       </View>
     </View>
   );

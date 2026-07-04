@@ -4,7 +4,7 @@
 // loads Poppins, uses AuthContext, real getParentReport() + linkChild() gate, with
 // skeleton/error/empty states. Sessions/tutor is a UI-only preview (no backend yet).
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { View, SafeAreaView, Alert } from 'react-native';
+import { View, SafeAreaView, Alert, Modal } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import {
   useFonts,
@@ -23,6 +23,10 @@ import LinkChild from './LinkChild';
 import ErrorState from './ErrorState';
 import Skeleton from './Skeleton';
 import BottomNav from './BottomNav';
+import ProfileSheet from './ProfileSheet';
+import BrainGymFlow from '../../braingym/BrainGymFlow';
+import ActivityRouter from './ActivityRouter';
+import { FadeIn } from './anim';
 
 export default function ParentApp() {
   const { user, signOut } = useAuth();
@@ -38,6 +42,9 @@ export default function ParentApp() {
   const [refreshing, setRefreshing] = useState(false);
   const [tab, setTab] = useState('home');
   const [toast, setToast] = useState('');
+  const [sheetOpen, setSheetOpen] = useState(false);
+  const [gymOpen, setGymOpen] = useState(false);
+  const [activityOpen, setActivityOpen] = useState(false);
 
   const mounted = useRef(true);
   const toastRef = useRef(null);
@@ -67,13 +74,21 @@ export default function ParentApp() {
   const retry = useCallback(() => { setLoading(true); setErr(false); load(false); }, [load]);
   const switchTab = useCallback((id) => { setTab((prev) => (id === prev ? prev : id)); }, []);
   const onLinked = useCallback(() => { setLoading(true); load(false); }, [load]);
-  const onAvatar = useCallback(() => {
-    Alert.alert('Account', undefined, [
-      { text: 'Link a different child', onPress: () => setReport({ linked: false }) },
-      { text: 'Log out', style: 'destructive', onPress: () => signOut() },
-      { text: 'Cancel', style: 'cancel' },
-    ]);
-  }, [signOut]);
+  // Header avatar opens the premium account bottom sheet (replaces the old Alert popup).
+  const onAvatar = useCallback(() => setSheetOpen(true), []);
+  const onGym = useCallback(() => setGymOpen(true), []);            // AI Gym → the real BrainGym
+  const onActivity = useCallback(() => setActivityOpen(true), []);  // Recent activity detail
+  const relink = useCallback(() => setReport({ linked: false }), []);
+  const confirmDelete = useCallback(() => {
+    Alert.alert(
+      'Delete account',
+      'This permanently removes your parent account and unlinks your child. This cannot be undone.',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        { text: 'Delete', style: 'destructive', onPress: () => flash('Account deletion — coming soon') },
+      ],
+    );
+  }, [flash]);
 
   const linked = !!(report && report.linked);
   const child = (report && report.child) || null;
@@ -86,16 +101,19 @@ export default function ParentApp() {
   } else if (err && !report) {
     content = <ErrorState onRetry={retry} />;
   } else if (!linked) {
-    content = <LinkChild parentName={user?.name} onLinked={onLinked} onLogout={onAvatar} />;
+    content = <LinkChild parentName={user?.name} onLinked={onLinked} onLogout={signOut} />;
   } else {
-    const shared = { meta, childName, onAvatar, flash };
+    const shared = { meta, childName, onAvatar, onGym, onActivity, flash };
     content = (
       <View style={st.screen}>
-        {tab === 'home' && <HomeTab {...shared} report={report} refreshing={refreshing} onRefresh={onRefresh} />}
-        {tab === 'progress' && <ProgressTab {...shared} report={report} refreshing={refreshing} onRefresh={onRefresh} />}
-        {tab === 'sessions' && <SessionsTab {...shared} />}
-        {tab === 'chat' && <ChatTab {...shared} />}
-        {tab === 'classes' && <ClassesTab {...shared} />}
+        {/* Pure crossfade on tab switch — no layout movement, nav stays fixed. */}
+        <FadeIn key={tab} y={0} duration={240} style={{ flex: 1 }}>
+          {tab === 'home' && <HomeTab {...shared} report={report} refreshing={refreshing} onRefresh={onRefresh} />}
+          {tab === 'progress' && <ProgressTab {...shared} report={report} refreshing={refreshing} onRefresh={onRefresh} />}
+          {tab === 'sessions' && <SessionsTab {...shared} />}
+          {tab === 'chat' && <ChatTab {...shared} />}
+          {tab === 'classes' && <ClassesTab {...shared} />}
+        </FadeIn>
         <BottomNav tab={tab} setTab={switchTab} />
         {!!toast && <View style={st.toast}><T w="semi" s={14} c="#fff" style={{ textAlign: 'center' }}>{toast}</T></View>}
       </View>
@@ -106,6 +124,23 @@ export default function ParentApp() {
     <SafeAreaView style={st.safe}>
       <StatusBar style="dark" />
       {content}
+      <ProfileSheet
+        visible={sheetOpen}
+        onClose={() => setSheetOpen(false)}
+        parentName={user?.name}
+        parentEmail={user?.email}
+        childName={child?.name}
+        childClass={child?.className}
+        onLinkAnother={relink}
+        onLogout={signOut}
+        onDeleteAccount={confirmDelete}
+        onComingSoon={() => flash('Coming soon')}
+      />
+      {/* AI Gym → the actual student BrainGym experience, reused directly (not a copy). */}
+      <Modal visible={gymOpen} animationType="slide" onRequestClose={() => setGymOpen(false)} statusBarTranslucent>
+        <BrainGymFlow onFinish={() => setGymOpen(false)} />
+      </Modal>
+      <ActivityRouter visible={activityOpen} onClose={() => setActivityOpen(false)} childName={childName} items={report?.recentActivity} />
     </SafeAreaView>
   );
 }

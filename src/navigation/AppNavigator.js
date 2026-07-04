@@ -56,10 +56,6 @@ const AppNavigator = () => {
   //     !hasOnboarded   -> Onboarding (survey)
   //     !workoutDone    -> WorkoutWheel
   //     else            -> Home
-  // TEMP diag: shows exactly which role the app routes on and why.
-  console.log('[ROUTE] ROLE=', scope?.role, '| complete=', scope?.complete,
-    '| isAuthenticated=', isAuthenticated, '| justLoggedIn=', justLoggedIn);
-
   let screen;
   if (!isAuthenticated) {
     screen = <Stack.Screen name="Auth" component={AuthNavigator} />;

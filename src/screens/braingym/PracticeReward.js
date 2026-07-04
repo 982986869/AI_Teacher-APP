@@ -8,6 +8,7 @@ import {
 import Svg, { Circle } from 'react-native-svg';
 import { useAuth } from '../../context/AuthContext';
 import { bumpPracticeStreak } from '../../utils/storage';
+import { play } from '../../utils/sound';
 import ArcTabs from './ArcTabs';
 
 const { width: SCREEN_W, height: SCREEN_H } = Dimensions.get('window');
@@ -40,7 +41,8 @@ export default function PracticeReward({ points = 5, onDone, onTabPress, activeT
       ]).start();
     };
     burst();
-    t1 = setTimeout(() => { if (!mounted.current) return; setPhase('streak'); burst(); }, 1700);
+    play('xp'); // XP / points burst sparkle
+    t1 = setTimeout(() => { if (!mounted.current) return; setPhase('streak'); burst(); play('achievement'); }, 1700);
     t2 = setTimeout(() => { if (mounted.current && onDone) onDone(); }, 3700);
     return () => { mounted.current = false; clearTimeout(t1); clearTimeout(t2); };
   }, []); // eslint-disable-line react-hooks/exhaustive-deps

@@ -1,20 +1,28 @@
-# Quiz / Challenge sounds
+# BrainGym sound effects
 
-Drop your audio files here (replace the placeholder files of the same name).
-Supported formats: `.mp3`, `.wav`, `.m4a`.
+All effects live in [`brainGym/`](./brainGym) and are wired automatically through
+`src/utils/sound.js` (the SoundManager). They are **original synthesized sounds**
+(soft bell chimes + gentle noise textures) — no third-party audio — so they are
+fully royalty-free and commercially usable. Style: soft, clean, minimal, premium,
+educational (never loud/arcade).
 
-| File          | When it plays                                    |
-| ------------- | ------------------------------------------------ |
-| `tick.mp3`    | Looping countdown tick (for a timed quiz)        |
-| `success.mp3` | All challenges complete / success                |
-| `wrong.mp3`   | Wrong answer                                     |
-| `correct.mp3` | Correct answer (optional)                        |
+Format: MP3, mono, 44.1 kHz, trimmed + peak-normalized. Total ≈ 44 KB.
 
-Keep the **exact same file names** — `src/utils/sound.js` `require()`s them by name.
-If you change a name, update the `SOURCES` map in `src/utils/sound.js` too.
+| File | Event(s) |
+|------|----------|
+| `tap.mp3` | button / keypad press |
+| `pop.mp3` | question appears · memory match |
+| `correct.mp3` | correct answer |
+| `wrong.mp3` | wrong answer |
+| `flip.mp3` | card flip |
+| `xp.mp3` | XP / points burst |
+| `achievement.mp3` | achievement unlocked · quiz "All Done!" |
+| `tick.mp3` | timer — final 5 seconds (one per second) |
+| `timeout.mp3` | time up |
+| `spin_loop.mp3` | wheel spin (looping, seamless) |
+| `whoosh.mp3` | screen enter · arena start |
+| `victory.mp3` | arena win |
+| `fail.mp3` | arena lose |
 
-The placeholder files in this folder are empty stand-ins so the bundler resolves
-the imports. The sound manager loads each file independently and silently skips
-any that are missing or invalid, so the app works fine before you add real audio.
-
-Setup: `npx expo install expo-av`
+Playback is 100% automatic (event-driven). The single global switch
+**Profile → Sound Effects (ON/OFF)** gates everything and is saved in local storage.

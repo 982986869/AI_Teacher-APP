@@ -167,11 +167,11 @@ const TimedNumericQuizScreen = ({ level = 1, skill = 'reasoning', onComplete, on
       .catch(() => { if (mountedRef.current) setSaveState('failed'); });
   }, []);
 
-  const finish = useCallback(() => {
+  const finish = useCallback((reason) => {
     if (doneRef.current) return;
     doneRef.current = true;
     stopSound('tick');
-    playSound('success');
+    playSound(reason === 'timeup' ? 'timeout' : 'success'); // gentle timeout vs. all-done chime
     setFinishing(true); // show "All Done!" briefly, then the reward screen
 
     const correct = scoreRef.current;
@@ -205,22 +205,28 @@ const TimedNumericQuizScreen = ({ level = 1, skill = 'reasoning', onComplete, on
   }, [phase, countdown]);
 
   // Lock the question set once the quiz starts, and (re)start the per-question
-  // timer whenever a new question is shown — used for attempt telemetry.
+  // timer whenever a new question is shown — used for attempt telemetry. A soft
+  // pop plays automatically as each new question appears.
   useEffect(() => {
-    if (phase === 'quiz') { startedRef.current = true; qShownAtRef.current = Date.now(); }
+    if (phase === 'quiz') { startedRef.current = true; qShownAtRef.current = Date.now(); playSound('pop'); }
   }, [phase, index]);
 
-  // Start timer + ticking sound once the quiz begins.
+  // Start the countdown timer once the quiz begins (preload sounds up front).
   useEffect(() => {
     if (phase !== 'quiz') return undefined;
-    initSounds().then(() => { if (mountedRef.current && !doneRef.current) playLoop('tick'); });
+    initSounds();
     const id = setInterval(() => setTimeLeft((t) => (t > 0 ? t - 1 : 0)), 1000);
     return () => { clearInterval(id); stopSound('tick'); };
   }, [phase]);
 
-  // End when the timer hits zero.
+  // Soft tick ONLY in the final 5 seconds — one per second, automatically.
   useEffect(() => {
-    if (phase === 'quiz' && timeLeft === 0 && !doneRef.current) finish();
+    if (phase === 'quiz' && !doneRef.current && timeLeft > 0 && timeLeft <= 5) playSound('tick');
+  }, [phase, timeLeft]);
+
+  // End when the timer hits zero → gentle "time up" sound.
+  useEffect(() => {
+    if (phase === 'quiz' && timeLeft === 0 && !doneRef.current) finish('timeup');
   }, [phase, timeLeft, finish]);
 
   const runPop = () => {
@@ -260,6 +266,7 @@ const TimedNumericQuizScreen = ({ level = 1, skill = 'reasoning', onComplete, on
 
   const onKey = (k) => {
     if (locked) return;
+    playSound('tap'); // subtle keypad tap
     if (k === 'del') { setInput((str) => str.slice(0, -1)); return; }
     setInput((str) => (str.length >= 6 ? str : str + k));
   };

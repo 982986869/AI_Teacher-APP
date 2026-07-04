@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform, Alert } from 'react-native';
 import { useAuth } from '../context/AuthContext';
+import { getSoundEnabledAsync, setSoundEnabled } from '../utils/sound';
 
 const BADGES = [
   { emoji: '🔥', name: '7-Day Streak',  earned: true },
@@ -21,6 +22,7 @@ const MENU_ITEMS = [
   { section: 'Account', items: [
     { icon: '👤', label: 'Edit Profile',       arrow: true },
     { icon: '🔔', label: 'Notifications',      arrow: true, toggle: true },
+    { icon: '🔊', label: 'Sound Effects',      toggle: true, sound: true },
     { icon: '🔒', label: 'Privacy & Security', arrow: true },
     { icon: '💬', label: 'Help & Support',     arrow: true },
   ]},
@@ -34,6 +36,10 @@ const ProfileScreen = () => {
   const { user, signOut, scope } = useAuth();
   const firstName = user?.name?.split(' ')[0] || 'Student';
   const [notifs, setNotifs] = useState(true);
+  // Global "Sound Effects" setting for BrainGym — loaded from & saved to local storage.
+  const [soundOn, setSoundOn] = useState(true);
+  useEffect(() => { getSoundEnabledAsync().then(setSoundOn); }, []);
+  const toggleSound = () => { const next = !soundOn; setSoundOn(next); setSoundEnabled(next); };
   // Real profile line from the user's scope (no hardcoded grade).
   const profileLine = [
     scope?.className,
@@ -113,9 +119,15 @@ const ProfileScreen = () => {
                   </View>
                   <Text style={[s.menuLabel, item.danger && s.menuLabelDanger]}>{item.label}</Text>
                   {item.toggle ? (
-                    <TouchableOpacity style={[s.toggle, notifs && s.toggleOn]} onPress={() => setNotifs(n => !n)}>
-                      <View style={[s.toggleThumb, notifs && s.toggleThumbOn]} />
-                    </TouchableOpacity>
+                    item.sound ? (
+                      <TouchableOpacity style={[s.toggle, soundOn && s.toggleOn]} onPress={toggleSound}>
+                        <View style={[s.toggleThumb, soundOn && s.toggleThumbOn]} />
+                      </TouchableOpacity>
+                    ) : (
+                      <TouchableOpacity style={[s.toggle, notifs && s.toggleOn]} onPress={() => setNotifs(n => !n)}>
+                        <View style={[s.toggleThumb, notifs && s.toggleThumbOn]} />
+                      </TouchableOpacity>
+                    )
                   ) : item.arrow ? (
                     <Text style={s.menuArrow}>›</Text>
                   ) : null}
