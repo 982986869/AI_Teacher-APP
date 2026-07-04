@@ -76,6 +76,8 @@ const SUBJECTS_CLASS8 = [
   { name: 'Reasoning & Mental Ability',         emoji: '🧠', bg: '#1C1C1E' },
   { name: 'Old - Maths',                        emoji: '➗', bg: '#0F6E56' },
   { name: 'Old - Social Sc',                    emoji: '🏛️', bg: '#8A5A2B' },
+  { name: 'Old - English',                      emoji: '📖', bg: '#7A6FD0' },
+  { name: 'Old - हिंदी',                         emoji: '📚', bg: '#2F80ED' },
 ];
 
 const subjectsForClass = (classLevel) =>

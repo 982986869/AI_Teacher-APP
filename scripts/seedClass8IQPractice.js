@@ -157,7 +157,13 @@ async function main() {
         `insert into subjects (name, slug) values ($1,$2) on conflict (slug) do update set name = excluded.name returning id`,
         [s.name, slugify(s.name)])
       const subjectId = sub.rows[0].id
-      await client.query('delete from chapters where subject_id = $1 and class_level = $2', [subjectId, CLASS_LEVEL])
+      // Clear ONLY this subject's important-questions sections (questions cascade) —
+      // NOT the chapters. The chapters are shared with MCQ Practice (subtopics hang off
+      // the same class_level=8 chapters); deleting chapters would wipe MCQ content.
+      await client.query(
+        `delete from sections where type_key = 'important_questions'
+         and chapter_id in (select id from chapters where subject_id = $1 and class_level = $2)`,
+        [subjectId, CLASS_LEVEL])
       let ci = 0, items = 0
       for (const chName of Object.keys(s.byChapter)) {
         const info = s.byChapter[chName]

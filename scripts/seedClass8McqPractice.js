@@ -44,6 +44,8 @@ const SUBJECTS = [
   { name: 'Old - Science',                      slug: 'old-science',                      res: '1466'  },
   { name: 'Old - Maths',                        slug: 'old-maths',                        res: '1449'  },
   { name: 'Old - Social Sc',                    slug: 'old-social-sc',                    res: '1485'  },
+  { name: 'Old - English',                      slug: 'old-english',                      res: '1918'  },
+  { name: 'Old - हिंदी',                         slug: 'old-hindi',                        res: '1921'  },
   // Reasoning has NO practice bank; source MCQ Practice from important-questions (iq:true).
   { name: 'Reasoning & Mental Ability',         slug: 'reasoning-mental-ability',         res: '9996', iq: true },
 ]
