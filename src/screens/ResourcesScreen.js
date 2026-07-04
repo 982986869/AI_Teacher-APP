@@ -569,21 +569,30 @@ const SUBJECTS_CLASS8 = [
   { name: 'Old - Maths',                        emoji: '📐', bg: '#E8703A', chapters: [] },
 ];
 
-// Class 9 — new-syllabus subjects are DB-backed (NCERT part 2 + Revision Notes part 4,
-// className='Class 9'). The OLD subjects are shown but have no seeded content yet
-// (comingSoon) — per product decision we don't fetch old-syllabus data for Class 9.
+// Class 9 — the full 19-subject batch list (order mirrors examin8). The four NEW
+// core subjects are DB-backed (NCERT part 2 + Revision Notes part 4, className='Class
+// 9'). Social Science has only Practice content (no textbook/flash), and the Advanced /
+// elective / OLD subjects aren't fetched — all shown as comingSoon so the list is
+// complete without hitting the API with unseeded content.
 const SUBJECTS_CLASS9 = [
-  { name: 'Science (Exploration)',                   emoji: '🔬', bg: '#5AA84F', chapters: [] },
-  { name: 'Social Science (Understanding Society)',  emoji: '🌐', bg: '#2F80ED', chapters: [] },
-  { name: 'हिंदी (गंगा)',                            emoji: '📚', bg: '#2F80ED', chapters: [] },
-  { name: 'English (Kaveri)',                        emoji: '📖', bg: '#7A6FD0', chapters: [] },
   { name: 'Maths (Ganita Manjari)',                  emoji: '📐', bg: '#E8703A', chapters: [] },
-  // OLD subjects — shown in the list but not fetched.
-  { name: 'Old - Science',                           emoji: '🔬', bg: '#5AA84F', chapters: [], comingSoon: true },
+  { name: 'English (Kaveri)',                        emoji: '📖', bg: '#7A6FD0', chapters: [] },
+  { name: 'हिंदी (गंगा)',                            emoji: '📚', bg: '#2F80ED', chapters: [] },
+  { name: 'Science (Exploration)',                   emoji: '🔬', bg: '#5AA84F', chapters: [] },
+  { name: 'Science (Advanced)',                      emoji: '🧪', bg: '#0F6E56', chapters: [], comingSoon: true },
+  { name: 'Social Science (Understanding Society)',  emoji: '🌐', bg: '#2F80ED', chapters: [], comingSoon: true },
+  { name: 'Maths (Advanced)',                        emoji: '📐', bg: '#0C8F88', chapters: [], comingSoon: true },
+  { name: 'Information Technology (402)',             emoji: '💻', bg: '#1C1C1E', chapters: [], comingSoon: true },
+  { name: 'JSTSE Scholarship',                       emoji: '🏆', bg: '#B0306B', chapters: [], comingSoon: true },
+  { name: 'संस्कृत (शारदा)',                          emoji: '🕉️', bg: '#E8703A', chapters: [], comingSoon: true },
   { name: 'Old - Maths',                             emoji: '📐', bg: '#E8703A', chapters: [], comingSoon: true },
+  { name: 'Old - Science',                           emoji: '🔬', bg: '#5AA84F', chapters: [], comingSoon: true },
+  { name: 'Old - Eng Lang',                          emoji: '📖', bg: '#7A6FD0', chapters: [], comingSoon: true },
   { name: 'Old - Social Sc',                         emoji: '🌐', bg: '#2F80ED', chapters: [], comingSoon: true },
-  { name: 'Old - English',                           emoji: '📖', bg: '#7A6FD0', chapters: [], comingSoon: true },
-  { name: 'Old - हिंदी',                             emoji: '📚', bg: '#2F80ED', chapters: [], comingSoon: true },
+  { name: 'Old - हिंदी ए',                           emoji: '📚', bg: '#2F80ED', chapters: [], comingSoon: true },
+  { name: 'Old - Eng Comm',                          emoji: '📖', bg: '#7A6FD0', chapters: [], comingSoon: true },
+  { name: 'Old - हिंदी ब',                           emoji: '📚', bg: '#2F80ED', chapters: [], comingSoon: true },
+  { name: 'Computer Applications (165)',             emoji: '💻', bg: '#0F6E56', chapters: [], comingSoon: true },
   { name: 'Reasoning & Mental Ability',              emoji: '🧠', bg: '#E8703A', chapters: [], comingSoon: true },
 ];
 
