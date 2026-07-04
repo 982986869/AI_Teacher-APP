@@ -724,6 +724,13 @@ const getResourceTypes = (subjectName, classLevel) => {
   // DB-backed via ncert2. Chapter lists fetched from the DB per part; empty tiles just
   // show nothing (handled by the chapter-list fetch), so OLD subjects render harmlessly.
   if (classLevel === 'Class 9') {
+    // Maths (Ganita Manjari): show the textbook tile as "Textbook Solutions" (not "NCERT").
+    if (subjectName === 'Maths (Ganita Manjari)') {
+      return [
+        { icon: '📗', name: 'Textbook Solutions', sub: 'Chapter Exercises', type: 'ncert2', part: 2 },
+        { icon: '📝', name: 'Revision Notes',      sub: 'Chapter Notes',     type: 'ncert2', part: 4 },
+      ];
+    }
     return [
       { icon: '📗', name: 'NCERT Solutions', sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
       { icon: '📝', name: 'Revision Notes',  sub: 'Chapter Notes',      type: 'ncert2', part: 4 },
