@@ -313,6 +313,13 @@ const pyqSubjectsForClass = (cls) => {
       return { ...sub, chapters: [], comingSoon: true };
     });
   }
+  // Class 9 — Previous Year Questions are DB-backed for JSTSE Scholarship only
+  // (sections type_key='pyq', class_level=9). Chapters confirmed via the API per chapter.
+  if (cls === 'Class 9') {
+    return [
+      { name: 'JSTSE Scholarship', emoji: '🏆', bg: '#B0306B', chapters: ['GK - Current Affairs (2019-20)', 'GK - General Awareness', 'Physics', 'Chemistry', 'Biology', 'Mathematics'] },
+    ];
+  }
   return PYQ_SUBJECTS;
 };
 
