@@ -42,12 +42,16 @@ const trim = (s) => (s == null ? '' : String(s)).trim()
 const normApos = (s) => trim(s).replace(/[‘’]/g, "'").replace(/[“”]/g, '"')
 // MUST stay byte-identical to the client slugify (src/screens/PracticeScreen.js).
 const slugify = (s) => {
-  const base = String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
-  if (base) return base
-  let h = 5381
-  const str = String(s)
-  for (let i = 0; i < str.length; i++) h = ((h * 33) ^ str.charCodeAt(i)) >>> 0
-  return 'u' + h.toString(36)
+  // Normalize dashes/curly-quotes to ASCII so a stray em-dash doesn't count as
+  // non-ASCII; then, if real Devanagari remains, append a stable hash so
+  // Devanagari-heavy names whose only ASCII is a marker like "(R1)" stay unique.
+  const str = String(s).replace(/[\u2013\u2014\u00AD\u2011]/g, '-').replace(/[\u2018\u2019]/g, "'").replace(/[\u201C\u201D]/g, '"');
+  const base = str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  if (base && !/[^\x00-\x7F]/.test(str)) return base;
+  let h = 5381;
+  for (let i = 0; i < str.length; i++) h = ((h * 33) ^ str.charCodeAt(i)) >>> 0;
+  const hash = 'u' + h.toString(36);
+  return base ? base + '-' + hash : hash;
 }
 
 async function api(url) {

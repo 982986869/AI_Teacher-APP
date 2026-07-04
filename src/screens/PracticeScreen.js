@@ -59,12 +59,16 @@ function computeMockResult(payload) {
 // an empty base, so fall back to a stable hash slug. MUST stay byte-identical to the
 // seed's slugify (scripts/seedClass7IQPractice.js) so client lookups match DB slugs.
 const slugify = (s) => {
-  const base = String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-  if (base) return base;
+  // Normalize dashes/curly-quotes to ASCII so a stray em-dash doesn't count as
+  // non-ASCII; then, if real Devanagari remains, append a stable hash so
+  // Devanagari-heavy names whose only ASCII is a marker like "(R1)" stay unique.
+  const str = String(s).replace(/[\u2013\u2014\u00AD\u2011]/g, '-').replace(/[\u2018\u2019]/g, "'").replace(/[\u201C\u201D]/g, '"');
+  const base = str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  if (base && !/[^\x00-\x7F]/.test(str)) return base;
   let h = 5381;
-  const str = String(s);
   for (let i = 0; i < str.length; i++) h = ((h * 33) ^ str.charCodeAt(i)) >>> 0;
-  return 'u' + h.toString(36);
+  const hash = 'u' + h.toString(36);
+  return base ? base + '-' + hash : hash;
 };
 
 // 'Class 8' → 8; null when unknown (never defaults to a class — the backend uses the
@@ -264,7 +268,7 @@ const CLASS8_IMP_SUBJECTS = [
 const CLASS9_IMP_SUBJECTS = [
   { name: "Science (Exploration)", emoji: "🔬", bg: "#5AA84F", chapters: ["Exploration: Entering the World of Secondary Science","Cell: The Building Block of Life","Tissues in Action","Describing Motion Around Us","Exploring Mixtures and Their Separation","How Forces Affect Motion","Work, Energy and Simple Machines","Journey Inside Atom","Atomic Foundation of Matter","Sound Waves: Characteristics and Applications","Reproduction: How Life Continues","Patterns in Life: Diversity and Classification","Earth as a System: Energy, Matter and Life"] },
   { name: "Social Science (Understanding Society)", emoji: "🌐", bg: "#2F80ED", chapters: ["Understanding Social Science","Shaping of the Earth's Surface","Atmosphere and Climate","Early Humans and Beginning of Civilisation","State and Society upto 1000 CE","Democracy in India","Elections","Building Blocks in Economics","The Price Puzzle: What Drives the Market","Oceans and Life","Life on Earth","Resistance and Resilience","India and the World-I","Authority","From Ideas to Startups","Smart Ways to Manage Your Finances"] },
-  { name: "हिंदी (गंगा)", emoji: "📚", bg: "#2F80ED", chapters: ["दो बैलों की कथा","क्या लिखूं?","संवादहीन","ऐसी भी बातें होती हैं (लता मंगेशकर से साक्षात्कार)","आखिरी चट्टान तक","रीढ़ की हड्डी","मैं और मेरा देश","⁠रैदास के पद","राम-लक्ष्मण-परशुराम संवाद","भारति, जय, विजयकरे!","झाँसी की रानी","घर की याद","व्याकरण - उपसर्ग और प्रत्यय (R1, R2)","व्याकरण - अलंकार (अनुप्रास, यमक, श्लेष) (R1)","व्याकरण - संज्ञा, सर्वनाम, निपात (R2)"] },
+  { name: "हिंदी (गंगा)", emoji: "📚", bg: "#2F80ED", chapters: ["दो बैलों की कथा","क्या लिखूं?","संवादहीन","ऐसी भी बातें होती हैं (लता मंगेशकर से साक्षात्कार)","आखिरी चट्टान तक","रीढ़ की हड्डी","मैं और मेरा देश","⁠रैदास के पद","राम-लक्ष्मण-परशुराम संवाद","भारति, जय, विजयकरे!","झाँसी की रानी","घर की याद","अपठित गद्यांश (R1, R2)","अपठित काव्यांश (R1)","व्याकरण - उपसर्ग और प्रत्यय (R1, R2)","लेखन - अनुच्छेद (R1, R2)","व्याकरण - अर्थ की दृष्टि से वाक्य भेद (R1)","लेखन - अनौपचारिक पत्र (R1, R2)","व्याकरण - अलंकार (अनुप्रास, यमक, श्लेष) (R1)","लेखन - संवाद (R1, R2)","व्याकरण - समानार्थी शब्द (R2)","लेखन - सूचना (R1)","व्याकरण - मुहावरे (R2)","लेखन - चित्र वर्णन (R2)","व्याकरण - संज्ञा, सर्वनाम, विशेषण, क्रिया (R1)","व्याकरण - विराम चिह्न (R2)","व्याकरण - संज्ञा, सर्वनाम, निपात (R2)"] },
   { name: "English (Kaveri)", emoji: "📖", bg: "#7A6FD0", chapters: ["How I Taught My Grandmother to Read","The Pot Maker","Winds of Change","Vitamin-M","The World of Limitless Possibilities","Twin Melodies","Carrier of Words","Follow That Dream","Bharat Our Land","Gifts of Grace: Honouring Our Vocations","Canvas of Soil","I Cannot Remember My Mother","Nine Gold Medals","A Friend Found in Music","Words","Believe in Yourself","Reading - Case Based Passage","Reading - Discursive Passage","Writing - Diary Entry","Writing - Descriptive Paragraph","Writing - Short Story","Grammar - Gap Filling","Grammar - Editing","Grammar - Tenses","Grammar - Modals","Grammar - Subject Verb Concord","Grammar - Reported speech","Grammar - Determiners","Writing - Notice","Writing - Informal Invitation","Writing-Letter to Editor","Writing - E-Mail","Writing - Article","Writing - Factual Description","Writing - Descriptive Essay"] },
   { name: "Maths (Ganita Manjari)", emoji: "📐", bg: "#E8703A", chapters: ["The use of Coordinates","Introduction to Linear Polynomials","The World of Numbers","Exploring Algebraic Identities","I'm Up and Down, and Round and Round","Mensuration: Area and Perimeter","Introduction to Probability","Exploring Sequences and Progressions","Triangles: Congruence Theorems","4-gons (Quadrilaterals)","Mensuration Surface Area and Volume","Statistics","Lines and Angles","Introduction to Euclid's Geometry","Linear Equations in Two Variables"] },
   { name: "Computer Applications (165)", emoji: "💻", bg: "#1C1C1E", chapters: ["Basics of IT","Cyber safety","Office tools","Scratch"] },
