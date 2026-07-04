@@ -720,21 +720,13 @@ const getResourceTypes = (subjectName, classLevel) => {
       { icon: '📝', name: 'Revision Notes',  sub: 'Chapter Notes',      type: 'ncert2', part: 4 },
     ];
   }
-  // Class 9 — new-syllabus subjects: NCERT Solutions (part=2) + Revision Notes (part=4),
-  // DB-backed via ncert2. Chapter lists fetched from the DB per part; empty tiles just
-  // show nothing (handled by the chapter-list fetch), so OLD subjects render harmlessly.
+  // Class 9 — new-syllabus books aren't "NCERT", so ALL subjects show the textbook
+  // tile as "Textbook Solutions" (part=2) + Revision Notes (part=4). DB-backed via
+  // ncert2; empty tiles just show nothing (handled by the chapter-list fetch).
   if (classLevel === 'Class 9') {
-    // New-syllabus books (Ganita Manjari, Kaveri, …) aren't "NCERT" — show the
-    // textbook tile as "Textbook Solutions".
-    if (subjectName === 'Maths (Ganita Manjari)' || subjectName === 'English (Kaveri)' || subjectName === 'हिंदी (गंगा)') {
-      return [
-        { icon: '📗', name: 'Textbook Solutions', sub: 'Chapter Exercises', type: 'ncert2', part: 2 },
-        { icon: '📝', name: 'Revision Notes',      sub: 'Chapter Notes',     type: 'ncert2', part: 4 },
-      ];
-    }
     return [
-      { icon: '📗', name: 'NCERT Solutions', sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
-      { icon: '📝', name: 'Revision Notes',  sub: 'Chapter Notes',      type: 'ncert2', part: 4 },
+      { icon: '📗', name: 'Textbook Solutions', sub: 'Chapter Exercises', type: 'ncert2', part: 2 },
+      { icon: '📝', name: 'Revision Notes',      sub: 'Chapter Notes',     type: 'ncert2', part: 4 },
     ];
   }
   // Class 8 — same DB-backed model as Class 7: NCERT Solutions (part=2, textbook) +
