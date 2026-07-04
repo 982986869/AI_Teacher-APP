@@ -41,8 +41,13 @@ const SUBJECTS = [
   { name: 'English (Kaveri)',                       slug: 'english-kaveri',                        res: '28696' },
   { name: 'Maths (Ganita Manjari)',                 slug: 'maths-ganita-manjari',                 res: '28726' },
   { name: 'Computer Applications (165)',            slug: 'computer-applications-165',            res: '1908'  },
-  // Social Science has NO practice bank; source MCQ Practice from important-questions (iq:true).
+  { name: 'Information Technology (402)',            slug: 'information-technology-402',            res: '5116'  },
+  { name: 'JSTSE Scholarship',                      slug: 'jstse-scholarship',                    res: '2581'  },
+  // These have NO practice bank; source MCQ Practice from important-questions (iq:true).
   { name: 'Social Science (Understanding Society)', slug: 'social-science-understanding-society',  res: '29069', iq: true },
+  { name: 'Science (Advanced)',                     slug: 'science-advanced',                     res: '29087', iq: true },
+  { name: 'संस्कृत (शारदा)',                         slug: 'sanskrit-sharda',                       res: '29148', iq: true },
+  { name: 'Maths (Advanced)',                       slug: 'maths-advanced',                       res: '29098', iq: true },
 ]
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))

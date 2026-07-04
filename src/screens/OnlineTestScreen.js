@@ -52,6 +52,7 @@ const SUBJECTS_BY_CLASS = {
   9: [
     { name: 'Maths (Ganita Manjari)',     emoji: '📐', bg: '#0C8F88' },
     { name: 'Computer Applications (165)', emoji: '💻', bg: '#1C1C1E' },
+    { name: 'JSTSE Scholarship',           emoji: '🏆', bg: '#B0306B' },
   ],
 };
 const subjectsForClass = (classLevel) => SUBJECTS_BY_CLASS[classLevel] || SUBJECTS_BY_CLASS[7];

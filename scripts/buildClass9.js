@@ -30,6 +30,8 @@ const SUBJECTS = [
   { name: 'हिंदी (गंगा)',            flash: '29068', book: 'f948f22e-33f3-4529-aa7e-8afcae7fb05d' },
   { name: 'English (Kaveri)',        flash: '28696', book: '8b22b2e2-ba24-4046-802c-de9da0f68914' },
   { name: 'Maths (Ganita Manjari)',  flash: '28726', book: '61cba3a7-bf70-448f-a714-8dc73ad95ece' },
+  { name: 'Science (Advanced)',      flash: '29087', book: '' },                                       // Revision Notes only (no textbook)
+  { name: 'संस्कृत (शारदा)',          flash: '29148', book: 'ecb74997-ce3e-4e7e-8570-3068c157bb10' },   // NCERT only (no flash)
 ]
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))

@@ -89,6 +89,11 @@ const SUBJECTS_CLASS9 = [
   { name: 'English (Kaveri)',                       emoji: '✍️', bg: '#26215C' },
   { name: 'Maths (Ganita Manjari)',                 emoji: '📐', bg: '#0C8F88' },
   { name: 'Computer Applications (165)',            emoji: '💻', bg: '#1C1C1E' },
+  { name: 'Information Technology (402)',            emoji: '💻', bg: '#0F6E56' },
+  { name: 'JSTSE Scholarship',                      emoji: '🏆', bg: '#B0306B' },
+  { name: 'Science (Advanced)',                     emoji: '🧪', bg: '#0F6E56' },
+  { name: 'संस्कृत (शारदा)',                         emoji: '🕉️', bg: '#E8703A' },
+  // Maths (Advanced) omitted — its IQ is all subjective, so it has no MCQ bank.
 ];
 
 const subjectsForClass = (classLevel) =>

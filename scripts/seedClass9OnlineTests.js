@@ -36,6 +36,7 @@ const CACHE = path.join(ROOT, 'src', 'data', 'class9OnlineTests')
 const SUBJECTS = [
   { name: 'Maths (Ganita Manjari)',     slug: 'maths-ganita-manjari',     res: '28726' },
   { name: 'Computer Applications (165)', slug: 'computer-applications-165', res: '1908'  },
+  { name: 'JSTSE Scholarship',           slug: 'jstse-scholarship',        res: '2581'  },
 ]
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
