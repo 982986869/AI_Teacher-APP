@@ -29,6 +29,7 @@ const SUBJECTS = [
   { name: 'हिंदी (गंगा)',                           slug: 'hindi-ganga',                          res: '29068' },
   { name: 'English (Kaveri)',                       slug: 'english-kaveri',                        res: '28696' },
   { name: 'Maths (Ganita Manjari)',                 slug: 'maths-ganita-manjari',                 res: '28726' },
+  { name: 'Computer Applications (165)',            slug: 'computer-applications-165',            res: '1908'  },
 ]
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))

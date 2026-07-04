@@ -40,6 +40,7 @@ const SUBJECTS = [
   { name: 'हिंदी (गंगा)',                           slug: 'hindi-ganga',                          res: '29068' },
   { name: 'English (Kaveri)',                       slug: 'english-kaveri',                        res: '28696' },
   { name: 'Maths (Ganita Manjari)',                 slug: 'maths-ganita-manjari',                 res: '28726' },
+  { name: 'Computer Applications (165)',            slug: 'computer-applications-165',            res: '1908'  },
   // Social Science has NO practice bank; source MCQ Practice from important-questions (iq:true).
   { name: 'Social Science (Understanding Society)', slug: 'social-science-understanding-society',  res: '29069', iq: true },
 ]

@@ -88,6 +88,7 @@ const SUBJECTS_CLASS9 = [
   { name: 'हिंदी (गंगा)',                           emoji: '📖', bg: '#D9822B' },
   { name: 'English (Kaveri)',                       emoji: '✍️', bg: '#26215C' },
   { name: 'Maths (Ganita Manjari)',                 emoji: '📐', bg: '#0C8F88' },
+  { name: 'Computer Applications (165)',            emoji: '💻', bg: '#1C1C1E' },
 ];
 
 const subjectsForClass = (classLevel) =>

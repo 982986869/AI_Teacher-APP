@@ -34,7 +34,8 @@ const CACHE = path.join(ROOT, 'src', 'data', 'class9OnlineTests')
 
 // The three subjects requested. `res` = examin8 content/category (subject) id.
 const SUBJECTS = [
-  { name: 'Maths (Ganita Manjari)', slug: 'maths-ganita-manjari', res: '28726' },
+  { name: 'Maths (Ganita Manjari)',     slug: 'maths-ganita-manjari',     res: '28726' },
+  { name: 'Computer Applications (165)', slug: 'computer-applications-165', res: '1908'  },
 ]
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
