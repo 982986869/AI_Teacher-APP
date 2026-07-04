@@ -569,6 +569,24 @@ const SUBJECTS_CLASS8 = [
   { name: 'Old - Maths',                        emoji: '📐', bg: '#E8703A', chapters: [] },
 ];
 
+// Class 9 — new-syllabus subjects are DB-backed (NCERT part 2 + Revision Notes part 4,
+// className='Class 9'). The OLD subjects are shown but have no seeded content yet
+// (comingSoon) — per product decision we don't fetch old-syllabus data for Class 9.
+const SUBJECTS_CLASS9 = [
+  { name: 'Science (Exploration)',                   emoji: '🔬', bg: '#5AA84F', chapters: [] },
+  { name: 'Social Science (Understanding Society)',  emoji: '🌐', bg: '#2F80ED', chapters: [] },
+  { name: 'हिंदी (गंगा)',                            emoji: '📚', bg: '#2F80ED', chapters: [] },
+  { name: 'English (Kaveri)',                        emoji: '📖', bg: '#7A6FD0', chapters: [] },
+  { name: 'Maths (Ganita Manjari)',                  emoji: '📐', bg: '#E8703A', chapters: [] },
+  // OLD subjects — shown in the list but not fetched.
+  { name: 'Old - Science',                           emoji: '🔬', bg: '#5AA84F', chapters: [], comingSoon: true },
+  { name: 'Old - Maths',                             emoji: '📐', bg: '#E8703A', chapters: [], comingSoon: true },
+  { name: 'Old - Social Sc',                         emoji: '🌐', bg: '#2F80ED', chapters: [], comingSoon: true },
+  { name: 'Old - English',                           emoji: '📖', bg: '#7A6FD0', chapters: [], comingSoon: true },
+  { name: 'Old - हिंदी',                             emoji: '📚', bg: '#2F80ED', chapters: [], comingSoon: true },
+  { name: 'Reasoning & Mental Ability',              emoji: '🧠', bg: '#E8703A', chapters: [], comingSoon: true },
+];
+
 const RESOURCE_TYPES = [
   { icon: '📋', name: 'Revision Notes',         sub: '835 items',          type: 'notes'    },
   { icon: '🔄', name: 'Exemplar Solutions',      sub: 'Textbook Solutions', type: 'exemplar' },
@@ -688,6 +706,15 @@ const getResourceTypes = (subjectName, classLevel) => {
     }
     // Two tiles per subject — NCERT Solutions (part=2) + Revision Notes (part=4),
     // both DB-backed via ncert2; chapter lists fetched from the DB per part.
+    return [
+      { icon: '📗', name: 'NCERT Solutions', sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
+      { icon: '📝', name: 'Revision Notes',  sub: 'Chapter Notes',      type: 'ncert2', part: 4 },
+    ];
+  }
+  // Class 9 — new-syllabus subjects: NCERT Solutions (part=2) + Revision Notes (part=4),
+  // DB-backed via ncert2. Chapter lists fetched from the DB per part; empty tiles just
+  // show nothing (handled by the chapter-list fetch), so OLD subjects render harmlessly.
+  if (classLevel === 'Class 9') {
     return [
       { icon: '📗', name: 'NCERT Solutions', sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
       { icon: '📝', name: 'Revision Notes',  sub: 'Chapter Notes',      type: 'ncert2', part: 4 },
@@ -1889,7 +1916,7 @@ const ResourcesScreen = () => {
             <Text style={s.boardLabel}>{activeClass}</Text>
           </View>
           <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
-            {(activeClass === 'Class 6' ? SUBJECTS_CLASS6 : activeClass === 'Class 7' ? SUBJECTS_CLASS7 : activeClass === 'Class 8' ? SUBJECTS_CLASS8 : SUBJECTS)
+            {(activeClass === 'Class 6' ? SUBJECTS_CLASS6 : activeClass === 'Class 7' ? SUBJECTS_CLASS7 : activeClass === 'Class 8' ? SUBJECTS_CLASS8 : activeClass === 'Class 9' ? SUBJECTS_CLASS9 : SUBJECTS)
               .filter((subject) => !(activeClass === 'Class 12' && subject.name === 'Biology'))
               // Stream filter (hide Biology from PCM etc.) only applies to senior classes
               // (11/12). Junior lists (e.g. Class 6's "Maths (OLD)", "English (Poorvi)")
