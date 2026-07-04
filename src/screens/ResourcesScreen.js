@@ -726,7 +726,7 @@ const getResourceTypes = (subjectName, classLevel) => {
   if (classLevel === 'Class 9') {
     // New-syllabus books (Ganita Manjari, Kaveri, …) aren't "NCERT" — show the
     // textbook tile as "Textbook Solutions".
-    if (subjectName === 'Maths (Ganita Manjari)' || subjectName === 'English (Kaveri)') {
+    if (subjectName === 'Maths (Ganita Manjari)' || subjectName === 'English (Kaveri)' || subjectName === 'हिंदी (गंगा)') {
       return [
         { icon: '📗', name: 'Textbook Solutions', sub: 'Chapter Exercises', type: 'ncert2', part: 2 },
         { icon: '📝', name: 'Revision Notes',      sub: 'Chapter Notes',     type: 'ncert2', part: 4 },
