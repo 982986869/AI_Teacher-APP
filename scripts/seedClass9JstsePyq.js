@@ -27,7 +27,11 @@ const CLASS_LEVEL = 9
 const DELAY = 130
 const LETTERS = ['a', 'b', 'c', 'd', 'e', 'f']
 
-const SUBJECT = { name: 'JSTSE Scholarship', res: '2581' }
+// Class 9 subjects that have Previous Year Questions on examin8. ONLY=<substr> runs one.
+const SUBJECTS = [
+  { name: 'JSTSE Scholarship',            res: '2581' },
+  { name: 'Computer Applications (165)',  res: '1908' },
+]
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 const trim = (s) => (s == null ? '' : String(s)).trim()
@@ -109,18 +113,25 @@ async function insertQuestions(client, sectionId, questions) {
 
 async function main() {
   if (!COOKIE || !CSRF) { console.error('Set EXAMIN8_COOKIE and EXAMIN8_CSRF.'); process.exit(1) }
-  const list = await api(`${B}/content/category/${SUBJECT.res}/type/0/content_name/pyq/`)
-  const byChapter = {}
-  let pos = 0
-  for (const ch of (list.children || [])) {
-    const qs = await fetchChapterPyq(ch.id)
-    if (qs.length) byChapter[normApos(ch.name)] = { position: pos++, questions: qs }
-    await sleep(DELAY)
+  const ONLY = (process.env.ONLY || '').toLowerCase().split(',').map((x) => x.trim()).filter(Boolean)
+  const subjects = ONLY.length ? SUBJECTS.filter((s) => ONLY.some((t) => s.name.toLowerCase().includes(t))) : SUBJECTS
+
+  const data = []
+  for (const S of subjects) {
+    const list = await api(`${B}/content/category/${S.res}/type/0/content_name/pyq/`)
+    const byChapter = {}
+    let pos = 0
+    for (const ch of (list.children || [])) {
+      const qs = await fetchChapterPyq(ch.id)
+      if (qs.length) byChapter[normApos(ch.name)] = { position: pos++, questions: qs }
+      await sleep(DELAY)
+    }
+    const chapters = Object.keys(byChapter)
+    const total = chapters.reduce((n, c) => n + byChapter[c].questions.length, 0)
+    console.log(`  ${S.name}: ${chapters.length} chapters, ${total} PYQ questions`)
+    chapters.forEach((ch) => console.log(`     ${ch}: ${byChapter[ch].questions.length}`))
+    data.push({ ...S, byChapter, chapters })
   }
-  const chapters = Object.keys(byChapter)
-  const total = chapters.reduce((n, c) => n + byChapter[c].questions.length, 0)
-  console.log(`  ${SUBJECT.name}: ${chapters.length} chapters, ${total} PYQ questions`)
-  chapters.forEach((ch) => console.log(`     ${ch}: ${byChapter[ch].questions.length}`))
 
   if (!LIVE) { console.log('\n[DRY] add --live to seed.'); return }
 
@@ -128,29 +139,31 @@ async function main() {
   const client = new Client({ connectionString: getDbUrl(), ssl: { rejectUnauthorized: false } })
   await client.connect(); console.log('\n✓ Connected.')
   try {
-    const sub = await client.query(
-      `insert into subjects (name, slug) values ($1,$2) on conflict (slug) do update set name = excluded.name returning id`,
-      [SUBJECT.name, slugify(SUBJECT.name)])
-    const subjectId = sub.rows[0].id
-    let ci = 0, items = 0
-    for (const chName of chapters) {
-      const info = byChapter[chName]
-      // Reuse the existing chapter (created by the IQ seed); create it if missing.
-      const chp = await client.query(
-        `insert into chapters (subject_id, name, slug, class_level, position) values ($1,$2,$3,$4,$5)
-         on conflict (subject_id, class_level, slug) do update set name = excluded.name returning id`,
-        [subjectId, chName, slugify(chName), CLASS_LEVEL, info.position])
-      const chapterId = chp.rows[0].id
-      const sec = await client.query(
-        `insert into sections (chapter_id, type_key, position) values ($1,'pyq',1)
-         on conflict (chapter_id, type_key) do update set position = excluded.position returning id`,
-        [chapterId])
-      const sectionId = sec.rows[0].id
-      await client.query('delete from questions where section_id = $1', [sectionId])
-      await insertQuestions(client, sectionId, info.questions)
-      ci++; items += info.questions.length
+    for (const S of data) {
+      const sub = await client.query(
+        `insert into subjects (name, slug) values ($1,$2) on conflict (slug) do update set name = excluded.name returning id`,
+        [S.name, slugify(S.name)])
+      const subjectId = sub.rows[0].id
+      let ci = 0, items = 0
+      for (const chName of S.chapters) {
+        const info = S.byChapter[chName]
+        // Reuse the existing chapter (created by the IQ seed); create it if missing.
+        const chp = await client.query(
+          `insert into chapters (subject_id, name, slug, class_level, position) values ($1,$2,$3,$4,$5)
+           on conflict (subject_id, class_level, slug) do update set name = excluded.name returning id`,
+          [subjectId, chName, slugify(chName), CLASS_LEVEL, info.position])
+        const chapterId = chp.rows[0].id
+        const sec = await client.query(
+          `insert into sections (chapter_id, type_key, position) values ($1,'pyq',1)
+           on conflict (chapter_id, type_key) do update set position = excluded.position returning id`,
+          [chapterId])
+        const sectionId = sec.rows[0].id
+        await client.query('delete from questions where section_id = $1', [sectionId])
+        await insertQuestions(client, sectionId, info.questions)
+        ci++; items += info.questions.length
+      }
+      console.log(`  ✓ ${S.name}: ${ci} chapters, ${items} PYQ questions (type_key=pyq, class_level=9)`)
     }
-    console.log(`  ✓ ${SUBJECT.name}: ${ci} chapters, ${items} PYQ questions (type_key=pyq, class_level=9)`)
   } finally { await client.end() }
 }
 
