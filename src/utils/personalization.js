@@ -18,7 +18,7 @@ const ROLES = new Set(['student', 'parent', 'teacher', 'admin']);
 // QA/tester accounts can browse every class from one login (mirror of the server list
 // in scope.js — keep in sync). The backend still enforces this; this only unlocks the
 // class switcher + gates in the UI.
-const TESTER_EMAILS = new Set(['kjha70455@gmail.com', 'pathakarpita867@gmail.com']);
+const TESTER_EMAILS = new Set(['kjha70455@gmail.com', 'pathakarpita867@gmail.com', 'kadhalakumkum@gmail.com']);
 const isTester = (user) => !!(user && user.email && TESTER_EMAILS.has(String(user.email).toLowerCase()));
 
 export const normalizeClass = (grade) => {
