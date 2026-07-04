@@ -12,7 +12,7 @@ const ROLES = new Set(['student', 'parent', 'teacher', 'admin'])
 // instead of us creating a fresh signup per class. Everyone else stays locked to their
 // own saved class. Extend with TESTER_EMAILS (comma-separated) without a code change.
 const TESTER_EMAILS = new Set(
-  String(process.env.TESTER_EMAILS || 'kjha70455@gmail.com,pathakarpita867@gmail.com')
+  String(process.env.TESTER_EMAILS || 'kjha70455@gmail.com,pathakarpita867@gmail.com,kadhalakumkum@gmail.com')
     .split(',').map((e) => e.trim().toLowerCase()).filter(Boolean),
 )
 const isTester = (user) =>

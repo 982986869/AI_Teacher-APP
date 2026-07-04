@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
+import { initSounds, play, stopAll } from '../../utils/sound';
 import WorkoutWheel from '../WorkoutWheel';
 import TimedNumericQuizScreen from './TimedNumericQuizScreen';
 import ArenaScreen from './ArenaScreen';
@@ -32,6 +33,14 @@ const BrainGymFlow = ({ onFinish }) => {
   const [skill, setSkill] = useState('reasoning');
   const [practicePts, setPracticePts] = useState(5);
   const [rewardTab, setRewardTab] = useState('practice'); // where the reward returns to
+
+  // Preload the premium sound set once, play a soft transition on entering BrainGym,
+  // and stop every sound automatically when the whole flow unmounts (screen exit).
+  useEffect(() => {
+    initSounds();
+    play('whoosh');
+    return () => { stopAll(); };
+  }, []);
 
   // Tabs LOOP inside Brain Gym: Workout (wheel) · Practice (dartboard) · Arena (hub).
   const handleTab = (tab) => {

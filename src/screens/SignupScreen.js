@@ -51,7 +51,6 @@ const SignupScreen = ({ navigation }) => {
       const data = await signupWithEmail({ name, email, password });
       await signIn(data);
     } catch (e) {
-      console.log('[SIGNUP] failed', e?.response?.status, e?.response?.data || e?.message); // TEMP diag
       // Backend sends the reason as `error` (e.g. "An account with this email … already exists").
       setError(e?.response?.data?.error || e?.response?.data?.message || 'Signup failed. Please try again.');
     } finally {

@@ -80,10 +80,21 @@ const SUBJECTS_CLASS8 = [
   { name: 'Old - हिंदी',                         emoji: '📚', bg: '#2F80ED' },
 ];
 
+// Class 9 MCQ Practice — new-syllabus subjects, DB-backed (class_level=9). Social
+// Science has no practice bank, so its MCQ Practice is sourced from important-questions.
+const SUBJECTS_CLASS9 = [
+  { name: 'Science (Exploration)',                  emoji: '🔬', bg: '#0F8A5F' },
+  { name: 'Social Science (Understanding Society)', emoji: '🌍', bg: '#B0306B' },
+  { name: 'हिंदी (गंगा)',                           emoji: '📖', bg: '#D9822B' },
+  { name: 'English (Kaveri)',                       emoji: '✍️', bg: '#26215C' },
+  { name: 'Maths (Ganita Manjari)',                 emoji: '📐', bg: '#0C8F88' },
+];
+
 const subjectsForClass = (classLevel) =>
   classLevel === 6 ? SUBJECTS_CLASS6
     : classLevel === 7 ? SUBJECTS_CLASS7
     : classLevel === 8 ? SUBJECTS_CLASS8
+    : classLevel === 9 ? SUBJECTS_CLASS9
     : SUBJECTS;
 
 const pct = (n) => `${Math.round((n + Number.EPSILON) * 100) / 100}`;
@@ -181,7 +192,8 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
     (classLevel === 12 && (subject === 'Physics' || subject === 'Chemistry' || subject === 'Mathematics')) ||
     (classLevel === 6 && subject === 'Science (OLD)') ||
     classLevel === 7 ||
-    classLevel === 8;
+    classLevel === 8 ||
+    classLevel === 9;
   const [apiChapters, setApiChapters] = useState(null); // null = loading
   useEffect(() => {
     if (!isDbApi) { setApiChapters(null); return undefined; }

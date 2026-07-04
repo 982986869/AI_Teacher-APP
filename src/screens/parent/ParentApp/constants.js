@@ -27,21 +27,6 @@ export const CONTENT = {
 };
 export const ARENA_BASE_RATING = 1000;
 
-/* Sessions/tutor is a design preview — no backend yet, so this is mock/config. */
-export const TUTOR = { name: 'Ananya Rao', subject: 'Math', rating: 4.9 };
-export const REASONS = ['Progress review', 'Homework help', 'Concept doubts', 'Focus & confidence', 'Class schedule', 'Something else'];
-export const SLOTS = ['4:00 PM', '4:30 PM', '5:00 PM', '6:00 PM', '6:30 PM', '7:30 PM'];
-export const BLOCKED = new Set(['5:00 PM']);
-function buildDays() {
-  const base = new Date(2026, 6, 2), dow = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  const mon = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], out = [];
-  for (let i = 0; i < 12; i++) {
-    const d = new Date(base); d.setDate(base.getDate() + i);
-    out.push({ key: `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`, dow: dow[d.getDay()], date: d.getDate(), mon: mon[d.getMonth()], label: `${dow[d.getDay()]}, ${d.getDate()} ${mon[d.getMonth()]}` });
-  }
-  return out;
-}
-export const DAYS = buildDays();
 export const DOWF = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 export const MONF = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 

@@ -63,7 +63,6 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const signIn = useCallback(async ({ token: t, user: u }) => {
-    console.log('[AUTH] signIn account_type=', u?.account_type, 'role=', u?.role); // TEMP diag
     userOp.current += 1; // authoritative write — invalidate any in-flight fetchMe
     await Promise.all([saveToken(t), saveUser(u)]);
     setToken(t);
@@ -79,20 +78,12 @@ export const AuthProvider = ({ children }) => {
   // Complete-profile / migration: persist grade/board/stream/language/school/accountType.
   const updateProfile = useCallback(async (patch) => {
     const data = await updateProfileApi(patch);
-    // TEMP diag: prove the parent/teacher role round-trips from the backend.
-    console.log('[AUTH] updateProfile patch=', JSON.stringify(patch),
-      '=> saved account_type=', data?.user?.account_type, '| server scope.role=', data?.scope?.role);
     if (data && data.user) { userOp.current += 1; setUser(data.user); await saveUser(data.user); }
     return data;
   }, []);
 
   // Derived scope (role, class, stream, subjects) — single source of truth for the UI.
   const scope = useMemo(() => deriveScope(user), [user]);
-
-  // TEMP diag: watch the role the whole app routes on.
-  useEffect(() => {
-    console.log('[AUTH] SCOPE role=', scope?.role, '| complete=', scope?.complete, '| account_type=', user?.account_type);
-  }, [scope?.role, scope?.complete, user?.account_type]);
 
   // Load (and refresh on login) the set of classes that have content in the DB.
   useEffect(() => {

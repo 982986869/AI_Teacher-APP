@@ -6,6 +6,7 @@ import {
   View, Text, StyleSheet, SafeAreaView, StatusBar, Platform, TouchableOpacity, Dimensions, Animated,
 } from 'react-native';
 import { scrambleFlip, solveFlip, flipAt, FLIP_N } from './arenaLogic';
+import { play } from '../../utils/sound';
 import ArenaFlipGame from './ArenaFlipGame';
 import PracticeReward from './PracticeReward';
 
@@ -86,9 +87,9 @@ export default function ArenaFlipBattle({ onExit, onTabPress }) {
   const [phase, setPhase] = useState('howto'); // howto | game | reward
   const [pts, setPts] = useState(100);
   const mounted = useRef(true);
-  useEffect(() => () => { mounted.current = false; }, []);
+  useEffect(() => { play('whoosh'); return () => { mounted.current = false; }; }, []); // arena start
 
-  const finish = useCallback((points) => { if (!mounted.current) return; setPts(points); setPhase('reward'); }, []);
+  const finish = useCallback((points) => { if (!mounted.current) return; play('victory'); setPts(points); setPhase('reward'); }, []);
 
   if (phase === 'game') return <ArenaFlipGame onExit={onExit} onGameOver={finish} />;
   if (phase === 'reward') return <PracticeReward points={pts} activeTab="arena" onTabPress={onTabPress} onDone={onExit} />;

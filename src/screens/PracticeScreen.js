@@ -259,6 +259,16 @@ const CLASS8_IMP_SUBJECTS = [
   { name: "Old - Social Sc", emoji: "🌐", bg: "#2F80ED", chapters: ["How When and Where","From Trade to Territory The Company Establishes Power","Ruling the Countryside","Tribals Dikus and the Vision of a Golden Age","When People Rebel 1857 and After","Civilising the Native Educating the Nation","Women Caste and Reform","The Making of the National Movement 1870 to 1947","Resources","Land Soil Water Natural Vegetation and Wildlife Resources","Agriculture","Industries","Human Resources","The Indian Constitution","Understanding Secularism","Parliament and the Making of Laws","Judiciary","Understanding Marginalisation","Confronting Marginalisation","Public Facilities","Law and Social Justice"] },
 ];
 
+// Class 9 new-syllabus Important-Questions subjects (chapter lists mirror the seeded
+// chapters at class_level=9; ChapterList confirms per-chapter availability via the API).
+const CLASS9_IMP_SUBJECTS = [
+  { name: "Science (Exploration)", emoji: "🔬", bg: "#5AA84F", chapters: ["Exploration: Entering the World of Secondary Science","Cell: The Building Block of Life","Tissues in Action","Describing Motion Around Us","Exploring Mixtures and Their Separation","How Forces Affect Motion","Work, Energy and Simple Machines","Journey Inside Atom","Atomic Foundation of Matter","Sound Waves: Characteristics and Applications","Reproduction: How Life Continues","Patterns in Life: Diversity and Classification","Earth as a System: Energy, Matter and Life"] },
+  { name: "Social Science (Understanding Society)", emoji: "🌐", bg: "#2F80ED", chapters: ["Understanding Social Science","Shaping of the Earth's Surface","Atmosphere and Climate","Early Humans and Beginning of Civilisation","State and Society upto 1000 CE","Democracy in India","Elections","Building Blocks in Economics","The Price Puzzle: What Drives the Market","Oceans and Life","Life on Earth","Resistance and Resilience","India and the World-I","Authority","From Ideas to Startups","Smart Ways to Manage Your Finances"] },
+  { name: "हिंदी (गंगा)", emoji: "📚", bg: "#2F80ED", chapters: ["दो बैलों की कथा","क्या लिखूं?","संवादहीन","ऐसी भी बातें होती हैं (लता मंगेशकर से साक्षात्कार)","आखिरी चट्टान तक","रीढ़ की हड्डी","मैं और मेरा देश","⁠रैदास के पद","राम-लक्ष्मण-परशुराम संवाद","भारति, जय, विजयकरे!","झाँसी की रानी","घर की याद","व्याकरण - उपसर्ग और प्रत्यय (R1, R2)","व्याकरण - अलंकार (अनुप्रास, यमक, श्लेष) (R1)","व्याकरण - संज्ञा, सर्वनाम, निपात (R2)"] },
+  { name: "English (Kaveri)", emoji: "📖", bg: "#7A6FD0", chapters: ["How I Taught My Grandmother to Read","The Pot Maker","Winds of Change","Vitamin-M","The World of Limitless Possibilities","Twin Melodies","Carrier of Words","Follow That Dream","Bharat Our Land","Gifts of Grace: Honouring Our Vocations","Canvas of Soil","I Cannot Remember My Mother","Nine Gold Medals","A Friend Found in Music","Words","Believe in Yourself","Reading - Case Based Passage","Reading - Discursive Passage","Writing - Diary Entry","Writing - Descriptive Paragraph","Writing - Short Story","Grammar - Gap Filling","Grammar - Editing","Grammar - Tenses","Grammar - Modals","Grammar - Subject Verb Concord","Grammar - Reported speech","Grammar - Determiners","Writing - Notice","Writing - Informal Invitation","Writing-Letter to Editor","Writing - E-Mail","Writing - Article","Writing - Factual Description","Writing - Descriptive Essay"] },
+  { name: "Maths (Ganita Manjari)", emoji: "📐", bg: "#E8703A", chapters: ["The use of Coordinates","Introduction to Linear Polynomials","The World of Numbers","Exploring Algebraic Identities","I'm Up and Down, and Round and Round","Mensuration: Area and Perimeter","Introduction to Probability","Exploring Sequences and Progressions","Triangles: Congruence Theorems","4-gons (Quadrilaterals)","Mensuration Surface Area and Volume","Statistics","Lines and Angles","Introduction to Euclid's Geometry","Linear Equations in Two Variables"] },
+];
+
 // Important-Questions subject list for the chosen class. Class 11 keeps the
 // API-backed PYQ_SUBJECTS. Class 12 swaps Physics for its 14 chapters (API-backed,
 // data in the DB at class_level=12) and Chemistry for its 10 chapters (bundled
@@ -275,6 +285,7 @@ const impSubjectsForClass = (cls) => {
   }
   if (cls === 'Class 7') return CLASS7_IMP_SUBJECTS;
   if (cls === 'Class 8') return CLASS8_IMP_SUBJECTS;
+  if (cls === 'Class 9') return CLASS9_IMP_SUBJECTS;
   return PYQ_SUBJECTS;
 };
 
@@ -826,7 +837,7 @@ const PracticeScreen = () => {
   // Class 7 & 8 → DB-backed, timed testpapers from examin8 (OnlineTestScreen manages
   // its own subjects → chapters → tests → instruction → runner → result → review).
   // Other classes keep the offline-bank flow (OnlineTestsScreen).
-  if (chOpen && (classNum(selectedClass) === 7 || classNum(selectedClass) === 8)) {
+  if (chOpen && [7, 8, 9].includes(classNum(selectedClass))) {
     return <OnlineTestScreen onExit={() => setChOpen(false)} />;
   }
   if (chOpen) {

@@ -46,7 +46,6 @@ const LoginScreen = ({ navigation }) => {
       const data = await loginWithEmail({ email, password });
       await signIn(data);
     } catch (e) {
-      console.log('[LOGIN] failed', e?.response?.status, e?.response?.data || e?.message); // TEMP diag
       setError(e?.response?.data?.error || e?.response?.data?.message || 'Login failed. Please try again.');
     } finally {
       setLoading(false);

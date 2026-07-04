@@ -8,7 +8,7 @@ import {
 import Svg, { Path, Circle, G, Rect, Text as SvgText } from 'react-native-svg';
 import { useAuth } from '../context/AuthContext';
 import { FONT } from '../constants/fonts';
-import { initSounds, playLoop, playSound, stopSound } from '../utils/sound';
+import { initSounds, playLoop, playSound, stopSound, startLoop, stopLoop } from '../utils/sound';
 import ArcTabs from './braingym/ArcTabs';
 
 const { width: SCREEN_W } = Dimensions.get('window');
@@ -113,10 +113,10 @@ const WorkoutWheel = ({
     return () => loop.stop();
   }, [enter, pulse]);
 
-  // Load the wheel sounds once; stop any looping tick if we leave mid-spin.
+  // Load the wheel sounds once; stop the spin loop if we leave mid-spin.
   useEffect(() => {
     initSounds();
-    return () => { stopSound('tick'); };
+    return () => { stopSound('spin'); };
   }, []);
 
   // Physically spin the wheel: rotate so the randomly chosen segment decelerates
@@ -134,11 +134,11 @@ const WorkoutWheel = ({
     if (delta < 0) delta += 360;
     const next = rotRef.current + 360 * 4 + delta;
     rotRef.current = next;
-    playLoop('tick'); // ratchet sound while it spins (no-op if assets are placeholders)
+    startLoop('spin'); // spin loop starts automatically (no-op until spin_loop.mp3 is added)
     Animated.timing(rotation, {
       toValue: next, duration: 2600, easing: Easing.out(Easing.cubic), useNativeDriver: true,
     }).start(({ finished }) => {
-      stopSound('tick');
+      stopLoop('spin'); // stops automatically when the animation ends
       if (!finished || !mountedRef.current) return;
       playSound('success'); // landed on a skill
       setSpinning(false);
