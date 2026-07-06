@@ -6,6 +6,12 @@ import axiosInstance from './axiosInstance';
 export const getSubjects = async () =>
   (await axiosInstance.get('/api/resources/subjects')).data.data;
 
+// Subjects available for a class + per-feature flags, derived from the DB (no
+// hardcoded per-class lists). Each item:
+//   { name, slug, parts:[2,4,5,8], importantQuestions, pyq, practice, online, mock }
+export const getClassSubjects = async (classLevel) =>
+  (await axiosInstance.get('/api/resources/class-subjects', { params: { class: classLevel } })).data.data;
+
 // Which classes currently have content in the DB, e.g. ['Class 6','Class 11','Class 12'].
 // Drives the "show content vs coming-soon" gate — no hardcoded class list needed.
 export const getContentClasses = async () =>

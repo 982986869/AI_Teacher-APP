@@ -17,6 +17,7 @@ import Svg, { Circle, G, Rect, Line, Text as RNSvgText } from 'react-native-svg'
 import MathText from '../components/MathText';
 import { useAuth } from '../context/AuthContext';
 import { getOnlineTestChapters, getOnlineTests, getOnlineTest } from '../api/onlineTestApi';
+import { useClassSubjects, toTile } from '../utils/classSubjects';
 
 const classNum = (c) => parseInt(String(c || '').replace(/\D/g, ''), 10) || null;
 const slugify = (s) => {
@@ -51,6 +52,9 @@ const SUBJECTS_BY_CLASS = {
   ],
   9: [
     { name: 'Maths (Ganita Manjari)', emoji: '📐', bg: '#0C8F88' },
+    { name: 'Old - Maths',            emoji: '➗', bg: '#0F6E56' },
+    { name: 'Old - Science',          emoji: '⚗️', bg: '#5AA84F' },
+    { name: 'Old - Social Sc',        emoji: '🏛️', bg: '#8A5A2B' },
   ],
 };
 const subjectsForClass = (classLevel) => SUBJECTS_BY_CLASS[classLevel] || SUBJECTS_BY_CLASS[7];
@@ -164,6 +168,10 @@ function Header({ onBack, title }) {
 export default function OnlineTestScreen({ onExit = () => {} }) {
   const { selectedClass } = useAuth();
   const classLevel = classNum(selectedClass) || 7;
+  // Class 9 online-test subjects are DB-driven (online flag); other classes keep theirs.
+  const isC9 = classLevel === 9;
+  const c9 = useClassSubjects(9, isC9);
+  const subjectList = isC9 ? (c9 || []).filter((s) => s.online).map((s) => toTile(s)) : subjectsForClass(classLevel);
 
   const [view, setView] = useState('subjects'); // subjects|chapters|tests|instruction|running|result|review
   const [subject, setSubject] = useState(null);
@@ -215,7 +223,7 @@ export default function OnlineTestScreen({ onExit = () => {} }) {
           <Header onBack={onExit} title="Online Test" />
           <ScrollView contentContainerStyle={{ padding: 16, gap: 12 }}>
             <Text style={st.sectionHint}>Pick a subject to see chapter-wise timed tests.</Text>
-            {subjectsForClass(classLevel).map((s) => (
+            {subjectList.map((s) => (
               <TouchableOpacity key={s.name} style={st.subjectCard} activeOpacity={0.85} onPress={() => openSubject(s)}>
                 <View style={[st.subjectEmoji, { backgroundColor: s.bg }]}><Text style={{ fontSize: 22 }}>{s.emoji}</Text></View>
                 <Text style={st.subjectName}>{s.name}</Text>

@@ -12,6 +12,7 @@ import { Ionicons } from '@expo/vector-icons';
 import MCQ_DATA, { getMcqSubtopics } from '../data/mcqPractice';
 import { getMcqSubtopics as apiMcqSubtopics, getMcqChaptersWithContent } from '../api/mcqPracticeApi';
 import { getChapters } from '../api/resourcesApi';
+import { useClassSubjects, toTile } from '../utils/classSubjects';
 import { useAuth } from '../context/AuthContext';
 
 // Slugify with a stable hash fallback for names with no ASCII (Devanagari), so
@@ -28,6 +29,12 @@ const slugify = (s) => {
 
 // 'Class 8' → 8; null when unknown (the backend uses the student's saved class).
 const classNum = (c) => parseInt(String(c || '').replace(/\D/g, ''), 10) || null;
+
+// Subject → API slug. 'Old - हिंदी ए' and 'Old - हिंदी ब' both slugify to "old"
+// (the ASCII "Old" prefix blocks the Devanagari hash fallback), so they need
+// explicit slugs matching the seed (scripts/seedClass9OldPractice.js).
+const SUBJECT_SLUG_OVERRIDES = { 'Old - हिंदी ए': 'old-hindi-a', 'Old - हिंदी ब': 'old-hindi-b' };
+const subjectSlug = (name) => SUBJECT_SLUG_OVERRIDES[name] || slugify(name);
 
 const C = {
   purple: '#0C8F88', purpleDeep: '#26215C', purpleLight: '#EEEDFE',
@@ -88,6 +95,12 @@ const SUBJECTS_CLASS9 = [
   { name: 'हिंदी (गंगा)',                           emoji: '📖', bg: '#D9822B' },
   { name: 'English (Kaveri)',                       emoji: '✍️', bg: '#26215C' },
   { name: 'Maths (Ganita Manjari)',                 emoji: '📐', bg: '#0C8F88' },
+  { name: 'Old - Maths',                            emoji: '➗', bg: '#0F6E56' },
+  { name: 'Old - Science',                          emoji: '⚗️', bg: '#5AA84F' },
+  { name: 'Old - Social Sc',                        emoji: '🏛️', bg: '#8A5A2B' },
+  { name: 'Old - Eng Lang',                         emoji: '📖', bg: '#7A6FD0' },
+  { name: 'Old - हिंदी ए',                           emoji: '📚', bg: '#2F80ED' },
+  { name: 'Old - हिंदी ब',                           emoji: '📚', bg: '#26215C' },
 ];
 
 const subjectsForClass = (classLevel) =>
@@ -126,7 +139,7 @@ function ChapterCard({ subject, chapter, classLevel, onStart, onStartSubtopic })
     setOpen((v) => !v);
     if (subtopics == null) {
       // DB-backed (incl. Class 12 Physics, Chemistry & Mathematics, at class_level=12).
-      apiMcqSubtopics(slugify(subject), slugify(chapter), classLevel)
+      apiMcqSubtopics(subjectSlug(subject), slugify(chapter), classLevel)
         .then((list) => setSubtopics(Array.isArray(list) ? list : []))
         .catch(() => setSubtopics([]));
     }
@@ -177,13 +190,18 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
   const [picker, setPicker] = useState(false);
   const { selectedClass } = useAuth();
   const classLevel = classNum(selectedClass);
-  const subjectOptions = subjectsForClass(classLevel).filter((s) => !(classLevel === 12 && s.name === 'Biology'));
+  // Class 9 practice subjects are DB-driven (no hardcoded list); other classes keep theirs.
+  const isC9 = classLevel === 9;
+  const c9 = useClassSubjects(9, isC9);
+  const subjectOptions = isC9
+    ? (c9 || []).filter((s) => s.practice).map((s) => toTile(s))
+    : subjectsForClass(classLevel).filter((s) => !(classLevel === 12 && s.name === 'Biology'));
   const subjMeta = subjectOptions.find((s) => s.name === subject) || subjectOptions[0];
   // Keep the active subject valid for the selected class: Class 6 has only
   // Science (OLD); Class 12 drops Biology. Reset when the current pick isn't offered.
   useEffect(() => {
-    if (!subjectOptions.some((s) => s.name === subject)) setSubject(subjectOptions[0].name);
-  }, [classLevel, subject]); // eslint-disable-line react-hooks/exhaustive-deps
+    if (subjectOptions.length && !subjectOptions.some((s) => s.name === subject)) setSubject(subjectOptions[0].name);
+  }, [classLevel, subject, subjectOptions.length]); // eslint-disable-line react-hooks/exhaustive-deps
   // DB-backed practice: Class 12 Physics/Chemistry/Mathematics (class_level=12),
   // Class 6 Science (OLD) (class_level=6) and ALL Class 7 subjects (class_level=7)
   // → fetch chapters + subtopics from the API. Everything else keeps the static
@@ -199,7 +217,7 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
     if (!isDbApi) { setApiChapters(null); return undefined; }
     let alive = true;
     setApiChapters(null);
-    getChapters(slugify(subject), undefined, classLevel)
+    getChapters(subjectSlug(subject), undefined, classLevel)
       .then((chs) => { if (alive) setApiChapters((chs || []).map((c) => c.name)); })
       .catch(() => { if (alive) setApiChapters([]); });
     return () => { alive = false; };
@@ -216,7 +234,7 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
   useEffect(() => {
     let alive = true;
     setAvail({ loading: true, slugs: null });
-    getMcqChaptersWithContent(slugify(subject), classLevel)
+    getMcqChaptersWithContent(subjectSlug(subject), classLevel)
       .then((chs) => {
         if (alive) setAvail({ loading: false, slugs: new Set((chs || []).map((c) => c.slug)) });
       })
@@ -228,6 +246,26 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
     ? chapters.filter((ch) => avail.slugs.has(slugify(ch)))
     : chapters;
   const listLoading = chaptersLoading || avail.loading;
+
+  // Class 9 subject list still loading from the DB (or none) — avoid subjMeta undefined.
+  if (isC9 && (c9 === null || !subjMeta)) {
+    return (
+      <SafeAreaView style={st.safe}>
+        <StatusBar barStyle="dark-content" backgroundColor={C.white} />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: C.white }} />}
+        <View style={st.header}>
+          <Pressable onPress={onBack} hitSlop={12} style={st.backRow}>
+            <Ionicons name="arrow-back" size={22} color={C.text} />
+            <Text style={st.backTxt}>Back</Text>
+          </Pressable>
+          <Text style={st.title}>MCQ Practice</Text>
+        </View>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Text style={{ color: C.muted }}>{c9 === null ? 'Loading…' : 'No practice subjects yet.'}</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
 
   return (
     <SafeAreaView style={st.safe}>

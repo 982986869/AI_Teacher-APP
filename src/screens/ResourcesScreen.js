@@ -15,6 +15,7 @@ import { WebView } from 'react-native-webview';
 import { getExemplarSolutions, getNcertChapters, getChapters, getQuestionsByPath, getNotesByPath, getPapers, getPaper } from '../api/resourcesApi';
 import { buildFragmentFromQuestions, buildPyqDocument } from '../utils/pyqDocument';
 import { isAllowedSubject } from '../utils/personalization';
+import { useClassSubjects, toTile } from '../utils/classSubjects';
 import { useAuth } from '../context/AuthContext';
 import { API_BASE_URL } from '../constants/config';
 import { ClassTabs, ComingSoon } from '../components/ClassPicker';
@@ -585,13 +586,17 @@ const SUBJECTS_CLASS9 = [
   { name: 'Information Technology (402)',             emoji: '💻', bg: '#1C1C1E', chapters: [], comingSoon: true },
   { name: 'JSTSE Scholarship',                       emoji: '🏆', bg: '#B0306B', chapters: [], comingSoon: true },
   { name: 'संस्कृत (शारदा)',                          emoji: '🕉️', bg: '#E8703A', chapters: [], comingSoon: true },
-  { name: 'Old - Maths',                             emoji: '📐', bg: '#E8703A', chapters: [], comingSoon: true },
-  { name: 'Old - Science',                           emoji: '🔬', bg: '#5AA84F', chapters: [], comingSoon: true },
-  { name: 'Old - Eng Lang',                          emoji: '📖', bg: '#7A6FD0', chapters: [], comingSoon: true },
-  { name: 'Old - Social Sc',                         emoji: '🌐', bg: '#2F80ED', chapters: [], comingSoon: true },
-  { name: 'Old - हिंदी ए',                           emoji: '📚', bg: '#2F80ED', chapters: [], comingSoon: true },
-  { name: 'Old - Eng Comm',                          emoji: '📖', bg: '#7A6FD0', chapters: [], comingSoon: true },
-  { name: 'Old - हिंदी ब',                           emoji: '📚', bg: '#2F80ED', chapters: [], comingSoon: true },
+  // Old - Maths is DB-backed (examin8 resource 1234): NCERT (part 2), Exemplar (3),
+  // Revision Notes (4), Important Questions (5), PYQ (8) + Practice/Online/Mock.
+  // Old subjects are DB-backed (examin8, class_level=9) — Important Questions (part 5)
+  // + Revision Notes (4) / PYQ (8) where available, plus Practice / Online / Mock.
+  { name: 'Old - Maths',                             emoji: '📐', bg: '#E8703A', chapters: [] },
+  { name: 'Old - Science',                           emoji: '🔬', bg: '#5AA84F', chapters: [] },
+  { name: 'Old - Eng Lang',                          emoji: '📖', bg: '#7A6FD0', chapters: [] },
+  { name: 'Old - Social Sc',                         emoji: '🌐', bg: '#2F80ED', chapters: [] },
+  { name: 'Old - हिंदी ए',                           emoji: '📚', bg: '#2F80ED', chapters: [] },
+  { name: 'Old - Eng Comm',                          emoji: '📖', bg: '#7A6FD0', chapters: [] },
+  { name: 'Old - हिंदी ब',                           emoji: '📚', bg: '#2F80ED', chapters: [] },
   { name: 'Computer Applications (165)',             emoji: '💻', bg: '#0F6E56', chapters: [], comingSoon: true },
   { name: 'Reasoning & Mental Ability',              emoji: '🧠', bg: '#E8703A', chapters: [], comingSoon: true },
 ];
@@ -686,7 +691,7 @@ const buildPaperFrontMatter = (SUBJ, paper) => {
 //
 // Exception: Class 12 Mathematics NCERT IS split into Part-I / Part-II (DB-backed,
 // rendered as MathJax cards like Physics), so it keeps both entries.
-const getResourceTypes = (subjectName, classLevel) => {
+const getResourceTypes = (subjectName, classLevel, parts = null) => {
   // Last Year Papers are DB-backed for Class 12 only — they don't exist for any
   // other class, so hide the tile there (avoids showing empty/placeholder papers).
   const base = classLevel === 'Class 12'
@@ -724,6 +729,15 @@ const getResourceTypes = (subjectName, classLevel) => {
   // DB-backed via ncert2. Chapter lists fetched from the DB per part; empty tiles just
   // show nothing (handled by the chapter-list fetch), so OLD subjects render harmlessly.
   if (classLevel === 'Class 9') {
+    // `parts` = [{ part, label }] from the class-subjects endpoint (DB-derived; each
+    // textbook book carries its own label). No hardcoded per-subject part lists.
+    const ICON = { 3: '🧩', 4: '📝' }; // Exemplar / Notes; NCERT books default 📗
+    const SUB = { 3: 'Exemplar Solutions', 4: 'Chapter Notes' };
+    if (parts && parts.length) {
+      return parts
+        .filter((p) => p && p.label)
+        .map((p) => ({ icon: ICON[p.part] || '📗', name: p.label, sub: SUB[p.part] || 'Textbook Solutions', type: 'ncert2', part: p.part }));
+    }
     return [
       { icon: '📗', name: 'NCERT Solutions', sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
       { icon: '📝', name: 'Revision Notes',  sub: 'Chapter Notes',      type: 'ncert2', part: 4 },
@@ -1079,6 +1093,16 @@ const ResourcesScreen = () => {
   const [activeBoard,   setActiveBoard]   = useState('CBSE');
   // Class mirrors the student's SAVED class (synced with the Practice tab & Home).
   const { selectedClass: activeClass, setSelectedClass: setActiveClass, scope, isClassReady } = useAuth();
+  // Class 9 subject list is DB-driven (no hardcoded array): subjects that have any
+  // ncert_solutions content (parts), each carrying its parts for getResourceTypes.
+  const isC9Res = activeClass === 'Class 9';
+  const c9Res = useClassSubjects(9, isC9Res);
+  // Resources tab shows textbook/notes parts only; Important Questions (5) + PYQ (8)
+  // live in the Practice tab. `parts` are { part, label } objects from the API.
+  const class9SubjectTiles = (c9Res || [])
+    .map((s) => ({ ...s, resParts: (s.parts || []).filter((p) => ![5, 8].includes(p.part)) }))
+    .filter((s) => s.resParts.length)
+    .map((s) => toTile(s, { parts: s.resParts, chapters: [] }));
   // Numeric grade parsed from 'Class 12' → 12 for the ?class= API param. No fallback:
   // the backend uses the student's saved class regardless of what we send.
   const classNum = parseInt(String(activeClass || '').replace(/\D/g, ''), 10) || null;
@@ -1100,13 +1124,13 @@ const ResourcesScreen = () => {
     // No content yet (e.g. all Class 7 subjects): land on LEVEL 2, which renders
     // the ComingSoon state instead of resource tiles.
     if (subject.comingSoon) { setActiveSubject(subject); setActiveResType(null); return; }
-    const types = getResourceTypes(subject.name, activeClass);
+    const types = getResourceTypes(subject.name, activeClass, subject.parts);
     setActiveSubject(subject);
     setActiveResType(types.length === 1 ? types[0] : null);
   };
   // True when the current subject auto-selected its (single) resource type, so the
   // Chapters back button should return to the subjects list, not an empty LEVEL 2.
-  const singleResType = activeSubject && getResourceTypes(activeSubject.name, activeClass).length === 1;
+  const singleResType = activeSubject && getResourceTypes(activeSubject.name, activeClass, activeSubject.parts).length === 1;
   const backFromChapters = () => {
     if (singleResType) { setActiveSubject(null); setActiveResType(null); }
     else setActiveResType(null);
@@ -1886,7 +1910,7 @@ const ResourcesScreen = () => {
           <ComingSoon className={activeClass} label={`${activeSubject.name} resources`} />
         ) : (
         <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
-          {getResourceTypes(activeSubject.name, activeClass).map((rt, i) => (
+          {getResourceTypes(activeSubject.name, activeClass, activeSubject.parts).map((rt, i) => (
             <TouchableOpacity key={i} style={s.resTypeRow} onPress={() => { setActivePaper(null); setActiveChapter(null); setShowCards(false); setShowNotes(false); setActiveResType(rt); }} activeOpacity={0.8}>
               <View style={s.resTypeIconWrap}>
                 <Text style={{ fontSize: 22 }}>{rt.icon}</Text>
@@ -1925,7 +1949,7 @@ const ResourcesScreen = () => {
             <Text style={s.boardLabel}>{activeClass}</Text>
           </View>
           <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
-            {(activeClass === 'Class 6' ? SUBJECTS_CLASS6 : activeClass === 'Class 7' ? SUBJECTS_CLASS7 : activeClass === 'Class 8' ? SUBJECTS_CLASS8 : activeClass === 'Class 9' ? SUBJECTS_CLASS9 : SUBJECTS)
+            {(activeClass === 'Class 6' ? SUBJECTS_CLASS6 : activeClass === 'Class 7' ? SUBJECTS_CLASS7 : activeClass === 'Class 8' ? SUBJECTS_CLASS8 : activeClass === 'Class 9' ? class9SubjectTiles : SUBJECTS)
               .filter((subject) => !(activeClass === 'Class 12' && subject.name === 'Biology'))
               // Stream filter (hide Biology from PCM etc.) only applies to senior classes
               // (11/12). Junior lists (e.g. Class 6's "Maths (OLD)", "English (Poorvi)")

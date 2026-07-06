@@ -71,6 +71,47 @@ async function listSubjects() {
   return rows.map((s) => ({ id: num(s.id), name: s.name, slug: s.slug, position: s.position }))
 }
 
+// ─── Subjects available for a class, with the features each actually has ───────
+// Derived from the DB (no hardcoded per-class lists): resources parts
+// (ncert_solutions), important_questions / pyq (structured sections), practice
+// (mcq), online (ot_tests) and mock (mock_tests). Returns:
+//   [{ name, slug, parts:[2,4,5,8], importantQuestions, pyq, practice, online, mock }]
+const simpleSlug = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || null
+async function listClassSubjects(classInput) {
+  const m = String(classInput || '').match(/\d{1,2}/)
+  const cl = m ? parseInt(m[0], 10) : null
+  if (!cl) return []
+  const className = `Class ${cl}`
+  const safe = async (p) => { try { return await p } catch (_) { return [] } }
+  const [ns, sec, mcq, ot, mk] = await Promise.all([
+    safe(db.$queryRawUnsafe(`SELECT subject, part, max(part_label) label FROM ncert_solutions WHERE "className" = $1 GROUP BY subject, part ORDER BY subject, part`, className)),
+    safe(db.$queryRawUnsafe(`SELECT s.name, s.slug, array_agg(DISTINCT sec.type_key) types FROM subjects s JOIN chapters ch ON ch.subject_id = s.id AND ch.class_level = $1 JOIN sections sec ON sec.chapter_id = ch.id GROUP BY s.name, s.slug`, cl)),
+    safe(db.$queryRawUnsafe(`SELECT DISTINCT s.name, s.slug FROM subjects s JOIN chapters ch ON ch.subject_id = s.id AND ch.class_level = $1 JOIN subtopics st ON st.chapter_id = ch.id JOIN mcq_questions mq ON mq.subtopic_id = st.id`, cl)),
+    safe(db.$queryRawUnsafe(`SELECT DISTINCT subject_name AS name, subject_slug AS slug FROM ot_tests WHERE class_level = $1`, cl)),
+    safe(db.$queryRawUnsafe(`SELECT DISTINCT subject AS name FROM mock_tests WHERE class_level = $1`, cl)),
+  ])
+  const map = new Map()
+  const get = (name) => {
+    const key = String(name || '').trim()
+    if (!map.has(key)) map.set(key, { name: key, slug: null, parts: [], importantQuestions: false, pyq: false, practice: false, online: false, mock: false })
+    return map.get(key)
+  }
+  const PART_LABEL = { 2: 'NCERT Solutions', 3: 'Exemplar Solutions', 4: 'Revision Notes', 5: 'Important Questions', 8: 'Previous Year Questions' }
+  ns.forEach((r) => { const e = get(r.subject); e.parts.push({ part: Number(r.part), label: r.label || PART_LABEL[Number(r.part)] || `Part ${r.part}` }) })
+  sec.forEach((r) => { const e = get(r.name); e.slug = e.slug || r.slug; const t = r.types || []; if (t.includes('important_questions')) e.importantQuestions = true; if (t.includes('pyq')) e.pyq = true })
+  mcq.forEach((r) => { const e = get(r.name); e.slug = e.slug || r.slug; e.practice = true })
+  ot.forEach((r) => { const e = get(r.name); e.slug = e.slug || r.slug; e.online = true })
+  mk.forEach((r) => { const e = get(r.name); e.mock = true })
+  // Display order for resource tiles: NCERT books (2,6,7,9…) → Exemplar (3) →
+  // Revision Notes (4) → Important Questions (5) → PYQ (8).
+  const RANK = { 2: 1, 6: 2, 7: 3, 9: 4, 10: 5, 11: 6, 12: 7, 3: 10, 4: 11, 5: 12, 8: 13 }
+  return [...map.values()].map((e) => ({
+    ...e,
+    slug: e.slug || simpleSlug(e.name),
+    parts: e.parts.sort((a, b) => (RANK[a.part] || 99) - (RANK[b.part] || 99)),
+  }))
+}
+
 // ─── Chapters of a subject (by slug) ──────────────────────────────────────────
 // If sectionType is given, only chapters that actually have that section.
 async function listChapters(subjectSlug, sectionType, classLevel = null) {
@@ -318,6 +359,7 @@ async function listContentClasses() {
 
 module.exports = {
   listSubjects,
+  listClassSubjects,
   listChapters,
   listSections,
   listQuestions,

@@ -5,6 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { WebView } from 'react-native-webview';
 import { getQuestionsByPath, getChapters } from '../api/resourcesApi';
 import { buildFragmentFromQuestions, buildPyqDocument } from '../utils/pyqDocument';
+import { useClassSubjects, toTile } from '../utils/classSubjects';
 import { getMcqChapterTest, getMcqSubtopicTest } from '../api/mcqPracticeApi';
 // Class 12 Chemistry & Mathematics are DB/API-backed. We only keep the bundled
 // chapter-name lists (their slugs match the DB) to drive the menus; all PYQ /
@@ -70,6 +71,12 @@ const slugify = (s) => {
 // 'Class 8' → 8; null when unknown (never defaults to a class — the backend uses the
 // student's saved class regardless of what we send).
 const classNum = (c) => parseInt(String(c || '').replace(/\D/g, ''), 10) || null;
+
+// Subject → API slug. 'Old - हिंदी ए' and 'Old - हिंदी ब' both slugify to "old"
+// (the ASCII "Old" prefix blocks the Devanagari hash fallback), so they need
+// explicit slugs matching the seed (scripts/seedClass9Old*.js).
+const SUBJECT_SLUG_OVERRIDES = { 'Old - हिंदी ए': 'old-hindi-a', 'Old - हिंदी ब': 'old-hindi-b' };
+const subjectSlug = (name) => SUBJECT_SLUG_OVERRIDES[name] || slugify(name);
 
 // buildFragmentFromQuestions + buildPyqDocument now live in utils/pyqDocument so
 // ResourcesScreen (Exemplar) can reuse the exact same card rendering.
@@ -306,6 +313,22 @@ const pyqSubjectsForClass = (cls) => {
   return PYQ_SUBJECTS;
 };
 
+// Mock-test subject list, class-aware. Class 9 has DB-backed mocks for Old - Maths
+// (examin8 resource 1234, class_level=9); other classes keep the senior PCMB list.
+const MOCK_SUBJECTS_CLASS9 = [
+  { name: 'Old - Maths',     emoji: '➗', bg: '#0F6E56', chapters: [] },
+  { name: 'Old - Science',   emoji: '⚗️', bg: '#5AA84F', chapters: [] },
+  { name: 'Old - Social Sc', emoji: '🏛️', bg: '#8A5A2B', chapters: [] },
+  { name: 'Old - Eng Lang',  emoji: '📖', bg: '#7A6FD0', chapters: [] },
+  { name: 'Old - हिंदी ए',    emoji: '📚', bg: '#2F80ED', chapters: [] },
+  { name: 'Old - हिंदी ब',    emoji: '📚', bg: '#26215C', chapters: [] },
+];
+const mockSubjectsForClass = (cls) =>
+  classNum(cls) === 9 ? MOCK_SUBJECTS_CLASS9 : dropBioForClass(PYQ_SUBJECTS, cls);
+// A subject whose mocks come from the DB (mockTestsApi) rather than the static bank.
+const isDbMockSubject = (subjectName, cls) =>
+  DB_MOCK_SUBJECTS.includes(subjectName) || (classNum(cls) === 9 && subjectName.startsWith('Old - '));
+
 const QUESTION_TYPES = [
   { icon: '🎯', label: 'Practice Questions',    sub: 'Multiple choice questions',  count: '120+ Qs' },
   { icon: '✍️', label: 'Short Answer',    sub: 'Written response questions', count: '80+ Qs' },
@@ -349,7 +372,7 @@ const PyqWebView = ({ html, subject, chapter, sectionType = 'pyq' }) => {
     // Otherwise fetch this chapter's questions from the API (PYQ).
     let alive = true;
     setStatus({ loading: true, error: null, html: null });
-    getQuestionsByPath(slugify(subject), slugify(chapter), sectionType, classLevel)
+    getQuestionsByPath(subjectSlug(subject), slugify(chapter), sectionType, classLevel)
       .then((questions) => {
         if (!alive) return;
         const h = questions && questions.length ? buildFragmentFromQuestions(questions) : '';
@@ -425,7 +448,7 @@ const ChapterList = ({
     if (localChapters) { setChapters(subject.chapters.filter((ch) => localChapters.has(slugify(ch)))); return; }
     let alive = true;
     setChapters(null);
-    getChapters(slugify(subject.name), sectionType, classLevel)
+    getChapters(subjectSlug(subject.name), sectionType, classLevel)
       .then((chs) => { if (alive) setChapters((chs || []).map((c) => c.name)); })
       .catch(() => { if (alive) setChapters([]); });
     return () => { alive = false; };
@@ -493,7 +516,7 @@ const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
     // Subtopic selected → that subtopic's questions; else the whole chapter.
     const req = subtopicId != null
       ? getMcqSubtopicTest(subtopicId)
-      : getMcqChapterTest(slugify(subject), slugify(chapter), classLevel);
+      : getMcqChapterTest(subjectSlug(subject), slugify(chapter), classLevel);
     req
       .then((data) => {
         if (!alive) return;
@@ -536,6 +559,15 @@ const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
 
 const PracticeScreen = () => {
   const { selectedClass, setSelectedClass, scope, isClassReady } = useAuth();
+
+  // Class 9 subject lists are DB-driven (no hardcoded arrays) — filter the fetched
+  // list by feature. Other classes keep their existing hardcoded lists.
+  const isC9 = classNum(selectedClass) === 9;
+  const c9Subjects = useClassSubjects(9, isC9);
+  const c9By = (flag) => (c9Subjects || []).filter((s) => s[flag]).map((s) => toTile(s, { chapters: [] }));
+  const impSubjects = isC9 ? c9By('importantQuestions') : impSubjectsForClass(selectedClass);
+  const pyqSubjects = isC9 ? c9By('pyq') : pyqSubjectsForClass(selectedClass);
+  const mockSubjects = isC9 ? c9By('mock') : mockSubjectsForClass(selectedClass);
 
   // Previous Year Papers navigation
   const [pyqOpen, setPyqOpen]       = useState(false);   // showing the PYQ subject list
@@ -617,7 +649,7 @@ const PracticeScreen = () => {
   const openSubjectSection = (subjectName) => {
     const willOpen = mockOpenSub !== subjectName;
     setMockOpenSub(willOpen ? subjectName : null);
-    if (willOpen && DB_MOCK_SUBJECTS.includes(subjectName) && !mockData[subjectName]) loadSubjectTests(subjectName);
+    if (willOpen && isDbMockSubject(subjectName, selectedClass) && !mockData[subjectName]) loadSubjectTests(subjectName);
   };
 
   // Launch a test — fetch the questions from the DB (all subjects/classes).
@@ -653,7 +685,7 @@ const PracticeScreen = () => {
     const sub = physMock && physMock.subject;
     setPhysMock(null);
     // Local Class 12 Mathematics mocks have no server-side attempt summary to refresh.
-    if (sub && DB_MOCK_SUBJECTS.includes(sub)) refreshAttempts(sub);
+    if (sub && isDbMockSubject(sub, selectedClass)) refreshAttempts(sub);
   };
 
   // Leaving the Practice tab resets all sub-navigation so it opens fresh next
@@ -714,7 +746,7 @@ const PracticeScreen = () => {
           <Text style={s.pageSub}>Select a subject  •  10 years question bank</Text>
         </View>
         <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
-          {pyqSubjectsForClass(selectedClass).map((subject, i) => (
+          {pyqSubjects.map((subject, i) => (
             <TouchableOpacity key={i} style={s.subjectRow} activeOpacity={0.8}
               onPress={() => setPyqSubject(subject)}>
               <View style={[s.subjectIconWrap, { backgroundColor: subject.bg }]}>
@@ -723,7 +755,7 @@ const PracticeScreen = () => {
               <View style={{ flex: 1 }}>
                 <Text style={s.subjectName}>{subject.name}</Text>
                 <Text style={s.subjectSub}>
-                  {subject.comingSoon ? 'Coming soon' : `${subject.chapters.length} chapters`}
+                  {subject.comingSoon ? 'Coming soon' : (subject.chapters?.length ? `${subject.chapters.length} chapters` : 'View chapters')}
                 </Text>
               </View>
               <Text style={s.listArrow}>→</Text>
@@ -785,7 +817,7 @@ const PracticeScreen = () => {
           <Text style={s.pageSub}>Select a subject  •  Hand-picked must-do questions</Text>
         </View>
         <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
-          {impSubjectsForClass(selectedClass).map((subject, i) => (
+          {impSubjects.map((subject, i) => (
             <TouchableOpacity key={i} style={s.subjectRow} activeOpacity={0.8}
               onPress={() => setImpSubject(subject)}>
               <View style={[s.subjectIconWrap, { backgroundColor: subject.bg }]}>
@@ -794,7 +826,7 @@ const PracticeScreen = () => {
               <View style={{ flex: 1 }}>
                 <Text style={s.subjectName}>{subject.name}</Text>
                 <Text style={s.subjectSub}>
-                  {subject.comingSoon ? 'Coming soon' : `${subject.chapters.length} chapters`}
+                  {subject.comingSoon ? 'Coming soon' : (subject.chapters?.length ? `${subject.chapters.length} chapters` : 'View chapters')}
                 </Text>
               </View>
               <Text style={s.listArrow}>→</Text>
@@ -918,7 +950,7 @@ const PracticeScreen = () => {
           <Text style={s.pageSub}>Pick a subject, then a mock test to begin</Text>
         </View>
         <ScrollView contentContainerStyle={{ padding: 16, paddingBottom: 32 }}>
-          {dropBioForClass(PYQ_SUBJECTS, selectedClass).map((subject) => {
+          {mockSubjects.map((subject) => {
             const isOpen = mockOpenSub === subject.name;
             const sd = mockData[subject.name];
             const tests = (sd && sd.tests) || [];

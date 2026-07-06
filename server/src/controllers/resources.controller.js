@@ -25,6 +25,14 @@ async function getSubjects(req, res, next) {
   } catch (err) { next(err) }
 }
 
+// Subjects available for a class, with per-feature flags (derived from the DB).
+// Used by the Class 9 screens instead of hardcoded subject lists.
+async function getClassSubjects(req, res, next) {
+  try {
+    return ApiResponse.success(res, await svc.listClassSubjects(classOf(req)))
+  } catch (err) { next(err) }
+}
+
 async function getChapters(req, res, next) {
   try {
     const data = await svc.listChapters(req.params.subjectSlug, req.query.section, classOf(req))
@@ -134,4 +142,4 @@ async function getClasses(req, res, next) {
   } catch (err) { next(err) }
 }
 
-module.exports = { getSubjects, getChapters, getSections, getQuestions, getQuestionsByPath, getNotesByPath, listPapers, getPaper, importPapers, deletePapers, getMcqByPath, getClasses }
+module.exports = { getSubjects, getClassSubjects, getChapters, getSections, getQuestions, getQuestionsByPath, getNotesByPath, listPapers, getPaper, importPapers, deletePapers, getMcqByPath, getClasses }

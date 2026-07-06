@@ -4,6 +4,7 @@ const { Router } = require('express')
 const { authenticate, requireAdmin } = require('../middleware/auth')
 const {
   getSubjects,
+  getClassSubjects,
   getChapters,
   getSections,
   getQuestions,
@@ -26,6 +27,9 @@ router.use(authenticate)
 
 // ─── Which classes have content (drives the "ready vs coming-soon" gate) ───────
 router.get('/classes',                           getClasses)
+
+// ─── Subjects available for a class + their feature flags (DB-derived) ─────────
+router.get('/class-subjects',                    getClassSubjects)
 
 // ─── Granular (REST) ──────────────────────────────────────────────────────────
 router.get('/subjects',                          getSubjects)
