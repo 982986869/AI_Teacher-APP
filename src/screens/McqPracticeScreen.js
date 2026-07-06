@@ -37,8 +37,13 @@ const classNum = (c) => parseInt(String(c || '').replace(/\D/g, ''), 10) || null
 // Subject → API slug. 'Old - हिंदी ए' and 'Old - हिंदी ब' both slugify to "old"
 // (the ASCII "Old" prefix blocks the Devanagari hash fallback), so they need
 // explicit slugs matching the seed (scripts/seedClass9OldPractice.js).
-const SUBJECT_SLUG_OVERRIDES = { 'Old - हिंदी ए': 'old-hindi-a', 'Old - हिंदी ब': 'old-hindi-b' };
+// 'Old - हिंदी' (Class 6) seeds to slug "old"; the client slugify would append a
+// Devanagari hash ("old-u…"). Pin it so navigation matches the DB.
+const SUBJECT_SLUG_OVERRIDES = { 'Old - हिंदी': 'old', 'Old - हिंदी ए': 'old-hindi-a', 'Old - हिंदी ब': 'old-hindi-b' };
 const subjectSlug = (name) => SUBJECT_SLUG_OVERRIDES[name] || slugify(name);
+
+// Classes whose subject lists are DB-derived (/api/resources/class-subjects).
+const DYNAMIC_CLASSES = [6, 9];
 
 const C = {
   purple: '#0C8F88', purpleDeep: '#26215C', purpleLight: '#EEEDFE',
@@ -137,12 +142,13 @@ function ProgressBar({ answered, total, score }) {
   );
 }
 
-function ChapterCard({ subject, chapter, classLevel, onStart, onStartSubtopic }) {
+function ChapterCard({ subject, chapter, classLevel, questionCount = null, onStart, onStartSubtopic }) {
   const [open, setOpen] = useState(false);
   const [subtopics, setSubtopics] = useState(null); // [{ id, name, questionCount }] | null
   const data = (MCQ_DATA[subject] && MCQ_DATA[subject][chapter]) || {};
-  // Class 12 (DB-backed) chapters have no stored attempt progress yet.
-  const p = data.progress || { answered: 0, total: 50, score: 0 };
+  // DB-backed chapters (Class 6 old / Class 7/8/9/12) have no stored attempt
+  // progress — use the real MCQ count from the API, not a placeholder.
+  const p = data.progress || { answered: 0, total: questionCount != null ? questionCount : 0, score: 0 };
   const started = p.answered > 0;
 
   const toggle = () => {
@@ -200,11 +206,11 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
   const [picker, setPicker] = useState(false);
   const { selectedClass } = useAuth();
   const classLevel = classNum(selectedClass);
-  // Class 9 practice subjects are DB-driven (no hardcoded list); other classes keep theirs.
-  const isC9 = classLevel === 9;
-  const c9 = useClassSubjects(9, isC9);
-  const subjectOptions = isC9
-    ? (c9 || []).filter((s) => s.practice).map((s) => toTile(s))
+  // Class 6 & 9 practice subjects are DB-driven (no hardcoded list); other classes keep theirs.
+  const isDyn = DYNAMIC_CLASSES.includes(classLevel);
+  const dynSubs = useClassSubjects(classLevel, isDyn);
+  const subjectOptions = isDyn
+    ? (dynSubs || []).filter((s) => s.practice).map((s) => toTile(s))
     : subjectsForClass(classLevel).filter((s) => !(classLevel === 12 && s.name === 'Biology'));
   const subjMeta = subjectOptions.find((s) => s.name === subject) || subjectOptions[0];
   // Keep the active subject valid for the selected class: Class 6 has only
@@ -218,7 +224,7 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
   // MCQ_DATA bank.
   const isDbApi =
     (classLevel === 12 && (subject === 'Physics' || subject === 'Chemistry' || subject === 'Mathematics')) ||
-    (classLevel === 6 && subject === 'Science (OLD)') ||
+    classLevel === 6 ||
     classLevel === 7 ||
     classLevel === 8 ||
     classLevel === 9;
@@ -240,15 +246,21 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
   // Hide chapters that have no MCQ content (no subtopics/questions in the DB).
   // `avail.slugs` = Set of chapter slugs that actually have questions. While
   // loading we show nothing yet; on error we fall back to showing all chapters.
-  const [avail, setAvail] = useState({ loading: true, slugs: null });
+  const [avail, setAvail] = useState({ loading: true, slugs: null, counts: null });
   useEffect(() => {
     let alive = true;
-    setAvail({ loading: true, slugs: null });
+    setAvail({ loading: true, slugs: null, counts: null });
     getMcqChaptersWithContent(subjectSlug(subject), classLevel)
       .then((chs) => {
-        if (alive) setAvail({ loading: false, slugs: new Set((chs || []).map((c) => c.slug)) });
+        if (!alive) return;
+        const list = chs || [];
+        setAvail({
+          loading: false,
+          slugs: new Set(list.map((c) => c.slug)),
+          counts: new Map(list.map((c) => [c.slug, c.questionCount || 0])),
+        });
       })
-      .catch(() => { if (alive) setAvail({ loading: false, slugs: null }); });
+      .catch(() => { if (alive) setAvail({ loading: false, slugs: null, counts: null }); });
     return () => { alive = false; };
   }, [subject, classLevel]);
 
@@ -257,8 +269,8 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
     : chapters;
   const listLoading = chaptersLoading || avail.loading;
 
-  // Class 9 subject list still loading from the DB (or none) — avoid subjMeta undefined.
-  if (isC9 && (c9 === null || !subjMeta)) {
+  // Dynamic (Class 6/9) subject list still loading from the DB (or none) — avoid subjMeta undefined.
+  if (isDyn && (dynSubs === null || !subjMeta)) {
     return (
       <SafeAreaView style={st.safe}>
         <StatusBar barStyle="dark-content" backgroundColor={C.white} />
@@ -271,7 +283,7 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
           <Text style={st.title}>MCQ Practice</Text>
         </View>
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Text style={{ color: C.muted }}>{c9 === null ? 'Loading…' : 'No practice subjects yet.'}</Text>
+          <Text style={{ color: C.muted }}>{dynSubs === null ? 'Loading…' : 'No practice subjects yet.'}</Text>
         </View>
       </SafeAreaView>
     );
@@ -325,6 +337,7 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
         ) : (
           visibleChapters.map((ch) => (
             <ChapterCard key={ch} subject={subject} chapter={ch} classLevel={classLevel}
+              questionCount={avail.counts ? avail.counts.get(slugify(ch)) : null}
               onStart={onStartChapter} onStartSubtopic={onStartSubtopic} />
           ))
         )}

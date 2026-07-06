@@ -92,8 +92,15 @@ const classNum = (c) => parseInt(String(c || '').replace(/\D/g, ''), 10) || null
 // Subject → API slug. 'Old - हिंदी ए' and 'Old - हिंदी ब' both slugify to "old"
 // (the ASCII "Old" prefix blocks the Devanagari hash fallback), so they need
 // explicit slugs matching the seed (scripts/seedClass9Old*.js).
-const SUBJECT_SLUG_OVERRIDES = { 'Old - हिंदी ए': 'old-hindi-a', 'Old - हिंदी ब': 'old-hindi-b' };
+// 'Old - हिंदी' (Class 6) seeds to slug "old" (the seed's slugify returns the ASCII
+// base immediately), but the client slugify appends a hash for Devanagari names →
+// "old-u…". Pin it so navigation matches the DB. Class 9 ए/ब likewise.
+const SUBJECT_SLUG_OVERRIDES = { 'Old - हिंदी': 'old', 'Old - हिंदी ए': 'old-hindi-a', 'Old - हिंदी ब': 'old-hindi-b' };
 const subjectSlug = (name) => SUBJECT_SLUG_OVERRIDES[name] || slugify(name);
+
+// Classes whose subject lists are derived from the DB (/api/resources/class-subjects)
+// instead of hardcoded arrays. Class 6 & 9 "Old -" subjects live here.
+const DYNAMIC_CLASSES = [6, 9];
 
 // buildFragmentFromQuestions + buildPyqDocument now live in utils/pyqDocument so
 // ResourcesScreen (Exemplar) can reuse the exact same card rendering.
@@ -607,14 +614,15 @@ const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
 const PracticeScreen = () => {
   const { selectedClass, setSelectedClass, scope, isClassReady } = useAuth();
 
-  // Class 9 subject lists are DB-driven (no hardcoded arrays) — filter the fetched
-  // list by feature. Other classes keep their existing hardcoded lists.
-  const isC9 = classNum(selectedClass) === 9;
-  const c9Subjects = useClassSubjects(9, isC9);
-  const c9By = (flag) => (c9Subjects || []).filter((s) => s[flag]).map((s) => toTile(s, { chapters: [] }));
-  const impSubjects = isC9 ? c9By('importantQuestions') : impSubjectsForClass(selectedClass);
-  const pyqSubjects = isC9 ? c9By('pyq') : pyqSubjectsForClass(selectedClass);
-  const mockSubjects = isC9 ? c9By('mock') : mockSubjectsForClass(selectedClass);
+  // Class 6 & 9 subject lists are DB-driven (no hardcoded arrays) — filter the
+  // fetched list by feature. Other classes keep their existing hardcoded lists.
+  const dynClass = classNum(selectedClass);
+  const isDyn = DYNAMIC_CLASSES.includes(dynClass);
+  const dynSubjects = useClassSubjects(dynClass, isDyn);
+  const dynBy = (flag) => (dynSubjects || []).filter((s) => s[flag]).map((s) => toTile(s, { chapters: [] }));
+  const impSubjects = isDyn ? dynBy('importantQuestions') : impSubjectsForClass(selectedClass);
+  const pyqSubjects = isDyn ? dynBy('pyq') : pyqSubjectsForClass(selectedClass);
+  const mockSubjects = isDyn ? dynBy('mock') : mockSubjectsForClass(selectedClass);
 
   // Previous Year Papers navigation
   const [pyqOpen, setPyqOpen]       = useState(false);   // showing the PYQ subject list
@@ -916,7 +924,7 @@ const PracticeScreen = () => {
   // Class 7 & 8 → DB-backed, timed testpapers from examin8 (OnlineTestScreen manages
   // its own subjects → chapters → tests → instruction → runner → result → review).
   // Other classes keep the offline-bank flow (OnlineTestsScreen).
-  if (chOpen && [7, 8, 9].includes(classNum(selectedClass))) {
+  if (chOpen && [6, 7, 8, 9].includes(classNum(selectedClass))) {
     return <OnlineTestScreen onExit={() => setChOpen(false)} />;
   }
   if (chOpen) {

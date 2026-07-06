@@ -86,3 +86,9 @@ data/examin8/*/raw/mock-tests/
 data/examin8/*/normalized/mock-tests.json
 
 data/examin8/*/normalized/ncert-solutions.json
+
+# Class 6 old-subject extraction checkpoints & raw exports (data lives in DB, not pushed)
+src/data/class6Practice/
+src/data/class6OnlineTests/
+src/data/class6OldTextbooks/
+src/data/class6OldNotes/

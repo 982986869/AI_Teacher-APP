@@ -19,7 +19,19 @@ async function listChaptersWithContent(subjectSlug, classLevel = 11) {
     },
     orderBy: { position: 'asc' },
   })
-  return rows.map((c) => ({ id: num(c.id), name: c.name, slug: c.slug, position: c.position }))
+  // Real MCQ count per chapter (sum over its subtopics) so the client shows the
+  // actual number of questions instead of a hardcoded placeholder.
+  const counts = await db.$queryRawUnsafe(
+    `SELECT ch.id AS id, count(mq.id)::int AS n
+       FROM chapters ch
+       JOIN subtopics st ON st.chapter_id = ch.id
+       JOIN mcq_questions mq ON mq.subtopic_id = st.id
+      WHERE ch.subject_id = $1 AND ch.class_level = $2
+      GROUP BY ch.id`,
+    Number(subject.id), classLevel,
+  )
+  const cmap = new Map(counts.map((r) => [String(r.id), Number(r.n)]))
+  return rows.map((c) => ({ id: num(c.id), name: c.name, slug: c.slug, position: c.position, questionCount: cmap.get(String(c.id)) || 0 }))
 }
 
 // ─── Subtopics of a chapter (with question counts) ────────────────────────────

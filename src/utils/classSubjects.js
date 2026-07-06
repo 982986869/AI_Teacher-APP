@@ -17,6 +17,9 @@ const DISPLAY = {
   'Old - Eng Comm':   { emoji: '📝', bg: '#26215C' },
   'Old - हिंदी ए':     { emoji: '📚', bg: '#2F80ED' },
   'Old - हिंदी ब':     { emoji: '📚', bg: '#B0306B' },
+  // Class 6 OLD subjects (single English / हिंदी, unlike Class 9's split)
+  'Old - English':    { emoji: '📖', bg: '#7A6FD0' },
+  'Old - हिंदी':       { emoji: '📚', bg: '#2F80ED' },
   // Class 9 new-syllabus (mirror the team's curated colours)
   'Maths (Ganita Manjari)':                 { emoji: '📐', bg: '#E8703A' },
   'Science (Exploration)':                  { emoji: '🔬', bg: '#5AA84F' },

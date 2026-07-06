@@ -520,21 +520,10 @@ const CLASS6_GANITA_CHAPTERS = [
 // (Science → Curiosity, Maths → Ganita Prakash, English → Poorvi). Maths carries
 // the NCERT textbook + Exemplar chapter lists; the other books' content is still
 // coming soon. These entries populate the Subjects picker when Class 6 is chosen.
+// New-syllabus Class 6 subjects (hardcoded). The OLD-syllabus subjects (Old - Maths,
+// Old - Science, Old - Social Sc, Old - English, Old - हिंदी) are DB-derived and
+// appended dynamically from /api/resources/class-subjects — see class6SubjectTiles.
 const SUBJECTS_CLASS6 = [
-  { name: 'Science (OLD)',          emoji: '🔬', bg: '#5AA84F', chapters: [
-    { name: 'Components of Food' },
-    { name: 'Sorting Materials into Groups' },
-    { name: 'Separation of Substances' },
-    { name: 'Getting To Know Plants' },
-    { name: 'Body Movements' },
-    { name: 'The Living Organisms and Their Surroundings' },
-    { name: 'Motion and Measurement of Distances' },
-    { name: 'Light Shadows and Reflections' },
-    { name: 'Electricity and Circuits' },
-    { name: 'Fun with Magnets' },
-    { name: 'Air around Us' },
-  ] },
-  { name: 'Maths (OLD)',            emoji: '📐', bg: '#E8703A', chapters: CLASS6_MATHS_CHAPTERS, exemplarChapters: CLASS6_MATHS_EXEMPLAR_CHAPTERS },
   { name: 'Science (Curiosity)',    emoji: '🔬', bg: '#5AA84F', chapters: CLASS6_SCIENCE_CURIOSITY_CHAPTERS },
   { name: 'English (Poorvi)',       emoji: '📖', bg: '#7A6FD0', chapters: CLASS6_ENGLISH_POORVI_CHAPTERS },
   { name: 'Maths (Ganita Prakash)', emoji: '📐', bg: '#E8703A', chapters: CLASS6_GANITA_CHAPTERS },
@@ -855,6 +844,16 @@ const getResourceTypes = (subjectName, classLevel, parts = null) => {
   // Class 6 books aren't split into Part-I / Part-II — replace both NCERT tiles
   // with a single revised-book tile, e.g. "Class 06 - Mathematics - Revised".
   if (classLevel === 'Class 6') {
+    // OLD-syllabus subjects are DB-derived: `parts` = [{ part, label }] from the
+    // class-subjects endpoint (each textbook book / Exemplar / Notes its own tile).
+    // Mirrors the Class 9 path. New-syllabus subjects carry no `parts` → fall through.
+    if (parts && parts.length) {
+      const ICON = { 3: '🧩', 4: '📝' }; // Exemplar / Notes; NCERT books default 📗
+      const SUB = { 3: 'Exemplar Solutions', 4: 'Chapter Notes' };
+      return parts
+        .filter((p) => p && p.label)
+        .map((p) => ({ icon: ICON[p.part] || '📗', name: p.label, sub: SUB[p.part] || 'Textbook Solutions', type: 'ncert2', part: p.part }));
+    }
     // Maths (Ganita Prakash): DB section-model — NCERT Solutions (ncert2, no `part`,
     // served via getQuestionsByPath) + flash-card Revision Notes (notes). No Exemplar.
     if (subjectName === 'Maths (Ganita Prakash)') {
@@ -1162,16 +1161,21 @@ const ResourcesScreen = () => {
   const [activeBoard,   setActiveBoard]   = useState('CBSE');
   // Class mirrors the student's SAVED class (synced with the Practice tab & Home).
   const { selectedClass: activeClass, setSelectedClass: setActiveClass, scope, isClassReady } = useAuth();
-  // Class 9 subject list is DB-driven (no hardcoded array): subjects that have any
-  // ncert_solutions content (parts), each carrying its parts for getResourceTypes.
-  const isC9Res = activeClass === 'Class 9';
-  const c9Res = useClassSubjects(9, isC9Res);
+  // Class 6 & 9 subject lists are DB-driven: subjects that have any ncert_solutions
+  // content (parts), each carrying its parts for getResourceTypes.
+  const resClassNum = parseInt(String(activeClass || '').replace(/\D/g, ''), 10) || null;
+  const isDynRes = [6, 9].includes(resClassNum);
+  const dynRes = useClassSubjects(resClassNum, isDynRes);
   // Resources tab shows textbook/notes parts only; Important Questions (5) + PYQ (8)
   // live in the Practice tab. `parts` are { part, label } objects from the API.
-  const class9SubjectTiles = (c9Res || [])
+  const dynResTiles = (dynRes || [])
     .map((s) => ({ ...s, resParts: (s.parts || []).filter((p) => ![5, 8].includes(p.part)) }))
     .filter((s) => s.resParts.length)
     .map((s) => toTile(s, { parts: s.resParts, chapters: [] }));
+  // Class 9 → all DB tiles (new + old). Class 6 → ONLY the DB-derived OLD subjects
+  // (names start with 'Old - '); new-syllabus subjects are intentionally hidden here.
+  const class9SubjectTiles = dynResTiles;
+  const class6SubjectTiles = dynResTiles.filter((s) => /^Old - /.test(s.name));
   // Numeric grade parsed from 'Class 12' → 12 for the ?class= API param. No fallback:
   // the backend uses the student's saved class regardless of what we send.
   const classNum = parseInt(String(activeClass || '').replace(/\D/g, ''), 10) || null;
@@ -1499,8 +1503,7 @@ const ResourcesScreen = () => {
       (activeResType?.type === 'ncert1' || activeResType?.type === 'ncert2') &&
       (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry')) ||
      (activeClass === 'Class 11' && (activeSubject?.name === 'Chemistry' || activeSubject?.name === 'Physics') &&
-      activeResType?.type === 'ncert1') ||
-     (activeClass === 'Class 6' && activeSubject?.name === 'Science (OLD)' && activeResType?.type === 'ncert2'))
+      activeResType?.type === 'ncert1'))
   );
   useEffect(() => {
     if (!c12NcertListActive) { setC12NcertAvail({ loading: false, chapters: null }); return undefined; }
@@ -2156,7 +2159,7 @@ const ResourcesScreen = () => {
             <Text style={s.boardLabel}>{activeClass}</Text>
           </View>
           <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
-            {(activeClass === 'Class 6' ? SUBJECTS_CLASS6 : activeClass === 'Class 7' ? SUBJECTS_CLASS7 : activeClass === 'Class 8' ? SUBJECTS_CLASS8 : activeClass === 'Class 9' ? class9SubjectTiles : activeClass === 'Class 10' ? ((Array.isArray(c10Subjects) && c10Subjects.length) ? class10Grid : SUBJECTS_CLASS10) : SUBJECTS)
+            {(activeClass === 'Class 6' ? class6SubjectTiles : activeClass === 'Class 7' ? SUBJECTS_CLASS7 : activeClass === 'Class 8' ? SUBJECTS_CLASS8 : activeClass === 'Class 9' ? class9SubjectTiles : activeClass === 'Class 10' ? ((Array.isArray(c10Subjects) && c10Subjects.length) ? class10Grid : SUBJECTS_CLASS10) : SUBJECTS)
               .filter((subject) => !(activeClass === 'Class 12' && subject.name === 'Biology'))
               // Stream filter (hide Biology from PCM etc.) only applies to senior classes
               // (11/12). Junior lists (e.g. Class 6's "Maths (OLD)", "English (Poorvi)")
