@@ -1,0 +1,170 @@
+'use strict'
+
+// ───────────────────────────────────────────────────────────────────────────
+// Seed JSTSE Scholarship "Previous Year Questions" (Class 9) into the Practice
+// model: subjects → chapters(class_level=9) → sections(type_key='pyq') → questions.
+// Reuses the existing JSTSE chapters (same 6 as its Important Questions); just adds
+// a 'pyq' section + questions to each.
+//
+// examin8:
+//   chapters : /content/category/2581/type/0/content_name/pyq/   → children
+//   questions: /question/previous_year_questions/:chapterId/       → data.results (paginated)
+//   each Q: { id, question, years, option:[{option, is_correct, explanation}], solution }
+//
+//   EXAMIN8_COOKIE=… EXAMIN8_CSRF=… node scripts/seedClass9JstsePyq.js          # DRY
+//   EXAMIN8_COOKIE=… EXAMIN8_CSRF=… node scripts/seedClass9JstsePyq.js --live    # seed
+// ───────────────────────────────────────────────────────────────────────────
+
+const fs = require('fs')
+const path = require('path')
+
+const ROOT = path.join(__dirname, '..')
+const COOKIE = process.env.EXAMIN8_COOKIE
+const CSRF = process.env.EXAMIN8_CSRF
+const LIVE = process.argv.includes('--live')
+const B = 'https://web.examin8.com/v1'
+const CLASS_LEVEL = 9
+const DELAY = 130
+const LETTERS = ['a', 'b', 'c', 'd', 'e', 'f']
+
+// Class 9 subjects that have Previous Year Questions on examin8. ONLY=<substr> runs one.
+const SUBJECTS = [
+  { name: 'JSTSE Scholarship',            res: '2581' },
+  { name: 'Computer Applications (165)',  res: '1908' },
+]
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
+const trim = (s) => (s == null ? '' : String(s)).trim()
+const normApos = (s) => trim(s).replace(/[‘’]/g, "'").replace(/[“”]/g, '"')
+// Byte-identical to the client slugify (normalize dashes/quotes, hash for Devanagari).
+const slugify = (s) => {
+  const str = String(s).replace(/[–—­‑]/g, '-').replace(/[‘’]/g, "'").replace(/[“”]/g, '"')
+  const base = str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
+  if (base && !/[^\x00-\x7F]/.test(str)) return base
+  let h = 5381
+  for (let i = 0; i < str.length; i++) h = ((h * 33) ^ str.charCodeAt(i)) >>> 0
+  const hash = 'u' + h.toString(36)
+  return base ? base + '-' + hash : hash
+}
+
+async function api(url) {
+  const r = await fetch(url, { headers: { accept: 'application/json', 'x-csrftoken': CSRF, referer: 'https://web.examin8.com/', cookie: COOKIE } })
+  if (!r.ok) throw new Error('HTTP ' + r.status + ' ' + url)
+  return r.json()
+}
+
+// Map an examin8 PYQ to a questions-table row.
+function mapQ(q, i) {
+  const opts = Array.isArray(q.option) ? q.option : []
+  const mcq = opts.length > 0
+  let options = null, correct_option = null
+  if (mcq) {
+    options = opts.map((o, k) => {
+      const idx = LETTERS[k] || String(k + 1)
+      if (o.is_correct && !correct_option) correct_option = idx
+      return { idx, html: trim(o.option), is_correct: !!o.is_correct }
+    })
+  }
+  const co = opts.find((o) => o.is_correct)
+  const solution_html = trim(q.solution) || trim(co && co.explanation) || ''
+  return {
+    q_number: `Q${i + 1}`,
+    year: trim(q.years) || null,          // the year(s) this question appeared
+    question_html: trim(q.question) || '',
+    is_mcq: mcq,
+    options,
+    correct_option,
+    solution_html,
+    position: i,
+  }
+}
+
+async function fetchChapterPyq(chapterId) {
+  const out = []
+  let url = `${B}/question/previous_year_questions/${chapterId}/`
+  while (url) {
+    let j
+    try { j = await api(url) } catch (e) { break }
+    for (const q of ((j.data && j.data.results) || [])) out.push(q)
+    url = (j.data && j.data.next) || null
+    if (url) await sleep(DELAY)
+  }
+  return out.map((q, i) => mapQ(q, i))
+}
+
+function getDbUrl() {
+  let u = fs.readFileSync(path.join(ROOT, 'server', '.env'), 'utf8').match(/^DATABASE_URL=(.*)$/m)[1].trim().replace(/^["']|["']$/g, '')
+  try { const x = new URL(u); x.searchParams.delete('sslmode'); u = x.toString() } catch (_) {}
+  return u
+}
+
+async function insertQuestions(client, sectionId, questions) {
+  if (!questions.length) return
+  const tuples = [], params = []
+  questions.forEach((q, i) => {
+    const b = i * 9
+    tuples.push(`($${b + 1},$${b + 2},$${b + 3},$${b + 4},$${b + 5},$${b + 6},$${b + 7},$${b + 8},$${b + 9})`)
+    params.push(sectionId, q.q_number, q.year, q.question_html, q.is_mcq, q.options ? JSON.stringify(q.options) : null, q.correct_option, q.solution_html, q.position)
+  })
+  await client.query(
+    `insert into questions (section_id, q_number, year, question_html, is_mcq, options, correct_option, solution_html, position) values ${tuples.join(',')}`,
+    params)
+}
+
+async function main() {
+  if (!COOKIE || !CSRF) { console.error('Set EXAMIN8_COOKIE and EXAMIN8_CSRF.'); process.exit(1) }
+  const ONLY = (process.env.ONLY || '').toLowerCase().split(',').map((x) => x.trim()).filter(Boolean)
+  const subjects = ONLY.length ? SUBJECTS.filter((s) => ONLY.some((t) => s.name.toLowerCase().includes(t))) : SUBJECTS
+
+  const data = []
+  for (const S of subjects) {
+    const list = await api(`${B}/content/category/${S.res}/type/0/content_name/pyq/`)
+    const byChapter = {}
+    let pos = 0
+    for (const ch of (list.children || [])) {
+      const qs = await fetchChapterPyq(ch.id)
+      if (qs.length) byChapter[normApos(ch.name)] = { position: pos++, questions: qs }
+      await sleep(DELAY)
+    }
+    const chapters = Object.keys(byChapter)
+    const total = chapters.reduce((n, c) => n + byChapter[c].questions.length, 0)
+    console.log(`  ${S.name}: ${chapters.length} chapters, ${total} PYQ questions`)
+    chapters.forEach((ch) => console.log(`     ${ch}: ${byChapter[ch].questions.length}`))
+    data.push({ ...S, byChapter, chapters })
+  }
+
+  if (!LIVE) { console.log('\n[DRY] add --live to seed.'); return }
+
+  const { Client } = require('pg')
+  const client = new Client({ connectionString: getDbUrl(), ssl: { rejectUnauthorized: false } })
+  await client.connect(); console.log('\n✓ Connected.')
+  try {
+    for (const S of data) {
+      const sub = await client.query(
+        `insert into subjects (name, slug) values ($1,$2) on conflict (slug) do update set name = excluded.name returning id`,
+        [S.name, slugify(S.name)])
+      const subjectId = sub.rows[0].id
+      let ci = 0, items = 0
+      for (const chName of S.chapters) {
+        const info = S.byChapter[chName]
+        // Reuse the existing chapter (created by the IQ seed); create it if missing.
+        const chp = await client.query(
+          `insert into chapters (subject_id, name, slug, class_level, position) values ($1,$2,$3,$4,$5)
+           on conflict (subject_id, class_level, slug) do update set name = excluded.name returning id`,
+          [subjectId, chName, slugify(chName), CLASS_LEVEL, info.position])
+        const chapterId = chp.rows[0].id
+        const sec = await client.query(
+          `insert into sections (chapter_id, type_key, position) values ($1,'pyq',1)
+           on conflict (chapter_id, type_key) do update set position = excluded.position returning id`,
+          [chapterId])
+        const sectionId = sec.rows[0].id
+        await client.query('delete from questions where section_id = $1', [sectionId])
+        await insertQuestions(client, sectionId, info.questions)
+        ci++; items += info.questions.length
+      }
+      console.log(`  ✓ ${S.name}: ${ci} chapters, ${items} PYQ questions (type_key=pyq, class_level=9)`)
+    }
+  } finally { await client.end() }
+}
+
+main().catch((e) => { console.error('FAILED:', e.message); process.exit(1) })

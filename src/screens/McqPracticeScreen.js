@@ -19,12 +19,16 @@ import { useAuth } from '../context/AuthContext';
 // Class 7 हिंदी resolves to the same slug the seed used. MUST stay byte-identical
 // to scripts/seedClass7McqPractice.js.
 const slugify = (s) => {
-  const base = String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-  if (base) return base;
+  // Normalize dashes/curly-quotes to ASCII so a stray em-dash doesn't count as
+  // non-ASCII; then, if real Devanagari remains, append a stable hash so
+  // Devanagari-heavy names whose only ASCII is a marker like "(R1)" stay unique.
+  const str = String(s).replace(/[\u2013\u2014\u00AD\u2011]/g, '-').replace(/[\u2018\u2019]/g, "'").replace(/[\u201C\u201D]/g, '"');
+  const base = str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  if (base && !/[^\x00-\x7F]/.test(str)) return base;
   let h = 5381;
-  const str = String(s);
   for (let i = 0; i < str.length; i++) h = ((h * 33) ^ str.charCodeAt(i)) >>> 0;
-  return 'u' + h.toString(36);
+  const hash = 'u' + h.toString(36);
+  return base ? base + '-' + hash : hash;
 };
 
 // 'Class 8' → 8; null when unknown (the backend uses the student's saved class).
@@ -95,6 +99,12 @@ const SUBJECTS_CLASS9 = [
   { name: 'हिंदी (गंगा)',                           emoji: '📖', bg: '#D9822B' },
   { name: 'English (Kaveri)',                       emoji: '✍️', bg: '#26215C' },
   { name: 'Maths (Ganita Manjari)',                 emoji: '📐', bg: '#0C8F88' },
+  { name: 'Computer Applications (165)',            emoji: '💻', bg: '#1C1C1E' },
+  { name: 'Information Technology (402)',            emoji: '💻', bg: '#0F6E56' },
+  { name: 'JSTSE Scholarship',                      emoji: '🏆', bg: '#B0306B' },
+  { name: 'Science (Advanced)',                     emoji: '🧪', bg: '#0F6E56' },
+  { name: 'संस्कृत (शारदा)',                         emoji: '🕉️', bg: '#E8703A' },
+  // Maths (Advanced) omitted — its IQ is all subjective, so it has no MCQ bank.
   { name: 'Old - Maths',                            emoji: '➗', bg: '#0F6E56' },
   { name: 'Old - Science',                          emoji: '⚗️', bg: '#5AA84F' },
   { name: 'Old - Social Sc',                        emoji: '🏛️', bg: '#8A5A2B' },

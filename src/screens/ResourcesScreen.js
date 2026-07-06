@@ -580,12 +580,12 @@ const SUBJECTS_CLASS9 = [
   { name: 'English (Kaveri)',                        emoji: '📖', bg: '#7A6FD0', chapters: [] },
   { name: 'हिंदी (गंगा)',                            emoji: '📚', bg: '#2F80ED', chapters: [] },
   { name: 'Science (Exploration)',                   emoji: '🔬', bg: '#5AA84F', chapters: [] },
-  { name: 'Science (Advanced)',                      emoji: '🧪', bg: '#0F6E56', chapters: [], comingSoon: true },
+  { name: 'Science (Advanced)',                      emoji: '🧪', bg: '#0F6E56', chapters: [] },
   { name: 'Social Science (Understanding Society)',  emoji: '🌐', bg: '#2F80ED', chapters: [], comingSoon: true },
   { name: 'Maths (Advanced)',                        emoji: '📐', bg: '#0C8F88', chapters: [], comingSoon: true },
   { name: 'Information Technology (402)',             emoji: '💻', bg: '#1C1C1E', chapters: [], comingSoon: true },
   { name: 'JSTSE Scholarship',                       emoji: '🏆', bg: '#B0306B', chapters: [], comingSoon: true },
-  { name: 'संस्कृत (शारदा)',                          emoji: '🕉️', bg: '#E8703A', chapters: [], comingSoon: true },
+  { name: 'संस्कृत (शारदा)',                          emoji: '🕉️', bg: '#E8703A', chapters: [] },
   // Old - Maths is DB-backed (examin8 resource 1234): NCERT (part 2), Exemplar (3),
   // Revision Notes (4), Important Questions (5), PYQ (8) + Practice/Online/Mock.
   // Old subjects are DB-backed (examin8, class_level=9) — Important Questions (part 5)
@@ -725,9 +725,9 @@ const getResourceTypes = (subjectName, classLevel, parts = null) => {
       { icon: '📝', name: 'Revision Notes',  sub: 'Chapter Notes',      type: 'ncert2', part: 4 },
     ];
   }
-  // Class 9 — new-syllabus subjects: NCERT Solutions (part=2) + Revision Notes (part=4),
-  // DB-backed via ncert2. Chapter lists fetched from the DB per part; empty tiles just
-  // show nothing (handled by the chapter-list fetch), so OLD subjects render harmlessly.
+  // Class 9 — new-syllabus books aren't "NCERT", so ALL subjects show the textbook
+  // tile as "Textbook Solutions" (part=2) + Revision Notes (part=4). DB-backed via
+  // ncert2; empty tiles just show nothing (handled by the chapter-list fetch).
   if (classLevel === 'Class 9') {
     // `parts` = [{ part, label }] from the class-subjects endpoint (DB-derived; each
     // textbook book carries its own label). No hardcoded per-subject part lists.
@@ -739,8 +739,8 @@ const getResourceTypes = (subjectName, classLevel, parts = null) => {
         .map((p) => ({ icon: ICON[p.part] || '📗', name: p.label, sub: SUB[p.part] || 'Textbook Solutions', type: 'ncert2', part: p.part }));
     }
     return [
-      { icon: '📗', name: 'NCERT Solutions', sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
-      { icon: '📝', name: 'Revision Notes',  sub: 'Chapter Notes',      type: 'ncert2', part: 4 },
+      { icon: '📗', name: 'Textbook Solutions', sub: 'Chapter Exercises', type: 'ncert2', part: 2 },
+      { icon: '📝', name: 'Revision Notes',      sub: 'Chapter Notes',     type: 'ncert2', part: 4 },
     ];
   }
   // Class 8 — same DB-backed model as Class 7: NCERT Solutions (part=2, textbook) +

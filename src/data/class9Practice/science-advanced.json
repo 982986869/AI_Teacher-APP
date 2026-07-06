@@ -1,0 +1,459 @@
+{
+  "name": "Science (Advanced)",
+  "slug": "science-advanced",
+  "res": "29087",
+  "chapters": [
+    {
+      "id": 29088,
+      "name": "Measurement – Foundation of Science",
+      "position": 0,
+      "subtopics": [
+        {
+          "topicId": 29088,
+          "name": "Practice Questions",
+          "questions": [
+            {
+              "id": 1854998,
+              "question": "<p>The SI unit of mass is:</p>",
+              "difficulty": "VSA (Very Short Answer)",
+              "options": [
+                {
+                  "id": 0,
+                  "option": "<p style=\"display:inline\">Gram</p>"
+                },
+                {
+                  "id": 1,
+                  "option": "<p style=\"display:inline\">Kilogram</p>"
+                },
+                {
+                  "id": 2,
+                  "option": "<p style=\"display:inline\">Pound</p>"
+                },
+                {
+                  "id": 3,
+                  "option": "<p style=\"display:inline\">tonne</p>"
+                }
+              ],
+              "correctOptionId": 1,
+              "explanation": "<p>Kilogram is the base SI unit of mass. Gram is smaller, while pound and tonne are not standard SI base units.</p>"
+            },
+            {
+              "id": 1855000,
+              "question": "<p>Which of the following is not an SI unit?</p>",
+              "difficulty": "VSA (Very Short Answer)",
+              "options": [
+                {
+                  "id": 0,
+                  "option": "<p style=\"display:inline\">Meter</p>"
+                },
+                {
+                  "id": 1,
+                  "option": "<p style=\"display:inline\">Kilogram</p>"
+                },
+                {
+                  "id": 2,
+                  "option": "<p style=\"display:inline\">Second</p>"
+                },
+                {
+                  "id": 3,
+                  "option": "<p style=\"display:inline\">foot</p>"
+                }
+              ],
+              "correctOptionId": 3,
+              "explanation": "<p>Meter, kilogram, and second are base SI units. Foot belongs to the imperial system, so it is not an SI unit.</p>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 29094,
+      "name": "Chemical Bonding",
+      "position": 1,
+      "subtopics": [
+        {
+          "topicId": 29094,
+          "name": "Practice Questions",
+          "questions": [
+            {
+              "id": 1855021,
+              "question": "<p><strong>Assertion (A):</strong> Metals are good conductors of electricity.<br />\r\n<strong>Reason (R):</strong> Metals contain free electrons that can move under an electric field.</p>",
+              "difficulty": "VSA (Very Short Answer)",
+              "options": [
+                {
+                  "id": 0,
+                  "option": "<p style=\"display:inline\">Both A and R are true and R is the correct explanation of A.</p>"
+                },
+                {
+                  "id": 1,
+                  "option": "<p style=\"display:inline\">Both A and R are true but R is not the correct explanation of A.</p>"
+                },
+                {
+                  "id": 2,
+                  "option": "<p style=\"display:inline\">A is true but R is false.</p>"
+                },
+                {
+                  "id": 3,
+                  "option": "<p style=\"display:inline\">A is false but R is true.</p>"
+                }
+              ],
+              "correctOptionId": 0,
+              "explanation": "<p>Metals possess a delocalized &quot;sea&quot; of valence electrons that are not bound to any specific atom. When an electric field is applied, these mobile electrons drift toward the positive terminal, effectively carrying the electric current through the metal lattice.</p>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 29095,
+      "name": "Mixtures and their Separation",
+      "position": 2,
+      "subtopics": [
+        {
+          "topicId": 29095,
+          "name": "Practice Questions",
+          "questions": [
+            {
+              "id": 1854999,
+              "question": "<p>In column chromatography, the solid substance that is filled in the column is called the:</p>",
+              "difficulty": "VSA (Very Short Answer)",
+              "options": [
+                {
+                  "id": 0,
+                  "option": "<p style=\"display:inline\">Mobile phase</p>"
+                },
+                {
+                  "id": 1,
+                  "option": "<p style=\"display:inline\">Solvent</p>"
+                },
+                {
+                  "id": 2,
+                  "option": "<p style=\"display:inline\">Stationary phase</p>"
+                },
+                {
+                  "id": 3,
+                  "option": "<p style=\"display:inline\">Mixture</p>"
+                }
+              ],
+              "correctOptionId": 2,
+              "explanation": "<p>The solid substance, typically silica gel or alumina, is the stationary phase. It remains fixed in the column, providing a surface where components are selectively adsorbed and separated as the mobile phase flows through.</p>"
+            },
+            {
+              "id": 1855001,
+              "question": "<p>What is the main purpose of the &quot;fractionating column&quot; in fractional distillation?</p>",
+              "difficulty": "VSA (Very Short Answer)",
+              "options": [
+                {
+                  "id": 0,
+                  "option": "<p style=\"display:inline\">To heat the mixture faster.</p>"
+                },
+                {
+                  "id": 1,
+                  "option": "<p style=\"display:inline\">To cool the vapours at fast rate.</p>"
+                },
+                {
+                  "id": 2,
+                  "option": "<p style=\"display:inline\">To provide more surface area for vapours.</p>"
+                },
+                {
+                  "id": 3,
+                  "option": "<p style=\"display:inline\">To let the vapours of two liquids mix properly</p>"
+                }
+              ],
+              "correctOptionId": 2,
+              "explanation": "<p>A fractionating column contains glass beads or plates that provide a large surface area for repeated condensation and vaporization. This ensures that higher-boiling vapors condense and fall back, while lower-boiling vapors continue to rise, resulting in a much purer separation.</p>"
+            },
+            {
+              "id": 1855002,
+              "question": "<p>Difference in which property forms the basis for separating components in fractional distillation?</p>",
+              "difficulty": "VSA (Very Short Answer)",
+              "options": [
+                {
+                  "id": 0,
+                  "option": "<p style=\"display:inline\">Solubility</p>"
+                },
+                {
+                  "id": 1,
+                  "option": "<p style=\"display:inline\">Boiling points</p>"
+                },
+                {
+                  "id": 2,
+                  "option": "<p style=\"display:inline\">Particle size</p>"
+                },
+                {
+                  "id": 3,
+                  "option": "<p style=\"display:inline\">Chemical reactivity</p>"
+                }
+              ],
+              "correctOptionId": 1,
+              "explanation": "<p>Fractional distillation separates components based on their different boiling points. Components with lower boiling points vaporize first, while those with higher boiling points condense back, allowing for efficient separation in the fractionating column.</p>"
+            },
+            {
+              "id": 1854997,
+              "question": "<p>That component of a mixture moves down the column at a faster rate which is</p>",
+              "difficulty": "VSA (Very Short Answer)",
+              "options": [
+                {
+                  "id": 0,
+                  "option": "<p style=\"display:inline\">most attracted to the stationary phase.</p>"
+                },
+                {
+                  "id": 1,
+                  "option": "<p style=\"display:inline\">having the highest boiling point.</p>"
+                },
+                {
+                  "id": 2,
+                  "option": "<p style=\"display:inline\">The one most soluble in the mobile phase (solvent)</p>"
+                },
+                {
+                  "id": 3,
+                  "option": "<p style=\"display:inline\">The one with the largest particle  </p>"
+                }
+              ],
+              "correctOptionId": 2,
+              "explanation": "<p>A component moves faster if it has a higher solubility in the mobile phase. This preference allows the substance to remain in the flowing solvent longer, spend less time adsorbed on the stationary phase, and travel through the column quickly.</p>"
+            },
+            {
+              "id": 1855003,
+              "question": "<p><strong>Assertion:</strong> Fractional distillation gives better separation than simple distillation.<br />\r\n<strong>Reason:</strong> It involves repeated condensation and vaporization.</p>",
+              "difficulty": "VSA (Very Short Answer)",
+              "options": [
+                {
+                  "id": 0,
+                  "option": "<p style=\"display:inline\">Both A and R are true and R is the correct explanation of A.</p>"
+                },
+                {
+                  "id": 1,
+                  "option": "<p style=\"display:inline\">Both A and R are true but R is not the correct explanation of A.</p>"
+                },
+                {
+                  "id": 2,
+                  "option": "<p style=\"display:inline\">A is true but R is false.</p>"
+                },
+                {
+                  "id": 3,
+                  "option": "<p style=\"display:inline\">A is false but R is true.</p>"
+                }
+              ],
+              "correctOptionId": 0,
+              "explanation": "<p>Fractional distillation is superior because the fractionating column allows for multiple cycles of condensation and vaporization. Each cycle enriches the vapor in the more volatile component, ensuring a much higher level of purity in the final distillate compared to simple distillation.</p>"
+            },
+            {
+              "id": 1855004,
+              "question": "<p><strong>Assertion:</strong> In chromatography, separation occurs due to difference in boiling points.<br />\r\n<strong>Reason:</strong> Components move at different speeds in the column.</p>",
+              "difficulty": "VSA (Very Short Answer)",
+              "options": [
+                {
+                  "id": 0,
+                  "option": "<p style=\"display:inline\">Both A and R are true and R is the correct explanation of A.</p>"
+                },
+                {
+                  "id": 1,
+                  "option": "<p style=\"display:inline\">Both A and R are true but R is not the correct explanation of A.</p>"
+                },
+                {
+                  "id": 2,
+                  "option": "<p style=\"display:inline\">A is true but R is false.</p>"
+                },
+                {
+                  "id": 3,
+                  "option": "<p style=\"display:inline\">A is false but R is true.</p>"
+                }
+              ],
+              "correctOptionId": 3,
+              "explanation": "<p>The assertion is false because chromatography depends on differential adsorption or solubility in the phases, not boiling points. The reason is a correct statement, as components indeed move at different speeds due to their varying affinities for the stationary and mobile phases.</p>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 29097,
+      "name": "Engineering Life: Miracles in Biotechnology",
+      "position": 3,
+      "subtopics": [
+        {
+          "topicId": 29097,
+          "name": "Practice Questions",
+          "questions": [
+            {
+              "id": 1854944,
+              "question": "<p>Which microorganism is commonly used in bread making?</p>",
+              "difficulty": "VSA (Very Short Answer)",
+              "options": [
+                {
+                  "id": 0,
+                  "option": "<p style=\"display:inline\">Bacteria</p>"
+                },
+                {
+                  "id": 1,
+                  "option": "<p style=\"display:inline\">Virus</p>"
+                },
+                {
+                  "id": 2,
+                  "option": "<p style=\"display:inline\">Yeast</p>"
+                },
+                {
+                  "id": 3,
+                  "option": "<p style=\"display:inline\">Algae</p>"
+                }
+              ],
+              "correctOptionId": 2,
+              "explanation": "<p>Specifically, Saccharomyces cerevisiae is used because it ferments sugars in the dough, producing carbon dioxide gas that causes the bread to rise.</p>"
+            },
+            {
+              "id": 1854938,
+              "question": "<p>During which phase do microorganisms show maximum growth?</p>",
+              "difficulty": "VSA (Very Short Answer)",
+              "options": [
+                {
+                  "id": 0,
+                  "option": "<p style=\"display:inline\">Lag phase</p>"
+                },
+                {
+                  "id": 1,
+                  "option": "<p style=\"display:inline\">Log phase</p>"
+                },
+                {
+                  "id": 2,
+                  "option": "<p style=\"display:inline\">Stationary phase</p>"
+                },
+                {
+                  "id": 3,
+                  "option": "<p style=\"display:inline\">Death phase</p>"
+                }
+              ],
+              "correctOptionId": 1,
+              "explanation": "<p>During this exponential phase, microorganisms divide at their fastest possible rate because environmental conditions and nutrient availability are optimal for cell doubling.</p>"
+            },
+            {
+              "id": 1854946,
+              "question": "<p>Which of the following is an example of traditional biotechnology?</p>",
+              "difficulty": "VSA (Very Short Answer)",
+              "options": [
+                {
+                  "id": 0,
+                  "option": "<p style=\"display:inline\">Production of insulin using bacteria</p>"
+                },
+                {
+                  "id": 1,
+                  "option": "<p style=\"display:inline\">Preparation of curd from milk</p>"
+                },
+                {
+                  "id": 2,
+                  "option": "<p style=\"display:inline\">Development of disease-resistant crops</p>"
+                },
+                {
+                  "id": 3,
+                  "option": "<p style=\"display:inline\">Gene transfer between organisms</p>"
+                }
+              ],
+              "correctOptionId": 1,
+              "explanation": "<p>This is traditional biotechnology because it relies on the natural fermentation process of Lactobacillus bacteria, a practice used for centuries without altering the organism&#39;s DNA.</p>"
+            },
+            {
+              "id": 1854940,
+              "question": "<p>Genetic engineering mainly involves:</p>",
+              "difficulty": "VSA (Very Short Answer)",
+              "options": [
+                {
+                  "id": 0,
+                  "option": "<p style=\"display:inline\">Mixing different foods</p>"
+                },
+                {
+                  "id": 1,
+                  "option": "<p style=\"display:inline\">Transfer of genes between organisms</p>"
+                },
+                {
+                  "id": 2,
+                  "option": "<p style=\"display:inline\">Increasing natural microbial growth</p>"
+                },
+                {
+                  "id": 3,
+                  "option": "<p style=\"display:inline\">Removing microorganisms from food</p>"
+                }
+              ],
+              "correctOptionId": 1,
+              "explanation": "<p>This process involves deliberately modifying an organism&#39;s DNA by inserting genes from another species to give it new, beneficial traits that do not occur naturally.</p>"
+            },
+            {
+              "id": 1854942,
+              "question": "<p>Which of the following conditions is necessary for proper functioning of a fermenter?</p>",
+              "difficulty": "VSA (Very Short Answer)",
+              "options": [
+                {
+                  "id": 0,
+                  "option": "<p style=\"display:inline\">Contamination</p>"
+                },
+                {
+                  "id": 1,
+                  "option": "<p style=\"display:inline\">Controlled temperature</p>"
+                },
+                {
+                  "id": 2,
+                  "option": "<p style=\"display:inline\">Open environment</p>"
+                },
+                {
+                  "id": 3,
+                  "option": "<p style=\"display:inline\">Absence of nutrients</p>"
+                }
+              ],
+              "correctOptionId": 1,
+              "explanation": "<p>Microorganisms are highly sensitive to their environment; maintaining a specific, stable temperature ensures that their enzymes function optimally for growth and product synthesis.</p>"
+            },
+            {
+              "id": 1854934,
+              "question": "<p><strong>Assertion (A):</strong> Modern biotechnology allows production of insulin using bacteria<br />\r\n<strong>Reason (R):</strong> Modern biotechnology involves genetic modification techniques.</p>",
+              "difficulty": "VSA (Very Short Answer)",
+              "options": [
+                {
+                  "id": 0,
+                  "option": "<p style=\"display:inline\">Both A and R are true and R is the correct explanation of A.</p>"
+                },
+                {
+                  "id": 1,
+                  "option": "<p style=\"display:inline\">Both A and R are true but R is not the correct explanation of A.</p>"
+                },
+                {
+                  "id": 2,
+                  "option": "<p style=\"display:inline\">A is true but R is false.</p>"
+                },
+                {
+                  "id": 3,
+                  "option": "<p style=\"display:inline\">A is false but R is true.</p>"
+                }
+              ],
+              "correctOptionId": 0,
+              "explanation": "<p>Modern biotechnology uses genetic engineering to insert human insulin genes into bacteria, turning them into factories that produce human-compatible insulin.</p>"
+            },
+            {
+              "id": 1854936,
+              "question": "<p><strong>Assertion (A):</strong> Sterility must be maintained inside a fermenter.<br />\r\n<strong>Reason (R):</strong> Contamination by unwanted microorganisms can reduce product quality.</p>",
+              "difficulty": "VSA (Very Short Answer)",
+              "options": [
+                {
+                  "id": 0,
+                  "option": "<p style=\"display:inline\">Both A and R are true and R is the correct explanation of A.</p>"
+                },
+                {
+                  "id": 1,
+                  "option": "<p style=\"display:inline\">Both A and R are true but R is not the correct explanation of A.</p>"
+                },
+                {
+                  "id": 2,
+                  "option": "<p style=\"display:inline\">A is true but R is false.</p>"
+                },
+                {
+                  "id": 3,
+                  "option": "<p style=\"display:inline\">A is false but R is true.</p>"
+                }
+              ],
+              "correctOptionId": 0,
+              "explanation": "<p>Sterility is vital because unwanted microbes compete for nutrients and produce toxins. This contamination significantly reduces the yield and purity of the desired product.</p>"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
