@@ -1,0 +1,45 @@
+{
+  "flash_cards": [
+    {
+      "topic_id": 760,
+      "topic_name": "The Fundamental Theorem of Arithmetic (X-1.1)",
+      "cards": [
+        {
+          "id": 303,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>The Fundamental Theorem of Arithmetic:<br />\nEvery composite number can be expressed (factorised) as a product of primes, and this factorisation is unique, apart from the order in which the prime factors occur.</p>",
+          "order": 303,
+          "topic_id": 760,
+          "topic_name": "The Fundamental Theorem of Arithmetic (X-1.1)"
+        }
+      ]
+    },
+    {
+      "topic_id": 761,
+      "topic_name": "Revisiting Irrational Numbers (X-1.2)",
+      "cards": [
+        {
+          "id": 301,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>Prove that <span class=\"math-tex\">{tex}\\sqrt{2}{/tex}</span>,<span class=\"math-tex\">{tex}\\sqrt{3}{/tex}</span> are irrationals.</p>",
+          "order": 301,
+          "topic_id": 761,
+          "topic_name": "Revisiting Irrational Numbers (X-1.2)"
+        },
+        {
+          "id": 302,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>Let p be a prime . If p divides a<sup>2</sup> , then p divides a, where a is a positive integer.</p>",
+          "order": 302,
+          "topic_id": 761,
+          "topic_name": "Revisiting Irrational Numbers (X-1.2)"
+        }
+      ]
+    }
+  ],
+  "count": 3,
+  "category_name": "Real Numbers"
+}

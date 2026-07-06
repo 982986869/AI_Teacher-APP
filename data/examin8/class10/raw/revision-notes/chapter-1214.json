@@ -1,0 +1,63 @@
+{
+  "flash_cards": [
+    {
+      "topic_id": 23,
+      "topic_name": "Mean of Grouped Data (X-13.1)",
+      "cards": [
+        {
+          "id": 239,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>The median for grouped data is formed by using the formula:<br />\nMedian =&nbsp;<span class=\"math-tex\">{tex}l+\\left(\\frac{\\frac{n}{2}-\\mathrm{cf}}{f}\\right) \\times h{/tex}</span>,<br />\nwhere symbols have their usual meanings.</p>",
+          "order": 239,
+          "topic_id": 23,
+          "topic_name": "Mean of Grouped Data (X-13.1)"
+        },
+        {
+          "id": 242,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>The mean for grouped data can be found by:<br />\nthe step deviation method: <span class=\"math-tex\">{tex}\\bar{x}=a+\\left(\\frac{\\Sigma f_{i} u_{i}}{\\Sigma f_{i}}\\right) \\times h{/tex}</span>&nbsp; &nbsp;where <span class=\"math-tex\">{tex}u_i= { x_i-a \\over h}{/tex}</span>&nbsp; , a= assumed mean and h= class width</p>",
+          "order": 242,
+          "topic_id": 23,
+          "topic_name": "Mean of Grouped Data (X-13.1)"
+        },
+        {
+          "id": 243,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>The mean for grouped data can be found by:<br />\nthe assumed mean method: <span class=\"math-tex\">{tex}\\bar{x}=a+\\frac{\\sum f_{i} d_{i}}{\\Sigma f_{i}} {/tex}</span>&nbsp; where&nbsp;<span class=\"math-tex\">{tex}d_i=x_i-a{/tex}</span>, a = Assumed mean</p>",
+          "order": 243,
+          "topic_id": 23,
+          "topic_name": "Mean of Grouped Data (X-13.1)"
+        },
+        {
+          "id": 244,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>The mean for grouped data can be found by:<br />\nthe direct method: <span class=\"math-tex\">{tex}\\bar{x}=\\frac{\\sum f_{i} x_{i}}{\\Sigma f_{i}}{/tex}</span></p>",
+          "order": 244,
+          "topic_id": 23,
+          "topic_name": "Mean of Grouped Data (X-13.1)"
+        }
+      ]
+    },
+    {
+      "topic_id": 24,
+      "topic_name": "Mode of Grouped Data (X-13.2)",
+      "cards": [
+        {
+          "id": 241,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>The mode for grouped data can be found by using the formula:<br />\nMode = <span class=\"math-tex\">{tex}l+\\left(\\frac{f_{1}-f_{0}}{2 f_{1}-f_{0}-f_{2}}\\right) \\times h{/tex}</span><br />\nwhere symbols have their usual meanings.</p>",
+          "order": 241,
+          "topic_id": 24,
+          "topic_name": "Mode of Grouped Data (X-13.2)"
+        }
+      ]
+    }
+  ],
+  "count": 5,
+  "category_name": "Statistics"
+}

@@ -142,4 +142,12 @@ async function getClasses(req, res, next) {
   } catch (err) { next(err) }
 }
 
-module.exports = { getSubjects, getClassSubjects, getChapters, getSections, getQuestions, getQuestionsByPath, getNotesByPath, listPapers, getPaper, importPapers, deletePapers, getMcqByPath, getClasses }
+// GET /api/resources/menu/:subjectSlug?class=10 → { subject, tiles:[{type,name,part?}] }.
+// Class 10 per-subject resource tabs (Class 9 uses listClassSubjects feature flags).
+async function getResourceMenu(req, res, next) {
+  try {
+    return ApiResponse.success(res, await svc.getResourceMenu(req.params.subjectSlug, classOf(req)))
+  } catch (err) { next(err) }
+}
+
+module.exports = { getSubjects, getClassSubjects, getChapters, getSections, getQuestions, getQuestionsByPath, getNotesByPath, listPapers, getPaper, importPapers, deletePapers, getMcqByPath, getClasses, getResourceMenu }

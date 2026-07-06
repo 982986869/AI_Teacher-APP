@@ -26,7 +26,11 @@ async function assertTestInScope(req, id) {
     if (!cls || Number(meta.classLevel) !== Number(cls)) {
       throw new AppError('This test is not available for your class.', 403)
     }
-    if (meta.subject && !isAllowedSubject(meta.subject, req.scope.classNum, req.scope.stream)) {
+    // Subject allowlist only gates senior classes (11/12), where streams restrict
+    // subjects. Class ≤10 has no streams — every subject with a class_level test is
+    // in the student's syllabus (incl. electives/languages like IT, हिंदी, Sanskrit),
+    // and the class_level check above already blocks other classes' tests.
+    if (meta.subject && Number(req.scope.classNum) > 10 && !isAllowedSubject(meta.subject, req.scope.classNum, req.scope.stream)) {
       throw new AppError('This test is not part of your syllabus.', 403)
     }
   }
@@ -37,7 +41,9 @@ async function assertTestInScope(req, id) {
 async function listTests(req, res, next) {
   try {
     const subject = req.query.subject ? String(req.query.subject) : undefined
-    if (subject) assertSubjectAllowed(req, subject) // PCM student can't list Biology tests
+    // Stream-based subject gating applies to senior classes only; Class ≤10 lists any
+    // subject that has tests for its class (electives/languages included).
+    if (subject && Number(classOf(req)) > 10) assertSubjectAllowed(req, subject) // PCM student can't list Biology tests
     const tests = await mockTestService.listTests({ subject, classLevel: classOf(req) })
     return ApiResponse.success(res, { tests, total: tests.length })
   } catch (err) {

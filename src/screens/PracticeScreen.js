@@ -28,8 +28,21 @@ import { ClassTabs, ComingSoon } from '../components/ClassPicker';
 // Subjects with DB-backed mock tests (served by mockTestsApi). The Mock Test
 // button opens a subject -> mock list flow that runs each test through the
 // shared (sectioned) McqTestScreen.
-const DB_MOCK_SUBJECTS = ['Physics', 'Chemistry', 'Mathematics', 'Biology'];
+const DB_MOCK_SUBJECTS = ['Physics', 'Chemistry', 'Mathematics', 'Biology', 'Science', 'Social Science',
+  'हिंदी ए', 'हिंदी ब', 'Information Technology (402)', 'English Language and Literature'];
 const MOCK_QUIZ_COUNT = 10;
+
+// Class 10 mock-test subjects (DB-backed via mock_tests, class_level=10). The mock
+// section shows these instead of the Class 11/12 science list when Class 10 is active.
+const MOCK_SUBJECTS_CLASS10 = [
+  { name: 'Mathematics',                     emoji: '📐', bg: '#444' },
+  { name: 'Science',                         emoji: '🔬', bg: '#5AA84F' },
+  { name: 'Social Science',                  emoji: '🌐', bg: '#2F80ED' },
+  { name: 'हिंदी ए',                          emoji: '📚', bg: '#2F80ED' },
+  { name: 'हिंदी ब',                          emoji: '📚', bg: '#0F6E56' },
+  { name: 'Information Technology (402)',     emoji: '💻', bg: '#1C1C1E' },
+  { name: 'English Language and Literature', emoji: '📖', bg: '#5A67E8' },
+];
 
 // Compute a sectioned result from the test submission. Uses each question's
 // correctAnswer when available; otherwise counts as unanswered/incorrect.
@@ -291,7 +304,19 @@ const CLASS9_IMP_SUBJECTS = [
 // data in the DB at class_level=12) and Chemistry for its 10 chapters (bundled
 // locally); the other subjects are marked "coming soon" so they don't hit the
 // API with Class-11 chapter names. Class 7 → the 6 new-syllabus subjects above.
+// Class 10 — Resources has DB-backed Revision Notes, but no Practice content
+// (PYQ / Important Qs) is imported yet, so Practice lists the real Class-10
+// subjects as "coming soon" rather than falling back to Class-11's subjects.
+const CLASS10_PRACTICE_SUBJECTS = [
+  { name: 'Mathematics',                   emoji: '📐', bg: '#444',    chapters: [], comingSoon: true },
+  { name: 'Science',                       emoji: '🔬', bg: '#5AA84F', chapters: [], comingSoon: true },
+  { name: 'Social Science',                emoji: '🌐', bg: '#2F80ED', chapters: [], comingSoon: true },
+  { name: 'English Communicative (101)',   emoji: '📖', bg: '#7A6FD0', chapters: [], comingSoon: true },
+  { name: 'Artificial Intelligence (417)', emoji: '🤖', bg: '#1C1C1E', chapters: [], comingSoon: true },
+];
+
 const impSubjectsForClass = (cls) => {
+  if (cls === 'Class 10') return CLASS10_PRACTICE_SUBJECTS;
   if (cls === 'Class 12') {
     return PYQ_SUBJECTS.filter((sub) => sub.name !== 'Biology').map((sub) => {
       if (sub.name === 'Physics') return { ...sub, chapters: PHYSICS12_IMP_CHAPTERS };
@@ -312,6 +337,7 @@ const impSubjectsForClass = (cls) => {
 // (bundled locally); the other subjects are marked "coming soon" so they don't hit
 // the API with Class-11 chapter names.
 const pyqSubjectsForClass = (cls) => {
+  if (cls === 'Class 10') return CLASS10_PRACTICE_SUBJECTS;
   if (cls === 'Class 12') {
     return PYQ_SUBJECTS.filter((sub) => sub.name !== 'Biology').map((sub) => {
       if (sub.name === 'Physics') return { ...sub, chapters: PHYSICS12_IMP_CHAPTERS };
@@ -343,7 +369,9 @@ const MOCK_SUBJECTS_CLASS9 = [
   { name: 'Old - हिंदी ब',    emoji: '📚', bg: '#26215C', chapters: [] },
 ];
 const mockSubjectsForClass = (cls) =>
-  classNum(cls) === 9 ? MOCK_SUBJECTS_CLASS9 : dropBioForClass(PYQ_SUBJECTS, cls);
+  classNum(cls) === 9 ? MOCK_SUBJECTS_CLASS9
+  : classNum(cls) === 10 ? MOCK_SUBJECTS_CLASS10
+  : dropBioForClass(PYQ_SUBJECTS, cls);
 // A subject whose mocks come from the DB (mockTestsApi) rather than the static bank.
 const isDbMockSubject = (subjectName, cls) =>
   DB_MOCK_SUBJECTS.includes(subjectName) || (classNum(cls) === 9 && subjectName.startsWith('Old - '));

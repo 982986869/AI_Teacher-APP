@@ -12,7 +12,7 @@ let Sharing = null;
 try { Sharing = require('expo-sharing'); } catch (e) { Sharing = null; }
 import { WebView } from 'react-native-webview';
 
-import { getExemplarSolutions, getNcertChapters, getChapters, getQuestionsByPath, getNotesByPath, getPapers, getPaper } from '../api/resourcesApi';
+import { getExemplarSolutions, getNcertChapters, getChapters, getQuestionsByPath, getNotesByPath, getPapers, getPaper, getClassSubjects, getResourceMenu } from '../api/resourcesApi';
 import { buildFragmentFromQuestions, buildPyqDocument } from '../utils/pyqDocument';
 import { isAllowedSubject } from '../utils/personalization';
 import { useClassSubjects, toTile } from '../utils/classSubjects';
@@ -242,8 +242,17 @@ const BOARDS  = ['CBSE', 'ICSE', 'State Board'];
 const CLASSES = ['Class 9', 'Class 10', 'Class 11', 'Class 12'];
 
 // Slug must match how rows were inserted (scripts/importPhysics12.js slugify).
-const slugify = (str) =>
-  String(str).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+// Byte-identical to the examin8 ingest slugify (scripts/examin8/*). For latin names
+// this is the usual lowercase-hyphenate; for all-non-latin names (Hindi/Sanskrit)
+// the base is empty, so we fall back to a djb2 hash — the SAME 'u<hash>' the DB
+// slugs use, so slugify(name) resolves Hindi/Sanskrit subjects & chapters too.
+const slugify = (str) => {
+  const base = String(str).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  if (base) return base;
+  let h = 5381; const s = String(str);
+  for (let i = 0; i < s.length; i++) h = ((h * 33) ^ s.charCodeAt(i)) >>> 0;
+  return 'u' + h.toString(36);
+};
 
 const SUBJECTS = [
   {
@@ -601,6 +610,24 @@ const SUBJECTS_CLASS9 = [
   { name: 'Reasoning & Mental Ability',              emoji: '🧠', bg: '#E8703A', chapters: [], comingSoon: true },
 ];
 
+// Class 10 — DB-backed Revision Notes (sections type_key='revision_notes' →
+// notes table, class_level=10). Chapter lists come from the DB per subject (no
+// hardcoded chapters — see isClass10NotesList). Subjects without notes yet are
+// marked comingSoon so the syllabus list stays complete.
+const SUBJECTS_CLASS10 = [
+  { name: 'Mathematics',                     emoji: '📐', bg: '#444',    chapters: [] },
+  { name: 'Science',                         emoji: '🔬', bg: '#5AA84F', chapters: [] },
+  { name: 'Social Science',                  emoji: '🌐', bg: '#2F80ED', chapters: [] },
+  { name: 'Artificial Intelligence (417)',   emoji: '🤖', bg: '#1C1C1E', chapters: [] },
+  { name: 'English Communicative (101)',     emoji: '📖', bg: '#7A6FD0', chapters: [], comingSoon: true },
+  { name: 'English Language and Literature', emoji: '📖', bg: '#5A67E8', chapters: [], comingSoon: true },
+  { name: 'हिंदी ए',                         emoji: '📚', bg: '#2F80ED', chapters: [], comingSoon: true },
+  { name: 'हिंदी ब',                         emoji: '📚', bg: '#0F6E56', chapters: [], comingSoon: true },
+  { name: 'Information Technology (402)',     emoji: '💻', bg: '#1C1C1E', chapters: [], comingSoon: true },
+  { name: 'Computer Applications (165)',      emoji: '💻', bg: '#0F6E56', chapters: [], comingSoon: true },
+  { name: 'Reasoning & Mental Ability',      emoji: '🧠', bg: '#E8703A', chapters: [], comingSoon: true },
+];
+
 const RESOURCE_TYPES = [
   { icon: '📋', name: 'Revision Notes',         sub: '835 items',          type: 'notes'    },
   { icon: '🔄', name: 'Exemplar Solutions',      sub: 'Textbook Solutions', type: 'exemplar' },
@@ -697,6 +724,48 @@ const getResourceTypes = (subjectName, classLevel, parts = null) => {
   const base = classLevel === 'Class 12'
     ? RESOURCE_TYPES
     : RESOURCE_TYPES.filter((rt) => rt.type !== 'papers');
+  // Class 10 — Revision Notes are DB-backed (sections type_key='revision_notes',
+  // class_level=10; chapter list fetched per subject via isClass10NotesList). Last
+  // Year Papers are DB-backed too (papers table, class_level=10) for the core
+  // subjects that have examin8 snapshot papers — reuses the existing papers flow
+  // (isDbPapers). Other tiles are added here as their content is imported.
+  if (classLevel === 'Class 10') {
+    const c10 = [{ icon: '📝', name: 'Revision Notes', sub: 'Chapter Notes', type: 'notes' }];
+    // NCERT & Exemplar Solutions — DB-backed (ncert_solutions, className='Class 10'),
+    // rendered by Ncert2Screen, same model as Class 7/8/9. Each book is its own tile,
+    // keyed by `part` (2=NCERT, 3=Exemplar, 6/7/8=extra NCERT books of a multi-book
+    // subject). Parts here MUST match scripts/examin8/fetchClass10Ncert.js.
+    const NCERT_TILES = {
+      'Mathematics': [
+        { icon: '📗', name: 'NCERT Solutions',    sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
+        { icon: '🧩', name: 'Exemplar Solutions', sub: 'Exemplar Solutions', type: 'ncert2', part: 3 },
+      ],
+      'Science': [
+        { icon: '📗', name: 'NCERT Solutions',    sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
+        { icon: '🧩', name: 'Exemplar Solutions', sub: 'Exemplar Solutions', type: 'ncert2', part: 3 },
+      ],
+      'Social Science': [
+        { icon: '📗', name: 'NCERT Solutions - Political Science', sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
+        { icon: '📗', name: 'NCERT Solutions - History',           sub: 'Textbook Solutions', type: 'ncert2', part: 6 },
+        { icon: '📗', name: 'NCERT Solutions - Economics',         sub: 'Textbook Solutions', type: 'ncert2', part: 7 },
+        { icon: '📗', name: 'NCERT Solutions - Geography',         sub: 'Textbook Solutions', type: 'ncert2', part: 8 },
+      ],
+    };
+    (NCERT_TILES[subjectName] || []).forEach((t) => c10.push(t));
+    if (['Mathematics', 'Science', 'Social Science', 'Artificial Intelligence (417)'].includes(subjectName)) {
+      c10.push({ icon: '📄', name: 'Last Year Papers', sub: 'Previous Year Papers', type: 'papers' });
+    }
+    // Chapter-level question banks — DB-backed (sections+questions), rendered via
+    // getQuestionsByPath in a DocWebView (isDbQDoc). Chapter list from getChapters.
+    if (['Mathematics', 'Science', 'Social Science'].includes(subjectName)) {
+      c10.push({ icon: '⭐', name: 'Important Questions',     sub: 'Chapter-wise',        type: 'important_questions' });
+      c10.push({ icon: '🗂️', name: 'Previous Year Questions', sub: 'Chapter-wise PYQ',     type: 'pyq' });
+      // Practice Questions are read-only MCQs (examin8 exposes no answers via the API,
+      // so we never fabricate them — the DocWebView shows question + options only).
+      c10.push({ icon: '✍️', name: 'Practice Questions',      sub: 'Chapter-wise MCQs',   type: 'practice' });
+    }
+    return c10;
+  }
   // Class 7 — all subjects are DB-backed via ncert_solutions: NCERT Solutions
   // (part=2, textbook sections) + Revision Notes (part=4, flash cards). Both use the
   // ncert2 WebView flow; each chapter list is fetched from the DB for its own part.
@@ -1117,6 +1186,48 @@ const ResourcesScreen = () => {
   const [activeSectionQs, setActiveSectionQs] = useState([]);
   const [downloading,    setDownloading]    = useState(false);
 
+  // ─── Class 10: DB-driven subject grid + resource tabs ────────────────────────
+  // The subject grid and each subject's resource tabs come from the DB (via the
+  // /class-subjects and /menu endpoints), so the app mirrors exactly what's imported
+  // from Examin8 — no hardcoded subject/resource lists. Other classes keep their
+  // existing config; Class 10 falls back to it only while these are loading.
+  const [c10Subjects, setC10Subjects] = useState(null);   // [{name,slug}] | null
+  useEffect(() => {
+    if (activeClass !== 'Class 10') { setC10Subjects(null); return undefined; }
+    let alive = true;
+    getClassSubjects(10).then((rows) => { if (alive) setC10Subjects(rows || []); }).catch(() => { if (alive) setC10Subjects([]); });
+    return () => { alive = false; };
+  }, [activeClass]);
+
+  const [c10Menu, setC10Menu] = useState({ subject: null, tiles: null, error: false }); // tiles null=loading
+  const [menuRetry, setMenuRetry] = useState(0);
+  useEffect(() => {
+    if (activeClass !== 'Class 10' || !activeSubject) { setC10Menu({ subject: null, tiles: null, error: false }); return undefined; }
+    let alive = true;
+    setC10Menu({ subject: activeSubject.name, tiles: null, error: false });
+    getResourceMenu(slugify(activeSubject.name), 10)
+      .then((d) => { if (alive) setC10Menu({ subject: activeSubject.name, tiles: (d && d.tiles) || [], error: false }); })
+      .catch(() => { if (alive) setC10Menu({ subject: activeSubject.name, tiles: null, error: true }); });
+    return () => { alive = false; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeClass, activeSubject?.name, menuRetry]);
+
+  // Menu tiles (from the DB) → the render's {icon,name,sub,type,part} shape. Mock
+  // Tests stay in the Practice tab, so they're not shown as a Resources tab here.
+  const TILE_ICON = { notes: '📝', ncert2: '📗', important_questions: '⭐', pyq: '🗂️', practice: '✍️', papers: '📄' };
+  const menuToTiles = (tiles) => (tiles || [])
+    .filter((t) => t.type !== 'mock')
+    .map((t) => ({ icon: t.type === 'ncert2' && t.part === 3 ? '🧩' : (TILE_ICON[t.type] || '📄'), name: t.name, sub: t.sub || '', type: t.type, part: t.part }));
+  // Resource tabs for a subject: Class 10 → DB menu; other classes → existing config.
+  const resTypesFor = (subjectName) =>
+    (activeClass === 'Class 10' && c10Menu.subject === subjectName && Array.isArray(c10Menu.tiles))
+      ? menuToTiles(c10Menu.tiles)
+      : getResourceTypes(subjectName, activeClass, activeSubject?.parts);
+  // Class 10 subject grid: DB list merged with display props (emoji/colour) from the
+  // static list where known, else a sensible default. The LIST itself is DB-driven.
+  const c10Display = Object.fromEntries(SUBJECTS_CLASS10.map((s) => [s.name, s]));
+  const class10Grid = (c10Subjects || []).map((s) => c10Display[s.name] || { name: s.name, emoji: '📘', bg: '#5A67E8', chapters: [] });
+
   // Open a subject. When it has only ONE resource type, skip the redundant
   // "resource type" screen (LEVEL 2) and jump straight to its chapters (LEVEL 3),
   // so e.g. Class 6 English/Science go Subject → Chapters → content in one tap less.
@@ -1124,13 +1235,16 @@ const ResourcesScreen = () => {
     // No content yet (e.g. all Class 7 subjects): land on LEVEL 2, which renders
     // the ComingSoon state instead of resource tiles.
     if (subject.comingSoon) { setActiveSubject(subject); setActiveResType(null); return; }
+    // Class 10 tabs come from the DB menu (fetched once the subject is active), so
+    // always land on LEVEL 2 rather than pre-resolving a single type synchronously.
+    if (activeClass === 'Class 10') { setActiveSubject(subject); setActiveResType(null); return; }
     const types = getResourceTypes(subject.name, activeClass, subject.parts);
     setActiveSubject(subject);
     setActiveResType(types.length === 1 ? types[0] : null);
   };
   // True when the current subject auto-selected its (single) resource type, so the
   // Chapters back button should return to the subjects list, not an empty LEVEL 2.
-  const singleResType = activeSubject && getResourceTypes(activeSubject.name, activeClass, activeSubject.parts).length === 1;
+  const singleResType = activeSubject && activeClass !== 'Class 10' && getResourceTypes(activeSubject.name, activeClass, activeSubject.parts).length === 1;
   const backFromChapters = () => {
     if (singleResType) { setActiveSubject(null); setActiveResType(null); }
     else setActiveResType(null);
@@ -1153,7 +1267,8 @@ const ResourcesScreen = () => {
         activeSubject.name === 'Physics' ||
         activeSubject.name === 'Chemistry' ||
         activeSubject.name === 'Mathematics'
-      )) || (activeClass === 'Class 6' && activeSubject.name === 'Science (OLD)');
+      )) || (activeClass === 'Class 6' && activeSubject.name === 'Science (OLD)')
+        || activeClass === 'Class 10'; // Class 10 notes are DB-only (never bundled)
       let notes;
       if (isDbNotes) {
         const d = await getNotesByPath(slugify(activeSubject.name), slugify(activeChapter.name), classNum);
@@ -1258,12 +1373,56 @@ const ResourcesScreen = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isC12Ncert2, activeSubject?.name, activeChapter?.name, docRetry]);
 
-  // Class 12 Physics, Chemistry & Mathematics Last Year Papers are DB-backed: the
-  // list (metadata) and the tapped paper's question/answer HTML both come from the
-  // API. `year` disambiguates the code (CBSE reuses the same code across years).
+  // Class 10 chapter-level question banks — Important Questions / Previous Year
+  // Questions / Practice — are DB-backed (sections + questions, type_key = the tile
+  // type). Same getQuestionsByPath + buildPyqDocument flow as Class 12 NCERT, shown
+  // in a DocWebView. The chapter list comes from getChapters (only chapters that
+  // actually have that section) — nothing hardcoded.
+  const DBQ_TYPES = ['important_questions', 'pyq', 'practice'];
+  const isDbQDoc = !!(
+    activeSubject && activeChapter && showCards && activeClass === 'Class 10' &&
+    DBQ_TYPES.includes(activeResType?.type)
+  );
+  const [dbQDoc, setDbQDoc] = useState({ loading: false, error: null, html: '' });
+  useEffect(() => {
+    if (!isDbQDoc) return undefined;
+    let alive = true;
+    setDbQDoc({ loading: true, error: null, html: '' });
+    getQuestionsByPath(slugify(activeSubject.name), slugify(activeChapter.name), activeResType.type, classNum)
+      .then((qs) => { if (alive) setDbQDoc({ loading: false, error: null, html: qs && qs.length ? buildPyqDocument(buildFragmentFromQuestions(qs)) : '' }); })
+      .catch((e) => { if (alive) setDbQDoc({ loading: false, error: e?.message || 'Could not load questions.', html: '' }); });
+    return () => { alive = false; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isDbQDoc, activeSubject?.name, activeChapter?.name, activeResType?.type, classNum, docRetry]);
+
+  const dbQListActive = !!(
+    activeSubject && activeClass === 'Class 10' && !showCards && DBQ_TYPES.includes(activeResType?.type)
+  );
+  const [dbQAvail, setDbQAvail] = useState({ loading: false, chapters: null });
+  useEffect(() => {
+    if (!dbQListActive) { setDbQAvail({ loading: false, chapters: null }); return undefined; }
+    let alive = true;
+    setDbQAvail({ loading: true, chapters: null });
+    getChapters(slugify(activeSubject.name), activeResType.type, classNum)
+      .then((chs) => { if (alive) setDbQAvail({ loading: false, chapters: (chs || []).map((c) => c.name) }); })
+      .catch(() => { if (alive) setDbQAvail({ loading: false, chapters: [] }); });
+    return () => { alive = false; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dbQListActive, activeSubject?.name, activeResType?.type, classNum]);
+
+  // Last Year Papers are DB-backed: the list (metadata) and the tapped paper's
+  // question/answer HTML both come from the API (papers table). Class 12 Physics/
+  // Chemistry/Mathematics and Class 10 Mathematics/Science/Social Science have
+  // examin8 snapshot papers imported. The tapped paper resolves by its `extUid`
+  // (uuid) — Class 10 shares code+year across Basic/Standard variants.
+  const DB_PAPER_SUBJECTS = {
+    'Class 12': ['Physics', 'Chemistry', 'Mathematics'],
+  };
   const isDbPapers = !!(
-    activeResType?.type === 'papers' && activeClass === 'Class 12' &&
-    (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry' || activeSubject?.name === 'Mathematics')
+    activeResType?.type === 'papers' &&
+    // Class 10 papers are fully DB-driven — the tab only appears when papers exist
+    // (menu), so any Class 10 subject with the papers tab is DB-backed.
+    (activeClass === 'Class 10' || (DB_PAPER_SUBJECTS[activeClass] || []).includes(activeSubject?.name))
   );
   const [phy12Papers, setPhy12Papers] = useState({ loading: false, list: [] });
   const [phy12Paper, setPhy12Paper] = useState({ loading: false, error: null, qHtml: '', aHtml: '' });
@@ -1271,7 +1430,7 @@ const ResourcesScreen = () => {
     if (!isDbPapers) return undefined;
     let alive = true;
     setPhy12Papers({ loading: true, list: [] });
-    getPapers(slugify(activeSubject.name), 12)
+    getPapers(slugify(activeSubject.name), classNum)
       .then((rows) => { if (alive) setPhy12Papers({ loading: false, list: rows || [] }); })
       .catch(() => { if (alive) setPhy12Papers({ loading: false, list: [] }); });
     return () => { alive = false; };
@@ -1281,7 +1440,7 @@ const ResourcesScreen = () => {
     if (!isDbPapers || !activePaper) return undefined;
     let alive = true;
     setPhy12Paper({ loading: true, error: null, qHtml: '', aHtml: '' });
-    getPaper(slugify(activeSubject.name), activePaper.code, 12, activePaper.year)
+    getPaper(slugify(activeSubject.name), activePaper.code, classNum, activePaper.year, activePaper.extUid)
       .then((p) => { if (alive) setPhy12Paper({ loading: false, error: null, qHtml: buildPaperDoc(p && p.questionPaperHtml), aHtml: buildPaperDoc(p && p.answerKeyHtml) }); })
       .catch((e) => { if (alive) setPhy12Paper({ loading: false, error: e?.message || 'Could not load paper.', qHtml: '', aHtml: '' }); });
     return () => { alive = false; };
@@ -1362,7 +1521,8 @@ const ResourcesScreen = () => {
     activeSubject && activeResType?.type === 'notes' && !activeChapter &&
     ((activeClass === 'Class 12' &&
       (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry' || activeSubject?.name === 'Mathematics')) ||
-     (activeClass === 'Class 6' && (activeSubject?.name === 'Science (OLD)' || activeSubject?.name === 'Maths (Ganita Prakash)')))
+     (activeClass === 'Class 6' && (activeSubject?.name === 'Science (OLD)' || activeSubject?.name === 'Maths (Ganita Prakash)')) ||
+     activeClass === 'Class 10') // Class 10 Revision Notes are DB-backed for every subject
   );
   useEffect(() => {
     if (!notesListActive) { setNotesAvail({ loading: false, chapters: null }); return undefined; }
@@ -1403,7 +1563,8 @@ const ResourcesScreen = () => {
     activeSubject && activeResType && activeChapter && showNotes &&
     ((activeClass === 'Class 12' &&
       (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry' || activeSubject?.name === 'Mathematics')) ||
-     (activeClass === 'Class 6' && (activeSubject?.name === 'Science (OLD)' || activeSubject?.name === 'Maths (Ganita Prakash)')))
+     (activeClass === 'Class 6' && (activeSubject?.name === 'Science (OLD)' || activeSubject?.name === 'Maths (Ganita Prakash)')) ||
+     activeClass === 'Class 10') // Class 10 Revision Notes render from the DB (notes table)
   );
   const [phy12Notes, setPhy12Notes] = useState({ loading: false, error: null, notes: null });
   useEffect(() => {
@@ -1530,6 +1691,23 @@ const ResourcesScreen = () => {
     );
   }
 
+  // ── LEVEL 4 (DB): Class 10 question banks — Important Qs / PYQ / Practice ──
+  if (isDbQDoc) {
+    return (
+      <SafeAreaView style={s.safe}>
+        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <BackHeader onBack={() => setShowCards(false)} />
+        <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
+        <View style={s.pageTitleWrap}>
+          <Text style={s.pageTitle}>{activeChapter.name}</Text>
+          <Text style={s.pageSub}>{activeResType.name}</Text>
+        </View>
+        <DocWebView state={dbQDoc} onRetry={() => setDocRetry((k) => k + 1)} emptyText="No questions for this chapter yet." />
+      </SafeAreaView>
+    );
+  }
+
   // ── LEVEL 4a: Exemplar Solutions — single "Chapter-end" entry (Image 1 layout) ──
   if (activeSubject && activeResType?.type === 'exemplar' && activeChapter && showCards) {
     return (
@@ -1649,7 +1827,10 @@ const ResourcesScreen = () => {
       <SafeAreaView style={s.safe}>
         <StatusBar barStyle="dark-content" backgroundColor="#fff" />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
-        <BackHeader onBack={() => setShowCards(false)} />
+        {/* Returning to the chapter list must clear activeChapter — DB-backed lists
+            (e.g. Class 10 Revision Notes / notesListActive) gate on !activeChapter to
+            refetch, and leaving it set makes the list fall back to empty. */}
+        <BackHeader onBack={() => { setShowCards(false); setActiveChapter(null); }} />
         <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
         <View style={s.pageTitleWrap}>
           <Text style={s.pageTitle}>{activeChapter.name}</Text>
@@ -1824,7 +2005,8 @@ const ResourcesScreen = () => {
     const isDbNotesList = activeResType?.type === 'notes' && (
       (activeClass === 'Class 12' &&
         (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry' || activeSubject?.name === 'Mathematics')) ||
-      (activeClass === 'Class 6' && (activeSubject?.name === 'Science (OLD)' || activeSubject?.name === 'Maths (Ganita Prakash)')));
+      (activeClass === 'Class 6' && (activeSubject?.name === 'Science (OLD)' || activeSubject?.name === 'Maths (Ganita Prakash)')) ||
+      activeClass === 'Class 10'); // Class 10 chapter list is filtered by DB revision_notes availability
     const isBundledNotesList = activeResType?.type === 'notes' && !isDbNotesList;
     // Class 12 Physics/Chemistry NCERT Part-I/II: hide chapters that don't have
     // that part (each part covers only half the syllabus) so they never 404.
@@ -1834,6 +2016,13 @@ const ResourcesScreen = () => {
     const isMathsNcertList = activeSubject?.name === 'Mathematics' && activeClass === 'Class 12' &&
       (activeResType?.type === 'ncert1' || activeResType?.type === 'ncert2') &&
       Array.isArray(ncertAvail.chapters);
+    // Class 10 Revision Notes: the chapter list comes straight from the DB
+    // (getChapters(slug,'revision_notes',10) → notesAvail), so only chapters that
+    // actually have revision_notes show — no static/hardcoded Class 10 chapter list.
+    const isClass10NotesList = activeResType?.type === 'notes' && activeClass === 'Class 10' && Array.isArray(notesAvail.chapters);
+    // Class 10 question banks (Important Qs / PYQ / Practice): DB-only chapter list
+    // from getChapters(slug, type, 10) → dbQAvail — only chapters with that section.
+    const isDbQList = DBQ_TYPES.includes(activeResType?.type) && activeClass === 'Class 10' && Array.isArray(dbQAvail.chapters);
     const chaptersToShow =
       isC12NcertList
         ? subjectChapters.filter((c) => c12NcertAvail.chapters.some((n) => slugify(n) === slugify(c.name)))
@@ -1841,6 +2030,10 @@ const ResourcesScreen = () => {
           ? subjectChapters.filter((c) => ncertAvail.chapters.some((n) => slugify(n) === slugify(c.name)))
         : isNcert2 && ncert2.chapters.length > 0
           ? ncert2.chapters.map((name) => ({ name }))   // straight from the DB — no hardcode
+          : isDbQList
+            ? dbQAvail.chapters.map((name) => ({ name }))   // Class 10: DB-only question-bank chapters
+          : isClass10NotesList
+            ? notesAvail.chapters.map((name) => ({ name }))   // Class 10: DB-only revision_notes chapters
           : isNotesList
             ? subjectChapters.filter((c) => notesAvail.chapters.some((n) => slugify(n) === slugify(c.name)))
             : isBundledNotesList
@@ -1858,12 +2051,12 @@ const ResourcesScreen = () => {
           <Text style={s.boardLabel}>{activeSubject.name} Chapters</Text>
         </View>
         <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
-          {(isNcert2 && ncert2.loading) || notesAvail.loading || c12NcertAvail.loading || ncertAvail.loading ? (
+          {(isNcert2 && ncert2.loading) || notesAvail.loading || c12NcertAvail.loading || ncertAvail.loading || (isDbQList && dbQAvail.loading) ? (
             <View style={{ paddingVertical: 48, alignItems: 'center', gap: 12 }}>
               <ActivityIndicator size="large" color="#1f8a93" />
               <Text style={{ color: '#64748b', fontSize: 13 }}>Loading chapters…</Text>
             </View>
-          ) : (isNcert2 || isNotesList || isBundledNotesList || isC12NcertList || isMathsNcertList) && chaptersToShow.length === 0 ? (
+          ) : (isNcert2 || isNotesList || isBundledNotesList || isC12NcertList || isMathsNcertList || isClass10NotesList || isDbQList) && chaptersToShow.length === 0 ? (
             <View style={{ paddingVertical: 48, alignItems: 'center' }}>
               <Text style={{ color: '#94a3b8', fontSize: 14 }}>No chapters available yet.</Text>
             </View>
@@ -1908,9 +2101,23 @@ const ResourcesScreen = () => {
         {/* Subjects with no seeded content yet (e.g. all of Class 7) land here. */}
         {activeSubject.comingSoon ? (
           <ComingSoon className={activeClass} label={`${activeSubject.name} resources`} />
+        ) : (activeClass === 'Class 10' && c10Menu.subject === activeSubject.name && c10Menu.error) ? (
+          <View style={{ paddingVertical: 40, alignItems: 'center', gap: 12, paddingHorizontal: 24 }}>
+            <Text style={{ color: '#b91c1c', fontSize: 14, textAlign: 'center' }}>{'⚠️'}  Could not load resources. Check your connection.</Text>
+            <TouchableOpacity style={{ borderWidth: 1.5, borderColor: '#1f8a93', borderRadius: 10, paddingVertical: 9, paddingHorizontal: 18 }} activeOpacity={0.8} onPress={() => setMenuRetry((k) => k + 1)}>
+              <Text style={{ color: '#1f8a93', fontWeight: '700' }}>Retry</Text>
+            </TouchableOpacity>
+          </View>
+        ) : (activeClass === 'Class 10' && c10Menu.subject === activeSubject.name && c10Menu.tiles === null) ? (
+          <View style={{ paddingVertical: 48, alignItems: 'center', gap: 12 }}>
+            <ActivityIndicator size="large" color="#1f8a93" />
+            <Text style={{ color: '#64748b', fontSize: 13 }}>Loading resources…</Text>
+          </View>
+        ) : (activeClass === 'Class 10' && resTypesFor(activeSubject.name).length === 0) ? (
+          <ComingSoon className={activeClass} label={`${activeSubject.name} resources`} />
         ) : (
         <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
-          {getResourceTypes(activeSubject.name, activeClass, activeSubject.parts).map((rt, i) => (
+          {resTypesFor(activeSubject.name).map((rt, i) => (
             <TouchableOpacity key={i} style={s.resTypeRow} onPress={() => { setActivePaper(null); setActiveChapter(null); setShowCards(false); setShowNotes(false); setActiveResType(rt); }} activeOpacity={0.8}>
               <View style={s.resTypeIconWrap}>
                 <Text style={{ fontSize: 22 }}>{rt.icon}</Text>
@@ -1949,7 +2156,7 @@ const ResourcesScreen = () => {
             <Text style={s.boardLabel}>{activeClass}</Text>
           </View>
           <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
-            {(activeClass === 'Class 6' ? SUBJECTS_CLASS6 : activeClass === 'Class 7' ? SUBJECTS_CLASS7 : activeClass === 'Class 8' ? SUBJECTS_CLASS8 : activeClass === 'Class 9' ? class9SubjectTiles : SUBJECTS)
+            {(activeClass === 'Class 6' ? SUBJECTS_CLASS6 : activeClass === 'Class 7' ? SUBJECTS_CLASS7 : activeClass === 'Class 8' ? SUBJECTS_CLASS8 : activeClass === 'Class 9' ? class9SubjectTiles : activeClass === 'Class 10' ? ((Array.isArray(c10Subjects) && c10Subjects.length) ? class10Grid : SUBJECTS_CLASS10) : SUBJECTS)
               .filter((subject) => !(activeClass === 'Class 12' && subject.name === 'Biology'))
               // Stream filter (hide Biology from PCM etc.) only applies to senior classes
               // (11/12). Junior lists (e.g. Class 6's "Maths (OLD)", "English (Poorvi)")

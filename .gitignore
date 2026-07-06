@@ -54,3 +54,35 @@ src/data/maths_questions/*.by_topic.json
 src/data/maths_questions/answer_key_maths_practice.json
 src/data/maths_questions/fetch-by-subtopic.js
 CHANGES_pyq_supabase.md
+
+# Examin8 Last Year Papers fetch cache — heavy (per-paper snapshot HTML, ~140MB).
+# The DB (papers table, class_level=10) is the source of truth; these are a
+# regenerable cache from scripts/examin8/fetchClass10LastYearPapers.js. The small
+# catalog (metadata only) IS tracked as the record of what was imported.
+data/examin8/*/raw/last-year-papers/
+data/examin8/*/normalized/last-year-papers.json
+
+# Examin8 NCERT/Exemplar textbook fetch cache — regenerable per-node raw pages.
+# The DB (ncert_solutions, className='Class 10') is the source of truth; the small
+# normalized ncert-solutions.json IS tracked as the import record.
+data/examin8/*/raw/ncert/
+
+# Examin8 Class 10 question-bank fetch cache (Important Qs / PYQ / Practice) — raw
+# pages are regenerable; DB (sections+questions) is the source of truth. Normalized
+# JSON is kept small enough to track as the import record.
+data/examin8/*/raw/important_questions/
+data/examin8/*/raw/pyq/
+data/examin8/*/raw/practice/
+
+# Examin8 Class 10 question-bank normalized JSON — large (full question+solution HTML).
+# DB (sections+questions) is the source of truth; regenerable via fetchClass10Questions.js.
+data/examin8/*/normalized/important_questions.json
+data/examin8/*/normalized/pyq.json
+data/examin8/*/normalized/practice.json
+
+# Examin8 Class 10 Mock Tests fetch cache — raw graded-result JSON + large normalized.
+# DB (mock_tests + mock_test_questions, class_level=10) is the source of truth.
+data/examin8/*/raw/mock-tests/
+data/examin8/*/normalized/mock-tests.json
+
+data/examin8/*/normalized/ncert-solutions.json

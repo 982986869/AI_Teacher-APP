@@ -1,0 +1,69 @@
+{
+  "flash_cards": [
+    {
+      "topic_id": 841,
+      "topic_name": "Arithmetic Progressions (X-5.1)",
+      "cards": [
+        {
+          "id": 273,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>A given list of numbers a<sub>1</sub>, a<sub>2</sub>, a<sub>3</sub>, ... is an AP, if the differences a<sub>2</sub> - a<sub>1</sub>, a<sub>3</sub> - a<sub>2</sub>, a<sub>4</sub> - a<sub>3</sub>, ..., give the same value, i.e., if a<sub>k + 1</sub> - a<sub>k</sub> is the same for different values of k.</p>",
+          "order": 273,
+          "topic_id": 841,
+          "topic_name": "Arithmetic Progressions (X-5.1)"
+        },
+        {
+          "id": 274,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>An <strong>arithmetic progression</strong> (AP) is a list of numbers in which each term is obtained by adding a fixed number d to the preceding term, except the first term. The fixed number d is called the <strong>common difference</strong>.<br />\nThe general form of an AP is a, a + d, a + 2d, a + 3d, ...</p>",
+          "order": 274,
+          "topic_id": 841,
+          "topic_name": "Arithmetic Progressions (X-5.1)"
+        }
+      ]
+    },
+    {
+      "topic_id": 842,
+      "topic_name": "nth Term of an AP (X-5.2)",
+      "cards": [
+        {
+          "id": 272,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>In an AP with first term a and common difference d, the nth term (or the general term) is given by a<sub>n</sub> = a + (n - 1)d.</p>",
+          "order": 272,
+          "topic_id": 842,
+          "topic_name": "nth Term of an AP (X-5.2)"
+        }
+      ]
+    },
+    {
+      "topic_id": 843,
+      "topic_name": "Sum of First n Terms of an AP (X-5.3)",
+      "cards": [
+        {
+          "id": 270,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>If l is the last term of the finite AP, say the nth term, then the sum of all terms of the AP is given by:<br />\nS = <span class=\"math-tex\">{tex}\\frac{n}{2}{/tex}</span>(a + l)</p>",
+          "order": 270,
+          "topic_id": 843,
+          "topic_name": "Sum of First n Terms of an AP (X-5.3)"
+        },
+        {
+          "id": 271,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>The sum of the first n terms of an AP is given by:<br />\nS = <span class=\"math-tex\">{tex}\\frac{n}{2}{/tex}</span>[2a + (n - 1) d]</p>",
+          "order": 271,
+          "topic_id": 843,
+          "topic_name": "Sum of First n Terms of an AP (X-5.3)"
+        }
+      ]
+    }
+  ],
+  "count": 5,
+  "category_name": "Arithmetic Progressions"
+}

@@ -357,6 +357,47 @@ async function listContentClasses() {
   return Array.from(set).sort((a, b) => a - b).map((n) => `Class ${n}`)
 }
 
+// ─── Class 10 per-subject resource menu (data-driven; complements listClassSubjects) ─
+// The resource tiles a subject actually has content for (revision notes, each
+// NCERT/Exemplar book, question banks, papers, mock). The app renders these tabs so
+// nothing is manually maintained — a tab appears iff the DB has that content.
+async function getResourceMenu(subjectSlug, classLevel) {
+  if (classLevel == null) return { subject: null, tiles: [] }
+  const subj = await db.subjects.findUnique({ where: { slug: subjectSlug } })
+  if (!subj) return { subject: null, tiles: [] }
+  const subjectId = num(subj.id)
+  const cn = `Class ${classLevel}`
+  const tiles = []
+  const has = {}
+  const secs = await db.$queryRawUnsafe(
+    `SELECT se.type_key, COUNT(DISTINCT n.id)::int notes, COUNT(DISTINCT q.id)::int qs
+       FROM chapters c JOIN sections se ON se.chapter_id = c.id
+       LEFT JOIN notes n ON n.section_id = se.id
+       LEFT JOIN questions q ON q.section_id = se.id
+      WHERE c.subject_id = $1 AND c.class_level = $2
+      GROUP BY se.type_key`, subjectId, classLevel)
+  secs.forEach((r) => { has[r.type_key] = r.type_key === 'revision_notes' ? r.notes > 0 : r.qs > 0 })
+
+  if (has.revision_notes) tiles.push({ type: 'notes', name: 'Revision Notes', sub: 'Chapter Notes' })
+  // NCERT / Exemplar — one tile per book (distinct part), labelled from whichever
+  // label column is populated (book_label = Class 10 import, part_label = Class 9).
+  const books = await db.$queryRawUnsafe(
+    `SELECT part, COALESCE(MAX(book_label), MAX(part_label), '') label FROM ncert_solutions
+      WHERE subject = $1 AND "className" = $2 GROUP BY part ORDER BY part`, subj.name, cn)
+  for (const b of books) {
+    const label = b.label || (b.part === 3 ? 'Exemplar Solutions' : 'NCERT Solutions')
+    tiles.push({ type: 'ncert2', part: b.part, name: label, sub: b.part === 3 ? 'Exemplar Solutions' : 'Textbook Solutions' })
+  }
+  if (has.important_questions) tiles.push({ type: 'important_questions', name: 'Important Questions', sub: 'Chapter-wise' })
+  if (has.pyq) tiles.push({ type: 'pyq', name: 'Previous Year Questions', sub: 'Chapter-wise PYQ' })
+  if (has.practice) tiles.push({ type: 'practice', name: 'Practice Questions', sub: 'Chapter-wise MCQs' })
+  const pap = await db.$queryRawUnsafe('SELECT COUNT(*)::int n FROM papers WHERE subject_id = $1 AND class_level = $2', subjectId, classLevel)
+  if (pap[0].n > 0) tiles.push({ type: 'papers', name: 'Last Year Papers', sub: 'Previous Year Papers' })
+  const mk = await db.$queryRawUnsafe('SELECT COUNT(*)::int n FROM mock_tests WHERE subject = $1 AND class_level = $2', subj.name, classLevel)
+  if (mk[0].n > 0) tiles.push({ type: 'mock', name: 'Mock Tests', sub: `${mk[0].n} tests` })
+  return { subject: subj.name, slug: subj.slug, tiles }
+}
+
 module.exports = {
   listSubjects,
   listClassSubjects,
@@ -371,4 +412,5 @@ module.exports = {
   deletePapers,
   getMcqByPath,
   listContentClasses,
+  getResourceMenu,
 }
