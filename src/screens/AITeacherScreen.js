@@ -11,6 +11,8 @@ import KnowledgeAskScreen from './KnowledgeAskScreen';
 import StudyInsightsScreen from './StudyInsightsScreen';
 import LiveTeachingPlayer from '../components/teacher/LiveTeachingPlayer';
 import TeacherAvatar from '../components/teacher/TeacherAvatar';
+import TeacherFullBody from '../components/teacher/TeacherFullBody';
+import { TEACHER_PHOTO, TEACHER_VIDEO } from '../components/teacher/teacherIdentity';
 import { C } from '../components/teacher/premiumTheme';
 import { Appear, PressableScale } from '../components/teacher/uiKit';
 import { stopTeacher, primeTeacherVoice, SPEECH_OK } from '../utils/teacherVoice';
@@ -206,7 +208,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
 
         <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
           <ScrollView contentContainerStyle={st.body} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
-            <Appear from="scale" style={st.hero}><TeacherAvatar size={96} state="idle" theme="dark" /></Appear>
+            <Appear from="scale" style={st.hero}><TeacherFullBody photo={TEACHER_PHOTO} video={TEACHER_VIDEO} state="idle" theme="dark" height={300} /></Appear>
             <Appear delay={60}><Text style={st.hi}>Hi {firstName} 👋</Text></Appear>
             <Appear delay={110}><Text style={st.q}>What should we learn today?</Text></Appear>
 

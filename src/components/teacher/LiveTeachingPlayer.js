@@ -4,6 +4,8 @@ import {
 } from 'react-native';
 import LessonBoard from './LessonBoards';
 import TeacherAvatar from './TeacherAvatar';
+import TeacherFullBody from './TeacherFullBody';
+import { TEACHER_PHOTO as TEACHER_HERO_PHOTO, TEACHER_VIDEO as TEACHER_HERO_VIDEO } from './teacherIdentity';
 import VoicePicker from './VoicePicker';
 import { directLesson } from './teachingDirector';
 import { focusTarget } from './cameraDirector';
@@ -696,7 +698,7 @@ export default function LiveTeachingPlayer({ lesson, ttsOk = true, startIndex = 
           <View style={st.banner}>
             {/* waveform above the teacher while she speaks */}
             <View style={st.waveWrap} pointerEvents="none"><Waveform active={ttsActive} /></View>
-            <TeacherAvatar theme="dark" video={TEACHER_VIDEO} photo={TEACHER_PHOTO} state={teacherState} expression={expression} size={AV_HERO} />
+            <TeacherFullBody theme="dark" photo={TEACHER_HERO_PHOTO} video={TEACHER_HERO_VIDEO} state={teacherState} height={Math.round(AV_HERO * 1.7)} />
             <View style={[st.badge, ttsActive && st.badgeOn]}>
               <View style={[st.badgeDot, ttsActive && st.badgeDotOn]} />
               <Text style={[st.badgeTxt, ttsActive && st.badgeTxtOn]}>{stateLabel}</Text>
