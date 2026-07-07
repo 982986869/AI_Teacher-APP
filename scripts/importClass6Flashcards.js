@@ -28,6 +28,7 @@ const PART = 4
 const SUBJECTS = {
   'science-curiosity': 'Science (Curiosity)',
   'english-poorvi': 'English (Poorvi)',
+  'science-old': 'Science (OLD)',
 }
 
 const trim = (s) => (s == null ? '' : String(s)).trim()
