@@ -1351,9 +1351,8 @@ const ResourcesScreen = () => {
   );
   const isC12Ncert2 = !!(
     activeResType?.type === 'ncert2' && activeChapter && showCards &&
-    ((activeClass === 'Class 12' &&
-      (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry' || activeSubject?.name === 'Mathematics')) ||
-     (activeClass === 'Class 6' && (activeSubject?.name === 'Science (OLD)' || activeSubject?.name === 'Maths (Ganita Prakash)')))
+    (activeClass === 'Class 12' &&
+      (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry' || activeSubject?.name === 'Mathematics'))
   );
   const [phy12Ncert1, setPhy12Ncert1] = useState({ loading: false, error: null, html: '' });
   const [phy12Ncert2, setPhy12Ncert2] = useState({ loading: false, error: null, html: '' });
@@ -1526,7 +1525,6 @@ const ResourcesScreen = () => {
     activeSubject && activeResType?.type === 'notes' && !activeChapter &&
     ((activeClass === 'Class 12' &&
       (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry' || activeSubject?.name === 'Mathematics')) ||
-     (activeClass === 'Class 6' && (activeSubject?.name === 'Science (OLD)' || activeSubject?.name === 'Maths (Ganita Prakash)')) ||
      activeClass === 'Class 10') // Class 10 Revision Notes are DB-backed for every subject
   );
   useEffect(() => {
@@ -1568,7 +1566,6 @@ const ResourcesScreen = () => {
     activeSubject && activeResType && activeChapter && showNotes &&
     ((activeClass === 'Class 12' &&
       (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry' || activeSubject?.name === 'Mathematics')) ||
-     (activeClass === 'Class 6' && (activeSubject?.name === 'Science (OLD)' || activeSubject?.name === 'Maths (Ganita Prakash)')) ||
      activeClass === 'Class 10') // Class 10 Revision Notes render from the DB (notes table)
   );
   const [phy12Notes, setPhy12Notes] = useState({ loading: false, error: null, notes: null });
@@ -2010,7 +2007,6 @@ const ResourcesScreen = () => {
     const isDbNotesList = activeResType?.type === 'notes' && (
       (activeClass === 'Class 12' &&
         (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry' || activeSubject?.name === 'Mathematics')) ||
-      (activeClass === 'Class 6' && (activeSubject?.name === 'Science (OLD)' || activeSubject?.name === 'Maths (Ganita Prakash)')) ||
       activeClass === 'Class 10'); // Class 10 chapter list is filtered by DB revision_notes availability
     const isBundledNotesList = activeResType?.type === 'notes' && !isDbNotesList;
     // Class 12 Physics/Chemistry NCERT Part-I/II: hide chapters that don't have
