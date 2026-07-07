@@ -1172,10 +1172,12 @@ const ResourcesScreen = () => {
     .map((s) => ({ ...s, resParts: (s.parts || []).filter((p) => ![5, 8].includes(p.part)) }))
     .filter((s) => s.resParts.length)
     .map((s) => toTile(s, { parts: s.resParts, chapters: [] }));
-  // Class 9 → all DB tiles (new + old). Class 6 → ONLY the DB-derived OLD subjects
-  // (names start with 'Old - '); new-syllabus subjects are intentionally hidden here.
+  // Class 9 & Class 6 → all DB tiles (new + old): every subject with textbook/notes
+  // content in ncert_solutions surfaces automatically, each carrying its `parts` for
+  // getResourceTypes. Subjects with no such parts (Reasoning, सामाजिक विज्ञान) are
+  // already filtered out above and appear in the Practice tab instead.
   const class9SubjectTiles = dynResTiles;
-  const class6SubjectTiles = dynResTiles.filter((s) => /^Old - /.test(s.name));
+  const class6SubjectTiles = dynResTiles;
   // Numeric grade parsed from 'Class 12' → 12 for the ?class= API param. No fallback:
   // the backend uses the student's saved class regardless of what we send.
   const classNum = parseInt(String(activeClass || '').replace(/\D/g, ''), 10) || null;
