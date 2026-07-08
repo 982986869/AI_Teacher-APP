@@ -45,6 +45,25 @@ function TeacherFullBody({ state = 'idle', photo, video, height = 300, theme = '
 
   const breath = useRef(new Animated.Value(0)).current;
   const glow = useRef(new Animated.Value(0)).current;
+  const vidRef = useRef(null);
+  const speaking = state === 'speaking';
+
+  // Talking video plays ONLY while she's speaking; when she stops, pause and rewind
+  // to the first frame so she rests on a neutral (mouth-closed) pose, not frozen
+  // mid-word. Guarded so it's a no-op unless a video source is actually in use.
+  useEffect(() => {
+    if (!useVid) return undefined;
+    const v = vidRef.current;
+    if (!v) return undefined;
+    if (speaking) {
+      v.playAsync && v.playAsync().catch(() => {});
+    } else {
+      Promise.resolve(v.pauseAsync && v.pauseAsync())
+        .then(() => v.setPositionAsync && v.setPositionAsync(0))
+        .catch(() => {});
+    }
+    return undefined;
+  }, [speaking, useVid]);
 
   // gentle idle breathing — always on
   useEffect(() => {
@@ -88,10 +107,11 @@ function TeacherFullBody({ state = 'idle', photo, video, height = 300, theme = '
           <TeacherAvatar3D state={state} glbUrl={TEACHER_GLB_URL} bg={frameBg} onError={() => setThreeFailed(true)} />
         ) : useVid ? (
           <ExpoAV.Video
+            ref={vidRef}
             source={video}
             isMuted
             isLooping
-            shouldPlay
+            shouldPlay={speaking}
             resizeMode="cover"
             style={{ width: '100%', height: '100%' }}
             onError={() => setVidFailed(true)}
