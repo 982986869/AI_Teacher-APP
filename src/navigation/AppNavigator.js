@@ -11,13 +11,13 @@ import MainNavigator from './MainNavigator';
 import CompleteProfileScreen from '../screens/CompleteProfileScreen';
 import ParentApp from '../screens/parent/ParentApp/ParentApp';
 import RoleHomeScreen from '../screens/RoleHomeScreen';
-import RoleChooserScreen from '../screens/RoleChooserScreen';
+import ProfileSelectScreen from '../screens/braingym/ProfileSelectScreen';
 
 const Stack = createNativeStackNavigator();
 const SPLASH_FALLBACK = 4000;
 
 const AppNavigator = () => {
-  const { isAuthenticated, hasOnboarded, loading, user, justLoggedIn, scope, activeView } = useAuth();
+  const { isAuthenticated, hasOnboarded, loading, user, justLoggedIn, scope, activeView, setActiveView } = useAuth();
   const [showSplash, setShowSplash] = useState(true);
   const [gymDone, setGymDone]       = useState(false);   // BrainGym -> Onboarding
   const [workoutDone, setWorkoutDone] = useState(false); // WorkoutWheel -> Home
@@ -79,8 +79,13 @@ const AppNavigator = () => {
       </Stack.Screen>
     );
   } else if (activeView == null) {
-    // Student hasn't picked a view this login → Student/Parent chooser (same login).
-    screen = <Stack.Screen name="RoleChooser" component={RoleChooserScreen} />;
+    // Student hasn't picked a view this login → the "Select your profile" picker
+    // (same reusable Parent/Student chooser used before Home). Choice sets activeView.
+    screen = (
+      <Stack.Screen name="RoleChooser">
+        {() => <ProfileSelectScreen onSelect={setActiveView} />}
+      </Stack.Screen>
+    );
   } else if (activeView === 'parent') {
     // Student chose the parent view → parent dashboard about their own progress.
     screen = <Stack.Screen name="ParentApp" component={ParentApp} />;
