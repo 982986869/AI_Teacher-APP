@@ -16,7 +16,8 @@ import {
 } from '@expo-google-fonts/poppins';
 import LiveTeachingPlayer from '../components/teacher/LiveTeachingPlayer';
 import TeacherAvatar from '../components/teacher/TeacherAvatar';
-import { TEACHER_HEADSHOT } from '../components/teacher/teacherIdentity';
+import TeacherFullBody from '../components/teacher/TeacherFullBody';
+import { TEACHER_HEADSHOT, TEACHER_PHOTO, TEACHER_VIDEO } from '../components/teacher/teacherIdentity';
 import { greeting, firstHello, preparingBeats, preparingHint, resumeTag, emptyState } from '../components/teacher/teacherMoments';
 import { C, F, SP, GLASS, SERIF } from '../components/teacher/premiumTheme';
 import { Appear, PressableScale } from '../components/teacher/uiKit';
@@ -233,13 +234,13 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
 
         <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
           <ScrollView contentContainerStyle={st.body} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
-            {/* Your teacher — Ms. Nova */}
-            <Appear style={st.teacherRow}>
-              <TeacherAvatar size={54} state="idle" theme="dark" photo={TEACHER_HEADSHOT} />
-              <View>
-                <Text style={st.teacherRole}>YOUR TEACHER</Text>
-                <Text style={st.teacherName}>Ms. Nova</Text>
-              </View>
+            {/* Your teacher — Ms. Nova (FULL-BODY avatar on the landing) */}
+            <Appear from="scale" style={st.hero}>
+              <TeacherFullBody photo={TEACHER_PHOTO} video={TEACHER_VIDEO} state="idle" theme="dark" height={300} />
+            </Appear>
+            <Appear delay={40} style={{ alignItems: 'center', marginBottom: SP.lg }}>
+              <Text style={st.teacherRole}>YOUR TEACHER</Text>
+              <Text style={st.teacherName}>Ms. Nova</Text>
             </Appear>
 
             {/* Greeting (serif) */}
