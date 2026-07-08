@@ -246,12 +246,20 @@ const CLASSES = ['Class 9', 'Class 10', 'Class 11', 'Class 12'];
 // this is the usual lowercase-hyphenate; for all-non-latin names (Hindi/Sanskrit)
 // the base is empty, so we fall back to a djb2 hash — the SAME 'u<hash>' the DB
 // slugs use, so slugify(name) resolves Hindi/Sanskrit subjects & chapters too.
-const slugify = (str) => {
-  const base = String(str).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-  if (base) return base;
-  let h = 5381; const s = String(str);
-  for (let i = 0; i < s.length; i++) h = ((h * 33) ^ s.charCodeAt(i)) >>> 0;
-  return 'u' + h.toString(36);
+const slugify = (s) => {
+  // Normalize dashes/curly-quotes to ASCII so a stray em-dash doesn't count as
+  // non-ASCII; then, if real Devanagari remains, append a stable hash so
+  // Devanagari-heavy names whose only ASCII is a marker like "(R1)" or a leading
+  // chapter number ("1 विकास") stay UNIQUE instead of collapsing to "1"/"r1".
+  // Must stay byte-identical to the slugify in PracticeScreen/OnlineTestScreen/
+  // McqPracticeScreen and the fetch/import/sync scripts — chapter slugs round-trip.
+  const str = String(s).replace(/[–—­‑]/g, '-').replace(/[‘’]/g, "'").replace(/[“”]/g, '"');
+  const base = str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  if (base && !/[^\x00-\x7F]/.test(str)) return base;
+  let h = 5381;
+  for (let i = 0; i < str.length; i++) h = ((h * 33) ^ str.charCodeAt(i)) >>> 0;
+  const hash = 'u' + h.toString(36);
+  return base ? base + '-' + hash : hash;
 };
 
 const SUBJECTS = [
@@ -599,22 +607,21 @@ const SUBJECTS_CLASS9 = [
   { name: 'Reasoning & Mental Ability',              emoji: '🧠', bg: '#E8703A', chapters: [], comingSoon: true },
 ];
 
-// Class 10 — DB-backed Revision Notes (sections type_key='revision_notes' →
-// notes table, class_level=10). Chapter lists come from the DB per subject (no
-// hardcoded chapters — see isClass10NotesList). Subjects without notes yet are
-// marked comingSoon so the syllabus list stays complete.
+// Class 10 — this list is now only DISPLAY metadata (emoji/colour) and the offline
+// fallback; the real subject grid comes from the DB (getClassSubjects → class10Grid).
+// Every subject here is DB-backed, so none is "coming soon".
 const SUBJECTS_CLASS10 = [
   { name: 'Mathematics',                     emoji: '📐', bg: '#444',    chapters: [] },
   { name: 'Science',                         emoji: '🔬', bg: '#5AA84F', chapters: [] },
   { name: 'Social Science',                  emoji: '🌐', bg: '#2F80ED', chapters: [] },
   { name: 'Artificial Intelligence (417)',   emoji: '🤖', bg: '#1C1C1E', chapters: [] },
-  { name: 'English Communicative (101)',     emoji: '📖', bg: '#7A6FD0', chapters: [], comingSoon: true },
-  { name: 'English Language and Literature', emoji: '📖', bg: '#5A67E8', chapters: [], comingSoon: true },
-  { name: 'हिंदी ए',                         emoji: '📚', bg: '#2F80ED', chapters: [], comingSoon: true },
-  { name: 'हिंदी ब',                         emoji: '📚', bg: '#0F6E56', chapters: [], comingSoon: true },
-  { name: 'Information Technology (402)',     emoji: '💻', bg: '#1C1C1E', chapters: [], comingSoon: true },
-  { name: 'Computer Applications (165)',      emoji: '💻', bg: '#0F6E56', chapters: [], comingSoon: true },
-  { name: 'Reasoning & Mental Ability',      emoji: '🧠', bg: '#E8703A', chapters: [], comingSoon: true },
+  { name: 'English Communicative (101)',     emoji: '📖', bg: '#7A6FD0', chapters: [] },
+  { name: 'English Language and Literature', emoji: '📖', bg: '#5A67E8', chapters: [] },
+  { name: 'हिंदी ए',                         emoji: '📚', bg: '#2F80ED', chapters: [] },
+  { name: 'हिंदी ब',                         emoji: '📚', bg: '#0F6E56', chapters: [] },
+  { name: 'Information Technology (402)',     emoji: '💻', bg: '#1C1C1E', chapters: [] },
+  { name: 'Computer Applications (165)',      emoji: '💻', bg: '#0F6E56', chapters: [] },
+  { name: 'Reasoning & Mental Ability',      emoji: '🧠', bg: '#E8703A', chapters: [] },
 ];
 
 const RESOURCE_TYPES = [
@@ -1232,7 +1239,13 @@ const ResourcesScreen = () => {
   // Class 10 subject grid: DB list merged with display props (emoji/colour) from the
   // static list where known, else a sensible default. The LIST itself is DB-driven.
   const c10Display = Object.fromEntries(SUBJECTS_CLASS10.map((s) => [s.name, s]));
-  const class10Grid = (c10Subjects || []).map((s) => c10Display[s.name] || { name: s.name, emoji: '📘', bg: '#5A67E8', chapters: [] });
+  // Every subject in c10Subjects is DB-backed, so it is NOT "coming soon" — take only
+  // the display props (emoji/colour) from the static list and drop its stale comingSoon
+  // flag. Keep the real DB slug so Hindi/Sanskrit subjects resolve their content.
+  const class10Grid = (c10Subjects || []).map((s) => {
+    const d = c10Display[s.name] || {};
+    return { name: s.name, slug: s.slug, emoji: d.emoji || '📘', bg: d.bg || '#5A67E8', chapters: [] };
+  });
 
   // Open a subject. When it has only ONE resource type, skip the redundant
   // "resource type" screen (LEVEL 2) and jump straight to its chapters (LEVEL 3),
@@ -1395,7 +1408,13 @@ const ResourcesScreen = () => {
     setDbQDoc({ loading: true, error: null, html: '' });
     getQuestionsByPath(slugify(activeSubject.name), slugify(activeChapter.name), activeResType.type, classNum)
       .then((qs) => { if (alive) setDbQDoc({ loading: false, error: null, html: qs && qs.length ? buildPyqDocument(buildFragmentFromQuestions(qs)) : '' }); })
-      .catch((e) => { if (alive) setDbQDoc({ loading: false, error: e?.message || 'Could not load questions.', html: '' }); });
+      .catch((e) => {
+        if (!alive) return;
+        // 404 = this chapter has no questions for this tab (some Examin8 chapters
+        // genuinely have none) → show the empty state, not an error.
+        if (e?.response?.status === 404) setDbQDoc({ loading: false, error: null, html: '' });
+        else setDbQDoc({ loading: false, error: e?.message || 'Could not load questions.', html: '' });
+      });
     return () => { alive = false; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isDbQDoc, activeSubject?.name, activeChapter?.name, activeResType?.type, classNum, docRetry]);
@@ -1408,6 +1427,9 @@ const ResourcesScreen = () => {
     if (!dbQListActive) { setDbQAvail({ loading: false, chapters: null }); return undefined; }
     let alive = true;
     setDbQAvail({ loading: true, chapters: null });
+    // Chapter list per resource type — only chapters that actually have that section.
+    // The importer seeds these from Examin8's own per-resource chapter list
+    // (content_name endpoint), so this matches the website exactly.
     getChapters(slugify(activeSubject.name), activeResType.type, classNum)
       .then((chs) => { if (alive) setDbQAvail({ loading: false, chapters: (chs || []).map((c) => c.name) }); })
       .catch(() => { if (alive) setDbQAvail({ loading: false, chapters: [] }); });

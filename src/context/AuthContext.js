@@ -24,6 +24,11 @@ export const AuthProvider = ({ children }) => {
   // null = not loaded yet. This replaces the old hardcoded READY map, so adding content
   // to the DB automatically makes a class "ready" — no code change needed.
   const [readyClasses, setReadyClasses] = useState(null);
+  // Which view a STUDENT account is currently using: 'student' | 'parent' | null.
+  // The same login can flip between the student app and the parent dashboard — null
+  // means "not chosen yet this login", which routes to the Student/Parent chooser.
+  // Persisted so a reload keeps the chosen view; cleared on logout.
+  const [activeView, setActiveViewState] = useState(null);
   // Monotonic "user write" counter. Any authoritative setUser (login / updateProfile)
   // bumps it; an in-flight best-effort fetchMe only applies its result if nothing newer
   // has landed since — so a slow /me can never revert a role the user just changed
@@ -33,12 +38,14 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     (async () => {
       try {
-        const [storedToken, storedUser, onboarded, storedClass] = await Promise.all([
+        const [storedToken, storedUser, onboarded, storedClass, storedView] = await Promise.all([
           getToken(),
           getUser(),
           AsyncStorage.getItem('@ailernova_onboarded'),
           AsyncStorage.getItem('@ailernova_class'),
+          AsyncStorage.getItem('@ailernova_active_view'),
         ]);
+        if (storedView === 'student' || storedView === 'parent') setActiveViewState(storedView);
         if (storedToken && storedUser) {
           setToken(storedToken);
           setUser(storedUser);
@@ -62,12 +69,26 @@ export const AuthProvider = ({ children }) => {
     try { await AsyncStorage.setItem('@ailernova_class', cls); } catch (_) {}
   }, []);
 
+  // Flip a student between the student app and the parent dashboard (same login).
+  // Pass null to send them back to the chooser. Persisted so a reload keeps the view.
+  const setActiveView = useCallback(async (view) => {
+    const v = view === 'student' || view === 'parent' ? view : null;
+    setActiveViewState(v);
+    try {
+      if (v) await AsyncStorage.setItem('@ailernova_active_view', v);
+      else await AsyncStorage.removeItem('@ailernova_active_view');
+    } catch (_) {}
+  }, []);
+
   const signIn = useCallback(async ({ token: t, user: u }) => {
     userOp.current += 1; // authoritative write — invalidate any in-flight fetchMe
     await Promise.all([saveToken(t), saveUser(u)]);
     setToken(t);
     setUser(u);
     setJustLoggedIn(true);
+    // Fresh login → clear any remembered view so the Student/Parent chooser shows.
+    setActiveViewState(null);
+    try { await AsyncStorage.removeItem('@ailernova_active_view'); } catch (_) {}
   }, []);
 
   const completeOnboarding = useCallback(async () => {
@@ -108,10 +129,12 @@ export const AuthProvider = ({ children }) => {
   const signOut = useCallback(async () => {
     await clearAll();
     await AsyncStorage.removeItem('@ailernova_onboarded');
+    await AsyncStorage.removeItem('@ailernova_active_view');
     setToken(null);
     setUser(null);
     setHasOnboarded(false);
     setJustLoggedIn(false);
+    setActiveViewState(null);
   }, []);
 
   // Let the axios layer clear the session on a 401 (expired/invalid token).
@@ -145,6 +168,7 @@ export const AuthProvider = ({ children }) => {
       selectedClass, setSelectedClass,
       scope,                       // { role, classNum, className, stream, board, language, subjects, complete }
       readyClasses, isClassReady,  // backend-driven "which classes have content" gate
+      activeView, setActiveView,   // student's chosen view: 'student' | 'parent' | null (chooser)
       updateProfile,
       signIn, signOut, completeOnboarding,
     }}>

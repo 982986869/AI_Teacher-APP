@@ -29,7 +29,10 @@ import ActivityRouter from './ActivityRouter';
 import { FadeIn } from './anim';
 
 export default function ParentApp() {
-  const { user, signOut } = useAuth();
+  const { user, signOut, scope, setActiveView } = useAuth();
+  // When a STUDENT is viewing this dashboard (same login), let them flip back to the
+  // student app. Real parent accounts have no student view, so this stays undefined.
+  const onSwitchToStudent = scope?.role === 'student' ? () => setActiveView('student') : undefined;
   const [fontsLoaded, fontError] = useFonts({
     Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold,
     Poppins_700Bold, Poppins_800ExtraBold, Poppins_900Black,
@@ -135,6 +138,7 @@ export default function ParentApp() {
         onLogout={signOut}
         onDeleteAccount={confirmDelete}
         onComingSoon={() => flash('Coming soon')}
+        onSwitchToStudent={onSwitchToStudent}
       />
       {/* AI Gym → the actual student BrainGym experience, reused directly (not a copy). */}
       <Modal visible={gymOpen} animationType="slide" onRequestClose={() => setGymOpen(false)} statusBarTranslucent>

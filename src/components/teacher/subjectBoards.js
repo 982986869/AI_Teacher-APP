@@ -48,11 +48,12 @@ function LaserPointer({ x, y, color = '#E0322E', show = true }) {
   const cy = useRef(new Animated.Value(y)).current;
   const pulse = useRef(new Animated.Value(0)).current;
   useEffect(() => {
-    // Let the newly-drawn element settle for a beat, THEN glide the pointer to it —
-    // she draws first, then points, the way a real teacher does.
+    // ANTICIPATE the speech: the pointer sets off toward the next element the moment
+    // the beat lands (as she starts saying it), arriving just as it's drawn — a real
+    // teacher's hand is already moving to what she's about to name, not trailing it.
     const a = Animated.parallel([
-      Animated.timing(cx, { toValue: x, duration: 560, delay: 130, easing: Easing.inOut(Easing.cubic), useNativeDriver: false }),
-      Animated.timing(cy, { toValue: y, duration: 560, delay: 130, easing: Easing.inOut(Easing.cubic), useNativeDriver: false }),
+      Animated.timing(cx, { toValue: x, duration: 440, delay: 0, easing: Easing.inOut(Easing.cubic), useNativeDriver: false }),
+      Animated.timing(cy, { toValue: y, duration: 440, delay: 0, easing: Easing.inOut(Easing.cubic), useNativeDriver: false }),
     ]);
     a.start();
     return () => a.stop();

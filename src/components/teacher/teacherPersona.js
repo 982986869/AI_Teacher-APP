@@ -89,6 +89,9 @@ const COMPLETE = [
   "You stayed with it the whole way — that's how it sticks.",
   "Solid work. Come back and run it again any time.",
   "Nicely done. A second pass tomorrow will lock it in.",
+  "That's a wrap — and you earned it. Bring me another topic whenever you're ready.",
+  "Lovely work. I'll be right here when you want the next one.",
+  "You showed up and stuck with it — that's the whole game. See you next time.",
 ];
 
 // Public helpers — each never repeats its last line. Callers pass a signal so the

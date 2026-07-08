@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
-  View, Text, StyleSheet, TouchableOpacity, ScrollView, Animated, Easing, Dimensions, Platform, TextInput,
+  View, Text, StyleSheet, ScrollView, Animated, Easing, Dimensions, Platform, TextInput,
 } from 'react-native';
 import LessonBoard from './LessonBoards';
 import TeacherAvatar from './TeacherAvatar';
@@ -10,7 +10,11 @@ import VoicePicker from './VoicePicker';
 import { directLesson } from './teachingDirector';
 import { focusTarget } from './cameraDirector';
 import { freshLearner, observe, assess } from './emotionEngine';
-import { C } from './premiumTheme';
+import { C, F, SP, GLASS } from './premiumTheme';
+import { PressableScale } from './uiKit';
+import BoardSurface, { surfaceFor } from './boardSurfaces';
+import { EraserWipe } from './boardGestures';
+import { AmbientStage, VoiceAura } from './ambientStage';
 import { expressionForScene, praiseLine, reassureLine, listeningLine, completeLine } from './teacherPersona';
 import { speakTeacher, stopTeacher, primeTeacherVoice, getSpeechProgress, SPEECH_OK, speakTeacherQueued, resetTeacherQueue, isTeacherQueueActive } from '../../utils/teacherVoice';
 
@@ -29,6 +33,9 @@ const { width: SCREEN_W, height: SCREEN_H } = Dimensions.get('window');
 // small in the top-right corner once a slide / whiteboard is on screen.
 const AV_HERO = Math.round(Math.min(176, SCREEN_W * 0.46, SCREEN_H * 0.23));
 const AV_CORNER = Math.round(Math.min(90, SCREEN_W * 0.24));
+// She stays present (not a corner chip) while a board is on screen — a confident
+// mid size that keeps her the anchor of the scene without crowding her workspace.
+const AV_STAGE = Math.round(Math.min(124, SCREEN_W * 0.34, SCREEN_H * 0.16));
 // Student camera — rounded rectangle.
 const CAM_W = Math.round(Math.min(150, SCREEN_W * 0.4));
 const CAM_H = Math.round(CAM_W * 0.76);
@@ -215,14 +222,17 @@ function SpokenCaption({ text, speaking, karaoke, resetKey, style }) {
 function CamInner() {
   const [perm, requestPerm] = ExpoCamera.useCameraPermissions();
   useEffect(() => { if (perm && !perm.granted && perm.canAskAgain !== false) requestPerm(); }, [perm]); // eslint-disable-line
-  if (!perm || !perm.granted) return <View style={st.camFill}><Text style={{ fontSize: CAM_H * 0.45 }}>🧑‍🎓</Text></View>;
+  if (!perm || !perm.granted) return <View style={st.camFill}><Text style={{ fontSize: 26 }}>🧑‍🎓</Text></View>;
   const CameraView = ExpoCamera.CameraView;
   return <CameraView style={{ width: '100%', height: '100%' }} facing="front" />;
 }
 const StudentCircle = React.memo(function StudentCircle({ active }) {
   return (
-    <View style={[st.camFrame, active && st.camFrameOn]}>
-      <View style={st.camMask}>{CAMERA_OK ? <CamInner /> : <View style={st.camFill}><Text style={{ fontSize: CAM_H * 0.45 }}>🧑‍🎓</Text></View>}</View>
+    <View style={st.camWrap}>
+      <View style={[st.camFrame, active && st.camFrameOn]}>
+        <View style={st.camMask}>{CAMERA_OK ? <CamInner /> : <View style={st.camFill}><Text style={{ fontSize: 26 }}>🧑‍🎓</Text></View>}</View>
+      </View>
+      <Text style={[st.camLbl, active && st.camLblOn]}>{active ? 'Listening' : 'You'}</Text>
     </View>
   );
 });
@@ -247,12 +257,12 @@ function VoiceMic({ onStart, onPartial, onFinal, onEnd, onError, dock }) {
       setBusy(true); onStart && onStart();
     } catch (e) { setBusy(false); onError && onError('Type your question for now.'); }
   };
-  // Rendered as the "Ask Teacher" control inside the dock.
+  // The primary conversational action — talk to her.
   return (
-    <TouchableOpacity onPress={toggle} style={st.dItem} activeOpacity={0.85}>
+    <PressableScale onPress={toggle} style={st.dItem} scaleTo={0.9} accessibilityLabel={busy ? 'Stop listening' : 'Ask the teacher a question'}>
       <View style={[st.dMic, busy && st.dMicOn]}><Text style={st.dMicIcon}>{busy ? '■' : '🎤'}</Text></View>
-      <Text style={st.dLbl}>{busy ? 'Stop' : 'Ask Teacher'}</Text>
-    </TouchableOpacity>
+      <Text style={[st.dLbl, st.dLblPrimary]}>{busy ? 'Stop' : 'Ask'}</Text>
+    </PressableScale>
   );
 }
 
@@ -311,7 +321,7 @@ function DoubtMeta({ meta }) {
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
-export default function LiveTeachingPlayer({ lesson, ttsOk = true, startIndex = 0, onProgress, onAsk, onAskStream, onExit, onNewLesson }) {
+export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, startIndex = 0, onProgress, onAsk, onAskStream, onExit, onNewLesson }) {
   // The Teaching Director choreographs the lesson into scenes-of-beats. The player
   // just executes that timeline (speak this line ↔ draw this board step ↔ this face).
   const scenes = useMemo(() => directLesson(lesson || {}), [lesson]);
@@ -332,6 +342,7 @@ export default function LiveTeachingPlayer({ lesson, ttsOk = true, startIndex = 
   const [hint, setHint] = useState('');
   const [voiceOpen, setVoiceOpen] = useState(false); // voice-picker sheet
   const [reactExpr, setReactExpr] = useState(null);  // transient face after a quick-check (celebrate / encouraging)
+  const [gestureExpr, setGestureExpr] = useState(null); // transient 'pointing' lead — she points at the board a beat before she speaks
   const [quizFb, setQuizFb] = useState(null);        // { correct, line } — the human line for the last quick-check
   const [doneMsg, setDoneMsg] = useState('');        // varied wrap-up line (never the same twice running)
   const [listenPrompt, setListenPrompt] = useState('I’m listening…');
@@ -348,6 +359,9 @@ export default function LiveTeachingPlayer({ lesson, ttsOk = true, startIndex = 
   // The Camera Director's rack-focus: 0 = teacher, 1 = board, 0.5 = wide. One
   // Animated scalar drives both the board's push-in and the teacher's size.
   const cam = useRef(new Animated.Value(0.5)).current;
+  // A gentle "lean-in" on equation/diagram beats — the shot pushes toward the line
+  // being built, then eases back, so the camera never sits statically on the board.
+  const focusZoom = useRef(new Animated.Value(1)).current;
 
   const scene = scenes[idx] || { boardType: 'concept', title: '', kicker: '', teacherLine: '', subtitleChunks: [], formulaParts: [], beats: [] };
   const beats = scene.beats && scene.beats.length ? scene.beats : [{ say: scene.teacherLine || '', boardStep: null, expression: null, interaction: null, hold: 1400, pause: 600 }];
@@ -365,6 +379,34 @@ export default function LiveTeachingPlayer({ lesson, ttsOk = true, startIndex = 
     return () => a.stop();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mode, idx, beat, animKey]);
+
+  // ── Equation/diagram focus-zoom: on each beat of a board that BUILDS (formulas,
+  // proofs, graphs, charts), the shot leans in a touch as the new line lands, then
+  // settles — the auto-zoom-to-the-equation-and-return feel, never a static frame.
+  const ZOOM_BOARDS = ['formula', 'proof', 'chart', 'graphFn', 'numberLine', 'triangle'];
+  useEffect(() => {
+    if (mode !== M.TEACHING || !ZOOM_BOARDS.includes(scene.boardType)) { focusZoom.setValue(1); return undefined; }
+    const a = Animated.sequence([
+      Animated.timing(focusZoom, { toValue: 1.05, duration: 460, easing: Easing.out(Easing.cubic), useNativeDriver: true }),
+      Animated.timing(focusZoom, { toValue: 1.0, duration: 900, easing: Easing.inOut(Easing.cubic), useNativeDriver: true }),
+    ]);
+    a.start();
+    return () => a.stop();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mode, idx, beat, animKey]);
+
+  // ── POINT-BEFORE-SPEAKING: at the top of each beat she turns to the board and
+  // points at what's coming (the board step + pointer have just moved there, and
+  // the TTS engine has a beat of start-up latency), then hands off to her speaking
+  // face. Pure gaze/gesture — it never changes when the audio actually starts.
+  useEffect(() => {
+    if (mode !== M.TEACHING || scene.boardType === 'intro') { setGestureExpr(null); return undefined; }
+    setGestureExpr('pointing');
+    const t = setTimeout(() => setGestureExpr(null), 620);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mode, idx, beat, animKey]);
+
   const voiceOn = ttsOk && SPEECH_OK && !muted;
   const teaching = mode === M.TEACHING;
   const inDoubt = mode === M.LISTENING || mode === M.THINKING || mode === M.ANSWERING;
@@ -608,9 +650,16 @@ export default function LiveTeachingPlayer({ lesson, ttsOk = true, startIndex = 
   // otherwise the face follows the actual teaching moment — she points at a
   // diagram, writes through a formula/proof, softens on the mistake slide — so
   // her whole behavioural vocabulary is actually used, not one flat "explaining".
+  // Order of precedence: a quick-check reaction wins; then the point-before-speaking
+  // lead; then the teaching cycle — WHILE SPEAKING she works the board (writing /
+  // pointing per scene), and in the PAUSE after a line she looks back at the student
+  // ('smile') before pointing to the next beat. That gives the full human rhythm:
+  // point → write/explain → pause & look at you → continue.
   const expression = reactExpr
-    || ((mode === M.THINKING || mode === M.LISTENING) ? 'thinking'
-      : mode === M.TEACHING ? ((curBeat && curBeat.expression) || expressionForScene(scene.boardType, ttsActive))
+    || (mode === M.TEACHING && gestureExpr ? gestureExpr
+      : (mode === M.THINKING || mode === M.LISTENING) ? 'thinking'
+      : mode === M.TEACHING
+        ? (ttsActive ? ((curBeat && curBeat.expression) || expressionForScene(scene.boardType, true)) : 'smile')
       : ttsActive ? 'explaining' : 'happy');
   const stateLabel = mode === M.LISTENING ? 'listening…'
     : mode === M.THINKING ? 'thinking…'
@@ -664,53 +713,49 @@ export default function LiveTeachingPlayer({ lesson, ttsOk = true, startIndex = 
 
   return (
     <View style={st.container}>
+      {/* clean warm editorial background (C.cream) — no ambient, mobile-first */}
+
       {/* ── HEADER (fixed) ── */}
       <View style={st.bar}>
-        <TouchableOpacity onPress={() => { stopTeacher(); onExit && onExit(); }} style={st.barIcon} accessibilityRole="button" accessibilityLabel="Exit lesson"><Text style={st.barIconTxt}>‹</Text></TouchableOpacity>
+        <PressableScale onPress={() => { stopTeacher(); onExit && onExit(); }} style={st.barIcon} accessibilityLabel="Exit lesson"><Text style={st.barIconTxt}>‹</Text></PressableScale>
         <View style={st.progressTrack} accessibilityRole="progressbar" accessibilityValue={{ now: Math.min(idx + 1, N), min: 0, max: N }}><Animated.View style={[st.progressFill, { width: progressA.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]} /></View>
-        <Text style={st.counter} accessibilityLabel={`Slide ${Math.min(idx + 1, N)} of ${N}`}>{Math.min(idx + 1, N)}/{N}</Text>
-        <TouchableOpacity onPress={() => { stopTeacher(); setVoiceOpen(true); }} style={st.barIcon} accessibilityRole="button" accessibilityLabel="Choose teacher voice"><Text style={st.barIconTxt2}>🎙</Text></TouchableOpacity>
-        <TouchableOpacity onPress={toggleMute} style={st.barIcon} accessibilityRole="button" accessibilityLabel={muted ? 'Unmute narration' : 'Mute narration'}><Text style={st.barIconTxt2}>{muted ? '🔇' : '🔊'}</Text></TouchableOpacity>
-        {!!onNewLesson && <TouchableOpacity onPress={onNewLesson} style={st.barIcon} accessibilityRole="button" accessibilityLabel="Start a new lesson"><Text style={st.barIconTxt2}>↺</Text></TouchableOpacity>}
+        <Text style={st.counter} accessibilityLabel={`Step ${Math.min(idx + 1, N)} of ${N}`}>{Math.min(idx + 1, N)}/{N}</Text>
+        <PressableScale onPress={() => { stopTeacher(); setVoiceOpen(true); }} style={st.barIcon} accessibilityLabel="Choose teacher voice"><Text style={st.barIconTxt2}>🎙</Text></PressableScale>
+        <PressableScale onPress={toggleMute} style={st.barIcon} accessibilityLabel={muted ? 'Unmute narration' : 'Mute narration'}><Text style={st.barIconTxt2}>{muted ? '🔇' : '🔊'}</Text></PressableScale>
+        {!!onNewLesson && <PressableScale onPress={onNewLesson} style={st.barIcon} accessibilityLabel="Start a new lesson"><Text style={st.barIconTxt2}>↺</Text></PressableScale>}
       </View>
 
       <VoicePicker visible={voiceOpen} onClose={() => setVoiceOpen(false)} />
 
-      {/* ── TEACHER + WHITEBOARD (scrolls) ──
-          No slide → big centred teacher. Slide on → board is the focus and the
-          teacher tucks into the top-right corner. */}
-      <ScrollView style={st.scroll} contentContainerStyle={showBoard ? st.scrollTop : st.scrollBody} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
-        {showBoard ? (
-          <Stage key={sceneKey} style={st.lessonArea}>
-            {/* right gutter keeps the title clear of the corner teacher */}
-            <View style={st.lessonHead}>
-              <Appear><Text style={st.kicker}>{scene.kicker}</Text></Appear>
-              {!!scene.title && <Appear delay={50}><Text style={st.title}>{scene.title}</Text><Underline /></Appear>}
+      {/* ── THE LESSON (warm editorial) — Ms. Nova top-left header, a clean white
+          board card, her words below. Mobile-first, no student PiP. The teacher row
+          is persistent (never remounts); only the material transitions per scene. */}
+      <ScrollView style={st.scroll} contentContainerStyle={st.lessonScroll} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
+        <View style={st.teacherBar}>
+          <TeacherAvatar theme="dark" video={TEACHER_VIDEO} photo={TEACHER_HEADSHOT} state={teacherState} expression={expression} size={46} />
+          <View style={{ flex: 1 }}>
+            <Text style={st.teacherName}>Ms. Nova</Text>
+            <View style={st.statusRow}>
+              <View style={[st.statusDot, ttsActive && st.statusDotOn]} />
+              <Text style={st.statusTxt}>{mode === M.LISTENING ? 'Listening' : mode === M.THINKING ? 'Thinking' : ttsActive ? 'Teaching' : mode === M.PAUSED ? 'Paused' : 'Ready'}</Text>
             </View>
-            <Animated.View style={{ width: '100%', opacity: boardOpacity, transform: [{ scale: boardScale }] }}>
-              <Appear delay={110} style={st.lessonCard}>
-                <LessonBoard scene={scene} paused={!teaching} skip={false} resetKey={sceneKey} step={curBeat ? curBeat.boardStep : null} onQuizContinue={onNext} onQuizResult={handleQuizResult} onReexplain={reexplain} quizFb={quizFb} />
-              </Appear>
-            </Animated.View>
-            <View style={st.subtitleBar}>{captionEl}</View>
-          </Stage>
-        ) : (
-          <View style={st.banner}>
-            {/* waveform above the teacher while she speaks */}
-            <View style={st.waveWrap} pointerEvents="none"><Waveform active={ttsActive} /></View>
-            {/* Live page → HALF avatar (head & shoulders). Landing keeps full-body. */}
-            <TeacherFullBody theme="dark" photo={TEACHER_HEADSHOT} video={null} state={teacherState} height={Math.round(AV_HERO * 1.7)} />
-            <View style={[st.badge, ttsActive && st.badgeOn]}>
-              <View style={[st.badgeDot, ttsActive && st.badgeDotOn]} />
-              <Text style={[st.badgeTxt, ttsActive && st.badgeTxtOn]}>{stateLabel}</Text>
-            </View>
-            <View style={st.caption}>{captionEl}</View>
           </View>
-        )}
-      </ScrollView>
+        </View>
 
-      {/* floating corner teacher while a board is on screen */}
-      {showBoard && <CornerTeacher state={teacherState} expression={expression} cam={cam} />}
+        <Stage key={sceneKey} style={st.workArea}>
+          {!!scene.kicker && <Text style={st.kicker}>{scene.kicker}</Text>}
+          {!!scene.title && <Text style={st.title}>{scene.title}</Text>}
+          {showBoard && (
+            <Animated.View style={[st.boardOuter, { transform: [{ scale: focusZoom }] }]}>
+              <View style={st.lessonCard}>
+                <LessonBoard scene={scene} paused={!teaching} skip={false} resetKey={sceneKey} step={curBeat ? curBeat.boardStep : null} onQuizContinue={onNext} onQuizResult={handleQuizResult} onReexplain={reexplain} quizFb={quizFb} />
+                <EraserWipe enabled={idx > 0} />
+              </View>
+            </Animated.View>
+          )}
+          <View style={st.captionWrap}>{captionEl}</View>
+        </Stage>
+      </ScrollView>
 
       {/* ── STUDENT + STATUS + CONTROL DOCK (fixed) ── */}
       <View style={st.bottom}>
@@ -727,34 +772,32 @@ export default function LiveTeachingPlayer({ lesson, ttsOk = true, startIndex = 
               onSubmitEditing={() => sendDoubt()} returnKeyType="send" autoFocus
               accessibilityLabel="Type your question for the teacher"
             />
-            <TouchableOpacity style={st.askSend} onPress={() => sendDoubt()} accessibilityRole="button" accessibilityLabel="Send question"><Text style={st.askSendTxt}>↑</Text></TouchableOpacity>
+            <PressableScale style={st.askSend} onPress={() => sendDoubt()} accessibilityLabel="Send question"><Text style={st.askSendTxt}>↑</Text></PressableScale>
           </View>
         )}
 
         {mode === M.ANSWERING && (
-          <TouchableOpacity style={st.resumeBtn} onPress={resumeFromDoubt} activeOpacity={0.9} accessibilityRole="button" accessibilityLabel="Resume the lesson">
+          <PressableScale style={st.resumeBtn} onPress={resumeFromDoubt} accessibilityLabel="Resume the lesson">
             <Text style={st.resumeTxt}>▶  Resume lesson</Text>
-          </TouchableOpacity>
+          </PressableScale>
         )}
-
-        <StudentCircle active={mode === M.LISTENING} />
 
         {!!hint && (teaching || mode === M.PAUSED) && <Text style={st.hint}>{hint}</Text>}
 
-        {/* control dock — Previous · Pause · Ask Teacher · Refresh · Next */}
+        {/* controls — a floating glass dock. Ask (mic) is the clear primary; the
+            transport is secondary with small, quiet labels for discoverability. */}
         {mode !== M.THINKING && mode !== M.COMPLETED && (
           <View style={st.dock}>
-            <TouchableOpacity style={st.dItem} onPress={onPrev} disabled={idx === 0} activeOpacity={0.85}
-              accessibilityRole="button" accessibilityLabel="Previous slide" accessibilityState={{ disabled: idx === 0 }}>
-              <Text style={[st.dIcon, idx === 0 && st.dDim]}>⏮</Text><Text style={st.dLbl}>Previous</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={st.dItem} onPress={togglePlay} activeOpacity={0.85}
-              accessibilityRole="button" accessibilityLabel={teaching ? 'Pause the lesson' : 'Play the lesson'}>
-              <View style={st.dPlay}><Text style={st.dPlayTxt}>{teaching ? '⏸' : '▶'}</Text></View><Text style={st.dLbl}>{teaching ? 'Pause' : 'Play'}</Text>
-            </TouchableOpacity>
+            <PressableScale style={st.dItem} onPress={onPrev} disabled={idx === 0} accessibilityLabel="Previous step">
+              <View style={st.dGhost}><Text style={[st.dGlyph, idx === 0 && st.dDim]}>⏮</Text></View>
+              <Text style={st.dLbl}>Prev</Text>
+            </PressableScale>
+            <PressableScale style={st.dItem} onPress={togglePlay} scaleTo={0.92} accessibilityLabel={teaching ? 'Pause the lesson' : 'Play the lesson'}>
+              <View style={st.dGhost}><Text style={st.dGlyph}>{teaching ? '⏸' : '▶'}</Text></View>
+              <Text style={st.dLbl}>{teaching ? 'Pause' : 'Play'}</Text>
+            </PressableScale>
             {!!onAsk && (VOICE_OK ? (
               <VoiceMic
-                dock
                 onStart={beginListen}
                 onPartial={setPartial}
                 onFinal={(t) => sendDoubt(t)}
@@ -762,19 +805,19 @@ export default function LiveTeachingPlayer({ lesson, ttsOk = true, startIndex = 
                 onError={(m) => { setHint(typeof m === 'string' ? m : 'Type your question.'); setMode((p) => (p === M.LISTENING ? M.PAUSED : p)); }}
               />
             ) : (
-              <TouchableOpacity style={st.dItem} onPress={beginListen} activeOpacity={0.85}
-                accessibilityRole="button" accessibilityLabel="Ask the teacher a question">
-                <View style={st.dMic}><Text style={st.dMicIcon}>🎤</Text></View><Text style={st.dLbl}>Ask Teacher</Text>
-              </TouchableOpacity>
+              <PressableScale style={st.dItem} onPress={beginListen} scaleTo={0.9} accessibilityLabel="Ask the teacher a question">
+                <View style={st.dMic}><Text style={st.dMicIcon}>🎤</Text></View>
+                <Text style={[st.dLbl, st.dLblPrimary]}>Ask</Text>
+              </PressableScale>
             ))}
-            <TouchableOpacity style={st.dItem} onPress={onRefresh} activeOpacity={0.85}
-              accessibilityRole="button" accessibilityLabel="Replay this slide">
-              <Text style={st.dIcon}>↻</Text><Text style={st.dLbl}>Refresh</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={st.dItem} onPress={onNext} activeOpacity={0.85}
-              accessibilityRole="button" accessibilityLabel="Next slide">
-              <Text style={st.dIcon}>⏭</Text><Text style={st.dLbl}>Next</Text>
-            </TouchableOpacity>
+            <PressableScale style={st.dItem} onPress={onRefresh} accessibilityLabel="Replay this step">
+              <View style={st.dGhost}><Text style={st.dGlyph}>↻</Text></View>
+              <Text style={st.dLbl}>Replay</Text>
+            </PressableScale>
+            <PressableScale style={st.dItem} onPress={onNext} accessibilityLabel="Next step">
+              <View style={st.dGhost}><Text style={st.dGlyph}>⏭</Text></View>
+              <Text style={st.dLbl}>Next</Text>
+            </PressableScale>
           </View>
         )}
       </View>
@@ -787,9 +830,12 @@ export default function LiveTeachingPlayer({ lesson, ttsOk = true, startIndex = 
             <Text style={st.doneTitle}>Lesson complete</Text>
             <Text style={st.doneSub}>{doneMsg || 'Great focus today. Take it again whenever you like.'}</Text>
             <View style={st.doneRow}>
-              <TouchableOpacity style={[st.doneBtn, st.doneGhost]} onPress={() => { stopTeacher(); onExit && onExit(); }} activeOpacity={0.9} accessibilityRole="button" accessibilityLabel="Finish and exit"><Text style={st.doneGhostTxt}>Done</Text></TouchableOpacity>
-              <TouchableOpacity style={[st.doneBtn, st.donePrimary]} onPress={onReplayLesson} activeOpacity={0.9} accessibilityRole="button" accessibilityLabel="Replay the lesson"><Text style={st.donePrimaryTxt}>↺ Replay</Text></TouchableOpacity>
+              <PressableScale style={[st.doneBtn, st.doneGhost]} onPress={() => { stopTeacher(); onExit && onExit(); }} accessibilityLabel="Finish and exit"><Text style={st.doneGhostTxt}>Done</Text></PressableScale>
+              <PressableScale style={[st.doneBtn, st.donePrimary]} onPress={onReplayLesson} accessibilityLabel="Replay the lesson"><Text style={st.donePrimaryTxt}>↺ Replay</Text></PressableScale>
             </View>
+            {!!onNewLesson && (
+              <PressableScale onPress={onNewLesson} style={st.doneNew} accessibilityLabel="Start a new topic"><Text style={st.doneNewTxt}>Learn a new topic</Text></PressableScale>
+            )}
           </Appear>
         </View>
       )}
@@ -799,36 +845,43 @@ export default function LiveTeachingPlayer({ lesson, ttsOk = true, startIndex = 
 
 const st = StyleSheet.create({
   container: { flex: 1, backgroundColor: C.cream },
+  // subject paper reduced to a faint texture floating over the living light
+  paperFaint: { opacity: 0.35 },
 
-  // header (fixed)
-  bar: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingHorizontal: 18, paddingVertical: 10 },
-  barIcon: { width: 34, height: 34, borderRadius: 17, backgroundColor: C.board, borderWidth: 1, borderColor: C.line, alignItems: 'center', justifyContent: 'center' },
-  barIconTxt: { fontSize: 20, fontWeight: '900', color: C.ink, marginTop: -2 },
-  barIconTxt2: { fontSize: 15, fontWeight: '900', color: C.ink },
-  progressTrack: { flex: 1, height: 4, backgroundColor: C.line, borderRadius: 8, overflow: 'hidden' },
-  progressFill: { height: '100%', backgroundColor: C.accent, borderRadius: 8, shadowColor: C.accent, shadowOpacity: 0.5, shadowRadius: 4, shadowOffset: { width: 0, height: 0 } },
-  counter: { fontSize: 11, fontWeight: '800', color: C.dim, minWidth: 30, textAlign: 'right' },
+  // header (fixed) — minimal ghost glyphs, no boxes, a hairline progress line
+  bar: { flexDirection: 'row', alignItems: 'center', gap: 16, paddingHorizontal: SP.lg, paddingTop: SP.sm, paddingBottom: SP.xs },
+  barIcon: { width: 34, height: 34, borderRadius: 17, alignItems: 'center', justifyContent: 'center' },
+  barIconTxt: { fontSize: 26, color: C.ink2, marginTop: -4 },
+  barIconTxt2: { fontSize: 16, color: C.ink2 },
+  progressTrack: { flex: 1, height: 3, backgroundColor: 'rgba(44,48,67,0.09)', borderRadius: 8, overflow: 'hidden' },
+  progressFill: { height: '100%', backgroundColor: C.accent, borderRadius: 8 },
+  counter: { fontSize: 11, fontFamily: F.semi, color: C.dim, minWidth: 30, textAlign: 'right', letterSpacing: 0.5 },
 
   scroll: { flex: 1 },
   // no slide → centre the big teacher; slide on screen → top-align the lesson
   scrollBody: { flexGrow: 1, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 18, paddingTop: 8, paddingBottom: 16 },
   scrollTop: { flexGrow: 1, justifyContent: 'flex-start', alignItems: 'center', paddingHorizontal: 18, paddingTop: 10, paddingBottom: 16 },
 
-  // teacher banner: photo card with the waveform above it
-  banner: { width: '100%', alignItems: 'center', justifyContent: 'center', paddingTop: 4 },
+  doneNew: { marginTop: SP.md, paddingVertical: SP.sm, alignSelf: 'center' },
+  doneNewTxt: { fontSize: 13, fontFamily: F.semi, color: C.accent, letterSpacing: 0.2 },
+
+  // teacher hero — she sits inside her living voice aura
+  banner: { width: '100%', alignItems: 'center', justifyContent: 'center', paddingTop: SP.sm },
+  heroStage: { alignItems: 'center', justifyContent: 'center' },
   waveWrap: { height: 38, alignItems: 'center', justifyContent: 'flex-end', marginBottom: 10 },
   wave: { flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'center', height: 38, gap: 3 },
   waveBar: { width: 4, borderRadius: 3 },
 
-  badge: { flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 12, backgroundColor: '#FFFFFF', borderWidth: 1, borderColor: C.line, borderRadius: 14, paddingHorizontal: 13, paddingVertical: 6, shadowColor: '#2C3043', shadowOpacity: 0.05, shadowRadius: 8, shadowOffset: { width: 0, height: 3 }, elevation: 1 },
-  badgeOn: { backgroundColor: '#EEF1F4', borderColor: 'rgba(15,163,154,0.35)' },
+  badge: { flexDirection: 'row', alignItems: 'center', gap: 7, marginTop: SP.md, backgroundColor: GLASS.fill, borderWidth: 1, borderColor: GLASS.hair, borderRadius: 16, paddingHorizontal: 14, paddingVertical: 7 },
+  badgeOn: { borderColor: 'rgba(15,163,154,0.35)' },
   badgeDot: { width: 7, height: 7, borderRadius: 4, backgroundColor: C.dim },
   badgeDotOn: { backgroundColor: '#0FA39A' },
-  badgeTxt: { fontSize: 11.5, fontWeight: '800', color: C.dim, letterSpacing: 0.5 },
+  badgeTxt: { fontSize: 11, fontFamily: F.semi, color: C.dim, letterSpacing: 0.8, textTransform: 'lowercase' },
   badgeTxtOn: { color: C.ink },
 
-  caption: { width: '100%', alignItems: 'center', paddingHorizontal: 18, marginTop: 16 },
-  askedLabel: { fontSize: 11, fontWeight: '800', color: C.dim, textAlign: 'center', marginBottom: 5, maxWidth: SCREEN_W * 0.8 },
+  // floating glass caption (centred hero view)
+  caption: { alignSelf: 'center', alignItems: 'center', marginTop: SP.lg, maxWidth: SCREEN_W - SP.xl, paddingVertical: SP.md, paddingHorizontal: SP.lg, borderRadius: 24, backgroundColor: GLASS.fill, borderWidth: 1, borderColor: GLASS.hair, shadowColor: GLASS.shadow, shadowOpacity: 0.05, shadowRadius: 20, shadowOffset: { width: 0, height: 8 }, elevation: 2 },
+  askedLabel: { fontSize: 11, fontFamily: F.semi, color: C.dim, textAlign: 'center', marginBottom: 6, letterSpacing: 0.3, maxWidth: SCREEN_W * 0.8 },
 
   // doubt metadata strip (concept / prerequisites / confidence / source)
   metaWrap: { marginTop: 12, alignItems: 'center', gap: 7, maxWidth: SCREEN_W * 0.86 },
@@ -842,64 +895,69 @@ const st = StyleSheet.create({
   metaConceptName: { color: C.ink, fontWeight: '900' },
   metaPrereqRow: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: 6 },
   metaPrereqLbl: { fontSize: 10, fontWeight: '800', color: C.faint, letterSpacing: 0.5, textTransform: 'uppercase' },
-  metaChip: { backgroundColor: 'rgba(124,58,237,0.15)', borderWidth: 1, borderColor: 'rgba(124,58,237,0.45)', borderRadius: 11, paddingHorizontal: 9, paddingVertical: 3 },
+  metaChip: { backgroundColor: 'rgba(76,130,240,0.12)', borderWidth: 1, borderColor: 'rgba(76,130,240,0.35)', borderRadius: 11, paddingHorizontal: 9, paddingVertical: 3 },
   metaChipTxt: { fontSize: 11, fontWeight: '800', color: C.ink2 },
-  captionTxt: { fontSize: 17, fontWeight: '700', color: C.ink, textAlign: 'center', lineHeight: 26, letterSpacing: 0.1 }, // PRIMARY — spoken words (bright)
-  capDim: { color: 'rgba(44,48,67,0.26)' }, // not-yet-spoken words (soft ink); brighten as she speaks
+  captionTxt: { fontSize: 16.5, fontFamily: F.med, color: C.ink, textAlign: 'center', lineHeight: 25.5, letterSpacing: 0.1 }, // PRIMARY — spoken words (bright)
+  capDim: { color: 'rgba(44,48,67,0.24)' }, // not-yet-spoken words (soft ink); brighten as she speaks
 
   // floating corner teacher (top-right) while a board is on screen
   cornerWrap: { position: 'absolute', top: 56, right: 12, zIndex: 20 },
 
-  // lesson: kicker + title (left, clear of the corner teacher), board, her words
-  lessonArea: { width: '100%', alignItems: 'stretch', marginTop: 8 },
-  lessonHead: { alignSelf: 'stretch', paddingRight: AV_CORNER + 16, minHeight: AV_CORNER - 6, justifyContent: 'center' },
-  kicker: { fontSize: 11, fontWeight: '800', color: C.accent, letterSpacing: 1.4, textAlign: 'left' },
-  title: { fontSize: 20.5, fontWeight: '900', color: C.ink, letterSpacing: -0.45, textAlign: 'left', marginTop: 6, lineHeight: 26 },
-  lessonCard: { width: '100%', marginTop: 16, backgroundColor: C.board, borderWidth: 1, borderColor: C.line, borderRadius: 22, paddingVertical: 20, paddingHorizontal: 15, alignItems: 'center', shadowColor: '#2C3043', shadowOpacity: 0.05, shadowRadius: 16, shadowOffset: { width: 0, height: 8 }, elevation: 2 },
-  subtitleBar: { width: '100%', alignItems: 'center', marginTop: 18, paddingHorizontal: 4 },
+  // ── LESSON (warm editorial) — teacher header row → kicker/title → white board card → caption ──
+  lessonScroll: { flexGrow: 1, paddingHorizontal: SP.lg, paddingTop: SP.sm, paddingBottom: SP.lg },
+  teacherBar: { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: SP.lg },
+  teacherName: { fontSize: 15, fontFamily: F.bold, color: C.ink, letterSpacing: -0.2 },
+  statusRow: { flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 3 },
+  statusDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: C.dim },
+  statusDotOn: { backgroundColor: C.accent },
+  statusTxt: { fontSize: 9.5, fontFamily: F.semi, color: C.dim, letterSpacing: 1.4, textTransform: 'uppercase' },
 
-  // bottom (fixed): status → student → dock
-  bottom: { alignItems: 'center', paddingHorizontal: 18, paddingTop: 8, paddingBottom: Platform.OS === 'ios' ? 24 : 12, gap: 10 },
+  workArea: { width: '100%', alignItems: 'stretch' },
+  kicker: { fontSize: 10, fontFamily: F.bold, color: C.accent, letterSpacing: 1.8, textTransform: 'uppercase', textAlign: 'left', marginBottom: SP.xs },
+  title: { fontSize: 20, fontFamily: F.black, color: C.ink, letterSpacing: -0.4, textAlign: 'left', lineHeight: 26, marginBottom: SP.lg },
+  // clean white board card
+  boardOuter: { width: '100%', alignItems: 'center' },
+  lessonCard: { width: '100%', backgroundColor: C.board, borderRadius: 22, paddingVertical: 24, paddingHorizontal: 16, alignItems: 'center', borderWidth: 1, borderColor: C.line, shadowColor: GLASS.shadow, shadowOpacity: 0.07, shadowRadius: 24, shadowOffset: { width: 0, height: 12 }, elevation: 3 },
+  // short explanation under the board
+  captionWrap: { width: '100%', alignItems: 'center', marginTop: SP.lg, paddingHorizontal: SP.sm },
 
-  // student camera — small rounded-rect with a purple frame
-  camFrame: { width: CAM_W, height: CAM_H, borderRadius: 16, padding: 2.5, backgroundColor: C.accent, shadowColor: C.accent, shadowOpacity: 0.4, shadowRadius: 10, shadowOffset: { width: 0, height: 3 }, elevation: 5 },
-  camFrameOn: { shadowOpacity: 0.7 },
-  camMask: { flex: 1, borderRadius: 14, overflow: 'hidden', backgroundColor: C.board, alignItems: 'center', justifyContent: 'center' },
-  camFill: { width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center', backgroundColor: C.board },
+  // bottom (fixed): status → dock (no student PiP)
+  bottom: { alignItems: 'center', paddingHorizontal: SP.lg, paddingTop: SP.sm, paddingBottom: Platform.OS === 'ios' ? SP.xl : SP.md, gap: SP.md },
 
-  listenTxt: { fontSize: 13, fontWeight: '800', color: C.ink, textAlign: 'center', paddingHorizontal: 26 },
-  hint: { fontSize: 13, fontWeight: '700', color: C.dim, textAlign: 'center' },
+  listenTxt: { fontSize: 13, fontFamily: F.semi, color: C.ink, textAlign: 'center', paddingHorizontal: 26 },
+  hint: { fontSize: 13, fontFamily: F.med, color: C.dim, textAlign: 'center' },
 
   // listening / typed-doubt / resume
-  resumeBtn: { backgroundColor: C.accent, borderRadius: 24, paddingVertical: 12, paddingHorizontal: 26, shadowColor: C.accent, shadowOpacity: 0.45, shadowRadius: 12, shadowOffset: { width: 0, height: 5 }, elevation: 6 },
-  resumeTxt: { color: '#fff', fontSize: 14, fontWeight: '900' },
+  resumeBtn: { backgroundColor: C.accent, borderRadius: 26, paddingVertical: 13, paddingHorizontal: 28, shadowColor: C.accent, shadowOpacity: 0.4, shadowRadius: 14, shadowOffset: { width: 0, height: 6 }, elevation: 6 },
+  resumeTxt: { color: '#fff', fontSize: 14, fontFamily: F.bold },
   askRow: { flexDirection: 'row', gap: 8, alignItems: 'center', alignSelf: 'stretch' },
-  askInput: { flex: 1, backgroundColor: 'rgba(44,48,67,0.05)', borderWidth: 1, borderColor: C.line, borderRadius: 24, paddingVertical: 12, paddingHorizontal: 18, color: C.ink, fontSize: 14, fontWeight: '600' },
-  askSend: { width: 46, height: 46, borderRadius: 23, backgroundColor: C.accent, alignItems: 'center', justifyContent: 'center' },
-  askSendTxt: { color: '#fff', fontSize: 18, fontWeight: '900' },
+  askInput: { flex: 1, backgroundColor: GLASS.fill, borderWidth: 1, borderColor: GLASS.hair, borderRadius: 26, paddingVertical: 13, paddingHorizontal: 20, color: C.ink, fontSize: 14, fontFamily: F.med },
+  askSend: { width: 48, height: 48, borderRadius: 24, backgroundColor: C.accent, alignItems: 'center', justifyContent: 'center' },
+  askSendTxt: { color: '#fff', fontSize: 18 },
 
-  // clean rounded control dock — Previous · Pause · Ask Teacher · Refresh · Next
-  dock: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-around', alignSelf: 'stretch', backgroundColor: '#FFFFFF', borderWidth: 1, borderColor: C.line, borderRadius: 24, paddingHorizontal: 6, paddingVertical: 12, shadowColor: '#2C3043', shadowOpacity: 0.08, shadowRadius: 18, shadowOffset: { width: 0, height: 8 }, elevation: 4 },
-  dItem: { alignItems: 'center', justifyContent: 'flex-start', gap: 7, minWidth: 56 },
-  dIcon: { fontSize: 20, fontWeight: '900', color: C.ink, height: 46, lineHeight: 46, textAlign: 'center' },
-  dPlay: { width: 46, height: 46, borderRadius: 23, backgroundColor: C.accent, alignItems: 'center', justifyContent: 'center', shadowColor: C.accent, shadowOpacity: 0.5, shadowRadius: 10, shadowOffset: { width: 0, height: 3 }, elevation: 5 },
-  dPlayTxt: { fontSize: 18, color: '#fff', fontWeight: '900' },
-  dMic: { width: 46, height: 46, borderRadius: 23, backgroundColor: 'rgba(124,58,237,0.18)', borderWidth: 1.5, borderColor: C.accent, alignItems: 'center', justifyContent: 'center' },
-  dMicOn: { backgroundColor: '#E0322E', borderColor: '#E0322E' },
-  dMicIcon: { fontSize: 18, color: '#fff', fontWeight: '900' },
-  dDim: { opacity: 0.3 },
-  dLbl: { fontSize: 10.5, fontWeight: '700', color: C.dim },
+  // floating frosted-glass dock — Ask (mic) is the raised primary; transport chips
+  // are quiet glass circles with small labels for discoverability.
+  dock: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', alignSelf: 'stretch', backgroundColor: GLASS.fillStrong, borderWidth: 1, borderColor: GLASS.hair, borderRadius: 30, paddingHorizontal: SP.sm, paddingVertical: SP.sm, shadowColor: GLASS.shadow, shadowOpacity: 0.1, shadowRadius: 24, shadowOffset: { width: 0, height: 12 }, elevation: 6 },
+  dItem: { alignItems: 'center', justifyContent: 'center', gap: 5, minWidth: 52 },
+  dGhost: { width: 44, height: 44, borderRadius: 22, backgroundColor: GLASS.fill, borderWidth: 1, borderColor: GLASS.hair, alignItems: 'center', justifyContent: 'center' },
+  dGlyph: { fontSize: 17, color: C.ink2 },
+  dMic: { width: 56, height: 56, borderRadius: 28, backgroundColor: C.accent, alignItems: 'center', justifyContent: 'center', shadowColor: C.accent, shadowOpacity: 0.4, shadowRadius: 14, shadowOffset: { width: 0, height: 5 }, elevation: 6 },
+  dMicOn: { backgroundColor: '#E0322E', shadowColor: '#E0322E' },
+  dMicIcon: { fontSize: 22, color: '#fff' },
+  dDim: { opacity: 0.28 },
+  dLbl: { fontSize: 9.5, fontFamily: F.semi, color: C.dim, letterSpacing: 0.2, marginTop: 1 },
+  dLblPrimary: { color: C.accent },
 
-  // completed
-  doneOverlay: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(0,0,0,0.72)', alignItems: 'center', justifyContent: 'center', padding: 26 },
-  doneCard: { width: '100%', backgroundColor: C.board, borderWidth: 1, borderColor: C.line, borderRadius: 26, padding: 28, alignItems: 'center', shadowColor: '#0B0E16', shadowOpacity: 0.28, shadowRadius: 34, shadowOffset: { width: 0, height: 16 }, elevation: 16 },
+  // completed — frosted-glass sheet over a soft light scrim (never a dark modal)
+  doneOverlay: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(238,241,244,0.80)', alignItems: 'center', justifyContent: 'center', padding: 26 },
+  doneCard: { width: '100%', backgroundColor: GLASS.fillStrong, borderWidth: 1, borderColor: GLASS.hair, borderRadius: 32, padding: 30, alignItems: 'center', shadowColor: GLASS.shadow, shadowOpacity: 0.14, shadowRadius: 44, shadowOffset: { width: 0, height: 18 }, elevation: 16 },
   doneEmoji: { fontSize: 46 },
-  doneTitle: { fontSize: 21, fontWeight: '900', color: C.ink, marginTop: 10, letterSpacing: -0.4 },
-  doneSub: { fontSize: 13, fontWeight: '600', color: C.dim, textAlign: 'center', marginTop: 6, lineHeight: 19 },
-  doneRow: { flexDirection: 'row', gap: 12, marginTop: 22, alignSelf: 'stretch' },
-  doneBtn: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingVertical: 14, borderRadius: 16 },
+  doneTitle: { fontSize: 22, fontFamily: F.black, color: C.ink, marginTop: SP.md, letterSpacing: -0.5 },
+  doneSub: { fontSize: 13.5, fontFamily: F.med, color: C.dim, textAlign: 'center', marginTop: SP.sm, lineHeight: 20 },
+  doneRow: { flexDirection: 'row', gap: 12, marginTop: SP.xl, alignSelf: 'stretch' },
+  doneBtn: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingVertical: 15, borderRadius: 18 },
   donePrimary: { backgroundColor: C.accent },
-  donePrimaryTxt: { color: '#fff', fontSize: 14, fontWeight: '900' },
-  doneGhost: { backgroundColor: C.board, borderWidth: 1, borderColor: C.line },
-  doneGhostTxt: { color: C.ink, fontSize: 14, fontWeight: '800' },
+  donePrimaryTxt: { color: '#fff', fontSize: 14, fontFamily: F.bold },
+  doneGhost: { backgroundColor: GLASS.fill, borderWidth: 1, borderColor: GLASS.hair },
+  doneGhostTxt: { color: C.ink, fontSize: 14, fontFamily: F.semi },
 });

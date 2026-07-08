@@ -41,8 +41,8 @@ const COOKIE = process.env.EXAMIN8_COOKIE
 const CSRF = process.env.EXAMIN8_CSRF
 
 const SECTIONS = {
-  important_questions: { path: 'question/important-questions', hasYears: false },
-  pyq:                 { path: 'question/previous_year_questions', hasYears: true },
+  important_questions: { path: 'question/important-questions', contentName: 'important-questions', hasYears: false },
+  pyq:                 { path: 'question/previous_year_questions', contentName: 'pyq', hasYears: true },
 }
 const SECTION = (process.env.SECTION || 'important_questions').toLowerCase()
 if (!SECTIONS[SECTION]) { console.error(`SECTION must be one of: ${Object.keys(SECTIONS).join(', ')}`); process.exit(1) }
@@ -54,7 +54,20 @@ const SUBJECTS = null // null → all subjects with chapters
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 const trim = (s) => (s == null ? '' : String(s)).trim()
+const num = (v) => (v == null || v === '' ? null : Number(v))
 const IDX = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+// Byte-identical to the app's slugify: if a name has any non-ASCII (Devanagari)
+// char, append a stable hash so numeric-/marker-prefixed names ("1 विकास") stay
+// unique instead of collapsing to "1".
+const slugify = (s) => {
+  const str = String(s).replace(/[–—­‑]/g, '-').replace(/[‘’]/g, "'").replace(/[“”]/g, '"')
+  const base = str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
+  if (base && !/[^\x00-\x7F]/.test(str)) return base
+  let h = 5381
+  for (let i = 0; i < str.length; i++) h = ((h * 33) ^ str.charCodeAt(i)) >>> 0
+  const hash = 'u' + h.toString(36)
+  return base ? base + '-' + hash : hash
+}
 
 const log = { chapters: 0, withQ: 0, questions: 0, mcq: 0, empty: 0, forbidden: 0, errors: [] }
 
@@ -128,6 +141,25 @@ function normalizeQuestion(q, i) {
   }
 }
 
+// The CORRECT per-resource chapter list — Examin8's own list for this content type
+// (content_name endpoint), which can differ from the generic category children in
+// chapters.json (e.g. Reasoning IQ has Mirror/Embedded/Figure/Water Images that the
+// children endpoint omits). Cached for resume. Falls back to chapters.json on miss.
+async function fetchChapterList(subjectCategoryId) {
+  const p = path.join(RAW, `chapters-subject-${subjectCategoryId}.json`)
+  let json
+  if (!FORCE && fs.existsSync(p)) { try { json = JSON.parse(fs.readFileSync(p, 'utf8')) } catch (_) { json = null } }
+  if (!json) {
+    json = await api(`${B}/content/category/${subjectCategoryId}/type/0/content_name/${SECTIONS[SECTION].contentName}/`)
+    fs.writeFileSync(p, JSON.stringify(json))
+    await sleep(DELAY)
+  }
+  const children = (json && (json.children || json.results)) || []
+  return children
+    .map((c, i) => ({ category_id: num(c.id), name: trim(c.name), slug: slugify(c.name), position: i }))
+    .filter((c) => c.category_id && c.name)
+}
+
 async function main() {
   fs.mkdirSync(RAW, { recursive: true })
   if (!COOKIE || !CSRF) { console.error(`  ✗ EXAMIN8_COOKIE and EXAMIN8_CSRF are required.`); process.exit(1) }
@@ -144,7 +176,11 @@ async function main() {
   const out = []
   for (const s of subjects) {
     const chaptersOut = []
-    for (const ch of (s.chapters || [])) {
+    // Prefer Examin8's per-resource chapter list; fall back to metadata chapters.
+    let chapters = null
+    try { chapters = await fetchChapterList(s.subject_category_id) } catch (e) { if (e.forbidden) log.forbidden += 1 }
+    if (!chapters || !chapters.length) chapters = (s.chapters || [])
+    for (const ch of chapters) {
       if (!ch.category_id) continue
       log.chapters += 1
       let raw

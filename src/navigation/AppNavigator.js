@@ -11,12 +11,13 @@ import MainNavigator from './MainNavigator';
 import CompleteProfileScreen from '../screens/CompleteProfileScreen';
 import ParentApp from '../screens/parent/ParentApp/ParentApp';
 import RoleHomeScreen from '../screens/RoleHomeScreen';
+import RoleChooserScreen from '../screens/RoleChooserScreen';
 
 const Stack = createNativeStackNavigator();
 const SPLASH_FALLBACK = 4000;
 
 const AppNavigator = () => {
-  const { isAuthenticated, hasOnboarded, loading, user, justLoggedIn, scope } = useAuth();
+  const { isAuthenticated, hasOnboarded, loading, user, justLoggedIn, scope, activeView } = useAuth();
   const [showSplash, setShowSplash] = useState(true);
   const [gymDone, setGymDone]       = useState(false);   // BrainGym -> Onboarding
   const [workoutDone, setWorkoutDone] = useState(false); // WorkoutWheel -> Home
@@ -51,11 +52,14 @@ const AppNavigator = () => {
   //   !scope.complete  -> CompleteProfile (role + class/stream/board/language)
   //   role parent      -> ParentApp (read-only dashboard)
   //   role teacher/admin -> RoleApp (teacher dashboard)
-  //   student:
-  //     !gymDone        -> BrainGym ("You're all set!")
-  //     !hasOnboarded   -> Onboarding (survey)
-  //     !workoutDone    -> WorkoutWheel
-  //     else            -> Home
+  //   student (same login, dual view via activeView):
+  //     activeView null   -> RoleChooser (Student / Parent)
+  //     activeView parent -> ParentApp (parent dashboard about their OWN progress)
+  //     activeView student:
+  //       !gymDone        -> BrainGym ("You're all set!")
+  //       !hasOnboarded   -> Onboarding (survey)
+  //       !workoutDone    -> WorkoutWheel
+  //       else            -> Home
   let screen;
   if (!isAuthenticated) {
     screen = <Stack.Screen name="Auth" component={AuthNavigator} />;
@@ -65,7 +69,7 @@ const AppNavigator = () => {
     // with no class, so this also lets a parent/teacher declare their role up front.
     screen = <Stack.Screen name="CompleteProfile" component={CompleteProfileScreen} />;
   } else if (scope.role === 'parent') {
-    // Parents never see the student flow or dashboard — only their own parent app.
+    // Dedicated parent accounts still go straight to their own parent app.
     screen = <Stack.Screen name="ParentApp" component={ParentApp} />;
   } else if (scope.role === 'teacher' || scope.role === 'admin') {
     // Teacher / admin never leak into the student app.
@@ -74,6 +78,12 @@ const AppNavigator = () => {
         {props => <RoleHomeScreen {...props} role={scope.role} />}
       </Stack.Screen>
     );
+  } else if (activeView == null) {
+    // Student hasn't picked a view this login → Student/Parent chooser (same login).
+    screen = <Stack.Screen name="RoleChooser" component={RoleChooserScreen} />;
+  } else if (activeView === 'parent') {
+    // Student chose the parent view → parent dashboard about their own progress.
+    screen = <Stack.Screen name="ParentApp" component={ParentApp} />;
   } else if (justLoggedIn && !gymDone) {
     screen = (
       <Stack.Screen name="BrainGym">

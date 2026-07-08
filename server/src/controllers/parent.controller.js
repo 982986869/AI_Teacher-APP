@@ -38,12 +38,23 @@ async function linkChild(req, res, next) {
   } catch (err) { next(err) }
 }
 
-// GET /api/parent/report — the linked child's progress summary (read-only)
+// GET /api/parent/report — progress summary (read-only).
+// Two callers, one endpoint:
+//   • parent account  → their linked child (no link yet → { linked:false } → LinkChild)
+//   • student account → their OWN progress, so the SAME login can flip into the parent
+//     dashboard ("view as parent") without a separate parent account.
 async function report(req, res, next) {
   try {
-    if (!onlyParent(req)) return ApiResponse.error(res, 'Only a parent account can view this.', 403)
-    const childId = req.user.linked_student_id
-    if (!childId) return ApiResponse.success(res, { linked: false })
+    const role = (req.scope && req.scope.role) || 'student'
+    let childId
+    if (role === 'parent') {
+      childId = req.user.linked_student_id
+      if (!childId) return ApiResponse.success(res, { linked: false })
+    } else if (role === 'student') {
+      childId = req.user.id
+    } else {
+      return ApiResponse.error(res, 'Only a parent or student account can view this.', 403)
+    }
 
     const rows = await db.$queryRawUnsafe(
       `SELECT id, name, grade, stream, board, account_type FROM "users" WHERE id = $1::uuid LIMIT 1`,

@@ -5,6 +5,7 @@ import { ChalkLine, ChalkStroke } from './WhiteboardCanvas';
 import { C } from './premiumTheme';
 import { selfCheckLine } from './teacherPersona';
 import { SubjectBoard, SUBJECT_BOARD_TYPES } from './subjectBoards';
+import { CircleAround, Highlighter } from './boardGestures';
 
 // ── marker underline — a chalk/marker stroke that "draws" under the active
 // formula token (Smart Whiteboard flourish); reads as her underlining it. ──────
@@ -78,6 +79,27 @@ function Pop({ children, show, style }) {
   );
 }
 
+// fade + rise like Pop, but with BOARD MEMORY: once it is no longer the line she's
+// on (`active` flips false) it eases down to `dimTo` brightness instead of staying
+// at full — so earlier points recede and the current one stays bright, the way a
+// real board fills up. `active` defaults true, so it degrades to a plain reveal.
+function Reveal({ children, show, active = true, dimTo = 0.5, style }) {
+  const a = useRef(new Animated.Value(0)).current;   // reveal 0→1
+  const dim = useRef(new Animated.Value(1)).current; // brightness (1 current · dimTo past)
+  useEffect(() => {
+    if (show) Animated.timing(a, { toValue: 1, duration: 400, easing: Easing.bezier(0.22, 1, 0.36, 1), useNativeDriver: true }).start();
+    else a.setValue(0);
+  }, [show, a]);
+  useEffect(() => {
+    Animated.timing(dim, { toValue: active ? 1 : dimTo, duration: 500, easing: Easing.out(Easing.cubic), useNativeDriver: true }).start();
+  }, [active, dim, dimTo]);
+  return (
+    <Animated.View style={[style, { opacity: Animated.multiply(a, dim), transform: [{ translateY: a.interpolate({ inputRange: [0, 1], outputRange: [10, 0] }) }] }]}>
+      {children}
+    </Animated.View>
+  );
+}
+
 function svgLabel(x, y, text, color, size = 12, rotate) {
   return (
     <SvgText x={x} y={y} fill={color} fontSize={size} fontWeight="bold" textAnchor="middle"
@@ -134,17 +156,22 @@ function FormulaBoard({ scene, paused, skip, resetKey, step }) {
   const parts = scene.formulaParts && scene.formulaParts.length ? scene.formulaParts : ['base²', '+ height²', '= hypotenuse²'];
   const colors = [C.orange, C.blue, C.green, C.ink];
   const n = useReveal(parts.length, 1000, { paused, skip, resetKey, step });
+  // Once every part is written, she loops a chalk ring around the whole rule —
+  // "and THIS is the one to remember" — the way a teacher circles the key result.
+  const complete = n >= parts.length && !skip;
   return (
     <View style={s.boardWrap}>
       <View style={s.formulaCard}>
-        <View style={s.formulaRow}>
-          {parts.map((p, i) => (
-            <Pop key={i} show={i < n} style={[s.formulaTokWrap, i === n - 1 && !skip && s.formulaTokActive]}>
-              <Text style={[s.formulaTok, { color: colors[i % colors.length] }]}>{p}</Text>
-              <MarkerUnderline active={i === n - 1 && !skip} color={colors[i % colors.length]} />
-            </Pop>
-          ))}
-        </View>
+        <CircleAround active={complete} color={C.accent}>
+          <View style={s.formulaRow}>
+            {parts.map((p, i) => (
+              <Pop key={i} show={i < n} style={[s.formulaTokWrap, i === n - 1 && !skip && s.formulaTokActive]}>
+                <Text style={[s.formulaTok, { color: colors[i % colors.length] }]}>{p}</Text>
+                <MarkerUnderline active={i === n - 1 && !skip} color={colors[i % colors.length]} />
+              </Pop>
+            ))}
+          </View>
+        </CircleAround>
       </View>
       {Array.isArray(scene.diagram && scene.diagram.variables) && scene.diagram.variables.length > 0 && (
         <Pop show={n >= parts.length} style={s.varList}>
@@ -205,20 +232,24 @@ function ProofBoard({ scene, paused, skip, resetKey, step }) {
         )}
       </Svg>
       <Pop show={n >= 5} style={s.sumPill}>
-        <Text style={s.sumTxt}>
-          <Text style={{ color: C.blue }}>9</Text>
-          <Text style={{ color: C.ink }}> + </Text>
-          <Text style={{ color: C.orange }}>16</Text>
-          <Text style={{ color: C.ink }}> = </Text>
-          <Text style={{ color: C.green }}>25</Text>
-        </Text>
+        <CircleAround active={n >= 5 && !skip} color={C.green} padX={12} padY={7}>
+          <Text style={s.sumTxt}>
+            <Text style={{ color: C.blue }}>9</Text>
+            <Text style={{ color: C.ink }}> + </Text>
+            <Text style={{ color: C.orange }}>16</Text>
+            <Text style={{ color: C.ink }}> = </Text>
+            <Text style={{ color: C.green }}>25</Text>
+          </Text>
+        </CircleAround>
       </Pop>
     </View>
   );
 }
 
 // ── INTRO / SUMMARY / MISTAKE: soft points card ──────────────────────────────
-function PointsBoard({ scene, paused, skip, resetKey, step, intro, warn }) {
+// `memory` on → earlier points recede as she moves on (board fills up live). Off
+// (summary) → every point stays pinned bright, since the recap IS the keepers.
+function PointsBoard({ scene, paused, skip, resetKey, step, intro, warn, memory = true }) {
   const points = (scene.diagram && scene.diagram.points) || [];
   const total = Math.max(1, points.length);
   const n = useReveal(total, 700, { paused, skip, resetKey, step });
@@ -231,12 +262,17 @@ function PointsBoard({ scene, paused, skip, resetKey, step, intro, warn }) {
   }
   return (
     <View style={s.boardWrap}>
-      {points.map((p, i) => (
-        <Pop key={i} show={i < n} style={[s.pointRow, i === n - 1 && !skip && (warn ? s.pointRowWarnActive : s.pointRowActive)]}>
-          <View style={[s.pointDot, warn && s.pointDotWarn]}><Text style={s.pointDotTxt}>{warn ? '!' : i + 1}</Text></View>
-          <Text style={s.pointTxt}>{p}</Text>
-        </Pop>
-      ))}
+      {points.map((p, i) => {
+        const current = i === n - 1 && !skip;
+        return (
+          <Reveal key={i} show={i < n} active={!memory || current} dimTo={0.42} style={s.pointRow}>
+            {/* she swipes a highlighter across the line she's explaining right now */}
+            {current && <Highlighter key={`hl-${i}`} color={warn ? 'rgba(239,138,67,0.20)' : 'rgba(15,163,154,0.14)'} />}
+            <View style={[s.pointDot, warn && s.pointDotWarn]}><Text style={s.pointDotTxt}>{warn ? '!' : i + 1}</Text></View>
+            <Text style={s.pointTxt}>{p}</Text>
+          </Reveal>
+        );
+      })}
     </View>
   );
 }
@@ -252,7 +288,7 @@ function ConceptBoard({ scene, paused, skip, resetKey, step }) {
       <View style={[s.boardWrap, s.flowRow]}>
         {steps.map((stp, i) => (
           <React.Fragment key={i}>
-            <Pop show={i < n} style={s.flowBox}><Text style={s.flowTxt}>{String(stp)}</Text></Pop>
+            <Reveal show={i < n} active={i === n - 1} dimTo={0.45} style={s.flowBox}><Text style={s.flowTxt}>{String(stp)}</Text></Reveal>
             {i < steps.length - 1 && <Pop show={i + 1 < n}><Text style={s.flowArrow}>→</Text></Pop>}
           </React.Fragment>
         ))}
@@ -375,7 +411,7 @@ export default function LessonBoard({ scene, paused = false, skip = false, reset
     case 'quickCheck': return <QuickCheckBoard scene={scene} onContinue={onQuizContinue} onQuizResult={onQuizResult} onReexplain={onReexplain} quizFb={quizFb} />;
     case 'intro': return <PointsBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} step={step} intro />;
     case 'mistake': return <PointsBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} step={step} warn />;
-    case 'summary': return <PointsBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} step={step} />;
+    case 'summary': return <PointsBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} step={step} memory={false} />;
     case 'concept':
     default: return <ConceptBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} step={step} />;
   }
@@ -409,7 +445,7 @@ const s = StyleSheet.create({
   sumPill: { marginTop: 10, backgroundColor: 'rgba(44,48,67,0.05)', borderWidth: 1, borderColor: C.line, borderRadius: 14, paddingVertical: 8, paddingHorizontal: 18 },
   sumTxt: { fontSize: 20, fontWeight: '900', letterSpacing: 0.5 },
 
-  pointRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10, marginTop: 10, alignSelf: 'stretch', borderRadius: 12, paddingVertical: 4, paddingHorizontal: 6, marginHorizontal: -6 },
+  pointRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10, marginTop: 10, alignSelf: 'stretch', borderRadius: 12, paddingVertical: 6, paddingHorizontal: 6, marginHorizontal: -6, overflow: 'hidden' },
   pointRowActive: { backgroundColor: 'rgba(15,163,154,0.10)' },       // the point she's on right now
   pointRowWarnActive: { backgroundColor: 'rgba(239,138,67,0.12)' },   // …on a common-mistake slide
   pointDot: { width: 22, height: 22, borderRadius: 11, backgroundColor: C.accent, alignItems: 'center', justifyContent: 'center', marginTop: 1 },

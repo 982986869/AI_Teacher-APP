@@ -28,6 +28,23 @@ const CLASS_DIR = process.env.CLASS_DIR || 'class10'
 const NORM = path.join(ROOT, 'data', 'examin8', CLASS_DIR, 'normalized')
 const CLASS_LEVEL = 10
 
+// Canonical chapter slug — recomputed from the chapter NAME with the app's
+// slugify (NOT the chapter_slug baked into the JSON, which may predate a slugify
+// fix). Byte-identical to ResourcesScreen/PracticeScreen/… so the chapter the
+// import writes is the exact one the app queries. Appending a hash on any
+// non-ASCII char keeps numeric-/marker-prefixed Hindi names ("1 विकास") unique
+// instead of collapsing to "1" — the collision that silently dropped 12
+// सामाजिक विज्ञान chapters on the previous import.
+const slugify = (s) => {
+  const str = String(s).replace(/[–—­‑]/g, '-').replace(/[‘’]/g, "'").replace(/[“”]/g, '"')
+  const base = str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
+  if (base && !/[^\x00-\x7F]/.test(str)) return base
+  let h = 5381
+  for (let i = 0; i < str.length; i++) h = ((h * 33) ^ str.charCodeAt(i)) >>> 0
+  const hash = 'u' + h.toString(36)
+  return base ? base + '-' + hash : hash
+}
+
 const SECTION_META = {
   important_questions: { label: 'Important Questions', position: 5 },
   pyq:                 { label: 'Previous Year Questions', position: 6 },
@@ -126,7 +143,7 @@ async function main() {
             `insert into chapters (subject_id, name, slug, class_level, position)
              values ($1,$2,$3,$4,$5)
              on conflict (subject_id, class_level, slug) do update set name = excluded.name returning id`,
-            [subjectId, ch.chapter, ch.chapter_slug, CLASS_LEVEL, ch.position || 0])
+            [subjectId, ch.chapter, slugify(ch.chapter), CLASS_LEVEL, ch.position || 0])
           const chapterId = chp.rows[0].id
 
           const sec = await client.query(
