@@ -63,20 +63,18 @@ function HomeTab({ meta, childName, onAvatar, onGym, onActivity, onBookTrial, re
 
         <Label>Offline events</Label>
         {events.length ? (
-          <>
-            <EventTeaser event={events[0]} onOpen={() => setEventsOpen(true)} />
-            <EventsModal visible={eventsOpen} onClose={() => setEventsOpen(false)}
-              events={events} store={report.eventStore} skills={report.eventSkills} gallery={report.eventGallery} />
-          </>
+          <EventTeaser event={events[0]} onOpen={() => setEventsOpen(true)} />
         ) : (
           <View style={st.eventCard}>
             <T w="xbold" s={20} c="#fff">In-person workshops</T>
-            <T w="med" s={13} c="rgba(255,255,255,0.7)" style={{ marginTop: 6, marginBottom: 16 }}>Hands-on math events near you — coming soon.</T>
-            <PressableScale style={[st.eventBtn, { opacity: 0.6 }]} onPress={() => flash('Offline events — coming soon')}>
-              <T w="bold" s={15} c={C.ink}>Coming soon</T>
+            <T w="med" s={13} c="rgba(255,255,255,0.7)" style={{ marginTop: 6, marginBottom: 16 }}>Hands-on math events near you.</T>
+            <PressableScale style={st.eventBtn} onPress={() => setEventsOpen(true)}>
+              <T w="bold" s={15} c={C.ink}>Register Now</T>
             </PressableScale>
           </View>
         )}
+        <EventsModal visible={eventsOpen} onClose={() => setEventsOpen(false)}
+          events={events} store={report.eventStore} skills={report.eventSkills} gallery={report.eventGallery} />
       </ScrollView>
     </View>
   );
