@@ -6,6 +6,7 @@ import { C, st, T, Label, CONTENT } from './constants';
 import Header from './Header';
 import { TrialHero } from './illustrations';
 import { PressableScale } from './anim';
+import EventsCarousel from './EventsCarousel';
 
 function HomeTab({ meta, childName, onAvatar, onGym, onActivity, report, flash, refreshing, onRefresh }) {
   const bg = report.brainGym || {};
@@ -64,28 +65,17 @@ function HomeTab({ meta, childName, onAvatar, onGym, onActivity, report, flash, 
         </View>
 
         <Label>Offline events</Label>
-        <View style={st.eventCard}>
-          <T w="semi" s={12.5} c="rgba(255,255,255,0.75)">{CONTENT.event.kicker}</T>
-          <View style={{ flexDirection: 'row', alignItems: 'baseline', flexWrap: 'wrap', marginTop: 4, marginBottom: 2 }}>
-            <T w="xbold" s={26} c="#fff">{CONTENT.event.name} </T>
-            {[['F', C.gold], ['E', C.chatBg], ['S', C.red], ['T', C.green]].map(([c, col], i) => <T key={i} w="xbold" s={26} c={col}>{c}</T>)}
-            <T w="xbold" s={26} c="#fff">{CONTENT.event.suffix}</T>
-          </View>
-          <T w="med" s={12.5} c="rgba(255,255,255,0.7)" style={{ marginBottom: 16 }}>{CONTENT.event.grades}</T>
-          {feat.events ? (
-            <PressableScale style={st.eventBtn} onPress={() => flash('Opening events…')}>
-              <T w="bold" s={15} c={C.ink}>{CONTENT.event.cta}</T>
-            </PressableScale>
-          ) : (
+        {feat.events && (report.events || []).length ? (
+          <EventsCarousel events={report.events} store={report.eventStore} skills={report.eventSkills} gallery={report.eventGallery} />
+        ) : (
+          <View style={st.eventCard}>
+            <T w="xbold" s={20} c="#fff">In-person workshops</T>
+            <T w="med" s={13} c="rgba(255,255,255,0.7)" style={{ marginTop: 6, marginBottom: 16 }}>Hands-on math events near you — coming soon.</T>
             <PressableScale style={[st.eventBtn, { opacity: 0.6 }]} onPress={() => flash('Offline events — coming soon')}>
               <T w="bold" s={15} c={C.ink}>Coming soon</T>
             </PressableScale>
-          )}
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 3, marginTop: 12 }}>
-            {Array.from({ length: CONTENT.event.stars }).map((_, i) => <View key={i} style={st.trustStar}><Star size={11} fill="#fff" color="#fff" /></View>)}
-            <T w="semi" s={11} c="rgba(255,255,255,0.7)" style={{ marginLeft: 6 }}>{CONTENT.event.trust}</T>
           </View>
-        </View>
+        )}
       </ScrollView>
     </View>
   );

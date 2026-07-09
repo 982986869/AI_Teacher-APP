@@ -23,7 +23,42 @@ export const WORDMARK = [['A', C.orange], ['I', C.gold], ['L', C.navy], ['E', C.
 /* Marketing / static content (config, not per-user data). */
 export const CONTENT = {
   trial: { title: 'The science of\nmath mastery', body: 'Every AILERNOVA lesson is built on proven memory science — recall, spacing and mixed practice — so learning lasts.', cta: 'Book a FREE trial' },
-  event: { kicker: 'Logic & Reasoning Edition', name: 'Math', suffix: " '26", grades: 'Grades 1–8', cta: 'Explore Now', trust: 'Trusted by parents', stars: 5 },
+  // Per-event data is DB-driven (offline_events → /api/parent/report). These are the
+  // shared brand figures shown under every event card.
+  event: {
+    cta: 'Register Now', learn: 'Learn how it works',
+    stats: [{ value: '200+', label: 'Events' }, { value: '22K+', label: 'Participants' }, { value: '50+', label: 'Cities' }],
+    rating: { score: '4.9', count: '11K+ Reviews' },
+    exploreTitle: 'Explore events by', regionCta: 'Select Region', exploreHint: 'Please select a region to show the events',
+    storeTitle: "What's in store for you?",
+    storeBody: 'Your child dives into a hands-on math experience — building, solving, and discovering their unique math archetype. They go home with everything they made, plus a goodie bag.',
+    regions: ['New Delhi', 'Mumbai', 'Bengaluru', 'Hyderabad', 'Pune', 'Chennai', 'Kolkata', 'Jaipur', 'Ahmedabad'],
+    skillsTitle: "AILERNOVA Skills You'll Discover",
+    skillsIntro: 'The activities and quizzes cover the five domains of math proficiency, aligned to the NCERT curriculum and NEP 2020.',
+    participantsTitle: 'Hear From Our Participants',
+    community: {
+      title: 'Join our community of\nAILERNOVA Parents', body: 'Get updates, learning resources, and share math-love ❤️',
+      instagram: 'https://instagram.com/ailernova', youtube: 'https://youtube.com/@ailernova',
+    },
+    become: {
+      title: 'BECOME AILERNOVA™', body: 'Boost math skills with daily fun challenges and puzzles.',
+      appCta: 'Download the app', appUrl: 'https://ailernova.in',
+      categories: [{ emoji: 'π', label: 'STRATEGY GAMES' }, { emoji: '🧩', label: 'LOGIC PUZZLES' }, { emoji: '➗', label: 'MENTAL MATH' }],
+    },
+    footer: {
+      links: [
+        { q: 'About AILERNOVA', a: 'AILERNOVA makes math click through hands-on learning, memory science and playful practice.' },
+        { q: 'Our Programs', a: 'Live AI Teacher, Brain Gym, offline events and practice — across Classes 6–12.' },
+        { q: 'Resources', a: 'Free worksheets, revision notes, NCERT solutions and chapter-wise practice tests.' },
+        { q: 'Math Tutoring', a: '1-on-1 and small-group tutoring with certified AILERNOVA mentors.' },
+        { q: 'Partner with Us', a: 'Bring AILERNOVA events and programs to your school or city.' },
+      ],
+      offices: [
+        { label: 'INDIA OFFICE', lines: 'Plot No. F-17/5,\nGolf Course Road,\nGurugram, HR 122002' },
+        { label: 'SUPPORT', lines: 'hello@ailernova.in\n+91 90000 00000\nMon–Sat, 9am–7pm' },
+      ],
+    },
+  },
 };
 export const ARENA_BASE_RATING = 1000;
 
