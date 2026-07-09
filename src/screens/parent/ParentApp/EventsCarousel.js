@@ -7,7 +7,7 @@
 import React, { useState, useRef } from 'react';
 import {
   View, ScrollView, Image, ImageBackground, Dimensions, StyleSheet,
-  Linking, LayoutAnimation, Platform, UIManager,
+  Linking, LayoutAnimation, Platform, UIManager, Modal, SafeAreaView,
 } from 'react-native';
 import { Star, Camera, Video, Plus, Minus, Play, Globe, MapPin, Smartphone } from 'lucide-react-native';
 import { C, F, T, CONTENT } from './constants';
@@ -274,8 +274,51 @@ export default function EventsCarousel({ events = [], store = [], skills = [], g
   );
 }
 
+/* ── Home teaser: a single image event card that opens the full carousel ────── */
+export function EventTeaser({ event, onOpen }) {
+  const E = CONTENT.event;
+  const ev = event || {};
+  return (
+    <PressableScale onPress={onOpen} style={[s.card, { backgroundColor: '#14151B' }]}>
+      <ImageBackground source={{ uri: ev.image }} style={s.teaser} imageStyle={{ resizeMode: 'cover' }}>
+        <View style={s.scrim} />
+        <View>
+          <T w="semi" s={12} c="rgba(255,255,255,0.9)" style={{ letterSpacing: 0.3 }}>{ev.badge || 'IN-PERSON EVENTS'}</T>
+          <T w="xbold" s={27} c="#fff" style={{ lineHeight: 31, marginTop: 5 }}>{ev.title}</T>
+          <T w="med" s={12.5} c="rgba(255,255,255,0.85)" style={{ marginTop: 4 }}>{ev.grades}{ev.city ? `  ·  ${ev.city}` : ''}</T>
+        </View>
+        <View style={s.teaserBtn}><T w="bold" s={15} c={C.ink}>{ev.ctaLabel || E.cta}</T></View>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+          <Stars /><T w="semi" s={11} c="rgba(255,255,255,0.85)">{E.rating.score} · {E.rating.count}</T>
+        </View>
+      </ImageBackground>
+    </PressableScale>
+  );
+}
+
+/* ── Full-screen modal wrapping the whole multi-section carousel ───────────── */
+export function EventsModal({ visible, onClose, events, store, skills, gallery }) {
+  return (
+    <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#F6F6F7' }}>
+        <View style={s.mHead}>
+          <PressableScale onPress={onClose} style={s.mBack}><T s={26} c={C.ink}>‹</T></PressableScale>
+          <T w="bold" s={16} c={C.ink}>Events</T><View style={{ width: 40 }} />
+        </View>
+        <ScrollView contentContainerStyle={{ paddingHorizontal: 18, paddingTop: 8, paddingBottom: 28 }} showsVerticalScrollIndicator={false}>
+          <EventsCarousel events={events} store={store} skills={skills} gallery={gallery} />
+        </ScrollView>
+      </SafeAreaView>
+    </Modal>
+  );
+}
+
 const s = StyleSheet.create({
   card: { borderRadius: 20, overflow: 'hidden', shadowColor: '#141420', shadowOpacity: 0.06, shadowRadius: 10, shadowOffset: { width: 0, height: 2 }, elevation: 2 },
+  teaser: { height: 330, padding: 18, justifyContent: 'space-between' },
+  teaserBtn: { backgroundColor: '#fff', borderRadius: 12, paddingVertical: 13, alignItems: 'center', alignSelf: 'stretch' },
+  mHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 12, paddingVertical: 8 },
+  mBack: { width: 40, height: 40, alignItems: 'center', justifyContent: 'center' },
   pad: { padding: 18 },
   hero: { flex: 1, padding: 16 },
   scrim: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(12,12,18,0.42)' },

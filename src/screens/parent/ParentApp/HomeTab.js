@@ -1,11 +1,11 @@
 // src/screens/parent/ParentApp/HomeTab.js — teammate's exact Home, real BrainGym data.
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
 import { View, ScrollView, RefreshControl, ImageBackground } from 'react-native';
 import { ChevronRight, Flame, Star } from 'lucide-react-native';
 import { C, st, T, Label, CONTENT } from './constants';
 import Header from './Header';
 import { PressableScale } from './anim';
-import EventsCarousel from './EventsCarousel';
+import { EventTeaser, EventsModal } from './EventsCarousel';
 
 // Trial card photo. Drop your own image at assets/trial-hero.jpg to change it.
 const TRIAL_IMG = require('../../../../assets/trial-hero.jpg');
@@ -16,6 +16,8 @@ function HomeTab({ meta, childName, onAvatar, onGym, onActivity, onBookTrial, re
   const streak = Number(bg.currentStreak) || 0;
   const quizzes = Number(bg.quizzesCompleted) || 0;
   const acc = Number(bg.accuracy) || 0;
+  const [eventsOpen, setEventsOpen] = useState(false);
+  const events = report.events || [];
   return (
     <View style={st.screen}>
       <Header meta={meta} childName={childName} onAvatar={onAvatar} onGym={onGym} />
@@ -60,8 +62,12 @@ function HomeTab({ meta, childName, onAvatar, onGym, onActivity, onBookTrial, re
         </View>
 
         <Label>Offline events</Label>
-        {feat.events && (report.events || []).length ? (
-          <EventsCarousel events={report.events} store={report.eventStore} skills={report.eventSkills} gallery={report.eventGallery} />
+        {events.length ? (
+          <>
+            <EventTeaser event={events[0]} onOpen={() => setEventsOpen(true)} />
+            <EventsModal visible={eventsOpen} onClose={() => setEventsOpen(false)}
+              events={events} store={report.eventStore} skills={report.eventSkills} gallery={report.eventGallery} />
+          </>
         ) : (
           <View style={st.eventCard}>
             <T w="xbold" s={20} c="#fff">In-person workshops</T>
