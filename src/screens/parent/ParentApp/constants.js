@@ -14,9 +14,11 @@ export const C = {
   red: '#D81818', peach: '#FDEBE2', peachInk: '#C2410C',
   chatBg: '#33AEE8', classBg: '#2FC65C',
 };
+// Nunito — the rounded display font used by ailernova.in (and matching the reference
+// events UI). Loaded in ParentApp; applies across the whole parent dashboard.
 export const F = {
-  reg: 'Poppins_400Regular', med: 'Poppins_500Medium', semi: 'Poppins_600SemiBold',
-  bold: 'Poppins_700Bold', xbold: 'Poppins_800ExtraBold', black: 'Poppins_900Black',
+  reg: 'Nunito_400Regular', med: 'Nunito_500Medium', semi: 'Nunito_600SemiBold',
+  bold: 'Nunito_700Bold', xbold: 'Nunito_800ExtraBold', black: 'Nunito_900Black',
 };
 export const WORDMARK = [['A', C.orange], ['I', C.gold], ['L', C.navy], ['E', C.blue], ['R', C.blue], ['N', C.navy], ['O', C.green], ['V', C.red], ['A', C.orange]];
 
@@ -54,8 +56,8 @@ export const CONTENT = {
         { q: 'Partner with Us', a: 'Bring AILERNOVA events and programs to your school or city.' },
       ],
       offices: [
-        { label: 'INDIA OFFICE', lines: 'Plot No. F-17/5,\nGolf Course Road,\nGurugram, HR 122002' },
-        { label: 'SUPPORT', lines: 'hello@ailernova.in\n+91 90000 00000\nMon–Sat, 9am–7pm' },
+        { label: 'INDIA OFFICE', lines: 'P03-01A & P03-01B, 3rd Floor,\nBuilding 51D, WTC Tower D,\nGIFT City, Gandhinagar,\nGujarat 382050' },
+        { label: 'SUPPORT', lines: '+91 8905604773\nailernova.in\nMon–Sat, 9am–7pm' },
       ],
     },
   },

@@ -11,6 +11,10 @@ import {
   Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold,
   Poppins_700Bold, Poppins_800ExtraBold, Poppins_900Black,
 } from '@expo-google-fonts/poppins';
+import {
+  Nunito_400Regular, Nunito_500Medium, Nunito_600SemiBold,
+  Nunito_700Bold, Nunito_800ExtraBold, Nunito_900Black,
+} from '@expo-google-fonts/nunito';
 import { useAuth } from '../../../context/AuthContext';
 import { getParentReport } from '../../../api/parentApi';
 import { st, T, TABS } from './constants';
@@ -36,6 +40,8 @@ export default function ParentApp() {
   const [fontsLoaded, fontError] = useFonts({
     Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold,
     Poppins_700Bold, Poppins_800ExtraBold, Poppins_900Black,
+    Nunito_400Regular, Nunito_500Medium, Nunito_600SemiBold,
+    Nunito_700Bold, Nunito_800ExtraBold, Nunito_900Black,
   });
   const fontsReady = fontsLoaded || fontError;
 
