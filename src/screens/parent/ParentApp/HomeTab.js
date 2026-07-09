@@ -1,18 +1,18 @@
 // src/screens/parent/ParentApp/HomeTab.js — teammate's exact Home, real BrainGym data.
 import React, { memo, useState } from 'react';
 import { View, ScrollView, RefreshControl, ImageBackground } from 'react-native';
-import { ChevronRight, Flame, Star } from 'lucide-react-native';
+import { ChevronRight, Flame } from 'lucide-react-native';
 import { C, st, T, Label, CONTENT } from './constants';
 import Header from './Header';
 import { PressableScale } from './anim';
 import { EventTeaser, EventsModal } from './EventsCarousel';
+import UpcomingDemoCard from './UpcomingDemoCard';
 
 // Trial card photo. Drop your own image at assets/trial-hero.jpg to change it.
 const TRIAL_IMG = require('../../../../assets/trial-hero.jpg');
 
-function HomeTab({ meta, childName, onAvatar, onGym, onActivity, onBookTrial, report, flash, refreshing, onRefresh }) {
+function HomeTab({ meta, childName, onAvatar, onGym, onActivity, onBookTrial, report, flash, refreshing, onRefresh, booking, onJoinDemo, onRescheduleDemo, onCancelDemo }) {
   const bg = report.brainGym || {};
-  const feat = report.features || {};
   const streak = Number(bg.currentStreak) || 0;
   const quizzes = Number(bg.quizzesCompleted) || 0;
   const acc = Number(bg.accuracy) || 0;
@@ -48,18 +48,27 @@ function HomeTab({ meta, childName, onAvatar, onGym, onActivity, onBookTrial, re
           </PressableScale>
         </ScrollView>
 
-        <Label>Book a trial</Label>
-        <View style={st.trialCard}>
-          <T w="xbold" s={21} c={C.ink} style={{ textAlign: 'center', lineHeight: 27 }}>{CONTENT.trial.title}</T>
-          <T w="med" s={13.5} c="#5A4A2A" style={{ textAlign: 'center', marginTop: 10, lineHeight: 20 }}>{CONTENT.trial.body}</T>
-          <ImageBackground source={TRIAL_IMG} style={st.trialArt} imageStyle={st.trialImg} resizeMode="cover">
-            <View style={st.trialBtnWrap}>
-              <PressableScale style={st.trialBtn} onPress={onBookTrial}>
-                <T w="bold" s={15} c={C.ink}>{CONTENT.trial.cta}</T>
-              </PressableScale>
+        {booking ? (
+          <>
+            <Label>Upcoming demo</Label>
+            <UpcomingDemoCard booking={booking} onJoin={onJoinDemo} onReschedule={onRescheduleDemo} onCancel={onCancelDemo} />
+          </>
+        ) : (
+          <>
+            <Label>Book a free demo</Label>
+            <View style={st.trialCard}>
+              <T w="xbold" s={21} c={C.ink} style={{ textAlign: 'center', lineHeight: 27 }}>{CONTENT.trial.title}</T>
+              <T w="med" s={13.5} c="#5A4A2A" style={{ textAlign: 'center', marginTop: 10, lineHeight: 20 }}>{CONTENT.trial.body}</T>
+              <ImageBackground source={TRIAL_IMG} style={st.trialArt} imageStyle={st.trialImg} resizeMode="cover">
+                <View style={st.trialBtnWrap}>
+                  <PressableScale style={st.trialBtn} onPress={onBookTrial}>
+                    <T w="bold" s={15} c={C.ink}>{CONTENT.trial.cta}</T>
+                  </PressableScale>
+                </View>
+              </ImageBackground>
             </View>
-          </ImageBackground>
-        </View>
+          </>
+        )}
 
         <Label>Offline events</Label>
         {events.length ? (

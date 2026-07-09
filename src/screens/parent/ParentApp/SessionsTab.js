@@ -9,8 +9,9 @@ import { Video, Calendar, ChevronRight, CheckCircle2 } from 'lucide-react-native
 import { C, st, T, Label, Wordmark } from './constants';
 import Header from './Header';
 import { PressableScale } from './anim';
+import UpcomingDemoCard from './UpcomingDemoCard';
 
-export default function SessionsTab({ meta, childName, onAvatar, onGym, flash }) {
+export default function SessionsTab({ meta, childName, onAvatar, onGym, flash, booking, onBookTrial, onJoinDemo, onRescheduleDemo, onCancelDemo }) {
   return (
     <View style={st.screen}>
       <Header meta={meta} childName={childName} onAvatar={onAvatar} onGym={onGym} />
@@ -27,23 +28,31 @@ export default function SessionsTab({ meta, childName, onAvatar, onGym, flash })
         </View>
 
         <Label>Upcoming session</Label>
-        <View style={st.emptyCard}>
-          <Calendar size={22} color={C.faint} />
-          <View style={{ flex: 1 }}>
-            <T w="bold" s={14} c={C.ink}>No session yet</T>
-            <T w="med" s={13} c={C.muted}>Your scheduled sessions will appear here.</T>
+        {booking ? (
+          <UpcomingDemoCard booking={booking} onJoin={onJoinDemo} onReschedule={onRescheduleDemo} onCancel={onCancelDemo} />
+        ) : (
+          <View style={st.emptyCard}>
+            <Calendar size={22} color={C.faint} />
+            <View style={{ flex: 1 }}>
+              <T w="bold" s={14} c={C.ink}>No session yet</T>
+              <T w="med" s={13} c={C.muted}>Book a free demo and it'll appear here.</T>
+            </View>
           </View>
-        </View>
+        )}
 
-        <Label>Book a session</Label>
-        <PressableScale style={st.bookCta} onPress={() => flash('Tutor sessions — coming soon')}>
-          <View style={st.bookIcon}><Video size={20} color="#fff" strokeWidth={2.4} /></View>
-          <View style={{ flex: 1 }}>
-            <T w="bold" s={15} c={C.ink}>Talk to a tutor</T>
-            <T w="med" s={13} c={C.muted}>1:1 tutoring is coming soon</T>
-          </View>
-          <ChevronRight size={20} color={C.faint} />
-        </PressableScale>
+        {!booking && (
+          <>
+            <Label>Book a session</Label>
+            <PressableScale style={st.bookCta} onPress={onBookTrial}>
+              <View style={st.bookIcon}><Video size={20} color="#fff" strokeWidth={2.4} /></View>
+              <View style={{ flex: 1 }}>
+                <T w="bold" s={15} c={C.ink}>Book a free demo class</T>
+                <T w="med" s={13} c={C.muted}>Live 1:1 · 45 min · no payment</T>
+              </View>
+              <ChevronRight size={20} color={C.faint} />
+            </PressableScale>
+          </>
+        )}
 
         <Label>Past sessions</Label>
         <View style={st.emptyCard}>

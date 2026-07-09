@@ -30,7 +30,7 @@ import BottomNav from './BottomNav';
 import ProfileSheet from './ProfileSheet';
 import BrainGymFlow from '../../braingym/BrainGymFlow';
 import ActivityRouter from './ActivityRouter';
-import BookTrial from './BookTrial';
+import BookDemo from './BookDemo';
 import { FadeIn } from './anim';
 
 export default function ParentApp() {
@@ -56,6 +56,8 @@ export default function ParentApp() {
   const [gymOpen, setGymOpen] = useState(false);
   const [activityOpen, setActivityOpen] = useState(false);
   const [trialOpen, setTrialOpen] = useState(false);
+  const [rescheduleMode, setRescheduleMode] = useState(false);
+  const [booking, setBooking] = useState(null); // the parent's active free-demo booking
 
   const mounted = useRef(true);
   const toastRef = useRef(null);
@@ -81,6 +83,24 @@ export default function ParentApp() {
   }, [flash]);
   useEffect(() => { load(false); }, [load]);
 
+  // ── Free demo booking — UI PHASE: in-memory MOCK state only ──────────────────
+  // No persistence, calendar or backend yet (arrives next phase). The booking lives
+  // in component state so the premium flow + dashboard card are fully interactive
+  // for review. handleBooked simply lifts the finished mock booking to the dashboard.
+  const handleBooked = useCallback((b) => { if (mounted.current) setBooking(b); }, []);
+  const handleRescheduleDemo = useCallback(() => { setRescheduleMode(true); setTrialOpen(true); }, []);
+  const handleJoinDemo = useCallback(() => flash('Your join link will be shared before the class'), [flash]);
+  const handleCancelDemo = useCallback(() => {
+    Alert.alert(
+      'Cancel demo class?',
+      'This frees up your slot. You can book another free demo anytime.',
+      [
+        { text: 'Keep it', style: 'cancel' },
+        { text: 'Cancel demo', style: 'destructive', onPress: () => { if (mounted.current) setBooking(null); flash('Demo cancelled'); } },
+      ],
+    );
+  }, [flash]);
+
   const onRefresh = useCallback(() => { setRefreshing(true); load(true); }, [load]);
   const retry = useCallback(() => { setLoading(true); setErr(false); load(false); }, [load]);
   const switchTab = useCallback((id) => { setTab((prev) => (id === prev ? prev : id)); }, []);
@@ -89,7 +109,7 @@ export default function ParentApp() {
   const onAvatar = useCallback(() => setSheetOpen(true), []);
   const onGym = useCallback(() => setGymOpen(true), []);            // AI Gym → the real BrainGym
   const onActivity = useCallback(() => setActivityOpen(true), []);  // Recent activity detail
-  const onBookTrial = useCallback(() => setTrialOpen(true), []);    // "Book a FREE trial" → in-app form
+  const onBookTrial = useCallback(() => { setRescheduleMode(false); setTrialOpen(true); }, []); // "Book a FREE demo" → in-app flow
   const relink = useCallback(() => setReport({ linked: false }), []);
   const confirmDelete = useCallback(() => {
     Alert.alert(
@@ -115,7 +135,10 @@ export default function ParentApp() {
   } else if (!linked) {
     content = <LinkChild parentName={user?.name} onLinked={onLinked} onLogout={signOut} />;
   } else {
-    const shared = { meta, childName, onAvatar, onGym, onActivity, onBookTrial, flash };
+    const shared = {
+      meta, childName, onAvatar, onGym, onActivity, onBookTrial, flash,
+      booking, onJoinDemo: handleJoinDemo, onRescheduleDemo: handleRescheduleDemo, onCancelDemo: handleCancelDemo,
+    };
     content = (
       <View style={st.screen}>
         {/* Pure crossfade on tab switch — no layout movement, nav stays fixed. */}
@@ -154,14 +177,14 @@ export default function ParentApp() {
         <BrainGymFlow onFinish={() => setGymOpen(false)} />
       </Modal>
       <ActivityRouter visible={activityOpen} onClose={() => setActivityOpen(false)} childName={childName} items={report?.recentActivity} />
-      {/* "Book a FREE trial" → in-app booking form (replaces the old external-app redirect). */}
-      <BookTrial
+      {/* "Book a FREE demo" → premium in-app flow (UI phase — mock state, no backend). */}
+      <BookDemo
         visible={trialOpen}
-        onClose={() => setTrialOpen(false)}
-        childName={childName}
-        childList={child ? [child] : []}
-        parentName={user?.name}
-        onSubmit={({ phone, day }) => flash(`Trial booked${day ? ` for ${day}` : ''} — we'll call ${phone}`)}
+        mode={rescheduleMode ? 'reschedule' : 'new'}
+        initialBooking={rescheduleMode ? booking : null}
+        defaults={{ studentName: child?.name, className: child?.className, parentName: user?.name, email: user?.email }}
+        onClose={() => { setTrialOpen(false); setRescheduleMode(false); }}
+        onBooked={handleBooked}
       />
     </SafeAreaView>
   );
