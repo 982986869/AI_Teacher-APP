@@ -10,12 +10,14 @@ import VoicePicker from './VoicePicker';
 import { directLesson } from './teachingDirector';
 import { focusTarget } from './cameraDirector';
 import { freshLearner, observe, assess } from './emotionEngine';
+import { ACTIONS, freshPedagogy, observePedagogy, decideNextAction, personalizedRecap, continuationHint } from './pedagogyEngine';
 import { C, F, SP, GLASS } from './premiumTheme';
 import { PressableScale } from './uiKit';
 import BoardSurface, { surfaceFor } from './boardSurfaces';
 import { EraserWipe } from './boardGestures';
 import { AmbientStage, VoiceAura } from './ambientStage';
-import { expressionForScene, praiseLine, reassureLine, listeningLine, completeLine } from './teacherPersona';
+import { expressionForScene, praiseLine, reassureLine, listeningLine, completeLine, resumeBridge } from './teacherPersona';
+import { buildReteach } from './reteach';
 import { speakTeacher, stopTeacher, primeTeacherVoice, getSpeechProgress, SPEECH_OK, speakTeacherQueued, resetTeacherQueue, isTeacherQueueActive } from '../../utils/teacherVoice';
 
 // Optional student camera — degrades to a friendly placeholder.
@@ -81,6 +83,20 @@ function Appear({ children, style, from = 'up', delay = 0 }) {
     ? [{ scale: a.interpolate({ inputRange: [0, 1], outputRange: [0.94, 1] }) }]
     : [{ translateY: a.interpolate({ inputRange: [0, 1], outputRange: [12, 0] }) }];
   return <Animated.View style={[style, { opacity: a, transform: tf }]}>{children}</Animated.View>;
+}
+
+// A number that counts up to its target — used on the completion card so the
+// accuracy / concept tally feels earned as it lands, not just printed.
+function CountUp({ to, suffix = '', style, duration = 900 }) {
+  const [n, setN] = useState(0);
+  useEffect(() => {
+    const a = new Animated.Value(0);
+    const id = a.addListener(({ value }) => setN(Math.round(value)));
+    const anim = Animated.timing(a, { toValue: to, duration, easing: Easing.out(Easing.cubic), useNativeDriver: false });
+    anim.start();
+    return () => { a.removeListener(id); anim.stop(); };
+  }, [to, duration]);
+  return <Text style={style}>{n}{suffix}</Text>;
 }
 
 // ── scene "camera settle": on every scene change the board slides in from the
@@ -185,8 +201,13 @@ function CornerTeacher({ state, expression, cam }) {
 // so the highlight never races ahead of her voice. Freezes when she's not
 // speaking (paused) and resets per line (resetKey). Light on the JS thread: it
 // only re-renders when the bright-word count actually changes.
-function SpokenCaption({ text, speaking, karaoke, resetKey, style }) {
+function SpokenCaption({ text, speaking, karaoke, resetKey, style, highlight }) {
   const words = useMemo(() => String(text || '').split(/\s+/).filter(Boolean), [text]);
+  // Keywords to emphasise the instant they're spoken (from the beat's `highlight`).
+  const hot = useMemo(() => new Set((highlight || [])
+    .flatMap((h) => String(h).toLowerCase().split(/\s+/))
+    .map((w) => w.replace(/[^a-z0-9]/gi, ''))
+    .filter(Boolean)), [highlight]);
   const [spoken, setSpoken] = useState(0);
   const fade = useRef(new Animated.Value(0)).current;
   const speakingRef = useRef(speaking);
@@ -211,9 +232,13 @@ function SpokenCaption({ text, speaking, karaoke, resetKey, style }) {
   const brightUpto = karaoke ? spoken : words.length;
   return (
     <Animated.Text style={[style, { opacity: fade }]}>
-      {words.map((w, i) => (
-        <Text key={i} style={i >= brightUpto ? st.capDim : null}>{w}{i < words.length - 1 ? ' ' : ''}</Text>
-      ))}
+      {words.map((w, i) => {
+        const spokenNow = i < brightUpto;
+        const isHot = spokenNow && hot.size > 0 && hot.has(w.replace(/[^a-z0-9]/gi, '').toLowerCase());
+        return (
+          <Text key={i} style={!spokenNow ? st.capDim : (isHot ? st.capHot : null)}>{w}{i < words.length - 1 ? ' ' : ''}</Text>
+        );
+      })}
     </Animated.Text>
   );
 }
@@ -321,10 +346,14 @@ function DoubtMeta({ meta }) {
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
-export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, startIndex = 0, onProgress, onAsk, onAskStream, onExit, onNewLesson }) {
+export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, startIndex = 0, priorModel = null, onProgress, onOutcome, onAsk, onAskStream, onExit, onNewLesson }) {
   // The Teaching Director choreographs the lesson into scenes-of-beats. The player
   // just executes that timeline (speak this line ↔ draw this board step ↔ this face).
   const scenes = useMemo(() => directLesson(lesson || {}), [lesson]);
+  // Fallback highlight set — the lesson's key terms. When a beat carries no explicit
+  // `highlight` (no backend metadata), any key term she speaks still pops in the
+  // caption + on the board, so "important words highlight when spoken" works today.
+  const keyTerms = useMemo(() => (lesson && Array.isArray(lesson.keyTerms) ? lesson.keyTerms.filter(Boolean) : []), [lesson]);
   const N = scenes.length;
 
   const [mode, setMode] = useState(M.TEACHING);
@@ -344,6 +373,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const [reactExpr, setReactExpr] = useState(null);  // transient face after a quick-check (celebrate / encouraging)
   const [gestureExpr, setGestureExpr] = useState(null); // transient 'pointing' lead — she points at the board a beat before she speaks
   const [quizFb, setQuizFb] = useState(null);        // { correct, line } — the human line for the last quick-check
+  const [reteach, setReteach] = useState(null);      // adaptive re-teach shown on a missed check (not a repeat)
   const [doneMsg, setDoneMsg] = useState('');        // varied wrap-up line (never the same twice running)
   const [listenPrompt, setListenPrompt] = useState('I’m listening…');
   // streaks drive her TONE: a run of right answers ramps up praise; a repeated
@@ -351,11 +381,32 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const rightStreakRef = useRef(0);
   const wrongStreakRef = useRef(0);
   const reactTimerRef = useRef(null);
+  const answerTimerRef = useRef(null);   // the human "thinking beat" before she reacts to an answer
+  const outcomeSentRef = useRef(false);  // report this lesson's outcome to memory exactly once
+  const resumeBridgeRef = useRef(false); // speak a natural "where were we" bridge on the next beat after a doubt
   // The Emotion engine's learner model + the pace multiplier it produces. Both are
   // refs (read inside the beat timer), so adapting the pace never forces a re-render.
-  const learnerRef = useRef(freshLearner());
-  const paceMultRef = useRef(1);
+  // Seeded from cross-lesson memory (priorModel) so a returning student's pace opens
+  // at their known register instead of always starting neutral. null → neutral.
+  const learnerRef = useRef(freshLearner(priorModel));
+  const paceMultRef = useRef(assess(learnerRef.current).paceMult);
   const feelLearner = (event) => { learnerRef.current = observe(learnerRef.current, event); paceMultRef.current = assess(learnerRef.current).paceMult; };
+  // ── THE PEDAGOGY ENGINE (decision layer) ──────────────────────────────────────
+  // Emotion engine reads the room (pace/tone); Pedagogy engine decides the next
+  // teaching MOVE (hint vs re-teach vs praise…). Seeded with the class + lesson
+  // length so its choices are grade-aware. State lives in a ref (read in handlers).
+  const pedagogyRef = useRef(freshPedagogy({
+    grade: lesson && (lesson.grade != null ? lesson.grade : lesson.gradeLevel),
+    total: N,
+    prior: priorModel,   // remembered as struggling → examples/analogies come sooner
+  }));
+  const observeTeach = (event) => { pedagogyRef.current = observePedagogy(pedagogyRef.current, event); };
+  // What re-teach flavours the lesson can actually offer right now (drives whether
+  // the engine reaches for an analogy / worked example vs a plain re-explanation).
+  const lessonAffords = useMemo(() => ({
+    hasAnalogy: scenes.some((sc) => sc.visualType === 'ANALOGY' || sc.template === 'Analogy'),
+    hasExample: scenes.some((sc) => sc.visualType === 'EXAMPLE' || sc.template === 'WorkedExample'),
+  }), [scenes]);
   // The Camera Director's rack-focus: 0 = teacher, 1 = board, 0.5 = wide. One
   // Animated scalar drives both the board's push-in and the teacher's size.
   const cam = useRef(new Animated.Value(0.5)).current;
@@ -385,10 +436,15 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   // settles — the auto-zoom-to-the-equation-and-return feel, never a static frame.
   const ZOOM_BOARDS = ['formula', 'proof', 'chart', 'graphFn', 'numberLine', 'triangle'];
   useEffect(() => {
-    if (mode !== M.TEACHING || !ZOOM_BOARDS.includes(scene.boardType)) { focusZoom.setValue(1); return undefined; }
+    // Explicit 'zoom'/'focus' action from the transcript overrides — the board leans
+    // in harder on command; otherwise auto-zoom on any board that BUILDS.
+    const act = curBeat && curBeat.boardAction && curBeat.boardAction.action;
+    const wantZoom = act === 'zoom' || act === 'focus';
+    if (mode !== M.TEACHING || (!ZOOM_BOARDS.includes(scene.boardType) && !wantZoom)) { focusZoom.setValue(1); return undefined; }
+    const peak = wantZoom ? 1.11 : 1.05;
     const a = Animated.sequence([
-      Animated.timing(focusZoom, { toValue: 1.05, duration: 460, easing: Easing.out(Easing.cubic), useNativeDriver: true }),
-      Animated.timing(focusZoom, { toValue: 1.0, duration: 900, easing: Easing.inOut(Easing.cubic), useNativeDriver: true }),
+      Animated.timing(focusZoom, { toValue: peak, duration: wantZoom ? 540 : 460, easing: Easing.out(Easing.cubic), useNativeDriver: true }),
+      Animated.timing(focusZoom, { toValue: 1.0, duration: wantZoom ? 1150 : 900, easing: Easing.inOut(Easing.cubic), useNativeDriver: true }),
     ]);
     a.start();
     return () => a.stop();
@@ -425,7 +481,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const clearDoubtTick = () => { if (doubtTickRef.current) { clearInterval(doubtTickRef.current); doubtTickRef.current = null; } };
 
   useEffect(() => { primeTeacherVoice(); }, []);
-  useEffect(() => () => { mountedRef.current = false; clearDoubtTick(); if (reactTimerRef.current) clearTimeout(reactTimerRef.current); stopTeacher(); }, []);
+  useEffect(() => () => { mountedRef.current = false; clearDoubtTick(); if (reactTimerRef.current) clearTimeout(reactTimerRef.current); if (answerTimerRef.current) clearTimeout(answerTimerRef.current); stopTeacher(); }, []);
 
   // Pick a fresh wrap-up line the moment the lesson finishes / open the mic —
   // so the two lines the student hears most often never sound rehearsed.
@@ -443,39 +499,98 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   // The student just answered a quick-check. React like a human tutor: a genuine
   // beat of delight when they're right (ramping with a streak), warm reassurance
   // when they're not — and a gentler, slower register if they miss it twice.
+  const ttsCbs = () => ({ onStart: () => setTtsActive(true), onDone: () => setTtsActive(false), onStopped: () => setTtsActive(false), onError: () => setTtsActive(false) });
+
+  // The renderer only RENDERS the pedagogy engine's decision — it maps each action
+  // onto a capability it already has (praise line · one-line hint · adaptive
+  // re-teach). No new UI: a hint reuses the re-teach panel with just its gap line,
+  // and the MCQ options stay open above so the student can try again once it clicks.
+  const applyTeachingDecision = (decision) => {
+    const params = decision.params || {};
+    switch (decision.action) {
+      case ACTIONS.PRAISE: {
+        reactWith('celebrate', 2800);
+        setReteach(null);                       // she got it → drop the re-teach
+        const line = praiseLine(rightStreakRef.current);
+        setQuizFb({ correct: true, line });
+        if (voiceOn) speakTeacher(line, ttsCbs());
+        return;
+      }
+      case ACTIONS.GIVE_HINT: {
+        // A nudge, not the answer. Options stay open for another attempt.
+        observeTeach({ type: 'hint' });
+        reactWith('encouraging', 3000);
+        const mc = params.misconception;
+        const kt = (lesson && Array.isArray(lesson.keyTerms) && lesson.keyTerms.find(Boolean));
+        const hintLine = (scene.quickCheck && scene.quickCheck.hint)
+          || (mc ? `Careful — ${String(mc).replace(/\.$/, '')}.` : (kt ? `Think about what “${kt}” really means here.` : 'Take another look at the key idea, then try again.'));
+        setReteach({ gap: hintLine });          // panel shows only the one-line hint
+        setQuizFb({ correct: false, line: reassureLine(wrongStreakRef.current) });
+        if (voiceOn) speakTeacher(hintLine, ttsCbs());
+        return;
+      }
+      // ── ADAPTIVE RE-TEACH (acknowledge → name the gap → re-teach a DIFFERENT way,
+      // step by step → ask an easier question). Analogy/Example are re-teach flavours
+      // today. A backend `scene.reteach` still overrides. Never a repeat. ──
+      case ACTIONS.GIVE_ANALOGY:
+      case ACTIONS.GIVE_EXAMPLE:
+      case ACTIONS.RE_EXPLAIN:
+      default: {
+        reactWith('encouraging', 3600);
+        const concept = scenes[Math.max(0, idx - 1)] || scene;
+        const rt = scene.reteach || concept.reteach || buildReteach({
+          title: concept.title || scene.title,
+          keyTerms: (lesson && lesson.keyTerms) || [],
+          points: (concept.diagram && concept.diagram.points) || (scene.diagram && scene.diagram.points) || [],
+          grade: lesson && (lesson.grade != null ? lesson.grade : lesson.gradeLevel),
+          wrongStreak: wrongStreakRef.current,
+          misconception: params.misconception || (scene.quickCheck && scene.quickCheck.misconception),
+        });
+        setReteach(rt);
+        setQuizFb({ correct: false, line: rt.ack });
+        if (voiceOn) {
+          const speech = [rt.ack, rt.gap, rt.intro, ...(rt.steps || []), rt.easyQ].filter(Boolean).join('  ');
+          speakTeacher(speech, ttsCbs());
+        }
+        return;
+      }
+    }
+  };
+
+  // The student answered a quick-check. The PEDAGOGY ENGINE decides what happens
+  // next (praise · hint · re-teach); this handler just feeds it the signals and
+  // renders its call. Streak refs stay in sync for the praise/re-teach copy.
   const handleQuizResult = (correct) => {
     const firstTry = wrongStreakRef.current === 0;
-    let line;
-    if (correct) {
-      wrongStreakRef.current = 0;
-      rightStreakRef.current += 1;
-      feelLearner(firstTry ? 'correctFirstTry' : 'correct');
-      line = praiseLine(rightStreakRef.current);
-      reactWith('celebrate', 2800);
-    } else {
-      rightStreakRef.current = 0;
-      wrongStreakRef.current += 1;
-      feelLearner('miss');
-      line = reassureLine(wrongStreakRef.current);
-      reactWith('encouraging', 3200);
-    }
-    setQuizFb({ correct, line });
-    // Speak it in her own voice (same engine as the lesson) so the reaction is
-    // heard, not just read — only when narration is on and nothing else is talking.
-    if (voiceOn) {
-      speakTeacher(line, {
-        onStart: () => setTtsActive(true),
-        onDone: () => setTtsActive(false),
-        onStopped: () => setTtsActive(false),
-        onError: () => setTtsActive(false),
-      });
-    }
+    if (correct) { wrongStreakRef.current = 0; rightStreakRef.current += 1; }
+    else { rightStreakRef.current = 0; wrongStreakRef.current += 1; }
+    feelLearner(correct ? (firstTry ? 'correctFirstTry' : 'correct') : 'miss');
+
+    const isMcq = !!(scene.quickCheck && Array.isArray(scene.quickCheck.options) && scene.quickCheck.options.length);
+    observeTeach({ type: 'answer', correct, misconception: scene.quickCheck && scene.quickCheck.misconception });
+    observeTeach({ type: 'confidence', value: assess(learnerRef.current).confidence });
+
+    const decision = decideNextAction(pedagogyRef.current, {
+      phase: 'afterCheck',
+      retryable: isMcq,
+      hasAnalogy: lessonAffords.hasAnalogy,
+      hasExample: lessonAffords.hasExample,
+    });
+
+    // A real teacher doesn't answer the instant a student taps. She registers it —
+    // a small, considering beat (longer, more thoughtful after a miss) — and only
+    // THEN responds. Her face holds a listening/thinking look through the pause.
+    reactWith(correct ? 'happy' : 'thinking', 1400);
+    const beatMs = (correct ? 360 : 640) + Math.round(Math.random() * 360);
+    if (answerTimerRef.current) clearTimeout(answerTimerRef.current);
+    answerTimerRef.current = setTimeout(() => { if (mountedRef.current) applyTeachingDecision(decision); }, beatMs);
   };
 
   // Report the current position so the screen can persist progress + study time
   // (enables resume-to-position and the Study Insights tiles).
   useEffect(() => {
     if (onProgress) onProgress({ slideIndex: idx, total: N });
+    observeTeach({ type: 'progress', index: idx });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [idx, N]);
 
@@ -510,21 +625,30 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     if (scene.boardType === 'mistake' && beat === 0) reactWith('surprise', 1500);
 
     const line = b && b.say;
+    // She was interrupted by a doubt and is picking the lesson back up — lead the
+    // resumed sentence with a natural, context-aware bridge ("Right, where were we?
+    // Back to Pythagoras —") so it feels like a conversation continuing, not a slide
+    // un-pausing. One-shot: consumed the first beat after resuming.
+    const doBridge = resumeBridgeRef.current;
+    resumeBridgeRef.current = false;
+    const sayLine = (doBridge && line) ? `${resumeBridge(scene.title)} ${line}` : line;
     // Adaptive pace: the Emotion engine stretches the silences for a struggling
     // student and tightens them for a fluent one. It scales the BEATS (pauses,
     // dwells) — never her speech — so words stay natural, only the room breathes
     // differently.
     const mult = paceMultRef.current || 1;
-    const pauseMs = ((b && b.pause) || 0) * mult;
+    // A touch of human irregularity so the pacing never sounds metronomic — the
+    // silences breathe by a few percent each beat instead of being pixel-identical.
+    const pauseMs = ((b && b.pause) || 0) * mult * (0.92 + Math.random() * 0.22);
 
     if (voiceOn && line) {
-      speakTeacher(line, {
+      speakTeacher(sayLine, {
         onStart: () => { if (!cancelled) setTtsActive(true); },
         onDone: () => { if (!cancelled) { setTtsActive(false); if (!waiting) at(advance, pauseMs); } },
         onStopped: () => { if (!cancelled) setTtsActive(false); },
         onError: () => { if (!cancelled) { setTtsActive(false); if (!waiting) advance(); } },
       });
-      const words = String(line).split(/\s+/).filter(Boolean).length;
+      const words = String(sayLine).split(/\s+/).filter(Boolean).length;
       // Safety net only — advance even if the engine never fires onDone.
       if (!waiting) at(advance, words * 360 + pauseMs + 6000);
       // Rest her mouth ~when the audio should have ended (some Android TTS engines
@@ -542,13 +666,13 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   }, [mode, idx, beat, animKey]);
 
   // ── transport ──
-  const goTeach = (next) => { stopTeacher(); setQa(null); setQaMeta(null); setDoubtDone(false); setHint(''); setQuizFb(null); setReactExpr(null); setBeat(0); setIdx(next); setMode(M.TEACHING); setAnimKey((k) => k + 1); };
+  const goTeach = (next) => { stopTeacher(); setQa(null); setQaMeta(null); setDoubtDone(false); setHint(''); setQuizFb(null); setReteach(null); setReactExpr(null); setBeat(0); setIdx(next); setMode(M.TEACHING); setAnimKey((k) => k + 1); };
   const pause = () => { stopTeacher(); setTtsActive(false); setMode(M.PAUSED); };
   const resume = () => { setMode(M.TEACHING); setAnimKey((k) => k + 1); };
   const togglePlay = () => { if (teaching) pause(); else if (mode === M.PAUSED) resume(); };
   const onPrev = () => { if (idx > 0) goTeach(idx - 1); };
   const onNext = () => { if (idx < N - 1) goTeach(idx + 1); else { stopTeacher(); setMode(M.COMPLETED); } };
-  const onRefresh = () => { feelLearner('replay'); setQuizFb(null); setReactExpr(null); setBeat(0); setMode(M.TEACHING); setAnimKey((k) => k + 1); }; // replaying a scene → she eases the pace
+  const onRefresh = () => { feelLearner('replay'); observeTeach({ type: 'replay' }); setQuizFb(null); setReactExpr(null); setBeat(0); setMode(M.TEACHING); setAnimKey((k) => k + 1); }; // replaying a scene → she eases the pace
   const onReplayLesson = () => { goTeach(0); };
   // Toggling sound restarts the current scene so audio/captions stay in lock-step.
   const toggleMute = () => { setMuted((m) => !m); if (teaching) setAnimKey((k) => k + 1); };
@@ -558,7 +682,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const sendDoubt = (override) => {
     const q = (typeof override === 'string' ? override : qInput).trim();
     if (!q || !onAsk) { if (!q) setMode(M.PAUSED); return; }
-    feelLearner('doubt'); // asking for help eases her pace a little
+    feelLearner('doubt'); observeTeach({ type: 'doubt' }); // asking for help eases her pace a little
     setQInput(''); setPartial(''); setHint('');
     setQa({ q, a: null }); setQaMeta(null); setDoubtDone(false); setMode(M.THINKING);
     stopTeacher(); clearDoubtTick();
@@ -630,13 +754,13 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
       })
       .catch((e) => { clearTimeout(to); if (!mountedRef.current) return; setQa({ q, a: `⚠️ ${e?.response?.data?.error || e?.message || 'Could not get an answer.'}` }); setMode(M.ANSWERING); setDoubtDone(true); });
   };
-  const resumeFromDoubt = () => { stopTeacher(); clearDoubtTick(); setQa(null); setQaMeta(null); setDoubtDone(false); setMode(M.TEACHING); setAnimKey((k) => k + 1); };
+  const resumeFromDoubt = () => { stopTeacher(); clearDoubtTick(); setQa(null); setQaMeta(null); setDoubtDone(false); resumeBridgeRef.current = true; setMode(M.TEACHING); setAnimKey((k) => k + 1); };
 
   // Re-explanation: jump back to the concept she just taught (skip quick-checks /
   // the opener) and replay it. The 'replay' signal eases her pace, so the second
   // pass is genuinely slower and warmer — the honest, no-new-content re-teach.
   const reexplain = () => {
-    feelLearner('replay');
+    feelLearner('replay'); observeTeach({ type: 'replay' });
     let j = idx - 1;
     while (j > 0 && (scenes[j].boardType === 'quickCheck' || scenes[j].boardType === 'intro')) j -= 1;
     goTeach(Math.max(0, j));
@@ -702,9 +826,47 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     ) : mode === M.LISTENING ? (
       <Text style={st.captionTxt}>{listenPrompt}</Text>
     ) : (
-      <SpokenCaption key={`s-${idx}-${captionText}`} text={captionText} speaking={ttsActive} karaoke={voiceOn} resetKey={`${idx}-${captionText}`} style={st.captionTxt} />
+      <SpokenCaption key={`s-${idx}-${captionText}`} text={captionText} speaking={ttsActive} karaoke={voiceOn} resetKey={`${idx}-${captionText}`} style={st.captionTxt} highlight={(curBeat && curBeat.highlight && curBeat.highlight.length) ? curBeat.highlight : keyTerms} />
     )
   );
+
+  // ── Learning-progress context — reads as progress through the CONCEPTS, not a
+  // raw slide count (checkpoints are excluded from the numbering). ──
+  const lessonTopic = (lesson && (lesson.lessonTitle || lesson.title)) || (scenes[0] && scenes[0].title) || 'Today’s lesson';
+  const conceptTotal = Math.max(1, scenes.filter((sc) => sc.boardType !== 'quickCheck').length);
+  const conceptNo = Math.min(conceptTotal, Math.max(1, scenes.slice(0, idx + 1).filter((sc) => sc.boardType !== 'quickCheck').length));
+
+  // Completion summary — what she'll say the student learned + how they did. Drawn
+  // from the lesson's own key terms (or concept titles) + the live pedagogy tally.
+  const learned = (() => {
+    const kt = (lesson && Array.isArray(lesson.keyTerms) ? lesson.keyTerms.filter(Boolean) : []);
+    if (kt.length) return kt.slice(0, 5);
+    const titles = scenes.filter((sc) => sc.boardType !== 'quickCheck' && sc.boardType !== 'summary' && sc.title).map((sc) => sc.title);
+    return Array.from(new Set(titles)).slice(0, 4);
+  })();
+  const ped = pedagogyRef.current || {};
+  const accuracy = ped.checks > 0 ? Math.round((ped.correct / ped.checks) * 100) : null;
+
+  // ── MEMORY: what she remembers about THIS student shapes the closing words. With a
+  // priorModel she gives a personalized recap + a smart "what next"; without one she
+  // falls back to the warm generic lines (fully backward compatible). ──
+  const memoryRecap = priorModel ? personalizedRecap(priorModel, { topic: lessonTopic, accuracy, learned }) : null;
+  const memoryNext = priorModel ? continuationHint(priorModel, { topic: lessonTopic, accuracy }) : null;
+
+  // Report this lesson's outcome to long-term memory exactly once, when it completes.
+  useEffect(() => {
+    if (mode !== M.COMPLETED || outcomeSentRef.current) return;
+    outcomeSentRef.current = true;
+    if (onOutcome) onOutcome({
+      topic: lessonTopic,
+      subject: subject || null,
+      grade: lesson && (lesson.grade != null ? lesson.grade : lesson.gradeLevel),
+      accuracy,                                          // 0..100 | null
+      confidence: assess(learnerRef.current).confidence, // 0..1
+      learned,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mode]);
 
   // Rack-focus transforms from the one camera scalar (0 teacher · 0.5 wide · 1 board).
   // Gentle by design: a real push-in + soft dim, never enough to blur text or jump.
@@ -723,6 +885,13 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
         <PressableScale onPress={() => { stopTeacher(); setVoiceOpen(true); }} style={st.barIcon} accessibilityLabel="Choose teacher voice"><Text style={st.barIconTxt2}>🎙</Text></PressableScale>
         <PressableScale onPress={toggleMute} style={st.barIcon} accessibilityLabel={muted ? 'Unmute narration' : 'Mute narration'}><Text style={st.barIconTxt2}>{muted ? '🔇' : '🔊'}</Text></PressableScale>
         {!!onNewLesson && <PressableScale onPress={onNewLesson} style={st.barIcon} accessibilityLabel="Start a new lesson"><Text style={st.barIconTxt2}>↺</Text></PressableScale>}
+      </View>
+
+      {/* ── learning-progress context (topic · concept N of M) — reads as learning
+          progress, not a slide counter ── */}
+      <View style={st.contextBar}>
+        <Text style={st.ctxTopic} numberOfLines={1}>{lessonTopic}</Text>
+        <Text style={st.ctxStep}>Concept {conceptNo} of {conceptTotal}</Text>
       </View>
 
       <VoicePicker visible={voiceOpen} onClose={() => setVoiceOpen(false)} />
@@ -748,7 +917,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
           {showBoard && (
             <Animated.View style={[st.boardOuter, { transform: [{ scale: focusZoom }] }]}>
               <View style={st.lessonCard}>
-                <LessonBoard scene={scene} paused={!teaching} skip={false} resetKey={sceneKey} step={curBeat ? curBeat.boardStep : null} onQuizContinue={onNext} onQuizResult={handleQuizResult} onReexplain={reexplain} quizFb={quizFb} />
+                <LessonBoard scene={scene} paused={!teaching} skip={false} resetKey={sceneKey} step={curBeat ? curBeat.boardStep : null} highlight={(curBeat && curBeat.highlight && curBeat.highlight.length) ? curBeat.highlight : keyTerms} action={curBeat && curBeat.boardAction} onQuizContinue={onNext} onQuizResult={handleQuizResult} onReexplain={reexplain} quizFb={quizFb} reteach={reteach} />
                 <EraserWipe enabled={idx > 0} />
               </View>
             </Animated.View>
@@ -828,7 +997,29 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
           <Appear from="scale" style={st.doneCard}>
             <Text style={st.doneEmoji}>🎉</Text>
             <Text style={st.doneTitle}>Lesson complete</Text>
-            <Text style={st.doneSub}>{doneMsg || 'Great focus today. Take it again whenever you like.'}</Text>
+            <Text style={st.doneSub}>{memoryRecap || doneMsg || 'Great focus today. Take it again whenever you like.'}</Text>
+
+            {learned.length > 0 && (
+              <View style={st.learnedWrap}>
+                <Text style={st.learnedHead}>Today you learned</Text>
+                {learned.map((t, i) => (
+                  <Appear key={i} delay={220 + i * 90} style={st.learnedRow}>
+                    <View style={st.learnedTick}><Text style={st.learnedTickTxt}>✓</Text></View>
+                    <Text style={st.learnedTxt} numberOfLines={2}>{t}</Text>
+                  </Appear>
+                ))}
+              </View>
+            )}
+
+            <Appear delay={260 + learned.length * 90} style={st.statRow}>
+              {accuracy != null && (
+                <View style={st.statBox}><CountUp to={accuracy} suffix="%" style={st.statNum} /><Text style={st.statLbl}>Accuracy</Text></View>
+              )}
+              <View style={st.statBox}><CountUp to={conceptTotal} style={st.statNum} /><Text style={st.statLbl}>Concepts</Text></View>
+            </Appear>
+
+            <Text style={st.recoTxt}>{memoryNext || (accuracy != null && accuracy >= 80 ? 'You’ve got this — ready for a new topic?' : 'A quick replay will lock it in.')}</Text>
+
             <View style={st.doneRow}>
               <PressableScale style={[st.doneBtn, st.doneGhost]} onPress={() => { stopTeacher(); onExit && onExit(); }} accessibilityLabel="Finish and exit"><Text style={st.doneGhostTxt}>Done</Text></PressableScale>
               <PressableScale style={[st.doneBtn, st.donePrimary]} onPress={onReplayLesson} accessibilityLabel="Replay the lesson"><Text style={st.donePrimaryTxt}>↺ Replay</Text></PressableScale>
@@ -856,6 +1047,24 @@ const st = StyleSheet.create({
   progressTrack: { flex: 1, height: 3, backgroundColor: 'rgba(44,48,67,0.09)', borderRadius: 8, overflow: 'hidden' },
   progressFill: { height: '100%', backgroundColor: C.accent, borderRadius: 8 },
   counter: { fontSize: 11, fontFamily: F.semi, color: C.dim, minWidth: 30, textAlign: 'right', letterSpacing: 0.5 },
+
+  // learning-progress context strip (topic + concept N of M)
+  contextBar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12, paddingHorizontal: SP.lg, paddingTop: 2, paddingBottom: SP.xs },
+  ctxTopic: { flex: 1, fontSize: 13, fontFamily: F.bold, color: C.ink, letterSpacing: -0.2 },
+  ctxStep: { fontSize: 10.5, fontFamily: F.semi, color: C.dim, letterSpacing: 0.6, textTransform: 'uppercase' },
+
+  // completion: "today you learned" checklist + count-up stats + adaptive next line
+  learnedWrap: { alignSelf: 'stretch', marginTop: SP.md, gap: 8 },
+  learnedHead: { fontSize: 11, fontFamily: F.bold, color: C.dim, letterSpacing: 1.2, textTransform: 'uppercase', marginBottom: 2, textAlign: 'left' },
+  learnedRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  learnedTick: { width: 20, height: 20, borderRadius: 10, backgroundColor: 'rgba(87,214,151,0.18)', alignItems: 'center', justifyContent: 'center' },
+  learnedTickTxt: { fontSize: 12, fontWeight: '900', color: C.green },
+  learnedTxt: { flex: 1, fontSize: 14, fontFamily: F.semi, color: C.ink },
+  statRow: { flexDirection: 'row', alignSelf: 'stretch', justifyContent: 'center', gap: 30, marginTop: SP.lg },
+  statBox: { alignItems: 'center' },
+  statNum: { fontSize: 26, fontFamily: F.black, color: C.accent, letterSpacing: -0.5 },
+  statLbl: { fontSize: 10, fontFamily: F.semi, color: C.dim, letterSpacing: 1, textTransform: 'uppercase', marginTop: 2 },
+  recoTxt: { fontSize: 12.5, fontFamily: F.med, color: C.ink2, textAlign: 'center', marginTop: SP.lg },
 
   scroll: { flex: 1 },
   // no slide → centre the big teacher; slide on screen → top-align the lesson
@@ -899,6 +1108,7 @@ const st = StyleSheet.create({
   metaChipTxt: { fontSize: 11, fontWeight: '800', color: C.ink2 },
   captionTxt: { fontSize: 16.5, fontFamily: F.med, color: C.ink, textAlign: 'center', lineHeight: 25.5, letterSpacing: 0.1 }, // PRIMARY — spoken words (bright)
   capDim: { color: 'rgba(44,48,67,0.24)' }, // not-yet-spoken words (soft ink); brighten as she speaks
+  capHot: { color: C.accent, fontFamily: F.bold }, // keyword emphasised the moment it's spoken
 
   // floating corner teacher (top-right) while a board is on screen
   cornerWrap: { position: 'absolute', top: 56, right: 12, zIndex: 20 },

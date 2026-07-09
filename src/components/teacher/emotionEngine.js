@@ -14,9 +14,15 @@
 // It never fabricates content (that would need the backend); it shapes the
 // *delivery* of the content the Teaching Director already choreographed.
 
-// A fresh model at lesson start — neutral, no assumptions about the student.
-export function freshLearner() {
-  return { correct: 0, firstTryCorrect: 0, misses: 0, replays: 0, doubts: 0, checks: 0 };
+// A fresh model at lesson start. With no `prior` it is neutral (as before). When we
+// remember the student (prior.confidence 0..1), the lesson OPENS at their known
+// register — a historically-struggling student gets a gentler pace from scene one —
+// and live signals take over within a few interactions (see the seed blend in assess).
+export function freshLearner(prior) {
+  const seed = prior && typeof prior.confidence === 'number'
+    ? Math.max(0, Math.min(1, prior.confidence))
+    : 0.5;
+  return { correct: 0, firstTryCorrect: 0, misses: 0, replays: 0, doubts: 0, checks: 0, seed };
 }
 
 // Fold one observed event into the model. Returns a NEW object (easy to store in
@@ -43,9 +49,15 @@ export function assess(model) {
   const struggle = m.misses * 1.0 + m.replays * 0.7 + m.doubts * 0.5;
   const fluency = m.firstTryCorrect * 1.0 + Math.max(0, m.correct - m.misses) * 0.3;
 
-  // confidence: start neutral 0.5, nudged by the balance of the two.
+  // confidence: start from what we remember about the student (seed), nudged by the
+  // balance of live struggle/fluency. Before any evidence this lesson, the seed leads;
+  // as checks/replays/doubts arrive, the live read takes over within ~3 interactions.
   const raw = 0.5 + (fluency - struggle) * 0.12;
-  const confidence = Math.max(0, Math.min(1, raw));
+  const computed = Math.max(0, Math.min(1, raw));
+  const seed = typeof m.seed === 'number' ? m.seed : 0.5;
+  const evidence = m.checks + m.replays + m.doubts;
+  const w = Math.min(1, evidence / 3);
+  const confidence = Math.max(0, Math.min(1, seed * (1 - w) + computed * w));
 
   let pace = 'normal';
   let paceMult = 1;

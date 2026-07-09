@@ -16,6 +16,7 @@ import { C } from './premiumTheme';
 // (physics · chemistry · chemistry · biology · maths · maths · history)
 
 const ACircle = Animated.createAnimatedComponent(Circle);
+const ARect = Animated.createAnimatedComponent(Rect);
 
 // Director-controlled reveal (mirror of LessonBoards.useReveal — kept local to
 // avoid a circular import). step != null → show exactly that many; else self-pace.
@@ -107,11 +108,21 @@ export function FreeBodyBoard({ scene, paused, skip, resetKey, step }) {
   ];
   const n = useReveal(4, 900, { paused, skip, resetKey, step });
   const tip = forces[Math.min(n, 4) - 1];
+  // MOVING OBJECT — once the applied force is on the board (step 3), the block is
+  // pushed and slides in the force's direction, then settles: the object visibly
+  // responds to the force instead of sitting still like a label.
+  const blockX = useRef(new Animated.Value(cxb - hs)).current;
+  useEffect(() => {
+    const to = (n >= 3 && !skip) ? cxb - hs + 14 : cxb - hs;
+    const a = Animated.spring(blockX, { toValue: to, useNativeDriver: false, friction: 6, tension: 42 });
+    a.start();
+    return () => a.stop();
+  }, [n, skip, blockX, cxb, hs]);
   return (
     <View style={wrapStyle}>
       <Svg width="100%" height={188} viewBox="0 0 300 180">
-        {/* ground + the body */}
-        <Rect x={cxb - hs} y={cyb - hs} width={hs * 2} height={hs * 2} rx={4} fill="rgba(44,48,67,0.06)" stroke={C.ink} strokeWidth={2} />
+        {/* ground + the body (slides when pushed) */}
+        <ARect x={blockX} y={cyb - hs} width={hs * 2} height={hs * 2} rx={4} fill="rgba(44,48,67,0.06)" stroke={C.ink} strokeWidth={2} />
         {forces.map((f, i) => (i < n ? (
           <G key={i}>
             <Arrow x1={f.x1} y1={f.y1} x2={f.x2} y2={f.y2} color={f.color} width={3.5} duration={520} skip={skip} />

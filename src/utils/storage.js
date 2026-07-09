@@ -6,6 +6,7 @@ const KEYS = {
   ACTIVE_LESSON: '@ailernova_active_lesson',
   ACTIVE_MATCH:  '@ailernova_active_match',
   PRACTICE_STREAK: '@ailernova_practice_streak',
+  STUDENT_MODEL: '@ailernova_student_model',
 };
 
 // Legacy token returned by the still-mocked Google/OTP auth paths. It is NOT a
@@ -113,6 +114,31 @@ export const bumpPracticeStreak = async () => {
   } catch (_) {
     return 1;
   }
+};
+
+// ── AI-Teacher student memory ─────────────────────────────────────────────────
+// The cross-lesson model the pedagogy engine remembers a student by (rolling
+// confidence, accuracy, topics learned, what was tricky). Stored as a map keyed by
+// student so several students on one device stay separate. This is LOCAL memory
+// that complements the backend's lesson_progress/resume — it never replaces it.
+// Best-effort — failures never block a lesson.
+export const getStudentModel = async (studentKey) => {
+  try {
+    if (!studentKey) return null;
+    const raw = await AsyncStorage.getItem(KEYS.STUDENT_MODEL);
+    const all = raw ? JSON.parse(raw) : {};
+    return (all && all[studentKey]) || null;
+  } catch (_) { return null; }
+};
+
+export const saveStudentModel = async (studentKey, model) => {
+  try {
+    if (!studentKey || !model) return;
+    const raw = await AsyncStorage.getItem(KEYS.STUDENT_MODEL);
+    const all = raw ? JSON.parse(raw) : {};
+    all[studentKey] = model;
+    await AsyncStorage.setItem(KEYS.STUDENT_MODEL, JSON.stringify(all));
+  } catch (_) { /* ignore */ }
 };
 
 export const clearAll = async () => {
