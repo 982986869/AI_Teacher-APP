@@ -30,6 +30,7 @@ import BottomNav from './BottomNav';
 import ProfileSheet from './ProfileSheet';
 import BrainGymFlow from '../../braingym/BrainGymFlow';
 import ActivityRouter from './ActivityRouter';
+import BookTrial from './BookTrial';
 import { FadeIn } from './anim';
 
 export default function ParentApp() {
@@ -54,6 +55,7 @@ export default function ParentApp() {
   const [sheetOpen, setSheetOpen] = useState(false);
   const [gymOpen, setGymOpen] = useState(false);
   const [activityOpen, setActivityOpen] = useState(false);
+  const [trialOpen, setTrialOpen] = useState(false);
 
   const mounted = useRef(true);
   const toastRef = useRef(null);
@@ -87,6 +89,7 @@ export default function ParentApp() {
   const onAvatar = useCallback(() => setSheetOpen(true), []);
   const onGym = useCallback(() => setGymOpen(true), []);            // AI Gym → the real BrainGym
   const onActivity = useCallback(() => setActivityOpen(true), []);  // Recent activity detail
+  const onBookTrial = useCallback(() => setTrialOpen(true), []);    // "Book a FREE trial" → in-app form
   const relink = useCallback(() => setReport({ linked: false }), []);
   const confirmDelete = useCallback(() => {
     Alert.alert(
@@ -112,7 +115,7 @@ export default function ParentApp() {
   } else if (!linked) {
     content = <LinkChild parentName={user?.name} onLinked={onLinked} onLogout={signOut} />;
   } else {
-    const shared = { meta, childName, onAvatar, onGym, onActivity, flash };
+    const shared = { meta, childName, onAvatar, onGym, onActivity, onBookTrial, flash };
     content = (
       <View style={st.screen}>
         {/* Pure crossfade on tab switch — no layout movement, nav stays fixed. */}
@@ -151,6 +154,15 @@ export default function ParentApp() {
         <BrainGymFlow onFinish={() => setGymOpen(false)} />
       </Modal>
       <ActivityRouter visible={activityOpen} onClose={() => setActivityOpen(false)} childName={childName} items={report?.recentActivity} />
+      {/* "Book a FREE trial" → in-app booking form (replaces the old external-app redirect). */}
+      <BookTrial
+        visible={trialOpen}
+        onClose={() => setTrialOpen(false)}
+        childName={childName}
+        childList={child ? [child] : []}
+        parentName={user?.name}
+        onSubmit={({ phone, day }) => flash(`Trial booked${day ? ` for ${day}` : ''} — we'll call ${phone}`)}
+      />
     </SafeAreaView>
   );
 }
