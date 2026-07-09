@@ -1,25 +1,25 @@
 // src/screens/parent/ParentApp/EventsCarousel.js
-// The "Offline events" experience on the Parent home — a horizontal paging carousel.
-// Pages (in order): featured event · explore-by-region · what's-in-store slider ·
-// AILERNOVA skills · participants photo grid · community · become-AILERNOVA + footer.
-// All list data (events, store slides, skills, gallery) is DB-driven via the report;
-// the marketing copy lives in CONTENT.event (constants.js). Rebranded AILERNOVA.
-import React, { useState, useRef } from 'react';
+// The "Offline events" experience on the Parent home. The home shows a single image
+// teaser card (EventTeaser); tapping it opens EventsModal — a full-screen page with
+// all 7 sections STACKED vertically (scroll down to see them all), not a slider:
+//   featured event · explore-by-region · what's-in-store · AILERNOVA skills ·
+//   participants grid · community · become-AILERNOVA + footer.
+// List data (events/store/skills/gallery) is DB-driven via the report; marketing copy
+// lives in CONTENT.event (constants.js). Rebranded AILERNOVA.
+import React, { useState } from 'react';
 import {
   View, ScrollView, Image, ImageBackground, Dimensions, StyleSheet,
   Linking, LayoutAnimation, Platform, UIManager, Modal, SafeAreaView,
 } from 'react-native';
 import { Star, Camera, Video, Plus, Minus, Play, Globe, MapPin, Smartphone } from 'lucide-react-native';
-import { C, F, T, CONTENT } from './constants';
+import { C, T, CONTENT } from './constants';
 import { PressableScale } from './anim';
 
 if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
 const { width: SCREEN_W } = Dimensions.get('window');
-const PAGE = SCREEN_W - 36;   // card width (18px body gutters)
-const GAP = 12;
-const H = 508;                // uniform page height; long pages scroll inside
+const STORE_W = SCREEN_W - 72;   // inner store-slider width (screen − modal pad − card pad)
 
 const open = (u) => { if (u) Linking.openURL(u).catch(() => {}); };
 const Stars = ({ n = 5, size = 12 }) => (
@@ -29,19 +29,22 @@ const Stars = ({ n = 5, size = 12 }) => (
 /* 1 ── Featured event ─────────────────────────────────────────────────────── */
 function EventPage({ ev, E }) {
   return (
-    <View style={[s.card, { height: H, backgroundColor: '#14151B' }]}>
-      <ImageBackground source={{ uri: ev.image }} style={s.hero} imageStyle={{ resizeMode: 'cover' }}>
+    <View style={[s.card, { backgroundColor: '#14151B' }]}>
+      <ImageBackground source={{ uri: ev.image }} style={{ height: 320 }} imageStyle={{ resizeMode: 'cover' }}>
         <View style={s.scrim} />
-        <View style={s.badge}><T w="bold" s={10} c={C.ink} style={{ letterSpacing: 0.5 }}>{ev.badge || 'IN-PERSON EVENTS'}</T></View>
-        <View style={{ flex: 1 }} />
-        <T w="semi" s={12.5} c="rgba(255,255,255,0.9)">{ev.duration}</T>
-        <T w="xbold" s={22} c="#fff" style={{ lineHeight: 27, marginTop: 2 }}>{ev.title}</T>
-        <T w="med" s={12.5} c="rgba(255,255,255,0.85)" style={{ marginTop: 4 }}>{ev.grades}{ev.city ? `  ·  ${ev.city}` : ''}</T>
-        <PressableScale style={s.cta} onPress={() => open(ev.ctaUrl)}><T w="bold" s={14.5} c={C.ink}>{ev.ctaLabel || E.cta}</T></PressableScale>
-        <PressableScale style={s.learn} onPress={() => open(ev.learnUrl)}>
-          <View style={s.learnDot}><Play size={9} color="#fff" fill="#fff" /></View>
-          <T w="semi" s={12} c="rgba(255,255,255,0.92)">{ev.learnLabel || E.learn}</T>
-        </PressableScale>
+        <View style={{ flex: 1, padding: 16, justifyContent: 'space-between' }}>
+          <View style={s.badge}><T w="bold" s={10} c={C.ink} style={{ letterSpacing: 0.5 }}>{ev.badge || 'IN-PERSON EVENTS'}</T></View>
+          <View>
+            <T w="semi" s={12.5} c="rgba(255,255,255,0.9)">{ev.duration}</T>
+            <T w="xbold" s={22} c="#fff" style={{ lineHeight: 27, marginTop: 2 }}>{ev.title}</T>
+            <T w="med" s={12.5} c="rgba(255,255,255,0.85)" style={{ marginTop: 4 }}>{ev.grades}{ev.city ? `  ·  ${ev.city}` : ''}</T>
+            <PressableScale style={s.cta} onPress={() => open(ev.ctaUrl)}><T w="bold" s={14.5} c={C.ink}>{ev.ctaLabel || E.cta}</T></PressableScale>
+            <PressableScale style={s.learn} onPress={() => open(ev.learnUrl)}>
+              <View style={s.learnDot}><Play size={9} color="#fff" fill="#fff" /></View>
+              <T w="semi" s={12} c="rgba(255,255,255,0.92)">{ev.learnLabel || E.learn}</T>
+            </PressableScale>
+          </View>
+        </View>
       </ImageBackground>
       <View style={s.footer}>
         <View style={s.statsRow}>
@@ -62,35 +65,32 @@ function EventPage({ ev, E }) {
 /* 2 ── Explore events by region ───────────────────────────────────────────── */
 function RegionPage({ events, E }) {
   const [region, setRegion] = useState(null);
-  const [open_, setOpen] = useState(false);
-  const cities = E.regions;
+  const [openList, setOpenList] = useState(false);
   const matches = region ? events.filter((e) => e.city === region) : [];
   return (
-    <View style={[s.card, s.pad, { height: H, backgroundColor: '#fff', borderWidth: 1, borderColor: C.border }]}>
-      <T w="xbold" s={19} c={C.ink} style={{ textAlign: 'center', marginTop: 6 }}>{E.exploreTitle}</T>
-      <PressableScale style={s.regionPill} onPress={() => { LayoutAnimation.easeInEaseOut(); setOpen((o) => !o); }}>
+    <View style={[s.card, s.pad, s.light]}>
+      <T w="xbold" s={19} c={C.ink} style={{ textAlign: 'center', marginTop: 2 }}>{E.exploreTitle}</T>
+      <PressableScale style={s.regionPill} onPress={() => { LayoutAnimation.easeInEaseOut(); setOpenList((o) => !o); }}>
         <Globe size={15} color={C.ink} />
         <T w="semi" s={13} c={C.ink} style={{ flex: 1, textAlign: 'center' }}>{region || E.regionCta}</T>
-        <T w="bold" s={12} c={C.muted}>{open_ ? '▲' : '▼'}</T>
+        <T w="bold" s={12} c={C.muted}>{openList ? '▲' : '▼'}</T>
       </PressableScale>
-      {open_ && (
+      {openList && (
         <View style={s.regionList}>
-          <ScrollView nestedScrollEnabled style={{ maxHeight: 150 }}>
-            {cities.map((c) => (
-              <PressableScale key={c} style={s.regionItem} onPress={() => { setRegion(c); setOpen(false); }}>
-                <MapPin size={13} color={C.blue} /><T w="med" s={13} c={C.ink}>{c}</T>
-              </PressableScale>
-            ))}
-          </ScrollView>
+          {E.regions.map((c) => (
+            <PressableScale key={c} style={s.regionItem} onPress={() => { LayoutAnimation.easeInEaseOut(); setRegion(c); setOpenList(false); }}>
+              <MapPin size={13} color={C.blue} /><T w="med" s={13} c={C.ink}>{c}</T>
+            </PressableScale>
+          ))}
         </View>
       )}
       {!region ? (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12 }}>
+        <View style={{ alignItems: 'center', gap: 12, paddingVertical: 28 }}>
           <View style={s.globe}><Globe size={34} color={C.blue} /></View>
           <T w="med" s={13} c={C.muted} style={{ textAlign: 'center', maxWidth: 220, lineHeight: 20 }}>{E.exploreHint}</T>
         </View>
       ) : (
-        <ScrollView nestedScrollEnabled style={{ marginTop: 14 }} contentContainerStyle={{ gap: 10, paddingBottom: 8 }}>
+        <View style={{ marginTop: 14, gap: 10 }}>
           {matches.map((e) => (
             <PressableScale key={e.id} style={s.regionEvt} onPress={() => open(e.ctaUrl)}>
               <Image source={{ uri: e.image }} style={s.regionThumb} />
@@ -100,8 +100,8 @@ function RegionPage({ events, E }) {
               </View>
             </PressableScale>
           ))}
-          {!matches.length && <T w="med" s={13} c={C.muted} style={{ textAlign: 'center', marginTop: 20 }}>No events in {region} yet.</T>}
-        </ScrollView>
+          {!matches.length && <T w="med" s={13} c={C.muted} style={{ textAlign: 'center', marginTop: 12 }}>No events in {region} yet.</T>}
+        </View>
       )}
     </View>
   );
@@ -110,24 +110,21 @@ function RegionPage({ events, E }) {
 /* 3 ── What's in store — inner image slider ──────────────────────────────── */
 function StorePage({ slides, E }) {
   const [i, setI] = useState(0);
-  const W = PAGE - 36;
   return (
-    <View style={[s.card, s.pad, { height: H, backgroundColor: '#fff', borderWidth: 1, borderColor: C.border }]}>
-      <T w="xbold" s={19} c={C.ink} style={{ textAlign: 'center', marginTop: 4 }}>{E.storeTitle}</T>
+    <View style={[s.card, s.pad, s.light]}>
+      <T w="xbold" s={19} c={C.ink} style={{ textAlign: 'center' }}>{E.storeTitle}</T>
       <T w="med" s={12.5} c={C.muted} style={{ textAlign: 'center', marginTop: 8, lineHeight: 19 }}>{E.storeBody}</T>
       <ScrollView horizontal pagingEnabled showsHorizontalScrollIndicator={false} style={{ marginTop: 16 }}
-        onMomentumScrollEnd={(e) => setI(Math.round(e.nativeEvent.contentOffset.x / W))}>
+        onMomentumScrollEnd={(e) => setI(Math.round(e.nativeEvent.contentOffset.x / STORE_W))}>
         {slides.map((sl) => (
-          <View key={sl.id} style={{ width: W }}>
+          <View key={sl.id} style={{ width: STORE_W }}>
             <Image source={{ uri: sl.image }} style={s.storeImg} />
             <T w="xbold" s={13} c={C.ink} style={{ letterSpacing: 1, textAlign: 'center', marginTop: 12 }}>{sl.label}</T>
             <T w="med" s={12.5} c={C.muted} style={{ textAlign: 'center', marginTop: 6, lineHeight: 19, paddingHorizontal: 8 }}>{sl.body}</T>
           </View>
         ))}
       </ScrollView>
-      <View style={s.dots}>
-        {slides.map((_, k) => <View key={k} style={[s.dot, k === i && s.dotOn]} />)}
-      </View>
+      <View style={s.dots}>{slides.map((_, k) => <View key={k} style={[s.dot, k === i && s.dotOn]} />)}</View>
     </View>
   );
 }
@@ -135,10 +132,10 @@ function StorePage({ slides, E }) {
 /* 4 ── AILERNOVA Skills You'll Discover ───────────────────────────────────── */
 function SkillsPage({ skills, E }) {
   return (
-    <View style={[s.card, s.pad, { height: H, backgroundColor: '#fff', borderWidth: 1, borderColor: C.border }]}>
-      <T w="xbold" s={19} c={C.ink} style={{ marginTop: 4 }}>{E.skillsTitle}</T>
+    <View style={[s.card, s.pad, s.light]}>
+      <T w="xbold" s={19} c={C.ink}>{E.skillsTitle}</T>
       <T w="med" s={12} c={C.muted} style={{ marginTop: 6, lineHeight: 18 }}>{E.skillsIntro}</T>
-      <ScrollView nestedScrollEnabled style={{ marginTop: 12 }} contentContainerStyle={{ gap: 10, paddingBottom: 8 }} showsVerticalScrollIndicator={false}>
+      <View style={{ marginTop: 12, gap: 10 }}>
         {skills.map((sk) => (
           <View key={sk.id} style={s.skillRow}>
             <View style={{ flex: 1 }}>
@@ -148,7 +145,7 @@ function SkillsPage({ skills, E }) {
             <View style={[s.skillIcon, { backgroundColor: sk.color || C.blueSoft }]}><T s={22}>{sk.emoji || '✦'}</T></View>
           </View>
         ))}
-      </ScrollView>
+      </View>
     </View>
   );
 }
@@ -160,14 +157,13 @@ function ParticipantsPage({ gallery, E }) {
       {arr.map((g, i) => <Image key={g.id} source={{ uri: g.image }} style={[s.gPhoto, { height: i % 2 ? 150 : 110 }]} />)}
     </View>
   );
-  const a = gallery.filter((_, i) => i % 2 === 0);
-  const b = gallery.filter((_, i) => i % 2 === 1);
   return (
-    <View style={[s.card, s.pad, { height: H, backgroundColor: '#fff', borderWidth: 1, borderColor: C.border }]}>
-      <T w="xbold" s={19} c={C.ink} style={{ textAlign: 'center', marginTop: 4, marginBottom: 12 }}>{E.participantsTitle}</T>
-      <ScrollView nestedScrollEnabled showsVerticalScrollIndicator={false}>
-        <View style={{ flexDirection: 'row', gap: 8 }}>{col(a)}{col(b)}</View>
-      </ScrollView>
+    <View style={[s.card, s.pad, s.light]}>
+      <T w="xbold" s={19} c={C.ink} style={{ textAlign: 'center', marginBottom: 12 }}>{E.participantsTitle}</T>
+      <View style={{ flexDirection: 'row', gap: 8 }}>
+        {col(gallery.filter((_, i) => i % 2 === 0))}
+        {col(gallery.filter((_, i) => i % 2 === 1))}
+      </View>
     </View>
   );
 }
@@ -177,7 +173,7 @@ function CommunityPage({ gallery, E }) {
   const cm = E.community;
   const strip = gallery.slice(0, 3);
   return (
-    <View style={[s.card, { height: H, backgroundColor: '#14151B', overflow: 'hidden' }]}>
+    <View style={[s.card, { backgroundColor: '#14151B', overflow: 'hidden' }]}>
       <View style={{ padding: 22 }}>
         <T w="xbold" s={22} c="#fff" style={{ lineHeight: 28 }}>{cm.title}</T>
         <T w="med" s={13} c="rgba(255,255,255,0.7)" style={{ marginTop: 10, lineHeight: 19 }}>{cm.body}</T>
@@ -188,9 +184,11 @@ function CommunityPage({ gallery, E }) {
           <Video size={18} color="#fff" /><T w="bold" s={14} c="#fff">Subscribe on YouTube</T>
         </PressableScale>
       </View>
-      <View style={{ flexDirection: 'row', gap: 4, marginTop: 'auto' }}>
-        {strip.map((g) => <Image key={g.id} source={{ uri: g.image }} style={{ flex: 1, height: 150 }} />)}
-      </View>
+      {!!strip.length && (
+        <View style={{ flexDirection: 'row', gap: 4 }}>
+          {strip.map((g) => <Image key={g.id} source={{ uri: g.image }} style={{ flex: 1, height: 140 }} />)}
+        </View>
+      )}
     </View>
   );
 }
@@ -199,82 +197,65 @@ function CommunityPage({ gallery, E }) {
 function BecomePage({ E }) {
   const bc = E.become;
   const ft = E.footer;
-  const [open_, setOpen] = useState(-1);
-  const toggle = (i) => { LayoutAnimation.easeInEaseOut(); setOpen((o) => (o === i ? -1 : i)); };
+  const [openIdx, setOpenIdx] = useState(-1);
+  const toggle = (i) => { LayoutAnimation.easeInEaseOut(); setOpenIdx((o) => (o === i ? -1 : i)); };
   return (
-    <View style={[s.card, { height: H, backgroundColor: '#fff', borderWidth: 1, borderColor: C.border, overflow: 'hidden' }]}>
-      <ScrollView nestedScrollEnabled showsVerticalScrollIndicator={false}>
-        <View style={{ backgroundColor: '#14151B', padding: 20 }}>
-          <T w="xbold" s={13} c="#fff" style={{ letterSpacing: 0.6 }}>{bc.title}</T>
-          <T w="med" s={12.5} c="rgba(255,255,255,0.72)" style={{ marginTop: 6, lineHeight: 18 }}>{bc.body}</T>
-          <PressableScale style={s.appBtn} onPress={() => open(bc.appUrl)}>
-            <Smartphone size={16} color="#fff" /><T w="bold" s={13.5} c="#fff">{bc.appCta}</T>
-          </PressableScale>
-          <View style={s.catRow}>
-            {bc.categories.map((c) => (
-              <View key={c.label} style={{ alignItems: 'center', gap: 7, flex: 1 }}>
-                <View style={s.catCircle}><T s={22} c="#fff">{c.emoji}</T></View>
-                <T w="bold" s={9.5} c="rgba(255,255,255,0.8)" style={{ textAlign: 'center', letterSpacing: 0.3 }}>{c.label}</T>
-              </View>
-            ))}
-          </View>
-        </View>
-        <View style={{ padding: 18 }}>
-          {ft.links.map((l, i) => (
-            <View key={l.q} style={s.accItem}>
-              <PressableScale style={s.accHead} onPress={() => toggle(i)}>
-                <T w="bold" s={13} c={C.ink} style={{ flex: 1, letterSpacing: 0.3 }}>{l.q.toUpperCase()}</T>
-                {open_ === i ? <Minus size={17} color={C.muted} /> : <Plus size={17} color={C.muted} />}
-              </PressableScale>
-              {open_ === i && <T w="med" s={12.5} c={C.muted} style={{ lineHeight: 19, paddingBottom: 12 }}>{l.a}</T>}
+    <View style={[s.card, s.light, { overflow: 'hidden' }]}>
+      <View style={{ backgroundColor: '#14151B', padding: 20 }}>
+        <T w="xbold" s={13} c="#fff" style={{ letterSpacing: 0.6 }}>{bc.title}</T>
+        <T w="med" s={12.5} c="rgba(255,255,255,0.72)" style={{ marginTop: 6, lineHeight: 18 }}>{bc.body}</T>
+        <PressableScale style={s.appBtn} onPress={() => open(bc.appUrl)}>
+          <Smartphone size={16} color="#fff" /><T w="bold" s={13.5} c="#fff">{bc.appCta}</T>
+        </PressableScale>
+        <View style={s.catRow}>
+          {bc.categories.map((c) => (
+            <View key={c.label} style={{ alignItems: 'center', gap: 7, flex: 1 }}>
+              <View style={s.catCircle}><T s={22} c="#fff">{c.emoji}</T></View>
+              <T w="bold" s={9.5} c="rgba(255,255,255,0.8)" style={{ textAlign: 'center', letterSpacing: 0.3 }}>{c.label}</T>
             </View>
           ))}
-          <View style={s.offices}>
-            {ft.offices.map((o) => (
-              <View key={o.label} style={{ flex: 1 }}>
-                <T w="bold" s={11} c={C.ink} style={{ letterSpacing: 0.5 }}>{o.label}</T>
-                <T w="med" s={11.5} c={C.muted} style={{ marginTop: 6, lineHeight: 17 }}>{o.lines}</T>
-              </View>
-            ))}
-          </View>
         </View>
-      </ScrollView>
-    </View>
-  );
-}
-
-/* ── Carousel shell ───────────────────────────────────────────────────────── */
-export default function EventsCarousel({ events = [], store = [], skills = [], gallery = [] }) {
-  const E = CONTENT.event;
-  const [idx, setIdx] = useState(0);
-  const ref = useRef(null);
-
-  const pages = [];
-  if (events.length) pages.push(<EventPage ev={events[0]} E={E} />);
-  pages.push(<RegionPage events={events} E={E} />);
-  if (store.length) pages.push(<StorePage slides={store} E={E} />);
-  if (skills.length) pages.push(<SkillsPage skills={skills} E={E} />);
-  if (gallery.length) pages.push(<ParticipantsPage gallery={gallery} E={E} />);
-  pages.push(<CommunityPage gallery={gallery} E={E} />);
-  pages.push(<BecomePage E={E} />);
-
-  return (
-    <View>
-      <ScrollView
-        ref={ref} horizontal showsHorizontalScrollIndicator={false}
-        snapToInterval={PAGE + GAP} decelerationRate="fast" disableIntervalMomentum
-        onMomentumScrollEnd={(e) => setIdx(Math.round(e.nativeEvent.contentOffset.x / (PAGE + GAP)))}
-        style={{ marginHorizontal: -18 }} contentContainerStyle={{ paddingHorizontal: 18, paddingVertical: 4 }}>
-        {pages.map((p, i) => (
-          <View key={i} style={{ width: PAGE, marginRight: i < pages.length - 1 ? GAP : 0 }}>{p}</View>
+      </View>
+      <View style={{ padding: 18 }}>
+        {ft.links.map((l, i) => (
+          <View key={l.q} style={s.accItem}>
+            <PressableScale style={s.accHead} onPress={() => toggle(i)}>
+              <T w="bold" s={13} c={C.ink} style={{ flex: 1, letterSpacing: 0.3 }}>{l.q.toUpperCase()}</T>
+              {openIdx === i ? <Minus size={17} color={C.muted} /> : <Plus size={17} color={C.muted} />}
+            </PressableScale>
+            {openIdx === i && <T w="med" s={12.5} c={C.muted} style={{ lineHeight: 19, paddingBottom: 12 }}>{l.a}</T>}
+          </View>
         ))}
-      </ScrollView>
-      <T w="semi" s={12.5} c={C.faint} style={{ textAlign: 'center', marginTop: 12 }}>{idx + 1} of {pages.length}</T>
+        <View style={s.offices}>
+          {ft.offices.map((o) => (
+            <View key={o.label} style={{ flex: 1 }}>
+              <T w="bold" s={11} c={C.ink} style={{ letterSpacing: 0.5 }}>{o.label}</T>
+              <T w="med" s={11.5} c={C.muted} style={{ marginTop: 6, lineHeight: 17 }}>{o.lines}</T>
+            </View>
+          ))}
+        </View>
+      </View>
     </View>
   );
 }
 
-/* ── Home teaser: a single image event card that opens the full carousel ────── */
+/* ── All sections stacked vertically (default export) ─────────────────────── */
+export default function EventsStack({ events = [], store = [], skills = [], gallery = [] }) {
+  const E = CONTENT.event;
+  return (
+    <View style={{ gap: 14 }}>
+      {!!events.length && <EventPage ev={events[0]} E={E} />}
+      <RegionPage events={events} E={E} />
+      {!!store.length && <StorePage slides={store} E={E} />}
+      {!!skills.length && <SkillsPage skills={skills} E={E} />}
+      {!!gallery.length && <ParticipantsPage gallery={gallery} E={E} />}
+      <CommunityPage gallery={gallery} E={E} />
+      <BecomePage E={E} />
+    </View>
+  );
+}
+
+/* ── Home teaser: a single image event card that opens the full page ───────── */
 export function EventTeaser({ event, onOpen }) {
   const E = CONTENT.event;
   const ev = event || {};
@@ -296,7 +277,7 @@ export function EventTeaser({ event, onOpen }) {
   );
 }
 
-/* ── Full-screen modal wrapping the whole multi-section carousel ───────────── */
+/* ── Full-screen modal — the whole stacked page ───────────────────────────── */
 export function EventsModal({ visible, onClose, events, store, skills, gallery }) {
   return (
     <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
@@ -305,8 +286,8 @@ export function EventsModal({ visible, onClose, events, store, skills, gallery }
           <PressableScale onPress={onClose} style={s.mBack}><T s={26} c={C.ink}>‹</T></PressableScale>
           <T w="bold" s={16} c={C.ink}>Events</T><View style={{ width: 40 }} />
         </View>
-        <ScrollView contentContainerStyle={{ paddingHorizontal: 18, paddingTop: 8, paddingBottom: 28 }} showsVerticalScrollIndicator={false}>
-          <EventsCarousel events={events} store={store} skills={skills} gallery={gallery} />
+        <ScrollView contentContainerStyle={{ paddingHorizontal: 18, paddingTop: 8, paddingBottom: 32 }} showsVerticalScrollIndicator={false}>
+          <EventsStack events={events} store={store} skills={skills} gallery={gallery} />
         </ScrollView>
       </SafeAreaView>
     </Modal>
@@ -315,12 +296,8 @@ export function EventsModal({ visible, onClose, events, store, skills, gallery }
 
 const s = StyleSheet.create({
   card: { borderRadius: 20, overflow: 'hidden', shadowColor: '#141420', shadowOpacity: 0.06, shadowRadius: 10, shadowOffset: { width: 0, height: 2 }, elevation: 2 },
-  teaser: { height: 330, padding: 18, justifyContent: 'space-between' },
-  teaserBtn: { backgroundColor: '#fff', borderRadius: 12, paddingVertical: 13, alignItems: 'center', alignSelf: 'stretch' },
-  mHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 12, paddingVertical: 8 },
-  mBack: { width: 40, height: 40, alignItems: 'center', justifyContent: 'center' },
+  light: { backgroundColor: '#fff', borderWidth: 1, borderColor: C.border },
   pad: { padding: 18 },
-  hero: { flex: 1, padding: 16 },
   scrim: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(12,12,18,0.42)' },
   badge: { alignSelf: 'center', backgroundColor: '#fff', borderRadius: 20, paddingHorizontal: 14, paddingVertical: 7 },
   cta: { backgroundColor: C.gold, borderRadius: 12, paddingVertical: 13, alignItems: 'center', marginTop: 16 },
@@ -355,4 +332,9 @@ const s = StyleSheet.create({
   accItem: { borderBottomWidth: 1, borderBottomColor: C.border },
   accHead: { flexDirection: 'row', alignItems: 'center', paddingVertical: 14 },
   offices: { flexDirection: 'row', gap: 16, marginTop: 20 },
+
+  teaser: { height: 330, padding: 18, justifyContent: 'space-between' },
+  teaserBtn: { backgroundColor: '#fff', borderRadius: 12, paddingVertical: 13, alignItems: 'center', alignSelf: 'stretch' },
+  mHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 12, paddingVertical: 8 },
+  mBack: { width: 40, height: 40, alignItems: 'center', justifyContent: 'center' },
 });
