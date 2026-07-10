@@ -6,7 +6,7 @@
 //   participants grid · community · become-AILERNOVA + footer.
 // List data (events/store/skills/gallery) is DB-driven via the report; marketing copy
 // lives in CONTENT.event (constants.js). Rebranded AILERNOVA.
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   View, ScrollView, Image, ImageBackground, Dimensions, StyleSheet,
   Linking, LayoutAnimation, Platform, UIManager, Modal, SafeAreaView,
@@ -27,7 +27,7 @@ const Stars = ({ n = 5, size = 12 }) => (
 );
 
 /* 1 ── Featured event ─────────────────────────────────────────────────────── */
-function EventPage({ ev, E }) {
+function EventPage({ ev, E, onRegister }) {
   return (
     <View style={[s.card, { backgroundColor: '#14151B' }]}>
       <ImageBackground source={{ uri: ev.image }} style={{ height: 320 }} imageStyle={{ resizeMode: 'cover' }}>
@@ -38,7 +38,7 @@ function EventPage({ ev, E }) {
             <T w="semi" s={12.5} c="rgba(255,255,255,0.9)">{ev.duration}</T>
             <T w="xbold" s={22} c="#fff" style={{ lineHeight: 27, marginTop: 2 }}>{ev.title}</T>
             <T w="med" s={12.5} c="rgba(255,255,255,0.85)" style={{ marginTop: 4 }}>{ev.grades}{ev.city ? `  ·  ${ev.city}` : ''}</T>
-            <PressableScale style={s.cta} onPress={() => open(ev.ctaUrl)}><T w="bold" s={14.5} c={C.ink}>{ev.ctaLabel || E.cta}</T></PressableScale>
+            <PressableScale style={s.cta} onPress={onRegister || (() => open(ev.ctaUrl))}><T w="bold" s={14.5} c={C.ink}>{ev.ctaLabel || E.cta}</T></PressableScale>
             <PressableScale style={s.learn} onPress={() => open(ev.learnUrl)}>
               <View style={s.learnDot}><Play size={9} color="#fff" fill="#fff" /></View>
               <T w="semi" s={12} c="rgba(255,255,255,0.92)">{ev.learnLabel || E.learn}</T>
@@ -248,18 +248,25 @@ function BecomePage({ E }) {
 /* ── All sections stacked vertically (default export) ─────────────────────── */
 export default function EventsStack({ events = [], store = [], skills = [], gallery = [] }) {
   const E = CONTENT.event;
+  const scrollRef = useRef(null);
+  const regionY = useRef(0);
+  // The event card's "Register Now" (the SECOND one, inside the page) scrolls down to
+  // the region selector so the parent can pick a location for that event.
+  const toRegion = () => { const r = scrollRef.current; if (r) r.scrollTo({ y: Math.max(0, regionY.current), animated: true }); };
   return (
-    <View style={{ gap: 14 }}>
-      {/* Register Now lands here: the region selector (default "Select Region" state)
-          shows first, exactly like the reference. The featured event + the rest follow. */}
-      <RegionPage events={events} E={E} />
-      {!!events.length && <EventPage ev={events[0]} E={E} />}
-      {!!store.length && <StorePage slides={store} E={E} />}
-      {!!skills.length && <SkillsPage skills={skills} E={E} />}
-      {!!gallery.length && <ParticipantsPage gallery={gallery} E={E} />}
-      <CommunityPage gallery={gallery} E={E} />
-      <BecomePage E={E} />
-    </View>
+    <ScrollView ref={scrollRef} contentContainerStyle={{ paddingHorizontal: 18, paddingTop: 8, paddingBottom: 32 }} showsVerticalScrollIndicator={false}>
+      <View style={{ gap: 14 }}>
+        {!!events.length && <EventPage ev={events[0]} E={E} onRegister={toRegion} />}
+        <View onLayout={(e) => { regionY.current = e.nativeEvent.layout.y + 8; }}>
+          <RegionPage events={events} E={E} />
+        </View>
+        {!!store.length && <StorePage slides={store} E={E} />}
+        {!!skills.length && <SkillsPage skills={skills} E={E} />}
+        {!!gallery.length && <ParticipantsPage gallery={gallery} E={E} />}
+        <CommunityPage gallery={gallery} E={E} />
+        <BecomePage E={E} />
+      </View>
+    </ScrollView>
   );
 }
 
@@ -294,9 +301,7 @@ export function EventsModal({ visible, onClose, events, store, skills, gallery }
           <PressableScale onPress={onClose} style={s.mBack}><T s={26} c={C.ink}>‹</T></PressableScale>
           <T w="bold" s={16} c={C.ink}>Events</T><View style={{ width: 40 }} />
         </View>
-        <ScrollView contentContainerStyle={{ paddingHorizontal: 18, paddingTop: 8, paddingBottom: 32 }} showsVerticalScrollIndicator={false}>
-          <EventsStack events={events} store={store} skills={skills} gallery={gallery} />
-        </ScrollView>
+        <EventsStack events={events} store={store} skills={skills} gallery={gallery} />
       </SafeAreaView>
     </Modal>
   );
