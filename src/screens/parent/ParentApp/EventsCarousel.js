@@ -9,7 +9,7 @@
 import React, { useState, useRef } from 'react';
 import {
   View, ScrollView, Image, ImageBackground, Dimensions, StyleSheet,
-  Linking, LayoutAnimation, Platform, UIManager, Modal, SafeAreaView,
+  Linking, LayoutAnimation, Platform, UIManager, Modal, SafeAreaView, Animated, ActivityIndicator,
 } from 'react-native';
 import { Star, Camera, Video, Plus, Minus, Play, Globe, MapPin, Smartphone, Calendar, Clock, Ticket, ExternalLink } from 'lucide-react-native';
 import { C, T, CONTENT } from './constants';
@@ -25,6 +25,24 @@ const open = (u) => { if (u) Linking.openURL(u).catch(() => {}); };
 const Stars = ({ n = 5, size = 12 }) => (
   <View style={{ flexDirection: 'row', gap: 2 }}>{Array.from({ length: n }).map((_, i) => <Star key={i} size={size} color="#00B67A" fill="#00B67A" />)}</View>
 );
+const spring = () => LayoutAnimation.configureNext(LayoutAnimation.create(260, LayoutAnimation.Types.easeInEaseOut, LayoutAnimation.Properties.opacity));
+
+// Network image that fades in on load (over a soft placeholder) — no jarring pop-in.
+function FadeImage({ source, style, radius = 0 }) {
+  const o = useRef(new Animated.Value(0)).current;
+  const [loading, setLoading] = useState(true);
+  return (
+    <View style={[style, { backgroundColor: C.border, borderRadius: radius, overflow: 'hidden' }]}>
+      {loading && <View style={[StyleSheet.absoluteFill, { alignItems: 'center', justifyContent: 'center' }]}><ActivityIndicator size="small" color={C.faint} /></View>}
+      <Animated.Image
+        source={source}
+        style={[StyleSheet.absoluteFill, { opacity: o }]}
+        resizeMode="cover"
+        onLoad={() => { setLoading(false); Animated.timing(o, { toValue: 1, duration: 280, useNativeDriver: true }).start(); }}
+      />
+    </View>
+  );
+}
 
 /* 1 ── Featured event ─────────────────────────────────────────────────────── */
 function EventPage({ ev, E, onRegister }) {
@@ -70,7 +88,7 @@ function RegionPage({ events, E }) {
   return (
     <View style={[s.card, s.pad, s.light]}>
       <T w="xbold" s={19} c={C.ink} style={{ textAlign: 'center', marginTop: 2 }}>{E.exploreTitle}</T>
-      <PressableScale style={s.regionPill} onPress={() => { LayoutAnimation.easeInEaseOut(); setOpenList((o) => !o); }}>
+      <PressableScale style={s.regionPill} onPress={() => { spring(); setOpenList((o) => !o); }}>
         <Globe size={15} color={C.ink} />
         <T w="semi" s={13} c={C.ink} style={{ flex: 1, textAlign: 'center' }}>{region || E.regionCta}</T>
         <T w="bold" s={12} c={C.muted}>{openList ? '▲' : '▼'}</T>
@@ -78,7 +96,7 @@ function RegionPage({ events, E }) {
       {openList && (
         <View style={s.regionList}>
           {E.regions.map((c) => (
-            <PressableScale key={c} style={s.regionItem} onPress={() => { LayoutAnimation.easeInEaseOut(); setRegion(c); setOpenList(false); }}>
+            <PressableScale key={c} style={s.regionItem} onPress={() => { spring(); setRegion(c); setOpenList(false); }}>
               <MapPin size={13} color={C.blue} /><T w="med" s={13} c={C.ink}>{c}</T>
             </PressableScale>
           ))}
@@ -124,7 +142,7 @@ function StorePage({ slides, E }) {
         onMomentumScrollEnd={(e) => setI(Math.round(e.nativeEvent.contentOffset.x / STORE_W))}>
         {slides.map((sl) => (
           <View key={sl.id} style={{ width: STORE_W }}>
-            <Image source={{ uri: sl.image }} style={s.storeImg} />
+            <FadeImage source={{ uri: sl.image }} style={s.storeImg} radius={14} />
             <T w="xbold" s={13} c={C.ink} style={{ letterSpacing: 1, textAlign: 'center', marginTop: 12 }}>{sl.label}</T>
             <T w="med" s={12.5} c={C.muted} style={{ textAlign: 'center', marginTop: 6, lineHeight: 19, paddingHorizontal: 8 }}>{sl.body}</T>
           </View>
@@ -160,7 +178,7 @@ function SkillsPage({ skills, E }) {
 function ParticipantsPage({ gallery, E }) {
   const col = (arr) => (
     <View style={{ flex: 1, gap: 8 }}>
-      {arr.map((g, i) => <Image key={g.id} source={{ uri: g.image }} style={[s.gPhoto, { height: i % 2 ? 150 : 110 }]} />)}
+      {arr.map((g, i) => <FadeImage key={g.id} source={{ uri: g.image }} style={[s.gPhoto, { height: i % 2 ? 150 : 110 }]} radius={12} />)}
     </View>
   );
   return (
@@ -192,7 +210,7 @@ function CommunityPage({ gallery, E }) {
       </View>
       {!!strip.length && (
         <View style={{ flexDirection: 'row', gap: 4 }}>
-          {strip.map((g) => <Image key={g.id} source={{ uri: g.image }} style={{ flex: 1, height: 140 }} />)}
+          {strip.map((g) => <FadeImage key={g.id} source={{ uri: g.image }} style={{ flex: 1, height: 140 }} />)}
         </View>
       )}
     </View>
@@ -204,7 +222,7 @@ function BecomePage({ E }) {
   const bc = E.become;
   const ft = E.footer;
   const [openIdx, setOpenIdx] = useState(-1);
-  const toggle = (i) => { LayoutAnimation.easeInEaseOut(); setOpenIdx((o) => (o === i ? -1 : i)); };
+  const toggle = (i) => { spring(); setOpenIdx((o) => (o === i ? -1 : i)); };
   return (
     <View style={[s.card, s.light, { overflow: 'hidden' }]}>
       <View style={{ backgroundColor: '#14151B', padding: 20 }}>
@@ -254,7 +272,7 @@ export default function EventsStack({ events = [], store = [], skills = [], gall
   // the region selector so the parent can pick a location for that event.
   const toRegion = () => { const r = scrollRef.current; if (r) r.scrollTo({ y: Math.max(0, regionY.current), animated: true }); };
   return (
-    <ScrollView ref={scrollRef} contentContainerStyle={{ paddingHorizontal: 18, paddingTop: 8, paddingBottom: 32 }} showsVerticalScrollIndicator={false}>
+    <ScrollView ref={scrollRef} scrollEventThrottle={16} contentContainerStyle={{ paddingHorizontal: 18, paddingTop: 8, paddingBottom: 32 }} showsVerticalScrollIndicator={false}>
       <View style={{ gap: 14 }}>
         {!!events.length && <EventPage ev={events[0]} E={E} onRegister={toRegion} />}
         <View onLayout={(e) => { regionY.current = e.nativeEvent.layout.y + 8; }}>
