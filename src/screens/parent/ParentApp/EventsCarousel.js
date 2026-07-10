@@ -250,8 +250,10 @@ export default function EventsStack({ events = [], store = [], skills = [], gall
   const E = CONTENT.event;
   return (
     <View style={{ gap: 14 }}>
-      {!!events.length && <EventPage ev={events[0]} E={E} />}
+      {/* Register Now lands here: the region selector (default "Select Region" state)
+          shows first, exactly like the reference. The featured event + the rest follow. */}
       <RegionPage events={events} E={E} />
+      {!!events.length && <EventPage ev={events[0]} E={E} />}
       {!!store.length && <StorePage slides={store} E={E} />}
       {!!skills.length && <SkillsPage skills={skills} E={E} />}
       {!!gallery.length && <ParticipantsPage gallery={gallery} E={E} />}
