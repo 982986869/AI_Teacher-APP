@@ -31,6 +31,7 @@ import ProfileSheet from './ProfileSheet';
 import BrainGymFlow from '../../braingym/BrainGymFlow';
 import ActivityRouter from './ActivityRouter';
 import BookDemo from './BookDemo';
+import { updateDemoInCalendar, removeDemoFromCalendar } from './calendar';
 import { FadeIn } from './anim';
 
 export default function ParentApp() {
@@ -83,20 +84,35 @@ export default function ParentApp() {
   }, [flash]);
   useEffect(() => { load(false); }, [load]);
 
-  // ── Free demo booking — UI PHASE: in-memory MOCK state only ──────────────────
-  // No persistence, calendar or backend yet (arrives next phase). The booking lives
-  // in component state so the premium flow + dashboard card are fully interactive
-  // for review. handleBooked simply lifts the finished mock booking to the dashboard.
-  const handleBooked = useCallback((b) => { if (mounted.current) setBooking(b); }, []);
+  // ── Free demo booking ────────────────────────────────────────────────────────
+  // Booking lives in component state (persistence/backend arrive later). Calendar is
+  // REAL: a reschedule of a calendar-synced demo updates the SAME event; cancel deletes
+  // it. handleBooked receives the finished booking from the flow and lifts it here.
+  const handleBooked = useCallback(async (b) => {
+    let next = b;
+    if (b && b.calendarEventId) {
+      const res = await updateDemoInCalendar(b.calendarEventId, b);
+      if (res && res.ok && res.eventId) next = { ...b, calendarEventId: res.eventId };
+    }
+    if (mounted.current) setBooking(next);
+  }, []);
   const handleRescheduleDemo = useCallback(() => { setRescheduleMode(true); setTrialOpen(true); }, []);
   const handleJoinDemo = useCallback(() => flash('Your join link will be shared before the class'), [flash]);
-  const handleCancelDemo = useCallback(() => {
+  const handleCancelDemo = useCallback((b) => {
     Alert.alert(
       'Cancel demo class?',
       'This frees up your slot. You can book another free demo anytime.',
       [
         { text: 'Keep it', style: 'cancel' },
-        { text: 'Cancel demo', style: 'destructive', onPress: () => { if (mounted.current) setBooking(null); flash('Demo cancelled'); } },
+        {
+          text: 'Cancel demo',
+          style: 'destructive',
+          onPress: async () => {
+            if (b && b.calendarEventId) await removeDemoFromCalendar(b.calendarEventId);
+            if (mounted.current) setBooking(null);
+            flash('Demo cancelled');
+          },
+        },
       ],
     );
   }, [flash]);
@@ -177,7 +193,7 @@ export default function ParentApp() {
         <BrainGymFlow onFinish={() => setGymOpen(false)} />
       </Modal>
       <ActivityRouter visible={activityOpen} onClose={() => setActivityOpen(false)} childName={childName} items={report?.recentActivity} />
-      {/* "Book a FREE demo" → premium in-app flow (UI phase — mock state, no backend). */}
+      {/* "Book a FREE demo" → premium in-app flow (real calendar sync; booking held in state). */}
       <BookDemo
         visible={trialOpen}
         mode={rescheduleMode ? 'reschedule' : 'new'}

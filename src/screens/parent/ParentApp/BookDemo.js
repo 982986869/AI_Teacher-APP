@@ -4,13 +4,13 @@
 //   intro → details → schedule (date + time) → scheduling… → success
 // Reuses the parent design system (C · F · T · PressableScale · FadeIn) + the shared
 // demoConfig helpers, so the flow and the dashboard card stay perfectly in sync.
-// UI PHASE: the whole flow runs on in-memory MOCK state. onBooked lifts the finished
-// booking to the dashboard; "Add to Calendar" is a visual mock. Real device-calendar
-// sync, persistence and backend land in the next phase (props stay ready for them).
+// Booking runs on in-memory state (onBooked lifts the finished booking to the
+// dashboard); persistence/backend land later. "Add to Calendar" is REAL — it writes a
+// device-calendar event via ./calendar and stores the returned id on the booking.
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   View, ScrollView, TextInput, Modal, Pressable, StyleSheet, Platform,
-  ActivityIndicator, KeyboardAvoidingView, Animated, Easing,
+  ActivityIndicator, KeyboardAvoidingView, Animated, Easing, Alert, Linking,
 } from 'react-native';
 import {
   ArrowLeft, ChevronDown, ChevronRight, Check, Clock, Video, ShieldCheck,
@@ -24,6 +24,7 @@ import {
   CLASSES, BOARDS, SUBJECTS, GOALS, DEMO_DURATION_MIN,
   buildDays, buildSlots, PERIODS, fmtDateLong, fmtTime,
 } from './demoConfig';
+import { addDemoToCalendar } from './calendar';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -225,19 +226,33 @@ export default function BookDemo({
     return () => clearTimeout(t);
   }, [step, confirmed]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // UI-phase MOCK: fake a brief calendar sync, then flip to the "added" state and
-  // tell the dashboard so its "Calendar synced" badge lights up. (Real device
-  // calendar integration replaces the setTimeout next phase.)
-  const addToCalendar = () => {
-    if (!confirmed || addingCal) return;
+  // Real device-calendar sync. Guarded so multiple taps can't create duplicate events
+  // (button is also disabled + hidden once synced). Stores the returned event id on the
+  // booking and lifts it to the dashboard. Permission / failure handled gracefully.
+  const addToCalendar = async () => {
+    if (!confirmed || confirmed.calendarEventId || addingCal) return;
     setAddingCal(true);
-    setTimeout(() => {
+    try {
+      const res = await addDemoToCalendar(confirmed);
       if (!mountedRef.current) return;
-      const synced = { ...confirmed, calendarEventId: 'mock-synced' };
-      setConfirmed(synced);
-      setAddingCal(false);
-      onBooked && onBooked(synced);
-    }, 1100);
+      if (res.ok) {
+        const synced = { ...confirmed, calendarEventId: res.eventId };
+        setConfirmed(synced);
+        onBooked && onBooked(synced);
+      } else if (res.reason === 'denied') {
+        Alert.alert(
+          'Calendar access needed',
+          'Allow calendar access so we can add your demo and remind you 30 minutes before it starts.',
+          [{ text: 'Not now', style: 'cancel' }, { text: 'Open Settings', onPress: () => Linking.openSettings() }],
+        );
+      } else {
+        Alert.alert('Couldn’t add to calendar', 'We couldn’t reach a calendar on this device. Your demo is still booked.');
+      }
+    } catch (_) {
+      if (mountedRef.current) Alert.alert('Couldn’t add to calendar', 'Something went wrong. Your demo is still booked.');
+    } finally {
+      if (mountedRef.current) setAddingCal(false);
+    }
   };
 
   const back = () => {
