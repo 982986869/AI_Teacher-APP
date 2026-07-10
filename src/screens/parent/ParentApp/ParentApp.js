@@ -30,8 +30,8 @@ import BottomNav from './BottomNav';
 import ProfileSheet from './ProfileSheet';
 import BrainGymFlow from '../../braingym/BrainGymFlow';
 import ActivityRouter from './ActivityRouter';
-import BookDemo from './BookDemo';
-import { updateDemoInCalendar, removeDemoFromCalendar } from './calendar';
+import BookTrial from './BookTrial';
+import { removeDemoFromCalendar } from './calendar';
 import { FadeIn } from './anim';
 
 export default function ParentApp() {
@@ -84,18 +84,11 @@ export default function ParentApp() {
   }, [flash]);
   useEffect(() => { load(false); }, [load]);
 
-  // ── Free demo booking ────────────────────────────────────────────────────────
-  // Booking lives in component state (persistence/backend arrive later). Calendar is
-  // REAL: a reschedule of a calendar-synced demo updates the SAME event; cancel deletes
-  // it. handleBooked receives the finished booking from the flow and lifts it here.
-  const handleBooked = useCallback(async (b) => {
-    let next = b;
-    if (b && b.calendarEventId) {
-      const res = await updateDemoInCalendar(b.calendarEventId, b);
-      if (res && res.ok && res.eventId) next = { ...b, calendarEventId: res.eventId };
-    }
-    if (mounted.current) setBooking(next);
-  }, []);
+  // ── Free trial/demo booking ──────────────────────────────────────────────────
+  // Booking lives in component state (persistence/backend arrive later). The flow
+  // owns real calendar sync (add / reschedule-update / cancel-delete) and lifts every
+  // change here via onChange — a booking object, or null when cancelled in-flow.
+  const handleDemoChange = useCallback((b) => { if (mounted.current) setBooking(b); }, []);
   const handleRescheduleDemo = useCallback(() => { setRescheduleMode(true); setTrialOpen(true); }, []);
   const handleJoinDemo = useCallback(() => flash('Your join link will be shared before the class'), [flash]);
   const handleCancelDemo = useCallback((b) => {
@@ -140,7 +133,7 @@ export default function ParentApp() {
 
   const linked = !!(report && report.linked);
   const child = (report && report.child) || null;
-  const childName = child?.name || 'your child';
+  const childName = child?.name || user?.name || 'your child';
   const meta = TABS.find((t) => t.id === tab);
 
   let content;
@@ -193,14 +186,15 @@ export default function ParentApp() {
         <BrainGymFlow onFinish={() => setGymOpen(false)} />
       </Modal>
       <ActivityRouter visible={activityOpen} onClose={() => setActivityOpen(false)} childName={childName} items={report?.recentActivity} />
-      {/* "Book a FREE demo" → premium in-app flow (real calendar sync; booking held in state). */}
-      <BookDemo
+      {/* "Book a FREE trial" → in-app booking flow with real device-calendar sync. */}
+      <BookTrial
         visible={trialOpen}
-        mode={rescheduleMode ? 'reschedule' : 'new'}
+        childName={childName}
+        childList={child ? [child] : []}
+        parentName={user?.name}
         initialBooking={rescheduleMode ? booking : null}
-        defaults={{ studentName: child?.name, className: child?.className, parentName: user?.name, email: user?.email }}
         onClose={() => { setTrialOpen(false); setRescheduleMode(false); }}
-        onBooked={handleBooked}
+        onChange={handleDemoChange}
       />
     </SafeAreaView>
   );

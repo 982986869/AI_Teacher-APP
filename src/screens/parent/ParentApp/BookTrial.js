@@ -1,19 +1,22 @@
 // src/screens/parent/ParentApp/BookTrial.js
 // In-app "Book a free class" flow (replaces the old redirect to an external app).
-// UI-first steps:
-//   form → loading → schedule (day + time slot) → confirming → confirmed
-// No backend yet — onSubmit hands the finished booking back to the caller.
+// Steps: form → loading → schedule (day + time slot) → confirming → confirmed.
+// "Add to Calendar" is REAL (creates a device event via ./calendar); reschedule
+// updates the same event, cancel deletes it. `onChange(booking|null)` lifts every
+// change to the dashboard. `initialBooking` re-opens the flow to reschedule. No
+// backend/persistence yet — the booking lives in the parent's state.
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
-  View, ScrollView, TextInput, Modal, Pressable, StyleSheet, Platform, ActivityIndicator, Dimensions,
+  View, ScrollView, TextInput, Modal, Pressable, StyleSheet, Platform, ActivityIndicator, Dimensions, Alert, Linking,
 } from 'react-native';
 import {
-  ArrowLeft, ChevronDown, Check, Rocket, Sun, Moon, Plus, X, Target, BookOpen, MessageCircle, Star, User,
+  ArrowLeft, ChevronDown, Check, Sun, Moon, Plus, X, Target, BookOpen, MessageCircle, Star, User,
 } from 'lucide-react-native';
 import { C, F, T, DOWF, MONF, Wordmark } from './constants';
 import { PressableScale } from './anim';
 import CountryPicker from './CountryPicker';
 import { findCountry, flagOf } from './countries';
+import { addDemoToCalendar, updateDemoInCalendar, removeDemoFromCalendar } from './calendar';
 
 // Two clean columns for the day/slot pills (explicit px width → never squished).
 const SCREEN_W = Dimensions.get('window').width;
@@ -22,10 +25,10 @@ const COL3_W = Math.floor((SCREEN_W - 40 - 24) / 3);  // three across for time s
 
 // 1-hour slots. A few afternoon slots are shown as unavailable (matches the reference).
 const AFTERNOON = [
-  { t: '12 - 1', off: true }, { t: '1 - 2', off: true }, { t: '2 - 3', off: true },
+  { t: '12 - 1', off: true }, { t: '1 - 2' }, { t: '2 - 3' },
   { t: '3 - 4' }, { t: '4 - 5' },
 ];
-const EVENING = [{ t: '5 - 6' }, { t: '6 - 7' }, { t: '7 - 8' }, { t: '8 - 9' }];
+const EVENING = [{ t: '5 - 6' }, { t: '6 - 7', off: true }, { t: '7 - 8', off: true }];
 
 const HAPPENS = [
   { bg: '#FBD9C8', Icon: Target, title: 'Introduction & Goals', body: (n) => `The tutor will talk to you about ${n}'s current math level and learning goals to personalize the session.` },
@@ -63,16 +66,17 @@ function Field({ label, children, onPress }) {
   );
 }
 
-export default function BookTrial({ visible, onClose, childName, childList, parentName, onSubmit }) {
+export default function BookTrial({ visible, onClose, childName, childList, parentName, initialBooking = null, onChange }) {
   const kids = useMemo(() => {
     const list = (childList && childList.length ? childList : [{ name: childName || 'Your child' }])
       .map((k) => (typeof k === 'string' ? k : k?.name)).filter(Boolean);
     return list.length ? list : ['Your child'];
   }, [childList, childName]);
 
-  const [step, setStep] = useState('form');   // form | loading | schedule | confirming | confirmed
-  const [child, setChild] = useState(kids[0]);
-  const [name, setName] = useState(parentName || '');
+  // `initialBooking` set → reschedule: skip the form, prefill, keep the calendar link.
+  const [step, setStep] = useState(initialBooking ? 'schedule' : 'form'); // form | loading | schedule | confirming | confirmed
+  const [child, setChild] = useState(initialBooking?.student?.name || kids[0]);
+  const [name, setName] = useState(initialBooking?.parent?.name || parentName || '');
   const [country, setCountry] = useState(findCountry('IN') || { name: 'India', iso2: 'IN', dial: '+91' });
   const [mobile, setMobile] = useState('');
   const [day, setDay] = useState(null);
@@ -83,16 +87,104 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
   const [pickChild, setPickChild] = useState(false);
   const [pickCountry, setPickCountry] = useState(false);
   const submittedRef = useRef(false);
+  // Real calendar sync state.
+  const [addingCal, setAddingCal] = useState(false);
+  const [calEventId, setCalEventId] = useState(initialBooking?.calendarEventId || null);
+  const bookingIdRef = useRef(initialBooking?.id || `demo_${Date.now().toString(36)}`);
+  const mountedRef = useRef(true);
+  useEffect(() => () => { mountedRef.current = false; }, []);
+  // Reset / hydrate each time the sheet opens (fresh booking vs. reschedule).
+  useEffect(() => {
+    if (!visible) return;
+    setStep(initialBooking ? 'schedule' : 'form');
+    setCalEventId(initialBooking?.calendarEventId || null);
+    bookingIdRef.current = initialBooking?.id || `demo_${Date.now().toString(36)}`;
+    submittedRef.current = false;
+    setSlot(null);
+    if (!initialBooking) { setDay(null); setMobile(''); }
+  }, [visible]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const digits = mobile.replace(/\D/g, '');
   const canSubmit = !!child && name.trim().length > 1 && digits.length >= 8;
 
-  // Loading screens auto-advance to their next step.
+  // Build the booking. Date = chosen day + the 1-hour slot's start (afternoon 12–4 PM,
+  // evening 5–8 PM → 24h). Duration is 1 hour to match the "1-hour time slot" copy.
+  const buildBooking = () => {
+    const startHr = slot ? parseInt(slot.t.split('-')[0].trim(), 10) : 1;
+    const h24 = startHr === 12 ? 12 : startHr + 12;
+    const start = day ? new Date(day.date) : new Date();
+    start.setHours(h24, 0, 0, 0);
+    return {
+      id: bookingIdRef.current,
+      student: { name: child, className: '', subject: '' },
+      parent: {
+        name: name.trim(),
+        phone: digits ? `${country.dial}${digits}` : (initialBooking?.parent?.phone || `${country.dial}`),
+        email: initialBooking?.parent?.email || '',
+      },
+      date: start.toISOString(),
+      durationMin: 60,
+      calendarEventId: calEventId,
+      meetingUrl: null,
+      slotLabel: slot ? slot.t : '',
+    };
+  };
+
+  // REAL "Add to Calendar" — create the device event once, store its id, guard dup taps.
+  const handleAddToCalendar = async () => {
+    if (addingCal || calEventId) return;
+    setAddingCal(true);
+    try {
+      const res = await addDemoToCalendar(buildBooking());
+      if (!mountedRef.current) return;
+      if (res.ok) {
+        setCalEventId(res.eventId);
+        onChange && onChange({ ...buildBooking(), calendarEventId: res.eventId });
+      } else if (res.reason === 'denied') {
+        Alert.alert(
+          'Calendar access needed',
+          'Allow calendar access so we can add your trial class and remind you 30 minutes before it starts.',
+          [{ text: 'Not now', style: 'cancel' }, { text: 'Open Settings', onPress: () => Linking.openSettings() }],
+        );
+      } else {
+        Alert.alert("Couldn't add to calendar", "We couldn't reach a calendar on this device. Your trial is still booked.");
+      }
+    } catch (_) {
+      if (mountedRef.current) Alert.alert("Couldn't add to calendar", 'Something went wrong. Your trial is still booked.');
+    } finally {
+      if (mountedRef.current) setAddingCal(false);
+    }
+  };
+
+  // Cancel — delete the calendar event (if synced), clear the booking, close.
+  const handleCancel = async () => {
+    if (calEventId) await removeDemoFromCalendar(calEventId);
+    onChange && onChange(null);
+    close();
+  };
+
+  // Loading auto-advances; confirming persists the booking (and updates the calendar
+  // event on a reschedule) before revealing the confirmed screen.
   useEffect(() => {
     if (step === 'loading') { const t = setTimeout(() => setStep('schedule'), 1600); return () => clearTimeout(t); }
-    if (step === 'confirming') { const t = setTimeout(() => setStep('confirmed'), 1600); return () => clearTimeout(t); }
+    if (step === 'confirming') {
+      const t = setTimeout(async () => {
+        const booking = buildBooking();
+        let eid = calEventId;
+        if (calEventId) {
+          const res = await updateDemoInCalendar(calEventId, booking);
+          if (res && res.ok && res.eventId) eid = res.eventId; // may be recreated if it vanished
+        }
+        if (mountedRef.current) {
+          if (eid !== calEventId) setCalEventId(eid);
+          onChange && onChange({ ...booking, calendarEventId: eid });
+          setStep('confirmed');
+        }
+      }, 1600);
+      return () => clearTimeout(t);
+    }
     return undefined;
-  }, [step]);
+  }, [step]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Next 7 days as pickable pills (rebuilt each time the sheet opens).
   const days = useMemo(() => {
@@ -121,14 +213,6 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
   const submitForm = () => { if (canSubmit) setStep('loading'); };
   const continueSchedule = () => { if (day && slot) setStep('confirming'); };
 
-  // Fire onSubmit exactly once when the booking is confirmed.
-  useEffect(() => {
-    if (step === 'confirmed' && !submittedRef.current) {
-      submittedRef.current = true;
-      onSubmit && onSubmit({ child, parentName: name.trim(), phone: `${country.dial}${digits}`, day: day?.label, slot: slot?.t });
-    }
-  }, [step]); // eslint-disable-line react-hooks/exhaustive-deps
-
   const headerTitle = step === 'form' ? 'Book a free class' : 'For the trial class';
 
   // Derived date/time strings for the confirmation banner.
@@ -153,10 +237,12 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
         {step === 'form' && (
           <>
             <ScrollView contentContainerStyle={{ padding: 20, paddingTop: 24 }} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
-              <Field label="Select child" onPress={() => kids.length > 1 && setPickChild(true)}>
+              {/* Single linked student → just show the name (no dropdown). Only when a
+                  parent has more than one child do we offer the picker. */}
+              <Field label={kids.length > 1 ? 'Select child' : 'Student'} onPress={kids.length > 1 ? () => setPickChild(true) : undefined}>
                 <View style={s.rowBetween}>
                   <T w="med" s={17} c={C.ink}>{child}</T>
-                  <ChevronDown size={22} color={C.muted} />
+                  {kids.length > 1 && <ChevronDown size={22} color={C.muted} />}
                 </View>
               </Field>
               <TextInput value={name} onChangeText={setName} placeholder={parentName || 'Your full name'} placeholderTextColor={C.faint} style={s.input} returnKeyType="next" />
@@ -180,8 +266,7 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
         {/* ── loading / confirming ─────────────────────────────────────── */}
         {(step === 'loading' || step === 'confirming') && (
           <View style={s.loadingWrap}>
-            <View style={s.rocket}><Rocket size={64} color={C.ink} fill={C.ink} /></View>
-            <ActivityIndicator color={C.gold} style={{ marginTop: 30 }} />
+            <ActivityIndicator size="large" color={C.ink} />
           </View>
         )}
 
@@ -263,7 +348,11 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
                 </View>
                 <View style={{ flex: 1 }}>
                   <T w="med" s={15} c={C.ink} style={{ lineHeight: 22 }}>Trial class scheduled - <T w="bold" s={15} c={C.ink}>{dateStr} at {timeStr}</T></T>
-                  <PressableScale style={s.calBtn}><T w="bold" s={15} c={C.ink}>Add to Calendar</T></PressableScale>
+                  <PressableScale style={[s.calBtn, calEventId && s.calBtnDone]} disabled={addingCal || !!calEventId} onPress={handleAddToCalendar}>
+                    {addingCal
+                      ? <ActivityIndicator color={C.ink} size="small" />
+                      : <T w="bold" s={15} c={calEventId ? C.green : C.ink}>{calEventId ? '✓  Added to Calendar' : 'Add to Calendar'}</T>}
+                  </PressableScale>
                 </View>
               </View>
               <View style={{ flexDirection: 'row', marginTop: 4 }}>
@@ -291,7 +380,7 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
               <T w="med" s={14.5} c={C.muted}>Change of plans? </T>
               <Pressable onPress={() => { setSlot(null); setStep('schedule'); }}><T w="bold" s={14.5} c={C.ink} style={s.underline}>Reschedule</T></Pressable>
               <T w="med" s={14.5} c={C.muted}> or </T>
-              <Pressable onPress={close}><T w="bold" s={14.5} c={C.ink} style={s.underline}>Cancel</T></Pressable>
+              <Pressable onPress={handleCancel}><T w="bold" s={14.5} c={C.ink} style={s.underline}>Cancel</T></Pressable>
             </View>
 
             {/* FAQs */}
@@ -373,7 +462,11 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
           {/* Sticky bottom bar */}
           <View style={s.stickyBar}>
             <T w="med" s={14.5} c={C.ink} style={{ marginBottom: 10 }}>Trial class scheduled – <T w="bold" s={14.5} c={C.ink}>{dateStr} at {timeStr}</T></T>
-            <PressableScale style={s.calBtnFull}><T w="bold" s={15} c={C.ink}>Add to Calendar</T></PressableScale>
+            <PressableScale style={[s.calBtnFull, calEventId && s.calBtnDone]} disabled={addingCal || !!calEventId} onPress={handleAddToCalendar}>
+              {addingCal
+                ? <ActivityIndicator color={C.ink} size="small" />
+                : <T w="bold" s={15} c={calEventId ? C.green : C.ink}>{calEventId ? '✓  Added to Calendar' : 'Add to Calendar'}</T>}
+            </PressableScale>
           </View>
         </>
         )}
@@ -435,7 +528,6 @@ const s = StyleSheet.create({
   submitOff: { backgroundColor: '#EDEDEF' },
 
   loadingWrap: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-  rocket: { width: 180, height: 180, borderRadius: 90, backgroundColor: C.gold, alignItems: 'center', justifyContent: 'center' },
 
   bubbleRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10, paddingHorizontal: 20, paddingTop: 16 },
   mascot: { width: 78, height: 78, borderRadius: 39, backgroundColor: '#E24BE2', alignItems: 'center', justifyContent: 'center' },
@@ -486,6 +578,7 @@ const s = StyleSheet.create({
   footerBrand: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', backgroundColor: '#F4F4F5', paddingHorizontal: 20, paddingVertical: 20, marginTop: 24 },
   stickyBar: { position: 'absolute', left: 0, right: 0, bottom: 0, backgroundColor: '#FCF1D6', paddingHorizontal: 20, paddingTop: 14, paddingBottom: 24, borderTopWidth: 1, borderTopColor: '#EAD9A8' },
   calBtnFull: { backgroundColor: C.gold, borderRadius: 8, paddingVertical: 15, alignItems: 'center' },
+  calBtnDone: { backgroundColor: C.greenSoft },
 
   overlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.4)', justifyContent: 'flex-end' },
   sheet: { backgroundColor: '#fff', borderTopLeftRadius: 24, borderTopRightRadius: 24, padding: 20, paddingBottom: 30 },
