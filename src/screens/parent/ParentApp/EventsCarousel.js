@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import { Star, Camera, Video, Plus, Minus, Play, Globe, MapPin, Smartphone, Calendar, Clock, Ticket, ExternalLink } from 'lucide-react-native';
 import { C, T, CONTENT } from './constants';
-import { PressableScale } from './anim';
+import { PressableScale, FadeIn, CountUp } from './anim';
 
 if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
@@ -66,11 +66,17 @@ function EventPage({ ev, E, onRegister }) {
       </ImageBackground>
       <View style={s.footer}>
         <View style={s.statsRow}>
-          {E.stats.map((st, i) => (
-            <View key={i} style={{ alignItems: 'center' }}>
-              <T w="xbold" s={15} c={C.ink}>{st.value}</T><T w="med" s={10.5} c={C.muted}>{st.label}</T>
-            </View>
-          ))}
+          {E.stats.map((st, i) => {
+            const m = String(st.value).match(/^(\d+)(.*)$/);   // "200+" → 200 "+" ; "22K+" → 22 "K+"
+            return (
+              <View key={i} style={{ alignItems: 'center' }}>
+                {m
+                  ? <CountUp value={parseInt(m[1], 10)} suffix={m[2]} duration={1100} w="xbold" s={15} c={C.ink} />
+                  : <T w="xbold" s={15} c={C.ink}>{st.value}</T>}
+                <T w="med" s={10.5} c={C.muted}>{st.label}</T>
+              </View>
+            );
+          })}
         </View>
         <View style={s.ratingRow}>
           <T w="xbold" s={13} c={C.ink}>{E.rating.score}</T><Stars /><T w="med" s={11} c={C.muted}>· {E.rating.count}</T>
@@ -274,15 +280,17 @@ export default function EventsStack({ events = [], store = [], skills = [], gall
   return (
     <ScrollView ref={scrollRef} scrollEventThrottle={16} contentContainerStyle={{ paddingHorizontal: 18, paddingTop: 8, paddingBottom: 32 }} showsVerticalScrollIndicator={false}>
       <View style={{ gap: 14 }}>
-        {!!events.length && <EventPage ev={events[0]} E={E} onRegister={toRegion} />}
+        {!!events.length && <FadeIn delay={0}><EventPage ev={events[0]} E={E} onRegister={toRegion} /></FadeIn>}
+        {/* onLayout stays on the outer View — FadeIn's translateY doesn't shift layout,
+            so regionY stays accurate for the "Register Now" scroll-to. */}
         <View onLayout={(e) => { regionY.current = e.nativeEvent.layout.y + 8; }}>
-          <RegionPage events={events} E={E} />
+          <FadeIn delay={60}><RegionPage events={events} E={E} /></FadeIn>
         </View>
-        {!!store.length && <StorePage slides={store} E={E} />}
-        {!!skills.length && <SkillsPage skills={skills} E={E} />}
-        {!!gallery.length && <ParticipantsPage gallery={gallery} E={E} />}
-        <CommunityPage gallery={gallery} E={E} />
-        <BecomePage E={E} />
+        {!!store.length && <FadeIn delay={120}><StorePage slides={store} E={E} /></FadeIn>}
+        {!!skills.length && <FadeIn delay={160}><SkillsPage skills={skills} E={E} /></FadeIn>}
+        {!!gallery.length && <FadeIn delay={160}><ParticipantsPage gallery={gallery} E={E} /></FadeIn>}
+        <FadeIn delay={160}><CommunityPage gallery={gallery} E={E} /></FadeIn>
+        <FadeIn delay={160}><BecomePage E={E} /></FadeIn>
       </View>
     </ScrollView>
   );
