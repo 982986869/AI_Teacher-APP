@@ -434,7 +434,7 @@ const PyqWebView = ({ html, subject, chapter, sectionType = 'pyq' }) => {
     <View style={{ flex: 1, backgroundColor: '#f4f4f5' }}>
       <WebView
         originWhitelist={['*']}
-        source={{ html: buildPyqDocument(status.html) }}
+        source={{ html: buildPyqDocument(status.html, { collapsible: sectionType === 'important_questions' }) }}
         style={{ flex: 1, backgroundColor: '#f4f4f5' }}
         javaScriptEnabled
         domStorageEnabled
