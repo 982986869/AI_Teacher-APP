@@ -11,7 +11,7 @@ import {
   View, ScrollView, Image, ImageBackground, Dimensions, StyleSheet,
   Linking, LayoutAnimation, Platform, UIManager, Modal, SafeAreaView,
 } from 'react-native';
-import { Star, Camera, Video, Plus, Minus, Play, Globe, MapPin, Smartphone } from 'lucide-react-native';
+import { Star, Camera, Video, Plus, Minus, Play, Globe, MapPin, Smartphone, Calendar, Clock, Ticket, ExternalLink } from 'lucide-react-native';
 import { C, T, CONTENT } from './constants';
 import { PressableScale } from './anim';
 
@@ -90,14 +90,20 @@ function RegionPage({ events, E }) {
           <T w="med" s={13} c={C.muted} style={{ textAlign: 'center', maxWidth: 220, lineHeight: 20 }}>{E.exploreHint}</T>
         </View>
       ) : (
-        <View style={{ marginTop: 14, gap: 10 }}>
-          {matches.map((e) => (
-            <PressableScale key={e.id} style={s.regionEvt} onPress={() => open(e.ctaUrl)}>
-              <Image source={{ uri: e.image }} style={s.regionThumb} />
-              <View style={{ flex: 1 }}>
-                <T w="bold" s={13.5} c={C.ink} numberOfLines={2}>{e.title}</T>
-                <T w="med" s={11.5} c={C.muted} style={{ marginTop: 2 }}>{e.duration} · {e.grades}</T>
+        <View style={{ marginTop: 16, gap: 12 }}>
+          {matches.map((e, idx) => (
+            <PressableScale key={e.id} onPress={() => open(e.ctaUrl)}
+              style={[s.regCard, { backgroundColor: idx % 2 ? '#FBE3D2' : '#FCEFC7', borderLeftColor: idx % 2 ? C.orange : C.gold }]}>
+              <View style={{ flex: 1, paddingRight: 8 }}>
+                <T w="xbold" s={10.5} c="#8A5A2B" style={{ letterSpacing: 0.5 }}>AILERNOVA · {e.city}</T>
+                <T w="bold" s={14} c={C.ink} numberOfLines={2} style={{ marginTop: 3, lineHeight: 18 }}>{e.title}</T>
               </View>
+              <View style={{ gap: 6 }}>
+                <View style={s.regMeta}><Ticket size={12} color={C.ink} /><T w="semi" s={11} c={C.ink}>{e.free ? 'Free' : 'Paid'}</T></View>
+                {!!e.date && <View style={s.regMeta}><Calendar size={12} color={C.ink} /><T w="med" s={11} c={C.ink}>{e.date}</T></View>}
+                {!!e.time && <View style={s.regMeta}><Clock size={12} color={C.ink} /><T w="med" s={11} c={C.ink}>{e.time}</T></View>}
+              </View>
+              <View style={s.regLink}><ExternalLink size={13} color={C.ink} /></View>
             </PressableScale>
           ))}
           {!matches.length && <T w="med" s={13} c={C.muted} style={{ textAlign: 'center', marginTop: 12 }}>No events in {region} yet.</T>}
@@ -313,6 +319,9 @@ const s = StyleSheet.create({
   globe: { width: 68, height: 68, borderRadius: 34, backgroundColor: C.blueSoft, alignItems: 'center', justifyContent: 'center' },
   regionEvt: { flexDirection: 'row', alignItems: 'center', gap: 12, borderWidth: 1, borderColor: C.border, borderRadius: 14, padding: 10 },
   regionThumb: { width: 54, height: 54, borderRadius: 10, backgroundColor: C.border },
+  regCard: { flexDirection: 'row', borderRadius: 14, borderLeftWidth: 4, paddingVertical: 14, paddingLeft: 14, paddingRight: 12 },
+  regMeta: { flexDirection: 'row', alignItems: 'center', gap: 5, justifyContent: 'flex-end' },
+  regLink: { position: 'absolute', top: 8, right: 8, width: 22, height: 22, alignItems: 'center', justifyContent: 'center' },
 
   storeImg: { width: '100%', height: 190, borderRadius: 14, backgroundColor: C.border },
   dots: { flexDirection: 'row', justifyContent: 'center', gap: 6, marginTop: 14 },

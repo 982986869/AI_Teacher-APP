@@ -272,7 +272,7 @@ async function report(req, res, next) {
     // Offline events carousel — every section is DB-driven (see seed-offline-events.js).
     const q = (sql) => db.$queryRawUnsafe(sql).catch(() => [])
     const [eventRows, storeRows, skillRows, galleryRows] = await Promise.all([
-      q(`SELECT id::text AS id, title, duration, grades, city, badge, image_url, cta_label, cta_url, learn_label, learn_url FROM offline_events WHERE active ORDER BY position, id`),
+      q(`SELECT id::text AS id, title, duration, grades, city, badge, image_url, cta_label, cta_url, learn_label, learn_url, event_date, event_time, is_free FROM offline_events WHERE active ORDER BY position, id`),
       q(`SELECT id::text AS id, label, body, image_url FROM event_store_slides WHERE active ORDER BY position, id`),
       q(`SELECT id::text AS id, title, body, color, emoji FROM event_skills WHERE active ORDER BY position, id`),
       q(`SELECT id::text AS id, image_url, caption FROM event_gallery WHERE active ORDER BY position, id`),
@@ -280,6 +280,7 @@ async function report(req, res, next) {
     const eventsOut = eventRows.map((e) => ({
       id: e.id, title: e.title, duration: e.duration, grades: e.grades, city: e.city, badge: e.badge,
       image: e.image_url, ctaLabel: e.cta_label, ctaUrl: e.cta_url, learnLabel: e.learn_label, learnUrl: e.learn_url,
+      date: e.event_date, time: e.event_time, free: e.is_free,
     }))
     const storeOut = storeRows.map((s) => ({ id: s.id, label: s.label, body: s.body, image: s.image_url }))
     const skillsOut = skillRows.map((s) => ({ id: s.id, title: s.title, body: s.body, color: s.color, emoji: s.emoji }))
