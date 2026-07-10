@@ -12,6 +12,7 @@ import {
   Linking, LayoutAnimation, Platform, UIManager, Modal, SafeAreaView, Animated, ActivityIndicator,
 } from 'react-native';
 import { Star, Camera, Video, Plus, Minus, Play, Globe, MapPin, Smartphone, Calendar, Clock, Ticket, ExternalLink } from 'lucide-react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { C, T, CONTENT } from './constants';
 import { PressableScale, FadeIn, CountUp } from './anim';
 
@@ -20,6 +21,20 @@ if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental
 }
 const { width: SCREEN_W } = Dimensions.get('window');
 const STORE_W = SCREEN_W - 72;   // inner store-slider width (screen − modal pad − card pad)
+
+// Per-slide pastel frames for "What's in store for you?" — soft fill + a deeper
+// border of the same hue. Cycled by slide index; matches the Skills palette.
+const STORE_TINTS = [
+  { bg: '#FBEFC6', br: '#EBC34B' }, // yellow
+  { bg: '#FBE0CE', br: '#F0A98A' }, // peach
+  { bg: '#F4D6F1', br: '#D98FD0' }, // pink
+  { bg: '#C8F5D8', br: '#7FD3A0' }, // mint
+];
+// A deeper border for each skill-row tint (keys are the seeded sk.color values).
+const SKILL_BORDER = {
+  '#C8F5D8': '#7FD3A0', '#FBE0CE': '#F0A98A', '#F4D6F1': '#D98FD0',
+  '#D5E4FB': '#9FC0F5', '#FBEFC6': '#EBC34B',
+};
 
 const open = (u) => { if (u) Linking.openURL(u).catch(() => {}); };
 const Stars = ({ n = 5, size = 12 }) => (
@@ -146,13 +161,18 @@ function StorePage({ slides, E }) {
       <T w="med" s={12.5} c={C.muted} style={{ textAlign: 'center', marginTop: 8, lineHeight: 19 }}>{E.storeBody}</T>
       <ScrollView horizontal pagingEnabled showsHorizontalScrollIndicator={false} style={{ marginTop: 16 }}
         onMomentumScrollEnd={(e) => setI(Math.round(e.nativeEvent.contentOffset.x / STORE_W))}>
-        {slides.map((sl) => (
-          <View key={sl.id} style={{ width: STORE_W }}>
-            <FadeImage source={{ uri: sl.image }} style={s.storeImg} radius={14} />
-            <T w="xbold" s={13} c={C.ink} style={{ letterSpacing: 1, textAlign: 'center', marginTop: 12 }}>{sl.label}</T>
-            <T w="med" s={12.5} c={C.muted} style={{ textAlign: 'center', marginTop: 6, lineHeight: 19, paddingHorizontal: 8 }}>{sl.body}</T>
-          </View>
-        ))}
+        {slides.map((sl, k) => {
+          const t = STORE_TINTS[k % STORE_TINTS.length];
+          return (
+            <View key={sl.id} style={{ width: STORE_W }}>
+              <View style={[s.storeSlide, { backgroundColor: t.bg, borderColor: t.br }]}>
+                <FadeImage source={{ uri: sl.image }} style={s.storeImg} radius={12} />
+                <T w="xbold" s={13} c={C.ink} style={{ letterSpacing: 1, textAlign: 'center', marginTop: 12 }}>{sl.label}</T>
+                <T w="med" s={12.5} c={C.muted} style={{ textAlign: 'center', marginTop: 6, lineHeight: 19, paddingHorizontal: 4 }}>{sl.body}</T>
+              </View>
+            </View>
+          );
+        })}
       </ScrollView>
       <View style={s.dots}>{slides.map((_, k) => <View key={k} style={[s.dot, k === i && s.dotOn]} />)}</View>
     </View>
@@ -166,15 +186,21 @@ function SkillsPage({ skills, E }) {
       <T w="xbold" s={19} c={C.ink}>{E.skillsTitle}</T>
       <T w="med" s={12} c={C.muted} style={{ marginTop: 6, lineHeight: 18 }}>{E.skillsIntro}</T>
       <View style={{ marginTop: 12, gap: 10 }}>
-        {skills.map((sk) => (
-          <View key={sk.id} style={s.skillRow}>
-            <View style={{ flex: 1 }}>
-              <T w="xbold" s={12.5} c={C.ink} style={{ letterSpacing: 0.6 }}>{sk.title}</T>
-              <T w="med" s={12} c={C.muted} style={{ marginTop: 4, lineHeight: 17 }}>{sk.body}</T>
-            </View>
-            <View style={[s.skillIcon, { backgroundColor: sk.color || C.blueSoft }]}><T s={22}>{sk.emoji || '✦'}</T></View>
-          </View>
-        ))}
+        {skills.map((sk, k) => {
+          const bg = sk.color || C.blueSoft;
+          const br = SKILL_BORDER[bg] || C.border;
+          return (
+            <FadeIn key={sk.id} delay={k * 70} y={10}>
+              <View style={[s.skillRow, { backgroundColor: bg, borderColor: br }]}>
+                <View style={{ flex: 1 }}>
+                  <T w="xbold" s={12.5} c={C.ink} style={{ letterSpacing: 0.6 }}>{sk.title}</T>
+                  <T w="med" s={12} c={C.ink} style={{ marginTop: 4, lineHeight: 17, opacity: 0.72 }}>{sk.body}</T>
+                </View>
+                <View style={[s.skillIcon, { backgroundColor: '#fff', borderColor: br }]}><T s={22}>{sk.emoji || '✦'}</T></View>
+              </View>
+            </FadeIn>
+          );
+        })}
       </View>
     </View>
   );
@@ -207,8 +233,10 @@ function CommunityPage({ gallery, E }) {
       <View style={{ padding: 22 }}>
         <T w="xbold" s={22} c="#fff" style={{ lineHeight: 28 }}>{cm.title}</T>
         <T w="med" s={13} c="rgba(255,255,255,0.7)" style={{ marginTop: 10, lineHeight: 19 }}>{cm.body}</T>
-        <PressableScale style={[s.social, { backgroundColor: '#E1306C' }]} onPress={() => open(cm.instagram)}>
-          <Camera size={17} color="#fff" /><T w="bold" s={14} c="#fff">Follow us on Instagram</T>
+        <PressableScale style={{ marginTop: 14 }} onPress={() => open(cm.instagram)}>
+          <LinearGradient colors={['#F9A03F', '#E1306C', '#C13584']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={[s.social, { marginTop: 0 }]}>
+            <Camera size={17} color="#fff" /><T w="bold" s={14} c="#fff">Follow us on Instagram</T>
+          </LinearGradient>
         </PressableScale>
         <PressableScale style={[s.social, { backgroundColor: '#FF0000' }]} onPress={() => open(cm.youtube)}>
           <Video size={18} color="#fff" /><T w="bold" s={14} c="#fff">Subscribe on YouTube</T>
@@ -231,22 +259,22 @@ function BecomePage({ E }) {
   const toggle = (i) => { spring(); setOpenIdx((o) => (o === i ? -1 : i)); };
   return (
     <View style={[s.card, s.light, { overflow: 'hidden' }]}>
-      <View style={{ backgroundColor: '#14151B', padding: 20 }}>
-        <T w="xbold" s={13} c="#fff" style={{ letterSpacing: 0.6 }}>{bc.title}</T>
-        <T w="med" s={12.5} c="rgba(255,255,255,0.72)" style={{ marginTop: 6, lineHeight: 18 }}>{bc.body}</T>
+      <View style={{ backgroundColor: '#fff', padding: 20 }}>
+        <T w="xbold" s={14} c={C.ink} style={{ letterSpacing: 0.6 }}>{bc.title}</T>
+        <T w="med" s={12.5} c={C.muted} style={{ marginTop: 6, lineHeight: 18 }}>{bc.body}</T>
         <PressableScale style={s.appBtn} onPress={() => open(bc.appUrl)}>
           <Smartphone size={16} color="#fff" /><T w="bold" s={13.5} c="#fff">{bc.appCta}</T>
         </PressableScale>
         <View style={s.catRow}>
           {bc.categories.map((c) => (
-            <View key={c.label} style={{ alignItems: 'center', gap: 7, flex: 1 }}>
-              <View style={s.catCircle}><T s={22} c="#fff">{c.emoji}</T></View>
-              <T w="bold" s={9.5} c="rgba(255,255,255,0.8)" style={{ textAlign: 'center', letterSpacing: 0.3 }}>{c.label}</T>
+            <View key={c.label} style={{ alignItems: 'center', gap: 8, flex: 1 }}>
+              <View style={s.catCircle}><T s={22}>{c.emoji}</T></View>
+              <T w="bold" s={9.5} c={C.muted} style={{ textAlign: 'center', letterSpacing: 0.3 }}>{c.label}</T>
             </View>
           ))}
         </View>
       </View>
-      <View style={{ padding: 18 }}>
+      <View style={{ padding: 18, borderTopWidth: 1, borderTopColor: C.border }}>
         {ft.links.map((l, i) => (
           <View key={l.q} style={s.accItem}>
             <PressableScale style={s.accHead} onPress={() => toggle(i)}>
@@ -356,21 +384,22 @@ const s = StyleSheet.create({
   regMeta: { flexDirection: 'row', alignItems: 'center', gap: 5, justifyContent: 'flex-end' },
   regLink: { position: 'absolute', top: 8, right: 8, width: 22, height: 22, alignItems: 'center', justifyContent: 'center' },
 
-  storeImg: { width: '100%', height: 190, borderRadius: 14, backgroundColor: C.border },
+  storeSlide: { borderRadius: 20, borderWidth: 1.5, padding: 14, marginHorizontal: 3 },
+  storeImg: { width: '100%', height: 190, borderRadius: 12, backgroundColor: 'rgba(0,0,0,0.05)' },
   dots: { flexDirection: 'row', justifyContent: 'center', gap: 6, marginTop: 14 },
   dot: { width: 7, height: 7, borderRadius: 4, backgroundColor: C.border },
   dotOn: { backgroundColor: C.ink, width: 18 },
 
-  skillRow: { flexDirection: 'row', alignItems: 'center', gap: 12, borderWidth: 1, borderColor: C.border, borderRadius: 16, padding: 12 },
-  skillIcon: { width: 52, height: 52, borderRadius: 12, alignItems: 'center', justifyContent: 'center' },
+  skillRow: { flexDirection: 'row', alignItems: 'center', gap: 12, borderWidth: 1.5, borderColor: C.border, borderRadius: 16, padding: 12 },
+  skillIcon: { width: 52, height: 52, borderRadius: 12, borderWidth: 1, alignItems: 'center', justifyContent: 'center' },
 
   gPhoto: { width: '100%', borderRadius: 12, backgroundColor: C.border },
 
   social: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, borderRadius: 12, paddingVertical: 13, marginTop: 14 },
 
-  appBtn: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, backgroundColor: 'rgba(255,255,255,0.16)', borderRadius: 10, paddingVertical: 12, marginTop: 14 },
+  appBtn: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, backgroundColor: '#14151B', borderRadius: 10, paddingVertical: 13, marginTop: 14 },
   catRow: { flexDirection: 'row', gap: 10, marginTop: 20 },
-  catCircle: { width: 58, height: 58, borderRadius: 29, backgroundColor: 'rgba(255,255,255,0.1)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.18)', alignItems: 'center', justifyContent: 'center' },
+  catCircle: { width: 58, height: 58, borderRadius: 29, backgroundColor: '#14151B', alignItems: 'center', justifyContent: 'center' },
   accItem: { borderBottomWidth: 1, borderBottomColor: C.border },
   accHead: { flexDirection: 'row', alignItems: 'center', paddingVertical: 14 },
   offices: { flexDirection: 'row', gap: 16, marginTop: 20 },
