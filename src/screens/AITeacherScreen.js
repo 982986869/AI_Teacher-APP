@@ -6,23 +6,23 @@ import {
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
 import { generateLesson, askAgent, askAgentStream, getResumeContext, getLesson, updateLessonProgress } from '../api/aiApi';
-import { saveActiveLesson, getActiveLesson, clearActiveLesson } from '../utils/storage';
+import { saveActiveLesson, getActiveLesson, clearActiveLesson, getStudentModel, saveStudentModel } from '../utils/storage';
+import { foldOutcome } from '../components/teacher/pedagogyEngine';
 import KnowledgeAskScreen from './KnowledgeAskScreen';
 import StudyInsightsScreen from './StudyInsightsScreen';
+import {
+  useFonts,
+  Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold,
+  Poppins_700Bold, Poppins_800ExtraBold,
+} from '@expo-google-fonts/poppins';
 import LiveTeachingPlayer from '../components/teacher/LiveTeachingPlayer';
 import TeacherAvatar from '../components/teacher/TeacherAvatar';
-import { C } from '../components/teacher/premiumTheme';
+import TeacherFullBody from '../components/teacher/TeacherFullBody';
+import { TEACHER_HEADSHOT, TEACHER_PHOTO, TEACHER_VIDEO } from '../components/teacher/teacherIdentity';
+import { greeting, firstHello, preparingBeats, preparingHint, resumeTag, emptyState } from '../components/teacher/teacherMoments';
+import { C, F, SP, GLASS, SERIF } from '../components/teacher/premiumTheme';
 import { Appear, PressableScale } from '../components/teacher/uiKit';
 import { stopTeacher, primeTeacherVoice, SPEECH_OK } from '../utils/teacherVoice';
-
-// Rotating reassurance shown while the lesson generates.
-const GEN_STAGES = [
-  'Understanding your topic…',
-  'Thinking like a teacher…',
-  'Preparing simple examples…',
-  'Drawing the lesson on the board…',
-  'Almost ready — final touches…',
-];
 
 // AI Teacher answers EVERY academic question, so it offers all subjects. Only the
 // explanation depth adapts to the student's class (enforced server-side from scope);
@@ -33,6 +33,12 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   const { user, scope } = useAuth();
   const firstName = user?.name?.split(' ')[0] || 'Student';
   const subjects = SUBJECTS;
+  // Load the premium type family for the whole AI Teacher feature (cached after the
+  // first load). The live player references the same family names.
+  const [fontsLoaded, fontError] = useFonts({
+    Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold,
+    Poppins_700Bold, Poppins_800ExtraBold,
+  });
 
   const [activeSubject, setActiveSubject] = useState(initialSubject);
   // 'learn' = generate a lesson; 'ask' = grounded RAG Q&A over uploaded material.
@@ -52,6 +58,25 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   // True while tearing down a lesson via "New Lesson" — stops the flush cleanup from
   // re-saving the just-cleared resume pointer (a race that revived stale lessons).
   const clearingRef = useRef(false);
+
+  // ── CROSS-LESSON STUDENT MEMORY ──────────────────────────────────────────────
+  // The long-term model the teacher remembers this student by (rolling confidence,
+  // accuracy, topics learned, what was tricky). Loaded once, seeded into the live
+  // player, and folded forward after each lesson. Keyed per student.
+  const studentKey = user?.id || user?._id || user?.email || 'guest';
+  const [studentModel, setStudentModel] = useState(null);
+  useEffect(() => {
+    let alive = true;
+    getStudentModel(studentKey).then((m) => { if (alive) setStudentModel(m); }).catch(() => {});
+    return () => { alive = false; };
+  }, [studentKey]);
+  const recordOutcome = async (outcome) => {
+    try {
+      const next = foldOutcome(studentModel, outcome);
+      setStudentModel(next);
+      await saveStudentModel(studentKey, next);
+    } catch (_) { /* memory is best-effort — never block the lesson */ }
+  };
 
   // Generator
   const [topic, setTopic] = useState(initialTopic);
@@ -134,8 +159,9 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   };
   useEffect(() => {
     if (!loading) { setGenStage(0); return undefined; }
-    const id = setInterval(() => setGenStage((s) => Math.min(GEN_STAGES.length - 1, s + 1)), 2600);
+    const id = setInterval(() => setGenStage((s) => Math.min(prepStages.length - 1, s + 1)), 2600);
     return () => clearInterval(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading]);
 
   const handleBack = () => { stopTeacher(); onBack && onBack(); };
@@ -174,7 +200,29 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
 
   // Stable lesson object so the player's buildScenes() memo isn't invalidated on
   // every re-render of this screen.
-  const lessonObj = useMemo(() => ({ lessonTitle, slides, keyTerms }), [lessonTitle, slides, keyTerms]);
+  const lessonObj = useMemo(() => ({ lessonTitle, slides, keyTerms, grade: scope?.classNum || user?.grade || null }), [lessonTitle, slides, keyTerms, scope?.classNum, user?.grade]);
+
+  // ── Human moments around the lesson (presentation copy — Ms. Nova's warmth on
+  // the landing + while she prepares). Frames the REAL continuity data (resume /
+  // saved lesson); never fabricates it. See teacherMoments.js. ──
+  const greet = useMemo(() => greeting({ name: firstName, returning: !!resume, hasSaved: !!savedLesson }), [firstName, resume, savedLesson]);
+  const intro = useMemo(() => firstHello(), []);
+  const isNewStudent = !resume && !savedLesson;
+  const prepStages = useMemo(() => preparingBeats(topic), [topic]);
+  const prepHint = useMemo(() => preparingHint(), []);
+  const resumeCardTag = useMemo(() => resumeTag(), [savedLesson]);
+  const emptyHint = useMemo(() => emptyState('insights'), []);
+
+  // Hold the first paint until the type family is ready (a brief, calm splash) so
+  // the product never flashes system font → Poppins. Fails open on a font error.
+  if (!fontsLoaded && !fontError) {
+    return (
+      <SafeAreaView style={[st.safe, { alignItems: 'center', justifyContent: 'center' }]}>
+        <StatusBar barStyle="dark-content" backgroundColor={C.cream} />
+        <ActivityIndicator size="large" color={C.accent} />
+      </SafeAreaView>
+    );
+  }
 
   // ── Study Insights (plan / revision / progress) — self-contained screen ──
   if (insights) {
@@ -196,19 +244,75 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   if (slides.length === 0) {
     return (
       <SafeAreaView style={st.safe}>
-        <StatusBar barStyle="light-content" backgroundColor={C.cream} />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: C.cream }} />}
+        <StatusBar barStyle="dark-content" backgroundColor={C.cream} />
+        {Platform.OS === 'android' && <View style={{ height: 24 }} />}
         <View style={st.header}>
           <PressableScale onPress={handleBack} style={st.hIcon} accessibilityLabel="Go back"><Text style={st.hIconTxt}>‹</Text></PressableScale>
-          <Text style={st.headerTitle} accessibilityRole="header">AI Teacher</Text>
+          <Text style={st.headerTitle} accessibilityRole="header">AI TEACHER</Text>
           <View style={{ width: 38 }} />
         </View>
 
         <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
           <ScrollView contentContainerStyle={st.body} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
-            <Appear from="scale" style={st.hero}><TeacherAvatar size={96} state="idle" theme="dark" /></Appear>
-            <Appear delay={60}><Text style={st.hi}>Hi {firstName} 👋</Text></Appear>
-            <Appear delay={110}><Text style={st.q}>What should we learn today?</Text></Appear>
+            {/* Your teacher — Ms. Nova (FULL-BODY avatar on the landing) */}
+            <Appear from="scale" style={st.hero}>
+              <TeacherFullBody photo={TEACHER_PHOTO} video={TEACHER_VIDEO} state="idle" theme="dark" height={300} />
+            </Appear>
+            <Appear delay={40} style={{ alignItems: 'center', marginBottom: SP.lg }}>
+              <Text style={st.teacherRole}>YOUR TEACHER</Text>
+              <Text style={st.teacherName}>Ms. Nova</Text>
+            </Appear>
+
+            {/* Greeting (serif) */}
+            <Appear delay={70}><Text style={st.greet}>{greet.hello}{'\n'}{greet.prompt}</Text></Appear>
+
+            {/* Topic search */}
+            <Appear delay={110} style={st.searchRow}>
+              <TextInput
+                style={st.searchInput}
+                placeholder="Search a topic — e.g. Pythagoras"
+                placeholderTextColor={C.faint}
+                value={topic}
+                onChangeText={setTopic}
+                onSubmitEditing={handleGenerate}
+                returnKeyType="go"
+                editable={!loading}
+                accessibilityLabel="Topic to learn"
+              />
+              <PressableScale style={[st.searchGo, (loading || !topic.trim()) && { opacity: 0.5 }]} onPress={handleGenerate} disabled={loading || !topic.trim()} accessibilityLabel="Start lesson">
+                {loading ? <ActivityIndicator color="#fff" size="small" /> : <Text style={st.searchGoTxt}>→</Text>}
+              </PressableScale>
+            </Appear>
+
+            {!!error && (
+              <Appear style={st.errCard}>
+                <Text style={st.errTxt} accessibilityLiveRegion="polite">⚠️  {error}</Text>
+                <PressableScale onPress={handleGenerate} accessibilityLabel="Try again"><Text style={st.retryTxt}>Try again ›</Text></PressableScale>
+              </Appear>
+            )}
+
+            {loading && (
+              <View style={st.loadCard}>
+                {prepStages.map((s, i) => (
+                  <View key={i} style={st.stageRow}>
+                    <Text style={st.stageIcon}>{i < genStage ? '✅' : i === genStage ? '⏳' : '○'}</Text>
+                    <Text style={[st.stageTxt, i === genStage && st.stageTxtOn, i < genStage && st.stageTxtDone]}>{s}</Text>
+                  </View>
+                ))}
+                <Text style={st.loadHint}>{prepHint}</Text>
+              </View>
+            )}
+
+            {/* Subjects */}
+            <Text style={st.seclbl}>Subjects</Text>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 8, paddingVertical: 2, paddingBottom: 4 }}>
+              {subjects.map((subj) => (
+                <PressableScale key={subj} style={[st.chip, activeSubject === subj && st.chipOn]} onPress={() => setActiveSubject(subj)}
+                  accessibilityLabel={`Subject ${subj}`} accessibilityState={{ selected: activeSubject === subj }}>
+                  <Text style={[st.chipTxt, activeSubject === subj && st.chipTxtOn]}>{subj}</Text>
+                </PressableScale>
+              ))}
+            </ScrollView>
 
             {savedLesson && (
               <Appear>
@@ -216,7 +320,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
                   accessibilityLabel={`Resume your lesson: ${savedLesson.title || 'continue where you left off'}`}>
                   <View style={st.resumeLessonIcon}><Text style={{ fontSize: 18 }}>▶</Text></View>
                   <View style={{ flex: 1 }}>
-                    <Text style={st.resumeLessonTag}>RESUME YOUR LESSON</Text>
+                    <Text style={st.resumeLessonTag}>{resumeCardTag}</Text>
                     <Text style={st.resumeLessonTitle} numberOfLines={1}>{savedLesson.title || 'Continue where you left off'}</Text>
                   </View>
                   {restoring
@@ -261,15 +365,16 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
             <View style={st.modeRow}>
               <PressableScale style={[st.modeBtn, st.modeBtnOn]} onPress={() => setMode('learn')}
                 accessibilityLabel="Learn a topic" accessibilityState={{ selected: true }}>
-                <Text style={[st.modeTxt, st.modeTxtOn]}>📖  Learn a Topic</Text>
+                <Text style={[st.modeTxt, st.modeTxtOn]}>Learn a Topic</Text>
               </PressableScale>
               <PressableScale style={st.modeBtn} onPress={() => setMode('ask')}
                 accessibilityLabel="Ask the material" accessibilityState={{ selected: false }}>
-                <Text style={st.modeTxt}>📚  Ask the Material</Text>
+                <Text style={st.modeTxt}>Ask the Material</Text>
               </PressableScale>
             </View>
 
             <Text style={st.label}>FOR YOU</Text>
+            {isNewStudent && <Text style={st.forYouHint}>{emptyHint}</Text>}
             <View style={st.insightRow}>
               {[
                 { tab: 'next', icon: '🧭', title: 'What next?', sub: 'Smart plan' },
@@ -286,58 +391,6 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
                 </Appear>
               ))}
             </View>
-
-            <Text style={[st.label, { marginTop: 20 }]}>SUBJECT</Text>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 8, paddingVertical: 2 }}>
-              {subjects.map((subj) => (
-                <PressableScale key={subj} style={[st.chip, activeSubject === subj && st.chipOn]} onPress={() => setActiveSubject(subj)}
-                  accessibilityLabel={`Subject ${subj}`} accessibilityState={{ selected: activeSubject === subj }}>
-                  <Text style={[st.chipTxt, activeSubject === subj && st.chipTxtOn]}>{subj}</Text>
-                </PressableScale>
-              ))}
-            </ScrollView>
-
-            <Text style={[st.label, { marginTop: 20 }]}>TOPIC</Text>
-            <TextInput
-              style={st.input}
-              placeholder="e.g. Pythagoras Theorem"
-              placeholderTextColor={C.faint}
-              value={topic}
-              onChangeText={setTopic}
-              onSubmitEditing={handleGenerate}
-              returnKeyType="go"
-              editable={!loading}
-              accessibilityLabel="Topic to learn"
-            />
-
-            {!!error && (
-              <Appear style={st.errCard}>
-                <Text style={st.errTxt} accessibilityLiveRegion="polite">⚠️  {error}</Text>
-                <PressableScale onPress={handleGenerate} accessibilityLabel="Try again"><Text style={st.retryTxt}>Try again ›</Text></PressableScale>
-              </Appear>
-            )}
-
-            <PressableScale style={[st.cta, (loading || !topic.trim()) && { opacity: 0.55 }]} onPress={handleGenerate} disabled={loading || !topic.trim()}
-              accessibilityLabel={loading ? 'Generating your lesson' : 'Generate lesson'} accessibilityHint="Creates a live voice-narrated lesson on your topic">
-              {loading
-                ? <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
-                    <ActivityIndicator color="#fff" size="small" />
-                    <Text style={st.ctaTxt}>{GEN_STAGES[genStage]}</Text>
-                  </View>
-                : <Text style={st.ctaTxt}>Generate Lesson  ✨</Text>}
-            </PressableScale>
-
-            {loading && (
-              <View style={st.loadCard}>
-                {GEN_STAGES.map((s, i) => (
-                  <View key={i} style={st.stageRow}>
-                    <Text style={st.stageIcon}>{i < genStage ? '✅' : i === genStage ? '⏳' : '○'}</Text>
-                    <Text style={[st.stageTxt, i === genStage && st.stageTxtOn, i < genStage && st.stageTxtDone]}>{s}</Text>
-                  </View>
-                ))}
-                <Text style={st.loadHint}>A good lesson takes a moment to craft. Hang tight 🎓</Text>
-              </View>
-            )}
 
             {!loading && (
               <Text style={st.hint}>A live, voice-narrated lesson with a teacher, whiteboard, and doubts you can ask anytime.</Text>
@@ -356,8 +409,11 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
       {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: C.cream }} />}
       <LiveTeachingPlayer
         lesson={lessonObj}
+        subject={activeSubject}
         ttsOk={SPEECH_OK}
         startIndex={startIndex}
+        priorModel={studentModel}
+        onOutcome={recordOutcome}
         onProgress={handleProgress}
         onAsk={async (q, i) => {
           // Route doubts through the AI Teacher agent: intent → RAG grounding →
@@ -411,71 +467,93 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
 const st = StyleSheet.create({
   safe: { flex: 1, backgroundColor: C.cream },
 
-  header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 10 },
-  hIcon: { width: 38, height: 38, borderRadius: 19, backgroundColor: C.board, borderWidth: 1.5, borderColor: C.line, alignItems: 'center', justifyContent: 'center' },
-  hIconTxt: { fontSize: 22, fontWeight: '900', color: C.ink, marginTop: -2 },
-  headerTitle: { fontSize: 16, fontWeight: '900', color: C.ink, letterSpacing: -0.3 },
+  header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: SP.lg, paddingVertical: SP.sm },
+  hIcon: { width: 40, height: 40, borderRadius: 20, alignItems: 'center', justifyContent: 'center' }, // ghost — no box
+  hIconTxt: { fontSize: 26, color: C.ink2, marginTop: -3 },
+  headerTitle: { fontSize: 11.5, fontFamily: F.bold, color: C.dim, letterSpacing: 2.4, textTransform: 'uppercase' },
 
-  body: { paddingHorizontal: 20, paddingBottom: 44 },
-  hero: { alignItems: 'center', marginTop: 6, marginBottom: 8 },
-  hi: { fontSize: 14, fontWeight: '700', color: C.dim, textAlign: 'center' },
-  q: { fontSize: 25, fontWeight: '900', color: C.ink, letterSpacing: -0.5, marginTop: 4, marginBottom: 24, textAlign: 'center', fontFamily: Platform.OS === 'ios' ? 'Georgia' : 'serif' },
-  label: { fontSize: 11, fontWeight: '800', color: C.dim, letterSpacing: 1, marginBottom: 10 },
+  body: { paddingHorizontal: SP.lg, paddingBottom: SP.xxxl },
+  hero: { alignItems: 'center', marginTop: SP.sm, marginBottom: SP.md },
+  hi: { fontSize: 13, fontFamily: F.semi, color: C.dim, textAlign: 'center', letterSpacing: 0.3 },
 
-  resumeLessonCard: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: C.board, borderWidth: 1, borderColor: C.accent, borderRadius: 16, paddingVertical: 13, paddingHorizontal: 14, marginBottom: 14 },
-  resumeLessonIcon: { width: 38, height: 38, borderRadius: 19, backgroundColor: 'rgba(124,58,237,0.18)', alignItems: 'center', justifyContent: 'center' },
-  resumeLessonTag: { fontSize: 9, fontWeight: '900', color: C.accent, letterSpacing: 1 },
-  resumeLessonTitle: { fontSize: 14, fontWeight: '900', color: C.ink, marginTop: 2 },
-  resumeLessonGo: { fontSize: 24, fontWeight: '900', color: C.accent },
+  // teacher intro row
+  teacherRow: { flexDirection: 'row', alignItems: 'center', gap: 13, marginTop: SP.sm, marginBottom: SP.lg },
+  teacherRole: { fontSize: 9.5, fontFamily: F.bold, color: C.accent, letterSpacing: 1.6, textTransform: 'uppercase' },
+  teacherName: { fontSize: 17, fontFamily: SERIF, fontWeight: '600', color: C.ink, marginTop: 2 },
 
-  welcomeCard: { backgroundColor: 'rgba(124,58,237,0.10)', borderWidth: 1, borderColor: 'rgba(124,58,237,0.45)', borderRadius: 18, padding: 16, marginBottom: 18 },
-  welcomeClose: { position: 'absolute', top: 10, right: 12, zIndex: 2 },
-  welcomeCloseTxt: { fontSize: 14, fontWeight: '900', color: C.dim },
-  welcomeTag: { fontSize: 10, fontWeight: '900', color: C.accent, letterSpacing: 1, marginBottom: 6 },
-  welcomeGreeting: { fontSize: 15, fontWeight: '800', color: C.ink, lineHeight: 21, paddingRight: 16 },
-  welcomeSuggest: { fontSize: 13, fontWeight: '600', color: C.ink2, lineHeight: 19, marginTop: 6 },
-  welcomeBtns: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: 12 },
-  welcomePrimary: { backgroundColor: C.accent, borderRadius: 12, paddingVertical: 10, paddingHorizontal: 16 },
-  welcomePrimaryTxt: { color: '#fff', fontSize: 13, fontWeight: '900' },
-  welcomeGhost: { borderWidth: 1, borderColor: C.line, borderRadius: 12, paddingVertical: 10, paddingHorizontal: 14, backgroundColor: C.board },
-  welcomeGhostTxt: { color: C.ink2, fontSize: 13, fontWeight: '800' },
+  // serif greeting
+  q: { fontSize: 29, fontFamily: SERIF, fontWeight: '500', color: C.ink, letterSpacing: -0.3, lineHeight: 37, marginBottom: SP.lg },
+  greet: { fontSize: 29, fontFamily: SERIF, fontWeight: '500', color: C.ink, letterSpacing: -0.3, lineHeight: 37, marginBottom: SP.lg },
 
-  modeRow: { flexDirection: 'row', gap: 10, marginBottom: 24 },
+  // topic search bar
+  searchRow: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: C.board, borderRadius: 16, paddingLeft: 16, paddingRight: 6, paddingVertical: 6, borderWidth: 1, borderColor: C.line, shadowColor: GLASS.shadow, shadowOpacity: 0.06, shadowRadius: 14, shadowOffset: { width: 0, height: 6 }, elevation: 2, marginBottom: SP.xl },
+  searchInput: { flex: 1, fontSize: 14, fontFamily: F.med, color: C.ink, paddingVertical: 8 },
+  searchGo: { width: 42, height: 42, borderRadius: 13, backgroundColor: C.accent, alignItems: 'center', justifyContent: 'center', shadowColor: C.accent, shadowOpacity: 0.38, shadowRadius: 10, shadowOffset: { width: 0, height: 4 }, elevation: 4 },
+  searchGoTxt: { color: '#fff', fontSize: 20, marginTop: -2 },
+  seclbl: { fontSize: 10.5, fontFamily: F.bold, color: C.dim, letterSpacing: 1.6, textTransform: 'uppercase', marginBottom: SP.md },
+  intro: { fontSize: 13.5, fontFamily: F.med, color: C.ink2, textAlign: 'center', lineHeight: 20, marginBottom: SP.lg, maxWidth: 360, alignSelf: 'center' },
+  label: { fontSize: 11, fontFamily: F.bold, color: C.dim, letterSpacing: 1.6, textTransform: 'uppercase', marginBottom: SP.md },
+  forYouHint: { fontSize: 12.5, fontFamily: F.med, color: C.ink2, lineHeight: 18, marginTop: -SP.sm, marginBottom: SP.md },
 
+  // resume = the PRIMARY continuity action → soft-blue accent, gently floating
+  resumeLessonCard: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: C.board, borderWidth: 1, borderColor: 'rgba(76,130,240,0.35)', borderRadius: 20, paddingVertical: 14, paddingHorizontal: 16, marginBottom: SP.md, shadowColor: C.accent, shadowOpacity: 0.1, shadowRadius: 16, shadowOffset: { width: 0, height: 6 }, elevation: 2 },
+  resumeLessonIcon: { width: 40, height: 40, borderRadius: 20, backgroundColor: C.accentSoft, alignItems: 'center', justifyContent: 'center' },
+  resumeLessonTag: { fontSize: 9, fontFamily: F.bold, color: C.accent, letterSpacing: 1.2 },
+  resumeLessonTitle: { fontSize: 14, fontFamily: F.bold, color: C.ink, marginTop: 2 },
+  resumeLessonGo: { fontSize: 24, fontFamily: F.reg, color: C.accent },
+
+  // welcome-back = a SECONDARY moment → subtle teal, so it reads distinct from resume
+  welcomeCard: { backgroundColor: 'rgba(18,165,148,0.06)', borderWidth: 1, borderColor: 'rgba(18,165,148,0.24)', borderRadius: 22, padding: SP.lg, marginBottom: SP.lg },
+  welcomeClose: { position: 'absolute', top: 12, right: 14, zIndex: 2 },
+  welcomeCloseTxt: { fontSize: 14, fontFamily: F.bold, color: C.dim },
+  welcomeTag: { fontSize: 10, fontFamily: F.bold, color: C.teal, letterSpacing: 1.2, marginBottom: 6 },
+  welcomeGreeting: { fontSize: 15, fontFamily: F.semi, color: C.ink, lineHeight: 22, paddingRight: 16 },
+  welcomeSuggest: { fontSize: 13, fontFamily: F.med, color: C.ink2, lineHeight: 19, marginTop: 6 },
+  welcomeBtns: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: SP.md },
+  welcomePrimary: { backgroundColor: C.teal, borderRadius: 14, paddingVertical: 11, paddingHorizontal: 18 },
+  welcomePrimaryTxt: { color: '#fff', fontSize: 13, fontFamily: F.bold },
+  welcomeGhost: { borderWidth: 1, borderColor: C.line, borderRadius: 14, paddingVertical: 11, paddingHorizontal: 16, backgroundColor: GLASS.fill },
+  welcomeGhostTxt: { color: C.ink2, fontSize: 13, fontFamily: F.semi },
+
+  // segmented control — a soft warm track; the active tab lifts on a white card
+  modeRow: { flexDirection: 'row', backgroundColor: 'rgba(42,46,58,0.045)', borderRadius: 16, padding: 4, marginBottom: SP.xl },
+  modeBtn: { flex: 1, paddingVertical: 11, borderRadius: 12, alignItems: 'center' },
+  modeBtnOn: { backgroundColor: C.board, shadowColor: GLASS.shadow, shadowOpacity: 0.08, shadowRadius: 10, shadowOffset: { width: 0, height: 3 }, elevation: 2 },
+  modeTxt: { fontSize: 13.5, fontFamily: F.semi, color: C.dim },
+  modeTxtOn: { color: C.ink },
+
+  // for-you — soft frosted cards that float (no grey, no hard border)
   insightRow: { flexDirection: 'row', gap: 10, marginBottom: 4 },
-  insightCard: { flex: 1, paddingVertical: 14, paddingHorizontal: 8, borderRadius: 16, borderWidth: 1, borderColor: C.line, backgroundColor: C.board, alignItems: 'center', gap: 3 },
+  insightCard: { flex: 1, paddingVertical: SP.md, paddingHorizontal: SP.sm, borderRadius: 20, backgroundColor: GLASS.fillStrong, borderWidth: 1, borderColor: GLASS.edge, alignItems: 'center', gap: 3, shadowColor: GLASS.shadow, shadowOpacity: 0.05, shadowRadius: 14, shadowOffset: { width: 0, height: 6 }, elevation: 2 },
   insightIcon: { fontSize: 22, marginBottom: 2 },
-  insightTitle: { fontSize: 13, fontWeight: '900', color: C.ink, letterSpacing: -0.2 },
-  insightSub: { fontSize: 10, fontWeight: '700', color: C.dim },
-  modeBtn: { flex: 1, paddingVertical: 13, borderRadius: 16, borderWidth: 1, borderColor: C.line, backgroundColor: C.board, alignItems: 'center' },
-  modeBtnOn: { backgroundColor: C.accent, borderColor: C.accent },
-  modeTxt: { fontSize: 14, fontWeight: '800', color: C.dim },
-  modeTxtOn: { color: '#fff' },
+  insightTitle: { fontSize: 13, fontFamily: F.bold, color: C.ink, letterSpacing: -0.2 },
+  insightSub: { fontSize: 10, fontFamily: F.med, color: C.dim },
 
-  chip: { paddingVertical: 10, paddingHorizontal: 16, borderRadius: 18, borderWidth: 1, borderColor: C.line, backgroundColor: C.board },
-  chipOn: { backgroundColor: C.accent, borderColor: C.accent },
-  chipTxt: { fontSize: 14, fontWeight: '800', color: C.dim },
+  // subject chips — soft frosted (unselected) → solid soft-blue (selected)
+  chip: { paddingVertical: 10, paddingHorizontal: 18, borderRadius: 20, backgroundColor: GLASS.fillStrong, borderWidth: 1, borderColor: GLASS.edge },
+  chipOn: { backgroundColor: C.teal, borderColor: C.teal, shadowColor: C.teal, shadowOpacity: 0.24, shadowRadius: 10, shadowOffset: { width: 0, height: 4 }, elevation: 3 },
+  chipTxt: { fontSize: 14, fontFamily: F.semi, color: C.ink2 },
   chipTxtOn: { color: '#fff' },
 
-  input: { backgroundColor: C.board, borderWidth: 1, borderColor: C.line, borderRadius: 16, paddingVertical: 15, paddingHorizontal: 18, fontSize: 16, fontWeight: '700', color: C.ink },
+  input: { backgroundColor: C.board, borderWidth: 1, borderColor: GLASS.edge, borderRadius: 18, paddingVertical: 16, paddingHorizontal: 20, fontSize: 16, fontFamily: F.semi, color: C.ink, shadowColor: GLASS.shadow, shadowOpacity: 0.05, shadowRadius: 12, shadowOffset: { width: 0, height: 4 }, elevation: 1 },
 
-  errCard: { marginTop: 14, backgroundColor: 'rgba(255,143,176,0.12)', borderWidth: 1, borderColor: 'rgba(255,143,176,0.4)', borderRadius: 14, padding: 14, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10 },
-  errTxt: { flex: 1, color: C.pink, fontSize: 13, fontWeight: '700' },
-  retryTxt: { color: C.ink, fontSize: 13, fontWeight: '900' },
+  errCard: { marginTop: SP.md, backgroundColor: 'rgba(242,104,95,0.10)', borderWidth: 1, borderColor: 'rgba(242,104,95,0.35)', borderRadius: 16, padding: SP.md, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10 },
+  errTxt: { flex: 1, color: C.pink, fontSize: 13, fontFamily: F.semi },
+  retryTxt: { color: C.ink, fontSize: 13, fontFamily: F.bold },
 
-  cta: { backgroundColor: C.accent, borderRadius: 18, paddingVertical: 17, alignItems: 'center', marginTop: 22, shadowColor: C.accent, shadowOpacity: 0.45, shadowRadius: 14, shadowOffset: { width: 0, height: 6 }, elevation: 6 },
-  ctaTxt: { color: '#fff', fontSize: 16, fontWeight: '900', letterSpacing: -0.3 },
+  cta: { backgroundColor: C.accent, borderRadius: 20, paddingVertical: 18, alignItems: 'center', marginTop: SP.lg, shadowColor: C.accent, shadowOpacity: 0.4, shadowRadius: 16, shadowOffset: { width: 0, height: 8 }, elevation: 6 },
+  ctaTxt: { color: '#fff', fontSize: 16, fontFamily: F.bold, letterSpacing: -0.2 },
 
-  loadCard: { marginTop: 18, padding: 18, gap: 12, backgroundColor: C.board, borderWidth: 1, borderColor: C.line, borderRadius: 18 },
+  loadCard: { marginTop: SP.lg, padding: SP.lg, gap: SP.md, backgroundColor: GLASS.fillStrong, borderWidth: 1, borderColor: GLASS.edge, borderRadius: 22, shadowColor: GLASS.shadow, shadowOpacity: 0.05, shadowRadius: 16, shadowOffset: { width: 0, height: 6 }, elevation: 2 },
   stageRow: { flexDirection: 'row', alignItems: 'center', gap: 12 },
   stageIcon: { fontSize: 14, width: 20, color: C.faint },
-  stageTxt: { fontSize: 14, fontWeight: '700', color: C.faint },
-  stageTxtOn: { color: C.ink, fontWeight: '900' },
+  stageTxt: { fontSize: 14, fontFamily: F.med, color: C.faint },
+  stageTxtOn: { color: C.ink, fontFamily: F.bold },
   stageTxtDone: { color: C.green },
-  loadHint: { fontSize: 11, fontWeight: '600', color: C.dim, marginTop: 4, textAlign: 'center' },
+  loadHint: { fontSize: 11, fontFamily: F.med, color: C.dim, marginTop: 4, textAlign: 'center' },
 
-  hint: { fontSize: 13, color: C.dim, fontWeight: '600', lineHeight: 19, marginTop: 18, textAlign: 'center' },
-  voiceNote: { fontSize: 11, color: C.accent, fontWeight: '700', marginTop: 12, textAlign: 'center' },
+  hint: { fontSize: 13, fontFamily: F.med, color: C.dim, lineHeight: 20, marginTop: SP.lg, textAlign: 'center' },
+  voiceNote: { fontSize: 11, fontFamily: F.semi, color: C.accent, marginTop: SP.md, textAlign: 'center' },
 });
 
 export default AITeacherScreen;

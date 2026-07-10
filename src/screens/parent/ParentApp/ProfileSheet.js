@@ -6,7 +6,7 @@
 // the reusable <SheetRow>. Pure UI — actions come in via props. No visual change.
 import React, { useEffect, useRef } from 'react';
 import { View, Modal, Animated, Pressable, StyleSheet } from 'react-native';
-import { Bell, Settings, UserPlus, LogOut, Trash2, GraduationCap, Pencil } from 'lucide-react-native';
+import { Bell, Settings, UserPlus, LogOut, Trash2, GraduationCap, Pencil, ArrowLeftRight } from 'lucide-react-native';
 import { C, T } from './constants';
 import SheetRow from './SheetRow';
 
@@ -22,8 +22,17 @@ const MENU = [
 
 export default function ProfileSheet({
   visible, onClose, parentName, parentEmail, childName, childClass,
-  onLinkAnother, onLogout, onDeleteAccount, onComingSoon,
+  onLinkAnother, onLogout, onDeleteAccount, onComingSoon, onSwitchToStudent,
 }) {
+  // A student viewing the parent dashboard (same login) can flip back to the student
+  // app. In that mode we also drop "Link another child" (that action is parent-only on
+  // the backend) and surface the switch row at the top.
+  const menu = onSwitchToStudent
+    ? [
+        { id: 'switch', Icon: ArrowLeftRight, label: 'Switch to Student view' },
+        ...MENU.filter((m) => m.id !== 'link'),
+      ]
+    : MENU;
   const ty = useRef(new Animated.Value(700)).current;
   const fade = useRef(new Animated.Value(0)).current;
 
@@ -46,6 +55,7 @@ export default function ProfileSheet({
 
   // One dispatcher for every menu action — closes the sheet, then runs the handler.
   const HANDLERS = {
+    switch: onSwitchToStudent,
     edit: onComingSoon,
     notifications: onComingSoon,
     settings: onComingSoon,
@@ -85,7 +95,7 @@ export default function ProfileSheet({
           )}
 
           <View style={{ marginTop: 6 }}>
-            {MENU.map((m) => (
+            {menu.map((m) => (
               <SheetRow key={m.id} Icon={m.Icon} label={m.label} danger={m.danger} onPress={() => onSelect(m.id)} />
             ))}
           </View>

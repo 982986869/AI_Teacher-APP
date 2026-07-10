@@ -14,16 +14,53 @@ export const C = {
   red: '#D81818', peach: '#FDEBE2', peachInk: '#C2410C',
   chatBg: '#33AEE8', classBg: '#2FC65C',
 };
+// Nunito — the rounded display font used by ailernova.in (and matching the reference
+// events UI). Loaded in ParentApp; applies across the whole parent dashboard.
 export const F = {
-  reg: 'Poppins_400Regular', med: 'Poppins_500Medium', semi: 'Poppins_600SemiBold',
-  bold: 'Poppins_700Bold', xbold: 'Poppins_800ExtraBold', black: 'Poppins_900Black',
+  reg: 'Nunito_400Regular', med: 'Nunito_500Medium', semi: 'Nunito_600SemiBold',
+  bold: 'Nunito_700Bold', xbold: 'Nunito_800ExtraBold', black: 'Nunito_900Black',
 };
 export const WORDMARK = [['A', C.orange], ['I', C.gold], ['L', C.navy], ['E', C.blue], ['R', C.blue], ['N', C.navy], ['O', C.green], ['V', C.red], ['A', C.orange]];
 
 /* Marketing / static content (config, not per-user data). */
 export const CONTENT = {
   trial: { title: 'The science of\nmath mastery', body: 'Every AILERNOVA lesson is built on proven memory science — recall, spacing and mixed practice — so learning lasts.', cta: 'Book a FREE trial' },
-  event: { kicker: 'Logic & Reasoning Edition', name: 'Math', suffix: " '26", grades: 'Grades 1–8', cta: 'Explore Now', trust: 'Trusted by parents', stars: 5 },
+  // Per-event data is DB-driven (offline_events → /api/parent/report). These are the
+  // shared brand figures shown under every event card.
+  event: {
+    cta: 'Register Now', learn: 'Learn how it works',
+    stats: [{ value: '200+', label: 'Events' }, { value: '22K+', label: 'Participants' }, { value: '50+', label: 'Cities' }],
+    rating: { score: '4.9', count: '11K+ Reviews' },
+    exploreTitle: 'Explore events by', regionCta: 'Select Region', exploreHint: 'Please select a region to show the events',
+    storeTitle: "What's in store for you?",
+    storeBody: 'Your child dives into a hands-on math experience — building, solving, and discovering their unique math archetype. They go home with everything they made, plus a goodie bag.',
+    regions: ['New Delhi', 'Mumbai', 'Bengaluru', 'Hyderabad', 'Pune', 'Chennai', 'Kolkata', 'Jaipur', 'Ahmedabad'],
+    skillsTitle: "AILERNOVA Skills You'll Discover",
+    skillsIntro: 'The activities and quizzes cover the five domains of math proficiency, aligned to the NCERT curriculum and NEP 2020.',
+    participantsTitle: 'Hear From Our Participants',
+    community: {
+      title: 'Join our community of\nAILERNOVA Parents', body: 'Get updates, learning resources, and share math-love ❤️',
+      instagram: 'https://instagram.com/ailernova', youtube: 'https://youtube.com/@ailernova',
+    },
+    become: {
+      title: 'BECOME AILERNOVA™', body: 'Boost math skills with daily fun challenges and puzzles.',
+      appCta: 'Download the app', appUrl: 'https://ailernova.in',
+      categories: [{ emoji: 'π', label: 'STRATEGY GAMES' }, { emoji: '🧩', label: 'LOGIC PUZZLES' }, { emoji: '➗', label: 'MENTAL MATH' }],
+    },
+    footer: {
+      links: [
+        { q: 'About AILERNOVA', a: 'AILERNOVA makes math click through hands-on learning, memory science and playful practice.' },
+        { q: 'Our Programs', a: 'Live AI Teacher, Brain Gym, offline events and practice — across Classes 6–12.' },
+        { q: 'Resources', a: 'Free worksheets, revision notes, NCERT solutions and chapter-wise practice tests.' },
+        { q: 'Math Tutoring', a: '1-on-1 and small-group tutoring with certified AILERNOVA mentors.' },
+        { q: 'Partner with Us', a: 'Bring AILERNOVA events and programs to your school or city.' },
+      ],
+      offices: [
+        { label: 'INDIA OFFICE', lines: 'P03-01A & P03-01B, 3rd Floor,\nBuilding 51D, WTC Tower D,\nGIFT City, Gandhinagar,\nGujarat 382050' },
+        { label: 'SUPPORT', lines: '+91 8905604773\nailernova.in\nMon–Sat, 9am–7pm' },
+      ],
+    },
+  },
 };
 export const ARENA_BASE_RATING = 1000;
 
@@ -66,9 +103,10 @@ export const st = StyleSheet.create({
   streakCard: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: '#FFF6E2', borderRadius: 16, padding: 14, width: 160 },
   streakIcon: { width: 38, height: 38, borderRadius: 19, backgroundColor: C.orange, alignItems: 'center', justifyContent: 'center' },
 
-  trialCard: { backgroundColor: '#F7C948', borderRadius: 20, paddingHorizontal: 20, paddingTop: 22, paddingBottom: 30, ...card },
-  trialArt: { marginTop: 16, backgroundColor: '#F4CC55', borderRadius: 16, minHeight: 150, position: 'relative' },
-  trialBtnWrap: { position: 'absolute', bottom: -15, left: 0, right: 0, alignItems: 'center' },
+  trialCard: { backgroundColor: '#F7C948', borderRadius: 20, paddingHorizontal: 20, paddingTop: 22, paddingBottom: 20, ...card },
+  trialArt: { marginTop: 16, backgroundColor: '#F4CC55', borderRadius: 16, height: 200, overflow: 'hidden', justifyContent: 'flex-end' },
+  trialImg: { borderRadius: 16 },
+  trialBtnWrap: { position: 'absolute', bottom: 16, left: 0, right: 0, alignItems: 'center' },
   trialBtn: { backgroundColor: '#fff', borderRadius: 12, paddingHorizontal: 26, paddingVertical: 13, shadowColor: '#000', shadowOpacity: 0.14, shadowRadius: 12, shadowOffset: { width: 0, height: 6 }, elevation: 4 },
   eventCard: { backgroundColor: '#1C1E26', borderRadius: 20, padding: 22, ...card },
   eventBtn: { backgroundColor: '#fff', borderRadius: 12, paddingVertical: 14, alignItems: 'center' },

@@ -124,13 +124,13 @@ const RECAP_RE = /recap|summary|takeaway|to sum up|in short|let.?s recap|quick r
 // is used by the pure Teaching Director). Board renderers live in subjectBoards.js.
 const SUBJECT_SET = new Set(['freeBody', 'reaction', 'molecule', 'cell', 'numberLine', 'graphFn', 'timeline']);
 const SUBJECT_RES = [
-  ['freeBody', /free[- ]?body|net force|force diagram|forces acting|normal force|\btension\b|\bfriction\b|newton'?s (?:first|second|third)|weight.*(?:force|gravity)/i],
-  ['reaction', /\breaction\b|reactants?|\bproducts?\b|combustion|→|->|balance the equation|chemical equation|\byields\b/i],
-  ['molecule', /\bmolecule\b|covalent|\bbond(?:ing|ed|s)?\b|\bH2O\b|\bCO2\b|structural formula|atoms? (?:join|share|bond)/i],
-  ['cell', /\bcell\b|nucleus|\bmembrane\b|mitochondri|organelle|cytoplasm|chloroplast/i],
-  ['timeline', /\btimeline\b|\bcentury\b|\bdynasty\b|\bera\b|\bBCE?\b|\bAD\b|revolution|\bin \d{3,4}\b|\b\d{3,4}\s?(?:BC|BCE|CE)\b/i],
-  ['numberLine', /number line|\bintegers?\b|on a (?:number )?line|negative numbers?/i],
-  ['graphFn', /graph of|plot the (?:function|line|curve)|straight[- ]line graph|\bparabola\b|quadratic (?:graph|curve)|\bslope\b|y ?= ?[^=]/i],
+  ['freeBody', /free[- ]?body|net force|force diagram|forces? acting|normal force|\btension\b|\bfriction\b|newton'?s (?:first|second|third)|weight.*(?:force|gravity)|\binertia\b|law of motion|object (?:at rest|in motion|stays|remains)|\bacceleration\b|\bmomentum\b|applied force|external force/i],
+  ['reaction', /\breaction\b|reactants?|\bproducts?\b|combustion|→|->|balance the equation|chemical equation|\byields\b|react(?:s|ing)? with|\bcatalyst\b|precipitat|acid.*base|displacement reaction/i],
+  ['molecule', /\bmolecule\b|covalent|\bbond(?:ing|ed|s)?\b|\bH2O\b|\bCO2\b|structural formula|atoms? (?:join|share|bond)|\bvalenc(?:y|e)\b|electron.*shar|lewis structure/i],
+  ['cell', /\bcell\b|nucleus|\bmembrane\b|mitochondri|organelle|cytoplasm|chloroplast|\bribosome|cell (?:wall|division)|\bneuron\b/i],
+  ['timeline', /\btimeline\b|\bcentury\b|\bdynasty\b|\bera\b|\bBCE?\b|\bAD\b|revolution|\bin \d{3,4}\b|\b\d{3,4}\s?(?:BC|BCE|CE)\b|world war|freedom (?:struggle|movement)|\bempire\b|independence in/i],
+  ['numberLine', /number line|\bintegers?\b|on a (?:number )?line|negative numbers?|positive and negative/i],
+  ['graphFn', /graph of|plot the (?:function|line|curve)|straight[- ]line graph|\bparabola\b|quadratic (?:graph|curve)|\bslope\b|y ?= ?[^=]|coordinate (?:plane|axis|geometry)|\bx-?axis\b|\by-?axis\b|linear equation|plot(?:ting)? (?:a )?point/i],
 ];
 function detectSubjectBoard(blob) {
   for (const [type, re] of SUBJECT_RES) if (re.test(blob)) return type;
@@ -213,7 +213,64 @@ function buildScene(slide, i, total, triangleLesson) {
   } else if (boardType === 'summary' || boardType === 'intro' || boardType === 'mistake') {
     scene.diagram = { points: keyPoints };
   }
+
+  // ── OPTIONAL phrase-level teaching timeline (backend metadata) ────────────────
+  // Backward-compatible: if the backend attaches a per-phrase beat list to a slide
+  // (`narrationBeats` or `teachingBeats`), we hand it to the Teaching Director for
+  // exact phrase-level sync; when it's absent/empty, the Director falls back to the
+  // clause-level path. Nothing else changes, so old lessons keep working untouched.
+  // Contract — one entry per spoken phrase:
+  //   { say|text: string,
+  //     step?: number,                         // reveal index to bring the board to
+  //     board?: { action: 'reveal'|'highlight'|'arrow'|'diagram'|'zoom'|'underline'|'focus'|'step',
+  //               step?: number, target?: string|number },
+  //     highlight?: string[],                  // keywords to emphasise while spoken
+  //     expression?: string, hold?: number, pause?: number }
+  const rawBeats = Array.isArray(slide.narrationBeats) ? slide.narrationBeats
+    : (Array.isArray(slide.teachingBeats) ? slide.teachingBeats : null);
+  if (rawBeats && rawBeats.length) {
+    const mapped = rawBeats.map((b) => ({
+      say: spellMath(String((b && (b.say != null ? b.say : b.text)) || '')),
+      board: (b && b.board) || null,
+      step: (b && typeof b.step === 'number') ? b.step
+        : ((b && b.board && typeof b.board.step === 'number') ? b.board.step : null),
+      highlight: Array.isArray(b && b.highlight) ? b.highlight.map(String) : null,
+      expression: (b && b.expression) || null,
+      hold: (b && typeof b.hold === 'number') ? b.hold : null,
+      pause: (b && typeof b.pause === 'number') ? b.pause : null,
+    })).filter((b) => b.say || b.step != null);
+    scene.directedBeats = mapped.length ? mapped : null;
+  }
+  // Optional backend-authored adaptive re-teach for this scene (same shape reteach.js
+  // returns: { ack, gap, intro, steps[], easyQ }). Absent → client builds a fallback.
+  if (slide && slide.reteach && typeof slide.reteach === 'object') scene.reteach = slide.reteach;
+  // Optional LLM comprehension check attached to this concept slide (used for the
+  // mid-lesson / final check-ins). Absent → client falls back to a self-check.
+  if (slide && slide.check && typeof slide.check === 'object' && slide.check.question) scene.check = slide.check;
   return scene;
+}
+
+// Turn an LLM comprehension check into a quick-check scene. `mcq` → tappable options
+// (answer mapped from the correct option text); `conceptual`/`short` → a self-explain
+// check. hint + misconception ride along (the misconception feeds the adaptive re-teach).
+function checkToScene(check, meta) {
+  const base = {
+    id: meta.id,
+    boardType: 'quickCheck',
+    slideIndex: Math.max(0, meta.slideIndex || 0),
+    title: 'Quick Check',
+    kicker: meta.kicker || 'QUICK CHECK',
+    teacherLine: check.question,
+    subtitleChunks: toSubtitleChunks(check.question),
+    formulaParts: [], highlights: [], diagram: null, proof: null,
+  };
+  if (check.type === 'mcq' && Array.isArray(check.options) && check.options.length >= 2) {
+    const norm = (x) => String(x || '').trim().toLowerCase();
+    let answer = check.options.findIndex((o) => norm(o) === norm(check.answer));
+    if (answer < 0) answer = 0;
+    return { ...base, quickCheck: { question: check.question, options: check.options, answer, hint: check.hint || '', misconception: check.misconception || '' } };
+  }
+  return { ...base, quickCheck: { question: check.question, selfCheck: true, hint: check.hint || '', misconception: check.misconception || '' } };
 }
 
 export function buildScenes(lesson) {
@@ -248,32 +305,58 @@ export function buildScenes(lesson) {
     }
   }
 
+  // ── CLASSROOM · mid-lesson understanding check-in (turn-taking) ───────────────
+  // A real teacher doesn't monologue — she stops partway to make sure you're with
+  // her, waits for you, then continues. Insert ONE self-check after the first
+  // substantial concept so the lesson becomes two-way (the closing quick-check below
+  // still wraps up). Reuses the whole quick-check flow: the lesson PAUSES and waits,
+  // she reacts to the answer, and offers a slower re-explain on a miss.
+  const terms = ((lesson && lesson.keyTerms) || []).filter(Boolean);
+  const CONTENT_TYPES = new Set(['concept', 'formula', 'triangle', 'proof', 'chart', 'freeBody', 'reaction', 'molecule', 'cell', 'graphFn', 'numberLine', 'timeline']);
+  // Prefer the LLM's concept checks (grade/topic-aware, misconception-focused); fall
+  // back to a self-check when the model did not author any.
+  const llmChecks = scenes.filter((sc) => sc.check && sc.check.question);
+  let usedMid = null;
+
+  if (scenes.length >= 4 && !scenes.some((sc) => sc.boardType === 'quickCheck')) {
+    if (llmChecks.length) {
+      usedMid = llmChecks[0];
+      const at = Math.min(scenes.length, scenes.indexOf(usedMid) + 1);
+      scenes.splice(at, 0, checkToScene(usedMid.check, { id: 'checkin', slideIndex: usedMid.slideIndex, kicker: 'CHECK-IN' }));
+    } else {
+      const anchor = scenes.findIndex((sc, i) => i >= 1 && CONTENT_TYPES.has(sc.boardType));
+      const at = Math.min(scenes.length, anchor >= 0 ? anchor + 1 : 2);
+      const term = terms[0];
+      const q = term
+        ? `Quick check before we go on \u2014 can you explain \u201C${term}\u201D in your own words?`
+        : 'Quick check before we go on \u2014 can you say that back in your own words?';
+      scenes.splice(at, 0, {
+        id: 'checkin', boardType: 'quickCheck', slideIndex: Math.max(0, at - 1),
+        title: 'Quick Check', kicker: 'CHECK-IN', teacherLine: q, subtitleChunks: [q],
+        formulaParts: [], highlights: [], diagram: null, proof: null,
+        quickCheck: { question: term ? `Explain \u201C${term}\u201D in your own words.` : 'Say it back in your own words.', selfCheck: true },
+      });
+    }
+  }
+
   // Re-number kickers after any insertion.
   scenes.forEach((sc, i) => { sc.kicker = kickerFor(sc.boardType, i + 1); });
 
-  // Closing quick-check from key terms (Hinglish).
-  const terms = ((lesson && lesson.keyTerms) || []).filter(Boolean);
-  if (terms.length) {
+  // Closing check-in \u2014 a DIFFERENT LLM check if available, else a key-term self-check.
+  const endCheck = llmChecks.find((sc) => sc !== usedMid);
+  if (endCheck) {
+    scenes.push(checkToScene(endCheck.check, { id: 'quick', slideIndex: Math.max(0, slides.length - 1), kicker: 'QUICK CHECK' }));
+  } else if (terms.length) {
     const t0 = terms[0];
     scenes.push({
-      id: 'quick',
-      boardType: 'quickCheck',
-      slideIndex: Math.max(0, slides.length - 1),
-      title: 'Quick Check',
-      kicker: 'QUICK CHECK',
-      teacherLine: triangleLesson
-        ? 'Quick check — which side is the hypotenuse?'
-        : `Quick check — what is “${t0}”?`,
-      subtitleChunks: triangleLesson
-        ? ['Quick check — which side is the hypotenuse?']
-        : [`Quick check — what is “${t0}”?`],
-      formulaParts: [],
-      highlights: [],
-      diagram: null,
-      proof: null,
+      id: 'quick', boardType: 'quickCheck', slideIndex: Math.max(0, slides.length - 1),
+      title: 'Quick Check', kicker: 'QUICK CHECK',
+      teacherLine: triangleLesson ? 'Quick check \u2014 which side is the hypotenuse?' : `Quick check \u2014 what is \u201C${t0}\u201D?`,
+      subtitleChunks: triangleLesson ? ['Quick check \u2014 which side is the hypotenuse?'] : [`Quick check \u2014 what is \u201C${t0}\u201D?`],
+      formulaParts: [], highlights: [], diagram: null, proof: null,
       quickCheck: triangleLesson
         ? { question: 'Which side is the hypotenuse?', options: ['The shortest side', 'The longest side', 'The middle side'], answer: 1 }
-        : { question: `Explain “${t0}” in your own words.`, selfCheck: true },
+        : { question: `Explain \u201C${t0}\u201D in your own words.`, selfCheck: true },
     });
   }
 

@@ -16,6 +16,7 @@ const {
   deletePapers,
   getMcqByPath,
   getClasses,
+  getResourceMenu,
 } = require('../controllers/resources.controller')
 const { getExemplar } = require('../controllers/exemplar.controller')
 const { getNcert, getNcertChapters } = require('../controllers/ncert.controller')
@@ -27,9 +28,9 @@ router.use(authenticate)
 
 // ─── Which classes have content (drives the "ready vs coming-soon" gate) ───────
 router.get('/classes',                           getClasses)
-
-// ─── Subjects available for a class + their feature flags (DB-derived) ─────────
+// ─── DB-derived subject grid (Class 9 feature flags + Class 10) + Class 10 tabs ─
 router.get('/class-subjects',                    getClassSubjects)
+router.get('/menu/:subjectSlug',                 getResourceMenu)
 
 // ─── Granular (REST) ──────────────────────────────────────────────────────────
 router.get('/subjects',                          getSubjects)

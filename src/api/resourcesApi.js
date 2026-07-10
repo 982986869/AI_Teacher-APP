@@ -17,6 +17,10 @@ export const getClassSubjects = async (classLevel) =>
 export const getContentClasses = async () =>
   (await axiosInstance.get('/api/resources/classes')).data.data.classes;
 
+// Dynamic resource tabs for a subject — { subject, tiles:[{type,name,part?,sub}] } (DB-driven).
+export const getResourceMenu = async (subjectSlug, classLevel) =>
+  (await axiosInstance.get(`/api/resources/menu/${subjectSlug}`, { params: { class: classLevel } })).data.data;
+
 // classLevel (9–12) selects the grade; defaults to 11 for back-compat.
 export const getChapters = async (subjectSlug, sectionType, classLevel) =>
   (await axiosInstance.get(`/api/resources/subjects/${subjectSlug}/chapters`, {
@@ -47,13 +51,16 @@ export const getNotesByPath = async (subjectSlug, chapterSlug, classLevel) =>
 // answerKeyHtml }. code carries slashes (55/1/1) so it goes as a query param.
 // `year` disambiguates the code — CBSE reuses the same code across years. No class
 // fallback: the backend uses the student's saved class regardless of what we send.
+// `extUid` (the paper's stable uuid) is the precise lookup — used when the list row
+// carries it (Class 10 shares code+year across Basic/Standard variants), else falls
+// back to code+year.
 export const getPapers = async (subjectSlug, classLevel) =>
   (await axiosInstance.get(`/api/resources/papers/${subjectSlug}`,
     { params: { class: classLevel } })).data.data;
 
-export const getPaper = async (subjectSlug, code, classLevel, year) =>
+export const getPaper = async (subjectSlug, code, classLevel, year, extUid) =>
   (await axiosInstance.get(`/api/resources/paper/${subjectSlug}`,
-    { params: { class: classLevel, code, ...(year != null ? { year } : {}) } })).data.data;
+    { params: { class: classLevel, ...(extUid ? { extUid } : { code, ...(year != null ? { year } : {}) }) } })).data.data;
 
 // MCQ Practice: real MCQs for a chapter, shaped for McqTestScreen
 // ({ cat, question, options: string[], correct: index }).

@@ -1,0 +1,48 @@
+{
+  "flash_cards": [
+    {
+      "topic_id": 4,
+      "topic_name": "Probability — A Theoretical Approach (X-14.1)",
+      "cards": [
+        {
+          "id": 231,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>For any event E, P(E) + (<span class=\"math-tex\">{tex}\\bar{E}{/tex}</span>) = 1, where <span class=\"math-tex\">{tex}\\bar{E}{/tex}</span> stands for &#39;not E&#39;. E and <span class=\"math-tex\">{tex}\\bar{E}{/tex}</span> are called complementary events.</p>",
+          "order": 231,
+          "topic_id": 4,
+          "topic_name": "Probability — A Theoretical Approach (X-14.1)"
+        },
+        {
+          "id": 232,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>An event having only one outcome is called an elementary event. The sum of the probabilities of all the elementary events of an experiment is 1.</p>",
+          "order": 232,
+          "topic_id": 4,
+          "topic_name": "Probability — A Theoretical Approach (X-14.1)"
+        },
+        {
+          "id": 236,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>The theoretical (classical) probability of an event E, written as P(E), is defined<br />\n<span class=\"math-tex\">{tex}P(E)=\\frac{\\text { Number of outcomes favourable to } E}{\\text { Number of all possible outcomes of the experiment }}{/tex}</span><br />\nwhere we assume that the outcomes of the experiment are equally likely.</p>",
+          "order": 236,
+          "topic_id": 4,
+          "topic_name": "Probability — A Theoretical Approach (X-14.1)"
+        },
+        {
+          "id": 308,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>An event for an experiment is the collection of some outcomes of the experiment.</p>",
+          "order": 308,
+          "topic_id": 4,
+          "topic_name": "Probability — A Theoretical Approach (X-14.1)"
+        }
+      ]
+    }
+  ],
+  "count": 4,
+  "category_name": "Probability"
+}

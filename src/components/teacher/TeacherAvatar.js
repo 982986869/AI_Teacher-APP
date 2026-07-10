@@ -93,6 +93,7 @@ function TeacherAvatar({ state = 'idle', expression, size = 160, theme = 'dark',
   const dots = useRef(new Animated.Value(0)).current;
   const breath = useRef(new Animated.Value(0)).current; // gentle idle breathing
   const look = useRef(new Animated.Value(0)).current;   // slow pupil drift (alive eyes)
+  const nod = useRef(new Animated.Value(0)).current;    // talking head-nod emphasis
 
   // blink — periodic, with a natural double-blink now and then
   useEffect(() => {
@@ -132,6 +133,21 @@ function TeacherAvatar({ state = 'idle', expression, size = 160, theme = 'dark',
     loop.start();
     return () => loop.stop();
   }, [breath]);
+
+  // talking head-nod — while she speaks, her head bobs gently on emphasis (people
+  // move their head when they explain). Off when silent, so it never looks fidgety.
+  useEffect(() => {
+    let loop;
+    if (speaking) {
+      loop = Animated.loop(Animated.sequence([
+        Animated.timing(nod, { toValue: 1, duration: 620, easing: Easing.inOut(Easing.sin), useNativeDriver: true }),
+        Animated.timing(nod, { toValue: 0, duration: 560, easing: Easing.inOut(Easing.sin), useNativeDriver: true }),
+        Animated.delay(220),
+      ]));
+      loop.start();
+    } else { Animated.timing(nod, { toValue: 0, duration: 300, useNativeDriver: true }).start(); }
+    return () => loop && loop.stop();
+  }, [speaking, nod]);
 
   // slow pupil drift — eyes occasionally glance aside, then back to centre
   useEffect(() => {
@@ -212,6 +228,10 @@ function TeacherAvatar({ state = 'idle', expression, size = 160, theme = 'dark',
   const glowOpacity = glow.interpolate({ inputRange: [0, 1], outputRange: [0.06, 0.4] });
   const swayRotate = sway.interpolate({ inputRange: [-1, 1], outputRange: ['-2.6deg', '2.6deg'] });
   const swayY = sway.interpolate({ inputRange: [-1, 1], outputRange: [1.5, -1.5] });
+  // nod bob while talking, and a small static lean toward whatever she's pointing at
+  // (eyeDir.x > 0 → the board), so her head engages with the board, not just her eyes.
+  const nodY = nod.interpolate({ inputRange: [0, 1], outputRange: [0, -2.4] });
+  const leanRotate = `${(shp.eyeDir && typeof shp.eyeDir.x === 'number' ? shp.eyeDir.x : 0) * 2.4}deg`;
   // eyelid height: 0 when open, ~14 when closed
   const lidH = blink.interpolate({ inputRange: [0, 1], outputRange: [15, 0] });
   // inner mouth opening for lip-sync — kept SUBTLE (a natural speaking mouth, not
@@ -246,7 +266,7 @@ function TeacherAvatar({ state = 'idle', expression, size = 160, theme = 'dark',
       )}
 
       {/* the portrait — a REAL photo when `photo` is provided, else illustrated */}
-      <Animated.View style={[styles.frame, { width: size, height: size, borderRadius: size / 2, borderColor: accent, backgroundColor: theme === 'cream' ? '#FFF7EE' : '#11151D', transform: [{ rotate: swayRotate }, { translateY: swayY }, { scale: breathScale }] }]}>
+      <Animated.View style={[styles.frame, { width: size, height: size, borderRadius: size / 2, borderColor: accent, backgroundColor: theme === 'cream' ? '#FFF7EE' : '#11151D', transform: [{ rotate: swayRotate }, { rotate: leanRotate }, { translateY: swayY }, { translateY: nodY }, { scale: breathScale }] }]}>
         {useVid ? (
           <ExpoAV.Video
             source={video}

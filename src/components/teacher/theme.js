@@ -17,7 +17,7 @@ export const BOARD = {
   green: '#0FA39A',
   pink: '#EE6F96',
   orange: '#EF8A43',
-  purple: '#8A7CF0',
+  purple: '#8E93DE',
 
   // Cards / bubbles on the light stage
   stage: '#F6F7F9',

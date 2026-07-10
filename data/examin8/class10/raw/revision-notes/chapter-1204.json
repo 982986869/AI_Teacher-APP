@@ -1,0 +1,54 @@
+{
+  "flash_cards": [
+    {
+      "topic_id": 768,
+      "topic_name": "Geometrical Meaning of the Zeroes of a Polynomial (X-2.1)",
+      "cards": [
+        {
+          "id": 295,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>The zeroes of a polynomial p(x) are precisely the x-coordinates of the points, where the graph of y = p(x) intersects the x -axis.</p>",
+          "order": 295,
+          "topic_id": 768,
+          "topic_name": "Geometrical Meaning of the Zeroes of a Polynomial (X-2.1)"
+        },
+        {
+          "id": 296,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>A quadratic polynomial in x with real coefficients is of the form ax<sup>2</sup> + bx + c, where a, b, c are real numbers with a <span class=\"math-tex\">{tex}\\neq{/tex}</span> 0.</p>",
+          "order": 296,
+          "topic_id": 768,
+          "topic_name": "Geometrical Meaning of the Zeroes of a Polynomial (X-2.1)"
+        }
+      ]
+    },
+    {
+      "topic_id": 769,
+      "topic_name": "Quadratic Polynomial (X-2.2)",
+      "cards": [
+        {
+          "id": 292,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>If <span class=\"math-tex\">{tex}\\alpha{/tex}</span>, <span class=\"math-tex\">{tex}\\beta{/tex}</span>, <span class=\"math-tex\">{tex}\\gamma{/tex}</span> are the zeroes of the cubic polynomial ax<sup>3</sup>&nbsp;+ bx<sup>2</sup> + cx + d, then<br />\n<span class=\"math-tex\">{tex}\\alpha+\\beta+\\gamma=\\frac{-b}{a},{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\alpha \\beta+\\beta \\gamma+\\gamma \\alpha=\\frac{c}{a},{/tex}</span>&nbsp;and <span class=\"math-tex\">{tex}\\alpha \\beta \\gamma=\\frac{-d}{a}{/tex}</span>.</p>",
+          "order": 292,
+          "topic_id": 769,
+          "topic_name": "Quadratic Polynomial (X-2.2)"
+        },
+        {
+          "id": 293,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>If <span class=\"math-tex\">{tex}\\alpha{/tex}</span> and <span class=\"math-tex\">{tex}\\beta{/tex}</span> are the zeroes of the quadratic polynomial ax<sup>2</sup> + bx + c, then<br />\n<span class=\"math-tex\">{tex}\\alpha{/tex}</span> + <span class=\"math-tex\">{tex}\\beta{/tex}</span> = <span class=\"math-tex\">{tex}-\\frac{b}{a}{/tex}</span>, <span class=\"math-tex\">{tex}\\alpha{/tex}</span><span class=\"math-tex\">{tex}\\beta{/tex}</span> = <span class=\"math-tex\">{tex}\\frac{c}{a}{/tex}</span>.</p>",
+          "order": 293,
+          "topic_id": 769,
+          "topic_name": "Quadratic Polynomial (X-2.2)"
+        }
+      ]
+    }
+  ],
+  "count": 4,
+  "category_name": "Polynomials"
+}

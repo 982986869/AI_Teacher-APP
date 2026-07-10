@@ -17,12 +17,23 @@ const DISPLAY = {
   'Old - Eng Comm':   { emoji: '📝', bg: '#26215C' },
   'Old - हिंदी ए':     { emoji: '📚', bg: '#2F80ED' },
   'Old - हिंदी ब':     { emoji: '📚', bg: '#B0306B' },
+  // Class 6 OLD subjects (single English / हिंदी, unlike Class 9's split)
+  'Old - English':    { emoji: '📖', bg: '#7A6FD0' },
+  'Old - हिंदी':       { emoji: '📚', bg: '#2F80ED' },
   // Class 9 new-syllabus (mirror the team's curated colours)
   'Maths (Ganita Manjari)':                 { emoji: '📐', bg: '#E8703A' },
   'Science (Exploration)':                  { emoji: '🔬', bg: '#5AA84F' },
   'Social Science (Understanding Society)': { emoji: '🌐', bg: '#2F80ED' },
   'हिंदी (गंगा)':                           { emoji: '📚', bg: '#D9822B' },
   'English (Kaveri)':                       { emoji: '📖', bg: '#7A6FD0' },
+  // Class 6/7/8 new-syllabus subjects
+  'Maths (Ganita Prakash)':             { emoji: '📐', bg: '#E8703A' },
+  'Science (Curiosity)':                { emoji: '🔬', bg: '#5AA84F' },
+  'Social Science (Exploring Society)': { emoji: '🌐', bg: '#2F80ED' },
+  'English (Poorvi)':                   { emoji: '📖', bg: '#7A6FD0' },
+  'हिंदी (मल्हार)':                     { emoji: '📚', bg: '#D9822B' },
+  'Reasoning & Mental Ability':         { emoji: '🧠', bg: '#1C1C1E' },
+  'सामाजिक विज्ञान':                    { emoji: '🌐', bg: '#B0306B' },
 };
 
 const PALETTE = ['#0F8A5F', '#B0306B', '#D9822B', '#26215C', '#0C8F88', '#5AA84F', '#8A5A2B', '#2F80ED', '#7A6FD0', '#E8703A'];

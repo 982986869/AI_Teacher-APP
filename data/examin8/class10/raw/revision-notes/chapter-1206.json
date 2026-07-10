@@ -1,0 +1,78 @@
+{
+  "flash_cards": [
+    {
+      "topic_id": 837,
+      "topic_name": "Quadratic Equations (X-4.1)",
+      "cards": [
+        {
+          "id": 280,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>A quadratic equation in the variable x is of the form ax<sup>2</sup> + bx + c = 0, where a, b, c are real numbers and a <span class=\"math-tex\">{tex}\\neq{/tex}</span> 0.</p>",
+          "order": 280,
+          "topic_id": 837,
+          "topic_name": "Quadratic Equations (X-4.1)"
+        }
+      ]
+    },
+    {
+      "topic_id": 838,
+      "topic_name": "Solution of a Quadratic Equation by Factorisation (X-4.2)",
+      "cards": [
+        {
+          "id": 278,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>If we can factorise ax<sup>2</sup> + bx + c, a <span class=\"math-tex\">{tex}\\neq{/tex}</span> 0, into a product of two linear factors, then the roots of the quadratic equation ax<sup>2</sup> + bx + c = 0 can be found by equating each factor to zero.</p>",
+          "order": 278,
+          "topic_id": 838,
+          "topic_name": "Solution of a Quadratic Equation by Factorisation (X-4.2)"
+        },
+        {
+          "id": 279,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>A real number <span class=\"math-tex\">{tex}\\alpha{/tex}</span> is said to be a root of the quadratic equation ax<sup>2</sup> + bx + c = 0, if a<span class=\"math-tex\">{tex}\\alpha{/tex}</span><sup>2</sup> + b<span class=\"math-tex\">{tex}\\alpha{/tex}</span> + c = 0. The zeroes of the quadratic polynomial ax<sup>2</sup> + bx + c and the roots of the quadratic equation ax<sup>2</sup> + bx + c = 0 are the same.</p>",
+          "order": 279,
+          "topic_id": 838,
+          "topic_name": "Solution of a Quadratic Equation by Factorisation (X-4.2)"
+        }
+      ]
+    },
+    {
+      "topic_id": 840,
+      "topic_name": "Nature of Roots (X-4.3)",
+      "cards": [
+        {
+          "id": 275,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>A quadratic equation ax<sup>2</sup> + bx + c = 0 has</p>\n\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n\t<li>two distinct real roots, if b<sup>2</sup> - 4ac &gt; 0,</li>\n\t<li>two equal roots (i.e., coincident roots), if b<sup>2</sup> - 4ac = 0, and</li>\n\t<li>no real roots, if b<sup>2</sup> - 4ac &lt; 0.</li>\n</ol>",
+          "order": 275,
+          "topic_id": 840,
+          "topic_name": "Nature of Roots (X-4.3)"
+        },
+        {
+          "id": 276,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>Quadratic formula: The roots of a quadratic equation ax<sup>2</sup> + bx + c = 0 are given by <span class=\"math-tex\">{tex}\\frac{-b \\pm \\sqrt{b^{2}-4 a c}}{2 a}{/tex}</span>, provided b<sup>2</sup> - 4ac <span class=\"math-tex\">{tex}\\geq{/tex}</span> 0.</p>",
+          "order": 276,
+          "topic_id": 840,
+          "topic_name": "Nature of Roots (X-4.3)"
+        },
+        {
+          "id": 10810,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Fate of Floral Parts</strong><br />\r\nOvary (2n)&nbsp;<span class=\"math-tex\">{tex}\\longrightarrow{/tex}</span>&nbsp;Fruit<br />\r\nOvary Wall (2n)&nbsp;<span class=\"math-tex\">{tex}\\longrightarrow{/tex}</span>&nbsp;Pericarp<br />\r\nOvule (2n)&nbsp;<span class=\"math-tex\">{tex}\\longrightarrow{/tex}</span>&nbsp;Seed<br />\r\nOuter Integument (2n)&nbsp;<span class=\"math-tex\">{tex}\\longrightarrow{/tex}</span>&nbsp;Testa<br />\r\nInner integument (2n)&nbsp;<span class=\"math-tex\">{tex}\\longrightarrow{/tex}</span>&nbsp;Tegmen<br />\r\nZygote (2n)&nbsp;<span class=\"math-tex\">{tex}\\longrightarrow{/tex}</span>&nbsp;Embryo<br />\r\nPrimary Endosperm Cell (3n)&nbsp;<span class=\"math-tex\">{tex}\\longrightarrow{/tex}</span>&nbsp;Endosperm</p>",
+          "order": 6508,
+          "topic_id": 840,
+          "topic_name": "Nature of Roots (X-4.3)"
+        }
+      ]
+    }
+  ],
+  "count": 6,
+  "category_name": "Quadratic Equations"
+}

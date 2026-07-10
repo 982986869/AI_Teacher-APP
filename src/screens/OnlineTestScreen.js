@@ -174,10 +174,10 @@ function Header({ onBack, title }) {
 export default function OnlineTestScreen({ onExit = () => {} }) {
   const { selectedClass } = useAuth();
   const classLevel = classNum(selectedClass) || 7;
-  // Class 9 online-test subjects are DB-driven (online flag); other classes keep theirs.
-  const isC9 = classLevel === 9;
-  const c9 = useClassSubjects(9, isC9);
-  const subjectList = isC9 ? (c9 || []).filter((s) => s.online).map((s) => toTile(s)) : subjectsForClass(classLevel);
+  // Class 6 & 9 online-test subjects are DB-driven (online flag); other classes keep theirs.
+  const isDyn = [6, 9].includes(classLevel);
+  const dynSubs = useClassSubjects(classLevel, isDyn);
+  const subjectList = isDyn ? (dynSubs || []).filter((s) => s.online).map((s) => toTile(s)) : subjectsForClass(classLevel);
 
   const [view, setView] = useState('subjects'); // subjects|chapters|tests|instruction|running|result|review
   const [subject, setSubject] = useState(null);
@@ -199,14 +199,18 @@ export default function OnlineTestScreen({ onExit = () => {} }) {
   };
 
   // ── load chapters when a subject is picked ──
+  // Prefer the tile's DB slug (from the class-subjects endpoint) over re-deriving
+  // it — the client slugify appends a Devanagari hash for names like 'Old - हिंदी'
+  // (→ "old-u…") that would not match the seeded slug ("old").
+  const subjSlug = (s) => (s && s.slug) || slugify(s.name);
   const openSubject = async (s) => {
     setSubject(s); setView('chapters'); setChapters(null);
-    try { setChapters(await getOnlineTestChapters(slugify(s.name), classLevel)); }
+    try { setChapters(await getOnlineTestChapters(subjSlug(s), classLevel)); }
     catch { setChapters([]); }
   };
   const openChapter = async (ch) => {
     setChapter(ch); setView('tests'); setTests(null);
-    try { setTests(await getOnlineTests(slugify(subject.name), ch.slug, classLevel)); }
+    try { setTests(await getOnlineTests(subjSlug(subject), ch.slug, classLevel)); }
     catch { setTests([]); }
   };
   const openTest = async (t) => {

@@ -33,7 +33,7 @@ const MENU_ITEMS = [
 ];
 
 const ProfileScreen = () => {
-  const { user, signOut, scope } = useAuth();
+  const { user, signOut, scope, setActiveView } = useAuth();
   const firstName = user?.name?.split(' ')[0] || 'Student';
   const [notifs, setNotifs] = useState(true);
   // Global "Sound Effects" setting for BrainGym — loaded from & saved to local storage.
@@ -136,6 +136,9 @@ const ProfileScreen = () => {
             </View>
           </View>
         ))}
+        <TouchableOpacity style={s.parentBtn} onPress={() => setActiveView('parent')} activeOpacity={0.85}>
+          <Text style={s.parentTxt}>👨‍👩‍👧  Switch to Parent view</Text>
+        </TouchableOpacity>
         <TouchableOpacity style={s.logoutBtn} onPress={handleLogout} activeOpacity={0.85}>
           <Text style={s.logoutTxt}>🚪  Log Out</Text>
         </TouchableOpacity>
@@ -193,7 +196,9 @@ const s = StyleSheet.create({
   toggleOn:        { backgroundColor: '#1C1C1E' },
   toggleThumb:     { width: 20, height: 20, borderRadius: 10, backgroundColor: '#fff' },
   toggleThumbOn:   { alignSelf: 'flex-end' },
-  logoutBtn:       { marginHorizontal: 16, marginTop: 22, backgroundColor: '#FFF0F0', borderWidth: 1.5, borderColor: '#FFD4D4', borderRadius: 16, paddingVertical: 15, alignItems: 'center' },
+  parentBtn:       { marginHorizontal: 16, marginTop: 22, backgroundColor: '#E7F7EC', borderWidth: 1.5, borderColor: '#B7E9C6', borderRadius: 16, paddingVertical: 15, alignItems: 'center' },
+  parentTxt:       { fontSize: 15, fontWeight: '900', color: '#15803D' },
+  logoutBtn:       { marginHorizontal: 16, marginTop: 12, backgroundColor: '#FFF0F0', borderWidth: 1.5, borderColor: '#FFD4D4', borderRadius: 16, paddingVertical: 15, alignItems: 'center' },
   logoutTxt:       { fontSize: 15, fontWeight: '900', color: '#E53E3E' },
   versionTxt:      { textAlign: 'center', fontSize: 12, color: '#C7C7CC', fontWeight: '600', marginTop: 16 },
 });

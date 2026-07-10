@@ -11,6 +11,10 @@ import {
   Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold,
   Poppins_700Bold, Poppins_800ExtraBold, Poppins_900Black,
 } from '@expo-google-fonts/poppins';
+import {
+  Nunito_400Regular, Nunito_500Medium, Nunito_600SemiBold,
+  Nunito_700Bold, Nunito_800ExtraBold, Nunito_900Black,
+} from '@expo-google-fonts/nunito';
 import { useAuth } from '../../../context/AuthContext';
 import { getParentReport } from '../../../api/parentApi';
 import { st, T, TABS } from './constants';
@@ -26,13 +30,20 @@ import BottomNav from './BottomNav';
 import ProfileSheet from './ProfileSheet';
 import BrainGymFlow from '../../braingym/BrainGymFlow';
 import ActivityRouter from './ActivityRouter';
+import BookTrial from './BookTrial';
+import { removeDemoFromCalendar } from './calendar';
 import { FadeIn } from './anim';
 
 export default function ParentApp() {
-  const { user, signOut } = useAuth();
+  const { user, signOut, scope, setActiveView } = useAuth();
+  // When a STUDENT is viewing this dashboard (same login), let them flip back to the
+  // student app. Real parent accounts have no student view, so this stays undefined.
+  const onSwitchToStudent = scope?.role === 'student' ? () => setActiveView('student') : undefined;
   const [fontsLoaded, fontError] = useFonts({
     Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold,
     Poppins_700Bold, Poppins_800ExtraBold, Poppins_900Black,
+    Nunito_400Regular, Nunito_500Medium, Nunito_600SemiBold,
+    Nunito_700Bold, Nunito_800ExtraBold, Nunito_900Black,
   });
   const fontsReady = fontsLoaded || fontError;
 
@@ -45,6 +56,9 @@ export default function ParentApp() {
   const [sheetOpen, setSheetOpen] = useState(false);
   const [gymOpen, setGymOpen] = useState(false);
   const [activityOpen, setActivityOpen] = useState(false);
+  const [trialOpen, setTrialOpen] = useState(false);
+  const [rescheduleMode, setRescheduleMode] = useState(false);
+  const [booking, setBooking] = useState(null); // the parent's active free-demo booking
 
   const mounted = useRef(true);
   const toastRef = useRef(null);
@@ -70,6 +84,32 @@ export default function ParentApp() {
   }, [flash]);
   useEffect(() => { load(false); }, [load]);
 
+  // ── Free trial/demo booking ──────────────────────────────────────────────────
+  // Booking lives in component state (persistence/backend arrive later). The flow
+  // owns real calendar sync (add / reschedule-update / cancel-delete) and lifts every
+  // change here via onChange — a booking object, or null when cancelled in-flow.
+  const handleDemoChange = useCallback((b) => { if (mounted.current) setBooking(b); }, []);
+  const handleRescheduleDemo = useCallback(() => { setRescheduleMode(true); setTrialOpen(true); }, []);
+  const handleJoinDemo = useCallback(() => flash('Your join link will be shared before the class'), [flash]);
+  const handleCancelDemo = useCallback((b) => {
+    Alert.alert(
+      'Cancel demo class?',
+      'This frees up your slot. You can book another free demo anytime.',
+      [
+        { text: 'Keep it', style: 'cancel' },
+        {
+          text: 'Cancel demo',
+          style: 'destructive',
+          onPress: async () => {
+            if (b && b.calendarEventId) await removeDemoFromCalendar(b.calendarEventId);
+            if (mounted.current) setBooking(null);
+            flash('Demo cancelled');
+          },
+        },
+      ],
+    );
+  }, [flash]);
+
   const onRefresh = useCallback(() => { setRefreshing(true); load(true); }, [load]);
   const retry = useCallback(() => { setLoading(true); setErr(false); load(false); }, [load]);
   const switchTab = useCallback((id) => { setTab((prev) => (id === prev ? prev : id)); }, []);
@@ -78,6 +118,7 @@ export default function ParentApp() {
   const onAvatar = useCallback(() => setSheetOpen(true), []);
   const onGym = useCallback(() => setGymOpen(true), []);            // AI Gym → the real BrainGym
   const onActivity = useCallback(() => setActivityOpen(true), []);  // Recent activity detail
+  const onBookTrial = useCallback(() => { setRescheduleMode(false); setTrialOpen(true); }, []); // "Book a FREE demo" → in-app flow
   const relink = useCallback(() => setReport({ linked: false }), []);
   const confirmDelete = useCallback(() => {
     Alert.alert(
@@ -92,7 +133,7 @@ export default function ParentApp() {
 
   const linked = !!(report && report.linked);
   const child = (report && report.child) || null;
-  const childName = child?.name || 'your child';
+  const childName = child?.name || user?.name || 'your child';
   const meta = TABS.find((t) => t.id === tab);
 
   let content;
@@ -103,7 +144,10 @@ export default function ParentApp() {
   } else if (!linked) {
     content = <LinkChild parentName={user?.name} onLinked={onLinked} onLogout={signOut} />;
   } else {
-    const shared = { meta, childName, onAvatar, onGym, onActivity, flash };
+    const shared = {
+      meta, childName, onAvatar, onGym, onActivity, onBookTrial, flash,
+      booking, onJoinDemo: handleJoinDemo, onRescheduleDemo: handleRescheduleDemo, onCancelDemo: handleCancelDemo,
+    };
     content = (
       <View style={st.screen}>
         {/* Pure crossfade on tab switch — no layout movement, nav stays fixed. */}
@@ -135,12 +179,23 @@ export default function ParentApp() {
         onLogout={signOut}
         onDeleteAccount={confirmDelete}
         onComingSoon={() => flash('Coming soon')}
+        onSwitchToStudent={onSwitchToStudent}
       />
       {/* AI Gym → the actual student BrainGym experience, reused directly (not a copy). */}
       <Modal visible={gymOpen} animationType="slide" onRequestClose={() => setGymOpen(false)} statusBarTranslucent>
         <BrainGymFlow onFinish={() => setGymOpen(false)} />
       </Modal>
       <ActivityRouter visible={activityOpen} onClose={() => setActivityOpen(false)} childName={childName} items={report?.recentActivity} />
+      {/* "Book a FREE trial" → in-app booking flow with real device-calendar sync. */}
+      <BookTrial
+        visible={trialOpen}
+        childName={childName}
+        childList={child ? [child] : []}
+        parentName={user?.name}
+        initialBooking={rescheduleMode ? booking : null}
+        onClose={() => { setTrialOpen(false); setRescheduleMode(false); }}
+        onChange={handleDemoChange}
+      />
     </SafeAreaView>
   );
 }

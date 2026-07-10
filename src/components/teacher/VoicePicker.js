@@ -81,7 +81,7 @@ const s = StyleSheet.create({
   empty: { fontSize: 13, fontWeight: '600', color: C.dim, lineHeight: 20, paddingVertical: 22 },
   list: { marginTop: 14, alignSelf: 'stretch' },
   row: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: C.board, borderWidth: 1, borderColor: C.line, borderRadius: 14, paddingVertical: 13, paddingHorizontal: 15, marginBottom: 9 },
-  rowOn: { borderColor: C.accent, backgroundColor: 'rgba(124,58,237,0.12)' },
+  rowOn: { borderColor: C.accent, backgroundColor: C.accentSoft },
   rowTitle: { fontSize: 14.5, fontWeight: '800', color: C.ink },
   rowTitleOn: { color: C.accent },
   rowSub: { fontSize: 11, fontWeight: '600', color: C.faint, marginTop: 2 },

@@ -1,0 +1,210 @@
+{
+  "flash_cards": [
+    {
+      "topic_id": 36745,
+      "topic_name": "Introduction to Natural Language Process",
+      "cards": [
+        {
+          "id": 5877,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Natural Language Processing</strong>, or NLP, is the sub-field of AI that is focused on enabling computers to understand and process human languages. AI is a subfield of Linguistics, Computer Science, Information Engineering, and Artificial Intelligence concerned with the interactions between computers and human (natural) languages, in particular how to program computers to process and analyse large amounts of natural language data.</p>",
+          "order": 6276,
+          "topic_id": 36745,
+          "topic_name": "Introduction to Natural Language Process"
+        },
+        {
+          "id": 5876,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Applications of Natural Language Processing</strong></p>\r\n\r\n<ul>\r\n\t<li><strong>Automatic Summarization:&nbsp;</strong>Automatic summarization is relevant not only for summarizing the meaning of documents and information, but also to understand the emotional meanings within the information, such as in collecting data from social media.</li>\r\n\t<li><strong>Sentiment Analysis:</strong>&nbsp;The goal of sentiment analysis is to identify sentiment among several posts or even in the same post where emotion is not always explicitly expressed.</li>\r\n\t<li><strong>Text classification:&nbsp;</strong>Text classification makes it possible to assign predefined categories to a document and organize it to help you find the information you need or simplify some activities. For example, an application of text categorization is spam filtering in email.</li>\r\n\t<li><strong>Virtual Assistants:</strong>&nbsp;Nowadays Google Assistant, Cortana, Siri, Alexa, etc have become an integral part of our lives. Not only can we talk to them but they also have the ability to make our lives easier. By accessing our data, they can help us in keeping notes of our tasks, make calls for us, send messages and a lot more.</li>\r\n</ul>",
+          "order": 6277,
+          "topic_id": 36745,
+          "topic_name": "Introduction to Natural Language Process"
+        },
+        {
+          "id": 5875,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Natural Language Processing: </strong>Natural Language Processing is all about how machines try to understand and interpret human language and operate accordingly.</p>",
+          "order": 6278,
+          "topic_id": 36745,
+          "topic_name": "Introduction to Natural Language Process"
+        },
+        {
+          "id": 5874,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>AI Project Cycle in&nbsp;Natural Language Processing</strong></p>\r\n\r\n<ul>\r\n\t<li><strong>The Scenario:&nbsp;</strong>We get to hear a lot of cases where people are depressed due to reasons like peer pressure, studies, family issues, relationships, etc.&nbsp;To overcome this, cognitive behavioural therapy (CBT) is considered to be one of the best methods.</li>\r\n\t<li><strong>Problem Scoping: </strong>CBT is a technique used by most therapists to cure patients out of stress and depression. But it has been observed that people do not wish to seek the help of a psychiatrist willingly.</li>\r\n\t<li><strong>Data Acquisition</strong>: To understand the sentiments of people, we need to collect their conversational data so the machine can interpret the words that they use and understand their meaning.</li>\r\n\t<li><strong>Data Exploration:</strong> Once the textual data has been collected, it needs to be processed and cleaned so that an easier version can be sent to the machine.</li>\r\n\t<li><strong>Modelling:</strong> Once the text has been normalised, it is then fed to an NLP based AI model. Note that in NLP, modelling requires data pre-processing only after which the data is fed to the machine.</li>\r\n\t<li><strong>Evaluation:</strong> The model trained is then evaluated and the accuracy for the same is generated on the basis of the relevance of the answers which the machine gives to the user&rsquo;s responses.</li>\r\n</ul>",
+          "order": 6279,
+          "topic_id": 36745,
+          "topic_name": "Introduction to Natural Language Process"
+        },
+        {
+          "id": 5873,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Chatbots</strong></p>\r\n\r\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th scope=\"col\">Script-bot</th>\r\n\t\t\t<th scope=\"col\">Smart-bot</th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>Script bots are easy to make</td>\r\n\t\t\t<td>Smart bots are flexible and powerful</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Script bots work around a script that is programmed into them</td>\r\n\t\t\t<td>Smart bots work on bigger databases and other resources directly</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Mostly they are free and are easy to integrate into a messaging platform</td>\r\n\t\t\t<td>Smart bots learn with more data</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>No or little language processing skills</td>\r\n\t\t\t<td>Coding is required to take this up on board</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Limited functionality</td>\r\n\t\t\t<td>Wide functionality</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>",
+          "order": 6280,
+          "topic_id": 36745,
+          "topic_name": "Introduction to Natural Language Process"
+        },
+        {
+          "id": 5872,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>All the assistants like Google Assistant, Alexa, Cortana, Siri, etc. can be taken as smart bots as not only can they handle the conversations but can also manage to do other tasks which makes them smarter.</p>",
+          "order": 6281,
+          "topic_id": 36745,
+          "topic_name": "Introduction to Natural Language Process"
+        },
+        {
+          "id": 5871,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Human Language VS Computer Language</strong></p>\r\n\r\n<ul>\r\n\t<li>Humans communicate through language which we process all the time. Our brain keeps on processing the sounds that it hears around us and tries to make sense of them all the time.</li>\r\n\t<li>On the other hand, the computer understands the language of numbers. Everything that is sent to the machine has to be converted to numbers.</li>\r\n</ul>\r\n\r\n<p><strong>Use cases:</strong></p>\r\n\r\n<ul>\r\n\t<li>Arrangement of the words and meaning</li>\r\n\t<li>Multiple Meanings of a word</li>\r\n\t<li>Perfect Syntax, no Meaning</li>\r\n</ul>",
+          "order": 6282,
+          "topic_id": 36745,
+          "topic_name": "Introduction to Natural Language Process"
+        },
+        {
+          "id": 5870,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Data Processing</strong></p>\r\n\r\n<ul>\r\n\t<li>It&#39;s how Natural Language Processing makes it possible for machines to understand and speak in Natural Languages just like humans.</li>\r\n\t<li>Since we all know that the language of computers is Numerical, the very first step that comes to our mind is to convert our language to numbers.&nbsp;</li>\r\n</ul>",
+          "order": 6283,
+          "topic_id": 36745,
+          "topic_name": "Introduction to Natural Language Process"
+        },
+        {
+          "id": 5869,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Text Normalisation</strong>: In Text Normalisation, we undergo several steps to normalize the text to a lower level.&nbsp;Text Normalisation helps in cleaning up the textual data in such a way that it comes down to a level where its complexity is lower than the actual data.</p>",
+          "order": 6284,
+          "topic_id": 36745,
+          "topic_name": "Introduction to Natural Language Process"
+        },
+        {
+          "id": 5868,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Sentence Segmentation:</strong> Under sentence segmentation, the whole corpus is divided into sentences. Each sentence is taken as different data so now the whole corpus gets reduced to sentences.</p>",
+          "order": 6285,
+          "topic_id": 36745,
+          "topic_name": "Introduction to Natural Language Process"
+        },
+        {
+          "id": 5867,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Tokenisation: </strong>After segmenting the sentences, each sentence is then further divided into tokens. The token is a term used for any word or number or special character occurring in a sentence. Under tokenisation, every word, number and special character is considered separately and each of them is now a separate token.</p>",
+          "order": 6286,
+          "topic_id": 36745,
+          "topic_name": "Introduction to Natural Language Process"
+        },
+        {
+          "id": 5866,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Removing Stopwords, Special Characters and Numbers</strong>: In this step, the tokens which are not necessary are removed from the token list.&nbsp;Stopwords are the words which occur very frequently in the corpus but do not add any value to it. Humans use grammar to make their sentences meaningful for the other person to understand. But grammatical words do not add any essence to the information which is to be transmitted through the statement hence they come under stopwords.</p>\r\n\r\n<p><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673349465-q3kv7c.jpg\" style=\"width: 300px; height: 85px;\" /></p>",
+          "order": 6287,
+          "topic_id": 36745,
+          "topic_name": "Introduction to Natural Language Process"
+        },
+        {
+          "id": 5865,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Converting text to a common case:&nbsp;</strong>After the stopwords removal, we convert the whole text into a similar case, preferably lower case. This ensures that the case-sensitivity of the machine does not consider same words as different just because of different cases.</p>\r\n\r\n<p><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673349538-wbgw2p.jpg\" style=\"width: 300px; height: 126px;\" /></p>",
+          "order": 6288,
+          "topic_id": 36745,
+          "topic_name": "Introduction to Natural Language Process"
+        },
+        {
+          "id": 5864,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Stemming: </strong>In this step, the remaining words are reduced to their root words. In other words, stemming is the process in which the affixes of words are removed and the words are converted to their base form.</p>",
+          "order": 6289,
+          "topic_id": 36745,
+          "topic_name": "Introduction to Natural Language Process"
+        },
+        {
+          "id": 5863,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Lemmatization: </strong>Stemming and lemmatization both are alternative processes to each other as the role of both processes is the same &ndash; removal of affixes. But the difference between both of them is that in lemmatization, the word we get after affix removal (also known as lemma) is a meaningful one. Lemmatization makes sure that a lemma is a word with meaning and hence it takes a longer time to execute than stemming.</p>",
+          "order": 6290,
+          "topic_id": 36745,
+          "topic_name": "Introduction to Natural Language Process"
+        },
+        {
+          "id": 5862,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Bag of Words:</strong> Bag of Words is a Natural Language Processing model which helps in extracting features out of the text which can be helpful in machine learning algorithms. In bag of words, we get the occurrences of each word and construct the vocabulary for the corpus.</p>",
+          "order": 6291,
+          "topic_id": 36745,
+          "topic_name": "Introduction to Natural Language Process"
+        },
+        {
+          "id": 5861,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>TFIDF: Term Frequency &amp; Inverse Document Frequency</strong></p>\r\n\r\n<p><strong>The bag</strong>&nbsp;of words algorithm gives us the frequency of words in each document we have in our corpus. It gives us an idea that if the word is occurring more in a document, its value is more for that document. For example, if I have a document on air pollution, air and pollution would be the words that occur many times in it. And these words are valuable too as they give us some context around the document.</p>",
+          "order": 6292,
+          "topic_id": 36745,
+          "topic_name": "Introduction to Natural Language Process"
+        },
+        {
+          "id": 5860,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Term Frequency: </strong>Term frequency is the frequency of a word in one document. Term frequency can easily be found from the document vector table as in that table we mention the frequency of each word of the vocabulary in each document.</p>",
+          "order": 6293,
+          "topic_id": 36745,
+          "topic_name": "Introduction to Natural Language Process"
+        },
+        {
+          "id": 5859,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Inverse Document Frequency:</strong> Now, let us look at the other half of TFIDF which is Inverse Document Frequency. For this, let us first understand what does document frequency mean. Document Frequency is the number of documents in which the word occurs irrespective of how many times it has occurred in those documents.</p>",
+          "order": 6294,
+          "topic_id": 36745,
+          "topic_name": "Introduction to Natural Language Process"
+        },
+        {
+          "id": 5858,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>Finally, the formula of TFIDF for any word W becomes:</p>\r\n\r\n<p><strong>TFIDF(W) = TF(W) * log( IDF(W) )</strong></p>\r\n\r\n<p>Here, the log is to the base of 10.</p>",
+          "order": 6295,
+          "topic_id": 36745,
+          "topic_name": "Introduction to Natural Language Process"
+        },
+        {
+          "id": 5857,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Summarising the TFIDF concept, we can say that:</strong></p>\r\n\r\n<ol>\r\n\t<li>Words that occur in all the documents with high term frequencies have the least values and are considered to be stopwords.</li>\r\n\t<li>For a word to have high TFIDF value, the word needs to have a high term frequency but less document frequency which shows that the word is important for one document but is not a common word for all documents.</li>\r\n\t<li>These values help the computer understand which words are to be considered while processing the natural language. The higher the value, the more important the word is for a given corpus.</li>\r\n</ol>",
+          "order": 6296,
+          "topic_id": 36745,
+          "topic_name": "Introduction to Natural Language Process"
+        },
+        {
+          "id": 5856,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Applications of TFIDF</strong></p>\r\n\r\n<p>TFIDF is commonly used in the Natural Language Processing domain. Some of its applications are:</p>\r\n\r\n<ul>\r\n\t<li><strong>Document Classification:&nbsp;</strong>Helps in classifying the type and genre of a document.</li>\r\n\t<li><strong>Topic Modelling:</strong>&nbsp;It helps in predicting the topic for a corpus.</li>\r\n\t<li><strong>Information Retrieval System:</strong>&nbsp;To extract the important information out of a corpus.</li>\r\n\t<li><strong>Stop word filtering:</strong>&nbsp;Helps in removing unnecessary words from a text body.</li>\r\n</ul>",
+          "order": 6297,
+          "topic_id": 36745,
+          "topic_name": "Introduction to Natural Language Process"
+        }
+      ]
+    }
+  ],
+  "count": 22,
+  "category_name": "Natural Language Process"
+}

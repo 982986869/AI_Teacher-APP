@@ -1,0 +1,201 @@
+{
+  "flash_cards": [
+    {
+      "topic_id": 36746,
+      "topic_name": "Importance of Model Evaluation",
+      "cards": [
+        {
+          "id": 5855,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Introduction:&nbsp;</strong>In the Evaluation stage, we will explore different methods of evaluating an AI model. Model Evaluation is an integral part of the model development process. It helps to find the best model that represents our data and how well the chosen model will work in the future.</p>",
+          "order": 6254,
+          "topic_id": 36746,
+          "topic_name": "Importance of Model Evaluation"
+        },
+        {
+          "id": 5854,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>What is evaluation?</strong><br />\r\nEvaluation is the process of understanding the reliability of any AI model, based on outputs by feeding the test datasets into the model and comparing it with actual answers.</p>",
+          "order": 6255,
+          "topic_id": 36746,
+          "topic_name": "Importance of Model Evaluation"
+        },
+        {
+          "id": 5853,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>It&rsquo;s not recommended to use the data we used to build the model to evaluate it. This is because our model will simply remember the whole training set, and will therefore always predict the correct label for any point in the training set. This is known as overfitting.</p>",
+          "order": 6256,
+          "topic_id": 36746,
+          "topic_name": "Importance of Model Evaluation"
+        },
+        {
+          "id": 5852,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673343555-w3m2xb.jpg\" style=\"width: 300px; height: 224px;\" /></p>\r\n\r\n<p>Here, we can see in the picture that a forest fire has broken out in the forest. The model predicts a Yes which means there is a forest fire. The Prediction matches with the Reality. Hence, this condition is termed as True Positive.</p>\r\n\r\n<p>&nbsp;</p>",
+          "order": 6257,
+          "topic_id": 36746,
+          "topic_name": "Importance of Model Evaluation"
+        },
+        {
+          "id": 5851,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673343629-gsqpuy.jpg\" style=\"width: 300px; height: 229px;\" /></p>\r\n\r\n<p>Here there is no fire in the forest hence the reality is No. In this case, the machine too has predicted it correctly as a No. Therefore, this condition is termed as True Negative.</p>",
+          "order": 6258,
+          "topic_id": 36746,
+          "topic_name": "Importance of Model Evaluation"
+        },
+        {
+          "id": 5850,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673343693-x998qe.jpg\" style=\"width: 300px; height: 241px;\" /></p>\r\n\r\n<p>Here the reality is that there is no forest fire. But the machine has incorrectly predicted that there is a forest fire. This case is termed as False Positive.</p>",
+          "order": 6259,
+          "topic_id": 36746,
+          "topic_name": "Importance of Model Evaluation"
+        },
+        {
+          "id": 5849,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673343805-q3txyb.jpg\" style=\"width: 300px; height: 226px;\" /></p>\r\n\r\n<p>Here, a forest fire has broken out in the forest because of which the Reality is Yes but the machine has incorrectly predicted it as a No which means the machine predicts that there is no Forest Fire. Therefore, this case becomes False Negative.</p>",
+          "order": 6260,
+          "topic_id": 36746,
+          "topic_name": "Importance of Model Evaluation"
+        },
+        {
+          "id": 5848,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Confusion matrix: T</strong>he result of the comparison between the prediction and reality can be recorded in what we call the confusion matrix. The confusion matrix allows us to understand the prediction results. Note that it is not an evaluation metric but a record that can help in evaluation.</p>",
+          "order": 6261,
+          "topic_id": 36746,
+          "topic_name": "Importance of Model Evaluation"
+        },
+        {
+          "id": 5847,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673343992-tbhf53.jpg\" style=\"width: 350px; height: 205px;\" /></p>",
+          "order": 6262,
+          "topic_id": 36746,
+          "topic_name": "Importance of Model Evaluation"
+        },
+        {
+          "id": 5846,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673344088-kpnhhg.jpg\" style=\"width: 300px; height: 174px;\" /></p>\r\n\r\n<p>Prediction and Reality can be easily mapped together with the help of this confusion matrix.</p>",
+          "order": 6263,
+          "topic_id": 36746,
+          "topic_name": "Importance of Model Evaluation"
+        },
+        {
+          "id": 5845,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>Accuracy is defined as the percentage of correct predictions out of all the observations.</p>\r\n\r\n<p><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673344309-hjrvmb.jpg\" style=\"width: 180px; height: 70px;\" /></p>\r\n\r\n<p>Here, total observations cover all the possible cases of prediction that can be True Positive (TP), True Negative (TN), False Positive (FP) and False Negative (FN).</p>",
+          "order": 6264,
+          "topic_id": 36746,
+          "topic_name": "Importance of Model Evaluation"
+        },
+        {
+          "id": 5844,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p>But this parameter is useless for us as the actual cases where the fire broke out are not taken into account. Hence, there is a need to look at another parameter that takes account of such cases as well.</p>",
+          "order": 6265,
+          "topic_id": 36746,
+          "topic_name": "Importance of Model Evaluation"
+        },
+        {
+          "id": 5843,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Precision: </strong>Precision is defined as the percentage of true positive cases versus all the cases where the prediction is true. That is, it takes into account the True Positives and False Positives.</p>\r\n\r\n<p><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673344516-3y7p5y.jpg\" style=\"width: 180px; height: 60px;\" /></p>\r\n\r\n<p>If Precision is high, this means the True Positive cases are more, giving lesser False alarms.</p>",
+          "order": 6266,
+          "topic_id": 36746,
+          "topic_name": "Importance of Model Evaluation"
+        },
+        {
+          "id": 5842,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Recall</strong><br />\r\nAnother parameter for evaluating the model&rsquo;s performance is Recall. It can be defined as the fraction of positive cases that are correctly identified. It majorly takesinto account the true reality cases where in Reality there was a fire but the machine either detected it correctly or it didn&rsquo;t. That is, it considers True Positives (There was a forest fire in reality and the model predicted a forest fire) and False Negatives (There was a forest fire and the model didn&rsquo;t predict it).</p>",
+          "order": 6267,
+          "topic_id": 36746,
+          "topic_name": "Importance of Model Evaluation"
+        },
+        {
+          "id": 5841,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673344713-kmgvtt.jpg\" style=\"width: 200px; height: 80px;\" /></p>\r\n\r\n<p>Now as we notice, we can see that the Numerator in both Precision and Recall is the same: True Positives. But in the denominator, Precision counts the False Positives while Recall takes False Negatives into consideration.</p>",
+          "order": 6268,
+          "topic_id": 36746,
+          "topic_name": "Importance of Model Evaluation"
+        },
+        {
+          "id": 5840,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Which Metric is Important?</strong><br />\r\nChoosing between Precision and Recall depends on the condition in which the model has been deployed. In a case like Forest Fire, a False Negative can cost us a lot and is risky too. Imagine no alert being given even when there is a Forest Fire. The whole forest might burn down.</p>",
+          "order": 6269,
+          "topic_id": 36746,
+          "topic_name": "Importance of Model Evaluation"
+        },
+        {
+          "id": 5839,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Which Metric is Important?</strong><br />\r\nAnother case where a False Negative can be dangerous is Viral Outbreak. Imagine a deadly virus has started spreading and the model which is supposed to predict a viral outbreak does not detect it. The virus might spread widely and infect a lot of people.</p>",
+          "order": 6270,
+          "topic_id": 36746,
+          "topic_name": "Importance of Model Evaluation"
+        },
+        {
+          "id": 5838,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>Which Metric is Important?</strong><br />\r\nOn the other hand, there can be cases in which the False Positive condition costs us more than False Negatives. One such case is Mining. Imagine a model telling you that there exists treasure at a point and you keep on digging there but it turns out that it is a false alarm. Here, False Positive case (predicting there is treasure but there is no treasure) can be very costly.</p>",
+          "order": 6271,
+          "topic_id": 36746,
+          "topic_name": "Importance of Model Evaluation"
+        },
+        {
+          "id": 5837,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673345056-eb2the.jpg\" style=\"width: 300px; height: 148px;\" /></p>",
+          "order": 6273,
+          "topic_id": 36746,
+          "topic_name": "Importance of Model Evaluation"
+        },
+        {
+          "id": 5836,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><strong>F1 Score</strong><br />\r\nF1 score can be defined as the measure of the balance between precision and recall.</p>\r\n\r\n<p><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673345191-c8mdzg.jpg\" style=\"width: 180px; height: 33px;\" /></p>\r\n\r\n<p>An ideal situation would be when we have a value of 1 (that is 100%) for both Precision and Recall. In that case, the F1 score would also be an ideal 1 (100%). It is known as the perfect value for F1 Score. As the values of both Precision and Recall ranges from 0 to 1, the F1 score also ranges from 0 to 1.</p>",
+          "order": 6274,
+          "topic_id": 36746,
+          "topic_name": "Importance of Model Evaluation"
+        },
+        {
+          "id": 5835,
+          "flashcard_type": 1,
+          "answer": "",
+          "text": "<p><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1673345287-2uhde2.jpg\" style=\"width: 300px; height: 87px;\" /></p>\r\n\r\n<p>In conclusion, we can say that a model has good performance if the F1 Score for that model is high.</p>",
+          "order": 6275,
+          "topic_id": 36746,
+          "topic_name": "Importance of Model Evaluation"
+        }
+      ]
+    }
+  ],
+  "count": 21,
+  "category_name": "Evaluating Models"
+}

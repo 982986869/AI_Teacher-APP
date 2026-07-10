@@ -89,6 +89,9 @@ const COMPLETE = [
   "You stayed with it the whole way — that's how it sticks.",
   "Solid work. Come back and run it again any time.",
   "Nicely done. A second pass tomorrow will lock it in.",
+  "That's a wrap — and you earned it. Bring me another topic whenever you're ready.",
+  "Lovely work. I'll be right here when you want the next one.",
+  "You showed up and stuck with it — that's the whole game. See you next time.",
 ];
 
 // Public helpers — each never repeats its last line. Callers pass a signal so the
@@ -127,6 +130,28 @@ const INTERJECT = {
   next: ["Let's try another example.", 'One more.', 'Moving on.'],
 };
 export function interjection(kind) { return pick(`interject-${kind}`, INTERJECT[kind] || INTERJECT.think); }
+
+// ── Picking the thread back up after a student interrupts with a doubt — the little
+// bridge a real tutor says before carrying on, so a resume feels like a conversation
+// continuing, not a slide un-pausing. Prepended to the sentence she resumes on, so
+// it reads as one natural line: "Right, where were we? Okay, <the sentence>." ──────
+const RESUME_BRIDGE = [
+  'Right — where were we? Okay,',
+  'Good question. So, back to it —',
+  'Got it? Let’s carry on.',
+  'Okay — picking up where we left off.',
+  'Makes sense? Right, back to it —',
+];
+const RESUME_BRIDGE_TOPIC = [
+  'Right — so, back to {t}.',
+  'Okay, where were we — yes, {t}.',
+  'Good. Now, back to {t} —',
+];
+export function resumeBridge(topic) {
+  const t = String(topic || '').trim();
+  if (t && Math.random() < 0.6) return pick('resumeTopic', RESUME_BRIDGE_TOPIC).replace('{t}', t);
+  return pick('resume', RESUME_BRIDGE);
+}
 
 export function selfCheckLine() { return pick('selfCheck', SELF_CHECK); }
 export function listeningLine() { return pick('listening', LISTENING); }
