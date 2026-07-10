@@ -8,7 +8,6 @@ import SessionsScreen  from '../screens/SessionsScreen';
 import PracticeScreen  from '../screens/PracticeScreen';
 import ResourcesScreen from '../screens/ResourcesScreen';
 import ResultsScreen   from '../screens/ResultsScreen';
-import ExploreScreen   from '../screens/ExploreScreen';
 import ProfileScreen   from '../screens/ProfileScreen';
 
 
@@ -20,7 +19,6 @@ const ICONS = {
   Practice:  { emoji: '🎯' },
   Resources: { emoji: '📖' },
   Results:   { emoji: '📊' },
-  Explore:   { emoji: '🔍' },
   Profile:   { emoji: '👤' },
 };
 
@@ -67,7 +65,6 @@ const MainNavigator = () => {
       <Tab.Screen name="Practice"  component={PracticeScreen} />
       <Tab.Screen name="Resources" component={ResourcesScreen} />
       <Tab.Screen name="Results"   component={ResultsScreen} />
-      <Tab.Screen name="Explore"   component={ExploreScreen} />
       <Tab.Screen name="Profile"   component={ProfileScreen} />
     </Tab.Navigator>
   );
