@@ -57,6 +57,7 @@ export default function ParentApp() {
   const [gymOpen, setGymOpen] = useState(false);
   const [activityOpen, setActivityOpen] = useState(false);
   const [trialOpen, setTrialOpen] = useState(false);
+  const [relinking, setRelinking] = useState(false); // "Link another child" without discarding the loaded report
   const [rescheduleMode, setRescheduleMode] = useState(false);
   const [booking, setBooking] = useState(null); // the parent's active free-demo booking
 
@@ -113,20 +114,20 @@ export default function ParentApp() {
   const onRefresh = useCallback(() => { setRefreshing(true); load(true); }, [load]);
   const retry = useCallback(() => { setLoading(true); setErr(false); load(false); }, [load]);
   const switchTab = useCallback((id) => { setTab((prev) => (id === prev ? prev : id)); }, []);
-  const onLinked = useCallback(() => { setLoading(true); load(false); }, [load]);
+  const onLinked = useCallback(() => { setRelinking(false); setLoading(true); load(false); }, [load]);
   // Header avatar opens the premium account bottom sheet (replaces the old Alert popup).
   const onAvatar = useCallback(() => setSheetOpen(true), []);
   const onGym = useCallback(() => setGymOpen(true), []);            // AI Gym → the real BrainGym
   const onActivity = useCallback(() => setActivityOpen(true), []);  // Recent activity detail
   const onBookTrial = useCallback(() => { setRescheduleMode(false); setTrialOpen(true); }, []); // "Book a FREE demo" → in-app flow
-  const relink = useCallback(() => setReport({ linked: false }), []);
+  const relink = useCallback(() => setRelinking(true), []); // keep report; show link screen without discarding data
   const confirmDelete = useCallback(() => {
     Alert.alert(
       'Delete account',
       'This permanently removes your parent account and unlinks your child. This cannot be undone.',
       [
         { text: 'Cancel', style: 'cancel' },
-        { text: 'Delete', style: 'destructive', onPress: () => flash('Account deletion — coming soon') },
+        { text: 'Delete', style: 'destructive', onPress: () => flash('Email support@ailernova.com and we’ll remove your account.') },
       ],
     );
   }, [flash]);
@@ -141,7 +142,7 @@ export default function ParentApp() {
     content = <Skeleton />;
   } else if (err && !report) {
     content = <ErrorState onRetry={retry} />;
-  } else if (!linked) {
+  } else if (!linked || relinking) {
     content = <LinkChild parentName={user?.name} onLinked={onLinked} onLogout={signOut} />;
   } else {
     const shared = {
@@ -150,8 +151,8 @@ export default function ParentApp() {
     };
     content = (
       <View style={st.screen}>
-        {/* Pure crossfade on tab switch — no layout movement, nav stays fixed. */}
-        <FadeIn key={tab} y={0} duration={240} style={{ flex: 1 }}>
+        {/* Gentle rise + fade on tab switch — content lifts into place, nav stays fixed. */}
+        <FadeIn key={tab} y={12} duration={300} style={{ flex: 1 }}>
           {tab === 'home' && <HomeTab {...shared} report={report} refreshing={refreshing} onRefresh={onRefresh} />}
           {tab === 'progress' && <ProgressTab {...shared} report={report} refreshing={refreshing} onRefresh={onRefresh} />}
           {tab === 'sessions' && <SessionsTab {...shared} />}
@@ -178,7 +179,7 @@ export default function ParentApp() {
         onLinkAnother={relink}
         onLogout={signOut}
         onDeleteAccount={confirmDelete}
-        onComingSoon={() => flash('Coming soon')}
+        onComingSoon={() => flash('Almost ready — we’re finishing this up.')}
         onSwitchToStudent={onSwitchToStudent}
       />
       {/* AI Gym → the actual student BrainGym experience, reused directly (not a copy). */}

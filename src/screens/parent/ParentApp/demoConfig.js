@@ -9,8 +9,8 @@ export const CLASSES = ['Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10', 
 export const BOARDS = ['CBSE', 'ICSE', 'State Board', 'IGCSE', 'IB'];
 export const SUBJECTS = ['Maths', 'Physics', 'Chemistry', 'Biology', 'Science', 'English'];
 export const GOALS = [
-  'Build confidence', 'Improve school grades', 'Board exam prep',
-  'Competitive exams (JEE/NEET)', 'Clear the basics', 'Get ahead',
+  'Build confidence', 'Improve school grades', 'Exam preparation',
+  'Entrance / competitive exams', 'Clear the basics', 'Get ahead',
 ];
 
 const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -106,16 +106,18 @@ export function joinWindow(booking, now = new Date()) {
 // Human countdown to the class ("in 2 days", "in 3h 20m", "Starting now").
 export function countdown(booking, now = new Date()) {
   const start = new Date(booking.date).getTime();
+  if (!Number.isFinite(start)) return '';
   const diff = start - now.getTime();
   if (diff <= 0) {
     const { isLive, ended } = joinWindow(booking, now);
     return isLive ? 'Live now' : ended ? 'Completed' : 'Starting now';
   }
   const mins = Math.floor(diff / 60000);
+  if (mins < 1) return 'Starting now';
   const days = Math.floor(mins / 1440);
   const hours = Math.floor((mins % 1440) / 60);
   const m = mins % 60;
   if (days >= 1) return `in ${days} day${days > 1 ? 's' : ''}`;
   if (hours >= 1) return `in ${hours}h ${m}m`;
-  return `in ${m} min`;
+  return `in ${mins} min`;
 }

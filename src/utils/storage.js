@@ -116,6 +116,25 @@ export const bumpPracticeStreak = async () => {
   }
 };
 
+// Peek the streak WITHOUT bumping. Used to show the "you lost your streak" nudge ONLY
+// when the player is genuinely returning after a gap — i.e. they last played 2+ days
+// ago so the streak actually broke. Played today or yesterday → { broken: false }.
+export const peekPracticeStreak = async () => {
+  try {
+    const today = dayNumber(new Date());
+    const raw = await AsyncStorage.getItem(KEYS.PRACTICE_STREAK);
+    const prev = raw ? JSON.parse(raw) : null;
+    if (!prev || typeof prev.day !== 'number' || typeof prev.streak !== 'number' || prev.streak < 1) {
+      return { broken: false, streak: 0 };
+    }
+    const gap = today - prev.day;
+    if (gap <= 1) return { broken: false, streak: prev.streak, gap }; // today or consecutive day
+    return { broken: true, streak: prev.streak, gap, missedDays: gap - 1, lostPoints: prev.streak };
+  } catch (_) {
+    return { broken: false, streak: 0 };
+  }
+};
+
 // ── AI-Teacher student memory ─────────────────────────────────────────────────
 // The cross-lesson model the pedagogy engine remembers a student by (rolling
 // confidence, accuracy, topics learned, what was tricky). Stored as a map keyed by

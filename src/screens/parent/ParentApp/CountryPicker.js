@@ -1,8 +1,8 @@
 // src/screens/parent/ParentApp/CountryPicker.js
 // "Select your country" bottom-sheet: search + popular countries pinned on top,
 // then the full alphabetical list. Flag · name · dial code per row.
-import React, { useMemo, useState } from 'react';
-import { View, TextInput, Modal, Pressable, FlatList, StyleSheet, Platform } from 'react-native';
+import React, { useEffect, useMemo, useState } from 'react';
+import { View, TextInput, Modal, Pressable, FlatList, StyleSheet } from 'react-native';
 import { Search } from 'lucide-react-native';
 import { C, F, T } from './constants';
 import { COUNTRIES, POPULAR_COUNTRIES, flagOf } from './countries';
@@ -10,22 +10,29 @@ import { COUNTRIES, POPULAR_COUNTRIES, flagOf } from './countries';
 function Row({ item, selected, onPick }) {
   const on = selected && item.iso2 === selected;
   return (
-    <Pressable style={[s.row, on && s.rowOn]} onPress={() => onPick(item)}>
-      <T s={22} style={{ width: 30 }}>{flagOf(item.iso2)}</T>
+    <Pressable style={[s.row, on && s.rowOn]} onPress={() => onPick(item)}
+      accessibilityRole="button" accessibilityLabel={`${item.name}, ${item.dial}`} accessibilityState={{ selected: !!on }}>
+      <T s={22} style={{ width: 30 }} accessibilityElementsHidden importantForAccessibility="no">{flagOf(item.iso2)}</T>
       <T w={on ? 'bold' : 'med'} s={16} c={C.ink} style={{ flex: 1 }} numberOfLines={1}>{item.name}</T>
-      <T w={on ? 'bold' : 'med'} s={16} c={C.ink}>{item.dial.replace('+', '+ ')}</T>
+      <T w={on ? 'bold' : 'med'} s={16} c={C.ink}>{item.dial}</T>
     </Pressable>
   );
 }
 
 export default function CountryPicker({ visible, selected, onPick, onClose }) {
   const [q, setQ] = useState('');
+  useEffect(() => { if (!visible) setQ(''); }, [visible]); // don't reopen with a stale search
 
   // When searching, show a single flat filtered list; otherwise popular + divider + all.
+  // Match name (substring), ISO code (exact), or dial by typed digits (prefix).
   const data = useMemo(() => {
     const term = q.trim().toLowerCase();
     if (term) {
-      return COUNTRIES.filter((c) => c.name.toLowerCase().includes(term) || c.dial.includes(term))
+      const digits = term.replace(/[^0-9]/g, '');
+      return COUNTRIES.filter((c) =>
+        c.name.toLowerCase().includes(term)
+        || c.iso2.toLowerCase() === term
+        || (digits && c.dial.replace(/[^0-9]/g, '').startsWith(digits)))
         .map((c) => ({ ...c, _k: c.iso2 }));
     }
     const pop = POPULAR_COUNTRIES.map((c) => ({ ...c, _k: `p_${c.iso2}` }));
@@ -36,7 +43,7 @@ export default function CountryPicker({ visible, selected, onPick, onClose }) {
   return (
     <Modal visible={visible} animationType="slide" transparent onRequestClose={onClose}>
       <View style={s.backdrop}>
-        <Pressable style={{ flex: 1 }} onPress={onClose} />
+        <Pressable style={{ flex: 1 }} onPress={onClose} accessibilityLabel="Close" accessibilityRole="button" />
         <View style={s.sheet}>
           <View style={s.handle} />
           <T w="bold" s={24} c={C.ink} style={{ marginBottom: 16 }}>Select your country</T>
@@ -45,7 +52,7 @@ export default function CountryPicker({ visible, selected, onPick, onClose }) {
             <Search size={20} color={C.faint} />
             <TextInput
               value={q} onChangeText={setQ} placeholder="Search" placeholderTextColor={C.faint}
-              autoCapitalize="none" autoCorrect={false} style={s.searchInput}
+              autoCapitalize="none" autoCorrect={false} style={s.searchInput} accessibilityLabel="Search countries"
             />
           </View>
 
@@ -54,6 +61,8 @@ export default function CountryPicker({ visible, selected, onPick, onClose }) {
             keyExtractor={(it) => it._k}
             keyboardShouldPersistTaps="handled"
             showsVerticalScrollIndicator={false}
+            keyboardDismissMode="on-drag"
+            ListEmptyComponent={<View style={{ paddingVertical: 28, alignItems: 'center' }}><T w="med" s={14} c={C.muted}>No countries found</T></View>}
             renderItem={({ item }) =>
               item.divider ? <View style={s.divider} /> : <Row item={item} selected={selected} onPick={onPick} />
             }

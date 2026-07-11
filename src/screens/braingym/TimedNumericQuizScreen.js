@@ -12,16 +12,31 @@
 
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import {
-  View, Text, StyleSheet, SafeAreaView, StatusBar, Platform, TouchableOpacity, Animated, ScrollView, Dimensions,
+  View, Text, StyleSheet, SafeAreaView, StatusBar, Platform, TouchableOpacity, Animated, Easing, ScrollView, Dimensions, Vibration,
 } from 'react-native';
 import { initSounds, playLoop, playSound, stopSound } from '../../utils/sound';
+import { bumpPracticeStreak } from '../../utils/storage';
 import { submitBrainGymResult, getBrainGymQuestions, submitBrainGymAttempts } from '../../api/brainGymApi';
 import { pickQuestions } from '../../data/brainGymQuestions';
+import { pressSpring, PRESS_SCALE } from './motion';
 
 const { width: SCREEN_W } = Dimensions.get('window');
 const DURATION = 60;
 const NUM_QUESTIONS = 5;
 const XP_PER_CORRECT = 10;
+const EASE = Easing.bezier(0.22, 1, 0.36, 1);
+
+// A key / button that springs down on press (tactile feedback for the keypad + CTAs).
+const PressBtn = ({ style, wrapStyle, onPress, disabled, activeOpacity = 0.9, children }) => {
+  const sc = useRef(new Animated.Value(1)).current;
+  const to = (v) => pressSpring(sc, v).start();
+  return (
+    <TouchableOpacity activeOpacity={activeOpacity} disabled={disabled} onPress={onPress}
+      onPressIn={() => !disabled && to(PRESS_SCALE)} onPressOut={() => to(1)} style={wrapStyle}>
+      <Animated.View style={[style, { transform: [{ scale: sc }] }]}>{children}</Animated.View>
+    </TouchableOpacity>
+  );
+};
 
 const SKILL_META = {
   reasoning:     { emoji: '🧠', label: 'Reasoning',     color: '#A855F7', glow: '#C084FC' },
@@ -146,6 +161,54 @@ const TimedNumericQuizScreen = ({ level = 1, skill = 'reasoning', onComplete, on
   const answeredRef = useRef(0);
   const timeLeftRef = useRef(DURATION);
   const pop = useRef(new Animated.Value(0)).current; // feedback pop animation
+  const shake = useRef(new Animated.Value(0)).current; // wrong-answer shake
+  const glow = useRef(new Animated.Value(0)).current;  // correct-answer glow flash
+  const cd = useRef(new Animated.Value(0)).current;         // 3·2·1 countdown pop
+  const prog = useRef(new Animated.Value(0)).current;       // smooth progress fill
+  const timerPulse = useRef(new Animated.Value(1)).current; // low-time heartbeat
+  const rBadge = useRef(new Animated.Value(0)).current;     // reward badge pop
+  const rHead = useRef(new Animated.Value(0)).current;      // reward line fade
+  const starVals = useRef([0, 1, 2].map(() => new Animated.Value(0))).current;
+  const rowVals = useRef(Array.from({ length: 6 }, () => new Animated.Value(0))).current;
+  const dotVals = useRef(Array.from({ length: NUM_QUESTIONS }, () => new Animated.Value(0))).current;
+
+  // Countdown number pops in on each tick.
+  useEffect(() => {
+    if (phase !== 'intro') return;
+    cd.setValue(0);
+    Animated.spring(cd, { toValue: 1, useNativeDriver: true, damping: 8, stiffness: 170, mass: 0.7 }).start();
+  }, [countdown, phase, cd]);
+
+  // Smoothly animate the progress bar as questions advance.
+  useEffect(() => {
+    const pct = qs.length ? (index / qs.length) * 100 : 0;
+    Animated.timing(prog, { toValue: pct, duration: 320, easing: EASE, useNativeDriver: false }).start();
+  }, [index, qs.length, prog]);
+
+  // Timer "heartbeat": a quick scale pulse on each second once time is low, so the
+  // urgency is felt in motion (secondary motion) — not just the colour change.
+  useEffect(() => {
+    if (phase !== 'quiz' || timeLeft <= 0 || timeLeft > 10) return;
+    timerPulse.setValue(1);
+    Animated.sequence([
+      Animated.timing(timerPulse, { toValue: 1.09, duration: 90, easing: Easing.out(Easing.quad), useNativeDriver: true }),
+      Animated.spring(timerPulse, { toValue: 1, useNativeDriver: true, damping: 6, stiffness: 200, mass: 0.6 }),
+    ]).start();
+  }, [timeLeft, phase, timerPulse]);
+
+  // Choreograph the whole reward screen: badge pops, then line, stars cascade, stat
+  // rows slide in, then the per-question dots pop.
+  useEffect(() => {
+    if (!done) return;
+    [rBadge, rHead, ...starVals, ...rowVals, ...dotVals].forEach((v) => v.setValue(0));
+    Animated.sequence([
+      Animated.spring(rBadge, { toValue: 1, useNativeDriver: true, damping: 9, stiffness: 150, mass: 0.8 }),
+      Animated.timing(rHead, { toValue: 1, duration: 280, easing: EASE, useNativeDriver: true }),
+      Animated.stagger(90, starVals.map((v) => Animated.spring(v, { toValue: 1, useNativeDriver: true, damping: 7, stiffness: 210 }))),
+      Animated.stagger(70, rowVals.map((v) => Animated.timing(v, { toValue: 1, duration: 280, easing: EASE, useNativeDriver: true }))),
+      Animated.stagger(60, dotVals.map((v) => Animated.spring(v, { toValue: 1, useNativeDriver: true, damping: 8, stiffness: 220 }))),
+    ]).start();
+  }, [done]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => { scoreRef.current = score; }, [score]);
   useEffect(() => { answeredRef.current = answered; }, [answered]);
@@ -172,6 +235,7 @@ const TimedNumericQuizScreen = ({ level = 1, skill = 'reasoning', onComplete, on
     doneRef.current = true;
     stopSound('tick');
     playSound(reason === 'timeup' ? 'timeout' : 'success'); // gentle timeout vs. all-done chime
+    bumpPracticeStreak(); // completing a workout counts as today's Brain Gym activity
     setFinishing(true); // show "All Done!" briefly, then the reward screen
 
     const correct = scoreRef.current;
@@ -229,12 +293,30 @@ const TimedNumericQuizScreen = ({ level = 1, skill = 'reasoning', onComplete, on
     if (phase === 'quiz' && timeLeft === 0 && !doneRef.current) finish('timeup');
   }, [phase, timeLeft, finish]);
 
-  const runPop = () => {
-    pop.setValue(0);
-    Animated.sequence([
-      Animated.timing(pop, { toValue: 1, duration: 140, useNativeDriver: true }),
-      Animated.timing(pop, { toValue: 0, duration: 160, useNativeDriver: true }),
-    ]).start();
+  // Correct → a satisfying spring pop + a green glow that flashes out. Wrong → a quick
+  // side-to-side shake + a short haptic. Both native-driven.
+  const runFeedback = (correct) => {
+    if (correct) {
+      pop.setValue(0); glow.setValue(0);
+      Animated.parallel([
+        Animated.sequence([
+          Animated.spring(pop, { toValue: 1, useNativeDriver: true, damping: 6, stiffness: 260 }),
+          Animated.spring(pop, { toValue: 0, useNativeDriver: true, damping: 9, stiffness: 200 }),
+        ]),
+        Animated.timing(glow, { toValue: 1, duration: 620, easing: Easing.out(Easing.quad), useNativeDriver: true }),
+      ]).start();
+      Vibration.vibrate(18);
+    } else {
+      Vibration.vibrate(55);
+      shake.setValue(0);
+      Animated.sequence([
+        Animated.timing(shake, { toValue: 1, duration: 55, useNativeDriver: true }),
+        Animated.timing(shake, { toValue: -1, duration: 55, useNativeDriver: true }),
+        Animated.timing(shake, { toValue: 0.7, duration: 55, useNativeDriver: true }),
+        Animated.timing(shake, { toValue: -0.7, duration: 55, useNativeDriver: true }),
+        Animated.timing(shake, { toValue: 0, duration: 55, useNativeDriver: true }),
+      ]).start();
+    }
   };
 
   const locked = !!feedback || done || finishing;
@@ -250,7 +332,7 @@ const TimedNumericQuizScreen = ({ level = 1, skill = 'reasoning', onComplete, on
     });
     setAnswered((n) => n + 1);
     setFeedback(correct ? 'correct' : 'wrong');
-    runPop();
+    runFeedback(correct);
     if (correct) { setScore((n) => n + 1); playSound('correct'); }
     else { playSound('wrong'); }
 
@@ -275,7 +357,10 @@ const TimedNumericQuizScreen = ({ level = 1, skill = 'reasoning', onComplete, on
 
   const mmss = `${Math.floor(timeLeft / 60)}:${String(timeLeft % 60).padStart(2, '0')}`;
   const grad = feedback === 'correct' ? G_CORRECT : feedback === 'wrong' ? G_WRONG : G_NORMAL;
-  const popScale = pop.interpolate({ inputRange: [0, 1], outputRange: [1, 1.08] });
+  const popScale = pop.interpolate({ inputRange: [0, 1], outputRange: [1, 1.14] });
+  const shakeX = shake.interpolate({ inputRange: [-1, 1], outputRange: [-9, 9] });
+  const glowOpacity = glow.interpolate({ inputRange: [0, 0.4, 1], outputRange: [0, 0.55, 0] });
+  const glowScale = glow.interpolate({ inputRange: [0, 1], outputRange: [0.9, 1.45] });
 
   // ── Countdown intro ──
   if (phase === 'intro') {
@@ -283,7 +368,9 @@ const TimedNumericQuizScreen = ({ level = 1, skill = 'reasoning', onComplete, on
       <SafeAreaView style={st.introSafe}>
         <StatusBar barStyle="light-content" backgroundColor="#000" />
         <View style={st.introWrap}>
-          <Text style={st.countNum}>{countdown > 0 ? countdown : 'Go!'}</Text>
+          <Animated.Text style={[st.countNum, { opacity: cd, transform: [{ scale: cd.interpolate({ inputRange: [0, 1], outputRange: [0.3, 1] }) }] }]}>
+            {countdown > 0 ? countdown : 'Go!'}
+          </Animated.Text>
           <Text style={st.introMsg}>You have 60 seconds!{'\n'}Be quick and accurate to clear the challenge.</Text>
         </View>
       </SafeAreaView>
@@ -329,31 +416,33 @@ const TimedNumericQuizScreen = ({ level = 1, skill = 'reasoning', onComplete, on
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={st.rewardScroll}>
           <Text style={st.rewardHeader}>Workout Complete! 🎉</Text>
 
-          <View style={[st.badgeRing, { borderColor: badge.color, shadowColor: badge.color }]}>
+          <Animated.View style={[st.badgeRing, { borderColor: badge.color, shadowColor: badge.color, opacity: rBadge, transform: [{ scale: rBadge.interpolate({ inputRange: [0, 1], outputRange: [0.3, 1] }) }] }]}>
             <Text style={st.badgeEmoji}>{badge.emoji}</Text>
-          </View>
-          <Text style={[st.rewardLine, { color: badge.color }]}>{line}</Text>
-          <Text style={st.badgeName}>{badge.name} Badge</Text>
+          </Animated.View>
+          <Animated.Text style={[st.rewardLine, { color: badge.color, opacity: rHead }]}>{line}</Animated.Text>
+          <Animated.Text style={[st.badgeName, { opacity: rHead }]}>{badge.name} Badge</Animated.Text>
 
           <View style={st.stars}>
-            {[0, 1, 2].map((i) => <Text key={i} style={[st.star, i >= stars && st.starOff]}>★</Text>)}
+            {[0, 1, 2].map((i) => (
+              <Animated.Text key={i} style={[st.star, i >= stars && st.starOff, { opacity: starVals[i], transform: [{ scale: starVals[i] }] }]}>★</Animated.Text>
+            ))}
           </View>
 
           <View style={st.statsCard}>
             {rows.map((r, i) => (
-              <View key={r.label} style={[st.statRow, i < rows.length - 1 && st.statDiv]}>
+              <Animated.View key={r.label} style={[st.statRow, i < rows.length - 1 && st.statDiv, { opacity: rowVals[i], transform: [{ translateX: rowVals[i].interpolate({ inputRange: [0, 1], outputRange: [22, 0] }) }] }]}>
                 <Text style={st.statIcon}>{r.icon}</Text>
                 <Text style={st.statLabel}>{r.label}</Text>
                 <Text style={[st.statValue, { color: r.color }]}>{r.value}</Text>
-              </View>
+              </Animated.View>
             ))}
           </View>
 
           <View style={st.perfRow}>
             {Array.from({ length: total }).map((_, i) => (
-              <View key={i} style={[st.perfDot, i < score ? st.perfOk : st.perfBad]}>
+              <Animated.View key={i} style={[st.perfDot, i < score ? st.perfOk : st.perfBad, { opacity: dotVals[i] || 1, transform: [{ scale: dotVals[i] || 1 }] }]}>
                 <Text style={st.perfDotTxt}>{i < score ? '✓' : '✕'}</Text>
-              </View>
+              </Animated.View>
             ))}
           </View>
 
@@ -369,13 +458,13 @@ const TimedNumericQuizScreen = ({ level = 1, skill = 'reasoning', onComplete, on
           {saveState === 'saving' && <Text style={st.saveHint}>Saving your progress…</Text>}
           {saveState === 'saved' && <Text style={st.saveHintOk}>Progress saved ✓</Text>}
 
-          <TouchableOpacity style={st.primaryBtn} activeOpacity={0.9} onPress={() => onComplete && onComplete()}>
+          <PressBtn wrapStyle={{ width: '100%' }} style={st.primaryBtn} activeOpacity={0.9} onPress={() => onComplete && onComplete()}>
             <Text style={st.primaryBtnTxt}>Continue  🔄</Text>
-          </TouchableOpacity>
+          </PressBtn>
           {onViewArena && (
-            <TouchableOpacity style={st.secondaryBtn} activeOpacity={0.9} onPress={() => onViewArena()}>
+            <PressBtn wrapStyle={{ width: '100%' }} style={st.secondaryBtn} activeOpacity={0.9} onPress={() => onViewArena()}>
               <Text style={st.secondaryBtnTxt}>View Arena  🏆</Text>
-            </TouchableOpacity>
+            </PressBtn>
           )}
           <TouchableOpacity onPress={exit}><Text style={st.rewardExit}>Back to Home  🏠</Text></TouchableOpacity>
         </ScrollView>
@@ -398,14 +487,14 @@ const TimedNumericQuizScreen = ({ level = 1, skill = 'reasoning', onComplete, on
       <View style={st.top}>
         <TouchableOpacity style={st.exitBtn} onPress={exit}><Text style={st.exitTxt}>✕</Text></TouchableOpacity>
         <View style={{ flex: 1 }} />
-        <View style={[st.timer, timeLeft <= 10 && st.timerLow]}>
+        <Animated.View style={[st.timer, timeLeft <= 10 && st.timerLow, { transform: [{ scale: timerPulse }] }]}>
           <Text style={st.timerTxt}>⏱ {mmss}</Text>
-        </View>
+        </Animated.View>
       </View>
 
       {/* Progress line */}
       <View style={st.progRow}>
-        <View style={st.progTrack}><View style={[st.progFill, { width: `${progress}%` }]} /></View>
+        <View style={st.progTrack}><Animated.View style={[st.progFill, { width: prog.interpolate({ inputRange: [0, 100], outputRange: ['0%', '100%'] }) }]} /></View>
         <Text style={st.progTxt}>{index + 1}/{qs.length}</Text>
       </View>
 
@@ -416,11 +505,13 @@ const TimedNumericQuizScreen = ({ level = 1, skill = 'reasoning', onComplete, on
 
       {/* Answer pill */}
       <View style={st.pillWrap}>
+        {/* green glow that flashes out on a correct answer */}
+        <Animated.View pointerEvents="none" style={[st.pillGlow, { opacity: glowOpacity, transform: [{ scale: glowScale }] }]} />
         <Animated.View style={[
           st.pill,
           feedback === 'correct' && st.pillOk,
           feedback === 'wrong' && st.pillBad,
-          { transform: [{ scale: popScale }] },
+          { transform: [{ translateX: shakeX }, { scale: popScale }] },
         ]}>
           <Text style={[st.pillTxt, input === '' && st.pillPlaceholder]}>
             {input === '' ? 'Enter Answer…' : input}
@@ -438,7 +529,7 @@ const TimedNumericQuizScreen = ({ level = 1, skill = 'reasoning', onComplete, on
               if (!k) return <View key={ci} style={{ width: CIRCLE, height: CIRCLE }} />;
               const isDel = k === 'del';
               return (
-                <TouchableOpacity
+                <PressBtn
                   key={ci}
                   activeOpacity={0.8}
                   disabled={locked}
@@ -451,7 +542,7 @@ const TimedNumericQuizScreen = ({ level = 1, skill = 'reasoning', onComplete, on
                   ]}
                 >
                   <Text style={[st.circleTxt, isDel && st.circleAccentTxt]}>{isDel ? '⌫' : k}</Text>
-                </TouchableOpacity>
+                </PressBtn>
               );
             })}
           </View>
@@ -505,7 +596,8 @@ const st = StyleSheet.create({
   qText: { color: '#fff', fontSize: 19, fontWeight: '800', textAlign: 'center', lineHeight: 27, letterSpacing: -0.2 },
 
   // answer pill
-  pillWrap: { alignItems: 'center', marginTop: 36 },
+  pillWrap: { alignItems: 'center', justifyContent: 'center', marginTop: 36 },
+  pillGlow: { position: 'absolute', minWidth: SCREEN_W * 0.6, height: 66, borderRadius: 24, backgroundColor: '#39D98A' },
   pill: { minWidth: SCREEN_W * 0.6, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(0,0,0,0.4)', borderRadius: 20, borderWidth: 1.5, borderColor: 'rgba(255,255,255,0.12)', paddingVertical: 18, paddingHorizontal: 30 },
   pillOk: { borderColor: '#39D98A', backgroundColor: 'rgba(6,32,15,0.5)' },
   pillBad: { borderColor: '#F43F5E', backgroundColor: 'rgba(32,10,16,0.5)' },

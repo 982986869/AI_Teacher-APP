@@ -13,10 +13,21 @@ import {
   ArrowLeft, ChevronDown, Check, Sun, Moon, Plus, X, Target, BookOpen, MessageCircle, Star, User,
 } from 'lucide-react-native';
 import { C, F, T, DOWF, MONF, Wordmark } from './constants';
-import { PressableScale } from './anim';
+import { PressableScale, FadeIn } from './anim';
 import CountryPicker from './CountryPicker';
 import { findCountry, flagOf } from './countries';
 import { addDemoToCalendar, updateDemoInCalendar, removeDemoFromCalendar } from './calendar';
+
+// Best-effort default dial code from the device locale (falls back to India) — so
+// parents outside India don't have to change +91 every time.
+function defaultCountry() {
+  try {
+    const loc = Intl.DateTimeFormat().resolvedOptions().locale || '';
+    const region = (loc.split('-')[1] || '').toUpperCase();
+    if (region) { const c = findCountry(region); if (c) return c; }
+  } catch (_) { /* Intl may be unavailable */ }
+  return findCountry('IN') || { name: 'India', iso2: 'IN', dial: '+91' };
+}
 
 // Two clean columns for the day/slot pills (explicit px width → never squished).
 const SCREEN_W = Dimensions.get('window').width;
@@ -31,8 +42,8 @@ const AFTERNOON = [
 const EVENING = [{ t: '5 - 6' }, { t: '6 - 7', off: true }, { t: '7 - 8', off: true }];
 
 const HAPPENS = [
-  { bg: '#FBD9C8', Icon: Target, title: 'Introduction & Goals', body: (n) => `The tutor will talk to you about ${n}'s current math level and learning goals to personalize the session.` },
-  { bg: '#FCE8B8', Icon: BookOpen, title: 'Learning Session', body: (n) => `The tutor will work through concepts and problems with ${n}, showcasing our tools and teaching approach.` },
+  { bg: '#FBD9C8', Icon: Target, title: 'Introduction & Goals', body: (n) => `The mentor gets to know ${n}'s current level and learning goals to personalize the session.` },
+  { bg: '#FCE8B8', Icon: BookOpen, title: 'Learning Session', body: (n) => `The mentor works through concepts and problems with ${n}, showing our tools and teaching approach.` },
   { bg: '#D8EBD8', Icon: MessageCircle, title: 'Q&A + Next Steps', body: () => 'Ask anything, and we\'ll suggest a personalized learning plan for the year ahead.' },
 ];
 
@@ -46,14 +57,14 @@ const FAQS = [
 
 // Placeholder social-proof data (swap for real content/photos later).
 const ACHIEVERS = [
-  { name: 'Siddhiksha, G1', award: 'IMO — International Rank 1', bg: '#F6E7C8' },
-  { name: 'Aarav, G5', award: 'IMO Gold — District Topper', bg: '#F6D7E7' },
-  { name: 'Meera, G7', award: 'Science Olympiad — Rank 2', bg: '#DCEBF6' },
+  { name: 'Sofia, Grade 4', award: 'National finalist — Olympiad', bg: '#F6E7C8' },
+  { name: 'Aarav, Grade 5', award: 'Top of class — Science', bg: '#F6D7E7' },
+  { name: 'Mia, Grade 7', award: 'School topper — 2 years', bg: '#DCEBF6' },
 ];
 const COMMUNITY = [
-  { name: 'YUNEKE GONZALEZ', title: 'A Homeschooler\'s Journey', body: 'AILERNOVA empowers this homeschooler to thrive — balancing creativity and problem-solving every day.', bg: '#F6E7C8' },
-  { name: 'RAHUL S.', title: 'Thriving & Accelerating', body: 'A Grade 8 student turning curiosity into school wins and Math Olympiad medals.', bg: '#DCEEDC' },
-  { name: 'AISHA K.', title: 'From Fear to Fluency', body: 'Went from dreading maths to leading her class — one confident step at a time.', bg: '#F6D7E7' },
+  { name: 'YUNEKE GONZALEZ', title: 'A Homeschooler\'s Journey', body: 'Ailernova empowers this homeschooler to thrive — balancing creativity and problem-solving every day.', bg: '#F6E7C8' },
+  { name: 'RAHUL S.', title: 'Thriving & Accelerating', body: 'A Grade 8 student turning curiosity into school wins and academic medals.', bg: '#DCEEDC' },
+  { name: 'AISHA K.', title: 'From Fear to Fluency', body: 'Went from dreading the subject to leading her class — one confident step at a time.', bg: '#F6D7E7' },
 ];
 
 function Field({ label, children, onPress }) {
@@ -77,7 +88,7 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
   const [step, setStep] = useState(initialBooking ? 'schedule' : 'form'); // form | loading | schedule | confirming | confirmed
   const [child, setChild] = useState(initialBooking?.student?.name || kids[0]);
   const [name, setName] = useState(initialBooking?.parent?.name || parentName || '');
-  const [country, setCountry] = useState(findCountry('IN') || { name: 'India', iso2: 'IN', dial: '+91' });
+  const [country, setCountry] = useState(defaultCountry);
   const [mobile, setMobile] = useState('');
   const [day, setDay] = useState(null);
   const [period, setPeriod] = useState('Afternoon');
@@ -156,11 +167,25 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
     }
   };
 
-  // Cancel — delete the calendar event (if synced), clear the booking, close.
-  const handleCancel = async () => {
-    if (calEventId) await removeDemoFromCalendar(calEventId);
-    onChange && onChange(null);
-    close();
+  // Cancel — confirm first (destructive), then delete the calendar event (if synced),
+  // clear the booking, and close.
+  const handleCancel = () => {
+    Alert.alert(
+      'Cancel this class?',
+      'This frees up your slot. You can book another free demo anytime.',
+      [
+        { text: 'Keep it', style: 'cancel' },
+        {
+          text: 'Cancel class',
+          style: 'destructive',
+          onPress: async () => {
+            if (calEventId) await removeDemoFromCalendar(calEventId);
+            onChange && onChange(null);
+            close();
+          },
+        },
+      ],
+    );
   };
 
   // Loading auto-advances; confirming persists the booking (and updates the calendar
@@ -215,9 +240,11 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
 
   const headerTitle = step === 'form' ? 'Book a free class' : 'For the trial class';
 
-  // Derived date/time strings for the confirmation banner.
-  const startHr = slot ? slot.t.split('-')[0].trim() : '1';
-  const timeStr = `${startHr}:00 PM`;
+  // Derived date/time strings for the confirmation banner. AM/PM is derived from the
+  // real 24h slot (afternoon 12–4 PM, evening 5–8 PM) rather than hardcoded.
+  const startHr = slot ? parseInt(slot.t.split('-')[0].trim(), 10) : 1;
+  const h24 = startHr === 12 ? 12 : startHr + 12;
+  const timeStr = `${(h24 % 12) || 12}:00 ${h24 < 12 ? 'AM' : 'PM'}`;
   const dateStr = day ? `${MONF[day.date.getMonth()]} ${day.date.getDate()}` : '';
   const prevStr = (() => {
     if (!day) return '';
@@ -229,7 +256,7 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
     <Modal visible={visible} animationType="slide" onRequestClose={back} statusBarTranslucent>
       <View style={s.screen}>
         <View style={s.header}>
-          <PressableScale style={s.back} onPress={back}><ArrowLeft size={24} color={C.ink} /></PressableScale>
+          <PressableScale style={s.back} onPress={back} accessibilityLabel="Go back"><ArrowLeft size={24} color={C.ink} /></PressableScale>
           <T w="bold" s={20} c={C.ink}>{headerTitle}</T>
         </View>
 
@@ -293,9 +320,9 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
                 })}
               </View>
 
-              {/* Time slots appear once a day is chosen */}
+              {/* Time slots reveal once a day is chosen (re-animates on each new day) */}
               {day && (
-                <View style={{ marginTop: 26 }}>
+                <FadeIn key={day.key} y={10} style={{ marginTop: 26 }}>
                   <View style={s.periodTabs}>
                     {['Afternoon', 'Evening'].map((p) => {
                       const on = period === p;
@@ -323,7 +350,7 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
                       );
                     })}
                   </View>
-                </View>
+                </FadeIn>
               )}
             </ScrollView>
 
@@ -339,7 +366,8 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
         {step === 'confirmed' && (
         <>
           <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 140 }}>
-            {/* Status banner + timeline */}
+            {/* Status banner + timeline — reveals on confirm */}
+            <FadeIn y={12}>
             <View style={s.banner}>
               <View style={{ flexDirection: 'row' }}>
                 <View style={s.tlCol}>
@@ -360,6 +388,7 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
                 <T w="med" s={15} c={C.ink} style={{ flex: 1, lineHeight: 22 }}>Finding Your Tutor by {prevStr} at {timeStr}</T>
               </View>
             </View>
+            </FadeIn>
 
             {/* What happens */}
             <T w="bold" s={22} c={C.ink} style={{ paddingHorizontal: 20, marginTop: 24, marginBottom: 14 }}>What happens in the trial class?</T>
@@ -427,7 +456,7 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
             </ScrollView>
 
             {/* Community */}
-            <T w="bold" s={22} c={C.ink} style={{ paddingHorizontal: 20, marginTop: 20 }}>Community of 2,00,000+ MathFit Kids</T>
+            <T w="bold" s={22} c={C.ink} style={{ paddingHorizontal: 20, marginTop: 20 }}>Community of 200,000+ Ailernova learners</T>
             <T w="med" s={14.5} c={C.muted} style={{ paddingHorizontal: 20, marginTop: 6, lineHeight: 21 }}>
               Heartfelt stories of transformations, learnings, and achievements of our students!
             </T>

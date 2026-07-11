@@ -3,16 +3,44 @@
 // game (solve 3 boards) → +points → streak → back to the Arena wheel.
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import {
-  View, Text, StyleSheet, SafeAreaView, StatusBar, Platform, TouchableOpacity, Dimensions, Animated,
+  View, Text, StyleSheet, SafeAreaView, StatusBar, Platform, TouchableOpacity, Dimensions, Animated, Easing,
 } from 'react-native';
 import { scrambleFlip, solveFlip, flipAt, FLIP_N } from './arenaLogic';
 import { play } from '../../utils/sound';
 import ArenaFlipGame from './ArenaFlipGame';
 import PracticeReward from './PracticeReward';
+import { pressSpring, PRESS_SCALE } from './motion';
 
 const { width: SCREEN_W } = Dimensions.get('window');
 const UP = '#D838C8';
 const DOWN = '#2A2A30';
+
+// A button that springs down on press (tactile feedback for the CTAs).
+const PressBtn = ({ style, wrapStyle, onPress, activeOpacity = 0.9, children }) => {
+  const sc = useRef(new Animated.Value(1)).current;
+  const to = (v) => pressSpring(sc, v).start();
+  return (
+    <TouchableOpacity activeOpacity={activeOpacity} onPress={onPress}
+      onPressIn={() => to(PRESS_SCALE)} onPressOut={() => to(1)} style={wrapStyle}>
+      <Animated.View style={[style, { transform: [{ scale: sc }] }]}>{children}</Animated.View>
+    </TouchableOpacity>
+  );
+};
+
+// The demo's "tap here" ring pulses in each time it appears over a coin.
+function DemoRing({ style }) {
+  const p = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    p.setValue(0);
+    Animated.spring(p, { toValue: 1, useNativeDriver: true, speed: 20, bounciness: 12 }).start();
+  }, [p]);
+  return (
+    <Animated.View style={[style, {
+      opacity: p.interpolate({ inputRange: [0, 1], outputRange: [0, 1] }),
+      transform: [{ scale: p.interpolate({ inputRange: [0, 1], outputRange: [0.6, 1] }) }],
+    }]} />
+  );
+}
 
 // auto-playing demo: scramble, then tap the solution coins one by one, loop
 function FlipHowTo({ onPlay, onExit }) {
@@ -42,6 +70,28 @@ function FlipHowTo({ onPlay, onExit }) {
     return () => clearTimeout(t);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  // Entrance: the rule + board + CTA fade and settle in once, on mount.
+  const enter = useRef(new Animated.Value(0)).current;
+  const win = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    Animated.timing(enter, { toValue: 1, duration: 440, easing: Easing.out(Easing.cubic), useNativeDriver: true }).start();
+  }, [enter]);
+
+  // When the demo finishes a board, give it a satisfying pop.
+  useEffect(() => {
+    if (!done) return;
+    win.setValue(0);
+    Animated.sequence([
+      Animated.spring(win, { toValue: 1, useNativeDriver: true, speed: 14, bounciness: 16 }),
+      Animated.spring(win, { toValue: 0, useNativeDriver: true, speed: 12, bounciness: 8 }),
+    ]).start();
+  }, [done, win]);
+
+  const enterY = enter.interpolate({ inputRange: [0, 1], outputRange: [14, 0] });
+  const enterScale = enter.interpolate({ inputRange: [0, 1], outputRange: [0.96, 1] });
+  const footY = enter.interpolate({ inputRange: [0, 1], outputRange: [18, 0] });
+  const winScale = win.interpolate({ inputRange: [0, 1], outputRange: [1, 1.06] });
+
   const cell = 60, dot = cell * 0.74;
   const center = (i) => i * cell + cell / 2;
   const board = FLIP_N * cell;
@@ -51,29 +101,31 @@ function FlipHowTo({ onPlay, onExit }) {
       <StatusBar barStyle="light-content" backgroundColor="#0B0B0D" />
       {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#0B0B0D' }} />}
       <View style={s.htHead}>
-        <TouchableOpacity onPress={onExit} style={s.x} activeOpacity={0.85}><Text style={s.xTxt}>✕</Text></TouchableOpacity>
+        <PressBtn style={s.x} activeOpacity={0.85} onPress={onExit}><Text style={s.xTxt}>✕</Text></PressBtn>
         <Text style={s.htTitle}>FLIP IT UP</Text>
         <View style={{ width: 36 }} />
       </View>
       <View style={s.center}>
-        <Text style={s.htRule}>Tap a coin to flip it <Text style={{ color: '#fff' }}>and its neighbours</Text>. Turn them all magenta!</Text>
-        <View style={{ width: board, height: board, marginTop: 18 }}>
-          {Array.from({ length: FLIP_N }).map((_, r) => Array.from({ length: FLIP_N }).map((__, c) => {
-            const i = r * FLIP_N + c;
-            return (
-              <View key={i} style={{ position: 'absolute', left: center(c) - dot / 2, top: center(r) - dot / 2, width: dot, height: dot, alignItems: 'center', justifyContent: 'center' }}>
-                {tapCell === i && <View style={[s.tapRing, { width: dot + 10, height: dot + 10, borderRadius: dot }]} />}
-                <View style={{ width: dot, height: dot, borderRadius: dot, backgroundColor: grid[i] ? UP : DOWN }} />
-              </View>
-            );
-          }))}
-        </View>
-        <Text style={s.htCap}>{done ? 'All up — solved! 🎉' : 'Watch how a board gets solved…'}</Text>
+        <Animated.View style={{ alignSelf: 'stretch', alignItems: 'center', opacity: enter, transform: [{ translateY: enterY }, { scale: enterScale }] }}>
+          <Text style={s.htRule}>Tap a coin to flip it <Text style={{ color: '#fff' }}>and its neighbours</Text>. Turn them all magenta!</Text>
+          <Animated.View style={{ width: board, height: board, marginTop: 18, transform: [{ scale: winScale }] }}>
+            {Array.from({ length: FLIP_N }).map((_, r) => Array.from({ length: FLIP_N }).map((__, c) => {
+              const i = r * FLIP_N + c;
+              return (
+                <View key={i} style={{ position: 'absolute', left: center(c) - dot / 2, top: center(r) - dot / 2, width: dot, height: dot, alignItems: 'center', justifyContent: 'center' }}>
+                  {tapCell === i && <DemoRing style={[s.tapRing, { width: dot + 10, height: dot + 10, borderRadius: dot }]} />}
+                  <View style={{ width: dot, height: dot, borderRadius: dot, backgroundColor: grid[i] ? UP : DOWN }} />
+                </View>
+              );
+            }))}
+          </Animated.View>
+          <Text style={s.htCap}>{done ? 'All up — solved! 🎉' : 'Watch how a board gets solved…'}</Text>
+        </Animated.View>
       </View>
-      <View style={s.foot}>
-        <TouchableOpacity style={s.play} activeOpacity={0.9} onPress={onPlay}><Text style={s.playTxt}>SOLVE</Text></TouchableOpacity>
+      <Animated.View style={[s.foot, { opacity: enter, transform: [{ translateY: footY }] }]}>
+        <PressBtn style={s.play} activeOpacity={0.9} onPress={onPlay}><Text style={s.playTxt}>SOLVE</Text></PressBtn>
         <Text style={s.skip}>Tap SOLVE to start playing</Text>
-      </View>
+      </Animated.View>
     </SafeAreaView>
   );
 }

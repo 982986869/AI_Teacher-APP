@@ -37,9 +37,17 @@ const SKILL_BORDER = {
 };
 
 const open = (u) => { if (u) Linking.openURL(u).catch(() => {}); };
-const Stars = ({ n = 5, size = 12 }) => (
-  <View style={{ flexDirection: 'row', gap: 2 }}>{Array.from({ length: n }).map((_, i) => <Star key={i} size={size} color="#00B67A" fill="#00B67A" />)}</View>
-);
+// Render 5 stars filled to the actual score (rounded), rest outlined — not always 5.
+const Stars = ({ score = 5, size = 12 }) => {
+  const filled = Math.max(0, Math.min(5, Math.round(Number(score) || 0)));
+  return (
+    <View style={{ flexDirection: 'row', gap: 2 }} accessible accessibilityLabel={`${score} out of 5`}>
+      {Array.from({ length: 5 }).map((_, i) => (
+        <Star key={i} size={size} color="#00B67A" fill={i < filled ? '#00B67A' : 'none'} />
+      ))}
+    </View>
+  );
+};
 const spring = () => LayoutAnimation.configureNext(LayoutAnimation.create(260, LayoutAnimation.Types.easeInEaseOut, LayoutAnimation.Properties.opacity));
 
 // Network image that fades in on load (over a soft placeholder) — no jarring pop-in.
@@ -94,7 +102,7 @@ function EventPage({ ev, E, onRegister }) {
           })}
         </View>
         <View style={s.ratingRow}>
-          <T w="xbold" s={13} c={C.ink}>{E.rating.score}</T><Stars /><T w="med" s={11} c={C.muted}>· {E.rating.count}</T>
+          <T w="xbold" s={13} c={C.ink}>{E.rating.score}</T><Stars score={E.rating.score} /><T w="med" s={11} c={C.muted}>· {E.rating.count}</T>
         </View>
       </View>
     </View>
@@ -339,7 +347,7 @@ export function EventTeaser({ event, onOpen }) {
         </View>
         <View style={s.teaserBtn}><T w="bold" s={15} c={C.ink}>{ev.ctaLabel || E.cta}</T></View>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-          <Stars /><T w="semi" s={11} c="rgba(255,255,255,0.85)">{E.rating.score} · {E.rating.count}</T>
+          <Stars score={E.rating.score} /><T w="semi" s={11} c="rgba(255,255,255,0.85)">{E.rating.score} · {E.rating.count}</T>
         </View>
       </ImageBackground>
     </PressableScale>
