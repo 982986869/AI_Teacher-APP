@@ -18,6 +18,11 @@ import MathText from '../components/MathText';
 import { useAuth } from '../context/AuthContext';
 import { getOnlineTestChapters, getOnlineTests, getOnlineTest } from '../api/onlineTestApi';
 import { useClassSubjects, toTile } from '../utils/classSubjects';
+import { getOnlineTestAttempts, saveOnlineTestAttempt } from '../utils/storage';
+import { TK, ScreenHeader, FilterTabs, SubjectRow, ChapterRow, TestCard } from '../components/testCardKit';
+
+// Soft subject tints for the card list (cycled by index).
+const TILES = ['#E1F5F3', '#FCEBDD', '#E9EBFB', '#E7F3E4', '#FBE9F0', '#EAF0FB', '#FCEFD6', '#E6F7F1'];
 
 const classNum = (c) => parseInt(String(c || '').replace(/\D/g, ''), 10) || null;
 const slugify = (s) => {
@@ -187,6 +192,8 @@ export default function OnlineTestScreen({ onExit = () => {} }) {
   const [test, setTest] = useState(null);       // full test payload
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
+  const [tab, setTab] = useState('all');        // tests view: 'all' | 'attempted'
+  const [attempts, setAttempts] = useState({}); // local attempt records for this class
 
   const back = () => {
     if (view === 'review') setView('result');
@@ -209,7 +216,7 @@ export default function OnlineTestScreen({ onExit = () => {} }) {
     catch { setChapters([]); }
   };
   const openChapter = async (ch) => {
-    setChapter(ch); setView('tests'); setTests(null);
+    setChapter(ch); setView('tests'); setTests(null); setTab('all');
     try { setTests(await getOnlineTests(subjSlug(subject), ch.slug, classLevel)); }
     catch { setTests([]); }
   };
@@ -221,7 +228,26 @@ export default function OnlineTestScreen({ onExit = () => {} }) {
     } catch { setTest(null); } finally { setLoading(false); }
   };
 
-  const onFinish = (res) => { setResult(res); setView('result'); };
+  const attemptKey = (t) => `${classLevel}:${subject ? subjSlug(subject) : ''}:${chapter ? chapter.slug : ''}:${t.id}`;
+
+  const onFinish = (res) => {
+    setResult(res); setView('result');
+    // Record the attempt locally so the tests list can show "Completed" + score.
+    if (subject && chapter && test) {
+      const total = (test.totalMarks != null ? test.totalMarks : res.total) || res.total || 0;
+      const score = res.score != null ? res.score : res.correct;
+      const percent = total ? Math.round((score / total) * 100) : 0;
+      saveOnlineTestAttempt(attemptKey(test), { score, total, percent, date: new Date().toISOString() });
+    }
+  };
+
+  // (Re)load local attempt records whenever the tests list is shown.
+  useEffect(() => {
+    if (view !== 'tests') return undefined;
+    let alive = true;
+    getOnlineTestAttempts(classLevel).then((a) => { if (alive) setAttempts(a || {}); }).catch(() => {});
+    return () => { alive = false; };
+  }, [view, classLevel]);
 
   return (
     <SafeAreaView style={st.safe}>
@@ -230,65 +256,71 @@ export default function OnlineTestScreen({ onExit = () => {} }) {
 
       {view === 'subjects' && (
         <>
-          <Header onBack={onExit} title="Online Test" />
-          <ScrollView contentContainerStyle={{ padding: 16, gap: 12 }}>
-            <Text style={st.sectionHint}>Pick a subject to see chapter-wise timed tests.</Text>
-            {subjectList.map((s) => (
-              <TouchableOpacity key={s.name} style={st.subjectCard} activeOpacity={0.85} onPress={() => openSubject(s)}>
-                <View style={[st.subjectEmoji, { backgroundColor: s.bg }]}><Text style={{ fontSize: 22 }}>{s.emoji}</Text></View>
-                <Text style={st.subjectName}>{s.name}</Text>
-                <Text style={st.chev}>›</Text>
-              </TouchableOpacity>
+          <ScreenHeader title="Online Tests" subtitle="Pick a subject, then a chapter" onBack={onExit} />
+          <ScrollView contentContainerStyle={{ padding: 16 }} showsVerticalScrollIndicator={false}>
+            {subjectList.length === 0 && <Empty title="No subjects yet" sub="No online-test subjects for this class yet." />}
+            {subjectList.map((sub, i) => (
+              <SubjectRow key={sub.name} emoji={sub.emoji} tile={TILES[i % TILES.length]} name={sub.name} sub="Chapter-wise timed tests" onPress={() => openSubject(sub)} />
             ))}
+            <View style={{ height: 24 }} />
           </ScrollView>
         </>
       )}
 
       {view === 'chapters' && (
         <>
-          <Header onBack={back} title={subject?.name || 'Chapters'} />
-          {chapters == null ? <Center><ActivityIndicator color={C.primary} /></Center> : (
-            <ScrollView contentContainerStyle={{ padding: 16, gap: 10 }}>
+          <ScreenHeader title={subject?.name || 'Chapters'} subtitle="Pick a chapter to see its tests" onBack={back} />
+          {chapters == null ? <Center><ActivityIndicator color={TK.mint} /></Center> : (
+            <ScrollView contentContainerStyle={{ padding: 16 }} showsVerticalScrollIndicator={false}>
               {chapters.length === 0 && <Empty title="No online tests" sub="No tests have been added for this subject yet." />}
               {chapters.map((ch, i) => (
-                <TouchableOpacity key={ch.slug} style={st.row} activeOpacity={0.85} onPress={() => openChapter(ch)}>
-                  <View style={st.rowIdx}><Text style={st.rowIdxTxt}>{i + 1}</Text></View>
-                  <View style={{ flex: 1 }}>
-                    <Text style={st.rowTitle}>{ch.name}</Text>
-                    <Text style={st.rowSub}>{ch.testCount} test{ch.testCount > 1 ? 's' : ''}</Text>
-                  </View>
-                  <Text style={st.chev}>›</Text>
-                </TouchableOpacity>
+                <ChapterRow key={ch.slug} index={i + 1} name={ch.name} sub={`${ch.testCount} test${ch.testCount > 1 ? 's' : ''}`} onPress={() => openChapter(ch)} />
               ))}
+              <View style={{ height: 24 }} />
             </ScrollView>
           )}
         </>
       )}
 
-      {view === 'tests' && (
-        <>
-          <Header onBack={back} title={chapter?.name || 'Tests'} />
-          {tests == null ? <Center><ActivityIndicator color={C.primary} /></Center> : (
-            <ScrollView contentContainerStyle={{ padding: 16, gap: 12 }}>
-              {tests.length === 0 && <Empty title="No tests" sub="No tests here yet." />}
-              {tests.map((t) => (
-                <TouchableOpacity key={t.id} style={st.testCard} activeOpacity={0.85} onPress={() => openTest(t)} disabled={loading}>
-                  <View style={{ flex: 1 }}>
-                    <Text style={st.testName}>{t.name}</Text>
-                    <View style={st.testMetaRow}>
-                      <Text style={st.testMeta}>📝 {t.questionCount} Qs</Text>
-                      <Text style={st.testMeta}>⏱ {t.durationMin} min</Text>
-                      <Text style={st.testMeta}>⭐ {t.totalMarks} marks</Text>
-                    </View>
-                  </View>
-                  <View style={st.startPill}><Text style={st.startPillTxt}>Start</Text></View>
-                </TouchableOpacity>
-              ))}
-            </ScrollView>
-          )}
-          {loading && <View style={st.loadingOverlay}><ActivityIndicator color={C.primary} size="large" /></View>}
-        </>
-      )}
+      {view === 'tests' && (() => {
+        const list = tests || [];
+        const attemptFor = (t) => attempts[attemptKey(t)];
+        const attemptedCount = list.filter(attemptFor).length;
+        const shown = list.filter((t) => tab !== 'attempted' || attemptFor(t));
+        return (
+          <>
+            <ScreenHeader title={chapter?.name || 'Tests'} subtitle={subject?.name} onBack={back} />
+            {tests != null && (
+              <FilterTabs tab={tab} onChange={setTab} tabs={[{ id: 'all', label: 'All', count: list.length }, { id: 'attempted', label: 'Attempted', count: attemptedCount }]} />
+            )}
+            {tests == null ? <Center><ActivityIndicator color={TK.mint} /></Center> : (
+              <ScrollView contentContainerStyle={{ padding: 16 }} showsVerticalScrollIndicator={false}>
+                {shown.length === 0 && <Empty title={tab === 'attempted' ? 'No attempted tests' : 'No tests'} sub={tab === 'attempted' ? 'You have not attempted any test here yet.' : 'No tests here yet.'} />}
+                {shown.map((t) => {
+                  const att = attemptFor(t);
+                  const done = !!att;
+                  const pct = done ? Math.round(att.percent || 0) : null;
+                  return (
+                    <TestCard
+                      key={t.id}
+                      done={done}
+                      title={t.name}
+                      metas={[`\u{1F4DD} ${t.questionCount} questions`, `⏱ ${t.durationMin} min`]}
+                      scoreText={done ? `${att.score}/${att.total}` : null}
+                      scorePct={pct}
+                      actionLabel={done ? 'Retake' : 'Attempt'}
+                      onPress={() => openTest(t)}
+                      disabled={loading}
+                    />
+                  );
+                })}
+                <View style={{ height: 24 }} />
+              </ScrollView>
+            )}
+            {loading && <View style={st.loadingOverlay}><ActivityIndicator color={TK.mint} size="large" /></View>}
+          </>
+        );
+      })()}
 
       {view === 'instruction' && test && (
         <Instruction test={test} onBack={back} onStart={() => setView('running')} />
