@@ -7,6 +7,8 @@ const KEYS = {
   ACTIVE_MATCH:  '@ailernova_active_match',
   PRACTICE_STREAK: '@ailernova_practice_streak',
   STUDENT_MODEL: '@ailernova_student_model',
+  ONLINE_TEST_ATTEMPTS: '@ailernova_online_test_attempts',
+  PRACTICE_ATTEMPTS: '@ailernova_practice_attempts',
 };
 
 // Legacy token returned by the still-mocked Google/OTP auth paths. It is NOT a
@@ -159,6 +161,50 @@ export const saveStudentModel = async (studentKey, model) => {
     await AsyncStorage.setItem(KEYS.STUDENT_MODEL, JSON.stringify(all));
   } catch (_) { /* ignore */ }
 };
+
+// ── Local test attempts (online tests + MCQ practice) ─────────────────────────
+// A local record of which chapter tests a student has attempted, so the Class-11
+// card screens can mark cards "Completed" and drive the "Attempted" filter.
+// Keyed by `${classLevel}:…`; each entry keeps the BEST attempt:
+// { score, total, percent, attempts, lastDate }. Best-effort — never blocks UI.
+const getAttemptsFor = async (storageKey, classLevel) => {
+  try {
+    const raw = await AsyncStorage.getItem(storageKey);
+    const all = raw ? JSON.parse(raw) : {};
+    if (classLevel == null) return all;
+    const prefix = `${classLevel}:`;
+    return Object.fromEntries(Object.entries(all).filter(([k]) => k.startsWith(prefix)));
+  } catch (_) { return {}; }
+};
+
+const saveAttemptTo = async (storageKey, key, attempt) => {
+  try {
+    if (!key || !attempt) return;
+    const raw = await AsyncStorage.getItem(storageKey);
+    const all = raw ? JSON.parse(raw) : {};
+    const prev = all[key];
+    // Keep the best-scoring attempt, but always bump the count + last date.
+    const keepNew = !prev || (attempt.percent ?? 0) >= (prev.percent ?? 0);
+    const best = keepNew ? attempt : prev;
+    all[key] = {
+      score: best.score, total: best.total, percent: best.percent,
+      attempts: ((prev && prev.attempts) || 0) + 1,
+      lastDate: attempt.date || (prev && prev.lastDate) || null,
+    };
+    await AsyncStorage.setItem(storageKey, JSON.stringify(all));
+  } catch (_) { /* ignore */ }
+};
+
+export const getOnlineTestAttempts = (classLevel) => getAttemptsFor(KEYS.ONLINE_TEST_ATTEMPTS, classLevel);
+export const saveOnlineTestAttempt = (key, attempt) => saveAttemptTo(KEYS.ONLINE_TEST_ATTEMPTS, key, attempt);
+export const getPracticeAttempts = (classLevel) => getAttemptsFor(KEYS.PRACTICE_ATTEMPTS, classLevel);
+export const savePracticeAttempt = (key, attempt) => saveAttemptTo(KEYS.PRACTICE_ATTEMPTS, key, attempt);
+
+// Stable key for a practice attempt, shared by the writer (McqLoader) and the
+// reader (Class11PracticeTests) so they always match. Keyed by names (not slugs)
+// since both sides have the subject/chapter names + subtopic id.
+export const practiceAttemptKey = (classLevel, subject, chapter, subtopicId) =>
+  `${classLevel}::${subject}::${chapter}::${subtopicId != null ? subtopicId : 'full'}`;
 
 export const clearAll = async () => {
   await AsyncStorage.multiRemove(Object.values(KEYS));

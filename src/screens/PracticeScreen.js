@@ -12,17 +12,19 @@ import { getMcqChapterTest, getMcqSubtopicTest } from '../api/mcqPracticeApi';
 // Important / Practice / Mock content resolves through the API.
 import McqTestScreen from './McqTestScreen';
 import McqQuizScreen from './McqQuizScreen';
-import McqPracticeScreen from './McqPracticeScreen';
 import TestQuestionScreen from './TestQuestionScreen';
 import MockResultScreen from './MockResultScreen';
 import ChapterListScreen from './ChapterListScreen';
 import OnlineTestsScreen from './OnlineTestsScreen';
 import OnlineTestScreen from './OnlineTestScreen';
+import MockTestsCards from './Class11MockTests';
+import PracticeTestsCards from './Class11PracticeTests';
 import { getQuestions, allQuestions } from '../data/questionBank';
 import { getMcqQuestions } from '../data/mcqQuestions';
 import { getSubtopicTest } from '../data/subtopicBank';
 import { listMockTests, getMockTestQuestions, listMockAttempts, submitMockTest } from '../api/mockTestsApi';
 import { useAuth } from '../context/AuthContext';
+import { saveOnlineTestAttempt, savePracticeAttempt, practiceAttemptKey } from '../utils/storage';
 import { ClassTabs, ComingSoon } from '../components/ClassPicker';
 
 // Subjects with DB-backed mock tests (served by mockTestsApi). The Mock Test
@@ -607,6 +609,15 @@ const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
       subtopicName={state.subtopicName}
       questions={state.questions}
       onExit={onExit}
+      onComplete={({ correct, total }) => {
+        // Record the practice attempt locally so the Class-11 Practice cards can
+        // mark this test "Completed" and power its "Attempted" filter.
+        if (!total) return;
+        const percent = Math.round((correct / total) * 100);
+        savePracticeAttempt(practiceAttemptKey(classLevel, subject, chapter, subtopicId), {
+          score: correct, total, percent, date: new Date().toISOString(),
+        });
+      }}
     />
   );
 };
@@ -913,7 +924,22 @@ const PracticeScreen = () => {
         questions={chSel.questions}
         onExit={() => setChSel(null)}
         onSubmit={(payload) => {
-          setChResult({ title: chSel.chapterName, data: computeMockResult(payload) });
+          const data = computeMockResult(payload);
+          // Record the attempt locally so the Class-11 Online Tests list can mark
+          // this chapter "Completed" and power its "Attempted" filter. Keyed by
+          // class:subject:chapterId; score = correct answers (1 mark each).
+          const cls = classNum(selectedClass);
+          if (cls != null && chSel.chapterId != null) {
+            const total = data.total || 0;
+            const percent = total ? Math.round((data.correct / total) * 100) : 0;
+            // Include the test index (chSel.testId) so each of a chapter's tests
+            // is tracked separately (Class 11 splits a chapter into many tests).
+            const testPart = chSel.testId != null ? `:${chSel.testId}` : '';
+            saveOnlineTestAttempt(`${cls}:${chSel.subject}:${chSel.chapterId}${testPart}`, {
+              score: data.correct, total, percent, date: new Date().toISOString(),
+            });
+          }
+          setChResult({ title: chSel.chapterName, data });
           setChSel(null);
         }}
       />
@@ -993,118 +1019,15 @@ const PracticeScreen = () => {
     );
   }
 
-  // ── MOCK TEST: subject sections, each with its DB-backed mock list ───────────
+  // ── MOCK TEST: subject → that subject's mock tests as cards (all classes) ────
   if (mockOpen) {
     return (
-      <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
-        <BackHeader onBack={() => setMockOpen(false)} />
-        <View style={s.pageTitleWrap}>
-          <Text style={s.pageTitle}>Mock Test</Text>
-          <Text style={s.pageSub}>Pick a subject, then a mock test to begin</Text>
-        </View>
-        <ScrollView contentContainerStyle={{ padding: 16, paddingBottom: 32 }}>
-          {mockSubjects.map((subject) => {
-            const isOpen = mockOpenSub === subject.name;
-            const sd = mockData[subject.name];
-            const tests = (sd && sd.tests) || [];
-            const subSub = sd && sd.tests.length ? `${sd.tests.length} mock tests` : `${MOCK_QUIZ_COUNT} mock tests`;
-            return (
-              <View key={subject.name} style={s.mcqSection}>
-                <TouchableOpacity
-                  style={s.mcqSectionHeader}
-                  activeOpacity={0.8}
-                  onPress={() => openSubjectSection(subject.name)}>
-                  <View style={[s.mcqSectionIcon, { backgroundColor: subject.bg }]}>
-                    <Text style={{ fontSize: 20 }}>{subject.emoji}</Text>
-                  </View>
-                  <View style={{ flex: 1 }}>
-                    <Text style={s.mcqSectionTitle}>{subject.name}</Text>
-                    <Text style={s.mcqSectionSub}>{subSub}</Text>
-                  </View>
-                  <Text style={s.mcqChevron}>{isOpen ? '▾' : '▸'}</Text>
-                </TouchableOpacity>
-
-                {isOpen && (
-                  <View style={{ marginTop: 10, gap: 10 }}>
-                    {sd && sd.loading && (
-                      <View style={{ paddingVertical: 18, alignItems: 'center' }}>
-                        <ActivityIndicator color="#0FA39A" />
-                      </View>
-                    )}
-                    {sd && !sd.loading && sd.error ? (
-                      <View style={{ paddingVertical: 14, alignItems: 'center', gap: 8 }}>
-                        <Text style={s.mockRowSub}>{sd.error}</Text>
-                        <TouchableOpacity style={s.mockRetryBtn} onPress={() => loadSubjectTests(subject.name)}>
-                          <Text style={s.mockRetryTxt}>Retry</Text>
-                        </TouchableOpacity>
-                      </View>
-                    ) : null}
-                    {sd && !sd.loading && !sd.error && tests.length === 0 ? (
-                      <Text style={[s.mockRowSub, { textAlign: 'center', paddingVertical: 12 }]}>No mock tests yet.</Text>
-                    ) : null}
-                    {tests.map((t) => {
-                      const att = sd.attempts && sd.attempts[t.id];
-                      const attempted = !!att;
-                      const scoreTxt = att && att.total != null ? `Score: ${att.bestScore}/${att.total}` : null;
-                      return (
-                        <TouchableOpacity
-                          key={t.id}
-                          style={s.mockRow}
-                          activeOpacity={0.8}
-                          onPress={() => onPickTest(subject.name, t, att)}>
-                          <View style={[s.mockRowIcon, attempted && s.mockRowIconDone]}>
-                            <Ionicons
-                              name={attempted ? 'checkmark-circle' : 'document-text-outline'}
-                              size={20}
-                              color="#0FA39A"
-                            />
-                          </View>
-                          <View style={{ flex: 1 }}>
-                            <Text style={s.mockRowTitle}>{t.name}</Text>
-                            <Text style={s.mockRowSub}>
-                              {attempted ? (scoreTxt || 'Attempted') : `${t.questionCount || ''} Qs · ${t.durationMin || 90} min`}
-                            </Text>
-                          </View>
-                          {attempted ? (
-                            <View style={s.mockBadge}>
-                              <Text style={s.mockBadgeTxt}>Attempted</Text>
-                            </View>
-                          ) : (
-                            <Text style={s.mockRowChevron}>›</Text>
-                          )}
-                        </TouchableOpacity>
-                      );
-                    })}
-                  </View>
-                )}
-              </View>
-            );
-          })}
-        </ScrollView>
-
-        {/* Retest confirmation for an already-attempted test */}
-        <Modal visible={!!retest} transparent animationType="fade" onRequestClose={() => setRetest(null)}>
-          <View style={s.retestOverlay}>
-            <View style={s.retestCard}>
-              <Text style={s.retestTitle}>{retest?.test?.name}</Text>
-              <Text style={s.retestSub}>
-                You've already attempted this test{retest?.att && retest.att.total != null ? ` (best score ${retest.att.bestScore}/${retest.att.total})` : ''}. Retake it? Your new score will be saved.
-              </Text>
-              <TouchableOpacity
-                style={s.retestPrimary}
-                activeOpacity={0.85}
-                onPress={() => { const r = retest; setRetest(null); if (r) startDbMock(r.subject, r.test); }}>
-                <Text style={s.retestPrimaryTxt}>🔄 Retake Test</Text>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => setRetest(null)}>
-                <Text style={s.retestCancel}>Cancel</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </Modal>
-      </SafeAreaView>
+      <MockTestsCards
+        subjects={mockSubjects}
+        classLevel={classNum(selectedClass)}
+        onBack={() => setMockOpen(false)}
+        onStart={(subjectName, test) => startDbMock(subjectName, test)}
+      />
     );
   }
 
@@ -1120,10 +1043,10 @@ const PracticeScreen = () => {
     );
   }
 
-  // ── MCQ PRACTICE: progress picker (subject -> chapter/sub-topic) ────────────
+  // ── MCQ PRACTICE: subject → chapter → tests card UI (all classes) ───────────
   if (mcqOpen) {
     return (
-      <McqPracticeScreen
+      <PracticeTestsCards
         onBack={() => setMcqOpen(false)}
         onStartChapter={(subject, chapter) => setMcqSel({ subject, chapter })}
         onStartSubtopic={(subject, chapter, subtopicId) => setMcqSel({ subject, chapter, subtopicId })}

@@ -48,7 +48,7 @@ function Rich({ value, fontSize = 15, color = C.text }) {
 }
 
 export default function McqQuizScreen({
-  questions = [], subject = '', chapter = '', subtopicName = '', onExit = () => {},
+  questions = [], subject = '', chapter = '', subtopicName = '', onExit = () => {}, onComplete = () => {},
 }) {
   const qs = Array.isArray(questions) ? questions : [];
   const [idx, setIdx] = useState(0);
@@ -72,6 +72,12 @@ export default function McqQuizScreen({
     return () => clearInterval(timerRef.current);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [idx, done]);
+
+  // Report the final score once, when the quiz finishes (for attempt tracking).
+  useEffect(() => {
+    if (done) onComplete({ correct: score.correct, total: qs.length });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [done]);
 
   if (!qs.length) {
     return (

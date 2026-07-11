@@ -100,9 +100,14 @@ function normalizeQuestion(q) {
   };
 }
 
+// The maths JSON files use a different schema than physics/biology
+// (`id`/`name` instead of `chapter_id`/`chapter_name`), so accept either —
+// otherwise chapter id/name resolve to undefined and the chapter lookup
+// (getQuestions) returns nothing. Count stays the actually-bundled question
+// count (not `total_questions`, which is the larger full upstream bank size).
 export const chapters = rawChapters.map((c) => ({
-  chapter_id: c.chapter_id,
-  chapter_name: c.chapter_name,
+  chapter_id: c.chapter_id ?? c.id,
+  chapter_name: c.chapter_name ?? c.name,
   count: c.count ?? (c.questions ? c.questions.length : 0),
   questions: (c.questions || []).map(normalizeQuestion),
 }));
