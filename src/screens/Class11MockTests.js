@@ -12,6 +12,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { View, Text, ScrollView, SafeAreaView, StatusBar, ActivityIndicator, Pressable } from 'react-native';
+import { FONT } from '../constants/fonts';
 import { listMockTests, listMockAttempts } from '../api/mockTestsApi';
 import { TK, ScreenHeader, FilterTabs, SubjectRow, TestCard } from '../components/testCardKit';
 
@@ -25,7 +26,7 @@ const TILE = {
 
 const EmptyMsg = ({ text }) => (
   <View style={{ paddingVertical: 48, alignItems: 'center' }}>
-    <Text style={{ color: TK.textMuted, fontSize: 14, fontWeight: '600', textAlign: 'center' }}>{text}</Text>
+    <Text style={{ color: TK.textMuted, fontSize: 14, fontFamily: FONT.semibold, textAlign: 'center' }}>{text}</Text>
   </View>
 );
 
@@ -102,9 +103,9 @@ export default function MockTestsCards({ subjects = [], classLevel = 11, onBack,
         )}
         {!data.loading && data.error ? (
           <View style={{ paddingVertical: 40, alignItems: 'center', gap: 12 }}>
-            <Text style={{ color: TK.textMuted, fontSize: 14, fontWeight: '600', textAlign: 'center' }}>{data.error}</Text>
+            <Text style={{ color: TK.textMuted, fontSize: 14, fontFamily: FONT.semibold, textAlign: 'center' }}>{data.error}</Text>
             <Pressable onPress={() => setSubject({ ...subject })} style={{ borderWidth: 1.5, borderColor: TK.border, borderRadius: 12, paddingVertical: 9, paddingHorizontal: 20 }}>
-              <Text style={{ color: TK.text, fontWeight: '800', fontSize: 13 }}>Retry</Text>
+              <Text style={{ color: TK.text, fontFamily: FONT.extrabold, fontSize: 13 }}>Retry</Text>
             </Pressable>
           </View>
         ) : null}

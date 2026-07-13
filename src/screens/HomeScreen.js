@@ -26,7 +26,7 @@ import {
   Dimensions, Modal, Animated, Easing, RefreshControl,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useFocusEffect } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import Svg, { Defs, RadialGradient, LinearGradient as LG, Stop, Rect, Circle, Path } from 'react-native-svg';
 import {
   Bell, Flame, Star, TrendingUp, Play, ArrowRight, Sparkles, GraduationCap,
@@ -225,14 +225,22 @@ function Section({ title, accent = S.indigo, sub }) {
 
 // ── separated stat card ──
 function StatCard({ Icon, tint, tintBg, value, suffix = '', label, isText, delay = 0 }) {
+  // Count up only on first appearance; on a background refresh (value changes) snap to the
+  // new number instead of flashing back to 0. (F4)
+  const first = useRef(true);
+  useEffect(() => { first.current = false; }, []);
   return (
     <FadeInOnce id={`stat-${label}`} delay={delay} y={12} style={{ flex: 1 }}>
       <View style={hs.statCard}>
         <View style={[hs.statIcon, { backgroundColor: tintBg }]}><Icon size={16} color={tint} strokeWidth={2.7} /></View>
         <View style={{ marginTop: 9 }}>
-          {isText
-            ? <T w="black" s={19} c={S.ink}>{value}</T>
-            : <CountUp value={value} suffix={suffix} duration={900} w="black" s={19} c={S.ink} />}
+          {isText ? (
+            <T w="black" s={19} c={S.ink}>{value}</T>
+          ) : first.current ? (
+            <CountUp value={value} suffix={suffix} duration={900} w="black" s={19} c={S.ink} />
+          ) : (
+            <T w="black" s={19} c={S.ink}>{value}{suffix}</T>
+          )}
         </View>
         <T w="semi" s={10.5} c={S.muted} style={{ marginTop: 1 }}>{label}</T>
       </View>
@@ -333,10 +341,44 @@ function ErrorState({ onRetry }) {
   );
 }
 
+// ── acknowledgement toast — a satisfying "welcome back" when the student returns to
+// Home having earned XP or extended a streak elsewhere (a lesson, a quiz, a Brain Gym set).
+// Springs down, holds, then lifts away. pointerEvents none so it never blocks a tap. ──
+function Toast({ data, top, onDone }) {
+  const y = useRef(new Animated.Value(-30)).current;
+  const o = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    Animated.parallel([
+      Animated.spring(y, { toValue: 0, useNativeDriver: true, damping: 14, stiffness: 180, mass: 0.9 }),
+      Animated.timing(o, { toValue: 1, duration: 220, useNativeDriver: true }),
+    ]).start();
+    const t = setTimeout(() => {
+      Animated.parallel([
+        Animated.timing(y, { toValue: -30, duration: 260, useNativeDriver: true }),
+        Animated.timing(o, { toValue: 0, duration: 260, useNativeDriver: true }),
+      ]).start(({ finished }) => { if (finished && onDone) onDone(); });
+    }, 2600);
+    return () => clearTimeout(t);
+  }, []);
+  return (
+    <Animated.View pointerEvents="none" style={[hs.toastWrap, { top, opacity: o, transform: [{ translateY: y }] }]}>
+      <View style={hs.toast}>
+        <T s={17}>{data.emoji}</T>
+        <View>
+          <T w="xbold" s={13} c="#fff">{data.title}</T>
+          {!!data.sub && <T w="semi" s={10.5} c="rgba(255,255,255,0.72)" style={{ marginTop: 1 }}>{data.sub}</T>}
+        </View>
+      </View>
+    </Animated.View>
+  );
+}
+
 // ─── Main HomeScreen ──────────────────────────────────────────────────────────
 const HomeScreen = () => {
   const { user, selectedClass, setSelectedClass, scope } = useAuth();
   const insets = useSafeAreaInsets();
+  const navigation = useNavigation();
+  const scrollRef = useRef(null);
 
   const [charIdx, setCharIdx]             = useState(0);
   const [showCharModal, setShowCharModal] = useState(false);
@@ -353,8 +395,10 @@ const HomeScreen = () => {
   const [loading, setLoading]     = useState(true);
   const [err, setErr]             = useState(false);
   const [refreshing, setRefreshing] = useState(false);
+  const [toast, setToast] = useState(null);
   const mounted = useRef(true);
   const initialLoad = useRef(true);
+  const prevStats = useRef(null); // last-seen {xp, streak} to detect progress on return
   useEffect(() => () => { mounted.current = false; }, []);
 
   const load = useCallback(async (isRefresh) => {
@@ -368,6 +412,16 @@ const HomeScreen = () => {
       if (!mounted.current) return;
       setReport(rep || null);
       setResume({ active: active || null, ctx: ctx || null });
+      // Acknowledge progress made elsewhere: if XP grew or the streak extended since the
+      // last time we saw Home, greet the student with a brief celebratory toast. This is
+      // what makes finishing a lesson / quiz / Brain Gym feel like it "counted" on return.
+      const nx = Number(rep?.brainGym?.totalXp) || 0;
+      const ns = Number(rep?.brainGym?.currentStreak) || 0;
+      if (prevStats.current) {
+        if (ns > prevStats.current.streak && ns > 1) setToast({ emoji: '🔥', title: `${ns}-day streak!`, sub: 'You’re on fire — keep it going' });
+        else if (nx > prevStats.current.xp) setToast({ emoji: '🎉', title: `+${nx - prevStats.current.xp} XP earned`, sub: 'Nice work — that’s real progress' });
+      }
+      prevStats.current = { xp: nx, streak: ns };
       // First ever visit: baseline the "seen" snapshot silently so we never celebrate
       // milestones the student already had. Subsequent visits compare against it.
       if (seen == null) {
@@ -392,6 +446,13 @@ const HomeScreen = () => {
     load(!initialLoad.current);
     initialLoad.current = false;
   }, [load]));
+  // Re-tapping the already-active Home tab scrolls back to the top (standard, expected).
+  useEffect(() => {
+    const unsub = navigation.addListener('tabPress', () => {
+      if (navigation.isFocused()) scrollRef.current?.scrollTo({ y: 0, animated: true });
+    });
+    return unsub;
+  }, [navigation]);
   const onRefresh = () => { setRefreshing(true); load(true); };
   const retry = () => { setLoading(true); setErr(false); load(false); };
 
@@ -891,6 +952,7 @@ const HomeScreen = () => {
         <ErrorState onRetry={retry} />
       ) : (
         <ScrollView
+          ref={scrollRef}
           style={hs.body}
           contentContainerStyle={{ paddingBottom: 30, paddingTop: 6 }}
           showsVerticalScrollIndicator={false}
@@ -909,6 +971,9 @@ const HomeScreen = () => {
           {order.map(renderSection)}
         </ScrollView>
       )}
+
+      {/* Positioned below the header (and tester bar when shown) so it never overlaps them. */}
+      {toast && <Toast data={toast} top={insets.top + 70 + (scope?.tester ? 42 : 0)} onDone={() => setToast(null)} />}
 
       {/* ── CHARACTER MODAL ── */}
       <Modal visible={showCharModal} transparent animationType="fade" onRequestClose={() => setShowCharModal(false)}>
@@ -956,6 +1021,10 @@ const hs = StyleSheet.create({
   bellDot: { position: 'absolute', top: 10, right: 11, width: 8, height: 8, borderRadius: 4, backgroundColor: S.orange, borderWidth: 1.5, borderColor: '#fff' },
 
   testerBar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10, backgroundColor: '#FFF7ED', borderTopWidth: 1, borderBottomWidth: 1, borderColor: '#FDE7C8', paddingHorizontal: PAD, paddingVertical: 8 },
+
+  // Acknowledgement toast
+  toastWrap: { position: 'absolute', left: 0, right: 0, alignItems: 'center', zIndex: 50 },
+  toast: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: S.ink, borderRadius: 16, paddingVertical: 11, paddingHorizontal: 16, maxWidth: '90%', ...shadow },
 
   errIcon: { width: 74, height: 74, borderRadius: 24, backgroundColor: '#fff', borderWidth: 1, borderColor: S.hair, alignItems: 'center', justifyContent: 'center', ...shadowSm },
   retryBtn: { marginTop: 6, backgroundColor: S.indigo, borderRadius: 13, paddingVertical: 12, paddingHorizontal: 30, ...shadowSm },

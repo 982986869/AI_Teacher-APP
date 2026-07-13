@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import {
   View, Text, StyleSheet, SafeAreaView, ScrollView,
   TouchableOpacity, StatusBar, Platform, Image, Dimensions, ActivityIndicator, Alert,
@@ -19,6 +20,8 @@ import { useClassSubjects, toTile } from '../utils/classSubjects';
 import { useAuth } from '../context/AuthContext';
 import { API_BASE_URL } from '../constants/config';
 import { ClassTabs, ComingSoon } from '../components/ClassPicker';
+import { S, StudentScreenHeader } from '../theme/studentUI';
+import { FONT } from '../constants/fonts';
 import { getChapterNotes } from '../notes/index';
 import Ch2Images from '../notes/images/Ch2Images';
 import ChapterNotesScreen, { buildHTML } from './ChapterNotesScreen';
@@ -264,7 +267,7 @@ const slugify = (s) => {
 
 const SUBJECTS = [
   {
-    name: 'Physics', emoji: '⚛️', bg: '#1C1C1E',
+    name: 'Physics', emoji: '⚛️', bg: S.ink,
     chapters: [
       { name: 'Units and Measurements' },
       { name: 'Motion in A Straight Line' },
@@ -589,7 +592,7 @@ const SUBJECTS_CLASS9 = [
   { name: 'Science (Advanced)',                      emoji: '🧪', bg: '#0F6E56', chapters: [] },
   { name: 'Social Science (Understanding Society)',  emoji: '🌐', bg: '#2F80ED', chapters: [], comingSoon: true },
   { name: 'Maths (Advanced)',                        emoji: '📐', bg: '#0C8F88', chapters: [], comingSoon: true },
-  { name: 'Information Technology (402)',             emoji: '💻', bg: '#1C1C1E', chapters: [], comingSoon: true },
+  { name: 'Information Technology (402)',             emoji: '💻', bg: S.ink, chapters: [], comingSoon: true },
   { name: 'JSTSE Scholarship',                       emoji: '🏆', bg: '#B0306B', chapters: [], comingSoon: true },
   { name: 'संस्कृत (शारदा)',                          emoji: '🕉️', bg: '#E8703A', chapters: [] },
   // Old - Maths is DB-backed (examin8 resource 1234): NCERT (part 2), Exemplar (3),
@@ -614,12 +617,12 @@ const SUBJECTS_CLASS10 = [
   { name: 'Mathematics',                     emoji: '📐', bg: '#444',    chapters: [] },
   { name: 'Science',                         emoji: '🔬', bg: '#5AA84F', chapters: [] },
   { name: 'Social Science',                  emoji: '🌐', bg: '#2F80ED', chapters: [] },
-  { name: 'Artificial Intelligence (417)',   emoji: '🤖', bg: '#1C1C1E', chapters: [] },
+  { name: 'Artificial Intelligence (417)',   emoji: '🤖', bg: S.ink, chapters: [] },
   { name: 'English Communicative (101)',     emoji: '📖', bg: '#7A6FD0', chapters: [] },
   { name: 'English Language and Literature', emoji: '📖', bg: '#5A67E8', chapters: [] },
   { name: 'हिंदी ए',                         emoji: '📚', bg: '#2F80ED', chapters: [] },
   { name: 'हिंदी ब',                         emoji: '📚', bg: '#0F6E56', chapters: [] },
-  { name: 'Information Technology (402)',     emoji: '💻', bg: '#1C1C1E', chapters: [] },
+  { name: 'Information Technology (402)',     emoji: '💻', bg: S.ink, chapters: [] },
   { name: 'Computer Applications (165)',      emoji: '💻', bg: '#0F6E56', chapters: [] },
   { name: 'Reasoning & Mental Ability',      emoji: '🧠', bg: '#E8703A', chapters: [] },
 ];
@@ -1047,8 +1050,8 @@ const RESOURCE_CARDS = [
   { id: 6, type: 'Notes', emoji: '📝', title: 'Formula Sheet',               size: '450 KB', pages: 2 },
 ];
 
-const TYPE_BG  = { PDF: '#F0F0F0', Video: '#1C1C1E', Notes: '#E8E8E8' };
-const TYPE_TXT = { PDF: '#1C1C1E', Video: '#fff',    Notes: '#555' };
+const TYPE_BG  = { PDF: S.hair, Video: S.ink, Notes: S.border };
+const TYPE_TXT = { PDF: S.ink, Video: '#fff',    Notes: '#555' };
 
 // ── Breadcrumb ────────────────────────────────────────────────────────────────
 const Breadcrumb = ({ parts }) => (
@@ -1081,7 +1084,7 @@ const DocWebView = ({ state, onRetry, emptyText }) => {
   if (state.loading) {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12 }}>
-        <ActivityIndicator size="large" color="#1f8a93" />
+        <ActivityIndicator size="large" color={S.indigo} />
         <Text style={{ color: '#64748b', fontSize: 13 }}>Loading…</Text>
       </View>
     );
@@ -1094,7 +1097,7 @@ const DocWebView = ({ state, onRetry, emptyText }) => {
           style={{ borderWidth: 1.5, borderColor: '#1f8a93', borderRadius: 10, paddingVertical: 9, paddingHorizontal: 18 }}
           activeOpacity={0.8} onPress={onRetry}
         >
-          <Text style={{ color: '#1f8a93', fontWeight: '700' }}>Retry</Text>
+          <Text style={{ color: '#1f8a93', fontFamily: FONT.bold }}>Retry</Text>
         </TouchableOpacity>
       </View>
     );
@@ -1110,7 +1113,7 @@ const DocWebView = ({ state, onRetry, emptyText }) => {
     <WebView
       originWhitelist={['*']}
       source={{ html: state.html }}
-      style={{ flex: 1, backgroundColor: '#F4F4F5' }}
+      style={{ flex: 1, backgroundColor: S.hair }}
       javaScriptEnabled
       domStorageEnabled
       mixedContentMode="always"
@@ -1166,6 +1169,15 @@ const buildPaperDoc = (html) =>
 // ── Main Screen ───────────────────────────────────────────────────────────────
 const ResourcesScreen = () => {
   const [activeBoard,   setActiveBoard]   = useState('CBSE');
+  // Re-tapping the active Resources tab scrolls the subjects landing back to top (F8).
+  const navigation = useNavigation();
+  const scrollRef = useRef(null);
+  useEffect(() => {
+    const unsub = navigation.addListener('tabPress', () => {
+      if (navigation.isFocused()) scrollRef.current?.scrollTo({ y: 0, animated: true });
+    });
+    return unsub;
+  }, [navigation]);
   // Class mirrors the student's SAVED class (synced with the Practice tab & Home).
   const { selectedClass: activeClass, setSelectedClass: setActiveClass, scope, isClassReady } = useAuth();
   // Class 6 & 9 subject lists are DB-driven: subjects that have any ncert_solutions
@@ -1617,11 +1629,11 @@ const ResourcesScreen = () => {
     if (isPhysics12Notes && phy12Notes.loading) {
       return (
         <SafeAreaView style={s.safe}>
-          <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-          {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+          <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+          {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
           <BackHeader onBack={() => setShowNotes(false)} />
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12 }}>
-            <ActivityIndicator size="large" color="#1C1C1E" />
+            <ActivityIndicator size="large" color={S.indigo} />
             <Text style={{ color: '#64748b', fontSize: 13 }}>Loading notes…</Text>
           </View>
         </SafeAreaView>
@@ -1655,8 +1667,8 @@ const ResourcesScreen = () => {
   if (isClass12Exemplar) {
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setShowCards(false)} />
         <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
         <View style={s.pageTitleWrap}>
@@ -1665,7 +1677,7 @@ const ResourcesScreen = () => {
         </View>
         {phy12Exemplar.loading ? (
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12 }}>
-            <ActivityIndicator size="large" color="#1f8a93" />
+            <ActivityIndicator size="large" color={S.indigo} />
             <Text style={{ color: '#64748b', fontSize: 13 }}>Loading exemplar…</Text>
           </View>
         ) : phy12Exemplar.error ? (
@@ -1676,7 +1688,7 @@ const ResourcesScreen = () => {
               activeOpacity={0.8}
               onPress={() => setExemplarRetry((k) => k + 1)}
             >
-              <Text style={{ color: '#1f8a93', fontWeight: '700' }}>Retry</Text>
+              <Text style={{ color: '#1f8a93', fontFamily: FONT.bold }}>Retry</Text>
             </TouchableOpacity>
           </View>
         ) : !phy12Exemplar.html ? (
@@ -1687,7 +1699,7 @@ const ResourcesScreen = () => {
           <WebView
             originWhitelist={['*']}
             source={{ html: phy12Exemplar.html }}
-            style={{ flex: 1, backgroundColor: '#F4F4F5' }}
+            style={{ flex: 1, backgroundColor: S.hair }}
             javaScriptEnabled
             domStorageEnabled
             mixedContentMode="always"
@@ -1702,8 +1714,8 @@ const ResourcesScreen = () => {
   if (isC12Ncert1) {
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setShowCards(false)} />
         <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
         <View style={s.pageTitleWrap}>
@@ -1719,8 +1731,8 @@ const ResourcesScreen = () => {
   if (isDbQDoc) {
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setShowCards(false)} />
         <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
         <View style={s.pageTitleWrap}>
@@ -1736,8 +1748,8 @@ const ResourcesScreen = () => {
   if (activeSubject && activeResType?.type === 'exemplar' && activeChapter && showCards) {
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setShowCards(false)} />
         <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
         <View style={s.pageTitleWrap}>
@@ -1746,7 +1758,7 @@ const ResourcesScreen = () => {
         <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
           {exemplar.loading ? (
             <View style={{ paddingVertical: 48, alignItems: 'center', gap: 12 }}>
-              <ActivityIndicator size="large" color="#1f8a93" />
+              <ActivityIndicator size="large" color={S.indigo} />
               <Text style={{ color: '#64748b', fontSize: 13 }}>Loading solutions…</Text>
             </View>
           ) : exemplar.error ? (
@@ -1757,7 +1769,7 @@ const ResourcesScreen = () => {
                 activeOpacity={0.8}
                 onPress={() => setExemplarRetry((k) => k + 1)}
               >
-                <Text style={{ color: '#1f8a93', fontWeight: '700' }}>Retry</Text>
+                <Text style={{ color: '#1f8a93', fontFamily: FONT.bold }}>Retry</Text>
               </TouchableOpacity>
             </View>
           ) : exemplar.sections.length === 0 ? (
@@ -1789,8 +1801,8 @@ const ResourcesScreen = () => {
   if (isC12Ncert2) {
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setShowCards(false)} />
         <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
         <View style={s.pageTitleWrap}>
@@ -1826,8 +1838,8 @@ const ResourcesScreen = () => {
     const pdfUrl = `${API_BASE_URL}/pdfs/class6-science/${activeResType.pdfDir}/${slugify(activeChapter.name)}.pdf`;
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setShowCards(false)} />
         <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
         <WebView
@@ -1837,7 +1849,7 @@ const ResourcesScreen = () => {
           startInLoadingState
           renderLoading={() => (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-              <ActivityIndicator size="large" color="#1f8a93" />
+              <ActivityIndicator size="large" color={S.indigo} />
             </View>
           )}
         />
@@ -1849,8 +1861,8 @@ const ResourcesScreen = () => {
   if (activeSubject && activeResType && activeChapter && showCards) {
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         {/* Returning to the chapter list must clear activeChapter — DB-backed lists
             (e.g. Class 10 Revision Notes / notesListActive) gate on !activeChapter to
             refetch, and leaving it set makes the list fall back to empty. */}
@@ -1939,15 +1951,15 @@ const ResourcesScreen = () => {
           </View>
         </View>
         {paperLoading ? (
-          <View style={{ flex: 1, backgroundColor: '#F4F4F5', alignItems: 'center', justifyContent: 'center', gap: 12 }}>
-            <ActivityIndicator size="large" color="#1f8a93" />
+          <View style={{ flex: 1, backgroundColor: S.hair, alignItems: 'center', justifyContent: 'center', gap: 12 }}>
+            <ActivityIndicator size="large" color={S.indigo} />
             <Text style={{ color: '#64748b', fontSize: 13 }}>Loading paper…</Text>
           </View>
         ) : paperTab === 'questions' ? (
           <WebView
             originWhitelist={['*']}
             source={{ html: questionsHtml || buildPaperFrontMatter(subjUpper, activePaper) }}
-            style={{ flex: 1, backgroundColor: '#F4F4F5' }}
+            style={{ flex: 1, backgroundColor: S.hair }}
             javaScriptEnabled
             domStorageEnabled
             mixedContentMode="always"
@@ -1957,14 +1969,14 @@ const ResourcesScreen = () => {
           <WebView
             originWhitelist={['*']}
             source={{ html: solutionsHtml }}
-            style={{ flex: 1, backgroundColor: '#F4F4F5' }}
+            style={{ flex: 1, backgroundColor: S.hair }}
             javaScriptEnabled
             domStorageEnabled
             mixedContentMode="always"
             androidLayerType={Platform.OS === 'android' ? 'hardware' : undefined}
           />
         ) : (
-          <View style={{ flex: 1, backgroundColor: '#F4F4F5', alignItems: 'center', justifyContent: 'center', padding: 30, gap: 10 }}>
+          <View style={{ flex: 1, backgroundColor: S.hair, alignItems: 'center', justifyContent: 'center', padding: 30, gap: 10 }}>
             <Text style={{ fontSize: 40 }}>📝</Text>
             <Text style={[s.pageTitle, { textAlign: 'center' }]}>Solutions coming soon</Text>
             <Text style={[s.pageSub, { textAlign: 'center' }]}>Step-by-step solutions for this paper will be available shortly.</Text>
@@ -1983,8 +1995,8 @@ const ResourcesScreen = () => {
     const papers = isDbPapers ? phy12Papers.list : LAST_YEAR_PAPERS;
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setActiveResType(null)} />
         <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name]} />
         <View style={s.pageTitleWrap}>
@@ -2064,8 +2076,8 @@ const ResourcesScreen = () => {
               : subjectChapters;
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={backFromChapters} />
         <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name]} />
         <View style={s.pageTitleWrap}>
@@ -2076,7 +2088,7 @@ const ResourcesScreen = () => {
         <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
           {(isNcert2 && ncert2.loading) || notesAvail.loading || c12NcertAvail.loading || ncertAvail.loading || (isDbQList && dbQAvail.loading) ? (
             <View style={{ paddingVertical: 48, alignItems: 'center', gap: 12 }}>
-              <ActivityIndicator size="large" color="#1f8a93" />
+              <ActivityIndicator size="large" color={S.indigo} />
               <Text style={{ color: '#64748b', fontSize: 13 }}>Loading chapters…</Text>
             </View>
           ) : (isNcert2 || isNotesList || isBundledNotesList || isC12NcertList || isMathsNcertList || isClass10NotesList || isDbQList) && chaptersToShow.length === 0 ? (
@@ -2106,8 +2118,8 @@ const ResourcesScreen = () => {
   if (activeSubject) {
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setActiveSubject(null)} />
         <Breadcrumb parts={['Home', 'Student Subscription', 'Resources']} />
         <View style={s.pageTitleWrap}>
@@ -2128,12 +2140,12 @@ const ResourcesScreen = () => {
           <View style={{ paddingVertical: 40, alignItems: 'center', gap: 12, paddingHorizontal: 24 }}>
             <Text style={{ color: '#b91c1c', fontSize: 14, textAlign: 'center' }}>{'⚠️'}  Could not load resources. Check your connection.</Text>
             <TouchableOpacity style={{ borderWidth: 1.5, borderColor: '#1f8a93', borderRadius: 10, paddingVertical: 9, paddingHorizontal: 18 }} activeOpacity={0.8} onPress={() => setMenuRetry((k) => k + 1)}>
-              <Text style={{ color: '#1f8a93', fontWeight: '700' }}>Retry</Text>
+              <Text style={{ color: '#1f8a93', fontFamily: FONT.bold }}>Retry</Text>
             </TouchableOpacity>
           </View>
         ) : (activeClass === 'Class 10' && c10Menu.subject === activeSubject.name && c10Menu.tiles === null) ? (
           <View style={{ paddingVertical: 48, alignItems: 'center', gap: 12 }}>
-            <ActivityIndicator size="large" color="#1f8a93" />
+            <ActivityIndicator size="large" color={S.indigo} />
             <Text style={{ color: '#64748b', fontSize: 13 }}>Loading resources…</Text>
           </View>
         ) : (activeClass === 'Class 10' && resTypesFor(activeSubject.name).length === 0) ? (
@@ -2160,12 +2172,9 @@ const ResourcesScreen = () => {
 
   // ── LEVEL 1: Subjects list ────────────────────────────────────────────────
   return (
-    <SafeAreaView style={s.safe}>
-      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
-      <View style={s.header}>
-        <Text style={s.headerTitle}>Resources</Text>
-      </View>
+    <View style={s.safe}>
+      <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+      <StudentScreenHeader title="Resources" />
       <Breadcrumb parts={['Home', 'Student Subscription']} />
       {/* Students are locked to their own class; only show the switcher if unset or tester. */}
       {(!scope?.classNum || scope?.tester) && <ClassTabs value={activeClass} onChange={setActiveClass} />}
@@ -2178,7 +2187,7 @@ const ResourcesScreen = () => {
             <Text style={s.pageSub}>Select a subject to explore</Text>
             <Text style={s.boardLabel}>{activeClass}</Text>
           </View>
-          <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
+          <ScrollView ref={scrollRef} contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
             {(activeClass === 'Class 6' ? class6SubjectTiles : activeClass === 'Class 7' ? SUBJECTS_CLASS7 : activeClass === 'Class 8' ? SUBJECTS_CLASS8 : activeClass === 'Class 9' ? class9SubjectTiles : activeClass === 'Class 10' ? ((Array.isArray(c10Subjects) && c10Subjects.length) ? class10Grid : SUBJECTS_CLASS10) : SUBJECTS)
               .filter((subject) => !(activeClass === 'Class 12' && subject.name === 'Biology'))
               // Stream filter (hide Biology from PCM etc.) only applies to senior classes
@@ -2200,99 +2209,99 @@ const ResourcesScreen = () => {
           </ScrollView>
         </>
       )}
-    </SafeAreaView>
+    </View>
   );
 };
 
 // ── Styles ────────────────────────────────────────────────────────────────────
 const s = StyleSheet.create({
-  safe:              { flex: 1, backgroundColor: '#F7F7F7' },
-  header:            { backgroundColor: '#fff', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 20, paddingVertical: 14, borderBottomWidth: 1.5, borderBottomColor: '#F0F0F0' },
-  headerTitle:       { fontSize: 22, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.5 },
+  safe:              { flex: 1, backgroundColor: S.canvas },
+  header:            { backgroundColor: S.canvas, flexDirection: 'row', alignItems: 'center', paddingHorizontal: 20, paddingVertical: 14, borderBottomWidth: 1.5, borderBottomColor: S.hair },
+  headerTitle:       { fontSize: 22, fontFamily: FONT.black, color: S.ink, letterSpacing: -0.5 },
   backRow:           { flexDirection: 'row', alignItems: 'center', gap: 6 },
-  backArrow:         { fontSize: 20, color: '#1C1C1E', fontWeight: '700' },
-  backTxt:           { fontSize: 15, fontWeight: '700', color: '#1C1C1E' },
-  breadcrumb:        { backgroundColor: '#fff', paddingHorizontal: 20, paddingVertical: 9, borderBottomWidth: 1, borderBottomColor: '#F0F0F0' },
-  breadPart:         { fontSize: 12, color: '#8E8E93', fontWeight: '600' },
-  breadPartActive:   { color: '#1C1C1E', fontWeight: '700' },
-  breadSep:          { fontSize: 12, color: '#C7C7CC' },
-  filterWrap:        { backgroundColor: '#fff', paddingHorizontal: 16, paddingVertical: 12, borderBottomWidth: 1.5, borderBottomColor: '#F0F0F0' },
+  backArrow:         { fontSize: 20, color: S.ink, fontFamily: FONT.bold },
+  backTxt:           { fontSize: 15, fontFamily: FONT.bold, color: S.ink },
+  breadcrumb:        { backgroundColor: S.canvas, paddingHorizontal: 20, paddingVertical: 9, borderBottomWidth: 1, borderBottomColor: S.hair },
+  breadPart:         { fontSize: 12, color: S.muted, fontFamily: FONT.semibold },
+  breadPartActive:   { color: S.ink, fontFamily: FONT.bold },
+  breadSep:          { fontSize: 12, color: S.faint },
+  filterWrap:        { backgroundColor: '#fff', paddingHorizontal: 16, paddingVertical: 12, borderBottomWidth: 1.5, borderBottomColor: S.hair },
   filterRow:         { flexDirection: 'row', gap: 8, flexWrap: 'wrap' },
-  filterChip:        { paddingVertical: 7, paddingHorizontal: 14, borderRadius: 18, borderWidth: 1.5, borderColor: '#E8E8E8', backgroundColor: '#F7F7F7' },
-  filterChipActive:  { backgroundColor: '#1C1C1E', borderColor: '#1C1C1E' },
-  filterChipTxt:     { fontSize: 13, fontWeight: '700', color: '#8E8E93' },
+  filterChip:        { paddingVertical: 7, paddingHorizontal: 14, borderRadius: 18, borderWidth: 1.5, borderColor: S.border, backgroundColor: S.canvas },
+  filterChipActive:  { backgroundColor: S.ink, borderColor: S.ink },
+  filterChipTxt:     { fontSize: 13, fontFamily: FONT.bold, color: S.muted },
   filterChipTxtActive:{ color: '#fff' },
-  pageTitleWrap:     { backgroundColor: '#fff', paddingHorizontal: 20, paddingTop: 14, paddingBottom: 14, borderBottomWidth: 1.5, borderBottomColor: '#F0F0F0' },
+  pageTitleWrap:     { backgroundColor: S.canvas, paddingHorizontal: 20, paddingTop: 14, paddingBottom: 14, borderBottomWidth: 1.5, borderBottomColor: S.hair },
   pageTitleRow:      { flexDirection: 'row', alignItems: 'center', gap: 14 },
-  pageTitle:         { fontSize: 20, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.4 },
-  pageSub:           { fontSize: 13, color: '#8E8E93', fontWeight: '600', marginTop: 3 },
-  boardLabel:        { fontSize: 13, fontWeight: '800', color: '#1C1C1E', marginTop: 8 },
+  pageTitle:         { fontSize: 20, fontFamily: FONT.black, color: S.ink, letterSpacing: -0.4 },
+  pageSub:           { fontSize: 13, color: S.muted, fontFamily: FONT.semibold, marginTop: 3 },
+  boardLabel:        { fontSize: 13, fontFamily: FONT.extrabold, color: S.ink, marginTop: 8 },
   subjectIconLg:     { width: 50, height: 50, borderRadius: 25, alignItems: 'center', justifyContent: 'center' },
-  subjectRow:        { backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: '#F0F0F0', flexDirection: 'row', alignItems: 'center', gap: 16, padding: 14 },
+  subjectRow:        { backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: S.hair, flexDirection: 'row', alignItems: 'center', gap: 16, padding: 14 },
   subjectIconWrap:   { width: 54, height: 54, borderRadius: 27, alignItems: 'center', justifyContent: 'center' },
-  subjectName:       { fontSize: 17, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3 },
-  subjectSub:        { fontSize: 12, color: '#8E8E93', fontWeight: '600', marginTop: 3 },
-  resTypeRow:        { backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: '#F0F0F0', flexDirection: 'row', alignItems: 'center', gap: 16, padding: 16 },
-  resTypeIconWrap:   { width: 52, height: 52, borderRadius: 16, backgroundColor: '#F0F0F0', borderWidth: 1.5, borderColor: '#E8E8E8', alignItems: 'center', justifyContent: 'center' },
-  resTypeName:       { fontSize: 16, fontWeight: '800', color: '#1C1C1E', letterSpacing: -0.2, marginBottom: 3 },
-  resTypeSub:        { fontSize: 12, color: '#8E8E93', fontWeight: '600' },
-  listRow:           { backgroundColor: '#fff', borderRadius: 16, borderWidth: 1.5, borderColor: '#F0F0F0', flexDirection: 'row', alignItems: 'center', gap: 14, padding: 16 },
-  listNum:           { width: 32, height: 32, borderRadius: 10, backgroundColor: '#F0F0F0', alignItems: 'center', justifyContent: 'center' },
-  listNumTxt:        { fontSize: 14, fontWeight: '900', color: '#1C1C1E' },
-  listRowTitle:      { fontSize: 15, fontWeight: '800', color: '#1C1C1E', letterSpacing: -0.2 },
-  listRowSub:        { fontSize: 12, color: '#8E8E93', fontWeight: '600', marginTop: 3 },
-  listArrow:         { fontSize: 18, color: '#C7C7CC', fontWeight: '600' },
+  subjectName:       { fontSize: 17, fontFamily: FONT.black, color: S.ink, letterSpacing: -0.3 },
+  subjectSub:        { fontSize: 12, color: S.muted, fontFamily: FONT.semibold, marginTop: 3 },
+  resTypeRow:        { backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: S.hair, flexDirection: 'row', alignItems: 'center', gap: 16, padding: 16 },
+  resTypeIconWrap:   { width: 52, height: 52, borderRadius: 16, backgroundColor: S.hair, borderWidth: 1.5, borderColor: S.border, alignItems: 'center', justifyContent: 'center' },
+  resTypeName:       { fontSize: 16, fontFamily: FONT.extrabold, color: S.ink, letterSpacing: -0.2, marginBottom: 3 },
+  resTypeSub:        { fontSize: 12, color: S.muted, fontFamily: FONT.semibold },
+  listRow:           { backgroundColor: '#fff', borderRadius: 16, borderWidth: 1.5, borderColor: S.hair, flexDirection: 'row', alignItems: 'center', gap: 14, padding: 16 },
+  listNum:           { width: 32, height: 32, borderRadius: 10, backgroundColor: S.hair, alignItems: 'center', justifyContent: 'center' },
+  listNumTxt:        { fontSize: 14, fontFamily: FONT.black, color: S.ink },
+  listRowTitle:      { fontSize: 15, fontFamily: FONT.extrabold, color: S.ink, letterSpacing: -0.2 },
+  listRowSub:        { fontSize: 12, color: S.muted, fontFamily: FONT.semibold, marginTop: 3 },
+  listArrow:         { fontSize: 18, color: S.faint, fontFamily: FONT.semibold },
 
   // Last Year Papers — teal header + Questions/Solutions tabs
   paperHeader:       { backgroundColor: '#1f8a93', flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 16, paddingVertical: 14 },
-  paperClose:        { fontSize: 18, color: '#fff', fontWeight: '800' },
-  paperHeaderTitle:  { flex: 1, fontSize: 15, fontWeight: '800', color: '#fff', letterSpacing: -0.2 },
-  paperTabsWrap:     { backgroundColor: '#fff', borderBottomWidth: 1, borderBottomColor: '#ECECEC', paddingVertical: 10, alignItems: 'center' },
-  paperTabs:         { flexDirection: 'row', backgroundColor: '#F2F2F4', borderRadius: 10, padding: 3 },
+  paperClose:        { fontSize: 18, color: '#fff', fontFamily: FONT.extrabold },
+  paperHeaderTitle:  { flex: 1, fontSize: 15, fontFamily: FONT.extrabold, color: '#fff', letterSpacing: -0.2 },
+  paperTabsWrap:     { backgroundColor: '#fff', borderBottomWidth: 1, borderBottomColor: S.hair, paddingVertical: 10, alignItems: 'center' },
+  paperTabs:         { flexDirection: 'row', backgroundColor: S.hair, borderRadius: 10, padding: 3 },
   paperTab:          { paddingVertical: 7, paddingHorizontal: 22, borderRadius: 8 },
   paperTabActive:    { backgroundColor: '#fff', shadowColor: '#000', shadowOpacity: 0.08, shadowRadius: 4, shadowOffset: { width: 0, height: 1 }, elevation: 1 },
-  paperTabTxt:       { fontSize: 14, fontWeight: '700', color: '#8E8E93' },
-  paperTabTxtActive: { color: '#1C1C1E' },
+  paperTabTxt:       { fontSize: 14, fontFamily: FONT.bold, color: S.muted },
+  paperTabTxtActive: { color: S.ink },
 
   // Resource card styles
-  resCard:           { backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: '#F0F0F0', padding: 14 },
+  resCard:           { backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: S.hair, padding: 14 },
   resCardTop:        { flexDirection: 'row', gap: 12, marginBottom: 12, alignItems: 'flex-start' },
   resIconWrap:       { width: 48, height: 48, borderRadius: 14, alignItems: 'center', justifyContent: 'center', flexShrink: 0 },
-  resTitle:          { fontSize: 14, fontWeight: '800', color: '#1C1C1E', lineHeight: 20, marginBottom: 6 },
+  resTitle:          { fontSize: 14, fontFamily: FONT.extrabold, color: S.ink, lineHeight: 20, marginBottom: 6 },
   resMetaRow:        { flexDirection: 'row', alignItems: 'center', gap: 8, flexWrap: 'wrap' },
   typePill:          { borderRadius: 7, paddingVertical: 3, paddingHorizontal: 9 },
-  typePillTxt:       { fontSize: 10, fontWeight: '900' },
-  resMeta:           { fontSize: 11, color: '#8E8E93', fontWeight: '600' },
+  typePillTxt:       { fontSize: 10, fontFamily: FONT.black },
+  resMeta:           { fontSize: 11, color: S.muted, fontFamily: FONT.semibold },
   resActions:        { flexDirection: 'row', gap: 10 },
-  previewBtn:        { flex: 1, backgroundColor: '#F7F7F7', borderWidth: 1.5, borderColor: '#F0F0F0', borderRadius: 12, paddingVertical: 11, alignItems: 'center' },
-  previewTxt:        { fontSize: 13, fontWeight: '800', color: '#1C1C1E' },
-  downloadBtn:       { flex: 1, backgroundColor: '#1C1C1E', borderRadius: 12, paddingVertical: 11, alignItems: 'center' },
-  downloadTxt:       { fontSize: 13, fontWeight: '800', color: '#fff' },
-  notesTable:         { marginLeft: 22, marginTop: 8, marginBottom: 4, borderWidth: 1, borderColor: '#D0D0D0', borderRadius: 8, overflow: 'hidden' },
-  notesTableRow:      { flexDirection: 'row', borderBottomWidth: 1, borderBottomColor: '#E8E8E8' },
-  notesTableHeader:   { backgroundColor: '#1C1C1E' },
-  notesTableRowAlt:   { backgroundColor: '#F9F9F9' },
-  notesTableCell:     { padding: 8, borderRightWidth: 1, borderRightColor: '#E8E8E8' },
-  notesTableHeaderTxt:{ fontSize: 12, fontWeight: '800', color: '#fff', lineHeight: 17 },
+  previewBtn:        { flex: 1, backgroundColor: S.canvas, borderWidth: 1.5, borderColor: S.hair, borderRadius: 12, paddingVertical: 11, alignItems: 'center' },
+  previewTxt:        { fontSize: 13, fontFamily: FONT.extrabold, color: S.ink },
+  downloadBtn:       { flex: 1, backgroundColor: S.ink, borderRadius: 12, paddingVertical: 11, alignItems: 'center' },
+  downloadTxt:       { fontSize: 13, fontFamily: FONT.extrabold, color: '#fff' },
+  notesTable:         { marginLeft: 22, marginTop: 8, marginBottom: 4, borderWidth: 1, borderColor: S.border, borderRadius: 8, overflow: 'hidden' },
+  notesTableRow:      { flexDirection: 'row', borderBottomWidth: 1, borderBottomColor: S.border },
+  notesTableHeader:   { backgroundColor: S.ink },
+  notesTableRowAlt:   { backgroundColor: S.canvas },
+  notesTableCell:     { padding: 8, borderRightWidth: 1, borderRightColor: S.border },
+  notesTableHeaderTxt:{ fontSize: 12, fontFamily: FONT.extrabold, color: '#fff', lineHeight: 17 },
   notesTableCellTxt:  { fontSize: 12, color: '#333', lineHeight: 18 },
   notesImagesWrap:  { flexDirection: 'row', flexWrap: 'wrap', gap: 10, paddingLeft: 22, marginTop: 8, marginBottom: 4 },
   notesImgCard:     { width: (SCREEN_WIDTH - 64) / 2, alignItems: 'center' },
-  notesImg:         { width: (SCREEN_WIDTH - 64) / 2, height: (SCREEN_WIDTH - 64) / 2, borderRadius: 8, borderWidth: 1, borderColor: '#E8E8E8', backgroundColor: '#FAFAFA' },
+  notesImg:         { width: (SCREEN_WIDTH - 64) / 2, height: (SCREEN_WIDTH - 64) / 2, borderRadius: 8, borderWidth: 1, borderColor: S.border, backgroundColor: S.canvas },
   notesImgLabel:    { fontSize: 10, color: '#666', textAlign: 'center', marginTop: 4, lineHeight: 14 },
   // Notes view styles — matching image 2 exactly
-  notesHeader:            { backgroundColor: '#fff', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 14, borderBottomWidth: 0 },
+  notesHeader:            { backgroundColor: S.canvas, flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 14, borderBottomWidth: 0 },
   notesBackRow:           { flexDirection: 'row', alignItems: 'center', gap: 4 },
-  notesBackArrow:         { fontSize: 18, color: '#1C1C1E', fontWeight: '600' },
-  notesBackTxt:           { fontSize: 14, fontWeight: '600', color: '#1C1C1E' },
+  notesBackArrow:         { fontSize: 18, color: S.ink, fontFamily: FONT.semibold },
+  notesBackTxt:           { fontSize: 14, fontFamily: FONT.semibold, color: S.ink },
   notesChapterHdr:        { paddingHorizontal: 16, paddingTop: 8, paddingBottom: 0 },
-  notesChapterTitle:      { fontSize: 18, fontWeight: '700', color: '#1C1C1E', marginBottom: 10 },
-  notesChapterDivider:    { height: 1, backgroundColor: '#E0E0E0', marginBottom: 0 },
+  notesChapterTitle:      { fontSize: 18, fontFamily: FONT.bold, color: S.ink, marginBottom: 10 },
+  notesChapterDivider:    { height: 1, backgroundColor: S.border, marginBottom: 0 },
   notesSec:               { paddingHorizontal: 16, paddingVertical: 16, backgroundColor: '#fff' },
-  notesSecBorder:         { borderBottomWidth: 1, borderBottomColor: '#E8E8E8' },
+  notesSecBorder:         { borderBottomWidth: 1, borderBottomColor: S.border },
   notesTitleRow:          { flexDirection: 'row', alignItems: 'flex-start', gap: 10, marginBottom: 6 },
-  notesBulletBlack:       { fontSize: 16, color: '#1C1C1E', fontWeight: '700', lineHeight: 22, marginTop: 1 },
-  notesBoldTitle:         { fontSize: 14, fontWeight: '700', color: '#1C1C1E', flex: 1, lineHeight: 21 },
-  notesBodyTxt:           { fontSize: 14, color: '#333', lineHeight: 22, fontWeight: '400', paddingLeft: 22, marginTop: 2 },
+  notesBulletBlack:       { fontSize: 16, color: S.ink, fontFamily: FONT.bold, lineHeight: 22, marginTop: 1 },
+  notesBoldTitle:         { fontSize: 14, fontFamily: FONT.bold, color: S.ink, flex: 1, lineHeight: 21 },
+  notesBodyTxt:           { fontSize: 14, color: '#333', lineHeight: 22, fontFamily: FONT.regular, paddingLeft: 22, marginTop: 2 },
   subBulletRow:           { flexDirection: 'row', alignItems: 'flex-start', gap: 8, paddingLeft: 22, marginTop: 4 },
   subBulletDot:           { fontSize: 14, color: '#555', marginTop: 3 },
   subBulletTxt:           { fontSize: 14, color: '#333', lineHeight: 21, flex: 1 },

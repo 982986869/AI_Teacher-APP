@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform, Modal, BackHandler } from 'react-native';
+import { S } from '../theme/studentUI';
+import { FONT } from '../constants/fonts';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import MathText from '../components/MathText';
 
@@ -10,8 +12,8 @@ const C = {
   accent: '#E25563', accentLight: '#FCE9EC',      // wrong (warm red)
   green: '#0FA39A', greenLight: '#E1F5F3',        // correct (teal)
   yellow: '#F5A623', yellowLight: '#FFF6E6',
-  bg: '#F6F7F9', white: '#fff',                   // warm white
-  text: '#2A2D3A', muted: '#8A8F9C', border: '#F0E8E3',
+  bg: S.hair, white: '#fff',                   // warm white
+  text: '#2A2D3A', muted: S.muted, border: '#F0E8E3',
 };
 
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
@@ -203,8 +205,8 @@ export default function McqTestScreen({
   if (phase === 'instructions') {
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <Header />
         <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 40 }}>
           <View style={s.hero}>
@@ -293,8 +295,8 @@ export default function McqTestScreen({
     const emoji = r.scorePct >= 80 ? '🏆' : r.scorePct >= 50 ? '👍' : '💪';
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <Header />
         <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 40 }}>
           <View style={s.resHero}>
@@ -373,7 +375,7 @@ export default function McqTestScreen({
     const requestExit = () => { if (answeredCount > 0) setShowExit(true); else exitTest(); };
     return (
       <SafeAreaView style={mt.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
         {Platform.OS === 'android' && <View style={{ height: insets.top, backgroundColor: '#fff' }} />}
         <View style={mt.accent} />
         <View style={mt.appbar}>
@@ -415,7 +417,7 @@ export default function McqTestScreen({
                   <TouchableOpacity key={i} style={[mt.opt, isSel && mt.optSel]} activeOpacity={0.85} onPress={() => selectSectioned(i)}>
                     <Text style={[mt.optLtr, isSel && mt.optLtrSel]}>{LETTERS[i]}</Text>
                     <View style={{ flex: 1 }}>
-                      <MathText value={opt} fontSize={15} color={isSel ? '#0B5E5A' : '#3A4A4A'} />
+                      <MathText value={opt} fontSize={15} color={isSel ? '#0B5E5A' : S.ink} />
                     </View>
                   </TouchableOpacity>
                 );
@@ -514,13 +516,13 @@ export default function McqTestScreen({
 
   return (
     <SafeAreaView style={s.safe}>
-      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+      <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
       <Header />
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 40 }}>
         <View>
           <View style={s.progMeta}>
-            <Text style={s.progMetaTxt}>Question <Text style={{ color: C.primary, fontWeight: '800' }}>{current + 1}</Text> of {total}</Text>
+            <Text style={s.progMetaTxt}>Question <Text style={{ color: C.primary, fontFamily: FONT.extrabold }}>{current + 1}</Text> of {total}</Text>
             <Text style={s.progMetaMuted}>{status[current] === 'answered' ? '✅ Answered' : status[current] === 'skipped' ? '⏭ Skipped' : '📝 Not Answered'}</Text>
           </View>
           <View style={s.progWrap}><View style={[s.progFill, { width: `${progressPct}%` }]} /></View>
@@ -642,122 +644,122 @@ const s = StyleSheet.create({
   safe: { flex: 1, backgroundColor: C.bg },
   header: { backgroundColor: C.white, borderBottomWidth: 1.5, borderBottomColor: C.border, paddingHorizontal: 16, paddingVertical: 14, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   logoRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  backArrow: { fontSize: 20, color: C.text, fontWeight: '700' },
-  logo: { fontSize: 17, fontWeight: '800', color: C.primary },
+  backArrow: { fontSize: 20, color: C.text, fontFamily: FONT.bold },
+  logo: { fontSize: 17, fontFamily: FONT.extrabold, color: C.primary },
   logoAccent: { color: C.accent },
   timerPill: { backgroundColor: C.primaryLight, flexDirection: 'row', alignItems: 'center', gap: 5, paddingVertical: 4, paddingHorizontal: 10, borderRadius: 50 },
   timerDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: C.primary },
-  timerTxt: { fontSize: 12, fontWeight: '800', color: C.primary },
+  timerTxt: { fontSize: 12, fontFamily: FONT.extrabold, color: C.primary },
 
   hero: { backgroundColor: C.primary, borderRadius: 20, padding: 20, shadowColor: C.primary, shadowOpacity: 0.28, shadowRadius: 16, shadowOffset: { width: 0, height: 8 }, elevation: 6 },
   heroTagWrap: { alignSelf: 'flex-start', backgroundColor: 'rgba(255,255,255,0.2)', paddingVertical: 3, paddingHorizontal: 10, borderRadius: 50, marginBottom: 8 },
-  heroTag: { fontSize: 10, fontWeight: '700', letterSpacing: 1.2, color: '#fff' },
-  heroTitle: { fontSize: 16, fontWeight: '800', color: '#fff', marginBottom: 4 },
+  heroTag: { fontSize: 10, fontFamily: FONT.bold, letterSpacing: 1.2, color: '#fff' },
+  heroTitle: { fontSize: 16, fontFamily: FONT.extrabold, color: '#fff', marginBottom: 4 },
   heroSub: { fontSize: 11, color: 'rgba(255,255,255,0.85)' },
   heroChips: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 12 },
   heroChip: { backgroundColor: 'rgba(255,255,255,0.18)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.3)', paddingVertical: 4, paddingHorizontal: 10, borderRadius: 50 },
-  heroChipTxt: { color: '#fff', fontSize: 10, fontWeight: '700' },
+  heroChipTxt: { color: '#fff', fontSize: 10, fontFamily: FONT.bold },
 
   pc: { backgroundColor: C.white, borderRadius: 14, padding: 16, borderWidth: 1.5, borderColor: C.border },
   secTitleRow: { flexDirection: 'row', alignItems: 'center', gap: 6, marginBottom: 10 },
   secBar: { width: 3, height: 16, backgroundColor: '#5A67E8', borderRadius: 4 },
-  secTitle: { fontSize: 13, fontWeight: '800', color: C.text },
+  secTitle: { fontSize: 13, fontFamily: FONT.extrabold, color: C.text },
 
   markRow: { flexDirection: 'row', gap: 8 },
   mcard: { flex: 1, borderRadius: 10, padding: 10, flexDirection: 'row', alignItems: 'center', gap: 8 },
   mcardIco: { width: 28, height: 28, borderRadius: 8, alignItems: 'center', justifyContent: 'center' },
-  mcardLbl: { fontSize: 10, color: C.muted, fontWeight: '600' },
-  mcardVal: { fontSize: 16, fontWeight: '800' },
+  mcardLbl: { fontSize: 10, color: C.muted, fontFamily: FONT.semibold },
+  mcardVal: { fontSize: 16, fontFamily: FONT.extrabold },
 
   instrItem: { flexDirection: 'row', gap: 8, alignItems: 'flex-start', marginBottom: 8 },
   instrNum: { minWidth: 22, height: 22, borderRadius: 11, backgroundColor: C.primaryLight, alignItems: 'center', justifyContent: 'center' },
-  instrNumTxt: { fontSize: 10, fontWeight: '800', color: C.primary },
-  instrTxt: { flex: 1, fontSize: 12, color: '#4A4A60', lineHeight: 18 },
+  instrNumTxt: { fontSize: 10, fontFamily: FONT.extrabold, color: C.primary },
+  instrTxt: { flex: 1, fontSize: 12, color: S.muted, lineHeight: 18 },
 
   ctaBtn: { backgroundColor: C.primary, borderRadius: 50, paddingVertical: 15, alignItems: 'center', justifyContent: 'center', shadowColor: C.primary, shadowOpacity: 0.32, shadowRadius: 12, shadowOffset: { width: 0, height: 6 }, elevation: 5 },
-  ctaBtnTxt: { color: '#fff', fontSize: 14, fontWeight: '800' },
+  ctaBtnTxt: { color: '#fff', fontSize: 14, fontFamily: FONT.extrabold },
   startEmoji: { fontSize: 34, textAlign: 'center', marginBottom: 4 },
   startGo: { backgroundColor: C.primary },
-  noQ: { textAlign: 'center', color: C.muted, fontSize: 12, fontWeight: '600' },
+  noQ: { textAlign: 'center', color: C.muted, fontSize: 12, fontFamily: FONT.semibold },
 
   progMeta: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 6 },
-  progMetaTxt: { fontSize: 12, fontWeight: '700', color: C.text },
-  progMetaMuted: { fontSize: 11, color: C.muted, fontWeight: '600' },
+  progMetaTxt: { fontSize: 12, fontFamily: FONT.bold, color: C.text },
+  progMetaMuted: { fontSize: 11, color: C.muted, fontFamily: FONT.semibold },
   progWrap: { backgroundColor: C.border, borderRadius: 50, height: 6, overflow: 'hidden' },
   progFill: { height: 6, backgroundColor: C.primary, borderRadius: 50 },
 
   sChips: { flexDirection: 'row', gap: 6, flexWrap: 'wrap' },
   sc: { paddingVertical: 4, paddingHorizontal: 10, borderRadius: 50 },
-  scTxt: { fontSize: 10, fontWeight: '700' },
+  scTxt: { fontSize: 10, fontFamily: FONT.bold },
 
   qcard: { backgroundColor: C.white, borderRadius: 14, borderWidth: 1.5, borderColor: C.border, overflow: 'hidden' },
   qcardHead: { backgroundColor: C.primaryLight, paddingVertical: 10, paddingHorizontal: 14, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  qCat: { fontSize: 11, fontWeight: '700', color: C.primary },
+  qCat: { fontSize: 11, fontFamily: FONT.bold, color: C.primary },
   qPts: { backgroundColor: C.primary, paddingVertical: 2, paddingHorizontal: 8, borderRadius: 50 },
-  qPtsTxt: { color: '#fff', fontSize: 10, fontWeight: '700' },
+  qPtsTxt: { color: '#fff', fontSize: 10, fontFamily: FONT.bold },
   qcardBody: { padding: 14 },
   qRow: { flexDirection: 'row', alignItems: 'flex-start', marginBottom: 14 },
-  qText: { fontSize: 16, fontWeight: '700', color: C.text, lineHeight: 22 },
+  qText: { fontSize: 16, fontFamily: FONT.bold, color: C.text, lineHeight: 22 },
 
   opt: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 10, paddingHorizontal: 12, borderWidth: 2, borderColor: C.border, borderRadius: 10, backgroundColor: C.bg },
   optSel: { borderColor: C.primary, backgroundColor: C.primaryLight },
   optLtr: { width: 24, height: 24, borderRadius: 12, borderWidth: 2, borderColor: C.border, alignItems: 'center', justifyContent: 'center' },
   optLtrSel: { backgroundColor: C.primary, borderColor: C.primary },
-  optLtrTxt: { fontSize: 10, fontWeight: '800', color: C.muted },
-  optTxt: { flex: 1, fontSize: 12, fontWeight: '600', color: C.text },
+  optLtrTxt: { fontSize: 10, fontFamily: FONT.extrabold, color: C.muted },
+  optTxt: { flex: 1, fontSize: 12, fontFamily: FONT.semibold, color: C.text },
 
   actRow: { flexDirection: 'row', gap: 8 },
   actBtn: { flex: 1, paddingVertical: 11, borderRadius: 10, borderWidth: 2, alignItems: 'center', justifyContent: 'center' },
-  actBtnTxt: { fontSize: 12, fontWeight: '800' },
+  actBtnTxt: { fontSize: 12, fontFamily: FONT.extrabold },
 
-  palTitle: { fontSize: 10, fontWeight: '700', color: C.muted, marginBottom: 8, letterSpacing: 0.8 },
+  palTitle: { fontSize: 10, fontFamily: FONT.bold, color: C.muted, marginBottom: 8, letterSpacing: 0.8 },
   palGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 6 },
   pb: { width: 30, height: 30, borderRadius: 7, borderWidth: 2, alignItems: 'center', justifyContent: 'center' },
-  pbTxt: { fontSize: 11, fontWeight: '700' },
+  pbTxt: { fontSize: 11, fontFamily: FONT.bold },
 
   finishBtn: { borderWidth: 2, borderColor: C.accent, borderRadius: 50, backgroundColor: C.accentLight, paddingVertical: 13, alignItems: 'center', justifyContent: 'center' },
-  finishBtnTxt: { fontSize: 13, fontWeight: '800', color: C.accent },
+  finishBtnTxt: { fontSize: 13, fontFamily: FONT.extrabold, color: C.accent },
 
   toastWrap: { position: 'absolute', bottom: 24, left: 0, right: 0, alignItems: 'center' },
   toast: { backgroundColor: C.text, paddingVertical: 8, paddingHorizontal: 18, borderRadius: 50 },
-  toastTxt: { color: '#fff', fontSize: 12, fontWeight: '700' },
+  toastTxt: { color: '#fff', fontSize: 12, fontFamily: FONT.bold },
 
   modalOv: { flex: 1, backgroundColor: 'rgba(45,45,58,0.6)', justifyContent: 'flex-end' },
   modalSheet: { backgroundColor: '#fff', borderTopLeftRadius: 20, borderTopRightRadius: 20, padding: 20, paddingBottom: 28 },
   modalHandle: { width: 32, height: 3, backgroundColor: C.border, borderRadius: 50, alignSelf: 'center', marginBottom: 16 },
-  modalTitle: { fontSize: 17, fontWeight: '800', textAlign: 'center', marginBottom: 6, color: C.text },
+  modalTitle: { fontSize: 17, fontFamily: FONT.extrabold, textAlign: 'center', marginBottom: 6, color: C.text },
   modalSub: { fontSize: 12, color: C.muted, textAlign: 'center', marginBottom: 18, lineHeight: 18 },
   mbDanger: { backgroundColor: C.accent, borderRadius: 50, paddingVertical: 13, alignItems: 'center' },
-  mbDangerTxt: { color: '#fff', fontSize: 13, fontWeight: '800' },
+  mbDangerTxt: { color: '#fff', fontSize: 13, fontFamily: FONT.extrabold },
   mbOut: { borderWidth: 2, borderColor: C.primary, borderRadius: 50, paddingVertical: 13, alignItems: 'center', backgroundColor: '#fff' },
-  mbOutTxt: { color: C.primary, fontSize: 13, fontWeight: '800' },
+  mbOutTxt: { color: C.primary, fontSize: 13, fontFamily: FONT.extrabold },
 
   resHero: { backgroundColor: C.primary, borderRadius: 14, padding: 20, alignItems: 'center' },
   resEmoji: { fontSize: 40, marginBottom: 6 },
-  resTitle: { fontSize: 18, fontWeight: '800', color: '#fff', marginBottom: 4 },
+  resTitle: { fontSize: 18, fontFamily: FONT.extrabold, color: '#fff', marginBottom: 4 },
   resSub: { fontSize: 11, color: 'rgba(255,255,255,0.85)', marginBottom: 14 },
   scoreRing: { width: 90, height: 90, borderRadius: 45, backgroundColor: 'rgba(255,255,255,0.15)', borderWidth: 5, borderColor: 'rgba(255,255,255,0.4)', alignItems: 'center', justifyContent: 'center' },
-  scoreBig: { fontSize: 26, fontWeight: '800', color: '#fff' },
+  scoreBig: { fontSize: 26, fontFamily: FONT.extrabold, color: '#fff' },
   scoreOut: { fontSize: 10, color: 'rgba(255,255,255,0.75)' },
 
   resStats: { flexDirection: 'row', gap: 8 },
   rs: { flex: 1, borderRadius: 12, paddingVertical: 12, alignItems: 'center' },
-  rsVal: { fontSize: 22, fontWeight: '800' },
-  rsLbl: { fontSize: 10, fontWeight: '700', color: C.muted, marginTop: 2 },
+  rsVal: { fontSize: 22, fontFamily: FONT.extrabold },
+  rsLbl: { fontSize: 10, fontFamily: FONT.bold, color: C.muted, marginTop: 2 },
 
   perfLabels: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 4 },
-  perfLabel: { fontSize: 11, fontWeight: '700', color: C.text },
+  perfLabel: { fontSize: 11, fontFamily: FONT.bold, color: C.text },
   perfBar: { height: 8, backgroundColor: C.border, borderRadius: 50, overflow: 'hidden' },
   perfFill: { height: 8, borderRadius: 50 },
 
   revItem: { paddingVertical: 12, borderBottomWidth: 1, borderBottomColor: C.border },
   revRow: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 4 },
-  revCat: { fontSize: 10, fontWeight: '700', color: C.muted },
+  revCat: { fontSize: 10, fontFamily: FONT.bold, color: C.muted },
   revTag: { paddingVertical: 2, paddingHorizontal: 8, borderRadius: 50 },
-  revTagTxt: { fontSize: 10, fontWeight: '800' },
-  revQ: { fontSize: 12, fontWeight: '600', color: C.text, marginBottom: 4, lineHeight: 17 },
+  revTagTxt: { fontSize: 10, fontFamily: FONT.extrabold },
+  revQ: { fontSize: 12, fontFamily: FONT.semibold, color: C.text, marginBottom: 4, lineHeight: 17 },
   revAnsRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', marginTop: 2 },
-  revAns: { fontSize: 11, fontWeight: '700', marginTop: 2 },
+  revAns: { fontSize: 11, fontFamily: FONT.bold, marginTop: 2 },
 });
 
 // ── Sectioned mock-test (teal reference) styles ───────────────────────────────
@@ -765,60 +767,60 @@ const TEAL = '#0E9A93';
 const TEAL_DARK = '#0B7E78';
 const CORAL = '#0FA39A';   // primary action (matches instructions/CTA)
 const mt = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: '#EEF1F3' },
+  safe: { flex: 1, backgroundColor: S.hair },
   accent: { height: 4, backgroundColor: TEAL },
   appbar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', backgroundColor: '#fff', paddingHorizontal: 14, paddingVertical: 10, borderBottomWidth: 1, borderBottomColor: '#E6EAEA' },
   exitBtn: { paddingVertical: 6, paddingHorizontal: 12, borderRadius: 18, backgroundColor: '#F4F6F6' },
-  exitTxt: { fontSize: 13, fontWeight: '800', color: '#6B7B7B' },
-  appbarTitle: { flex: 1, textAlign: 'center', fontSize: 14, fontWeight: '800', color: '#2D3A3A', marginHorizontal: 8 },
+  exitTxt: { fontSize: 13, fontFamily: FONT.extrabold, color: S.muted },
+  appbarTitle: { flex: 1, textAlign: 'center', fontSize: 14, fontFamily: FONT.extrabold, color: S.ink, marginHorizontal: 8 },
   finishTopBtn: { paddingVertical: 6, paddingHorizontal: 14, borderRadius: 18, backgroundColor: CORAL },
-  finishTopTxt: { fontSize: 13, fontWeight: '800', color: '#fff' },
+  finishTopTxt: { fontSize: 13, fontFamily: FONT.extrabold, color: '#fff' },
   finishNext: { backgroundColor: '#1C9D5B' },
   exitConfirmBtn: { backgroundColor: '#E0322E', borderRadius: 50, paddingVertical: 14, alignItems: 'center', marginTop: 6 },
-  exitConfirmTxt: { color: '#fff', fontSize: 15, fontWeight: '800' },
+  exitConfirmTxt: { color: '#fff', fontSize: 15, fontFamily: FONT.extrabold },
   card: { backgroundColor: '#fff', borderRadius: 16, padding: 18, borderWidth: 1, borderColor: '#E6EAEA', shadowColor: '#000', shadowOpacity: 0.05, shadowRadius: 8, shadowOffset: { width: 0, height: 3 }, elevation: 2 },
   topRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 },
-  count: { fontSize: 16, fontWeight: '800', color: '#3A4A4A' },
-  timer: { fontSize: 16, fontWeight: '800', color: '#3A4A4A' },
+  count: { fontSize: 16, fontFamily: FONT.extrabold, color: S.ink },
+  timer: { fontSize: 16, fontFamily: FONT.extrabold, color: S.ink },
   tabs: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 14 },
-  tab: { paddingVertical: 8, paddingHorizontal: 16, borderRadius: 20, backgroundColor: '#EEF1F3' },
+  tab: { paddingVertical: 8, paddingHorizontal: 16, borderRadius: 20, backgroundColor: S.hair },
   tabOn: { backgroundColor: TEAL },
-  tabTxt: { fontSize: 13, fontWeight: '700', color: '#6B7B7B' },
+  tabTxt: { fontSize: 13, fontFamily: FONT.bold, color: S.muted },
   tabTxtOn: { color: '#fff' },
   instr: { backgroundColor: '#E1F5F3', borderRadius: 10, paddingVertical: 12, paddingHorizontal: 14, marginBottom: 16, borderWidth: 1, borderColor: '#C7E9E5' },
-  instrTxt: { fontSize: 14, fontWeight: '700', color: '#0B7E78' },
-  qText: { fontSize: 16, fontWeight: '600', color: '#3A4A4A', lineHeight: 24, marginBottom: 14 },
+  instrTxt: { fontSize: 14, fontFamily: FONT.bold, color: '#0B7E78' },
+  qText: { fontSize: 16, fontFamily: FONT.semibold, color: S.ink, lineHeight: 24, marginBottom: 14 },
   opt: { flexDirection: 'row', alignItems: 'center', gap: 12, borderWidth: 1.5, borderColor: '#E2E8E8', borderRadius: 12, paddingVertical: 14, paddingHorizontal: 16, backgroundColor: '#fff' },
   optSel: { borderColor: TEAL, backgroundColor: '#E6F4F3' },
-  optLtr: { fontSize: 15, fontWeight: '800', color: '#8A9A9A', minWidth: 18 },
+  optLtr: { fontSize: 15, fontFamily: FONT.extrabold, color: S.muted, minWidth: 18 },
   optLtrSel: { color: TEAL },
-  optTxt: { flex: 1, fontSize: 15, fontWeight: '600', color: '#3A4A4A' },
+  optTxt: { flex: 1, fontSize: 15, fontFamily: FONT.semibold, color: S.ink },
   optTxtSel: { color: '#0B5E5A' },
   clearWrap: { alignSelf: 'flex-end', marginTop: 16 },
-  clearTxt: { fontSize: 14, fontWeight: '700', color: TEAL },
+  clearTxt: { fontSize: 14, fontFamily: FONT.bold, color: TEAL },
 
   bottomBar: { position: 'absolute', left: 0, right: 0, bottom: 0, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', backgroundColor: '#fff', borderTopWidth: 1, borderTopColor: '#E6EAEA', paddingHorizontal: 16, paddingTop: 12, paddingBottom: Platform.OS === 'ios' ? 24 : 12, gap: 12 },
-  prevBtn: { paddingVertical: 12, paddingHorizontal: 18, borderRadius: 10, backgroundColor: '#EEF1F3' },
-  prevTxt: { fontSize: 14, fontWeight: '700', color: '#6B7B7B' },
-  menuBtn: { width: 46, height: 44, borderRadius: 10, backgroundColor: '#EEF1F3', alignItems: 'center', justifyContent: 'center' },
-  menuTxt: { fontSize: 18, color: '#3A4A4A' },
+  prevBtn: { paddingVertical: 12, paddingHorizontal: 18, borderRadius: 10, backgroundColor: S.hair },
+  prevTxt: { fontSize: 14, fontFamily: FONT.bold, color: S.muted },
+  menuBtn: { width: 46, height: 44, borderRadius: 10, backgroundColor: S.hair, alignItems: 'center', justifyContent: 'center' },
+  menuTxt: { fontSize: 18, color: S.ink },
   nextBtn: { paddingVertical: 12, paddingHorizontal: 22, borderRadius: 10, backgroundColor: CORAL },
-  nextTxt: { fontSize: 14, fontWeight: '800', color: '#fff' },
+  nextTxt: { fontSize: 14, fontFamily: FONT.extrabold, color: '#fff' },
   dim: { opacity: 0.45 },
 
   modalOv: { flex: 1, backgroundColor: 'rgba(20,30,30,0.5)', justifyContent: 'flex-end' },
   sheet: { backgroundColor: '#fff', borderTopLeftRadius: 22, borderTopRightRadius: 22, padding: 20, paddingBottom: 28 },
   handle: { width: 36, height: 4, borderRadius: 2, backgroundColor: '#D5DCDC', alignSelf: 'center', marginBottom: 14 },
-  sheetTitle: { fontSize: 16, fontWeight: '800', color: '#3A4A4A', marginBottom: 12, textAlign: 'center' },
-  palSec: { fontSize: 12, fontWeight: '800', color: '#6B7B7B', marginBottom: 8, letterSpacing: 0.3 },
+  sheetTitle: { fontSize: 16, fontFamily: FONT.extrabold, color: S.ink, marginBottom: 12, textAlign: 'center' },
+  palSec: { fontSize: 12, fontFamily: FONT.extrabold, color: S.muted, marginBottom: 8, letterSpacing: 0.3 },
   palGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
   palCell: { width: 38, height: 38, borderRadius: 9, borderWidth: 1.5, borderColor: '#E2E8E8', backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center' },
   palAns: { backgroundColor: TEAL, borderColor: TEAL },
   palCur: { backgroundColor: TEAL_DARK, borderColor: TEAL_DARK },
-  palCellTxt: { fontSize: 13, fontWeight: '700', color: '#6B7B7B' },
+  palCellTxt: { fontSize: 13, fontFamily: FONT.bold, color: S.muted },
   finishBtn: { backgroundColor: CORAL, borderRadius: 50, paddingVertical: 14, alignItems: 'center', marginTop: 6 },
-  finishTxt: { color: '#fff', fontSize: 15, fontWeight: '800' },
-  closeTxt: { textAlign: 'center', color: '#8A9A9A', fontSize: 13, fontWeight: '700', marginTop: 12 },
-  confirmTitle: { fontSize: 17, fontWeight: '800', color: '#3A4A4A', textAlign: 'center', marginBottom: 6 },
-  confirmSub: { fontSize: 13, color: '#6B7B7B', textAlign: 'center', marginBottom: 16, lineHeight: 19 },
+  finishTxt: { color: '#fff', fontSize: 15, fontFamily: FONT.extrabold },
+  closeTxt: { textAlign: 'center', color: S.muted, fontSize: 13, fontFamily: FONT.bold, marginTop: 12 },
+  confirmTitle: { fontSize: 17, fontFamily: FONT.extrabold, color: S.ink, textAlign: 'center', marginBottom: 6 },
+  confirmSub: { fontSize: 13, color: S.muted, textAlign: 'center', marginBottom: 16, lineHeight: 19 },
 });

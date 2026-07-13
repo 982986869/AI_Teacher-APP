@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
   View, Text, ScrollView, Pressable, StyleSheet, StatusBar, SafeAreaView, Modal,
 } from 'react-native';
+import { S } from '../theme/studentUI';
+import { FONT } from '../constants/fonts';
 import { Ionicons } from '@expo/vector-icons';
 import MathText from '../components/MathText';
 
@@ -17,21 +19,21 @@ const RichText = ({ value, style, fontSize, color }) =>
 
 // ----- Theme (dark, matches app) -----
 const COLORS = {
-  dark: '#1C1C1E',
-  darkSoft: '#2C2C2E',
-  accentTint: '#EFEFF4',
-  text: '#1C1C1E',
-  textSecondary: '#3A3A3C',
-  textMuted: '#6B6B70',
-  textTertiary: '#9A9A9F',
-  disabled: '#C7C7CC',
-  border: '#E8E8E8',
-  borderSoft: '#F0F0F0',
-  optionBadge: '#F0F0F0',
+  dark: S.ink,
+  darkSoft: S.ink,
+  accentTint: S.hair,
+  text: S.ink,
+  textSecondary: S.ink,
+  textMuted: S.muted,
+  textTertiary: S.muted,
+  disabled: S.faint,
+  border: S.border,
+  borderSoft: S.hair,
+  optionBadge: S.hair,
   banner: '#FBF3DA',
   bannerText: '#8A6D1B',
   white: '#FFFFFF',
-  pageBg: '#F4F5F7',
+  pageBg: S.hair,
   overlay: 'rgba(0,0,0,0.4)',
 };
 
@@ -295,60 +297,60 @@ const styles = StyleSheet.create({
   topBar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 14, paddingTop: 48, paddingBottom: 12, backgroundColor: COLORS.dark },
   closeBtn: { width: 34, height: 34, borderRadius: 17, backgroundColor: 'rgba(255,255,255,0.15)', alignItems: 'center', justifyContent: 'center' },
   topTimer: { flexDirection: 'row', alignItems: 'center', gap: 6 },
-  topTimerText: { color: COLORS.white, fontSize: 16, fontWeight: '700', letterSpacing: 0.5 },
+  topTimerText: { color: COLORS.white, fontSize: 16, fontFamily: FONT.bold, letterSpacing: 0.5 },
   submitTop: { backgroundColor: COLORS.white, paddingHorizontal: 16, paddingVertical: 8, borderRadius: 10 },
-  submitTopText: { color: COLORS.dark, fontSize: 13, fontWeight: '800' },
+  submitTopText: { color: COLORS.dark, fontSize: 13, fontFamily: FONT.extrabold },
 
   scroll: { flex: 1 },
   scrollContent: { padding: 16, paddingBottom: 24 },
   card: { backgroundColor: COLORS.white, borderRadius: 16, borderWidth: 1, borderColor: COLORS.borderSoft, padding: 16 },
   cardTopRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 },
-  progress: { fontSize: 13, fontWeight: '700', color: COLORS.text },
-  miniTimer: { fontSize: 12, color: COLORS.textTertiary, fontWeight: '600' },
+  progress: { fontSize: 13, fontFamily: FONT.bold, color: COLORS.text },
+  miniTimer: { fontSize: 12, color: COLORS.textTertiary, fontFamily: FONT.semibold },
 
   tabs: { flexDirection: 'row', gap: 8, marginBottom: 12 },
   tab: { paddingHorizontal: 12, paddingVertical: 6, borderRadius: 16, backgroundColor: COLORS.optionBadge },
   tabOn: { backgroundColor: COLORS.dark },
-  tabText: { fontSize: 12, fontWeight: '700', color: COLORS.textMuted },
+  tabText: { fontSize: 12, fontFamily: FONT.bold, color: COLORS.textMuted },
   tabTextOn: { color: COLORS.white },
 
   banner: { backgroundColor: COLORS.banner, borderRadius: 8, paddingHorizontal: 12, paddingVertical: 9 },
-  bannerText: { fontSize: 12.5, fontWeight: '600', color: COLORS.bannerText },
+  bannerText: { fontSize: 12.5, fontFamily: FONT.semibold, color: COLORS.bannerText },
 
   questionText: { fontSize: 15, lineHeight: 23, color: COLORS.text, marginTop: 14 },
 
   options: { marginTop: 14, gap: 10 },
   option: { flexDirection: 'row', alignItems: 'center', gap: 12, borderWidth: 1, borderColor: COLORS.border, borderRadius: 10, paddingHorizontal: 14, paddingVertical: 13, backgroundColor: COLORS.white },
   optionActive: { borderWidth: 1.5, borderColor: COLORS.dark, backgroundColor: COLORS.accentTint },
-  optKey: { fontSize: 13, fontWeight: '700', color: COLORS.textMuted, width: 18 },
+  optKey: { fontSize: 13, fontFamily: FONT.bold, color: COLORS.textMuted, width: 18 },
   optKeyActive: { color: COLORS.dark },
   optLabel: { flex: 1, fontSize: 14.5, color: COLORS.textSecondary },
-  optLabelActive: { color: COLORS.dark, fontWeight: '600' },
+  optLabelActive: { color: COLORS.dark, fontFamily: FONT.semibold },
 
   clearWrap: { alignSelf: 'flex-end', marginTop: 12, paddingVertical: 4 },
-  clearText: { fontSize: 13, fontWeight: '700', color: COLORS.dark },
+  clearText: { fontSize: 13, fontFamily: FONT.bold, color: COLORS.dark },
   clearTextOff: { color: COLORS.disabled },
 
   bottomBar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10, paddingHorizontal: 16, paddingVertical: 12, backgroundColor: COLORS.white, borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: COLORS.border },
   navBtn: { flexDirection: 'row', alignItems: 'center', gap: 6, borderWidth: 1, borderColor: COLORS.border, paddingHorizontal: 14, paddingVertical: 10, borderRadius: 10 },
   navBtnDisabled: { opacity: 0.6 },
-  navBtnText: { fontSize: 13.5, color: COLORS.textSecondary, fontWeight: '600' },
+  navBtnText: { fontSize: 13.5, color: COLORS.textSecondary, fontFamily: FONT.semibold },
   navBtnTextDisabled: { color: COLORS.disabled },
   paletteBtn: { width: 44, height: 40, alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: COLORS.border, borderRadius: 10 },
   nextBtn: { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: COLORS.dark, paddingHorizontal: 18, paddingVertical: 10, borderRadius: 10 },
-  nextBtnText: { fontSize: 13.5, fontWeight: '700', color: COLORS.white },
+  nextBtnText: { fontSize: 13.5, fontFamily: FONT.bold, color: COLORS.white },
 
   sheetOverlay: { flex: 1, backgroundColor: COLORS.overlay, justifyContent: 'flex-end' },
   sheet: { backgroundColor: COLORS.white, borderTopLeftRadius: 20, borderTopRightRadius: 20, padding: 18, paddingBottom: 28 },
   sheetHandle: { width: 40, height: 4, borderRadius: 2, backgroundColor: COLORS.border, alignSelf: 'center', marginBottom: 14 },
   sheetHeaderRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 },
-  sheetTitle: { fontSize: 15, fontWeight: '700', color: COLORS.text },
+  sheetTitle: { fontSize: 15, fontFamily: FONT.bold, color: COLORS.text },
   sheetCount: { fontSize: 12.5, color: COLORS.textMuted },
   paletteGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
   paletteCell: { width: 44, height: 44, borderRadius: 10, backgroundColor: COLORS.optionBadge, alignItems: 'center', justifyContent: 'center' },
   paletteAnswered: { backgroundColor: COLORS.dark },
   paletteCurrent: { borderWidth: 2, borderColor: COLORS.dark },
-  paletteNum: { fontSize: 14, fontWeight: '700', color: COLORS.textMuted },
+  paletteNum: { fontSize: 14, fontFamily: FONT.bold, color: COLORS.textMuted },
   paletteNumAnswered: { color: COLORS.white },
   paletteNumCurrent: { color: COLORS.dark },
   legendRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 14, marginTop: 16 },
@@ -356,16 +358,16 @@ const styles = StyleSheet.create({
   legendSwatch: { width: 14, height: 14, borderRadius: 4, borderWidth: 1 },
   legendText: { fontSize: 12, color: COLORS.textMuted },
   submitBtn: { marginTop: 18, backgroundColor: COLORS.dark, borderRadius: 12, paddingVertical: 14, alignItems: 'center' },
-  submitBtnText: { fontSize: 15, fontWeight: '700', color: COLORS.white },
+  submitBtnText: { fontSize: 15, fontFamily: FONT.bold, color: COLORS.white },
 
   // finish confirmation
   confirmOverlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.4)', alignItems: 'center', justifyContent: 'center', padding: 28 },
   confirmCard: { width: '100%', maxWidth: 340, backgroundColor: COLORS.white, borderRadius: 18, padding: 20 },
-  confirmTitle: { fontSize: 18, fontWeight: '800', color: COLORS.text, marginBottom: 8 },
+  confirmTitle: { fontSize: 18, fontFamily: FONT.extrabold, color: COLORS.text, marginBottom: 8 },
   confirmSub: { fontSize: 13.5, color: COLORS.textSecondary, lineHeight: 20, marginBottom: 18 },
   confirmActions: { flexDirection: 'row', justifyContent: 'flex-end', gap: 8 },
   confirmCancel: { paddingVertical: 11, paddingHorizontal: 16, borderRadius: 12, borderWidth: 1, borderColor: COLORS.border },
-  confirmCancelTxt: { fontSize: 14, fontWeight: '700', color: COLORS.textSecondary },
+  confirmCancelTxt: { fontSize: 14, fontFamily: FONT.bold, color: COLORS.textSecondary },
   confirmFinishBtn: { backgroundColor: COLORS.dark, paddingVertical: 11, paddingHorizontal: 20, borderRadius: 12 },
-  confirmFinishTxt: { fontSize: 14, fontWeight: '800', color: COLORS.white },
+  confirmFinishTxt: { fontSize: 14, fontFamily: FONT.extrabold, color: COLORS.white },
 });
