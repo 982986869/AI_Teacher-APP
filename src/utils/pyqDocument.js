@@ -34,7 +34,10 @@ export function buildFragmentFromQuestions(questions) {
 
 // Wraps a question-card fragment in a full HTML doc with MathJax (renders
 // {tex}...{/tex}) and the black-&-white card styling used elsewhere in the app.
-export function buildPyqDocument(fragmentHtml) {
+// opts.collapsible (Important Questions): hide each card's answer (solution +
+// MCQ correct highlight) until the user taps the card to expand it.
+export function buildPyqDocument(fragmentHtml, opts = {}) {
+  const collapsible = !!opts.collapsible;
   // The scraped data wraps math in {tex}…{/tex}, but MathJax renders the standard
   // \( … \) inline delimiters far more reliably than custom-string delimiters
   // (same conversion MathText.js does). Convert before injecting so every formula
@@ -133,6 +136,47 @@ export function buildPyqDocument(fragmentHtml) {
   li{ margin:3px 0; line-height:1.6; }
   strong,b{ font-weight:700; }
   em,i{ font-style:italic; }
+  /* ── Collapsible questions (Important Questions) ────────────────────────────
+     Collapsed = a small tappable box showing only the question number (like the
+     chapter tiles); tapping expands the full question + answer. Applied only when
+     the doc is built with { collapsible:true }; PYQ/Exemplar stay fully visible. */
+  body.iq .pyq-card,body.iq .question-card{ cursor:pointer; }
+  /* While collapsed, show only a short 2-line preview of the question; hide the
+     options and the answer. Tapping expands the full question + answer. */
+  body.iq .pyq-card:not(.open) .pyq-options,
+  body.iq .pyq-card:not(.open) .solution-box,
+  body.iq .question-card:not(.open) .options,
+  body.iq .question-card:not(.open) .solution-block{ display:none; }
+  body.iq .pyq-card:not(.open) .pyq-header,
+  body.iq .question-card:not(.open) .question-header{ margin-bottom:6px; }
+  body.iq .pyq-card:not(.open) .pyq-question,
+  body.iq .question-card:not(.open) .question-text{
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;
+    overflow:hidden; line-height:1.5; max-height:3em; margin:0; }
+  /* Flatten nested <p>/blocks so the 2-line preview clamps cleanly (no top gap,
+     no mid-line cut). */
+  body.iq .pyq-card:not(.open) .pyq-question *,
+  body.iq .question-card:not(.open) .question-text *{ margin:0 !important; display:inline !important; }
+  /* MCQ correct-answer highlight only once opened (options are hidden collapsed). */
+  body.iq .option.correct{ border-color:#e3e3e6; background:#fff; color:#1C1C1E; font-weight:400; }
+  body.iq .option.correct .option-index,body.iq .option.correct .option-text,body.iq .option.correct p{ color:#1C1C1E; }
+  body.iq .open .option.correct{ border-color:#16a34a; background:#e7f7ec; color:#15803d; font-weight:600; }
+  body.iq .open .option.correct .option-index,body.iq .open .option.correct .option-text,body.iq .open .option.correct p{ color:#15803d; }
+  /* Tap affordance shown inside every box. */
+  body.iq .pyq-card::after,body.iq .question-card::after{ content:"View answer  \\25BE";
+    display:block; margin-top:10px; font-size:12px; font-weight:800; color:#15803d; letter-spacing:0.2px; }
+  body.iq .pyq-card.open::after,body.iq .question-card.open::after{ content:"Hide  \\25B4"; margin-top:12px; font-weight:700; color:#9ca3af; }
 </style></head>
-<body>${html}</body></html>`;
+<body class="${collapsible ? 'iq' : ''}">${html}
+${collapsible ? `<script>(function(){
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    var card = t && t.closest ? t.closest('.pyq-card,.question-card') : null;
+    if(!card) return;
+    card.classList.toggle('open');
+    // Re-flow wide math now that the solution is visible (hidden nodes measure 0).
+    if(typeof fitWideMath==='function') setTimeout(fitWideMath, 0);
+  });
+})();</script>` : ''}
+</body></html>`;
 }

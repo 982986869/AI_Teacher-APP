@@ -70,6 +70,23 @@ const config = {
       || 'You are a warm, calm and confident female school teacher speaking to one student. Speak clearly at a relaxed classroom pace, with natural pauses at full stops. Sound encouraging and patient — never rushed, dramatic or robotic.',
     maxChars: parseInt(process.env.TTS_MAX_CHARS, 10) || 1200,
     enabled: !!process.env.OPENAI_API_KEY,
+
+    // ── FUTURE USE — alternative providers (currently disabled) ───────────────
+    // Uncomment these together with the matching code in routes/tts.js.
+    //
+    // provider: process.env.TTS_PROVIDER || 'kokoro', // 'kokoro' | 'openai' | 'elevenlabs'
+    //
+    // // Kokoro — self-hosted, free, no API key. Needs the Python server running at
+    // // http://localhost:8880 (see /kokoro-server). Buffers the whole clip before
+    // // responding, so first-audio is slower than OpenAI's streamed response.
+    // kokoroUrl: process.env.KOKORO_URL || 'http://localhost:8880',
+    // kokoroVoice: process.env.KOKORO_VOICE || 'af_sarah',
+    //
+    // // ElevenLabs — premium/PAID. A free ElevenLabs plan cannot use the TTS API at
+    // // all (402 paid_plan_required), so this needs a paid subscription.
+    // elevenApiKey: process.env.ELEVENLABS_API_KEY,
+    // elevenVoiceId: process.env.ELEVENLABS_VOICE_ID || '21m00Tcm4TlvDq8ikWAM', // "Rachel"
+    // elevenModel: process.env.ELEVENLABS_MODEL || 'eleven_flash_v2_5', // cheap + low-latency
   },
 
   // Knowledge (RAG) layer. Validated lazily at call time so the server starts

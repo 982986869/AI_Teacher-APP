@@ -71,7 +71,9 @@ export default function ArenaFlipGame({ onExit, onGameOver }) {
   const lockRef = useRef(false);
   const mountedRef = useRef(true);
 
-  useEffect(() => { initSounds(); return () => { mountedRef.current = false; }; }, []);
+  // Re-arm on mount — refs survive an effect cleanup (Fast Refresh / StrictMode), so
+  // a setup that only clears the flag would leave it false and no-op every guarded setState.
+  useEffect(() => { mountedRef.current = true; initSounds(); return () => { mountedRef.current = false; }; }, []);
 
   const newBoard = useCallback(() => {
     const { grid: g, optimal } = scrambleFlip();

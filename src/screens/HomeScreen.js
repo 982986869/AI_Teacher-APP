@@ -8,6 +8,7 @@ import { useAuth } from '../context/AuthContext';
 import { ClassPicker } from '../components/ClassPicker';
 import AITeacherScreen from './AITeacherScreen';
 import BrainGymFlow from './braingym/BrainGymFlow';
+import { getResults } from '../api/learningApi';
 
 const { width } = Dimensions.get('window');
 const PAD = 16;
@@ -103,6 +104,14 @@ const HomeScreen = ({ navigation }) => {
   const [tempChar, setTempChar]         = useState(0);
 
   const [activeSubject, setActiveSubject] = useState('Physics');
+
+  // Live "Your Progress" summary (this week) — real data, shared with the Results tab.
+  const [prog, setProg] = useState(null);
+  React.useEffect(() => {
+    let alive = true;
+    getResults('week', 0).then((d) => { if (alive) setProg(d); }).catch(() => {});
+    return () => { alive = false; };
+  }, []);
 
   // The full AI Teacher experience (lesson generation + slide player + doubt
   // chat) lives in AITeacherScreen. The Home section is a preview only.
@@ -308,7 +317,9 @@ const HomeScreen = ({ navigation }) => {
           </View>
         </View>
 
-        {/* ── EXPLORE SKILLS ── */}
+        {/* ── EXPLORE SKILLS (hidden from UI — kept in code for later use) ── */}
+        {false && (
+        <>
         <View style={s.secHdr}>
           <Text style={s.secTitle}>Explore Skills Programs</Text>
           <TouchableOpacity><Text style={s.secLink}>View all ›</Text></TouchableOpacity>
@@ -329,6 +340,8 @@ const HomeScreen = ({ navigation }) => {
             </View>
           ))}
         </ScrollView>
+        </>
+        )}
 
         {/* ── AI TEACHER (preview — full experience opens via the button) ── */}
         <View style={s.aiSection}>
@@ -391,32 +404,38 @@ const HomeScreen = ({ navigation }) => {
           </View>
         </View>
 
-        {/* ── PROGRESS ── */}
+        {/* ── PROGRESS (live) ── */}
         <View style={s.progCard}>
           <View style={s.progHead}>
             <Text style={s.progTitle}>Your Progress</Text>
             <Text style={s.progWeek}>This Week</Text>
           </View>
-          {/* Bar chart */}
-          <View style={{ flexDirection: 'row', alignItems: 'flex-end', gap: 8, height: 70, marginBottom: 6 }}>
-            {[
-              { d: 'M', v: 30 }, { d: 'T', v: 55 }, { d: 'W', v: 40 },
-              { d: 'T', v: 65 }, { d: 'F', v: 40 }, { d: 'S', v: 25 }, { d: 'S', v: 75 },
-            ].map((bar, i) => {
-              const isToday = i === 6;
-              return (
-                <View key={i} style={{ flex: 1, alignItems: 'center', gap: 3 }}>
-                  <View style={{ width: '80%', height: bar.v * 0.7, backgroundColor: isToday ? '#1C1C1E' : '#E0E0E0', borderRadius: 4 }} />
-                  <Text style={{ fontSize: 9, color: isToday ? '#1C1C1E' : '#C7C7CC', fontWeight: isToday ? '800' : '600' }}>{bar.d}</Text>
-                </View>
-              );
-            })}
+
+          {/* Weekly hours bars */}
+          <View style={s.hpBars}>
+            {(() => {
+              const daily = prog?.daily || [];
+              const maxSecs = Math.max(1, ...daily.map((d) => d.secs || 0));
+              const items = daily.length ? daily : ['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((day) => ({ day, secs: 0 }));
+              return items.map((d, i) => {
+                const isToday = i === items.length - 1;
+                const h = daily.length ? Math.max(4, ((d.secs || 0) / maxSecs) * 48) : 6;
+                return (
+                  <View key={i} style={{ flex: 1, alignItems: 'center', gap: 3 }}>
+                    <View style={{ width: '80%', height: h, backgroundColor: isToday ? '#1C1C1E' : '#E0E0E0', borderRadius: 4 }} />
+                    <Text style={{ fontSize: 9, color: isToday ? '#1C1C1E' : '#C7C7CC', fontWeight: isToday ? '800' : '600' }}>{d.day}</Text>
+                  </View>
+                );
+              });
+            })()}
           </View>
+
+          {/* Stats */}
           <View style={s.progStats}>
             {[
-              { n: '12',     l: 'Topics\nLearned' },
-              { n: '8h 20m', l: 'Study\nTime' },
-              { n: '85%',    l: 'Accuracy' },
+              { n: prog ? `${Math.floor((prog.overview.studySeconds || 0) / 3600)}h ${Math.round(((prog.overview.studySeconds || 0) % 3600) / 60)}m` : '—', l: 'Study\nTime' },
+              { n: prog ? `${prog.overview.avgScore}%` : '—', l: 'Avg\nScore' },
+              { n: prog ? String(prog.overview.testsTaken) : '—', l: 'Tests\nTaken' },
             ].map((st, i) => (
               <View key={i} style={s.progStat}>
                 <Text style={s.progNum}>{st.n}</Text>
@@ -650,7 +669,8 @@ const s = StyleSheet.create({
   progHead:  { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 },
   progTitle: { fontSize: 15, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3 },
   progWeek:  { fontSize: 11, color: '#8E8E93', fontWeight: '700' },
-  progStats: { flexDirection: 'row', gap: 10, marginTop: 12 },
+  hpBars:    { flexDirection: 'row', alignItems: 'flex-end', gap: 8, height: 64, marginTop: 2, marginBottom: 2 },
+  progStats: { flexDirection: 'row', gap: 10, marginTop: 14 },
   progStat:  { flex: 1, backgroundColor: '#F7F7F7', borderRadius: 13, padding: 12, alignItems: 'center', borderWidth: 1.5, borderColor: '#F0F0F0' },
   progNum:   { fontSize: 16, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3 },
   progLbl:   { fontSize: 9, color: '#8E8E93', fontWeight: '700', textAlign: 'center', marginTop: 4, lineHeight: 13 },

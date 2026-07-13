@@ -92,3 +92,6 @@ src/data/class6Practice/
 src/data/class6OnlineTests/
 src/data/class6OldTextbooks/
 src/data/class6OldNotes/
+
+# Generated TTS audio cache (server-side, regenerates on demand)
+server/tts-cache/

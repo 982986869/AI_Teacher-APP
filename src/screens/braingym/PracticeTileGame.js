@@ -87,7 +87,9 @@ export default function PracticeTileGame({ skill = 'fluency', level = 2, onExit,
   const stackRef = useRef([]);
   const curRef = useRef(null);  // current card — avoids stale closures in timers
 
-  useEffect(() => { initSounds(); return () => { mountedRef.current = false; }; }, []);
+  // Re-arm on mount — refs survive an effect cleanup (Fast Refresh / StrictMode), so
+  // a setup that only clears the flag would leave it false and no-op every guarded setState.
+  useEffect(() => { mountedRef.current = true; initSounds(); return () => { mountedRef.current = false; }; }, []);
   useEffect(() => { stackRef.current = stack; }, [stack]);
 
   const gameOver = useCallback(() => {

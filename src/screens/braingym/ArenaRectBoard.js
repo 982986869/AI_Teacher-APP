@@ -61,7 +61,9 @@ export default function ArenaRectBoard({
   const doneRef = useRef(false);
   const mountedRef = useRef(true);
 
-  useEffect(() => () => { mountedRef.current = false; }, []);
+  // Re-arm on mount — refs survive an effect cleanup (Fast Refresh / StrictMode), so
+  // a setup that only clears the flag would leave it false and no-op every guarded setState.
+  useEffect(() => { mountedRef.current = true; return () => { mountedRef.current = false; }; }, []);
 
   const ownerMap = useMemo(() => {
     const m = new Map();

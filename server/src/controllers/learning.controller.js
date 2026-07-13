@@ -11,6 +11,7 @@ const memory = require('../services/memory.service')
 const mistakeBook = require('../services/mistakeBook.service')
 const braingym = require('../services/braingym.service')
 const teacherBridge = require('../services/braingym/teacherBridge')
+const resultsService = require('../services/results.service')
 
 const subjectOf = (req) => (req.query.subject ? String(req.query.subject) : undefined)
 const limitOf = (req, def) => Math.min(50, Math.max(1, parseInt(req.query.limit, 10) || def))
@@ -128,4 +129,26 @@ async function analytics(req, res, next) {
   } catch (err) { next(err) }
 }
 
-module.exports = { profile, timeline, weak, strong, revision, revisionCalendar, mistakes, resolveMistake, analytics }
+// GET /api/learning/results — composed Results-dashboard payload (overview, daily
+// activity hours, per-subject test breakdown, recent tests). Real data only.
+async function results(req, res, next) {
+  try {
+    // The student's own class scopes the subject breakdown; never trust the client.
+    const classLevel = req.scope && req.scope.classNum != null ? req.scope.classNum : null
+    const period = ['week', 'month'].includes(req.query.period) ? req.query.period : 'week'
+    const offset = Math.max(0, Math.min(520, parseInt(req.query.offset, 10) || 0))
+    const data = await resultsService.getResults(req.user.id, classLevel, period, offset)
+    return ApiResponse.success(res, data)
+  } catch (err) { next(err) }
+}
+
+// GET /api/learning/results/attempt/:id — section-wise breakdown for one mock
+// attempt (owned by the user). Quizzes have no sections → empty array.
+async function attemptDetail(req, res, next) {
+  try {
+    const sections = await resultsService.getAttemptSections(req.user.id, req.params.id)
+    return ApiResponse.success(res, { sections })
+  } catch (err) { next(err) }
+}
+
+module.exports = { profile, timeline, weak, strong, revision, revisionCalendar, mistakes, resolveMistake, analytics, results, attemptDetail }
