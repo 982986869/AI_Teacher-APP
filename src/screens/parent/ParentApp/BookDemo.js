@@ -148,7 +148,11 @@ export default function BookDemo({
   const [addingCal, setAddingCal] = useState(false);
   const [confirmed, setConfirmed] = useState(null); // the finished booking (success screen)
   const mountedRef = useRef(true);
-  useEffect(() => () => { mountedRef.current = false; }, []);
+  // Re-arm on mount — an effect cleanup also runs on Fast Refresh (and under
+  // StrictMode's double-invoke) and refs survive it, so a setup that only clears the
+  // flag leaves it false forever and every guarded setState below is silently
+  // dropped (the booking succeeds but the sheet never leaves "scheduling…").
+  useEffect(() => { mountedRef.current = true; return () => { mountedRef.current = false; }; }, []);
 
   // Rebuild the pickable days each time the sheet opens (so "today" is always right).
   const days = useMemo(() => buildDays(14), [visible]);
