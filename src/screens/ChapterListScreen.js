@@ -11,6 +11,8 @@ import {
   StatusBar,
   SafeAreaView,
 } from 'react-native';
+import { S } from '../theme/studentUI';
+import { FONT } from '../constants/fonts';
 import { Ionicons } from '@expo/vector-icons';
 import { chapterList } from '../data/questionBank';
 
@@ -18,10 +20,10 @@ const COLORS = {
   purple: '#534AB7',
   purpleLight: '#EEEDFE',
   purpleDeep: '#26215C',
-  text: '#2C2C2A',
-  textMuted: '#5F5E5A',
-  textTertiary: '#9A9A9A',
-  border: '#ECECEC',
+  text: S.ink,
+  textMuted: S.muted,
+  textTertiary: S.muted,
+  border: S.hair,
   white: '#FFFFFF',
   pageBg: '#F4F5FB',
 };
@@ -72,7 +74,7 @@ const styles = StyleSheet.create({
     borderBottomColor: COLORS.border,
   },
   backBtn: { marginBottom: 6 },
-  title: { fontSize: 22, fontWeight: '700', color: COLORS.purpleDeep },
+  title: { fontSize: 22, fontFamily: FONT.bold, color: COLORS.purpleDeep },
   subtitle: { fontSize: 13, color: COLORS.textMuted, marginTop: 2 },
   list: { padding: 16, gap: 10 },
   card: {
@@ -88,6 +90,6 @@ const styles = StyleSheet.create({
   },
   cardPressed: { backgroundColor: COLORS.purpleLight },
   cardLeft: { flex: 1, paddingRight: 12 },
-  cardName: { fontSize: 15, fontWeight: '500', color: COLORS.text },
+  cardName: { fontSize: 15, fontFamily: FONT.semibold, color: COLORS.text },
   cardCount: { fontSize: 12.5, color: COLORS.textMuted, marginTop: 3 },
 });

@@ -6,9 +6,8 @@
 // log out) — no fake stats, no dead menu rows. Loading skeleton, error+retry, empty-safe.
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { View, StyleSheet, ScrollView, StatusBar, Alert, Share, Linking } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useFocusEffect } from '@react-navigation/native';
-import Svg, { Defs, LinearGradient as LG, RadialGradient, Stop, Rect } from 'react-native-svg';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import Constants from 'expo-constants';
 import {
   Volume2, VolumeX, Share2, MessageCircle, LogOut, Users, ChevronRight,
   Flame, Star, TrendingUp, Target, CircleAlert, Sparkles, Dumbbell, Zap,
@@ -18,55 +17,27 @@ import { useAuth } from '../context/AuthContext';
 import { getSoundEnabledAsync, setSoundEnabled } from '../utils/sound';
 import { getParentReport } from '../api/parentApi';
 import { T } from './parent/ParentApp/constants';
-import { S, shadow, shadowSm } from '../theme/studentTheme';
+import {
+  S, shadow, shadowSm, InkSurface, SoftGlow, StudentScreenHeader, StudentErrorState,
+} from '../theme/studentUI';
 import {
   FadeInOnce, PressableScale, CountUp, GrowFill, Breathe, Float, PopIn, Shine, Shimmer,
 } from './parent/ParentApp/anim';
 
 const PAD = 18;
+const APP_VERSION = Constants.expoConfig?.version || Constants.manifest?.version || '1.0.0';
 const ICONS = {
   sparkle: Sparkles, dumbbell: Dumbbell, zap: Zap, trophy: Trophy, flame: Flame,
   target: Target, book: BookOpen, message: MessageCircle, swords: Swords, alert: CircleAlert,
 };
 
-let _pid = 0;
-function InkSurface({ a, b, glow, radius = 0 }) {
-  const [d, setD] = useState({ w: 0, h: 0 });
-  const id = useRef('prof' + (_pid++)).current;
-  return (
-    <View style={[StyleSheet.absoluteFill, { borderRadius: radius, overflow: 'hidden' }]} pointerEvents="none"
-      onLayout={(e) => setD({ w: Math.round(e.nativeEvent.layout.width), h: Math.round(e.nativeEvent.layout.height) })}>
-      {d.w > 0 && (
-        <Svg width={d.w} height={d.h}>
-          <Defs>
-            <LG id={`${id}g`} x1="0" y1="0" x2={d.w} y2={d.h} gradientUnits="userSpaceOnUse">
-              <Stop offset="0" stopColor={a} /><Stop offset="1" stopColor={b} />
-            </LG>
-            <RadialGradient id={`${id}h`} cx={d.w * 0.82} cy={d.h * 0.14} r={d.w * 0.7} gradientUnits="userSpaceOnUse">
-              <Stop offset="0" stopColor={glow} stopOpacity="0.4" /><Stop offset="1" stopColor={glow} stopOpacity="0" />
-            </RadialGradient>
-          </Defs>
-          <Rect width={d.w} height={d.h} fill={`url(#${id}g)`} />
-          <Rect width={d.w} height={d.h} fill={`url(#${id}h)`} />
-        </Svg>
-      )}
-    </View>
-  );
-}
-function SoftGlow({ size = 74, color = S.gold, opacity = 0.5 }) {
-  const id = useRef('pg' + (_pid++)).current;
-  return (
-    <Svg width={size} height={size} pointerEvents="none">
-      <Defs>
-        <RadialGradient id={id} cx={size / 2} cy={size / 2} r={size / 2} gradientUnits="userSpaceOnUse">
-          <Stop offset="0" stopColor={color} stopOpacity={opacity} />
-          <Stop offset="0.6" stopColor={color} stopOpacity={opacity * 0.4} />
-          <Stop offset="1" stopColor={color} stopOpacity="0" />
-        </RadialGradient>
-      </Defs>
-      <Rect width={size} height={size} fill={`url(#${id})`} />
-    </Svg>
-  );
+// Counts up on first appearance only; snaps to the new value on a background refresh (F4).
+function StatNum({ value, suffix = '' }) {
+  const first = useRef(true);
+  useEffect(() => { first.current = false; }, []);
+  return first.current
+    ? <CountUp value={value} suffix={suffix} duration={900} w="black" s={16} c="#fff" style={{ marginTop: 5 }} />
+    : <T w="black" s={16} c="#fff" style={{ marginTop: 5 }}>{value}{suffix}</T>;
 }
 
 function Badge({ item, delay = 0 }) {
@@ -97,17 +68,6 @@ function Skeleton() {
     </View>
   );
 }
-function ErrorState({ onRetry }) {
-  return (
-    <View style={hs.center}>
-      <View style={hs.errIcon}><CircleAlert size={30} color={S.muted} strokeWidth={2} /></View>
-      <T w="xbold" s={18} c={S.ink}>Couldn’t load your profile</T>
-      <T w="med" s={13} c={S.muted} style={{ textAlign: 'center' }}>Check your connection and try again.</T>
-      <PressableScale style={hs.retryBtn} onPress={onRetry}><T w="bold" s={14} c="#fff">Retry</T></PressableScale>
-    </View>
-  );
-}
-
 function Toggle({ on, onPress }) {
   return (
     <PressableScale onPress={onPress} scaleTo={0.92} accessibilityRole="switch" accessibilityState={{ checked: on }}>
@@ -120,7 +80,8 @@ function Toggle({ on, onPress }) {
 
 const ProfileScreen = () => {
   const { user, signOut, scope, setActiveView } = useAuth();
-  const insets = useSafeAreaInsets();
+  const navigation = useNavigation();
+  const scrollRef = useRef(null);
 
   const [soundOn, setSoundOn] = useState(true);
   useEffect(() => { getSoundEnabledAsync().then(setSoundOn); }, []);
@@ -150,6 +111,13 @@ const ProfileScreen = () => {
     load(!initialLoad.current);
     initialLoad.current = false;
   }, [load]));
+  // Re-tapping the active Profile tab scrolls back to top (F8).
+  useEffect(() => {
+    const unsub = navigation.addListener('tabPress', () => {
+      if (navigation.isFocused()) scrollRef.current?.scrollTo({ y: 0, animated: true });
+    });
+    return unsub;
+  }, [navigation]);
   const retry = () => { setLoading(true); setErr(false); load(false); };
 
   const firstName = report?.child?.firstName || user?.name?.split(' ')[0] || 'Student';
@@ -190,16 +158,14 @@ const ProfileScreen = () => {
     <View style={hs.safe}>
       <StatusBar barStyle="dark-content" backgroundColor={S.canvas} translucent={false} />
 
-      <View style={[hs.header, { paddingTop: insets.top + 8 }]}>
-        <T w="black" s={22} c={S.ink} style={{ letterSpacing: -0.5 }}>Profile</T>
-      </View>
+      <StudentScreenHeader title="Profile" />
 
       {loading ? (
         <Skeleton />
       ) : err ? (
-        <ErrorState onRetry={retry} />
+        <StudentErrorState title="Couldn’t load your profile" onRetry={retry} />
       ) : (
-        <ScrollView style={hs.body} contentContainerStyle={{ paddingBottom: 34, paddingTop: 6 }} showsVerticalScrollIndicator={false}>
+        <ScrollView ref={scrollRef} style={hs.body} contentContainerStyle={{ paddingBottom: 34, paddingTop: 6 }} showsVerticalScrollIndicator={false}>
           {/* ── Identity + real stats ── */}
           <FadeInOnce id="prof-card" delay={30} y={16}>
             <View style={hs.idShadow}>
@@ -220,7 +186,7 @@ const ProfileScreen = () => {
                   {STATS.map((st, i) => (
                     <View key={st.label} style={[hs.statBox, i < STATS.length - 1 && hs.statDiv]}>
                       <st.Icon size={15} color={st.tint} strokeWidth={2.7} />
-                      <CountUp value={st.value} suffix={st.suffix || ''} duration={900} w="black" s={16} c="#fff" style={{ marginTop: 5 }} />
+                      <StatNum value={st.value} suffix={st.suffix || ''} />
                       <T w="semi" s={9} c="rgba(255,255,255,0.6)" style={{ marginTop: 1 }}>{st.label}</T>
                     </View>
                   ))}
@@ -313,7 +279,7 @@ const ProfileScreen = () => {
             </PressableScale>
           </FadeInOnce>
 
-          <T w="semi" s={11.5} c={S.faint} style={{ textAlign: 'center', marginTop: 18 }}>ailernova · v1.0.0</T>
+          <T w="semi" s={11.5} c={S.faint} style={{ textAlign: 'center', marginTop: 18 }}>ailernova · v{APP_VERSION}</T>
         </ScrollView>
       )}
     </View>

@@ -15,7 +15,9 @@ const Tab = createBottomTabNavigator();
 const MainNavigator = () => {
   return (
     <Tab.Navigator
-      screenOptions={{ headerShown: false }}
+      // A gentle cross-fade between tabs so moving Home → Practice → Results → Profile
+      // feels like one continuous app, never a hard cut into "another module".
+      screenOptions={{ headerShown: false, animation: 'fade' }}
       tabBar={(props) => <FloatingDock {...props} />}
     >
       <Tab.Screen name="Home"      component={HomeScreen} />

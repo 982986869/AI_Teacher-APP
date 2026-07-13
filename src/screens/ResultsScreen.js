@@ -1,9 +1,16 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform, ActivityIndicator, RefreshControl, Modal } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, StatusBar, ActivityIndicator, RefreshControl, Modal } from 'react-native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { getResults, getAttemptDetail } from '../api/learningApi';
+import { S, shadow, shadowSm, StudentScreenHeader, StudentErrorState } from '../theme/studentUI';
+import { FONT } from '../constants/fonts';
+import { FadeInOnce, Shimmer } from './parent/ParentApp/anim';
 
-const PRIMARY = '#6C5CE7';
-const AMBER = '#EB9A16';
+// Migrated to the Student design system (studentTheme `S`, Nunito `FONT`, shared shadow +
+// motion) so Results feels part of the same product as Home / Sessions / Profile. Data
+// wiring, chart, detail modals, period toggle and date navigation are unchanged.
+const PRIMARY = S.indigo;
+const AMBER = S.gold;
 
 const SUBJ_ABBR = {
   Physics: 'Ph', Chemistry: 'Ch', Mathematics: 'Ma', Maths: 'Ma', Biology: 'Bi',
@@ -12,13 +19,14 @@ const SUBJ_ABBR = {
 };
 const abbr = (name) => SUBJ_ABBR[name] || (name || '?').trim().slice(0, 2);
 
+// Per-subject accent hues (semantic — each subject keeps a stable colour).
 const SUBJECT_COLORS = {
-  Physics: '#6C5CE7', Chemistry: '#22C55E', Mathematics: '#3B82F6', Maths: '#3B82F6',
-  Biology: '#16A34A', English: '#F59E0B', Hindi: '#EF4444', 'Social Science': '#0EA5E9',
-  Science: '#14B8A6', 'Current Affairs': '#8B5CF6', 'Computer Applications': '#6366F1',
-  'Information Technology': '#6366F1', 'Brain Gym': '#8B5CF6',
+  Physics: S.blue, Chemistry: S.orange, Mathematics: S.emerald, Maths: S.emerald,
+  Biology: '#16A34A', English: S.gold, Hindi: S.red, 'Social Science': S.cyan,
+  Science: '#14B8A6', 'Current Affairs': S.purple, 'Computer Applications': S.indigo,
+  'Information Technology': S.indigo, 'Brain Gym': S.purple,
 };
-const PALETTE = ['#6C5CE7', '#22C55E', '#3B82F6', '#F59E0B', '#EF4444', '#0EA5E9', '#14B8A6', '#8B5CF6'];
+const PALETTE = [S.indigo, S.emerald, S.blue, S.orange, S.red, S.cyan, '#14B8A6', S.purple];
 const subjectColor = (name, i) => {
   if (SUBJECT_COLORS[name]) return SUBJECT_COLORS[name];
   const k = Object.keys(SUBJECT_COLORS).find((k) => (name || '').includes(k));
@@ -46,7 +54,7 @@ const fmtHoursTotal = (secs) => {
   const m = Math.round((secs || 0) / 60), h = Math.floor(m / 60), mm = m % 60;
   return h ? `${h}h ${mm}m` : `${mm}m`;
 };
-const scoreColor = (pct) => (pct >= 70 ? '#16A34A' : pct >= 50 ? '#F59E0B' : '#EF4444');
+const scoreColor = (pct) => (pct >= 70 ? S.emerald : pct >= 50 ? S.gold : S.red);
 const WEEK = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const fullDate = (iso) => {
@@ -63,6 +71,20 @@ const subjMeta = (sub) => {
   return parts.length ? parts.join('  •  ') : 'No attempts';
 };
 
+function ResultsSkeleton() {
+  return (
+    <View style={{ paddingHorizontal: 16, paddingTop: 12 }}>
+      <Shimmer w="100%" h={62} r={18} />
+      <View style={{ flexDirection: 'row', gap: 12, marginTop: 16 }}>
+        <Shimmer w="100%" h={120} r={20} style={{ flex: 1 }} />
+        <Shimmer w="100%" h={120} r={20} style={{ flex: 1 }} />
+      </View>
+      <Shimmer w="100%" h={210} r={22} mt={16} />
+      <Shimmer w="100%" h={170} r={22} mt={16} />
+    </View>
+  );
+}
+
 const ResultsScreen = () => {
   const [period, setPeriod] = useState('week');
   const [offset, setOffset] = useState(0);
@@ -73,27 +95,54 @@ const ResultsScreen = () => {
   const [sections, setSections] = useState({ loading: false, list: [] });
   const [subjectDetail, setSubjectDetail] = useState(null);
   const barsScrollRef = useRef(null);
+  const navigation = useNavigation();
+  const scrollRef = useRef(null);
+  const seqRef = useRef(0);
+  const lastBarCount = useRef(0); // (F9) only auto-scroll the chart when the bar count changes
 
+  // Every fetch path routes through `load` so a single monotonic seqRef guards against
+  // stale responses (a slower earlier request can never overwrite a newer one). A silent
+  // `isRefresh` load keeps the existing data (so period-switch/refresh shows the current
+  // screen with a small inline spinner instead of blanking to the full skeleton — F5).
   const load = useCallback((p, off, isRefresh) => {
-    if (!isRefresh) setState((prev) => ({ ...prev, loading: true, error: null }));
+    const my = ++seqRef.current;
+    setState((prev) => ({ ...prev, loading: true, error: isRefresh ? prev.error : null }));
     return getResults(p, off)
-      .then((data) => setState({ loading: false, error: null, data }))
-      .catch((err) => setState({ loading: false, error: err?.response?.data?.error || err?.message || 'Could not load progress', data: null }));
+      .then((data) => { if (my === seqRef.current) setState({ loading: false, error: null, data }); })
+      .catch((err) => {
+        if (my !== seqRef.current) return; // superseded by a newer request → ignore (stale)
+        if (isRefresh) setState((prev) => ({ ...prev, loading: false })); // keep cached data
+        else setState({ loading: false, error: err?.response?.data?.error || err?.message || 'Could not load progress', data: null });
+      });
   }, []);
 
-  useEffect(() => {
-    let alive = true;
-    setState((prev) => ({ ...prev, loading: true, error: null }));
-    getResults(period, offset)
-      .then((data) => { if (alive) setState({ loading: false, error: null, data }); })
-      .catch((err) => { if (alive) setState({ loading: false, error: err?.response?.data?.error || err?.message || 'Could not load progress', data: null }); });
-    return () => { alive = false; };
-  }, [period, offset]);
+  // First load + reload on period/offset change (full load: skeleton only if no data yet).
+  useEffect(() => { load(period, offset, false); }, [period, offset, load]);
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
     load(period, offset, true).finally(() => setRefreshing(false));
   }, [load, period, offset]);
+
+  // Silent refetch when the tab regains focus so a just-finished Practice quiz or Brain Gym
+  // set shows up here immediately. The mount effect ([period, offset]) does the first load,
+  // so the first focus is skipped to avoid a duplicate request. Uses refs for period/offset
+  // to keep the callback identity stable (no re-run on period change while focused).
+  const focusInit = useRef(true);
+  const pRef = useRef(period); pRef.current = period;
+  const oRef = useRef(offset); oRef.current = offset;
+  useFocusEffect(useCallback(() => {
+    if (focusInit.current) { focusInit.current = false; return; }
+    load(pRef.current, oRef.current, true);
+  }, [load]));
+
+  // Re-tapping the active Results tab scrolls back to top (F8).
+  useEffect(() => {
+    const unsub = navigation.addListener('tabPress', () => {
+      if (navigation.isFocused()) scrollRef.current?.scrollTo({ y: 0, animated: true });
+    });
+    return unsub;
+  }, [navigation]);
 
   // On opening a Mock attempt, fetch its section-wise breakdown.
   useEffect(() => {
@@ -118,23 +167,17 @@ const ResultsScreen = () => {
   const manyBars = daily.length > 8;
 
   const cards = [
-    { icon: '📋', bg: '#EEEBFF', tint: PRIMARY, val: String(ov.testsTaken ?? 0), lbl: 'Tests Taken', sub: `Mocks: ${ov.mocks ?? 0} · Quizzes: ${ov.quizzes ?? 0}` },
-    { icon: '🎯', bg: '#E4F8EE', tint: '#22C55E', val: `${ov.avgScore ?? 0}%`, lbl: 'Avg Score', sub: 'Across all attempts' },
-    { icon: '⏱', bg: '#FFF2E0', tint: '#F59E0B', val: fmtHoursTotal(ov.studySeconds), lbl: 'Hours', sub: 'Total study time' },
-    { icon: '⚡', bg: '#F5EAFF', tint: '#A855F7', val: (ov.xp ?? 0).toLocaleString(), lbl: 'XP Earned', sub: 'Keep it up! 🚀' },
+    { icon: '📋', bg: S.indigoSoft, tint: S.indigo, val: String(ov.testsTaken ?? 0), lbl: 'Tests Taken', sub: `Mocks: ${ov.mocks ?? 0} · Quizzes: ${ov.quizzes ?? 0}` },
+    { icon: '🎯', bg: S.emeraldSoft, tint: S.emerald, val: `${ov.avgScore ?? 0}%`, lbl: 'Avg Score', sub: 'Across all attempts' },
+    { icon: '⏱', bg: S.goldSoft, tint: S.gold, val: fmtHoursTotal(ov.studySeconds), lbl: 'Hours', sub: 'Total study time' },
+    { icon: '⚡', bg: S.purpleSoft, tint: S.purple, val: (ov.xp ?? 0).toLocaleString(), lbl: 'XP Earned', sub: 'Keep it up! 🚀' },
   ];
 
   return (
-    <SafeAreaView style={s.safe}>
-      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+    <View style={s.safe}>
+      <StatusBar barStyle="dark-content" backgroundColor={S.canvas} translucent={false} />
 
-      {/* Header */}
-      <View style={s.header}>
-        <Text style={s.headerIcon}>☰</Text>
-        <Text style={s.headerTitle}>My Progress</Text>
-        <Text style={s.headerIcon}>🗓</Text>
-      </View>
+      <StudentScreenHeader title="Progress" subtitle="Tests, scores & study time" />
 
       {/* Period toggle */}
       <View style={s.periodWrap}>
@@ -160,45 +203,47 @@ const ResultsScreen = () => {
         </View>
       )}
 
-      {state.loading ? (
-        <View style={s.centerFill}><ActivityIndicator size="large" color={PRIMARY} /></View>
+      {state.loading && !state.data ? (
+        <ResultsSkeleton />
       ) : state.error ? (
-        <View style={s.centerFill}>
-          <Text style={s.emptyTitle}>Couldn't load progress</Text>
-          <Text style={s.emptySub}>{state.error}</Text>
-          <TouchableOpacity style={s.retryBtn} onPress={() => load(period, offset, false)}><Text style={s.retryTxt}>Retry</Text></TouchableOpacity>
-        </View>
+        <StudentErrorState title="Couldn’t load progress" message={state.error} onRetry={() => load(period, offset, false)} />
       ) : (
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 32, paddingHorizontal: 16 }}
-        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={PRIMARY} />}>
+      <View style={{ flex: 1 }}>
+      <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 32, paddingHorizontal: 16 }}
+        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={PRIMARY} colors={[PRIMARY]} />}>
 
         {/* Study streak ribbon */}
-        <View style={s.streak}>
-          <View style={s.streakFlame}><Text style={{ fontSize: 18 }}>🔥</Text></View>
-          <View style={{ flex: 1 }}>
-            <Text style={s.streakTitle}>{data?.streak > 0 ? `${data.streak}-day study streak` : 'Start a study streak'}</Text>
-            <Text style={s.streakSub}>{data?.todayActive ? 'Great — keep it going!' : 'Study today to keep it alive'}</Text>
+        <FadeInOnce id="res-streak" delay={20} y={12}>
+          <View style={s.streak}>
+            <View style={s.streakFlame}><Text style={{ fontSize: 18 }}>🔥</Text></View>
+            <View style={{ flex: 1 }}>
+              <Text style={s.streakTitle}>{data?.streak > 0 ? `${data.streak}-day study streak` : 'Start a study streak'}</Text>
+              <Text style={s.streakSub}>{data?.todayActive ? 'Great — keep it going!' : 'Study today to keep it alive'}</Text>
+            </View>
+            <View style={s.streakDots}>
+              {(data?.streakDays || [false, false, false, false, false, false, false]).map((a, i) => (
+                <View key={i} style={[s.streakDot, a && s.streakDotOn]} />
+              ))}
+            </View>
           </View>
-          <View style={s.streakDots}>
-            {(data?.streakDays || [false, false, false, false, false, false, false]).map((a, i) => (
-              <View key={i} style={[s.streakDot, a && s.streakDotOn]} />
-            ))}
-          </View>
-        </View>
+        </FadeInOnce>
 
         {/* Overview cards (2×2) */}
-        <View style={s.cardsGrid}>
-          {cards.map((c, i) => (
-            <View key={i} style={s.ovCard}>
-              <View style={[s.ovIcon, { backgroundColor: c.bg }]}><Text style={{ fontSize: 18 }}>{c.icon}</Text></View>
-              <Text style={s.ovLbl}>{c.lbl}</Text>
-              <Text style={s.ovVal}>{c.val}</Text>
-              <Text style={s.ovSub} numberOfLines={1}>{c.sub}</Text>
-            </View>
-          ))}
-        </View>
+        <FadeInOnce id="res-cards" delay={60} y={14}>
+          <View style={s.cardsGrid}>
+            {cards.map((c, i) => (
+              <View key={i} style={s.ovCard}>
+                <View style={[s.ovIcon, { backgroundColor: c.bg }]}><Text style={{ fontSize: 18 }}>{c.icon}</Text></View>
+                <Text style={s.ovLbl}>{c.lbl}</Text>
+                <Text style={s.ovVal}>{c.val}</Text>
+                <Text style={s.ovSub} numberOfLines={1}>{c.sub}</Text>
+              </View>
+            ))}
+          </View>
+        </FadeInOnce>
 
         {/* Activity chart */}
+        <FadeInOnce id="res-chart" delay={90} y={14}>
         <View style={s.card}>
           <View style={s.cardHdr}>
             <Text style={s.cardTitle}>Activity</Text>
@@ -213,7 +258,7 @@ const ResultsScreen = () => {
             {manyBars ? (
               <ScrollView horizontal showsHorizontalScrollIndicator={false}
                 ref={barsScrollRef}
-                onContentSizeChange={() => barsScrollRef.current?.scrollToEnd({ animated: false })}
+                onContentSizeChange={() => { if (daily.length !== lastBarCount.current) { lastBarCount.current = daily.length; barsScrollRef.current?.scrollToEnd({ animated: false }); } }}
                 style={s.barsScroll} contentContainerStyle={s.barsScrollContent}>
                 {daily.map((d, i) => {
                   const barH = Math.max(4, ((d.secs || 0) / maxSecs) * 150);
@@ -244,8 +289,10 @@ const ResultsScreen = () => {
           </View>
           <View style={s.legendRow}><View style={s.legendDot} /><Text style={s.legendTxt}>Study Hours</Text></View>
         </View>
+        </FadeInOnce>
 
         {/* Subject breakdown */}
+        <FadeInOnce id="res-subj" delay={120} y={14}>
         <View style={s.card}>
           <Text style={s.cardTitle}>Subject Breakdown</Text>
           {subjects.length === 0 ? (
@@ -259,7 +306,7 @@ const ResultsScreen = () => {
                 <View style={{ flex: 1 }}>
                   <View style={s.subjTopRow}>
                     <Text style={s.subjName} numberOfLines={1}>{sub.name}</Text>
-                    <Text style={[s.subjScore, { color: attempted ? col : '#C7C7CC' }]}>{attempted ? `${sub.score}%` : '—'}</Text>
+                    <Text style={[s.subjScore, { color: attempted ? col : S.faint }]}>{attempted ? `${sub.score}%` : '—'}</Text>
                   </View>
                   <View style={s.subjBarBg}>
                     <View style={[s.subjBarFill, { width: `${attempted ? sub.score : 0}%`, backgroundColor: col }]} />
@@ -276,8 +323,10 @@ const ResultsScreen = () => {
             </TouchableOpacity>
           )}
         </View>
+        </FadeInOnce>
 
         {/* Recent tests */}
+        <FadeInOnce id="res-recent" delay={150} y={14}>
         <View style={s.card}>
           <View style={s.cardHdr}>
             <Text style={s.cardTitle}>Recent Tests</Text>
@@ -292,7 +341,7 @@ const ResultsScreen = () => {
                 return (
                   <TouchableOpacity key={i} activeOpacity={0.6} onPress={() => setDetail(t)}
                     style={[s.recRow, i < recent.length - 1 && s.recRowBorder]}>
-                    <View style={[s.recIcon, { backgroundColor: isQuiz ? '#FBEBCC' : '#EEEBFF' }]}>
+                    <View style={[s.recIcon, { backgroundColor: isQuiz ? S.goldSoft : S.indigoSoft }]}>
                       <Text style={{ fontSize: 16 }}>{isQuiz ? '❓' : '📋'}</Text>
                     </View>
                     <View style={{ flex: 1 }}>
@@ -317,8 +366,13 @@ const ResultsScreen = () => {
             </>
           )}
         </View>
+        </FadeInOnce>
 
       </ScrollView>
+        {state.loading && (
+          <View pointerEvents="none" style={s.refreshChip}><ActivityIndicator size="small" color={PRIMARY} /></View>
+        )}
+      </View>
       )}
 
       {/* Detail modal */}
@@ -333,20 +387,20 @@ const ResultsScreen = () => {
               return (
                 <>
                   <View style={s.modalHead}>
-                    <View style={[s.modalIcon, { backgroundColor: isQuiz ? '#E4F8EE' : '#EEEBFF' }]}><Text style={{ fontSize: 22 }}>{isQuiz ? '❓' : '📋'}</Text></View>
+                    <View style={[s.modalIcon, { backgroundColor: isQuiz ? S.emeraldSoft : S.indigoSoft }]}><Text style={{ fontSize: 22 }}>{isQuiz ? '❓' : '📋'}</Text></View>
                     <View style={{ flex: 1 }}>
                       <Text style={s.modalSubject}>{detail.subject}</Text>
                       <Text style={s.modalTopic} numberOfLines={2}>{detail.topic}</Text>
                     </View>
-                    <View style={[s.typePill, isQuiz ? s.typePillQuiz : s.typePillMock]}><Text style={[s.typePillTxt, { color: isQuiz ? '#16A34A' : PRIMARY }]}>{detail.type}</Text></View>
+                    <View style={[s.typePill, isQuiz ? s.typePillQuiz : s.typePillMock]}><Text style={[s.typePillTxt, { color: isQuiz ? S.emerald : PRIMARY }]}>{detail.type}</Text></View>
                   </View>
                   <View style={s.modalScoreWrap}>
                     <Text style={s.modalScoreBig}>{detail.score}<Text style={s.modalScoreTot}>/{detail.total}</Text></Text>
                     <Text style={[s.modalScorePct, { color: scoreColor(pct) }]}>{pct}%</Text>
                   </View>
                   <View style={s.modalStatsRow}>
-                    <View style={s.modalStat}><Text style={[s.modalStatVal, { color: '#16A34A' }]}>{detail.correct}</Text><Text style={s.modalStatLbl}>Correct</Text></View>
-                    <View style={s.modalStat}><Text style={[s.modalStatVal, { color: '#EF4444' }]}>{detail.wrong}</Text><Text style={s.modalStatLbl}>Wrong</Text></View>
+                    <View style={s.modalStat}><Text style={[s.modalStatVal, { color: S.emerald }]}>{detail.correct}</Text><Text style={s.modalStatLbl}>Correct</Text></View>
+                    <View style={s.modalStat}><Text style={[s.modalStatVal, { color: S.red }]}>{detail.wrong}</Text><Text style={s.modalStatLbl}>Wrong</Text></View>
                     <View style={s.modalStat}><Text style={s.modalStatVal}>{skipped}</Text><Text style={s.modalStatLbl}>Skipped</Text></View>
                   </View>
                   {/* Section-wise (mock tests) */}
@@ -402,7 +456,7 @@ const ResultsScreen = () => {
                       <Text style={s.modalSubject}>{subjectDetail.name}</Text>
                       <Text style={s.modalTopic}>{subjMeta(subjectDetail)}</Text>
                     </View>
-                    <Text style={[s.modalScorePct, { color: attempted ? col : '#C7C7CC', fontSize: 24 }]}>{attempted ? `${subjectDetail.score}%` : '—'}</Text>
+                    <Text style={[s.modalScorePct, { color: attempted ? col : S.faint, fontSize: 24 }]}>{attempted ? `${subjectDetail.score}%` : '—'}</Text>
                   </View>
 
                   <View style={s.modalStatsRow}>
@@ -440,133 +494,129 @@ const ResultsScreen = () => {
           </TouchableOpacity>
         </TouchableOpacity>
       </Modal>
-    </SafeAreaView>
+    </View>
   );
 };
 
 const s = StyleSheet.create({
-  safe:             { flex: 1, backgroundColor: '#F6F7FB' },
-  header:           { backgroundColor: '#fff', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 18, paddingTop: 12, paddingBottom: 8 },
-  headerIcon:       { fontSize: 18, color: '#1C1C1E', width: 28, textAlign: 'center' },
-  headerTitle:      { fontSize: 20, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.4 },
-  periodWrap:       { backgroundColor: '#fff', alignItems: 'center', paddingBottom: 6 },
-  periodRow:        { flexDirection: 'row', backgroundColor: '#F0F0F4', borderRadius: 20, padding: 4 },
+  safe:             { flex: 1, backgroundColor: S.canvas },
+  header:           { paddingHorizontal: 18, paddingBottom: 10 },
+  headerTitle:      { fontSize: 22, fontFamily: FONT.black, color: S.ink, letterSpacing: -0.5 },
+  headerSub:        { fontSize: 12.5, fontFamily: FONT.semibold, color: S.muted, marginTop: 1 },
+  periodWrap:       { alignItems: 'center', paddingBottom: 6 },
+  periodRow:        { flexDirection: 'row', backgroundColor: S.hair, borderRadius: 20, padding: 4 },
   periodBtn:        { paddingVertical: 7, paddingHorizontal: 22, borderRadius: 16 },
   periodBtnActive:  { backgroundColor: PRIMARY },
-  periodTxt:        { fontSize: 13, fontWeight: '800', color: '#8A8A99' },
+  periodTxt:        { fontSize: 13, fontFamily: FONT.extrabold, color: S.muted },
   periodTxtActive:  { color: '#fff' },
-  dateNav:          { backgroundColor: '#fff', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 16, paddingBottom: 9 },
-  dateArrow:        { fontSize: 24, color: '#8A8A99', fontWeight: '700', paddingHorizontal: 6 },
-  dateArrowOff:     { color: '#DDD' },
-  dateLabel:        { fontSize: 14, fontWeight: '800', color: '#4A4A57' },
+  dateNav:          { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 16, paddingBottom: 9 },
+  dateArrow:        { fontSize: 24, color: S.muted, fontFamily: FONT.bold, paddingHorizontal: 6 },
+  dateArrowOff:     { color: S.border },
+  dateLabel:        { fontSize: 14, fontFamily: FONT.extrabold, color: S.sub },
   centerFill:       { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 32 },
-  retryBtn:         { marginTop: 16, backgroundColor: PRIMARY, borderRadius: 12, paddingVertical: 10, paddingHorizontal: 24 },
-  retryTxt:         { color: '#fff', fontSize: 13, fontWeight: '800' },
-  emptyTitle:       { fontSize: 16, fontWeight: '900', color: '#1C1C1E', marginBottom: 6 },
-  emptySub:         { fontSize: 13, color: '#8A8A99', fontWeight: '600', textAlign: 'center' },
-  emptyCardTxt:     { fontSize: 13, color: '#8A8A99', fontWeight: '600', textAlign: 'center', lineHeight: 19, paddingVertical: 14 },
+  refreshChip:      { position: 'absolute', top: 8, alignSelf: 'center', backgroundColor: '#fff', borderRadius: 20, paddingVertical: 6, paddingHorizontal: 14, borderWidth: 1, borderColor: S.hair, ...shadowSm },
+  retryBtn:         { marginTop: 16, backgroundColor: PRIMARY, borderRadius: 12, paddingVertical: 11, paddingHorizontal: 26, ...shadowSm },
+  retryTxt:         { color: '#fff', fontSize: 13, fontFamily: FONT.extrabold },
+  emptyTitle:       { fontSize: 16, fontFamily: FONT.black, color: S.ink, marginBottom: 6 },
+  emptySub:         { fontSize: 13, color: S.muted, fontFamily: FONT.semibold, textAlign: 'center' },
+  emptyCardTxt:     { fontSize: 13, color: S.muted, fontFamily: FONT.semibold, textAlign: 'center', lineHeight: 19, paddingVertical: 14 },
   streak:           { flexDirection: 'row', alignItems: 'center', gap: 11, marginTop: 12,
-                      backgroundColor: '#FDF3E0', borderWidth: 1, borderColor: '#F4E0BC', borderRadius: 18, padding: 12 },
+                      backgroundColor: S.goldSoft, borderWidth: 1, borderColor: '#F4E6C4', borderRadius: 18, padding: 12 },
   streakFlame:      { width: 34, height: 34, borderRadius: 10, backgroundColor: '#FBEBCC', alignItems: 'center', justifyContent: 'center' },
-  streakTitle:      { fontSize: 14, fontWeight: '800', color: '#1C1C1E' },
-  streakSub:        { fontSize: 11.5, color: '#8A7A55', fontWeight: '600', marginTop: 1 },
+  streakTitle:      { fontSize: 14, fontFamily: FONT.extrabold, color: S.ink },
+  streakSub:        { fontSize: 11.5, color: '#9A7B3C', fontFamily: FONT.semibold, marginTop: 1 },
   streakDots:       { flexDirection: 'row', gap: 4, marginLeft: 'auto' },
   streakDot:        { width: 8, height: 8, borderRadius: 4, backgroundColor: '#EAD9B4' },
   streakDotOn:      { backgroundColor: AMBER },
-  subjTag:          { width: 36, height: 36, borderRadius: 11, alignItems: 'center', justifyContent: 'center' },
-  subjTagTxt:       { fontSize: 13, fontWeight: '800', color: '#fff' },
   cardsGrid:        { flexDirection: 'row', flexWrap: 'wrap', gap: 12, marginTop: 16 },
-  ovCard:           { width: '47.6%', flexGrow: 1, backgroundColor: '#fff', borderRadius: 20, padding: 16, shadowColor: '#6C5CE7', shadowOpacity: 0.06, shadowRadius: 12, shadowOffset: { width: 0, height: 4 }, elevation: 2 },
+  ovCard:           { width: '47.6%', flexGrow: 1, backgroundColor: '#fff', borderRadius: 20, padding: 16, borderWidth: 1, borderColor: S.hair, ...shadow },
   ovIcon:           { width: 40, height: 40, borderRadius: 12, alignItems: 'center', justifyContent: 'center', marginBottom: 12 },
-  ovLbl:            { fontSize: 12, fontWeight: '700', color: '#8A8A99' },
-  ovVal:            { fontSize: 26, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.8, marginTop: 2 },
-  ovSub:            { fontSize: 10.5, fontWeight: '600', color: '#A9A9B8', marginTop: 4 },
-  card:             { backgroundColor: '#fff', borderRadius: 22, padding: 18, marginTop: 16, shadowColor: '#6C5CE7', shadowOpacity: 0.06, shadowRadius: 12, shadowOffset: { width: 0, height: 4 }, elevation: 2 },
+  ovLbl:            { fontSize: 12, fontFamily: FONT.bold, color: S.muted },
+  ovVal:            { fontSize: 26, fontFamily: FONT.black, color: S.ink, letterSpacing: -0.8, marginTop: 2 },
+  ovSub:            { fontSize: 10.5, fontFamily: FONT.semibold, color: S.faint, marginTop: 4 },
+  card:             { backgroundColor: '#fff', borderRadius: 22, padding: 18, marginTop: 16, borderWidth: 1, borderColor: S.hair, ...shadow },
   cardHdr:          { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 },
-  cardTitle:        { fontSize: 17, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3 },
-  hoursPill:        { borderWidth: 1.5, borderColor: '#ECECF2', borderRadius: 10, paddingVertical: 5, paddingHorizontal: 12 },
-  hoursPillTxt:     { fontSize: 12, fontWeight: '800', color: '#6A6A78' },
+  cardTitle:        { fontSize: 17, fontFamily: FONT.black, color: S.ink, letterSpacing: -0.3 },
+  hoursPill:        { borderWidth: 1.5, borderColor: S.border, borderRadius: 10, paddingVertical: 5, paddingHorizontal: 12 },
+  hoursPillTxt:     { fontSize: 12, fontFamily: FONT.extrabold, color: S.sub },
   chartArea:        { height: 150 + 22 + 30, position: 'relative', marginTop: 8 },
-  gridline:         { position: 'absolute', left: 24, right: 0, height: 1, borderTopWidth: 1, borderColor: '#F0F0F4', borderStyle: 'dashed' },
-  yLabel:           { position: 'absolute', left: -24, top: -7, fontSize: 9, color: '#B8B8C4', fontWeight: '700', width: 22, textAlign: 'right' },
+  gridline:         { position: 'absolute', left: 24, right: 0, height: 1, borderTopWidth: 1, borderColor: S.hair, borderStyle: 'dashed' },
+  yLabel:           { position: 'absolute', left: -24, top: -7, fontSize: 9, color: S.faint, fontFamily: FONT.bold, width: 22, textAlign: 'right' },
   barsRow:          { flexDirection: 'row', alignItems: 'flex-end', height: 150 + 22, paddingLeft: 24, gap: 6 },
   barsScroll:       { marginLeft: 24, height: 150 + 22 },
   barsScrollContent:{ flexDirection: 'row', alignItems: 'flex-end', height: 150 + 22, gap: 12, paddingRight: 14 },
   barColFixed:      { width: 42, alignItems: 'center' },
   barCol:           { flex: 1, alignItems: 'center' },
-  barVal:           { fontSize: 8.5, color: '#8A8A99', fontWeight: '700', marginBottom: 4, height: 12 },
+  barVal:           { fontSize: 8.5, color: S.muted, fontFamily: FONT.bold, marginBottom: 4, height: 12 },
   bar:              { width: '62%', maxWidth: 26, backgroundColor: PRIMARY, borderRadius: 8 },
-  barLabel:         { fontSize: 11, color: '#4A4A57', fontWeight: '800', marginTop: 6 },
-  barLabelSmall:    { fontSize: 8, marginTop: 4 },
-  barSub:           { fontSize: 9, color: '#A9A9B8', fontWeight: '600' },
+  barLabel:         { fontSize: 11, color: S.sub, fontFamily: FONT.extrabold, marginTop: 6 },
+  barSub:           { fontSize: 9, color: S.faint, fontFamily: FONT.semibold },
   legendRow:        { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6, marginTop: 4 },
   legendDot:        { width: 8, height: 8, borderRadius: 4, backgroundColor: PRIMARY },
-  legendTxt:        { fontSize: 11, color: '#8A8A99', fontWeight: '700' },
+  legendTxt:        { fontSize: 11, color: S.muted, fontFamily: FONT.bold },
   subjRow:          { flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 10 },
   subjIcon:         { width: 38, height: 38, borderRadius: 11, alignItems: 'center', justifyContent: 'center' },
   subjTopRow:       { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 },
-  subjName:         { fontSize: 14, fontWeight: '800', color: '#1C1C1E', flex: 1 },
-  subjScore:        { fontSize: 14, fontWeight: '900', marginLeft: 8 },
-  subjBarBg:        { height: 7, backgroundColor: '#F0F0F4', borderRadius: 4, overflow: 'hidden' },
+  subjName:         { fontSize: 14, fontFamily: FONT.extrabold, color: S.ink, flex: 1 },
+  subjScore:        { fontSize: 14, fontFamily: FONT.black, marginLeft: 8 },
+  subjBarBg:        { height: 7, backgroundColor: S.hair, borderRadius: 4, overflow: 'hidden' },
   subjBarFill:      { height: 7, borderRadius: 4 },
-  subjMeta:         { fontSize: 11, color: '#A9A9B8', fontWeight: '700', marginTop: 5 },
-  subjChevron:      { fontSize: 20, color: '#C7C7D2', fontWeight: '700', marginLeft: 6, alignSelf: 'center' },
-  subjRecentRow:    { flexDirection: 'row', alignItems: 'center', gap: 8, paddingVertical: 10, borderTopWidth: 1, borderTopColor: '#F4F4F8' },
-  subjRecentTopic:  { flex: 1, fontSize: 12.5, fontWeight: '700', color: '#1C1C1E' },
-  subjRecentScore:  { fontSize: 12.5, fontWeight: '800', color: '#8A8A99' },
-  subjRecentPct:    { fontSize: 12.5, fontWeight: '900', width: 44, textAlign: 'right' },
-  subjRecentChev:   { fontSize: 17, color: '#C7C7D2', fontWeight: '700' },
-  subjNoRecent:     { fontSize: 12.5, color: '#8A8A99', fontWeight: '600', textAlign: 'center', paddingVertical: 12, marginBottom: 4 },
+  subjMeta:         { fontSize: 11, color: S.faint, fontFamily: FONT.bold, marginTop: 5 },
+  subjChevron:      { fontSize: 20, color: S.faint, fontFamily: FONT.bold, marginLeft: 6, alignSelf: 'center' },
+  subjRecentRow:    { flexDirection: 'row', alignItems: 'center', gap: 8, paddingVertical: 10, borderTopWidth: 1, borderTopColor: S.hair },
+  subjRecentTopic:  { flex: 1, fontSize: 12.5, fontFamily: FONT.bold, color: S.ink },
+  subjRecentScore:  { fontSize: 12.5, fontFamily: FONT.extrabold, color: S.muted },
+  subjRecentPct:    { fontSize: 12.5, fontFamily: FONT.black, width: 44, textAlign: 'right' },
+  subjRecentChev:   { fontSize: 17, color: S.faint, fontFamily: FONT.bold },
+  subjNoRecent:     { fontSize: 12.5, color: S.muted, fontFamily: FONT.semibold, textAlign: 'center', paddingVertical: 12, marginBottom: 4 },
   recRow:           { flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 12 },
-  recRowBorder:     { borderBottomWidth: 1, borderBottomColor: '#F4F4F8' },
+  recRowBorder:     { borderBottomWidth: 1, borderBottomColor: S.hair },
   recIcon:          { width: 40, height: 40, borderRadius: 12, alignItems: 'center', justifyContent: 'center' },
-  recSubject:       { fontSize: 14, fontWeight: '800', color: '#1C1C1E' },
-  recTopic:         { fontSize: 11.5, color: '#8A8A99', fontWeight: '600', marginTop: 1 },
+  recSubject:       { fontSize: 14, fontFamily: FONT.extrabold, color: S.ink },
+  recTopic:         { fontSize: 11.5, color: S.muted, fontFamily: FONT.semibold, marginTop: 1 },
   recMetaRow:       { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 5 },
-  recDate:          { fontSize: 10.5, color: '#A9A9B8', fontWeight: '600' },
+  recDate:          { fontSize: 10.5, color: S.faint, fontFamily: FONT.semibold },
   typePill:         { borderRadius: 7, paddingVertical: 2, paddingHorizontal: 8 },
-  typePillMock:     { backgroundColor: '#EEEBFF' },
-  typePillQuiz:     { backgroundColor: '#FBEBCC' },
-  typePillTxt:      { fontSize: 9.5, fontWeight: '800' },
+  typePillMock:     { backgroundColor: S.indigoSoft },
+  typePillQuiz:     { backgroundColor: S.goldSoft },
+  typePillTxt:      { fontSize: 9.5, fontFamily: FONT.extrabold },
   recRight:         { alignItems: 'flex-end' },
-  recScore:         { fontSize: 15, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3 },
-  recPct:           { fontSize: 12, fontWeight: '800', marginTop: 2 },
-  recChevron:       { fontSize: 20, color: '#C7C7D2', fontWeight: '700', marginLeft: 4 },
-  recFooter:        { fontSize: 11, color: '#A9A9B8', fontWeight: '600', textAlign: 'center', marginTop: 12 },
-  viewAllBtn:       { alignItems: 'center', paddingVertical: 12, marginTop: 4, borderTopWidth: 1, borderTopColor: '#F4F4F8' },
-  viewAllTxt:       { fontSize: 13, fontWeight: '800', color: PRIMARY },
+  recScore:         { fontSize: 15, fontFamily: FONT.black, color: S.ink, letterSpacing: -0.3 },
+  recPct:           { fontSize: 12, fontFamily: FONT.extrabold, marginTop: 2 },
+  recChevron:       { fontSize: 20, color: S.faint, fontFamily: FONT.bold, marginLeft: 4 },
+  recFooter:        { fontSize: 11, color: S.faint, fontFamily: FONT.semibold, textAlign: 'center', marginTop: 12 },
+  viewAllBtn:       { alignItems: 'center', paddingVertical: 12, marginTop: 4, borderTopWidth: 1, borderTopColor: S.hair },
+  viewAllTxt:       { fontSize: 13, fontFamily: FONT.extrabold, color: PRIMARY },
   // Section-wise + info block (detail modal)
   secBlock:         { marginBottom: 16 },
-  secBlockTitle:    { fontSize: 12, fontWeight: '800', color: '#8A8A99', marginBottom: 10, letterSpacing: 0.3, textTransform: 'uppercase' },
+  secBlockTitle:    { fontSize: 12, fontFamily: FONT.extrabold, color: S.muted, marginBottom: 10, letterSpacing: 0.3, textTransform: 'uppercase' },
   secRow:           { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 10 },
-  secName:          { fontSize: 12, fontWeight: '800', color: '#1C1C1E', width: 78 },
-  secBarBg:         { flex: 1, height: 6, backgroundColor: '#F0F0F4', borderRadius: 3, overflow: 'hidden' },
+  secName:          { fontSize: 12, fontFamily: FONT.extrabold, color: S.ink, width: 78 },
+  secBarBg:         { flex: 1, height: 6, backgroundColor: S.hair, borderRadius: 3, overflow: 'hidden' },
   secBarFill:       { height: 6, borderRadius: 3 },
-  secStat:          { fontSize: 11, fontWeight: '700', color: '#8A8A99', width: 42, textAlign: 'right' },
-  secPct:           { fontSize: 12, fontWeight: '900', width: 40, textAlign: 'right' },
-  infoBlock:        { backgroundColor: '#F6F7FB', borderRadius: 16, padding: 14, marginBottom: 18, gap: 10 },
+  secStat:          { fontSize: 11, fontFamily: FONT.bold, color: S.muted, width: 42, textAlign: 'right' },
+  secPct:           { fontSize: 12, fontFamily: FONT.black, width: 40, textAlign: 'right' },
+  infoBlock:        { backgroundColor: S.canvas, borderRadius: 16, padding: 14, marginBottom: 18, gap: 10 },
   infoLine:         { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  infoLabel:        { fontSize: 12, fontWeight: '700', color: '#8A8A99' },
-  infoVal:          { fontSize: 12, fontWeight: '800', color: '#1C1C1E', flexShrink: 1, textAlign: 'right', marginLeft: 12 },
+  infoLabel:        { fontSize: 12, fontFamily: FONT.bold, color: S.muted },
+  infoVal:          { fontSize: 12, fontFamily: FONT.extrabold, color: S.ink, flexShrink: 1, textAlign: 'right', marginLeft: 12 },
   // Modal
-  modalBackdrop:    { flex: 1, backgroundColor: 'rgba(20,18,40,0.45)', justifyContent: 'center', padding: 24 },
+  modalBackdrop:    { flex: 1, backgroundColor: 'rgba(12,13,28,0.55)', justifyContent: 'center', padding: 24 },
   modalCard:        { backgroundColor: '#fff', borderRadius: 24, padding: 20 },
   modalHead:        { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 18 },
   modalIcon:        { width: 48, height: 48, borderRadius: 14, alignItems: 'center', justifyContent: 'center' },
-  modalSubject:     { fontSize: 16, fontWeight: '900', color: '#1C1C1E' },
-  modalTopic:       { fontSize: 12, color: '#8A8A99', fontWeight: '600', marginTop: 2 },
+  modalSubject:     { fontSize: 16, fontFamily: FONT.black, color: S.ink },
+  modalTopic:       { fontSize: 12, color: S.muted, fontFamily: FONT.semibold, marginTop: 2 },
   modalScoreWrap:   { alignItems: 'center', marginBottom: 18 },
-  modalScoreBig:    { fontSize: 44, fontWeight: '900', color: '#1C1C1E', letterSpacing: -1 },
-  modalScoreTot:    { fontSize: 20, color: '#C7C7D2', fontWeight: '800' },
-  modalScorePct:    { fontSize: 15, fontWeight: '900', marginTop: 2 },
-  modalStatsRow:    { flexDirection: 'row', backgroundColor: '#F6F7FB', borderRadius: 16, paddingVertical: 14, marginBottom: 14 },
+  modalScoreBig:    { fontSize: 44, fontFamily: FONT.black, color: S.ink, letterSpacing: -1 },
+  modalScoreTot:    { fontSize: 20, color: S.faint, fontFamily: FONT.extrabold },
+  modalScorePct:    { fontSize: 15, fontFamily: FONT.black, marginTop: 2 },
+  modalStatsRow:    { flexDirection: 'row', backgroundColor: S.canvas, borderRadius: 16, paddingVertical: 14, marginBottom: 14 },
   modalStat:        { flex: 1, alignItems: 'center' },
-  modalStatVal:     { fontSize: 20, fontWeight: '900', color: '#1C1C1E' },
-  modalStatLbl:     { fontSize: 10, fontWeight: '700', color: '#8A8A99', marginTop: 2 },
-  modalMetaRow:     { flexDirection: 'row', justifyContent: 'center', flexWrap: 'wrap', gap: 14, marginBottom: 18 },
-  modalMeta:        { fontSize: 12, fontWeight: '700', color: '#8A8A99' },
-  modalClose:       { backgroundColor: PRIMARY, borderRadius: 14, paddingVertical: 14, alignItems: 'center' },
-  modalCloseTxt:    { color: '#fff', fontSize: 14, fontWeight: '900' },
+  modalStatVal:     { fontSize: 20, fontFamily: FONT.black, color: S.ink },
+  modalStatLbl:     { fontSize: 10, fontFamily: FONT.bold, color: S.muted, marginTop: 2 },
+  modalClose:       { backgroundColor: PRIMARY, borderRadius: 14, paddingVertical: 14, alignItems: 'center', ...shadowSm },
+  modalCloseTxt:    { color: '#fff', fontSize: 14, fontFamily: FONT.black },
 });
 
 export default ResultsScreen;

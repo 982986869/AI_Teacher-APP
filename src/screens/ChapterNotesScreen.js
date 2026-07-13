@@ -4,6 +4,8 @@ import {
   TouchableOpacity, StatusBar, Platform,
   ActivityIndicator,
 } from 'react-native';
+import { S } from '../theme/studentUI';
+import { FONT } from '../constants/fonts';
 import { WebView } from 'react-native-webview';
 
 // ── Local image assets ────────────────────────────────────────────────────────
@@ -356,8 +358,8 @@ const ChapterNotesScreen = ({ chapterName, notes, onBack }) => {
 
   return (
     <SafeAreaView style={s.safe}>
-      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+      <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
 
       {/* Header */}
       <View style={s.header}>
@@ -398,13 +400,13 @@ const ChapterNotesScreen = ({ chapterName, notes, onBack }) => {
 
 const s = StyleSheet.create({
   safe:           { flex: 1, backgroundColor: '#fff' },
-  header:         { backgroundColor: '#fff', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 14, borderBottomWidth: 1, borderBottomColor: '#F0F0F0', gap: 12 },
+  header:         { backgroundColor: S.canvas, flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 14, borderBottomWidth: 1, borderBottomColor: S.hair, gap: 12 },
   backRow:        { flexDirection: 'row', alignItems: 'center', gap: 4 },
-  backArrow:      { fontSize: 18, color: '#1C1C1E', fontWeight: '600' },
-  backTxt:        { fontSize: 14, fontWeight: '600', color: '#1C1C1E' },
-  headerTitle:    { flex: 1, fontSize: 15, fontWeight: '700', color: '#1C1C1E', letterSpacing: -0.2 },
+  backArrow:      { fontSize: 18, color: S.ink, fontFamily: FONT.semibold },
+  backTxt:        { fontSize: 14, fontFamily: FONT.semibold, color: S.ink },
+  headerTitle:    { flex: 1, fontSize: 15, fontFamily: FONT.bold, color: S.ink, letterSpacing: -0.2 },
   loadingOverlay: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff', zIndex: 10 },
-  loadingTxt:     { marginTop: 12, fontSize: 14, color: '#8E8E93', fontWeight: '600' },
+  loadingTxt:     { marginTop: 12, fontSize: 14, color: S.muted, fontFamily: FONT.semibold },
 });
 
 export default ChapterNotesScreen;
