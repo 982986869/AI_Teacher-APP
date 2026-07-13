@@ -1,19 +1,48 @@
 // src/screens/braingym/GoalTip.js
 // A small "?" button that toggles a tooltip showing the game's goal/question.
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useState, useRef, useEffect } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Animated, Easing } from 'react-native';
+import { pressSpring, PRESS_SCALE } from './motion';
 
 export default function GoalTip({ text }) {
   const [open, setOpen] = useState(false);
+  const [showBubble, setShowBubble] = useState(false); // stays true through the exit
+  const press = useRef(new Animated.Value(1)).current;
+  const bubble = useRef(new Animated.Value(0)).current;
+
+  const to = (v) => pressSpring(press, v).start();
+
+  // Pops in on open with a little overshoot; on close it shrinks + fades back into the
+  // button before unmounting (never a hard cut).
+  useEffect(() => {
+    if (open) {
+      setShowBubble(true);
+      bubble.setValue(0);
+      Animated.spring(bubble, { toValue: 1, useNativeDriver: true, speed: 18, bounciness: 9 }).start();
+    } else if (showBubble) {
+      Animated.timing(bubble, { toValue: 0, duration: 140, easing: Easing.in(Easing.cubic), useNativeDriver: true })
+        .start(({ finished }) => { if (finished) setShowBubble(false); });
+    }
+  }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
     <View style={st.wrap}>
-      <TouchableOpacity onPress={() => setOpen((o) => !o)} style={st.btn} activeOpacity={0.85} accessibilityLabel="What to do">
-        <Text style={st.q}>?</Text>
+      <TouchableOpacity onPress={() => setOpen((o) => !o)} activeOpacity={0.85} accessibilityLabel="What to do"
+        onPressIn={() => to(PRESS_SCALE)} onPressOut={() => to(1)}>
+        <Animated.View style={[st.btn, { transform: [{ scale: press }] }]}>
+          <Text style={st.q}>?</Text>
+        </Animated.View>
       </TouchableOpacity>
-      {open && (
-        <View style={st.bubble}>
+      {showBubble && (
+        <Animated.View style={[st.bubble, {
+          opacity: bubble,
+          transform: [
+            { scale: bubble.interpolate({ inputRange: [0, 1], outputRange: [0.85, 1] }) },
+            { translateY: bubble.interpolate({ inputRange: [0, 1], outputRange: [-6, 0] }) },
+          ],
+        }]}>
           <Text style={st.bubbleTxt}>{text}</Text>
-        </View>
+        </Animated.View>
       )}
     </View>
   );

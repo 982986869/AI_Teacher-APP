@@ -4,26 +4,66 @@
 // teammate's RN build, plus a few styles for the real-data states (link/error/stats).
 import React from 'react';
 import { View, Text, StyleSheet, Platform } from 'react-native';
+import Svg, { Defs, LinearGradient as LG, Stop, Rect } from 'react-native-svg';
 import { Home, BarChart3, MessageCircle, BookOpen, Video } from 'lucide-react-native';
 
 export const C = {
-  bg: '#FFFFFF', headerBg: '#F6F6F7', ink: '#161616', muted: '#8C9199', faint: '#BDC1C7',
-  border: '#ECECEE', black: '#111111',
+  bg: '#FFFFFF', canvas: '#F1F3F7', headerBg: '#F6F6F7', ink: '#161616', muted: '#6C7179', faint: '#A6AAB2',
+  border: '#ECECEE', hair: '#F0F1F4', black: '#111111',
   orange: '#F0501E', gold: '#F5B301', navy: '#001A66',
   blue: '#1848F0', blueSoft: '#EAEFFF', green: '#12924B', greenSoft: '#E4F4EA',
   red: '#D81818', peach: '#FDEBE2', peachInk: '#C2410C',
   chatBg: '#33AEE8', classBg: '#2FC65C',
+  // Hero (Upcoming Demo) — deep ink surface + gradient stops that read premium on a
+  // light dashboard. Text/accents sit on top of this.
+  heroA: '#171A2E', heroB: '#0E1020', heroAccent: '#8FA6FF',
 };
+// Nunito — the rounded display font used by ailernova.in (and matching the reference
+// events UI). Loaded in ParentApp; applies across the whole parent dashboard.
 export const F = {
-  reg: 'Poppins_400Regular', med: 'Poppins_500Medium', semi: 'Poppins_600SemiBold',
-  bold: 'Poppins_700Bold', xbold: 'Poppins_800ExtraBold', black: 'Poppins_900Black',
+  reg: 'Nunito_400Regular', med: 'Nunito_500Medium', semi: 'Nunito_600SemiBold',
+  bold: 'Nunito_700Bold', xbold: 'Nunito_800ExtraBold', black: 'Nunito_900Black',
 };
 export const WORDMARK = [['A', C.orange], ['I', C.gold], ['L', C.navy], ['E', C.blue], ['R', C.blue], ['N', C.navy], ['O', C.green], ['V', C.red], ['A', C.orange]];
 
-/* Marketing / static content (config, not per-user data). */
+/* Marketing / static content (config, not per-user data). Subject-neutral + global. */
 export const CONTENT = {
-  trial: { title: 'The science of\nmath mastery', body: 'Every AILERNOVA lesson is built on proven memory science — recall, spacing and mixed practice — so learning lasts.', cta: 'Book a FREE trial' },
-  event: { kicker: 'Logic & Reasoning Edition', name: 'Math', suffix: " '26", grades: 'Grades 1–8', cta: 'Explore Now', trust: 'Trusted by parents', stars: 5 },
+  trial: { title: 'Learning that\nactually sticks', body: 'Every Ailernova lesson is built on proven memory science — recall, spacing and mixed practice — so what your child learns lasts.', cta: 'Book a FREE demo' },
+  // Per-event data is DB-driven (offline_events → /api/parent/report). These are the
+  // shared brand figures shown under every event card.
+  event: {
+    cta: 'Register Now', learn: 'Learn how it works',
+    stats: [{ value: '200+', label: 'Events' }, { value: '22K+', label: 'Participants' }, { value: '50+', label: 'Cities' }],
+    rating: { score: '4.9', count: '11K+ Reviews' },
+    exploreTitle: 'Explore events by', regionCta: 'Select Region', exploreHint: 'Please select a region to show the events',
+    storeTitle: "What's in store for you?",
+    storeBody: 'Your child dives into a hands-on learning experience — building, solving and discovering how they learn best. They take home everything they make.',
+    regions: [],
+    skillsTitle: "Skills You'll Discover",
+    skillsIntro: 'The activities and quizzes build the core skills behind confident learning — across every subject.',
+    participantsTitle: 'Hear From Our Participants',
+    community: {
+      title: 'Join our community of\nAilernova parents', body: 'Get updates, learning resources, and celebrate every win ❤️',
+      instagram: 'https://instagram.com/ailernova', youtube: 'https://youtube.com/@ailernova',
+    },
+    become: {
+      title: 'BECOME AILERNOVA™', body: 'Build skills with daily challenges and puzzles.',
+      appCta: 'Download the app', appUrl: 'https://ailernova.com',
+      categories: [{ emoji: '🧠', label: 'BRAIN GAMES' }, { emoji: '🧩', label: 'LOGIC PUZZLES' }, { emoji: '⚡', label: 'QUICK RECALL' }],
+    },
+    footer: {
+      links: [
+        { q: 'About Ailernova', a: 'Ailernova makes learning click through hands-on lessons, memory science and playful practice.' },
+        { q: 'Our Programs', a: 'Live AI Teacher, Brain Gym, events and practice — across Grades 6–12.' },
+        { q: 'Resources', a: 'Free notes, revision guides, solutions and chapter-wise practice tests.' },
+        { q: 'Tutoring', a: '1-on-1 and small-group tutoring with certified Ailernova mentors.' },
+        { q: 'Partner with Us', a: 'Bring Ailernova events and programs to your school or city.' },
+      ],
+      offices: [
+        { label: 'SUPPORT', lines: 'support@ailernova.com\nailernova.com' },
+      ],
+    },
+  },
 };
 export const ARENA_BASE_RATING = 1000;
 
@@ -42,23 +82,63 @@ export const TABS = [
 export function T({ w = 'reg', s = 14, c = C.ink, style, children, ...rest }) {
   return <Text style={[{ fontFamily: F[w], fontSize: s, color: c }, style]} {...rest}>{children}</Text>;
 }
-export function Label({ children }) { return <T w="bold" s={11.5} c={C.faint} style={st.label}>{children}</T>; }
+// Editorial section header: an uppercase tracked label followed by a hairline rule.
+export function Label({ children }) {
+  return (
+    <View style={st.labelRow}>
+      <T w="xbold" s={11.5} c={C.muted} style={st.label} accessibilityRole="header">{children}</T>
+      <View style={st.labelRule} />
+    </View>
+  );
+}
+
+// Subtle top-lit sheen for light cards — a layered, premium glass surface. Sits behind
+// card content (parent card needs overflow:hidden). Reused across widgets.
+// NOTE: we measure the card in pixels (onLayout) and paint with gradientUnits=
+// "userSpaceOnUse". Percentage rects underfill on Android, and viewBox + non-uniform
+// stretch skews the gradient vector diagonally — both leave a visible seam. Exact
+// pixels + a top→bottom vector is the only artifact-free way in react-native-svg.
+export function CardGradient({ from = '#FFFFFF', to = '#F1F4FB' }) {
+  const [d, setD] = React.useState({ w: 0, h: 0 });
+  return (
+    <View
+      style={StyleSheet.absoluteFill}
+      pointerEvents="none"
+      onLayout={(e) => setD({ w: Math.round(e.nativeEvent.layout.width), h: Math.round(e.nativeEvent.layout.height) })}
+    >
+      {d.w > 0 && (
+        <Svg width={d.w} height={d.h}>
+          <Defs>
+            <LG id="cardG" x1="0" y1="0" x2="0" y2={d.h} gradientUnits="userSpaceOnUse">
+              <Stop offset="0" stopColor={from} />
+              <Stop offset="1" stopColor={to} />
+            </LG>
+          </Defs>
+          <Rect x="0" y="0" width={d.w} height={d.h} fill="url(#cardG)" />
+        </Svg>
+      )}
+    </View>
+  );
+}
 export function Wordmark({ size = 18 }) {
   return <View style={{ flexDirection: 'row' }}>{WORDMARK.map(([c, col], i) => <T key={i} w="xbold" s={size} c={col}>{c}</T>)}</View>;
 }
 
 /* ---------- styles (exact from the teammate build + real-data states) ---------- */
-export const card = { shadowColor: '#141420', shadowOpacity: 0.06, shadowRadius: 10, shadowOffset: { width: 0, height: 2 }, elevation: 2 };
+// Premium soft elevation — larger, softer, lifted. Used by every card.
+export const card = { shadowColor: '#0B1020', shadowOpacity: 0.08, shadowRadius: 20, shadowOffset: { width: 0, height: 10 }, elevation: 4 };
 export const st = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: C.bg, paddingTop: Platform.OS === 'android' ? 28 : 0 },
-  screen: { flex: 1 },
+  safe: { flex: 1, backgroundColor: C.canvas, paddingTop: Platform.OS === 'android' ? 28 : 0 },
+  screen: { flex: 1, backgroundColor: C.canvas },
   center: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 32, gap: 12 },
-  header: { backgroundColor: C.headerBg, paddingHorizontal: 18, paddingTop: 6, paddingBottom: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  header: { backgroundColor: C.canvas, paddingHorizontal: 18, paddingTop: 8, paddingBottom: 14, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   avatar: { width: 46, height: 46, borderRadius: 23, backgroundColor: C.orange, borderWidth: 2, borderColor: '#111', alignItems: 'center', justifyContent: 'center' },
   gymPill: { backgroundColor: C.gold, borderRadius: 24, paddingLeft: 15, paddingRight: 7, paddingVertical: 7, flexDirection: 'row', alignItems: 'center', gap: 8 },
   gymIcon: { backgroundColor: '#fff', borderRadius: 13, width: 26, height: 26, alignItems: 'center', justifyContent: 'center' },
   body: { flex: 1, paddingHorizontal: 18 },
-  label: { letterSpacing: 1, textTransform: 'uppercase', marginTop: 22, marginBottom: 11 },
+  labelRow: { flexDirection: 'row', alignItems: 'center', gap: 12, marginTop: 26, marginBottom: 14 },
+  label: { letterSpacing: 1.4, textTransform: 'uppercase' },
+  labelRule: { flex: 1, height: 1, backgroundColor: C.hair },
 
   updateCard: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: C.peach, borderRadius: 16, padding: 14, width: 270, marginRight: 10 },
   updateIcon: { width: 42, height: 42, borderRadius: 11, backgroundColor: C.ink, alignItems: 'center', justifyContent: 'center' },
@@ -102,15 +182,18 @@ export const st = StyleSheet.create({
   joinBtn: { backgroundColor: C.green, borderRadius: 14, paddingVertical: 14, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8 },
   liveDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: '#fff' },
   ghost: { flex: 1, backgroundColor: '#F3F3F4', borderRadius: 12, paddingVertical: 11, alignItems: 'center' },
-  emptyCard: { flexDirection: 'row', alignItems: 'center', gap: 14, borderWidth: 1, borderStyle: 'dashed', borderColor: C.border, borderRadius: 18, padding: 18, backgroundColor: '#FAFAFB' },
+  emptyCard: { flexDirection: 'row', alignItems: 'center', gap: 14, borderWidth: 1, borderColor: C.hair, borderRadius: 18, padding: 16, backgroundColor: '#fff', ...card },
   bookCta: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: '#fff', borderWidth: 1, borderColor: C.border, borderRadius: 18, padding: 14, ...card },
   bookIcon: { width: 44, height: 44, borderRadius: 12, backgroundColor: C.blue, alignItems: 'center', justifyContent: 'center' },
   pastRow: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: '#fff', borderWidth: 1, borderColor: C.border, borderRadius: 16, padding: 14 },
   pastCheck: { width: 34, height: 34, borderRadius: 17, backgroundColor: C.greenSoft, alignItems: 'center', justifyContent: 'center' },
   notesTag: { backgroundColor: C.blueSoft, paddingHorizontal: 10, paddingVertical: 6, borderRadius: 20 },
 
-  nav: { backgroundColor: '#FBFBFC', borderTopWidth: 1, borderTopColor: C.border, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', paddingTop: 10, paddingBottom: 12 },
-  navItem: { alignItems: 'center', gap: 5 },
+  // Docked navigation bar — full-width, anchored to the bottom edge (no side/bottom
+  // gaps). Rounded top corners + upward shadow lift it off the content; the white fills
+  // all the way down (paddingBottom = safe-area inset in BottomNav) so it covers the
+  // system-nav strip completely.
+  nav: { backgroundColor: '#FFFFFF', paddingTop: 10, paddingHorizontal: 10, borderTopLeftRadius: 24, borderTopRightRadius: 24, borderTopWidth: 1, borderColor: 'rgba(20,20,40,0.06)', shadowColor: '#0B1020', shadowOpacity: 0.10, shadowRadius: 18, shadowOffset: { width: 0, height: -4 }, elevation: 18 },
 
   overlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.4)', justifyContent: 'flex-end' },
   sheet: { backgroundColor: '#fff', borderTopLeftRadius: 28, borderTopRightRadius: 28, maxHeight: '88%' },

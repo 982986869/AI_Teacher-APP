@@ -242,6 +242,29 @@ function parseJsonObject(text, context) {
   }
 }
 
+// Optional per-slide comprehension check. Returns a clean object, or undefined if
+// missing/invalid (so the client falls back to its own self-check). Never throws —
+// a malformed check must never fail the whole lesson.
+function normalizeCheck(c) {
+  if (!c || typeof c !== 'object' || Array.isArray(c)) return undefined
+  const str = (v) => (typeof v === 'string' ? v.trim() : '')
+  const question = str(c.question)
+  if (!question) return undefined
+  const options = Array.isArray(c.options)
+    ? c.options.filter((o) => typeof o === 'string' && o.trim()).map((o) => o.trim()).slice(0, 4)
+    : []
+  const wantsMcq = c.type === 'mcq' && options.length >= 2
+  const out = {
+    question,
+    type: wantsMcq ? 'mcq' : (['conceptual', 'short'].includes(c.type) ? c.type : 'conceptual'),
+    answer: str(c.answer),
+    hint: str(c.hint),
+    misconception: str(c.misconception),
+  }
+  if (wantsMcq) out.options = options
+  return out
+}
+
 function parseAndValidateLesson(raw) {
   const data = parseJsonObject(raw, 'lesson')
 
@@ -277,6 +300,8 @@ function parseAndValidateLesson(raw) {
         ? slide.visualData
         : {}
 
+    const check = normalizeCheck(slide.check)
+
     return {
       slideNumber: i + 1,
       slideTitle: slide.slideTitle,
@@ -284,6 +309,9 @@ function parseAndValidateLesson(raw) {
       narrationText: slide.narrationText,
       visualType: slide.visualType,
       visualData,
+      // Optional LLM-authored comprehension check (concept question). Omitted when
+      // absent/invalid so the client falls back to its own self-check.
+      ...(check ? { check } : {}),
       // Animation metadata — validated/defaulted; safe to ignore on the frontend.
       ...normalizeAnimation(slide),
     }

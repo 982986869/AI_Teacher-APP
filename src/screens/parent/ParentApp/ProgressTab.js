@@ -1,31 +1,62 @@
 // src/screens/parent/ParentApp/ProgressTab.js — teammate's week UI + real report stats.
 import React, { memo, useMemo, useState } from 'react';
-import { View, ScrollView, RefreshControl } from 'react-native';
-import { ChevronLeft, ChevronRight } from 'lucide-react-native';
-import { C, st, T, Label, DOWF, MONF, ARENA_BASE_RATING } from './constants';
+import { View, ScrollView, RefreshControl, StyleSheet } from 'react-native';
+import { ChevronLeft, ChevronRight, Dumbbell, Trophy } from 'lucide-react-native';
+import { C, st, T, Label, DOWF, MONF, ARENA_BASE_RATING, card, CardGradient } from './constants';
 import Header from './Header';
-import { CountUp, PressableScale } from './anim';
+import { CountUp, RollNumber, Pulse, PressableScale, FadeIn, PopIn, GrowFill, Breathe, Float } from './anim';
 import { SleepyMonitor } from './illustrations';
 
 const DOW = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 const DFULL = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-// Same static appearance as before (s=22, same colours) — numbers just animate up on
-// mount. Handles plain numbers and the "85%" accuracy string transparently.
-function Stat({ value, label, color }) {
-  const pct = typeof value === 'string' && /^\d+%$/.test(value);
+// Same look (s=22, same colours) — but the number WAITS for the card to settle, then
+// rolls 0→value and lands with a spring punch (`rollDelay` sequences it). Handles plain
+// numbers and the "85%" accuracy string transparently.
+function Stat({ value, label, color, rollDelay = 0 }) {
+  const pct = typeof value === 'string' && /^\d+(\.\d+)?%$/.test(value);
   return (
     <View style={st.stat}>
       {typeof value === 'number'
-        ? <CountUp value={value} w="xbold" s={22} c={color || C.ink} />
+        ? <RollNumber value={value} delay={rollDelay} w="xbold" s={22} c={color || C.ink} />
         : pct
-          ? <CountUp value={parseInt(value, 10)} suffix="%" w="xbold" s={22} c={color || C.ink} />
+          ? <RollNumber value={Math.round(parseFloat(value))} suffix="%" delay={rollDelay} w="xbold" s={22} c={color || C.ink} />
           : <T w="xbold" s={22} c={color || C.ink}>{value}</T>}
       <T w="bold" s={11} c={C.muted} style={{ marginTop: 3 }}>{label}</T>
     </View>
   );
 }
 
-function ProgressTab({ meta, childName, onAvatar, onGym, flash, report, refreshing, onRefresh }) {
+// A titled, layered-gradient stat widget (shadow on the outer layer, gradient + clip
+// on the inner — otherwise iOS clips the shadow). The icon pops in, the divider draws
+// across, and the stats stagger up — `delay` sequences this after the card slides in.
+function StatWidget({ Icon, tint, tintBg, title, delay = 0, onPress, children }) {
+  return (
+    <PressableScale style={ps.shadow} onPress={onPress} accessibilityLabel={`${title} stats`}>
+      <View style={ps.widget}>
+        <CardGradient />
+        <View style={ps.head}>
+          <PopIn delay={delay + 90}>
+            <Breathe from={1} to={1.06} duration={2600}>
+              <View style={[ps.wIcon, { backgroundColor: tintBg }]}><Icon size={15} color={tint} strokeWidth={2.4} /></View>
+            </Breathe>
+          </PopIn>
+          <T w="xbold" s={15.5} c={C.ink}>{title}</T>
+          <ChevronRight size={17} color={C.faint} style={{ marginLeft: 'auto' }} />
+        </View>
+        <GrowFill pct={1} color={C.hair} delay={delay + 130} duration={560} style={ps.divider} />
+        <View style={st.statRow}>
+          {React.Children.map(children, (c, i) => (
+            <FadeIn key={i} delay={delay + 160 + i * 70} y={12} duration={440} style={{ flex: 1 }}>
+              {React.cloneElement(c, { rollDelay: delay + 560 + i * 130 })}
+            </FadeIn>
+          ))}
+        </View>
+      </View>
+    </PressableScale>
+  );
+}
+
+function ProgressTab({ meta, childName, onAvatar, onGym, report = {}, refreshing, onRefresh }) {
   const bg = report.brainGym || {};
   const ar = report.arena || {};
   const mistakes = Number(report.openMistakes) || 0;
@@ -80,71 +111,83 @@ function ProgressTab({ meta, childName, onAvatar, onGym, flash, report, refreshi
       <ScrollView style={{ paddingHorizontal: 18 }} contentContainerStyle={{ paddingBottom: 28 }} showsVerticalScrollIndicator={false}
         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={C.blue} />}>
         {/* Real week navigation — ‹ / › page through the last 5 weeks. */}
-        <View style={st.progHead}>
-          <PressableScale onPress={() => setWkOffset((o) => Math.min(lastIdx, o + 1))} disabled={!canOlder}
-            style={{ padding: 6, opacity: canOlder ? 1 : 0.25 }} accessibilityLabel="Previous week">
-            <ChevronLeft size={20} color={C.ink} />
-          </PressableScale>
-          <T w="bold" s={13} c={C.muted} style={{ letterSpacing: 0.5 }}>{hdr}</T>
-          <PressableScale onPress={() => setWkOffset((o) => Math.max(0, o - 1))} disabled={!canNewer}
-            style={{ padding: 6, opacity: canNewer ? 1 : 0.25 }} accessibilityLabel="Next week">
-            <ChevronRight size={20} color={C.ink} />
-          </PressableScale>
-        </View>
-        {/* Tappable strip — pick any date; green dot = practised that day. */}
+        <FadeIn delay={20} y={8}>
+          <View style={st.progHead}>
+            <PressableScale onPress={() => setWkOffset((o) => Math.min(lastIdx, o + 1))} disabled={!canOlder}
+              hitSlop={10} style={{ padding: 8, opacity: canOlder ? 1 : 0.25 }} accessibilityLabel="Previous week">
+              <ChevronLeft size={20} color={C.ink} />
+            </PressableScale>
+            <FadeIn key={hdr} y={0} duration={260}><T w="bold" s={13} c={C.muted} style={{ letterSpacing: 0.5 }}>{hdr}</T></FadeIn>
+            <PressableScale onPress={() => setWkOffset((o) => Math.max(0, o - 1))} disabled={!canNewer}
+              hitSlop={10} style={{ padding: 8, opacity: canNewer ? 1 : 0.25 }} accessibilityLabel="Next week">
+              <ChevronRight size={20} color={C.ink} />
+            </PressableScale>
+          </View>
+        </FadeIn>
+        {/* Tappable strip — pick any date; green dot = practised that day. Each cell pops
+            in on a stagger; today's circle gently breathes. */}
         <View style={st.weekRow}>
           {weekDays.map((d, i) => {
             const selected = d.key === effSelKey;
+            const circle = (
+              <View style={[st.dateCircle,
+                d.isToday && { backgroundColor: C.ink, borderColor: C.ink },
+                !d.isToday && selected && { borderColor: C.blue, borderWidth: 2 },
+                d.isFuture && { borderColor: '#F2F2F3' }]}>
+                <T w="bold" s={14} c={d.isToday ? '#fff' : d.isFuture ? C.faint : C.ink}>{d.date}</T>
+              </View>
+            );
             return (
-              <PressableScale key={d.key || i} disabled={d.isFuture} onPress={() => setSelKey(d.key)} style={{ alignItems: 'center', gap: 7 }}>
-                <View style={[st.dowChip, d.isToday && { backgroundColor: '#E6E7EA' }]}><T w="bold" s={12} c={C.muted}>{DOW[i]}</T></View>
-                <View style={[st.dateCircle,
-                  d.isToday && { backgroundColor: C.ink, borderColor: C.ink },
-                  !d.isToday && selected && { borderColor: C.blue, borderWidth: 2 },
-                  d.isFuture && { borderColor: '#F2F2F3' }]}>
-                  <T w="bold" s={14} c={d.isToday ? '#fff' : d.isFuture ? C.faint : C.ink}>{d.date}</T>
-                </View>
-                <View style={{ width: 5, height: 5, borderRadius: 3, backgroundColor: d.active ? C.green : 'transparent' }} />
-              </PressableScale>
+              <PopIn key={d.key || i} delay={90 + i * 55}>
+                <PressableScale disabled={d.isFuture} onPress={() => setSelKey(d.key)} style={{ alignItems: 'center', gap: 7 }}
+                  accessibilityLabel={`${DFULL[i]} ${d.date}${d.isFuture ? ', upcoming' : d.active ? ', practised' : ''}`} accessibilityState={{ selected, disabled: d.isFuture }}>
+                  <View style={[st.dowChip, d.isToday && { backgroundColor: '#E6E7EA' }]}><T w="bold" s={12} c={C.muted}>{DOW[i]}</T></View>
+                  {d.isToday ? <Breathe from={1} to={1.07} duration={2000}>{circle}</Breathe> : circle}
+                  {d.active
+                    ? <Pulse from={1} to={1.35} duration={1400}><View style={{ width: 6, height: 6, borderRadius: 3, backgroundColor: C.green }} /></Pulse>
+                    : <View style={{ width: 6, height: 6, borderRadius: 3, backgroundColor: 'transparent' }} />}
+                </PressableScale>
+              </PopIn>
             );
           })}
         </View>
 
-        {/* Selected day's detail (real per-day quizzes / XP from the backend). */}
+        {/* Selected day's detail — crossfades + rises whenever you pick a different day. */}
         {!!selDay && (
-          <View style={{ marginTop: -6, marginBottom: 16, alignItems: 'center' }}>
+          <FadeIn key={effSelKey} y={6} duration={320} style={{ marginTop: -6, marginBottom: 16, alignItems: 'center' }}>
             <T w="bold" s={13.5} c={C.ink}>{selLabel}</T>
             <T w="semi" s={12.5} c={selDay.quizzes > 0 ? C.green : C.muted} style={{ marginTop: 2 }}>{selDetail}</T>
-          </View>
+          </FadeIn>
         )}
 
         {!hasActivity ? (
-          <View style={st.noActivity}>
-            <SleepyMonitor />
-            <T w="semi" s={15} c={C.faint}>No activity yet today</T>
-          </View>
+          <FadeIn delay={120} y={16}>
+            <View style={st.noActivity}>
+              <Float distance={8} duration={2600}><SleepyMonitor /></Float>
+              <T w="semi" s={15} c={C.faint}>No activity yet today</T>
+            </View>
+          </FadeIn>
         ) : (
           <>
-            <Label>BrainGym</Label>
-            <PressableScale style={st.statCard} onPress={onGym}>
-              <View style={st.statRow}>
+            <FadeIn delay={140} y={18}>
+              <StatWidget Icon={Dumbbell} tint={C.green} tintBg={C.greenSoft} title="BrainGym" delay={140} onPress={onGym}>
                 <Stat value={bg.totalXp ?? 0} label="XP" color={C.green} />
                 <Stat value={bg.quizzesCompleted ?? 0} label="Quizzes" />
                 <Stat value={`${bg.accuracy ?? 0}%`} label="Accuracy" />
                 <Stat value={bg.currentStreak ?? 0} label="Streak" color={C.orange} />
-              </View>
-            </PressableScale>
-            <Label>Arena</Label>
-            <PressableScale style={st.statCard} onPress={onGym}>
-              <View style={st.statRow}>
+              </StatWidget>
+            </FadeIn>
+            <FadeIn delay={240} y={18}>
+              <StatWidget Icon={Trophy} tint={C.blue} tintBg={C.blueSoft} title="Arena" delay={240} onPress={onGym}>
                 <Stat value={ar.rating ?? ARENA_BASE_RATING} label="Rating" color={C.blue} />
                 <Stat value={ar.wins ?? 0} label="Wins" color={C.green} />
                 <Stat value={ar.losses ?? 0} label="Losses" color={C.red} />
                 <Stat value={ar.played ?? 0} label="Played" />
-              </View>
-            </PressableScale>
-            <Label>Areas to focus</Label>
-            <View style={st.focusCard}>
+              </StatWidget>
+            </FadeIn>
+            <FadeIn delay={340} y={18}>
+              <Label>Areas to focus</Label>
+              <View style={st.focusCard}>
               {mistakes > 0 ? (
                 <>
                   <CountUp value={mistakes} w="xbold" s={30} c={C.peachInk} />
@@ -172,12 +215,21 @@ function ProgressTab({ meta, childName, onAvatar, onGym, flash, report, refreshi
                   </T>
                 </>
               )}
-            </View>
+              </View>
+            </FadeIn>
           </>
         )}
       </ScrollView>
     </View>
   );
 }
+
+const ps = StyleSheet.create({
+  shadow: { borderRadius: 20, backgroundColor: '#fff', marginTop: 16, ...card },
+  widget: { borderRadius: 20, overflow: 'hidden', padding: 16, borderWidth: 1, borderColor: C.hair },
+  head: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  wIcon: { width: 30, height: 30, borderRadius: 10, alignItems: 'center', justifyContent: 'center' },
+  divider: { height: 1, backgroundColor: C.hair, marginVertical: 14 },
+});
 
 export default memo(ProgressTab);

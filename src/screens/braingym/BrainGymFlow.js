@@ -130,18 +130,17 @@ const BrainGymFlow = ({ onFinish }) => {
       topic="Exponents Basics & Evaluation"
       user={{ name: user?.name || 'Learner', grade: user?.grade || 'G9' }}
       skills={[
-        { key: 'reasoning',     label: 'REASONING',     progress: 0.4 },
-        { key: 'application',   label: 'APPLICATION',   progress: 0.2 },
-        { key: 'understanding', label: 'UNDERSTANDING', progress: 0.7 },
-        { key: 'fluency',       label: 'FLUENCY',       progress: 0.55 },
+        { key: 'reasoning',     label: 'REASONING',     progress: 0.4,  topic: 'Exponent Patterns & Logic' },
+        { key: 'application',   label: 'APPLICATION',   progress: 0.2,  topic: 'Exponents in Word Problems' },
+        { key: 'understanding', label: 'UNDERSTANDING', progress: 0.7,  topic: 'Laws of Exponents — Concepts' },
+        { key: 'fluency',       label: 'FLUENCY',       progress: 0.55, topic: 'Exponents Basics & Evaluation' },
       ]}
       activeTab="workout"
       // Clean exit back to Home (works for the home-opened overlay too).
       onBack={() => onFinish && onFinish()}
       onLeaderboard={() => setStep('leaderboard')}
-      // Start the spin → land on a skill → open the question/quiz screen.
+      // Tap a skill wedge to select it → centre START opens that skill's quiz.
       onStart={(s) => { setSkill(s?.key || 'reasoning'); setStep('quiz'); }}
-      onSelectSkill={() => {}}
       // Tabs LOOP inside Brain Gym (use the wheel's back button to exit to Home).
       onTabPress={handleTab}
     />

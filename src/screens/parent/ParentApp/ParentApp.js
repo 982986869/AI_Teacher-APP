@@ -11,6 +11,10 @@ import {
   Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold,
   Poppins_700Bold, Poppins_800ExtraBold, Poppins_900Black,
 } from '@expo-google-fonts/poppins';
+import {
+  Nunito_400Regular, Nunito_500Medium, Nunito_600SemiBold,
+  Nunito_700Bold, Nunito_800ExtraBold, Nunito_900Black,
+} from '@expo-google-fonts/nunito';
 import { useAuth } from '../../../context/AuthContext';
 import { getParentReport } from '../../../api/parentApi';
 import { st, T, TABS } from './constants';
@@ -27,6 +31,7 @@ import ProfileSheet from './ProfileSheet';
 import BrainGymFlow from '../../braingym/BrainGymFlow';
 import ActivityRouter from './ActivityRouter';
 import BookTrial from './BookTrial';
+import { removeDemoFromCalendar } from './calendar';
 import { FadeIn } from './anim';
 
 export default function ParentApp() {
@@ -37,6 +42,8 @@ export default function ParentApp() {
   const [fontsLoaded, fontError] = useFonts({
     Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold,
     Poppins_700Bold, Poppins_800ExtraBold, Poppins_900Black,
+    Nunito_400Regular, Nunito_500Medium, Nunito_600SemiBold,
+    Nunito_700Bold, Nunito_800ExtraBold, Nunito_900Black,
   });
   const fontsReady = fontsLoaded || fontError;
 
@@ -50,6 +57,9 @@ export default function ParentApp() {
   const [gymOpen, setGymOpen] = useState(false);
   const [activityOpen, setActivityOpen] = useState(false);
   const [trialOpen, setTrialOpen] = useState(false);
+  const [relinking, setRelinking] = useState(false); // "Link another child" without discarding the loaded report
+  const [rescheduleMode, setRescheduleMode] = useState(false);
+  const [booking, setBooking] = useState(null); // the parent's active free-demo booking
 
   const mounted = useRef(true);
   const toastRef = useRef(null);
@@ -75,30 +85,56 @@ export default function ParentApp() {
   }, [flash]);
   useEffect(() => { load(false); }, [load]);
 
+  // ── Free trial/demo booking ──────────────────────────────────────────────────
+  // Booking lives in component state (persistence/backend arrive later). The flow
+  // owns real calendar sync (add / reschedule-update / cancel-delete) and lifts every
+  // change here via onChange — a booking object, or null when cancelled in-flow.
+  const handleDemoChange = useCallback((b) => { if (mounted.current) setBooking(b); }, []);
+  const handleRescheduleDemo = useCallback(() => { setRescheduleMode(true); setTrialOpen(true); }, []);
+  const handleJoinDemo = useCallback(() => flash('Your join link will be shared before the class'), [flash]);
+  const handleCancelDemo = useCallback((b) => {
+    Alert.alert(
+      'Cancel demo class?',
+      'This frees up your slot. You can book another free demo anytime.',
+      [
+        { text: 'Keep it', style: 'cancel' },
+        {
+          text: 'Cancel demo',
+          style: 'destructive',
+          onPress: async () => {
+            if (b && b.calendarEventId) await removeDemoFromCalendar(b.calendarEventId);
+            if (mounted.current) setBooking(null);
+            flash('Demo cancelled');
+          },
+        },
+      ],
+    );
+  }, [flash]);
+
   const onRefresh = useCallback(() => { setRefreshing(true); load(true); }, [load]);
   const retry = useCallback(() => { setLoading(true); setErr(false); load(false); }, [load]);
   const switchTab = useCallback((id) => { setTab((prev) => (id === prev ? prev : id)); }, []);
-  const onLinked = useCallback(() => { setLoading(true); load(false); }, [load]);
+  const onLinked = useCallback(() => { setRelinking(false); setLoading(true); load(false); }, [load]);
   // Header avatar opens the premium account bottom sheet (replaces the old Alert popup).
   const onAvatar = useCallback(() => setSheetOpen(true), []);
   const onGym = useCallback(() => setGymOpen(true), []);            // AI Gym → the real BrainGym
   const onActivity = useCallback(() => setActivityOpen(true), []);  // Recent activity detail
-  const onBookTrial = useCallback(() => setTrialOpen(true), []);    // "Book a FREE trial" → in-app form
-  const relink = useCallback(() => setReport({ linked: false }), []);
+  const onBookTrial = useCallback(() => { setRescheduleMode(false); setTrialOpen(true); }, []); // "Book a FREE demo" → in-app flow
+  const relink = useCallback(() => setRelinking(true), []); // keep report; show link screen without discarding data
   const confirmDelete = useCallback(() => {
     Alert.alert(
       'Delete account',
       'This permanently removes your parent account and unlinks your child. This cannot be undone.',
       [
         { text: 'Cancel', style: 'cancel' },
-        { text: 'Delete', style: 'destructive', onPress: () => flash('Account deletion — coming soon') },
+        { text: 'Delete', style: 'destructive', onPress: () => flash('Email support@ailernova.com and we’ll remove your account.') },
       ],
     );
   }, [flash]);
 
   const linked = !!(report && report.linked);
   const child = (report && report.child) || null;
-  const childName = child?.name || 'your child';
+  const childName = child?.name || user?.name || 'your child';
   const meta = TABS.find((t) => t.id === tab);
 
   let content;
@@ -106,14 +142,17 @@ export default function ParentApp() {
     content = <Skeleton />;
   } else if (err && !report) {
     content = <ErrorState onRetry={retry} />;
-  } else if (!linked) {
+  } else if (!linked || relinking) {
     content = <LinkChild parentName={user?.name} onLinked={onLinked} onLogout={signOut} />;
   } else {
-    const shared = { meta, childName, onAvatar, onGym, onActivity, onBookTrial, flash };
+    const shared = {
+      meta, childName, onAvatar, onGym, onActivity, onBookTrial, flash,
+      booking, onJoinDemo: handleJoinDemo, onRescheduleDemo: handleRescheduleDemo, onCancelDemo: handleCancelDemo,
+    };
     content = (
       <View style={st.screen}>
-        {/* Pure crossfade on tab switch — no layout movement, nav stays fixed. */}
-        <FadeIn key={tab} y={0} duration={240} style={{ flex: 1 }}>
+        {/* Gentle rise + fade on tab switch — content lifts into place, nav stays fixed. */}
+        <FadeIn key={tab} y={12} duration={300} style={{ flex: 1 }}>
           {tab === 'home' && <HomeTab {...shared} report={report} refreshing={refreshing} onRefresh={onRefresh} />}
           {tab === 'progress' && <ProgressTab {...shared} report={report} refreshing={refreshing} onRefresh={onRefresh} />}
           {tab === 'sessions' && <SessionsTab {...shared} />}
@@ -140,7 +179,7 @@ export default function ParentApp() {
         onLinkAnother={relink}
         onLogout={signOut}
         onDeleteAccount={confirmDelete}
-        onComingSoon={() => flash('Coming soon')}
+        onComingSoon={() => flash('Almost ready — we’re finishing this up.')}
         onSwitchToStudent={onSwitchToStudent}
       />
       {/* AI Gym → the actual student BrainGym experience, reused directly (not a copy). */}
@@ -148,14 +187,15 @@ export default function ParentApp() {
         <BrainGymFlow onFinish={() => setGymOpen(false)} />
       </Modal>
       <ActivityRouter visible={activityOpen} onClose={() => setActivityOpen(false)} childName={childName} items={report?.recentActivity} />
-      {/* "Book a FREE trial" → in-app booking form (replaces the old external-app redirect). */}
+      {/* "Book a FREE trial" → in-app booking flow with real device-calendar sync. */}
       <BookTrial
         visible={trialOpen}
-        onClose={() => setTrialOpen(false)}
         childName={childName}
         childList={child ? [child] : []}
         parentName={user?.name}
-        onSubmit={({ phone, day }) => flash(`Trial booked${day ? ` for ${day}` : ''} — we'll call ${phone}`)}
+        initialBooking={rescheduleMode ? booking : null}
+        onClose={() => { setTrialOpen(false); setRescheduleMode(false); }}
+        onChange={handleDemoChange}
       />
     </SafeAreaView>
   );

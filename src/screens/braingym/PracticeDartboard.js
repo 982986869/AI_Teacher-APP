@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import Svg, { Path, Circle, Text as SvgText, Defs, LinearGradient, Stop, G } from 'react-native-svg';
 import ArcTabs from './ArcTabs';
+import { pressSpring, PRESS_SCALE } from './motion';
 
 const { width: SCREEN_W, height: SCREEN_H } = Dimensions.get('window');
 const SIZE = Math.round(Math.min(SCREEN_W - 56, SCREEN_H * 0.42, 320));
@@ -33,11 +34,25 @@ const wedge = (a0, a1, rOut, rIn) => {
 
 const RADAR = [30, 46, 62, 78, 156, 172];
 
+// A tappable that springs down on press (tactile feedback for the back button).
+const PressBtn = ({ style, wrapStyle, onPress, activeOpacity = 0.9, accessibilityLabel, accessibilityRole, children }) => {
+  const sc = useRef(new Animated.Value(1)).current;
+  const to = (v) => pressSpring(sc, v).start();
+  return (
+    <TouchableOpacity activeOpacity={activeOpacity} onPress={onPress} onPressIn={() => to(PRESS_SCALE)} onPressOut={() => to(1)}
+      style={wrapStyle} accessibilityRole={accessibilityRole} accessibilityLabel={accessibilityLabel}>
+      <Animated.View style={[style, { transform: [{ scale: sc }] }]}>{children}</Animated.View>
+    </TouchableOpacity>
+  );
+};
+
 export default function PracticeDartboard({ activeTab = 'practice', onTabPress, onBack, onPlay }) {
   const [loading, setLoading] = useState(false);
   const pulse = useRef(new Animated.Value(0)).current;
   const enter = useRef(new Animated.Value(0)).current;
   const spin = useRef(new Animated.Value(0)).current;
+  const head = useRef(new Animated.Value(0)).current;
+  const hint = useRef(new Animated.Value(0)).current;
   const mountedRef = useRef(true);
 
   // Re-arm on mount — refs survive an effect cleanup (Fast Refresh / StrictMode), so
@@ -46,13 +61,15 @@ export default function PracticeDartboard({ activeTab = 'practice', onTabPress, 
 
   useEffect(() => {
     Animated.timing(enter, { toValue: 1, duration: 520, easing: Easing.out(Easing.cubic), useNativeDriver: true }).start();
+    Animated.timing(head, { toValue: 1, duration: 420, easing: Easing.out(Easing.cubic), useNativeDriver: true }).start();
+    Animated.timing(hint, { toValue: 1, duration: 480, delay: 340, easing: Easing.out(Easing.cubic), useNativeDriver: true }).start();
     const loop = Animated.loop(Animated.sequence([
       Animated.timing(pulse, { toValue: 1, duration: 1100, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
       Animated.timing(pulse, { toValue: 0, duration: 1100, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
     ]));
     loop.start();
     return () => loop.stop();
-  }, [enter, pulse]);
+  }, [enter, pulse, head, hint]);
 
   useEffect(() => {
     if (!loading) return undefined;
@@ -73,6 +90,8 @@ export default function PracticeDartboard({ activeTab = 'practice', onTabPress, 
   const ringOpacity = pulse.interpolate({ inputRange: [0, 1], outputRange: [0.5, 0] });
   const ringScale = pulse.interpolate({ inputRange: [0, 1], outputRange: [1, 1.35] });
   const spinDeg = spin.interpolate({ inputRange: [0, 1], outputRange: ['0deg', '360deg'] });
+  const headTY = head.interpolate({ inputRange: [0, 1], outputRange: [-10, 0] });
+  const hintTY = hint.interpolate({ inputRange: [0, 1], outputRange: [8, 0] });
   const hubPx = (SIZE * 2 * R_HUB) / VB;
 
   return (
@@ -81,16 +100,16 @@ export default function PracticeDartboard({ activeTab = 'practice', onTabPress, 
       {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#0B0B0D' }} />}
 
       {/* header */}
-      <View style={st.header}>
-        <TouchableOpacity onPress={onBack} style={st.back} activeOpacity={0.85} accessibilityRole="button" accessibilityLabel="Back">
+      <Animated.View style={[st.header, { opacity: head, transform: [{ translateY: headTY }] }]}>
+        <PressBtn onPress={onBack} style={st.back} activeOpacity={0.85} accessibilityRole="button" accessibilityLabel="Back">
           <Text style={st.backTxt}>‹</Text>
-        </TouchableOpacity>
+        </PressBtn>
         <Text style={st.title}>Practice</Text>
         <View style={st.stats}>
           <View style={st.boltPill}><Text style={{ fontSize: 11 }}>⚡⚡⚡</Text></View>
           <View style={st.badge}><Text style={{ fontSize: 13 }}>🏆</Text></View>
         </View>
-      </View>
+      </Animated.View>
 
       {/* board */}
       <View style={st.wrap}>
@@ -146,7 +165,7 @@ export default function PracticeDartboard({ activeTab = 'practice', onTabPress, 
           </Animated.View>
         </Animated.View>
 
-        <Text style={st.hint}>Tap the centre to start a quick challenge</Text>
+        <Animated.Text style={[st.hint, { opacity: hint, transform: [{ translateY: hintTY }] }]}>Tap the centre to start a quick challenge</Animated.Text>
       </View>
 
       {/* bottom tabs — Cuemath-style curved selector */}

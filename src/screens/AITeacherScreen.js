@@ -6,7 +6,8 @@ import {
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
 import { generateLesson, askAgent, askAgentStream, getResumeContext, getLesson, updateLessonProgress } from '../api/aiApi';
-import { saveActiveLesson, getActiveLesson, clearActiveLesson } from '../utils/storage';
+import { saveActiveLesson, getActiveLesson, clearActiveLesson, getStudentModel, saveStudentModel } from '../utils/storage';
+import { foldOutcome } from '../components/teacher/pedagogyEngine';
 import KnowledgeAskScreen from './KnowledgeAskScreen';
 import StudyInsightsScreen from './StudyInsightsScreen';
 import {
@@ -72,6 +73,25 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   // True while tearing down a lesson via "New Lesson" — stops the flush cleanup from
   // re-saving the just-cleared resume pointer (a race that revived stale lessons).
   const clearingRef = useRef(false);
+
+  // ── CROSS-LESSON STUDENT MEMORY ──────────────────────────────────────────────
+  // The long-term model the teacher remembers this student by (rolling confidence,
+  // accuracy, topics learned, what was tricky). Loaded once, seeded into the live
+  // player, and folded forward after each lesson. Keyed per student.
+  const studentKey = user?.id || user?._id || user?.email || 'guest';
+  const [studentModel, setStudentModel] = useState(null);
+  useEffect(() => {
+    let alive = true;
+    getStudentModel(studentKey).then((m) => { if (alive) setStudentModel(m); }).catch(() => {});
+    return () => { alive = false; };
+  }, [studentKey]);
+  const recordOutcome = async (outcome) => {
+    try {
+      const next = foldOutcome(studentModel, outcome);
+      setStudentModel(next);
+      await saveStudentModel(studentKey, next);
+    } catch (_) { /* memory is best-effort — never block the lesson */ }
+  };
 
   // Generator
   const [topic, setTopic] = useState(initialTopic);
@@ -202,7 +222,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
 
   // Stable lesson object so the player's buildScenes() memo isn't invalidated on
   // every re-render of this screen.
-  const lessonObj = useMemo(() => ({ lessonTitle, slides, keyTerms }), [lessonTitle, slides, keyTerms]);
+  const lessonObj = useMemo(() => ({ lessonTitle, slides, keyTerms, grade: scope?.classNum || user?.grade || null }), [lessonTitle, slides, keyTerms, scope?.classNum, user?.grade]);
 
   // ── Human moments around the lesson (presentation copy — Ms. Nova's warmth on
   // the landing + while she prepares). Frames the REAL continuity data (resume /
@@ -473,6 +493,8 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
         subject={activeSubject}
         ttsOk={SPEECH_OK}
         startIndex={startIndex}
+        priorModel={studentModel}
+        onOutcome={recordOutcome}
         onProgress={handleProgress}
         onAsk={async (q, i) => {
           // Route doubts through the AI Teacher agent: intent → RAG grounding →

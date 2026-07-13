@@ -5,7 +5,7 @@
 // reward. A small round button bottom-right resets the board. "?" shows the goal.
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import {
-  View, Text, StyleSheet, SafeAreaView, StatusBar, Platform, TouchableOpacity, Dimensions, Animated,
+  View, Text, StyleSheet, SafeAreaView, StatusBar, Platform, TouchableOpacity, Dimensions, Animated, Easing,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FLIP_N, flipAt, allUp, scrambleFlip, hintCellFor } from './arenaLogic';
@@ -64,7 +64,22 @@ export default function ArenaFlipGame({ onExit, onGameOver }) {
   const [hintsOn, setHintsOn] = useState(false);
   const [hint, setHint] = useState(-1);
   const [showRules, setShowRules] = useState(false);
+  const [renderRules, setRenderRules] = useState(false); // stays mounted through the exit
   const [quit, setQuit] = useState(false);
+
+  // Rules sheet: fade the backdrop + grow the card on open, shrink + fade on close
+  // (kept mounted until the exit finishes so it never teleports away).
+  const rules = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    if (showRules) {
+      setRenderRules(true);
+      rules.setValue(0);
+      Animated.spring(rules, { toValue: 1, useNativeDriver: true, speed: 16, bounciness: 8 }).start();
+    } else if (renderRules) {
+      Animated.timing(rules, { toValue: 0, duration: 160, easing: Easing.in(Easing.cubic), useNativeDriver: true })
+        .start(({ finished }) => { if (finished) setRenderRules(false); });
+    }
+  }, [showRules]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const hintUsedRef = useRef(false);
   const pointsRef = useRef(0);
@@ -160,17 +175,17 @@ export default function ArenaFlipGame({ onExit, onGameOver }) {
       </TouchableOpacity>
 
       {/* hint rules sheet */}
-      {showRules && (
-        <View style={s.sheetWrap}>
-          <View style={s.sheet}>
+      {renderRules && (
+        <Animated.View style={[s.sheetWrap, { opacity: rules }]} pointerEvents={showRules ? 'auto' : 'none'}>
+          <Animated.View style={[s.sheet, { transform: [{ scale: rules.interpolate({ inputRange: [0, 1], outputRange: [0.9, 1] }) }] }]}>
             <Text style={s.sheetTitle}>Hint Rules</Text>
             <Text style={s.sheetMsg}>You’ll earn <Text style={s.strike}>100</Text> <Text style={s.amber}>50+</Text> upon solving and the puzzle will reset.</Text>
             <View style={s.sheetRow}>
               <TouchableOpacity onPress={() => setShowRules(false)} activeOpacity={0.8}><Text style={s.sheetClose}>Close</Text></TouchableOpacity>
               <TouchableOpacity onPress={showHints} activeOpacity={0.8}><Text style={s.sheetShow}>Show Hints</Text></TouchableOpacity>
             </View>
-          </View>
-        </View>
+          </Animated.View>
+        </Animated.View>
       )}
 
       <QuitConfirm visible={quit} onQuit={onExit} onCancel={() => setQuit(false)} />

@@ -10,11 +10,11 @@ import { PressableScale } from './anim';
 
 export default function SheetRow({ Icon, label, sub, onPress, danger }) {
   return (
-    <PressableScale style={s.row} onPress={onPress}>
-      <View style={[s.icon, { backgroundColor: danger ? '#FDE8E8' : C.headerBg }]}>
+    <PressableScale style={s.row} onPress={onPress} accessibilityLabel={label} accessibilityHint={danger ? 'Destructive action' : undefined}>
+      <View style={[s.icon, { backgroundColor: danger ? '#FDE8E8' : C.headerBg }]} accessibilityElementsHidden importantForAccessibility="no">
         <Icon size={19} color={danger ? C.red : C.ink} strokeWidth={2.2} />
       </View>
-      <T w="semi" s={15} c={danger ? C.red : C.ink} style={{ flex: 1 }}>{label}</T>
+      <T w="semi" s={15} c={danger ? C.red : C.ink} style={{ flex: 1 }} numberOfLines={1}>{label}</T>
       {sub ? <T w="med" s={13} c={C.muted}>{sub}</T> : <ChevronRight size={18} color={C.faint} />}
     </PressableScale>
   );

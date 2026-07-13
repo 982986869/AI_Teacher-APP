@@ -49,6 +49,22 @@ const PACE = {
   QuickCheck:    { silentHold: 1200, pause: 300, closePause: 600 },
 };
 
+// ── Age-adaptive rhythm ───────────────────────────────────────────────────────
+// A good teacher slows down for a young class and tightens up for a board/exam
+// class. This scales the SILENCES only (pauses, dwells) — never her words — so a
+// Class-3 lesson breathes and a Class-12 lesson is crisp and exam-paced. Content
+// DEPTH still comes from the model (the grade is sent to the backend); this is the
+// on-screen pacing that makes the same engine feel age-appropriate.
+function paceMultForGrade(grade) {
+  const g = parseInt(String(grade == null ? '' : grade).replace(/[^0-9]/g, ''), 10);
+  if (!Number.isFinite(g) || !g) return 1;
+  if (g <= 4) return 1.32;   // young — lots of room to absorb
+  if (g <= 6) return 1.18;
+  if (g <= 8) return 1.08;
+  if (g <= 10) return 1.0;   // board pace
+  return 0.9;                // 11–12 — crisp, competitive-exam rhythm
+}
+
 // Split a narration line into individual spoken sentences (the raw beats of speech).
 function toSentences(line) {
   return String(line || '')
@@ -56,6 +72,42 @@ function toSentences(line) {
     .split('<<S>>')
     .map((s) => s.trim())
     .filter(Boolean);
+}
+
+// ── Clause-level beats ────────────────────────────────────────────────────────
+// Finer than sentences so the board keeps advancing WHILE she talks, instead of
+// going static through a long line and then revealing in silence. Conservative by
+// design: short sentences (≤12 words) stay whole (fluid speech); only long ones
+// split — at punctuation and before connectives — into at most 3 clauses, and
+// stubs (<4 words) merge back so nothing sounds clipped.
+const CONNECTIVE = /\s+(?=(?:and|but|so|because|which|when|then|while|unless|since|therefore|however|meaning|for example|such as)\b)/i;
+function splitClauses(sentence) {
+  const words = sentence.split(/\s+/).filter(Boolean);
+  if (words.length <= 12) return [sentence];
+  const parts = sentence
+    .replace(/([,;:—–])\s+/g, '$1<<C>>')
+    .split('<<C>>')
+    .flatMap((p) => p.split(CONNECTIVE))
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const merged = [];
+  for (const p of parts) {
+    const wc = p.split(/\s+/).filter(Boolean).length;
+    if (merged.length && wc < 4) merged[merged.length - 1] = `${merged[merged.length - 1]} ${p}`.replace(/\s+([,;:—–])/g, '$1');
+    else merged.push(p);
+  }
+  if (merged.length > 3) return [merged[0], merged[1], merged.slice(2).join(' ')];
+  return merged.length ? merged : [sentence];
+}
+// → [{ text, endsSentence }]. `endsSentence` lets sentence-ends breathe while
+// mid-sentence clause breaks get only a short beat, so speech still flows.
+function toClauses(line) {
+  const out = [];
+  for (const sent of toSentences(line)) {
+    const parts = splitClauses(sent);
+    parts.forEach((p, k) => out.push({ text: p, endsSentence: k === parts.length - 1 }));
+  }
+  return out.length ? out : [{ text: String(line || '').trim(), endsSentence: true }];
 }
 
 // How many discrete things the board reveals for this scene — one per beat step.
@@ -145,7 +197,9 @@ const ALWAYS_LEAD = new Set(['Story', 'Analogy', 'Experiment', 'WorkedExample', 
 // ── choreograph ONE scene into a beat timeline ────────────────────────────────
 function directScene(scene, opts = {}) {
   const template = templateFor(scene);
-  const pace = PACE[template] || PACE.Concept;
+  const base = PACE[template] || PACE.Concept;
+  const gm = opts.gradeMult || 1;   // age-adaptive stretch/tighten of the silences
+  const pace = { silentHold: base.silentHold * gm, pause: base.pause * gm, closePause: base.closePause * gm };
 
   // A quick-check is a single beat: pose the question, then STOP and wait for the
   // student. The board (options) is interactive; nothing auto-advances.
@@ -166,30 +220,78 @@ function directScene(scene, opts = {}) {
     };
   }
 
-  const sentences = toSentences(scene.teacherLine);
+  // ── PHRASE-LEVEL SYNC (backend metadata) ──────────────────────────────────────
+  // If the backend attached an explicit per-phrase timeline to this scene, honour
+  // it exactly: each entry is one spoken phrase + its board action. Missing/empty →
+  // fall through to the clause-level director below. Fully backward-compatible.
+  if (Array.isArray(scene.directedBeats) && scene.directedBeats.length) {
+    const mdTotal = boardTotalFor(scene);
+    const md = scene.directedBeats;
+    const mn = md.length;
+    let lastStep = 0;
+    const mBeats = md.map((b, i) => {
+      const last = i === mn - 1;
+      let step = null;
+      if (mdTotal) {
+        if (typeof b.step === 'number') step = b.step;
+        else if (b.board && (b.board.action === 'reveal' || b.board.action === 'diagram' || b.board.action === 'step')) step = lastStep + 1;
+        else step = lastStep || 1;            // highlight/arrow/zoom/focus keep the current board
+        step = Math.max(1, Math.min(mdTotal, step));
+        lastStep = step;
+      }
+      const expression = b.expression || expressionFor(template, i, mn);
+      return {
+        say: b.say || '',
+        boardStep: mdTotal ? step : null,
+        boardAction: b.board || null,   // reveal/highlight/arrow/zoom/underline/focus — for renderer use
+        highlight: b.highlight || null, // keywords to emphasise when spoken
+        expression,
+        camera: cameraForBeat({ expression, i, n: mn, boardTotal: mdTotal, template }),
+        interaction: null,
+        hold: b.say ? 0 : (b.hold || pace.silentHold),
+        pause: last ? pace.closePause : (b.pause != null ? b.pause : (b.say ? pace.pause : 0)),
+      };
+    });
+    const changedMd = opts.prevTemplate && opts.prevTemplate !== template;
+    if ((opts.first || changedMd || ALWAYS_LEAD.has(template)) && mBeats[0] && mBeats[0].say) {
+      mBeats[0] = { ...mBeats[0], say: `${openerFor(template)} ${mBeats[0].say}` };
+    }
+    return { ...scene, template, beats: mBeats, directed: true };
+  }
+
+  const clauses = toClauses(scene.teacherLine);
   const boardTotal = boardTotalFor(scene);
-  // One beat per "moment": as many as there are sentences OR board reveals,
-  // whichever is longer — so every spoken line lands, and every drawn element
-  // gets its own beat. This is the core sync: beat i speaks sentence i AND
-  // brings the board to step i+1.
-  const n = Math.max(sentences.length, boardTotal, 1);
+  // One beat per "moment": as many as there are CLAUSES or board reveals, whichever
+  // is longer — so every spoken clause lands, and every drawn element gets its own
+  // beat. Core sync: beat i speaks clause i AND advances the board proportionally.
+  const n = Math.max(clauses.length, boardTotal, 1);
+  const clausePause = Math.round((pace.pause || 0) * 0.45);
 
   const beats = [];
   for (let i = 0; i < n; i += 1) {
-    const say = sentences[i] || '';
+    const clause = clauses[i];
+    const say = (clause && clause.text) || '';
+    const endsSentence = clause ? clause.endsSentence : true;
     const last = i === n - 1;
     const expression = expressionFor(template, i, n);
+    // Spread the board's reveals PROPORTIONALLY across every beat, so a long
+    // explanation keeps drawing new elements clause-by-clause instead of dumping
+    // them in silence after she stops. Identical to 1-per-beat when beats ≤ steps.
+    const boardStep = boardTotal
+      ? Math.max(1, Math.min(boardTotal, Math.round(((i + 1) / n) * boardTotal)))
+      : null;
     beats.push({
       say,                                                   // Teacher Action
-      boardStep: boardTotal ? Math.min(i + 1, boardTotal) : null, // Board Action
+      boardStep,                                             // Board Action
       expression,                                            // Visual Action (face + gaze)
       camera: cameraForBeat({ expression, i, n, boardTotal, template }), // Camera Action
       interaction: null,                                     // Student Interaction
       // A wordless beat exists only to reveal the next board element — give it a
       // real dwell so the drawing is watched, not skipped.
       hold: say ? 0 : pace.silentHold,
-      // Transition: the breath she leaves after speaking (longer at scene end).
-      pause: last ? pace.closePause : (say ? pace.pause : 0),
+      // Sentence-ends breathe; mid-sentence clause breaks get only a short beat so
+      // speech keeps flowing (longer close at the very end of the scene).
+      pause: last ? pace.closePause : (say ? (endsSentence ? pace.pause : clausePause) : 0),
     });
   }
 
@@ -212,9 +314,10 @@ function directScene(scene, opts = {}) {
 // way, and every lesson opens a little differently.
 export function directLesson(lesson) {
   const scenes = buildScenes(lesson || {});
+  const gradeMult = paceMultForGrade(lesson && (lesson.grade != null ? lesson.grade : lesson.gradeLevel));
   let prevTemplate = null;
   return scenes.map((s, i) => {
-    const directed = directScene(s, { prevTemplate, first: i === 0 });
+    const directed = directScene(s, { prevTemplate, first: i === 0, gradeMult });
     prevTemplate = directed.template;
     return directed;
   });

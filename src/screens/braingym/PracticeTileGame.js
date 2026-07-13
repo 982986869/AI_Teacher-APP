@@ -7,13 +7,14 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import {
   View, Text, StyleSheet, SafeAreaView, StatusBar, Platform,
-  TouchableOpacity, Animated, Easing, Dimensions,
+  TouchableOpacity, Animated, Easing, Dimensions, Vibration,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { pickQuestions } from '../../data/brainGymQuestions';
 import { initSounds, playSound } from '../../utils/sound';
 import QuitConfirm from './QuitConfirm';
 import GoalTip from './GoalTip';
+import { pressSpring, PRESS_SCALE } from './motion';
 
 const { width: SCREEN_W } = Dimensions.get('window');
 const CARD_H = 104;
@@ -66,6 +67,21 @@ function StackCard({ q, answer, top }) {
   );
 }
 
+// One answer tile that springs down on press for tactile feedback.
+function AnswerTile({ opt, i, pal, wrong, picked, onPick }) {
+  const sc = useRef(new Animated.Value(1)).current;
+  const to = (v) => pressSpring(sc, v).start();
+  return (
+    <TouchableOpacity style={{ flex: 1 }} activeOpacity={0.85}
+      onPressIn={() => to(PRESS_SCALE)} onPressOut={() => to(1)} onPress={() => onPick(opt, i)}
+      accessibilityRole="button" accessibilityLabel={`Answer ${opt}`}>
+      <Animated.View style={[st.tile, { backgroundColor: pal.tile, borderColor: pal.tBorder }, wrong && picked === i && st.tileRed, { transform: [{ scale: sc }] }]}>
+        <Text style={st.tileTxt}>{opt}</Text>
+      </Animated.View>
+    </TouchableOpacity>
+  );
+}
+
 export default function PracticeTileGame({ skill = 'fluency', level = 2, onExit, onGameOver }) {
   const insets = useSafeAreaInsets();
   const [stack, setStack] = useState([]);
@@ -80,6 +96,9 @@ export default function PracticeTileGame({ skill = 'fluency', level = 2, onExit,
   const y = useRef(new Animated.Value(0)).current;
   const opacity = useRef(new Animated.Value(1)).current;
   const sparkle = useRef(new Animated.Value(0)).current;
+  const shake = useRef(new Animated.Value(0)).current;   // wrong-answer nudge
+  const pop = useRef(new Animated.Value(0)).current;      // correct-answer pop
+  const overPop = useRef(new Animated.Value(0)).current;  // GAME OVER banner entrance
   const resolvedRef = useRef(false);
   const overRef = useRef(false);
   const mountedRef = useRef(true);
@@ -91,6 +110,11 @@ export default function PracticeTileGame({ skill = 'fluency', level = 2, onExit,
   // a setup that only clears the flag would leave it false and no-op every guarded setState.
   useEffect(() => { mountedRef.current = true; initSounds(); return () => { mountedRef.current = false; }; }, []);
   useEffect(() => { stackRef.current = stack; }, [stack]);
+  useEffect(() => {
+    if (phase !== 'over') return;
+    overPop.setValue(0);
+    Animated.spring(overPop, { toValue: 1, useNativeDriver: true, speed: 12, bounciness: 12 }).start();
+  }, [phase, overPop]);
 
   const gameOver = useCallback(() => {
     if (overRef.current) return;
@@ -133,7 +157,9 @@ export default function PracticeTileGame({ skill = 'fluency', level = 2, onExit,
 
     const landingY = zoneH - sh - CARD_H;
     const fallMs = Math.max(MIN_FALL_MS, BASE_FALL_MS - scoreRef.current * 130 - stackRef.current.length * 180);
-    const anim = Animated.timing(y, { toValue: landingY, duration: fallMs, easing: Easing.linear, useNativeDriver: true });
+    // Gravity: accelerate as it drops (matches the landToStack settle curve) so the
+    // fall reads as physical weight instead of a constant-velocity, robotic glide.
+    const anim = Animated.timing(y, { toValue: landingY, duration: fallMs, easing: Easing.in(Easing.quad), useNativeDriver: true });
     anim.start(({ finished }) => {
       if (finished && !resolvedRef.current) { resolvedRef.current = true; landToStack(); }
     });
@@ -150,12 +176,25 @@ export default function PracticeTileGame({ skill = 'fluency', level = 2, onExit,
       setScore((s) => { scoreRef.current = s + 1; return s + 1; });
       playSound('correct');
       sparkle.setValue(0);
+      pop.setValue(0);
+      Animated.sequence([
+        Animated.spring(pop, { toValue: 1, useNativeDriver: true, speed: 20, bounciness: 14 }),
+        Animated.spring(pop, { toValue: 0, useNativeDriver: true, speed: 16, bounciness: 6 }),
+      ]).start();
       Animated.timing(sparkle, { toValue: 1, duration: 550, easing: Easing.out(Easing.quad), useNativeDriver: true }).start();
       Animated.timing(opacity, { toValue: 0, duration: 280, delay: 360, useNativeDriver: true }).start();
       setTimeout(() => { if (mountedRef.current) setRound((r) => r + 1); }, 720);
     } else {
       setPhase('wrong');
       playSound('wrong');
+      try { Vibration.vibrate(35); } catch (e) {}
+      shake.setValue(0);
+      Animated.sequence([
+        Animated.timing(shake, { toValue: 1, duration: 50, useNativeDriver: true }),
+        Animated.timing(shake, { toValue: -1, duration: 50, useNativeDriver: true }),
+        Animated.timing(shake, { toValue: 1, duration: 50, useNativeDriver: true }),
+        Animated.timing(shake, { toValue: 0, duration: 50, useNativeDriver: true }),
+      ]).start();
       setTimeout(() => { if (mountedRef.current) landToStack(); }, 220);
     }
   };
@@ -172,6 +211,9 @@ export default function PracticeTileGame({ skill = 'fluency', level = 2, onExit,
   const showTiles = phase === 'falling' || phase === 'wrong';
   const cardBg = correct ? '#0F8A3E' : landing ? '#26262E' : pal.bg;
   const cardBorder = correct ? '#3FD37A' : landing ? '#3A3A42' : pal.border;
+  const shakeTx = shake.interpolate({ inputRange: [-1, 1], outputRange: [-9, 9] });
+  const popScale = pop.interpolate({ inputRange: [0, 1], outputRange: [1, 1.07] });
+  const overScale = overPop.interpolate({ inputRange: [0, 1], outputRange: [0.6, 1] });
 
   return (
     <SafeAreaView style={st.safe}>
@@ -199,7 +241,7 @@ export default function PracticeTileGame({ skill = 'fluency', level = 2, onExit,
 
         {/* falling card (question + tiles) */}
         {cur && phase !== 'over' && (
-          <Animated.View style={[st.card, { backgroundColor: cardBg, borderColor: cardBorder, opacity, transform: [{ translateY: y }] }]}>
+          <Animated.View style={[st.card, { backgroundColor: cardBg, borderColor: cardBorder, opacity, transform: [{ translateY: y }, { translateX: shakeTx }, { scale: popScale }] }]}>
             {correct && (
               <>
                 <Animated.Text style={[st.sp, st.spTL, { opacity: sparkle, transform: [{ scale: sparkle.interpolate({ inputRange: [0, 1], outputRange: [0.4, 1.1] }) }] }]}>✦</Animated.Text>
@@ -212,11 +254,7 @@ export default function PracticeTileGame({ skill = 'fluency', level = 2, onExit,
             {showTiles && (
               <View style={st.tiles}>
                 {cur.options.map((opt, i) => (
-                  <TouchableOpacity key={i} activeOpacity={0.85} onPress={() => onPick(opt, i)}
-                    style={[st.tile, { backgroundColor: pal.tile, borderColor: pal.tBorder }, phase === 'wrong' && picked === i && st.tileRed]}
-                    accessibilityRole="button" accessibilityLabel={`Answer ${opt}`}>
-                    <Text style={st.tileTxt}>{opt}</Text>
-                  </TouchableOpacity>
+                  <AnswerTile key={i} opt={opt} i={i} pal={pal} wrong={phase === 'wrong'} picked={picked} onPick={onPick} />
                 ))}
               </View>
             )}
@@ -225,9 +263,9 @@ export default function PracticeTileGame({ skill = 'fluency', level = 2, onExit,
 
         {/* GAME OVER banner */}
         {phase === 'over' && (
-          <View style={st.overCard}>
+          <Animated.View style={[st.overCard, { transform: [{ scale: overScale }] }]}>
             <Text style={st.overTxt}>GAME OVER</Text>
-          </View>
+          </Animated.View>
         )}
       </View>
 

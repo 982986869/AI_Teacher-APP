@@ -5,13 +5,14 @@
 // Server-authoritative result via the per-round move logs; offline fallback if needed.
 import React, { useEffect, useRef, useState, useCallback, useMemo } from 'react';
 import {
-  View, Text, StyleSheet, SafeAreaView, StatusBar, Platform, TouchableOpacity, Animated, Easing, Dimensions,
+  View, Text, StyleSheet, SafeAreaView, StatusBar, Platform, TouchableOpacity, Animated, Easing, Dimensions, Vibration,
 } from 'react-native';
 import Svg, { Circle, Line } from 'react-native-svg';
 import { useAuth } from '../../context/AuthContext';
 import { matchmakeArena, submitArenaResult, abandonMatch } from '../../api/arenaApi';
 import ArenaRectBoard from './ArenaRectBoard';
 import PracticeReward from './PracticeReward';
+import { pressSpring, PRESS_SCALE } from './motion';
 
 const { width: SCREEN_W, height: SCREEN_H } = Dimensions.get('window');
 const RAD = Math.round(Math.min(SCREEN_W, SCREEN_H * 0.5));
@@ -50,6 +51,18 @@ const Face = ({ bg, emoji, size = 96 }) => (
   </View>
 );
 
+// A tappable that springs down on press (tactile feedback for CTAs + close buttons).
+const PressBtn = ({ style, wrapStyle, onPress, disabled, activeOpacity = 0.9, accessibilityLabel, children }) => {
+  const sc = useRef(new Animated.Value(1)).current;
+  const to = (v) => pressSpring(sc, v).start();
+  return (
+    <TouchableOpacity activeOpacity={activeOpacity} disabled={disabled} onPress={onPress}
+      onPressIn={() => !disabled && to(PRESS_SCALE)} onPressOut={() => to(1)} style={wrapStyle} accessibilityLabel={accessibilityLabel}>
+      <Animated.View style={[style, { transform: [{ scale: sc }] }]}>{children}</Animated.View>
+    </TouchableOpacity>
+  );
+};
+
 function CenteredScreen({ children, onExit }) {
   return (
     <SafeAreaView style={s.safe}>
@@ -57,7 +70,7 @@ function CenteredScreen({ children, onExit }) {
       {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#0B0B0D' }} />}
       {onExit && (
         <View style={s.topbar}>
-          <TouchableOpacity onPress={onExit} style={s.x} activeOpacity={0.85} accessibilityLabel="Close"><Text style={s.xTxt}>✕</Text></TouchableOpacity>
+          <PressBtn onPress={onExit} style={s.x} activeOpacity={0.85} accessibilityLabel="Close"><Text style={s.xTxt}>✕</Text></PressBtn>
         </View>
       )}
       <View style={s.center}>{children}</View>
@@ -107,16 +120,43 @@ function RoundCounter({ n, oppName, meName }) {
 function GameOver({ winner, oppName, meName }) {
   const label = winner === 'user' ? 'YOU WIN' : winner === 'opp' ? 'YOU LOST' : 'DRAW';
   const color = winner === 'user' ? '#39D98A' : winner === 'opp' ? '#FF5B52' : '#E8C341';
+  const pop = useRef(new Animated.Value(0)).current;
+  const labelV = useRef(new Animated.Value(0)).current;
+  const glow = useRef(new Animated.Value(0)).current;
+  const shake = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    Animated.spring(pop, { toValue: 1, useNativeDriver: true, speed: 12, bounciness: winner === 'user' ? 15 : 7 }).start();
+    Animated.spring(labelV, { toValue: 1, delay: 240, useNativeDriver: true, speed: 13, bounciness: 12 }).start();
+    if (winner === 'user') {
+      Animated.timing(glow, { toValue: 1, duration: 950, easing: Easing.out(Easing.quad), useNativeDriver: true }).start();
+    } else if (winner === 'opp') {
+      try { Vibration.vibrate(45); } catch (e) {}
+      Animated.sequence([
+        Animated.timing(shake, { toValue: 1, duration: 55, useNativeDriver: true }),
+        Animated.timing(shake, { toValue: -1, duration: 55, useNativeDriver: true }),
+        Animated.timing(shake, { toValue: 1, duration: 55, useNativeDriver: true }),
+        Animated.timing(shake, { toValue: 0, duration: 55, useNativeDriver: true }),
+      ]).start();
+    }
+  }, [winner, pop, labelV, glow, shake]);
+  const scale = pop.interpolate({ inputRange: [0, 1], outputRange: [0.5, 1] });
+  const tx = shake.interpolate({ inputRange: [-1, 1], outputRange: [-8, 8] });
+  const labelScale = labelV.interpolate({ inputRange: [0, 1], outputRange: [0.6, 1] });
+  const glowScale = glow.interpolate({ inputRange: [0, 1], outputRange: [0.85, 1.7] });
+  const glowOpacity = glow.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0.6, 0.3, 0] });
   return (
     <SafeAreaView style={s.safe}>
       <StatusBar barStyle="light-content" backgroundColor="#0B0B0D" />
       {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#0B0B0D' }} />}
       <View style={s.vsWrap}>
         <View style={s.vsTop}><Text style={s.vsName}>{oppName}</Text><Face bg="#E0509A" emoji="😔" size={70} /></View>
-        <View style={[s.overCircle, { borderColor: color }]}>
-          <Text style={[s.overTxt, { color }]}>GAME{'\n'}OVER</Text>
-        </View>
-        <Text style={[s.overLabel, { color }]}>{label}</Text>
+        <Animated.View style={{ alignItems: 'center', justifyContent: 'center', transform: [{ scale }, { translateX: tx }] }}>
+          <Animated.View pointerEvents="none" style={[s.overGlow, { borderColor: color, opacity: glowOpacity, transform: [{ scale: glowScale }] }]} />
+          <View style={[s.overCircle, { borderColor: color }]}>
+            <Text style={[s.overTxt, { color }]}>GAME{'\n'}OVER</Text>
+          </View>
+        </Animated.View>
+        <Animated.Text style={[s.overLabel, { color, opacity: labelV, transform: [{ scale: labelScale }] }]}>{label}</Animated.Text>
         <View style={s.vsBot}><Face bg="#39D98A" emoji="😎" size={70} /><Text style={s.vsName}>{meName}</Text></View>
       </View>
     </SafeAreaView>
@@ -142,7 +182,7 @@ function RectHowTo({ onPlay, onExit }) {
     tick();
     return () => clearTimeout(t);
   }, []);
-  useEffect(() => { cap.setValue(0); Animated.timing(cap, { toValue: 1, duration: 300, useNativeDriver: true }).start(); }, [step, cap]);
+  useEffect(() => { cap.setValue(0); Animated.timing(cap, { toValue: 1, duration: 300, easing: Easing.out(Easing.cubic), useNativeDriver: true }).start(); }, [step, cap]);
 
   const frame = HT_FRAMES[step];
   const cell = 56, dotR = 11;
@@ -155,7 +195,7 @@ function RectHowTo({ onPlay, onExit }) {
       <StatusBar barStyle="light-content" backgroundColor="#0B0B0D" />
       {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#0B0B0D' }} />}
       <View style={s.topbar}>
-        <TouchableOpacity onPress={onExit} style={s.x} activeOpacity={0.85}><Text style={s.xTxt}>✕</Text></TouchableOpacity>
+        <PressBtn onPress={onExit} style={s.x} activeOpacity={0.85} accessibilityLabel="Close"><Text style={s.xTxt}>✕</Text></PressBtn>
         <Text style={s.htTitle}>RECTANGLE IT</Text>
         <View style={{ width: 36 }} />
       </View>
@@ -182,7 +222,7 @@ function RectHowTo({ onPlay, onExit }) {
         <View style={s.dots}>{HT_FRAMES.map((_, i) => <View key={i} style={[s.pdot, i === step && s.pdotOn]} />)}</View>
       </View>
       <View style={s.foot}>
-        <TouchableOpacity style={s.play} activeOpacity={0.9} onPress={onPlay}><Text style={s.playTxt}>PLAY ▶</Text></TouchableOpacity>
+        <PressBtn style={s.play} wrapStyle={{ width: '100%' }} activeOpacity={0.9} onPress={onPlay} accessibilityLabel="Play"><Text style={s.playTxt}>PLAY ▶</Text></PressBtn>
         <Text style={s.skip}>You can start playing any time</Text>
       </View>
     </SafeAreaView>
@@ -319,6 +359,7 @@ const s = StyleSheet.create({
   roundCircle: { width: 120, height: 120, borderRadius: 60, backgroundColor: '#101014', borderWidth: 2, borderColor: '#3A3A44', alignItems: 'center', justifyContent: 'center', marginVertical: 8 },
   roundNum: { color: '#fff', fontSize: 56, fontWeight: '900' },
   overCircle: { width: 110, height: 110, borderRadius: 55, backgroundColor: '#101014', borderWidth: 2, alignItems: 'center', justifyContent: 'center', marginVertical: 18 },
+  overGlow: { position: 'absolute', top: 18, left: 0, width: 110, height: 110, borderRadius: 55, borderWidth: 2 },
   overTxt: { fontSize: 16, fontWeight: '900', textAlign: 'center', letterSpacing: 1 },
   overLabel: { fontSize: 18, fontWeight: '900', letterSpacing: 1 },
 

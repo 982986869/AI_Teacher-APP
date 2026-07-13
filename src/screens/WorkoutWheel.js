@@ -5,10 +5,12 @@ import {
   View, Text, StyleSheet, SafeAreaView, StatusBar, Platform,
   TouchableOpacity, Animated, Dimensions, Easing, PanResponder,
 } from 'react-native';
-import Svg, { Path, Circle, G, Rect, Text as SvgText } from 'react-native-svg';
+import Svg, { Path, Circle, G, Rect, Line, Defs, TextPath, Text as SvgText } from 'react-native-svg';
 import { useAuth } from '../context/AuthContext';
 import { FONT } from '../constants/fonts';
 import { initSounds, playLoop, playSound, stopSound, startLoop, stopLoop } from '../utils/sound';
+import { peekPracticeStreak } from '../utils/storage';
+import { pressSpring, PRESS_SCALE } from './braingym/motion';
 import ArcTabs from './braingym/ArcTabs';
 
 const { width: SCREEN_W } = Dimensions.get('window');
@@ -17,9 +19,9 @@ const WHEEL_SIZE = Math.min(SCREEN_W - 40, 330);
 const VB = 300;
 const C = VB / 2;
 const R_OUTER = 140;
-const R_INNER = 92;
-const R_LABEL = 116;  // labels — centered in the band ring
-const R_EMOJI = 76;   // small skill icon — inner, in the dark gap
+const R_INNER = 116;  // thin band — just wide enough for the label
+const R_LABEL = 128;  // labels — centered in the thin band ring
+const R_EMOJI = 87;   // skill icon — sits in the wider dark gap between START and the ring
 
 const polar = (r, deg) => {
   const rad = (deg * Math.PI) / 180;
@@ -34,13 +36,102 @@ const wedge = (a0, a1, rOut, rIn) => {
 // Positions match the BrainGym design: APPLICATION top, UNDERSTANDING right,
 // FLUENCY bottom, REASONING left (segment centers sit at index*90°).
 const SEG = {
-  application:   { a0: -40, a1: 40 },   // top
-  understanding: { a0: 50,  a1: 130 },  // right
-  fluency:       { a0: 140, a1: 220 },  // bottom
-  reasoning:     { a0: 230, a1: 310 },  // left
+  application:   { a0: -45, a1: 45 },   // top
+  understanding: { a0: 45,  a1: 135 },  // right
+  fluency:       { a0: 135, a1: 225 },  // bottom
+  reasoning:     { a0: 225, a1: 315 },  // left
 };
+// Where the four quadrants meet — thin radial divider lines run out along these.
+const DIVIDERS = [45, 135, 225, 315];
+
+// A curved path along the ring band for a skill's label so the text follows the circle.
+// The bottom label (mid ≈ 180) is drawn reversed so it stays upright (not upside-down).
+const labelArcPath = (key, r) => {
+  const seg = SEG[key];
+  return labelArcPathAt((seg.a0 + seg.a1) / 2, r);
+};
+// Same, but for an arbitrary on-screen mid angle (used by the upright label layer,
+// which positions each label at its CURRENT screen angle regardless of wheel spin).
+function labelArcPathAt(midDeg, r) {
+  const mid = ((midDeg % 360) + 360) % 360;
+  const rev = mid > 90 && mid < 270;                 // bottom half → draw reversed (upright)
+  const pad = 6;
+  const start = rev ? mid + 45 - pad : mid - 45 + pad;
+  const end = rev ? mid - 45 + pad : mid + 45 - pad;
+  const p0 = polar(r, start), p1 = polar(r, end);
+  const sweep = start < end ? 1 : 0;
+  return `M ${p0.x} ${p0.y} A ${r} ${r} 0 0 ${sweep} ${p1.x} ${p1.y}`;
+}
 const ORDER = ['application', 'understanding', 'fluency', 'reasoning'];
 const EMOJI = { reasoning: '🧠', application: '⚙️', understanding: '💡', fluency: '⚡' };
+
+// Line-art skill icons drawn INSIDE the wheel SVG (so they rotate with it). Each skill
+// CYCLES between two related mini-icons (Cuemath-style "the skill is thinking") — the
+// caller passes the current variant `v` (0/1) which flips on a timer. White/grey when
+// idle, a bright accent on the active skill.
+const skillIcon = (cx, cy, key, color, v) => {
+  const p = { stroke: color, strokeWidth: 1.7, fill: 'none', strokeLinecap: 'round', strokeLinejoin: 'round' };
+  const rp = (r, deg) => ({ x: cx + r * Math.sin((deg * Math.PI) / 180), y: cy - r * Math.cos((deg * Math.PI) / 180) });
+
+  if (key === 'reasoning') {
+    if (v === 0) return (
+      <G>
+        <Line x1={cx - 8} y1={cy - 5} x2={cx + 7} y2={cy} {...p} />
+        <Line x1={cx - 8} y1={cy + 5} x2={cx + 7} y2={cy} {...p} />
+        <Circle cx={cx - 8} cy={cy - 5} r={2.4} fill={color} />
+        <Circle cx={cx - 8} cy={cy + 5} r={2.4} fill={color} />
+        <Rect x={cx + 4.5} y={cy - 3} width={6} height={6} rx={1} {...p} />
+      </G>
+    );
+    return (
+      <G>
+        {[-6, 0, 6].map((dy, idx) => <Circle key={idx} cx={cx - 7} cy={cy + dy} r={2.3} fill={color} />)}
+        {[-6, 0, 6].map((dy, idx) => <Rect key={'s' + idx} x={cx + 3.5} y={cy + dy - 2.6} width={5.2} height={5.2} rx={1} {...p} />)}
+      </G>
+    );
+  }
+
+  if (key === 'application') {
+    if (v === 0) return ( // gear
+      <G>
+        {[0, 90, 180, 270].map((a, idx) => { const a1 = rp(4.5, a), a2 = rp(8.5, a); return <Line key={idx} x1={a1.x} y1={a1.y} x2={a2.x} y2={a2.y} {...p} />; })}
+        <Circle cx={cx} cy={cy} r={4.6} {...p} />
+        <Circle cx={cx} cy={cy} r={1.5} fill={color} />
+      </G>
+    );
+    return ( // exponent Xⁿ
+      <G>
+        <SvgText x={cx - 1} y={cy + 6} fontSize={17} fontWeight="800" fill={color} textAnchor="middle">X</SvgText>
+        <SvgText x={cx + 7} y={cy - 3} fontSize={9} fontWeight="800" fill={color} textAnchor="middle">n</SvgText>
+      </G>
+    );
+  }
+
+  if (key === 'understanding') {
+    if (v === 0) return ( // lightbulb
+      <G>
+        <Circle cx={cx} cy={cy - 2} r={5} {...p} />
+        <Line x1={cx - 3} y1={cy + 5} x2={cx + 3} y2={cy + 5} {...p} />
+        <Line x1={cx - 2.4} y1={cy + 8} x2={cx + 2.4} y2={cy + 8} {...p} />
+      </G>
+    );
+    return ( // compare shapes  △ ▢
+      <G>
+        <Path d={`M ${cx - 7} ${cy + 4} L ${cx - 3.5} ${cy - 4} L ${cx} ${cy + 4} Z`} {...p} />
+        <Rect x={cx + 2} y={cy - 3.5} width={7} height={7} rx={1} {...p} />
+      </G>
+    );
+  }
+
+  // fluency
+  if (v === 0) return <Path d={`M ${cx + 2.5} ${cy - 8} L ${cx - 5} ${cy + 1} L ${cx - 0.5} ${cy + 1} L ${cx - 2.5} ${cy + 8} L ${cx + 5} ${cy - 2} L ${cx + 0.5} ${cy - 2} Z`} fill={color} stroke={color} strokeWidth={0.8} strokeLinejoin="round" />;
+  return ( // triangle with a tick
+    <G>
+      <Path d={`M ${cx} ${cy - 7} L ${cx + 7} ${cy + 6} L ${cx - 7} ${cy + 6} Z`} {...p} />
+      <Line x1={cx} y1={cy - 1} x2={cx} y2={cy + 6} {...p} />
+    </G>
+  );
+};
 
 const COL = {
   bg: '#0B0B0D', radar: '#16161A', radar2: '#1E1E24',
@@ -54,6 +145,18 @@ const RADAR_RINGS = [30, 46, 62, 78, 150, 166];
 
 // First-run coach mark shown once per app session.
 let coachSeen = false;
+
+// A button that springs down on press — tactile feedback for the wheel's CTAs.
+const PressBtn = ({ style, onPress, disabled, activeOpacity = 0.9, children }) => {
+  const sc = useRef(new Animated.Value(1)).current;
+  const to = (v) => pressSpring(sc, v).start();
+  return (
+    <TouchableOpacity activeOpacity={activeOpacity} disabled={disabled} onPress={onPress}
+      onPressIn={() => !disabled && to(PRESS_SCALE)} onPressOut={() => to(1)}>
+      <Animated.View style={[style, { transform: [{ scale: sc }] }]}>{children}</Animated.View>
+    </TouchableOpacity>
+  );
+};
 
 const WorkoutWheel = ({
   topic = 'Exponents Basics & Evaluation',
@@ -91,14 +194,26 @@ const WorkoutWheel = ({
   const [lit, setLit] = useState(defaultIdx);
   const [spinning, setSpinning] = useState(false);
   const [landed, setLanded] = useState(null);
-  const [showStreak, setShowStreak] = useState(true);
+  // Only show the "you lost your streak" nudge when the player is genuinely returning
+  // after a gap (streak actually broke). null = hidden.
+  const [streakLoss, setStreakLoss] = useState(null);
   const [coach, setCoach] = useState(!coachSeen);
   const dismissCoach = () => { coachSeen = true; setCoach(false); };
+  const [iconStep, setIconStep] = useState(0); // flips the skill icons between variants
+  const [restRotDeg, setRestRotDeg] = useState(0); // where the upright label/icon layer sits (deg)
+
+  // Cycle the inner skill icons so each wedge feels "alive" (like the Cuemath wheel).
+  useEffect(() => {
+    const id = setInterval(() => setIconStep((s) => s + 1), 1500);
+    return () => clearInterval(id);
+  }, []);
 
   const pulse = useRef(new Animated.Value(0)).current;
+  const pressStart = useRef(new Animated.Value(1)).current; // START button press feedback
   const enter = useRef(new Animated.Value(0)).current;
   const rotation = useRef(new Animated.Value(0)).current; // cumulative degrees
   const rotRef = useRef(0);
+  const labelOpacity = useRef(new Animated.Value(1)).current; // fades the upright layer during a turn
   const mountedRef = useRef(true); // guards async animation callbacks after unmount
 
   // Re-arm on mount — refs survive an effect cleanup (Fast Refresh / StrictMode), so
@@ -121,42 +236,50 @@ const WorkoutWheel = ({
     return () => { stopSound('spin'); };
   }, []);
 
-  // Physically spin the wheel: rotate so the randomly chosen segment decelerates
-  // to a stop under the top pointer. Does NOT auto-start — the user confirms after.
-  const spinTo = () => {
-    if (spinning || snappingRef.current) return;
-    setLanded(null);
+  // Show the streak-lost nudge only if the streak really broke (missed 2+ days).
+  useEffect(() => {
+    peekPracticeStreak().then((info) => {
+      if (mountedRef.current && info && info.broken) setStreakLoss(info);
+    }).catch(() => {});
+  }, []);
+
+  // Tap a wedge → it lights up (selected) and the wheel spins. It's NOT random: the
+  // tap picks the skill, then the wheel does a few full turns and decelerates to a
+  // stop. It lands back upright (net rotation ≡ 0°) so every label + icon stays the
+  // right way up; the tapped skill is the one highlighted at rest. Centre START then
+  // launches that skill's quiz.
+  const selectSkill = (i) => {
+    if (i == null || i < 0 || i >= data.length) return;
+    if (spinningRef.current || i === lit) return;   // ignore mid-turn / already selected
     setSpinning(true);
-    const target = Math.floor(Math.random() * data.length);
-    // Segment centers sit at index*90° (reasoning 0, application 90, …). Rotate so
-    // that center reaches the top (0°), plus a few full turns for momentum.
-    const desiredMod = (360 - (target * 90)) % 360;
-    const currentMod = ((rotRef.current % 360) + 360) % 360;
-    let delta = desiredMod - currentMod;
-    if (delta < 0) delta += 360;
-    const next = rotRef.current + 360 * 4 + delta;
-    rotRef.current = next;
-    startLoop('spin'); // spin loop starts automatically (no-op until spin_loop.mp3 is added)
+    playSound('tick');
+    startLoop('spin');                    // whoosh (no-op until a spin loop sound is added)
+    setLit(i);                            // the tapped wedge lights up…
+    lastLitRef.current = i;
+    // …and the wheel turns the SHORT way so that wedge lands at the bottom (the selected
+    // slot) — e.g. a top wedge just swings down. Labels + icons live in a separate upright
+    // layer, so we fade them out for the turn and back in once repositioned: nothing flips.
+    const seg = SEG[data[i].key];
+    const localMid = (seg.a0 + seg.a1) / 2;
+    const currentScreen = (((localMid + rotRef.current) % 360) + 360) % 360;
+    const delta = norm(180 - currentScreen);         // shortest signed turn to the bottom
+    const target = rotRef.current + delta;
+    rotRef.current = target;
+    Animated.timing(labelOpacity, { toValue: 0, duration: 130, useNativeDriver: true }).start();
     Animated.timing(rotation, {
-      toValue: next, duration: 2600, easing: Easing.out(Easing.cubic), useNativeDriver: true,
+      toValue: target, duration: 560, easing: Easing.out(Easing.cubic), useNativeDriver: true,
     }).start(({ finished }) => {
-      stopLoop('spin'); // stops automatically when the animation ends
-      if (!finished || !mountedRef.current) return;
-      playSound('success'); // landed on a skill
+      stopLoop('spin');
+      if (!mountedRef.current) return;
+      setRestRotDeg((((target % 360) + 360) % 360));  // reposition the upright layer
       setSpinning(false);
-      setLit(target);
-      lastLitRef.current = target;
-      setLanded(data[target]);
+      Animated.timing(labelOpacity, { toValue: 1, duration: 220, useNativeDriver: true }).start();
+      if (finished) playSound('success');
     });
   };
 
-  // Center button: spins when idle, confirms (starts) once a skill has landed.
-  const onCenter = () => {
-    if (spinning || snappingRef.current) return;
-    if (landed) { onStart && onStart(landed); return; }
-    if (!spinOnStart) { onStart && onStart(data[lit]); return; }
-    spinTo();
-  };
+  // Centre button starts the quiz for the currently selected skill (ignored mid-spin).
+  const onCenter = () => { if (spinningRef.current) return; onStart && onStart(data[lit]); };
 
   // ── Manual drag-to-rotate ───────────────────────────────────────────────────
   // Same wheel, same `rotation`/`lit`/`landed` state as the random spin — the only
@@ -255,10 +378,37 @@ const WorkoutWheel = ({
   const spin = rotation.interpolate({ inputRange: [0, 360], outputRange: ['0deg', '360deg'], extrapolate: 'extend' });
   const pulseScale = pulse.interpolate({ inputRange: [0, 1], outputRange: [1, 1.05] });
   const enterScale = enter.interpolate({ inputRange: [0, 1], outputRange: [0.88, 1] });
-  const btnPx = (WHEEL_SIZE * (2 * 58)) / VB;
+  const btnPx = (WHEEL_SIZE * (2 * 44)) / VB;
   // The category currently under the pointer (updates live as the wheel turns) —
   // shown big below the wheel, Cuemath-style.
   const cur = data[lit] || data[0] || { label: '', key: '' };
+
+  // Each skill's current on-screen mid angle (local wedge angle + how far the wheel
+  // has turned to rest). Drives the upright label/icon layer.
+  const screenMidOf = (skill) => ((((SEG[skill.key].a0 + SEG[skill.key].a1) / 2 + restRotDeg) % 360) + 360) % 360;
+
+  // Curved upright labels. Memoised on [restRotDeg, lit] so the 1.5s icon ticker does
+  // NOT re-render (and re-register) the <Defs> paths — repeated re-registration of the
+  // same ids is what makes react-native-svg stack every label onto one arc. Unique ids
+  // per rest angle keep each TextPath resolving to its own fresh path.
+  const labelLayer = useMemo(() => (
+    <Svg width={WHEEL_SIZE} height={WHEEL_SIZE} viewBox={`0 0 ${VB} ${VB}`}>
+      <Defs>
+        {data.map((skill) => {
+          if (!SEG[skill.key]) return null;
+          return <Path key={skill.key} id={`lp-${skill.key}-${restRotDeg}`} d={labelArcPathAt(screenMidOf(skill), R_LABEL)} fill="none" />;
+        })}
+      </Defs>
+      {data.map((skill, i) => (
+        SEG[skill.key] ? (
+          <SvgText key={skill.key} fill={i === lit ? COL.bg : COL.label}
+            fontSize={10.5} fontFamily={FONT.extrabold} letterSpacing={2} textAnchor="middle">
+            <TextPath href={`#lp-${skill.key}-${restRotDeg}`} startOffset="50%">{skill.label}</TextPath>
+          </SvgText>
+        ) : null
+      ))}
+    </Svg>
+  ), [restRotDeg, lit, data]);
 
   return (
     <SafeAreaView style={s.safe}>
@@ -274,7 +424,7 @@ const WorkoutWheel = ({
               <Text style={s.backTxt}>‹</Text>
             </TouchableOpacity>
           )}
-          <View style={s.avatar}><Text style={{ fontSize: 22 }}>🙂</Text></View>
+          <View style={s.avatar}><Text style={{ fontSize: 24 }}>😌</Text></View>
           <View>
             <View style={{ flexDirection: 'row', alignItems: 'flex-start' }}>
               <Text style={s.userName}>{uName}</Text>
@@ -293,11 +443,13 @@ const WorkoutWheel = ({
         </View>
       </View>
 
-      {/* Streak nudge (dismissible) */}
-      {showStreak && (
+      {/* Streak nudge — only when the streak actually broke after a gap (dismissible) */}
+      {streakLoss && (
         <View style={s.streakCard}>
-          <Text style={s.streakTxt}>Uh-oh! You lost all 1 streak point for missing the last 3 days.</Text>
-          <TouchableOpacity style={s.streakBtn} activeOpacity={0.9} onPress={() => setShowStreak(false)}>
+          <Text style={s.streakTxt}>
+            Uh-oh! You lost {streakLoss.lostPoints > 1 ? `all ${streakLoss.lostPoints}` : 'your'} streak point{streakLoss.lostPoints === 1 ? '' : 's'} for missing the last {streakLoss.missedDays} day{streakLoss.missedDays === 1 ? '' : 's'}.
+          </Text>
+          <TouchableOpacity style={s.streakBtn} activeOpacity={0.9} onPress={() => setStreakLoss(null)}>
             <Text style={s.streakBtnTxt}>I'm back in action!</Text>
           </TouchableOpacity>
         </View>
@@ -306,12 +458,8 @@ const WorkoutWheel = ({
       <View style={s.wheelWrap}>
         <Animated.View style={{ transform: [{ scale: enterScale }], opacity: enter }}>
           <View ref={wheelRef} onLayout={measureCenter} style={{ width: WHEEL_SIZE, height: WHEEL_SIZE }}>
-            {/* Top pointer marking the selected segment */}
-            <View style={s.pointer} pointerEvents="none" />
-
             {/* Rotating wheel — drag it to rotate manually, or tap START to spin */}
             <Animated.View
-              {...pan.panHandlers}
               style={{ width: WHEEL_SIZE, height: WHEEL_SIZE, transform: [{ rotate: spin }] }}>
             <Svg width={WHEEL_SIZE} height={WHEEL_SIZE} viewBox={`0 0 ${VB} ${VB}`}>
               {/* Radar rings */}
@@ -326,84 +474,58 @@ const WorkoutWheel = ({
                 if (!seg) return null;
                 const isLit = i === lit;
                 return (
-                  <G key={skill.key} onPress={() => onSelectSkill && onSelectSkill(skill)}>
+                  <G key={skill.key} onPress={() => selectSkill(i)}>
                     <Path d={wedge(seg.a0, seg.a1, R_OUTER, R_INNER)}
-                      fill={isLit ? COL.segLit : COL.seg}
+                      fill={isLit ? COL.white : COL.seg}
                       stroke={isLit ? COL.white : COL.segStroke}
-                      strokeWidth={isLit ? 3 : 1} />
+                      strokeWidth={isLit ? 1.5 : 1} />
                   </G>
                 );
               })}
 
-              {/* Skill icons (inner): green brand block on the active skill, ✕ on the rest */}
-              {data.map((skill, i) => {
-                const seg = SEG[skill.key];
-                if (!seg) return null;
-                const mid = (seg.a0 + seg.a1) / 2;
-                const p = polar(R_EMOJI, mid);
-                if (i === lit) {
-                  return (
-                    <Rect key={'ic-' + skill.key} x={p.x - 9} y={p.y - 9} width={18} height={18}
-                      rx={4} fill={COL.green} stroke="#0B3D24" strokeWidth={1} />
-                  );
-                }
-                return (
-                  <SvgText key={'ic-' + skill.key} x={p.x} y={p.y + 6} fontSize={18} fontWeight="800"
-                    fill={COL.label} textAnchor="middle">✕</SvgText>
-                );
-              })}
-
-              {/* Labels — straight, centered in each wedge, kept upright.
-                  Top/bottom read horizontally; sides read vertically along the ring. */}
-              {data.map((skill, i) => {
-                const seg = SEG[skill.key];
-                if (!seg) return null;
-                const mid = (seg.a0 + seg.a1) / 2;
-                let rot = ((mid % 360) + 360) % 360;
-                if (rot > 90 && rot < 270) rot -= 180; // never upside-down
-                const p = polar(R_LABEL, mid);
-                const isLit = i === lit;
-                return (
-                  <SvgText key={'lbl-' + skill.key}
-                    x={p.x} y={p.y}
-                    fill={isLit ? COL.labelLit : COL.label}
-                    fontSize={11} fontFamily={FONT.extrabold} letterSpacing={2}
-                    textAnchor="middle" alignmentBaseline="middle"
-                    transform={`rotate(${rot} ${p.x} ${p.y})`}>
-                    {skill.label}
-                  </SvgText>
-                );
+              {/* Thin radial dividers from the START circle out to the ring */}
+              {DIVIDERS.map((a, idx) => {
+                const p1 = polar(52, a), p2 = polar(R_OUTER, a);
+                return <Line key={'div' + idx} x1={p1.x} y1={p1.y} x2={p2.x} y2={p2.y} stroke="#3A3A44" strokeWidth={1} />;
               })}
             </Svg>
+            </Animated.View>
+
+            {/* Upright layer — labels + icons stay the right way up while the wheel turns
+                underneath. pointerEvents none so wedge taps fall through to the wheel.
+                Labels are the memoised layer; icons are separate so the ticker can flip
+                them without touching the label <Defs>. */}
+            <Animated.View pointerEvents="none"
+              style={{ position: 'absolute', left: 0, top: 0, width: WHEEL_SIZE, height: WHEEL_SIZE, opacity: labelOpacity }}>
+              {labelLayer}
+              <Svg width={WHEEL_SIZE} height={WHEEL_SIZE} viewBox={`0 0 ${VB} ${VB}`}
+                style={{ position: 'absolute', left: 0, top: 0 }}>
+                {data.map((skill, i) => {
+                  if (!SEG[skill.key]) return null;
+                  const p = polar(R_EMOJI, screenMidOf(skill));
+                  return <G key={skill.key}>{skillIcon(p.x, p.y, skill.key, i === lit ? COL.white : COL.label, iconStep % 2)}</G>;
+                })}
+              </Svg>
             </Animated.View>
 
             {/* START / GO button (fixed center, does not rotate) */}
             <Animated.View style={[s.startWrap, {
               width: btnPx, height: btnPx, borderRadius: btnPx / 2,
               marginLeft: -btnPx / 2, marginTop: -btnPx / 2,
-              transform: [{ scale: pulseScale }],
+              transform: [{ scale: Animated.multiply(pulseScale, pressStart) }],
             }]}>
               <TouchableOpacity activeOpacity={0.85} onPress={onCenter} disabled={spinning}
+                onPressIn={() => !spinning && pressSpring(pressStart, PRESS_SCALE).start()}
+                onPressOut={() => pressSpring(pressStart, 1).start()}
                 style={[s.startBtn, { borderRadius: btnPx / 2 }]}>
-                <Text style={s.startTxt}>{spinning ? '✦' : landed ? 'GO' : 'START'}</Text>
+                <Text style={s.startTxt}>{spinning ? '✦' : 'START'}</Text>
               </TouchableOpacity>
             </Animated.View>
           </View>
         </Animated.View>
 
         <View style={s.confirmWrap}>
-          <Text style={s.catName} numberOfLines={1}>{EMOJI[cur.key] ? `${EMOJI[cur.key]}  ` : ''}{cur.label}</Text>
-          <Text style={s.catSub} numberOfLines={1}>{cur.sub || topic}</Text>
-          {!!landed && (
-            <View style={s.confirmRow}>
-              <TouchableOpacity style={s.confirmBtn} activeOpacity={0.9} onPress={() => onStart && onStart(landed)}>
-                <Text style={s.confirmTxt}>Start ▶</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={s.respinBtn} activeOpacity={0.9} onPress={spinTo}>
-                <Text style={s.respinTxt}>↻ Spin again</Text>
-              </TouchableOpacity>
-            </View>
-          )}
+          <Text style={s.catSub} numberOfLines={1}>{cur.topic || cur.sub || topic}</Text>
         </View>
       </View>
 
@@ -438,7 +560,7 @@ const s = StyleSheet.create({
   safe: { flex: 1, backgroundColor: COL.bg },
   header: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 18, paddingVertical: 14 },
   userRow: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  avatar: { width: 44, height: 44, borderRadius: 22, backgroundColor: '#8E7BF5', alignItems: 'center', justifyContent: 'center' },
+  avatar: { width: 44, height: 44, borderRadius: 22, backgroundColor: COL.green, alignItems: 'center', justifyContent: 'center' },
   userName: { color: COL.white, fontSize: 17, fontFamily: FONT.black, letterSpacing: -0.2 },
   userGrade: { color: COL.sub, fontSize: 10, fontFamily: FONT.bold, marginLeft: 3, marginTop: 2 },
   userSub: { color: COL.green, fontSize: 12, fontFamily: FONT.bold, marginTop: 1 },

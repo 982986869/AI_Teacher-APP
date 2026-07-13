@@ -2,12 +2,14 @@
 // Cuemath ARENA wheel: a 3-segment radar — STRATEGY GAME (top-left, green) ·
 // LOGIC PUZZLE (top-right, grey) · SPEED RUSH (bottom). Tap a segment to select it
 // (it turns white), then START launches that game. Each segment → a different game.
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
-  View, Text, StyleSheet, SafeAreaView, StatusBar, Platform, TouchableOpacity, Dimensions,
+  View, Text, StyleSheet, SafeAreaView, StatusBar, Platform, TouchableOpacity, Dimensions, Animated, Easing,
 } from 'react-native';
 import Svg, { Path, Circle, Rect, Line, Polygon, G, Text as SvgText, TextPath, Defs } from 'react-native-svg';
 import { useAuth } from '../../context/AuthContext';
+import { play } from '../../utils/sound';
+import { pressSpring, PRESS_SCALE } from './motion';
 import ArcTabs from './ArcTabs';
 
 const { width: SCREEN_W } = Dimensions.get('window');
@@ -70,6 +72,45 @@ export default function ArenaWheel({ onStartGame, onTabPress, onBack }) {
   const grade = user?.grade || 'G11';
   const [selected, setSelected] = useState('sticks');
 
+  // ── Motion ──────────────────────────────────────────────────────────────────
+  const enter = useRef(new Animated.Value(0)).current;      // one-shot entrance
+  const pulse = useRef(new Animated.Value(0)).current;      // gentle START breathing
+  const pressStart = useRef(new Animated.Value(1)).current; // START press feedback
+  const selScale = useRef(new Animated.Value(1)).current;   // wheel punch on select
+  const subPop = useRef(new Animated.Value(1)).current;     // subtitle pop on select
+  const mounted = useRef(true);
+
+  useEffect(() => {
+    mounted.current = true;
+    Animated.timing(enter, { toValue: 1, duration: 520, easing: Easing.out(Easing.cubic), useNativeDriver: true }).start();
+    const loop = Animated.loop(Animated.sequence([
+      Animated.timing(pulse, { toValue: 1, duration: 1200, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
+      Animated.timing(pulse, { toValue: 0, duration: 1200, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
+    ]));
+    loop.start();
+    return () => { mounted.current = false; loop.stop(); };
+  }, [enter, pulse]);
+
+  // Tap a segment → soft click, a little wheel "punch" and a subtitle pop (never a snap).
+  const selectSeg = (key) => {
+    if (key === selected) return;
+    setSelected(key);
+    try { play('tick'); } catch (_) {}
+    selScale.setValue(1);
+    Animated.sequence([
+      Animated.timing(selScale, { toValue: 1.04, duration: 90, easing: Easing.out(Easing.quad), useNativeDriver: true }),
+      Animated.spring(selScale, { toValue: 1, useNativeDriver: true, damping: 9, stiffness: 180, mass: 0.7 }),
+    ]).start();
+    subPop.setValue(0.82);
+    Animated.spring(subPop, { toValue: 1, useNativeDriver: true, damping: 10, stiffness: 200, mass: 0.7 }).start();
+  };
+
+  const startGame = () => { try { play('whoosh'); } catch (_) {} onStartGame && onStartGame(selected); };
+
+  const enterScale = enter.interpolate({ inputRange: [0, 1], outputRange: [0.88, 1] });
+  const pulseScale = pulse.interpolate({ inputRange: [0, 1], outputRange: [1, 1.05] });
+  const subRise = enter.interpolate({ inputRange: [0, 1], outputRange: [10, 0] });
+
   return (
     <SafeAreaView style={st.safe}>
       <StatusBar barStyle="light-content" backgroundColor="#0B0B0D" />
@@ -98,7 +139,7 @@ export default function ArenaWheel({ onStartGame, onTabPress, onBack }) {
 
       {/* wheel */}
       <View style={st.wheelWrap}>
-        <View style={{ width: WHEEL, height: WHEEL }}>
+        <Animated.View style={{ width: WHEEL, height: WHEEL, opacity: enter, transform: [{ scale: Animated.multiply(enterScale, selScale) }] }}>
           <Svg width={WHEEL} height={WHEEL} viewBox={`0 0 ${VB} ${VB}`}>
             <Defs>
               {SEGS.filter((s) => s.mid !== 180).map((s) => (
@@ -117,7 +158,7 @@ export default function ArenaWheel({ onStartGame, onTabPress, onBack }) {
                 <Path key={s.key} d={slice(s.a0, s.a1)}
                   fill={sel ? '#FFFFFF' : s.base}
                   stroke={sel ? '#FFFFFF' : '#2A2A30'} strokeWidth={sel ? 2 : 1.5}
-                  onPress={() => setSelected(s.key)} />
+                  onPress={() => selectSeg(s.key)} />
               );
             })}
 
@@ -143,15 +184,22 @@ export default function ArenaWheel({ onStartGame, onTabPress, onBack }) {
           </Svg>
 
           {/* START hub */}
-          <TouchableOpacity activeOpacity={0.9} onPress={() => onStartGame && onStartGame(selected)}
-            style={[st.start, { left: WHEEL / 2, top: WHEEL / 2, width: (WHEEL * 2 * RC) / VB, height: (WHEEL * 2 * RC) / VB, borderRadius: (WHEEL * RC) / VB, marginLeft: -(WHEEL * RC) / VB, marginTop: -(WHEEL * RC) / VB }]}
-            accessibilityRole="button" accessibilityLabel={`Start ${GAME_NAME[selected]}`}>
-            <Text style={st.startTxt}>START</Text>
-          </TouchableOpacity>
-        </View>
+          <Animated.View style={[st.start, {
+            left: WHEEL / 2, top: WHEEL / 2, width: (WHEEL * 2 * RC) / VB, height: (WHEEL * 2 * RC) / VB,
+            borderRadius: (WHEEL * RC) / VB, marginLeft: -(WHEEL * RC) / VB, marginTop: -(WHEEL * RC) / VB,
+            transform: [{ scale: Animated.multiply(pulseScale, pressStart) }],
+          }]}>
+            <TouchableOpacity activeOpacity={0.9} onPress={startGame}
+              onPressIn={() => pressSpring(pressStart, PRESS_SCALE).start()}
+              onPressOut={() => pressSpring(pressStart, 1).start()}
+              style={st.startInner} accessibilityRole="button" accessibilityLabel={`Start ${GAME_NAME[selected]}`}>
+              <Text style={st.startTxt}>START</Text>
+            </TouchableOpacity>
+          </Animated.View>
+        </Animated.View>
 
-        <Text style={st.subtitle}>{GAME_NAME[selected]}</Text>
-        <Text style={st.hintTap}>tap a segment to switch game</Text>
+        <Animated.Text style={[st.subtitle, { opacity: enter, transform: [{ translateY: subRise }, { scale: subPop }] }]}>{GAME_NAME[selected]}</Animated.Text>
+        <Animated.Text style={[st.hintTap, { opacity: enter }]}>tap a segment to switch game</Animated.Text>
       </View>
 
       {/* bottom tabs */}
@@ -182,6 +230,7 @@ const st = StyleSheet.create({
 
   wheelWrap: { flex: 1, alignItems: 'center', justifyContent: 'center' },
   start: { position: 'absolute', backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center', shadowColor: '#fff', shadowOpacity: 0.18, shadowRadius: 16, elevation: 6 },
+  startInner: { width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center' },
   startTxt: { color: '#0B0B0D', fontSize: 18, fontWeight: '900', letterSpacing: 0.5 },
   subtitle: { color: '#fff', fontSize: 19, fontWeight: '900', marginTop: 22, letterSpacing: -0.2 },
   hintTap: { color: '#6E6E77', fontSize: 11, fontWeight: '700', marginTop: 6 },

@@ -1,35 +1,62 @@
 // src/screens/braingym/QuitConfirm.js
 // Confirmation overlay shown when the player taps the ✕ in a game. "Keep playing"
 // dismisses it (stay in the game); "Quit" exits. Animated, blocks touches behind it.
-import React, { useEffect, useRef } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Animated, Easing } from 'react-native';
+import { pressSpring, PRESS_SCALE } from './motion';
+
+// A modal button that depresses with the app's shared press feel.
+function ModalBtn({ style, textStyle, label, onPress, accessibilityLabel }) {
+  const sc = useRef(new Animated.Value(1)).current;
+  const to = (v) => pressSpring(sc, v).start();
+  return (
+    <TouchableOpacity activeOpacity={0.9} onPress={onPress}
+      onPressIn={() => to(PRESS_SCALE)} onPressOut={() => to(1)}
+      accessibilityRole="button" accessibilityLabel={accessibilityLabel}>
+      <Animated.View style={[style, { transform: [{ scale: sc }] }]}>
+        <Text style={textStyle}>{label}</Text>
+      </Animated.View>
+    </TouchableOpacity>
+  );
+}
 
 export default function QuitConfirm({
   visible, onQuit, onCancel,
   title = 'Quit game?', message = 'You’ll lose your progress in this game.',
 }) {
   const a = useRef(new Animated.Value(0)).current;
-  useEffect(() => {
-    Animated.spring(a, { toValue: visible ? 1 : 0, useNativeDriver: true, speed: 16, bounciness: 8 }).start();
-  }, [visible, a]);
+  // Stay mounted through the exit so the dismiss actually animates (nothing should
+  // disappear instantly); unmount only once the close has played out.
+  const [render, setRender] = useState(visible);
 
-  if (!visible) return null;
-  const scale = a.interpolate({ inputRange: [0, 1], outputRange: [0.85, 1] });
+  useEffect(() => {
+    if (visible) {
+      setRender(true);
+      // Open: spring in with a little overshoot (anticipation → settle).
+      Animated.spring(a, { toValue: 1, useNativeDriver: true, speed: 16, bounciness: 8 }).start();
+    } else if (render) {
+      // Close: quick accelerate-out (fade + shrink), then unmount. Kept short so it
+      // still feels fast.
+      Animated.timing(a, { toValue: 0, duration: 170, easing: Easing.in(Easing.cubic), useNativeDriver: true })
+        .start(({ finished }) => { if (finished) setRender(false); });
+    }
+  }, [visible]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  if (!render) return null;
+  // Backdrop + card fade together; the card also scales, so it grows on open and
+  // shrinks away on close instead of popping.
+  const scale = a.interpolate({ inputRange: [0, 1], outputRange: [0.9, 1] });
 
   return (
-    <View style={st.overlay}>
-      <Animated.View style={[st.card, { opacity: a, transform: [{ scale }] }]}>
+    <Animated.View style={[st.overlay, { opacity: a }]} pointerEvents={visible ? 'auto' : 'none'}>
+      <Animated.View style={[st.card, { transform: [{ scale }] }]}>
         <Text style={st.icon}>🚪</Text>
         <Text style={st.title}>{title}</Text>
         <Text style={st.msg}>{message}</Text>
-        <TouchableOpacity style={st.cancel} activeOpacity={0.9} onPress={onCancel} accessibilityRole="button" accessibilityLabel="Keep playing">
-          <Text style={st.cancelTxt}>KEEP PLAYING</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={st.quit} activeOpacity={0.85} onPress={onQuit} accessibilityRole="button" accessibilityLabel="Quit game">
-          <Text style={st.quitTxt}>Quit</Text>
-        </TouchableOpacity>
+        <ModalBtn style={st.cancel} textStyle={st.cancelTxt} label="KEEP PLAYING" onPress={onCancel} accessibilityLabel="Keep playing" />
+        <ModalBtn style={st.quit} textStyle={st.quitTxt} label="Quit" onPress={onQuit} accessibilityLabel="Quit game" />
       </Animated.View>
-    </View>
+    </Animated.View>
   );
 }
 

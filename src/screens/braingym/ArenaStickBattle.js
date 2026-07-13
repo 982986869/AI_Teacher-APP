@@ -5,10 +5,11 @@
 // Matches the ArenaFlipBattle pattern (howto → game → reward).
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import {
-  View, Text, StyleSheet, SafeAreaView, StatusBar, Platform, TouchableOpacity, Animated, Easing,
+  View, Text, StyleSheet, SafeAreaView, StatusBar, Platform, TouchableOpacity, Animated, Easing, Vibration,
 } from 'react-native';
 import { tokensFor, buildRun } from './stickLogic';
 import PracticeReward from './PracticeReward';
+import { pressSpring, PRESS_SCALE } from './motion';
 
 const AMBER = '#F2A93B';      // lit matchstick
 const AMBER_TIP = '#E5532B';  // stick head
@@ -19,6 +20,18 @@ const RED = '#F0564B';
 const POINTS_PER = 15;
 const LIVES = 3;
 const ROUNDS = 8;
+
+// A tappable that springs down on press (tactile feedback for CTAs + close buttons).
+function PressBtn({ style, wrapStyle, onPress, disabled, activeOpacity = 0.9, accessibilityLabel, children }) {
+  const sc = useRef(new Animated.Value(1)).current;
+  const to = (v) => pressSpring(sc, v).start();
+  return (
+    <TouchableOpacity activeOpacity={activeOpacity} disabled={disabled} onPress={onPress}
+      onPressIn={() => !disabled && to(PRESS_SCALE)} onPressOut={() => to(1)} style={wrapStyle} accessibilityLabel={accessibilityLabel}>
+      <Animated.View style={[style, { transform: [{ scale: sc }] }]}>{children}</Animated.View>
+    </TouchableOpacity>
+  );
+}
 
 // ── Matchstick rendering ─────────────────────────────────────────────────────
 // A single stick (rounded bar) with a little coloured "head" for the matchstick look.
@@ -89,6 +102,30 @@ function MEquation({ str, size = 64, tint }) {
   );
 }
 
+// One answer option: staggered entrance pop on mount + spring-down on press.
+function StickOption({ opt, index, state, disabled, onPress }) {
+  const sc = useRef(new Animated.Value(1)).current;
+  const enter = useRef(new Animated.Value(0)).current;
+  const to = (v) => pressSpring(sc, v).start();
+  useEffect(() => {
+    Animated.spring(enter, { toValue: 1, delay: index * 70, useNativeDriver: true, speed: 14, bounciness: 10 }).start();
+  }, [enter, index]);
+  const enterScale = enter.interpolate({ inputRange: [0, 1], outputRange: [0.7, 1] });
+  return (
+    <TouchableOpacity activeOpacity={0.9} disabled={disabled}
+      onPressIn={() => !disabled && to(PRESS_SCALE)} onPressOut={() => to(1)} onPress={onPress}>
+      <Animated.View style={[st.opt, state === 'ok' && st.optOk, state === 'bad' && st.optBad, state === 'reveal' && st.optReveal,
+        { opacity: enter, transform: [{ scale: Animated.multiply(sc, enterScale) }] }]}>
+        <View style={{ transform: [{ scale: 0.5 }] }}>
+          <MEquation str={opt} size={46} />
+        </View>
+        {state === 'ok' && <Text style={st.optMark}>✓</Text>}
+        {state === 'bad' && <Text style={[st.optMark, { color: RED }]}>✕</Text>}
+      </Animated.View>
+    </TouchableOpacity>
+  );
+}
+
 // ── HOW TO PLAY — auto-playing demo (bad ⇄ good), loops like a short video ─────
 const DEMO = { bad: '1+1=3', good: '1+1=2' };
 function StickHowTo({ onPlay, onExit }) {
@@ -109,7 +146,7 @@ function StickHowTo({ onPlay, onExit }) {
         .start(() => {
           if (!alive) return;
           setGood(showGood);
-          Animated.timing(fade, { toValue: 1, duration: 260, useNativeDriver: true }).start();
+          Animated.timing(fade, { toValue: 1, duration: 260, easing: Easing.out(Easing.quad), useNativeDriver: true }).start();
           toggle = setTimeout(() => run(!showGood), showGood ? 1500 : 1300);
         });
     };
@@ -122,7 +159,7 @@ function StickHowTo({ onPlay, onExit }) {
       <StatusBar barStyle="light-content" backgroundColor="#0B0B0D" />
       {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#0B0B0D' }} />}
       <View style={st.head}>
-        <TouchableOpacity onPress={onExit} style={st.x} activeOpacity={0.85}><Text style={st.xTxt}>✕</Text></TouchableOpacity>
+        <PressBtn onPress={onExit} style={st.x} activeOpacity={0.85} accessibilityLabel="Close"><Text style={st.xTxt}>✕</Text></PressBtn>
         <Text style={st.headTitle}>MATCHSTICKS</Text>
         <View style={{ width: 36 }} />
       </View>
@@ -145,9 +182,9 @@ function StickHowTo({ onPlay, onExit }) {
       </View>
 
       <View style={st.foot}>
-        <TouchableOpacity style={st.play} activeOpacity={0.9} onPress={onPlay}>
+        <PressBtn style={st.play} wrapStyle={{ width: '100%' }} activeOpacity={0.9} onPress={onPlay} accessibilityLabel="Play">
           <Text style={st.playTxt}>PLAY ▶</Text>
-        </TouchableOpacity>
+        </PressBtn>
         <Text style={st.skip}>You can start playing any time</Text>
       </View>
     </SafeAreaView>
@@ -193,6 +230,7 @@ function StickGame({ onExit, onGameOver }) {
     } else {
       const nl = lives - 1;
       setLives(nl);
+      try { Vibration.vibrate(35); } catch (e) {}
       Animated.sequence([
         Animated.timing(shake, { toValue: 1, duration: 60, useNativeDriver: true }),
         Animated.timing(shake, { toValue: -1, duration: 60, useNativeDriver: true }),
@@ -210,7 +248,7 @@ function StickGame({ onExit, onGameOver }) {
       <StatusBar barStyle="light-content" backgroundColor="#0B0B0D" />
       {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#0B0B0D' }} />}
       <View style={st.head}>
-        <TouchableOpacity onPress={onExit} style={st.x} activeOpacity={0.85}><Text style={st.xTxt}>✕</Text></TouchableOpacity>
+        <PressBtn onPress={onExit} style={st.x} activeOpacity={0.85} accessibilityLabel="Close"><Text style={st.xTxt}>✕</Text></PressBtn>
         <Text style={st.headTitle}>MATCHSTICKS</Text>
         <View style={st.hearts}>
           {Array.from({ length: LIVES }).map((_, i) => (
@@ -234,19 +272,11 @@ function StickGame({ onExit, onGameOver }) {
         <Text style={st.tip}>💡 {round.tip}</Text>
 
         <View style={st.options}>
-          {round.options.map((opt) => {
+          {round.options.map((opt, i) => {
             const isPicked = picked && picked.opt === opt;
             const state = isPicked ? (picked.correct ? 'ok' : 'bad') : (picked && opt === round.good ? 'reveal' : 'idle');
             return (
-              <TouchableOpacity key={opt} activeOpacity={0.9} disabled={!!picked}
-                style={[st.opt, state === 'ok' && st.optOk, state === 'bad' && st.optBad, state === 'reveal' && st.optReveal]}
-                onPress={() => choose(opt)}>
-                <View style={{ transform: [{ scale: 0.5 }] }}>
-                  <MEquation str={opt} size={46} />
-                </View>
-                {state === 'ok' && <Text style={st.optMark}>✓</Text>}
-                {state === 'bad' && <Text style={[st.optMark, { color: RED }]}>✕</Text>}
-              </TouchableOpacity>
+              <StickOption key={`${idx}-${opt}`} opt={opt} index={i} state={state} disabled={!!picked} onPress={() => choose(opt)} />
             );
           })}
         </View>
