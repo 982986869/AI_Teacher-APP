@@ -28,6 +28,7 @@ import { saveOnlineTestAttempt, savePracticeAttempt, practiceAttemptKey } from '
 import { ClassTabs, ComingSoon } from '../components/ClassPicker';
 import { S, StudentScreenHeader } from '../theme/studentUI';
 import { FONT } from '../constants/fonts';
+import { ListChecks, Star, Timer, ClipboardList, History, ChevronRight } from 'lucide-react-native';
 
 // Subjects with DB-backed mock tests (served by mockTestsApi). The Mock Test
 // button opens a subject -> mock list flow that runs each test through the
@@ -386,19 +387,6 @@ const mockSubjectsForClass = (cls) =>
 // A subject whose mocks come from the DB (mockTestsApi) rather than the static bank.
 const isDbMockSubject = (subjectName, cls) =>
   DB_MOCK_SUBJECTS.includes(subjectName) || (classNum(cls) === 9 && subjectName.startsWith('Old - '));
-
-const QUESTION_TYPES = [
-  { icon: '🎯', label: 'Practice Questions',    sub: 'Multiple choice questions',  count: '120+ Qs' },
-  { icon: '✍️', label: 'Short Answer',    sub: 'Written response questions', count: '80+ Qs' },
-  { icon: '🧩', label: 'Fill in Blanks',  sub: 'Complete the statement',     count: '60+ Qs' },
-  { icon: '⚡', label: 'Speed Round',     sub: '30 sec per question',        count: '50 Qs' },
-];
-
-const RECENT = [
-  { subject: 'Physics', topic: 'Laws of Motion', score: 85, date: 'Today' },
-  { subject: 'Maths',   topic: 'Quadratic Eq.',  score: 92, date: 'Yesterday' },
-  { subject: 'Chemistry', topic: 'Periodic Table', score: 74, date: '2 days ago' },
-];
 
 const BackHeader = ({ onBack }) => (
   <View style={s.backHeader}>
@@ -1065,17 +1053,40 @@ const PracticeScreen = () => {
     );
   }
 
+  // Real, working practice types — grouped by intent (practise vs assess). No fake data.
+  const PRACTICE_GROUP = [
+    { Icon: ListChecks, label: 'Chapter practice',    sub: 'Multiple-choice questions, chapter by chapter', onPress: () => setMcqOpen(true) },
+    { Icon: Star,       label: 'Important questions', sub: 'Hand-picked must-do questions',                 onPress: () => setImpOpen(true) },
+  ];
+  const TEST_GROUP = [
+    { Icon: Timer,         label: 'Online tests',         sub: 'Timed tests, one chapter at a time', onPress: () => setChOpen(true) },
+    { Icon: ClipboardList, label: 'Mock tests',           sub: 'Full subject-wise mock papers',       onPress: () => setMockOpen(true) },
+    { Icon: History,       label: 'Previous year papers', sub: 'Last 10 years, chapter-wise',          onPress: () => setPyqOpen(true) },
+  ];
+  const renderType = (t, i, arr) => (
+    <TouchableOpacity
+      key={t.label}
+      style={[s.typeRow, i < arr.length - 1 && s.typeRowBorder]}
+      activeOpacity={0.6}
+      onPress={t.onPress}
+    >
+      <View style={s.typeIcon}><t.Icon size={20} color={S.ink} strokeWidth={2.1} /></View>
+      <View style={{ flex: 1 }}>
+        <Text style={s.typeTitle}>{t.label}</Text>
+        <Text style={s.typeSub}>{t.sub}</Text>
+      </View>
+      <ChevronRight size={20} color={S.faint} strokeWidth={2.2} />
+    </TouchableOpacity>
+  );
+
   // ── MAIN PRACTICE SCREEN ────────────────────────────────────────────────────
   return (
     <View style={s.safe}>
       <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
-      <StudentScreenHeader
-        title="Practice"
-        right={<View style={s.xpBadge}><Text style={s.xpTxt}>🔥 7 day streak</Text></View>}
-      />
+      <StudentScreenHeader title="Practice" subtitle="Test yourself, chapter by chapter" />
 
-      {/* Students are locked to their own class; only show the switcher if unset or tester. */}
-      {(!scope?.classNum || scope?.tester) && <ClassTabs value={selectedClass} onChange={setSelectedClass} />}
+      {/* Students are locked to their own class; the switcher only shows if no class is set yet. */}
+      {!scope?.classNum && <ClassTabs value={selectedClass} onChange={setSelectedClass} />}
 
       {/* No content seeded for the selected class (e.g. Class 7) → premium empty
           state for everyone, never another class's content. selectedClass is the
@@ -1086,79 +1097,10 @@ const PracticeScreen = () => {
         <ComingSoon label="Practice" className={selectedClass} />
       ) : (
       <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 32 }}>
-
-        {/* Important Questions */}
-        <Text style={[s.sectionTitle, { marginTop: 16 }]}>Important Questions</Text>
-        <TouchableOpacity style={s.impBanner} activeOpacity={0.85} onPress={() => setImpOpen(true)}>
-          <View style={s.impIconBox}>
-            <Text style={{ fontSize: 24 }}>⭐</Text>
-          </View>
-          <View style={{ flex: 1 }}>
-            <Text style={s.impTitle}>Important Questions</Text>
-            <Text style={s.impSub}>Hand-picked must-do questions, chapter-wise</Text>
-          </View>
-          <Text style={s.impArrow}>→</Text>
-        </TouchableOpacity>
-
-        {/* Question types */}
-        <Text style={s.sectionTitle}>Practice Modes</Text>
-        <View style={s.qTypesGrid}>
-          {QUESTION_TYPES.map((qt, i) => (
-            <TouchableOpacity key={i} style={s.qTypeCard}
-              activeOpacity={qt.label === 'Practice Questions' ? 0.7 : 1}
-              onPress={qt.label === 'Practice Questions' ? () => setMcqOpen(true) : undefined}>
-              <Text style={{ fontSize: 28, marginBottom: 8 }}>{qt.icon}</Text>
-              <Text style={s.qTypeLabel}>{qt.label}</Text>
-              <Text style={s.qTypeSub}>{qt.sub}</Text>
-              <View style={s.qTypeBadge}><Text style={s.qTypeBadgeTxt}>{qt.count}</Text></View>
-            </TouchableOpacity>
-          ))}
-        </View>
-
-        {/* Practice Tests */}
-        <Text style={s.sectionTitle}>Practice Tests</Text>
-        <View style={s.practiceTestsCard}>
-          {[
-            { icon: '⚡', label: 'Online Tests',  sub: 'Test one chapter at a time', count: '120+ Tests', onPress: () => setChOpen(true) },
-            { icon: '📋', label: 'Mock Test',           sub: 'Subject-wise mock tests',     count: '10 each', onPress: () => setMockOpen(true) },
-            { icon: '🎯', label: 'Previous Year Papers',sub: '10 years question bank',      count: '50 Papers', onPress: () => setPyqOpen(true) },
-          ].map((item, i, arr) => (
-            <TouchableOpacity key={i}
-              style={[s.ptRow, i < arr.length - 1 && s.ptRowBorder]}
-              activeOpacity={item.onPress ? 0.6 : 1}
-              onPress={item.onPress}>
-              <View style={s.ptIconBox}>
-                <Text style={{ fontSize: 20 }}>{item.icon}</Text>
-              </View>
-              <View style={{ flex: 1 }}>
-                <Text style={s.ptLabel}>{item.label}</Text>
-                <Text style={s.ptSub}>{item.sub}</Text>
-              </View>
-              <View style={s.ptBadge}><Text style={s.ptBadgeTxt}>{item.count}</Text></View>
-              <Text style={s.ptArrow}>›</Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-
-        {/* Recent attempts */}
-        <Text style={s.sectionTitle}>Recent Attempts</Text>
-        <View style={s.recentCard}>
-          {RECENT.map((r, i) => (
-            <View key={i} style={[s.recentRow, i < RECENT.length - 1 && s.recentRowBorder]}>
-              <View style={s.recentLeft}>
-                <Text style={s.recentSubject}>{r.subject}</Text>
-                <Text style={s.recentTopic}>{r.topic}</Text>
-              </View>
-              <View style={s.recentRight}>
-                <View style={[s.scoreBadge, r.score >= 85 && s.scoreBadgeHigh, r.score < 75 && s.scoreBadgeLow]}>
-                  <Text style={s.scoreTxt}>{r.score}%</Text>
-                </View>
-                <Text style={s.recentDate}>{r.date}</Text>
-              </View>
-            </View>
-          ))}
-        </View>
-
+        <Text style={s.listLabel}>Practise</Text>
+        <View style={s.typeList}>{PRACTICE_GROUP.map(renderType)}</View>
+        <Text style={s.listLabel}>Tests</Text>
+        <View style={s.typeList}>{TEST_GROUP.map(renderType)}</View>
       </ScrollView>
       )}
     </View>
@@ -1167,6 +1109,14 @@ const PracticeScreen = () => {
 
 const s = StyleSheet.create({
   safe:             { flex: 1, backgroundColor: S.canvas },
+  // Practice-type list (landing)
+  listLabel:        { fontSize: 12, fontFamily: FONT.extrabold, color: S.muted, letterSpacing: 0.6, textTransform: 'uppercase', marginHorizontal: 18, marginTop: 22, marginBottom: 10 },
+  typeList:         { marginHorizontal: 16, backgroundColor: '#fff', borderRadius: 18, borderWidth: 1, borderColor: S.hair, overflow: 'hidden' },
+  typeRow:          { flexDirection: 'row', alignItems: 'center', gap: 14, paddingVertical: 17, paddingHorizontal: 16 },
+  typeRowBorder:    { borderBottomWidth: 1, borderBottomColor: S.hair },
+  typeIcon:         { width: 42, height: 42, borderRadius: 13, backgroundColor: S.canvas, alignItems: 'center', justifyContent: 'center' },
+  typeTitle:        { fontSize: 15, fontFamily: FONT.bold, color: S.ink, letterSpacing: -0.2 },
+  typeSub:          { fontSize: 12, fontFamily: FONT.semibold, color: S.muted, marginTop: 2 },
   header:           { backgroundColor: S.canvas, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 20, paddingVertical: 14, borderBottomWidth: 1.5, borderBottomColor: S.hair },
   headerTitle:      { fontSize: 22, fontFamily: FONT.black, color: S.ink, letterSpacing: -0.5 },
   headerRight:      { flexDirection: 'row', alignItems: 'center', gap: 10 },

@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
 import { normalizeClass } from '../utils/personalization';
+import { useRuntimeConfig } from '../context/RuntimeConfigContext';
 
 const ROLE_OPTIONS = [
   { key: 'student', label: 'Student', icon: '🎒', sub: 'I want to learn' },
@@ -35,6 +36,7 @@ const LANGS = [
 
 export default function CompleteProfileScreen() {
   const { scope, user, updateProfile } = useAuth();
+  const { supportedClasses } = useRuntimeConfig();
   const [role, setRole]     = useState(scope?.role === 'parent' || scope?.role === 'teacher' ? scope.role : (scope?.role === 'student' ? 'student' : null));
   const [klass, setKlass]   = useState(scope?.classNum ? String(scope.classNum) : null);
   const [stream, setStream] = useState(scope?.stream ? scope.stream.toUpperCase() : null);
@@ -45,6 +47,12 @@ export default function CompleteProfileScreen() {
   const slide = useRef(new Animated.Value(0)).current;
 
   const senior = role === 'student' && normalizeClass(klass) >= 11;
+
+  // Restrict the class grid to admin-configured supported classes. Fail-open (show all)
+  // when config hasn't loaded, and always keep the user's current selection visible so an
+  // already-chosen class is never hidden/corrupted.
+  const supportedSet = (supportedClasses && supportedClasses.length) ? supportedClasses : null;
+  const shownClasses = supportedSet ? CLASSES.filter((c) => supportedSet.includes(parseInt(c, 10)) || c === klass) : CLASSES;
 
   // Steps are computed from the current role/class so the flow adapts live.
   const steps = useMemo(() => {
@@ -172,7 +180,7 @@ export default function CompleteProfileScreen() {
         {/* Class — grid */}
         {current.type === 'grid' && (
           <View style={s.grid}>
-            {CLASSES.map((c) => {
+            {shownClasses.map((c) => {
               const sel = klass === c;
               return (
                 <TouchableOpacity key={c} style={[s.gridItem, sel && s.gridItemSel]} activeOpacity={0.8}

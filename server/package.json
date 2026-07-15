@@ -12,6 +12,8 @@
     "test": "node --test tests/",
     "braingym:build-seed": "node scripts/build-braingym-seed.js",
     "braingym:backfill": "node scripts/braingym-backfill.js",
+    "admin:setup": "node scripts/admin-setup.js",
+    "cms:setup": "node scripts/cms-setup.js",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
     "db:mock:setup": "node scripts/seed-physics-mock-tests.js",

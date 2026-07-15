@@ -6,6 +6,8 @@ const healthRouter = require('./health')
 const router = Router()
 
 router.use('/health',    healthRouter)
+router.use('/config',    require('./config'))
+router.use('/cms',       require('./cms'))
 router.use('/auth',      require('./auth'))
 router.use('/ai',        require('./ai'))
 router.use('/tts',       require('./tts'))
@@ -17,5 +19,6 @@ router.use('/brain-gym',  require('./brainGym'))
 router.use('/arena',      require('./arena'))
 router.use('/parent',     require('./parent'))
 router.use('/learning',   require('./learning'))
+router.use('/admin',      require('./admin'))
 
 module.exports = router

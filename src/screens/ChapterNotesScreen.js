@@ -352,7 +352,7 @@ export const buildHTML = (notes, chapterName) => {
 };
 
 // ── Main Component ────────────────────────────────────────────────────────────
-const ChapterNotesScreen = ({ chapterName, notes, onBack }) => {
+const ChapterNotesScreen = ({ chapterName, notes, onBack, onDownload, downloading }) => {
   const [loading, setLoading] = useState(true);
   const html = buildHTML(notes, chapterName);
 
@@ -368,6 +368,11 @@ const ChapterNotesScreen = ({ chapterName, notes, onBack }) => {
           <Text style={s.backTxt}>Back</Text>
         </TouchableOpacity>
         <Text style={s.headerTitle} numberOfLines={1}>{chapterName}</Text>
+        {onDownload && (
+          <TouchableOpacity onPress={onDownload} disabled={downloading} activeOpacity={0.7} style={s.dlBtn} hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}>
+            <Text style={s.dlTxt}>{downloading ? 'Saving…' : '⬇  PDF'}</Text>
+          </TouchableOpacity>
+        )}
       </View>
 
       {/* WebView */}
@@ -405,6 +410,8 @@ const s = StyleSheet.create({
   backArrow:      { fontSize: 18, color: S.ink, fontFamily: FONT.semibold },
   backTxt:        { fontSize: 14, fontFamily: FONT.semibold, color: S.ink },
   headerTitle:    { flex: 1, fontSize: 15, fontFamily: FONT.bold, color: S.ink, letterSpacing: -0.2 },
+  dlBtn:          { backgroundColor: S.ink, borderRadius: 10, paddingHorizontal: 12, paddingVertical: 7 },
+  dlTxt:          { fontSize: 12.5, fontFamily: FONT.bold, color: '#fff', letterSpacing: -0.1 },
   loadingOverlay: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff', zIndex: 10 },
   loadingTxt:     { marginTop: 12, fontSize: 14, color: S.muted, fontFamily: FONT.semibold },
 });

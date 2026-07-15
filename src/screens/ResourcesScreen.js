@@ -628,7 +628,7 @@ const SUBJECTS_CLASS10 = [
 ];
 
 const RESOURCE_TYPES = [
-  { icon: '📋', name: 'Revision Notes',         sub: '835 items',          type: 'notes'    },
+  { icon: '📋', name: 'Revision Notes',         sub: 'Chapter-wise',       type: 'notes'    },
   { icon: '🔄', name: 'Exemplar Solutions',      sub: 'Textbook Solutions', type: 'exemplar' },
   { icon: '📘', name: 'NCERT Solutions Part-II', sub: 'Textbook Solutions', type: 'ncert2'   },
   { icon: '📗', name: 'NCERT Solutions Part-I',  sub: 'Textbook Solutions', type: 'ncert1'   },
@@ -1041,18 +1041,6 @@ const CHAPTER_NOTES = {
   },
 };
 
-const RESOURCE_CARDS = [
-  { id: 1, type: 'PDF',   emoji: '📄', title: 'Complete Chapter Notes',      size: '2.4 MB', pages: 18, isNotes: true },
-  { id: 2, type: 'Video', emoji: '🎬', title: 'Concept Explanation Video',   duration: '32 min' },
-  { id: 3, type: 'Notes', emoji: '📝', title: 'Quick Revision Mind Map',     size: '890 KB', pages: 6 },
-  { id: 4, type: 'PDF',   emoji: '📄', title: 'Practice Questions — 50 Qs', size: '1.2 MB', pages: 10 },
-  { id: 5, type: 'Video', emoji: '🎬', title: 'Solved Examples Walkthrough', duration: '18 min' },
-  { id: 6, type: 'Notes', emoji: '📝', title: 'Formula Sheet',               size: '450 KB', pages: 2 },
-];
-
-const TYPE_BG  = { PDF: S.hair, Video: S.ink, Notes: S.border };
-const TYPE_TXT = { PDF: S.ink, Video: '#fff',    Notes: '#555' };
-
 // ── Breadcrumb ────────────────────────────────────────────────────────────────
 const Breadcrumb = ({ parts }) => (
   <View style={s.breadcrumb}>
@@ -1248,6 +1236,24 @@ const ResourcesScreen = () => {
     (activeClass === 'Class 10' && c10Menu.subject === subjectName && Array.isArray(c10Menu.tiles))
       ? menuToTiles(c10Menu.tiles)
       : getResourceTypes(subjectName, activeClass, activeSubject?.parts);
+  // Honest one-line summary of what a subject actually contains, folded from its real
+  // resource types into human categories (Notes / Solutions / Papers / Questions). Shown
+  // on the subject tile so the student knows what's inside before tapping — never faked.
+  const catOfType = (type) => {
+    if (type === 'notes') return 'Notes';
+    if (type === 'exemplar' || type === 'ncert1' || type === 'ncert2') return 'Solutions';
+    if (type === 'papers') return 'Papers';
+    if (type === 'important_questions' || type === 'pyq' || type === 'practice') return 'Questions';
+    return null;
+  };
+  const subjectSummary = (subjectName) => {
+    const cats = [];
+    (resTypesFor(subjectName) || []).forEach((t) => {
+      const c = catOfType(t.type);
+      if (c && !cats.includes(c)) cats.push(c);
+    });
+    return cats.join('  ·  ');
+  };
   // Class 10 subject grid: DB list merged with display props (emoji/colour) from the
   // static list where known, else a sensible default. The LIST itself is DB-driven.
   const c10Display = Object.fromEntries(SUBJECTS_CLASS10.map((s) => [s.name, s]));
@@ -1631,7 +1637,7 @@ const ResourcesScreen = () => {
         <SafeAreaView style={s.safe}>
           <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
           {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
-          <BackHeader onBack={() => setShowNotes(false)} />
+          <BackHeader onBack={() => { setShowNotes(false); setActiveChapter(null); }} />
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12 }}>
             <ActivityIndicator size="large" color={S.indigo} />
             <Text style={{ color: '#64748b', fontSize: 13 }}>Loading notes…</Text>
@@ -1646,7 +1652,9 @@ const ResourcesScreen = () => {
       <ChapterNotesScreen
         chapterName={activeChapter.name}
         notes={notes}
-        onBack={() => setShowNotes(false)}
+        onBack={() => { setShowNotes(false); setActiveChapter(null); }}
+        onDownload={handleDownloadNotes}
+        downloading={downloading}
       />
     );
   }
@@ -1670,7 +1678,6 @@ const ResourcesScreen = () => {
         <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setShowCards(false)} />
-        <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
         <View style={s.pageTitleWrap}>
           <Text style={s.pageTitle}>{activeChapter.name}</Text>
           <Text style={s.pageSub}>NCERT Exemplar · Chapter-end</Text>
@@ -1717,7 +1724,6 @@ const ResourcesScreen = () => {
         <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setShowCards(false)} />
-        <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
         <View style={s.pageTitleWrap}>
           <Text style={s.pageTitle}>{activeChapter.name}</Text>
           <Text style={s.pageSub}>NCERT Solutions · Part I</Text>
@@ -1734,7 +1740,6 @@ const ResourcesScreen = () => {
         <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setShowCards(false)} />
-        <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
         <View style={s.pageTitleWrap}>
           <Text style={s.pageTitle}>{activeChapter.name}</Text>
           <Text style={s.pageSub}>{activeResType.name}</Text>
@@ -1751,7 +1756,6 @@ const ResourcesScreen = () => {
         <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setShowCards(false)} />
-        <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
         <View style={s.pageTitleWrap}>
           <Text style={s.pageTitle}>{activeChapter.name}</Text>
         </View>
@@ -1804,7 +1808,6 @@ const ResourcesScreen = () => {
         <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setShowCards(false)} />
-        <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
         <View style={s.pageTitleWrap}>
           <Text style={s.pageTitle}>{activeChapter.name}</Text>
           <Text style={s.pageSub}>NCERT Solutions · Part II</Text>
@@ -1841,7 +1844,6 @@ const ResourcesScreen = () => {
         <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setShowCards(false)} />
-        <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
         <WebView
           source={{ uri: pdfUrl }}
           style={{ flex: 1 }}
@@ -1857,7 +1859,11 @@ const ResourcesScreen = () => {
     );
   }
 
-  // ── LEVEL 4: Resource cards (PDF / Video / Notes) ─────────────────────────
+  // ── LEVEL 4: any resource type without a wired viewer lands here ──────────
+  // Every type that has real content (notes, exemplar, NCERT, question banks,
+  // papers, PDFs) is served by a dedicated block above. Reaching this point means
+  // this chapter has no content for the selected type yet — so we say so honestly
+  // instead of showing manufactured cards.
   if (activeSubject && activeResType && activeChapter && showCards) {
     return (
       <SafeAreaView style={s.safe}>
@@ -1867,50 +1873,17 @@ const ResourcesScreen = () => {
             (e.g. Class 10 Revision Notes / notesListActive) gate on !activeChapter to
             refetch, and leaving it set makes the list fall back to empty. */}
         <BackHeader onBack={() => { setShowCards(false); setActiveChapter(null); }} />
-        <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
         <View style={s.pageTitleWrap}>
-          <Text style={s.pageTitle}>{activeChapter.name}</Text>
-          <Text style={s.pageSub}>{RESOURCE_CARDS.length} resources available</Text>
+          <Text style={s.pageTitle} numberOfLines={1}>{activeChapter.name}</Text>
+          <Text style={s.pageSub}>{activeResType.name}</Text>
         </View>
-        <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
-          {RESOURCE_CARDS.map((res) => (
-            <View key={res.id} style={s.resCard}>
-              <View style={s.resCardTop}>
-                <View style={[s.resIconWrap, { backgroundColor: TYPE_BG[res.type] }]}>
-                  <Text style={{ fontSize: 22 }}>{res.emoji}</Text>
-                </View>
-                <View style={{ flex: 1 }}>
-                  <Text style={s.resTitle}>{res.title}</Text>
-                  <View style={s.resMetaRow}>
-                    <View style={[s.typePill, { backgroundColor: TYPE_BG[res.type] }]}>
-                      <Text style={[s.typePillTxt, { color: TYPE_TXT[res.type] }]}>{res.type}</Text>
-                    </View>
-                    <Text style={s.resMeta}>
-                      {res.type === 'Video' ? `⏱ ${res.duration}` : `📄 ${res.pages} pages  •  ${res.size}`}
-                    </Text>
-                  </View>
-                </View>
-              </View>
-              <View style={s.resActions}>
-                <TouchableOpacity
-                  style={s.previewBtn}
-                  onPress={res.isNotes ? () => setShowNotes(true) : undefined}
-                >
-                  <Text style={s.previewTxt}>Preview</Text>
-                </TouchableOpacity>
-                {res.isNotes ? (
-                  <TouchableOpacity style={s.downloadBtn} onPress={handleDownloadNotes} disabled={downloading}>
-                    <Text style={s.downloadTxt}>{downloading ? '⏳  Preparing…' : '⬇  Download'}</Text>
-                  </TouchableOpacity>
-                ) : (
-                  <TouchableOpacity style={s.downloadBtn}>
-                    <Text style={s.downloadTxt}>{res.type === 'Video' ? '▶  Watch' : '⬇  Download'}</Text>
-                  </TouchableOpacity>
-                )}
-              </View>
-            </View>
-          ))}
-        </ScrollView>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 32, gap: 10 }}>
+          <Text style={{ fontSize: 34 }}>🗂️</Text>
+          <Text style={{ fontSize: 15, fontFamily: FONT.bold, color: S.ink, textAlign: 'center' }}>Not available yet</Text>
+          <Text style={{ fontSize: 13, fontFamily: FONT.semibold, color: S.muted, textAlign: 'center', lineHeight: 19 }}>
+            {activeResType.name} for this chapter are being added. Check back soon.
+          </Text>
+        </View>
       </SafeAreaView>
     );
   }
@@ -1998,10 +1971,9 @@ const ResourcesScreen = () => {
         <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setActiveResType(null)} />
-        <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name]} />
         <View style={s.pageTitleWrap}>
           <Text style={s.pageTitle}>Last Year Papers</Text>
-          <Text style={s.pageSub}>Select a paper to explore</Text>
+          <Text style={s.pageSub}>{activeSubject.name}</Text>
         </View>
         <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
           {papers.map((p, i) => (
@@ -2079,11 +2051,9 @@ const ResourcesScreen = () => {
         <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={backFromChapters} />
-        <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name]} />
         <View style={s.pageTitleWrap}>
-          <Text style={s.pageTitle}>Chapters</Text>
-          <Text style={s.pageSub}>Select a chapter to explore</Text>
-          <Text style={s.boardLabel}>{activeSubject.name} Chapters</Text>
+          <Text style={s.pageTitle} numberOfLines={1}>{activeResType.name}</Text>
+          <Text style={s.pageSub}>{activeSubject.name}</Text>
         </View>
         <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
           {(isNcert2 && ncert2.loading) || notesAvail.loading || c12NcertAvail.loading || ncertAvail.loading || (isDbQList && dbQAvail.loading) ? (
@@ -2098,12 +2068,19 @@ const ResourcesScreen = () => {
           ) : (
             chaptersToShow.map((chapter, i) => (
               <TouchableOpacity key={i} style={s.listRow}
-                onPress={() => { setActiveChapter(chapter); setShowCards(true); setShowChapterEnd(false); }}
+                onPress={() => {
+                  setActiveChapter(chapter);
+                  setShowChapterEnd(false);
+                  // Revision Notes have exactly one real artefact — the chapter notes —
+                  // so open the reader directly instead of a manufactured "resource
+                  // cards" list. Every other type keeps its own viewer via showCards.
+                  if (activeResType?.type === 'notes') setShowNotes(true);
+                  else setShowCards(true);
+                }}
                 activeOpacity={0.8}>
                 <View style={s.listNum}><Text style={s.listNumTxt}>{i + 1}</Text></View>
                 <View style={{ flex: 1 }}>
                   <Text style={s.listRowTitle}>{chapter.name}</Text>
-                  <Text style={s.listRowSub}>Tap to explore chapter</Text>
                 </View>
                 <Text style={s.listArrow}>→</Text>
               </TouchableOpacity>
@@ -2121,15 +2098,14 @@ const ResourcesScreen = () => {
         <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setActiveSubject(null)} />
-        <Breadcrumb parts={['Home', 'Student Subscription', 'Resources']} />
         <View style={s.pageTitleWrap}>
           <View style={s.pageTitleRow}>
             <View style={[s.subjectIconLg, { backgroundColor: activeSubject.bg }]}>
               <Text style={{ fontSize: 24 }}>{activeSubject.emoji}</Text>
             </View>
-            <View>
-              <Text style={s.pageTitle}>Resources</Text>
-              <Text style={s.pageSub}>Select a resource to explore</Text>
+            <View style={{ flex: 1 }}>
+              <Text style={s.pageTitle} numberOfLines={1}>{activeSubject.name}</Text>
+              <Text style={s.pageSub}>{activeClass}</Text>
             </View>
           </View>
         </View>
@@ -2174,38 +2150,39 @@ const ResourcesScreen = () => {
   return (
     <View style={s.safe}>
       <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
-      <StudentScreenHeader title="Resources" />
-      <Breadcrumb parts={['Home', 'Student Subscription']} />
-      {/* Students are locked to their own class; only show the switcher if unset or tester. */}
-      {(!scope?.classNum || scope?.tester) && <ClassTabs value={activeClass} onChange={setActiveClass} />}
+      <StudentScreenHeader title="Resources" subtitle="Notes, solutions & papers by chapter" />
+      {/* Students are locked to their own class; the switcher only shows if no class is set yet. */}
+      {!scope?.classNum && <ClassTabs value={activeClass} onChange={setActiveClass} />}
       {scope?.role === 'student' && (scope?.tester ? activeClass : scope?.className) && !isClassReady(scope?.tester ? activeClass : scope.className) ? (
         <ComingSoon label="Resources" className={scope?.tester ? activeClass : scope?.className} />
       ) : (
         <>
           <View style={s.pageTitleWrap}>
             <Text style={s.pageTitle}>Subjects</Text>
-            <Text style={s.pageSub}>Select a subject to explore</Text>
             <Text style={s.boardLabel}>{activeClass}</Text>
           </View>
-          <ScrollView ref={scrollRef} contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
-            {(activeClass === 'Class 6' ? class6SubjectTiles : activeClass === 'Class 7' ? SUBJECTS_CLASS7 : activeClass === 'Class 8' ? SUBJECTS_CLASS8 : activeClass === 'Class 9' ? class9SubjectTiles : activeClass === 'Class 10' ? ((Array.isArray(c10Subjects) && c10Subjects.length) ? class10Grid : SUBJECTS_CLASS10) : SUBJECTS)
-              .filter((subject) => !(activeClass === 'Class 12' && subject.name === 'Biology'))
-              // Stream filter (hide Biology from PCM etc.) only applies to senior classes
-              // (11/12). Junior lists (e.g. Class 6's "Maths (OLD)", "English (Poorvi)")
-              // are already curated, so don't run them through the subject-name check.
-              .filter((subject) => (classNum >= 11 ? isAllowedSubject(subject.name, classNum, scope.stream) : true))
-              .map((subject, i) => (
-              <TouchableOpacity key={i} style={s.subjectRow} onPress={() => openSubject(subject)} activeOpacity={0.8}>
-                <View style={[s.subjectIconWrap, { backgroundColor: subject.bg }]}>
-                  <Text style={{ fontSize: 26 }}>{subject.emoji}</Text>
-                </View>
-                <View style={{ flex: 1 }}>
-                  <Text style={s.subjectName}>{subject.name}</Text>
-                  <Text style={s.subjectSub}>Tap to view resources</Text>
-                </View>
-                <Text style={s.listArrow}>→</Text>
-              </TouchableOpacity>
-            ))}
+          <ScrollView ref={scrollRef} contentContainerStyle={{ padding: 16, paddingBottom: 32 }}>
+            <View style={s.subjectGrid}>
+              {(activeClass === 'Class 6' ? class6SubjectTiles : activeClass === 'Class 7' ? SUBJECTS_CLASS7 : activeClass === 'Class 8' ? SUBJECTS_CLASS8 : activeClass === 'Class 9' ? class9SubjectTiles : activeClass === 'Class 10' ? ((Array.isArray(c10Subjects) && c10Subjects.length) ? class10Grid : SUBJECTS_CLASS10) : SUBJECTS)
+                .filter((subject) => !(activeClass === 'Class 12' && subject.name === 'Biology'))
+                // Stream filter (hide Biology from PCM etc.) only applies to senior classes
+                // (11/12). Junior lists (e.g. Class 6's "Maths (OLD)", "English (Poorvi)")
+                // are already curated, so don't run them through the subject-name check.
+                .filter((subject) => (classNum >= 11 ? isAllowedSubject(subject.name, classNum, scope.stream) : true))
+                .map((subject, i) => (
+                <TouchableOpacity key={i} style={s.subjectTile} onPress={() => openSubject(subject)} activeOpacity={0.6}>
+                  <View style={s.subjectIconWrap}>
+                    <Text style={{ fontSize: 24 }}>{subject.emoji}</Text>
+                  </View>
+                  <View style={{ gap: 3 }}>
+                    <Text style={s.subjectName} numberOfLines={2}>{subject.name}</Text>
+                    {!subject.comingSoon && !!subjectSummary(subject.name) && (
+                      <Text style={s.subjectMeta} numberOfLines={1}>{subjectSummary(subject.name)}</Text>
+                    )}
+                  </View>
+                </TouchableOpacity>
+              ))}
+            </View>
           </ScrollView>
         </>
       )}
@@ -2237,9 +2214,11 @@ const s = StyleSheet.create({
   pageSub:           { fontSize: 13, color: S.muted, fontFamily: FONT.semibold, marginTop: 3 },
   boardLabel:        { fontSize: 13, fontFamily: FONT.extrabold, color: S.ink, marginTop: 8 },
   subjectIconLg:     { width: 50, height: 50, borderRadius: 25, alignItems: 'center', justifyContent: 'center' },
-  subjectRow:        { backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: S.hair, flexDirection: 'row', alignItems: 'center', gap: 16, padding: 14 },
-  subjectIconWrap:   { width: 54, height: 54, borderRadius: 27, alignItems: 'center', justifyContent: 'center' },
-  subjectName:       { fontSize: 17, fontFamily: FONT.black, color: S.ink, letterSpacing: -0.3 },
+  subjectGrid:       { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', rowGap: 12 },
+  subjectTile:       { width: '48%', backgroundColor: '#fff', borderRadius: 16, borderWidth: 1, borderColor: S.hair, paddingVertical: 20, paddingHorizontal: 16, gap: 14, alignItems: 'flex-start' },
+  subjectIconWrap:   { width: 48, height: 48, borderRadius: 14, backgroundColor: S.canvas, alignItems: 'center', justifyContent: 'center' },
+  subjectName:       { fontSize: 15.5, fontFamily: FONT.black, color: S.ink, letterSpacing: -0.3, lineHeight: 20 },
+  subjectMeta:       { fontSize: 11.5, fontFamily: FONT.semibold, color: S.muted, letterSpacing: -0.1 },
   subjectSub:        { fontSize: 12, color: S.muted, fontFamily: FONT.semibold, marginTop: 3 },
   resTypeRow:        { backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: S.hair, flexDirection: 'row', alignItems: 'center', gap: 16, padding: 16 },
   resTypeIconWrap:   { width: 52, height: 52, borderRadius: 16, backgroundColor: S.hair, borderWidth: 1.5, borderColor: S.border, alignItems: 'center', justifyContent: 'center' },

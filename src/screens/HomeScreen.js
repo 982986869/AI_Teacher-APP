@@ -34,9 +34,10 @@ import {
   Zap, Trophy, Target, BookOpen, MessageCircle, Swords, Lock, CircleAlert,
 } from 'lucide-react-native';
 import { useAuth } from '../context/AuthContext';
-import { ClassPicker } from '../components/ClassPicker';
 import AITeacherScreen from './AITeacherScreen';
 import BrainGymFlow from './braingym/BrainGymFlow';
+import { useRuntimeConfig } from '../context/RuntimeConfigContext';
+import OptionalUpdateBanner from '../components/OptionalUpdateBanner';
 import { getParentReport } from '../api/parentApi';
 import { getResumeContext } from '../api/aiApi';
 import { getActiveLesson, getHomeState, saveHomeState } from '../utils/storage';
@@ -375,7 +376,7 @@ function Toast({ data, top, onDone }) {
 
 // ─── Main HomeScreen ──────────────────────────────────────────────────────────
 const HomeScreen = () => {
-  const { user, selectedClass, setSelectedClass, scope } = useAuth();
+  const { user, selectedClass, scope } = useAuth();
   const insets = useSafeAreaInsets();
   const navigation = useNavigation();
   const scrollRef = useRef(null);
@@ -456,12 +457,19 @@ const HomeScreen = () => {
   const onRefresh = () => { setRefreshing(true); load(true); };
   const retry = () => { setLoading(true); setErr(false); load(false); };
 
+  // Feature flags — when a feature is off it cannot be launched from anywhere on Home,
+  // and its dedicated entry section is hidden below. Fail-open (missing flag = on).
+  const { isFeatureEnabled } = useRuntimeConfig();
+  const aiTeacherOn = isFeatureEnabled('aiTeacher');
+  const brainGymOn = isFeatureEnabled('brainGym');
+
   const openAITeacher = (topic = '', subject) => {
+    if (!aiTeacherOn) return;
     setSeedTopic(topic);
     if (subject && AIT_SUBJECTS.includes(subject)) setActiveSubject(subject);
     setShowAITeacher(true);
   };
-  const openBrainGym = () => setShowBrainGym(true);
+  const openBrainGym = () => { if (!brainGymOn) return; setShowBrainGym(true); };
   const hour = new Date().getHours();
   const greet = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
 
@@ -689,6 +697,7 @@ const HomeScreen = () => {
       }
 
       case 'practice':
+        if (!brainGymOn) return null; // Brain Gym feature flag off → hide the section
         return (
           <React.Fragment key={key}>
             <Section title="Sharpen your thinking" accent={S.purple} sub={streak > 0 ? `${streak}-day streak 🔥` : 'Brain Gym'} />
@@ -741,6 +750,7 @@ const HomeScreen = () => {
       }
 
       case 'doubt':
+        if (!aiTeacherOn) return null; // AI Teacher feature flag off → hide the section
         return (
           <FadeInOnce id="s-ai" delay={80} y={16} key={key}>
             <View style={[hs.aiCard, { marginTop: 22 }]}>
@@ -939,13 +949,6 @@ const HomeScreen = () => {
         </PressableScale>
       </View>
 
-      {scope?.tester && (
-        <View style={hs.testerBar}>
-          <T w="xbold" s={12.5} c={S.orange}>🧪 Viewing class</T>
-          <ClassPicker value={selectedClass} onChange={setSelectedClass} />
-        </View>
-      )}
-
       {loading ? (
         <Skeleton />
       ) : err ? (
@@ -958,6 +961,7 @@ const HomeScreen = () => {
           showsVerticalScrollIndicator={false}
           refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={S.indigo} colors={[S.indigo]} />}
         >
+          <OptionalUpdateBanner />
           {showStats && (
             <View style={hs.statsRow}>
               <StatCard Icon={Flame} tint={S.orange} tintBg={S.orangeSoft} value={streak} label="Day streak" delay={40} />
@@ -972,8 +976,8 @@ const HomeScreen = () => {
         </ScrollView>
       )}
 
-      {/* Positioned below the header (and tester bar when shown) so it never overlaps them. */}
-      {toast && <Toast data={toast} top={insets.top + 70 + (scope?.tester ? 42 : 0)} onDone={() => setToast(null)} />}
+      {/* Positioned below the header so it never overlaps it. */}
+      {toast && <Toast data={toast} top={insets.top + 70} onDone={() => setToast(null)} />}
 
       {/* ── CHARACTER MODAL ── */}
       <Modal visible={showCharModal} transparent animationType="fade" onRequestClose={() => setShowCharModal(false)}>
@@ -1019,8 +1023,6 @@ const hs = StyleSheet.create({
   charEdit: { position: 'absolute', bottom: -2, right: -2, width: 17, height: 17, borderRadius: 9, backgroundColor: S.indigo, alignItems: 'center', justifyContent: 'center', borderWidth: 2, borderColor: S.canvas },
   bellBtn: { width: 42, height: 42, borderRadius: 15, backgroundColor: '#fff', borderWidth: 1, borderColor: S.hair, alignItems: 'center', justifyContent: 'center', ...shadowSm },
   bellDot: { position: 'absolute', top: 10, right: 11, width: 8, height: 8, borderRadius: 4, backgroundColor: S.orange, borderWidth: 1.5, borderColor: '#fff' },
-
-  testerBar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10, backgroundColor: '#FFF7ED', borderTopWidth: 1, borderBottomWidth: 1, borderColor: '#FDE7C8', paddingHorizontal: PAD, paddingVertical: 8 },
 
   // Acknowledgement toast
   toastWrap: { position: 'absolute', left: 0, right: 0, alignItems: 'center', zIndex: 50 },
