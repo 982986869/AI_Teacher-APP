@@ -11,7 +11,8 @@ import {
   View, ScrollView, Image, ImageBackground, Dimensions, StyleSheet,
   Linking, LayoutAnimation, Platform, UIManager, Modal, SafeAreaView, Animated, ActivityIndicator,
 } from 'react-native';
-import { Star, Camera, Video, Plus, Minus, Play, Globe, MapPin, Smartphone, Calendar, Clock, Ticket, ExternalLink, ChevronRight, ChevronLeft, Check } from 'lucide-react-native';
+import { Star, Plus, Minus, Play, Globe, MapPin, Smartphone, Calendar, Clock, Ticket, ExternalLink } from 'lucide-react-native';
+import { FontAwesome6 } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { C, T, CONTENT } from './constants';
 import { PressableScale, FadeIn, CountUp } from './anim';
@@ -30,22 +31,11 @@ const STORE_TINTS = [
   { bg: '#F4D6F1', br: '#D98FD0' }, // pink
   { bg: '#C8F5D8', br: '#7FD3A0' }, // mint
 ];
-// Pastel frames for the learner-story rows, cycled by index (same palette as above).
-const STORY_TINTS = [
-  { bg: '#EAEFFF', br: '#9FC0F5' }, // blue
-  { bg: '#C8F5D8', br: '#7FD3A0' }, // mint
-  { bg: '#FBE0CE', br: '#F0A98A' }, // peach
-  { bg: '#F4D6F1', br: '#D98FD0' }, // pink
-  { bg: '#FBEFC6', br: '#EBC34B' }, // yellow
-];
 // A deeper border for each skill-row tint (keys are the seeded sk.color values).
 const SKILL_BORDER = {
   '#C8F5D8': '#7FD3A0', '#FBE0CE': '#F0A98A', '#F4D6F1': '#D98FD0',
   '#D5E4FB': '#9FC0F5', '#FBEFC6': '#EBC34B',
 };
-
-// Shared hero photo for the program detail pages (sourced from the Ailernova portal).
-const PROGRAM_HERO = require('../../../../assets/programs/hero.jpg');
 
 const open = (u) => { if (u) Linking.openURL(u).catch(() => {}); };
 // Render 5 stars filled to the actual score (rounded), rest outlined — not always 5.
@@ -225,12 +215,8 @@ function SkillsPage({ skills, E }) {
   );
 }
 
-/* 5 ── Hear From Our Participants — learner photo + story ─────────────────── */
-// Each seeded gallery row that carries a caption is a learner story: photo, who
-// they are (name), the star rating and a one-line result. Rows without a caption
-// are photo-only (older seeds) and fall back to the plain staggered grid.
+/* 5 ── Hear From Our Participants — photo grid ────────────────────────────── */
 function ParticipantsPage({ gallery, E }) {
-  const stories = gallery.filter((g) => g.caption);
   const col = (arr) => (
     <View style={{ flex: 1, gap: 8 }}>
       {arr.map((g, i) => <FadeImage key={g.id} source={{ uri: g.image }} style={[s.gPhoto, { height: i % 2 ? 150 : 110 }]} radius={12} />)}
@@ -238,53 +224,64 @@ function ParticipantsPage({ gallery, E }) {
   );
   return (
     <View style={[s.card, s.pad, s.light]}>
-      <T w="xbold" s={19} c={C.ink} style={{ textAlign: 'center' }}>{E.participantsTitle}</T>
-      {!!stories.length && <T w="med" s={12} c={C.muted} style={{ textAlign: 'center', marginTop: 6, lineHeight: 18 }}>{E.participantsIntro}</T>}
-      {stories.length ? (
-        <View style={{ marginTop: 14, gap: 10 }}>
-          {stories.map((g, k) => {
-            const t = STORY_TINTS[k % STORY_TINTS.length];
-            return (
-              <FadeIn key={g.id} delay={k * 70} y={10}>
-                <View style={[s.storyRow, { backgroundColor: t.bg, borderColor: t.br }]}>
-                  <FadeImage source={{ uri: g.image }} style={s.storyPhoto} radius={14} />
-                  <View style={{ flex: 1 }}>
-                    <T w="xbold" s={13} c={C.ink}>{g.name || 'AILERNOVA Learner'}</T>
-                    {g.rating > 0 && <View style={{ marginTop: 4 }}><Stars score={g.rating} size={11} /></View>}
-                    <T w="med" s={12} c={C.ink} style={{ marginTop: 5, lineHeight: 17, opacity: 0.72 }}>{g.caption}</T>
-                  </View>
-                </View>
-              </FadeIn>
-            );
-          })}
-        </View>
-      ) : (
-        <View style={{ flexDirection: 'row', gap: 8, marginTop: 12 }}>
-          {col(gallery.filter((_, i) => i % 2 === 0))}
-          {col(gallery.filter((_, i) => i % 2 === 1))}
-        </View>
-      )}
+      <T w="xbold" s={19} c={C.ink} style={{ textAlign: 'center', marginBottom: 12 }}>{E.participantsTitle}</T>
+      <View style={{ flexDirection: 'row', gap: 8 }}>
+        {col(gallery.filter((_, i) => i % 2 === 0))}
+        {col(gallery.filter((_, i) => i % 2 === 1))}
+      </View>
     </View>
   );
 }
 
 /* 6 ── Join our community ─────────────────────────────────────────────────── */
+// Brand marks come from FontAwesome6's `brand` set — lucide ships no brand icons.
+// A channel renders only when constants.js CONTENT.event.community has its URL.
+const SOCIALS = [
+  { key: 'instagram', icon: 'instagram',   label: 'Instagram', gradient: ['#F9A03F', '#E1306C', '#C13584'] },
+  { key: 'youtube',   icon: 'youtube',     label: 'YouTube',   bg: '#FF0000' },
+  { key: 'facebook',  icon: 'facebook-f',  label: 'Facebook',  bg: '#1877F2' },
+  { key: 'linkedin',  icon: 'linkedin-in', label: 'LinkedIn',  bg: '#0A66C2' },
+];
+
+// PressableScale puts `style` on its inner Animated.View, so the outer Pressable —
+// the actual flex child of the row — would shrink-wrap. The flex:1 wrapper is what
+// makes the two buttons in a row share the width evenly.
+function SocialButton({ item, url }) {
+  const face = (
+    <>
+      <FontAwesome6 name={item.icon} size={15} color="#fff" brand />
+      <T w="bold" s={13.5} c="#fff">{item.label}</T>
+    </>
+  );
+  return (
+    <View style={{ flex: 1 }}>
+      <PressableScale onPress={() => open(url)} accessibilityRole="link" accessibilityLabel={`Ailernova on ${item.label}`}>
+        {item.gradient
+          ? <LinearGradient colors={item.gradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={s.social}>{face}</LinearGradient>
+          : <View style={[s.social, { backgroundColor: item.bg }]}>{face}</View>}
+      </PressableScale>
+    </View>
+  );
+}
+
 function CommunityPage({ gallery, E }) {
   const cm = E.community;
   const strip = gallery.slice(0, 3);
+  const live = SOCIALS.filter((x) => cm[x.key]);
+  const rows = [live.slice(0, 2), live.slice(2, 4)].filter((r) => r.length);
   return (
     <View style={[s.card, { backgroundColor: '#14151B', overflow: 'hidden' }]}>
       <View style={{ padding: 22 }}>
         <T w="xbold" s={22} c="#fff" style={{ lineHeight: 28 }}>{cm.title}</T>
         <T w="med" s={13} c="rgba(255,255,255,0.7)" style={{ marginTop: 10, lineHeight: 19 }}>{cm.body}</T>
-        <PressableScale style={{ marginTop: 14 }} onPress={() => open(cm.instagram)}>
-          <LinearGradient colors={['#F9A03F', '#E1306C', '#C13584']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={[s.social, { marginTop: 0 }]}>
-            <Camera size={17} color="#fff" /><T w="bold" s={14} c="#fff">Follow us on Instagram</T>
-          </LinearGradient>
-        </PressableScale>
-        <PressableScale style={[s.social, { backgroundColor: '#FF0000' }]} onPress={() => open(cm.youtube)}>
-          <Video size={18} color="#fff" /><T w="bold" s={14} c="#fff">Subscribe on YouTube</T>
-        </PressableScale>
+        <View style={{ marginTop: 16, gap: 10 }}>
+          {rows.map((row, i) => (
+            <View key={i} style={{ flexDirection: 'row', gap: 10 }}>
+              {row.map((x) => <SocialButton key={x.key} item={x} url={cm[x.key]} />)}
+              {row.length === 1 && <View style={{ flex: 1 }} />}
+            </View>
+          ))}
+        </View>
       </View>
       {!!strip.length && (
         <View style={{ flexDirection: 'row', gap: 4 }}>
@@ -296,11 +293,22 @@ function CommunityPage({ gallery, E }) {
 }
 
 /* 7 ── Become AILERNOVA + functional footer accordion ─────────────────────── */
-function BecomePage({ E, onOpenProgram }) {
+// Each accordion opens a list of links. `action: 'about'` opens the About Us story page
+// (onAbout), `action: 'impact'` opens Our Impact (onImpact), `action: 'tutors'` opens Our
+// Tutors (onTutors); everything else opens its url.
+// Exported: the About, Impact and Tutors pages close with this exact block too, so the
+// footer sections are reachable from there as well.
+export function BecomePage({ E, onAbout, onImpact, onTutors }) {
   const bc = E.become;
   const ft = E.footer;
   const [openIdx, setOpenIdx] = useState(-1);
   const toggle = (i) => { spring(); setOpenIdx((o) => (o === i ? -1 : i)); };
+  const tapItem = (it) => {
+    if (it.action === 'about') return onAbout && onAbout();
+    if (it.action === 'impact') return onImpact && onImpact();
+    if (it.action === 'tutors') return onTutors && onTutors();
+    return open(it.url);
+  };
   return (
     <View style={[s.card, s.light, { overflow: 'hidden' }]}>
       <View style={{ backgroundColor: '#fff', padding: 20 }}>
@@ -312,10 +320,8 @@ function BecomePage({ E, onOpenProgram }) {
         <View style={s.catRow}>
           {bc.categories.map((c) => (
             <View key={c.label} style={{ alignItems: 'center', gap: 8, flex: 1 }}>
-              <View style={s.catCircle}>
-                {c.Icon ? <c.Icon size={24} color={c.color || '#fff'} strokeWidth={2.2} /> : <T s={22}>{c.emoji}</T>}
-              </View>
-              <T w="bold" s={9} c={C.muted} style={{ textAlign: 'center', letterSpacing: 0.2 }}>{c.label}</T>
+              <View style={s.catCircle}><T s={22}>{c.emoji}</T></View>
+              <T w="bold" s={9.5} c={C.muted} style={{ textAlign: 'center', letterSpacing: 0.3 }}>{c.label}</T>
             </View>
           ))}
         </View>
@@ -328,18 +334,12 @@ function BecomePage({ E, onOpenProgram }) {
               {openIdx === i ? <Minus size={17} color={C.muted} /> : <Plus size={17} color={C.muted} />}
             </PressableScale>
             {openIdx === i && (
-              <View style={{ paddingBottom: 12 }}>
-                <T w="med" s={12.5} c={C.muted} style={{ lineHeight: 19 }}>{l.a}</T>
-                {!!l.programs?.length && (
-                  <View style={{ marginTop: 10, gap: 8 }}>
-                    {l.programs.map((p) => (
-                      <PressableScale key={p.id} style={s.progLink} onPress={() => onOpenProgram?.(p.id)}>
-                        <T w="bold" s={12.5} c={C.ink} style={{ flex: 1 }}>{p.label}</T>
-                        <ChevronRight size={16} color={C.muted} />
-                      </PressableScale>
-                    ))}
-                  </View>
-                )}
+              <View style={{ paddingBottom: 10 }}>
+                {(l.items || []).map((it) => (
+                  <PressableScale key={it.label} style={s.accLink} onPress={() => tapItem(it)}>
+                    <T w="med" s={14} c={C.ink}>{it.label}</T>
+                  </PressableScale>
+                ))}
               </View>
             )}
           </View>
@@ -357,77 +357,8 @@ function BecomePage({ E, onOpenProgram }) {
   );
 }
 
-/* ── Program detail page — class switcher + hero (opened from "Our Programs") ─
-   A full-screen overlay inside the events modal. The tab row switches between
-   programs (Class K-2 · Class 3-5 · … ) and the hero below updates to match. */
-export function ProgramDetail({ programId, onBack }) {
-  const programs = CONTENT.event.footer.links.find((l) => l.programs)?.programs || [];
-  const startIdx = Math.max(0, programs.findIndex((p) => p.id === programId));
-  const [idx, setIdx] = useState(startIdx);
-  const p = programs[idx];
-  if (!p) return null;
-
-  return (
-    <View style={s.pdWrap}>
-      <View style={s.mHead}>
-        <PressableScale onPress={onBack} style={s.mBack}><ChevronLeft size={24} color={C.ink} /></PressableScale>
-        <T w="bold" s={16} c={C.ink}>Our Programs</T><View style={{ width: 40 }} />
-      </View>
-
-      {/* Class switcher — horizontally scrollable so all programs fit on a phone. */}
-      <View style={s.pdTabsWrap}>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={s.pdTabs}>
-          {programs.map((it, i) => {
-            const on = i === idx;
-            return (
-              <PressableScale key={it.id} onPress={() => { spring(); setIdx(i); }} style={s.pdTab}>
-                <T w={on ? 'xbold' : 'semi'} s={13} c={on ? C.ink : C.faint}>{it.tab || it.label}</T>
-                <View style={[s.pdTabRule, { backgroundColor: on ? C.gold : 'transparent' }]} />
-              </PressableScale>
-            );
-          })}
-        </ScrollView>
-      </View>
-
-      <ScrollView contentContainerStyle={{ padding: 20, paddingBottom: 40 }} showsVerticalScrollIndicator={false}>
-        <FadeIn key={p.id} delay={0}>
-          <T w="xbold" s={26} c={C.ink} style={{ lineHeight: 33, textAlign: 'center', marginTop: 6 }}>{p.title}</T>
-          {!!p.sub && <T w="med" s={13.5} c={C.muted} style={{ lineHeight: 20, textAlign: 'center', marginTop: 12 }}>{p.sub}</T>}
-
-          {/* Gold-framed hero photo (children learning), shown clean — matches the
-              reference program page. Shared across programs. */}
-          <View style={s.pdHeroFrame}>
-            <Image source={PROGRAM_HERO} style={s.pdHeroInner} resizeMode="cover" />
-          </View>
-
-          <PressableScale style={s.pdCta} onPress={onBack}>
-            <T w="bold" s={15} c={C.ink}>{p.cta || 'Get Started'}</T>
-          </PressableScale>
-        </FadeIn>
-
-        {(p.bodyTitle || p.body) && (
-          <View style={s.pdBody}>
-            {!!p.bodyTitle && <T w="xbold" s={20} c={C.ink} style={{ lineHeight: 27 }}>{p.bodyTitle}</T>}
-            {!!p.body && <T w="med" s={13.5} c={C.muted} style={{ lineHeight: 21, marginTop: 10 }}>{p.body}</T>}
-            {!!p.bullets?.length && (
-              <View style={{ marginTop: 16, gap: 12 }}>
-                {p.bullets.map((b) => (
-                  <View key={b} style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
-                    <View style={s.pdCheck}><Check size={13} color={C.green} strokeWidth={3} /></View>
-                    <T w="semi" s={13} c={C.ink} style={{ flex: 1 }}>{b}</T>
-                  </View>
-                ))}
-              </View>
-            )}
-          </View>
-        )}
-      </ScrollView>
-    </View>
-  );
-}
-
 /* ── All sections stacked vertically (default export) ─────────────────────── */
-export default function EventsStack({ events = [], store = [], skills = [], gallery = [], onOpenProgram }) {
+export default function EventsStack({ events = [], store = [], skills = [], gallery = [], onAbout, onImpact, onTutors }) {
   const E = CONTENT.event;
   const scrollRef = useRef(null);
   const regionY = useRef(0);
@@ -447,7 +378,7 @@ export default function EventsStack({ events = [], store = [], skills = [], gall
         {!!skills.length && <FadeIn delay={160}><SkillsPage skills={skills} E={E} /></FadeIn>}
         {!!gallery.length && <FadeIn delay={160}><ParticipantsPage gallery={gallery} E={E} /></FadeIn>}
         <FadeIn delay={160}><CommunityPage gallery={gallery} E={E} /></FadeIn>
-        <FadeIn delay={160}><BecomePage E={E} onOpenProgram={onOpenProgram} /></FadeIn>
+        <FadeIn delay={160}><BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} /></FadeIn>
       </View>
     </ScrollView>
   );
@@ -476,24 +407,15 @@ export function EventTeaser({ event, onOpen }) {
 }
 
 /* ── Full-screen modal — the whole stacked page ───────────────────────────── */
-export function EventsModal({ visible, onClose, events, store, skills, gallery }) {
-  const [program, setProgram] = useState(null);
-  // Closing the modal resets any open program page so it reopens clean next time.
-  const close = () => { setProgram(null); onClose?.(); };
+export function EventsModal({ visible, onClose, events, store, skills, gallery, onAbout, onImpact, onTutors }) {
   return (
-    <Modal visible={visible} animationType="slide" onRequestClose={program ? () => setProgram(null) : close}>
+    <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
       <SafeAreaView style={{ flex: 1, backgroundColor: '#F6F6F7' }}>
-        {program ? (
-          <ProgramDetail programId={program} onBack={() => setProgram(null)} />
-        ) : (
-          <>
-            <View style={s.mHead}>
-              <PressableScale onPress={close} style={s.mBack}><T s={26} c={C.ink}>‹</T></PressableScale>
-              <T w="bold" s={16} c={C.ink}>Events</T><View style={{ width: 40 }} />
-            </View>
-            <EventsStack events={events} store={store} skills={skills} gallery={gallery} onOpenProgram={setProgram} />
-          </>
-        )}
+        <View style={s.mHead}>
+          <PressableScale onPress={onClose} style={s.mBack}><T s={26} c={C.ink}>‹</T></PressableScale>
+          <T w="bold" s={16} c={C.ink}>Events</T><View style={{ width: 40 }} />
+        </View>
+        <EventsStack events={events} store={store} skills={skills} gallery={gallery} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} />
       </SafeAreaView>
     </Modal>
   );
@@ -532,30 +454,16 @@ const s = StyleSheet.create({
   skillIcon: { width: 52, height: 52, borderRadius: 12, borderWidth: 1, alignItems: 'center', justifyContent: 'center' },
 
   gPhoto: { width: '100%', borderRadius: 12, backgroundColor: C.border },
-  storyRow: { flexDirection: 'row', alignItems: 'center', gap: 12, borderRadius: 16, borderWidth: 1, padding: 10 },
-  storyPhoto: { width: 84, height: 84, borderRadius: 14 },
 
-  social: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, borderRadius: 12, paddingVertical: 13, marginTop: 14 },
+  social: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, borderRadius: 12, paddingVertical: 13 },
 
   appBtn: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, backgroundColor: '#14151B', borderRadius: 10, paddingVertical: 13, marginTop: 14 },
   catRow: { flexDirection: 'row', gap: 10, marginTop: 20 },
   catCircle: { width: 58, height: 58, borderRadius: 29, backgroundColor: '#14151B', alignItems: 'center', justifyContent: 'center' },
   accItem: { borderBottomWidth: 1, borderBottomColor: C.border },
   accHead: { flexDirection: 'row', alignItems: 'center', paddingVertical: 14 },
+  accLink: { paddingVertical: 9 },
   offices: { flexDirection: 'row', gap: 16, marginTop: 20 },
-  progLink: { flexDirection: 'row', alignItems: 'center', backgroundColor: C.headerBg, borderRadius: 10, paddingHorizontal: 14, paddingVertical: 12 },
-
-  // Program detail page
-  pdWrap: { flex: 1, backgroundColor: '#F6F6F7' },
-  pdTabsWrap: { borderBottomWidth: 1, borderBottomColor: C.border, backgroundColor: '#fff' },
-  pdTabs: { paddingHorizontal: 16, gap: 22 },
-  pdTab: { paddingTop: 12, alignItems: 'center' },
-  pdTabRule: { height: 3, borderRadius: 2, alignSelf: 'stretch', marginTop: 9 },
-  pdHeroFrame: { backgroundColor: C.gold, borderRadius: 18, padding: 7, marginTop: 22 },
-  pdHeroInner: { width: '100%', height: 190, borderRadius: 12, backgroundColor: '#14151B' },
-  pdCta: { backgroundColor: C.gold, borderRadius: 24, paddingVertical: 15, alignItems: 'center', marginTop: 22, marginHorizontal: 8 },
-  pdBody: { backgroundColor: C.blueSoft, borderRadius: 18, padding: 20, marginTop: 28 },
-  pdCheck: { width: 22, height: 22, borderRadius: 11, backgroundColor: C.greenSoft, alignItems: 'center', justifyContent: 'center' },
 
   teaser: { height: 330, padding: 18, justifyContent: 'space-between' },
   teaserBtn: { backgroundColor: '#fff', borderRadius: 12, paddingVertical: 13, alignItems: 'center', alignSelf: 'stretch' },
