@@ -14,6 +14,7 @@ import MainNavigator from './MainNavigator';
 import CompleteProfileScreen from '../screens/CompleteProfileScreen';
 import ParentApp from '../screens/parent/ParentApp/ParentApp';
 import RoleHomeScreen from '../screens/RoleHomeScreen';
+import AdminWebViewScreen from '../screens/AdminWebViewScreen';
 import ProfileSelectScreen from '../screens/braingym/ProfileSelectScreen';
 
 const Stack = createNativeStackNavigator();
@@ -84,11 +85,16 @@ const AppNavigator = () => {
   } else if (scope.role === 'parent') {
     // Dedicated parent accounts still go straight to their own parent app.
     screen = <Stack.Screen name="ParentApp" component={ParentApp} />;
-  } else if (scope.role === 'teacher' || scope.role === 'admin') {
-    // Teacher / admin never leak into the student app.
+  } else if (scope.role === 'admin') {
+    // Admins get the full web Admin Portal embedded in a WebView (auto-authenticated via
+    // the app's JWT). No native mobile admin UI — the portal is the single source.
+    screen = <Stack.Screen name="AdminConsole" component={AdminWebViewScreen} />;
+  } else if (scope.role === 'teacher') {
+    // Teacher dashboard isn't built yet — a role-ready placeholder (never leaks into the
+    // student app). Kept separate from the admin path above.
     screen = (
       <Stack.Screen name="RoleApp">
-        {props => <RoleHomeScreen {...props} role={scope.role} />}
+        {props => <RoleHomeScreen {...props} role="teacher" />}
       </Stack.Screen>
     );
   } else if (activeView == null) {
