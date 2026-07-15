@@ -5,7 +5,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Platform } from 'react-native';
 import Svg, { Defs, LinearGradient as LG, Stop, Rect } from 'react-native-svg';
-import { Home, BarChart3, MessageCircle, BookOpen, Video } from 'lucide-react-native';
+import { Home, BarChart3, MessageCircle, BookOpen, Video, Share2, Sparkles, TrendingUp } from 'lucide-react-native';
 
 export const C = {
   bg: '#FFFFFF', canvas: '#F1F3F7', headerBg: '#F6F6F7', ink: '#161616', muted: '#6C7179', faint: '#A6AAB2',
@@ -42,6 +42,7 @@ export const CONTENT = {
     skillsTitle: "Skills You'll Discover",
     skillsIntro: 'The activities and quizzes build the core skills behind confident learning — across every subject.',
     participantsTitle: 'Hear From Our Participants',
+    participantsIntro: 'Real AILERNOVA learners, and what changed for them.',
     community: {
       title: 'Join our community of\nAilernova parents', body: 'Get updates, learning resources, and celebrate every win ❤️',
       instagram: 'https://instagram.com/ailernova', youtube: 'https://youtube.com/@ailernova',
@@ -49,12 +50,67 @@ export const CONTENT = {
     become: {
       title: 'BECOME AILERNOVA™', body: 'Build skills with daily challenges and puzzles.',
       appCta: 'Download the app', appUrl: 'https://ailernova.com',
-      categories: [{ emoji: '🧠', label: 'BRAIN GAMES' }, { emoji: '🧩', label: 'LOGIC PUZZLES' }, { emoji: '⚡', label: 'QUICK RECALL' }],
+      // Four feature glyphs (coloured lucide icons on dark circles), matching the app's
+      // reference tiles. Each carries its own Icon component + accent colour.
+      categories: [
+        { Icon: Share2, color: '#22D3EE', label: 'AI TUTOR' },
+        { Icon: Sparkles, color: '#C471ED', label: 'SMART PRACTICE' },
+        { Icon: BookOpen, color: '#F5B301', label: 'ADAPTIVE LEARNING' },
+        { Icon: TrendingUp, color: '#3FCF7F', label: 'PROGRESS TRACKING' },
+      ],
     },
     footer: {
       links: [
         { q: 'About Ailernova', a: 'Ailernova makes learning click through hands-on lessons, memory science and playful practice.' },
-        { q: 'Our Programs', a: 'Live AI Teacher, Brain Gym, events and practice — across Grades 6–12.' },
+        // Each program row opens an in-app detail page (ProgramDetail) with a class-switcher
+        // at the top. Copy below is editable brand marketing — swap freely per program.
+        { q: 'Our Programs', a: 'Live AI Teacher, Brain Gym, events and practice — across every stage.', programs: [
+          {
+            id: 'k2', label: 'Class K-2', tab: 'Class K-2',
+            title: 'The playful start\nevery learner needs',
+            sub: 'Curiosity-led early learning that builds number sense, focus and a love for figuring things out.',
+            cta: 'Get Started',
+            bodyTitle: 'We take care of all your child’s early foundations',
+            body: 'Hands-on activities and gentle guidance help young learners build confidence with numbers, patterns and problem-solving — one small win at a time.',
+            bullets: ['Number sense & counting', 'Focus and observation', 'Confidence with mistakes'],
+          },
+          {
+            id: '35', label: 'Class 3-5', tab: 'Class 3-5',
+            title: 'The strong foundation\nyour child needs',
+            sub: 'The right guidance today is crucial to help them start their journey to mastery.',
+            cta: 'Get Started',
+            bodyTitle: 'We take care of all your child’s maths',
+            body: 'Concept-first lessons and spaced practice turn shaky basics into a foundation your child can build on for years.',
+            bullets: ['Core concepts, deeply understood', 'Daily mixed practice', 'Steady, visible progress'],
+          },
+          {
+            id: '68', label: 'Class 6-8', tab: 'Class 6-8',
+            title: 'Where real\nconfidence is built',
+            sub: 'Middle-school is where habits form. We make sure they form the right ones.',
+            cta: 'Get Started',
+            bodyTitle: 'We take care of all your child’s learning',
+            body: 'Structured practice, live doubt-solving and honest progress tracking keep your child ahead of the syllabus, not chasing it.',
+            bullets: ['Concept mastery, not cramming', 'Live doubt-solving', 'Exam-ready practice'],
+          },
+          {
+            id: 'imo', label: 'IMO', tab: 'IMO',
+            title: 'Olympiad-ready\nthinking',
+            sub: 'Sharpen problem-solving for IMO and school olympiads with structured, challenging practice.',
+            cta: 'Get Started',
+            bodyTitle: 'We build the problem-solvers of tomorrow',
+            body: 'Curated olympiad-level problems and clear step-by-step reasoning stretch your child beyond the textbook.',
+            bullets: ['Olympiad-level problem sets', 'Reasoning & proof skills', 'Timed mock rounds'],
+          },
+          {
+            id: 'cueprep', label: 'Cueprep', tab: 'Cueprep',
+            title: 'Exam preparation\nthat sticks',
+            sub: 'Focused revision, mock tests and doubt-solving to walk into every exam prepared.',
+            cta: 'Get Started',
+            bodyTitle: 'We take care of the whole exam journey',
+            body: 'Chapter-wise revision, full-length mock tests and instant doubt-solving turn exam stress into a clear plan.',
+            bullets: ['Chapter-wise revision', 'Full-length mock tests', 'Instant doubt-solving'],
+          },
+        ] },
         { q: 'Resources', a: 'Free notes, revision guides, solutions and chapter-wise practice tests.' },
         { q: 'Tutoring', a: '1-on-1 and small-group tutoring with certified Ailernova mentors.' },
         { q: 'Partner with Us', a: 'Bring Ailernova events and programs to your school or city.' },
@@ -127,6 +183,9 @@ export function Wordmark({ size = 18 }) {
 /* ---------- styles (exact from the teammate build + real-data states) ---------- */
 // Premium soft elevation — larger, softer, lifted. Used by every card.
 export const card = { shadowColor: '#0B1020', shadowOpacity: 0.08, shadowRadius: 20, shadowOffset: { width: 0, height: 10 }, elevation: 4 };
+// Sharp, black-outlined card treatment used across the parent screens (MathGym look):
+// perfectly square corners + a 2px hard black border. Spread onto any card container.
+export const sharp = { borderRadius: 0, borderWidth: 2, borderColor: C.black };
 export const st = StyleSheet.create({
   safe: { flex: 1, backgroundColor: C.canvas, paddingTop: Platform.OS === 'android' ? 28 : 0 },
   screen: { flex: 1, backgroundColor: C.canvas },
@@ -146,6 +205,20 @@ export const st = StyleSheet.create({
   streakCard: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: '#FFF6E2', borderRadius: 16, padding: 14, width: 160 },
   streakIcon: { width: 38, height: 38, borderRadius: 19, backgroundColor: C.orange, alignItems: 'center', justifyContent: 'center' },
 
+  // ── MathGym-style Home: full-width, square, black-bordered stacked cards ──
+  noticeCard: { flexDirection: 'row', alignItems: 'center', gap: 14, backgroundColor: C.peach, padding: 13, marginBottom: 2, ...sharp },
+  noticeThumb: { width: 58, height: 58, alignItems: 'center', justifyContent: 'center', overflow: 'hidden', ...sharp },
+  updateThumb: { width: 58, height: 58, backgroundColor: C.ink, alignItems: 'center', justifyContent: 'center', ...sharp },
+  updateThumbBadge: { position: 'absolute', right: -5, bottom: -5, width: 22, height: 22, borderRadius: 11, backgroundColor: C.orange, alignItems: 'center', justifyContent: 'center', borderWidth: 2, borderColor: '#fff' },
+  promoCard: { backgroundColor: '#C21FD6', padding: 20, overflow: 'hidden', ...sharp },
+  promoImgWrap: { marginTop: 18, height: 190, alignItems: 'center', justifyContent: 'flex-end', overflow: 'hidden' },
+  promoCircle: { position: 'absolute', width: 240, height: 240, borderRadius: 120, backgroundColor: '#F3A6E4', bottom: -34 },
+  promoImg: { width: '100%', height: 190, resizeMode: 'contain' },
+
+  // Green "ring" onboarding tooltip on the Progress calendar.
+  ringTip: { backgroundColor: '#17A65A', padding: 14, marginTop: 2, marginBottom: 16, alignSelf: 'flex-start', maxWidth: '84%', ...sharp },
+  ringTipBtn: { backgroundColor: '#fff', borderRadius: 8, paddingHorizontal: 18, paddingVertical: 9, alignSelf: 'flex-start', marginTop: 12 },
+
   trialCard: { backgroundColor: '#F7C948', borderRadius: 20, paddingHorizontal: 20, paddingTop: 22, paddingBottom: 20, ...card },
   trialArt: { marginTop: 16, backgroundColor: '#F4CC55', borderRadius: 16, height: 200, overflow: 'hidden', justifyContent: 'flex-end' },
   trialImg: { borderRadius: 16 },
@@ -159,11 +232,11 @@ export const st = StyleSheet.create({
   weekRow: { flexDirection: 'row', justifyContent: 'space-between', paddingTop: 8, paddingBottom: 22, borderBottomWidth: 1, borderBottomColor: C.border, marginBottom: 22 },
   dowChip: { width: 22, height: 22, borderRadius: 11, alignItems: 'center', justifyContent: 'center' },
   dateCircle: { width: 38, height: 38, borderRadius: 19, borderWidth: 1.5, borderColor: C.border, alignItems: 'center', justifyContent: 'center' },
-  noActivity: { borderWidth: 1, borderColor: C.border, borderRadius: 14, padding: 22, flexDirection: 'row', alignItems: 'center', gap: 14, backgroundColor: '#FAFAFB' },
-  statCard: { borderWidth: 1, borderColor: C.border, borderRadius: 18, padding: 16, backgroundColor: '#fff', ...card },
+  noActivity: { padding: 22, flexDirection: 'row', alignItems: 'center', gap: 14, backgroundColor: '#FAFAFB', ...sharp },
+  statCard: { padding: 16, backgroundColor: '#fff', ...sharp },
   statRow: { flexDirection: 'row', justifyContent: 'space-between' },
   stat: { alignItems: 'center', flex: 1 },
-  focusCard: { borderWidth: 1, borderColor: C.border, borderRadius: 18, padding: 16, backgroundColor: '#fff', ...card },
+  focusCard: { padding: 16, backgroundColor: '#fff', ...sharp },
 
   emptyScreen: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 34, gap: 24 },
   chatBubble: { width: 70, height: 58, backgroundColor: '#BFE6FA', borderWidth: 2.5, borderColor: '#16202A', borderRadius: 14, alignItems: 'center', justifyContent: 'center' },

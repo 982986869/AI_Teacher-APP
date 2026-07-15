@@ -275,7 +275,10 @@ async function report(req, res, next) {
       q(`SELECT id::text AS id, title, duration, grades, city, badge, image_url, cta_label, cta_url, learn_label, learn_url, event_date, event_time, is_free FROM offline_events WHERE active ORDER BY position, id`),
       q(`SELECT id::text AS id, label, body, image_url FROM event_store_slides WHERE active ORDER BY position, id`),
       q(`SELECT id::text AS id, title, body, color, emoji FROM event_skills WHERE active ORDER BY position, id`),
-      q(`SELECT id::text AS id, image_url, caption FROM event_gallery WHERE active ORDER BY position, id`),
+      // name/rating land with the learner-story seed; fall back to photo-only rows
+      // on a DB that has not run seed-offline-events.js yet.
+      q(`SELECT id::text AS id, image_url, caption, name, rating FROM event_gallery WHERE active ORDER BY position, id`)
+        .then((r) => (r.length ? r : q(`SELECT id::text AS id, image_url, caption FROM event_gallery WHERE active ORDER BY position, id`))),
     ])
     const eventsOut = eventRows.map((e) => ({
       id: e.id, title: e.title, duration: e.duration, grades: e.grades, city: e.city, badge: e.badge,
@@ -284,7 +287,7 @@ async function report(req, res, next) {
     }))
     const storeOut = storeRows.map((s) => ({ id: s.id, label: s.label, body: s.body, image: s.image_url }))
     const skillsOut = skillRows.map((s) => ({ id: s.id, title: s.title, body: s.body, color: s.color, emoji: s.emoji }))
-    const galleryOut = galleryRows.map((g) => ({ id: g.id, image: g.image_url, caption: g.caption }))
+    const galleryOut = galleryRows.map((g) => ({ id: g.id, image: g.image_url, caption: g.caption, name: g.name || null, rating: Number(g.rating) || 0 }))
 
     return ApiResponse.success(res, {
       linked: true,
