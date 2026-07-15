@@ -1,0 +1,57 @@
+# Render Blueprint for the Ailernova backend (the server/ folder).
+#
+# This hosts the Node/Express API only. Your DATABASE stays on Supabase — you
+# paste its connection string in as DATABASE_URL below. Deploy flow:
+#
+#   1. Push this repo to GitHub (Render deploys from a Git repo).
+#   2. Render dashboard → New → Blueprint → pick this repo. It reads this file.
+#   3. When prompted, fill the "sync: false" secrets (they are NOT stored in git):
+#        DATABASE_URL  → your Supabase connection string (Project → Settings →
+#                        Database → Connection string → "URI"; use the pooled
+#                        6543 "Transaction" URI and add ?pgbouncer=true).
+#        JWT_SECRET    → the SAME value as your local server/.env, so tokens issued
+#                        locally keep working. (New DB? Any 64-char hex is fine.)
+#   4. Deploy. You get a URL like https://ailernova-api.onrender.com — that is the
+#      value you put into eas.json's EXPO_PUBLIC_API_URL, then rebuild the APK.
+#
+# Note: the free plan sleeps after ~15 min idle and cold-starts in ~30–60s, so the
+# very first request after idle can be slow (a login retry succeeds). Upgrade to a
+# paid instance to keep it always-on.
+
+services:
+  - type: web
+    name: ailernova-api
+    runtime: node
+    plan: free
+    rootDir: server
+    buildCommand: npm install && npx prisma generate
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      # Login/auth needs nothing below this line. These only switch on the AI
+      # teacher / TTS / RAG features — set them (sync:false secrets) when you want
+      # those live. Leaving MOCK_AI=true keeps the server booting without AI keys.
+      - key: MOCK_AI
+        value: "true"
+      - key: AI_PROVIDER
+        value: anthropic
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: VOYAGE_API_KEY
+        sync: false
+      - key: GOOGLE_WEB_CLIENT_ID
+        sync: false
+      - key: MSG91_AUTH_KEY
+        sync: false
+      - key: MSG91_TEMPLATE_ID
+        sync: false
