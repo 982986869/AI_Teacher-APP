@@ -2,9 +2,12 @@ import axiosInstance from './axiosInstance';
 
 const MOCK_MODE = true; // Set to false when your backend is running
 
+// Demo user is a COMPLETE Class 11 PCM student. A complete scope (class + stream) makes
+// AppNavigator skip Complete Profile — which can't be saved in a no-backend demo build —
+// so a mock login lands straight in the app.
 const mockResponse = (name, email, phone) => ({
   token: 'mock-jwt-token-12345',
-  user: { id: '1', name: name || 'User', email: email || '', phone: phone || '', grade: '' },
+  user: { id: '1', name: name || 'Demo User', email: email || '', phone: phone || '', grade: 'Class 11', stream: 'PCM' },
 });
 
 // ─── Email Auth (real backend) ──────────────────────────────────────────────────
