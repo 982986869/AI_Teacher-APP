@@ -45,8 +45,11 @@ export const CONTENT = {
     participantsIntro: 'Real AILERNOVA learners, and what changed for them.',
     community: {
       title: 'Join our community of\nAilernova parents', body: 'Get updates, learning resources, and celebrate every win ❤️',
-      instagram: 'https://www.instagram.com/ai_lernova/', youtube: 'https://www.youtube.com/@ailernova',
-      facebook: 'https://www.facebook.com/ailernova/', linkedin: 'https://www.linkedin.com/company/ailernova/',
+      // Only accounts Ailernova actually links from ailernova.in (verified). No YouTube/X —
+      // their site links none, so we don't show tiles that would guess at a handle.
+      instagram: 'https://www.instagram.com/ai_lernova/',
+      facebook: 'https://www.facebook.com/ailernova/',
+      linkedin: 'https://www.linkedin.com/company/ailernova/',
     },
     become: {
       title: 'BECOME AILERNOVA™', body: 'Build skills with daily challenges and puzzles.',
@@ -60,6 +63,71 @@ export const CONTENT = {
         { Icon: TrendingUp, color: '#3FCF7F', label: 'PROGRESS TRACKING' },
       ],
     },
+    // ── Program detail page (opened from "Our Programs" → a class) ──────────────
+    // A stacked, Cuemath-style landing: sticky class switcher, a "what we take care of"
+    // feature section, a curriculum section, and a "synced with school" section with a
+    // grade picker + topic list. Copy is editable brand marketing (NOT verified claims —
+    // no invented teacher counts, awards or third-party studies).
+    programsHub: {
+      cta: 'Find the right teacher',
+      ctaUrl: 'https://wa.me/918905604773',
+      careTitle: 'We take care of all your\nchild’s learning needs',
+      boardsTitle: 'Synced with school curriculum',
+      boardsBody: 'Aligned with your school board — CBSE, ICSE, State Boards & IB.',
+      exerciseCaption: 'A visual number-ordering exercise',
+      detailedCurriculumLabel: 'View Detailed Curriculum',
+      approachTitle: 'A 360° approach for\nexcellence in school\n& beyond',
+      approachBody: 'A well-rounded approach that goes beyond the textbook.',
+      // Swipeable "method" cards (below the 360° section). Colours mirror the reference.
+      method: {
+        heading: 'The Ailernova method\nsolves it all!',
+        cards: [
+          { title: 'School Curriculum', bg: '#FBF0DC', tint: '#E39A12',
+            body: 'We cover every concept in your child’s school syllabus — learned by doing, through interactive practice and personalised problem sets.' },
+          { title: 'Quick Recall', bg: '#FBE1EF', tint: '#C93E92',
+            body: 'Daily gamified practice in the Brain Gym steadily builds your child’s speed, accuracy and confidence with the basics.' },
+          { title: 'Real-life Application', bg: '#E1F4E7', tint: '#12924B',
+            body: 'Plenty of real-world problem-solving helps your child see concepts all around them — not just on the page.' },
+          { title: 'Advanced Learning', bg: '#E6F1FB', tint: '#1848F0',
+            body: 'Beyond-syllabus and olympiad-level content lets your child stretch further and prepare for competitive exams.' },
+        ],
+      },
+      // Shared feature rows (icon key → resolved to a lucide component in EventsCarousel).
+      features: [
+        { title: 'Handpicked Teachers', icon: 'users', tint: '#F5A623', bg: '#FCEFC7',
+          bullets: ['Mapped to your child’s needs', 'Qualified, experienced educators', 'Aligned to your board'] },
+        { title: 'Personalised Learning', icon: 'trend', tint: '#8B5CF6', bg: '#F0EAFE',
+          bullets: ['A custom path for every child', 'They progress at their own pace', 'Focus where it’s needed most'] },
+        { title: '1-to-1 LIVE Tutoring', icon: 'video', tint: '#12924B', bg: '#DCF3E5',
+          bullets: ['Undivided attention from live teachers', 'Instant doubt-solving for clarity', 'No pre-recorded sessions, ever'] },
+        { title: 'Classwork Help', icon: 'book', tint: '#1848F0', bg: '#E5EDFF',
+          bullets: ['Synced with your school curriculum', 'End-to-end homework help', 'Complete support for exams'] },
+        { title: 'Advanced Learning', icon: 'award', tint: '#F0501E', bg: '#FDE3D6',
+          bullets: ['Olympiad & beyond-syllabus practice', 'Reasoning and problem-solving', 'Challenge that builds confidence'] },
+      ],
+      // Per-class content, switched by the tab bar.
+      classes: [
+        { id: 'k2', tab: 'Class K-2',
+          curriculumTitle: 'Learning to love learning,\nthe right way',
+          curriculumLead: 'The Right Start',
+          curriculumBody: 'Grades K-2 are when your child first builds number sense, counting and early reasoning. Getting this stage right turns learning into something they enjoy — not something they fear.',
+          grades: ['Grade KG', 'Grade 1', 'Grade 2'],
+          topics: ['Matching And Sorting', 'Number And Operations', 'Shapes And Patterns', 'Time And Measurement', 'Data Handling'] },
+        { id: '35', tab: 'Class 3-5',
+          curriculumTitle: 'A strong foundation,\nbuilt to last',
+          curriculumLead: 'The Foundation Years',
+          curriculumBody: 'Grades 3-5 turn early skills into real understanding — the concepts your child will build on for years. We make sure the basics are rock-solid before moving on.',
+          grades: ['Grade 3', 'Grade 4', 'Grade 5'],
+          topics: ['Multiplication & Division', 'Fractions', 'Geometry', 'Measurement', 'Data Handling', 'Word Problems'] },
+        { id: '68', tab: 'Class 6-8',
+          curriculumTitle: 'Where real confidence\nis built',
+          curriculumLead: 'The Middle Years',
+          curriculumBody: 'Middle school is where habits form. We make sure your child forms the right ones — staying ahead of the syllabus with concepts understood, not crammed.',
+          grades: ['Grade 6', 'Grade 7', 'Grade 8'],
+          topics: ['Integers & Rationals', 'Algebra', 'Geometry', 'Ratios & Percentages', 'Mensuration', 'Data Handling'] },
+      ],
+    },
+
     // Footer accordions expand into LINK LISTS. An item either opens a `url`, or
     // fires an in-app `action` — 'about' opens the About Us story page, 'impact' opens
     // Our Impact, 'tutors' opens Our Tutors.
@@ -73,11 +141,12 @@ export const CONTENT = {
           { label: 'FAQs', url: 'https://ailernova.in/#faq' },
           { label: 'Contact Us', url: 'https://wa.me/918905604773' },
         ] },
+        // Each class opens the in-app program detail page (a stacked, Cuemath-style
+        // landing with a class switcher). `program` id → CONTENT.event.programsHub.classes.
         { q: 'Our Programs', items: [
-          { label: 'AI Teacher', url: 'https://ailernova.in/#about' },
-          { label: 'Brain Gym', url: 'https://ailernova.in/#about' },
-          { label: 'Practice & Tests', url: 'https://ailernova.in/#about' },
-          { label: 'Offline Events', url: 'https://ailernova.in/' },
+          { label: 'Class K-2', program: 'k2' },
+          { label: 'Class 3-5', program: '35' },
+          { label: 'Class 6-8', program: '68' },
         ] },
         { q: 'Resources', items: [
           { label: 'NCERT Solutions', url: 'https://ailernova.in/' },
@@ -99,6 +168,14 @@ export const CONTENT = {
       offices: [
         { label: 'SUPPORT', lines: 'support@ailernova.com\nailernova.com' },
       ],
+      // Footer foot — brand wordmark + tagline, legal links, and the social tile row
+      // (URLs come from CONTENT.event.community). Only real, reachable pages are linked.
+      tagline: 'Learning that actually sticks',
+      legal: [
+        { label: 'Privacy Policy', url: 'https://ailernova.in/privacy-policy/' },
+        { label: 'Contact Us', url: 'https://wa.me/918905604773' },
+      ],
+      copyright: '© Ailernova · All rights reserved.',
     },
   },
 };
