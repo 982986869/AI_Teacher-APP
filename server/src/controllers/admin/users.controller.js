@@ -31,7 +31,14 @@ async function list(req, res, next) {
     else if (role === 'student') conds.push(`COALESCE(account_type,'student') = 'student'`)
     else if (role === 'parent' || role === 'teacher') conds.push(`account_type = ${bind(role)}`)
 
-    if (klass) conds.push(`grade = ${bind(String(klass))}`)
+    // Class filter is CANONICAL: match any raw grade whose first 1–2 digits equal the selected
+    // class number (so "11", "Class 11", "11 PCM" all match Class 11). Falls back to exact match
+    // for a non-numeric value.
+    if (klass != null && String(klass) !== '') {
+      const n = parseInt(String(klass).match(/\d{1,2}/)?.[0], 10)
+      if (Number.isFinite(n)) conds.push(`substring(grade from '\\d{1,2}')::int = ${bind(n)}`)
+      else conds.push(`grade = ${bind(String(klass))}`)
+    }
     if (status === 'active') conds.push('is_active = true')
     else if (status === 'deactivated') conds.push('is_active = false')
 
@@ -188,11 +195,16 @@ async function remove(req, res, next) {
 // GET /api/admin/users/meta — filter facets (classes, roles) for the UI.
 async function meta(req, res, next) {
   try {
-    const grades = await db.$queryRawUnsafe(
-      `SELECT DISTINCT grade FROM "users" WHERE grade IS NOT NULL AND grade <> '' ORDER BY grade`,
+    // CANONICAL classes: collapse raw grade strings ("11", "Class 11", "11 PCM") to distinct
+    // class numbers 1..12 so the UI never shows duplicates. Returned as { value, label }.
+    const rows = await db.$queryRawUnsafe(
+      `SELECT DISTINCT substring(grade from '\\d{1,2}')::int AS n
+         FROM "users"
+        WHERE grade ~ '\\d' AND substring(grade from '\\d{1,2}')::int BETWEEN 1 AND 12
+        ORDER BY n`,
     ).catch(() => [])
     return ApiResponse.success(res, {
-      classes: grades.map((g) => g.grade),
+      classes: rows.map((r) => ({ value: r.n, label: `Class ${r.n}` })),
       adminRoles: ROLES.map((r) => ({ value: r, label: ROLE_LABELS[r] })),
       accountTypes: ['student', 'parent', 'teacher'],
     })

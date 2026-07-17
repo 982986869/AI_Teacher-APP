@@ -13,7 +13,8 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ailernova.teacher"
     },
     "android": {
       "adaptiveIcon": {
@@ -25,7 +26,7 @@
         "android.permission.READ_CALENDAR",
         "android.permission.WRITE_CALENDAR"
       ],
-      "package": "com.kumkum165.ailernova"
+      "package": "com.ailernova.teacher"
     },
     "web": {
       "favicon": "./assets/favicon.png"

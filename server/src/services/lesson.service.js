@@ -119,6 +119,34 @@ async function getLessonWithSlides(lessonId, userId) {
   })
 }
 
+// Admin (owner-agnostic) read of any lesson + its ordered slides. READ-ONLY — used by the
+// Admin AI Teacher "watch exactly as the student" preview. Same shape as getLessonWithSlides
+// so the real student player can replay it unchanged; no userId filter (admin sees any lesson).
+async function getLessonWithSlidesAdmin(lessonId) {
+  return db.lesson.findFirst({
+    where: { id: lessonId },
+    select: {
+      id: true,
+      topic: true,
+      subject: true,
+      gradeLevel: true,
+      lessonTitle: true,
+      estimatedDuration: true,
+      summary: true,
+      keyTerms: true,
+      status: true,
+      generationModel: true,
+      generationTimeMs: true,
+      createdAt: true,
+      updatedAt: true,
+      slides: {
+        select: SLIDE_SELECT,
+        orderBy: { slideNumber: 'asc' },
+      },
+    },
+  })
+}
+
 // Lightweight fetch for doubt/ownership checks — does not load slides.
 async function getLessonById(lessonId, userId) {
   return db.lesson.findFirst({
@@ -232,6 +260,7 @@ module.exports = {
   markLessonFailed,
   deleteLesson,
   getLessonWithSlides,
+  getLessonWithSlidesAdmin,
   getLessonById,
   getUserLessons,
   getOrCreateDoubtSession,

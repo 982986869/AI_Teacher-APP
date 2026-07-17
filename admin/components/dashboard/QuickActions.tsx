@@ -15,7 +15,7 @@ const ACTIONS: Action[] = [
   { label: 'Add Chapter', sub: 'Content', icon: Layers, tone: 'blue', href: '/content', perm: 'content.edit' },
   { label: 'Create Announcement', sub: 'Broadcast', icon: Megaphone, tone: 'purple', href: '/announcements', perm: 'announcements.edit' },
   { label: 'Upload Resources', sub: 'Content', icon: Upload, tone: 'emerald', href: '/content', perm: 'content.edit' },
-  { label: 'Manage Users', sub: 'People', icon: Users, tone: 'orange', href: '/users', perm: 'users.view' },
+  { label: 'Manage People', sub: 'People', icon: Users, tone: 'orange', href: '/people', perm: 'users.view' },
 ]
 
 export function QuickActions() {

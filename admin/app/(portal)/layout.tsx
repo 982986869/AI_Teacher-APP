@@ -3,8 +3,7 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '@/lib/auth'
-import { Sidebar } from '@/components/Sidebar'
-import { Topbar } from '@/components/Topbar'
+import { Shell } from '@/components/Shell'
 import { Spinner } from '@/components/ui'
 
 // Auth gate for every portal page. Unauthenticated → /login. While auth is resolving
@@ -25,13 +24,5 @@ export default function PortalLayout({ children }: { children: React.ReactNode }
     )
   }
 
-  return (
-    <div className="shell">
-      <Sidebar />
-      <div className="main">
-        <Topbar />
-        <main className="content">{children}</main>
-      </div>
-    </div>
-  )
+  return <Shell>{children}</Shell>
 }

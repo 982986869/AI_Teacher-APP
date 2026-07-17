@@ -300,6 +300,95 @@ async function restore(req, res, next) {
   } catch (err) { next(err) }
 }
 
+// ─── POST /api/admin/cms/nodes/:id/duplicate — deep-copy the subtree as a draft ──
+// The whole subtree is copied under the same parent as a fresh DRAFT (version 0), so a
+// duplicate never accidentally goes live. Runs in a transaction; the copy's root gets a
+// unique "-copy" slug among its siblings, descendants keep their (already-unique) slugs.
+async function duplicate(req, res, next) {
+  try {
+    const cur = await loadOr404(req.params.id)
+    const parentCond = cur.parent_id ? 'parent_id = $1::uuid' : 'parent_id IS NULL'
+    const base = slugify(`${cur.name}-copy`)
+    const sibs = await db.$queryRawUnsafe(
+      `SELECT slug FROM "cms_nodes" WHERE ${parentCond} AND deleted_at IS NULL AND slug LIKE ${cur.parent_id ? '$2' : '$1'}`,
+      ...(cur.parent_id ? [cur.parent_id, `${base}%`] : [`${base}%`]),
+    )
+    const taken = new Set(sibs.map((r) => r.slug))
+    let slug = base; let i = 2
+    while (taken.has(slug)) slug = `${base}-${i++}`
+    const posRow = await db.$queryRawUnsafe(
+      `SELECT COALESCE(MAX(position), -1) + 1 AS pos FROM "cms_nodes" WHERE ${parentCond} AND deleted_at IS NULL`,
+      ...(cur.parent_id ? [cur.parent_id] : []),
+    )
+    const rootPos = num(posRow[0] && posRow[0].pos)
+
+    const newRootId = await db.$transaction(async (tx) => {
+      const insert = (parentId, n) => tx.$queryRawUnsafe(
+        `INSERT INTO "cms_nodes" (parent_id, level, name, slug, description, position, icon, cover_image,
+                                  estimated_duration, difficulty, tags, visibility, status, version, lock_version,
+                                  created_by, created_by_name, updated_by, updated_by_name)
+         VALUES ($1::uuid,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11::text[],$12,'draft',0,1,$13::uuid,$14,$13::uuid,$14)
+         RETURNING id::text AS id`,
+        parentId, n.level, n.name, n.slug, n.description, n.position, n.icon, n.coverImage,
+        n.estimatedDuration, n.difficulty, n.tags || [], n.visibility, req.admin.id, req.admin.name,
+      )
+      const rootRows = await insert(cur.parent_id, {
+        level: cur.level, name: `${cur.name} (copy)`, slug, description: cur.description, position: rootPos,
+        icon: cur.icon, coverImage: cur.cover_image, estimatedDuration: cur.estimated_duration,
+        difficulty: cur.difficulty, tags: cur.tags, visibility: cur.visibility,
+      })
+      const rootId = rootRows[0].id
+      const desc = await tx.$queryRawUnsafe(
+        `WITH RECURSIVE sub AS (
+           SELECT *, 0 AS depth FROM "cms_nodes" WHERE parent_id = $1::uuid AND deleted_at IS NULL
+           UNION ALL SELECT n.*, sub.depth + 1 FROM "cms_nodes" n JOIN sub ON n.parent_id = sub.id WHERE n.deleted_at IS NULL)
+         SELECT id::text AS id, parent_id::text AS "parentId", level, name, slug, description, position,
+                icon, cover_image AS "coverImage", estimated_duration AS "estimatedDuration", difficulty, tags, visibility, depth
+           FROM sub ORDER BY depth ASC, position ASC`,
+        cur.id,
+      )
+      const idMap = { [cur.id]: rootId }
+      for (const d of desc) {
+        const np = idMap[d.parentId]
+        if (!np) continue
+        const r = await insert(np, d)
+        idMap[d.id] = r[0].id
+      }
+      return rootId
+    })
+
+    const rows = await db.$queryRawUnsafe(`SELECT ${NODE_COLS} FROM "cms_nodes" WHERE id=$1::uuid`, newRootId)
+    await audit.record(req, { module: 'cms', action: 'node.duplicate', targetType: 'cms_node', targetId: newRootId, targetLabel: `${cur.level}:${cur.name} (copy)`, before: { source: cur.id } })
+    return ApiResponse.created(res, { node: rows[0] })
+  } catch (err) {
+    if (isUniqueViolation(err)) return next(new AppError('Could not create a uniquely-named copy — rename the original and try again', 409, 'DUPLICATE_SLUG'))
+    next(err)
+  }
+}
+
+// ─── GET /api/admin/cms/nodes/:id/subtree — descendant counts by level + status ──
+// Powers the cascade-delete breakdown ("12 chapters, 68 lessons, …") and the detail
+// screen's coverage counts. Excludes the node itself.
+async function subtree(req, res, next) {
+  try {
+    await loadOr404(req.params.id)
+    const rows = await db.$queryRawUnsafe(
+      `WITH RECURSIVE sub AS (
+         SELECT id, level, status FROM "cms_nodes" WHERE parent_id = $1::uuid AND deleted_at IS NULL
+         UNION ALL SELECT n.id, n.level, n.status FROM "cms_nodes" n JOIN sub ON n.parent_id = sub.id WHERE n.deleted_at IS NULL)
+       SELECT level, status, COUNT(*)::int AS n FROM sub GROUP BY level, status`,
+      req.params.id,
+    )
+    const byLevel = {}; const byStatus = {}; let total = 0
+    for (const r of rows) {
+      byLevel[r.level] = (byLevel[r.level] || 0) + r.n
+      byStatus[r.status] = (byStatus[r.status] || 0) + r.n
+      total += r.n
+    }
+    return ApiResponse.success(res, { counts: rows, byLevel, byStatus, total })
+  } catch (err) { next(err) }
+}
+
 // ─── GET /api/admin/cms/meta (filter facets) ──────────────────────────────────
 async function meta(req, res, next) {
   try {
@@ -348,4 +437,4 @@ function serializeNode(n) {
   }
 }
 
-module.exports = { list, get, create, update, reorder, transition, remove, versions, restore, meta, published }
+module.exports = { list, get, create, update, reorder, transition, remove, versions, restore, meta, published, duplicate, subtree }

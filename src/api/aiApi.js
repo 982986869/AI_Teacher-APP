@@ -99,6 +99,30 @@ export const getLessonsProgress = async () => {
   return res.data.data;
 };
 
+// ── AI Teacher lesson library (admin-authored, published catalog) ──────────────
+// Browse Subjects → Chapters → Lessons, then play a lesson on the real player.
+const clsParam = (cls) => (cls != null && cls !== '' ? { params: { class: cls } } : undefined);
+export const getCatalogSubjects = async (cls) => {
+  const res = await axiosInstance.get('/api/ai/catalog/subjects', clsParam(cls));
+  return res.data.data;
+};
+export const getCatalogChapters = async (subjectId, cls) => {
+  const res = await axiosInstance.get(`/api/ai/catalog/subjects/${subjectId}/chapters`, clsParam(cls));
+  return res.data.data;
+};
+export const getCatalogLessons = async (chapterId, cls) => {
+  const res = await axiosInstance.get(`/api/ai/catalog/chapters/${chapterId}/lessons`, clsParam(cls));
+  return res.data.data;
+};
+export const getCatalogLesson = async (id, cls) => {
+  const res = await axiosInstance.get(`/api/ai/catalog/lessons/${id}`, clsParam(cls));
+  return res.data.data;
+};
+export const getCatalogResume = async (cls) => {
+  const res = await axiosInstance.get('/api/ai/catalog/resume', clsParam(cls));
+  return res.data.data;
+};
+
 // GET /api/ai/chapters/progress → per-chapter completion %, weak/strong, recommended.
 export const getChapterProgress = async (subject) => {
   const res = await axiosInstance.get('/api/ai/chapters/progress', {

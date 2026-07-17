@@ -43,12 +43,21 @@ export const PopIn = memo(function PopIn({ delay = 0, from = 0.5, duration = 420
 });
 
 // Press feedback: a soft spring scale-down. Drop-in for TouchableOpacity.
+// Flex/layout props are forwarded to the OUTER Pressable so `flex:1` (etc.) actually sizes the
+// touchable — otherwise, with the style only on the inner Animated.View, a PressableScale used
+// as a flex child (e.g. a row with flex:1) collapses to its content width and squeezes its
+// children (missing text, vertically-stacked badges). The visual style stays on the inner view.
+const LAYOUT_KEYS = ['flex', 'flexGrow', 'flexShrink', 'flexBasis', 'alignSelf'];
 export function PressableScale({ onPress, onLongPress, style, children, scaleTo = 0.97, disabled, ...rest }) {
   const s = useRef(new Animated.Value(1)).current;
   const to = (v) => Animated.spring(s, { toValue: v, useNativeDriver: true, speed: 45, bounciness: 0 }).start();
+  const flat = StyleSheet.flatten(style) || {};
+  const outer = {};
+  for (const k of LAYOUT_KEYS) if (flat[k] !== undefined) outer[k] = flat[k];
   return (
     <Pressable
       accessibilityRole="button"
+      style={outer}
       onPress={onPress} onLongPress={onLongPress} disabled={disabled}
       onPressIn={() => !disabled && to(scaleTo)} onPressOut={() => to(1)} {...rest}
     >

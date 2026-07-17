@@ -232,7 +232,7 @@ function RectHowTo({ onPlay, onExit }) {
 // ── Orchestrator ─────────────────────────────────────────────────────────────
 export default function ArenaRectBattle({ onExit, onTabPress }) {
   const { user } = useAuth();
-  const meName = user?.name || 'kumkum02';
+  const meName = user?.name || 'Player';
   const [phase, setPhase] = useState('howto'); // howto|intro3|finding|vs|round|board|result|reward
   const [match, setMatch] = useState(null);
   const [roundNo, setRoundNo] = useState(1);

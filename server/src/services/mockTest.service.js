@@ -23,6 +23,7 @@ async function listTests({ subject, classLevel = null } = {}) {
             question_count     AS "questionCount"
        FROM mock_tests
       WHERE ($1::text IS NULL OR subject = $1) AND class_level = $2
+        AND status = 'published' AND deleted_at IS NULL
       ORDER BY id`,
     subject || null, classLevel,
   )
@@ -32,7 +33,7 @@ async function listTests({ subject, classLevel = null } = {}) {
 // opens tests for their own class + syllabus (the by-id endpoints are otherwise open).
 async function getTestMeta(id) {
   const [row] = await db.$queryRawUnsafe(
-    `SELECT class_level AS "classLevel", subject FROM mock_tests WHERE id = $1`,
+    `SELECT class_level AS "classLevel", subject FROM mock_tests WHERE id = $1 AND status = 'published' AND deleted_at IS NULL`,
     id,
   )
   return row || null
@@ -43,7 +44,7 @@ async function getTest(id) {
     `SELECT id, subject, name, category_full_name AS "categoryFullName",
             duration_min AS "durationMin", no_of_questions AS "noOfQuestions",
             section_count AS "sectionCount", question_count AS "questionCount", instruction
-       FROM mock_tests WHERE id = $1`,
+       FROM mock_tests WHERE id = $1 AND status = 'published' AND deleted_at IS NULL`,
     id,
   )
   if (!test) throw new AppError('Mock test not found.', 404)
@@ -61,7 +62,7 @@ async function getTest(id) {
 // also scores authoritatively on the server.)
 async function getQuestions(id) {
   const [test] = await db.$queryRawUnsafe(
-    `SELECT id, name, duration_min AS "durationMin", question_count AS "questionCount", instruction FROM mock_tests WHERE id = $1`,
+    `SELECT id, name, duration_min AS "durationMin", question_count AS "questionCount", instruction FROM mock_tests WHERE id = $1 AND status = 'published' AND deleted_at IS NULL`,
     id,
   )
   if (!test) throw new AppError('Mock test not found.', 404)
@@ -129,6 +130,7 @@ async function listAttempts({ subject, userId, classLevel = null }) {
        FROM mock_test_attempts a
        JOIN mock_tests t ON t.id = a.test_id
       WHERE a.user_id = $1::uuid AND ($2::text IS NULL OR t.subject = $2) AND t.class_level = $3
+        AND t.status = 'published' AND t.deleted_at IS NULL
       GROUP BY a.test_id`,
     userId, subject || null, classLevel,
   )
@@ -136,6 +138,9 @@ async function listAttempts({ subject, userId, classLevel = null }) {
 
 // Authoritative server-side scoring. answers = { "<questionId>": <selectedIndex> }.
 async function submit({ id, userId, answers = {}, timeTakenSec = 0 }) {
+  // Never score an attempt against a draft/archived/removed test.
+  const [t] = await db.$queryRawUnsafe(`SELECT status, deleted_at FROM mock_tests WHERE id = $1`, id)
+  if (!t || t.status !== 'published' || t.deleted_at) throw new AppError('Mock test not found.', 404)
   const rows = await db.$queryRawUnsafe(
     `SELECT id, correct_index AS "correctIndex" FROM mock_test_questions WHERE test_id = $1`,
     id,
