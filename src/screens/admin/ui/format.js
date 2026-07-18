@@ -75,6 +75,32 @@ export function plainText(html) {
     .trim();
 }
 
+// Pull the first <img src> URL from an HTML string — some questions/options are S3 diagrams
+// (htmlToText/plainText strips the <img>, so we render it separately).
+export function firstImg(html) {
+  const m = String(html || '').match(/<img[^>]+src=["']([^"']+)["']/i);
+  return m ? m[1] : null;
+}
+
+// Drop every <img> tag (and any wrapper <p> left empty) so a single controlled image can be re-attached.
+export function stripImg(html) {
+  return String(html || '')
+    .replace(/<p>\s*<img[^>]*>\s*<\/p>/gi, '')
+    .replace(/<img[^>]*>/gi, '')
+    .replace(/<p[^>]*>\s*<\/p>/gi, '')
+    .trim();
+}
+
+// Compose question/option HTML with an authoritative single image: if imageUrl is set, exactly that
+// image is appended (centered); if null, no image. Any pre-existing <img> in baseHtml is removed first
+// (prevents duplicates when the admin replaces/removes an imported image).
+export function withImage(baseHtml, imageUrl) {
+  const base = stripImg(baseHtml);
+  if (!imageUrl) return base;
+  const img = `<p style="text-align:center;margin:8px 0"><img src="${imageUrl}" style="max-width:100%;height:auto" /></p>`;
+  return base ? `${base}${img}` : img;
+}
+
 // Pull the friendliest message out of an axios/API error.
 export function apiError(e, fallback = 'Something went wrong. Please try again.') {
   return e?.response?.data?.error || e?.response?.data?.message || e?.message || fallback;

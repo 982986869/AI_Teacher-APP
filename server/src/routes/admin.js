@@ -5,6 +5,7 @@
 // The student runtime routes are entirely untouched.
 
 const { Router } = require('express')
+const multer = require('multer')
 const { adminAuthenticate, requirePermission } = require('../middleware/adminAuth')
 
 const authCtrl = require('../controllers/admin/auth.controller')
@@ -23,8 +24,12 @@ const parentsCtrl = require('../controllers/admin/parents.controller')
 const analyticsCtrl = require('../controllers/admin/analytics.controller')
 const auditCtrl = require('../controllers/admin/audit.controller')
 const aiCtrl = require('../controllers/admin/aiTeacher.controller')
+const uploadsCtrl = require('../controllers/admin/uploads.controller')
 
 const router = Router()
+
+// In-memory image upload for authored question/option diagrams (max 5 MB, one file).
+const imageUpload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 5 * 1024 * 1024, files: 1 } })
 
 // ─── Auth (public login, then everything below requires an admin session) ──────
 router.post('/auth/login', authCtrl.login)
@@ -163,6 +168,7 @@ router.get('/resources/chapters/:id/notes', requirePermission('content.view'), r
 router.put('/resources/chapters/:id/notes', requirePermission('content.edit'), resCtrl.saveChapterNotes)
 router.get('/resources/chapters/:id/questions/:type', requirePermission('content.view'), resCtrl.chapterQuestions)
 router.put('/resources/chapters/:id/questions/:type', requirePermission('content.edit'), resCtrl.saveChapterQuestions)
+router.post('/resources/upload-image', requirePermission('content.edit'), imageUpload.single('file'), uploadsCtrl.uploadContentImage)
 router.delete('/resources/chapters/:id', requirePermission('content.edit'), resCtrl.deleteChapter)
 
 // ─── Audit Logs ────────────────────────────────────────────────────────────────

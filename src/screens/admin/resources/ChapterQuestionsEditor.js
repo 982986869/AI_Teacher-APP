@@ -9,16 +9,14 @@ import { ChevronLeft, Plus, X, CircleQuestionMark, Eye, EyeOff, CircleCheck } fr
 import { getAdminChapterQuestions, saveAdminChapterQuestions } from '../../../api/adminApi';
 import { S, shadow } from '../../../theme/studentUI';
 import { T } from '../../parent/ParentApp/constants';
-import { apiError, plainText } from '../ui/format';
+import { apiError, plainText, firstImg, withImage } from '../ui/format';
+import ImageField from '../ui/ImageField';
 import MathHtmlPreview from './MathHtmlPreview';
 
 const GREEN = '#16A34A';
 const GREEN_SOFT = '#E7F7EE';
 const inputBase = { backgroundColor: '#fff', borderWidth: 1.5, borderColor: S.border, borderRadius: 12, paddingHorizontal: 13, paddingVertical: 11, fontFamily: 'Nunito_600SemiBold', fontSize: 14.5, color: S.ink };
 const optIsCorrect = (x, o) => Boolean(o.is_correct) || (x.correctOption != null && String(o.idx) === String(x.correctOption));
-// Some MCQ options/questions are image-based (S3 diagrams) — pull the image URL so we render it
-// instead of a blank row (htmlToText strips the <img>).
-const firstImg = (html) => { const m = String(html || '').match(/<img[^>]+src=["']([^"']+)["']/i); return m ? m[1] : null; };
 
 const htmlToText = (html) => String(html || '')
   .replace(/<\/(p|div|li|h[1-6]|tr)>/gi, '\n').replace(/<br\s*\/?>/gi, '\n').replace(/<li[^>]*>/gi, '• ')
@@ -46,8 +44,8 @@ export default function ChapterQuestionsEditor({ route, navigation }) {
     const qChanged = x.question.trim() !== (x.loadedQ || '').trim();
     const aChanged = x.answer.trim() !== (x.loadedA || '').trim();
     return {
-      q: x.origQ != null && !qChanged ? x.origQ : textToHtml(x.question.trim()),
-      a: x.origA != null && !aChanged ? x.origA : textToHtml(x.answer.trim()),
+      q: withImage(x.origQ != null && !qChanged ? x.origQ : textToHtml(x.question.trim()), x.qImage),
+      a: withImage(x.origA != null && !aChanged ? x.origA : textToHtml(x.answer.trim()), x.aImage),
     };
   };
 
@@ -64,6 +62,7 @@ export default function ChapterQuestionsEditor({ route, navigation }) {
           const isMcq = Boolean(q.isMcq) && Array.isArray(q.options) && q.options.length >= 2;
           return {
             question, answer, origQ: q.questionHtml || null, origA: q.solutionHtml || null, loadedQ: question, loadedA: answer,
+            qImage: firstImg(q.questionHtml), aImage: firstImg(q.solutionHtml),
             isMcq, options: isMcq ? q.options : null, correctOption: q.correctOption != null ? q.correctOption : null,
           };
         }));
@@ -74,7 +73,7 @@ export default function ChapterQuestionsEditor({ route, navigation }) {
   }, [id, type]);
 
   const setField = (i, field) => (v) => setItems((xs) => xs.map((x, j) => (j === i ? { ...x, [field]: v } : x)));
-  const addItem = () => setItems((xs) => [...xs, { question: '', answer: '', origQ: null, origA: null, loadedQ: '', loadedA: '', isMcq: false, options: null, correctOption: null }]);
+  const addItem = () => setItems((xs) => [...xs, { question: '', answer: '', origQ: null, origA: null, loadedQ: '', loadedA: '', qImage: null, aImage: null, isMcq: false, options: null, correctOption: null }]);
   const removeItem = (i) => setItems((xs) => xs.filter((_, j) => j !== i));
 
   const save = useCallback(async () => {
@@ -84,8 +83,8 @@ export default function ChapterQuestionsEditor({ route, navigation }) {
       const aChanged = x.answer.trim() !== (x.loadedA || '').trim();
       const row = {
         qNumber: `Q${i + 1}`,
-        questionHtml: x.origQ != null && !qChanged ? x.origQ : textToHtml(x.question.trim()),
-        solutionHtml: x.origA != null && !aChanged ? x.origA : textToHtml(x.answer.trim()),
+        questionHtml: withImage(x.origQ != null && !qChanged ? x.origQ : textToHtml(x.question.trim()), x.qImage),
+        solutionHtml: withImage(x.origA != null && !aChanged ? x.origA : textToHtml(x.answer.trim()), x.aImage),
       };
       // Preserve an MCQ row verbatim — this editor never touches options/correct answer.
       if (x.isMcq && Array.isArray(x.options) && x.options.length >= 2) {
@@ -94,7 +93,7 @@ export default function ChapterQuestionsEditor({ route, navigation }) {
         row.correctOption = x.correctOption;
       }
       return row;
-    }).filter((q) => String(q.questionHtml).replace(/<[^>]*>/g, '').trim());
+    }).filter((q) => String(q.questionHtml).replace(/<[^>]*>/g, '').trim() || /<img/i.test(q.questionHtml));
     setSaving(true);
     try {
       await saveAdminChapterQuestions(id, type, { questions: out });
@@ -144,8 +143,9 @@ export default function ChapterQuestionsEditor({ route, navigation }) {
                   </View>
                 </View>
                 <T w="bold" s={11} c={S.muted} style={{ marginBottom: 5 }}>QUESTION</T>
-                <TextInput style={[inputBase, { minHeight: 64, textAlignVertical: 'top', marginBottom: firstImg(x.origQ) ? 6 : 10 }]} value={x.question} onChangeText={setField(i, 'question')} placeholder="Type the question…" placeholderTextColor={S.faint} multiline />
-                {!!firstImg(x.origQ) && <Image source={{ uri: firstImg(x.origQ) }} style={{ width: '70%', height: 110, borderRadius: 8, backgroundColor: '#fff', marginBottom: 10 }} resizeMode="contain" />}
+                <TextInput style={[inputBase, { minHeight: 64, textAlignVertical: 'top' }]} value={x.question} onChangeText={setField(i, 'question')} placeholder="Type the question…" placeholderTextColor={S.faint} multiline />
+                <ImageField value={x.qImage} onChange={setField(i, 'qImage')} />
+                <View style={{ height: 10 }} />
 
                 {x.isMcq && Array.isArray(x.options) && (
                   <View style={{ marginBottom: 10 }}>
@@ -168,6 +168,7 @@ export default function ChapterQuestionsEditor({ route, navigation }) {
 
                 <T w="bold" s={11} c={S.muted} style={{ marginBottom: 5 }}>{x.isMcq ? 'SOLUTION / EXPLANATION' : 'ANSWER'}</T>
                 <TextInput style={[inputBase, { minHeight: 80, textAlignVertical: 'top' }]} value={x.answer} onChangeText={setField(i, 'answer')} placeholder={x.isMcq ? 'Why the correct option is right…' : 'Type the answer / solution…'} placeholderTextColor={S.faint} multiline />
+                <ImageField value={x.aImage} onChange={setField(i, 'aImage')} />
 
                 {openPreview[i] && (() => {
                   const pv = previewHtml(x);

@@ -87,6 +87,18 @@ export const getAdminChapterNotes = (id) => axiosInstance.get(`/api/admin/resour
 export const saveAdminChapterNotes = (id, body) => axiosInstance.put(`/api/admin/resources/chapters/${id}/notes`, body).then(unwrap);
 export const getAdminChapterQuestions = (id, type) => axiosInstance.get(`/api/admin/resources/chapters/${id}/questions/${type}`).then(unwrap);
 export const saveAdminChapterQuestions = (id, type, body) => axiosInstance.put(`/api/admin/resources/chapters/${id}/questions/${type}`, body).then(unwrap);
+// Upload a question/option image (from expo-image-picker). asset = { uri, mimeType?, fileName? }.
+// Returns the public URL to embed as <img> in the question/option HTML.
+export const uploadContentImage = (asset) => {
+  const uri = asset?.uri || asset;
+  const mime = asset?.mimeType || 'image/jpeg';
+  const name = asset?.fileName || `image.${(mime.split('/')[1] || 'jpg').replace('jpeg', 'jpg')}`;
+  const form = new FormData();
+  form.append('file', { uri, name, type: mime });
+  return axiosInstance
+    .post('/api/admin/resources/upload-image', form, { headers: { 'Content-Type': 'multipart/form-data' }, timeout: 60000 })
+    .then(unwrap);
+};
 // ── Online Tests (imported examin8 MCQ tests) ──────────────────────────────────
 export const getAdminOnlineTestClasses = () => axiosInstance.get('/api/admin/online-tests/classes').then(unwrap);
 export const getAdminOnlineTestSubjects = (cls) => axiosInstance.get(`/api/admin/online-tests/subjects${qs({ class: cls })}`).then(unwrap);

@@ -4,13 +4,14 @@
 // correct_option) so students see them EXACTLY like imported MCQs (resources.service.toMcq,
 // getMcqByPath). The admin types plain text; text↔html conversion preserves untouched bodies.
 import React, { useEffect, useState, useCallback } from 'react';
-import { View, Text, Image, ScrollView, TextInput, Pressable, ActivityIndicator, KeyboardAvoidingView, Platform, Alert } from 'react-native';
+import { View, Text, ScrollView, TextInput, Pressable, ActivityIndicator, KeyboardAvoidingView, Platform, Alert } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ChevronLeft, Plus, X, ListChecks, Check, Eye, EyeOff, CircleCheck } from 'lucide-react-native';
 import { getAdminChapterQuestions, saveAdminChapterQuestions } from '../../../api/adminApi';
 import { S, shadow } from '../../../theme/studentUI';
 import { T } from '../../parent/ParentApp/constants';
-import { apiError } from '../ui/format';
+import { apiError, firstImg, withImage } from '../ui/format';
+import ImageField from '../ui/ImageField';
 import MathHtmlPreview from './MathHtmlPreview';
 
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
@@ -19,10 +20,6 @@ const GREEN = '#16A34A';
 const GREEN_SOFT = '#E7F7EE';
 const AMBER = '#B45309';
 const inputBase = { backgroundColor: '#fff', borderWidth: 1.5, borderColor: S.border, borderRadius: 12, paddingHorizontal: 13, paddingVertical: 11, fontFamily: 'Nunito_600SemiBold', fontSize: 14.5, color: S.ink };
-// Imported MCQs can have image-based options/questions — show the image (read-only) rather than a
-// blank editable field the admin might overwrite (which would destroy the image on save).
-const firstImg = (html) => { const m = String(html || '').match(/<img[^>]+src=["']([^"']+)["']/i); return m ? m[1] : null; };
-
 const htmlToText = (html) => String(html || '')
   .replace(/<\/(p|div|li|h[1-6]|tr)>/gi, '\n').replace(/<br\s*\/?>/gi, '\n').replace(/<li[^>]*>/gi, '• ')
   .replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&#39;/g, "'").replace(/&quot;/g, '"')
@@ -41,8 +38,8 @@ const optTextToHtml = (text) => {
 
 // A fresh MCQ starts with 4 empty options, none correct yet.
 const blankItem = () => ({
-  question: '', solution: '', origQ: null, origSol: null, loadedQ: '', loadedSol: '',
-  options: [0, 1, 2, 3].map((j) => ({ text: '', origHtml: null, loaded: '', correct: false })),
+  question: '', solution: '', origQ: null, origSol: null, loadedQ: '', loadedSol: '', qImage: null,
+  options: [0, 1, 2, 3].map((j) => ({ text: '', origHtml: null, loaded: '', correct: false, image: null })),
 });
 
 export default function ChapterMcqEditor({ route, navigation }) {
@@ -65,10 +62,10 @@ export default function ChapterMcqEditor({ route, navigation }) {
           const options = rawOpts.map((o) => {
             const text = htmlToText(o.html);
             const correct = Boolean(o.is_correct) || (q.correctOption != null && String(o.idx) === String(q.correctOption));
-            return { text, origHtml: o.html || null, loaded: text, correct };
+            return { text, origHtml: o.html || null, loaded: text, correct, image: firstImg(o.html) };
           });
-          while (options.length < 4) options.push({ text: '', origHtml: null, loaded: '', correct: false });
-          return { question, solution, origQ: q.questionHtml || null, origSol: q.solutionHtml || null, loadedQ: question, loadedSol: solution, options };
+          while (options.length < 4) options.push({ text: '', origHtml: null, loaded: '', correct: false, image: null });
+          return { question, solution, origQ: q.questionHtml || null, origSol: q.solutionHtml || null, loadedQ: question, loadedSol: solution, qImage: firstImg(q.questionHtml), options };
         }));
       })
       .catch(() => {})
@@ -79,8 +76,9 @@ export default function ChapterMcqEditor({ route, navigation }) {
   const setItem = (i, patch) => setItems((xs) => xs.map((x, j) => (j === i ? { ...x, ...patch } : x)));
   const setField = (i, field) => (v) => setItem(i, { [field]: v });
   const setOptText = (i, oi) => (v) => setItems((xs) => xs.map((x, j) => (j === i ? { ...x, options: x.options.map((o, k) => (k === oi ? { ...o, text: v } : o)) } : x)));
+  const setOptImage = (i, oi, url) => setItems((xs) => xs.map((x, j) => (j === i ? { ...x, options: x.options.map((o, k) => (k === oi ? { ...o, image: url } : o)) } : x)));
   const markCorrect = (i, oi) => setItems((xs) => xs.map((x, j) => (j === i ? { ...x, options: x.options.map((o, k) => ({ ...o, correct: k === oi })) } : x)));
-  const addOption = (i) => setItems((xs) => xs.map((x, j) => (j === i && x.options.length < 6 ? { ...x, options: [...x.options, { text: '', origHtml: null, loaded: '', correct: false }] } : x)));
+  const addOption = (i) => setItems((xs) => xs.map((x, j) => (j === i && x.options.length < 6 ? { ...x, options: [...x.options, { text: '', origHtml: null, loaded: '', correct: false, image: null }] } : x)));
   const removeOption = (i, oi) => setItems((xs) => xs.map((x, j) => (j === i && x.options.length > 2 ? { ...x, options: x.options.filter((_, k) => k !== oi) } : x)));
   const addItem = () => setItems((xs) => [...xs, blankItem()]);
   const removeItem = (i) => setItems((xs) => xs.filter((_, j) => j !== i));
@@ -92,18 +90,19 @@ export default function ChapterMcqEditor({ route, navigation }) {
     const options = x.options
       .map((o, j) => {
         const changed = o.text.trim() !== (o.loaded || '').trim();
+        const baseHtml = o.origHtml != null && !changed ? o.origHtml : optTextToHtml(o.text.trim());
         return {
           idx: LETTERS[j] || String(j + 1),
-          html: o.origHtml != null && !changed ? o.origHtml : optTextToHtml(o.text.trim()),
+          html: withImage(baseHtml, o.image),
           isCorrect: Boolean(o.correct),
-          _empty: !o.text.trim() && !(o.origHtml && htmlToText(o.origHtml).trim()),
+          _empty: !o.text.trim() && !o.image,
         };
       })
       .filter((o) => !o._empty)
       .map(({ _empty, ...o }) => o);
     return {
       qNumber: `Q${i + 1}`,
-      questionHtml: x.origQ != null && !qChanged ? x.origQ : textToHtml(x.question.trim()),
+      questionHtml: withImage(x.origQ != null && !qChanged ? x.origQ : textToHtml(x.question.trim()), x.qImage),
       solutionHtml: x.origSol != null && !solChanged ? x.origSol : textToHtml(x.solution.trim()),
       isMcq: true,
       options,
@@ -113,8 +112,8 @@ export default function ChapterMcqEditor({ route, navigation }) {
 
   // Per-item validity for inline hints + save gating.
   const itemIssue = (x) => {
-    const filled = x.options.filter((o) => o.text.trim() || (o.origHtml && htmlToText(o.origHtml).trim()));
-    if (!x.question.trim() && !(x.origQ && htmlToText(x.origQ).trim())) return null; // empty rows are dropped, not errors
+    const filled = x.options.filter((o) => o.text.trim() || o.image);
+    if (!x.question.trim() && !x.qImage) return null; // empty rows are dropped, not errors
     if (filled.length < 2) return 'Add at least 2 options';
     if (!x.options.some((o) => o.correct)) return 'Mark the correct option';
     return null;
@@ -122,7 +121,7 @@ export default function ChapterMcqEditor({ route, navigation }) {
 
   const save = useCallback(async () => {
     if (saving) return;
-    const nonEmpty = items.filter((x) => x.question.trim() || (x.origQ && htmlToText(x.origQ).trim()));
+    const nonEmpty = items.filter((x) => x.question.trim() || x.qImage);
     const firstIssue = nonEmpty.map(itemIssue).find(Boolean);
     if (firstIssue) { Alert.alert('Finish the question', firstIssue); return; }
     const out = nonEmpty.map((x, i) => buildRow(x, i)).filter((q) => q.options.length >= 2 && q.correctOption);
@@ -171,33 +170,28 @@ export default function ChapterMcqEditor({ route, navigation }) {
                   </View>
 
                   <T w="bold" s={11} c={S.muted} style={{ marginBottom: 5 }}>QUESTION</T>
-                  <TextInput style={[inputBase, { minHeight: 60, textAlignVertical: 'top', marginBottom: 12 }]} value={x.question} onChangeText={setField(i, 'question')} placeholder="Type the question…" placeholderTextColor={S.faint} multiline />
+                  <TextInput style={[inputBase, { minHeight: 60, textAlignVertical: 'top' }]} value={x.question} onChangeText={setField(i, 'question')} placeholder="Type the question…" placeholderTextColor={S.faint} multiline />
+                  <ImageField value={x.qImage} onChange={(url) => setItem(i, { qImage: url })} />
 
-                  <T w="bold" s={11} c={S.muted} style={{ marginBottom: 6 }}>OPTIONS · tap the circle to mark the correct one</T>
-                  {x.options.map((o, oi) => {
-                    const oImg = firstImg(o.origHtml);
-                    const isImgOpt = !!oImg && !(o.loaded || '').trim(); // image-based, no text → show read-only
-                    return (
-                    <View key={oi} style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-                      <Pressable onPress={() => markCorrect(i, oi)} hitSlop={8} style={{ width: 30, height: 30, borderRadius: 15, borderWidth: 2, borderColor: o.correct ? GREEN : S.border, backgroundColor: o.correct ? GREEN : '#fff', alignItems: 'center', justifyContent: 'center' }}>
-                        {o.correct ? <Check size={16} color="#fff" strokeWidth={3} /> : <Text style={{ fontSize: 12.5, fontWeight: '800', color: S.faint }}>{LETTERS[oi]}</Text>}
-                      </Pressable>
-                      {isImgOpt ? (
-                        <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: S.canvas, borderWidth: 1.5, borderColor: S.border, borderRadius: 12, paddingHorizontal: 10, paddingVertical: 6 }}>
-                          <Image source={{ uri: oImg }} style={{ width: 72, height: 44, borderRadius: 6, backgroundColor: '#fff' }} resizeMode="contain" />
-                          <Text style={{ fontSize: 11.5, fontWeight: '700', color: S.faint }}>Image option</Text>
-                        </View>
-                      ) : (
-                      <TextInput style={[inputBase, { flex: 1, paddingVertical: 9 }]} value={o.text} onChangeText={setOptText(i, oi)} placeholder={`Option ${LETTERS[oi]}`} placeholderTextColor={S.faint} />
-                      )}
-                      {x.options.length > 2 && (
-                        <Pressable onPress={() => removeOption(i, oi)} hitSlop={8} style={{ width: 28, height: 28, borderRadius: 8, alignItems: 'center', justifyContent: 'center' }}>
-                          <X size={15} color={S.faint} strokeWidth={2.4} />
+                  <T w="bold" s={11} c={S.muted} style={{ marginTop: 12, marginBottom: 6 }}>OPTIONS · tap the circle to mark the correct one</T>
+                  {x.options.map((o, oi) => (
+                    <View key={oi} style={{ marginBottom: 8 }}>
+                      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                        <Pressable onPress={() => markCorrect(i, oi)} hitSlop={8} style={{ width: 30, height: 30, borderRadius: 15, borderWidth: 2, borderColor: o.correct ? GREEN : S.border, backgroundColor: o.correct ? GREEN : '#fff', alignItems: 'center', justifyContent: 'center' }}>
+                          {o.correct ? <Check size={16} color="#fff" strokeWidth={3} /> : <Text style={{ fontSize: 12.5, fontWeight: '800', color: S.faint }}>{LETTERS[oi]}</Text>}
                         </Pressable>
-                      )}
+                        <TextInput style={[inputBase, { flex: 1, paddingVertical: 9 }]} value={o.text} onChangeText={setOptText(i, oi)} placeholder={`Option ${LETTERS[oi]}${o.image ? ' (or leave blank for image only)' : ''}`} placeholderTextColor={S.faint} />
+                        {x.options.length > 2 && (
+                          <Pressable onPress={() => removeOption(i, oi)} hitSlop={8} style={{ width: 28, height: 28, borderRadius: 8, alignItems: 'center', justifyContent: 'center' }}>
+                            <X size={15} color={S.faint} strokeWidth={2.4} />
+                          </Pressable>
+                        )}
+                      </View>
+                      <View style={{ marginLeft: 38 }}>
+                        <ImageField compact value={o.image} onChange={(url) => setOptImage(i, oi, url)} />
+                      </View>
                     </View>
-                    );
-                  })}
+                  ))}
                   {x.options.length < 6 && (
                     <Pressable onPress={() => addOption(i)} hitSlop={6} style={{ flexDirection: 'row', alignItems: 'center', gap: 5, alignSelf: 'flex-start', paddingVertical: 4, marginBottom: 4 }}>
                       <Plus size={14} color={S.indigo} strokeWidth={2.6} />

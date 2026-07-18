@@ -10,7 +10,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import {
-  View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform,
+  View, Text, Image, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform,
 } from 'react-native';
 import { S } from '../theme/studentUI';
 import { FONT } from '../constants/fonts';
@@ -39,14 +39,36 @@ const stripHtml = (s) =>
     .replace(/\s+/g, ' ')
     .trim();
 
+// First <img src> in an HTML string — some questions/options are diagrams (S3 imports or
+// admin-uploaded), which the text renderers strip; we render them as a real <Image>.
+const firstImg = (s) => { const m = String(s || '').match(/<img[^>]+src=["']([^"']+)["']/i); return m ? m[1] : null; };
+
 // Renders math ({tex}) via MathText, otherwise plain HTML as readable Text
-// (MathJaxSvg can render plain/HTML strings inconsistently).
-function Rich({ value, fontSize = 15, color = C.text }) {
+// (MathJaxSvg can render plain/HTML strings inconsistently). If the content carries an
+// image (diagram), it's shown below any text.
+function Rich({ value, fontSize = 15, color = C.text, imgHeight = 160 }) {
   if (value == null || !String(value).trim()) return null;
-  if (/\{tex\}/.test(String(value))) {
-    return <MathText value={value} fontSize={fontSize} color={color} />;
+  const raw = String(value);
+  const img = firstImg(raw);
+  const textPart = raw.replace(/<img[^>]*>/gi, '').replace(/<p[^>]*>\s*<\/p>/gi, '');
+  const hasTex = /\{tex\}/.test(textPart);
+  const plain = stripHtml(textPart);
+  const hasText = hasTex || plain.length > 0;
+  if (!img) {
+    return hasTex
+      ? <MathText value={textPart} fontSize={fontSize} color={color} />
+      : <Text style={{ fontSize, color, lineHeight: fontSize * 1.45 }}>{plain}</Text>;
   }
-  return <Text style={{ fontSize, color, lineHeight: fontSize * 1.45 }}>{stripHtml(value)}</Text>;
+  return (
+    <View>
+      {hasText ? (
+        hasTex
+          ? <MathText value={textPart} fontSize={fontSize} color={color} />
+          : <Text style={{ fontSize, color, lineHeight: fontSize * 1.45 }}>{plain}</Text>
+      ) : null}
+      <Image source={{ uri: img }} style={{ width: '100%', height: imgHeight, marginTop: hasText ? 8 : 0, borderRadius: 8, backgroundColor: '#fff' }} resizeMode="contain" />
+    </View>
+  );
 }
 
 export default function McqQuizScreen({
@@ -200,7 +222,7 @@ export default function McqQuizScreen({
               >
                 <Text style={[st.optKey, { color: txtCol }]}>{o.key}</Text>
                 <View style={{ flex: 1 }}>
-                  <Rich value={o.label} fontSize={15} color={txtCol} />
+                  <Rich value={o.label} fontSize={15} color={txtCol} imgHeight={92} />
                 </View>
                 {submitted && isCorrect && <Text style={st.tick}>✓</Text>}
                 {submitted && isSel && !isCorrect && <Text style={st.cross}>✕</Text>}
