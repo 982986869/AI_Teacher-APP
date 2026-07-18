@@ -9,7 +9,7 @@ import { ChevronLeft, Plus, X, CircleQuestionMark, Eye, EyeOff, CircleCheck } fr
 import { getAdminChapterQuestions, saveAdminChapterQuestions } from '../../../api/adminApi';
 import { S, shadow } from '../../../theme/studentUI';
 import { T } from '../../parent/ParentApp/constants';
-import { apiError } from '../ui/format';
+import { apiError, plainText } from '../ui/format';
 import MathHtmlPreview from './MathHtmlPreview';
 
 const GREEN = '#16A34A';
@@ -155,7 +155,7 @@ export default function ChapterQuestionsEditor({ route, navigation }) {
                       return (
                         <View key={oi} style={{ flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: on ? GREEN_SOFT : S.canvas, borderRadius: 10, borderWidth: 1, borderColor: on ? GREEN : S.hair, paddingHorizontal: 10, paddingVertical: 7, marginBottom: 6 }}>
                           <Text style={{ fontSize: 12, fontWeight: '800', color: on ? GREEN : S.faint, width: 16 }}>{o.idx}</Text>
-                          {(() => { const ot = htmlToText(o.html); const oimg = firstImg(o.html); return ot
+                          {(() => { const ot = plainText(o.html); const oimg = firstImg(o.html); return ot
                             ? <Text style={{ flex: 1, fontSize: 13.5, fontWeight: '600', color: S.ink }} numberOfLines={2}>{ot}</Text>
                             : oimg ? <View style={{ flex: 1 }}><Image source={{ uri: oimg }} style={{ width: 92, height: 52, borderRadius: 6, backgroundColor: '#fff' }} resizeMode="contain" /></View>
                             : <Text style={{ flex: 1, fontSize: 13.5, fontWeight: '600', color: S.faint }}>—</Text>; })()}

@@ -59,9 +59,18 @@ export function plainText(html) {
     .replace(/<[^>]+>/g, '')
     .replace(/\{\/?tex\}/gi, '')
     .replace(/&nbsp;/gi, ' ').replace(/&amp;/gi, '&').replace(/&lt;/gi, '<').replace(/&gt;/gi, '>').replace(/&#39;/gi, "'").replace(/&quot;/gi, '"')
-    // Common LaTeX commands → their symbol, so preview text reads naturally (not "3 \times 1").
+    // LaTeX → readable text (best-effort; the WebView Preview always renders the real math).
+    .replace(/\\d?frac\s*\{([^{}]*)\}\s*\{([^{}]*)\}/g, '$1/$2')      // \frac{a}{b} → a/b
+    .replace(/\\sqrt\s*\{([^{}]*)\}/g, '√($1)').replace(/\\sqrt\s*(\w+)/g, '√$1')  // \sqrt 3 → √3
+    .replace(/\^\s*\{?\s*\\circ\s*\}?/g, '°').replace(/\\circ/g, '°')  // degree
     .replace(/\\times/gi, ' × ').replace(/\\div/gi, ' ÷ ').replace(/\\pm/gi, ' ± ').replace(/\\cdot/gi, ' · ')
-    .replace(/\\leq/gi, ' ≤ ').replace(/\\geq/gi, ' ≥ ').replace(/\\neq/gi, ' ≠ ').replace(/\\(left|right|,|;|!|\\)/g, ' ')
+    .replace(/\\leq/gi, ' ≤ ').replace(/\\geq/gi, ' ≥ ').replace(/\\neq/gi, ' ≠ ').replace(/\\approx/gi, ' ≈ ').replace(/\\infty/gi, '∞')
+    .replace(/\\therefore/gi, ' ∴ ').replace(/\\because/gi, ' ∵ ')
+    .replace(/\\(alpha|beta|gamma|delta|theta|lambda|mu|pi|rho|sigma|tau|phi|omega)/gi, (m, g) => ({ alpha: 'α', beta: 'β', gamma: 'γ', delta: 'δ', theta: 'θ', lambda: 'λ', mu: 'μ', pi: 'π', rho: 'ρ', sigma: 'σ', tau: 'τ', phi: 'φ', omega: 'ω' }[g.toLowerCase()] || m))
+    .replace(/[_^]\{([^{}]*)\}/g, '$1').replace(/[_^](\w)/g, '$1')     // v_{1} → v1, x^2 → x2
+    .replace(/\\(left|right|quad|qquad|displaystyle|mathrm|text|,|;|!)\b/g, ' ')
+    .replace(/\\[a-zA-Z]+/g, '')                                        // strip remaining commands
+    .replace(/[{}]/g, '')                                               // strip leftover braces
     .replace(/\s+/g, ' ')
     .trim();
 }
