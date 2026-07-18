@@ -19,7 +19,11 @@ export default function TestPreviewScreen({ route, navigation }) {
       const questions = (d.questions || []).map((q) => ({
         id: q.id,
         question: q.question,
-        options: (Array.isArray(q.options) ? q.options : []).map((o) => (o && o.text != null ? String(o.text) : String(o || ''))),
+        options: (Array.isArray(q.options) ? q.options : []).map((o) => {
+          const text = o && o.text != null ? String(o.text) : String(o || '');
+          const image = o && o.image ? String(o.image) : '';
+          return image ? `${text}<img src="${image}" />` : text;
+        }),
         correct: q.correctIndex != null ? q.correctIndex : -1,
         cat: q.sectionName || 'MCQ',
         explanation: q.explanation || '',

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform, Modal, BackHandler } from 'react-native';
+import { View, Text, Image, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform, Modal, BackHandler } from 'react-native';
 import { S } from '../theme/studentUI';
 import { FONT } from '../constants/fonts';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -17,6 +17,24 @@ const C = {
 };
 
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
+
+// Question/option content may carry an image (diagram) as an embedded <img> — the text
+// renderers strip it, so we render it as a real <Image> below any text.
+const firstImg = (s) => { const m = String(s || '').match(/<img[^>]+src=["']([^"']+)["']/i); return m ? m[1] : null; };
+function Rich({ value, fontSize = 15, color = C.text, style, imgHeight = 150 }) {
+  if (value == null || !String(value).trim()) return null;
+  const raw = String(value);
+  const img = firstImg(raw);
+  if (!img) return <MathText value={raw} fontSize={fontSize} color={color} style={style} />;
+  const textPart = raw.replace(/<img[^>]*>/gi, '').replace(/<p[^>]*>\s*<\/p>/gi, '');
+  const hasText = !!textPart.replace(/<[^>]+>/g, '').trim() || /\{tex\}/.test(textPart);
+  return (
+    <View style={style}>
+      {hasText ? <MathText value={textPart} fontSize={fontSize} color={color} /> : null}
+      <Image source={{ uri: img }} style={{ width: '100%', height: imgHeight, marginTop: hasText ? 8 : 0, borderRadius: 8, backgroundColor: '#fff' }} resizeMode="contain" />
+    </View>
+  );
+}
 
 // MM:SS, or HH:MM:SS once the remaining time is an hour or more.
 const fmtTime = (s) => {
@@ -337,15 +355,15 @@ export default function McqTestScreen({
                     <Text style={s.revCat}>Q{i + 1} · {q.cat || 'MCQ'}</Text>
                     <View style={[s.revTag, { backgroundColor: tagBg }]}><Text style={[s.revTagTxt, { color: tagColor }]}>{tagTxt}</Text></View>
                   </View>
-                  <MathText value={q.question} fontSize={14} color={C.text} style={{ marginBottom: 6 }} />
+                  <Rich value={q.question} fontSize={14} color={C.text} style={{ marginBottom: 6 }} imgHeight={130} />
                   <View style={s.revAnsRow}>
                     <Text style={[s.revAns, { color: C.green }]}>✅ Correct: {LETTERS[q.correct]}. </Text>
-                    <MathText value={q.options[q.correct]} fontSize={13} color={C.green} />
+                    <View style={{ flex: 1 }}><Rich value={q.options[q.correct]} fontSize={13} color={C.green} imgHeight={80} /></View>
                   </View>
                   {isAnswered && !isCorrect && (
                     <View style={s.revAnsRow}>
                       <Text style={[s.revAns, { color: C.accent }]}>Your answer: {LETTERS[ans]}. </Text>
-                      <MathText value={q.options[ans]} fontSize={13} color={C.accent} />
+                      <View style={{ flex: 1 }}><Rich value={q.options[ans]} fontSize={13} color={C.accent} imgHeight={80} /></View>
                     </View>
                   )}
                 </View>
@@ -407,7 +425,7 @@ export default function McqTestScreen({
             )}
 
             <View style={{ marginBottom: 14 }}>
-              <MathText value={q.question} fontSize={16} color="#3A4A4A" />
+              <Rich value={q.question} fontSize={16} color="#3A4A4A" imgHeight={170} />
             </View>
 
             <View style={{ gap: 12, marginTop: 8 }}>
@@ -417,7 +435,7 @@ export default function McqTestScreen({
                   <TouchableOpacity key={i} style={[mt.opt, isSel && mt.optSel]} activeOpacity={0.85} onPress={() => selectSectioned(i)}>
                     <Text style={[mt.optLtr, isSel && mt.optLtrSel]}>{LETTERS[i]}</Text>
                     <View style={{ flex: 1 }}>
-                      <MathText value={opt} fontSize={15} color={isSel ? '#0B5E5A' : S.ink} />
+                      <Rich value={opt} fontSize={15} color={isSel ? '#0B5E5A' : S.ink} imgHeight={90} />
                     </View>
                   </TouchableOpacity>
                 );
@@ -543,7 +561,7 @@ export default function McqTestScreen({
             <View style={s.qRow}>
               <Text style={s.qText}>{current + 1}. </Text>
               <View style={{ flex: 1 }}>
-                <MathText value={q.question} fontSize={16} color={C.text} />
+                <Rich value={q.question} fontSize={16} color={C.text} imgHeight={170} />
               </View>
             </View>
             <View style={{ gap: 8 }}>
@@ -556,7 +574,7 @@ export default function McqTestScreen({
                       <Text style={[s.optLtrTxt, isSel && { color: '#fff' }]}>{LETTERS[i]}</Text>
                     </View>
                     <View style={{ flex: 1 }}>
-                      <MathText value={opt} fontSize={15} color={isSel ? C.primary : C.text} />
+                      <Rich value={opt} fontSize={15} color={isSel ? C.primary : C.text} imgHeight={90} />
                     </View>
                   </TouchableOpacity>
                 );

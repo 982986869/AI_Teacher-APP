@@ -105,7 +105,13 @@ async function getQuestions(id) {
     return {
       id: r.id,
       question: r.question,
-      options: opts.map((o) => (o && o.text != null ? String(o.text) : '')),
+      // Option text plus its image (if any) as an <img> the runner renders. Question
+      // already carries its image embedded in the question column.
+      options: opts.map((o) => {
+        const text = o && o.text != null ? String(o.text) : ''
+        const image = o && o.image ? String(o.image) : ''
+        return image ? `${text}<img src="${image}" />` : text
+      }),
       correct: r.correctIndex != null ? r.correctIndex : -1,
       cat: r.sectionName || 'MCQ',
       explanation: r.explanation || '',

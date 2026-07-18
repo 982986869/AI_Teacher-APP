@@ -18,7 +18,7 @@ import { PressableScale, Stagger } from '../../parent/ParentApp/anim';
 import { AdminScreen, AdminCard, AdminBadge, AdminMetaGrid, Section, GhostButton, ListSkeleton, AdminErrorState, S as KS } from '../ui/kit';
 import { ActionSheet } from '../ui/ActionSheet';
 import { StudentPrimaryButton } from '../../../theme/studentUI';
-import { apiError, fmtDate, plainText } from '../ui/format';
+import { apiError, fmtDate, plainText, firstImg } from '../ui/format';
 
 const isAttemptBlock = (e) => e?.response?.status === 409 && /attempt/i.test(e?.response?.data?.error || '');
 
@@ -130,7 +130,7 @@ export default function TestDetailScreen({ route, navigation }) {
                           <View key={q.id} style={{ flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 11, paddingHorizontal: 8, borderBottomWidth: i < questions.length - 1 ? 1 : 0, borderBottomColor: KS.hair }}>
                             <PressableScale disabled={reordering || !editable} onPress={() => navigation.navigate('QuestionForm', { mode: 'edit', testId: id, question: q })} style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 10 }}>
                               <View style={{ width: 26, height: 26, borderRadius: 8, backgroundColor: KS.indigoSoft, alignItems: 'center', justifyContent: 'center' }}><T w="black" s={11} c={KS.indigo}>{i + 1}</T></View>
-                              <T w="semi" s={13} c={KS.ink} numberOfLines={2} style={{ flex: 1 }}>{plainText(q.question)}</T>
+                              <T w="semi" s={13} c={KS.ink} numberOfLines={2} style={{ flex: 1 }}>{plainText(q.question) || (firstImg(q.question) ? '🖼 Image question' : '')}</T>
                             </PressableScale>
                             {reordering ? (
                               <View style={{ flexDirection: 'row', gap: 2 }}>

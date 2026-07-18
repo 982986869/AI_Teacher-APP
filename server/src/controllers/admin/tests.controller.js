@@ -231,16 +231,38 @@ async function remove(req, res, next) {
 }
 
 // ── Question validation + shaping ──────────────────────────────────────────────
+// Questions/options may carry an image (diagram). The question image is embedded as <img>
+// in the question text column (no schema change); option images are kept structured in the
+// options jsonb ({ id, text, image, is_correct }). Back-compatible: string options + no image.
+const stripImg = (html) => String(html || '')
+  .replace(/<p[^>]*>\s*<img[^>]*>\s*<\/p>/gi, '')
+  .replace(/<img[^>]*>/gi, '')
+  .replace(/<p[^>]*>\s*<\/p>/gi, '')
+  .trim()
+const withImage = (base, url) => {
+  const b = stripImg(base)
+  if (!url) return b
+  const img = `<p style="text-align:center;margin:8px 0"><img src="${String(url).replace(/"/g, '&quot;')}" style="max-width:100%;height:auto" /></p>`
+  return b ? `${b}${img}` : img
+}
+
 function shapeQuestion(b) {
-  const question = String(b.question || '').trim()
-  if (!question) throw new AppError('Question text is required', 422)
-  const opts = (Array.isArray(b.options) ? b.options : []).map((o) => String(o == null ? '' : o).trim())
+  const qText = String(b.question || '').trim()
+  const qImage = b.questionImage ? String(b.questionImage).trim() : null
+  if (!qText && !qImage) throw new AppError('Question text or image is required', 422)
+  const opts = (Array.isArray(b.options) ? b.options : []).map((o) => (
+    o && typeof o === 'object'
+      ? { text: String(o.text == null ? '' : o.text).trim(), image: o.image ? String(o.image).trim() : null }
+      : { text: String(o == null ? '' : o).trim(), image: null }
+  ))
   if (opts.length < 2) throw new AppError('At least 2 options are required', 422)
-  if (opts.some((o) => !o)) throw new AppError('Options cannot be blank', 422)
+  if (opts.some((o) => !o.text && !o.image)) throw new AppError('Options cannot be blank (add text or an image)', 422)
   const correctIndex = int(b.correctIndex)
   if (correctIndex == null || correctIndex < 0 || correctIndex >= opts.length) throw new AppError('The correct answer must be one of the options', 422)
-  const options = opts.map((text, i) => ({ id: i + 1, text, is_correct: i === correctIndex }))
-  return { question, options, correctIndex, correctOptionIds: [correctIndex + 1], correctOptionTexts: [opts[correctIndex]], explanation: String(b.explanation || '').trim() }
+  const question = withImage(qText, qImage)
+  const options = opts.map((o, i) => ({ id: i + 1, text: o.text, image: o.image || null, is_correct: i === correctIndex }))
+  const correctText = opts[correctIndex].text || (opts[correctIndex].image ? '[image]' : '')
+  return { question, options, correctIndex, correctOptionIds: [correctIndex + 1], correctOptionTexts: [correctText], explanation: String(b.explanation || '').trim() }
 }
 
 // ─── POST /api/admin/tests/:id/questions ──────────────────────────────────────
