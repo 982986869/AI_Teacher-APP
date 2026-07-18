@@ -3,7 +3,7 @@
 // each item is a question + its answer, stored as question_html + solution_html (what students
 // read). The admin edits plain text; text↔html conversion preserves untouched items verbatim.
 import React, { useEffect, useState, useCallback } from 'react';
-import { View, Text, ScrollView, TextInput, Pressable, ActivityIndicator, KeyboardAvoidingView, Platform, Alert } from 'react-native';
+import { View, Text, Image, ScrollView, TextInput, Pressable, ActivityIndicator, KeyboardAvoidingView, Platform, Alert } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ChevronLeft, Plus, X, CircleQuestionMark, Eye, EyeOff, CircleCheck } from 'lucide-react-native';
 import { getAdminChapterQuestions, saveAdminChapterQuestions } from '../../../api/adminApi';
@@ -16,6 +16,9 @@ const GREEN = '#16A34A';
 const GREEN_SOFT = '#E7F7EE';
 const inputBase = { backgroundColor: '#fff', borderWidth: 1.5, borderColor: S.border, borderRadius: 12, paddingHorizontal: 13, paddingVertical: 11, fontFamily: 'Nunito_600SemiBold', fontSize: 14.5, color: S.ink };
 const optIsCorrect = (x, o) => Boolean(o.is_correct) || (x.correctOption != null && String(o.idx) === String(x.correctOption));
+// Some MCQ options/questions are image-based (S3 diagrams) — pull the image URL so we render it
+// instead of a blank row (htmlToText strips the <img>).
+const firstImg = (html) => { const m = String(html || '').match(/<img[^>]+src=["']([^"']+)["']/i); return m ? m[1] : null; };
 
 const htmlToText = (html) => String(html || '')
   .replace(/<\/(p|div|li|h[1-6]|tr)>/gi, '\n').replace(/<br\s*\/?>/gi, '\n').replace(/<li[^>]*>/gi, '• ')
@@ -141,7 +144,8 @@ export default function ChapterQuestionsEditor({ route, navigation }) {
                   </View>
                 </View>
                 <T w="bold" s={11} c={S.muted} style={{ marginBottom: 5 }}>QUESTION</T>
-                <TextInput style={[inputBase, { minHeight: 64, textAlignVertical: 'top', marginBottom: 10 }]} value={x.question} onChangeText={setField(i, 'question')} placeholder="Type the question…" placeholderTextColor={S.faint} multiline />
+                <TextInput style={[inputBase, { minHeight: 64, textAlignVertical: 'top', marginBottom: firstImg(x.origQ) ? 6 : 10 }]} value={x.question} onChangeText={setField(i, 'question')} placeholder="Type the question…" placeholderTextColor={S.faint} multiline />
+                {!!firstImg(x.origQ) && <Image source={{ uri: firstImg(x.origQ) }} style={{ width: '70%', height: 110, borderRadius: 8, backgroundColor: '#fff', marginBottom: 10 }} resizeMode="contain" />}
 
                 {x.isMcq && Array.isArray(x.options) && (
                   <View style={{ marginBottom: 10 }}>
@@ -151,7 +155,10 @@ export default function ChapterQuestionsEditor({ route, navigation }) {
                       return (
                         <View key={oi} style={{ flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: on ? GREEN_SOFT : S.canvas, borderRadius: 10, borderWidth: 1, borderColor: on ? GREEN : S.hair, paddingHorizontal: 10, paddingVertical: 7, marginBottom: 6 }}>
                           <Text style={{ fontSize: 12, fontWeight: '800', color: on ? GREEN : S.faint, width: 16 }}>{o.idx}</Text>
-                          <Text style={{ flex: 1, fontSize: 13.5, fontWeight: '600', color: S.ink }} numberOfLines={2}>{htmlToText(o.html) || '—'}</Text>
+                          {(() => { const ot = htmlToText(o.html); const oimg = firstImg(o.html); return ot
+                            ? <Text style={{ flex: 1, fontSize: 13.5, fontWeight: '600', color: S.ink }} numberOfLines={2}>{ot}</Text>
+                            : oimg ? <View style={{ flex: 1 }}><Image source={{ uri: oimg }} style={{ width: 92, height: 52, borderRadius: 6, backgroundColor: '#fff' }} resizeMode="contain" /></View>
+                            : <Text style={{ flex: 1, fontSize: 13.5, fontWeight: '600', color: S.faint }}>—</Text>; })()}
                           {on && <CircleCheck size={16} color={GREEN} strokeWidth={2.4} />}
                         </View>
                       );

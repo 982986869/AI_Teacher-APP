@@ -4,7 +4,7 @@
 // correct_option) so students see them EXACTLY like imported MCQs (resources.service.toMcq,
 // getMcqByPath). The admin types plain text; text↔html conversion preserves untouched bodies.
 import React, { useEffect, useState, useCallback } from 'react';
-import { View, Text, ScrollView, TextInput, Pressable, ActivityIndicator, KeyboardAvoidingView, Platform, Alert } from 'react-native';
+import { View, Text, Image, ScrollView, TextInput, Pressable, ActivityIndicator, KeyboardAvoidingView, Platform, Alert } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ChevronLeft, Plus, X, ListChecks, Check, Eye, EyeOff, CircleCheck } from 'lucide-react-native';
 import { getAdminChapterQuestions, saveAdminChapterQuestions } from '../../../api/adminApi';
@@ -19,6 +19,9 @@ const GREEN = '#16A34A';
 const GREEN_SOFT = '#E7F7EE';
 const AMBER = '#B45309';
 const inputBase = { backgroundColor: '#fff', borderWidth: 1.5, borderColor: S.border, borderRadius: 12, paddingHorizontal: 13, paddingVertical: 11, fontFamily: 'Nunito_600SemiBold', fontSize: 14.5, color: S.ink };
+// Imported MCQs can have image-based options/questions — show the image (read-only) rather than a
+// blank editable field the admin might overwrite (which would destroy the image on save).
+const firstImg = (html) => { const m = String(html || '').match(/<img[^>]+src=["']([^"']+)["']/i); return m ? m[1] : null; };
 
 const htmlToText = (html) => String(html || '')
   .replace(/<\/(p|div|li|h[1-6]|tr)>/gi, '\n').replace(/<br\s*\/?>/gi, '\n').replace(/<li[^>]*>/gi, '• ')
@@ -171,19 +174,30 @@ export default function ChapterMcqEditor({ route, navigation }) {
                   <TextInput style={[inputBase, { minHeight: 60, textAlignVertical: 'top', marginBottom: 12 }]} value={x.question} onChangeText={setField(i, 'question')} placeholder="Type the question…" placeholderTextColor={S.faint} multiline />
 
                   <T w="bold" s={11} c={S.muted} style={{ marginBottom: 6 }}>OPTIONS · tap the circle to mark the correct one</T>
-                  {x.options.map((o, oi) => (
+                  {x.options.map((o, oi) => {
+                    const oImg = firstImg(o.origHtml);
+                    const isImgOpt = !!oImg && !(o.loaded || '').trim(); // image-based, no text → show read-only
+                    return (
                     <View key={oi} style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 8 }}>
                       <Pressable onPress={() => markCorrect(i, oi)} hitSlop={8} style={{ width: 30, height: 30, borderRadius: 15, borderWidth: 2, borderColor: o.correct ? GREEN : S.border, backgroundColor: o.correct ? GREEN : '#fff', alignItems: 'center', justifyContent: 'center' }}>
                         {o.correct ? <Check size={16} color="#fff" strokeWidth={3} /> : <Text style={{ fontSize: 12.5, fontWeight: '800', color: S.faint }}>{LETTERS[oi]}</Text>}
                       </Pressable>
+                      {isImgOpt ? (
+                        <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: S.canvas, borderWidth: 1.5, borderColor: S.border, borderRadius: 12, paddingHorizontal: 10, paddingVertical: 6 }}>
+                          <Image source={{ uri: oImg }} style={{ width: 72, height: 44, borderRadius: 6, backgroundColor: '#fff' }} resizeMode="contain" />
+                          <Text style={{ fontSize: 11.5, fontWeight: '700', color: S.faint }}>Image option</Text>
+                        </View>
+                      ) : (
                       <TextInput style={[inputBase, { flex: 1, paddingVertical: 9 }]} value={o.text} onChangeText={setOptText(i, oi)} placeholder={`Option ${LETTERS[oi]}`} placeholderTextColor={S.faint} />
+                      )}
                       {x.options.length > 2 && (
                         <Pressable onPress={() => removeOption(i, oi)} hitSlop={8} style={{ width: 28, height: 28, borderRadius: 8, alignItems: 'center', justifyContent: 'center' }}>
                           <X size={15} color={S.faint} strokeWidth={2.4} />
                         </Pressable>
                       )}
                     </View>
-                  ))}
+                    );
+                  })}
                   {x.options.length < 6 && (
                     <Pressable onPress={() => addOption(i)} hitSlop={6} style={{ flexDirection: 'row', alignItems: 'center', gap: 5, alignSelf: 'flex-start', paddingVertical: 4, marginBottom: 4 }}>
                       <Plus size={14} color={S.indigo} strokeWidth={2.6} />
