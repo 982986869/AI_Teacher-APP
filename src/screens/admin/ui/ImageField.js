@@ -5,9 +5,8 @@
 // Renders: an "Add image" button when empty, or a thumbnail + Replace/Remove when set.
 import React, { useState } from 'react';
 import { View, Text, Image, Pressable, ActivityIndicator, Alert } from 'react-native';
-import * as ImagePicker from 'expo-image-picker';
 import { ImagePlus, X, RefreshCw } from 'lucide-react-native';
-import { uploadContentImage } from '../../../api/adminApi';
+import { pickAndUploadImage } from './pickAndUploadImage';
 import { apiError } from './format';
 import { S } from '../../../theme/studentUI';
 
@@ -17,16 +16,9 @@ export default function ImageField({ value, onChange, compact = false }) {
   const pick = async () => {
     if (busy) return;
     try {
-      const perm = await ImagePicker.requestMediaLibraryPermissionsAsync();
-      if (!perm.granted) {
-        Alert.alert('Photo access needed', 'Allow photo access to attach an image.');
-        return;
-      }
-      const res = await ImagePicker.launchImageLibraryAsync({ mediaTypes: 'images', quality: 0.8 });
-      if (res.canceled || !res.assets || !res.assets.length) return;
       setBusy(true);
-      const { url } = await uploadContentImage(res.assets[0]);
-      onChange(url);
+      const url = await pickAndUploadImage();
+      if (url) onChange(url);
     } catch (e) {
       Alert.alert('Could not upload image', apiError(e));
     } finally {

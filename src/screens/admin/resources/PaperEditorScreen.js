@@ -6,11 +6,12 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { View, Text, ScrollView, TextInput, Pressable, ActivityIndicator, KeyboardAvoidingView, Platform, Alert } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { ChevronLeft, Eye, EyeOff } from 'lucide-react-native';
+import { ChevronLeft, Eye, EyeOff, ImagePlus } from 'lucide-react-native';
 import { getAdminPaper, createAdminPaper, updateAdminPaper } from '../../../api/adminApi';
 import { S } from '../../../theme/studentUI';
 import { T } from '../../parent/ParentApp/constants';
 import { apiError } from '../ui/format';
+import { pickAndUploadImage } from '../ui/pickAndUploadImage';
 import MathHtmlPreview from './MathHtmlPreview';
 
 const inputBase = { backgroundColor: '#fff', borderWidth: 1.5, borderColor: S.border, borderRadius: 12, paddingHorizontal: 13, paddingVertical: 11, fontFamily: 'Nunito_600SemiBold', fontSize: 14.5, color: S.ink };
@@ -26,16 +27,39 @@ function Field({ label, value, onChangeText, placeholder, keyboardType, hint }) 
   );
 }
 
-// A raw-HTML body with a collapsible rendered preview (what students will see).
+// A raw-HTML body with a collapsible rendered preview (what students will see) and an
+// "Add image" button that uploads a picture and inserts an <img> tag into the HTML.
 function HtmlBody({ label, value, onChangeText, previewOpen, onTogglePreview }) {
+  const [uploading, setUploading] = useState(false);
+  const insertImage = async () => {
+    if (uploading) return;
+    try {
+      setUploading(true);
+      const url = await pickAndUploadImage();
+      if (!url) return;
+      const tag = `<p style="text-align:center;margin:8px 0"><img src="${url}" style="max-width:100%;height:auto" /></p>`;
+      const base = String(value || '').trim();
+      onChangeText(base ? `${base}\n${tag}` : tag);
+    } catch (e) {
+      Alert.alert('Could not upload image', apiError(e));
+    } finally {
+      setUploading(false);
+    }
+  };
   return (
     <View style={{ marginBottom: 14 }}>
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 6 }}>
         <T w="bold" s={11} c={S.muted}>{label}</T>
-        <Pressable onPress={onTogglePreview} hitSlop={10} style={{ flexDirection: 'row', alignItems: 'center', gap: 5, height: 28, paddingHorizontal: 10, borderRadius: 9, backgroundColor: previewOpen ? S.indigo : S.indigoSoft }}>
-          {previewOpen ? <EyeOff size={13} color="#fff" strokeWidth={2.6} /> : <Eye size={13} color={S.indigo} strokeWidth={2.6} />}
-          <Text style={{ fontSize: 11.5, fontWeight: '800', color: previewOpen ? '#fff' : S.indigo }}>{previewOpen ? 'Hide' : 'Preview'}</Text>
-        </Pressable>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+          <Pressable onPress={insertImage} disabled={uploading} hitSlop={10} style={{ flexDirection: 'row', alignItems: 'center', gap: 5, height: 28, paddingHorizontal: 10, borderRadius: 9, backgroundColor: S.indigoSoft, opacity: uploading ? 0.6 : 1 }}>
+            {uploading ? <ActivityIndicator size="small" color={S.indigo} /> : <ImagePlus size={13} color={S.indigo} strokeWidth={2.6} />}
+            <Text style={{ fontSize: 11.5, fontWeight: '800', color: S.indigo }}>{uploading ? 'Uploading…' : 'Add image'}</Text>
+          </Pressable>
+          <Pressable onPress={onTogglePreview} hitSlop={10} style={{ flexDirection: 'row', alignItems: 'center', gap: 5, height: 28, paddingHorizontal: 10, borderRadius: 9, backgroundColor: previewOpen ? S.indigo : S.indigoSoft }}>
+            {previewOpen ? <EyeOff size={13} color="#fff" strokeWidth={2.6} /> : <Eye size={13} color={S.indigo} strokeWidth={2.6} />}
+            <Text style={{ fontSize: 11.5, fontWeight: '800', color: previewOpen ? '#fff' : S.indigo }}>{previewOpen ? 'Hide' : 'Preview'}</Text>
+          </Pressable>
+        </View>
       </View>
       <TextInput style={htmlInput} value={value} onChangeText={onChangeText} placeholder="<div>…</div>  ({tex}…{/tex} for math)" placeholderTextColor={S.faint} multiline autoCapitalize="none" autoCorrect={false} />
       {previewOpen && (
