@@ -104,12 +104,4 @@ router.delete('/lesson/:lessonId',                   deleteLesson)
 router.post('/lesson/:lessonId/doubt', doubtRules,   askDoubt)
 router.get('/lesson/:lessonId/doubts',               getDoubts)
 
-// Browse the admin-authored, PUBLISHED lesson catalog (Subjects → Chapters → Lessons → play).
-const catalog = require('../controllers/aiCatalogStudent.controller')
-router.get('/catalog/resume',                         catalog.resume)
-router.get('/catalog/subjects',                       catalog.subjects)
-router.get('/catalog/subjects/:subjectId/chapters',   catalog.chapters)
-router.get('/catalog/chapters/:chapterId/lessons',    catalog.lessons)
-router.get('/catalog/lessons/:id',                    catalog.lesson)
-
 module.exports = router

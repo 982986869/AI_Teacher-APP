@@ -112,36 +112,6 @@ export const getAdminAiOverview = () => axiosInstance.get('/api/admin/ai-teacher
 export const getAdminAiLessons = (params) => axiosInstance.get(`/api/admin/ai-teacher/lessons${qs(params)}`).then(unwrap);
 export const getAdminAiLesson = (id) => axiosInstance.get(`/api/admin/ai-teacher/lessons/${id}`).then(unwrap);
 export const getAdminAiLessonAnalytics = (id) => axiosInstance.get(`/api/admin/ai-teacher/lessons/${id}/analytics`).then(unwrap);
-// AI Teacher authored-lesson catalog — Subjects → Chapters (Lessons/Slides next phase).
-export const getAiSubjects = () => axiosInstance.get('/api/admin/ai-teacher/catalog/subjects').then(unwrap);
-export const createAiSubject = (body) => axiosInstance.post('/api/admin/ai-teacher/catalog/subjects', body).then(unwrap);
-export const updateAiSubject = (id, body) => axiosInstance.patch(`/api/admin/ai-teacher/catalog/subjects/${id}`, body).then(unwrap);
-export const setAiSubjectStatus = (id, status) => axiosInstance.post(`/api/admin/ai-teacher/catalog/subjects/${id}/status`, { status }).then(unwrap);
-export const reorderAiSubjects = (orderedIds) => axiosInstance.post('/api/admin/ai-teacher/catalog/subjects/reorder', { orderedIds }).then(unwrap);
-export const deleteAiSubject = (id) => axiosInstance.delete(`/api/admin/ai-teacher/catalog/subjects/${id}`).then(unwrap);
-export const getAiChapters = (subjectId) => axiosInstance.get(`/api/admin/ai-teacher/catalog/subjects/${subjectId}/chapters`).then(unwrap);
-export const createAiChapter = (subjectId, body) => axiosInstance.post(`/api/admin/ai-teacher/catalog/subjects/${subjectId}/chapters`, body).then(unwrap);
-export const updateAiChapter = (id, body) => axiosInstance.patch(`/api/admin/ai-teacher/catalog/chapters/${id}`, body).then(unwrap);
-export const setAiChapterStatus = (id, status) => axiosInstance.post(`/api/admin/ai-teacher/catalog/chapters/${id}/status`, { status }).then(unwrap);
-export const moveAiChapter = (id, subjectId) => axiosInstance.post(`/api/admin/ai-teacher/catalog/chapters/${id}/move`, { subjectId }).then(unwrap);
-export const reorderAiChapters = (orderedIds) => axiosInstance.post('/api/admin/ai-teacher/catalog/chapters/reorder', { orderedIds }).then(unwrap);
-export const deleteAiChapter = (id) => axiosInstance.delete(`/api/admin/ai-teacher/catalog/chapters/${id}`).then(unwrap);
-// AI Teacher catalog — Lessons within a chapter + their Slides.
-export const getAiLessons = (chapterId) => axiosInstance.get(`/api/admin/ai-teacher/catalog/chapters/${chapterId}/lessons`).then(unwrap);
-export const createAiLesson = (chapterId, body) => axiosInstance.post(`/api/admin/ai-teacher/catalog/chapters/${chapterId}/lessons`, body).then(unwrap);
-// LLM generation can take ~90s — allow up to 2 minutes like the student generate flow.
-export const generateAiLesson = (chapterId, body) => axiosInstance.post(`/api/admin/ai-teacher/catalog/chapters/${chapterId}/lessons/generate`, body, { timeout: 120000 }).then(unwrap);
-export const reorderAiLessons = (orderedIds) => axiosInstance.post('/api/admin/ai-teacher/catalog/lessons/reorder', { orderedIds }).then(unwrap);
-export const getAiLesson = (id) => axiosInstance.get(`/api/admin/ai-teacher/catalog/lessons/${id}`).then(unwrap);
-export const updateAiLesson = (id, body) => axiosInstance.patch(`/api/admin/ai-teacher/catalog/lessons/${id}`, body).then(unwrap);
-export const setAiLessonStatus = (id, status) => axiosInstance.post(`/api/admin/ai-teacher/catalog/lessons/${id}/status`, { status }).then(unwrap);
-export const duplicateAiLesson = (id) => axiosInstance.post(`/api/admin/ai-teacher/catalog/lessons/${id}/duplicate`).then(unwrap);
-export const deleteAiLesson = (id) => axiosInstance.delete(`/api/admin/ai-teacher/catalog/lessons/${id}`).then(unwrap);
-export const addAiSlide = (lessonId, body) => axiosInstance.post(`/api/admin/ai-teacher/catalog/lessons/${lessonId}/slides`, body).then(unwrap);
-export const reorderAiSlides = (lessonId, orderedIds) => axiosInstance.post(`/api/admin/ai-teacher/catalog/lessons/${lessonId}/slides/reorder`, { orderedIds }).then(unwrap);
-export const updateAiSlide = (slideId, body) => axiosInstance.patch(`/api/admin/ai-teacher/catalog/slides/${slideId}`, body).then(unwrap);
-export const duplicateAiSlide = (slideId) => axiosInstance.post(`/api/admin/ai-teacher/catalog/slides/${slideId}/duplicate`).then(unwrap);
-export const deleteAiSlide = (slideId) => axiosInstance.delete(`/api/admin/ai-teacher/catalog/slides/${slideId}`).then(unwrap);
 
 // ── Parents ────────────────────────────────────────────────────────────────────
 export const getAdminParents = (params) => axiosInstance.get(`/api/admin/parents${qs(params)}`).then(unwrap);
