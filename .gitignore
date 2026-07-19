@@ -104,6 +104,15 @@ admin/_next.log
 # Windows accident: `> nul` redirect creates a real file (NUL is the device)
 nul
 
-# Local database dumps (pg_dump / supabase db dump) — never belongs in the repo
+# Local database dumps (pg_dump / supabase db dump) — never belongs in the repo.
+# `supabase db dump --data-only` also pulls the auth schema (real user rows), and
+# the file runs to hundreds of MB, well past GitHub's 100MB limit.
 backup.sql
+backup*.sql
 *.dump
+*.sql.gz
+
+# Supabase CLI local state (linked-project ref, pooler URL, version pins).
+# The CLI normally writes its own supabase/.gitignore; this repo has none.
+supabase/.temp/
+supabase/.branches/
