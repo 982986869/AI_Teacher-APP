@@ -103,3 +103,7 @@ admin/_next.log
 
 # Windows accident: `> nul` redirect creates a real file (NUL is the device)
 nul
+
+# Local database dumps (pg_dump / supabase db dump) — never belongs in the repo
+backup.sql
+*.dump
