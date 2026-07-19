@@ -23,8 +23,9 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PORT
-        value: 5000 # Render injects its own PORT; this is only the local default
+      # PORT is deliberately not set — Render injects it, and config/env.js reads
+      # process.env.PORT with a 5000 fallback for local runs. Pinning it here
+      # would fight whatever Render assigns.
 
       # ── Required: the server refuses to boot without these ────────────────
       - key: DATABASE_URL
