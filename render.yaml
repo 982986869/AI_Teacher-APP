@@ -1,0 +1,89 @@
+# Render Blueprint — backend API only.
+#
+# The admin portal (admin/) deploys separately on Vercel, and the mobile app
+# ships through EAS, so neither belongs here.
+#
+# Region is pinned to Singapore because the Supabase pooler lives in
+# aws-1-ap-southeast-1 — anywhere else adds a cross-region hop to every query.
+#
+# Every secret is `sync: false`, meaning Render will NOT read it from this file.
+# Set the values once in the dashboard (or `render env set`); they are never
+# committed. Copy them from server/.env.
+services:
+  - type: web
+    name: ailernova-api
+    runtime: node
+    plan: starter # not `free`: free instances sleep after 15min idle, which
+                  # cold-starts ~50s and breaks the AI SSE streams
+    region: singapore
+    rootDir: server
+    buildCommand: npm ci && npx prisma generate
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000 # Render injects its own PORT; this is only the local default
+
+      # ── Required: the server refuses to boot without these ────────────────
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+
+      # ── Supabase (storage for uploaded content images) ────────────────────
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: SUPABASE_STORAGE_BUCKET
+        sync: false
+
+      # ── AI: lessons, doubts, knowledge ────────────────────────────────────
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: AI_PROVIDER
+        value: anthropic
+      - key: AI_LESSON_MODEL
+        sync: false
+      - key: AI_DOUBT_MODEL
+        sync: false
+      - key: AI_KNOWLEDGE_MODEL
+        sync: false
+      - key: MOCK_AI
+        value: "false"
+
+      # ── Teacher voice. Unset ⇒ the app falls back to on-device TTS ────────
+      - key: OPENAI_API_KEY
+        sync: false
+
+      # ── Embeddings / RAG ──────────────────────────────────────────────────
+      - key: VOYAGE_API_KEY
+        sync: false
+      - key: EMBEDDING_PROVIDER
+        value: voyage
+      - key: EMBEDDING_MODEL
+        sync: false
+      - key: EMBEDDING_DIM
+        sync: false
+      - key: RAG_TOP_K
+        sync: false
+      - key: RAG_MIN_SIMILARITY
+        sync: false
+
+      # ── Phone OTP login (MSG91) ───────────────────────────────────────────
+      # Deliberately omitted: nothing in server/src reads config.sms yet — there
+      # is no OTP route. Add these keys when phone login is actually built.
+
+      # ── Misc ──────────────────────────────────────────────────────────────
+      - key: JWT_EXPIRES_IN
+        sync: false
+      - key: ALLOWED_ORIGINS
+        sync: false
+
+      # Empty on purpose. A non-empty allowlist lets those accounts pick any
+      # class via a client-supplied ?class= — the one spot where client input
+      # overrides server-side scope. Set it in the dashboard only if you mean to.
+      - key: TESTER_EMAILS
+        value: ""

@@ -100,3 +100,6 @@ src/data/class6OldNotes/
 # Generated TTS audio cache (server-side, regenerates on demand)
 server/tts-cache/
 admin/_next.log
+
+# Windows accident: `> nul` redirect creates a real file (NUL is the device)
+nul

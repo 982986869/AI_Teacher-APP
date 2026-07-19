@@ -36,7 +36,18 @@ npm run admin:setup
 
 This is idempotent. It adds `users.admin_role/is_active/deactivated_at`, creates
 `audit_logs` / `announcements` / `app_settings`, seeds default settings, and ensures a
-`super_admin` exists (dev default: `saurabh@ailernova.com` / `pwd123`, bcrypt-hashed).
+`super_admin` exists (bcrypt-hashed). Local dev falls back to a well-known throwaway
+password — see `ADMIN_SEED_PASSWORD` in `server/scripts/admin-setup.js`.
+
+Under `NODE_ENV=production` the script refuses to seed that fallback and requires an
+explicit `ADMIN_SEED_PASSWORD`. **If a database was ever seeded in dev and is later
+reused as production, the dev password is still live on that account — rotate it:**
+
+```bash
+cd server
+NODE_ENV=production ADMIN_SEED_PASSWORD='<a-strong-password>' \
+  ADMIN_SEED_FORCE_PASSWORD=true npm run admin:setup
+```
 
 Then run the backend as usual: `cd server && npm run dev` (port 5000).
 
