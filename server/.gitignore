@@ -1,5 +1,10 @@
 node_modules/
-.env
+
+# `.env` alone left .env.bak / .env.production / .env.local tracked — anything
+# you copy the real file to before editing it would have been committed.
+.env*
+!.env.example
+
 *.log
 dist/
 .DS_Store
