@@ -48,6 +48,7 @@ export async function api<T = any>(path: string, opts: Options = {}): Promise<T>
   const headers: Record<string, string> = { 'Content-Type': 'application/json' }
   const token = getToken()
   if (token) headers.Authorization = `Bearer ${token}`
+  const hadToken = !!token
 
   let res: Response
   try {
@@ -56,14 +57,20 @@ export async function api<T = any>(path: string, opts: Options = {}): Promise<T>
     throw new ApiError('Network error — check your connection and the backend server.', 0)
   }
 
+  let json: any = null
+  try { json = await res.json() } catch { /* empty body */ }
+
+  // A 401 only means "expired" if we actually sent a token. Signing in with the
+  // wrong password is also a 401, and reporting that as an expired session told
+  // the user to sign in again on the very screen they were signing in from.
   if (res.status === 401) {
+    if (!hadToken) {
+      throw new ApiError((json && (json.error || json.message)) || 'Invalid email or password.', 401)
+    }
     clearToken()
     if (onUnauthorized) onUnauthorized()
     throw new ApiError('Your session has expired. Please sign in again.', 401)
   }
-
-  let json: any = null
-  try { json = await res.json() } catch { /* empty body */ }
 
   if (!res.ok || (json && json.success === false)) {
     const msg = (json && (json.error || json.message)) || `Request failed (${res.status})`
