@@ -11,7 +11,8 @@ import {
   View, ScrollView, Image, ImageBackground, Dimensions, StyleSheet,
   Linking, LayoutAnimation, Platform, UIManager, Modal, SafeAreaView, Animated, ActivityIndicator,
 } from 'react-native';
-import { Star, Camera, Video, Plus, Minus, Play, Globe, MapPin, Smartphone, Calendar, Clock, Ticket, ExternalLink } from 'lucide-react-native';
+import { Star, Plus, Minus, Play, Globe, MapPin, Smartphone, Calendar, Clock, Ticket, ExternalLink } from 'lucide-react-native';
+import { FontAwesome6 } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { C, T, CONTENT } from './constants';
 import { PressableScale, FadeIn, CountUp } from './anim';
@@ -233,22 +234,54 @@ function ParticipantsPage({ gallery, E }) {
 }
 
 /* 6 ── Join our community ─────────────────────────────────────────────────── */
+// Brand marks come from FontAwesome6's `brand` set — lucide ships no brand icons.
+// A channel renders only when constants.js CONTENT.event.community has its URL.
+const SOCIALS = [
+  { key: 'instagram', icon: 'instagram',   label: 'Instagram', gradient: ['#F9A03F', '#E1306C', '#C13584'] },
+  { key: 'youtube',   icon: 'youtube',     label: 'YouTube',   bg: '#FF0000' },
+  { key: 'facebook',  icon: 'facebook-f',  label: 'Facebook',  bg: '#1877F2' },
+  { key: 'linkedin',  icon: 'linkedin-in', label: 'LinkedIn',  bg: '#0A66C2' },
+];
+
+// PressableScale puts `style` on its inner Animated.View, so the outer Pressable —
+// the actual flex child of the row — would shrink-wrap. The flex:1 wrapper is what
+// makes the two buttons in a row share the width evenly.
+function SocialButton({ item, url }) {
+  const face = (
+    <>
+      <FontAwesome6 name={item.icon} size={15} color="#fff" brand />
+      <T w="bold" s={13.5} c="#fff">{item.label}</T>
+    </>
+  );
+  return (
+    <View style={{ flex: 1 }}>
+      <PressableScale onPress={() => open(url)} accessibilityRole="link" accessibilityLabel={`Ailernova on ${item.label}`}>
+        {item.gradient
+          ? <LinearGradient colors={item.gradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={s.social}>{face}</LinearGradient>
+          : <View style={[s.social, { backgroundColor: item.bg }]}>{face}</View>}
+      </PressableScale>
+    </View>
+  );
+}
+
 function CommunityPage({ gallery, E }) {
   const cm = E.community;
   const strip = gallery.slice(0, 3);
+  const live = SOCIALS.filter((x) => cm[x.key]);
+  const rows = [live.slice(0, 2), live.slice(2, 4)].filter((r) => r.length);
   return (
     <View style={[s.card, { backgroundColor: '#14151B', overflow: 'hidden' }]}>
       <View style={{ padding: 22 }}>
         <T w="xbold" s={22} c="#fff" style={{ lineHeight: 28 }}>{cm.title}</T>
         <T w="med" s={13} c="rgba(255,255,255,0.7)" style={{ marginTop: 10, lineHeight: 19 }}>{cm.body}</T>
-        <PressableScale style={{ marginTop: 14 }} onPress={() => open(cm.instagram)}>
-          <LinearGradient colors={['#F9A03F', '#E1306C', '#C13584']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={[s.social, { marginTop: 0 }]}>
-            <Camera size={17} color="#fff" /><T w="bold" s={14} c="#fff">Follow us on Instagram</T>
-          </LinearGradient>
-        </PressableScale>
-        <PressableScale style={[s.social, { backgroundColor: '#FF0000' }]} onPress={() => open(cm.youtube)}>
-          <Video size={18} color="#fff" /><T w="bold" s={14} c="#fff">Subscribe on YouTube</T>
-        </PressableScale>
+        <View style={{ marginTop: 16, gap: 10 }}>
+          {rows.map((row, i) => (
+            <View key={i} style={{ flexDirection: 'row', gap: 10 }}>
+              {row.map((x) => <SocialButton key={x.key} item={x} url={cm[x.key]} />)}
+              {row.length === 1 && <View style={{ flex: 1 }} />}
+            </View>
+          ))}
+        </View>
       </View>
       {!!strip.length && (
         <View style={{ flexDirection: 'row', gap: 4 }}>
@@ -260,11 +293,30 @@ function CommunityPage({ gallery, E }) {
 }
 
 /* 7 ── Become AILERNOVA + functional footer accordion ─────────────────────── */
-function BecomePage({ E }) {
+// Each accordion opens a list of links. `action: 'about'` opens the About Us story page
+// (onAbout), `action: 'impact'` opens Our Impact (onImpact), `action: 'tutors'` opens Our
+// Tutors (onTutors); everything else opens its url.
+// Exported: the About, Impact and Tutors pages close with this exact block too, so the
+// footer sections are reachable from there as well.
+export function BecomePage({ E, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral }) {
   const bc = E.become;
   const ft = E.footer;
   const [openIdx, setOpenIdx] = useState(-1);
   const toggle = (i) => { spring(); setOpenIdx((o) => (o === i ? -1 : i)); };
+  const tapItem = (it) => {
+    if (it.action === 'about') return onAbout && onAbout();
+    if (it.action === 'impact') return onImpact && onImpact();
+    if (it.action === 'tutors') return onTutors && onTutors();
+    // Each of these opens the in-app page where the host wired one up, and otherwise
+    // falls back to the matching page on the website — so a link never dead-ends.
+    if (it.action === 'reviews') return onReviews ? onReviews() : open(it.url);
+    if (it.action === 'pricing') return onPricing ? onPricing() : open(it.url);
+    if (it.action === 'faqs') return onFaqs ? onFaqs() : open(it.url);
+    if (it.action === 'contact') return onContact ? onContact() : open(it.url);
+    if (it.action === 'refund') return onRefund ? onRefund() : open(it.url);
+    if (it.action === 'referral') return onReferral ? onReferral() : open(it.url);
+    return open(it.url);
+  };
   return (
     <View style={[s.card, s.light, { overflow: 'hidden' }]}>
       <View style={{ backgroundColor: '#fff', padding: 20 }}>
@@ -289,7 +341,15 @@ function BecomePage({ E }) {
               <T w="bold" s={13} c={C.ink} style={{ flex: 1, letterSpacing: 0.3 }}>{l.q.toUpperCase()}</T>
               {openIdx === i ? <Minus size={17} color={C.muted} /> : <Plus size={17} color={C.muted} />}
             </PressableScale>
-            {openIdx === i && <T w="med" s={12.5} c={C.muted} style={{ lineHeight: 19, paddingBottom: 12 }}>{l.a}</T>}
+            {openIdx === i && (
+              <View style={{ paddingBottom: 10 }}>
+                {(l.items || []).map((it) => (
+                  <PressableScale key={it.label} style={s.accLink} onPress={() => tapItem(it)}>
+                    <T w="med" s={14} c={C.ink}>{it.label}</T>
+                  </PressableScale>
+                ))}
+              </View>
+            )}
           </View>
         ))}
         <View style={s.offices}>
@@ -306,7 +366,7 @@ function BecomePage({ E }) {
 }
 
 /* ── All sections stacked vertically (default export) ─────────────────────── */
-export default function EventsStack({ events = [], store = [], skills = [], gallery = [] }) {
+export default function EventsStack({ events = [], store = [], skills = [], gallery = [], onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral }) {
   const E = CONTENT.event;
   const scrollRef = useRef(null);
   const regionY = useRef(0);
@@ -326,7 +386,7 @@ export default function EventsStack({ events = [], store = [], skills = [], gall
         {!!skills.length && <FadeIn delay={160}><SkillsPage skills={skills} E={E} /></FadeIn>}
         {!!gallery.length && <FadeIn delay={160}><ParticipantsPage gallery={gallery} E={E} /></FadeIn>}
         <FadeIn delay={160}><CommunityPage gallery={gallery} E={E} /></FadeIn>
-        <FadeIn delay={160}><BecomePage E={E} /></FadeIn>
+        <FadeIn delay={160}><BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onContact={onContact} onRefund={onRefund} onReferral={onReferral} /></FadeIn>
       </View>
     </ScrollView>
   );
@@ -355,7 +415,7 @@ export function EventTeaser({ event, onOpen }) {
 }
 
 /* ── Full-screen modal — the whole stacked page ───────────────────────────── */
-export function EventsModal({ visible, onClose, events, store, skills, gallery }) {
+export function EventsModal({ visible, onClose, events, store, skills, gallery, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral }) {
   return (
     <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
       <SafeAreaView style={{ flex: 1, backgroundColor: '#F6F6F7' }}>
@@ -363,7 +423,7 @@ export function EventsModal({ visible, onClose, events, store, skills, gallery }
           <PressableScale onPress={onClose} style={s.mBack}><T s={26} c={C.ink}>‹</T></PressableScale>
           <T w="bold" s={16} c={C.ink}>Events</T><View style={{ width: 40 }} />
         </View>
-        <EventsStack events={events} store={store} skills={skills} gallery={gallery} />
+        <EventsStack events={events} store={store} skills={skills} gallery={gallery} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onContact={onContact} onRefund={onRefund} onReferral={onReferral} />
       </SafeAreaView>
     </Modal>
   );
@@ -403,13 +463,14 @@ const s = StyleSheet.create({
 
   gPhoto: { width: '100%', borderRadius: 12, backgroundColor: C.border },
 
-  social: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, borderRadius: 12, paddingVertical: 13, marginTop: 14 },
+  social: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, borderRadius: 12, paddingVertical: 13 },
 
   appBtn: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, backgroundColor: '#14151B', borderRadius: 10, paddingVertical: 13, marginTop: 14 },
   catRow: { flexDirection: 'row', gap: 10, marginTop: 20 },
   catCircle: { width: 58, height: 58, borderRadius: 29, backgroundColor: '#14151B', alignItems: 'center', justifyContent: 'center' },
   accItem: { borderBottomWidth: 1, borderBottomColor: C.border },
   accHead: { flexDirection: 'row', alignItems: 'center', paddingVertical: 14 },
+  accLink: { paddingVertical: 9 },
   offices: { flexDirection: 'row', gap: 16, marginTop: 20 },
 
   teaser: { height: 330, padding: 18, justifyContent: 'space-between' },
