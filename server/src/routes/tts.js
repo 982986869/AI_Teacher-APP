@@ -4,7 +4,8 @@ const { Router } = require('express')
 const { Readable } = require('stream')
 const jwt = require('jsonwebtoken')
 const { config } = require('../config/env')
-const { synthesizeSpeech } = require('../providers/ai/OpenAITTSProvider')
+const { synthesizeSpeech: openaiSynthesize } = require('../providers/ai/OpenAITTSProvider')
+const { synthesizeSpeech: kokoroSynthesize } = require('../providers/ai/KokoroTTSProvider')
 
 const router = Router()
 
@@ -23,7 +24,20 @@ function verifyToken(req, res, next) {
   }
 }
 
-// GET /api/tts?text=...&voice=...&token=...  → streams audio/mpeg
+// Synthesize with the configured provider. Kokoro is primary (self-hosted, free,
+// "Sarah" voice); if it's unreachable and an OpenAI key is set, fall back to
+// OpenAI so the teacher still speaks. Returns the provider result unchanged.
+async function synthesize(text, opts) {
+  if (config.tts.provider === 'openai') {
+    return openaiSynthesize(text, opts)
+  }
+  const kokoro = await kokoroSynthesize(text, opts)
+  if (kokoro.ok || !config.tts.apiKey) return kokoro
+  // Kokoro down but OpenAI is configured → don't leave the student in silence.
+  return openaiSynthesize(text, opts)
+}
+
+// GET /api/tts?text=...&voice=...&token=...  → streams/sends audio
 // (GET so the mobile audio player can stream straight from the URL.)
 async function handleTts(req, res) {
   const text = String((req.query.text != null ? req.query.text : req.body && req.body.text) || '').trim()
@@ -32,7 +46,7 @@ async function handleTts(req, res) {
     return res.status(413).json({ success: false, message: `text exceeds ${config.tts.maxChars} characters` })
   }
 
-  const result = await synthesizeSpeech(text, { voice: req.query.voice })
+  const result = await synthesize(text, { voice: req.query.voice })
   if (!result.ok) {
     // Non-2xx → the client falls back to on-device TTS.
     return res.status(result.status || 502).json({ success: false, message: result.error || 'TTS failed' })
@@ -40,6 +54,11 @@ async function handleTts(req, res) {
 
   res.setHeader('Content-Type', result.mime)
   res.setHeader('Cache-Control', 'public, max-age=86400')
+
+  // Kokoro returns a buffered Buffer; OpenAI returns a web ReadableStream.
+  if (result.buffer) {
+    return res.send(result.buffer)
+  }
   try {
     Readable.fromWeb(result.body).pipe(res)
   } catch (err) {

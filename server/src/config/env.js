@@ -58,10 +58,19 @@ const config = {
     anthropicApiKey: process.env.ANTHROPIC_API_KEY,
   },
 
-  // OpenAI text-to-speech for the live teacher voice. One consistent, natural
-  // female voice for every device/user. Disabled (→ device TTS fallback) when no
-  // key is set. `instructions` only applies to the steerable gpt-4o-mini-tts model.
+  // Text-to-speech for the live teacher voice. One consistent, natural female
+  // voice for every device/user. PRIMARY = self-hosted Kokoro ("Sarah" = af_sarah),
+  // free and needs no API key (see ../../../kokoro-server). OpenAI is only used as
+  // a fallback when TTS_PROVIDER=openai or Kokoro is unreachable AND a key is set.
   tts: {
+    provider: process.env.TTS_PROVIDER || 'kokoro', // 'kokoro' (self-hosted, free) | 'openai'
+
+    // Kokoro (self-hosted) — the teacher voice students hear.
+    kokoroUrl: process.env.KOKORO_URL || 'http://localhost:8880',
+    kokoroVoice: process.env.KOKORO_VOICE || 'af_sarah',
+
+    // OpenAI fallback. Disabled (→ device TTS fallback) when no key is set.
+    // `instructions` only applies to the steerable gpt-4o-mini-tts model.
     apiKey: process.env.OPENAI_API_KEY,
     model: process.env.TTS_MODEL || 'gpt-4o-mini-tts',
     voice: process.env.TTS_VOICE || 'coral',
@@ -69,7 +78,7 @@ const config = {
     instructions: process.env.TTS_INSTRUCTIONS
       || 'You are a warm, calm and confident female school teacher speaking to one student. Speak clearly at a relaxed classroom pace, with natural pauses at full stops. Sound encouraging and patient — never rushed, dramatic or robotic.',
     maxChars: parseInt(process.env.TTS_MAX_CHARS, 10) || 1200,
-    enabled: !!process.env.OPENAI_API_KEY,
+    enabled: true, // Kokoro needs no key, so TTS is always available
   },
 
   // Knowledge (RAG) layer. Validated lazily at call time so the server starts
