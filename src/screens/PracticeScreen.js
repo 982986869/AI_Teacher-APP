@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform, ActivityIndicator, Modal } from 'react-native';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
@@ -26,6 +26,8 @@ import { listMockTests, getMockTestQuestions, listMockAttempts, submitMockTest }
 import { useAuth } from '../context/AuthContext';
 import { saveOnlineTestAttempt, savePracticeAttempt, practiceAttemptKey } from '../utils/storage';
 import { ClassTabs, ComingSoon } from '../components/ClassPicker';
+import { S, StudentScreenHeader } from '../theme/studentUI';
+import { FONT } from '../constants/fonts';
 
 // Subjects with DB-backed mock tests (served by mockTestsApi). The Mock Test
 // button opens a subject -> mock list flow that runs each test through the
@@ -42,7 +44,7 @@ const MOCK_SUBJECTS_CLASS10 = [
   { name: 'Social Science',                  emoji: '🌐', bg: '#2F80ED' },
   { name: 'हिंदी ए',                          emoji: '📚', bg: '#2F80ED' },
   { name: 'हिंदी ब',                          emoji: '📚', bg: '#0F6E56' },
-  { name: 'Information Technology (402)',     emoji: '💻', bg: '#1C1C1E' },
+  { name: 'Information Technology (402)',     emoji: '💻', bg: S.ink },
   { name: 'English Language and Literature', emoji: '📖', bg: '#5A67E8' },
 ];
 
@@ -118,7 +120,7 @@ const dropBioForClass = (list, cls) =>
 // consistent. Update both if the syllabus changes.
 const PYQ_SUBJECTS = [
   {
-    name: 'Physics', emoji: '⚛️', bg: '#1C1C1E',
+    name: 'Physics', emoji: '⚛️', bg: S.ink,
     chapters: [
       'Units and Measurements',
       'Motion in A Straight Line',
@@ -321,7 +323,7 @@ const CLASS10_PRACTICE_SUBJECTS = [
   { name: 'Science',                       emoji: '🔬', bg: '#5AA84F', chapters: [], comingSoon: true },
   { name: 'Social Science',                emoji: '🌐', bg: '#2F80ED', chapters: [], comingSoon: true },
   { name: 'English Communicative (101)',   emoji: '📖', bg: '#7A6FD0', chapters: [], comingSoon: true },
-  { name: 'Artificial Intelligence (417)', emoji: '🤖', bg: '#1C1C1E', chapters: [], comingSoon: true },
+  { name: 'Artificial Intelligence (417)', emoji: '🤖', bg: S.ink, chapters: [], comingSoon: true },
 ];
 
 const impSubjectsForClass = (cls) => {
@@ -361,7 +363,7 @@ const pyqSubjectsForClass = (cls) => {
   if (cls === 'Class 9') {
     return [
       { name: 'JSTSE Scholarship', emoji: '🏆', bg: '#B0306B', chapters: ['GK - Current Affairs (2019-20)', 'GK - General Awareness', 'Physics', 'Chemistry', 'Biology', 'Mathematics'] },
-      { name: 'Computer Applications (165)', emoji: '💻', bg: '#1C1C1E', chapters: ['Basics of IT', 'Office tools'] },
+      { name: 'Computer Applications (165)', emoji: '💻', bg: S.ink, chapters: ['Basics of IT', 'Office tools'] },
     ];
   }
   return PYQ_SUBJECTS;
@@ -445,7 +447,7 @@ const PyqWebView = ({ html, subject, chapter, sectionType = 'pyq' }) => {
   if (status.loading) {
     return (
       <View style={[s.webLoading, { position: 'relative', flex: 1 }]}>
-        <ActivityIndicator size="large" color="#1C1C1E" />
+        <ActivityIndicator size="large" color={S.indigo} />
       </View>
     );
   }
@@ -512,8 +514,8 @@ const ChapterList = ({
 
   return (
     <SafeAreaView style={s.safe}>
-      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+      <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
       <BackHeader onBack={onBack} />
       <View style={s.pageTitleWrap}>
         <Text style={s.pageTitle}>{subject.name}</Text>
@@ -523,7 +525,7 @@ const ChapterList = ({
           (no more "Coming soon" rows). `available` is null while loading. */}
       {chapters === null ? (
         <View style={s.emptyWrap}>
-          <ActivityIndicator size="large" color="#1C1C1E" />
+          <ActivityIndicator size="large" color={S.indigo} />
           <Text style={[s.emptySub, { marginTop: 12 }]}>Loading…</Text>
         </View>
       ) : (() => {
@@ -592,11 +594,11 @@ const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
   if (state.loading) {
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={onExit} />
         <View style={[s.webLoading, { flex: 1 }]}>
-          <ActivityIndicator size="large" color="#0FA39A" />
+          <ActivityIndicator size="large" color={S.indigo} />
         </View>
       </SafeAreaView>
     );
@@ -672,6 +674,15 @@ const PracticeScreen = () => {
     navigation.setOptions({ tabBarStyle: inTest ? { display: 'none' } : undefined });
     return () => navigation.setOptions({ tabBarStyle: undefined });
   }, [physMock, navigation]);
+
+  // Re-tapping the active Practice tab scrolls the landing back to top (F8).
+  const scrollRef = useRef(null);
+  useEffect(() => {
+    const unsub = navigation.addListener('tabPress', () => {
+      if (navigation.isFocused()) scrollRef.current?.scrollTo({ y: 0, animated: true });
+    });
+    return unsub;
+  }, [navigation]);
 
   // Mock lists/attempts are keyed by subject only, but differ by class. Clear the
   // cache and collapse any open section when the class changes so the right rows
@@ -768,8 +779,8 @@ const PracticeScreen = () => {
   if (pyqOpen && pyqSubject && pyqChapter) {
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setPyqChapter(null)} />
         <View style={s.pageTitleWrap}>
           <Text style={s.pageTitle}>{pyqChapter}</Text>
@@ -804,8 +815,8 @@ const PracticeScreen = () => {
   if (pyqOpen) {
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setPyqOpen(false)} />
         <View style={s.pageTitleWrap}>
           <Text style={s.pageTitle}>Previous Year Papers</Text>
@@ -836,8 +847,8 @@ const PracticeScreen = () => {
   if (impOpen && impSubject && impChapter) {
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setImpChapter(null)} />
         <View style={s.pageTitleWrap}>
           <Text style={s.pageTitle}>{impChapter}</Text>
@@ -875,8 +886,8 @@ const PracticeScreen = () => {
   if (impOpen) {
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setImpOpen(false)} />
         <View style={s.pageTitleWrap}>
           <Text style={s.pageTitle}>Important Questions</Text>
@@ -969,11 +980,11 @@ const PracticeScreen = () => {
     if (physMock.status === 'loading') {
       return (
         <SafeAreaView style={s.safe}>
-          <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-          {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+          <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+          {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
           <BackHeader onBack={closePhysMock} />
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12 }}>
-            <ActivityIndicator size="large" color="#0FA39A" />
+            <ActivityIndicator size="large" color={S.indigo} />
             <Text style={s.pageSub}>Loading {physMock.label}…</Text>
           </View>
         </SafeAreaView>
@@ -982,8 +993,8 @@ const PracticeScreen = () => {
     if (physMock.status === 'error') {
       return (
         <SafeAreaView style={s.safe}>
-          <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-          {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+          <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+          {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
           <BackHeader onBack={closePhysMock} />
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12, padding: 30 }}>
             <Text style={{ fontSize: 40 }}>⚠️</Text>
@@ -993,7 +1004,7 @@ const PracticeScreen = () => {
               style={{ marginTop: 8, backgroundColor: '#0FA39A', borderRadius: 50, paddingVertical: 12, paddingHorizontal: 28 }}
               activeOpacity={0.85}
               onPress={retryDbMock}>
-              <Text style={{ color: '#fff', fontWeight: '800', fontSize: 14 }}>Retry</Text>
+              <Text style={{ color: '#fff', fontFamily: FONT.extrabold, fontSize: 14 }}>Retry</Text>
             </TouchableOpacity>
           </View>
         </SafeAreaView>
@@ -1056,16 +1067,12 @@ const PracticeScreen = () => {
 
   // ── MAIN PRACTICE SCREEN ────────────────────────────────────────────────────
   return (
-    <SafeAreaView style={s.safe}>
-      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
-
-      <View style={s.header}>
-        <Text style={s.headerTitle}>Practice</Text>
-        <View style={s.headerRight}>
-          <View style={s.xpBadge}><Text style={s.xpTxt}>🔥 7 day streak</Text></View>
-        </View>
-      </View>
+    <View style={s.safe}>
+      <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+      <StudentScreenHeader
+        title="Practice"
+        right={<View style={s.xpBadge}><Text style={s.xpTxt}>🔥 7 day streak</Text></View>}
+      />
 
       {/* Students are locked to their own class; only show the switcher if unset or tester. */}
       {(!scope?.classNum || scope?.tester) && <ClassTabs value={selectedClass} onChange={setSelectedClass} />}
@@ -1078,7 +1085,7 @@ const PracticeScreen = () => {
       {selectedClass && !isClassReady(selectedClass) ? (
         <ComingSoon label="Practice" className={selectedClass} />
       ) : (
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 32 }}>
+      <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 32 }}>
 
         {/* Important Questions */}
         <Text style={[s.sectionTitle, { marginTop: 16 }]}>Important Questions</Text>
@@ -1154,123 +1161,123 @@ const PracticeScreen = () => {
 
       </ScrollView>
       )}
-    </SafeAreaView>
+    </View>
   );
 };
 
 const s = StyleSheet.create({
-  safe:             { flex: 1, backgroundColor: '#F7F7F7' },
-  header:           { backgroundColor: '#fff', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 20, paddingVertical: 14, borderBottomWidth: 1.5, borderBottomColor: '#F0F0F0' },
-  headerTitle:      { fontSize: 22, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.5 },
+  safe:             { flex: 1, backgroundColor: S.canvas },
+  header:           { backgroundColor: S.canvas, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 20, paddingVertical: 14, borderBottomWidth: 1.5, borderBottomColor: S.hair },
+  headerTitle:      { fontSize: 22, fontFamily: FONT.black, color: S.ink, letterSpacing: -0.5 },
   headerRight:      { flexDirection: 'row', alignItems: 'center', gap: 10 },
-  xpBadge:          { backgroundColor: '#F0F0F0', borderRadius: 12, paddingVertical: 6, paddingHorizontal: 12, borderWidth: 1.5, borderColor: '#E8E8E8' },
-  xpTxt:            { fontSize: 12, fontWeight: '800', color: '#1C1C1E' },
+  xpBadge:          { backgroundColor: S.hair, borderRadius: 12, paddingVertical: 6, paddingHorizontal: 12, borderWidth: 1.5, borderColor: S.border },
+  xpTxt:            { fontSize: 12, fontFamily: FONT.extrabold, color: S.ink },
 
   // Back header + page title (PYQ / Important sub-screens)
-  backHeader:       { backgroundColor: '#fff', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 20, paddingVertical: 14, borderBottomWidth: 1.5, borderBottomColor: '#F0F0F0' },
+  backHeader:       { backgroundColor: S.canvas, flexDirection: 'row', alignItems: 'center', paddingHorizontal: 20, paddingVertical: 14, borderBottomWidth: 1.5, borderBottomColor: S.hair },
   backRow:          { flexDirection: 'row', alignItems: 'center', gap: 6 },
-  backArrow:        { fontSize: 20, color: '#1C1C1E', fontWeight: '700' },
-  backTxt:          { fontSize: 15, fontWeight: '700', color: '#1C1C1E' },
-  pageTitleWrap:    { backgroundColor: '#fff', paddingHorizontal: 20, paddingTop: 14, paddingBottom: 14, borderBottomWidth: 1.5, borderBottomColor: '#F0F0F0' },
-  pageTitle:        { fontSize: 20, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.4 },
-  pageSub:          { fontSize: 13, color: '#8E8E93', fontWeight: '600', marginTop: 3 },
+  backArrow:        { fontSize: 20, color: S.ink, fontFamily: FONT.bold },
+  backTxt:          { fontSize: 15, fontFamily: FONT.bold, color: S.ink },
+  pageTitleWrap:    { backgroundColor: S.canvas, paddingHorizontal: 20, paddingTop: 14, paddingBottom: 14, borderBottomWidth: 1.5, borderBottomColor: S.hair },
+  pageTitle:        { fontSize: 20, fontFamily: FONT.black, color: S.ink, letterSpacing: -0.4 },
+  pageSub:          { fontSize: 13, color: S.muted, fontFamily: FONT.semibold, marginTop: 3 },
 
   // Subject rows (PYQ / Important level 1)
-  subjectRow:       { backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: '#F0F0F0', flexDirection: 'row', alignItems: 'center', gap: 16, padding: 14 },
+  subjectRow:       { backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: S.hair, flexDirection: 'row', alignItems: 'center', gap: 16, padding: 14 },
   subjectIconWrap:  { width: 54, height: 54, borderRadius: 27, alignItems: 'center', justifyContent: 'center' },
-  subjectName:      { fontSize: 17, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3 },
-  subjectSub:       { fontSize: 12, color: '#8E8E93', fontWeight: '600', marginTop: 3 },
+  subjectName:      { fontSize: 17, fontFamily: FONT.black, color: S.ink, letterSpacing: -0.3 },
+  subjectSub:       { fontSize: 12, color: S.muted, fontFamily: FONT.semibold, marginTop: 3 },
 
   // Generic list rows (chapters + papers)
-  listRow:          { backgroundColor: '#fff', borderRadius: 16, borderWidth: 1.5, borderColor: '#F0F0F0', flexDirection: 'row', alignItems: 'center', gap: 14, padding: 16 },
-  listNum:          { width: 32, height: 32, borderRadius: 10, backgroundColor: '#F0F0F0', alignItems: 'center', justifyContent: 'center' },
-  listNumTxt:       { fontSize: 14, fontWeight: '900', color: '#1C1C1E' },
-  listRowTitle:     { fontSize: 15, fontWeight: '800', color: '#1C1C1E', letterSpacing: -0.2 },
-  listRowSub:       { fontSize: 12, color: '#8E8E93', fontWeight: '600', marginTop: 3 },
-  listArrow:        { fontSize: 18, color: '#C7C7CC', fontWeight: '600' },
+  listRow:          { backgroundColor: '#fff', borderRadius: 16, borderWidth: 1.5, borderColor: S.hair, flexDirection: 'row', alignItems: 'center', gap: 14, padding: 16 },
+  listNum:          { width: 32, height: 32, borderRadius: 10, backgroundColor: S.hair, alignItems: 'center', justifyContent: 'center' },
+  listNumTxt:       { fontSize: 14, fontFamily: FONT.black, color: S.ink },
+  listRowTitle:     { fontSize: 15, fontFamily: FONT.extrabold, color: S.ink, letterSpacing: -0.2 },
+  listRowSub:       { fontSize: 12, color: S.muted, fontFamily: FONT.semibold, marginTop: 3 },
+  listArrow:        { fontSize: 18, color: S.faint, fontFamily: FONT.semibold },
 
   // Question WebView + empty state
   webLoading:       { ...StyleSheet.absoluteFillObject, alignItems: 'center', justifyContent: 'center', zIndex: 2 },
   emptyWrap:        { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 28 },
-  emptyTitle:       { fontSize: 16, fontWeight: '900', color: '#1C1C1E', marginBottom: 8 },
-  emptySub:         { fontSize: 13, color: '#8E8E93', fontWeight: '600', textAlign: 'center', lineHeight: 19 },
+  emptyTitle:       { fontSize: 16, fontFamily: FONT.black, color: S.ink, marginBottom: 8 },
+  emptySub:         { fontSize: 13, color: S.muted, fontFamily: FONT.semibold, textAlign: 'center', lineHeight: 19 },
 
-  subChip:          { flexDirection: 'row', alignItems: 'center', gap: 7, paddingVertical: 9, paddingHorizontal: 14, borderRadius: 20, borderWidth: 1.5, borderColor: '#E8E8E8', backgroundColor: '#fff' },
-  subChipActive:    { backgroundColor: '#1C1C1E', borderColor: '#1C1C1E' },
-  subChipTxt:       { fontSize: 13, fontWeight: '800', color: '#8E8E93' },
+  subChip:          { flexDirection: 'row', alignItems: 'center', gap: 7, paddingVertical: 9, paddingHorizontal: 14, borderRadius: 20, borderWidth: 1.5, borderColor: S.border, backgroundColor: '#fff' },
+  subChipActive:    { backgroundColor: S.ink, borderColor: S.ink },
+  subChipTxt:       { fontSize: 13, fontFamily: FONT.extrabold, color: S.muted },
   subChipTxtActive: { color: '#fff' },
-  subjectCard:      { marginHorizontal: 16, backgroundColor: '#1C1C1E', borderRadius: 22, padding: 18, marginBottom: 8 },
+  subjectCard:      { marginHorizontal: 16, backgroundColor: S.ink, borderRadius: 22, padding: 18, marginBottom: 8 },
   subjectCardTop:   { flexDirection: 'row', alignItems: 'center', gap: 14, marginBottom: 16 },
   subjectIconBig:   { width: 60, height: 60, backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: 18, alignItems: 'center', justifyContent: 'center' },
-  subjectCardTitle: { fontSize: 18, fontWeight: '900', color: '#fff', letterSpacing: -0.3 },
-  subjectCardSub:   { fontSize: 12, color: '#888', fontWeight: '600', marginTop: 3, marginBottom: 8 },
+  subjectCardTitle: { fontSize: 18, fontFamily: FONT.black, color: '#fff', letterSpacing: -0.3 },
+  subjectCardSub:   { fontSize: 12, color: '#888', fontFamily: FONT.semibold, marginTop: 3, marginBottom: 8 },
   progBarBg:        { height: 5, backgroundColor: 'rgba(255,255,255,0.15)', borderRadius: 3, overflow: 'hidden' },
   progBarFill:      { height: 5, backgroundColor: '#fff', borderRadius: 3 },
   pctCircle:        { width: 48, height: 48, borderRadius: 24, borderWidth: 2.5, borderColor: 'rgba(255,255,255,0.3)', alignItems: 'center', justifyContent: 'center' },
-  pctTxt:           { fontSize: 13, fontWeight: '900', color: '#fff' },
+  pctTxt:           { fontSize: 13, fontFamily: FONT.black, color: '#fff' },
   startBtn:         { backgroundColor: '#fff', borderRadius: 14, paddingVertical: 13, alignItems: 'center' },
-  startBtnTxt:      { fontSize: 15, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3 },
-  sectionTitle:     { fontSize: 17, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3, paddingHorizontal: 16, marginTop: 16, marginBottom: 12 },
+  startBtnTxt:      { fontSize: 15, fontFamily: FONT.black, color: S.ink, letterSpacing: -0.3 },
+  sectionTitle:     { fontSize: 17, fontFamily: FONT.black, color: S.ink, letterSpacing: -0.3, paddingHorizontal: 16, marginTop: 16, marginBottom: 12 },
 
   // Important Questions banner (main screen)
-  impBanner:        { marginHorizontal: 16, backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: '#F0E6C8', flexDirection: 'row', alignItems: 'center', gap: 14, padding: 16 },
-  impIconBox:       { width: 48, height: 48, borderRadius: 14, backgroundColor: '#FBF3DA', alignItems: 'center', justifyContent: 'center', borderWidth: 1.5, borderColor: '#F0E6C8' },
-  impTitle:         { fontSize: 15, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.2 },
-  impSub:           { fontSize: 12, color: '#8E8E93', fontWeight: '600', marginTop: 3 },
-  impArrow:         { fontSize: 18, color: '#C7A85A', fontWeight: '700' },
+  impBanner:        { marginHorizontal: 16, backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: S.goldSoft, flexDirection: 'row', alignItems: 'center', gap: 14, padding: 16 },
+  impIconBox:       { width: 48, height: 48, borderRadius: 14, backgroundColor: S.goldSoft, alignItems: 'center', justifyContent: 'center', borderWidth: 1.5, borderColor: S.goldSoft },
+  impTitle:         { fontSize: 15, fontFamily: FONT.black, color: S.ink, letterSpacing: -0.2 },
+  impSub:           { fontSize: 12, color: S.muted, fontFamily: FONT.semibold, marginTop: 3 },
+  impArrow:         { fontSize: 18, color: S.gold, fontFamily: FONT.bold },
 
   qTypesGrid:       { flexDirection: 'row', flexWrap: 'wrap', paddingHorizontal: 16, gap: 10 },
-  qTypeCard:        { width: '47%', backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: '#F0F0F0', padding: 16 },
-  qTypeLabel:       { fontSize: 14, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3, marginBottom: 4 },
-  qTypeSub:         { fontSize: 11, color: '#8E8E93', fontWeight: '600', lineHeight: 16, marginBottom: 10 },
-  qTypeBadge:       { backgroundColor: '#F0F0F0', borderRadius: 8, paddingVertical: 4, paddingHorizontal: 10, alignSelf: 'flex-start' },
-  qTypeBadgeTxt:    { fontSize: 10, fontWeight: '800', color: '#1C1C1E' },
-  practiceTestsCard:{ marginHorizontal: 16, backgroundColor: '#fff', borderRadius: 20, borderWidth: 1.5, borderColor: '#F0F0F0', overflow: 'hidden', marginBottom: 4 },
+  qTypeCard:        { width: '47%', backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: S.hair, padding: 16 },
+  qTypeLabel:       { fontSize: 14, fontFamily: FONT.black, color: S.ink, letterSpacing: -0.3, marginBottom: 4 },
+  qTypeSub:         { fontSize: 11, color: S.muted, fontFamily: FONT.semibold, lineHeight: 16, marginBottom: 10 },
+  qTypeBadge:       { backgroundColor: S.hair, borderRadius: 8, paddingVertical: 4, paddingHorizontal: 10, alignSelf: 'flex-start' },
+  qTypeBadgeTxt:    { fontSize: 10, fontFamily: FONT.extrabold, color: S.ink },
+  practiceTestsCard:{ marginHorizontal: 16, backgroundColor: '#fff', borderRadius: 20, borderWidth: 1.5, borderColor: S.hair, overflow: 'hidden', marginBottom: 4 },
   ptRow:            { flexDirection: 'row', alignItems: 'center', gap: 12, padding: 14 },
-  ptRowBorder:      { borderBottomWidth: 1, borderBottomColor: '#F5F5F5' },
-  ptIconBox:        { width: 44, height: 44, backgroundColor: '#F0F0F0', borderRadius: 13, alignItems: 'center', justifyContent: 'center', borderWidth: 1.5, borderColor: '#E8E8E8' },
-  ptLabel:          { fontSize: 14, fontWeight: '800', color: '#1C1C1E' },
-  ptSub:            { fontSize: 11, color: '#8E8E93', fontWeight: '600', marginTop: 2 },
-  ptBadge:          { backgroundColor: '#F0F0F0', borderRadius: 8, paddingVertical: 4, paddingHorizontal: 10 },
-  ptBadgeTxt:       { fontSize: 10, fontWeight: '800', color: '#1C1C1E' },
-  ptArrow:          { fontSize: 18, color: '#C7C7CC' },
-  recentCard:       { marginHorizontal: 16, backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: '#F0F0F0', overflow: 'hidden' },
+  ptRowBorder:      { borderBottomWidth: 1, borderBottomColor: S.hair },
+  ptIconBox:        { width: 44, height: 44, backgroundColor: S.hair, borderRadius: 13, alignItems: 'center', justifyContent: 'center', borderWidth: 1.5, borderColor: S.border },
+  ptLabel:          { fontSize: 14, fontFamily: FONT.extrabold, color: S.ink },
+  ptSub:            { fontSize: 11, color: S.muted, fontFamily: FONT.semibold, marginTop: 2 },
+  ptBadge:          { backgroundColor: S.hair, borderRadius: 8, paddingVertical: 4, paddingHorizontal: 10 },
+  ptBadgeTxt:       { fontSize: 10, fontFamily: FONT.extrabold, color: S.ink },
+  ptArrow:          { fontSize: 18, color: S.faint },
+  recentCard:       { marginHorizontal: 16, backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: S.hair, overflow: 'hidden' },
   recentRow:        { flexDirection: 'row', alignItems: 'center', padding: 14, justifyContent: 'space-between' },
-  recentRowBorder:  { borderBottomWidth: 1, borderBottomColor: '#F5F5F5' },
+  recentRowBorder:  { borderBottomWidth: 1, borderBottomColor: S.hair },
   recentLeft:       {},
-  recentSubject:    { fontSize: 14, fontWeight: '800', color: '#1C1C1E' },
-  recentTopic:      { fontSize: 12, color: '#8E8E93', fontWeight: '600', marginTop: 2 },
+  recentSubject:    { fontSize: 14, fontFamily: FONT.extrabold, color: S.ink },
+  recentTopic:      { fontSize: 12, color: S.muted, fontFamily: FONT.semibold, marginTop: 2 },
   recentRight:      { alignItems: 'flex-end', gap: 4 },
-  scoreBadge:       { backgroundColor: '#F0F0F0', borderRadius: 10, paddingVertical: 5, paddingHorizontal: 12 },
-  scoreBadgeHigh:   { backgroundColor: '#1C1C1E' },
-  scoreBadgeLow:    { backgroundColor: '#E8E8E8' },
-  scoreTxt:         { fontSize: 13, fontWeight: '900', color: '#fff' },
-  recentDate:       { fontSize: 10, color: '#8E8E93', fontWeight: '600' },
+  scoreBadge:       { backgroundColor: S.hair, borderRadius: 10, paddingVertical: 5, paddingHorizontal: 12 },
+  scoreBadgeHigh:   { backgroundColor: S.ink },
+  scoreBadgeLow:    { backgroundColor: S.border },
+  scoreTxt:         { fontSize: 13, fontFamily: FONT.black, color: '#fff' },
+  recentDate:       { fontSize: 10, color: S.muted, fontFamily: FONT.semibold },
 
   // Mock Test — collapsible subject sections + DB-backed mock rows + retest modal
   mcqSection:       { marginBottom: 14 },
-  mcqSectionHeader: { backgroundColor: '#fff', borderRadius: 16, borderWidth: 1.5, borderColor: '#F0F0F0', flexDirection: 'row', alignItems: 'center', gap: 14, padding: 14 },
+  mcqSectionHeader: { backgroundColor: '#fff', borderRadius: 16, borderWidth: 1.5, borderColor: S.hair, flexDirection: 'row', alignItems: 'center', gap: 14, padding: 14 },
   mcqSectionIcon:   { width: 44, height: 44, borderRadius: 13, alignItems: 'center', justifyContent: 'center' },
-  mcqSectionTitle:  { fontSize: 16, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3 },
-  mcqSectionSub:    { fontSize: 12, color: '#8E8E93', fontWeight: '600', marginTop: 2 },
-  mcqChevron:       { fontSize: 18, color: '#8E8E93', fontWeight: '700' },
+  mcqSectionTitle:  { fontSize: 16, fontFamily: FONT.black, color: S.ink, letterSpacing: -0.3 },
+  mcqSectionSub:    { fontSize: 12, color: S.muted, fontFamily: FONT.semibold, marginTop: 2 },
+  mcqChevron:       { fontSize: 18, color: S.muted, fontFamily: FONT.bold },
   mockRow:          { backgroundColor: '#fff', borderRadius: 16, borderWidth: 1, borderColor: '#EFF1F4', flexDirection: 'row', alignItems: 'center', gap: 14, padding: 15, shadowColor: '#2A2D3A', shadowOpacity: 0.05, shadowRadius: 10, shadowOffset: { width: 0, height: 4 }, elevation: 2 },
   mockRowIcon:      { width: 42, height: 42, borderRadius: 12, backgroundColor: '#E1F5F3', alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: '#C7E9E5' },
   mockRowIconDone:  { backgroundColor: '#E1F5F3', borderColor: '#C7E9E5' },
-  mockRowTitle:     { fontSize: 15, fontWeight: '800', color: '#1C1C1E', letterSpacing: -0.2 },
-  mockRowSub:       { fontSize: 12, color: '#8E8E93', fontWeight: '600', marginTop: 3 },
-  mockRowChevron:   { fontSize: 20, color: '#C7C7CC', fontWeight: '600' },
+  mockRowTitle:     { fontSize: 15, fontFamily: FONT.extrabold, color: S.ink, letterSpacing: -0.2 },
+  mockRowSub:       { fontSize: 12, color: S.muted, fontFamily: FONT.semibold, marginTop: 3 },
+  mockRowChevron:   { fontSize: 20, color: S.faint, fontFamily: FONT.semibold },
   mockBadge:        { backgroundColor: '#E7F7EC', borderRadius: 8, paddingVertical: 5, paddingHorizontal: 10, borderWidth: 1, borderColor: '#CDEBD6' },
-  mockBadgeTxt:     { fontSize: 11, fontWeight: '800', color: '#2C8C84' },
+  mockBadgeTxt:     { fontSize: 11, fontFamily: FONT.extrabold, color: '#2C8C84' },
   mockRetryBtn:     { backgroundColor: '#0FA39A', borderRadius: 50, paddingVertical: 9, paddingHorizontal: 22 },
-  mockRetryTxt:     { color: '#fff', fontSize: 13, fontWeight: '800' },
+  mockRetryTxt:     { color: '#fff', fontSize: 13, fontFamily: FONT.extrabold },
   retestOverlay:    { flex: 1, backgroundColor: 'rgba(20,30,30,0.5)', alignItems: 'center', justifyContent: 'center', padding: 28 },
   retestCard:       { width: '100%', backgroundColor: '#fff', borderRadius: 18, padding: 22, alignItems: 'center' },
-  retestTitle:      { fontSize: 17, fontWeight: '900', color: '#2D3A3A', marginBottom: 6 },
-  retestSub:        { fontSize: 13, fontWeight: '600', color: '#6B7B7B', textAlign: 'center', lineHeight: 19, marginBottom: 18 },
+  retestTitle:      { fontSize: 17, fontFamily: FONT.black, color: S.ink, marginBottom: 6 },
+  retestSub:        { fontSize: 13, fontFamily: FONT.semibold, color: S.muted, textAlign: 'center', lineHeight: 19, marginBottom: 18 },
   retestPrimary:    { alignSelf: 'stretch', backgroundColor: '#0E9A93', borderRadius: 50, paddingVertical: 13, alignItems: 'center' },
-  retestPrimaryTxt: { color: '#fff', fontSize: 15, fontWeight: '800' },
-  retestCancel:     { color: '#8A9A9A', fontSize: 13, fontWeight: '700', marginTop: 14 },
+  retestPrimaryTxt: { color: '#fff', fontSize: 15, fontFamily: FONT.extrabold },
+  retestCancel:     { color: S.muted, fontSize: 13, fontFamily: FONT.bold, marginTop: 14 },
 });
 
 export default PracticeScreen;
