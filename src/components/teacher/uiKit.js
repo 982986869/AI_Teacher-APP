@@ -2,10 +2,57 @@
 // premium feel (entrance + press animations) consistent without duplicating
 // animation logic across screens. Pure React Native core (Animated + Pressable),
 // so it's safe across Expo 54 with no extra dependency.
-import React, { useEffect, useRef } from 'react';
-import { Animated, Easing, Pressable } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { Animated, Easing, Pressable, View, StyleSheet } from 'react-native';
+import Svg, { Defs, LinearGradient as SvgLinearGradient, Stop, Rect } from 'react-native-svg';
 
 const APressable = Animated.createAnimatedComponent(Pressable);
+
+// Linear gradient fill without an extra native dependency — react-native-svg is
+// already a dependency (the whiteboard boards use it). `colors` is a [from, to]
+// pair from GRAD in premiumTheme; `diag` paints top-left → bottom-right, else
+// left → right. Children render above the fill.
+//
+// Two Android details this has to get right:
+//  • the SVG is sized from onLayout in real pixels (percentage sizes resolve
+//    against the viewBox, not the laid-out box, so "100%" under-paints);
+//  • `from` is also set as the View's backgroundColor — Android renders an
+//    elevation shadow using the view's own background, so a transparent one
+//    shows through as a white shape behind the card. It doubles as the fill
+//    for the first frame, before onLayout has measured.
+let gradSeq = 0;
+export function Gradient({ colors, style, children, diag = true, pointerEvents }) {
+  const id = useRef(`g${(gradSeq += 1)}`).current;
+  const [size, setSize] = useState({ w: 0, h: 0 });
+  const [from, to] = colors || ['#4F46E5', '#7E22CE'];
+
+  const onLayout = (e) => {
+    const { width, height } = e.nativeEvent.layout;
+    setSize((p) => (Math.abs(p.w - width) < 0.5 && Math.abs(p.h - height) < 0.5 ? p : { w: width, h: height }));
+  };
+
+  return (
+    <View style={[style, { backgroundColor: from }]} pointerEvents={pointerEvents} onLayout={onLayout}>
+      {size.w > 0 && size.h > 0 && (
+        <Svg style={StyleSheet.absoluteFill} width={size.w} height={size.h} pointerEvents="none">
+          <Defs>
+            <SvgLinearGradient
+              id={id}
+              gradientUnits="userSpaceOnUse"
+              x1={0} y1={0}
+              x2={size.w} y2={diag ? size.h : 0}
+            >
+              <Stop offset="0" stopColor={from} />
+              <Stop offset="1" stopColor={to} />
+            </SvgLinearGradient>
+          </Defs>
+          <Rect x={0} y={0} width={size.w} height={size.h} fill={`url(#${id})`} />
+        </Svg>
+      )}
+      {children}
+    </View>
+  );
+}
 
 // Entrance animation — a soft fade + slide (or scale). Subtle and short so it
 // reads as "premium", never as a delay. Cleans its animation up on unmount.

@@ -18,6 +18,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { View, Text, ScrollView, SafeAreaView, StatusBar, ActivityIndicator } from 'react-native';
+import { FONT } from '../constants/fonts';
 import MCQ_DATA from '../data/mcqPractice';
 import { getMcqChaptersWithContent, getMcqSubtopics as apiMcqSubtopics } from '../api/mcqPracticeApi';
 import { getChapters } from '../api/resourcesApi';
@@ -65,7 +66,7 @@ const TINTS = ['#E1F5F3', '#FCEBDD', '#E9EBFB', '#E7F3E4', '#FBE9F0', '#EAF0FB',
 
 const EmptyMsg = ({ text }) => (
   <View style={{ paddingVertical: 48, alignItems: 'center' }}>
-    <Text style={{ color: TK.textMuted, fontSize: 14, fontWeight: '600', textAlign: 'center' }}>{text}</Text>
+    <Text style={{ color: TK.textMuted, fontSize: 14, fontFamily: FONT.semibold, textAlign: 'center' }}>{text}</Text>
   </View>
 );
 const Loading = () => (

@@ -7,6 +7,7 @@ import { C, st, T, Label, card, CardGradient } from './constants';
 import Header from './Header';
 import { PressableScale, FadeInOnce, Breathe, Odometer, Pulse, Float, PopIn, Wave, Nudge } from './anim';
 import { EventTeaser, EventsModal } from './EventsCarousel';
+import { AboutModal, ImpactModal, TutorsModal } from './AboutScreen';
 import UpcomingDemoCard from './UpcomingDemoCard';
 
 // Stat carousel card width + gap — wide rectangles that overflow the screen so the row
@@ -142,6 +143,9 @@ function HomeTab({ meta, childName, onAvatar, onGym, onActivity, onBookTrial, re
   const quizzes = Number(bg.quizzesCompleted) || 0;
   const acc = Number(bg.accuracy) || 0;
   const [eventsOpen, setEventsOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
+  const [impactOpen, setImpactOpen] = useState(false);
+  const [tutorsOpen, setTutorsOpen] = useState(false);
   const events = report.events || [];
   const hour = new Date().getHours();
   const greet = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
@@ -211,8 +215,40 @@ function HomeTab({ meta, childName, onAvatar, onGym, onActivity, onBookTrial, re
             </View>
           )}
         </FadeInOnce>
+        {/* About Us, Our Impact and Our Tutors all open from the Events footer accordion
+            (ABOUT AILERNOVA → About Us / Our Impact / Our Tutors), and from each other's
+            footers. The opener closes first — two RN Modals stacked at once don't reliably
+            layer on Android. */}
         <EventsModal visible={eventsOpen} onClose={() => setEventsOpen(false)}
-          events={events} store={report.eventStore} skills={report.eventSkills} gallery={report.eventGallery} />
+          events={events} store={report.eventStore} skills={report.eventSkills} gallery={report.eventGallery}
+          onAbout={() => { setEventsOpen(false); setAboutOpen(true); }}
+          onImpact={() => { setEventsOpen(false); setImpactOpen(true); }}
+          onTutors={() => { setEventsOpen(false); setTutorsOpen(true); }} />
+        {/* Sticky "Get Started" → close the story, then open the free-demo sheet. */}
+        <AboutModal
+          visible={aboutOpen}
+          onClose={() => setAboutOpen(false)}
+          onGetStarted={() => { setAboutOpen(false); onBookTrial && onBookTrial(); }}
+          onImpact={() => { setAboutOpen(false); setImpactOpen(true); }}
+          onTutors={() => { setAboutOpen(false); setTutorsOpen(true); }}
+        />
+        <ImpactModal
+          visible={impactOpen}
+          onClose={() => setImpactOpen(false)}
+          onGetStarted={() => { setImpactOpen(false); onBookTrial && onBookTrial(); }}
+          onAbout={() => { setImpactOpen(false); setAboutOpen(true); }}
+          onTutors={() => { setImpactOpen(false); setTutorsOpen(true); }}
+        />
+        {/* "Find the Right Tutor" → close the page, then open the free-demo sheet: the
+            demo IS how a parent gets matched with a tutor. */}
+        <TutorsModal
+          visible={tutorsOpen}
+          onClose={() => setTutorsOpen(false)}
+          onGetStarted={() => { setTutorsOpen(false); onBookTrial && onBookTrial(); }}
+          onAbout={() => { setTutorsOpen(false); setAboutOpen(true); }}
+          onImpact={() => { setTutorsOpen(false); setImpactOpen(true); }}
+        />
+
       </ScrollView>
     </View>
   );

@@ -1,137 +1,171 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform } from 'react-native';
+// src/screens/SessionsScreen.js
+// The Student "Sessions" tab. Now reads REAL sessions the admin publishes (GET /api/sessions,
+// class-scoped + active-only server-side). When sessions exist they render as a live schedule;
+// when there are none it falls back to the honest, premium "coming soon" (no fake list).
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { View, StyleSheet, ScrollView, StatusBar, Linking } from 'react-native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import { Video, Users, MessageCircle, CirclePlay, CircleCheck, Bell, MapPin, CalendarDays, Clock3, User } from 'lucide-react-native';
+import { T } from './parent/ParentApp/constants';
+import {
+  S, shadow, InkSurface, StudentScreenHeader, StudentSectionHeader, StudentPrimaryButton, StudentSkeleton,
+} from '../theme/studentUI';
+import { FadeInOnce, Breathe, Float, Pulse, Shine, PressableScale } from './parent/ParentApp/anim';
+import { getHomeState, saveHomeState } from '../utils/storage';
+import { getStudentSessions } from '../api/sessionsApi';
 
-const SESSIONS = [
-  { id: 1, subject: 'Physics',     teacher: "Arjun Sir",    date: 'Today',       time: '5:30 PM – 6:30 PM', type: 'Live',     status: 'upcoming',  meet: 'Google Meet' },
-  { id: 2, subject: 'Mathematics', teacher: "Priya Ma'am",  date: 'Tomorrow',    time: '4:00 PM – 5:00 PM', type: 'Live',     status: 'upcoming',  meet: 'Zoom' },
-  { id: 3, subject: 'Chemistry',   teacher: "Raj Sir",      date: 'Wed, 12 Jun', time: '6:00 PM – 7:00 PM', type: 'Live',     status: 'upcoming',  meet: 'Google Meet' },
-  { id: 4, subject: 'Biology',     teacher: "Sneha Ma'am",  date: 'Thu, 13 Jun', time: '3:30 PM – 4:30 PM', type: 'Recorded', status: 'upcoming',  meet: 'Zoom' },
-  { id: 5, subject: 'Physics',     teacher: "Arjun Sir",    date: 'Mon, 3 Jun',  time: '5:30 PM – 6:30 PM', type: 'Live',     status: 'completed', meet: 'Google Meet' },
-  { id: 6, subject: 'English',     teacher: "Meera Ma'am",  date: 'Sat, 1 Jun',  time: '2:00 PM – 3:00 PM', type: 'Live',     status: 'completed', meet: 'Zoom' },
+const PAD = 18;
+
+const FEATURES = [
+  { Icon: Users,         tint: S.blue,    bg: S.blueSoft,    title: 'Learn from expert teachers', sub: 'Live classes with top educators for your class' },
+  { Icon: MessageCircle, tint: S.purple,  bg: S.purpleSoft,  title: 'Solve doubts in real time',  sub: 'Ask questions and get answered on the spot' },
+  { Icon: CirclePlay,    tint: S.emerald, bg: S.emeraldSoft, title: 'Rewatch any class',           sub: 'Every session is recorded, yours to replay' },
 ];
 
-const SUBJECT_EMOJIS = { Physics: '⚛️', Mathematics: '📐', Chemistry: '🧪', Biology: '🧬', English: '📝' };
+const fmtWhen = (iso) => {
+  const d = new Date(iso);
+  return `${d.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' })} · ${d.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })}`;
+};
+
+function SessionCard({ s }) {
+  const upcoming = s.status === 'scheduled';
+  return (
+    <View style={hs.card}>
+      <View style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 12 }}>
+        <View style={[hs.cardIcon, { backgroundColor: s.mode === 'offline' ? S.orangeSoft : S.blueSoft }]}>
+          {s.mode === 'offline' ? <MapPin size={20} color={S.orange} strokeWidth={2.4} /> : <Video size={20} color={S.blue} strokeWidth={2.4} />}
+        </View>
+        <View style={{ flex: 1, minWidth: 0 }}>
+          <T w="xbold" s={14.5} c={S.ink} numberOfLines={1}>{s.title}</T>
+          <T w="semi" s={12} c={S.muted} numberOfLines={1} style={{ marginTop: 1 }}>{[s.subject, s.teacherName].filter(Boolean).join(' · ') || 'Live class'}</T>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginTop: 8, flexWrap: 'wrap' }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}><CalendarDays size={13} color={S.faint} strokeWidth={2.4} /><T w="bold" s={11.5} c={S.sub}>{fmtWhen(s.startsAt)}</T></View>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}><Clock3 size={13} color={S.faint} strokeWidth={2.4} /><T w="bold" s={11.5} c={S.sub}>{s.durationMin} min</T></View>
+          </View>
+        </View>
+      </View>
+      {upcoming && s.mode === 'online' && !!s.meetingLink && (
+        <StudentPrimaryButton label="Join class" Icon={Video} tint={S.blue} onPress={() => Linking.openURL(s.meetingLink).catch(() => {})} style={{ marginTop: 12, paddingVertical: 12 }} />
+      )}
+    </View>
+  );
+}
 
 const SessionsScreen = () => {
-  const [activeTab, setActiveTab] = useState('upcoming');
-  const filtered = SESSIONS.filter(s => s.status === activeTab);
+  const navigation = useNavigation();
+  const scrollRef = useRef(null);
+  const [notified, setNotified] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  const [sessions, setSessions] = useState(null); // null = loading
+
+  useEffect(() => {
+    getHomeState().then((st) => setNotified(!!st?.sessionsReminder)).catch(() => {}).finally(() => setLoaded(true));
+  }, []);
+  const setReminder = () => { setNotified(true); saveHomeState({ sessionsReminder: true }); };
+
+  useFocusEffect(useCallback(() => {
+    let alive = true;
+    getStudentSessions().then((rows) => { if (alive) setSessions(rows); }).catch(() => { if (alive) setSessions([]); });
+    return () => { alive = false; };
+  }, []));
+
+  useEffect(() => {
+    const unsub = navigation.addListener('tabPress', () => { if (navigation.isFocused()) scrollRef.current?.scrollTo({ y: 0, animated: true }); });
+    return unsub;
+  }, [navigation]);
+
+  const upcoming = (sessions || []).filter((s) => s.status === 'scheduled');
+  const completed = (sessions || []).filter((s) => s.status === 'completed');
+  const hasSessions = (sessions || []).length > 0;
 
   return (
-    <SafeAreaView style={s.safe}>
-      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+    <View style={hs.safe}>
+      <StatusBar barStyle="dark-content" backgroundColor={S.canvas} translucent={false} />
+      <StudentScreenHeader title="Live sessions" subtitle="1:1 classes with real teachers" />
 
-      <View style={s.header}>
-        <Text style={s.headerTitle}>My Sessions</Text>
-        <TouchableOpacity style={s.headerBtn}><Text style={s.headerBtnTxt}>+ Book</Text></TouchableOpacity>
-      </View>
-
-      <View style={s.statsRow}>
-        {[{ n: '12', l: 'Total' }, { n: '8', l: 'Completed' }, { n: '4', l: 'Upcoming' }].map((st, i) => (
-          <View key={i} style={s.statBox}>
-            <Text style={s.statNum}>{st.n}</Text>
-            <Text style={s.statLbl}>{st.l}</Text>
-          </View>
-        ))}
-      </View>
-
-      <View style={s.tabRow}>
-        {['upcoming', 'completed'].map(t => (
-          <TouchableOpacity key={t} style={[s.tab, activeTab === t && s.tabActive]} onPress={() => setActiveTab(t)}>
-            <Text style={[s.tabTxt, activeTab === t && s.tabTxtActive]}>{t.charAt(0).toUpperCase() + t.slice(1)}</Text>
-          </TouchableOpacity>
-        ))}
-      </View>
-
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
-        {filtered.map((sess, idx) => {
-          const isNext = sess.status === 'upcoming' && idx === 0;
-          return (
-            <View key={sess.id} style={[s.sessCard, isNext && s.sessCardDark]}>
-              {isNext && <View style={s.nextBadge}><Text style={s.nextBadgeTxt}>NEXT UP</Text></View>}
-              <View style={s.sessTop}>
-                <View style={[s.sessIconWrap, isNext && { backgroundColor: 'rgba(255,255,255,0.1)' }]}>
-                  <Text style={{ fontSize: 22 }}>{SUBJECT_EMOJIS[sess.subject] || '📚'}</Text>
-                </View>
-                <View style={{ flex: 1 }}>
-                  <Text style={[s.sessSubject, isNext && { color: '#fff' }]}>{sess.subject}</Text>
-                  <Text style={[s.sessTeacher, isNext && { color: '#888' }]}>with {sess.teacher}</Text>
-                </View>
-                <View style={[s.typeBadge, isNext && { backgroundColor: 'rgba(255,255,255,0.1)' }]}>
-                  <Text style={[s.typeBadgeTxt, isNext && { color: '#ccc' }]}>{sess.type}</Text>
+      <ScrollView ref={scrollRef} style={hs.body} contentContainerStyle={{ paddingBottom: 30, paddingTop: 8 }} showsVerticalScrollIndicator={false}>
+        {sessions === null ? (
+          <View style={{ paddingTop: 8 }}>{[0, 1].map((i) => <StudentSkeleton key={i} w="100%" h={110} r={18} mb={10} />)}</View>
+        ) : hasSessions ? (
+          <>
+            {upcoming.length > 0 && (
+              <>
+                <StudentSectionHeader title="Upcoming" accent={S.blue} />
+                {upcoming.map((s) => <FadeInOnce key={s.id} id={`sess-${s.id}`} delay={40} y={12}><SessionCard s={s} /></FadeInOnce>)}
+              </>
+            )}
+            {completed.length > 0 && (
+              <>
+                <StudentSectionHeader title="Completed" accent={S.emerald} />
+                {completed.map((s) => <SessionCard key={s.id} s={s} />)}
+              </>
+            )}
+          </>
+        ) : (
+          // ── Honest coming-soon (no sessions yet) ──
+          <>
+            <FadeInOnce id="sess-hero" delay={40} y={16}>
+              <View style={hs.heroShadow}>
+                <View style={hs.hero}>
+                  <InkSurface a="#1E3A8A" b="#0E1E4A" glow="#5B8CFF" radius={26} />
+                  <Float distance={9} duration={4400} style={{ position: 'absolute', top: -18, right: -14 }}><Video size={140} color="rgba(255,255,255,0.09)" strokeWidth={1.3} /></Float>
+                  <Shine delay={1400} gap={4200} width={80} color="rgba(255,255,255,0.14)" />
+                  <View style={hs.heroTag}>
+                    <Pulse from={0.85} to={1.15} duration={1500}><CircleCheck size={11} color="#CFE0FF" strokeWidth={2.8} /></Pulse>
+                    <T w="xbold" s={10} c="#CFE0FF" style={{ letterSpacing: 1 }}>COMING SOON</T>
+                  </View>
+                  <View style={hs.heroIcon}><Breathe><Video size={30} color="#fff" strokeWidth={2.2} /></Breathe></View>
+                  <T w="black" s={22} c="#fff" style={{ marginTop: 14, letterSpacing: -0.3 }}>Live 1:1 classes are on the way</T>
+                  <T w="semi" s={13} c="rgba(255,255,255,0.72)" style={{ marginTop: 6, lineHeight: 19 }}>Soon you'll book personal sessions with expert teachers — right here, whenever you need a hand.</T>
                 </View>
               </View>
+            </FadeInOnce>
 
-              <View style={[s.divider, isNext && { backgroundColor: '#333' }]} />
-
-              <View style={s.sessBottom}>
-                <View style={s.sessMeta}>
-                  <Text style={{ fontSize: 12 }}>📅</Text>
-                  <Text style={[s.sessMetaTxt, isNext && { color: '#bbb' }]}>{sess.date}  •  {sess.time}</Text>
-                </View>
-                <View style={s.sessMeta}>
-                  <Text style={{ fontSize: 12 }}>📹</Text>
-                  <Text style={[s.sessMetaTxt, isNext && { color: '#bbb' }]}>{sess.meet}</Text>
-                </View>
+            <StudentSectionHeader title="What to expect" accent={S.blue} />
+            <FadeInOnce id="sess-feats" delay={60} y={14}>
+              <View style={hs.featCard}>
+                {FEATURES.map((f, i) => (
+                  <View key={f.title} style={[hs.featRow, i < FEATURES.length - 1 && hs.featDivider]}>
+                    <View style={[hs.featIcon, { backgroundColor: f.bg }]}><f.Icon size={20} color={f.tint} strokeWidth={2.5} /></View>
+                    <View style={{ flex: 1 }}><T w="xbold" s={14} c={S.ink}>{f.title}</T><T w="semi" s={11.5} c={S.muted} style={{ marginTop: 1 }}>{f.sub}</T></View>
+                  </View>
+                ))}
               </View>
+            </FadeInOnce>
 
-              {sess.status === 'upcoming' ? (
-                <TouchableOpacity style={[s.actionBtn, isNext && s.actionBtnWhite]}>
-                  <Text style={[s.actionBtnTxt, isNext && { color: '#1C1C1E' }]}>
-                    {isNext ? 'Join Session  📹' : 'Set Reminder  🔔'}
-                  </Text>
-                </TouchableOpacity>
-              ) : (
-                <View style={s.completedRow}>
-                  <View style={s.completedBadge}><Text style={s.completedTxt}>✓ Completed</Text></View>
-                  <TouchableOpacity style={s.watchBtn}><Text style={s.watchTxt}>Watch Recording</Text></TouchableOpacity>
-                </View>
-              )}
-            </View>
-          );
-        })}
+            {loaded && (
+              <FadeInOnce id="sess-notify" delay={90} y={14}>
+                {notified ? (
+                  <View style={hs.savedNote}><CircleCheck size={17} color={S.emerald} strokeWidth={2.6} /><T w="bold" s={13} c={S.emerald} style={{ flex: 1 }}>Reminder saved on this device — we'll surface sessions here the moment they launch.</T></View>
+                ) : (
+                  <Breathe><StudentPrimaryButton label="Remind me at launch" Icon={Bell} tint={S.blue} onPress={setReminder} style={{ marginTop: 22 }} /></Breathe>
+                )}
+              </FadeInOnce>
+            )}
+
+            <View style={hs.hintRow}><T s={13}>💡</T><T w="semi" s={12} c={S.muted} style={{ flex: 1 }}>In the meantime, your AI teacher is on the Home tab 24/7 — ask any doubt, anytime.</T></View>
+          </>
+        )}
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 
-const s = StyleSheet.create({
-  safe:           { flex: 1, backgroundColor: '#F7F7F7' },
-  header:         { backgroundColor: '#fff', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 20, paddingVertical: 14, borderBottomWidth: 1.5, borderBottomColor: '#F0F0F0' },
-  headerTitle:    { fontSize: 22, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.5 },
-  headerBtn:      { backgroundColor: '#1C1C1E', borderRadius: 12, paddingVertical: 8, paddingHorizontal: 16 },
-  headerBtnTxt:   { color: '#fff', fontSize: 13, fontWeight: '800' },
-  statsRow:       { flexDirection: 'row', backgroundColor: '#fff', padding: 14, gap: 10, borderBottomWidth: 1.5, borderBottomColor: '#F0F0F0' },
-  statBox:        { flex: 1, alignItems: 'center', backgroundColor: '#F7F7F7', borderRadius: 14, paddingVertical: 12, borderWidth: 1.5, borderColor: '#F0F0F0' },
-  statNum:        { fontSize: 20, fontWeight: '900', color: '#1C1C1E' },
-  statLbl:        { fontSize: 10, color: '#8E8E93', fontWeight: '700', marginTop: 2 },
-  tabRow:         { flexDirection: 'row', backgroundColor: '#fff', paddingHorizontal: 16, borderBottomWidth: 1.5, borderBottomColor: '#F0F0F0' },
-  tab:            { flex: 1, paddingVertical: 12, alignItems: 'center', borderBottomWidth: 2, borderBottomColor: 'transparent' },
-  tabActive:      { borderBottomColor: '#1C1C1E' },
-  tabTxt:         { fontSize: 14, fontWeight: '700', color: '#8E8E93' },
-  tabTxtActive:   { color: '#1C1C1E' },
-  sessCard:       { backgroundColor: '#fff', borderRadius: 20, borderWidth: 1.5, borderColor: '#F0F0F0', padding: 16 },
-  sessCardDark:   { backgroundColor: '#1C1C1E', borderColor: '#1C1C1E' },
-  nextBadge:      { backgroundColor: 'rgba(255,255,255,0.12)', borderRadius: 8, paddingVertical: 3, paddingHorizontal: 10, alignSelf: 'flex-start', marginBottom: 12 },
-  nextBadgeTxt:   { fontSize: 10, fontWeight: '900', color: '#fff', letterSpacing: 1 },
-  sessTop:        { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 12 },
-  sessIconWrap:   { width: 46, height: 46, backgroundColor: '#F7F7F7', borderRadius: 14, alignItems: 'center', justifyContent: 'center', borderWidth: 1.5, borderColor: '#F0F0F0' },
-  sessSubject:    { fontSize: 16, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3 },
-  sessTeacher:    { fontSize: 12, color: '#8E8E93', fontWeight: '600', marginTop: 2 },
-  typeBadge:      { backgroundColor: '#F0F0F0', borderRadius: 8, paddingVertical: 4, paddingHorizontal: 10 },
-  typeBadgeTxt:   { fontSize: 10, fontWeight: '800', color: '#1C1C1E' },
-  divider:        { height: 1, backgroundColor: '#F0F0F0', marginBottom: 12 },
-  sessBottom:     { gap: 6, marginBottom: 14 },
-  sessMeta:       { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  sessMetaTxt:    { fontSize: 13, color: '#8E8E93', fontWeight: '600' },
-  actionBtn:      { backgroundColor: '#F0F0F0', borderRadius: 13, paddingVertical: 12, alignItems: 'center' },
-  actionBtnWhite: { backgroundColor: '#fff' },
-  actionBtnTxt:   { fontSize: 14, fontWeight: '800', color: '#1C1C1E' },
-  completedRow:   { flexDirection: 'row', gap: 10 },
-  completedBadge: { flex: 1, backgroundColor: '#F0F0F0', borderRadius: 12, paddingVertical: 10, alignItems: 'center' },
-  completedTxt:   { fontSize: 12, fontWeight: '800', color: '#1C1C1E' },
-  watchBtn:       { flex: 1, backgroundColor: '#1C1C1E', borderRadius: 12, paddingVertical: 10, alignItems: 'center' },
-  watchTxt:       { fontSize: 12, fontWeight: '800', color: '#fff' },
+const hs = StyleSheet.create({
+  safe: { flex: 1, backgroundColor: S.canvas },
+  body: { flex: 1, paddingHorizontal: PAD },
+  card: { backgroundColor: '#fff', borderRadius: 18, borderWidth: 1, borderColor: S.hair, padding: 15, marginBottom: 10, ...shadow },
+  cardIcon: { width: 44, height: 44, borderRadius: 14, alignItems: 'center', justifyContent: 'center' },
+  heroShadow: { borderRadius: 26, backgroundColor: '#0E1E4A', marginTop: 8, shadowColor: '#0E1E4A', shadowOpacity: 0.30, shadowRadius: 24, shadowOffset: { width: 0, height: 16 }, elevation: 11 },
+  hero: { borderRadius: 26, overflow: 'hidden', padding: 22 },
+  heroTag: { flexDirection: 'row', alignItems: 'center', gap: 6, alignSelf: 'flex-start', backgroundColor: 'rgba(255,255,255,0.12)', borderRadius: 20, paddingHorizontal: 10, paddingVertical: 6 },
+  heroIcon: { width: 60, height: 60, borderRadius: 20, backgroundColor: 'rgba(255,255,255,0.12)', alignItems: 'center', justifyContent: 'center', marginTop: 16 },
+  featCard: { backgroundColor: '#fff', borderRadius: 20, borderWidth: 1, borderColor: S.hair, padding: 16, ...shadow },
+  featRow: { flexDirection: 'row', alignItems: 'center', gap: 14, paddingVertical: 12 },
+  featDivider: { borderBottomWidth: 1, borderBottomColor: S.hair },
+  featIcon: { width: 44, height: 44, borderRadius: 14, alignItems: 'center', justifyContent: 'center' },
+  savedNote: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: S.emeraldSoft, borderWidth: 1, borderColor: '#BBE9CE', borderRadius: 16, padding: 14, marginTop: 22 },
+  hintRow: { flexDirection: 'row', alignItems: 'center', gap: 9, backgroundColor: S.indigoSoft, borderRadius: 16, padding: 14, marginTop: 16 },
 });
 
 export default SessionsScreen;

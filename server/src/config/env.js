@@ -79,6 +79,15 @@ const config = {
       || 'You are a warm, calm and confident female school teacher speaking to one student. Speak clearly at a relaxed classroom pace, with natural pauses at full stops. Sound encouraging and patient — never rushed, dramatic or robotic.',
     maxChars: parseInt(process.env.TTS_MAX_CHARS, 10) || 1200,
     enabled: true, // Kokoro needs no key, so TTS is always available
+
+    // ── FUTURE USE — ElevenLabs (written but not wired up) ────────────────────
+    // ElevenLabsTTSProvider.js exists; nothing requires it and these keys are off,
+    // so it is dead until both are enabled. Premium/PAID: a free ElevenLabs plan
+    // cannot use the TTS API at all (402 paid_plan_required). Uncomment these
+    // together with a matching provider branch in routes/tts.js.
+    // elevenApiKey: process.env.ELEVENLABS_API_KEY,
+    // elevenVoiceId: process.env.ELEVENLABS_VOICE_ID || '21m00Tcm4TlvDq8ikWAM', // "Rachel"
+    // elevenModel: process.env.ELEVENLABS_MODEL || 'eleven_flash_v2_5', // cheap + low-latency
   },
 
   // Knowledge (RAG) layer. Validated lazily at call time so the server starts

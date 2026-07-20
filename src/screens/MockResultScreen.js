@@ -15,15 +15,17 @@
 
 import React from 'react';
 import { View, Text, ScrollView, Pressable, StyleSheet, StatusBar, SafeAreaView } from 'react-native';
+import { S } from '../theme/studentUI';
+import { FONT } from '../constants/fonts';
 import Svg, { Circle, G } from 'react-native-svg';
 
 // ---- pastel mint & peach palette ----
 const C = {
-  bg: '#F6F7F9',
+  bg: S.hair,
   card: '#FFFFFF',
   border: '#F0E8E3',
   text: '#2A2D3A',
-  textMuted: '#8A8F9C',
+  textMuted: S.muted,
   mint: '#0FA39A',      // correct (teal)
   mintSoft: '#E1F5F3',
   peach: '#E25563',     // incorrect (rose)
@@ -197,38 +199,38 @@ const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: C.bg },
   header: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', backgroundColor: C.headerA, paddingTop: 48, paddingBottom: 16, paddingHorizontal: 14 },
   closeBtn: { width: 34, height: 34, borderRadius: 17, backgroundColor: 'rgba(255,255,255,0.6)', alignItems: 'center', justifyContent: 'center' },
-  closeTxt: { fontSize: 16, color: C.text, fontWeight: '700' },
-  headerTitle: { flex: 1, textAlign: 'center', fontSize: 16, fontWeight: '800', color: C.text },
+  closeTxt: { fontSize: 16, color: C.text, fontFamily: FONT.bold },
+  headerTitle: { flex: 1, textAlign: 'center', fontSize: 16, fontFamily: FONT.extrabold, color: C.text },
 
   body: { padding: 16 },
 
   card: { backgroundColor: C.card, borderRadius: 18, borderWidth: 1, borderColor: C.border, padding: 18, alignItems: 'center', marginBottom: 14 },
 
-  donutPct: { fontSize: 30, fontWeight: '900', color: C.text },
-  donutSub: { fontSize: 12, color: C.textMuted, marginTop: 2, fontWeight: '600' },
+  donutPct: { fontSize: 30, fontFamily: FONT.black, color: C.text },
+  donutSub: { fontSize: 12, color: C.textMuted, marginTop: 2, fontFamily: FONT.semibold },
 
   legendRow: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: 16, marginTop: 16 },
   legendItem: { flexDirection: 'row', alignItems: 'center', gap: 6 },
   legendDot: { width: 12, height: 12, borderRadius: 6 },
-  legendLabel: { fontSize: 12.5, color: C.text, fontWeight: '600' },
+  legendLabel: { fontSize: 12.5, color: C.text, fontFamily: FONT.semibold },
 
   tiles: { flexDirection: 'row', gap: 10, marginBottom: 14 },
   tile: { flex: 1, borderRadius: 16, paddingVertical: 16, alignItems: 'center' },
-  tileNum: { fontSize: 18, fontWeight: '900', color: C.text },
-  tileLabel: { fontSize: 11, color: C.textMuted, fontWeight: '700', marginTop: 3 },
+  tileNum: { fontSize: 18, fontFamily: FONT.black, color: C.text },
+  tileLabel: { fontSize: 11, color: C.textMuted, fontFamily: FONT.bold, marginTop: 3 },
 
-  sectionTitle: { fontSize: 15, fontWeight: '800', color: C.text, marginBottom: 10, marginLeft: 2 },
+  sectionTitle: { fontSize: 15, fontFamily: FONT.extrabold, color: C.text, marginBottom: 10, marginLeft: 2 },
 
   secRow: { width: '100%', marginBottom: 14 },
   secHead: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 6 },
-  secName: { fontSize: 13, fontWeight: '800', color: C.text },
-  secMeta: { fontSize: 12, color: C.textMuted, fontWeight: '600' },
+  secName: { fontSize: 13, fontFamily: FONT.extrabold, color: C.text },
+  secMeta: { fontSize: 12, color: C.textMuted, fontFamily: FONT.semibold },
   barTrack: { flexDirection: 'row', height: 14, borderRadius: 7, overflow: 'hidden', backgroundColor: C.border },
   barSeg: { height: '100%' },
   miniLegend: { flexDirection: 'row', justifyContent: 'center', gap: 14, marginTop: 4 },
 
   primaryBtn: { backgroundColor: C.mint, borderRadius: 14, paddingVertical: 15, alignItems: 'center', marginBottom: 10 },
-  primaryTxt: { color: '#fff', fontSize: 15, fontWeight: '800' },
+  primaryTxt: { color: '#fff', fontSize: 15, fontFamily: FONT.extrabold },
   secondaryBtn: { backgroundColor: C.indigoSoft, borderRadius: 14, paddingVertical: 15, alignItems: 'center' },
-  secondaryTxt: { color: C.indigo, fontSize: 15, fontWeight: '800' },
+  secondaryTxt: { color: C.indigo, fontSize: 15, fontFamily: FONT.extrabold },
 });

@@ -13,6 +13,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { View, Text, ScrollView, Pressable, StyleSheet, StatusBar, SafeAreaView, ActivityIndicator, TextInput } from 'react-native';
+import { S } from '../theme/studentUI';
+import { FONT } from '../constants/fonts';
 
 import { chapterList as physicsChapters, getQuestions as getPhysics, htmlToText } from '../data/questionBank';
 import { chapterList as chemChapters,    getQuestions as getChem }    from '../data/chemistryBank';
@@ -43,19 +45,19 @@ const normalizeApiQuestion = (q) => {
 // ---- app theme (matches PracticeScreen / TestQuestionScreen) ----
 // White headers, near-black ink, neutral greys, teal brand accent.
 const C = {
-  bg: '#F7F7F7',
+  bg: S.canvas,
   card: '#FFFFFF',
-  border: '#E8E8E8',
-  text: '#1C1C1E',
-  textMuted: '#6B6B70',
+  border: S.border,
+  text: S.ink,
+  textMuted: S.muted,
   mint: '#0FA39A',        // brand accent (teal)
   mintInk: '#0A7D75',     // darker teal for text on tints
   mintSoft: '#E1F5F3',    // accent tint
   peach: '#0FA39A',
   peachSoft: '#E1F5F3',
-  sand: '#F0F0F0',
-  sandSoft: '#F0F0F0',
-  lilacSoft: '#F0F0F0',
+  sand: S.hair,
+  sandSoft: S.hair,
+  lilacSoft: S.hair,
   headerMint: '#FFFFFF',  // header is white now (app style)
 };
 
@@ -202,7 +204,7 @@ function Class11OnlineTests({ onBack, onStartTest }) {
         <ScrollView contentContainerStyle={s.body} showsVerticalScrollIndicator={false}>
           {chs.length === 0 && (
             <View style={{ paddingVertical: 56, alignItems: 'center' }}>
-              <Text style={{ color: C.textMuted, fontSize: 14, fontWeight: '600' }}>No chapters found.</Text>
+              <Text style={{ color: C.textMuted, fontSize: 14, fontFamily: FONT.semibold }}>No chapters found.</Text>
             </View>
           )}
           {chs.map((ch, i) => {
@@ -275,7 +277,7 @@ function Class11OnlineTests({ onBack, onStartTest }) {
       <ScrollView contentContainerStyle={s.body} showsVerticalScrollIndicator={false}>
         {shown.length === 0 && (
           <View style={{ paddingVertical: 56, alignItems: 'center' }}>
-            <Text style={{ color: C.textMuted, fontSize: 14, fontWeight: '600' }}>
+            <Text style={{ color: C.textMuted, fontSize: 14, fontFamily: FONT.semibold }}>
               {tab === 'attempted' ? 'No attempted tests yet.' : 'No tests available.'}
             </Text>
           </View>
@@ -507,32 +509,32 @@ const s = StyleSheet.create({
   safe: { flex: 1, backgroundColor: C.bg },
   header: { backgroundColor: C.headerMint, paddingTop: 48, paddingHorizontal: 20, paddingBottom: 16, borderBottomWidth: 1.5, borderBottomColor: C.border },
   backRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 12 },
-  backArrow: { fontSize: 20, color: C.text, marginRight: 8, fontWeight: '700' },
-  backText: { fontSize: 16, color: C.text, fontWeight: '700' },
-  title: { fontSize: 24, fontWeight: '900', color: C.text, letterSpacing: -0.5 },
-  subtitle: { fontSize: 13.5, color: C.textMuted, marginTop: 4, fontWeight: '600' },
+  backArrow: { fontSize: 20, color: C.text, marginRight: 8, fontFamily: FONT.bold },
+  backText: { fontSize: 16, color: C.text, fontFamily: FONT.bold },
+  title: { fontSize: 24, fontFamily: FONT.black, color: C.text, letterSpacing: -0.5 },
+  subtitle: { fontSize: 13.5, color: C.textMuted, marginTop: 4, fontFamily: FONT.semibold },
 
   body: { padding: 16 },
 
   subjectCard: { flexDirection: 'row', alignItems: 'center', backgroundColor: C.card, borderRadius: 18, borderWidth: 1, borderColor: C.border, padding: 14, marginBottom: 12 },
   subjectIcon: { width: 52, height: 52, borderRadius: 14, alignItems: 'center', justifyContent: 'center', marginRight: 14 },
   subjectEmoji: { fontSize: 26 },
-  subjectName: { fontSize: 17, fontWeight: '800', color: C.text },
-  subjectSub: { fontSize: 12.5, color: C.textMuted, marginTop: 2, fontWeight: '600' },
+  subjectName: { fontSize: 17, fontFamily: FONT.extrabold, color: C.text },
+  subjectSub: { fontSize: 12.5, color: C.textMuted, marginTop: 2, fontFamily: FONT.semibold },
 
   chapterRow: { flexDirection: 'row', alignItems: 'center', backgroundColor: C.card, borderRadius: 14, borderWidth: 1, borderColor: C.border, padding: 14, marginBottom: 10 },
   chapterNum: { width: 30, height: 30, borderRadius: 9, backgroundColor: C.mintSoft, alignItems: 'center', justifyContent: 'center', marginRight: 12 },
-  chapterNumTxt: { fontSize: 13, fontWeight: '800', color: C.mintInk },
-  chapterName: { fontSize: 14.5, fontWeight: '700', color: C.text },
-  chapterSub: { fontSize: 12, color: C.textMuted, marginTop: 2, fontWeight: '600' },
+  chapterNumTxt: { fontSize: 13, fontFamily: FONT.extrabold, color: C.mintInk },
+  chapterName: { fontSize: 14.5, fontFamily: FONT.bold, color: C.text },
+  chapterSub: { fontSize: 12, color: C.textMuted, marginTop: 2, fontFamily: FONT.semibold },
 
   testRow: { flexDirection: 'row', alignItems: 'center', backgroundColor: C.card, borderRadius: 14, borderWidth: 1, borderColor: C.border, padding: 14, marginBottom: 10 },
   testIcon: { width: 40, height: 40, borderRadius: 11, backgroundColor: C.mintSoft, alignItems: 'center', justifyContent: 'center', marginRight: 12 },
   testIconTxt: { fontSize: 18 },
-  testName: { fontSize: 14.5, fontWeight: '700', color: C.text },
-  testSub: { fontSize: 12, color: C.textMuted, marginTop: 2, fontWeight: '600' },
+  testName: { fontSize: 14.5, fontFamily: FONT.bold, color: C.text },
+  testSub: { fontSize: 12, color: C.textMuted, marginTop: 2, fontFamily: FONT.semibold },
 
-  chevron: { fontSize: 24, color: '#C7C7CC', fontWeight: '400', marginLeft: 8 },
+  chevron: { fontSize: 24, color: S.faint, fontFamily: FONT.regular, marginLeft: 8 },
 });
 
 // ── flat Class-11 card list styles ────────────────────────────────────────────
@@ -540,14 +542,14 @@ const f = StyleSheet.create({
   searchWrap: { paddingHorizontal: 16, paddingTop: 14 },
   search: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: C.card, borderWidth: 1, borderColor: C.border, borderRadius: 15, paddingHorizontal: 14, height: 44 },
   searchIcon: { fontSize: 14, color: C.textMuted },
-  searchInput: { flex: 1, fontSize: 14, color: C.text, fontWeight: '600', padding: 0 },
+  searchInput: { flex: 1, fontSize: 14, color: C.text, fontFamily: FONT.semibold, padding: 0 },
 
   tabs: { flexDirection: 'row', gap: 10, paddingHorizontal: 16, paddingTop: 12, paddingBottom: 2 },
   tab: { flexDirection: 'row', alignItems: 'center', gap: 7, backgroundColor: C.card, borderWidth: 1, borderColor: C.border, borderRadius: 13, paddingVertical: 9, paddingHorizontal: 16 },
   tabOn: { backgroundColor: C.text, borderColor: C.text },
-  tabTxt: { fontSize: 13.5, fontWeight: '800', color: C.textMuted },
+  tabTxt: { fontSize: 13.5, fontFamily: FONT.extrabold, color: C.textMuted },
   tabTxtOn: { color: '#fff' },
-  tabCount: { fontSize: 13, fontWeight: '800', color: '#9A9A9F' },
+  tabCount: { fontSize: 13, fontFamily: FONT.extrabold, color: S.muted },
   tabCountOn: { color: '#8FE3DC' },
 
   card: { flexDirection: 'row', alignItems: 'center', gap: 14, backgroundColor: C.card, borderWidth: 1, borderColor: C.border, borderRadius: 18, padding: 16, marginBottom: 12 },
@@ -555,21 +557,21 @@ const f = StyleSheet.create({
   cardHeadRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
   status: { flexDirection: 'row', alignItems: 'center', gap: 6, paddingVertical: 4, paddingHorizontal: 9, borderRadius: 8 },
   statusOpen: { backgroundColor: C.mintSoft },
-  statusDone: { backgroundColor: '#F0F0F0' },
+  statusDone: { backgroundColor: S.hair },
   statusDot: { width: 7, height: 7, borderRadius: 4 },
-  statusTxt: { fontSize: 11, fontWeight: '800', letterSpacing: 0.2 },
+  statusTxt: { fontSize: 11, fontFamily: FONT.extrabold, letterSpacing: 0.2 },
 
-  cardTitle: { fontSize: 16, fontWeight: '800', color: C.text, letterSpacing: -0.2 },
+  cardTitle: { fontSize: 16, fontFamily: FONT.extrabold, color: C.text, letterSpacing: -0.2 },
   metaRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 14 },
-  meta: { fontSize: 12, fontWeight: '700', color: C.textMuted },
+  meta: { fontSize: 12, fontFamily: FONT.bold, color: C.textMuted },
 
   score: { flexDirection: 'row', alignItems: 'baseline', gap: 6 },
-  scoreVal: { fontSize: 15, fontWeight: '800', color: C.text, letterSpacing: -0.3 },
-  scorePct: { fontSize: 12, fontWeight: '800' },
+  scoreVal: { fontSize: 15, fontFamily: FONT.extrabold, color: C.text, letterSpacing: -0.3 },
+  scorePct: { fontSize: 12, fontFamily: FONT.extrabold },
 
   btn: { paddingVertical: 10, paddingHorizontal: 18, borderRadius: 12 },
   btnAttempt: { backgroundColor: C.mint },
-  btnAttemptTxt: { color: '#fff', fontSize: 13, fontWeight: '800', letterSpacing: 0.2 },
+  btnAttemptTxt: { color: '#fff', fontSize: 13, fontFamily: FONT.extrabold, letterSpacing: 0.2 },
   btnGhost: { backgroundColor: 'transparent', borderWidth: 1.5, borderColor: C.border },
-  btnGhostTxt: { color: C.text, fontSize: 13, fontWeight: '800', letterSpacing: 0.2 },
+  btnGhostTxt: { color: C.text, fontSize: 13, fontFamily: FONT.extrabold, letterSpacing: 0.2 },
 });

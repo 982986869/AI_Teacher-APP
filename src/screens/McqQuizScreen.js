@@ -10,15 +10,17 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import {
-  View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform,
+  View, Text, Image, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform,
 } from 'react-native';
+import { S } from '../theme/studentUI';
+import { FONT } from '../constants/fonts';
 import MathText from '../components/MathText';
 
 const QUESTION_SECONDS = 60;
 
 const C = {
-  bg: '#F4F5FB', white: '#fff', text: '#22222A', muted: '#7A7A8C',
-  primary: '#534AB7', primaryLight: '#EEEDFE', border: '#E7E7EF',
+  bg: '#F4F5FB', white: '#fff', text: S.ink, muted: S.muted,
+  primary: '#534AB7', primaryLight: '#EEEDFE', border: S.hair,
   green: '#0F8A5F', greenBg: '#E7F7EC', red: '#E5484D', redBg: '#FDECEC',
   amber: '#B5860B', amberBg: '#FBF3DD',
 };
@@ -37,14 +39,36 @@ const stripHtml = (s) =>
     .replace(/\s+/g, ' ')
     .trim();
 
+// First <img src> in an HTML string — some questions/options are diagrams (S3 imports or
+// admin-uploaded), which the text renderers strip; we render them as a real <Image>.
+const firstImg = (s) => { const m = String(s || '').match(/<img[^>]+src=["']([^"']+)["']/i); return m ? m[1] : null; };
+
 // Renders math ({tex}) via MathText, otherwise plain HTML as readable Text
-// (MathJaxSvg can render plain/HTML strings inconsistently).
-function Rich({ value, fontSize = 15, color = C.text }) {
+// (MathJaxSvg can render plain/HTML strings inconsistently). If the content carries an
+// image (diagram), it's shown below any text.
+function Rich({ value, fontSize = 15, color = C.text, imgHeight = 160 }) {
   if (value == null || !String(value).trim()) return null;
-  if (/\{tex\}/.test(String(value))) {
-    return <MathText value={value} fontSize={fontSize} color={color} />;
+  const raw = String(value);
+  const img = firstImg(raw);
+  const textPart = raw.replace(/<img[^>]*>/gi, '').replace(/<p[^>]*>\s*<\/p>/gi, '');
+  const hasTex = /\{tex\}/.test(textPart);
+  const plain = stripHtml(textPart);
+  const hasText = hasTex || plain.length > 0;
+  if (!img) {
+    return hasTex
+      ? <MathText value={textPart} fontSize={fontSize} color={color} />
+      : <Text style={{ fontSize, color, lineHeight: fontSize * 1.45 }}>{plain}</Text>;
   }
-  return <Text style={{ fontSize, color, lineHeight: fontSize * 1.45 }}>{stripHtml(value)}</Text>;
+  return (
+    <View>
+      {hasText ? (
+        hasTex
+          ? <MathText value={textPart} fontSize={fontSize} color={color} />
+          : <Text style={{ fontSize, color, lineHeight: fontSize * 1.45 }}>{plain}</Text>
+      ) : null}
+      <Image source={{ uri: img }} style={{ width: '100%', height: imgHeight, marginTop: hasText ? 8 : 0, borderRadius: 8, backgroundColor: '#fff' }} resizeMode="contain" />
+    </View>
+  );
 }
 
 export default function McqQuizScreen({
@@ -198,7 +222,7 @@ export default function McqQuizScreen({
               >
                 <Text style={[st.optKey, { color: txtCol }]}>{o.key}</Text>
                 <View style={{ flex: 1 }}>
-                  <Rich value={o.label} fontSize={15} color={txtCol} />
+                  <Rich value={o.label} fontSize={15} color={txtCol} imgHeight={92} />
                 </View>
                 {submitted && isCorrect && <Text style={st.tick}>✓</Text>}
                 {submitted && isSel && !isCorrect && <Text style={st.cross}>✕</Text>}
@@ -265,39 +289,39 @@ function Tile({ bg, col, num, label }) {
 const st = StyleSheet.create({
   safe: { flex: 1, backgroundColor: C.bg },
   header: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 14, paddingVertical: 12, backgroundColor: C.white, borderBottomWidth: 1, borderBottomColor: C.border },
-  back: { fontSize: 15, color: C.primary, fontWeight: '600' },
-  headerTitle: { flex: 1, textAlign: 'center', fontSize: 15, fontWeight: '700', color: C.text },
+  back: { fontSize: 15, color: C.primary, fontFamily: FONT.semibold },
+  headerTitle: { flex: 1, textAlign: 'center', fontSize: 15, fontFamily: FONT.bold, color: C.text },
   topRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 16, paddingTop: 12 },
-  counter: { fontSize: 13, fontWeight: '700', color: C.muted },
+  counter: { fontSize: 13, fontFamily: FONT.bold, color: C.muted },
   statsRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginHorizontal: 16, marginTop: 8, backgroundColor: C.white, borderRadius: 10, borderWidth: 1, borderColor: C.border, paddingVertical: 8, paddingHorizontal: 12 },
-  statItem: { fontSize: 13, fontWeight: '800', color: C.muted },
+  statItem: { fontSize: 13, fontFamily: FONT.extrabold, color: C.muted },
   timerPill: { backgroundColor: C.primaryLight, paddingVertical: 4, paddingHorizontal: 12, borderRadius: 50 },
-  timerTxt: { fontSize: 13, fontWeight: '800', color: C.primary },
-  cat: { fontSize: 12, fontWeight: '700', color: C.primary },
+  timerTxt: { fontSize: 13, fontFamily: FONT.extrabold, color: C.primary },
+  cat: { fontSize: 12, fontFamily: FONT.bold, color: C.primary },
   opt: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: C.white, borderWidth: 1.5, borderColor: C.border, borderRadius: 12, padding: 12 },
   optSel: { borderColor: C.primary, backgroundColor: C.primaryLight },
   optCorrect: { borderColor: C.green, backgroundColor: C.greenBg },
   optWrong: { borderColor: C.red, backgroundColor: C.redBg },
-  optKey: { fontWeight: '800', fontSize: 15, minWidth: 18 },
-  tick: { color: C.green, fontWeight: '800', fontSize: 16 },
-  cross: { color: C.red, fontWeight: '800', fontSize: 16 },
+  optKey: { fontFamily: FONT.extrabold, fontSize: 15, minWidth: 18 },
+  tick: { color: C.green, fontFamily: FONT.extrabold, fontSize: 16 },
+  cross: { color: C.red, fontFamily: FONT.extrabold, fontSize: 16 },
   solBox: { backgroundColor: C.white, borderRadius: 12, borderWidth: 1, borderColor: C.border, padding: 12, marginTop: 6, gap: 6 },
-  solTitle: { fontSize: 13, fontWeight: '800', color: C.text },
+  solTitle: { fontSize: 13, fontFamily: FONT.extrabold, color: C.text },
   footer: { flexDirection: 'row', gap: 10, padding: 14, backgroundColor: C.white, borderTopWidth: 1, borderTopColor: C.border },
   btn: { flex: 1, paddingVertical: 13, borderRadius: 12, alignItems: 'center' },
   btnGhost: { backgroundColor: C.bg, borderWidth: 1, borderColor: C.border },
-  btnGhostTxt: { fontSize: 15, fontWeight: '700', color: C.muted },
+  btnGhostTxt: { fontSize: 15, fontFamily: FONT.bold, color: C.muted },
   btnPrimary: { backgroundColor: C.primary },
-  btnPrimaryTxt: { fontSize: 15, fontWeight: '800', color: C.white },
+  btnPrimaryTxt: { fontSize: 15, fontFamily: FONT.extrabold, color: C.white },
   center: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 24 },
-  emptyTitle: { fontSize: 17, fontWeight: '800', color: C.text },
+  emptyTitle: { fontSize: 17, fontFamily: FONT.extrabold, color: C.text },
   emptySub: { fontSize: 14, color: C.muted, marginTop: 6, textAlign: 'center' },
   resHero: { backgroundColor: C.white, borderRadius: 16, alignItems: 'center', padding: 22, gap: 4 },
-  resEmoji: { fontSize: 40 }, resTitle: { fontSize: 20, fontWeight: '800', color: C.text }, resSub: { fontSize: 13, color: C.muted },
+  resEmoji: { fontSize: 40 }, resTitle: { fontSize: 20, fontFamily: FONT.extrabold, color: C.text }, resSub: { fontSize: 13, color: C.muted },
   tiles: { flexDirection: 'row', gap: 10 },
   tile: { flex: 1, borderRadius: 12, alignItems: 'center', paddingVertical: 14 },
-  tileNum: { fontSize: 22, fontWeight: '800' }, tileLbl: { fontSize: 12, color: C.muted, marginTop: 2 },
-  accTxt: { fontSize: 15, fontWeight: '700', color: C.text, textAlign: 'center' },
+  tileNum: { fontSize: 22, fontFamily: FONT.extrabold }, tileLbl: { fontSize: 12, color: C.muted, marginTop: 2 },
+  accTxt: { fontSize: 15, fontFamily: FONT.bold, color: C.text, textAlign: 'center' },
   primaryBtn: { backgroundColor: C.primary, paddingVertical: 14, borderRadius: 12, alignItems: 'center' },
-  primaryBtnTxt: { fontSize: 15, fontWeight: '800', color: C.white },
+  primaryBtnTxt: { fontSize: 15, fontFamily: FONT.extrabold, color: C.white },
 });

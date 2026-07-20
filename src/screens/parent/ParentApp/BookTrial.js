@@ -103,7 +103,11 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
   const [calEventId, setCalEventId] = useState(initialBooking?.calendarEventId || null);
   const bookingIdRef = useRef(initialBooking?.id || `demo_${Date.now().toString(36)}`);
   const mountedRef = useRef(true);
-  useEffect(() => () => { mountedRef.current = false; }, []);
+  // Re-arm on mount — an effect cleanup also runs on Fast Refresh (and under
+  // StrictMode's double-invoke) and refs survive it, so a setup that only clears the
+  // flag leaves it false forever and every guarded setState below is silently
+  // dropped (the booking succeeds but the sheet never leaves "scheduling…").
+  useEffect(() => { mountedRef.current = true; return () => { mountedRef.current = false; }; }, []);
   // Reset / hydrate each time the sheet opens (fresh booking vs. reschedule).
   useEffect(() => {
     if (!visible) return;

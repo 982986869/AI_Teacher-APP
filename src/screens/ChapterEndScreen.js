@@ -3,6 +3,8 @@ import {
   View, Text, Image, StyleSheet, SafeAreaView, ScrollView,
   TouchableOpacity, StatusBar, Platform, Dimensions,
 } from 'react-native';
+import { S } from '../theme/studentUI';
+import { FONT } from '../constants/fonts';
 
 const LETTERS = ['a', 'b', 'c', 'd', 'e', 'f'];
 const MAX_W = Dimensions.get('window').width - 64; // card padding allowance
@@ -86,8 +88,8 @@ const QuestionCard = ({ item, index }) => {
 export default function ChapterEndScreen({ chapterName = 'Chapter', questions = [], onBack }) {
   return (
     <SafeAreaView style={st.safe}>
-      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+      <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
 
       <View style={st.header}>
         <TouchableOpacity onPress={onBack} style={st.backRow}>
@@ -117,45 +119,45 @@ export default function ChapterEndScreen({ chapterName = 'Chapter', questions = 
 }
 
 // ── Black & white styles ──────────────────────────────────────────────────────
-const BLACK = '#1C1C1E';
+const BLACK = S.ink;
 const st = StyleSheet.create({
-  safe:        { flex: 1, backgroundColor: '#F7F7F7' },
-  header:      { backgroundColor: '#fff', paddingHorizontal: 16, paddingVertical: 14, borderBottomWidth: 1, borderBottomColor: '#EFEFEF' },
+  safe:        { flex: 1, backgroundColor: S.canvas },
+  header:      { backgroundColor: S.canvas, paddingHorizontal: 16, paddingVertical: 14, borderBottomWidth: 1, borderBottomColor: S.hair },
   backRow:     { flexDirection: 'row', alignItems: 'center', gap: 6 },
-  backArrow:   { fontSize: 20, color: BLACK, fontWeight: '700' },
-  backTxt:     { fontSize: 15, fontWeight: '700', color: BLACK },
+  backArrow:   { fontSize: 20, color: BLACK, fontFamily: FONT.bold },
+  backTxt:     { fontSize: 15, fontFamily: FONT.bold, color: BLACK },
 
-  titleWrap:   { backgroundColor: '#fff', paddingHorizontal: 20, paddingTop: 12, paddingBottom: 16, borderBottomWidth: 1.5, borderBottomColor: '#EFEFEF' },
-  title:       { fontSize: 21, fontWeight: '900', color: BLACK, letterSpacing: -0.4 },
-  sub:         { fontSize: 13, color: '#8E8E93', fontWeight: '600', marginTop: 4 },
+  titleWrap:   { backgroundColor: '#fff', paddingHorizontal: 20, paddingTop: 12, paddingBottom: 16, borderBottomWidth: 1.5, borderBottomColor: S.hair },
+  title:       { fontSize: 21, fontFamily: FONT.black, color: BLACK, letterSpacing: -0.4 },
+  sub:         { fontSize: 13, color: S.muted, fontFamily: FONT.semibold, marginTop: 4 },
 
   empty:       { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 32 },
-  emptyTxt:    { fontSize: 14, color: '#8E8E93', fontWeight: '600', textAlign: 'center' },
+  emptyTxt:    { fontSize: 14, color: S.muted, fontFamily: FONT.semibold, textAlign: 'center' },
 
-  card:        { backgroundColor: '#fff', borderRadius: 16, borderWidth: 1.5, borderColor: '#ECECEC', padding: 16 },
+  card:        { backgroundColor: '#fff', borderRadius: 16, borderWidth: 1.5, borderColor: S.hair, padding: 16 },
   qHeader:     { flexDirection: 'row', marginBottom: 10 },
   qPill:       { backgroundColor: BLACK, borderRadius: 8, paddingVertical: 4, paddingHorizontal: 10 },
-  qPillTxt:    { color: '#fff', fontSize: 13, fontWeight: '900', letterSpacing: 0.3 },
-  qText:       { fontSize: 15, color: BLACK, fontWeight: '700', lineHeight: 22, marginBottom: 10 },
+  qPillTxt:    { color: '#fff', fontSize: 13, fontFamily: FONT.black, letterSpacing: 0.3 },
+  qText:       { fontSize: 15, color: BLACK, fontFamily: FONT.bold, lineHeight: 22, marginBottom: 10 },
 
-  img:         { borderRadius: 8, borderWidth: 1, borderColor: '#ECECEC', backgroundColor: '#fff', marginVertical: 6, alignSelf: 'center' },
+  img:         { borderRadius: 8, borderWidth: 1, borderColor: S.hair, backgroundColor: '#fff', marginVertical: 6, alignSelf: 'center' },
 
   options:     { gap: 8, marginTop: 8, marginBottom: 4 },
-  option:      { borderWidth: 1.5, borderColor: '#ECECEC', borderRadius: 12, padding: 12, backgroundColor: '#fff' },
-  optionCorrect: { borderColor: BLACK, backgroundColor: '#F5F5F5' },
+  option:      { borderWidth: 1.5, borderColor: S.hair, borderRadius: 12, padding: 12, backgroundColor: '#fff' },
+  optionCorrect: { borderColor: BLACK, backgroundColor: S.hair },
   optRow:      { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  optBadge:    { width: 26, height: 26, borderRadius: 13, borderWidth: 1.5, borderColor: '#D0D0D0', alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff' },
+  optBadge:    { width: 26, height: 26, borderRadius: 13, borderWidth: 1.5, borderColor: S.border, alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff' },
   optBadgeCorrect: { backgroundColor: BLACK, borderColor: BLACK },
-  optBadgeTxt: { fontSize: 13, fontWeight: '800', color: '#8E8E93' },
+  optBadgeTxt: { fontSize: 13, fontFamily: FONT.extrabold, color: S.muted },
   optBadgeTxtCorrect: { color: '#fff' },
-  optText:     { flex: 1, fontSize: 14, color: '#333', fontWeight: '600', lineHeight: 20 },
-  optTextCorrect: { color: BLACK, fontWeight: '800' },
+  optText:     { flex: 1, fontSize: 14, color: '#333', fontFamily: FONT.semibold, lineHeight: 20 },
+  optTextCorrect: { color: BLACK, fontFamily: FONT.extrabold },
 
   solToggle:   { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 12, paddingVertical: 8, paddingHorizontal: 2 },
-  solToggleTxt:{ fontSize: 13, fontWeight: '800', color: BLACK, textDecorationLine: 'underline' },
-  solToggleIcon:{ fontSize: 18, fontWeight: '900', color: BLACK },
+  solToggleTxt:{ fontSize: 13, fontFamily: FONT.extrabold, color: BLACK, textDecorationLine: 'underline' },
+  solToggleIcon:{ fontSize: 18, fontFamily: FONT.black, color: BLACK },
 
-  solBlock:    { backgroundColor: '#F5F5F5', borderRadius: 12, borderLeftWidth: 3, borderLeftColor: BLACK, padding: 14, marginTop: 2 },
-  solLabel:    { fontSize: 12, fontWeight: '900', color: BLACK, textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 6 },
-  solText:     { fontSize: 14, color: '#333', fontWeight: '500', lineHeight: 22 },
+  solBlock:    { backgroundColor: S.hair, borderRadius: 12, borderLeftWidth: 3, borderLeftColor: BLACK, padding: 14, marginTop: 2 },
+  solLabel:    { fontSize: 12, fontFamily: FONT.black, color: BLACK, textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 6 },
+  solText:     { fontSize: 14, color: '#333', fontFamily: FONT.semibold, lineHeight: 22 },
 });

@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import {
   View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity,
   StatusBar, Platform, ActivityIndicator, TextInput,
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
 import { getStudyPlan, startRevision, getMemorySummary, askAgent, getChapterProgress } from '../api/aiApi';
-import { C } from '../components/teacher/premiumTheme';
+import { C, F, SP, R, GRAD } from '../components/teacher/premiumTheme';
+import { PressableScale, Gradient } from '../components/teacher/uiKit';
 
 const SUBJECTS = ['All', 'Physics', 'Maths', 'Chemistry', 'Biology'];
 const TABS = [
@@ -26,29 +27,34 @@ const StudyInsightsScreen = ({ initialSubject = 'Physics', initialTab = 'next', 
 
   return (
     <SafeAreaView style={st.safe}>
-      <StatusBar barStyle="light-content" backgroundColor={C.cream} />
-      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: C.cream }} />}
+      <StatusBar barStyle="light-content" backgroundColor={GRAD.mint[0]} />
 
-      <View style={st.header}>
-        <TouchableOpacity onPress={onBack} style={st.hIcon} activeOpacity={0.8}><Text style={st.hIconTxt}>‹</Text></TouchableOpacity>
-        <Text style={st.headerTitle}>Study Insights</Text>
-        <View style={{ width: 38 }} />
-      </View>
+      {/* ── gradient header: back · title · pill tabs ── */}
+      <Gradient colors={GRAD.mint} style={st.header}>
+        {Platform.OS === 'android' && <View style={{ height: 24 }} />}
+        <View style={st.headerTop}>
+          <PressableScale onPress={onBack} style={st.hIcon} accessibilityLabel="Go back"><Text style={st.hIconTxt}>‹</Text></PressableScale>
+          <Text style={st.headerTitle} accessibilityRole="header">Study Insights</Text>
+          <View style={{ width: 38 }} />
+        </View>
 
-      <View style={st.tabs}>
-        {TABS.map((t) => (
-          <TouchableOpacity key={t.key} style={[st.tab, tab === t.key && st.tabOn]} onPress={() => setTab(t.key)} activeOpacity={0.9}>
-            <Text style={[st.tabTxt, tab === t.key && st.tabTxtOn]}>{t.label}</Text>
-          </TouchableOpacity>
-        ))}
-      </View>
+        <View style={st.tabs}>
+          {TABS.map((t) => (
+            <PressableScale key={t.key} style={[st.tab, tab === t.key && st.tabOn]} onPress={() => setTab(t.key)}
+              accessibilityLabel={t.label} accessibilityState={{ selected: tab === t.key }}>
+              <Text style={[st.tabTxt, tab === t.key && st.tabTxtOn]} numberOfLines={1}>{t.label}</Text>
+            </PressableScale>
+          ))}
+        </View>
+      </Gradient>
 
       <View style={st.subjRow}>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 8 }}>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 8, paddingRight: SP.lg }}>
           {SUBJECTS.map((s) => (
-            <TouchableOpacity key={s} style={[st.chip, subject === s && st.chipOn]} onPress={() => setSubject(s)} activeOpacity={0.9}>
+            <PressableScale key={s} style={[st.chip, subject === s && st.chipOn]} onPress={() => setSubject(s)}
+              accessibilityLabel={`Subject ${s}`} accessibilityState={{ selected: subject === s }}>
               <Text style={[st.chipTxt, subject === s && st.chipTxtOn]}>{s}</Text>
-            </TouchableOpacity>
+            </PressableScale>
           ))}
         </ScrollView>
       </View>
@@ -150,14 +156,31 @@ const ReviseTab = ({ subject, grade }) => {
   const [grading, setGrading] = useState(false);
   const [graded, setGraded] = useState(null); // { verdict, feedback }
 
+  // Monotonic request token, bumped on every subject switch AND every run(). A
+  // response that lands after the student has moved on is dropped, so a revision
+  // built for Biology can never render under the Chemistry chip.
+  const reqRef = useRef(0);
+
+  // Switching subject invalidates the current revision — reset back to the intro card
+  // for the new subject. Deliberately NOT auto-run: startRevision generates a recap
+  // and a quiz via the LLM, so it stays an explicit tap.
+  useEffect(() => {
+    reqRef.current += 1;
+    setRev(null); setGraded(null); setAnswer(''); setErr(''); setLoading(false);
+  }, [subject]);
+
   const run = useCallback(async () => {
+    const token = (reqRef.current += 1);
     setLoading(true); setErr(''); setRev(null); setGraded(null); setAnswer('');
     try {
-      setRev(await startRevision(subjParam(subject)));
+      const data = await startRevision(subjParam(subject));
+      if (reqRef.current !== token) return; // subject changed mid-flight — drop it
+      setRev(data);
     } catch (e) {
+      if (reqRef.current !== token) return;
       setErr(e?.response?.data?.error || e?.message || 'Could not build a revision.');
     } finally {
-      setLoading(false);
+      if (reqRef.current === token) setLoading(false);
     }
   }, [subject]);
 
@@ -472,84 +495,92 @@ const ActivityRow = ({ e }) => {
 const st = StyleSheet.create({
   safe: { flex: 1, backgroundColor: C.cream },
 
-  header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 10 },
-  hIcon: { width: 38, height: 38, borderRadius: 19, backgroundColor: C.board, borderWidth: 1.5, borderColor: C.line, alignItems: 'center', justifyContent: 'center' },
-  hIconTxt: { fontSize: 22, fontWeight: '900', color: C.ink, marginTop: -2 },
-  headerTitle: { fontSize: 16, fontWeight: '900', color: C.ink, letterSpacing: -0.3 },
+  // ── gradient header + pill tabs ──
+  header: {
+    paddingHorizontal: SP.md, paddingTop: SP.sm, paddingBottom: SP.lg,
+    borderBottomLeftRadius: 28, borderBottomRightRadius: 28, overflow: 'hidden',
+    shadowColor: '#047857', shadowOpacity: 0.3, shadowRadius: 18, shadowOffset: { width: 0, height: 8 }, elevation: 8,
+  },
+  headerTop: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: SP.lg },
+  hIcon: { width: 38, height: 38, borderRadius: 19, backgroundColor: 'rgba(0,0,0,0.14)', alignItems: 'center', justifyContent: 'center' },
+  hIconTxt: { fontSize: 22, fontFamily: F.bold, color: '#fff', marginTop: -3 },
+  headerTitle: { fontSize: 16, fontFamily: F.bold, color: '#fff', letterSpacing: 0.2 },
 
-  tabs: { flexDirection: 'row', gap: 8, paddingHorizontal: 16, paddingTop: 6 },
-  tab: { flex: 1, paddingVertical: 10, borderRadius: 14, borderWidth: 1, borderColor: C.line, backgroundColor: C.board, alignItems: 'center' },
-  tabOn: { backgroundColor: C.accent, borderColor: C.accent },
-  tabTxt: { fontSize: 12.5, fontWeight: '800', color: C.dim },
-  tabTxtOn: { color: '#fff' },
+  tabs: { flexDirection: 'row', gap: 4, backgroundColor: 'rgba(0,0,0,0.20)', borderRadius: R.pill, padding: 5 },
+  tab: { flex: 1, paddingVertical: 9, borderRadius: R.pill, alignItems: 'center', justifyContent: 'center' },
+  tabOn: { backgroundColor: '#fff', shadowColor: '#000', shadowOpacity: 0.1, shadowRadius: 6, shadowOffset: { width: 0, height: 2 }, elevation: 2 },
+  tabTxt: { fontSize: 11.5, fontFamily: F.semi, color: 'rgba(255,255,255,0.85)' },
+  tabTxtOn: { color: '#047857', fontFamily: F.bold },
 
-  subjRow: { paddingHorizontal: 16, paddingTop: 12 },
-  chip: { paddingVertical: 8, paddingHorizontal: 15, borderRadius: 16, borderWidth: 1, borderColor: C.line, backgroundColor: C.board },
-  chipOn: { backgroundColor: 'rgba(124,58,237,0.18)', borderColor: C.accent },
-  chipTxt: { fontSize: 13, fontWeight: '800', color: C.dim },
-  chipTxtOn: { color: C.ink },
+  subjRow: { paddingHorizontal: SP.md, paddingTop: SP.md },
+  chip: { paddingVertical: 8, paddingHorizontal: 15, borderRadius: R.pill, borderWidth: 1, borderColor: C.line, backgroundColor: C.board },
+  chipOn: { backgroundColor: C.accent, borderColor: C.accent },
+  chipTxt: { fontSize: 12.5, fontFamily: F.semi, color: C.ink2 },
+  chipTxtOn: { color: '#fff' },
 
-  body: { paddingHorizontal: 16, paddingTop: 14, paddingBottom: 44, gap: 12 },
+  body: { paddingHorizontal: SP.md, paddingTop: SP.md, paddingBottom: 44, gap: 12 },
 
-  card: { backgroundColor: C.board, borderWidth: 1, borderColor: C.line, borderRadius: 18, padding: 16, gap: 4 },
-  cardHdr: { fontSize: 10, fontWeight: '900', color: C.faint, letterSpacing: 1, marginBottom: 8 },
+  // ── cards ──
+  card: { backgroundColor: C.board, borderWidth: 1, borderColor: C.line, borderRadius: R.xl, padding: 18, gap: 4, shadowColor: '#0F172A', shadowOpacity: 0.05, shadowRadius: 12, shadowOffset: { width: 0, height: 5 }, elevation: 2 },
+  cardHdr: { fontSize: 10, fontFamily: F.bold, color: C.dim, letterSpacing: 1, textTransform: 'uppercase', marginBottom: 8 },
 
   recTagRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 4 },
-  recDriver: { fontSize: 9, fontWeight: '900', color: C.accent, letterSpacing: 0.6, textTransform: 'uppercase', backgroundColor: 'rgba(124,58,237,0.16)', borderRadius: 8, paddingHorizontal: 7, paddingVertical: 2, overflow: 'hidden' },
-  recTagRow2: { fontSize: 10, fontWeight: '900', color: C.faint, letterSpacing: 1, marginBottom: 4 },
-  recTag: { fontSize: 11, fontWeight: '900', letterSpacing: 1 },
-  recTitle: { fontSize: 20, fontWeight: '900', color: C.ink, letterSpacing: -0.3, marginTop: 2 },
-  recSub: { fontSize: 12, fontWeight: '800', color: C.dim, marginTop: 2 },
-  recReason: { fontSize: 13.5, fontWeight: '600', color: C.ink2, lineHeight: 20, marginTop: 6 },
-  recapTxt: { fontSize: 14, fontWeight: '600', color: C.ink2, lineHeight: 22 },
+  recDriver: { fontSize: 9, fontFamily: F.bold, color: C.accent, letterSpacing: 0.6, textTransform: 'uppercase', backgroundColor: C.accentSoft, borderRadius: 8, paddingHorizontal: 7, paddingVertical: 2, overflow: 'hidden' },
+  recTagRow2: { fontSize: 10, fontFamily: F.bold, color: C.dim, letterSpacing: 1, marginBottom: 4 },
+  recTag: { fontSize: 10.5, fontFamily: F.bold, letterSpacing: 1 },
+  recTitle: { fontSize: 20, fontFamily: F.bold, color: C.ink, letterSpacing: -0.4, marginTop: 2 },
+  recSub: { fontSize: 12, fontFamily: F.semi, color: C.dim, marginTop: 2 },
+  recReason: { fontSize: 13.5, fontFamily: F.med, color: C.ink2, lineHeight: 20, marginTop: 6 },
+  recapTxt: { fontSize: 14, fontFamily: F.med, color: C.ink2, lineHeight: 22 },
 
-  qText: { fontSize: 15, fontWeight: '800', color: C.ink, lineHeight: 22, marginBottom: 12 },
-  input: { backgroundColor: 'rgba(255,255,255,0.05)', borderWidth: 1, borderColor: C.line, borderRadius: 14, paddingVertical: 12, paddingHorizontal: 14, fontSize: 15, fontWeight: '600', color: C.ink, minHeight: 60, textAlignVertical: 'top' },
+  qText: { fontSize: 15, fontFamily: F.bold, color: C.ink, lineHeight: 22, marginBottom: 12 },
+  input: { backgroundColor: C.cream, borderWidth: 1, borderColor: C.line, borderRadius: R.md, paddingVertical: 12, paddingHorizontal: 14, fontSize: 14.5, fontFamily: F.med, color: C.ink, minHeight: 60, textAlignVertical: 'top' },
 
-  verdictBox: { borderWidth: 1, borderRadius: 14, padding: 14, backgroundColor: 'rgba(255,255,255,0.03)' },
-  verdictTag: { fontSize: 13, fontWeight: '900', marginBottom: 6 },
-  verdictTxt: { fontSize: 14, fontWeight: '600', color: C.ink2, lineHeight: 21 },
+  verdictBox: { borderWidth: 1, borderRadius: R.md, padding: 14, backgroundColor: C.cream },
+  verdictTag: { fontSize: 13, fontFamily: F.bold, marginBottom: 6 },
+  verdictTxt: { fontSize: 14, fontFamily: F.med, color: C.ink2, lineHeight: 21 },
 
-  cta: { backgroundColor: C.accent, borderRadius: 16, paddingVertical: 15, alignItems: 'center', marginTop: 12, shadowColor: C.accent, shadowOpacity: 0.4, shadowRadius: 12, shadowOffset: { width: 0, height: 5 }, elevation: 5 },
-  ctaTxt: { color: '#fff', fontSize: 15, fontWeight: '900', letterSpacing: -0.2 },
-  ctaGhost: { borderWidth: 1, borderColor: C.line, borderRadius: 16, paddingVertical: 14, alignItems: 'center', backgroundColor: C.board },
-  ctaGhostTxt: { color: C.ink2, fontSize: 14, fontWeight: '800' },
+  cta: { backgroundColor: C.ink, borderRadius: R.md, paddingVertical: 15, alignItems: 'center', marginTop: 12, shadowColor: '#0F172A', shadowOpacity: 0.25, shadowRadius: 12, shadowOffset: { width: 0, height: 5 }, elevation: 5 },
+  ctaTxt: { color: '#fff', fontSize: 15, fontFamily: F.bold, letterSpacing: -0.2 },
+  ctaGhost: { borderWidth: 1, borderColor: C.line, borderRadius: R.md, paddingVertical: 14, alignItems: 'center', backgroundColor: C.board },
+  ctaGhostTxt: { color: C.ink2, fontSize: 14, fontFamily: F.semi },
   rowCenter: { flexDirection: 'row', alignItems: 'center' },
 
+  // ── stats ──
   statRow: { flexDirection: 'row', gap: 10 },
-  stat: { flex: 1, backgroundColor: C.board, borderWidth: 1, borderColor: C.line, borderRadius: 16, paddingVertical: 16, alignItems: 'center' },
-  statNum: { fontSize: 22, fontWeight: '900', color: C.ink, letterSpacing: -0.5 },
-  statLbl: { fontSize: 10, fontWeight: '700', color: C.dim, textAlign: 'center', marginTop: 5, lineHeight: 13 },
+  stat: { flex: 1, backgroundColor: C.board, borderWidth: 1, borderColor: C.line, borderRadius: R.xl, paddingVertical: 18, alignItems: 'center', shadowColor: '#0F172A', shadowOpacity: 0.04, shadowRadius: 10, shadowOffset: { width: 0, height: 4 }, elevation: 1 },
+  statNum: { fontSize: 24, fontFamily: F.black, color: C.accent, letterSpacing: -0.6 },
+  statLbl: { fontSize: 9.5, fontFamily: F.bold, color: C.dim, textAlign: 'center', marginTop: 6, lineHeight: 13, letterSpacing: 0.6, textTransform: 'uppercase' },
 
-  conceptRow: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 9, borderTopWidth: 1, borderTopColor: 'rgba(255,255,255,0.05)' },
-  chapterRow: { paddingVertical: 10, borderTopWidth: 1, borderTopColor: 'rgba(255,255,255,0.05)' },
+  conceptRow: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 10, borderTopWidth: 1, borderTopColor: C.line },
+  chapterRow: { paddingVertical: 11, borderTopWidth: 1, borderTopColor: C.line },
   chapterTop: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8 },
   chapterTags: { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  chapterTag: { fontSize: 10, fontWeight: '900', letterSpacing: 0.4, textTransform: 'uppercase' },
-  chapterStatus: { fontSize: 11, fontWeight: '800' },
+  chapterTag: { fontSize: 9.5, fontFamily: F.bold, letterSpacing: 0.4, textTransform: 'uppercase' },
+  chapterStatus: { fontSize: 11, fontFamily: F.bold },
   masteryWrap: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 6 },
-  masteryTrack: { flex: 1, height: 7, borderRadius: 6, backgroundColor: 'rgba(255,255,255,0.08)', overflow: 'hidden' },
+  masteryTrack: { flex: 1, height: 8, borderRadius: 6, backgroundColor: C.cream2, overflow: 'hidden' },
   masteryFill: { height: '100%', borderRadius: 6 },
-  masteryPct: { fontSize: 11, fontWeight: '900', minWidth: 34, textAlign: 'right' },
+  masteryPct: { fontSize: 11, fontFamily: F.bold, minWidth: 34, textAlign: 'right' },
 
-  lineRow: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 8, borderTopWidth: 1, borderTopColor: 'rgba(255,255,255,0.05)' },
-  lineTitle: { flex: 1, fontSize: 14, fontWeight: '800', color: C.ink },
-  lineMeta: { fontSize: 11, fontWeight: '600', color: C.dim, marginTop: 2 },
-  scorePill: { borderRadius: 11, paddingHorizontal: 9, paddingVertical: 4, minWidth: 46, alignItems: 'center' },
-  scoreTxt: { fontSize: 12, fontWeight: '900' },
-  emptyHint: { fontSize: 13, fontWeight: '600', color: C.dim, lineHeight: 19 },
+  lineRow: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 9, borderTopWidth: 1, borderTopColor: C.line },
+  lineTitle: { flex: 1, fontSize: 14, fontFamily: F.bold, color: C.ink },
+  lineMeta: { fontSize: 11, fontFamily: F.med, color: C.dim, marginTop: 2 },
+  scorePill: { borderRadius: 10, paddingHorizontal: 9, paddingVertical: 4, minWidth: 46, alignItems: 'center' },
+  scoreTxt: { fontSize: 12, fontFamily: F.bold },
+  emptyHint: { fontSize: 13, fontFamily: F.med, color: C.dim, lineHeight: 19 },
 
-  actRow: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 8, borderTopWidth: 1, borderTopColor: 'rgba(255,255,255,0.05)' },
+  actRow: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 9, borderTopWidth: 1, borderTopColor: C.line },
   actIcon: { fontSize: 16, width: 22, textAlign: 'center' },
-  actLabel: { fontSize: 13.5, fontWeight: '800', color: C.ink },
-  actMeta: { fontSize: 11, fontWeight: '600', color: C.dim, marginTop: 1 },
+  actLabel: { fontSize: 13.5, fontFamily: F.bold, color: C.ink },
+  actMeta: { fontSize: 11, fontFamily: F.med, color: C.dim, marginTop: 1 },
 
   loaderBox: { alignItems: 'center', justifyContent: 'center', paddingVertical: 60, gap: 14 },
-  loaderTxt: { fontSize: 13, fontWeight: '700', color: C.dim },
+  loaderTxt: { fontSize: 13, fontFamily: F.semi, color: C.dim },
 
-  errCard: { backgroundColor: 'rgba(255,143,176,0.12)', borderWidth: 1, borderColor: 'rgba(255,143,176,0.4)', borderRadius: 14, padding: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10 },
-  errTxt: { flex: 1, color: C.pink, fontSize: 13, fontWeight: '700' },
-  retryTxt: { color: C.ink, fontSize: 13, fontWeight: '900' },
+  errCard: { backgroundColor: 'rgba(244,63,94,0.08)', borderWidth: 1, borderColor: 'rgba(244,63,94,0.28)', borderRadius: R.lg, padding: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10 },
+  errTxt: { flex: 1, color: C.pink, fontSize: 13, fontFamily: F.semi },
+  retryTxt: { color: C.ink, fontSize: 13, fontFamily: F.bold },
 });
 
 export default StudyInsightsScreen;

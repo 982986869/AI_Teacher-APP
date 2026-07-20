@@ -216,7 +216,9 @@ const WorkoutWheel = ({
   const labelOpacity = useRef(new Animated.Value(1)).current; // fades the upright layer during a turn
   const mountedRef = useRef(true); // guards async animation callbacks after unmount
 
-  useEffect(() => () => { mountedRef.current = false; }, []);
+  // Re-arm on mount — refs survive an effect cleanup (Fast Refresh / StrictMode), so
+  // a setup that only clears the flag would leave it false and no-op every guarded setState.
+  useEffect(() => { mountedRef.current = true; return () => { mountedRef.current = false; }; }, []);
 
   useEffect(() => {
     Animated.timing(enter, { toValue: 1, duration: 520, easing: Easing.out(Easing.cubic), useNativeDriver: true }).start();

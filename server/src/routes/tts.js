@@ -7,6 +7,18 @@ const { config } = require('../config/env')
 const { synthesizeSpeech: openaiSynthesize } = require('../providers/ai/OpenAITTSProvider')
 const { synthesizeSpeech: kokoroSynthesize } = require('../providers/ai/KokoroTTSProvider')
 
+// ── TTS providers ─────────────────────────────────────────────────────────────
+//   • Kokoro (default) — self-hosted, free, no API key. Needs the Python server
+//                 running at http://localhost:8880 (see /kokoro-server). It buffers
+//                 the whole clip before responding, so first-audio is slower than
+//                 OpenAI's stream; repeated lines are disk-cached to offset that.
+//   • OpenAI    — gpt-4o-mini-tts, "coral". Streams, so playback starts before the
+//                 line finishes synthesizing. Used when TTS_PROVIDER=openai, or as
+//                 the fallback when Kokoro is unreachable and a key is set.
+//   • ElevenLabs — written (ElevenLabsTTSProvider.js) but NOT wired up here, and
+//                 its config keys are commented out. Premium/paid: a FREE plan
+//                 cannot use the API at all (402 paid_plan_required).
+
 const router = Router()
 
 // Lightweight auth: the streaming <Audio> client can't set an Authorization

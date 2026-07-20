@@ -8,6 +8,8 @@ import React, { useState, useEffect } from 'react';
 import {
   View, Text, ScrollView, Pressable, StyleSheet, StatusBar, SafeAreaView, Platform,
 } from 'react-native';
+import { S } from '../theme/studentUI';
+import { FONT } from '../constants/fonts';
 import { Ionicons } from '@expo/vector-icons';
 import MCQ_DATA, { getMcqSubtopics } from '../data/mcqPractice';
 import { getMcqSubtopics as apiMcqSubtopics, getMcqChaptersWithContent } from '../api/mcqPracticeApi';
@@ -47,13 +49,13 @@ const DYNAMIC_CLASSES = [6, 9];
 
 const C = {
   purple: '#0C8F88', purpleDeep: '#26215C', purpleLight: '#EEEDFE',
-  green: '#0F8A5F', greenSoft: '#1FB07A', red: '#F0564B', track: '#ECECF3',
-  text: '#22222A', muted: '#7A7A8C', border: '#ECECEC', white: '#FFFFFF',
+  green: '#0F8A5F', greenSoft: '#1FB07A', red: '#F0564B', track: S.hair,
+  text: S.ink, muted: S.muted, border: S.hair, white: '#FFFFFF',
   pageBg: '#F4F5FB',
 };
 
 const SUBJECTS = [
-  { name: 'Physics',     emoji: '⚛️', bg: '#1C1C1E' },
+  { name: 'Physics',     emoji: '⚛️', bg: S.ink },
   { name: 'Mathematics', emoji: '📐', bg: '#0C8F88' },
   { name: 'Chemistry',   emoji: '🧪', bg: '#0F6E56' },
   { name: 'Biology',     emoji: '🧬', bg: '#B0306B' },
@@ -73,7 +75,7 @@ const SUBJECTS_CLASS7 = [
   { name: 'English (Poorvi)',                   emoji: '✍️', bg: '#26215C' },
   { name: 'Maths (Ganita Prakash)',             emoji: '📐', bg: '#0C8F88' },
   { name: 'Old - Science',                      emoji: '⚗️', bg: '#5AA84F' },
-  { name: 'Reasoning & Mental Ability',         emoji: '🧠', bg: '#1C1C1E' },
+  { name: 'Reasoning & Mental Ability',         emoji: '🧠', bg: S.ink },
   { name: 'Old - Maths',                        emoji: '➗', bg: '#0F6E56' },
   { name: 'Old - Social Sc',                    emoji: '🏛️', bg: '#8A5A2B' },
   { name: 'Old - हिंदी',                         emoji: '📚', bg: '#2F80ED' },
@@ -89,7 +91,7 @@ const SUBJECTS_CLASS8 = [
   { name: 'English (Poorvi)',                   emoji: '✍️', bg: '#26215C' },
   { name: 'Maths (Ganita Prakash)',             emoji: '📐', bg: '#0C8F88' },
   { name: 'Old - Science',                      emoji: '⚗️', bg: '#5AA84F' },
-  { name: 'Reasoning & Mental Ability',         emoji: '🧠', bg: '#1C1C1E' },
+  { name: 'Reasoning & Mental Ability',         emoji: '🧠', bg: S.ink },
   { name: 'Old - Maths',                        emoji: '➗', bg: '#0F6E56' },
   { name: 'Old - Social Sc',                    emoji: '🏛️', bg: '#8A5A2B' },
   { name: 'Old - English',                      emoji: '📖', bg: '#7A6FD0' },
@@ -104,7 +106,7 @@ const SUBJECTS_CLASS9 = [
   { name: 'हिंदी (गंगा)',                           emoji: '📖', bg: '#D9822B' },
   { name: 'English (Kaveri)',                       emoji: '✍️', bg: '#26215C' },
   { name: 'Maths (Ganita Manjari)',                 emoji: '📐', bg: '#0C8F88' },
-  { name: 'Computer Applications (165)',            emoji: '💻', bg: '#1C1C1E' },
+  { name: 'Computer Applications (165)',            emoji: '💻', bg: S.ink },
   { name: 'Information Technology (402)',            emoji: '💻', bg: '#0F6E56' },
   { name: 'JSTSE Scholarship',                      emoji: '🏆', bg: '#B0306B' },
   { name: 'Science (Advanced)',                     emoji: '🧪', bg: '#0F6E56' },
@@ -322,7 +324,7 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
               <Pressable key={s.name} style={st.subjOption}
                 onPress={() => { setSubject(s.name); setPicker(false); }}>
                 <Text style={{ fontSize: 18 }}>{s.emoji}</Text>
-                <Text style={[st.subjOptionTxt, s.name === subject && { color: C.purple, fontWeight: '700' }]}>
+                <Text style={[st.subjOptionTxt, s.name === subject && { color: C.purple, fontFamily: FONT.bold }]}>
                   {s.name}
                 </Text>
               </Pressable>
@@ -354,8 +356,8 @@ const st = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: C.border,
   },
   backRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 10 },
-  backTxt: { fontSize: 16, fontWeight: '600', color: C.text, marginLeft: 6 },
-  title: { fontSize: 24, fontWeight: '800', color: C.text },
+  backTxt: { fontSize: 16, fontFamily: FONT.semibold, color: C.text, marginLeft: 6 },
+  title: { fontSize: 24, fontFamily: FONT.extrabold, color: C.text },
   subtitle: { fontSize: 13.5, color: C.muted, marginTop: 3 },
   scroll: { padding: 16, gap: 14 },
 
@@ -364,7 +366,7 @@ const st = StyleSheet.create({
     padding: 14, gap: 12, borderWidth: StyleSheet.hairlineWidth, borderColor: C.border,
   },
   subjIcon: { width: 52, height: 52, borderRadius: 14, alignItems: 'center', justifyContent: 'center' },
-  subjName: { fontSize: 18, fontWeight: '700', color: C.text },
+  subjName: { fontSize: 18, fontFamily: FONT.bold, color: C.text },
   subjSub: { fontSize: 13, color: C.muted, marginTop: 2 },
   subjList: {
     backgroundColor: C.white, borderRadius: 14, borderWidth: StyleSheet.hairlineWidth,
@@ -378,11 +380,11 @@ const st = StyleSheet.create({
     borderWidth: StyleSheet.hairlineWidth, borderColor: C.border, gap: 10,
   },
   cardTopRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
-  chapName: { flex: 1, fontSize: 16, fontWeight: '700', color: C.text },
+  chapName: { flex: 1, fontSize: 16, fontFamily: FONT.bold, color: C.text },
   actionBtn: { paddingVertical: 10, paddingHorizontal: 22, borderRadius: 12, minWidth: 96, alignItems: 'center' },
   actionBtnFilled: { backgroundColor: C.green },
   actionBtnOutline: { borderWidth: 1.5, borderColor: C.green, backgroundColor: C.white },
-  actionTxt: { fontSize: 14.5, fontWeight: '700' },
+  actionTxt: { fontSize: 14.5, fontFamily: FONT.bold },
   actionTxtFilled: { color: C.white },
   actionTxtOutline: { color: C.green },
 
@@ -393,15 +395,15 @@ const st = StyleSheet.create({
   metaTxt: { fontSize: 12.5, color: C.muted },
 
   showMore: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 4, paddingTop: 4 },
-  showMoreTxt: { fontSize: 13, color: C.muted, fontWeight: '600' },
+  showMoreTxt: { fontSize: 13, color: C.muted, fontFamily: FONT.semibold },
 
   subRow: {
     gap: 6, paddingTop: 12, marginTop: 6,
     borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: C.border,
   },
   subTopRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10 },
-  subName: { flex: 1, fontSize: 13.5, fontWeight: '600', color: C.text },
+  subName: { flex: 1, fontSize: 13.5, fontFamily: FONT.semibold, color: C.text },
   subStartBtn: { paddingVertical: 6, paddingHorizontal: 16, borderRadius: 10, minWidth: 74, alignItems: 'center' },
-  subStartTxt: { fontSize: 13, fontWeight: '700' },
+  subStartTxt: { fontSize: 13, fontFamily: FONT.bold },
   subMeta: { fontSize: 11.5, color: C.muted },
 });

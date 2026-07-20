@@ -9,6 +9,7 @@ const KEYS = {
   STUDENT_MODEL: '@ailernova_student_model',
   ONLINE_TEST_ATTEMPTS: '@ailernova_online_test_attempts',
   PRACTICE_ATTEMPTS: '@ailernova_practice_attempts',
+  HOME_STATE:    '@ailernova_home_state',
 };
 
 // Legacy token returned by the still-mocked Google/OTP auth paths. It is NOT a
@@ -205,6 +206,25 @@ export const savePracticeAttempt = (key, attempt) => saveAttemptTo(KEYS.PRACTICE
 // since both sides have the subject/chapter names + subtopic id.
 export const practiceAttemptKey = (classLevel, subject, chapter, subtopicId) =>
   `${classLevel}::${subject}::${chapter}::${subtopicId != null ? subtopicId : 'full'}`;
+
+// Home "last seen" snapshot — lets the Home decide "just unlocked a badge" or
+// "just completed this week's goal" by comparing against the previous visit. Small,
+// best-effort; never blocks rendering. Shape: { seenUnlocked:number, celebratedGoalWeek:string }.
+export const getHomeState = async () => {
+  try {
+    const raw = await AsyncStorage.getItem(KEYS.HOME_STATE);
+    return raw ? JSON.parse(raw) : null;
+  } catch (_) { return null; }
+};
+
+export const saveHomeState = async (patch) => {
+  try {
+    if (!patch) return;
+    const raw = await AsyncStorage.getItem(KEYS.HOME_STATE);
+    const cur = raw ? JSON.parse(raw) : {};
+    await AsyncStorage.setItem(KEYS.HOME_STATE, JSON.stringify({ ...cur, ...patch }));
+  } catch (_) { /* ignore */ }
+};
 
 export const clearAll = async () => {
   await AsyncStorage.multiRemove(Object.values(KEYS));

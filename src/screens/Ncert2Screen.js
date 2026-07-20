@@ -11,19 +11,21 @@ import {
   View, Text, ScrollView, TouchableOpacity, StyleSheet,
   ActivityIndicator, Platform, StatusBar,
 } from 'react-native';
+import { S } from '../theme/studentUI';
+import { FONT } from '../constants/fonts';
 import { WebView } from 'react-native-webview';
 import { getNcertSolutions } from '../api/resourcesApi';
 
-const INK = '#1C1C1E';
+const INK = S.ink;
 const PAGE_BG = '#f4f4f5';
 const CARD_BG = '#ffffff';
-const CARD_BORDER = '#e3e3e6';
-const TITLE_INK = '#1C1C1E';
-const BADGE_BG = '#ededf0';
-const SEP = '#9aa0a6';
-const CRUMB_LINK = '#1C1C1E';
-const CRUMB_ACTIVE = '#6b7280';
-const SOLUTION_BG = '#f5f5f6';
+const CARD_BORDER = S.border;
+const TITLE_INK = S.ink;
+const BADGE_BG = S.hair;
+const SEP = S.muted;
+const CRUMB_LINK = S.ink;
+const CRUMB_ACTIVE = S.muted;
+const SOLUTION_BG = S.hair;
 const STATUS_PAD = Platform.OS === 'android' ? (StatusBar.currentHeight || 24) : 44;
 
 function UserGlyph() {
@@ -331,7 +333,7 @@ const styles = StyleSheet.create({
     width: '100%', maxWidth: 720, alignSelf: 'center', paddingHorizontal: 16,
     flexDirection: 'row', alignItems: 'center', gap: 10,
   },
-  navTitle: { color: '#fff', fontWeight: '600', fontSize: 20, marginLeft: 6, flexShrink: 1 },
+  navTitle: { color: '#fff', fontFamily: FONT.semibold, fontSize: 20, marginLeft: 6, flexShrink: 1 },
   btnIcon: { width: 36, height: 36, borderRadius: 18, backgroundColor: 'rgba(255,255,255,0.16)', alignItems: 'center', justifyContent: 'center' },
   backArrow: { color: '#fff', fontSize: 20, lineHeight: 22, marginTop: -1 },
   profileBtn: { width: 38, height: 38, borderRadius: 19, backgroundColor: 'rgba(255,255,255,0.16)', alignItems: 'center', justifyContent: 'center' },
@@ -340,26 +342,26 @@ const styles = StyleSheet.create({
   userBody: { width: 14, height: 8, borderTopLeftRadius: 7, borderTopRightRadius: 7, borderWidth: 2, borderBottomWidth: 0, borderColor: '#fff', marginTop: 1 },
   scrollBody: { width: '100%', maxWidth: 720, alignSelf: 'center', paddingHorizontal: 16, paddingTop: 14, paddingBottom: 28 },
   breadcrumb: { height: 22, marginBottom: 12, flexGrow: 0, flexShrink: 0, justifyContent: 'center' },
-  subBreadcrumbWrap: { backgroundColor: '#fff', paddingHorizontal: 16, paddingTop: 12, paddingBottom: 4, borderBottomWidth: 1, borderBottomColor: '#eef1f5' },
-  crumbLink: { color: CRUMB_LINK, fontSize: 14, fontWeight: '600' },
-  crumbActive: { color: CRUMB_ACTIVE, fontWeight: '500' },
+  subBreadcrumbWrap: { backgroundColor: '#fff', paddingHorizontal: 16, paddingTop: 12, paddingBottom: 4, borderBottomWidth: 1, borderBottomColor: S.hair },
+  crumbLink: { color: CRUMB_LINK, fontSize: 14, fontFamily: FONT.semibold },
+  crumbActive: { color: CRUMB_ACTIVE, fontFamily: FONT.semibold },
   crumbSep: { color: SEP, fontSize: 14, marginHorizontal: 6 },
   card: { backgroundColor: CARD_BG, borderWidth: 1, borderColor: CARD_BORDER, borderRadius: 14, overflow: 'hidden', shadowColor: '#000', shadowOpacity: 0.04, shadowRadius: 8, shadowOffset: { width: 0, height: 2 }, elevation: 1 },
-  cardTitle: { fontSize: 20, fontWeight: '700', color: TITLE_INK, padding: 16 },
-  row: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 16, borderTopWidth: 1, borderTopColor: '#eef1f5' },
+  cardTitle: { fontSize: 20, fontFamily: FONT.bold, color: TITLE_INK, padding: 16 },
+  row: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 16, borderTopWidth: 1, borderTopColor: S.hair },
   badge: { width: 30, height: 30, borderRadius: 15, backgroundColor: BADGE_BG, alignItems: 'center', justifyContent: 'center', marginRight: 14 },
-  badgeText: { color: INK, fontWeight: '700', fontSize: 14 },
-  rowLabel: { fontSize: 16, color: '#3b424c' },
-  rowArrow: { fontSize: 18, color: '#9aa3ad' },
+  badgeText: { color: INK, fontFamily: FONT.bold, fontSize: 14 },
+  rowLabel: { fontSize: 16, color: S.ink },
+  rowArrow: { fontSize: 18, color: S.muted },
   loadingOverlay: { ...StyleSheet.absoluteFillObject, alignItems: 'center', justifyContent: 'center', zIndex: 2 },
   loadingTxt: { marginTop: 10, color: '#888', fontSize: 12 },
   centerFill: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: PAGE_BG },
   retryBtn: { marginTop: 16, borderWidth: 1.5, borderColor: INK, borderRadius: 10, paddingVertical: 9, paddingHorizontal: 20 },
-  retryTxt: { color: INK, fontWeight: '700', fontSize: 14 },
+  retryTxt: { color: INK, fontFamily: FONT.bold, fontSize: 14 },
   emptyInline: { color: '#888', fontSize: 14, padding: 16, paddingTop: 0 },
   emptyWrap: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 26 },
-  emptyText: { color: '#444', fontSize: 16, fontWeight: '700', textAlign: 'center', marginBottom: 14 },
-  debugBox: { backgroundColor: '#fff', borderWidth: 1, borderColor: '#e3e3e6', borderRadius: 10, padding: 12, width: '100%', marginBottom: 12 },
-  debugLine: { color: '#1C1C1E', fontSize: 13, fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace', marginBottom: 2 },
+  emptyText: { color: '#444', fontSize: 16, fontFamily: FONT.bold, textAlign: 'center', marginBottom: 14 },
+  debugBox: { backgroundColor: '#fff', borderWidth: 1, borderColor: S.border, borderRadius: 10, padding: 12, width: '100%', marginBottom: 12 },
+  debugLine: { color: S.ink, fontSize: 13, fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace', marginBottom: 2 },
   emptyHint: { color: '#888', fontSize: 13, textAlign: 'center', lineHeight: 19 },
 });

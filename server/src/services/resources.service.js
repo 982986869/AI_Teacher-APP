@@ -117,9 +117,17 @@ async function listClassSubjects(classInput) {
 async function listChapters(subjectSlug, sectionType, classLevel = null) {
   const subject = await db.subjects.findUnique({ where: { slug: subjectSlug } })
   if (!subject) return null
-  const where = { subject_id: subject.id, class_level: classLevel }
-  if (sectionType) where.sections = { some: { type_key: sectionType } }
-  const rows = await db.chapters.findMany({ where, orderBy: { position: 'asc' } })
+  // Raw SQL so we can gate on the admin-managed status/deleted_at columns (not in the
+  // Prisma model). Only published, non-deleted chapters reach students; ordering + the
+  // optional section-type filter are preserved exactly.
+  const p = [subjectSlug]; const bind = (v) => { p.push(v); return `$${p.length}` }
+  let sql = `SELECT c.id, c.name, c.slug, c.position
+               FROM chapters c JOIN subjects s ON s.id = c.subject_id
+              WHERE s.slug = $1 AND ${classLevel == null ? 'c.class_level IS NULL' : `c.class_level = ${bind(classLevel)}`}
+                AND c.status = 'published' AND c.deleted_at IS NULL`
+  if (sectionType) sql += ` AND EXISTS (SELECT 1 FROM sections sec WHERE sec.chapter_id = c.id AND sec.type_key = ${bind(sectionType)})`
+  sql += ` ORDER BY c.position ASC`
+  const rows = await db.$queryRawUnsafe(sql, ...p)
   return rows.map((c) => ({ id: num(c.id), name: c.name, slug: c.slug, position: c.position }))
 }
 

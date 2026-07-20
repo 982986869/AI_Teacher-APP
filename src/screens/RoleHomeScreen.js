@@ -9,7 +9,7 @@ import { useAuth } from '../context/AuthContext';
 
 const COPY = {
   teacher: { emoji: '🧑‍🏫', title: 'Teacher workspace', body: 'Class rosters, assignments and student insights are on the way. Your teacher account is set up and ready.' },
-  admin: { emoji: '🛠️', title: 'Admin console', body: 'Content, users and analytics management are on the way. Your admin account is set up and ready.' },
+  admin: { emoji: '🛠️', title: 'Admin console', body: 'Your admin account is active. Manage content, users, analytics and settings from the Ailernova Admin Portal on the web.' },
 };
 
 export default function RoleHomeScreen({ role = 'teacher' }) {

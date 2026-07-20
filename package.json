@@ -29,6 +29,7 @@
     "expo-calendar": "~15.0.8",
     "expo-constants": "~18.0.13",
     "expo-font": "~14.0.12",
+    "expo-image-picker": "~17.0.11",
     "expo-linear-gradient": "~15.0.8",
     "expo-print": "~15.0.8",
     "expo-sharing": "~14.0.8",
@@ -47,5 +48,9 @@
     "react-native-svg": "15.12.1",
     "react-native-webview": "13.15.0"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "@types/react": "~19.1.10",
+    "typescript": "~5.9.2"
+  }
 }
