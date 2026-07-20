@@ -13,8 +13,10 @@ services:
   - type: web
     name: ailernova-api
     runtime: node
-    plan: starter # not `free`: free instances sleep after 15min idle, which
-                  # cold-starts ~50s and breaks the AI SSE streams
+    # `free` so this deploys without a paid workspace. The tradeoff is real:
+    # free instances sleep after ~15min idle and cold-start in ~50s, which
+    # breaks the AI SSE streams — switch to `starter` ($7/mo) before real users.
+    plan: free
     region: singapore
     rootDir: server
     buildCommand: npm ci && npx prisma generate
