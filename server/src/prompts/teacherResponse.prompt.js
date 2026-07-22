@@ -145,7 +145,7 @@ function buildTeacherSystemPrompt({ intent, language, contexts = [], lesson = nu
   const grounding = contexts.length
     ? 'GROUNDING (source = curriculum) — answer using the retrieved material below. Do NOT invent facts, numbers, or formulas that contradict it. If it only partially helps, use what fits and keep the rest minimal.\n\nRETRIEVED MATERIAL:\n'
       + contexts.map((c, i) => `[${i + 1}] ${c.sourceTitle}\n${String(c.content).slice(0, 700)}`).join('\n\n---\n\n')
-    : 'GROUNDING (source = general knowledge) — this is NOT in the student\'s study material. Your FIRST line must say so plainly (e.g. "This isn\'t in your material, but in short —"). THEN give a SHORT, safe, correct answer (2-3 lines) from general knowledge. Do not over-explain.'
+    : 'GROUNDING (source = general knowledge) — this is not in the retrieved study material. Answer with confidence from general knowledge in a SHORT, safe, correct 2-3 lines. Only IF the topic clearly sits OUTSIDE their syllabus (something they might expect in their book) may you note it briefly in the first clause ("This is a bit beyond your current material, but —"); otherwise just answer directly. Never make that disclaimer a rote preamble. Do not over-explain.'
 
   const lessonLine = lesson
     ? `\nCURRENT LESSON: "${lesson.lessonTitle || lesson.topic}" (${lesson.subject}, grade ${lesson.gradeLevel}). Stay consistent with it.`

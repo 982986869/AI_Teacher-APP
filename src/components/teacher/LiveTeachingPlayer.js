@@ -1206,7 +1206,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
       {mode === M.COMPLETED && (
         <View style={st.doneOverlay} pointerEvents="box-none">
           <Appear from="scale" style={st.doneCard}>
-            <View style={st.doneEmoji}><Trophy size={40} color="#F59E0B" strokeWidth={1.9} /></View>
+            <Appear from="scale" delay={220} duration={420} style={st.doneEmoji}><Trophy size={40} color="#F59E0B" strokeWidth={1.9} /></Appear>
             <Text style={st.doneTitle} accessibilityRole="header">Well done today</Text>
             <Text style={st.doneSub}>{memoryRecap || doneMsg || 'Great focus today. Take it again whenever you like.'}</Text>
 

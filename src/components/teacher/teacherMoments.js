@@ -77,11 +77,20 @@ export function firstHello() {
 export function preparingBeats(topic) {
   const t = (topic || '').trim();
   const about = t ? `“${t}”` : 'this';
-  return [
-    `Let me think about how to teach ${about}…`,
+  // Keep beat 1 topic-specific, then pick 3 of a larger pool so the wait feels freshly
+  // thought each time rather than the identical reel on every lesson.
+  const middle = [
     'Finding the simplest way in…',
     'Picking an example that will click…',
     'Sketching it out on the board…',
+    'Choosing the clearest order…',
+    'Working out the one idea that unlocks it…',
+    'Deciding where the tricky bit hides…',
+  ];
+  const picked = [...middle].sort(() => Math.random() - 0.5).slice(0, 3);
+  return [
+    `Let me think about how to teach ${about}…`,
+    ...picked,
     'Almost ready — just polishing it…',
   ];
 }
@@ -112,7 +121,7 @@ export function emptyState(kind) {
     case 'history':
       return "Nothing yet — teach me what you want to learn and we'll start your story together.";
     default:
-      return "We'll fill this in as we go.";
+      return "Nothing here yet — but it'll grow as we learn together.";
   }
 }
 
