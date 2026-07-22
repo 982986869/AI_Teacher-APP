@@ -56,6 +56,15 @@ const NavTab = React.memo(function NavTab({ route, label, Icon, isFocused, onPre
 
 // ---- the docked bar ---------------------------------------------------------
 export default function FloatingDock({ state, descriptors, navigation }) {
+  // Let a screen hide the dock for an immersive full-screen mode (e.g. an AI Teacher
+  // lesson) by setting tabBarStyle:{display:'none'} on itself. Computed before hooks;
+  // the actual early-return happens after all hooks run (rules of hooks).
+  const focusedKey = state.routes[state.index] && state.routes[state.index].key;
+  const dockHidden = !!(focusedKey && descriptors[focusedKey]
+    && descriptors[focusedKey].options
+    && descriptors[focusedKey].options.tabBarStyle
+    && descriptors[focusedKey].options.tabBarStyle.display === 'none');
+
   const insets = useSafeAreaInsets();
   // Fill the white surface down through the safe-area, but keep the tap targets above
   // the system nav buttons.
@@ -74,6 +83,8 @@ export default function FloatingDock({ state, descriptors, navigation }) {
     inputRange: state.routes.map((_, i) => i),
     outputRange: state.routes.map((_, i) => i * tabWidth || 0),
   });
+
+  if (dockHidden) return null; // immersive screen (AI Teacher lesson) — no bottom nav
 
   return (
     <View style={[styles.nav, { paddingBottom: padBottom }]}>

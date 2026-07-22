@@ -387,6 +387,12 @@ const HomeScreen = () => {
   const [activeSubject, setActiveSubject] = useState('Physics');
   const [showAITeacher, setShowAITeacher] = useState(false);
   const [seedTopic, setSeedTopic]         = useState('');
+  // Immersive AI Teacher: hide the bottom nav dock while the teacher screen is open
+  // (the AI Teacher has its own back button), so a lesson feels full-screen and focused.
+  useEffect(() => {
+    navigation.setOptions({ tabBarStyle: showAITeacher ? { display: 'none' } : undefined });
+    return () => navigation.setOptions({ tabBarStyle: undefined });
+  }, [showAITeacher, navigation]);
   const [showBrainGym, setShowBrainGym]   = useState(false);
   const currentChar = CHARS[charIdx];
 
