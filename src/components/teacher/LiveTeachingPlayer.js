@@ -14,6 +14,7 @@ import { freshLearner, observe, assess } from './emotionEngine';
 import { ACTIONS, freshPedagogy, observePedagogy, decideNextAction, personalizedRecap, continuationHint, openingBridge } from './pedagogyEngine';
 import { C, D, F, SP, GLASS, GRAD, R, SERIF } from './premiumTheme';
 import { PressableScale, Gradient } from './uiKit';
+import { ExplainChips, ContentsSheet, FlashcardDeck, TestSheet, loadNotes, saveNotes, buildFlashcards, buildTest } from './lessonExtras';
 import BoardSurface, { surfaceFor } from './boardSurfaces';
 import { EraserWipe } from './boardGestures';
 import { AmbientStage, VoiceAura } from './ambientStage';
@@ -22,7 +23,7 @@ import { buildReteach } from './reteach';
 import { speakTeacher, stopTeacher, primeTeacherVoice, getSpeechProgress, SPEECH_OK, speakTeacherQueued, resetTeacherQueue, isTeacherQueueActive, setListeningMode } from '../../utils/teacherVoice';
 import {
   Mic, Square, RotateCcw, SkipForward, SkipBack, Play, Pause, ArrowUp, ChevronLeft, AudioLines,
-  Volume2, VolumeX, RefreshCw, GraduationCap, BookOpen, Globe, Check, Trophy, Radio,
+  Volume2, VolumeX, RefreshCw, GraduationCap, BookOpen, Globe, Check, Trophy, Radio, ListTree, Layers,
 } from 'lucide-react-native';
 
 // Optional student camera — degrades to a friendly placeholder.
@@ -455,6 +456,21 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   // (Inert until VOICE_OK; falls back to the typed/tap ask when the recognizer
   // build isn't present. The top-bar toggle can turn it off for privacy.)
   const [handsFree, setHandsFree] = useState(true);
+  // Study features (see lessonExtras): a jump-around Contents/Notes sheet, a flip
+  // flashcard deck and a summative "Test yourself" quiz. Bookmarks persist per lesson.
+  const [contentsOpen, setContentsOpen] = useState(false);
+  const [deckOpen, setDeckOpen] = useState(false);
+  const [testOpen, setTestOpen] = useState(false);
+  const [savedNotes, setSavedNotes] = useState([]); // saved concept indices
+  const lessonKey = useMemo(() => String((lesson && (lesson.id || lesson.lessonId || lesson.lessonTitle)) || subject || 'lesson'), [lesson, subject]);
+  const flashcards = useMemo(() => buildFlashcards(scenes), [scenes]);
+  const testQs = useMemo(() => buildTest(scenes), [scenes]);
+  useEffect(() => { let ok = true; loadNotes(lessonKey).then((n) => { if (ok) setSavedNotes(n); }); return () => { ok = false; }; }, [lessonKey]);
+  const toggleSaveNote = (i) => setSavedNotes((prev) => {
+    const next = prev.includes(i) ? prev.filter((x) => x !== i) : [...prev, i].sort((a, b) => a - b);
+    saveNotes(lessonKey, next);
+    return next;
+  });
   const [ttsActive, setTtsActive] = useState(false); // is audio playing right now (avatar/sync)
   const [qa, setQa] = useState(null);                // { q, a } during a doubt
   const [qaMeta, setQaMeta] = useState(null);        // retrieval signals for the doubt answer
@@ -1099,6 +1115,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
             <Radio size={18} color={handsFree ? C.teal : D.text} strokeWidth={2.2} />
           </PressableScale>
         )}
+        <PressableScale onPress={() => setContentsOpen(true)} style={[st.barIcon, savedNotes.length > 0 && st.barIconNote]} hitSlop={BAR_HIT} accessibilityLabel="Lesson contents and saved notes"><ListTree size={18} color={savedNotes.length > 0 ? '#DBA53F' : D.text} strokeWidth={2.2} /></PressableScale>
         <PressableScale onPress={() => { stopTeacher(); setVoiceOpen(true); }} style={st.barIcon} hitSlop={BAR_HIT} accessibilityLabel="Choose teacher voice"><AudioLines size={18} color={D.text} strokeWidth={2.2} /></PressableScale>
         <PressableScale onPress={toggleMute} style={st.barIcon} hitSlop={BAR_HIT} accessibilityLabel={muted ? 'Unmute narration' : 'Mute narration'} accessibilityState={{ selected: muted }}>{muted ? <VolumeX size={18} color={D.text} strokeWidth={2.2} /> : <Volume2 size={18} color={D.text} strokeWidth={2.2} />}</PressableScale>
         {!!onNewLesson && <PressableScale onPress={onNewLesson} style={st.barIcon} hitSlop={BAR_HIT} accessibilityLabel="Start a new lesson"><RefreshCw size={17} color={D.text} strokeWidth={2.2} /></PressableScale>}
@@ -1145,6 +1162,9 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
             </Animated.View>
           )}
           <View style={st.captionWrap}>{captionEl}</View>
+          {!!onAsk && (teaching || mode === M.PAUSED) && !qa && (
+            <ExplainChips scene={scene} onPick={(q) => sendDoubt(q)} />
+          )}
         </Stage>
       </ScrollView>
 
@@ -1250,6 +1270,23 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
 
             <Text style={st.recoTxt}>{memoryNext || (accuracy != null && accuracy >= 80 ? 'You’ve got this — ready for a new topic?' : 'A quick replay will lock it in.')}</Text>
 
+            {(flashcards.length > 0 || testQs.length > 0) && (
+              <View style={st.studyRow}>
+                {flashcards.length > 0 && (
+                  <PressableScale style={st.studyBtn} onPress={() => setDeckOpen(true)} accessibilityLabel="Review flashcards">
+                    <Layers size={17} color="#DBA53F" strokeWidth={2.3} />
+                    <Text style={st.studyTxt}>Flashcards</Text>
+                  </PressableScale>
+                )}
+                {testQs.length > 0 && (
+                  <PressableScale style={st.studyBtn} onPress={() => setTestOpen(true)} accessibilityLabel="Test yourself">
+                    <GraduationCap size={18} color="#DBA53F" strokeWidth={2.3} />
+                    <Text style={st.studyTxt}>Test yourself</Text>
+                  </PressableScale>
+                )}
+              </View>
+            )}
+
             <View style={st.doneRow}>
               <PressableScale style={[st.doneBtn, st.doneGhost]} onPress={() => { stopTeacher(); onExit && onExit(); }} accessibilityLabel="Finish and exit"><Text style={st.doneGhostTxt}>Done</Text></PressableScale>
               <PressableScale style={[st.doneBtn, st.donePrimary]} onPress={onReplayLesson} accessibilityLabel="Replay the lesson"><RotateCcw size={15} color="#fff" strokeWidth={2.4} /><Text style={st.donePrimaryTxt}>Replay</Text></PressableScale>
@@ -1260,6 +1297,19 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
           </Appear>
         </View>
       )}
+
+      {/* ── study features (jump-around contents/notes · flashcards · self-test) ── */}
+      <ContentsSheet
+        visible={contentsOpen}
+        scenes={scenes}
+        currentIdx={idx}
+        saved={savedNotes}
+        onToggleSave={toggleSaveNote}
+        onJump={(i) => goTeach(i)}
+        onClose={() => setContentsOpen(false)}
+      />
+      <FlashcardDeck visible={deckOpen} cards={flashcards} onClose={() => setDeckOpen(false)} />
+      <TestSheet visible={testOpen} questions={testQs} onClose={() => setTestOpen(false)} onScore={() => {}} />
     </View>
   );
 }
@@ -1276,6 +1326,7 @@ const st = StyleSheet.create({
   bar: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: SP.md, paddingTop: SP.sm, paddingBottom: SP.xs },
   barIcon: { width: 34, height: 34, borderRadius: 17, alignItems: 'center', justifyContent: 'center', backgroundColor: D.fill, borderWidth: 1, borderColor: D.edgeSoft },
   barIconLive: { backgroundColor: 'rgba(16,185,129,0.16)', borderColor: C.teal },
+  barIconNote: { backgroundColor: 'rgba(219,165,63,0.16)', borderColor: 'rgba(219,165,63,0.5)' },
   barIconTxt: { fontSize: 22, color: D.text, marginTop: -3 },
   barIconTxt2: { fontSize: 14, color: D.text },
   progressTrack: { flex: 1, height: 4, backgroundColor: 'rgba(255,255,255,0.14)', borderRadius: 8, overflow: 'hidden' },
@@ -1415,7 +1466,10 @@ const st = StyleSheet.create({
   doneEmoji: { alignItems: 'center', justifyContent: 'center', marginBottom: 2 },
   doneTitle: { fontSize: 26, fontFamily: SERIF, fontWeight: '600', color: D.text, marginTop: SP.md, letterSpacing: 0.1 },
   doneSub: { fontSize: 13.5, fontFamily: F.med, color: D.textDim, textAlign: 'center', marginTop: SP.sm, lineHeight: 20 },
-  doneRow: { flexDirection: 'row', gap: 12, marginTop: SP.xl, alignSelf: 'stretch' },
+  studyRow: { flexDirection: 'row', gap: 10, marginTop: SP.lg, alignSelf: 'stretch' },
+  studyBtn: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, paddingVertical: 13, borderRadius: R.md, backgroundColor: 'rgba(219,165,63,0.10)', borderWidth: 1, borderColor: 'rgba(219,165,63,0.38)' },
+  studyTxt: { fontSize: 13, fontFamily: F.bold, color: '#DBA53F', letterSpacing: 0.2 },
+  doneRow: { flexDirection: 'row', gap: 12, marginTop: SP.md, alignSelf: 'stretch' },
   doneBtn: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7, paddingVertical: 15, borderRadius: R.md },
   donePrimary: { backgroundColor: C.accent },
   donePrimaryTxt: { color: '#fff', fontSize: 14, fontFamily: F.bold },
