@@ -43,24 +43,26 @@ const PRAISE = [
   'Clean answer. Well reasoned.',
 ];
 const PRAISE_STREAK = [
-  "Three in a row — you're on fire.",
+  "That's a real run — you're on fire.",
   "You're really flying now.",
   "Look at you go. That's mastery.",
   "Nothing's stopping you today.",
-  "That's a real streak — the ideas are clicking.",
-  "One after another. This is genuine understanding.",
+  "The ideas are clicking, one after another.",
+  "This is genuine understanding — keep going.",
 ];
 
-// ── Reassurance — a WRONG answer, first time. Warm, never disappointed ────────
+// ── Reassurance — a WRONG first attempt. The options stay OPEN for a retry and the
+// correct answer is NOT revealed here, so these must NEVER point at a highlight —
+// just a warm nudge to think again. (The reveal happens later, on the correct lock.)
 const REASSURE = [
-  "Close — look again. The right one's marked.",
-  'Not quite, and that\'s okay. See the highlighted one?',
-  "Good try — the answer's the one glowing.",
-  "Almost. Let's fix the idea together.",
-  "Nearly there. Notice which one is right.",
-  "Not this time — and that's fine. The right one is marked.",
-  "So close. Look at the highlighted answer and see why.",
-  "Good thinking, just missed it — the correct one is glowing.",
+  "Not quite — think it through once more.",
+  "Close. Here's a nudge — take another look.",
+  "Almost. Read it again slowly, you'll see it.",
+  "Good try — one small thing is off. Have another go.",
+  "Nearly there. Trust yourself and try again.",
+  "Not this time, and that's completely fine. Give it one more think.",
+  "So close. Look at what the question is really asking.",
+  "Good thinking, just missed it — try once more.",
 ];
 
 // ── Repeated mistake — SAME idea missed again. Slow down, no frustration ──────
@@ -88,8 +90,8 @@ const LISTENING = [
 
 // ── A tiny beat before she starts answering a doubt ───────────────────────────
 const THINKING_BEAT = [
-  'Good question — let me think.',
-  'Right, let me put that clearly.',
+  'Right — let me put that clearly.',
+  'Okay, here’s the way to see it.',
   'Let me explain it properly.',
 ];
 
@@ -147,10 +149,10 @@ export function interjection(kind) { return pick(`interject-${kind}`, INTERJECT[
 // it reads as one natural line: "Right, where were we? Okay, <the sentence>." ──────
 const RESUME_BRIDGE = [
   'Right — where were we? Okay,',
-  'Good question. So, back to it —',
-  'Got it? Let’s carry on.',
+  'So, back to it —',
+  'That’s clearer now — let’s carry on.',
   'Okay — picking up where we left off.',
-  'Makes sense? Right, back to it —',
+  'Good — back to it, then.',
 ];
 const RESUME_BRIDGE_TOPIC = [
   'Right — so, back to {t}.',

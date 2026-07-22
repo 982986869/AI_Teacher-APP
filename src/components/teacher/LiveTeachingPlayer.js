@@ -52,6 +52,10 @@ const TEACHER_VIDEO = null;
 const TEACHER_PHOTO = null;
 
 // ── Single teaching state machine — only ONE mode is ever active ───────────────
+// Comfortable touch expansion for the 34px top-bar icons (keeps the frozen visual
+// size but reaches the ~44px accessible target).
+const BAR_HIT = { top: 8, bottom: 8, left: 8, right: 8 };
+
 const M = {
   TEACHING: 'TEACHING',     // a scene is being explained (TTS = the clock)
   PAUSED: 'PAUSED',         // frozen by the student
@@ -823,7 +827,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
         .then((res) => {
           if (!fresh()) return;
           flush(true);
-          setQa({ q, a: (res && res.answer) || acc || "Sorry, I didn't catch that. Could you ask again?" });
+          setQa({ q, a: (res && res.answer) || acc || "Hmm, that didn't come through on my side — ask me once more?" });
           setQaMeta(extractMeta(res));
           // Mark done once the queued speech actually finishes playing. Capped so a
           // stuck queue can never poll forever (force-done after ~20s).
@@ -856,7 +860,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
         clearTimeout(to);
         if (!fresh()) return;
         // onAsk may resolve to a plain string (answer) or the full agent response.
-        const a = (typeof ans === 'string' ? ans : (ans && ans.answer)) || "Sorry, I didn't catch that. Could you ask again?";
+        const a = (typeof ans === 'string' ? ans : (ans && ans.answer)) || "Hmm, that didn't come through on my side — ask me once more?";
         setQa({ q, a }); setQaMeta(extractMeta(ans)); setMode(M.ANSWERING);
         if (voiceOnRef.current) {
           speakTeacher(a, {
@@ -989,7 +993,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   // of text). Wordless reveal beats keep the previous line on screen instead of
   // blanking, so the subtitle always reads as one calm sentence.
   const beatText = (curBeat && curBeat.say) || lastSayRef.current || scene.teacherLine || '';
-  const captionText = qa ? (qa.a || 'Thinking…') : beatText;
+  const captionText = qa ? (qa.a || 'One moment…') : beatText;
 
   const progress = N ? (idx + 1) / N : 0;
   // Glide the progress bar between scenes instead of snapping (premium micro-motion).
@@ -1068,17 +1072,17 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
 
       {/* ── HEADER (fixed) ── */}
       <View style={st.bar}>
-        <PressableScale onPress={() => { stopTeacher(); onExit && onExit(); }} style={st.barIcon} accessibilityLabel="Exit lesson"><ChevronLeft size={24} color={D.text} strokeWidth={2.4} /></PressableScale>
+        <PressableScale onPress={() => { stopTeacher(); onExit && onExit(); }} style={st.barIcon} hitSlop={BAR_HIT} accessibilityLabel="Exit lesson"><ChevronLeft size={24} color={D.text} strokeWidth={2.4} /></PressableScale>
         <View style={st.progressTrack} accessibilityRole="progressbar" accessibilityValue={{ now: Math.min(idx + 1, N), min: 0, max: N }}><Animated.View style={[st.progressFill, { width: progressA.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]} /></View>
         <Text style={st.counter} accessibilityLabel={`Step ${Math.min(idx + 1, N)} of ${N}`}>{Math.min(idx + 1, N)}/{N}</Text>
         {VOICE_OK && !!onAsk && (
-          <PressableScale onPress={toggleHandsFree} style={[st.barIcon, handsFree && st.barIconLive]} accessibilityLabel={handsFree ? 'Turn off live conversation' : 'Turn on live conversation — speak anytime'} accessibilityState={{ selected: handsFree }}>
+          <PressableScale onPress={toggleHandsFree} style={[st.barIcon, handsFree && st.barIconLive]} hitSlop={BAR_HIT} accessibilityLabel={handsFree ? 'Turn off live conversation' : 'Turn on live conversation — speak anytime'} accessibilityState={{ selected: handsFree }}>
             <Radio size={18} color={handsFree ? C.teal : D.text} strokeWidth={2.2} />
           </PressableScale>
         )}
-        <PressableScale onPress={() => { stopTeacher(); setVoiceOpen(true); }} style={st.barIcon} accessibilityLabel="Choose teacher voice"><AudioLines size={18} color={D.text} strokeWidth={2.2} /></PressableScale>
-        <PressableScale onPress={toggleMute} style={st.barIcon} accessibilityLabel={muted ? 'Unmute narration' : 'Mute narration'}>{muted ? <VolumeX size={18} color={D.text} strokeWidth={2.2} /> : <Volume2 size={18} color={D.text} strokeWidth={2.2} />}</PressableScale>
-        {!!onNewLesson && <PressableScale onPress={onNewLesson} style={st.barIcon} accessibilityLabel="Start a new lesson"><RefreshCw size={17} color={D.text} strokeWidth={2.2} /></PressableScale>}
+        <PressableScale onPress={() => { stopTeacher(); setVoiceOpen(true); }} style={st.barIcon} hitSlop={BAR_HIT} accessibilityLabel="Choose teacher voice"><AudioLines size={18} color={D.text} strokeWidth={2.2} /></PressableScale>
+        <PressableScale onPress={toggleMute} style={st.barIcon} hitSlop={BAR_HIT} accessibilityLabel={muted ? 'Unmute narration' : 'Mute narration'} accessibilityState={{ selected: muted }}>{muted ? <VolumeX size={18} color={D.text} strokeWidth={2.2} /> : <Volume2 size={18} color={D.text} strokeWidth={2.2} />}</PressableScale>
+        {!!onNewLesson && <PressableScale onPress={onNewLesson} style={st.barIcon} hitSlop={BAR_HIT} accessibilityLabel="Start a new lesson"><RefreshCw size={17} color={D.text} strokeWidth={2.2} /></PressableScale>}
       </View>
 
       {/* ── learning-progress context (topic · concept N of M) — reads as learning
@@ -1127,8 +1131,8 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
 
       {/* ── STUDENT + STATUS + CONTROL DOCK (fixed) ── */}
       <View style={st.bottom}>
-        {mode === M.LISTENING && VOICE_OK && <Text style={st.listenTxt} numberOfLines={2}>{partial || 'Listening… ask your question'}</Text>}
-        {mode === M.THINKING && <Text style={st.listenTxt}>Thinking…</Text>}
+        {mode === M.LISTENING && VOICE_OK && <Text style={st.listenTxt} numberOfLines={2} accessibilityLiveRegion="polite">{partial || 'I’m listening — go ahead.'}</Text>}
+        {mode === M.THINKING && <Text style={st.listenTxt} accessibilityLiveRegion="polite">One moment — thinking…</Text>}
 
         {mode === M.LISTENING && !VOICE_OK && (
           <View style={st.askRow}>
@@ -1203,7 +1207,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
         <View style={st.doneOverlay} pointerEvents="box-none">
           <Appear from="scale" style={st.doneCard}>
             <View style={st.doneEmoji}><Trophy size={40} color="#F59E0B" strokeWidth={1.9} /></View>
-            <Text style={st.doneTitle}>Lesson complete</Text>
+            <Text style={st.doneTitle} accessibilityRole="header">Well done today</Text>
             <Text style={st.doneSub}>{memoryRecap || doneMsg || 'Great focus today. Take it again whenever you like.'}</Text>
 
             {learned.length > 0 && (

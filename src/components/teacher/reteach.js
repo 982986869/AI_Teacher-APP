@@ -50,10 +50,10 @@ const INTRO = {
 function easyQuestion(band, key) {
   const k = key || 'this';
   switch (band) {
-    case 'young':  return `Simple one — what does “${k}” help us do?`;
+    case 'young':  return `Simple one — what is “${k}”, in your own words?`;
     case 'board':  return `In one line for the exam: what is the role of “${k}”?`;
     case 'senior': return `So, conceptually — why does “${k}” matter here?`;
-    default:       return `So tell me — in your own words, what does “${k}” do?`;
+    default:       return `So tell me — what’s the main thing to remember about “${k}”?`;
   }
 }
 

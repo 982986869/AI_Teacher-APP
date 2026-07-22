@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import {
   View, Text, StyleSheet, SafeAreaView, ScrollView,
   StatusBar, TextInput, Platform, KeyboardAvoidingView, ActivityIndicator,
@@ -32,6 +32,12 @@ const KnowledgeAskScreen = ({ initialSubject = 'Physics', onBack }) => {
   const [asked, setAsked]       = useState('');   // the question the current answer belongs to
   const [asking, setAsking]     = useState(false);
   const [result, setResult]     = useState(null); // { grounded, confidence, sources, answer }
+  // Build the teaching scenes ONCE per answer — not on every keystroke in the ask box
+  // (which re-mounts a fresh scenes array and invalidates the player's downstream memos).
+  const askScenes = useMemo(
+    () => (result && result.grounded && result.teaching ? buildScenesFromTeaching(result.teaching) : null),
+    [result],
+  );
   const [askErr, setAskErr]     = useState('');
 
   const handleAsk = async () => {
@@ -129,7 +135,7 @@ const KnowledgeAskScreen = ({ initialSubject = 'Physics', onBack }) => {
                 <Appear style={st.novaWrap}>
                   <NovaHead />
                   <TeachingPlayer
-                    scenes={buildScenesFromTeaching(result.teaching)}
+                    scenes={askScenes}
                     title={result.teaching.title}
                     confidence={result.confidence}
                   />

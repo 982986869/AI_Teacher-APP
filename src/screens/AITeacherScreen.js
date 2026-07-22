@@ -218,7 +218,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
       saveActiveLesson({ lessonId: id, title: lesson.lessonTitle || t, subject: activeSubject, slideIndex: 0 });
       setSavedLesson(null);
     } catch (e) {
-      if (mountedRef.current) setError(e?.response?.data?.error || e?.response?.data?.message || e?.message || 'Could not generate the lesson. Please try again.');
+      if (mountedRef.current) setError(e?.response?.data?.error || e?.response?.data?.message || e?.message || 'I couldn’t put that lesson together just now — let’s try again.');
     } finally {
       if (mountedRef.current) setLoading(false);
     }
@@ -470,7 +470,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
         {loading && (
           <View style={st.genOverlay}>
             <View style={st.genSpark}><Sparkles size={34} color={C.accent} strokeWidth={2} /></View>
-            <Text style={st.genTitle}>Crafting your lesson…</Text>
+            <Text style={st.genTitle} accessibilityLiveRegion="polite">Ms. Nova is preparing your lesson…</Text>
             <View style={st.genList}>
               {prepStages.map((s, i) => (
                 <View key={i} style={st.genRow}>
