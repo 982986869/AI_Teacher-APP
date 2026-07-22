@@ -12,12 +12,12 @@
 // player wires them via small props: onPick(question) → its existing doubt flow,
 // onJump(index) → goTeach, and card/question arrays it derives from `scenes`.
 import React, { useState, useEffect, useMemo } from 'react';
-import { View, Text, StyleSheet, Modal, ScrollView, Pressable, Share, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, Modal, ScrollView, Pressable, Share, ActivityIndicator, TextInput } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   X, Check, Bookmark, BookmarkCheck, ListTree, RotateCcw, ChevronRight,
   Sparkles, Lightbulb, Globe, GraduationCap, Layers, Trophy,
-  PencilRuler, FileText, FunctionSquare, Share2, ListChecks,
+  PencilRuler, FileText, FunctionSquare, Share2, ListChecks, Languages, MessageCircleQuestion,
 } from 'lucide-react-native';
 
 import { PressableScale, Appear } from './uiKit';
@@ -40,6 +40,15 @@ export async function loadNotes(lessonKey) {
 }
 export async function saveNotes(lessonKey, indices) {
   try { await AsyncStorage.setItem(notesKeyFor(lessonKey), JSON.stringify(indices || [])); } catch {}
+}
+
+// The student's own free-text note for a lesson (separate from the bookmarks above).
+const noteTextKeyFor = (lessonKey) => `@ailernova_lesson_note_text:${String(lessonKey || 'lesson')}`;
+export async function loadNoteText(lessonKey) {
+  try { return (await AsyncStorage.getItem(noteTextKeyFor(lessonKey))) || ''; } catch { return ''; }
+}
+export async function saveNoteText(lessonKey, text) {
+  try { await AsyncStorage.setItem(noteTextKeyFor(lessonKey), String(text || '')); } catch {}
 }
 
 // ── data builders (called by the player over its `scenes`) ────────────────────
@@ -125,6 +134,7 @@ export function ExplainChips({ scene, onPick, onPractice }) {
     { Icon: Lightbulb, label: 'Simpler',    q: `Explain "${topic}" more simply — like I'm seeing it for the first time. Use plain words.` },
     { Icon: Sparkles,  label: 'Example',    q: `Give me one concrete worked example of "${topic}", step by step.` },
     { Icon: Globe,     label: 'Real-world', q: `Where does "${topic}" show up in real life? Give one vivid, memorable example.` },
+    { Icon: Languages, label: 'हिंदी में',   q: `"${topic}" ko simple Hindi/Hinglish mein samjhao — jaise ek dost samjhata hai.` },
   ];
   return (
     <View style={s.chipRow} accessibilityRole="toolbar">
@@ -154,7 +164,7 @@ const TABS = [
   { key: 'formulas', label: 'Formulas', Icon: FunctionSquare },
 ];
 
-export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave, onJump, onClose, transcript, formulas, lessonTitle }) {
+export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave, onJump, onClose, transcript, formulas, lessonTitle, noteText, onChangeNoteText }) {
   const [tab, setTab] = useState('contents');
   useEffect(() => { if (visible) setTab('contents'); }, [visible]);
   const concepts = useMemo(() => conceptScenes(scenes), [scenes]);
@@ -164,7 +174,8 @@ export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave
 
   const shareNotes = async () => {
     const body = noteItems.map((c, n) => `${n + 1}. ${c.title}\n   ${c.line || ''}`).join('\n\n');
-    try { await Share.share({ message: `My notes — ${lessonTitle || 'lesson'}\n\n${body}` }); } catch {}
+    const mine = noteText && noteText.trim() ? `\n\nMy note:\n${noteText.trim()}` : '';
+    try { await Share.share({ message: `My notes — ${lessonTitle || 'lesson'}\n\n${body}${mine}` }); } catch {}
   };
 
   return (
@@ -194,7 +205,22 @@ export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave
           {/* Contents / Notes — jumpable concept rows with a bookmark */}
           {(tab === 'contents' || tab === 'notes') && (
             <>
-              {tab === 'notes' && noteItems.length > 0 && (
+              {tab === 'notes' && (
+                <View style={s.myNoteWrap}>
+                  <Text style={s.myNoteLbl}>My note</Text>
+                  <TextInput
+                    style={s.myNoteInput}
+                    value={noteText}
+                    onChangeText={onChangeNoteText}
+                    placeholder="Write your own note for this lesson…"
+                    placeholderTextColor={D.textFaint}
+                    multiline
+                    textAlignVertical="top"
+                    accessibilityLabel="Your personal note for this lesson"
+                  />
+                </View>
+              )}
+              {tab === 'notes' && (noteItems.length > 0 || (noteText && noteText.trim())) && (
                 <PressableScale style={s.shareBtn} onPress={shareNotes} accessibilityLabel="Share my notes">
                   <Share2 size={15} color={GOLD} strokeWidth={2.3} /><Text style={s.shareTxt}>Share my notes</Text>
                 </PressableScale>
@@ -272,6 +298,30 @@ export function RecapSheet({ visible, points, onClose }) {
               </View>
             </View>
           )) : <Text style={s.empty}>Nothing to recap yet.</Text>}
+        </ScrollView>
+      </View>
+    </Modal>
+  );
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+// 8 · Q&A RECAP — every question you asked this lesson, with her answer
+// ════════════════════════════════════════════════════════════════════════════
+export function QASheet({ visible, items, onClose }) {
+  return (
+    <Modal visible={visible} animationType="slide" transparent onRequestClose={onClose}>
+      <View style={s.deckWrap}>
+        <View style={s.deckHead}>
+          <View style={s.deckTitleRow}><MessageCircleQuestion size={18} color={GOLD} strokeWidth={2.3} /><Text style={s.deckTitle}>Your questions</Text></View>
+          <PressableScale onPress={onClose} style={s.sheetX} accessibilityLabel="Close"><X size={20} color={D.textDim} strokeWidth={2.3} /></PressableScale>
+        </View>
+        <ScrollView contentContainerStyle={{ paddingBottom: SP.xl }} showsVerticalScrollIndicator={false}>
+          {(items && items.length) ? items.map((qa, k) => (
+            <View key={k} style={s.qaCard}>
+              <Text style={s.qaQ}>{qa.q}</Text>
+              {!!qa.a && <Text style={s.qaA}>{qa.a}</Text>}
+            </View>
+          )) : <Text style={s.empty}>You didn’t ask anything this time — the mic and the chips are there whenever you want.</Text>}
         </ScrollView>
       </View>
     </Modal>
@@ -394,6 +444,16 @@ const s = StyleSheet.create({
   chipRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: SP.sm, alignSelf: 'stretch' },
   chip: { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: 'rgba(219,165,63,0.10)', borderWidth: 1, borderColor: 'rgba(219,165,63,0.38)', borderRadius: R.pill, paddingVertical: 7, paddingHorizontal: 13 },
   chipTxt: { fontSize: 12, fontFamily: F.semi, color: GOLD, letterSpacing: 0.2 },
+
+  // personal free-text note (Notes tab)
+  myNoteWrap: { alignSelf: 'stretch', marginBottom: SP.md },
+  myNoteLbl: { fontSize: 10.5, fontFamily: F.bold, color: GOLD_DIM, letterSpacing: 1.2, textTransform: 'uppercase', marginBottom: 6 },
+  myNoteInput: { minHeight: 76, backgroundColor: 'rgba(255,255,255,0.05)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.10)', borderRadius: R.md, padding: 12, color: D.text, fontSize: 14, fontFamily: F.reg, lineHeight: 20 },
+
+  // Q&A recap
+  qaCard: { alignSelf: 'stretch', backgroundColor: 'rgba(255,255,255,0.035)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.06)', borderRadius: R.lg, padding: 15, marginBottom: 9 },
+  qaQ: { fontSize: 14.5, fontFamily: F.bold, color: GOLD, lineHeight: 20 },
+  qaA: { fontSize: 13.5, fontFamily: F.reg, color: D.text, lineHeight: 21, marginTop: 7 },
 
   // shared sheet chrome
   scrim: { flex: 1, backgroundColor: 'rgba(4,5,8,0.6)' },

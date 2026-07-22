@@ -14,7 +14,7 @@ import { freshLearner, observe, assess } from './emotionEngine';
 import { ACTIONS, freshPedagogy, observePedagogy, decideNextAction, personalizedRecap, continuationHint, openingBridge } from './pedagogyEngine';
 import { C, D, F, SP, GLASS, GRAD, R, SERIF } from './premiumTheme';
 import { PressableScale, Gradient } from './uiKit';
-import { ExplainChips, ContentsSheet, FlashcardDeck, TestSheet, RecapSheet, loadNotes, saveNotes, buildFlashcards, buildTest, buildTranscript, buildFormulas, buildRecap } from './lessonExtras';
+import { ExplainChips, ContentsSheet, FlashcardDeck, TestSheet, RecapSheet, QASheet, loadNotes, saveNotes, loadNoteText, saveNoteText, buildFlashcards, buildTest, buildTranscript, buildFormulas, buildRecap } from './lessonExtras';
 import BoardSurface, { surfaceFor } from './boardSurfaces';
 import { EraserWipe } from './boardGestures';
 import { AmbientStage, VoiceAura } from './ambientStage';
@@ -462,19 +462,29 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const [deckOpen, setDeckOpen] = useState(false);
   const [testOpen, setTestOpen] = useState(false);
   const [recapOpen, setRecapOpen] = useState(false);
+  const [qaOpen, setQaOpen] = useState(false);
   const [savedNotes, setSavedNotes] = useState([]); // saved concept indices
+  const [noteText, setNoteText] = useState('');     // the student's own free-text note
+  const [qaLog, setQaLog] = useState([]);           // {q,a} pairs asked this lesson
+  const [conceptResults, setConceptResults] = useState([]); // {i,title,correct} from checks
+  const openedAtRef = useRef(Date.now());           // for the study-time stat
   const lessonKey = useMemo(() => String((lesson && (lesson.id || lesson.lessonId || lesson.lessonTitle)) || subject || 'lesson'), [lesson, subject]);
   const flashcards = useMemo(() => buildFlashcards(scenes), [scenes]);
   const testQs = useMemo(() => buildTest(scenes), [scenes]);
   const transcript = useMemo(() => buildTranscript(scenes), [scenes]);
   const formulas = useMemo(() => buildFormulas(scenes), [scenes]);
   const recap = useMemo(() => buildRecap(scenes), [scenes]);
-  useEffect(() => { let ok = true; loadNotes(lessonKey).then((n) => { if (ok) setSavedNotes(n); }); return () => { ok = false; }; }, [lessonKey]);
+  useEffect(() => { let ok = true; loadNotes(lessonKey).then((n) => { if (ok) setSavedNotes(n); }); loadNoteText(lessonKey).then((t) => { if (ok) setNoteText(t); }); return () => { ok = false; }; }, [lessonKey]);
   const toggleSaveNote = (i) => setSavedNotes((prev) => {
     const next = prev.includes(i) ? prev.filter((x) => x !== i) : [...prev, i].sort((a, b) => a - b);
     saveNotes(lessonKey, next);
     return next;
   });
+  const onChangeNoteText = (t) => { setNoteText(t); saveNoteText(lessonKey, t); };
+  // Mastery from this lesson's checks (client-side, per-lesson): how many concepts nailed.
+  const mastered = conceptResults.filter((r) => r.correct).length;
+  const weakConcepts = conceptResults.filter((r) => !r.correct);
+  const studyMin = Math.max(1, Math.round((Date.now() - openedAtRef.current) / 60000));
   const [ttsActive, setTtsActive] = useState(false); // is audio playing right now (avatar/sync)
   const [qa, setQa] = useState(null);                // { q, a } during a doubt
   const [qaMeta, setQaMeta] = useState(null);        // retrieval signals for the doubt answer
@@ -604,6 +614,15 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const clearDoubtTick = () => { if (doubtTickRef.current) { clearInterval(doubtTickRef.current); doubtTickRef.current = null; } };
 
   useEffect(() => { primeTeacherVoice(); }, []);
+  // Log each finished Q&A (student question + her answer) so the lesson can offer a
+  // "Your questions" recap. Captured once per answer when it settles.
+  const qaLoggedRef = useRef(null);
+  useEffect(() => {
+    if (doubtDone && qa && qa.q && qa.a) {
+      const key = `${qa.q}::${String(qa.a).slice(0, 24)}`;
+      if (qaLoggedRef.current !== key) { qaLoggedRef.current = key; setQaLog((prev) => [...prev, { q: qa.q, a: qa.a }]); }
+    }
+  }, [doubtDone, qa]);
   // Re-arm the flag on mount. An effect cleanup also runs on Fast Refresh (and under
   // StrictMode's double-invoke) and refs survive it, so a setup that only ever clears
   // the flag leaves it false forever — after which every `if (mountedRef.current)`
@@ -701,6 +720,8 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     if (correct) { wrongStreakRef.current = 0; rightStreakRef.current += 1; }
     else { rightStreakRef.current = 0; wrongStreakRef.current += 1; }
     feelLearner(correct ? (firstTry ? 'correctFirstTry' : 'correct') : 'miss');
+    // Per-lesson mastery: record this concept's outcome once (first attempt wins).
+    setConceptResults((prev) => (prev.some((r) => r.i === idx) ? prev : [...prev, { i: idx, title: scene.title || scene.kicker || `Concept ${idx + 1}`, correct: !!correct }]));
 
     const isMcq = !!(scene.quickCheck && Array.isArray(scene.quickCheck.options) && scene.quickCheck.options.length);
     observeTeach({ type: 'answer', correct, misconception: scene.quickCheck && scene.quickCheck.misconception });
@@ -1274,7 +1295,16 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
                 <View style={st.statBox}><CountUp to={accuracy} suffix="%" style={st.statNum} /><Text style={st.statLbl}>Accuracy</Text></View>
               )}
               <View style={st.statBox}><CountUp to={conceptTotal} style={st.statNum} /><Text style={st.statLbl}>Concepts</Text></View>
+              <View style={st.statBox}><CountUp to={studyMin} style={st.statNum} /><Text style={st.statLbl}>{studyMin === 1 ? 'Minute' : 'Minutes'}</Text></View>
             </Appear>
+
+            {conceptResults.length > 0 && (
+              <Text style={st.masteryTxt}>
+                {weakConcepts.length === 0
+                  ? `You nailed all ${conceptResults.length} checks — mastered.`
+                  : `Mastered ${mastered}/${conceptResults.length}. Worth another look: ${weakConcepts.map((w) => w.title).join(', ')}.`}
+              </Text>
+            )}
 
             <Text style={st.recoTxt}>{memoryNext || (accuracy != null && accuracy >= 80 ? 'You’ve got this — ready for a new topic?' : 'A quick replay will lock it in.')}</Text>
 
@@ -1296,6 +1326,12 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
                   <PressableScale style={st.studyBtn} onPress={() => setTestOpen(true)} accessibilityLabel="Test yourself">
                     <GraduationCap size={18} color="#DBA53F" strokeWidth={2.3} />
                     <Text style={st.studyTxt}>Test yourself</Text>
+                  </PressableScale>
+                )}
+                {qaLog.length > 0 && (
+                  <PressableScale style={st.studyBtn} onPress={() => setQaOpen(true)} accessibilityLabel="Your questions">
+                    <BookOpen size={17} color="#DBA53F" strokeWidth={2.3} />
+                    <Text style={st.studyTxt}>Q&A · {qaLog.length}</Text>
                   </PressableScale>
                 )}
               </View>
@@ -1324,10 +1360,13 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
         transcript={transcript}
         formulas={formulas}
         lessonTitle={lessonTopic}
+        noteText={noteText}
+        onChangeNoteText={onChangeNoteText}
       />
       <FlashcardDeck visible={deckOpen} cards={flashcards} onClose={() => setDeckOpen(false)} />
       <TestSheet visible={testOpen} questions={testQs} onClose={() => setTestOpen(false)} onScore={() => {}} />
       <RecapSheet visible={recapOpen} points={recap} onClose={() => setRecapOpen(false)} />
+      <QASheet visible={qaOpen} items={qaLog} onClose={() => setQaOpen(false)} />
     </View>
   );
 }
@@ -1368,6 +1407,7 @@ const st = StyleSheet.create({
   statNum: { fontSize: 30, fontFamily: SERIF, fontWeight: '600', color: ACCENT, letterSpacing: 0 },
   statLbl: { fontSize: 10, fontFamily: F.semi, color: D.textDim, letterSpacing: 1, textTransform: 'uppercase', marginTop: 2 },
   recoTxt: { fontSize: 12.5, fontFamily: F.med, color: D.textDim, textAlign: 'center', marginTop: SP.lg },
+  masteryTxt: { fontSize: 12.5, fontFamily: F.semi, color: '#DBA53F', textAlign: 'center', marginTop: SP.md, lineHeight: 18, paddingHorizontal: SP.sm },
 
   scroll: { flex: 1 },
   scrollBody: { flexGrow: 1, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 18, paddingTop: 8, paddingBottom: 16 },
