@@ -433,14 +433,13 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
               {isNewStudent && <Text style={st.forYouHint}>{emptyHint}</Text>}
               <View style={st.insightGrid}>
                 {[
-                  // Opaque fills — see SUBJECT_META: an elevated card must not be translucent on Android.
-                  { tab: 'next', Icon: Compass, hue: '#F97316', title: 'What next?', sub: 'Smart study plan', bg: '#F8EDE5', edge: 'rgba(249,115,22,0.22)' },
-                  { tab: 'revise', Icon: RefreshCw, hue: '#8B5CF6', title: 'Revise', sub: 'Weak topics', bg: '#EDEAFB', edge: 'rgba(139,92,246,0.22)' },
+                  { tab: 'next', Icon: Compass, hue: '#F97316', title: 'What next?', sub: 'Smart study plan', chip: 'rgba(249,115,22,0.12)' },
+                  { tab: 'revise', Icon: RefreshCw, hue: '#8B5CF6', title: 'Revise', sub: 'Weak topics', chip: 'rgba(139,92,246,0.12)' },
                 ].map((a, i) => (
                   <Appear key={a.tab} delay={60 + i * 60} style={{ flex: 1 }}>
-                    <PressableScale style={[st.insightCard, { backgroundColor: a.bg, borderColor: a.edge }]} onPress={() => setInsights({ tab: a.tab })}
+                    <PressableScale style={st.insightCard} onPress={() => setInsights({ tab: a.tab })}
                       accessibilityLabel={`${a.title}. ${a.sub}`}>
-                      <View style={st.insightIcon}><a.Icon size={22} color={a.hue} strokeWidth={2.2} /></View>
+                      <View style={[st.insightChip, { backgroundColor: a.chip }]}><a.Icon size={22} color={a.hue} strokeWidth={2.2} /></View>
                       <Text style={st.insightTitle}>{a.title}</Text>
                       <Text style={st.insightSub}>{a.sub}</Text>
                     </PressableScale>
@@ -631,9 +630,9 @@ const st = StyleSheet.create({
   // for-you
   forYouHint: { fontSize: 12.5, fontFamily: F.med, color: C.ink2, lineHeight: 18, marginTop: -SP.sm, marginBottom: SP.md },
   insightGrid: { flexDirection: 'row', gap: 12 },
-  insightCard: { borderRadius: R.xxl, borderWidth: 1, padding: SP.lg, gap: 4, shadowColor: '#0F172A', shadowOpacity: 0.04, shadowRadius: 10, shadowOffset: { width: 0, height: 4 }, elevation: 1 },
-  insightWide: { flexDirection: 'row', alignItems: 'center', gap: 14, marginTop: 12, borderRadius: R.xxl, borderWidth: 1, borderColor: 'rgba(16,185,129,0.22)', backgroundColor: '#E1F4F0', padding: SP.lg },
-  insightIcon: { height: 26, marginBottom: 4, justifyContent: 'center', alignItems: 'flex-start' },
+  insightCard: { flex: 1, backgroundColor: C.board, borderRadius: R.xxl, borderWidth: 1, borderColor: C.line, padding: SP.lg, gap: 4, shadowColor: '#0F172A', shadowOpacity: 0.06, shadowRadius: 14, shadowOffset: { width: 0, height: 6 }, elevation: 2 },
+  insightWide: { flexDirection: 'row', alignItems: 'center', gap: 14, marginTop: 12, borderRadius: R.xxl, borderWidth: 1, borderColor: C.line, backgroundColor: C.board, padding: SP.lg, shadowColor: '#0F172A', shadowOpacity: 0.06, shadowRadius: 14, shadowOffset: { width: 0, height: 6 }, elevation: 2 },
+  insightChip: { width: 44, height: 44, borderRadius: R.md, alignItems: 'center', justifyContent: 'center', marginBottom: 12 },
   insightIconWide: { width: 44, height: 44, borderRadius: R.md, backgroundColor: 'rgba(16,185,129,0.12)', alignItems: 'center', justifyContent: 'center' },
   insightTitle: { fontSize: 14, fontFamily: F.bold, color: C.ink, letterSpacing: -0.2 },
   insightSub: { fontSize: 11.5, fontFamily: F.med, color: C.ink2, marginTop: 1 },
