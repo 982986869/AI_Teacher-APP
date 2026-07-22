@@ -64,8 +64,8 @@ const BAR_HIT = { top: 8, bottom: 8, left: 8, right: 8 };
 // no bright purple. Editorial and mature, not playful. One warm accent (champagne)
 // carries emphasis and the live pulse, like a highlighter in a fine textbook.
 const ROOM_GRAD = ['#191C24', '#0F1116', '#08090C'];
-const ACCENT = '#E7D4A6';      // champagne — the single warm accent
-const ACCENT_DIM = '#B9AC86';  // muted champagne for smaller labels
+const ACCENT = '#DBA53F';      // marigold gold (the approved "Editorial" brand accent, brightened for the dark room)
+const ACCENT_DIM = '#B4863A';  // deeper marigold for smaller labels
 const GLASS_PANEL = 'rgba(34,38,48,0.72)';   // graphite frosted glass (teacher / caption / dock)
 const GLASS_HAIR = 'rgba(255,255,255,0.16)';  // bright top hairline on the glass
 
