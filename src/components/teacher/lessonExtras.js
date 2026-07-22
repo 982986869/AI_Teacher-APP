@@ -12,11 +12,12 @@
 // player wires them via small props: onPick(question) → its existing doubt flow,
 // onJump(index) → goTeach, and card/question arrays it derives from `scenes`.
 import React, { useState, useEffect, useMemo } from 'react';
-import { View, Text, StyleSheet, Modal, ScrollView, Pressable } from 'react-native';
+import { View, Text, StyleSheet, Modal, ScrollView, Pressable, Share, ActivityIndicator } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   X, Check, Bookmark, BookmarkCheck, ListTree, RotateCcw, ChevronRight,
   Sparkles, Lightbulb, Globe, GraduationCap, Layers, Trophy,
+  PencilRuler, FileText, FunctionSquare, Share2, ListChecks,
 } from 'lucide-react-native';
 
 import { PressableScale, Appear } from './uiKit';
@@ -71,10 +72,53 @@ export function buildTest(scenes) {
     .map((qc) => ({ q: qc.question, options: qc.options.slice(0, 4), answer: Math.min(qc.answer, 3) }));
 }
 
+// The lesson, read back as a script — each concept's spoken line (or its subtitle).
+export function buildTranscript(scenes) {
+  return (scenes || [])
+    .map((sc, i) => {
+      const text = String(sc.teacherLine || (Array.isArray(sc.subtitleChunks) ? sc.subtitleChunks.join(' ') : '') || '').trim();
+      return { i, kicker: sc.kicker, title: sc.title, text };
+    })
+    .filter((r) => r.text.length > 0);
+}
+
+// Every formula the lesson wrote on the board, as a quick-reference sheet.
+export function buildFormulas(scenes) {
+  const out = [];
+  const seen = new Set();
+  (scenes || []).forEach((sc) => {
+    const parts = Array.isArray(sc.formulaParts) ? sc.formulaParts.filter(Boolean) : [];
+    if (!parts.length) return;
+    const formula = parts.join(' ').replace(/\s+/g, ' ').trim();
+    const k = formula.toLowerCase();
+    if (!formula || seen.has(k)) return;
+    seen.add(k);
+    out.push({ title: sc.title || sc.kicker || 'Formula', formula });
+  });
+  return out;
+}
+
+// A tight recap — the one key idea from each concept, as bullets.
+export function buildRecap(scenes) {
+  const out = [];
+  const seen = new Set();
+  conceptScenes(scenes).forEach((c) => {
+    if (c.isCheck) return;
+    const line = String(c.line || '').trim();
+    // first sentence, trimmed to a crisp takeaway
+    const point = (line.match(/^[^.!?]*[.!?]?/) || [''])[0].trim() || line;
+    const k = (c.title || '').toLowerCase();
+    if (!c.title || seen.has(k)) return;
+    seen.add(k);
+    out.push({ title: c.title, point });
+  });
+  return out;
+}
+
 // ════════════════════════════════════════════════════════════════════════════
 // 1 · EXPLAIN-DIFFERENTLY CHIPS  — under the caption while teaching/paused
 // ════════════════════════════════════════════════════════════════════════════
-export function ExplainChips({ scene, onPick }) {
+export function ExplainChips({ scene, onPick, onPractice }) {
   if (!scene) return null;
   const topic = (scene.title || scene.kicker || 'this idea').replace(/["“”]/g, '');
   const chips = [
@@ -90,6 +134,12 @@ export function ExplainChips({ scene, onPick }) {
           <Text style={s.chipTxt}>{c.label}</Text>
         </PressableScale>
       ))}
+      {!!onPractice && (
+        <PressableScale style={[s.chip, s.chipSolid]} onPress={onPractice} accessibilityRole="button" accessibilityLabel="Practice a problem">
+          <PencilRuler size={13} color="#12141A" strokeWidth={2.4} />
+          <Text style={[s.chipTxt, s.chipTxtSolid]}>Practice</Text>
+        </PressableScale>
+      )}
     </View>
   );
 }
@@ -97,12 +147,25 @@ export function ExplainChips({ scene, onPick }) {
 // ════════════════════════════════════════════════════════════════════════════
 // 2 + 3 · CONTENTS SHEET (chapter map to jump) + BOOKMARKS/NOTES tab
 // ════════════════════════════════════════════════════════════════════════════
-export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave, onJump, onClose }) {
+const TABS = [
+  { key: 'contents', label: 'Contents', Icon: ListTree },
+  { key: 'notes',    label: 'Notes',    Icon: Bookmark },
+  { key: 'script',   label: 'Script',   Icon: FileText },
+  { key: 'formulas', label: 'Formulas', Icon: FunctionSquare },
+];
+
+export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave, onJump, onClose, transcript, formulas, lessonTitle }) {
   const [tab, setTab] = useState('contents');
+  useEffect(() => { if (visible) setTab('contents'); }, [visible]);
   const concepts = useMemo(() => conceptScenes(scenes), [scenes]);
   const savedSet = useMemo(() => new Set(saved || []), [saved]);
   const noteItems = concepts.filter((c) => savedSet.has(c.i));
   const rows = tab === 'contents' ? concepts : noteItems;
+
+  const shareNotes = async () => {
+    const body = noteItems.map((c, n) => `${n + 1}. ${c.title}\n   ${c.line || ''}`).join('\n\n');
+    try { await Share.share({ message: `My notes — ${lessonTitle || 'lesson'}\n\n${body}` }); } catch {}
+  };
 
   return (
     <Modal visible={visible} animationType="slide" transparent onRequestClose={onClose}>
@@ -115,40 +178,100 @@ export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave
         </View>
 
         <View style={s.segRow}>
-          <PressableScale style={[s.seg, tab === 'contents' && s.segOn]} onPress={() => setTab('contents')} accessibilityRole="button">
-            <ListTree size={15} color={tab === 'contents' ? '#12141A' : D.textDim} strokeWidth={2.3} />
-            <Text style={[s.segTxt, tab === 'contents' && s.segTxtOn]}>Contents</Text>
-          </PressableScale>
-          <PressableScale style={[s.seg, tab === 'notes' && s.segOn]} onPress={() => setTab('notes')} accessibilityRole="button">
-            <Bookmark size={15} color={tab === 'notes' ? '#12141A' : D.textDim} strokeWidth={2.3} />
-            <Text style={[s.segTxt, tab === 'notes' && s.segTxtOn]}>Notes{noteItems.length ? ` · ${noteItems.length}` : ''}</Text>
-          </PressableScale>
+          {TABS.map((t) => {
+            const on = tab === t.key;
+            const count = t.key === 'notes' && noteItems.length ? ` · ${noteItems.length}` : '';
+            return (
+              <PressableScale key={t.key} style={[s.seg, on && s.segOn]} onPress={() => setTab(t.key)} accessibilityRole="button" accessibilityLabel={t.label}>
+                <t.Icon size={14} color={on ? '#12141A' : D.textDim} strokeWidth={2.3} />
+                <Text style={[s.segTxt, on && s.segTxtOn]} numberOfLines={1}>{t.label}{count}</Text>
+              </PressableScale>
+            );
+          })}
         </View>
 
         <ScrollView style={s.sheetScroll} contentContainerStyle={{ paddingBottom: SP.xl }} showsVerticalScrollIndicator={false}>
-          {rows.length === 0 && (
-            <Text style={s.empty}>{tab === 'notes' ? 'No saved notes yet. Tap the bookmark on any concept to keep its key idea here.' : 'No concepts to show.'}</Text>
-          )}
-          {rows.map((c, n) => {
-            const isNow = c.i === currentIdx;
-            const isSaved = savedSet.has(c.i);
-            return (
-              <View key={c.i} style={[s.row, isNow && s.rowNow]}>
-                <PressableScale style={s.rowMain} onPress={() => { onJump(c.i); onClose(); }} accessibilityRole="button" accessibilityLabel={`Go to ${c.title}`}>
-                  <Text style={[s.rowNum, isNow && s.rowNumNow]}>{tab === 'contents' ? String(n + 1).padStart(2, '0') : ''}{c.isCheck ? '✓' : ''}</Text>
-                  <View style={{ flex: 1 }}>
-                    <Text style={[s.rowTitle, isNow && s.rowTitleNow]} numberOfLines={2}>{c.title}</Text>
-                    {tab === 'notes' && !!c.line && <Text style={s.rowNote} numberOfLines={3}>{c.line}</Text>}
-                    {isNow && <Text style={s.rowHere}>Playing now</Text>}
+          {/* Contents / Notes — jumpable concept rows with a bookmark */}
+          {(tab === 'contents' || tab === 'notes') && (
+            <>
+              {tab === 'notes' && noteItems.length > 0 && (
+                <PressableScale style={s.shareBtn} onPress={shareNotes} accessibilityLabel="Share my notes">
+                  <Share2 size={15} color={GOLD} strokeWidth={2.3} /><Text style={s.shareTxt}>Share my notes</Text>
+                </PressableScale>
+              )}
+              {rows.length === 0 && (
+                <Text style={s.empty}>{tab === 'notes' ? 'No saved notes yet. Tap the bookmark on any concept to keep its key idea here.' : 'No concepts to show.'}</Text>
+              )}
+              {rows.map((c, n) => {
+                const isNow = c.i === currentIdx;
+                const isSaved = savedSet.has(c.i);
+                return (
+                  <View key={c.i} style={[s.row, isNow && s.rowNow]}>
+                    <PressableScale style={s.rowMain} onPress={() => { onJump(c.i); onClose(); }} accessibilityRole="button" accessibilityLabel={`Go to ${c.title}`}>
+                      <Text style={[s.rowNum, isNow && s.rowNumNow]}>{tab === 'contents' ? String(n + 1).padStart(2, '0') : ''}{c.isCheck ? '✓' : ''}</Text>
+                      <View style={{ flex: 1 }}>
+                        <Text style={[s.rowTitle, isNow && s.rowTitleNow]} numberOfLines={2}>{c.title}</Text>
+                        {tab === 'notes' && !!c.line && <Text style={s.rowNote} numberOfLines={3}>{c.line}</Text>}
+                        {isNow && <Text style={s.rowHere}>Playing now</Text>}
+                      </View>
+                      <ChevronRight size={17} color={D.textFaint} strokeWidth={2.2} />
+                    </PressableScale>
+                    <PressableScale style={s.bmk} onPress={() => onToggleSave(c.i)} accessibilityRole="button" accessibilityLabel={isSaved ? 'Remove bookmark' : 'Save to notes'}>
+                      {isSaved ? <BookmarkCheck size={19} color={GOLD} strokeWidth={2.3} /> : <Bookmark size={19} color={D.textFaint} strokeWidth={2.2} />}
+                    </PressableScale>
                   </View>
-                  <ChevronRight size={17} color={D.textFaint} strokeWidth={2.2} />
-                </PressableScale>
-                <PressableScale style={s.bmk} onPress={() => onToggleSave(c.i)} accessibilityRole="button" accessibilityLabel={isSaved ? 'Remove bookmark' : 'Save to notes'}>
-                  {isSaved ? <BookmarkCheck size={19} color={GOLD} strokeWidth={2.3} /> : <Bookmark size={19} color={D.textFaint} strokeWidth={2.2} />}
-                </PressableScale>
+                );
+              })}
+            </>
+          )}
+
+          {/* Script — the lesson read back, tap a line to jump there */}
+          {tab === 'script' && (
+            (transcript && transcript.length) ? transcript.map((r) => (
+              <PressableScale key={r.i} style={[s.scriptRow, r.i === currentIdx && s.rowNow]} onPress={() => { onJump(r.i); onClose(); }} accessibilityRole="button" accessibilityLabel={`Go to ${r.title}`}>
+                {!!r.title && <Text style={s.scriptTitle} numberOfLines={1}>{r.title}</Text>}
+                <Text style={s.scriptTxt}>{r.text}</Text>
+              </PressableScale>
+            )) : <Text style={s.empty}>No transcript for this lesson.</Text>
+          )}
+
+          {/* Formulas — the quick-reference sheet */}
+          {tab === 'formulas' && (
+            (formulas && formulas.length) ? formulas.map((f, k) => (
+              <View key={k} style={s.formulaRow}>
+                <Text style={s.formulaLbl} numberOfLines={1}>{f.title}</Text>
+                <Text style={s.formulaTxt}>{f.formula}</Text>
               </View>
-            );
-          })}
+            )) : <Text style={s.empty}>This lesson has no boxed formulas.</Text>
+          )}
+        </ScrollView>
+      </View>
+    </Modal>
+  );
+}
+
+
+// ════════════════════════════════════════════════════════════════════════════
+// 7 · QUICK RECAP — the whole lesson in one glance (offered on completion)
+// ════════════════════════════════════════════════════════════════════════════
+export function RecapSheet({ visible, points, onClose }) {
+  return (
+    <Modal visible={visible} animationType="slide" transparent onRequestClose={onClose}>
+      <View style={s.deckWrap}>
+        <View style={s.deckHead}>
+          <View style={s.deckTitleRow}><ListChecks size={18} color={GOLD} strokeWidth={2.3} /><Text style={s.deckTitle}>Quick recap</Text></View>
+          <PressableScale onPress={onClose} style={s.sheetX} accessibilityLabel="Close recap"><X size={20} color={D.textDim} strokeWidth={2.3} /></PressableScale>
+        </View>
+        <ScrollView contentContainerStyle={{ paddingBottom: SP.xl }} showsVerticalScrollIndicator={false}>
+          {(points && points.length) ? points.map((p, k) => (
+            <View key={k} style={s.recapRow}>
+              <View style={s.recapDot}><Text style={s.recapDotTxt}>{k + 1}</Text></View>
+              <View style={{ flex: 1 }}>
+                <Text style={s.recapTitle}>{p.title}</Text>
+                {!!p.point && <Text style={s.recapPoint}>{p.point}</Text>}
+              </View>
+            </View>
+          )) : <Text style={s.empty}>Nothing to recap yet.</Text>}
         </ScrollView>
       </View>
     </Modal>
@@ -283,10 +406,10 @@ const s = StyleSheet.create({
   empty: { fontSize: 13.5, fontFamily: F.med, color: D.textDim, textAlign: 'center', lineHeight: 21, paddingVertical: SP.xl, paddingHorizontal: SP.md },
 
   // 2/3 · segmented + rows
-  segRow: { flexDirection: 'row', gap: 8, backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: R.pill, padding: 4, marginBottom: SP.md },
-  seg: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6, paddingVertical: 9, borderRadius: R.pill },
+  segRow: { flexDirection: 'row', gap: 3, backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: R.pill, padding: 4, marginBottom: SP.md },
+  seg: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 4, paddingVertical: 9, paddingHorizontal: 2, borderRadius: R.pill },
   segOn: { backgroundColor: GOLD },
-  segTxt: { fontSize: 12.5, fontFamily: F.semi, color: D.textDim, letterSpacing: 0.2 },
+  segTxt: { fontSize: 11, fontFamily: F.semi, color: D.textDim, letterSpacing: 0 },
   segTxtOn: { color: '#12141A', fontFamily: F.bold },
   row: { flexDirection: 'row', alignItems: 'center', backgroundColor: 'rgba(255,255,255,0.035)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.06)', borderRadius: R.lg, marginBottom: 8 },
   rowNow: { borderColor: 'rgba(219,165,63,0.5)', backgroundColor: 'rgba(219,165,63,0.08)' },
@@ -330,4 +453,34 @@ const s = StyleSheet.create({
   scoreNum: { fontSize: 60, fontFamily: SERIF, fontWeight: '600', color: GOLD, letterSpacing: 0, marginTop: SP.sm },
   scoreLbl: { fontSize: 14, fontFamily: F.semi, color: D.text },
   scoreMsg: { fontSize: 13.5, fontFamily: F.med, color: D.textDim, textAlign: 'center', lineHeight: 20, marginTop: SP.sm, marginBottom: SP.lg, paddingHorizontal: SP.xl },
+
+  // 6 · practice chip (solid) + sheet
+  chipSolid: { backgroundColor: GOLD, borderColor: GOLD },
+  chipTxtSolid: { color: '#12141A', fontFamily: F.bold },
+  practiceLoad: { alignItems: 'center', gap: 12, paddingVertical: SP.xxl },
+  practiceLoadTxt: { fontSize: 13, fontFamily: F.med, color: D.textDim },
+  practiceTxt: { fontSize: 16, fontFamily: F.med, color: C.ink, lineHeight: 25 },
+  practiceAgain: { alignSelf: 'center', flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: SP.lg, paddingVertical: 11, paddingHorizontal: 20, borderRadius: R.pill, borderWidth: 1, borderColor: 'rgba(219,165,63,0.4)' },
+  practiceAgainTxt: { fontSize: 13, fontFamily: F.bold, color: GOLD },
+
+  // share (notes)
+  shareBtn: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, alignSelf: 'stretch', marginBottom: SP.sm, paddingVertical: 11, borderRadius: R.md, backgroundColor: 'rgba(219,165,63,0.10)', borderWidth: 1, borderColor: 'rgba(219,165,63,0.38)' },
+  shareTxt: { fontSize: 13, fontFamily: F.bold, color: GOLD },
+
+  // script tab
+  scriptRow: { alignSelf: 'stretch', backgroundColor: 'rgba(255,255,255,0.035)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.06)', borderRadius: R.lg, padding: 14, marginBottom: 8 },
+  scriptTitle: { fontSize: 11, fontFamily: F.bold, color: GOLD_DIM, letterSpacing: 0.5, textTransform: 'uppercase', marginBottom: 5 },
+  scriptTxt: { fontSize: 14.5, fontFamily: F.reg, color: D.text, lineHeight: 22 },
+
+  // formulas tab
+  formulaRow: { alignSelf: 'stretch', backgroundColor: PAPER, borderRadius: R.lg, paddingVertical: 15, paddingHorizontal: 16, marginBottom: 10, borderLeftWidth: 3, borderLeftColor: GOLD },
+  formulaLbl: { fontSize: 11, fontFamily: F.bold, color: GOLD_DIM, letterSpacing: 0.4, textTransform: 'uppercase', marginBottom: 6 },
+  formulaTxt: { fontSize: 18, fontFamily: SERIF, fontWeight: '600', color: C.ink, lineHeight: 26 },
+
+  // 7 · recap
+  recapRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 12, alignSelf: 'stretch', backgroundColor: 'rgba(255,255,255,0.035)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.06)', borderRadius: R.lg, padding: 15, marginBottom: 9 },
+  recapDot: { width: 24, height: 24, borderRadius: 12, backgroundColor: 'rgba(219,165,63,0.16)', alignItems: 'center', justifyContent: 'center', marginTop: 1 },
+  recapDotTxt: { fontSize: 12, fontFamily: F.bold, color: GOLD },
+  recapTitle: { fontSize: 15, fontFamily: F.bold, color: D.text, lineHeight: 20 },
+  recapPoint: { fontSize: 13.5, fontFamily: F.reg, color: D.textDim, lineHeight: 20, marginTop: 4 },
 });

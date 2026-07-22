@@ -14,7 +14,7 @@ import { freshLearner, observe, assess } from './emotionEngine';
 import { ACTIONS, freshPedagogy, observePedagogy, decideNextAction, personalizedRecap, continuationHint, openingBridge } from './pedagogyEngine';
 import { C, D, F, SP, GLASS, GRAD, R, SERIF } from './premiumTheme';
 import { PressableScale, Gradient } from './uiKit';
-import { ExplainChips, ContentsSheet, FlashcardDeck, TestSheet, loadNotes, saveNotes, buildFlashcards, buildTest } from './lessonExtras';
+import { ExplainChips, ContentsSheet, FlashcardDeck, TestSheet, RecapSheet, loadNotes, saveNotes, buildFlashcards, buildTest, buildTranscript, buildFormulas, buildRecap } from './lessonExtras';
 import BoardSurface, { surfaceFor } from './boardSurfaces';
 import { EraserWipe } from './boardGestures';
 import { AmbientStage, VoiceAura } from './ambientStage';
@@ -461,10 +461,14 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const [contentsOpen, setContentsOpen] = useState(false);
   const [deckOpen, setDeckOpen] = useState(false);
   const [testOpen, setTestOpen] = useState(false);
+  const [recapOpen, setRecapOpen] = useState(false);
   const [savedNotes, setSavedNotes] = useState([]); // saved concept indices
   const lessonKey = useMemo(() => String((lesson && (lesson.id || lesson.lessonId || lesson.lessonTitle)) || subject || 'lesson'), [lesson, subject]);
   const flashcards = useMemo(() => buildFlashcards(scenes), [scenes]);
   const testQs = useMemo(() => buildTest(scenes), [scenes]);
+  const transcript = useMemo(() => buildTranscript(scenes), [scenes]);
+  const formulas = useMemo(() => buildFormulas(scenes), [scenes]);
+  const recap = useMemo(() => buildRecap(scenes), [scenes]);
   useEffect(() => { let ok = true; loadNotes(lessonKey).then((n) => { if (ok) setSavedNotes(n); }); return () => { ok = false; }; }, [lessonKey]);
   const toggleSaveNote = (i) => setSavedNotes((prev) => {
     const next = prev.includes(i) ? prev.filter((x) => x !== i) : [...prev, i].sort((a, b) => a - b);
@@ -1163,7 +1167,11 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
           )}
           <View style={st.captionWrap}>{captionEl}</View>
           {!!onAsk && (teaching || mode === M.PAUSED) && !qa && (
-            <ExplainChips scene={scene} onPick={(q) => sendDoubt(q)} />
+            <ExplainChips
+              scene={scene}
+              onPick={(q) => sendDoubt(q)}
+              onPractice={() => sendDoubt(`Quiz me on "${scene.title || scene.kicker || lessonTopic}": pose ONE short practice question and let me try to answer it before you explain.`)}
+            />
           )}
         </Stage>
       </ScrollView>
@@ -1270,8 +1278,14 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
 
             <Text style={st.recoTxt}>{memoryNext || (accuracy != null && accuracy >= 80 ? 'You’ve got this — ready for a new topic?' : 'A quick replay will lock it in.')}</Text>
 
-            {(flashcards.length > 0 || testQs.length > 0) && (
+            {(flashcards.length > 0 || testQs.length > 0 || recap.length > 0) && (
               <View style={st.studyRow}>
+                {recap.length > 0 && (
+                  <PressableScale style={st.studyBtn} onPress={() => setRecapOpen(true)} accessibilityLabel="Quick recap">
+                    <BookOpen size={17} color="#DBA53F" strokeWidth={2.3} />
+                    <Text style={st.studyTxt}>Recap</Text>
+                  </PressableScale>
+                )}
                 {flashcards.length > 0 && (
                   <PressableScale style={st.studyBtn} onPress={() => setDeckOpen(true)} accessibilityLabel="Review flashcards">
                     <Layers size={17} color="#DBA53F" strokeWidth={2.3} />
@@ -1307,9 +1321,13 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
         onToggleSave={toggleSaveNote}
         onJump={(i) => goTeach(i)}
         onClose={() => setContentsOpen(false)}
+        transcript={transcript}
+        formulas={formulas}
+        lessonTitle={lessonTopic}
       />
       <FlashcardDeck visible={deckOpen} cards={flashcards} onClose={() => setDeckOpen(false)} />
       <TestSheet visible={testOpen} questions={testQs} onClose={() => setTestOpen(false)} onScore={() => {}} />
+      <RecapSheet visible={recapOpen} points={recap} onClose={() => setRecapOpen(false)} />
     </View>
   );
 }
@@ -1466,9 +1484,9 @@ const st = StyleSheet.create({
   doneEmoji: { alignItems: 'center', justifyContent: 'center', marginBottom: 2 },
   doneTitle: { fontSize: 26, fontFamily: SERIF, fontWeight: '600', color: D.text, marginTop: SP.md, letterSpacing: 0.1 },
   doneSub: { fontSize: 13.5, fontFamily: F.med, color: D.textDim, textAlign: 'center', marginTop: SP.sm, lineHeight: 20 },
-  studyRow: { flexDirection: 'row', gap: 10, marginTop: SP.lg, alignSelf: 'stretch' },
-  studyBtn: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, paddingVertical: 13, borderRadius: R.md, backgroundColor: 'rgba(219,165,63,0.10)', borderWidth: 1, borderColor: 'rgba(219,165,63,0.38)' },
-  studyTxt: { fontSize: 13, fontFamily: F.bold, color: '#DBA53F', letterSpacing: 0.2 },
+  studyRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: SP.lg, alignSelf: 'stretch', justifyContent: 'center' },
+  studyBtn: { flexGrow: 1, flexBasis: '30%', minWidth: 96, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6, paddingVertical: 12, paddingHorizontal: 6, borderRadius: R.md, backgroundColor: 'rgba(219,165,63,0.10)', borderWidth: 1, borderColor: 'rgba(219,165,63,0.38)' },
+  studyTxt: { fontSize: 12.5, fontFamily: F.bold, color: '#DBA53F', letterSpacing: 0.1 },
   doneRow: { flexDirection: 'row', gap: 12, marginTop: SP.md, alignSelf: 'stretch' },
   doneBtn: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7, paddingVertical: 15, borderRadius: R.md },
   donePrimary: { backgroundColor: C.accent },
