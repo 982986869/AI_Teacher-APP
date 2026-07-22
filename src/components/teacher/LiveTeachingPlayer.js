@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
   View, Text, StyleSheet, ScrollView, Animated, Easing, Dimensions, Platform, TextInput,
 } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import LessonBoard from './LessonBoards';
 import TeacherAvatar from './TeacherAvatar';
 import TeacherFullBody from './TeacherFullBody';
@@ -55,6 +56,11 @@ const TEACHER_PHOTO = null;
 // Comfortable touch expansion for the 34px top-bar icons (keeps the frozen visual
 // size but reaches the ~44px accessible target).
 const BAR_HIT = { top: 8, bottom: 8, left: 8, right: 8 };
+
+// The "classroom" backdrop — a deep indigo→near-black gradient (cohesive with the
+// premium hub header) so the teaching room reads as a rich, focused space instead of
+// flat black. A soft indigo bloom top-centre gives a subtle "stage light" depth.
+const ROOM_GRAD = ['#1C1746', '#0A0A1F', '#050510'];
 
 const M = {
   TEACHING: 'TEACHING',     // a scene is being explained (TTS = the clock)
@@ -1005,6 +1011,10 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   }, [progress, progressA]);
   const sceneKey = `${idx}-${animKey}`;
   const beatKey = `${idx}-${beat}-${animKey}`; // karaoke highlight resets per beat
+  // Drop the small eyebrow when it just repeats the title (e.g. quick-check scenes
+  // set both kicker "QUICK CHECK" and title "Quick Check") — one clean heading, not two.
+  const _normHead = (s) => String(s || '').replace(/[^a-z0-9]/gi, '').toLowerCase();
+  const kickerDistinct = _normHead(scene.kicker) !== _normHead(scene.title);
 
   // The spoken caption (or the doubt Q&A) — shared by the centred hero and the
   // with-slide subtitle bar so it always reads the same. Shown whole (not
@@ -1068,6 +1078,8 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
 
   return (
     <View style={st.container}>
+      {/* Deep premium "classroom" backdrop — a top-lit indigo→black stage. */}
+      <LinearGradient colors={ROOM_GRAD} locations={[0, 0.55, 1]} style={StyleSheet.absoluteFill} pointerEvents="none" />
       {/* clean warm editorial background (C.cream) — no ambient, mobile-first */}
 
       {/* ── HEADER (fixed) ── */}
@@ -1115,7 +1127,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
         </View>
 
         <Stage key={sceneKey} style={st.workArea}>
-          {!!scene.kicker && <Text style={st.kicker}>{scene.kicker}</Text>}
+          {!!scene.kicker && kickerDistinct && <Text style={st.kicker}>{scene.kicker}</Text>}
           {!!scene.title && <Text style={st.title}>{scene.title}</Text>}
           {showBoard && (
             <Animated.View style={[st.boardOuter, { transform: [{ scale: focusZoom }] }]}>
@@ -1337,11 +1349,11 @@ const st = StyleSheet.create({
 
   // ── the lit whiteboard + the dark teacher/caption panel ──
   lessonScroll: { flexGrow: 1, paddingHorizontal: SP.md, paddingTop: SP.xs, paddingBottom: SP.md },
-  teacherBar: { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: SP.md, backgroundColor: D.panel, borderWidth: 1, borderColor: D.edge, borderRadius: R.xl, padding: SP.sm, paddingRight: SP.md },
-  teacherName: { fontSize: 14.5, fontFamily: F.bold, color: D.text, letterSpacing: -0.2 },
+  teacherBar: { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: SP.md, backgroundColor: 'rgba(255,255,255,0.05)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.12)', borderRadius: R.xl, padding: SP.sm, paddingRight: SP.md, shadowColor: '#000', shadowOpacity: 0.35, shadowRadius: 18, shadowOffset: { width: 0, height: 8 }, elevation: 5 },
+  teacherName: { fontSize: 15.5, fontFamily: F.bold, color: D.text, letterSpacing: -0.2 },
   statusRow: { flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 3 },
   statusDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: D.textFaint },
-  statusDotOn: { backgroundColor: C.accent },
+  statusDotOn: { backgroundColor: C.teal, shadowColor: C.teal, shadowOpacity: 0.9, shadowRadius: 5, shadowOffset: { width: 0, height: 0 }, elevation: 3 },
   statusTxt: { fontSize: 9.5, fontFamily: F.semi, color: D.textDim, letterSpacing: 1.4, textTransform: 'uppercase' },
 
   workArea: { width: '100%', alignItems: 'stretch' },
@@ -1350,8 +1362,9 @@ const st = StyleSheet.create({
   // the ONE lit surface — a white board card floating in the dark room
   boardOuter: { width: '100%', alignItems: 'center' },
   lessonCard: { width: '100%', backgroundColor: C.board, borderRadius: R.xxl, paddingVertical: 24, paddingHorizontal: 16, alignItems: 'center', shadowColor: '#000', shadowOpacity: 0.45, shadowRadius: 26, shadowOffset: { width: 0, height: 14 }, elevation: 12 },
-  // her words, under the board, on a dark panel
-  captionWrap: { width: '100%', marginTop: SP.md, backgroundColor: D.panel, borderWidth: 1, borderColor: D.edge, borderRadius: R.xl, padding: SP.md },
+  // her words, under the board — a premium translucent glass panel tinted to the
+  // indigo room, with a bright top hairline so it reads as frosted, not flat.
+  captionWrap: { width: '100%', marginTop: SP.md, backgroundColor: 'rgba(28,25,64,0.62)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.12)', borderTopColor: 'rgba(255,255,255,0.20)', borderRadius: R.xl, paddingVertical: SP.md, paddingHorizontal: SP.lg, shadowColor: '#000', shadowOpacity: 0.4, shadowRadius: 22, shadowOffset: { width: 0, height: 10 }, elevation: 6 },
 
   // bottom (fixed): status → dock
   bottom: { alignItems: 'center', paddingHorizontal: SP.md, paddingTop: SP.sm, paddingBottom: Platform.OS === 'ios' ? SP.lg : SP.md, gap: SP.sm },
@@ -1370,9 +1383,9 @@ const st = StyleSheet.create({
   // floating dock — Ask (mic) is the raised gradient primary; transport is quiet
   dock: {
     flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', alignSelf: 'stretch',
-    backgroundColor: 'rgba(15,23,42,0.92)', borderWidth: 1, borderColor: D.edge, borderRadius: R.pill,
+    backgroundColor: 'rgba(22,20,52,0.78)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.12)', borderRadius: R.pill,
     paddingHorizontal: SP.sm, paddingVertical: SP.sm,
-    shadowColor: '#000', shadowOpacity: 0.5, shadowRadius: 24, shadowOffset: { width: 0, height: 12 }, elevation: 10,
+    shadowColor: '#000', shadowOpacity: 0.55, shadowRadius: 28, shadowOffset: { width: 0, height: 14 }, elevation: 12,
   },
   dItem: { alignItems: 'center', justifyContent: 'center', gap: 4, minWidth: 52 },
   dGhost: { width: 42, height: 42, borderRadius: 21, backgroundColor: D.fill, borderWidth: 1, borderColor: D.edgeSoft, alignItems: 'center', justifyContent: 'center' },
