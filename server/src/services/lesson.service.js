@@ -55,6 +55,12 @@ async function updateLessonWithContent(
         visualSequence: s.visualSequence ?? [],
         highlightTargets: s.highlightTargets ?? [],
         voiceCue: s.voiceCue ?? null,
+        // ── RESUME-PERSISTENCE (opt-in): uncomment the next two lines AFTER running
+        //    `cd server && npx prisma db push` so the check/reteach columns exist.
+        //    Until then, fresh generation already delivers them via the ai.service
+        //    overlay; only a RESUMED lesson lacks them (client falls back gracefully).
+        // check: s.check ?? null,
+        // reteach: s.reteach ?? null,
       })),
     })
   })
@@ -92,6 +98,9 @@ const SLIDE_SELECT = {
   visualSequence: true,
   highlightTargets: true,
   voiceCue: true,
+  // RESUME-PERSISTENCE (opt-in): uncomment AFTER `prisma db push` adds the columns.
+  // check: true,
+  // reteach: true,
 }
 
 async function getLessonWithSlides(lessonId, userId) {

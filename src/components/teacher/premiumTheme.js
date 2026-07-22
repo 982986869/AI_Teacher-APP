@@ -1,7 +1,8 @@
-// "Atelier" design tokens for the AI Teacher — a warm, editorial luxury look
-// (approved direction): warm ivory ground, ink-blue accent, a whisper of brass,
-// serif display + Poppins body. One source of truth so the avatar, cards, dock and
-// SVG boards re-theme together. Key names are unchanged so everything re-skins.
+// "Nova" design tokens for the AI Teacher — a calm, editorial-modern look: a cool
+// slate paper ground, an indigo brand accent, an emerald secondary, with a serif
+// display used sparingly over a Poppins body. One source of truth so the avatar,
+// cards, dock and SVG boards re-theme together. Legacy key names are kept (see the
+// notes on `brass`/`peachBands` below) so every surface re-skins from this file.
 import { Platform } from 'react-native';
 
 // Serif display role — used with restraint for the greeting, lesson title & formulas.

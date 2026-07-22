@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Animated, Easing 
 import WhiteboardCanvas from './WhiteboardCanvas';
 import DiagramRenderer from './DiagramRenderer';
 import { BOARD } from './theme';
+import { GraduationCap, MessageCircle, Lightbulb, RotateCcw, Pause, Play, CircleCheck } from 'lucide-react-native';
 
 // ── Teaching Timeline Engine ──────────────────────────────────────────────────
 // Plays a lesson one scene at a time on a premium dark stage, like a teacher on a
@@ -88,9 +89,9 @@ function useTimedReveal({ total, stepMs = 780, paused, skip, onDone }) {
 // ── Narration bubbles ─────────────────────────────────────────────────────────
 
 const BUBBLES = {
-  teacher: { emoji: '👩‍🏫', label: 'Teacher', bg: '#171C26', accent: BOARD.orange },
-  explanation: { emoji: '💬', label: 'Explanation', bg: '#141B24', accent: BOARD.blue },
-  hint: { emoji: '💡', label: 'Hint', bg: '#1A1810', accent: BOARD.yellow },
+  teacher: { Icon: GraduationCap, label: 'Teacher', bg: '#171C26', accent: BOARD.orange },
+  explanation: { Icon: MessageCircle, label: 'Explanation', bg: '#141B24', accent: BOARD.blue },
+  hint: { Icon: Lightbulb, label: 'Hint', bg: '#1A1810', accent: BOARD.yellow },
 };
 
 function NarrationBubble({ variant = 'teacher', title, children }) {
@@ -98,7 +99,7 @@ function NarrationBubble({ variant = 'teacher', title, children }) {
   return (
     <Appear from="up" style={[styles.bubble, { backgroundColor: cfg.bg, borderColor: cfg.accent, shadowColor: cfg.accent }]}>
       <View style={styles.bubbleHead}>
-        <Text style={styles.bubbleEmoji}>{cfg.emoji}</Text>
+        <cfg.Icon size={15} color={cfg.accent} strokeWidth={2.3} />
         <Text style={[styles.bubbleLabel, { color: cfg.accent }]}>{title || cfg.label}</Text>
       </View>
       {children}
@@ -153,7 +154,7 @@ function FormulaScene({ scene, paused, skip, onComplete }) {
   return (
     <View style={styles.center}>
       <NarrationBubble variant="teacher" title="Building the formula">
-        <Text style={styles.bubbleText}>Step by step ✏️</Text>
+        <Text style={styles.bubbleText}>Let’s build it, step by step.</Text>
       </NarrationBubble>
       <View style={styles.formulaStack}>
         {tokens.map((tk, i) => (i < visible ? (
@@ -171,7 +172,7 @@ function DiagramScene({ scene, skip, onComplete }) {
   return (
     <View style={styles.center}>
       <NarrationBubble variant="teacher" title="On the board">
-        <Text style={styles.bubbleText}>Watch me draw it 🖍️</Text>
+        <Text style={styles.bubbleText}>Let’s work through it on the board.</Text>
       </NarrationBubble>
       <View style={styles.diagramWrap}>
         <DiagramRenderer shape={scene.shape} caption={scene.caption} data={scene.data} skip={skip} onComplete={onComplete} />
@@ -186,7 +187,7 @@ function ExampleScene({ scene, paused, skip, onComplete }) {
   return (
     <View style={styles.center}>
       <NarrationBubble variant="explanation" title="Worked example">
-        <Text style={styles.bubbleText}>Follow along 👇</Text>
+        <Text style={styles.bubbleText}>Follow along.</Text>
       </NarrationBubble>
       {steps.map((s, i) => (i < visible ? (
         <Appear key={i} from="up" style={styles.exStepWrap}>
@@ -213,7 +214,8 @@ function QuizScene({ scene, skip, onComplete }) {
         <Text style={styles.bubbleText}>{scene.question}</Text>
       </NarrationBubble>
       <Appear from="scale" duration={440} style={styles.quizBadge}>
-        <Text style={styles.quizBadgeTxt}>🎉 You reached the end of the lesson!</Text>
+        <CircleCheck size={16} color={BOARD.orange} strokeWidth={2.3} />
+        <Text style={styles.quizBadgeTxt}>You’ve reached the end of the lesson.</Text>
       </Appear>
     </View>
   );
@@ -278,7 +280,7 @@ export default function TeachingPlayer({ scenes = [], title, confidence }) {
   return (
     <Appear from="up" style={styles.player}>
       <View style={styles.header}>
-        <Text style={styles.kicker}>🎬 LIVE LESSON</Text>
+        <Text style={styles.kicker}>LIVE LESSON</Text>
         {typeof confidence === 'number' && (
           <View style={styles.confPill}><Text style={styles.confTxt}>{Math.round(confidence * 100)}% match</Text></View>
         )}
@@ -310,10 +312,14 @@ export default function TeachingPlayer({ scenes = [], title, confidence }) {
       {/* playback controls */}
       <View style={styles.controls}>
         <TouchableOpacity style={styles.ctrlBtn} onPress={onReplay} activeOpacity={0.85}>
-          <Text style={styles.ctrlTxt}>↺ Replay</Text>
+          <RotateCcw size={15} color={BOARD.textBright} strokeWidth={2.3} />
+          <Text style={styles.ctrlTxt}>Replay</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.ctrlBtn, styles.ctrlPrimary]} onPress={togglePlay} activeOpacity={0.85}>
-          <Text style={[styles.ctrlTxt, styles.ctrlPrimaryTxt]}>{playing ? '⏸ Pause' : '▶ Resume'}</Text>
+          {playing
+            ? <Pause size={15} color="#1C1C1E" strokeWidth={2.3} fill="#1C1C1E" />
+            : <Play size={15} color="#1C1C1E" strokeWidth={2.3} fill="#1C1C1E" />}
+          <Text style={[styles.ctrlTxt, styles.ctrlPrimaryTxt]}>{playing ? 'Pause' : 'Resume'}</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.ctrlBtn, atEnd && done && styles.ctrlDisabled]}
@@ -384,7 +390,7 @@ const styles = StyleSheet.create({
   exStepTxt: { fontSize: 15, fontWeight: '600', color: BOARD.textBright, lineHeight: 22 },
 
   // quiz
-  quizBadge: { marginTop: 16, alignSelf: 'center', backgroundColor: 'rgba(255,138,61,0.16)', borderWidth: 1.5, borderColor: BOARD.orange, borderRadius: 16, paddingVertical: 12, paddingHorizontal: 18 },
+  quizBadge: { marginTop: 16, alignSelf: 'center', flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: 'rgba(255,138,61,0.16)', borderWidth: 1.5, borderColor: BOARD.orange, borderRadius: 16, paddingVertical: 12, paddingHorizontal: 18 },
   quizBadgeTxt: { fontSize: 14, fontWeight: '800', color: BOARD.orange, textAlign: 'center' },
 
   // dots + controls
@@ -394,7 +400,7 @@ const styles = StyleSheet.create({
   dotDone: { backgroundColor: BOARD.green },
 
   controls: { flexDirection: 'row', gap: 8, marginTop: 14 },
-  ctrlBtn: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingVertical: 12, borderRadius: 13, backgroundColor: BOARD.card, borderWidth: 1.5, borderColor: BOARD.cardBorder },
+  ctrlBtn: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6, paddingVertical: 12, borderRadius: 13, backgroundColor: BOARD.card, borderWidth: 1.5, borderColor: BOARD.cardBorder },
   ctrlPrimary: { backgroundColor: BOARD.orange, borderColor: BOARD.orange },
   ctrlDisabled: { opacity: 0.4 },
   ctrlTxt: { fontSize: 13, fontWeight: '900', color: BOARD.textBright },

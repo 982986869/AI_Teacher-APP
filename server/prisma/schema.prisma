@@ -88,6 +88,11 @@ model Slide {
   subtitleChunks   String[]   @default([])
   visualSequence   Json?
   voiceCue         String?
+  // LLM-authored comprehension check + its paired adaptive re-teach (a genuinely
+  // different explanation shown on a miss). Optional; drive the two-way classroom
+  // loop on RESUME too (fresh generation already overlays them from the payload).
+  check            Json?
+  reteach          Json?
   lesson           Lesson     @relation(fields: [lessonId], references: [id], onDelete: Cascade)
 
   @@unique([lessonId, slideNumber])

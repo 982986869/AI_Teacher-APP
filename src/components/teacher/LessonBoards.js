@@ -6,6 +6,7 @@ import { C } from './premiumTheme';
 import { selfCheckLine } from './teacherPersona';
 import { SubjectBoard, SUBJECT_BOARD_TYPES } from './subjectBoards';
 import { CircleAround, Highlighter } from './boardGestures';
+import { TriangleAlert, Ruler, BookOpen, RotateCcw } from 'lucide-react-native';
 
 // ── marker underline — a chalk/marker stroke that "draws" under the active
 // formula token (Smart Whiteboard flourish); reads as her underlining it. ──────
@@ -284,7 +285,11 @@ function PointsBoard({ scene, paused, skip, resetKey, step, intro, warn, memory 
   if (!points.length) {
     return (
       <View style={[s.boardWrap, { alignItems: 'center', paddingVertical: 18 }]}>
-        <Text style={{ fontSize: 46 }}>{warn ? '⚠️' : intro ? '📐' : '📘'}</Text>
+        {warn
+          ? <TriangleAlert size={40} color={C.orange} strokeWidth={1.9} />
+          : intro
+            ? <Ruler size={40} color={C.accent} strokeWidth={1.9} />
+            : <BookOpen size={40} color={C.accent} strokeWidth={1.9} />}
       </View>
     );
   }
@@ -446,7 +451,7 @@ function QuickCheckBoard({ scene, onContinue, onQuizResult, onReexplain, quizFb,
           })}
           {picked != null && (
             <Text style={[s.quizFb, { color: locked ? C.green : C.orange }]}>
-              {(locked ? '🎉 ' : '💛 ') + ((quizFb && quizFb.line) || (locked ? 'Correct!' : 'Not quite — try once more.'))}
+              {(quizFb && quizFb.line) || (locked ? 'Correct.' : 'Not quite — try once more.')}
             </Text>
           )}
           {/* ── ADAPTIVE RE-TEACH — she notices the miss and teaches it a different
@@ -464,14 +469,15 @@ function QuickCheckBoard({ scene, onContinue, onQuizResult, onReexplain, quizFb,
           )}
           {wrong && !reteach && !!onReexplain && (
             <TouchableOpacity style={s.reexplainBtn} activeOpacity={0.9} onPress={onReexplain}>
-              <Text style={s.reexplainTxt}>↺  Explain that again, slower</Text>
+              <RotateCcw size={15} color={C.accent} strokeWidth={2.4} />
+              <Text style={s.reexplainTxt}>Explain that again, slower</Text>
             </TouchableOpacity>
           )}
         </>
       ) : (
         !revealed
-          ? <TouchableOpacity style={s.opt} activeOpacity={0.9} onPress={() => { setRevealed(true); setSelfFb(selfCheckLine()); }}><Text style={s.optTxt}>🤔 Tap to check yourself</Text></TouchableOpacity>
-          : <Text style={s.quizFb}>{selfFb || 'Say it in your own words, then continue.'} 👍</Text>
+          ? <TouchableOpacity style={s.opt} activeOpacity={0.9} onPress={() => { setRevealed(true); setSelfFb(selfCheckLine()); }}><Text style={s.optTxt}>Tap to check yourself</Text></TouchableOpacity>
+          : <Text style={s.quizFb}>{selfFb || 'Say it in your own words, then continue.'}</Text>
       )}
       {!!onContinue && (
         <TouchableOpacity style={s.continueBtn} activeOpacity={0.9} onPress={onContinue}><Text style={s.continueTxt}>Continue ›</Text></TouchableOpacity>
@@ -567,7 +573,7 @@ const s = StyleSheet.create({
   quizFb: { fontSize: 13, fontWeight: '800', marginTop: 12, alignSelf: 'stretch' },
   continueBtn: { alignSelf: 'flex-end', marginTop: 14, backgroundColor: C.accent, borderRadius: 12, paddingVertical: 9, paddingHorizontal: 18 },
   continueTxt: { color: '#fff', fontSize: 13, fontWeight: '900' },
-  reexplainBtn: { alignSelf: 'flex-start', marginTop: 10, backgroundColor: 'rgba(15,163,154,0.10)', borderWidth: 1, borderColor: C.accent, borderRadius: 12, paddingVertical: 9, paddingHorizontal: 16 },
+  reexplainBtn: { alignSelf: 'flex-start', flexDirection: 'row', alignItems: 'center', gap: 7, marginTop: 10, backgroundColor: 'rgba(15,163,154,0.10)', borderWidth: 1, borderColor: C.accent, borderRadius: 12, paddingVertical: 9, paddingHorizontal: 16 },
   reexplainTxt: { color: C.accent, fontSize: 13, fontWeight: '900' },
 
   // adaptive re-teach panel (shown on a missed check — a different explanation)

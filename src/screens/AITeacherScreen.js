@@ -23,26 +23,32 @@ import { greeting, firstHello, preparingBeats, preparingHint, resumeTag, emptySt
 import { C, D, F, SP, GRAD, R, SERIF } from '../components/teacher/premiumTheme';
 import { Appear, PressableScale, Gradient } from '../components/teacher/uiKit';
 import { stopTeacher, primeTeacherVoice, SPEECH_OK } from '../utils/teacherVoice';
+import {
+  Search, Sparkles, History, X, Compass, RefreshCw, ChartColumn,
+  Atom, Sigma, FlaskConical, Dna, BookOpen, Landmark,
+  CircleAlert, Check, Circle, ChevronRight, ChevronLeft,
+} from 'lucide-react-native';
 
 // AI Teacher answers EVERY academic question, so it offers all subjects. Only the
 // explanation depth adapts to the student's class (enforced server-side from scope);
 // content restriction by stream lives on Practice/Resources, not here.
 const SUBJECTS = ['Physics', 'Maths', 'Chemistry', 'Biology', 'English', 'History'];
 
-// Per-subject glyph + tint for the subject tiles (presentation only — the list
-// above stays the single source of truth for which subjects exist).
+// Per-subject line icon + tint for the subject tiles (presentation only — the list
+// above stays the single source of truth for which subjects exist). Real vector
+// icons (lucide), each stroked in its subject-family hue over an opaque pastel tile.
 // Tints are OPAQUE on purpose: Android renders an elevation shadow from the view's
 // own background, so a translucent one shows through as a white block behind the
 // card. These are the same hues, pre-blended over C.cream.
 const SUBJECT_META = {
-  Physics: { icon: '🌌', tint: '#E9E4FB' },   // violet
-  Maths: { icon: '📐', tint: '#DEE9FB' },     // blue
-  Chemistry: { icon: '🧪', tint: '#D8F1EB' }, // emerald
-  Biology: { icon: '🧬', tint: '#F8E0E6' },   // rose
-  English: { icon: '📚', tint: '#F8EDDA' },   // amber
-  History: { icon: '🏛️', tint: '#F8E7DC' },  // orange
+  Physics: { Icon: Atom, tint: '#E9E4FB', hue: '#7C3AED' },        // violet
+  Maths: { Icon: Sigma, tint: '#DEE9FB', hue: '#2563EB' },         // blue
+  Chemistry: { Icon: FlaskConical, tint: '#D8F1EB', hue: '#059669' }, // emerald
+  Biology: { Icon: Dna, tint: '#F8E0E6', hue: '#E11D48' },         // rose
+  English: { Icon: BookOpen, tint: '#F8EDDA', hue: '#D97706' },    // amber
+  History: { Icon: Landmark, tint: '#F8E7DC', hue: '#EA580C' },    // orange
 };
-const subjectMeta = (s) => SUBJECT_META[s] || { icon: '✨', tint: '#E6E9FB' };
+const subjectMeta = (s) => SUBJECT_META[s] || { Icon: Sparkles, tint: '#E6E9FB', hue: C.accent };
 
 const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack }) => {
   const { user, scope } = useAuth();
@@ -283,7 +289,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
 
               <View style={st.heroTop}>
                 <PressableScale onPress={handleBack} style={st.heroBack} accessibilityLabel="Go back">
-                  <Text style={st.heroBackTxt}>‹</Text>
+                  <ChevronLeft size={24} color="#fff" strokeWidth={2.4} />
                 </PressableScale>
                 <Text style={st.heroKicker} accessibilityRole="header">AI TEACHER</Text>
                 <View style={{ width: 38 }} />
@@ -293,7 +299,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
                 <View style={{ flex: 1 }}>
                   <Text style={st.greetSalute}>{salute}</Text>
                   <Text style={st.greetName}>{firstName}</Text>
-                  {!!resume && <Text style={st.greetWave}>Welcome back! {'\u{1F44B}'}</Text>}
+                  {!!resume && <Text style={st.greetWave}>Welcome back</Text>}
                   <Text style={st.greetPrompt}>{greet.prompt}</Text>
                 </View>
                 <View style={st.heroAvatar}>
@@ -316,7 +322,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
               {/* Topic search */}
               <View style={st.searchRow}>
                 <View style={st.searchBox}>
-                  <Text style={st.searchIcon}>🔍</Text>
+                  <Search size={17} color={C.dim} strokeWidth={2.4} style={st.searchIcon} />
                   <TextInput
                     style={st.searchInput}
                     placeholder="e.g. Pythagoras Theorem"
@@ -332,7 +338,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
                 <PressableScale onPress={handleGenerate} disabled={loading || !topic.trim()} accessibilityLabel="Start lesson"
                   style={[st.searchGoWrap, (loading || !topic.trim()) && { opacity: 0.55 }]}>
                   <Gradient colors={GRAD.hot} style={st.searchGo}>
-                    {loading ? <ActivityIndicator color="#fff" size="small" /> : <Text style={st.searchGoTxt}>✦</Text>}
+                    {loading ? <ActivityIndicator color="#fff" size="small" /> : <Sparkles size={22} color="#fff" strokeWidth={2.3} />}
                   </Gradient>
                 </PressableScale>
               </View>
@@ -341,8 +347,9 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
             <View style={st.body}>
               {!!error && (
                 <Appear style={st.errCard}>
-                  <Text style={st.errTxt} accessibilityLiveRegion="polite">⚠️  {error}</Text>
-                  <PressableScale onPress={handleGenerate} accessibilityLabel="Try again"><Text style={st.retryTxt}>Try again ›</Text></PressableScale>
+                  <CircleAlert size={17} color={C.pink} strokeWidth={2.3} />
+                  <Text style={st.errTxt} accessibilityLiveRegion="polite">{error}</Text>
+                  <PressableScale onPress={handleGenerate} accessibilityLabel="Try again"><Text style={st.retryTxt}>Try again</Text></PressableScale>
                 </Appear>
               )}
 
@@ -364,7 +371,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
                   return (
                     <PressableScale key={subj} style={[st.subjCard, { backgroundColor: m.tint }, on && st.subjCardOn]} onPress={() => setActiveSubject(subj)}
                       accessibilityLabel={`Subject ${subj}`} accessibilityState={{ selected: on }}>
-                      <Text style={st.subjIcon}>{m.icon}</Text>
+                      <View style={st.subjIcon}><m.Icon size={24} color={m.hue} strokeWidth={2.1} /></View>
                       <Text style={[st.subjTxt, on && st.subjTxtOn]}>{subj}</Text>
                     </PressableScale>
                   );
@@ -378,14 +385,14 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
                 <Appear>
                   <PressableScale style={st.resumeCard} onPress={resumeSavedLesson} disabled={restoring}
                     accessibilityLabel={`Resume your lesson: ${savedLesson.title || 'continue where you left off'}`}>
-                    <View style={st.resumeIcon}><Text style={{ fontSize: 20 }}>⏱</Text></View>
+                    <View style={st.resumeIcon}><History size={22} color={C.blue} strokeWidth={2.2} /></View>
                     <View style={{ flex: 1 }}>
                       <Text style={st.resumeTitle} numberOfLines={1}>{savedLesson.title || 'Continue where you left off'}</Text>
                       <Text style={st.resumeTag}>{resumeCardTag}</Text>
                     </View>
                     {restoring
                       ? <ActivityIndicator color={C.accent} size="small" />
-                      : <Text style={st.resumeGo}>›</Text>}
+                      : <ChevronRight size={22} color={C.faint} strokeWidth={2.4} />}
                   </PressableScale>
                 </Appear>
               )}
@@ -393,9 +400,9 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
               {resume && !resumeDismissed && (
                 <Appear style={st.welcomeCard}>
                   <PressableScale style={st.welcomeClose} onPress={() => setResumeDismissed(true)} hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }} accessibilityLabel="Dismiss welcome back">
-                    <Text style={st.welcomeCloseTxt}>✕</Text>
+                    <X size={16} color={C.dim} strokeWidth={2.4} />
                   </PressableScale>
-                  <Text style={st.welcomeTag}>👋 WELCOME BACK</Text>
+                  <Text style={st.welcomeTag}>WELCOME BACK</Text>
                   <Text style={st.welcomeGreeting}>{resume.greeting}</Text>
                   {!!resume.suggestion && <Text style={st.welcomeSuggest}>{resume.suggestion}</Text>}
                   <View style={st.welcomeBtns}>
@@ -428,13 +435,13 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
               <View style={st.insightGrid}>
                 {[
                   // Opaque fills — see SUBJECT_META: an elevated card must not be translucent on Android.
-                  { tab: 'next', icon: '🧭', title: 'What next?', sub: 'Smart study plan', bg: '#F8EDE5', edge: 'rgba(249,115,22,0.22)' },
-                  { tab: 'revise', icon: '🔁', title: 'Revise', sub: 'Weak topics', bg: '#EDEAFB', edge: 'rgba(139,92,246,0.22)' },
+                  { tab: 'next', Icon: Compass, hue: '#F97316', title: 'What next?', sub: 'Smart study plan', bg: '#F8EDE5', edge: 'rgba(249,115,22,0.22)' },
+                  { tab: 'revise', Icon: RefreshCw, hue: '#8B5CF6', title: 'Revise', sub: 'Weak topics', bg: '#EDEAFB', edge: 'rgba(139,92,246,0.22)' },
                 ].map((a, i) => (
                   <Appear key={a.tab} delay={60 + i * 60} style={{ flex: 1 }}>
                     <PressableScale style={[st.insightCard, { backgroundColor: a.bg, borderColor: a.edge }]} onPress={() => setInsights({ tab: a.tab })}
                       accessibilityLabel={`${a.title}. ${a.sub}`}>
-                      <Text style={st.insightIcon}>{a.icon}</Text>
+                      <View style={st.insightIcon}><a.Icon size={22} color={a.hue} strokeWidth={2.2} /></View>
                       <Text style={st.insightTitle}>{a.title}</Text>
                       <Text style={st.insightSub}>{a.sub}</Text>
                     </PressableScale>
@@ -444,17 +451,17 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
               <Appear delay={180}>
                 <PressableScale style={[st.insightWide]} onPress={() => setInsights({ tab: 'progress' })}
                   accessibilityLabel="Progress. Your stats">
-                  <Text style={st.insightIcon}>📊</Text>
+                  <View style={st.insightIconWide}><ChartColumn size={22} color={C.teal} strokeWidth={2.2} /></View>
                   <View style={{ flex: 1 }}>
                     <Text style={st.insightTitle}>Progress</Text>
                     <Text style={st.insightSub}>Streak, study time, mastery</Text>
                   </View>
-                  <Text style={st.resumeGo}>›</Text>
+                  <ChevronRight size={22} color={C.faint} strokeWidth={2.4} />
                 </PressableScale>
               </Appear>
 
               <Text style={st.hint}>A live, voice-narrated lesson with a teacher, whiteboard, and doubts you can ask anytime.</Text>
-              {!SPEECH_OK && <Text style={st.voiceNote}>🔇 Voice off — run “npx expo install expo-speech” to enable narration.</Text>}
+              {!SPEECH_OK && <Text style={st.voiceNote}>Narration is unavailable on this device — the lesson will play with on-screen captions.</Text>}
             </View>
           </ScrollView>
         </KeyboardAvoidingView>
@@ -462,16 +469,16 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
         {/* ── Generation overlay — the real preparing beats, staged ── */}
         {loading && (
           <View style={st.genOverlay}>
-            <View style={st.genSpark}><Text style={{ fontSize: 34 }}>✨</Text></View>
+            <View style={st.genSpark}><Sparkles size={34} color={C.accent} strokeWidth={2} /></View>
             <Text style={st.genTitle}>Crafting your lesson…</Text>
             <View style={st.genList}>
               {prepStages.map((s, i) => (
                 <View key={i} style={st.genRow}>
                   {i < genStage
-                    ? <Text style={[st.genDot, { color: C.green }]}>✓</Text>
+                    ? <View style={st.genDot}><Check size={16} color={C.green} strokeWidth={3} /></View>
                     : i === genStage
                       ? <ActivityIndicator size="small" color={C.accent} style={st.genSpin} />
-                      : <Text style={[st.genDot, { color: C.faint }]}>○</Text>}
+                      : <View style={st.genDot}><Circle size={13} color={C.faint} strokeWidth={2.5} /></View>}
                   <Text style={[st.genTxt, i === genStage && st.genTxtOn, i < genStage && st.genTxtDone]}>{s}</Text>
                 </View>
               ))}
@@ -576,7 +583,7 @@ const st = StyleSheet.create({
 
   searchRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
   searchBox: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: '#fff', borderRadius: R.lg, paddingHorizontal: 14, height: 50 },
-  searchIcon: { fontSize: 14, opacity: 0.5 },
+  searchIcon: { opacity: 0.9 },
   searchInput: { flex: 1, fontSize: 14, fontFamily: F.med, color: C.ink, paddingVertical: 0 },
   // backgroundColor is required: Android draws the elevation shadow from the view's
   // own background, so a transparent one shows through as a white shape.
@@ -598,7 +605,7 @@ const st = StyleSheet.create({
   subjRow: { gap: 10, paddingVertical: 2, paddingRight: SP.lg },
   subjCard: { width: 86, height: 92, borderRadius: R.xl, borderWidth: 1.5, borderColor: 'rgba(255,255,255,0.9)', alignItems: 'center', justifyContent: 'center', gap: 6, shadowColor: '#0F172A', shadowOpacity: 0.05, shadowRadius: 8, shadowOffset: { width: 0, height: 3 }, elevation: 1 },
   subjCardOn: { borderColor: C.accent, borderWidth: 2 },
-  subjIcon: { fontSize: 24 },
+  subjIcon: { height: 28, alignItems: 'center', justifyContent: 'center' },
   subjTxt: { fontSize: 11.5, fontFamily: F.semi, color: C.ink2 },
   subjTxtOn: { color: C.accent, fontFamily: F.bold },
 
@@ -627,7 +634,8 @@ const st = StyleSheet.create({
   insightGrid: { flexDirection: 'row', gap: 12 },
   insightCard: { borderRadius: R.xxl, borderWidth: 1, padding: SP.lg, gap: 4, shadowColor: '#0F172A', shadowOpacity: 0.04, shadowRadius: 10, shadowOffset: { width: 0, height: 4 }, elevation: 1 },
   insightWide: { flexDirection: 'row', alignItems: 'center', gap: 14, marginTop: 12, borderRadius: R.xxl, borderWidth: 1, borderColor: 'rgba(16,185,129,0.22)', backgroundColor: '#E1F4F0', padding: SP.lg },
-  insightIcon: { fontSize: 22, marginBottom: 2 },
+  insightIcon: { height: 26, marginBottom: 4, justifyContent: 'center', alignItems: 'flex-start' },
+  insightIconWide: { width: 44, height: 44, borderRadius: R.md, backgroundColor: 'rgba(16,185,129,0.12)', alignItems: 'center', justifyContent: 'center' },
   insightTitle: { fontSize: 14, fontFamily: F.bold, color: C.ink, letterSpacing: -0.2 },
   insightSub: { fontSize: 11.5, fontFamily: F.med, color: C.ink2, marginTop: 1 },
 
@@ -645,7 +653,7 @@ const st = StyleSheet.create({
   genTitle: { fontSize: 20, fontFamily: F.bold, color: C.ink, marginBottom: SP.xl, letterSpacing: -0.3 },
   genList: { alignSelf: 'stretch', gap: SP.md },
   genRow: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  genDot: { fontSize: 15, width: 22, textAlign: 'center', fontFamily: F.bold },
+  genDot: { width: 22, alignItems: 'center', justifyContent: 'center' },
   genSpin: { width: 22 },
   genTxt: { flex: 1, fontSize: 14, fontFamily: F.med, color: C.dim },
   genTxtOn: { color: C.ink, fontFamily: F.bold },

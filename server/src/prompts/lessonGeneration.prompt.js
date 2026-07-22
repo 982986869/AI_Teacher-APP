@@ -80,7 +80,7 @@ LANGUAGE: clear ENGLISH (slideTitle, explanation, narrationText, labels). (Langu
 OUTPUT CONTRACT (critical):
 - Respond with ONE valid JSON object and NOTHING else — no markdown, no code fences, no commentary.
 - 7 to 10 slides, each teaching EXACTLY ONE idea, in a logical build. Keep it COMPACT so the JSON is always complete and valid.
-- Per slide output these keys: slideNumber, slideTitle, explanation, narrationText, visualType, visualData — plus OPTIONALLY "check" (see below) on 1 to 2 key concept slides. The app fills in everything else automatically.
+- Per slide output these keys: slideNumber, slideTitle, explanation, narrationText, visualType, visualData — plus OPTIONALLY "check" AND its paired "reteach" (see below) on 1 to 2 key concept slides. The app fills in everything else automatically.
 - explanation = 1 short on-screen line. visualData.keyPoints = 2 short items max.
 - "visualType" MUST be EXACTLY one of: DIAGRAM, CHART, EXAMPLE, ANALOGY, FORMULA, NONE. It is NOT an animation name — NEVER put words like DRAW_TRIANGLE or BUILD_FORMULA there. A definition / key-point / common-mistake / recap slide uses "NONE".
 - Use this exact shape and key names:
@@ -120,10 +120,22 @@ Shape (all string fields plain-spoken; the app reads the question aloud):
   "options": string[],                        // 3 to 4 options — REQUIRED only when type is "mcq"
   "answer": string,                           // the correct OPTION TEXT (for mcq) or a one-line model answer
   "hint": string,                             // a nudge if the student is stuck
-  "misconception": string                     // the wrong idea students commonly hold here (used if they miss it)
+  "misconception": string,                    // the wrong idea students commonly hold here (used if they miss it)
+  "stretch": string                           // OPTIONAL — one harder "why does this work?" / "what if…?" probe to CHALLENGE a student who gets this right (a real teacher pushes their strongest students). Plain spoken, one line. Omit if you can't make it genuinely deeper.
 }
 Good Class 11 examples: "Why can sin theta never exceed 1?" | "In which quadrant is sine positive and cosine negative?" | "What is wrong with saying tan theta equals adjacent over opposite?"
 Do NOT add "check" to every slide, and NEVER let a missing/partial check break the JSON — omit it entirely rather than leave it incomplete.
+- REQUIRED: at least ONE of your checks in the lesson MUST be type "mcq" (3 to 4 options) so the app has a gradeable answer to run the two-way loop. The other may be conceptual/short.
+
+PAIRED RE-TEACH ("reteach") — on EACH slide where you add a "check", ALSO add a "reteach": what you would say if the student gets that check WRONG. This is the difference between a real teacher and a chatbot. It MUST teach the idea a genuinely DIFFERENT way — NOT a repeat of this slide's narration or points. Choose ONE fresh approach: a concrete everyday analogy the student can picture, OR a tiny worked example with real numbers, OR the one contrasting non-example that exposes the misconception. Grade-aware (juniors: simplest everyday picture; 9–10: exam-style clean steps; 11–12: the reasoning / the why). Plain spoken text, read aloud — no symbols/markdown/LaTeX; spell math in words.
+Shape (all plain-spoken; omit the whole "reteach" rather than leave it partial):
+"reteach": {
+  "ack": string,       // gentle 1-line acknowledgement of the miss ("Not quite — let's look at it another way.")
+  "gap": string,       // name the exact part they slipped on (tie to the misconception)
+  "intro": string,     // one line framing the DIFFERENT approach ("Picture it like this —")
+  "steps": string[],   // 2 to 4 short lines that re-teach it the NEW way (the analogy / worked example), each its own line
+  "easyQ": string      // one easier, low-stakes follow-up question to check it clicked
+}
 
 NARRATION RULES (narrationText is READ ALOUD by text-to-speech):
 - Plain spoken text only — no symbols, markdown, LaTeX, emoji, or bullets.

@@ -76,12 +76,16 @@ async function handleTts(req, res) {
 
   const result = await synthesizeSpeech(text, { voice: req.query.voice })
   if (!result.ok) {
-    // Non-2xx → the client falls back to on-device TTS.
-    return res.status(result.status || 502).json({ success: false, message: result.error || 'TTS failed' })
+    // Log the provider detail server-side; never relay the upstream (OpenAI) error
+    // body to the client — it can carry org/quota/model internals. The client only
+    // needs a non-2xx to fall back to on-device TTS.
+    console.error('[tts] synthesis failed:', result.status || '-', result.error || '')
+    return res.status(result.status || 502).json({ success: false, message: 'Voice narration is temporarily unavailable.' })
   }
 
   res.setHeader('Content-Type', result.mime)
-  res.setHeader('Cache-Control', 'public, max-age=86400')
+  // Per-user, auth-gated response — keep it out of shared/CDN caches.
+  res.setHeader('Cache-Control', 'private, max-age=86400')
 
   // OpenAI returns a web ReadableStream. (A buffered provider — e.g. Kokoro, if it
   // is ever re-enabled above — would return `result.buffer` instead; this guard

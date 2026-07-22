@@ -3,6 +3,7 @@ import {
   View, Text, StyleSheet, Modal, TouchableOpacity, ScrollView, ActivityIndicator,
 } from 'react-native';
 import { C } from './premiumTheme';
+import { Check, Play } from 'lucide-react-native';
 import { listEnglishVoices, previewVoice, setPreferredVoice, getSelectedVoiceId, stopTeacher } from '../../utils/teacherVoice';
 
 // Let the student pick the teacher's voice by ear — the reliable way to get a
@@ -26,7 +27,7 @@ export default function VoicePicker({ visible, onClose }) {
   };
 
   const label = (v) => {
-    const g = v.gender === 'f' ? '♀ Female' : v.gender === 'm' ? '♂ Male' : 'Voice';
+    const g = v.gender === 'f' ? 'Female' : v.gender === 'm' ? 'Male' : 'Voice';
     const lang = String(v.language || '').toUpperCase();
     const enh = String(v.quality) === 'Enhanced' ? ' · HD' : '';
     return `${g} · ${lang}${enh}`;
@@ -54,7 +55,9 @@ export default function VoicePicker({ visible, onClose }) {
                       <Text style={[s.rowTitle, on && s.rowTitleOn]} numberOfLines={1}>{label(v)}</Text>
                       <Text style={s.rowSub} numberOfLines={1}>{v.name}</Text>
                     </View>
-                    <Text style={[s.play, on && s.playOn]}>{on ? '✓' : '▶'}</Text>
+                    {on
+                      ? <Check size={18} color={C.accent} strokeWidth={2.6} />
+                      : <Play size={16} color={C.dim} strokeWidth={2.4} fill={C.dim} />}
                   </TouchableOpacity>
                 );
               })}

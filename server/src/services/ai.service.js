@@ -202,9 +202,26 @@ async function generateLesson({ userId, topic, subject, gradeLevel, board, strea
     // Resolve + store the chapter in the background (doesn't delay the response).
     tagLessonChapter(lessonId, topic, subject)
 
-    return lessonService.getLessonWithSlides(lessonId, userId)
+    const saved = await lessonService.getLessonWithSlides(lessonId, userId)
+    // The Slide table doesn't have columns for the LLM-authored comprehension `check`
+    // or adaptive `reteach`, so getLessonWithSlides strips them. Overlay them back from
+    // the fresh payload (matched by slideNumber) so the just-generated lesson is taught
+    // WITH its gradeable checks + genuinely-different re-teach — the two-way classroom.
+    // (Resume via getLesson won't carry these until they're persisted; the client falls
+    // back to a self-check + buildReteach there, so nothing breaks.)
+    if (saved && Array.isArray(saved.slides) && payload && Array.isArray(payload.slides)) {
+      const byNum = new Map(payload.slides.map((s) => [s.slideNumber, s]))
+      saved.slides = saved.slides.map((s) => {
+        const src = byNum.get(s.slideNumber)
+        if (!src) return s
+        return { ...s, ...(src.check ? { check: src.check } : {}), ...(src.reteach ? { reteach: src.reteach } : {}) }
+      })
+    }
+    return saved
   } catch (err) {
-    await lessonService.markLessonFailed(lessonId)
+    // Best-effort status write — never let a failing DB update mask the real
+    // generation error that we're about to re-throw.
+    try { await lessonService.markLessonFailed(lessonId) } catch (markErr) { console.error('[ai.service] markLessonFailed failed:', markErr?.message || markErr) }
     throw err
   }
 }

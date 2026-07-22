@@ -36,12 +36,19 @@ const PRAISE = [
   'Perfect. You got it.',
   'Spot on.',
   "There you go — that's the one.",
+  'Exactly. That reasoning is solid.',
+  "Right again — you're thinking it through.",
+  'Beautiful. That\'s precisely it.',
+  "Yes — and you got there yourself.",
+  'Clean answer. Well reasoned.',
 ];
 const PRAISE_STREAK = [
   "Three in a row — you're on fire.",
   "You're really flying now.",
   "Look at you go. That's mastery.",
   "Nothing's stopping you today.",
+  "That's a real streak — the ideas are clicking.",
+  "One after another. This is genuine understanding.",
 ];
 
 // ── Reassurance — a WRONG answer, first time. Warm, never disappointed ────────
@@ -51,6 +58,9 @@ const REASSURE = [
   "Good try — the answer's the one glowing.",
   "Almost. Let's fix the idea together.",
   "Nearly there. Notice which one is right.",
+  "Not this time — and that's fine. The right one is marked.",
+  "So close. Look at the highlighted answer and see why.",
+  "Good thinking, just missed it — the correct one is glowing.",
 ];
 
 // ── Repeated mistake — SAME idea missed again. Slow down, no frustration ──────

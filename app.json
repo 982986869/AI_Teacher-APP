@@ -44,6 +44,13 @@
         {
           "photosPermission": "Ailernova needs access to your photos so you can add images to questions and options."
         }
+      ],
+      [
+        "expo-speech-recognition",
+        {
+          "microphonePermission": "Ailernova uses your microphone so you can talk to your AI teacher and ask doubts by voice.",
+          "speechRecognitionPermission": "Ailernova uses speech recognition so your AI teacher can understand your spoken questions."
+        }
       ]
     ],
     "extra": {

@@ -118,7 +118,10 @@ function boardTotalFor(scene) {
   switch (scene.boardType) {
     case 'triangle': return 4;                 // base · height · hypotenuse · right-angle
     case 'proof': return 5;                    // triangle · 3 squares · the sum
-    case 'formula': return (scene.formulaParts || []).length || 3;
+    // Real parts if the formula exists; otherwise mirror what the board actually
+    // has (the variable rows) or a single beat — never fabricate 3 empty reveals
+    // that make the voice "advance steps" over a blank board.
+    case 'formula': return (scene.formulaParts || []).length || ((d.variables) || []).length || 1;
     case 'chart': return ((d.chart && d.chart.values) || []).length || 1; // one bar per beat
     // Subject illustrations — step counts MIRROR each board's own reveal total in
     // subjectBoards.js (kept in sync by hand; both files are additive/pure here).
