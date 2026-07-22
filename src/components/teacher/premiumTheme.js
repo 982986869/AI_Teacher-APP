@@ -128,7 +128,7 @@ export const D = {
 
 // ── Gradient pairs (rendered by <Gradient/> in uiKit — SVG based, no extra dep).
 export const GRAD = {
-  brand: ['#4F46E5', '#7E22CE'],   // indigo-600 → purple-700  (landing header)
+  brand: ['#312E81', '#4C1D95'],   // indigo-900 → violet-900  (landing header — deep, editorial, premium)
   hot: ['#EC4899', '#FB923C'],     // pink-500 → orange-400    (primary CTA)
   mint: ['#0D9488', '#047857'],    // teal-600 → emerald-700   (study insights)
   violet: ['#4F46E5', '#9333EA'],  // indigo-600 → purple-600  (ask mic)

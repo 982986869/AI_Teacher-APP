@@ -299,7 +299,6 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
                 <View style={{ flex: 1 }}>
                   <Text style={st.greetSalute}>{salute}</Text>
                   <Text style={st.greetName}>{firstName}</Text>
-                  {!!resume && <Text style={st.greetWave}>Welcome back</Text>}
                   <Text style={st.greetPrompt}>{greet.prompt}</Text>
                 </View>
                 <View style={st.heroAvatar}>
@@ -559,20 +558,20 @@ const st = StyleSheet.create({
 
   // ── gradient hero header ──
   hero: {
-    paddingHorizontal: SP.lg, paddingTop: SP.md, paddingBottom: SP.lg,
-    borderBottomLeftRadius: 40, borderBottomRightRadius: 40, overflow: 'hidden',
-    shadowColor: '#4F46E5', shadowOpacity: 0.35, shadowRadius: 20, shadowOffset: { width: 0, height: 10 }, elevation: 10,
+    paddingHorizontal: SP.lg, paddingTop: SP.md, paddingBottom: SP.xl,
+    borderBottomLeftRadius: 34, borderBottomRightRadius: 34, overflow: 'hidden',
+    shadowColor: '#1E1B4B', shadowOpacity: 0.4, shadowRadius: 24, shadowOffset: { width: 0, height: 12 }, elevation: 12,
   },
   heroTop: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: SP.sm },
   heroBack: { width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.18)' },
   heroBackTxt: { fontSize: 24, color: '#fff', marginTop: -3 },
-  heroKicker: { fontSize: 11, fontFamily: F.bold, color: 'rgba(255,255,255,0.85)', letterSpacing: 2.2 },
+  heroKicker: { fontSize: 11, fontFamily: F.bold, color: 'rgba(255,255,255,0.82)', letterSpacing: 3 },
 
   greetRow: { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: SP.lg },
-  greetSalute: { fontSize: 15, fontFamily: F.med, color: 'rgba(255,255,255,0.82)' },
-  greetName: { fontSize: 30, fontFamily: SERIF, fontWeight: '700', color: '#fff', letterSpacing: -0.6, marginTop: 1 },
+  greetSalute: { fontSize: 14.5, fontFamily: F.med, color: 'rgba(255,255,255,0.7)', letterSpacing: 0.2 },
+  greetName: { fontSize: 36, fontFamily: SERIF, fontWeight: '700', color: '#fff', letterSpacing: -0.9, marginTop: 2 },
   greetWave: { fontSize: 13, fontFamily: F.bold, color: '#fff', marginTop: 6 },
-  greetPrompt: { fontSize: 12.5, fontFamily: F.med, color: 'rgba(255,255,255,0.78)', lineHeight: 18, marginTop: 4 },
+  greetPrompt: { fontSize: 13, fontFamily: F.med, color: 'rgba(255,255,255,0.72)', lineHeight: 19, marginTop: 8 },
   heroAvatar: { borderRadius: 32, borderWidth: 2, borderColor: 'rgba(255,255,255,0.45)', padding: 2, backgroundColor: 'rgba(255,255,255,0.18)' },
 
   modeRow: { flexDirection: 'row', backgroundColor: 'rgba(0,0,0,0.22)', borderRadius: R.pill, padding: 4, marginBottom: SP.md },
