@@ -56,8 +56,15 @@ export const isAllowedSubject = (subject, classNum, stream) => {
 
 export const deriveScope = (user) => {
   if (!user) return { role: 'student', classNum: null, className: null, stream: null, board: null, language: null, school: null, subjects: [], complete: false };
+  // The DB auth-role is authoritative for ADMIN: an admin is ALWAYS an admin, even if a
+  // stale account_type ('student'/'teacher') lingers from an earlier session. Every other
+  // role still honours account_type first, so the student↔parent dual-view (which flips
+  // account_type without touching the auth-role) keeps working unchanged.
+  // Mirror of server/src/services/personalization/scope.js roleOf() — keep in sync.
+  const dbRole = String(user.role || '').toLowerCase();
   const a = String(user.account_type || user.accountType || '').toLowerCase();
-  const role = ROLES.has(a) ? a : (ROLES.has(String(user.role || '').toLowerCase()) ? String(user.role).toLowerCase() : 'student');
+  const role = dbRole === 'admin' ? 'admin'
+    : (ROLES.has(a) ? a : (ROLES.has(dbRole) ? dbRole : 'student'));
   const classNum = normalizeClass(user.grade);
   const stream = normalizeStream(user.stream) || normalizeStream(user.grade);
   const needsStream = classNum != null && classNum >= 11;

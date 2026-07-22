@@ -38,10 +38,12 @@ export const updateProfileApi = async (patch) => {
 
 // ─── Google Auth ──────────────────────────────────────────────────────────────
 
+// Real backend: the server verifies the idToken against Google's public keys, then
+// creates or returns the matching account. Same { success, message, data } envelope as
+// the email routes, so unwrap to { token, user, scope, isNewUser }.
 export const loginWithGoogle = async ({ idToken }) => {
-  if (MOCK_MODE) return { ...mockResponse('Google User', 'google@gmail.com'), isNewUser: false };
   const res = await axiosInstance.post('/api/auth/google', { idToken });
-  return res.data;
+  return res.data.data;
 };
 
 // ─── Phone / OTP Auth ─────────────────────────────────────────────────────────

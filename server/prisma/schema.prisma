@@ -18,6 +18,11 @@ model User {
   createdAt         DateTime            @default(now())
   updatedAt         DateTime            @updatedAt
   role              UserRole            @default(STUDENT)
+  // Admin Portal RBAC (see prisma/sql/admin_portal.sql). Separate from `role` so
+  // elevating a person to admin never disturbs their learner data. NULL = not an admin.
+  adminRole         String?             @map("admin_role")
+  isActive          Boolean             @default(true) @map("is_active")
+  deactivatedAt     DateTime?           @map("deactivated_at") @db.Timestamptz(6)
   brainGymSessions  BrainGymSession[]
   doubtSessions     DoubtSession[]
   knowledge_sources knowledge_sources[]
@@ -49,7 +54,7 @@ model Lesson {
   userId            String         @db.Uuid
   topic             String
   subject           String
-  chapter           String?        // resolved from the topic at generation time (concept resolver)
+  chapter           String? // resolved from the topic at generation time (concept resolver)
   gradeLevel        String
   lessonTitle       String
   estimatedDuration String
@@ -328,21 +333,21 @@ model mcq_questions {
 // (Class 11/12 extraction pipeline). Timed, instruction-driven, mark-weighted, with
 // their own result/review flow.
 model ot_tests {
-  id               BigInt        @id @default(autoincrement())
+  id               BigInt         @id @default(autoincrement())
   subject_slug     String
   subject_name     String
-  class_level      Int           @default(7)
+  class_level      Int            @default(7)
   chapter_name     String
   chapter_slug     String
-  chapter_pos      Int           @default(0)
+  chapter_pos      Int            @default(0)
   ext_test_id      BigInt?
   name             String
   instruction_html String?
-  duration_min     Int           @default(0)
-  total_marks      Int           @default(0)
-  is_paid          Boolean       @default(false)
-  position         Int           @default(0)
-  created_at       DateTime      @default(now()) @db.Timestamptz(6)
+  duration_min     Int            @default(0)
+  total_marks      Int            @default(0)
+  is_paid          Boolean        @default(false)
+  position         Int            @default(0)
+  created_at       DateTime       @default(now()) @db.Timestamptz(6)
   questions        ot_questions[]
 
   @@unique([subject_slug, class_level, chapter_slug, ext_test_id], map: "ot_tests_uq")
@@ -429,23 +434,23 @@ model notes {
 }
 
 model student_concepts {
-  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  userId        String   @db.Uuid
-  concept_id    String   @db.Uuid
-  mastery       Decimal  @default(0) @db.Decimal
-  confidence    Decimal  @default(0) @db.Decimal
-  weakness      Decimal  @default(0) @db.Decimal
-  evidenceCount Int      @default(0)
-  quizCorrect   Int      @default(0)
-  quizTotal     Int      @default(0)
-  doubts        Int      @default(0)
-  recentFails   Int      @default(0)
+  id             String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId         String   @db.Uuid
+  concept_id     String   @db.Uuid
+  mastery        Decimal  @default(0) @db.Decimal
+  confidence     Decimal  @default(0) @db.Decimal
+  weakness       Decimal  @default(0) @db.Decimal
+  evidenceCount  Int      @default(0)
+  quizCorrect    Int      @default(0)
+  quizTotal      Int      @default(0)
+  doubts         Int      @default(0)
+  recentFails    Int      @default(0)
   speedScore     Float    @default(0) // 0..1 rolling answer-speed (lifecycle engine)
   retentionScore Float    @default(0) // 0..1 retention at last practice (decays on read)
   streak         Int      @default(0) // consecutive correct answers on this concept
   revisionCount  Int      @default(0) // times surfaced as scheduled revision
-  lastSeen      DateTime @default(now()) @db.Timestamptz(6)
-  updatedAt     DateTime @default(now()) @db.Timestamptz(6)
+  lastSeen       DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt      DateTime @default(now()) @db.Timestamptz(6)
 
   @@unique([userId, concept_id], map: "student_concepts_uq")
   @@index([userId], map: "student_concepts_user_idx")
@@ -454,7 +459,7 @@ model student_concepts {
 model mistake_book {
   id            String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   userId        String    @db.Uuid
-  itemKey       String    // questionId or 'seed:<seedId>' — dedup key
+  itemKey       String // questionId or 'seed:<seedId>' — dedup key
   source        String    @default("braingym") // braingym | homework | doubt
   questionId    String?   @db.Uuid
   seedId        String?
@@ -569,42 +574,42 @@ enum UserRole {
 // attempt history, generation audit trail, and vector signatures for dedup.
 
 model generated_questions {
-  id                    String                @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  category              String                // reasoning | application | understanding | fluency
-  grade                 String                // canonical class, e.g. "Class 9" — HARD guardrail
-  subject               String                @default("Mental Math")
-  chapter               String                @default("")
-  topic                 String                @default("")
-  concept               String                @default("")
-  difficulty            String                // easy | medium | hard | challenge (WITHIN the grade)
-  level                 Int                   // 1..3 served bucket (challenge maps to 3) for the numeric quiz
-  questionText          String
-  answer                String                // canonical correct answer (string form)
-  answerValue           Float?                // numeric form when applicable (numeric keypad quiz)
-  options               Json                  @default("[]") // 4 MCQ options (future MCQ UI)
-  correctOption         Int                   @default(0)    // index into options
-  explanation           String                @default("")
-  hints                 String[]              @default([])
-  bloomLevel            String                @default("understand")
-  estimatedTimeSec      Int                   @default(30)
-  qualityScore          Float                 @default(0)
-  validationScore       Float                 @default(0)
-  status                String                @default("ACTIVE") // ACTIVE | ARCHIVED | REJECTED | DRAFT
-  isPrerequisite        Boolean               @default(false) // prereq revision from a lower class
-  prereqGrade           String?               // the lower class a prereq revision targets
-  parentQuestionId      String?               // seedId or generated_questions.id it was varied from
-  generationPromptVersion String              @default("v1")
-  llmModel              String                @default("")
-  signature             String                // normalized hash of the question for fast dedup
-  timesServed           Int                   @default(0)
-  timesCorrect          Int                   @default(0)
-  timesWrong            Int                   @default(0)
-  ambiguityFlag         Boolean               @default(false)
-  archivedReason        String?
-  createdAt             DateTime              @default(now()) @db.Timestamptz(6)
-  updatedAt             DateTime              @default(now()) @db.Timestamptz(6)
-  embedding             question_embeddings?
-  attempts              question_attempts[]
+  id                      String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  category                String // reasoning | application | understanding | fluency
+  grade                   String // canonical class, e.g. "Class 9" — HARD guardrail
+  subject                 String               @default("Mental Math")
+  chapter                 String               @default("")
+  topic                   String               @default("")
+  concept                 String               @default("")
+  difficulty              String // easy | medium | hard | challenge (WITHIN the grade)
+  level                   Int // 1..3 served bucket (challenge maps to 3) for the numeric quiz
+  questionText            String
+  answer                  String // canonical correct answer (string form)
+  answerValue             Float? // numeric form when applicable (numeric keypad quiz)
+  options                 Json                 @default("[]") // 4 MCQ options (future MCQ UI)
+  correctOption           Int                  @default(0) // index into options
+  explanation             String               @default("")
+  hints                   String[]             @default([])
+  bloomLevel              String               @default("understand")
+  estimatedTimeSec        Int                  @default(30)
+  qualityScore            Float                @default(0)
+  validationScore         Float                @default(0)
+  status                  String               @default("ACTIVE") // ACTIVE | ARCHIVED | REJECTED | DRAFT
+  isPrerequisite          Boolean              @default(false) // prereq revision from a lower class
+  prereqGrade             String? // the lower class a prereq revision targets
+  parentQuestionId        String? // seedId or generated_questions.id it was varied from
+  generationPromptVersion String               @default("v1")
+  llmModel                String               @default("")
+  signature               String // normalized hash of the question for fast dedup
+  timesServed             Int                  @default(0)
+  timesCorrect            Int                  @default(0)
+  timesWrong              Int                  @default(0)
+  ambiguityFlag           Boolean              @default(false)
+  archivedReason          String?
+  createdAt               DateTime             @default(now()) @db.Timestamptz(6)
+  updatedAt               DateTime             @default(now()) @db.Timestamptz(6)
+  embedding               question_embeddings?
+  attempts                question_attempts[]
 
   @@unique([grade, subject, signature], map: "gen_q_grade_subject_sig_uq") // dedup race guard
   @@index([grade, subject, category, difficulty, status], map: "gen_q_lookup_idx")
@@ -627,8 +632,8 @@ model question_attempts {
   id          String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   userId      String               @db.Uuid
   questionId  String?              @db.Uuid // null for seed questions
-  seedId      String?              // set when the served question came from the offline seed bank
-  source      String               // seed | generated
+  seedId      String? // set when the served question came from the offline seed bank
+  source      String // seed | generated
   category    String
   grade       String?
   subject     String               @default("Mental Math")
@@ -647,21 +652,21 @@ model question_attempts {
 }
 
 model student_mastery {
-  id                   String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  userId               String   @db.Uuid
-  category             String
-  subject              String   @default("Mental Math")
-  grade                String   // the class the student is in (mastery is tracked within-class)
-  attempts             Int      @default(0)
-  correct              Int      @default(0)
-  accuracy             Float    @default(0) // rolling, 0..1
-  streak               Int      @default(0) // consecutive correct answers
-  masteryScore         Float    @default(0) // 0..1
-  currentDifficulty    String   @default("easy") // easy | medium | hard | challenge
-  hiAccuracySessions   Int      @default(0) // consecutive high-accuracy sessions (for challenge promotion)
-  recentFails          Int      @default(0) // for automatic struggle downgrade
-  lastSeen             DateTime @default(now()) @db.Timestamptz(6)
-  updatedAt            DateTime @default(now()) @db.Timestamptz(6)
+  id                 String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId             String   @db.Uuid
+  category           String
+  subject            String   @default("Mental Math")
+  grade              String // the class the student is in (mastery is tracked within-class)
+  attempts           Int      @default(0)
+  correct            Int      @default(0)
+  accuracy           Float    @default(0) // rolling, 0..1
+  streak             Int      @default(0) // consecutive correct answers
+  masteryScore       Float    @default(0) // 0..1
+  currentDifficulty  String   @default("easy") // easy | medium | hard | challenge
+  hiAccuracySessions Int      @default(0) // consecutive high-accuracy sessions (for challenge promotion)
+  recentFails        Int      @default(0) // for automatic struggle downgrade
+  lastSeen           DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt          DateTime @default(now()) @db.Timestamptz(6)
 
   @@unique([userId, category, subject], map: "student_mastery_uq")
   @@index([userId], map: "student_mastery_user_idx")
@@ -669,25 +674,25 @@ model student_mastery {
 }
 
 model generation_history {
-  id                 String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  userId             String?          @db.Uuid // null for background/batch runs
+  id                 String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId             String?  @db.Uuid // null for background/batch runs
   category           String
   grade              String
-  subject            String           @default("Mental Math")
+  subject            String   @default("Mental Math")
   difficulty         String
-  requested          Int              @default(0)
-  generated          Int              @default(0)
-  accepted           Int              @default(0)
-  rejectedValidation Int              @default(0)
-  rejectedDuplicate  Int              @default(0)
-  rejectedGuardrail  Int              @default(0)
-  promptVersion      String           @default("v1")
-  llmModel           String           @default("")
-  durationMs         Int              @default(0)
-  trigger            String           @default("on_demand") // on_demand | background | batch
-  status             String           @default("SUCCESS") // SUCCESS | PARTIAL | FAILED
+  requested          Int      @default(0)
+  generated          Int      @default(0)
+  accepted           Int      @default(0)
+  rejectedValidation Int      @default(0)
+  rejectedDuplicate  Int      @default(0)
+  rejectedGuardrail  Int      @default(0)
+  promptVersion      String   @default("v1")
+  llmModel           String   @default("")
+  durationMs         Int      @default(0)
+  trigger            String   @default("on_demand") // on_demand | background | batch
+  status             String   @default("SUCCESS") // SUCCESS | PARTIAL | FAILED
   error              String?
-  createdAt          DateTime         @default(now()) @db.Timestamptz(6)
+  createdAt          DateTime @default(now()) @db.Timestamptz(6)
 
   @@index([createdAt(sort: Desc)], map: "gen_history_time_idx")
   @@index([category, grade], map: "gen_history_cat_grade_idx")
@@ -721,3 +726,73 @@ model arena_matches {
   @@index([game, status, userSolved], map: "arena_ghost_idx")
 }
 
+// ─── Admin Portal tables ─────────────────────────────────────────────────────
+// Created by prisma/sql/admin_portal.sql (also modelled here to keep the schema
+// accurate). Owned entirely by the admin portal; never read by the student runtime.
+
+model audit_logs {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  actor_id     String?  @db.Uuid
+  actor_name   String?
+  actor_email  String?
+  actor_role   String?
+  module       String
+  action       String
+  target_type  String?
+  target_id    String?
+  target_label String?
+  before       Json?
+  after        Json?
+  ip           String?
+  user_agent   String?
+  created_at   DateTime @default(now()) @db.Timestamptz(6)
+
+  @@index([created_at(sort: Desc)], map: "audit_logs_created_idx")
+  @@index([actor_id, created_at(sort: Desc)], map: "audit_logs_actor_idx")
+  @@index([module, created_at(sort: Desc)], map: "audit_logs_module_idx")
+}
+
+model announcements {
+  id              String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title           String
+  body            String    @default("")
+  audience        String    @default("all") // all | students | parents | teachers | class
+  class_level     Int?
+  status          String    @default("draft") // draft | published | archived
+  pinned          Boolean   @default(false)
+  starts_at       DateTime? @db.Timestamptz(6)
+  ends_at         DateTime? @db.Timestamptz(6)
+  created_by      String?   @db.Uuid
+  created_by_name String?
+  published_at    DateTime? @db.Timestamptz(6)
+  created_at      DateTime  @default(now()) @db.Timestamptz(6)
+  updated_at      DateTime  @default(now()) @db.Timestamptz(6)
+
+  @@index([status, created_at(sort: Desc)], map: "announcements_status_idx")
+}
+
+model app_settings {
+  key         String   @id
+  value       Json     @default("{}")
+  category    String   @default("general")
+  label       String?
+  description String?
+  version     Int      @default(1)
+  updated_by  String?  @db.Uuid
+  updated_at  DateTime @default(now()) @db.Timestamptz(6)
+}
+
+model feature_flags {
+  key             String   @id
+  label           String
+  description     String?
+  enabled         Boolean  @default(true)
+  environment     String   @default("all") // all | production | development
+  rollout_scope   String   @default("global")
+  version         Int      @default(1)
+  position        Int      @default(0)
+  updated_by      String?  @db.Uuid
+  updated_by_name String?
+  updated_at      DateTime @default(now()) @db.Timestamptz(6)
+  created_at      DateTime @default(now()) @db.Timestamptz(6)
+}

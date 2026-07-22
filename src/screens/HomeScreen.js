@@ -22,26 +22,98 @@
 // card — AI Teacher is only ONE of them.
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import {
-  View, StyleSheet, ScrollView, StatusBar, TouchableOpacity,
+  View, Text, StyleSheet, ScrollView, StatusBar, TouchableOpacity,
   Dimensions, Modal, Animated, Easing, RefreshControl,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import Svg, { Defs, RadialGradient, LinearGradient as LG, Stop, Rect, Circle, Path } from 'react-native-svg';
+import { LinearGradient } from 'expo-linear-gradient';
 import {
   Bell, Flame, Star, TrendingUp, Play, ArrowRight, Sparkles, GraduationCap,
   CircleCheck, Bot, Dumbbell, Pencil, WandSparkles, Gauge, PartyPopper,
   Zap, Trophy, Target, BookOpen, MessageCircle, Swords, Lock, CircleAlert,
 } from 'lucide-react-native';
 import { useAuth } from '../context/AuthContext';
-import { ClassPicker } from '../components/ClassPicker';
 import AITeacherScreen from './AITeacherScreen';
 import BrainGymFlow from './braingym/BrainGymFlow';
+import { useRuntimeConfig } from '../context/RuntimeConfigContext';
+import OptionalUpdateBanner from '../components/OptionalUpdateBanner';
 import { getParentReport } from '../api/parentApi';
 import { getResumeContext } from '../api/aiApi';
 import { getActiveLesson, getHomeState, saveHomeState } from '../utils/storage';
-import { T } from './parent/ParentApp/constants';
-import { S, shadow, shadowSm } from '../theme/studentTheme';
+import { S as S_BASE } from '../theme/studentTheme';
+import {
+  useFonts as useAuroraFonts,
+  SpaceGrotesk_400Regular, SpaceGrotesk_500Medium,
+  SpaceGrotesk_600SemiBold, SpaceGrotesk_700Bold,
+} from '@expo-google-fonts/space-grotesk';
+
+// ── AURORA re-skin ─────────────────────────────────────────────────────────────
+// The whole Student Home wears the "Aurora" look: glassmorphism cards floating on a
+// lavender aurora wash, a purple #6C4DE6 brand, Space Grotesk type. Instead of
+// hand-editing every section, we alias the three primitives the screen is built from
+// — the `S` palette, the elevation `shadow`s, and the `<T>` text component — so one
+// block re-skins colour, depth and font across the entire screen. (Faux glass: RN has
+// no backdrop-blur without a native module, so cards are translucent white over the
+// wash — reads as glass without a rebuild.)
+const S = {
+  ...S_BASE,
+  canvas: '#F2F0FA',
+  // Faux glass: without a native blur, 0.62 washed out against the light aurora wash.
+  // A high-opacity white + faint purple edge reads as a clean, defined card instead.
+  card: 'rgba(255,255,255,0.9)',
+  cardEdge: 'rgba(108,77,230,0.12)',
+  ink: '#2A2450', sub: '#4A4270', muted: '#8079B0', faint: '#9A91C8',
+  hair: 'rgba(255,255,255,0.85)', border: 'rgba(255,255,255,0.85)',
+  indigo: '#6C4DE6', indigoSoft: '#EFE7FF',
+  purple: '#8A6BFF', purpleSoft: '#EFE7FF',
+  blue: '#5F7DFF', blueSoft: 'rgba(95,125,255,0.16)',
+  emerald: '#1F9E6E', emeraldSoft: '#DFF6EC',
+  orange: '#C9772A', orangeSoft: '#FFF0DD',
+  gold: '#C9922A', goldSoft: '#FFF3DA',
+  cyan: '#3AA6C9', cyanSoft: '#DBF0FA',
+  red: '#E0524B', redSoft: '#FDE7E7',
+  heroA: '#6C4DE6', heroB: '#A06BFF', heroGlow: '#C7A6FF',
+};
+const shadow = { shadowColor: '#6E50C8', shadowOpacity: 0.16, shadowRadius: 30, shadowOffset: { width: 0, height: 16 }, elevation: 5 };
+const shadowSm = { shadowColor: '#6E50C8', shadowOpacity: 0.14, shadowRadius: 14, shadowOffset: { width: 0, height: 6 }, elevation: 6 };
+
+// Space Grotesk mapped to the app's weight keys (the family ships 400–700; the two
+// heaviest keys reuse 700).
+const SG = {
+  reg: 'SpaceGrotesk_400Regular', med: 'SpaceGrotesk_500Medium',
+  semi: 'SpaceGrotesk_600SemiBold', bold: 'SpaceGrotesk_700Bold',
+  xbold: 'SpaceGrotesk_700Bold', black: 'SpaceGrotesk_700Bold',
+};
+// Local text primitive — same API as the shared <T> but Aurora font + ink. Shadows the
+// shared import so every <T> on this screen re-types with no per-call change. Falls back
+// to the system font until Space Grotesk finishes loading (non-blocking), then swaps in.
+function T({ w = 'reg', s = 14, c = S.ink, style, children, ...rest }) {
+  return <Text style={[{ fontFamily: SG[w], fontSize: s, color: c }, style]} {...rest}>{children}</Text>;
+}
+
+// The aurora wash — four soft radial blooms over the lavender ground, painted behind
+// all content so the translucent cards read as frosted glass.
+function AuroraBg() {
+  return (
+    <View pointerEvents="none" style={StyleSheet.absoluteFill}>
+      <Svg width="100%" height="100%">
+        <Defs>
+          <RadialGradient id="ab1" cx="0.08" cy="0.02" r="0.5"><Stop offset="0" stopColor="#E9D8FF" stopOpacity="0.95" /><Stop offset="1" stopColor="#E9D8FF" stopOpacity="0" /></RadialGradient>
+          <RadialGradient id="ab2" cx="0.98" cy="0.08" r="0.5"><Stop offset="0" stopColor="#CFE6FF" stopOpacity="0.9" /><Stop offset="1" stopColor="#CFE6FF" stopOpacity="0" /></RadialGradient>
+          <RadialGradient id="ab3" cx="0.15" cy="0.98" r="0.55"><Stop offset="0" stopColor="#FFD9EC" stopOpacity="0.85" /><Stop offset="1" stopColor="#FFD9EC" stopOpacity="0" /></RadialGradient>
+          <RadialGradient id="ab4" cx="1.0" cy="0.92" r="0.5"><Stop offset="0" stopColor="#DCD0FF" stopOpacity="0.9" /><Stop offset="1" stopColor="#DCD0FF" stopOpacity="0" /></RadialGradient>
+        </Defs>
+        <Rect width="100%" height="100%" fill="#F2F0FA" />
+        <Rect width="100%" height="100%" fill="url(#ab1)" />
+        <Rect width="100%" height="100%" fill="url(#ab2)" />
+        <Rect width="100%" height="100%" fill="url(#ab3)" />
+        <Rect width="100%" height="100%" fill="url(#ab4)" />
+      </Svg>
+    </View>
+  );
+}
 import {
   FadeInOnce, FadeIn, PressableScale, CountUp, GrowFill, GrowBar,
   Breathe, Float, Pulse, PulseRing, Nudge, Wave, PopIn, Shine, Shimmer,
@@ -217,8 +289,8 @@ function Section({ title, accent = S.indigo, sub }) {
   return (
     <View style={hs.secHead}>
       <View style={[hs.secDot, { backgroundColor: accent }]} />
-      <T w="black" s={16} c={S.ink} style={{ letterSpacing: -0.3 }}>{title}</T>
-      {!!sub && <T w="bold" s={11.5} c={S.faint} style={{ marginLeft: 'auto' }}>{sub}</T>}
+      <T w="black" s={16} c={S.ink} numberOfLines={1} style={{ letterSpacing: -0.3, flexShrink: 1 }}>{title}</T>
+      {!!sub && <T w="bold" s={11.5} c={S.faint} numberOfLines={1} style={{ marginLeft: 'auto', paddingLeft: 8, flexShrink: 0 }}>{sub}</T>}
     </View>
   );
 }
@@ -375,8 +447,11 @@ function Toast({ data, top, onDone }) {
 
 // ─── Main HomeScreen ──────────────────────────────────────────────────────────
 const HomeScreen = () => {
-  const { user, selectedClass, setSelectedClass, scope } = useAuth();
+  const { user, selectedClass, scope } = useAuth();
   const insets = useSafeAreaInsets();
+  // Aurora type — non-blocking (mirrors AITeacher): the screen renders immediately in
+  // the system font and swaps to Space Grotesk the moment it's ready.
+  useAuroraFonts({ SpaceGrotesk_400Regular, SpaceGrotesk_500Medium, SpaceGrotesk_600SemiBold, SpaceGrotesk_700Bold });
   const navigation = useNavigation();
   const scrollRef = useRef(null);
 
@@ -456,12 +531,19 @@ const HomeScreen = () => {
   const onRefresh = () => { setRefreshing(true); load(true); };
   const retry = () => { setLoading(true); setErr(false); load(false); };
 
+  // Feature flags — when a feature is off it cannot be launched from anywhere on Home,
+  // and its dedicated entry section is hidden below. Fail-open (missing flag = on).
+  const { isFeatureEnabled } = useRuntimeConfig();
+  const aiTeacherOn = isFeatureEnabled('aiTeacher');
+  const brainGymOn = isFeatureEnabled('brainGym');
+
   const openAITeacher = (topic = '', subject) => {
+    if (!aiTeacherOn) return;
     setSeedTopic(topic);
     if (subject && AIT_SUBJECTS.includes(subject)) setActiveSubject(subject);
     setShowAITeacher(true);
   };
-  const openBrainGym = () => setShowBrainGym(true);
+  const openBrainGym = () => { if (!brainGymOn) return; setShowBrainGym(true); };
   const hour = new Date().getHours();
   const greet = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
 
@@ -665,15 +747,15 @@ const HomeScreen = () => {
             <FadeInOnce id="s-goal" delay={30} y={14}>
               <View style={hs.card}>
                 <View style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
-                  <Ring pct={(weeklyGoals.overall || 0) / 100} size={58} stroke={6} color={S.emerald} track={S.hair}>
+                  <Ring pct={(weeklyGoals.overall || 0) / 100} size={58} stroke={6} color={S.emerald} track="#EAE5F5">
                     <T w="black" s={13} c={S.emerald}>{weeklyGoals.overall || 0}%</T>
                   </Ring>
                   <View style={{ flex: 1, gap: 9 }}>
                     {weeklyGoals.goals.map((g) => (
                       <View key={g.id}>
                         <View style={hs.rowBetween}>
-                          <T w="bold" s={11.5} c={S.sub}>{g.label}</T>
-                          <T w="xbold" s={11.5} c={g.done ? S.emerald : S.muted}>{g.value}/{g.target}{g.unit ? ` ${g.unit}` : ''}</T>
+                          <T w="bold" s={11.5} c={S.sub} numberOfLines={1} style={{ flex: 1, flexShrink: 1 }}>{g.label}</T>
+                          <T w="xbold" s={11.5} c={g.done ? S.emerald : S.muted} style={{ flexShrink: 0, marginLeft: 8 }}>{g.value}/{g.target}{g.unit ? ` ${g.unit}` : ''}</T>
                         </View>
                         <View style={hs.goalBar}>
                           <GrowFill pct={g.pct} color={g.done ? S.emerald : S.indigo} delay={200} style={{ height: '100%', borderRadius: 4 }} />
@@ -689,6 +771,7 @@ const HomeScreen = () => {
       }
 
       case 'practice':
+        if (!brainGymOn) return null; // Brain Gym feature flag off → hide the section
         return (
           <React.Fragment key={key}>
             <Section title="Sharpen your thinking" accent={S.purple} sub={streak > 0 ? `${streak}-day streak 🔥` : 'Brain Gym'} />
@@ -741,15 +824,16 @@ const HomeScreen = () => {
       }
 
       case 'doubt':
+        if (!aiTeacherOn) return null; // AI Teacher feature flag off → hide the section
         return (
           <FadeInOnce id="s-ai" delay={80} y={16} key={key}>
             <View style={[hs.aiCard, { marginTop: 22 }]}>
-              <View style={hs.rowBetween}>
-                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 11 }}>
-                  <View style={hs.aiAvatar}>
-                    <Pulse from={0.92} to={1.08} duration={2400}><Bot size={22} color={S.emerald} strokeWidth={2.4} /></Pulse>
-                  </View>
-                  <View>
+              <View style={[hs.rowBetween, { alignItems: 'flex-start' }]}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 11, flex: 1, minWidth: 0 }}>
+                  <LinearGradient colors={['#6C4DE6', '#A06BFF']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={hs.aiAvatar}>
+                    <Pulse from={0.92} to={1.08} duration={2400}><Bot size={24} color="#fff" strokeWidth={2.2} /></Pulse>
+                  </LinearGradient>
+                  <View style={{ flex: 1, minWidth: 0 }}>
                     <T w="black" s={15.5} c={S.ink}>Stuck on something?</T>
                     <T w="semi" s={10.5} c={S.muted} style={{ marginTop: 1 }}>Ask your AI teacher — instant help</T>
                   </View>
@@ -765,8 +849,8 @@ const HomeScreen = () => {
                 {subjectChips.map((subj) => {
                   const on = activeSubject === subj;
                   return (
-                    <PressableScale key={subj} style={[hs.subChip, on && { backgroundColor: S.emerald, borderColor: S.emerald }]} onPress={() => setActiveSubject(subj)}>
-                      <T w="bold" s={12.5} c={on ? '#fff' : S.muted}>{subj}</T>
+                    <PressableScale key={subj} style={[hs.subChip, on && { backgroundColor: '#FFFFFF', borderColor: 'rgba(140,110,240,0.45)' }]} onPress={() => setActiveSubject(subj)}>
+                      <T w="bold" s={12.5} c={on ? S.indigo : S.muted}>{subj}</T>
                     </PressableScale>
                   );
                 })}
@@ -785,9 +869,11 @@ const HomeScreen = () => {
               </ScrollView>
 
               <Breathe>
-                <PressableScale style={hs.aiBtn} onPress={() => openAITeacher('', activeSubject)} accessibilityLabel="Ask a doubt">
-                  <WandSparkles size={16} color="#fff" strokeWidth={2.4} />
-                  <T w="bold" s={14.5} c="#fff">Ask a doubt</T>
+                <PressableScale style={hs.aiBtnWrap} onPress={() => openAITeacher('', activeSubject)} accessibilityLabel="Ask a doubt">
+                  <LinearGradient colors={['#6C4DE6', '#A06BFF']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={hs.aiBtn}>
+                    <WandSparkles size={18} color="#fff" strokeWidth={2.4} />
+                    <T w="bold" s={15} c="#fff">Ask a doubt</T>
+                  </LinearGradient>
                 </PressableScale>
               </Breathe>
             </View>
@@ -801,11 +887,11 @@ const HomeScreen = () => {
             <FadeInOnce id="s-week" delay={30} y={14}>
               <View style={hs.card}>
                 <View style={hs.rowBetween}>
-                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, flex: 1, minWidth: 0 }}>
                     <Gauge size={17} color={S.indigo} strokeWidth={2.5} />
-                    <T w="xbold" s={15} c={S.ink}>{Number(summary.quizzes) || 0} quizzes done</T>
+                    <T w="xbold" s={15} c={S.ink} numberOfLines={1} style={{ flexShrink: 1 }}>{Number(summary.quizzes) || 0} quizzes done</T>
                   </View>
-                  <T w="semi" s={11.5} c={S.muted}>{Number(summary.xp) || 0} XP</T>
+                  <T w="semi" s={11.5} c={S.muted} style={{ flexShrink: 0, marginLeft: 8 }}>{Number(summary.xp) || 0} XP</T>
                 </View>
                 {week.length > 0 && (Number(summary.quizzes) > 0 || week.some((d) => (Number(d.xp) || 0) > 0)) ? (
                   <View style={hs.chartRow}>
@@ -865,9 +951,14 @@ const HomeScreen = () => {
                     </FadeIn>
                   );
                 }) : (
-                  <View style={{ alignItems: 'center', paddingVertical: 8, gap: 4 }}>
-                    <T w="bold" s={13} c={S.sub}>No activity yet</T>
-                    <T w="semi" s={11.5} c={S.muted} style={{ textAlign: 'center' }}>Start a lesson or a Brain Gym set — it’ll show up here.</T>
+                  <View style={{ alignItems: 'center', paddingVertical: 10, gap: 4 }}>
+                    <Float>
+                      <LinearGradient colors={['#EFE6FF', '#E2D4FF']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={hs.emptyIcon}>
+                        <TrendingUp size={22} color={S.purple} strokeWidth={2} />
+                      </LinearGradient>
+                    </Float>
+                    <T w="bold" s={13.5} c={S.ink} style={{ marginTop: 8 }}>No activity yet</T>
+                    <T w="semi" s={11.5} c={S.muted} style={{ textAlign: 'center', maxWidth: 250 }}>Start a lesson or a Brain Gym set — it’ll show up here.</T>
                   </View>
                 )}
               </View>
@@ -882,12 +973,14 @@ const HomeScreen = () => {
             <Section title="Live 1:1 session" accent={S.blue} />
             <FadeInOnce id="s-session" delay={30} y={14}>
               <View style={[hs.card, hs.soonCard]}>
-                <View style={hs.soonIcon}><Lock size={17} color={S.blue} strokeWidth={2.5} /></View>
-                <View style={{ flex: 1 }}>
+                <View style={hs.soonIcon}>
+                  <Pulse from={0.94} to={1.08} duration={2200}><Lock size={19} color={S.blue} strokeWidth={2.5} /></Pulse>
+                </View>
+                <View style={hs.soonText}>
                   <T w="xbold" s={14} c={S.ink}>1:1 tutoring is coming soon</T>
                   <T w="semi" s={11.5} c={S.muted} style={{ marginTop: 2 }}>Book live sessions with expert teachers — launching shortly.</T>
                 </View>
-                <View style={hs.soonPill}><T w="xbold" s={9.5} c={S.blue}>SOON</T></View>
+                <Pulse from={0.96} to={1.06} duration={1900}><View style={hs.soonPill}><T w="xbold" s={9.5} c={S.blue} style={{ letterSpacing: 0.6 }}>SOON</T></View></Pulse>
               </View>
             </FadeInOnce>
           </React.Fragment>
@@ -914,6 +1007,7 @@ const HomeScreen = () => {
 
   return (
     <View style={hs.safe}>
+      <AuroraBg />
       <StatusBar barStyle="dark-content" backgroundColor={S.canvas} translucent={false} />
 
       {/* ── CLEAN LIGHT HEADER ── */}
@@ -930,7 +1024,7 @@ const HomeScreen = () => {
               <T w="semi" s={12.5} c={S.muted}>{greet}</T>
               <Wave><T s={12.5}>👋</T></Wave>
             </View>
-            <T w="black" s={21} c={S.ink} numberOfLines={1} style={{ marginTop: 1, letterSpacing: -0.4 }}>Hi, {firstName}</T>
+            <T w="black" s={23} c={S.indigo} numberOfLines={1} style={{ marginTop: 1, letterSpacing: -0.4 }}>Hi, {firstName}</T>
           </View>
         </View>
         <PressableScale style={hs.bellBtn} accessibilityLabel="Notifications">
@@ -938,13 +1032,6 @@ const HomeScreen = () => {
           {(report?.notifications?.unread || 0) > 0 && <View style={hs.bellDot} />}
         </PressableScale>
       </View>
-
-      {scope?.tester && (
-        <View style={hs.testerBar}>
-          <T w="xbold" s={12.5} c={S.orange}>🧪 Viewing class</T>
-          <ClassPicker value={selectedClass} onChange={setSelectedClass} />
-        </View>
-      )}
 
       {loading ? (
         <Skeleton />
@@ -958,6 +1045,7 @@ const HomeScreen = () => {
           showsVerticalScrollIndicator={false}
           refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={S.indigo} colors={[S.indigo]} />}
         >
+          <OptionalUpdateBanner />
           {showStats && (
             <View style={hs.statsRow}>
               <StatCard Icon={Flame} tint={S.orange} tintBg={S.orangeSoft} value={streak} label="Day streak" delay={40} />
@@ -972,8 +1060,8 @@ const HomeScreen = () => {
         </ScrollView>
       )}
 
-      {/* Positioned below the header (and tester bar when shown) so it never overlaps them. */}
-      {toast && <Toast data={toast} top={insets.top + 70 + (scope?.tester ? 42 : 0)} onDone={() => setToast(null)} />}
+      {/* Positioned below the header so it never overlaps it. */}
+      {toast && <Toast data={toast} top={insets.top + 70} onDone={() => setToast(null)} />}
 
       {/* ── CHARACTER MODAL ── */}
       <Modal visible={showCharModal} transparent animationType="fade" onRequestClose={() => setShowCharModal(false)}>
@@ -1020,8 +1108,6 @@ const hs = StyleSheet.create({
   bellBtn: { width: 42, height: 42, borderRadius: 15, backgroundColor: '#fff', borderWidth: 1, borderColor: S.hair, alignItems: 'center', justifyContent: 'center', ...shadowSm },
   bellDot: { position: 'absolute', top: 10, right: 11, width: 8, height: 8, borderRadius: 4, backgroundColor: S.orange, borderWidth: 1.5, borderColor: '#fff' },
 
-  testerBar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10, backgroundColor: '#FFF7ED', borderTopWidth: 1, borderBottomWidth: 1, borderColor: '#FDE7C8', paddingHorizontal: PAD, paddingVertical: 8 },
-
   // Acknowledgement toast
   toastWrap: { position: 'absolute', left: 0, right: 0, alignItems: 'center', zIndex: 50 },
   toast: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: S.ink, borderRadius: 16, paddingVertical: 11, paddingHorizontal: 16, maxWidth: '90%', ...shadow },
@@ -1050,7 +1136,8 @@ const hs = StyleSheet.create({
   bgHub: { position: 'absolute', width: 26, height: 26, borderRadius: 13, backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center' },
 
   // Generic card
-  card: { backgroundColor: '#fff', borderRadius: 20, borderWidth: 1, borderColor: S.hair, padding: 16, ...shadow },
+  card: { backgroundColor: S.card, borderRadius: 24, borderWidth: 1, borderColor: S.cardEdge, padding: 16, overflow: 'hidden', ...shadow },
+  emptyIcon: { width: 50, height: 50, borderRadius: 16, alignItems: 'center', justifyContent: 'center' },
   rowBetween: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   goalBar: { height: 6, backgroundColor: S.hair, borderRadius: 5, marginTop: 5, overflow: 'hidden' },
   chartRow: { flexDirection: 'row', alignItems: 'flex-end', gap: 6, marginTop: 16 },
@@ -1073,13 +1160,14 @@ const hs = StyleSheet.create({
   soonPill: { backgroundColor: S.blueSoft, borderRadius: 20, paddingHorizontal: 10, paddingVertical: 5 },
 
   // AI Teacher (doubt)
-  aiCard: { backgroundColor: '#fff', borderRadius: 22, borderWidth: 1, borderColor: S.hair, padding: 18, ...shadow },
-  aiAvatar: { width: 46, height: 46, borderRadius: 15, backgroundColor: S.emeraldSoft, alignItems: 'center', justifyContent: 'center' },
-  online: { flexDirection: 'row', alignItems: 'center', gap: 7, backgroundColor: S.emeraldSoft, borderRadius: 18, paddingVertical: 6, paddingHorizontal: 11 },
+  aiCard: { backgroundColor: S.card, borderRadius: 24, borderWidth: 1, borderColor: S.cardEdge, padding: 18, overflow: 'hidden', ...shadow },
+  aiAvatar: { width: 50, height: 50, borderRadius: 16, overflow: 'hidden', alignItems: 'center', justifyContent: 'center' },
+  online: { flexDirection: 'row', alignItems: 'center', gap: 7, backgroundColor: 'rgba(53,211,154,0.16)', borderRadius: 999, paddingVertical: 6, paddingHorizontal: 11 },
   onlineDot: { width: 6, height: 6, alignItems: 'center', justifyContent: 'center' },
-  subChip: { paddingVertical: 8, paddingHorizontal: 15, borderRadius: 18, borderWidth: 1.5, borderColor: S.border, backgroundColor: '#fff' },
-  qPill: { borderRadius: 18, paddingVertical: 9, paddingHorizontal: 14 },
-  aiBtn: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, backgroundColor: S.emerald, borderRadius: 14, paddingVertical: 14, marginTop: 16 },
+  subChip: { paddingVertical: 10, paddingHorizontal: 18, borderRadius: 999, borderWidth: 1.5, borderColor: 'rgba(150,140,200,0.35)', backgroundColor: 'rgba(255,255,255,0.55)' },
+  qPill: { borderRadius: 999, paddingVertical: 11, paddingHorizontal: 16 },
+  aiBtnWrap: { borderRadius: 20, overflow: 'hidden', marginTop: 18, shadowColor: '#6C4DE6', shadowOpacity: 0.4, shadowRadius: 18, shadowOffset: { width: 0, height: 8 }, elevation: 8 },
+  aiBtn: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, borderRadius: 20, paddingVertical: 17 },
 
   // Achievements
   badge: { width: 68, height: 68, borderRadius: 22, backgroundColor: '#fff', borderWidth: 1, borderColor: S.hair, alignItems: 'center', justifyContent: 'center', overflow: 'hidden', ...shadow },

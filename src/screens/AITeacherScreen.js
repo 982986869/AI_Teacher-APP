@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 import {
   View, Text, StyleSheet, SafeAreaView, ScrollView,
   StatusBar, TextInput, Platform,
-  KeyboardAvoidingView, ActivityIndicator,
+  KeyboardAvoidingView, ActivityIndicator, Animated, Easing,
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
 import { generateLesson, askAgent, askAgentStream, getResumeContext, getLesson, updateLessonProgress } from '../api/aiApi';
@@ -16,6 +16,9 @@ import {
   Poppins_700Bold, Poppins_800ExtraBold,
 } from '@expo-google-fonts/poppins';
 import LiveTeachingPlayer from '../components/teacher/LiveTeachingPlayer';
+import AuroraCraftingLoader from '../components/teacher/AuroraCraftingLoader';
+import AuroraBg from '../components/teacher/AuroraBg';
+import GradientText from '../components/teacher/GradientText';
 import TeacherAvatar from '../components/teacher/TeacherAvatar';
 import TeacherFullBody from '../components/teacher/TeacherFullBody';
 import { TEACHER_HEADSHOT, TEACHER_PHOTO, TEACHER_VIDEO } from '../components/teacher/teacherIdentity';
@@ -43,6 +46,24 @@ const SUBJECT_META = {
   History: { icon: '🏛️', tint: '#F8E7DC' },  // orange
 };
 const subjectMeta = (s) => SUBJECT_META[s] || { icon: '✨', tint: '#E6E9FB' };
+
+// Spinning aurora ring behind the teacher avatar — a rotating multi-colour gradient disc
+// (conic isn't native, so a rotating linear sweep approximates it). The white avatar on
+// top masks the centre, leaving a glowing rim.
+function AvatarRing({ size = 62 }) {
+  const spin = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    const loop = Animated.loop(Animated.timing(spin, { toValue: 1, duration: 8000, easing: Easing.linear, useNativeDriver: true }));
+    loop.start();
+    return () => loop.stop();
+  }, [spin]);
+  const rotate = spin.interpolate({ inputRange: [0, 1], outputRange: ['0deg', '360deg'] });
+  return (
+    <Animated.View pointerEvents="none" style={{ position: 'absolute', top: -5, left: -5, width: size + 10, height: size + 10, borderRadius: (size + 10) / 2, overflow: 'hidden', transform: [{ rotate }] }}>
+      <Gradient colors={['#ff9ecd', '#a78bff', '#7fd8ff', '#a5f0d0', '#ff9ecd']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={StyleSheet.absoluteFill} />
+    </Animated.View>
+  );
+}
 
 const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack }) => {
   const { user, scope } = useAuth();
@@ -272,13 +293,14 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   if (slides.length === 0) {
     return (
       <SafeAreaView style={st.safe}>
-        <StatusBar barStyle="light-content" backgroundColor={GRAD.brand[0]} />
+        <StatusBar barStyle="dark-content" backgroundColor="#F1EEFA" />
+        <AuroraBg />
 
         <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
           <ScrollView contentContainerStyle={st.scroll} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
 
-            {/* ── GRADIENT HEADER: greeting · teacher · mode toggle · topic search ── */}
-            <Gradient colors={GRAD.brand} style={st.hero}>
+            {/* ── AURORA HEADER: greeting · teacher · mode toggle · topic search ── */}
+            <View style={st.hero}>
               {Platform.OS === 'android' && <View style={{ height: 24 }} />}
 
               <View style={st.heroTop}>
@@ -292,12 +314,16 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
               <View style={st.greetRow}>
                 <View style={{ flex: 1 }}>
                   <Text style={st.greetSalute}>{salute}</Text>
-                  <Text style={st.greetName}>{firstName}</Text>
+                  <GradientText size={34}>{firstName}</GradientText>
                   {!!resume && <Text style={st.greetWave}>Welcome back! {'\u{1F44B}'}</Text>}
                   <Text style={st.greetPrompt}>{greet.prompt}</Text>
                 </View>
-                <View style={st.heroAvatar}>
-                  <TeacherAvatar theme="dark" photo={TEACHER_HEADSHOT} state="idle" expression="smile" size={54} />
+                <View style={st.avatarWrap}>
+                  <AvatarRing size={62} />
+                  <View style={st.heroAvatar}>
+                    <TeacherAvatar theme="light" photo={TEACHER_HEADSHOT} state="idle" expression="smile" size={54} />
+                  </View>
+                  <View style={st.avatarDot} />
                 </View>
               </View>
 
@@ -331,12 +357,12 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
                 </View>
                 <PressableScale onPress={handleGenerate} disabled={loading || !topic.trim()} accessibilityLabel="Start lesson"
                   style={[st.searchGoWrap, (loading || !topic.trim()) && { opacity: 0.55 }]}>
-                  <Gradient colors={GRAD.hot} style={st.searchGo}>
+                  <Gradient colors={['#ff9ecd', '#7fd8ff']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={st.searchGo}>
                     {loading ? <ActivityIndicator color="#fff" size="small" /> : <Text style={st.searchGoTxt}>✦</Text>}
                   </Gradient>
                 </PressableScale>
               </View>
-            </Gradient>
+            </View>
 
             <View style={st.body}>
               {!!error && (
@@ -346,12 +372,16 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
                 </Appear>
               )}
 
-              {/* Your teacher — Ms. Nova (full-body avatar, dark stage card) */}
+              {/* Your teacher — Ms. Nova (full-body avatar, glass stage card) */}
               <Appear from="scale" style={st.teacherCard}>
-                <TeacherFullBody photo={TEACHER_PHOTO} video={TEACHER_VIDEO} state="idle" theme="dark" height={300} />
+                <View style={st.readyBadge}>
+                  <View style={st.readyDot} />
+                  <Text style={st.readyTxt}>READY</Text>
+                </View>
+                <TeacherFullBody photo={TEACHER_PHOTO} video={TEACHER_VIDEO} state="idle" theme="cream" bg="#EDEAFB" height={300} />
                 <View style={st.teacherTag}>
                   <Text style={st.teacherRole}>YOUR TEACHER</Text>
-                  <Text style={st.teacherName}>Ms. Nova</Text>
+                  <GradientText size={22}>Ms. Nova</GradientText>
                 </View>
               </Appear>
 
@@ -459,25 +489,9 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
           </ScrollView>
         </KeyboardAvoidingView>
 
-        {/* ── Generation overlay — the real preparing beats, staged ── */}
+        {/* ── Generation overlay — the Aurora "Crafting Your Personal Lesson" screen ── */}
         {loading && (
-          <View style={st.genOverlay}>
-            <View style={st.genSpark}><Text style={{ fontSize: 34 }}>✨</Text></View>
-            <Text style={st.genTitle}>Crafting your lesson…</Text>
-            <View style={st.genList}>
-              {prepStages.map((s, i) => (
-                <View key={i} style={st.genRow}>
-                  {i < genStage
-                    ? <Text style={[st.genDot, { color: C.green }]}>✓</Text>
-                    : i === genStage
-                      ? <ActivityIndicator size="small" color={C.accent} style={st.genSpin} />
-                      : <Text style={[st.genDot, { color: C.faint }]}>○</Text>}
-                  <Text style={[st.genTxt, i === genStage && st.genTxtOn, i < genStage && st.genTxtDone]}>{s}</Text>
-                </View>
-              ))}
-            </View>
-            <Text style={st.genHint}>{prepHint}</Text>
-          </View>
+          <AuroraCraftingLoader topic={topic} stages={prepStages} stage={genStage} quote={prepHint} />
         )}
       </SafeAreaView>
     );
@@ -546,38 +560,39 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
 };
 
 const st = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: C.cream },
+  safe: { flex: 1, backgroundColor: '#F1EEFA' },
   safeDark: { flex: 1, backgroundColor: D.bg },
   scroll: { paddingBottom: SP.xxl },
 
   // ── gradient hero header ──
   hero: {
     paddingHorizontal: SP.lg, paddingTop: SP.md, paddingBottom: SP.lg,
-    borderBottomLeftRadius: 40, borderBottomRightRadius: 40, overflow: 'hidden',
-    shadowColor: '#4F46E5', shadowOpacity: 0.35, shadowRadius: 20, shadowOffset: { width: 0, height: 10 }, elevation: 10,
+    backgroundColor: 'transparent',
   },
   heroTop: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: SP.sm },
-  heroBack: { width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.18)' },
-  heroBackTxt: { fontSize: 24, color: '#fff', marginTop: -3 },
-  heroKicker: { fontSize: 11, fontFamily: F.bold, color: 'rgba(255,255,255,0.85)', letterSpacing: 2.2 },
+  heroBack: { width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.5)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.7)' },
+  heroBackTxt: { fontSize: 24, color: '#6d5ce0', marginTop: -3 },
+  heroKicker: { fontSize: 11, fontFamily: F.bold, color: '#6f66a3', letterSpacing: 2.2 },
 
   greetRow: { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: SP.lg },
-  greetSalute: { fontSize: 15, fontFamily: F.med, color: 'rgba(255,255,255,0.82)' },
-  greetName: { fontSize: 30, fontFamily: SERIF, fontWeight: '700', color: '#fff', letterSpacing: -0.6, marginTop: 1 },
-  greetWave: { fontSize: 13, fontFamily: F.bold, color: '#fff', marginTop: 6 },
-  greetPrompt: { fontSize: 12.5, fontFamily: F.med, color: 'rgba(255,255,255,0.78)', lineHeight: 18, marginTop: 4 },
-  heroAvatar: { borderRadius: 32, borderWidth: 2, borderColor: 'rgba(255,255,255,0.45)', padding: 2, backgroundColor: 'rgba(255,255,255,0.18)' },
+  greetSalute: { fontSize: 15, fontFamily: F.med, color: '#7a72ad' },
+  greetWave: { fontSize: 13, fontFamily: F.bold, color: '#5a4fb0', marginTop: 6 },
+  greetPrompt: { fontSize: 12.5, fontFamily: F.med, color: '#6b6595', lineHeight: 18, marginTop: 4 },
 
-  modeRow: { flexDirection: 'row', backgroundColor: 'rgba(0,0,0,0.22)', borderRadius: R.pill, padding: 4, marginBottom: SP.md },
-  modeBtn: { flex: 1, paddingVertical: 10, borderRadius: R.pill, alignItems: 'center' },
-  modeBtnOn: { backgroundColor: '#fff', shadowColor: '#000', shadowOpacity: 0.12, shadowRadius: 6, shadowOffset: { width: 0, height: 2 }, elevation: 2 },
-  modeTxt: { fontSize: 13, fontFamily: F.semi, color: 'rgba(255,255,255,0.85)' },
-  modeTxtOn: { color: C.accent },
+  avatarWrap: { width: 62, height: 62, alignItems: 'center', justifyContent: 'center' },
+  heroAvatar: { borderRadius: 30, borderWidth: 2, borderColor: '#fff', padding: 2, backgroundColor: '#efeaff' },
+  avatarDot: { position: 'absolute', right: 1, bottom: 1, width: 14, height: 14, borderRadius: 7, backgroundColor: '#3ddc97', borderWidth: 2.5, borderColor: '#fff' },
+
+  modeRow: { flexDirection: 'row', backgroundColor: 'rgba(255,255,255,0.42)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.6)', borderRadius: R.pill, padding: 5, marginBottom: SP.md },
+  modeBtn: { flex: 1, paddingVertical: 11, borderRadius: R.pill, alignItems: 'center' },
+  modeBtnOn: { backgroundColor: '#7b5cf0', shadowColor: '#7b5cf0', shadowOpacity: 0.35, shadowRadius: 12, shadowOffset: { width: 0, height: 6 }, elevation: 3 },
+  modeTxt: { fontSize: 13, fontFamily: F.semi, color: '#7a72ad' },
+  modeTxtOn: { color: '#fff' },
 
   searchRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
-  searchBox: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: '#fff', borderRadius: R.lg, paddingHorizontal: 14, height: 50 },
-  searchIcon: { fontSize: 14, opacity: 0.5 },
-  searchInput: { flex: 1, fontSize: 14, fontFamily: F.med, color: C.ink, paddingVertical: 0 },
+  searchBox: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: 'rgba(255,255,255,0.62)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.85)', borderRadius: R.lg, paddingHorizontal: 14, height: 52 },
+  searchIcon: { fontSize: 14, opacity: 0.45 },
+  searchInput: { flex: 1, fontSize: 14, fontFamily: F.med, color: '#2a2545', paddingVertical: 0 },
   // backgroundColor is required: Android draws the elevation shadow from the view's
   // own background, so a transparent one shows through as a white shape.
   searchGoWrap: { borderRadius: R.lg, overflow: 'hidden', backgroundColor: GRAD.hot[0], shadowColor: '#EC4899', shadowOpacity: 0.45, shadowRadius: 10, shadowOffset: { width: 0, height: 5 }, elevation: 6 },
@@ -589,10 +604,13 @@ const st = StyleSheet.create({
   seclbl: { fontSize: 11, fontFamily: F.bold, color: C.dim, letterSpacing: 1.4, textTransform: 'uppercase', marginTop: SP.lg, marginBottom: SP.md },
 
   // teacher stage card
-  teacherCard: { backgroundColor: D.panel, borderRadius: R.xxl, overflow: 'hidden', alignItems: 'center', paddingTop: SP.md, shadowColor: '#0F172A', shadowOpacity: 0.18, shadowRadius: 20, shadowOffset: { width: 0, height: 10 }, elevation: 5 },
+  teacherCard: { backgroundColor: 'rgba(255,255,255,0.5)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.85)', borderRadius: R.xxl, overflow: 'hidden', alignItems: 'center', paddingTop: SP.sm, shadowColor: '#6e50c8', shadowOpacity: 0.18, shadowRadius: 24, shadowOffset: { width: 0, height: 14 }, elevation: 6 },
+  readyBadge: { position: 'absolute', top: 14, right: 14, zIndex: 3, flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: 'rgba(255,255,255,0.78)', borderRadius: 20, paddingHorizontal: 10, paddingVertical: 5 },
+  readyDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: '#3ddc97' },
+  readyTxt: { fontSize: 9, fontFamily: F.bold, color: '#5a4fb0', letterSpacing: 0.6 },
   teacherTag: { alignItems: 'center', paddingBottom: SP.md, paddingTop: SP.xs },
-  teacherRole: { fontSize: 10, fontFamily: F.bold, color: '#A5B4FC', letterSpacing: 1.8 },
-  teacherName: { fontSize: 20, fontFamily: SERIF, fontWeight: '600', color: '#fff', marginTop: 2 },
+  teacherRole: { fontSize: 10, fontFamily: F.bold, color: '#9a91c8', letterSpacing: 1.8 },
+  teacherName: { fontSize: 20, fontFamily: SERIF, fontWeight: '600', color: '#5a4fb0', marginTop: 2 },
 
   // subject tiles
   subjRow: { gap: 10, paddingVertical: 2, paddingRight: SP.lg },

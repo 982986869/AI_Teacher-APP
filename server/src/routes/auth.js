@@ -2,7 +2,7 @@
 
 const { Router } = require('express')
 const { body } = require('express-validator')
-const { register, login, me, updateProfile } = require('../controllers/auth.controller')
+const { register, login, googleAuth, me, updateProfile } = require('../controllers/auth.controller')
 const { authenticate } = require('../middleware/auth')
 
 const router = Router()
@@ -51,8 +51,15 @@ const profileRules = [
   body('accountType').optional().isIn(['student', 'parent', 'teacher']).withMessage('Invalid account type'),
 ]
 
+const googleRules = [
+  body('idToken')
+    .trim()
+    .notEmpty().withMessage('Google idToken is required'),
+]
+
 router.post('/register', registerRules, register)
 router.post('/login',    loginRules,    login)
+router.post('/google',   googleRules,   googleAuth)
 router.get('/me',        authenticate,  me)
 router.patch('/profile', authenticate,  profileRules, updateProfile)
 

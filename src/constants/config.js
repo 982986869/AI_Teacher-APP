@@ -32,7 +32,26 @@ function resolveApiUrl() {
 
 export const API_BASE_URL = resolveApiUrl();
 
-export const GOOGLE_WEB_CLIENT_ID = process.env.GOOGLE_WEB_CLIENT_ID || 'YOUR_GOOGLE_WEB_CLIENT_ID';
+// Google OAuth client IDs. app.json → expo.extra.google is the primary source: unlike
+// process.env it is present in standalone builds, which is where the old env-only
+// lookup silently fell through to the placeholder. These are public identifiers, not
+// secrets, so shipping them in the bundle is expected.
+const googleExtra = Constants.expoConfig?.extra?.google || {};
+
+const isPlaceholder = (v) => !v || v.startsWith('REPLACE_WITH') || v === 'YOUR_GOOGLE_WEB_CLIENT_ID';
+
+const pickClientId = (...candidates) => candidates.find((c) => !isPlaceholder(c)) || '';
+
+export const GOOGLE_WEB_CLIENT_ID = pickClientId(
+  googleExtra.webClientId,
+  process.env.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID,
+  process.env.GOOGLE_WEB_CLIENT_ID,
+);
+
+export const GOOGLE_IOS_CLIENT_ID = pickClientId(
+  googleExtra.iosClientId,
+  process.env.EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID,
+);
 
 export const OTP_LENGTH = 6;
 

@@ -1,9 +1,13 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   View, Text, TouchableOpacity, StyleSheet,
-  Animated, SafeAreaView, StatusBar, Linking, Dimensions,
+  Animated, SafeAreaView, StatusBar, Linking, Dimensions, Alert, ActivityIndicator,
 } from 'react-native';
 import { MaterialCommunityIcons, Fontisto } from '@expo/vector-icons';
+
+import { signInWithGoogle, GoogleSignInCancelled } from '../utils/googleSignin';
+import { loginWithGoogle } from '../api/authApi';
+import { useAuth } from '../context/AuthContext';
 
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 
@@ -71,6 +75,29 @@ function FloatingSymbol({ label, top, left, right, size, delay }) {
 export default function LandingScreen({ navigation }) {
   const fadeAnim  = useRef(new Animated.Value(0)).current;
   const slideAnim = useRef(new Animated.Value(20)).current;
+  const { signIn } = useAuth();
+  const [googleLoading, setGoogleLoading] = useState(false);
+
+  const handleGoogle = async () => {
+    if (googleLoading) return;
+    try {
+      setGoogleLoading(true);
+      const { idToken } = await signInWithGoogle();
+      const data = await loginWithGoogle({ idToken });
+      await signIn(data);
+    } catch (e) {
+      if (e instanceof GoogleSignInCancelled) return;
+      Alert.alert(
+        'Google sign-in',
+        e?.response?.data?.error
+          || e?.response?.data?.message
+          || e?.message
+          || 'Google sign-in failed. Please try again.'
+      );
+    } finally {
+      setGoogleLoading(false);
+    }
+  };
 
   useEffect(() => {
     Animated.parallel([
@@ -112,10 +139,16 @@ export default function LandingScreen({ navigation }) {
         </View>
 
         {/* Google button */}
-        <TouchableOpacity style={styles.btnGoogle}
-          onPress={() => console.log('Google')} activeOpacity={0.85}>
-          <Fontisto name="google" size={18} color="#4285F4" />
-          <Text style={styles.btnGoogleText}>Google</Text>
+        <TouchableOpacity style={styles.btnGoogle} disabled={googleLoading}
+          onPress={handleGoogle} activeOpacity={0.85}>
+          {googleLoading ? (
+            <ActivityIndicator size="small" color="#4285F4" />
+          ) : (
+            <>
+              <Fontisto name="google" size={18} color="#4285F4" />
+              <Text style={styles.btnGoogleText}>Google</Text>
+            </>
+          )}
         </TouchableOpacity>
 
         {/* Email + Phone */}

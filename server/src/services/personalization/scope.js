@@ -28,10 +28,15 @@ function normalizeClass(grade) {
 }
 
 function roleOf(user) {
+  // The DB auth-role is authoritative for ADMIN: an admin is ALWAYS an admin, even if a
+  // stale account_type ('student'/'teacher') is left over from an earlier session. Every
+  // other role still honours account_type first, so the student↔parent dual-view (which
+  // flips account_type without touching the auth-role) keeps working unchanged.
+  const dbRole = String(user.role || '').toLowerCase()
+  if (dbRole === 'admin') return 'admin'
   const a = String(user.account_type || user.accountType || '').toLowerCase()
   if (ROLES.has(a)) return a
-  const r = String(user.role || 'student').toLowerCase()
-  return ROLES.has(r) ? r : 'student'
+  return ROLES.has(dbRole) ? dbRole : 'student'
 }
 
 // Returns: { role, classNum, className, stream, board, language, school, subjects, complete }

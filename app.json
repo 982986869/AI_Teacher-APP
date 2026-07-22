@@ -17,12 +17,16 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.ailernova.app",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "permissions": [
+        "android.permission.READ_CALENDAR",
+        "android.permission.WRITE_CALENDAR"
+      ],
+      "package": "com.kumkum165.ailernova"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -34,11 +38,20 @@
         {
           "calendarPermission": "Ailernova adds your booked demo class to your calendar so you get a reminder before it starts."
         }
+      ],
+      [
+        "@react-native-google-signin/google-signin",
+        {
+          "iosUrlScheme": "com.googleusercontent.apps.REPLACE_WITH_REVERSED_IOS_CLIENT_ID"
+        }
       ]
     ],
     "extra": {
       "eas": {
         "projectId": "dccd04ea-7d70-4833-8530-b551448b5b05"
+      },
+      "google": {
+        "webClientId": "87773466841-e4mu2gmd5evup3gg6vf58hqs0ogumvas.apps.googleusercontent.com"
       }
     }
   }

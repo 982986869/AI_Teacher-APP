@@ -11,11 +11,43 @@ import { directLesson } from './teachingDirector';
 import { focusTarget } from './cameraDirector';
 import { freshLearner, observe, assess } from './emotionEngine';
 import { ACTIONS, freshPedagogy, observePedagogy, decideNextAction, personalizedRecap, continuationHint } from './pedagogyEngine';
-import { C, D, F, SP, GLASS, GRAD, R } from './premiumTheme';
+import { C as C_BASE, D, F, SP, GLASS, GRAD as GRAD_BASE, R } from './premiumTheme';
 import { PressableScale, Gradient } from './uiKit';
+
+// ── AURORA color theme (dark stage kept) ─────────────────────────────────────
+// The classroom keeps its dark "room lights down" stage (D palette) and the
+// whiteboard's ink/blue/green hues for legibility — only the BRAND accent shifts to
+// Aurora purple (#6C4DE6 → #A06BFF), so the mic, Continue/Ask buttons, progress bar
+// and status dots all read as Aurora without disturbing the board.
+const C = { ...C_BASE, accent: '#6C4DE6', accentBright: '#5A3FD6', accentSoft: 'rgba(108,77,230,0.14)' };
+const GRAD = { ...GRAD_BASE, violet: ['#6C4DE6', '#A06BFF'], brand: ['#6C4DE6', '#A06BFF'] };
+
+// Ms. Nova's status dot — a soft sonar pulse radiates while she's actively teaching,
+// so the header reads as "live". Static (no pulse) when idle/paused.
+function LiveDot({ on }) {
+  const a = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    if (!on) { a.stopAnimation(); a.setValue(0); return undefined; }
+    const loop = Animated.loop(
+      Animated.timing(a, { toValue: 1, duration: 1200, easing: Easing.out(Easing.ease), useNativeDriver: true }),
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [on, a]);
+  const scale = a.interpolate({ inputRange: [0, 1], outputRange: [1, 2.8] });
+  const opacity = a.interpolate({ inputRange: [0, 1], outputRange: [0.5, 0] });
+  return (
+    <View style={st.statusDotWrap}>
+      {on && <Animated.View pointerEvents="none" style={[st.statusPulse, { transform: [{ scale }], opacity }]} />}
+      <View style={[st.statusDot, on && st.statusDotOn]} />
+    </View>
+  );
+}
+import { StreamingAnswerCard } from './StreamingAnswerCard';
 import BoardSurface, { surfaceFor } from './boardSurfaces';
 import { EraserWipe } from './boardGestures';
 import { AmbientStage, VoiceAura } from './ambientStage';
+import DarkAuroraBg from './DarkAuroraBg';
 import { expressionForScene, praiseLine, reassureLine, listeningLine, completeLine, resumeBridge } from './teacherPersona';
 import { buildReteach } from './reteach';
 import { speakTeacher, stopTeacher, primeTeacherVoice, getSpeechProgress, SPEECH_OK, speakTeacherQueued, resetTeacherQueue, isTeacherQueueActive } from '../../utils/teacherVoice';
@@ -266,6 +298,49 @@ const StudentCircle = React.memo(function StudentCircle({ active }) {
 function VoiceMic({ onStart, onPartial, onFinal, onEnd, onError, dock }) {
   const { useSpeechRecognitionEvent, ExpoSpeechRecognitionModule } = SpeechRec;
   const [busy, setBusy] = useState(false);
+
+  // A soft state-halo behind the mic that breathes while she's listening — a quiet
+  // "I'm hearing you" cue. Core Animated (native driver) so it costs nothing on the JS
+  // thread and needs no extra dependency; matches the pink stop-state so the cluster
+  // reads as one lit control.
+  const haloScale = useRef(new Animated.Value(1)).current;
+  const haloOpacity = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    if (!busy) {
+      haloScale.stopAnimation();
+      haloOpacity.stopAnimation();
+      haloScale.setValue(1);
+      Animated.timing(haloOpacity, { toValue: 0, duration: 220, useNativeDriver: true }).start();
+      return undefined;
+    }
+    haloScale.setValue(1);
+    haloOpacity.setValue(0.34);
+    const loop = Animated.loop(
+      Animated.parallel([
+        Animated.timing(haloScale, { toValue: 1.35, duration: 900, easing: Easing.inOut(Easing.ease), useNativeDriver: true }),
+        Animated.timing(haloOpacity, { toValue: 0, duration: 900, easing: Easing.out(Easing.ease), useNativeDriver: true }),
+      ]),
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [busy, haloScale, haloOpacity]);
+
+  // Idle "breath" on the mic — the primary action feels alive and invites a tap, the
+  // way a professional coach app's main CTA gently pulses. Pauses while listening so
+  // it never competes with the halo.
+  const idleScale = useRef(new Animated.Value(1)).current;
+  useEffect(() => {
+    if (busy) { idleScale.stopAnimation(); idleScale.setValue(1); return undefined; }
+    const loop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(idleScale, { toValue: 1.05, duration: 1400, easing: Easing.inOut(Easing.ease), useNativeDriver: true }),
+        Animated.timing(idleScale, { toValue: 1, duration: 1400, easing: Easing.inOut(Easing.ease), useNativeDriver: true }),
+      ]),
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [busy, idleScale]);
+
   useSpeechRecognitionEvent('result', (e) => {
     const t = (e && e.results && e.results[0] && e.results[0].transcript) || '';
     if (t) onPartial && onPartial(t);
@@ -285,9 +360,17 @@ function VoiceMic({ onStart, onPartial, onFinal, onEnd, onError, dock }) {
   // The primary conversational action — talk to her.
   return (
     <PressableScale onPress={toggle} style={st.dItem} scaleTo={0.9} accessibilityLabel={busy ? 'Stop listening' : 'Ask the teacher a question'}>
-      {busy
-        ? <View style={[st.dMic, st.dMicOn]}><Text style={st.dMicIcon}>■</Text></View>
-        : <Gradient colors={GRAD.violet} style={st.dMic}><Text style={st.dMicIcon}>🎤</Text></Gradient>}
+      <View style={st.micWrap}>
+        <Animated.View
+          pointerEvents="none"
+          style={[st.micHalo, { opacity: haloOpacity, transform: [{ scale: haloScale }] }]}
+        />
+        <Animated.View style={{ transform: [{ scale: idleScale }] }}>
+          {busy
+            ? <View style={[st.dMic, st.dMicOn]}><Text style={st.dMicIcon}>■</Text></View>
+            : <Gradient colors={GRAD.violet} style={st.dMic}><Text style={st.dMicIcon}>🎤</Text></Gradient>}
+        </Animated.View>
+      </View>
       <Text style={[st.dLbl, st.dLblPrimary]}>{busy ? 'Stop' : 'Ask'}</Text>
     </PressableScale>
   );
@@ -766,6 +849,14 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   };
   const resumeFromDoubt = () => { stopTeacher(); clearDoubtTick(); setQa(null); setQaMeta(null); setDoubtDone(false); resumeBridgeRef.current = true; setMode(M.TEACHING); setAnimKey((k) => k + 1); };
 
+  // Quick-action chips under a finished answer → send a natural follow-up doubt.
+  const QUICK_FOLLOWUP = {
+    explain_simpler: 'Can you explain that more simply?',
+    give_example: 'Can you give me an example?',
+    start_quiz: 'Quiz me on this with one quick question.',
+  };
+  const handleQuickAction = (action) => { const q = QUICK_FOLLOWUP[action]; if (q) sendDoubt(q); };
+
   // Re-explanation: jump back to the concept she just taught (skip quick-checks /
   // the opener) and replay it. The 'replay' signal eases her pace, so the second
   // pass is genuinely slower and warmer — the honest, no-new-content re-teach.
@@ -885,7 +976,9 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
 
   return (
     <View style={st.container}>
-      {/* clean warm editorial background (C.cream) — no ambient, mobile-first */}
+      {/* Aurora dark wash — violet/magenta/blue blooms behind the room (whiteboard
+          stays on its own white card, so it's unaffected). */}
+      <DarkAuroraBg />
 
       {/* ── HEADER (fixed) ── */}
       <View style={st.bar}>
@@ -915,7 +1008,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
           <View style={{ flex: 1 }}>
             <Text style={st.teacherName}>Ms. Nova</Text>
             <View style={st.statusRow}>
-              <View style={[st.statusDot, ttsActive && st.statusDotOn]} />
+              <LiveDot on={ttsActive} />
               <Text style={st.statusTxt}>{mode === M.LISTENING ? 'Listening' : mode === M.THINKING ? 'Thinking' : ttsActive ? 'Teaching' : mode === M.PAUSED ? 'Paused' : 'Ready'}</Text>
             </View>
           </View>
@@ -932,7 +1025,15 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
               </View>
             </Animated.View>
           )}
-          <View style={st.captionWrap}>{captionEl}</View>
+          {qa ? (
+            <View style={{ width: '100%' }}>
+              <Text style={[st.askedLabel, { marginHorizontal: SP.md, marginBottom: SP.xs }]} numberOfLines={1}>You asked · “{qa.q}”</Text>
+              <StreamingAnswerCard streamedText={qa.a || 'Thinking…'} isDone={doubtDone} isDark onActionSelect={handleQuickAction} />
+              {doubtDone && !!qaMeta && <View style={{ marginHorizontal: SP.md, marginTop: SP.xs }}><DoubtMeta meta={qaMeta} /></View>}
+            </View>
+          ) : (
+            <View style={st.captionWrap}>{captionEl}</View>
+          )}
         </Stage>
       </ScrollView>
 
@@ -1049,7 +1150,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
 // stays on the LIGHT tokens (C.board / C.ink) so every SVG board in LessonBoards
 // renders unchanged inside it — only the chrome around it goes dark (D.*).
 const st = StyleSheet.create({
-  container: { flex: 1, backgroundColor: D.bg },
+  container: { flex: 1, backgroundColor: '#120F26' },
   paperFaint: { opacity: 0.35 },
 
   // header (fixed) — ghost circle glyphs over the dark room
@@ -1100,7 +1201,7 @@ const st = StyleSheet.create({
   badgeTxt: { fontSize: 11, fontFamily: F.semi, color: D.textDim, letterSpacing: 0.8, textTransform: 'lowercase' },
   badgeTxtOn: { color: D.text },
 
-  caption: { alignSelf: 'center', alignItems: 'center', marginTop: SP.lg, maxWidth: SCREEN_W - SP.xl, paddingVertical: SP.md, paddingHorizontal: SP.lg, borderRadius: R.xl, backgroundColor: D.panel, borderWidth: 1, borderColor: D.edge },
+  caption: { alignSelf: 'center', alignItems: 'center', marginTop: SP.lg, maxWidth: SCREEN_W - SP.xl, paddingVertical: SP.md, paddingHorizontal: SP.lg, borderRadius: R.xl, backgroundColor: 'rgba(255,255,255,0.08)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.14)' },
   askedLabel: { fontSize: 11, fontFamily: F.semi, color: D.textFaint, textAlign: 'left', marginBottom: 8, letterSpacing: 0.3, fontStyle: 'italic' },
 
   // doubt metadata strip (source / confidence / concept / prerequisites)
@@ -1135,9 +1236,11 @@ const st = StyleSheet.create({
 
   // ── the lit whiteboard + the dark teacher/caption panel ──
   lessonScroll: { flexGrow: 1, paddingHorizontal: SP.md, paddingTop: SP.xs, paddingBottom: SP.md },
-  teacherBar: { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: SP.md, backgroundColor: D.panel, borderWidth: 1, borderColor: D.edge, borderRadius: R.xl, padding: SP.sm, paddingRight: SP.md },
+  teacherBar: { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: SP.md, backgroundColor: 'rgba(255,255,255,0.07)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.14)', borderRadius: R.xl, padding: SP.sm, paddingRight: SP.md },
   teacherName: { fontSize: 14.5, fontFamily: F.bold, color: D.text, letterSpacing: -0.2 },
   statusRow: { flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 3 },
+  statusDotWrap: { width: 6, height: 6, alignItems: 'center', justifyContent: 'center' },
+  statusPulse: { position: 'absolute', width: 6, height: 6, borderRadius: 3, backgroundColor: C.accent },
   statusDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: D.textFaint },
   statusDotOn: { backgroundColor: C.accent },
   statusTxt: { fontSize: 9.5, fontFamily: F.semi, color: D.textDim, letterSpacing: 1.4, textTransform: 'uppercase' },
@@ -1168,7 +1271,7 @@ const st = StyleSheet.create({
   // floating dock — Ask (mic) is the raised gradient primary; transport is quiet
   dock: {
     flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', alignSelf: 'stretch',
-    backgroundColor: 'rgba(15,23,42,0.92)', borderWidth: 1, borderColor: D.edge, borderRadius: R.pill,
+    backgroundColor: 'rgba(255,255,255,0.07)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.14)', borderRadius: R.pill,
     paddingHorizontal: SP.sm, paddingVertical: SP.sm,
     shadowColor: '#000', shadowOpacity: 0.5, shadowRadius: 24, shadowOffset: { width: 0, height: 12 }, elevation: 10,
   },
@@ -1176,6 +1279,10 @@ const st = StyleSheet.create({
   dGhost: { width: 42, height: 42, borderRadius: 21, backgroundColor: D.fill, borderWidth: 1, borderColor: D.edgeSoft, alignItems: 'center', justifyContent: 'center' },
   dGlyph: { fontSize: 16, color: D.text },
   // overflow:hidden so the SVG <Gradient> fill is clipped to the circle
+  // mic + its breathing state-halo share one centered box; the halo sits behind the
+  // button and never intercepts touches (pointerEvents none on the Animated.View).
+  micWrap: { width: 56, height: 56, alignItems: 'center', justifyContent: 'center' },
+  micHalo: { position: 'absolute', width: 56, height: 56, borderRadius: 28, backgroundColor: C.pink },
   dMic: { width: 56, height: 56, borderRadius: 28, overflow: 'hidden', alignItems: 'center', justifyContent: 'center', shadowColor: '#6D28D9', shadowOpacity: 0.55, shadowRadius: 14, shadowOffset: { width: 0, height: 5 }, elevation: 8 },
   dMicOn: { backgroundColor: C.pink, shadowColor: C.pink },
   dMicIcon: { fontSize: 22, color: '#fff' },
