@@ -12,7 +12,7 @@ import { directLesson } from './teachingDirector';
 import { focusTarget } from './cameraDirector';
 import { freshLearner, observe, assess } from './emotionEngine';
 import { ACTIONS, freshPedagogy, observePedagogy, decideNextAction, personalizedRecap, continuationHint, openingBridge } from './pedagogyEngine';
-import { C, D, F, SP, GLASS, GRAD, R } from './premiumTheme';
+import { C, D, F, SP, GLASS, GRAD, R, SERIF } from './premiumTheme';
 import { PressableScale, Gradient } from './uiKit';
 import BoardSurface, { surfaceFor } from './boardSurfaces';
 import { EraserWipe } from './boardGestures';
@@ -60,7 +60,14 @@ const BAR_HIT = { top: 8, bottom: 8, left: 8, right: 8 };
 // The "classroom" backdrop — a deep indigo→near-black gradient (cohesive with the
 // premium hub header) so the teaching room reads as a rich, focused space instead of
 // flat black. A soft indigo bloom top-centre gives a subtle "stage light" depth.
-const ROOM_GRAD = ['#1C1746', '#0A0A1F', '#050510'];
+// A sophisticated graphite "study room" — near-black with the faintest cool cast,
+// no bright purple. Editorial and mature, not playful. One warm accent (champagne)
+// carries emphasis and the live pulse, like a highlighter in a fine textbook.
+const ROOM_GRAD = ['#191C24', '#0F1116', '#08090C'];
+const ACCENT = '#E7D4A6';      // champagne — the single warm accent
+const ACCENT_DIM = '#B9AC86';  // muted champagne for smaller labels
+const GLASS_PANEL = 'rgba(34,38,48,0.72)';   // graphite frosted glass (teacher / caption / dock)
+const GLASS_HAIR = 'rgba(255,255,255,0.16)';  // bright top hairline on the glass
 
 const M = {
   TEACHING: 'TEACHING',     // a scene is being explained (TTS = the clock)
@@ -301,7 +308,7 @@ function VoiceMic({ onStart, onPartial, onFinal, onEnd, onError, dock }) {
     <PressableScale onPress={toggle} style={st.dItem} scaleTo={0.9} accessibilityLabel={busy ? 'Stop listening' : 'Ask the teacher a question'}>
       {busy
         ? <View style={[st.dMic, st.dMicOn]}><Square size={20} color="#fff" fill="#fff" /></View>
-        : <Gradient colors={GRAD.violet} style={st.dMic}><Mic size={24} color="#fff" strokeWidth={2.3} /></Gradient>}
+        : <Gradient colors={GRAD.ink} style={st.dMic}><Mic size={24} color="#fff" strokeWidth={2.3} /></Gradient>}
       <Text style={[st.dLbl, st.dLblPrimary]}>{busy ? 'Stop' : 'Ask'}</Text>
     </PressableScale>
   );
@@ -1197,7 +1204,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
                 />
               ) : (
                 <PressableScale style={st.dItem} onPress={beginListen} scaleTo={0.9} accessibilityLabel="Ask the teacher a question">
-                  <Gradient colors={GRAD.violet} style={st.dMic}><Mic size={24} color="#fff" strokeWidth={2.3} /></Gradient>
+                  <Gradient colors={GRAD.ink} style={st.dMic}><Mic size={24} color="#fff" strokeWidth={2.3} /></Gradient>
                   <Text style={[st.dLbl, st.dLblPrimary]}>Ask</Text>
                 </PressableScale>
               )
@@ -1272,7 +1279,7 @@ const st = StyleSheet.create({
   barIconTxt: { fontSize: 22, color: D.text, marginTop: -3 },
   barIconTxt2: { fontSize: 14, color: D.text },
   progressTrack: { flex: 1, height: 4, backgroundColor: 'rgba(255,255,255,0.14)', borderRadius: 8, overflow: 'hidden' },
-  progressFill: { height: '100%', backgroundColor: C.accent, borderRadius: 8 },
+  progressFill: { height: '100%', backgroundColor: ACCENT, borderRadius: 8 },
   counter: { fontSize: 11, fontFamily: F.semi, color: D.textFaint, minWidth: 30, textAlign: 'right', letterSpacing: 0.5 },
 
   // learning-progress context strip (topic + concept N of M)
@@ -1289,7 +1296,7 @@ const st = StyleSheet.create({
   learnedTxt: { flex: 1, fontSize: 14, fontFamily: F.semi, color: D.text },
   statRow: { flexDirection: 'row', alignSelf: 'stretch', justifyContent: 'center', gap: 30, marginTop: SP.lg },
   statBox: { alignItems: 'center' },
-  statNum: { fontSize: 26, fontFamily: F.black, color: '#A5B4FC', letterSpacing: -0.5 },
+  statNum: { fontSize: 30, fontFamily: SERIF, fontWeight: '600', color: ACCENT, letterSpacing: 0 },
   statLbl: { fontSize: 10, fontFamily: F.semi, color: D.textDim, letterSpacing: 1, textTransform: 'uppercase', marginTop: 2 },
   recoTxt: { fontSize: 12.5, fontFamily: F.med, color: D.textDim, textAlign: 'center', marginTop: SP.lg },
 
@@ -1298,7 +1305,7 @@ const st = StyleSheet.create({
   scrollTop: { flexGrow: 1, justifyContent: 'flex-start', alignItems: 'center', paddingHorizontal: 18, paddingTop: 10, paddingBottom: 16 },
 
   doneNew: { marginTop: SP.md, paddingVertical: SP.sm, alignSelf: 'center' },
-  doneNewTxt: { fontSize: 13, fontFamily: F.semi, color: '#A5B4FC', letterSpacing: 0.2 },
+  doneNewTxt: { fontSize: 13, fontFamily: F.semi, color: ACCENT, letterSpacing: 0.2 },
 
   // teacher hero + speaking waveform
   banner: { width: '100%', alignItems: 'center', justifyContent: 'center', paddingTop: SP.sm },
@@ -1334,7 +1341,7 @@ const st = StyleSheet.create({
 
   captionTxt: { fontSize: 16, fontFamily: F.med, color: D.text, textAlign: 'left', lineHeight: 25, letterSpacing: 0.1 }, // PRIMARY — spoken words (bright)
   capDim: { color: 'rgba(248,250,252,0.35)' },   // not-yet-spoken words; brighten as she speaks
-  capHot: { color: '#A5B4FC', fontFamily: F.bold }, // keyword emphasised the moment it's spoken
+  capHot: { color: ACCENT, fontFamily: F.semi }, // keyword emphasised (warm champagne) the moment it's spoken
 
   cornerWrap: { position: 'absolute', top: 56, right: 12, zIndex: 20 },
 
@@ -1349,22 +1356,23 @@ const st = StyleSheet.create({
 
   // ── the lit whiteboard + the dark teacher/caption panel ──
   lessonScroll: { flexGrow: 1, paddingHorizontal: SP.md, paddingTop: SP.xs, paddingBottom: SP.md },
-  teacherBar: { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: SP.md, backgroundColor: 'rgba(255,255,255,0.05)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.12)', borderRadius: R.xl, padding: SP.sm, paddingRight: SP.md, shadowColor: '#000', shadowOpacity: 0.35, shadowRadius: 18, shadowOffset: { width: 0, height: 8 }, elevation: 5 },
-  teacherName: { fontSize: 15.5, fontFamily: F.bold, color: D.text, letterSpacing: -0.2 },
-  statusRow: { flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 3 },
-  statusDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: D.textFaint },
-  statusDotOn: { backgroundColor: C.teal, shadowColor: C.teal, shadowOpacity: 0.9, shadowRadius: 5, shadowOffset: { width: 0, height: 0 }, elevation: 3 },
-  statusTxt: { fontSize: 9.5, fontFamily: F.semi, color: D.textDim, letterSpacing: 1.4, textTransform: 'uppercase' },
+  teacherBar: { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: SP.lg, backgroundColor: GLASS_PANEL, borderWidth: 1, borderColor: D.edge, borderTopColor: GLASS_HAIR, borderRadius: R.lg, padding: SP.sm, paddingRight: SP.md, shadowColor: '#000', shadowOpacity: 0.35, shadowRadius: 18, shadowOffset: { width: 0, height: 8 }, elevation: 5 },
+  teacherName: { fontSize: 17, fontFamily: SERIF, fontWeight: '600', color: D.text, letterSpacing: 0.2 },
+  statusRow: { flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 4 },
+  statusDot: { width: 5, height: 5, borderRadius: 3, backgroundColor: D.textFaint },
+  statusDotOn: { backgroundColor: ACCENT, shadowColor: ACCENT, shadowOpacity: 0.9, shadowRadius: 5, shadowOffset: { width: 0, height: 0 }, elevation: 3 },
+  statusTxt: { fontSize: 9.5, fontFamily: F.semi, color: D.textDim, letterSpacing: 2, textTransform: 'uppercase' },
 
   workArea: { width: '100%', alignItems: 'stretch' },
-  kicker: { fontSize: 10, fontFamily: F.bold, color: '#A5B4FC', letterSpacing: 1.8, textTransform: 'uppercase', textAlign: 'left', marginBottom: SP.xs },
-  title: { fontSize: 20, fontFamily: F.black, color: D.text, letterSpacing: -0.4, textAlign: 'left', lineHeight: 26, marginBottom: SP.md },
+  kicker: { fontSize: 9.5, fontFamily: F.semi, color: ACCENT_DIM, letterSpacing: 2.4, textTransform: 'uppercase', textAlign: 'left', marginBottom: 7 },
+  title: { fontSize: 24, fontFamily: SERIF, fontWeight: '600', color: D.text, letterSpacing: 0.1, textAlign: 'left', lineHeight: 31, marginBottom: SP.md },
   // the ONE lit surface — a white board card floating in the dark room
   boardOuter: { width: '100%', alignItems: 'center' },
-  lessonCard: { width: '100%', backgroundColor: C.board, borderRadius: R.xxl, paddingVertical: 24, paddingHorizontal: 16, alignItems: 'center', shadowColor: '#000', shadowOpacity: 0.45, shadowRadius: 26, shadowOffset: { width: 0, height: 14 }, elevation: 12 },
-  // her words, under the board — a premium translucent glass panel tinted to the
-  // indigo room, with a bright top hairline so it reads as frosted, not flat.
-  captionWrap: { width: '100%', marginTop: SP.md, backgroundColor: 'rgba(28,25,64,0.62)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.12)', borderTopColor: 'rgba(255,255,255,0.20)', borderRadius: R.xl, paddingVertical: SP.md, paddingHorizontal: SP.lg, shadowColor: '#000', shadowOpacity: 0.4, shadowRadius: 22, shadowOffset: { width: 0, height: 10 }, elevation: 6 },
+  lessonCard: { width: '100%', backgroundColor: '#FAF7F0', borderRadius: R.xl, paddingVertical: 26, paddingHorizontal: 18, alignItems: 'center', shadowColor: '#000', shadowOpacity: 0.5, shadowRadius: 30, shadowOffset: { width: 0, height: 16 }, elevation: 14 },
+  // her words, under the board — a graphite frosted-glass panel with a bright top
+  // hairline and a slim champagne rule on the left, so it reads as an editorial
+  // "she is saying" quote, not a flat box.
+  captionWrap: { width: '100%', marginTop: SP.md, backgroundColor: GLASS_PANEL, borderWidth: 1, borderColor: D.edge, borderTopColor: GLASS_HAIR, borderLeftWidth: 2.5, borderLeftColor: ACCENT_DIM, borderRadius: R.lg, paddingVertical: SP.md, paddingHorizontal: SP.lg, shadowColor: '#000', shadowOpacity: 0.4, shadowRadius: 22, shadowOffset: { width: 0, height: 10 }, elevation: 6 },
 
   // bottom (fixed): status → dock
   bottom: { alignItems: 'center', paddingHorizontal: SP.md, paddingTop: SP.sm, paddingBottom: Platform.OS === 'ios' ? SP.lg : SP.md, gap: SP.sm },
@@ -1383,7 +1391,7 @@ const st = StyleSheet.create({
   // floating dock — Ask (mic) is the raised gradient primary; transport is quiet
   dock: {
     flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', alignSelf: 'stretch',
-    backgroundColor: 'rgba(22,20,52,0.78)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.12)', borderRadius: R.pill,
+    backgroundColor: GLASS_PANEL, borderWidth: 1, borderColor: D.edge, borderTopColor: GLASS_HAIR, borderRadius: R.pill,
     paddingHorizontal: SP.sm, paddingVertical: SP.sm,
     shadowColor: '#000', shadowOpacity: 0.55, shadowRadius: 28, shadowOffset: { width: 0, height: 14 }, elevation: 12,
   },
@@ -1391,12 +1399,12 @@ const st = StyleSheet.create({
   dGhost: { width: 42, height: 42, borderRadius: 21, backgroundColor: D.fill, borderWidth: 1, borderColor: D.edgeSoft, alignItems: 'center', justifyContent: 'center' },
   dGlyph: { fontSize: 16, color: D.text },
   // overflow:hidden so the SVG <Gradient> fill is clipped to the circle
-  dMic: { width: 56, height: 56, borderRadius: 28, overflow: 'hidden', alignItems: 'center', justifyContent: 'center', shadowColor: '#6D28D9', shadowOpacity: 0.55, shadowRadius: 14, shadowOffset: { width: 0, height: 5 }, elevation: 8 },
-  dMicOn: { backgroundColor: C.pink, shadowColor: C.pink },
+  dMic: { width: 58, height: 58, borderRadius: 29, overflow: 'hidden', alignItems: 'center', justifyContent: 'center', borderWidth: 1.5, borderColor: ACCENT, shadowColor: '#000', shadowOpacity: 0.5, shadowRadius: 14, shadowOffset: { width: 0, height: 6 }, elevation: 8 },
+  dMicOn: { backgroundColor: C.pink, shadowColor: C.pink, borderColor: 'rgba(255,255,255,0.4)' },
   dMicIcon: { fontSize: 22, color: '#fff' },
   dDim: { opacity: 0.28 },
-  dLbl: { fontSize: 9.5, fontFamily: F.semi, color: D.textFaint, letterSpacing: 0.2, marginTop: 1 },
-  dLblPrimary: { color: '#A5B4FC' },
+  dLbl: { fontSize: 9.5, fontFamily: F.semi, color: D.textFaint, letterSpacing: 0.4, marginTop: 3 },
+  dLblPrimary: { color: ACCENT },
   // Hands-free "Live" dock control — a calm teal ring that reads as "listening now".
   dLive: { width: 56, height: 56, borderRadius: 28, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(16,185,129,0.16)', borderWidth: 1.5, borderColor: C.teal },
   dLblLive: { color: C.teal, fontFamily: F.bold },
@@ -1405,7 +1413,7 @@ const st = StyleSheet.create({
   doneOverlay: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(2,6,23,0.82)', alignItems: 'center', justifyContent: 'center', padding: 26 },
   doneCard: { width: '100%', backgroundColor: D.panel, borderWidth: 1, borderColor: D.edge, borderRadius: R.xxl, padding: 30, alignItems: 'center', shadowColor: '#000', shadowOpacity: 0.5, shadowRadius: 40, shadowOffset: { width: 0, height: 18 }, elevation: 16 },
   doneEmoji: { alignItems: 'center', justifyContent: 'center', marginBottom: 2 },
-  doneTitle: { fontSize: 22, fontFamily: F.black, color: D.text, marginTop: SP.md, letterSpacing: -0.5 },
+  doneTitle: { fontSize: 26, fontFamily: SERIF, fontWeight: '600', color: D.text, marginTop: SP.md, letterSpacing: 0.1 },
   doneSub: { fontSize: 13.5, fontFamily: F.med, color: D.textDim, textAlign: 'center', marginTop: SP.sm, lineHeight: 20 },
   doneRow: { flexDirection: 'row', gap: 12, marginTop: SP.xl, alignSelf: 'stretch' },
   doneBtn: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7, paddingVertical: 15, borderRadius: R.md },

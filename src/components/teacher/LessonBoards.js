@@ -573,15 +573,16 @@ const s = StyleSheet.create({
   optMark: { fontSize: 15, fontFamily: F.black, fontWeight: '900', color: C.green, marginLeft: 8 },
   optMarkWrong: { color: C.orange },
   quizFb: { fontSize: 13, fontFamily: F.black, fontWeight: '800', marginTop: 12, alignSelf: 'stretch' },
-  continueBtn: { alignSelf: 'flex-end', marginTop: 14, backgroundColor: C.accent, borderRadius: 12, paddingVertical: 9, paddingHorizontal: 18 },
-  continueTxt: { color: '#fff', fontSize: 13, fontFamily: F.black, fontWeight: '900' },
-  reexplainBtn: { alignSelf: 'flex-start', flexDirection: 'row', alignItems: 'center', gap: 7, marginTop: 10, backgroundColor: 'rgba(15,163,154,0.10)', borderWidth: 1, borderColor: C.accent, borderRadius: 12, paddingVertical: 9, paddingHorizontal: 16 },
-  reexplainTxt: { color: C.accent, fontSize: 13, fontFamily: F.black, fontWeight: '900' },
+  continueBtn: { alignSelf: 'flex-end', marginTop: 14, backgroundColor: C.ink, borderRadius: 12, paddingVertical: 11, paddingHorizontal: 22, shadowColor: C.ink, shadowOpacity: 0.22, shadowRadius: 10, shadowOffset: { width: 0, height: 4 }, elevation: 3 },
+  continueTxt: { color: '#fff', fontSize: 13, fontFamily: F.bold, fontWeight: '700', letterSpacing: 0.3 },
+  reexplainBtn: { alignSelf: 'flex-start', flexDirection: 'row', alignItems: 'center', gap: 7, marginTop: 10, backgroundColor: 'rgba(15,23,42,0.05)', borderWidth: 1, borderColor: 'rgba(15,23,42,0.22)', borderRadius: 12, paddingVertical: 9, paddingHorizontal: 16 },
+  reexplainTxt: { color: C.ink, fontSize: 13, fontFamily: F.bold, fontWeight: '700' },
 
-  // adaptive re-teach panel (shown on a missed check — a different explanation)
-  reteachPanel: { alignSelf: 'stretch', marginTop: 14, backgroundColor: C.accentSoft, borderWidth: 1, borderColor: 'rgba(197,126,34,0.28)', borderRadius: 14, paddingVertical: 13, paddingHorizontal: 14, gap: 6 },
+  // adaptive re-teach panel (shown on a missed check — a different explanation).
+  // A warm "second look" callout on the paper: soft ivory fill + champagne left rule.
+  reteachPanel: { alignSelf: 'stretch', marginTop: 14, backgroundColor: '#F3ECDD', borderWidth: 1, borderColor: 'rgba(197,155,74,0.35)', borderLeftWidth: 3, borderLeftColor: '#C79B42', borderRadius: 14, paddingVertical: 13, paddingHorizontal: 15, gap: 6 },
   reteachGap: { fontSize: 13.5, fontFamily: F.black, fontWeight: '800', color: C.ink, lineHeight: 19 },
-  reteachIntro: { fontSize: 12.5, fontFamily: F.bold, fontWeight: '700', color: C.accent, marginTop: 2 },
+  reteachIntro: { fontSize: 12.5, fontFamily: F.bold, fontWeight: '700', color: '#9A7526', marginTop: 2 },
   reteachStep: { fontSize: 13, fontFamily: F.semi, fontWeight: '600', color: C.ink, lineHeight: 20, paddingLeft: 4 },
   reteachEasyQ: { fontSize: 13.5, fontFamily: F.black, fontWeight: '900', color: C.ink, marginTop: 8, lineHeight: 19 },
 });
