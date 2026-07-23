@@ -14,7 +14,7 @@ import { freshLearner, observe, assess } from './emotionEngine';
 import { ACTIONS, freshPedagogy, observePedagogy, decideNextAction, personalizedRecap, continuationHint, openingBridge } from './pedagogyEngine';
 import { C, D, F, SP, GLASS, GRAD, R, SERIF } from './premiumTheme';
 import { PressableScale, Gradient } from './uiKit';
-import { ExplainChips, ContentsSheet, FlashcardDeck, TestSheet, loadNotes, saveNotes, loadNoteText, saveNoteText, buildFlashcards, buildTest, buildFormulas, buildRecap } from './lessonExtras';
+import { ExplainChips, FollowUpChips, ContentsSheet, FlashcardDeck, TestSheet, loadNotes, saveNotes, loadNoteText, saveNoteText, buildFlashcards, buildTest, buildFormulas, buildRecap } from './lessonExtras';
 import BoardSurface, { surfaceFor } from './boardSurfaces';
 import { EraserWipe } from './boardGestures';
 import { AmbientStage, VoiceAura } from './ambientStage';
@@ -464,6 +464,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const [savedNotes, setSavedNotes] = useState([]); // saved concept indices
   const [noteText, setNoteText] = useState('');     // the student's own free-text note
   const [conceptResults, setConceptResults] = useState([]); // {i,title,correct} from checks
+  const [visited, setVisited] = useState([]);       // concept indices seen (for the progress map)
   const openedAtRef = useRef(Date.now());           // for the study-time stat
   const lessonKey = useMemo(() => String((lesson && (lesson.id || lesson.lessonId || lesson.lessonTitle)) || subject || 'lesson'), [lesson, subject]);
   const flashcards = useMemo(() => buildFlashcards(scenes), [scenes]);
@@ -610,6 +611,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const clearDoubtTick = () => { if (doubtTickRef.current) { clearInterval(doubtTickRef.current); doubtTickRef.current = null; } };
 
   useEffect(() => { primeTeacherVoice(); }, []);
+  useEffect(() => { setVisited((prev) => (prev.includes(idx) ? prev : [...prev, idx])); }, [idx]);
   // Re-arm the flag on mount. An effect cleanup also runs on Fast Refresh (and under
   // StrictMode's double-invoke) and refs survive it, so a setup that only ever clears
   // the flag leaves it false forever — after which every `if (mountedRef.current)`
@@ -1204,10 +1206,13 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
         )}
 
         {mode === M.ANSWERING && (
-          <PressableScale style={st.resumeBtn} onPress={resumeFromDoubt} accessibilityLabel="Resume the lesson">
-            <Play size={15} color="#fff" strokeWidth={2.4} fill="#fff" />
-            <Text style={st.resumeTxt}>Resume lesson</Text>
-          </PressableScale>
+          <>
+            {doubtDone && !!onAsk && <FollowUpChips question={qa && qa.q} onPick={(q) => sendDoubt(q)} />}
+            <PressableScale style={st.resumeBtn} onPress={resumeFromDoubt} accessibilityLabel="Resume the lesson">
+              <Play size={15} color="#fff" strokeWidth={2.4} fill="#fff" />
+              <Text style={st.resumeTxt}>Resume lesson</Text>
+            </PressableScale>
+          </>
         )}
 
         {!!hint && (teaching || mode === M.PAUSED) && <Text style={st.hint}>{hint}</Text>}
@@ -1337,8 +1342,10 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
         lessonTitle={lessonTopic}
         noteText={noteText}
         onChangeNoteText={onChangeNoteText}
+        visited={visited}
+        results={conceptResults}
       />
-      <FlashcardDeck visible={deckOpen} cards={flashcards} onClose={() => setDeckOpen(false)} />
+      <FlashcardDeck visible={deckOpen} cards={flashcards} onClose={() => setDeckOpen(false)} lessonKey={lessonKey} />
       <TestSheet visible={testOpen} questions={testQs} onClose={() => setTestOpen(false)} onScore={() => {}} />
     </View>
   );

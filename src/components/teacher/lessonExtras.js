@@ -51,6 +51,15 @@ export async function saveNoteText(lessonKey, text) {
   try { await AsyncStorage.setItem(noteTextKeyFor(lessonKey), String(text || '')); } catch {}
 }
 
+// Flashcard mastery, remembered across sessions (the fronts you've marked "Easy").
+const flashKeyFor = (lessonKey) => `@ailernova_flash_mastered:${String(lessonKey || 'lesson')}`;
+export async function loadFlashMastered(lessonKey) {
+  try { const r = await AsyncStorage.getItem(flashKeyFor(lessonKey)); const a = r ? JSON.parse(r) : []; return Array.isArray(a) ? a : []; } catch { return []; }
+}
+export async function saveFlashMastered(lessonKey, fronts) {
+  try { await AsyncStorage.setItem(flashKeyFor(lessonKey), JSON.stringify(fronts || [])); } catch {}
+}
+
 // ── data builders (called by the player over its `scenes`) ────────────────────
 // A scene is a "concept" if it has a real title; a "check" if it carries a quickCheck.
 export function conceptScenes(scenes) {
@@ -78,7 +87,12 @@ export function buildTest(scenes) {
   return (scenes || [])
     .map((sc) => sc.quickCheck)
     .filter((qc) => qc && Array.isArray(qc.options) && qc.options.length >= 2 && typeof qc.answer === 'number' && qc.options[qc.answer] != null)
-    .map((qc) => ({ q: qc.question, options: qc.options.slice(0, 4), answer: Math.min(qc.answer, 3) }));
+    .map((qc) => ({
+      q: qc.question,
+      options: qc.options.slice(0, 4),
+      answer: Math.min(qc.answer, 3),
+      why: String(qc.misconception || qc.hint || '').trim(), // the Opus-generated "why", surfaced on a miss
+    }));
 }
 
 // Every formula the lesson wrote on the board, as a quick-reference sheet.
@@ -156,6 +170,25 @@ export function ExplainChips({ scene, onPick, onPractice }) {
   );
 }
 
+// Context-aware follow-ups shown after she answers a doubt — a conversational chain.
+export function FollowUpChips({ question, onPick }) {
+  const q = String(question || 'that').replace(/["“”]/g, '').slice(0, 80);
+  const chips = [
+    { label: 'Why is that?', q: `Why is that true? Explain the reasoning behind your last answer.` },
+    { label: 'Another example', q: `Give me one more example of that, a different one.` },
+    { label: 'Quiz me on it', q: `Quiz me on what you just explained — ask one question and let me try first.` },
+  ];
+  return (
+    <View style={s.followRow} accessibilityRole="toolbar">
+      {chips.map((c) => (
+        <PressableScale key={c.label} style={s.chip} onPress={() => onPick(c.q)} accessibilityRole="button" accessibilityLabel={c.label}>
+          <Text style={s.chipTxt}>{c.label}</Text>
+        </PressableScale>
+      ))}
+    </View>
+  );
+}
+
 // ════════════════════════════════════════════════════════════════════════════
 // 2 + 3 · CONTENTS SHEET (chapter map to jump) + BOOKMARKS/NOTES tab
 // ════════════════════════════════════════════════════════════════════════════
@@ -165,11 +198,21 @@ const TABS = [
   { key: 'review',   label: 'Review',   Icon: FileText },
 ];
 
-export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave, onJump, onClose, recap, formulas, lessonTitle, noteText, onChangeNoteText }) {
+export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave, onJump, onClose, recap, formulas, lessonTitle, noteText, onChangeNoteText, visited, results }) {
   const [tab, setTab] = useState('contents');
   useEffect(() => { if (visible) setTab('contents'); }, [visible]);
   const concepts = useMemo(() => conceptScenes(scenes), [scenes]);
   const savedSet = useMemo(() => new Set(saved || []), [saved]);
+  const visitedSet = useMemo(() => new Set(visited || []), [visited]);
+  const resultBy = useMemo(() => { const m = {}; (results || []).forEach((r) => { m[r.i] = r.correct; }); return m; }, [results]);
+  // done / current / correct-check / missed-check / seen / not-yet
+  const statusOf = (i) => {
+    if (i === currentIdx) return 'now';
+    if (resultBy[i] === true) return 'correct';
+    if (resultBy[i] === false) return 'missed';
+    if (visitedSet.has(i)) return 'seen';
+    return 'todo';
+  };
   const noteItems = concepts.filter((c) => savedSet.has(c.i));
   const rows = tab === 'contents' ? concepts : noteItems;
 
@@ -177,6 +220,12 @@ export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave
     const body = noteItems.map((c, n) => `${n + 1}. ${c.title}\n   ${c.line || ''}`).join('\n\n');
     const mine = noteText && noteText.trim() ? `\n\nMy note:\n${noteText.trim()}` : '';
     try { await Share.share({ message: `My notes — ${lessonTitle || 'lesson'}\n\n${body}${mine}` }); } catch {}
+  };
+  const shareReview = async () => {
+    const fx = (formulas || []).map((f) => `• ${f.formula}`).join('\n');
+    const ideas = (recap || []).map((p, k) => `${k + 1}. ${p.title}${p.point ? `\n   ${p.point}` : ''}`).join('\n\n');
+    const sheet = `${lessonTitle || 'Lesson'} — study sheet\n\n${fx ? `FORMULAS\n${fx}\n\n` : ''}KEY IDEAS\n${ideas}`;
+    try { await Share.share({ message: sheet }); } catch {}
   };
 
   return (
@@ -235,7 +284,13 @@ export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave
                 return (
                   <View key={c.i} style={[s.row, isNow && s.rowNow]}>
                     <PressableScale style={s.rowMain} onPress={() => { onJump(c.i); onClose(); }} accessibilityRole="button" accessibilityLabel={`Go to ${c.title}`}>
-                      <Text style={[s.rowNum, isNow && s.rowNumNow]}>{tab === 'contents' ? String(n + 1).padStart(2, '0') : ''}{c.isCheck ? '✓' : ''}</Text>
+                      {tab === 'contents' ? (
+                        <View style={[s.stDot, s[`st_${statusOf(c.i)}`]]}>
+                          {statusOf(c.i) === 'correct' ? <Check size={11} color="#12141A" strokeWidth={3.5} />
+                            : statusOf(c.i) === 'missed' ? <X size={11} color="#12141A" strokeWidth={3.5} />
+                            : <Text style={[s.stNum, (statusOf(c.i) === 'now') && { color: '#12141A' }]}>{n + 1}</Text>}
+                        </View>
+                      ) : <Text style={s.rowNum}>{c.isCheck ? '✓' : ''}</Text>}
                       <View style={{ flex: 1 }}>
                         <Text style={[s.rowTitle, isNow && s.rowTitleNow]} numberOfLines={2}>{c.title}</Text>
                         {tab === 'notes' && !!c.line && <Text style={s.rowNote} numberOfLines={3}>{c.line}</Text>}
@@ -256,6 +311,11 @@ export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave
               the key idea from each concept (tap a card to jump back to it). */}
           {tab === 'review' && (
             <>
+              {((formulas && formulas.length) || (recap && recap.length)) > 0 && (
+                <PressableScale style={s.shareBtn} onPress={shareReview} accessibilityLabel="Share this study sheet">
+                  <Share2 size={15} color={GOLD} strokeWidth={2.3} /><Text style={s.shareTxt}>Share study sheet</Text>
+                </PressableScale>
+              )}
               {formulas && formulas.length > 0 && (
                 <>
                   <Text style={s.reviewSection}>Key formulas</Text>
@@ -294,37 +354,50 @@ export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave
 // A real spaced-review deck: shuffle, flip, then self-grade each card. Cards you
 // mark "Review again" come back in the next round; the deck ends only when every
 // card is known — with a summary of how many you got first try.
-export function FlashcardDeck({ visible, cards, onClose }) {
+export function FlashcardDeck({ visible, cards, onClose, lessonKey }) {
   const n = cards ? cards.length : 0;
-  const shuffle = () => {
-    const a = cards.map((_, i) => i);
-    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
-    return a;
-  };
+  const [mastered, setMastered] = useState(() => new Set());
   const [queue, setQueue] = useState([]);   // card indices still to review this round
   const [again, setAgain] = useState([]);   // pushed to the next round
   const [pos, setPos] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [round, setRound] = useState(1);
-  const [firstPass, setFirstPass] = useState(0); // known on the very first showing
+  const [firstPass, setFirstPass] = useState(0); // known first-try this session
   const [done, setDone] = useState(false);
 
+  // Weak-first order: cards you've mastered before sink to the end, so a session
+  // opens on what you don't know yet.
+  const build = (mset) => {
+    const a = cards.map((_, i) => i);
+    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+    return a.sort((x, y) => (mset.has(cards[x].front) ? 1 : 0) - (mset.has(cards[y].front) ? 1 : 0));
+  };
+  const start = (mset) => { setQueue(build(mset)); setAgain([]); setPos(0); setFlipped(false); setRound(1); setFirstPass(0); setDone(false); };
+
   useEffect(() => {
-    if (visible && n) { setQueue(shuffle()); setAgain([]); setPos(0); setFlipped(false); setRound(1); setFirstPass(0); setDone(false); }
-  }, [visible, n]);
+    if (!visible || !n) return;
+    let ok = true;
+    loadFlashMastered(lessonKey).then((arr) => { if (!ok) return; const mset = new Set(arr); setMastered(mset); start(mset); });
+    return () => { ok = false; };
+  }, [visible, n, lessonKey]);
 
   const card = queue.length ? cards[queue[Math.min(pos, queue.length - 1)]] : null;
   const remaining = Math.max(0, queue.length - pos) + again.length;
+  const priorMastered = cards.filter((c) => mastered.has(c.front)).length;
 
-  const grade = (known) => {
+  const markMastered = (front) => setMastered((prev) => { const nx = new Set(prev); nx.add(front); saveFlashMastered(lessonKey, [...nx]); return nx; });
+
+  // Again → see it again soon THIS round · Hard → next round · Easy → mastered, gone.
+  const grade = (level) => {
     const cur = queue[pos];
-    if (known && round === 1) setFirstPass((f) => f + 1);
-    const nextAgain = known ? again : [...again, cur];
-    const atEnd = pos + 1 >= queue.length;
-    if (!atEnd) { setAgain(nextAgain); setPos(pos + 1); setFlipped(false); return; }
-    // round finished
-    if (nextAgain.length === 0) { setDone(true); return; }
-    setQueue(nextAgain); setAgain([]); setPos(0); setFlipped(false); setRound((r) => r + 1);
+    if (level === 'easy') { if (round === 1) setFirstPass((f) => f + 1); markMastered(cards[cur].front); }
+    let q2 = queue.slice(); let ag = again.slice();
+    if (level === 'again') { q2.splice(Math.min(pos + 3, q2.length), 0, cur); }
+    else if (level === 'hard') { ag = [...ag, cur]; }
+    const atEnd = pos + 1 >= q2.length;
+    if (!atEnd) { setQueue(q2); setAgain(ag); setPos(pos + 1); setFlipped(false); return; }
+    if (ag.length === 0) { setQueue(q2); setDone(true); return; }
+    setQueue(ag); setAgain([]); setPos(0); setFlipped(false); setRound((r) => r + 1);
   };
 
   return (
@@ -338,16 +411,17 @@ export function FlashcardDeck({ visible, cards, onClose }) {
 
         {!!n && !done && card && (
           <>
-            <Text style={s.deckCount}>{round > 1 ? `Review round ${round} · ` : ''}{remaining} to go</Text>
+            <Text style={s.deckCount}>{round > 1 ? `Round ${round} · ` : ''}{remaining} to go{priorMastered > 0 && round === 1 ? ` · ${priorMastered} mastered` : ''}</Text>
             <PressableScale style={s.card} scaleTo={0.98} onPress={() => setFlipped((f) => !f)} accessibilityRole="button" accessibilityLabel={flipped ? 'Show question' : 'Show answer'}>
               <Text style={s.cardTag}>{flipped ? 'ANSWER' : (card.tag || 'QUESTION').toUpperCase()}</Text>
               <Text style={s.cardTxt}>{flipped ? card.back : card.front}</Text>
               {!flipped && <Text style={s.cardHint}>Tap to reveal the answer</Text>}
             </PressableScale>
             {flipped ? (
-              <View style={s.deckNav}>
-                <PressableScale style={[s.gradeBtn, s.gradeAgain]} onPress={() => grade(false)} accessibilityLabel="Review this again"><RotateCcw size={15} color="#E0524B" strokeWidth={2.5} /><Text style={[s.gradeTxt, { color: '#E0524B' }]}>Review again</Text></PressableScale>
-                <PressableScale style={[s.gradeBtn, s.gradeGot]} onPress={() => grade(true)} accessibilityLabel="I know this"><Check size={16} color="#1E9E63" strokeWidth={2.8} /><Text style={[s.gradeTxt, { color: '#1E9E63' }]}>Got it</Text></PressableScale>
+              <View style={s.srsRow}>
+                <PressableScale style={[s.srsBtn, s.srsAgain]} onPress={() => grade('again')} accessibilityLabel="Didn't know it"><Text style={[s.srsTxt, { color: '#E0524B' }]}>Again</Text></PressableScale>
+                <PressableScale style={[s.srsBtn, s.srsHard]} onPress={() => grade('hard')} accessibilityLabel="Knew it, but hard"><Text style={[s.srsTxt, { color: '#C79B42' }]}>Hard</Text></PressableScale>
+                <PressableScale style={[s.srsBtn, s.srsEasy]} onPress={() => grade('easy')} accessibilityLabel="Easy, I know this"><Text style={[s.srsTxt, { color: '#1E9E63' }]}>Easy</Text></PressableScale>
               </View>
             ) : (
               <Text style={s.deckTapHint}>Recall it, then tap the card to check.</Text>
@@ -359,10 +433,10 @@ export function FlashcardDeck({ visible, cards, onClose }) {
           <Appear from="scale" style={s.scoreCard}>
             <Trophy size={38} color={GOLD} strokeWidth={1.9} />
             <Text style={s.scoreNum}>{firstPass}/{n}</Text>
-            <Text style={s.scoreLbl}>known on the first try</Text>
-            <Text style={s.scoreMsg}>{firstPass === n ? 'Perfect recall — this is locked in.' : 'You reviewed the rest until they stuck. Nicely done.'}</Text>
+            <Text style={s.scoreLbl}>easy on the first try</Text>
+            <Text style={s.scoreMsg}>{mastered.size >= n ? 'Every card mastered — remembered for next time.' : 'The ones you found hard are saved to review next session.'}</Text>
             <View style={s.deckNav}>
-              <PressableScale style={[s.deckBtn]} onPress={() => { setQueue(shuffle()); setAgain([]); setPos(0); setFlipped(false); setRound(1); setFirstPass(0); setDone(false); }} accessibilityLabel="Shuffle and go again"><Text style={s.deckBtnTxt}>↻ Again</Text></PressableScale>
+              <PressableScale style={[s.deckBtn]} onPress={() => start(mastered)} accessibilityLabel="Go again"><Text style={s.deckBtnTxt}>↻ Again</Text></PressableScale>
               <PressableScale style={[s.deckBtn, s.deckBtnGold]} onPress={onClose} accessibilityLabel="Done"><Text style={[s.deckBtnTxt, { color: '#12141A' }]}>Done</Text></PressableScale>
             </View>
           </Appear>
@@ -424,6 +498,10 @@ export function TestSheet({ visible, questions, onClose, onScore }) {
                   );
                 })}
               </View>
+              {/* the "why", surfaced the moment you get it wrong */}
+              {picked != null && picked !== q.answer && !!q.why && (
+                <View style={s.whyCard}><Text style={s.whyLbl}>WHY</Text><Text style={s.whyTxt}>{q.why}</Text></View>
+              )}
             </ScrollView>
             {picked != null && (
               <PressableScale style={s.testNext} onPress={next} accessibilityLabel={i >= n - 1 ? 'See score' : 'Next question'}>
@@ -439,6 +517,9 @@ export function TestSheet({ visible, questions, onClose, onScore }) {
               <Trophy size={36} color={GOLD} strokeWidth={1.9} />
               <Text style={s.scoreNum}>{pct}%</Text>
               <Text style={s.scoreLbl}>{correct} of {n} correct</Text>
+              <View style={[s.verdict, pct >= 80 ? s.verdictReady : pct >= 50 ? s.verdictAlmost : s.verdictRevise]}>
+                <Text style={s.verdictTxt}>{pct >= 80 ? 'EXAM-READY' : pct >= 50 ? 'ALMOST THERE' : 'NEEDS REVISION'}</Text>
+              </View>
             </Appear>
             {/* per-question review */}
             <Text style={s.reviewHead}>Review</Text>
@@ -450,6 +531,7 @@ export function TestSheet({ visible, questions, onClose, onScore }) {
                   <Text style={s.reviewQ}>{k + 1}. {qq.q}</Text>
                   {!ok && you != null && <Text style={s.reviewYou}>Your answer: {qq.options[you]}</Text>}
                   <Text style={s.reviewAns}>{ok ? '✓ ' : '✓ Correct: '}{qq.options[qq.answer]}</Text>
+                  {!ok && !!qq.why && <Text style={s.reviewWhy}>{qq.why}</Text>}
                 </View>
               );
             })}
@@ -472,6 +554,7 @@ const s = StyleSheet.create({
   chipRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: SP.sm, alignSelf: 'stretch' },
   chip: { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: 'rgba(219,165,63,0.10)', borderWidth: 1, borderColor: 'rgba(219,165,63,0.38)', borderRadius: R.pill, paddingVertical: 7, paddingHorizontal: 13 },
   chipTxt: { fontSize: 12, fontFamily: F.semi, color: GOLD, letterSpacing: 0.2 },
+  followRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, justifyContent: 'center', marginBottom: SP.sm },
 
   // personal free-text note (Notes tab)
   myNoteWrap: { alignSelf: 'stretch', marginBottom: SP.md },
@@ -504,6 +587,14 @@ const s = StyleSheet.create({
   rowMain: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 13, paddingLeft: 14, paddingRight: 6 },
   rowNum: { fontSize: 12, fontFamily: F.bold, color: D.textFaint, minWidth: 22, letterSpacing: 0.5 },
   rowNumNow: { color: GOLD },
+  // progress-map status dot
+  stDot: { width: 26, height: 26, borderRadius: 13, alignItems: 'center', justifyContent: 'center', borderWidth: 1.5 },
+  stNum: { fontSize: 11.5, fontFamily: F.bold, color: D.textDim },
+  st_now: { backgroundColor: GOLD, borderColor: GOLD },
+  st_correct: { backgroundColor: '#2DBB78', borderColor: '#2DBB78' },
+  st_missed: { backgroundColor: '#E9A23B', borderColor: '#E9A23B' },
+  st_seen: { backgroundColor: 'rgba(255,255,255,0.10)', borderColor: 'rgba(255,255,255,0.22)' },
+  st_todo: { backgroundColor: 'transparent', borderColor: 'rgba(255,255,255,0.14)' },
   rowTitle: { fontSize: 14.5, fontFamily: F.semi, color: D.text, lineHeight: 20 },
   rowTitleNow: { color: '#fff' },
   rowNote: { fontSize: 12.5, fontFamily: F.reg, color: D.textDim, lineHeight: 18, marginTop: 4 },
@@ -532,6 +623,13 @@ const s = StyleSheet.create({
   gradeAgain: { backgroundColor: 'rgba(224,82,75,0.10)', borderColor: 'rgba(224,82,75,0.5)' },
   gradeGot: { backgroundColor: 'rgba(30,158,99,0.12)', borderColor: 'rgba(30,158,99,0.55)' },
   gradeTxt: { fontSize: 14, fontFamily: F.bold },
+  // 3-tier spaced-repetition grading
+  srsRow: { flexDirection: 'row', gap: 8, marginTop: SP.lg },
+  srsBtn: { flex: 1, alignItems: 'center', paddingVertical: 15, borderRadius: R.md, borderWidth: 1.5 },
+  srsAgain: { backgroundColor: 'rgba(224,82,75,0.10)', borderColor: 'rgba(224,82,75,0.5)' },
+  srsHard: { backgroundColor: 'rgba(199,155,66,0.12)', borderColor: 'rgba(199,155,66,0.55)' },
+  srsEasy: { backgroundColor: 'rgba(30,158,99,0.12)', borderColor: 'rgba(30,158,99,0.55)' },
+  srsTxt: { fontSize: 14, fontFamily: F.bold },
 
   // test
   qCard: { backgroundColor: PAPER, borderRadius: R.xl, padding: SP.lg, marginBottom: SP.md },
@@ -557,6 +655,17 @@ const s = StyleSheet.create({
   reviewQ: { fontSize: 14, fontFamily: F.semi, color: D.text, lineHeight: 20 },
   reviewYou: { fontSize: 12.5, fontFamily: F.med, color: '#E0524B', marginTop: 6 },
   reviewAns: { fontSize: 12.5, fontFamily: F.bold, color: '#1E9E63', marginTop: 4 },
+  reviewWhy: { fontSize: 12.5, fontFamily: F.reg, color: D.textDim, lineHeight: 18, marginTop: 6, fontStyle: 'italic' },
+  // the "why" surfaced live on a miss
+  whyCard: { backgroundColor: 'rgba(224,82,75,0.10)', borderWidth: 1, borderColor: 'rgba(224,82,75,0.4)', borderRadius: R.md, padding: 13, marginBottom: SP.md },
+  whyLbl: { fontSize: 10, fontFamily: F.bold, color: '#E0524B', letterSpacing: 1.6, marginBottom: 5 },
+  whyTxt: { fontSize: 13.5, fontFamily: F.med, color: D.text, lineHeight: 20 },
+  // exam verdict badge
+  verdict: { marginTop: SP.sm, paddingVertical: 5, paddingHorizontal: 16, borderRadius: R.pill, borderWidth: 1 },
+  verdictReady: { backgroundColor: 'rgba(30,158,99,0.14)', borderColor: 'rgba(30,158,99,0.6)' },
+  verdictAlmost: { backgroundColor: 'rgba(199,155,66,0.16)', borderColor: 'rgba(199,155,66,0.6)' },
+  verdictRevise: { backgroundColor: 'rgba(224,82,75,0.12)', borderColor: 'rgba(224,82,75,0.55)' },
+  verdictTxt: { fontSize: 11, fontFamily: F.bold, color: D.text, letterSpacing: 1.5 },
 
   // 6 · practice chip (solid) + sheet
   chipSolid: { backgroundColor: GOLD, borderColor: GOLD },
