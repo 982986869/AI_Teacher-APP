@@ -1191,7 +1191,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
             <ExplainChips
               scene={scene}
               onPick={(q) => sendDoubt(q)}
-              onPractice={() => sendDoubt(`Quiz me on "${scene.title || scene.kicker || lessonTopic}": pose ONE short practice question and let me try to answer it before you explain.`)}
+              onPractice={() => sendDoubt(`Let's practise "${scene.title || scene.kicker || lessonTopic}". Ask me ONE short question and then stop — do NOT give the answer. I'll say my answer out loud and you can check it.`)}
             />
           )}
         </Stage>
