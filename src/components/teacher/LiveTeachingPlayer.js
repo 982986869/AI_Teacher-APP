@@ -23,7 +23,7 @@ import { buildReteach } from './reteach';
 import { speakTeacher, stopTeacher, primeTeacherVoice, getSpeechProgress, SPEECH_OK, speakTeacherQueued, resetTeacherQueue, isTeacherQueueActive, setListeningMode } from '../../utils/teacherVoice';
 import {
   Mic, Square, RotateCcw, SkipForward, SkipBack, Play, Pause, ArrowUp, ChevronLeft, AudioLines,
-  Volume2, VolumeX, RefreshCw, GraduationCap, BookOpen, Globe, Check, Trophy, Radio, ListTree, Layers,
+  Volume2, VolumeX, RefreshCw, GraduationCap, BookOpen, Globe, Check, Trophy, Radio, ListTree, Layers, Maximize2, Minimize2,
 } from 'lucide-react-native';
 
 // Optional student camera — degrades to a friendly placeholder.
@@ -158,8 +158,9 @@ function Underline() {
 // ── speaking waveform (purple/blue audio bars) shown ABOVE the teacher ────────
 // Kept light (fewer bars) so it never janks on mid-range phones.
 const WAVE_N = 14;
-function Waveform({ active }) {
-  const vals = useRef(Array.from({ length: WAVE_N }, () => new Animated.Value(0.22))).current;
+function Waveform({ active, compact }) {
+  const n = compact ? 5 : WAVE_N;
+  const vals = useRef(Array.from({ length: n }, () => new Animated.Value(0.22))).current;
   useEffect(() => {
     let loops = [];
     if (active) {
@@ -175,15 +176,15 @@ function Waveform({ active }) {
     return () => loops.forEach((l) => l.stop());
   }, [active, vals]);
   return (
-    <View style={st.wave} pointerEvents="none">
+    <View style={compact ? st.waveMini : st.wave} pointerEvents="none">
       {vals.map((v, i) => {
-        const edge = 1 - Math.abs(i - (WAVE_N - 1) / 2) / ((WAVE_N - 1) / 2);
-        const max = 12 + edge * 26;
+        const edge = 1 - Math.abs(i - (n - 1) / 2) / ((n - 1) / 2);
+        const max = compact ? (10 + edge * 12) : (12 + edge * 26);
         return (
           <Animated.View key={i} style={[st.waveBar, {
-            height: v.interpolate({ inputRange: [0, 1], outputRange: [4, max] }),
-            backgroundColor: i % 2 ? C.blue : C.accent,
-            opacity: active ? 0.9 : 0.3,
+            height: v.interpolate({ inputRange: [0, 1], outputRange: [3, max] }),
+            backgroundColor: i % 2 ? ACCENT_DIM : ACCENT,
+            opacity: active ? 0.95 : 0.28,
           }]} />
         );
       })}
@@ -396,12 +397,13 @@ const TIER_LABEL = { high: 'High match', medium: 'Fair match', low: 'Low match' 
 // Compact strip shown under a doubt answer: where the answer came from (your
 // material vs general knowledge), how strong the match was, the resolved concept,
 // and the prerequisite concepts it builds on — all already computed server-side.
-function DoubtMeta({ meta }) {
+function DoubtMeta({ meta, onLearnPrereq }) {
   if (!meta) return null;
   const { concept, prereqs, tier, grounded } = meta;
   const tierColor = tier === 'high' ? C.green : tier === 'medium' ? C.orange : C.dim;
   return (
     <View style={st.metaWrap}>
+      <Text style={st.metaHeader}>Answer details</Text>
       <View style={st.metaRow}>
         {grounded != null && (
           <View style={[st.metaPill, grounded ? st.metaPillOn : null]}>
@@ -427,7 +429,9 @@ function DoubtMeta({ meta }) {
         <View style={st.metaPrereqRow}>
           <Text style={st.metaPrereqLbl}>Builds on</Text>
           {prereqs.slice(0, 4).map((p) => (
-            <View key={p} style={st.metaChip}><Text style={st.metaChipTxt}>{p}</Text></View>
+            <PressableScale key={p} style={st.metaChip} onPress={() => onLearnPrereq && onLearnPrereq(p)} accessibilityRole="button" accessibilityLabel={`Explain ${p}`}>
+              <Text style={st.metaChipTxt}>{p}</Text>
+            </PressableScale>
           ))}
         </View>
       )}
@@ -459,6 +463,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   // Study features (see lessonExtras): a jump-around Contents/Notes sheet, a flip
   // flashcard deck and a summative "Test yourself" quiz. Bookmarks persist per lesson.
   const [contentsOpen, setContentsOpen] = useState(false);
+  const [focusMode, setFocusMode] = useState(false); // distraction-free reading
   const [deckOpen, setDeckOpen] = useState(false);
   const [testOpen, setTestOpen] = useState(false);
   const [savedNotes, setSavedNotes] = useState([]); // saved concept indices
@@ -1031,6 +1036,12 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     : (scene.boardType === 'summary' || scene.boardType === 'mistake') ? hasPoints
     : true;
   const showBoard = sceneHasContent && !inDoubt; // board hides while a doubt is handled
+  // Distinct colour + label per live state — a professional, legible presence.
+  const statusInfo = mode === M.LISTENING ? { label: 'Listening', color: C.teal }
+    : mode === M.THINKING ? { label: 'Thinking', color: '#E9A23B' }
+    : ttsActive ? { label: 'Teaching', color: ACCENT }
+    : mode === M.PAUSED ? { label: 'Paused', color: D.textFaint }
+    : { label: 'Ready', color: D.textDim };
 
   // Caption = the current BEAT's line (one directed line at a time — never a wall
   // of text). Wordless reveal beats keep the previous line on screen instead of
@@ -1061,7 +1072,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
       <>
         <Text style={st.askedLabel} numberOfLines={1}>You asked · “{qa.q}”</Text>
         <SpokenCaption key={`ans-${idx}-${qa.a ? 1 : 0}`} text={captionText} speaking={ttsActive} karaoke={voiceOn} resetKey={`ans-${qa.a ? 1 : 0}`} style={st.captionTxt} />
-        {doubtDone && <DoubtMeta meta={qaMeta} />}
+        {doubtDone && <DoubtMeta meta={qaMeta} onLearnPrereq={(p) => sendDoubt(`Explain "${p}" briefly — I want to understand the idea this builds on.`)} />}
       </>
     ) : mode === M.LISTENING ? (
       <Text style={st.captionTxt}>{listenPrompt}</Text>
@@ -1129,6 +1140,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
             <Radio size={18} color={handsFree ? C.teal : D.text} strokeWidth={2.2} />
           </PressableScale>
         )}
+        <PressableScale onPress={() => setFocusMode((f) => !f)} style={[st.barIcon, focusMode && st.barIconNote]} hitSlop={BAR_HIT} accessibilityLabel={focusMode ? 'Exit focus mode' : 'Focus mode — hide everything but the board'} accessibilityState={{ selected: focusMode }}>{focusMode ? <Minimize2 size={17} color="#DBA53F" strokeWidth={2.3} /> : <Maximize2 size={17} color={D.text} strokeWidth={2.2} />}</PressableScale>
         <PressableScale onPress={() => setContentsOpen(true)} style={[st.barIcon, savedNotes.length > 0 && st.barIconNote]} hitSlop={BAR_HIT} accessibilityLabel="Lesson contents and saved notes"><ListTree size={18} color={savedNotes.length > 0 ? '#DBA53F' : D.text} strokeWidth={2.2} /></PressableScale>
         <PressableScale onPress={() => { stopTeacher(); setVoiceOpen(true); }} style={st.barIcon} hitSlop={BAR_HIT} accessibilityLabel="Choose teacher voice"><AudioLines size={18} color={D.text} strokeWidth={2.2} /></PressableScale>
         <PressableScale onPress={toggleMute} style={st.barIcon} hitSlop={BAR_HIT} accessibilityLabel={muted ? 'Unmute narration' : 'Mute narration'} accessibilityState={{ selected: muted }}>{muted ? <VolumeX size={18} color={D.text} strokeWidth={2.2} /> : <Volume2 size={18} color={D.text} strokeWidth={2.2} />}</PressableScale>
@@ -1137,10 +1149,12 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
 
       {/* ── learning-progress context (topic · concept N of M) — reads as learning
           progress, not a slide counter ── */}
-      <View style={st.contextBar}>
-        <Text style={st.ctxTopic} numberOfLines={1}>{lessonTopic}</Text>
-        <Text style={st.ctxStep}>Concept {conceptNo} of {conceptTotal}</Text>
-      </View>
+      {!focusMode && (
+        <View style={st.contextBar}>
+          <Text style={st.ctxTopic} numberOfLines={1}>{lessonTopic}</Text>
+          <Text style={st.ctxStep}>Concept {conceptNo} of {conceptTotal}</Text>
+        </View>
+      )}
 
       <VoicePicker visible={voiceOpen} onClose={() => setVoiceOpen(false)} />
 
@@ -1153,16 +1167,20 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
           board card, her words below. Mobile-first, no student PiP. The teacher row
           is persistent (never remounts); only the material transitions per scene. */}
       <ScrollView style={st.scroll} contentContainerStyle={st.lessonScroll} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
+        {!focusMode && (
         <View style={st.teacherBar}>
           <TeacherAvatar theme="dark" video={TEACHER_VIDEO} photo={TEACHER_HEADSHOT} state={teacherState} expression={expression} size={46} />
           <View style={{ flex: 1 }}>
             <Text style={st.teacherName}>Ms. Nova</Text>
             <View style={st.statusRow}>
-              <View style={[st.statusDot, ttsActive && st.statusDotOn]} />
-              <Text style={st.statusTxt}>{mode === M.LISTENING ? 'Listening' : mode === M.THINKING ? 'Thinking' : ttsActive ? 'Teaching' : mode === M.PAUSED ? 'Paused' : 'Ready'}</Text>
+              <View style={[st.statusDot, { backgroundColor: statusInfo.color }, ttsActive && st.statusDotOn]} />
+              <Text style={[st.statusTxt, { color: statusInfo.color }]}>{statusInfo.label}</Text>
             </View>
           </View>
+          {/* live speaking waveform — a professional "she's talking now" presence */}
+          {ttsActive && <Waveform active compact />}
         </View>
+        )}
 
         <Stage key={sceneKey} style={st.workArea}>
           {!!scene.kicker && kickerDistinct && <Text style={st.kicker}>{scene.kicker}</Text>}
@@ -1175,8 +1193,8 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
               </View>
             </Animated.View>
           )}
-          <View style={st.captionWrap}>{captionEl}</View>
-          {!!onAsk && (teaching || mode === M.PAUSED) && !qa && (
+          {!focusMode && <View style={st.captionWrap}>{captionEl}</View>}
+          {!focusMode && !!onAsk && (teaching || mode === M.PAUSED) && !qa && (
             <ExplainChips
               scene={scene}
               onPick={(q) => sendDoubt(q)}
@@ -1425,6 +1443,7 @@ const st = StyleSheet.create({
   waveWrap: { height: 38, alignItems: 'center', justifyContent: 'flex-end', marginBottom: 10 },
   wave: { flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'center', height: 38, gap: 3 },
   waveBar: { width: 4, borderRadius: 3 },
+  waveMini: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', height: 24, gap: 3, paddingRight: 4 },
 
   badge: { flexDirection: 'row', alignItems: 'center', gap: 7, marginTop: SP.md, backgroundColor: D.fill, borderWidth: 1, borderColor: D.edge, borderRadius: 16, paddingHorizontal: 14, paddingVertical: 7 },
   badgeOn: { borderColor: 'rgba(16,185,129,0.35)' },
@@ -1437,7 +1456,8 @@ const st = StyleSheet.create({
   askedLabel: { fontSize: 11, fontFamily: F.semi, color: D.textFaint, textAlign: 'left', marginBottom: 8, letterSpacing: 0.3, fontStyle: 'italic' },
 
   // doubt metadata strip (source / confidence / concept / prerequisites)
-  metaWrap: { marginTop: 14, gap: 8, alignSelf: 'stretch', backgroundColor: D.panel2, borderRadius: R.md, borderWidth: 1, borderColor: D.edge, padding: 12 },
+  metaWrap: { marginTop: 14, gap: 8, alignSelf: 'stretch', backgroundColor: 'rgba(34,38,48,0.6)', borderRadius: R.md, borderWidth: 1, borderColor: D.edge, borderLeftWidth: 2.5, borderLeftColor: ACCENT_DIM, padding: 12 },
+  metaHeader: { fontSize: 9.5, fontFamily: F.bold, color: ACCENT_DIM, letterSpacing: 1.6, textTransform: 'uppercase' },
   metaRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 6 },
   metaPill: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: 'rgba(255,255,255,0.06)', borderWidth: 1, borderColor: D.edge, borderRadius: 10, paddingHorizontal: 9, paddingVertical: 4 },
   metaPillOn: { backgroundColor: 'rgba(16,185,129,0.14)', borderColor: 'rgba(16,185,129,0.45)' },
