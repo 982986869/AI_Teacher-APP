@@ -5,7 +5,7 @@ import {
   KeyboardAvoidingView, ActivityIndicator,
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
-import { generateLesson, askAgent, askAgentStream, getResumeContext, getLesson, updateLessonProgress } from '../api/aiApi';
+import { generateLesson, askAgent, askAgentStream, getResumeContext, getLesson, updateLessonProgress, TEACHING_MODES } from '../api/aiApi';
 import { saveActiveLesson, getActiveLesson, clearActiveLesson, getStudentModel, saveStudentModel } from '../utils/storage';
 import { foldOutcome } from '../components/teacher/pedagogyEngine';
 import KnowledgeAskScreen from './KnowledgeAskScreen';
@@ -66,6 +66,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   // 'learn' = generate a lesson; 'ask' = grounded RAG Q&A over uploaded material.
   const [mode, setMode] = useState('learn');
   const [learningOpen, setLearningOpen] = useState(false); // "Your learning" memory sheet
+  const [teachMode, setTeachMode] = useState('auto');      // teaching-mode register for the next lesson
   // When set ({ tab }), the Study Insights screen (plan / revision / progress) is shown.
   const [insights, setInsights] = useState(null);
   // "Welcome back" continuity snapshot (null until loaded; dismissible per session).
@@ -206,7 +207,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
     try {
       // The backend is authoritative on grade (from the student's profile); we send
       // the saved class for clarity but it cannot be used to request another class.
-      const payload = { topic: t, subject: activeSubject, gradeLevel: scope?.classNum ? String(scope.classNum) : (user?.grade || '') };
+      const payload = { topic: t, subject: activeSubject, gradeLevel: scope?.classNum ? String(scope.classNum) : (user?.grade || ''), mode: teachMode };
       const { lessonId: id, lesson } = await generateLesson(payload);
       if (!mountedRef.current) return;
       setLessonId(id);
@@ -348,6 +349,23 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
             </Gradient>
 
             <View style={st.body}>
+              {/* Teaching style (mode) — the "how". Auto lets the teacher pick the
+                  register from what it knows about the student; or override it. */}
+              <View style={st.modeSection}>
+                <Text style={st.modeLabel}>Teaching style</Text>
+                <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={st.modeChips} keyboardShouldPersistTaps="handled">
+                  {TEACHING_MODES.map((m) => {
+                    const on = teachMode === m.key;
+                    return (
+                      <PressableScale key={m.key} onPress={() => setTeachMode(m.key)} style={[st.modeChip, on && st.modeChipOn]}
+                        accessibilityRole="button" accessibilityState={{ selected: on }} accessibilityLabel={`Teaching style: ${m.label}`}>
+                        <Text style={[st.modeChipTxt, on && st.modeChipTxtOn]}>{m.short}</Text>
+                      </PressableScale>
+                    );
+                  })}
+                </ScrollView>
+              </View>
+
               {!!error && (
                 <Appear style={st.errCard}>
                   <CircleAlert size={17} color={C.pink} strokeWidth={2.3} />
@@ -597,6 +615,13 @@ const st = StyleSheet.create({
 
   // ── body ──
   body: { paddingHorizontal: SP.lg, paddingTop: SP.lg },
+  modeSection: { marginBottom: SP.xs },
+  modeLabel: { fontSize: 11, fontFamily: F.bold, color: C.dim, letterSpacing: 1.4, textTransform: 'uppercase', marginBottom: SP.sm },
+  modeChips: { gap: 8, paddingRight: SP.lg },
+  modeChip: { backgroundColor: C.board, borderWidth: 1, borderColor: C.line, borderRadius: R.pill, paddingVertical: 8, paddingHorizontal: 15 },
+  modeChipOn: { backgroundColor: C.ink, borderColor: C.ink },
+  modeChipTxt: { fontSize: 13, fontFamily: F.semi, color: C.ink2 },
+  modeChipTxtOn: { color: '#fff', fontFamily: F.bold },
   seclbl: { fontSize: 11, fontFamily: F.bold, color: C.dim, letterSpacing: 1.4, textTransform: 'uppercase', marginTop: SP.lg, marginBottom: SP.md },
 
   // teacher stage card

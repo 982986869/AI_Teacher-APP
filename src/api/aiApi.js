@@ -25,15 +25,31 @@ function parseSSE(raw) {
 // `res.data.data` and return the payload directly to callers.
 
 // POST /api/ai/lesson/generate → { lessonId, lesson }
-export const generateLesson = async ({ topic, subject, gradeLevel }) => {
+// `mode` (optional): a teaching-mode key (eli5/beginner/…/interview). Omit or pass
+// null/'auto' to let the teacher auto-select from the student's mastery.
+export const generateLesson = async ({ topic, subject, gradeLevel, mode }) => {
   // Full lesson generation by Opus can take 30–90s — allow up to 2 minutes.
   const res = await axiosInstance.post('/api/ai/lesson/generate', {
     topic,
     subject,
     gradeLevel,
+    ...(mode && mode !== 'auto' ? { mode } : {}),
   }, { timeout: 120000 });
   return res.data.data;
 };
+
+// The teaching-mode catalog (client-side; mirrors server/src/services/teachingModes.js).
+// 'auto' = let the teacher choose the register from what it knows about the student.
+export const TEACHING_MODES = [
+  { key: 'auto', label: 'Auto', short: 'Auto' },
+  { key: 'eli5', label: 'Explain Like I’m 5', short: 'ELI5' },
+  { key: 'beginner', label: 'Beginner', short: 'Beginner' },
+  { key: 'intermediate', label: 'Intermediate', short: 'Standard' },
+  { key: 'advanced', label: 'Advanced', short: 'Advanced' },
+  { key: 'exam', label: 'Exam Preparation', short: 'Exam' },
+  { key: 'revision', label: 'Revision', short: 'Revision' },
+  { key: 'interview', label: 'Interview Mode', short: 'Interview' },
+];
 
 // GET /api/ai/lesson/:lessonId → { lesson }
 export const getLesson = async (lessonId) => {

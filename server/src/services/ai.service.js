@@ -4,6 +4,7 @@ const { config } = require('../config/env')
 const db = require('../config/database')
 const lessonService = require('./lesson.service')
 const masteryService = require('./mastery.service')
+const teachingModes = require('./teachingModes')
 const { getAIProvider } = require('../providers')
 const { retrieve } = require('./retriever.service')
 const { AppError } = require('../middleware/errorHandler')
@@ -174,7 +175,7 @@ function buildMockDoubtAnswer(question, topic) {
 
 // ─── Public service functions ─────────────────────────────────────────────────
 
-async function generateLesson({ userId, topic, subject, gradeLevel, board, stream, language }) {
+async function generateLesson({ userId, topic, subject, gradeLevel, board, stream, language, mode }) {
   // Create a GENERATING placeholder — this ID is returned immediately in case of failure.
   const { id: lessonId } = await lessonService.createLesson({ userId, topic, subject, gradeLevel })
   const profile = { board, stream, language } // student's syllabus → AI never asks
@@ -198,6 +199,12 @@ async function generateLesson({ userId, topic, subject, gradeLevel, board, strea
   } catch (e) {
     console.error('[ai.service] learner-profile read failed (continuing un-personalized):', e?.message || e)
   }
+
+  // TEACHING MODE — the "how". Honour the student's explicit choice; otherwise the
+  // teacher intelligently picks the register from what it knows (low mastery →
+  // beginner, high → advanced, concepts fading → revision). Threaded into the prompt.
+  const resolvedMode = teachingModes.isMode(mode) ? mode : teachingModes.autoSelectMode(profile.learner)
+  profile.mode = resolvedMode
 
   try {
     const startTime = Date.now()
@@ -238,6 +245,9 @@ async function generateLesson({ userId, topic, subject, gradeLevel, board, strea
         return { ...s, ...(src.check ? { check: src.check } : {}), ...(src.reteach ? { reteach: src.reteach } : {}) }
       })
     }
+    // Tell the client which teaching mode this lesson was actually taught in (so it can
+    // show "taught in Beginner mode" and reflect an auto-selected register back).
+    if (saved) saved.teachingMode = { key: resolvedMode, label: teachingModes.modeLabel(resolvedMode), auto: !teachingModes.isMode(mode) }
     return saved
   } catch (err) {
     // Best-effort status write — never let a failing DB update mask the real

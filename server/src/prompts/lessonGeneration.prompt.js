@@ -1,5 +1,7 @@
 'use strict'
 
+const { modePrompt } = require('../services/teachingModes')
+
 // Strict JSON schema — mirrors the Prisma Lesson/Slide models and the parser in
 // AnthropicProvider.parseAndValidateLesson(). Documentation only; the runtime
 // contract is enforced by the prompt below + the validator + normalizeAnimation.
@@ -217,11 +219,12 @@ function buildLessonUserPrompt(topic, subject, gradeLevel, profile = {}) {
   const pl = profileLine(profile)
   const lg = levelGuidance(gradeLevel, profile)
   const ll = learnerLine(profile)
+  const md = modePrompt(profile.mode)
   return `Create a classroom lesson. Return ONLY the JSON object defined in the system prompt — no markdown, no extra text.
 
 Topic: ${topic}
 Subject: ${subject}
-Grade level: ${gradeLevel}${pl ? `\n${pl}` : ''}${lg ? `\n${lg}` : ''}${ll ? `\nWHAT I REMEMBER ABOUT THIS STUDENT (adapt the lesson to them, but keep it implicit): ${ll}` : ''}
+Grade level: ${gradeLevel}${pl ? `\n${pl}` : ''}${lg ? `\n${lg}` : ''}${md ? `\n${md}` : ''}${ll ? `\nWHAT I REMEMBER ABOUT THIS STUDENT (adapt the lesson to them, but keep it implicit): ${ll}` : ''}
 
 ALWAYS teach ${topic} — never refuse it and never say it is "outside your syllabus".
 PLAN it first like a teacher (privately): the learning objective for a Class ${gradeLevel} student; the concepts this topic requires at this class; the prerequisites (review them in at most one short slide — for Class 11–12 assume them); if the topic is broad, the single best focus for this class and duration; then the logical slide-by-slide progression toward the objective.
