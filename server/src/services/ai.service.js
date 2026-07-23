@@ -3,6 +3,7 @@
 const { config } = require('../config/env')
 const db = require('../config/database')
 const lessonService = require('./lesson.service')
+const masteryService = require('./mastery.service')
 const { getAIProvider } = require('../providers')
 const { retrieve } = require('./retriever.service')
 const { AppError } = require('../middleware/errorHandler')
@@ -177,6 +178,26 @@ async function generateLesson({ userId, topic, subject, gradeLevel, board, strea
   // Create a GENERATING placeholder — this ID is returned immediately in case of failure.
   const { id: lessonId } = await lessonService.createLesson({ userId, topic, subject, gradeLevel })
   const profile = { board, stream, language } // student's syllabus → AI never asks
+
+  // MEMORY-DRIVEN PERSONALIZATION — fold in what we already know about this learner
+  // (per-concept mastery, weak spots, revision-due, overall level) so the generated
+  // lesson genuinely adapts: reinforce their weak concepts, refresh due prerequisites,
+  // and match pace to their mastery. Best-effort: a cold/empty profile or any read
+  // error just yields a normal (un-personalized) lesson — never blocks generation.
+  try {
+    const lp = await masteryService.getLearningProfile(userId, { subject })
+    if (lp && lp.totalConcepts > 0) {
+      const names = (arr) => (Array.isArray(arr) ? arr.map((c) => c && c.concept).filter(Boolean) : [])
+      profile.learner = {
+        averageMastery: lp.averageMastery,
+        weak: names(lp.weak).slice(0, 4),
+        needsRevision: names(lp.needsRevision).slice(0, 3),
+        strong: names(lp.strong).slice(0, 3),
+      }
+    }
+  } catch (e) {
+    console.error('[ai.service] learner-profile read failed (continuing un-personalized):', e?.message || e)
+  }
 
   try {
     const startTime = Date.now()

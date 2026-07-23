@@ -190,18 +190,42 @@ function levelGuidance(gradeLevel, profile = {}) {
   return `LEVEL — Class ${n}${stream ? ` (${stream})` : ''}: teach fully and properly with higher-secondary RIGOUR — exact definitions and notation, the REASONING and a short standard derivation/proof of the key result, mathematical intuition (the WHY), graphs/diagrams where relevant, correct units, and ONE worked numerical. ASSUME prerequisites (spend at most 20–30 seconds on any review) and teach the real Class ${n} concept — do NOT drop to a middle-school introduction.${exam}`
 }
 
+// What we remember about THIS learner (from their per-concept mastery) → a few
+// natural teaching instructions so the lesson adapts to them personally. Kept
+// implicit: the teacher weaves it in, never announces "because you're weak at…".
+function learnerLine(profile = {}) {
+  const l = profile.learner
+  if (!l) return ''
+  const parts = []
+  if (Array.isArray(l.weak) && l.weak.length) {
+    parts.push(`They have struggled before with: ${l.weak.join(', ')}. Where any of these naturally connect to today's topic, reinforce it gently and clearly — do NOT announce it as remedial or say "because you're weak at this".`)
+  }
+  if (Array.isArray(l.needsRevision) && l.needsRevision.length) {
+    parts.push(`Due for revision: ${l.needsRevision.join(', ')}. If any is a prerequisite for today's topic, refresh it in one quick line before building on it.`)
+  }
+  if (Array.isArray(l.strong) && l.strong.length) {
+    parts.push(`Already strong on: ${l.strong.join(', ')} — build on these confidently and don't over-explain them.`)
+  }
+  if (typeof l.averageMastery === 'number') {
+    if (l.averageMastery < 45) parts.push(`Overall their mastery is still developing — go a touch slower, add one extra worked example, and check understanding gently.`)
+    else if (l.averageMastery >= 75) parts.push(`They're a strong learner overall — keep the pace crisp and include one stretch insight.`)
+  }
+  return parts.join(' ')
+}
+
 function buildLessonUserPrompt(topic, subject, gradeLevel, profile = {}) {
   const pl = profileLine(profile)
   const lg = levelGuidance(gradeLevel, profile)
+  const ll = learnerLine(profile)
   return `Create a classroom lesson. Return ONLY the JSON object defined in the system prompt — no markdown, no extra text.
 
 Topic: ${topic}
 Subject: ${subject}
-Grade level: ${gradeLevel}${pl ? `\n${pl}` : ''}${lg ? `\n${lg}` : ''}
+Grade level: ${gradeLevel}${pl ? `\n${pl}` : ''}${lg ? `\n${lg}` : ''}${ll ? `\nWHAT I REMEMBER ABOUT THIS STUDENT (adapt the lesson to them, but keep it implicit): ${ll}` : ''}
 
 ALWAYS teach ${topic} — never refuse it and never say it is "outside your syllabus".
 PLAN it first like a teacher (privately): the learning objective for a Class ${gradeLevel} student; the concepts this topic requires at this class; the prerequisites (review them in at most one short slide — for Class 11–12 assume them); if the topic is broad, the single best focus for this class and duration; then the logical slide-by-slide progression toward the objective.
 Then teach 7 to 10 slides that build logically toward that objective, at the DEPTH in the LEVEL line above — a senior lesson must be conceptually deep with reasoning and a short derivation, NOT a middle-school introduction. Every slide title must match its visual. Teach by REASONING (guiding question, "notice this", derive the key result), not by reading facts. Sound like a real Class ${gradeLevel} teacher, not a chatbot.`
 }
 
-module.exports = { buildLessonSystemPrompt, buildLessonUserPrompt, profileLine, levelGuidance, LESSON_JSON_SCHEMA }
+module.exports = { buildLessonSystemPrompt, buildLessonUserPrompt, profileLine, levelGuidance, learnerLine, LESSON_JSON_SCHEMA }

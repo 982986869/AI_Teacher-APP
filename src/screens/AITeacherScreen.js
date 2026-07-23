@@ -23,10 +23,11 @@ import { greeting, firstHello, preparingBeats, preparingHint, resumeTag, emptySt
 import { C, D, F, SP, GRAD, R, SERIF } from '../components/teacher/premiumTheme';
 import { Appear, PressableScale, Gradient } from '../components/teacher/uiKit';
 import { stopTeacher, primeTeacherVoice, SPEECH_OK } from '../utils/teacherVoice';
+import YourLearning from '../components/teacher/YourLearning';
 import {
   Search, Sparkles, History, X, Compass, RefreshCw, ChartColumn,
   Atom, Sigma, FlaskConical, Dna, BookOpen, Landmark,
-  CircleAlert, Check, Circle, ChevronRight, ChevronLeft,
+  CircleAlert, Check, Circle, ChevronRight, ChevronLeft, Brain,
 } from 'lucide-react-native';
 
 // AI Teacher answers EVERY academic question, so it offers all subjects. Only the
@@ -64,6 +65,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   const [activeSubject, setActiveSubject] = useState(initialSubject);
   // 'learn' = generate a lesson; 'ask' = grounded RAG Q&A over uploaded material.
   const [mode, setMode] = useState('learn');
+  const [learningOpen, setLearningOpen] = useState(false); // "Your learning" memory sheet
   // When set ({ tab }), the Study Insights screen (plan / revision / progress) is shown.
   const [insights, setInsights] = useState(null);
   // "Welcome back" continuity snapshot (null until loaded; dismissible per session).
@@ -292,7 +294,9 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
                   <ChevronLeft size={24} color="#fff" strokeWidth={2.4} />
                 </PressableScale>
                 <Text style={st.heroKicker} accessibilityRole="header">AI TEACHER</Text>
-                <View style={{ width: 38 }} />
+                <PressableScale onPress={() => setLearningOpen(true)} style={st.heroBack} accessibilityLabel="Your learning — what the teacher remembers about you">
+                  <Brain size={20} color="#fff" strokeWidth={2.2} />
+                </PressableScale>
               </View>
 
               <View style={st.greetRow}>
@@ -484,6 +488,8 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
             <Text style={st.genHint}>{prepHint}</Text>
           </View>
         )}
+
+        <YourLearning visible={learningOpen} onClose={() => setLearningOpen(false)} />
       </SafeAreaView>
     );
   }
