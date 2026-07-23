@@ -157,6 +157,28 @@ function Underline() {
 
 // ── speaking waveform (purple/blue audio bars) shown ABOVE the teacher ────────
 // Kept light (fewer bars) so it never janks on mid-range phones.
+// Three softly pulsing dots — a professional "she's thinking" indicator.
+function ThinkingDots() {
+  const vals = useRef([0, 1, 2].map(() => new Animated.Value(0.3))).current;
+  useEffect(() => {
+    const loops = vals.map((v, i) => Animated.loop(Animated.sequence([
+      Animated.delay(i * 160),
+      Animated.timing(v, { toValue: 1, duration: 380, useNativeDriver: true }),
+      Animated.timing(v, { toValue: 0.3, duration: 380, useNativeDriver: true }),
+    ])));
+    loops.forEach((l) => l.start());
+    return () => loops.forEach((l) => l.stop());
+  }, [vals]);
+  return (
+    <View style={st.thinkRow}>
+      {vals.map((v, i) => (
+        <Animated.View key={i} style={[st.thinkDot, { opacity: v, transform: [{ scale: v.interpolate({ inputRange: [0.3, 1], outputRange: [0.8, 1.15] }) }] }]} />
+      ))}
+      <Text style={st.thinkTxt}>Ms. Nova is thinking</Text>
+    </View>
+  );
+}
+
 const WAVE_N = 14;
 function Waveform({ active, compact }) {
   const n = compact ? 5 : WAVE_N;
@@ -224,7 +246,7 @@ function CornerTeacher({ state, expression, cam }) {
 // so the highlight never races ahead of her voice. Freezes when she's not
 // speaking (paused) and resets per line (resetKey). Light on the JS thread: it
 // only re-renders when the bright-word count actually changes.
-function SpokenCaption({ text, speaking, karaoke, resetKey, style, highlight }) {
+function SpokenCaption({ text, speaking, karaoke, resetKey, style, highlight, onTermTap }) {
   const words = useMemo(() => String(text || '').split(/\s+/).filter(Boolean), [text]);
   // Keywords to emphasise the instant they're spoken (from the beat's `highlight`).
   const hot = useMemo(() => new Set((highlight || [])
@@ -256,10 +278,18 @@ function SpokenCaption({ text, speaking, karaoke, resetKey, style, highlight }) 
   return (
     <Animated.Text style={[style, { opacity: fade }]}>
       {words.map((w, i) => {
+        const clean = w.replace(/[^a-z0-9]/gi, '').toLowerCase();
         const spokenNow = i < brightUpto;
-        const isHot = spokenNow && hot.size > 0 && hot.has(w.replace(/[^a-z0-9]/gi, '').toLowerCase());
+        const isHot = spokenNow && hot.size > 0 && hot.has(clean);
+        const isTerm = !!onTermTap && hot.has(clean) && clean.length > 2;
+        const sep = i < words.length - 1 ? ' ' : '';
+        if (isTerm) {
+          return (
+            <Text key={i} onPress={() => onTermTap(w.replace(/[^a-z0-9]/gi, ''))} style={[spokenNow ? st.capHot : st.capDim, st.capTerm]}>{w}{sep}</Text>
+          );
+        }
         return (
-          <Text key={i} style={!spokenNow ? st.capDim : (isHot ? st.capHot : null)}>{w}{i < words.length - 1 ? ' ' : ''}</Text>
+          <Text key={i} style={!spokenNow ? st.capDim : (isHot ? st.capHot : null)}>{w}{sep}</Text>
         );
       })}
     </Animated.Text>
@@ -1077,7 +1107,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     ) : mode === M.LISTENING ? (
       <Text style={st.captionTxt}>{listenPrompt}</Text>
     ) : (
-      <SpokenCaption key={`s-${idx}-${captionText}`} text={captionText} speaking={ttsActive} karaoke={voiceOn} resetKey={`${idx}-${captionText}`} style={st.captionTxt} highlight={(curBeat && curBeat.highlight && curBeat.highlight.length) ? curBeat.highlight : keyTerms} />
+      <SpokenCaption key={`s-${idx}-${captionText}`} text={captionText} speaking={ttsActive} karaoke={voiceOn} resetKey={`${idx}-${captionText}`} style={st.captionTxt} highlight={(curBeat && curBeat.highlight && curBeat.highlight.length) ? curBeat.highlight : keyTerms} onTermTap={onAsk ? (term) => sendDoubt(`In one line, what does "${term}" mean here?`) : undefined} />
     )
   );
 
@@ -1133,7 +1163,12 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
       {/* ── HEADER (fixed) ── */}
       <View style={st.bar}>
         <PressableScale onPress={() => { stopTeacher(); onExit && onExit(); }} style={st.barIcon} hitSlop={BAR_HIT} accessibilityLabel="Exit lesson"><ChevronLeft size={24} color={D.text} strokeWidth={2.4} /></PressableScale>
-        <View style={st.progressTrack} accessibilityRole="progressbar" accessibilityValue={{ now: Math.min(idx + 1, N), min: 0, max: N }}><Animated.View style={[st.progressFill, { width: progressA.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]} /></View>
+        <View style={st.progressTrack} accessibilityRole="progressbar" accessibilityValue={{ now: Math.min(idx + 1, N), min: 0, max: N }}>
+          <Animated.View style={[st.progressFill, { width: progressA.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]} />
+          {N > 1 && N <= 16 && Array.from({ length: N - 1 }).map((_, i) => (
+            <View key={i} style={[st.progressTick, { left: `${((i + 1) / N) * 100}%` }]} pointerEvents="none" />
+          ))}
+        </View>
         <Text style={st.counter} accessibilityLabel={`Step ${Math.min(idx + 1, N)} of ${N}`}>{Math.min(idx + 1, N)}/{N}</Text>
         {VOICE_OK && !!onAsk && (
           <PressableScale onPress={toggleHandsFree} style={[st.barIcon, handsFree && st.barIconLive]} hitSlop={BAR_HIT} accessibilityLabel={handsFree ? 'Turn off live conversation' : 'Turn on live conversation — speak anytime'} accessibilityState={{ selected: handsFree }}>
@@ -1212,8 +1247,21 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
       {/* ── STUDENT + STATUS + CONTROL DOCK (fixed) ── */}
       <View style={st.bottom}>
         {mode === M.LISTENING && VOICE_OK && <Text style={st.listenTxt} numberOfLines={2} accessibilityLiveRegion="polite">{partial || 'I’m listening — go ahead.'}</Text>}
-        {mode === M.THINKING && <Text style={st.listenTxt} accessibilityLiveRegion="polite">One moment — thinking…</Text>}
+        {mode === M.THINKING && <ThinkingDots />}
 
+        {mode === M.LISTENING && !VOICE_OK && !qInput && (
+          <View style={st.starterRow}>
+            {[
+              `Why is "${(scene.title || 'this').replace(/["“”]/g, '')}" true?`,
+              'Can you show a worked example?',
+              'Where is this used in real life?',
+            ].map((sq) => (
+              <PressableScale key={sq} style={st.starterChip} onPress={() => sendDoubt(sq)} accessibilityRole="button" accessibilityLabel={sq}>
+                <Text style={st.starterTxt} numberOfLines={1}>{sq}</Text>
+              </PressableScale>
+            ))}
+          </View>
+        )}
         {mode === M.LISTENING && !VOICE_OK && (
           <View style={st.askRow}>
             <TextInput
@@ -1296,12 +1344,14 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
             {learned.length > 0 && (
               <View style={st.learnedWrap}>
                 <Text style={st.learnedHead}>Today you learned</Text>
-                {learned.map((t, i) => (
-                  <Appear key={i} delay={220 + i * 90} style={st.learnedRow}>
-                    <View style={st.learnedTick}><Check size={12} color={C.green} strokeWidth={3.2} /></View>
-                    <Text style={st.learnedTxt} numberOfLines={2}>{t}</Text>
-                  </Appear>
-                ))}
+                <View style={st.learnedChips}>
+                  {learned.map((t, i) => (
+                    <Appear key={i} delay={220 + i * 70} style={st.learnedChip}>
+                      <Check size={11} color={C.green} strokeWidth={3.2} />
+                      <Text style={st.learnedChipTxt} numberOfLines={1}>{t}</Text>
+                    </Appear>
+                  ))}
+                </View>
               </View>
             )}
 
@@ -1401,6 +1451,7 @@ const st = StyleSheet.create({
   barIconTxt2: { fontSize: 14, color: D.text },
   progressTrack: { flex: 1, height: 4, backgroundColor: 'rgba(255,255,255,0.14)', borderRadius: 8, overflow: 'hidden' },
   progressFill: { height: '100%', backgroundColor: ACCENT, borderRadius: 8 },
+  progressTick: { position: 'absolute', top: 0, bottom: 0, width: 1.5, backgroundColor: 'rgba(8,9,12,0.55)' },
   counter: { fontSize: 11, fontFamily: F.semi, color: D.textFaint, minWidth: 30, textAlign: 'right', letterSpacing: 0.5 },
 
   // learning-progress context strip (topic + concept N of M)
@@ -1411,6 +1462,9 @@ const st = StyleSheet.create({
   // completion: "today you learned" checklist + count-up stats + adaptive next line
   learnedWrap: { alignSelf: 'stretch', marginTop: SP.md, gap: 8 },
   learnedHead: { fontSize: 11, fontFamily: F.bold, color: D.textDim, letterSpacing: 1.2, textTransform: 'uppercase', marginBottom: 2, textAlign: 'left' },
+  learnedChips: { flexDirection: 'row', flexWrap: 'wrap', gap: 7, marginTop: 4 },
+  learnedChip: { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: 'rgba(45,187,120,0.12)', borderWidth: 1, borderColor: 'rgba(45,187,120,0.35)', borderRadius: R.pill, paddingVertical: 6, paddingHorizontal: 12 },
+  learnedChipTxt: { fontSize: 12.5, fontFamily: F.semi, color: D.text, letterSpacing: 0.1 },
   learnedRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
   learnedTick: { width: 20, height: 20, borderRadius: 10, backgroundColor: 'rgba(16,185,129,0.18)', alignItems: 'center', justifyContent: 'center' },
   learnedTickTxt: { fontSize: 12, fontWeight: '900', color: C.green },
@@ -1474,6 +1528,7 @@ const st = StyleSheet.create({
   captionTxt: { fontSize: 16, fontFamily: F.med, color: D.text, textAlign: 'left', lineHeight: 25, letterSpacing: 0.1 }, // PRIMARY — spoken words (bright)
   capDim: { color: 'rgba(248,250,252,0.35)' },   // not-yet-spoken words; brighten as she speaks
   capHot: { color: ACCENT, fontFamily: F.semi }, // keyword emphasised (warm champagne) the moment it's spoken
+  capTerm: { textDecorationLine: 'underline', textDecorationStyle: 'dotted', textDecorationColor: 'rgba(219,165,63,0.6)' }, // tappable key term → tap to define
 
   cornerWrap: { position: 'absolute', top: 56, right: 12, zIndex: 20 },
 
@@ -1510,11 +1565,17 @@ const st = StyleSheet.create({
   bottom: { alignItems: 'center', paddingHorizontal: SP.md, paddingTop: SP.sm, paddingBottom: Platform.OS === 'ios' ? SP.lg : SP.md, gap: SP.sm },
 
   listenTxt: { fontSize: 13, fontFamily: F.semi, color: D.text, textAlign: 'center', paddingHorizontal: 26 },
+  thinkRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6 },
+  thinkDot: { width: 7, height: 7, borderRadius: 4, backgroundColor: ACCENT },
+  thinkTxt: { fontSize: 13, fontFamily: F.semi, color: D.textDim, marginLeft: 6, letterSpacing: 0.2 },
   hint: { fontSize: 12.5, fontFamily: F.med, color: D.textDim, textAlign: 'center' },
 
   // listening / typed-doubt / resume
   resumeBtn: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: C.accent, borderRadius: R.pill, paddingVertical: 13, paddingHorizontal: 28, shadowColor: C.accent, shadowOpacity: 0.5, shadowRadius: 14, shadowOffset: { width: 0, height: 6 }, elevation: 6 },
   resumeTxt: { color: '#fff', fontSize: 14, fontFamily: F.bold },
+  starterRow: { alignSelf: 'stretch', gap: 6, marginBottom: SP.sm },
+  starterChip: { alignSelf: 'stretch', backgroundColor: 'rgba(219,165,63,0.08)', borderWidth: 1, borderColor: 'rgba(219,165,63,0.3)', borderRadius: R.md, paddingVertical: 10, paddingHorizontal: 14 },
+  starterTxt: { fontSize: 13, fontFamily: F.med, color: '#DBA53F' },
   askRow: { flexDirection: 'row', gap: 8, alignItems: 'center', alignSelf: 'stretch' },
   askInput: { flex: 1, backgroundColor: D.panel2, borderWidth: 1, borderColor: D.edge, borderRadius: R.pill, paddingVertical: 13, paddingHorizontal: 20, color: D.text, fontSize: 14, fontFamily: F.med },
   askSend: { width: 48, height: 48, borderRadius: 24, backgroundColor: C.accent, alignItems: 'center', justifyContent: 'center' },
