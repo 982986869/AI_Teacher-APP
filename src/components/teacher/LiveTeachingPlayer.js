@@ -1180,7 +1180,12 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
             <ExplainChips
               scene={scene}
               onPick={(q) => sendDoubt(q)}
-              onPractice={() => sendDoubt(`Let's practise "${scene.title || scene.kicker || lessonTopic}". Ask me ONE short question and then stop — do NOT give the answer. I'll say my answer out loud and you can check it.`)}
+              onPractice={() => {
+                // Adaptive: if they're on a roll, stretch them; if they've been slipping, warm up.
+                const doingWell = rightStreakRef.current >= 2 || (conceptResults.length > 0 && weakConcepts.length === 0);
+                const level = doingWell ? 'a slightly challenging, exam-style' : 'a short warm-up';
+                sendDoubt(`Let's practise "${scene.title || scene.kicker || lessonTopic}". Ask me ONE ${level} question, then stop — do NOT give the answer yet. I'll say my answer out loud and you can check it.`);
+              }}
             />
           )}
         </Stage>
@@ -1291,11 +1296,20 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
             </Appear>
 
             {conceptResults.length > 0 && (
-              <Text style={st.masteryTxt}>
-                {weakConcepts.length === 0
-                  ? `You nailed all ${conceptResults.length} checks — mastered.`
-                  : `Mastered ${mastered}/${conceptResults.length}. Worth another look: ${weakConcepts.map((w) => w.title).join(', ')}.`}
-              </Text>
+              <View style={st.masteryPanel}>
+                <View style={st.masteryTop}>
+                  <Text style={st.masteryLabel}>Concept mastery</Text>
+                  <Text style={st.masteryScore}>{mastered}/{conceptResults.length}</Text>
+                </View>
+                <View style={st.masteryDots}>
+                  {conceptResults.map((r, i) => (
+                    <View key={i} style={[st.mDot, r.correct ? st.mDotOk : st.mDotWeak]} />
+                  ))}
+                </View>
+                {weakConcepts.length > 0 && (
+                  <Text style={st.masteryWeak} numberOfLines={2}>Revisit: {weakConcepts.map((w) => w.title).join(' · ')}</Text>
+                )}
+              </View>
             )}
 
             <Text style={st.recoTxt}>{memoryNext || (accuracy != null && accuracy >= 80 ? 'You’ve got this — ready for a new topic?' : 'A quick replay will lock it in.')}</Text>
@@ -1344,6 +1358,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
         onChangeNoteText={onChangeNoteText}
         visited={visited}
         results={conceptResults}
+        onExplainFormula={onAsk ? (f) => { setContentsOpen(false); sendDoubt(`Explain this formula and what each symbol means, briefly: ${f}`); } : undefined}
       />
       <FlashcardDeck visible={deckOpen} cards={flashcards} onClose={() => setDeckOpen(false)} lessonKey={lessonKey} />
       <TestSheet visible={testOpen} questions={testQs} onClose={() => setTestOpen(false)} onScore={() => {}} />
@@ -1387,7 +1402,15 @@ const st = StyleSheet.create({
   statNum: { fontSize: 30, fontFamily: SERIF, fontWeight: '600', color: ACCENT, letterSpacing: 0 },
   statLbl: { fontSize: 10, fontFamily: F.semi, color: D.textDim, letterSpacing: 1, textTransform: 'uppercase', marginTop: 2 },
   recoTxt: { fontSize: 12.5, fontFamily: F.med, color: D.textDim, textAlign: 'center', marginTop: SP.lg },
-  masteryTxt: { fontSize: 12.5, fontFamily: F.semi, color: '#DBA53F', textAlign: 'center', marginTop: SP.md, lineHeight: 18, paddingHorizontal: SP.sm },
+  masteryPanel: { alignSelf: 'stretch', marginTop: SP.lg, backgroundColor: 'rgba(255,255,255,0.04)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.08)', borderRadius: R.lg, padding: SP.md },
+  masteryTop: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  masteryLabel: { fontSize: 10.5, fontFamily: F.bold, color: D.textDim, letterSpacing: 1.4, textTransform: 'uppercase' },
+  masteryScore: { fontSize: 14, fontFamily: F.bold, color: '#DBA53F' },
+  masteryDots: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 10 },
+  mDot: { width: 20, height: 6, borderRadius: 3 },
+  mDotOk: { backgroundColor: '#2DBB78' },
+  mDotWeak: { backgroundColor: '#E9A23B' },
+  masteryWeak: { fontSize: 11.5, fontFamily: F.med, color: D.textDim, marginTop: 10, lineHeight: 16 },
 
   scroll: { flex: 1 },
   scrollBody: { flexGrow: 1, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 18, paddingTop: 8, paddingBottom: 16 },

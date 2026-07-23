@@ -17,7 +17,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   X, Check, Bookmark, BookmarkCheck, ListTree, RotateCcw, ChevronRight,
   Sparkles, Lightbulb, Globe, GraduationCap, Layers, Trophy,
-  PencilRuler, FileText, Share2, Languages,
+  PencilRuler, FileText, Share2, Languages, FunctionSquare, Star,
 } from 'lucide-react-native';
 
 import { PressableScale, Appear } from './uiKit';
@@ -147,9 +147,18 @@ export function buildRecap(scenes) {
 export function ExplainChips({ scene, onPick, onPractice }) {
   if (!scene) return null;
   const topic = (scene.title || scene.kicker || 'this idea').replace(/["“”]/g, '');
+  const hasFormula = (Array.isArray(scene.formulaParts) && scene.formulaParts.length > 0) || /=/.test(scene.title || '');
+  const isCheck = !!scene.quickCheck;
+  // The middle chip adapts to what's on the board: derive a formula, unpack a
+  // check, or give a worked example on a plain concept.
+  const middle = hasFormula
+    ? { Icon: FunctionSquare, label: 'Derive it', q: `Derive "${topic}" step by step — show where each term comes from, don't just state it.` }
+    : isCheck
+    ? { Icon: Sparkles, label: 'Break it down', q: `Break this question down: what is it really testing, and how should I think about it?` }
+    : { Icon: Sparkles, label: 'Example', q: `Give me one concrete, real-world worked example of "${topic}", step by step.` };
   const chips = [
     { Icon: Lightbulb, label: 'Simpler',   q: `Explain "${topic}" more simply — like I'm seeing it for the first time. Use plain words.` },
-    { Icon: Sparkles,  label: 'Example',   q: `Give me one concrete, real-world worked example of "${topic}", step by step.` },
+    middle,
     { Icon: Languages, label: 'हिंदी में',  q: `"${topic}" ko simple Hindi/Hinglish mein samjhao — jaise ek dost samjhata hai.` },
   ];
   return (
@@ -198,7 +207,7 @@ const TABS = [
   { key: 'review',   label: 'Review',   Icon: FileText },
 ];
 
-export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave, onJump, onClose, recap, formulas, lessonTitle, noteText, onChangeNoteText, visited, results }) {
+export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave, onJump, onClose, recap, formulas, lessonTitle, noteText, onChangeNoteText, visited, results, onExplainFormula, noteSavedAt }) {
   const [tab, setTab] = useState('contents');
   useEffect(() => { if (visible) setTab('contents'); }, [visible]);
   const concepts = useMemo(() => conceptScenes(scenes), [scenes]);
@@ -257,7 +266,12 @@ export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave
             <>
               {tab === 'notes' && (
                 <View style={s.myNoteWrap}>
-                  <Text style={s.myNoteLbl}>My note</Text>
+                  <View style={s.myNoteHead}>
+                    <Text style={s.myNoteLbl}>My note</Text>
+                    {!!(noteText && noteText.trim()) && (
+                      <View style={s.savedPill}><Check size={11} color="#2DBB78" strokeWidth={3} /><Text style={s.savedTxt}>Saved</Text></View>
+                    )}
+                  </View>
                   <TextInput
                     style={s.myNoteInput}
                     value={noteText}
@@ -268,6 +282,7 @@ export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave
                     textAlignVertical="top"
                     accessibilityLabel="Your personal note for this lesson"
                   />
+                  <Text style={s.myNoteMeta}>Saved on this device{noteText && noteText.trim() ? ` · ${noteText.trim().length} chars` : ''}</Text>
                 </View>
               )}
               {tab === 'notes' && (noteItems.length > 0 || (noteText && noteText.trim())) && (
@@ -320,10 +335,14 @@ export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave
                 <>
                   <Text style={s.reviewSection}>Key formulas</Text>
                   {formulas.map((f, k) => (
-                    <View key={`f${k}`} style={s.formulaRow}>
-                      <Text style={s.formulaLbl} numberOfLines={1}>{f.title}</Text>
+                    <PressableScale key={`f${k}`} style={[s.formulaRow, k === 0 && s.formulaCore]} onPress={() => onExplainFormula && onExplainFormula(f.formula)} accessibilityRole="button" accessibilityLabel={`Explain ${f.formula}`}>
+                      <View style={s.formulaHead}>
+                        <Text style={s.formulaLbl} numberOfLines={1}>{k === 0 ? 'CORE FORMULA' : f.title}</Text>
+                        {k === 0 && <Star size={13} color={GOLD} strokeWidth={2.3} fill={GOLD} />}
+                      </View>
                       <Text style={s.formulaTxt}>{f.formula}</Text>
-                    </View>
+                      {!!onExplainFormula && <Text style={s.formulaTap}>Tap to have Ms. Nova explain it</Text>}
+                    </PressableScale>
                   ))}
                 </>
               )}
@@ -558,8 +577,12 @@ const s = StyleSheet.create({
 
   // personal free-text note (Notes tab)
   myNoteWrap: { alignSelf: 'stretch', marginBottom: SP.md },
-  myNoteLbl: { fontSize: 10.5, fontFamily: F.bold, color: GOLD_DIM, letterSpacing: 1.2, textTransform: 'uppercase', marginBottom: 6 },
+  myNoteHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 6 },
+  myNoteLbl: { fontSize: 10.5, fontFamily: F.bold, color: GOLD_DIM, letterSpacing: 1.2, textTransform: 'uppercase' },
+  savedPill: { flexDirection: 'row', alignItems: 'center', gap: 4, backgroundColor: 'rgba(45,187,120,0.14)', borderRadius: R.pill, paddingHorizontal: 9, paddingVertical: 3 },
+  savedTxt: { fontSize: 10.5, fontFamily: F.bold, color: '#2DBB78', letterSpacing: 0.3 },
   myNoteInput: { minHeight: 76, backgroundColor: 'rgba(255,255,255,0.05)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.10)', borderRadius: R.md, padding: 12, color: D.text, fontSize: 14, fontFamily: F.reg, lineHeight: 20 },
+  myNoteMeta: { fontSize: 10.5, fontFamily: F.med, color: D.textFaint, marginTop: 6, letterSpacing: 0.2 },
 
   // Q&A recap
   qaCard: { alignSelf: 'stretch', backgroundColor: 'rgba(255,255,255,0.035)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.06)', borderRadius: R.lg, padding: 15, marginBottom: 9 },
@@ -687,9 +710,12 @@ const s = StyleSheet.create({
   scriptTxt: { fontSize: 14.5, fontFamily: F.reg, color: D.text, lineHeight: 22 },
 
   // formulas tab
-  formulaRow: { alignSelf: 'stretch', backgroundColor: PAPER, borderRadius: R.lg, paddingVertical: 15, paddingHorizontal: 16, marginBottom: 10, borderLeftWidth: 3, borderLeftColor: GOLD },
-  formulaLbl: { fontSize: 11, fontFamily: F.bold, color: GOLD_DIM, letterSpacing: 0.4, textTransform: 'uppercase', marginBottom: 6 },
+  formulaRow: { alignSelf: 'stretch', backgroundColor: PAPER, borderRadius: R.lg, paddingVertical: 15, paddingHorizontal: 16, marginBottom: 10, borderLeftWidth: 3, borderLeftColor: GOLD_DIM },
+  formulaCore: { borderLeftColor: GOLD, borderLeftWidth: 4, shadowColor: '#000', shadowOpacity: 0.35, shadowRadius: 16, shadowOffset: { width: 0, height: 8 }, elevation: 6 },
+  formulaHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 6 },
+  formulaLbl: { fontSize: 11, fontFamily: F.bold, color: GOLD_DIM, letterSpacing: 0.4, textTransform: 'uppercase' },
   formulaTxt: { fontSize: 18, fontFamily: SERIF, fontWeight: '600', color: C.ink, lineHeight: 26 },
+  formulaTap: { fontSize: 11, fontFamily: F.med, color: '#9A8F79', marginTop: 8 },
 
   // 7 · recap
   recapRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 12, alignSelf: 'stretch', backgroundColor: 'rgba(255,255,255,0.035)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.06)', borderRadius: R.lg, padding: 15, marginBottom: 9 },
