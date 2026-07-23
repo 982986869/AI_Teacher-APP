@@ -14,7 +14,7 @@ import { freshLearner, observe, assess } from './emotionEngine';
 import { ACTIONS, freshPedagogy, observePedagogy, decideNextAction, personalizedRecap, continuationHint, openingBridge } from './pedagogyEngine';
 import { C, D, F, SP, GLASS, GRAD, R, SERIF } from './premiumTheme';
 import { PressableScale, Gradient } from './uiKit';
-import { ExplainChips, ContentsSheet, FlashcardDeck, TestSheet, RecapSheet, QASheet, loadNotes, saveNotes, loadNoteText, saveNoteText, buildFlashcards, buildTest, buildTranscript, buildFormulas, buildRecap } from './lessonExtras';
+import { ExplainChips, ContentsSheet, FlashcardDeck, TestSheet, loadNotes, saveNotes, loadNoteText, saveNoteText, buildFlashcards, buildTest, buildFormulas, buildRecap } from './lessonExtras';
 import BoardSurface, { surfaceFor } from './boardSurfaces';
 import { EraserWipe } from './boardGestures';
 import { AmbientStage, VoiceAura } from './ambientStage';
@@ -461,17 +461,13 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const [contentsOpen, setContentsOpen] = useState(false);
   const [deckOpen, setDeckOpen] = useState(false);
   const [testOpen, setTestOpen] = useState(false);
-  const [recapOpen, setRecapOpen] = useState(false);
-  const [qaOpen, setQaOpen] = useState(false);
   const [savedNotes, setSavedNotes] = useState([]); // saved concept indices
   const [noteText, setNoteText] = useState('');     // the student's own free-text note
-  const [qaLog, setQaLog] = useState([]);           // {q,a} pairs asked this lesson
   const [conceptResults, setConceptResults] = useState([]); // {i,title,correct} from checks
   const openedAtRef = useRef(Date.now());           // for the study-time stat
   const lessonKey = useMemo(() => String((lesson && (lesson.id || lesson.lessonId || lesson.lessonTitle)) || subject || 'lesson'), [lesson, subject]);
   const flashcards = useMemo(() => buildFlashcards(scenes), [scenes]);
   const testQs = useMemo(() => buildTest(scenes), [scenes]);
-  const transcript = useMemo(() => buildTranscript(scenes), [scenes]);
   const formulas = useMemo(() => buildFormulas(scenes), [scenes]);
   const recap = useMemo(() => buildRecap(scenes), [scenes]);
   useEffect(() => { let ok = true; loadNotes(lessonKey).then((n) => { if (ok) setSavedNotes(n); }); loadNoteText(lessonKey).then((t) => { if (ok) setNoteText(t); }); return () => { ok = false; }; }, [lessonKey]);
@@ -614,15 +610,6 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const clearDoubtTick = () => { if (doubtTickRef.current) { clearInterval(doubtTickRef.current); doubtTickRef.current = null; } };
 
   useEffect(() => { primeTeacherVoice(); }, []);
-  // Log each finished Q&A (student question + her answer) so the lesson can offer a
-  // "Your questions" recap. Captured once per answer when it settles.
-  const qaLoggedRef = useRef(null);
-  useEffect(() => {
-    if (doubtDone && qa && qa.q && qa.a) {
-      const key = `${qa.q}::${String(qa.a).slice(0, 24)}`;
-      if (qaLoggedRef.current !== key) { qaLoggedRef.current = key; setQaLog((prev) => [...prev, { q: qa.q, a: qa.a }]); }
-    }
-  }, [doubtDone, qa]);
   // Re-arm the flag on mount. An effect cleanup also runs on Fast Refresh (and under
   // StrictMode's double-invoke) and refs survive it, so a setup that only ever clears
   // the flag leaves it false forever — after which every `if (mountedRef.current)`
@@ -1308,14 +1295,8 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
 
             <Text style={st.recoTxt}>{memoryNext || (accuracy != null && accuracy >= 80 ? 'You’ve got this — ready for a new topic?' : 'A quick replay will lock it in.')}</Text>
 
-            {(flashcards.length > 0 || testQs.length > 0 || recap.length > 0) && (
+            {(flashcards.length > 0 || testQs.length > 0) && (
               <View style={st.studyRow}>
-                {recap.length > 0 && (
-                  <PressableScale style={st.studyBtn} onPress={() => setRecapOpen(true)} accessibilityLabel="Quick recap">
-                    <BookOpen size={17} color="#DBA53F" strokeWidth={2.3} />
-                    <Text style={st.studyTxt}>Recap</Text>
-                  </PressableScale>
-                )}
                 {flashcards.length > 0 && (
                   <PressableScale style={st.studyBtn} onPress={() => setDeckOpen(true)} accessibilityLabel="Review flashcards">
                     <Layers size={17} color="#DBA53F" strokeWidth={2.3} />
@@ -1326,12 +1307,6 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
                   <PressableScale style={st.studyBtn} onPress={() => setTestOpen(true)} accessibilityLabel="Test yourself">
                     <GraduationCap size={18} color="#DBA53F" strokeWidth={2.3} />
                     <Text style={st.studyTxt}>Test yourself</Text>
-                  </PressableScale>
-                )}
-                {qaLog.length > 0 && (
-                  <PressableScale style={st.studyBtn} onPress={() => setQaOpen(true)} accessibilityLabel="Your questions">
-                    <BookOpen size={17} color="#DBA53F" strokeWidth={2.3} />
-                    <Text style={st.studyTxt}>Q&A · {qaLog.length}</Text>
                   </PressableScale>
                 )}
               </View>
@@ -1357,7 +1332,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
         onToggleSave={toggleSaveNote}
         onJump={(i) => goTeach(i)}
         onClose={() => setContentsOpen(false)}
-        transcript={transcript}
+        recap={recap}
         formulas={formulas}
         lessonTitle={lessonTopic}
         noteText={noteText}
@@ -1365,8 +1340,6 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
       />
       <FlashcardDeck visible={deckOpen} cards={flashcards} onClose={() => setDeckOpen(false)} />
       <TestSheet visible={testOpen} questions={testQs} onClose={() => setTestOpen(false)} onScore={() => {}} />
-      <RecapSheet visible={recapOpen} points={recap} onClose={() => setRecapOpen(false)} />
-      <QASheet visible={qaOpen} items={qaLog} onClose={() => setQaOpen(false)} />
     </View>
   );
 }

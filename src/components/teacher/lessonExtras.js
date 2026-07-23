@@ -17,7 +17,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   X, Check, Bookmark, BookmarkCheck, ListTree, RotateCcw, ChevronRight,
   Sparkles, Lightbulb, Globe, GraduationCap, Layers, Trophy,
-  PencilRuler, FileText, FunctionSquare, Share2, ListChecks, Languages, MessageCircleQuestion,
+  PencilRuler, FileText, Share2, Languages,
 } from 'lucide-react-native';
 
 import { PressableScale, Appear } from './uiKit';
@@ -81,16 +81,6 @@ export function buildTest(scenes) {
     .map((qc) => ({ q: qc.question, options: qc.options.slice(0, 4), answer: Math.min(qc.answer, 3) }));
 }
 
-// The lesson, read back as a script — each concept's spoken line (or its subtitle).
-export function buildTranscript(scenes) {
-  return (scenes || [])
-    .map((sc, i) => {
-      const text = String(sc.teacherLine || (Array.isArray(sc.subtitleChunks) ? sc.subtitleChunks.join(' ') : '') || '').trim();
-      return { i, kicker: sc.kicker, title: sc.title, text };
-    })
-    .filter((r) => r.text.length > 0);
-}
-
 // Every formula the lesson wrote on the board, as a quick-reference sheet.
 // Pull an "X = Y" equation out of a short string (a title), if one is present.
 function extractEquation(text) {
@@ -125,14 +115,14 @@ export function buildFormulas(scenes) {
 export function buildRecap(scenes) {
   const out = [];
   const seen = new Set();
-  (scenes || []).forEach((sc) => {
+  (scenes || []).forEach((sc, i) => {
     if (!sc.title || sc.quickCheck) return; // concepts only, not checks
     const line = String(sc.teacherLine || '').trim();
     const point = (line.match(/^[^.!?]*[.!?]?/) || [''])[0].trim() || line;
     const k = sc.title.toLowerCase();
     if (seen.has(k)) return;
     seen.add(k);
-    out.push({ title: sc.title, point, formula: formulaOf(sc) });
+    out.push({ i, title: sc.title, point, formula: formulaOf(sc) });
   });
   return out;
 }
@@ -144,10 +134,9 @@ export function ExplainChips({ scene, onPick, onPractice }) {
   if (!scene) return null;
   const topic = (scene.title || scene.kicker || 'this idea').replace(/["“”]/g, '');
   const chips = [
-    { Icon: Lightbulb, label: 'Simpler',    q: `Explain "${topic}" more simply — like I'm seeing it for the first time. Use plain words.` },
-    { Icon: Sparkles,  label: 'Example',    q: `Give me one concrete worked example of "${topic}", step by step.` },
-    { Icon: Globe,     label: 'Real-world', q: `Where does "${topic}" show up in real life? Give one vivid, memorable example.` },
-    { Icon: Languages, label: 'हिंदी में',   q: `"${topic}" ko simple Hindi/Hinglish mein samjhao — jaise ek dost samjhata hai.` },
+    { Icon: Lightbulb, label: 'Simpler',   q: `Explain "${topic}" more simply — like I'm seeing it for the first time. Use plain words.` },
+    { Icon: Sparkles,  label: 'Example',   q: `Give me one concrete, real-world worked example of "${topic}", step by step.` },
+    { Icon: Languages, label: 'हिंदी में',  q: `"${topic}" ko simple Hindi/Hinglish mein samjhao — jaise ek dost samjhata hai.` },
   ];
   return (
     <View style={s.chipRow} accessibilityRole="toolbar">
@@ -173,11 +162,10 @@ export function ExplainChips({ scene, onPick, onPractice }) {
 const TABS = [
   { key: 'contents', label: 'Contents', Icon: ListTree },
   { key: 'notes',    label: 'Notes',    Icon: Bookmark },
-  { key: 'script',   label: 'Script',   Icon: FileText },
-  { key: 'formulas', label: 'Formulas', Icon: FunctionSquare },
+  { key: 'review',   label: 'Review',   Icon: FileText },
 ];
 
-export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave, onJump, onClose, transcript, formulas, lessonTitle, noteText, onChangeNoteText }) {
+export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave, onJump, onClose, recap, formulas, lessonTitle, noteText, onChangeNoteText }) {
   const [tab, setTab] = useState('contents');
   useEffect(() => { if (visible) setTab('contents'); }, [visible]);
   const concepts = useMemo(() => conceptScenes(scenes), [scenes]);
@@ -264,83 +252,41 @@ export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave
             </>
           )}
 
-          {/* Script — the lesson read back, tap a line to jump there */}
-          {tab === 'script' && (
-            (transcript && transcript.length) ? transcript.map((r) => (
-              <PressableScale key={r.i} style={[s.scriptRow, r.i === currentIdx && s.rowNow]} onPress={() => { onJump(r.i); onClose(); }} accessibilityRole="button" accessibilityLabel={`Go to ${r.title}`}>
-                {!!r.title && <Text style={s.scriptTitle} numberOfLines={1}>{r.title}</Text>}
-                <Text style={s.scriptTxt}>{r.text}</Text>
-              </PressableScale>
-            )) : <Text style={s.empty}>No transcript for this lesson.</Text>
+          {/* Review — everything to revise in one place: the lesson's formulas, then
+              the key idea from each concept (tap a card to jump back to it). */}
+          {tab === 'review' && (
+            <>
+              {formulas && formulas.length > 0 && (
+                <>
+                  <Text style={s.reviewSection}>Key formulas</Text>
+                  {formulas.map((f, k) => (
+                    <View key={`f${k}`} style={s.formulaRow}>
+                      <Text style={s.formulaLbl} numberOfLines={1}>{f.title}</Text>
+                      <Text style={s.formulaTxt}>{f.formula}</Text>
+                    </View>
+                  ))}
+                </>
+              )}
+              {recap && recap.length > 0 ? (
+                <>
+                  <Text style={s.reviewSection}>Key ideas</Text>
+                  {recap.map((p, k) => (
+                    <PressableScale key={`r${k}`} style={s.scriptRow} onPress={() => { if (p.i != null) { onJump(p.i); onClose(); } }} accessibilityRole="button" accessibilityLabel={`Go to ${p.title}`}>
+                      <Text style={s.scriptTitle} numberOfLines={1}>{p.title}</Text>
+                      {!!p.point && <Text style={s.scriptTxt}>{p.point}</Text>}
+                      {!!p.formula && <Text style={s.recapFormula}>{p.formula}</Text>}
+                    </PressableScale>
+                  ))}
+                </>
+              ) : (!formulas || !formulas.length) && <Text style={s.empty}>Nothing to review yet.</Text>}
+            </>
           )}
-
-          {/* Formulas — the quick-reference sheet */}
-          {tab === 'formulas' && (
-            (formulas && formulas.length) ? formulas.map((f, k) => (
-              <View key={k} style={s.formulaRow}>
-                <Text style={s.formulaLbl} numberOfLines={1}>{f.title}</Text>
-                <Text style={s.formulaTxt}>{f.formula}</Text>
-              </View>
-            )) : <Text style={s.empty}>This lesson has no boxed formulas.</Text>
-          )}
         </ScrollView>
       </View>
     </Modal>
   );
 }
 
-
-// ════════════════════════════════════════════════════════════════════════════
-// 7 · QUICK RECAP — the whole lesson in one glance (offered on completion)
-// ════════════════════════════════════════════════════════════════════════════
-export function RecapSheet({ visible, points, onClose }) {
-  return (
-    <Modal visible={visible} animationType="slide" transparent onRequestClose={onClose}>
-      <View style={s.deckWrap}>
-        <View style={s.deckHead}>
-          <View style={s.deckTitleRow}><ListChecks size={18} color={GOLD} strokeWidth={2.3} /><Text style={s.deckTitle}>Quick recap</Text></View>
-          <PressableScale onPress={onClose} style={s.sheetX} accessibilityLabel="Close recap"><X size={20} color={D.textDim} strokeWidth={2.3} /></PressableScale>
-        </View>
-        <ScrollView contentContainerStyle={{ paddingBottom: SP.xl }} showsVerticalScrollIndicator={false}>
-          {(points && points.length) ? points.map((p, k) => (
-            <View key={k} style={s.recapRow}>
-              <View style={s.recapDot}><Text style={s.recapDotTxt}>{k + 1}</Text></View>
-              <View style={{ flex: 1 }}>
-                <Text style={s.recapTitle}>{p.title}</Text>
-                {!!p.point && <Text style={s.recapPoint}>{p.point}</Text>}
-                {!!p.formula && <Text style={s.recapFormula}>{p.formula}</Text>}
-              </View>
-            </View>
-          )) : <Text style={s.empty}>Nothing to recap yet.</Text>}
-        </ScrollView>
-      </View>
-    </Modal>
-  );
-}
-
-// ════════════════════════════════════════════════════════════════════════════
-// 8 · Q&A RECAP — every question you asked this lesson, with her answer
-// ════════════════════════════════════════════════════════════════════════════
-export function QASheet({ visible, items, onClose }) {
-  return (
-    <Modal visible={visible} animationType="slide" transparent onRequestClose={onClose}>
-      <View style={s.deckWrap}>
-        <View style={s.deckHead}>
-          <View style={s.deckTitleRow}><MessageCircleQuestion size={18} color={GOLD} strokeWidth={2.3} /><Text style={s.deckTitle}>Your questions</Text></View>
-          <PressableScale onPress={onClose} style={s.sheetX} accessibilityLabel="Close"><X size={20} color={D.textDim} strokeWidth={2.3} /></PressableScale>
-        </View>
-        <ScrollView contentContainerStyle={{ paddingBottom: SP.xl }} showsVerticalScrollIndicator={false}>
-          {(items && items.length) ? items.map((qa, k) => (
-            <View key={k} style={s.qaCard}>
-              <Text style={s.qaQ}>{qa.q}</Text>
-              {!!qa.a && <Text style={s.qaA}>{qa.a}</Text>}
-            </View>
-          )) : <Text style={s.empty}>You didn’t ask anything this time — the mic and the chips are there whenever you want.</Text>}
-        </ScrollView>
-      </View>
-    </Modal>
-  );
-}
 
 // ════════════════════════════════════════════════════════════════════════════
 // 4 · FLASHCARD DECK — tap to flip, swipe through with Prev/Next
@@ -625,7 +571,8 @@ const s = StyleSheet.create({
   shareBtn: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, alignSelf: 'stretch', marginBottom: SP.sm, paddingVertical: 11, borderRadius: R.md, backgroundColor: 'rgba(219,165,63,0.10)', borderWidth: 1, borderColor: 'rgba(219,165,63,0.38)' },
   shareTxt: { fontSize: 13, fontFamily: F.bold, color: GOLD },
 
-  // script tab
+  // review tab
+  reviewSection: { fontSize: 10.5, fontFamily: F.bold, color: GOLD_DIM, letterSpacing: 1.6, textTransform: 'uppercase', marginTop: SP.sm, marginBottom: SP.sm },
   scriptRow: { alignSelf: 'stretch', backgroundColor: 'rgba(255,255,255,0.035)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.06)', borderRadius: R.lg, padding: 14, marginBottom: 8 },
   scriptTitle: { fontSize: 11, fontFamily: F.bold, color: GOLD_DIM, letterSpacing: 0.5, textTransform: 'uppercase', marginBottom: 5 },
   scriptTxt: { fontSize: 14.5, fontFamily: F.reg, color: D.text, lineHeight: 22 },
