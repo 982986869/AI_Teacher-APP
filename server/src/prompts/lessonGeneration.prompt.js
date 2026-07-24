@@ -215,20 +215,40 @@ function learnerLine(profile = {}) {
   return parts.join(' ')
 }
 
+// The student's own stated PREFERENCES (how they like to be taught) → teaching
+// instructions. Distinct from mastery (what they know) and mode (the register).
+// Everything is optional and free of PII; unknown/blank fields are simply skipped.
+function preferenceLine(profile = {}) {
+  const p = profile.prefs
+  if (!p || typeof p !== 'object') return ''
+  const parts = []
+  const style = String(p.explanationStyle || '').toLowerCase()
+  if (style === 'visual') parts.push('This student learns best VISUALLY — lean on diagrams, labelled figures, tables and spatial reasoning, and describe clearly what to picture.')
+  else if (style === 'story') parts.push('This student learns best through STORIES — frame the idea as a short narrative or scenario with a character or real situation they can follow.')
+  else if (style === 'practical') parts.push('This student learns best from PRACTICAL, hands-on application — anchor every idea in a concrete real-life use and a worked example.')
+  const pace = String(p.pace || '').toLowerCase()
+  if (pace === 'slow') parts.push('They prefer a SLOWER pace — smaller steps, one extra example, and gentle checks; never rush.')
+  else if (pace === 'fast') parts.push('They prefer a FAST pace — be concise, skip hand-holding, and add a stretch point.')
+  if (p.goal && String(p.goal).trim()) parts.push(`Their long-term goal: "${String(p.goal).trim().slice(0, 120)}" — where it fits naturally, connect the lesson to it.`)
+  if (p.examDate && String(p.examDate).trim()) parts.push(`They have an exam around ${String(p.examDate).trim().slice(0, 40)} — give exam-relevant points a little extra emphasis.`)
+  return parts.join(' ')
+}
+
 function buildLessonUserPrompt(topic, subject, gradeLevel, profile = {}) {
   const pl = profileLine(profile)
   const lg = levelGuidance(gradeLevel, profile)
   const ll = learnerLine(profile)
+  const pref = preferenceLine(profile)
   const md = modePrompt(profile.mode)
   return `Create a classroom lesson. Return ONLY the JSON object defined in the system prompt — no markdown, no extra text.
 
 Topic: ${topic}
 Subject: ${subject}
-Grade level: ${gradeLevel}${pl ? `\n${pl}` : ''}${lg ? `\n${lg}` : ''}${md ? `\n${md}` : ''}${ll ? `\nWHAT I REMEMBER ABOUT THIS STUDENT (adapt the lesson to them, but keep it implicit): ${ll}` : ''}
+Grade level: ${gradeLevel}${pl ? `\n${pl}` : ''}${lg ? `\n${lg}` : ''}${md ? `\n${md}` : ''}${pref ? `\nHOW THIS STUDENT LIKES TO LEARN: ${pref}` : ''}${ll ? `\nWHAT I REMEMBER ABOUT THIS STUDENT (adapt the lesson to them, but keep it implicit): ${ll}` : ''}
 
 ALWAYS teach ${topic} — never refuse it and never say it is "outside your syllabus".
 PLAN it first like a teacher (privately): the learning objective for a Class ${gradeLevel} student; the concepts this topic requires at this class; the prerequisites (review them in at most one short slide — for Class 11–12 assume them); if the topic is broad, the single best focus for this class and duration; then the logical slide-by-slide progression toward the objective.
 Then teach 7 to 10 slides that build logically toward that objective, at the DEPTH in the LEVEL line above — a senior lesson must be conceptually deep with reasoning and a short derivation, NOT a middle-school introduction. Every slide title must match its visual. Teach by REASONING (guiding question, "notice this", derive the key result), not by reading facts. Sound like a real Class ${gradeLevel} teacher, not a chatbot.`
 }
 
-module.exports = { buildLessonSystemPrompt, buildLessonUserPrompt, profileLine, levelGuidance, learnerLine, LESSON_JSON_SCHEMA }
+module.exports = { buildLessonSystemPrompt, buildLessonUserPrompt, profileLine, levelGuidance, learnerLine, preferenceLine, LESSON_JSON_SCHEMA }

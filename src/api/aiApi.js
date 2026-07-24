@@ -27,13 +27,14 @@ function parseSSE(raw) {
 // POST /api/ai/lesson/generate → { lessonId, lesson }
 // `mode` (optional): a teaching-mode key (eli5/beginner/…/interview). Omit or pass
 // null/'auto' to let the teacher auto-select from the student's mastery.
-export const generateLesson = async ({ topic, subject, gradeLevel, mode }) => {
+export const generateLesson = async ({ topic, subject, gradeLevel, mode, prefs }) => {
   // Full lesson generation by Opus can take 30–90s — allow up to 2 minutes.
   const res = await axiosInstance.post('/api/ai/lesson/generate', {
     topic,
     subject,
     gradeLevel,
     ...(mode && mode !== 'auto' ? { mode } : {}),
+    ...(prefs ? { prefs } : {}),
   }, { timeout: 120000 });
   return res.data.data;
 };

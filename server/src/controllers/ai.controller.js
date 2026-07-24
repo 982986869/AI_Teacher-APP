@@ -48,6 +48,7 @@ async function generateLesson(req, res, next) {
       stream: req.scope && req.scope.stream,
       language: req.scope && req.scope.language,
       mode,
+      prefs: req.body.prefs, // learner preferences (sanitised in the service)
     })
 
     return ApiResponse.created(

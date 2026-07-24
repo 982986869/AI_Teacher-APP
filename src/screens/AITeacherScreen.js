@@ -7,6 +7,7 @@ import {
 import { useAuth } from '../context/AuthContext';
 import { generateLesson, askAgent, askAgentStream, getResumeContext, getLesson, updateLessonProgress, TEACHING_MODES } from '../api/aiApi';
 import { saveActiveLesson, getActiveLesson, clearActiveLesson, getStudentModel, saveStudentModel } from '../utils/storage';
+import { loadLearnerPrefs, prefsForRequest } from '../utils/learnerPrefs';
 import { foldOutcome } from '../components/teacher/pedagogyEngine';
 import KnowledgeAskScreen from './KnowledgeAskScreen';
 import StudyInsightsScreen from './StudyInsightsScreen';
@@ -207,7 +208,10 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
     try {
       // The backend is authoritative on grade (from the student's profile); we send
       // the saved class for clarity but it cannot be used to request another class.
-      const payload = { topic: t, subject: activeSubject, gradeLevel: scope?.classNum ? String(scope.classNum) : (user?.grade || ''), mode: teachMode };
+      // Read the latest saved learning preferences (edited in "Your learning") and
+      // send them along so the lesson matches how this student likes to learn.
+      const prefs = prefsForRequest(await loadLearnerPrefs());
+      const payload = { topic: t, subject: activeSubject, gradeLevel: scope?.classNum ? String(scope.classNum) : (user?.grade || ''), mode: teachMode, prefs };
       const { lessonId: id, lesson } = await generateLesson(payload);
       if (!mountedRef.current) return;
       setLessonId(id);
