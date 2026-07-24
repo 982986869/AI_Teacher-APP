@@ -1,6 +1,7 @@
 'use strict'
 
 const db = require('../config/database')
+const { config } = require('../config/env')
 
 // ─── Lesson lifecycle ─────────────────────────────────────────────────────────
 
@@ -55,12 +56,14 @@ async function updateLessonWithContent(
         visualSequence: s.visualSequence ?? [],
         highlightTargets: s.highlightTargets ?? [],
         voiceCue: s.voiceCue ?? null,
-        // ── RESUME-PERSISTENCE (opt-in): uncomment the next two lines AFTER running
-        //    `cd server && npx prisma db push` so the check/reteach columns exist.
-        //    Until then, fresh generation already delivers them via the ai.service
-        //    overlay; only a RESUMED lesson lacks them (client falls back gracefully).
-        // check: s.check ?? null,
-        // reteach: s.reteach ?? null,
+        // ── RESUME-PERSISTENCE (gated by PERSIST_CHECKS): the check/reteach columns
+        //    exist in schema.prisma; apply them to the DB with `prisma db push` before
+        //    turning the flag ON. With the flag OFF this is a no-op — fresh generation
+        //    still delivers check/reteach via the ai.service overlay, and a RESUMED
+        //    lesson simply lacks them (client falls back gracefully).
+        ...(config.flags.persistChecks
+          ? { check: s.check ?? null, reteach: s.reteach ?? null }
+          : {}),
       })),
     })
   })
@@ -98,9 +101,15 @@ const SLIDE_SELECT = {
   visualSequence: true,
   highlightTargets: true,
   voiceCue: true,
-  // RESUME-PERSISTENCE (opt-in): uncomment AFTER `prisma db push` adds the columns.
-  // check: true,
-  // reteach: true,
+}
+
+// RESUME-PERSISTENCE (gated by PERSIST_CHECKS): only select check/reteach when the
+// flag is ON. Selecting a column that doesn't yet physically exist would throw, so
+// the columns must be applied via `prisma db push` before the flag is turned ON.
+function slideSelect() {
+  return config.flags.persistChecks
+    ? { ...SLIDE_SELECT, check: true, reteach: true }
+    : SLIDE_SELECT
 }
 
 async function getLessonWithSlides(lessonId, userId) {
@@ -121,7 +130,7 @@ async function getLessonWithSlides(lessonId, userId) {
       createdAt: true,
       updatedAt: true,
       slides: {
-        select: SLIDE_SELECT,
+        select: slideSelect(),
         orderBy: { slideNumber: 'asc' },
       },
     },
@@ -149,7 +158,7 @@ async function getLessonWithSlidesAdmin(lessonId) {
       createdAt: true,
       updatedAt: true,
       slides: {
-        select: SLIDE_SELECT,
+        select: slideSelect(),
         orderBy: { slideNumber: 'asc' },
       },
     },

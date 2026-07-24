@@ -121,6 +121,13 @@ const config = {
       ? process.env.ALLOWED_ORIGINS.split(',').map((s) => s.trim())
       : '*',
   },
+
+  // Feature flags. Default OFF — with every flag OFF the app behaves exactly as
+  // it does today. Flip only after the matching rollout step (e.g. persistChecks
+  // needs the nullable Slide.check/reteach columns applied via `prisma db push`).
+  flags: {
+    persistChecks: process.env.PERSIST_CHECKS === 'true',
+  },
 }
 
 module.exports = { validateEnv, config }
