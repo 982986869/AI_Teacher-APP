@@ -82,6 +82,7 @@ const checkRules = [
   body('slideIndex').isInt({ min: 0 }).withMessage('slideIndex required').toInt(),
   body('correct').isBoolean().withMessage('correct must be a boolean').toBoolean(),
   body('concept').optional().isString().isLength({ max: 200 }),
+  body('conceptId').optional().isUUID().withMessage('conceptId must be a UUID'),
   body('firstTry').optional().isBoolean().toBoolean(),
   body('timeMs').optional().isInt({ min: 0, max: 600000 }).toInt(),
 ]

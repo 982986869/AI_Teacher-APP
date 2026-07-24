@@ -5,6 +5,7 @@ const aiService = require('../services/ai.service')
 const teachingModes = require('../services/teachingModes')
 const agentService = require('../services/agent.service')
 const memoryService = require('../services/memory.service')
+const masteryService = require('../services/mastery.service')
 const plannerService = require('../services/planner.service')
 const sessionService = require('../services/session.service')
 const progressService = require('../services/progress.service')
@@ -276,15 +277,25 @@ async function recordMemory(req, res, next) {
 
 // ─── POST /api/ai/lesson/:lessonId/check ──────────────────────────────────────
 // Records the outcome of an in-lesson comprehension check for one slide:
-// { slideIndex, correct, concept?, firstTry?, timeMs? }. Ownership-checked. For now
-// it validates + acknowledges only — the mastery wiring is added in a later step,
-// so this endpoint is dark (no client calls it yet) and has no side effects.
+// { slideIndex, correct, concept?, conceptId?, firstTry?, timeMs? }. Ownership-checked.
+// When the client supplies a resolved conceptId we fold the outcome into mastery via
+// the existing EWMA service (same signals as quiz answers); no conceptId → no-op. The
+// mastery write is best-effort and must never fail the check. Dark until a client
+// actually sends conceptId (none does yet).
 async function recordCheck(req, res, next) {
   try {
     const errors = validationResult(req)
     if (!errors.isEmpty()) return ApiResponse.error(res, errors.array()[0].msg, 422)
     const lesson = await lessonService.getLessonById(req.params.lessonId, req.user.id)
     if (!lesson) throw new AppError('Lesson not found', 404)
+    if (req.body.conceptId) {
+      masteryService.updateMastery({
+        userId: req.user.id,
+        conceptId: req.body.conceptId,
+        signal: req.body.correct ? 'quiz_correct' : 'quiz_wrong',
+        timeMs: req.body.timeMs,
+      }).catch(() => {})
+    }
     return ApiResponse.success(res, { ok: true })
   } catch (err) {
     next(err)
