@@ -51,6 +51,11 @@ class AnthropicProvider extends AIProvider {
     this._client = null
     this.lessonModel = config.ai.lessonModel
     this.doubtModel = config.ai.doubtModel
+    // Cheap, fast model for small deterministic sub-tasks (intent classification,
+    // quiz drafting, answer grading) — these do NOT need the tutoring model's depth,
+    // so routing them to Haiku cuts latency + cost with no quality loss. Falls back
+    // to the doubt model if AI_KNOWLEDGE_MODEL isn't set (backward compatible).
+    this.cheapModel = config.ai.knowledgeModel || config.ai.doubtModel
     // Deeper reasoning for lesson planning (adaptive thinking + effort). Off-switch
     // and effort are env-driven; an unsupported model is handled at call time.
     this.lessonThinking = config.ai.lessonThinking === 'adaptive'
@@ -166,7 +171,7 @@ class AnthropicProvider extends AIProvider {
     let message
     try {
       message = await client.messages.create({
-        model: this.doubtModel,
+        model: this.cheapModel,
         max_tokens: INTENT_MAX_TOKENS,
         system: buildIntentSystemPrompt(),
         messages: buildIntentMessages(text),
@@ -227,7 +232,7 @@ class AnthropicProvider extends AIProvider {
     let message
     try {
       message = await client.messages.create({
-        model: this.doubtModel,
+        model: this.cheapModel,
         max_tokens: 400,
         system: buildQuizSystemPrompt({ subject, chapter, contexts, level, language }),
         messages: [{ role: 'user', content: 'Set the quiz question now.' }],
@@ -245,7 +250,7 @@ class AnthropicProvider extends AIProvider {
     let message
     try {
       message = await client.messages.create({
-        model: this.doubtModel,
+        model: this.cheapModel,
         max_tokens: 300,
         system: buildGradeSystemPrompt({ question, expectedAnswer, language, studentMemory }),
         messages: buildGradeMessages(studentAnswer),

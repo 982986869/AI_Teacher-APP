@@ -405,13 +405,14 @@ const HomeScreen = () => {
   const [toast, setToast] = useState(null);
   const mounted = useRef(true);
   const initialLoad = useRef(true);
+  const lastLoadAt = useRef(0); // throttle focus-refetches of the heavy parent report
   const prevStats = useRef(null); // last-seen {xp, streak} to detect progress on return
   useEffect(() => () => { mounted.current = false; }, []);
 
   const load = useCallback(async (isRefresh) => {
     try {
       const [rep, active, ctx, seen] = await Promise.all([
-        getParentReport(),
+        getParentReport(!!isRefresh), // pull-to-refresh forces a live (uncached) report
         getActiveLesson().catch(() => null),
         getResumeContext().catch(() => null),
         getHomeState().catch(() => null),
@@ -443,14 +444,19 @@ const HomeScreen = () => {
       if (!mounted.current) return;
       if (!isRefresh) setErr(true);
     } finally {
+      lastLoadAt.current = Date.now();
       if (mounted.current) { setLoading(false); setRefreshing(false); }
     }
   }, []);
-  // Refetch whenever the Home tab regains focus so progress made elsewhere (a finished
-  // lesson, a Brain Gym set, a newly-earned badge) is reflected the instant you land here.
-  // First focus does a full load (skeleton); later focuses refresh silently in the background.
+  // Refetch when the Home tab regains focus so progress made elsewhere (a finished
+  // lesson, a Brain Gym set, a badge) shows up. But the parent report is a ~20-query
+  // aggregate, so we THROTTLE background refetches: the first focus loads fully; later
+  // focuses only re-hit the server if it's been a while (rapid tab-hopping no longer
+  // fires the query storm each time). Pull-to-refresh still forces an immediate reload.
+  const FOCUS_REFETCH_MS = 20000;
   useFocusEffect(useCallback(() => {
-    load(!initialLoad.current);
+    const stale = Date.now() - lastLoadAt.current > FOCUS_REFETCH_MS;
+    if (initialLoad.current || stale) load(!initialLoad.current);
     initialLoad.current = false;
   }, [load]));
   // Re-tapping the already-active Home tab scrolls back to the top (standard, expected).

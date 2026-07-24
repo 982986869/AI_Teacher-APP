@@ -14,6 +14,24 @@ const { deriveScope } = require('../services/personalization/scope')
 
 const onlyParent = (req) => req.scope && req.scope.role === 'parent'
 
+// The report is a ~20-query aggregate that backs the Home screen and refetches on
+// focus. Progress does not change second-to-second, so a short per-child in-memory
+// cache collapses bursts (rapid tab-hops, parent+student both viewing) into ONE
+// recompute. TTL is small enough that a just-finished lesson still shows on return.
+// Per server instance; a shared Redis cache would extend this horizontally.
+const REPORT_CACHE = new Map()
+const REPORT_TTL_MS = 15000
+const REPORT_CACHE_MAX = 5000
+function getCachedReport(childId) {
+  const hit = REPORT_CACHE.get(childId)
+  if (hit && Date.now() - hit.at < REPORT_TTL_MS) return hit.payload
+  return null
+}
+function setCachedReport(childId, payload) {
+  REPORT_CACHE.set(childId, { at: Date.now(), payload })
+  if (REPORT_CACHE.size > REPORT_CACHE_MAX) REPORT_CACHE.delete(REPORT_CACHE.keys().next().value)
+}
+
 // POST /api/parent/link-child  { email? , phone? }
 async function linkChild(req, res, next) {
   try {
@@ -54,6 +72,13 @@ async function report(req, res, next) {
       childId = req.user.id
     } else {
       return ApiResponse.error(res, 'Only a parent or student account can view this.', 403)
+    }
+
+    // Short-lived cache: collapse rapid refetches (focus/tab-hops) into one recompute.
+    // Pull-to-refresh (?fresh=1) always bypasses it for guaranteed-live data.
+    if (req.query.fresh !== '1') {
+      const cached = getCachedReport(childId)
+      if (cached) return ApiResponse.success(res, cached)
     }
 
     const rows = await db.$queryRawUnsafe(
@@ -286,7 +311,7 @@ async function report(req, res, next) {
     const skillsOut = skillRows.map((s) => ({ id: s.id, title: s.title, body: s.body, color: s.color, emoji: s.emoji }))
     const galleryOut = galleryRows.map((g) => ({ id: g.id, image: g.image_url, caption: g.caption }))
 
-    return ApiResponse.success(res, {
+    const payload = {
       linked: true,
       child: { id: child.id, name: child.name, firstName: first, className: sc.className, stream: sc.stream, board: sc.board, subjects: sc.subjects },
       brainGym: bg,
@@ -323,7 +348,9 @@ async function report(req, res, next) {
       eventSkills: skillsOut,
       eventGallery: galleryOut,
       features: { sessions: false, tutorChat: false, classes: false, trialBooking: false, events: eventsOut.length > 0 },
-    })
+    }
+    setCachedReport(childId, payload)
+    return ApiResponse.success(res, payload)
   } catch (err) { next(err) }
 }
 

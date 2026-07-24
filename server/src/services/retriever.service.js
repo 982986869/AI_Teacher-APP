@@ -96,11 +96,16 @@ async function retrieve({ query, subject, gradeLevel, topK, minSimilarity } = {}
         const prereqs = await kg.getPrereqs(best.id).catch(() => [])
         prereqConcepts = prereqs.map((p) => p.name)
         // Pull a couple of chunks for each prerequisite (e.g. Impulse → Momentum).
-        for (const pr of prereqs.slice(0, 2)) {
-          if (!pr.emb) continue
-          const extra = await rawSearch({ queryVec: qLit, orderVec: pr.emb, subject: subj, gradeLevel, limit: 2 }).catch(() => [])
-          extra.forEach((e) => pool.push({ ...e, isPrereq: true, prereqName: pr.name }))
-        }
+        // Run the per-prereq vector searches CONCURRENTLY — they're independent, so
+        // serial awaits needlessly stacked their round-trips on the doubt critical path.
+        const prereqResults = await Promise.all(
+          prereqs.slice(0, 2).filter((pr) => pr.emb).map((pr) =>
+            rawSearch({ queryVec: qLit, orderVec: pr.emb, subject: subj, gradeLevel, limit: 2 })
+              .then((extra) => extra.map((e) => ({ ...e, isPrereq: true, prereqName: pr.name })))
+              .catch(() => [])
+          )
+        )
+        prereqResults.forEach((chunks) => chunks.forEach((e) => pool.push(e)))
       }
     }
   }
