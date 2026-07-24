@@ -65,7 +65,17 @@ export function assess(model) {
   if (confidence >= 0.68) { pace = 'fast'; paceMult = 0.74; tone = 'confident'; }
   else if (confidence <= 0.34) { pace = 'slow'; paceMult = 1.38; tone = 'gentle'; }
 
-  return { confidence, pace, paceMult, tone };
+  // ── DARK affect signals ─────────────────────────────────────────────────────
+  // First-order estimates of the student's state, derived from the SAME signals we
+  // already track (misses, replays, doubts) — no new inputs and no consumer reads
+  // them yet. A later step may enrich these with latency/session-gap data WITHOUT
+  // changing this shape. All 0..1; a neutral (no-evidence) read is calm/attentive/
+  // incurious. `attention` is a coarse proxy until real timing signals are wired.
+  const stress = Math.max(0, Math.min(1, (1 - computed) * w + m.replays * 0.05));
+  const curiosity = Math.max(0, Math.min(1, m.doubts * 0.28 * (0.5 + confidence * 0.5)));
+  const attention = Math.max(0.2, Math.min(1, 1 - m.replays * 0.08 - stress * 0.2));
+
+  return { confidence, pace, paceMult, tone, stress, attention, curiosity };
 }
 
 // Should she offer to re-explain? A repeated miss on the same check, or a clear
