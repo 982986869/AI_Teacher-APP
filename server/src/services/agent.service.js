@@ -398,6 +398,7 @@ function buildStudentContext(concept, cm, retrieval, memoryCues = []) {
 async function ask(params) {
   const { userId, text, lessonId, slideIndex, history = [], pending = null } = params
   const pinnedLevel = params.level // only honour an explicit client level; else adapt
+  const mode = params.mode || null // optional teaching register (the "how"); null = default
   const question = String(text || '').trim()
   if (!question) {
     return { intent: 'unclear', language: 'en', mode: 'canned', grounded: false, source: 'none', confidence: 0, sources: [], answer: line('unclear', 'en'), expecting: null, pending: null, resumeCue: null }
@@ -448,7 +449,7 @@ async function ask(params) {
       ? `Here is the key idea. ${String(contexts[0].content).split('\n').slice(1).join(' ').slice(0, 160)} Clear?`
       : "This isn't in your material yet. Ask me about your topic and I'll explain it. Clear?"
   } else {
-    rawAnswer = await getAIProvider().generateTeacherResponse({ intent, language, contexts, lesson, history: trimmedHistory, question, slideIndex, level, studentContext, gradeLevel })
+    rawAnswer = await getAIProvider().generateTeacherResponse({ intent, language, contexts, lesson, history: trimmedHistory, question, slideIndex, level, mode, studentContext, gradeLevel })
   }
   const guarded = applyGuard(rawAnswer, { language })
   logEngagement({ userId, subject, intent, contexts })
@@ -463,6 +464,7 @@ async function ask(params) {
 async function askStream(params, { onMeta, onDelta } = {}) {
   const { userId, text, lessonId, slideIndex, history = [], pending = null } = params
   const pinnedLevel = params.level
+  const mode = params.mode || null // optional teaching register (the "how"); null = default
   const question = String(text || '').trim()
   const emit = (res) => { if (onMeta) onMeta({ intent: res.intent, mode: res.mode, grounded: res.grounded }); if (onDelta) onDelta(res.answer); return res }
 
@@ -503,7 +505,7 @@ async function askStream(params, { onMeta, onDelta } = {}) {
     if (onDelta) onDelta(raw)
   } else {
     raw = await getAIProvider().streamTeacherResponse(
-      { intent, language, contexts, lesson, history: history.slice(-8), question, slideIndex, level, studentContext, gradeLevel },
+      { intent, language, contexts, lesson, history: history.slice(-8), question, slideIndex, level, mode, studentContext, gradeLevel },
       (t) => { if (onDelta) onDelta(t) }
     )
   }

@@ -68,6 +68,7 @@ const askRules = [
   body('slideIndex').optional().isInt({ min: 0 }).toInt(),
   body('history').optional().isArray({ max: 20 }).withMessage('history must be an array'),
   body('level').optional().isIn(['beginner', 'intermediate', 'advanced']).withMessage('invalid level'),
+  body('mode').optional().isString().isLength({ max: 40 }),
   body('pending').optional().isObject(),
 ]
 

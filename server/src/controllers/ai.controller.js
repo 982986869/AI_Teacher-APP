@@ -140,6 +140,9 @@ async function ask(req, res, next) {
     if (!errors.isEmpty()) return ApiResponse.error(res, errors.array()[0].msg, 422)
 
     const { text, subject, lessonId, slideIndex, history, level, pending } = req.body
+    // Optional teaching mode (the "how"): honour a valid explicit choice, else null so
+    // the answer is taught in the default register (unchanged behaviour).
+    const mode = teachingModes.isMode(req.body.mode) ? req.body.mode : null
     const grade = scopeGrade(req)
     if (!grade) return ApiResponse.error(res, 'Complete your class profile to use the AI Teacher.', 422, 'PROFILE_INCOMPLETE')
 
@@ -152,6 +155,7 @@ async function ask(req, res, next) {
       slideIndex: slideIndex !== undefined && slideIndex !== null ? Number(slideIndex) : undefined,
       history,
       level,
+      mode,
       pending,
     })
 
@@ -169,6 +173,7 @@ async function askStream(req, res, next) {
   if (!errors.isEmpty()) return ApiResponse.error(res, errors.array()[0].msg, 422)
 
   const { text, subject, lessonId, slideIndex, history, level, pending } = req.body
+  const mode = teachingModes.isMode(req.body.mode) ? req.body.mode : null
   // Need the class to know WHICH LEVEL to teach at — but we never refuse the topic.
   const grade = scopeGrade(req)
   if (!grade) return ApiResponse.error(res, 'Complete your class profile to use the AI Teacher.', 422, 'PROFILE_INCOMPLETE')
@@ -187,7 +192,7 @@ async function askStream(req, res, next) {
       {
         userId: req.user.id, text, subject, gradeLevel: grade, lessonId,
         slideIndex: slideIndex !== undefined && slideIndex !== null ? Number(slideIndex) : undefined,
-        history, level, pending,
+        history, level, mode, pending,
       },
       { onMeta: (m) => send('meta', m), onDelta: (t) => send('delta', { t }) }
     )
