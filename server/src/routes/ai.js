@@ -18,6 +18,7 @@ const {
   getLessonsProgress,
   getChaptersProgress,
   recordMemory,
+  recordCheck,
   getMemorySummary,
   getPlan,
   getResume,
@@ -77,6 +78,14 @@ const progressRules = [
   body('concept').optional().isString().isLength({ max: 200 }),
 ]
 
+const checkRules = [
+  body('slideIndex').isInt({ min: 0 }).withMessage('slideIndex required').toInt(),
+  body('correct').isBoolean().withMessage('correct must be a boolean').toBoolean(),
+  body('concept').optional().isString().isLength({ max: 200 }),
+  body('firstTry').optional().isBoolean().toBoolean(),
+  body('timeMs').optional().isInt({ min: 0, max: 600000 }).toInt(),
+]
+
 // ─── Routes ───────────────────────────────────────────────────────────────────
 
 const memoryRules = [
@@ -96,6 +105,7 @@ router.get('/chapters/progress',                     getChaptersProgress)
 router.get('/session/resume',                        getResume)
 router.post('/lesson/generate',        generateRules, generateLesson)
 router.post('/lesson/:lessonId/progress', progressRules, updateProgress)
+router.post('/lesson/:lessonId/check',    checkRules,   recordCheck)
 router.get('/lesson/:lessonId/progress',               getProgress)
 router.get('/lessons/progress',                      getLessonsProgress)
 router.get('/lessons',                               getLessons)

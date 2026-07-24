@@ -274,6 +274,23 @@ async function recordMemory(req, res, next) {
   }
 }
 
+// ─── POST /api/ai/lesson/:lessonId/check ──────────────────────────────────────
+// Records the outcome of an in-lesson comprehension check for one slide:
+// { slideIndex, correct, concept?, firstTry?, timeMs? }. Ownership-checked. For now
+// it validates + acknowledges only — the mastery wiring is added in a later step,
+// so this endpoint is dark (no client calls it yet) and has no side effects.
+async function recordCheck(req, res, next) {
+  try {
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) return ApiResponse.error(res, errors.array()[0].msg, 422)
+    const lesson = await lessonService.getLessonById(req.params.lessonId, req.user.id)
+    if (!lesson) throw new AppError('Lesson not found', 404)
+    return ApiResponse.success(res, { ok: true })
+  } catch (err) {
+    next(err)
+  }
+}
+
 // ─── GET /api/ai/memory/summary ───────────────────────────────────────────────
 async function getMemorySummary(req, res, next) {
   try {
@@ -339,5 +356,5 @@ async function getResume(req, res, next) {
 module.exports = {
   generateLesson, getLesson, getLessons, deleteLesson, askDoubt, getDoubts,
   ask, askStream, startRevision, updateProgress, getProgress, getLessonsProgress,
-  getChaptersProgress, recordMemory, getMemorySummary, getPlan, getResume,
+  getChaptersProgress, recordMemory, recordCheck, getMemorySummary, getPlan, getResume,
 }
