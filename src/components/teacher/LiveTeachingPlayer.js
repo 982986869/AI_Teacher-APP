@@ -12,6 +12,7 @@ import { directLesson } from './teachingDirector';
 import { focusTarget } from './cameraDirector';
 import { freshLearner, observe, assess } from './emotionEngine';
 import { ACTIONS, freshPedagogy, observePedagogy, decideNextAction, personalizedRecap, continuationHint, openingBridge } from './pedagogyEngine';
+import { postCheckOutcome } from '../../api/aiApi';
 import { C, D, F, SP, GLASS, GRAD, R, SERIF } from './premiumTheme';
 import { PressableScale, Gradient } from './uiKit';
 import { ExplainChips, FollowUpChips, ContentsSheet, FlashcardDeck, TestSheet, loadNotes, saveNotes, loadNoteText, saveNoteText, buildFlashcards, buildTest, buildFormulas, buildRecap } from './lessonExtras';
@@ -750,6 +751,16 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     const isMcq = !!(scene.quickCheck && Array.isArray(scene.quickCheck.options) && scene.quickCheck.options.length);
     observeTeach({ type: 'answer', correct, misconception: scene.quickCheck && scene.quickCheck.misconception });
     observeTeach({ type: 'confidence', value: assess(learnerRef.current).confidence });
+
+    // Fire-and-forget: report a GRADEABLE check outcome to the server ONCE per slide
+    // (reusing the conceptResults "first attempt wins" guard). Self-checks (no MCQ
+    // options) never emit a mastery signal. The server only records it when
+    // DIAGNOSTIC_GATE is on; any network failure is swallowed and never affects
+    // playback or the pedagogy flow below.
+    const checkLessonId = lesson && (lesson.id || lesson.lessonId);
+    if (checkLessonId && isMcq && !conceptResults.some((r) => r.i === idx)) {
+      postCheckOutcome(checkLessonId, { slideIndex: idx, correct: !!correct, concept: scene.title || scene.kicker || null }).catch(() => {});
+    }
 
     const decision = decideNextAction(pedagogyRef.current, {
       phase: 'afterCheck',
