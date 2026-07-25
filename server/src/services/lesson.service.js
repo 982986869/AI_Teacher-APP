@@ -173,6 +173,7 @@ async function getLessonById(lessonId, userId) {
       id: true,
       topic: true,
       subject: true,
+      chapter: true,
       gradeLevel: true,
       lessonTitle: true,
       status: true,

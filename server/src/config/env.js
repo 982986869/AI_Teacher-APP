@@ -127,6 +127,10 @@ const config = {
   // needs the nullable Slide.check/reteach columns applied via `prisma db push`).
   flags: {
     persistChecks: process.env.PERSIST_CHECKS === 'true',
+    // Gates the in-lesson check → durable mastery loop (server resolves the concept and
+    // folds the outcome into student_concepts). OFF = the /check endpoint accepts but
+    // never writes mastery (recorded:false) — exactly today's behaviour.
+    diagnosticGate: process.env.DIAGNOSTIC_GATE === 'true',
   },
 }
 
