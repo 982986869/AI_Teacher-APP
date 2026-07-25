@@ -91,6 +91,7 @@ export function freshPedagogy({ grade, total, prior } = {}) {
     sinceRecap: 0,       // content scenes since the last recap
     recentDoubt: false,  // student just asked something — a beat to breathe helps
     lastAction: null,
+    reteachLedger: [],   // reteach rungs already SHOWN on the current check (never repeat)
   };
 }
 
@@ -130,6 +131,7 @@ export function observePedagogy(state, event) {
         s.wrongStreak = 0;
         s.hintsThisCheck = 0;           // check resolved — fresh slate for the next
         s.lastMisconception = null;
+        s.reteachLedger = [];           // check passed — the reteach ladder resets
       } else {
         s.misses += 1;
         s.wrongStreak += 1;
@@ -148,8 +150,19 @@ export function observePedagogy(state, event) {
         s.wrongStreak = 0;              // a new scene starts a clean check slate
         s.hintsThisCheck = 0;
         s.recentDoubt = false;
+        s.reteachLedger = [];           // new scene = new concept — fresh reteach ladder
       }
       break;
+    case 'reteach': {
+      // Record a reteach rung the moment it is SHOWN, so the next miss on this same
+      // check escalates to a genuinely different re-teach. Dedup; new array (no mutation).
+      const strat = e.strategy;
+      if (strat) {
+        const led = Array.isArray(s.reteachLedger) ? s.reteachLedger : [];
+        if (!led.includes(strat)) s.reteachLedger = [...led, strat];
+      }
+      break;
+    }
     case 'recap':
       s.sinceRecap = 0;
       break;
@@ -214,21 +227,26 @@ export function decideNextAction(state, ctx = {}) {
       });
     }
 
-    // Escalate to a different explanation. A student we REMEMBER as struggling
-    // (exampleBias) gets the concrete reframing sooner, whatever their grade band.
-    if ((band === 'young' || band === 'mid' || s.exampleBias) && ctx.hasAnalogy) {
-      return D(ACTIONS.GIVE_ANALOGY, 'They are stuck on the abstract form — an everyday analogy reframes it.', {
-        misconception: s.lastMisconception || null, wrongStreak: s.wrongStreak,
-      });
-    }
-    if (ctx.hasExample && (band === 'board' || s.exampleBias || s.wrongStreak >= 3)) {
-      return D(ACTIONS.GIVE_EXAMPLE, 'A worked example makes the rule concrete before trying again.', {
-        misconception: s.lastMisconception || null, wrongStreak: s.wrongStreak,
-      });
-    }
-    return D(ACTIONS.RE_EXPLAIN, 'Same idea, taught a different way — name the gap, rebuild it slowly, then ask an easier question.', {
-      misconception: s.lastMisconception || null, wrongStreak: s.wrongStreak,
-    });
+    // STRATEGY LEDGER — escalate to a genuinely DIFFERENT re-teach each time; never
+    // repeat a distinct reframing rung already shown on THIS check. Candidates keep their
+    // original guards + order, so the FIRST escalation is unchanged; only repeated misses
+    // pick a new rung. RE_EXPLAIN is the safe terminal floor (an honest slow rebuild) once
+    // analogy/example are spent. `verify: true` marks that a verify (the re-answer on the
+    // same open quick-check) should follow. A student we REMEMBER as struggling
+    // (exampleBias) still reaches the concrete reframings sooner, whatever their band.
+    const used = new Set(Array.isArray(s.reteachLedger) ? s.reteachLedger : []);
+    const p = { misconception: s.lastMisconception || null, wrongStreak: s.wrongStreak, verify: true };
+    const rungs = [];
+    if ((band === 'young' || band === 'mid' || s.exampleBias) && ctx.hasAnalogy) rungs.push(ACTIONS.GIVE_ANALOGY);
+    if (ctx.hasExample && (band === 'board' || s.exampleBias || s.wrongStreak >= 3)) rungs.push(ACTIONS.GIVE_EXAMPLE);
+    rungs.push(ACTIONS.RE_EXPLAIN);
+    const REASON = {
+      [ACTIONS.GIVE_ANALOGY]: 'They are stuck on the abstract form — an everyday analogy reframes it.',
+      [ACTIONS.GIVE_EXAMPLE]: 'A worked example makes the rule concrete before trying again.',
+      [ACTIONS.RE_EXPLAIN]: 'Same idea, taught a different way — name the gap, rebuild it slowly, then ask an easier question.',
+    };
+    const next = rungs.find((r) => !used.has(r)) || ACTIONS.RE_EXPLAIN;
+    return D(next, REASON[next], p);
   }
 
   // ── 3 · A content scene just finished — decide the flow. ────────────────────

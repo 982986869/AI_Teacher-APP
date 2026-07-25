@@ -716,6 +716,9 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
       case ACTIONS.GIVE_EXAMPLE:
       case ACTIONS.RE_EXPLAIN:
       default: {
+        // Strategy ledger: record the rung we're about to SHOW so the next miss on this
+        // same check escalates to a genuinely different re-teach (never repeats a rung).
+        observeTeach({ type: 'reteach', strategy: decision.action });
         reactWith('encouraging', 3600);
         const concept = scenes[Math.max(0, idx - 1)] || scene;
         const rt = scene.reteach || concept.reteach || buildReteach({
