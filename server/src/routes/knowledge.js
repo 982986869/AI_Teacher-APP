@@ -4,13 +4,14 @@ const { Router } = require('express')
 const multer = require('multer')
 const { body } = require('express-validator')
 const { authenticate } = require('../middleware/auth')
-const { requireRole } = require('../middleware/roles')
 const { config } = require('../config/env')
+const ApiResponse = require('../utils/ApiResponse')
 const {
   uploadKnowledge,
   listSources,
   deleteSource,
   searchKnowledge,
+  solvePhoto,
 } = require('../controllers/knowledge.controller')
 
 const router = Router()
@@ -20,6 +21,23 @@ const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: config.rag.maxUploadBytes, files: 1 },
 })
+
+// Photo-solve gets a roomier limit (a phone photo can exceed the 5 MB doc cap)
+// and turns multer's abrupt oversize error into a clean, readable 413 instead of
+// a reset connection (which the app would otherwise show as "Network error").
+const photoUpload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 15 * 1024 * 1024, files: 1 },
+})
+function handlePhotoUpload(req, res, next) {
+  photoUpload.single('file')(req, res, (err) => {
+    if (!err) return next()
+    const msg = err.code === 'LIMIT_FILE_SIZE'
+      ? 'That photo is too large. Try a closer or lower-resolution photo.'
+      : 'Could not read the uploaded photo. Please try again.'
+    return ApiResponse.error(res, msg, 413)
+  })
+}
 
 // Every knowledge route requires a valid JWT.
 router.use(authenticate)
@@ -50,14 +68,20 @@ const searchRules = [
 
 // ─── Routes ───────────────────────────────────────────────────────────────────
 
-// Upload is restricted to teachers/admins. Accepts multipart (file) OR JSON (text).
-router.post('/upload', requireRole('TEACHER', 'ADMIN'), upload.single('file'), uploadRules, uploadKnowledge)
+// Upload is open to ANY authenticated user (students upload their own material,
+// teachers/admins upload shared class material). Accepts multipart (file) OR JSON (text).
+router.post('/upload', upload.single('file'), uploadRules, uploadKnowledge)
 
-// Read endpoints are open to any authenticated user.
+// Solve a homework question from a photo (multipart image + optional `hint` text).
+router.post('/solve-photo', handlePhotoUpload, solvePhoto)
+
+// Read endpoints are open to any authenticated user. Scoping (students see only
+// their own uploads; teachers/admins see all) is enforced in the controller.
 router.get('/sources', listSources)
 router.post('/search', searchRules, searchKnowledge)
 
-// Content management — teachers/admins only.
-router.delete('/sources/:id', requireRole('TEACHER', 'ADMIN'), deleteSource)
+// Delete: a user may delete their OWN source; teachers/admins may delete any.
+// Ownership is enforced in the controller — no blanket role gate here.
+router.delete('/sources/:id', deleteSource)
 
 module.exports = router

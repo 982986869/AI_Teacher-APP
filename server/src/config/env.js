@@ -101,7 +101,10 @@ const config = {
 
   rag: {
     topK: parseInt(process.env.RAG_TOP_K, 10) || 5,
-    minSimilarity: process.env.RAG_MIN_SIMILARITY ? parseFloat(process.env.RAG_MIN_SIMILARITY) : 0.2,
+    // 0.2 was far too permissive — near-irrelevant chunks (~0.2 cosine) passed the
+    // gate and became "context", so the model answered from noise (hallucination).
+    // Real matches sit ~0.6-0.73, so 0.35 admits genuine hits and rejects noise.
+    minSimilarity: process.env.RAG_MIN_SIMILARITY ? parseFloat(process.env.RAG_MIN_SIMILARITY) : 0.35,
     chunkSize: parseInt(process.env.RAG_CHUNK_SIZE, 10) || 1500,
     chunkOverlap: parseInt(process.env.RAG_CHUNK_OVERLAP, 10) || 200,
     maxUploadBytes: parseInt(process.env.KNOWLEDGE_MAX_UPLOAD_BYTES, 10) || 5000000,

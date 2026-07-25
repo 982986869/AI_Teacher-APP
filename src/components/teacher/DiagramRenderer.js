@@ -76,6 +76,13 @@ function label(x, y, text, color, size = 14) {
   );
 }
 
+// SvgText neither wraps nor clips, so a label longer than its box spills out.
+// Truncate to what fits (roughly box width / font width) with an ellipsis.
+function fit(text, max) {
+  const s = String(text == null ? '' : text).trim();
+  return s.length > max ? `${s.slice(0, max - 1).trimEnd()}…` : s;
+}
+
 function renderShape(shape, data, skip, P) {
   switch (shape) {
     case 'rectangle': {
@@ -127,13 +134,13 @@ function renderShape(shape, data, skip, P) {
       return (
         <>
           <Box x={root.x - 36} y={root.y - 18} w={72} h={34} color={P.orange} delay={0} duration={800} skip={skip} />
-          {label(root.x, root.y + 4, data.root || 'Topic', P.textBright, 12)}
+          {label(root.x, root.y + 4, fit(data.root || 'Topic', 10), P.textBright, 11)}
           <ChalkLine x1={root.x} y1={root.y + 16} x2={l.x} y2={l.y - 16} color={P.white} delay={850} duration={520} skip={skip} />
           <ChalkLine x1={root.x} y1={root.y + 16} x2={r.x} y2={r.y - 16} color={P.white} delay={1150} duration={520} skip={skip} />
           <Box x={l.x - 34} y={l.y - 16} w={68} h={32} color={P.blue} delay={1750} duration={620} skip={skip} />
-          {label(l.x, l.y + 3, data.left || 'Part A', P.textBright, 11)}
+          {label(l.x, l.y + 3, fit(data.left || 'Part A', 9), P.textBright, 10)}
           <Box x={r.x - 34} y={r.y - 16} w={68} h={32} color={P.green} delay={2100} duration={620} skip={skip} />
-          {label(r.x, r.y + 3, data.right || 'Part B', P.textBright, 11)}
+          {label(r.x, r.y + 3, fit(data.right || 'Part B', 9), P.textBright, 10)}
         </>
       );
     }
@@ -147,7 +154,7 @@ function renderShape(shape, data, skip, P) {
           {steps.map((stp, i) => (
             <React.Fragment key={i}>
               <Box x={xs[i]} y={y} w={bw} h={bh} color={colors[i % colors.length]} delay={i * 900} duration={600} skip={skip} />
-              {label(xs[i] + bw / 2, y + bh / 2 + 4, stp, P.textBright, 10)}
+              {label(xs[i] + bw / 2, y + bh / 2 + 4, fit(stp, 9), P.textBright, 9)}
               {i < steps.length - 1 && (
                 <Arrow x1={xs[i] + bw} y1={y + bh / 2} x2={xs[i + 1]} y2={y + bh / 2} color={P.white} delay={i * 900 + 600} duration={320} skip={skip} />
               )}

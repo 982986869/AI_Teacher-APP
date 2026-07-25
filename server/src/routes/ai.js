@@ -4,6 +4,12 @@ const { Router } = require('express')
 const { body } = require('express-validator')
 const { authenticate } = require('../middleware/auth')
 const {
+  knowledgeAnswer,
+  knowledgeAnswerStructured,
+  knowledgeAnswerExtend,
+  knowledgeAnswerStream,
+} = require('../controllers/knowledge.controller')
+const {
   generateLesson,
   getLesson,
   getLessons,
@@ -86,6 +92,32 @@ const memoryRules = [
   body('detail').optional().isObject(),
 ]
 
+// Grounded RAG answer over the student's / teacher's uploaded material. The app
+// calls this from the "Ask the Material" screen.
+const knowledgeAnswerRules = [
+  body('question')
+    .trim()
+    .notEmpty().withMessage('question is required')
+    .isLength({ max: 1000 }).withMessage('question must be 1000 characters or fewer'),
+  body('subject').optional().trim().isLength({ max: 100 }),
+  body('gradeLevel').optional().trim().isLength({ max: 20 }),
+  body('topK').optional().isInt({ min: 1, max: 20 }).toInt(),
+  body('sourceIds').optional().isArray().withMessage('sourceIds must be an array'),
+  // Prior chat turns, so the AI can ask + resolve clarifying questions.
+  body('history').optional().isArray({ max: 20 }).withMessage('history must be an array'),
+]
+
+// Extend adds an optional gapKind that steers the general-knowledge task.
+const knowledgeExtendRules = [
+  ...knowledgeAnswerRules,
+  body('gapKind').optional().trim().isIn(['example', 'solution', 'origin'])
+    .withMessage('gapKind must be example, solution, or origin'),
+]
+
+router.post('/knowledge-answer',            knowledgeAnswerRules, knowledgeAnswer)
+router.post('/knowledge-answer/structured', knowledgeAnswerRules, knowledgeAnswerStructured)
+router.post('/knowledge-answer/extend',     knowledgeExtendRules, knowledgeAnswerExtend)
+router.post('/knowledge-answer/stream',     knowledgeAnswerRules, knowledgeAnswerStream)
 router.post('/ask',                    askRules,     ask)
 router.post('/ask/stream',             askRules,     askStream)
 router.post('/revision',                             startRevision)
