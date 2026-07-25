@@ -2,9 +2,31 @@
 
 const { Router } = require('express')
 const { Readable } = require('stream')
+const crypto = require('crypto')
 const jwt = require('jsonwebtoken')
 const { config } = require('../config/env')
 const { synthesizeSpeech } = require('../providers/ai/OpenAITTSProvider')
+
+// ── AUDIO CACHE ───────────────────────────────────────────────────────────────
+// Slide narration is deterministic: the same (text, voice) always synthesizes to
+// the same audio. So we cache the finished clip in a bounded in-memory LRU — a
+// replay, an adaptive re-teach, or the next student on the same slide is served
+// instantly with ZERO OpenAI round-trip or cost. A miss still streams (first-audio
+// stays low-latency) while we tee the bytes into the cache for next time. Sized by
+// entry count; a restart just re-warms. Set TTS_CACHE_MAX=0 to disable.
+const TTS_CACHE = new Map() // key -> { buf: Buffer, mime: string }
+const TTS_CACHE_MAX = Number.isFinite(parseInt(process.env.TTS_CACHE_MAX, 10)) ? parseInt(process.env.TTS_CACHE_MAX, 10) : 300
+const ttsKey = (text, voice) => crypto.createHash('sha1').update(`${voice || ''}\n${text}`).digest('hex')
+function ttsCacheGet(key) {
+  const v = TTS_CACHE.get(key)
+  if (v) { TTS_CACHE.delete(key); TTS_CACHE.set(key, v) } // LRU bump
+  return v
+}
+function ttsCacheSet(key, buf, mime) {
+  if (TTS_CACHE_MAX <= 0 || !buf || !buf.length) return
+  TTS_CACHE.set(key, { buf, mime })
+  if (TTS_CACHE.size > TTS_CACHE_MAX) TTS_CACHE.delete(TTS_CACHE.keys().next().value)
+}
 
 // ── FUTURE USE — alternative TTS providers (currently disabled) ───────────────
 // The teacher voice is OpenAI TTS (gpt-4o-mini-tts, "coral"): it returns a stream,
@@ -74,7 +96,19 @@ async function handleTts(req, res) {
     return res.status(413).json({ success: false, message: `text exceeds ${config.tts.maxChars} characters` })
   }
 
-  const result = await synthesizeSpeech(text, { voice: req.query.voice })
+  const voice = req.query.voice
+  const key = ttsKey(text, voice)
+
+  // Cache hit → serve the finished clip immediately (no OpenAI call, no cost).
+  const hit = ttsCacheGet(key)
+  if (hit) {
+    res.setHeader('Content-Type', hit.mime)
+    res.setHeader('Cache-Control', 'private, max-age=86400')
+    res.setHeader('X-TTS-Cache', 'hit')
+    return res.send(hit.buf)
+  }
+
+  const result = await synthesizeSpeech(text, { voice })
   if (!result.ok) {
     // Log the provider detail server-side; never relay the upstream (OpenAI) error
     // body to the client — it can carry org/quota/model internals. The client only
@@ -86,15 +120,24 @@ async function handleTts(req, res) {
   res.setHeader('Content-Type', result.mime)
   // Per-user, auth-gated response — keep it out of shared/CDN caches.
   res.setHeader('Cache-Control', 'private, max-age=86400')
+  res.setHeader('X-TTS-Cache', 'miss')
 
   // OpenAI returns a web ReadableStream. (A buffered provider — e.g. Kokoro, if it
   // is ever re-enabled above — would return `result.buffer` instead; this guard
   // keeps that path working without changing anything else.)
   if (result.buffer) {
+    ttsCacheSet(key, result.buffer, result.mime)
     return res.send(result.buffer)
   }
   try {
-    Readable.fromWeb(result.body).pipe(res)
+    // Tee the stream: pipe to the client (keeps first-audio latency low) while
+    // collecting the bytes; on a clean finish, store the clip so next time is a hit.
+    const chunks = []
+    const nodeStream = Readable.fromWeb(result.body)
+    nodeStream.on('data', (c) => { chunks.push(Buffer.from(c)) })
+    nodeStream.on('end', () => { try { ttsCacheSet(key, Buffer.concat(chunks), result.mime) } catch (_) { /* never cache on error */ } })
+    nodeStream.on('error', () => { /* partial/aborted stream — do not cache */ })
+    nodeStream.pipe(res)
   } catch (err) {
     if (!res.headersSent) res.status(502).json({ success: false, message: 'TTS stream failed' })
     else res.end()
@@ -105,3 +148,4 @@ router.get('/', verifyToken, handleTts)
 router.post('/', verifyToken, handleTts)
 
 module.exports = router
+module.exports.handleTts = handleTts // exported for tests
