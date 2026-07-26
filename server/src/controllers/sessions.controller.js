@@ -8,8 +8,8 @@ const db = require('../config/database')
 const ApiResponse = require('../utils/ApiResponse')
 
 const COLS = `id::text AS id, title, subject, chapter, class_level AS "classLevel", board, teacher_name AS "teacherName",
-  starts_at AS "startsAt", duration_min AS "durationMin", mode, meeting_link AS "meetingLink", location, capacity,
-  description, status`
+  starts_at AS "startsAt", duration_min AS "durationMin", mode, meeting_link AS "meetingLink", recording_url AS "recordingUrl",
+  location, capacity, description, status`
 
 async function forStudent(req, res, next) {
   try {
