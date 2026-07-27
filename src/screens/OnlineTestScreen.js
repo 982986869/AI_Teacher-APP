@@ -10,7 +10,7 @@
 
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
-  View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity,
+  View, Text, Image, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity,
   StatusBar, Platform, ActivityIndicator,
 } from 'react-native';
 import { S } from '../theme/studentUI';
@@ -85,10 +85,29 @@ const stripHtml = (s) =>
     .replace(/&lt;/gi, '<').replace(/&gt;/gi, '>').replace(/&#39;/g, "'")
     .replace(/[ \t]+/g, ' ').replace(/\n\s*\n+/g, '\n').trim();
 
-function Rich({ value, fontSize = 15, color = C.text }) {
+// First <img src> in HTML — online-test diagrams (imported S3) that the text renderer strips.
+const firstImg = (s) => { const m = String(s || '').match(/<img[^>]+src=["']([^"']+)["']/i); return m ? m[1] : null; };
+function Rich({ value, fontSize = 15, color = C.text, imgHeight = 150 }) {
   if (value == null || !String(value).trim()) return null;
-  if (/\{tex\}/.test(String(value))) return <MathText value={value} fontSize={fontSize} color={color} />;
-  return <Text style={{ fontSize, color, lineHeight: fontSize * 1.45 }}>{stripHtml(value)}</Text>;
+  const raw = String(value);
+  const img = firstImg(raw);
+  if (!img) {
+    return /\{tex\}/.test(raw)
+      ? <MathText value={raw} fontSize={fontSize} color={color} />
+      : <Text style={{ fontSize, color, lineHeight: fontSize * 1.45 }}>{stripHtml(raw)}</Text>;
+  }
+  const textPart = raw.replace(/<img[^>]*>/gi, '').replace(/<p[^>]*>\s*<\/p>/gi, '');
+  const hasText = !!stripHtml(textPart) || /\{tex\}/.test(textPart);
+  return (
+    <View>
+      {hasText ? (
+        /\{tex\}/.test(textPart)
+          ? <MathText value={textPart} fontSize={fontSize} color={color} />
+          : <Text style={{ fontSize, color, lineHeight: fontSize * 1.45 }}>{stripHtml(textPart)}</Text>
+      ) : null}
+      <Image source={{ uri: img }} style={{ width: '100%', height: imgHeight, marginTop: hasText ? 8 : 0, borderRadius: 8, backgroundColor: '#fff' }} resizeMode="contain" />
+    </View>
+  );
 }
 
 // ─── Donut chart (segments = [{ value, color }]) ──────────────────────────────

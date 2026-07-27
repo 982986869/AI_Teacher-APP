@@ -10,6 +10,7 @@ import {
 import { GoogleSignin } from './src/utils/googleSigninMock';
 
 import { AuthProvider } from './src/context/AuthContext';
+import { RuntimeConfigProvider } from './src/context/RuntimeConfigContext';
 import AppNavigator from './src/navigation/AppNavigator';
 import { GOOGLE_WEB_CLIENT_ID } from './src/constants/config';
 
@@ -29,8 +30,10 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <AuthProvider>
-        <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
-        <AppNavigator />
+        <RuntimeConfigProvider>
+          <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
+          <AppNavigator />
+        </RuntimeConfigProvider>
       </AuthProvider>
     </SafeAreaProvider>
   );

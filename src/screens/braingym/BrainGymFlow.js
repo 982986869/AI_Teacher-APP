@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
+import { useRuntimeConfig } from '../../context/RuntimeConfigContext';
+import { FEATURE_KEYS } from '../../constants/featureFlags';
 import { initSounds, play, stopAll } from '../../utils/sound';
 import WorkoutWheel from '../WorkoutWheel';
 import TimedNumericQuizScreen from './TimedNumericQuizScreen';
@@ -29,6 +31,8 @@ const gradeToLevel = (grade) => {
 
 const BrainGymFlow = ({ onFinish }) => {
   const { user } = useAuth();
+  const { isFeatureEnabled } = useRuntimeConfig();
+  const arenaOn = isFeatureEnabled(FEATURE_KEYS.ARENA); // Arena flag can be off while Brain Gym is on
   const [step, setStep] = useState('wheel'); // wheel|quiz|arena|sticky|leaderboard|practice|practiceGame|practiceReward
   const [skill, setSkill] = useState('reasoning');
   const [practicePts, setPracticePts] = useState(5);
@@ -44,7 +48,8 @@ const BrainGymFlow = ({ onFinish }) => {
 
   // Tabs LOOP inside Brain Gym: Workout (wheel) · Practice (dartboard) · Arena (hub).
   const handleTab = (tab) => {
-    if (tab === 'arena') setStep('arena');
+    // Arena flag off → prevent entering the Arena hub (matchmaking entry blocked).
+    if (tab === 'arena') { setStep(arenaOn ? 'arena' : 'wheel'); }
     else if (tab === 'practice') setStep('practice');
     else setStep('wheel'); // workout
   };
@@ -56,7 +61,7 @@ const BrainGymFlow = ({ onFinish }) => {
         skill={skill}
         onComplete={() => setStep('wheel')}     // finished a quiz → back to the wheel
         onExit={() => onFinish && onFinish()}    // leave Brain Gym → continue to Home
-        onViewArena={() => setStep('arena')}     // see leaderboard
+        onViewArena={() => { if (arenaOn) setStep('arena'); }} // Arena flag-gated
       />
     );
   }

@@ -8,11 +8,13 @@ import ResourcesScreen from '../screens/ResourcesScreen';
 import ResultsScreen   from '../screens/ResultsScreen';
 import ProfileScreen   from '../screens/ProfileScreen';
 import FloatingDock     from './FloatingDock';
+import { useRuntimeConfig } from '../context/RuntimeConfigContext';
 
 
 const Tab = createBottomTabNavigator();
 
 const MainNavigator = () => {
+  const { isFeatureEnabled } = useRuntimeConfig();
   return (
     <Tab.Navigator
       // A gentle cross-fade between tabs so moving Home → Practice → Results → Profile
@@ -22,8 +24,9 @@ const MainNavigator = () => {
     >
       <Tab.Screen name="Home"      component={HomeScreen} />
       <Tab.Screen name="Sessions"  component={SessionsScreen} />
-      <Tab.Screen name="Practice"  component={PracticeScreen} />
-      <Tab.Screen name="Resources" component={ResourcesScreen} />
+      {/* Practice / Resources tabs are hidden when their feature flag is off. */}
+      {isFeatureEnabled('practice')  && <Tab.Screen name="Practice"  component={PracticeScreen} />}
+      {isFeatureEnabled('resources') && <Tab.Screen name="Resources" component={ResourcesScreen} />}
       <Tab.Screen name="Results"   component={ResultsScreen} />
       <Tab.Screen name="Profile"   component={ProfileScreen} />
     </Tab.Navigator>

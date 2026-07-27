@@ -206,9 +206,21 @@ CONTENT.about = {
     body: 'Decades of learning-science research shape how an Ailernova session is built — here is what it found.',
     items: AILERNOVA_RESEARCH,
   },
-  // No public founder profile on ailernova.in yet, so the founder letter stays HIDDEN
-  // (founder: null). Add a real name/role/letter here to bring it back.
-  founder: null,
+  // ⚠️ TODO — `name` is a PLACEHOLDER. There is no public founder profile on
+  // ailernova.in yet, so "Founder Name" ships as-is until a real name (and ideally
+  // a `photo` URL) is filled in. The letter itself is real Ailernova copy — keep it.
+  // Set `founder: null` to hide the whole section again.
+  founder: {
+    photo: null,
+    name: 'Founder Name',
+    role: 'Founder & CEO',
+    title: 'The Belief That\nStarted It All',
+    letter: [
+      'Too many children decide early that they are “bad at math” — or “bad at science”. They almost never are. They were failed by how it was taught: rules to memorise, steps to repeat, and no room to ask why.',
+      'Ailernova exists to undo that. Strong foundations in math and science, built the way understanding actually forms — a tutor who matches how your child thinks, an AI teacher that never loses patience with a repeated question, and practice spaced the way memory really works.',
+      'The goal was never a better score alone. It is a child who meets an unfamiliar problem and, instead of freezing, gets curious.',
+    ],
+  },
   pillarsTitle: 'How We Help Every Child\nDeliver Results',
   pillarsIntro: 'Tutors, teaching methods, class formats, and progress tracking — each is designed to reinforce the others, so your child keeps progressing.',
   // ⚠️ "Top 1% Tutors" is a checkable factual claim — make sure it matches reality

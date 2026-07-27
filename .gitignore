@@ -40,9 +40,13 @@ yarn-error.*
 /ios
 /android
 
-# answer-key fetch script (contains personal auth token/cookie) + its outputs
+# answer-key fetch script (contains personal auth token/cookie) + its outputs.
+# NOTE: answer_key.json is NOT ignored — the app imports it at runtime
+# (src/data/questionBank.js), so it must be committed AND uploaded to EAS Build.
+# eas-cli filters uploads by .gitignore patterns even for tracked files, so an
+# ignore rule here would silently drop it from the build (Metro: "Unable to
+# resolve module ./physics_questions/answer_key.json").
 src/data/physics_questions/build-answer-key.js
-src/data/physics_questions/answer_key.json
 src/data/physics_questions/answers.txt
 src/data/physics_questions/*.with_answers.json
 
@@ -95,3 +99,20 @@ src/data/class6OldNotes/
 
 # Generated TTS audio cache (server-side, regenerates on demand)
 server/tts-cache/
+admin/_next.log
+
+# Windows accident: `> nul` redirect creates a real file (NUL is the device)
+nul
+
+# Local database dumps (pg_dump / supabase db dump) — never belongs in the repo.
+# `supabase db dump --data-only` also pulls the auth schema (real user rows), and
+# the file runs to hundreds of MB, well past GitHub's 100MB limit.
+backup.sql
+backup*.sql
+*.dump
+*.sql.gz
+
+# Supabase CLI local state (linked-project ref, pooler URL, version pins).
+# The CLI normally writes its own supabase/.gitignore; this repo has none.
+supabase/.temp/
+supabase/.branches/

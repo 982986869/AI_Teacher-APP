@@ -2,7 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useAuth } from '../context/AuthContext';
+import { useRuntimeConfig } from '../context/RuntimeConfigContext';
 import SplashScreen from '../screens/SplashScreen';
+import MaintenanceScreen from '../screens/MaintenanceScreen';
+import ForceUpdateScreen from '../screens/ForceUpdateScreen';
 import AuthNavigator from './AuthNavigator';
 import BrainGymScreen from '../screens/BrainGymScreen';
 import OnboardingScreen from '../screens/OnboardingScreen';
@@ -11,6 +14,7 @@ import MainNavigator from './MainNavigator';
 import CompleteProfileScreen from '../screens/CompleteProfileScreen';
 import ParentApp from '../screens/parent/ParentApp/ParentApp';
 import RoleHomeScreen from '../screens/RoleHomeScreen';
+import AdminNavigator from './AdminNavigator';
 import ProfileSelectScreen from '../screens/braingym/ProfileSelectScreen';
 
 const Stack = createNativeStackNavigator();
@@ -18,6 +22,8 @@ const SPLASH_FALLBACK = 4000;
 
 const AppNavigator = () => {
   const { isAuthenticated, hasOnboarded, loading, user, justLoggedIn, scope, activeView, setActiveView } = useAuth();
+  const { maintenance, forceUpdateRequired, isFeatureEnabled } = useRuntimeConfig();
+  const isAdmin = scope?.role === 'admin' || user?.role === 'ADMIN' || scope?.tester === true;
   const [showSplash, setShowSplash] = useState(true);
   const [gymDone, setGymDone]       = useState(false);   // BrainGym -> Onboarding
   const [workoutDone, setWorkoutDone] = useState(false); // WorkoutWheel -> Home
@@ -61,7 +67,15 @@ const AppNavigator = () => {
   //       !workoutDone    -> WorkoutWheel
   //       else            -> Home
   let screen;
-  if (!isAuthenticated) {
+  if (forceUpdateRequired) {
+    // Installed version is below the required minimum and force-update is on — block
+    // everyone (even before auth) until they update.
+    screen = <Stack.Screen name="ForceUpdate" component={ForceUpdateScreen} />;
+  } else if (maintenance?.enabled && isAuthenticated && !isAdmin) {
+    // Maintenance mode allows admins only. Logged-out users still reach Auth so an
+    // admin can sign in; a signed-in non-admin gets the maintenance screen.
+    screen = <Stack.Screen name="Maintenance" component={MaintenanceScreen} />;
+  } else if (!isAuthenticated) {
     screen = <Stack.Screen name="Auth" component={AuthNavigator} />;
   } else if (!scope.complete) {
     // First-time / migration / Google or email signup: collect role + class/stream
@@ -71,11 +85,16 @@ const AppNavigator = () => {
   } else if (scope.role === 'parent') {
     // Dedicated parent accounts still go straight to their own parent app.
     screen = <Stack.Screen name="ParentApp" component={ParentApp} />;
-  } else if (scope.role === 'teacher' || scope.role === 'admin') {
-    // Teacher / admin never leak into the student app.
+  } else if (scope.role === 'admin') {
+    // Admins get the native Admin mode of the app (a third navigator alongside Student
+    // and Parent) — same design system, real /api/admin data. No WebView, no web portal.
+    screen = <Stack.Screen name="AdminApp" component={AdminNavigator} />;
+  } else if (scope.role === 'teacher') {
+    // Teacher dashboard isn't built yet — a role-ready placeholder (never leaks into the
+    // student app). Kept separate from the admin path above.
     screen = (
       <Stack.Screen name="RoleApp">
-        {props => <RoleHomeScreen {...props} role={scope.role} />}
+        {props => <RoleHomeScreen {...props} role="teacher" />}
       </Stack.Screen>
     );
   } else if (activeView == null) {
@@ -86,8 +105,10 @@ const AppNavigator = () => {
         {() => <ProfileSelectScreen onSelect={setActiveView} />}
       </Stack.Screen>
     );
-  } else if (activeView === 'parent') {
+  } else if (activeView === 'parent' && isFeatureEnabled('parentApp')) {
     // Student chose the parent view → parent dashboard about their own progress.
+    // Gated by the Parent App feature flag; when off, this falls through to the
+    // normal student flow (the parent portal is hidden for students).
     screen = <Stack.Screen name="ParentApp" component={ParentApp} />;
   } else if (justLoggedIn && !gymDone) {
     screen = (
