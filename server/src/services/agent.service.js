@@ -430,15 +430,22 @@ async function ask(params) {
 
   // The teacher remembers this student on this concept — drives explanation depth
   // AND the natural "I remember you struggled here" reference in the reply.
-  const cm = await conceptMemory({ userId, concept: retrieval.concept })
+  // conceptMemory + memoryCues are independent reads — overlap them. gatherMemoryCues is
+  // only needed on the teaching path (the early returns below never used it), so it stays
+  // gated on intent: no new queries for off_topic/unclear/quiz_request, just parallel
+  // reads for the common teaching turn.
+  const isTeaching = intent !== 'off_topic' && intent !== 'unclear' && intent !== 'quiz_request'
+  const [cm, memoryCues] = await Promise.all([
+    conceptMemory({ userId, concept: retrieval.concept }),
+    isTeaching ? gatherMemoryCues({ userId, subject, currentConceptName: retrieval.concept ? retrieval.concept.name : null }).catch(() => []) : Promise.resolve([]),
+  ])
   const level = pinnedLevel || (cm && cm.level) || 'intermediate'
 
   if (intent === 'off_topic' || intent === 'unclear') return cannedReply(intent, language, { lessonId, slideIndex, via })
   if (intent === 'quiz_request') return startQuiz({ userId, subject, retrieval, level, language, lessonId, slideIndex })
 
-  // Personalised teaching — fold in number-free memory cues from the existing
-  // engines (BrainGym signals, revision calendar, weak concepts, mistake book).
-  const memoryCues = await gatherMemoryCues({ userId, subject, currentConceptName: retrieval.concept ? retrieval.concept.name : null }).catch(() => [])
+  // Personalised teaching — number-free memory cues (BrainGym signals, revision
+  // calendar, weak concepts, mistake book) folded into the student context.
   const studentContext = buildStudentContext(retrieval.concept, cm, retrieval, memoryCues)
 
   const contexts = retrieval.grounded ? retrieval.chunks : []
@@ -486,14 +493,20 @@ async function askStream(params, { onMeta, onDelta } = {}) {
   if (intent === 'greeting') return emit(await greetingReply({ userId, language, lessonId, slideIndex, subject }))
 
   // The teacher remembers this student (see ask()).
-  const cm = await conceptMemory({ userId, concept: retrieval.concept })
+  // conceptMemory + memoryCues are independent reads — overlap them (see ask()).
+  // gatherMemoryCues stays gated on the teaching path, so the early returns below issue
+  // no new queries; the common teaching turn runs the two reads in parallel.
+  const isTeaching = intent !== 'off_topic' && intent !== 'unclear' && intent !== 'quiz_request'
+  const [cm, memoryCues] = await Promise.all([
+    conceptMemory({ userId, concept: retrieval.concept }),
+    isTeaching ? gatherMemoryCues({ userId, subject, currentConceptName: retrieval.concept ? retrieval.concept.name : null }).catch(() => []) : Promise.resolve([]),
+  ])
   const level = pinnedLevel || (cm && cm.level) || 'intermediate'
 
   if (intent === 'off_topic' || intent === 'unclear') return emit(cannedReply(intent, language, { lessonId, slideIndex, via }))
   if (intent === 'quiz_request') return emit(await startQuiz({ userId, subject, retrieval, level, language, lessonId, slideIndex }))
 
   // Personalised teaching — number-free memory cues from the existing engines.
-  const memoryCues = await gatherMemoryCues({ userId, subject, currentConceptName: retrieval.concept ? retrieval.concept.name : null }).catch(() => [])
   const studentContext = buildStudentContext(retrieval.concept, cm, retrieval, memoryCues)
 
   const contexts = retrieval.grounded ? retrieval.chunks : []
