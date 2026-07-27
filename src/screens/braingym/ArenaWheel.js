@@ -68,7 +68,7 @@ function Icon({ k, x, y, selected }) {
 
 export default function ArenaWheel({ onStartGame, onTabPress, onBack }) {
   const { user } = useAuth();
-  const name = user?.name || 'kumkum02';
+  const name = user?.name || 'Player';
   const grade = user?.grade || 'G11';
   const [selected, setSelected] = useState('sticks');
 

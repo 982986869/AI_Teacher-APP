@@ -14,7 +14,8 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ailernova.teacher"
     },
     "android": {
       "adaptiveIcon": {
@@ -26,7 +27,7 @@
         "android.permission.READ_CALENDAR",
         "android.permission.WRITE_CALENDAR"
       ],
-      "package": "com.kumkum165.ailernova"
+      "package": "com.ailernova.teacher"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -43,6 +44,19 @@
         "@react-native-google-signin/google-signin",
         {
           "iosUrlScheme": "com.googleusercontent.apps.REPLACE_WITH_REVERSED_IOS_CLIENT_ID"
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Ailernova needs access to your photos so you can add images to questions and options."
+        }
+      ],
+      [
+        "expo-speech-recognition",
+        {
+          "microphonePermission": "Ailernova uses your microphone so you can talk to your AI teacher and ask doubts by voice.",
+          "speechRecognitionPermission": "Ailernova uses speech recognition so your AI teacher can understand your spoken questions."
         }
       ]
     ],

@@ -56,6 +56,15 @@ const config = {
     doubtModel: process.env.AI_DOUBT_MODEL,
     knowledgeModel: process.env.AI_KNOWLEDGE_MODEL,
     anthropicApiKey: process.env.ANTHROPIC_API_KEY,
+
+    // Lesson planning is the hardest reasoning task, so it runs with adaptive
+    // thinking by default for deeper derivations/pedagogy (Opus 4.6+ / Sonnet 4.6+).
+    // Set AI_LESSON_THINKING=off if the configured model does not support it — the
+    // provider also auto-falls back on a 400, so a mismatch never loses a lesson.
+    // 'adaptive' | 'off'.
+    lessonThinking: (process.env.AI_LESSON_THINKING || 'adaptive').toLowerCase(),
+    // Reasoning depth/effort for lesson planning. low | medium | high | xhigh | max.
+    lessonEffort: (process.env.AI_LESSON_EFFORT || 'high').toLowerCase(),
   },
 
   // OpenAI text-to-speech for the live teacher voice. One consistent, natural

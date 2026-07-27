@@ -1,7 +1,8 @@
 'use client'
 
 import { ReactNode, useEffect, useState } from 'react'
-import { CircleAlert, Inbox, Loader2, RotateCw, type LucideIcon } from 'lucide-react'
+import Link from 'next/link'
+import { CircleAlert, Inbox, Loader2, RotateCw, ChevronRight, type LucideIcon } from 'lucide-react'
 import { S, STATUS_TONE, accent, type AccentKey } from '@/lib/theme'
 
 // ─── Section header (signature accent dot + bold title) ────────────────────────
@@ -143,6 +144,90 @@ export function Toggle({ on, onChange, disabled }: { on: boolean; onChange: (v: 
       onClick={() => !disabled && onChange(!on)} aria-pressed={on}>
       <span className="knob" />
     </button>
+  )
+}
+
+// ─── Page hero (module landing header — greeting/title + purpose + primary action) ──
+// The calm, editorial page header the Student/Parent apps open with: an optional small
+// eyebrow, a large friendly title, one short purpose sentence, and room for a primary
+// action on the right. Replaces the dense "page-head" template block.
+export function PageHero({ eyebrow, title, subtitle, actions }: {
+  eyebrow?: ReactNode; title: ReactNode; subtitle?: ReactNode; actions?: ReactNode
+}) {
+  return (
+    <header className="page-hero">
+      <div className="grow" style={{ minWidth: 0 }}>
+        {eyebrow && <div className="hero-eyebrow">{eyebrow}</div>}
+        <h1 className="hero-title">{title}</h1>
+        {subtitle && <p className="hero-sub">{subtitle}</p>}
+      </div>
+      {actions && <div className="hero-actions">{actions}</div>}
+    </header>
+  )
+}
+
+// ─── Editorial section label (uppercase tracked label + hairline rule) ─────────
+// Mirrors the Parent app's `Label` — the signature section divider across Ailernova.
+export function SectionLabel({ children, right }: { children: ReactNode; right?: ReactNode }) {
+  return (
+    <div className="section-label">
+      <span className="section-label-text">{children}</span>
+      <span className="section-label-rule" />
+      {right && <span className="section-label-right">{right}</span>}
+    </div>
+  )
+}
+
+// ─── Primary insight (one large, calm, actionable statement — not a metric wall) ──
+export function Insight({ tone = 'indigo', icon: Icon, value, title, note, action }: {
+  tone?: AccentKey; icon?: LucideIcon; value: ReactNode; title: ReactNode; note?: ReactNode; action?: ReactNode
+}) {
+  const a = accent(tone)
+  return (
+    <div className="insight" style={{ background: a.soft }}>
+      {Icon && <span className="insight-icon" style={{ background: '#fff' }}><Icon size={22} color={a.color} strokeWidth={2.3} /></span>}
+      <div className="grow" style={{ minWidth: 0 }}>
+        <div className="insight-value" style={{ color: a.color }}>{value}</div>
+        <div className="insight-title">{title}</div>
+        {note && <div className="insight-note">{note}</div>}
+      </div>
+      {action && <div className="insight-action">{action}</div>}
+    </div>
+  )
+}
+
+// ─── Mini stat (small inline metric — icon chip + value + label, no card wall) ──
+export function MiniStat({ icon: Icon, tone = 'indigo', label, value, suffix }: {
+  icon: LucideIcon; tone?: AccentKey; label: string; value: number | string | null; suffix?: string
+}) {
+  const a = accent(tone)
+  return (
+    <div className="mini-stat">
+      <span className="mini-stat-chip" style={{ background: a.soft }}><Icon size={16} color={a.color} strokeWidth={2.4} /></span>
+      <div style={{ minWidth: 0 }}>
+        <div className="mini-stat-value">
+          {value === null || value === undefined ? '—' : typeof value === 'number' ? <CountUp value={value} /> : value}
+          {suffix && value !== null && value !== undefined ? <span className="mini-stat-suffix">{suffix}</span> : null}
+        </div>
+        <div className="mini-stat-label">{label}</div>
+      </div>
+    </div>
+  )
+}
+
+// ─── Breadcrumb (People / Students / Aarav Sharma) ─────────────────────────────
+export function Breadcrumb({ trail }: { trail: { label: string; href?: string }[] }) {
+  return (
+    <nav className="crumbs" aria-label="Breadcrumb">
+      {trail.map((c, i) => (
+        <span key={i} className="crumb">
+          {c.href && i < trail.length - 1
+            ? <Link href={c.href} className="crumb-link">{c.label}</Link>
+            : <span className={i === trail.length - 1 ? 'crumb-current' : 'crumb-link'}>{c.label}</span>}
+          {i < trail.length - 1 && <ChevronRight size={13} className="crumb-sep" />}
+        </span>
+      ))}
+    </nav>
   )
 }
 

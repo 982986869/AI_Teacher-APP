@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
-  View, Text, ScrollView, Pressable, StyleSheet, StatusBar, SafeAreaView, Modal,
+  View, Text, Image, ScrollView, Pressable, StyleSheet, StatusBar, SafeAreaView, Modal,
 } from 'react-native';
 import { S } from '../theme/studentUI';
 import { FONT } from '../constants/fonts';
@@ -11,11 +11,25 @@ import MathText from '../components/MathText';
 // MathText (MathJax SVG); plain strings fall back to a normal <Text> so the
 // text-only banks (Chemistry/Physics/Biology online tests) are unchanged and
 // keep their text styling. Maths online tests pass HTML+{tex} so formulas render.
+// If the content carries an image (diagram), it renders as a real <Image> below any text.
 const hasMath = (s) => typeof s === 'string' && (/\{tex\}/.test(s) || /<[a-z!/][^>]*>/i.test(s));
-const RichText = ({ value, style, fontSize, color }) =>
-  hasMath(value)
+const firstImg = (s) => { const m = String(s || '').match(/<img[^>]+src=["']([^"']+)["']/i); return m ? m[1] : null; };
+const RichText = ({ value, style, fontSize, color, imgHeight = 150 }) => {
+  const img = firstImg(value);
+  if (!img) return hasMath(value)
     ? <MathText value={value} fontSize={fontSize} color={color} style={style} />
     : <Text style={style}>{value}</Text>;
+  const textPart = String(value).replace(/<img[^>]*>/gi, '').replace(/<p[^>]*>\s*<\/p>/gi, '');
+  const showText = !!textPart.replace(/<[^>]+>/g, '').trim() || /\{tex\}/.test(textPart);
+  return (
+    <View>
+      {showText ? (hasMath(textPart)
+        ? <MathText value={textPart} fontSize={fontSize} color={color} style={style} />
+        : <Text style={style}>{textPart}</Text>) : null}
+      <Image source={{ uri: img }} style={{ width: '100%', height: imgHeight, marginTop: showText ? 8 : 0, borderRadius: 8, backgroundColor: '#fff' }} resizeMode="contain" />
+    </View>
+  );
+};
 
 // ----- Theme (dark, matches app) -----
 const COLORS = {

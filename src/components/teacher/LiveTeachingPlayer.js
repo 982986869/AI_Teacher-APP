@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
   View, Text, StyleSheet, ScrollView, Animated, Easing, Dimensions, Platform, TextInput,
 } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import LessonBoard from './LessonBoards';
 import TeacherAvatar from './TeacherAvatar';
 import TeacherFullBody from './TeacherFullBody';
@@ -10,9 +11,11 @@ import VoicePicker from './VoicePicker';
 import { directLesson } from './teachingDirector';
 import { focusTarget } from './cameraDirector';
 import { freshLearner, observe, assess } from './emotionEngine';
-import { ACTIONS, freshPedagogy, observePedagogy, decideNextAction, personalizedRecap, continuationHint } from './pedagogyEngine';
-import { C as C_BASE, D, F, SP, GLASS, GRAD as GRAD_BASE, R } from './premiumTheme';
+import { ACTIONS, freshPedagogy, observePedagogy, decideNextAction, personalizedRecap, continuationHint, openingBridge } from './pedagogyEngine';
+import { C as C_BASE, D, F, SP, GLASS, GRAD as GRAD_BASE, R, SERIF } from './premiumTheme';
 import { PressableScale, Gradient } from './uiKit';
+import { ExplainChips, FollowUpChips, ContentsSheet, FlashcardDeck, TestSheet, loadNotes, saveNotes, loadNoteText, saveNoteText, buildFlashcards, buildTest, buildFormulas, buildRecap } from './lessonExtras';
+import { StreamingAnswerCard } from './StreamingAnswerCard';
 
 // ── AURORA color theme (dark stage kept) ─────────────────────────────────────
 // The classroom keeps its dark "room lights down" stage (D palette) and the
@@ -43,14 +46,17 @@ function LiveDot({ on }) {
     </View>
   );
 }
-import { StreamingAnswerCard } from './StreamingAnswerCard';
 import BoardSurface, { surfaceFor } from './boardSurfaces';
 import { EraserWipe } from './boardGestures';
 import { AmbientStage, VoiceAura } from './ambientStage';
 import DarkAuroraBg from './DarkAuroraBg';
 import { expressionForScene, praiseLine, reassureLine, listeningLine, completeLine, resumeBridge } from './teacherPersona';
 import { buildReteach } from './reteach';
-import { speakTeacher, stopTeacher, primeTeacherVoice, getSpeechProgress, SPEECH_OK, speakTeacherQueued, resetTeacherQueue, isTeacherQueueActive } from '../../utils/teacherVoice';
+import { speakTeacher, stopTeacher, primeTeacherVoice, getSpeechProgress, SPEECH_OK, speakTeacherQueued, resetTeacherQueue, isTeacherQueueActive, setListeningMode } from '../../utils/teacherVoice';
+import {
+  Mic, Square, RotateCcw, SkipForward, SkipBack, Play, Pause, ArrowUp, ChevronLeft, AudioLines,
+  Volume2, VolumeX, RefreshCw, GraduationCap, BookOpen, Globe, Check, Trophy, Radio, ListTree, Layers, Maximize2, Minimize2,
+} from 'lucide-react-native';
 
 // Optional student camera — degrades to a friendly placeholder.
 let ExpoCamera = null;
@@ -80,6 +86,22 @@ const TEACHER_VIDEO = null;
 const TEACHER_PHOTO = null;
 
 // ── Single teaching state machine — only ONE mode is ever active ───────────────
+// Comfortable touch expansion for the 34px top-bar icons (keeps the frozen visual
+// size but reaches the ~44px accessible target).
+const BAR_HIT = { top: 8, bottom: 8, left: 8, right: 8 };
+
+// The "classroom" backdrop — a deep indigo→near-black gradient (cohesive with the
+// premium hub header) so the teaching room reads as a rich, focused space instead of
+// flat black. A soft indigo bloom top-centre gives a subtle "stage light" depth.
+// A sophisticated graphite "study room" — near-black with the faintest cool cast,
+// no bright purple. Editorial and mature, not playful. One warm accent (champagne)
+// carries emphasis and the live pulse, like a highlighter in a fine textbook.
+const ROOM_GRAD = ['#191C24', '#0F1116', '#08090C'];
+const ACCENT = '#6C4DE6';      // Aurora purple brand accent (dark-room theme)
+const ACCENT_DIM = '#A06BFF';  // lighter Aurora purple for smaller labels
+const GLASS_PANEL = 'rgba(255,255,255,0.07)';  // Aurora frosted glass (teacher / caption / dock)
+const GLASS_HAIR = 'rgba(255,255,255,0.16)';   // bright top hairline on the glass
+
 const M = {
   TEACHING: 'TEACHING',     // a scene is being explained (TTS = the clock)
   PAUSED: 'PAUSED',         // frozen by the student
@@ -167,9 +189,32 @@ function Underline() {
 
 // ── speaking waveform (purple/blue audio bars) shown ABOVE the teacher ────────
 // Kept light (fewer bars) so it never janks on mid-range phones.
+// Three softly pulsing dots — a professional "she's thinking" indicator.
+function ThinkingDots() {
+  const vals = useRef([0, 1, 2].map(() => new Animated.Value(0.3))).current;
+  useEffect(() => {
+    const loops = vals.map((v, i) => Animated.loop(Animated.sequence([
+      Animated.delay(i * 160),
+      Animated.timing(v, { toValue: 1, duration: 380, useNativeDriver: true }),
+      Animated.timing(v, { toValue: 0.3, duration: 380, useNativeDriver: true }),
+    ])));
+    loops.forEach((l) => l.start());
+    return () => loops.forEach((l) => l.stop());
+  }, [vals]);
+  return (
+    <View style={st.thinkRow}>
+      {vals.map((v, i) => (
+        <Animated.View key={i} style={[st.thinkDot, { opacity: v, transform: [{ scale: v.interpolate({ inputRange: [0.3, 1], outputRange: [0.8, 1.15] }) }] }]} />
+      ))}
+      <Text style={st.thinkTxt}>Ms. Nova is thinking</Text>
+    </View>
+  );
+}
+
 const WAVE_N = 14;
-function Waveform({ active }) {
-  const vals = useRef(Array.from({ length: WAVE_N }, () => new Animated.Value(0.22))).current;
+function Waveform({ active, compact }) {
+  const n = compact ? 5 : WAVE_N;
+  const vals = useRef(Array.from({ length: n }, () => new Animated.Value(0.22))).current;
   useEffect(() => {
     let loops = [];
     if (active) {
@@ -185,15 +230,15 @@ function Waveform({ active }) {
     return () => loops.forEach((l) => l.stop());
   }, [active, vals]);
   return (
-    <View style={st.wave} pointerEvents="none">
+    <View style={compact ? st.waveMini : st.wave} pointerEvents="none">
       {vals.map((v, i) => {
-        const edge = 1 - Math.abs(i - (WAVE_N - 1) / 2) / ((WAVE_N - 1) / 2);
-        const max = 12 + edge * 26;
+        const edge = 1 - Math.abs(i - (n - 1) / 2) / ((n - 1) / 2);
+        const max = compact ? (10 + edge * 12) : (12 + edge * 26);
         return (
           <Animated.View key={i} style={[st.waveBar, {
-            height: v.interpolate({ inputRange: [0, 1], outputRange: [4, max] }),
-            backgroundColor: i % 2 ? C.blue : C.accent,
-            opacity: active ? 0.9 : 0.3,
+            height: v.interpolate({ inputRange: [0, 1], outputRange: [3, max] }),
+            backgroundColor: i % 2 ? ACCENT_DIM : ACCENT,
+            opacity: active ? 0.95 : 0.28,
           }]} />
         );
       })}
@@ -233,7 +278,7 @@ function CornerTeacher({ state, expression, cam }) {
 // so the highlight never races ahead of her voice. Freezes when she's not
 // speaking (paused) and resets per line (resetKey). Light on the JS thread: it
 // only re-renders when the bright-word count actually changes.
-function SpokenCaption({ text, speaking, karaoke, resetKey, style, highlight }) {
+function SpokenCaption({ text, speaking, karaoke, resetKey, style, highlight, onTermTap }) {
   const words = useMemo(() => String(text || '').split(/\s+/).filter(Boolean), [text]);
   // Keywords to emphasise the instant they're spoken (from the beat's `highlight`).
   const hot = useMemo(() => new Set((highlight || [])
@@ -265,10 +310,18 @@ function SpokenCaption({ text, speaking, karaoke, resetKey, style, highlight }) 
   return (
     <Animated.Text style={[style, { opacity: fade }]}>
       {words.map((w, i) => {
+        const clean = w.replace(/[^a-z0-9]/gi, '').toLowerCase();
         const spokenNow = i < brightUpto;
-        const isHot = spokenNow && hot.size > 0 && hot.has(w.replace(/[^a-z0-9]/gi, '').toLowerCase());
+        const isHot = spokenNow && hot.size > 0 && hot.has(clean);
+        const isTerm = !!onTermTap && hot.has(clean) && clean.length > 2;
+        const sep = i < words.length - 1 ? ' ' : '';
+        if (isTerm) {
+          return (
+            <Text key={i} onPress={() => onTermTap(w.replace(/[^a-z0-9]/gi, ''))} style={[spokenNow ? st.capHot : st.capDim, st.capTerm]}>{w}{sep}</Text>
+          );
+        }
         return (
-          <Text key={i} style={!spokenNow ? st.capDim : (isHot ? st.capHot : null)}>{w}{i < words.length - 1 ? ' ' : ''}</Text>
+          <Text key={i} style={!spokenNow ? st.capDim : (isHot ? st.capHot : null)}>{w}{sep}</Text>
         );
       })}
     </Animated.Text>
@@ -279,7 +332,7 @@ function SpokenCaption({ text, speaking, karaoke, resetKey, style, highlight }) 
 function CamInner() {
   const [perm, requestPerm] = ExpoCamera.useCameraPermissions();
   useEffect(() => { if (perm && !perm.granted && perm.canAskAgain !== false) requestPerm(); }, [perm]); // eslint-disable-line
-  if (!perm || !perm.granted) return <View style={st.camFill}><Text style={{ fontSize: 26 }}>🧑‍🎓</Text></View>;
+  if (!perm || !perm.granted) return <View style={st.camFill}><GraduationCap size={26} color={D.textDim} strokeWidth={2} /></View>;
   const CameraView = ExpoCamera.CameraView;
   return <CameraView style={{ width: '100%', height: '100%' }} facing="front" />;
 }
@@ -287,7 +340,7 @@ const StudentCircle = React.memo(function StudentCircle({ active }) {
   return (
     <View style={st.camWrap}>
       <View style={[st.camFrame, active && st.camFrameOn]}>
-        <View style={st.camMask}>{CAMERA_OK ? <CamInner /> : <View style={st.camFill}><Text style={{ fontSize: 26 }}>🧑‍🎓</Text></View>}</View>
+        <View style={st.camMask}>{CAMERA_OK ? <CamInner /> : <View style={st.camFill}><GraduationCap size={26} color={D.textDim} strokeWidth={2} /></View>}</View>
       </View>
       <Text style={[st.camLbl, active && st.camLblOn]}>{active ? 'Listening' : 'You'}</Text>
     </View>
@@ -367,13 +420,76 @@ function VoiceMic({ onStart, onPartial, onFinal, onEnd, onError, dock }) {
         />
         <Animated.View style={{ transform: [{ scale: idleScale }] }}>
           {busy
-            ? <View style={[st.dMic, st.dMicOn]}><Text style={st.dMicIcon}>■</Text></View>
-            : <Gradient colors={GRAD.violet} style={st.dMic}><Text style={st.dMicIcon}>🎤</Text></Gradient>}
+            ? <View style={[st.dMic, st.dMicOn]}><Square size={20} color="#fff" fill="#fff" /></View>
+            : <Gradient colors={GRAD.violet} style={st.dMic}><Mic size={24} color="#fff" strokeWidth={2.3} /></Gradient>}
         </Animated.View>
       </View>
       <Text style={[st.dLbl, st.dLblPrimary]}>{busy ? 'Stop' : 'Ask'}</Text>
     </PressableScale>
   );
+}
+
+// ── HANDS-FREE "Live conversation" listener ──────────────────────────────────
+// Unlike VoiceMic (tap-to-talk), this runs continuous recognition the whole time,
+// so the student can just SPEAK while the teacher is teaching and she pauses to
+// answer — like a real class. Renders nothing; mounted only while hands-free is on
+// (so it never fights VoiceMic for the single recognition session). Echo handling
+// (ignoring the teacher's own voice) is done by the parent via `isEcho`, which knows
+// exactly what she is currently saying. Best with earphones; on a speaker the parent's
+// known-text echo filter is the mitigation.
+function HandsFreeListener({ onBargeIn, isEcho, onUnavailable }) {
+  const { useSpeechRecognitionEvent, ExpoSpeechRecognitionModule } = SpeechRec;
+  const aliveRef = useRef(true);
+  const restartRef = useRef(null);
+  const errCountRef = useRef(0); // consecutive hard failures → give up gracefully
+  const onBargeInRef = useRef(onBargeIn); onBargeInRef.current = onBargeIn;
+  const isEchoRef = useRef(isEcho); isEchoRef.current = isEcho;
+  const onUnavailableRef = useRef(onUnavailable); onUnavailableRef.current = onUnavailable;
+
+  const bail = (reason) => { if (onUnavailableRef.current) onUnavailableRef.current(reason); };
+
+  const begin = async () => {
+    if (!aliveRef.current) return;
+    try {
+      const perm = await ExpoSpeechRecognitionModule.requestPermissionsAsync();
+      if (!aliveRef.current) return;
+      if (!perm || !perm.granted) { bail('mic-denied'); return; } // don't pretend to listen
+      ExpoSpeechRecognitionModule.start({ lang: 'en-IN', interimResults: true, continuous: true });
+    } catch (e) { /* the 'error' handler decides whether to retry or bail */ }
+  };
+
+  useSpeechRecognitionEvent('result', (e) => {
+    if (!aliveRef.current) return;
+    errCountRef.current = 0;                     // a real result → recognition is healthy
+    const r = e && e.results && e.results[0];
+    const t = (r && r.transcript) || '';
+    if (!t || !e.isFinal) return;                // act on settled utterances only
+    if (isEchoRef.current && isEchoRef.current(t)) return; // her own voice → ignore
+    if (onBargeInRef.current) onBargeInRef.current(t);
+  });
+  // Continuous sessions still stop on their own (silence timeout, focus loss) — re-arm.
+  useSpeechRecognitionEvent('end', () => { if (aliveRef.current) restartRef.current = setTimeout(begin, 350); });
+  useSpeechRecognitionEvent('error', (e) => {
+    if (!aliveRef.current) return;
+    const code = (e && e.error) || '';
+    if (code === 'not-allowed' || code === 'service-not-allowed') { bail('mic-denied'); return; }
+    if (code === 'no-speech' || code === 'no-match') { restartRef.current = setTimeout(begin, 500); return; } // just a quiet stretch
+    errCountRef.current += 1;
+    if (errCountRef.current >= 4) { bail('errors'); return; } // stop looping on a broken device
+    restartRef.current = setTimeout(begin, 900);
+  });
+
+  useEffect(() => {
+    aliveRef.current = true;
+    begin();
+    return () => {
+      aliveRef.current = false;
+      if (restartRef.current) { clearTimeout(restartRef.current); restartRef.current = null; }
+      try { ExpoSpeechRecognitionModule.stop(); } catch (e) { /* no-op */ }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  return null;
 }
 
 // Pull the retrieval signals the agent already returns (concept, prerequisites,
@@ -394,17 +510,21 @@ const TIER_LABEL = { high: 'High match', medium: 'Fair match', low: 'Low match' 
 // Compact strip shown under a doubt answer: where the answer came from (your
 // material vs general knowledge), how strong the match was, the resolved concept,
 // and the prerequisite concepts it builds on — all already computed server-side.
-function DoubtMeta({ meta }) {
+function DoubtMeta({ meta, onLearnPrereq }) {
   if (!meta) return null;
   const { concept, prereqs, tier, grounded } = meta;
   const tierColor = tier === 'high' ? C.green : tier === 'medium' ? C.orange : C.dim;
   return (
     <View style={st.metaWrap}>
+      <Text style={st.metaHeader}>Answer details</Text>
       <View style={st.metaRow}>
         {grounded != null && (
           <View style={[st.metaPill, grounded ? st.metaPillOn : null]}>
+            {grounded
+              ? <BookOpen size={11} color={C.teal} strokeWidth={2.4} />
+              : <Globe size={11} color={D.textDim} strokeWidth={2.4} />}
             <Text style={[st.metaPillTxt, grounded ? st.metaPillTxtOn : null]}>
-              {grounded ? '📘 From your material' : '🌐 General knowledge'}
+              {grounded ? 'From your material' : 'General knowledge'}
             </Text>
           </View>
         )}
@@ -422,7 +542,9 @@ function DoubtMeta({ meta }) {
         <View style={st.metaPrereqRow}>
           <Text style={st.metaPrereqLbl}>Builds on</Text>
           {prereqs.slice(0, 4).map((p) => (
-            <View key={p} style={st.metaChip}><Text style={st.metaChipTxt}>{p}</Text></View>
+            <PressableScale key={p} style={st.metaChip} onPress={() => onLearnPrereq && onLearnPrereq(p)} accessibilityRole="button" accessibilityLabel={`Explain ${p}`}>
+              <Text style={st.metaChipTxt}>{p}</Text>
+            </PressableScale>
           ))}
         </View>
       )}
@@ -447,6 +569,37 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const [beat, setBeat] = useState(0);   // which directed beat within the current scene
   const [animKey, setAnimKey] = useState(0);
   const [muted, setMuted] = useState(false);
+  // "Live conversation" is the DEFAULT: the student just speaks, no mic to press.
+  // (Inert until VOICE_OK; falls back to the typed/tap ask when the recognizer
+  // build isn't present. The top-bar toggle can turn it off for privacy.)
+  const [handsFree, setHandsFree] = useState(true);
+  // Study features (see lessonExtras): a jump-around Contents/Notes sheet, a flip
+  // flashcard deck and a summative "Test yourself" quiz. Bookmarks persist per lesson.
+  const [contentsOpen, setContentsOpen] = useState(false);
+  const [focusMode, setFocusMode] = useState(false); // distraction-free reading
+  const [deckOpen, setDeckOpen] = useState(false);
+  const [testOpen, setTestOpen] = useState(false);
+  const [savedNotes, setSavedNotes] = useState([]); // saved concept indices
+  const [noteText, setNoteText] = useState('');     // the student's own free-text note
+  const [conceptResults, setConceptResults] = useState([]); // {i,title,correct} from checks
+  const [visited, setVisited] = useState([]);       // concept indices seen (for the progress map)
+  const openedAtRef = useRef(Date.now());           // for the study-time stat
+  const lessonKey = useMemo(() => String((lesson && (lesson.id || lesson.lessonId || lesson.lessonTitle)) || subject || 'lesson'), [lesson, subject]);
+  const flashcards = useMemo(() => buildFlashcards(scenes), [scenes]);
+  const testQs = useMemo(() => buildTest(scenes), [scenes]);
+  const formulas = useMemo(() => buildFormulas(scenes), [scenes]);
+  const recap = useMemo(() => buildRecap(scenes), [scenes]);
+  useEffect(() => { let ok = true; loadNotes(lessonKey).then((n) => { if (ok) setSavedNotes(n); }); loadNoteText(lessonKey).then((t) => { if (ok) setNoteText(t); }); return () => { ok = false; }; }, [lessonKey]);
+  const toggleSaveNote = (i) => setSavedNotes((prev) => {
+    const next = prev.includes(i) ? prev.filter((x) => x !== i) : [...prev, i].sort((a, b) => a - b);
+    saveNotes(lessonKey, next);
+    return next;
+  });
+  const onChangeNoteText = (t) => { setNoteText(t); saveNoteText(lessonKey, t); };
+  // Mastery from this lesson's checks (client-side, per-lesson): how many concepts nailed.
+  const mastered = conceptResults.filter((r) => r.correct).length;
+  const weakConcepts = conceptResults.filter((r) => !r.correct);
+  const studyMin = Math.max(1, Math.round((Date.now() - openedAtRef.current) / 60000));
   const [ttsActive, setTtsActive] = useState(false); // is audio playing right now (avatar/sync)
   const [qa, setQa] = useState(null);                // { q, a } during a doubt
   const [qaMeta, setQaMeta] = useState(null);        // retrieval signals for the doubt answer
@@ -469,6 +622,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const answerTimerRef = useRef(null);   // the human "thinking beat" before she reacts to an answer
   const outcomeSentRef = useRef(false);  // report this lesson's outcome to memory exactly once
   const resumeBridgeRef = useRef(false); // speak a natural "where were we" bridge on the next beat after a doubt
+  const openedRef = useRef(false);       // one-shot: memory-aware opener on the very first beat
   // The Emotion engine's learner model + the pace multiplier it produces. Both are
   // refs (read inside the beat timer), so adapting the pace never forces a re-render.
   // Seeded from cross-lesson memory (priorModel) so a returning student's pace opens
@@ -559,6 +713,15 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   askPosRef.current = scene.slideIndex != null ? scene.slideIndex : idx;
   const voiceOnRef = useRef(voiceOn);
   voiceOnRef.current = voiceOn;
+  // Latest-value mirrors for the long-mounted hands-free listener's callbacks
+  // (they'd otherwise close over stale render values).
+  const modeRef = useRef(mode); modeRef.current = mode;
+  const ttsActiveRef = useRef(ttsActive); ttsActiveRef.current = ttsActive;
+  const qaRef = useRef(qa); qaRef.current = qa;
+  const bargeCooldownRef = useRef(0);   // debounce repeat barge-ins
+  const autoResumeRef = useRef(null);   // auto-continue timer after a hands-free answer
+  const doubtTurnRef = useRef(0);       // invalidates a stale in-flight doubt when a newer one starts / we resume
+  const ttsEndedAtRef = useRef(0);      // when TTS last stopped — keeps echo suppression alive briefly after (speaker tail)
   // The doubt-completion poller (interval) — kept in a ref so it's always cleared
   // on unmount / new doubt, never leaking or firing setState after unmount.
   const doubtTickRef = useRef(null);
@@ -566,6 +729,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const clearDoubtTick = () => { if (doubtTickRef.current) { clearInterval(doubtTickRef.current); doubtTickRef.current = null; } };
 
   useEffect(() => { primeTeacherVoice(); }, []);
+  useEffect(() => { setVisited((prev) => (prev.includes(idx) ? prev : [...prev, idx])); }, [idx]);
   // Re-arm the flag on mount. An effect cleanup also runs on Fast Refresh (and under
   // StrictMode's double-invoke) and refs survive it, so a setup that only ever clears
   // the flag leaves it false forever — after which every `if (mountedRef.current)`
@@ -573,7 +737,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   // never opens).
   useEffect(() => {
     mountedRef.current = true;
-    return () => { mountedRef.current = false; clearDoubtTick(); if (reactTimerRef.current) clearTimeout(reactTimerRef.current); if (answerTimerRef.current) clearTimeout(answerTimerRef.current); stopTeacher(); };
+    return () => { mountedRef.current = false; clearDoubtTick(); if (reactTimerRef.current) clearTimeout(reactTimerRef.current); if (answerTimerRef.current) clearTimeout(answerTimerRef.current); resetTeacherQueue(); };
   }, []);
 
   // Pick a fresh wrap-up line the moment the lesson finishes / open the mic —
@@ -604,7 +768,12 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
       case ACTIONS.PRAISE: {
         reactWith('celebrate', 2800);
         setReteach(null);                       // she got it → drop the re-teach
-        const line = praiseLine(rightStreakRef.current);
+        const base = praiseLine(rightStreakRef.current);
+        // Stretch a student who is clearly acing it: pose the authored harder probe as
+        // a bonus (a real teacher pushes their strongest). Only when one is authored AND
+        // they're on a roll — never nagging after a single correct answer.
+        const stretch = (rightStreakRef.current >= 2 && scene.quickCheck && scene.quickCheck.stretch) ? scene.quickCheck.stretch : '';
+        const line = stretch ? `${base}  Here's a tougher one to think about — ${stretch}` : base;
         setQuizFb({ correct: true, line });
         if (voiceOn) speakTeacher(line, ttsCbs());
         return;
@@ -658,6 +827,8 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     if (correct) { wrongStreakRef.current = 0; rightStreakRef.current += 1; }
     else { rightStreakRef.current = 0; wrongStreakRef.current += 1; }
     feelLearner(correct ? (firstTry ? 'correctFirstTry' : 'correct') : 'miss');
+    // Per-lesson mastery: record this concept's outcome once (first attempt wins).
+    setConceptResults((prev) => (prev.some((r) => r.i === idx) ? prev : [...prev, { i: idx, title: scene.title || scene.kicker || `Concept ${idx + 1}`, correct: !!correct }]));
 
     const isMcq = !!(scene.quickCheck && Array.isArray(scene.quickCheck.options) && scene.quickCheck.options.length);
     observeTeach({ type: 'answer', correct, misconception: scene.quickCheck && scene.quickCheck.misconception });
@@ -724,7 +895,17 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     // un-pausing. One-shot: consumed the first beat after resuming.
     const doBridge = resumeBridgeRef.current;
     resumeBridgeRef.current = false;
-    const sayLine = (doBridge && line) ? `${resumeBridge(scene.title)} ${line}` : line;
+    // Once, on the very first beat: if this student is remembered as having struggled
+    // with THIS topic, open gently and name it (memory made audible). Fresh students /
+    // resumes are unaffected.
+    let memOpener = '';
+    if (!doBridge && !openedRef.current && idx === 0 && beat === 0) {
+      openedRef.current = true;
+      memOpener = openingBridge(priorModel, { topic: (lesson && (lesson.lessonTitle || lesson.title)) || (scene && scene.title) });
+    }
+    const sayLine = (doBridge && line)
+      ? `${resumeBridge(scene.title)} ${line}`
+      : ((memOpener && line) ? `${memOpener} ${line}` : line);
     // Adaptive pace: the Emotion engine stretches the silences for a struggling
     // student and tightens them for a fluent one. It scales the BEATS (pauses,
     // dwells) — never her speech — so words stay natural, only the room breathes
@@ -759,7 +940,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   }, [mode, idx, beat, animKey]);
 
   // ── transport ──
-  const goTeach = (next) => { stopTeacher(); setQa(null); setQaMeta(null); setDoubtDone(false); setHint(''); setQuizFb(null); setReteach(null); setReactExpr(null); setBeat(0); setIdx(next); setMode(M.TEACHING); setAnimKey((k) => k + 1); };
+  const goTeach = (next) => { doubtTurnRef.current += 1; stopTeacher(); setQa(null); setQaMeta(null); setDoubtDone(false); setHint(''); setQuizFb(null); setReteach(null); setReactExpr(null); setBeat(0); setIdx(next); setMode(M.TEACHING); setAnimKey((k) => k + 1); };
   const pause = () => { stopTeacher(); setTtsActive(false); setMode(M.PAUSED); };
   const resume = () => { setMode(M.TEACHING); setAnimKey((k) => k + 1); };
   const togglePlay = () => { if (teaching) pause(); else if (mode === M.PAUSED) resume(); };
@@ -771,10 +952,15 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const toggleMute = () => { setMuted((m) => !m); if (teaching) setAnimKey((k) => k + 1); };
 
   // ── doubt flow (lesson fully frozen the whole time) ──
-  const beginListen = () => { stopTeacher(); clearDoubtTick(); setTtsActive(false); setPartial(''); setQInput(''); setQa(null); setQaMeta(null); setDoubtDone(false); setHint(''); setMode(M.LISTENING); };
+  const beginListen = () => { doubtTurnRef.current += 1; stopTeacher(); clearDoubtTick(); setTtsActive(false); setPartial(''); setQInput(''); setQa(null); setQaMeta(null); setDoubtDone(false); setHint(''); setMode(M.LISTENING); };
   const sendDoubt = (override) => {
     const q = (typeof override === 'string' ? override : qInput).trim();
     if (!q || !onAsk) { if (!q) setMode(M.PAUSED); return; }
+    // This turn owns the voice queue + UI. A newer doubt (e.g. a second hands-free
+    // barge-in) or a resume/navigate bumps doubtTurnRef, so a late-arriving answer
+    // from THIS request is dropped instead of speaking the wrong answer / leaking a timer.
+    const turn = (doubtTurnRef.current += 1);
+    const fresh = () => turn === doubtTurnRef.current && mountedRef.current;
     feelLearner('doubt'); observeTeach({ type: 'doubt' }); // asking for help eases her pace a little
     setQInput(''); setPartial(''); setHint('');
     setQa({ q, a: null }); setQaMeta(null); setDoubtDone(false); setMode(M.THINKING);
@@ -797,12 +983,12 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
         if (force && buf.trim()) { speakTeacherQueued(buf.trim()); buf = ''; }
       };
       onAskStream(q, askPosRef.current, {
-        onDelta: (t) => { acc += t; buf += t; setQa({ q, a: acc }); flush(false); },
+        onDelta: (t) => { if (turn !== doubtTurnRef.current) return; acc += t; buf += t; setQa({ q, a: acc }); flush(false); },
       })
         .then((res) => {
-          if (!mountedRef.current) return;
+          if (!fresh()) return;
           flush(true);
-          setQa({ q, a: (res && res.answer) || acc || "Sorry, I didn't catch that. Could you ask again?" });
+          setQa({ q, a: (res && res.answer) || acc || "Hmm, that didn't come through on my side — ask me once more?" });
           setQaMeta(extractMeta(res));
           // Mark done once the queued speech actually finishes playing. Capped so a
           // stuck queue can never poll forever (force-done after ~20s).
@@ -817,9 +1003,10 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
           }, 300);
         })
         .catch((e) => {
+          if (turn !== doubtTurnRef.current) return; // a newer doubt owns the queue now
           resetTeacherQueue();
           if (!mountedRef.current) return;
-          setQa({ q, a: `⚠️ ${e?.message || 'Could not get an answer.'}` });
+          setQa({ q, a: e?.message || 'Sorry, I couldn’t get an answer just now. Please try asking again.' });
           setTtsActive(false); setDoubtDone(true);
         });
       return;
@@ -832,9 +1019,9 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     Promise.race([Promise.resolve(onAsk(q, askPosRef.current)), timeoutP])
       .then((ans) => {
         clearTimeout(to);
-        if (!mountedRef.current) return;
+        if (!fresh()) return;
         // onAsk may resolve to a plain string (answer) or the full agent response.
-        const a = (typeof ans === 'string' ? ans : (ans && ans.answer)) || "Sorry, I didn't catch that. Could you ask again?";
+        const a = (typeof ans === 'string' ? ans : (ans && ans.answer)) || "Hmm, that didn't come through on my side — ask me once more?";
         setQa({ q, a }); setQaMeta(extractMeta(ans)); setMode(M.ANSWERING);
         if (voiceOnRef.current) {
           speakTeacher(a, {
@@ -845,9 +1032,83 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
           });
         } else { setDoubtDone(true); }
       })
-      .catch((e) => { clearTimeout(to); if (!mountedRef.current) return; setQa({ q, a: `⚠️ ${e?.response?.data?.error || e?.message || 'Could not get an answer.'}` }); setMode(M.ANSWERING); setDoubtDone(true); });
+      .catch((e) => { clearTimeout(to); if (!fresh()) return; setQa({ q, a: e?.response?.data?.error || e?.message || 'Sorry, I couldn’t get an answer just now. Please try asking again.' }); setMode(M.ANSWERING); setDoubtDone(true); });
   };
-  const resumeFromDoubt = () => { stopTeacher(); clearDoubtTick(); setQa(null); setQaMeta(null); setDoubtDone(false); resumeBridgeRef.current = true; setMode(M.TEACHING); setAnimKey((k) => k + 1); };
+  const resumeFromDoubt = () => { doubtTurnRef.current += 1; stopTeacher(); clearDoubtTick(); setQa(null); setQaMeta(null); setDoubtDone(false); resumeBridgeRef.current = true; setMode(M.TEACHING); setAnimKey((k) => k + 1); };
+
+  // ── HANDS-FREE "Live conversation": echo suppression + barge-in ──
+  const _norm = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9\s]+/g, ' ').split(/\s+/).filter(Boolean);
+  // True when what the mic heard is (mostly) the teacher's OWN speech. We know exactly
+  // what she is saying right now (current beat line + streaming doubt answer), so we can
+  // ignore her voice echoing back off the speaker and react only to the student. Only
+  // applies while she is actually making sound — when she is silent, it IS the student.
+  const ECHO_GRACE_MS = 1100; // her audio physically rings out (and ASR lags) past ttsActive=false
+  const isLikelyEcho = (heard) => {
+    const h = _norm(heard);
+    if (!h.length) return true;
+    // Keep suppressing for a short window AFTER she stops — otherwise the trailing
+    // recognition of her own last sentence (esp. on a speaker) fires a false doubt.
+    const speakingRecently = ttsActiveRef.current || (Date.now() - ttsEndedAtRef.current < ECHO_GRACE_MS);
+    if (!speakingRecently) return false;
+    const teacher = new Set([..._norm(lastSayRef.current), ..._norm(qaRef.current && qaRef.current.a)]);
+    if (!teacher.size) return false;
+    const overlap = h.filter((w) => teacher.has(w)).length / h.length;
+    return overlap >= 0.6;
+  };
+  // The student spoke while she was teaching/answering → pause and take the doubt, like a
+  // real class. Ignored while she is already THINKING/listening or the lesson is done.
+  const handleBargeIn = (text) => {
+    const q = String(text || '').trim();
+    if (q.split(/\s+/).filter(Boolean).length < 2) return; // stray one-word noise
+    const now = Date.now();
+    if (now < bargeCooldownRef.current) return;
+    const m = modeRef.current;
+    if (m === M.THINKING || m === M.LISTENING || m === M.COMPLETED) return;
+    bargeCooldownRef.current = now + 1600;
+    if (autoResumeRef.current) { clearTimeout(autoResumeRef.current); autoResumeRef.current = null; }
+    sendDoubt(q);
+  };
+  const toggleHandsFree = () => {
+    setHandsFree((v) => {
+      const next = !v;
+      setHint(next ? 'Live conversation on — just speak anytime and I\'ll pause to answer. (Earphones give the clearest result.)' : '');
+      return next;
+    });
+  };
+  // Recognition couldn't run (mic denied / no service / repeated failures) — never
+  // leave the "Live" pill pretending to listen. Turn it off and fall back to the
+  // tap mic / typed ask, with a clear reason.
+  const handleVoiceUnavailable = (reason) => {
+    setHandsFree(false);
+    setHint(reason === 'mic-denied'
+      ? 'Microphone access is off — allow it in Settings to talk, or tap the mic / type your question.'
+      : 'Live conversation isn\'t available on this device — tap the mic or type your question instead.');
+  };
+  // After a hands-free answer finishes, quietly continue the lesson unless the student
+  // speaks again first (which cancels this and starts a new doubt).
+  useEffect(() => {
+    if (!handsFree || mode !== M.ANSWERING || !doubtDone) return undefined;
+    autoResumeRef.current = setTimeout(() => { if (mountedRef.current) resumeFromDoubt(); }, 3500);
+    return () => { if (autoResumeRef.current) { clearTimeout(autoResumeRef.current); autoResumeRef.current = null; } };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [handsFree, mode, doubtDone]);
+
+  // Simultaneous record+play is only needed while listening — enable it with the
+  // hands-free toggle and drop it on leave so normal playback keeps full volume.
+  useEffect(() => {
+    if (VOICE_OK) setListeningMode(handsFree);
+    return () => { if (VOICE_OK) setListeningMode(false); };
+  }, [handsFree]);
+
+  // First-time nudge so the student knows they can just talk (mic-free).
+  useEffect(() => {
+    if (VOICE_OK && handsFree) setHint('Just speak anytime — I\'ll pause and answer. (Earphones give the clearest result.)');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Stamp when she stops speaking, so the echo filter can keep suppressing briefly
+  // afterwards (the audio tail + ASR lag) instead of self-triggering on her own words.
+  useEffect(() => { if (!ttsActive) ttsEndedAtRef.current = Date.now(); }, [ttsActive]);
 
   // Quick-action chips under a finished answer → send a natural follow-up doubt.
   const QUICK_FOLLOWUP = {
@@ -896,12 +1157,18 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     : (scene.boardType === 'summary' || scene.boardType === 'mistake') ? hasPoints
     : true;
   const showBoard = sceneHasContent && !inDoubt; // board hides while a doubt is handled
+  // Distinct colour + label per live state — a professional, legible presence.
+  const statusInfo = mode === M.LISTENING ? { label: 'Listening', color: C.teal }
+    : mode === M.THINKING ? { label: 'Thinking', color: '#E9A23B' }
+    : ttsActive ? { label: 'Teaching', color: ACCENT }
+    : mode === M.PAUSED ? { label: 'Paused', color: D.textFaint }
+    : { label: 'Ready', color: D.textDim };
 
   // Caption = the current BEAT's line (one directed line at a time — never a wall
   // of text). Wordless reveal beats keep the previous line on screen instead of
   // blanking, so the subtitle always reads as one calm sentence.
   const beatText = (curBeat && curBeat.say) || lastSayRef.current || scene.teacherLine || '';
-  const captionText = qa ? (qa.a || 'Thinking…') : beatText;
+  const captionText = qa ? (qa.a || 'One moment…') : beatText;
 
   const progress = N ? (idx + 1) / N : 0;
   // Glide the progress bar between scenes instead of snapping (premium micro-motion).
@@ -913,6 +1180,10 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   }, [progress, progressA]);
   const sceneKey = `${idx}-${animKey}`;
   const beatKey = `${idx}-${beat}-${animKey}`; // karaoke highlight resets per beat
+  // Drop the small eyebrow when it just repeats the title (e.g. quick-check scenes
+  // set both kicker "QUICK CHECK" and title "Quick Check") — one clean heading, not two.
+  const _normHead = (s) => String(s || '').replace(/[^a-z0-9]/gi, '').toLowerCase();
+  const kickerDistinct = _normHead(scene.kicker) !== _normHead(scene.title);
 
   // The spoken caption (or the doubt Q&A) — shared by the centred hero and the
   // with-slide subtitle bar so it always reads the same. Shown whole (not
@@ -922,12 +1193,12 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
       <>
         <Text style={st.askedLabel} numberOfLines={1}>You asked · “{qa.q}”</Text>
         <SpokenCaption key={`ans-${idx}-${qa.a ? 1 : 0}`} text={captionText} speaking={ttsActive} karaoke={voiceOn} resetKey={`ans-${qa.a ? 1 : 0}`} style={st.captionTxt} />
-        {doubtDone && <DoubtMeta meta={qaMeta} />}
+        {doubtDone && <DoubtMeta meta={qaMeta} onLearnPrereq={(p) => sendDoubt(`Explain "${p}" briefly — I want to understand the idea this builds on.`)} />}
       </>
     ) : mode === M.LISTENING ? (
       <Text style={st.captionTxt}>{listenPrompt}</Text>
     ) : (
-      <SpokenCaption key={`s-${idx}-${captionText}`} text={captionText} speaking={ttsActive} karaoke={voiceOn} resetKey={`${idx}-${captionText}`} style={st.captionTxt} highlight={(curBeat && curBeat.highlight && curBeat.highlight.length) ? curBeat.highlight : keyTerms} />
+      <SpokenCaption key={`s-${idx}-${captionText}`} text={captionText} speaking={ttsActive} karaoke={voiceOn} resetKey={`${idx}-${captionText}`} style={st.captionTxt} highlight={(curBeat && curBeat.highlight && curBeat.highlight.length) ? curBeat.highlight : keyTerms} onTermTap={onAsk ? (term) => sendDoubt(`In one line, what does "${term}" mean here?`) : undefined} />
     )
   );
 
@@ -977,45 +1248,68 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   return (
     <View style={st.container}>
       {/* Aurora dark wash — violet/magenta/blue blooms behind the room (whiteboard
-          stays on its own white card, so it's unaffected). */}
+          stays on its own white card, so it's unaffected). Replaces the flat ROOM_GRAD. */}
       <DarkAuroraBg />
 
       {/* ── HEADER (fixed) ── */}
       <View style={st.bar}>
-        <PressableScale onPress={() => { stopTeacher(); onExit && onExit(); }} style={st.barIcon} accessibilityLabel="Exit lesson"><Text style={st.barIconTxt}>‹</Text></PressableScale>
-        <View style={st.progressTrack} accessibilityRole="progressbar" accessibilityValue={{ now: Math.min(idx + 1, N), min: 0, max: N }}><Animated.View style={[st.progressFill, { width: progressA.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]} /></View>
+        <PressableScale onPress={() => { stopTeacher(); onExit && onExit(); }} style={st.barIcon} hitSlop={BAR_HIT} accessibilityLabel="Exit lesson"><ChevronLeft size={24} color={D.text} strokeWidth={2.4} /></PressableScale>
+        <View style={st.progressTrack} accessibilityRole="progressbar" accessibilityValue={{ now: Math.min(idx + 1, N), min: 0, max: N }}>
+          <Animated.View style={[st.progressFill, { width: progressA.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]} />
+          {N > 1 && N <= 16 && Array.from({ length: N - 1 }).map((_, i) => (
+            <View key={i} style={[st.progressTick, { left: `${((i + 1) / N) * 100}%` }]} pointerEvents="none" />
+          ))}
+        </View>
         <Text style={st.counter} accessibilityLabel={`Step ${Math.min(idx + 1, N)} of ${N}`}>{Math.min(idx + 1, N)}/{N}</Text>
-        <PressableScale onPress={() => { stopTeacher(); setVoiceOpen(true); }} style={st.barIcon} accessibilityLabel="Choose teacher voice"><Text style={st.barIconTxt2}>🎙</Text></PressableScale>
-        <PressableScale onPress={toggleMute} style={st.barIcon} accessibilityLabel={muted ? 'Unmute narration' : 'Mute narration'}><Text style={st.barIconTxt2}>{muted ? '🔇' : '🔊'}</Text></PressableScale>
-        {!!onNewLesson && <PressableScale onPress={onNewLesson} style={st.barIcon} accessibilityLabel="Start a new lesson"><Text style={st.barIconTxt2}>↺</Text></PressableScale>}
+        {VOICE_OK && !!onAsk && (
+          <PressableScale onPress={toggleHandsFree} style={[st.barIcon, handsFree && st.barIconLive]} hitSlop={BAR_HIT} accessibilityLabel={handsFree ? 'Turn off live conversation' : 'Turn on live conversation — speak anytime'} accessibilityState={{ selected: handsFree }}>
+            <Radio size={18} color={handsFree ? C.teal : D.text} strokeWidth={2.2} />
+          </PressableScale>
+        )}
+        <PressableScale onPress={() => setFocusMode((f) => !f)} style={[st.barIcon, focusMode && st.barIconNote]} hitSlop={BAR_HIT} accessibilityLabel={focusMode ? 'Exit focus mode' : 'Focus mode — hide everything but the board'} accessibilityState={{ selected: focusMode }}>{focusMode ? <Minimize2 size={17} color="#DBA53F" strokeWidth={2.3} /> : <Maximize2 size={17} color={D.text} strokeWidth={2.2} />}</PressableScale>
+        <PressableScale onPress={() => setContentsOpen(true)} style={[st.barIcon, savedNotes.length > 0 && st.barIconNote]} hitSlop={BAR_HIT} accessibilityLabel="Lesson contents and saved notes"><ListTree size={18} color={savedNotes.length > 0 ? '#DBA53F' : D.text} strokeWidth={2.2} /></PressableScale>
+        <PressableScale onPress={() => { stopTeacher(); setVoiceOpen(true); }} style={st.barIcon} hitSlop={BAR_HIT} accessibilityLabel="Choose teacher voice"><AudioLines size={18} color={D.text} strokeWidth={2.2} /></PressableScale>
+        <PressableScale onPress={toggleMute} style={st.barIcon} hitSlop={BAR_HIT} accessibilityLabel={muted ? 'Unmute narration' : 'Mute narration'} accessibilityState={{ selected: muted }}>{muted ? <VolumeX size={18} color={D.text} strokeWidth={2.2} /> : <Volume2 size={18} color={D.text} strokeWidth={2.2} />}</PressableScale>
+        {!!onNewLesson && <PressableScale onPress={onNewLesson} style={st.barIcon} hitSlop={BAR_HIT} accessibilityLabel="Start a new lesson"><RefreshCw size={17} color={D.text} strokeWidth={2.2} /></PressableScale>}
       </View>
 
       {/* ── learning-progress context (topic · concept N of M) — reads as learning
           progress, not a slide counter ── */}
-      <View style={st.contextBar}>
-        <Text style={st.ctxTopic} numberOfLines={1}>{lessonTopic}</Text>
-        <Text style={st.ctxStep}>Concept {conceptNo} of {conceptTotal}</Text>
-      </View>
+      {!focusMode && (
+        <View style={st.contextBar}>
+          <Text style={st.ctxTopic} numberOfLines={1}>{lessonTopic}</Text>
+          <Text style={st.ctxStep}>Concept {conceptNo} of {conceptTotal}</Text>
+        </View>
+      )}
 
       <VoicePicker visible={voiceOpen} onClose={() => setVoiceOpen(false)} />
+
+      {/* Continuous listener for hands-free "Live conversation". Mounted independent
+          of the mode so recognition runs uninterrupted; mounted only when on so it
+          never contends with the tap-to-talk VoiceMic for the single mic session. */}
+      {VOICE_OK && handsFree && <HandsFreeListener onBargeIn={handleBargeIn} isEcho={isLikelyEcho} onUnavailable={handleVoiceUnavailable} />}
 
       {/* ── THE LESSON (warm editorial) — Ms. Nova top-left header, a clean white
           board card, her words below. Mobile-first, no student PiP. The teacher row
           is persistent (never remounts); only the material transitions per scene. */}
       <ScrollView style={st.scroll} contentContainerStyle={st.lessonScroll} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
+        {!focusMode && (
         <View style={st.teacherBar}>
           <TeacherAvatar theme="dark" video={TEACHER_VIDEO} photo={TEACHER_HEADSHOT} state={teacherState} expression={expression} size={46} />
           <View style={{ flex: 1 }}>
             <Text style={st.teacherName}>Ms. Nova</Text>
             <View style={st.statusRow}>
               <LiveDot on={ttsActive} />
-              <Text style={st.statusTxt}>{mode === M.LISTENING ? 'Listening' : mode === M.THINKING ? 'Thinking' : ttsActive ? 'Teaching' : mode === M.PAUSED ? 'Paused' : 'Ready'}</Text>
+              <Text style={[st.statusTxt, { color: statusInfo.color }]}>{statusInfo.label}</Text>
             </View>
           </View>
+          {/* live speaking waveform — a professional "she's talking now" presence */}
+          {ttsActive && <Waveform active compact />}
         </View>
+        )}
 
         <Stage key={sceneKey} style={st.workArea}>
-          {!!scene.kicker && <Text style={st.kicker}>{scene.kicker}</Text>}
+          {!!scene.kicker && kickerDistinct && <Text style={st.kicker}>{scene.kicker}</Text>}
           {!!scene.title && <Text style={st.title}>{scene.title}</Text>}
           {showBoard && (
             <Animated.View style={[st.boardOuter, { transform: [{ scale: focusZoom }] }]}>
@@ -1032,16 +1326,43 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
               {doubtDone && !!qaMeta && <View style={{ marginHorizontal: SP.md, marginTop: SP.xs }}><DoubtMeta meta={qaMeta} /></View>}
             </View>
           ) : (
-            <View style={st.captionWrap}>{captionEl}</View>
+            <>
+              {!focusMode && <View style={st.captionWrap}>{captionEl}</View>}
+              {!focusMode && !!onAsk && (teaching || mode === M.PAUSED) && (
+                <ExplainChips
+                  scene={scene}
+                  onPick={(q) => sendDoubt(q)}
+                  onPractice={() => {
+                    // Adaptive: if they're on a roll, stretch them; if they've been slipping, warm up.
+                    const doingWell = rightStreakRef.current >= 2 || (conceptResults.length > 0 && weakConcepts.length === 0);
+                    const level = doingWell ? 'a slightly challenging, exam-style' : 'a short warm-up';
+                    sendDoubt(`Let's practise "${scene.title || scene.kicker || lessonTopic}". Ask me ONE ${level} question, then stop — do NOT give the answer yet. I'll say my answer out loud and you can check it.`);
+                  }}
+                />
+              )}
+            </>
           )}
         </Stage>
       </ScrollView>
 
       {/* ── STUDENT + STATUS + CONTROL DOCK (fixed) ── */}
       <View style={st.bottom}>
-        {mode === M.LISTENING && VOICE_OK && <Text style={st.listenTxt} numberOfLines={2}>{partial || 'Listening… ask your question'}</Text>}
-        {mode === M.THINKING && <Text style={st.listenTxt}>Thinking…</Text>}
+        {mode === M.LISTENING && VOICE_OK && <Text style={st.listenTxt} numberOfLines={2} accessibilityLiveRegion="polite">{partial || 'I’m listening — go ahead.'}</Text>}
+        {mode === M.THINKING && <ThinkingDots />}
 
+        {mode === M.LISTENING && !VOICE_OK && !qInput && (
+          <View style={st.starterRow}>
+            {[
+              `Why is "${(scene.title || 'this').replace(/["“”]/g, '')}" true?`,
+              'Can you show a worked example?',
+              'Where is this used in real life?',
+            ].map((sq) => (
+              <PressableScale key={sq} style={st.starterChip} onPress={() => sendDoubt(sq)} accessibilityRole="button" accessibilityLabel={sq}>
+                <Text style={st.starterTxt} numberOfLines={1}>{sq}</Text>
+              </PressableScale>
+            ))}
+          </View>
+        )}
         {mode === M.LISTENING && !VOICE_OK && (
           <View style={st.askRow}>
             <TextInput
@@ -1052,14 +1373,18 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
               onSubmitEditing={() => sendDoubt()} returnKeyType="send" autoFocus
               accessibilityLabel="Type your question for the teacher"
             />
-            <PressableScale style={st.askSend} onPress={() => sendDoubt()} accessibilityLabel="Send question"><Text style={st.askSendTxt}>↑</Text></PressableScale>
+            <PressableScale style={st.askSend} onPress={() => sendDoubt()} accessibilityLabel="Send question"><ArrowUp size={20} color="#fff" strokeWidth={2.6} /></PressableScale>
           </View>
         )}
 
         {mode === M.ANSWERING && (
-          <PressableScale style={st.resumeBtn} onPress={resumeFromDoubt} accessibilityLabel="Resume the lesson">
-            <Text style={st.resumeTxt}>▶  Resume lesson</Text>
-          </PressableScale>
+          <>
+            {doubtDone && !!onAsk && <FollowUpChips question={qa && qa.q} onPick={(q) => sendDoubt(q)} />}
+            <PressableScale style={st.resumeBtn} onPress={resumeFromDoubt} accessibilityLabel="Resume the lesson">
+              <Play size={15} color="#fff" strokeWidth={2.4} fill="#fff" />
+              <Text style={st.resumeTxt}>Resume lesson</Text>
+            </PressableScale>
+          </>
         )}
 
         {!!hint && (teaching || mode === M.PAUSED) && <Text style={st.hint}>{hint}</Text>}
@@ -1069,33 +1394,40 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
         {mode !== M.THINKING && mode !== M.COMPLETED && (
           <View style={st.dock}>
             <PressableScale style={st.dItem} onPress={onPrev} disabled={idx === 0} accessibilityLabel="Previous step">
-              <View style={st.dGhost}><Text style={[st.dGlyph, idx === 0 && st.dDim]}>⏮</Text></View>
+              <View style={[st.dGhost, idx === 0 && st.dDim]}><SkipBack size={17} color={D.text} strokeWidth={2.2} fill={D.text} /></View>
               <Text style={st.dLbl}>Prev</Text>
             </PressableScale>
             <PressableScale style={st.dItem} onPress={togglePlay} scaleTo={0.92} accessibilityLabel={teaching ? 'Pause the lesson' : 'Play the lesson'}>
-              <View style={st.dGhost}><Text style={st.dGlyph}>{teaching ? '⏸' : '▶'}</Text></View>
+              <View style={st.dGhost}>{teaching ? <Pause size={17} color={D.text} strokeWidth={2.2} fill={D.text} /> : <Play size={17} color={D.text} strokeWidth={2.2} fill={D.text} />}</View>
               <Text style={st.dLbl}>{teaching ? 'Pause' : 'Play'}</Text>
             </PressableScale>
-            {!!onAsk && (VOICE_OK ? (
-              <VoiceMic
-                onStart={beginListen}
-                onPartial={setPartial}
-                onFinal={(t) => sendDoubt(t)}
-                onEnd={() => setMode((m) => (m === M.LISTENING ? M.PAUSED : m))}
-                onError={(m) => { setHint(typeof m === 'string' ? m : 'Type your question.'); setMode((p) => (p === M.LISTENING ? M.PAUSED : p)); }}
-              />
-            ) : (
-              <PressableScale style={st.dItem} onPress={beginListen} scaleTo={0.9} accessibilityLabel="Ask the teacher a question">
-                <Gradient colors={GRAD.violet} style={st.dMic}><Text style={st.dMicIcon}>🎤</Text></Gradient>
-                <Text style={[st.dLbl, st.dLblPrimary]}>Ask</Text>
-              </PressableScale>
-            ))}
+            {!!onAsk && (
+              VOICE_OK && handsFree ? (
+                <PressableScale style={st.dItem} onPress={toggleHandsFree} scaleTo={0.92} accessibilityLabel="Live conversation is on — tap to turn off">
+                  <View style={st.dLive}><Radio size={22} color={C.teal} strokeWidth={2.3} /></View>
+                  <Text style={[st.dLbl, st.dLblLive]}>Live</Text>
+                </PressableScale>
+              ) : VOICE_OK ? (
+                <VoiceMic
+                  onStart={beginListen}
+                  onPartial={setPartial}
+                  onFinal={(t) => sendDoubt(t)}
+                  onEnd={() => setMode((m) => (m === M.LISTENING ? M.PAUSED : m))}
+                  onError={(m) => { setHint(typeof m === 'string' ? m : 'Type your question.'); setMode((p) => (p === M.LISTENING ? M.PAUSED : p)); }}
+                />
+              ) : (
+                <PressableScale style={st.dItem} onPress={beginListen} scaleTo={0.9} accessibilityLabel="Ask the teacher a question">
+                  <Gradient colors={GRAD.ink} style={st.dMic}><Mic size={24} color="#fff" strokeWidth={2.3} /></Gradient>
+                  <Text style={[st.dLbl, st.dLblPrimary]}>Ask</Text>
+                </PressableScale>
+              )
+            )}
             <PressableScale style={st.dItem} onPress={onRefresh} accessibilityLabel="Replay this step">
-              <View style={st.dGhost}><Text style={st.dGlyph}>↻</Text></View>
+              <View style={st.dGhost}><RotateCcw size={18} color={D.text} strokeWidth={2.2} /></View>
               <Text style={st.dLbl}>Replay</Text>
             </PressableScale>
             <PressableScale style={st.dItem} onPress={onNext} accessibilityLabel="Next step">
-              <View style={st.dGhost}><Text style={st.dGlyph}>⏭</Text></View>
+              <View style={st.dGhost}><SkipForward size={18} color={D.text} strokeWidth={2.2} fill={D.text} /></View>
               <Text style={st.dLbl}>Next</Text>
             </PressableScale>
           </View>
@@ -1106,19 +1438,21 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
       {mode === M.COMPLETED && (
         <View style={st.doneOverlay} pointerEvents="box-none">
           <Appear from="scale" style={st.doneCard}>
-            <Text style={st.doneEmoji}>🎉</Text>
-            <Text style={st.doneTitle}>Lesson complete</Text>
+            <Appear from="scale" delay={220} duration={420} style={st.doneEmoji}><Trophy size={40} color="#F59E0B" strokeWidth={1.9} /></Appear>
+            <Text style={st.doneTitle} accessibilityRole="header">Well done today</Text>
             <Text style={st.doneSub}>{memoryRecap || doneMsg || 'Great focus today. Take it again whenever you like.'}</Text>
 
             {learned.length > 0 && (
               <View style={st.learnedWrap}>
                 <Text style={st.learnedHead}>Today you learned</Text>
-                {learned.map((t, i) => (
-                  <Appear key={i} delay={220 + i * 90} style={st.learnedRow}>
-                    <View style={st.learnedTick}><Text style={st.learnedTickTxt}>✓</Text></View>
-                    <Text style={st.learnedTxt} numberOfLines={2}>{t}</Text>
-                  </Appear>
-                ))}
+                <View style={st.learnedChips}>
+                  {learned.map((t, i) => (
+                    <Appear key={i} delay={220 + i * 70} style={st.learnedChip}>
+                      <Check size={11} color={C.green} strokeWidth={3.2} />
+                      <Text style={st.learnedChipTxt} numberOfLines={1}>{t}</Text>
+                    </Appear>
+                  ))}
+                </View>
               </View>
             )}
 
@@ -1127,13 +1461,48 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
                 <View style={st.statBox}><CountUp to={accuracy} suffix="%" style={st.statNum} /><Text style={st.statLbl}>Accuracy</Text></View>
               )}
               <View style={st.statBox}><CountUp to={conceptTotal} style={st.statNum} /><Text style={st.statLbl}>Concepts</Text></View>
+              <View style={st.statBox}><CountUp to={studyMin} style={st.statNum} /><Text style={st.statLbl}>{studyMin === 1 ? 'Minute' : 'Minutes'}</Text></View>
             </Appear>
+
+            {conceptResults.length > 0 && (
+              <View style={st.masteryPanel}>
+                <View style={st.masteryTop}>
+                  <Text style={st.masteryLabel}>Concept mastery</Text>
+                  <Text style={st.masteryScore}>{mastered}/{conceptResults.length}</Text>
+                </View>
+                <View style={st.masteryDots}>
+                  {conceptResults.map((r, i) => (
+                    <View key={i} style={[st.mDot, r.correct ? st.mDotOk : st.mDotWeak]} />
+                  ))}
+                </View>
+                {weakConcepts.length > 0 && (
+                  <Text style={st.masteryWeak} numberOfLines={2}>Revisit: {weakConcepts.map((w) => w.title).join(' · ')}</Text>
+                )}
+              </View>
+            )}
 
             <Text style={st.recoTxt}>{memoryNext || (accuracy != null && accuracy >= 80 ? 'You’ve got this — ready for a new topic?' : 'A quick replay will lock it in.')}</Text>
 
+            {(flashcards.length > 0 || testQs.length > 0) && (
+              <View style={st.studyRow}>
+                {flashcards.length > 0 && (
+                  <PressableScale style={st.studyBtn} onPress={() => setDeckOpen(true)} accessibilityLabel="Review flashcards">
+                    <Layers size={17} color="#DBA53F" strokeWidth={2.3} />
+                    <Text style={st.studyTxt}>Flashcards</Text>
+                  </PressableScale>
+                )}
+                {testQs.length > 0 && (
+                  <PressableScale style={st.studyBtn} onPress={() => setTestOpen(true)} accessibilityLabel="Test yourself">
+                    <GraduationCap size={18} color="#DBA53F" strokeWidth={2.3} />
+                    <Text style={st.studyTxt}>Test yourself</Text>
+                  </PressableScale>
+                )}
+              </View>
+            )}
+
             <View style={st.doneRow}>
               <PressableScale style={[st.doneBtn, st.doneGhost]} onPress={() => { stopTeacher(); onExit && onExit(); }} accessibilityLabel="Finish and exit"><Text style={st.doneGhostTxt}>Done</Text></PressableScale>
-              <PressableScale style={[st.doneBtn, st.donePrimary]} onPress={onReplayLesson} accessibilityLabel="Replay the lesson"><Text style={st.donePrimaryTxt}>↺ Replay</Text></PressableScale>
+              <PressableScale style={[st.doneBtn, st.donePrimary]} onPress={onReplayLesson} accessibilityLabel="Replay the lesson"><RotateCcw size={15} color="#fff" strokeWidth={2.4} /><Text style={st.donePrimaryTxt}>Replay</Text></PressableScale>
             </View>
             {!!onNewLesson && (
               <PressableScale onPress={onNewLesson} style={st.doneNew} accessibilityLabel="Start a new topic"><Text style={st.doneNewTxt}>Learn a new topic</Text></PressableScale>
@@ -1141,6 +1510,27 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
           </Appear>
         </View>
       )}
+
+      {/* ── study features (jump-around contents/notes · flashcards · self-test) ── */}
+      <ContentsSheet
+        visible={contentsOpen}
+        scenes={scenes}
+        currentIdx={idx}
+        saved={savedNotes}
+        onToggleSave={toggleSaveNote}
+        onJump={(i) => goTeach(i)}
+        onClose={() => setContentsOpen(false)}
+        recap={recap}
+        formulas={formulas}
+        lessonTitle={lessonTopic}
+        noteText={noteText}
+        onChangeNoteText={onChangeNoteText}
+        visited={visited}
+        results={conceptResults}
+        onExplainFormula={onAsk ? (f) => { setContentsOpen(false); sendDoubt(`Explain this formula and what each symbol means, briefly: ${f}`); } : undefined}
+      />
+      <FlashcardDeck visible={deckOpen} cards={flashcards} onClose={() => setDeckOpen(false)} lessonKey={lessonKey} />
+      <TestSheet visible={testOpen} questions={testQs} onClose={() => setTestOpen(false)} onScore={() => {}} />
     </View>
   );
 }
@@ -1156,10 +1546,13 @@ const st = StyleSheet.create({
   // header (fixed) — ghost circle glyphs over the dark room
   bar: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: SP.md, paddingTop: SP.sm, paddingBottom: SP.xs },
   barIcon: { width: 34, height: 34, borderRadius: 17, alignItems: 'center', justifyContent: 'center', backgroundColor: D.fill, borderWidth: 1, borderColor: D.edgeSoft },
+  barIconLive: { backgroundColor: 'rgba(16,185,129,0.16)', borderColor: C.teal },
+  barIconNote: { backgroundColor: 'rgba(219,165,63,0.16)', borderColor: 'rgba(219,165,63,0.5)' },
   barIconTxt: { fontSize: 22, color: D.text, marginTop: -3 },
   barIconTxt2: { fontSize: 14, color: D.text },
   progressTrack: { flex: 1, height: 4, backgroundColor: 'rgba(255,255,255,0.14)', borderRadius: 8, overflow: 'hidden' },
-  progressFill: { height: '100%', backgroundColor: C.accent, borderRadius: 8 },
+  progressFill: { height: '100%', backgroundColor: ACCENT, borderRadius: 8 },
+  progressTick: { position: 'absolute', top: 0, bottom: 0, width: 1.5, backgroundColor: 'rgba(8,9,12,0.55)' },
   counter: { fontSize: 11, fontFamily: F.semi, color: D.textFaint, minWidth: 30, textAlign: 'right', letterSpacing: 0.5 },
 
   // learning-progress context strip (topic + concept N of M)
@@ -1170,22 +1563,34 @@ const st = StyleSheet.create({
   // completion: "today you learned" checklist + count-up stats + adaptive next line
   learnedWrap: { alignSelf: 'stretch', marginTop: SP.md, gap: 8 },
   learnedHead: { fontSize: 11, fontFamily: F.bold, color: D.textDim, letterSpacing: 1.2, textTransform: 'uppercase', marginBottom: 2, textAlign: 'left' },
+  learnedChips: { flexDirection: 'row', flexWrap: 'wrap', gap: 7, marginTop: 4 },
+  learnedChip: { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: 'rgba(45,187,120,0.12)', borderWidth: 1, borderColor: 'rgba(45,187,120,0.35)', borderRadius: R.pill, paddingVertical: 6, paddingHorizontal: 12 },
+  learnedChipTxt: { fontSize: 12.5, fontFamily: F.semi, color: D.text, letterSpacing: 0.1 },
   learnedRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
   learnedTick: { width: 20, height: 20, borderRadius: 10, backgroundColor: 'rgba(16,185,129,0.18)', alignItems: 'center', justifyContent: 'center' },
   learnedTickTxt: { fontSize: 12, fontWeight: '900', color: C.green },
   learnedTxt: { flex: 1, fontSize: 14, fontFamily: F.semi, color: D.text },
   statRow: { flexDirection: 'row', alignSelf: 'stretch', justifyContent: 'center', gap: 30, marginTop: SP.lg },
   statBox: { alignItems: 'center' },
-  statNum: { fontSize: 26, fontFamily: F.black, color: '#A5B4FC', letterSpacing: -0.5 },
+  statNum: { fontSize: 30, fontFamily: SERIF, fontWeight: '600', color: ACCENT, letterSpacing: 0 },
   statLbl: { fontSize: 10, fontFamily: F.semi, color: D.textDim, letterSpacing: 1, textTransform: 'uppercase', marginTop: 2 },
   recoTxt: { fontSize: 12.5, fontFamily: F.med, color: D.textDim, textAlign: 'center', marginTop: SP.lg },
+  masteryPanel: { alignSelf: 'stretch', marginTop: SP.lg, backgroundColor: 'rgba(255,255,255,0.04)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.08)', borderRadius: R.lg, padding: SP.md },
+  masteryTop: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  masteryLabel: { fontSize: 10.5, fontFamily: F.bold, color: D.textDim, letterSpacing: 1.4, textTransform: 'uppercase' },
+  masteryScore: { fontSize: 14, fontFamily: F.bold, color: '#DBA53F' },
+  masteryDots: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 10 },
+  mDot: { width: 20, height: 6, borderRadius: 3 },
+  mDotOk: { backgroundColor: '#2DBB78' },
+  mDotWeak: { backgroundColor: '#E9A23B' },
+  masteryWeak: { fontSize: 11.5, fontFamily: F.med, color: D.textDim, marginTop: 10, lineHeight: 16 },
 
   scroll: { flex: 1 },
   scrollBody: { flexGrow: 1, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 18, paddingTop: 8, paddingBottom: 16 },
   scrollTop: { flexGrow: 1, justifyContent: 'flex-start', alignItems: 'center', paddingHorizontal: 18, paddingTop: 10, paddingBottom: 16 },
 
   doneNew: { marginTop: SP.md, paddingVertical: SP.sm, alignSelf: 'center' },
-  doneNewTxt: { fontSize: 13, fontFamily: F.semi, color: '#A5B4FC', letterSpacing: 0.2 },
+  doneNewTxt: { fontSize: 13, fontFamily: F.semi, color: ACCENT, letterSpacing: 0.2 },
 
   // teacher hero + speaking waveform
   banner: { width: '100%', alignItems: 'center', justifyContent: 'center', paddingTop: SP.sm },
@@ -1193,6 +1598,7 @@ const st = StyleSheet.create({
   waveWrap: { height: 38, alignItems: 'center', justifyContent: 'flex-end', marginBottom: 10 },
   wave: { flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'center', height: 38, gap: 3 },
   waveBar: { width: 4, borderRadius: 3 },
+  waveMini: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', height: 24, gap: 3, paddingRight: 4 },
 
   badge: { flexDirection: 'row', alignItems: 'center', gap: 7, marginTop: SP.md, backgroundColor: D.fill, borderWidth: 1, borderColor: D.edge, borderRadius: 16, paddingHorizontal: 14, paddingVertical: 7 },
   badgeOn: { borderColor: 'rgba(16,185,129,0.35)' },
@@ -1205,7 +1611,8 @@ const st = StyleSheet.create({
   askedLabel: { fontSize: 11, fontFamily: F.semi, color: D.textFaint, textAlign: 'left', marginBottom: 8, letterSpacing: 0.3, fontStyle: 'italic' },
 
   // doubt metadata strip (source / confidence / concept / prerequisites)
-  metaWrap: { marginTop: 14, gap: 8, alignSelf: 'stretch', backgroundColor: D.panel2, borderRadius: R.md, borderWidth: 1, borderColor: D.edge, padding: 12 },
+  metaWrap: { marginTop: 14, gap: 8, alignSelf: 'stretch', backgroundColor: 'rgba(34,38,48,0.6)', borderRadius: R.md, borderWidth: 1, borderColor: D.edge, borderLeftWidth: 2.5, borderLeftColor: ACCENT_DIM, padding: 12 },
+  metaHeader: { fontSize: 9.5, fontFamily: F.bold, color: ACCENT_DIM, letterSpacing: 1.6, textTransform: 'uppercase' },
   metaRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 6 },
   metaPill: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: 'rgba(255,255,255,0.06)', borderWidth: 1, borderColor: D.edge, borderRadius: 10, paddingHorizontal: 9, paddingVertical: 4 },
   metaPillOn: { backgroundColor: 'rgba(16,185,129,0.14)', borderColor: 'rgba(16,185,129,0.45)' },
@@ -1221,7 +1628,8 @@ const st = StyleSheet.create({
 
   captionTxt: { fontSize: 16, fontFamily: F.med, color: D.text, textAlign: 'left', lineHeight: 25, letterSpacing: 0.1 }, // PRIMARY — spoken words (bright)
   capDim: { color: 'rgba(248,250,252,0.35)' },   // not-yet-spoken words; brighten as she speaks
-  capHot: { color: '#A5B4FC', fontFamily: F.bold }, // keyword emphasised the moment it's spoken
+  capHot: { color: ACCENT, fontFamily: F.semi }, // keyword emphasised (warm champagne) the moment it's spoken
+  capTerm: { textDecorationLine: 'underline', textDecorationStyle: 'dotted', textDecorationColor: 'rgba(219,165,63,0.6)' }, // tappable key term → tap to define
 
   cornerWrap: { position: 'absolute', top: 56, right: 12, zIndex: 20 },
 
@@ -1236,33 +1644,41 @@ const st = StyleSheet.create({
 
   // ── the lit whiteboard + the dark teacher/caption panel ──
   lessonScroll: { flexGrow: 1, paddingHorizontal: SP.md, paddingTop: SP.xs, paddingBottom: SP.md },
-  teacherBar: { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: SP.md, backgroundColor: 'rgba(255,255,255,0.07)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.14)', borderRadius: R.xl, padding: SP.sm, paddingRight: SP.md },
-  teacherName: { fontSize: 14.5, fontFamily: F.bold, color: D.text, letterSpacing: -0.2 },
-  statusRow: { flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 3 },
+  teacherBar: { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: SP.lg, backgroundColor: GLASS_PANEL, borderWidth: 1, borderColor: D.edge, borderTopColor: GLASS_HAIR, borderRadius: R.lg, padding: SP.sm, paddingRight: SP.md, shadowColor: '#000', shadowOpacity: 0.35, shadowRadius: 18, shadowOffset: { width: 0, height: 8 }, elevation: 5 },
+  teacherName: { fontSize: 17, fontFamily: SERIF, fontWeight: '600', color: D.text, letterSpacing: 0.2 },
+  statusRow: { flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 4 },
   statusDotWrap: { width: 6, height: 6, alignItems: 'center', justifyContent: 'center' },
-  statusPulse: { position: 'absolute', width: 6, height: 6, borderRadius: 3, backgroundColor: C.accent },
-  statusDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: D.textFaint },
-  statusDotOn: { backgroundColor: C.accent },
-  statusTxt: { fontSize: 9.5, fontFamily: F.semi, color: D.textDim, letterSpacing: 1.4, textTransform: 'uppercase' },
+  statusPulse: { position: 'absolute', width: 6, height: 6, borderRadius: 3, backgroundColor: ACCENT },
+  statusDot: { width: 5, height: 5, borderRadius: 3, backgroundColor: D.textFaint },
+  statusDotOn: { backgroundColor: ACCENT, shadowColor: ACCENT, shadowOpacity: 0.9, shadowRadius: 5, shadowOffset: { width: 0, height: 0 }, elevation: 3 },
+  statusTxt: { fontSize: 9.5, fontFamily: F.semi, color: D.textDim, letterSpacing: 2, textTransform: 'uppercase' },
 
   workArea: { width: '100%', alignItems: 'stretch' },
-  kicker: { fontSize: 10, fontFamily: F.bold, color: '#A5B4FC', letterSpacing: 1.8, textTransform: 'uppercase', textAlign: 'left', marginBottom: SP.xs },
-  title: { fontSize: 20, fontFamily: F.black, color: D.text, letterSpacing: -0.4, textAlign: 'left', lineHeight: 26, marginBottom: SP.md },
+  kicker: { fontSize: 9.5, fontFamily: F.semi, color: ACCENT_DIM, letterSpacing: 2.4, textTransform: 'uppercase', textAlign: 'left', marginBottom: 7 },
+  title: { fontSize: 24, fontFamily: SERIF, fontWeight: '600', color: D.text, letterSpacing: 0.1, textAlign: 'left', lineHeight: 31, marginBottom: SP.md },
   // the ONE lit surface — a white board card floating in the dark room
   boardOuter: { width: '100%', alignItems: 'center' },
-  lessonCard: { width: '100%', backgroundColor: C.board, borderRadius: R.xxl, paddingVertical: 24, paddingHorizontal: 16, alignItems: 'center', shadowColor: '#000', shadowOpacity: 0.45, shadowRadius: 26, shadowOffset: { width: 0, height: 14 }, elevation: 12 },
-  // her words, under the board, on a dark panel
-  captionWrap: { width: '100%', marginTop: SP.md, backgroundColor: D.panel, borderWidth: 1, borderColor: D.edge, borderRadius: R.xl, padding: SP.md },
+  lessonCard: { width: '100%', backgroundColor: '#FAF7F0', borderRadius: R.xl, paddingVertical: 26, paddingHorizontal: 18, alignItems: 'center', shadowColor: '#000', shadowOpacity: 0.5, shadowRadius: 30, shadowOffset: { width: 0, height: 16 }, elevation: 14 },
+  // her words, under the board — a graphite frosted-glass panel with a bright top
+  // hairline and a slim champagne rule on the left, so it reads as an editorial
+  // "she is saying" quote, not a flat box.
+  captionWrap: { width: '100%', marginTop: SP.md, backgroundColor: GLASS_PANEL, borderWidth: 1, borderColor: D.edge, borderTopColor: GLASS_HAIR, borderLeftWidth: 2.5, borderLeftColor: ACCENT_DIM, borderRadius: R.lg, paddingVertical: SP.md, paddingHorizontal: SP.lg, shadowColor: '#000', shadowOpacity: 0.4, shadowRadius: 22, shadowOffset: { width: 0, height: 10 }, elevation: 6 },
 
   // bottom (fixed): status → dock
   bottom: { alignItems: 'center', paddingHorizontal: SP.md, paddingTop: SP.sm, paddingBottom: Platform.OS === 'ios' ? SP.lg : SP.md, gap: SP.sm },
 
   listenTxt: { fontSize: 13, fontFamily: F.semi, color: D.text, textAlign: 'center', paddingHorizontal: 26 },
+  thinkRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6 },
+  thinkDot: { width: 7, height: 7, borderRadius: 4, backgroundColor: ACCENT },
+  thinkTxt: { fontSize: 13, fontFamily: F.semi, color: D.textDim, marginLeft: 6, letterSpacing: 0.2 },
   hint: { fontSize: 12.5, fontFamily: F.med, color: D.textDim, textAlign: 'center' },
 
   // listening / typed-doubt / resume
-  resumeBtn: { backgroundColor: C.accent, borderRadius: R.pill, paddingVertical: 13, paddingHorizontal: 28, shadowColor: C.accent, shadowOpacity: 0.5, shadowRadius: 14, shadowOffset: { width: 0, height: 6 }, elevation: 6 },
+  resumeBtn: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: C.accent, borderRadius: R.pill, paddingVertical: 13, paddingHorizontal: 28, shadowColor: C.accent, shadowOpacity: 0.5, shadowRadius: 14, shadowOffset: { width: 0, height: 6 }, elevation: 6 },
   resumeTxt: { color: '#fff', fontSize: 14, fontFamily: F.bold },
+  starterRow: { alignSelf: 'stretch', gap: 6, marginBottom: SP.sm },
+  starterChip: { alignSelf: 'stretch', backgroundColor: 'rgba(219,165,63,0.08)', borderWidth: 1, borderColor: 'rgba(219,165,63,0.3)', borderRadius: R.md, paddingVertical: 10, paddingHorizontal: 14 },
+  starterTxt: { fontSize: 13, fontFamily: F.med, color: '#DBA53F' },
   askRow: { flexDirection: 'row', gap: 8, alignItems: 'center', alignSelf: 'stretch' },
   askInput: { flex: 1, backgroundColor: D.panel2, borderWidth: 1, borderColor: D.edge, borderRadius: R.pill, paddingVertical: 13, paddingHorizontal: 20, color: D.text, fontSize: 14, fontFamily: F.med },
   askSend: { width: 48, height: 48, borderRadius: 24, backgroundColor: C.accent, alignItems: 'center', justifyContent: 'center' },
@@ -1271,9 +1687,9 @@ const st = StyleSheet.create({
   // floating dock — Ask (mic) is the raised gradient primary; transport is quiet
   dock: {
     flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', alignSelf: 'stretch',
-    backgroundColor: 'rgba(255,255,255,0.07)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.14)', borderRadius: R.pill,
+    backgroundColor: GLASS_PANEL, borderWidth: 1, borderColor: D.edge, borderTopColor: GLASS_HAIR, borderRadius: R.pill,
     paddingHorizontal: SP.sm, paddingVertical: SP.sm,
-    shadowColor: '#000', shadowOpacity: 0.5, shadowRadius: 24, shadowOffset: { width: 0, height: 12 }, elevation: 10,
+    shadowColor: '#000', shadowOpacity: 0.55, shadowRadius: 28, shadowOffset: { width: 0, height: 14 }, elevation: 12,
   },
   dItem: { alignItems: 'center', justifyContent: 'center', gap: 4, minWidth: 52 },
   dGhost: { width: 42, height: 42, borderRadius: 21, backgroundColor: D.fill, borderWidth: 1, borderColor: D.edgeSoft, alignItems: 'center', justifyContent: 'center' },
@@ -1281,23 +1697,29 @@ const st = StyleSheet.create({
   // overflow:hidden so the SVG <Gradient> fill is clipped to the circle
   // mic + its breathing state-halo share one centered box; the halo sits behind the
   // button and never intercepts touches (pointerEvents none on the Animated.View).
-  micWrap: { width: 56, height: 56, alignItems: 'center', justifyContent: 'center' },
-  micHalo: { position: 'absolute', width: 56, height: 56, borderRadius: 28, backgroundColor: C.pink },
-  dMic: { width: 56, height: 56, borderRadius: 28, overflow: 'hidden', alignItems: 'center', justifyContent: 'center', shadowColor: '#6D28D9', shadowOpacity: 0.55, shadowRadius: 14, shadowOffset: { width: 0, height: 5 }, elevation: 8 },
-  dMicOn: { backgroundColor: C.pink, shadowColor: C.pink },
+  micWrap: { width: 58, height: 58, alignItems: 'center', justifyContent: 'center' },
+  micHalo: { position: 'absolute', width: 58, height: 58, borderRadius: 29, backgroundColor: C.pink },
+  dMic: { width: 58, height: 58, borderRadius: 29, overflow: 'hidden', alignItems: 'center', justifyContent: 'center', borderWidth: 1.5, borderColor: ACCENT, shadowColor: '#000', shadowOpacity: 0.5, shadowRadius: 14, shadowOffset: { width: 0, height: 6 }, elevation: 8 },
+  dMicOn: { backgroundColor: C.pink, shadowColor: C.pink, borderColor: 'rgba(255,255,255,0.4)' },
   dMicIcon: { fontSize: 22, color: '#fff' },
   dDim: { opacity: 0.28 },
-  dLbl: { fontSize: 9.5, fontFamily: F.semi, color: D.textFaint, letterSpacing: 0.2, marginTop: 1 },
-  dLblPrimary: { color: '#A5B4FC' },
+  dLbl: { fontSize: 9.5, fontFamily: F.semi, color: D.textFaint, letterSpacing: 0.4, marginTop: 3 },
+  dLblPrimary: { color: ACCENT },
+  // Hands-free "Live" dock control — a calm teal ring that reads as "listening now".
+  dLive: { width: 56, height: 56, borderRadius: 28, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(16,185,129,0.16)', borderWidth: 1.5, borderColor: C.teal },
+  dLblLive: { color: C.teal, fontFamily: F.bold },
 
   // completed — a dark sheet over the darkened room
   doneOverlay: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(2,6,23,0.82)', alignItems: 'center', justifyContent: 'center', padding: 26 },
   doneCard: { width: '100%', backgroundColor: D.panel, borderWidth: 1, borderColor: D.edge, borderRadius: R.xxl, padding: 30, alignItems: 'center', shadowColor: '#000', shadowOpacity: 0.5, shadowRadius: 40, shadowOffset: { width: 0, height: 18 }, elevation: 16 },
-  doneEmoji: { fontSize: 46 },
-  doneTitle: { fontSize: 22, fontFamily: F.black, color: D.text, marginTop: SP.md, letterSpacing: -0.5 },
+  doneEmoji: { alignItems: 'center', justifyContent: 'center', marginBottom: 2 },
+  doneTitle: { fontSize: 26, fontFamily: SERIF, fontWeight: '600', color: D.text, marginTop: SP.md, letterSpacing: 0.1 },
   doneSub: { fontSize: 13.5, fontFamily: F.med, color: D.textDim, textAlign: 'center', marginTop: SP.sm, lineHeight: 20 },
-  doneRow: { flexDirection: 'row', gap: 12, marginTop: SP.xl, alignSelf: 'stretch' },
-  doneBtn: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingVertical: 15, borderRadius: R.md },
+  studyRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: SP.lg, alignSelf: 'stretch', justifyContent: 'center' },
+  studyBtn: { flexGrow: 1, flexBasis: '30%', minWidth: 96, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6, paddingVertical: 12, paddingHorizontal: 6, borderRadius: R.md, backgroundColor: 'rgba(219,165,63,0.10)', borderWidth: 1, borderColor: 'rgba(219,165,63,0.38)' },
+  studyTxt: { fontSize: 12.5, fontFamily: F.bold, color: '#DBA53F', letterSpacing: 0.1 },
+  doneRow: { flexDirection: 'row', gap: 12, marginTop: SP.md, alignSelf: 'stretch' },
+  doneBtn: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7, paddingVertical: 15, borderRadius: R.md },
   donePrimary: { backgroundColor: C.accent },
   donePrimaryTxt: { color: '#fff', fontSize: 14, fontFamily: F.bold },
   doneGhost: { backgroundColor: D.fill, borderWidth: 1, borderColor: D.edge },

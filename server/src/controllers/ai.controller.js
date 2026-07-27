@@ -2,6 +2,7 @@
 
 const { validationResult } = require('express-validator')
 const aiService = require('../services/ai.service')
+const teachingModes = require('../services/teachingModes')
 const agentService = require('../services/agent.service')
 const memoryService = require('../services/memory.service')
 const plannerService = require('../services/planner.service')
@@ -33,6 +34,11 @@ async function generateLesson(req, res, next) {
     const grade = scopeGrade(req)
     if (!grade) return ApiResponse.error(res, 'Complete your class profile to start lessons.', 422, 'PROFILE_INCOMPLETE')
 
+    // Optional teaching mode (the "how"): honour a valid explicit choice, else null so
+    // the service auto-selects from the learner's mastery. Invalid values are ignored
+    // (never an error) — the API stays backward compatible.
+    const mode = teachingModes.isMode(req.body.mode) ? req.body.mode : null
+
     const lesson = await aiService.generateLesson({
       userId: req.user.id,
       topic,
@@ -41,6 +47,7 @@ async function generateLesson(req, res, next) {
       board: req.scope && req.scope.board,
       stream: req.scope && req.scope.stream,
       language: req.scope && req.scope.language,
+      mode,
     })
 
     return ApiResponse.created(

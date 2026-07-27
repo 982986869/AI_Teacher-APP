@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import {
   View, Text, StyleSheet, SafeAreaView, ScrollView,
   StatusBar, TextInput, Platform, KeyboardAvoidingView, ActivityIndicator,
@@ -10,6 +10,7 @@ import { TEACHER_HEADSHOT } from '../components/teacher/teacherIdentity';
 import { buildScenesFromTeaching } from '../components/teacher/lessonScenes';
 import { C, F, SP, R } from '../components/teacher/premiumTheme';
 import { Appear, PressableScale } from '../components/teacher/uiKit';
+import { ChevronLeft, BookOpen, CircleAlert, Sparkles, FileText } from 'lucide-react-native';
 import {
   askKnowledge, listKnowledgeSources, uploadKnowledgeText, deleteKnowledgeSource,
 } from '../api/knowledgeApi';
@@ -31,6 +32,12 @@ const KnowledgeAskScreen = ({ initialSubject = 'Physics', onBack }) => {
   const [asked, setAsked]       = useState('');   // the question the current answer belongs to
   const [asking, setAsking]     = useState(false);
   const [result, setResult]     = useState(null); // { grounded, confidence, sources, answer }
+  // Build the teaching scenes ONCE per answer — not on every keystroke in the ask box
+  // (which re-mounts a fresh scenes array and invalidates the player's downstream memos).
+  const askScenes = useMemo(
+    () => (result && result.grounded && result.teaching ? buildScenesFromTeaching(result.teaching) : null),
+    [result],
+  );
   const [askErr, setAskErr]     = useState('');
 
   const handleAsk = async () => {
@@ -56,9 +63,9 @@ const KnowledgeAskScreen = ({ initialSubject = 'Physics', onBack }) => {
       {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: C.board }} />}
 
       <View style={st.header}>
-        <PressableScale onPress={onBack} style={st.hIcon} accessibilityLabel="Go back"><Text style={st.hIconTxt}>‹</Text></PressableScale>
+        <PressableScale onPress={onBack} style={st.hIcon} accessibilityLabel="Go back"><ChevronLeft size={24} color={C.ink} strokeWidth={2.4} /></PressableScale>
         <Text style={st.headerTitle} accessibilityRole="header">Ask the Material</Text>
-        <View style={st.hIconGhost}><Text style={st.hIconTxt2}>📚</Text></View>
+        <View style={st.hIconGhost}><BookOpen size={18} color={C.accent} strokeWidth={2.2} /></View>
       </View>
 
       {isTeacher && (
@@ -95,7 +102,7 @@ const KnowledgeAskScreen = ({ initialSubject = 'Physics', onBack }) => {
               {/* Empty state — what this screen is */}
               {!asked && !asking && !askErr && (
                 <View style={st.empty}>
-                  <Text style={st.emptyIcon}>📚</Text>
+                  <View style={st.emptyIcon}><BookOpen size={38} color={C.accent} strokeWidth={1.8} /></View>
                   <Text style={st.emptyTitle}>Ask about your material</Text>
                   <Text style={st.emptyHint}>Answers come only from the content your teacher has uploaded — with the source shown.</Text>
                 </View>
@@ -117,8 +124,9 @@ const KnowledgeAskScreen = ({ initialSubject = 'Physics', onBack }) => {
 
               {!!askErr && (
                 <Appear style={st.errCard}>
-                  <Text style={st.errTxt}>⚠️  {askErr}</Text>
-                  <PressableScale onPress={handleAsk} accessibilityLabel="Try again"><Text style={st.retryTxt}>Try again ›</Text></PressableScale>
+                  <CircleAlert size={17} color={C.pink} strokeWidth={2.3} />
+                  <Text style={st.errTxt}>{askErr}</Text>
+                  <PressableScale onPress={handleAsk} accessibilityLabel="Try again"><Text style={st.retryTxt}>Try again</Text></PressableScale>
                 </Appear>
               )}
 
@@ -127,7 +135,7 @@ const KnowledgeAskScreen = ({ initialSubject = 'Physics', onBack }) => {
                 <Appear style={st.novaWrap}>
                   <NovaHead />
                   <TeachingPlayer
-                    scenes={buildScenesFromTeaching(result.teaching)}
+                    scenes={askScenes}
                     title={result.teaching.title}
                     confidence={result.confidence}
                   />
@@ -184,7 +192,7 @@ const KnowledgeAskScreen = ({ initialSubject = 'Physics', onBack }) => {
                 disabled={asking || !question.trim()}
                 accessibilityLabel="Ask"
               >
-                {asking ? <ActivityIndicator color="#fff" size="small" /> : <Text style={st.askSendTxt}>✦</Text>}
+                {asking ? <ActivityIndicator color="#fff" size="small" /> : <Sparkles size={20} color="#fff" strokeWidth={2.3} />}
               </PressableScale>
             </View>
           </>
@@ -206,7 +214,7 @@ const NovaHead = ({ label = 'Ms. Nova' }) => (
 
 const SourceRow = ({ s }) => (
   <View style={st.sourceRow}>
-    <View style={st.sourceIcon}><Text style={{ fontSize: 13 }}>📄</Text></View>
+    <View style={st.sourceIcon}><FileText size={15} color={C.blue} strokeWidth={2.2} /></View>
     <Text style={st.sourceTitle} numberOfLines={2}>{s.title}</Text>
     {typeof s.similarity === 'number' && (
       <View style={st.simPill}><Text style={st.simTxt}>{Math.round(s.similarity * 100)}% match</Text></View>
@@ -253,7 +261,7 @@ const ManagePanel = () => {
         gradeLevel: gradeLevel.trim() || undefined,
         text,
       });
-      setMsg('Uploaded and indexed ✓');
+      setMsg('Uploaded and indexed.');
       setTitle(''); setText(''); setSubject(''); setGrade('');
       refresh();
     } catch (e) {
@@ -324,7 +332,7 @@ const ManagePanel = () => {
       ) : (
         sources.map((s) => (
           <View key={s.id} style={st.srcItem}>
-            <View style={st.sourceIcon}><Text style={{ fontSize: 13 }}>📄</Text></View>
+            <View style={st.sourceIcon}><FileText size={15} color={C.blue} strokeWidth={2.2} /></View>
             <View style={{ flex: 1 }}>
               <Text style={st.srcTitle} numberOfLines={1}>{s.title}</Text>
               <Text style={st.srcMeta}>
@@ -384,7 +392,7 @@ const st = StyleSheet.create({
 
   // empty state
   empty: { alignItems: 'center', paddingVertical: 48, paddingHorizontal: SP.lg },
-  emptyIcon: { fontSize: 40, marginBottom: SP.md },
+  emptyIcon: { marginBottom: SP.md, alignItems: 'center', justifyContent: 'center' },
   emptyTitle: { fontSize: 17, fontFamily: F.bold, color: C.ink },
   emptyHint: { fontSize: 13, fontFamily: F.med, color: C.dim, textAlign: 'center', lineHeight: 20, marginTop: 6, maxWidth: 280 },
 

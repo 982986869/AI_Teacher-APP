@@ -23,23 +23,36 @@ function isTriangleText(s) { return TRIANGLE_RE.test(String(s || '')); }
 const SUP = { 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴', 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹', n: 'ⁿ', x: 'ˣ', '+': '⁺', '-': '⁻' };
 const toSuper = (s) => String(s).split('').map((c) => SUP[c] || c).join('');
 
-// VISUAL: "x^2"→"x²", "x^10"→"x¹⁰", "x^{2}"→"x²", "a**2"→"a²".
+// VISUAL: "x^2"→"x²", "x^10"→"x¹⁰", "x^{2}"→"x²", "a**2"→"a²", "3 * 4"→"3 × 4".
 function prettyMath(str) {
   return String(str == null ? '' : str)
     .replace(/\^\{([^}]+)\}/g, (_, p) => toSuper(p))
-    .replace(/(?:\^|\*\*)\(?([0-9]+|n|x)\)?/g, (_, p) => toSuper(p))
+    // Only superscript a SIMPLE integer/n/x exponent; the lookahead stops us from
+    // eating just the "0" of "2^0.5" (which produced a broken "2⁰.5") or a longer run.
+    .replace(/(?:\^|\*\*)\(?([0-9]+|n|x)\)?(?![.0-9])/g, (_, p) => toSuper(p))
+    // Single "*" as multiply → "×", but ONLY between two operands, so a stray/edge
+    // "*" (or markdown "**word**") is left untouched.
+    .replace(/([0-9A-Za-z)\]])\s*\*\s*(?=[0-9A-Za-z(])/g, '$1 × ')
     .replace(/\s+/g, ' ')
     .trim();
 }
 
-const powerWord = (p) => (p === '2' ? 'squared' : p === '3' ? 'cubed' : `to the power ${p}`);
+const powerWord = (p) => {
+  if (p === '2') return 'squared';
+  if (p === '3') return 'cubed';
+  // "-3" → "minus 3"; decimals read naturally ("0.5" → "zero point five" via TTS).
+  return `to the power ${String(p).replace(/^-/, 'minus ')}`;
+};
 
-// SPOKEN: "a^2"→"a squared", "x^3"→"x cubed", "x^10"→"x to the power 10". Also
-// fixes any stray superscripts and the "*" multiply sign for natural narration.
+// SPOKEN: "a^2"→"a squared", "x^3"→"x cubed", "x^10"→"x to the power 10",
+// "10^-3"→"…power minus 3", "2^0.5"→"…power 0.5", "3 * 4"→"3 times 4". Also fixes
+// any stray superscripts for natural narration.
 function spellMath(str) {
   return String(str == null ? '' : str)
-    .replace(/([A-Za-z0-9)\]])\s*(?:\^|\*\*)\s*\{?\(?([0-9]+|n)\)?\}?/g, (_, base, p) => `${base} ${powerWord(p)} `)
+    .replace(/([A-Za-z0-9)\]])\s*(?:\^|\*\*)\s*\{?\(?(-?[0-9]+(?:\.[0-9]+)?|n)\)?\}?/g, (_, base, p) => `${base} ${powerWord(p)} `)
     .replace(/²/g, ' squared ').replace(/³/g, ' cubed ')
+    // Multiply sign (× or a single * between operands) → spoken "times".
+    .replace(/([0-9A-Za-z)\]])\s*[×*]\s*(?=[0-9A-Za-z(])/g, '$1 times ')
     .replace(/\s+([.,;:?!।])/g, '$1')
     .replace(/\s+/g, ' ')
     .trim();
@@ -268,14 +281,15 @@ function checkToScene(check, meta) {
     const norm = (x) => String(x || '').trim().toLowerCase();
     let answer = check.options.findIndex((o) => norm(o) === norm(check.answer));
     if (answer < 0) answer = 0;
-    return { ...base, quickCheck: { question: check.question, options: check.options, answer, hint: check.hint || '', misconception: check.misconception || '' } };
+    return { ...base, quickCheck: { question: check.question, options: check.options, answer, hint: check.hint || '', misconception: check.misconception || '', stretch: check.stretch || '' } };
   }
-  return { ...base, quickCheck: { question: check.question, selfCheck: true, hint: check.hint || '', misconception: check.misconception || '' } };
+  return { ...base, quickCheck: { question: check.question, selfCheck: true, hint: check.hint || '', misconception: check.misconception || '', stretch: check.stretch || '' } };
 }
 
 export function buildScenes(lesson) {
-  const slides = (lesson && Array.isArray(lesson.slides)) ? lesson.slides : [];
-  const lessonText = `${(lesson && lesson.lessonTitle) || ''} ${slides.map((s) => s.slideTitle).join(' ')}`;
+  // Drop any null / non-object slide so one bad entry can't crash the whole build.
+  const slides = ((lesson && Array.isArray(lesson.slides)) ? lesson.slides : []).filter((s) => s && typeof s === 'object');
+  const lessonText = `${(lesson && lesson.lessonTitle) || ''} ${slides.map((s) => s.slideTitle || '').join(' ')}`;
   const triangleLesson = isTriangleText(lessonText);
 
   const scenes = slides.map((s, i) => buildScene(s, i, slides.length, triangleLesson));

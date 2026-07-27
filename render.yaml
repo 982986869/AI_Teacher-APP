@@ -1,57 +1,96 @@
-# Render Blueprint for the Ailernova backend (the server/ folder).
+# Render Blueprint — backend API only.
 #
-# This hosts the Node/Express API only. Your DATABASE stays on Supabase — you
-# paste its connection string in as DATABASE_URL below. Deploy flow:
+# The admin portal (admin/) deploys separately on Vercel, and the mobile app
+# ships through EAS, so neither belongs here.
 #
-#   1. Push this repo to GitHub (Render deploys from a Git repo).
-#   2. Render dashboard → New → Blueprint → pick this repo. It reads this file.
-#   3. When prompted, fill the "sync: false" secrets (they are NOT stored in git):
-#        DATABASE_URL  → your Supabase connection string (Project → Settings →
-#                        Database → Connection string → "URI"; use the pooled
-#                        6543 "Transaction" URI and add ?pgbouncer=true).
-#        JWT_SECRET    → the SAME value as your local server/.env, so tokens issued
-#                        locally keep working. (New DB? Any 64-char hex is fine.)
-#   4. Deploy. You get a URL like https://ailernova-api.onrender.com — that is the
-#      value you put into eas.json's EXPO_PUBLIC_API_URL, then rebuild the APK.
+# Region is pinned to Singapore because the Supabase pooler lives in
+# aws-1-ap-southeast-1 — anywhere else adds a cross-region hop to every query.
 #
-# Note: the free plan sleeps after ~15 min idle and cold-starts in ~30–60s, so the
-# very first request after idle can be slow (a login retry succeeds). Upgrade to a
-# paid instance to keep it always-on.
-
+# Every secret is `sync: false`, meaning Render will NOT read it from this file.
+# Set the values once in the dashboard (or `render env set`); they are never
+# committed. Copy them from server/.env.
 services:
   - type: web
     name: ailernova-api
     runtime: node
+    # `free` so this deploys without a paid workspace. The tradeoff is real:
+    # free instances sleep after ~15min idle and cold-start in ~50s, which
+    # breaks the AI SSE streams — switch to `starter` ($7/mo) before real users.
     plan: free
+    region: singapore
     rootDir: server
-    buildCommand: npm install && npx prisma generate
+    buildCommand: npm ci && npx prisma generate
     startCommand: npm start
     healthCheckPath: /api/health
     envVars:
       - key: NODE_ENV
         value: production
+      # PORT is deliberately not set — Render injects it, and config/env.js reads
+      # process.env.PORT with a 5000 fallback for local runs. Pinning it here
+      # would fight whatever Render assigns.
+
+      # ── Required: the server refuses to boot without these ────────────────
       - key: DATABASE_URL
         sync: false
       - key: JWT_SECRET
         sync: false
-      - key: JWT_EXPIRES_IN
-        value: 7d
-      # Login/auth needs nothing below this line. These only switch on the AI
-      # teacher / TTS / RAG features — set them (sync:false secrets) when you want
-      # those live. Leaving MOCK_AI=true keeps the server booting without AI keys.
-      - key: MOCK_AI
-        value: "true"
-      - key: AI_PROVIDER
-        value: anthropic
-      - key: ANTHROPIC_API_KEY
-        sync: false
-      - key: OPENAI_API_KEY
-        sync: false
-      - key: VOYAGE_API_KEY
-        sync: false
+
+      # ── Google sign-in (server verifies Google ID tokens against this) ────
       - key: GOOGLE_WEB_CLIENT_ID
         sync: false
-      - key: MSG91_AUTH_KEY
+
+      # ── Supabase (storage for uploaded content images) ────────────────────
+      - key: SUPABASE_URL
         sync: false
-      - key: MSG91_TEMPLATE_ID
+      - key: SUPABASE_SERVICE_ROLE_KEY
         sync: false
+      - key: SUPABASE_STORAGE_BUCKET
+        sync: false
+
+      # ── AI: lessons, doubts, knowledge ────────────────────────────────────
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: AI_PROVIDER
+        value: anthropic
+      - key: AI_LESSON_MODEL
+        sync: false
+      - key: AI_DOUBT_MODEL
+        sync: false
+      - key: AI_KNOWLEDGE_MODEL
+        sync: false
+      - key: MOCK_AI
+        value: "false"
+
+      # ── Teacher voice. Unset ⇒ the app falls back to on-device TTS ────────
+      - key: OPENAI_API_KEY
+        sync: false
+
+      # ── Embeddings / RAG ──────────────────────────────────────────────────
+      - key: VOYAGE_API_KEY
+        sync: false
+      - key: EMBEDDING_PROVIDER
+        value: voyage
+      - key: EMBEDDING_MODEL
+        sync: false
+      - key: EMBEDDING_DIM
+        sync: false
+      - key: RAG_TOP_K
+        sync: false
+      - key: RAG_MIN_SIMILARITY
+        sync: false
+
+      # ── Phone OTP login (MSG91) ───────────────────────────────────────────
+      # Deliberately omitted: nothing in server/src reads config.sms yet — there
+      # is no OTP route. Add these keys when phone login is actually built.
+
+      # ── Misc ──────────────────────────────────────────────────────────────
+      - key: JWT_EXPIRES_IN
+        sync: false
+      - key: ALLOWED_ORIGINS
+        sync: false
+
+      # Empty on purpose. A non-empty allowlist lets those accounts pick any
+      # class via a client-supplied ?class= — the one spot where client input
+      # overrides server-side scope. Set it in the dashboard only if you mean to.
+      - key: TESTER_EMAILS
+        value: ""

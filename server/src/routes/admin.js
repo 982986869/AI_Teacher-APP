@@ -5,6 +5,7 @@
 // The student runtime routes are entirely untouched.
 
 const { Router } = require('express')
+const multer = require('multer')
 const { adminAuthenticate, requirePermission } = require('../middleware/adminAuth')
 
 const authCtrl = require('../controllers/admin/auth.controller')
@@ -16,12 +17,19 @@ const announceCtrl = require('../controllers/admin/announcements.controller')
 const settingsCtrl = require('../controllers/admin/settings.controller')
 const flagsCtrl = require('../controllers/admin/featureFlags.controller')
 const cmsCtrl = require('../controllers/admin/cms.controller')
+const sessionsCtrl = require('../controllers/admin/sessions.controller')
+const testsCtrl = require('../controllers/admin/tests.controller')
+const resCtrl = require('../controllers/admin/resources.controller')
 const parentsCtrl = require('../controllers/admin/parents.controller')
 const analyticsCtrl = require('../controllers/admin/analytics.controller')
 const auditCtrl = require('../controllers/admin/audit.controller')
 const aiCtrl = require('../controllers/admin/aiTeacher.controller')
+const uploadsCtrl = require('../controllers/admin/uploads.controller')
 
 const router = Router()
+
+// In-memory image upload for authored question/option diagrams (max 5 MB, one file).
+const imageUpload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 5 * 1024 * 1024, files: 1 } })
 
 // ─── Auth (public login, then everything below requires an admin session) ──────
 router.post('/auth/login', authCtrl.login)
@@ -31,6 +39,7 @@ router.use(adminAuthenticate) // ← gate everything past this point
 
 // ─── Dashboard ─────────────────────────────────────────────────────────────────
 router.get('/dashboard', requirePermission('dashboard.view'), dashboardCtrl.overview)
+router.get('/modules', requirePermission('dashboard.view'), require('../controllers/admin/modules.controller').overview)
 
 // ─── Users ───────────────────────────────────────────────────────────────────
 router.get('/users/meta', requirePermission('users.view'), usersCtrl.meta)
@@ -40,6 +49,11 @@ router.patch('/users/:id/role', requirePermission('users.role'), usersCtrl.setRo
 router.post('/users/:id/reset-password', requirePermission('users.password'), usersCtrl.resetPassword)
 router.patch('/users/:id/status', requirePermission('users.edit'), usersCtrl.setStatus)
 router.delete('/users/:id', requirePermission('users.delete'), usersCtrl.remove)
+
+// ─── Student Results (admin views any student's Results — reuses results.service) ──
+const studentResultsCtrl = require('../controllers/admin/studentResults.controller')
+router.get('/students/:id/results', requirePermission('users.view'), studentResultsCtrl.results)
+router.get('/students/:id/results/attempt/:attemptId', requirePermission('users.view'), studentResultsCtrl.attemptDetail)
 
 // ─── Parents (parent-centric view of the users table) ──────────────────────────
 router.get('/parents', requirePermission('users.view'), parentsCtrl.list)
@@ -68,6 +82,8 @@ router.get('/analytics/activity', requirePermission('reports.view'), analyticsCt
 // ─── AI Teacher (monitor + non-runtime config) ─────────────────────────────────
 router.get('/ai-teacher/overview', requirePermission('aiteacher.view'), aiCtrl.overview)
 router.get('/ai-teacher/lessons', requirePermission('aiteacher.view'), aiCtrl.lessons)
+router.get('/ai-teacher/lessons/:id', requirePermission('aiteacher.view'), aiCtrl.lessonDetail)
+router.get('/ai-teacher/lessons/:id/analytics', requirePermission('aiteacher.view'), aiCtrl.lessonAnalytics)
 router.patch('/ai-teacher/config', requirePermission('aiteacher.edit'), aiCtrl.saveConfig)
 
 // ─── Announcements ─────────────────────────────────────────────────────────────
@@ -90,12 +106,70 @@ router.get('/cms/meta', requirePermission('content.view'), cmsCtrl.meta)
 router.get('/cms/nodes', requirePermission('content.view'), cmsCtrl.list)
 router.get('/cms/nodes/:id', requirePermission('content.view'), cmsCtrl.get)
 router.get('/cms/nodes/:id/versions', requirePermission('content.view'), cmsCtrl.versions)
+router.get('/cms/nodes/:id/subtree', requirePermission('content.view'), cmsCtrl.subtree)
+router.post('/cms/nodes/:id/duplicate', requirePermission('content.edit'), cmsCtrl.duplicate)
 router.post('/cms/nodes', requirePermission('content.edit'), cmsCtrl.create)
 router.post('/cms/nodes/reorder', requirePermission('content.edit'), cmsCtrl.reorder)
 router.patch('/cms/nodes/:id', requirePermission('content.edit'), cmsCtrl.update)
 router.post('/cms/nodes/:id/status', requirePermission('content.edit'), cmsCtrl.transition) // publish gated inside
 router.post('/cms/nodes/:id/versions/:version/restore', requirePermission('content.edit'), cmsCtrl.restore)
 router.delete('/cms/nodes/:id', requirePermission('content.edit'), cmsCtrl.remove)
+
+// ── Sessions ────────────────────────────────────────────────────────────────────
+router.get('/sessions', requirePermission('content.view'), sessionsCtrl.list)
+router.get('/sessions/:id', requirePermission('content.view'), sessionsCtrl.get)
+router.post('/sessions', requirePermission('content.edit'), sessionsCtrl.create)
+router.patch('/sessions/:id', requirePermission('content.edit'), sessionsCtrl.update)
+router.post('/sessions/:id/status', requirePermission('content.edit'), sessionsCtrl.transition)
+router.delete('/sessions/:id', requirePermission('content.edit'), sessionsCtrl.remove)
+
+// ── Tests (Mock Tests) ──────────────────────────────────────────────────────────
+router.get('/tests', requirePermission('content.view'), testsCtrl.list)
+router.get('/tests/subjects', requirePermission('content.view'), testsCtrl.subjects) // before /tests/:id
+router.get('/tests/classes', requirePermission('content.view'), testsCtrl.classes)   // before /tests/:id
+router.get('/tests/:id', requirePermission('content.view'), testsCtrl.get)
+router.post('/tests', requirePermission('content.edit'), testsCtrl.create)
+router.patch('/tests/:id', requirePermission('content.edit'), testsCtrl.update)
+router.post('/tests/:id/status', requirePermission('content.edit'), testsCtrl.transition)
+router.post('/tests/:id/duplicate', requirePermission('content.edit'), testsCtrl.duplicate)
+router.delete('/tests/:id', requirePermission('content.edit'), testsCtrl.remove)
+router.post('/tests/:id/questions', requirePermission('content.edit'), testsCtrl.addQuestion)
+router.post('/tests/:id/questions/reorder', requirePermission('content.edit'), testsCtrl.reorderQuestions)
+router.patch('/tests/:id/questions/:qid', requirePermission('content.edit'), testsCtrl.updateQuestion)
+router.post('/tests/:id/questions/:qid/duplicate', requirePermission('content.edit'), testsCtrl.duplicateQuestion)
+router.delete('/tests/:id/questions/:qid', requirePermission('content.edit'), testsCtrl.removeQuestion)
+
+// ── Online Tests (imported examin8 MCQ tests; class → subject → chapter → test) ──
+const otCtrl = require('../controllers/admin/onlineTests.controller')
+router.get('/online-tests/classes', requirePermission('content.view'), otCtrl.classes)
+router.get('/online-tests/subjects', requirePermission('content.view'), otCtrl.subjects)
+router.get('/online-tests/subjects/:slug/chapters', requirePermission('content.view'), otCtrl.chapters)
+router.get('/online-tests/tests', requirePermission('content.view'), otCtrl.tests)
+router.post('/online-tests/reorder', requirePermission('content.edit'), otCtrl.reorder)
+router.get('/online-tests/:id', requirePermission('content.view'), otCtrl.test)
+router.delete('/online-tests/:id', requirePermission('content.edit'), otCtrl.remove)
+
+// ── Resources (browse subjects; manage chapters + previous-year papers) ─────────
+router.get('/resources/classes', requirePermission('content.view'), resCtrl.classesList)
+router.get('/resources/subjects', requirePermission('content.view'), resCtrl.subjects)
+router.patch('/resources/subjects/:id', requirePermission('content.edit'), resCtrl.renameSubject)
+router.get('/resources/subjects/:slug/chapters', requirePermission('content.view'), resCtrl.chapters)
+router.post('/resources/subjects/:slug/chapters', requirePermission('content.edit'), resCtrl.createChapter)
+router.get('/resources/subjects/:slug/papers', requirePermission('content.view'), resCtrl.papers)
+router.post('/resources/subjects/:slug/papers/reorder', requirePermission('content.edit'), resCtrl.reorderPapers)
+router.post('/resources/subjects/:slug/papers', requirePermission('content.edit'), resCtrl.createPaper)
+router.get('/resources/subjects/:slug/papers/:extUid', requirePermission('content.view'), resCtrl.paperOne)
+router.put('/resources/subjects/:slug/papers/:extUid', requirePermission('content.edit'), resCtrl.updatePaper)
+router.delete('/resources/subjects/:slug/papers', requirePermission('content.edit'), resCtrl.deletePaper)
+router.post('/resources/chapters/reorder', requirePermission('content.edit'), resCtrl.reorderChapters)
+router.patch('/resources/chapters/:id', requirePermission('content.edit'), resCtrl.updateChapter)
+router.post('/resources/chapters/:id/status', requirePermission('content.edit'), resCtrl.chapterStatus)
+router.get('/resources/chapters/:id/notes', requirePermission('content.view'), resCtrl.chapterNotes)
+router.put('/resources/chapters/:id/notes', requirePermission('content.edit'), resCtrl.saveChapterNotes)
+router.get('/resources/chapters/:id/questions/:type', requirePermission('content.view'), resCtrl.chapterQuestions)
+router.put('/resources/chapters/:id/questions/:type', requirePermission('content.edit'), resCtrl.saveChapterQuestions)
+router.post('/resources/upload-image', requirePermission('content.edit'), imageUpload.single('file'), uploadsCtrl.uploadContentImage)
+router.delete('/resources/chapters/:id', requirePermission('content.edit'), resCtrl.deleteChapter)
 
 // ─── Audit Logs ────────────────────────────────────────────────────────────────
 router.get('/audit/facets', requirePermission('audit.view'), auditCtrl.facets)

@@ -66,11 +66,39 @@ export function getSpeechProgress() {
   return 0;
 }
 
+// When hands-free "Live conversation" is on we must RECORD (mic) while PLAYING
+// (teacher TTS) at the same time. On iOS that needs the playAndRecord category
+// (allowsRecordingIOS); without it, starting the recognizer stops our playback.
+// We only enable it while listening so normal playback keeps full speaker output.
+let listeningMode = false;
+
+function audioModeOpts() {
+  return {
+    allowsRecordingIOS: listeningMode,   // playAndRecord ↔ playback-only
+    playsInSilentModeIOS: true,
+    staysActiveInBackground: false,
+    playThroughEarpieceAndroid: false,   // keep the teacher on the speaker
+  };
+}
+
+async function applyAudioMode() {
+  if (!AUDIO_OK) return;
+  try { await ExpoAudio.setAudioModeAsync(audioModeOpts()); } catch (e) { /* no-op */ }
+}
+
 async function ensureAudioMode() {
   if (audioModeSet || !AUDIO_OK) return;
   audioModeSet = true;
-  try { await ExpoAudio.setAudioModeAsync({ playsInSilentModeIOS: true, staysActiveInBackground: false }); }
-  catch (e) { /* no-op */ }
+  await applyAudioMode();
+}
+
+// Toggle simultaneous record+play (called when hands-free listening turns on/off).
+export async function setListeningMode(on) {
+  const next = !!on;
+  if (next === listeningMode && audioModeSet) return;
+  listeningMode = next;
+  audioModeSet = true;
+  await applyAudioMode();
 }
 
 async function unloadCurrentSound() {
@@ -285,7 +313,11 @@ async function speakViaOpenAI(text, opts = {}) {
     const token = await getToken();
     if (!BASE_URL || !token) return fallback('no base url / token');
 
-    const uri = `${BASE_URL}/api/tts?text=${encodeURIComponent(text)}&token=${encodeURIComponent(token)}`;
+    // Auth goes in the Authorization HEADER, never the URL — a JWT in the query
+    // string leaks into server/proxy access logs and caches. expo-av streams with
+    // custom headers, and /api/tts accepts either the header or (legacy) ?token=.
+    const uri = `${BASE_URL}/api/tts?text=${encodeURIComponent(text)}`;
+    const authHeaders = { Authorization: `Bearer ${token}` };
 
     // If audio hasn't started within the guard window, drop to device speech.
     const guard = setTimeout(() => {
@@ -317,7 +349,7 @@ async function speakViaOpenAI(text, opts = {}) {
     };
 
     const { sound } = await ExpoAudio.Sound.createAsync(
-      { uri },
+      { uri, headers: authHeaders },
       { shouldPlay: true, progressUpdateIntervalMillis: 120 },
       onStatus,
     );

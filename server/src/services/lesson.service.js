@@ -55,6 +55,12 @@ async function updateLessonWithContent(
         visualSequence: s.visualSequence ?? [],
         highlightTargets: s.highlightTargets ?? [],
         voiceCue: s.voiceCue ?? null,
+        // ── RESUME-PERSISTENCE (opt-in): uncomment the next two lines AFTER running
+        //    `cd server && npx prisma db push` so the check/reteach columns exist.
+        //    Until then, fresh generation already delivers them via the ai.service
+        //    overlay; only a RESUMED lesson lacks them (client falls back gracefully).
+        // check: s.check ?? null,
+        // reteach: s.reteach ?? null,
       })),
     })
   })
@@ -92,11 +98,42 @@ const SLIDE_SELECT = {
   visualSequence: true,
   highlightTargets: true,
   voiceCue: true,
+  // RESUME-PERSISTENCE (opt-in): uncomment AFTER `prisma db push` adds the columns.
+  // check: true,
+  // reteach: true,
 }
 
 async function getLessonWithSlides(lessonId, userId) {
   return db.lesson.findFirst({
     where: { id: lessonId, userId },
+    select: {
+      id: true,
+      topic: true,
+      subject: true,
+      gradeLevel: true,
+      lessonTitle: true,
+      estimatedDuration: true,
+      summary: true,
+      keyTerms: true,
+      status: true,
+      generationModel: true,
+      generationTimeMs: true,
+      createdAt: true,
+      updatedAt: true,
+      slides: {
+        select: SLIDE_SELECT,
+        orderBy: { slideNumber: 'asc' },
+      },
+    },
+  })
+}
+
+// Admin (owner-agnostic) read of any lesson + its ordered slides. READ-ONLY — used by the
+// Admin AI Teacher "watch exactly as the student" preview. Same shape as getLessonWithSlides
+// so the real student player can replay it unchanged; no userId filter (admin sees any lesson).
+async function getLessonWithSlidesAdmin(lessonId) {
+  return db.lesson.findFirst({
+    where: { id: lessonId },
     select: {
       id: true,
       topic: true,
@@ -232,6 +269,7 @@ module.exports = {
   markLessonFailed,
   deleteLesson,
   getLessonWithSlides,
+  getLessonWithSlidesAdmin,
   getLessonById,
   getUserLessons,
   getOrCreateDoubtSession,

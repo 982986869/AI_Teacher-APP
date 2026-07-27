@@ -103,7 +103,7 @@ export default function PracticeReward({ points = 5, onDone, onTabPress, activeT
         <View style={st.userRow}>
           <View style={st.avatar}><Text style={{ fontSize: 20 }}>😎</Text></View>
           <View>
-            <Text style={st.name}>{user?.name || 'kumkum02'}<Text style={st.grade}> {user?.grade || 'G11'}</Text></Text>
+            <Text style={st.name}>{user?.name || 'Player'}<Text style={st.grade}> {user?.grade || 'G11'}</Text></Text>
             <Text style={st.xp}>+{75}</Text>
           </View>
         </View>

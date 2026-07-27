@@ -3,6 +3,8 @@
 const { config } = require('../config/env')
 const db = require('../config/database')
 const lessonService = require('./lesson.service')
+const masteryService = require('./mastery.service')
+const teachingModes = require('./teachingModes')
 const { getAIProvider } = require('../providers')
 const { retrieve } = require('./retriever.service')
 const { AppError } = require('../middleware/errorHandler')
@@ -173,10 +175,36 @@ function buildMockDoubtAnswer(question, topic) {
 
 // ─── Public service functions ─────────────────────────────────────────────────
 
-async function generateLesson({ userId, topic, subject, gradeLevel, board, stream, language }) {
+async function generateLesson({ userId, topic, subject, gradeLevel, board, stream, language, mode }) {
   // Create a GENERATING placeholder — this ID is returned immediately in case of failure.
   const { id: lessonId } = await lessonService.createLesson({ userId, topic, subject, gradeLevel })
   const profile = { board, stream, language } // student's syllabus → AI never asks
+
+  // MEMORY-DRIVEN PERSONALIZATION — fold in what we already know about this learner
+  // (per-concept mastery, weak spots, revision-due, overall level) so the generated
+  // lesson genuinely adapts: reinforce their weak concepts, refresh due prerequisites,
+  // and match pace to their mastery. Best-effort: a cold/empty profile or any read
+  // error just yields a normal (un-personalized) lesson — never blocks generation.
+  try {
+    const lp = await masteryService.getLearningProfile(userId, { subject })
+    if (lp && lp.totalConcepts > 0) {
+      const names = (arr) => (Array.isArray(arr) ? arr.map((c) => c && c.concept).filter(Boolean) : [])
+      profile.learner = {
+        averageMastery: lp.averageMastery,
+        weak: names(lp.weak).slice(0, 4),
+        needsRevision: names(lp.needsRevision).slice(0, 3),
+        strong: names(lp.strong).slice(0, 3),
+      }
+    }
+  } catch (e) {
+    console.error('[ai.service] learner-profile read failed (continuing un-personalized):', e?.message || e)
+  }
+
+  // TEACHING MODE — the "how". Honour the student's explicit choice; otherwise the
+  // teacher intelligently picks the register from what it knows (low mastery →
+  // beginner, high → advanced, concepts fading → revision). Threaded into the prompt.
+  const resolvedMode = teachingModes.isMode(mode) ? mode : teachingModes.autoSelectMode(profile.learner)
+  profile.mode = resolvedMode
 
   try {
     const startTime = Date.now()
@@ -202,9 +230,29 @@ async function generateLesson({ userId, topic, subject, gradeLevel, board, strea
     // Resolve + store the chapter in the background (doesn't delay the response).
     tagLessonChapter(lessonId, topic, subject)
 
-    return lessonService.getLessonWithSlides(lessonId, userId)
+    const saved = await lessonService.getLessonWithSlides(lessonId, userId)
+    // The Slide table doesn't have columns for the LLM-authored comprehension `check`
+    // or adaptive `reteach`, so getLessonWithSlides strips them. Overlay them back from
+    // the fresh payload (matched by slideNumber) so the just-generated lesson is taught
+    // WITH its gradeable checks + genuinely-different re-teach — the two-way classroom.
+    // (Resume via getLesson won't carry these until they're persisted; the client falls
+    // back to a self-check + buildReteach there, so nothing breaks.)
+    if (saved && Array.isArray(saved.slides) && payload && Array.isArray(payload.slides)) {
+      const byNum = new Map(payload.slides.map((s) => [s.slideNumber, s]))
+      saved.slides = saved.slides.map((s) => {
+        const src = byNum.get(s.slideNumber)
+        if (!src) return s
+        return { ...s, ...(src.check ? { check: src.check } : {}), ...(src.reteach ? { reteach: src.reteach } : {}) }
+      })
+    }
+    // Tell the client which teaching mode this lesson was actually taught in (so it can
+    // show "taught in Beginner mode" and reflect an auto-selected register back).
+    if (saved) saved.teachingMode = { key: resolvedMode, label: teachingModes.modeLabel(resolvedMode), auto: !teachingModes.isMode(mode) }
+    return saved
   } catch (err) {
-    await lessonService.markLessonFailed(lessonId)
+    // Best-effort status write — never let a failing DB update mask the real
+    // generation error that we're about to re-throw.
+    try { await lessonService.markLessonFailed(lessonId) } catch (markErr) { console.error('[ai.service] markLessonFailed failed:', markErr?.message || markErr) }
     throw err
   }
 }

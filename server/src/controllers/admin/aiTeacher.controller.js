@@ -12,6 +12,7 @@ const { config } = require('../../config/env')
 const ApiResponse = require('../../utils/ApiResponse')
 const { AppError } = require('../../middleware/errorHandler')
 const audit = require('../../services/admin/audit.service')
+const lessonService = require('../../services/lesson.service')
 
 // Per-widget resilience, but failures are LOGGED (never silently swallowed) so a real
 // schema/query error surfaces in the backend logs instead of masquerading as empty data.
@@ -124,6 +125,55 @@ async function lessons(req, res, next) {
   } catch (err) { next(err) }
 }
 
+// GET /api/admin/ai-teacher/lessons/:id — one lesson + its ordered slides (READ-ONLY),
+// owner-agnostic so an admin can open + PREVIEW any student's generated lesson in the real
+// student player. No editing is offered — slide/lesson mutation has no backend (see `pending`).
+async function lessonDetail(req, res, next) {
+  try {
+    const lesson = await lessonService.getLessonWithSlidesAdmin(req.params.id)
+    if (!lesson) throw new AppError('Lesson not found', 404)
+    return ApiResponse.success(res, { lesson })
+  } catch (err) { next(err) }
+}
+
+// GET /api/admin/ai-teacher/lessons/:id/analytics — ONLY metrics backed by real tables:
+//   • views / completion  ← lesson_progress (completedAt, lastSlideIndex, slidesTotal)
+//   • avg study time       ← lesson_progress.studyTimeSeconds
+//   • questions asked      ← doubt_sessions + messages(role=USER)
+// Student rating is intentionally absent — no rating is captured anywhere, so we never
+// fabricate it (drop-off is reported as the average furthest slide reached).
+async function lessonAnalytics(req, res, next) {
+  try {
+    const id = req.params.id
+    const prog = await one(
+      `SELECT count(*)::int AS views,
+              count(*) FILTER (WHERE "completedAt" IS NOT NULL)::int AS completed,
+              COALESCE(avg("lastSlideIndex"), 0)::float AS avg_last_slide,
+              COALESCE(max("slidesTotal"), 0)::int AS slides_total
+         FROM lesson_progress WHERE "lessonId" = $1::uuid`, id)
+    // Separate + guarded: if studyTimeSeconds is absent this must NOT zero the other metrics.
+    const time = await one(
+      `SELECT COALESCE(avg(NULLIF("studyTimeSeconds", 0)), 0)::int AS avg_seconds
+         FROM lesson_progress WHERE "lessonId" = $1::uuid`, id)
+    const doubts = await one(
+      `SELECT count(DISTINCT ds.id)::int AS sessions,
+              count(m.id) FILTER (WHERE m.role::text = 'USER')::int AS questions
+         FROM doubt_sessions ds LEFT JOIN messages m ON m."doubtSessionId" = ds.id
+        WHERE ds."lessonId" = $1::uuid`, id)
+    const views = num(prog.views)
+    return ApiResponse.success(res, {
+      views,
+      completed: num(prog.completed),
+      completionRate: views ? Math.round((num(prog.completed) * 100) / views) : 0,
+      avgSeconds: num(time.avg_seconds),
+      avgLastSlide: Number(prog.avg_last_slide) || 0,
+      slidesTotal: num(prog.slides_total),
+      doubtSessions: num(doubts.sessions),
+      questionsAsked: num(doubts.questions),
+    })
+  } catch (err) { next(err) }
+}
+
 // PATCH /api/admin/ai-teacher/config  { value }  (aiteacher.edit) — non-runtime config only.
 async function saveConfig(req, res, next) {
   try {
@@ -141,4 +191,4 @@ async function saveConfig(req, res, next) {
   } catch (err) { next(err) }
 }
 
-module.exports = { overview, lessons, saveConfig }
+module.exports = { overview, lessons, lessonDetail, lessonAnalytics, saveConfig }

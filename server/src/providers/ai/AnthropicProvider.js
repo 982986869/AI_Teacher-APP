@@ -33,6 +33,12 @@ const VISUAL_TYPES = ['DIAGRAM', 'CHART', 'EXAMPLE', 'ANALOGY', 'FORMULA', 'NONE
 // Generous ceiling for a 5–7 slide lesson; well under the ~16K non-streaming
 // timeout threshold, so a plain create() call is safe.
 const LESSON_MAX_TOKENS = 8000
+// When adaptive thinking is on, the budget must cover BOTH the thinking tokens and
+// the lesson JSON, so it needs real headroom. A budget this large would risk an
+// HTTP timeout on a plain create(), so the thinking path streams and collects the
+// final message (see _createLessonMessage).
+const LESSON_MAX_TOKENS_THINKING = 32000
+const EFFORT_LEVELS = ['low', 'medium', 'high', 'xhigh', 'max']
 const DOUBT_MAX_TOKENS = 1024
 const INTENT_MAX_TOKENS = 60
 // Teacher replies are at most ~5 short lines; a tight ceiling keeps generation fast.
@@ -45,6 +51,10 @@ class AnthropicProvider extends AIProvider {
     this._client = null
     this.lessonModel = config.ai.lessonModel
     this.doubtModel = config.ai.doubtModel
+    // Deeper reasoning for lesson planning (adaptive thinking + effort). Off-switch
+    // and effort are env-driven; an unsupported model is handled at call time.
+    this.lessonThinking = config.ai.lessonThinking === 'adaptive'
+    this.lessonEffort = EFFORT_LEVELS.includes(config.ai.lessonEffort) ? config.ai.lessonEffort : 'high'
   }
 
   _getClient() {
@@ -68,22 +78,63 @@ class AnthropicProvider extends AIProvider {
 
   async generateLesson(topic, subject, gradeLevel, profile = {}) {
     const client = this._getClient()
+    const system = buildLessonSystemPrompt()
+    const messages = [{ role: 'user', content: buildLessonUserPrompt(topic, subject, gradeLevel, profile) }]
 
-    let message
+    const message = await this._createLessonMessage(client, system, messages)
+    const raw = extractText(message)
+    return parseAndValidateLesson(raw)
+  }
+
+  // Runs the lesson request, with adaptive thinking + effort when enabled. The
+  // thinking path streams (large max_tokens would risk an HTTP timeout on a plain
+  // create()) and collects the final message; extractText ignores the thinking
+  // blocks and keeps only the JSON text. If the configured model rejects the
+  // thinking/effort params (older tier → 400), we fall back once to a plain
+  // non-streaming request so a lesson is never lost to a config mismatch.
+  async _createLessonMessage(client, system, messages) {
+    if (this.lessonThinking) {
+      try {
+        const stream = client.messages.stream({
+          model: this.lessonModel,
+          max_tokens: LESSON_MAX_TOKENS_THINKING,
+          thinking: { type: 'adaptive' },
+          output_config: { effort: this.lessonEffort },
+          system,
+          messages,
+        })
+        const msg = await stream.finalMessage()
+        // If thinking ate the budget and the JSON was cut off, don't return partial
+        // JSON (it would fail parsing with a misleading "invalid format" error) —
+        // fall through to the plain path, where the whole budget goes to the lesson.
+        if (!msg || msg.stop_reason !== 'max_tokens') return msg
+        console.warn('[AnthropicProvider] lesson thinking response truncated (max_tokens); retrying without thinking.')
+      } catch (err) {
+        // A 400 means "this model can't do adaptive thinking/effort"; a client-side
+        // error (no HTTP status — e.g. an older SDK stream parser) is also safe to
+        // retry plain. Genuine server errors (401/403/429/5xx) are real failures and
+        // must propagate rather than trigger a second doomed request.
+        if (err?.status && err.status !== 400) throw translateProviderError(err, 'lesson generation')
+        console.warn('[AnthropicProvider] lesson thinking path failed; retrying without thinking. Set AI_LESSON_THINKING=off to silence this.', err?.message || '')
+      }
+    }
+
+    let msg
     try {
-      message = await client.messages.create({
+      msg = await client.messages.create({
         model: this.lessonModel,
         max_tokens: LESSON_MAX_TOKENS,
-        system: buildLessonSystemPrompt(),
-        messages: [{ role: 'user', content: buildLessonUserPrompt(topic, subject, gradeLevel, profile) }],
+        system,
+        messages,
       })
     } catch (err) {
       throw translateProviderError(err, 'lesson generation')
     }
-
-    const raw = extractText(message)
-    const payload = parseAndValidateLesson(raw)
-    return payload
+    // Distinct, actionable error instead of the downstream "invalid JSON" 502.
+    if (msg && msg.stop_reason === 'max_tokens') {
+      throw new AppError('The lesson was too long to fit — please try a more specific topic.', 502)
+    }
+    return msg
   }
 
   async answerDoubt(question, lessonContext, history = [], slideIndex) {
@@ -262,6 +313,28 @@ function normalizeCheck(c) {
     misconception: str(c.misconception),
   }
   if (wantsMcq) out.options = options
+  // Optional harder follow-up to stretch a student who gets this right.
+  const stretch = str(c.stretch)
+  if (stretch) out.stretch = stretch
+  return out
+}
+
+// Optional per-slide adaptive re-teach — what the teacher says if the student gets
+// this slide's check WRONG (a genuinely different explanation, not a repeat). Same
+// shape the client (reteach.js / LessonBoards) expects: { ack, gap, intro, steps[],
+// easyQ }. Returns a clean object, or undefined if there's nothing usable — a
+// malformed re-teach must NEVER fail the lesson; the client falls back to its own
+// buildReteach() when this is absent.
+function normalizeReteach(r) {
+  if (!r || typeof r !== 'object' || Array.isArray(r)) return undefined
+  const str = (v) => (typeof v === 'string' ? v.trim() : '')
+  const steps = Array.isArray(r.steps)
+    ? r.steps.filter((s) => typeof s === 'string' && s.trim()).map((s) => s.trim()).slice(0, 5)
+    : []
+  const out = { ack: str(r.ack), gap: str(r.gap), intro: str(r.intro), steps, easyQ: str(r.easyQ) }
+  // Only keep it if it carries a real alternate explanation (steps) or at least a
+  // named gap/intro — otherwise it adds nothing over the client fallback.
+  if (!out.steps.length && !out.gap && !out.intro) return undefined
   return out
 }
 
@@ -301,6 +374,7 @@ function parseAndValidateLesson(raw) {
         : {}
 
     const check = normalizeCheck(slide.check)
+    const reteach = normalizeReteach(slide.reteach)
 
     return {
       slideNumber: i + 1,
@@ -312,6 +386,9 @@ function parseAndValidateLesson(raw) {
       // Optional LLM-authored comprehension check (concept question). Omitted when
       // absent/invalid so the client falls back to its own self-check.
       ...(check ? { check } : {}),
+      // Optional LLM-authored adaptive re-teach for a missed check (a genuinely
+      // different explanation). Omitted when absent → client's buildReteach fallback.
+      ...(reteach ? { reteach } : {}),
       // Animation metadata — validated/defaulted; safe to ignore on the frontend.
       ...normalizeAnimation(slide),
     }

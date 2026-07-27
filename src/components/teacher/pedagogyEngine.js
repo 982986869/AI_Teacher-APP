@@ -100,7 +100,15 @@ export function freshPedagogy({ grade, total, prior } = {}) {
 function readConfidence(s) {
   const struggle = s.misses * 1.0;
   const fluency = s.correct * 0.6;
-  return Math.max(0, Math.min(1, 0.5 + (fluency - struggle) * 0.12));
+  const evidence = Math.max(0, Math.min(1, 0.5 + (fluency - struggle) * 0.12));
+  // Blend the remembered seed with in-lesson evidence instead of discarding memory
+  // on the first check (matches emotionEngine.assess). The seed fades as real signal
+  // accumulates, so a remembered-struggler keeps their low-confidence scaffolding
+  // until a couple of genuine correct answers earn the higher read.
+  const seed = (typeof s.seed === 'number') ? s.seed : null;
+  if (seed == null) return evidence;
+  const w = Math.min(1, (s.checks || 0) / 3);   // ~3 checks → evidence fully owns it
+  return Math.max(0, Math.min(1, seed * (1 - w) + evidence * w));
 }
 
 // Fold one observed teaching event into the state. Returns a NEW object. Events:
@@ -339,10 +347,26 @@ export function continuationHint(model, ctx = {}) {
   const topic = String(ctx.topic || '').trim();
   const acc = typeof ctx.accuracy === 'number' ? ctx.accuracy : null;
   if (acc != null && acc < 60 && topic) return `Let's run ${topic} once more next time — it'll click.`;
+  // Celebrate a strong lesson FIRST — don't greet a 90% with "want to revisit that
+  // old tricky thing?". Only nudge the remembered gap when today wasn't already aced.
+  if (acc != null && acc >= 80) return `You've got this — ready for a new topic?`;
   const oldGap = Array.isArray(m.struggled) ? m.struggled.find((x) => !topic || x.toLowerCase() !== topic.toLowerCase()) : null;
   if (oldGap) return `Next time, want to revisit ${oldGap}? I remember it was tricky.`;
-  if (acc != null && acc >= 80) return `You've got this — ready for a new topic?`;
   return `Tell me the next topic whenever you're ready.`;
+}
+
+// A memory-aware OPENING clause for the very first beat of a lesson — a real tutor
+// names a remembered difficulty and eases in, instead of opening every topic the same
+// generic way. Returns '' for a fresh student (they just get the normal opener).
+// `ctx` = { topic }. This makes "the teacher remembers me" audible where it matters most.
+export function openingBridge(model, ctx = {}) {
+  const m = model || {};
+  const topic = String((ctx && ctx.topic) || '').trim();
+  if (topic && Array.isArray(m.struggled)
+      && m.struggled.some((x) => String(x).toLowerCase() === topic.toLowerCase())) {
+    return `Last time, ${topic} felt a little tricky — so let's take it slowly today.`;
+  }
+  return '';
 }
 
 // Exposed for tests / tooling.

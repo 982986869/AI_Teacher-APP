@@ -1,5 +1,7 @@
 'use strict'
 
+const { modePrompt } = require('../services/teachingModes')
+
 // Strict JSON schema — mirrors the Prisma Lesson/Slide models and the parser in
 // AnthropicProvider.parseAndValidateLesson(). Documentation only; the runtime
 // contract is enforced by the prompt below + the validator + normalizeAnimation.
@@ -63,6 +65,8 @@ Teach through REASONING, the way a good teacher does — not a read-out of facts
 - Build an idea with a guiding question, then answer it: "What happens to the ratio as the angle grows? It gets larger — here is why."
 - Direct attention: "Notice this." / "Here is the key step." / "Watch what changes."
 - Name the classic error: "Most students slip here —" then give the fix.
+- On any common-mistake / misconception slide, VOICE the wrong idea out loud first ("Many students think X —") then show precisely WHY it fails. Naming the trap explicitly is what makes it stick.
+- CONNECT the slides: let the first spoken line of each new slide link to the idea just built ("We saw the ratio grows — now, how fast?"), so the lesson reasons forward as ONE thread, never a list of disconnected facts.
 - For higher grades, briefly DERIVE or PROVE the key result instead of only stating it: "Let us see why this is true."
 - A concrete image is welcome WHEN it builds intuition (a ladder leaning on a wall for trig ratios) — purposeful, never a rambling story.
 narrationText = short spoken teacher lines (each about 4 to 12 words, its own sentence, full stop). Point to point. NEVER a paragraph or run-on.
@@ -80,7 +84,7 @@ LANGUAGE: clear ENGLISH (slideTitle, explanation, narrationText, labels). (Langu
 OUTPUT CONTRACT (critical):
 - Respond with ONE valid JSON object and NOTHING else — no markdown, no code fences, no commentary.
 - 7 to 10 slides, each teaching EXACTLY ONE idea, in a logical build. Keep it COMPACT so the JSON is always complete and valid.
-- Per slide output these keys: slideNumber, slideTitle, explanation, narrationText, visualType, visualData — plus OPTIONALLY "check" (see below) on 1 to 2 key concept slides. The app fills in everything else automatically.
+- Per slide output these keys: slideNumber, slideTitle, explanation, narrationText, visualType, visualData — plus OPTIONALLY "check" AND its paired "reteach" (see below) on 1 to 2 key concept slides. The app fills in everything else automatically.
 - explanation = 1 short on-screen line. visualData.keyPoints = 2 short items max.
 - "visualType" MUST be EXACTLY one of: DIAGRAM, CHART, EXAMPLE, ANALOGY, FORMULA, NONE. It is NOT an animation name — NEVER put words like DRAW_TRIANGLE or BUILD_FORMULA there. A definition / key-point / common-mistake / recap slide uses "NONE".
 - Use this exact shape and key names:
@@ -120,10 +124,22 @@ Shape (all string fields plain-spoken; the app reads the question aloud):
   "options": string[],                        // 3 to 4 options — REQUIRED only when type is "mcq"
   "answer": string,                           // the correct OPTION TEXT (for mcq) or a one-line model answer
   "hint": string,                             // a nudge if the student is stuck
-  "misconception": string                     // the wrong idea students commonly hold here (used if they miss it)
+  "misconception": string,                    // the wrong idea students commonly hold here (used if they miss it)
+  "stretch": string                           // OPTIONAL — one harder probe to CHALLENGE a student who gets this right (a real teacher pushes their strongest). It MUST open a genuinely NEW angle — an edge case, a "what if…?", or a "why does this hold?" — never a reworded version of the check. Plain spoken, one line. Omit if you can't make it genuinely deeper.
 }
 Good Class 11 examples: "Why can sin theta never exceed 1?" | "In which quadrant is sine positive and cosine negative?" | "What is wrong with saying tan theta equals adjacent over opposite?"
 Do NOT add "check" to every slide, and NEVER let a missing/partial check break the JSON — omit it entirely rather than leave it incomplete.
+- REQUIRED: at least ONE of your checks in the lesson MUST be type "mcq" (3 to 4 options) so the app has a gradeable answer to run the two-way loop. The other may be conceptual/short.
+
+PAIRED RE-TEACH ("reteach") — on EACH slide where you add a "check", ALSO add a "reteach": what you would say if the student gets that check WRONG. This is the difference between a real teacher and a chatbot. It MUST teach the idea a genuinely DIFFERENT way — NOT a repeat of this slide's narration or points. Choose ONE fresh approach: a concrete everyday analogy the student can picture, OR a tiny worked example with real numbers, OR the one contrasting non-example that exposes the misconception. Grade-aware (juniors: simplest everyday picture; 9–10: exam-style clean steps; 11–12: the reasoning / the why). Plain spoken text, read aloud — no symbols/markdown/LaTeX; spell math in words.
+Shape (all plain-spoken; omit the whole "reteach" rather than leave it partial):
+"reteach": {
+  "ack": string,       // gentle 1-line acknowledgement of the miss ("Not quite — let's look at it another way.")
+  "gap": string,       // name the exact part they slipped on (tie to the misconception)
+  "intro": string,     // one line framing the DIFFERENT approach ("Picture it like this —")
+  "steps": string[],   // 2 to 4 short lines that re-teach it the NEW way (the analogy / worked example), each its own line
+  "easyQ": string      // one STRICTLY SIMPLER, low-stakes follow-up (a one-step or yes/no version of the idea) — its job is to rebuild confidence, NOT re-test at the same difficulty
+}
 
 NARRATION RULES (narrationText is READ ALOUD by text-to-speech):
 - Plain spoken text only — no symbols, markdown, LaTeX, emoji, or bullets.
@@ -176,18 +192,43 @@ function levelGuidance(gradeLevel, profile = {}) {
   return `LEVEL — Class ${n}${stream ? ` (${stream})` : ''}: teach fully and properly with higher-secondary RIGOUR — exact definitions and notation, the REASONING and a short standard derivation/proof of the key result, mathematical intuition (the WHY), graphs/diagrams where relevant, correct units, and ONE worked numerical. ASSUME prerequisites (spend at most 20–30 seconds on any review) and teach the real Class ${n} concept — do NOT drop to a middle-school introduction.${exam}`
 }
 
+// What we remember about THIS learner (from their per-concept mastery) → a few
+// natural teaching instructions so the lesson adapts to them personally. Kept
+// implicit: the teacher weaves it in, never announces "because you're weak at…".
+function learnerLine(profile = {}) {
+  const l = profile.learner
+  if (!l) return ''
+  const parts = []
+  if (Array.isArray(l.weak) && l.weak.length) {
+    parts.push(`They have struggled before with: ${l.weak.join(', ')}. Where any of these naturally connect to today's topic, reinforce it gently and clearly — do NOT announce it as remedial or say "because you're weak at this".`)
+  }
+  if (Array.isArray(l.needsRevision) && l.needsRevision.length) {
+    parts.push(`Due for revision: ${l.needsRevision.join(', ')}. If any is a prerequisite for today's topic, refresh it in one quick line before building on it.`)
+  }
+  if (Array.isArray(l.strong) && l.strong.length) {
+    parts.push(`Already strong on: ${l.strong.join(', ')} — build on these confidently and don't over-explain them.`)
+  }
+  if (typeof l.averageMastery === 'number') {
+    if (l.averageMastery < 45) parts.push(`Overall their mastery is still developing — go a touch slower, add one extra worked example, and check understanding gently.`)
+    else if (l.averageMastery >= 75) parts.push(`They're a strong learner overall — keep the pace crisp and include one stretch insight.`)
+  }
+  return parts.join(' ')
+}
+
 function buildLessonUserPrompt(topic, subject, gradeLevel, profile = {}) {
   const pl = profileLine(profile)
   const lg = levelGuidance(gradeLevel, profile)
+  const ll = learnerLine(profile)
+  const md = modePrompt(profile.mode)
   return `Create a classroom lesson. Return ONLY the JSON object defined in the system prompt — no markdown, no extra text.
 
 Topic: ${topic}
 Subject: ${subject}
-Grade level: ${gradeLevel}${pl ? `\n${pl}` : ''}${lg ? `\n${lg}` : ''}
+Grade level: ${gradeLevel}${pl ? `\n${pl}` : ''}${lg ? `\n${lg}` : ''}${md ? `\n${md}` : ''}${ll ? `\nWHAT I REMEMBER ABOUT THIS STUDENT (adapt the lesson to them, but keep it implicit): ${ll}` : ''}
 
 ALWAYS teach ${topic} — never refuse it and never say it is "outside your syllabus".
 PLAN it first like a teacher (privately): the learning objective for a Class ${gradeLevel} student; the concepts this topic requires at this class; the prerequisites (review them in at most one short slide — for Class 11–12 assume them); if the topic is broad, the single best focus for this class and duration; then the logical slide-by-slide progression toward the objective.
 Then teach 7 to 10 slides that build logically toward that objective, at the DEPTH in the LEVEL line above — a senior lesson must be conceptually deep with reasoning and a short derivation, NOT a middle-school introduction. Every slide title must match its visual. Teach by REASONING (guiding question, "notice this", derive the key result), not by reading facts. Sound like a real Class ${gradeLevel} teacher, not a chatbot.`
 }
 
-module.exports = { buildLessonSystemPrompt, buildLessonUserPrompt, profileLine, levelGuidance, LESSON_JSON_SCHEMA }
+module.exports = { buildLessonSystemPrompt, buildLessonUserPrompt, profileLine, levelGuidance, learnerLine, LESSON_JSON_SCHEMA }
