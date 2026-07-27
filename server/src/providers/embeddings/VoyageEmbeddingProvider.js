@@ -6,6 +6,14 @@ const { AppError } = require('../../middleware/errorHandler')
 const VOYAGE_URL = 'https://api.voyageai.com/v1/embeddings'
 const BATCH = 96 // Voyage accepts batches; keep well under request limits.
 
+// Query embeddings are DETERMINISTIC per text, so caching them in-process removes a
+// Voyage network round-trip (~50–200ms) from the critical path whenever the same
+// question/topic is asked again — which is common (re-asks, revisits, chapter tags).
+// Bounded LRU (per server instance; horizontally safe — each instance warms its own
+// hot set; swap for Redis if a shared cache is ever needed).
+const QCACHE = new Map()
+const QCACHE_MAX = 1000
+
 // Voyage AI embeddings. voyage-3.5-lite defaults to 1024 dims, matching the
 // knowledge_chunks vector(1024) column. input_type improves retrieval quality
 // ("document" when indexing, "query" when searching).
@@ -62,7 +70,12 @@ class VoyageEmbeddingProvider {
   }
 
   async embedQuery(text) {
-    const [vector] = await this._embed([text], 'query')
+    const key = String(text || '')
+    const hit = QCACHE.get(key)
+    if (hit) { QCACHE.delete(key); QCACHE.set(key, hit); return hit } // LRU bump on hit
+    const [vector] = await this._embed([key], 'query')
+    QCACHE.set(key, vector)
+    if (QCACHE.size > QCACHE_MAX) QCACHE.delete(QCACHE.keys().next().value) // evict oldest
     return vector
   }
 

@@ -5,12 +5,13 @@
 // back builds trust and gives the student a sense of a teacher who actually knows
 // them. Graphite + Marigold + serif, matching the live teaching player.
 import React, { useState, useEffect, useCallback } from 'react';
-import { View, Text, StyleSheet, Modal, ScrollView, Pressable, ActivityIndicator } from 'react-native';
-import { X, Brain, TrendingUp, RotateCcw, Sparkles, Flame } from 'lucide-react-native';
+import { View, Text, StyleSheet, Modal, ScrollView, ActivityIndicator, TextInput } from 'react-native';
+import { X, Brain, TrendingUp, RotateCcw, Sparkles, Flame, SlidersHorizontal } from 'lucide-react-native';
 
 import { PressableScale } from './uiKit';
 import { D, C, F, SP, R, SERIF } from './premiumTheme';
 import { getLearningProfile, getLearningAnalytics } from '../../api/learningApi';
+import { loadLearnerPrefs, saveLearnerPrefs, EXPLANATION_STYLES, PACES, DEFAULT_PREFS } from '../../utils/learnerPrefs';
 
 const GOLD = '#DBA53F';
 const GOLD_DIM = '#B4863A';
@@ -55,9 +56,11 @@ export default function YourLearning({ visible, onClose }) {
   const [err, setErr] = useState('');
   const [profile, setProfile] = useState(null);
   const [analytics, setAnalytics] = useState(null);
+  const [prefs, setPrefs] = useState(DEFAULT_PREFS);
 
   const load = useCallback(async () => {
     setLoading(true); setErr('');
+    setPrefs(await loadLearnerPrefs());
     try {
       const [p, a] = await Promise.all([
         getLearningProfile().catch(() => null),
@@ -69,6 +72,9 @@ export default function YourLearning({ visible, onClose }) {
     setLoading(false);
   }, []);
   useEffect(() => { if (visible) load(); }, [visible, load]);
+
+  // Edit a preference → update state + persist immediately (rides along with the next lesson).
+  const setPref = (patch) => setPrefs((prev) => { const next = { ...prev, ...patch }; saveLearnerPrefs(next); return next; });
 
   const total = profile?.totalConcepts || 0;
   const avg = profile?.averageMastery ?? 0;
@@ -94,36 +100,66 @@ export default function YourLearning({ visible, onClose }) {
           </View>
         )}
 
-        {cold && (
-          <View style={s.center}>
-            <Brain size={40} color={GOLD_DIM} strokeWidth={1.6} />
-            <Text style={s.coldTitle}>I’m just getting to know you</Text>
-            <Text style={s.coldTxt}>As you learn and answer checks, I build a picture of what you know here — and every new lesson quietly adapts to it. Take a lesson to begin.</Text>
-          </View>
-        )}
+        {!loading && !err && (
+          <ScrollView contentContainerStyle={{ paddingBottom: SP.xxl }} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
+            {/* ── Preferences — how the student likes to learn (edited here, sent with
+                 every lesson so it adapts) ── */}
+            <View style={s.section}>
+              <View style={s.sectionHead}><SlidersHorizontal size={15} color={GOLD} strokeWidth={2.3} /><Text style={s.sectionTitle}>How you like to learn</Text></View>
+              <Text style={s.sectionSub}>Your lessons adapt to these</Text>
 
-        {!loading && !err && !cold && (
-          <ScrollView contentContainerStyle={{ paddingBottom: SP.xxl }} showsVerticalScrollIndicator={false}>
-            {/* hero — overall mastery */}
-            <View style={s.hero}>
-              <View style={s.heroMain}>
-                <Text style={s.heroNum}>{avg}<Text style={s.heroPct}>%</Text></Text>
-                <Text style={s.heroLbl}>overall mastery</Text>
+              <Text style={s.prefLbl}>Explanation style</Text>
+              <View style={s.prefChips}>
+                {EXPLANATION_STYLES.map((o) => {
+                  const on = prefs.explanationStyle === o.key;
+                  return <PressableScale key={o.key} onPress={() => setPref({ explanationStyle: o.key })} style={[s.prefChip, on && s.prefChipOn]} accessibilityState={{ selected: on }}><Text style={[s.prefChipTxt, on && s.prefChipTxtOn]}>{o.label}</Text></PressableScale>;
+                })}
               </View>
-              <View style={s.heroStats}>
-                <View style={s.heroStat}><Text style={s.heroStatNum}>{total}</Text><Text style={s.heroStatLbl}>concepts tracked</Text></View>
-                {streak > 0 && <View style={s.heroStat}><View style={s.streakRow}><Flame size={15} color={GOLD} strokeWidth={2.3} /><Text style={s.heroStatNum}>{streak}</Text></View><Text style={s.heroStatLbl}>day streak</Text></View>}
+
+              <Text style={s.prefLbl}>Pace</Text>
+              <View style={s.prefChips}>
+                {PACES.map((o) => {
+                  const on = prefs.pace === o.key;
+                  return <PressableScale key={o.key} onPress={() => setPref({ pace: o.key })} style={[s.prefChip, on && s.prefChipOn]} accessibilityState={{ selected: on }}><Text style={[s.prefChipTxt, on && s.prefChipTxtOn]}>{o.label}</Text></PressableScale>;
+                })}
               </View>
+
+              <Text style={s.prefLbl}>Your goal</Text>
+              <TextInput style={s.prefInput} value={prefs.goal} onChangeText={(t) => setPref({ goal: t })} placeholder="e.g. Crack JEE 2027, or just understand the basics" placeholderTextColor={D.textFaint} maxLength={120} accessibilityLabel="Your long-term goal" />
+
+              <Text style={s.prefLbl}>Exam date (optional)</Text>
+              <TextInput style={s.prefInput} value={prefs.examDate} onChangeText={(t) => setPref({ examDate: t })} placeholder="e.g. March 2027" placeholderTextColor={D.textFaint} maxLength={40} accessibilityLabel="Your exam date" />
             </View>
 
-            <View style={s.adaptNote}>
-              <Sparkles size={13} color={GOLD} strokeWidth={2.3} />
-              <Text style={s.adaptTxt}>Your next lessons adapt to this — I reinforce your weak spots and refresh what’s due.</Text>
-            </View>
+            {cold ? (
+              <View style={s.coldBox}>
+                <Brain size={34} color={GOLD_DIM} strokeWidth={1.6} />
+                <Text style={s.coldTitle}>I’m just getting to know you</Text>
+                <Text style={s.coldTxt}>As you learn and answer checks, I build a picture of what you know here — and every new lesson quietly adapts to it and your preferences above.</Text>
+              </View>
+            ) : (
+              <>
+                <View style={[s.hero, { marginTop: SP.xl }]}>
+                  <View style={s.heroMain}>
+                    <Text style={s.heroNum}>{avg}<Text style={s.heroPct}>%</Text></Text>
+                    <Text style={s.heroLbl}>overall mastery</Text>
+                  </View>
+                  <View style={s.heroStats}>
+                    <View style={s.heroStat}><Text style={s.heroStatNum}>{total}</Text><Text style={s.heroStatLbl}>concepts tracked</Text></View>
+                    {streak > 0 && <View style={s.heroStat}><View style={s.streakRow}><Flame size={15} color={GOLD} strokeWidth={2.3} /><Text style={s.heroStatNum}>{streak}</Text></View><Text style={s.heroStatLbl}>day streak</Text></View>}
+                  </View>
+                </View>
 
-            <Section Icon={TrendingUp} title="Focus areas" subtitle="I’ll reinforce these in your lessons" items={profile?.weak} empty="No weak spots flagged yet." />
-            <Section Icon={RotateCcw} title="Due for revision" subtitle="Worth a refresh before it fades" items={profile?.needsRevision} />
-            <Section Icon={Brain} title="Strong" subtitle="You’ve got these — I’ll build on them" items={profile?.strong} />
+                <View style={s.adaptNote}>
+                  <Sparkles size={13} color={GOLD} strokeWidth={2.3} />
+                  <Text style={s.adaptTxt}>I reinforce your weak spots, refresh what’s due, and teach the way you prefer.</Text>
+                </View>
+
+                <Section Icon={TrendingUp} title="Focus areas" subtitle="I’ll reinforce these in your lessons" items={profile?.weak} empty="No weak spots flagged yet." />
+                <Section Icon={RotateCcw} title="Due for revision" subtitle="Worth a refresh before it fades" items={profile?.needsRevision} />
+                <Section Icon={Brain} title="Strong" subtitle="You’ve got these — I’ll build on them" items={profile?.strong} />
+              </>
+            )}
           </ScrollView>
         )}
       </View>
@@ -143,8 +179,17 @@ const s = StyleSheet.create({
   errTxt: { fontSize: 14, fontFamily: F.med, color: D.textDim, textAlign: 'center' },
   retry: { backgroundColor: GOLD, borderRadius: R.pill, paddingVertical: 11, paddingHorizontal: 26 },
   retryTxt: { fontSize: 14, fontFamily: F.bold, color: '#12141A' },
+  coldBox: { alignItems: 'center', gap: 8, marginTop: SP.xl, paddingHorizontal: SP.md },
   coldTitle: { fontSize: 19, fontFamily: SERIF, fontWeight: '600', color: D.text, marginTop: 6 },
   coldTxt: { fontSize: 14, fontFamily: F.med, color: D.textDim, textAlign: 'center', lineHeight: 21 },
+
+  prefLbl: { fontSize: 11, fontFamily: F.semi, color: D.textDim, letterSpacing: 0.4, marginTop: SP.md, marginBottom: 8 },
+  prefChips: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
+  prefChip: { backgroundColor: 'rgba(255,255,255,0.05)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.12)', borderRadius: R.pill, paddingVertical: 8, paddingHorizontal: 15 },
+  prefChipOn: { backgroundColor: GOLD, borderColor: GOLD },
+  prefChipTxt: { fontSize: 13, fontFamily: F.semi, color: D.textDim },
+  prefChipTxtOn: { color: '#12141A', fontFamily: F.bold },
+  prefInput: { backgroundColor: 'rgba(255,255,255,0.05)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.12)', borderRadius: R.md, paddingVertical: 11, paddingHorizontal: 14, color: D.text, fontSize: 14, fontFamily: F.med },
 
   hero: { flexDirection: 'row', alignItems: 'center', backgroundColor: 'rgba(255,255,255,0.04)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.08)', borderRadius: R.xl, padding: SP.lg, gap: SP.lg },
   heroMain: { alignItems: 'center' },

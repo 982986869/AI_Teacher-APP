@@ -10,8 +10,8 @@ const audit = require('../../services/admin/audit.service')
 
 const STATUSES = ['scheduled', 'completed', 'cancelled', 'archived']
 const COLS = `id::text AS id, title, subject, chapter, class_level AS "classLevel", board, teacher_name AS "teacherName",
-  starts_at AS "startsAt", duration_min AS "durationMin", mode, meeting_link AS "meetingLink", location, capacity,
-  description, status, created_by_name AS "createdByName", created_at AS "createdAt", updated_at AS "updatedAt"`
+  starts_at AS "startsAt", duration_min AS "durationMin", mode, meeting_link AS "meetingLink", recording_url AS "recordingUrl",
+  location, capacity, description, status, created_by_name AS "createdByName", created_at AS "createdAt", updated_at AS "updatedAt"`
 
 const int = (v) => (v === '' || v == null || Number.isNaN(Number(v)) ? null : parseInt(v, 10))
 
@@ -53,11 +53,11 @@ async function create(req, res, next) {
     if (!b.startsAt) throw new AppError('A start date and time is required', 422)
     const rows = await db.$queryRawUnsafe(
       `INSERT INTO "sessions" (title, subject, chapter, class_level, board, teacher_name, starts_at, duration_min,
-                               mode, meeting_link, location, capacity, description, created_by, created_by_name)
-       VALUES ($1,$2,$3,$4,$5,$6,$7::timestamptz,$8,$9,$10,$11,$12,$13,$14::uuid,$15) RETURNING ${COLS}`,
+                               mode, meeting_link, recording_url, location, capacity, description, created_by, created_by_name)
+       VALUES ($1,$2,$3,$4,$5,$6,$7::timestamptz,$8,$9,$10,$11,$12,$13,$14,$15::uuid,$16) RETURNING ${COLS}`,
       String(b.title).trim(), b.subject || '', b.chapter || '', int(b.classLevel), b.board || null, b.teacherName || '',
       b.startsAt, int(b.durationMin) || 60, b.mode === 'offline' ? 'offline' : 'online', b.meetingLink || null,
-      b.location || null, int(b.capacity), b.description || '', req.admin.id, req.admin.name,
+      b.recordingUrl || null, b.location || null, int(b.capacity), b.description || '', req.admin.id, req.admin.name,
     )
     await audit.record(req, { module: 'sessions', action: 'create', targetType: 'session', targetId: rows[0].id, targetLabel: rows[0].title, after: rows[0] })
     return ApiResponse.created(res, { session: rows[0] })
@@ -68,7 +68,7 @@ async function create(req, res, next) {
 async function update(req, res, next) {
   try {
     const cur = await loadOr404(req.params.id)
-    const map = { title: 'title', subject: 'subject', chapter: 'chapter', board: 'board', teacherName: 'teacher_name', mode: 'mode', meetingLink: 'meeting_link', location: 'location', description: 'description' }
+    const map = { title: 'title', subject: 'subject', chapter: 'chapter', board: 'board', teacherName: 'teacher_name', mode: 'mode', meetingLink: 'meeting_link', recordingUrl: 'recording_url', location: 'location', description: 'description' }
     const sets = []; const p = []; const bind = (v) => { p.push(v); return `$${p.length}` }
     for (const [k, col] of Object.entries(map)) if (req.body[k] !== undefined) sets.push(`${col} = ${bind(req.body[k])}`)
     if (req.body.classLevel !== undefined) sets.push(`class_level = ${bind(int(req.body.classLevel))}`)

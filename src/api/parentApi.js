@@ -6,7 +6,8 @@ export const linkChild = async ({ email, phone }) => {
   return res.data.data;
 };
 
-export const getParentReport = async () => {
-  const res = await axiosInstance.get('/api/parent/report');
+// `fresh` (pull-to-refresh) bypasses the server's short-lived report cache.
+export const getParentReport = async (fresh = false) => {
+  const res = await axiosInstance.get('/api/parent/report', fresh ? { params: { fresh: 1 } } : undefined);
   return res.data.data;
 };

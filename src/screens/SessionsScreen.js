@@ -51,6 +51,27 @@ function SessionCard({ s }) {
   );
 }
 
+// A recorded class the student can replay any time (a completed session with a
+// recording link the admin attached). Opens the recording in the browser/player.
+function RecordingCard({ s }) {
+  return (
+    <View style={hs.card}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+        <View style={hs.recThumb}><CirclePlay size={22} color="#fff" strokeWidth={2.4} /></View>
+        <View style={{ flex: 1, minWidth: 0 }}>
+          <T w="xbold" s={14.5} c={S.ink} numberOfLines={1}>{s.title}</T>
+          <T w="semi" s={12} c={S.muted} numberOfLines={1} style={{ marginTop: 1 }}>{[s.subject, s.teacherName].filter(Boolean).join(' · ') || 'Recorded class'}</T>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginTop: 8, flexWrap: 'wrap' }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}><CalendarDays size={13} color={S.faint} strokeWidth={2.4} /><T w="bold" s={11.5} c={S.sub}>{fmtWhen(s.startsAt)}</T></View>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}><Clock3 size={13} color={S.faint} strokeWidth={2.4} /><T w="bold" s={11.5} c={S.sub}>{s.durationMin} min</T></View>
+          </View>
+        </View>
+      </View>
+      <StudentPrimaryButton label="Watch recording" Icon={CirclePlay} tint={S.purple} onPress={() => Linking.openURL(s.recordingUrl).catch(() => {})} style={{ marginTop: 12, paddingVertical: 12 }} />
+    </View>
+  );
+}
+
 const SessionsScreen = () => {
   const navigation = useNavigation();
   const scrollRef = useRef(null);
@@ -75,7 +96,10 @@ const SessionsScreen = () => {
   }, [navigation]);
 
   const upcoming = (sessions || []).filter((s) => s.status === 'scheduled');
-  const completed = (sessions || []).filter((s) => s.status === 'completed');
+  // Recorded lectures = any session with a recording link (its own replay library).
+  const recordings = (sessions || []).filter((s) => !!s.recordingUrl);
+  // Completed WITHOUT a recording — so a recorded class shows once, under Recordings.
+  const completed = (sessions || []).filter((s) => s.status === 'completed' && !s.recordingUrl);
   const hasSessions = (sessions || []).length > 0;
 
   return (
@@ -92,6 +116,12 @@ const SessionsScreen = () => {
               <>
                 <StudentSectionHeader title="Upcoming" accent={S.blue} />
                 {upcoming.map((s) => <FadeInOnce key={s.id} id={`sess-${s.id}`} delay={40} y={12}><SessionCard s={s} /></FadeInOnce>)}
+              </>
+            )}
+            {recordings.length > 0 && (
+              <>
+                <StudentSectionHeader title="Recordings" accent={S.purple} />
+                {recordings.map((s) => <FadeInOnce key={s.id} id={`rec-${s.id}`} delay={40} y={12}><RecordingCard s={s} /></FadeInOnce>)}
               </>
             )}
             {completed.length > 0 && (
@@ -156,6 +186,7 @@ const hs = StyleSheet.create({
   body: { flex: 1, paddingHorizontal: PAD },
   card: { backgroundColor: '#fff', borderRadius: 18, borderWidth: 1, borderColor: S.hair, padding: 15, marginBottom: 10, ...shadow },
   cardIcon: { width: 44, height: 44, borderRadius: 14, alignItems: 'center', justifyContent: 'center' },
+  recThumb: { width: 44, height: 44, borderRadius: 14, alignItems: 'center', justifyContent: 'center', backgroundColor: S.purple },
   heroShadow: { borderRadius: 26, backgroundColor: '#0E1E4A', marginTop: 8, shadowColor: '#0E1E4A', shadowOpacity: 0.30, shadowRadius: 24, shadowOffset: { width: 0, height: 16 }, elevation: 11 },
   hero: { borderRadius: 26, overflow: 'hidden', padding: 22 },
   heroTag: { flexDirection: 'row', alignItems: 'center', gap: 6, alignSelf: 'flex-start', backgroundColor: 'rgba(255,255,255,0.12)', borderRadius: 20, paddingHorizontal: 10, paddingVertical: 6 },

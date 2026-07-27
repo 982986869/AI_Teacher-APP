@@ -175,10 +175,26 @@ function buildMockDoubtAnswer(question, topic) {
 
 // ─── Public service functions ─────────────────────────────────────────────────
 
-async function generateLesson({ userId, topic, subject, gradeLevel, board, stream, language, mode }) {
+// Sanitise the client-supplied learner preferences into a small, safe, PII-free
+// object before it reaches the prompt (enums are whitelisted; free text is capped).
+function sanitizePrefs(prefs) {
+  if (!prefs || typeof prefs !== 'object') return null
+  const styles = ['visual', 'story', 'practical', 'balanced']
+  const paces = ['slow', 'average', 'fast']
+  const out = {}
+  if (styles.includes(String(prefs.explanationStyle))) out.explanationStyle = String(prefs.explanationStyle)
+  if (paces.includes(String(prefs.pace))) out.pace = String(prefs.pace)
+  if (prefs.goal != null) { const g = String(prefs.goal).trim().slice(0, 120); if (g) out.goal = g }
+  if (prefs.examDate != null) { const e = String(prefs.examDate).trim().slice(0, 40); if (e) out.examDate = e }
+  return Object.keys(out).length ? out : null
+}
+
+async function generateLesson({ userId, topic, subject, gradeLevel, board, stream, language, mode, prefs }) {
   // Create a GENERATING placeholder — this ID is returned immediately in case of failure.
   const { id: lessonId } = await lessonService.createLesson({ userId, topic, subject, gradeLevel })
   const profile = { board, stream, language } // student's syllabus → AI never asks
+  const cleanPrefs = sanitizePrefs(prefs)
+  if (cleanPrefs) profile.prefs = cleanPrefs // how the student likes to learn (visual/story/pace/goal/exam)
 
   // MEMORY-DRIVEN PERSONALIZATION — fold in what we already know about this learner
   // (per-concept mastery, weak spots, revision-due, overall level) so the generated
