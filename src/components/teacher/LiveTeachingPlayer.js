@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import {
   View, Text, StyleSheet, ScrollView, Animated, Easing, Dimensions, Platform, TextInput,
 } from 'react-native';
@@ -1051,6 +1051,16 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     goTeach(Math.max(0, j));
   };
 
+  // Stable identities for the board callbacks so LessonBoard's React.memo isn't defeated
+  // by these functions being re-created every render. The refs always hold the latest
+  // closure, so behaviour and state are identical — only the prop identity is stabilized.
+  const onNextRef = useRef(onNext); onNextRef.current = onNext;
+  const quizResultRef = useRef(handleQuizResult); quizResultRef.current = handleQuizResult;
+  const reexplainRef = useRef(reexplain); reexplainRef.current = reexplain;
+  const onNextStable = useCallback((...a) => onNextRef.current(...a), []);
+  const onQuizResultStable = useCallback((...a) => quizResultRef.current(...a), []);
+  const onReexplainStable = useCallback((...a) => reexplainRef.current(...a), []);
+
   // ── derived avatar state + layout ──
   const teacherState = mode === M.LISTENING ? 'listening'
     : mode === M.THINKING ? 'thinking'
@@ -1237,7 +1247,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
           {showBoard && (
             <Animated.View style={[st.boardOuter, { transform: [{ scale: focusZoom }] }]}>
               <View style={st.lessonCard}>
-                <LessonBoard scene={scene} paused={!teaching} skip={false} resetKey={sceneKey} step={curBeat ? curBeat.boardStep : null} highlight={(curBeat && curBeat.highlight && curBeat.highlight.length) ? curBeat.highlight : keyTerms} action={curBeat && curBeat.boardAction} onQuizContinue={onNext} onQuizResult={handleQuizResult} onReexplain={reexplain} quizFb={quizFb} reteach={reteach} />
+                <LessonBoard scene={scene} paused={!teaching} skip={false} resetKey={sceneKey} step={curBeat ? curBeat.boardStep : null} highlight={(curBeat && curBeat.highlight && curBeat.highlight.length) ? curBeat.highlight : keyTerms} action={curBeat && curBeat.boardAction} onQuizContinue={onNextStable} onQuizResult={onQuizResultStable} onReexplain={onReexplainStable} quizFb={quizFb} reteach={reteach} />
                 <EraserWipe enabled={idx > 0} />
               </View>
             </Animated.View>

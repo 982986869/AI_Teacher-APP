@@ -499,7 +499,7 @@ export const hotSet = (highlight) => new Set((highlight || [])
 export const hasHot = (text, set) => !!set && set.size > 0 &&
   String(text || '').toLowerCase().split(/\s+/).some((w) => set.has(w.replace(/[^a-z0-9]/gi, '')));
 
-export default function LessonBoard({ scene, paused = false, skip = false, resetKey, step, highlight, action, onQuizContinue, onQuizResult, onReexplain, quizFb, reteach }) {
+function LessonBoard({ scene, paused = false, skip = false, resetKey, step, highlight, action, onQuizContinue, onQuizResult, onReexplain, quizFb, reteach }) {
   if (!scene) return null;
   // Subject illustrations (physics / chemistry / biology / maths / history) render
   // through their own engine, Director-controlled by `step` like every other board.
@@ -519,6 +519,11 @@ export default function LessonBoard({ scene, paused = false, skip = false, reset
     default: return <ConceptBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} step={step} highlight={highlight} />;
   }
 }
+
+// Memoized: with stable props from the player (callbacks stabilized via refs; scene/
+// step/highlight/action already reference-stable), the board no longer re-renders on the
+// player's frequent unrelated re-renders (ttsActive toggles, per-token doubt updates).
+export default React.memo(LessonBoard);
 
 const s = StyleSheet.create({
   boardWrap: { width: '100%', alignItems: 'center' },
