@@ -45,19 +45,23 @@ const PRAISE_STREAK = [
 ];
 
 // ── Reassurance — a WRONG answer, first time. Warm, never disappointed ────────
+// These must never claim the answer has been revealed: a wrong tap deliberately
+// leaves every option open so the student rethinks (see QuickCheckBoard — only a
+// CORRECT pick marks anything). Lines that pointed at "the highlighted one" sent
+// students hunting for a mark that was never drawn.
 const REASSURE = [
-  "Close — look again. The right one's marked.",
-  'Not quite, and that\'s okay. See the highlighted one?',
-  "Good try — the answer's the one glowing.",
+  "Close — have another look.",
+  "Not quite, and that's okay. Try another one.",
+  "Good try. One of the others fits better.",
   "Almost. Let's fix the idea together.",
-  "Nearly there. Notice which one is right.",
+  "Nearly there — read them once more.",
 ];
 
 // ── Repeated mistake — SAME idea missed again. Slow down, no frustration ──────
 const REASSURE_AGAIN = [
   "Let's slow right down — no rush at all.",
   "This one's tricky. Take a breath, we'll get it.",
-  "Happens to everyone. Watch the highlighted one carefully.",
+  "Happens to everyone. Let's read the question once more.",
   "Take your time. I'm not going anywhere.",
 ];
 

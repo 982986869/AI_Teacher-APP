@@ -18,7 +18,7 @@ import { FONT } from '../constants/fonts';
 import Svg, { Circle, G, Rect, Line, Text as RNSvgText } from 'react-native-svg';
 import MathText from '../components/MathText';
 import { useAuth } from '../context/AuthContext';
-import { getOnlineTestChapters, getOnlineTests, getOnlineTest } from '../api/onlineTestApi';
+import { getOnlineTestChapters, getOnlineTests, getOnlineTest, submitOnlineTest } from '../api/onlineTestApi';
 import { useClassSubjects, toTile } from '../utils/classSubjects';
 import { getOnlineTestAttempts, saveOnlineTestAttempt } from '../utils/storage';
 import { TK, ScreenHeader, FilterTabs, SubjectRow, ChapterRow, TestCard } from '../components/testCardKit';
@@ -260,6 +260,13 @@ export default function OnlineTestScreen({ onExit = () => {} }) {
       const percent = total ? Math.round((score / total) * 100) : 0;
       saveOnlineTestAttempt(attemptKey(test), { score, total, percent, date: new Date().toISOString() });
     }
+    // Also record it server-side so it reaches the parent's progress view. The server
+    // re-grades from its own answer key. Fire-and-forget: the local record above is
+    // what this screen reads, so a failed sync must never change what the student sees.
+    if (test && res.answers && Object.keys(res.answers).length) {
+      submitOnlineTest(test.id, { answers: res.answers, timeTakenSec: res.timeTakenSec || 0 })
+        .catch(() => {});
+    }
   };
 
   // (Re)load local attempt records whenever the tests list is shown.
@@ -438,7 +445,8 @@ function Runner({ test, onBack, onFinish }) {
       else { incorrect++; status = 'incorrect'; }
       return { id: q.id, selected: sel ?? null, status, time: times.current[i] || 0 };
     });
-    onFinish({ correct, incorrect, unanswered, total: qs.length, score, perQ, answers });
+    const timeTakenSec = times.current.reduce((n, t) => n + (t || 0), 0);
+    onFinish({ correct, incorrect, unanswered, total: qs.length, score, perQ, answers, timeTakenSec });
   };
   submitRef.current = submit;
 

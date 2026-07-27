@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
-  View, Text, StyleSheet, ScrollView, Animated, Easing, Dimensions, Platform, TextInput,
+  View, Text, StyleSheet, ScrollView, Animated, Easing, Dimensions, Platform, TextInput, Pressable,
 } from 'react-native';
 import LessonBoard from './LessonBoards';
 import TeacherAvatar from './TeacherAvatar';
@@ -11,11 +11,24 @@ import { directLesson } from './teachingDirector';
 import { focusTarget } from './cameraDirector';
 import { freshLearner, observe, assess } from './emotionEngine';
 import { ACTIONS, freshPedagogy, observePedagogy, decideNextAction, personalizedRecap, continuationHint } from './pedagogyEngine';
-import { C, D, F, SP, GLASS, GRAD, R } from './premiumTheme';
-import { PressableScale, Gradient } from './uiKit';
-import BoardSurface, { surfaceFor } from './boardSurfaces';
+// C comes in for ONE surface only: the board is a slate she writes chalk on, and
+// its colour has to be the same source of truth the SVG boards draw against —
+// otherwise the card and the chalk drift apart the moment either is re-themed.
+import { SP, R, C } from './premiumTheme';
+// The classroom runs on the APP-WIDE design system (studentTheme tokens + the Nunito
+// family + lucide icons), not a palette of its own — so a lesson looks like the rest
+// of the app rather than a separate product. Only SP/R (spacing + radii) still come
+// from premiumTheme: they are structural scales, not colours.
+import { S, shadow, shadowSm } from '../../theme/studentTheme';
+import { F } from '../../screens/parent/ParentApp/constants';
+import {
+  ChevronLeft, Mic, Square, Play, Pause, SkipBack, SkipForward,
+  RotateCcw, Volume2, VolumeX, ArrowUp, Check, AudioLines, Maximize2, Minimize2,
+  MoreHorizontal,
+} from 'lucide-react-native';
+import { PressableScale } from './uiKit';
 import { EraserWipe } from './boardGestures';
-import { AmbientStage, VoiceAura } from './ambientStage';
+import { BoardSizeProvider } from './boardSize';
 import { expressionForScene, praiseLine, reassureLine, listeningLine, completeLine, resumeBridge } from './teacherPersona';
 import { buildReteach } from './reteach';
 import { speakTeacher, stopTeacher, primeTeacherVoice, getSpeechProgress, SPEECH_OK, speakTeacherQueued, resetTeacherQueue, isTeacherQueueActive } from '../../utils/teacherVoice';
@@ -34,7 +47,6 @@ const { width: SCREEN_W, height: SCREEN_H } = Dimensions.get('window');
 // Circular illustrated teacher avatar: large & centred when she's just talking;
 // small in the top-right corner once a slide / whiteboard is on screen.
 const AV_HERO = Math.round(Math.min(176, SCREEN_W * 0.46, SCREEN_H * 0.23));
-const AV_CORNER = Math.round(Math.min(90, SCREEN_W * 0.24));
 // She stays present (not a corner chip) while a board is on screen — a confident
 // mid size that keeps her the anchor of the scene without crowding her workspace.
 const AV_STAGE = Math.round(Math.min(124, SCREEN_W * 0.34, SCREEN_H * 0.16));
@@ -56,21 +68,6 @@ const M = {
   ANSWERING: 'ANSWERING',   // speaking the answer to a doubt
   COMPLETED: 'COMPLETED',   // lesson finished
 };
-
-// ── warm peach background ─────────────────────────────────────────────────────
-const WarmGradient = () => (
-  <View style={StyleSheet.absoluteFill}>
-    {C.peachBands.map((c, i) => <View key={i} style={{ flex: 1, backgroundColor: c }} />)}
-  </View>
-);
-const BottomScrim = () => (
-  <View style={StyleSheet.absoluteFill} pointerEvents="none">
-    <View style={{ flex: 1 }} />
-    <View style={{ height: '55%' }}>
-      {C.scrim.map((c, i) => <View key={i} style={{ flex: 1, backgroundColor: c }} />)}
-    </View>
-  </View>
-);
 
 function Appear({ children, style, from = 'up', delay = 0 }) {
   const a = useRef(new Animated.Value(0)).current;
@@ -130,7 +127,7 @@ function Underline() {
     anim.start();
     return () => anim.stop();
   }, [a]);
-  return <Animated.View style={{ height: 3, borderRadius: 2, backgroundColor: C.accent, marginTop: 7, width: a.interpolate({ inputRange: [0, 1], outputRange: ['0%', '34%'] }) }} />;
+  return <Animated.View style={{ height: 3, borderRadius: 2, backgroundColor: S.indigo, marginTop: 7, width: a.interpolate({ inputRange: [0, 1], outputRange: ['0%', '34%'] }) }} />;
 }
 
 // ── speaking waveform (purple/blue audio bars) shown ABOVE the teacher ────────
@@ -160,7 +157,7 @@ function Waveform({ active }) {
         return (
           <Animated.View key={i} style={[st.waveBar, {
             height: v.interpolate({ inputRange: [0, 1], outputRange: [4, max] }),
-            backgroundColor: i % 2 ? C.blue : C.accent,
+            backgroundColor: i % 2 ? S.blue : S.indigo,
             opacity: active ? 0.9 : 0.3,
           }]} />
         );
@@ -169,32 +166,8 @@ function Waveform({ active }) {
   );
 }
 
-// ── floating corner teacher — circular avatar that slides in to the top-right ──
-// `cam` is the Camera Director's rack-focus (0 teacher · 1 board): she grows and
-// brightens when the shot is on HER, and eases back a touch when it's on the board.
-function CornerTeacher({ state, expression, cam }) {
-  const enter = useRef(new Animated.Value(0)).current;
-  useEffect(() => {
-    const a = Animated.spring(enter, { toValue: 1, friction: 7, tension: 60, useNativeDriver: true });
-    a.start();
-    return () => a.stop();
-  }, [enter]);
-  const camScale = cam ? cam.interpolate({ inputRange: [0, 1], outputRange: [1.14, 0.9] }) : 1;
-  const camOpacity = cam ? cam.interpolate({ inputRange: [0, 1], outputRange: [1, 0.85] }) : 1;
-  return (
-    <Animated.View pointerEvents="none" style={[st.cornerWrap, {
-      opacity: enter,
-      transform: [
-        { translateX: enter.interpolate({ inputRange: [0, 1], outputRange: [26, 0] }) },
-        { scale: enter.interpolate({ inputRange: [0, 1], outputRange: [0.78, 1] }) },
-      ],
-    }]}>
-      <Animated.View style={{ opacity: camOpacity, transform: [{ scale: camScale }] }}>
-        <TeacherAvatar theme="dark" video={TEACHER_VIDEO} photo={TEACHER_HEADSHOT} state={state} expression={expression} size={AV_CORNER} />
-      </Animated.View>
-    </Animated.View>
-  );
-}
+// (The floating corner avatar is gone: she is now a chip on the slate itself in
+// both modes, so there is one place — and one size — she ever appears.)
 
 // ── caption: karaoke-style — every word starts dim and brightens exactly as the
 // teacher speaks it. Sync comes from the real audio position (getSpeechProgress),
@@ -286,8 +259,8 @@ function VoiceMic({ onStart, onPartial, onFinal, onEnd, onError, dock }) {
   return (
     <PressableScale onPress={toggle} style={st.dItem} scaleTo={0.9} accessibilityLabel={busy ? 'Stop listening' : 'Ask the teacher a question'}>
       {busy
-        ? <View style={[st.dMic, st.dMicOn]}><Text style={st.dMicIcon}>■</Text></View>
-        : <Gradient colors={GRAD.violet} style={st.dMic}><Text style={st.dMicIcon}>🎤</Text></Gradient>}
+        ? <View style={[st.dMic, st.dMicOn]}><Square size={18} color="#fff" strokeWidth={2.4} fill="#fff" /></View>
+        : <View style={st.dMic}><Mic size={22} color="#fff" strokeWidth={2.4} /></View>}
       <Text style={[st.dLbl, st.dLblPrimary]}>{busy ? 'Stop' : 'Ask'}</Text>
     </PressableScale>
   );
@@ -314,21 +287,23 @@ const TIER_LABEL = { high: 'High match', medium: 'Fair match', low: 'Low match' 
 function DoubtMeta({ meta }) {
   if (!meta) return null;
   const { concept, prereqs, tier, grounded } = meta;
-  const tierColor = tier === 'high' ? C.green : tier === 'medium' ? C.orange : C.dim;
+  const tierColor = tier === 'high' ? S.emerald : tier === 'medium' ? S.orange : S.faint;
   return (
     <View style={st.metaWrap}>
       <View style={st.metaRow}>
         {grounded != null && (
           <View style={[st.metaPill, grounded ? st.metaPillOn : null]}>
-            <Text style={[st.metaPillTxt, grounded ? st.metaPillTxtOn : null]}>
+            <Text style={[st.metaPillTxt, grounded ? st.metaPillTxtStrong : null]}>
               {grounded ? '📘 From your material' : '🌐 General knowledge'}
             </Text>
           </View>
         )}
         {!!tier && (
+          // The match strength is carried by the dot + border, not the label colour —
+          // a tinted 10px label would not clear AA contrast on any of the three tiers.
           <View style={[st.metaPill, { borderColor: tierColor }]}>
             <View style={[st.metaDot, { backgroundColor: tierColor }]} />
-            <Text style={[st.metaPillTxt, { color: tierColor }]}>{TIER_LABEL[tier] || tier}</Text>
+            <Text style={st.metaPillTxtStrong}>{TIER_LABEL[tier] || tier}</Text>
           </View>
         )}
       </View>
@@ -372,6 +347,17 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const [doubtDone, setDoubtDone] = useState(false); // answer fully spoken
   const [hint, setHint] = useState('');
   const [voiceOpen, setVoiceOpen] = useState(false); // voice-picker sheet
+  // ── IMMERSIVE BOARD ──────────────────────────────────────────────────────────
+  // The board stops being a card in a scroll and becomes the whole stage: teacher
+  // shrinks to the corner, her line sits over the board, and the chrome fades out
+  // while she teaches. Opt-in per lesson via the header toggle — flip this to
+  // `useState(true)` to make the full-screen board the default for every lesson.
+  const [immersive, setImmersive] = useState(false);
+  const [chromeOn, setChromeOn] = useState(true);   // header + dock visible?
+  const [stageH, setStageH] = useState(0);          // measured stage height → board scale
+  const [menuOpen, setMenuOpen] = useState(false);  // the ⋯ sheet (voice · new lesson)
+  const chromeA = useRef(new Animated.Value(1)).current;
+  const chromeTimer = useRef(null);
   const [reactExpr, setReactExpr] = useState(null);  // transient face after a quick-check (celebrate / encouraging)
   const [gestureExpr, setGestureExpr] = useState(null); // transient 'pointing' lead — she points at the board a beat before she speaks
   const [quizFb, setQuizFb] = useState(null);        // { correct, line } — the human line for the last quick-check
@@ -680,7 +666,9 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const pause = () => { stopTeacher(); setTtsActive(false); setMode(M.PAUSED); };
   const resume = () => { setMode(M.TEACHING); setAnimKey((k) => k + 1); };
   const togglePlay = () => { if (teaching) pause(); else if (mode === M.PAUSED) resume(); };
-  const onPrev = () => { if (idx > 0) goTeach(idx - 1); };
+  // Prev absorbed Replay when the dock dropped to four buttons: on the first scene
+  // there is nothing behind you, so "back" can only sensibly mean "say that again".
+  const onPrev = () => { if (idx > 0) goTeach(idx - 1); else onRefresh(); };
   const onNext = () => { if (idx < N - 1) goTeach(idx + 1); else { stopTeacher(); setMode(M.COMPLETED); } };
   const onRefresh = () => { feelLearner('replay'); observeTeach({ type: 'replay' }); setQuizFb(null); setReactExpr(null); setBeat(0); setMode(M.TEACHING); setAnimKey((k) => k + 1); }; // replaying a scene → she eases the pace
   const onReplayLesson = () => { goTeach(0); };
@@ -812,14 +800,8 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const beatText = (curBeat && curBeat.say) || lastSayRef.current || scene.teacherLine || '';
   const captionText = qa ? (qa.a || 'Thinking…') : beatText;
 
-  const progress = N ? (idx + 1) / N : 0;
-  // Glide the progress bar between scenes instead of snapping (premium micro-motion).
-  const progressA = useRef(new Animated.Value(progress)).current;
-  useEffect(() => {
-    const a = Animated.timing(progressA, { toValue: progress, duration: 480, easing: Easing.out(Easing.cubic), useNativeDriver: false });
-    a.start();
-    return () => a.stop();
-  }, [progress, progressA]);
+  // (Progress is the row of dots on the slate now — a bar that fills is a task
+  // being completed, which is not what following an explanation is.)
   const sceneKey = `${idx}-${animKey}`;
   const beatKey = `${idx}-${beat}-${animKey}`; // karaoke highlight resets per beat
 
@@ -883,61 +865,179 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const boardScale = cam.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0.985, 1.0, 1.035] });
   const boardOpacity = cam.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0.82, 0.94, 1.0] });
 
+  // ── How much bigger the board draws on the immersive stage ───────────────────
+  // Measured, not guessed: the stage reports its own height and the board grows into
+  // it. The divisor is the TALLEST board base (ProofBoard, 220) rather than a typical
+  // one — scale by the average and the tall boards overflow their card on every phone
+  // below a Pro Max. Shorter boards simply keep some slack, which is correct: their
+  // viewBox aspect is preserved, never stretched. Capped at 2.4 so a tablet does not
+  // turn a lesson into a poster.
+  // Card mode grows with its content, so a plain View is right there. The immersive
+  // stage is a FIXED box, so the board needs its own scroller — otherwise a tall
+  // board (a quick check, a long points list) is centred until it outgrows the card
+  // and then gets clipped away entirely. Only one scroller is ever live: the page
+  // scroller is disabled whenever this one exists.
+  const BoardHolder = immersive ? ScrollView : View;
+
+  const MAX_BOARD_BASE = 220;
+  const CARD_PAD_V = SP.md * 2;
+  const boardSizeScale = (immersive && stageH > 0)
+    ? Math.max(1, Math.min(2.4, (stageH - CARD_PAD_V) / MAX_BOARD_BASE))
+    : 1;
+
+  // ── Chrome auto-hide ────────────────────────────────────────────────────────
+  // On the immersive stage the controls step out of the way WHILE SHE IS TEACHING,
+  // like a video player. They come straight back on any tap, and they are forced
+  // back whenever the student is being asked to do something (paused, listening,
+  // thinking, answering, finished) — controls must never be hidden at the moment
+  // they are needed.
+  const holdChrome = !immersive || mode !== M.TEACHING || !ttsActive;
+  useEffect(() => {
+    clearTimeout(chromeTimer.current);
+    if (holdChrome) { setChromeOn(true); return undefined; }
+    if (!chromeOn) return undefined;
+    chromeTimer.current = setTimeout(() => setChromeOn(false), 4000);
+    return () => clearTimeout(chromeTimer.current);
+  }, [holdChrome, chromeOn, idx]);
+  useEffect(() => () => clearTimeout(chromeTimer.current), []);
+  useEffect(() => {
+    const a = Animated.timing(chromeA, {
+      toValue: chromeOn ? 1 : 0, duration: 260, easing: Easing.out(Easing.cubic), useNativeDriver: true,
+    });
+    a.start();
+    return () => a.stop();
+  }, [chromeOn, chromeA]);
+  // Any tap on the stage brings the chrome back (and restarts its idle countdown).
+  const wakeChrome = () => setChromeOn(true);
+  const chromeStyle = { opacity: chromeA };
+  const chromeHidden = immersive && !chromeOn;
+
   return (
-    <View style={st.container}>
-      {/* clean warm editorial background (C.cream) — no ambient, mobile-first */}
+    // The capture handler sits on the ROOT, not the stage: when the chrome is hidden
+    // the dock is pointerEvents:none, so a tap down there would otherwise land on
+    // nothing. Returning false means it never steals the gesture — buttons, the board
+    // and the quiz options all still get it.
+    <View
+      style={st.container}
+      onStartShouldSetResponderCapture={immersive ? () => { wakeChrome(); return false; } : undefined}
+    >
+      {/* the room is a flat S.canvas — no ambient art, so the board is the only focus */}
 
-      {/* ── HEADER (fixed) ── */}
-      <View style={st.bar}>
-        <PressableScale onPress={() => { stopTeacher(); onExit && onExit(); }} style={st.barIcon} accessibilityLabel="Exit lesson"><Text style={st.barIconTxt}>‹</Text></PressableScale>
-        <View style={st.progressTrack} accessibilityRole="progressbar" accessibilityValue={{ now: Math.min(idx + 1, N), min: 0, max: N }}><Animated.View style={[st.progressFill, { width: progressA.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]} /></View>
-        <Text style={st.counter} accessibilityLabel={`Step ${Math.min(idx + 1, N)} of ${N}`}>{Math.min(idx + 1, N)}/{N}</Text>
-        <PressableScale onPress={() => { stopTeacher(); setVoiceOpen(true); }} style={st.barIcon} accessibilityLabel="Choose teacher voice"><Text style={st.barIconTxt2}>🎙</Text></PressableScale>
-        <PressableScale onPress={toggleMute} style={st.barIcon} accessibilityLabel={muted ? 'Unmute narration' : 'Mute narration'}><Text style={st.barIconTxt2}>{muted ? '🔇' : '🔊'}</Text></PressableScale>
-        {!!onNewLesson && <PressableScale onPress={onNewLesson} style={st.barIcon} accessibilityLabel="Start a new lesson"><Text style={st.barIconTxt2}>↺</Text></PressableScale>}
-      </View>
+      {/* ── HEADER (fixed; fades out on the immersive stage while she teaches) ── */}
+      <Animated.View style={[st.bar, chromeStyle]} pointerEvents={chromeHidden ? 'none' : 'auto'}>
+        <PressableScale onPress={() => { stopTeacher(); onExit && onExit(); }} style={st.barIcon} accessibilityLabel="Leave lesson"><ChevronLeft size={20} color={S.ink} strokeWidth={2.6} /></PressableScale>
+        {/* Topic + where she is, as ONE reading. "Concept 3 of 9" is learning
+            progress; the old "5/11" + bar read as slides to get through, which is
+            an invitation to skip rather than to follow. */}
+        <View style={st.headTxt}>
+          <Text style={st.headTopic} numberOfLines={1}>{lessonTopic}</Text>
+          <Text style={st.headPos} accessibilityLabel={`Concept ${conceptNo} of ${conceptTotal}`}>Concept {conceptNo} of {conceptTotal}</Text>
+        </View>
+        <PressableScale onPress={toggleMute} style={st.barIcon} accessibilityLabel={muted ? 'Unmute narration' : 'Mute narration'}>
+          {muted ? <VolumeX size={17} color={S.muted} strokeWidth={2.4} /> : <Volume2 size={17} color={S.ink} strokeWidth={2.4} />}
+        </PressableScale>
+        {/* Everything that is set once — her voice, starting over — lives behind
+            this, not on the bar a student stares at for twenty minutes. */}
+        <PressableScale onPress={() => setMenuOpen((v) => !v)} style={st.barIcon} accessibilityLabel="Lesson options" accessibilityState={{ expanded: menuOpen }}>
+          <MoreHorizontal size={18} color={S.ink} strokeWidth={2.6} />
+        </PressableScale>
+      </Animated.View>
 
-      {/* ── learning-progress context (topic · concept N of M) — reads as learning
-          progress, not a slide counter ── */}
-      <View style={st.contextBar}>
-        <Text style={st.ctxTopic} numberOfLines={1}>{lessonTopic}</Text>
-        <Text style={st.ctxStep}>Concept {conceptNo} of {conceptTotal}</Text>
-      </View>
+      {menuOpen && (
+        <>
+          <Pressable style={st.menuScrim} onPress={() => setMenuOpen(false)} accessibilityLabel="Close options" />
+          <View style={st.menu}>
+            <PressableScale style={st.menuItem} onPress={() => { setMenuOpen(false); stopTeacher(); setVoiceOpen(true); }} accessibilityLabel="Choose teacher voice">
+              <AudioLines size={16} color={S.ink} strokeWidth={2.4} />
+              <Text style={st.menuTxt}>Teacher voice</Text>
+            </PressableScale>
+            {!!onNewLesson && (
+              <PressableScale style={st.menuItem} onPress={() => { setMenuOpen(false); onNewLesson(); }} accessibilityLabel="Start a new lesson">
+                <RotateCcw size={16} color={S.ink} strokeWidth={2.4} />
+                <Text style={st.menuTxt}>New lesson</Text>
+              </PressableScale>
+            )}
+          </View>
+        </>
+      )}
 
       <VoicePicker visible={voiceOpen} onClose={() => setVoiceOpen(false)} />
 
-      {/* ── THE LESSON (warm editorial) — Ms. Nova top-left header, a clean white
+      {/* ── THE LESSON — Ms. Nova top-left header, a clean white
           board card, her words below. Mobile-first, no student PiP. The teacher row
           is persistent (never remounts); only the material transitions per scene. */}
-      <ScrollView style={st.scroll} contentContainerStyle={st.lessonScroll} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
-        <View style={st.teacherBar}>
-          <TeacherAvatar theme="dark" video={TEACHER_VIDEO} photo={TEACHER_HEADSHOT} state={teacherState} expression={expression} size={46} />
-          <View style={{ flex: 1 }}>
-            <Text style={st.teacherName}>Ms. Nova</Text>
-            <View style={st.statusRow}>
-              <View style={[st.statusDot, ttsActive && st.statusDotOn]} />
-              <Text style={st.statusTxt}>{mode === M.LISTENING ? 'Listening' : mode === M.THINKING ? 'Thinking' : ttsActive ? 'Teaching' : mode === M.PAUSED ? 'Paused' : 'Ready'}</Text>
-            </View>
-          </View>
-        </View>
+      <ScrollView
+        style={st.scroll}
+        contentContainerStyle={immersive ? st.lessonScrollFull : st.lessonScroll}
+        scrollEnabled={!immersive}
+        showsVerticalScrollIndicator={false}
+        keyboardShouldPersistTaps="handled"
+      >
+        <Stage key={sceneKey} style={immersive ? st.workAreaFull : st.workArea}>
+          {/* The slate is ALWAYS up — she doesn't wheel the board out between ideas.
+              On a scene with nothing to draw (the opener, a bare recap) it carries
+              her name and the title alone, which is exactly what a real board shows
+              at that moment. Only the drawing below is conditional. */}
+          {(
+            <Animated.View
+              style={[immersive ? st.boardOuterFull : st.boardOuter, { transform: [{ scale: focusZoom }] }]}
+              onLayout={immersive ? (e) => setStageH(Math.round(e.nativeEvent.layout.height)) : undefined}
+            >
+              {/* ── THE SLATE ── everything about the lesson lives on it: who is
+                  speaking, what she is writing, and how far in we are. Nothing about
+                  the lesson sits outside it except her current sentence. */}
+              <View style={immersive ? st.lessonCardFull : st.lessonCard}>
+                <View style={st.slateTop}>
+                  {/* She is a small presence ON the board, not a row above it — the
+                      old 46px header cost more height than it earned. */}
+                  <View style={st.speakChip}>
+                    <TeacherAvatar theme="dark" video={TEACHER_VIDEO} photo={TEACHER_HEADSHOT} state={teacherState} expression={expression} size={20} />
+                    <Text style={st.speakName}>Ms. Nova</Text>
+                    <Text style={st.speakState}>{mode === M.LISTENING ? 'listening' : mode === M.THINKING ? 'thinking' : ttsActive ? 'speaking' : mode === M.PAUSED ? 'paused' : 'ready'}</Text>
+                  </View>
+                  <PressableScale onPress={() => { setImmersive((v) => !v); setChromeOn(true); }} style={st.slateExpand}
+                    accessibilityLabel={immersive ? 'Exit full-screen board' : 'Full-screen board'}
+                    accessibilityState={{ selected: immersive }}>
+                    {immersive
+                      ? <Minimize2 size={13} color={C.ink2} strokeWidth={2.2} />
+                      : <Maximize2 size={13} color={C.ink2} strokeWidth={2.2} />}
+                  </PressableScale>
+                </View>
 
-        <Stage key={sceneKey} style={st.workArea}>
-          {!!scene.kicker && <Text style={st.kicker}>{scene.kicker}</Text>}
-          {!!scene.title && <Text style={st.title}>{scene.title}</Text>}
-          {showBoard && (
-            <Animated.View style={[st.boardOuter, { transform: [{ scale: focusZoom }] }]}>
-              <View style={st.lessonCard}>
-                <LessonBoard scene={scene} paused={!teaching} skip={false} resetKey={sceneKey} step={curBeat ? curBeat.boardStep : null} highlight={(curBeat && curBeat.highlight && curBeat.highlight.length) ? curBeat.highlight : keyTerms} action={curBeat && curBeat.boardAction} onQuizContinue={onNext} onQuizResult={handleQuizResult} onReexplain={reexplain} quizFb={quizFb} reteach={reteach} />
+                {!!scene.kicker && <Text style={st.kicker}>{scene.kicker}</Text>}
+                {!!scene.title && <Text style={immersive ? st.titleFull : st.title} numberOfLines={2}>{scene.title}</Text>}
+
+                {/* The board scrolls INSIDE the slate. A quick check is far taller
+                    than a diagram, and on the full-screen stage a centred child that
+                    outgrows its card was being clipped to nothing. */}
+                {showBoard && (
+                  <BoardHolder
+                    style={immersive ? st.boardHolderFull : st.boardHolder}
+                    contentContainerStyle={immersive ? st.boardHolderContent : undefined}
+                    showsVerticalScrollIndicator={false}
+                  >
+                    <BoardSizeProvider value={boardSizeScale}>
+                      <LessonBoard scene={scene} paused={!teaching} skip={false} resetKey={sceneKey} step={curBeat ? curBeat.boardStep : null} highlight={(curBeat && curBeat.highlight && curBeat.highlight.length) ? curBeat.highlight : keyTerms} action={curBeat && curBeat.boardAction} onQuizContinue={onNext} onQuizResult={handleQuizResult} onReexplain={reexplain} quizFb={quizFb} reteach={reteach} />
+                    </BoardSizeProvider>
+                  </BoardHolder>
+                )}
+
+                {N > 1 && N <= 14 && (
+                  <View style={st.dots} accessibilityRole="progressbar" accessibilityValue={{ now: Math.min(idx + 1, N), min: 0, max: N }}>
+                    {scenes.map((_, i) => <View key={i} style={[st.dot, i <= idx && st.dotOn]} />)}
+                  </View>
+                )}
                 <EraserWipe enabled={idx > 0} />
               </View>
             </Animated.View>
           )}
-          <View style={st.captionWrap}>{captionEl}</View>
+          <View style={immersive ? st.captionWrapFull : st.captionWrap}>{captionEl}</View>
         </Stage>
       </ScrollView>
 
-      {/* ── STUDENT + STATUS + CONTROL DOCK (fixed) ── */}
-      <View style={st.bottom}>
+
+      {/* ── STUDENT + STATUS + CONTROL DOCK (fixed; fades with the header) ── */}
+      <Animated.View style={[st.bottom, chromeStyle]} pointerEvents={chromeHidden ? 'none' : 'auto'}>
         {mode === M.LISTENING && VOICE_OK && <Text style={st.listenTxt} numberOfLines={2}>{partial || 'Listening… ask your question'}</Text>}
         {mode === M.THINKING && <Text style={st.listenTxt}>Thinking…</Text>}
 
@@ -946,18 +1046,19 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
             <TextInput
               style={st.askInput}
               placeholder="Type your question…"
-              placeholderTextColor={D.textFaint}
+              placeholderTextColor={S.faint}
               value={qInput} onChangeText={setQInput}
               onSubmitEditing={() => sendDoubt()} returnKeyType="send" autoFocus
               accessibilityLabel="Type your question for the teacher"
             />
-            <PressableScale style={st.askSend} onPress={() => sendDoubt()} accessibilityLabel="Send question"><Text style={st.askSendTxt}>↑</Text></PressableScale>
+            <PressableScale style={st.askSend} onPress={() => sendDoubt()} accessibilityLabel="Send question"><ArrowUp size={20} color="#fff" strokeWidth={2.8} /></PressableScale>
           </View>
         )}
 
         {mode === M.ANSWERING && (
           <PressableScale style={st.resumeBtn} onPress={resumeFromDoubt} accessibilityLabel="Resume the lesson">
-            <Text style={st.resumeTxt}>▶  Resume lesson</Text>
+            <Play size={15} color="#fff" strokeWidth={2.6} fill="#fff" />
+            <Text style={st.resumeTxt}>Resume lesson</Text>
           </PressableScale>
         )}
 
@@ -967,12 +1068,20 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
             transport is secondary with small, quiet labels for discoverability. */}
         {mode !== M.THINKING && mode !== M.COMPLETED && (
           <View style={st.dock}>
-            <PressableScale style={st.dItem} onPress={onPrev} disabled={idx === 0} accessibilityLabel="Previous step">
-              <View style={st.dGhost}><Text style={[st.dGlyph, idx === 0 && st.dDim]}>⏮</Text></View>
-              <Text style={st.dLbl}>Prev</Text>
+            <PressableScale style={st.dItem} onPress={onPrev} accessibilityLabel={idx === 0 ? 'Say that again' : 'Previous step'}>
+              <View style={st.dGhost}>
+                {idx === 0
+                  ? <RotateCcw size={17} color={S.sub} strokeWidth={2.4} />
+                  : <SkipBack size={17} color={S.sub} strokeWidth={2.4} fill={S.sub} />}
+              </View>
+              <Text style={st.dLbl}>{idx === 0 ? 'Again' : 'Prev'}</Text>
             </PressableScale>
             <PressableScale style={st.dItem} onPress={togglePlay} scaleTo={0.92} accessibilityLabel={teaching ? 'Pause the lesson' : 'Play the lesson'}>
-              <View style={st.dGhost}><Text style={st.dGlyph}>{teaching ? '⏸' : '▶'}</Text></View>
+              <View style={st.dGhost}>
+                {teaching
+                  ? <Pause size={17} color={S.sub} strokeWidth={2.4} fill={S.sub} />
+                  : <Play size={17} color={S.sub} strokeWidth={2.4} fill={S.sub} />}
+              </View>
               <Text style={st.dLbl}>{teaching ? 'Pause' : 'Play'}</Text>
             </PressableScale>
             {!!onAsk && (VOICE_OK ? (
@@ -985,21 +1094,19 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
               />
             ) : (
               <PressableScale style={st.dItem} onPress={beginListen} scaleTo={0.9} accessibilityLabel="Ask the teacher a question">
-                <Gradient colors={GRAD.violet} style={st.dMic}><Text style={st.dMicIcon}>🎤</Text></Gradient>
+                <View style={st.dMic}><Mic size={22} color="#fff" strokeWidth={2.4} /></View>
                 <Text style={[st.dLbl, st.dLblPrimary]}>Ask</Text>
               </PressableScale>
             ))}
-            <PressableScale style={st.dItem} onPress={onRefresh} accessibilityLabel="Replay this step">
-              <View style={st.dGhost}><Text style={st.dGlyph}>↻</Text></View>
-              <Text style={st.dLbl}>Replay</Text>
-            </PressableScale>
+            {/* Replay is gone: Prev already re-teaches the step you are on the moment
+                you step back into it, so two buttons were doing one job. */}
             <PressableScale style={st.dItem} onPress={onNext} accessibilityLabel="Next step">
-              <View style={st.dGhost}><Text style={st.dGlyph}>⏭</Text></View>
+              <View style={st.dGhost}><SkipForward size={17} color={S.sub} strokeWidth={2.4} fill={S.sub} /></View>
               <Text style={st.dLbl}>Next</Text>
             </PressableScale>
           </View>
         )}
-      </View>
+      </Animated.View>
 
       {/* ── COMPLETED ── */}
       {mode === M.COMPLETED && (
@@ -1014,7 +1121,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
                 <Text style={st.learnedHead}>Today you learned</Text>
                 {learned.map((t, i) => (
                   <Appear key={i} delay={220 + i * 90} style={st.learnedRow}>
-                    <View style={st.learnedTick}><Text style={st.learnedTickTxt}>✓</Text></View>
+                    <View style={st.learnedTick}><Check size={12} color={S.emerald} strokeWidth={3.2} /></View>
                     <Text style={st.learnedTxt} numberOfLines={2}>{t}</Text>
                   </Appear>
                 ))}
@@ -1032,7 +1139,10 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
 
             <View style={st.doneRow}>
               <PressableScale style={[st.doneBtn, st.doneGhost]} onPress={() => { stopTeacher(); onExit && onExit(); }} accessibilityLabel="Finish and exit"><Text style={st.doneGhostTxt}>Done</Text></PressableScale>
-              <PressableScale style={[st.doneBtn, st.donePrimary]} onPress={onReplayLesson} accessibilityLabel="Replay the lesson"><Text style={st.donePrimaryTxt}>↺ Replay</Text></PressableScale>
+              <PressableScale style={[st.doneBtn, st.donePrimary]} onPress={onReplayLesson} accessibilityLabel="Replay the lesson">
+              <RotateCcw size={15} color="#fff" strokeWidth={2.6} />
+              <Text style={st.donePrimaryTxt}>Replay</Text>
+            </PressableScale>
             </View>
             {!!onNewLesson && (
               <PressableScale onPress={onNewLesson} style={st.doneNew} accessibilityLabel="Start a new topic"><Text style={st.doneNewTxt}>Learn a new topic</Text></PressableScale>
@@ -1044,47 +1154,51 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   );
 }
 
-// ── DARK CLASSROOM ────────────────────────────────────────────────────────────
-// The room lights go down; the whiteboard is the only lit surface. The board card
-// stays on the LIGHT tokens (C.board / C.ink) so every SVG board in LessonBoards
-// renders unchanged inside it — only the chrome around it goes dark (D.*).
+// ── THE LIT CLASSROOM ─────────────────────────────────────────────────────────
+// Built on the app's studentTheme tokens so a lesson sits inside the product
+// rather than beside it. Three deliberate depth planes, quietest to loudest:
+//   0  the room      S.canvas          — never competes for attention
+//   1  chrome        S.card + S.hair   — header, teacher bar, caption, dock
+//   2  the board     S.card + shadow   — the ONE elevated surface; it is the lesson
+// Elevation does the separating, not colour, so the eye lands on the whiteboard
+// first every time. Contrast is held at WCAG AA for every piece of running text
+// (see capDim — the not-yet-spoken words stay readable, only quieter).
 const st = StyleSheet.create({
-  container: { flex: 1, backgroundColor: D.bg },
+  container: { flex: 1, backgroundColor: S.canvas },
   paperFaint: { opacity: 0.35 },
 
-  // header (fixed) — ghost circle glyphs over the dark room
-  bar: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: SP.md, paddingTop: SP.sm, paddingBottom: SP.xs },
-  barIcon: { width: 34, height: 34, borderRadius: 17, alignItems: 'center', justifyContent: 'center', backgroundColor: D.fill, borderWidth: 1, borderColor: D.edgeSoft },
-  barIconTxt: { fontSize: 22, color: D.text, marginTop: -3 },
-  barIconTxt2: { fontSize: 14, color: D.text },
-  progressTrack: { flex: 1, height: 4, backgroundColor: 'rgba(255,255,255,0.14)', borderRadius: 8, overflow: 'hidden' },
-  progressFill: { height: '100%', backgroundColor: C.accent, borderRadius: 8 },
-  counter: { fontSize: 11, fontFamily: F.semi, color: D.textFaint, minWidth: 30, textAlign: 'right', letterSpacing: 0.5 },
+  // header (fixed) — leave · what we're on · mute · ⋯ . Four things, because the
+  // fifth one is always the one tapped by accident.
+  bar: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: SP.md, paddingTop: SP.sm, paddingBottom: SP.sm },
+  barIcon: { width: 34, height: 34, borderRadius: 17, alignItems: 'center', justifyContent: 'center', backgroundColor: S.card, borderWidth: 1, borderColor: S.border },
+  headTxt: { flex: 1, minWidth: 0 },
+  headTopic: { fontSize: 14, fontFamily: F.xbold, color: S.ink, letterSpacing: -0.2 },
+  headPos: { fontSize: 10, fontFamily: F.bold, color: S.muted, letterSpacing: 0.7, textTransform: 'uppercase', marginTop: 1 },
 
-  // learning-progress context strip (topic + concept N of M)
-  contextBar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12, paddingHorizontal: SP.md, paddingTop: 2, paddingBottom: SP.sm },
-  ctxTopic: { flex: 1, fontSize: 13, fontFamily: F.bold, color: D.text, letterSpacing: -0.2 },
-  ctxStep: { fontSize: 10.5, fontFamily: F.semi, color: D.textDim, letterSpacing: 0.6, textTransform: 'uppercase' },
+  // ⋯ sheet — set-once controls, kept off the bar
+  menuScrim: { ...StyleSheet.absoluteFillObject, zIndex: 20 },
+  menu: { position: 'absolute', top: 52, right: SP.md, zIndex: 21, backgroundColor: S.card, borderRadius: R.lg, borderWidth: 1, borderColor: S.hair, paddingVertical: 6, minWidth: 178, ...shadow },
+  menuItem: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 11, paddingHorizontal: SP.md },
+  menuTxt: { fontSize: 13.5, fontFamily: F.semi, color: S.ink },
 
   // completion: "today you learned" checklist + count-up stats + adaptive next line
   learnedWrap: { alignSelf: 'stretch', marginTop: SP.md, gap: 8 },
-  learnedHead: { fontSize: 11, fontFamily: F.bold, color: D.textDim, letterSpacing: 1.2, textTransform: 'uppercase', marginBottom: 2, textAlign: 'left' },
+  learnedHead: { fontSize: 11, fontFamily: F.xbold, color: S.muted, letterSpacing: 1.2, textTransform: 'uppercase', marginBottom: 2, textAlign: 'left' },
   learnedRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
-  learnedTick: { width: 20, height: 20, borderRadius: 10, backgroundColor: 'rgba(16,185,129,0.18)', alignItems: 'center', justifyContent: 'center' },
-  learnedTickTxt: { fontSize: 12, fontWeight: '900', color: C.green },
-  learnedTxt: { flex: 1, fontSize: 14, fontFamily: F.semi, color: D.text },
+  learnedTick: { width: 20, height: 20, borderRadius: 10, backgroundColor: S.emeraldSoft, alignItems: 'center', justifyContent: 'center' },
+  learnedTxt: { flex: 1, fontSize: 14, fontFamily: F.semi, color: S.sub },
   statRow: { flexDirection: 'row', alignSelf: 'stretch', justifyContent: 'center', gap: 30, marginTop: SP.lg },
   statBox: { alignItems: 'center' },
-  statNum: { fontSize: 26, fontFamily: F.black, color: '#A5B4FC', letterSpacing: -0.5 },
-  statLbl: { fontSize: 10, fontFamily: F.semi, color: D.textDim, letterSpacing: 1, textTransform: 'uppercase', marginTop: 2 },
-  recoTxt: { fontSize: 12.5, fontFamily: F.med, color: D.textDim, textAlign: 'center', marginTop: SP.lg },
+  statNum: { fontSize: 26, fontFamily: F.black, color: S.indigo, letterSpacing: -0.5 },
+  statLbl: { fontSize: 10, fontFamily: F.bold, color: S.muted, letterSpacing: 1, textTransform: 'uppercase', marginTop: 2 },
+  recoTxt: { fontSize: 12.5, fontFamily: F.med, color: S.muted, textAlign: 'center', marginTop: SP.lg },
 
   scroll: { flex: 1 },
   scrollBody: { flexGrow: 1, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 18, paddingTop: 8, paddingBottom: 16 },
   scrollTop: { flexGrow: 1, justifyContent: 'flex-start', alignItems: 'center', paddingHorizontal: 18, paddingTop: 10, paddingBottom: 16 },
 
   doneNew: { marginTop: SP.md, paddingVertical: SP.sm, alignSelf: 'center' },
-  doneNewTxt: { fontSize: 13, fontFamily: F.semi, color: '#A5B4FC', letterSpacing: 0.2 },
+  doneNewTxt: { fontSize: 13, fontFamily: F.bold, color: S.indigo, letterSpacing: 0.2 },
 
   // teacher hero + speaking waveform
   banner: { width: '100%', alignItems: 'center', justifyContent: 'center', paddingTop: SP.sm },
@@ -1093,106 +1207,136 @@ const st = StyleSheet.create({
   wave: { flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'center', height: 38, gap: 3 },
   waveBar: { width: 4, borderRadius: 3 },
 
-  badge: { flexDirection: 'row', alignItems: 'center', gap: 7, marginTop: SP.md, backgroundColor: D.fill, borderWidth: 1, borderColor: D.edge, borderRadius: 16, paddingHorizontal: 14, paddingVertical: 7 },
-  badgeOn: { borderColor: 'rgba(16,185,129,0.35)' },
-  badgeDot: { width: 7, height: 7, borderRadius: 4, backgroundColor: D.textFaint },
-  badgeDotOn: { backgroundColor: C.green },
-  badgeTxt: { fontSize: 11, fontFamily: F.semi, color: D.textDim, letterSpacing: 0.8, textTransform: 'lowercase' },
-  badgeTxtOn: { color: D.text },
+  badge: { flexDirection: 'row', alignItems: 'center', gap: 7, marginTop: SP.md, backgroundColor: S.card, borderWidth: 1, borderColor: S.border, borderRadius: 16, paddingHorizontal: 14, paddingVertical: 7 },
+  badgeOn: { borderColor: S.emerald },
+  badgeDot: { width: 7, height: 7, borderRadius: 4, backgroundColor: S.faint },
+  badgeDotOn: { backgroundColor: S.emerald },
+  badgeTxt: { fontSize: 11, fontFamily: F.bold, color: S.muted, letterSpacing: 0.8, textTransform: 'lowercase' },
+  badgeTxtOn: { color: S.ink },
 
-  caption: { alignSelf: 'center', alignItems: 'center', marginTop: SP.lg, maxWidth: SCREEN_W - SP.xl, paddingVertical: SP.md, paddingHorizontal: SP.lg, borderRadius: R.xl, backgroundColor: D.panel, borderWidth: 1, borderColor: D.edge },
-  askedLabel: { fontSize: 11, fontFamily: F.semi, color: D.textFaint, textAlign: 'left', marginBottom: 8, letterSpacing: 0.3, fontStyle: 'italic' },
+  caption: { alignSelf: 'center', alignItems: 'center', marginTop: SP.lg, maxWidth: SCREEN_W - SP.xl, paddingVertical: SP.md, paddingHorizontal: SP.lg, borderRadius: R.xl, backgroundColor: S.card, borderWidth: 1, borderColor: S.hair },
+  askedLabel: { fontSize: 11, fontFamily: F.bold, color: S.muted, textAlign: 'left', marginBottom: 8, letterSpacing: 0.3, fontStyle: 'italic' },
 
-  // doubt metadata strip (source / confidence / concept / prerequisites)
-  metaWrap: { marginTop: 14, gap: 8, alignSelf: 'stretch', backgroundColor: D.panel2, borderRadius: R.md, borderWidth: 1, borderColor: D.edge, padding: 12 },
+  // doubt metadata strip (source / confidence / concept / prerequisites) — recessed
+  // one step (S.canvas inside a white card) so it reads as footnotes, not content.
+  metaWrap: { marginTop: 14, gap: 8, alignSelf: 'stretch', backgroundColor: S.canvas, borderRadius: R.md, borderWidth: 1, borderColor: S.hair, padding: 12 },
   metaRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 6 },
-  metaPill: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: 'rgba(255,255,255,0.06)', borderWidth: 1, borderColor: D.edge, borderRadius: 10, paddingHorizontal: 9, paddingVertical: 4 },
-  metaPillOn: { backgroundColor: 'rgba(16,185,129,0.14)', borderColor: 'rgba(16,185,129,0.45)' },
-  metaPillTxt: { fontSize: 10, fontFamily: F.bold, color: D.textDim, letterSpacing: 0.3 },
-  metaPillTxtOn: { color: C.green },
+  metaPill: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: S.card, borderWidth: 1, borderColor: S.border, borderRadius: 10, paddingHorizontal: 9, paddingVertical: 4 },
+  metaPillOn: { backgroundColor: S.emeraldSoft, borderColor: S.emerald },
+  metaPillTxt: { fontSize: 10, fontFamily: F.bold, color: S.muted, letterSpacing: 0.3 },
+  // "on" state darkens the label rather than tinting it — S.emerald on S.emeraldSoft
+  // is only 2.7:1, so the tint stays on the fill/border where contrast rules differ.
+  metaPillTxtStrong: { color: S.sub, fontFamily: F.xbold },
   metaDot: { width: 6, height: 6, borderRadius: 3 },
-  metaConcept: { fontSize: 12, fontFamily: F.semi, color: D.textDim },
-  metaConceptName: { color: D.text, fontFamily: F.bold },
+  metaConcept: { fontSize: 12, fontFamily: F.semi, color: S.muted },
+  metaConceptName: { color: S.ink, fontFamily: F.xbold },
   metaPrereqRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 6 },
-  metaPrereqLbl: { fontSize: 9.5, fontFamily: F.bold, color: D.textFaint, letterSpacing: 0.6, textTransform: 'uppercase' },
-  metaChip: { backgroundColor: 'rgba(79,70,229,0.18)', borderWidth: 1, borderColor: 'rgba(129,140,248,0.4)', borderRadius: 9, paddingHorizontal: 8, paddingVertical: 3 },
-  metaChipTxt: { fontSize: 10.5, fontFamily: F.semi, color: '#C7D2FE' },
+  metaPrereqLbl: { fontSize: 9.5, fontFamily: F.xbold, color: S.muted, letterSpacing: 0.6, textTransform: 'uppercase' },
+  metaChip: { backgroundColor: S.indigoSoft, borderWidth: 1, borderColor: S.indigoSoft, borderRadius: 9, paddingHorizontal: 8, paddingVertical: 3 },
+  metaChipTxt: { fontSize: 10.5, fontFamily: F.bold, color: S.indigo },
 
-  captionTxt: { fontSize: 16, fontFamily: F.med, color: D.text, textAlign: 'left', lineHeight: 25, letterSpacing: 0.1 }, // PRIMARY — spoken words (bright)
-  capDim: { color: 'rgba(248,250,252,0.35)' },   // not-yet-spoken words; brighten as she speaks
-  capHot: { color: '#A5B4FC', fontFamily: F.bold }, // keyword emphasised the moment it's spoken
+  // Karaoke caption. The three states must be tellable apart at a glance WITHOUT
+  // relying on the dim one being unreadable — a student reads ahead of her voice.
+  captionTxt: { fontSize: 16, fontFamily: F.med, color: S.ink, textAlign: 'left', lineHeight: 25, letterSpacing: 0.1 }, // spoken
+  capDim: { color: S.muted },                          // not yet spoken — 5.9:1 on white, still AA
+  capHot: { color: S.indigo, fontFamily: F.xbold },    // keyword, the instant it is spoken
 
-  cornerWrap: { position: 'absolute', top: 56, right: 12, zIndex: 20 },
 
   // optional student camera PiP
   camWrap: { alignItems: 'center', gap: 5 },
-  camFrame: { width: CAM_W, height: CAM_H, borderRadius: R.lg, borderWidth: 2, borderColor: D.edge, overflow: 'hidden', backgroundColor: D.panel2 },
-  camFrameOn: { borderColor: C.pink },
+  camFrame: { width: CAM_W, height: CAM_H, borderRadius: R.lg, borderWidth: 2, borderColor: S.border, overflow: 'hidden', backgroundColor: S.hair },
+  camFrameOn: { borderColor: S.indigo },
   camMask: { flex: 1, borderRadius: R.md, overflow: 'hidden' },
-  camFill: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: D.panel2 },
-  camLbl: { fontSize: 10, fontFamily: F.semi, color: D.textFaint },
-  camLblOn: { color: C.pink },
+  camFill: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: S.hair },
+  camLbl: { fontSize: 10, fontFamily: F.bold, color: S.muted },
+  camLblOn: { color: S.indigo },
 
-  // ── the lit whiteboard + the dark teacher/caption panel ──
+  // ── THE SLATE → her words ──
   lessonScroll: { flexGrow: 1, paddingHorizontal: SP.md, paddingTop: SP.xs, paddingBottom: SP.md },
-  teacherBar: { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: SP.md, backgroundColor: D.panel, borderWidth: 1, borderColor: D.edge, borderRadius: R.xl, padding: SP.sm, paddingRight: SP.md },
-  teacherName: { fontSize: 14.5, fontFamily: F.bold, color: D.text, letterSpacing: -0.2 },
-  statusRow: { flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 3 },
-  statusDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: D.textFaint },
-  statusDotOn: { backgroundColor: C.accent },
-  statusTxt: { fontSize: 9.5, fontFamily: F.semi, color: D.textDim, letterSpacing: 1.4, textTransform: 'uppercase' },
+
+  // She is a chip ON the slate, not a row above it: same information (who, doing
+  // what) at a fifth of the height, and the board keeps what she gave back.
+  slateTop: { flexDirection: 'row', alignItems: 'center', alignSelf: 'stretch', marginBottom: SP.xs },
+  speakChip: { flexDirection: 'row', alignItems: 'center', gap: 7, backgroundColor: C.accentSoft, borderWidth: 1, borderColor: 'rgba(239,193,82,0.28)', borderRadius: R.pill, paddingVertical: 3, paddingHorizontal: 8, paddingLeft: 3 },
+  speakName: { fontSize: 11, fontFamily: F.xbold, color: C.ink, letterSpacing: -0.1 },
+  speakState: { fontSize: 9, fontFamily: F.bold, color: C.accent, letterSpacing: 0.8, textTransform: 'uppercase' },
+  slateExpand: { marginLeft: 'auto', width: 26, height: 26, borderRadius: 8, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.07)' },
 
   workArea: { width: '100%', alignItems: 'stretch' },
-  kicker: { fontSize: 10, fontFamily: F.bold, color: '#A5B4FC', letterSpacing: 1.8, textTransform: 'uppercase', textAlign: 'left', marginBottom: SP.xs },
-  title: { fontSize: 20, fontFamily: F.black, color: D.text, letterSpacing: -0.4, textAlign: 'left', lineHeight: 26, marginBottom: SP.md },
-  // the ONE lit surface — a white board card floating in the dark room
+  // Chalk, on the slate — so the title reads as something she wrote up there
+  // rather than a caption the app printed above her board.
+  kicker: { fontSize: 10, fontFamily: F.xbold, color: C.accent, letterSpacing: 1.8, textTransform: 'uppercase', alignSelf: 'stretch', marginBottom: 2 },
+  title: { fontSize: 19, fontFamily: F.black, color: C.ink, letterSpacing: -0.3, alignSelf: 'stretch', lineHeight: 25, marginBottom: SP.sm },
+
   boardOuter: { width: '100%', alignItems: 'center' },
-  lessonCard: { width: '100%', backgroundColor: C.board, borderRadius: R.xxl, paddingVertical: 24, paddingHorizontal: 16, alignItems: 'center', shadowColor: '#000', shadowOpacity: 0.45, shadowRadius: 26, shadowOffset: { width: 0, height: 14 }, elevation: 12 },
-  // her words, under the board, on a dark panel
-  captionWrap: { width: '100%', marginTop: SP.md, backgroundColor: D.panel, borderWidth: 1, borderColor: D.edge, borderRadius: R.xl, padding: SP.md },
+  lessonCard: { width: '100%', backgroundColor: C.board, borderRadius: R.xxl, paddingVertical: SP.md, paddingHorizontal: SP.md, alignItems: 'center', borderWidth: 1, borderColor: C.line, ...shadow },
+  boardHolder: { alignSelf: 'stretch' },
+
+  // Progress reads on the slate, where the lesson is — one dot per concept, filled
+  // as she gets through them. Suppressed past 14 so it never becomes a grey ruler.
+  dots: { flexDirection: 'row', justifyContent: 'center', gap: 5, marginTop: SP.sm },
+  dot: { width: 5, height: 5, borderRadius: 3, backgroundColor: 'rgba(255,255,255,0.16)' },
+  dotOn: { backgroundColor: C.accent },
+
+  // her words, under the slate — plain text on the room, not another card. It is
+  // one sentence; boxing it made the screen read as three stacked panels.
+  captionWrap: { width: '100%', marginTop: SP.md, paddingHorizontal: SP.xs },
+
+  // ── IMMERSIVE STAGE ────────────────────────────────────────────────────────
+  // The slate stops being a card in a scroll and becomes the room: it takes the
+  // leftover height, loses its side margins, and her line sits under it.
+  lessonScrollFull: { flexGrow: 1, paddingHorizontal: SP.sm, paddingTop: 0, paddingBottom: SP.sm },
+  workAreaFull: { flex: 1, width: '100%', alignItems: 'stretch', justifyContent: 'center' },
+  titleFull: { fontSize: 17, fontFamily: F.black, color: C.ink, letterSpacing: -0.3, alignSelf: 'stretch', lineHeight: 23, marginBottom: SP.xs },
+  boardOuterFull: { flex: 1, width: '100%', alignItems: 'stretch', justifyContent: 'center' },
+  lessonCardFull: { flex: 1, width: '100%', backgroundColor: C.board, borderRadius: R.xl, paddingVertical: SP.md, paddingHorizontal: SP.md, alignItems: 'center', overflow: 'hidden', ...shadow },
+  boardHolderFull: { flex: 1, alignSelf: 'stretch' },
+  // A short board still sits in the middle of the slate; a tall one scrolls from
+  // the top instead of being centred until it clips off both ends.
+  boardHolderContent: { flexGrow: 1, justifyContent: 'center' },
+
+  // Caption stays a real surface rather than floating text on the board — text over
+  // a drawing is unreadable the moment a chalk line runs under it.
+  captionWrapFull: { width: '100%', marginTop: SP.sm, paddingHorizontal: SP.xs, maxHeight: 132 },
 
   // bottom (fixed): status → dock
   bottom: { alignItems: 'center', paddingHorizontal: SP.md, paddingTop: SP.sm, paddingBottom: Platform.OS === 'ios' ? SP.lg : SP.md, gap: SP.sm },
 
-  listenTxt: { fontSize: 13, fontFamily: F.semi, color: D.text, textAlign: 'center', paddingHorizontal: 26 },
-  hint: { fontSize: 12.5, fontFamily: F.med, color: D.textDim, textAlign: 'center' },
+  listenTxt: { fontSize: 13, fontFamily: F.bold, color: S.ink, textAlign: 'center', paddingHorizontal: 26 },
+  hint: { fontSize: 12.5, fontFamily: F.med, color: S.muted, textAlign: 'center' },
 
   // listening / typed-doubt / resume
-  resumeBtn: { backgroundColor: C.accent, borderRadius: R.pill, paddingVertical: 13, paddingHorizontal: 28, shadowColor: C.accent, shadowOpacity: 0.5, shadowRadius: 14, shadowOffset: { width: 0, height: 6 }, elevation: 6 },
+  resumeBtn: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: S.indigo, borderRadius: R.pill, paddingVertical: 13, paddingHorizontal: 26, ...shadowSm },
   resumeTxt: { color: '#fff', fontSize: 14, fontFamily: F.bold },
   askRow: { flexDirection: 'row', gap: 8, alignItems: 'center', alignSelf: 'stretch' },
-  askInput: { flex: 1, backgroundColor: D.panel2, borderWidth: 1, borderColor: D.edge, borderRadius: R.pill, paddingVertical: 13, paddingHorizontal: 20, color: D.text, fontSize: 14, fontFamily: F.med },
-  askSend: { width: 48, height: 48, borderRadius: 24, backgroundColor: C.accent, alignItems: 'center', justifyContent: 'center' },
-  askSendTxt: { color: '#fff', fontSize: 18 },
+  askInput: { flex: 1, backgroundColor: S.card, borderWidth: 1, borderColor: S.border, borderRadius: R.pill, paddingVertical: 13, paddingHorizontal: 20, color: S.ink, fontSize: 14, fontFamily: F.med },
+  askSend: { width: 48, height: 48, borderRadius: 24, backgroundColor: S.indigo, alignItems: 'center', justifyContent: 'center', ...shadowSm },
 
-  // floating dock — Ask (mic) is the raised gradient primary; transport is quiet
+  // floating dock — one primary (Ask) and four quiet transport controls. The mic is
+  // the only filled circle, so "talk to her" stays the obvious action.
   dock: {
     flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', alignSelf: 'stretch',
-    backgroundColor: 'rgba(15,23,42,0.92)', borderWidth: 1, borderColor: D.edge, borderRadius: R.pill,
-    paddingHorizontal: SP.sm, paddingVertical: SP.sm,
-    shadowColor: '#000', shadowOpacity: 0.5, shadowRadius: 24, shadowOffset: { width: 0, height: 12 }, elevation: 10,
+    backgroundColor: S.card, borderWidth: 1, borderColor: S.border, borderRadius: R.pill,
+    paddingHorizontal: SP.sm, paddingVertical: SP.sm, ...shadow,
   },
   dItem: { alignItems: 'center', justifyContent: 'center', gap: 4, minWidth: 52 },
-  dGhost: { width: 42, height: 42, borderRadius: 21, backgroundColor: D.fill, borderWidth: 1, borderColor: D.edgeSoft, alignItems: 'center', justifyContent: 'center' },
-  dGlyph: { fontSize: 16, color: D.text },
-  // overflow:hidden so the SVG <Gradient> fill is clipped to the circle
-  dMic: { width: 56, height: 56, borderRadius: 28, overflow: 'hidden', alignItems: 'center', justifyContent: 'center', shadowColor: '#6D28D9', shadowOpacity: 0.55, shadowRadius: 14, shadowOffset: { width: 0, height: 5 }, elevation: 8 },
-  dMicOn: { backgroundColor: C.pink, shadowColor: C.pink },
-  dMicIcon: { fontSize: 22, color: '#fff' },
-  dDim: { opacity: 0.28 },
-  dLbl: { fontSize: 9.5, fontFamily: F.semi, color: D.textFaint, letterSpacing: 0.2, marginTop: 1 },
-  dLblPrimary: { color: '#A5B4FC' },
+  dGhost: { width: 42, height: 42, borderRadius: 21, backgroundColor: S.canvas, borderWidth: 1, borderColor: S.hair, alignItems: 'center', justifyContent: 'center' },
+  dMic: { width: 56, height: 56, borderRadius: 28, backgroundColor: S.indigo, alignItems: 'center', justifyContent: 'center', shadowColor: S.indigo, shadowOpacity: 0.38, shadowRadius: 14, shadowOffset: { width: 0, height: 6 }, elevation: 8 },
+  dMicOn: { backgroundColor: S.red, shadowColor: S.red },
+  dLbl: { fontSize: 9.5, fontFamily: F.bold, color: S.muted, letterSpacing: 0.2, marginTop: 1 },
+  dLblPrimary: { color: S.indigo },
 
-  // completed — a dark sheet over the darkened room
-  doneOverlay: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(2,6,23,0.82)', alignItems: 'center', justifyContent: 'center', padding: 26 },
-  doneCard: { width: '100%', backgroundColor: D.panel, borderWidth: 1, borderColor: D.edge, borderRadius: R.xxl, padding: 30, alignItems: 'center', shadowColor: '#000', shadowOpacity: 0.5, shadowRadius: 40, shadowOffset: { width: 0, height: 18 }, elevation: 16 },
+  // completed — the room dims behind a white sheet (scrim is S.ink, not black, so
+  // it reads as the same product going quiet rather than a different app)
+  doneOverlay: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(21,24,41,0.45)', alignItems: 'center', justifyContent: 'center', padding: 26 },
+  doneCard: { width: '100%', backgroundColor: S.card, borderRadius: R.xxl, padding: 30, alignItems: 'center', ...shadow },
   doneEmoji: { fontSize: 46 },
-  doneTitle: { fontSize: 22, fontFamily: F.black, color: D.text, marginTop: SP.md, letterSpacing: -0.5 },
-  doneSub: { fontSize: 13.5, fontFamily: F.med, color: D.textDim, textAlign: 'center', marginTop: SP.sm, lineHeight: 20 },
+  doneTitle: { fontSize: 22, fontFamily: F.black, color: S.ink, marginTop: SP.md, letterSpacing: -0.5 },
+  doneSub: { fontSize: 13.5, fontFamily: F.med, color: S.muted, textAlign: 'center', marginTop: SP.sm, lineHeight: 20 },
   doneRow: { flexDirection: 'row', gap: 12, marginTop: SP.xl, alignSelf: 'stretch' },
-  doneBtn: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingVertical: 15, borderRadius: R.md },
-  donePrimary: { backgroundColor: C.accent },
+  doneBtn: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7, flex: 1, paddingVertical: 15, borderRadius: R.md },
+  donePrimary: { backgroundColor: S.indigo, ...shadowSm },
   donePrimaryTxt: { color: '#fff', fontSize: 14, fontFamily: F.bold },
-  doneGhost: { backgroundColor: D.fill, borderWidth: 1, borderColor: D.edge },
-  doneGhostTxt: { color: D.text, fontSize: 14, fontFamily: F.semi },
+  doneGhost: { backgroundColor: S.canvas, borderWidth: 1, borderColor: S.border },
+  doneGhostTxt: { color: S.sub, fontSize: 14, fontFamily: F.bold },
 });

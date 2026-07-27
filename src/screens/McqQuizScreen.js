@@ -82,6 +82,10 @@ export default function McqQuizScreen({
   const [score, setScore] = useState({ correct: 0, wrong: 0, skipped: 0 });
   const [done, setDone] = useState(false);
   const timerRef = useRef(null);
+  // { questionId: optionId } for every question actually answered — handed to
+  // onComplete so the caller can persist the attempt server-side. Skipped questions
+  // are simply absent, which is what the grading endpoint expects.
+  const answersRef = useRef({});
 
   // Per-question countdown — resets each question, auto-reveals at 0.
   useEffect(() => {
@@ -99,7 +103,7 @@ export default function McqQuizScreen({
 
   // Report the final score once, when the quiz finishes (for attempt tracking).
   useEffect(() => {
-    if (done) onComplete({ correct: score.correct, total: qs.length });
+    if (done) onComplete({ correct: score.correct, total: qs.length, answers: answersRef.current });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [done]);
 
@@ -127,6 +131,7 @@ export default function McqQuizScreen({
     clearInterval(timerRef.current);
     setSubmitted((already) => {
       if (already) return already;
+      if (selected != null) answersRef.current[q.id] = selected;
       setScore((s) => {
         if (selected == null) return { ...s, skipped: s.skipped + 1 };
         if (String(selected) === String(correctId)) return { ...s, correct: s.correct + 1 };

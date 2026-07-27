@@ -3,6 +3,9 @@ import { View, Text, StyleSheet, Animated, Easing } from 'react-native';
 import Svg, { G, Line, Rect, Circle, Ellipse, Path, Polygon, Text as SvgText } from 'react-native-svg';
 import { ChalkLine, ChalkStroke, Arrow } from './WhiteboardCanvas';
 import { C } from './premiumTheme';
+// Every board's pixel height runs through h() so the immersive full-bleed stage can
+// draw the same illustration larger without blurring it. h(x) === x in card mode.
+import { useBoardSize } from './boardSize';
 
 // ── SUBJECT ILLUSTRATION ENGINE ───────────────────────────────────────────────
 // Reusable, self-drawing board illustrations so a lesson NEVER falls back to
@@ -97,6 +100,7 @@ function itemsOf(scene, fallback) {
 
 // ── PHYSICS · free-body diagram ───────────────────────────────────────────────
 export function FreeBodyBoard({ scene, paused, skip, resetKey, step }) {
+  const { h } = useBoardSize();
   const labels = itemsOf(scene, ['Weight', 'Normal', 'Applied', 'Friction']);
   const cxb = 150; const cyb = 92; const hs = 20;
   // weight ↓ · normal ↑ · applied → · friction ←
@@ -120,7 +124,7 @@ export function FreeBodyBoard({ scene, paused, skip, resetKey, step }) {
   }, [n, skip, blockX, cxb, hs]);
   return (
     <View style={wrapStyle}>
-      <Svg width="100%" height={188} viewBox="0 0 300 180">
+      <Svg width="100%" height={h(188)} viewBox="0 0 300 180">
         {/* ground + the body (slides when pushed) */}
         <ARect x={blockX} y={cyb - hs} width={hs * 2} height={hs * 2} rx={4} fill="rgba(44,48,67,0.06)" stroke={C.ink} strokeWidth={2} />
         {forces.map((f, i) => (i < n ? (
@@ -137,6 +141,7 @@ export function FreeBodyBoard({ scene, paused, skip, resetKey, step }) {
 
 // ── CHEMISTRY · reaction chain (reactants → products, then "balanced") ────────
 export function ReactionBoard({ scene, paused, skip, resetKey, step }) {
+  const { h } = useBoardSize();
   const d = scene.diagram || {};
   const raw = String(d.label || (Array.isArray(d.steps) && d.steps.join(' ')) || '');
   const split = raw.split(/->|→|=>|\byields\b|\bgives\b/i);
@@ -148,7 +153,7 @@ export function ReactionBoard({ scene, paused, skip, resetKey, step }) {
   const tip = anchors[Math.min(n, 4) - 1];
   return (
     <View style={wrapStyle}>
-      <Svg width="100%" height={150} viewBox="0 0 300 150">
+      <Svg width="100%" height={h(150)} viewBox="0 0 300 150">
         {n >= 1 && <G>{T(74, 84, left.slice(0, 14), C.blue, 20)}</G>}
         {n >= 2 && <Arrow x1={116} y1={78} x2={186} y2={78} color={C.ink} width={3} duration={420} skip={skip} />}
         {n >= 3 && <G>{T(232, 84, right.slice(0, 14), C.green, 20)}</G>}
@@ -164,6 +169,7 @@ export function ReactionBoard({ scene, paused, skip, resetKey, step }) {
 
 // ── CHEMISTRY · molecule (central atom + bonded atoms) ────────────────────────
 export function MoleculeBoard({ scene, paused, skip, resetKey, step }) {
+  const { h } = useBoardSize();
   const labels = itemsOf(scene, ['O', 'H', 'H']);
   const centre = { x: 150, y: 92, r: 18, c: C.pink, label: labels[0] || 'O' };
   const outer = [
@@ -177,7 +183,7 @@ export function MoleculeBoard({ scene, paused, skip, resetKey, step }) {
   const tip = seq[Math.min(n, seq.length) - 1];
   return (
     <View style={wrapStyle}>
-      <Svg width="100%" height={176} viewBox="0 0 300 180">
+      <Svg width="100%" height={h(176)} viewBox="0 0 300 180">
         {/* bonds first (behind), each appears with its atom */}
         {outer.map((a, i) => (i + 1 < n ? (
           <Line key={`b${i}`} x1={centre.x} y1={centre.y} x2={a.x} y2={a.y} stroke={C.ink} strokeWidth={3} opacity={0.55} />
@@ -196,6 +202,7 @@ export function MoleculeBoard({ scene, paused, skip, resetKey, step }) {
 
 // ── BIOLOGY · labelled cell (membrane, nucleus, organelles) ───────────────────
 export function CellBoard({ scene, paused, skip, resetKey, step }) {
+  const { h } = useBoardSize();
   const labels = itemsOf(scene, ['Cell membrane', 'Nucleus', 'Mitochondria', 'Cytoplasm']);
   const parts = [
     { kind: 'membrane', lx: 150, ly: 26, label: labels[0] || 'Cell membrane', anchor: { x: 150, y: 30 } },
@@ -208,7 +215,7 @@ export function CellBoard({ scene, paused, skip, resetKey, step }) {
   const tip = parts[Math.min(n, parts.length) - 1];
   return (
     <View style={wrapStyle}>
-      <Svg width="100%" height={188} viewBox="0 0 300 180">
+      <Svg width="100%" height={h(188)} viewBox="0 0 300 180">
         {n >= 1 && <Ellipse cx={150} cy={95} rx={122} ry={64} fill="rgba(15,163,154,0.08)" stroke={C.green} strokeWidth={2.5} />}
         {n >= 2 && <G><Circle cx={150} cy={92} r={30} fill="rgba(60,157,240,0.16)" stroke={C.blue} strokeWidth={2.5} />{T(150, 96, 'N', C.blue, 16)}</G>}
         {n >= 3 && <Ellipse cx={196} cy={118} rx={20} ry={11} fill="rgba(239,138,67,0.18)" stroke={C.orange} strokeWidth={2} />}
@@ -222,6 +229,7 @@ export function CellBoard({ scene, paused, skip, resetKey, step }) {
 
 // ── MATHS · number line ───────────────────────────────────────────────────────
 export function NumberLineBoard({ scene, paused, skip, resetKey, step }) {
+  const { h } = useBoardSize();
   const nums = itemsOf(scene, []).map((x) => parseFloat(x)).filter((x) => Number.isFinite(x));
   const marks = nums.length ? nums.slice(0, 3) : [-2, 1, 3];
   const lo = -5; const hi = 5; const y = 96; const x0 = 26; const x1 = 274;
@@ -230,7 +238,7 @@ export function NumberLineBoard({ scene, paused, skip, resetKey, step }) {
   const tip = n >= 2 ? marks[Math.min(n - 1, marks.length) - 1] : null;
   return (
     <View style={wrapStyle}>
-      <Svg width="100%" height={140} viewBox="0 0 300 130">
+      <Svg width="100%" height={h(140)} viewBox="0 0 300 130">
         {n >= 1 && <G>
           <Arrow x1={x0 - 4} y1={y} x2={x1 + 4} y2={y} color={C.ink} width={2.5} duration={600} skip={skip} />
           {Array.from({ length: hi - lo + 1 }, (_, i) => lo + i).map((v) => (
@@ -251,6 +259,7 @@ export function NumberLineBoard({ scene, paused, skip, resetKey, step }) {
 
 // ── MATHS · function graph (line or parabola) ─────────────────────────────────
 export function GraphFnBoard({ scene, paused, skip, resetKey, step }) {
+  const { h } = useBoardSize();
   const blob = `${scene.title || ''} ${scene.teacherLine || ''} ${(scene.diagram && scene.diagram.label) || ''}`;
   const parabola = /parabola|quadratic|squared|x\s*\^?\s*2|x²/i.test(blob);
   const ox = 46; const oy = 132; const ex = 276; const ey = 24;
@@ -263,7 +272,7 @@ export function GraphFnBoard({ scene, paused, skip, resetKey, step }) {
   const tip = n >= 3 ? point : (n >= 2 ? { x: 205, y: parabola ? 60 : point.y } : null);
   return (
     <View style={wrapStyle}>
-      <Svg width="100%" height={172} viewBox="0 0 300 156">
+      <Svg width="100%" height={h(172)} viewBox="0 0 300 156">
         {n >= 1 && <G>
           <Arrow x1={ox} y1={oy} x2={ex} y2={oy} color={C.ink} width={2.5} duration={620} skip={skip} />
           <Arrow x1={ox} y1={oy} x2={ox} y2={ey} color={C.ink} width={2.5} duration={620} skip={skip} />
@@ -279,6 +288,7 @@ export function GraphFnBoard({ scene, paused, skip, resetKey, step }) {
 
 // ── HISTORY · timeline (axis + dated events left→right) ───────────────────────
 export function TimelineBoard({ scene, paused, skip, resetKey, step }) {
+  const { h } = useBoardSize();
   const items = itemsOf(scene, ['Event one', 'Event two', 'Event three']).slice(0, 5);
   const y = 90; const x0 = 30; const x1 = 270;
   const gap = items.length > 1 ? (x1 - x0) / (items.length - 1) : 0;
@@ -287,7 +297,7 @@ export function TimelineBoard({ scene, paused, skip, resetKey, step }) {
   const tip = n > 0 ? { x: xi(Math.min(n, items.length) - 1), y } : null;
   return (
     <View style={wrapStyle}>
-      <Svg width="100%" height={172} viewBox="0 0 300 156">
+      <Svg width="100%" height={h(172)} viewBox="0 0 300 156">
         {n >= 1 && <Arrow x1={x0 - 6} y1={y} x2={x1 + 6} y2={y} color={C.ink} width={2.5} duration={640} skip={skip} />}
         {items.map((it, i) => {
           if (i >= n) return null;
@@ -309,6 +319,152 @@ export function TimelineBoard({ scene, paused, skip, resetKey, step }) {
   );
 }
 
+// ── ANNOTATED FIGURE ──────────────────────────────────────────────────────────
+// ONE drawn thing, labelled part by part as she names each piece. The boards above
+// are each welded to a subject; this one is a registry, so an algebra identity and
+// a physics setup go through the same renderer and only the FIGURE differs.
+//
+// A figure declares:
+//   total  — how many parts it reveals (must match boardTotalFor in the Director)
+//   labels — default label per part; a scene can override any of them
+//   draw   — the parts, drawn cumulatively for the current n
+//   tip    — where the laser pointer rests after part n
+//
+// Adding a figure is adding one entry here plus one regex in teachingScenes.
+const FIGURES = {
+  // (a + b)² — the square cut into a², two ab rectangles and b². The whole proof
+  // of the identity is visible at once, which is the point of drawing it at all.
+  squareExpansion: {
+    total: 5,
+    labels: ['side = a + b', 'a and b', 'a²', 'ab', 'b²'],
+    tip: (n) => [{ x: 143, y: 12 }, { x: 162, y: 100 }, { x: 120, y: 58 }, { x: 185, y: 58 }, { x: 185, y: 123 }][n - 1],
+    draw: ({ n, skip, labels }) => (
+      <G>
+        {n >= 1 && (
+          <G>
+            <Rect x={78} y={16} width={130} height={130} fill="none" stroke={C.ink} strokeWidth={2} />
+            {T(143, 10, labels[0], C.teal, 11)}
+          </G>
+        )}
+        {n >= 2 && (
+          <G>
+            <ChalkLine x1={162} y1={16} x2={162} y2={146} color={C.ink2} width={1.6} duration={420} skip={skip} />
+            <ChalkLine x1={78} y1={100} x2={208} y2={100} color={C.ink2} width={1.6} duration={420} skip={skip} />
+            {T(120, 160, 'a', C.orange, 12)}
+            {T(185, 160, 'b', C.green, 12)}
+            {T(70, 62, 'a', C.orange, 12, 'end')}
+            {T(70, 128, 'b', C.green, 12, 'end')}
+          </G>
+        )}
+        {n >= 3 && (
+          <G>
+            <Rect x={78} y={16} width={84} height={84} fill={C.orange} opacity={0.16} />
+            {T(120, 63, labels[2], C.orange, 20)}
+          </G>
+        )}
+        {n >= 4 && (
+          <G>
+            <Rect x={162} y={16} width={46} height={84} fill={C.blue} opacity={0.18} />
+            <Rect x={78} y={100} width={84} height={46} fill={C.blue} opacity={0.18} />
+            {T(185, 62, labels[3], C.blue, 14)}
+            {T(120, 128, labels[3], C.blue, 14)}
+          </G>
+        )}
+        {n >= 5 && (
+          <G>
+            <Rect x={162} y={100} width={46} height={46} fill={C.green} opacity={0.18} />
+            {T(185, 128, labels[4], C.green, 14)}
+          </G>
+        )}
+      </G>
+    ),
+  },
+
+  // A magnet pushed at a coil, the field cutting the turns, and the bulb lighting
+  // with no battery anywhere — the whole reason induction is surprising.
+  magnetCoil: {
+    total: 5,
+    labels: ['Moving Magnet', 'push', 'Magnetic Field', 'Coil', 'Bulb Glows'],
+    tip: (n) => [{ x: 60, y: 88 }, { x: 66, y: 60 }, { x: 148, y: 88 }, { x: 178, y: 88 }, { x: 250, y: 42 }][n - 1],
+    draw: ({ n, skip, labels }) => (
+      <G>
+        {n >= 1 && (
+          <G>
+            <Rect x={14} y={78} width={30} height={20} rx={2} fill={C.ink2} />
+            <Rect x={44} y={78} width={30} height={20} rx={2} fill={C.pink} />
+            {T(29, 93, 'S', C.cream, 12)}
+            {T(59, 93, 'N', C.cream, 12)}
+            {T(12, 118, labels[0], C.ink2, 11, 'start')}
+          </G>
+        )}
+        {n >= 2 && (
+          <G>
+            <Arrow x1={20} y1={62} x2={68} y2={62} color={C.teal} width={2} duration={420} skip={skip} />
+            {T(22, 54, labels[1], C.teal, 10, 'start')}
+          </G>
+        )}
+        {n >= 3 && (
+          <G>
+            <Path d="M78,82 C104,54 130,52 150,70" stroke={C.brass} strokeWidth={1.6} fill="none" />
+            <Path d="M78,88 C108,84 128,84 150,87" stroke={C.brass} strokeWidth={1.6} fill="none" />
+            <Path d="M78,94 C104,122 130,124 150,106" stroke={C.brass} strokeWidth={1.6} fill="none" />
+            {T(104, 148, labels[2], C.brass, 11)}
+          </G>
+        )}
+        {n >= 4 && (
+          <G>
+            <Ellipse cx={162} cy={88} rx={9} ry={34} fill="none" stroke={C.orange} strokeWidth={2.2} />
+            <Ellipse cx={178} cy={88} rx={9} ry={34} fill="none" stroke={C.orange} strokeWidth={2.2} />
+            <Ellipse cx={194} cy={88} rx={9} ry={34} fill="none" stroke={C.orange} strokeWidth={2.2} />
+            {T(178, 136, labels[3], C.orange, 11)}
+          </G>
+        )}
+        {n >= 5 && (
+          <G>
+            <Path d="M203,66 L232,66 L232,50" stroke={C.orange} strokeWidth={1.8} fill="none" />
+            <Path d="M203,110 L266,110 L266,50" stroke={C.orange} strokeWidth={1.8} fill="none" />
+            <Circle cx={249} cy={38} r={13} fill={C.orange} opacity={0.22} />
+            <Circle cx={249} cy={38} r={13} fill="none" stroke={C.orange} strokeWidth={1.8} />
+            <Path d="M243,44 L246,32 L249,44 L252,32 L255,44" stroke={C.orange} strokeWidth={1.4} fill="none" />
+            {T(249, 16, labels[4], C.orange, 11)}
+          </G>
+        )}
+      </G>
+    ),
+  },
+};
+
+export function AnnotatedBoard({ scene, paused, skip, resetKey, step }) {
+  const { h } = useBoardSize();
+  const d = scene.diagram || {};
+  const fig = FIGURES[d.figure];
+  // Hooks must run whatever the figure is, so the reveal is counted before the
+  // bail-out. total 0 keeps it inert when the figure key is unknown.
+  const total = fig ? fig.total : 0;
+  const n = useReveal(total, 950, { paused, skip, resetKey, step });
+  if (!fig) return null;
+  // A scene may rename any part ("Moving Magnet" → "Bar magnet"); anything it does
+  // not name keeps the figure's own wording rather than going blank.
+  const parts = Array.isArray(d.parts) ? d.parts : [];
+  const labels = fig.labels.map((L, i) => (parts[i] && parts[i].label) || L);
+  const tip = n > 0 ? fig.tip(Math.min(total, n)) : null;
+  return (
+    <View style={wrapStyle}>
+      <Svg width="100%" height={h(188)} viewBox="0 0 300 180">
+        {fig.draw({ n, skip, labels })}
+        {tip && <LaserPointer x={tip.x} y={tip.y} />}
+      </Svg>
+    </View>
+  );
+}
+
+// How many parts a figure reveals — the Director imports this so its step count
+// cannot drift from what the board actually draws.
+export function annotatedTotal(scene) {
+  const fig = FIGURES[(scene.diagram || {}).figure];
+  return fig ? fig.total : 0;
+}
+
 // Router used by LessonBoards — returns the right subject board for a boardType,
 // or null if it isn't a subject board.
 export function SubjectBoard({ scene, paused, skip, resetKey, step }) {
@@ -321,12 +477,13 @@ export function SubjectBoard({ scene, paused, skip, resetKey, step }) {
     case 'numberLine': return <NumberLineBoard {...p} />;
     case 'graphFn': return <GraphFnBoard {...p} />;
     case 'timeline': return <TimelineBoard {...p} />;
+    case 'annotated': return <AnnotatedBoard {...p} />;
     default: return null;
   }
 }
 
 // The set of boardTypes this file handles (used for routing/detection).
-export const SUBJECT_BOARD_TYPES = ['freeBody', 'reaction', 'molecule', 'cell', 'numberLine', 'graphFn', 'timeline'];
+export const SUBJECT_BOARD_TYPES = ['freeBody', 'reaction', 'molecule', 'cell', 'numberLine', 'graphFn', 'timeline', 'annotated'];
 
 // eslint-disable-next-line no-unused-vars
 const _styles = StyleSheet.create({ _pad: { padding: 0 } });

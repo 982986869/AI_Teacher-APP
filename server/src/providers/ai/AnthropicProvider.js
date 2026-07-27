@@ -26,6 +26,13 @@ const {
   buildGradeSystemPrompt,
   buildGradeMessages,
 } = require('../../prompts/quizGrading.prompt')
+const {
+  buildKnowledgeSystemPrompt,
+  buildStructuredKnowledgeSystemPrompt,
+  buildExtendedKnowledgeSystemPrompt,
+  buildSolvePhotoSystemPrompt,
+  buildKnowledgeMessages,
+} = require('../../prompts/knowledgeAnswer.prompt')
 const { normalizeAnimation } = require('../../utils/slideAnimation')
 
 const VISUAL_TYPES = ['DIAGRAM', 'CHART', 'EXAMPLE', 'ANALOGY', 'FORMULA', 'NONE']
@@ -37,6 +44,13 @@ const DOUBT_MAX_TOKENS = 1024
 const INTENT_MAX_TOKENS = 60
 // Teacher replies are at most ~5 short lines; a tight ceiling keeps generation fast.
 const TEACHER_MAX_TOKENS = 450
+// A grounded knowledge answer is capped at ~180 words (plain) or a small JSON lesson.
+const KNOWLEDGE_MAX_TOKENS = 900
+// Transcribing an uploaded page (PDF/photo) can be dense — allow room for a full page.
+const EXTRACT_MAX_TOKENS = 8000
+
+// Image mime types Claude vision accepts. PDFs use the `document` content block.
+const VISION_IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/gif']
 
 class AnthropicProvider extends AIProvider {
   constructor() {
@@ -45,6 +59,9 @@ class AnthropicProvider extends AIProvider {
     this._client = null
     this.lessonModel = config.ai.lessonModel
     this.doubtModel = config.ai.doubtModel
+    // The RAG/knowledge answer + document extraction model. Falls back to the
+    // lesson model (higher quality) if AI_KNOWLEDGE_MODEL is not set.
+    this.knowledgeModel = config.ai.knowledgeModel || config.ai.lessonModel
   }
 
   _getClient() {
@@ -206,6 +223,187 @@ class AnthropicProvider extends AIProvider {
     const verdict = ['correct', 'partial', 'incorrect'].includes(parsed.verdict) ? parsed.verdict : 'partial'
     return { verdict, feedback: String(parsed.feedback || '').trim() }
   }
+
+  // ─── Knowledge / RAG ──────────────────────────────────────────────────────
+  // Plain-text grounded answer over retrieved chunks. Answers ONLY from the
+  // provided contexts, or returns the exact "not covered" refusal sentence.
+  async answerFromKnowledge(question, contexts = [], history = []) {
+    const client = this._getClient()
+    let message
+    try {
+      message = await client.messages.create({
+        model: this.knowledgeModel,
+        max_tokens: KNOWLEDGE_MAX_TOKENS,
+        system: buildKnowledgeSystemPrompt(contexts),
+        messages: buildKnowledgeMessages(history, question),
+      })
+    } catch (err) {
+      throw translateProviderError(err, 'knowledge answering')
+    }
+    const answer = extractText(message).trim()
+    if (!answer) throw new AppError('The AI returned an empty answer. Please try again.', 502)
+    return answer
+  }
+
+  // Streaming variant of answerFromKnowledge — calls onText(delta) per chunk and
+  // resolves with the full text, so the UI can reveal the reply word-by-word.
+  async streamAnswerFromKnowledge(question, contexts = [], history = [], onText) {
+    const client = this._getClient()
+    const stream = client.messages.stream({
+      model: this.knowledgeModel,
+      max_tokens: KNOWLEDGE_MAX_TOKENS,
+      system: buildKnowledgeSystemPrompt(contexts),
+      messages: buildKnowledgeMessages(history, question),
+    })
+    stream.on('text', (t) => { try { if (typeof onText === 'function') onText(t) } catch (e) { /* ignore sink errors */ } })
+    let final
+    try {
+      final = await stream.finalMessage()
+    } catch (err) {
+      throw translateProviderError(err, 'knowledge answering (stream)')
+    }
+    const answer = extractText(final).trim()
+    if (!answer) throw new AppError('The AI returned an empty answer. Please try again.', 502)
+    return answer
+  }
+
+  // Structured "animated mini-lesson" grounded answer. Returns a validated
+  // teaching object, or throws so the caller can fall back to the plain answer.
+  async answerFromKnowledgeStructured(question, contexts = [], history = []) {
+    const client = this._getClient()
+    let message
+    try {
+      message = await client.messages.create({
+        model: this.knowledgeModel,
+        max_tokens: KNOWLEDGE_MAX_TOKENS,
+        system: buildStructuredKnowledgeSystemPrompt(contexts),
+        messages: buildKnowledgeMessages(history, question),
+      })
+    } catch (err) {
+      throw translateProviderError(err, 'knowledge answering (structured)')
+    }
+    return parseAndValidateTeaching(extractText(message))
+  }
+
+  // Extended grounded answer — the ONLY path allowed to use general knowledge,
+  // for on-demand gap-filling (worked example / full solution / who-gave-this)
+  // when the material itself lacks it. Same structured shape as the grounded
+  // answer; the client labels it clearly as "beyond your material".
+  async answerExtended(question, contexts = [], history = [], gapKind = '') {
+    const client = this._getClient()
+    let message
+    try {
+      message = await client.messages.create({
+        model: this.knowledgeModel,
+        max_tokens: KNOWLEDGE_MAX_TOKENS,
+        system: buildExtendedKnowledgeSystemPrompt(contexts, gapKind),
+        messages: buildKnowledgeMessages(history, question),
+      })
+    } catch (err) {
+      throw translateProviderError(err, 'knowledge extending')
+    }
+    return parseAndValidateTeaching(extractText(message))
+  }
+
+  // Read a homework question from a PHOTO and solve it step by step, returning the
+  // same structured teaching object (steps, formula, diagram, final answer). Uses
+  // Claude vision — general knowledge is expected, so this is NOT grounded.
+  async solveFromImage({ buffer, mimeType, filename, hint }) {
+    const client = this._getClient()
+    if (!VISION_IMAGE_TYPES.includes(mimeType) && !/\.(jpe?g|png|webp|gif)$/i.test(filename || '')) {
+      throw new AppError('Please send a photo (JPG, PNG, or WEBP) of the question.', 415)
+    }
+    const base64 = buffer.toString('base64')
+    const mediaType = VISION_IMAGE_TYPES.includes(mimeType) ? mimeType : 'image/jpeg'
+
+    // The student's typed instruction (which question / how they want it), if any.
+    const instruction = String(hint || '').trim().slice(0, 500)
+    const userText = instruction
+      ? `Read the question in this photo and solve it step by step. The student's instruction: "${instruction}"`
+      : 'Read the question in this photo and solve it step by step.'
+
+    let message
+    try {
+      message = await client.messages.create({
+        model: this.knowledgeModel,
+        max_tokens: KNOWLEDGE_MAX_TOKENS,
+        system: buildSolvePhotoSystemPrompt(),
+        messages: [{
+          role: 'user',
+          content: [
+            { type: 'image', source: { type: 'base64', media_type: mediaType, data: base64 } },
+            { type: 'text', text: userText },
+          ],
+        }],
+      })
+    } catch (err) {
+      throw translateProviderError(err, 'solving from photo')
+    }
+    return parseAndValidateTeaching(extractText(message))
+  }
+
+  // Best-effort: infer the school subject from a sample of uploaded material, so
+  // file uploads (which usually have no subject tag) still become filterable.
+  // Returns a short subject name, or '' if it can't tell. NEVER throws.
+  async classifySubject(textSample) {
+    try {
+      const client = this._getClient()
+      const message = await client.messages.create({
+        model: this.doubtModel,
+        max_tokens: 12,
+        system:
+          'You label study material with its school subject. Reply with ONLY the subject name in 1-2 words ' +
+          '(e.g. Physics, Chemistry, Biology, Mathematics, English, History, Geography, Economics, Computer Science). ' +
+          'If it is unclear or mixed, reply exactly: General. No other text.',
+        messages: [{ role: 'user', content: String(textSample || '').slice(0, 4000) }],
+      })
+      const raw = extractText(message).trim().replace(/[."']/g, '')
+      if (!raw || /^general$/i.test(raw) || raw.length > 40) return ''
+      return raw
+    } catch (_) {
+      return ''
+    }
+  }
+
+  // ─── Document extraction (upload → text) ──────────────────────────────────
+  // Transcribe an uploaded PDF or photo into plain text using Claude vision, so
+  // it can be chunked + embedded like any other material. Returns clean text.
+  async extractDocumentText({ buffer, mimeType, filename }) {
+    const client = this._getClient()
+    const base64 = buffer.toString('base64')
+
+    let sourceBlock
+    if (mimeType === 'application/pdf' || /\.pdf$/i.test(filename || '')) {
+      sourceBlock = { type: 'document', source: { type: 'base64', media_type: 'application/pdf', data: base64 } }
+    } else if (VISION_IMAGE_TYPES.includes(mimeType)) {
+      sourceBlock = { type: 'image', source: { type: 'base64', media_type: mimeType, data: base64 } }
+    } else {
+      throw new AppError('Unsupported document type for extraction.', 415)
+    }
+
+    let message
+    try {
+      message = await client.messages.create({
+        model: this.knowledgeModel,
+        max_tokens: EXTRACT_MAX_TOKENS,
+        system:
+          'You transcribe uploaded learning material into clean plain text so it can be indexed for search. ' +
+          'Output ONLY the transcribed content — every heading, paragraph, list, table, formula, and caption, in reading order. ' +
+          'Preserve the meaning faithfully; do NOT summarise, add commentary, or invent anything. ' +
+          'If a page has no readable text, output nothing for it.',
+        messages: [{
+          role: 'user',
+          content: [
+            sourceBlock,
+            { type: 'text', text: 'Transcribe all the readable content of this document as plain text.' },
+          ],
+        }],
+      })
+    } catch (err) {
+      throw translateProviderError(err, 'document extraction')
+    }
+    return extractText(message).trim()
+  }
 }
 
 // ─── Helpers ───────────────────────────────────────────────────────────────────
@@ -326,15 +524,114 @@ function parseAndValidateLesson(raw) {
   }
 }
 
+// The whiteboard shapes the frontend (DiagramRenderer) can actually draw. A
+// diagram naming any other shape is dropped, so a bad shape never renders blank.
+const DIAGRAM_SHAPES = ['triangle', 'rectangle', 'graph', 'coordinate', 'tree', 'flow']
+const GAP_KINDS = ['example', 'solution', 'origin']
+
+// Coerce the model's diagram object into something DiagramRenderer can render, or
+// null. Labels are clipped; a shape whose data is too thin to be meaningful (a
+// 1-bar graph, a 1-step flow) is dropped rather than drawn misleadingly.
+function normalizeDiagram(d) {
+  if (!d || typeof d !== 'object' || Array.isArray(d)) return null
+  const shape = typeof d.shape === 'string' ? d.shape.trim().toLowerCase() : ''
+  if (!DIAGRAM_SHAPES.includes(shape)) return null
+
+  const lbl = (v) => (typeof v === 'string' ? v.trim().slice(0, 24) : '')
+  const src = (d.data && typeof d.data === 'object' && !Array.isArray(d.data)) ? d.data : {}
+  let data = {}
+
+  switch (shape) {
+    case 'triangle':
+      data = { a: lbl(src.a), b: lbl(src.b), c: lbl(src.c) }
+      break
+    case 'rectangle':
+      data = { topLabel: lbl(src.topLabel), sideLabel: lbl(src.sideLabel) }
+      break
+    case 'graph': {
+      const values = Array.isArray(src.values)
+        ? src.values.map(Number).filter((n) => Number.isFinite(n) && n >= 0).slice(0, 4)
+        : []
+      if (values.length < 2) return null
+      data = { values }
+      break
+    }
+    case 'tree':
+      data = { root: lbl(src.root), left: lbl(src.left), right: lbl(src.right) }
+      break
+    case 'flow': {
+      const steps = Array.isArray(src.steps)
+        ? src.steps.filter((s) => typeof s === 'string' && s.trim()).map((s) => s.trim().slice(0, 14)).slice(0, 3)
+        : []
+      if (steps.length < 2) return null
+      data = { steps }
+      break
+    }
+    case 'coordinate':
+    default:
+      data = {}
+      break
+  }
+
+  const caption = typeof d.caption === 'string' ? d.caption.trim().slice(0, 60) : ''
+  return { shape, caption, data }
+}
+
+// Keep only recognised, de-duplicated gap tokens.
+function normalizeGaps(g) {
+  if (!Array.isArray(g)) return []
+  return [...new Set(
+    g.map((x) => String(x).trim().toLowerCase()).filter((x) => GAP_KINDS.includes(x)),
+  )]
+}
+
+// Validate the structured knowledge/teaching JSON into a clean object. Throws on
+// malformed/empty output so the caller falls back to the plain-text answer.
+function parseAndValidateTeaching(raw) {
+  const data = parseJsonObject(raw, 'knowledge lesson')
+  const str = (v) => (typeof v === 'string' ? v.trim() : '')
+
+  const title = str(data.title)
+  const intro = str(data.intro)
+  // Need at least a title or an intro to render anything meaningful.
+  if (!title && !intro) {
+    throw new AppError('The AI returned an empty structured answer.', 502)
+  }
+
+  const steps = Array.isArray(data.steps)
+    ? data.steps.filter((s) => typeof s === 'string' && s.trim()).map((s) => s.trim()).slice(0, 5)
+    : []
+
+  return {
+    title: title || 'Explanation',
+    intro,
+    steps,
+    formula: str(data.formula),
+    example: str(data.example),
+    quickCheck: str(data.quickCheck),
+    diagram: normalizeDiagram(data.diagram),
+    gaps: normalizeGaps(data.gaps),
+  }
+}
+
 // Map an Anthropic SDK error into a clean operational AppError. The API key is
 // never included in the message, so nothing sensitive leaks to the client.
 function translateProviderError(err, context) {
   if (err instanceof AppError) return err
 
   const status = typeof err?.status === 'number' ? err.status : null
+  const apiMessage = String(err?.error?.error?.message || err?.error?.message || err?.message || '')
 
   if (status === 401 || status === 403) {
     return new AppError('AI provider authentication failed. Check ANTHROPIC_API_KEY.', 502)
+  }
+  // Billing/credit exhaustion comes back as a 400 invalid_request_error. Retrying
+  // will NOT help, so surface it clearly instead of a generic "try again".
+  if (/credit balance is too low|billing|purchase credits|insufficient/i.test(apiMessage)) {
+    return new AppError(
+      'AI is temporarily unavailable: the Anthropic account is out of credits. An admin needs to add credits at console.anthropic.com → Plans & Billing.',
+      503,
+    )
   }
   if (status === 429) {
     return new AppError('AI provider rate limit reached. Please try again shortly.', 503)

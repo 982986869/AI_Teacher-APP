@@ -20,3 +20,11 @@ export const getOnlineTests = async (subjectSlug, chapterSlug, classLevel = 7) =
 // done client-side, like MCQ Practice.
 export const getOnlineTest = async (testId) =>
   (await axiosInstance.get(`/api/online-tests/test/${testId}`)).data.data;
+
+// Record an attempt. answers = { "<questionId>": <selectedOptionId> } — skipped
+// questions are simply absent. The server re-grades from its own answer key, so the
+// score it returns is the one that gets stored (and shown to the parent); the local
+// client-side grade above is only what the review screen renders immediately.
+export const submitOnlineTest = async (testId, { answers, timeTakenSec } = {}) =>
+  (await axiosInstance.post(`/api/online-tests/test/${testId}/submit`,
+    { answers, timeTakenSec })).data.data;

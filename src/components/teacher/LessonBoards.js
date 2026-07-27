@@ -6,6 +6,9 @@ import { C } from './premiumTheme';
 import { selfCheckLine } from './teacherPersona';
 import { SubjectBoard, SUBJECT_BOARD_TYPES } from './subjectBoards';
 import { CircleAround, Highlighter } from './boardGestures';
+// h() grows the SVG boards and f() grows the text boards for the immersive stage;
+// both are identity in card mode. See boardSize.js on why this is not a transform.
+import { useBoardSize } from './boardSize';
 
 // ── marker underline — a chalk/marker stroke that "draws" under the active
 // formula token (Smart Whiteboard flourish); reads as her underlining it. ──────
@@ -132,6 +135,7 @@ function svgLabel(x, y, text, color, size = 12, rotate) {
 
 // ── TRIANGLE: base → height → hypotenuse, labels after each, legend ───────────
 function TriangleBoard({ scene, paused, skip, resetKey, step }) {
+  const { h } = useBoardSize();
   const n = useReveal(4, 900, { paused, skip, resetKey, step });
   const A = { x: 58, y: 150 };   // right angle
   const B = { x: 250, y: 150 };  // base end
@@ -139,7 +143,7 @@ function TriangleBoard({ scene, paused, skip, resetKey, step }) {
   return (
     <View style={s.triRow}>
       <View style={s.triDiagram}>
-        <Svg width="100%" height={156} viewBox="0 0 290 178">
+        <Svg width="100%" height={h(156)} viewBox="0 0 290 178">
           {/* base (orange) */}
           {n >= 1 && <ChalkLine x1={A.x} y1={A.y} x2={B.x} y2={B.y} color={C.orange} width={5} duration={900} skip={skip} />}
           {n >= 1 && <FadeG show>{svgLabel((A.x + B.x) / 2, A.y + 25, 'b', C.orange, 20)}</FadeG>}
@@ -176,6 +180,10 @@ function LegendRich({ color, term, desc }) {
 
 // ── FORMULA: parts reveal + highlight one by one ──────────────────────────────
 function FormulaBoard({ scene, paused, skip, resetKey, step, highlight }) {
+  // The formula is the only thing on this board, so it has to grow with the card
+  // like every other board does — a 22px rule alone on the immersive stage reads
+  // as an empty board.
+  const { f } = useBoardSize();
   const parts = scene.formulaParts && scene.formulaParts.length ? scene.formulaParts : ['base²', '+ height²', '= hypotenuse²'];
   const colors = [C.orange, C.blue, C.green, C.ink];
   const hot = hotSet(highlight);
@@ -192,7 +200,7 @@ function FormulaBoard({ scene, paused, skip, resetKey, step, highlight }) {
               const isHot = i < n && hasHot(p, hot);            // spoken keyword → accent glow
               return (
               <Pop key={i} show={i < n} style={[s.formulaTokWrap, i === n - 1 && !skip && s.formulaTokActive, isHot && s.formulaTokHot]}>
-                <Text style={[s.formulaTok, { color: isHot ? C.accent : colors[i % colors.length] }]}>{p}</Text>
+                <Text style={[s.formulaTok, { fontSize: f(22), color: isHot ? C.accent : colors[i % colors.length] }]}>{p}</Text>
                 <MarkerUnderline active={(i === n - 1 && !skip) || isHot} color={isHot ? C.accent : colors[i % colors.length]} />
               </Pop>
               );
@@ -203,7 +211,7 @@ function FormulaBoard({ scene, paused, skip, resetKey, step, highlight }) {
       {Array.isArray(scene.diagram && scene.diagram.variables) && scene.diagram.variables.length > 0 && (
         <Pop show={n >= parts.length} style={s.varList}>
           {scene.diagram.variables.slice(0, 3).map((vr, i) => (
-            <Text key={i} style={s.varLine}><Text style={{ fontWeight: '900', color: colors[i % 3] }}>{vr.symbol}</Text>  =  {vr.meaning}</Text>
+            <Text key={i} style={[s.varLine, { fontSize: f(13) }]}><Text style={{ fontWeight: '900', color: colors[i % 3] }}>{vr.symbol}</Text>  =  {vr.meaning}</Text>
           ))}
         </Pop>
       )}
@@ -213,38 +221,52 @@ function FormulaBoard({ scene, paused, skip, resetKey, step, highlight }) {
 
 // ── PROOF: squares on each side → 9, 16, 25 → 9 + 16 = 25 ──────────────────────
 function ProofBoard({ scene, paused, skip, resetKey, step }) {
+  const { h } = useBoardSize();
   const n = useReveal(5, 1050, { paused, skip, resetKey, step });
-  // triangle 3-4-5 (height=3 up, base=4 right) at right angle A
-  const A = { x: 120, y: 150 };
-  const B = { x: 190, y: 150 }; // base end (4 units → 70px)
-  const Cc = { x: 120, y: 98 }; // height top (3 units → 52px)
-  // hypotenuse square (outward perp of C→B): perp of (70,52) rotated -90 = (52,-70)
-  const hypSq = `120,98 190,150 242,80 172,28`;
+  // The triangle comes from the SCENE, not from a 3-4-5 baked into the drawing:
+  // a lesson built on 5-12-13 was being taught over a picture of 9 + 16 = 25.
+  // Sides are scaled to fit the same box, so any triple draws at a usable size.
+  const p = scene.proof || {};
+  const va = Number(p.a) > 0 ? Number(p.a) : 3;          // height (up from the right angle)
+  const vb = Number(p.b) > 0 ? Number(p.b) : 4;          // base (right from the right angle)
+  const vc = Number(p.c) > 0 ? Number(p.c) : Math.round(Math.sqrt(va * va + vb * vb) * 100) / 100;
+  const u = 70 / Math.max(va, vb);                        // px per unit — longest side is 70px
+  const base = vb * u;
+  const rise = va * u;
+  const A = { x: 120, y: 150 };                           // the right angle
+  const B = { x: A.x + base, y: A.y };                    // base end
+  const Cc = { x: A.x, y: A.y - rise };                   // height top
+  // Square on the hypotenuse: C→B rotated -90° gives a perpendicular of the same
+  // length, so C · B · B+perp · C+perp is the square standing outward on it.
+  const perp = { x: rise, y: -base };
+  const hypSq = `${Cc.x},${Cc.y} ${B.x},${B.y} ${B.x + perp.x},${B.y + perp.y} ${Cc.x + perp.x},${Cc.y + perp.y}`;
+  const hypMid = { x: (Cc.x + B.x + perp.x) / 2, y: (Cc.y + B.y + perp.y) / 2 };
+  const sq = (x) => Math.round(x * x * 100) / 100;
   return (
     <View style={s.boardWrap}>
-      <Svg width="100%" height={220} viewBox="0 0 300 230">
-        {/* base square (16, orange) below the base */}
+      <Svg width="100%" height={h(220)} viewBox="0 0 300 230">
+        {/* square on the base */}
         {n >= 2 && (
           <FadeG show>
-            <Rect x={A.x} y={A.y} width={70} height={70} fill={C.orange} opacity={0.18} stroke={C.orange} strokeWidth={2} />
-            {svgLabel(A.x + 35, A.y + 40, '16', C.orange, 18)}
-            {svgLabel(A.x + 35, A.y + 56, '(4×4)', C.orange, 10)}
+            <Rect x={A.x} y={A.y} width={base} height={base} fill={C.orange} opacity={0.18} stroke={C.orange} strokeWidth={2} />
+            {svgLabel(A.x + base / 2, A.y + base / 2 + 5, String(sq(vb)), C.orange, 18)}
+            {svgLabel(A.x + base / 2, A.y + base / 2 + 21, `(${vb}×${vb})`, C.orange, 10)}
           </FadeG>
         )}
-        {/* height square (9, blue) left of the height */}
+        {/* square on the height */}
         {n >= 3 && (
           <FadeG show>
-            <Rect x={Cc.x - 52} y={Cc.y} width={52} height={52} fill={C.blue} opacity={0.16} stroke={C.blue} strokeWidth={2} />
-            {svgLabel(Cc.x - 26, Cc.y + 28, '9', C.blue, 16)}
-            {svgLabel(Cc.x - 26, Cc.y + 42, '(3×3)', C.blue, 9)}
+            <Rect x={Cc.x - rise} y={Cc.y} width={rise} height={rise} fill={C.blue} opacity={0.16} stroke={C.blue} strokeWidth={2} />
+            {svgLabel(Cc.x - rise / 2, Cc.y + rise / 2 + 2, String(sq(va)), C.blue, 16)}
+            {svgLabel(Cc.x - rise / 2, Cc.y + rise / 2 + 16, `(${va}×${va})`, C.blue, 9)}
           </FadeG>
         )}
-        {/* hypotenuse square (25, green) */}
+        {/* square on the hypotenuse */}
         {n >= 4 && (
           <FadeG show>
             <Polygon points={hypSq} fill={C.green} opacity={0.16} stroke={C.green} strokeWidth={2} />
-            {svgLabel(181, 86, '25', C.green, 18)}
-            {svgLabel(181, 102, '(5×5)', C.green, 10)}
+            {svgLabel(hypMid.x, hypMid.y - 3, String(sq(vc)), C.green, 18)}
+            {svgLabel(hypMid.x, hypMid.y + 13, `(${vc}×${vc})`, C.green, 10)}
           </FadeG>
         )}
         {/* the triangle on top */}
@@ -261,11 +283,11 @@ function ProofBoard({ scene, paused, skip, resetKey, step }) {
       <Pop show={n >= 5} style={s.sumPill}>
         <CircleAround active={n >= 5 && !skip} color={C.green} padX={12} padY={7}>
           <Text style={s.sumTxt}>
-            <Text style={{ color: C.blue }}>9</Text>
+            <Text style={{ color: C.blue }}>{sq(va)}</Text>
             <Text style={{ color: C.ink }}> + </Text>
-            <Text style={{ color: C.orange }}>16</Text>
+            <Text style={{ color: C.orange }}>{sq(vb)}</Text>
             <Text style={{ color: C.ink }}> = </Text>
-            <Text style={{ color: C.green }}>25</Text>
+            <Text style={{ color: C.green }}>{sq(vc)}</Text>
           </Text>
         </CircleAround>
       </Pop>
@@ -277,6 +299,7 @@ function ProofBoard({ scene, paused, skip, resetKey, step }) {
 // `memory` on → earlier points recede as she moves on (board fills up live). Off
 // (summary) → every point stays pinned bright, since the recap IS the keepers.
 function PointsBoard({ scene, paused, skip, resetKey, step, intro, warn, memory = true, highlight }) {
+  const { f } = useBoardSize();
   const points = (scene.diagram && scene.diagram.points) || [];
   const total = Math.max(1, points.length);
   const hot = hotSet(highlight);
@@ -295,9 +318,9 @@ function PointsBoard({ scene, paused, skip, resetKey, step, intro, warn, memory 
         return (
           <Reveal key={i} show={i < n} active={!memory || current} dimTo={0.42} style={s.pointRow}>
             {/* she swipes a highlighter across the line she's explaining right now */}
-            {current && <Highlighter key={`hl-${i}`} color={warn ? 'rgba(239,138,67,0.20)' : 'rgba(15,163,154,0.14)'} />}
-            <View style={[s.pointDot, warn && s.pointDotWarn]}><Text style={s.pointDotTxt}>{warn ? '!' : i + 1}</Text></View>
-            <Text style={[s.pointTxt, i < n && hasHot(p, hot) && s.pointTxtHot]}>{p}</Text>
+            {current && <Highlighter key={`hl-${i}`} color={warn ? 'rgba(239,193,82,0.20)' : 'rgba(99,214,187,0.16)'} />}
+            <View style={[s.pointDot, { width: f(22), height: f(22), borderRadius: f(22) / 2 }, warn && s.pointDotWarn]}><Text style={[s.pointDotTxt, { fontSize: f(11) }]}>{warn ? '!' : i + 1}</Text></View>
+            <Text style={[s.pointTxt, { fontSize: f(15), lineHeight: f(22) }, i < n && hasHot(p, hot) && s.pointTxtHot]}>{p}</Text>
           </Reveal>
         );
       })}
@@ -307,6 +330,7 @@ function PointsBoard({ scene, paused, skip, resetKey, step, intro, warn, memory 
 
 // ── CONCEPT (generic flow / points) ──────────────────────────────────────────
 function ConceptBoard({ scene, paused, skip, resetKey, step, highlight }) {
+  const { f } = useBoardSize();
   const d = scene.diagram || {};
   const isFlow = d.shape === 'flow' && Array.isArray(d.steps) && d.steps.length > 0;
   const steps = isFlow ? d.steps.slice(0, 3) : [];
@@ -317,8 +341,8 @@ function ConceptBoard({ scene, paused, skip, resetKey, step, highlight }) {
       <View style={[s.boardWrap, s.flowRow]}>
         {steps.map((stp, i) => (
           <React.Fragment key={i}>
-            <Reveal show={i < n} active={i === n - 1} dimTo={0.45} style={[s.flowBox, i < n && hasHot(stp, hot) && s.flowBoxHot]}><Text style={[s.flowTxt, i < n && hasHot(stp, hot) && { color: C.accent }]}>{String(stp)}</Text></Reveal>
-            {i < steps.length - 1 && <Pop show={i + 1 < n}><Text style={s.flowArrow}>→</Text></Pop>}
+            <Reveal show={i < n} active={i === n - 1} dimTo={0.45} style={[s.flowBox, i < n && hasHot(stp, hot) && s.flowBoxHot]}><Text style={[s.flowTxt, { fontSize: f(13) }, i < n && hasHot(stp, hot) && { color: C.accent }]}>{String(stp)}</Text></Reveal>
+            {i < steps.length - 1 && <Pop show={i + 1 < n}><Text style={[s.flowArrow, { fontSize: f(18) }]}>→</Text></Pop>}
           </React.Fragment>
         ))}
       </View>
@@ -329,6 +353,7 @@ function ConceptBoard({ scene, paused, skip, resetKey, step, highlight }) {
 
 // ── CHART: axes drawn, then bars grow in one per beat (directed) ──────────────
 function ChartBoard({ scene, paused, skip, resetKey, step }) {
+  const { h } = useBoardSize();
   const chart = (scene.diagram && scene.diagram.chart) || {};
   const values = Array.isArray(chart.values) && chart.values.length ? chart.values : [40, 70, 55, 90];
   const labels = Array.isArray(chart.labels) ? chart.labels : [];
@@ -341,7 +366,7 @@ function ChartBoard({ scene, paused, skip, resetKey, step }) {
   const bw = Math.min(38, slot * 0.6);
   return (
     <View style={s.boardWrap}>
-      <Svg width="100%" height={176} viewBox="0 0 300 176">
+      <Svg width="100%" height={h(176)} viewBox="0 0 300 176">
         {/* axes */}
         <Line x1={leftX} y1={baseY} x2={leftX + plotW} y2={baseY} stroke={C.dim} strokeWidth={2} />
         <Line x1={leftX} y1={baseY} x2={leftX} y2={baseY - plotH - 8} stroke={C.dim} strokeWidth={2} />
@@ -528,50 +553,50 @@ const s = StyleSheet.create({
   legTerm: { fontSize: 13, fontWeight: '900' },
   legDesc: { fontSize: 11.5, fontWeight: '600', color: C.dim, lineHeight: 16, marginTop: 1 },
 
-  formulaCard: { backgroundColor: 'rgba(44,48,67,0.04)', borderWidth: 1, borderColor: C.line, borderRadius: 16, paddingVertical: 16, paddingHorizontal: 18 },
+  formulaCard: { backgroundColor: 'rgba(255,255,255,0.05)', borderWidth: 1, borderColor: C.line, borderRadius: 16, paddingVertical: 16, paddingHorizontal: 18 },
   formulaRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 2 },
   formulaTokWrap: { borderRadius: 8, paddingHorizontal: 3, paddingVertical: 2 },
-  formulaTokActive: { backgroundColor: 'rgba(255,138,61,0.14)' },
+  formulaTokActive: { backgroundColor: 'rgba(239,193,82,0.18)' },
   formulaTokHot: { backgroundColor: C.accentSoft },
   formulaTok: { fontSize: 22, fontWeight: '900', letterSpacing: 0.5 },
   varList: { marginTop: 12, gap: 4, alignItems: 'center' },
   varLine: { fontSize: 13, fontWeight: '600', color: C.ink2 },
 
   chartAxes: { fontSize: 11, fontWeight: '800', color: C.dim, marginTop: 6, textAlign: 'center' },
-  sumPill: { marginTop: 10, backgroundColor: 'rgba(44,48,67,0.05)', borderWidth: 1, borderColor: C.line, borderRadius: 14, paddingVertical: 8, paddingHorizontal: 18 },
+  sumPill: { marginTop: 10, backgroundColor: 'rgba(255,255,255,0.06)', borderWidth: 1, borderColor: C.line, borderRadius: 14, paddingVertical: 8, paddingHorizontal: 18 },
   sumTxt: { fontSize: 20, fontWeight: '900', letterSpacing: 0.5 },
 
   pointRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10, marginTop: 10, alignSelf: 'stretch', borderRadius: 12, paddingVertical: 6, paddingHorizontal: 6, marginHorizontal: -6, overflow: 'hidden' },
-  pointRowActive: { backgroundColor: 'rgba(15,163,154,0.10)' },       // the point she's on right now
-  pointRowWarnActive: { backgroundColor: 'rgba(239,138,67,0.12)' },   // …on a common-mistake slide
+  pointRowActive: { backgroundColor: 'rgba(99,214,187,0.14)' },       // the point she's on right now
+  pointRowWarnActive: { backgroundColor: 'rgba(239,193,82,0.14)' },   // …on a common-mistake slide
   pointDot: { width: 22, height: 22, borderRadius: 11, backgroundColor: C.accent, alignItems: 'center', justifyContent: 'center', marginTop: 1 },
   pointDotWarn: { backgroundColor: C.orange },
-  pointDotTxt: { color: '#fff', fontSize: 11, fontWeight: '900' },
+  pointDotTxt: { color: '#14201D', fontSize: 11, fontWeight: '900' },
   pointTxt: { flex: 1, fontSize: 15, fontWeight: '600', color: C.ink, lineHeight: 22 },
   pointTxtHot: { color: C.accent, fontWeight: '800' },
 
   flowRow: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: 8 },
-  flowBox: { backgroundColor: 'rgba(44,48,67,0.04)', borderWidth: 1, borderColor: C.line, borderRadius: 12, paddingVertical: 10, paddingHorizontal: 14 },
+  flowBox: { backgroundColor: 'rgba(255,255,255,0.05)', borderWidth: 1, borderColor: C.line, borderRadius: 12, paddingVertical: 10, paddingHorizontal: 14 },
   flowBoxHot: { borderColor: C.accent, backgroundColor: C.accentSoft },
   flowTxt: { fontSize: 13, fontWeight: '800', color: C.ink },
   flowArrow: { fontSize: 18, fontWeight: '900', color: C.accent },
 
   quizQ: { fontSize: 17, fontWeight: '800', color: C.ink, lineHeight: 24, alignSelf: 'stretch', marginBottom: 4 },
-  opt: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', alignSelf: 'stretch', backgroundColor: 'rgba(44,48,67,0.04)', borderWidth: 1, borderColor: C.line, borderRadius: 13, paddingVertical: 12, paddingHorizontal: 15, marginTop: 9 },
+  opt: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', alignSelf: 'stretch', backgroundColor: 'rgba(255,255,255,0.05)', borderWidth: 1, borderColor: C.line, borderRadius: 13, paddingVertical: 12, paddingHorizontal: 15, marginTop: 9 },
   // correct → green, softly glowing. wrong → a warm AMBER wash (never harsh red).
-  optRight: { backgroundColor: 'rgba(87,214,151,0.18)', borderColor: C.green, shadowColor: C.green, shadowOpacity: 0.28, shadowRadius: 12, shadowOffset: { width: 0, height: 4 }, elevation: 3 },
-  optWrong: { backgroundColor: 'rgba(239,138,67,0.14)', borderColor: C.orange },
+  optRight: { backgroundColor: 'rgba(99,214,187,0.20)', borderColor: C.green, shadowColor: C.green, shadowOpacity: 0.28, shadowRadius: 12, shadowOffset: { width: 0, height: 4 }, elevation: 3 },
+  optWrong: { backgroundColor: 'rgba(239,193,82,0.16)', borderColor: C.orange },
   optTxt: { flex: 1, fontSize: 14, fontWeight: '700', color: C.ink },
   optMark: { fontSize: 15, fontWeight: '900', color: C.green, marginLeft: 8 },
   optMarkWrong: { color: C.orange },
   quizFb: { fontSize: 13, fontWeight: '800', marginTop: 12, alignSelf: 'stretch' },
   continueBtn: { alignSelf: 'flex-end', marginTop: 14, backgroundColor: C.accent, borderRadius: 12, paddingVertical: 9, paddingHorizontal: 18 },
-  continueTxt: { color: '#fff', fontSize: 13, fontWeight: '900' },
-  reexplainBtn: { alignSelf: 'flex-start', marginTop: 10, backgroundColor: 'rgba(15,163,154,0.10)', borderWidth: 1, borderColor: C.accent, borderRadius: 12, paddingVertical: 9, paddingHorizontal: 16 },
+  continueTxt: { color: '#14201D', fontSize: 13, fontWeight: '900' },
+  reexplainBtn: { alignSelf: 'flex-start', marginTop: 10, backgroundColor: 'rgba(99,214,187,0.12)', borderWidth: 1, borderColor: C.accent, borderRadius: 12, paddingVertical: 9, paddingHorizontal: 16 },
   reexplainTxt: { color: C.accent, fontSize: 13, fontWeight: '900' },
 
   // adaptive re-teach panel (shown on a missed check — a different explanation)
-  reteachPanel: { alignSelf: 'stretch', marginTop: 14, backgroundColor: C.accentSoft, borderWidth: 1, borderColor: 'rgba(197,126,34,0.28)', borderRadius: 14, paddingVertical: 13, paddingHorizontal: 14, gap: 6 },
+  reteachPanel: { alignSelf: 'stretch', marginTop: 14, backgroundColor: C.accentSoft, borderWidth: 1, borderColor: 'rgba(239,193,82,0.30)', borderRadius: 14, paddingVertical: 13, paddingHorizontal: 14, gap: 6 },
   reteachGap: { fontSize: 13.5, fontWeight: '800', color: C.ink, lineHeight: 19 },
   reteachIntro: { fontSize: 12.5, fontWeight: '700', color: C.accent, marginTop: 2 },
   reteachStep: { fontSize: 13, fontWeight: '600', color: C.ink, lineHeight: 20, paddingLeft: 4 },

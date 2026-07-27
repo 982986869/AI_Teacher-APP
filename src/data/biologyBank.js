@@ -1,7 +1,13 @@
 // biologyBank.js
 // Biology offline bank — 20 chapters, sub-topic tagged (each question has topicId/topicName).
-// Provides chapter-level AND sub-topic access. Answers (correctAnswer) are null
-// until fetched; they auto-resolve once correct_letter/correct_option_id is filled.
+// Provides chapter-level AND sub-topic access.
+//
+// ANSWERS: the chapter JSONs ship with correct_letter / correct_option_id set to
+// null for every question, so — exactly like physics/chemistry/maths — the answers
+// come from a separate fetched key file. Run
+// `node build-answer-key-biology.js` inside biology_questions/ to populate it;
+// until then the file is `{}` and correctAnswer stays null, which the review screen
+// renders as "Not graded" rather than silently marking answers wrong.
 
 import b1389 from './biology_questions/1389_The_Living_World.json';
 import b1390 from './biology_questions/1390_Biological_Classification.json';
@@ -24,6 +30,9 @@ import b1408 from './biology_questions/1408_Locomotion_and_Movement.json';
 import b1409 from './biology_questions/1409_Neural_Control_and_Coordination.json';
 import b1410 from './biology_questions/1410_Chemical_Coordination_and_Integration.json';
 
+// Fetched answers, keyed by question id: { id: { correctAnswer, correctOptionId, explanation } }
+import answerKey from './biology_questions/answer_key_biology.json';
+
 const rawChapters = [b1389, b1390, b1391, b1392, b1393, b1394, b1395, b1396, b1397, b1398, b1401, b1402, b1403, b1404, b1405, b1406, b1407, b1408, b1409, b1410];
 
 const LETTERS = 'ABCDEFGHIJ'.split('');
@@ -35,11 +44,19 @@ function clean(html){if(html==null)return '';let s=String(html).replace(/\{tex\}
 
 function normQ(q){
   const options=(q.options||[]).map((o,i)=>({key:LETTERS[i],label:clean(o.option??o.text??''),optionId:o.id??null}));
+  // Inline fields first (in case a chapter file ever ships filled in), then the
+  // fetched key — same precedence the other three banks use.
+  const ak=answerKey[q.id]||{};
   let correctAnswer=null;
   if(q.correct_letter){correctAnswer=String(q.correct_letter).toUpperCase();}
-  else if(q.correct_option_id!=null){const idx=options.findIndex(o=>String(o.optionId)===String(q.correct_option_id));if(idx>=0)correctAnswer=LETTERS[idx];}
+  else{
+    const correctOptionId=q.correct_option_id??ak.correctOptionId??null;
+    if(correctOptionId!=null){const idx=options.findIndex(o=>String(o.optionId)===String(correctOptionId));if(idx>=0)correctAnswer=LETTERS[idx];}
+    if(!correctAnswer&&ak.correctAnswer)correctAnswer=String(ak.correctAnswer).toUpperCase();
+  }
   return {id:q.id,text:clean(q.question??q.text??''),difficulty:q.difficulty_label??q.difficulty??null,
-    topicId:q.topicId??null,topicName:q.topicName??null,options,correctAnswer,explanation:clean(q.explanation??'')};
+    topicId:q.topicId??null,topicName:q.topicName??null,options,correctAnswer,
+    explanation:clean(q.explanation??ak.explanation??'')};
 }
 
 export const chapters = rawChapters.map((c)=>({
