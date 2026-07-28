@@ -1135,6 +1135,21 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     )
   );
 
+  // Cross-fade the caption when it switches KIND (lesson narration ⇄ a doubt Q&A ⇄ the
+  // listening prompt). Stage only animates on a NEW scene, so this in-place swap used to
+  // hard-cut mid-conversation. Scene-to-scene changes keep the same kind, so this never
+  // double-animates with Stage. Native-driver opacity; first render is left untouched.
+  const captionKind = qa ? 'qa' : (mode === M.LISTENING ? 'listen' : 'teach');
+  const capFade = useRef(new Animated.Value(1)).current;
+  const capFirst = useRef(true);
+  useEffect(() => {
+    if (capFirst.current) { capFirst.current = false; return undefined; }
+    capFade.setValue(0.35);
+    const anim = Animated.timing(capFade, { toValue: 1, duration: 260, easing: Easing.out(Easing.cubic), useNativeDriver: true });
+    anim.start();
+    return () => anim.stop();
+  }, [captionKind, capFade]);
+
   // ── Learning-progress context — reads as progress through the CONCEPTS, not a
   // raw slide count (checkpoints are excluded from the numbering). ──
   const lessonTopic = (lesson && (lesson.lessonTitle || lesson.title)) || (scenes[0] && scenes[0].title) || 'Today’s lesson';
@@ -1262,7 +1277,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
               </View>
             </Animated.View>
           )}
-          {!focusMode && <View style={st.captionWrap}>{captionEl}</View>}
+          {!focusMode && <Animated.View style={[st.captionWrap, { opacity: capFade }]}>{captionEl}</Animated.View>}
           {!focusMode && !!onAsk && (teaching || mode === M.PAUSED) && !qa && (
             <ExplainChips
               scene={scene}
