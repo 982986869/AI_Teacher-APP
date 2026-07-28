@@ -903,7 +903,10 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
       resetTeacherQueue();
       let acc = '';
       let buf = '';
-      setMode(M.ANSWERING); setTtsActive(true);
+      // Stay in THINKING during the answer latency (so "she's thinking" shows, not a
+      // waveform over silence). We flip to ANSWERING when the first token actually
+      // arrives, and ttsActive lights up only when real audio starts (queue onStart) —
+      // matching the non-streaming path's honest timing.
       const flush = (force) => {
         let m;
         // emit each completed sentence to the voice queue as soon as it's whole
@@ -914,10 +917,11 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
         if (force && buf.trim()) { speakTeacherQueued(buf.trim()); buf = ''; }
       };
       onAskStream(q, askPosRef.current, {
-        onDelta: (t) => { if (turn !== doubtTurnRef.current) return; acc += t; buf += t; setQa({ q, a: acc }); flush(false); },
+        onDelta: (t) => { if (turn !== doubtTurnRef.current) return; if (!acc) setMode(M.ANSWERING); acc += t; buf += t; setQa({ q, a: acc }); flush(false); },
       })
         .then((res) => {
           if (!fresh()) return;
+          setMode(M.ANSWERING); // no-op if a token already flipped it; covers an empty stream
           flush(true);
           setQa({ q, a: (res && res.answer) || acc || "Hmm, that didn't come through on my side — ask me once more?" });
           setQaMeta(extractMeta(res));
@@ -937,6 +941,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
           if (turn !== doubtTurnRef.current) return; // a newer doubt owns the queue now
           resetTeacherQueue();
           if (!mountedRef.current) return;
+          setMode(M.ANSWERING); // leave THINKING so the error + Resume button surface
           setQa({ q, a: e?.message || 'Sorry, I couldn’t get an answer just now. Please try asking again.' });
           setTtsActive(false); setDoubtDone(true);
         });
