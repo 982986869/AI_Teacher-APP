@@ -1178,8 +1178,18 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const boardScale = cam.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0.985, 1.0, 1.035] });
   const boardOpacity = cam.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0.82, 0.94, 1.0] });
 
+  // The classroom dissolves in on first mount (and on resume) so the hand-off from the
+  // light "preparing" screen into the dark lesson is a calm fade, not a hard light→dark
+  // cut. Native-driver opacity; runs once per mount, no layout shift.
+  const mountFade = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    const anim = Animated.timing(mountFade, { toValue: 1, duration: 420, easing: Easing.out(Easing.cubic), useNativeDriver: true });
+    anim.start();
+    return () => anim.stop();
+  }, [mountFade]);
+
   return (
-    <View style={st.container}>
+    <Animated.View style={[st.container, { opacity: mountFade }]}>
       {/* Deep premium "classroom" backdrop — a top-lit indigo→black stage. */}
       <LinearGradient colors={ROOM_GRAD} locations={[0, 0.55, 1]} style={StyleSheet.absoluteFill} pointerEvents="none" />
       {/* clean warm editorial background (C.cream) — no ambient, mobile-first */}
@@ -1454,7 +1464,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
       />
       <FlashcardDeck visible={deckOpen} cards={flashcards} onClose={() => setDeckOpen(false)} lessonKey={lessonKey} />
       <TestSheet visible={testOpen} questions={testQs} onClose={() => setTestOpen(false)} onScore={() => {}} />
-    </View>
+    </Animated.View>
   );
 }
 
