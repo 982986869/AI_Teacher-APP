@@ -1,8 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import * as Haptics from 'expo-haptics';
 import { C, D, F, SP, R } from './premiumTheme';
 import { Appear, PressableScale } from './uiKit';
+
+// expo-haptics is native — guarded require so a version-skewed Expo Go can't crash the
+// live lesson on load. Haptics are a nicety; their absence is a silent no-op.
+let Haptics = null;
+try { Haptics = require('expo-haptics'); } catch (e) { Haptics = null; }
+const haptic = () => { try { Haptics && Haptics.selectionAsync && Haptics.selectionAsync(); } catch (e) { /* no-op */ } };
 
 export function StreamingAnswerCard({
   streamedText,
@@ -36,7 +41,7 @@ export function StreamingAnswerCard({
                 key={item.action}
                 style={[styles.chip, { backgroundColor: isDark ? D.panel2 : C.accentSoft }]}
                 onPress={() => {
-                  Haptics.selectionAsync();
+                  haptic();
                   onActionSelect(item.action);
                 }}
                 accessibilityLabel={item.label}
