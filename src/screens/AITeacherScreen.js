@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 import {
   View, Text, StyleSheet, SafeAreaView, ScrollView,
   StatusBar, TextInput, Platform,
-  KeyboardAvoidingView, ActivityIndicator,
+  KeyboardAvoidingView, ActivityIndicator, Animated, Easing,
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
 import { generateLesson, askAgent, askAgentStream, getResumeContext, getLesson, updateLessonProgress, TEACHING_MODES } from '../api/aiApi';
@@ -260,6 +260,16 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
     const id = setInterval(() => setPrepHint(preparingHint()), 4500);
     return () => clearInterval(id);
   }, [loading]);
+  // Gently fade the full-screen preparing overlay in instead of hard-snapping it over
+  // the screen when the student taps Start — a calmer, more intentional hand-off. The
+  // button spinner already confirms the tap instantly, so the 280ms fade adds no delay.
+  const genFade = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    if (!loading) { genFade.setValue(0); return undefined; }
+    const anim = Animated.timing(genFade, { toValue: 1, duration: 280, easing: Easing.out(Easing.cubic), useNativeDriver: true });
+    anim.start();
+    return () => anim.stop();
+  }, [loading, genFade]);
   const resumeCardTag = useMemo(() => resumeTag(), [savedLesson]);
   const emptyHint = useMemo(() => emptyState('insights'), []);
 
@@ -501,7 +511,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
 
         {/* ── Generation overlay — the real preparing beats, staged ── */}
         {loading && (
-          <View style={st.genOverlay}>
+          <Animated.View style={[st.genOverlay, { opacity: genFade }]}>
             <View style={st.genSpark}><Sparkles size={34} color={C.accent} strokeWidth={2} /></View>
             <Text style={st.genTitle} accessibilityLiveRegion="polite">Ms. Nova is preparing your lesson…</Text>
             <View style={st.genList}>
@@ -517,7 +527,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
               ))}
             </View>
             <Text style={st.genHint}>{prepHint}</Text>
-          </View>
+          </Animated.View>
         )}
 
         <YourLearning visible={learningOpen} onClose={() => setLearningOpen(false)} />
