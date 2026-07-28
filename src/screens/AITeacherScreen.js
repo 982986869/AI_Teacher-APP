@@ -250,7 +250,16 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   const intro = useMemo(() => firstHello(), []);
   const isNewStudent = !resume && !savedLesson;
   const prepStages = useMemo(() => preparingBeats(topic), [topic]);
-  const prepHint = useMemo(() => preparingHint(), []);
+  // The long tail of generation (30–90s) used to sit on one static reassurance line —
+  // a minute of the same line reads as hung. Rotate it on a calm cadence (distinct from
+  // the stage ticker) so the wait stays alive and honest. Reuses preparingHint()'s pool,
+  // which already never repeats the previous line; the generation flow is unchanged.
+  const [prepHint, setPrepHint] = useState(preparingHint);
+  useEffect(() => {
+    if (!loading) return undefined;
+    const id = setInterval(() => setPrepHint(preparingHint()), 4500);
+    return () => clearInterval(id);
+  }, [loading]);
   const resumeCardTag = useMemo(() => resumeTag(), [savedLesson]);
   const emptyHint = useMemo(() => emptyState('insights'), []);
 
