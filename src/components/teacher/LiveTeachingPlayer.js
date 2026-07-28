@@ -1296,7 +1296,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
       {/* ── STUDENT + STATUS + CONTROL DOCK (fixed) ── */}
       <View style={st.bottom}>
         {mode === M.LISTENING && VOICE_OK && <Text style={st.listenTxt} numberOfLines={2} accessibilityLiveRegion="polite">{partial || 'I’m listening — go ahead.'}</Text>}
-        {mode === M.THINKING && <ThinkingDots />}
+        {mode === M.THINKING && <Appear><ThinkingDots /></Appear>}
 
         {mode === M.LISTENING && !VOICE_OK && !qInput && (
           <View style={st.starterRow}>
