@@ -14,7 +14,6 @@ import { SP, R } from '../components/teacher/premiumTheme';
 import { S, shadowSm } from '../theme/studentTheme';
 import { F } from './parent/ParentApp/constants';
 import { ChevronLeft, BookOpen, Sparkles, FileText, CircleAlert, Trash2, Check, FileUp, ImagePlus, Camera, X, SquarePen } from 'lucide-react-native';
-import * as DocumentPicker from 'expo-document-picker';
 import * as ImagePicker from 'expo-image-picker';
 import { Appear, PressableScale } from '../components/teacher/uiKit';
 import DiagramRenderer from '../components/teacher/DiagramRenderer';
@@ -22,6 +21,19 @@ import MathText from '../components/MathText';
 import {
   askKnowledgeStructured, extendKnowledge, solvePhoto, listKnowledgeSources, uploadKnowledgeText, uploadKnowledgeFile, deleteKnowledgeSource,
 } from '../api/knowledgeApi';
+
+// expo-document-picker is a NATIVE module, and it was added to this app only with
+// the "Ask the Material" upload flow. A dev/preview build made before that has no
+// ExpoDocumentPicker inside it, and a top-level import there throws while the JS
+// bundle is still loading — which kills the WHOLE app on open, not just this screen.
+// So load it at tap time and degrade to "PDF needs the new build" instead.
+const loadDocumentPicker = () => {
+  try {
+    return require('expo-document-picker');
+  } catch {
+    return null;
+  }
+};
 
 // One-tap follow-ups shown under the latest answer, so the chat keeps flowing
 // without the student having to phrase a follow-up question themselves. These
@@ -697,6 +709,11 @@ const ManagePanel = () => {
   };
 
   const pickPdf = async () => {
+    const DocumentPicker = loadDocumentPicker();
+    if (!DocumentPicker) {
+      setErr('PDF upload needs the latest app build. Please update the app, or use a photo for now.');
+      return;
+    }
     try {
       const res = await DocumentPicker.getDocumentAsync({ type: 'application/pdf', copyToCacheDirectory: true, multiple: false });
       if (res.canceled || !res.assets?.length) return;

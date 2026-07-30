@@ -32,7 +32,7 @@ import {
   // Subject-tile glyphs — see SUBJECT_META below.
   Atom, Sigma, FlaskConical, Dna, BookOpen, Landmark,
 } from 'lucide-react-native';
-import { Appear, PressableScale } from '../components/teacher/uiKit';
+import { Appear, PressableScale, Gradient } from '../components/teacher/uiKit';
 import { stopTeacher, primeTeacherVoice, SPEECH_OK } from '../utils/teacherVoice';
 import YourLearning from '../components/teacher/YourLearning';
 
