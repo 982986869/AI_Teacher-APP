@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import {
-  View, Text, StyleSheet, ScrollView, Animated, Easing, Dimensions, Platform, TextInput,
+  View, Text, StyleSheet, ScrollView, Animated, Easing, Dimensions, Platform, TextInput, Image, Modal,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import LessonBoard from './LessonBoards';
@@ -25,6 +25,7 @@ import { speakTeacher, stopTeacher, primeTeacherVoice, getSpeechProgress, SPEECH
 import {
   Mic, Square, RotateCcw, SkipForward, SkipBack, Play, Pause, ArrowUp, ChevronLeft, AudioLines,
   Volume2, VolumeX, RefreshCw, GraduationCap, BookOpen, Globe, Check, Trophy, Radio, ListTree, Layers, Maximize2, Minimize2,
+  Ellipsis, Camera, Pencil, Eraser, Type, ChevronDown, ChevronRight, Undo2,
 } from 'lucide-react-native';
 
 // Optional student camera — degrades to a friendly placeholder.
@@ -65,11 +66,83 @@ const BAR_HIT = { top: 8, bottom: 8, left: 8, right: 8 };
 // A sophisticated graphite "study room" — near-black with the faintest cool cast,
 // no bright purple. Editorial and mature, not playful. One warm accent (champagne)
 // carries emphasis and the live pulse, like a highlighter in a fine textbook.
-const ROOM_GRAD = ['#191C24', '#0F1116', '#08090C'];
+const ROOM_GRAD = ['#16162A', '#0E0E1B', '#08080F'];
 const ACCENT = '#DBA53F';      // marigold gold (the approved "Editorial" brand accent, brightened for the dark room)
 const ACCENT_DIM = '#B4863A';  // deeper marigold for smaller labels
 const GLASS_PANEL = 'rgba(34,38,48,0.72)';   // graphite frosted glass (teacher / caption / dock)
 const GLASS_HAIR = 'rgba(255,255,255,0.16)';  // bright top hairline on the glass
+
+// ── SESSION CHROME (approved mockup, Jul 2026) ────────────────────────────────
+// The live lesson is framed like a video class: a dark app ground, a violet
+// "teacher on camera" card, a white whiteboard card, an ask bar, and a session
+// action bar. These tokens own that chrome only — the BOARD ITSELF still renders
+// from the light `C` tokens in LessonBoards, so no SVG board changes.
+const V = {
+  ground: '#0B0B14',        // app background — near-black with a violet cast
+  ground2: '#12121F',       // elevated surface (ask bar, action bar)
+  hair: 'rgba(255,255,255,0.08)',
+  hairSoft: 'rgba(255,255,255,0.05)',
+  text: '#FFFFFF',
+  textDim: '#9A9AB4',
+  textFaint: '#6B6B85',
+  violet: '#7C4DFF',        // brand violet — send button, active tool, name chip
+  violetDeep: '#5B32C4',
+  violetSoft: 'rgba(124,77,255,0.16)',
+  live: '#EF4444',          // the "Live" pill + End Session
+  liveSoft: 'rgba(239,68,68,0.16)',
+  paper: '#FFFFFF',         // whiteboard card
+  paperEdge: 'rgba(15,23,42,0.07)',
+  paperDim: '#F1F1F6',      // tool-rail / Full Screen chip fill
+};
+// The teacher card's violet stage — lighter at the top-left, deepening downward.
+const CAM_GRAD = ['#8257F5', '#6B3FE0', '#4E23AC'];
+const CARD_R = 26;
+// The mockup gives cards noticeably more breathing room off the screen edge than a
+// standard SP.md gutter — SP.lg matches it. Both the ScrollView's own padding and the
+// hero-photo crop math (which needs the card's true rendered width) read from this one
+// constant so they can never drift apart.
+const SCREEN_MARGIN = SP.lg;
+// The teacher card's shape comes from the REFERENCE, not from a screen fraction: a
+// fixed height:width ratio (a touch taller than wide — a portrait "webcam" silhouette),
+// not SCREEN_H*fraction. A height-fraction approach let the card's WIDTH (fixed by the
+// shared card margin) silently redefine its shape, flattening it toward landscape. This
+// ratio was measured directly off the reference mockup and, at the shared card margin,
+// lands the card at ~35% of screen height on a standard device — the width constraint
+// and the height target were never actually in conflict.
+const CAM_RATIO = 1.08; // height = width * CAM_RATIO
+// The whiteboard is NOT forced to a fixed fraction — it sizes to its own content (a
+// one-line "Quick Check" stays compact; a full worked example naturally grows). With
+// the teacher card fixed and small, the board reads as dominant on any real scene
+// without padding short content into artificial empty space.
+
+// TEACHER_HERO_PHOTO is a wide FULL-BODY illustration, 1123×944px (figure centred,
+// brick backdrop filling the rest of the frame) — see teacherIdentity.js. A plain
+// `cover` fit inside a portrait card just shows the whole figure small with lots of
+// backdrop, not the bust/headshot framing a real video-call teacher card needs.
+//
+// Instead of a scale+translate transform (whose translate units get tangled up with
+// the scale — easy to mis-tune), we pick an explicit crop WINDOW in the source
+// photo's own fractional coordinates, then size + position the <Image> with plain
+// width/height/top/left so that window exactly fills the card. If the photo asset
+// is ever replaced, re-derive HERO_CROP_TOP/H/CX by opening the new art and reading
+// off where her head, shoulders and horizontal centre actually sit.
+const HERO_PHOTO_W = 1123;
+const HERO_PHOTO_H = 944;
+const HERO_PHOTO_AR = HERO_PHOTO_W / HERO_PHOTO_H;
+const HERO_CROP_TOP = 0.02;  // fraction down the photo where the visible window starts (a hair of headroom above her hair)
+const HERO_CROP_H = 0.44;    // fraction of the photo's height the window spans — head, hair and shoulders, stopping above her hands-on-hips
+const HERO_CROP_CX = 0.50;   // horizontal centre of the window, as a fraction of the photo's width (she's centred in the source art)
+const CAM_CARD_W = SCREEN_W - SCREEN_MARGIN * 2;   // matches sessionScroll's horizontal padding
+const CAM_CARD_H = CAM_CARD_W * CAM_RATIO;
+// Derive the <Image>'s full rendered size + offset: crop_W is chosen so the crop
+// window's aspect ratio matches the card's, then the full photo is scaled up so that
+// window exactly covers the card, and shifted so the window (not the photo's own
+// centre) lands inside it.
+const HERO_CROP_W_FRAC = (HERO_CROP_H * HERO_PHOTO_H * (CAM_CARD_W / CAM_CARD_H)) / HERO_PHOTO_W;
+const HERO_FULL_W = CAM_CARD_W / HERO_CROP_W_FRAC;
+const HERO_FULL_H = HERO_FULL_W / HERO_PHOTO_AR;
+const HERO_LEFT = -(HERO_FULL_W * HERO_CROP_CX - CAM_CARD_W / 2);
+const HERO_TOP = -(HERO_FULL_H * HERO_CROP_TOP);
 
 const M = {
   TEACHING: 'TEACHING',     // a scene is being explained (TTS = the clock)
@@ -218,6 +291,41 @@ function Waveform({ active, compact }) {
 // ── floating corner teacher — circular avatar that slides in to the top-right ──
 // `cam` is the Camera Director's rack-focus (0 teacher · 1 board): she grows and
 // brightens when the shot is on HER, and eases back a touch when it's on the board.
+// ── Session clock — MM:SS since the lesson opened, ticking once a second ──────
+// Its own component so the 1 Hz tick re-renders eight characters of text and not
+// the whole player (which owns the TTS/Director state machine).
+function SessionClock({ since, style }) {
+  const [now, setNow] = useState(Date.now());
+  useEffect(() => {
+    const id = setInterval(() => setNow(Date.now()), 1000);
+    return () => clearInterval(id);
+  }, []);
+  const s = Math.max(0, Math.floor((now - since) / 1000));
+  const mm = String(Math.floor(s / 60)).padStart(2, '0');
+  const ss = String(s % 60).padStart(2, '0');
+  return <Text style={style} accessibilityLabel={`Session time ${mm} minutes ${ss} seconds`}>{mm}:{ss}</Text>;
+}
+
+// ── "Live" pill — the red status dot breathes while she's actually speaking ────
+function LivePill({ active }) {
+  const p = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    if (!active) { p.setValue(0); return undefined; }
+    const loop = Animated.loop(Animated.sequence([
+      Animated.timing(p, { toValue: 1, duration: 700, easing: Easing.out(Easing.quad), useNativeDriver: true }),
+      Animated.timing(p, { toValue: 0, duration: 700, easing: Easing.in(Easing.quad), useNativeDriver: true }),
+    ]));
+    loop.start();
+    return () => loop.stop();
+  }, [active, p]);
+  return (
+    <View style={st.livePill} accessibilityLabel={active ? 'Live — teacher is speaking' : 'Live'}>
+      <Animated.View style={[st.liveDot, { opacity: p.interpolate({ inputRange: [0, 1], outputRange: [1, 0.35] }) }]} />
+      <Text style={st.liveTxt}>Live</Text>
+    </View>
+  );
+}
+
 function CornerTeacher({ state, expression, cam }) {
   const enter = useRef(new Animated.Value(0)).current;
   useEffect(() => {
@@ -484,6 +592,11 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const [mode, setMode] = useState(M.TEACHING);
   // Resume at the saved position (clamped), else start at the beginning.
   const [idx, setIdx] = useState(() => Math.min(Math.max(0, Math.floor(Number(startIndex)) || 0), Math.max(0, N - 1)));
+  // The session scroll must always open on the teacher card, never wherever a PREVIOUS
+  // scene happened to leave it scrolled to — otherwise a new scene can silently render
+  // "scrolled past" the camera card with no visual cue that anything is wrong.
+  const sessionScrollRef = useRef(null);
+  useEffect(() => { sessionScrollRef.current && sessionScrollRef.current.scrollTo({ y: 0, animated: false }); }, [idx]);
   const [beat, setBeat] = useState(0);   // which directed beat within the current scene
   const [animKey, setAnimKey] = useState(0);
   const [muted, setMuted] = useState(false);
@@ -495,6 +608,12 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   // flashcard deck and a summative "Test yourself" quiz. Bookmarks persist per lesson.
   const [contentsOpen, setContentsOpen] = useState(false);
   const [focusMode, setFocusMode] = useState(false); // distraction-free reading
+  // Session-chrome state (see the mockup): whiteboard tool rail, student self-view,
+  // the "…" overflow menu, and whether the ask bar is collapsed.
+  const [tool, setTool] = useState('pen');
+  const [selfView, setSelfView] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [askCollapsed, setAskCollapsed] = useState(false);
   const [deckOpen, setDeckOpen] = useState(false);
   const [testOpen, setTestOpen] = useState(false);
   const [savedNotes, setSavedNotes] = useState([]); // saved concept indices
@@ -1004,6 +1123,23 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     if (autoResumeRef.current) { clearTimeout(autoResumeRef.current); autoResumeRef.current = null; }
     sendDoubt(q);
   };
+  // ── session-chrome handlers ──
+  // The camera-card rail: mic toggles live conversation when the recognizer build is
+  // present, otherwise it opens the typed ask. The camera button drives the student
+  // self-view and is inert (and dimmed) when no camera module is installed.
+  const onMicPress = () => { if (VOICE_OK) toggleHandsFree(); else beginListen(); };
+  const onCameraPress = () => {
+    if (!CAMERA_OK) { setHint('Your camera isn’t available in this build — you can still talk and type.'); return; }
+    setSelfView((v) => !v);
+  };
+  const endSession = () => { stopTeacher(); if (onExit) onExit(); };
+  // "Math Tutor" / "Science Tutor" — falls back to a neutral label when the lesson
+  // carries no subject. `sessionLabel` names the class in the header ("Math Session")
+  // so the header stays stable while the whiteboard title carries the live concept.
+  const subjectName = subject ? `${String(subject).charAt(0).toUpperCase()}${String(subject).slice(1)}` : '';
+  const tutorLabel = subjectName ? `${subjectName} Tutor` : 'Your Tutor';
+  const sessionLabel = subjectName ? `${subjectName} Session` : 'Live Session';
+
   const toggleHandsFree = () => {
     setHandsFree((v) => {
       const next = !v;
@@ -1210,40 +1346,31 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
 
   return (
     <Animated.View style={[st.container, { opacity: mountFade }]}>
-      {/* Deep premium "classroom" backdrop — a top-lit indigo→black stage. */}
+      {/* The room: a near-black ground with a faint violet cast, so the teacher card
+          and the white whiteboard are the only lit surfaces. */}
       <LinearGradient colors={ROOM_GRAD} locations={[0, 0.55, 1]} style={StyleSheet.absoluteFill} pointerEvents="none" />
-      {/* clean warm editorial background (C.cream) — no ambient, mobile-first */}
 
-      {/* ── HEADER (fixed) ── */}
-      <View style={st.bar}>
-        <PressableScale onPress={() => { stopTeacher(); onExit && onExit(); }} style={st.barIcon} hitSlop={BAR_HIT} accessibilityLabel="Exit lesson"><ChevronLeft size={24} color={D.text} strokeWidth={2.4} /></PressableScale>
-        <View style={st.progressTrack} accessibilityRole="progressbar" accessibilityValue={{ now: Math.min(idx + 1, N), min: 0, max: N }}>
-          <Animated.View style={[st.progressFill, { width: progressA.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]} />
-          {N > 1 && N <= 16 && Array.from({ length: N - 1 }).map((_, i) => (
-            <View key={i} style={[st.progressTick, { left: `${((i + 1) / N) * 100}%` }]} pointerEvents="none" />
-          ))}
+      {/* ── HEADER — back · session title/concept · Live · clock · overflow ── */}
+      <View style={st.hdr}>
+        <PressableScale onPress={() => { stopTeacher(); onExit && onExit(); }} style={st.hdrBack} hitSlop={BAR_HIT} accessibilityLabel="Exit lesson">
+          <ChevronLeft size={26} color={V.text} strokeWidth={2.4} />
+        </PressableScale>
+        <View style={st.hdrTitles}>
+          <Text style={st.hdrTitle} numberOfLines={1}>{sessionLabel}</Text>
+          <Text style={st.hdrSub} numberOfLines={1}>{lessonTopic}</Text>
         </View>
-        <Text style={st.counter} accessibilityLabel={`Step ${Math.min(idx + 1, N)} of ${N}`}>{Math.min(idx + 1, N)}/{N}</Text>
-        {VOICE_OK && !!onAsk && (
-          <PressableScale onPress={toggleHandsFree} style={[st.barIcon, handsFree && st.barIconLive]} hitSlop={BAR_HIT} accessibilityLabel={handsFree ? 'Turn off live conversation' : 'Turn on live conversation — speak anytime'} accessibilityState={{ selected: handsFree }}>
-            <Radio size={18} color={handsFree ? C.teal : D.text} strokeWidth={2.2} />
-          </PressableScale>
-        )}
-        <PressableScale onPress={() => setFocusMode((f) => !f)} style={[st.barIcon, focusMode && st.barIconNote]} hitSlop={BAR_HIT} accessibilityLabel={focusMode ? 'Exit focus mode' : 'Focus mode — hide everything but the board'} accessibilityState={{ selected: focusMode }}>{focusMode ? <Minimize2 size={17} color="#DBA53F" strokeWidth={2.3} /> : <Maximize2 size={17} color={D.text} strokeWidth={2.2} />}</PressableScale>
-        <PressableScale onPress={() => setContentsOpen(true)} style={[st.barIcon, savedNotes.length > 0 && st.barIconNote]} hitSlop={BAR_HIT} accessibilityLabel="Lesson contents and saved notes"><ListTree size={18} color={savedNotes.length > 0 ? '#DBA53F' : D.text} strokeWidth={2.2} /></PressableScale>
-        <PressableScale onPress={() => { stopTeacher(); setVoiceOpen(true); }} style={st.barIcon} hitSlop={BAR_HIT} accessibilityLabel="Choose teacher voice"><AudioLines size={18} color={D.text} strokeWidth={2.2} /></PressableScale>
-        <PressableScale onPress={toggleMute} style={st.barIcon} hitSlop={BAR_HIT} accessibilityLabel={muted ? 'Unmute narration' : 'Mute narration'} accessibilityState={{ selected: muted }}>{muted ? <VolumeX size={18} color={D.text} strokeWidth={2.2} /> : <Volume2 size={18} color={D.text} strokeWidth={2.2} />}</PressableScale>
-        {!!onNewLesson && <PressableScale onPress={onNewLesson} style={st.barIcon} hitSlop={BAR_HIT} accessibilityLabel="Start a new lesson"><RefreshCw size={17} color={D.text} strokeWidth={2.2} /></PressableScale>}
+        <LivePill active={ttsActive} />
+        <SessionClock since={openedAtRef.current} style={st.hdrClock} />
+        <PressableScale onPress={() => setMenuOpen(true)} style={st.hdrMore} hitSlop={BAR_HIT} accessibilityLabel="Session options">
+          <Ellipsis size={20} color={V.text} strokeWidth={2.4} />
+        </PressableScale>
       </View>
-
-      {/* ── learning-progress context (topic · concept N of M) — reads as learning
-          progress, not a slide counter ── */}
-      {!focusMode && (
-        <View style={st.contextBar}>
-          <Text style={st.ctxTopic} numberOfLines={1}>{lessonTopic}</Text>
-          <Text style={st.ctxStep}>Concept {conceptNo} of {conceptTotal}</Text>
-        </View>
-      )}
+      {/* Hairline lesson progress — kept from the old header bar so the student can
+          still see how far along the lesson is without a counter competing with the
+          title row. */}
+      <View style={st.hdrProgress} accessibilityRole="progressbar" accessibilityValue={{ now: Math.min(idx + 1, N), min: 0, max: N }}>
+        <Animated.View style={[st.hdrProgressFill, { width: progressA.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]} />
+      </View>
 
       <VoicePicker visible={voiceOpen} onClose={() => setVoiceOpen(false)} />
 
@@ -1252,33 +1379,104 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
           never contends with the tap-to-talk VoiceMic for the single mic session. */}
       {VOICE_OK && handsFree && <HandsFreeListener onBargeIn={handleBargeIn} isEcho={isLikelyEcho} onUnavailable={handleVoiceUnavailable} />}
 
-      {/* ── THE LESSON (warm editorial) — Ms. Nova top-left header, a clean white
-          board card, her words below. Mobile-first, no student PiP. The teacher row
-          is persistent (never remounts); only the material transitions per scene. */}
-      <ScrollView style={st.scroll} contentContainerStyle={st.lessonScroll} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
+      {/* ── THE LESSON — the teacher's camera card on top, the whiteboard under it,
+          her words below. The camera card is persistent (never remounts); only the
+          material inside the whiteboard transitions per scene. */}
+      <ScrollView ref={sessionScrollRef} style={st.scroll} contentContainerStyle={st.sessionScroll} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
+        {/* ── TEACHER ON CAMERA — a violet "video call" stage. The photo fills the
+            frame like a live feed; the violet wash keeps her tied to the brand and
+            keeps the name chip / control rail legible over any backdrop. ── */}
         {!focusMode && (
-        <View style={st.teacherBar}>
-          <TeacherAvatar theme="dark" video={TEACHER_VIDEO} photo={TEACHER_HEADSHOT} state={teacherState} expression={expression} size={46} />
-          <View style={{ flex: 1 }}>
-            <Text style={st.teacherName}>Ms. Nova</Text>
-            <View style={st.statusRow}>
-              <View style={[st.statusDot, { backgroundColor: statusInfo.color }, ttsActive && st.statusDotOn]} />
-              <Text style={[st.statusTxt, { color: statusInfo.color }]}>{statusInfo.label}</Text>
+        <View style={st.camCard}>
+          <LinearGradient colors={CAM_GRAD} start={{ x: 0.1, y: 0 }} end={{ x: 0.9, y: 1 }} style={StyleSheet.absoluteFill} />
+          <Image
+            source={TEACHER_HERO_PHOTO}
+            resizeMode="stretch"
+            accessibilityLabel="Your teacher, Ms. Nova"
+            style={{ position: 'absolute', width: HERO_FULL_W, height: HERO_FULL_H, left: HERO_LEFT, top: HERO_TOP }}
+          />
+          <LinearGradient
+            colors={['rgba(124,77,255,0.34)', 'rgba(91,50,196,0.10)', 'rgba(11,11,20,0.40)']}
+            style={StyleSheet.absoluteFill} pointerEvents="none"
+          />
+
+          {/* identity chip */}
+          <View style={st.nameChip}>
+            <TeacherAvatar theme="dark" video={TEACHER_VIDEO} photo={TEACHER_HEADSHOT} state={teacherState} expression={expression} size={30} />
+            <View>
+              <Text style={st.nameTxt} numberOfLines={1}>Ms. Nova</Text>
+              <View style={st.roleRow}>
+                <GraduationCap size={9} color={V.textDim} strokeWidth={2.6} />
+                <Text style={st.roleTxt} numberOfLines={1}>{tutorLabel}</Text>
+              </View>
             </View>
           </View>
-          {/* live speaking waveform — a professional "she's talking now" presence */}
-          {ttsActive && <Waveform active compact />}
+
+          {/* she's talking — a live waveform sitting under the chip */}
+          {ttsActive && <View style={st.camWave}><Waveform active compact /></View>}
+
+          {/* control rail — narration · voice · self-view */}
+          <View style={st.rail}>
+            <PressableScale onPress={toggleMute} style={[st.railBtn, muted && st.railBtnOff]} hitSlop={BAR_HIT}
+              accessibilityLabel={muted ? 'Unmute narration' : 'Mute narration'} accessibilityState={{ selected: !muted }}>
+              {muted ? <VolumeX size={19} color={V.text} strokeWidth={2.2} /> : <Volume2 size={19} color={V.text} strokeWidth={2.2} />}
+            </PressableScale>
+            <PressableScale onPress={onMicPress} style={[st.railBtn, VOICE_OK && handsFree && st.railBtnLive]} hitSlop={BAR_HIT}
+              accessibilityLabel={VOICE_OK ? (handsFree ? 'Live conversation is on — tap to turn off' : 'Turn on live conversation — speak anytime') : 'Ask a question'}
+              accessibilityState={{ selected: VOICE_OK && handsFree }}>
+              <Mic size={19} color={VOICE_OK && handsFree ? C.teal : V.text} strokeWidth={2.2} />
+            </PressableScale>
+            <PressableScale onPress={onCameraPress} style={st.railBtn} hitSlop={BAR_HIT}
+              accessibilityLabel={CAMERA_OK ? (selfView ? 'Turn off your camera' : 'Turn on your camera') : 'Camera is not available in this build'}
+              accessibilityState={{ selected: selfView, disabled: !CAMERA_OK }}>
+              <Camera size={19} color={V.text} strokeWidth={2.2} />
+            </PressableScale>
+          </View>
+
+          {/* student self-view, only when a camera module is actually present */}
+          {CAMERA_OK && selfView && <View style={st.selfView}><CamInner /></View>}
         </View>
         )}
 
         <Stage key={sceneKey} style={st.workArea}>
-          {!!scene.kicker && kickerDistinct && <Text style={st.kicker}>{scene.kicker}</Text>}
-          {!!scene.title && <Text style={st.title}>{scene.title}</Text>}
           {showBoard && (
             <Animated.View style={[st.boardOuter, { transform: [{ scale: focusZoom }] }]}>
-              <View style={st.lessonCard}>
-                <LessonBoard scene={scene} paused={!teaching} skip={false} resetKey={sceneKey} step={curBeat ? curBeat.boardStep : null} highlight={(curBeat && curBeat.highlight && curBeat.highlight.length) ? curBeat.highlight : keyTerms} action={curBeat && curBeat.boardAction} onQuizContinue={onNextStable} onQuizResult={onQuizResultStable} onReexplain={onReexplainStable} quizFb={quizFb} reteach={reteach} />
-                <EraserWipe enabled={idx > 0} />
+              {/* ── WHITEBOARD CARD — tool rail on the left, board title + Full
+                  Screen on top, the live board below, undo pinned bottom-left. ── */}
+              <View style={st.wbCard}>
+                <View style={st.wbRail}>
+                  {[
+                    { k: 'pen', Icon: Pencil, label: 'Pen' },
+                    { k: 'eraser', Icon: Eraser, label: 'Eraser' },
+                    { k: 'text', Icon: Type, label: 'Text' },
+                  ].map(({ k, Icon, label }) => (
+                    <PressableScale key={k} onPress={() => setTool(k)} style={[st.wbTool, tool === k && st.wbToolOn]} hitSlop={BAR_HIT}
+                      accessibilityLabel={`${label} tool`} accessibilityState={{ selected: tool === k }}>
+                      <Icon size={16} color={tool === k ? V.violet : C.dim} strokeWidth={2.2} />
+                    </PressableScale>
+                  ))}
+                </View>
+
+                <View style={st.wbMain}>
+                  <View style={st.wbHead}>
+                    <View style={st.wbHeadTitles}>
+                      {!!scene.kicker && kickerDistinct && <Text style={st.wbKicker} numberOfLines={1}>{scene.kicker}</Text>}
+                      {!!scene.title && <Text style={st.wbTitle} numberOfLines={2}>{scene.title}</Text>}
+                    </View>
+                    <PressableScale onPress={() => setFocusMode((f) => !f)} style={st.fsBtn} hitSlop={BAR_HIT}
+                      accessibilityLabel={focusMode ? 'Exit full screen' : 'Full screen board'} accessibilityState={{ selected: focusMode }}>
+                      {focusMode ? <Minimize2 size={12} color={C.ink2} strokeWidth={2.4} /> : <Maximize2 size={12} color={C.ink2} strokeWidth={2.4} />}
+                      <Text style={st.fsTxt}>{focusMode ? 'Exit' : 'Full Screen'}</Text>
+                    </PressableScale>
+                  </View>
+
+                  <LessonBoard scene={scene} paused={!teaching} skip={false} resetKey={sceneKey} step={curBeat ? curBeat.boardStep : null} highlight={(curBeat && curBeat.highlight && curBeat.highlight.length) ? curBeat.highlight : keyTerms} action={curBeat && curBeat.boardAction} onQuizContinue={onNextStable} onQuizResult={onQuizResultStable} onReexplain={onReexplainStable} quizFb={quizFb} reteach={reteach} />
+                  <EraserWipe enabled={idx > 0} />
+
+                  <PressableScale onPress={onRefresh} style={st.undoBtn} hitSlop={BAR_HIT} accessibilityLabel="Replay this step from the start">
+                    <Undo2 size={16} color={C.dim} strokeWidth={2.2} />
+                  </PressableScale>
+                </View>
               </View>
             </Animated.View>
           )}
@@ -1298,7 +1496,8 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
         </Stage>
       </ScrollView>
 
-      {/* ── STUDENT + STATUS + CONTROL DOCK (fixed) ── */}
+      {/* ── FIXED FOOTER — transient teaching state, then the ask bar, then the
+          session actions (Previous / End Session / Next). ── */}
       <View style={st.bottom}>
         {mode === M.LISTENING && VOICE_OK && <Text style={st.listenTxt} numberOfLines={2} accessibilityLiveRegion="polite">{partial || 'I’m listening — go ahead.'}</Text>}
         {mode === M.THINKING && <Appear><ThinkingDots /></Appear>}
@@ -1316,20 +1515,6 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
             ))}
           </View>
         )}
-        {mode === M.LISTENING && !VOICE_OK && (
-          <View style={st.askRow}>
-            <TextInput
-              style={st.askInput}
-              placeholder="Type your question…"
-              placeholderTextColor={D.textFaint}
-              value={qInput} onChangeText={setQInput}
-              onSubmitEditing={() => sendDoubt()} returnKeyType="send" autoFocus
-              accessibilityLabel="Type your question for the teacher"
-            />
-            <PressableScale style={st.askSend} onPress={() => sendDoubt()} accessibilityLabel="Send question"><ArrowUp size={20} color="#fff" strokeWidth={2.6} /></PressableScale>
-          </View>
-        )}
-
         {mode === M.ANSWERING && (
           <>
             {doubtDone && !!onAsk && <FollowUpChips question={qa && qa.q} onPick={(q) => sendDoubt(q)} />}
@@ -1342,50 +1527,120 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
 
         {!!hint && (teaching || mode === M.PAUSED) && <Text style={st.hint}>{hint}</Text>}
 
-        {/* controls — a floating glass dock. Ask (mic) is the clear primary; the
-            transport is secondary with small, quiet labels for discoverability. */}
-        {mode !== M.THINKING && mode !== M.COMPLETED && (
-          <View style={st.dock}>
-            <PressableScale style={st.dItem} onPress={onPrev} disabled={idx === 0} accessibilityLabel="Previous step">
-              <View style={[st.dGhost, idx === 0 && st.dDim]}><SkipBack size={17} color={D.text} strokeWidth={2.2} fill={D.text} /></View>
-              <Text style={st.dLbl}>Prev</Text>
+        {/* ── ASK BAR — always reachable, so a doubt is one tap away at any point
+            of the lesson (the mockup's primary input). ── */}
+        {!askCollapsed && mode !== M.COMPLETED && !!onAsk && (
+          <View style={st.askBar}>
+            <TextInput
+              style={st.askField}
+              placeholder="Ask a question..."
+              placeholderTextColor={V.textFaint}
+              value={qInput} onChangeText={setQInput}
+              onSubmitEditing={() => sendDoubt()} returnKeyType="send"
+              accessibilityLabel="Ask your teacher a question"
+            />
+            <PressableScale style={[st.askSendBtn, !qInput.trim() && st.askSendDim]} onPress={() => sendDoubt()}
+              disabled={!qInput.trim()} accessibilityLabel="Send question">
+              <ArrowUp size={18} color="#fff" strokeWidth={2.8} />
             </PressableScale>
-            <PressableScale style={st.dItem} onPress={togglePlay} scaleTo={0.92} accessibilityLabel={teaching ? 'Pause the lesson' : 'Play the lesson'}>
-              <View style={st.dGhost}>{teaching ? <Pause size={17} color={D.text} strokeWidth={2.2} fill={D.text} /> : <Play size={17} color={D.text} strokeWidth={2.2} fill={D.text} />}</View>
-              <Text style={st.dLbl}>{teaching ? 'Pause' : 'Play'}</Text>
+          </View>
+        )}
+
+        {/* collapse handle — hides the ask bar to give the board more room */}
+        {mode !== M.COMPLETED && !!onAsk && (
+          <PressableScale onPress={() => setAskCollapsed((v) => !v)} style={st.collapse} hitSlop={BAR_HIT}
+            accessibilityLabel={askCollapsed ? 'Show the question box' : 'Hide the question box'}>
+            <ChevronDown size={18} color={V.textFaint} strokeWidth={2.4}
+              style={askCollapsed ? { transform: [{ rotate: '180deg' }] } : null} />
+          </PressableScale>
+        )}
+
+        {/* ── SESSION ACTIONS — move between concepts, or end the class ── */}
+        {mode !== M.COMPLETED && (
+          <View style={st.actionBar}>
+            <PressableScale style={st.navBtn} onPress={onPrev} disabled={idx === 0} accessibilityLabel="Previous topic">
+              <ChevronLeft size={17} color={idx === 0 ? V.textFaint : V.text} strokeWidth={2.5} />
+              <View>
+                <Text style={[st.navTop, idx === 0 && st.navDim]}>Previous</Text>
+                <Text style={[st.navBot, idx === 0 && st.navDim]}>Topic</Text>
+              </View>
             </PressableScale>
-            {!!onAsk && (
-              VOICE_OK && handsFree ? (
-                <PressableScale style={st.dItem} onPress={toggleHandsFree} scaleTo={0.92} accessibilityLabel="Live conversation is on — tap to turn off">
-                  <View style={st.dLive}><Radio size={22} color={C.teal} strokeWidth={2.3} /></View>
-                  <Text style={[st.dLbl, st.dLblLive]}>Live</Text>
-                </PressableScale>
-              ) : VOICE_OK ? (
-                <VoiceMic
-                  onStart={beginListen}
-                  onPartial={setPartial}
-                  onFinal={(t) => sendDoubt(t)}
-                  onEnd={() => setMode((m) => (m === M.LISTENING ? M.PAUSED : m))}
-                  onError={(m) => { setHint(typeof m === 'string' ? m : 'Type your question.'); setMode((p) => (p === M.LISTENING ? M.PAUSED : p)); }}
-                />
-              ) : (
-                <PressableScale style={st.dItem} onPress={beginListen} scaleTo={0.9} accessibilityLabel="Ask the teacher a question">
-                  <Gradient colors={GRAD.ink} style={st.dMic}><Mic size={24} color="#fff" strokeWidth={2.3} /></Gradient>
-                  <Text style={[st.dLbl, st.dLblPrimary]}>Ask</Text>
-                </PressableScale>
-              )
-            )}
-            <PressableScale style={st.dItem} onPress={onRefresh} accessibilityLabel="Replay this step">
-              <View style={st.dGhost}><RotateCcw size={18} color={D.text} strokeWidth={2.2} /></View>
-              <Text style={st.dLbl}>Replay</Text>
+
+            <PressableScale style={st.endBtn} onPress={endSession} scaleTo={0.94} accessibilityLabel="End this session">
+              <Square size={12} color="#fff" strokeWidth={2.6} fill="#fff" />
+              <Text style={st.endTxt}>End Session</Text>
             </PressableScale>
-            <PressableScale style={st.dItem} onPress={onNext} accessibilityLabel="Next step">
-              <View style={st.dGhost}><SkipForward size={18} color={D.text} strokeWidth={2.2} fill={D.text} /></View>
-              <Text style={st.dLbl}>Next</Text>
+
+            <PressableScale style={[st.navBtn, st.navBtnR]} onPress={onNext} accessibilityLabel="Next topic">
+              <View>
+                <Text style={[st.navTop, st.navRight]}>Next</Text>
+                <Text style={[st.navBot, st.navRight]}>Topic</Text>
+              </View>
+              <ChevronRight size={17} color={V.text} strokeWidth={2.5} />
             </PressableScale>
           </View>
         )}
       </View>
+
+      {/* ── "…" OVERFLOW — everything the mockup's header doesn't show but the
+          lesson still needs: transport, live conversation, voice, contents. ── */}
+      <Modal visible={menuOpen} transparent animationType="fade" onRequestClose={() => setMenuOpen(false)}>
+        <PressableScale style={st.menuScrim} onPress={() => setMenuOpen(false)} scaleTo={1} accessibilityLabel="Close options">
+          <View />
+        </PressableScale>
+        <View style={st.menuCard}>
+          <View style={st.menuGrip} />
+          {[
+            {
+              key: 'play',
+              Icon: teaching ? Pause : Play,
+              label: teaching ? 'Pause lesson' : 'Play lesson',
+              on: false,
+              run: togglePlay,
+            },
+            {
+              key: 'replay',
+              Icon: RotateCcw,
+              label: 'Replay this concept',
+              on: false,
+              run: onRefresh,
+            },
+            ...(VOICE_OK && onAsk ? [{
+              key: 'live',
+              Icon: Radio,
+              label: handsFree ? 'Live conversation · on' : 'Live conversation · off',
+              on: handsFree,
+              run: toggleHandsFree,
+            }] : []),
+            {
+              key: 'voice',
+              Icon: AudioLines,
+              label: 'Teacher voice',
+              on: false,
+              run: () => { stopTeacher(); setVoiceOpen(true); },
+            },
+            {
+              key: 'contents',
+              Icon: ListTree,
+              label: savedNotes.length > 0 ? `Contents & notes · ${savedNotes.length}` : 'Contents & notes',
+              on: savedNotes.length > 0,
+              run: () => setContentsOpen(true),
+            },
+            ...(onNewLesson ? [{
+              key: 'new',
+              Icon: RefreshCw,
+              label: 'Start a new lesson',
+              on: false,
+              run: onNewLesson,
+            }] : []),
+          ].map(({ key, Icon, label, on, run }) => (
+            <PressableScale key={key} style={st.menuRow} onPress={() => { setMenuOpen(false); run(); }} accessibilityLabel={label}>
+              <Icon size={18} color={on ? V.violet : V.textDim} strokeWidth={2.2} />
+              <Text style={[st.menuTxt, on && st.menuTxtOn]}>{label}</Text>
+            </PressableScale>
+          ))}
+        </View>
+      </Modal>
 
       {/* ── COMPLETED ── */}
       {mode === M.COMPLETED && (
@@ -1493,8 +1748,79 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
 // stays on the LIGHT tokens (C.board / C.ink) so every SVG board in LessonBoards
 // renders unchanged inside it — only the chrome around it goes dark (D.*).
 const st = StyleSheet.create({
-  container: { flex: 1, backgroundColor: D.bg },
+  container: { flex: 1, backgroundColor: V.ground },
   paperFaint: { opacity: 0.35 },
+
+  // ══ SESSION CHROME (approved mockup) ════════════════════════════════════════
+  // header: back · title/concept · Live · clock · overflow
+  hdr: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: SCREEN_MARGIN, paddingTop: 6, paddingBottom: 10 },
+  hdrBack: { width: 32, height: 32, alignItems: 'center', justifyContent: 'center', marginLeft: -6 },
+  hdrTitles: { flex: 1, minWidth: 0 },
+  hdrTitle: { fontSize: 16, fontFamily: F.bold, color: V.text, letterSpacing: -0.3 },
+  hdrSub: { fontSize: 11.5, fontFamily: F.med, color: V.textDim, marginTop: 1 },
+  hdrClock: { fontSize: 13, fontFamily: F.semi, color: V.text, letterSpacing: 0.2, fontVariant: ['tabular-nums'] },
+  hdrMore: { width: 30, height: 30, alignItems: 'center', justifyContent: 'center', marginRight: -4 },
+  hdrProgress: { height: 2, marginHorizontal: SCREEN_MARGIN, backgroundColor: 'rgba(255,255,255,0.07)', borderRadius: 2, overflow: 'hidden' },
+  hdrProgressFill: { height: '100%', backgroundColor: V.violet, borderRadius: 2 },
+
+  livePill: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: V.liveSoft, borderRadius: R.pill, paddingVertical: 4, paddingHorizontal: 9 },
+  liveDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: V.live },
+  liveTxt: { fontSize: 11, fontFamily: F.bold, color: V.live, letterSpacing: 0.1 },
+
+  sessionScroll: { flexGrow: 1, paddingHorizontal: SCREEN_MARGIN, paddingTop: 12, paddingBottom: 10, gap: 10 },
+
+  // teacher "on camera" card
+  camCard: { width: '100%', height: CAM_CARD_H, borderRadius: CARD_R, overflow: 'hidden', backgroundColor: V.violetDeep },
+  nameChip: { position: 'absolute', top: 12, left: 12, flexDirection: 'row', alignItems: 'center', gap: 8, maxWidth: '70%', backgroundColor: 'rgba(11,11,20,0.55)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.14)', borderRadius: R.pill, paddingVertical: 5, paddingHorizontal: 9, paddingRight: 14 },
+  nameTxt: { fontSize: 12.5, fontFamily: F.bold, color: V.text, letterSpacing: -0.1 },
+  roleRow: { flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: 1 },
+  roleTxt: { fontSize: 9.5, fontFamily: F.semi, color: V.textDim, letterSpacing: 0.2 },
+  camWave: { position: 'absolute', top: 62, left: 18 },
+  rail: { position: 'absolute', top: 14, right: 12, gap: 10 },
+  railBtn: { width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(11,11,20,0.45)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.16)' },
+  railBtnOff: { backgroundColor: 'rgba(11,11,20,0.72)', borderColor: 'rgba(255,255,255,0.10)' },
+  railBtnLive: { backgroundColor: 'rgba(16,185,129,0.20)', borderColor: 'rgba(16,185,129,0.55)' },
+  selfView: { position: 'absolute', right: 12, bottom: 12, width: 78, height: 100, borderRadius: 14, overflow: 'hidden', borderWidth: 1.5, borderColor: 'rgba(255,255,255,0.28)', backgroundColor: '#11151D' },
+
+  // whiteboard card — tool rail + titled board + undo
+  wbCard: { width: '100%', flexDirection: 'row', backgroundColor: V.paper, borderRadius: CARD_R, overflow: 'hidden', shadowColor: '#000', shadowOpacity: 0.42, shadowRadius: 26, shadowOffset: { width: 0, height: 14 }, elevation: 12 },
+  wbRail: { paddingVertical: 14, paddingHorizontal: 8, gap: 6, borderRightWidth: 1, borderRightColor: V.paperEdge },
+  wbTool: { width: 30, height: 30, borderRadius: 9, alignItems: 'center', justifyContent: 'center' },
+  wbToolOn: { backgroundColor: V.violetSoft },
+  wbMain: { flex: 1, minWidth: 0, paddingTop: 14, paddingBottom: 40, paddingHorizontal: 14 },
+  wbHead: { flexDirection: 'row', alignItems: 'flex-start', gap: 10, marginBottom: 10 },
+  wbHeadTitles: { flex: 1, minWidth: 0 },
+  wbKicker: { fontSize: 9, fontFamily: F.bold, color: C.dim, letterSpacing: 1.8, textTransform: 'uppercase', marginBottom: 3 },
+  wbTitle: { fontSize: 21, fontFamily: F.bold, color: V.violet, letterSpacing: -0.3, lineHeight: 27 },
+  fsBtn: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: V.paperDim, borderRadius: R.sm, paddingVertical: 6, paddingHorizontal: 10 },
+  fsTxt: { fontSize: 10.5, fontFamily: F.semi, color: C.ink2 },
+  undoBtn: { position: 'absolute', left: 0, bottom: 8, width: 32, height: 32, alignItems: 'center', justifyContent: 'center' },
+
+  // ask bar + collapse handle
+  askBar: { flexDirection: 'row', alignItems: 'center', gap: 8, alignSelf: 'stretch', backgroundColor: V.ground2, borderWidth: 1, borderColor: V.hair, borderRadius: R.pill, paddingVertical: 5, paddingLeft: 20, paddingRight: 5 },
+  askField: { flex: 1, minWidth: 0, color: V.text, fontSize: 14, fontFamily: F.med, paddingVertical: Platform.OS === 'ios' ? 10 : 7 },
+  askSendBtn: { width: 38, height: 38, borderRadius: 19, backgroundColor: V.violet, alignItems: 'center', justifyContent: 'center' },
+  askSendDim: { opacity: 0.4 },
+  collapse: { alignSelf: 'center', paddingVertical: 4, paddingHorizontal: 26 },
+
+  // session action bar
+  actionBar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', alignSelf: 'stretch', borderTopWidth: 1, borderTopColor: V.hairSoft, paddingTop: 12 },
+  navBtn: { flexDirection: 'row', alignItems: 'center', gap: 5, minWidth: 88 },
+  navBtnR: { justifyContent: 'flex-end' },
+  navTop: { fontSize: 12.5, fontFamily: F.semi, color: V.text, letterSpacing: -0.1 },
+  navBot: { fontSize: 9.5, fontFamily: F.med, color: V.textDim, marginTop: -1 },
+  navDim: { color: V.textFaint },
+  navRight: { textAlign: 'right' },
+  endBtn: { flexDirection: 'row', alignItems: 'center', gap: 7, backgroundColor: V.live, borderRadius: R.pill, paddingVertical: 12, paddingHorizontal: 22 },
+  endTxt: { fontSize: 13.5, fontFamily: F.bold, color: '#fff', letterSpacing: -0.1 },
+
+  // "…" overflow sheet
+  menuScrim: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(4,4,10,0.6)' },
+  menuCard: { position: 'absolute', left: 0, right: 0, bottom: 0, backgroundColor: V.ground2, borderTopLeftRadius: 26, borderTopRightRadius: 26, borderTopWidth: 1, borderColor: V.hair, paddingTop: 10, paddingBottom: Platform.OS === 'ios' ? 34 : 20, paddingHorizontal: 10 },
+  menuGrip: { alignSelf: 'center', width: 38, height: 4, borderRadius: 2, backgroundColor: 'rgba(255,255,255,0.16)', marginBottom: 10 },
+  menuRow: { flexDirection: 'row', alignItems: 'center', gap: 14, paddingVertical: 15, paddingHorizontal: 14, borderRadius: R.md },
+  menuTxt: { flex: 1, fontSize: 14.5, fontFamily: F.med, color: V.text, letterSpacing: -0.1 },
+  menuTxtOn: { color: V.violet, fontFamily: F.semi },
 
   // header (fixed) — ghost circle glyphs over the dark room
   bar: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: SP.md, paddingTop: SP.sm, paddingBottom: SP.xs },
@@ -1613,10 +1939,10 @@ const st = StyleSheet.create({
   // her words, under the board — a graphite frosted-glass panel with a bright top
   // hairline and a slim champagne rule on the left, so it reads as an editorial
   // "she is saying" quote, not a flat box.
-  captionWrap: { width: '100%', marginTop: SP.md, backgroundColor: GLASS_PANEL, borderWidth: 1, borderColor: D.edge, borderTopColor: GLASS_HAIR, borderLeftWidth: 2.5, borderLeftColor: ACCENT_DIM, borderRadius: R.lg, paddingVertical: SP.md, paddingHorizontal: SP.lg, shadowColor: '#000', shadowOpacity: 0.4, shadowRadius: 22, shadowOffset: { width: 0, height: 10 }, elevation: 6 },
+  captionWrap: { width: '100%', marginTop: SP.md, backgroundColor: V.ground2, borderWidth: 1, borderColor: V.hair, borderTopColor: GLASS_HAIR, borderLeftWidth: 2.5, borderLeftColor: V.violet, borderRadius: R.lg, paddingVertical: SP.md, paddingHorizontal: SP.lg, shadowColor: '#000', shadowOpacity: 0.4, shadowRadius: 22, shadowOffset: { width: 0, height: 10 }, elevation: 6 },
 
   // bottom (fixed): status → dock
-  bottom: { alignItems: 'center', paddingHorizontal: SP.md, paddingTop: SP.sm, paddingBottom: Platform.OS === 'ios' ? SP.lg : SP.md, gap: SP.sm },
+  bottom: { alignItems: 'center', paddingHorizontal: SCREEN_MARGIN, paddingTop: SP.sm, paddingBottom: Platform.OS === 'ios' ? SP.lg : SP.md, gap: SP.sm },
 
   listenTxt: { fontSize: 13, fontFamily: F.semi, color: D.text, textAlign: 'center', paddingHorizontal: 26 },
   thinkRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6 },
