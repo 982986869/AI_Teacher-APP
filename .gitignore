@@ -118,3 +118,11 @@ backup*.sql
 # The CLI normally writes its own supabase/.gitignore; this repo has none.
 supabase/.temp/
 supabase/.branches/
+
+# Claude Code's per-machine permission allowlist. settings.json is the shared,
+# checked-in config; the .local one is whatever each of us happened to approve.
+.claude/settings.local.json
+
+# Loose UI reference pages dropped at the repo root while prototyping. The real
+# screens live under src/screens/ — these are scratch, not part of the app.
+/*.html
