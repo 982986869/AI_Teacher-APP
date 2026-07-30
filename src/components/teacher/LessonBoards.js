@@ -2,10 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, Animated, Easing, TouchableOpacity } from 'react-native';
 import Svg, { G, Line, Rect, Polygon, Path, Text as SvgText } from 'react-native-svg';
 import { ChalkLine, ChalkStroke } from './WhiteboardCanvas';
-import { C } from './premiumTheme';
+import { C, F } from './premiumTheme';
+import { PressableScale } from './uiKit';
 import { selfCheckLine } from './teacherPersona';
 import { SubjectBoard, SUBJECT_BOARD_TYPES } from './subjectBoards';
 import { CircleAround, Highlighter } from './boardGestures';
+import { TriangleAlert, Ruler, BookOpen, RotateCcw } from 'lucide-react-native';
 // h() grows the SVG boards and f() grows the text boards for the immersive stage;
 // both are identity in card mode. See boardSize.js on why this is not a transform.
 import { useBoardSize } from './boardSize';
@@ -211,7 +213,7 @@ function FormulaBoard({ scene, paused, skip, resetKey, step, highlight }) {
       {Array.isArray(scene.diagram && scene.diagram.variables) && scene.diagram.variables.length > 0 && (
         <Pop show={n >= parts.length} style={s.varList}>
           {scene.diagram.variables.slice(0, 3).map((vr, i) => (
-            <Text key={i} style={[s.varLine, { fontSize: f(13) }]}><Text style={{ fontWeight: '900', color: colors[i % 3] }}>{vr.symbol}</Text>  =  {vr.meaning}</Text>
+            <Text key={i} style={[s.varLine, { fontSize: f(13) }]}><Text style={{ fontFamily: F.black, fontWeight: '900', color: colors[i % 3] }}>{vr.symbol}</Text>  =  {vr.meaning}</Text>
           ))}
         </Pop>
       )}
@@ -307,7 +309,11 @@ function PointsBoard({ scene, paused, skip, resetKey, step, intro, warn, memory 
   if (!points.length) {
     return (
       <View style={[s.boardWrap, { alignItems: 'center', paddingVertical: 18 }]}>
-        <Text style={{ fontSize: 46 }}>{warn ? '⚠️' : intro ? '📐' : '📘'}</Text>
+        {warn
+          ? <TriangleAlert size={40} color={C.orange} strokeWidth={1.9} />
+          : intro
+            ? <Ruler size={40} color={C.accent} strokeWidth={1.9} />
+            : <BookOpen size={40} color={C.accent} strokeWidth={1.9} />}
       </View>
     );
   }
@@ -425,11 +431,12 @@ function OptionRow({ opt, correct, wrong, locked, onPress }) {
   const tx = shake.interpolate({ inputRange: [-1, 1], outputRange: [-6, 6] });
   return (
     <Animated.View style={{ alignSelf: 'stretch', transform: [{ scale }, { translateX: tx }] }}>
-      <TouchableOpacity style={[s.opt, correct && s.optRight, wrong && s.optWrong]} activeOpacity={0.9} disabled={locked} onPress={onPress}>
+      <PressableScale style={[s.opt, correct && s.optRight, wrong && s.optWrong]} disabled={locked} onPress={onPress}
+        accessibilityRole="button" accessibilityLabel={`Answer: ${opt}`} accessibilityState={{ disabled: locked, selected: correct || wrong }}>
         <Text style={s.optTxt}>{opt}</Text>
         {correct && <Animated.Text style={[s.optMark, { transform: [{ scale: tick }] }]}>✓</Animated.Text>}
         {wrong && <Text style={[s.optMark, s.optMarkWrong]}>✕</Text>}
-      </TouchableOpacity>
+      </PressableScale>
     </Animated.View>
   );
 }
@@ -470,8 +477,8 @@ function QuickCheckBoard({ scene, onContinue, onQuizResult, onReexplain, quizFb,
             );
           })}
           {picked != null && (
-            <Text style={[s.quizFb, { color: locked ? C.green : C.orange }]}>
-              {(locked ? '🎉 ' : '💛 ') + ((quizFb && quizFb.line) || (locked ? 'Correct!' : 'Not quite — try once more.'))}
+            <Text style={[s.quizFb, { color: locked ? C.green : C.orange }]} accessibilityLiveRegion="assertive">
+              {(quizFb && quizFb.line) || (locked ? 'Correct.' : 'Not quite — try once more.')}
             </Text>
           )}
           {/* ── ADAPTIVE RE-TEACH — she notices the miss and teaches it a different
@@ -488,18 +495,19 @@ function QuickCheckBoard({ scene, onContinue, onQuizResult, onReexplain, quizFb,
             </View>
           )}
           {wrong && !reteach && !!onReexplain && (
-            <TouchableOpacity style={s.reexplainBtn} activeOpacity={0.9} onPress={onReexplain}>
-              <Text style={s.reexplainTxt}>↺  Explain that again, slower</Text>
-            </TouchableOpacity>
+            <PressableScale style={s.reexplainBtn} onPress={onReexplain} accessibilityRole="button" accessibilityLabel="Explain that again, slower">
+              <RotateCcw size={15} color={C.accent} strokeWidth={2.4} />
+              <Text style={s.reexplainTxt}>Explain that again, slower</Text>
+            </PressableScale>
           )}
         </>
       ) : (
         !revealed
-          ? <TouchableOpacity style={s.opt} activeOpacity={0.9} onPress={() => { setRevealed(true); setSelfFb(selfCheckLine()); }}><Text style={s.optTxt}>🤔 Tap to check yourself</Text></TouchableOpacity>
-          : <Text style={s.quizFb}>{selfFb || 'Say it in your own words, then continue.'} 👍</Text>
+          ? <PressableScale style={s.opt} onPress={() => { setRevealed(true); setSelfFb(selfCheckLine()); }} accessibilityRole="button" accessibilityLabel="Tap to check yourself"><Text style={s.optTxt}>Tap to check yourself</Text></PressableScale>
+          : <Text style={s.quizFb} accessibilityLiveRegion="polite">{selfFb || 'Say it in your own words, then continue.'}</Text>
       )}
       {!!onContinue && (
-        <TouchableOpacity style={s.continueBtn} activeOpacity={0.9} onPress={onContinue}><Text style={s.continueTxt}>Continue ›</Text></TouchableOpacity>
+        <PressableScale style={s.continueBtn} onPress={onContinue} accessibilityRole="button" accessibilityLabel="Continue"><Text style={s.continueTxt}>Continue ›</Text></PressableScale>
       )}
     </View>
   );
@@ -542,7 +550,7 @@ const s = StyleSheet.create({
   legendRow: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: 12, marginTop: 8 },
   legendItem: { flexDirection: 'row', alignItems: 'center', gap: 6 },
   legendDot: { width: 10, height: 10, borderRadius: 3 },
-  legendTxt: { fontSize: 11, fontWeight: '700', color: C.ink2 },
+  legendTxt: { fontSize: 11, fontFamily: F.bold, fontWeight: '700', color: C.ink2 },
 
   // two-column triangle: diagram (left) + legend with descriptions (right)
   triRow: { flexDirection: 'row', width: '100%', alignItems: 'center', gap: 8 },
@@ -550,55 +558,60 @@ const s = StyleSheet.create({
   triLegend: { flex: 1, gap: 12 },
   legRow: { flexDirection: 'row', gap: 8, alignItems: 'flex-start' },
   legDot: { width: 9, height: 9, borderRadius: 3, marginTop: 4 },
-  legTerm: { fontSize: 13, fontWeight: '900' },
-  legDesc: { fontSize: 11.5, fontWeight: '600', color: C.dim, lineHeight: 16, marginTop: 1 },
+  legTerm: { fontSize: 13, fontFamily: F.black, fontWeight: '900' },
+  legDesc: { fontSize: 11.5, fontFamily: F.semi, fontWeight: '600', color: C.dim, lineHeight: 16, marginTop: 1 },
 
   formulaCard: { backgroundColor: 'rgba(255,255,255,0.05)', borderWidth: 1, borderColor: C.line, borderRadius: 16, paddingVertical: 16, paddingHorizontal: 18 },
   formulaRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 2 },
   formulaTokWrap: { borderRadius: 8, paddingHorizontal: 3, paddingVertical: 2 },
   formulaTokActive: { backgroundColor: 'rgba(239,193,82,0.18)' },
   formulaTokHot: { backgroundColor: C.accentSoft },
-  formulaTok: { fontSize: 22, fontWeight: '900', letterSpacing: 0.5 },
+  formulaTok: { fontSize: 22, fontFamily: F.black, fontWeight: '900', letterSpacing: 0.5 },
   varList: { marginTop: 12, gap: 4, alignItems: 'center' },
-  varLine: { fontSize: 13, fontWeight: '600', color: C.ink2 },
+  varLine: { fontSize: 13, fontFamily: F.semi, fontWeight: '600', color: C.ink2 },
 
-  chartAxes: { fontSize: 11, fontWeight: '800', color: C.dim, marginTop: 6, textAlign: 'center' },
+  chartAxes: { fontSize: 11, fontFamily: F.black, fontWeight: '800', color: C.dim, marginTop: 6, textAlign: 'center' },
   sumPill: { marginTop: 10, backgroundColor: 'rgba(255,255,255,0.06)', borderWidth: 1, borderColor: C.line, borderRadius: 14, paddingVertical: 8, paddingHorizontal: 18 },
-  sumTxt: { fontSize: 20, fontWeight: '900', letterSpacing: 0.5 },
+  sumTxt: { fontSize: 20, fontFamily: F.black, fontWeight: '900', letterSpacing: 0.5 },
 
   pointRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10, marginTop: 10, alignSelf: 'stretch', borderRadius: 12, paddingVertical: 6, paddingHorizontal: 6, marginHorizontal: -6, overflow: 'hidden' },
   pointRowActive: { backgroundColor: 'rgba(99,214,187,0.14)' },       // the point she's on right now
   pointRowWarnActive: { backgroundColor: 'rgba(239,193,82,0.14)' },   // …on a common-mistake slide
   pointDot: { width: 22, height: 22, borderRadius: 11, backgroundColor: C.accent, alignItems: 'center', justifyContent: 'center', marginTop: 1 },
   pointDotWarn: { backgroundColor: C.orange },
-  pointDotTxt: { color: '#14201D', fontSize: 11, fontWeight: '900' },
-  pointTxt: { flex: 1, fontSize: 15, fontWeight: '600', color: C.ink, lineHeight: 22 },
-  pointTxtHot: { color: C.accent, fontWeight: '800' },
+  // Dot sits on C.accent (chalk amber), so the numeral stays dark for contrast.
+  pointDotTxt: { color: '#14201D', fontSize: 11, fontFamily: F.black, fontWeight: '900' },
+  pointTxt: { flex: 1, fontSize: 15, fontFamily: F.semi, fontWeight: '600', color: C.ink, lineHeight: 22 },
+  pointTxtHot: { color: C.accent, fontFamily: F.black, fontWeight: '800' },
 
   flowRow: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: 8 },
   flowBox: { backgroundColor: 'rgba(255,255,255,0.05)', borderWidth: 1, borderColor: C.line, borderRadius: 12, paddingVertical: 10, paddingHorizontal: 14 },
   flowBoxHot: { borderColor: C.accent, backgroundColor: C.accentSoft },
-  flowTxt: { fontSize: 13, fontWeight: '800', color: C.ink },
-  flowArrow: { fontSize: 18, fontWeight: '900', color: C.accent },
+  flowTxt: { fontSize: 13, fontFamily: F.black, fontWeight: '800', color: C.ink },
+  flowArrow: { fontSize: 18, fontFamily: F.black, fontWeight: '900', color: C.accent },
 
-  quizQ: { fontSize: 17, fontWeight: '800', color: C.ink, lineHeight: 24, alignSelf: 'stretch', marginBottom: 4 },
+  quizQ: { fontSize: 17, fontFamily: F.black, fontWeight: '800', color: C.ink, lineHeight: 24, alignSelf: 'stretch', marginBottom: 4 },
   opt: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', alignSelf: 'stretch', backgroundColor: 'rgba(255,255,255,0.05)', borderWidth: 1, borderColor: C.line, borderRadius: 13, paddingVertical: 12, paddingHorizontal: 15, marginTop: 9 },
   // correct → green, softly glowing. wrong → a warm AMBER wash (never harsh red).
   optRight: { backgroundColor: 'rgba(99,214,187,0.20)', borderColor: C.green, shadowColor: C.green, shadowOpacity: 0.28, shadowRadius: 12, shadowOffset: { width: 0, height: 4 }, elevation: 3 },
   optWrong: { backgroundColor: 'rgba(239,193,82,0.16)', borderColor: C.orange },
-  optTxt: { flex: 1, fontSize: 14, fontWeight: '700', color: C.ink },
-  optMark: { fontSize: 15, fontWeight: '900', color: C.green, marginLeft: 8 },
+  optTxt: { flex: 1, fontSize: 14, fontFamily: F.bold, fontWeight: '700', color: C.ink },
+  optMark: { fontSize: 15, fontFamily: F.black, fontWeight: '900', color: C.green, marginLeft: 8 },
   optMarkWrong: { color: C.orange },
-  quizFb: { fontSize: 13, fontWeight: '800', marginTop: 12, alignSelf: 'stretch' },
+  quizFb: { fontSize: 13, fontFamily: F.black, fontWeight: '800', marginTop: 12, alignSelf: 'stretch' },
+  // Button sits on C.accent (chalk amber) — the label stays dark. Keep it OFF C.ink:
+  // on the chalkboard theme C.ink is near-white, so white-on-C.ink is invisible.
   continueBtn: { alignSelf: 'flex-end', marginTop: 14, backgroundColor: C.accent, borderRadius: 12, paddingVertical: 9, paddingHorizontal: 18 },
-  continueTxt: { color: '#14201D', fontSize: 13, fontWeight: '900' },
-  reexplainBtn: { alignSelf: 'flex-start', marginTop: 10, backgroundColor: 'rgba(99,214,187,0.12)', borderWidth: 1, borderColor: C.accent, borderRadius: 12, paddingVertical: 9, paddingHorizontal: 16 },
-  reexplainTxt: { color: C.accent, fontSize: 13, fontWeight: '900' },
+  continueTxt: { color: '#14201D', fontSize: 13, fontFamily: F.black, fontWeight: '900', letterSpacing: 0.3 },
+  reexplainBtn: { alignSelf: 'flex-start', flexDirection: 'row', alignItems: 'center', gap: 7, marginTop: 10, backgroundColor: 'rgba(99,214,187,0.12)', borderWidth: 1, borderColor: C.accent, borderRadius: 12, paddingVertical: 9, paddingHorizontal: 16 },
+  reexplainTxt: { color: C.accent, fontSize: 13, fontFamily: F.black, fontWeight: '900' },
 
-  // adaptive re-teach panel (shown on a missed check — a different explanation)
-  reteachPanel: { alignSelf: 'stretch', marginTop: 14, backgroundColor: C.accentSoft, borderWidth: 1, borderColor: 'rgba(239,193,82,0.30)', borderRadius: 14, paddingVertical: 13, paddingHorizontal: 14, gap: 6 },
-  reteachGap: { fontSize: 13.5, fontWeight: '800', color: C.ink, lineHeight: 19 },
-  reteachIntro: { fontSize: 12.5, fontWeight: '700', color: C.accent, marginTop: 2 },
-  reteachStep: { fontSize: 13, fontWeight: '600', color: C.ink, lineHeight: 20, paddingLeft: 4 },
-  reteachEasyQ: { fontSize: 13.5, fontWeight: '900', color: C.ink, marginTop: 8, lineHeight: 19 },
+  // adaptive re-teach panel (shown on a missed check — a different explanation).
+  // A warm "second look" callout: amber wash + champagne left rule, tuned for the
+  // chalkboard surface (the ivory fill from the light redesign washes out here).
+  reteachPanel: { alignSelf: 'stretch', marginTop: 14, backgroundColor: C.accentSoft, borderWidth: 1, borderColor: 'rgba(239,193,82,0.30)', borderLeftWidth: 3, borderLeftColor: '#C79B42', borderRadius: 14, paddingVertical: 13, paddingHorizontal: 15, gap: 6 },
+  reteachGap: { fontSize: 13.5, fontFamily: F.black, fontWeight: '800', color: C.ink, lineHeight: 19 },
+  reteachIntro: { fontSize: 12.5, fontFamily: F.bold, fontWeight: '700', color: C.accent, marginTop: 2 },
+  reteachStep: { fontSize: 13, fontFamily: F.semi, fontWeight: '600', color: C.ink, lineHeight: 20, paddingLeft: 4 },
+  reteachEasyQ: { fontSize: 13.5, fontFamily: F.black, fontWeight: '900', color: C.ink, marginTop: 8, lineHeight: 19 },
 });

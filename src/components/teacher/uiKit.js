@@ -75,21 +75,23 @@ export function Appear({ children, style, from = 'up', delay = 0, duration = 360
   return <Animated.View style={[style, { opacity: a, transform }]}>{children}</Animated.View>;
 }
 
-// Premium press feedback — gently scales down while held. A drop-in replacement
-// for TouchableOpacity (same style / onPress / disabled / children) that also
-// wires proper accessibility (role, label, disabled state) for screen readers.
+// Premium press feedback — snaps down while held, then springs back with a touch
+// of bounce (the Duolingo-style "alive" release). Drop-in for TouchableOpacity
+// (same style / onPress / disabled / children) and wires accessibility (role,
+// label, disabled state) for screen readers. `bounciness` tunes the release spring.
 export function PressableScale({
-  children, style, onPress, disabled = false, scaleTo = 0.96, hitSlop,
+  children, style, onPress, disabled = false, scaleTo = 0.96, hitSlop, bounciness = 7,
   accessibilityLabel, accessibilityHint, accessibilityRole = 'button', ...rest
 }) {
   const s = useRef(new Animated.Value(1)).current;
-  const animate = (to) => Animated.spring(s, { toValue: to, useNativeDriver: true, speed: 50, bounciness: 0 }).start();
+  const press = () => Animated.spring(s, { toValue: scaleTo, useNativeDriver: true, speed: 50, bounciness: 0 }).start();
+  const release = () => Animated.spring(s, { toValue: 1, useNativeDriver: true, speed: 20, bounciness }).start();
   return (
     <APressable
       style={[style, { transform: [{ scale: s }] }]}
       onPress={disabled ? undefined : onPress}
-      onPressIn={() => { if (!disabled) animate(scaleTo); }}
-      onPressOut={() => animate(1)}
+      onPressIn={() => { if (!disabled) press(); }}
+      onPressOut={release}
       disabled={disabled}
       hitSlop={hitSlop}
       accessibilityRole={accessibilityRole}
@@ -101,4 +103,57 @@ export function PressableScale({
       {children}
     </APressable>
   );
+}
+
+// Pop — a spring entrance that overshoots then settles (scale `from`→1 + fade). The
+// signature "professional" element-appear (Duolingo pops each new element in). Use
+// for cards, quiz options, reward chips. Prefer over <Appear> when you want bounce.
+export function Pop({ children, style, delay = 0, from = 0.85 }) {
+  const a = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    const anim = Animated.sequence([
+      Animated.delay(delay),
+      Animated.spring(a, { toValue: 1, useNativeDriver: true, speed: 12, bounciness: 11 }),
+    ]);
+    anim.start();
+    return () => anim.stop();
+  }, [a, delay]);
+  const scale = a.interpolate({ inputRange: [0, 1], outputRange: [from, 1] });
+  return (
+    <Animated.View style={[style, { opacity: a, transform: [{ scale }] }]}>
+      {children}
+    </Animated.View>
+  );
+}
+
+// useShake — imperative horizontal shake for "wrong / try again" feedback. Returns
+// [animatedStyle, trigger]; spread the style on an <Animated.View> and call trigger()
+// on a wrong answer. Damped left-right so it reads as a firm "no", not a jitter.
+export function useShake(distance = 8) {
+  const x = useRef(new Animated.Value(0)).current;
+  const shake = () => {
+    x.setValue(0);
+    Animated.sequence([
+      Animated.timing(x, { toValue: -distance, duration: 45, useNativeDriver: true }),
+      Animated.timing(x, { toValue: distance, duration: 45, useNativeDriver: true }),
+      Animated.timing(x, { toValue: -distance * 0.6, duration: 45, useNativeDriver: true }),
+      Animated.timing(x, { toValue: distance * 0.6, duration: 45, useNativeDriver: true }),
+      Animated.timing(x, { toValue: 0, duration: 45, useNativeDriver: true }),
+    ]).start();
+  };
+  return [{ transform: [{ translateX: x }] }, shake];
+}
+
+// usePop — imperative "success pop": a quick spring bump (1→peak→1) for correct
+// answers, XP gains, streak ticks. Returns [animatedStyle, trigger].
+export function usePop(peak = 1.18) {
+  const s = useRef(new Animated.Value(1)).current;
+  const pop = () => {
+    s.setValue(1);
+    Animated.sequence([
+      Animated.spring(s, { toValue: peak, useNativeDriver: true, speed: 20, bounciness: 14 }),
+      Animated.spring(s, { toValue: 1, useNativeDriver: true, speed: 14, bounciness: 8 }),
+    ]).start();
+  };
+  return [{ transform: [{ scale: s }] }, pop];
 }

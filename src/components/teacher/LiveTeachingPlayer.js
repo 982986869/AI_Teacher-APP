@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
   View, Text, StyleSheet, ScrollView, Animated, Easing, Dimensions, Platform, TextInput, Pressable,
 } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import LessonBoard from './LessonBoards';
 import TeacherAvatar from './TeacherAvatar';
 import TeacherFullBody from './TeacherFullBody';
@@ -10,28 +11,37 @@ import VoicePicker from './VoicePicker';
 import { directLesson } from './teachingDirector';
 import { focusTarget } from './cameraDirector';
 import { freshLearner, observe, assess } from './emotionEngine';
-import { ACTIONS, freshPedagogy, observePedagogy, decideNextAction, personalizedRecap, continuationHint } from './pedagogyEngine';
+// openingBridge (the memory-driven opener) and the lessonExtras study features are
+// consumed by code that sits outside any conflict — the buildFlashcards/buildTest/
+// loadNotes hooks and the sheets they feed — so they come in here even though the
+// rest of this block is the pre-merge import list.
+import { ACTIONS, freshPedagogy, observePedagogy, decideNextAction, personalizedRecap, continuationHint, openingBridge } from './pedagogyEngine';
+import { ContentsSheet, FlashcardDeck, TestSheet, loadNotes, saveNotes, loadNoteText, saveNoteText, buildFlashcards, buildTest, buildFormulas, buildRecap } from './lessonExtras';
 // C comes in for ONE surface only: the board is a slate she writes chalk on, and
 // its colour has to be the same source of truth the SVG boards draw against —
 // otherwise the card and the chalk drift apart the moment either is re-themed.
-import { SP, R, C } from './premiumTheme';
+// D is the dark-stage text ramp (D.text / D.textDim / D.textFaint).
+import { SP, R, C, D } from './premiumTheme';
 // The classroom runs on the APP-WIDE design system (studentTheme tokens + the Nunito
 // family + lucide icons), not a palette of its own — so a lesson looks like the rest
 // of the app rather than a separate product. Only SP/R (spacing + radii) still come
 // from premiumTheme: they are structural scales, not colours.
 import { S, shadow, shadowSm } from '../../theme/studentTheme';
 import { F } from '../../screens/parent/ParentApp/constants';
-import {
-  ChevronLeft, Mic, Square, Play, Pause, SkipBack, SkipForward,
-  RotateCcw, Volume2, VolumeX, ArrowUp, Check, AudioLines, Maximize2, Minimize2,
-  MoreHorizontal,
-} from 'lucide-react-native';
 import { PressableScale } from './uiKit';
 import { EraserWipe } from './boardGestures';
 import { BoardSizeProvider } from './boardSize';
 import { expressionForScene, praiseLine, reassureLine, listeningLine, completeLine, resumeBridge } from './teacherPersona';
 import { buildReteach } from './reteach';
-import { speakTeacher, stopTeacher, primeTeacherVoice, getSpeechProgress, SPEECH_OK, speakTeacherQueued, resetTeacherQueue, isTeacherQueueActive } from '../../utils/teacherVoice';
+import { speakTeacher, stopTeacher, primeTeacherVoice, getSpeechProgress, SPEECH_OK, speakTeacherQueued, resetTeacherQueue, isTeacherQueueActive, setListeningMode } from '../../utils/teacherVoice';
+// The single lucide import for this file. The merge briefly carried a second copy
+// further up, which is a duplicate-binding SyntaxError — MoreHorizontal is folded in
+// here from that block rather than left behind with it.
+import {
+  Mic, Square, RotateCcw, SkipForward, SkipBack, Play, Pause, ArrowUp, ChevronLeft, AudioLines,
+  Volume2, VolumeX, RefreshCw, GraduationCap, BookOpen, Globe, Check, Trophy, Radio, ListTree, Layers, Maximize2, Minimize2,
+  MoreHorizontal,
+} from 'lucide-react-native';
 
 // Optional student camera — degrades to a friendly placeholder.
 let ExpoCamera = null;
@@ -60,6 +70,22 @@ const TEACHER_VIDEO = null;
 const TEACHER_PHOTO = null;
 
 // ── Single teaching state machine — only ONE mode is ever active ───────────────
+// Comfortable touch expansion for the 34px top-bar icons (keeps the frozen visual
+// size but reaches the ~44px accessible target).
+const BAR_HIT = { top: 8, bottom: 8, left: 8, right: 8 };
+
+// The "classroom" backdrop — a deep indigo→near-black gradient (cohesive with the
+// premium hub header) so the teaching room reads as a rich, focused space instead of
+// flat black. A soft indigo bloom top-centre gives a subtle "stage light" depth.
+// A sophisticated graphite "study room" — near-black with the faintest cool cast,
+// no bright purple. Editorial and mature, not playful. One warm accent (champagne)
+// carries emphasis and the live pulse, like a highlighter in a fine textbook.
+const ROOM_GRAD = ['#191C24', '#0F1116', '#08090C'];
+const ACCENT = '#6C4DE6';      // Aurora purple brand accent (dark-room theme)
+const ACCENT_DIM = '#A06BFF';  // lighter Aurora purple for smaller labels
+const GLASS_PANEL = 'rgba(255,255,255,0.07)';  // Aurora frosted glass (teacher / caption / dock)
+const GLASS_HAIR = 'rgba(255,255,255,0.16)';   // bright top hairline on the glass
+
 const M = {
   TEACHING: 'TEACHING',     // a scene is being explained (TTS = the clock)
   PAUSED: 'PAUSED',         // frozen by the student
@@ -132,9 +158,32 @@ function Underline() {
 
 // ── speaking waveform (purple/blue audio bars) shown ABOVE the teacher ────────
 // Kept light (fewer bars) so it never janks on mid-range phones.
+// Three softly pulsing dots — a professional "she's thinking" indicator.
+function ThinkingDots() {
+  const vals = useRef([0, 1, 2].map(() => new Animated.Value(0.3))).current;
+  useEffect(() => {
+    const loops = vals.map((v, i) => Animated.loop(Animated.sequence([
+      Animated.delay(i * 160),
+      Animated.timing(v, { toValue: 1, duration: 380, useNativeDriver: true }),
+      Animated.timing(v, { toValue: 0.3, duration: 380, useNativeDriver: true }),
+    ])));
+    loops.forEach((l) => l.start());
+    return () => loops.forEach((l) => l.stop());
+  }, [vals]);
+  return (
+    <View style={st.thinkRow}>
+      {vals.map((v, i) => (
+        <Animated.View key={i} style={[st.thinkDot, { opacity: v, transform: [{ scale: v.interpolate({ inputRange: [0.3, 1], outputRange: [0.8, 1.15] }) }] }]} />
+      ))}
+      <Text style={st.thinkTxt}>Ms. Nova is thinking</Text>
+    </View>
+  );
+}
+
 const WAVE_N = 14;
-function Waveform({ active }) {
-  const vals = useRef(Array.from({ length: WAVE_N }, () => new Animated.Value(0.22))).current;
+function Waveform({ active, compact }) {
+  const n = compact ? 5 : WAVE_N;
+  const vals = useRef(Array.from({ length: n }, () => new Animated.Value(0.22))).current;
   useEffect(() => {
     let loops = [];
     if (active) {
@@ -150,10 +199,10 @@ function Waveform({ active }) {
     return () => loops.forEach((l) => l.stop());
   }, [active, vals]);
   return (
-    <View style={st.wave} pointerEvents="none">
+    <View style={compact ? st.waveMini : st.wave} pointerEvents="none">
       {vals.map((v, i) => {
-        const edge = 1 - Math.abs(i - (WAVE_N - 1) / 2) / ((WAVE_N - 1) / 2);
-        const max = 12 + edge * 26;
+        const edge = 1 - Math.abs(i - (n - 1) / 2) / ((n - 1) / 2);
+        const max = compact ? (10 + edge * 12) : (12 + edge * 26);
         return (
           <Animated.View key={i} style={[st.waveBar, {
             height: v.interpolate({ inputRange: [0, 1], outputRange: [4, max] }),
@@ -174,7 +223,7 @@ function Waveform({ active }) {
 // so the highlight never races ahead of her voice. Freezes when she's not
 // speaking (paused) and resets per line (resetKey). Light on the JS thread: it
 // only re-renders when the bright-word count actually changes.
-function SpokenCaption({ text, speaking, karaoke, resetKey, style, highlight }) {
+function SpokenCaption({ text, speaking, karaoke, resetKey, style, highlight, onTermTap }) {
   const words = useMemo(() => String(text || '').split(/\s+/).filter(Boolean), [text]);
   // Keywords to emphasise the instant they're spoken (from the beat's `highlight`).
   const hot = useMemo(() => new Set((highlight || [])
@@ -206,10 +255,18 @@ function SpokenCaption({ text, speaking, karaoke, resetKey, style, highlight }) 
   return (
     <Animated.Text style={[style, { opacity: fade }]}>
       {words.map((w, i) => {
+        const clean = w.replace(/[^a-z0-9]/gi, '').toLowerCase();
         const spokenNow = i < brightUpto;
-        const isHot = spokenNow && hot.size > 0 && hot.has(w.replace(/[^a-z0-9]/gi, '').toLowerCase());
+        const isHot = spokenNow && hot.size > 0 && hot.has(clean);
+        const isTerm = !!onTermTap && hot.has(clean) && clean.length > 2;
+        const sep = i < words.length - 1 ? ' ' : '';
+        if (isTerm) {
+          return (
+            <Text key={i} onPress={() => onTermTap(w.replace(/[^a-z0-9]/gi, ''))} style={[spokenNow ? st.capHot : st.capDim, st.capTerm]}>{w}{sep}</Text>
+          );
+        }
         return (
-          <Text key={i} style={!spokenNow ? st.capDim : (isHot ? st.capHot : null)}>{w}{i < words.length - 1 ? ' ' : ''}</Text>
+          <Text key={i} style={!spokenNow ? st.capDim : (isHot ? st.capHot : null)}>{w}{sep}</Text>
         );
       })}
     </Animated.Text>
@@ -220,7 +277,7 @@ function SpokenCaption({ text, speaking, karaoke, resetKey, style, highlight }) 
 function CamInner() {
   const [perm, requestPerm] = ExpoCamera.useCameraPermissions();
   useEffect(() => { if (perm && !perm.granted && perm.canAskAgain !== false) requestPerm(); }, [perm]); // eslint-disable-line
-  if (!perm || !perm.granted) return <View style={st.camFill}><Text style={{ fontSize: 26 }}>🧑‍🎓</Text></View>;
+  if (!perm || !perm.granted) return <View style={st.camFill}><GraduationCap size={26} color={D.textDim} strokeWidth={2} /></View>;
   const CameraView = ExpoCamera.CameraView;
   return <CameraView style={{ width: '100%', height: '100%' }} facing="front" />;
 }
@@ -228,7 +285,7 @@ const StudentCircle = React.memo(function StudentCircle({ active }) {
   return (
     <View style={st.camWrap}>
       <View style={[st.camFrame, active && st.camFrameOn]}>
-        <View style={st.camMask}>{CAMERA_OK ? <CamInner /> : <View style={st.camFill}><Text style={{ fontSize: 26 }}>🧑‍🎓</Text></View>}</View>
+        <View style={st.camMask}>{CAMERA_OK ? <CamInner /> : <View style={st.camFill}><GraduationCap size={26} color={D.textDim} strokeWidth={2} /></View>}</View>
       </View>
       <Text style={[st.camLbl, active && st.camLblOn]}>{active ? 'Listening' : 'You'}</Text>
     </View>
@@ -239,6 +296,49 @@ const StudentCircle = React.memo(function StudentCircle({ active }) {
 function VoiceMic({ onStart, onPartial, onFinal, onEnd, onError, dock }) {
   const { useSpeechRecognitionEvent, ExpoSpeechRecognitionModule } = SpeechRec;
   const [busy, setBusy] = useState(false);
+
+  // A soft state-halo behind the mic that breathes while she's listening — a quiet
+  // "I'm hearing you" cue. Core Animated (native driver) so it costs nothing on the JS
+  // thread and needs no extra dependency; matches the pink stop-state so the cluster
+  // reads as one lit control.
+  const haloScale = useRef(new Animated.Value(1)).current;
+  const haloOpacity = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    if (!busy) {
+      haloScale.stopAnimation();
+      haloOpacity.stopAnimation();
+      haloScale.setValue(1);
+      Animated.timing(haloOpacity, { toValue: 0, duration: 220, useNativeDriver: true }).start();
+      return undefined;
+    }
+    haloScale.setValue(1);
+    haloOpacity.setValue(0.34);
+    const loop = Animated.loop(
+      Animated.parallel([
+        Animated.timing(haloScale, { toValue: 1.35, duration: 900, easing: Easing.inOut(Easing.ease), useNativeDriver: true }),
+        Animated.timing(haloOpacity, { toValue: 0, duration: 900, easing: Easing.out(Easing.ease), useNativeDriver: true }),
+      ]),
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [busy, haloScale, haloOpacity]);
+
+  // Idle "breath" on the mic — the primary action feels alive and invites a tap, the
+  // way a professional coach app's main CTA gently pulses. Pauses while listening so
+  // it never competes with the halo.
+  const idleScale = useRef(new Animated.Value(1)).current;
+  useEffect(() => {
+    if (busy) { idleScale.stopAnimation(); idleScale.setValue(1); return undefined; }
+    const loop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(idleScale, { toValue: 1.05, duration: 1400, easing: Easing.inOut(Easing.ease), useNativeDriver: true }),
+        Animated.timing(idleScale, { toValue: 1, duration: 1400, easing: Easing.inOut(Easing.ease), useNativeDriver: true }),
+      ]),
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [busy, idleScale]);
+
   useSpeechRecognitionEvent('result', (e) => {
     const t = (e && e.results && e.results[0] && e.results[0].transcript) || '';
     if (t) onPartial && onPartial(t);
@@ -266,6 +366,69 @@ function VoiceMic({ onStart, onPartial, onFinal, onEnd, onError, dock }) {
   );
 }
 
+// ── HANDS-FREE "Live conversation" listener ──────────────────────────────────
+// Unlike VoiceMic (tap-to-talk), this runs continuous recognition the whole time,
+// so the student can just SPEAK while the teacher is teaching and she pauses to
+// answer — like a real class. Renders nothing; mounted only while hands-free is on
+// (so it never fights VoiceMic for the single recognition session). Echo handling
+// (ignoring the teacher's own voice) is done by the parent via `isEcho`, which knows
+// exactly what she is currently saying. Best with earphones; on a speaker the parent's
+// known-text echo filter is the mitigation.
+function HandsFreeListener({ onBargeIn, isEcho, onUnavailable }) {
+  const { useSpeechRecognitionEvent, ExpoSpeechRecognitionModule } = SpeechRec;
+  const aliveRef = useRef(true);
+  const restartRef = useRef(null);
+  const errCountRef = useRef(0); // consecutive hard failures → give up gracefully
+  const onBargeInRef = useRef(onBargeIn); onBargeInRef.current = onBargeIn;
+  const isEchoRef = useRef(isEcho); isEchoRef.current = isEcho;
+  const onUnavailableRef = useRef(onUnavailable); onUnavailableRef.current = onUnavailable;
+
+  const bail = (reason) => { if (onUnavailableRef.current) onUnavailableRef.current(reason); };
+
+  const begin = async () => {
+    if (!aliveRef.current) return;
+    try {
+      const perm = await ExpoSpeechRecognitionModule.requestPermissionsAsync();
+      if (!aliveRef.current) return;
+      if (!perm || !perm.granted) { bail('mic-denied'); return; } // don't pretend to listen
+      ExpoSpeechRecognitionModule.start({ lang: 'en-IN', interimResults: true, continuous: true });
+    } catch (e) { /* the 'error' handler decides whether to retry or bail */ }
+  };
+
+  useSpeechRecognitionEvent('result', (e) => {
+    if (!aliveRef.current) return;
+    errCountRef.current = 0;                     // a real result → recognition is healthy
+    const r = e && e.results && e.results[0];
+    const t = (r && r.transcript) || '';
+    if (!t || !e.isFinal) return;                // act on settled utterances only
+    if (isEchoRef.current && isEchoRef.current(t)) return; // her own voice → ignore
+    if (onBargeInRef.current) onBargeInRef.current(t);
+  });
+  // Continuous sessions still stop on their own (silence timeout, focus loss) — re-arm.
+  useSpeechRecognitionEvent('end', () => { if (aliveRef.current) restartRef.current = setTimeout(begin, 350); });
+  useSpeechRecognitionEvent('error', (e) => {
+    if (!aliveRef.current) return;
+    const code = (e && e.error) || '';
+    if (code === 'not-allowed' || code === 'service-not-allowed') { bail('mic-denied'); return; }
+    if (code === 'no-speech' || code === 'no-match') { restartRef.current = setTimeout(begin, 500); return; } // just a quiet stretch
+    errCountRef.current += 1;
+    if (errCountRef.current >= 4) { bail('errors'); return; } // stop looping on a broken device
+    restartRef.current = setTimeout(begin, 900);
+  });
+
+  useEffect(() => {
+    aliveRef.current = true;
+    begin();
+    return () => {
+      aliveRef.current = false;
+      if (restartRef.current) { clearTimeout(restartRef.current); restartRef.current = null; }
+      try { ExpoSpeechRecognitionModule.stop(); } catch (e) { /* no-op */ }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  return null;
+}
+
 // Pull the retrieval signals the agent already returns (concept, prerequisites,
 // confidence tier, grounding source) off a doubt response. Returns null when the
 // handler resolved to a plain string (older call shape) or nothing useful.
@@ -284,12 +447,13 @@ const TIER_LABEL = { high: 'High match', medium: 'Fair match', low: 'Low match' 
 // Compact strip shown under a doubt answer: where the answer came from (your
 // material vs general knowledge), how strong the match was, the resolved concept,
 // and the prerequisite concepts it builds on — all already computed server-side.
-function DoubtMeta({ meta }) {
+function DoubtMeta({ meta, onLearnPrereq }) {
   if (!meta) return null;
   const { concept, prereqs, tier, grounded } = meta;
   const tierColor = tier === 'high' ? S.emerald : tier === 'medium' ? S.orange : S.faint;
   return (
     <View style={st.metaWrap}>
+      <Text style={st.metaHeader}>Answer details</Text>
       <View style={st.metaRow}>
         {grounded != null && (
           <View style={[st.metaPill, grounded ? st.metaPillOn : null]}>
@@ -314,7 +478,9 @@ function DoubtMeta({ meta }) {
         <View style={st.metaPrereqRow}>
           <Text style={st.metaPrereqLbl}>Builds on</Text>
           {prereqs.slice(0, 4).map((p) => (
-            <View key={p} style={st.metaChip}><Text style={st.metaChipTxt}>{p}</Text></View>
+            <PressableScale key={p} style={st.metaChip} onPress={() => onLearnPrereq && onLearnPrereq(p)} accessibilityRole="button" accessibilityLabel={`Explain ${p}`}>
+              <Text style={st.metaChipTxt}>{p}</Text>
+            </PressableScale>
           ))}
         </View>
       )}
@@ -339,6 +505,37 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const [beat, setBeat] = useState(0);   // which directed beat within the current scene
   const [animKey, setAnimKey] = useState(0);
   const [muted, setMuted] = useState(false);
+  // "Live conversation" is the DEFAULT: the student just speaks, no mic to press.
+  // (Inert until VOICE_OK; falls back to the typed/tap ask when the recognizer
+  // build isn't present. The top-bar toggle can turn it off for privacy.)
+  const [handsFree, setHandsFree] = useState(true);
+  // Study features (see lessonExtras): a jump-around Contents/Notes sheet, a flip
+  // flashcard deck and a summative "Test yourself" quiz. Bookmarks persist per lesson.
+  const [contentsOpen, setContentsOpen] = useState(false);
+  const [focusMode, setFocusMode] = useState(false); // distraction-free reading
+  const [deckOpen, setDeckOpen] = useState(false);
+  const [testOpen, setTestOpen] = useState(false);
+  const [savedNotes, setSavedNotes] = useState([]); // saved concept indices
+  const [noteText, setNoteText] = useState('');     // the student's own free-text note
+  const [conceptResults, setConceptResults] = useState([]); // {i,title,correct} from checks
+  const [visited, setVisited] = useState([]);       // concept indices seen (for the progress map)
+  const openedAtRef = useRef(Date.now());           // for the study-time stat
+  const lessonKey = useMemo(() => String((lesson && (lesson.id || lesson.lessonId || lesson.lessonTitle)) || subject || 'lesson'), [lesson, subject]);
+  const flashcards = useMemo(() => buildFlashcards(scenes), [scenes]);
+  const testQs = useMemo(() => buildTest(scenes), [scenes]);
+  const formulas = useMemo(() => buildFormulas(scenes), [scenes]);
+  const recap = useMemo(() => buildRecap(scenes), [scenes]);
+  useEffect(() => { let ok = true; loadNotes(lessonKey).then((n) => { if (ok) setSavedNotes(n); }); loadNoteText(lessonKey).then((t) => { if (ok) setNoteText(t); }); return () => { ok = false; }; }, [lessonKey]);
+  const toggleSaveNote = (i) => setSavedNotes((prev) => {
+    const next = prev.includes(i) ? prev.filter((x) => x !== i) : [...prev, i].sort((a, b) => a - b);
+    saveNotes(lessonKey, next);
+    return next;
+  });
+  const onChangeNoteText = (t) => { setNoteText(t); saveNoteText(lessonKey, t); };
+  // Mastery from this lesson's checks (client-side, per-lesson): how many concepts nailed.
+  const mastered = conceptResults.filter((r) => r.correct).length;
+  const weakConcepts = conceptResults.filter((r) => !r.correct);
+  const studyMin = Math.max(1, Math.round((Date.now() - openedAtRef.current) / 60000));
   const [ttsActive, setTtsActive] = useState(false); // is audio playing right now (avatar/sync)
   const [qa, setQa] = useState(null);                // { q, a } during a doubt
   const [qaMeta, setQaMeta] = useState(null);        // retrieval signals for the doubt answer
@@ -372,6 +569,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const answerTimerRef = useRef(null);   // the human "thinking beat" before she reacts to an answer
   const outcomeSentRef = useRef(false);  // report this lesson's outcome to memory exactly once
   const resumeBridgeRef = useRef(false); // speak a natural "where were we" bridge on the next beat after a doubt
+  const openedRef = useRef(false);       // one-shot: memory-aware opener on the very first beat
   // The Emotion engine's learner model + the pace multiplier it produces. Both are
   // refs (read inside the beat timer), so adapting the pace never forces a re-render.
   // Seeded from cross-lesson memory (priorModel) so a returning student's pace opens
@@ -462,6 +660,15 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   askPosRef.current = scene.slideIndex != null ? scene.slideIndex : idx;
   const voiceOnRef = useRef(voiceOn);
   voiceOnRef.current = voiceOn;
+  // Latest-value mirrors for the long-mounted hands-free listener's callbacks
+  // (they'd otherwise close over stale render values).
+  const modeRef = useRef(mode); modeRef.current = mode;
+  const ttsActiveRef = useRef(ttsActive); ttsActiveRef.current = ttsActive;
+  const qaRef = useRef(qa); qaRef.current = qa;
+  const bargeCooldownRef = useRef(0);   // debounce repeat barge-ins
+  const autoResumeRef = useRef(null);   // auto-continue timer after a hands-free answer
+  const doubtTurnRef = useRef(0);       // invalidates a stale in-flight doubt when a newer one starts / we resume
+  const ttsEndedAtRef = useRef(0);      // when TTS last stopped — keeps echo suppression alive briefly after (speaker tail)
   // The doubt-completion poller (interval) — kept in a ref so it's always cleared
   // on unmount / new doubt, never leaking or firing setState after unmount.
   const doubtTickRef = useRef(null);
@@ -469,6 +676,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const clearDoubtTick = () => { if (doubtTickRef.current) { clearInterval(doubtTickRef.current); doubtTickRef.current = null; } };
 
   useEffect(() => { primeTeacherVoice(); }, []);
+  useEffect(() => { setVisited((prev) => (prev.includes(idx) ? prev : [...prev, idx])); }, [idx]);
   // Re-arm the flag on mount. An effect cleanup also runs on Fast Refresh (and under
   // StrictMode's double-invoke) and refs survive it, so a setup that only ever clears
   // the flag leaves it false forever — after which every `if (mountedRef.current)`
@@ -476,7 +684,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   // never opens).
   useEffect(() => {
     mountedRef.current = true;
-    return () => { mountedRef.current = false; clearDoubtTick(); if (reactTimerRef.current) clearTimeout(reactTimerRef.current); if (answerTimerRef.current) clearTimeout(answerTimerRef.current); stopTeacher(); };
+    return () => { mountedRef.current = false; clearDoubtTick(); if (reactTimerRef.current) clearTimeout(reactTimerRef.current); if (answerTimerRef.current) clearTimeout(answerTimerRef.current); resetTeacherQueue(); };
   }, []);
 
   // Pick a fresh wrap-up line the moment the lesson finishes / open the mic —
@@ -507,7 +715,12 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
       case ACTIONS.PRAISE: {
         reactWith('celebrate', 2800);
         setReteach(null);                       // she got it → drop the re-teach
-        const line = praiseLine(rightStreakRef.current);
+        const base = praiseLine(rightStreakRef.current);
+        // Stretch a student who is clearly acing it: pose the authored harder probe as
+        // a bonus (a real teacher pushes their strongest). Only when one is authored AND
+        // they're on a roll — never nagging after a single correct answer.
+        const stretch = (rightStreakRef.current >= 2 && scene.quickCheck && scene.quickCheck.stretch) ? scene.quickCheck.stretch : '';
+        const line = stretch ? `${base}  Here's a tougher one to think about — ${stretch}` : base;
         setQuizFb({ correct: true, line });
         if (voiceOn) speakTeacher(line, ttsCbs());
         return;
@@ -561,6 +774,8 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     if (correct) { wrongStreakRef.current = 0; rightStreakRef.current += 1; }
     else { rightStreakRef.current = 0; wrongStreakRef.current += 1; }
     feelLearner(correct ? (firstTry ? 'correctFirstTry' : 'correct') : 'miss');
+    // Per-lesson mastery: record this concept's outcome once (first attempt wins).
+    setConceptResults((prev) => (prev.some((r) => r.i === idx) ? prev : [...prev, { i: idx, title: scene.title || scene.kicker || `Concept ${idx + 1}`, correct: !!correct }]));
 
     const isMcq = !!(scene.quickCheck && Array.isArray(scene.quickCheck.options) && scene.quickCheck.options.length);
     observeTeach({ type: 'answer', correct, misconception: scene.quickCheck && scene.quickCheck.misconception });
@@ -627,7 +842,17 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     // un-pausing. One-shot: consumed the first beat after resuming.
     const doBridge = resumeBridgeRef.current;
     resumeBridgeRef.current = false;
-    const sayLine = (doBridge && line) ? `${resumeBridge(scene.title)} ${line}` : line;
+    // Once, on the very first beat: if this student is remembered as having struggled
+    // with THIS topic, open gently and name it (memory made audible). Fresh students /
+    // resumes are unaffected.
+    let memOpener = '';
+    if (!doBridge && !openedRef.current && idx === 0 && beat === 0) {
+      openedRef.current = true;
+      memOpener = openingBridge(priorModel, { topic: (lesson && (lesson.lessonTitle || lesson.title)) || (scene && scene.title) });
+    }
+    const sayLine = (doBridge && line)
+      ? `${resumeBridge(scene.title)} ${line}`
+      : ((memOpener && line) ? `${memOpener} ${line}` : line);
     // Adaptive pace: the Emotion engine stretches the silences for a struggling
     // student and tightens them for a fluent one. It scales the BEATS (pauses,
     // dwells) — never her speech — so words stay natural, only the room breathes
@@ -662,7 +887,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   }, [mode, idx, beat, animKey]);
 
   // ── transport ──
-  const goTeach = (next) => { stopTeacher(); setQa(null); setQaMeta(null); setDoubtDone(false); setHint(''); setQuizFb(null); setReteach(null); setReactExpr(null); setBeat(0); setIdx(next); setMode(M.TEACHING); setAnimKey((k) => k + 1); };
+  const goTeach = (next) => { doubtTurnRef.current += 1; stopTeacher(); setQa(null); setQaMeta(null); setDoubtDone(false); setHint(''); setQuizFb(null); setReteach(null); setReactExpr(null); setBeat(0); setIdx(next); setMode(M.TEACHING); setAnimKey((k) => k + 1); };
   const pause = () => { stopTeacher(); setTtsActive(false); setMode(M.PAUSED); };
   const resume = () => { setMode(M.TEACHING); setAnimKey((k) => k + 1); };
   const togglePlay = () => { if (teaching) pause(); else if (mode === M.PAUSED) resume(); };
@@ -676,10 +901,15 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const toggleMute = () => { setMuted((m) => !m); if (teaching) setAnimKey((k) => k + 1); };
 
   // ── doubt flow (lesson fully frozen the whole time) ──
-  const beginListen = () => { stopTeacher(); clearDoubtTick(); setTtsActive(false); setPartial(''); setQInput(''); setQa(null); setQaMeta(null); setDoubtDone(false); setHint(''); setMode(M.LISTENING); };
+  const beginListen = () => { doubtTurnRef.current += 1; stopTeacher(); clearDoubtTick(); setTtsActive(false); setPartial(''); setQInput(''); setQa(null); setQaMeta(null); setDoubtDone(false); setHint(''); setMode(M.LISTENING); };
   const sendDoubt = (override) => {
     const q = (typeof override === 'string' ? override : qInput).trim();
     if (!q || !onAsk) { if (!q) setMode(M.PAUSED); return; }
+    // This turn owns the voice queue + UI. A newer doubt (e.g. a second hands-free
+    // barge-in) or a resume/navigate bumps doubtTurnRef, so a late-arriving answer
+    // from THIS request is dropped instead of speaking the wrong answer / leaking a timer.
+    const turn = (doubtTurnRef.current += 1);
+    const fresh = () => turn === doubtTurnRef.current && mountedRef.current;
     feelLearner('doubt'); observeTeach({ type: 'doubt' }); // asking for help eases her pace a little
     setQInput(''); setPartial(''); setHint('');
     setQa({ q, a: null }); setQaMeta(null); setDoubtDone(false); setMode(M.THINKING);
@@ -702,12 +932,12 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
         if (force && buf.trim()) { speakTeacherQueued(buf.trim()); buf = ''; }
       };
       onAskStream(q, askPosRef.current, {
-        onDelta: (t) => { acc += t; buf += t; setQa({ q, a: acc }); flush(false); },
+        onDelta: (t) => { if (turn !== doubtTurnRef.current) return; acc += t; buf += t; setQa({ q, a: acc }); flush(false); },
       })
         .then((res) => {
-          if (!mountedRef.current) return;
+          if (!fresh()) return;
           flush(true);
-          setQa({ q, a: (res && res.answer) || acc || "Sorry, I didn't catch that. Could you ask again?" });
+          setQa({ q, a: (res && res.answer) || acc || "Hmm, that didn't come through on my side — ask me once more?" });
           setQaMeta(extractMeta(res));
           // Mark done once the queued speech actually finishes playing. Capped so a
           // stuck queue can never poll forever (force-done after ~20s).
@@ -722,9 +952,10 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
           }, 300);
         })
         .catch((e) => {
+          if (turn !== doubtTurnRef.current) return; // a newer doubt owns the queue now
           resetTeacherQueue();
           if (!mountedRef.current) return;
-          setQa({ q, a: `⚠️ ${e?.message || 'Could not get an answer.'}` });
+          setQa({ q, a: e?.message || 'Sorry, I couldn’t get an answer just now. Please try asking again.' });
           setTtsActive(false); setDoubtDone(true);
         });
       return;
@@ -737,9 +968,9 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     Promise.race([Promise.resolve(onAsk(q, askPosRef.current)), timeoutP])
       .then((ans) => {
         clearTimeout(to);
-        if (!mountedRef.current) return;
+        if (!fresh()) return;
         // onAsk may resolve to a plain string (answer) or the full agent response.
-        const a = (typeof ans === 'string' ? ans : (ans && ans.answer)) || "Sorry, I didn't catch that. Could you ask again?";
+        const a = (typeof ans === 'string' ? ans : (ans && ans.answer)) || "Hmm, that didn't come through on my side — ask me once more?";
         setQa({ q, a }); setQaMeta(extractMeta(ans)); setMode(M.ANSWERING);
         if (voiceOnRef.current) {
           speakTeacher(a, {
@@ -750,9 +981,91 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
           });
         } else { setDoubtDone(true); }
       })
-      .catch((e) => { clearTimeout(to); if (!mountedRef.current) return; setQa({ q, a: `⚠️ ${e?.response?.data?.error || e?.message || 'Could not get an answer.'}` }); setMode(M.ANSWERING); setDoubtDone(true); });
+      .catch((e) => { clearTimeout(to); if (!fresh()) return; setQa({ q, a: e?.response?.data?.error || e?.message || 'Sorry, I couldn’t get an answer just now. Please try asking again.' }); setMode(M.ANSWERING); setDoubtDone(true); });
   };
-  const resumeFromDoubt = () => { stopTeacher(); clearDoubtTick(); setQa(null); setQaMeta(null); setDoubtDone(false); resumeBridgeRef.current = true; setMode(M.TEACHING); setAnimKey((k) => k + 1); };
+  const resumeFromDoubt = () => { doubtTurnRef.current += 1; stopTeacher(); clearDoubtTick(); setQa(null); setQaMeta(null); setDoubtDone(false); resumeBridgeRef.current = true; setMode(M.TEACHING); setAnimKey((k) => k + 1); };
+
+  // ── HANDS-FREE "Live conversation": echo suppression + barge-in ──
+  const _norm = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9\s]+/g, ' ').split(/\s+/).filter(Boolean);
+  // True when what the mic heard is (mostly) the teacher's OWN speech. We know exactly
+  // what she is saying right now (current beat line + streaming doubt answer), so we can
+  // ignore her voice echoing back off the speaker and react only to the student. Only
+  // applies while she is actually making sound — when she is silent, it IS the student.
+  const ECHO_GRACE_MS = 1100; // her audio physically rings out (and ASR lags) past ttsActive=false
+  const isLikelyEcho = (heard) => {
+    const h = _norm(heard);
+    if (!h.length) return true;
+    // Keep suppressing for a short window AFTER she stops — otherwise the trailing
+    // recognition of her own last sentence (esp. on a speaker) fires a false doubt.
+    const speakingRecently = ttsActiveRef.current || (Date.now() - ttsEndedAtRef.current < ECHO_GRACE_MS);
+    if (!speakingRecently) return false;
+    const teacher = new Set([..._norm(lastSayRef.current), ..._norm(qaRef.current && qaRef.current.a)]);
+    if (!teacher.size) return false;
+    const overlap = h.filter((w) => teacher.has(w)).length / h.length;
+    return overlap >= 0.6;
+  };
+  // The student spoke while she was teaching/answering → pause and take the doubt, like a
+  // real class. Ignored while she is already THINKING/listening or the lesson is done.
+  const handleBargeIn = (text) => {
+    const q = String(text || '').trim();
+    if (q.split(/\s+/).filter(Boolean).length < 2) return; // stray one-word noise
+    const now = Date.now();
+    if (now < bargeCooldownRef.current) return;
+    const m = modeRef.current;
+    if (m === M.THINKING || m === M.LISTENING || m === M.COMPLETED) return;
+    bargeCooldownRef.current = now + 1600;
+    if (autoResumeRef.current) { clearTimeout(autoResumeRef.current); autoResumeRef.current = null; }
+    sendDoubt(q);
+  };
+  const toggleHandsFree = () => {
+    setHandsFree((v) => {
+      const next = !v;
+      setHint(next ? 'Live conversation on — just speak anytime and I\'ll pause to answer. (Earphones give the clearest result.)' : '');
+      return next;
+    });
+  };
+  // Recognition couldn't run (mic denied / no service / repeated failures) — never
+  // leave the "Live" pill pretending to listen. Turn it off and fall back to the
+  // tap mic / typed ask, with a clear reason.
+  const handleVoiceUnavailable = (reason) => {
+    setHandsFree(false);
+    setHint(reason === 'mic-denied'
+      ? 'Microphone access is off — allow it in Settings to talk, or tap the mic / type your question.'
+      : 'Live conversation isn\'t available on this device — tap the mic or type your question instead.');
+  };
+  // After a hands-free answer finishes, quietly continue the lesson unless the student
+  // speaks again first (which cancels this and starts a new doubt).
+  useEffect(() => {
+    if (!handsFree || mode !== M.ANSWERING || !doubtDone) return undefined;
+    autoResumeRef.current = setTimeout(() => { if (mountedRef.current) resumeFromDoubt(); }, 3500);
+    return () => { if (autoResumeRef.current) { clearTimeout(autoResumeRef.current); autoResumeRef.current = null; } };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [handsFree, mode, doubtDone]);
+
+  // Simultaneous record+play is only needed while listening — enable it with the
+  // hands-free toggle and drop it on leave so normal playback keeps full volume.
+  useEffect(() => {
+    if (VOICE_OK) setListeningMode(handsFree);
+    return () => { if (VOICE_OK) setListeningMode(false); };
+  }, [handsFree]);
+
+  // First-time nudge so the student knows they can just talk (mic-free).
+  useEffect(() => {
+    if (VOICE_OK && handsFree) setHint('Just speak anytime — I\'ll pause and answer. (Earphones give the clearest result.)');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Stamp when she stops speaking, so the echo filter can keep suppressing briefly
+  // afterwards (the audio tail + ASR lag) instead of self-triggering on her own words.
+  useEffect(() => { if (!ttsActive) ttsEndedAtRef.current = Date.now(); }, [ttsActive]);
+
+  // Quick-action chips under a finished answer → send a natural follow-up doubt.
+  const QUICK_FOLLOWUP = {
+    explain_simpler: 'Can you explain that more simply?',
+    give_example: 'Can you give me an example?',
+    start_quiz: 'Quiz me on this with one quick question.',
+  };
+  const handleQuickAction = (action) => { const q = QUICK_FOLLOWUP[action]; if (q) sendDoubt(q); };
 
   // Re-explanation: jump back to the concept she just taught (skip quick-checks /
   // the opener) and replay it. The 'replay' signal eases her pace, so the second
@@ -793,17 +1106,27 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     : (scene.boardType === 'summary' || scene.boardType === 'mistake') ? hasPoints
     : true;
   const showBoard = sceneHasContent && !inDoubt; // board hides while a doubt is handled
+  // Distinct colour + label per live state — a professional, legible presence.
+  const statusInfo = mode === M.LISTENING ? { label: 'Listening', color: C.teal }
+    : mode === M.THINKING ? { label: 'Thinking', color: '#E9A23B' }
+    : ttsActive ? { label: 'Teaching', color: ACCENT }
+    : mode === M.PAUSED ? { label: 'Paused', color: D.textFaint }
+    : { label: 'Ready', color: D.textDim };
 
   // Caption = the current BEAT's line (one directed line at a time — never a wall
   // of text). Wordless reveal beats keep the previous line on screen instead of
   // blanking, so the subtitle always reads as one calm sentence.
   const beatText = (curBeat && curBeat.say) || lastSayRef.current || scene.teacherLine || '';
-  const captionText = qa ? (qa.a || 'Thinking…') : beatText;
+  const captionText = qa ? (qa.a || 'One moment…') : beatText;
 
   // (Progress is the row of dots on the slate now — a bar that fills is a task
   // being completed, which is not what following an explanation is.)
   const sceneKey = `${idx}-${animKey}`;
   const beatKey = `${idx}-${beat}-${animKey}`; // karaoke highlight resets per beat
+  // Drop the small eyebrow when it just repeats the title (e.g. quick-check scenes
+  // set both kicker "QUICK CHECK" and title "Quick Check") — one clean heading, not two.
+  const _normHead = (s) => String(s || '').replace(/[^a-z0-9]/gi, '').toLowerCase();
+  const kickerDistinct = _normHead(scene.kicker) !== _normHead(scene.title);
 
   // The spoken caption (or the doubt Q&A) — shared by the centred hero and the
   // with-slide subtitle bar so it always reads the same. Shown whole (not
@@ -813,12 +1136,12 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
       <>
         <Text style={st.askedLabel} numberOfLines={1}>You asked · “{qa.q}”</Text>
         <SpokenCaption key={`ans-${idx}-${qa.a ? 1 : 0}`} text={captionText} speaking={ttsActive} karaoke={voiceOn} resetKey={`ans-${qa.a ? 1 : 0}`} style={st.captionTxt} />
-        {doubtDone && <DoubtMeta meta={qaMeta} />}
+        {doubtDone && <DoubtMeta meta={qaMeta} onLearnPrereq={(p) => sendDoubt(`Explain "${p}" briefly — I want to understand the idea this builds on.`)} />}
       </>
     ) : mode === M.LISTENING ? (
       <Text style={st.captionTxt}>{listenPrompt}</Text>
     ) : (
-      <SpokenCaption key={`s-${idx}-${captionText}`} text={captionText} speaking={ttsActive} karaoke={voiceOn} resetKey={`${idx}-${captionText}`} style={st.captionTxt} highlight={(curBeat && curBeat.highlight && curBeat.highlight.length) ? curBeat.highlight : keyTerms} />
+      <SpokenCaption key={`s-${idx}-${captionText}`} text={captionText} speaking={ttsActive} karaoke={voiceOn} resetKey={`${idx}-${captionText}`} style={st.captionTxt} highlight={(curBeat && curBeat.highlight && curBeat.highlight.length) ? curBeat.highlight : keyTerms} onTermTap={onAsk ? (term) => sendDoubt(`In one line, what does "${term}" mean here?`) : undefined} />
     )
   );
 
@@ -1112,8 +1435,8 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
       {mode === M.COMPLETED && (
         <View style={st.doneOverlay} pointerEvents="box-none">
           <Appear from="scale" style={st.doneCard}>
-            <Text style={st.doneEmoji}>🎉</Text>
-            <Text style={st.doneTitle}>Lesson complete</Text>
+            <Appear from="scale" delay={220} duration={420} style={st.doneEmoji}><Trophy size={40} color="#F59E0B" strokeWidth={1.9} /></Appear>
+            <Text style={st.doneTitle} accessibilityRole="header">Well done today</Text>
             <Text style={st.doneSub}>{memoryRecap || doneMsg || 'Great focus today. Take it again whenever you like.'}</Text>
 
             {learned.length > 0 && (
@@ -1133,9 +1456,44 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
                 <View style={st.statBox}><CountUp to={accuracy} suffix="%" style={st.statNum} /><Text style={st.statLbl}>Accuracy</Text></View>
               )}
               <View style={st.statBox}><CountUp to={conceptTotal} style={st.statNum} /><Text style={st.statLbl}>Concepts</Text></View>
+              <View style={st.statBox}><CountUp to={studyMin} style={st.statNum} /><Text style={st.statLbl}>{studyMin === 1 ? 'Minute' : 'Minutes'}</Text></View>
             </Appear>
 
+            {conceptResults.length > 0 && (
+              <View style={st.masteryPanel}>
+                <View style={st.masteryTop}>
+                  <Text style={st.masteryLabel}>Concept mastery</Text>
+                  <Text style={st.masteryScore}>{mastered}/{conceptResults.length}</Text>
+                </View>
+                <View style={st.masteryDots}>
+                  {conceptResults.map((r, i) => (
+                    <View key={i} style={[st.mDot, r.correct ? st.mDotOk : st.mDotWeak]} />
+                  ))}
+                </View>
+                {weakConcepts.length > 0 && (
+                  <Text style={st.masteryWeak} numberOfLines={2}>Revisit: {weakConcepts.map((w) => w.title).join(' · ')}</Text>
+                )}
+              </View>
+            )}
+
             <Text style={st.recoTxt}>{memoryNext || (accuracy != null && accuracy >= 80 ? 'You’ve got this — ready for a new topic?' : 'A quick replay will lock it in.')}</Text>
+
+            {(flashcards.length > 0 || testQs.length > 0) && (
+              <View style={st.studyRow}>
+                {flashcards.length > 0 && (
+                  <PressableScale style={st.studyBtn} onPress={() => setDeckOpen(true)} accessibilityLabel="Review flashcards">
+                    <Layers size={17} color="#DBA53F" strokeWidth={2.3} />
+                    <Text style={st.studyTxt}>Flashcards</Text>
+                  </PressableScale>
+                )}
+                {testQs.length > 0 && (
+                  <PressableScale style={st.studyBtn} onPress={() => setTestOpen(true)} accessibilityLabel="Test yourself">
+                    <GraduationCap size={18} color="#DBA53F" strokeWidth={2.3} />
+                    <Text style={st.studyTxt}>Test yourself</Text>
+                  </PressableScale>
+                )}
+              </View>
+            )}
 
             <View style={st.doneRow}>
               <PressableScale style={[st.doneBtn, st.doneGhost]} onPress={() => { stopTeacher(); onExit && onExit(); }} accessibilityLabel="Finish and exit"><Text style={st.doneGhostTxt}>Done</Text></PressableScale>
@@ -1150,6 +1508,27 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
           </Appear>
         </View>
       )}
+
+      {/* ── study features (jump-around contents/notes · flashcards · self-test) ── */}
+      <ContentsSheet
+        visible={contentsOpen}
+        scenes={scenes}
+        currentIdx={idx}
+        saved={savedNotes}
+        onToggleSave={toggleSaveNote}
+        onJump={(i) => goTeach(i)}
+        onClose={() => setContentsOpen(false)}
+        recap={recap}
+        formulas={formulas}
+        lessonTitle={lessonTopic}
+        noteText={noteText}
+        onChangeNoteText={onChangeNoteText}
+        visited={visited}
+        results={conceptResults}
+        onExplainFormula={onAsk ? (f) => { setContentsOpen(false); sendDoubt(`Explain this formula and what each symbol means, briefly: ${f}`); } : undefined}
+      />
+      <FlashcardDeck visible={deckOpen} cards={flashcards} onClose={() => setDeckOpen(false)} lessonKey={lessonKey} />
+      <TestSheet visible={testOpen} questions={testQs} onClose={() => setTestOpen(false)} onScore={() => {}} />
     </View>
   );
 }
@@ -1206,6 +1585,7 @@ const st = StyleSheet.create({
   waveWrap: { height: 38, alignItems: 'center', justifyContent: 'flex-end', marginBottom: 10 },
   wave: { flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'center', height: 38, gap: 3 },
   waveBar: { width: 4, borderRadius: 3 },
+  waveMini: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', height: 24, gap: 3, paddingRight: 4 },
 
   badge: { flexDirection: 'row', alignItems: 'center', gap: 7, marginTop: SP.md, backgroundColor: S.card, borderWidth: 1, borderColor: S.border, borderRadius: 16, paddingHorizontal: 14, paddingVertical: 7 },
   badgeOn: { borderColor: S.emerald },
@@ -1308,6 +1688,9 @@ const st = StyleSheet.create({
   // listening / typed-doubt / resume
   resumeBtn: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: S.indigo, borderRadius: R.pill, paddingVertical: 13, paddingHorizontal: 26, ...shadowSm },
   resumeTxt: { color: '#fff', fontSize: 14, fontFamily: F.bold },
+  starterRow: { alignSelf: 'stretch', gap: 6, marginBottom: SP.sm },
+  starterChip: { alignSelf: 'stretch', backgroundColor: 'rgba(219,165,63,0.08)', borderWidth: 1, borderColor: 'rgba(219,165,63,0.3)', borderRadius: R.md, paddingVertical: 10, paddingHorizontal: 14 },
+  starterTxt: { fontSize: 13, fontFamily: F.med, color: '#DBA53F' },
   askRow: { flexDirection: 'row', gap: 8, alignItems: 'center', alignSelf: 'stretch' },
   askInput: { flex: 1, backgroundColor: S.card, borderWidth: 1, borderColor: S.border, borderRadius: R.pill, paddingVertical: 13, paddingHorizontal: 20, color: S.ink, fontSize: 14, fontFamily: F.med },
   askSend: { width: 48, height: 48, borderRadius: 24, backgroundColor: S.indigo, alignItems: 'center', justifyContent: 'center', ...shadowSm },
@@ -1339,4 +1722,27 @@ const st = StyleSheet.create({
   donePrimaryTxt: { color: '#fff', fontSize: 14, fontFamily: F.bold },
   doneGhost: { backgroundColor: S.canvas, borderWidth: 1, borderColor: S.border },
   doneGhostTxt: { color: S.sub, fontSize: 14, fontFamily: F.bold },
+
+  // ── Restored from the pre-merge StyleSheet ──────────────────────────────
+  // The markup that reads these (the mastery panel, the study strip, the
+  // thinking row, the tappable caption term) survived the merge, but their
+  // definitions sat in a block the merge resolved away. Values are verbatim,
+  // so the dark-stage palette (D.*, ACCENT) they were designed against holds.
+  capTerm: { textDecorationLine: 'underline', textDecorationStyle: 'dotted', textDecorationColor: 'rgba(219,165,63,0.6)' }, // tappable key term → tap to define
+  masteryDots: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 10 },
+  masteryLabel: { fontSize: 10.5, fontFamily: F.bold, color: D.textDim, letterSpacing: 1.4, textTransform: 'uppercase' },
+  masteryPanel: { alignSelf: 'stretch', marginTop: SP.lg, backgroundColor: 'rgba(255,255,255,0.04)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.08)', borderRadius: R.lg, padding: SP.md },
+  masteryScore: { fontSize: 14, fontFamily: F.bold, color: '#DBA53F' },
+  masteryTop: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  masteryWeak: { fontSize: 11.5, fontFamily: F.med, color: D.textDim, marginTop: 10, lineHeight: 16 },
+  mDot: { width: 20, height: 6, borderRadius: 3 },
+  mDotOk: { backgroundColor: '#2DBB78' },
+  mDotWeak: { backgroundColor: '#E9A23B' },
+  metaHeader: { fontSize: 9.5, fontFamily: F.bold, color: ACCENT_DIM, letterSpacing: 1.6, textTransform: 'uppercase' },
+  studyBtn: { flexGrow: 1, flexBasis: '30%', minWidth: 96, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6, paddingVertical: 12, paddingHorizontal: 6, borderRadius: R.md, backgroundColor: 'rgba(219,165,63,0.10)', borderWidth: 1, borderColor: 'rgba(219,165,63,0.38)' },
+  studyRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: SP.lg, alignSelf: 'stretch', justifyContent: 'center' },
+  studyTxt: { fontSize: 12.5, fontFamily: F.bold, color: '#DBA53F', letterSpacing: 0.1 },
+  thinkDot: { width: 7, height: 7, borderRadius: 4, backgroundColor: ACCENT },
+  thinkRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6 },
+  thinkTxt: { fontSize: 13, fontFamily: F.semi, color: D.textDim, marginLeft: 6, letterSpacing: 0.2 },
 });

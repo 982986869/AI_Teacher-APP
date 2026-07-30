@@ -3,8 +3,7 @@ import {
   View, Text, ScrollView, TouchableOpacity,
   StyleSheet, SafeAreaView,
 } from 'react-native';
-// TODO: replace mock with real package after running: npm install @react-native-google-signin/google-signin
-import { GoogleSignin } from '../utils/googleSigninMock';
+import { signInWithGoogle, GoogleSignInCancelled } from '../utils/googleSignin';
 
 import AuthHeader    from '../components/AuthHeader';
 import InputField    from '../components/InputField';
@@ -63,12 +62,18 @@ const SignupScreen = ({ navigation }) => {
     setError('');
     try {
       setLoading(true);
-      await GoogleSignin.hasPlayServices();
-      const { idToken } = await GoogleSignin.signIn();
+      const { idToken } = await signInWithGoogle();
       const data = await loginWithGoogle({ idToken });
       await signIn(data);
     } catch (e) {
-      setError('Google sign-in failed. Please try again.');
+      // Backing out of the Google sheet is a deliberate choice, not an error.
+      if (e instanceof GoogleSignInCancelled) return;
+      setError(
+        e?.response?.data?.error
+          || e?.response?.data?.message
+          || e?.message
+          || 'Google sign-in failed. Please try again.'
+      );
     } finally {
       setLoading(false);
     }

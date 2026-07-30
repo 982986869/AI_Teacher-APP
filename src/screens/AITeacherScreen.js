@@ -2,15 +2,17 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 import {
   View, Text, StyleSheet, SafeAreaView, ScrollView,
   StatusBar, TextInput, Platform,
-  KeyboardAvoidingView, ActivityIndicator,
+  KeyboardAvoidingView, ActivityIndicator, Animated, Easing,
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
-import { generateLesson, askAgent, askAgentStream, getResumeContext, getLesson, updateLessonProgress } from '../api/aiApi';
+import { generateLesson, askAgent, askAgentStream, getResumeContext, getLesson, updateLessonProgress, TEACHING_MODES } from '../api/aiApi';
 import { saveActiveLesson, getActiveLesson, clearActiveLesson, getStudentModel, saveStudentModel } from '../utils/storage';
+import { loadLearnerPrefs, prefsForRequest } from '../utils/learnerPrefs';
 import { foldOutcome } from '../components/teacher/pedagogyEngine';
 import KnowledgeAskScreen from './KnowledgeAskScreen';
 import StudyInsightsScreen from './StudyInsightsScreen';
 import LiveTeachingPlayer from '../components/teacher/LiveTeachingPlayer';
+import GradientText from '../components/teacher/GradientText';
 import TeacherAvatar from '../components/teacher/TeacherAvatar';
 import TeacherFullBody from '../components/teacher/TeacherFullBody';
 import { TEACHER_HEADSHOT, TEACHER_PHOTO, TEACHER_VIDEO } from '../components/teacher/teacherIdentity';
@@ -26,31 +28,57 @@ import { StudentSectionHeader, InkSurface } from '../theme/studentUI';
 import { F } from './parent/ParentApp/constants';
 import {
   ChevronLeft, ChevronRight, Search, Sparkles, Clock, X, Compass, Repeat,
-  ChartNoAxesColumn, Check, Circle, CircleAlert, VolumeX,
+  ChartNoAxesColumn, Check, Circle, CircleAlert, VolumeX, Brain,
+  // Subject-tile glyphs — see SUBJECT_META below.
+  Atom, Sigma, FlaskConical, Dna, BookOpen, Landmark,
 } from 'lucide-react-native';
 import { Appear, PressableScale } from '../components/teacher/uiKit';
 import { stopTeacher, primeTeacherVoice, SPEECH_OK } from '../utils/teacherVoice';
+import YourLearning from '../components/teacher/YourLearning';
 
 // AI Teacher answers EVERY academic question, so it offers all subjects. Only the
 // explanation depth adapts to the student's class (enforced server-side from scope);
 // content restriction by stream lives on Practice/Resources, not here.
 const SUBJECTS = ['Physics', 'Maths', 'Chemistry', 'Biology', 'English', 'History'];
 
-// Per-subject glyph + tint for the subject tiles (presentation only — the list above
-// stays the single source of truth for which subjects exist). Emoji glyphs match the
-// app's own subject convention (utils/classSubjects → subjectDisplay); the tints are
-// the palette's `*Soft` accents, one per subject, so nothing here is a bespoke hue.
-// They are OPAQUE on purpose: Android renders an elevation shadow from the view's own
+// Per-subject line icon + tint for the subject tiles (presentation only — the list
+// above stays the single source of truth for which subjects exist). Real vector icons
+// (lucide), each stroked in its subject-family hue over an opaque pastel tile.
+// Tints are OPAQUE on purpose: Android renders an elevation shadow from the view's own
 // background, so a translucent fill shows through as a white block behind the card.
+//
+// Four keys, because the tile reads all four: `tint` fills it, `accent` is the border
+// on the selected tile, `Icon` is the glyph and `hue` strokes it. The hues come from
+// the studentTheme palette rather than bespoke hexes — this screen is on studentTheme
+// (`S`), and the premiumTheme `C` the vector-icon design shipped against is not even
+// imported here.
 const SUBJECT_META = {
-  Physics: { icon: '🌌', tint: S.purpleSoft, accent: S.purple },
-  Maths: { icon: '📐', tint: S.blueSoft, accent: S.blue },
-  Chemistry: { icon: '🧪', tint: S.emeraldSoft, accent: S.emerald },
-  Biology: { icon: '🧬', tint: S.redSoft, accent: S.red },
-  English: { icon: '📚', tint: S.goldSoft, accent: S.gold },
-  History: { icon: '🏛️', tint: S.orangeSoft, accent: S.orange },
+  Physics: { Icon: Atom, tint: S.purpleSoft, accent: S.purple, hue: S.purple },
+  Maths: { Icon: Sigma, tint: S.blueSoft, accent: S.blue, hue: S.blue },
+  Chemistry: { Icon: FlaskConical, tint: S.emeraldSoft, accent: S.emerald, hue: S.emerald },
+  Biology: { Icon: Dna, tint: S.redSoft, accent: S.red, hue: S.red },
+  English: { Icon: BookOpen, tint: S.goldSoft, accent: S.gold, hue: S.gold },
+  History: { Icon: Landmark, tint: S.orangeSoft, accent: S.orange, hue: S.orange },
 };
-const subjectMeta = (s) => SUBJECT_META[s] || { icon: '✨', tint: S.indigoSoft, accent: S.indigo };
+const subjectMeta = (s) => SUBJECT_META[s] || { Icon: Sparkles, tint: S.indigoSoft, accent: S.indigo, hue: S.indigo };
+
+// Spinning aurora ring behind the teacher avatar — a rotating multi-colour gradient disc
+// (conic isn't native, so a rotating linear sweep approximates it). The white avatar on
+// top masks the centre, leaving a glowing rim.
+function AvatarRing({ size = 62 }) {
+  const spin = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    const loop = Animated.loop(Animated.timing(spin, { toValue: 1, duration: 8000, easing: Easing.linear, useNativeDriver: true }));
+    loop.start();
+    return () => loop.stop();
+  }, [spin]);
+  const rotate = spin.interpolate({ inputRange: [0, 1], outputRange: ['0deg', '360deg'] });
+  return (
+    <Animated.View pointerEvents="none" style={{ position: 'absolute', top: -5, left: -5, width: size + 10, height: size + 10, borderRadius: (size + 10) / 2, overflow: 'hidden', transform: [{ rotate }] }}>
+      <Gradient colors={['#ff9ecd', '#a78bff', '#7fd8ff', '#a5f0d0', '#ff9ecd']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={StyleSheet.absoluteFill} />
+    </Animated.View>
+  );
+}
 
 const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack }) => {
   const { user, scope } = useAuth();
@@ -60,6 +88,8 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   const [activeSubject, setActiveSubject] = useState(initialSubject);
   // 'learn' = generate a lesson; 'ask' = grounded RAG Q&A over uploaded material.
   const [mode, setMode] = useState('learn');
+  const [learningOpen, setLearningOpen] = useState(false); // "Your learning" memory sheet
+  const [teachMode, setTeachMode] = useState('auto');      // teaching-mode register for the next lesson
   // When set ({ tab }), the Study Insights screen (plan / revision / progress) is shown.
   const [insights, setInsights] = useState(null);
   // "Welcome back" continuity snapshot (null until loaded; dismissible per session).
@@ -200,7 +230,10 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
     try {
       // The backend is authoritative on grade (from the student's profile); we send
       // the saved class for clarity but it cannot be used to request another class.
-      const payload = { topic: t, subject: activeSubject, gradeLevel: scope?.classNum ? String(scope.classNum) : (user?.grade || '') };
+      // Read the latest saved learning preferences (edited in "Your learning") and
+      // send them along so the lesson matches how this student likes to learn.
+      const prefs = prefsForRequest(await loadLearnerPrefs());
+      const payload = { topic: t, subject: activeSubject, gradeLevel: scope?.classNum ? String(scope.classNum) : (user?.grade || ''), mode: teachMode, prefs };
       const { lessonId: id, lesson } = await generateLesson(payload);
       if (!mountedRef.current) return;
       setLessonId(id);
@@ -214,7 +247,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
       saveActiveLesson({ lessonId: id, title: lesson.lessonTitle || t, subject: activeSubject, slideIndex: 0 });
       setSavedLesson(null);
     } catch (e) {
-      if (mountedRef.current) setError(e?.response?.data?.error || e?.response?.data?.message || e?.message || 'Could not generate the lesson. Please try again.');
+      if (mountedRef.current) setError(e?.response?.data?.error || e?.response?.data?.message || e?.message || 'I couldn’t put that lesson together just now — let’s try again.');
     } finally {
       if (mountedRef.current) setLoading(false);
     }
@@ -285,18 +318,24 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
                   <ChevronLeft size={20} color="#fff" strokeWidth={2.6} />
                 </PressableScale>
                 <Text style={st.heroKicker} accessibilityRole="header">AI TEACHER</Text>
-                <View style={{ width: 38 }} />
+                <PressableScale onPress={() => setLearningOpen(true)} style={st.heroBack} accessibilityLabel="Your learning — what the teacher remembers about you">
+                  <Brain size={20} color="#fff" strokeWidth={2.2} />
+                </PressableScale>
               </View>
 
               <View style={st.greetRow}>
                 <View style={{ flex: 1 }}>
                   <Text style={st.greetSalute}>{salute}</Text>
-                  <Text style={st.greetName}>{firstName}</Text>
+                  <GradientText size={34}>{firstName}</GradientText>
                   {!!resume && <Text style={st.greetWave}>Welcome back! {'\u{1F44B}'}</Text>}
                   <Text style={st.greetPrompt}>{greet.prompt}</Text>
                 </View>
-                <View style={st.heroAvatar}>
-                  <TeacherAvatar theme="dark" photo={TEACHER_HEADSHOT} state="idle" expression="smile" size={54} />
+                <View style={st.avatarWrap}>
+                  <AvatarRing size={62} />
+                  <View style={st.heroAvatar}>
+                    <TeacherAvatar theme="light" photo={TEACHER_HEADSHOT} state="idle" expression="smile" size={54} />
+                  </View>
+                  <View style={st.avatarDot} />
                 </View>
               </View>
 
@@ -336,6 +375,23 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
             </View>
 
             <View style={st.body}>
+              {/* Teaching style (mode) — the "how". Auto lets the teacher pick the
+                  register from what it knows about the student; or override it. */}
+              <View style={st.modeSection}>
+                <Text style={st.modeLabel}>Teaching style</Text>
+                <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={st.modeChips} keyboardShouldPersistTaps="handled">
+                  {TEACHING_MODES.map((m) => {
+                    const on = teachMode === m.key;
+                    return (
+                      <PressableScale key={m.key} onPress={() => setTeachMode(m.key)} style={[st.modeChip, on && st.modeChipOn]}
+                        accessibilityRole="button" accessibilityState={{ selected: on }} accessibilityLabel={`Teaching style: ${m.label}`}>
+                        <Text style={[st.modeChipTxt, on && st.modeChipTxtOn]}>{m.short}</Text>
+                      </PressableScale>
+                    );
+                  })}
+                </ScrollView>
+              </View>
+
               {!!error && (
                 <Appear style={st.errCard}>
                   <CircleAlert size={17} color={S.red} strokeWidth={2.4} />
@@ -350,7 +406,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
                 <TeacherFullBody photo={TEACHER_PHOTO} video={TEACHER_VIDEO} state="idle" theme="dark" height={300} />
                 <View style={st.teacherTag}>
                   <Text style={st.teacherRole}>YOUR TEACHER</Text>
-                  <Text style={st.teacherName}>Ms. Nova</Text>
+                  <GradientText size={22}>Ms. Nova</GradientText>
                 </View>
               </Appear>
 
@@ -363,7 +419,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
                   return (
                     <PressableScale key={subj} style={[st.subjCard, { backgroundColor: m.tint }, on && { borderColor: m.accent, borderWidth: 2 }]} onPress={() => setActiveSubject(subj)}
                       accessibilityLabel={`Subject ${subj}`} accessibilityState={{ selected: on }}>
-                      <Text style={st.subjIcon}>{m.icon}</Text>
+                      <View style={st.subjIcon}><m.Icon size={24} color={m.hue} strokeWidth={2.1} /></View>
                       <Text style={[st.subjTxt, on && st.subjTxtOn]}>{subj}</Text>
                     </PressableScale>
                   );
@@ -394,7 +450,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
                   <PressableScale style={st.welcomeClose} onPress={() => setResumeDismissed(true)} hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }} accessibilityLabel="Dismiss welcome back">
                     <X size={15} color={S.muted} strokeWidth={2.6} />
                   </PressableScale>
-                  <Text style={st.welcomeTag}>👋 WELCOME BACK</Text>
+                  <Text style={st.welcomeTag}>WELCOME BACK</Text>
                   <Text style={st.welcomeGreeting}>{resume.greeting}</Text>
                   {!!resume.suggestion && <Text style={st.welcomeSuggest}>{resume.suggestion}</Text>}
                   <View style={st.welcomeBtns}>
@@ -470,7 +526,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
           </ScrollView>
         </KeyboardAvoidingView>
 
-        {/* ── Generation overlay — the real preparing beats, staged ── */}
+        {/* ── Generation overlay — the Aurora "Crafting Your Personal Lesson" screen ── */}
         {loading && (
           <View style={st.genOverlay}>
             <View style={st.genSpark}><Sparkles size={34} color={S.indigo} strokeWidth={2} /></View>
@@ -490,6 +546,8 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
             <Text style={st.genHint}>{prepHint}</Text>
           </View>
         )}
+
+        <YourLearning visible={learningOpen} onClose={() => setLearningOpen(false)} />
       </SafeAreaView>
     );
   }
@@ -581,6 +639,21 @@ const st = StyleSheet.create({
   greetWave: { fontSize: 13, fontFamily: F.bold, color: '#fff', marginTop: 6 },
   greetPrompt: { fontSize: 12.5, fontFamily: F.med, color: 'rgba(255,255,255,0.78)', lineHeight: 18, marginTop: 4 },
   heroAvatar: { borderRadius: 32, borderWidth: 2, borderColor: 'rgba(255,255,255,0.45)', padding: 2, backgroundColor: 'rgba(255,255,255,0.16)' },
+  // Avatar ring + online dot. These sit ON the hero, so the dot's ring is cut out of
+  // S.heroB rather than white — on the deep indigo a white ring reads as a halo.
+  avatarWrap: { width: 62, height: 62, alignItems: 'center', justifyContent: 'center' },
+  avatarDot: { position: 'absolute', right: 1, bottom: 1, width: 14, height: 14, borderRadius: 7, backgroundColor: '#3DDC97', borderWidth: 2.5, borderColor: S.heroB },
+
+  // "Teaching style" chips (Dynamic Teaching Modes). Distinct from the modeRow
+  // toggle above: that one is the Explain/Ask segmented control ON the hero, these
+  // sit in the body on S.canvas, so they follow the card idiom (S.card + S.hair).
+  modeSection: { marginBottom: SP.md },
+  modeLabel: { fontSize: 11, fontFamily: F.bold, color: S.muted, letterSpacing: 1.4, textTransform: 'uppercase', marginBottom: SP.sm },
+  modeChips: { gap: 8, paddingRight: SP.lg },
+  modeChip: { backgroundColor: S.card, borderWidth: 1, borderColor: S.hair, borderRadius: R.pill, paddingVertical: 8, paddingHorizontal: 15 },
+  modeChipOn: { backgroundColor: S.indigo, borderColor: S.indigo },
+  modeChipTxt: { fontSize: 13, fontFamily: F.semi, color: S.sub },
+  modeChipTxtOn: { color: '#fff', fontFamily: F.bold },
 
   modeRow: { flexDirection: 'row', backgroundColor: 'rgba(0,0,0,0.24)', borderRadius: R.pill, padding: 4, marginBottom: SP.md },
   modeBtn: { flex: 1, paddingVertical: 10, borderRadius: R.pill, alignItems: 'center' },

@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS "sessions" (
   duration_min    int NOT NULL DEFAULT 60,
   mode            text NOT NULL DEFAULT 'online',   -- online | offline
   meeting_link    text,
+  recording_url   text,                             -- set once a session is recorded → shows in the student "Recordings" section
   location        text,
   capacity        int,
   description     text NOT NULL DEFAULT '',
@@ -24,6 +25,9 @@ CREATE TABLE IF NOT EXISTS "sessions" (
   updated_at      timestamptz NOT NULL DEFAULT now(),
   deleted_at      timestamptz
 );
+
+-- Idempotent add for databases created before recording_url existed.
+ALTER TABLE "sessions" ADD COLUMN IF NOT EXISTS recording_url text;
 
 CREATE INDEX IF NOT EXISTS sessions_class_start ON "sessions" (class_level, starts_at) WHERE deleted_at IS NULL;
 CREATE INDEX IF NOT EXISTS sessions_status ON "sessions" (status) WHERE deleted_at IS NULL;

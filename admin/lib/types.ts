@@ -101,6 +101,15 @@ export interface Announcement {
   publishedAt: string | null; createdAt: string; updatedAt: string
 }
 
+export interface Session {
+  id: string; title: string; subject: string; chapter: string; classLevel: number | null
+  board: string | null; teacherName: string; startsAt: string; durationMin: number
+  mode: 'online' | 'offline'; meetingLink: string | null; recordingUrl: string | null
+  location: string | null; capacity: number | null; description: string
+  status: 'scheduled' | 'completed' | 'cancelled' | 'archived'
+  createdByName: string | null; createdAt: string; updatedAt: string
+}
+
 export interface Setting {
   key: string; value: any; category: string; label: string | null; description: string | null; version: number; updatedAt: string
 }

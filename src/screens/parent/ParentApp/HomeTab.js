@@ -9,6 +9,7 @@ import { PressableScale, FadeInOnce, Breathe, Odometer, Pulse, Float, PopIn, Wav
 import { EventTeaser, EventsModal } from './EventsCarousel';
 import { AboutModal, ImpactModal, TutorsModal, ReviewsModal, PricingModal, FaqsModal, ContactModal, RefundModal, ReferralModal } from './AboutScreen';
 import UpcomingDemoCard from './UpcomingDemoCard';
+import FacultyCards from '../../../components/FacultyCards';
 
 // Stat carousel card width + gap — wide rectangles that overflow the screen so the row
 // slides. snapToInterval below uses STAT_W + STAT_GAP so each card settles cleanly.
@@ -227,6 +228,11 @@ function HomeTab({ meta, childName, onAvatar, onGym, onActivity, onBookTrial, re
             </View>
           </FadeInOnce>
         )}
+
+        {/* Who teaches your child — hides itself while the roster is empty. */}
+        <FadeInOnce id="home-faculty" delay={200}>
+          <FacultyCards />
+        </FadeInOnce>
 
         <FadeInOnce id="home-events" delay={160}>
           <Label>Offline events</Label>

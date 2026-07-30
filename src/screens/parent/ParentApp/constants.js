@@ -5,7 +5,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Platform } from 'react-native';
 import Svg, { Defs, LinearGradient as LG, Stop, Rect } from 'react-native-svg';
-import { Home, BarChart3, MessageCircle, BookOpen, Video } from 'lucide-react-native';
+import { Home, BarChart3, MessageCircle, BookOpen, Video, Share2, Sparkles, TrendingUp } from 'lucide-react-native';
 
 export const C = {
   bg: '#FFFFFF', canvas: '#F1F3F7', headerBg: '#F6F6F7', ink: '#161616', muted: '#6C7179', faint: '#A6AAB2',
@@ -42,16 +42,271 @@ export const CONTENT = {
     skillsTitle: "Skills You'll Discover",
     skillsIntro: 'The activities and quizzes build the core skills behind confident learning — across every subject.',
     participantsTitle: 'Hear From Our Participants',
+    participantsIntro: 'Real AILERNOVA learners, and what changed for them.',
     community: {
       title: 'Join our community of\nAilernova parents', body: 'Get updates, learning resources, and celebrate every win ❤️',
-      instagram: 'https://www.instagram.com/ai_lernova/', youtube: 'https://www.youtube.com/@ailernova',
-      facebook: 'https://www.facebook.com/ailernova/', linkedin: 'https://www.linkedin.com/company/ailernova/',
+      // Only accounts Ailernova actually links from ailernova.in (verified). No YouTube/X —
+      // their site links none, so we don't show tiles that would guess at a handle.
+      instagram: 'https://www.instagram.com/ai_lernova/',
+      facebook: 'https://www.facebook.com/ailernova/',
+      linkedin: 'https://www.linkedin.com/company/ailernova/',
     },
     become: {
       title: 'BECOME AILERNOVA™', body: 'Build skills with daily challenges and puzzles.',
       appCta: 'Download the app', appUrl: 'https://ailernova.com',
-      categories: [{ emoji: '🧠', label: 'BRAIN GAMES' }, { emoji: '🧩', label: 'LOGIC PUZZLES' }, { emoji: '⚡', label: 'QUICK RECALL' }],
+      // Four feature glyphs (coloured lucide icons on dark circles), matching the app's
+      // reference tiles. Each carries its own Icon component + accent colour.
+      categories: [
+        { Icon: Share2, color: '#22D3EE', label: 'AI TUTOR' },
+        { Icon: Sparkles, color: '#C471ED', label: 'SMART PRACTICE' },
+        { Icon: BookOpen, color: '#F5B301', label: 'ADAPTIVE LEARNING' },
+        { Icon: TrendingUp, color: '#3FCF7F', label: 'PROGRESS TRACKING' },
+      ],
     },
+    // ── Program detail page (opened from "Our Programs" → a class) ──────────────
+    // A stacked, Cuemath-style landing: sticky class switcher, a "what we take care of"
+    // feature section, a curriculum section, and a "synced with school" section with a
+    // grade picker + topic list. Copy is editable brand marketing (NOT verified claims —
+    // no invented teacher counts, awards or third-party studies).
+    programsHub: {
+      cta: 'Find the right teacher',
+      ctaUrl: 'https://wa.me/918905604773',
+      careTitle: 'We take care of all your\nchild’s learning needs',
+      boardsTitle: 'Synced with school curriculum',
+      boardsBody: 'Aligned with your school board — CBSE, ICSE, State Boards & IB.',
+      exerciseCaption: 'A visual number-ordering exercise',
+      detailedCurriculumLabel: 'View Detailed Curriculum',
+      // Closing panel — dark, starfield, floating astronaut rocket.
+      joinAnytime: {
+        title: 'You can join any\ntime of the year,\nin any grade!',
+        body: 'Start whenever you’re ready. We meet your child exactly where they are and build from there — at their own pace, in their own way.',
+        // Milestone that sits on the horizon arc, inside the same dark card.
+        step: {
+          n: '1',
+          title: 'Student joins any time of the\nyear, in any grade',
+          bullets: ['Beginning, middle or end of academic year', 'From the early years through senior school'],
+        },
+      },
+      // "How our classes work".
+      // ⚠️ `uri` is null on purpose. It previously pointed at 0_Student_Girl_1280x720.mp4,
+      // which is the website's silent, muted, autoplaying HERO BACKGROUND LOOP — not an
+      // explainer. Presenting it under this heading told parents they were watching one of
+      // our classes. Until we have real recorded sessions, each class falls back to the
+      // animated `classExplainer` below, which claims nothing it can't show.
+      // ► To use real footage: set `uri` here (all classes) or `classVideo` on one class.
+      //   A uri always takes priority over the animation. Stock footage of children is NOT
+      //   an option here — the Pexels/Mixkit licences forbid implying the people shown
+      //   endorse or use our service, which is exactly what this heading would do.
+      classVideo: {
+        heading: 'How our classes work',
+        uri: null,
+      },
+      approachTitle: 'A 360° approach for\nexcellence in school\n& beyond',
+      approachBody: 'A well-rounded approach that goes beyond the textbook.',
+      // Swipeable "method" cards (below the 360° section). Colours mirror the reference.
+      method: {
+        heading: 'The Ailernova method\nsolves it all!',
+        cards: [
+          { title: 'School Curriculum', bg: '#FBF0DC', tint: '#E39A12',
+            body: 'We cover every concept in your child’s school syllabus — learned by doing, through interactive practice and personalised problem sets.' },
+          { title: 'Quick Recall', bg: '#FBE1EF', tint: '#C93E92',
+            body: 'Daily gamified practice in the Brain Gym steadily builds your child’s speed, accuracy and confidence with the basics.' },
+          { title: 'Real-life Application', bg: '#E1F4E7', tint: '#12924B',
+            body: 'Plenty of real-world problem-solving helps your child see concepts all around them — not just on the page.' },
+          { title: 'Advanced Learning', bg: '#E6F1FB', tint: '#1848F0',
+            body: 'Beyond-syllabus and olympiad-level content lets your child stretch further and prepare for competitive exams.' },
+        ],
+      },
+      // Horizontally-scrollable "why our teaching works" cards (dark, space theme).
+      principles: {
+        heading: 'The Ailernova way',
+        sub: 'We teach maths as a life-skill — not just a school subject.',
+        cards: [
+          { title: 'Understanding\nover memorising', tint: '#F5B301',
+            body: 'Your child learns why a method works, not just the steps to repeat — so the learning actually sticks.' },
+          { title: 'Doing\nover watching', tint: '#3B9EFF',
+            body: 'You can’t learn to swim from a video. Maths is the same — every session is hands-on, with your child solving, not just watching.' },
+          { title: 'Mastery\nover speed', tint: '#2FD07A',
+            body: 'We move ahead only once a concept is truly understood — never just because the lesson clock ran out.' },
+          { title: 'Curiosity\nover pressure', tint: '#F45FA0',
+            body: 'Questions are welcome. Our tutors nudge your child toward the answer instead of handing it over, building real confidence.' },
+          { title: 'Real world\nover abstract', tint: '#24C3B5',
+            body: 'Concepts are tied to things your child already knows, so maths feels useful and real — not a page of symbols.' },
+        ],
+      },
+      // Shared feature rows (icon key → resolved to a lucide component in EventsCarousel).
+      features: [
+        { title: 'Handpicked Teachers', icon: 'users', tint: '#E8912A', bg: '#FBE1A1',
+          bullets: ['Mapped to your child’s needs', 'Qualified, experienced educators', 'Aligned to your board'] },
+        { title: 'Personalised Learning', icon: 'trend', tint: '#9333C4', bg: '#F1CBEA',
+          bullets: ['A custom path for every child', 'They progress at their own pace', 'Focus where it’s needed most'] },
+        { title: '1-to-1 LIVE Tutoring', icon: 'video', tint: '#12924B', bg: '#BFE7CE',
+          bullets: ['Undivided attention from live teachers', 'Instant doubt-solving for clarity', 'No pre-recorded sessions, ever'] },
+        { title: 'Classwork Help', icon: 'book', tint: '#1848F0', bg: '#C2D9F7',
+          bullets: ['Synced with your school curriculum', 'End-to-end homework help', 'Complete support for exams'] },
+        { title: 'Advanced Learning', icon: 'award', tint: '#F0501E', bg: '#F8CCB2',
+          bullets: ['Olympiad & beyond-syllabus practice', 'Reasoning and problem-solving', 'Challenge that builds confidence'] },
+      ],
+      // Per-class content, switched by the tab bar.
+      classes: [
+        { id: 'k2', tab: 'Class K-2',
+          curriculumTitle: 'Explore our award-winning maths curriculum',
+          // `curriculumHook` is the bold line under the title (no orange eyebrow here).
+          curriculumHook: 'Learning to Love Maths, the Right Way',
+          curriculumBody: 'Grades K-2 are when your child will first learn number sense, counting, and basic arithmetic. And getting this phase right can turn maths into your child’s best friend instead of a demon.',
+          curriculumImage: null,   // a real still here would take priority over the visual
+          curriculumVisual: 'abacus',   // animated counting beads
+          classExplainer: {
+            heading: 'How a Grade K-2 class works',
+            ask: 'But why is it 7?',
+            reply: 'Let’s count on together — start at 4.',
+            steps: ['3 + 4 = ?', 'Count on: 5, 6, 7', '3 + 4 = 7'],
+          },
+          grades: ['Grade KG', 'Grade 1', 'Grade 2'],
+          topics: ['Matching And Sorting', 'Number And Operations', 'Shapes And Patterns', 'Time And Measurement', 'Data Handling'] },
+        { id: '35', tab: 'Class 3-5',
+          curriculumTitle: 'Explore our award-winning maths curriculum',
+          // `curriculumHook` is the bold line under the title (no orange eyebrow here).
+          curriculumHook: 'Weak foundations don’t last!',
+          curriculumBody: 'Grades 3-5 are when your child has to master abstract concepts like fractions and decimals. And getting this phase right can help your child avoid maths anxiety and excel in later years.',
+          curriculumImage: null,   // curriculum still (real photo URL). null → visual below.
+          curriculumVisual: 'fractions',   // animated fraction wedges instead of the stub
+          exercise: 'factors',             // factor blocks instead of the join-the-dots rocket
+          exerciseCaption: 'A visual way to understand factors',
+          classExplainer: {
+            heading: 'How a Grade 3-5 class works',
+            ask: 'Why do the bottoms have to match?',
+            reply: 'Because quarters and halves aren’t the same size — watch.',
+            steps: ['1/2 + 1/4 = ?', '1/2 = 2/4', '2/4 + 1/4 = 3/4'],
+          },
+          grades: ['Grade 3', 'Grade 4', 'Grade 5'],
+          topics: ['Multiplication & Division', 'Fractions', 'Geometry', 'Measurement', 'Data Handling', 'Word Problems'] },
+        { id: '68', tab: 'Class 6-8',
+          curriculumTitle: 'Explore our award-winning maths curriculum',
+          // `curriculumHook` is the bold line under the title (no orange eyebrow here).
+          curriculumHook: 'This is where maths turns abstract.',
+          curriculumBody: 'Grades 6-8 bring algebra, integers and ratios — where letters start standing in for numbers and the rules stop being obvious. Staying ahead here is what carries your child into high school with confidence instead of catching up.',
+          curriculumImage: null,   // a real still here would take priority over the visual
+          curriculumVisual: 'balance',   // animated equation balance (solving for x)
+          classExplainer: {
+            heading: 'How a Grade 6-8 class works',
+            ask: 'Why subtract 6 first?',
+            reply: 'To get the x term alone — do it to both sides.',
+            steps: ['2x + 6 = 14', '2x = 8', 'x = 4'],
+          },
+          grades: ['Grade 6', 'Grade 7', 'Grade 8'],
+          topics: ['Integers & Rationals', 'Algebra', 'Geometry', 'Ratios & Percentages', 'Mensuration', 'Data Handling'] },
+      ],
+    },
+
+    // In-app Blogs screen (Resources → Blogs). PLACEHOLDER articles — ailernova.in has no
+    // published blog yet (only the default WP "Hello world!" post), so replace these with
+    // real posts, or wire the screen to ailernova.in/wp-json once posts exist. No images
+    // required: each card uses a tinted category band.
+    // In-app Blog. Articles authored for Ailernova, grounded in the real positioning on
+    // ailernova.in (1:1 online Maths & Science tutoring, critical-thinking over rote,
+    // concept-based 55–60 min classes, grades 1–12, NEET prep, CBSE/ICSE/IB/IGCSE, free
+    // first session). Each opens an in-app reader (`body` = paragraphs). Edit freely.
+    blogs: {
+      title: 'Ailernova Blog',
+      subtitle: 'Learning science, tutoring and exam guides for parents.',
+      posts: [
+        { id: 'b1', category: 'LEARNING SCIENCE', tint: '#1848F0', read: '5 min read',
+          title: 'Why critical thinking beats rote memorisation',
+          excerpt: 'Memorised formulas fade after the exam. Thinking frameworks last a lifetime — here’s why Ailernova teaches the “why”, not just the “what”.',
+          body: [
+            'Most children can memorise a formula for a test on Friday and forget it by Monday. That isn’t a failing of memory — it’s how memory works. Facts learned without understanding have nothing to hang on to, so they slip away.',
+            'At Ailernova we teach Maths and Science the other way round. Instead of starting with a formula to memorise, we start with the question the formula answers. When a child understands why a method works, the formula becomes something they can rebuild themselves — not something they have to remember perfectly under pressure.',
+            'This is what we mean by teaching “thinking frameworks that last a lifetime”. A child who understands why the area of a triangle is half its base times height can reason their way to the area of shapes they’ve never seen. A child who only memorised the formula is stuck the moment the question looks different.',
+            'The payoff shows up most in exams. Questions are rarely worded exactly like the textbook, and rote learners freeze when they are. Children who’ve been taught to reason simply read the new question, work out what it’s really asking, and solve it.',
+            'It’s slower to teach this way — and that’s the point. We move ahead only once a concept is genuinely understood, never just because the lesson clock ran out.',
+          ] },
+        { id: 'b2', category: 'TUTORING', tint: '#12924B', read: '4 min read',
+          title: 'What actually happens in a 1-on-1 Ailernova class',
+          excerpt: 'A live 55–60 minute session with one tutor and one child. No recordings, no big batch — just your child solving, with a teacher watching every step.',
+          body: [
+            'An Ailernova class is one tutor and one child, live, for about 55 to 60 minutes. There’s no pre-recorded video and no batch of thirty students where your child can quietly fall behind.',
+            'Because it’s one-on-one, the tutor can see exactly where your child hesitates. A doubt gets solved the moment it appears, not a week later. The pace bends around your child — faster where they’re confident, slower where they need it.',
+            'A typical session isn’t a lecture. The tutor sets up a problem, and your child works through it while the tutor nudges with questions rather than handing over the answer. That “productive struggle” is where real learning happens.',
+            'Most families do two classes a week for younger grades and three a week for high school, but it’s flexible — including weekends. You can start with a free first session, with no contract, to see the approach before committing.',
+          ] },
+        { id: 'b3', category: 'EXAM PREP', tint: '#F0501E', read: '6 min read',
+          title: 'Preparing for NEET without burning out',
+          excerpt: 'NEET rewards deep understanding and steady practice — not last-minute cramming. A calmer, more effective way to build toward the exam.',
+          body: [
+            'NEET isn’t a test of how much a student can memorise in the final month. It rewards students who understand Physics, Chemistry and Biology deeply and can apply that understanding to unfamiliar questions under time pressure.',
+            'That means the work that matters starts early and stays steady. Cramming spikes stress and produces knowledge that evaporates in the exam hall. Regular, spaced practice — a little each week over months — builds the kind of recall that holds up on the day.',
+            'One-on-one tutoring helps here in a specific way: a tutor can spot the exact concept your child is shaky on and fix it, instead of your child re-reading an entire chapter to patch one gap. Weak foundations are where NEET scores quietly leak away.',
+            'Mock tests matter too, but as a diagnostic — not a verdict. Each one tells you what to work on next. Reviewed calmly, a “bad” mock is one of the most useful things a NEET aspirant can have.',
+            'The goal isn’t a frantic sprint at the end. It’s a steady climb where your child walks into the exam prepared and calm, because the preparation was built to last.',
+          ] },
+        { id: 'b4', category: 'PARENTING', tint: '#9333C4', read: '4 min read',
+          title: 'Is 1-on-1 tutoring right for your child?',
+          excerpt: 'Not every child needs a tutor, and not every tutor suits every child. A few honest questions to help you decide — and how to try it risk-free.',
+          body: [
+            'Group classes work well for many children. But some learn far better with a teacher whose full attention is on them — especially if they’re falling behind quietly, or racing ahead and getting bored.',
+            'A few signs one-on-one might help: your child says they “get it” in class but can’t do the homework alone; they’re anxious about asking questions in a group; or they’re capable of much more than the class pace allows.',
+            'The honest truth is that fit matters as much as format. The right tutor for your child is patient, explains things more than one way, and builds confidence rather than dependence. The wrong one just does the homework for them.',
+            'The low-risk way to find out is simply to try it. Ailernova’s first session is free with no contract, so you and your child can see whether the approach clicks before deciding anything. If it isn’t right, you walk away — no strings.',
+          ] },
+        { id: 'b5', category: 'STUDY TIPS', tint: '#E8912A', read: '4 min read',
+          title: 'Building real confidence in Maths & Science',
+          excerpt: 'Confidence isn’t a personality trait — it’s built one understood concept at a time. How small wins compound into a child who isn’t scared of hard problems.',
+          body: [
+            'A child who says “I’m just bad at Maths” usually isn’t. What they’ve actually had is a run of moments where a concept didn’t click and no one caught it — and each one chipped away at their confidence.',
+            'Confidence rebuilds the same way it breaks: one concept at a time. When a child genuinely understands something they found hard yesterday, that’s a real win, and real wins compound. A month of small wins changes how a child talks about themselves.',
+            'The trick is to make the difficulty just right — hard enough to be worth doing, not so hard it’s crushing. That’s far easier one-on-one, where the tutor can pitch every problem to your child’s exact level.',
+            'Mistakes are part of this, not the enemy of it. When a wrong answer is treated as useful information rather than a failure, children stay curious and keep trying. That mindset, more than any single topic, is what we’re really teaching.',
+          ] },
+        { id: 'b6', category: 'CURRICULUM', tint: '#33AEE8', read: '5 min read',
+          title: 'CBSE, ICSE, IB or IGCSE: matching tutoring to your board',
+          excerpt: 'The concepts are shared, but every board tests them differently. How good tutoring adapts to your child’s exact syllabus instead of teaching generic content.',
+          body: [
+            'Maths is Maths and Science is Science — but CBSE, ICSE, IB and IGCSE ask about them in very different ways. The same concept can be a short numerical in one board and a long structured question in another.',
+            'Generic tutoring that ignores the board leaves a gap: your child may understand the idea but not the way their exam expects it answered. Good tutoring closes that gap by teaching to your child’s actual syllabus and question style.',
+            'Ailernova’s tutors work across Common Core, IB, IGCSE and various state curricula, so lessons match what your child is actually assessed on — not a one-size-fits-all textbook.',
+            'For families who move boards, or juggle school and a separate exam like NEET, this matters even more. The underlying understanding transfers; the exam technique has to be rebuilt for each target. Tutoring that knows the difference saves your child a lot of wasted effort.',
+          ] },
+      ],
+    },
+    // "Become a Tutor" in-app landing + apply form (Partner with Us → Become a Tutor).
+    // Submitting composes a WhatsApp message to the Ailernova line with the entered
+    // details — a real application, no backend needed.
+    becomeTutor: {
+      eyebrow: 'WORK WITH US',
+      title: 'Become an\nAilernova Tutor',
+      subtitle: 'Teach Maths & Science 1-on-1, online, from anywhere. Flexible hours, real impact.',
+      benefits: [
+        { icon: 'clock', tint: '#1848F0', bg: '#E5EDFF', title: 'Flexible hours', body: 'Pick slots that fit your life — including weekends.' },
+        { icon: 'remote', tint: '#12924B', bg: '#DCF3E5', title: 'Work from home', body: 'Teach online, one-on-one, from wherever you are.' },
+        { icon: 'earn', tint: '#F0501E', bg: '#FDE3D6', title: 'Earn well', body: 'Competitive per-session pay, paid on time.' },
+        { icon: 'impact', tint: '#9333C4', bg: '#F1E7FB', title: 'Make an impact', body: 'Help students build real confidence and love learning.' },
+      ],
+      stepsTitle: 'How it works',
+      steps: [
+        'Apply in 2 minutes',
+        'Short interview & a demo class',
+        'Start teaching students',
+      ],
+      formTitle: 'Apply now',
+      cta: 'Submit application',
+      waNumber: '918905604773',
+    },
+    // "Study by Subject" pop-form. Picking a subject opens its resource hub. Per-subject
+    // deep links don't exist yet, so all point at the site; swap `url` per subject later.
+    subjects: {
+      title: 'Choose a subject',
+      subtitle: 'Notes, solutions and practice — pick where to start.',
+      items: [
+        { label: 'Physics', emoji: '⚛️', tint: '#1848F0', url: 'https://ailernova.in/#about' },
+        { label: 'Chemistry', emoji: '🧪', tint: '#12924B', url: 'https://ailernova.in/#about' },
+        { label: 'Mathematics', emoji: '📐', tint: '#F0501E', url: 'https://ailernova.in/#about' },
+        { label: 'Biology', emoji: '🧬', tint: '#9333C4', url: 'https://ailernova.in/#about' },
+        { label: 'Science', emoji: '🔬', tint: '#33AEE8', url: 'https://ailernova.in/#about' },
+        { label: 'English', emoji: '📖', tint: '#E8912A', url: 'https://ailernova.in/#about' },
+      ],
+    },
+
     // Footer accordions expand into LINK LISTS. An item either opens a `url`, or
     // fires an in-app `action` — 'about' opens the About Us story page, 'impact' opens
     // Our Impact, 'tutors' opens Our Tutors.
@@ -68,32 +323,40 @@ export const CONTENT = {
           { label: 'Refer a Friend', action: 'referral' },
           { label: 'Refund Policy', action: 'refund' },
         ] },
+        // Each class opens the in-app program detail page (a stacked, Cuemath-style
+        // landing with a class switcher). `program` id → CONTENT.event.programsHub.classes.
         { q: 'Our Programs', items: [
-          { label: 'AI Teacher', url: 'https://ailernova.in/#about' },
-          { label: 'Brain Gym', url: 'https://ailernova.in/#about' },
-          { label: 'Practice & Tests', url: 'https://ailernova.in/#about' },
-          { label: 'Offline Events', url: 'https://ailernova.in/' },
+          { label: 'Class K-2', program: 'k2' },
+          { label: 'Class 3-5', program: '35' },
+          { label: 'Class 6-8', program: '68' },
         ] },
+        // NOTE: ailernova.in is currently a single-page site — its only real destinations
+        // are the homepage, the #about/#mentors/#faq/#video-section-review anchors, the
+        // /privacy-policy/ page and the WhatsApp line. Items below point to the closest
+        // real target; give each its own deep link once those pages exist.
+        // Blogs → in-app blog screen (action 'blogs'). Study by Subject → subject pop-form
+        // (action 'subjects'). Brain Gym sits right under Free Online Games.
         { q: 'Resources', items: [
-          { label: 'NCERT Solutions', url: 'https://ailernova.in/' },
-          { label: 'Revision Notes', url: 'https://ailernova.in/' },
-          { label: 'Previous Year Papers', url: 'https://ailernova.in/' },
-          { label: 'Chapter Practice', url: 'https://ailernova.in/' },
-        ] },
-        { q: 'Tutoring', items: [
-          { label: '1-on-1 Tutoring', url: 'https://ailernova.in/#about' },
-          { label: 'Book a Free Demo', url: 'https://wa.me/918905604773' },
-          { label: 'Our Tutors', action: 'tutors' },
+          { label: 'Free Online Games', url: 'https://ailernova.in/#about' },
+          { label: 'Brain Gym', url: 'https://ailernova.in/#about' },
+          { label: 'Blogs', action: 'blogs' },
+          { label: 'Study by Subject', action: 'subjects' },
         ] },
         { q: 'Partner with Us', items: [
-          { label: 'Schools & Institutions', url: 'https://wa.me/918905604773' },
-          { label: 'Become a Tutor', url: 'https://wa.me/918905604773' },
-          { label: 'Referral Program', url: 'https://ailernova.in/' },
+          { label: 'Become a Tutor', action: 'becometutor' },
         ] },
       ],
       offices: [
         { label: 'SUPPORT', lines: 'support@ailernova.com\nailernova.com' },
       ],
+      // Footer foot — brand wordmark + tagline, legal links, and the social tile row
+      // (URLs come from CONTENT.event.community). Only real, reachable pages are linked.
+      tagline: 'Learning that actually sticks',
+      legal: [
+        { label: 'Privacy Policy', url: 'https://ailernova.in/privacy-policy/' },
+        { label: 'Contact Us', url: 'https://wa.me/918905604773' },
+      ],
+      copyright: '© Ailernova · All rights reserved.',
     },
   },
 };
@@ -114,6 +377,11 @@ const AILERNOVA_FAQS = [
   { q: 'What devices do we need, and can my child join anytime?',
     a: 'Any device with a stable internet connection works — laptop, tablet or smartphone. Enrollment is open throughout the year.' },
 ];
+
+// The program detail page closes with the same release FAQ set. Assigned here rather than
+// inline in `programsHub` above, because CONTENT is defined before AILERNOVA_FAQS exists.
+CONTENT.event.programsHub.faqTitle = 'FAQs';
+CONTENT.event.programsHub.faqs = AILERNOVA_FAQS;
 
 /* ── Research accordion rows (About Us → "Research-Proven Method").
    Real, citable learning-science findings that our teaching is actually built on. ── */
@@ -1406,6 +1674,9 @@ export function Wordmark({ size = 18 }) {
 /* ---------- styles (exact from the teammate build + real-data states) ---------- */
 // Premium soft elevation — larger, softer, lifted. Used by every card.
 export const card = { shadowColor: '#0B1020', shadowOpacity: 0.08, shadowRadius: 20, shadowOffset: { width: 0, height: 10 }, elevation: 4 };
+// Sharp, black-outlined card treatment used across the parent screens (MathGym look):
+// perfectly square corners + a 2px hard black border. Spread onto any card container.
+export const sharp = { borderRadius: 0, borderWidth: 2, borderColor: C.black };
 export const st = StyleSheet.create({
   safe: { flex: 1, backgroundColor: C.canvas, paddingTop: Platform.OS === 'android' ? 28 : 0 },
   screen: { flex: 1, backgroundColor: C.canvas },
@@ -1425,6 +1696,20 @@ export const st = StyleSheet.create({
   streakCard: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: '#FFF6E2', borderRadius: 16, padding: 14, width: 160 },
   streakIcon: { width: 38, height: 38, borderRadius: 19, backgroundColor: C.orange, alignItems: 'center', justifyContent: 'center' },
 
+  // ── MathGym-style Home: full-width, square, black-bordered stacked cards ──
+  noticeCard: { flexDirection: 'row', alignItems: 'center', gap: 14, backgroundColor: C.peach, padding: 13, marginBottom: 2, ...sharp },
+  noticeThumb: { width: 58, height: 58, alignItems: 'center', justifyContent: 'center', overflow: 'hidden', ...sharp },
+  updateThumb: { width: 58, height: 58, backgroundColor: C.ink, alignItems: 'center', justifyContent: 'center', ...sharp },
+  updateThumbBadge: { position: 'absolute', right: -5, bottom: -5, width: 22, height: 22, borderRadius: 11, backgroundColor: C.orange, alignItems: 'center', justifyContent: 'center', borderWidth: 2, borderColor: '#fff' },
+  promoCard: { backgroundColor: '#C21FD6', padding: 20, overflow: 'hidden', ...sharp },
+  promoImgWrap: { marginTop: 18, height: 190, alignItems: 'center', justifyContent: 'flex-end', overflow: 'hidden' },
+  promoCircle: { position: 'absolute', width: 240, height: 240, borderRadius: 120, backgroundColor: '#F3A6E4', bottom: -34 },
+  promoImg: { width: '100%', height: 190, resizeMode: 'contain' },
+
+  // Green "ring" onboarding tooltip on the Progress calendar.
+  ringTip: { backgroundColor: '#17A65A', padding: 14, marginTop: 2, marginBottom: 16, alignSelf: 'flex-start', maxWidth: '84%', ...sharp },
+  ringTipBtn: { backgroundColor: '#fff', borderRadius: 8, paddingHorizontal: 18, paddingVertical: 9, alignSelf: 'flex-start', marginTop: 12 },
+
   trialCard: { backgroundColor: '#F7C948', borderRadius: 20, paddingHorizontal: 20, paddingTop: 22, paddingBottom: 20, ...card },
   trialArt: { marginTop: 16, backgroundColor: '#F4CC55', borderRadius: 16, height: 200, overflow: 'hidden', justifyContent: 'flex-end' },
   trialImg: { borderRadius: 16 },
@@ -1438,11 +1723,11 @@ export const st = StyleSheet.create({
   weekRow: { flexDirection: 'row', justifyContent: 'space-between', paddingTop: 8, paddingBottom: 22, borderBottomWidth: 1, borderBottomColor: C.border, marginBottom: 22 },
   dowChip: { width: 22, height: 22, borderRadius: 11, alignItems: 'center', justifyContent: 'center' },
   dateCircle: { width: 38, height: 38, borderRadius: 19, borderWidth: 1.5, borderColor: C.border, alignItems: 'center', justifyContent: 'center' },
-  noActivity: { borderWidth: 1, borderColor: C.border, borderRadius: 14, padding: 22, flexDirection: 'row', alignItems: 'center', gap: 14, backgroundColor: '#FAFAFB' },
-  statCard: { borderWidth: 1, borderColor: C.border, borderRadius: 18, padding: 16, backgroundColor: '#fff', ...card },
+  noActivity: { padding: 22, flexDirection: 'row', alignItems: 'center', gap: 14, backgroundColor: '#FAFAFB', ...sharp },
+  statCard: { padding: 16, backgroundColor: '#fff', ...sharp },
   statRow: { flexDirection: 'row', justifyContent: 'space-between' },
   stat: { alignItems: 'center', flex: 1 },
-  focusCard: { borderWidth: 1, borderColor: C.border, borderRadius: 18, padding: 16, backgroundColor: '#fff', ...card },
+  focusCard: { padding: 16, backgroundColor: '#fff', ...sharp },
 
   emptyScreen: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 34, gap: 24 },
   chatBubble: { width: 70, height: 58, backgroundColor: '#BFE6FA', borderWidth: 2.5, borderColor: '#16202A', borderRadius: 14, alignItems: 'center', justifyContent: 'center' },

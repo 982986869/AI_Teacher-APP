@@ -49,6 +49,8 @@ yarn-error.*
 src/data/physics_questions/build-answer-key.js
 src/data/physics_questions/answers.txt
 src/data/physics_questions/*.with_answers.json
+# answer_key.json is imported at runtime by questionBank.js, so it must ship in the build.
+!src/data/physics_questions/answer_key.json
 
 # Local MCQ-practice data & raw exports (lives in DB, not pushed)
 *.zip

@@ -2,6 +2,7 @@
   "expo": {
     "name": "ailernova",
     "slug": "ailernova",
+    "owner": "ailernova_ai",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -41,16 +42,32 @@
         }
       ],
       [
+        "@react-native-google-signin/google-signin",
+        {
+          "iosUrlScheme": "com.googleusercontent.apps.REPLACE_WITH_REVERSED_IOS_CLIENT_ID"
+        }
+      ],
+      [
         "expo-image-picker",
         {
           "photosPermission": "Ailernova needs access to your photos so you can add images to questions and upload study material.",
           "cameraPermission": "Ailernova needs camera access so you can photograph notes or textbook pages to upload as study material."
         }
+      ],
+      [
+        "expo-speech-recognition",
+        {
+          "microphonePermission": "Ailernova uses your microphone so you can talk to your AI teacher and ask doubts by voice.",
+          "speechRecognitionPermission": "Ailernova uses speech recognition so your AI teacher can understand your spoken questions."
+        }
       ]
     ],
     "extra": {
       "eas": {
-        "projectId": "6fb2a63e-c503-4d15-8200-a7294f4f90b3"
+        "projectId": "dccd04ea-7d70-4833-8530-b551448b5b05"
+      },
+      "google": {
+        "webClientId": "87773466841-e4mu2gmd5evup3gg6vf58hqs0ogumvas.apps.googleusercontent.com"
       }
     }
   }

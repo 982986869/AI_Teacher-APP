@@ -46,4 +46,11 @@ export const TEACHER_VIDEO = null;
 //   Leave null to keep the still photo above. Avaturn .glb files must be hosted
 //   somewhere reachable (any static host / your own bucket) — a local file path
 //   won't work without expo-asset installed.
-export const TEACHER_GLB_URL = null;
+//
+//   NOTE: this is a Ready Player Me PLACEHOLDER, requested with the ARKit +
+//   Oculus-viseme morph sets so the whole AvatarRuntime (expressions + lip-sync)
+//   runs against real 52-blendshape geometry. Swap it for the artist's hosted
+//   teacher.glb when it ships — one string change, nothing else moves. The rig is
+//   validated / exported / optimized by the tooling in blender/ and scripts/.
+export const TEACHER_GLB_URL =
+  'https://models.readyplayer.me/64bfa15f0e72c63d7c3934a6.glb?morphTargets=ARKit,Oculus%20Visemes';

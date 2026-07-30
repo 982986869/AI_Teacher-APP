@@ -7,20 +7,31 @@
     "development": {
       "developmentClient": true,
       "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
       "env": {
         "NODE_OPTIONS": "--max-old-space-size=8192"
       }
     },
     "preview": {
       "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
       "env": {
-        "NODE_OPTIONS": "--max-old-space-size=8192"
+        "NODE_OPTIONS": "--max-old-space-size=8192",
+        "EXPO_PUBLIC_API_URL": "https://ai-teacher-app-jgzx.onrender.com"
       }
     },
     "production": {
       "autoIncrement": true,
+      "android": {
+        "buildType": "app-bundle"
+      },
       "env": {
-        "NODE_OPTIONS": "--max-old-space-size=8192"
+        "NODE_OPTIONS": "--max-old-space-size=8192",
+        "EXPO_PUBLIC_API_URL": "https://ai-teacher-app-jgzx.onrender.com"
       }
     }
   },

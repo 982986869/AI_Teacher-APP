@@ -54,8 +54,25 @@ const config = {
     mockMode: process.env.MOCK_AI === 'true',
     lessonModel: process.env.AI_LESSON_MODEL,
     doubtModel: process.env.AI_DOUBT_MODEL,
+    // Small deterministic sub-tasks — intent classification, quiz drafting, answer
+    // grading. Short in, short out, and answerDoubt runs while the student waits,
+    // so this wants the cheapest fast model. Falls back to AI_DOUBT_MODEL.
+    cheapModel: process.env.AI_CHEAP_MODEL,
+    // RAG answering + document extraction. Wants the opposite of cheapModel: a large
+    // context window (a whole uploaded PDF has to fit) and good grounding. Falls back
+    // to AI_LESSON_MODEL. Keep this separate from AI_CHEAP_MODEL — one value cannot
+    // serve both without degrading one of them.
     knowledgeModel: process.env.AI_KNOWLEDGE_MODEL,
     anthropicApiKey: process.env.ANTHROPIC_API_KEY,
+
+    // Lesson planning is the hardest reasoning task, so it runs with adaptive
+    // thinking by default for deeper derivations/pedagogy (Opus 4.6+ / Sonnet 4.6+).
+    // Set AI_LESSON_THINKING=off if the configured model does not support it — the
+    // provider also auto-falls back on a 400, so a mismatch never loses a lesson.
+    // 'adaptive' | 'off'.
+    lessonThinking: (process.env.AI_LESSON_THINKING || 'adaptive').toLowerCase(),
+    // Reasoning depth/effort for lesson planning. low | medium | high | xhigh | max.
+    lessonEffort: (process.env.AI_LESSON_EFFORT || 'high').toLowerCase(),
   },
 
   // Text-to-speech for the live teacher voice. One consistent, natural female
