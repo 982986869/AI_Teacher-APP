@@ -20,7 +20,7 @@
 // + a tiny local "last seen" snapshot to detect just-unlocked/just-completed). Global loading
 // skeleton, error+retry, pull-to-refresh, per-section empty states. Distinct destinations per
 // card — AI Teacher is only ONE of them.
-import React, { useState, useRef, useEffect, useCallback, Suspense } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import {
   View, StyleSheet, ScrollView, StatusBar, TouchableOpacity,
   Dimensions, Modal, Animated, Easing, RefreshControl,
@@ -34,12 +34,13 @@ import {
   Zap, Trophy, Target, BookOpen, MessageCircle, Swords, Lock, CircleAlert,
 } from 'lucide-react-native';
 import { useAuth } from '../context/AuthContext';
-// Lazy-loaded so their heavy module trees (LiveTeachingPlayer + LessonBoards +
-// TeacherAvatar, and the expo-camera / expo-speech-recognition native requires) don't
-// evaluate synchronously on the JS thread during the open transition — Suspense lets the
-// screen paint first and the module resolve async. Same components/props, no behaviour change.
-const AITeacherScreen = React.lazy(() => import('./AITeacherScreen'));
-const BrainGymFlow = React.lazy(() => import('./braingym/BrainGymFlow'));
+// Imported statically ON PURPOSE — do NOT React.lazy() these. On native, `import()` makes
+// Metro build and ship a separate chunk at runtime (measured: ~25s for AITeacherScreen,
+// ~35s for BrainGymFlow over LAN), so the open showed a blank Suspense fallback for half a
+// minute. BrainGymFlow is also already in the main bundle via AppNavigator, so splitting it
+// only duplicated it. Static import = instant open.
+import AITeacherScreen from './AITeacherScreen';
+import BrainGymFlow from './braingym/BrainGymFlow';
 import { useRuntimeConfig } from '../context/RuntimeConfigContext';
 import OptionalUpdateBanner from '../components/OptionalUpdateBanner';
 import { getParentReport } from '../api/parentApi';
@@ -928,18 +929,12 @@ const HomeScreen = () => {
   // In-place overlays. Placed AFTER every hook so hook order stays stable (Rules of Hooks).
   if (showAITeacher) {
     // On returning from a lesson, refresh so Continue-learning / progress / recommendations update.
-    return (
-      <Suspense fallback={<View style={{ flex: 1, backgroundColor: S.canvas }} />}>
-        <AITeacherScreen initialSubject={activeSubject} initialTopic={seedTopic} onBack={() => { setShowAITeacher(false); load(true); }} />
-      </Suspense>
-    );
+    return <AITeacherScreen initialSubject={activeSubject} initialTopic={seedTopic} onBack={() => { setShowAITeacher(false); load(true); }} />;
   }
   if (showBrainGym) {
     return (
       <Modal visible animationType="slide" statusBarTranslucent onRequestClose={() => setShowBrainGym(false)}>
-        <Suspense fallback={<View style={{ flex: 1, backgroundColor: S.canvas }} />}>
-          <BrainGymFlow onFinish={() => { setShowBrainGym(false); load(true); }} />
-        </Suspense>
+        <BrainGymFlow onFinish={() => { setShowBrainGym(false); load(true); }} />
       </Modal>
     );
   }
