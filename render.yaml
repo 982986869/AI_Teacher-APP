@@ -86,6 +86,11 @@ services:
       # ── Misc ──────────────────────────────────────────────────────────────
       - key: JWT_EXPIRES_IN
         sync: false
+      # Comma-separated origin allowlist. Cannot be "*" — the API sends
+      # credentials: true, and browsers reject a wildcard on credentialed
+      # requests. Unset in production ⇒ cross-origin browser calls are denied;
+      # the native app and the admin portal's server-side rewrite send no
+      # Origin header, so neither is affected.
       - key: ALLOWED_ORIGINS
         sync: false
 

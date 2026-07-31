@@ -74,6 +74,7 @@ export default function McqTestScreen({
   const [showExit, setShowExit] = useState(false);   // exit-test confirmation
   const [showStart, setShowStart] = useState(false); // start-test confirmation popup
   const submittedRef = useRef(false);                // guards against double submit
+  const submitRef = useRef(null);                    // always the LATEST doSubmit (see timer)
 
   // Sectioned mode (mock tests): cumulative global-index ranges per section.
   const sectionInfo = useMemo(() => {
@@ -87,18 +88,27 @@ export default function McqTestScreen({
     });
   }, [sections]);
 
-  // Timer (runs only during quiz)
+  // Timer (runs only during quiz). The interval is created once, when the quiz starts,
+  // so calling doSubmit directly from it would close over that render's answers/status
+  // (both empty) — the attempt POSTed to the server on time-up was blank while the
+  // results screen showed the real score. submitRef always points at the latest
+  // doSubmit, so the timeout persists what the student actually answered.
   useEffect(() => {
-    if (phase !== 'quiz') return;
+    if (phase !== 'quiz') return undefined;
+    // The countdown lives in a local owned by this interval, so the tick is a plain
+    // value set — no setState call inside a state updater (updaters must stay pure).
+    let left = durationMin * 60;
     const id = setInterval(() => {
-      setSecs((s) => {
-        if (s <= 1) { clearInterval(id); doSubmit(); return 0; }
-        return s - 1;
-      });
+      left -= 1;
+      setSecs(left > 0 ? left : 0);
+      if (left <= 0) {
+        clearInterval(id);
+        if (submitRef.current) submitRef.current();
+      }
     }, 1000);
     return () => clearInterval(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [phase]);
+  }, [phase, durationMin]);
 
   // Auto-hide toast
   useEffect(() => {
@@ -178,6 +188,9 @@ export default function McqTestScreen({
     setShowExit(false);
     setPhase('results');
   };
+
+  // Keep the timer's escape hatch pointed at the current doSubmit (see the timer effect).
+  useEffect(() => { submitRef.current = doSubmit; });
 
   // Exiting a STARTED test still records an attempt (so it shows "Attempted"),
   // then leaves. Exiting from the instructions screen records nothing.

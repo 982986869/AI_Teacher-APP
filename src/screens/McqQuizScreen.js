@@ -82,16 +82,32 @@ export default function McqQuizScreen({
   const [score, setScore] = useState({ correct: 0, wrong: 0, skipped: 0 });
   const [done, setDone] = useState(false);
   const timerRef = useRef(null);
+  const scoredRef = useRef(false);   // has the CURRENT question already been counted?
+
+  // reveal() is called from an interval created when the question LOADED, so calling it
+  // directly closed over that render's `selected` — always null, because next() clears
+  // it. An answer chosen during the countdown was therefore scored as "skipped" when
+  // the timer ran out. revealRef always points at the latest reveal, which sees the
+  // option the student actually picked.
+  const revealRef = useRef(null);
+  useEffect(() => { revealRef.current = reveal; });
 
   // Per-question countdown — resets each question, auto-reveals at 0.
   useEffect(() => {
+    scoredRef.current = false;       // new question → scoreable again
     if (done) return undefined;
     setSecs(QUESTION_SECONDS);
+    // The countdown lives in a local owned by this question's interval, so the tick is
+    // a plain value set — no setState call inside a state updater (updaters must stay
+    // pure), and no chance of the previous question's 0 leaking into the next one.
+    let left = QUESTION_SECONDS;
     timerRef.current = setInterval(() => {
-      setSecs((s) => {
-        if (s <= 1) { clearInterval(timerRef.current); reveal(); return 0; }
-        return s - 1;
-      });
+      left -= 1;
+      setSecs(left > 0 ? left : 0);
+      if (left <= 0) {
+        clearInterval(timerRef.current);
+        if (revealRef.current) revealRef.current();
+      }
     }, 1000);
     return () => clearInterval(timerRef.current);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -123,21 +139,26 @@ export default function McqQuizScreen({
   const attemptedLive = score.correct + score.wrong;
   const liveAcc = attemptedLive ? Math.round((score.correct / attemptedLive) * 100) : 0;
 
+  // scoredRef, not the `submitted` state, is the "already counted this question" guard:
+  // the old code nested setScore inside a setSubmitted updater to read it, and React
+  // may invoke an updater twice (StrictMode), which double-counted the score. A ref is
+  // read synchronously, so the guard is exact. It resets per question (timer effect).
   function reveal() {
     clearInterval(timerRef.current);
-    setSubmitted((already) => {
-      if (already) return already;
-      setScore((s) => {
-        if (selected == null) return { ...s, skipped: s.skipped + 1 };
-        if (String(selected) === String(correctId)) return { ...s, correct: s.correct + 1 };
-        return { ...s, wrong: s.wrong + 1 };
-      });
-      return true;
+    if (scoredRef.current) return;
+    scoredRef.current = true;
+    setSubmitted(true);
+    setScore((s) => {
+      if (selected == null) return { ...s, skipped: s.skipped + 1 };
+      if (String(selected) === String(correctId)) return { ...s, correct: s.correct + 1 };
+      return { ...s, wrong: s.wrong + 1 };
     });
   }
 
   function skip() {
     clearInterval(timerRef.current);
+    if (scoredRef.current) return;   // a time-up reveal already counted this one
+    scoredRef.current = true;
     setScore((s) => ({ ...s, skipped: s.skipped + 1 }));
     next();
   }

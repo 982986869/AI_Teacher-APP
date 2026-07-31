@@ -82,8 +82,18 @@ process.on('SIGINT', () => shutdown('SIGINT'))
 process.on('unhandledRejection', (reason) => {
   console.error('[unhandledRejection]', reason && reason.message ? reason.message : reason)
 })
+// An uncaught exception leaves the process in an undefined state — the connection
+// pool, any open transaction and every in-flight request may be inconsistent. Keeping
+// it alive serves corrupted responses, so log loudly and exit; the supervisor
+// (Render/systemd) restarts a clean process. Unlike the rejection handler above, this
+// is never a routine transient failure.
 process.on('uncaughtException', (err) => {
-  console.error('[uncaughtException]', err && err.message ? err.message : err)
+  console.error('[uncaughtException] shutting down —', err && err.stack ? err.stack : err)
+  db.$disconnect()
+    .catch(() => {})
+    .finally(() => process.exit(1))
+  // Hard backstop: never hang if $disconnect stalls.
+  setTimeout(() => process.exit(1), 3000).unref()
 })
 
 start()
