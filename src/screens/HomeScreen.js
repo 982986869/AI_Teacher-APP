@@ -1,175 +1,56 @@
 // src/screens/HomeScreen.js
-// Student Home = an INTELLIGENT DECISION ENGINE, not a dashboard. On every open it reads
-// the student's whole real state and elects the single most valuable next action for the
-// HERO — then arranges supporting sections that each answer a DIFFERENT question, deduped
-// against the hero so nothing repeats. It thinks like a learning coach (Duolingo / Cuemath
-// / Khan), guiding the student ("Learn / Practice / Improve / Revise / Reflect / Celebrate")
-// rather than advertising features.
+// The Student Home — dark "night" re-skin, FIXED layout:
+//   header → current lesson (gradient hero + % ring) → Next up | Sharpen thinking
+//   → Your Weekly Goal (day chips) → Improving | AI Teacher → Recent activity
 //
-// The hero is elected by priority from real signals:
-//   celebrate-badge  → a badge was just unlocked (vs last visit)         → Celebrate
-//   celebrate-goal   → this week's goals just got completed              → Celebrate
-//   streak           → streak alive, not practised, and it's evening     → Save the streak
-//   resume           → a lesson/concept is in progress (welcome-back if lapsed) → Learn
-//   mistakes         → mistakes are pending                              → Improve
-//   weak             → a weak topic was detected                         → Strengthen
-//   new              → brand-new student, no activity yet                → Meet your teacher
-//   next             → otherwise, the recommended next step / momentum   → Keep going
+// Every card is fed by the SAME real signals as before (getParentReport +
+// getResumeContext + the locally-stored active lesson) — nothing here is mock data.
+// Sections render in a fixed order; a card with no data hides itself rather than
+// inventing a placeholder.
 //
-// All content is REAL (getParentReport student self-report + getActiveLesson + getResumeContext
-// + a tiny local "last seen" snapshot to detect just-unlocked/just-completed). Global loading
-// skeleton, error+retry, pull-to-refresh, per-section empty states. Distinct destinations per
-// card — AI Teacher is only ONE of them.
+// NOTE: this replaced an adaptive version that elected one of seven heroes and
+// reordered its sections per visit. That engine was removed deliberately in favour of
+// this fixed layout — see git history if the adaptive behaviour is ever wanted back.
+//
+// Palette is shared with the AI-Teacher crafting screen (src/theme/nightTheme.js) so
+// the two dark surfaces read as one product.
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import {
-  View, Text, StyleSheet, ScrollView, StatusBar, TouchableOpacity,
-  Dimensions, Modal, Animated, Easing, RefreshControl,
+  View, Text, StyleSheet, ScrollView, StatusBar, Animated,
+  Easing, RefreshControl, Pressable, Image, Dimensions,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
-import Svg, { Defs, RadialGradient, LinearGradient as LG, Stop, Rect, Circle, Path } from 'react-native-svg';
+import Svg, { Defs, RadialGradient, Stop, Rect, Circle } from 'react-native-svg';
 import { LinearGradient } from 'expo-linear-gradient';
 import {
-  Bell, Flame, Star, TrendingUp, Play, ArrowRight, Sparkles, GraduationCap,
-  CircleCheck, Bot, Dumbbell, Pencil, WandSparkles, Gauge, PartyPopper,
-  Zap, Trophy, Target, BookOpen, MessageCircle, Swords, Lock, CircleAlert,
+  Bell, Settings, Play, Sparkles, CircleCheck, MessageCircle, Swords,
+  CircleAlert, TrendingUp, Target, Clock, Brain,
 } from 'lucide-react-native';
-import { useAuth } from '../context/AuthContext';
-import AITeacherScreen from './AITeacherScreen';
-import BrainGymFlow from './braingym/BrainGymFlow';
-import { useRuntimeConfig } from '../context/RuntimeConfigContext';
-import OptionalUpdateBanner from '../components/OptionalUpdateBanner';
-import { getParentReport } from '../api/parentApi';
-import { getResumeContext } from '../api/aiApi';
-import { getActiveLesson, getHomeState, saveHomeState } from '../utils/storage';
-import { S as S_BASE } from '../theme/studentTheme';
 import {
   useFonts as useAuroraFonts,
   SpaceGrotesk_400Regular, SpaceGrotesk_500Medium,
   SpaceGrotesk_600SemiBold, SpaceGrotesk_700Bold,
 } from '@expo-google-fonts/space-grotesk';
+import { useAuth } from '../context/AuthContext';
+import { useRuntimeConfig } from '../context/RuntimeConfigContext';
+import AITeacherScreen from './AITeacherScreen';
+import BrainGymFlow from './braingym/BrainGymFlow';
+import OptionalUpdateBanner from '../components/OptionalUpdateBanner';
+import { getParentReport } from '../api/parentApi';
+import { getResumeContext } from '../api/aiApi';
+import { getActiveLesson, getHomeState, saveHomeState } from '../utils/storage';
+import { N, NFONT as F } from '../theme/nightTheme';
 
-// ── AURORA re-skin ─────────────────────────────────────────────────────────────
-// The whole Student Home wears the "Aurora" look: glassmorphism cards floating on a
-// lavender aurora wash, a purple #6C4DE6 brand, Space Grotesk type. Instead of
-// hand-editing every section, we alias the three primitives the screen is built from
-// — the `S` palette, the elevation `shadow`s, and the `<T>` text component — so one
-// block re-skins colour, depth and font across the entire screen. (Faux glass: RN has
-// no backdrop-blur without a native module, so cards are translucent white over the
-// wash — reads as glass without a rebuild.)
-const S = {
-  ...S_BASE,
-  canvas: '#F2F0FA',
-  // Faux glass: without a native blur, 0.62 washed out against the light aurora wash.
-  // A high-opacity white + faint purple edge reads as a clean, defined card instead.
-  card: 'rgba(255,255,255,0.9)',
-  cardEdge: 'rgba(108,77,230,0.12)',
-  ink: '#2A2450', sub: '#4A4270', muted: '#8079B0', faint: '#9A91C8',
-  hair: 'rgba(255,255,255,0.85)', border: 'rgba(255,255,255,0.85)',
-  indigo: '#6C4DE6', indigoSoft: '#EFE7FF',
-  purple: '#8A6BFF', purpleSoft: '#EFE7FF',
-  blue: '#5F7DFF', blueSoft: 'rgba(95,125,255,0.16)',
-  emerald: '#1F9E6E', emeraldSoft: '#DFF6EC',
-  orange: '#C9772A', orangeSoft: '#FFF0DD',
-  gold: '#C9922A', goldSoft: '#FFF3DA',
-  cyan: '#3AA6C9', cyanSoft: '#DBF0FA',
-  red: '#E0524B', redSoft: '#FDE7E7',
-  heroA: '#6C4DE6', heroB: '#A06BFF', heroGlow: '#C7A6FF',
-};
-const shadow = { shadowColor: '#6E50C8', shadowOpacity: 0.16, shadowRadius: 30, shadowOffset: { width: 0, height: 16 }, elevation: 5 };
-const shadowSm = { shadowColor: '#6E50C8', shadowOpacity: 0.14, shadowRadius: 14, shadowOffset: { width: 0, height: 6 }, elevation: 6 };
+const { width: W, height: H } = Dimensions.get('window');
+const PAD = 16;
+const GAP = 12;
 
-// Space Grotesk mapped to the app's weight keys (the family ships 400–700; the two
-// heaviest keys reuse 700).
-const SG = {
-  reg: 'SpaceGrotesk_400Regular', med: 'SpaceGrotesk_500Medium',
-  semi: 'SpaceGrotesk_600SemiBold', bold: 'SpaceGrotesk_700Bold',
-  xbold: 'SpaceGrotesk_700Bold', black: 'SpaceGrotesk_700Bold',
-};
-// Local text primitive — same API as the shared <T> but Aurora font + ink. Shadows the
-// shared import so every <T> on this screen re-types with no per-call change. Falls back
-// to the system font until Space Grotesk finishes loading (non-blocking), then swaps in.
-function T({ w = 'reg', s = 14, c = S.ink, style, children, ...rest }) {
-  return <Text style={[{ fontFamily: SG[w], fontSize: s, color: c }, style]} {...rest}>{children}</Text>;
+// ── type helper ──────────────────────────────────────────────────────────────
+function T({ w = 'reg', s = 14, c = N.inkSoft, style, children, ...rest }) {
+  const fam = w === 'black' || w === 'xbold' || w === 'bold' ? F.bold : w === 'semi' ? F.med : F.reg;
+  return <Text {...rest} style={[{ fontFamily: fam, fontSize: s, color: c }, style]}>{children}</Text>;
 }
-
-// The aurora wash — four soft radial blooms over the lavender ground, painted behind
-// all content so the translucent cards read as frosted glass.
-function AuroraBg() {
-  return (
-    <View pointerEvents="none" style={StyleSheet.absoluteFill}>
-      <Svg width="100%" height="100%">
-        <Defs>
-          <RadialGradient id="ab1" cx="0.08" cy="0.02" r="0.5"><Stop offset="0" stopColor="#E9D8FF" stopOpacity="0.95" /><Stop offset="1" stopColor="#E9D8FF" stopOpacity="0" /></RadialGradient>
-          <RadialGradient id="ab2" cx="0.98" cy="0.08" r="0.5"><Stop offset="0" stopColor="#CFE6FF" stopOpacity="0.9" /><Stop offset="1" stopColor="#CFE6FF" stopOpacity="0" /></RadialGradient>
-          <RadialGradient id="ab3" cx="0.15" cy="0.98" r="0.55"><Stop offset="0" stopColor="#FFD9EC" stopOpacity="0.85" /><Stop offset="1" stopColor="#FFD9EC" stopOpacity="0" /></RadialGradient>
-          <RadialGradient id="ab4" cx="1.0" cy="0.92" r="0.5"><Stop offset="0" stopColor="#DCD0FF" stopOpacity="0.9" /><Stop offset="1" stopColor="#DCD0FF" stopOpacity="0" /></RadialGradient>
-        </Defs>
-        <Rect width="100%" height="100%" fill="#F2F0FA" />
-        <Rect width="100%" height="100%" fill="url(#ab1)" />
-        <Rect width="100%" height="100%" fill="url(#ab2)" />
-        <Rect width="100%" height="100%" fill="url(#ab3)" />
-        <Rect width="100%" height="100%" fill="url(#ab4)" />
-      </Svg>
-    </View>
-  );
-}
-import {
-  FadeInOnce, FadeIn, PressableScale, CountUp, GrowFill, GrowBar,
-  Breathe, Float, Pulse, PulseRing, Nudge, Wave, PopIn, Shine, Shimmer,
-} from './parent/ParentApp/anim';
-
-const { width: SCREEN_W } = Dimensions.get('window');
-const PAD = 18;
-const AIT_SUBJECTS = ['Physics', 'Maths', 'Chemistry', 'Biology', 'English', 'History'];
-
-// ─── Character identities ─────────────────────────────────────────────────────
-const CHARS = [
-  { name: 'The Explorer',  role: 'Curious Learner',  emoji: '🧭', tint: S.indigo,  tintBg: S.indigoSoft },
-  { name: 'The Scientist', role: 'Problem Solver',   emoji: '🔬', tint: S.emerald, tintBg: S.emeraldSoft },
-  { name: 'The Artist',    role: 'Creative Thinker', emoji: '🎨', tint: S.orange,  tintBg: S.orangeSoft },
-  { name: 'The Champion',  role: 'Goal Achiever',    emoji: '🏆', tint: S.gold,    tintBg: S.goldSoft },
-  { name: 'The Dreamer',   role: 'Big Thinker',      emoji: '💭', tint: S.purple,  tintBg: S.purpleSoft },
-  { name: 'The Ninja',     role: 'Speed Learner',    emoji: '⚡', tint: S.cyan,    tintBg: S.cyanSoft },
-];
-const CharAvatar = ({ char, size = 46, ring = S.hair }) => (
-  <View style={{
-    width: size, height: size, borderRadius: size / 2, backgroundColor: char.tintBg,
-    borderWidth: ring ? 2 : 0, borderColor: ring, alignItems: 'center', justifyContent: 'center',
-  }}>
-    <T style={{ fontSize: size * 0.44 }}>{char.emoji}</T>
-  </View>
-);
-
-const SUBJECT_QS = {
-  Physics:   ['Explain gravity 🌍', 'Laws of motion?', 'What is velocity?', 'What is energy?'],
-  Maths:     ['Solve x²+5x+6=0', 'What is integration?', 'Pythagoras theorem?', 'What is a prime?'],
-  Chemistry: ['What is pH?', 'Explain bonding', 'What are isotopes?', 'Periodic table tips?'],
-  Biology:   ['How does DNA work?', 'Explain photosynthesis', 'What is osmosis?', 'How do cells divide?'],
-  English:   ['Grammar tips?', 'How to write essay?', 'What is metaphor?', 'Improve vocabulary?'],
-  History:   ['WW2 causes?', 'Industrial Revolution?', 'Who was Gandhi?', 'French Revolution?'],
-};
-const QPILL = [
-  { bg: S.indigoSoft, text: S.indigo }, { bg: S.emeraldSoft, text: S.emerald },
-  { bg: S.orangeSoft, text: S.orange }, { bg: S.cyanSoft, text: S.cyan }, { bg: S.purpleSoft, text: S.purple },
-];
-
-const ICONS = {
-  sparkle: Sparkles, dumbbell: Dumbbell, zap: Zap, trophy: Trophy, flame: Flame,
-  target: Target, book: BookOpen, message: MessageCircle, swords: Swords, alert: CircleAlert,
-};
-const TONES = {
-  green: { tint: S.emerald, bg: S.emeraldSoft }, peach: { tint: S.orange, bg: S.orangeSoft },
-  blue: { tint: S.blue, bg: S.blueSoft }, gold: { tint: S.gold, bg: S.goldSoft },
-  violet: { tint: S.purple, bg: S.purpleSoft },
-};
-const ACT = {
-  quiz:    { Icon: CircleCheck,   tint: S.emerald, bg: S.emeraldSoft },
-  doubt:   { Icon: MessageCircle, tint: S.purple,  bg: S.purpleSoft },
-  mistake: { Icon: CircleAlert,   tint: S.orange,  bg: S.orangeSoft },
-  lesson:  { Icon: Play,          tint: S.blue,    bg: S.blueSoft },
-  arena:   { Icon: Swords,        tint: S.gold,    bg: S.goldSoft },
-};
 
 function timeAgo(at) {
   if (!at) return '';
@@ -186,301 +67,148 @@ function timeAgo(at) {
   return new Date(at).toLocaleDateString();
 }
 
-// ── soft radial glow disc ──
-let _gid = 0;
-function SoftGlow({ size = 120, color = S.heroGlow, opacity = 0.5 }) {
-  const id = useRef('g' + (_gid++)).current;
-  return (
-    <Svg width={size} height={size} pointerEvents="none">
-      <Defs>
-        <RadialGradient id={id} cx={size / 2} cy={size / 2} r={size / 2} gradientUnits="userSpaceOnUse">
-          <Stop offset="0" stopColor={color} stopOpacity={opacity} />
-          <Stop offset="0.6" stopColor={color} stopOpacity={opacity * 0.4} />
-          <Stop offset="1" stopColor={color} stopOpacity="0" />
-        </RadialGradient>
-      </Defs>
-      <Rect width={size} height={size} fill={`url(#${id})`} />
-    </Svg>
-  );
-}
+// Recent-activity row styling by event type.
+const ACT = {
+  quiz:    { Icon: CircleCheck,   tint: N.green,  bg: N.greenSoft },
+  doubt:   { Icon: MessageCircle, tint: N.violet, bg: N.violetSoft },
+  mistake: { Icon: CircleAlert,   tint: N.amber,  bg: N.amberSoft },
+  lesson:  { Icon: Play,          tint: N.blue,   bg: N.blueSoft },
+  arena:   { Icon: Swords,        tint: N.amber,  bg: N.amberSoft },
+};
 
-// ── deep gradient surface for premium dark cards ──
-function InkSurface({ a = S.heroA, b = S.heroB, glow = S.heroGlow, radius = 0 }) {
-  const [d, setD] = useState({ w: 0, h: 0 });
-  const id = useRef('ink' + (_gid++)).current;
+// ── page background: vertical gradient + two low-opacity blooms ──────────────
+function NightBg() {
   return (
-    <View style={[StyleSheet.absoluteFill, { borderRadius: radius, overflow: 'hidden' }]} pointerEvents="none"
-      onLayout={(e) => setD({ w: Math.round(e.nativeEvent.layout.width), h: Math.round(e.nativeEvent.layout.height) })}>
-      {d.w > 0 && (
-        <Svg width={d.w} height={d.h}>
-          <Defs>
-            <LG id={`${id}g`} x1="0" y1="0" x2={d.w} y2={d.h} gradientUnits="userSpaceOnUse">
-              <Stop offset="0" stopColor={a} />
-              <Stop offset="1" stopColor={b} />
-            </LG>
-            <RadialGradient id={`${id}h`} cx={d.w * 0.82} cy={d.h * 0.12} r={d.w * 0.72} gradientUnits="userSpaceOnUse">
-              <Stop offset="0" stopColor={glow} stopOpacity="0.4" />
-              <Stop offset="1" stopColor={glow} stopOpacity="0" />
-            </RadialGradient>
-          </Defs>
-          <Rect width={d.w} height={d.h} fill={`url(#${id}g)`} />
-          <Rect width={d.w} height={d.h} fill={`url(#${id}h)`} />
-        </Svg>
-      )}
+    <View pointerEvents="none" style={StyleSheet.absoluteFill}>
+      <LinearGradient colors={[N.bgTop, N.bgBot]} style={StyleSheet.absoluteFill} />
+      <Svg width={W} height={H} style={StyleSheet.absoluteFill}>
+        <Defs>
+          <RadialGradient id="hg0" cx={W * 0.5} cy={H * 0.06} r={W * 0.8} gradientUnits="userSpaceOnUse">
+            <Stop offset="0" stopColor={N.glow} stopOpacity="0.5" />
+            <Stop offset="1" stopColor={N.glow} stopOpacity="0" />
+          </RadialGradient>
+          <RadialGradient id="hg1" cx={W * 0.08} cy={H * 0.95} r={W * 0.8} gradientUnits="userSpaceOnUse">
+            <Stop offset="0" stopColor={N.glowBlue} stopOpacity="0.34" />
+            <Stop offset="1" stopColor={N.glowBlue} stopOpacity="0" />
+          </RadialGradient>
+        </Defs>
+        <Rect x="0" y="0" width={W} height={H} fill="url(#hg0)" />
+        <Rect x="0" y="0" width={W} height={H} fill="url(#hg1)" />
+      </Svg>
     </View>
   );
 }
 
-// ── circular progress ring ──
-function Ring({ pct = 0, size = 68, stroke = 7, color = '#fff', track = 'rgba(255,255,255,0.22)', children }) {
+// ── entrance: fade + rise ────────────────────────────────────────────────────
+function Appear({ delay = 0, y = 14, style, children }) {
+  const a = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    Animated.timing(a, { toValue: 1, duration: 460, delay, easing: Easing.out(Easing.cubic), useNativeDriver: true }).start();
+  }, [a, delay]);
+  return (
+    <Animated.View style={[style, { opacity: a, transform: [{ translateY: a.interpolate({ inputRange: [0, 1], outputRange: [y, 0] }) }] }]}>
+      {children}
+    </Animated.View>
+  );
+}
+
+// press feedback
+function Squeeze({ onPress, style, children, ...rest }) {
+  const s = useRef(new Animated.Value(1)).current;
+  const to = (v) => Animated.spring(s, { toValue: v, friction: 7, tension: 180, useNativeDriver: true }).start();
+  return (
+    <Pressable onPress={onPress} onPressIn={() => to(0.97)} onPressOut={() => to(1)} {...rest}>
+      <Animated.View style={[style, { transform: [{ scale: s }] }]}>{children}</Animated.View>
+    </Pressable>
+  );
+}
+
+// ── circular progress ring (hero) ────────────────────────────────────────────
+function Ring({ pct = 0, size = 62, stroke = 6, color = '#fff', track = 'rgba(255,255,255,0.26)', children }) {
   const r = (size - stroke) / 2;
   const circ = 2 * Math.PI * r;
-  const off = circ * (1 - Math.max(0, Math.min(1, pct)));
+  const dash = Math.max(0, Math.min(1, pct)) * circ;
   return (
     <View style={{ width: size, height: size, alignItems: 'center', justifyContent: 'center' }}>
-      <Svg width={size} height={size} style={{ position: 'absolute', transform: [{ rotate: '-90deg' }] }}>
+      <Svg width={size} height={size} style={{ transform: [{ rotate: '-90deg' }] }}>
         <Circle cx={size / 2} cy={size / 2} r={r} stroke={track} strokeWidth={stroke} fill="none" />
-        <Circle cx={size / 2} cy={size / 2} r={r} stroke={color} strokeWidth={stroke} fill="none"
-          strokeDasharray={`${circ}`} strokeDashoffset={off} strokeLinecap="round" />
+        <Circle
+          cx={size / 2} cy={size / 2} r={r} stroke={color} strokeWidth={stroke} fill="none"
+          strokeDasharray={`${dash} ${circ - dash}`} strokeLinecap="round"
+        />
       </Svg>
-      {children}
+      <View style={{ position: 'absolute' }}>{children}</View>
     </View>
   );
 }
 
-// ── mini spinning "radar" wheel (Brain Gym motif) ──
-const mPolar = (r, deg) => { const rad = (deg * Math.PI) / 180; return { x: 50 + r * Math.sin(rad), y: 50 - r * Math.cos(rad) }; };
-const mWedge = (a0, a1, rOut, rIn) => {
-  const large = a1 - a0 > 180 ? 1 : 0;
-  const p1 = mPolar(rOut, a0), p2 = mPolar(rOut, a1), p3 = mPolar(rIn, a1), p4 = mPolar(rIn, a0);
-  return [`M ${p1.x} ${p1.y}`, `A ${rOut} ${rOut} 0 ${large} 1 ${p2.x} ${p2.y}`,
-    `L ${p3.x} ${p3.y}`, `A ${rIn} ${rIn} 0 ${large} 0 ${p4.x} ${p4.y}`, 'Z'].join(' ');
-};
-const MINI_SEGS = [{ a0: -45, a1: 45 }, { a0: 45, a1: 135 }, { a0: 135, a1: 225 }, { a0: 225, a1: 315 }];
-function MiniWheel({ size = 84 }) {
-  const spin = useRef(new Animated.Value(0)).current;
-  useEffect(() => {
-    const loop = Animated.loop(Animated.timing(spin, { toValue: 1, duration: 9000, easing: Easing.linear, useNativeDriver: true }));
-    loop.start();
-    return () => loop.stop();
-  }, [spin]);
-  const rotate = spin.interpolate({ inputRange: [0, 1], outputRange: ['0deg', '360deg'] });
-  return (
-    <View style={{ width: size, height: size, alignItems: 'center', justifyContent: 'center' }}>
-      <View style={{ position: 'absolute' }}><SoftGlow size={size + 20} color="#C6ABFF" opacity={0.5} /></View>
-      <Animated.View style={{ width: size, height: size, transform: [{ rotate }] }}>
-        <Svg width={size} height={size} viewBox="0 0 100 100">
-          {[20, 32, 46].map((r, i) => (
-            <Circle key={i} cx={50} cy={50} r={r} fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth={1} />
-          ))}
-          {MINI_SEGS.map((sg, i) => (
-            <Path key={i} d={mWedge(sg.a0 + 5, sg.a1 - 5, 46, 33)}
-              fill={i === 0 ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.17)'} />
-          ))}
-        </Svg>
-      </Animated.View>
-      <View style={hs.bgHub}><Play size={13} color="#4A2E9C" strokeWidth={3} fill="#4A2E9C" /></View>
-    </View>
-  );
-}
+const Chip = ({ label, tint, bg }) => (
+  <View style={[hs.chip, { backgroundColor: bg }]}>
+    <T w="bold" s={8.5} c={tint} style={{ letterSpacing: 0.9 }}>{label}</T>
+  </View>
+);
 
-// ── section header ──
-function Section({ title, accent = S.indigo, sub }) {
-  return (
-    <View style={hs.secHead}>
-      <View style={[hs.secDot, { backgroundColor: accent }]} />
-      <T w="black" s={16} c={S.ink} numberOfLines={1} style={{ letterSpacing: -0.3, flexShrink: 1 }}>{title}</T>
-      {!!sub && <T w="bold" s={11.5} c={S.faint} numberOfLines={1} style={{ marginLeft: 'auto', paddingLeft: 8, flexShrink: 0 }}>{sub}</T>}
-    </View>
-  );
-}
+const Card = ({ style, children }) => <View style={[hs.card, style]}>{children}</View>;
 
-// ── separated stat card ──
-function StatCard({ Icon, tint, tintBg, value, suffix = '', label, isText, delay = 0 }) {
-  // Count up only on first appearance; on a background refresh (value changes) snap to the
-  // new number instead of flashing back to 0. (F4)
-  const first = useRef(true);
-  useEffect(() => { first.current = false; }, []);
-  return (
-    <FadeInOnce id={`stat-${label}`} delay={delay} y={12} style={{ flex: 1 }}>
-      <View style={hs.statCard}>
-        <View style={[hs.statIcon, { backgroundColor: tintBg }]}><Icon size={16} color={tint} strokeWidth={2.7} /></View>
-        <View style={{ marginTop: 9 }}>
-          {isText ? (
-            <T w="black" s={19} c={S.ink}>{value}</T>
-          ) : first.current ? (
-            <CountUp value={value} suffix={suffix} duration={900} w="black" s={19} c={S.ink} />
-          ) : (
-            <T w="black" s={19} c={S.ink}>{value}{suffix}</T>
-          )}
-        </View>
-        <T w="semi" s={10.5} c={S.muted} style={{ marginTop: 1 }}>{label}</T>
-      </View>
-    </FadeInOnce>
-  );
-}
-
-// ── achievement badge ──
-function Badge({ item, delay = 0 }) {
-  const Icon = ICONS[item.icon] || Trophy;
-  const earned = !!item.unlocked;
-  return (
-    <PopIn delay={delay} style={{ width: 96, alignItems: 'center' }}>
-      <Float distance={earned ? 6 : 0} duration={2600}>
-        <View style={[hs.badge, !earned && hs.badgeLocked]}>
-          {earned && <View style={{ position: 'absolute' }}><SoftGlow size={74} color={S.gold} opacity={0.5} /></View>}
-          <Icon size={26} color={earned ? S.gold : S.faint} strokeWidth={2.4} />
-          {earned && <Shine delay={1200} gap={4200} width={30} />}
-        </View>
-      </Float>
-      <T w="bold" s={10.5} c={earned ? S.ink : S.faint} numberOfLines={2} style={{ textAlign: 'center', marginTop: 8, lineHeight: 13 }}>{item.title}</T>
-      {!earned && item.progress > 0 && (
-        <View style={hs.badgeBar}><View style={{ width: `${Math.round(item.progress * 100)}%`, height: '100%', borderRadius: 3, backgroundColor: S.faint }} /></View>
-      )}
-    </PopIn>
-  );
-}
-
-// ── the elected HERO — a single card rendered from the decision engine's `intent` ──
-function HeroCard({ intent }) {
-  const Deco = intent.Deco || GraduationCap;
-  const TagIcon = intent.TagIcon;
-  return (
-    <FadeInOnce id={`hero-${intent.key}`} delay={40} y={16}>
-      <View style={[hs.clShadow, { shadowColor: intent.shadow || '#241C55' }]}>
-        <View style={hs.cl}>
-          <InkSurface a={intent.a} b={intent.b} glow={intent.glow} radius={24} />
-          <Float distance={9} duration={4200} style={{ position: 'absolute', top: -14, right: -16 }}>
-            <Deco size={132} color="rgba(255,255,255,0.10)" strokeWidth={1.3} />
-          </Float>
-          {intent.celebrate && (
-            <>
-              <Float distance={7} duration={3400} style={{ position: 'absolute', top: 14, right: 20 }}><T style={{ fontSize: 18 }}>🎉</T></Float>
-              <Float distance={9} duration={4200} style={{ position: 'absolute', top: 54, right: 70 }}><Sparkles size={15} color="rgba(255,255,255,0.5)" strokeWidth={2.4} /></Float>
-            </>
-          )}
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-            <View style={hs.clTag}>
-              {TagIcon
-                ? <Pulse from={0.85} to={1.15} duration={1400}><TagIcon size={11} color={intent.tagTint} strokeWidth={2.8} /></Pulse>
-                : <Wave><T s={11}>👋</T></Wave>}
-              <T w="xbold" s={10} c={intent.tagTint} style={{ letterSpacing: 1 }}>{intent.tag}</T>
-            </View>
-            {intent.streakChip > 0 && (
-              <View style={hs.streakChip}><Flame size={11} color="#FF9558" strokeWidth={2.8} /><T w="xbold" s={10.5} c="#fff">{intent.streakChip}</T></View>
-            )}
-          </View>
-          <T w="black" s={intent.big || 22} c="#fff" style={{ marginTop: 10, letterSpacing: -0.3 }} numberOfLines={2}>{intent.headline}</T>
-          <T w="semi" s={12.5} c="rgba(255,255,255,0.68)" style={{ marginTop: 4 }} numberOfLines={2}>{intent.sub}</T>
-          <Breathe>
-            <PressableScale style={hs.clCta} onPress={intent.onPress} accessibilityLabel={intent.ctaLabel}>
-              <Shine delay={1400} gap={3400} />
-              <T w="bold" s={14.5} c={intent.ctaTint}>{intent.ctaLabel}</T>
-              <Nudge distance={5}><ArrowRight size={18} color={intent.ctaTint} strokeWidth={2.8} /></Nudge>
-            </PressableScale>
-          </Breathe>
-        </View>
-      </View>
-    </FadeInOnce>
-  );
-}
-
-// ── loading skeleton ──
-function Skeleton() {
-  return (
-    <View style={{ paddingHorizontal: PAD, paddingTop: 8 }}>
-      <View style={{ flexDirection: 'row', gap: 10 }}>
-        {[0, 1, 2].map((i) => <Shimmer key={i} w="100%" h={92} r={18} style={{ flex: 1 }} />)}
-      </View>
-      <Shimmer w="100%" h={188} r={24} mt={18} />
-      <Shimmer w={150} h={16} r={8} mt={26} />
-      <Shimmer w="100%" h={96} r={20} mt={12} />
-      <Shimmer w={150} h={16} r={8} mt={26} />
-      <Shimmer w="100%" h={120} r={22} mt={12} />
-    </View>
-  );
-}
-
-// ── error state ──
-function ErrorState({ onRetry }) {
-  return (
-    <View style={hs.center}>
-      <View style={hs.errIcon}><CircleAlert size={30} color={S.muted} strokeWidth={2} /></View>
-      <T w="xbold" s={18} c={S.ink}>Couldn’t load your home</T>
-      <T w="med" s={13} c={S.muted} style={{ textAlign: 'center' }}>Check your connection and try again.</T>
-      <PressableScale style={hs.retryBtn} onPress={onRetry}><T w="bold" s={14} c="#fff">Retry</T></PressableScale>
-    </View>
-  );
-}
-
-// ── acknowledgement toast — a satisfying "welcome back" when the student returns to
-// Home having earned XP or extended a streak elsewhere (a lesson, a quiz, a Brain Gym set).
-// Springs down, holds, then lifts away. pointerEvents none so it never blocks a tap. ──
+// ── toast (progress made since last visit) ───────────────────────────────────
 function Toast({ data, top, onDone }) {
-  const y = useRef(new Animated.Value(-30)).current;
-  const o = useRef(new Animated.Value(0)).current;
+  const a = useRef(new Animated.Value(0)).current;
   useEffect(() => {
-    Animated.parallel([
-      Animated.spring(y, { toValue: 0, useNativeDriver: true, damping: 14, stiffness: 180, mass: 0.9 }),
-      Animated.timing(o, { toValue: 1, duration: 220, useNativeDriver: true }),
-    ]).start();
-    const t = setTimeout(() => {
-      Animated.parallel([
-        Animated.timing(y, { toValue: -30, duration: 260, useNativeDriver: true }),
-        Animated.timing(o, { toValue: 0, duration: 260, useNativeDriver: true }),
-      ]).start(({ finished }) => { if (finished && onDone) onDone(); });
-    }, 2600);
-    return () => clearTimeout(t);
-  }, []);
+    Animated.sequence([
+      Animated.timing(a, { toValue: 1, duration: 320, easing: Easing.out(Easing.cubic), useNativeDriver: true }),
+      Animated.delay(2600),
+      Animated.timing(a, { toValue: 0, duration: 280, useNativeDriver: true }),
+    ]).start(({ finished }) => finished && onDone && onDone());
+  }, [a, onDone]);
   return (
-    <Animated.View pointerEvents="none" style={[hs.toastWrap, { top, opacity: o, transform: [{ translateY: y }] }]}>
-      <View style={hs.toast}>
-        <T s={17}>{data.emoji}</T>
-        <View>
-          <T w="xbold" s={13} c="#fff">{data.title}</T>
-          {!!data.sub && <T w="semi" s={10.5} c="rgba(255,255,255,0.72)" style={{ marginTop: 1 }}>{data.sub}</T>}
-        </View>
+    <Animated.View
+      pointerEvents="none"
+      style={[hs.toast, { top: top + 8, opacity: a, transform: [{ translateY: a.interpolate({ inputRange: [0, 1], outputRange: [-16, 0] }) }] }]}
+    >
+      <T s={17}>{data.emoji}</T>
+      <View style={{ flex: 1 }}>
+        <T w="xbold" s={13} c={N.ink}>{data.title}</T>
+        <T w="semi" s={11} c={N.inkSoft} style={{ marginTop: 1 }}>{data.sub}</T>
       </View>
     </Animated.View>
   );
 }
 
-// ─── Main HomeScreen ──────────────────────────────────────────────────────────
+const Skeleton = () => (
+  <View style={{ gap: GAP }}>
+    <View style={[hs.skel, { height: 190, borderRadius: 24 }]} />
+    <View style={{ flexDirection: 'row', gap: GAP }}>
+      <View style={[hs.skel, { flex: 1, height: 128 }]} />
+      <View style={[hs.skel, { flex: 1, height: 128 }]} />
+    </View>
+    <View style={[hs.skel, { height: 120 }]} />
+  </View>
+);
+
 const HomeScreen = () => {
-  const { user, selectedClass, scope } = useAuth();
-  const insets = useSafeAreaInsets();
-  // Aurora type — non-blocking (mirrors AITeacher): the screen renders immediately in
-  // the system font and swaps to Space Grotesk the moment it's ready.
   useAuroraFonts({ SpaceGrotesk_400Regular, SpaceGrotesk_500Medium, SpaceGrotesk_600SemiBold, SpaceGrotesk_700Bold });
+  const { user } = useAuth();
+  const { isFeatureEnabled } = useRuntimeConfig();
+  const insets = useSafeAreaInsets();
   const navigation = useNavigation();
   const scrollRef = useRef(null);
 
-  const [charIdx, setCharIdx]             = useState(0);
-  const [showCharModal, setShowCharModal] = useState(false);
-  const [tempChar, setTempChar]           = useState(0);
-  const [activeSubject, setActiveSubject] = useState('Physics');
   const [showAITeacher, setShowAITeacher] = useState(false);
-  const [seedTopic, setSeedTopic]         = useState('');
-  // Immersive AI Teacher: hide the bottom nav dock while the teacher screen is open
-  // (the AI Teacher has its own back button), so a lesson feels full-screen and focused.
-  useEffect(() => {
-    navigation.setOptions({ tabBarStyle: showAITeacher ? { display: 'none' } : undefined });
-    return () => navigation.setOptions({ tabBarStyle: undefined });
-  }, [showAITeacher, navigation]);
-  const [showBrainGym, setShowBrainGym]   = useState(false);
-  const currentChar = CHARS[charIdx];
+  const [seedTopic, setSeedTopic] = useState('');
+  const [seedSubject, setSeedSubject] = useState('');
+  const [showBrainGym, setShowBrainGym] = useState(false);
 
-  const [report, setReport]       = useState(null);
-  const [resume, setResume]       = useState({ active: null, ctx: null });
-  const [homeSeen, setHomeSeen]   = useState(undefined); // undefined = not loaded yet
-  const [loading, setLoading]     = useState(true);
-  const [err, setErr]             = useState(false);
+  const [report, setReport] = useState(null);
+  const [resume, setResume] = useState({ active: null, ctx: null });
+  const [loading, setLoading] = useState(true);
+  const [err, setErr] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
   const [toast, setToast] = useState(null);
+
   const mounted = useRef(true);
+  const prevStats = useRef(null);
+  const lastLoadAt = useRef(0);
   const initialLoad = useRef(true);
-  const lastLoadAt = useRef(0); // throttle focus-refetches of the heavy parent report
-  const prevStats = useRef(null); // last-seen {xp, streak} to detect progress on return
   useEffect(() => () => { mounted.current = false; }, []);
 
   const load = useCallback(async (isRefresh) => {
@@ -494,9 +222,7 @@ const HomeScreen = () => {
       if (!mounted.current) return;
       setReport(rep || null);
       setResume({ active: active || null, ctx: ctx || null });
-      // Acknowledge progress made elsewhere: if XP grew or the streak extended since the
-      // last time we saw Home, greet the student with a brief celebratory toast. This is
-      // what makes finishing a lesson / quiz / Brain Gym feel like it "counted" on return.
+      // Acknowledge progress made elsewhere, so finishing a lesson/quiz "counts" on return.
       const nx = Number(rep?.brainGym?.totalXp) || 0;
       const ns = Number(rep?.brainGym?.currentStreak) || 0;
       if (prevStats.current) {
@@ -504,15 +230,8 @@ const HomeScreen = () => {
         else if (nx > prevStats.current.xp) setToast({ emoji: '🎉', title: `+${nx - prevStats.current.xp} XP earned`, sub: 'Nice work — that’s real progress' });
       }
       prevStats.current = { xp: nx, streak: ns };
-      // First ever visit: baseline the "seen" snapshot silently so we never celebrate
-      // milestones the student already had. Subsequent visits compare against it.
-      if (seen == null) {
-        const baseUnlocked = Number(rep?.achievements?.unlockedCount) || 0;
-        setHomeSeen({ seenUnlocked: baseUnlocked, celebratedGoalWeek: null, _baseline: true });
-        saveHomeState({ seenUnlocked: baseUnlocked });
-      } else {
-        setHomeSeen(seen);
-      }
+      // First ever visit: baseline the "seen" snapshot silently.
+      if (seen == null) saveHomeState({ seenUnlocked: Number(rep?.achievements?.unlockedCount) || 0 });
       setErr(false);
     } catch (_) {
       if (!mounted.current) return;
@@ -522,91 +241,60 @@ const HomeScreen = () => {
       if (mounted.current) { setLoading(false); setRefreshing(false); }
     }
   }, []);
-  // Refetch when the Home tab regains focus so progress made elsewhere (a finished
-  // lesson, a Brain Gym set, a badge) shows up. But the parent report is a ~20-query
-  // aggregate, so we THROTTLE background refetches: the first focus loads fully; later
-  // focuses only re-hit the server if it's been a while (rapid tab-hopping no longer
-  // fires the query storm each time). Pull-to-refresh still forces an immediate reload.
+
+  // Refetch on focus, but THROTTLED — the parent report is a ~20-query aggregate, so
+  // rapid tab-hopping must not fire a query storm. Pull-to-refresh always forces one.
   const FOCUS_REFETCH_MS = 20000;
   useFocusEffect(useCallback(() => {
     const stale = Date.now() - lastLoadAt.current > FOCUS_REFETCH_MS;
     if (initialLoad.current || stale) load(!initialLoad.current);
     initialLoad.current = false;
   }, [load]));
-  // Re-tapping the already-active Home tab scrolls back to the top (standard, expected).
+
+  // Re-tapping the already-active Home tab scrolls back to the top.
   useEffect(() => {
     const unsub = navigation.addListener('tabPress', () => {
       if (navigation.isFocused()) scrollRef.current?.scrollTo({ y: 0, animated: true });
     });
     return unsub;
   }, [navigation]);
-  const onRefresh = () => { setRefreshing(true); load(true); };
-  const retry = () => { setLoading(true); setErr(false); load(false); };
 
-  // Feature flags — when a feature is off it cannot be launched from anywhere on Home,
-  // and its dedicated entry section is hidden below. Fail-open (missing flag = on).
-  const { isFeatureEnabled } = useRuntimeConfig();
+  // Feature flags — a feature that is off cannot be launched from anywhere on Home,
+  // and its card is hidden. Fail-open (missing flag = on).
   const aiTeacherOn = isFeatureEnabled('aiTeacher');
   const brainGymOn = isFeatureEnabled('brainGym');
-
-  const openAITeacher = (topic = '', subject) => {
+  const openAITeacher = (topic = '', subject = '') => {
     if (!aiTeacherOn) return;
     setSeedTopic(topic);
-    if (subject && AIT_SUBJECTS.includes(subject)) setActiveSubject(subject);
+    setSeedSubject(subject);
     setShowAITeacher(true);
   };
   const openBrainGym = () => { if (!brainGymOn) return; setShowBrainGym(true); };
-  const hour = new Date().getHours();
-  const greet = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
 
   // ── real signals ──
-  const bg        = report?.brainGym || {};
-  const streak    = Number(bg.currentStreak) || 0;
-  const xp        = Number(bg.totalXp) || 0;
-  const accuracy  = Number(bg.accuracy) || 0;
-  const totalQuiz = Number(bg.quizzesCompleted) || 0;
-  const lessons   = Number(report?.aiTeacher?.lessons) || 0;
-  const firstName = report?.child?.firstName || user?.name?.split(' ')[0] || 'there';
+  const bg          = report?.brainGym || {};
+  const streak      = Number(bg.currentStreak) || 0;
+  const totalQuiz   = Number(bg.quizzesCompleted) || 0;
+  const firstName   = report?.child?.firstName || user?.name?.split(' ')[0] || 'there';
   const weeklyGoals = report?.weeklyGoals || null;
-  const week      = report?.weeklyActivity || [];
-  const summary   = report?.weeklySummary || {};
-  const badges    = report?.achievements?.items || [];
-  const unlocked  = Number(report?.achievements?.unlockedCount) || 0;
-  const recs      = report?.recommendations || [];
-  const nextStep  = report?.recommendedNextStep || null;
-  const activity  = report?.learningTimeline || [];
-  const sessionsOn = !!report?.features?.sessions;
-  const openMistakes = Number(report?.openMistakes) || 0;
-  const weakAreas = report?.weakAreas || [];
-  const weakTop   = weakAreas[0]?.chapter || weakAreas[0]?.subject || null;
-  const active    = resume.active;
-  const ctx       = resume.ctx;
-  const practicedToday = (Number(report?.today?.quizzes) || 0) > 0;
-  const daysSince = typeof ctx?.daysSince === 'number' ? ctx.daysSince : null;
+  const week        = report?.weeklyActivity || [];
+  const activity    = report?.learningTimeline || [];
+  const nextStep    = report?.recommendedNextStep || null;
+  const recs        = report?.recommendations || [];
+  const active      = resume.active;
+  const ctx         = resume.ctx;
 
-  const hasActivity = totalQuiz > 0 || lessons > 0 || activity.length > 0 || !!active || !!ctx?.hasHistory;
   const contTitle   = active?.title || ctx?.focusConcept?.concept || ctx?.last?.chapter || null;
   const contSubject = active?.subject || ctx?.focusConcept?.subject || ctx?.last?.subject || null;
-  const lapsed = daysSince != null ? daysSince >= 2 : (!practicedToday && streak === 0 && hasActivity);
+  // Ring %: concept mastery when we know it, else this week's overall goal progress.
+  const heroPct = Number.isFinite(ctx?.focusConcept?.masteryPct)
+    ? ctx.focusConcept.masteryPct
+    : Number(weeklyGoals?.overall) || 0;
 
-  // week key (Sun-aligned) for "celebrate this week's goal, once"
-  const _t = new Date(); _t.setHours(0, 0, 0, 0);
-  const _ws = new Date(_t); _ws.setDate(_t.getDate() - _t.getDay());
-  const weekKey = _ws.toISOString().slice(0, 10);
-  const goalDone = !!(weeklyGoals && weeklyGoals.goals.length > 0 && weeklyGoals.metCount >= weeklyGoals.goals.length);
-
-  const seenReady = homeSeen !== undefined;
-  const newlyUnlocked = seenReady && homeSeen && !homeSeen._baseline
-    && typeof homeSeen.seenUnlocked === 'number' && unlocked > homeSeen.seenUnlocked;
-  const goalCelebrateDue = seenReady && goalDone && homeSeen && homeSeen.celebratedGoalWeek !== weekKey && !homeSeen._baseline;
-  const streakAtRisk = streak >= 1 && !practicedToday && hour >= 17;
-
-  // AI Teacher subjects (real, class-aware)
-  const realSubjects = report?.child?.subjects || scope?.subjects || [];
-  const known = Object.keys(SUBJECT_QS);
-  const inter = realSubjects.filter((s) => known.includes(s));
-  const subjectChips = (inter.length ? inter : known)
-    .filter((s) => !(selectedClass === 'Class 12' && s === 'Biology'));
+  // Weekly-goal headline — prefer a time-based goal, else the first one.
+  const goal = weeklyGoals?.goals?.find((g) => /hr|hour|min/i.test(g.unit || '')) || weeklyGoals?.goals?.[0] || null;
+  // "Next up" = the recommended next step, else the top recommendation.
+  const upnext = nextStep || recs[0] || null;
 
   const runRec = (rec) => {
     if (!rec) { openAITeacher(); return; }
@@ -616,588 +304,326 @@ const HomeScreen = () => {
     openAITeacher();
   };
 
-  // ── THE DECISION ENGINE — elect one hero by priority ──
-  const newestBadge = [...badges].reverse().find((b) => b.unlocked) || null;
-  let intent, heroRecId = null;
-  if (newlyUnlocked) {
-    intent = {
-      key: 'celebrate-badge', celebrate: true, Deco: Trophy, TagIcon: PartyPopper,
-      a: '#E0A32E', b: '#8A5A16', glow: '#FFD98A', shadow: '#7A4E12', tagTint: '#FFE9B0', ctaTint: S.gold,
-      tag: 'ACHIEVEMENT UNLOCKED', headline: newestBadge ? `“${newestBadge.title}” unlocked! 🎉` : 'New badge unlocked! 🎉',
-      sub: 'You’re making real progress — keep the momentum going.',
-      ctaLabel: contTitle ? 'Continue learning' : 'Keep training',
-      onPress: () => (contTitle ? openAITeacher(contTitle, contSubject) : openBrainGym()),
-    };
-  } else if (goalCelebrateDue) {
-    intent = {
-      key: 'celebrate-goal', celebrate: true, Deco: Trophy, TagIcon: CircleCheck,
-      a: '#12A05E', b: '#0A5B37', glow: '#7BEBB0', shadow: '#0A5B37', tagTint: '#C7F6DE', ctaTint: S.emerald,
-      tag: 'WEEKLY GOAL COMPLETE', headline: 'You smashed this week’s goals! 🎉',
-      sub: 'Every target met. Fancy a bonus round to stretch further?',
-      ctaLabel: 'Bonus Brain Gym', onPress: openBrainGym,
-    };
-  } else if (streakAtRisk) {
-    intent = {
-      key: 'streak', Deco: Flame, TagIcon: Flame,
-      a: '#E8792E', b: '#8A3D12', glow: '#FFB877', shadow: '#8A3D12', tagTint: '#FFD9BC', ctaTint: S.orange,
-      tag: 'KEEP YOUR STREAK', headline: `Don’t lose your ${streak}-day streak 🔥`,
-      sub: 'One quick set before the day ends keeps it alive.',
-      ctaLabel: 'Save my streak', onPress: openBrainGym,
-    };
-  } else if (contTitle) {
-    intent = {
-      key: 'resume', Deco: GraduationCap, TagIcon: Play, streakChip: lapsed ? 0 : streak,
-      a: '#4A3AA6', b: '#241C55', glow: S.heroGlow, tagTint: S.heroGlow, ctaTint: S.indigo,
-      tag: lapsed ? 'WELCOME BACK' : 'CONTINUE LEARNING',
-      headline: lapsed ? `Pick up ${contTitle}` : contTitle,
-      sub: lapsed
-        ? `It’s been ${daysSince != null ? `${daysSince} day${daysSince === 1 ? '' : 's'}` : 'a while'} — let’s get back on track.`
-        : `${contSubject ? contSubject + ' · ' : ''}Pick up where you left off`,
-      ctaLabel: 'Resume lesson', onPress: () => openAITeacher(contTitle, contSubject),
-    };
-  } else if (openMistakes > 0) {
-    heroRecId = 'mistakes';
-    intent = {
-      key: 'mistakes', Deco: Target, TagIcon: CircleAlert,
-      a: '#B25A2A', b: '#5E2C12', glow: '#FFC08A', shadow: '#5E2C12', tagTint: '#FFD9BC', ctaTint: S.orange,
-      tag: 'TURN MISTAKES INTO MASTERY', headline: `Fix ${openMistakes} mistake${openMistakes > 1 ? 's' : ''}`,
-      sub: 'Reviewing what tripped you up locks the concept in for good.',
-      ctaLabel: 'Review with your teacher', onPress: () => openAITeacher(),
-    };
-  } else if (weakTop) {
-    heroRecId = 'weak';
-    intent = {
-      key: 'weak', Deco: Target, TagIcon: Target,
-      a: '#2A5BC4', b: '#12295E', glow: '#8FB4FF', shadow: '#12295E', tagTint: '#CFE0FF', ctaTint: S.blue,
-      tag: 'STRENGTHEN A WEAK SPOT', headline: `Let’s strengthen ${weakTop}`,
-      sub: 'A little focused practice turns this into one of your strengths.',
-      ctaLabel: `Practise ${weakTop}`, onPress: () => openAITeacher(weakTop),
-    };
-  } else if (!hasActivity) {
-    intent = {
-      key: 'new', Deco: GraduationCap, TagIcon: null, big: 23,
-      a: '#5A45C7', b: '#2A1E63', glow: '#A8B0FF', tagTint: '#C7CCFF', ctaTint: S.indigo,
-      tag: 'WELCOME TO AILERNOVA', headline: `Meet your AI teacher, ${firstName}!`,
-      sub: 'Ask anything or start a guided lesson — we’ll find your level together.',
-      ctaLabel: 'Start learning', onPress: () => openAITeacher('', activeSubject),
-    };
-  } else {
-    heroRecId = nextStep?.action || null;
-    intent = {
-      key: 'next', Deco: GraduationCap, TagIcon: Play, streakChip: streak,
-      a: '#4A3AA6', b: '#241C55', glow: S.heroGlow, tagTint: S.heroGlow, ctaTint: S.indigo,
-      tag: 'TODAY’S FOCUS', headline: nextStep?.title || 'Start today’s lesson',
-      sub: nextStep?.subtitle || 'A short session keeps your momentum going.',
-      ctaLabel: 'Start now', onPress: () => runRec(nextStep),
-    };
-  }
-
-  // ── supporting sections — each answers a DIFFERENT question, deduped vs the hero ──
-  const heroUsesBrainGym = intent.onPress === openBrainGym;
-  let order;
-  if (intent.key === 'new') {
-    order = ['path', 'practice', 'doubt', 'session'];
-  } else if (intent.key === 'celebrate-badge') {
-    order = ['achievements', 'progress', 'upnext', 'practice', 'doubt', 'activity', 'session'];
-  } else if (intent.key === 'celebrate-goal') {
-    order = ['progress', 'achievements', 'upnext', 'doubt', 'activity', 'session'];
-  } else if (intent.key === 'streak') {
-    order = ['goal', 'upnext', 'doubt', 'progress', 'achievements', 'activity', 'session'];
-  } else if (intent.key === 'mistakes' || intent.key === 'weak') {
-    order = ['practice', 'upnext', 'goal', 'progress', 'achievements', 'activity', 'doubt', 'session'];
-  } else if (intent.key === 'next') {
-    order = ['goal', 'practice', 'doubt', 'progress', 'achievements', 'activity', 'session'];
-  } else { // resume
-    order = ['upnext', 'goal', 'practice', 'doubt', 'progress', 'achievements', 'activity', 'session'];
-  }
-  if (heroUsesBrainGym) order = order.filter((k) => k !== 'practice'); // dedupe practice vs a Brain-Gym hero
-
-  // For "Up next", pick the top recommendation that ISN'T what the hero already covers.
-  const upnextRec = recs.find((r) => (r.id || r.action) !== heroRecId) || null;
-
-  // Persist celebration "seen" so we don't re-celebrate next launch (this visit still shows it).
-  useEffect(() => {
-    if (!seenReady) return;
-    if (intent.key === 'celebrate-badge') saveHomeState({ seenUnlocked: unlocked });
-    else if (intent.key === 'celebrate-goal') saveHomeState({ celebratedGoalWeek: weekKey });
-  }, [intent.key, seenReady, unlocked, weekKey]);
-
-  const renderSection = (key) => {
-    switch (key) {
-      case 'path': {
-        const steps = [
-          { Icon: Bot, tint: S.indigo, bg: S.indigoSoft, title: 'Learn', sub: 'Guided AI lessons, one concept at a time' },
-          { Icon: Dumbbell, tint: S.purple, bg: S.purpleSoft, title: 'Practice', sub: 'Sharpen skills in Brain Gym' },
-          { Icon: Trophy, tint: S.gold, bg: S.goldSoft, title: 'Master', sub: 'Build streaks, XP & badges' },
-        ];
-        return (
-          <React.Fragment key={key}>
-            <Section title="How you’ll learn" accent={S.indigo} />
-            <FadeInOnce id="s-path" delay={30} y={14}>
-              <View style={hs.card}>
-                {steps.map((st, i) => (
-                  <View key={st.title} style={[hs.pathRow, i < steps.length - 1 && hs.pathDivider]}>
-                    <View style={hs.pathNum}><T w="black" s={12} c={S.faint}>{i + 1}</T></View>
-                    <View style={[hs.pathIcon, { backgroundColor: st.bg }]}><st.Icon size={18} color={st.tint} strokeWidth={2.5} /></View>
-                    <View style={{ flex: 1 }}>
-                      <T w="xbold" s={14} c={S.ink}>{st.title}</T>
-                      <T w="semi" s={11.5} c={S.muted} style={{ marginTop: 1 }}>{st.sub}</T>
-                    </View>
-                  </View>
-                ))}
-              </View>
-            </FadeInOnce>
-          </React.Fragment>
-        );
-      }
-
-      case 'goal': {
-        if (!weeklyGoals) return null;
-        return (
-          <React.Fragment key={key}>
-            <Section title="Weekly goal" accent={S.emerald} sub={`${weeklyGoals.metCount} / ${weeklyGoals.goals.length} done`} />
-            <FadeInOnce id="s-goal" delay={30} y={14}>
-              <View style={hs.card}>
-                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
-                  <Ring pct={(weeklyGoals.overall || 0) / 100} size={58} stroke={6} color={S.emerald} track="#EAE5F5">
-                    <T w="black" s={13} c={S.emerald}>{weeklyGoals.overall || 0}%</T>
-                  </Ring>
-                  <View style={{ flex: 1, gap: 9 }}>
-                    {weeklyGoals.goals.map((g) => (
-                      <View key={g.id}>
-                        <View style={hs.rowBetween}>
-                          <T w="bold" s={11.5} c={S.sub} numberOfLines={1} style={{ flex: 1, flexShrink: 1 }}>{g.label}</T>
-                          <T w="xbold" s={11.5} c={g.done ? S.emerald : S.muted} style={{ flexShrink: 0, marginLeft: 8 }}>{g.value}/{g.target}{g.unit ? ` ${g.unit}` : ''}</T>
-                        </View>
-                        <View style={hs.goalBar}>
-                          <GrowFill pct={g.pct} color={g.done ? S.emerald : S.indigo} delay={200} style={{ height: '100%', borderRadius: 4 }} />
-                        </View>
-                      </View>
-                    ))}
-                  </View>
-                </View>
-              </View>
-            </FadeInOnce>
-          </React.Fragment>
-        );
-      }
-
-      case 'practice':
-        if (!brainGymOn) return null; // Brain Gym feature flag off → hide the section
-        return (
-          <React.Fragment key={key}>
-            <Section title="Sharpen your thinking" accent={S.purple} sub={streak > 0 ? `${streak}-day streak 🔥` : 'Brain Gym'} />
-            <FadeInOnce id="s-braingym" delay={40} y={16}>
-              <View style={hs.bgShadow}>
-                <PressableScale style={hs.bg} onPress={openBrainGym} accessibilityLabel="Open Brain Gym">
-                  <InkSurface a="#6D4AC0" b="#301E66" glow="#C6ABFF" radius={22} />
-                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
-                    <View style={{ flex: 1 }}>
-                      <View style={hs.bgTag}>
-                        <Pulse from={0.85} to={1.15} duration={1500}><Sparkles size={10} color="#E7DBFF" strokeWidth={2.8} /></Pulse>
-                        <T w="xbold" s={9.5} c="#E7DBFF" style={{ letterSpacing: 1 }}>SPIN & TRAIN</T>
-                      </View>
-                      <T w="black" s={18} c="#fff" style={{ marginTop: 8, letterSpacing: -0.3 }}>Focus, memory & speed</T>
-                      <T w="semi" s={12} c="rgba(255,255,255,0.66)" style={{ marginTop: 2 }}>A quick daily workout for your brain</T>
-                    </View>
-                    <MiniWheel size={84} />
-                  </View>
-                </PressableScale>
-              </View>
-            </FadeInOnce>
-          </React.Fragment>
-        );
-
-      case 'upnext': {
-        if (!upnextRec) return null;
-        const Icon = ICONS[upnextRec.icon] || Sparkles;
-        const tone = TONES[upnextRec.tone] || TONES.violet;
-        return (
-          <React.Fragment key={key}>
-            <View style={hs.secHead}>
-              <View style={[hs.secDot, { backgroundColor: S.purple }]} />
-              <T w="black" s={16} c={S.ink} style={{ letterSpacing: -0.3 }}>What to learn next</T>
-              <Pulse from={0.85} to={1.15} duration={1500} style={{ marginLeft: 6 }}><Sparkles size={15} color={S.purple} strokeWidth={2.6} /></Pulse>
-            </View>
-            <FadeInOnce id="s-upnext" delay={30} y={14}>
-              <PressableScale onPress={() => runRec(upnextRec)} accessibilityLabel={upnextRec.title}>
-                <View style={[hs.card, hs.upnext]}>
-                  <View style={[hs.upnextIcon, { backgroundColor: tone.bg }]}><Icon size={22} color={tone.tint} strokeWidth={2.5} /></View>
-                  <View style={{ flex: 1 }}>
-                    <T w="black" s={15} c={S.ink} numberOfLines={1}>{upnextRec.title}</T>
-                    <T w="semi" s={11.5} c={S.muted} style={{ marginTop: 2 }} numberOfLines={2}>{upnextRec.do || upnextRec.why}</T>
-                  </View>
-                  <View style={[hs.upnextGo, { backgroundColor: tone.tint }]}><ArrowRight size={16} color="#fff" strokeWidth={2.8} /></View>
-                </View>
-              </PressableScale>
-            </FadeInOnce>
-          </React.Fragment>
-        );
-      }
-
-      case 'doubt':
-        if (!aiTeacherOn) return null; // AI Teacher feature flag off → hide the section
-        return (
-          <FadeInOnce id="s-ai" delay={80} y={16} key={key}>
-            <View style={[hs.aiCard, { marginTop: 22 }]}>
-              <View style={[hs.rowBetween, { alignItems: 'flex-start' }]}>
-                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 11, flex: 1, minWidth: 0 }}>
-                  <LinearGradient colors={['#6C4DE6', '#A06BFF']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={hs.aiAvatar}>
-                    <Pulse from={0.92} to={1.08} duration={2400}><Bot size={24} color="#fff" strokeWidth={2.2} /></Pulse>
-                  </LinearGradient>
-                  <View style={{ flex: 1, minWidth: 0 }}>
-                    <T w="black" s={15.5} c={S.ink}>Stuck on something?</T>
-                    <T w="semi" s={10.5} c={S.muted} style={{ marginTop: 1 }}>Ask your AI teacher — instant help</T>
-                  </View>
-                </View>
-                <View style={hs.online}>
-                  <View style={hs.onlineDot}><PulseRing color={S.emerald} size={6} /><View style={{ width: 6, height: 6, borderRadius: 3, backgroundColor: S.emerald }} /></View>
-                  <T w="xbold" s={10} c={S.emerald}>Online</T>
-                </View>
-              </View>
-
-              <T w="xbold" s={9.5} c={S.faint} style={{ letterSpacing: 0.8, marginTop: 16, marginBottom: 9 }}>YOUR SUBJECTS</T>
-              <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 8 }}>
-                {subjectChips.map((subj) => {
-                  const on = activeSubject === subj;
-                  return (
-                    <PressableScale key={subj} style={[hs.subChip, on && { backgroundColor: '#FFFFFF', borderColor: 'rgba(140,110,240,0.45)' }]} onPress={() => setActiveSubject(subj)}>
-                      <T w="bold" s={12.5} c={on ? S.indigo : S.muted}>{subj}</T>
-                    </PressableScale>
-                  );
-                })}
-              </ScrollView>
-
-              <T w="xbold" s={9.5} c={S.faint} style={{ letterSpacing: 0.8, marginTop: 16, marginBottom: 9 }}>QUICK QUESTIONS</T>
-              <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 8 }}>
-                {(SUBJECT_QS[activeSubject] || []).map((q, i) => {
-                  const p = QPILL[i % QPILL.length];
-                  return (
-                    <PressableScale key={q} style={[hs.qPill, { backgroundColor: p.bg }]} onPress={() => openAITeacher(q, activeSubject)}>
-                      <T w="bold" s={11.5} c={p.text}>{q}</T>
-                    </PressableScale>
-                  );
-                })}
-              </ScrollView>
-
-              <Breathe>
-                <PressableScale style={hs.aiBtnWrap} onPress={() => openAITeacher('', activeSubject)} accessibilityLabel="Ask a doubt">
-                  <LinearGradient colors={['#6C4DE6', '#A06BFF']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={hs.aiBtn}>
-                    <WandSparkles size={18} color="#fff" strokeWidth={2.4} />
-                    <T w="bold" s={15} c="#fff">Ask a doubt</T>
-                  </LinearGradient>
-                </PressableScale>
-              </Breathe>
-            </View>
-          </FadeInOnce>
-        );
-
-      case 'progress':
-        return (
-          <React.Fragment key={key}>
-            <Section title="How you’re improving" accent={S.indigo} sub="This week" />
-            <FadeInOnce id="s-week" delay={30} y={14}>
-              <View style={hs.card}>
-                <View style={hs.rowBetween}>
-                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, flex: 1, minWidth: 0 }}>
-                    <Gauge size={17} color={S.indigo} strokeWidth={2.5} />
-                    <T w="xbold" s={15} c={S.ink} numberOfLines={1} style={{ flexShrink: 1 }}>{Number(summary.quizzes) || 0} quizzes done</T>
-                  </View>
-                  <T w="semi" s={11.5} c={S.muted} style={{ flexShrink: 0, marginLeft: 8 }}>{Number(summary.xp) || 0} XP</T>
-                </View>
-                {week.length > 0 && (Number(summary.quizzes) > 0 || week.some((d) => (Number(d.xp) || 0) > 0)) ? (
-                  <View style={hs.chartRow}>
-                    {(() => {
-                      const maxXp = Math.max(1, ...week.map((d) => Number(d.xp) || 0));
-                      return week.map((d, i) => (
-                        <View key={i} style={{ flex: 1, alignItems: 'center', gap: 6 }}>
-                          <View style={hs.barTrack}>
-                            <GrowBar height={Math.max(4, ((Number(d.xp) || 0) / maxXp) * 64)} color={d.isToday ? S.indigo : '#DEE1F0'} delay={200 + i * 70}
-                              style={{ width: '58%', borderRadius: 6, alignSelf: 'center', position: 'absolute', bottom: 0 }} />
-                          </View>
-                          <T w={d.isToday ? 'xbold' : 'semi'} s={10} c={d.isToday ? S.indigo : S.faint}>{(d.day || '').slice(0, 1)}</T>
-                        </View>
-                      ));
-                    })()}
-                  </View>
-                ) : (
-                  <T w="semi" s={12} c={S.muted} style={{ marginTop: 14 }}>Your weekly activity will show here once you start practising.</T>
-                )}
-              </View>
-            </FadeInOnce>
-          </React.Fragment>
-        );
-
-      case 'achievements':
-        if (badges.length === 0) return null;
-        return (
-          <React.Fragment key={key}>
-            <Section title="What you’ve earned" accent={S.gold} sub={`${unlocked} unlocked`} />
-            <FadeInOnce id="s-badges" delay={30} y={0}>
-              <ScrollView horizontal showsHorizontalScrollIndicator={false}
-                style={{ marginHorizontal: -PAD }} contentContainerStyle={{ paddingHorizontal: PAD, gap: 6, paddingVertical: 4 }}>
-                {badges.map((b, i) => <Badge key={b.id} item={b} delay={80 + i * 60} />)}
-              </ScrollView>
-            </FadeInOnce>
-          </React.Fragment>
-        );
-
-      case 'activity':
-        return (
-          <React.Fragment key={key}>
-            <Section title="Recent activity" accent={S.cyan} />
-            <FadeInOnce id="s-activity" delay={30} y={0}>
-              <View style={[hs.card, activity.length > 0 && { paddingVertical: 6 }]}>
-                {activity.length > 0 ? activity.map((a, i) => {
-                  const cfg = ACT[a.type] || ACT.quiz;
-                  const meta = [a.subject, a.chapter].filter(Boolean).join(' · ');
-                  return (
-                    <FadeIn key={`${a.type}-${a.at}-${i}`} delay={120 + i * 70} x={12} y={0}>
-                      <View style={[hs.actRow, i < activity.length - 1 && hs.actDivider]}>
-                        <View style={[hs.actIcon, { backgroundColor: cfg.bg }]}><cfg.Icon size={17} color={cfg.tint} strokeWidth={2.6} /></View>
-                        <View style={{ flex: 1 }}>
-                          <T w="bold" s={13} c={S.ink} numberOfLines={1}>{a.title}</T>
-                          <T w="semi" s={11} c={S.muted} style={{ marginTop: 2 }} numberOfLines={1}>{[meta, timeAgo(a.at)].filter(Boolean).join(' · ')}</T>
-                        </View>
-                      </View>
-                    </FadeIn>
-                  );
-                }) : (
-                  <View style={{ alignItems: 'center', paddingVertical: 10, gap: 4 }}>
-                    <Float>
-                      <LinearGradient colors={['#EFE6FF', '#E2D4FF']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={hs.emptyIcon}>
-                        <TrendingUp size={22} color={S.purple} strokeWidth={2} />
-                      </LinearGradient>
-                    </Float>
-                    <T w="bold" s={13.5} c={S.ink} style={{ marginTop: 8 }}>No activity yet</T>
-                    <T w="semi" s={11.5} c={S.muted} style={{ textAlign: 'center', maxWidth: 250 }}>Start a lesson or a Brain Gym set — it’ll show up here.</T>
-                  </View>
-                )}
-              </View>
-            </FadeInOnce>
-          </React.Fragment>
-        );
-
-      case 'session':
-        if (sessionsOn) return null;
-        return (
-          <React.Fragment key={key}>
-            <Section title="Live 1:1 session" accent={S.blue} />
-            <FadeInOnce id="s-session" delay={30} y={14}>
-              <View style={[hs.card, hs.soonCard]}>
-                <View style={hs.soonIcon}>
-                  <Pulse from={0.94} to={1.08} duration={2200}><Lock size={19} color={S.blue} strokeWidth={2.5} /></Pulse>
-                </View>
-                <View style={hs.soonText}>
-                  <T w="xbold" s={14} c={S.ink}>1:1 tutoring is coming soon</T>
-                  <T w="semi" s={11.5} c={S.muted} style={{ marginTop: 2 }}>Book live sessions with expert teachers — launching shortly.</T>
-                </View>
-                <Pulse from={0.96} to={1.06} duration={1900}><View style={hs.soonPill}><T w="xbold" s={9.5} c={S.blue} style={{ letterSpacing: 0.6 }}>SOON</T></View></Pulse>
-              </View>
-            </FadeInOnce>
-          </React.Fragment>
-        );
-      default:
-        return null;
-    }
-  };
-
-  const showStats = hasActivity;
-
-  // In-place overlays. Placed AFTER every hook so hook order stays stable (Rules of Hooks).
+  // Closing either flow refetches, so work done inside it (a finished lesson, a Brain
+  // Gym set) is reflected the moment the student lands back on Home.
   if (showAITeacher) {
-    // On returning from a lesson, refresh so Continue-learning / progress / recommendations update.
-    return <AITeacherScreen initialSubject={activeSubject} initialTopic={seedTopic} onBack={() => { setShowAITeacher(false); load(true); }} />;
-  }
-  if (showBrainGym) {
     return (
-      <Modal visible animationType="slide" statusBarTranslucent onRequestClose={() => setShowBrainGym(false)}>
-        <BrainGymFlow onFinish={() => { setShowBrainGym(false); load(true); }} />
-      </Modal>
+      <AITeacherScreen
+        initialSubject={seedSubject || 'Physics'}
+        initialTopic={seedTopic}
+        onBack={() => { setShowAITeacher(false); load(true); }}
+      />
     );
   }
+  if (showBrainGym) return <BrainGymFlow onFinish={() => { setShowBrainGym(false); load(true); }} />;
+
+  const avatarUri = user?.photo || user?.avatar || null;
+  const initial = String(firstName || 'S').trim().charAt(0).toUpperCase();
 
   return (
-    <View style={hs.safe}>
-      <AuroraBg />
-      <StatusBar barStyle="dark-content" backgroundColor={S.canvas} translucent={false} />
+    <View style={hs.root}>
+      <StatusBar barStyle="light-content" backgroundColor={N.bgTop} translucent={false} />
+      <NightBg />
 
-      {/* ── CLEAN LIGHT HEADER ── */}
-      <View style={[hs.header, { paddingTop: insets.top + 8 }]}>
-        <View style={hs.headerLeft}>
-          <PressableScale onPress={() => { setTempChar(charIdx); setShowCharModal(true); }} accessibilityLabel="Change character">
-            <View>
-              <CharAvatar char={currentChar} size={46} ring={S.hair} />
-              <View style={hs.charEdit}><Pencil size={9} color="#fff" strokeWidth={2.8} /></View>
+      <ScrollView
+        ref={scrollRef}
+        contentContainerStyle={{ paddingHorizontal: PAD, paddingTop: 8, paddingBottom: 28, gap: GAP }}
+        showsVerticalScrollIndicator={false}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={() => { setRefreshing(true); load(true); }} tintColor={N.violet} colors={[N.violet]} />
+        }
+      >
+        {/* ── header ── */}
+        <Appear delay={0} y={10}>
+          <View style={hs.header}>
+            <View style={hs.avatar}>
+              {avatarUri
+                ? <Image source={{ uri: avatarUri }} style={hs.avatarImg} />
+                : <T w="black" s={17} c={N.ink}>{initial}</T>}
             </View>
-          </PressableScale>
-          <View style={{ marginLeft: 12, flex: 1 }}>
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
-              <T w="semi" s={12.5} c={S.muted}>{greet}</T>
-              <Wave><T s={12.5}>👋</T></Wave>
+            <View style={{ flex: 1, minWidth: 0 }}>
+              <T w="black" s={17} c={N.ink} numberOfLines={1}>Hi, {firstName} 👋</T>
+              <T w="semi" s={12} c={N.inkSoft} numberOfLines={1} style={{ marginTop: 2 }}>Ready to level up?</T>
             </View>
-            <T w="black" s={23} c={S.indigo} numberOfLines={1} style={{ marginTop: 1, letterSpacing: -0.4 }}>Hi, {firstName}</T>
+            <Squeeze style={hs.iconBtn} accessibilityLabel="Notifications">
+              <Bell size={19} color={N.inkSoft} strokeWidth={2.2} />
+            </Squeeze>
+            <Squeeze style={hs.iconBtn} onPress={() => navigation.navigate('Profile')} accessibilityLabel="Settings">
+              <Settings size={19} color={N.inkSoft} strokeWidth={2.2} />
+            </Squeeze>
           </View>
-        </View>
-        <PressableScale style={hs.bellBtn} accessibilityLabel="Notifications">
-          <Bell size={19} color={S.ink} strokeWidth={2.3} />
-          {(report?.notifications?.unread || 0) > 0 && <View style={hs.bellDot} />}
-        </PressableScale>
-      </View>
+        </Appear>
 
-      {loading ? (
-        <Skeleton />
-      ) : err ? (
-        <ErrorState onRetry={retry} />
-      ) : (
-        <ScrollView
-          ref={scrollRef}
-          style={hs.body}
-          contentContainerStyle={{ paddingBottom: 30, paddingTop: 6 }}
-          showsVerticalScrollIndicator={false}
-          refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={S.indigo} colors={[S.indigo]} />}
-        >
-          <OptionalUpdateBanner />
-          {showStats && (
-            <View style={hs.statsRow}>
-              <StatCard Icon={Flame} tint={S.orange} tintBg={S.orangeSoft} value={streak} label="Day streak" delay={40} />
-              <StatCard Icon={Star} tint={S.gold} tintBg={S.goldSoft} value={xp} label="XP points" delay={100} />
-              <StatCard Icon={TrendingUp} tint={S.emerald} tintBg={S.emeraldSoft} value={`${accuracy}%`} isText label="Accuracy" delay={160} />
+        <OptionalUpdateBanner />
+
+        {loading ? <Skeleton /> : err ? (
+          <Card style={{ alignItems: 'center', gap: 10, paddingVertical: 30 }}>
+            <T w="xbold" s={15} c={N.ink}>Couldn’t load your home</T>
+            <T w="semi" s={12.5} c={N.inkSoft} style={{ textAlign: 'center' }}>Check your connection and try again.</T>
+            <Squeeze style={hs.retryBtn} onPress={() => { setLoading(true); setErr(false); load(false); }}>
+              <T w="xbold" s={13} c="#fff">Retry</T>
+            </Squeeze>
+          </Card>
+        ) : (
+          <>
+            {/* ── 1. current lesson ── */}
+            <Appear delay={60} y={16}>
+              <LinearGradient colors={[N.heroA, N.heroB]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={hs.hero}>
+                <View style={hs.heroTop}>
+                  <View style={hs.heroChip}>
+                    <T w="bold" s={8.5} c="#fff" style={{ letterSpacing: 0.9 }}>CURRENT LESSON</T>
+                  </View>
+                  {(!!contSubject || streak > 0) && (
+                    <T w="semi" s={11.5} c="rgba(255,255,255,0.82)" numberOfLines={1} style={{ flexShrink: 1, textAlign: 'right' }}>
+                      {[contSubject, streak > 0 ? `${streak}-day streak` : null].filter(Boolean).join(' · ')}
+                    </T>
+                  )}
+                </View>
+
+                <View style={hs.heroBody}>
+                  <T w="black" s={20} c="#fff" numberOfLines={3} style={{ flex: 1, lineHeight: 27, letterSpacing: -0.3 }}>
+                    {contTitle || 'Start your first lesson'}
+                  </T>
+                  <Ring pct={heroPct / 100} size={62} stroke={6}>
+                    <T w="black" s={14} c="#fff">{Math.round(heroPct)}%</T>
+                  </Ring>
+                </View>
+
+                <Squeeze
+                  style={hs.heroBtn}
+                  onPress={() => openAITeacher(contTitle || '', contSubject || '')}
+                  accessibilityLabel={contTitle ? `Resume lesson: ${contTitle}` : 'Start learning'}
+                >
+                  <T w="xbold" s={14} c={N.heroB}>{contTitle ? 'Resume lesson' : 'Start learning'}</T>
+                  <Play size={14} color={N.heroB} strokeWidth={3} fill={N.heroB} />
+                </Squeeze>
+              </LinearGradient>
+            </Appear>
+
+            {/* ── 2. next up | sharpen thinking ── */}
+            <View style={hs.row2}>
+              <Appear delay={120} style={{ flex: 1 }}>
+                <Squeeze style={[hs.card, hs.tile]} onPress={() => runRec(upnext)} accessibilityLabel="Next up">
+                  <View style={hs.tileTop}>
+                    <View style={[hs.tileIcon, { backgroundColor: N.violetSoft }]}>
+                      <Sparkles size={17} color={N.violet} strokeWidth={2.4} />
+                    </View>
+                    <View style={hs.playDot}><Play size={11} color="#fff" strokeWidth={3} fill="#fff" /></View>
+                  </View>
+                  <T w="bold" s={9} c={N.violet} style={{ letterSpacing: 0.9, marginTop: 12 }}>NEXT UP</T>
+                  <T w="xbold" s={14} c={N.ink} numberOfLines={2} style={{ marginTop: 4, lineHeight: 19 }}>
+                    {upnext?.title || 'Start the first tool'}
+                  </T>
+                  <T w="semi" s={11} c={N.inkDim} numberOfLines={1} style={{ marginTop: 4 }}>
+                    {upnext?.subtitle || 'Daily practice block'}
+                  </T>
+                </Squeeze>
+              </Appear>
+
+              {brainGymOn && (
+                <Appear delay={160} style={{ flex: 1 }}>
+                  <Squeeze style={[hs.card, hs.tile]} onPress={openBrainGym} accessibilityLabel="Open Brain Gym">
+                    <View style={hs.tileTop}>
+                      <View style={[hs.tileIcon, { backgroundColor: N.amberSoft }]}>
+                        <Brain size={17} color={N.amber} strokeWidth={2.4} />
+                      </View>
+                      <Chip label="BRAIN" tint={N.amber} bg={N.amberSoft} />
+                    </View>
+                    <T w="bold" s={9} c={N.amber} style={{ letterSpacing: 0.9, marginTop: 12 }}>SHARPEN THINKING</T>
+                    <T w="xbold" s={14} c={N.ink} numberOfLines={2} style={{ marginTop: 4, lineHeight: 19 }}>Focus, memory & speed</T>
+                    <T w="semi" s={11} c={N.inkDim} numberOfLines={1} style={{ marginTop: 4 }}>Workout your brain</T>
+                  </Squeeze>
+                </Appear>
+              )}
             </View>
-          )}
 
-          <HeroCard intent={intent} />
+            {/* ── 3. weekly goal ── */}
+            {(goal || week.length > 0) && (
+              <Appear delay={200}>
+                <Card>
+                  <View style={hs.rowBetween}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 7 }}>
+                      <Target size={15} color={N.green} strokeWidth={2.6} />
+                      <T w="xbold" s={14} c={N.ink}>Your Weekly Goal</T>
+                    </View>
+                    {!!goal && (
+                      <T w="semi" s={11.5} c={N.inkDim}>
+                        <T w="xbold" s={11.5} c={N.green}>{goal.value} {goal.unit || ''}</T> of {goal.target} {goal.unit || ''}
+                      </T>
+                    )}
+                  </View>
 
-          {order.map(renderSection)}
-        </ScrollView>
-      )}
+                  {week.length > 0 && (
+                    <View style={hs.days}>
+                      {week.map((d, i) => {
+                        const did = (Number(d.xp) || 0) > 0;
+                        return (
+                          <View
+                            key={i}
+                            style={[hs.day, did && hs.dayDone, d.isToday && hs.dayToday]}
+                            accessibilityLabel={`${d.day || ''}${did ? ', done' : ''}${d.isToday ? ', today' : ''}`}
+                          >
+                            <T w="xbold" s={11.5} c={did || d.isToday ? '#fff' : N.inkDim}>{(d.day || '').slice(0, 1)}</T>
+                            {did
+                              ? <CircleCheck size={11} color="#fff" strokeWidth={3} style={{ marginTop: 2 }} />
+                              : <View style={[hs.dayDot, d.isToday && { backgroundColor: '#fff' }]} />}
+                          </View>
+                        );
+                      })}
+                    </View>
+                  )}
+                </Card>
+              </Appear>
+            )}
 
-      {/* Positioned below the header so it never overlaps it. */}
-      {toast && <Toast data={toast} top={insets.top + 70} onDone={() => setToast(null)} />}
+            {/* ── 4. improving | ai teacher ── */}
+            <View style={hs.row2}>
+              <Appear delay={240} style={{ flex: 1 }}>
+                <Card style={hs.tile}>
+                  <View style={hs.rowBetween}>
+                    <TrendingUp size={16} color={N.green} strokeWidth={2.6} />
+                    <T w="black" s={16} c={N.green}>{totalQuiz} Done</T>
+                  </View>
+                  <T w="bold" s={9} c={N.green} style={{ letterSpacing: 0.9, marginTop: 12 }}>IMPROVING</T>
+                  <T w="xbold" s={14} c={N.ink} numberOfLines={2} style={{ marginTop: 4, lineHeight: 19 }}>
+                    {totalQuiz} quiz{totalQuiz === 1 ? '' : 'zes'} done
+                  </T>
+                  <T w="semi" s={11} c={N.inkDim} numberOfLines={2} style={{ marginTop: 4, lineHeight: 15 }}>
+                    {totalQuiz > 0 ? 'You’re improving! Keep up the momentum.' : 'Your first quiz is waiting.'}
+                  </T>
+                </Card>
+              </Appear>
 
-      {/* ── CHARACTER MODAL ── */}
-      <Modal visible={showCharModal} transparent animationType="fade" onRequestClose={() => setShowCharModal(false)}>
-        <View style={hs.modalOverlay}>
-          <TouchableOpacity style={StyleSheet.absoluteFill} activeOpacity={1} onPress={() => setShowCharModal(false)} accessibilityLabel="Close" />
-          <FadeIn y={22}>
-            <View style={hs.modal}>
-              <View style={hs.modalHandle} />
-              <T w="black" s={19} c={S.ink}>Choose your character</T>
-              <T w="med" s={13} c={S.muted} style={{ marginTop: 3, marginBottom: 18 }}>Pick a unique identity that’s all yours.</T>
-              <View style={hs.charGrid}>
-                {CHARS.map((c, i) => (
-                  <PopIn key={c.name} delay={i * 50} style={{ width: (SCREEN_W - 2 * PAD - 24 - 24) / 3 }}>
-                    <PressableScale style={[hs.charOpt, tempChar === i && { borderColor: c.tint, backgroundColor: '#fff' }]} onPress={() => setTempChar(i)}>
-                      <CharAvatar char={c} size={58} ring={null} />
-                      <T w="bold" s={11.5} c={S.ink} numberOfLines={1} style={{ textAlign: 'center', marginTop: 6 }}>{c.name}</T>
-                      <T w="semi" s={9.5} c={S.muted} numberOfLines={1} style={{ textAlign: 'center' }}>{c.role}</T>
-                    </PressableScale>
-                  </PopIn>
-                ))}
-              </View>
-              <Breathe>
-                <PressableScale style={hs.modalBtn} onPress={() => { setCharIdx(tempChar); setShowCharModal(false); }}>
-                  <T w="bold" s={15} c="#fff">Save my character</T>
-                  <CircleCheck size={17} color="#fff" strokeWidth={2.4} />
-                </PressableScale>
-              </Breathe>
+              {aiTeacherOn && (
+                <Appear delay={280} style={{ flex: 1 }}>
+                  <Card style={hs.tile}>
+                    <View style={hs.rowBetween}>
+                      <MessageCircle size={16} color={N.violet} strokeWidth={2.4} />
+                      <Chip label="ONLINE" tint={N.violet} bg={N.violetSoft} />
+                    </View>
+                    <T w="bold" s={9} c={N.violet} style={{ letterSpacing: 0.9, marginTop: 12 }}>AI TEACHER</T>
+                    <T w="xbold" s={14} c={N.ink} numberOfLines={2} style={{ marginTop: 4, lineHeight: 19 }}>Stuck on something?</T>
+                    <Squeeze style={hs.askPrimary} onPress={() => openAITeacher()} accessibilityLabel="Ask a doubt">
+                      <T w="xbold" s={11.5} c="#fff">Ask a doubt</T>
+                    </Squeeze>
+                    <Squeeze style={hs.askGhost} onPress={() => openAITeacher()} accessibilityLabel="Ask a question">
+                      <T w="xbold" s={11.5} c={N.inkSoft}>Ask a question</T>
+                    </Squeeze>
+                  </Card>
+                </Appear>
+              )}
             </View>
-          </FadeIn>
-        </View>
-      </Modal>
+
+            {/* ── 5. recent activity ── */}
+            {activity.length > 0 && (
+              <Appear delay={320}>
+                <Card style={{ paddingVertical: 6 }}>
+                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 7, paddingTop: 10, paddingBottom: 4 }}>
+                    <Clock size={14} color={N.inkSoft} strokeWidth={2.6} />
+                    <T w="xbold" s={13.5} c={N.ink}>Recent activity</T>
+                  </View>
+                  {activity.slice(0, 4).map((a, i, arr) => {
+                    const cfg = ACT[a.type] || ACT.quiz;
+                    const meta = [a.subject, a.chapter].filter(Boolean).join(' · ');
+                    return (
+                      <View key={`${a.type}-${a.at}-${i}`} style={[hs.actRow, i < arr.length - 1 && hs.actDivider]}>
+                        <View style={[hs.actIcon, { backgroundColor: cfg.bg }]}>
+                          <cfg.Icon size={16} color={cfg.tint} strokeWidth={2.6} />
+                        </View>
+                        <View style={{ flex: 1, minWidth: 0 }}>
+                          <T w="xbold" s={13} c={N.ink} numberOfLines={1}>{a.title}</T>
+                          {!!meta && <T w="semi" s={11} c={N.inkDim} numberOfLines={1} style={{ marginTop: 2 }}>{meta}</T>}
+                        </View>
+                        <T w="semi" s={10.5} c={N.inkDim} style={{ flexShrink: 0 }}>{timeAgo(a.at)}</T>
+                      </View>
+                    );
+                  })}
+                </Card>
+              </Appear>
+            )}
+          </>
+        )}
+      </ScrollView>
+
+      {toast && <Toast data={toast} top={insets.top} onDone={() => setToast(null)} />}
     </View>
   );
 };
 
 const hs = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: S.canvas },
-  body: { flex: 1, paddingHorizontal: PAD },
-  center: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 32, gap: 10 },
+  root: { flex: 1, backgroundColor: N.bg },
 
-  header: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: PAD, paddingBottom: 12 },
-  headerLeft: { flexDirection: 'row', alignItems: 'center', flex: 1 },
-  charEdit: { position: 'absolute', bottom: -2, right: -2, width: 17, height: 17, borderRadius: 9, backgroundColor: S.indigo, alignItems: 'center', justifyContent: 'center', borderWidth: 2, borderColor: S.canvas },
-  bellBtn: { width: 42, height: 42, borderRadius: 15, backgroundColor: '#fff', borderWidth: 1, borderColor: S.hair, alignItems: 'center', justifyContent: 'center', ...shadowSm },
-  bellDot: { position: 'absolute', top: 10, right: 11, width: 8, height: 8, borderRadius: 4, backgroundColor: S.orange, borderWidth: 1.5, borderColor: '#fff' },
+  // header
+  header: { flexDirection: 'row', alignItems: 'center', gap: 11, paddingVertical: 4 },
+  avatar: {
+    width: 44, height: 44, borderRadius: 22, backgroundColor: N.violetSoft,
+    alignItems: 'center', justifyContent: 'center', overflow: 'hidden',
+    borderWidth: 1, borderColor: N.cardEdge,
+  },
+  avatarImg: { width: '100%', height: '100%' },
+  iconBtn: {
+    width: 38, height: 38, borderRadius: 13, backgroundColor: N.cardSoft,
+    borderWidth: 1, borderColor: N.cardEdge, alignItems: 'center', justifyContent: 'center',
+  },
 
-  // Acknowledgement toast
-  toastWrap: { position: 'absolute', left: 0, right: 0, alignItems: 'center', zIndex: 50 },
-  toast: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: S.ink, borderRadius: 16, paddingVertical: 11, paddingHorizontal: 16, maxWidth: '90%', ...shadow },
-
-  errIcon: { width: 74, height: 74, borderRadius: 24, backgroundColor: '#fff', borderWidth: 1, borderColor: S.hair, alignItems: 'center', justifyContent: 'center', ...shadowSm },
-  retryBtn: { marginTop: 6, backgroundColor: S.indigo, borderRadius: 13, paddingVertical: 12, paddingHorizontal: 30, ...shadowSm },
-
-  statsRow: { flexDirection: 'row', gap: 10, marginTop: 6, marginBottom: 4 },
-  statCard: { backgroundColor: '#fff', borderRadius: 18, borderWidth: 1, borderColor: S.hair, paddingVertical: 14, paddingHorizontal: 13, ...shadowSm },
-  statIcon: { width: 34, height: 34, borderRadius: 11, alignItems: 'center', justifyContent: 'center' },
-
-  secHead: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 24, marginBottom: 12 },
-  secDot: { width: 8, height: 8, borderRadius: 4 },
-
-  // Hero
-  clShadow: { borderRadius: 24, backgroundColor: S.heroB, marginTop: 18, shadowColor: '#241C55', shadowOpacity: 0.32, shadowRadius: 24, shadowOffset: { width: 0, height: 16 }, elevation: 11 },
-  cl: { borderRadius: 24, overflow: 'hidden', paddingHorizontal: 20, paddingTop: 18, paddingBottom: 18 },
-  clTag: { flexDirection: 'row', alignItems: 'center', gap: 6, alignSelf: 'flex-start', backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: 20, paddingHorizontal: 10, paddingVertical: 6 },
-  clCta: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, backgroundColor: '#fff', borderRadius: 15, paddingVertical: 14, marginTop: 18, overflow: 'hidden' },
-  streakChip: { flexDirection: 'row', alignItems: 'center', gap: 4, backgroundColor: 'rgba(255,255,255,0.14)', borderRadius: 20, paddingHorizontal: 9, paddingVertical: 5 },
-
-  // Brain Gym
-  bgShadow: { borderRadius: 22, backgroundColor: '#301E66', shadowColor: '#301E66', shadowOpacity: 0.30, shadowRadius: 22, shadowOffset: { width: 0, height: 14 }, elevation: 10 },
-  bg: { borderRadius: 22, overflow: 'hidden', paddingHorizontal: 18, paddingVertical: 16 },
-  bgTag: { flexDirection: 'row', alignItems: 'center', gap: 6, alignSelf: 'flex-start', backgroundColor: 'rgba(255,255,255,0.12)', borderRadius: 20, paddingHorizontal: 9, paddingVertical: 5 },
-  bgHub: { position: 'absolute', width: 26, height: 26, borderRadius: 13, backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center' },
-
-  // Generic card
-  card: { backgroundColor: S.card, borderRadius: 24, borderWidth: 1, borderColor: S.cardEdge, padding: 16, overflow: 'hidden', ...shadow },
-  emptyIcon: { width: 50, height: 50, borderRadius: 16, alignItems: 'center', justifyContent: 'center' },
+  // cards
+  card: {
+    backgroundColor: N.card, borderRadius: 20, borderWidth: 1, borderColor: N.cardEdge,
+    padding: 15,
+  },
+  row2: { flexDirection: 'row', gap: GAP },
   rowBetween: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
-  goalBar: { height: 6, backgroundColor: S.hair, borderRadius: 5, marginTop: 5, overflow: 'hidden' },
-  chartRow: { flexDirection: 'row', alignItems: 'flex-end', gap: 6, marginTop: 16 },
-  barTrack: { width: '100%', height: 64, justifyContent: 'flex-end' },
+  chip: { paddingVertical: 3, paddingHorizontal: 8, borderRadius: 50 },
+  skel: { backgroundColor: N.cardSoft, borderRadius: 20 },
 
-  // Learning-path steps
-  pathRow: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 11 },
-  pathDivider: { borderBottomWidth: 1, borderBottomColor: S.hair },
-  pathNum: { width: 22, height: 22, borderRadius: 11, borderWidth: 1.5, borderColor: S.border, alignItems: 'center', justifyContent: 'center' },
-  pathIcon: { width: 38, height: 38, borderRadius: 12, alignItems: 'center', justifyContent: 'center' },
+  // hero
+  hero: {
+    borderRadius: 24, padding: 18,
+    shadowColor: '#5B3FD9', shadowOpacity: 0.4, shadowRadius: 20, shadowOffset: { width: 0, height: 10 }, elevation: 9,
+  },
+  heroTop: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10 },
+  heroChip: { backgroundColor: 'rgba(255,255,255,0.20)', paddingVertical: 4, paddingHorizontal: 10, borderRadius: 50 },
+  heroBody: { flexDirection: 'row', alignItems: 'center', gap: 14, marginTop: 16 },
+  heroBtn: {
+    marginTop: 18, backgroundColor: '#fff', borderRadius: 14, paddingVertical: 14,
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7,
+  },
 
-  // Up next
-  upnext: { flexDirection: 'row', alignItems: 'center', gap: 13 },
-  upnextIcon: { width: 46, height: 46, borderRadius: 14, alignItems: 'center', justifyContent: 'center' },
-  upnextGo: { width: 30, height: 30, borderRadius: 15, alignItems: 'center', justifyContent: 'center' },
+  // tiles
+  tile: { minHeight: 128 },
+  tileTop: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  tileIcon: { width: 32, height: 32, borderRadius: 11, alignItems: 'center', justifyContent: 'center' },
+  playDot: { width: 24, height: 24, borderRadius: 12, backgroundColor: N.violetLo, alignItems: 'center', justifyContent: 'center' },
 
-  // Coming-soon session
-  soonCard: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  soonIcon: { width: 40, height: 40, borderRadius: 12, backgroundColor: S.blueSoft, alignItems: 'center', justifyContent: 'center' },
-  soonPill: { backgroundColor: S.blueSoft, borderRadius: 20, paddingHorizontal: 10, paddingVertical: 5 },
+  // weekly goal
+  days: { flexDirection: 'row', gap: 7, marginTop: 14 },
+  day: {
+    flex: 1, aspectRatio: 0.86, borderRadius: 13, backgroundColor: N.cardSoft,
+    borderWidth: 1, borderColor: N.cardEdge, alignItems: 'center', justifyContent: 'center',
+  },
+  dayDone: { backgroundColor: N.green, borderColor: N.green },
+  dayToday: { backgroundColor: N.violetLo, borderColor: N.violet },
+  dayDot: { width: 4, height: 4, borderRadius: 2, backgroundColor: N.inkDim, marginTop: 4 },
 
-  // AI Teacher (doubt)
-  aiCard: { backgroundColor: S.card, borderRadius: 24, borderWidth: 1, borderColor: S.cardEdge, padding: 18, overflow: 'hidden', ...shadow },
-  aiAvatar: { width: 50, height: 50, borderRadius: 16, overflow: 'hidden', alignItems: 'center', justifyContent: 'center' },
-  online: { flexDirection: 'row', alignItems: 'center', gap: 7, backgroundColor: 'rgba(53,211,154,0.16)', borderRadius: 999, paddingVertical: 6, paddingHorizontal: 11 },
-  onlineDot: { width: 6, height: 6, alignItems: 'center', justifyContent: 'center' },
-  subChip: { paddingVertical: 10, paddingHorizontal: 18, borderRadius: 999, borderWidth: 1.5, borderColor: 'rgba(150,140,200,0.35)', backgroundColor: 'rgba(255,255,255,0.55)' },
-  qPill: { borderRadius: 999, paddingVertical: 11, paddingHorizontal: 16 },
-  aiBtnWrap: { borderRadius: 20, overflow: 'hidden', marginTop: 18, shadowColor: '#6C4DE6', shadowOpacity: 0.4, shadowRadius: 18, shadowOffset: { width: 0, height: 8 }, elevation: 8 },
-  aiBtn: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, borderRadius: 20, paddingVertical: 17 },
+  // ask buttons
+  askPrimary: { marginTop: 10, backgroundColor: N.violetLo, borderRadius: 11, paddingVertical: 9, alignItems: 'center' },
+  askGhost: {
+    marginTop: 7, backgroundColor: 'rgba(255,255,255,0.05)', borderWidth: 1, borderColor: N.cardEdge,
+    borderRadius: 11, paddingVertical: 9, alignItems: 'center',
+  },
 
-  // Achievements
-  badge: { width: 68, height: 68, borderRadius: 22, backgroundColor: '#fff', borderWidth: 1, borderColor: S.hair, alignItems: 'center', justifyContent: 'center', overflow: 'hidden', ...shadow },
-  badgeLocked: { backgroundColor: '#F2F3F8', borderColor: S.border },
-  badgeBar: { width: 44, height: 4, borderRadius: 3, backgroundColor: S.hair, marginTop: 6, overflow: 'hidden' },
+  // recent activity
+  actRow: { flexDirection: 'row', alignItems: 'center', gap: 11, paddingVertical: 11 },
+  actDivider: { borderBottomWidth: 1, borderBottomColor: 'rgba(255,255,255,0.05)' },
+  actIcon: { width: 34, height: 34, borderRadius: 12, alignItems: 'center', justifyContent: 'center' },
 
-  // Recent activity
-  actRow: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 12, paddingHorizontal: 4 },
-  actDivider: { borderBottomWidth: 1, borderBottomColor: S.hair },
-  actIcon: { width: 38, height: 38, borderRadius: 12, alignItems: 'center', justifyContent: 'center' },
+  retryBtn: { marginTop: 4, backgroundColor: N.violetLo, borderRadius: 12, paddingVertical: 11, paddingHorizontal: 28 },
 
-  // Character modal
-  modalOverlay: { flex: 1, backgroundColor: 'rgba(12,13,28,0.55)', justifyContent: 'flex-end' },
-  modal: { backgroundColor: '#fff', borderTopLeftRadius: 30, borderTopRightRadius: 30, paddingHorizontal: PAD, paddingTop: 12, paddingBottom: 34 },
-  modalHandle: { width: 40, height: 4, backgroundColor: S.border, borderRadius: 10, alignSelf: 'center', marginBottom: 16 },
-  charGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 12 },
-  charOpt: { backgroundColor: S.canvas, borderRadius: 18, paddingVertical: 13, paddingHorizontal: 8, alignItems: 'center', borderWidth: 2, borderColor: 'transparent' },
-  modalBtn: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, backgroundColor: S.indigo, borderRadius: 15, paddingVertical: 16, marginTop: 20 },
+  toast: {
+    position: 'absolute', left: PAD, right: PAD, flexDirection: 'row', alignItems: 'center', gap: 11,
+    backgroundColor: N.card, borderRadius: 16, borderWidth: 1, borderColor: N.cardEdge, padding: 13,
+    shadowColor: '#000', shadowOpacity: 0.4, shadowRadius: 16, shadowOffset: { width: 0, height: 8 }, elevation: 12,
+  },
 });
 
 export default HomeScreen;
