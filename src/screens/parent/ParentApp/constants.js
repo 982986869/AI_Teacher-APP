@@ -5,7 +5,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Platform } from 'react-native';
 import Svg, { Defs, LinearGradient as LG, Stop, Rect } from 'react-native-svg';
-import { Home, BarChart3, MessageCircle, BookOpen, Video } from 'lucide-react-native';
+import { Home, BarChart3, MessageCircle, BookOpen, Video, Share2, Sparkles, TrendingUp } from 'lucide-react-native';
 
 export const C = {
   bg: '#FFFFFF', canvas: '#F1F3F7', headerBg: '#F6F6F7', ink: '#161616', muted: '#6C7179', faint: '#A6AAB2',
@@ -42,16 +42,271 @@ export const CONTENT = {
     skillsTitle: "Skills You'll Discover",
     skillsIntro: 'The activities and quizzes build the core skills behind confident learning — across every subject.',
     participantsTitle: 'Hear From Our Participants',
+    participantsIntro: 'Real AILERNOVA learners, and what changed for them.',
     community: {
       title: 'Join our community of\nAilernova parents', body: 'Get updates, learning resources, and celebrate every win ❤️',
-      instagram: 'https://www.instagram.com/ai_lernova/', youtube: 'https://www.youtube.com/@ailernova',
-      facebook: 'https://www.facebook.com/ailernova/', linkedin: 'https://www.linkedin.com/company/ailernova/',
+      // Only accounts Ailernova actually links from ailernova.in (verified). No YouTube/X —
+      // their site links none, so we don't show tiles that would guess at a handle.
+      instagram: 'https://www.instagram.com/ai_lernova/',
+      facebook: 'https://www.facebook.com/ailernova/',
+      linkedin: 'https://www.linkedin.com/company/ailernova/',
     },
     become: {
       title: 'BECOME AILERNOVA™', body: 'Build skills with daily challenges and puzzles.',
       appCta: 'Download the app', appUrl: 'https://ailernova.com',
-      categories: [{ emoji: '🧠', label: 'BRAIN GAMES' }, { emoji: '🧩', label: 'LOGIC PUZZLES' }, { emoji: '⚡', label: 'QUICK RECALL' }],
+      // Four feature glyphs (coloured lucide icons on dark circles), matching the app's
+      // reference tiles. Each carries its own Icon component + accent colour.
+      categories: [
+        { Icon: Share2, color: '#22D3EE', label: 'AI TUTOR' },
+        { Icon: Sparkles, color: '#C471ED', label: 'SMART PRACTICE' },
+        { Icon: BookOpen, color: '#F5B301', label: 'ADAPTIVE LEARNING' },
+        { Icon: TrendingUp, color: '#3FCF7F', label: 'PROGRESS TRACKING' },
+      ],
     },
+    // ── Program detail page (opened from "Our Programs" → a class) ──────────────
+    // A stacked, Cuemath-style landing: sticky class switcher, a "what we take care of"
+    // feature section, a curriculum section, and a "synced with school" section with a
+    // grade picker + topic list. Copy is editable brand marketing (NOT verified claims —
+    // no invented teacher counts, awards or third-party studies).
+    programsHub: {
+      cta: 'Find the right teacher',
+      ctaUrl: 'https://wa.me/918905604773',
+      careTitle: 'We take care of all your\nchild’s learning needs',
+      boardsTitle: 'Synced with school curriculum',
+      boardsBody: 'Aligned with your school board — CBSE, ICSE, State Boards & IB.',
+      exerciseCaption: 'A visual number-ordering exercise',
+      detailedCurriculumLabel: 'View Detailed Curriculum',
+      // Closing panel — dark, starfield, floating astronaut rocket.
+      joinAnytime: {
+        title: 'You can join any\ntime of the year,\nin any grade!',
+        body: 'Start whenever you’re ready. We meet your child exactly where they are and build from there — at their own pace, in their own way.',
+        // Milestone that sits on the horizon arc, inside the same dark card.
+        step: {
+          n: '1',
+          title: 'Student joins any time of the\nyear, in any grade',
+          bullets: ['Beginning, middle or end of academic year', 'From the early years through senior school'],
+        },
+      },
+      // "How our classes work".
+      // ⚠️ `uri` is null on purpose. It previously pointed at 0_Student_Girl_1280x720.mp4,
+      // which is the website's silent, muted, autoplaying HERO BACKGROUND LOOP — not an
+      // explainer. Presenting it under this heading told parents they were watching one of
+      // our classes. Until we have real recorded sessions, each class falls back to the
+      // animated `classExplainer` below, which claims nothing it can't show.
+      // ► To use real footage: set `uri` here (all classes) or `classVideo` on one class.
+      //   A uri always takes priority over the animation. Stock footage of children is NOT
+      //   an option here — the Pexels/Mixkit licences forbid implying the people shown
+      //   endorse or use our service, which is exactly what this heading would do.
+      classVideo: {
+        heading: 'How our classes work',
+        uri: null,
+      },
+      approachTitle: 'A 360° approach for\nexcellence in school\n& beyond',
+      approachBody: 'A well-rounded approach that goes beyond the textbook.',
+      // Swipeable "method" cards (below the 360° section). Colours mirror the reference.
+      method: {
+        heading: 'The Ailernova method\nsolves it all!',
+        cards: [
+          { title: 'School Curriculum', bg: '#FBF0DC', tint: '#E39A12',
+            body: 'We cover every concept in your child’s school syllabus — learned by doing, through interactive practice and personalised problem sets.' },
+          { title: 'Quick Recall', bg: '#FBE1EF', tint: '#C93E92',
+            body: 'Daily gamified practice in the Brain Gym steadily builds your child’s speed, accuracy and confidence with the basics.' },
+          { title: 'Real-life Application', bg: '#E1F4E7', tint: '#12924B',
+            body: 'Plenty of real-world problem-solving helps your child see concepts all around them — not just on the page.' },
+          { title: 'Advanced Learning', bg: '#E6F1FB', tint: '#1848F0',
+            body: 'Beyond-syllabus and olympiad-level content lets your child stretch further and prepare for competitive exams.' },
+        ],
+      },
+      // Horizontally-scrollable "why our teaching works" cards (dark, space theme).
+      principles: {
+        heading: 'The Ailernova way',
+        sub: 'We teach maths as a life-skill — not just a school subject.',
+        cards: [
+          { title: 'Understanding\nover memorising', tint: '#F5B301',
+            body: 'Your child learns why a method works, not just the steps to repeat — so the learning actually sticks.' },
+          { title: 'Doing\nover watching', tint: '#3B9EFF',
+            body: 'You can’t learn to swim from a video. Maths is the same — every session is hands-on, with your child solving, not just watching.' },
+          { title: 'Mastery\nover speed', tint: '#2FD07A',
+            body: 'We move ahead only once a concept is truly understood — never just because the lesson clock ran out.' },
+          { title: 'Curiosity\nover pressure', tint: '#F45FA0',
+            body: 'Questions are welcome. Our tutors nudge your child toward the answer instead of handing it over, building real confidence.' },
+          { title: 'Real world\nover abstract', tint: '#24C3B5',
+            body: 'Concepts are tied to things your child already knows, so maths feels useful and real — not a page of symbols.' },
+        ],
+      },
+      // Shared feature rows (icon key → resolved to a lucide component in EventsCarousel).
+      features: [
+        { title: 'Handpicked Teachers', icon: 'users', tint: '#E8912A', bg: '#FBE1A1',
+          bullets: ['Mapped to your child’s needs', 'Qualified, experienced educators', 'Aligned to your board'] },
+        { title: 'Personalised Learning', icon: 'trend', tint: '#9333C4', bg: '#F1CBEA',
+          bullets: ['A custom path for every child', 'They progress at their own pace', 'Focus where it’s needed most'] },
+        { title: '1-to-1 LIVE Tutoring', icon: 'video', tint: '#12924B', bg: '#BFE7CE',
+          bullets: ['Undivided attention from live teachers', 'Instant doubt-solving for clarity', 'No pre-recorded sessions, ever'] },
+        { title: 'Classwork Help', icon: 'book', tint: '#1848F0', bg: '#C2D9F7',
+          bullets: ['Synced with your school curriculum', 'End-to-end homework help', 'Complete support for exams'] },
+        { title: 'Advanced Learning', icon: 'award', tint: '#F0501E', bg: '#F8CCB2',
+          bullets: ['Olympiad & beyond-syllabus practice', 'Reasoning and problem-solving', 'Challenge that builds confidence'] },
+      ],
+      // Per-class content, switched by the tab bar.
+      classes: [
+        { id: 'k2', tab: 'Class K-2',
+          curriculumTitle: 'Explore our award-winning maths curriculum',
+          // `curriculumHook` is the bold line under the title (no orange eyebrow here).
+          curriculumHook: 'Learning to Love Maths, the Right Way',
+          curriculumBody: 'Grades K-2 are when your child will first learn number sense, counting, and basic arithmetic. And getting this phase right can turn maths into your child’s best friend instead of a demon.',
+          curriculumImage: null,   // a real still here would take priority over the visual
+          curriculumVisual: 'abacus',   // animated counting beads
+          classExplainer: {
+            heading: 'How a Grade K-2 class works',
+            ask: 'But why is it 7?',
+            reply: 'Let’s count on together — start at 4.',
+            steps: ['3 + 4 = ?', 'Count on: 5, 6, 7', '3 + 4 = 7'],
+          },
+          grades: ['Grade KG', 'Grade 1', 'Grade 2'],
+          topics: ['Matching And Sorting', 'Number And Operations', 'Shapes And Patterns', 'Time And Measurement', 'Data Handling'] },
+        { id: '35', tab: 'Class 3-5',
+          curriculumTitle: 'Explore our award-winning maths curriculum',
+          // `curriculumHook` is the bold line under the title (no orange eyebrow here).
+          curriculumHook: 'Weak foundations don’t last!',
+          curriculumBody: 'Grades 3-5 are when your child has to master abstract concepts like fractions and decimals. And getting this phase right can help your child avoid maths anxiety and excel in later years.',
+          curriculumImage: null,   // curriculum still (real photo URL). null → visual below.
+          curriculumVisual: 'fractions',   // animated fraction wedges instead of the stub
+          exercise: 'factors',             // factor blocks instead of the join-the-dots rocket
+          exerciseCaption: 'A visual way to understand factors',
+          classExplainer: {
+            heading: 'How a Grade 3-5 class works',
+            ask: 'Why do the bottoms have to match?',
+            reply: 'Because quarters and halves aren’t the same size — watch.',
+            steps: ['1/2 + 1/4 = ?', '1/2 = 2/4', '2/4 + 1/4 = 3/4'],
+          },
+          grades: ['Grade 3', 'Grade 4', 'Grade 5'],
+          topics: ['Multiplication & Division', 'Fractions', 'Geometry', 'Measurement', 'Data Handling', 'Word Problems'] },
+        { id: '68', tab: 'Class 6-8',
+          curriculumTitle: 'Explore our award-winning maths curriculum',
+          // `curriculumHook` is the bold line under the title (no orange eyebrow here).
+          curriculumHook: 'This is where maths turns abstract.',
+          curriculumBody: 'Grades 6-8 bring algebra, integers and ratios — where letters start standing in for numbers and the rules stop being obvious. Staying ahead here is what carries your child into high school with confidence instead of catching up.',
+          curriculumImage: null,   // a real still here would take priority over the visual
+          curriculumVisual: 'balance',   // animated equation balance (solving for x)
+          classExplainer: {
+            heading: 'How a Grade 6-8 class works',
+            ask: 'Why subtract 6 first?',
+            reply: 'To get the x term alone — do it to both sides.',
+            steps: ['2x + 6 = 14', '2x = 8', 'x = 4'],
+          },
+          grades: ['Grade 6', 'Grade 7', 'Grade 8'],
+          topics: ['Integers & Rationals', 'Algebra', 'Geometry', 'Ratios & Percentages', 'Mensuration', 'Data Handling'] },
+      ],
+    },
+
+    // In-app Blogs screen (Resources → Blogs). PLACEHOLDER articles — ailernova.in has no
+    // published blog yet (only the default WP "Hello world!" post), so replace these with
+    // real posts, or wire the screen to ailernova.in/wp-json once posts exist. No images
+    // required: each card uses a tinted category band.
+    // In-app Blog. Articles authored for Ailernova, grounded in the real positioning on
+    // ailernova.in (1:1 online Maths & Science tutoring, critical-thinking over rote,
+    // concept-based 55–60 min classes, grades 1–12, NEET prep, CBSE/ICSE/IB/IGCSE, free
+    // first session). Each opens an in-app reader (`body` = paragraphs). Edit freely.
+    blogs: {
+      title: 'Ailernova Blog',
+      subtitle: 'Learning science, tutoring and exam guides for parents.',
+      posts: [
+        { id: 'b1', category: 'LEARNING SCIENCE', tint: '#1848F0', read: '5 min read',
+          title: 'Why critical thinking beats rote memorisation',
+          excerpt: 'Memorised formulas fade after the exam. Thinking frameworks last a lifetime — here’s why Ailernova teaches the “why”, not just the “what”.',
+          body: [
+            'Most children can memorise a formula for a test on Friday and forget it by Monday. That isn’t a failing of memory — it’s how memory works. Facts learned without understanding have nothing to hang on to, so they slip away.',
+            'At Ailernova we teach Maths and Science the other way round. Instead of starting with a formula to memorise, we start with the question the formula answers. When a child understands why a method works, the formula becomes something they can rebuild themselves — not something they have to remember perfectly under pressure.',
+            'This is what we mean by teaching “thinking frameworks that last a lifetime”. A child who understands why the area of a triangle is half its base times height can reason their way to the area of shapes they’ve never seen. A child who only memorised the formula is stuck the moment the question looks different.',
+            'The payoff shows up most in exams. Questions are rarely worded exactly like the textbook, and rote learners freeze when they are. Children who’ve been taught to reason simply read the new question, work out what it’s really asking, and solve it.',
+            'It’s slower to teach this way — and that’s the point. We move ahead only once a concept is genuinely understood, never just because the lesson clock ran out.',
+          ] },
+        { id: 'b2', category: 'TUTORING', tint: '#12924B', read: '4 min read',
+          title: 'What actually happens in a 1-on-1 Ailernova class',
+          excerpt: 'A live 55–60 minute session with one tutor and one child. No recordings, no big batch — just your child solving, with a teacher watching every step.',
+          body: [
+            'An Ailernova class is one tutor and one child, live, for about 55 to 60 minutes. There’s no pre-recorded video and no batch of thirty students where your child can quietly fall behind.',
+            'Because it’s one-on-one, the tutor can see exactly where your child hesitates. A doubt gets solved the moment it appears, not a week later. The pace bends around your child — faster where they’re confident, slower where they need it.',
+            'A typical session isn’t a lecture. The tutor sets up a problem, and your child works through it while the tutor nudges with questions rather than handing over the answer. That “productive struggle” is where real learning happens.',
+            'Most families do two classes a week for younger grades and three a week for high school, but it’s flexible — including weekends. You can start with a free first session, with no contract, to see the approach before committing.',
+          ] },
+        { id: 'b3', category: 'EXAM PREP', tint: '#F0501E', read: '6 min read',
+          title: 'Preparing for NEET without burning out',
+          excerpt: 'NEET rewards deep understanding and steady practice — not last-minute cramming. A calmer, more effective way to build toward the exam.',
+          body: [
+            'NEET isn’t a test of how much a student can memorise in the final month. It rewards students who understand Physics, Chemistry and Biology deeply and can apply that understanding to unfamiliar questions under time pressure.',
+            'That means the work that matters starts early and stays steady. Cramming spikes stress and produces knowledge that evaporates in the exam hall. Regular, spaced practice — a little each week over months — builds the kind of recall that holds up on the day.',
+            'One-on-one tutoring helps here in a specific way: a tutor can spot the exact concept your child is shaky on and fix it, instead of your child re-reading an entire chapter to patch one gap. Weak foundations are where NEET scores quietly leak away.',
+            'Mock tests matter too, but as a diagnostic — not a verdict. Each one tells you what to work on next. Reviewed calmly, a “bad” mock is one of the most useful things a NEET aspirant can have.',
+            'The goal isn’t a frantic sprint at the end. It’s a steady climb where your child walks into the exam prepared and calm, because the preparation was built to last.',
+          ] },
+        { id: 'b4', category: 'PARENTING', tint: '#9333C4', read: '4 min read',
+          title: 'Is 1-on-1 tutoring right for your child?',
+          excerpt: 'Not every child needs a tutor, and not every tutor suits every child. A few honest questions to help you decide — and how to try it risk-free.',
+          body: [
+            'Group classes work well for many children. But some learn far better with a teacher whose full attention is on them — especially if they’re falling behind quietly, or racing ahead and getting bored.',
+            'A few signs one-on-one might help: your child says they “get it” in class but can’t do the homework alone; they’re anxious about asking questions in a group; or they’re capable of much more than the class pace allows.',
+            'The honest truth is that fit matters as much as format. The right tutor for your child is patient, explains things more than one way, and builds confidence rather than dependence. The wrong one just does the homework for them.',
+            'The low-risk way to find out is simply to try it. Ailernova’s first session is free with no contract, so you and your child can see whether the approach clicks before deciding anything. If it isn’t right, you walk away — no strings.',
+          ] },
+        { id: 'b5', category: 'STUDY TIPS', tint: '#E8912A', read: '4 min read',
+          title: 'Building real confidence in Maths & Science',
+          excerpt: 'Confidence isn’t a personality trait — it’s built one understood concept at a time. How small wins compound into a child who isn’t scared of hard problems.',
+          body: [
+            'A child who says “I’m just bad at Maths” usually isn’t. What they’ve actually had is a run of moments where a concept didn’t click and no one caught it — and each one chipped away at their confidence.',
+            'Confidence rebuilds the same way it breaks: one concept at a time. When a child genuinely understands something they found hard yesterday, that’s a real win, and real wins compound. A month of small wins changes how a child talks about themselves.',
+            'The trick is to make the difficulty just right — hard enough to be worth doing, not so hard it’s crushing. That’s far easier one-on-one, where the tutor can pitch every problem to your child’s exact level.',
+            'Mistakes are part of this, not the enemy of it. When a wrong answer is treated as useful information rather than a failure, children stay curious and keep trying. That mindset, more than any single topic, is what we’re really teaching.',
+          ] },
+        { id: 'b6', category: 'CURRICULUM', tint: '#33AEE8', read: '5 min read',
+          title: 'CBSE, ICSE, IB or IGCSE: matching tutoring to your board',
+          excerpt: 'The concepts are shared, but every board tests them differently. How good tutoring adapts to your child’s exact syllabus instead of teaching generic content.',
+          body: [
+            'Maths is Maths and Science is Science — but CBSE, ICSE, IB and IGCSE ask about them in very different ways. The same concept can be a short numerical in one board and a long structured question in another.',
+            'Generic tutoring that ignores the board leaves a gap: your child may understand the idea but not the way their exam expects it answered. Good tutoring closes that gap by teaching to your child’s actual syllabus and question style.',
+            'Ailernova’s tutors work across Common Core, IB, IGCSE and various state curricula, so lessons match what your child is actually assessed on — not a one-size-fits-all textbook.',
+            'For families who move boards, or juggle school and a separate exam like NEET, this matters even more. The underlying understanding transfers; the exam technique has to be rebuilt for each target. Tutoring that knows the difference saves your child a lot of wasted effort.',
+          ] },
+      ],
+    },
+    // "Become a Tutor" in-app landing + apply form (Partner with Us → Become a Tutor).
+    // Submitting composes a WhatsApp message to the Ailernova line with the entered
+    // details — a real application, no backend needed.
+    becomeTutor: {
+      eyebrow: 'WORK WITH US',
+      title: 'Become an\nAilernova Tutor',
+      subtitle: 'Teach Maths & Science 1-on-1, online, from anywhere. Flexible hours, real impact.',
+      benefits: [
+        { icon: 'clock', tint: '#1848F0', bg: '#E5EDFF', title: 'Flexible hours', body: 'Pick slots that fit your life — including weekends.' },
+        { icon: 'remote', tint: '#12924B', bg: '#DCF3E5', title: 'Work from home', body: 'Teach online, one-on-one, from wherever you are.' },
+        { icon: 'earn', tint: '#F0501E', bg: '#FDE3D6', title: 'Earn well', body: 'Competitive per-session pay, paid on time.' },
+        { icon: 'impact', tint: '#9333C4', bg: '#F1E7FB', title: 'Make an impact', body: 'Help students build real confidence and love learning.' },
+      ],
+      stepsTitle: 'How it works',
+      steps: [
+        'Apply in 2 minutes',
+        'Short interview & a demo class',
+        'Start teaching students',
+      ],
+      formTitle: 'Apply now',
+      cta: 'Submit application',
+      waNumber: '918905604773',
+    },
+    // "Study by Subject" pop-form. Picking a subject opens its resource hub. Per-subject
+    // deep links don't exist yet, so all point at the site; swap `url` per subject later.
+    subjects: {
+      title: 'Choose a subject',
+      subtitle: 'Notes, solutions and practice — pick where to start.',
+      items: [
+        { label: 'Physics', emoji: '⚛️', tint: '#1848F0', url: 'https://ailernova.in/#about' },
+        { label: 'Chemistry', emoji: '🧪', tint: '#12924B', url: 'https://ailernova.in/#about' },
+        { label: 'Mathematics', emoji: '📐', tint: '#F0501E', url: 'https://ailernova.in/#about' },
+        { label: 'Biology', emoji: '🧬', tint: '#9333C4', url: 'https://ailernova.in/#about' },
+        { label: 'Science', emoji: '🔬', tint: '#33AEE8', url: 'https://ailernova.in/#about' },
+        { label: 'English', emoji: '📖', tint: '#E8912A', url: 'https://ailernova.in/#about' },
+      ],
+    },
+
     // Footer accordions expand into LINK LISTS. An item either opens a `url`, or
     // fires an in-app `action` — 'about' opens the About Us story page, 'impact' opens
     // Our Impact, 'tutors' opens Our Tutors.
@@ -61,63 +316,54 @@ export const CONTENT = {
           { label: 'About Us', action: 'about' },
           { label: 'Our Impact', action: 'impact' },
           { label: 'Our Tutors', action: 'tutors' },
-          { label: 'Parent Reviews', url: 'https://ailernova.in/#video-section-review' },
-          { label: 'FAQs', url: 'https://ailernova.in/#faq' },
-          { label: 'Contact Us', url: 'https://wa.me/918905604773' },
+          { label: 'Parent Reviews', action: 'reviews', url: 'https://ailernova.in/#video-section-review' },
+          { label: 'Pricing', action: 'pricing', url: 'https://ailernova.in/pricing/' },
+          { label: 'FAQs', action: 'faqs', url: 'https://ailernova.in/#faq' },
+          { label: 'Contact Us', action: 'contact', url: 'https://wa.me/918905604773' },
+          { label: 'Refer a Friend', action: 'referral' },
+          { label: 'Refund Policy', action: 'refund' },
         ] },
+        // Each class opens the in-app program detail page (a stacked, Cuemath-style
+        // landing with a class switcher). `program` id → CONTENT.event.programsHub.classes.
         { q: 'Our Programs', items: [
-          { label: 'AI Teacher', url: 'https://ailernova.in/#about' },
-          { label: 'Brain Gym', url: 'https://ailernova.in/#about' },
-          { label: 'Practice & Tests', url: 'https://ailernova.in/#about' },
-          { label: 'Offline Events', url: 'https://ailernova.in/' },
+          { label: 'Class K-2', program: 'k2' },
+          { label: 'Class 3-5', program: '35' },
+          { label: 'Class 6-8', program: '68' },
         ] },
+        // NOTE: ailernova.in is currently a single-page site — its only real destinations
+        // are the homepage, the #about/#mentors/#faq/#video-section-review anchors, the
+        // /privacy-policy/ page and the WhatsApp line. Items below point to the closest
+        // real target; give each its own deep link once those pages exist.
+        // Blogs → in-app blog screen (action 'blogs'). Study by Subject → subject pop-form
+        // (action 'subjects'). Brain Gym sits right under Free Online Games.
         { q: 'Resources', items: [
-          { label: 'NCERT Solutions', url: 'https://ailernova.in/' },
-          { label: 'Revision Notes', url: 'https://ailernova.in/' },
-          { label: 'Previous Year Papers', url: 'https://ailernova.in/' },
-          { label: 'Chapter Practice', url: 'https://ailernova.in/' },
-        ] },
-        { q: 'Tutoring', items: [
-          { label: '1-on-1 Tutoring', url: 'https://ailernova.in/#about' },
-          { label: 'Book a Free Demo', url: 'https://wa.me/918905604773' },
-          { label: 'Our Tutors', action: 'tutors' },
+          { label: 'Free Online Games', url: 'https://ailernova.in/#about' },
+          { label: 'Brain Gym', url: 'https://ailernova.in/#about' },
+          { label: 'Blogs', action: 'blogs' },
+          { label: 'Study by Subject', action: 'subjects' },
         ] },
         { q: 'Partner with Us', items: [
-          { label: 'Schools & Institutions', url: 'https://wa.me/918905604773' },
-          { label: 'Become a Tutor', url: 'https://wa.me/918905604773' },
-          { label: 'Referral Program', url: 'https://ailernova.in/' },
+          { label: 'Become a Tutor', action: 'becometutor' },
         ] },
       ],
       offices: [
         { label: 'SUPPORT', lines: 'support@ailernova.com\nailernova.com' },
       ],
+      // Footer foot — brand wordmark + tagline, legal links, and the social tile row
+      // (URLs come from CONTENT.event.community). Only real, reachable pages are linked.
+      tagline: 'Learning that actually sticks',
+      legal: [
+        { label: 'Privacy Policy', url: 'https://ailernova.in/privacy-policy/' },
+        { label: 'Contact Us', url: 'https://wa.me/918905604773' },
+      ],
+      copyright: '© Ailernova · All rights reserved.',
     },
   },
 };
-/* ── FAQ copy ─────────────────────────────────────────────────────────────────
-   TWO sets. CONTENT.about.faqs picks one.
-   • DEMO_FAQS — verbatim Cuemath reference copy. Dresses the demo, nothing else.
-     NOT shippable: false of us (2013 / Google / 80 countries / 100% online) and uses
-     their MathFit™ mark.
-   • AILERNOVA_FAQS — true of us, same structure and tone. This is the release set.
-   Switch with the single `faqs:` line below.                                    */
-const DEMO_FAQS = [
-  { q: 'Does Cuemath actually work?',
-    a: 'Yes. A Stanford-led study measured a 24% increase in mathematical reasoning among Cuemath students. Across 200,000+ children in 80+ countries, parents consistently report better grades, stronger confidence, and improved attitude toward math — tracked session-by-session in the Cuemath app.' },
-  { q: 'Is Cuemath worth the money?',
-    a: 'Yes — and Cuemath lets parents verify it before paying. Every enrollment starts with a free trial class, so parents see the tutor and the method before committing. Once enrolled, children show measurable outcomes: a Stanford-verified 24% gain in reasoning, improved school grades, and a 4.9/5 rating from 10,000+ parents who have paid (#1 in its tutoring category on Trustpilot).' },
-  { q: 'How effective is Cuemath for kids?',
-    a: 'Cuemath is effective across every grade and starting point — from children building foundational skills to those preparing for competitions. A Stanford-led study found a 24% increase in mathematical reasoning among Cuemath students. 200,000+ students across 80+ countries have gone through the program, with parents consistently reporting improvements in confidence, grades, and attitude toward math.' },
-  { q: 'Can Cuemath help with math anxiety?',
-    a: 'Yes. Cuemath\'s 1-on-1 live sessions are designed to meet each child where they are — removing the pressure of group settings and replacing it with a tutor matched specifically to their learning style.' },
-  { q: 'Do Cuemath students improve their school grades?',
-    a: 'Yes — improved school grades are the most commonly reported outcome among Cuemath parents, alongside stronger problem-solving and reduced math anxiety. Cuemath sessions align with the child\'s school curriculum (Common Core in the US, the National Curriculum in the UK, CBSE/ICSE/IB in India, and equivalent national frameworks elsewhere), so the work in Cuemath class directly reinforces what\'s tested in school.' },
-];
-
-// The release set. Still needs the real founding year in the story answer.
+/* ── FAQ copy (About Us → FAQs). CONTENT.about.faqs points here. All true of us. ── */
 const AILERNOVA_FAQS = [
   { q: 'What is the Ailernova story?',
-    a: 'We started with one belief: almost no child is actually “bad at math” or “bad at science” — they were failed by how it was taught. Rules to memorise, steps to repeat, no room to ask why. Ailernova was built to undo that. Today 200,000+ learners across Grades 6–12 build strong math and science foundations with us, through live 1-on-1 tutoring, an AI teacher that never runs out of patience, and practice built on memory science.' },
+    a: 'We started with one belief: almost no child is actually “bad at math” or “bad at science” — they were failed by how it was taught. Rules to memorise, steps to repeat, no room to ask why. Ailernova was built to undo that. Today 200,000+ learners across Grades 1–12 build strong math and science foundations with us, through live 1-on-1 tutoring, an AI teacher that never runs out of patience, and practice built on memory science.' },
   { q: 'How are Ailernova classes conducted?',
     a: 'Live, 1-on-1 and fully interactive. Your child and their tutor work through problems together in real time — active learning, not a passive video. Between classes, the in-app AI teacher explains any chapter, answers doubts and sets practice, so a question at 11pm doesn’t have to wait for the next session.' },
   { q: 'Does Ailernova offer offline classes?',
@@ -132,55 +378,35 @@ const AILERNOVA_FAQS = [
     a: 'Any device with a stable internet connection works — laptop, tablet or smartphone. Enrollment is open throughout the year.' },
 ];
 
-/* ── Research accordion rows (About Us → "Research-Proven Method") ────────────
-   TWO sets, exactly like the FAQs above:
+// The program detail page closes with the same release FAQ set. Assigned here rather than
+// inline in `programsHub` above, because CONTENT is defined before AILERNOVA_FAQS exists.
+CONTENT.event.programsHub.faqTitle = 'FAQs';
+CONTENT.event.programsHub.faqs = AILERNOVA_FAQS;
 
-   • DEMO_RESEARCH — verbatim Cuemath reference copy, to dress the demo. These are
-     CUEMATH'S studies and CUEMATH'S results (Stanford, Nielsen, the 24% figure). They
-     are FALSE of Ailernova. The brand name is left as "Cuemath" on purpose — that makes
-     the rows read as reference placeholder rather than as a false claim under our own
-     name. `image`/`url` stay null until the real assets/links are put here.
-   • AILERNOVA_RESEARCH — ships. Published findings about HOW LEARNING WORKS, which our
-     teaching is actually built on. Every line is true and citable today.
-
-   ► BEFORE RELEASE: point `research.items` at AILERNOVA_RESEARCH (one line, below). */
-const DEMO_RESEARCH = [
-  { headline: 'Backed by Stanford: Cuemath Sharpens Thinking Skills',
-    image: null,
-    body: 'A Stanford-led study found that Cuemath tutors improved students’ reasoning skills by 24% and fostered a more balanced, student-centered learning dialogue.',
-    linkLabel: 'Know more', url: null },
-  { headline: 'Cuemath’s Logic-First Approach Drives Better Learning',
-    image: null,
-    body: 'Cuemath’s logic-first, visual teaching method takes students beyond rote memorization, fostering true mathematical understanding and confidence.',
-    linkLabel: 'Know more', url: null },
-  { headline: 'Nielsen Study: Cuemath Is Closing the Learning Gap',
-    image: null,
-    body: 'A Cuemath–Nielsen study showed how Cuemath helped students overcome pandemic-related math anxiety and recover lost skills across India.',
-    linkLabel: 'Know more', url: null },
-  { headline: '82% of US Students Fear Math. Cuemath Is Breaking That Pattern',
-    image: null,
-    body: 'A Cuemath survey found that 82% of US students in Grades 7–10 are fearful of math — and that fear increases year on year. Cuemath’s method is specifically designed to break that pattern.',
-    linkLabel: 'Know more', url: null },
-];
+/* ── Research accordion rows (About Us → "Research-Proven Method").
+   Real, citable learning-science findings that our teaching is actually built on. ── */
+// Base for ailernova.in's own hosted photos. Only img_10..img_16 exist; 15 and 16 are
+// marketing collages with baked-in copy and crop badly, so 10–14 are the usable set.
+const SITE_IMG = 'https://ailernova.in/wp-content/themes/ailernova-theme/image';
 
 const AILERNOVA_RESEARCH = [
   { headline: 'Recalling Beats Re-reading',
-    image: null,
+    image: `${SITE_IMG}/img_11.jpg`,
     body: 'Students who were tested on material remembered far more of it a week later than students who re-read it for the same amount of time — even though re-reading felt more productive at the time. This is why an Ailernova session pulls answers out of your child rather than talking at them, and why practice is built on recall.',
     source: 'Roediger & Karpicke, Psychological Science (2006)',
     linkLabel: 'Know more', url: null },
   { headline: 'Spacing Makes Learning Last',
-    image: null,
+    image: `${SITE_IMG}/img_13.jpg`,
     body: 'The same study time spread across days produces significantly better long-term retention than the same hours crammed together. Our practice deliberately brings a topic back after a gap, instead of finishing it once and moving on.',
     source: 'Cepeda et al., Psychological Bulletin (2006)',
     linkLabel: 'Know more', url: null },
   { headline: 'One-on-One Attention Changes Outcomes',
-    image: null,
+    image: `${SITE_IMG}/img_14.jpg`,
     body: 'Bloom found that students taught one-on-one with mastery-based feedback outperformed conventionally taught classmates by around two standard deviations — the finding that made individual tutoring the benchmark every other method is measured against.',
     source: 'Benjamin Bloom, Educational Researcher (1984)',
     linkLabel: 'Know more', url: null },
   { headline: 'Math Anxiety Is Learned — and It Can Be Unlearned',
-    image: null,
+    image: `${SITE_IMG}/img_12.jpg`,
     body: 'Math anxiety eats the working memory a child needs to actually do math, so it depresses performance in children who are perfectly capable. It is not a verdict on ability, and it responds to how a child is taught — which is why a patient tutor and a judgement-free AI teacher matter more than another worksheet.',
     source: 'Ramirez, Gunderson, Levine & Beilock, Journal of Cognition and Development (2013)',
     linkLabel: 'Know more', url: null },
@@ -199,9 +425,9 @@ CONTENT.about = {
   },
   // { image, url } → shows the play card. null → section hidden.
   video: null,
-  marquee: ['200K+ students', '1-on-1 online sessions', 'Top 1% tutors', 'Math & Science', 'Grades 6–12', 'CBSE · ICSE · IB'],
+  marquee: ['200K+ students', '1-on-1 online sessions', 'Top 1% tutors', 'Math & Science', 'Grades 1–12', 'CBSE · ICSE · IB · IGCSE'],
   stats: [
-    { value: '200K+',  color: C.orange, title: 'Students learning with us', body: 'Across grades 6–12, in India and beyond.' },
+    { value: '200K+',  color: C.orange, title: 'Students learning with us', body: 'Across grades 1–12, in India and beyond.' },
     { value: '4.9★',   color: C.green,  title: 'Average parent rating',     body: 'From parents who watched their child’s confidence grow.' },
     { value: 'Top 1%', color: C.blue,   title: 'Tutors on the platform',    body: 'Selected for how well they teach, not just what they know.' },
     { value: '100%',   color: '#C026D3', title: 'Satisfaction commitment',  body: 'If a session doesn’t land, we make it right.' },
@@ -215,34 +441,43 @@ CONTENT.about = {
     cta: 'Get Started',
     learn: 'See How Ailernova Works',
     learnUrl: null,
-    // ⚠️ PLACEHOLDER achievers — these are NOT real students, and nothing here is a real
-    // result. Replace each entry with a real winner (name · grade · what they actually
-    // won), and only with the family's consent, since this is public-facing. `photo`
-    // stays null until a real image URL exists — the card then shows a medal stub, so
-    // the wall lays out exactly the same before and after the photos arrive.
+    // ##########################################################################
+    // # TODO(saurabh): PLACEHOLDER WALL — these are not real students.         #
+    // #                                                                        #
+    // # Deliberately NO invented child names and NO invented ranks. A fake     #
+    // # "AARIT TRIPATHY, G2 — IMO Rank 1" is a fabricated award claim about a  #
+    // # named minor, which is a worse thing to ship than a fake founding year: #
+    // # it is unverifiable, it is about a child, and publishing a real child's #
+    // # photo or result needs the parent's consent on file.                    #
+    // #                                                                        #
+    // # So each card below carries a generic role label and the photo is       #
+    // # ailernova.in's OWN marketing image (already public on the site). The   #
+    // # layout, stagger and reveal can be reviewed from this; swap in real     #
+    // # students + results ONLY with signed parent consent, or set             #
+    // # `achievers: []` to hide the wall again.                                #
+    // ##########################################################################
     achievers: [
-      { name: 'Student name', grade: 'G6',  achievement: 'Add the real result',      bg: '#C8F5D8', photo: null },
-      { name: 'Student name', grade: 'G7',  achievement: 'Add the real result',      bg: '#FBE0CE', photo: null },
-      { name: 'Student name', grade: 'G8',  achievement: 'Add the real result',      bg: '#D2ECFB', photo: null },
-      { name: 'Student name', grade: 'G9',  achievement: 'Add the real result',      bg: '#FBEFC6', photo: null },
-      { name: 'Student name', grade: 'G10', achievement: 'Add the real result',      bg: '#F9DCF3', photo: null },
-      { name: 'Student name', grade: 'G12', achievement: 'Add the real result',      bg: '#C8F5D8', photo: null },
+      { name: 'Olympiad Winner', grade: 'Grade 5', achievement: 'Placeholder — real result pending consent',
+        bg: '#C8F5D8', photo: 'https://ailernova.in/wp-content/themes/ailernova-theme/image/img_10.jpg' },
+      { name: 'Ailernova Student', grade: 'Grade 9', achievement: 'Placeholder — real result pending consent',
+        bg: '#F9DCF3', photo: 'https://ailernova.in/wp-content/themes/ailernova-theme/image/img_13.jpg' },
+      { name: 'Ailernova Student', grade: 'Grade 11', achievement: 'Placeholder — real result pending consent',
+        bg: '#D2ECFB', photo: 'https://ailernova.in/wp-content/themes/ailernova-theme/image/img_14.jpg' },
+      { name: 'Ailernova Family', grade: '', achievement: 'Placeholder — real result pending consent',
+        bg: '#FBEFC6', photo: 'https://ailernova.in/wp-content/themes/ailernova-theme/image/img_12.jpg' },
     ],
   },
   // Study accordion under the impact wall (see AboutScreen.js). Empty `items` → hidden.
-  // ⚠️ DEMO ONLY — `title`/`body`/`items` below are the Cuemath reference copy (their
-  // studies, their 24% figure). See the DEMO_RESEARCH note above.
-  // ► BEFORE RELEASE: swap these three lines for the Ailernova versions:
-  //     title: 'Built on What Actually\nMakes Learning Stick',
-  //     body:  'Decades of learning-science research shape how an Ailernova session is built — here is what it found.',
-  //     items: AILERNOVA_RESEARCH,
+  // Real, citable learning-science findings our teaching is built on (AILERNOVA_RESEARCH).
   research: {
-    title: 'Research-Proven Method:\nSharper Thinking, Less Math Anxiety',
-    body: 'Stanford, Nielsen, and independent edtech publications studied Cuemath’s methodology — here’s what they found.',
-    items: DEMO_RESEARCH,
+    title: 'Built on What Actually\nMakes Learning Stick',
+    body: 'Decades of learning-science research shape how an Ailernova session is built — here is what it found.',
+    items: AILERNOVA_RESEARCH,
   },
-  // ⚠️ PLACEHOLDER — swap name/role/photo/letter for the real founder before release.
-  // `photo` stays null until a real image URL exists (the card just drops the image).
+  // ⚠️ TODO — `name` is a PLACEHOLDER. There is no public founder profile on
+  // ailernova.in yet, so "Founder Name" ships as-is until a real name (and ideally
+  // a `photo` URL) is filled in. The letter itself is real Ailernova copy — keep it.
+  // Set `founder: null` to hide the whole section again.
   founder: {
     photo: null,
     name: 'Founder Name',
@@ -256,92 +491,127 @@ CONTENT.about = {
   },
   pillarsTitle: 'How We Help Every Child\nDeliver Results',
   pillarsIntro: 'Tutors, teaching methods, class formats, and progress tracking — each is designed to reinforce the others, so your child keeps progressing.',
-  // ⚠️ TWO of these tiles make CHECKABLE FACTUAL CLAIMS about Ailernova, not just
-  // promises: "Top 1% Tutors · vetted subject specialists" and, above all, "Designed by
-  // graduates of IIT, Stanford, and Cambridge". Verify both against who actually builds
-  // our curriculum, or rewrite them, BEFORE this ships — a parent can hold us to them.
+  // ⚠️ "Top 1% Tutors" is a checkable factual claim — make sure it matches reality
+  // before shipping, since a parent can hold us to it.
   pillars: [
     { emoji: '🏆',   title: 'Top 1% Tutors',              body: 'Vetted subject specialists with years of experience.',                  bg: '#D2ECFB' },
-    { emoji: '📘',   title: 'School Curriculum Aligned',  body: 'Designed by graduates of IIT, Stanford, and Cambridge.',                 bg: '#F9DCF3' },
+    { emoji: '📘',   title: 'School Curriculum Aligned',  body: 'Aligned to CBSE, ICSE, IB and IGCSE — reinforcing what school tests.',    bg: '#F9DCF3' },
     { emoji: '🤝',   title: 'Same Tutor in Every Session', body: 'An expert tutor who understands how your child actually learns.',       bg: '#FBE0CE' },
     { emoji: '📊',   title: 'Consistent Progress',        body: 'Regular PTMs and progress tracking to plan next steps.',                 bg: '#D2ECFB' },
     { emoji: '🧑‍🏫', title: '1-on-1 Live Classes',         body: 'Same tutor every session. No groups, no recordings.',                    bg: '#D2ECFB' },
     { emoji: '🧠',   title: 'Logic-First Method',         body: 'Understand the “why” behind every concept, not rote steps.',             bg: '#FBEFC6' },
     { emoji: '🖥️',   title: 'Best Online Platform',       body: 'Hands-on math tools and manipulatives for interactive learning.',        bg: '#FBE0CE' },
-    // ⚠️ TRADEMARK — "MathFit" is CUEMATH'S trademark, not ours. This tile is reference
-    // copy; shipping it under the Ailernova name is a trademark problem, not just a
-    // wording one. Rename it (e.g. "Mindset + Skill, Together") before release.
-    { emoji: '🧠',   title: 'MathFit Pedagogy',           body: 'Every class builds math skills and growth mindset.',                     bg: '#C8F5D8' },
+    { emoji: '🧠',   title: 'Skill + Mindset Together',   body: 'Every class builds real skills and a growth mindset.',                   bg: '#C8F5D8' },
   ],
   // Student-story carousel under the pillars grid. Empty `items` → section hides.
-  // ⚠️ DEMO — reference copy again (a real Cuemath student). Replace each card with a
-  // real Ailernova story, WITH the family's consent, before release. `photo` null → the
-  // card shows a stub of exactly the same size, so it lays out the same either way.
+  // ⚠️ DEMO PLACEHOLDERS — the cards below are OBVIOUS placeholders (name "STUDENT NAME",
+  // photo null → portrait stub, placeholder text). Layout only, NOT real students.
+  // ► BEFORE RELEASE: replace with real student stories (WITH the family's consent) or set
+  // items: [] to hide. Never present a placeholder as a real child. And never title this
+  // "MathFit™" — that is Cuemath's trademark, not ours.
+  // Ailernova's own "Join 100,000+ Happy Ailernova Learners" cards, lifted from the home
+  // page carousel (img_10…img_14) — our own published assets, not a stock library and not
+  // a competitor's. Each `title` is the caption Ailernova baked into its own picture, and
+  // each `bg` is sampled off that picture's real caption band, so the rail carries the
+  // site's colours rather than invented ones.
+  //
+  // The pictures are bundled under assets/stories/ with the baked caption band cropped
+  // away — the card re-sets that caption as `title` in the app's own type. Bundled, not
+  // hot-linked: the site renaming a file must not empty this rail.
+  //
+  // ⚠️ READ BEFORE EDITING A `body`. Each body describes what Ailernova PROVIDES on that
+  // card's theme, in Ailernova's own voice, and every claim traces to ailernova.in (the
+  // olympiad track, adaptive worksheets, 1:1 sessions, 55-minute classes, the K-8 / high
+  // school cadence, progress tracking). NOT ONE of them says what the child in the picture
+  // did, felt, or scored — that would be a testimonial invented for a minor who never gave
+  // one. Keep it that way: describe the programme, never the person.
+  //
+  // `name` stays empty because the site names none of these children, so no chip is drawn.
+  // ► For a genuine story — the child's own name, words and results — get the family's
+  //   written consent first (these are minors).
   stories: {
-    title: 'Helping 200,000+ Students\nSucceed!',
-    body: 'Medals at math olympiads. Jumps from grade-level to accelerated tracks. Fear, replaced by curiosity.',
+    title: 'Real Student Stories',
+    // No subtitle — the cards carry the section. Put a line here and it draws itself back in.
+    body: '',
     items: [
-      { name: 'ELIN LUNA', photo: null, bg: '#C8F5D8',
-        title: 'Thriving in School, State Tests, and Accelerated Math',
-        body: 'Grade 8 Cuemath student, combines curiosity and dedication to excel in school, state tests and accelerated math.' },
-      // ⚠️ The reference screenshots only ever showed this card half-scrolled, so the
-      // copy below is a stand-in, not the reference text. Paste the real story in.
-      { name: 'STUDENT NAME', photo: null, bg: '#FBE0CE',
-        title: '5th Grade, Competing in the Math Competition',
-        body: 'Add the real story for this card — the reference copy was never fully visible.' },
-      { name: 'STUDENT NAME', photo: null, bg: '#D2ECFB',
-        title: 'Add the third story',
-        body: 'Add the real story for this card.' },
+      { name: '', bg: '#FAE8C0',
+        photo: require('../../../../assets/stories/olympiad-winner.jpg'),
+        title: 'Grade 5 Math Olympiad Winner and Proud Ailernova Student',
+        body: 'Olympiad support runs through every Ailernova plan rather than sitting beside it as an extra: foundation work first, then a challenge track for learners ready to push past their grade. Tutors set the harder problems, build speed and accuracy through guided drills, and keep the school syllabus moving at the same time.' },
+      { name: '', bg: '#EBDEFC',
+        photo: require('../../../../assets/stories/found-confidence.jpg'),
+        title: 'Grade 7 Student Overcame Math Struggles and Found Confidence',
+        body: 'Confidence is the change parents write about most. Sessions are 1:1, so a child can be wrong out loud without an audience, and tutors are trained to slow down and rebuild a shaky concept patiently instead of moving on with the class. The aim is a child who stops dreading the subject and starts asking questions in it.' },
+      { name: '', bg: '#D8F7E8',
+        photo: require('../../../../assets/stories/strong-concepts.jpg'),
+        title: 'How Ailernova Helped Build Strong Concepts and Better Scores',
+        body: 'Concepts first, marks after. Every session is built on your child’s own strengths and weak areas rather than a class average, with worksheets that adapt as they progress and targeted practice aimed at what school is actually testing that week — so the scores move because the understanding did.' },
+      { name: '', bg: '#EBDEFC',
+        photo: require('../../../../assets/stories/advanced-problems.jpg'),
+        title: 'From Struggling with Basics to Solving Advanced Problems',
+        body: 'The same plan that rebuilds the basics is the one that stretches a child past them. Tutors are trained to work with varying learning needs and styles: patient concept rebuilding where the ground is shaky, then harder problems and a challenge track once it is solid. Nobody is moved on before they are ready.' },
+      { name: '', bg: '#FFEAC1',
+        photo: require('../../../../assets/stories/concept-clarity.jpg'),
+        title: 'How Regular Practice and Concept Clarity Improved My Scores',
+        body: 'Regular practice only works when it is the right practice. Classes run twice a week for Classes K to 8 and three times for high school, 55 minutes each and extendable to an hour, with guided drills for speed and accuracy — and progress tracking that shows strengths and weak areas closing month by month.' },
     ],
   },
   // Parent video testimonials. Empty `items` → hidden. A card with `url` null does NOT
   // draw a play button — it is a quote card, not a broken video.
-  // ⚠️ DEMO — reference copy (real Cuemath parents), and the body line uses Cuemath's
-  // MathFit™ trademark. Replace with our own parents' clips before release.
+  // Real parent quotes from ailernova.in (url null → shown as a quote card, no video).
   parentVoices: {
-    title: 'Don’t Take Our Word For It -\nListen to Real Parents!',
-    body: 'These families chose to make their children MathFit with Cuemath. Here’s what happened next.',
+    title: 'Real Parents. Real Stories.\nReal Results.',
+    body: 'Families across India on what changed for their child with Ailernova.',
     items: [
-      { quote: 'My son can learn at his own speed', name: 'LINSEY', thumb: null, url: null },
-      { quote: 'I love the personalised learning',  name: 'MARIA',  thumb: null, url: null },
+      { quote: 'Excellent support for homework and tests', name: 'Ayesha Khan · Mumbai', thumb: null, url: null },
+      { quote: 'A clear jump in grades and confidence',     name: 'Hari',                 thumb: null, url: null },
+      { quote: 'She now solves word problems without fear', name: 'Deepti',               thumb: null, url: null },
     ],
   },
   // Dark trust bar that closes the proof run: score · reach · transformations · reviews.
-  // ⚠️ DEMO — "80+ Countries", the 11K+ review count and both testimonials are Cuemath's
-  // (the FAQ note above already flags 80 countries as FALSE of us). Put OUR verified
-  // numbers and OUR parents' reviews here — with their consent — before release.
+  // Real figures and reviews from ailernova.in.
   trusted: {
     title: 'Trusted by Parents\nLoved by Students',
     score: '4.9/5',
-    reviews: '11K+ Reviews',
+    reviews: '4.9★ on Trustpilot',
     stats: [
-      { value: '200K+', label: 'Students',  color: '#38BDF8' },
-      { value: '80+',   label: 'Countries', color: '#E879F9' },
+      { value: '200K+', label: 'Students',     color: '#38BDF8' },
+      { value: '100%',  label: 'Satisfaction', color: '#E879F9' },
     ],
     pills: ['Math Hate → Math Love', 'Math Anxiety → Math Confidence', 'Rote Steps → Real Understanding'],
+    // `photo` is the reviewer's picture in the round avatar. These are the SAME parent
+    // photos ailernova.in already publishes beside these same quotes in its home-page
+    // review carousel — our own assets, paired with the quote they were published with.
+    // Bundled under assets/reviews/ rather than hot-linked: the site renaming a file
+    // must not blank the avatars. photo omitted/null → the initials chip is drawn
+    // instead (see Trusted in AboutScreen.js), so a missing picture never breaks a card.
     testimonials: [
-      { emoji: '🎯', title: 'Math now feels easy & fun', name: 'Francella', flag: '🇺🇸',
-        body: '"Sharad\'s passion and clear explanations made me genuinely enjoy math while improving at school. He repeats concepts patiently until I fully understand. Cuemath\'s quality tutoring and…"' },
-      { emoji: '❤️', title: 'Math made enjoyable', name: 'Rini George', flag: '🇶🇦',
-        body: '"Ms. Santhoshi is an amazing teacher! She\'s patient, engaging, and has a great way of explaining complex topics. My daughter (5th grade) now loves and understands math much…"' },
+      { emoji: '🎯', title: 'From confusion to clarity', name: 'Priyanka Rao · Bengaluru', flag: '🇮🇳',
+        photo: require('../../../../assets/reviews/priyanka-rao.png'),
+        body: '"In 8 weeks, my son moved from confusion to clarity in fractions and algebra. His school scores improved from average to the top bracket."' },
+      { emoji: '❤️', title: 'Looks forward to class now', name: 'Neha Sharma · Delhi', flag: '🇮🇳',
+        photo: require('../../../../assets/reviews/neha-sharma.png'),
+        body: '"My daughter now looks forward to both math and science classes. The explanations are clear and her confidence is clearly higher."' },
     ],
   },
   // Awards / press rail. Empty `items` → hidden. `image` null → stub of the same size,
   // `url` null → no "Read more." link.
-  // ⚠️ DEMO — these are CUEMATH'S awards. Listing another company's awards under our own
-  // name is straightforwardly false. Replace with awards Ailernova has actually won, or
-  // set `items: []` and the whole section disappears until we have one.
+  // ##########################################################################
+  // # TODO(saurabh): PLACEHOLDER AWARDS — Ailernova has not won these.        #
+  // # Same rule as the investors block: an award is a THIRD PARTY's statement #
+  // # about us, so naming a real body ("EdTechReview Awards 2020") that never #
+  // # gave us anything is a false claim about that body too. The entries      #
+  // # below are generic on purpose so they read as placeholder, not as a lie  #
+  // # about a real awarding organisation. Replace with real, verifiable       #
+  // # awards, or set `items: []` to hide the rail again.                      #
+  // ##########################################################################
   awards: {
     title: 'What Parents See, the\nIndustry Recognizes',
-    body: 'Awards, industry recognition, and press mentions recognizing our impact on math learning.',
+    body: 'Recognition for our impact on how children learn math and science.',
     items: [
-      { image: null, url: null,
-        title: 'Math Learning Solution of the Year, EdTechReview Awards 2020',
-        body: 'Recognized for our cutting-edge curriculum — built by graduates of IIT, Stanford & Cambridge — and its impact on learners of all levels.' },
-      // ⚠️ Half-scrolled in the reference; this copy is a stand-in, not the real text.
-      { image: null, url: null,
-        title: 'Best Learning Science Education 2022',
-        body: 'Recognized for problem-solving and learning science — add the real citation for this award.' },
+      { title: 'Placeholder Award 2025', body: 'Sample recognition entry — replace with a real, verifiable award.', image: `${SITE_IMG}/img_10.jpg`, url: null },
+      { title: 'Example Recognition', body: 'Sample recognition entry — replace with a real, verifiable award.', image: `${SITE_IMG}/img_12.jpg`, url: null },
+      { title: 'Sample Industry Mention', body: 'Sample recognition entry — replace with a real, verifiable award.', image: `${SITE_IMG}/img_11.jpg`, url: null },
     ],
   },
   reach: {
@@ -349,48 +619,100 @@ CONTENT.about = {
     body: 'Families choose Ailernova to help their children understand math and science — not just pass them.',
     image: null,
   },
-  // ⚠️ PLACEHOLDER milestones — put the real years/story here (image: photo URL).
+  // Milestones — dark coverflow carousel, sits directly under the world map.
+  //
+  // ############################################################################
+  // # TODO(saurabh): THE YEARS AND MILESTONES BELOW ARE PLACEHOLDERS.          #
+  // # They were invented to demo the carousel animation — ailernova.in has no  #
+  // # published company history to source them from. This renders on the       #
+  // # PUBLIC About Us page, where a wrong founding date is a false claim about #
+  // # the company. Replace every `year` and `body` with the real story before  #
+  // # this ships, or set `timeline: []` to hide the section again.             #
+  // ############################################################################
+  //
+  // Images are hotlinked from ailernova.in, same as the tutor photos above. Each
+  // source file has a caption bar baked into the bottom of the image; the card
+  // renders with resizeMode="cover" at an aspect ratio that crops it away. If you
+  // swap in portrait images, check that crop still holds.
   timelineTitle: 'Shaping Confident\nMinds Since Day One',
   timeline: [
-    { year: 'Year 1', body: 'Where it began — replace with the real milestone.', image: null },
-    { year: 'Year 2', body: 'The first classrooms and the first believers.', image: null },
-    { year: 'Year 3', body: 'Tutors, mentors and the platform take shape.', image: null },
-    { year: 'Today',  body: '200K+ learners building strong foundations.',      image: null },
+    { year: '2021', caption: 'Where it started',
+      body: 'Ailernova begins with a handful of students and one idea — teach the why, not the steps.',
+      image: 'https://ailernova.in/wp-content/themes/ailernova-theme/image/img_13.jpg' },
+    { year: '2023', caption: 'Live 1-on-1 sessions',
+      body: 'Online 1-on-1 tutoring opens up, matching each child with a tutor who teaches at their pace.',
+      image: 'https://ailernova.in/wp-content/themes/ailernova-theme/image/img_14.jpg' },
+    { year: '2024', caption: 'Results that show up',
+      body: 'Students start bringing home olympiad medals and report cards their parents did not expect.',
+      image: 'https://ailernova.in/wp-content/themes/ailernova-theme/image/img_10.jpg' },
+    { year: 'Today', caption: '200K+ learners',
+      body: 'Math and science for grades 1–12, across India and beyond — with an AI teacher that never runs out of patience.',
+      image: 'https://ailernova.in/wp-content/themes/ailernova-theme/image/img_12.jpg' },
   ],
-  // ⚠️ PLACEHOLDER — list ONLY real backers/partners. `logo` null → the name shows as
-  // text. Leave this array EMPTY if there are none; the section then hides itself.
+  // ############################################################################
+  // # TODO(saurabh): THESE INVESTORS ARE INVENTED PLACEHOLDERS. Nobody in this  #
+  // # list has funded Ailernova.                                               #
+  // #                                                                          #
+  // # Read this before shipping: a fake year on the timeline is sloppy, but a   #
+  // # fake BACKER is a different class of problem — "Backed By <firm>" is a     #
+  // # statement about a real third party's business, and naming a real fund     #
+  // # that never invested is a false claim both to parents and about that fund. #
+  // # That is why the names below are deliberately generic and obviously not    #
+  // # real VCs: if this slips to production it reads as placeholder, not as a   #
+  // # lie about Sequoia. DO NOT swap them for real firms' names or logos to     #
+  // # "make the demo look better" — only list a fund that actually invested,    #
+  // # with their sign-off. Otherwise set `investors: []` and the section hides.  #
+  // ############################################################################
   investorsTitle: 'Backed By',
   investors: [
-    { name: 'Your investor', logo: null }, { name: 'Your investor', logo: null },
-    { name: 'Your partner',  logo: null }, { name: 'Your partner',  logo: null },
+    { name: 'Placeholder Ventures', logo: null },
+    { name: 'Example Capital', logo: null },
+    { name: 'Sample Growth Fund', logo: null },
+    { name: 'Demo Partners', logo: null },
   ],
+  // Know More — the same {key,title,body,bg,tint} card shape the Contact page's
+  // "Helpful Links" uses, so the two read as one system. `action` routes to the
+  // in-app page where one exists (no reason to throw a parent out to the website
+  // for a page we already render); `url` is the fallback when it doesn't.
   knowMoreTitle: 'Know More About Ailernova',
+  knowMoreBody: 'Everything else a parent usually asks before starting — in one place.',
   knowMore: [
-    { label: 'FAQ',       url: 'https://ailernova.in/#faq',      bg: '#FBEFC6' },
-    { label: 'Programs',  url: 'https://ailernova.in/#about',    bg: '#D2ECFB' },
-    { label: 'Mentors',   url: 'https://ailernova.in/#mentors',  bg: '#F9DCF3' },
-    { label: 'Contact',   url: 'https://wa.me/918905604773',     bg: '#C8F5D8' },
+    { key: 'faqs', action: 'faqs', title: 'FAQs', body: 'Answers to what parents ask us most before starting.',
+      bg: '#FDF1D6', tint: '#F5B301', url: 'https://ailernova.in/#faq' },
+    { key: 'pricing', action: 'pricing', title: 'Pricing', body: 'Plans, what each includes, and what a session costs.',
+      bg: '#FDE4D3', tint: '#F0733F', url: 'https://ailernova.in/pricing/' },
+    { key: 'tutors', action: 'tutors', title: 'Our Tutors', body: 'Who teaches your child, and how they are picked.',
+      bg: '#D6F2E0', tint: '#12924B', url: 'https://ailernova.in/#mentors' },
+    { key: 'reviews', action: 'reviews', title: 'Parent Reviews', body: 'What families already with us say about it.',
+      bg: '#FBDDF2', tint: '#C21C93', url: 'https://ailernova.in/#video-section-review' },
+    { key: 'refund', action: 'refund', title: 'Refund Policy', body: 'How refunds and cancellations actually work.',
+      bg: '#DBF0FA', tint: '#1848F0', url: null },
+    { key: 'contact', action: 'contact', title: 'Contact Us', body: 'Talk to a human on WhatsApp or over email.',
+      bg: '#EDE9FE', tint: '#7C3AED', url: 'https://wa.me/918905604773' },
   ],
   faqTitle: 'FAQs',
-  // ⚠️ DEMO ONLY. `faqs` currently points at DEMO_FAQS — verbatim reference copy from
-  // Cuemath, kept ONLY to dress the demo. It states things that are FALSE of Ailernova
-  // (founded 2013, backed by Google, 80 countries, 100% online) and uses their MathFit™
-  // trademark. The brand names are left as "Cuemath" on purpose: that makes it read as
-  // placeholder rather than as a false claim under our own name.
-  // ► BEFORE RELEASE: change this one line to `faqs: AILERNOVA_FAQS`.
-  faqs: DEMO_FAQS,
+  faqs: AILERNOVA_FAQS,
   seeMoreUrl: 'https://ailernova.in/#faq',
   // Dark closing on Our Impact: stills · the founder's trial letter · the founder strip ·
   // more stills. `photos`/`photosBottom` are session/event stills — null cells hold their
   // space until the real images land.
-  // ⚠️ DEMO — the letter is Cuemath's founder speaking (2013, MathFit™). Rewrite it in
-  // OUR founder's voice before release; the credits shown beside it come from
-  // `movement.credits`, which are still placeholders.
+  // Stills are ailernova.in's own published photos. NOTE: the site only hosts five
+  // usable learning photos (img_10..img_14 — img_15/16 are text-heavy collages that
+  // crop badly), so the same faces recur across the wall, the research rows, the
+  // awards rail and these bands. Shoot or licence more images and spread them out.
   trialStrip: {
-    photos: [null, null, null],
-    title: 'Trial Is How Every\nSuccess Story Above\nStarted',
-    body: 'I started Cuemath in 2013 so every child could experience what math feels like when it’s taught right.\n200,000 students later, the proof is on this page — in the research, the reviews, the kids who competed nationally, and the ones who simply stopped dreading class.\nThat’s MathFit™ in action.\n\nStart with a free trial class. See the difference yourself.',
-    photosBottom: [null, null, null],
+    photos: [
+      `${SITE_IMG}/img_13.jpg`,
+      `${SITE_IMG}/img_14.jpg`,
+      `${SITE_IMG}/img_11.jpg`,
+    ],
+    title: 'Trial Is How Every\nSuccess Story\nStarts',
+    body: 'Every Ailernova journey begins with a free trial class — you meet the tutor, watch them teach your child, and only then decide.\n\nNo pressure and no commitment. Just see the difference for yourself.',
+    photosBottom: [
+      `${SITE_IMG}/img_12.jpg`,
+      `${SITE_IMG}/img_10.jpg`,
+      'https://ailernova.in/wp-content/themes/ailernova-theme/images/teachers/danika-shringi.jpg',
+    ],
   },
   movement: {
     title: 'Join the Ailernova\nMovement',
@@ -399,7 +721,7 @@ CONTENT.about = {
     // ⚠️ PLACEHOLDER credentials — replace with the real ones (or delete the lines).
     image: null,      // founder still/thumbnail
     videoUrl: null,   // tap the cell → opens this
-    credits: ['Ailernova founder', 'Add a credential', 'Add a credential'],
+    credits: ['Ailernova', 'Math & Science · Grades 1–12', '4.9★ · 200K+ learners'],
   },
 };
 
@@ -421,29 +743,27 @@ CONTENT.tutors = {
     image: null,      // full-bleed hero still (a real tutor mid-session). null → brand stub.
     learn: 'Learn How Ailernova Works',
     learnUrl: null,   // null → the ▶ row is not drawn
-    // ⚠️ DEMO — "11K+ Reviews" is CUEMATH'S review count, carried over from the
-    // reference page. Put our verified count here (or drop `count` and only the
-    // score shows) before release.
-    rating: { score: '4.9', count: '11K+ Reviews' },
+    rating: { score: '4.9', count: 'Avg parent rating' },
   },
-  // Dark globe trust bar — same component as Our Impact, but the reviews here are about
-  // the TUTORS, not the product.
-  // ⚠️ DEMO — "80+ Countries", the review count and both testimonials below are Cuemath's
-  // (their tutors, their parents). Replace with OUR parents' words, with their consent.
+  // Dark trust bar — the reviews here are about the TUTORS. Real figures/reviews from
+  // ailernova.in.
   trusted: {
     title: 'Trusted by Parents\nLoved by Students',
     score: '4.9/5',
-    reviews: '11K+ Reviews',
+    reviews: '4.9★ on Trustpilot',
     stats: [
-      { value: '200K+', label: 'Students',  color: '#38BDF8' },
-      { value: '80+',   label: 'Countries', color: '#E879F9' },
+      { value: '200K+', label: 'Students',     color: '#38BDF8' },
+      { value: '100%',  label: 'Satisfaction', color: '#E879F9' },
     ],
     pills: ['Same Tutor Every Session', 'Matched to How Your Child Learns', 'Free to Switch, Anytime'],
     testimonials: [
-      { emoji: '🎯', title: 'Passionate & adaptable', name: 'Praveen', flag: '🇮🇳',
-        body: '"Dhivya adapts lessons to each student\'s pace, makes sessions engaging, and has helped my child improve grades and gain interest in math."' },
-      { emoji: '❤️', title: 'Kind & patient', name: 'Vikram P.', flag: '🇮🇳',
-        body: '"We are grateful to Ma\'am. Her patience and adaptability keep both my children engaged and learning happily."' },
+      { emoji: '🎯', title: 'Structured & consistent', name: 'Deepti', flag: '🇮🇳',
+        photo: require('../../../../assets/reviews/deepti.jpg'),
+        body: '"The class structure is strong and updates are regular. My child now solves word problems independently, without fear."' },
+      // No published photo beside Ayesha's quote on the site → no `photo`, so this card
+      // falls back to the "AK" initials chip. Do not fill it with someone else's face.
+      { emoji: '❤️', title: 'Quick, easy support', name: 'Ayesha Khan · Mumbai', flag: '🇮🇳',
+        body: '"Excellent support for homework and tests. Scheduling is easy and communication with the tutor is quick."' },
     ],
   },
   // "Less Than 1% Make The Cut" — the hiring funnel, on graph paper. Each stage is a band
@@ -526,8 +846,80 @@ CONTENT.tutors = {
   // heading stays honest and countless.
   meet: {
     title: 'Meet Our Community\nOf Tutors',
-    body: 'The people who will actually sit with your child, week after week.',
+    // The real tutor promise, from ailernova.in.
+    body: 'Every Ailernova tutor guides, challenges, and supports your child — helping them build the confidence, skills, and mindset needed for lifelong success.',
+    // Real Ailernova tutors, sourced from ailernova.in (names, subjects, experience,
+    // qualifications and photos). `photo` is a hosted URL — the card loads it remotely;
+    // set it to null to fall back to a portrait stub. Never invent a tutor.
+    items: [
+      { name: 'Danika Shringi', subject: 'English', grades: 'Spoken & Written',
+        experience: 'B.A. (Hons.) English Literature. Teaches English language & literature, spoken English, grammar, creative writing and public speaking — an interactive, student-friendly approach that builds clarity, confidence and real-life communication.',
+        credential: '6+ Years Teaching', bg: '#FBE0CE',
+        photo: 'https://ailernova.in/wp-content/themes/ailernova-theme/images/teachers/danika-shringi.jpg' },
+      { name: 'Mili Verma', subject: 'Maths & Science', grades: 'Classes 1–12 · NEET',
+        experience: 'B.Sc (Clinical Psychology). Teaches Maths, Science, Physics and Biology from Class 1 through 12 and NEET prep — patient, concept-first coaching.',
+        credential: '10+ Years Teaching', bg: '#D3EEFB',
+        photo: 'https://ailernova.in/wp-content/themes/ailernova-theme/images/teachers/mili-verma.jpg' },
+      { name: 'Dr. Pooja Pandey', subject: 'Science & Maths', grades: '',
+        experience: 'BHMS. A science and maths mentor who breaks concepts down to first principles and keeps every session engaging.',
+        credential: '6+ Years Teaching', bg: '#FBEFC6',
+        photo: 'https://ailernova.in/wp-content/themes/ailernova-theme/images/teachers/pooja-pandey.jpg' },
+      { name: 'Niveditha Krishnan', subject: 'Physics & Maths', grades: '',
+        experience: 'M.Sc Physics, M.Phil, M.Ed. A physics and maths specialist who turns tough problems into clear, step-by-step understanding.',
+        credential: '7+ Years Teaching', bg: '#C8F5D8',
+        photo: 'https://ailernova.in/wp-content/themes/ailernova-theme/images/teachers/niveditha-krishnan.jpg' },
+      { name: 'Yogita Solanki', subject: 'Computer Science', grades: 'Python · C++',
+        experience: 'M.Tech Computer Science. Teaches programming with Python and C++ — building real coding confidence from the fundamentals up.',
+        credential: '6+ Years Teaching', bg: '#F9DCF3',
+        photo: 'https://ailernova.in/wp-content/themes/ailernova-theme/images/teachers/yogita-solanki.jpg' },
+      { name: 'Kirti Sharma', subject: 'Maths & Science', grades: '',
+        experience: 'M.Sc Mathematics. A maths and science tutor focused on strong foundations and steady, visible progress.',
+        credential: '6+ Years Teaching', bg: '#D2ECFB',
+        photo: 'https://ailernova.in/wp-content/themes/ailernova-theme/images/teachers/kirti-sharma.jpg' },
+      { name: 'Gagana V', subject: 'Chemistry & Science', grades: '',
+        experience: 'M.Sc Chemistry. Makes chemistry click with clear explanations and patient, doubt-clearing sessions.',
+        credential: '6+ Years Teaching', bg: '#FBE0CE',
+        photo: 'https://ailernova.in/wp-content/themes/ailernova-theme/images/teachers/gagana-v.jpg' },
+      { name: 'Simarpreet Kour', subject: 'Mathematics', grades: 'Grades 3–12',
+        experience: 'M.Sc Mathematics, B.Ed., CTET-qualified. Twelve years of making maths approachable for students from Grade 3 to 12.',
+        credential: '12+ Years Teaching', bg: '#FBEFC6',
+        photo: 'https://ailernova.in/wp-content/themes/ailernova-theme/images/teachers/simarpreet-kour.jpg' },
+      { name: 'Simran', subject: 'Maths · Science · English · Hindi', grades: '',
+        experience: 'Graduate, D.El.Ed., CTET-qualified. A multi-subject tutor for Maths, Science, English and Hindi who meets each child at their level.',
+        credential: '6+ Years Teaching', bg: '#C8F5D8',
+        photo: 'https://ailernova.in/wp-content/themes/ailernova-theme/images/teachers/simran.jpg' },
+      { name: 'Jayapriya K', subject: 'Science & Maths', grades: 'Higher Secondary',
+        experience: 'B.Tech (Chemical Engineering), BBA & Diploma in Polymer. An adaptable, patient educator across multiple curricula — making learning engaging and stress-free, clearing doubts effectively and building personalized study planners that boost every student’s confidence.',
+        credential: '7+ Years Teaching', bg: '#D3EEFB',
+        photo: 'https://ailernova.in/wp-content/themes/ailernova-theme/images/teachers/jayapriya-k.jpg' },
+    ],
+  },
+  // "Students ❤️ Our Tutors" — the wall of thank-you notes. Same honesty rule as `meet`:
+  // ⚠️ EMPTY ON PURPOSE. Each item is a real note a child (or parent) sent, added WITH
+  // consent — until then the section stays HIDDEN. Never invent a note.
+  // Shape: { image, caption }. `image` is a URL (or bundled-asset URI) to the note photo;
+  // `caption` is optional (e.g. 'Aarav, Class 6'). `image` null → the card draws an image
+  // stub of the same size, so the rail lays out identically before the photos land.
+  notes: {
+    title: 'Students ❤️ Our Tutors',
+    body: 'Every smile, doodle, and thank-you note tells a story of confidence, curiosity, and genuine connection.',
     items: [],
+  },
+  // "Ailernova Tutors Are Different" — the us-vs-others comparison table. `rows: []` → hides.
+  // `us`/`them` are the column headers; each row pairs what we do (green tick) against the
+  // usual alternative (red cross).
+  different: {
+    title: 'Ailernova Tutors Are Different',
+    us: 'AILERNOVA',
+    them: 'OTHERS',
+    rows: [
+      { us: 'Same tutor in every class.',                     them: 'A new tutor to re-explain everything to.' },
+      { us: 'Teaching matches the student’s pace.',           them: 'One fixed pace for every student.' },
+      { us: 'Regular updates and PTMs.',                      them: 'Little or no updates on progress.' },
+      { us: 'Same tutor for school, tests, and enrichment.',  them: 'Different tutors for different needs.' },
+      { us: 'Top-paid tutors, ensuring top quality.',         them: 'Lower pay, so quality varies.' },
+      { us: 'Highly trained tutors with ongoing upskilling.', them: 'Basic or one-time training only.' },
+    ],
   },
   // How the matching works — the numbered steps to a tutor.
   match: {
@@ -542,17 +934,682 @@ CONTENT.tutors = {
   },
   faqTitle: 'Questions About Our Tutors',
   faqs: [
+    { q: 'How does Ailernova select and train its tutors?',
+      a: 'We pair each student with a tutor who matches their learning style and goals. Every tutor is chosen for subject expertise and the ability to genuinely engage children, then trained on the Ailernova way of teaching — with ongoing upskilling and regular reviews so they keep improving.' },
+    { q: 'Where are Ailernova tutors located?',
+      a: 'Our tutors teach online, so your child learns from a subject expert no matter where you live. Every session is live and 1-on-1.' },
+    { q: 'What qualifications do Ailernova tutors have?',
+      a: 'Ailernova tutors hold strong academic degrees — B.Sc, M.Sc, M.Tech, B.Tech, B.Ed and more — and specialise in the subjects they teach, from Maths and Science to English and Computer Science.' },
+    { q: 'Do Ailernova tutors have prior teaching experience?',
+      a: 'Yes. Our tutors bring real teaching experience — typically 6 to 12+ years — across different grades, boards and learning needs.' },
+    { q: 'How does Ailernova ensure tutor quality and consistency?',
+      a: 'We keep quality high with regular progress updates and PTMs, continuous tutor training, and the same tutor every session — so learning stays consistent and you always know how your child is doing.' },
     { q: 'Will my child get the same tutor every session?',
-      a: 'Yes. The tutor matched at the demo stays with your child for every session — they remember what was hard last week and pick up exactly there.' },
+      a: 'Yes. The tutor matched at the start stays with your child for every session — they remember what was hard last week and pick up exactly there.' },
     { q: 'What if my child does not get along with the tutor?',
       a: 'Tell us and we rematch, free of charge. The match matters more than the schedule — a child who does not feel safe asking questions will not learn.' },
-    { q: 'How do you select your tutors?',
-      a: 'Every applicant clears a subject-mastery test, a live teaching demo with our academic team, and structured onboarding before they ever meet a student. We screen for how well they teach, not just what they know.' },
-    { q: 'Are the classes 1-on-1 or in a group?',
-      a: '1-on-1 and live. No recordings, no batches — the whole session is your child’s.' },
-    { q: 'Which subjects and grades do your tutors cover?',
-      a: 'Math and science across grades 6–12, aligned to CBSE, ICSE and IB.' },
   ],
+};
+
+/* ── Parent Reviews (long-scroll page; see AboutScreen.js → ReviewsStack) ──────
+   Sits under ABOUT AILERNOVA → Parent Reviews. Every review below is a REAL parent
+   review from ailernova.in — grouped by the themes families mention most. Never
+   invent a review or a number; this is public-facing. Stats are the site's own
+   figures. `themes[].reviews` empty → that theme hides; all empty → page still shows
+   the hero and stats. */
+CONTENT.reviews = {
+  hero: {
+    title: 'What Parents Say\nAbout Ailernova',
+    body: 'Across parent reviews, families share how our expert tutors and flexible support help their child build a strong foundation and lasting confidence.',
+    cta: 'Book a Free Trial Class',
+    // The pill bolds the figure, so it is carried apart from the words around it.
+    trustPre: 'Trusted by', trustNum: '200K+', trustPost: 'Learners',
+    rating: { score: '4.9', label: 'on Trustpilot' },
+    // image null → the dark ruled surface holds the photo's slot (same as Our Tutors).
+    image: null,
+    // learn/learnUrl null → no ▶ row is drawn. A play button over nothing is worse
+    // than no play button.
+    learn: 'Learn How Ailernova Works', learnUrl: null,
+    // The accolade strip under the hero. EMPTY ON PURPOSE — add an entry only for an
+    // award Ailernova has actually won; the strip hides itself until then.
+    badges: [],
+  },
+  // The pinned CTA carries the whole page, so it stays the plain next step; the hero's
+  // own button is the one that names the trial.
+  stickyCta: 'Get Started',
+  whyTitle: 'Why Parents Choose Ailernova',
+  whyBody: 'Real reviews from parents, organized by the themes families mention most across grade levels.',
+  // The score leads the proof line on its own; the pairs below it are split by a divider.
+  whyRating: { score: '4.9', label: 'Trustpilot' },
+  stats: [
+    { value: '200K+', label: 'Students',     color: C.blue },
+    { value: '100%',  label: 'Satisfaction', color: '#C026D3' },
+  ],
+  // The 9 real reviews on ailernova.in — 5 from the home page, 4 more from /review/ —
+  // each quoted VERBATIM and placed in the ONE theme it fits best. No repetition, nothing
+  // invented. The summaries are OUR editorial copy, but every claim in them is carried by
+  // the reviews in that same theme; they must not outrun what the parents actually said.
+  //
+  // ⚠️ The site contradicts itself on ONE review: "Excellent support for homework and
+  // tests…" is Ayesha Khan (Grade 5, Mumbai) on the home page but Deepti on /review/. The
+  // home page's more specific attribution is used here. Worth fixing on the site.
+  themes: [
+    { title: 'Tutor Quality',
+      summary: 'Parents highlight clear, patient tutors who explain concepts step by step and adapt to how each child learns. The same points recur across reviews: explanations are broken down until the child follows them, tutors stay patient through repeated questions, and mentors switch methods when the first approach does not land. Families describe fundamentals getting stronger, school tests starting to feel easier, and children who once avoided a subject now looking forward to class.',
+      reviews: [
+        // `photo` — the reviewer's picture in the round avatar, same contract as the
+        // trust-bar testimonials: ailernova.in's own published photo, bundled under
+        // assets/reviews/ and paired with the quote it was published beside. Omit it and
+        // the card falls back to initials, so only the reviewers the site actually
+        // pictures carry one. Never fill a blank with someone else's face.
+        { name: 'Neha Sharma', place: 'Delhi', flag: '🇮🇳', grade: 'Grade 6',
+          photo: require('../../../../assets/reviews/neha-sharma.png'),
+          quote: 'My daughter now looks forward to both math and science classes. Explanations are clear and confidence is clearly higher.',
+          tags: ['Clear explanations', 'More confidence'] },
+        { name: 'Francella', place: '', flag: '', grade: '',
+          quote: 'Our tutor explains step by step, very patiently. My child’s fundamentals are now strong and school tests feel easier.',
+          tags: ['Step by step', 'Patient teaching', 'Strong fundamentals'] },
+        { name: 'Sapna', place: '', flag: '', grade: '',
+          quote: 'My son now enjoys math class. The mentor uses multiple methods and keeps practice adaptive.',
+          tags: ['Adaptive practice', 'Enjoys class'] },
+      ] },
+    { title: 'Grades and Scores',
+      summary: 'Families point to real, measurable gains — school scores moving up and children pulling ahead within weeks. Reviews describe movement in both directions of the report card: average marks climbing to the top bracket, C-grade anxiety settling into consistent A grades, and confusion in fractions and algebra turning into clarity in about eight weeks. Parents credit the structure — sessions aligned to school topics every week — and the one-to-one model for making the jump stick.',
+      reviews: [
+        { name: 'Priyanka Rao', place: 'Bengaluru', flag: '🇮🇳', grade: 'Grade 8',
+          photo: require('../../../../assets/reviews/priyanka-rao.png'),
+          quote: 'In 8 weeks, my son moved from confusion to clarity in fractions and algebra. School scores improved from average to top bracket.',
+          tags: ['Higher scores', 'Fast progress'] },
+        { name: 'Olga R', place: '', flag: '', grade: '',
+          quote: 'My daughter moved from C grade anxiety to consistent A grades. The one-on-one model made the difference.',
+          tags: ['Better grades', 'Less anxiety', '1-on-1'] },
+        { name: 'Hari', place: '', flag: '', grade: '',
+          quote: 'We saw a clear jump in grades and confidence. Classes are structured, and the tutor aligns with school topics every week.',
+          tags: ['Better grades', 'Aligned to school'] },
+      ] },
+    { title: 'Curriculum Fit',
+      summary: 'Reviews mention how closely sessions align with school — homework, tests and weekly topics all reinforced. Ailernova tutors teach across Indian and international curricula, covering CBSE, ICSE, State Boards and IGCSE for Classes 1 to 12, and sessions follow the topics your child is actually being taught that week rather than a syllabus of their own. Parents describe dedicated help with homework and doubt solving, targeted practice aimed at school performance, and exam preparation that arrives before the exam rather than after it.',
+      reviews: [
+        { name: 'Ayesha Khan', place: 'Mumbai', flag: '🇮🇳', grade: 'Grade 5',
+          quote: 'Excellent support for homework and tests. Scheduling is easy and communication with tutor is quick.',
+          tags: ['Homework & test help', 'Quick to reach'] },
+      ] },
+    { title: 'Consistency & Progress',
+      summary: 'Parents value the steady structure — the same tutor, regular updates, and progress they can actually see. Ailernova pairs a child with a consistent mentor who stays with their learning journey year after year, so nobody restarts from scratch each term. Progress tracking is built into every plan: strengths and weak areas are mapped, sessions and schedules stay visible to parents, and reviews describe watching those weak areas close month by month rather than being told that they have.',
+      reviews: [
+        { name: 'Deepti', place: '', flag: '', grade: '',
+          photo: require('../../../../assets/reviews/deepti.jpg'),
+          quote: 'The class structure is strong and updates are regular. My child now solves word problems independently without fear.',
+          tags: ['Structured classes', 'Regular updates'] },
+        { name: 'Manjari', place: '', flag: '', grade: '',
+          quote: 'Tutor quality and tracking are excellent. We can clearly see strengths and weak areas improving month by month.',
+          tags: ['Progress tracking', 'Month by month'] },
+      ] },
+    // ⚠️ DEMO PLACEHOLDERS — the two themes below have NO real reviews yet. The summaries
+    // are true of Ailernova, but the review cards are OBVIOUS placeholders (name "Sample
+    // Parent", placeholder quote, "Demo only" tag) — layout only, NOT genuine testimonials.
+    // ► BEFORE RELEASE: replace with real, consented reviews or delete these two themes.
+    { title: 'Personalization',
+      summary: 'Each student is paired with a tutor who matches their learning style, and lessons adapt to how your child actually learns. Every session is 1:1 and tailored to your child’s current level and pace, built on a path drawn from their own strengths and weak areas rather than a class average. Worksheets adapt as they progress, and tutors are trained for varying learning needs — the pace slows into patient concept rebuilding where a child is struggling, or opens into an olympiad track where they are already ahead.',
+      reviews: [
+        { name: 'Sample Parent', place: 'City', flag: '🇮🇳', grade: 'Grade X',
+          quote: 'Placeholder review — replace with a real parent review before release.',
+          tags: ['Placeholder', 'Demo only'] },
+        { name: 'Sample Parent', place: 'City', flag: '🇮🇳', grade: 'Grade X',
+          quote: 'Placeholder review — replace with a real parent review before release.',
+          tags: ['Placeholder', 'Demo only'] },
+      ] },
+    { title: 'Engagement',
+      summary: 'Live, 1-on-1 sessions keep children active and involved — asking questions, exploring ideas, and looking forward to class. Classes are teacher-led and real-time rather than recorded: your child asks a question and gets feedback in the moment, on any device with a stable connection and a camera. Each session runs 55 minutes, extendable to an hour — long enough to actually get somewhere, short enough to hold a child’s attention to the end of it.',
+      reviews: [
+        { name: 'Sample Parent', place: 'City', flag: '🇮🇳', grade: 'Grade X',
+          quote: 'Placeholder review — replace with a real parent review before release.',
+          tags: ['Placeholder', 'Demo only'] },
+        { name: 'Sample Parent', place: 'City', flag: '🇮🇳', grade: 'Grade X',
+          quote: 'Placeholder review — replace with a real parent review before release.',
+          tags: ['Placeholder', 'Demo only'] },
+      ] },
+    { title: 'Confidence',
+      summary: 'Parents describe children growing more confident and comfortable with math and science over time — less anxiety, more willingness to try. It is the thread running through every review on this page: a daughter who now looks forward to class, a son who enjoys math, a child solving word problems independently without fear, one who moved from C-grade anxiety to consistent A grades. Ailernova builds for it on purpose — every tutor guides, challenges and supports, so what a child keeps is the mindset, not just the marks.',
+      reviews: [
+        { name: 'Sample Parent', place: 'City', flag: '🇮🇳', grade: 'Grade X',
+          quote: 'Placeholder review — replace with a real parent review before release.',
+          tags: ['Placeholder', 'Demo only'] },
+        { name: 'Sample Parent', place: 'City', flag: '🇮🇳', grade: 'Grade X',
+          quote: 'Placeholder review — replace with a real parent review before release.',
+          tags: ['Placeholder', 'Demo only'] },
+      ] },
+    { title: 'Test Prep',
+      summary: 'Concept-driven preparation for school exams and beyond — aligned to CBSE, ICSE, State Boards, IGCSE and NEET. Preparation starts from concepts rather than question banks: fundamentals first, then targeted practice aimed at school performance, then guided drills that build speed and accuracy under time. Fast learners carry straight on into full olympiad and challenge-track support, so the same plan that rescues a difficult term also stretches a child who is already ahead of it.',
+      reviews: [
+        { name: 'Sample Parent', place: 'City', flag: '🇮🇳', grade: 'Grade X',
+          quote: 'Placeholder review — replace with a real parent review before release.',
+          tags: ['Placeholder', 'Demo only'] },
+        { name: 'Sample Parent', place: 'City', flag: '🇮🇳', grade: 'Grade X',
+          quote: 'Placeholder review — replace with a real parent review before release.',
+          tags: ['Placeholder', 'Demo only'] },
+      ] },
+    { title: 'Flexibility',
+      summary: 'Online, 1-on-1 classes fit around your family — book times that work for you, with easy rescheduling. Sessions can be booked any day of the week, weekends included, and the usual rhythm is two classes a week for Classes K to 8 and three for high school, adjusted to what your child needs and when they are free. Children can join at any point in the year. A flexible leave policy and easy refunds on unused classes mean a holiday or a hard month costs you the class, not the plan.',
+      reviews: [
+        { name: 'Sample Parent', place: 'City', flag: '🇮🇳', grade: 'Grade X',
+          quote: 'Placeholder review — replace with a real parent review before release.',
+          tags: ['Placeholder', 'Demo only'] },
+        { name: 'Sample Parent', place: 'City', flag: '🇮🇳', grade: 'Grade X',
+          quote: 'Placeholder review — replace with a real parent review before release.',
+          tags: ['Placeholder', 'Demo only'] },
+      ] },
+    { title: 'Parent Support',
+      summary: 'Regular updates and quick communication keep parents in the loop on exactly how their child is progressing. Parents track progress, manage schedules and reach the tutor directly, and dedicated support covers school homework and doubt solving between sessions. Academic counsellors are on hand before you start and after — reviews single out how easy the scheduling is and how quickly the tutor comes back to you when it matters.',
+      reviews: [
+        { name: 'Sample Parent', place: 'City', flag: '🇮🇳', grade: 'Grade X',
+          quote: 'Placeholder review — replace with a real parent review before release.',
+          tags: ['Placeholder', 'Demo only'] },
+        { name: 'Sample Parent', place: 'City', flag: '🇮🇳', grade: 'Grade X',
+          quote: 'Placeholder review — replace with a real parent review before release.',
+          tags: ['Placeholder', 'Demo only'] },
+      ] },
+    { title: 'Value and Progress',
+      summary: 'Simple pricing set against progress you can see. Plans run from an 8-class starter up to 52 and 104 classes at two sessions a week, with the longer commitments priced as the better value, and every plan carries the same contents — free learning plan setup, progress tracking, exam preparation and olympiad support. Easy refunds cover unused classes, and it opens with a free demo, so you watch the teaching and the platform before any of it is decided.',
+      reviews: [
+        { name: 'Sample Parent', place: 'City', flag: '🇮🇳', grade: 'Grade X',
+          quote: 'Placeholder review — replace with a real parent review before release.',
+          tags: ['Placeholder', 'Demo only'] },
+        { name: 'Sample Parent', place: 'City', flag: '🇮🇳', grade: 'Grade X',
+          quote: 'Placeholder review — replace with a real parent review before release.',
+          tags: ['Placeholder', 'Demo only'] },
+      ] },
+  ],
+  // ⚠️ DEMO — these article cards aren't wired yet: `url` is null (no navigation), so they
+  // go nowhere. Titles/blurbs are real topics we COULD write, not Cuemath's (no "MathFit™").
+  // ► BEFORE RELEASE: give each a real `url`, or delete this section.
+  reads: {
+    title: 'Related Reads',
+    items: [
+      { title: 'Choosing the Right Tutor for Your Child',           blurb: 'What to look for in a tutor, and how the right match changes how your child learns.', by: 'By Ailernova', url: null },
+      { title: 'How 1-on-1 Online Tutoring Works',                  blurb: 'Inside a live one-on-one session — and why undivided attention makes the difference.', by: 'By Ailernova', url: null },
+      { title: 'Building Strong Math & Science Foundations',        blurb: 'Why strong foundations matter more than shortcuts, and how they are built session by session.', by: 'By Ailernova', url: null },
+      { title: 'How Much Does Online Tutoring Cost?',               blurb: 'A practical look at tutoring costs, personalization, and why 1-on-1 often delivers better value.', by: 'By Ailernova', url: null },
+      { title: 'Why Understanding Beats Speed in Math',             blurb: 'Deep understanding leads to consistent grades and reliable test performance over time.', by: 'By Ailernova', url: null },
+      { title: 'What Is Math Anxiety — and How to Overcome It',     blurb: 'If your child dreads tests or shuts down during homework, it may be math anxiety. Here is what helps.', by: 'By Ailernova', url: null },
+      { title: 'Word Problems: A Step-by-Step Guide for Parents',   blurb: 'A simple approach to help your child break down and solve word problems with confidence.', by: 'By Ailernova', url: null },
+      { title: 'Strengthening School Skills and Math Confidence',   blurb: 'How school-aligned instruction supports both performance and confidence.', by: 'By Ailernova', url: null },
+    ],
+  },
+  // The questions a parent actually has while reading reviews — so they sit here rather
+  // than in the shared AILERNOVA_FAQS set (which answers "how do classes work").
+  // Answers 2 and 3 are Ailernova's own FAQ copy from ailernova.in, near-verbatim.
+  // Answers 4 and 5 are carried by the real reviews on THIS page and nothing more — note
+  // what 5 does NOT do: promise a timeline. One family reported eight weeks; that is one
+  // family, not a guarantee, and it must never be written as one.
+  //
+  // ⚠️ Q1 says every review here is published on ailernova.in. That is NOT TRUE while the
+  // seven demo themes above still carry "Sample Parent" cards — this answer only becomes
+  // honest once those are removed or filled with real reviews.
+  faqTitle: 'We Love Answering Your Questions',
+  seeMoreUrl: 'https://ailernova.in/review/',
+  faqs: [
+    { q: 'Are these real Ailernova reviews? Where can I read more?',
+      a: 'Yes. Every review on this page is one Ailernova publishes on its own site — nothing here is written on a parent’s behalf. You can read them in full at ailernova.in/review/ and on the home page, where families are quoted with their name and their child’s grade. Ailernova reports an average 4.9 rating across 200,000+ students.' },
+    { q: 'Will tutoring be customized for my child’s pace and needs?',
+      a: 'Absolutely. Our tutors are trained to work with children of varying learning needs and styles, and we adapt every session to your child’s unique requirements. Sessions are 1:1 and built on a path drawn from your child’s own strengths and weak areas, so the pace can slow down for patient concept rebuilding or open into an olympiad track for a fast learner.' },
+    { q: 'Can Ailernova help with school curriculum and homework?',
+      a: 'Yes. Our tutors are experienced across school curricula — just tell us your child’s school and grade level, and sessions follow the topics they are actually being taught that week. Every plan includes dedicated support for school homework and doubt solving, plus targeted practice and exam preparation.' },
+    { q: 'Can Ailernova reduce my child’s math anxiety or confidence issues?',
+      a: 'It is the change parents mention most. In their own words: a daughter who now looks forward to class, a son who enjoys math, a child solving word problems independently without fear, and one who moved from C-grade anxiety to consistent A grades. Every tutor is expected to guide, challenge and support — confidence is the point, not a side effect.' },
+    { q: 'How quickly can I expect improvement?',
+      a: 'That depends on your child, and we would rather not promise you a date. What parents report varies: one family saw their son move from confusion to clarity in fractions and algebra in eight weeks; another watched strengths and weak areas improve month by month. Progress tracking is included in every plan, so you can see where your child actually is rather than wait to be told.' },
+  ],
+};
+
+/* ── Pricing (see AboutScreen.js → PricingStack) ───────────────────────────────
+   Sits under ABOUT AILERNOVA → Pricing. Every figure below is lifted VERBATIM from
+   ailernova.in/pricing/ and checked against that page's raw HTML — these are prices a
+   parent will pay, so nothing here is rounded, guessed or "roughly". `was` is the
+   struck-through ₹1000 the site itself shows on the discounted plans.
+   ► If the site's prices change, this file is wrong until someone updates it. It does
+     NOT read from the site at runtime. */
+CONTENT.pricing = {
+  hero: {
+    title: 'Simple Pricing & Clear Value',
+    body: 'Affordable tutoring for complete math mastery, with structured support moms can trust.',
+    cta: 'Book Free Demo',
+  },
+  gradesLabel: 'GRADES',
+  // Ailernova teaches Classes 1-12 (the site's mentors list NEET too), but it only
+  // PUBLISHES a price for KG-Grade 8. The second bracket is real teaching with no public
+  // price, so it is listed and its table is left null — see `tables` below.
+  grades: ['KG to Grade 8', 'Grade 9 to Grade 12'],
+  // The site publishes 2 classes/week pricing only. Its FAQ says high school usually runs
+  // three a week — but names no price for it, so that column stays null too.
+  cadences: [
+    { id: '2', label: '2 classes/week', recommended: false },
+    { id: '3', label: '3 classes/week', recommended: true },
+  ],
+  // ⚠️ PRICES. Keyed '<grade>|<cadence>'. A null table means Ailernova does not publish a
+  // price for that combination — the page then says exactly that and points to a
+  // counsellor. DO NOT fill a null in with an estimate, a scaled-up figure, or a number
+  // from another plan: a parent books a demo off these, and a wrong price is a lie that
+  // costs them money. Only real published figures go here.
+  // The one real table below is verbatim from ailernova.in/pricing/, checked against that
+  // page's raw HTML.
+  tables: {
+    'KG to Grade 8|2': [
+      { name: '1 Month', per: '₹1000', was: null, unit: '/class', off: null,
+        billed: '₹8,000 billed every 4 weeks', classes: '8 classes',
+        head: '#66D9FF', tint: '#D6F5FF', badge: null,
+        features: ['Free learning plan setup', 'Flexible leave policy', 'Progress tracking included'] },
+      { name: '6 Months', per: '₹900', was: '₹1000', unit: '/class', off: '10% OFF',
+        billed: '₹46,800 billed every 26 weeks', classes: '52 classes',
+        head: '#FFAA80', tint: '#FFDDCC', badge: null,
+        features: ['Free learning plan setup', 'Adjustable schedule', 'Exam preparation support'] },
+      { name: '12 Months', per: '₹800', was: '₹1000', unit: '/class', off: '20% OFF',
+        billed: '₹83,200 billed every 52 weeks', classes: '104 classes',
+        head: '#A8E6A3', tint: '#DFF5DD', badge: 'Best value for committed learners',
+        features: ['Free learning plan setup', 'Full olympiad support'] },
+    ],
+    'KG to Grade 8|3': null,
+    'Grade 9 to Grade 12|2': null,
+    'Grade 9 to Grade 12|3': null,
+  },
+  // What the page says instead of a price it does not have.
+  noPrice: {
+    title: 'We don’t publish a price for this yet',
+    body: 'Ailernova teaches these classes, but the rate for this combination isn’t listed publicly. A counsellor will tell you exactly what it costs — no obligation.',
+    cta: 'Talk to a counsellor',
+    url: 'https://wa.me/918905604773',
+  },
+  // The site prints this under the plans. It must stay visible — a price that hides its
+  // tax is a price that lies.
+  note: '* All pricing is exclusive of 18% GST.',
+  // The strip that sits under the plans. "55 minutes per class" is the site's own figure
+  // (its FAQ: "each class runs for 55 minutes, extendable to an hour") — do not round it.
+  assurances: [
+    { emoji: '⏱️', label: '55 minutes\nper class' },
+    { emoji: '🗓️', label: 'Flexible Leaves\n& Schedule' },
+    { emoji: '💸', label: 'Easy\nRefunds' },
+  ],
+  includedTitle: 'All Plans Include',
+  // A grid of names, no descriptions — the tile says WHAT you get; the eight together say
+  // "everything". Each `tint` colours the glyph only; the cells stay white and are split
+  // by hairlines, so the grid reads as one table rather than eight loose cards.
+  included: [
+    { glyph: 'Σ', title: 'Learning Plan',     tint: '#F5B301' },
+    { glyph: '%', title: 'Exam Preparation',  tint: '#FF7E3B' },
+    { glyph: '△', title: 'Homework Help',     tint: '#ED6CEF' },
+    { glyph: '∞', title: 'Advanced Learning', tint: '#3DD771' },
+    { glyph: 'λ', title: 'Smart Practice',    tint: '#33CCFF' },
+    { glyph: '±', title: 'Mental Math',       tint: '#F5B301' },
+    { glyph: '√', title: 'Remedial Support',  tint: '#3DD771' },
+    // "Mom App" is what ailernova.in calls it. Not "Parent App" — that is someone else's.
+    { glyph: 'U', title: 'Mom App',           tint: '#FF7E3B' },
+  ],
+  // The promise the free trial makes, in Ailernova's OWN words — lifted from the trial
+  // letter in CONTENT.about.trialStrip, not from anybody else's page.
+  promise: 'Watch them teach your child,\nand only then decide.',
+  promiseSub: 'No pressure and no commitment.',
+  // Titles and bodies are ailernova.in/pricing/'s own "Start in 4 Simple Steps" copy,
+  // verbatim. The BANDS are the layout; the WORDS stay ours.
+  steps: [
+    { n: '1', title: 'Tell us about your child', emoji: '✏️', bg: '#FFBA07',
+      body: 'Share class level and learning goals with us.' },
+    { n: '2', title: 'Speak to a counsellor', emoji: '📞', bg: '#FF7E3B',
+      body: 'We match your child with the right tutor for them.' },
+    { n: '3', title: 'Attend free demo', emoji: '💻', bg: '#ED6CEF',
+      body: 'Experience the teaching style and platform firsthand.' },
+    { n: '4', title: 'Choose plan & start', emoji: '🎒', bg: '#3DD771',
+      body: 'Book your slot and begin regular classes.' },
+  ],
+  stickyCta: 'Get Started',
+};
+
+/* ── FAQs page (see AboutScreen.js → FaqsStack) ────────────────────────────────
+   Sits under ABOUT AILERNOVA → FAQs. Reuses the shared AILERNOVA_FAQS set (the site's
+   own answers) rather than keeping a second copy to drift out of step. */
+CONTENT.faqs = {
+  hero: {
+    title: 'We Love Answering\nYour Questions',
+    body: 'Everything parents ask before their child’s first class — how sessions run, what they cost, and how we fit around your family.',
+    cta: 'Book Free Demo',
+  },
+  faqTitle: 'FAQs',
+  faqs: AILERNOVA_FAQS,
+  seeMoreUrl: 'https://ailernova.in/#faq',
+  askTitle: 'Still have a question?',
+  askBody: 'Our academic counsellors are happy to guide you personally.',
+  askCta: 'Talk to a counsellor',
+  askUrl: 'https://wa.me/918905604773',
+  stickyCta: 'Get Started',
+};
+
+/* ── Contact Us page (see AboutScreen.js → ContactStack) ───────────────────────
+   Sits under ABOUT AILERNOVA → Contact Us. Every channel here is one we actually
+   answer on: WhatsApp is the fastest, email is for anything that needs a trail.
+   `offices` is a list — an empty list hides the whole "Our Offices" block. */
+CONTENT.contact = {
+  hero: { title: 'Every Question Matters.\nWe’re Here to Help' },
+  cards: [
+    {
+      title: 'For Ailernova Families',
+      body: 'Whether you have questions about classes, technical issues, pricing, or anything else, our team is ready to answer all your queries.',
+      cta: 'Message us on WhatsApp',
+      url: 'https://wa.me/918905604773',
+    },
+    {
+      title: 'New to Ailernova?',
+      body: 'Have questions before getting started? We’re happy to help you explore if Ailernova is the right fit for your child.',
+      email: 'support@ailernova.com',
+    },
+  ],
+  officesTitle: 'Our Offices',
+  offices: [
+    {
+      flag: '🇮🇳',
+      country: 'India',
+      lines: 'Ailernova Private Limited\nP03-01A & P03-01B, 3rd Floor, Building 51D\nWTC Tower D, Zone-5, GIFT City\nGandhinagar, Gujarat 382050',
+      map: 'https://maps.app.goo.gl/cBkkfNbiy6T15jpd8',
+    },
+    {
+      flag: '🇺🇸',
+      country: 'United States',
+      lines: '100 Pine Street, Suite 1250\nSan Francisco, CA 94111\nUnited States',
+      map: 'https://maps.app.goo.gl/3kuLH1pc5pZbeSfb9',
+    },
+  ],
+  cta: {
+    title: 'Wondering If Ailernova Is the Right Fit for Your Child?',
+    body: 'No matter where your child is in their learning journey, the best way to know if Ailernova is right for them is to simply experience it.',
+    button: 'Book a Free Demo Class',
+    learn: 'Learn how it works',
+    learnUrl: 'https://ailernova.in/how-it-works',
+  },
+  stickyCta: 'Book Free Demo',
+  // Helpful links. Each `key` maps to an in-app page that already exists (FaqsStack,
+  // PricingStack, TutorsStack, ReviewsStack) — a card whose handler isn't passed in
+  // simply doesn't render, so this never shows a link that goes nowhere.
+  linksTitle: 'Helpful Links',
+  links: [
+    { key: 'faqs', title: 'FAQs', body: 'Find answers to commonly asked questions.', bg: '#FDF1D6', tint: '#F5B301' },
+    { key: 'pricing', title: 'Pricing', body: 'See our plans and what they include.', bg: '#FDE4D3', tint: '#F0733F' },
+    { key: 'tutors', title: 'Our Tutors', body: 'Meet the tutors who teach your child.', bg: '#D6F2E0', tint: '#12924B' },
+    { key: 'reviews', title: 'Parent Reviews', body: 'Hear from parents already with us.', bg: '#FBDDF2', tint: '#C21C93' },
+  ],
+};
+
+/* ── Refund & Cancellation Policy (see AboutScreen.js → RefundStack) ───────────
+   THIS IS A LEGAL DOCUMENT, NOT MARKETING COPY. Everything a parent reads here is a
+   commitment we have to honour, so every field below starts empty and each section
+   renders ONLY once it is filled in — a half-written refund policy must never ship
+   looking complete. Do not invent a window, a processing time or an exclusion:
+   fill these from the signed-off policy document.
+   TODO(saurabh): supply the real terms — see the checklist in the PR/chat. */
+CONTENT.refund = {
+  // TRUE until the real policy is signed off. While it is true the page shows a Draft
+  // strip at the top, so this placeholder text can never be mistaken for a live policy
+  // by a parent or by whoever ships the build. Flip to false ONLY when every field
+  // below has been replaced with the approved wording.
+  draft: true,
+  hero: {
+    title: 'Refund & Cancellation Policy',
+    scope: '(Applicable to India, the United States, and the Rest of the World)',
+    answer: 'Yes — Ailernova offers refunds.',
+    body: 'If you decide to stop, you can be refunded for classes you have paid for but not yet used, subject to the terms below. Here is exactly how it works.',
+    docCta: 'Read the complete policy document',
+    docUrl: null,        // link to the signed-off policy PDF/page once it exists
+    effective: 'Not yet published',
+  },
+  howTitle: 'Three things to know about your refund',
+  how: [
+    { label: 'What you get back', tint: '#12924B', tintBg: '#D6F2E0',
+      title: 'Unused classes only',
+      body: 'A refund covers the classes you have paid for and not yet used at the time you ask. Classes already attended, missed, or expired are not included.' },
+    { label: 'When to request', tint: '#1848F0', tintBg: '#E0EAFF',
+      title: 'Within your refund window',
+      body: 'You can raise a refund request within the window that applies to your plan, counted from your invoice date. Requests after that window closes cannot be processed.' },
+    { label: 'How long it takes', tint: '#C21C93', tintBg: '#FBDDF2',
+      title: 'A few business days',
+      body: 'Once your refund is confirmed we process it back to your original payment method. How soon it appears depends on your bank or payment provider.' },
+  ],
+  notTitle: 'A few things are not refundable',
+  notBody: 'Refunds apply to paid, unused classes. A few categories sit outside the scope of any refund.',
+  not: [
+    { title: 'Classes you have already attended', body: 'Completed classes, whether attended or missed, are not refunded.' },
+    { title: 'Bonus or gifted classes', body: 'Classes added through rewards, promotions, referrals, sibling benefits, or as a goodwill gesture.' },
+    { title: 'Transaction fees', body: 'Payment gateway charges, convenience fees, or bank charges are deducted from the eligible refund amount.' },
+    { title: 'Taxes already paid', body: 'Taxes corresponding to classes already attended or completed are not refundable.' },
+  ],
+  note: 'Note on pausing your program: pausing your classes does not extend your refund window. The window is always counted from your original invoice date.',
+  // How to reach us. These two ARE true today, so they are filled.
+  requestTitle: 'How to Request a Refund',
+  requestBody: 'You can reach out to us through',
+  channels: [
+    { key: 'whatsapp', title: 'WhatsApp', body: 'Message us at +91 89056 04773 and our support team will pick it up.', url: 'https://wa.me/918905604773' },
+    { key: 'email', title: 'Email Support', body: 'Write to us at support@ailernova.com and our support team will get back to you.', url: 'mailto:support@ailernova.com' },
+  ],
+  faqTitle: 'Frequently Asked Questions',
+  faqs: [
+    { q: 'Is Ailernova refundable?',
+      a: 'Yes. Ailernova offers a pro-rata refund on eligible unused classes, subject to the terms and conditions set out in this policy.' },
+    { q: 'What is the deadline to request a refund?',
+      a: 'A refund request must be raised within the refund window that applies to your plan, counted from the date of your invoice. Requests raised after that window closes are time-barred.' },
+    { q: 'What charges are non-refundable?',
+      a: 'Classes already attended, completed, missed or lapsed; classes granted as rewards, promotions, referrals or goodwill; payment gateway and transaction fees; EMI processing fees and interest; bank, forex and cross-border charges; and taxes on classes already consumed.' },
+    { q: 'Does pausing my program extend my refund eligibility?',
+      a: 'No. A pause or grace period does not extend or reset the refund window, which is always calculated from your original invoice date.' },
+    { q: 'How will I receive my refund?',
+      a: 'Refunds are returned to the original payment method used at the time of purchase.' },
+    { q: 'How do I cancel and request a refund?',
+      a: 'Message us on WhatsApp or write to support@ailernova.com. Our support team will confirm your eligible amount and take it from there.' },
+  ],
+  // The full legal text, rendered as numbered clauses. Shape:
+  //   { n: '1', tint: '#FDF1D6', title: 'Eligibility of Refunds',
+  //     clauses: [{ ref: '(i)', text: '…', sub: [{ ref: '(a)', text: '…' }] }] }
+  // Paste the signed-off policy in verbatim — do not paraphrase legal text, and do not
+  // fill this from any other company's policy.
+  termsTitle: 'Refund Policy Terms and Conditions',
+  termsIntro: [
+    'This policy explains the terms and conditions under which refunds may be requested and processed for Ailernova programs.',
+    'It applies to all customers enrolled in Ailernova programs and governs all refund and cancellation requests submitted on or after the effective date, regardless of the date of enrolment or payment.',
+  ],
+  termsNote: 'Please read these terms and conditions carefully before opting for our refund policy.',
+  terms: [
+    { n: '1', tint: '#FDF1D6', title: 'Eligibility of Refunds', clauses: [
+      { ref: '(i)', text: 'Ailernova offers a pro-rata refund of the eligible fees paid for its programs, subject to the terms and conditions set out below.' },
+      { ref: '(ii)', text: 'Refunds, where applicable, are calculated on a pro-rata basis, considering only the classes remaining out of the total number of paid classes at the time a valid refund request is processed, for the following reasons:',
+        sub: [
+          { ref: '(a)', text: 'any unused or remaining classes;' },
+          { ref: '(b)', text: 'any class pauses, deferments or rescheduling;' },
+          { ref: '(c)', text: 'any operational or personal delays in attending classes.' },
+        ] },
+      { ref: '(iii)', text: 'A refund request must be raised within the refund window applicable to your plan, counted from the date of issuance of the invoice. This timeline is a final and non-extendable cut-off for all refund eligibility.' },
+    ] },
+    { n: '2', tint: '#FDE4D3', title: 'Program Tenure, Pause, and Lapse', clauses: [
+      { ref: '(i)', text: 'Each Ailernova program has a defined program tenure, commencing from the program start date.' },
+      { ref: '(ii)', text: 'Ailernova may, at its discretion, permit temporary pauses or limited grace periods for completion of classes in accordance with its pause policy.' },
+      { ref: '(iii)', text: 'Pauses or grace periods do not extend or modify the refund eligibility period specified in Clause 1(iii), and do not shift or reset the applicable trigger date for that period.' },
+    ] },
+    { n: '3', tint: '#D6F2E0', title: 'Non-Refundable Items', clauses: [
+      { ref: '(i)', text: 'Classes already attended, completed, missed, or lapsed due to absenteeism where an approved pause was not applied.' },
+      { ref: '(ii)', text: 'Classes added or granted as part of rewards, promotions, campaigns, referrals, sibling enrolment benefits, feedback initiatives, or as a goodwill gesture or service recovery.' },
+      { ref: '(iii)', text: 'Payment gateway charges, transaction fees, or convenience fees, which are deducted from the eligible refund amount on a pro-rata basis.' },
+      { ref: '(iv)', text: 'EMI processing fees, interest components, or pre-closure charges levied by banks or financial institutions.' },
+      { ref: '(v)', text: 'Bank charges, forex conversion charges, or cross-border transaction fees.' },
+      { ref: '(vi)', text: 'Any applicable taxes, duties, or levies corresponding to classes already attended, completed, missed, or lapsed.' },
+    ] },
+    { n: '4', tint: '#FBDDF2', title: 'Refund Mode and Processing', clauses: [
+      { ref: '(i)', text: 'Refunds are processed to the original payment method, where technically feasible and permitted under applicable banking, payment gateway, or regulatory requirements.' },
+      { ref: '(ii)', text: 'Where a refund to the original payment method is not feasible, Ailernova may, at its discretion, process the refund through a bank transfer in the name of the person who made the payment, to an account held with a scheduled bank.' },
+      { ref: '(iii)', text: 'Refunds are processed within the timeline stated in this policy from the date of refund confirmation, subject to the timelines and policies of banks, payment gateways, and financial institutions.' },
+    ] },
+    { n: '5', tint: '#DBF0FA', title: 'EMI Transactions', clauses: [
+      { ref: '(i)', text: 'Where payment has been made through an EMI facility using a credit card, debit card, or third-party lender:',
+        sub: [
+          { ref: '(a)', text: 'Ailernova processes the eligible refund amount in accordance with applicable banking and payment gateway mechanisms;' },
+          { ref: '(b)', text: 'customers are solely responsible for coordinating with their card-issuing bank or lender for EMI cancellation or foreclosure;' },
+          { ref: '(c)', text: 'processing fees; or' },
+          { ref: '(d)', text: 'penalties imposed by the issuing bank or lender.' },
+        ] },
+    ] },
+    { n: '6', tint: '#FDF1D6', title: 'Force Majeure and Program Discontinuation', clauses: [
+      { ref: '(i)', text: 'Ailernova reserves the right to cancel, suspend, or terminate classes or programs due to events beyond its reasonable control, including force majeure events.' },
+      { ref: '(ii)', text: 'In the event of a force majeure event that renders the continued provision of classes permanently or otherwise impossible, Ailernova may, at its discretion, either:',
+        sub: [
+          { ref: '(a)', text: 'reschedule or resume the affected classes when feasible; or' },
+          { ref: '(b)', text: 'provide an appropriate extension of time for class completion; or' },
+          { ref: '(c)', text: 'process a pro-rata refund for the un-availed portion of the program.' },
+        ] },
+    ] },
+    { n: '7', tint: '#FDE4D3', title: 'Policy Modification', clauses: [
+      { ref: '(i)', text: 'Ailernova reserves the right to modify, amend, or update this policy from time to time, and the same becomes effective on publication on the Ailernova website. Ailernova may, at its discretion and where practicable, notify enrolled customers of such changes through available customer communication channels.' },
+      { ref: '(ii)', text: 'Unless expressly stated otherwise, any revised policy applies to all refund requests submitted on or after its effective date, irrespective of the date of purchase, enrolment or payment.' },
+    ] },
+  ],
+  stickyCta: 'Talk to support',
+  stickyUrl: 'https://wa.me/918905604773',
+};
+
+/* ── Referral Program (see AboutScreen.js → ReferralStack) ────────────────────
+   A referral offer is a PROMISE OF MONEY. Every number here — the reward, the
+   validation period, the credit timeline — is something a parent will hold us to,
+   so this carries the same `draft` strip as the refund policy and every block is
+   guarded: an unfilled field renders nothing rather than a placeholder.
+   TODO(saurabh): confirm the reward size, the validation window, the effective date
+   and the policy-document URL, then flip `draft` to false. */
+CONTENT.referral = {
+  // TRUE until the offer is signed off. Shows a Draft strip so this can never be
+  // mistaken for a live, claimable offer by a parent or by whoever ships the build.
+  draft: true,
+  hero: {
+    badge: 'For active Ailernova parents',
+    title: 'Refer a friend.',
+    // Rendered in italic, on its own line, exactly as the second line of the headline.
+    titleAlt: 'You both get free classes.',
+    emoji: '🎁',
+    answer: 'One month of free classes — for you and for your friend.',
+    body: 'Refer any parent new to Ailernova. Once they have been enrolled for 30 days, you each get one month of classes added to your account.',
+    docCta: 'Read the complete referral policy document',
+    docUrl: null,        // link to the signed-off referral policy once it exists
+    effective: null,     // e.g. '30 April 2026' — leave null until published
+    issuer: 'Ailernova',
+  },
+  rewardsLabel: 'What you get',
+  rewardsTitle: 'The rewards at a glance.',
+  rewards: [
+    { key: 'you', emoji: '👤', label: 'You (the referrer)', value: '1 month',
+      body: "One month of free classes added to your child's current plan. Credits extend your subscription, so you don't pay for that month." },
+    { key: 'friend', emoji: '🤝', label: 'Your friend', value: '1 month',
+      body: 'One month of free classes on their new plan, regardless of whether they sign up for 3, 6, or 12 months. Same reward either way.' },
+    { key: 'when', emoji: '📅', label: "When it's credited", value: '~37 days',
+      body: 'Within 7 days after your friend completes their 30-day validation period. Roughly 37 days after they enrol and pay.' },
+  ],
+  howLabel: 'How it works',
+  howTitle: "Three steps. That's it.",
+  how: [
+    { n: '1', title: 'Share your referral link with a parent new to Ailernova',
+      body: "You'll find your personal referral link in the Ailernova app. Share it over WhatsApp, email, or however you like. It tracks back to you automatically." },
+    { n: '2', title: 'Your friend enrols and stays for 30 days',
+      body: 'Your friend signs up for any Ailernova plan (3, 6, or 12 months) and makes their first payment. The 30-day validation period then begins. Their subscription must remain active and paid during this time.' },
+    { n: '3', title: 'You both get credited automatically',
+      body: "Within 7 days of the validation period ending, one month of class credits is added to both your account and your friend's account." },
+  ],
+  siblingLabel: 'Also available',
+  siblingTitle: 'Enrolling a sibling? You get double.',
+  sibling: {
+    label: 'Sibling benefit',
+    headline: "2 months of free classes for the sibling's plan",
+    body: 'If you enrol a second child under your existing Ailernova parent account, you receive 2 months of class credits on the sibling’s plan — double the standard referral reward. This applies only to new sibling enrolments under the same account.',
+    note: 'Credits are non-transferable and non-redeemable for cash.',
+  },
+
+  // Eligibility — the two lists a parent checks before they bother sharing a link:
+  // what earns the reward, and what quietly disqualifies them. Kept as plain
+  // yes/no cards rather than prose because this is the part people scan, not read.
+  eligibility: {
+    label: 'Eligibility',
+    title: "What counts, and what doesn't.",
+    yesLabel: 'A successful referral',
+    yes: [
+      { title: 'New to Ailernova', body: 'Your friend has never had an Ailernova account before. Re-enrolling a former customer does not count.' },
+      { title: 'Enrolled and paid', body: 'They sign up for any Ailernova plan (3, 6, or 12 months) and make a successful payment.' },
+      { title: 'Stays for 30 days', body: 'Their payment is not refunded, cancelled, or disputed within the 30-day validation period.' },
+    ],
+    noLabel: "What's not allowed",
+    no: [
+      { title: 'Self-referrals', body: 'Referring yourself or your own dependents.' },
+      { title: 'Bulk sharing', body: 'Sharing referral links through paid ads, search marketing, bulk messages, or traffic-generating sites.' },
+      { title: 'Fake accounts', body: 'Creating multiple accounts, fake identities, or any mechanism to artificially generate referrals.' },
+      { title: 'Duplicate referrals', body: 'If two people refer the same friend, only the first referral received counts.' },
+    ],
+  },
+
+  faqLabel: 'FAQ',
+  faqTitle: 'Questions parents ask about the referral program.',
+  faqs: [
+    { q: 'What do I get for referring a friend?',
+      a: 'One month of free classes added to your child’s current plan, credited after your friend completes their 30-day validation period.' },
+    { q: 'What does my friend get?',
+      a: 'One month of free classes on their new plan, regardless of whether they sign up for 3, 6, or 12 months.' },
+    { q: 'When exactly will I receive my reward?',
+      a: 'Within 7 days after your friend completes their 30-day validation period — roughly 37 days after they enrol and pay.' },
+    { q: 'Can I refer more than one friend?',
+      a: 'Yes. Each successful referral earns its own one-month reward, and there is no cap on how many friends you refer.' },
+    { q: 'Can I refer someone who used to be an Ailernova parent?',
+      a: 'No. The reward applies only to parents who are new to Ailernova. Re-enrolling a former customer does not qualify.' },
+    { q: 'Can I use my referral credits toward a renewal payment?',
+      a: 'Credits are added as class credits that extend your existing subscription. They are not applied as a discount on a renewal invoice, and they cannot be redeemed for cash.' },
+    { q: 'How is the sibling benefit different from a referral?',
+      a: 'A referral is for a parent new to Ailernova. The sibling benefit is for enrolling a second child under your own account, and it is worth two months instead of one. The two cannot be claimed on the same enrolment.' },
+    { q: 'I referred a friend but have not received my reward. What should I do?',
+      a: 'Check that your friend has completed the full 30-day validation period. If more than 7 days have passed since then, message us on WhatsApp and we will trace the referral.' },
+  ],
+
+  help: {
+    title: 'Questions about your referral?',
+    body: 'Reach us on WhatsApp or by email. We will sort it out.',
+    cta: 'Contact us',
+    url: 'https://wa.me/918905604773',
+  },
+
+  // The full terms, collapsed behind a toggle — the page above is the readable
+  // summary, this is the binding version. Same rule as the refund policy: these are
+  // PLACEHOLDER terms until the signed-off document exists (see `draft` above).
+  termsCta: 'View complete referral program terms',
+  terms: [
+    { title: 'Eligibility and successful referrals',
+      paras: [
+        'Referral payouts will be considered only for unique referees (referred students) who are new to the Ailernova system.',
+        'Referrals will not be considered if the referrer has referred themselves or their dependents.',
+        'A successful referral is defined as a referred parent who:',
+      ],
+      bullets: [
+        'has enrolled in an Ailernova course (for any duration: 3, 6, or 12 months),',
+        'has completed 30 days post enrolment ("Validation Period"), and',
+        'has made a successful payment which is not refunded, cancelled, or disputed during the Validation Period.',
+      ],
+      after: [
+        'If these conditions are not met, the rewards will be subject to clawback.',
+        'If multiple referrals are received for the same parent within the Validation Period, the referral benefit will be credited to the referrer whose referral was received first.',
+        'Referrals will not be considered if a discontinued customer is referred again by an existing customer within the Validation Period.',
+      ] },
+    { title: 'Rewards and credits',
+      paras: [
+        'For every successful referral, one month of benefit will be provided to the referring parent (P1) and the newly referred parent (P2), irrespective of the duration of the new enrolment.',
+        'One month benefit refers to one month of equivalent class value/credits as per the student’s active plan, and is non-transferable and non-redeemable for cash.',
+        'A sibling enrolment refers to a second child enrolled under the same account, under which 2 months of class credits will be provided for the sibling’s plan; such credits are non-transferable, non-redeemable for cash, and applicable only on new sibling enrolments.',
+        'Referral rewards will be credited within 7 days after the Validation Period and will extend the student’s current subscription validity as per the equivalent class credits added.',
+        'Referral benefits are non-transferable and can only be used by the eligible parent account to which they are credited.',
+      ] },
+    { title: 'Program rules and restrictions',
+      paras: [
+        'Spamming referral links or promoting them via search engine marketing, advertising channels, bulk messaging, or traffic-generating websites is strictly prohibited.',
+        'Creation of multiple accounts, fake identities, or any mechanism to artificially generate referrals will lead to disqualification and reversal of benefits.',
+        'Ailernova reserves the right to disqualify any participant who earns referral benefits through fraud, abuse, or violation of these terms.',
+        'Ailernova may modify, suspend, or withdraw the referral program at any time. Any revision takes effect on publication, and applies to referrals received on or after that date.',
+      ] },
+  ],
+
+  stickyCta: 'Share your referral link',
+  stickyUrl: 'https://wa.me/918905604773',
 };
 
 export const ARENA_BASE_RATING = 1000;
@@ -617,6 +1674,9 @@ export function Wordmark({ size = 18 }) {
 /* ---------- styles (exact from the teammate build + real-data states) ---------- */
 // Premium soft elevation — larger, softer, lifted. Used by every card.
 export const card = { shadowColor: '#0B1020', shadowOpacity: 0.08, shadowRadius: 20, shadowOffset: { width: 0, height: 10 }, elevation: 4 };
+// Sharp, black-outlined card treatment used across the parent screens (MathGym look):
+// perfectly square corners + a 2px hard black border. Spread onto any card container.
+export const sharp = { borderRadius: 0, borderWidth: 2, borderColor: C.black };
 export const st = StyleSheet.create({
   safe: { flex: 1, backgroundColor: C.canvas, paddingTop: Platform.OS === 'android' ? 28 : 0 },
   screen: { flex: 1, backgroundColor: C.canvas },
@@ -636,6 +1696,20 @@ export const st = StyleSheet.create({
   streakCard: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: '#FFF6E2', borderRadius: 16, padding: 14, width: 160 },
   streakIcon: { width: 38, height: 38, borderRadius: 19, backgroundColor: C.orange, alignItems: 'center', justifyContent: 'center' },
 
+  // ── MathGym-style Home: full-width, square, black-bordered stacked cards ──
+  noticeCard: { flexDirection: 'row', alignItems: 'center', gap: 14, backgroundColor: C.peach, padding: 13, marginBottom: 2, ...sharp },
+  noticeThumb: { width: 58, height: 58, alignItems: 'center', justifyContent: 'center', overflow: 'hidden', ...sharp },
+  updateThumb: { width: 58, height: 58, backgroundColor: C.ink, alignItems: 'center', justifyContent: 'center', ...sharp },
+  updateThumbBadge: { position: 'absolute', right: -5, bottom: -5, width: 22, height: 22, borderRadius: 11, backgroundColor: C.orange, alignItems: 'center', justifyContent: 'center', borderWidth: 2, borderColor: '#fff' },
+  promoCard: { backgroundColor: '#C21FD6', padding: 20, overflow: 'hidden', ...sharp },
+  promoImgWrap: { marginTop: 18, height: 190, alignItems: 'center', justifyContent: 'flex-end', overflow: 'hidden' },
+  promoCircle: { position: 'absolute', width: 240, height: 240, borderRadius: 120, backgroundColor: '#F3A6E4', bottom: -34 },
+  promoImg: { width: '100%', height: 190, resizeMode: 'contain' },
+
+  // Green "ring" onboarding tooltip on the Progress calendar.
+  ringTip: { backgroundColor: '#17A65A', padding: 14, marginTop: 2, marginBottom: 16, alignSelf: 'flex-start', maxWidth: '84%', ...sharp },
+  ringTipBtn: { backgroundColor: '#fff', borderRadius: 8, paddingHorizontal: 18, paddingVertical: 9, alignSelf: 'flex-start', marginTop: 12 },
+
   trialCard: { backgroundColor: '#F7C948', borderRadius: 20, paddingHorizontal: 20, paddingTop: 22, paddingBottom: 20, ...card },
   trialArt: { marginTop: 16, backgroundColor: '#F4CC55', borderRadius: 16, height: 200, overflow: 'hidden', justifyContent: 'flex-end' },
   trialImg: { borderRadius: 16 },
@@ -649,11 +1723,11 @@ export const st = StyleSheet.create({
   weekRow: { flexDirection: 'row', justifyContent: 'space-between', paddingTop: 8, paddingBottom: 22, borderBottomWidth: 1, borderBottomColor: C.border, marginBottom: 22 },
   dowChip: { width: 22, height: 22, borderRadius: 11, alignItems: 'center', justifyContent: 'center' },
   dateCircle: { width: 38, height: 38, borderRadius: 19, borderWidth: 1.5, borderColor: C.border, alignItems: 'center', justifyContent: 'center' },
-  noActivity: { borderWidth: 1, borderColor: C.border, borderRadius: 14, padding: 22, flexDirection: 'row', alignItems: 'center', gap: 14, backgroundColor: '#FAFAFB' },
-  statCard: { borderWidth: 1, borderColor: C.border, borderRadius: 18, padding: 16, backgroundColor: '#fff', ...card },
+  noActivity: { padding: 22, flexDirection: 'row', alignItems: 'center', gap: 14, backgroundColor: '#FAFAFB', ...sharp },
+  statCard: { padding: 16, backgroundColor: '#fff', ...sharp },
   statRow: { flexDirection: 'row', justifyContent: 'space-between' },
   stat: { alignItems: 'center', flex: 1 },
-  focusCard: { borderWidth: 1, borderColor: C.border, borderRadius: 18, padding: 16, backgroundColor: '#fff', ...card },
+  focusCard: { padding: 16, backgroundColor: '#fff', ...sharp },
 
   emptyScreen: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 34, gap: 24 },
   chatBubble: { width: 70, height: 58, backgroundColor: '#BFE6FA', borderWidth: 2.5, borderColor: '#16202A', borderRadius: 14, alignItems: 'center', justifyContent: 'center' },

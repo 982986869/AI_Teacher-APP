@@ -81,4 +81,47 @@ async function getTest(testId) {
   }
 }
 
-module.exports = { listChapters, listTests, getTest }
+// ─── Submit ──────────────────────────────────────────────────────────────────
+// Authoritative server-side scoring, mirroring mockTest.service.submit. The client
+// still receives the correct answers with the test (it renders the review screen
+// instantly), so this is not an anti-cheat measure — it is what keeps the STORED
+// score consistent with the STORED answers, which is what later features
+// (mistake book, weak areas) have to be able to trust.
+// answers = { "<questionId>": <selectedOptionId> } — absent questions count as skipped.
+async function submit({ testId, userId, answers = {}, timeTakenSec = 0 }) {
+  const rows = await db.ot_questions.findMany({
+    where: { ot_test_id: BigInt(testId) },
+    select: { id: true, correct_option_id: true, marks: true },
+  })
+  if (!rows.length) return null
+
+  const total = rows.length
+  let attempted = 0
+  let correct = 0
+  let score = 0
+  for (const r of rows) {
+    const sel = answers[String(r.id)] != null ? answers[String(r.id)] : answers[num(r.id)]
+    if (sel == null) continue
+    attempted += 1
+    if (r.correct_option_id != null && String(sel) === String(r.correct_option_id)) {
+      correct += 1
+      score += Number(r.marks) || 1
+    }
+  }
+  const wrong = attempted - correct
+
+  // Persist best-effort: the student's result must still come back even if the
+  // write fails, exactly like the mock-test path.
+  try {
+    await db.$executeRawUnsafe(
+      `INSERT INTO ot_attempts (user_id, ot_test_id, answers, total, attempted, correct_count, wrong_count, score, time_taken_sec)
+       VALUES ($1::uuid,$2::bigint,$3::jsonb,$4,$5,$6,$7,$8,$9)`,
+      userId || null, String(testId), JSON.stringify(answers || {}),
+      total, attempted, correct, wrong, score, Number(timeTakenSec) || 0,
+    )
+  } catch (e) { console.warn('[OnlineTest] attempt save skipped:', e.message) }
+
+  return { total, attempted, correct, wrong, skipped: total - attempted, score }
+}
+
+module.exports = { listChapters, listTests, getTest, submit }

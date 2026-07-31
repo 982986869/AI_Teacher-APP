@@ -54,6 +54,14 @@ const config = {
     mockMode: process.env.MOCK_AI === 'true',
     lessonModel: process.env.AI_LESSON_MODEL,
     doubtModel: process.env.AI_DOUBT_MODEL,
+    // Small deterministic sub-tasks — intent classification, quiz drafting, answer
+    // grading. Short in, short out, and answerDoubt runs while the student waits,
+    // so this wants the cheapest fast model. Falls back to AI_DOUBT_MODEL.
+    cheapModel: process.env.AI_CHEAP_MODEL,
+    // RAG answering + document extraction. Wants the opposite of cheapModel: a large
+    // context window (a whole uploaded PDF has to fit) and good grounding. Falls back
+    // to AI_LESSON_MODEL. Keep this separate from AI_CHEAP_MODEL — one value cannot
+    // serve both without degrading one of them.
     knowledgeModel: process.env.AI_KNOWLEDGE_MODEL,
     anthropicApiKey: process.env.ANTHROPIC_API_KEY,
 
@@ -67,10 +75,19 @@ const config = {
     lessonEffort: (process.env.AI_LESSON_EFFORT || 'high').toLowerCase(),
   },
 
-  // OpenAI text-to-speech for the live teacher voice. One consistent, natural
-  // female voice for every device/user. Disabled (→ device TTS fallback) when no
-  // key is set. `instructions` only applies to the steerable gpt-4o-mini-tts model.
+  // Text-to-speech for the live teacher voice. One consistent, natural female
+  // voice for every device/user. PRIMARY = self-hosted Kokoro ("Sarah" = af_sarah),
+  // free and needs no API key (see ../../../kokoro-server). OpenAI is only used as
+  // a fallback when TTS_PROVIDER=openai or Kokoro is unreachable AND a key is set.
   tts: {
+    provider: process.env.TTS_PROVIDER || 'kokoro', // 'kokoro' (self-hosted, free) | 'openai'
+
+    // Kokoro (self-hosted) — the teacher voice students hear.
+    kokoroUrl: process.env.KOKORO_URL || 'http://localhost:8880',
+    kokoroVoice: process.env.KOKORO_VOICE || 'af_sarah',
+
+    // OpenAI fallback. Disabled (→ device TTS fallback) when no key is set.
+    // `instructions` only applies to the steerable gpt-4o-mini-tts model.
     apiKey: process.env.OPENAI_API_KEY,
     model: process.env.TTS_MODEL || 'gpt-4o-mini-tts',
     voice: process.env.TTS_VOICE || 'coral',
@@ -78,21 +95,13 @@ const config = {
     instructions: process.env.TTS_INSTRUCTIONS
       || 'You are a warm, calm and confident female school teacher speaking to one student. Speak clearly at a relaxed classroom pace, with natural pauses at full stops. Sound encouraging and patient — never rushed, dramatic or robotic.',
     maxChars: parseInt(process.env.TTS_MAX_CHARS, 10) || 1200,
-    enabled: !!process.env.OPENAI_API_KEY,
+    enabled: true, // Kokoro needs no key, so TTS is always available
 
-    // ── FUTURE USE — alternative providers (currently disabled) ───────────────
-    // Uncomment these together with the matching code in routes/tts.js.
-    //
-    // provider: process.env.TTS_PROVIDER || 'kokoro', // 'kokoro' | 'openai' | 'elevenlabs'
-    //
-    // // Kokoro — self-hosted, free, no API key. Needs the Python server running at
-    // // http://localhost:8880 (see /kokoro-server). Buffers the whole clip before
-    // // responding, so first-audio is slower than OpenAI's streamed response.
-    // kokoroUrl: process.env.KOKORO_URL || 'http://localhost:8880',
-    // kokoroVoice: process.env.KOKORO_VOICE || 'af_sarah',
-    //
-    // // ElevenLabs — premium/PAID. A free ElevenLabs plan cannot use the TTS API at
-    // // all (402 paid_plan_required), so this needs a paid subscription.
+    // ── FUTURE USE — ElevenLabs (written but not wired up) ────────────────────
+    // ElevenLabsTTSProvider.js exists; nothing requires it and these keys are off,
+    // so it is dead until both are enabled. Premium/PAID: a free ElevenLabs plan
+    // cannot use the TTS API at all (402 paid_plan_required). Uncomment these
+    // together with a matching provider branch in routes/tts.js.
     // elevenApiKey: process.env.ELEVENLABS_API_KEY,
     // elevenVoiceId: process.env.ELEVENLABS_VOICE_ID || '21m00Tcm4TlvDq8ikWAM', // "Rachel"
     // elevenModel: process.env.ELEVENLABS_MODEL || 'eleven_flash_v2_5', // cheap + low-latency
@@ -110,7 +119,10 @@ const config = {
 
   rag: {
     topK: parseInt(process.env.RAG_TOP_K, 10) || 5,
-    minSimilarity: process.env.RAG_MIN_SIMILARITY ? parseFloat(process.env.RAG_MIN_SIMILARITY) : 0.2,
+    // 0.2 was far too permissive — near-irrelevant chunks (~0.2 cosine) passed the
+    // gate and became "context", so the model answered from noise (hallucination).
+    // Real matches sit ~0.6-0.73, so 0.35 admits genuine hits and rejects noise.
+    minSimilarity: process.env.RAG_MIN_SIMILARITY ? parseFloat(process.env.RAG_MIN_SIMILARITY) : 0.35,
     chunkSize: parseInt(process.env.RAG_CHUNK_SIZE, 10) || 1500,
     chunkOverlap: parseInt(process.env.RAG_CHUNK_OVERLAP, 10) || 200,
     maxUploadBytes: parseInt(process.env.KNOWLEDGE_MAX_UPLOAD_BYTES, 10) || 5000000,

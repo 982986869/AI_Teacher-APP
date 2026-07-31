@@ -79,35 +79,43 @@ export const stateColor = (s) => (
   s === 'listening' ? T.listening : s === 'thinking' ? T.thinking : T.speaking
 );
 
-// ── LIGHT palette — slate paper + indigo brand (the "Nova" direction). Key names
-// are kept (cream = app bg, ink = text, accent = brand…) so the player, its SVG
-// boards, the avatar and the dock all re-theme from this one place.
+// ── CHALK-ON-SLATE palette — the board is a real slate she writes on, not a white
+// card. Key names are unchanged (cream = board ground, ink = what she writes,
+// accent = the colour she emphasises in…), so every SVG board, the formula card
+// and the gestures re-skin from this one place without touching a call site.
+//
+// Two rules the values follow, because chalk is not just "light text on dark":
+//   • nothing is pure white — chalk is warm and slightly dusty (#F2F5F0), and pure
+//     white on a dark ground glares on an OLED phone in a dark room;
+//   • the hues are DESATURATED versions of the light palette. A #F97316 orange
+//     that sings on paper vibrates against slate, so it lands as chalk amber.
 export const C = {
-  cream: '#F8FAFC',      // app background — slate-50
-  cream2: '#F1F5F9',     // elevated / track — slate-100
-  board: '#FFFFFF',      // card / surface
-  ink: '#0F172A',        // primary text — slate-900
-  ink2: '#475569',       // secondary text — slate-600
-  dim: '#94A3B8',        // labels / tertiary — slate-400
-  faint: '#CBD5E1',      // faint / placeholders — slate-300
-  line: 'rgba(15,23,42,0.08)',  // hairline borders/dividers
+  cream: '#14201D',      // the slate itself
+  cream2: '#1B2B27',     // elevated band / track on the slate
+  board: '#14201D',      // board surface (same slate — cards sit ON it, not in it)
+  ink: '#F2F5F0',        // chalk — primary
+  ink2: '#B9C6BE',       // chalk — secondary
+  dim: '#8FA096',        // labels / tertiary
+  faint: '#5F6D66',      // faint / placeholders
+  line: 'rgba(255,255,255,0.13)',  // hairline borders/dividers
 
-  // diagram / token colors — distinct hues kept so multi-part diagrams still read
-  orange: '#F97316',     // orange-500
-  blue: '#3B82F6',       // blue-500
-  green: '#10B981',      // emerald-500 (success / correct)
-  pink: '#F43F5E',       // rose-500 (danger / weak)
-  accent: '#4F46E5',     // INDIGO-600 — primary brand
-  accentBright: '#4338CA',
-  accentSoft: 'rgba(79,70,229,0.12)',
-  teal: '#10B981',       // emerald secondary
-  brass: '#8B5CF6',      // violet (kept for compatibility)
-  brassSoft: 'rgba(139,92,246,0.14)',
+  // diagram / token colors — chalk sticks: distinct enough that a multi-part
+  // diagram still reads, muted enough that four of them don't fight.
+  orange: '#EFC152',     // chalk amber
+  blue: '#8FC7E8',       // chalk sky
+  green: '#63D6BB',      // chalk mint (success / correct)
+  pink: '#E88A86',       // chalk rose (danger / weak)
+  accent: '#EFC152',     // chalk amber — what she underlines and boxes
+  accentBright: '#F7D278',
+  accentSoft: 'rgba(239,193,82,0.16)',
+  teal: '#63D6BB',       // mint secondary
+  brass: '#C9A5E8',      // chalk violet (field lines, flows)
+  brassSoft: 'rgba(201,165,232,0.18)',
 
   // bottom area — slate bands (legacy WarmGradient key)
-  peachBands: ['#F8FAFC', '#F6F9FC', '#F4F7FB', '#F2F6FA', '#F0F4F9', '#EEF2F8'],
+  peachBands: ['#14201D', '#131E1B', '#121D1A', '#111B18', '#101917', '#0C1512'],
   // very subtle bottom scrim
-  scrim: ['rgba(0,0,0,0)', 'rgba(0,0,0,0.02)', 'rgba(0,0,0,0.04)', 'rgba(0,0,0,0.06)'],
+  scrim: ['rgba(0,0,0,0)', 'rgba(0,0,0,0.06)', 'rgba(0,0,0,0.12)', 'rgba(0,0,0,0.18)'],
 };
 
 // ── DARK palette — the live classroom "room lights down" chrome. The whiteboard

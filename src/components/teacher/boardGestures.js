@@ -84,8 +84,10 @@ export function EraserWipe({ enabled = true }) {
   if (!on) return null;
   return (
     <Animated.View pointerEvents="none" style={{
-      position: 'absolute', top: 0, bottom: 0, width: 72, backgroundColor: 'rgba(255,255,255,0.92)',
-      shadowColor: '#2C3043', shadowOpacity: 0.08, shadowRadius: 10, shadowOffset: { width: 0, height: 0 },
+      // A duster on slate leaves a pale band of chalk dust, not an opaque white
+      // sheet — an opaque wipe on the dark board reads as the screen flashing.
+      position: 'absolute', top: 0, bottom: 0, width: 72, backgroundColor: 'rgba(242,245,240,0.14)',
+      shadowColor: '#000', shadowOpacity: 0.12, shadowRadius: 10, shadowOffset: { width: 0, height: 0 },
       transform: [{ translateX: x.interpolate({ inputRange: [0, 1], outputRange: [-90, SCREEN_W] }) }, { skewX: '-10deg' }],
     }} />
   );

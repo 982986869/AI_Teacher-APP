@@ -3,6 +3,8 @@
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { validationResult } = require('express-validator')
+const { OAuth2Client } = require('google-auth-library')
+const { default: normalizeEmail } = require('validator/lib/normalizeEmail')
 const db = require('../config/database')
 const { config } = require('../config/env')
 const { AppError } = require('../middleware/errorHandler')
@@ -20,6 +22,10 @@ async function fetchScopeUser(id) {
   )
   return rows && rows[0]
 }
+
+// No client secret: this only ever verifies ID-token signatures against Google's
+// public keys, which the library fetches and caches itself.
+const googleClient = new OAuth2Client()
 
 function signToken(userId) {
   return jwt.sign({ sub: userId }, config.auth.jwtSecret, {
@@ -117,6 +123,74 @@ async function login(req, res, next) {
   }
 }
 
+// ─── Google ──────────────────────────────────────────────────────────────────
+
+// Verified against every configured client ID at once: Android returns an idToken
+// audienced to the *web* client, iOS to the iOS client.
+async function googleAuth(req, res, next) {
+  try {
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+      return ApiResponse.error(res, errors.array()[0].msg, 422)
+    }
+
+    if (!config.google.clientIds.length) {
+      throw new AppError('Google sign-in is not configured on this server', 503)
+    }
+
+    const { idToken } = req.body
+
+    let payload
+    try {
+      const ticket = await googleClient.verifyIdToken({
+        idToken,
+        audience: config.google.clientIds,
+      })
+      payload = ticket.getPayload()
+    } catch (err) {
+      throw new AppError('Invalid Google token', 401)
+    }
+
+    // Google only omits email when the token lacks the email scope; an unverified
+    // address must never be trusted to match an existing account.
+    if (!payload || !payload.email) {
+      throw new AppError('Google account did not return an email address', 422)
+    }
+    if (payload.email_verified === false) {
+      throw new AppError('This Google email address is not verified', 403)
+    }
+
+    // Must match how /register stores addresses, or a Gmail user who signed up with
+    // "First.Last@gmail.com" (stored dot-stripped as "firstlast@gmail.com") would miss
+    // their own account here and get a second one.
+    const email = normalizeEmail(payload.email) || payload.email.toLowerCase()
+    let user = await db.user.findUnique({ where: { email }, select: USER_SELECT })
+    let isNewUser = false
+
+    if (!user) {
+      isNewUser = true
+      user = await db.user.create({
+        data: {
+          name: payload.name || payload.given_name || email.split('@')[0],
+          email,
+          provider: 'GOOGLE',
+        },
+        select: USER_SELECT,
+      })
+    }
+
+    const full = (await fetchScopeUser(user.id)) || user
+
+    return ApiResponse.success(
+      res,
+      { token: signToken(user.id), user: full, scope: deriveScope(full), isNewUser },
+      isNewUser ? 'Account created' : 'Signed in',
+    )
+  } catch (err) {
+    next(err)
+  }
+}
+
 // ─── Me ──────────────────────────────────────────────────────────────────────
 
 async function me(req, res) {
@@ -158,4 +232,4 @@ async function updateProfile(req, res, next) {
   }
 }
 
-module.exports = { register, login, me, updateProfile }
+module.exports = { register, login, googleAuth, me, updateProfile }

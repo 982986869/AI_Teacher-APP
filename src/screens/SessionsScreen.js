@@ -51,6 +51,45 @@ function SessionCard({ s }) {
   );
 }
 
+// A recorded class the student can replay any time (a completed session with a
+// recording link the admin attached). Course-player card: a 16:9 Aurora thumbnail
+// with an animated play overlay + duration/RECORDING badges, then title & teacher.
+// Tapping anywhere opens the recording. Aurora look: purple gradient + glass accents.
+function RecordingCard({ s }) {
+  const meta = [s.subject, s.teacherName].filter(Boolean).join(' · ') || 'Recorded class';
+  const initial = (s.teacherName || 'N').trim().charAt(0).toUpperCase();
+  return (
+    <PressableScale style={hs.recCard} onPress={() => Linking.openURL(s.recordingUrl).catch(() => {})} accessibilityLabel={`Watch recording: ${s.title}`}>
+      <View style={hs.recThumbLg}>
+        <InkSurface a="#6C4DE6" b="#A06BFF" glow="#C7A6FF" radius={0} />
+        {/* a light sweep across the thumbnail — a subtle "playable" shimmer */}
+        <Shine delay={1200} gap={3800} width={70} color="rgba(255,255,255,0.18)" />
+        {/* breathing play button — the clear affordance */}
+        <Breathe>
+          <View style={hs.recPlay}><CirclePlay size={30} color="#fff" strokeWidth={2} /></View>
+        </Breathe>
+        {/* live REC tag with a pulsing dot */}
+        <View style={hs.recTag}>
+          <Pulse from={0.5} to={1} duration={1200}><View style={hs.recDot} /></Pulse>
+          <T w="xbold" s={8.5} c="#fff" style={{ letterSpacing: 1 }}>RECORDING</T>
+        </View>
+        <View style={hs.recDur}><T w="bold" s={10.5} c="#fff">{s.durationMin} min</T></View>
+      </View>
+      <View style={hs.recBody}>
+        <T w="xbold" s={14.5} c={S.ink} numberOfLines={2}>{s.title}</T>
+        <View style={hs.recMeta}>
+          <View style={hs.recAvatar}><T w="bold" s={11} c="#6C4DE6">{initial}</T></View>
+          <T w="semi" s={12} c={S.muted} numberOfLines={1} style={{ flex: 1 }}>{meta}</T>
+          <View style={hs.recDateChip}>
+            <CalendarDays size={12} color="#8079B0" strokeWidth={2.4} />
+            <T w="bold" s={11} c={S.sub}>{fmtWhen(s.startsAt)}</T>
+          </View>
+        </View>
+      </View>
+    </PressableScale>
+  );
+}
+
 const SessionsScreen = () => {
   const navigation = useNavigation();
   const scrollRef = useRef(null);
@@ -75,7 +114,10 @@ const SessionsScreen = () => {
   }, [navigation]);
 
   const upcoming = (sessions || []).filter((s) => s.status === 'scheduled');
-  const completed = (sessions || []).filter((s) => s.status === 'completed');
+  // Recorded lectures = any session with a recording link (its own replay library).
+  const recordings = (sessions || []).filter((s) => !!s.recordingUrl);
+  // Completed WITHOUT a recording — so a recorded class shows once, under Recordings.
+  const completed = (sessions || []).filter((s) => s.status === 'completed' && !s.recordingUrl);
   const hasSessions = (sessions || []).length > 0;
 
   return (
@@ -92,6 +134,12 @@ const SessionsScreen = () => {
               <>
                 <StudentSectionHeader title="Upcoming" accent={S.blue} />
                 {upcoming.map((s) => <FadeInOnce key={s.id} id={`sess-${s.id}`} delay={40} y={12}><SessionCard s={s} /></FadeInOnce>)}
+              </>
+            )}
+            {recordings.length > 0 && (
+              <>
+                <StudentSectionHeader title="Recordings" accent={S.purple} />
+                {recordings.map((s) => <FadeInOnce key={s.id} id={`rec-${s.id}`} delay={40} y={12}><RecordingCard s={s} /></FadeInOnce>)}
               </>
             )}
             {completed.length > 0 && (
@@ -156,6 +204,19 @@ const hs = StyleSheet.create({
   body: { flex: 1, paddingHorizontal: PAD },
   card: { backgroundColor: '#fff', borderRadius: 18, borderWidth: 1, borderColor: S.hair, padding: 15, marginBottom: 10, ...shadow },
   cardIcon: { width: 44, height: 44, borderRadius: 14, alignItems: 'center', justifyContent: 'center' },
+  recThumb: { width: 44, height: 44, borderRadius: 14, alignItems: 'center', justifyContent: 'center', backgroundColor: S.purple },
+
+  // ── Aurora course-player recording card ──
+  recCard: { backgroundColor: '#FFFFFF', borderRadius: 20, borderWidth: 1, borderColor: 'rgba(108,77,230,0.12)', marginBottom: 12, overflow: 'hidden', shadowColor: '#6E50C8', shadowOpacity: 0.16, shadowRadius: 22, shadowOffset: { width: 0, height: 12 }, elevation: 5 },
+  recThumbLg: { width: '100%', aspectRatio: 16 / 9, alignItems: 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden' },
+  recPlay: { width: 60, height: 60, borderRadius: 30, backgroundColor: 'rgba(255,255,255,0.22)', borderWidth: 1.5, borderColor: 'rgba(255,255,255,0.65)', alignItems: 'center', justifyContent: 'center' },
+  recTag: { position: 'absolute', top: 10, left: 10, flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: 'rgba(20,15,40,0.4)', borderRadius: 999, paddingHorizontal: 9, paddingVertical: 4 },
+  recDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: '#FF5F7A' },
+  recDur: { position: 'absolute', bottom: 10, right: 10, backgroundColor: 'rgba(20,15,40,0.5)', borderRadius: 8, paddingHorizontal: 8, paddingVertical: 3 },
+  recBody: { padding: 14 },
+  recMeta: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 10 },
+  recAvatar: { width: 24, height: 24, borderRadius: 12, backgroundColor: 'rgba(108,77,230,0.12)', alignItems: 'center', justifyContent: 'center' },
+  recDateChip: { flexDirection: 'row', alignItems: 'center', gap: 4, flexShrink: 0 },
   heroShadow: { borderRadius: 26, backgroundColor: '#0E1E4A', marginTop: 8, shadowColor: '#0E1E4A', shadowOpacity: 0.30, shadowRadius: 24, shadowOffset: { width: 0, height: 16 }, elevation: 11 },
   hero: { borderRadius: 26, overflow: 'hidden', padding: 22 },
   heroTag: { flexDirection: 'row', alignItems: 'center', gap: 6, alignSelf: 'flex-start', backgroundColor: 'rgba(255,255,255,0.12)', borderRadius: 20, paddingHorizontal: 10, paddingVertical: 6 },

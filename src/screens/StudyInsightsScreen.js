@@ -5,14 +5,27 @@ import {
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
 import { getStudyPlan, startRevision, getMemorySummary, askAgent, getChapterProgress } from '../api/aiApi';
-import { C, F, SP, R, GRAD } from '../components/teacher/premiumTheme';
-import { PressableScale, Gradient } from '../components/teacher/uiKit';
+import { SP, R } from '../components/teacher/premiumTheme';
+// Same design system as the rest of the app (and as AITeacherScreen / the live
+// classroom): studentTheme tokens, Nunito, lucide. One rule runs through this
+// screen — COLOUR LIVES IN GRAPHICS (bars, pills, icons, borders), TEXT STAYS
+// INK/SUB/MUTED. A 10px label tinted emerald or orange cannot clear AA on white,
+// so the semantic hue is carried by the thing next to the words, not the words.
+import { S, shadow, shadowSm } from '../theme/studentTheme';
+import { F } from './parent/ParentApp/constants';
+import {
+  ChevronLeft, Compass, Repeat, ChartNoAxesColumn, BookOpen, Brain, Bandage,
+  Dumbbell, Clock, Check, CircleAlert, Minus, Sparkles, RotateCcw, Pencil,
+  CircleQuestionMark, X, Flame, Target,
+} from 'lucide-react-native';
+import { PressableScale } from '../components/teacher/uiKit';
+import { InkSurface } from '../theme/studentUI';
 
 const SUBJECTS = ['All', 'Physics', 'Maths', 'Chemistry', 'Biology'];
 const TABS = [
-  { key: 'next', label: '🧭 What next?' },
-  { key: 'revise', label: '🔁 Revise' },
-  { key: 'progress', label: '📊 Progress' },
+  { key: 'next', label: 'What next?', Icon: Compass },
+  { key: 'revise', label: 'Revise', Icon: Repeat },
+  { key: 'progress', label: 'Progress', Icon: ChartNoAxesColumn },
 ];
 
 // Connects three already-built backend endpoints to the UI:
@@ -27,26 +40,32 @@ const StudyInsightsScreen = ({ initialSubject = 'Physics', initialTab = 'next', 
 
   return (
     <SafeAreaView style={st.safe}>
-      <StatusBar barStyle="light-content" backgroundColor={GRAD.mint[0]} />
+      <StatusBar barStyle="light-content" backgroundColor={S.heroB} />
 
-      {/* ── gradient header: back · title · pill tabs ── */}
-      <Gradient colors={GRAD.mint} style={st.header}>
+      {/* ── hero header: back · title · pill tabs. Same InkSurface as the AI Teacher
+          hero, so arriving here reads as the same product, not a second one. ── */}
+      <View style={st.header}>
+        <InkSurface radius={0} />
         {Platform.OS === 'android' && <View style={{ height: 24 }} />}
         <View style={st.headerTop}>
-          <PressableScale onPress={onBack} style={st.hIcon} accessibilityLabel="Go back"><Text style={st.hIconTxt}>‹</Text></PressableScale>
+          <PressableScale onPress={onBack} style={st.hIcon} accessibilityLabel="Go back"><ChevronLeft size={20} color="#fff" strokeWidth={2.6} /></PressableScale>
           <Text style={st.headerTitle} accessibilityRole="header">Study Insights</Text>
           <View style={{ width: 38 }} />
         </View>
 
         <View style={st.tabs}>
-          {TABS.map((t) => (
-            <PressableScale key={t.key} style={[st.tab, tab === t.key && st.tabOn]} onPress={() => setTab(t.key)}
-              accessibilityLabel={t.label} accessibilityState={{ selected: tab === t.key }}>
-              <Text style={[st.tabTxt, tab === t.key && st.tabTxtOn]} numberOfLines={1}>{t.label}</Text>
-            </PressableScale>
-          ))}
+          {TABS.map((t) => {
+            const on = tab === t.key;
+            return (
+              <PressableScale key={t.key} style={[st.tab, on && st.tabOn]} onPress={() => setTab(t.key)}
+                accessibilityLabel={t.label} accessibilityState={{ selected: on }}>
+                <t.Icon size={14} color={on ? S.indigo : 'rgba(255,255,255,0.85)'} strokeWidth={2.4} />
+                <Text style={[st.tabTxt, on && st.tabTxtOn]} numberOfLines={1}>{t.label}</Text>
+              </PressableScale>
+            );
+          })}
         </View>
-      </Gradient>
+      </View>
 
       <View style={st.subjRow}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 8, paddingRight: SP.lg }}>
@@ -82,9 +101,9 @@ const fmtDuration = (secs) => {
 
 // ─── Tab 1: What should I study next? (GET /api/ai/plan) ──────────────────────
 const ACTION_META = {
-  revise: { icon: '🔁', tag: 'REVISE FIRST', tint: C.orange },
-  learn:  { icon: '📖', tag: 'LEARN NEXT',   tint: C.blue },
-  review: { icon: '🎯', tag: 'KEEP SHARP',   tint: C.green },
+  revise: { Icon: Repeat,   tag: 'REVISE FIRST', tint: S.orange,  tintBg: S.orangeSoft },
+  learn:  { Icon: BookOpen, tag: 'LEARN NEXT',   tint: S.blue,    tintBg: S.blueSoft },
+  review: { Icon: Target,   tag: 'KEEP SHARP',   tint: S.emerald, tintBg: S.emeraldSoft },
 };
 
 const NextTab = ({ subject }) => {
@@ -112,9 +131,14 @@ const NextTab = ({ subject }) => {
   const meta = ACTION_META[plan.action] || ACTION_META.review;
   return (
     <>
-      <View style={[st.card, { borderColor: meta.tint + '66' }]}>
+      <View style={[st.card, { borderColor: meta.tint }]}>
         <View style={st.recTagRow}>
-          <Text style={[st.recTag, { color: meta.tint }]}>{meta.icon}  {meta.tag}</Text>
+          <View style={st.recTagChip}>
+            <View style={[st.recTagIcon, { backgroundColor: meta.tintBg }]}>
+              <meta.Icon size={13} color={meta.tint} strokeWidth={2.5} />
+            </View>
+            <Text style={st.recTag}>{meta.tag}</Text>
+          </View>
           {plan.driver === 'mastery' && <Text style={st.recDriver}>mastery-based</Text>}
         </View>
         <Text style={st.recTitle}>{plan.concept || plan.chapter || plan.subject || 'Keep going'}</Text>
@@ -126,7 +150,7 @@ const NextTab = ({ subject }) => {
 
       {Array.isArray(plan.weakConcepts) && plan.weakConcepts.length > 0 && (
         <View style={st.card}>
-          <Text style={st.cardHdr}>🧠 CONCEPTS TO STRENGTHEN</Text>
+          <CardHdr Icon={Brain}>CONCEPTS TO STRENGTHEN</CardHdr>
           {plan.weakConcepts.slice(0, 6).map((c, i) => (
             <ConceptRow key={`${c.concept}-${i}`} c={c} />
           ))}
@@ -135,7 +159,7 @@ const NextTab = ({ subject }) => {
 
       {Array.isArray(plan.weakChapters) && plan.weakChapters.length > 0 && (
         <View style={st.card}>
-          <Text style={st.cardHdr}>WEAKEST CHAPTERS</Text>
+          <CardHdr Icon={Bandage}>WEAKEST CHAPTERS</CardHdr>
           {plan.weakChapters.slice(0, 5).map((w, i) => (
             <WeakRow key={`${w.subject}-${w.chapter}-${i}`} w={w} />
           ))}
@@ -212,20 +236,25 @@ const ReviseTab = ({ subject, grade }) => {
           </View>
         )}
         <TouchableOpacity style={st.cta} onPress={run} activeOpacity={0.9}>
-          <Text style={st.ctaTxt}>Start revision  ✨</Text>
+          <Sparkles size={17} color="#fff" strokeWidth={2.4} />
+          <Text style={st.ctaTxt}>Start revision</Text>
         </TouchableOpacity>
       </>
     );
   }
 
-  const verdictTint = graded
-    ? (graded.verdict === 'correct' ? C.green : graded.verdict === 'error' ? C.pink : C.orange)
-    : C.dim;
+  // The verdict's hue lives on the icon and the box border; the words stay ink.
+  const V = {
+    correct: { Icon: Check, tint: S.emerald, label: 'Correct' },
+    error: { Icon: CircleAlert, tint: S.red, label: 'Error' },
+    partial: { Icon: Minus, tint: S.orange, label: 'Almost' },
+  };
+  const verdict = graded ? (V[graded.verdict] || V.partial) : V.partial;
 
   return (
     <>
       <View style={st.card}>
-        <Text style={st.recTagRow2}>📍 FOCUS</Text>
+        <CardHdr Icon={Target}>FOCUS</CardHdr>
         <Text style={st.recTitle}>{rev.focus?.concept || rev.focus?.chapter || rev.focus?.subject || 'Revision'}</Text>
         {!!rev.focus?.concept && !!rev.focus?.chapter && <Text style={st.recSub}>{rev.focus.chapter} · {rev.focus.subject}</Text>}
         {typeof rev.focus?.masteryPct === 'number' && <MasteryBar pct={rev.focus.masteryPct} />}
@@ -233,13 +262,13 @@ const ReviseTab = ({ subject, grade }) => {
       </View>
 
       <View style={st.card}>
-        <Text style={st.cardHdr}>QUICK RECAP</Text>
+        <CardHdr Icon={BookOpen}>QUICK RECAP</CardHdr>
         <Text style={st.recapTxt}>{rev.recap || rev.answer}</Text>
       </View>
 
       {rev.pending?.question && (
         <View style={st.card}>
-          <Text style={st.cardHdr}>QUICK CHECK</Text>
+          <CardHdr Icon={Target}>QUICK CHECK</CardHdr>
           <Text style={st.qText}>{rev.pending.question}</Text>
 
           {!graded ? (
@@ -247,7 +276,7 @@ const ReviseTab = ({ subject, grade }) => {
               <TextInput
                 style={st.input}
                 placeholder="Type your answer…"
-                placeholderTextColor={C.faint}
+                placeholderTextColor={S.faint}
                 value={answer}
                 onChangeText={setAnswer}
                 multiline
@@ -265,18 +294,20 @@ const ReviseTab = ({ subject, grade }) => {
               </TouchableOpacity>
             </>
           ) : (
-            <View style={[st.verdictBox, { borderColor: verdictTint + '66' }]}>
-              <Text style={[st.verdictTag, { color: verdictTint }]}>
-                {graded.verdict === 'correct' ? '✓ Correct' : graded.verdict === 'error' ? '⚠️ Error' : '~ Almost'}
-              </Text>
+            <View style={[st.verdictBox, { borderColor: verdict.tint }]}>
+              <View style={st.verdictTagRow}>
+                <verdict.Icon size={15} color={verdict.tint} strokeWidth={2.8} />
+                <Text style={st.verdictTag}>{verdict.label}</Text>
+              </View>
               <Text style={st.verdictTxt}>{graded.feedback}</Text>
             </View>
           )}
         </View>
       )}
 
-      <TouchableOpacity style={[st.ctaGhost]} onPress={run} activeOpacity={0.9}>
-        <Text style={st.ctaGhostTxt}>↻  Revise another topic</Text>
+      <TouchableOpacity style={st.ctaGhost} onPress={run} activeOpacity={0.9}>
+        <RotateCcw size={15} color={S.sub} strokeWidth={2.4} />
+        <Text style={st.ctaGhostTxt}>Revise another topic</Text>
       </TouchableOpacity>
     </>
   );
@@ -333,7 +364,7 @@ const ProgressTab = ({ subject }) => {
   return (
     <>
       <View style={st.statRow}>
-        <Stat n={`${streak}🔥`} l={'Day\nstreak'} />
+        <Stat n={String(streak)} l={'Day\nstreak'} Icon={Flame} tint={S.orange} />
         <Stat n={studyTime} l={'Study\ntime'} />
         <Stat n={acc} l={'Quiz\naccuracy'} />
       </View>
@@ -345,7 +376,7 @@ const ProgressTab = ({ subject }) => {
 
       {chapters.length > 0 && (
         <View style={st.card}>
-          <Text style={st.cardHdr}>📚 CHAPTER PROGRESS</Text>
+          <CardHdr Icon={BookOpen}>CHAPTER PROGRESS</CardHdr>
           {chapters.slice(0, 12).map((c, i) => (
             <ChapterRow key={`${c.chapter}-${i}`} c={c} />
           ))}
@@ -353,13 +384,13 @@ const ProgressTab = ({ subject }) => {
       )}
 
       <View style={st.card}>
-        <Text style={st.cardHdr}>💪 STRONG CHAPTERS</Text>
+        <CardHdr Icon={Dumbbell}>STRONG CHAPTERS</CardHdr>
         {Array.isArray(sum.strongChapters) && sum.strongChapters.length > 0 ? (
           sum.strongChapters.map((c, i) => (
             <View key={`${c.chapter}-${i}`} style={st.lineRow}>
               <Text style={st.lineTitle} numberOfLines={1}>{c.chapter || c.subject}</Text>
-              <View style={[st.scorePill, { backgroundColor: 'rgba(87,214,151,0.14)' }]}>
-                <Text style={[st.scoreTxt, { color: C.green }]}>{c.accuracy != null ? `${Math.round(c.accuracy * 100)}%` : '—'}</Text>
+              <View style={[st.scorePill, { backgroundColor: S.emeraldSoft }]}>
+                <Text style={st.scoreTxt}>{c.accuracy != null ? `${Math.round(c.accuracy * 100)}%` : '—'}</Text>
               </View>
             </View>
           ))
@@ -369,7 +400,7 @@ const ProgressTab = ({ subject }) => {
       </View>
 
       <View style={st.card}>
-        <Text style={st.cardHdr}>🩹 WEAK CHAPTERS</Text>
+        <CardHdr Icon={Bandage}>WEAK CHAPTERS</CardHdr>
         {Array.isArray(sum.weakChapters) && sum.weakChapters.length > 0 ? (
           sum.weakChapters.map((w, i) => <WeakRow key={`${w.chapter}-${i}`} w={w} />)
         ) : (
@@ -378,7 +409,7 @@ const ProgressTab = ({ subject }) => {
       </View>
 
       <View style={st.card}>
-        <Text style={st.cardHdr}>🕑 RECENT ACTIVITY</Text>
+        <CardHdr Icon={Clock}>RECENT ACTIVITY</CardHdr>
         {Array.isArray(sum.recentActivity) && sum.recentActivity.length > 0 ? (
           sum.recentActivity.map((e, i) => <ActivityRow key={i} e={e} />)
         ) : (
@@ -390,36 +421,50 @@ const ProgressTab = ({ subject }) => {
 };
 
 // ─── Shared bits ──────────────────────────────────────────────────────────────
+// Card header: a small lucide glyph + the label. Replaces the emoji that used to be
+// baked into the header strings, so glyph size/weight/colour are actually controlled.
+const CardHdr = ({ Icon, children }) => (
+  <View style={st.cardHdrRow}>
+    <Icon size={13} color={S.muted} strokeWidth={2.4} />
+    <Text style={st.cardHdr}>{children}</Text>
+  </View>
+);
+
 const Loader = ({ text }) => (
   <View style={st.loaderBox}>
-    <ActivityIndicator color={C.accent} size="large" />
+    <ActivityIndicator color={S.indigo} size="large" />
     <Text style={st.loaderTxt}>{text}</Text>
   </View>
 );
 
 const ErrorCard = ({ text, onRetry }) => (
   <View style={st.errCard}>
-    <Text style={st.errTxt}>⚠️  {text}</Text>
-    {onRetry && <TouchableOpacity onPress={onRetry}><Text style={st.retryTxt}>Try again ›</Text></TouchableOpacity>}
+    <CircleAlert size={17} color={S.red} strokeWidth={2.4} />
+    <Text style={st.errTxt}>{text}</Text>
+    {onRetry && <TouchableOpacity onPress={onRetry}><Text style={st.retryTxt}>Try again</Text></TouchableOpacity>}
   </View>
 );
 
-const Stat = ({ n, l }) => (
+const Stat = ({ n, l, Icon, tint }) => (
   <View style={st.stat}>
-    <Text style={st.statNum}>{n}</Text>
+    <View style={st.statNumRow}>
+      {!!Icon && <Icon size={17} color={tint || S.indigo} strokeWidth={2.5} />}
+      <Text style={st.statNum}>{n}</Text>
+    </View>
     <Text style={st.statLbl}>{l}</Text>
   </View>
 );
 
-// Mastery as a 0–100 bar. Red < 40, amber < 70, green otherwise.
-const masteryTint = (pct) => (pct < 40 ? C.pink : pct < 70 ? C.orange : C.green);
+// Mastery as a 0–100 bar. Red < 40, amber < 70, green otherwise. The hue is on the
+// BAR only — the percentage keeps S.sub, because S.emerald/S.orange at 11px would
+// not clear AA on a white card.
+const masteryTint = (pct) => (pct < 40 ? S.red : pct < 70 ? S.orange : S.emerald);
 const MasteryBar = ({ pct }) => {
   const p = Math.max(0, Math.min(100, Math.round(pct || 0)));
-  const tint = masteryTint(p);
   return (
     <View style={st.masteryWrap}>
-      <View style={st.masteryTrack}><View style={[st.masteryFill, { width: `${p}%`, backgroundColor: tint }]} /></View>
-      <Text style={[st.masteryPct, { color: tint }]}>{p}%</Text>
+      <View style={st.masteryTrack}><View style={[st.masteryFill, { width: `${p}%`, backgroundColor: masteryTint(p) }]} /></View>
+      <Text style={st.masteryPct}>{p}%</Text>
     </View>
   );
 };
@@ -427,21 +472,23 @@ const MasteryBar = ({ pct }) => {
 // One chapter's progress row: name, status, completion bar, weak/strong tag.
 const ChapterRow = ({ c }) => {
   const pct = Math.max(0, Math.min(100, c.percent || 0));
-  const tint = c.completed ? C.green : c.weak ? C.pink : C.accent;
+  const tint = c.completed ? S.emerald : c.weak ? S.red : S.indigo;
   const status = c.completed ? 'Completed' : c.inProgress ? 'In progress' : '—';
   return (
     <View style={st.chapterRow}>
       <View style={st.chapterTop}>
         <Text style={st.lineTitle} numberOfLines={1}>{c.chapter}</Text>
         <View style={st.chapterTags}>
-          {c.weak && <Text style={[st.chapterTag, { color: C.pink }]}>weak</Text>}
-          {c.strong && <Text style={[st.chapterTag, { color: C.green }]}>strong</Text>}
-          <Text style={[st.chapterStatus, { color: tint }]}>{status}</Text>
+          {/* weak / strong as tinted pills rather than tinted words — the fill can
+              carry the hue at any contrast, the label cannot. */}
+          {c.weak && <View style={[st.tagPill, { backgroundColor: S.redSoft }]}><Text style={st.tagPillTxt}>weak</Text></View>}
+          {c.strong && <View style={[st.tagPill, { backgroundColor: S.emeraldSoft }]}><Text style={st.tagPillTxt}>strong</Text></View>}
+          <Text style={st.chapterStatus}>{status}</Text>
         </View>
       </View>
       <View style={st.masteryWrap}>
         <View style={st.masteryTrack}><View style={[st.masteryFill, { width: `${pct}%`, backgroundColor: tint }]} /></View>
-        <Text style={[st.masteryPct, { color: tint }]}>{pct}%</Text>
+        <Text style={st.masteryPct}>{pct}%</Text>
       </View>
     </View>
   );
@@ -468,22 +515,29 @@ const WeakRow = ({ w }) => {
             .filter(Boolean).join(' · ')}
         </Text>
       </View>
-      <View style={[st.scorePill, { backgroundColor: 'rgba(242,161,92,0.14)' }]}>
-        <Text style={[st.scoreTxt, { color: C.orange }]}>{w.weakness != null ? `⚠ ${w.weakness}` : ''}</Text>
-      </View>
+      {w.weakness != null && (
+        <View style={[st.scorePill, { backgroundColor: S.orangeSoft }]}>
+          <Text style={st.scoreTxt}>{w.weakness}</Text>
+        </View>
+      )}
     </View>
   );
 };
 
-const ACT_ICON = { quiz: '📝', doubt: '❓', mistake: '✗' };
+const ACT_META = {
+  quiz: { Icon: Pencil, tint: S.blue, tintBg: S.blueSoft },
+  doubt: { Icon: CircleQuestionMark, tint: S.purple, tintBg: S.purpleSoft },
+  mistake: { Icon: X, tint: S.red, tintBg: S.redSoft },
+};
 const ActivityRow = ({ e }) => {
   const label = e.type === 'quiz'
     ? (e.correct === true ? 'Answered correctly' : e.correct === false ? 'Got it wrong' : 'Took a quiz')
     : e.type === 'doubt' ? 'Asked a doubt'
     : e.type === 'mistake' ? 'Made a mistake' : e.type;
+  const m = ACT_META[e.type] || { Icon: Minus, tint: S.muted, tintBg: S.hair };
   return (
     <View style={st.actRow}>
-      <Text style={st.actIcon}>{ACT_ICON[e.type] || '•'}</Text>
+      <View style={[st.actIcon, { backgroundColor: m.tintBg }]}><m.Icon size={14} color={m.tint} strokeWidth={2.5} /></View>
       <View style={{ flex: 1 }}>
         <Text style={st.actLabel}>{label}</Text>
         <Text style={st.actMeta} numberOfLines={1}>{[e.chapter, e.subject].filter(Boolean).join(' · ') || '—'}</Text>
@@ -493,94 +547,98 @@ const ActivityRow = ({ e }) => {
 };
 
 const st = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: C.cream },
+  safe: { flex: 1, backgroundColor: S.canvas },
 
-  // ── gradient header + pill tabs ──
+  // ── hero header + pill tabs (InkSurface paints the deep indigo behind it) ──
   header: {
     paddingHorizontal: SP.md, paddingTop: SP.sm, paddingBottom: SP.lg,
-    borderBottomLeftRadius: 28, borderBottomRightRadius: 28, overflow: 'hidden',
-    shadowColor: '#047857', shadowOpacity: 0.3, shadowRadius: 18, shadowOffset: { width: 0, height: 8 }, elevation: 8,
+    borderBottomLeftRadius: 32, borderBottomRightRadius: 32, overflow: 'hidden',
+    backgroundColor: S.heroB, ...shadow,
   },
   headerTop: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: SP.lg },
-  hIcon: { width: 38, height: 38, borderRadius: 19, backgroundColor: 'rgba(0,0,0,0.14)', alignItems: 'center', justifyContent: 'center' },
-  hIconTxt: { fontSize: 22, fontFamily: F.bold, color: '#fff', marginTop: -3 },
-  headerTitle: { fontSize: 16, fontFamily: F.bold, color: '#fff', letterSpacing: 0.2 },
+  hIcon: { width: 38, height: 38, borderRadius: 19, backgroundColor: 'rgba(255,255,255,0.16)', alignItems: 'center', justifyContent: 'center' },
+  headerTitle: { fontSize: 16, fontFamily: F.xbold, color: '#fff', letterSpacing: 0.2 },
 
-  tabs: { flexDirection: 'row', gap: 4, backgroundColor: 'rgba(0,0,0,0.20)', borderRadius: R.pill, padding: 5 },
-  tab: { flex: 1, paddingVertical: 9, borderRadius: R.pill, alignItems: 'center', justifyContent: 'center' },
-  tabOn: { backgroundColor: '#fff', shadowColor: '#000', shadowOpacity: 0.1, shadowRadius: 6, shadowOffset: { width: 0, height: 2 }, elevation: 2 },
-  tabTxt: { fontSize: 11.5, fontFamily: F.semi, color: 'rgba(255,255,255,0.85)' },
-  tabTxtOn: { color: '#047857', fontFamily: F.bold },
+  tabs: { flexDirection: 'row', gap: 4, backgroundColor: 'rgba(0,0,0,0.24)', borderRadius: R.pill, padding: 5 },
+  tab: { flex: 1, flexDirection: 'row', gap: 5, paddingVertical: 9, borderRadius: R.pill, alignItems: 'center', justifyContent: 'center' },
+  tabOn: { backgroundColor: '#fff', ...shadowSm },
+  tabTxt: { fontSize: 11.5, fontFamily: F.bold, color: 'rgba(255,255,255,0.85)' },
+  tabTxtOn: { color: S.indigo, fontFamily: F.xbold },
 
   subjRow: { paddingHorizontal: SP.md, paddingTop: SP.md },
-  chip: { paddingVertical: 8, paddingHorizontal: 15, borderRadius: R.pill, borderWidth: 1, borderColor: C.line, backgroundColor: C.board },
-  chipOn: { backgroundColor: C.accent, borderColor: C.accent },
-  chipTxt: { fontSize: 12.5, fontFamily: F.semi, color: C.ink2 },
+  chip: { paddingVertical: 8, paddingHorizontal: 15, borderRadius: R.pill, borderWidth: 1, borderColor: S.border, backgroundColor: S.card },
+  chipOn: { backgroundColor: S.indigo, borderColor: S.indigo },
+  chipTxt: { fontSize: 12.5, fontFamily: F.bold, color: S.sub },
   chipTxtOn: { color: '#fff' },
 
   body: { paddingHorizontal: SP.md, paddingTop: SP.md, paddingBottom: 44, gap: 12 },
 
   // ── cards ──
-  card: { backgroundColor: C.board, borderWidth: 1, borderColor: C.line, borderRadius: R.xl, padding: 18, gap: 4, shadowColor: '#0F172A', shadowOpacity: 0.05, shadowRadius: 12, shadowOffset: { width: 0, height: 5 }, elevation: 2 },
-  cardHdr: { fontSize: 10, fontFamily: F.bold, color: C.dim, letterSpacing: 1, textTransform: 'uppercase', marginBottom: 8 },
+  card: { backgroundColor: S.card, borderWidth: 1, borderColor: S.hair, borderRadius: R.xl, padding: 18, gap: 4, ...shadowSm },
+  cardHdrRow: { flexDirection: 'row', alignItems: 'center', gap: 7, marginBottom: 8 },
+  cardHdr: { fontSize: 10, fontFamily: F.xbold, color: S.muted, letterSpacing: 1, textTransform: 'uppercase' },
 
   recTagRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 4 },
-  recDriver: { fontSize: 9, fontFamily: F.bold, color: C.accent, letterSpacing: 0.6, textTransform: 'uppercase', backgroundColor: C.accentSoft, borderRadius: 8, paddingHorizontal: 7, paddingVertical: 2, overflow: 'hidden' },
-  recTagRow2: { fontSize: 10, fontFamily: F.bold, color: C.dim, letterSpacing: 1, marginBottom: 4 },
-  recTag: { fontSize: 10.5, fontFamily: F.bold, letterSpacing: 1 },
-  recTitle: { fontSize: 20, fontFamily: F.bold, color: C.ink, letterSpacing: -0.4, marginTop: 2 },
-  recSub: { fontSize: 12, fontFamily: F.semi, color: C.dim, marginTop: 2 },
-  recReason: { fontSize: 13.5, fontFamily: F.med, color: C.ink2, lineHeight: 20, marginTop: 6 },
-  recapTxt: { fontSize: 14, fontFamily: F.med, color: C.ink2, lineHeight: 22 },
+  recTagChip: { flexDirection: 'row', alignItems: 'center', gap: 7 },
+  recTagIcon: { width: 24, height: 24, borderRadius: 8, alignItems: 'center', justifyContent: 'center' },
+  recTag: { fontSize: 10.5, fontFamily: F.xbold, color: S.sub, letterSpacing: 1 },
+  recDriver: { fontSize: 9, fontFamily: F.xbold, color: S.indigo, letterSpacing: 0.6, textTransform: 'uppercase', backgroundColor: S.indigoSoft, borderRadius: 8, paddingHorizontal: 7, paddingVertical: 2, overflow: 'hidden' },
+  recTitle: { fontSize: 20, fontFamily: F.black, color: S.ink, letterSpacing: -0.4, marginTop: 2 },
+  recSub: { fontSize: 12, fontFamily: F.bold, color: S.muted, marginTop: 2 },
+  recReason: { fontSize: 13.5, fontFamily: F.med, color: S.sub, lineHeight: 20, marginTop: 6 },
+  recapTxt: { fontSize: 14, fontFamily: F.med, color: S.sub, lineHeight: 22 },
 
-  qText: { fontSize: 15, fontFamily: F.bold, color: C.ink, lineHeight: 22, marginBottom: 12 },
-  input: { backgroundColor: C.cream, borderWidth: 1, borderColor: C.line, borderRadius: R.md, paddingVertical: 12, paddingHorizontal: 14, fontSize: 14.5, fontFamily: F.med, color: C.ink, minHeight: 60, textAlignVertical: 'top' },
+  qText: { fontSize: 15, fontFamily: F.xbold, color: S.ink, lineHeight: 22, marginBottom: 12 },
+  input: { backgroundColor: S.canvas, borderWidth: 1, borderColor: S.border, borderRadius: R.md, paddingVertical: 12, paddingHorizontal: 14, fontSize: 14.5, fontFamily: F.med, color: S.ink, minHeight: 60, textAlignVertical: 'top' },
 
-  verdictBox: { borderWidth: 1, borderRadius: R.md, padding: 14, backgroundColor: C.cream },
-  verdictTag: { fontSize: 13, fontFamily: F.bold, marginBottom: 6 },
-  verdictTxt: { fontSize: 14, fontFamily: F.med, color: C.ink2, lineHeight: 21 },
+  verdictBox: { borderWidth: 1, borderRadius: R.md, padding: 14, backgroundColor: S.canvas },
+  verdictTagRow: { flexDirection: 'row', alignItems: 'center', gap: 6, marginBottom: 6 },
+  verdictTag: { fontSize: 13, fontFamily: F.xbold, color: S.ink },
+  verdictTxt: { fontSize: 14, fontFamily: F.med, color: S.sub, lineHeight: 21 },
 
-  cta: { backgroundColor: C.ink, borderRadius: R.md, paddingVertical: 15, alignItems: 'center', marginTop: 12, shadowColor: '#0F172A', shadowOpacity: 0.25, shadowRadius: 12, shadowOffset: { width: 0, height: 5 }, elevation: 5 },
+  cta: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, backgroundColor: S.indigo, borderRadius: R.md, paddingVertical: 15, marginTop: 12, ...shadowSm },
   ctaTxt: { color: '#fff', fontSize: 15, fontFamily: F.bold, letterSpacing: -0.2 },
-  ctaGhost: { borderWidth: 1, borderColor: C.line, borderRadius: R.md, paddingVertical: 14, alignItems: 'center', backgroundColor: C.board },
-  ctaGhostTxt: { color: C.ink2, fontSize: 14, fontFamily: F.semi },
+  ctaGhost: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, borderWidth: 1, borderColor: S.border, borderRadius: R.md, paddingVertical: 14, backgroundColor: S.card },
+  ctaGhostTxt: { color: S.sub, fontSize: 14, fontFamily: F.bold },
   rowCenter: { flexDirection: 'row', alignItems: 'center' },
 
   // ── stats ──
   statRow: { flexDirection: 'row', gap: 10 },
-  stat: { flex: 1, backgroundColor: C.board, borderWidth: 1, borderColor: C.line, borderRadius: R.xl, paddingVertical: 18, alignItems: 'center', shadowColor: '#0F172A', shadowOpacity: 0.04, shadowRadius: 10, shadowOffset: { width: 0, height: 4 }, elevation: 1 },
-  statNum: { fontSize: 24, fontFamily: F.black, color: C.accent, letterSpacing: -0.6 },
-  statLbl: { fontSize: 9.5, fontFamily: F.bold, color: C.dim, textAlign: 'center', marginTop: 6, lineHeight: 13, letterSpacing: 0.6, textTransform: 'uppercase' },
+  stat: { flex: 1, backgroundColor: S.card, borderWidth: 1, borderColor: S.hair, borderRadius: R.xl, paddingVertical: 18, alignItems: 'center', ...shadowSm },
+  statNumRow: { flexDirection: 'row', alignItems: 'center', gap: 5 },
+  statNum: { fontSize: 24, fontFamily: F.black, color: S.ink, letterSpacing: -0.6 },
+  statLbl: { fontSize: 9.5, fontFamily: F.xbold, color: S.muted, textAlign: 'center', marginTop: 6, lineHeight: 13, letterSpacing: 0.6, textTransform: 'uppercase' },
 
-  conceptRow: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 10, borderTopWidth: 1, borderTopColor: C.line },
-  chapterRow: { paddingVertical: 11, borderTopWidth: 1, borderTopColor: C.line },
+  conceptRow: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 10, borderTopWidth: 1, borderTopColor: S.hair },
+  chapterRow: { paddingVertical: 11, borderTopWidth: 1, borderTopColor: S.hair },
   chapterTop: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8 },
-  chapterTags: { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  chapterTag: { fontSize: 9.5, fontFamily: F.bold, letterSpacing: 0.4, textTransform: 'uppercase' },
-  chapterStatus: { fontSize: 11, fontFamily: F.bold },
+  chapterTags: { flexDirection: 'row', alignItems: 'center', gap: 6 },
+  tagPill: { borderRadius: 7, paddingHorizontal: 7, paddingVertical: 2 },
+  tagPillTxt: { fontSize: 9.5, fontFamily: F.xbold, color: S.sub, letterSpacing: 0.4, textTransform: 'uppercase' },
+  chapterStatus: { fontSize: 11, fontFamily: F.bold, color: S.muted },
   masteryWrap: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 6 },
-  masteryTrack: { flex: 1, height: 8, borderRadius: 6, backgroundColor: C.cream2, overflow: 'hidden' },
+  masteryTrack: { flex: 1, height: 8, borderRadius: 6, backgroundColor: S.hair, overflow: 'hidden' },
   masteryFill: { height: '100%', borderRadius: 6 },
-  masteryPct: { fontSize: 11, fontFamily: F.bold, minWidth: 34, textAlign: 'right' },
+  masteryPct: { fontSize: 11, fontFamily: F.xbold, color: S.sub, minWidth: 34, textAlign: 'right' },
 
-  lineRow: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 9, borderTopWidth: 1, borderTopColor: C.line },
-  lineTitle: { flex: 1, fontSize: 14, fontFamily: F.bold, color: C.ink },
-  lineMeta: { fontSize: 11, fontFamily: F.med, color: C.dim, marginTop: 2 },
+  lineRow: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 9, borderTopWidth: 1, borderTopColor: S.hair },
+  lineTitle: { flex: 1, fontSize: 14, fontFamily: F.xbold, color: S.ink },
+  lineMeta: { fontSize: 11, fontFamily: F.med, color: S.muted, marginTop: 2 },
   scorePill: { borderRadius: 10, paddingHorizontal: 9, paddingVertical: 4, minWidth: 46, alignItems: 'center' },
-  scoreTxt: { fontSize: 12, fontFamily: F.bold },
-  emptyHint: { fontSize: 13, fontFamily: F.med, color: C.dim, lineHeight: 19 },
+  scoreTxt: { fontSize: 12, fontFamily: F.xbold, color: S.sub },
+  emptyHint: { fontSize: 13, fontFamily: F.med, color: S.muted, lineHeight: 19 },
 
-  actRow: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 9, borderTopWidth: 1, borderTopColor: C.line },
-  actIcon: { fontSize: 16, width: 22, textAlign: 'center' },
-  actLabel: { fontSize: 13.5, fontFamily: F.bold, color: C.ink },
-  actMeta: { fontSize: 11, fontFamily: F.med, color: C.dim, marginTop: 1 },
+  actRow: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 9, borderTopWidth: 1, borderTopColor: S.hair },
+  actIcon: { width: 26, height: 26, borderRadius: 9, alignItems: 'center', justifyContent: 'center' },
+  actLabel: { fontSize: 13.5, fontFamily: F.xbold, color: S.ink },
+  actMeta: { fontSize: 11, fontFamily: F.med, color: S.muted, marginTop: 1 },
 
   loaderBox: { alignItems: 'center', justifyContent: 'center', paddingVertical: 60, gap: 14 },
-  loaderTxt: { fontSize: 13, fontFamily: F.semi, color: C.dim },
+  loaderTxt: { fontSize: 13, fontFamily: F.bold, color: S.muted },
 
-  errCard: { backgroundColor: 'rgba(244,63,94,0.08)', borderWidth: 1, borderColor: 'rgba(244,63,94,0.28)', borderRadius: R.lg, padding: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10 },
-  errTxt: { flex: 1, color: C.pink, fontSize: 13, fontFamily: F.semi },
-  retryTxt: { color: C.ink, fontSize: 13, fontFamily: F.bold },
+  errCard: { backgroundColor: S.redSoft, borderWidth: 1, borderColor: S.red, borderRadius: R.lg, padding: 16, flexDirection: 'row', alignItems: 'center', gap: 10 },
+  errTxt: { flex: 1, color: S.ink, fontSize: 13, fontFamily: F.semi },
+  retryTxt: { color: S.ink, fontSize: 13, fontFamily: F.xbold },
 });
 
 export default StudyInsightsScreen;

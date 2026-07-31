@@ -27,7 +27,7 @@ const VIDEO_OK = !!(ExpoAV && ExpoAV.Video);
 
 const CREAM_ACCENT = { speaking: '#FF8A3D', listening: '#3B82F6', thinking: '#E0A23C', idle: '#FF8A3D' };
 
-function TeacherFullBody({ state = 'idle', photo, video, height = 300, theme = 'dark', style }) {
+function TeacherFullBody({ state = 'idle', photo, video, height = 300, theme = 'dark', bg, style }) {
   const [imgError, setImgError] = useState(false);
   const width = Math.round(height * 0.66);           // portrait crop that frames the figure
   const radius = Math.round(height * 0.11);
@@ -39,7 +39,8 @@ function TeacherFullBody({ state = 'idle', photo, video, height = 300, theme = '
   // left blank.
   const [threeFailed, setThreeFailed] = useState(false);
   const [vidFailed, setVidFailed] = useState(false);
-  const frameBg = theme === 'cream' ? '#FFF7EE' : '#11151D';
+  // `bg` overrides the stage colour (used by the aurora AI-Teacher home to drop the black).
+  const frameBg = bg || (theme === 'cream' ? '#FFF7EE' : '#11151D');
   const show3D = !!TEACHER_GLB_URL && !threeFailed;
   const useVid = !show3D && !!video && VIDEO_OK && !vidFailed;   // looping talking clip
 
@@ -98,30 +99,33 @@ function TeacherFullBody({ state = 'idle', photo, video, height = 300, theme = '
         backgroundColor: accent, opacity: glowOpacity,
       }]} />
 
-      <Animated.View style={[styles.frame, {
+      {/* The frame + its border stay STATIC and clip their contents (overflow:hidden),
+          so the breathing never crosses the boundary. Only the figure inside breathes. */}
+      <View style={[styles.frame, {
         width, height, borderRadius: radius, borderColor: accent,
         backgroundColor: frameBg,
-        transform: [{ scale: breathScale }],
       }]}>
-        {show3D ? (
-          <TeacherAvatar3D state={state} glbUrl={TEACHER_GLB_URL} bg={frameBg} onError={() => setThreeFailed(true)} />
-        ) : useVid ? (
-          <ExpoAV.Video
-            ref={vidRef}
-            source={video}
-            isMuted
-            isLooping
-            shouldPlay={speaking}
-            resizeMode="cover"
-            style={{ width: '100%', height: '100%' }}
-            onError={() => setVidFailed(true)}
-          />
-        ) : canImg ? (
-          <Image source={photo} resizeMode="cover" style={{ width: '100%', height: '100%' }} onError={() => setImgError(true)} />
-        ) : (
-          <View style={{ flex: 1 }} />
-        )}
-      </Animated.View>
+        <Animated.View style={{ width: '100%', height: '100%', transform: [{ scale: breathScale }] }}>
+          {show3D ? (
+            <TeacherAvatar3D state={state} glbUrl={TEACHER_GLB_URL} bg={frameBg} onError={() => setThreeFailed(true)} />
+          ) : useVid ? (
+            <ExpoAV.Video
+              ref={vidRef}
+              source={video}
+              isMuted
+              isLooping
+              shouldPlay={speaking}
+              resizeMode="cover"
+              style={{ width: '100%', height: '100%' }}
+              onError={() => setVidFailed(true)}
+            />
+          ) : canImg ? (
+            <Image source={photo} resizeMode="cover" style={{ width: '100%', height: '100%' }} onError={() => setImgError(true)} />
+          ) : (
+            <View style={{ flex: 1 }} />
+          )}
+        </Animated.View>
+      </View>
     </View>
   );
 }

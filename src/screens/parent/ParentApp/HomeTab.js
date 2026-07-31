@@ -7,8 +7,9 @@ import { C, st, T, Label, card, CardGradient } from './constants';
 import Header from './Header';
 import { PressableScale, FadeInOnce, Breathe, Odometer, Pulse, Float, PopIn, Wave, Nudge } from './anim';
 import { EventTeaser, EventsModal } from './EventsCarousel';
-import { AboutModal, ImpactModal, TutorsModal } from './AboutScreen';
+import { AboutModal, ImpactModal, TutorsModal, ReviewsModal, PricingModal, FaqsModal, ContactModal, RefundModal, ReferralModal } from './AboutScreen';
 import UpcomingDemoCard from './UpcomingDemoCard';
+import FacultyCards from '../../../components/FacultyCards';
 
 // Stat carousel card width + gap — wide rectangles that overflow the screen so the row
 // slides. snapToInterval below uses STAT_W + STAT_GAP so each card settles cleanly.
@@ -146,6 +147,33 @@ function HomeTab({ meta, childName, onAvatar, onGym, onActivity, onBookTrial, re
   const [aboutOpen, setAboutOpen] = useState(false);
   const [impactOpen, setImpactOpen] = useState(false);
   const [tutorsOpen, setTutorsOpen] = useState(false);
+  const [reviewsOpen, setReviewsOpen] = useState(false);
+  const [pricingOpen, setPricingOpen] = useState(false);
+  const [faqsOpen, setFaqsOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
+  const [refundOpen, setRefundOpen] = useState(false);
+  const [referralOpen, setReferralOpen] = useState(false);
+
+  // Every ABOUT AILERNOVA page's footer can reach every other one, which by hand is six
+  // pages wired to five each — the kind of grid where one missing pair ships as a dead
+  // link nobody notices. Build them from one map instead: close the page we are on, then
+  // open the target. The close MUST come first — two RN Modals stacked at once don't
+  // reliably layer on Android. Events can open the others but is never a target itself.
+  const PAGES = {
+    about: setAboutOpen, impact: setImpactOpen, tutors: setTutorsOpen,
+    reviews: setReviewsOpen, pricing: setPricingOpen, faqs: setFaqsOpen,
+    contact: setContactOpen, refund: setRefundOpen, referral: setReferralOpen,
+  };
+  const closeOf = { events: setEventsOpen, ...PAGES };
+  const nav = (from) => Object.fromEntries(
+    Object.entries(PAGES)
+      .filter(([name]) => name !== from)
+      .map(([name, openIt]) => [
+        `on${name[0].toUpperCase()}${name.slice(1)}`,
+        () => { closeOf[from](false); openIt(true); },
+      ]),
+  );
+  const goTrial = (from) => () => { closeOf[from](false); onBookTrial && onBookTrial(); };
   const events = report.events || [];
   const hour = new Date().getHours();
   const greet = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
@@ -201,6 +229,11 @@ function HomeTab({ meta, childName, onAvatar, onGym, onActivity, onBookTrial, re
           </FadeInOnce>
         )}
 
+        {/* Who teaches your child — hides itself while the roster is empty. */}
+        <FadeInOnce id="home-faculty" delay={200}>
+          <FacultyCards />
+        </FadeInOnce>
+
         <FadeInOnce id="home-events" delay={160}>
           <Label>Offline events</Label>
           {events.length ? (
@@ -221,33 +254,31 @@ function HomeTab({ meta, childName, onAvatar, onGym, onActivity, onBookTrial, re
             layer on Android. */}
         <EventsModal visible={eventsOpen} onClose={() => setEventsOpen(false)}
           events={events} store={report.eventStore} skills={report.eventSkills} gallery={report.eventGallery}
-          onAbout={() => { setEventsOpen(false); setAboutOpen(true); }}
-          onImpact={() => { setEventsOpen(false); setImpactOpen(true); }}
-          onTutors={() => { setEventsOpen(false); setTutorsOpen(true); }} />
+          {...nav('events')} />
         {/* Sticky "Get Started" → close the story, then open the free-demo sheet. */}
-        <AboutModal
-          visible={aboutOpen}
-          onClose={() => setAboutOpen(false)}
-          onGetStarted={() => { setAboutOpen(false); onBookTrial && onBookTrial(); }}
-          onImpact={() => { setAboutOpen(false); setImpactOpen(true); }}
-          onTutors={() => { setAboutOpen(false); setTutorsOpen(true); }}
-        />
-        <ImpactModal
-          visible={impactOpen}
-          onClose={() => setImpactOpen(false)}
-          onGetStarted={() => { setImpactOpen(false); onBookTrial && onBookTrial(); }}
-          onAbout={() => { setImpactOpen(false); setAboutOpen(true); }}
-          onTutors={() => { setImpactOpen(false); setTutorsOpen(true); }}
-        />
+        <AboutModal visible={aboutOpen} onClose={() => setAboutOpen(false)}
+          onGetStarted={goTrial('about')} {...nav('about')} />
+        <ImpactModal visible={impactOpen} onClose={() => setImpactOpen(false)}
+          onGetStarted={goTrial('impact')} {...nav('impact')} />
         {/* "Find the Right Tutor" → close the page, then open the free-demo sheet: the
             demo IS how a parent gets matched with a tutor. */}
-        <TutorsModal
-          visible={tutorsOpen}
-          onClose={() => setTutorsOpen(false)}
-          onGetStarted={() => { setTutorsOpen(false); onBookTrial && onBookTrial(); }}
-          onAbout={() => { setTutorsOpen(false); setAboutOpen(true); }}
-          onImpact={() => { setTutorsOpen(false); setImpactOpen(true); }}
-        />
+        <TutorsModal visible={tutorsOpen} onClose={() => setTutorsOpen(false)}
+          onGetStarted={goTrial('tutors')} {...nav('tutors')} />
+        {/* Parent Reviews, Pricing and FAQs — all open from the ABOUT AILERNOVA accordion. */}
+        <ReviewsModal visible={reviewsOpen} onClose={() => setReviewsOpen(false)}
+          onGetStarted={goTrial('reviews')} {...nav('reviews')} />
+        <PricingModal visible={pricingOpen} onClose={() => setPricingOpen(false)}
+          onGetStarted={goTrial('pricing')} {...nav('pricing')} />
+        <FaqsModal visible={faqsOpen} onClose={() => setFaqsOpen(false)}
+          onGetStarted={goTrial('faqs')} {...nav('faqs')} />
+        {/* Contact Us — opens from the ABOUT AILERNOVA accordion's "Contact Us" row. */}
+        <ContactModal visible={contactOpen} onClose={() => setContactOpen(false)}
+          onGetStarted={goTrial('contact')} {...nav('contact')} />
+        {/* Refund Policy — legal page, so it has no "Get Started" CTA of its own. */}
+        <RefundModal visible={refundOpen} onClose={() => setRefundOpen(false)} {...nav('refund')} />
+        {/* Refer a Friend — the reward IS the offer, so like the refund page it has no
+            separate "Get Started" CTA; its sticky button goes to support to share a link. */}
+        <ReferralModal visible={referralOpen} onClose={() => setReferralOpen(false)} {...nav('referral')} />
 
       </ScrollView>
     </View>
