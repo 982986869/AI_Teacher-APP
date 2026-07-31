@@ -60,13 +60,9 @@ const TEACHER_PHOTO = null;
 // size but reaches the ~44px accessible target).
 const BAR_HIT = { top: 8, bottom: 8, left: 8, right: 8 };
 
-// The "classroom" backdrop — a deep indigo→near-black gradient (cohesive with the
-// premium hub header) so the teaching room reads as a rich, focused space instead of
-// flat black. A soft indigo bloom top-centre gives a subtle "stage light" depth.
-// A sophisticated graphite "study room" — near-black with the faintest cool cast,
-// no bright purple. Editorial and mature, not playful. One warm accent (champagne)
-// carries emphasis and the live pulse, like a highlighter in a fine textbook.
-const ROOM_GRAD = ['#16162A', '#0E0E1B', '#08080F'];
+// The room backdrop — the exact deep navy-indigo the user supplied as a swatch, not
+// an approximation. Matches V.ground/V.ground2 below.
+const ROOM_GRAD = ['#14103F', '#0C0936', '#07051F'];
 const ACCENT = '#DBA53F';      // marigold gold (the approved "Editorial" brand accent, brightened for the dark room)
 const ACCENT_DIM = '#B4863A';  // deeper marigold for smaller labels
 const GLASS_PANEL = 'rgba(34,38,48,0.72)';   // graphite frosted glass (teacher / caption / dock)
@@ -78,42 +74,43 @@ const GLASS_HAIR = 'rgba(255,255,255,0.16)';  // bright top hairline on the glas
 // action bar. These tokens own that chrome only — the BOARD ITSELF still renders
 // from the light `C` tokens in LessonBoards, so no SVG board changes.
 const V = {
-  ground: '#0B0B14',        // app background — near-black with a violet cast
-  ground2: '#12121F',       // elevated surface (ask bar, action bar)
+  ground: '#0C0936',        // app background — exact hex the user supplied
+  ground2: '#161240',       // elevated surface (ask bar, action bar) — a touch lighter
   hair: 'rgba(255,255,255,0.08)',
   hairSoft: 'rgba(255,255,255,0.05)',
   text: '#FFFFFF',
   textDim: '#9A9AB4',
   textFaint: '#6B6B85',
-  violet: '#7C4DFF',        // brand violet — send button, active tool, name chip
+  violet: '#7C3AED',        // exact Design System "Primary" — send button, active tool, name chip
   violetDeep: '#5B32C4',
-  violetSoft: 'rgba(124,77,255,0.16)',
+  violetSoft: 'rgba(124,58,237,0.16)',
   live: '#EF4444',          // the "Live" pill + End Session
   liveSoft: 'rgba(239,68,68,0.16)',
   paper: '#FFFFFF',         // whiteboard card
   paperEdge: 'rgba(15,23,42,0.07)',
   paperDim: '#F1F1F6',      // tool-rail / Full Screen chip fill
 };
-// The teacher card's violet stage — lighter at the top-left, deepening downward.
-const CAM_GRAD = ['#8257F5', '#6B3FE0', '#4E23AC'];
+// The teacher card's violet stage — Figma's exact Primary Light → Primary, deepening
+// to the existing violetDeep token. Previously three invented hex values with no
+// relationship to the design system; now every stop is either a Figma-specified
+// color or a token already used elsewhere in this file.
+const CAM_GRAD = ['#A855F7', V.violet, V.violetDeep];
 const CARD_R = 26;
-// The mockup gives cards noticeably more breathing room off the screen edge than a
-// standard SP.md gutter — SP.lg matches it. Both the ScrollView's own padding and the
-// hero-photo crop math (which needs the card's true rendered width) read from this one
-// constant so they can never drift apart.
-const SCREEN_MARGIN = SP.lg;
-// The teacher card's shape comes from the REFERENCE, not from a screen fraction: a
-// fixed height:width ratio (a touch taller than wide — a portrait "webcam" silhouette),
-// not SCREEN_H*fraction. A height-fraction approach let the card's WIDTH (fixed by the
-// shared card margin) silently redefine its shape, flattening it toward landscape. This
-// ratio was measured directly off the reference mockup and, at the shared card margin,
-// lands the card at ~35% of screen height on a standard device — the width constraint
-// and the height target were never actually in conflict.
-const CAM_RATIO = 1.08; // height = width * CAM_RATIO
-// The whiteboard is NOT forced to a fixed fraction — it sizes to its own content (a
-// one-line "Quick Check" stays compact; a full worked example naturally grows). With
-// the teacher card fixed and small, the board reads as dominant on any real scene
-// without padding short content into artificial empty space.
+// Figma's spacing grid is 4/8/12/16/24/32/48/64 — SP.lg (20, from the shared theme)
+// is not one of those steps, so it can't be reused here without inheriting an
+// off-grid value. 24 is this screen's literal per the design system (not SP.xl,
+// which is 28 — also off-grid); premiumTheme.js's SP scale itself is shared by other
+// screens and out of scope to change for this one screen's audit. Both the
+// ScrollView's own padding and the hero-photo crop math (which needs the card's true
+// rendered width) read from this one constant so they can never drift apart.
+const SCREEN_MARGIN = 24;
+// Explicit screen-proportion budget, re-measured against the reference so the WHOLE
+// session (header, teacher card, board, ask bar, nav) fits in one viewport with no
+// scroll — the reference never needs to scroll to see the action bar. 52% for the
+// board was too generous once the header/footer chrome is accounted for; it pushed
+// the layout past 100% of the screen and forced a scroll the reference doesn't have.
+const CAM_CARD_FRAC = 0.27;
+const BOARD_MIN_FRAC = 0.42;
 
 // TEACHER_HERO_PHOTO is a wide FULL-BODY illustration, 1123×944px (figure centred,
 // brick backdrop filling the rest of the frame) — see teacherIdentity.js. A plain
@@ -133,7 +130,7 @@ const HERO_CROP_TOP = 0.02;  // fraction down the photo where the visible window
 const HERO_CROP_H = 0.44;    // fraction of the photo's height the window spans — head, hair and shoulders, stopping above her hands-on-hips
 const HERO_CROP_CX = 0.50;   // horizontal centre of the window, as a fraction of the photo's width (she's centred in the source art)
 const CAM_CARD_W = SCREEN_W - SCREEN_MARGIN * 2;   // matches sessionScroll's horizontal padding
-const CAM_CARD_H = CAM_CARD_W * CAM_RATIO;
+const CAM_CARD_H = SCREEN_H * CAM_CARD_FRAC;
 // Derive the <Image>'s full rendered size + offset: crop_W is chosen so the crop
 // window's aspect ratio matches the card's, then the full photo is scaled up so that
 // window exactly covers the card, and shifted so the window (not the photo's own
@@ -596,7 +593,16 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   // scene happened to leave it scrolled to — otherwise a new scene can silently render
   // "scrolled past" the camera card with no visual cue that anything is wrong.
   const sessionScrollRef = useRef(null);
-  useEffect(() => { sessionScrollRef.current && sessionScrollRef.current.scrollTo({ y: 0, animated: false }); }, [idx]);
+  useEffect(() => {
+    const toTop = () => sessionScrollRef.current && sessionScrollRef.current.scrollTo({ y: 0, animated: false });
+    toTop();
+    // On a cold mount (especially resuming a saved lesson straight into a later scene)
+    // the ScrollView hasn't measured its content yet when this effect first runs, so
+    // the scrollTo above can be a no-op — a second call next frame, once content has
+    // actually laid out, is what makes it stick.
+    const raf = requestAnimationFrame(toTop);
+    return () => cancelAnimationFrame(raf);
+  }, [idx]);
   const [beat, setBeat] = useState(0);   // which directed beat within the current scene
   const [animKey, setAnimKey] = useState(0);
   const [muted, setMuted] = useState(false);
@@ -1387,6 +1393,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
             frame like a live feed; the violet wash keeps her tied to the brand and
             keeps the name chip / control rail legible over any backdrop. ── */}
         {!focusMode && (
+        <View style={st.camCardGlow}>
         <View style={st.camCard}>
           <LinearGradient colors={CAM_GRAD} start={{ x: 0.1, y: 0 }} end={{ x: 0.9, y: 1 }} style={StyleSheet.absoluteFill} />
           <Image
@@ -1399,10 +1406,11 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
             colors={['rgba(124,77,255,0.34)', 'rgba(91,50,196,0.10)', 'rgba(11,11,20,0.40)']}
             style={StyleSheet.absoluteFill} pointerEvents="none"
           />
+          <View style={st.camCardHighlight} pointerEvents="none" />
 
           {/* identity chip */}
           <View style={st.nameChip}>
-            <TeacherAvatar theme="dark" video={TEACHER_VIDEO} photo={TEACHER_HEADSHOT} state={teacherState} expression={expression} size={30} />
+            <TeacherAvatar theme="dark" video={TEACHER_VIDEO} photo={TEACHER_HEADSHOT} state={teacherState} expression={expression} size={34} />
             <View>
               <Text style={st.nameTxt} numberOfLines={1}>Ms. Nova</Text>
               <View style={st.roleRow}>
@@ -1436,11 +1444,17 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
           {/* student self-view, only when a camera module is actually present */}
           {CAMERA_OK && selfView && <View style={st.selfView}><CamInner /></View>}
         </View>
+        </View>
         )}
 
         <Stage key={sceneKey} style={st.workArea}>
           {showBoard && (
-            <Animated.View style={[st.boardOuter, { transform: [{ scale: focusZoom }] }]}>
+            // minHeight lives on this plain, non-animated View — putting it on the SAME
+            // node as the `transform` (Animated.View below) measurably failed to apply
+            // on this device/architecture; isolating the two concerns onto separate
+            // nodes is what actually holds the floor.
+            <View style={st.boardOuter}>
+            <Animated.View style={{ width: '100%', flex: 1, transform: [{ scale: focusZoom }] }}>
               {/* ── WHITEBOARD CARD — tool rail on the left, board title + Full
                   Screen on top, the live board below, undo pinned bottom-left. ── */}
               <View style={st.wbCard}>
@@ -1479,6 +1493,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
                 </View>
               </View>
             </Animated.View>
+            </View>
           )}
           {!focusMode && <Animated.View style={[st.captionWrap, { opacity: capFade }]}>{captionEl}</Animated.View>}
           {!focusMode && !!onAsk && (teaching || mode === M.PAUSED) && !qa && (
@@ -1753,13 +1768,16 @@ const st = StyleSheet.create({
 
   // ══ SESSION CHROME (approved mockup) ════════════════════════════════════════
   // header: back · title/concept · Live · clock · overflow
-  hdr: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: SCREEN_MARGIN, paddingTop: 6, paddingBottom: 10 },
-  hdrBack: { width: 32, height: 32, alignItems: 'center', justifyContent: 'center', marginLeft: -6 },
+  hdr: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: SCREEN_MARGIN, paddingTop: 8, paddingBottom: 8 },
+  // Back and overflow bookend the row — same box size, same optical inset, so the row
+  // reads as symmetric instead of the back button feeling slightly larger/closer to
+  // the edge than the overflow button.
+  hdrBack: { width: 32, height: 32, alignItems: 'center', justifyContent: 'center', marginLeft: -5 },
   hdrTitles: { flex: 1, minWidth: 0 },
   hdrTitle: { fontSize: 16, fontFamily: F.bold, color: V.text, letterSpacing: -0.3 },
-  hdrSub: { fontSize: 11.5, fontFamily: F.med, color: V.textDim, marginTop: 1 },
+  hdrSub: { fontSize: 12, fontFamily: F.med, color: V.textDim, marginTop: 1 },
   hdrClock: { fontSize: 13, fontFamily: F.semi, color: V.text, letterSpacing: 0.2, fontVariant: ['tabular-nums'] },
-  hdrMore: { width: 30, height: 30, alignItems: 'center', justifyContent: 'center', marginRight: -4 },
+  hdrMore: { width: 32, height: 32, alignItems: 'center', justifyContent: 'center', marginRight: -5 },
   hdrProgress: { height: 2, marginHorizontal: SCREEN_MARGIN, backgroundColor: 'rgba(255,255,255,0.07)', borderRadius: 2, overflow: 'hidden' },
   hdrProgressFill: { height: '100%', backgroundColor: V.violet, borderRadius: 2 },
 
@@ -1767,14 +1785,25 @@ const st = StyleSheet.create({
   liveDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: V.live },
   liveTxt: { fontSize: 11, fontFamily: F.bold, color: V.live, letterSpacing: 0.1 },
 
-  sessionScroll: { flexGrow: 1, paddingHorizontal: SCREEN_MARGIN, paddingTop: 12, paddingBottom: 10, gap: 10 },
+  sessionScroll: { flexGrow: 1, paddingHorizontal: SCREEN_MARGIN, paddingTop: 8, paddingBottom: 8, gap: 8 },
 
-  // teacher "on camera" card
+  // Design-system elevation tiers are deliberately DIFFERENT per card, not the same
+  // shadow reused twice: the whiteboard is "Raised" (Level 1 — a normal card lift),
+  // the teacher card is "Glow" (Level 2 — a purple ambient halo). Android's `elevation`
+  // ignores shadowColor entirely (it always renders a neutral gray lift, ANY hex you
+  // pass), so a colour glow can't be done through shadow props alone on this platform
+  // — camCardGlow below is a padded, tinted wrapper that lets the violet peek out
+  // around the card's edges as a visible halo on every platform, not just iOS.
+  camCardGlow: { padding: 6, borderRadius: CARD_R + 6, backgroundColor: 'rgba(124,58,237,0.30)' },
   camCard: { width: '100%', height: CAM_CARD_H, borderRadius: CARD_R, overflow: 'hidden', backgroundColor: V.violetDeep },
-  nameChip: { position: 'absolute', top: 12, left: 12, flexDirection: 'row', alignItems: 'center', gap: 8, maxWidth: '70%', backgroundColor: 'rgba(11,11,20,0.55)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.14)', borderRadius: R.pill, paddingVertical: 5, paddingHorizontal: 9, paddingRight: 14 },
-  nameTxt: { fontSize: 12.5, fontFamily: F.bold, color: V.text, letterSpacing: -0.1 },
+  // A hairline top highlight — the same "glass edge" cue every other floating surface
+  // in this screen uses (rail buttons, name chip) — so the card itself reads as part
+  // of the same material, not a flat rectangle of colour.
+  camCardHighlight: { position: 'absolute', top: 0, left: 0, right: 0, height: 1, backgroundColor: 'rgba(255,255,255,0.22)' },
+  nameChip: { position: 'absolute', top: 12, left: 12, flexDirection: 'row', alignItems: 'center', gap: 9, maxWidth: '72%', backgroundColor: 'rgba(10,10,26,0.62)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.16)', borderRadius: R.pill, paddingVertical: 6, paddingHorizontal: 10, paddingRight: 15 },
+  nameTxt: { fontSize: 13.5, fontFamily: F.bold, color: V.text, letterSpacing: -0.1 },
   roleRow: { flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: 1 },
-  roleTxt: { fontSize: 9.5, fontFamily: F.semi, color: V.textDim, letterSpacing: 0.2 },
+  roleTxt: { fontSize: 10, fontFamily: F.semi, color: V.textDim, letterSpacing: 0.2 },
   camWave: { position: 'absolute', top: 62, left: 18 },
   rail: { position: 'absolute', top: 14, right: 12, gap: 10 },
   railBtn: { width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(11,11,20,0.45)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.16)' },
@@ -1783,12 +1812,12 @@ const st = StyleSheet.create({
   selfView: { position: 'absolute', right: 12, bottom: 12, width: 78, height: 100, borderRadius: 14, overflow: 'hidden', borderWidth: 1.5, borderColor: 'rgba(255,255,255,0.28)', backgroundColor: '#11151D' },
 
   // whiteboard card — tool rail + titled board + undo
-  wbCard: { width: '100%', flexDirection: 'row', backgroundColor: V.paper, borderRadius: CARD_R, overflow: 'hidden', shadowColor: '#000', shadowOpacity: 0.42, shadowRadius: 26, shadowOffset: { width: 0, height: 14 }, elevation: 12 },
+  wbCard: { width: '100%', flex: 1, flexDirection: 'row', backgroundColor: V.paper, borderRadius: CARD_R, overflow: 'hidden', shadowColor: '#000', shadowOpacity: 0.28, shadowRadius: 30, shadowOffset: { width: 0, height: 14 }, elevation: 12 },
   wbRail: { paddingVertical: 14, paddingHorizontal: 8, gap: 6, borderRightWidth: 1, borderRightColor: V.paperEdge },
-  wbTool: { width: 30, height: 30, borderRadius: 9, alignItems: 'center', justifyContent: 'center' },
+  wbTool: { width: 30, height: 30, borderRadius: R.sm, alignItems: 'center', justifyContent: 'center' },
   wbToolOn: { backgroundColor: V.violetSoft },
   wbMain: { flex: 1, minWidth: 0, paddingTop: 14, paddingBottom: 40, paddingHorizontal: 14 },
-  wbHead: { flexDirection: 'row', alignItems: 'flex-start', gap: 10, marginBottom: 10 },
+  wbHead: { flexDirection: 'row', alignItems: 'flex-start', gap: 10, marginBottom: 14 },
   wbHeadTitles: { flex: 1, minWidth: 0 },
   wbKicker: { fontSize: 9, fontFamily: F.bold, color: C.dim, letterSpacing: 1.8, textTransform: 'uppercase', marginBottom: 3 },
   wbTitle: { fontSize: 21, fontFamily: F.bold, color: V.violet, letterSpacing: -0.3, lineHeight: 27 },
@@ -1934,7 +1963,13 @@ const st = StyleSheet.create({
   kicker: { fontSize: 9.5, fontFamily: F.semi, color: ACCENT_DIM, letterSpacing: 2.4, textTransform: 'uppercase', textAlign: 'left', marginBottom: 7 },
   title: { fontSize: 24, fontFamily: SERIF, fontWeight: '600', color: D.text, letterSpacing: 0.1, textAlign: 'left', lineHeight: 31, marginBottom: SP.md },
   // the ONE lit surface — a white board card floating in the dark room
-  boardOuter: { width: '100%', alignItems: 'center' },
+  // minHeight is a FLOOR (short content won't overflow it), enforced here — a plain
+  // column node with no competing flex/height constraint above it in the tree — rather
+  // than on wbCard itself, where the same minHeight measurably failed to apply (a
+  // flex-row child of an unconstrained ScrollView content node is not a reliable place
+  // to float a height floor). wbCard's `flex: 1` below fills whatever height this
+  // resolves to.
+  boardOuter: { width: '100%', minHeight: SCREEN_H * BOARD_MIN_FRAC, alignItems: 'center' },
   lessonCard: { width: '100%', backgroundColor: '#FAF7F0', borderRadius: R.xl, paddingVertical: 26, paddingHorizontal: 18, alignItems: 'center', shadowColor: '#000', shadowOpacity: 0.5, shadowRadius: 30, shadowOffset: { width: 0, height: 16 }, elevation: 14 },
   // her words, under the board — a graphite frosted-glass panel with a bright top
   // hairline and a slim champagne rule on the left, so it reads as an editorial

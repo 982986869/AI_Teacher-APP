@@ -9,6 +9,15 @@ import { SubjectBoard, SUBJECT_BOARD_TYPES } from './subjectBoards';
 import { CircleAround, Highlighter } from './boardGestures';
 import { TriangleAlert, Ruler, BookOpen, RotateCcw } from 'lucide-react-native';
 
+// Figma's exact "Primary" (#7C3AED, violet-600) — NOT premiumTheme's shared C.accent
+// (#4F46E5, indigo-600, a different hue). C.accent is used by other AI Teacher
+// screens beyond this lesson board, so it's out of scope to change there; this local
+// constant lets the board content match Figma without touching shared theme infra.
+// ACCENT_SOFT is the same hex at C.accentSoft's existing 0.12 opacity, so the "hot"
+// highlight background stays a matched tint of the new color instead of the old one.
+const ACCENT = '#7C3AED';
+const ACCENT_SOFT = 'rgba(124,58,237,0.12)';
+
 // ── marker underline — a chalk/marker stroke that "draws" under the active
 // formula token (Smart Whiteboard flourish); reads as her underlining it. ──────
 function MarkerUnderline({ active, color }) {
@@ -188,14 +197,14 @@ function FormulaBoard({ scene, paused, skip, resetKey, step, highlight }) {
   return (
     <View style={s.boardWrap}>
       <View style={s.formulaCard}>
-        <CircleAround active={complete} color={C.accent}>
+        <CircleAround active={complete} color={ACCENT}>
           <View style={s.formulaRow}>
             {parts.map((p, i) => {
               const isHot = i < n && hasHot(p, hot);            // spoken keyword → accent glow
               return (
               <Pop key={i} show={i < n} style={[s.formulaTokWrap, i === n - 1 && !skip && s.formulaTokActive, isHot && s.formulaTokHot]}>
-                <Text style={[s.formulaTok, { color: isHot ? C.accent : colors[i % colors.length] }]}>{p}</Text>
-                <MarkerUnderline active={(i === n - 1 && !skip) || isHot} color={isHot ? C.accent : colors[i % colors.length]} />
+                <Text style={[s.formulaTok, { color: isHot ? ACCENT : colors[i % colors.length] }]}>{p}</Text>
+                <MarkerUnderline active={(i === n - 1 && !skip) || isHot} color={isHot ? ACCENT : colors[i % colors.length]} />
               </Pop>
               );
             })}
@@ -289,8 +298,8 @@ function PointsBoard({ scene, paused, skip, resetKey, step, intro, warn, memory 
         {warn
           ? <TriangleAlert size={40} color={C.orange} strokeWidth={1.9} />
           : intro
-            ? <Ruler size={40} color={C.accent} strokeWidth={1.9} />
-            : <BookOpen size={40} color={C.accent} strokeWidth={1.9} />}
+            ? <Ruler size={40} color={ACCENT} strokeWidth={1.9} />
+            : <BookOpen size={40} color={ACCENT} strokeWidth={1.9} />}
       </View>
     );
   }
@@ -323,7 +332,7 @@ function ConceptBoard({ scene, paused, skip, resetKey, step, highlight }) {
       <View style={[s.boardWrap, s.flowRow]}>
         {steps.map((stp, i) => (
           <React.Fragment key={i}>
-            <Reveal show={i < n} active={i === n - 1} dimTo={0.45} style={[s.flowBox, i < n && hasHot(stp, hot) && s.flowBoxHot]}><Text style={[s.flowTxt, i < n && hasHot(stp, hot) && { color: C.accent }]}>{String(stp)}</Text></Reveal>
+            <Reveal show={i < n} active={i === n - 1} dimTo={0.45} style={[s.flowBox, i < n && hasHot(stp, hot) && s.flowBoxHot]}><Text style={[s.flowTxt, i < n && hasHot(stp, hot) && { color: ACCENT }]}>{String(stp)}</Text></Reveal>
             {i < steps.length - 1 && <Pop show={i + 1 < n}><Text style={s.flowArrow}>→</Text></Pop>}
           </React.Fragment>
         ))}
@@ -471,7 +480,7 @@ function QuickCheckBoard({ scene, onContinue, onQuizResult, onReexplain, quizFb,
           )}
           {wrong && !reteach && !!onReexplain && (
             <PressableScale style={s.reexplainBtn} onPress={onReexplain} accessibilityRole="button" accessibilityLabel="Explain that again, slower">
-              <RotateCcw size={15} color={C.accent} strokeWidth={2.4} />
+              <RotateCcw size={15} color={ACCENT} strokeWidth={2.4} />
               <Text style={s.reexplainTxt}>Explain that again, slower</Text>
             </PressableScale>
           )}
@@ -545,7 +554,7 @@ const s = StyleSheet.create({
   formulaRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 2 },
   formulaTokWrap: { borderRadius: 8, paddingHorizontal: 3, paddingVertical: 2 },
   formulaTokActive: { backgroundColor: 'rgba(255,138,61,0.14)' },
-  formulaTokHot: { backgroundColor: C.accentSoft },
+  formulaTokHot: { backgroundColor: ACCENT_SOFT },
   formulaTok: { fontSize: 22, fontFamily: F.black, fontWeight: '900', letterSpacing: 0.5 },
   varList: { marginTop: 12, gap: 4, alignItems: 'center' },
   varLine: { fontSize: 13, fontFamily: F.semi, fontWeight: '600', color: C.ink2 },
@@ -557,17 +566,17 @@ const s = StyleSheet.create({
   pointRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10, marginTop: 10, alignSelf: 'stretch', borderRadius: 12, paddingVertical: 6, paddingHorizontal: 6, marginHorizontal: -6, overflow: 'hidden' },
   pointRowActive: { backgroundColor: 'rgba(15,163,154,0.10)' },       // the point she's on right now
   pointRowWarnActive: { backgroundColor: 'rgba(239,138,67,0.12)' },   // …on a common-mistake slide
-  pointDot: { width: 22, height: 22, borderRadius: 11, backgroundColor: C.accent, alignItems: 'center', justifyContent: 'center', marginTop: 1 },
+  pointDot: { width: 22, height: 22, borderRadius: 11, backgroundColor: ACCENT, alignItems: 'center', justifyContent: 'center', marginTop: 1 },
   pointDotWarn: { backgroundColor: C.orange },
   pointDotTxt: { color: '#fff', fontSize: 11, fontFamily: F.black, fontWeight: '900' },
   pointTxt: { flex: 1, fontSize: 15, fontFamily: F.semi, fontWeight: '600', color: C.ink, lineHeight: 22 },
-  pointTxtHot: { color: C.accent, fontFamily: F.black, fontWeight: '800' },
+  pointTxtHot: { color: ACCENT, fontFamily: F.black, fontWeight: '800' },
 
   flowRow: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: 8 },
   flowBox: { backgroundColor: 'rgba(44,48,67,0.04)', borderWidth: 1, borderColor: C.line, borderRadius: 12, paddingVertical: 10, paddingHorizontal: 14 },
-  flowBoxHot: { borderColor: C.accent, backgroundColor: C.accentSoft },
+  flowBoxHot: { borderColor: ACCENT, backgroundColor: ACCENT_SOFT },
   flowTxt: { fontSize: 13, fontFamily: F.black, fontWeight: '800', color: C.ink },
-  flowArrow: { fontSize: 18, fontFamily: F.black, fontWeight: '900', color: C.accent },
+  flowArrow: { fontSize: 18, fontFamily: F.black, fontWeight: '900', color: ACCENT },
 
   quizQ: { fontSize: 17, fontFamily: F.black, fontWeight: '800', color: C.ink, lineHeight: 24, alignSelf: 'stretch', marginBottom: 4 },
   opt: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', alignSelf: 'stretch', backgroundColor: 'rgba(44,48,67,0.04)', borderWidth: 1, borderColor: C.line, borderRadius: 13, paddingVertical: 12, paddingHorizontal: 15, marginTop: 9 },
