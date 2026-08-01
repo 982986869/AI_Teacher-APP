@@ -123,6 +123,9 @@ function boardTotalFor(scene) {
     // that make the voice "advance steps" over a blank board.
     case 'formula': return (scene.formulaParts || []).length || ((d.variables) || []).length || 1;
     case 'chart': return ((d.chart && d.chart.values) || []).length || 1; // one bar per beat
+    // An annotated figure carries its own part count on the scene, so this one
+    // cannot drift from the board — unlike the hand-mirrored numbers below.
+    case 'annotated': return d.figureTotal || 0;
     // Subject illustrations — step counts MIRROR each board's own reveal total in
     // subjectBoards.js (kept in sync by hand; both files are additive/pure here).
     case 'freeBody': return 4;                 // weight · normal · applied · friction
@@ -158,6 +161,9 @@ function templateFor(scene) {
     case 'numberLine':
     case 'graphFn': return 'Diagram';          // draw-and-point visualization
     case 'timeline': return 'Story';           // narrated, left-to-right
+    // An annotated figure is drawn and pointed at part by part — the same
+    // choreography as the other draw-and-point boards.
+    case 'annotated': return 'Diagram';
     default: break; // concept / mistake — refine below
   }
   switch (scene.visualType) {

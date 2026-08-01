@@ -6,7 +6,7 @@ import { WebView } from 'react-native-webview';
 import { getQuestionsByPath, getChapters } from '../api/resourcesApi';
 import { buildFragmentFromQuestions, buildPyqDocument } from '../utils/pyqDocument';
 import { useClassSubjects, toTile } from '../utils/classSubjects';
-import { getMcqChapterTest, getMcqSubtopicTest } from '../api/mcqPracticeApi';
+import { getMcqChapterTest, getMcqSubtopicTest, submitMcqTest } from '../api/mcqPracticeApi';
 // Class 12 Chemistry & Mathematics are DB/API-backed. We only keep the bundled
 // chapter-name lists (their slugs match the DB) to drive the menus; all PYQ /
 // Important / Practice / Mock content resolves through the API.
@@ -17,6 +17,8 @@ import MockResultScreen from './MockResultScreen';
 import ChapterListScreen from './ChapterListScreen';
 import OnlineTestsScreen from './OnlineTestsScreen';
 import OnlineTestScreen from './OnlineTestScreen';
+import OnlineTestReview from './OnlineTestReview';
+import { submitOfflineTest } from '../api/offlineTestApi';
 import MockTestsCards from './Class11MockTests';
 import PracticeTestsCards from './Class11PracticeTests';
 import { getQuestions, allQuestions } from '../data/questionBank';
@@ -599,7 +601,7 @@ const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
       subtopicName={state.subtopicName}
       questions={state.questions}
       onExit={onExit}
-      onComplete={({ correct, total }) => {
+      onComplete={({ correct, total, answers }) => {
         // Record the practice attempt locally so the Class-11 Practice cards can
         // mark this test "Completed" and power its "Attempted" filter.
         if (!total) return;
@@ -607,6 +609,12 @@ const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
         savePracticeAttempt(practiceAttemptKey(classLevel, subject, chapter, subtopicId), {
           score: correct, total, percent, date: new Date().toISOString(),
         });
+        // Also persist server-side, so the attempt reaches the parent's progress
+        // view. Fire-and-forget — the local record above is what this screen reads,
+        // so a failed sync must never block or alter the result the student sees.
+        if (subtopicId != null && answers && Object.keys(answers).length) {
+          submitMcqTest(subtopicId, answers).catch(() => {});
+        }
       }}
     />
   );
@@ -654,6 +662,11 @@ const PracticeScreen = () => {
   const [chOpen, setChOpen] = useState(false);  // showing the chapter list
   const [chSel, setChSel]   = useState(null);   // chosen { subject, chapterId, chapterName, questions }
   const [chResult, setChResult] = useState(null);  // computed report after an online test
+  const [chReview, setChReview] = useState(false); // showing the per-question review
+  // When the current online test was opened — TestQuestionScreen only counts down,
+  // it never reports elapsed time, so time-taken is measured here.
+  const chStartRef = useRef(null);
+  useEffect(() => { if (chSel && !chStartRef.current) chStartRef.current = Date.now(); }, [chSel]);
 
   // Full-screen test: hide the bottom tab bar while a DB mock test is open.
   const navigation = useNavigation();
@@ -902,15 +915,29 @@ const PracticeScreen = () => {
     );
   }
 
+  // ── ONLINE TESTS: question-by-question review ──────────────────────────────
+  // Driven off the raw submit payload kept on chResult, since the computed report
+  // holds totals only.
+  if (chOpen && chResult && chReview) {
+    return (
+      <OnlineTestReview
+        title={`${chResult.title} — Review`}
+        questions={chResult.questions}
+        answers={chResult.answers}
+        onBack={() => setChReview(false)}
+      />
+    );
+  }
+
   // ── ONLINE TESTS: result / report screen (after submit) ────────────────────
   if (chOpen && chResult) {
     return (
       <MockResultScreen
         title={`${chResult.title} - Result`}
         result={chResult.data}
-        onReview={() => { setChResult(null); }}
-        onRetake={() => { setChResult(null); }}
-        onClose={() => { setChResult(null); setChSel(null); setChOpen(false); }}
+        onReview={() => setChReview(true)}
+        onRetake={() => { setChReview(false); setChResult(null); }}
+        onClose={() => { setChReview(false); setChResult(null); setChSel(null); setChOpen(false); }}
       />
     );
   }
@@ -938,7 +965,30 @@ const PracticeScreen = () => {
               score: data.correct, total, percent, date: new Date().toISOString(),
             });
           }
-          setChResult({ title: chSel.chapterName, data });
+          // Also record it server-side so it reaches the parent's progress view.
+          // The server re-grades from offline_answer_keys — the local result above
+          // is what this screen shows. Fire-and-forget: a failed sync must never
+          // change what the student sees.
+          const qs = payload?.questions || chSel.questions || [];
+          submitOfflineTest({
+            classLevel: cls,
+            subject: chSel.subject,
+            chapter: chSel.chapterName,
+            testLabel: chSel.testId != null ? String(chSel.testId) : null,
+            answers: payload?.answers || {},
+            questionIds: qs.map((q) => q.id).filter((id) => id != null),
+            timeTakenSec: chStartRef.current ? Math.round((Date.now() - chStartRef.current) / 1000) : 0,
+          }).catch(() => {});
+          chStartRef.current = null;
+
+          // Keep the questions + answers, not just the totals — the review screen
+          // needs the per-question detail that computeMockResult throws away.
+          setChResult({
+            title: chSel.chapterName,
+            data,
+            questions: payload?.questions || chSel.questions || [],
+            answers: payload?.answers || {},
+          });
           setChSel(null);
         }}
       />

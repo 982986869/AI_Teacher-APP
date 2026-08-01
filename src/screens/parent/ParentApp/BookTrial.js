@@ -10,9 +10,9 @@ import {
   View, ScrollView, TextInput, Modal, Pressable, StyleSheet, Platform, ActivityIndicator, Dimensions, Alert, Linking,
 } from 'react-native';
 import {
-  ArrowLeft, ChevronDown, Check, Sun, Moon, Plus, X, Target, BookOpen, MessageCircle, Star, User,
+  ArrowLeft, ChevronDown, Check, Sun, Moon, Users, CalendarDays, MapPin,
 } from 'lucide-react-native';
-import { C, F, T, DOWF, MONF, Wordmark } from './constants';
+import { C, F, T, DOWF, MONF } from './constants';
 import { PressableScale, FadeIn } from './anim';
 import CountryPicker from './CountryPicker';
 import { findCountry, flagOf } from './countries';
@@ -41,39 +41,61 @@ const AFTERNOON = [
 ];
 const EVENING = [{ t: '5 - 6' }, { t: '6 - 7', off: true }, { t: '7 - 8', off: true }];
 
-const HAPPENS = [
-  { bg: '#FBD9C8', Icon: Target, title: 'Introduction & Goals', body: (n) => `The mentor gets to know ${n}'s current level and learning goals to personalize the session.` },
-  { bg: '#FCE8B8', Icon: BookOpen, title: 'Learning Session', body: (n) => `The mentor works through concepts and problems with ${n}, showing our tools and teaching approach.` },
-  { bg: '#D8EBD8', Icon: MessageCircle, title: 'Q&A + Next Steps', body: () => 'Ask anything, and we\'ll suggest a personalized learning plan for the year ahead.' },
+// Boards + grades for the lead form. IB and IGCSE are listed separately — they are
+// different boards and a parent picking one shouldn't have to pick a combined label.
+const BOARDS = ['CBSE', 'ICSE / ISC', 'State Board', 'IB', 'IGCSE', 'Other'];
+const GRADES = Array.from({ length: 12 }, (_, i) => `Grade ${i + 1}`);
+
+// FRONTEND-ONLY OTP. The backend has the phone_otps table and MSG91 config but no
+// send/verify implementation yet, so nothing is actually texted. This code is the
+// stand-in; swap this block for the real /otp/send + /otp/verify calls when the
+// service lands, and delete DEV_OTP.
+const DEV_OTP = '123456';
+const RESEND_SECONDS = 30;
+
+// Post-booking personalisation survey (2 steps, shown on the confirmation screen and
+// dismissed once finished). Copy is subject-neutral on purpose — we teach math AND
+// science across Grades 1-12, so "how's your child doing in math" would exclude half
+// the catalogue.
+const LEVELS = [
+  { key: 'support', title: 'NEEDS SUPPORT', body: 'Finding current topics difficult to grasp', color: '#F0733F' },
+  { key: 'keeping', title: 'KEEPING UP', body: 'Meeting grade-level expectations with room to grow', color: '#F5B301' },
+  { key: 'excelling', title: 'EXCELLING', body: 'Seeking more rigorous and challenging material', color: '#22B573' },
+];
+const FOCUS = [
+  'Build fundamentals and boost confidence',
+  'Keep up with homework and school exams',
+  'Prepare for a contest or external test',
+  'Qualify for accelerated / honors / gifted programs',
+  'Enhance calculation speed and accuracy',
+  'Make learning relatable and enjoyable',
+  'Tackle advanced concepts and problems',
 ];
 
-const FAQS = [
-  { q: 'A tutor hasn\'t been assigned yet. How long does it take?', a: 'We typically assign the tutor about 2 days before the trial. We\'ll ask you to confirm your attendance before that.' },
-  { q: 'Will the trial tutor be my child\'s regular tutor if we continue?', a: 'Usually yes — if it\'s a great fit, the same tutor continues. If not, we\'ll happily match you with someone else.' },
-  { q: 'What happens after the trial class?', a: 'The tutor shares a short report on your child\'s level and a suggested learning plan. You can then choose a plan that fits — no pressure.' },
-  { q: 'What if the trial doesn\'t go well?', a: 'No worries at all. Tell us what didn\'t work and we\'ll either rematch you with a different tutor or help you however you\'d like.' },
-  { q: 'I have more questions — how can I reach you?', a: 'Reach us anytime in the Chat tab, or email support@ailernova.com. We usually reply within a few hours.' },
-];
 
-// Placeholder social-proof data (swap for real content/photos later).
-const ACHIEVERS = [
-  { name: 'Sofia, Grade 4', award: 'National finalist — Olympiad', bg: '#F6E7C8' },
-  { name: 'Aarav, Grade 5', award: 'Top of class — Science', bg: '#F6D7E7' },
-  { name: 'Mia, Grade 7', award: 'School topper — 2 years', bg: '#DCEBF6' },
-];
-const COMMUNITY = [
-  { name: 'YUNEKE GONZALEZ', title: 'A Homeschooler\'s Journey', body: 'Ailernova empowers this homeschooler to thrive — balancing creativity and problem-solving every day.', bg: '#F6E7C8' },
-  { name: 'RAHUL S.', title: 'Thriving & Accelerating', body: 'A Grade 8 student turning curiosity into school wins and academic medals.', bg: '#DCEEDC' },
-  { name: 'AISHA K.', title: 'From Fear to Fluency', body: 'Went from dreading the subject to leading her class — one confident step at a time.', bg: '#F6D7E7' },
-];
+
 
 function Field({ label, children, onPress }) {
   const Wrap = onPress ? Pressable : View;
   return (
     <Wrap onPress={onPress} style={s.field}>
-      <View style={s.fieldLabelWrap}><T w="med" s={12} c={C.muted}>{label}</T></View>
+      {/* The floating label only exists once the field has a value — an empty notch
+          cut into the border reads as a rendering bug. */}
+      {!!label && <View style={s.fieldLabelWrap}><T w="med" s={12} c={C.muted}>{label}</T></View>}
       {children}
     </Wrap>
+  );
+}
+
+// A bordered text box that keeps its label after you've typed. The placeholder alone
+// isn't enough here: student name and parent name sit next to each other and look
+// identical the moment both are filled in.
+function LabeledInput({ label, value, ...rest }) {
+  return (
+    <View style={s.field}>
+      {!!value && <View style={s.fieldLabelWrap}><T w="med" s={12} c={C.muted}>{label}</T></View>}
+      <TextInput value={value} placeholder={label} placeholderTextColor={C.faint} style={s.fieldInput} {...rest} />
+    </View>
   );
 }
 
@@ -85,19 +107,29 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
   }, [childList, childName]);
 
   // `initialBooking` set → reschedule: skip the form, prefill, keep the calendar link.
-  const [step, setStep] = useState(initialBooking ? 'schedule' : 'form'); // form | loading | schedule | confirming | confirmed
+  const [step, setStep] = useState(initialBooking ? 'schedule' : 'form'); // form | otp | loading | schedule | confirming | confirmed
   const [child, setChild] = useState(initialBooking?.student?.name || kids[0]);
   const [name, setName] = useState(initialBooking?.parent?.name || parentName || '');
+  const [board, setBoard] = useState(initialBooking?.student?.board || '');
+  const [grade, setGrade] = useState(initialBooking?.student?.className || '');
   const [country, setCountry] = useState(defaultCountry);
   const [mobile, setMobile] = useState('');
+  const [otp, setOtp] = useState('');
+  const [otpErr, setOtpErr] = useState('');
+  const [resendIn, setResendIn] = useState(0);
+  const [pickBoard, setPickBoard] = useState(false);
+  const [pickGrade, setPickGrade] = useState(false);
+  // Survey: step 0 = level, 1 = focus areas, 2 = finished (card hidden).
+  const [surveyStep, setSurveyStep] = useState(0);
+  const [level, setLevel] = useState(null);
+  const [focus, setFocus] = useState([]);
   const [day, setDay] = useState(null);
   const [period, setPeriod] = useState('Afternoon');
   const [slot, setSlot] = useState(null);
-  const [openFaq, setOpenFaq] = useState(0);
-  const [showAllFaq, setShowAllFaq] = useState(false);
   const [pickChild, setPickChild] = useState(false);
   const [pickCountry, setPickCountry] = useState(false);
   const submittedRef = useRef(false);
+  const otpInputRef = useRef(null);
   // Real calendar sync state.
   const [addingCal, setAddingCal] = useState(false);
   const [calEventId, setCalEventId] = useState(initialBooking?.calendarEventId || null);
@@ -116,11 +148,21 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
     bookingIdRef.current = initialBooking?.id || `demo_${Date.now().toString(36)}`;
     submittedRef.current = false;
     setSlot(null);
+    setOtp(''); setOtpErr(''); setResendIn(0);
+    setSurveyStep(0); setLevel(null); setFocus([]);
     if (!initialBooking) { setDay(null); setMobile(''); }
   }, [visible]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  // Resend cooldown — ticks down while the OTP step is open.
+  useEffect(() => {
+    if (resendIn <= 0) return undefined;
+    const t = setTimeout(() => setResendIn((n) => n - 1), 1000);
+    return () => clearTimeout(t);
+  }, [resendIn]);
+
   const digits = mobile.replace(/\D/g, '');
-  const canSubmit = !!child && name.trim().length > 1 && digits.length >= 8;
+  const canSubmit = !!child && child.trim().length > 1 && name.trim().length > 1
+    && !!board && !!grade && digits.length >= 8;
 
   // Build the booking. Date = chosen day + the 1-hour slot's start (afternoon 12–4 PM,
   // evening 5–8 PM → 24h). Duration is 1 hour to match the "1-hour time slot" copy.
@@ -131,7 +173,7 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
     start.setHours(h24, 0, 0, 0);
     return {
       id: bookingIdRef.current,
-      student: { name: child, className: '', subject: '' },
+      student: { name: child.trim(), className: grade, board, subject: '' },
       parent: {
         name: name.trim(),
         phone: digits ? `${country.dial}${digits}` : (initialBooking?.parent?.phone || `${country.dial}`),
@@ -230,19 +272,39 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
   const slots = period === 'Afternoon' ? AFTERNOON : EVENING;
 
   const close = () => {
-    setStep('form'); setMobile(''); setDay(null); setSlot(null); submittedRef.current = false;
+    setStep('form'); setMobile(''); setDay(null); setSlot(null);
+    setOtp(''); setOtpErr(''); setResendIn(0); submittedRef.current = false;
     onClose && onClose();
   };
   const back = () => {
     if (step === 'form' || step === 'confirmed') close();
+    else if (step === 'otp') { setOtp(''); setOtpErr(''); setStep('form'); }
     else if (step === 'confirming') setStep('schedule');
+    // The survey sits after the booking is already made — backing out of it returns
+    // to the confirmation, never to the form.
+    else if (step === 'survey1') setStep('confirmed');
+    else if (step === 'survey2') { setSurveyStep(0); setStep('survey1'); }
     else setStep('form');
   };
 
-  const submitForm = () => { if (canSubmit) setStep('loading'); };
+  // Form → OTP. Nothing is texted yet (see DEV_OTP): this only arms the cooldown.
+  const submitForm = () => {
+    if (!canSubmit) return;
+    setOtp(''); setOtpErr(''); setResendIn(RESEND_SECONDS);
+    setStep('otp');
+  };
+  const verifyOtp = () => {
+    if (otp.length !== 6) return;
+    if (otp !== DEV_OTP) { setOtpErr('That code doesn’t match. Try again.'); return; }
+    setOtpErr(''); setStep('loading');
+  };
+  const resendOtp = () => { if (resendIn <= 0) { setOtp(''); setOtpErr(''); setResendIn(RESEND_SECONDS); } };
   const continueSchedule = () => { if (day && slot) setStep('confirming'); };
 
-  const headerTitle = step === 'form' ? 'Book a free class' : 'For the trial class';
+  const headerTitle = step === 'form' ? 'Book a free class'
+    : step === 'otp' ? 'Verify your number'
+      : (step === 'survey1' || step === 'survey2') ? 'About your child'
+        : 'For the trial class';
 
   // Derived date/time strings for the confirmation banner. AM/PM is derived from the
   // real 24h slot (afternoon 12–4 PM, evening 5–8 PM) rather than hardcoded.
@@ -250,11 +312,12 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
   const h24 = startHr === 12 ? 12 : startHr + 12;
   const timeStr = `${(h24 % 12) || 12}:00 ${h24 < 12 ? 'AM' : 'PM'}`;
   const dateStr = day ? `${MONF[day.date.getMonth()]} ${day.date.getDate()}` : '';
-  const prevStr = (() => {
-    if (!day) return '';
-    const p = new Date(day.date); p.setDate(day.date.getDate() - 1);
-    return `${MONF[p.getMonth()]} ${p.getDate()}`;
-  })();
+  // Confirmation card wants the long form ("Wednesday, Jul 22") and the full hour range.
+  const DOWL = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const longDateStr = day ? `${DOWL[day.date.getDay()]}, ${MONF[day.date.getMonth()]} ${day.date.getDate()}` : '';
+  const endH24 = h24 + 1;
+  const fmtHr = (h) => `${(h % 12) || 12}:00 ${h < 12 ? 'AM' : 'PM'}`;
+  const rangeStr = slot ? `${fmtHr(h24)} - ${fmtHr(endH24)}` : '';
 
   return (
     <Modal visible={visible} animationType="slide" onRequestClose={back} statusBarTranslucent>
@@ -270,13 +333,31 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
             <ScrollView contentContainerStyle={{ padding: 20, paddingTop: 24 }} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
               {/* Single linked student → just show the name (no dropdown). Only when a
                   parent has more than one child do we offer the picker. */}
-              <Field label={kids.length > 1 ? 'Select child' : 'Student'} onPress={kids.length > 1 ? () => setPickChild(true) : undefined}>
+              {/* A parent with more than one linked child picks; everyone else (including
+                  a brand-new lead with no linked children) types the name. */}
+              {kids.length > 1 ? (
+                <Field label="Student" onPress={() => setPickChild(true)}>
+                  <View style={s.rowBetween}>
+                    <T w="med" s={17} c={C.ink}>{child}</T>
+                    <ChevronDown size={22} color={C.muted} />
+                  </View>
+                </Field>
+              ) : (
+                <LabeledInput label="Student's full name" value={child} onChangeText={setChild} returnKeyType="next" />
+              )}
+              <LabeledInput label="Parent's full name" value={name} onChangeText={setName} returnKeyType="next" />
+              <Field label={board ? 'Board' : undefined} onPress={() => setPickBoard(true)}>
                 <View style={s.rowBetween}>
-                  <T w="med" s={17} c={C.ink}>{child}</T>
-                  {kids.length > 1 && <ChevronDown size={22} color={C.muted} />}
+                  <T w="med" s={17} c={board ? C.ink : C.faint}>{board || 'Select board'}</T>
+                  <ChevronDown size={22} color={C.muted} />
                 </View>
               </Field>
-              <TextInput value={name} onChangeText={setName} placeholder={parentName || 'Your full name'} placeholderTextColor={C.faint} style={s.input} returnKeyType="next" />
+              <Field label={grade ? 'Class' : undefined} onPress={() => setPickGrade(true)}>
+                <View style={s.rowBetween}>
+                  <T w="med" s={17} c={grade ? C.ink : C.faint}>{grade || 'Select class'}</T>
+                  <ChevronDown size={22} color={C.muted} />
+                </View>
+              </Field>
               <View style={s.mobileRow}>
                 <Pressable style={s.dialBox} onPress={() => setPickCountry(true)}>
                   <T s={18}>{flagOf(country.iso2)}</T>
@@ -289,6 +370,62 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
             <View style={s.footer}>
               <PressableScale style={[s.submit, !canSubmit && s.submitOff]} disabled={!canSubmit} onPress={submitForm}>
                 <T w="bold" s={16} c={canSubmit ? '#fff' : C.faint}>Submit</T>
+              </PressableScale>
+            </View>
+          </>
+        )}
+
+        {/* ── STEP 2: verify phone ─────────────────────────────────────── */}
+        {step === 'otp' && (
+          <>
+            <ScrollView contentContainerStyle={{ padding: 20, paddingTop: 24 }} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
+              <T w="med" s={15.5} c={C.muted} style={{ lineHeight: 23 }}>
+                We’ve sent a 6-digit code to{'\n'}
+                <T w="bold" s={15.5} c={C.ink}>{country.dial} {digits}</T>
+                <T w="med" s={15.5} c={C.muted}>  ·  </T>
+                <T w="bold" s={15.5} c={C.ink} style={s.underline} onPress={() => setStep('form')}>Change</T>
+              </T>
+
+              {/* One real input holds the value; the six boxes are just its painted face. */}
+              <Pressable style={s.otpRow} onPress={() => otpInputRef.current && otpInputRef.current.focus()}>
+                {Array.from({ length: 6 }).map((_, i) => (
+                  <View key={i} style={[s.otpBox, otp.length === i && s.otpBoxActive, !!otpErr && s.otpBoxErr]}>
+                    <T w="bold" s={22} c={C.ink}>{otp[i] || ''}</T>
+                  </View>
+                ))}
+                <TextInput
+                  ref={otpInputRef}
+                  value={otp}
+                  onChangeText={(v) => { setOtp(v.replace(/\D/g, '').slice(0, 6)); setOtpErr(''); }}
+                  keyboardType="number-pad"
+                  maxLength={6}
+                  autoFocus
+                  style={s.otpHidden}
+                  onSubmitEditing={verifyOtp}
+                />
+              </Pressable>
+
+              {!!otpErr && <T w="med" s={14} c={C.red} style={{ marginTop: 12 }}>{otpErr}</T>}
+
+              <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 22 }}>
+                <T w="med" s={14.5} c={C.muted}>Didn’t get it? </T>
+                <Pressable onPress={resendOtp} disabled={resendIn > 0}>
+                  <T w="bold" s={14.5} c={resendIn > 0 ? C.faint : C.ink} style={resendIn > 0 ? null : s.underline}>
+                    {resendIn > 0 ? `Resend in ${resendIn}s` : 'Resend code'}
+                  </T>
+                </Pressable>
+              </View>
+
+              {/* Remove together with DEV_OTP once the real OTP service is wired up. */}
+              <View style={s.otpHint}>
+                <T w="med" s={13} c={C.muted} style={{ lineHeight: 19 }}>
+                  Phone verification isn’t connected yet — no SMS is sent. Enter <T w="bold" s={13} c={C.ink}>{DEV_OTP}</T> to continue.
+                </T>
+              </View>
+            </ScrollView>
+            <View style={s.footer}>
+              <PressableScale style={[s.submit, otp.length !== 6 && s.submitOff]} disabled={otp.length !== 6} onPress={verifyOtp}>
+                <T w="bold" s={16} c={otp.length === 6 ? '#fff' : C.faint}>Verify</T>
               </PressableScale>
             </View>
           </>
@@ -366,47 +503,160 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
           </>
         )}
 
+        {/* ── Survey step 1 (full screen): where the child is right now ──── */}
+        {step === 'survey1' && (
+          <>
+            <View style={s.surveyBarFull}>
+              <View style={[s.surveySeg, { backgroundColor: C.gold }]} />
+              <View style={[s.surveySeg, { backgroundColor: '#FBDDCB' }]} />
+            </View>
+            <ScrollView contentContainerStyle={{ padding: 22, paddingBottom: 30 }} showsVerticalScrollIndicator={false}>
+              <T w="bold" s={25} c={C.ink} style={{ lineHeight: 34 }}>How’s your child doing?</T>
+              <T w="med" s={15.5} c={C.muted} style={{ marginTop: 10, lineHeight: 23 }}>
+                To help us personalize the trial, take a minute to tell us more about {child.trim() || 'your child'}
+              </T>
+              <View style={{ marginTop: 24, gap: 12 }}>
+                {LEVELS.map((l) => {
+                  const on = level === l.key;
+                  return (
+                    <PressableScale key={l.key} style={[s.optCard, on && s.optCardOn]} onPress={() => setLevel(l.key)}>
+                      <MascotFace size={44} color={l.color} />
+                      <View style={{ flex: 1 }}>
+                        <T w="bold" s={15} c={on ? '#fff' : C.ink}>{l.title}</T>
+                        <T w="med" s={14.5} c={on ? 'rgba(255,255,255,0.85)' : C.muted} style={{ marginTop: 4, lineHeight: 21 }}>{l.body}</T>
+                      </View>
+                    </PressableScale>
+                  );
+                })}
+              </View>
+            </ScrollView>
+            <View style={s.footer}>
+              <PressableScale style={[s.submit, !level && s.submitOff]} disabled={!level} onPress={() => { setSurveyStep(1); setStep('survey2'); }}>
+                <T w="bold" s={16} c={level ? '#fff' : C.faint}>Next</T>
+              </PressableScale>
+            </View>
+          </>
+        )}
+
+        {/* ── Survey step 2 (full screen): what they want out of it ──────── */}
+        {step === 'survey2' && (
+          <>
+            <View style={s.surveyBarFull}>
+              <View style={[s.surveySeg, { backgroundColor: C.gold }]} />
+              <View style={[s.surveySeg, { backgroundColor: '#F97316' }]} />
+            </View>
+            <ScrollView contentContainerStyle={{ padding: 22, paddingBottom: 30 }} showsVerticalScrollIndicator={false}>
+              <T w="bold" s={25} c={C.ink} style={{ lineHeight: 34 }}>What would you like your child to focus on?</T>
+              <T w="med" s={14.5} c={C.muted} style={{ marginTop: 8 }}>Pick as many as you like.</T>
+              <View style={{ marginTop: 18 }}>
+                {FOCUS.map((f) => {
+                  const on = focus.includes(f);
+                  return (
+                    <Pressable
+                      key={f}
+                      style={s.checkRow}
+                      onPress={() => setFocus((cur) => (on ? cur.filter((x) => x !== f) : [...cur, f]))}
+                    >
+                      <View style={[s.checkBox, on && s.checkBoxOn]}>{on && <Check size={15} color="#fff" />}</View>
+                      <T w="med" s={15.5} c={C.ink} style={{ flex: 1, lineHeight: 23 }}>{f}</T>
+                    </Pressable>
+                  );
+                })}
+              </View>
+            </ScrollView>
+            <View style={s.footer}>
+              <PressableScale
+                style={[s.submit, !focus.length && s.submitOff]}
+                disabled={!focus.length}
+                onPress={() => {
+                  setSurveyStep(2);
+                  onChange && onChange({ ...buildBooking(), survey: { level, focus } });
+                  setStep('confirmed');
+                }}
+              >
+                <T w="bold" s={16} c={focus.length ? '#fff' : C.faint}>Done</T>
+              </PressableScale>
+            </View>
+          </>
+        )}
+
         {/* ── STEP 5: confirmed ────────────────────────────────────────── */}
         {step === 'confirmed' && (
         <>
-          <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 140 }}>
-            {/* Status banner + timeline — reveals on confirm */}
+          <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 40 }}>
+            {/* Request-received header. Deliberately "requested", not "confirmed": a
+                tutor still has to be matched, and the slot isn't guaranteed until then. */}
             <FadeIn y={12}>
-            <View style={s.banner}>
-              <View style={{ flexDirection: 'row' }}>
-                <View style={s.tlCol}>
-                  <View style={s.tlDone}><Check size={14} color="#fff" /></View>
-                  <View style={s.tlLine} />
-                </View>
-                <View style={{ flex: 1 }}>
-                  <T w="med" s={15} c={C.ink} style={{ lineHeight: 22 }}>Trial class scheduled - <T w="bold" s={15} c={C.ink}>{dateStr} at {timeStr}</T></T>
-                  <PressableScale style={[s.calBtn, calEventId && s.calBtnDone]} disabled={addingCal || !!calEventId} onPress={handleAddToCalendar}>
-                    {addingCal
-                      ? <ActivityIndicator color={C.ink} size="small" />
-                      : <T w="bold" s={15} c={calEventId ? C.green : C.ink}>{calEventId ? '✓  Added to Calendar' : 'Add to Calendar'}</T>}
-                  </PressableScale>
-                </View>
+              <View style={s.doneHead}>
+                <View style={s.doneIcon}><Users size={30} color="#1B7F4B" /></View>
+                <T w="bold" s={25} c={C.ink} style={{ textAlign: 'center', marginTop: 18, lineHeight: 34 }}>
+                  🎉  Trial Request Received!
+                </T>
+                <T w="med" s={15.5} c={C.muted} style={{ textAlign: 'center', marginTop: 8, lineHeight: 23 }}>
+                  Hi {name.trim() || 'Parent'}! We’ve received your request for a trial class.
+                </T>
               </View>
-              <View style={{ flexDirection: 'row', marginTop: 4 }}>
-                <View style={s.tlCol}><View style={s.tlPending} /></View>
-                <T w="med" s={15} c={C.ink} style={{ flex: 1, lineHeight: 22 }}>Finding Your Tutor by {prevStr} at {timeStr}</T>
-              </View>
-            </View>
-            </FadeIn>
 
-            {/* What happens */}
-            <T w="bold" s={22} c={C.ink} style={{ paddingHorizontal: 20, marginTop: 24, marginBottom: 14 }}>What happens in the trial class?</T>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 20, gap: 14 }}>
-              {HAPPENS.map((h) => (
-                <View key={h.title} style={s.hCard}>
-                  <View style={[s.hArt, { backgroundColor: h.bg }]}><h.Icon size={44} color={C.ink} /></View>
-                  <View style={{ padding: 16 }}>
-                    <T w="bold" s={17} c={C.ink} style={{ marginBottom: 8 }}>{h.title}</T>
-                    <T w="med" s={14} c={C.muted} style={{ lineHeight: 21 }}>{h.body(child)}</T>
+              <View style={s.detailCard}>
+                <T w="bold" s={18} c="#9A5B00" style={{ marginBottom: 14 }}>Trial Class Details</T>
+                <View style={s.detailRow}>
+                  <CalendarDays size={20} color={C.gold} />
+                  <View style={{ flex: 1 }}>
+                    <T w="med" s={16} c={C.ink}>{longDateStr}</T>
+                    <T w="med" s={15} c={C.muted} style={{ marginTop: 2 }}>{rangeStr}</T>
                   </View>
                 </View>
-              ))}
-            </ScrollView>
+                <View style={[s.detailRow, { marginTop: 14 }]}>
+                  <MapPin size={20} color={C.gold} />
+                  <View style={{ flex: 1 }}>
+                    <T w="med" s={16} c={C.ink}>
+                      Online via <T w="bold" s={16} c={C.ink} style={s.underline} onPress={() => Linking.openURL('https://ailernova.in').catch(() => {})}>ailernova.in</T>
+                    </T>
+                    <T w="med" s={15} c={C.muted} style={{ marginTop: 2 }}>Login credentials will be shared soon</T>
+                  </View>
+                </View>
+              </View>
+
+              <View style={s.nextCard}>
+                <T w="bold" s={18} c="#12693D" style={{ marginBottom: 10 }}>What’s Next?</T>
+                {[`We’re shortlisting the best tutors for ${child.trim() || 'your child'}’s needs`,
+                  'You’ll receive a confirmation request soon'].map((line) => (
+                    <View key={line} style={s.bulletRow}>
+                      <T w="med" s={15.5} c="#177A48">•</T>
+                      <T w="med" s={15.5} c="#177A48" style={{ flex: 1, lineHeight: 23 }}>{line}</T>
+                    </View>
+                ))}
+              </View>
+
+              <View style={{ paddingHorizontal: 20, marginTop: 18 }}>
+                <PressableScale style={[s.calBtn, calEventId && s.calBtnDone]} disabled={addingCal || !!calEventId} onPress={handleAddToCalendar}>
+                  {addingCal
+                    ? <ActivityIndicator color={C.ink} size="small" />
+                    : <T w="bold" s={15} c={calEventId ? C.green : C.ink}>{calEventId ? '✓  Added to Calendar' : 'Add to Calendar'}</T>}
+                </PressableScale>
+              </View>
+            </FadeIn>
+
+            {/* Survey invite. The two steps themselves are full screens (step ===
+                'survey1' / 'survey2'); this card is only the door in, and it
+                disappears for good once the survey is done. */}
+            {surveyStep < 2 && (
+              <FadeIn y={12} style={s.surveyCard}>
+                <View style={s.surveyBar}>
+                  <View style={[s.surveySeg, { backgroundColor: C.gold }]} />
+                  <View style={[s.surveySeg, { backgroundColor: '#FBDDCB' }]} />
+                </View>
+                <View style={{ padding: 22 }}>
+                  <T w="bold" s={22} c={C.ink} style={{ lineHeight: 30 }}>How’s your child doing?</T>
+                  <T w="med" s={15.5} c={C.muted} style={{ marginTop: 10, lineHeight: 23 }}>
+                    To help us personalize the trial, take a minute to tell us more about {child.trim() || 'your child'}
+                  </T>
+                  <PressableScale style={s.nextBtn} onPress={() => setStep('survey1')}>
+                    <T w="bold" s={16} c="#fff">{surveyStep === 0 ? 'Get started' : 'Continue'}</T>
+                  </PressableScale>
+                </View>
+              </FadeIn>
+            )}
 
             {/* Reschedule / Cancel */}
             <View style={{ flexDirection: 'row', flexWrap: 'wrap', paddingHorizontal: 20, marginTop: 18 }}>
@@ -416,109 +666,45 @@ export default function BookTrial({ visible, onClose, childName, childList, pare
               <Pressable onPress={handleCancel}><T w="bold" s={14.5} c={C.ink} style={s.underline}>Cancel</T></Pressable>
             </View>
 
-            {/* FAQs */}
-            <T w="bold" s={22} c={C.ink} style={{ paddingHorizontal: 20, marginTop: 30, marginBottom: 6 }}>FAQs</T>
-            <View style={{ paddingHorizontal: 20 }}>
-              {(showAllFaq ? FAQS : FAQS.slice(0, 2)).map((f, i) => {
-                const open = openFaq === i;
-                return (
-                  <View key={f.q} style={s.faq}>
-                    <Pressable style={s.faqHead} onPress={() => setOpenFaq(open ? -1 : i)}>
-                      <T w="bold" s={16} c={C.ink} style={{ flex: 1, lineHeight: 23 }}>{f.q}</T>
-                      {open ? <X size={20} color={C.ink} /> : <Plus size={20} color={C.ink} />}
-                    </Pressable>
-                    {open && <T w="med" s={14.5} c={C.muted} style={{ lineHeight: 22, marginTop: 8 }}>{f.a}</T>}
-                  </View>
-                );
-              })}
-              <Pressable style={{ alignItems: 'center', paddingVertical: 16 }} onPress={() => { setShowAllFaq((v) => !v); setOpenFaq(-1); }}>
-                <T w="bold" s={14.5} c={C.ink} style={s.underline}>{showAllFaq ? 'See Less' : 'See More'}</T>
-              </Pressable>
-            </View>
-
-            {/* Achievers */}
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 20, marginTop: 20 }}>
-              <T w="bold" s={22} c={C.ink}>AILERNOVA’s</T>
-              <Star size={22} color="#E24BE2" fill="#E24BE2" />
-              <T w="bold" s={22} c={C.ink}>Achievers</T>
-            </View>
-            <T w="med" s={14.5} c={C.muted} style={{ paddingHorizontal: 20, marginTop: 6, lineHeight: 21 }}>
-              Students across 80+ countries are succeeding at school, competitions, and beyond!
-            </T>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 20, paddingVertical: 16, gap: 14 }}>
-              {ACHIEVERS.map((a) => (
-                <View key={a.name} style={s.achCard}>
-                  <View style={[s.achPhoto, { backgroundColor: a.bg }]}>
-                    <View style={s.achAvatar}><User size={40} color="#fff" /></View>
-                  </View>
-                  <View style={{ backgroundColor: '#FCF1D6', padding: 14, alignItems: 'center' }}>
-                    <T w="med" s={14} c={C.ink}>{a.name}</T>
-                    <T w="bold" s={14.5} c={C.ink} style={{ marginTop: 3, textAlign: 'center' }}>{a.award}</T>
-                  </View>
-                </View>
-              ))}
-            </ScrollView>
-
-            {/* Community */}
-            <T w="bold" s={22} c={C.ink} style={{ paddingHorizontal: 20, marginTop: 20 }}>Community of 200,000+ Ailernova learners</T>
-            <T w="med" s={14.5} c={C.muted} style={{ paddingHorizontal: 20, marginTop: 6, lineHeight: 21 }}>
-              Heartfelt stories of transformations, learnings, and achievements of our students!
-            </T>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 20, paddingVertical: 16, gap: 14 }}>
-              {COMMUNITY.map((c) => (
-                <View key={c.name} style={s.comCard}>
-                  <View style={[s.comPhoto, { backgroundColor: c.bg }]}>
-                    <View style={s.comBadge}><T w="bold" s={11} c={C.ink}>{c.name}</T></View>
-                    <User size={54} color="rgba(0,0,0,0.35)" />
-                  </View>
-                  <View style={{ backgroundColor: '#FCF1D6', padding: 16 }}>
-                    <T w="bold" s={16} c={C.ink} style={{ marginBottom: 6 }}>{c.title}</T>
-                    <T w="med" s={13.5} c={C.muted} style={{ lineHeight: 20 }}>{c.body}</T>
-                  </View>
-                </View>
-              ))}
-            </ScrollView>
-
-            {/* Footer */}
-            <View style={s.footerBrand}>
-              <View>
-                <Wordmark size={18} />
-                <T w="med" s={12} c={C.faint} style={{ marginTop: 2 }}>Making learning stick</T>
-              </View>
-              <View style={{ flexDirection: 'row', gap: 18 }}>
-                <T w="semi" s={13} c={C.muted} style={s.underline}>Terms</T>
-                <T w="semi" s={13} c={C.muted} style={s.underline}>Privacy</T>
-              </View>
-            </View>
           </ScrollView>
 
-          {/* Sticky bottom bar */}
-          <View style={s.stickyBar}>
-            <T w="med" s={14.5} c={C.ink} style={{ marginBottom: 10 }}>Trial class scheduled – <T w="bold" s={14.5} c={C.ink}>{dateStr} at {timeStr}</T></T>
-            <PressableScale style={[s.calBtnFull, calEventId && s.calBtnDone]} disabled={addingCal || !!calEventId} onPress={handleAddToCalendar}>
-              {addingCal
-                ? <ActivityIndicator color={C.ink} size="small" />
-                : <T w="bold" s={15} c={calEventId ? C.green : C.ink}>{calEventId ? '✓  Added to Calendar' : 'Add to Calendar'}</T>}
-            </PressableScale>
-          </View>
         </>
         )}
 
         <PickerSheet visible={pickChild} title="Select child" options={kids} selected={child} onPick={(v) => { setChild(v); setPickChild(false); }} onClose={() => setPickChild(false)} />
+        <PickerSheet visible={pickBoard} title="Select board" options={BOARDS} selected={board} onPick={(v) => { setBoard(v); setPickBoard(false); }} onClose={() => setPickBoard(false)} />
+        <PickerSheet visible={pickGrade} title="Select class" options={GRADES} selected={grade} onPick={(v) => { setGrade(v); setPickGrade(false); }} onClose={() => setPickGrade(false)} />
         <CountryPicker visible={pickCountry} selected={country.iso2} onPick={(c) => { setCountry(c); setPickCountry(false); }} onClose={() => setPickCountry(false)} />
       </View>
     </Modal>
   );
 }
 
-function MascotFace() {
+// Scales off `size` so the same face works as the 78px scheduling mascot and the 44px
+// survey option glyph — every feature is a ratio of the circle, not a fixed px.
+function MascotFace({ size = 78, color = '#E24BE2' }) {
+  const eye = Math.round(size * 0.22);
+  const pupil = Math.round(size * 0.09);
+  const smileW = Math.round(size * 0.28);
   return (
-    <View style={s.mascot}>
-      <View style={s.eyesRow}>
-        <View style={s.eye}><View style={s.pupil} /></View>
-        <View style={s.eye}><View style={s.pupil} /></View>
+    <View style={[s.mascot, { width: size, height: size, borderRadius: size / 2, backgroundColor: color }]}>
+      <View style={{ flexDirection: 'row', gap: Math.round(size * 0.10) }}>
+        {[0, 1].map((i) => (
+          <View key={i} style={[s.eye, { width: eye, height: eye, borderRadius: eye / 2 }]}>
+            <View style={[s.pupil, { width: pupil, height: pupil, borderRadius: pupil / 2 }]} />
+          </View>
+        ))}
       </View>
-      <View style={s.smile} />
+      <View style={[s.smile, {
+        width: smileW,
+        height: Math.round(smileW * 0.5),
+        borderBottomLeftRadius: smileW,
+        borderBottomRightRadius: smileW,
+        borderWidth: Math.max(2, size * 0.031),
+        borderTopWidth: 0,
+        marginTop: Math.round(size * 0.06),
+      }]}
+      />
     </View>
   );
 }
@@ -529,15 +715,19 @@ function PickerSheet({ visible, title, options, selected, onPick, onClose }) {
       <Pressable style={s.overlay} onPress={onClose}>
         <Pressable style={s.sheet} onPress={(e) => e.stopPropagation()}>
           <T w="bold" s={15} c={C.ink} style={{ marginBottom: 6 }}>{title}</T>
-          {options.map((opt) => {
-            const on = opt === selected;
-            return (
-              <PressableScale key={opt} style={s.optRow} onPress={() => onPick(opt)}>
-                <T w={on ? 'bold' : 'med'} s={16} c={on ? C.blue : C.ink}>{opt}</T>
-                {on && <Check size={18} color={C.blue} />}
-              </PressableScale>
-            );
-          })}
+          {/* Bounded + scrollable: the class list is 12 rows and would otherwise run
+              past the bottom of the screen with the last options unreachable. */}
+          <ScrollView style={{ maxHeight: 380 }} showsVerticalScrollIndicator={false}>
+            {options.map((opt) => {
+              const on = opt === selected;
+              return (
+                <PressableScale key={opt} style={s.optRow} onPress={() => onPick(opt)}>
+                  <T w={on ? 'bold' : 'med'} s={16} c={on ? C.blue : C.ink}>{opt}</T>
+                  {on && <Check size={18} color={C.blue} />}
+                </PressableScale>
+              );
+            })}
+          </ScrollView>
         </Pressable>
       </Pressable>
     </Modal>
@@ -553,6 +743,8 @@ const s = StyleSheet.create({
   fieldLabelWrap: { position: 'absolute', top: -9, left: 12, backgroundColor: C.bg, paddingHorizontal: 6 },
   rowBetween: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   input: { borderWidth: 1.5, borderColor: C.border, borderRadius: 14, paddingHorizontal: 16, height: 60, color: C.ink, fontSize: 17, fontFamily: F.med, marginTop: 22 },
+  // Bare input — the surrounding `field` already draws the border and height.
+  fieldInput: { color: C.ink, fontSize: 17, fontFamily: F.med, padding: 0 },
   mobileRow: { flexDirection: 'row', alignItems: 'center', gap: 12, marginTop: 22 },
   dialBox: { flexDirection: 'row', alignItems: 'center', gap: 6, borderWidth: 1.5, borderColor: C.border, borderRadius: 14, paddingHorizontal: 12, height: 60 },
 
@@ -563,11 +755,11 @@ const s = StyleSheet.create({
   loadingWrap: { flex: 1, alignItems: 'center', justifyContent: 'center' },
 
   bubbleRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10, paddingHorizontal: 20, paddingTop: 16 },
-  mascot: { width: 78, height: 78, borderRadius: 39, backgroundColor: '#E24BE2', alignItems: 'center', justifyContent: 'center' },
-  eyesRow: { flexDirection: 'row', gap: 8 },
-  eye: { width: 17, height: 17, borderRadius: 9, backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center' },
-  pupil: { width: 7, height: 7, borderRadius: 4, backgroundColor: '#1A1A1A' },
-  smile: { width: 22, height: 11, borderBottomLeftRadius: 12, borderBottomRightRadius: 12, borderWidth: 2.4, borderTopWidth: 0, borderColor: '#1A1A1A', marginTop: 5 },
+  // Base face — dimensions/colour come from MascotFace's size prop.
+  mascot: { alignItems: 'center', justifyContent: 'center' },
+  eye: { backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center' },
+  pupil: { backgroundColor: '#1A1A1A' },
+  smile: { borderColor: '#1A1A1A' },
   bubble: { flex: 1, backgroundColor: '#F2F2F3', borderRadius: 14, padding: 16, marginTop: 8 },
   bubbleTail: { position: 'absolute', left: -7, top: 18, width: 0, height: 0, borderTopWidth: 7, borderTopColor: 'transparent', borderBottomWidth: 7, borderBottomColor: 'transparent', borderRightWidth: 8, borderRightColor: '#F2F2F3' },
 
@@ -588,29 +780,41 @@ const s = StyleSheet.create({
   continue: { backgroundColor: C.ink, borderRadius: 12, paddingVertical: 17, alignItems: 'center' },
   continueOff: { backgroundColor: '#C9C9CE' },
 
-  banner: { backgroundColor: '#FCF1D6', paddingHorizontal: 20, paddingVertical: 18 },
-  tlCol: { width: 34, alignItems: 'center' },
-  tlDone: { width: 24, height: 24, borderRadius: 12, backgroundColor: C.green, alignItems: 'center', justifyContent: 'center' },
-  tlLine: { width: 2, flex: 1, backgroundColor: '#E4CE93', marginVertical: 3 },
-  tlPending: { width: 22, height: 22, borderRadius: 11, borderWidth: 2.5, borderColor: C.gold, backgroundColor: 'transparent' },
+  // OTP step
+  otpRow: { flexDirection: 'row', gap: 10, marginTop: 26 },
+  otpBox: { flex: 1, height: 60, borderWidth: 1.5, borderColor: C.border, borderRadius: 12, alignItems: 'center', justifyContent: 'center' },
+  otpBoxActive: { borderColor: C.ink },
+  otpBoxErr: { borderColor: C.red },
+  // The real input is invisible but must stay mounted and hit-testable for the
+  // keyboard to open — opacity 0 over the boxes, not display:none.
+  otpHidden: { position: 'absolute', left: 0, right: 0, top: 0, height: 60, opacity: 0, color: 'transparent' },
+  otpHint: { backgroundColor: '#F4F4F5', borderRadius: 12, padding: 14, marginTop: 28 },
+
+  // Confirmation
+  doneHead: { alignItems: 'center', paddingHorizontal: 24, paddingTop: 20 },
+  doneIcon: { width: 66, height: 66, borderRadius: 33, backgroundColor: '#BFEBCF', alignItems: 'center', justifyContent: 'center' },
+  detailCard: { backgroundColor: '#FDF1D6', borderWidth: 1, borderColor: '#F2D48A', borderRadius: 12, padding: 18, marginHorizontal: 20, marginTop: 24 },
+  detailRow: { flexDirection: 'row', gap: 12, alignItems: 'flex-start' },
+  nextCard: { backgroundColor: '#D6F2E0', borderRadius: 12, padding: 18, marginHorizontal: 20, marginTop: 16 },
+
+  // Survey
+  surveyCard: { borderWidth: 1, borderColor: C.border, borderRadius: 14, marginHorizontal: 20, marginTop: 22, overflow: 'hidden', backgroundColor: '#fff' },
+  surveyBar: { flexDirection: 'row', height: 12 },
+  surveyBarFull: { flexDirection: 'row', height: 10 },
+  surveySeg: { flex: 1 },
+  optCard: { flexDirection: 'row', alignItems: 'center', gap: 16, borderWidth: 1, borderColor: C.border, padding: 16 },
+  optCardOn: { backgroundColor: C.ink, borderColor: C.ink },
+  nextBtn: { backgroundColor: C.ink, borderRadius: 26, paddingVertical: 15, alignItems: 'center', marginTop: 24, alignSelf: 'flex-start', paddingHorizontal: 48 },
+  checkRow: { flexDirection: 'row', alignItems: 'center', gap: 14, paddingVertical: 11 },
+  checkBox: { width: 24, height: 24, borderWidth: 1.5, borderColor: '#C9C9CE', borderRadius: 4, alignItems: 'center', justifyContent: 'center' },
+  checkBoxOn: { backgroundColor: C.ink, borderColor: C.ink },
+  bulletRow: { flexDirection: 'row', gap: 8, alignItems: 'flex-start', marginTop: 4 },
+
   calBtn: { backgroundColor: C.gold, borderRadius: 6, paddingVertical: 14, alignItems: 'center', marginTop: 12, marginBottom: 6 },
 
-  hCard: { width: 250, borderRadius: 14, backgroundColor: '#fff', borderWidth: 1, borderColor: C.border, overflow: 'hidden' },
-  hArt: { height: 130, alignItems: 'center', justifyContent: 'center' },
 
   underline: { textDecorationLine: 'underline' },
-  faq: { borderBottomWidth: 1, borderBottomColor: C.border, paddingVertical: 18 },
-  faqHead: { flexDirection: 'row', alignItems: 'flex-start', gap: 12 },
 
-  achCard: { width: 210, borderRadius: 12, overflow: 'hidden', borderWidth: 1, borderColor: C.border },
-  achPhoto: { height: 200, alignItems: 'center', justifyContent: 'center' },
-  achAvatar: { width: 84, height: 84, borderRadius: 42, backgroundColor: 'rgba(0,0,0,0.18)', alignItems: 'center', justifyContent: 'center' },
-  comCard: { width: 270, borderRadius: 12, overflow: 'hidden', borderWidth: 1, borderColor: C.border },
-  comPhoto: { height: 200, alignItems: 'center', justifyContent: 'center' },
-  comBadge: { position: 'absolute', top: 12, right: 12, backgroundColor: '#FCF1D6', paddingHorizontal: 10, paddingVertical: 5, borderRadius: 4 },
-  footerBrand: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', backgroundColor: '#F4F4F5', paddingHorizontal: 20, paddingVertical: 20, marginTop: 24 },
-  stickyBar: { position: 'absolute', left: 0, right: 0, bottom: 0, backgroundColor: '#FCF1D6', paddingHorizontal: 20, paddingTop: 14, paddingBottom: 24, borderTopWidth: 1, borderTopColor: '#EAD9A8' },
-  calBtnFull: { backgroundColor: C.gold, borderRadius: 8, paddingVertical: 15, alignItems: 'center' },
   calBtnDone: { backgroundColor: C.greenSoft },
 
   overlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.4)', justifyContent: 'flex-end' },

@@ -51,10 +51,23 @@ const PRAISE_STREAK = [
   "This is genuine understanding — keep going.",
 ];
 
-// ── Reassurance — a WRONG first attempt. The options stay OPEN for a retry and the
-// correct answer is NOT revealed here, so these must NEVER point at a highlight —
-// just a warm nudge to think again. (The reveal happens later, on the correct lock.)
+// ── Reassurance — a WRONG first attempt. Warm, never disappointed ─────────────
+// The options stay OPEN for a retry and the correct answer is NOT revealed here,
+// so these must NEVER point at a highlight: a wrong tap deliberately leaves every
+// option open so the student rethinks (see QuickCheckBoard — only a CORRECT pick
+// marks anything). Lines that pointed at "the highlighted one" sent students
+// hunting for a mark that was never drawn. (The reveal happens later, on the
+// correct lock.)
+//
+// Deliberately long: this is the line a struggling student hears most often, and
+// pick() only guarantees no back-to-back repeat — with a short list the same few
+// sentences still come round quickly enough to sound canned.
 const REASSURE = [
+  "Close — have another look.",
+  "Not quite, and that's okay. Try another one.",
+  "Good try. One of the others fits better.",
+  "Almost. Let's fix the idea together.",
+  "Nearly there — read them once more.",
   "Not quite — think it through once more.",
   "Close. Here's a nudge — take another look.",
   "Almost. Read it again slowly, you'll see it.",
@@ -69,7 +82,7 @@ const REASSURE = [
 const REASSURE_AGAIN = [
   "Let's slow right down — no rush at all.",
   "This one's tricky. Take a breath, we'll get it.",
-  "Happens to everyone. Watch the highlighted one carefully.",
+  "Happens to everyone. Let's read the question once more.",
   "Take your time. I'm not going anywhere.",
 ];
 

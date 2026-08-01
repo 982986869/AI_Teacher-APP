@@ -154,7 +154,7 @@ export default function ParentApp() {
         {/* Gentle rise + fade on tab switch — content lifts into place, nav stays fixed. */}
         <FadeIn key={tab} y={12} duration={300} style={{ flex: 1 }}>
           {tab === 'home' && <HomeTab {...shared} report={report} refreshing={refreshing} onRefresh={onRefresh} />}
-          {tab === 'progress' && <ProgressTab {...shared} report={report} refreshing={refreshing} onRefresh={onRefresh} />}
+          {tab === 'progress' && <ProgressTab {...shared} refreshing={refreshing} onRefresh={onRefresh} />}
           {tab === 'sessions' && <SessionsTab {...shared} />}
           {tab === 'chat' && <ChatTab {...shared} />}
           {tab === 'classes' && <ClassesTab {...shared} />}

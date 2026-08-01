@@ -9,6 +9,7 @@ const path = require('path')
 const express = require('express')
 const cors = require('cors')
 const helmet = require('helmet')
+const compression = require('compression')
 const { config } = require('./config/env')
 const db = require('./config/database')
 const routes = require('./routes')
@@ -24,6 +25,21 @@ app.use(
   cors({
     origin: config.cors.origins,
     credentials: true,
+  })
+)
+
+// ─── Response compression ────────────────────────────────────────────────────
+// gzip JSON responses (a real 10-slide lesson is ~21KB → ~6.6KB, -69%). SSE must
+// NOT be compressed — buffering breaks the live token stream — so the /api/ai/ask
+// stream (text/event-stream) is explicitly skipped; TTS audio/PDFs are skipped by
+// compressible content-type. Transparent to clients; no contract change.
+app.use(
+  compression({
+    filter: (req, res) => {
+      const ct = res.getHeader('Content-Type')
+      if (ct && String(ct).includes('text/event-stream')) return false
+      return compression.filter(req, res)
+    },
   })
 )
 

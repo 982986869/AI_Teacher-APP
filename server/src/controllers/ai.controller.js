@@ -5,6 +5,9 @@ const aiService = require('../services/ai.service')
 const teachingModes = require('../services/teachingModes')
 const agentService = require('../services/agent.service')
 const memoryService = require('../services/memory.service')
+const masteryService = require('../services/mastery.service')
+const knowledgeGraph = require('../services/knowledgeGraph.service')
+const { config } = require('../config/env')
 const plannerService = require('../services/planner.service')
 const sessionService = require('../services/session.service')
 const progressService = require('../services/progress.service')
@@ -139,6 +142,9 @@ async function ask(req, res, next) {
     if (!errors.isEmpty()) return ApiResponse.error(res, errors.array()[0].msg, 422)
 
     const { text, subject, lessonId, slideIndex, history, level, pending } = req.body
+    // Optional teaching mode (the "how"): honour a valid explicit choice, else null so
+    // the answer is taught in the default register (unchanged behaviour).
+    const mode = teachingModes.isMode(req.body.mode) ? req.body.mode : null
     const grade = scopeGrade(req)
     if (!grade) return ApiResponse.error(res, 'Complete your class profile to use the AI Teacher.', 422, 'PROFILE_INCOMPLETE')
 
@@ -151,6 +157,7 @@ async function ask(req, res, next) {
       slideIndex: slideIndex !== undefined && slideIndex !== null ? Number(slideIndex) : undefined,
       history,
       level,
+      mode,
       pending,
     })
 
@@ -168,6 +175,7 @@ async function askStream(req, res, next) {
   if (!errors.isEmpty()) return ApiResponse.error(res, errors.array()[0].msg, 422)
 
   const { text, subject, lessonId, slideIndex, history, level, pending } = req.body
+  const mode = teachingModes.isMode(req.body.mode) ? req.body.mode : null
   // Need the class to know WHICH LEVEL to teach at — but we never refuse the topic.
   const grade = scopeGrade(req)
   if (!grade) return ApiResponse.error(res, 'Complete your class profile to use the AI Teacher.', 422, 'PROFILE_INCOMPLETE')
@@ -186,7 +194,7 @@ async function askStream(req, res, next) {
       {
         userId: req.user.id, text, subject, gradeLevel: grade, lessonId,
         slideIndex: slideIndex !== undefined && slideIndex !== null ? Number(slideIndex) : undefined,
-        history, level, pending,
+        history, level, mode, pending,
       },
       { onMeta: (m) => send('meta', m), onDelta: (t) => send('delta', { t }) }
     )
@@ -274,6 +282,64 @@ async function recordMemory(req, res, next) {
   }
 }
 
+// Idempotency guard for check outcomes — a repeated submission of the SAME check
+// (retry, double-tap) must not double-count mastery. Bounded in-process LRU (same
+// pattern as the embedding cache); a process restart just forgets, worst case one
+// extra best-effort write. Key = user:lesson:slide:concept:correct.
+const CHECK_SEEN = new Map()
+const CHECK_SEEN_MAX = 2000
+function checkSeen(key) {
+  if (CHECK_SEEN.has(key)) { CHECK_SEEN.delete(key); CHECK_SEEN.set(key, 1); return true }
+  CHECK_SEEN.set(key, 1)
+  if (CHECK_SEEN.size > CHECK_SEEN_MAX) CHECK_SEEN.delete(CHECK_SEEN.keys().next().value)
+  return false
+}
+
+// ─── POST /api/ai/lesson/:lessonId/check ──────────────────────────────────────
+// Records the outcome of an in-lesson comprehension check for one slide:
+// { slideIndex, correct, concept?, conceptId?, firstTry?, timeMs? }. Ownership-checked.
+// Behind DIAGNOSTIC_GATE (default OFF): when ON, resolve the concept DETERMINISTICALLY
+// (explicit conceptId, else exact subject+chapter+name match — never embeddings, never
+// guessing) and fold the outcome into mastery via the existing EWMA service. Idempotent
+// and fire-and-forget — the mastery write never blocks or fails the check. Returns
+// { ok, recorded }: recorded=false when the gate is off, the concept can't be resolved,
+// or the same check was already recorded. Old clients ignore the extra field.
+async function recordCheck(req, res, next) {
+  try {
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) return ApiResponse.error(res, errors.array()[0].msg, 422)
+    const lesson = await lessonService.getLessonById(req.params.lessonId, req.user.id)
+    if (!lesson) throw new AppError('Lesson not found', 404)
+
+    // Gate OFF (default) → accept but never write mastery (today's behaviour).
+    if (!config.flags.diagnosticGate) return ApiResponse.success(res, { ok: true, recorded: false })
+
+    // Deterministic concept resolution: prefer an explicit conceptId, else an EXACT
+    // subject+chapter+name lookup. No fuzzy/embedding fallback — unresolved ⇒ recorded:false.
+    let conceptId = req.body.conceptId || null
+    if (!conceptId && req.body.concept) {
+      conceptId = await knowledgeGraph.getConceptId(lesson.subject, lesson.chapter, req.body.concept)
+    }
+    if (!conceptId) return ApiResponse.success(res, { ok: true, recorded: false })
+
+    // Idempotency — drop duplicate submissions of the same check outcome.
+    const key = `${req.user.id}:${lesson.id}:${req.body.slideIndex}:${conceptId}:${req.body.correct ? 1 : 0}`
+    if (checkSeen(key)) return ApiResponse.success(res, { ok: true, recorded: false })
+
+    // Fire-and-forget mastery write, reusing the existing EWMA service.
+    masteryService.updateMastery({
+      userId: req.user.id,
+      conceptId,
+      signal: req.body.correct ? 'quiz_correct' : 'quiz_wrong',
+      timeMs: req.body.timeMs,
+    }).catch(() => {})
+
+    return ApiResponse.success(res, { ok: true, recorded: true })
+  } catch (err) {
+    next(err)
+  }
+}
+
 // ─── GET /api/ai/memory/summary ───────────────────────────────────────────────
 async function getMemorySummary(req, res, next) {
   try {
@@ -339,5 +405,5 @@ async function getResume(req, res, next) {
 module.exports = {
   generateLesson, getLesson, getLessons, deleteLesson, askDoubt, getDoubts,
   ask, askStream, startRevision, updateProgress, getProgress, getLessonsProgress,
-  getChaptersProgress, recordMemory, getMemorySummary, getPlan, getResume,
+  getChaptersProgress, recordMemory, recordCheck, getMemorySummary, getPlan, getResume,
 }

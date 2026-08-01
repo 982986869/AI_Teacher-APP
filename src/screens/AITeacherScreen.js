@@ -11,28 +11,30 @@ import { loadLearnerPrefs, prefsForRequest } from '../utils/learnerPrefs';
 import { foldOutcome } from '../components/teacher/pedagogyEngine';
 import KnowledgeAskScreen from './KnowledgeAskScreen';
 import StudyInsightsScreen from './StudyInsightsScreen';
-import {
-  useFonts,
-  Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold,
-  Poppins_700Bold, Poppins_800ExtraBold,
-} from '@expo-google-fonts/poppins';
 import LiveTeachingPlayer from '../components/teacher/LiveTeachingPlayer';
-import AuroraCraftingLoader from '../components/teacher/AuroraCraftingLoader';
-import AuroraBg from '../components/teacher/AuroraBg';
 import GradientText from '../components/teacher/GradientText';
 import TeacherAvatar from '../components/teacher/TeacherAvatar';
 import TeacherFullBody from '../components/teacher/TeacherFullBody';
 import { TEACHER_HEADSHOT, TEACHER_PHOTO, TEACHER_VIDEO } from '../components/teacher/teacherIdentity';
 import { greeting, firstHello, preparingBeats, preparingHint, resumeTag, emptyState } from '../components/teacher/teacherMoments';
-import { C, D, F, SP, GRAD, R, SERIF } from '../components/teacher/premiumTheme';
+import { SP, R } from '../components/teacher/premiumTheme';
+// AI Teacher runs on the app-wide design system, exactly like Home / Resources /
+// Practice: studentTheme tokens, the Nunito family, the shared student UI kit and
+// lucide icons. Only SP/R (spacing + radii) are still structural scales from the
+// teacher module. Subject tiles keep their emoji — that is the app's own convention
+// for subject identity (see utils/classSubjects → subjectDisplay).
+import { S, shadow, shadowSm } from '../theme/studentTheme';
+import { StudentSectionHeader, InkSurface } from '../theme/studentUI';
+import { F } from './parent/ParentApp/constants';
+import {
+  ChevronLeft, ChevronRight, Search, Sparkles, Clock, X, Compass, Repeat,
+  ChartNoAxesColumn, Check, Circle, CircleAlert, VolumeX, Brain,
+  // Subject-tile glyphs — see SUBJECT_META below.
+  Atom, Sigma, FlaskConical, Dna, BookOpen, Landmark,
+} from 'lucide-react-native';
 import { Appear, PressableScale, Gradient } from '../components/teacher/uiKit';
 import { stopTeacher, primeTeacherVoice, SPEECH_OK } from '../utils/teacherVoice';
 import YourLearning from '../components/teacher/YourLearning';
-import {
-  Search, Sparkles, History, X, Compass, RefreshCw, ChartColumn,
-  Atom, Sigma, FlaskConical, Dna, BookOpen, Landmark,
-  CircleAlert, Check, Circle, ChevronRight, ChevronLeft, Brain,
-} from 'lucide-react-native';
 
 // AI Teacher answers EVERY academic question, so it offers all subjects. Only the
 // explanation depth adapts to the student's class (enforced server-side from scope);
@@ -40,20 +42,25 @@ import {
 const SUBJECTS = ['Physics', 'Maths', 'Chemistry', 'Biology', 'English', 'History'];
 
 // Per-subject line icon + tint for the subject tiles (presentation only — the list
-// above stays the single source of truth for which subjects exist). Real vector
-// icons (lucide), each stroked in its subject-family hue over an opaque pastel tile.
-// Tints are OPAQUE on purpose: Android renders an elevation shadow from the view's
-// own background, so a translucent one shows through as a white block behind the
-// card. These are the same hues, pre-blended over C.cream.
+// above stays the single source of truth for which subjects exist). Real vector icons
+// (lucide), each stroked in its subject-family hue over an opaque pastel tile.
+// Tints are OPAQUE on purpose: Android renders an elevation shadow from the view's own
+// background, so a translucent fill shows through as a white block behind the card.
+//
+// Four keys, because the tile reads all four: `tint` fills it, `accent` is the border
+// on the selected tile, `Icon` is the glyph and `hue` strokes it. The hues come from
+// the studentTheme palette rather than bespoke hexes — this screen is on studentTheme
+// (`S`), and the premiumTheme `C` the vector-icon design shipped against is not even
+// imported here.
 const SUBJECT_META = {
-  Physics: { Icon: Atom, tint: '#E9E4FB', hue: '#7C3AED' },        // violet
-  Maths: { Icon: Sigma, tint: '#DEE9FB', hue: '#2563EB' },         // blue
-  Chemistry: { Icon: FlaskConical, tint: '#D8F1EB', hue: '#059669' }, // emerald
-  Biology: { Icon: Dna, tint: '#F8E0E6', hue: '#E11D48' },         // rose
-  English: { Icon: BookOpen, tint: '#F8EDDA', hue: '#D97706' },    // amber
-  History: { Icon: Landmark, tint: '#F8E7DC', hue: '#EA580C' },    // orange
+  Physics: { Icon: Atom, tint: S.purpleSoft, accent: S.purple, hue: S.purple },
+  Maths: { Icon: Sigma, tint: S.blueSoft, accent: S.blue, hue: S.blue },
+  Chemistry: { Icon: FlaskConical, tint: S.emeraldSoft, accent: S.emerald, hue: S.emerald },
+  Biology: { Icon: Dna, tint: S.redSoft, accent: S.red, hue: S.red },
+  English: { Icon: BookOpen, tint: S.goldSoft, accent: S.gold, hue: S.gold },
+  History: { Icon: Landmark, tint: S.orangeSoft, accent: S.orange, hue: S.orange },
 };
-const subjectMeta = (s) => SUBJECT_META[s] || { Icon: Sparkles, tint: '#E6E9FB', hue: C.accent };
+const subjectMeta = (s) => SUBJECT_META[s] || { Icon: Sparkles, tint: S.indigoSoft, accent: S.indigo, hue: S.indigo };
 
 // Spinning aurora ring behind the teacher avatar — a rotating multi-colour gradient disc
 // (conic isn't native, so a rotating linear sweep approximates it). The white avatar on
@@ -77,12 +84,6 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   const { user, scope } = useAuth();
   const firstName = user?.name?.split(' ')[0] || 'Student';
   const subjects = SUBJECTS;
-  // Load the premium type family for the whole AI Teacher feature (cached after the
-  // first load). The live player references the same family names.
-  const [fontsLoaded, fontError] = useFonts({
-    Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold,
-    Poppins_700Bold, Poppins_800ExtraBold,
-  });
 
   const [activeSubject, setActiveSubject] = useState(initialSubject);
   // 'learn' = generate a lesson; 'ask' = grounded RAG Q&A over uploaded material.
@@ -271,20 +272,33 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   const intro = useMemo(() => firstHello(), []);
   const isNewStudent = !resume && !savedLesson;
   const prepStages = useMemo(() => preparingBeats(topic), [topic]);
-  const prepHint = useMemo(() => preparingHint(), []);
+  // The long tail of generation (30–90s) used to sit on one static reassurance line —
+  // a minute of the same line reads as hung. Rotate it on a calm cadence (distinct from
+  // the stage ticker) so the wait stays alive and honest. Reuses preparingHint()'s pool,
+  // which already never repeats the previous line; the generation flow is unchanged.
+  const [prepHint, setPrepHint] = useState(preparingHint);
+  useEffect(() => {
+    if (!loading) return undefined;
+    const id = setInterval(() => setPrepHint(preparingHint()), 4500);
+    return () => clearInterval(id);
+  }, [loading]);
+  // Gently fade the full-screen preparing overlay in instead of hard-snapping it over
+  // the screen when the student taps Start — a calmer, more intentional hand-off. The
+  // button spinner already confirms the tap instantly, so the 280ms fade adds no delay.
+  const genFade = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    if (!loading) { genFade.setValue(0); return undefined; }
+    const anim = Animated.timing(genFade, { toValue: 1, duration: 280, easing: Easing.out(Easing.cubic), useNativeDriver: true });
+    anim.start();
+    return () => anim.stop();
+  }, [loading, genFade]);
   const resumeCardTag = useMemo(() => resumeTag(), [savedLesson]);
   const emptyHint = useMemo(() => emptyState('insights'), []);
 
-  // Hold the first paint until the type family is ready (a brief, calm splash) so
-  // the product never flashes system font → Poppins. Fails open on a font error.
-  if (!fontsLoaded && !fontError) {
-    return (
-      <SafeAreaView style={[st.safe, { alignItems: 'center', justifyContent: 'center' }]}>
-        <StatusBar barStyle="dark-content" backgroundColor={C.cream} />
-        <ActivityIndicator size="large" color={C.accent} />
-      </SafeAreaView>
-    );
-  }
+  // No font gate here any more. Nunito is loaded app-wide in App.js WITHOUT blocking
+  // render (see the comment there) and falls back to the system font until it lands,
+  // so holding the first paint would make this the only screen in the app with a
+  // splash — and a font hiccup could strand the student on it.
 
   // ── Study Insights (plan / revision / progress) — self-contained screen ──
   if (insights) {
@@ -306,19 +320,21 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   if (slides.length === 0) {
     return (
       <SafeAreaView style={st.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#F1EEFA" />
-        <AuroraBg />
+        <StatusBar barStyle="light-content" backgroundColor={S.heroB} />
 
         <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
           <ScrollView contentContainerStyle={st.scroll} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
 
-            {/* ── AURORA HEADER: greeting · teacher · mode toggle · topic search ── */}
+            {/* ── HERO: greeting · teacher · mode toggle · topic search. The deep indigo
+                is the app's own signature dark surface (InkSurface, same as the Home
+                hero), not a palette this screen invented. ── */}
             <View style={st.hero}>
+              <InkSurface radius={0} />
               {Platform.OS === 'android' && <View style={{ height: 24 }} />}
 
               <View style={st.heroTop}>
                 <PressableScale onPress={handleBack} style={st.heroBack} accessibilityLabel="Go back">
-                  <ChevronLeft size={24} color="#fff" strokeWidth={2.4} />
+                  <ChevronLeft size={20} color="#fff" strokeWidth={2.6} />
                 </PressableScale>
                 <Text style={st.heroKicker} accessibilityRole="header">AI TEACHER</Text>
                 <PressableScale onPress={() => setLearningOpen(true)} style={st.heroBack} accessibilityLabel="Your learning — what the teacher remembers about you">
@@ -357,11 +373,11 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
               {/* Topic search */}
               <View style={st.searchRow}>
                 <View style={st.searchBox}>
-                  <Search size={17} color={C.dim} strokeWidth={2.4} style={st.searchIcon} />
+                  <Search size={16} color={S.faint} strokeWidth={2.4} />
                   <TextInput
                     style={st.searchInput}
                     placeholder="e.g. Pythagoras Theorem"
-                    placeholderTextColor={C.faint}
+                    placeholderTextColor={S.faint}
                     value={topic}
                     onChangeText={setTopic}
                     onSubmitEditing={handleGenerate}
@@ -371,10 +387,8 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
                   />
                 </View>
                 <PressableScale onPress={handleGenerate} disabled={loading || !topic.trim()} accessibilityLabel="Start lesson"
-                  style={[st.searchGoWrap, (loading || !topic.trim()) && { opacity: 0.55 }]}>
-                  <Gradient colors={['#ff9ecd', '#7fd8ff']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={st.searchGo}>
-                    {loading ? <ActivityIndicator color="#fff" size="small" /> : <Sparkles size={22} color="#fff" strokeWidth={2.3} />}
-                  </Gradient>
+                  style={[st.searchGo, (loading || !topic.trim()) && { opacity: 0.55 }]}>
+                  {loading ? <ActivityIndicator color="#fff" size="small" /> : <Sparkles size={20} color="#fff" strokeWidth={2.4} />}
                 </PressableScale>
               </View>
             </View>
@@ -399,19 +413,16 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
 
               {!!error && (
                 <Appear style={st.errCard}>
-                  <CircleAlert size={17} color={C.pink} strokeWidth={2.3} />
+                  <CircleAlert size={17} color={S.red} strokeWidth={2.4} />
                   <Text style={st.errTxt} accessibilityLiveRegion="polite">{error}</Text>
                   <PressableScale onPress={handleGenerate} accessibilityLabel="Try again"><Text style={st.retryTxt}>Try again</Text></PressableScale>
                 </Appear>
               )}
 
-              {/* Your teacher — Ms. Nova (full-body avatar, glass stage card) */}
+              {/* Your teacher — Ms. Nova on the app's signature dark stage */}
               <Appear from="scale" style={st.teacherCard}>
-                <View style={st.readyBadge}>
-                  <View style={st.readyDot} />
-                  <Text style={st.readyTxt}>READY</Text>
-                </View>
-                <TeacherFullBody photo={TEACHER_PHOTO} video={TEACHER_VIDEO} state="idle" theme="cream" bg="#EDEAFB" height={300} />
+                <InkSurface radius={R.xxl} />
+                <TeacherFullBody photo={TEACHER_PHOTO} video={TEACHER_VIDEO} state="idle" theme="dark" height={300} />
                 <View style={st.teacherTag}>
                   <Text style={st.teacherRole}>YOUR TEACHER</Text>
                   <GradientText size={22}>Ms. Nova</GradientText>
@@ -419,13 +430,13 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
               </Appear>
 
               {/* Subjects */}
-              <Text style={st.seclbl}>Subjects</Text>
+              <StudentSectionHeader title="Subjects" accent={S.indigo} />
               <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={st.subjRow}>
                 {subjects.map((subj) => {
                   const m = subjectMeta(subj);
                   const on = activeSubject === subj;
                   return (
-                    <PressableScale key={subj} style={[st.subjCard, { backgroundColor: m.tint }, on && st.subjCardOn]} onPress={() => setActiveSubject(subj)}
+                    <PressableScale key={subj} style={[st.subjCard, { backgroundColor: m.tint }, on && { borderColor: m.accent, borderWidth: 2 }]} onPress={() => setActiveSubject(subj)}
                       accessibilityLabel={`Subject ${subj}`} accessibilityState={{ selected: on }}>
                       <View style={st.subjIcon}><m.Icon size={24} color={m.hue} strokeWidth={2.1} /></View>
                       <Text style={[st.subjTxt, on && st.subjTxtOn]}>{subj}</Text>
@@ -435,20 +446,20 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
               </ScrollView>
 
               {/* Jump back in — the saved lesson + the welcome-back continuity card */}
-              {(!!savedLesson || (resume && !resumeDismissed)) && <Text style={st.seclbl}>Jump back in</Text>}
+              {(!!savedLesson || (resume && !resumeDismissed)) && <StudentSectionHeader title="Jump back in" accent={S.blue} />}
 
               {savedLesson && (
                 <Appear>
                   <PressableScale style={st.resumeCard} onPress={resumeSavedLesson} disabled={restoring}
                     accessibilityLabel={`Resume your lesson: ${savedLesson.title || 'continue where you left off'}`}>
-                    <View style={st.resumeIcon}><History size={22} color={C.blue} strokeWidth={2.2} /></View>
+                    <View style={st.resumeIcon}><Clock size={21} color={S.blue} strokeWidth={2.2} /></View>
                     <View style={{ flex: 1 }}>
                       <Text style={st.resumeTitle} numberOfLines={1}>{savedLesson.title || 'Continue where you left off'}</Text>
                       <Text style={st.resumeTag}>{resumeCardTag}</Text>
                     </View>
                     {restoring
-                      ? <ActivityIndicator color={C.accent} size="small" />
-                      : <ChevronRight size={22} color={C.faint} strokeWidth={2.4} />}
+                      ? <ActivityIndicator color={S.indigo} size="small" />
+                      : <ChevronRight size={20} color={S.faint} strokeWidth={2.4} />}
                   </PressableScale>
                 </Appear>
               )}
@@ -456,7 +467,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
               {resume && !resumeDismissed && (
                 <Appear style={st.welcomeCard}>
                   <PressableScale style={st.welcomeClose} onPress={() => setResumeDismissed(true)} hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }} accessibilityLabel="Dismiss welcome back">
-                    <X size={16} color={C.dim} strokeWidth={2.4} />
+                    <X size={15} color={S.muted} strokeWidth={2.6} />
                   </PressableScale>
                   <Text style={st.welcomeTag}>WELCOME BACK</Text>
                   <Text style={st.welcomeGreeting}>{resume.greeting}</Text>
@@ -470,7 +481,8 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
                       }}
                       accessibilityLabel="Continue revising"
                     >
-                      <Text style={st.welcomePrimaryTxt}>Continue revising  ›</Text>
+                      <Text style={st.welcomePrimaryTxt}>Continue revising</Text>
+                      <ChevronRight size={16} color="#fff" strokeWidth={2.8} />
                     </PressableScale>
                     {!!resume.last?.chapter && (
                       <PressableScale
@@ -486,17 +498,22 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
               )}
 
               {/* For you — the three Study Insights entry points */}
-              <Text style={st.seclbl}>For you</Text>
+              <StudentSectionHeader title="For you" accent={S.orange} />
               {isNewStudent && <Text style={st.forYouHint}>{emptyHint}</Text>}
+              {/* Each entry point takes ONE accent from the palette and wears it as a
+                  tinted icon tile on a plain white card — the same shape Home and
+                  Resources use, instead of three differently-tinted card fills. */}
               <View style={st.insightGrid}>
                 {[
-                  { tab: 'next', Icon: Compass, hue: '#F97316', title: 'What next?', sub: 'Smart study plan', chip: 'rgba(249,115,22,0.12)' },
-                  { tab: 'revise', Icon: RefreshCw, hue: '#8B5CF6', title: 'Revise', sub: 'Weak topics', chip: 'rgba(139,92,246,0.12)' },
+                  { tab: 'next', Icon: Compass, title: 'What next?', sub: 'Smart study plan', tint: S.orange, tintBg: S.orangeSoft },
+                  { tab: 'revise', Icon: Repeat, title: 'Revise', sub: 'Weak topics', tint: S.purple, tintBg: S.purpleSoft },
                 ].map((a, i) => (
                   <Appear key={a.tab} delay={60 + i * 60} style={{ flex: 1 }}>
                     <PressableScale style={st.insightCard} onPress={() => setInsights({ tab: a.tab })}
                       accessibilityLabel={`${a.title}. ${a.sub}`}>
-                      <View style={[st.insightChip, { backgroundColor: a.chip }]}><a.Icon size={22} color={a.hue} strokeWidth={2.2} /></View>
+                      <View style={[st.insightIcon, { backgroundColor: a.tintBg }]}>
+                        <a.Icon size={19} color={a.tint} strokeWidth={2.3} />
+                      </View>
                       <Text style={st.insightTitle}>{a.title}</Text>
                       <Text style={st.insightSub}>{a.sub}</Text>
                     </PressableScale>
@@ -504,26 +521,49 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
                 ))}
               </View>
               <Appear delay={180}>
-                <PressableScale style={[st.insightWide]} onPress={() => setInsights({ tab: 'progress' })}
+                <PressableScale style={st.insightWide} onPress={() => setInsights({ tab: 'progress' })}
                   accessibilityLabel="Progress. Your stats">
-                  <View style={st.insightIconWide}><ChartColumn size={22} color={C.teal} strokeWidth={2.2} /></View>
+                  <View style={[st.insightIcon, { backgroundColor: S.emeraldSoft, marginBottom: 0 }]}>
+                    <ChartNoAxesColumn size={19} color={S.emerald} strokeWidth={2.3} />
+                  </View>
                   <View style={{ flex: 1 }}>
                     <Text style={st.insightTitle}>Progress</Text>
                     <Text style={st.insightSub}>Streak, study time, mastery</Text>
                   </View>
-                  <ChevronRight size={22} color={C.faint} strokeWidth={2.4} />
+                  <ChevronRight size={20} color={S.faint} strokeWidth={2.4} />
                 </PressableScale>
               </Appear>
 
               <Text style={st.hint}>A live, voice-narrated lesson with a teacher, whiteboard, and doubts you can ask anytime.</Text>
-              {!SPEECH_OK && <Text style={st.voiceNote}>Narration is unavailable on this device — the lesson will play with on-screen captions.</Text>}
+              {!SPEECH_OK && (
+                <View style={st.voiceNote}>
+                  <VolumeX size={14} color={S.muted} strokeWidth={2.3} />
+                  <Text style={st.voiceNoteTxt}>Voice off — run “npx expo install expo-speech” to enable narration.</Text>
+                </View>
+              )}
             </View>
           </ScrollView>
         </KeyboardAvoidingView>
 
         {/* ── Generation overlay — the Aurora "Crafting Your Personal Lesson" screen ── */}
         {loading && (
-          <AuroraCraftingLoader topic={topic} stages={prepStages} stage={genStage} quote={prepHint} />
+          <Animated.View style={[st.genOverlay, { opacity: genFade }]}>
+            <View style={st.genSpark}><Sparkles size={34} color={C.accent} strokeWidth={2} /></View>
+            <Text style={st.genTitle} accessibilityLiveRegion="polite">Ms. Nova is preparing your lesson…</Text>
+            <View style={st.genList}>
+              {prepStages.map((s, i) => (
+                <View key={i} style={st.genRow}>
+                  {i < genStage
+                    ? <View style={st.genDot}><Check size={15} color={S.emerald} strokeWidth={3} /></View>
+                    : i === genStage
+                      ? <ActivityIndicator size="small" color={S.indigo} style={st.genSpin} />
+                      : <View style={st.genDot}><Circle size={13} color={S.faint} strokeWidth={2.2} /></View>}
+                  <Text style={[st.genTxt, i === genStage && st.genTxtOn, i < genStage && st.genTxtDone]}>{s}</Text>
+                </View>
+              ))}
+            </View>
+            <Text style={st.genHint}>{prepHint}</Text>
+          </Animated.View>
         )}
 
         <YourLearning visible={learningOpen} onClose={() => setLearningOpen(false)} />
@@ -533,9 +573,9 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
 
   // ── Live classroom ──
   return (
-    <SafeAreaView style={st.safeDark}>
-      <StatusBar barStyle="light-content" backgroundColor={D.bg} />
-      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: D.bg }} />}
+    <SafeAreaView style={st.safeRoom}>
+      <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
       <LiveTeachingPlayer
         lesson={lessonObj}
         subject={activeSubject}
@@ -593,124 +633,129 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   );
 };
 
+// Same three planes the live classroom uses, so entering a lesson is a continuation
+// rather than a scene change: the canvas is quiet, white cards carry the content, and
+// only the hero + teacher stage go deep. Every colour is a studentTheme token.
 const st = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: '#F1EEFA' },
-  safeDark: { flex: 1, backgroundColor: D.bg },
+  safe: { flex: 1, backgroundColor: S.canvas },
+  // The live classroom runs on the same canvas — see LiveTeachingPlayer.
+  safeRoom: { flex: 1, backgroundColor: S.canvas },
   scroll: { paddingBottom: SP.xxl },
 
-  // ── gradient hero header ──
+  // ── hero header (InkSurface paints the deep indigo behind this) ──
   hero: {
     paddingHorizontal: SP.lg, paddingTop: SP.md, paddingBottom: SP.lg,
-    backgroundColor: 'transparent',
+    borderBottomLeftRadius: 32, borderBottomRightRadius: 32, overflow: 'hidden',
+    backgroundColor: S.heroB, ...shadow,
   },
   heroTop: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: SP.sm },
-  heroBack: { width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.5)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.7)' },
-  heroBackTxt: { fontSize: 24, color: '#6d5ce0', marginTop: -3 },
-  heroKicker: { fontSize: 11, fontFamily: F.bold, color: '#6f66a3', letterSpacing: 2.2 },
+  heroBack: { width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.16)' },
+  heroKicker: { fontSize: 11, fontFamily: F.xbold, color: 'rgba(255,255,255,0.85)', letterSpacing: 2.2 },
 
   greetRow: { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: SP.lg },
-  greetSalute: { fontSize: 15, fontFamily: F.med, color: '#7a72ad' },
-  greetWave: { fontSize: 13, fontFamily: F.bold, color: '#5a4fb0', marginTop: 6 },
-  greetPrompt: { fontSize: 12.5, fontFamily: F.med, color: '#6b6595', lineHeight: 18, marginTop: 4 },
-
+  greetSalute: { fontSize: 15, fontFamily: F.med, color: 'rgba(255,255,255,0.82)' },
+  greetName: { fontSize: 30, fontFamily: F.black, color: '#fff', letterSpacing: -0.6, marginTop: 1 },
+  greetWave: { fontSize: 13, fontFamily: F.bold, color: '#fff', marginTop: 6 },
+  greetPrompt: { fontSize: 12.5, fontFamily: F.med, color: 'rgba(255,255,255,0.78)', lineHeight: 18, marginTop: 4 },
+  heroAvatar: { borderRadius: 32, borderWidth: 2, borderColor: 'rgba(255,255,255,0.45)', padding: 2, backgroundColor: 'rgba(255,255,255,0.16)' },
+  // Avatar ring + online dot. These sit ON the hero, so the dot's ring is cut out of
+  // S.heroB rather than white — on the deep indigo a white ring reads as a halo.
   avatarWrap: { width: 62, height: 62, alignItems: 'center', justifyContent: 'center' },
-  heroAvatar: { borderRadius: 30, borderWidth: 2, borderColor: '#fff', padding: 2, backgroundColor: '#efeaff' },
-  avatarDot: { position: 'absolute', right: 1, bottom: 1, width: 14, height: 14, borderRadius: 7, backgroundColor: '#3ddc97', borderWidth: 2.5, borderColor: '#fff' },
+  avatarDot: { position: 'absolute', right: 1, bottom: 1, width: 14, height: 14, borderRadius: 7, backgroundColor: '#3DDC97', borderWidth: 2.5, borderColor: S.heroB },
 
-  modeRow: { flexDirection: 'row', backgroundColor: 'rgba(255,255,255,0.42)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.6)', borderRadius: R.pill, padding: 5, marginBottom: SP.md },
-  modeBtn: { flex: 1, paddingVertical: 11, borderRadius: R.pill, alignItems: 'center' },
-  modeBtnOn: { backgroundColor: '#7b5cf0', shadowColor: '#7b5cf0', shadowOpacity: 0.35, shadowRadius: 12, shadowOffset: { width: 0, height: 6 }, elevation: 3 },
-  modeTxt: { fontSize: 13, fontFamily: F.semi, color: '#7a72ad' },
-  modeTxtOn: { color: '#fff' },
+  // "Teaching style" chips (Dynamic Teaching Modes). Distinct from the modeRow
+  // toggle above: that one is the Explain/Ask segmented control ON the hero, these
+  // sit in the body on S.canvas, so they follow the card idiom (S.card + S.hair).
+  modeSection: { marginBottom: SP.md },
+  modeLabel: { fontSize: 11, fontFamily: F.bold, color: S.muted, letterSpacing: 1.4, textTransform: 'uppercase', marginBottom: SP.sm },
+  modeChips: { gap: 8, paddingRight: SP.lg },
+  modeChip: { backgroundColor: S.card, borderWidth: 1, borderColor: S.hair, borderRadius: R.pill, paddingVertical: 8, paddingHorizontal: 15 },
+  modeChipOn: { backgroundColor: S.indigo, borderColor: S.indigo },
+  modeChipTxt: { fontSize: 13, fontFamily: F.semi, color: S.sub },
+  modeChipTxtOn: { color: '#fff', fontFamily: F.bold },
+
+  modeRow: { flexDirection: 'row', backgroundColor: 'rgba(0,0,0,0.24)', borderRadius: R.pill, padding: 4, marginBottom: SP.md },
+  modeBtn: { flex: 1, paddingVertical: 10, borderRadius: R.pill, alignItems: 'center' },
+  modeBtnOn: { backgroundColor: '#fff', ...shadowSm },
+  modeTxt: { fontSize: 13, fontFamily: F.bold, color: 'rgba(255,255,255,0.85)' },
+  modeTxtOn: { color: S.indigo },
 
   searchRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
-  searchBox: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: 'rgba(255,255,255,0.62)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.85)', borderRadius: R.lg, paddingHorizontal: 14, height: 52 },
-  searchIcon: { opacity: 0.45 },
-  searchInput: { flex: 1, fontSize: 14, fontFamily: F.med, color: '#2a2545', paddingVertical: 0 },
+  searchBox: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: S.card, borderRadius: R.lg, paddingHorizontal: 14, height: 50 },
+  searchInput: { flex: 1, fontSize: 14, fontFamily: F.med, color: S.ink, paddingVertical: 0 },
   // backgroundColor is required: Android draws the elevation shadow from the view's
   // own background, so a transparent one shows through as a white shape.
-  searchGoWrap: { borderRadius: R.lg, overflow: 'hidden', backgroundColor: GRAD.hot[0], shadowColor: '#EC4899', shadowOpacity: 0.45, shadowRadius: 10, shadowOffset: { width: 0, height: 5 }, elevation: 6 },
-  searchGo: { width: 50, height: 50, alignItems: 'center', justifyContent: 'center' },
-  searchGoTxt: { color: '#fff', fontSize: 20, fontFamily: F.bold },
+  searchGo: { width: 50, height: 50, borderRadius: R.lg, backgroundColor: S.indigo, alignItems: 'center', justifyContent: 'center', ...shadowSm },
 
   // ── body ──
-  body: { paddingHorizontal: SP.lg, paddingTop: SP.lg },
-  modeSection: { marginBottom: SP.xs },
-  modeLabel: { fontSize: 11, fontFamily: F.bold, color: C.dim, letterSpacing: 1.4, textTransform: 'uppercase', marginBottom: SP.sm },
-  modeChips: { gap: 8, paddingRight: SP.lg },
-  modeChip: { backgroundColor: C.board, borderWidth: 1, borderColor: C.line, borderRadius: R.pill, paddingVertical: 8, paddingHorizontal: 15 },
-  modeChipOn: { backgroundColor: C.ink, borderColor: C.ink },
-  modeChipTxt: { fontSize: 13, fontFamily: F.semi, color: C.ink2 },
-  modeChipTxtOn: { color: '#fff', fontFamily: F.bold },
-  seclbl: { fontSize: 11, fontFamily: F.bold, color: C.dim, letterSpacing: 1.4, textTransform: 'uppercase', marginTop: SP.lg, marginBottom: SP.md },
+  body: { paddingHorizontal: SP.lg, paddingTop: SP.md },
 
-  // teacher stage card
-  teacherCard: { backgroundColor: 'rgba(255,255,255,0.5)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.85)', borderRadius: R.xxl, overflow: 'hidden', alignItems: 'center', paddingTop: SP.sm, shadowColor: '#6e50c8', shadowOpacity: 0.18, shadowRadius: 24, shadowOffset: { width: 0, height: 14 }, elevation: 6 },
-  readyBadge: { position: 'absolute', top: 14, right: 14, zIndex: 3, flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: 'rgba(255,255,255,0.78)', borderRadius: 20, paddingHorizontal: 10, paddingVertical: 5 },
-  readyDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: '#3ddc97' },
-  readyTxt: { fontSize: 9, fontFamily: F.bold, color: '#5a4fb0', letterSpacing: 0.6 },
+  // teacher stage — the one other deep surface, matching the hero
+  teacherCard: { backgroundColor: S.heroB, borderRadius: R.xxl, overflow: 'hidden', alignItems: 'center', paddingTop: SP.md, ...shadow },
   teacherTag: { alignItems: 'center', paddingBottom: SP.md, paddingTop: SP.xs },
-  teacherRole: { fontSize: 10, fontFamily: F.bold, color: '#9a91c8', letterSpacing: 1.8 },
-  teacherName: { fontSize: 20, fontFamily: SERIF, fontWeight: '600', color: '#5a4fb0', marginTop: 2 },
+  teacherRole: { fontSize: 10, fontFamily: F.xbold, color: S.heroGlow, letterSpacing: 1.8 },
+  teacherName: { fontSize: 20, fontFamily: F.black, color: '#fff', marginTop: 2, letterSpacing: -0.3 },
 
-  // subject tiles
+  // subject tiles — tinted fill, white hairline, accent border when picked
   subjRow: { gap: 10, paddingVertical: 2, paddingRight: SP.lg },
-  subjCard: { width: 86, height: 92, borderRadius: R.xl, borderWidth: 1.5, borderColor: 'rgba(255,255,255,0.9)', alignItems: 'center', justifyContent: 'center', gap: 6, shadowColor: '#0F172A', shadowOpacity: 0.05, shadowRadius: 8, shadowOffset: { width: 0, height: 3 }, elevation: 1 },
-  subjCardOn: { borderColor: C.accent, borderWidth: 2 },
-  subjIcon: { height: 28, alignItems: 'center', justifyContent: 'center' },
-  subjTxt: { fontSize: 11.5, fontFamily: F.semi, color: C.ink2 },
-  subjTxtOn: { color: C.accent, fontFamily: F.bold },
+  subjCard: { width: 86, height: 92, borderRadius: R.xl, borderWidth: 1.5, borderColor: S.white, alignItems: 'center', justifyContent: 'center', gap: 6, ...shadowSm },
+  subjIcon: { fontSize: 24 },
+  subjTxt: { fontSize: 11.5, fontFamily: F.bold, color: S.sub },
+  subjTxtOn: { color: S.ink, fontFamily: F.xbold },
 
   // resume card
-  resumeCard: { flexDirection: 'row', alignItems: 'center', gap: 14, backgroundColor: C.board, borderWidth: 1, borderColor: C.line, borderRadius: R.xxl, padding: 16, shadowColor: '#0F172A', shadowOpacity: 0.06, shadowRadius: 12, shadowOffset: { width: 0, height: 4 }, elevation: 2 },
-  resumeIcon: { width: 48, height: 48, borderRadius: R.md, backgroundColor: 'rgba(59,130,246,0.10)', alignItems: 'center', justifyContent: 'center' },
-  resumeTitle: { fontSize: 15, fontFamily: F.bold, color: C.ink },
-  resumeTag: { fontSize: 11, fontFamily: F.med, color: C.dim, marginTop: 3 },
-  resumeGo: { fontSize: 24, fontFamily: F.reg, color: C.faint },
+  resumeCard: { flexDirection: 'row', alignItems: 'center', gap: 14, backgroundColor: S.card, borderWidth: 1, borderColor: S.hair, borderRadius: R.xxl, padding: 16, ...shadowSm },
+  resumeIcon: { width: 48, height: 48, borderRadius: R.md, backgroundColor: S.blueSoft, alignItems: 'center', justifyContent: 'center' },
+  resumeTitle: { fontSize: 15, fontFamily: F.xbold, color: S.ink },
+  resumeTag: { fontSize: 11, fontFamily: F.med, color: S.muted, marginTop: 3 },
 
-  // welcome-back
-  welcomeCard: { marginTop: SP.md, backgroundColor: 'rgba(16,185,129,0.07)', borderWidth: 1, borderColor: 'rgba(16,185,129,0.25)', borderRadius: R.xxl, padding: SP.lg },
+  // welcome-back — the one tinted card, so it reads as a transient message
+  welcomeCard: { marginTop: SP.md, backgroundColor: S.emeraldSoft, borderWidth: 1, borderColor: S.emerald, borderRadius: R.xxl, padding: SP.lg },
   welcomeClose: { position: 'absolute', top: 12, right: 14, zIndex: 2 },
-  welcomeCloseTxt: { fontSize: 14, fontFamily: F.bold, color: C.dim },
-  welcomeTag: { fontSize: 10, fontFamily: F.bold, color: C.teal, letterSpacing: 1.2, marginBottom: 6 },
-  welcomeGreeting: { fontSize: 15, fontFamily: F.semi, color: C.ink, lineHeight: 22, paddingRight: 16 },
-  welcomeSuggest: { fontSize: 13, fontFamily: F.med, color: C.ink2, lineHeight: 19, marginTop: 6 },
+  welcomeTag: { fontSize: 10, fontFamily: F.xbold, color: S.sub, letterSpacing: 1.2, marginBottom: 6 },
+  welcomeGreeting: { fontSize: 15, fontFamily: F.bold, color: S.ink, lineHeight: 22, paddingRight: 16 },
+  welcomeSuggest: { fontSize: 13, fontFamily: F.med, color: S.sub, lineHeight: 19, marginTop: 6 },
   welcomeBtns: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: SP.md },
-  welcomePrimary: { backgroundColor: C.teal, borderRadius: R.md, paddingVertical: 11, paddingHorizontal: 18 },
+  // Indigo, not the card's emerald: white on S.emerald is only 3.0:1, and indigo is
+  // the app's primary-action colour everywhere else. The tint identifies the card,
+  // the button identifies the action.
+  welcomePrimary: { flexDirection: 'row', alignItems: 'center', gap: 4, backgroundColor: S.indigo, borderRadius: R.md, paddingVertical: 11, paddingHorizontal: 18, ...shadowSm },
   welcomePrimaryTxt: { color: '#fff', fontSize: 13, fontFamily: F.bold },
-  welcomeGhost: { borderWidth: 1, borderColor: C.line, borderRadius: R.md, paddingVertical: 11, paddingHorizontal: 16, backgroundColor: C.board },
-  welcomeGhostTxt: { color: C.ink2, fontSize: 13, fontFamily: F.semi },
+  welcomeGhost: { borderWidth: 1, borderColor: S.border, borderRadius: R.md, paddingVertical: 11, paddingHorizontal: 16, backgroundColor: S.card },
+  welcomeGhostTxt: { color: S.sub, fontSize: 13, fontFamily: F.bold },
 
-  // for-you
-  forYouHint: { fontSize: 12.5, fontFamily: F.med, color: C.ink2, lineHeight: 18, marginTop: -SP.sm, marginBottom: SP.md },
+  // for-you — plain white cards; the accent lives in the icon tile, not the fill
+  forYouHint: { fontSize: 12.5, fontFamily: F.med, color: S.sub, lineHeight: 18, marginTop: -SP.sm, marginBottom: SP.md },
   insightGrid: { flexDirection: 'row', gap: 12 },
-  insightCard: { flex: 1, backgroundColor: C.board, borderRadius: R.xxl, borderWidth: 1, borderColor: C.line, padding: SP.lg, gap: 4, shadowColor: '#0F172A', shadowOpacity: 0.06, shadowRadius: 14, shadowOffset: { width: 0, height: 6 }, elevation: 2 },
-  insightWide: { flexDirection: 'row', alignItems: 'center', gap: 14, marginTop: 12, borderRadius: R.xxl, borderWidth: 1, borderColor: C.line, backgroundColor: C.board, padding: SP.lg, shadowColor: '#0F172A', shadowOpacity: 0.06, shadowRadius: 14, shadowOffset: { width: 0, height: 6 }, elevation: 2 },
-  insightChip: { width: 44, height: 44, borderRadius: R.md, alignItems: 'center', justifyContent: 'center', marginBottom: 12 },
-  insightIconWide: { width: 44, height: 44, borderRadius: R.md, backgroundColor: 'rgba(16,185,129,0.12)', alignItems: 'center', justifyContent: 'center' },
-  insightTitle: { fontSize: 14, fontFamily: F.bold, color: C.ink, letterSpacing: -0.2 },
-  insightSub: { fontSize: 11.5, fontFamily: F.med, color: C.ink2, marginTop: 1 },
+  insightCard: { flex: 1, backgroundColor: S.card, borderRadius: R.xxl, borderWidth: 1, borderColor: S.hair, padding: SP.lg, gap: 4, ...shadowSm },
+  insightWide: { flexDirection: 'row', alignItems: 'center', gap: 14, marginTop: 12, backgroundColor: S.card, borderRadius: R.xxl, borderWidth: 1, borderColor: S.hair, padding: SP.lg, ...shadowSm },
+  insightIcon: { width: 38, height: 38, borderRadius: 12, alignItems: 'center', justifyContent: 'center', marginBottom: 6 },
+  insightTitle: { fontSize: 14, fontFamily: F.xbold, color: S.ink, letterSpacing: -0.2 },
+  insightSub: { fontSize: 11.5, fontFamily: F.med, color: S.muted, marginTop: 1 },
 
   // error
-  errCard: { marginBottom: SP.md, backgroundColor: 'rgba(244,63,94,0.08)', borderWidth: 1, borderColor: 'rgba(244,63,94,0.28)', borderRadius: R.lg, padding: SP.md, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10 },
-  errTxt: { flex: 1, color: C.pink, fontSize: 13, fontFamily: F.semi },
-  retryTxt: { color: C.ink, fontSize: 13, fontFamily: F.bold },
+  errCard: { marginBottom: SP.md, backgroundColor: S.redSoft, borderWidth: 1, borderColor: S.red, borderRadius: R.lg, padding: SP.md, flexDirection: 'row', alignItems: 'center', gap: 10 },
+  errTxt: { flex: 1, color: S.ink, fontSize: 13, fontFamily: F.semi },
+  // S.red on S.redSoft is 3.2:1 — the red stays on the icon and border, the action
+  // label keeps ink so it is actually readable.
+  retryTxt: { color: S.ink, fontSize: 13, fontFamily: F.xbold },
 
-  hint: { fontSize: 13, fontFamily: F.med, color: C.dim, lineHeight: 20, marginTop: SP.xl, textAlign: 'center' },
-  voiceNote: { fontSize: 11, fontFamily: F.semi, color: C.accent, marginTop: SP.md, textAlign: 'center' },
+  hint: { fontSize: 13, fontFamily: F.med, color: S.muted, lineHeight: 20, marginTop: SP.xl, textAlign: 'center' },
+  voiceNote: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7, marginTop: SP.md },
+  voiceNoteTxt: { fontSize: 11.5, fontFamily: F.semi, color: S.muted },
 
   // ── generation overlay ──
-  genOverlay: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(248,250,252,0.96)', alignItems: 'center', justifyContent: 'center', paddingHorizontal: SP.xl, zIndex: 30 },
-  genSpark: { width: 80, height: 80, borderRadius: 40, backgroundColor: C.accentSoft, alignItems: 'center', justifyContent: 'center', marginBottom: SP.lg },
-  genTitle: { fontSize: 20, fontFamily: F.bold, color: C.ink, marginBottom: SP.xl, letterSpacing: -0.3 },
+  genOverlay: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(244,245,251,0.97)', alignItems: 'center', justifyContent: 'center', paddingHorizontal: SP.xl, zIndex: 30 },
+  genSpark: { width: 80, height: 80, borderRadius: 40, backgroundColor: S.indigoSoft, alignItems: 'center', justifyContent: 'center', marginBottom: SP.lg },
+  genTitle: { fontSize: 20, fontFamily: F.black, color: S.ink, marginBottom: SP.xl, letterSpacing: -0.3 },
   genList: { alignSelf: 'stretch', gap: SP.md },
   genRow: { flexDirection: 'row', alignItems: 'center', gap: 12 },
   genDot: { width: 22, alignItems: 'center', justifyContent: 'center' },
   genSpin: { width: 22 },
-  genTxt: { flex: 1, fontSize: 14, fontFamily: F.med, color: C.dim },
-  genTxtOn: { color: C.ink, fontFamily: F.bold },
-  genTxtDone: { color: C.ink2 },
-  genHint: { fontSize: 12, fontFamily: F.med, color: C.dim, marginTop: SP.xl, textAlign: 'center' },
+  genTxt: { flex: 1, fontSize: 14, fontFamily: F.med, color: S.muted },
+  genTxtOn: { color: S.ink, fontFamily: F.xbold },
+  genTxtDone: { color: S.sub },
+  genHint: { fontSize: 12, fontFamily: F.med, color: S.muted, marginTop: SP.xl, textAlign: 'center' },
 });
 
 export default AITeacherScreen;

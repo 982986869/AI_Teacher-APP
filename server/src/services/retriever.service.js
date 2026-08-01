@@ -70,7 +70,14 @@ async function retrieve({ query, subject, gradeLevel, topK, minSimilarity } = {}
   const queryEmbedding = await getEmbeddingProvider().embedQuery(q)
   const qLit = toVectorLiteral(queryEmbedding)
 
-  const candidates = await rawSearch({ queryVec: qLit, orderVec: qLit, subject: subj, gradeLevel, limit: Math.max(12, k + 7) })
+  // The chunk search and the concept nearest-neighbour lookup both depend ONLY on the
+  // query embedding, not on each other — so run them concurrently instead of stacking
+  // two vector-query round-trips on the doubt critical path. The results are consumed
+  // exactly as before once both resolve (the anchorChapter tie-break still applies).
+  const [candidates, top] = await Promise.all([
+    rawSearch({ queryVec: qLit, orderVec: qLit, subject: subj, gradeLevel, limit: Math.max(12, k + 7) }),
+    subj ? kg.nearestConcepts(queryEmbedding, subj, 5).catch(() => []) : Promise.resolve([]),
+  ])
   const anchorChapter = candidates[0] && candidates[0].metadata ? candidates[0].metadata.chapter : null
 
   // Resolve the query to a catalog concept. The concept-NAME embedding match is the
@@ -84,7 +91,6 @@ async function retrieve({ query, subject, gradeLevel, topK, minSimilarity } = {}
   const pool = candidates.map((c) => ({ ...c, isPrereq: false }))
 
   if (subj) {
-    const top = await kg.nearestConcepts(queryEmbedding, subj, 5).catch(() => [])
     if (top.length) {
       let best = top[0]
       if (anchorChapter) {

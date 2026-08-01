@@ -23,6 +23,7 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
+      "softwareKeyboardLayoutMode": "resize",
       "permissions": [
         "android.permission.READ_CALENDAR",
         "android.permission.WRITE_CALENDAR"
@@ -49,7 +50,8 @@
       [
         "expo-image-picker",
         {
-          "photosPermission": "Ailernova needs access to your photos so you can add images to questions and options."
+          "photosPermission": "Ailernova needs access to your photos so you can add images to questions and upload study material.",
+          "cameraPermission": "Ailernova needs camera access so you can photograph notes or textbook pages to upload as study material."
         }
       ],
       [

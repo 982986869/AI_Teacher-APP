@@ -34,6 +34,11 @@ import {
 } from '@expo-google-fonts/space-grotesk';
 import { useAuth } from '../context/AuthContext';
 import { useRuntimeConfig } from '../context/RuntimeConfigContext';
+// Imported statically ON PURPOSE — do NOT React.lazy() these. On native, `import()` makes
+// Metro build and ship a separate chunk at runtime (measured: ~25s for AITeacherScreen,
+// ~35s for BrainGymFlow over LAN), so the open showed a blank Suspense fallback for half a
+// minute. BrainGymFlow is also already in the main bundle via AppNavigator, so splitting it
+// only duplicated it. Static import = instant open.
 import AITeacherScreen from './AITeacherScreen';
 import BrainGymFlow from './braingym/BrainGymFlow';
 import OptionalUpdateBanner from '../components/OptionalUpdateBanner';

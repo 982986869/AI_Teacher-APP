@@ -63,4 +63,32 @@ async function getTest(req, res, next) {
   } catch (err) { next(err) }
 }
 
-module.exports = { getChapters, getTests, getTest }
+// POST /api/online-tests/test/:testId/submit  { answers, timeTakenSec }
+async function submit(req, res, next) {
+  try {
+    if (req.scope && req.scope.role !== 'student') {
+      return ApiResponse.error(res, 'Only students can attempt this.', 403)
+    }
+    // Same class/syllabus gate as the read path — without it a student could record an
+    // attempt against another class's test by guessing its id, which would then feed
+    // their mistake book and weak areas with content they were never meant to see.
+    if (svc.parseTestId(req.params.testId) == null) {
+      return ApiResponse.error(res, 'Invalid test id', 400)
+    }
+    const scoped = await assertTestInScope(req, req.params.testId)
+    if (!scoped) return ApiResponse.error(res, 'Test not found', 404)
+    if (scoped.forbidden) return ApiResponse.error(res, scoped.forbidden, 403)
+
+    const answers = (req.body && typeof req.body.answers === 'object' && req.body.answers) || {}
+    const data = await svc.submit({
+      testId: req.params.testId,
+      userId: req.user.id,
+      answers,
+      timeTakenSec: req.body ? req.body.timeTakenSec : 0,
+    })
+    if (!data) return ApiResponse.error(res, 'Test not found', 404)
+    return ApiResponse.success(res, data)
+  } catch (err) { next(err) }
+}
+
+module.exports = { getChapters, getTests, getTest, submit }

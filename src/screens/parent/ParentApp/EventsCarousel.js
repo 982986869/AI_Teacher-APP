@@ -789,7 +789,7 @@ function CommunityPage({ gallery, E }) {
 // Tutors (onTutors); everything else opens its url.
 // Exported: the About, Impact and Tutors pages close with this exact block too, so the
 // footer sections are reachable from there as well.
-export function BecomePage({ E, onAbout, onImpact, onTutors, onOpenProgram }) {
+export function BecomePage({ E, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onOpenProgram }) {
   const bc = E.become;
   const ft = E.footer;
   const [openIdx, setOpenIdx] = useState(-1);
@@ -802,6 +802,14 @@ export function BecomePage({ E, onAbout, onImpact, onTutors, onOpenProgram }) {
     if (it.action === 'about') return onAbout && onAbout();
     if (it.action === 'impact') return onImpact && onImpact();
     if (it.action === 'tutors') return onTutors && onTutors();
+    // Each of these opens the in-app page where the host wired one up, and otherwise
+    // falls back to the matching page on the website — so a link never dead-ends.
+    if (it.action === 'reviews') return onReviews ? onReviews() : open(it.url);
+    if (it.action === 'pricing') return onPricing ? onPricing() : open(it.url);
+    if (it.action === 'faqs') return onFaqs ? onFaqs() : open(it.url);
+    if (it.action === 'contact') return onContact ? onContact() : open(it.url);
+    if (it.action === 'refund') return onRefund ? onRefund() : open(it.url);
+    if (it.action === 'referral') return onReferral ? onReferral() : open(it.url);
     if (it.action === 'blogs') return setBlogsOpen(true);
     if (it.action === 'subjects') return setSubjOpen(true);
     if (it.action === 'becometutor') return setTutorOpen(true);
@@ -1769,7 +1777,7 @@ export function ProgramDetail({ programId, onBack }) {
 }
 
 /* ── All sections stacked vertically (default export) ─────────────────────── */
-export default function EventsStack({ events = [], store = [], skills = [], gallery = [], onAbout, onImpact, onTutors, onOpenProgram }) {
+export default function EventsStack({ events = [], store = [], skills = [], gallery = [], onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onOpenProgram }) {
   const E = CONTENT.event;
   const scrollRef = useRef(null);
   const regionY = useRef(0);
@@ -1789,7 +1797,7 @@ export default function EventsStack({ events = [], store = [], skills = [], gall
         {!!skills.length && <FadeIn delay={160}><SkillsPage skills={skills} E={E} /></FadeIn>}
         {!!gallery.length && <FadeIn delay={160}><ParticipantsPage gallery={gallery} E={E} /></FadeIn>}
         <FadeIn delay={160}><CommunityPage gallery={gallery} E={E} /></FadeIn>
-        <FadeIn delay={160}><BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onOpenProgram={onOpenProgram} /></FadeIn>
+        <FadeIn delay={160}><BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onContact={onContact} onRefund={onRefund} onReferral={onReferral} onOpenProgram={onOpenProgram} /></FadeIn>
       </View>
     </ScrollView>
   );
@@ -1818,7 +1826,7 @@ export function EventTeaser({ event, onOpen }) {
 }
 
 /* ── Full-screen modal — the whole stacked page ───────────────────────────── */
-export function EventsModal({ visible, onClose, events, store, skills, gallery, onAbout, onImpact, onTutors }) {
+export function EventsModal({ visible, onClose, events, store, skills, gallery, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral }) {
   const [program, setProgram] = useState(null);
   const close = () => { setProgram(null); onClose && onClose(); };
   return (
@@ -1833,7 +1841,7 @@ export function EventsModal({ visible, onClose, events, store, skills, gallery, 
               <PressableScale onPress={close} style={s.mBack}><T s={26} c={C.ink}>‹</T></PressableScale>
               <T w="bold" s={16} c={C.ink}>Events</T><View style={{ width: 40 }} />
             </View>
-            <EventsStack events={events} store={store} skills={skills} gallery={gallery} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onOpenProgram={setProgram} />
+            <EventsStack events={events} store={store} skills={skills} gallery={gallery} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onContact={onContact} onRefund={onRefund} onReferral={onReferral} onOpenProgram={setProgram} />
           </>
         )}
       </SafeAreaView>

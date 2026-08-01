@@ -84,6 +84,11 @@ export default function McqQuizScreen({
   const timerRef = useRef(null);
   const scoredRef = useRef(false);   // has the CURRENT question already been counted?
 
+  // { questionId: optionId } for every question actually answered — handed to
+  // onComplete so the caller can persist the attempt server-side. Skipped questions
+  // are simply absent, which is what the grading endpoint expects.
+  const answersRef = useRef({});
+
   // reveal() is called from an interval created when the question LOADED, so calling it
   // directly closed over that render's `selected` — always null, because next() clears
   // it. An answer chosen during the countdown was therefore scored as "skipped" when
@@ -115,7 +120,7 @@ export default function McqQuizScreen({
 
   // Report the final score once, when the quiz finishes (for attempt tracking).
   useEffect(() => {
-    if (done) onComplete({ correct: score.correct, total: qs.length });
+    if (done) onComplete({ correct: score.correct, total: qs.length, answers: answersRef.current });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [done]);
 
@@ -147,6 +152,9 @@ export default function McqQuizScreen({
     clearInterval(timerRef.current);
     if (scoredRef.current) return;
     scoredRef.current = true;
+    // Record the pick for server-side persistence before scoring (skipped questions
+    // stay absent, which is what the grading endpoint expects).
+    if (selected != null) answersRef.current[q.id] = selected;
     setSubmitted(true);
     setScore((s) => {
       if (selected == null) return { ...s, skipped: s.skipped + 1 };

@@ -110,6 +110,17 @@ export const updateLessonProgress = async (lessonId, { slideIndex, total, studyT
   return res.data.data;
 };
 
+// POST /api/ai/lesson/:id/check → reports an in-lesson comprehension-check outcome.
+// Best-effort telemetry from the live player; the server folds it into mastery only
+// when DIAGNOSTIC_GATE is on (else recorded:false). Fire-and-forget — the caller
+// swallows failures so playback is never affected.
+export const postCheckOutcome = async (lessonId, { slideIndex, correct, concept }) => {
+  const body = { slideIndex, correct };
+  if (concept) body.concept = concept;
+  const res = await axiosInstance.post(`/api/ai/lesson/${lessonId}/check`, body);
+  return res.data.data;
+};
+
 // GET /api/ai/lessons/progress → user's lessons merged with progress (completed/resume).
 export const getLessonsProgress = async () => {
   const res = await axiosInstance.get('/api/ai/lessons/progress');

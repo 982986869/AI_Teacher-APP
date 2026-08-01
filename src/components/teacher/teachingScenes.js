@@ -14,6 +14,22 @@ const TRIANGLE_RE = /pythag|hypotenuse|right[ -]?angle(?:d)?|triangle/i;
 
 function isTriangleText(s) { return TRIANGLE_RE.test(String(s || '')); }
 
+// Pull the right-triangle this lesson actually uses out of its own text: "a 5-12-13
+// triangle", "sides 8, 15 and 17". Only a genuine triple is accepted — three numbers
+// that satisfy a² + b² = c² — so a stray "3 steps, 4 rules" can never become the
+// figure she teaches over. Returns null when the lesson names none.
+function findTriple(text) {
+  const t = String(text || '');
+  const runs = t.match(/\d{1,3}\s*(?:[-–,]|\band\b|\s)\s*\d{1,3}\s*(?:[-–,]|\band\b|\s)\s*\d{1,3}/g) || [];
+  for (const run of runs) {
+    const nums = (run.match(/\d{1,3}/g) || []).map(Number).filter((x) => x > 0);
+    if (nums.length !== 3) continue;
+    const [a, b, c] = [...nums].sort((x, y) => x - y);
+    if (a * a + b * b === c * c) return { a, b, c };
+  }
+  return null;
+}
+
 // ── Math notation normalisation ──────────────────────────────────────────────
 // Lesson text from the model can contain raw caret powers ("a^2 + b^2 = c^2").
 // On screen that looks broken, and read aloud the "^" is meaningless. We fix it
@@ -60,12 +76,32 @@ function spellMath(str) {
 
 // Split a formula like "base^2 + height^2 = hypotenuse^2" into 3 reveal parts,
 // normalising powers (^2 → ², ^3 → ³, …) to real superscripts.
+// Breaks are only ever taken at TOP-LEVEL operators. An operator inside brackets
+// belongs to the term it sits in: "(a + b)² = a² + 2ab + b²" is four chunks, not
+// five. Splitting on every operator cut that first term into "(a" and "+ b)²", so
+// the opening beat of the board wrote a lone "(a" and read as an empty board.
 function toFormulaParts(formula) {
   const f = prettyMath(formula);
   if (!f) return [];
-  // split keeping the leading operator with each chunk after the first
-  const parts = f.split(/\s+(?=[+\-=×*])/).map((s) => s.trim()).filter(Boolean);
-  return parts.length ? parts : [f];
+  const OPEN = '([{';
+  const CLOSE = ')]}';
+  const OP = /[+\-=×*]/;
+  const parts = [];
+  let depth = 0;
+  let start = 0;
+  for (let i = 0; i < f.length; i += 1) {
+    const ch = f[i];
+    if (OPEN.includes(ch)) depth += 1;
+    else if (CLOSE.includes(ch)) depth = Math.max(0, depth - 1);
+    // a break is whitespace followed by an operator, outside every bracket
+    else if (depth === 0 && /\s/.test(ch) && OP.test(f[i + 1] || '') && i > start) {
+      parts.push(f.slice(start, i));
+      start = i + 1;
+    }
+  }
+  parts.push(f.slice(start));
+  const clean = parts.map((s) => s.trim()).filter(Boolean);
+  return clean.length ? clean : [f];
 }
 
 // Keep the spoken line SHORT so the caption is never a messy paragraph and she
@@ -121,6 +157,7 @@ function kickerFor(boardType, idx) {
     case 'triangle': return `${idx} · MEET THE SIDES`;
     case 'formula': return `${idx} · THE RULE`;
     case 'proof': return `${idx} · THE PROOF, VISUALLY`;
+    case 'annotated': return `${idx} · SEE IT DRAWN`;
     case 'mistake': return 'COMMON MISTAKE';
     case 'summary': return 'RECAP';
     case 'quickCheck': return 'QUICK CHECK';
@@ -150,16 +187,46 @@ function detectSubjectBoard(blob) {
   return null;
 }
 
+// ── Annotated figures — a slide that describes ONE drawable setup gets that setup
+// drawn and labelled instead of listed. Deliberately narrow: each regex names the
+// specific thing its figure can actually draw, because a figure that half-matches
+// is worse than bullet points (it teaches the wrong picture, confidently).
+// Keys must exist in FIGURES in subjectBoards.js.
+const FIGURE_RES = [
+  ['magnetCoil', /electromagnetic induction|faraday'?s law|induced (?:current|emf|e\.m\.f)|magnetic flux (?:change|changes|changing)|magnet (?:is )?(?:moved|moves|pushed).{0,24}coil|coil.{0,24}magnet (?:is )?(?:moved|moves)/i],
+  ['squareExpansion', /\(\s*a\s*\+\s*b\s*\)\s*(?:\^\s*2|²)|a²\s*\+\s*2ab\s*\+\s*b²|a\^2\s*\+\s*2ab\s*\+\s*b\^2|square of (?:a|the) sum|two area expressions|area of the (?:big|large|whole) square/i],
+];
+function detectFigure(blob) {
+  for (const [figure, re] of FIGURE_RES) if (re.test(blob)) return figure;
+  return null;
+}
+
+// How many parts each figure reveals. This travels ON the scene (diagram.figureTotal)
+// so the Teaching Director never has to import the board file — it stays RN-free —
+// and there is ONE number to keep in step with FIGURES in subjectBoards.js.
+const FIGURE_TOTALS = { magnetCoil: 5, squareExpansion: 5 };
+
+// A formula slide that is really a derivation: the picture IS the explanation
+// there, and the rule still lands in the caption she speaks.
+const PROOFY_RE = /\bproof\b|\bprove\b|\bderive|\bderivation\b|show that|why (?:this|it) works|equating|expand(?:ing)? (?:the )?(?:brackets|square)/i;
+
 function boardTypeFor(slide, i, total, triangleLesson) {
   const blob = `${slide.slideTitle || ''} ${slide.explanation || ''} ${slide.narrationText || ''}`;
   if (i === 0) return 'intro';
-  if (slide.visualType === 'FORMULA') return 'formula';
+  const figure = detectFigure(blob);
+  // A derivation beats its own formula card: "(a+b)² = a² + 2ab + b²" written out
+  // teaches nothing about WHY, and the square cut into four pieces teaches it in
+  // one look. Any other formula slide keeps the formula board.
+  if (slide.visualType === 'FORMULA') return (figure && PROOFY_RE.test(blob)) ? 'annotated' : 'formula';
   if (slide.visualType === 'CHART') return 'chart';
   if (slide.visualType === 'DIAGRAM' && (isTriangleText(blob) || triangleLesson)) return 'triangle';
   if (MISTAKE_RE.test(blob)) return 'mistake';
   if (RECAP_RE.test(blob)) return 'summary';
   // The final text-only slide is almost always the recap; otherwise it's a key idea.
   if (i === total - 1 && slide.visualType === 'NONE') return 'summary';
+  // A named figure is the most specific thing we can draw, so it outranks the
+  // per-subject boards, which only key off a loose keyword.
+  if (figure) return 'annotated';
   // Draw it if we can (physics/chem/bio/maths/history), else a generic concept board.
   const subj = detectSubjectBoard(blob);
   if (subj) return subj;
@@ -205,6 +272,17 @@ function buildScene(slide, i, total, triangleLesson) {
     const values = (Array.isArray(cd.values) ? cd.values : []).map((x) => Number(x)).filter((x) => Number.isFinite(x));
     scene.diagram = {
       chart: { type: v.chartType || 'bar', labels, values, xAxis: v.xAxis || '', yAxis: v.yAxis || '' },
+      points: keyPoints,
+    };
+  } else if (boardType === 'annotated') {
+    const figure = detectFigure(`${slide.slideTitle || ''} ${slide.explanation || ''} ${slide.narrationText || ''}`);
+    // components, when the model gave them, rename the figure's parts in order —
+    // so "Bar magnet · push · Field lines" replaces the figure's own wording.
+    const named = (Array.isArray(v.components) ? v.components : []).map(prettyMath).filter(Boolean);
+    scene.diagram = {
+      figure,
+      figureTotal: FIGURE_TOTALS[figure] || 0,
+      parts: named.map((label) => ({ label })),
       points: keyPoints,
     };
   } else if (SUBJECT_SET.has(boardType)) {
@@ -300,18 +378,27 @@ export function buildScenes(lesson) {
     const hasProof = scenes.some((sc) => sc.boardType === 'proof' || /proof/i.test(sc.title));
     if (!hasProof) {
       const fIdx = scenes.findIndex((sc) => sc.boardType === 'formula');
+      // Teach the triangle THIS lesson is about. A lesson worked through 5-12-13
+      // used to get a picture of 9 + 16 = 25 with her narration saying 25 + 144.
+      // Search the BODY too, not just titles: a lesson announces its triangle in
+      // the explanation ("take a 5-12-13 triangle"), never in a slide title. The
+      // narrower lessonText above still decides whether this is a triangle lesson
+      // at all — widening that would let a passing mention hijack the boards.
+      const bodyText = slides.map((s) => `${s.slideTitle || ''} ${s.explanation || ''} ${s.narrationText || ''}`).join(' ');
+      const t = findTriple(bodyText) || { a: 3, b: 4, c: 5 };
+      const areas = [t.a * t.a, t.b * t.b, t.c * t.c];
       const proofScene = {
         id: 'proof',
         boardType: 'proof',
         slideIndex: fIdx >= 0 ? scenes[fIdx].slideIndex : 0,
         title: 'The Proof, Visually',
         kicker: 'THE PROOF, VISUALLY',
-        teacherLine: 'Draw a square on each side — their areas are 9, 16, and 25. See, 9 plus 16 equals 25.',
-        subtitleChunks: ['Draw a square on each side.', 'Their areas are 9, 16, and 25.', 'And 9 plus 16 equals 25.'],
+        teacherLine: `Draw a square on each side — their areas are ${areas[0]}, ${areas[1]}, and ${areas[2]}. See, ${areas[0]} plus ${areas[1]} equals ${areas[2]}.`,
+        subtitleChunks: ['Draw a square on each side.', `Their areas are ${areas[0]}, ${areas[1]}, and ${areas[2]}.`, `And ${areas[0]} plus ${areas[1]} equals ${areas[2]}.`],
         formulaParts: [],
         highlights: [],
         diagram: null,
-        proof: { a: 3, b: 4, c: 5 }, // height², base², hypotenuse²  → 9, 16, 25
+        proof: t,                      // height, base, hypotenuse — the board scales to fit
         quickCheck: null,
       };
       if (fIdx >= 0) scenes.splice(fIdx + 1, 0, proofScene);
