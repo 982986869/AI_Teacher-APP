@@ -1,108 +1,148 @@
 import React, { useEffect, useRef } from 'react';
 import {
-  View, Text, Animated, StyleSheet, StatusBar
+  View, Text, Image, Animated, Easing, StyleSheet, StatusBar, Dimensions,
 } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { GRADIENTS, FONT_FAMILY, MOTION } from '../theme/designSystem';
 
-const APP_NAME = 'AiLernova';
-const LETTER_DELAY = 120;
+const LOGO = require('../../assets/brand/logo.png');
+
+const TAGLINE = 'Learn Smarter with AI';
+const HOLD_AFTER_FILL = 250;    // beat after the progress bar tops out
+const PROGRESS_DURATION = 2200; // full sweep of the loader
+
+// The design frame is 390 wide; the bar is a 326px fill inside 32px padding.
+const { width: SCREEN_W } = Dimensions.get('window');
+const BAR_WIDTH = Math.min(SCREEN_W - 32 * 2, 326);
 
 // AppNavigator renders this as <SplashScreen onFinish={...} /> with NO navigation
-// prop, so we must NOT call navigation.replace here. When the animation ends we
+// prop, so we must NOT call navigation.replace here. When the intro finishes we
 // call onFinish() (optional) to let AppNavigator move on. AppNavigator also has
 // its own timer, so onFinish is just a nicety.
 export default function SplashScreen({ onFinish }) {
-  const letterAnims = useRef(
-    APP_NAME.split('').map(() => ({
-      opacity: new Animated.Value(0),
-      translateY: new Animated.Value(10),
-    }))
-  ).current;
+  const insets = useSafeAreaInsets();
 
-  const taglineOpacity = useRef(new Animated.Value(0)).current;
+  const logoOpacity = useRef(new Animated.Value(0)).current;
+  const logoScale   = useRef(new Animated.Value(0.86)).current;
+  const tagline     = useRef(new Animated.Value(0)).current;
+  const progress    = useRef(new Animated.Value(0)).current;   // JS-driven (animates width)
 
   useEffect(() => {
-    const animations = letterAnims.map((anim, i) =>
-      Animated.parallel([
-        Animated.timing(anim.opacity, {
-          toValue: 1,
-          duration: 180,
-          delay: i * LETTER_DELAY,
-          useNativeDriver: true,
-        }),
-        Animated.timing(anim.translateY, {
-          toValue: 0,
-          duration: 180,
-          delay: i * LETTER_DELAY,
-          useNativeDriver: true,
-        }),
-      ])
-    );
+    const intro = Animated.parallel([
+      Animated.timing(logoOpacity, {
+        toValue: 1,
+        duration: MOTION.fade.duration,
+        easing: Easing.out(Easing.ease),
+        useNativeDriver: true,
+      }),
+      Animated.spring(logoScale, {
+        toValue: 1,
+        damping: MOTION.scaleBounce.damping,
+        stiffness: MOTION.scaleBounce.stiffness,
+        mass: MOTION.scaleBounce.mass,
+        useNativeDriver: true,
+      }),
+      Animated.timing(tagline, {
+        toValue: 1,
+        duration: MOTION.fade.duration,
+        delay: 350,
+        easing: Easing.out(Easing.ease),
+        useNativeDriver: true,
+      }),
+    ]);
 
-    const taglineAnim = Animated.timing(taglineOpacity, {
+    // Progress Fill runs on its own value: it animates `width`, which the native
+    // driver can't handle, so it must stay off the native-driven parallel above.
+    const fill = Animated.timing(progress, {
       toValue: 1,
-      duration: 600,
-      delay: APP_NAME.length * LETTER_DELAY + 300,
-      useNativeDriver: true,
+      duration: PROGRESS_DURATION,
+      easing: Easing.out(Easing.ease),
+      useNativeDriver: false,
     });
 
-    Animated.parallel([...animations, taglineAnim]).start(() => {
-      setTimeout(() => {
-        // Was: navigation.replace('LandingScreen')  ← crashed (no navigation prop).
-        // Now just signal completion; AppNavigator decides what shows next.
-        onFinish && onFinish();
-      }, 800);
+    intro.start();
+    fill.start(({ finished }) => {
+      if (!finished) return;
+      setTimeout(() => onFinish && onFinish(), HOLD_AFTER_FILL);
     });
+
+    return () => {
+      intro.stop();
+      fill.stop();
+    };
   }, []);
 
   return (
-    <View style={styles.container}>
-      <StatusBar barStyle="dark-content" backgroundColor="#ffffff" />
-      <View style={styles.nameRow}>
-        {APP_NAME.split('').map((letter, i) => (
-          <Animated.Text
-            key={i}
-            style={[
-              styles.letter,
-              {
-                opacity: letterAnims[i].opacity,
-                transform: [{ translateY: letterAnims[i].translateY }],
-              },
-            ]}
-          >
-            {letter}
-          </Animated.Text>
-        ))}
+    <View style={styles.root}>
+      <StatusBar barStyle="light-content" backgroundColor={GRADIENTS.splash[0]} translucent={false} />
+      <LinearGradient colors={GRADIENTS.splash} style={StyleSheet.absoluteFill} />
+
+      {/* Frame 2147224117 — logo + tagline, 22px apart. Its 187px box sits at
+          y 328.69 in the 844 frame, i.e. dead centre, so it just centres here. */}
+      <View style={styles.center}>
+        <Animated.Image
+          source={LOGO}
+          resizeMode="contain"
+          style={[styles.logo, { opacity: logoOpacity, transform: [{ scale: logoScale }] }]}
+        />
+        <Animated.Text style={[styles.tagline, { opacity: tagline }]}>{TAGLINE}</Animated.Text>
       </View>
-      <Animated.Text style={[styles.tagline, { opacity: taglineOpacity }]}>
-        Make your Learning Smarter, Faster
-      </Animated.Text>
+
+      {/* splash-bottom — the bar's baseline sits 90px above the frame bottom, of
+          which 34px is the home-indicator area the OS already reserves. */}
+      <View style={[styles.barWrap, { paddingBottom: insets.bottom + 56 }]}>
+        <View style={styles.barTrack}>
+          <Animated.View
+            style={[
+              styles.barFill,
+              { width: progress.interpolate({ inputRange: [0, 1], outputRange: [0, BAR_WIDTH] }) },
+            ]}
+          />
+        </View>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  root: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#08033B',
+  },
+  center: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  nameRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-  letter: {
-    fontSize: 36,
-    fontWeight: '900',
-    color: '#111111',
-    letterSpacing: 2,
-    textTransform: 'uppercase',
+  logo: {
+    width: 300,
+    height: 143,
   },
   tagline: {
-    fontSize: 14,
-    fontWeight: '400',
-    color: '#222222',
-    letterSpacing: 0.5,
+    fontFamily: FONT_FAMILY.medium,
+    fontSize: 16,
+    lineHeight: 22,
+    // Figma reads 50% tracking = 8px. That is very wide for 16px text, so it is
+    // pulled out here as an obvious dial rather than buried in the style.
+    letterSpacing: 8,
+    color: '#FFFFFF',
+    textAlign: 'center',
+    marginTop: 22,          // Frame 2147224117 gap
+  },
+  barWrap: {
+    alignItems: 'center',
+  },
+  barTrack: {
+    width: BAR_WIDTH,
+    height: 4,
+    borderRadius: 2,
+    backgroundColor: '#1E1B4B',
+    overflow: 'hidden',
+  },
+  barFill: {
+    height: '100%',
+    borderRadius: 2,
+    backgroundColor: '#C084FC',
   },
 });
