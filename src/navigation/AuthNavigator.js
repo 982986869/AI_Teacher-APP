@@ -1,8 +1,9 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-// All four auth screens are flat in src/screens/ (per your project structure)
+// The auth screens are flat in src/screens/ (per your project structure)
 import LandingScreen from '../screens/LandingScreen';
+import OnboardingIntroScreen from '../screens/OnboardingIntroScreen';
 import LoginScreen from '../screens/LoginScreen';
 import SignupScreen from '../screens/SignupScreen';
 import OTPScreen from '../screens/OTPScreen';
@@ -12,10 +13,10 @@ const Stack = createNativeStackNavigator();
 
 // ── AuthNavigator: the LOGGED-OUT flow only ─────────────────────────────
 //
-//   Landing ──Email──► Login ───────────────► login success → signIn()
-//        │              └──"Forgot password?"──► ForgotPassword ──► back to Login
+//   Landing ──Sign In──► Login ─────────────► login success → signIn()
+//        │               └─"Forgot password?"─► ForgotPassword ─► back to Login
 //        │
-//        └──Phone──► Signup ──► OTP ─────────► verify        → signIn()
+//        └Get Started─► OnboardingIntro (3 pages) ──► Signup ──► OTP → signIn()
 //
 // signIn() (from useAuth) flips isAuthenticated = true. AppNavigator then
 // takes over and shows: BrainGym ("You're all set!") → Next → Onboarding
@@ -31,10 +32,11 @@ const AuthNavigator = () => (
     initialRouteName="LandingScreen"
     screenOptions={{ headerShown: false }}
   >
-    <Stack.Screen name="LandingScreen" component={LandingScreen} />
-    <Stack.Screen name="LoginScreen"   component={LoginScreen} />
-    <Stack.Screen name="SignupScreen"  component={SignupScreen} />
-    <Stack.Screen name="OTPScreen"     component={OTPScreen} />
+    <Stack.Screen name="LandingScreen"   component={LandingScreen} />
+    <Stack.Screen name="OnboardingIntro" component={OnboardingIntroScreen} />
+    <Stack.Screen name="LoginScreen"     component={LoginScreen} />
+    <Stack.Screen name="SignupScreen"    component={SignupScreen} />
+    <Stack.Screen name="OTPScreen"       component={OTPScreen} />
     <Stack.Screen name="ForgotPasswordScreen" component={ForgotPasswordScreen} />
   </Stack.Navigator>
 );

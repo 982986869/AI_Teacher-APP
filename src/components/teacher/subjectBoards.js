@@ -3,6 +3,15 @@ import { View, Text, StyleSheet, Animated, Easing } from 'react-native';
 import Svg, { G, Line, Rect, Circle, Ellipse, Path, Polygon, Text as SvgText } from 'react-native-svg';
 import { ChalkLine, ChalkStroke, Arrow } from './WhiteboardCanvas';
 import { C } from './premiumTheme';
+// Figma "Primary" violet-600 — NOT C.accent (chalk amber), which the design system
+// audit ruled out. Matches LiveTeachingPlayer/LessonBoards' local ACCENT.
+const ACCENT = '#7C3AED';
+// premiumTheme's C.ink/C.ink2/C.dim are a pale "chalk on dark slate" set — correct for
+// a dark board, but these illustrations render on the WHITE wbCard, where that pale
+// chalk stroke/text is near-invisible. Same values as LessonBoards' local overrides.
+const INK = '#2C3043';
+const INK2 = '#5B6472';
+const INK_DIM = '#7A8592';
 // Every board's pixel height runs through h() so the immersive full-bleed stage can
 // draw the same illustration larger without blurring it. h(x) === x in card mode.
 import { useBoardSize } from './boardSize';
@@ -126,7 +135,7 @@ export function FreeBodyBoard({ scene, paused, skip, resetKey, step }) {
     <View style={wrapStyle}>
       <Svg width="100%" height={h(188)} viewBox="0 0 300 180">
         {/* ground + the body (slides when pushed) */}
-        <ARect x={blockX} y={cyb - hs} width={hs * 2} height={hs * 2} rx={4} fill="rgba(44,48,67,0.06)" stroke={C.ink} strokeWidth={2} />
+        <ARect x={blockX} y={cyb - hs} width={hs * 2} height={hs * 2} rx={4} fill="rgba(44,48,67,0.06)" stroke={INK} strokeWidth={2} />
         {forces.map((f, i) => (i < n ? (
           <G key={i}>
             <Arrow x1={f.x1} y1={f.y1} x2={f.x2} y2={f.y2} color={f.color} width={3.5} duration={520} skip={skip} />
@@ -155,11 +164,11 @@ export function ReactionBoard({ scene, paused, skip, resetKey, step }) {
     <View style={wrapStyle}>
       <Svg width="100%" height={h(150)} viewBox="0 0 300 150">
         {n >= 1 && <G>{T(74, 84, left.slice(0, 14), C.blue, 20)}</G>}
-        {n >= 2 && <Arrow x1={116} y1={78} x2={186} y2={78} color={C.ink} width={3} duration={420} skip={skip} />}
+        {n >= 2 && <Arrow x1={116} y1={78} x2={186} y2={78} color={INK} width={3} duration={420} skip={skip} />}
         {n >= 3 && <G>{T(232, 84, right.slice(0, 14), C.green, 20)}</G>}
         {n >= 4 && <G>
-          <Rect x={40} y={58} width={220} height={40} rx={10} fill="none" stroke={C.accent} strokeWidth={2} opacity={0.7} />
-          {T(150, 122, 'balanced ✓', C.accent, 12)}
+          <Rect x={40} y={58} width={220} height={40} rx={10} fill="none" stroke={ACCENT} strokeWidth={2} opacity={0.7} />
+          {T(150, 122, 'balanced ✓', ACCENT, 12)}
         </G>}
         {n > 0 && tip && <LaserPointer x={tip.x} y={tip.y - 24} />}
       </Svg>
@@ -186,7 +195,7 @@ export function MoleculeBoard({ scene, paused, skip, resetKey, step }) {
       <Svg width="100%" height={h(176)} viewBox="0 0 300 180">
         {/* bonds first (behind), each appears with its atom */}
         {outer.map((a, i) => (i + 1 < n ? (
-          <Line key={`b${i}`} x1={centre.x} y1={centre.y} x2={a.x} y2={a.y} stroke={C.ink} strokeWidth={3} opacity={0.55} />
+          <Line key={`b${i}`} x1={centre.x} y1={centre.y} x2={a.x} y2={a.y} stroke={INK} strokeWidth={3} opacity={0.55} />
         ) : null))}
         {seq.map((a, i) => (i < n ? (
           <G key={i}>
@@ -220,7 +229,7 @@ export function CellBoard({ scene, paused, skip, resetKey, step }) {
         {n >= 2 && <G><Circle cx={150} cy={92} r={30} fill="rgba(60,157,240,0.16)" stroke={C.blue} strokeWidth={2.5} />{T(150, 96, 'N', C.blue, 16)}</G>}
         {n >= 3 && <Ellipse cx={196} cy={118} rx={20} ry={11} fill="rgba(239,138,67,0.18)" stroke={C.orange} strokeWidth={2} />}
         {n >= 4 && <Circle cx={96} cy={120} r={9} fill="rgba(238,111,150,0.16)" stroke={C.pink} strokeWidth={2} />}
-        {parts.map((p, i) => (i < n ? T(p.lx, p.ly, p.label, C.ink, 10.5) : null))}
+        {parts.map((p, i) => (i < n ? T(p.lx, p.ly, p.label, INK, 10.5) : null))}
         {n > 0 && tip && <LaserPointer x={tip.anchor.x} y={tip.anchor.y} />}
       </Svg>
     </View>
@@ -240,11 +249,11 @@ export function NumberLineBoard({ scene, paused, skip, resetKey, step }) {
     <View style={wrapStyle}>
       <Svg width="100%" height={h(140)} viewBox="0 0 300 130">
         {n >= 1 && <G>
-          <Arrow x1={x0 - 4} y1={y} x2={x1 + 4} y2={y} color={C.ink} width={2.5} duration={600} skip={skip} />
+          <Arrow x1={x0 - 4} y1={y} x2={x1 + 4} y2={y} color={INK} width={2.5} duration={600} skip={skip} />
           {Array.from({ length: hi - lo + 1 }, (_, i) => lo + i).map((v) => (
             <G key={v}>
-              <Line x1={px(v)} y1={y - 5} x2={px(v)} y2={y + 5} stroke={C.dim} strokeWidth={1.5} />
-              {T(px(v), y + 20, String(v), C.dim, 10)}
+              <Line x1={px(v)} y1={y - 5} x2={px(v)} y2={y + 5} stroke={INK_DIM} strokeWidth={1.5} />
+              {T(px(v), y + 20, String(v), INK_DIM, 10)}
             </G>
           ))}
         </G>}
@@ -274,11 +283,11 @@ export function GraphFnBoard({ scene, paused, skip, resetKey, step }) {
     <View style={wrapStyle}>
       <Svg width="100%" height={h(172)} viewBox="0 0 300 156">
         {n >= 1 && <G>
-          <Arrow x1={ox} y1={oy} x2={ex} y2={oy} color={C.ink} width={2.5} duration={620} skip={skip} />
-          <Arrow x1={ox} y1={oy} x2={ox} y2={ey} color={C.ink} width={2.5} duration={620} skip={skip} />
-          {T(ex - 4, oy + 16, 'x', C.dim, 12)}{T(ox - 14, ey + 4, 'y', C.dim, 12)}
+          <Arrow x1={ox} y1={oy} x2={ex} y2={oy} color={INK} width={2.5} duration={620} skip={skip} />
+          <Arrow x1={ox} y1={oy} x2={ox} y2={ey} color={INK} width={2.5} duration={620} skip={skip} />
+          {T(ex - 4, oy + 16, 'x', INK_DIM, 12)}{T(ox - 14, ey + 4, 'y', INK_DIM, 12)}
         </G>}
-        {n >= 2 && <ChalkStroke d={curve} length={parabola ? 360 : 260} color={C.accent} width={3.5} duration={900} skip={skip} />}
+        {n >= 2 && <ChalkStroke d={curve} length={parabola ? 360 : 260} color={ACCENT} width={3.5} duration={900} skip={skip} />}
         {n >= 3 && <Circle cx={point.x} cy={point.y} r={5} fill={C.pink} />}
         {tip && <LaserPointer x={tip.x} y={tip.y} />}
       </Svg>
@@ -298,7 +307,7 @@ export function TimelineBoard({ scene, paused, skip, resetKey, step }) {
   return (
     <View style={wrapStyle}>
       <Svg width="100%" height={h(172)} viewBox="0 0 300 156">
-        {n >= 1 && <Arrow x1={x0 - 6} y1={y} x2={x1 + 6} y2={y} color={C.ink} width={2.5} duration={640} skip={skip} />}
+        {n >= 1 && <Arrow x1={x0 - 6} y1={y} x2={x1 + 6} y2={y} color={INK} width={2.5} duration={640} skip={skip} />}
         {items.map((it, i) => {
           if (i >= n) return null;
           const x = xi(i);
@@ -309,7 +318,7 @@ export function TimelineBoard({ scene, paused, skip, resetKey, step }) {
             <G key={i}>
               <Line x1={x} y1={y} x2={x} y2={up ? y - 26 : y + 26} stroke={col} strokeWidth={2} />
               <Circle cx={x} cy={y} r={5} fill={col} />
-              {T(x, up ? y - 32 : y + 40, label, C.ink, 9.5)}
+              {T(x, up ? y - 32 : y + 40, label, INK, 9.5)}
             </G>
           );
         })}
@@ -342,14 +351,14 @@ const FIGURES = {
       <G>
         {n >= 1 && (
           <G>
-            <Rect x={78} y={16} width={130} height={130} fill="none" stroke={C.ink} strokeWidth={2} />
+            <Rect x={78} y={16} width={130} height={130} fill="none" stroke={INK} strokeWidth={2} />
             {T(143, 10, labels[0], C.teal, 11)}
           </G>
         )}
         {n >= 2 && (
           <G>
-            <ChalkLine x1={162} y1={16} x2={162} y2={146} color={C.ink2} width={1.6} duration={420} skip={skip} />
-            <ChalkLine x1={78} y1={100} x2={208} y2={100} color={C.ink2} width={1.6} duration={420} skip={skip} />
+            <ChalkLine x1={162} y1={16} x2={162} y2={146} color={INK2} width={1.6} duration={420} skip={skip} />
+            <ChalkLine x1={78} y1={100} x2={208} y2={100} color={INK2} width={1.6} duration={420} skip={skip} />
             {T(120, 160, 'a', C.orange, 12)}
             {T(185, 160, 'b', C.green, 12)}
             {T(70, 62, 'a', C.orange, 12, 'end')}
@@ -390,11 +399,11 @@ const FIGURES = {
       <G>
         {n >= 1 && (
           <G>
-            <Rect x={14} y={78} width={30} height={20} rx={2} fill={C.ink2} />
+            <Rect x={14} y={78} width={30} height={20} rx={2} fill={INK2} />
             <Rect x={44} y={78} width={30} height={20} rx={2} fill={C.pink} />
             {T(29, 93, 'S', C.cream, 12)}
             {T(59, 93, 'N', C.cream, 12)}
-            {T(12, 118, labels[0], C.ink2, 11, 'start')}
+            {T(12, 118, labels[0], INK2, 11, 'start')}
           </G>
         )}
         {n >= 2 && (

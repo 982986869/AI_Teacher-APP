@@ -3,6 +3,11 @@ import { View, Text, StyleSheet } from 'react-native';
 import { C, D, F, SP, R } from './premiumTheme';
 import { Appear, PressableScale } from './uiKit';
 
+// Figma "Primary" violet-600 — NOT C.accent (chalk amber), ruled out by the design
+// system audit. Matches LiveTeachingPlayer/LessonBoards/subjectBoards' local ACCENT.
+const ACCENT = '#7C3AED';
+const ACCENT_SOFT = 'rgba(124,58,237,0.12)';
+
 // expo-haptics is native — guarded require so a version-skewed Expo Go can't crash the
 // live lesson on load. Haptics are a nicety; their absence is a silent no-op.
 let Haptics = null;
@@ -39,7 +44,7 @@ export function StreamingAnswerCard({
             {quickActions.map((item) => (
               <PressableScale
                 key={item.action}
-                style={[styles.chip, { backgroundColor: isDark ? D.panel2 : C.accentSoft }]}
+                style={[styles.chip, { backgroundColor: isDark ? D.panel2 : ACCENT_SOFT }]}
                 onPress={() => {
                   haptic();
                   onActionSelect(item.action);
@@ -70,7 +75,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
   },
   cursor: {
-    color: C.accent,
+    color: ACCENT,
     fontFamily: F.bold,
   },
   actionsRow: {
@@ -90,6 +95,6 @@ const styles = StyleSheet.create({
   chipText: {
     fontFamily: F.med,
     fontSize: 13,
-    color: C.accent,
+    color: ACCENT,
   },
 });

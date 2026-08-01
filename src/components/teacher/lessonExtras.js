@@ -1,11 +1,10 @@
 // src/components/teacher/lessonExtras.js
-// Five study features for the AI Teacher live player, inspired by the best of
+// Four study features for the AI Teacher live player, inspired by the best of
 // comparable tutors (Khanmigo, Quizlet, Khan Academy, Notion AI):
-//   1. ExplainChips   — "explain differently" quick-actions (Simpler / Example / Real-world)
-//   2. ContentsSheet  — a lesson chapter map you can jump around in  (+ bookmarks tab)
-//   3. bookmarks/notes — save a concept's key idea; persisted per lesson (AsyncStorage)
-//   4. FlashcardDeck  — flip-card self-review built from the lesson's checks + key ideas
-//   5. TestSheet      — a short summative MCQ quiz drawn from every check, scored
+//   1. ContentsSheet  — a lesson chapter map you can jump around in  (+ bookmarks tab)
+//   2. bookmarks/notes — save a concept's key idea; persisted per lesson (AsyncStorage)
+//   3. FlashcardDeck  — flip-card self-review built from the lesson's checks + key ideas
+//   4. TestSheet      — a short summative MCQ quiz drawn from every check, scored
 //
 // All are self-contained and reuse the mature "graphite + Marigold + serif" design
 // so they sit inside the player without touching its teaching state machine. The
@@ -16,16 +15,28 @@ import { View, Text, StyleSheet, Modal, ScrollView, Pressable, Share, ActivityIn
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   X, Check, Bookmark, BookmarkCheck, ListTree, RotateCcw, ChevronRight,
-  Sparkles, Lightbulb, Globe, GraduationCap, Layers, Trophy,
-  PencilRuler, FileText, Share2, Languages, FunctionSquare, Star,
+  GraduationCap, Layers, Trophy, FileText, Share2, Star, Download,
 } from 'lucide-react-native';
 
 import { PressableScale, Appear } from './uiKit';
 import { D, C, F, SP, R, SERIF } from './premiumTheme';
 
-const GOLD = '#DBA53F';
-const GOLD_DIM = '#B4863A';
+// PDF export + share for the study sheet — optional native modules, required
+// defensively so a build that lacks them degrades to the plain text Share.share
+// fallback instead of crashing. Same guarded-require pattern as ResourcesScreen.
+let Print = null;
+try { Print = require('expo-print'); } catch (e) { Print = null; }
+let Sharing = null;
+try { Sharing = require('expo-sharing'); } catch (e) { Sharing = null; }
+
+// Figma "Primary" violet-600 — NOT the old marigold gold, ruled out by the design
+// system audit. Matches LiveTeachingPlayer/LessonBoards/subjectBoards' local ACCENT.
+const GOLD = '#7C3AED';
+const GOLD_DIM = '#5B32C4';
 const PAPER = '#FAF7F0';
+// premiumTheme's C.ink is a pale "chalk on dark slate" colour — invisible on this
+// file's light PAPER cards. Same override value as LessonBoards/subjectBoards.
+const INK = '#2C3043';
 const NOTES_KEY = '@ailernova_lesson_notes';
 
 // ── notes persistence (per lesson) ───────────────────────────────────────────
@@ -141,44 +152,6 @@ export function buildRecap(scenes) {
   return out;
 }
 
-// ════════════════════════════════════════════════════════════════════════════
-// 1 · EXPLAIN-DIFFERENTLY CHIPS  — under the caption while teaching/paused
-// ════════════════════════════════════════════════════════════════════════════
-export function ExplainChips({ scene, onPick, onPractice }) {
-  if (!scene) return null;
-  const topic = (scene.title || scene.kicker || 'this idea').replace(/["“”]/g, '');
-  const hasFormula = (Array.isArray(scene.formulaParts) && scene.formulaParts.length > 0) || /=/.test(scene.title || '');
-  const isCheck = !!scene.quickCheck;
-  // The middle chip adapts to what's on the board: derive a formula, unpack a
-  // check, or give a worked example on a plain concept.
-  const middle = hasFormula
-    ? { Icon: FunctionSquare, label: 'Derive it', q: `Derive "${topic}" step by step — show where each term comes from, don't just state it.` }
-    : isCheck
-    ? { Icon: Sparkles, label: 'Break it down', q: `Break this question down: what is it really testing, and how should I think about it?` }
-    : { Icon: Sparkles, label: 'Example', q: `Give me one concrete, real-world worked example of "${topic}", step by step.` };
-  const chips = [
-    { Icon: Lightbulb, label: 'Simpler',   q: `Explain "${topic}" more simply — like I'm seeing it for the first time. Use plain words.` },
-    middle,
-    { Icon: Languages, label: 'हिंदी में',  q: `"${topic}" ko simple Hindi/Hinglish mein samjhao — jaise ek dost samjhata hai.` },
-  ];
-  return (
-    <View style={s.chipRow} accessibilityRole="toolbar">
-      {chips.map((c) => (
-        <PressableScale key={c.label} style={s.chip} onPress={() => onPick(c.q)} accessibilityRole="button" accessibilityLabel={`Ask: ${c.label}`}>
-          <c.Icon size={13} color={GOLD} strokeWidth={2.3} />
-          <Text style={s.chipTxt}>{c.label}</Text>
-        </PressableScale>
-      ))}
-      {!!onPractice && (
-        <PressableScale style={[s.chip, s.chipSolid]} onPress={onPractice} accessibilityRole="button" accessibilityLabel="Practice a problem">
-          <PencilRuler size={13} color="#12141A" strokeWidth={2.4} />
-          <Text style={[s.chipTxt, s.chipTxtSolid]}>Practice</Text>
-        </PressableScale>
-      )}
-    </View>
-  );
-}
-
 // Context-aware follow-ups shown after she answers a doubt — a conversational chain.
 export function FollowUpChips({ question, onPick }) {
   const q = String(question || 'that').replace(/["“”]/g, '').slice(0, 80);
@@ -207,9 +180,47 @@ const TABS = [
   { key: 'review',   label: 'Review',   Icon: FileText },
 ];
 
-export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave, onJump, onClose, recap, formulas, lessonTitle, noteText, onChangeNoteText, visited, results, onExplainFormula, noteSavedAt }) {
-  const [tab, setTab] = useState('contents');
-  useEffect(() => { if (visible) setTab('contents'); }, [visible]);
+// A printable "slides" document — one card per concept (title + key idea +
+// its formula, if any), plus a formulas-first summary up top. Same shape a
+// student would want on paper before a test.
+function slidesHTML(lessonTitle, formulas, recap) {
+  const esc = (s) => String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const fxHTML = (formulas || []).map((f) => `<div class="formula">${esc(f.formula)}</div>`).join('');
+  const cardsHTML = (recap || []).map((p, k) => `
+    <div class="card">
+      <div class="cardNum">${k + 1}</div>
+      <div class="cardBody">
+        <div class="cardTitle">${esc(p.title)}</div>
+        ${p.point ? `<div class="cardPoint">${esc(p.point)}</div>` : ''}
+        ${p.formula ? `<div class="cardFormula">${esc(p.formula)}</div>` : ''}
+      </div>
+    </div>`).join('');
+  return `<!DOCTYPE html><html><head><meta charset="UTF-8"/>
+    <style>
+      body { font-family: -apple-system, Roboto, sans-serif; color: #2C3043; padding: 28px; }
+      h1 { font-size: 22px; color: #7C3AED; margin-bottom: 4px; }
+      .sub { color: #7A8592; font-size: 12px; margin-bottom: 20px; }
+      h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: #5B6472; margin: 24px 0 10px; }
+      .formula { display: inline-block; background: rgba(124,58,237,0.08); border: 1px solid rgba(124,58,237,0.25);
+        border-radius: 10px; padding: 8px 14px; margin: 0 8px 8px 0; font-size: 15px; font-weight: 600; }
+      .card { display: flex; gap: 12px; border: 1px solid rgba(44,48,67,0.12); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; }
+      .cardNum { width: 22px; height: 22px; border-radius: 11px; background: #7C3AED; color: #fff; font-size: 11px;
+        font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+      .cardTitle { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
+      .cardPoint { font-size: 13px; color: #444; line-height: 1.5; }
+      .cardFormula { font-size: 13px; font-weight: 600; color: #7C3AED; margin-top: 6px; }
+    </style></head><body>
+    <h1>${esc(lessonTitle || 'Lesson slides')}</h1>
+    <div class="sub">Generated by Ms. Nova — AI Teacher</div>
+    ${fxHTML ? `<h2>Key formulas</h2>${fxHTML}` : ''}
+    ${cardsHTML ? `<h2>Concepts</h2>${cardsHTML}` : ''}
+  </body></html>`;
+}
+
+export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave, onJump, onClose, recap, formulas, lessonTitle, noteText, onChangeNoteText, visited, results, onExplainFormula, noteSavedAt, initialTab = 'contents' }) {
+  const [tab, setTab] = useState(initialTab);
+  const [downloading, setDownloading] = useState(false);
+  useEffect(() => { if (visible) setTab(initialTab); }, [visible, initialTab]);
   const concepts = useMemo(() => conceptScenes(scenes), [scenes]);
   const savedSet = useMemo(() => new Set(saved || []), [saved]);
   const visitedSet = useMemo(() => new Set(visited || []), [visited]);
@@ -230,7 +241,20 @@ export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave
     const mine = noteText && noteText.trim() ? `\n\nMy note:\n${noteText.trim()}` : '';
     try { await Share.share({ message: `My notes — ${lessonTitle || 'lesson'}\n\n${body}${mine}` }); } catch {}
   };
+  // PDF when the device supports it (a real, savable file — "download the
+  // slides"); a plain text share if Print/Sharing aren't available.
   const shareReview = async () => {
+    if (Print && Sharing) {
+      setDownloading(true);
+      try {
+        const { uri } = await Print.printToFileAsync({ html: slidesHTML(lessonTitle, formulas, recap) });
+        if (await Sharing.isAvailableAsync()) {
+          await Sharing.shareAsync(uri, { mimeType: 'application/pdf', dialogTitle: `${lessonTitle || 'Lesson'} — slides`, UTI: 'com.adobe.pdf' });
+          return;
+        }
+      } catch (e) { /* fall through to text share below */ }
+      finally { setDownloading(false); }
+    }
     const fx = (formulas || []).map((f) => `• ${f.formula}`).join('\n');
     const ideas = (recap || []).map((p, k) => `${k + 1}. ${p.title}${p.point ? `\n   ${p.point}` : ''}`).join('\n\n');
     const sheet = `${lessonTitle || 'Lesson'} — study sheet\n\n${fx ? `FORMULAS\n${fx}\n\n` : ''}KEY IDEAS\n${ideas}`;
@@ -327,8 +351,11 @@ export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave
           {tab === 'review' && (
             <>
               {((formulas && formulas.length) || (recap && recap.length)) > 0 && (
-                <PressableScale style={s.shareBtn} onPress={shareReview} accessibilityLabel="Share this study sheet">
-                  <Share2 size={15} color={GOLD} strokeWidth={2.3} /><Text style={s.shareTxt}>Share study sheet</Text>
+                <PressableScale style={s.shareBtn} onPress={shareReview} disabled={downloading} accessibilityLabel="Download slides as PDF">
+                  {downloading
+                    ? <ActivityIndicator size="small" color={GOLD} />
+                    : <Download size={15} color={GOLD} strokeWidth={2.3} />}
+                  <Text style={s.shareTxt}>{downloading ? 'Preparing PDF…' : (Print ? 'Download slides (PDF)' : 'Share study sheet')}</Text>
                 </PressableScale>
               )}
               {formulas && formulas.length > 0 && (
@@ -569,9 +596,7 @@ export function TestSheet({ visible, questions, onClose, onScore }) {
 
 // ── styles (graphite + Marigold + serif, matching the player) ─────────────────
 const s = StyleSheet.create({
-  // 1 · chips
-  chipRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: SP.sm, alignSelf: 'stretch' },
-  chip: { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: 'rgba(219,165,63,0.10)', borderWidth: 1, borderColor: 'rgba(219,165,63,0.38)', borderRadius: R.pill, paddingVertical: 7, paddingHorizontal: 13 },
+  chip: { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: 'rgba(124,58,237,0.10)', borderWidth: 1, borderColor: 'rgba(124,58,237,0.38)', borderRadius: R.pill, paddingVertical: 7, paddingHorizontal: 13 },
   chipTxt: { fontSize: 12, fontFamily: F.semi, color: GOLD, letterSpacing: 0.2 },
   followRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, justifyContent: 'center', marginBottom: SP.sm },
 
@@ -606,7 +631,7 @@ const s = StyleSheet.create({
   segTxt: { fontSize: 11, fontFamily: F.semi, color: D.textDim, letterSpacing: 0 },
   segTxtOn: { color: '#12141A', fontFamily: F.bold },
   row: { flexDirection: 'row', alignItems: 'center', backgroundColor: 'rgba(255,255,255,0.035)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.06)', borderRadius: R.lg, marginBottom: 8 },
-  rowNow: { borderColor: 'rgba(219,165,63,0.5)', backgroundColor: 'rgba(219,165,63,0.08)' },
+  rowNow: { borderColor: 'rgba(124,58,237,0.5)', backgroundColor: 'rgba(124,58,237,0.08)' },
   rowMain: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 13, paddingLeft: 14, paddingRight: 6 },
   rowNum: { fontSize: 12, fontFamily: F.bold, color: D.textFaint, minWidth: 22, letterSpacing: 0.5 },
   rowNumNow: { color: GOLD },
@@ -633,7 +658,7 @@ const s = StyleSheet.create({
 
   card: { flex: 1, backgroundColor: PAPER, borderRadius: R.xxl, padding: SP.xl, alignItems: 'center', justifyContent: 'center', shadowColor: '#000', shadowOpacity: 0.5, shadowRadius: 30, shadowOffset: { width: 0, height: 16 }, elevation: 14, maxHeight: 460 },
   cardTag: { fontSize: 10, fontFamily: F.bold, color: GOLD_DIM, letterSpacing: 2, textTransform: 'uppercase', marginBottom: SP.md },
-  cardTxt: { fontSize: 21, fontFamily: SERIF, fontWeight: '600', color: C.ink, textAlign: 'center', lineHeight: 30 },
+  cardTxt: { fontSize: 21, fontFamily: SERIF, fontWeight: '600', color: INK, textAlign: 'center', lineHeight: 30 },
   cardHint: { position: 'absolute', bottom: SP.lg, fontSize: 11.5, fontFamily: F.med, color: '#9A8F79' },
   deckTapHint: { fontSize: 12.5, fontFamily: F.med, color: D.textDim, textAlign: 'center', marginTop: SP.lg },
   deckNav: { flexDirection: 'row', gap: 12, marginTop: SP.lg },
@@ -656,11 +681,11 @@ const s = StyleSheet.create({
 
   // test
   qCard: { backgroundColor: PAPER, borderRadius: R.xl, padding: SP.lg, marginBottom: SP.md },
-  qTxt: { fontSize: 17.5, fontFamily: F.bold, color: C.ink, lineHeight: 25, marginBottom: SP.md },
+  qTxt: { fontSize: 17.5, fontFamily: F.bold, color: INK, lineHeight: 25, marginBottom: SP.md },
   opt: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10, backgroundColor: 'rgba(20,22,30,0.04)', borderWidth: 1, borderColor: 'rgba(20,22,30,0.10)', borderRadius: R.md, paddingVertical: 13, paddingHorizontal: 15, marginTop: 9 },
   optRight: { backgroundColor: 'rgba(16,185,129,0.12)', borderColor: C.green },
   optWrong: { backgroundColor: 'rgba(244,63,94,0.10)', borderColor: C.orange },
-  optTxt: { flex: 1, fontSize: 14.5, fontFamily: F.semi, color: C.ink },
+  optTxt: { flex: 1, fontSize: 14.5, fontFamily: F.semi, color: INK },
   optTxtOn: { fontFamily: F.bold },
   testNext: { alignSelf: 'center', backgroundColor: GOLD, borderRadius: R.pill, paddingVertical: 14, paddingHorizontal: 40, marginTop: SP.sm },
   testNextTxt: { fontSize: 15, fontFamily: F.bold, color: '#12141A', letterSpacing: 0.3 },
@@ -690,17 +715,15 @@ const s = StyleSheet.create({
   verdictRevise: { backgroundColor: 'rgba(224,82,75,0.12)', borderColor: 'rgba(224,82,75,0.55)' },
   verdictTxt: { fontSize: 11, fontFamily: F.bold, color: D.text, letterSpacing: 1.5 },
 
-  // 6 · practice chip (solid) + sheet
-  chipSolid: { backgroundColor: GOLD, borderColor: GOLD },
-  chipTxtSolid: { color: '#12141A', fontFamily: F.bold },
+  // 6 · practice sheet
   practiceLoad: { alignItems: 'center', gap: 12, paddingVertical: SP.xxl },
   practiceLoadTxt: { fontSize: 13, fontFamily: F.med, color: D.textDim },
-  practiceTxt: { fontSize: 16, fontFamily: F.med, color: C.ink, lineHeight: 25 },
-  practiceAgain: { alignSelf: 'center', flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: SP.lg, paddingVertical: 11, paddingHorizontal: 20, borderRadius: R.pill, borderWidth: 1, borderColor: 'rgba(219,165,63,0.4)' },
+  practiceTxt: { fontSize: 16, fontFamily: F.med, color: INK, lineHeight: 25 },
+  practiceAgain: { alignSelf: 'center', flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: SP.lg, paddingVertical: 11, paddingHorizontal: 20, borderRadius: R.pill, borderWidth: 1, borderColor: 'rgba(124,58,237,0.4)' },
   practiceAgainTxt: { fontSize: 13, fontFamily: F.bold, color: GOLD },
 
   // share (notes)
-  shareBtn: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, alignSelf: 'stretch', marginBottom: SP.sm, paddingVertical: 11, borderRadius: R.md, backgroundColor: 'rgba(219,165,63,0.10)', borderWidth: 1, borderColor: 'rgba(219,165,63,0.38)' },
+  shareBtn: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, alignSelf: 'stretch', marginBottom: SP.sm, paddingVertical: 11, borderRadius: R.md, backgroundColor: 'rgba(124,58,237,0.10)', borderWidth: 1, borderColor: 'rgba(124,58,237,0.38)' },
   shareTxt: { fontSize: 13, fontFamily: F.bold, color: GOLD },
 
   // review tab
@@ -714,12 +737,12 @@ const s = StyleSheet.create({
   formulaCore: { borderLeftColor: GOLD, borderLeftWidth: 4, shadowColor: '#000', shadowOpacity: 0.35, shadowRadius: 16, shadowOffset: { width: 0, height: 8 }, elevation: 6 },
   formulaHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 6 },
   formulaLbl: { fontSize: 11, fontFamily: F.bold, color: GOLD_DIM, letterSpacing: 0.4, textTransform: 'uppercase' },
-  formulaTxt: { fontSize: 18, fontFamily: SERIF, fontWeight: '600', color: C.ink, lineHeight: 26 },
+  formulaTxt: { fontSize: 18, fontFamily: SERIF, fontWeight: '600', color: INK, lineHeight: 26 },
   formulaTap: { fontSize: 11, fontFamily: F.med, color: '#9A8F79', marginTop: 8 },
 
   // 7 · recap
   recapRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 12, alignSelf: 'stretch', backgroundColor: 'rgba(255,255,255,0.035)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.06)', borderRadius: R.lg, padding: 15, marginBottom: 9 },
-  recapDot: { width: 24, height: 24, borderRadius: 12, backgroundColor: 'rgba(219,165,63,0.16)', alignItems: 'center', justifyContent: 'center', marginTop: 1 },
+  recapDot: { width: 24, height: 24, borderRadius: 12, backgroundColor: 'rgba(124,58,237,0.16)', alignItems: 'center', justifyContent: 'center', marginTop: 1 },
   recapDotTxt: { fontSize: 12, fontFamily: F.bold, color: GOLD },
   recapTitle: { fontSize: 15, fontFamily: F.bold, color: D.text, lineHeight: 20 },
   recapPoint: { fontSize: 13.5, fontFamily: F.reg, color: D.textDim, lineHeight: 20, marginTop: 4 },
