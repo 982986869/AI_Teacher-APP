@@ -1,5 +1,7 @@
 'use strict'
 
+const { isMode, modePrompt } = require('../services/teachingModes')
+
 // One consistent teacher persona for every reply (#1 personality).
 const PERSONA =
   'You are Ms. Nova — a warm, patient real teacher sitting RIGHT NEXT TO one student, '
@@ -136,9 +138,12 @@ function studentMemoryBlock(sc) {
     + 'Just speak like a teacher who genuinely remembers them.\n'
 }
 
-function buildTeacherSystemPrompt({ intent, language, contexts = [], lesson = null, level = 'intermediate', strategy = null, studentContext = null, gradeLevel = null }) {
+function buildTeacherSystemPrompt({ intent, language, contexts = [], lesson = null, level = 'intermediate', mode = null, strategy = null, studentContext = null, gradeLevel = null }) {
   const shape = INTENT_SHAPE[intent] || INTENT_SHAPE.concept_explanation
   const strategyBlock = strategy && STRATEGY_LINE[strategy] ? `\n${STRATEGY_LINE[strategy]}\n` : ''
+  // Optional teaching register (the "how"). Only when the student explicitly chose a
+  // valid mode; otherwise empty so the prompt is byte-identical to before.
+  const modeBlock = mode && isMode(mode) ? `\n${modePrompt(mode)}` : ''
   const memoryBlock = studentMemoryBlock(studentContext)
   const classDepth = classDepthLine(gradeLevel)
 
@@ -155,7 +160,7 @@ function buildTeacherSystemPrompt({ intent, language, contexts = [], lesson = nu
 
 ${grounding}${lessonLine}
 ${memoryBlock}
-${levelLine(level)}
+${levelLine(level)}${modeBlock}
 ${classDepth ? `${classDepth}\n` : ''}${strategyBlock}
 ${shape}
 

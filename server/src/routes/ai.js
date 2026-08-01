@@ -24,6 +24,7 @@ const {
   getLessonsProgress,
   getChaptersProgress,
   recordMemory,
+  recordCheck,
   getMemorySummary,
   getPlan,
   getResume,
@@ -73,6 +74,7 @@ const askRules = [
   body('slideIndex').optional().isInt({ min: 0 }).toInt(),
   body('history').optional().isArray({ max: 20 }).withMessage('history must be an array'),
   body('level').optional().isIn(['beginner', 'intermediate', 'advanced']).withMessage('invalid level'),
+  body('mode').optional().isString().isLength({ max: 40 }),
   body('pending').optional().isObject(),
 ]
 
@@ -81,6 +83,15 @@ const progressRules = [
   body('total').optional().isInt({ min: 0 }).toInt(),
   body('studyTimeSeconds').optional().isInt({ min: 0, max: 3600 }).toInt(),
   body('concept').optional().isString().isLength({ max: 200 }),
+]
+
+const checkRules = [
+  body('slideIndex').isInt({ min: 0 }).withMessage('slideIndex required').toInt(),
+  body('correct').isBoolean().withMessage('correct must be a boolean').toBoolean(),
+  body('concept').optional().isString().isLength({ max: 200 }),
+  body('conceptId').optional().isUUID().withMessage('conceptId must be a UUID'),
+  body('firstTry').optional().isBoolean().toBoolean(),
+  body('timeMs').optional().isInt({ min: 0, max: 600000 }).toInt(),
 ]
 
 // ─── Routes ───────────────────────────────────────────────────────────────────
@@ -128,6 +139,7 @@ router.get('/chapters/progress',                     getChaptersProgress)
 router.get('/session/resume',                        getResume)
 router.post('/lesson/generate',        generateRules, generateLesson)
 router.post('/lesson/:lessonId/progress', progressRules, updateProgress)
+router.post('/lesson/:lessonId/check',    checkRules,   recordCheck)
 router.get('/lesson/:lessonId/progress',               getProgress)
 router.get('/lessons/progress',                      getLessonsProgress)
 router.get('/lessons',                               getLessons)

@@ -272,7 +272,26 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   const intro = useMemo(() => firstHello(), []);
   const isNewStudent = !resume && !savedLesson;
   const prepStages = useMemo(() => preparingBeats(topic), [topic]);
-  const prepHint = useMemo(() => preparingHint(), []);
+  // The long tail of generation (30–90s) used to sit on one static reassurance line —
+  // a minute of the same line reads as hung. Rotate it on a calm cadence (distinct from
+  // the stage ticker) so the wait stays alive and honest. Reuses preparingHint()'s pool,
+  // which already never repeats the previous line; the generation flow is unchanged.
+  const [prepHint, setPrepHint] = useState(preparingHint);
+  useEffect(() => {
+    if (!loading) return undefined;
+    const id = setInterval(() => setPrepHint(preparingHint()), 4500);
+    return () => clearInterval(id);
+  }, [loading]);
+  // Gently fade the full-screen preparing overlay in instead of hard-snapping it over
+  // the screen when the student taps Start — a calmer, more intentional hand-off. The
+  // button spinner already confirms the tap instantly, so the 280ms fade adds no delay.
+  const genFade = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    if (!loading) { genFade.setValue(0); return undefined; }
+    const anim = Animated.timing(genFade, { toValue: 1, duration: 280, easing: Easing.out(Easing.cubic), useNativeDriver: true });
+    anim.start();
+    return () => anim.stop();
+  }, [loading, genFade]);
   const resumeCardTag = useMemo(() => resumeTag(), [savedLesson]);
   const emptyHint = useMemo(() => emptyState('insights'), []);
 
@@ -528,9 +547,9 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
 
         {/* ── Generation overlay — the Aurora "Crafting Your Personal Lesson" screen ── */}
         {loading && (
-          <View style={st.genOverlay}>
-            <View style={st.genSpark}><Sparkles size={34} color={S.indigo} strokeWidth={2} /></View>
-            <Text style={st.genTitle}>Crafting your lesson…</Text>
+          <Animated.View style={[st.genOverlay, { opacity: genFade }]}>
+            <View style={st.genSpark}><Sparkles size={34} color={C.accent} strokeWidth={2} /></View>
+            <Text style={st.genTitle} accessibilityLiveRegion="polite">Ms. Nova is preparing your lesson…</Text>
             <View style={st.genList}>
               {prepStages.map((s, i) => (
                 <View key={i} style={st.genRow}>
@@ -544,7 +563,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
               ))}
             </View>
             <Text style={st.genHint}>{prepHint}</Text>
-          </View>
+          </Animated.View>
         )}
 
         <YourLearning visible={learningOpen} onClose={() => setLearningOpen(false)} />

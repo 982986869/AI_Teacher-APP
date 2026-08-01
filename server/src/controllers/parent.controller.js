@@ -91,7 +91,8 @@ async function report(req, res, next) {
     // Pull the child's progress from the existing services (best-effort each — a
     // failing signal never breaks the report; the client renders an empty state).
     const [progress, arenaHist, weakAreas, improving, recentActivity, weekRows,
-      lessonRows, recentLessonRows, doubtRows, journeyRows, calendarRows, twRows, lwRows] = await Promise.all([
+      lessonRows, recentLessonRows, doubtRows, journeyRows, calendarRows, twRows, lwRows,
+      mistakeRows, lbRes] = await Promise.all([
       braingym.getProgress(childId).catch(() => null),
       arena.history({ userId: childId, limit: 10 }).catch(() => null),
       memory.getWeakChapters(childId, { limit: 4 }).catch(() => []),
@@ -163,20 +164,18 @@ async function report(req, res, next) {
             AND "createdAt" >= date_trunc('week', now()) - interval '7 days' AND "createdAt" < date_trunc('week', now())`,
         childId,
       ).catch(() => [{}]),
+      // Folded into the batch (below): both need only childId, so they overlap the
+      // aggregate instead of adding two serial round-trips after it (~284ms measured).
+      // mistake_book may not exist in some envs → [] ; leaderboard is optional → null.
+      db.$queryRawUnsafe(`SELECT COUNT(*)::int AS n FROM "mistake_book" WHERE "userId" = $1::uuid AND status = 'unresolved'`, childId).catch(() => []),
+      braingym.getLeaderboard({ period: 'all', userId: childId, limit: 1 }).catch(() => null),
     ])
-    let mistakes = 0
-    try {
-      const mc = await db.$queryRawUnsafe(`SELECT COUNT(*)::int AS n FROM "mistake_book" WHERE "userId" = $1::uuid AND status = 'unresolved'`, childId)
-      mistakes = (mc && mc[0] && mc[0].n) || 0
-    } catch (_) { /* table may not exist in some envs */ }
+    const mistakes = (mistakeRows && mistakeRows[0] && mistakeRows[0].n) || 0
 
     // Child's BrainGym leaderboard standing — reuses the existing leaderboard service
     // (no duplication) so the parent's AI Gym view can show real rank. Best-effort.
     let leaderboard = null
-    try {
-      const lb = await braingym.getLeaderboard({ period: 'all', userId: childId, limit: 1 })
-      if (lb && lb.me) leaderboard = { rank: lb.me.rank, xp: lb.me.xp, totalPlayers: lb.totalPlayers }
-    } catch (_) { /* leaderboard is optional */ }
+    if (lbRes && lbRes.me) leaderboard = { rank: lbRes.me.rank, xp: lbRes.me.xp, totalPlayers: lbRes.totalPlayers }
 
     // Weekly activity — a real Sun→Sat bar series for THIS week (quizzes + XP per day).
     const byDay = {}
