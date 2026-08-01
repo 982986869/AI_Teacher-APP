@@ -162,6 +162,7 @@ async function searchChunks({ query, topK, subject, gradeLevel, sourceIds, owner
   const rows = await db.$queryRaw(Prisma.sql`
     SELECT c.id, c."sourceId", c."chunkIndex", c.content,
            s.title AS "sourceTitle", s.subject, s."gradeLevel",
+           s."chunkCount" AS "sourceChunks",
            1 - (c.embedding <=> ${vec}::vector) AS similarity
     FROM knowledge_chunks c
     JOIN knowledge_sources s ON s.id = c."sourceId"
@@ -177,6 +178,9 @@ async function searchChunks({ query, topK, subject, gradeLevel, sourceIds, owner
     subject: r.subject,
     gradeLevel: r.gradeLevel,
     chunkIndex: Number(r.chunkIndex),
+    // How many chunks the whole file was split into — lets the app show the
+    // matched passage's position ("part 4 of 38") instead of a bare index.
+    sourceChunks: r.sourceChunks == null ? null : Number(r.sourceChunks),
     content: r.content,
     similarity: Number(r.similarity),
   }))
@@ -186,6 +190,17 @@ async function searchChunks({ query, topK, subject, gradeLevel, sourceIds, owner
 // a single constant so the API contract stays consistent (Phase 6).
 const NOT_COVERED_MESSAGE =
   'This topic is not covered in the uploaded learning material.'
+
+// A chunk is up to config.rag.chunkSize chars — far too long for the source card.
+// Trim to a readable quote, cutting on a word boundary so it never ends mid-word.
+const SNIPPET_CHARS = 320
+function snippetOf(content) {
+  const s = String(content || '').replace(/\s+/g, ' ').trim()
+  if (s.length <= SNIPPET_CHARS) return s
+  const cut = s.slice(0, SNIPPET_CHARS)
+  const lastSpace = cut.lastIndexOf(' ')
+  return `${(lastSpace > 200 ? cut.slice(0, lastSpace) : cut).trim()}…`
+}
 
 // ─── Grounded answer ────────────────────────────────────────────────────────
 // Shared retrieval: builds a conversation-aware query, runs vector search (with
@@ -222,12 +237,21 @@ async function retrieveForAnswer({ question, subject, gradeLevel, sourceIds, top
   // grounding strength surfaced to the student as a % in the UI.
   const confidence = Math.round(Math.max(...relevant.map((c) => c.similarity)) * 100) / 100
 
-  // Dedupe sources by sourceId, keeping each source's strongest chunk similarity.
+  // Dedupe sources by sourceId, keeping each source's strongest chunk — and carry
+  // that chunk's actual text as a `snippet`, so the app can show the student the
+  // exact passage the answer was grounded on (not just the file's title).
   const byId = new Map()
   for (const c of relevant) {
     const prev = byId.get(c.sourceId)
     if (!prev || c.similarity > prev.similarity) {
-      byId.set(c.sourceId, { sourceId: c.sourceId, title: c.sourceTitle, similarity: c.similarity })
+      byId.set(c.sourceId, {
+        sourceId: c.sourceId,
+        title: c.sourceTitle,
+        similarity: c.similarity,
+        snippet: snippetOf(c.content),
+        chunkIndex: c.chunkIndex,
+        totalChunks: c.sourceChunks,
+      })
     }
   }
   const sources = [...byId.values()].sort((a, b) => b.similarity - a.similarity)
