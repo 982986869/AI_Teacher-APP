@@ -13,8 +13,10 @@ import { D, C, F, SP, R, SERIF } from './premiumTheme';
 import { getLearningProfile, getLearningAnalytics } from '../../api/learningApi';
 import { loadLearnerPrefs, saveLearnerPrefs, EXPLANATION_STYLES, PACES, DEFAULT_PREFS } from '../../utils/learnerPrefs';
 
-const GOLD = '#DBA53F';
-const GOLD_DIM = '#B4863A';
+// Figma "Primary" violet-600 — NOT the old marigold gold, ruled out by the design
+// system audit. Matches LiveTeachingPlayer/LessonBoards/subjectBoards' local ACCENT.
+const GOLD = '#7C3AED';
+const GOLD_DIM = '#5B32C4';
 
 // mastery % → a warm/cool bar colour
 const barColor = (m) => (m >= 75 ? '#2DBB78' : m >= 45 ? GOLD : '#E9A23B');
@@ -202,7 +204,7 @@ const s = StyleSheet.create({
   heroStatNum: { fontSize: 22, fontFamily: F.bold, color: D.text },
   heroStatLbl: { fontSize: 11, fontFamily: F.med, color: D.textDim, marginTop: 1 },
 
-  adaptNote: { flexDirection: 'row', alignItems: 'flex-start', gap: 8, backgroundColor: 'rgba(219,165,63,0.08)', borderWidth: 1, borderColor: 'rgba(219,165,63,0.3)', borderRadius: R.md, padding: 12, marginTop: SP.md },
+  adaptNote: { flexDirection: 'row', alignItems: 'flex-start', gap: 8, backgroundColor: 'rgba(124,58,237,0.08)', borderWidth: 1, borderColor: 'rgba(124,58,237,0.3)', borderRadius: R.md, padding: 12, marginTop: SP.md },
   adaptTxt: { flex: 1, fontSize: 12.5, fontFamily: F.med, color: '#E7D4A6', lineHeight: 18 },
 
   section: { marginTop: SP.xl },

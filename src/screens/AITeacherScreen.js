@@ -548,7 +548,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
         {/* ── Generation overlay — the Aurora "Crafting Your Personal Lesson" screen ── */}
         {loading && (
           <Animated.View style={[st.genOverlay, { opacity: genFade }]}>
-            <View style={st.genSpark}><Sparkles size={34} color={C.accent} strokeWidth={2} /></View>
+            <View style={st.genSpark}><Sparkles size={34} color={S.indigo} strokeWidth={2} /></View>
             <Text style={st.genTitle} accessibilityLiveRegion="polite">Ms. Nova is preparing your lesson…</Text>
             <View style={st.genList}>
               {prepStages.map((s, i) => (
@@ -572,10 +572,13 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   }
 
   // ── Live classroom ──
+  // Dark violet "room" (matches LiveTeachingPlayer's ROOM_GRAD/V.ground) — this used
+  // to be a light canvas before that redesign, and these were never updated, leaving
+  // a jarring white status bar + top strip over the now-dark screen.
   return (
     <SafeAreaView style={st.safeRoom}>
-      <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
-      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
+      <StatusBar barStyle="light-content" backgroundColor="#14103F" />
+      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#14103F' }} />}
       <LiveTeachingPlayer
         lesson={lessonObj}
         subject={activeSubject}
@@ -638,8 +641,9 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
 // only the hero + teacher stage go deep. Every colour is a studentTheme token.
 const st = StyleSheet.create({
   safe: { flex: 1, backgroundColor: S.canvas },
-  // The live classroom runs on the same canvas — see LiveTeachingPlayer.
-  safeRoom: { flex: 1, backgroundColor: S.canvas },
+  // The live classroom is a dark violet "room" (LiveTeachingPlayer's own V.ground),
+  // not the light canvas — this must match or a light seam shows at the screen edges.
+  safeRoom: { flex: 1, backgroundColor: '#0C0936' },
   scroll: { paddingBottom: SP.xxl },
 
   // ── hero header (InkSurface paints the deep indigo behind this) ──

@@ -18,6 +18,16 @@ import { TriangleAlert, Ruler, BookOpen, RotateCcw } from 'lucide-react-native';
 const ACCENT = '#7C3AED';
 const ACCENT_SOFT = 'rgba(124,58,237,0.12)';
 
+// premiumTheme's C.ink/C.ink2/C.dim/C.line are a pale "chalk on dark slate" set —
+// correct for a dark board, but this board's card (wbCard in LiveTeachingPlayer) is a
+// WHITE surface, so that pale chalk text/hairline renders as near-invisible on it.
+// These are the same roles, inverted for a light card; INK reuses the exact charcoal
+// already present as this file's card-fill tint (rgba(44,48,67,...)).
+const INK = '#2C3043';
+const INK2 = '#5B6472';
+const INK_DIM = '#7A8592';
+const INK_LINE = 'rgba(44,48,67,0.14)';
+
 // ── marker underline — a chalk/marker stroke that "draws" under the active
 // formula token (Smart Whiteboard flourish); reads as her underlining it. ──────
 function MarkerUnderline({ active, color }) {
@@ -161,7 +171,7 @@ function TriangleBoard({ scene, paused, skip, resetKey, step }) {
           {n >= 3 && <ChalkLine x1={B.x} y1={B.y} x2={Cc.x} y2={Cc.y} color={C.green} width={5} duration={1000} skip={skip} />}
           {n >= 3 && <FadeG show>{svgLabel((B.x + Cc.x) / 2 + 14, (B.y + Cc.y) / 2 - 8, 'H', C.green, 20)}</FadeG>}
           {/* right-angle marker */}
-          {n >= 4 && <ChalkStroke d={`M${A.x + 18},${A.y} V${A.y - 18} H${A.x}`} length={36} color={C.dim} width={2.5} duration={220} skip={skip} />}
+          {n >= 4 && <ChalkStroke d={`M${A.x + 18},${A.y} V${A.y - 18} H${A.x}`} length={36} color={INK_DIM} width={2.5} duration={220} skip={skip} />}
         </Svg>
       </View>
       <Pop show={n >= 2} style={s.triLegend}>
@@ -188,7 +198,7 @@ function LegendRich({ color, term, desc }) {
 // ── FORMULA: parts reveal + highlight one by one ──────────────────────────────
 function FormulaBoard({ scene, paused, skip, resetKey, step, highlight }) {
   const parts = scene.formulaParts && scene.formulaParts.length ? scene.formulaParts : ['base²', '+ height²', '= hypotenuse²'];
-  const colors = [C.orange, C.blue, C.green, C.ink];
+  const colors = [C.orange, C.blue, C.green, INK];
   const hot = hotSet(highlight);
   const n = useReveal(parts.length, 1000, { paused, skip, resetKey, step });
   // Once every part is written, she loops a chalk ring around the whole rule —
@@ -264,8 +274,8 @@ function ProofBoard({ scene, paused, skip, resetKey, step }) {
             <ChalkLine x1={A.x} y1={A.y} x2={B.x} y2={B.y} color={C.orange} width={3} duration={500} skip={skip} />
             <ChalkLine x1={A.x} y1={A.y} x2={Cc.x} y2={Cc.y} color={C.blue} width={3} duration={500} skip={skip} />
             <ChalkLine x1={B.x} y1={B.y} x2={Cc.x} y2={Cc.y} color={C.green} width={3} duration={600} skip={skip} />
-            <Line x1={A.x + 12} y1={A.y} x2={A.x + 12} y2={A.y - 12} stroke={C.dim} strokeWidth={1.5} />
-            <Line x1={A.x} y1={A.y - 12} x2={A.x + 12} y2={A.y - 12} stroke={C.dim} strokeWidth={1.5} />
+            <Line x1={A.x + 12} y1={A.y} x2={A.x + 12} y2={A.y - 12} stroke={INK_DIM} strokeWidth={1.5} />
+            <Line x1={A.x} y1={A.y - 12} x2={A.x + 12} y2={A.y - 12} stroke={INK_DIM} strokeWidth={1.5} />
           </>
         )}
       </Svg>
@@ -273,9 +283,9 @@ function ProofBoard({ scene, paused, skip, resetKey, step }) {
         <CircleAround active={n >= 5 && !skip} color={C.green} padX={12} padY={7}>
           <Text style={s.sumTxt}>
             <Text style={{ color: C.blue }}>9</Text>
-            <Text style={{ color: C.ink }}> + </Text>
+            <Text style={{ color: INK }}> + </Text>
             <Text style={{ color: C.orange }}>16</Text>
-            <Text style={{ color: C.ink }}> = </Text>
+            <Text style={{ color: INK }}> = </Text>
             <Text style={{ color: C.green }}>25</Text>
           </Text>
         </CircleAround>
@@ -296,7 +306,7 @@ function PointsBoard({ scene, paused, skip, resetKey, step, intro, warn, memory 
     return (
       <View style={[s.boardWrap, { alignItems: 'center', paddingVertical: 18 }]}>
         {warn
-          ? <TriangleAlert size={40} color={C.orange} strokeWidth={1.9} />
+          ? <TriangleAlert size={40} color={C.pink} strokeWidth={1.9} />
           : intro
             ? <Ruler size={40} color={ACCENT} strokeWidth={1.9} />
             : <BookOpen size={40} color={ACCENT} strokeWidth={1.9} />}
@@ -358,8 +368,8 @@ function ChartBoard({ scene, paused, skip, resetKey, step }) {
     <View style={s.boardWrap}>
       <Svg width="100%" height={176} viewBox="0 0 300 176">
         {/* axes */}
-        <Line x1={leftX} y1={baseY} x2={leftX + plotW} y2={baseY} stroke={C.dim} strokeWidth={2} />
-        <Line x1={leftX} y1={baseY} x2={leftX} y2={baseY - plotH - 8} stroke={C.dim} strokeWidth={2} />
+        <Line x1={leftX} y1={baseY} x2={leftX + plotW} y2={baseY} stroke={INK_DIM} strokeWidth={2} />
+        <Line x1={leftX} y1={baseY} x2={leftX} y2={baseY - plotH - 8} stroke={INK_DIM} strokeWidth={2} />
         {values.map((v, i) => {
           if (i >= n) return null;
           const h = Math.max(3, (v / max) * plotH);
@@ -369,7 +379,7 @@ function ChartBoard({ scene, paused, skip, resetKey, step }) {
             <G key={i}>
               <GrowBar x={x} baseY={baseY} h={h} bw={bw} col={col} />
               {svgLabel(x + bw / 2, baseY - h - 5, String(v), col, 11)}
-              {!!labels[i] && svgLabel(x + bw / 2, baseY + 14, String(labels[i]).slice(0, 8), C.dim, 10)}
+              {!!labels[i] && svgLabel(x + bw / 2, baseY + 14, String(labels[i]).slice(0, 8), INK_DIM, 10)}
             </G>
           );
         })}
@@ -461,7 +471,7 @@ function QuickCheckBoard({ scene, onContinue, onQuizResult, onReexplain, quizFb,
             );
           })}
           {picked != null && (
-            <Text style={[s.quizFb, { color: locked ? C.green : C.orange }]} accessibilityLiveRegion="assertive">
+            <Text style={[s.quizFb, { color: locked ? C.green : C.pink }]} accessibilityLiveRegion="assertive">
               {(quizFb && quizFb.line) || (locked ? 'Correct.' : 'Not quite — try once more.')}
             </Text>
           )}
@@ -539,7 +549,7 @@ const s = StyleSheet.create({
   legendRow: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: 12, marginTop: 8 },
   legendItem: { flexDirection: 'row', alignItems: 'center', gap: 6 },
   legendDot: { width: 10, height: 10, borderRadius: 3 },
-  legendTxt: { fontSize: 11, fontFamily: F.bold, fontWeight: '700', color: C.ink2 },
+  legendTxt: { fontSize: 11, fontFamily: F.bold, fontWeight: '700', color: INK2 },
 
   // two-column triangle: diagram (left) + legend with descriptions (right)
   triRow: { flexDirection: 'row', width: '100%', alignItems: 'center', gap: 8 },
@@ -548,55 +558,55 @@ const s = StyleSheet.create({
   legRow: { flexDirection: 'row', gap: 8, alignItems: 'flex-start' },
   legDot: { width: 9, height: 9, borderRadius: 3, marginTop: 4 },
   legTerm: { fontSize: 13, fontFamily: F.black, fontWeight: '900' },
-  legDesc: { fontSize: 11.5, fontFamily: F.semi, fontWeight: '600', color: C.dim, lineHeight: 16, marginTop: 1 },
+  legDesc: { fontSize: 11.5, fontFamily: F.semi, fontWeight: '600', color: INK_DIM, lineHeight: 16, marginTop: 1 },
 
-  formulaCard: { backgroundColor: 'rgba(44,48,67,0.04)', borderWidth: 1, borderColor: C.line, borderRadius: 16, paddingVertical: 16, paddingHorizontal: 18 },
+  formulaCard: { backgroundColor: 'rgba(44,48,67,0.04)', borderWidth: 1, borderColor: INK_LINE, borderRadius: 16, paddingVertical: 16, paddingHorizontal: 18 },
   formulaRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 2 },
   formulaTokWrap: { borderRadius: 8, paddingHorizontal: 3, paddingVertical: 2 },
   formulaTokActive: { backgroundColor: 'rgba(255,138,61,0.14)' },
   formulaTokHot: { backgroundColor: ACCENT_SOFT },
   formulaTok: { fontSize: 22, fontFamily: F.black, fontWeight: '900', letterSpacing: 0.5 },
   varList: { marginTop: 12, gap: 4, alignItems: 'center' },
-  varLine: { fontSize: 13, fontFamily: F.semi, fontWeight: '600', color: C.ink2 },
+  varLine: { fontSize: 13, fontFamily: F.semi, fontWeight: '600', color: INK2 },
 
-  chartAxes: { fontSize: 11, fontFamily: F.black, fontWeight: '800', color: C.dim, marginTop: 6, textAlign: 'center' },
-  sumPill: { marginTop: 10, backgroundColor: 'rgba(44,48,67,0.05)', borderWidth: 1, borderColor: C.line, borderRadius: 14, paddingVertical: 8, paddingHorizontal: 18 },
+  chartAxes: { fontSize: 11, fontFamily: F.black, fontWeight: '800', color: INK_DIM, marginTop: 6, textAlign: 'center' },
+  sumPill: { marginTop: 10, backgroundColor: 'rgba(44,48,67,0.05)', borderWidth: 1, borderColor: INK_LINE, borderRadius: 14, paddingVertical: 8, paddingHorizontal: 18 },
   sumTxt: { fontSize: 20, fontFamily: F.black, fontWeight: '900', letterSpacing: 0.5 },
 
   pointRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10, marginTop: 10, alignSelf: 'stretch', borderRadius: 12, paddingVertical: 6, paddingHorizontal: 6, marginHorizontal: -6, overflow: 'hidden' },
   pointRowActive: { backgroundColor: 'rgba(15,163,154,0.10)' },       // the point she's on right now
-  pointRowWarnActive: { backgroundColor: 'rgba(239,138,67,0.12)' },   // …on a common-mistake slide
+  pointRowWarnActive: { backgroundColor: 'rgba(232,138,134,0.12)' },   // …on a common-mistake slide
   pointDot: { width: 22, height: 22, borderRadius: 11, backgroundColor: ACCENT, alignItems: 'center', justifyContent: 'center', marginTop: 1 },
-  pointDotWarn: { backgroundColor: C.orange },
+  pointDotWarn: { backgroundColor: C.pink },
   pointDotTxt: { color: '#fff', fontSize: 11, fontFamily: F.black, fontWeight: '900' },
-  pointTxt: { flex: 1, fontSize: 15, fontFamily: F.semi, fontWeight: '600', color: C.ink, lineHeight: 22 },
+  pointTxt: { flex: 1, fontSize: 15, fontFamily: F.semi, fontWeight: '600', color: INK, lineHeight: 22 },
   pointTxtHot: { color: ACCENT, fontFamily: F.black, fontWeight: '800' },
 
   flowRow: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: 8 },
-  flowBox: { backgroundColor: 'rgba(44,48,67,0.04)', borderWidth: 1, borderColor: C.line, borderRadius: 12, paddingVertical: 10, paddingHorizontal: 14 },
+  flowBox: { backgroundColor: 'rgba(44,48,67,0.04)', borderWidth: 1, borderColor: INK_LINE, borderRadius: 12, paddingVertical: 10, paddingHorizontal: 14 },
   flowBoxHot: { borderColor: ACCENT, backgroundColor: ACCENT_SOFT },
-  flowTxt: { fontSize: 13, fontFamily: F.black, fontWeight: '800', color: C.ink },
+  flowTxt: { fontSize: 13, fontFamily: F.black, fontWeight: '800', color: INK },
   flowArrow: { fontSize: 18, fontFamily: F.black, fontWeight: '900', color: ACCENT },
 
-  quizQ: { fontSize: 17, fontFamily: F.black, fontWeight: '800', color: C.ink, lineHeight: 24, alignSelf: 'stretch', marginBottom: 4 },
-  opt: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', alignSelf: 'stretch', backgroundColor: 'rgba(44,48,67,0.04)', borderWidth: 1, borderColor: C.line, borderRadius: 13, paddingVertical: 12, paddingHorizontal: 15, marginTop: 9 },
-  // correct → green, softly glowing. wrong → a warm AMBER wash (never harsh red).
+  quizQ: { fontSize: 17, fontFamily: F.black, fontWeight: '800', color: INK, lineHeight: 24, alignSelf: 'stretch', marginBottom: 4 },
+  opt: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', alignSelf: 'stretch', backgroundColor: 'rgba(44,48,67,0.04)', borderWidth: 1, borderColor: INK_LINE, borderRadius: 13, paddingVertical: 12, paddingHorizontal: 15, marginTop: 9 },
+  // correct → green, softly glowing. wrong → a soft rose wash (never harsh red).
   optRight: { backgroundColor: 'rgba(87,214,151,0.18)', borderColor: C.green, shadowColor: C.green, shadowOpacity: 0.28, shadowRadius: 12, shadowOffset: { width: 0, height: 4 }, elevation: 3 },
-  optWrong: { backgroundColor: 'rgba(239,138,67,0.14)', borderColor: C.orange },
-  optTxt: { flex: 1, fontSize: 14, fontFamily: F.bold, fontWeight: '700', color: C.ink },
+  optWrong: { backgroundColor: 'rgba(232,138,134,0.14)', borderColor: C.pink },
+  optTxt: { flex: 1, fontSize: 14, fontFamily: F.bold, fontWeight: '700', color: INK },
   optMark: { fontSize: 15, fontFamily: F.black, fontWeight: '900', color: C.green, marginLeft: 8 },
-  optMarkWrong: { color: C.orange },
+  optMarkWrong: { color: C.pink },
   quizFb: { fontSize: 13, fontFamily: F.black, fontWeight: '800', marginTop: 12, alignSelf: 'stretch' },
-  continueBtn: { alignSelf: 'flex-end', marginTop: 14, backgroundColor: C.ink, borderRadius: 12, paddingVertical: 11, paddingHorizontal: 22, shadowColor: C.ink, shadowOpacity: 0.22, shadowRadius: 10, shadowOffset: { width: 0, height: 4 }, elevation: 3 },
+  continueBtn: { alignSelf: 'flex-end', marginTop: 14, backgroundColor: INK, borderRadius: 12, paddingVertical: 11, paddingHorizontal: 22, shadowColor: INK, shadowOpacity: 0.22, shadowRadius: 10, shadowOffset: { width: 0, height: 4 }, elevation: 3 },
   continueTxt: { color: '#fff', fontSize: 13, fontFamily: F.bold, fontWeight: '700', letterSpacing: 0.3 },
   reexplainBtn: { alignSelf: 'flex-start', flexDirection: 'row', alignItems: 'center', gap: 7, marginTop: 10, backgroundColor: 'rgba(15,23,42,0.05)', borderWidth: 1, borderColor: 'rgba(15,23,42,0.22)', borderRadius: 12, paddingVertical: 9, paddingHorizontal: 16 },
-  reexplainTxt: { color: C.ink, fontSize: 13, fontFamily: F.bold, fontWeight: '700' },
+  reexplainTxt: { color: INK, fontSize: 13, fontFamily: F.bold, fontWeight: '700' },
 
   // adaptive re-teach panel (shown on a missed check — a different explanation).
-  // A warm "second look" callout on the paper: soft ivory fill + champagne left rule.
-  reteachPanel: { alignSelf: 'stretch', marginTop: 14, backgroundColor: '#F3ECDD', borderWidth: 1, borderColor: 'rgba(197,155,74,0.35)', borderLeftWidth: 3, borderLeftColor: '#C79B42', borderRadius: 14, paddingVertical: 13, paddingHorizontal: 15, gap: 6 },
-  reteachGap: { fontSize: 13.5, fontFamily: F.black, fontWeight: '800', color: C.ink, lineHeight: 19 },
-  reteachIntro: { fontSize: 12.5, fontFamily: F.bold, fontWeight: '700', color: '#9A7526', marginTop: 2 },
-  reteachStep: { fontSize: 13, fontFamily: F.semi, fontWeight: '600', color: C.ink, lineHeight: 20, paddingLeft: 4 },
-  reteachEasyQ: { fontSize: 13.5, fontFamily: F.black, fontWeight: '900', color: C.ink, marginTop: 8, lineHeight: 19 },
+  // A "second look" callout tied to Ms. Nova's own violet, not the old gold/champagne.
+  reteachPanel: { alignSelf: 'stretch', marginTop: 14, backgroundColor: 'rgba(124,58,237,0.05)', borderWidth: 1, borderColor: 'rgba(124,58,237,0.20)', borderLeftWidth: 3, borderLeftColor: ACCENT, borderRadius: 14, paddingVertical: 13, paddingHorizontal: 15, gap: 6 },
+  reteachGap: { fontSize: 13.5, fontFamily: F.black, fontWeight: '800', color: INK, lineHeight: 19 },
+  reteachIntro: { fontSize: 12.5, fontFamily: F.bold, fontWeight: '700', color: ACCENT, marginTop: 2 },
+  reteachStep: { fontSize: 13, fontFamily: F.semi, fontWeight: '600', color: INK, lineHeight: 20, paddingLeft: 4 },
+  reteachEasyQ: { fontSize: 13.5, fontFamily: F.black, fontWeight: '900', color: INK, marginTop: 8, lineHeight: 19 },
 });

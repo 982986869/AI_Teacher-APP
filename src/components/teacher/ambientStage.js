@@ -3,6 +3,10 @@ import { View, StyleSheet, Animated, Easing, Dimensions } from 'react-native';
 import Svg, { Defs, RadialGradient, LinearGradient, Stop, Rect, Circle } from 'react-native-svg';
 import { C } from './premiumTheme';
 
+// Figma "Primary" violet-600 — NOT C.accent (chalk amber), ruled out by the design
+// system audit. Matches LiveTeachingPlayer/LessonBoards/subjectBoards' local ACCENT.
+const ACCENT = '#7C3AED';
+
 // ── LIVING STAGE — the room, not a page ───────────────────────────────────────
 // A cinematic light field behind the whole lesson: soft colour blooms that drift
 // and breathe like a lit room, and brighten/warm when she speaks — so the surface
@@ -88,7 +92,7 @@ export function AmbientStage({ speaking = false, state = 'idle' }) {
         </Defs>
         <Rect width={W} height={H} fill={`url(#${washId})`} />
       </Svg>
-      <Bloom tint={cool ? C.blue : C.accent} size={W * 1.15} left={-W * 0.28} top={-H * 0.12} drift={30} dur={15000} phase={0} energy={energy} baseOpacity={0.16} />
+      <Bloom tint={cool ? C.blue : ACCENT} size={W * 1.15} left={-W * 0.28} top={-H * 0.12} drift={30} dur={15000} phase={0} energy={energy} baseOpacity={0.16} />
       <Bloom tint={warm ? '#F5A623' : C.orange} size={W * 1.0} left={W * 0.34} top={H * 0.42} drift={34} dur={18000} phase={900} energy={energy} baseOpacity={0.13} />
       <Bloom tint={C.teal} size={W * 0.9} left={W * 0.05} top={H * 0.68} drift={22} dur={13000} phase={1800} energy={energy} baseOpacity={0.1} />
     </View>
@@ -125,7 +129,7 @@ export function VoiceAura({ size, speaking = false, listening = false }) {
     return () => loop && loop.stop();
   }, [speaking, shimmer]);
 
-  const tint = listening ? C.blue : C.accent;
+  const tint = listening ? C.blue : ACCENT;
   const d = size * 2.5;
   const ringId = useGradId('aura');
   const coreScale = Animated.add(
