@@ -126,7 +126,10 @@ const LoginScreen = ({ navigation }) => {
                 </TouchableOpacity>
               }
             />
-            <TouchableOpacity style={styles.forgotRow}>
+            <TouchableOpacity
+              style={styles.forgotRow}
+              onPress={() => navigation.navigate('ForgotPasswordScreen', { email })}
+            >
               <Text style={styles.forgotText}>Forgot password?</Text>
             </TouchableOpacity>
             <PrimaryButton title="Log in" onPress={handleEmailLogin} loading={loading} style={styles.mainBtn} />

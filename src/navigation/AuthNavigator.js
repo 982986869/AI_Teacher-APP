@@ -6,12 +6,14 @@ import LandingScreen from '../screens/LandingScreen';
 import LoginScreen from '../screens/LoginScreen';
 import SignupScreen from '../screens/SignupScreen';
 import OTPScreen from '../screens/OTPScreen';
+import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
 
 const Stack = createNativeStackNavigator();
 
 // ── AuthNavigator: the LOGGED-OUT flow only ─────────────────────────────
 //
 //   Landing ──Email──► Login ───────────────► login success → signIn()
+//        │              └──"Forgot password?"──► ForgotPassword ──► back to Login
 //        │
 //        └──Phone──► Signup ──► OTP ─────────► verify        → signIn()
 //
@@ -33,6 +35,7 @@ const AuthNavigator = () => (
     <Stack.Screen name="LoginScreen"   component={LoginScreen} />
     <Stack.Screen name="SignupScreen"  component={SignupScreen} />
     <Stack.Screen name="OTPScreen"     component={OTPScreen} />
+    <Stack.Screen name="ForgotPasswordScreen" component={ForgotPasswordScreen} />
   </Stack.Navigator>
 );
 

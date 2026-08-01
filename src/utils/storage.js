@@ -10,6 +10,7 @@ const KEYS = {
   ONLINE_TEST_ATTEMPTS: '@ailernova_online_test_attempts',
   PRACTICE_ATTEMPTS: '@ailernova_practice_attempts',
   HOME_STATE:    '@ailernova_home_state',
+  PROFILE_EXTRAS: '@ailernova_profile_extras',
 };
 
 // Legacy token returned by the still-mocked Google/OTP auth paths. It is NOT a
@@ -223,6 +224,27 @@ export const saveHomeState = async (patch) => {
     const raw = await AsyncStorage.getItem(KEYS.HOME_STATE);
     const cur = raw ? JSON.parse(raw) : {};
     await AsyncStorage.setItem(KEYS.HOME_STATE, JSON.stringify({ ...cur, ...patch }));
+  } catch (_) { /* ignore */ }
+};
+
+// Profile fields the CompleteProfile form collects that PATCH /api/auth/profile does
+// NOT accept yet — it takes grade/board/stream/language/school/accountType only. Kept
+// on-device so the answers aren't thrown away, and so the form can repopulate.
+// Shape: { photoUri:string, displayName:string, favouriteSubject:string, goal:string }.
+// Move these to the server when the profile route grows the columns.
+export const getProfileExtras = async () => {
+  try {
+    const raw = await AsyncStorage.getItem(KEYS.PROFILE_EXTRAS);
+    return raw ? JSON.parse(raw) : null;
+  } catch (_) { return null; }
+};
+
+export const saveProfileExtras = async (patch) => {
+  try {
+    if (!patch) return;
+    const raw = await AsyncStorage.getItem(KEYS.PROFILE_EXTRAS);
+    const cur = raw ? JSON.parse(raw) : {};
+    await AsyncStorage.setItem(KEYS.PROFILE_EXTRAS, JSON.stringify({ ...cur, ...patch }));
   } catch (_) { /* ignore */ }
 };
 

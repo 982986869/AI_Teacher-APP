@@ -36,6 +36,23 @@ export const updateProfileApi = async (patch) => {
   return res.data.data; // { user, scope }
 };
 
+// ─── Password reset ───────────────────────────────────────────────────────────
+// NOTE: the server does not implement this route yet — server/src/routes/auth.js
+// currently mounts register/login/google/me/profile only. Until it does, a request
+// 404s; translate that into a message the user can act on rather than a bare
+// "Request failed with status code 404".
+export const requestPasswordReset = async ({ email }) => {
+  try {
+    const res = await axiosInstance.post('/api/auth/forgot-password', { email });
+    return res.data?.data ?? res.data;
+  } catch (e) {
+    if (e?.response?.status === 404) {
+      throw new Error('Password reset isn’t available yet. Please sign in with a phone OTP or contact support.');
+    }
+    throw e;
+  }
+};
+
 // ─── Google Auth ──────────────────────────────────────────────────────────────
 
 // Real backend: the server verifies the idToken against Google's public keys, then
