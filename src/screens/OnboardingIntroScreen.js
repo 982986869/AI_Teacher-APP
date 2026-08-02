@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text, Image, StyleSheet, StatusBar } from 'react-native';
+import React, { useState, useEffect, useRef } from 'react';
+import { View, Text, Image, StyleSheet, StatusBar, Animated, Easing } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import PrimaryButton from '../components/brand/PrimaryButton';
@@ -12,8 +12,13 @@ import { COLORS, TYPE, SPACING } from '../theme/designSystem';
 // the logged-out intro from the design file.
 //
 // Slides 1 and 2 are finished — copy inspected off Figma, art cropped from the
-// design board (assets/brand/README.md documents the crop rule). Slide 3 is an
-// open handoff; read the block on it before touching this file.
+// design board (assets/brand/README.md documents the crop rule). Slide 3 is the
+// odd one out: its reference has no photo, just a dark progress/achievement/
+// streak graphic (390x304, cropped from the user's own Figma export — not part
+// of the same source board as slides 1-2), so it renders as a contained `graphic`
+// Image sized to the top of the frame instead of a `image` full-bleed background,
+// and skips welcome-scrim.png — that scrim exists to darken a photo into
+// legibility, and this graphic is already dark by construction.
 const SLIDES = [
   {
     image: require('../../assets/brand/onboarding-1.jpg'),
@@ -26,30 +31,15 @@ const SLIDES = [
     body: 'Watch, ask questions, practice, and learn with your AI tutor. Education that answers back.',
   },
   {
-    // ── UNFINISHED SLIDE — this one is yours ───────────────────────────────────
-    // Landed on main deliberately, as a starting point rather than finished work.
-    // Everything around it is done: the carousel, the dots, the Next button and the
-    // hand-off to Signup all work, and this slide already renders. Only its content
-    // is open.
-    //
-    // What is missing, and where it comes from:
-    //   • Copy  — no Figma node exists for page 3 yet. Get one, inspect it, and
-    //             replace both strings. Slides 1-2 show the shape to match: a short
-    //             heading (TYPE.heading, Poppins 700/26) and two lines of body.
-    //   • Art   — the image below is a stand-in: the design board's left-over card,
-    //             the one whose caption reads "Your AI Learning Companion". The real
-    //             page-3 artwork is still coming. Drop it in as
-    //             assets/brand/onboarding-3.jpg (390x844) and this line needs no edit.
-    //             assets/brand/README.md has the crop rule if it arrives as another
-    //             full board rather than a single screen.
-    //
-    // Leave the TODO strings visible until then — they are meant to be impossible to
-    // miss in a build. Don't swap in plausible-sounding copy; earlier drafts of this
-    // slide read as final and nearly shipped that way.
-    // ───────────────────────────────────────────────────────────────────────────
-    image: require('../../assets/brand/onboarding-3.jpg'),
-    title: 'TODO — page 3 title',
-    body: 'TODO — page 3 body copy, still to come from Figma.',
+    graphic: require('../../assets/brand/onboarding-3-graph.png'),
+    graphicRatio: 390 / 304,
+    // The peak dot's pixel position in the 390x304 crop (found by scanning for
+    // the brightest pixel) — since the Image renders at this exact aspect
+    // ratio with resizeMode="contain", there's no letterboxing, so these
+    // percentages line up with the glow overlay 1:1.
+    shineAt: { left: '77.4%', top: '8.9%' },
+    title: 'Track Your Progress',
+    body: 'Complete lessons, earn achievements, and improve every day. Your math & science superpower.',
   },
 ];
 
@@ -67,13 +57,46 @@ export default function OnboardingIntroScreen({ navigation }) {
     else navigation.navigate('SignupScreen');
   };
 
+  // The peak dot's shine: a halo that breathes out and fades, looping.
+  const shine = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    if (!slide.shineAt) return undefined;
+    const loop = Animated.loop(
+      Animated.timing(shine, { toValue: 1, duration: 1400, easing: Easing.out(Easing.quad), useNativeDriver: true })
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [slide.shineAt, shine]);
+  const shineScale = shine.interpolate({ inputRange: [0, 1], outputRange: [0.5, 2.6] });
+  const shineOpacity = shine.interpolate({ inputRange: [0, 0.7, 1], outputRange: [0.7, 0.15, 0] });
+
   return (
     <View style={styles.root}>
       <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
 
-      {/* The export is already cropped to the 390x844 frame, so it drops straight in. */}
-      <Image source={slide.image} style={StyleSheet.absoluteFill} resizeMode="cover" />
-      <Image source={SCRIM} style={StyleSheet.absoluteFill} resizeMode="stretch" />
+      {slide.graphic ? (
+        <View style={styles.graphicWrap}>
+          <View style={{ width: '100%', aspectRatio: slide.graphicRatio }}>
+            <Image source={slide.graphic} style={StyleSheet.absoluteFill} resizeMode="contain" />
+            {!!slide.shineAt && (
+              <Animated.View
+                pointerEvents="none"
+                style={[
+                  styles.shine,
+                  slide.shineAt,
+                  { opacity: shineOpacity, transform: [{ scale: shineScale }] },
+                ]}
+              />
+            )}
+          </View>
+        </View>
+      ) : (
+        <>
+          {/* The export is already cropped to the 390x844 frame, so it drops straight in. */}
+          <Image source={slide.image} style={StyleSheet.absoluteFill} resizeMode="cover" />
+          <Image source={SCRIM} style={StyleSheet.absoluteFill} resizeMode="stretch" />
+        </>
+      )}
 
       <View style={[styles.body, { paddingBottom: insets.bottom + 20 }]}>
         <Text style={styles.title}>{slide.title}</Text>
@@ -85,7 +108,7 @@ export default function OnboardingIntroScreen({ navigation }) {
           ))}
         </View>
 
-        <PrimaryButton label="Next" onPress={next} />
+        <PrimaryButton label={index === SLIDES.length - 1 ? 'Start Learning' : 'Next'} onPress={next} />
       </View>
     </View>
   );
@@ -94,8 +117,28 @@ export default function OnboardingIntroScreen({ navigation }) {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: '#030124',
+    backgroundColor: COLORS.background,
     justifyContent: 'flex-end',
+  },
+  // flex:1 so it absorbs whatever space `body` doesn't need, pushing body to
+  // the bottom the same way the flex-end image slides do — independent of
+  // root's justifyContent, which only matters when no child claims the slack.
+  graphicWrap: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: SPACING.xl,
+  },
+  // Centered on slide.shineAt via marginLeft/Top so the anchor point (not the
+  // circle's own top-left corner) sits exactly on the peak dot.
+  shine: {
+    position: 'absolute',
+    width: 14,
+    height: 14,
+    marginLeft: -7,
+    marginTop: -7,
+    borderRadius: 7,
+    backgroundColor: '#C084FC',
   },
   // onboarding-body: 32px sides, 20px bottom, 28px between each child.
   // Hugs at 237 = 97 (text-stack) + 28 + 8 (dots) + 28 + 56 (button) + 20.

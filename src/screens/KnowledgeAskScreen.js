@@ -7,17 +7,35 @@ import { useAuth } from '../context/AuthContext';
 import TeacherAvatar from '../components/teacher/TeacherAvatar';
 import { TEACHER_HEADSHOT } from '../components/teacher/teacherIdentity';
 import { SP, R } from '../components/teacher/premiumTheme';
-// App design system — same as AITeacherScreen, StudyInsights and the live classroom.
-// The one rule that shapes the colour choices here: HUE LIVES IN GRAPHICS (pills,
-// icons, borders, the sent bubble), TEXT STAYS INK/SUB/MUTED — a 10px emerald
-// "% match" label cannot clear AA on a tinted pill.
-import { S, shadowSm } from '../theme/studentTheme';
+import { shadowSm } from '../theme/studentTheme';
+import { COLORS } from '../theme/designSystem';
+import PrimaryButton from '../components/brand/PrimaryButton';
 import { F } from './parent/ParentApp/constants';
 import { ChevronLeft, BookOpen, Sparkles, FileText, CircleAlert, Trash2, Check, FileUp, ImagePlus, Camera, X, SquarePen, Layers, ChevronDown, Search, Quote } from 'lucide-react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { Appear, PressableScale } from '../components/teacher/uiKit';
 import DiagramRenderer from '../components/teacher/DiagramRenderer';
 import MathText from '../components/MathText';
+
+// Dark reskin (the "ask-material-dark" reference) over the SAME S.<role> call
+// sites the light build used — every colour in this file already goes through
+// one role-named token object, so swapping the whole screen to the app's new
+// violet dark system is a token-map, not a rewrite. Role names match
+// studentTheme's S 1:1 so nothing below this had to change; only the import
+// binding did (see the S = D alias a few lines down).
+const D = {
+  canvas: COLORS.background, card: 'rgba(255,255,255,0.05)', ink: COLORS.textPrimary,
+  sub: COLORS.textSecondary, muted: COLORS.textSecondary, faint: 'rgba(255,255,255,0.35)',
+  hair: COLORS.border, border: 'rgba(255,255,255,0.16)', white: '#FFFFFF',
+  indigo: COLORS.primary, indigoSoft: 'rgba(124,58,237,0.14)',
+  blue: '#60A5FA', blueSoft: 'rgba(96,165,250,0.14)',
+  emerald: COLORS.success, emeraldSoft: 'rgba(16,185,129,0.14)',
+  orange: COLORS.warning, orangeSoft: 'rgba(249,115,22,0.14)',
+  red: COLORS.error, redSoft: 'rgba(239,68,68,0.14)',
+};
+// Every existing `S.xxx` call site below is left exactly as written — this
+// alias points the same role names at the dark map instead of studentTheme.
+const S = D;
 import {
   askKnowledgeStructured, extendKnowledge, solvePhoto, listKnowledgeSources, uploadKnowledgeText, uploadKnowledgeFile, deleteKnowledgeSource,
 } from '../api/knowledgeApi';
@@ -312,8 +330,8 @@ const KnowledgeAskScreen = ({ onBack }) => {
 
   return (
     <SafeAreaView style={st.safe}>
-      <StatusBar barStyle="dark-content" backgroundColor={S.card} />
-      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.card }} />}
+      <StatusBar barStyle="light-content" backgroundColor={COLORS.background} />
+      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: COLORS.background }} />}
 
       <View style={st.header}>
         <PressableScale onPress={onBack} style={st.hIcon} accessibilityLabel="Go back"><ChevronLeft size={20} color={S.ink} strokeWidth={2.6} /></PressableScale>
@@ -331,10 +349,9 @@ const KnowledgeAskScreen = ({ onBack }) => {
           ask about it; teachers/admins manage shared class material. */}
       <View style={st.tabs}>
         {['ask', 'manage'].map((t) => (
-          <PressableScale key={t} style={st.tab} onPress={() => setTab(t)}
+          <PressableScale key={t} style={[st.tab, tab === t && st.tabOn]} onPress={() => setTab(t)}
             accessibilityLabel={t === 'ask' ? 'Q and A' : 'My material'} accessibilityState={{ selected: tab === t }}>
             <Text style={[st.tabTxt, tab === t && st.tabTxtOn]}>{t === 'ask' ? 'Q&A' : (isTeacher ? 'Manage Content' : 'My Material')}</Text>
-            <View style={[st.tabBar, tab === t && st.tabBarOn]} />
           </PressableScale>
         ))}
       </View>
@@ -978,16 +995,13 @@ const ManagePanel = () => {
           editable={!saving}
         />
 
-        <PressableScale
-          style={[st.btn, (saving || !title.trim() || !text.trim()) && { opacity: 0.55 }]}
-          onPress={handleUpload}
+        <PrimaryButton
+          label="Upload & Index"
+          loading={saving}
           disabled={saving || !title.trim() || !text.trim()}
-          accessibilityLabel="Upload and index"
-        >
-          {saving
-            ? <View style={st.row}><ActivityIndicator color="#fff" size="small" /><Text style={st.btnTxt}>  Indexing…</Text></View>
-            : <Text style={st.btnTxt}>Upload &amp; Index</Text>}
-        </PressableScale>
+          onPress={handleUpload}
+          style={st.btn}
+        />
       </View>
 
       <Text style={[st.lbl, { marginTop: 26 }]}>Uploaded content</Text>
@@ -1025,13 +1039,13 @@ const st = StyleSheet.create({
   hIcon: { width: 38, height: 38, borderRadius: 19, backgroundColor: S.canvas, alignItems: 'center', justifyContent: 'center' },
   headerTitle: { fontSize: 16, fontFamily: F.xbold, color: S.ink, letterSpacing: -0.2 },
 
-  // underline tabs
-  tabs: { flexDirection: 'row', gap: 22, paddingHorizontal: SP.lg, backgroundColor: S.card, borderBottomWidth: 1, borderBottomColor: S.hair },
-  tab: { paddingTop: 12, alignItems: 'center' },
-  tabTxt: { fontSize: 13.5, fontFamily: F.bold, color: S.muted, paddingBottom: 10 },
-  tabTxtOn: { color: S.indigo, fontFamily: F.xbold },
-  tabBar: { height: 2, alignSelf: 'stretch', backgroundColor: 'transparent', borderRadius: 2 },
-  tabBarOn: { backgroundColor: S.indigo },
+  // segmented-pill tabs (the dark reference's control, not the light build's
+  // underline tabs — a rounded track with the active option as a solid fill)
+  tabs: { flexDirection: 'row', gap: 4, marginHorizontal: SP.lg, marginTop: 4, marginBottom: 4, padding: 4, backgroundColor: 'rgba(255,255,255,0.06)', borderRadius: R.pill },
+  tab: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingVertical: 10, borderRadius: R.pill },
+  tabOn: { backgroundColor: S.indigo, ...shadowSm },
+  tabTxt: { fontSize: 13.5, fontFamily: F.bold, color: S.muted },
+  tabTxtOn: { color: '#fff', fontFamily: F.xbold },
 
   body: { padding: SP.lg, paddingBottom: 24, flexGrow: 1 },
   q: { fontSize: 21, fontFamily: F.black, color: S.ink, letterSpacing: -0.4 },
@@ -1196,9 +1210,8 @@ const st = StyleSheet.create({
   inputSm: { backgroundColor: S.canvas, borderWidth: 1, borderColor: S.border, borderRadius: R.md, paddingVertical: 12, paddingHorizontal: 16, fontSize: 14, fontFamily: F.med, color: S.ink },
   textArea: { backgroundColor: S.canvas, borderWidth: 1, borderColor: S.border, borderRadius: R.md, paddingVertical: 14, paddingHorizontal: 16, fontSize: 14, fontFamily: F.med, color: S.ink, minHeight: 150, textAlignVertical: 'top' },
   row2: { flexDirection: 'row', gap: 12, marginTop: 14 },
-  row: { flexDirection: 'row', alignItems: 'center' },
-  btn: { backgroundColor: S.indigo, borderRadius: R.md, paddingVertical: 15, alignItems: 'center', marginTop: 18, ...shadowSm },
-  btnTxt: { color: '#fff', fontSize: 15, fontFamily: F.bold, letterSpacing: -0.2 },
+  // PrimaryButton (brand) owns its own fill/radius/shadow — this only spaces it.
+  btn: { marginTop: 18 },
 
   emptyList: { fontSize: 13, fontFamily: F.med, color: S.muted, marginTop: 12, textAlign: 'center' },
   srcItem: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: S.card, borderWidth: 1, borderColor: S.hair, borderRadius: R.md, padding: 12, marginTop: 10 },

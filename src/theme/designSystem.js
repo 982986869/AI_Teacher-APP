@@ -28,7 +28,9 @@ export const COLORS = {
   warning:       '#F97316',
 
   // Surfaces
-  background:    '#0D0B14',
+  // Figma's auth-screen frame inspects as a flat #0C0936 — the same value the
+  // Splash/Onboarding/Login/Signup flow now shares as its one dark background.
+  background:    '#0C0936',
   surface:       '#1C1730',
   card:          '#FFFFFF0D',  // white @ 5%
   border:        '#FFFFFF14',  // white @ 8%
