@@ -1,19 +1,27 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import {
-  View, Text, StyleSheet, SafeAreaView, ScrollView,
+  View, Text, StyleSheet, SafeAreaView, ScrollView, Pressable,
   StatusBar, TextInput, Platform, KeyboardAvoidingView, ActivityIndicator, Image, Modal,
 } from 'react-native';
+import {
+  useFonts as useAuroraFonts,
+  SpaceGrotesk_400Regular, SpaceGrotesk_500Medium,
+  SpaceGrotesk_600SemiBold, SpaceGrotesk_700Bold,
+} from '@expo-google-fonts/space-grotesk';
 import { useAuth } from '../context/AuthContext';
 import TeacherAvatar from '../components/teacher/TeacherAvatar';
 import { TEACHER_HEADSHOT } from '../components/teacher/teacherIdentity';
 import { SP, R } from '../components/teacher/premiumTheme';
-// App design system — same as AITeacherScreen, StudyInsights and the live classroom.
+// Night palette — the same one AITeacherScreen (this screen's parent) and the
+// Student Home are built on, so "Ask the Material" reads as part of that flow
+// instead of a white sheet dropped into a dark product.
 // The one rule that shapes the colour choices here: HUE LIVES IN GRAPHICS (pills,
-// icons, borders, the sent bubble), TEXT STAYS INK/SUB/MUTED — a 10px emerald
-// "% match" label cannot clear AA on a tinted pill.
-import { S, shadowSm } from '../theme/studentTheme';
-import { F } from './parent/ParentApp/constants';
-import { ChevronLeft, BookOpen, Sparkles, FileText, CircleAlert, Trash2, Check, FileUp, ImagePlus, Camera, X, SquarePen, Layers, ChevronDown, Search, Quote } from 'lucide-react-native';
+// icons, borders, the violet byline bar), TEXT STAYS INK/INKSOFT — a 10px label
+// on a saturated green pill cannot clear AA in white, so it goes dark instead.
+// SpaceGrotesk (NFONT) is loaded by AITeacherScreen before this screen can mount.
+import { N, NFONT } from '../theme/nightTheme';
+import { NightBg } from '../theme/nightChrome';
+import { ChevronLeft, BookOpen, Sparkles, FileText, CircleAlert, Trash2, Check, FileUp, ImagePlus, Camera, X, SquarePen, ChevronDown, Search, Quote, MoreVertical } from 'lucide-react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { Appear, PressableScale } from '../components/teacher/uiKit';
 import DiagramRenderer from '../components/teacher/DiagramRenderer';
@@ -81,6 +89,14 @@ const KnowledgeAskScreen = ({ onBack }) => {
   const { user } = useAuth();
   const isTeacher = user?.role === 'TEACHER' || user?.role === 'ADMIN';
 
+  // The night styles below are set in SpaceGrotesk. AITeacherScreen (the only way
+  // in) has already loaded it, so this resolves instantly — it's here so the screen
+  // still gets its own type if it is ever mounted from somewhere else.
+  useAuroraFonts({
+    SpaceGrotesk_400Regular, SpaceGrotesk_500Medium,
+    SpaceGrotesk_600SemiBold, SpaceGrotesk_700Bold,
+  });
+
   const [tab, setTab] = useState('ask'); // 'ask' | 'manage'
 
   // ── Ask state ──
@@ -89,6 +105,7 @@ const KnowledgeAskScreen = ({ onBack }) => {
   const [docs, setDocs]         = useState([]);   // the user's uploaded documents [{ id, title, subject, status, ready }]
   const [selectedDocs, setSelectedDocs] = useState([]); // [] = ask across ALL my files; else only these
   const [pickerOpen, setPickerOpen] = useState(false);  // material picker sheet
+  const [menuOpen, setMenuOpen]     = useState(false);  // header ⋮ menu (New chat)
   const [question, setQuestion] = useState('');
   const [messages, setMessages] = useState([]); // chat thread: { role:'user'|'assistant', content, grounded?, confidence?, sources? }
   const [asking, setAsking]     = useState(false);
@@ -312,29 +329,29 @@ const KnowledgeAskScreen = ({ onBack }) => {
 
   return (
     <SafeAreaView style={st.safe}>
-      <StatusBar barStyle="dark-content" backgroundColor={S.card} />
-      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.card }} />}
+      <StatusBar barStyle="light-content" backgroundColor={N.bgTop} />
+      <NightBg id="kask" />
+      {Platform.OS === 'android' && <View style={{ height: 24 }} />}
 
       <View style={st.header}>
-        <PressableScale onPress={onBack} style={st.hIcon} accessibilityLabel="Go back"><ChevronLeft size={20} color={S.ink} strokeWidth={2.6} /></PressableScale>
-        <Text style={st.headerTitle} accessibilityRole="header">Ask the Material</Text>
-        {tab === 'ask' && messages.length > 0 ? (
-          <PressableScale onPress={clearChat} style={st.hIcon} accessibilityLabel="New chat">
-            <SquarePen size={17} color={S.indigo} strokeWidth={2.4} />
-          </PressableScale>
-        ) : (
-          <View style={st.hIcon}><BookOpen size={17} color={S.muted} strokeWidth={2.3} /></View>
-        )}
+        <PressableScale onPress={onBack} style={st.hIcon} accessibilityLabel="Go back">
+          <ChevronLeft size={22} color={N.ink} strokeWidth={2.4} />
+        </PressableScale>
+        {/* Centred by flexing the title, not by absolute positioning — the two
+            icon buttons are the same width, so it lands optically centred. */}
+        <Text style={st.headerTitle} numberOfLines={1} accessibilityRole="header">Ask the Material</Text>
+        <PressableScale onPress={() => setMenuOpen(true)} style={st.hIcon} accessibilityLabel="More options">
+          <MoreVertical size={20} color={N.ink} strokeWidth={2.4} />
+        </PressableScale>
       </View>
 
       {/* Tabs are shown to EVERYONE now — students upload their own material and
           ask about it; teachers/admins manage shared class material. */}
       <View style={st.tabs}>
         {['ask', 'manage'].map((t) => (
-          <PressableScale key={t} style={st.tab} onPress={() => setTab(t)}
+          <PressableScale key={t} style={[st.tab, tab === t && st.tabOn]} onPress={() => setTab(t)}
             accessibilityLabel={t === 'ask' ? 'Q and A' : 'My material'} accessibilityState={{ selected: tab === t }}>
-            <Text style={[st.tabTxt, tab === t && st.tabTxtOn]}>{t === 'ask' ? 'Q&A' : (isTeacher ? 'Manage Content' : 'My Material')}</Text>
-            <View style={[st.tabBar, tab === t && st.tabBarOn]} />
+            <Text style={[st.tabTxt, tab === t && st.tabTxtOn]}>{t === 'ask' ? 'Q&A AI' : (isTeacher ? 'Manage Content' : 'My Material')}</Text>
           </PressableScale>
         ))}
       </View>
@@ -369,13 +386,16 @@ const KnowledgeAskScreen = ({ onBack }) => {
                   lives in a sheet and only the current scope shows inline. */}
               {docs.length >= 1 && (
                 <>
-                  <Text style={[st.lbl, { marginTop: 14 }]}>Ask from</Text>
-                  <PressableScale style={st.scopeBtn} onPress={() => setPickerOpen(true)}
-                    accessibilityLabel={`Choose material to ask from. Currently ${scopeLabel}`}>
-                    <View style={st.scopeIcon}><Layers size={15} color={S.indigo} strokeWidth={2.4} /></View>
-                    <Text style={st.scopeTxt} numberOfLines={1}>{scopeLabel}</Text>
-                    <ChevronDown size={16} color={S.muted} strokeWidth={2.4} />
-                  </PressableScale>
+                  {/* Scope reads as one sentence — "ASK FROM · <material>" — with the
+                      material itself as the tappable chip that opens the picker. */}
+                  <View style={st.scopeRow}>
+                    <Text style={st.scopeLbl}>ASK FROM</Text>
+                    <PressableScale style={st.scopeChip} onPress={() => setPickerOpen(true)}
+                      accessibilityLabel={`Choose material to ask from. Currently ${scopeLabel}`}>
+                      <Text style={st.scopeChipTxt} numberOfLines={1}>{scopeLabel}</Text>
+                      <ChevronDown size={13} color={N.ink} strokeWidth={2.8} />
+                    </PressableScale>
+                  </View>
                   {selectedDocs.length > 0 && (
                     <Text style={st.scopeHint} numberOfLines={2}>
                       Sirf in files me se dhoonda jayega — {selectedTitles.join(' · ')}
@@ -387,7 +407,7 @@ const KnowledgeAskScreen = ({ onBack }) => {
               {/* Empty state — what this screen is */}
               {messages.length === 0 && !asking && !askErr && (
                 <View style={st.empty}>
-                  <View style={st.emptyIcon}><BookOpen size={30} color={S.indigo} strokeWidth={2} /></View>
+                  <View style={st.emptyIcon}><BookOpen size={30} color={N.violet} strokeWidth={2} /></View>
                   <Text style={st.emptyTitle}>Ask about your material</Text>
                   <Text style={st.emptyHint}>Upload a PDF or photo in “My Material”, then ask here. It answers only from your uploaded material, and can ask you a quick question back if something’s unclear.</Text>
                 </View>
@@ -428,14 +448,14 @@ const KnowledgeAskScreen = ({ onBack }) => {
 
               {asking && (messages.length === 0 || messages[messages.length - 1].role === 'user') && (
                 <View style={st.thinkRow}>
-                  <ActivityIndicator color={S.indigo} size="small" />
+                  <ActivityIndicator color={N.violet} size="small" />
                   <Text style={st.thinkTxt}>Searching the material…</Text>
                 </View>
               )}
 
               {!!askErr && (
                 <Appear style={st.errCard}>
-                  <CircleAlert size={17} color={S.red} strokeWidth={2.4} />
+                  <CircleAlert size={17} color={N.red} strokeWidth={2.4} />
                   <Text style={st.errTxt}>{askErr}</Text>
                   <PressableScale onPress={handleAsk} accessibilityLabel="Try again"><Text style={st.retryTxt}>Try again</Text></PressableScale>
                 </Appear>
@@ -449,12 +469,12 @@ const KnowledgeAskScreen = ({ onBack }) => {
                 <Image source={{ uri: attachedPhoto.uri }} style={st.attachThumb} resizeMode="cover" />
                 <Text style={st.attachTxt} numberOfLines={2}>Photo lagi hai — neeche likho kaun sa question / kaise chahiye (optional), phir bhejo.</Text>
                 <PressableScale onPress={() => setAttachedPhoto(null)} style={st.attachX} accessibilityLabel="Remove photo" disabled={asking}>
-                  <X size={16} color={S.muted} strokeWidth={2.4} />
+                  <X size={16} color={N.inkSoft} strokeWidth={2.4} />
                 </PressableScale>
               </View>
             )}
 
-            {/* ── Floating ask bar ── */}
+            {/* ── Ask bar — one floating pill: attach · input · send ── */}
             <View style={st.askBar}>
               <PressableScale
                 style={[st.askPhoto, (asking || attachedPhoto) && { opacity: 0.5 }]}
@@ -462,13 +482,13 @@ const KnowledgeAskScreen = ({ onBack }) => {
                 disabled={asking || !!attachedPhoto}
                 accessibilityLabel="Attach a photo of the question"
               >
-                <Camera size={20} color={S.indigo} strokeWidth={2.3} />
+                <Camera size={19} color={N.ink} strokeWidth={2.3} />
               </PressableScale>
               <View style={st.askInputWrap}>
                 <TextInput
                   style={st.askInput}
                   placeholder={attachedPhoto ? 'Kaun sa question / kaise chahiye? (optional)' : 'Ask anything about your files…'}
-                  placeholderTextColor={S.faint}
+                  placeholderTextColor={N.inkDim}
                   value={question}
                   onChangeText={setQuestion}
                   onSubmitEditing={onSend}
@@ -492,6 +512,32 @@ const KnowledgeAskScreen = ({ onBack }) => {
           <ManagePanel />
         )}
       </KeyboardAvoidingView>
+
+      {/* ⋮ menu — holds the actions the header used to expose as bare icons, so the
+          chrome stays two buttons wide no matter how many actions we add. */}
+      <Modal visible={menuOpen} transparent animationType="fade" onRequestClose={() => setMenuOpen(false)}>
+        <Pressable style={st.menuBackdrop} onPress={() => setMenuOpen(false)} accessibilityLabel="Close menu">
+          <View style={st.menuCard}>
+            <PressableScale
+              style={[st.menuItem, (asking || messages.length === 0) && { opacity: 0.45 }]}
+              onPress={() => { setMenuOpen(false); clearChat(); }}
+              disabled={asking || messages.length === 0}
+              accessibilityLabel="Start a new chat"
+            >
+              <SquarePen size={16} color={N.violet} strokeWidth={2.4} />
+              <Text style={st.menuTxt}>New chat</Text>
+            </PressableScale>
+            <PressableScale
+              style={st.menuItem}
+              onPress={() => { setMenuOpen(false); setTab('manage'); }}
+              accessibilityLabel={isTeacher ? 'Manage content' : 'My material'}
+            >
+              <BookOpen size={16} color={N.violet} strokeWidth={2.4} />
+              <Text style={st.menuTxt}>{isTeacher ? 'Manage content' : 'My material'}</Text>
+            </PressableScale>
+          </View>
+        </Pressable>
+      </Modal>
 
       <MaterialPicker
         visible={pickerOpen}
@@ -521,7 +567,6 @@ const MaterialPicker = ({ visible, docs, selected, onApply, onClose }) => {
   const shown = needle
     ? docs.filter((d) => `${d.title} ${d.subject}`.toLowerCase().includes(needle))
     : docs;
-  const readyCount = docs.filter((d) => d.ready).length;
 
   const toggle = (d) => {
     if (!d.ready) return;
@@ -535,30 +580,30 @@ const MaterialPicker = ({ visible, docs, selected, onApply, onClose }) => {
           <View style={st.sheetHead}>
             <Text style={st.sheetTitle}>Select material</Text>
             <PressableScale onPress={onClose} style={st.sheetX} accessibilityLabel="Close">
-              <X size={17} color={S.muted} strokeWidth={2.5} />
+              <X size={16} color={SHEET.ink} strokeWidth={2.4} />
             </PressableScale>
           </View>
 
           <View style={st.searchWrap}>
-            <Search size={16} color={S.muted} strokeWidth={2.4} />
+            <Search size={19} color={SHEET.sub} strokeWidth={2.4} />
             <TextInput
               style={st.searchInput}
               placeholder="Search your uploads…"
-              placeholderTextColor={S.faint}
+              placeholderTextColor={SHEET.sub}
               value={q}
               onChangeText={setQ}
               accessibilityLabel="Search uploaded material"
             />
             {!!q && (
               <PressableScale onPress={() => setQ('')} accessibilityLabel="Clear search">
-                <X size={15} color={S.muted} strokeWidth={2.4} />
+                <X size={16} color={SHEET.sub} strokeWidth={2.4} />
               </PressableScale>
             )}
           </View>
 
           <ScrollView style={st.sheetList} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
             {shown.length === 0 ? (
-              <Text style={st.emptyList}>{docs.length === 0 ? 'No material uploaded yet.' : 'No file matches that search.'}</Text>
+              <Text style={st.sheetEmpty}>{docs.length === 0 ? 'No material uploaded yet.' : 'No file matches that search.'}</Text>
             ) : shown.map((d) => {
               const on = draft.includes(d.id);
               return (
@@ -571,11 +616,11 @@ const MaterialPicker = ({ visible, docs, selected, onApply, onClose }) => {
                   accessibilityState={{ selected: on, disabled: !d.ready }}
                 >
                   <View style={[st.checkBox, on && st.checkBoxOn]}>
-                    {on && <Check size={12} color="#fff" strokeWidth={3.4} />}
+                    {on && <Check size={17} color={N.violet} strokeWidth={3.6} />}
                   </View>
                   <View style={{ flex: 1 }}>
-                    <Text style={st.pickTitle} numberOfLines={1}>{d.title}</Text>
-                    <Text style={st.pickMeta} numberOfLines={1}>
+                    <Text style={[st.pickTitle, on && st.pickTitleOn]} numberOfLines={1}>{d.title}</Text>
+                    <Text style={[st.pickMeta, on && st.pickMetaOn]} numberOfLines={1}>
                       {[d.subject || null, d.ready ? null : (d.status === 'FAILED' ? 'Failed — could not index' : 'Still indexing…')]
                         .filter(Boolean).join(' · ') || 'Ready'}
                     </Text>
@@ -591,7 +636,7 @@ const MaterialPicker = ({ visible, docs, selected, onApply, onClose }) => {
             </PressableScale>
             <PressableScale style={st.sheetApply} onPress={() => onApply(draft)} accessibilityLabel="Apply selection">
               <Text style={st.sheetApplyTxt}>
-                {draft.length === 0 ? 'Done' : `Ask from ${draft.length} of ${readyCount}`}
+                {draft.length === 0 ? 'Done' : `Ask from ${draft.length} file${draft.length > 1 ? 's' : ''}`}
               </Text>
             </PressableScale>
           </View>
@@ -601,11 +646,16 @@ const MaterialPicker = ({ visible, docs, selected, onApply, onClose }) => {
   );
 };
 
-// Ms. Nova's byline above an answer.
-const NovaHead = ({ label = 'Ms. Nova' }) => (
+// Ms. Nova's byline — a violet bar that sits ABOVE the answer card, so who is
+// speaking and how well the material matched read in one glance, separate from
+// the answer itself.
+const NovaHead = ({ label = 'Ms. Nova', role = 'AI Instructor Partner' }) => (
   <View style={st.novaHead}>
-    <TeacherAvatar theme="dark" photo={TEACHER_HEADSHOT} state="idle" expression="smile" size={26} />
-    <Text style={st.novaName}>{label}</Text>
+    <TeacherAvatar theme="dark" photo={TEACHER_HEADSHOT} state="idle" expression="smile" size={38} />
+    <View style={{ flex: 1, minWidth: 0 }}>
+      <Text style={st.novaName} numberOfLines={1}>{label}</Text>
+      <Text style={st.novaRole} numberOfLines={1}>{role}</Text>
+    </View>
   </View>
 );
 
@@ -627,13 +677,13 @@ const SourceRow = ({ s }) => {
         accessibilityLabel={hasSnippet ? `${s.title}. ${open ? 'Hide' : 'Show'} the passage used` : s.title}
         accessibilityState={{ expanded: open }}
       >
-        <View style={st.sourceIcon}><FileText size={15} color={S.blue} strokeWidth={2.3} /></View>
+        <View style={st.sourceIcon}><FileText size={15} color={N.blue} strokeWidth={2.3} /></View>
         <Text style={st.sourceTitle} numberOfLines={2}>{s.title}</Text>
         {typeof s.similarity === 'number' && (
           <View style={st.simPill}><Text style={st.simTxt}>{Math.round(s.similarity * 100)}% match</Text></View>
         )}
         {hasSnippet && (
-          <ChevronDown size={15} color={S.muted} strokeWidth={2.4}
+          <ChevronDown size={15} color={N.inkSoft} strokeWidth={2.4}
             style={open ? { transform: [{ rotate: '180deg' }] } : null} />
         )}
       </PressableScale>
@@ -641,7 +691,7 @@ const SourceRow = ({ s }) => {
       {open && hasSnippet && (
         <View style={st.snippetCard}>
           <View style={st.snippetHead}>
-            <Quote size={11} color={S.muted} strokeWidth={2.6} />
+            <Quote size={11} color={N.inkSoft} strokeWidth={2.6} />
             <Text style={st.snippetHdr}>Isi hisse se answer bana{position ? ` · ${position}` : ''}</Text>
           </View>
           <Text style={st.snippetTxt}>{s.snippet}</Text>
@@ -655,14 +705,16 @@ const SourceRow = ({ s }) => {
 // drawn whiteboard diagram, and optional example / self-check blocks.
 const TeachingView = ({ t, checkHdr = 'Check yourself' }) => (
   <View>
-    {!!t.intro && <Text style={st.answerTxt}>{t.intro}</Text>}
+    {!!t.intro && <View style={st.answerCard}><Text style={st.answerTxt}>{t.intro}</Text></View>}
 
+    {/* Each step is its own card with the number OUTSIDE it, so a long step reads
+        as a block instead of text hanging off a bullet. */}
     {Array.isArray(t.steps) && t.steps.length > 0 && (
       <View style={st.stepsWrap}>
         {t.steps.map((s, i) => (
           <View key={i} style={st.stepRow}>
             <View style={st.stepNum}><Text style={st.stepNumTxt}>{i + 1}</Text></View>
-            <Text style={st.stepTxt}>{s}</Text>
+            <View style={st.stepCard}><Text style={st.stepTxt}>{s}</Text></View>
           </View>
         ))}
       </View>
@@ -670,13 +722,14 @@ const TeachingView = ({ t, checkHdr = 'Check yourself' }) => (
 
     {!!t.formula && (
       <View style={st.formulaCard}>
-        <MathText value={toTex(t.formula)} fontSize={18} color={S.ink} />
+        <MathText value={toTex(t.formula)} fontSize={18} color={N.ink} />
       </View>
     )}
 
+    {/* No `light` — on the night surface the diagram uses its dark-board palette. */}
     {t.diagram ? (
       <View style={st.diagramCard}>
-        <DiagramRenderer bare light shape={t.diagram.shape} caption={t.diagram.caption} data={t.diagram.data} />
+        <DiagramRenderer bare shape={t.diagram.shape} caption={t.diagram.caption} data={t.diagram.data} />
       </View>
     ) : null}
 
@@ -702,7 +755,7 @@ const QuizCard = ({ t }) => {
   const [show, setShow] = useState(false);
   return (
     <View>
-      {!!t.intro && <Text style={st.answerTxt}>{t.intro}</Text>}
+      {!!t.intro && <View style={st.answerCard}><Text style={st.answerTxt}>{t.intro}</Text></View>}
       {!!t.quickCheck && (show ? (
         <View style={st.checkCard}>
           <Text style={st.blockHdr}>Answer</Text>
@@ -726,9 +779,14 @@ const AssistantMessage = ({ m, onExtend }) => {
   const gaps = (t && Array.isArray(t.gaps) && !m.isQuiz) ? t.gaps.filter((g) => GAP_META[g]) : [];
 
   return (
-    <Appear style={[st.answerCard, !grounded && st.answerCardEmpty, beyond && st.answerCardBeyond]}>
-      <View style={st.answerHead}>
-        <NovaHead label={grounded ? 'Ms. Nova' : 'Not found'} />
+    <Appear style={st.answerWrap}>
+      {/* Byline bar — violet when the answer is grounded in the student's own
+          material, amber when the material simply doesn't cover the question. */}
+      <View style={[st.answerHead, !grounded && st.answerHeadEmpty, beyond && st.answerHeadBeyond]}>
+        <NovaHead
+          label={grounded ? 'Ms. Nova' : 'Not found'}
+          role={grounded ? 'AI Instructor Partner' : 'Not in your material'}
+        />
         {grounded && !beyond && typeof m.confidence === 'number' && (
           <View style={st.confPill}>
             <Text style={st.confTxt}>{Math.round(m.confidence * 100)}% match</Text>
@@ -738,14 +796,14 @@ const AssistantMessage = ({ m, onExtend }) => {
 
       {beyond && (
         <View style={st.beyondBadge}>
-          <Sparkles size={12} color={S.orange} strokeWidth={2.6} />
+          <Sparkles size={12} color={N.amber} strokeWidth={2.6} />
           <Text style={st.beyondTxt}>Aapki book se bahar · general knowledge</Text>
         </View>
       )}
 
       {m.fromPhoto && (
         <View style={st.photoBadge}>
-          <Camera size={12} color={S.indigo} strokeWidth={2.6} />
+          <Camera size={12} color={N.violet} strokeWidth={2.6} />
           <Text style={st.photoBadgeTxt}>Photo se solve kiya</Text>
         </View>
       )}
@@ -754,7 +812,11 @@ const AssistantMessage = ({ m, onExtend }) => {
         ? (m.isQuiz
             ? <QuizCard t={t} />
             : <TeachingView t={t} checkHdr={m.fromPhoto ? 'Final answer' : 'Check yourself'} />)
-        : <Text style={st.answerTxt}>{m.content || 'This topic is not covered in the uploaded learning material.'}</Text>}
+        : (
+          <View style={[st.answerCard, !grounded && st.answerCardEmpty]}>
+            <Text style={st.answerTxt}>{m.content || 'This topic is not covered in the uploaded learning material.'}</Text>
+          </View>
+        )}
 
       {grounded && Array.isArray(m.sources) && m.sources.length > 0 && (
         <View style={st.sourceBox}>
@@ -928,42 +990,42 @@ const ManagePanel = () => {
       {/* ── Quick upload: PDF / photo / camera ── */}
       <View style={st.uploadRow}>
         <PressableScale style={[st.upBtn, saving && { opacity: 0.5 }]} onPress={pickPdf} disabled={saving} accessibilityLabel="Upload a PDF">
-          <FileUp size={20} color={S.indigo} strokeWidth={2.3} />
+          <FileUp size={20} color={N.violet} strokeWidth={2.3} />
           <Text style={st.upTxt}>PDF</Text>
         </PressableScale>
         <PressableScale style={[st.upBtn, saving && { opacity: 0.5 }]} onPress={pickPhoto} disabled={saving} accessibilityLabel="Upload a photo">
-          <ImagePlus size={20} color={S.indigo} strokeWidth={2.3} />
+          <ImagePlus size={20} color={N.violet} strokeWidth={2.3} />
           <Text style={st.upTxt}>Photo</Text>
         </PressableScale>
         <PressableScale style={[st.upBtn, saving && { opacity: 0.5 }]} onPress={takePhoto} disabled={saving} accessibilityLabel="Take a photo">
-          <Camera size={20} color={S.indigo} strokeWidth={2.3} />
+          <Camera size={20} color={N.violet} strokeWidth={2.3} />
           <Text style={st.upTxt}>Camera</Text>
         </PressableScale>
       </View>
 
       {saving && (
         <View style={st.busyRow}>
-          <ActivityIndicator color={S.indigo} size="small" />
+          <ActivityIndicator color={N.violet} size="small" />
           <Text style={st.busyTxt}>Reading &amp; indexing… this can take a few seconds.</Text>
         </View>
       )}
-      {!!msg && <View style={st.okRow}><Check size={14} color={S.emerald} strokeWidth={3} /><Text style={st.ok}>{msg}</Text></View>}
+      {!!msg && <View style={st.okRow}><Check size={14} color={N.green} strokeWidth={3} /><Text style={st.ok}>{msg}</Text></View>}
       {!!err && <Text style={st.err}>{err}</Text>}
 
       <Text style={st.orLbl}>OR PASTE TEXT</Text>
 
       <View style={st.formCard}>
         <Text style={st.lbl}>Title</Text>
-        <TextInput style={st.inputSm} placeholder="e.g. Chapter 3 — Laws of Motion" placeholderTextColor={S.faint} value={title} onChangeText={setTitle} editable={!saving} />
+        <TextInput style={st.inputSm} placeholder="e.g. Chapter 3 — Laws of Motion" placeholderTextColor={N.inkDim} value={title} onChangeText={setTitle} editable={!saving} />
 
         <View style={st.row2}>
           <View style={{ flex: 1 }}>
             <Text style={st.lbl}>Subject</Text>
-            <TextInput style={st.inputSm} placeholder="Physics" placeholderTextColor={S.faint} value={subject} onChangeText={setSubject} editable={!saving} />
+            <TextInput style={st.inputSm} placeholder="Physics" placeholderTextColor={N.inkDim} value={subject} onChangeText={setSubject} editable={!saving} />
           </View>
           <View style={{ flex: 1 }}>
             <Text style={st.lbl}>Grade</Text>
-            <TextInput style={st.inputSm} placeholder="8" placeholderTextColor={S.faint} value={gradeLevel} onChangeText={setGrade} editable={!saving} />
+            <TextInput style={st.inputSm} placeholder="8" placeholderTextColor={N.inkDim} value={gradeLevel} onChangeText={setGrade} editable={!saving} />
           </View>
         </View>
 
@@ -971,7 +1033,7 @@ const ManagePanel = () => {
         <TextInput
           style={st.textArea}
           placeholder="Paste the learning material here…"
-          placeholderTextColor={S.faint}
+          placeholderTextColor={N.inkDim}
           value={text}
           onChangeText={setText}
           multiline
@@ -992,13 +1054,13 @@ const ManagePanel = () => {
 
       <Text style={[st.lbl, { marginTop: 26 }]}>Uploaded content</Text>
       {loadingList ? (
-        <ActivityIndicator color={S.indigo} style={{ marginTop: 16 }} />
+        <ActivityIndicator color={N.violet} style={{ marginTop: 16 }} />
       ) : sources.length === 0 ? (
         <Text style={st.emptyList}>No material uploaded yet.</Text>
       ) : (
         sources.map((s) => (
           <View key={s.id} style={st.srcItem}>
-            <View style={st.sourceIcon}><FileText size={15} color={S.blue} strokeWidth={2.3} /></View>
+            <View style={st.sourceIcon}><FileText size={15} color={N.blue} strokeWidth={2.3} /></View>
             <View style={{ flex: 1 }}>
               <Text style={st.srcTitle} numberOfLines={1}>{s.title}</Text>
               <Text style={st.srcMeta}>
@@ -1007,7 +1069,7 @@ const ManagePanel = () => {
               </Text>
             </View>
             <PressableScale onPress={() => handleDelete(s.id)} style={st.delBtn} accessibilityLabel={`Delete ${s.title}`}>
-              <Trash2 size={13} color={S.red} strokeWidth={2.4} />
+              <Trash2 size={13} color={N.red} strokeWidth={2.4} />
               <Text style={st.delTxt}>Delete</Text>
             </PressableScale>
           </View>
@@ -1018,194 +1080,219 @@ const ManagePanel = () => {
 };
 
 
+// Cards float off the night background with a soft black drop, not a coloured one —
+// a violet shadow on a violet page just reads as blur.
+const lift = { shadowColor: '#05030F', shadowOpacity: 0.38, shadowRadius: 18, shadowOffset: { width: 0, height: 10 }, elevation: 7 };
+
+// The material picker is the ONE light surface in this screen. That is deliberate:
+// it is a decision sheet lifted off a dimmed page, and white makes the file list —
+// the thing being chosen — the brightest object on screen. Its own small palette,
+// so nothing here leaks into the night styles below.
+const SHEET = {
+  bg:    '#FFFFFF',
+  ink:   '#0B0A1F',
+  sub:   '#8A8A96',
+  field: '#E8E8EC',
+  row:   '#F2F2F5',
+  edge:  '#DCDCE3',
+};
+
 const st = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: S.canvas },
+  safe: { flex: 1, backgroundColor: N.bg },
 
-  header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: SP.md, paddingVertical: 12, backgroundColor: S.card, borderBottomWidth: 1, borderBottomColor: S.hair },
-  hIcon: { width: 38, height: 38, borderRadius: 19, backgroundColor: S.canvas, alignItems: 'center', justifyContent: 'center' },
-  headerTitle: { fontSize: 16, fontFamily: F.xbold, color: S.ink, letterSpacing: -0.2 },
+  // ── chrome: back · ⋮ ──
+  header: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: SP.lg, paddingTop: 6, paddingBottom: 4 },
+  hIcon: { width: 44, height: 44, borderRadius: 22, backgroundColor: N.card, borderWidth: 1, borderColor: N.cardEdge, alignItems: 'center', justifyContent: 'center' },
+  headerTitle: { flex: 1, textAlign: 'center', fontSize: 19, fontFamily: NFONT.bold, color: N.ink, letterSpacing: -0.4 },
 
-  // underline tabs
-  tabs: { flexDirection: 'row', gap: 22, paddingHorizontal: SP.lg, backgroundColor: S.card, borderBottomWidth: 1, borderBottomColor: S.hair },
-  tab: { paddingTop: 12, alignItems: 'center' },
-  tabTxt: { fontSize: 13.5, fontFamily: F.bold, color: S.muted, paddingBottom: 10 },
-  tabTxtOn: { color: S.indigo, fontFamily: F.xbold },
-  tabBar: { height: 2, alignSelf: 'stretch', backgroundColor: 'transparent', borderRadius: 2 },
-  tabBarOn: { backgroundColor: S.indigo },
+  // ⋮ menu
+  menuBackdrop: { flex: 1, backgroundColor: 'rgba(6,4,20,0.55)', alignItems: 'flex-end', paddingRight: SP.lg, paddingTop: Platform.OS === 'ios' ? 96 : 78 },
+  menuCard: { minWidth: 196, backgroundColor: N.card, borderRadius: 16, borderWidth: 1, borderColor: N.cardEdge, paddingVertical: 6, ...lift },
+  menuItem: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 12, paddingHorizontal: 14 },
+  menuTxt: { fontSize: 14, fontFamily: NFONT.semi, color: N.ink },
 
-  body: { padding: SP.lg, paddingBottom: 24, flexGrow: 1 },
-  q: { fontSize: 21, fontFamily: F.black, color: S.ink, letterSpacing: -0.4 },
-  hint: { fontSize: 13, fontFamily: F.med, color: S.muted, marginTop: 6, marginBottom: 18, lineHeight: 19 },
-  lbl: { fontSize: 10.5, fontFamily: F.xbold, color: S.muted, letterSpacing: 1.1, textTransform: 'uppercase', marginBottom: 10 },
+  // ── segmented tabs (Q&A AI · My Material) ──
+  tabs: { flexDirection: 'row', gap: 6, marginHorizontal: SP.lg, marginTop: 10, padding: 5, borderRadius: 30, backgroundColor: 'rgba(10,8,26,0.55)', borderWidth: 1, borderColor: N.cardEdge },
+  tab: { flex: 1, height: 48, borderRadius: 26, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 8 },
+  tabOn: { backgroundColor: N.violet },
+  tabTxt: { fontSize: 15, fontFamily: NFONT.semi, color: N.inkSoft },
+  tabTxtOn: { color: N.ink, fontFamily: NFONT.bold },
+
+  body: { padding: SP.lg, paddingBottom: 20, flexGrow: 1 },
+  q: { fontSize: 21, fontFamily: NFONT.bold, color: N.ink, letterSpacing: -0.4 },
+  hint: { fontSize: 13, fontFamily: NFONT.reg, color: N.inkSoft, marginTop: 6, marginBottom: 18, lineHeight: 20 },
+  lbl: { fontSize: 10.5, fontFamily: NFONT.bold, color: N.inkDim, letterSpacing: 1.3, textTransform: 'uppercase', marginBottom: 10 },
 
   chipRow: { gap: 8, paddingVertical: 2, paddingRight: SP.lg },
-  chip: { paddingVertical: 9, paddingHorizontal: 16, borderRadius: R.pill, borderWidth: 1, borderColor: S.border, backgroundColor: S.card },
-  chipOn: { backgroundColor: S.indigo, borderColor: S.indigo },
-  chipTxt: { fontSize: 13, fontFamily: F.bold, color: S.sub },
-  chipTxtOn: { color: '#fff' },
+  chip: { paddingVertical: 9, paddingHorizontal: 16, borderRadius: R.pill, borderWidth: 1, borderColor: N.cardEdge, backgroundColor: N.cardSoft },
+  chipOn: { backgroundColor: N.violet, borderColor: N.violet },
+  chipTxt: { fontSize: 13, fontFamily: NFONT.semi, color: N.inkSoft },
+  chipTxtOn: { color: N.ink, fontFamily: NFONT.bold },
 
-  // ask-from scope button (opens the material picker sheet)
-  scopeBtn: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: S.card, borderWidth: 1, borderColor: S.border, borderRadius: R.md, paddingVertical: 11, paddingHorizontal: 12 },
-  scopeIcon: { width: 28, height: 28, borderRadius: 9, backgroundColor: S.indigoSoft, alignItems: 'center', justifyContent: 'center' },
-  scopeTxt: { flex: 1, fontSize: 13.5, fontFamily: F.bold, color: S.ink },
-  scopeHint: { fontSize: 11.5, fontFamily: F.med, color: S.muted, marginTop: 7, lineHeight: 17 },
+  // ── "ASK FROM <material>" — label + the tappable scope chip ──
+  scopeRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 4 },
+  scopeLbl: { fontSize: 11, fontFamily: NFONT.bold, color: N.inkDim, letterSpacing: 1.4 },
+  scopeChip: { flexDirection: 'row', alignItems: 'center', gap: 6, flexShrink: 1, backgroundColor: N.violet, borderRadius: R.pill, paddingVertical: 7, paddingHorizontal: 13 },
+  scopeChipTxt: { flexShrink: 1, fontSize: 13, fontFamily: NFONT.bold, color: N.ink },
+  scopeHint: { fontSize: 11.5, fontFamily: NFONT.reg, color: N.inkSoft, marginTop: 8, lineHeight: 17 },
 
-  // material picker sheet
-  sheetBackdrop: { flex: 1, backgroundColor: 'rgba(15,17,26,0.45)', justifyContent: 'flex-end' },
-  sheet: { backgroundColor: S.card, borderTopLeftRadius: 24, borderTopRightRadius: 24, paddingTop: 16, paddingBottom: Platform.OS === 'ios' ? 30 : 16, maxHeight: '82%' },
-  sheetHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: SP.lg, marginBottom: 14 },
-  sheetTitle: { fontSize: 17, fontFamily: F.xbold, color: S.ink, letterSpacing: -0.3 },
-  sheetX: { width: 34, height: 34, borderRadius: 17, backgroundColor: S.canvas, alignItems: 'center', justifyContent: 'center' },
-  searchWrap: { flexDirection: 'row', alignItems: 'center', gap: 9, marginHorizontal: SP.lg, backgroundColor: S.canvas, borderWidth: 1, borderColor: S.hair, borderRadius: R.md, paddingHorizontal: 12, height: 44 },
-  searchInput: { flex: 1, fontSize: 14, fontFamily: F.med, color: S.ink, paddingVertical: 0 },
-  sheetList: { paddingHorizontal: SP.lg, marginTop: 12 },
-  pickRow: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: S.canvas, borderWidth: 1, borderColor: S.hair, borderRadius: R.md, padding: 12, marginBottom: 8 },
-  pickRowOn: { borderColor: S.indigo, backgroundColor: S.indigoSoft },
-  checkBox: { width: 20, height: 20, borderRadius: 6, borderWidth: 1.6, borderColor: S.border, backgroundColor: S.card, alignItems: 'center', justifyContent: 'center' },
-  checkBoxOn: { backgroundColor: S.indigo, borderColor: S.indigo },
-  pickTitle: { fontSize: 13.5, fontFamily: F.bold, color: S.ink },
-  pickMeta: { fontSize: 11, fontFamily: F.med, color: S.muted, marginTop: 3 },
-  sheetFoot: { flexDirection: 'row', gap: 10, paddingHorizontal: SP.lg, paddingTop: 14, borderTopWidth: 1, borderTopColor: S.hair, marginTop: 8 },
-  sheetGhost: { paddingVertical: 14, paddingHorizontal: 18, borderRadius: R.md, borderWidth: 1, borderColor: S.border, backgroundColor: S.card, alignItems: 'center', justifyContent: 'center' },
-  sheetGhostTxt: { fontSize: 13.5, fontFamily: F.bold, color: S.sub },
-  sheetApply: { flex: 1, paddingVertical: 14, borderRadius: R.md, backgroundColor: S.indigo, alignItems: 'center', justifyContent: 'center', ...shadowSm },
-  sheetApplyTxt: { fontSize: 14, fontFamily: F.bold, color: '#fff', letterSpacing: -0.2 },
+  // ── material picker sheet (light — see SHEET above) ──
+  sheetBackdrop: { flex: 1, backgroundColor: 'rgba(4,3,14,0.66)', justifyContent: 'flex-end' },
+  sheet: { backgroundColor: SHEET.bg, borderTopLeftRadius: 28, borderTopRightRadius: 28, paddingTop: 26, paddingBottom: Platform.OS === 'ios' ? 34 : 20, maxHeight: '82%' },
+  sheetHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 22, marginBottom: 18 },
+  sheetTitle: { fontSize: 25, fontFamily: NFONT.bold, color: SHEET.ink, letterSpacing: -0.7 },
+  sheetX: { width: 32, height: 32, borderRadius: 16, borderWidth: 1.5, borderColor: SHEET.ink, alignItems: 'center', justifyContent: 'center' },
+  searchWrap: { flexDirection: 'row', alignItems: 'center', gap: 10, marginHorizontal: 22, backgroundColor: SHEET.field, borderWidth: 1, borderColor: SHEET.edge, borderRadius: R.pill, paddingHorizontal: 18, height: 54 },
+  searchInput: { flex: 1, fontSize: 16, fontFamily: NFONT.reg, color: SHEET.ink, paddingVertical: 0 },
+  sheetList: { paddingHorizontal: 22, marginTop: 16 },
+  pickRow: { flexDirection: 'row', alignItems: 'center', gap: 14, backgroundColor: SHEET.row, borderRadius: 16, paddingVertical: 15, paddingHorizontal: 16, marginBottom: 10 },
+  pickRowOn: { backgroundColor: N.violet },
+  // White box + violet tick on the selected (violet) row, so the checkbox stays
+  // legible instead of disappearing into the fill.
+  checkBox: { width: 30, height: 30, borderRadius: 9, borderWidth: 1.6, borderColor: SHEET.edge, backgroundColor: SHEET.bg, alignItems: 'center', justifyContent: 'center' },
+  checkBoxOn: { borderColor: SHEET.bg },
+  pickTitle: { fontSize: 16.5, fontFamily: NFONT.bold, color: SHEET.ink, letterSpacing: -0.3 },
+  pickTitleOn: { color: '#FFFFFF' },
+  pickMeta: { fontSize: 13, fontFamily: NFONT.semi, color: SHEET.sub, marginTop: 2 },
+  pickMetaOn: { color: 'rgba(255,255,255,0.92)' },
+  sheetFoot: { flexDirection: 'row', gap: 12, paddingHorizontal: 22, paddingTop: 16, marginTop: 4 },
+  sheetGhost: { height: 56, paddingHorizontal: 26, borderRadius: R.pill, backgroundColor: SHEET.field, alignItems: 'center', justifyContent: 'center' },
+  sheetGhostTxt: { fontSize: 16, fontFamily: NFONT.semi, color: SHEET.ink, letterSpacing: -0.3 },
+  sheetApply: { flex: 1, height: 56, borderRadius: R.pill, backgroundColor: N.violet, alignItems: 'center', justifyContent: 'center' },
+  sheetApplyTxt: { fontSize: 16, fontFamily: NFONT.bold, color: '#FFFFFF', letterSpacing: -0.3 },
+  sheetEmpty: { fontSize: 14, fontFamily: NFONT.reg, color: SHEET.sub, textAlign: 'center', paddingVertical: 22 },
 
-  // empty state
-  empty: { alignItems: 'center', paddingVertical: 48, paddingHorizontal: SP.lg },
-  emptyIcon: { width: 64, height: 64, borderRadius: 22, backgroundColor: S.indigoSoft, alignItems: 'center', justifyContent: 'center', marginBottom: SP.md },
-  emptyTitle: { fontSize: 17, fontFamily: F.xbold, color: S.ink },
-  emptyHint: { fontSize: 13, fontFamily: F.med, color: S.muted, textAlign: 'center', lineHeight: 20, marginTop: 6, maxWidth: 280 },
+  // ── empty state ──
+  empty: { alignItems: 'center', paddingVertical: 44, paddingHorizontal: SP.lg },
+  emptyIcon: { width: 64, height: 64, borderRadius: 22, backgroundColor: N.violetSoft, borderWidth: 1, borderColor: N.cardEdge, alignItems: 'center', justifyContent: 'center', marginBottom: SP.md },
+  emptyTitle: { fontSize: 17, fontFamily: NFONT.bold, color: N.ink },
+  emptyHint: { fontSize: 13, fontFamily: NFONT.reg, color: N.inkSoft, textAlign: 'center', lineHeight: 20, marginTop: 6, maxWidth: 290 },
 
-  // chat bubbles — the sent question is the one saturated surface on the page
-  userRow: { alignItems: 'flex-end', marginTop: SP.lg },
-  userBubble: { maxWidth: '88%', backgroundColor: S.indigo, borderRadius: R.xl, borderTopRightRadius: 6, paddingVertical: 12, paddingHorizontal: 16, ...shadowSm },
-  userTxt: { color: '#fff', fontSize: 14, fontFamily: F.med, lineHeight: 21 },
-  // photographed question shown as the student's turn
-  userPhotoBubble: { maxWidth: '72%', backgroundColor: S.indigo, borderRadius: R.xl, borderTopRightRadius: 6, padding: 5, ...shadowSm },
-  userPhoto: { width: 190, height: 150, borderRadius: R.lg, backgroundColor: S.canvas },
-  userPhotoCap: { color: '#fff', fontSize: 11.5, fontFamily: F.bold, textAlign: 'center', paddingVertical: 6 },
+  // ── the student's turn: a full-width card, same surface as the answer ──
+  userRow: { marginTop: 18 },
+  userBubble: { backgroundColor: N.card, borderRadius: 18, borderWidth: 1, borderColor: N.cardEdge, paddingVertical: 15, paddingHorizontal: 18 },
+  userTxt: { color: N.ink, fontSize: 15.5, fontFamily: NFONT.med, lineHeight: 24 },
+  userPhotoBubble: { alignSelf: 'flex-start', backgroundColor: N.card, borderRadius: 18, borderWidth: 1, borderColor: N.cardEdge, padding: 6 },
+  userPhoto: { width: 190, height: 150, borderRadius: 13, backgroundColor: N.cardSoft },
+  userPhotoCap: { color: N.ink, fontSize: 12, fontFamily: NFONT.semi, textAlign: 'center', paddingVertical: 7 },
 
-  thinkRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: SP.lg },
-  thinkTxt: { fontSize: 13, fontFamily: F.bold, color: S.sub },
+  thinkRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 18 },
+  thinkTxt: { fontSize: 13, fontFamily: NFONT.semi, color: N.inkSoft },
 
   // one-tap follow-up chips under the latest answer
   followRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: 12 },
-  followChip: { paddingVertical: 8, paddingHorizontal: 14, borderRadius: R.pill, borderWidth: 1, borderColor: S.indigo, backgroundColor: S.indigoSoft },
-  followTxt: { fontSize: 12.5, fontFamily: F.bold, color: S.indigo },
+  followChip: { paddingVertical: 9, paddingHorizontal: 15, borderRadius: R.pill, borderWidth: 1, borderColor: N.violet, backgroundColor: N.violetSoft },
+  followTxt: { fontSize: 12.5, fontFamily: NFONT.semi, color: N.dot },
 
-  novaWrap: { marginTop: SP.lg },
-  novaHead: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 10 },
-  novaName: { fontSize: 12, fontFamily: F.xbold, color: S.indigo },
-
-  // answer
-  answerCard: { marginTop: SP.lg, backgroundColor: S.card, borderRadius: R.xl, borderTopLeftRadius: 6, borderWidth: 1, borderColor: S.hair, padding: 18, ...shadowSm },
+  // ── answer: violet byline bar, then a stack of dark cards ──
+  answerWrap: { marginTop: 18 },
+  answerHead: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: N.violet, borderRadius: 20, paddingVertical: 10, paddingHorizontal: 12, ...lift },
   // a refusal ("not in your material") is a state, not an error — amber, not red
-  answerCardEmpty: { backgroundColor: S.orangeSoft, borderColor: S.orange },
-  answerHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 },
-  confPill: { backgroundColor: S.emeraldSoft, borderWidth: 1, borderColor: S.emerald, borderRadius: 9, paddingVertical: 3, paddingHorizontal: 9 },
-  confTxt: { fontSize: 10.5, fontFamily: F.xbold, color: S.sub },
-  answerTxt: { fontSize: 14.5, fontFamily: F.med, color: S.sub, lineHeight: 23 },
-  noContentHint: { fontSize: 13, fontFamily: F.med, color: S.sub, marginTop: 10, lineHeight: 19 },
+  answerHeadEmpty: { backgroundColor: N.amberSoft, borderWidth: 1, borderColor: N.amber },
+  answerHeadBeyond: { backgroundColor: N.violetLo },
+  novaHead: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 11, minWidth: 0 },
+  novaName: { fontSize: 15.5, fontFamily: NFONT.bold, color: N.ink, letterSpacing: -0.2 },
+  novaRole: { fontSize: 11.5, fontFamily: NFONT.reg, color: 'rgba(255,255,255,0.78)', marginTop: 1 },
+  // Solid green reads as "matched" at a glance; the label goes near-black because
+  // 10px white on #35BE7C does not clear AA.
+  confPill: { backgroundColor: N.green, borderRadius: 10, paddingVertical: 5, paddingHorizontal: 10 },
+  confTxt: { fontSize: 11, fontFamily: NFONT.bold, color: '#06281A' },
 
-  // extended (general-knowledge) answers get an amber left accent + badge, so a
-  // student can always tell book-content from beyond-the-book content at a glance.
-  answerCardBeyond: { borderColor: S.orange, borderLeftWidth: 3 },
-  beyondBadge: { flexDirection: 'row', alignItems: 'center', gap: 6, alignSelf: 'flex-start', backgroundColor: S.orangeSoft, borderWidth: 1, borderColor: S.orange, borderRadius: R.pill, paddingVertical: 4, paddingHorizontal: 10, marginBottom: 12 },
-  beyondTxt: { fontSize: 10.5, fontFamily: F.xbold, color: S.ink, letterSpacing: 0.1 },
-  photoBadge: { flexDirection: 'row', alignItems: 'center', gap: 6, alignSelf: 'flex-start', backgroundColor: S.indigoSoft, borderWidth: 1, borderColor: S.indigo, borderRadius: R.pill, paddingVertical: 4, paddingHorizontal: 10, marginBottom: 12 },
-  photoBadgeTxt: { fontSize: 10.5, fontFamily: F.xbold, color: S.indigo, letterSpacing: 0.1 },
+  answerCard: { marginTop: 12, backgroundColor: N.card, borderRadius: 20, borderWidth: 1, borderColor: N.cardEdge, padding: 18 },
+  answerCardEmpty: { borderColor: N.amber },
+  answerTxt: { fontSize: 15, fontFamily: NFONT.reg, color: N.ink, lineHeight: 25 },
+  noContentHint: { fontSize: 13, fontFamily: NFONT.reg, color: N.inkSoft, marginTop: 12, lineHeight: 20 },
 
-  // numbered teaching steps
-  stepsWrap: { marginTop: 14, gap: 10 },
-  stepRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10 },
-  stepNum: { width: 22, height: 22, borderRadius: 11, backgroundColor: S.indigoSoft, alignItems: 'center', justifyContent: 'center', marginTop: 1 },
-  stepNumTxt: { fontSize: 11, fontFamily: F.xbold, color: S.indigo },
-  stepTxt: { flex: 1, fontSize: 14, fontFamily: F.med, color: S.sub, lineHeight: 21 },
+  // extended (general-knowledge) answers get an amber badge, so a student can
+  // always tell book-content from beyond-the-book content at a glance.
+  beyondBadge: { flexDirection: 'row', alignItems: 'center', gap: 6, alignSelf: 'flex-start', backgroundColor: N.amberSoft, borderWidth: 1, borderColor: N.amber, borderRadius: R.pill, paddingVertical: 5, paddingHorizontal: 11, marginTop: 12 },
+  beyondTxt: { fontSize: 11, fontFamily: NFONT.semi, color: N.ink, letterSpacing: 0.1 },
+  photoBadge: { flexDirection: 'row', alignItems: 'center', gap: 6, alignSelf: 'flex-start', backgroundColor: N.violetSoft, borderWidth: 1, borderColor: N.violet, borderRadius: R.pill, paddingVertical: 5, paddingHorizontal: 11, marginTop: 12 },
+  photoBadgeTxt: { fontSize: 11, fontFamily: NFONT.semi, color: N.dot, letterSpacing: 0.1 },
 
-  // rendered formula
-  formulaCard: { marginTop: 14, backgroundColor: S.canvas, borderWidth: 1, borderColor: S.hair, borderRadius: R.md, paddingVertical: 14, paddingHorizontal: 16, alignItems: 'center' },
+  // numbered teaching steps — number badge outside its own card
+  stepsWrap: { marginTop: 14, gap: 12 },
+  stepRow: { flexDirection: 'row', alignItems: 'center', gap: 12 },
+  stepNum: { width: 30, height: 30, borderRadius: 15, backgroundColor: N.violet, alignItems: 'center', justifyContent: 'center' },
+  stepNumTxt: { fontSize: 13, fontFamily: NFONT.bold, color: N.ink },
+  stepCard: { flex: 1, backgroundColor: N.card, borderRadius: 16, borderWidth: 1, borderColor: N.cardEdge, paddingVertical: 14, paddingHorizontal: 16 },
+  stepTxt: { fontSize: 14, fontFamily: NFONT.reg, color: N.ink, lineHeight: 22 },
 
-  // drawn whiteboard diagram
-  diagramCard: { marginTop: 14, backgroundColor: S.card, borderWidth: 1, borderColor: S.hair, borderRadius: R.md, paddingVertical: 12 },
+  formulaCard: { marginTop: 14, backgroundColor: N.cardSoft, borderWidth: 1, borderColor: N.cardEdge, borderRadius: 16, paddingVertical: 14, paddingHorizontal: 16, alignItems: 'center' },
+  diagramCard: { marginTop: 14, backgroundColor: '#12102E', borderWidth: 1, borderColor: N.cardEdge, borderRadius: 16, paddingVertical: 12 },
 
-  // example / self-check blocks
-  exampleCard: { marginTop: 14, backgroundColor: S.blueSoft, borderRadius: R.md, padding: 14 },
-  checkCard: { marginTop: 14, backgroundColor: S.indigoSoft, borderRadius: R.md, padding: 14 },
-  blockHdr: { fontSize: 10, fontFamily: F.xbold, color: S.muted, letterSpacing: 1, textTransform: 'uppercase', marginBottom: 6 },
-  blockTxt: { fontSize: 14, fontFamily: F.med, color: S.sub, lineHeight: 21 },
+  exampleCard: { marginTop: 14, backgroundColor: N.blueSoft, borderWidth: 1, borderColor: 'rgba(91,140,255,0.34)', borderRadius: 16, padding: 15 },
+  checkCard: { marginTop: 14, backgroundColor: N.violetSoft, borderWidth: 1, borderColor: 'rgba(139,110,240,0.38)', borderRadius: 16, padding: 15 },
+  blockHdr: { fontSize: 10.5, fontFamily: NFONT.bold, color: N.inkSoft, letterSpacing: 1.1, textTransform: 'uppercase', marginBottom: 7 },
+  blockTxt: { fontSize: 14, fontFamily: NFONT.reg, color: N.ink, lineHeight: 22 },
 
-  // quiz "show answer"
-  showAnsBtn: { alignSelf: 'flex-start', marginTop: 12, paddingVertical: 8, paddingHorizontal: 16, borderRadius: R.pill, borderWidth: 1, borderColor: S.indigo, backgroundColor: S.indigoSoft },
-  showAnsTxt: { fontSize: 12.5, fontFamily: F.bold, color: S.indigo },
+  showAnsBtn: { alignSelf: 'flex-start', marginTop: 12, paddingVertical: 9, paddingHorizontal: 16, borderRadius: R.pill, borderWidth: 1, borderColor: N.violet, backgroundColor: N.violetSoft },
+  showAnsTxt: { fontSize: 12.5, fontFamily: NFONT.semi, color: N.dot },
 
   // on-demand gap chips
-  gapWrap: { marginTop: 16, borderTopWidth: 1, borderTopColor: S.hair, paddingTop: 12 },
-  gapHdr: { fontSize: 11, fontFamily: F.bold, color: S.muted, marginBottom: 8 },
-  gapChip: { paddingVertical: 8, paddingHorizontal: 14, borderRadius: R.pill, borderWidth: 1, borderColor: S.orange, backgroundColor: S.orangeSoft },
-  gapChipTxt: { fontSize: 12.5, fontFamily: F.bold, color: S.ink },
+  gapWrap: { marginTop: 14, backgroundColor: N.card, borderRadius: 18, borderWidth: 1, borderColor: N.cardEdge, padding: 14 },
+  gapHdr: { fontSize: 12, fontFamily: NFONT.semi, color: N.inkSoft, marginBottom: 4 },
+  gapChip: { paddingVertical: 9, paddingHorizontal: 14, borderRadius: R.pill, borderWidth: 1, borderColor: N.amber, backgroundColor: N.amberSoft },
+  gapChipTxt: { fontSize: 12.5, fontFamily: NFONT.semi, color: N.ink },
 
   // sources
-  sourceCard: { marginTop: 14, backgroundColor: S.card, borderRadius: R.lg, borderWidth: 1, borderColor: S.hair, padding: 16 },
-  sourceBox: { marginTop: 16, borderTopWidth: 1, borderTopColor: S.hair, paddingTop: 12 },
-  sourceHdr: { fontSize: 10, fontFamily: F.xbold, color: S.muted, letterSpacing: 1, textTransform: 'uppercase', marginBottom: 10 },
+  sourceBox: { marginTop: 14, backgroundColor: N.card, borderRadius: 18, borderWidth: 1, borderColor: N.cardEdge, padding: 14 },
+  sourceHdr: { fontSize: 10.5, fontFamily: NFONT.bold, color: N.inkSoft, letterSpacing: 1.1, textTransform: 'uppercase', marginBottom: 10 },
   sourceItem: { marginBottom: 8 },
-  sourceRow: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: S.canvas, borderWidth: 1, borderColor: S.hair, borderRadius: R.md, padding: 10 },
-  sourceIcon: { width: 30, height: 30, borderRadius: 9, backgroundColor: S.blueSoft, alignItems: 'center', justifyContent: 'center' },
-  sourceTitle: { flex: 1, fontSize: 12.5, fontFamily: F.bold, color: S.ink },
-  simPill: { backgroundColor: S.emeraldSoft, borderWidth: 1, borderColor: S.emerald, borderRadius: 8, paddingHorizontal: 8, paddingVertical: 4 },
-  simTxt: { fontSize: 10, fontFamily: F.xbold, color: S.sub },
+  sourceRow: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: N.cardSoft, borderWidth: 1, borderColor: N.cardEdge, borderRadius: 14, padding: 10 },
+  sourceIcon: { width: 30, height: 30, borderRadius: 10, backgroundColor: N.blueSoft, alignItems: 'center', justifyContent: 'center' },
+  sourceTitle: { flex: 1, fontSize: 12.5, fontFamily: NFONT.semi, color: N.ink },
+  simPill: { backgroundColor: N.green, borderRadius: 9, paddingHorizontal: 8, paddingVertical: 4 },
+  simTxt: { fontSize: 10, fontFamily: NFONT.bold, color: '#06281A' },
   // the exact passage the answer was grounded on, revealed on tap
-  snippetCard: { marginTop: -2, marginHorizontal: 6, backgroundColor: S.blueSoft, borderBottomLeftRadius: R.md, borderBottomRightRadius: R.md, paddingHorizontal: 12, paddingTop: 12, paddingBottom: 12 },
+  snippetCard: { marginTop: -2, marginHorizontal: 6, backgroundColor: N.blueSoft, borderBottomLeftRadius: 14, borderBottomRightRadius: 14, paddingHorizontal: 12, paddingVertical: 12 },
   snippetHead: { flexDirection: 'row', alignItems: 'center', gap: 6, marginBottom: 6 },
-  snippetHdr: { fontSize: 10, fontFamily: F.xbold, color: S.muted, letterSpacing: 0.6, textTransform: 'uppercase' },
-  snippetTxt: { fontSize: 12.5, fontFamily: F.med, color: S.sub, lineHeight: 20, fontStyle: 'italic' },
+  snippetHdr: { fontSize: 10, fontFamily: NFONT.bold, color: N.inkSoft, letterSpacing: 0.6, textTransform: 'uppercase' },
+  snippetTxt: { fontSize: 12.5, fontFamily: NFONT.reg, color: N.ink, lineHeight: 20, fontStyle: 'italic' },
 
-  // floating ask bar
-  // In-flow ask bar (NOT absolute) so the KeyboardAvoidingView lifts it above the
-  // Android keyboard instead of leaving it hidden behind it.
-  askBar: { flexDirection: 'row', alignItems: 'flex-end', gap: 8, backgroundColor: S.card, borderTopWidth: 1, borderColor: S.hair, paddingHorizontal: SP.md, paddingTop: 8, paddingBottom: Platform.OS === 'ios' ? 22 : 12 },
-  askPhoto: { width: 44, height: 44, borderRadius: 22, backgroundColor: S.indigoSoft, borderWidth: 1, borderColor: S.indigo, alignItems: 'center', justifyContent: 'center' },
+  // ── ask bar — one floating pill, in flow so the KeyboardAvoidingView lifts it ──
+  askBar: { flexDirection: 'row', alignItems: 'flex-end', gap: 8, marginHorizontal: SP.lg, marginTop: 4, marginBottom: Platform.OS === 'ios' ? 22 : 14, padding: 7, borderRadius: 30, backgroundColor: N.card, borderWidth: 1, borderColor: N.cardEdge, ...lift },
+  askPhoto: { width: 44, height: 44, borderRadius: 22, backgroundColor: N.violet, alignItems: 'center', justifyContent: 'center' },
+  askInputWrap: { flex: 1, justifyContent: 'center', minHeight: 44, paddingHorizontal: 6 },
+  askInput: { fontSize: 14.5, fontFamily: NFONT.reg, color: N.ink, paddingVertical: Platform.OS === 'ios' ? 12 : 8, maxHeight: 96 },
+  askSend: { width: 46, height: 46, borderRadius: 23, backgroundColor: N.violet, alignItems: 'center', justifyContent: 'center', shadowColor: N.violet, shadowOpacity: 0.5, shadowRadius: 12, shadowOffset: { width: 0, height: 5 }, elevation: 6 },
+
   // attached-photo preview strip above the input
-  attachStrip: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: S.indigoSoft, borderTopWidth: 1, borderColor: S.indigo, paddingHorizontal: SP.md, paddingVertical: 10 },
-  attachThumb: { width: 46, height: 46, borderRadius: 10, backgroundColor: S.canvas, borderWidth: 1, borderColor: S.indigo },
-  attachTxt: { flex: 1, fontSize: 12, fontFamily: F.semi, color: S.ink, lineHeight: 17 },
-  attachX: { width: 30, height: 30, borderRadius: 15, backgroundColor: S.card, alignItems: 'center', justifyContent: 'center' },
-  askInputWrap: { flex: 1, backgroundColor: S.canvas, borderWidth: 1, borderColor: S.hair, borderRadius: 24, paddingHorizontal: 16, justifyContent: 'center', minHeight: 44 },
-  askInput: { fontSize: 14, fontFamily: F.med, color: S.ink, paddingVertical: Platform.OS === 'ios' ? 12 : 8, maxHeight: 96 },
-  askSend: { width: 44, height: 44, borderRadius: 22, backgroundColor: S.indigo, alignItems: 'center', justifyContent: 'center', shadowColor: S.indigo, shadowOpacity: 0.35, shadowRadius: 10, shadowOffset: { width: 0, height: 4 }, elevation: 5 },
+  attachStrip: { flexDirection: 'row', alignItems: 'center', gap: 12, marginHorizontal: SP.lg, marginBottom: 8, backgroundColor: N.violetSoft, borderWidth: 1, borderColor: N.violet, borderRadius: 18, paddingHorizontal: 12, paddingVertical: 10 },
+  attachThumb: { width: 46, height: 46, borderRadius: 12, backgroundColor: N.cardSoft, borderWidth: 1, borderColor: N.violet },
+  attachTxt: { flex: 1, fontSize: 12, fontFamily: NFONT.semi, color: N.ink, lineHeight: 17 },
+  attachX: { width: 30, height: 30, borderRadius: 15, backgroundColor: N.cardSoft, alignItems: 'center', justifyContent: 'center' },
 
-  // errors / status
-  errCard: { marginTop: SP.lg, backgroundColor: S.redSoft, borderWidth: 1, borderColor: S.red, borderRadius: R.lg, padding: SP.md, flexDirection: 'row', alignItems: 'center', gap: 10 },
-  errTxt: { flex: 1, color: S.ink, fontSize: 13, fontFamily: F.semi },
-  retryTxt: { color: S.ink, fontSize: 13, fontFamily: F.xbold },
-  err: { color: S.ink, fontSize: 12, fontFamily: F.semi, marginTop: 12 },
+  // ── errors / status ──
+  errCard: { marginTop: 18, backgroundColor: N.redSoft, borderWidth: 1, borderColor: N.red, borderRadius: 18, padding: SP.md, flexDirection: 'row', alignItems: 'center', gap: 10 },
+  errTxt: { flex: 1, color: N.ink, fontSize: 13, fontFamily: NFONT.med },
+  retryTxt: { color: N.ink, fontSize: 13, fontFamily: NFONT.bold },
+  err: { color: N.red, fontSize: 12, fontFamily: NFONT.semi, marginTop: 12 },
   okRow: { flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 12 },
-  ok: { color: S.sub, fontSize: 12, fontFamily: F.bold },
+  ok: { color: N.green, fontSize: 12, fontFamily: NFONT.semi },
 
-  // manage panel — file pickers
+  // ── manage panel ──
   uploadRow: { flexDirection: 'row', gap: 10, marginBottom: 4 },
-  upBtn: { flex: 1, alignItems: 'center', justifyContent: 'center', gap: 7, paddingVertical: 18, backgroundColor: S.indigoSoft, borderWidth: 1, borderColor: S.indigo, borderRadius: R.lg },
-  upTxt: { fontSize: 12.5, fontFamily: F.xbold, color: S.indigo },
+  upBtn: { flex: 1, alignItems: 'center', justifyContent: 'center', gap: 7, paddingVertical: 18, backgroundColor: N.violetSoft, borderWidth: 1, borderColor: N.violet, borderRadius: 18 },
+  upTxt: { fontSize: 12.5, fontFamily: NFONT.bold, color: N.dot },
   busyRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 14 },
-  busyTxt: { fontSize: 12.5, fontFamily: F.bold, color: S.sub, flex: 1 },
-  orLbl: { fontSize: 10, fontFamily: F.xbold, color: S.muted, letterSpacing: 1.2, textTransform: 'uppercase', textAlign: 'center', marginTop: 22, marginBottom: 14 },
+  busyTxt: { fontSize: 12.5, fontFamily: NFONT.semi, color: N.inkSoft, flex: 1 },
+  orLbl: { fontSize: 10, fontFamily: NFONT.bold, color: N.inkDim, letterSpacing: 1.2, textTransform: 'uppercase', textAlign: 'center', marginTop: 22, marginBottom: 14 },
 
-  // manage panel
-  formCard: { backgroundColor: S.card, borderWidth: 1, borderColor: S.hair, borderRadius: R.xl, padding: 16, ...shadowSm },
-  inputSm: { backgroundColor: S.canvas, borderWidth: 1, borderColor: S.border, borderRadius: R.md, paddingVertical: 12, paddingHorizontal: 16, fontSize: 14, fontFamily: F.med, color: S.ink },
-  textArea: { backgroundColor: S.canvas, borderWidth: 1, borderColor: S.border, borderRadius: R.md, paddingVertical: 14, paddingHorizontal: 16, fontSize: 14, fontFamily: F.med, color: S.ink, minHeight: 150, textAlignVertical: 'top' },
+  formCard: { backgroundColor: N.card, borderWidth: 1, borderColor: N.cardEdge, borderRadius: 20, padding: 16 },
+  inputSm: { backgroundColor: N.cardSoft, borderWidth: 1, borderColor: N.cardEdge, borderRadius: 14, paddingVertical: 12, paddingHorizontal: 16, fontSize: 14, fontFamily: NFONT.reg, color: N.ink },
+  textArea: { backgroundColor: N.cardSoft, borderWidth: 1, borderColor: N.cardEdge, borderRadius: 14, paddingVertical: 14, paddingHorizontal: 16, fontSize: 14, fontFamily: NFONT.reg, color: N.ink, minHeight: 150, textAlignVertical: 'top' },
   row2: { flexDirection: 'row', gap: 12, marginTop: 14 },
   row: { flexDirection: 'row', alignItems: 'center' },
-  btn: { backgroundColor: S.indigo, borderRadius: R.md, paddingVertical: 15, alignItems: 'center', marginTop: 18, ...shadowSm },
-  btnTxt: { color: '#fff', fontSize: 15, fontFamily: F.bold, letterSpacing: -0.2 },
+  btn: { backgroundColor: N.violet, borderRadius: 14, paddingVertical: 15, alignItems: 'center', marginTop: 18 },
+  btnTxt: { color: N.ink, fontSize: 15, fontFamily: NFONT.bold, letterSpacing: -0.2 },
 
-  emptyList: { fontSize: 13, fontFamily: F.med, color: S.muted, marginTop: 12, textAlign: 'center' },
-  srcItem: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: S.card, borderWidth: 1, borderColor: S.hair, borderRadius: R.md, padding: 12, marginTop: 10 },
-  srcTitle: { fontSize: 13.5, fontFamily: F.xbold, color: S.ink },
-  srcMeta: { fontSize: 11, fontFamily: F.med, color: S.muted, marginTop: 3 },
-  delBtn: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: S.redSoft, borderRadius: 10, paddingVertical: 7, paddingHorizontal: 12 },
-  delTxt: { fontSize: 12, fontFamily: F.xbold, color: S.ink },
+  emptyList: { fontSize: 13, fontFamily: NFONT.reg, color: N.inkSoft, marginTop: 12, textAlign: 'center' },
+  srcItem: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: N.card, borderWidth: 1, borderColor: N.cardEdge, borderRadius: 14, padding: 12, marginTop: 10 },
+  srcTitle: { fontSize: 13.5, fontFamily: NFONT.bold, color: N.ink },
+  srcMeta: { fontSize: 11, fontFamily: NFONT.reg, color: N.inkSoft, marginTop: 3 },
+  delBtn: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: N.redSoft, borderWidth: 1, borderColor: 'rgba(255,107,107,0.4)', borderRadius: 12, paddingVertical: 7, paddingHorizontal: 12 },
+  delTxt: { fontSize: 12, fontFamily: NFONT.bold, color: N.ink },
 });
 
 export default KnowledgeAskScreen;

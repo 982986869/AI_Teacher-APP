@@ -47,6 +47,10 @@ export const N = {
   amberSoft: 'rgba(245,166,35,0.14)',
   blue: '#5B8CFF',
   blueSoft: 'rgba(91,140,255,0.14)',
+  // Error/destructive. The studentTheme red (#EF4444) muddies against the violet
+  // page, so the night palette carries its own lighter, higher-contrast one.
+  red: '#FF6B6B',
+  redSoft: 'rgba(255,107,107,0.14)',
 
   pendingEdge: 'rgba(255,255,255,0.20)',
 };
