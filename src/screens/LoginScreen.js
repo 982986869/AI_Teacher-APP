@@ -1,39 +1,44 @@
 import React, { useState } from 'react';
 import {
-  View, Text, ScrollView, TouchableOpacity,
-  StyleSheet, SafeAreaView,
+  View, Text, ScrollView, TouchableOpacity, Alert,
+  StyleSheet, SafeAreaView, StatusBar,
 } from 'react-native';
+import { Mail, Lock, Eye, EyeOff, Phone as PhoneIcon, ChevronLeft } from 'lucide-react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { signInWithGoogle, GoogleSignInCancelled } from '../utils/googleSignin';
 
-import AuthHeader    from '../components/AuthHeader';
-import InputField    from '../components/InputField';
-import PrimaryButton from '../components/PrimaryButton';
-import ErrorMessage  from '../components/ErrorMessage';
-import LoadingSpinner from '../components/LoadingSpinner';
+import AuthInput     from '../components/brand/AuthInput';
+import SocialButton  from '../components/brand/SocialButton';
+import AuthError     from '../components/brand/AuthError';
+import PrimaryButton from '../components/brand/PrimaryButton';
+import { COLORS, TYPE, FONT_FAMILY, SPACING } from '../theme/designSystem';
 
 import { loginWithEmail, loginWithGoogle, sendOTP } from '../api/authApi';
 import { useAuth } from '../context/AuthContext';
 import { validateEmail, validatePassword, validatePhone } from '../utils/validators';
-import COLORS from '../constants/colors';
 
-const TABS = ['Email', 'Phone'];
-
+// "Welcome Back" — the design's sign-in screen. Email+password is the primary
+// path; phone becomes a "Continue with Phone" alt-method here (not a tab like
+// the old build) that swaps the form in place, reusing the exact same OTP
+// hand-off to OTPScreen. Apple has no backend route yet — its button is a
+// straight "coming soon", not faked into looking functional. Forgot Password
+// DOES have a screen (ForgotPasswordScreen, added alongside the OTP reset
+// endpoints), so that link navigates for real and carries the typed email over.
 const LoginScreen = ({ navigation }) => {
   const { signIn } = useAuth();
-  const [activeTab, setActiveTab] = useState('Email');
+  const [mode, setMode] = useState('email'); // 'email' | 'phone'
 
-  // Email state
   const [email, setEmail]       = useState('');
   const [password, setPassword] = useState('');
   const [showPw, setShowPw]     = useState(false);
 
-  // Phone state
   const [phone, setPhone] = useState('');
 
   const [loading, setLoading] = useState(false);
   const [error, setError]     = useState('');
 
-  // ── Email Login ─────────────────────────────────────────────────────────────
+  const switchMode = (next) => { setMode(next); setError(''); };
+
   const handleEmailLogin = async () => {
     setError('');
     if (!validateEmail(email)) return setError('Enter a valid email address.');
@@ -51,7 +56,6 @@ const LoginScreen = ({ navigation }) => {
     }
   };
 
-  // ── Google Login ─────────────────────────────────────────────────────────────
   const handleGoogleLogin = async () => {
     setError('');
     try {
@@ -60,20 +64,13 @@ const LoginScreen = ({ navigation }) => {
       const data = await loginWithGoogle({ idToken });
       await signIn(data);
     } catch (e) {
-      // Backing out of the Google sheet is a deliberate choice, not an error.
       if (e instanceof GoogleSignInCancelled) return;
-      setError(
-        e?.response?.data?.error
-          || e?.response?.data?.message
-          || e?.message
-          || 'Google sign-in failed. Please try again.'
-      );
+      setError(e?.response?.data?.error || e?.response?.data?.message || e?.message || 'Google sign-in failed. Please try again.');
     } finally {
       setLoading(false);
     }
   };
 
-  // ── Phone Login → OTP ────────────────────────────────────────────────────────
   const handleSendOTP = async () => {
     setError('');
     if (!validatePhone(phone)) return setError('Enter a valid 10-digit phone number.');
@@ -90,116 +87,127 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.safe}>
-      <AuthHeader onBack={() => navigation.goBack()} />
+      <StatusBar barStyle="light-content" backgroundColor={COLORS.background} />
       <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
-        <Text style={styles.logo}>AILERNOVA</Text>
-        <Text style={styles.heading}>Welcome back</Text>
+        {mode === 'phone' && (
+          <TouchableOpacity style={styles.back} onPress={() => switchMode('email')} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
+            <ChevronLeft size={18} color={COLORS.textSecondary} strokeWidth={2.3} />
+            <Text style={styles.backText}>Email &amp; password</Text>
+          </TouchableOpacity>
+        )}
 
-        {/* Tab Row */}
-        <View style={styles.tabRow}>
-          {TABS.map(t => (
-            <TouchableOpacity key={t} style={styles.tab} onPress={() => { setActiveTab(t); setError(''); }}>
-              <Text style={[styles.tabText, activeTab === t && styles.tabTextActive]}>{t}</Text>
-              {activeTab === t && <View style={styles.tabUnderline} />}
-            </TouchableOpacity>
-          ))}
-        </View>
+        <Text style={styles.heading}>{mode === 'email' ? 'Welcome Back' : 'Enter Your Phone'}</Text>
+        <Text style={styles.sub}>
+          {mode === 'email' ? 'Sign in to continue learning' : "We'll text you a one-time code"}
+        </Text>
 
-        <ErrorMessage message={error} />
+        <AuthError message={error} />
 
-        {activeTab === 'Email' && (
+        {mode === 'email' ? (
           <>
-            <InputField
-              placeholder="Email address"
+            <AuthInput
+              icon={<Mail size={18} color={COLORS.textSecondary} strokeWidth={2} />}
+              placeholder="Enter your email"
               value={email}
               onChangeText={setEmail}
               keyboardType="email-address"
             />
-            <InputField
-              placeholder="Password"
+            <AuthInput
+              icon={<Lock size={18} color={COLORS.textSecondary} strokeWidth={2} />}
+              placeholder="Enter password"
               value={password}
               onChangeText={setPassword}
               secureTextEntry={!showPw}
               rightIcon={
-                <TouchableOpacity onPress={() => setShowPw(p => !p)}>
-                  <Text style={{ fontSize: 16 }}>{showPw ? '🙈' : '👁'}</Text>
+                <TouchableOpacity onPress={() => setShowPw((p) => !p)} hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}>
+                  {showPw ? <EyeOff size={18} color={COLORS.textSecondary} strokeWidth={2} /> : <Eye size={18} color={COLORS.textSecondary} strokeWidth={2} />}
                 </TouchableOpacity>
               }
             />
+
             <TouchableOpacity
               style={styles.forgotRow}
               onPress={() => navigation.navigate('ForgotPasswordScreen', { email })}
             >
-              <Text style={styles.forgotText}>Forgot password?</Text>
+              <Text style={styles.forgotText}>Forgot Password?</Text>
             </TouchableOpacity>
-            <PrimaryButton title="Log in" onPress={handleEmailLogin} loading={loading} style={styles.mainBtn} />
-          </>
-        )}
 
-        {activeTab === 'Phone' && (
+            <PrimaryButton label="Sign In" onPress={handleEmailLogin} loading={loading} style={styles.mainBtn} />
+
+            <View style={styles.dividerRow}>
+              <View style={styles.dividerLine} />
+              <Text style={styles.dividerText}>OR</Text>
+              <View style={styles.dividerLine} />
+            </View>
+
+            <SocialButton
+              icon={<Ionicons name="logo-google" size={18} color="#EA4335" />}
+              label="Continue with Google"
+              onPress={handleGoogleLogin}
+              style={styles.socialGap}
+            />
+            <SocialButton
+              icon={<Ionicons name="logo-apple" size={19} color={COLORS.textPrimary} />}
+              label="Continue with Apple"
+              onPress={() => Alert.alert('Coming soon', 'Apple sign-in is on its way.')}
+              style={styles.socialGap}
+            />
+            <SocialButton
+              icon={<PhoneIcon size={17} color={COLORS.textPrimary} strokeWidth={2} />}
+              label="Continue with Phone"
+              onPress={() => switchMode('phone')}
+            />
+
+            <View style={styles.switchRow}>
+              <Text style={styles.switchLabel}>Don't have an account? </Text>
+              <TouchableOpacity onPress={() => navigation.navigate('SignupScreen')}>
+                <Text style={styles.switchLink}>Create Account</Text>
+              </TouchableOpacity>
+            </View>
+          </>
+        ) : (
           <>
             <View style={styles.phoneRow}>
               <View style={styles.countryCode}><Text style={styles.countryText}>🇮🇳 +91</Text></View>
-              <InputField
+              <AuthInput
+                icon={<PhoneIcon size={18} color={COLORS.textSecondary} strokeWidth={2} />}
                 placeholder="10-digit phone number"
                 value={phone}
-                onChangeText={t => setPhone(t.replace(/\D/g, ''))}
+                onChangeText={(t) => setPhone(t.replace(/\D/g, ''))}
                 keyboardType="phone-pad"
                 maxLength={10}
-                style={{ flex: 1, marginBottom: 0 }}
+                style={styles.phoneInput}
               />
             </View>
-            <PrimaryButton title="Send OTP" onPress={handleSendOTP} loading={loading} style={styles.mainBtn} />
+            <PrimaryButton label="Send OTP" onPress={handleSendOTP} loading={loading} style={styles.mainBtn} />
           </>
         )}
-
-        <View style={styles.dividerRow}>
-          <View style={styles.dividerLine} />
-          <Text style={styles.dividerText}>or</Text>
-          <View style={styles.dividerLine} />
-        </View>
-
-        <TouchableOpacity style={styles.googleBtn} onPress={handleGoogleLogin} activeOpacity={0.8}>
-          <Text style={styles.googleIcon}>G</Text>
-          <Text style={styles.googleText}>Continue with Google</Text>
-        </TouchableOpacity>
-
-        <View style={styles.switchRow}>
-          <Text style={styles.switchLabel}>Don't have an account? </Text>
-          <TouchableOpacity onPress={() => navigation.navigate('SignupScreen')}>
-            <Text style={styles.switchLink}>Sign up</Text>
-          </TouchableOpacity>
-        </View>
       </ScrollView>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  safe:       { flex: 1, backgroundColor: COLORS.white },
-  scroll:     { flexGrow: 1, paddingHorizontal: 24, paddingBottom: 40 },
-  logo:       { fontSize: 22, fontWeight: '800', letterSpacing: 3, color: COLORS.primary, textAlign: 'center', marginBottom: 6, marginTop: 12 },
-  heading:    { fontSize: 18, fontWeight: '600', color: COLORS.textPrimary, textAlign: 'center', marginBottom: 24 },
-  tabRow:     { flexDirection: 'row', borderBottomWidth: 1, borderBottomColor: COLORS.divider, marginBottom: 20 },
-  tab:        { flex: 1, alignItems: 'center', paddingBottom: 10 },
-  tabText:    { fontSize: 14, fontWeight: '500', color: COLORS.tabInactive },
-  tabTextActive: { color: COLORS.tabActive, fontWeight: '600' },
-  tabUnderline:  { position: 'absolute', bottom: -1, left: 0, right: 0, height: 2, backgroundColor: COLORS.tabBorder, borderRadius: 1 },
-  forgotRow:  { alignItems: 'flex-end', marginBottom: 16, marginTop: -4 },
-  forgotText: { fontSize: 12, color: COLORS.textSecondary, fontWeight: '500' },
-  mainBtn:    { marginTop: 4, marginBottom: 4 },
-  dividerRow: { flexDirection: 'row', alignItems: 'center', marginVertical: 20 },
-  dividerLine:{ flex: 1, height: 0.5, backgroundColor: COLORS.divider },
-  dividerText:{ marginHorizontal: 12, fontSize: 12, color: COLORS.textMuted },
-  googleBtn:  { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: COLORS.border, borderRadius: 10, height: 50, gap: 10 },
-  googleIcon: { fontSize: 16, fontWeight: '700', color: COLORS.googleRed },
-  googleText: { fontSize: 14, color: COLORS.textPrimary, fontWeight: '500' },
-  phoneRow:   { flexDirection: 'row', alignItems: 'flex-start', gap: 8, marginBottom: 14 },
-  countryCode:{ height: 50, borderWidth: 1, borderColor: COLORS.border, borderRadius: 10, backgroundColor: COLORS.subtleBg, justifyContent: 'center', paddingHorizontal: 14 },
-  countryText:{ fontSize: 14, color: COLORS.textPrimary },
-  switchRow:  { flexDirection: 'row', justifyContent: 'center', marginTop: 28 },
-  switchLabel:{ fontSize: 12, color: COLORS.textSecondary },
-  switchLink: { fontSize: 12, color: COLORS.primary, fontWeight: '700' },
+  safe: { flex: 1, backgroundColor: COLORS.background },
+  scroll: { flexGrow: 1, paddingHorizontal: SPACING.xl, paddingTop: SPACING.xxl, paddingBottom: SPACING.xl },
+  back: { flexDirection: 'row', alignItems: 'center', gap: 2, marginBottom: SPACING.lg },
+  backText: { fontFamily: FONT_FAMILY.medium, fontSize: 13, color: COLORS.textSecondary },
+  heading: { ...TYPE.display, marginBottom: 6 },
+  sub: { ...TYPE.body, marginBottom: SPACING.xl },
+  forgotRow: { alignItems: 'flex-end', marginTop: -4, marginBottom: SPACING.lg },
+  forgotText: { fontFamily: FONT_FAMILY.medium, fontSize: 13, color: COLORS.primaryLight },
+  mainBtn: { marginBottom: SPACING.xs },
+  dividerRow: { flexDirection: 'row', alignItems: 'center', marginVertical: SPACING.lg },
+  dividerLine: { flex: 1, height: 1, backgroundColor: COLORS.border },
+  dividerText: { fontFamily: FONT_FAMILY.medium, fontSize: 12, color: COLORS.textSecondary, marginHorizontal: SPACING.md },
+  socialGap: { marginBottom: SPACING.md },
+  switchRow: { flexDirection: 'row', justifyContent: 'center', marginTop: SPACING.xl },
+  switchLabel: { fontFamily: FONT_FAMILY.regular, fontSize: 13, color: COLORS.textSecondary },
+  switchLink: { fontFamily: FONT_FAMILY.bold, fontSize: 13, color: COLORS.primaryLight },
+  phoneRow: { flexDirection: 'row', alignItems: 'flex-start', gap: SPACING.sm },
+  countryCode: { height: 52, borderWidth: 1, borderColor: COLORS.border, borderRadius: 12, backgroundColor: COLORS.card, justifyContent: 'center', paddingHorizontal: SPACING.md },
+  countryText: { fontFamily: FONT_FAMILY.medium, fontSize: 14, color: COLORS.textPrimary },
+  phoneInput: { flex: 1, marginBottom: 0 },
 });
 
 export default LoginScreen;

@@ -15,7 +15,10 @@ it, then restarting Metro with `npx expo start -c`.
 | `welcome-scrim.png` | `OnboardingIntroScreen.js` — standalone scrim layer | Rectangle 17 |
 | `onboarding-1.jpg` | `OnboardingIntroScreen.js` — intro page 1 | image 18 |
 | `onboarding-2.jpg` | `OnboardingIntroScreen.js` — intro page 2 | image 18 |
-| `onboarding-3.jpg` | `OnboardingIntroScreen.js` — intro page 3 | image 18 |
+| `onboarding-3-graph.png` | `OnboardingIntroScreen.js` — intro page 3 graphic | "image 21" |
+
+Page 3's art ships as a small graphic (390x304), not a full 390x844 background —
+see below.
 
 ## Notes
 
@@ -27,9 +30,9 @@ bottom third darkens twice and crushes the headline.
 
 ## Cropping the onboarding slides
 
-All three `onboarding-*.jpg` files are cut from one source export,
+`onboarding-1.jpg` and `onboarding-2.jpg` are cut from one source export,
 `assets/64f36ffd0f3f62a80639f39fbbc6cbdffeb6d77c (1).png` — a 1536x1024 board with
-the three intro screens side by side. Figma's `image 18` node is 466x1024 sitting
+three intro-screen cards side by side. Figma's `image 18` node is 466x1024 sitting
 at left `-23`, top `-34` inside the 390x844 frame, i.e. the art bleeds off every
 edge at **native scale, no resampling**. Aligning the already-approved page 1
 against the board put its window at `(556, 36)`, which is 31px into the middle
@@ -49,13 +52,29 @@ the `require()`s over in the screen.
 |---|---|---|
 | 1 | Personalized Learning | card 2 — headphones, player bar, Ask Nova (556) |
 | 2 | Interactive AI Lessons | card 3 — daily streak, achievements (1051) |
-| 3 | *(placeholder)* | card 1 — today's goal, weekly progress (57) — **stand-in** |
 
-Slide 3 is not designed yet: its artwork is still coming and its copy has no Figma
-node. It currently reuses the left-over board card purely so the third page-dot has
-something behind it, and it is on `main` **on purpose** — an unfinished slide someone
-else picks up, not an oversight. Replace `onboarding-3.jpg` and the copy together;
-the handoff notes are in the slide-3 block of `src/screens/OnboardingIntroScreen.js`.
+The board's third card (card 1 — today's goal, weekly progress, x=57) was used as a
+placeholder for slide 3 early on, but slide 3's real reference turned out to be a
+dark progress/achievement/streak graphic with no photo at all and no source on that
+board — a separate, later Figma export (390x844, "image 21" node), delivered as a
+full mockup screen (status bar, headline, body copy, dots and CTA all baked in, not
+just the graphic). Since `OnboardingIntroScreen.js` draws its own title/body/dots/
+button for every slide, using that mockup as-is would double them up, so only the
+graphic portion is kept: cropped to `(0, 108)–(390, 412)`, saved as
+`onboarding-3-graph.png` (390x304). It renders contained at the top of the frame
+(`slide.graphic`), not as a `StyleSheet.absoluteFill` background like slides 1-2
+(`slide.image`) — it's a small graphic, not full-bleed art — and skips
+welcome-scrim.png, since it's already dark by construction.
+`onboarding-3.jpg` (the old placeholder) is no longer referenced; it's left on disk
+as history, not as an asset to reintroduce.
+
+The peak dot on the graphic's trend line pulses — `OnboardingIntroScreen.js` finds
+it by scanning the PNG for its brightest pixel (77.4%, 8.9%) and overlays an
+`Animated.View` glow at that percentage position. `resizeMode="contain"` at the
+image's own aspect ratio means no letterboxing, so the percentage lines up with the
+rendered image with no separate scaling math. If `onboarding-3-graph.png` is
+re-cropped, re-run the brightest-pixel scan and update `shineAt` in the slide's
+data — the position is not derived automatically at runtime.
 
 Each card has its own headline baked into the bottom of the artwork ("Learn with
 AI Teacher Nova" and so on). That is fine — `welcome-scrim.png` is fully opaque

@@ -24,6 +24,7 @@ import { NightBg } from '../theme/nightChrome';
 import { ChevronLeft, BookOpen, Sparkles, FileText, CircleAlert, Trash2, Check, FileUp, ImagePlus, Camera, X, SquarePen, ChevronDown, Search, Quote, MoreVertical } from 'lucide-react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { Appear, PressableScale } from '../components/teacher/uiKit';
+import PrimaryButton from '../components/brand/PrimaryButton';
 import DiagramRenderer from '../components/teacher/DiagramRenderer';
 import MathText from '../components/MathText';
 import {
@@ -1040,16 +1041,15 @@ const ManagePanel = () => {
           editable={!saving}
         />
 
-        <PressableScale
-          style={[st.btn, (saving || !title.trim() || !text.trim()) && { opacity: 0.55 }]}
-          onPress={handleUpload}
+        {/* The app-wide gradient CTA — same button as the auth screens, so this
+            form's primary action is not a one-off violet rectangle. */}
+        <PrimaryButton
+          label="Upload & Index"
+          loading={saving}
           disabled={saving || !title.trim() || !text.trim()}
-          accessibilityLabel="Upload and index"
-        >
-          {saving
-            ? <View style={st.row}><ActivityIndicator color="#fff" size="small" /><Text style={st.btnTxt}>  Indexing…</Text></View>
-            : <Text style={st.btnTxt}>Upload &amp; Index</Text>}
-        </PressableScale>
+          onPress={handleUpload}
+          style={st.btn}
+        />
       </View>
 
       <Text style={[st.lbl, { marginTop: 26 }]}>Uploaded content</Text>
@@ -1283,9 +1283,7 @@ const st = StyleSheet.create({
   inputSm: { backgroundColor: N.cardSoft, borderWidth: 1, borderColor: N.cardEdge, borderRadius: 14, paddingVertical: 12, paddingHorizontal: 16, fontSize: 14, fontFamily: NFONT.reg, color: N.ink },
   textArea: { backgroundColor: N.cardSoft, borderWidth: 1, borderColor: N.cardEdge, borderRadius: 14, paddingVertical: 14, paddingHorizontal: 16, fontSize: 14, fontFamily: NFONT.reg, color: N.ink, minHeight: 150, textAlignVertical: 'top' },
   row2: { flexDirection: 'row', gap: 12, marginTop: 14 },
-  row: { flexDirection: 'row', alignItems: 'center' },
-  btn: { backgroundColor: N.violet, borderRadius: 14, paddingVertical: 15, alignItems: 'center', marginTop: 18 },
-  btnTxt: { color: N.ink, fontSize: 15, fontFamily: NFONT.bold, letterSpacing: -0.2 },
+  btn: { marginTop: 18 },
 
   emptyList: { fontSize: 13, fontFamily: NFONT.reg, color: N.inkSoft, marginTop: 12, textAlign: 'center' },
   srcItem: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: N.card, borderWidth: 1, borderColor: N.cardEdge, borderRadius: 14, padding: 12, marginTop: 10 },

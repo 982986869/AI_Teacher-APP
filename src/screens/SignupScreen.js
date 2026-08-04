@@ -1,100 +1,59 @@
 import React, { useState } from 'react';
 import {
   View, Text, ScrollView, TouchableOpacity,
-  StyleSheet, SafeAreaView,
+  StyleSheet, SafeAreaView, StatusBar,
 } from 'react-native';
-import { signInWithGoogle, GoogleSignInCancelled } from '../utils/googleSignin';
+import { User, Mail, Phone as PhoneIcon, Lock, Eye, EyeOff } from 'lucide-react-native';
 
-import AuthHeader    from '../components/AuthHeader';
-import InputField    from '../components/InputField';
-import PrimaryButton from '../components/PrimaryButton';
-import ErrorMessage  from '../components/ErrorMessage';
+import AuthInput     from '../components/brand/AuthInput';
+import AuthError     from '../components/brand/AuthError';
+import AuthCheckbox  from '../components/brand/AuthCheckbox';
+import PrimaryButton from '../components/brand/PrimaryButton';
+import { COLORS, TYPE, FONT_FAMILY, SPACING } from '../theme/designSystem';
 
-import { signupWithEmail, loginWithGoogle, sendOTP } from '../api/authApi';
+import { signupWithEmail } from '../api/authApi';
 import { useAuth } from '../context/AuthContext';
 import { validateEmail, validatePassword, validateName, validatePhone } from '../utils/validators';
-import COLORS from '../constants/colors';
 
-const TABS = ['Email', 'Phone'];
-
+// "Create Account" — the design's sign-up screen: one unified form (name,
+// email, phone, password, confirm), not the old Email/Phone tab split, and no
+// social buttons (those live on Login now, matching the reference). The Phone
+// field is UI-only for now: POST /api/auth/register (signupWithEmail) takes
+// { name, email, password, grade } — no phone column — so it's collected but
+// deliberately not sent rather than silently pretending it's saved. Wire it
+// through once the backend accepts it.
 const SignupScreen = ({ navigation }) => {
   const { signIn } = useAuth();
-  const [activeTab, setActiveTab] = useState('Email');
 
-  // Email state
   const [name, setName]         = useState('');
   const [email, setEmail]       = useState('');
-  const [password, setPassword] = useState('');
-  const [showPw, setShowPw]     = useState(false);
-  // Role + class/stream are collected once in the setup step after signup (see
-  // CompleteProfileScreen) — never scattered on the signup form.
-
-  // Phone state
   const [phone, setPhone]       = useState('');
-  const [phoneName, setPhoneName] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [showPw, setShowPw]         = useState(false);
+  const [showConfirmPw, setShowConfirmPw] = useState(false);
+  const [agreed, setAgreed]     = useState(false);
 
   const [loading, setLoading] = useState(false);
   const [error, setError]     = useState('');
 
-  // ── Email Signup ─────────────────────────────────────────────────────────────
-  const handleEmailSignup = async () => {
+  const handleCreateAccount = async () => {
     setError('');
     const nameErr = validateName(name);
     if (nameErr) return setError(nameErr);
     if (!validateEmail(email)) return setError('Enter a valid email address.');
+    if (phone && !validatePhone(phone)) return setError('Enter a valid 10-digit phone number, or leave it blank.');
     const pwErr = validatePassword(password);
     if (pwErr) return setError(pwErr);
+    if (password !== confirmPassword) return setError('Passwords do not match.');
+    if (!agreed) return setError('Please agree to the Terms & Privacy Policy to continue.');
 
     try {
       setLoading(true);
       const data = await signupWithEmail({ name, email, password });
       await signIn(data);
     } catch (e) {
-      // Backend sends the reason as `error` (e.g. "An account with this email … already exists").
       setError(e?.response?.data?.error || e?.response?.data?.message || 'Signup failed. Please try again.');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // ── Google Signup ─────────────────────────────────────────────────────────────
-  const handleGoogleSignup = async () => {
-    setError('');
-    try {
-      setLoading(true);
-      const { idToken } = await signInWithGoogle();
-      const data = await loginWithGoogle({ idToken });
-      await signIn(data);
-    } catch (e) {
-      // Backing out of the Google sheet is a deliberate choice, not an error.
-      if (e instanceof GoogleSignInCancelled) return;
-      setError(
-        e?.response?.data?.error
-          || e?.response?.data?.message
-          || e?.message
-          || 'Google sign-in failed. Please try again.'
-      );
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // ── Phone Signup → OTP ───────────────────────────────────────────────────────
-  const handleSendOTP = async () => {
-    setError('');
-    const nameErr = validateName(phoneName);
-    if (nameErr) return setError(nameErr);
-    if (!validatePhone(phone)) return setError('Enter a valid 10-digit phone number.');
-    try {
-      setLoading(true);
-      await sendOTP({ phone: `+91${phone}` });
-      navigation.navigate('OTPScreen', {
-        phone: `+91${phone}`,
-        name: phoneName,
-        mode: 'signup',
-      });
-    } catch (e) {
-      setError(e?.response?.data?.message || 'Failed to send OTP. Try again.');
     } finally {
       setLoading(false);
     }
@@ -102,81 +61,70 @@ const SignupScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.safe}>
-      <AuthHeader onBack={() => navigation.goBack()} />
+      <StatusBar barStyle="light-content" backgroundColor={COLORS.background} />
       <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
-        <Text style={styles.logo}>AILERNOVA</Text>
-        <Text style={styles.heading}>Create your account</Text>
+        <Text style={styles.heading}>Create Account</Text>
+        <Text style={styles.sub}>Join Ailernova and unlock personalized learning</Text>
 
-        {/* Tab Row */}
-        <View style={styles.tabRow}>
-          {TABS.map(t => (
-            <TouchableOpacity key={t} style={styles.tab} onPress={() => { setActiveTab(t); setError(''); }}>
-              <Text style={[styles.tabText, activeTab === t && styles.tabTextActive]}>{t}</Text>
-              {activeTab === t && <View style={styles.tabUnderline} />}
+        <AuthError message={error} />
+
+        <AuthInput
+          icon={<User size={18} color={COLORS.textSecondary} strokeWidth={2} />}
+          placeholder="Full Name"
+          value={name}
+          onChangeText={setName}
+          autoCapitalize="words"
+        />
+        <AuthInput
+          icon={<Mail size={18} color={COLORS.textSecondary} strokeWidth={2} />}
+          placeholder="Email Address"
+          value={email}
+          onChangeText={setEmail}
+          keyboardType="email-address"
+        />
+        <AuthInput
+          icon={<PhoneIcon size={18} color={COLORS.textSecondary} strokeWidth={2} />}
+          placeholder="Phone Number"
+          value={phone}
+          onChangeText={(t) => setPhone(t.replace(/\D/g, ''))}
+          keyboardType="phone-pad"
+          maxLength={10}
+        />
+        <AuthInput
+          icon={<Lock size={18} color={COLORS.textSecondary} strokeWidth={2} />}
+          placeholder="Password"
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry={!showPw}
+          rightIcon={
+            <TouchableOpacity onPress={() => setShowPw((p) => !p)} hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}>
+              {showPw ? <EyeOff size={18} color={COLORS.textSecondary} strokeWidth={2} /> : <Eye size={18} color={COLORS.textSecondary} strokeWidth={2} />}
             </TouchableOpacity>
-          ))}
-        </View>
+          }
+        />
+        <AuthInput
+          icon={<Lock size={18} color={COLORS.textSecondary} strokeWidth={2} />}
+          placeholder="Confirm Password"
+          value={confirmPassword}
+          onChangeText={setConfirmPassword}
+          secureTextEntry={!showConfirmPw}
+          rightIcon={
+            <TouchableOpacity onPress={() => setShowConfirmPw((p) => !p)} hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}>
+              {showConfirmPw ? <EyeOff size={18} color={COLORS.textSecondary} strokeWidth={2} /> : <Eye size={18} color={COLORS.textSecondary} strokeWidth={2} />}
+            </TouchableOpacity>
+          }
+        />
 
-        <ErrorMessage message={error} />
+        <AuthCheckbox checked={agreed} onToggle={() => setAgreed((a) => !a)}>
+          I agree to <Text style={styles.link}>Terms</Text> & <Text style={styles.link}>Privacy Policy</Text>
+        </AuthCheckbox>
 
-        {activeTab === 'Email' && (
-          <>
-            <InputField placeholder="Full name" value={name} onChangeText={setName} autoCapitalize="words" />
-            <InputField placeholder="Email address" value={email} onChangeText={setEmail} keyboardType="email-address" />
-            <InputField
-              placeholder="Password (min 6 characters)"
-              value={password}
-              onChangeText={setPassword}
-              secureTextEntry={!showPw}
-              rightIcon={
-                <TouchableOpacity onPress={() => setShowPw(p => !p)}>
-                  <Text style={{ fontSize: 16 }}>{showPw ? '🙈' : '👁'}</Text>
-                </TouchableOpacity>
-              }
-            />
-            <PrimaryButton title="Create account" onPress={handleEmailSignup} loading={loading} style={styles.mainBtn} />
-          </>
-        )}
-
-        {activeTab === 'Phone' && (
-          <>
-            <InputField placeholder="Full name" value={phoneName} onChangeText={setPhoneName} autoCapitalize="words" />
-            <View style={styles.phoneRow}>
-              <View style={styles.countryCode}><Text style={styles.countryText}>🇮🇳 +91</Text></View>
-              <InputField
-                placeholder="10-digit phone number"
-                value={phone}
-                onChangeText={t => setPhone(t.replace(/\D/g, ''))}
-                keyboardType="phone-pad"
-                maxLength={10}
-                style={{ flex: 1, marginBottom: 0 }}
-              />
-            </View>
-            <PrimaryButton title="Send OTP" onPress={handleSendOTP} loading={loading} style={styles.mainBtn} />
-          </>
-        )}
-
-        <View style={styles.dividerRow}>
-          <View style={styles.dividerLine} />
-          <Text style={styles.dividerText}>or</Text>
-          <View style={styles.dividerLine} />
-        </View>
-
-        <TouchableOpacity style={styles.googleBtn} onPress={handleGoogleSignup} activeOpacity={0.8}>
-          <Text style={styles.googleIcon}>G</Text>
-          <Text style={styles.googleText}>Continue with Google</Text>
-        </TouchableOpacity>
-
-        <Text style={styles.terms}>
-          By signing up, you agree to our{' '}
-          <Text style={styles.termsLink}>Terms of Use</Text> and{' '}
-          <Text style={styles.termsLink}>Privacy Policy</Text>
-        </Text>
+        <PrimaryButton label="Create Account" onPress={handleCreateAccount} loading={loading} style={styles.mainBtn} />
 
         <View style={styles.switchRow}>
           <Text style={styles.switchLabel}>Already have an account? </Text>
           <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
-            <Text style={styles.switchLink}>Log in</Text>
+            <Text style={styles.switchLink}>Sign In</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -185,30 +133,15 @@ const SignupScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  safe:       { flex: 1, backgroundColor: COLORS.white },
-  scroll:     { flexGrow: 1, paddingHorizontal: 24, paddingBottom: 40 },
-  logo:       { fontSize: 22, fontWeight: '800', letterSpacing: 3, color: COLORS.primary, textAlign: 'center', marginBottom: 6, marginTop: 12 },
-  heading:    { fontSize: 18, fontWeight: '600', color: COLORS.textPrimary, textAlign: 'center', marginBottom: 24 },
-  tabRow:     { flexDirection: 'row', borderBottomWidth: 1, borderBottomColor: COLORS.divider, marginBottom: 20 },
-  tab:        { flex: 1, alignItems: 'center', paddingBottom: 10 },
-  tabText:    { fontSize: 14, fontWeight: '500', color: COLORS.tabInactive },
-  tabTextActive: { color: COLORS.tabActive, fontWeight: '600' },
-  tabUnderline:  { position: 'absolute', bottom: -1, left: 0, right: 0, height: 2, backgroundColor: COLORS.tabBorder, borderRadius: 1 },
-  mainBtn:    { marginTop: 6, marginBottom: 4 },
-  dividerRow: { flexDirection: 'row', alignItems: 'center', marginVertical: 20 },
-  dividerLine:{ flex: 1, height: 0.5, backgroundColor: COLORS.divider },
-  dividerText:{ marginHorizontal: 12, fontSize: 12, color: COLORS.textMuted },
-  googleBtn:  { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: COLORS.border, borderRadius: 10, height: 50, gap: 10 },
-  googleIcon: { fontSize: 16, fontWeight: '700', color: COLORS.googleRed },
-  googleText: { fontSize: 14, color: COLORS.textPrimary, fontWeight: '500' },
-  phoneRow:   { flexDirection: 'row', alignItems: 'flex-start', gap: 8 },
-  countryCode:{ height: 50, borderWidth: 1, borderColor: COLORS.border, borderRadius: 10, backgroundColor: COLORS.subtleBg, justifyContent: 'center', paddingHorizontal: 14 },
-  countryText:{ fontSize: 14, color: COLORS.textPrimary },
-  terms:      { fontSize: 11, color: COLORS.textMuted, textAlign: 'center', marginTop: 16, lineHeight: 18 },
-  termsLink:  { color: COLORS.textSecondary, fontWeight: '500' },
-  switchRow:  { flexDirection: 'row', justifyContent: 'center', marginTop: 20 },
-  switchLabel:{ fontSize: 12, color: COLORS.textSecondary },
-  switchLink: { fontSize: 12, color: COLORS.primary, fontWeight: '700' },
+  safe: { flex: 1, backgroundColor: COLORS.background },
+  scroll: { flexGrow: 1, paddingHorizontal: SPACING.xl, paddingTop: SPACING.xxl, paddingBottom: SPACING.xl },
+  heading: { ...TYPE.display, marginBottom: 6 },
+  sub: { ...TYPE.body, marginBottom: SPACING.xl },
+  link: { color: COLORS.primaryLight, fontFamily: FONT_FAMILY.semibold },
+  mainBtn: { marginTop: SPACING.xs },
+  switchRow: { flexDirection: 'row', justifyContent: 'center', marginTop: SPACING.lg },
+  switchLabel: { fontFamily: FONT_FAMILY.regular, fontSize: 13, color: COLORS.textSecondary },
+  switchLink: { fontFamily: FONT_FAMILY.bold, fontSize: 13, color: COLORS.primaryLight },
 });
 
 export default SignupScreen;
