@@ -35,7 +35,7 @@ async function authenticate(req, res, next) {
     // regen; role::text avoids enum-value surprises. These feed req.scope below.
     const rows = await db.$queryRawUnsafe(
       `SELECT id, name, email, phone, grade, role::text AS role,
-              board, stream, language, school, account_type, linked_student_id
+              board, stream, language, school, account_type, linked_student_id, photo_url AS "photoUrl"
          FROM "users" WHERE id = $1::uuid LIMIT 1`,
       decoded.sub,
     )

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform, ActivityIndicator, Modal } from 'react-native';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { WebView } from 'react-native-webview';
 import { getQuestionsByPath, getChapters } from '../api/resourcesApi';
@@ -28,9 +29,27 @@ import { listMockTests, getMockTestQuestions, listMockAttempts, submitMockTest }
 import { useAuth } from '../context/AuthContext';
 import { saveOnlineTestAttempt, savePracticeAttempt, practiceAttemptKey } from '../utils/storage';
 import { ClassTabs, ComingSoon } from '../components/ClassPicker';
-import { S, StudentScreenHeader } from '../theme/studentUI';
+import { S } from '../theme/studentUI';
+import { COLORS } from '../theme/designSystem';
 import { FONT } from '../constants/fonts';
 import { ListChecks, Star, Timer, ClipboardList, History, ChevronRight } from 'lucide-react-native';
+
+// Dark reskin of just the Practice LANDING page (the "practice-home-dark" reference)
+// — same opt-in-per-screen technique as Profile/KnowledgeAsk/Login/Signup. Every
+// sub-screen this file pushes into (PYQ list, Important Questions, MCQ, Mock tests,
+// Online tests) stays on the light `S`/`s.*` styles below; only the landing render
+// at the bottom of PracticeScreen and its own `d.*` styles use this palette.
+const D = {
+  canvas: COLORS.background, card: 'rgba(255,255,255,0.05)',
+  ink: COLORS.textPrimary, sub: COLORS.textSecondary, muted: COLORS.textSecondary,
+  faint: 'rgba(255,255,255,0.38)', hair: 'rgba(255,255,255,0.10)',
+  indigo: COLORS.primary, indigoSoft: 'rgba(124,58,237,0.16)',
+  blue: '#60A5FA', blueSoft: 'rgba(96,165,250,0.16)',
+  cyan: '#22D3EE', cyanSoft: 'rgba(34,211,238,0.16)',
+  purple: '#C084FC', purpleSoft: 'rgba(192,132,252,0.16)',
+  rose: '#FB7185', roseSoft: 'rgba(251,113,133,0.16)',
+  gold: '#F5C451', goldSoft: 'rgba(245,196,81,0.16)',
+};
 
 // Subjects with DB-backed mock tests (served by mockTestsApi). The Mock Test
 // button opens a subject -> mock list flow that runs each test through the
@@ -622,6 +641,7 @@ const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
 
 const PracticeScreen = () => {
   const { selectedClass, setSelectedClass, scope, isClassReady } = useAuth();
+  const insets = useSafeAreaInsets();
 
   // Class 6 & 9 subject lists are DB-driven (no hardcoded arrays) — filter the
   // fetched list by feature. Other classes keep their existing hardcoded lists.
@@ -1105,35 +1125,38 @@ const PracticeScreen = () => {
 
   // Real, working practice types — grouped by intent (practise vs assess). No fake data.
   const PRACTICE_GROUP = [
-    { Icon: ListChecks, label: 'Chapter practice',    sub: 'Multiple-choice questions, chapter by chapter', onPress: () => setMcqOpen(true) },
-    { Icon: Star,       label: 'Important questions', sub: 'Hand-picked must-do questions',                 onPress: () => setImpOpen(true) },
+    { Icon: ListChecks, tint: D.indigo, soft: D.indigoSoft, label: 'Chapter practice',    sub: 'Multiple-choice questions, chapter by chapter', onPress: () => setMcqOpen(true) },
+    { Icon: Star,       tint: D.cyan,   soft: D.cyanSoft,   label: 'Important questions', sub: 'Hand-picked must-do questions',                 onPress: () => setImpOpen(true) },
   ];
   const TEST_GROUP = [
-    { Icon: Timer,         label: 'Online tests',         sub: 'Timed tests, one chapter at a time', onPress: () => setChOpen(true) },
-    { Icon: ClipboardList, label: 'Mock tests',           sub: 'Full subject-wise mock papers',       onPress: () => setMockOpen(true) },
-    { Icon: History,       label: 'Previous year papers', sub: 'Last 10 years, chapter-wise',          onPress: () => setPyqOpen(true) },
+    { Icon: Timer,         tint: D.purple, soft: D.purpleSoft, label: 'Online tests',         sub: 'Timed tests, one chapter at a time', onPress: () => setChOpen(true) },
+    { Icon: ClipboardList, tint: D.rose,   soft: D.roseSoft,   label: 'Mock tests',           sub: 'Full subject-wise mock papers',       onPress: () => setMockOpen(true) },
+    { Icon: History,       tint: D.gold,   soft: D.goldSoft,   label: 'Previous year papers', sub: 'Last 10 years, chapter-wise',          onPress: () => setPyqOpen(true) },
   ];
   const renderType = (t, i, arr) => (
     <TouchableOpacity
       key={t.label}
-      style={[s.typeRow, i < arr.length - 1 && s.typeRowBorder]}
+      style={[d.typeRow, i < arr.length - 1 && d.typeRowBorder]}
       activeOpacity={0.6}
       onPress={t.onPress}
     >
-      <View style={s.typeIcon}><t.Icon size={20} color={S.ink} strokeWidth={2.1} /></View>
+      <View style={[d.typeIcon, { backgroundColor: t.soft }]}><t.Icon size={19} color={t.tint} strokeWidth={2.2} /></View>
       <View style={{ flex: 1 }}>
-        <Text style={s.typeTitle}>{t.label}</Text>
-        <Text style={s.typeSub}>{t.sub}</Text>
+        <Text style={d.typeTitle}>{t.label}</Text>
+        <Text style={d.typeSub}>{t.sub}</Text>
       </View>
-      <ChevronRight size={20} color={S.faint} strokeWidth={2.2} />
+      <ChevronRight size={19} color={D.faint} strokeWidth={2.2} />
     </TouchableOpacity>
   );
 
   // ── MAIN PRACTICE SCREEN ────────────────────────────────────────────────────
   return (
-    <View style={s.safe}>
-      <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
-      <StudentScreenHeader title="Practice" subtitle="Test yourself, chapter by chapter" />
+    <View style={d.safe}>
+      <StatusBar barStyle="light-content" backgroundColor={D.canvas} />
+      <View style={[d.header, { paddingTop: insets.top + 8 }]}>
+        <Text style={d.headerTitle}>Practice</Text>
+        <Text style={d.headerSub}>Test yourself, chapter by chapter</Text>
+      </View>
 
       {/* Students are locked to their own class; the switcher only shows if no class is set yet. */}
       {!scope?.classNum && <ClassTabs value={selectedClass} onChange={setSelectedClass} />}
@@ -1147,10 +1170,10 @@ const PracticeScreen = () => {
         <ComingSoon label="Practice" className={selectedClass} />
       ) : (
       <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 32 }}>
-        <Text style={s.listLabel}>Practise</Text>
-        <View style={s.typeList}>{PRACTICE_GROUP.map(renderType)}</View>
-        <Text style={s.listLabel}>Tests</Text>
-        <View style={s.typeList}>{TEST_GROUP.map(renderType)}</View>
+        <Text style={d.listLabel}>Practise</Text>
+        <View style={d.typeList}>{PRACTICE_GROUP.map(renderType)}</View>
+        <Text style={d.listLabel}>Tests</Text>
+        <View style={d.typeList}>{TEST_GROUP.map(renderType)}</View>
       </ScrollView>
       )}
     </View>
@@ -1278,6 +1301,23 @@ const s = StyleSheet.create({
   retestPrimary:    { alignSelf: 'stretch', backgroundColor: '#0E9A93', borderRadius: 50, paddingVertical: 13, alignItems: 'center' },
   retestPrimaryTxt: { color: '#fff', fontSize: 15, fontFamily: FONT.extrabold },
   retestCancel:     { color: S.muted, fontSize: 13, fontFamily: FONT.bold, marginTop: 14 },
+});
+
+// Dark styles for the Practice LANDING page only (see the `D` palette above) — the
+// sub-screens this file pushes into all stay on the light `s` StyleSheet above.
+const d = StyleSheet.create({
+  safe:          { flex: 1, backgroundColor: D.canvas },
+  header:        { paddingHorizontal: 18, paddingTop: 14, paddingBottom: 16 },
+  headerTitle:   { fontSize: 24, fontFamily: FONT.black, color: D.ink, letterSpacing: -0.5 },
+  headerSub:     { fontSize: 13, fontFamily: FONT.semibold, color: D.sub, marginTop: 4 },
+
+  listLabel:     { fontSize: 12, fontFamily: FONT.extrabold, color: D.indigo, letterSpacing: 0.6, textTransform: 'uppercase', marginHorizontal: 18, marginTop: 20, marginBottom: 10 },
+  typeList:      { marginHorizontal: 16, backgroundColor: D.card, borderRadius: 18, borderWidth: 1, borderColor: D.hair, overflow: 'hidden' },
+  typeRow:       { flexDirection: 'row', alignItems: 'center', gap: 14, paddingVertical: 16, paddingHorizontal: 16 },
+  typeRowBorder: { borderBottomWidth: 1, borderBottomColor: D.hair },
+  typeIcon:      { width: 42, height: 42, borderRadius: 13, alignItems: 'center', justifyContent: 'center' },
+  typeTitle:     { fontSize: 15, fontFamily: FONT.bold, color: D.ink, letterSpacing: -0.2 },
+  typeSub:       { fontSize: 12, fontFamily: FONT.semibold, color: D.muted, marginTop: 2 },
 });
 
 export default PracticeScreen;

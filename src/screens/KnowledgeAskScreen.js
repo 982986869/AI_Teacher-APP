@@ -1012,7 +1012,7 @@ const ManagePanel = () => {
       ) : (
         sources.map((s) => (
           <View key={s.id} style={st.srcItem}>
-            <View style={st.sourceIcon}><FileText size={15} color={S.blue} strokeWidth={2.3} /></View>
+            <View style={st.matIcon}><BookOpen size={16} color={S.indigo} strokeWidth={2.3} /></View>
             <View style={{ flex: 1 }}>
               <Text style={st.srcTitle} numberOfLines={1}>{s.title}</Text>
               <Text style={st.srcMeta}>
@@ -1021,8 +1021,7 @@ const ManagePanel = () => {
               </Text>
             </View>
             <PressableScale onPress={() => handleDelete(s.id)} style={st.delBtn} accessibilityLabel={`Delete ${s.title}`}>
-              <Trash2 size={13} color={S.red} strokeWidth={2.4} />
-              <Text style={st.delTxt}>Delete</Text>
+              <Trash2 size={14} color={S.red} strokeWidth={2.4} />
             </PressableScale>
           </View>
         ))
@@ -1214,11 +1213,14 @@ const st = StyleSheet.create({
   btn: { marginTop: 18 },
 
   emptyList: { fontSize: 13, fontFamily: F.med, color: S.muted, marginTop: 12, textAlign: 'center' },
-  srcItem: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: S.card, borderWidth: 1, borderColor: S.hair, borderRadius: R.md, padding: 12, marginTop: 10 },
+  // Each upload as its own card/chip — a plain list of files (icon + name),
+  // never the AI-analysis content (concepts/example/check-yourself) that lives
+  // in the Q&A tab's chat thread instead. Multiple uploads just stack here.
+  srcItem: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: S.card, borderWidth: 1, borderColor: S.hair, borderRadius: R.lg, padding: 12, marginTop: 10, ...shadowSm },
+  matIcon: { width: 34, height: 34, borderRadius: 11, backgroundColor: S.indigoSoft, alignItems: 'center', justifyContent: 'center' },
   srcTitle: { fontSize: 13.5, fontFamily: F.xbold, color: S.ink },
   srcMeta: { fontSize: 11, fontFamily: F.med, color: S.muted, marginTop: 3 },
-  delBtn: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: S.redSoft, borderRadius: 10, paddingVertical: 7, paddingHorizontal: 12 },
-  delTxt: { fontSize: 12, fontFamily: F.xbold, color: S.ink },
+  delBtn: { width: 30, height: 30, borderRadius: 10, alignItems: 'center', justifyContent: 'center', backgroundColor: S.redSoft },
 });
 
 export default KnowledgeAskScreen;
