@@ -36,11 +36,12 @@ const safeExt = (originalName, mime) => {
 }
 
 // Upload a Buffer → returns the public URL. Throws with a readable message on failure.
-async function uploadImage(buffer, { contentType, originalName } = {}) {
+// `folder` groups uploads by feature within the one bucket (questions/, avatars/, …).
+async function uploadImage(buffer, { contentType, originalName, folder = 'questions' } = {}) {
   const sb = client()
   if (!sb) throw new Error('Image storage is not configured on the server (set SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY).')
   const ext = safeExt(originalName, contentType)
-  const path = `questions/${crypto.randomBytes(16).toString('hex')}.${ext}`
+  const path = `${folder}/${crypto.randomBytes(16).toString('hex')}.${ext}`
   const { error } = await sb.storage.from(BUCKET).upload(path, buffer, {
     contentType: contentType || 'image/jpeg',
     upsert: false,

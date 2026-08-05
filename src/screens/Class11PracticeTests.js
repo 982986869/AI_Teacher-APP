@@ -17,7 +17,9 @@
 //   onStartSubtopic(subjectName, chapterName, subtopicId)
 
 import React, { useState, useEffect } from 'react';
-import { View, Text, ScrollView, SafeAreaView, StatusBar, ActivityIndicator } from 'react-native';
+import { View, Text, ScrollView, StatusBar, ActivityIndicator, StyleSheet, Pressable, TextInput } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { ChevronLeft, ChevronRight, Atom, FlaskConical, Sigma, Dna, BookOpen, Search, ListChecks } from 'lucide-react-native';
 import { FONT } from '../constants/fonts';
 import MCQ_DATA from '../data/mcqPractice';
 import { getMcqChaptersWithContent, getMcqSubtopics as apiMcqSubtopics } from '../api/mcqPracticeApi';
@@ -25,7 +27,29 @@ import { getChapters } from '../api/resourcesApi';
 import { getPracticeAttempts, practiceAttemptKey } from '../utils/storage';
 import { useClassSubjects, toTile } from '../utils/classSubjects';
 import { useAuth } from '../context/AuthContext';
-import { TK, ScreenHeader, FilterTabs, SearchBox, SubjectRow, ChapterRow, TestCard } from '../components/testCardKit';
+import { COLORS } from '../theme/designSystem';
+
+// Dark reskin of all three levels of this flow (subject list, chapter list, test
+// list — the "subject-selection-dark" / "chapter-tests-dark" references), same
+// opt-in-per-screen technique as the Practice landing page. This screen no longer
+// uses testCardKit at all — that shared kit (Mock Tests, Online Tests, admin
+// browse) is left exactly as-is; every level here renders its own local dark UI.
+const D = {
+  canvas: COLORS.background, card: 'rgba(255,255,255,0.05)',
+  ink: COLORS.textPrimary, sub: COLORS.textSecondary, muted: COLORS.textSecondary,
+  faint: 'rgba(255,255,255,0.38)', hair: 'rgba(255,255,255,0.10)',
+  cyan: '#22D3EE', cyanSoft: 'rgba(34,211,238,0.16)',
+  purple: '#C084FC', purpleSoft: 'rgba(192,132,252,0.16)',
+  emerald: COLORS.success, indigo: COLORS.primary,
+};
+// Vector icon + accent per known subject; anything else (Class 6-9's longer,
+// varied subject lists) falls back to a generic book icon, alternating the two
+// accent tints so the list still reads cleanly.
+const SUBJECT_ICON = { Physics: Atom, Chemistry: FlaskConical, Mathematics: Sigma, Biology: Dna };
+const SUBJECT_TINTS = [
+  { tint: D.cyan, soft: D.cyanSoft },
+  { tint: D.purple, soft: D.purpleSoft },
+];
 
 const classNum = (c) => parseInt(String(c || '').replace(/\D/g, ''), 10) || null;
 
@@ -62,19 +86,9 @@ const SUBJECTS_CLASS8 = [
 const subjectsForClass = (cl) =>
   cl === 7 ? SUBJECTS_CLASS7 : cl === 8 ? SUBJECTS_CLASS8 : SUBJECTS_SENIOR;
 
-const TINTS = ['#E1F5F3', '#FCEBDD', '#E9EBFB', '#E7F3E4', '#FBE9F0', '#EAF0FB', '#FCEFD6', '#E6F7F1'];
-
-const EmptyMsg = ({ text }) => (
-  <View style={{ paddingVertical: 48, alignItems: 'center' }}>
-    <Text style={{ color: TK.textMuted, fontSize: 14, fontFamily: FONT.semibold, textAlign: 'center' }}>{text}</Text>
-  </View>
-);
-const Loading = () => (
-  <View style={{ paddingVertical: 44, alignItems: 'center' }}><ActivityIndicator color={TK.mint} /></View>
-);
-
 export default function PracticeTestsCards({ onBack, onStartChapter, onStartSubtopic }) {
   const { selectedClass } = useAuth();
+  const insets = useSafeAreaInsets();
   const classLevel = classNum(selectedClass) || 11;
   const isDyn = DYNAMIC_CLASSES.includes(classLevel);
   const dynSubs = useClassSubjects(classLevel, isDyn);
@@ -142,22 +156,45 @@ export default function PracticeTestsCards({ onBack, onStartChapter, onStartSubt
 
   const attemptForKey = (subjName, chapName, subtopicId) => attempts[practiceAttemptKey(classLevel, subjName, chapName, subtopicId)];
 
-  // ── Level 1 · subject list ──
+  // ── Level 1 · subject list (dark — the "subject-selection-dark" reference) ──
   if (!subject) {
     const loadingSubs = isDyn && dynSubs === null;
     return (
-      <SafeAreaView style={{ flex: 1, backgroundColor: TK.bg }}>
-        <StatusBar barStyle="dark-content" backgroundColor={TK.card} />
-        <ScreenHeader title="Practice Questions" subtitle="Pick a subject, then a chapter" onBack={onBack} />
+      <View style={d.safe}>
+        <StatusBar barStyle="light-content" backgroundColor={D.canvas} />
+        <View style={[d.header, { paddingTop: insets.top + 8 }]}>
+          <Pressable onPress={onBack} style={d.backBtn} hitSlop={8} accessibilityLabel="Go back">
+            <ChevronLeft size={19} color={D.ink} strokeWidth={2.6} />
+          </Pressable>
+          <View style={{ flex: 1 }}>
+            <Text style={d.title}>Practice Questions</Text>
+            <Text style={d.subtitle}>Pick a subject, then a chapter</Text>
+          </View>
+        </View>
         <ScrollView contentContainerStyle={{ padding: 16 }} showsVerticalScrollIndicator={false}>
-          {loadingSubs ? <Loading /> : subjects.length === 0 ? (
-            <EmptyMsg text="No practice subjects yet." />
-          ) : subjects.map((subj, i) => (
-            <SubjectRow key={subj.name} emoji={subj.emoji} tile={TINTS[i % TINTS.length]} name={subj.name} sub="Chapter-wise practice" onPress={() => setSubject(subj)} />
-          ))}
+          {loadingSubs ? (
+            <View style={{ paddingVertical: 44, alignItems: 'center' }}><ActivityIndicator color={D.cyan} /></View>
+          ) : subjects.length === 0 ? (
+            <View style={{ paddingVertical: 48, alignItems: 'center' }}>
+              <Text style={{ color: D.muted, fontSize: 14, fontFamily: FONT.semibold, textAlign: 'center' }}>No practice subjects yet.</Text>
+            </View>
+          ) : subjects.map((subj, i) => {
+            const Icon = SUBJECT_ICON[subj.name] || BookOpen;
+            const { tint, soft } = SUBJECT_TINTS[i % SUBJECT_TINTS.length];
+            return (
+              <Pressable key={subj.name} style={d.subjectCard} onPress={() => setSubject(subj)}>
+                <View style={[d.subjectIcon, { backgroundColor: soft }]}><Icon size={22} color={tint} strokeWidth={2.2} /></View>
+                <View style={{ flex: 1 }}>
+                  <Text style={d.subjectName}>{subj.name}</Text>
+                  <Text style={d.subjectSub}>Chapter-wise practice</Text>
+                </View>
+                <ChevronRight size={19} color={D.faint} strokeWidth={2.2} />
+              </Pressable>
+            );
+          })}
           <View style={{ height: 24 }} />
         </ScrollView>
-      </SafeAreaView>
+      </View>
     );
   }
 
@@ -168,29 +205,53 @@ export default function PracticeTestsCards({ onBack, onStartChapter, onStartSubt
     const shownChs = chapters.filter((ch) => !cq || ch.toLowerCase().includes(cq));
     const loading = chapState.loading || avail.loading;
     return (
-      <SafeAreaView style={{ flex: 1, backgroundColor: TK.bg }}>
-        <StatusBar barStyle="dark-content" backgroundColor={TK.card} />
-        <ScreenHeader title={subject.name} subtitle="Pick a chapter to see its practice tests" onBack={() => setSubject(null)} />
-        <SearchBox value={query} onChangeText={setQuery} placeholder={`Search ${subject.name} chapters…`} />
+      <View style={d.safe}>
+        <StatusBar barStyle="light-content" backgroundColor={D.canvas} />
+        <View style={[d.header, { paddingTop: insets.top + 8 }]}>
+          <Pressable onPress={() => setSubject(null)} style={d.backBtn} hitSlop={8} accessibilityLabel="Go back">
+            <ChevronLeft size={19} color={D.ink} strokeWidth={2.6} />
+          </Pressable>
+          <View style={{ flex: 1 }}>
+            <Text style={d.title}>{subject.name}</Text>
+            <Text style={d.subtitle}>Pick a chapter to see its practice tests</Text>
+          </View>
+        </View>
+        <View style={d.searchWrap}>
+          <Search size={16} color={D.faint} strokeWidth={2.4} />
+          <TextInput
+            style={d.searchInput}
+            placeholder={`Search ${subject.name} chapters…`}
+            placeholderTextColor={D.faint}
+            value={query}
+            onChangeText={setQuery}
+            returnKeyType="search"
+          />
+        </View>
         <ScrollView contentContainerStyle={{ padding: 16 }} showsVerticalScrollIndicator={false}>
-          {loading ? <Loading /> : shownChs.length === 0 ? (
-            <EmptyMsg text="No chapters available yet." />
+          {loading ? (
+            <View style={{ paddingVertical: 44, alignItems: 'center' }}><ActivityIndicator color={D.cyan} /></View>
+          ) : shownChs.length === 0 ? (
+            <View style={{ paddingVertical: 48, alignItems: 'center' }}>
+              <Text style={{ color: D.muted, fontSize: 14, fontFamily: FONT.semibold, textAlign: 'center' }}>No chapters available yet.</Text>
+            </View>
           ) : shownChs.map((ch, i) => {
             const count = avail.counts ? avail.counts.get(slugify(ch)) : null;
             const done = Object.keys(attempts).filter((key) => key.startsWith(`${classLevel}::${subject.name}::${ch}::`)).length;
+            const { tint, soft } = SUBJECT_TINTS[i % SUBJECT_TINTS.length];
             return (
-              <ChapterRow
-                key={ch}
-                index={i + 1}
-                name={ch}
-                sub={`${count != null ? `${count} questions` : 'Practice'}${done ? ` · ${done} attempted` : ''}`}
-                onPress={() => setChapter(ch)}
-              />
+              <Pressable key={ch} style={d.chapterRow} onPress={() => setChapter(ch)}>
+                <View style={[d.chapterNum, { backgroundColor: soft }]}><Text style={[d.chapterNumTxt, { color: tint }]}>{i + 1}</Text></View>
+                <View style={{ flex: 1 }}>
+                  <Text style={d.chapterName} numberOfLines={2}>{ch}</Text>
+                  <Text style={d.chapterSub}>{`${count != null ? `${count} questions` : 'Practice'}${done ? ` · ${done} attempted` : ''}`}</Text>
+                </View>
+                <ChevronRight size={19} color={D.faint} strokeWidth={2.2} />
+              </Pressable>
             );
           })}
           <View style={{ height: 24 }} />
         </ScrollView>
-      </SafeAreaView>
+      </View>
     );
   }
 
@@ -210,38 +271,111 @@ export default function PracticeTestsCards({ onBack, onStartChapter, onStartSubt
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: TK.bg }}>
-      <StatusBar barStyle="dark-content" backgroundColor={TK.card} />
-      <ScreenHeader title={chapter} subtitle={subject.name} onBack={() => setChapter(null)} />
-      <FilterTabs
-        tab={tab}
-        onChange={setTab}
-        tabs={[{ id: 'all', label: 'All', count: tests.length }, { id: 'attempted', label: 'Attempted', count: attemptedCount }]}
-      />
+    <View style={d.safe}>
+      <StatusBar barStyle="light-content" backgroundColor={D.canvas} />
+      <View style={[d.header, { paddingTop: insets.top + 8 }]}>
+        <Pressable onPress={() => setChapter(null)} style={d.backBtn} hitSlop={8} accessibilityLabel="Go back">
+          <ChevronLeft size={19} color={D.ink} strokeWidth={2.6} />
+        </Pressable>
+        <View style={{ flex: 1 }}>
+          <Text style={d.title} numberOfLines={1}>{chapter}</Text>
+          <Text style={d.subtitle}>{subject.name}</Text>
+        </View>
+      </View>
+      <View style={d.tabRow}>
+        {[{ id: 'all', label: 'All Tests', count: tests.length }, { id: 'attempted', label: 'Attempted', count: attemptedCount }].map((t) => {
+          const on = tab === t.id;
+          return (
+            <Pressable key={t.id} onPress={() => setTab(t.id)} style={[d.tab, on && d.tabOn]}>
+              <Text style={[d.tabTxt, on && d.tabTxtOn]}>{t.label}{t.count != null ? ` (${t.count})` : ''}</Text>
+            </Pressable>
+          );
+        })}
+      </View>
       <ScrollView contentContainerStyle={{ padding: 16 }} showsVerticalScrollIndicator={false}>
-        {subtopics.loading && <Loading />}
+        {subtopics.loading && (
+          <View style={{ paddingVertical: 44, alignItems: 'center' }}><ActivityIndicator color={D.cyan} /></View>
+        )}
         {!subtopics.loading && shown.length === 0 && (
-          <EmptyMsg text={tab === 'attempted' ? 'No attempted tests yet.' : 'No practice tests available.'} />
+          <View style={{ paddingVertical: 48, alignItems: 'center' }}>
+            <Text style={{ color: D.muted, fontSize: 14, fontFamily: FONT.semibold, textAlign: 'center' }}>
+              {tab === 'attempted' ? 'No attempted tests yet.' : 'No practice tests available.'}
+            </Text>
+          </View>
         )}
         {!subtopics.loading && shown.map((t) => {
           const att = attemptFor(t);
           const done = !!att;
-          const pct = done ? Math.round(att.percent || 0) : null;
           return (
-            <TestCard
-              key={t.id}
-              done={done}
-              title={t.label}
-              metas={t.count != null ? [`\u{1F4DD} ${t.count} questions`] : []}
-              scoreText={done ? `${att.score}/${att.total}` : null}
-              scorePct={pct}
-              actionLabel={done ? 'Retry' : 'Practice'}
-              onPress={() => start(t)}
-            />
+            <View key={t.id} style={d.testCard}>
+              <View style={[d.statusPill, done ? d.statusPillDone : d.statusPillOpen]}>
+                <View style={[d.statusDot, { backgroundColor: done ? D.faint : D.emerald }]} />
+                <Text style={[d.statusTxt, { color: done ? D.muted : D.emerald }]}>{done ? 'Completed' : 'Available'}</Text>
+              </View>
+              <Text style={d.testTitle} numberOfLines={2}>{t.label}</Text>
+              {(t.count != null || done) && (
+                <View style={d.metaRow}>
+                  {t.count != null && (
+                    <View style={d.metaItem}>
+                      <ListChecks size={13} color={D.muted} strokeWidth={2.4} />
+                      <Text style={d.metaTxt}>{t.count} questions</Text>
+                    </View>
+                  )}
+                  {done && <Text style={d.metaTxt}>{att.score}/{att.total}</Text>}
+                </View>
+              )}
+              <Pressable style={[d.actionBtn, done && d.actionBtnGhost]} onPress={() => start(t)}>
+                <Text style={[d.actionTxt, done && d.actionTxtGhost]}>{done ? 'Retry' : 'Practice'}</Text>
+              </Pressable>
+            </View>
           );
         })}
         <View style={{ height: 24 }} />
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
+
+// Dark styles for the LEVEL-1 subject list only — level 2/3 above stay on TK/k.
+const d = StyleSheet.create({
+  safe:        { flex: 1, backgroundColor: D.canvas },
+  header:      { flexDirection: 'row', alignItems: 'center', gap: 12, paddingHorizontal: 20, paddingBottom: 16 },
+  backBtn:     { width: 34, height: 34, borderRadius: 17, backgroundColor: D.card, borderWidth: 1, borderColor: D.hair, alignItems: 'center', justifyContent: 'center' },
+  title:       { fontSize: 20, fontWeight: '900', color: D.ink, letterSpacing: -0.4 },
+  subtitle:    { fontSize: 12.5, color: D.sub, marginTop: 2, fontWeight: '600' },
+
+  subjectCard: { flexDirection: 'row', alignItems: 'center', backgroundColor: D.card, borderRadius: 18, borderWidth: 1, borderColor: D.hair, padding: 14, marginBottom: 12 },
+  subjectIcon: { width: 52, height: 52, borderRadius: 14, alignItems: 'center', justifyContent: 'center', marginRight: 14 },
+  subjectName: { fontSize: 16, fontWeight: '800', color: D.ink },
+  subjectSub:  { fontSize: 12.5, color: D.muted, marginTop: 2, fontWeight: '600' },
+
+  searchWrap:  { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: D.card, borderWidth: 1, borderColor: D.hair, borderRadius: 15, paddingHorizontal: 14, height: 44, marginHorizontal: 16, marginTop: 4 },
+  searchInput: { flex: 1, fontSize: 14, color: D.ink, fontWeight: '600', padding: 0 },
+
+  chapterRow:     { flexDirection: 'row', alignItems: 'center', backgroundColor: D.card, borderRadius: 14, borderWidth: 1, borderColor: D.hair, padding: 14, marginBottom: 10, gap: 12 },
+  chapterNum:     { width: 30, height: 30, borderRadius: 9, alignItems: 'center', justifyContent: 'center' },
+  chapterNumTxt:  { fontSize: 13, fontWeight: '800' },
+  chapterName:    { fontSize: 14.5, fontWeight: '700', color: D.ink },
+  chapterSub:     { fontSize: 12, color: D.muted, marginTop: 2, fontWeight: '600' },
+
+  tabRow:      { flexDirection: 'row', gap: 8, paddingHorizontal: 16, marginTop: 4, marginBottom: 4 },
+  tab:         { paddingVertical: 9, paddingHorizontal: 16, borderRadius: 12, backgroundColor: D.card, borderWidth: 1, borderColor: D.hair },
+  tabOn:       { backgroundColor: D.cyan, borderColor: D.cyan },
+  tabTxt:      { fontSize: 12.5, fontWeight: '800', color: D.muted },
+  tabTxtOn:    { color: '#08181C' },
+
+  testCard:       { backgroundColor: D.card, borderWidth: 1, borderColor: D.hair, borderRadius: 18, padding: 16, marginBottom: 12, gap: 10 },
+  statusPill:     { flexDirection: 'row', alignItems: 'center', gap: 6, alignSelf: 'flex-start', paddingVertical: 4, paddingHorizontal: 9, borderRadius: 8 },
+  statusPillOpen: { backgroundColor: 'rgba(16,185,129,0.14)' },
+  statusPillDone: { backgroundColor: 'rgba(255,255,255,0.06)' },
+  statusDot:      { width: 6, height: 6, borderRadius: 3 },
+  statusTxt:      { fontSize: 11, fontWeight: '800', letterSpacing: 0.2 },
+  testTitle:      { fontSize: 16, fontWeight: '800', color: D.ink, letterSpacing: -0.2 },
+  metaRow:        { flexDirection: 'row', alignItems: 'center', gap: 14 },
+  metaItem:       { flexDirection: 'row', alignItems: 'center', gap: 6 },
+  metaTxt:        { fontSize: 12, fontWeight: '700', color: D.muted },
+  actionBtn:      { backgroundColor: D.indigo, borderRadius: 13, paddingVertical: 13, alignItems: 'center' },
+  actionBtnGhost: { backgroundColor: 'transparent', borderWidth: 1.5, borderColor: D.hair },
+  actionTxt:      { color: '#fff', fontSize: 14, fontWeight: '800', letterSpacing: 0.2 },
+  actionTxtGhost: { color: D.ink },
+});

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import {
-  View, Text, ScrollView, TouchableOpacity,
+  View, Text, ScrollView, TouchableOpacity, Image, Alert,
   StyleSheet, SafeAreaView, StatusBar,
 } from 'react-native';
-import { User, Mail, Phone as PhoneIcon, Lock, Eye, EyeOff } from 'lucide-react-native';
+import { User, Mail, Phone as PhoneIcon, Lock, Eye, EyeOff, Camera } from 'lucide-react-native';
+import * as ImagePicker from 'expo-image-picker';
 
 import AuthInput     from '../components/brand/AuthInput';
 import AuthError     from '../components/brand/AuthError';
@@ -22,8 +23,13 @@ import { validateEmail, validatePassword, validateName, validatePhone } from '..
 // { name, email, password, grade } — no phone column — so it's collected but
 // deliberately not sent rather than silently pretending it's saved. Wire it
 // through once the backend accepts it.
+//
+// Profile photo is optional here — pick one and it uploads right after the
+// account is created; skip it and the backend assigns a default avatar
+// instead (see auth.controller.js's ensurePhoto), so every account has a
+// real photoUrl either way and nothing downstream has to guess.
 const SignupScreen = ({ navigation }) => {
-  const { signIn } = useAuth();
+  const { signIn, updatePhoto } = useAuth();
 
   const [name, setName]         = useState('');
   const [email, setEmail]       = useState('');
@@ -33,9 +39,30 @@ const SignupScreen = ({ navigation }) => {
   const [showPw, setShowPw]         = useState(false);
   const [showConfirmPw, setShowConfirmPw] = useState(false);
   const [agreed, setAgreed]     = useState(false);
+  const [photo, setPhoto]       = useState(null); // RN asset { uri, ... } or null
 
   const [loading, setLoading] = useState(false);
   const [error, setError]     = useState('');
+
+  const pickFromLibrary = async () => {
+    const perm = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (!perm.granted) { setError('Photo access is needed to choose a picture.'); return; }
+    const res = await ImagePicker.launchImageLibraryAsync({ mediaTypes: ['images'], quality: 0.8, allowsEditing: true, aspect: [1, 1] });
+    if (!res.canceled && res.assets?.length) setPhoto(res.assets[0]);
+  };
+  const takePhoto = async () => {
+    const perm = await ImagePicker.requestCameraPermissionsAsync();
+    if (!perm.granted) { setError('Camera access is needed to take a picture.'); return; }
+    const res = await ImagePicker.launchCameraAsync({ mediaTypes: ['images'], quality: 0.8, allowsEditing: true, aspect: [1, 1] });
+    if (!res.canceled && res.assets?.length) setPhoto(res.assets[0]);
+  };
+  const choosePhoto = () => {
+    Alert.alert('Profile photo', 'Add a profile photo', [
+      { text: 'Take Photo', onPress: takePhoto },
+      { text: 'Choose from Gallery', onPress: pickFromLibrary },
+      { text: 'Cancel', style: 'cancel' },
+    ]);
+  };
 
   const handleCreateAccount = async () => {
     setError('');
@@ -52,6 +79,10 @@ const SignupScreen = ({ navigation }) => {
       setLoading(true);
       const data = await signupWithEmail({ name, email, password });
       await signIn(data);
+      // Best-effort — a photo-upload hiccup should never block a just-created
+      // account from signing in. No photo picked → the backend's own default
+      // avatar (already on the account from signup) stands as-is.
+      if (photo) { try { await updatePhoto(photo); } catch (_) {} }
     } catch (e) {
       setError(e?.response?.data?.error || e?.response?.data?.message || 'Signup failed. Please try again.');
     } finally {
@@ -65,6 +96,18 @@ const SignupScreen = ({ navigation }) => {
       <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
         <Text style={styles.heading}>Create Account</Text>
         <Text style={styles.sub}>Join Ailernova and unlock personalized learning</Text>
+
+        <View style={styles.avatarRow}>
+          <TouchableOpacity style={styles.avatarWrap} onPress={choosePhoto} accessibilityLabel="Add a profile photo">
+            {photo ? (
+              <Image source={{ uri: photo.uri }} style={styles.avatarImg} />
+            ) : (
+              <View style={styles.avatarPlaceholder}><User size={28} color={COLORS.textSecondary} strokeWidth={1.8} /></View>
+            )}
+            <View style={styles.avatarBadge}><Camera size={13} color="#fff" strokeWidth={2.4} /></View>
+          </TouchableOpacity>
+          <Text style={styles.avatarHint}>{photo ? 'Tap to change photo' : 'Add a profile photo (optional)'}</Text>
+        </View>
 
         <AuthError message={error} />
 
@@ -137,6 +180,12 @@ const styles = StyleSheet.create({
   scroll: { flexGrow: 1, paddingHorizontal: SPACING.xl, paddingTop: SPACING.xxl, paddingBottom: SPACING.xl },
   heading: { ...TYPE.display, marginBottom: 6 },
   sub: { ...TYPE.body, marginBottom: SPACING.xl },
+  avatarRow: { alignItems: 'center', marginBottom: SPACING.xl },
+  avatarWrap: { width: 84, height: 84 },
+  avatarImg: { width: 84, height: 84, borderRadius: 42, borderWidth: 2, borderColor: COLORS.primary },
+  avatarPlaceholder: { width: 84, height: 84, borderRadius: 42, backgroundColor: COLORS.card, borderWidth: 1, borderColor: COLORS.border, alignItems: 'center', justifyContent: 'center' },
+  avatarBadge: { position: 'absolute', right: -2, bottom: -2, width: 28, height: 28, borderRadius: 14, backgroundColor: COLORS.primary, alignItems: 'center', justifyContent: 'center', borderWidth: 2, borderColor: COLORS.background },
+  avatarHint: { fontFamily: FONT_FAMILY.medium, fontSize: 12, color: COLORS.textSecondary, marginTop: 9 },
   link: { color: COLORS.primaryLight, fontFamily: FONT_FAMILY.semibold },
   mainBtn: { marginTop: SPACING.xs },
   switchRow: { flexDirection: 'row', justifyContent: 'center', marginTop: SPACING.lg },

@@ -3,7 +3,7 @@ import { saveToken, getToken, saveUser, getUser, clearAll } from '../utils/stora
 import { setUnauthorizedHandler, setProfileIncompleteHandler } from '../api/axiosInstance';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { deriveScope } from '../utils/personalization';
-import { fetchMe, updateProfileApi } from '../api/authApi';
+import { fetchMe, updateProfileApi, uploadProfilePhoto } from '../api/authApi';
 import { getContentClasses } from '../api/resourcesApi';
 
 const AuthContext = createContext(null);
@@ -103,6 +103,14 @@ export const AuthProvider = ({ children }) => {
     return data;
   }, []);
 
+  // Upload/change the profile photo — used right after signup (if a photo was
+  // picked) and later from the Profile screen's "change photo".
+  const updatePhoto = useCallback(async (file) => {
+    const data = await uploadProfilePhoto(file);
+    if (data && data.user) { userOp.current += 1; setUser(data.user); await saveUser(data.user); }
+    return data;
+  }, []);
+
   // Derived scope (role, class, stream, subjects) — single source of truth for the UI.
   const scope = useMemo(() => deriveScope(user), [user]);
 
@@ -169,7 +177,7 @@ export const AuthProvider = ({ children }) => {
       scope,                       // { role, classNum, className, stream, board, language, subjects, complete }
       readyClasses, isClassReady,  // backend-driven "which classes have content" gate
       activeView, setActiveView,   // student's chosen view: 'student' | 'parent' | null (chooser)
-      updateProfile,
+      updateProfile, updatePhoto,
       signIn, signOut, completeOnboarding,
     }}>
       {children}

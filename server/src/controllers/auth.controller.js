@@ -11,16 +11,33 @@ const { AppError } = require('../middleware/errorHandler')
 const ApiResponse = require('../utils/ApiResponse')
 const { deriveScope } = require('../services/personalization/scope')
 const { validateProfilePatch } = require('../services/personalization/validateProfile')
+const { uploadImage, isConfigured: storageConfigured } = require('../services/storage')
 
 // Full personalization row (raw — these columns live outside the generated client).
 async function fetchScopeUser(id) {
   const rows = await db.$queryRawUnsafe(
     `SELECT id, name, email, phone, grade, role::text AS role,
-            board, stream, language, school, account_type, linked_student_id
+            board, stream, language, school, account_type, linked_student_id, photo_url AS "photoUrl"
        FROM "users" WHERE id = $1::uuid LIMIT 1`,
     id,
   )
   return rows && rows[0]
+}
+
+// A student who never picks a profile photo still gets a real, distinct-looking
+// avatar instead of a bare initial — a free deterministic avatar image, seeded by
+// the user's own id (stable forever, no account lookup needed to regenerate it).
+const defaultAvatarUrl = (userId) => `https://api.dicebear.com/9.x/adventurer/png?seed=${userId}`
+
+// Backfill a missing photoUrl (new account, or an older account from before this
+// feature existed) once, in place, so every response from here on already has one.
+async function ensurePhoto(user) {
+  if (user && !user.photoUrl) {
+    const url = defaultAvatarUrl(user.id)
+    await db.$executeRawUnsafe(`UPDATE "users" SET "photo_url" = $1 WHERE id = $2::uuid`, url, user.id)
+    user.photoUrl = url
+  }
+  return user
 }
 
 // No client secret: this only ever verifies ID-token signatures against Google's
@@ -71,7 +88,7 @@ async function register(req, res, next) {
 
     const passwordHash = await bcrypt.hash(password, 12)
 
-    const user = await db.user.create({
+    const created = await db.user.create({
       data: {
         name,
         email: email || null,
@@ -80,8 +97,10 @@ async function register(req, res, next) {
         grade: grade || null,
         provider: 'EMAIL',
       },
-      select: USER_SELECT,
+      select: { id: true },
     })
+
+    const user = await ensurePhoto(await fetchScopeUser(created.id))
 
     return ApiResponse.created(res, { token: signToken(user.id), user, scope: deriveScope(user) }, 'Account created')
   } catch (err) {
@@ -115,7 +134,7 @@ async function login(req, res, next) {
     if (!valid) return next(invalid)
 
     const { passwordHash: _omit, ...safeUser } = user
-    const full = (await fetchScopeUser(user.id)) || safeUser
+    const full = await ensurePhoto((await fetchScopeUser(user.id)) || safeUser)
 
     return ApiResponse.success(res, { token: signToken(user.id), user: full, scope: deriveScope(full) })
   } catch (err) {
@@ -179,7 +198,7 @@ async function googleAuth(req, res, next) {
       })
     }
 
-    const full = (await fetchScopeUser(user.id)) || user
+    const full = await ensurePhoto((await fetchScopeUser(user.id)) || user)
 
     return ApiResponse.success(
       res,
@@ -194,7 +213,8 @@ async function googleAuth(req, res, next) {
 // ─── Me ──────────────────────────────────────────────────────────────────────
 
 async function me(req, res) {
-  return ApiResponse.success(res, { user: req.user, scope: req.scope })
+  const user = await ensurePhoto(req.user)
+  return ApiResponse.success(res, { user, scope: req.scope })
 }
 
 // ─── Update profile (migration / complete-profile) ─────────────────────────────
@@ -232,4 +252,28 @@ async function updateProfile(req, res, next) {
   }
 }
 
-module.exports = { register, login, googleAuth, me, updateProfile }
+// ─── Upload / change profile photo ──────────────────────────────────────────
+// Used both right after signup (if the student picked a photo) and later from
+// the Profile screen ("change photo"). Same storage bucket the admin content-
+// image upload uses, just its own `avatars/` folder within it.
+
+const PHOTO_MIME = new Set(['image/jpeg', 'image/jpg', 'image/png', 'image/webp'])
+
+async function uploadPhoto(req, res, next) {
+  try {
+    if (!storageConfigured()) return ApiResponse.error(res, 'Image storage is not configured on the server.', 503)
+    if (!req.file || !req.file.buffer) return ApiResponse.error(res, 'No photo was uploaded.', 400)
+    const mime = String(req.file.mimetype || '').toLowerCase()
+    if (!PHOTO_MIME.has(mime)) return ApiResponse.error(res, 'Only JPG, PNG or WebP images are allowed.', 415)
+
+    const url = await uploadImage(req.file.buffer, { contentType: mime, originalName: req.file.originalname, folder: 'avatars' })
+    await db.$executeRawUnsafe(`UPDATE "users" SET "photo_url" = $1 WHERE id = $2::uuid`, url, req.user.id)
+
+    const user = await fetchScopeUser(req.user.id)
+    return ApiResponse.success(res, { user, scope: deriveScope(user) }, 'Profile photo updated')
+  } catch (err) {
+    next(err)
+  }
+}
+
+module.exports = { register, login, googleAuth, me, updateProfile, uploadPhoto }
