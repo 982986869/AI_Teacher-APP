@@ -14,7 +14,7 @@ const ResultsScreen = () => (
     fetchResults={getResults}
     fetchAttemptSections={getAttemptDetail}
     enableTabScrollToTop
-    header={<StudentScreenHeader title="Progress" subtitle="Tests, scores & study time" />}
+    header={<StudentScreenHeader tone="dark" title="Progress" subtitle="Tests, scores & study time" />}
   />
 );
 

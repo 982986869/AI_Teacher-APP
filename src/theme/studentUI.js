@@ -11,6 +11,7 @@ import Svg, { Defs, RadialGradient, LinearGradient as LG, Stop, Rect } from 'rea
 import { CircleAlert, ArrowRight } from 'lucide-react-native';
 import { T } from '../screens/parent/ParentApp/constants';
 import { S, shadow, shadowSm } from './studentTheme';
+import { N } from './nightTheme';
 import { PressableScale, Nudge } from '../screens/parent/ParentApp/anim';
 
 let _uid = 0;
@@ -60,13 +61,17 @@ export function InkSurface({ a = S.heroA, b = S.heroB, glow = S.heroGlow, radius
 
 // Clean light screen header (title + optional subtitle + optional right slot), padding the
 // top by the safe-area inset for edge-to-edge. The one header every standard screen uses.
-export function StudentScreenHeader({ title, subtitle, right }) {
+// `tone="dark"` is for the screens built on the night palette (Progress). Same
+// metrics either way — only the two text colours change, so a night screen does
+// not have to fork the header just to be readable on it.
+export function StudentScreenHeader({ title, subtitle, right, tone = 'light' }) {
   const insets = useSafeAreaInsets();
+  const dark = tone === 'dark';
   return (
     <View style={[ui.header, { paddingTop: insets.top + 8 }]}>
       <View style={{ flex: 1 }}>
-        <T w="black" s={22} c={S.ink} style={{ letterSpacing: -0.5 }} numberOfLines={1}>{title}</T>
-        {!!subtitle && <T w="semi" s={12.5} c={S.muted} style={{ marginTop: 1 }} numberOfLines={1}>{subtitle}</T>}
+        <T w="black" s={22} c={dark ? N.ink : S.ink} style={{ letterSpacing: -0.5 }} numberOfLines={1}>{title}</T>
+        {!!subtitle && <T w="semi" s={12.5} c={dark ? N.inkSoft : S.muted} style={{ marginTop: 1 }} numberOfLines={1}>{subtitle}</T>}
       </View>
       {right}
     </View>

@@ -10,13 +10,22 @@
 // behaviour. Removing nothing here should make the two screens indistinguishable.
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, StatusBar, ActivityIndicator, RefreshControl, Modal } from 'react-native';
+import Svg, { Circle } from 'react-native-svg';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
-import { S, shadow, shadowSm, StudentErrorState } from '../../theme/studentUI';
+import { StudentErrorState } from '../../theme/studentUI';
+// Night palette — the same one AI Teacher and Home are built on. Progress is a
+// data page, so hue here is INFORMATION (ring arcs, bar peaks, subject accents,
+// score colours); the surfaces stay neutral so those reads stay legible.
+import { N } from '../../theme/nightTheme';
+import { NightBg } from '../../theme/nightChrome';
 import { FONT } from '../../constants/fonts';
 import { FadeInOnce, Shimmer } from '../parent/ParentApp/anim';
 
-const PRIMARY = S.indigo;
-const AMBER = S.gold;
+const PRIMARY = N.violet;
+// The idle bar / secondary accent. The night palette's blue is a true blue; the
+// chart wants the cyan next to it so a violet peak reads as "this one is bigger",
+// not "this one is a different metric".
+const CYAN = '#22D3EE';
 
 const SUBJ_ABBR = {
   Physics: 'Ph', Chemistry: 'Ch', Mathematics: 'Ma', Maths: 'Ma', Biology: 'Bi',
@@ -25,13 +34,16 @@ const SUBJ_ABBR = {
 };
 const abbr = (name) => SUBJ_ABBR[name] || (name || '?').trim().slice(0, 2);
 
+// Subject accents, picked for the dark surface: the light build's #2563EB /
+// #16A34A sink into the violet page, so each subject gets the brighter member of
+// its own hue family instead.
 const SUBJECT_COLORS = {
-  Physics: S.blue, Chemistry: S.orange, Mathematics: S.emerald, Maths: S.emerald,
-  Biology: '#16A34A', English: S.gold, Hindi: S.red, 'Social Science': S.cyan,
-  Science: '#14B8A6', 'Current Affairs': S.purple, 'Computer Applications': S.indigo,
-  'Information Technology': S.indigo, 'Brain Gym': S.purple,
+  Physics: '#FF8A3D', Chemistry: '#FF5C8A', Mathematics: '#A78BFA', Maths: '#A78BFA',
+  Biology: CYAN, English: N.amber, Hindi: N.red, 'Social Science': '#4ADE80',
+  Science: '#2DD4BF', 'Current Affairs': '#C084FC', 'Computer Applications': N.blue,
+  'Information Technology': N.blue, 'Brain Gym': N.violet,
 };
-const PALETTE = [S.indigo, S.emerald, S.blue, S.orange, S.red, S.cyan, '#14B8A6', S.purple];
+const PALETTE = [N.violet, '#4ADE80', N.blue, '#FF8A3D', N.red, CYAN, '#2DD4BF', '#C084FC'];
 const subjectColor = (name, i) => {
   if (SUBJECT_COLORS[name]) return SUBJECT_COLORS[name];
   const k = Object.keys(SUBJECT_COLORS).find((k) => (name || '').includes(k));
@@ -59,7 +71,7 @@ const fmtHoursTotal = (secs) => {
   const m = Math.round((secs || 0) / 60), h = Math.floor(m / 60), mm = m % 60;
   return h ? `${h}h ${mm}m` : `${mm}m`;
 };
-const scoreColor = (pct) => (pct >= 70 ? S.emerald : pct >= 50 ? S.gold : S.red);
+const scoreColor = (pct) => (pct >= 70 ? N.green : pct >= 50 ? N.amber : N.red);
 const WEEK = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const fullDate = (iso) => {
@@ -76,16 +88,43 @@ const subjMeta = (sub) => {
   return parts.length ? parts.join('  •  ') : 'No attempts';
 };
 
+// The stat cards' progress ring. `pct` is progress toward that stat's goal (see
+// GOALS) — a ring needs a denominator, so a raw count can't drive one.
+function Ring({ pct = 0, label, color = PRIMARY, size = 56, stroke = 5 }) {
+  const r = (size - stroke) / 2;
+  const circ = 2 * Math.PI * r;
+  const p = Math.max(0, Math.min(100, Math.round(pct)));
+  return (
+    <View style={{ width: size, height: size, alignItems: 'center', justifyContent: 'center' }}>
+      <Svg width={size} height={size} style={StyleSheet.absoluteFill}>
+        <Circle cx={size / 2} cy={size / 2} r={r} stroke={N.track} strokeWidth={stroke} fill="none" />
+        {p > 0 && (
+          <Circle
+            cx={size / 2} cy={size / 2} r={r}
+            stroke={color} strokeWidth={stroke} fill="none"
+            strokeDasharray={`${circ} ${circ}`}
+            strokeDashoffset={circ * (1 - p / 100)}
+            strokeLinecap="round"
+            transform={`rotate(-90 ${size / 2} ${size / 2})`}
+          />
+        )}
+      </Svg>
+      <Text style={s.ringTxt}>{label}</Text>
+    </View>
+  );
+}
+
+// Shimmer's own base is the light build's #EDEDF0 — it is shared with the Parent
+// app, so instead of recolouring it globally each block is given the night card
+// colour and the sweep reads as a highlight across it.
+const SKEL = { backgroundColor: N.card };
+
 function ResultsSkeleton() {
   return (
     <View style={{ paddingHorizontal: 16, paddingTop: 12 }}>
-      <Shimmer w="100%" h={62} r={18} />
-      <View style={{ flexDirection: 'row', gap: 12, marginTop: 16 }}>
-        <Shimmer w="100%" h={120} r={20} style={{ flex: 1 }} />
-        <Shimmer w="100%" h={120} r={20} style={{ flex: 1 }} />
-      </View>
-      <Shimmer w="100%" h={210} r={22} mt={16} />
-      <Shimmer w="100%" h={170} r={22} mt={16} />
+      <Shimmer w="100%" h={68} r={18} style={SKEL} />
+      {[0, 1, 2, 3].map((i) => <Shimmer key={i} w="100%" h={90} r={20} mt={12} style={SKEL} />)}
+      <Shimmer w="100%" h={210} r={22} mt={16} style={SKEL} />
     </View>
   );
 }
@@ -158,19 +197,34 @@ export default function ResultsView({ fetchResults, fetchAttemptSections, header
   const recent = data?.recent || [];
   const ov = data?.overview || {};
   const maxSecs = Math.max(1, ...daily.map((d) => d.secs || 0));
-  const maxH = Math.max(1, Math.ceil(maxSecs / 3600));
   const manyBars = daily.length > 8;
+  // The busiest bar is the violet one; every other bar is cyan. -1 when nothing
+  // was studied, so an all-zero chart has no false "peak".
+  const peakIdx = daily.some((d) => d.secs > 0)
+    ? daily.reduce((best, d, i) => ((d.secs || 0) > (daily[best].secs || 0) ? i : best), 0)
+    : -1;
+
+  // A ring needs a denominator, so each stat gets a modest goal for the period —
+  // a month simply scales the week's. Avg Score is already a percentage and rings
+  // itself. These are display goals only; nothing is scored against them.
+  const scale = period === 'month' ? 4 : 1;
+  const pctOf = (val, goal) => (goal > 0 ? Math.min(100, (val / goal) * 100) : 0);
+  const avg = ov.avgScore ?? 0;
+  const hoursPct = pctOf((ov.studySeconds || 0) / 3600, 6 * scale);
+  const testsPct = pctOf(ov.testsTaken || 0, 10 * scale);
+  const xpPct = pctOf(ov.xp || 0, 500 * scale);
 
   const cards = [
-    { icon: '📋', bg: S.indigoSoft, tint: S.indigo, val: String(ov.testsTaken ?? 0), lbl: 'Tests Taken', sub: `Mocks: ${ov.mocks ?? 0} · Quizzes: ${ov.quizzes ?? 0}` },
-    { icon: '🎯', bg: S.emeraldSoft, tint: S.emerald, val: `${ov.avgScore ?? 0}%`, lbl: 'Avg Score', sub: 'Across all attempts' },
-    { icon: '⏱', bg: S.goldSoft, tint: S.gold, val: fmtHoursTotal(ov.studySeconds), lbl: 'Hours', sub: 'Total study time' },
-    { icon: '⚡', bg: S.purpleSoft, tint: S.purple, val: (ov.xp ?? 0).toLocaleString(), lbl: 'XP Earned', sub: 'Keep it up! 🚀' },
+    { ring: testsPct, color: N.blue, val: String(ov.testsTaken ?? 0), lbl: 'Tests Taken', sub: `Mocks: ${ov.mocks ?? 0} · Quizzes: ${ov.quizzes ?? 0}` },
+    { ring: avg, color: scoreColor(avg), val: `${avg}%`, lbl: 'Avg Score', sub: 'Across all attempts' },
+    { ring: hoursPct, color: PRIMARY, val: fmtHoursTotal(ov.studySeconds), lbl: 'Hours', sub: `Total study time this ${period}` },
+    { ring: xpPct, color: N.green, val: (ov.xp ?? 0).toLocaleString(), lbl: 'XP Earned', sub: 'Keep it up! 🚀' },
   ];
 
   return (
     <View style={s.safe}>
-      <StatusBar barStyle="dark-content" backgroundColor={S.canvas} translucent={false} />
+      <StatusBar barStyle="light-content" backgroundColor={N.bgTop} translucent={false} />
+      <NightBg id="progress" />
 
       {header}
 
@@ -223,15 +277,17 @@ export default function ResultsView({ fetchResults, fetchAttemptSections, header
           </View>
         </FadeInOnce>
 
-        {/* Overview cards (2×2) */}
+        {/* Overview — one full-width row per stat, each led by its progress ring */}
         <FadeInOnce id="res-cards" delay={60} y={14}>
-          <View style={s.cardsGrid}>
+          <View style={s.cardsCol}>
             {cards.map((c, i) => (
               <View key={i} style={s.ovCard}>
-                <View style={[s.ovIcon, { backgroundColor: c.bg }]}><Text style={{ fontSize: 18 }}>{c.icon}</Text></View>
-                <Text style={s.ovLbl}>{c.lbl}</Text>
-                <Text style={s.ovVal}>{c.val}</Text>
-                <Text style={s.ovSub} numberOfLines={1}>{c.sub}</Text>
+                <Ring pct={c.ring} color={c.color} label={`${Math.round(c.ring)}%`} />
+                <View style={{ flex: 1, minWidth: 0 }}>
+                  <Text style={s.ovLbl}>{c.lbl}</Text>
+                  <Text style={s.ovVal}>{c.val}</Text>
+                  <Text style={s.ovSub} numberOfLines={1}>{c.sub}</Text>
+                </View>
               </View>
             ))}
           </View>
@@ -244,23 +300,20 @@ export default function ResultsView({ fetchResults, fetchAttemptSections, header
             <Text style={s.cardTitle}>Activity</Text>
             <View style={s.hoursPill}><Text style={s.hoursPillTxt}>Hours</Text></View>
           </View>
+          {/* No gridlines or per-bar numbers — the shape is the message. The one
+              scale cue is the peak, so the bars still mean something absolute. */}
+          <Text style={s.scaleTxt}>Peak {fmtHM(maxSecs) || '0m'}</Text>
           <View style={s.chartArea}>
-            {[0, 1, 2, 3].map((i) => (
-              <View key={i} style={[s.gridline, { bottom: 22 + (i / 3) * 150 }]}>
-                <Text style={s.yLabel}>{i === 0 ? '0' : (maxSecs >= 3600 ? `${Math.round((maxH * i) / 3)}h` : `${Math.round(maxSecs * i / 3 / 60)}m`)}</Text>
-              </View>
-            ))}
             {manyBars ? (
               <ScrollView horizontal showsHorizontalScrollIndicator={false}
                 ref={barsScrollRef}
                 onContentSizeChange={() => { if (daily.length !== lastBarCount.current) { lastBarCount.current = daily.length; barsScrollRef.current?.scrollToEnd({ animated: false }); } }}
                 style={s.barsScroll} contentContainerStyle={s.barsScrollContent}>
                 {daily.map((d, i) => {
-                  const barH = Math.max(4, ((d.secs || 0) / maxSecs) * 150);
+                  const barH = Math.max(10, ((d.secs || 0) / maxSecs) * 150);
                   return (
                     <View key={i} style={s.barColFixed}>
-                      <Text style={s.barVal} numberOfLines={1}>{fmtHM(d.secs)}</Text>
-                      <View style={[s.bar, { height: barH }]} />
+                      <View style={[s.bar, { height: barH, backgroundColor: i === peakIdx ? PRIMARY : CYAN }]} />
                       <Text style={s.barLabel}>{d.day}</Text>
                     </View>
                   );
@@ -269,11 +322,10 @@ export default function ResultsView({ fetchResults, fetchAttemptSections, header
             ) : (
               <View style={s.barsRow}>
                 {daily.map((d, i) => {
-                  const barH = Math.max(4, ((d.secs || 0) / maxSecs) * 150);
+                  const barH = Math.max(10, ((d.secs || 0) / maxSecs) * 150);
                   return (
                     <View key={i} style={s.barCol}>
-                      <Text style={s.barVal} numberOfLines={1}>{fmtHM(d.secs)}</Text>
-                      <View style={[s.bar, { height: barH }]} />
+                      <View style={[s.bar, { height: barH, backgroundColor: i === peakIdx ? PRIMARY : CYAN }]} />
                       <Text style={s.barLabel}>{d.day}</Text>
                       {!!d.sub && <Text style={s.barSub}>{d.sub}</Text>}
                     </View>
@@ -282,33 +334,31 @@ export default function ResultsView({ fetchResults, fetchAttemptSections, header
               </View>
             )}
           </View>
-          <View style={s.legendRow}><View style={s.legendDot} /><Text style={s.legendTxt}>Study Hours</Text></View>
         </View>
         </FadeInOnce>
 
         {/* Subject breakdown */}
         <FadeInOnce id="res-subj" delay={120} y={14}>
-        <View style={s.card}>
-          <Text style={s.cardTitle}>Subject Breakdown</Text>
+        <View style={s.section}>
+          <Text style={s.sectionTitle}>Subject Breakdown</Text>
           {subjects.length === 0 ? (
-            <Text style={s.emptyCardTxt}>No tests or MCQ practice in this period.</Text>
+            <View style={s.card}><Text style={s.emptyCardTxt}>No tests or MCQ practice in this period.</Text></View>
           ) : (showAllSubjects ? subjects : subjects.slice(0, 5)).map((sub, i) => {
             const col = subjectColor(sub.name, i);
             const attempted = sub.tests || sub.mcqs;
             return (
-              <TouchableOpacity key={i} style={s.subjRow} activeOpacity={0.6} onPress={() => setSubjectDetail(sub)}>
-                <View style={[s.subjIcon, { backgroundColor: col + '1A' }]}><Text style={{ fontSize: 17 }}>{emojiFor(sub.name)}</Text></View>
-                <View style={{ flex: 1 }}>
+              <TouchableOpacity key={i} style={s.subjCard} activeOpacity={0.7} onPress={() => setSubjectDetail(sub)}
+                accessibilityLabel={`${sub.name}. ${attempted ? `${sub.score} percent. ${subjMeta(sub)}` : 'No attempts'}`}>
+                <View style={[s.subjIcon, { backgroundColor: col + '26', borderColor: col + '59' }]}><Text style={{ fontSize: 17 }}>{emojiFor(sub.name)}</Text></View>
+                <View style={{ flex: 1, minWidth: 0 }}>
                   <View style={s.subjTopRow}>
                     <Text style={s.subjName} numberOfLines={1}>{sub.name}</Text>
-                    <Text style={[s.subjScore, { color: attempted ? col : S.faint }]}>{attempted ? `${sub.score}%` : '—'}</Text>
+                    <Text style={[s.subjScore, { color: attempted ? col : N.inkDim }]}>{attempted ? `${sub.score}%` : 'None'}</Text>
                   </View>
                   <View style={s.subjBarBg}>
                     <View style={[s.subjBarFill, { width: `${attempted ? sub.score : 0}%`, backgroundColor: col }]} />
                   </View>
-                  <Text style={s.subjMeta}>{subjMeta(sub)}</Text>
                 </View>
-                <Text style={s.subjChevron}>›</Text>
               </TouchableOpacity>
             );
           })}
@@ -322,38 +372,31 @@ export default function ResultsView({ fetchResults, fetchAttemptSections, header
 
         {/* Recent tests */}
         <FadeInOnce id="res-recent" delay={150} y={14}>
-        <View style={s.card}>
-          <View style={s.cardHdr}>
-            <Text style={s.cardTitle}>Recent Tests</Text>
-          </View>
+        <View style={s.section}>
+          <Text style={s.sectionTitle}>Recent Tests</Text>
           {recent.length === 0 ? (
-            <Text style={s.emptyCardTxt}>Recent tests and quizzes will appear here.</Text>
+            <View style={s.card}><Text style={s.emptyCardTxt}>Recent tests and quizzes will appear here.</Text></View>
           ) : (
             <>
               {recent.map((t, i) => {
                 const pct = t.total > 0 ? Math.round((t.score / t.total) * 100) : 0;
                 const isQuiz = t.type === 'Quiz';
                 return (
-                  <TouchableOpacity key={i} activeOpacity={0.6} onPress={() => setDetail(t)}
-                    style={[s.recRow, i < recent.length - 1 && s.recRowBorder]}>
-                    <View style={[s.recIcon, { backgroundColor: isQuiz ? S.goldSoft : S.indigoSoft }]}>
+                  <TouchableOpacity key={i} activeOpacity={0.7} onPress={() => setDetail(t)} style={s.recCard}
+                    accessibilityLabel={`${t.subject}, ${t.topic}, scored ${t.score} of ${t.total}`}>
+                    <View style={[s.recIcon, isQuiz ? s.recIconQuiz : s.recIconMock]}>
                       <Text style={{ fontSize: 16 }}>{isQuiz ? '❓' : '📋'}</Text>
                     </View>
-                    <View style={{ flex: 1 }}>
+                    <View style={{ flex: 1, minWidth: 0 }}>
                       <Text style={s.recSubject} numberOfLines={1}>{t.subject}</Text>
-                      <Text style={s.recTopic} numberOfLines={1}>{t.topic}</Text>
-                      <View style={s.recMetaRow}>
-                        <Text style={s.recDate}>{relativeDate(t.createdAt)}</Text>
-                        <View style={[s.typePill, isQuiz ? s.typePillQuiz : s.typePillMock]}>
-                          <Text style={[s.typePillTxt, { color: isQuiz ? AMBER : PRIMARY }]}>{t.type}</Text>
-                        </View>
-                      </View>
+                      <Text style={s.recTopic} numberOfLines={1}>
+                        {[t.topic, relativeDate(t.createdAt)].filter(Boolean).join('  ·  ')}
+                      </Text>
                     </View>
                     <View style={s.recRight}>
                       <Text style={s.recScore}>{t.score}/{t.total}</Text>
                       <Text style={[s.recPct, { color: scoreColor(pct) }]}>{pct}%</Text>
                     </View>
-                    <Text style={s.recChevron}>›</Text>
                   </TouchableOpacity>
                 );
               })}
@@ -382,20 +425,20 @@ export default function ResultsView({ fetchResults, fetchAttemptSections, header
               return (
                 <>
                   <View style={s.modalHead}>
-                    <View style={[s.modalIcon, { backgroundColor: isQuiz ? S.emeraldSoft : S.indigoSoft }]}><Text style={{ fontSize: 22 }}>{isQuiz ? '❓' : '📋'}</Text></View>
+                    <View style={[s.modalIcon, { backgroundColor: isQuiz ? N.greenSoft : N.violetSoft }]}><Text style={{ fontSize: 22 }}>{isQuiz ? '❓' : '📋'}</Text></View>
                     <View style={{ flex: 1 }}>
                       <Text style={s.modalSubject}>{detail.subject}</Text>
                       <Text style={s.modalTopic} numberOfLines={2}>{detail.topic}</Text>
                     </View>
-                    <View style={[s.typePill, isQuiz ? s.typePillQuiz : s.typePillMock]}><Text style={[s.typePillTxt, { color: isQuiz ? S.emerald : PRIMARY }]}>{detail.type}</Text></View>
+                    <View style={[s.typePill, isQuiz ? s.typePillQuiz : s.typePillMock]}><Text style={[s.typePillTxt, { color: isQuiz ? N.green : PRIMARY }]}>{detail.type}</Text></View>
                   </View>
                   <View style={s.modalScoreWrap}>
                     <Text style={s.modalScoreBig}>{detail.score}<Text style={s.modalScoreTot}>/{detail.total}</Text></Text>
                     <Text style={[s.modalScorePct, { color: scoreColor(pct) }]}>{pct}%</Text>
                   </View>
                   <View style={s.modalStatsRow}>
-                    <View style={s.modalStat}><Text style={[s.modalStatVal, { color: S.emerald }]}>{detail.correct}</Text><Text style={s.modalStatLbl}>Correct</Text></View>
-                    <View style={s.modalStat}><Text style={[s.modalStatVal, { color: S.red }]}>{detail.wrong}</Text><Text style={s.modalStatLbl}>Wrong</Text></View>
+                    <View style={s.modalStat}><Text style={[s.modalStatVal, { color: N.green }]}>{detail.correct}</Text><Text style={s.modalStatLbl}>Correct</Text></View>
+                    <View style={s.modalStat}><Text style={[s.modalStatVal, { color: N.red }]}>{detail.wrong}</Text><Text style={s.modalStatLbl}>Wrong</Text></View>
                     <View style={s.modalStat}><Text style={s.modalStatVal}>{skipped}</Text><Text style={s.modalStatLbl}>Skipped</Text></View>
                   </View>
                   {/* Section-wise (mock tests) */}
@@ -451,7 +494,7 @@ export default function ResultsView({ fetchResults, fetchAttemptSections, header
                       <Text style={s.modalSubject}>{subjectDetail.name}</Text>
                       <Text style={s.modalTopic}>{subjMeta(subjectDetail)}</Text>
                     </View>
-                    <Text style={[s.modalScorePct, { color: attempted ? col : S.faint, fontSize: 24 }]}>{attempted ? `${subjectDetail.score}%` : '—'}</Text>
+                    <Text style={[s.modalScorePct, { color: attempted ? col : N.inkDim, fontSize: 24 }]}>{attempted ? `${subjectDetail.score}%` : '—'}</Text>
                   </View>
 
                   <View style={s.modalStatsRow}>
@@ -493,113 +536,130 @@ export default function ResultsView({ fetchResults, fetchAttemptSections, header
   );
 }
 
+// Soft black drop — a coloured shadow on the violet page reads as blur, not lift.
+const lift = { shadowColor: '#05030F', shadowOpacity: 0.34, shadowRadius: 16, shadowOffset: { width: 0, height: 8 }, elevation: 6 };
+
 const s = StyleSheet.create({
-  safe:             { flex: 1, backgroundColor: S.canvas },
-  periodWrap:       { alignItems: 'center', paddingBottom: 6 },
-  periodRow:        { flexDirection: 'row', backgroundColor: S.hair, borderRadius: 20, padding: 4 },
-  periodBtn:        { paddingVertical: 7, paddingHorizontal: 22, borderRadius: 16 },
+  safe:             { flex: 1, backgroundColor: N.bg },
+
+  // period toggle — full-width track, the active half is a solid violet pill
+  periodWrap:       { paddingHorizontal: 16, paddingBottom: 8 },
+  periodRow:        { flexDirection: 'row', gap: 6, backgroundColor: 'rgba(10,8,26,0.55)', borderWidth: 1, borderColor: N.cardEdge, borderRadius: 26, padding: 5 },
+  periodBtn:        { flex: 1, height: 44, borderRadius: 22, alignItems: 'center', justifyContent: 'center' },
   periodBtnActive:  { backgroundColor: PRIMARY },
-  periodTxt:        { fontSize: 13, fontFamily: FONT.extrabold, color: S.muted },
-  periodTxtActive:  { color: '#fff' },
+  periodTxt:        { fontSize: 15, fontFamily: FONT.bold, color: N.inkSoft },
+  periodTxtActive:  { color: N.ink, fontFamily: FONT.extrabold },
+
   dateNav:          { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 16, paddingBottom: 9 },
-  dateArrow:        { fontSize: 24, color: S.muted, fontFamily: FONT.bold, paddingHorizontal: 6 },
-  dateArrowOff:     { color: S.border },
-  dateLabel:        { fontSize: 14, fontFamily: FONT.extrabold, color: S.sub },
-  refreshChip:      { position: 'absolute', top: 8, alignSelf: 'center', backgroundColor: '#fff', borderRadius: 20, paddingVertical: 6, paddingHorizontal: 14, borderWidth: 1, borderColor: S.hair, ...shadowSm },
-  emptyCardTxt:     { fontSize: 13, color: S.muted, fontFamily: FONT.semibold, textAlign: 'center', lineHeight: 19, paddingVertical: 14 },
-  streak:           { flexDirection: 'row', alignItems: 'center', gap: 11, marginTop: 12,
-                      backgroundColor: S.goldSoft, borderWidth: 1, borderColor: '#F4E6C4', borderRadius: 18, padding: 12 },
-  streakFlame:      { width: 34, height: 34, borderRadius: 10, backgroundColor: '#FBEBCC', alignItems: 'center', justifyContent: 'center' },
-  streakTitle:      { fontSize: 14, fontFamily: FONT.extrabold, color: S.ink },
-  streakSub:        { fontSize: 11.5, color: '#9A7B3C', fontFamily: FONT.semibold, marginTop: 1 },
-  streakDots:       { flexDirection: 'row', gap: 4, marginLeft: 'auto' },
-  streakDot:        { width: 8, height: 8, borderRadius: 4, backgroundColor: '#EAD9B4' },
-  streakDotOn:      { backgroundColor: AMBER },
-  cardsGrid:        { flexDirection: 'row', flexWrap: 'wrap', gap: 12, marginTop: 16 },
-  ovCard:           { width: '47.6%', flexGrow: 1, backgroundColor: '#fff', borderRadius: 20, padding: 16, borderWidth: 1, borderColor: S.hair, ...shadow },
-  ovIcon:           { width: 40, height: 40, borderRadius: 12, alignItems: 'center', justifyContent: 'center', marginBottom: 12 },
-  ovLbl:            { fontSize: 12, fontFamily: FONT.bold, color: S.muted },
-  ovVal:            { fontSize: 26, fontFamily: FONT.black, color: S.ink, letterSpacing: -0.8, marginTop: 2 },
-  ovSub:            { fontSize: 10.5, fontFamily: FONT.semibold, color: S.faint, marginTop: 4 },
-  card:             { backgroundColor: '#fff', borderRadius: 22, padding: 18, marginTop: 16, borderWidth: 1, borderColor: S.hair, ...shadow },
-  cardHdr:          { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 },
-  cardTitle:        { fontSize: 17, fontFamily: FONT.black, color: S.ink, letterSpacing: -0.3 },
-  hoursPill:        { borderWidth: 1.5, borderColor: S.border, borderRadius: 10, paddingVertical: 5, paddingHorizontal: 12 },
-  hoursPillTxt:     { fontSize: 12, fontFamily: FONT.extrabold, color: S.sub },
-  chartArea:        { height: 150 + 22 + 30, position: 'relative', marginTop: 8 },
-  gridline:         { position: 'absolute', left: 24, right: 0, height: 1, borderTopWidth: 1, borderColor: S.hair, borderStyle: 'dashed' },
-  yLabel:           { position: 'absolute', left: -24, top: -7, fontSize: 9, color: S.faint, fontFamily: FONT.bold, width: 22, textAlign: 'right' },
-  barsRow:          { flexDirection: 'row', alignItems: 'flex-end', height: 150 + 22, paddingLeft: 24, gap: 6 },
-  barsScroll:       { marginLeft: 24, height: 150 + 22 },
-  barsScrollContent:{ flexDirection: 'row', alignItems: 'flex-end', height: 150 + 22, gap: 12, paddingRight: 14 },
+  dateArrow:        { fontSize: 24, color: N.inkSoft, fontFamily: FONT.bold, paddingHorizontal: 6 },
+  dateArrowOff:     { color: N.inkDim },
+  dateLabel:        { fontSize: 14, fontFamily: FONT.extrabold, color: N.inkSoft },
+  refreshChip:      { position: 'absolute', top: 8, alignSelf: 'center', backgroundColor: N.card, borderRadius: 20, paddingVertical: 6, paddingHorizontal: 14, borderWidth: 1, borderColor: N.cardEdge, ...lift },
+  emptyCardTxt:     { fontSize: 13, color: N.inkSoft, fontFamily: FONT.semibold, textAlign: 'center', lineHeight: 19, paddingVertical: 14 },
+
+  // streak ribbon — amber edge so it reads as its own thing above the stats
+  streak:           { flexDirection: 'row', alignItems: 'center', gap: 12, marginTop: 12,
+                      backgroundColor: N.card, borderWidth: 1, borderColor: 'rgba(249,115,22,0.42)', borderRadius: 18, padding: 14 },
+  streakFlame:      { width: 40, height: 40, borderRadius: 20, backgroundColor: 'rgba(249,115,22,0.18)', alignItems: 'center', justifyContent: 'center' },
+  streakTitle:      { fontSize: 15, fontFamily: FONT.extrabold, color: N.ink },
+  streakSub:        { fontSize: 12, color: '#F0913F', fontFamily: FONT.semibold, marginTop: 2 },
+  streakDots:       { flexDirection: 'row', gap: 5, marginLeft: 'auto' },
+  streakDot:        { width: 7, height: 7, borderRadius: 4, backgroundColor: 'rgba(255,255,255,0.18)' },
+  streakDotOn:      { backgroundColor: '#F97316' },
+
+  // overview — a stacked list of full-width rows, each led by its ring
+  cardsCol:         { gap: 12, marginTop: 16 },
+  ovCard:           { flexDirection: 'row', alignItems: 'center', gap: 16, backgroundColor: N.card, borderRadius: 20, padding: 16, borderWidth: 1, borderColor: N.cardEdge, ...lift },
+  ringTxt:          { fontSize: 13, fontFamily: FONT.extrabold, color: N.ink },
+  ovLbl:            { fontSize: 13.5, fontFamily: FONT.bold, color: N.inkSoft },
+  ovVal:            { fontSize: 25, fontFamily: FONT.black, color: N.ink, letterSpacing: -0.7, marginTop: 1 },
+  ovSub:            { fontSize: 11.5, fontFamily: FONT.semibold, color: N.inkDim, marginTop: 3 },
+
+  card:             { backgroundColor: N.card, borderRadius: 22, padding: 18, marginTop: 16, borderWidth: 1, borderColor: N.cardEdge, ...lift },
+  cardHdr:          { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 4 },
+  cardTitle:        { fontSize: 17, fontFamily: FONT.black, color: N.ink, letterSpacing: -0.3 },
+
+  // free-standing section title above a list of individual cards
+  section:          { marginTop: 10 },
+  sectionTitle:     { fontSize: 18, fontFamily: FONT.black, color: N.ink, letterSpacing: -0.4, marginTop: 12, marginBottom: 12 },
+
+  hoursPill:        { backgroundColor: 'rgba(34,211,238,0.14)', borderWidth: 1, borderColor: 'rgba(34,211,238,0.42)', borderRadius: 11, paddingVertical: 6, paddingHorizontal: 13 },
+  hoursPillTxt:     { fontSize: 12, fontFamily: FONT.extrabold, color: CYAN },
+  scaleTxt:         { fontSize: 10.5, fontFamily: FONT.bold, color: N.inkDim, marginTop: 2 },
+
+  chartArea:        { height: 150 + 26, position: 'relative', marginTop: 12 },
+  barsRow:          { flexDirection: 'row', alignItems: 'flex-end', height: 150 + 26, gap: 6 },
+  barsScroll:       { height: 150 + 26 },
+  barsScrollContent:{ flexDirection: 'row', alignItems: 'flex-end', height: 150 + 26, gap: 12, paddingRight: 14 },
   barColFixed:      { width: 42, alignItems: 'center' },
   barCol:           { flex: 1, alignItems: 'center' },
-  barVal:           { fontSize: 8.5, color: S.muted, fontFamily: FONT.bold, marginBottom: 4, height: 12 },
-  bar:              { width: '62%', maxWidth: 26, backgroundColor: PRIMARY, borderRadius: 8 },
-  barLabel:         { fontSize: 11, color: S.sub, fontFamily: FONT.extrabold, marginTop: 6 },
-  barSub:           { fontSize: 9, color: S.faint, fontFamily: FONT.semibold },
-  legendRow:        { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6, marginTop: 4 },
-  legendDot:        { width: 8, height: 8, borderRadius: 4, backgroundColor: PRIMARY },
-  legendTxt:        { fontSize: 11, color: S.muted, fontFamily: FONT.bold },
-  subjRow:          { flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 10 },
-  subjIcon:         { width: 38, height: 38, borderRadius: 11, alignItems: 'center', justifyContent: 'center' },
-  subjTopRow:       { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 },
-  subjName:         { fontSize: 14, fontFamily: FONT.extrabold, color: S.ink, flex: 1 },
+  bar:              { width: 18, borderRadius: 10 },
+  barLabel:         { fontSize: 11, color: N.inkSoft, fontFamily: FONT.bold, marginTop: 8 },
+  barSub:           { fontSize: 9, color: N.inkDim, fontFamily: FONT.semibold },
+
+  // subject breakdown — one card per subject
+  subjCard:         { flexDirection: 'row', alignItems: 'center', gap: 14, backgroundColor: N.card, borderRadius: 18, borderWidth: 1, borderColor: N.cardEdge, padding: 14, marginBottom: 10 },
+  subjIcon:         { width: 44, height: 44, borderRadius: 13, borderWidth: 1, alignItems: 'center', justifyContent: 'center' },
+  subjTopRow:       { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+  subjName:         { fontSize: 15, fontFamily: FONT.extrabold, color: N.ink, flex: 1 },
   subjScore:        { fontSize: 14, fontFamily: FONT.black, marginLeft: 8 },
-  subjBarBg:        { height: 7, backgroundColor: S.hair, borderRadius: 4, overflow: 'hidden' },
-  subjBarFill:      { height: 7, borderRadius: 4 },
-  subjMeta:         { fontSize: 11, color: S.faint, fontFamily: FONT.bold, marginTop: 5 },
-  subjChevron:      { fontSize: 20, color: S.faint, fontFamily: FONT.bold, marginLeft: 6, alignSelf: 'center' },
-  subjRecentRow:    { flexDirection: 'row', alignItems: 'center', gap: 8, paddingVertical: 10, borderTopWidth: 1, borderTopColor: S.hair },
-  subjRecentTopic:  { flex: 1, fontSize: 12.5, fontFamily: FONT.bold, color: S.ink },
-  subjRecentScore:  { fontSize: 12.5, fontFamily: FONT.extrabold, color: S.muted },
+  subjBarBg:        { height: 6, backgroundColor: N.track, borderRadius: 3, overflow: 'hidden', marginTop: 9 },
+  subjBarFill:      { height: 6, borderRadius: 3 },
+
+  subjRecentRow:    { flexDirection: 'row', alignItems: 'center', gap: 8, paddingVertical: 10, borderTopWidth: 1, borderTopColor: N.cardEdge },
+  subjRecentTopic:  { flex: 1, fontSize: 12.5, fontFamily: FONT.bold, color: N.ink },
+  subjRecentScore:  { fontSize: 12.5, fontFamily: FONT.extrabold, color: N.inkSoft },
   subjRecentPct:    { fontSize: 12.5, fontFamily: FONT.black, width: 44, textAlign: 'right' },
-  subjRecentChev:   { fontSize: 17, color: S.faint, fontFamily: FONT.bold },
-  subjNoRecent:     { fontSize: 12.5, color: S.muted, fontFamily: FONT.semibold, textAlign: 'center', paddingVertical: 12, marginBottom: 4 },
-  recRow:           { flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 12 },
-  recRowBorder:     { borderBottomWidth: 1, borderBottomColor: S.hair },
-  recIcon:          { width: 40, height: 40, borderRadius: 12, alignItems: 'center', justifyContent: 'center' },
-  recSubject:       { fontSize: 14, fontFamily: FONT.extrabold, color: S.ink },
-  recTopic:         { fontSize: 11.5, color: S.muted, fontFamily: FONT.semibold, marginTop: 1 },
-  recMetaRow:       { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 5 },
-  recDate:          { fontSize: 10.5, color: S.faint, fontFamily: FONT.semibold },
-  typePill:         { borderRadius: 7, paddingVertical: 2, paddingHorizontal: 8 },
-  typePillMock:     { backgroundColor: S.indigoSoft },
-  typePillQuiz:     { backgroundColor: S.goldSoft },
-  typePillTxt:      { fontSize: 9.5, fontFamily: FONT.extrabold },
+  subjRecentChev:   { fontSize: 17, color: N.inkDim, fontFamily: FONT.bold },
+  subjNoRecent:     { fontSize: 12.5, color: N.inkSoft, fontFamily: FONT.semibold, textAlign: 'center', paddingVertical: 12, marginBottom: 4 },
+
+  // recent tests — one card per attempt
+  recCard:          { flexDirection: 'row', alignItems: 'center', gap: 14, backgroundColor: N.card, borderRadius: 18, borderWidth: 1, borderColor: N.cardEdge, padding: 14, marginBottom: 10 },
+  recIcon:          { width: 44, height: 44, borderRadius: 22, borderWidth: 1, alignItems: 'center', justifyContent: 'center' },
+  recIconMock:      { backgroundColor: N.violetSoft, borderColor: 'rgba(139,110,240,0.45)' },
+  recIconQuiz:      { backgroundColor: N.blueSoft, borderColor: 'rgba(91,140,255,0.45)' },
+  recSubject:       { fontSize: 15, fontFamily: FONT.extrabold, color: N.ink },
+  recTopic:         { fontSize: 12, color: N.inkSoft, fontFamily: FONT.semibold, marginTop: 3 },
   recRight:         { alignItems: 'flex-end' },
-  recScore:         { fontSize: 15, fontFamily: FONT.black, color: S.ink, letterSpacing: -0.3 },
-  recPct:           { fontSize: 12, fontFamily: FONT.extrabold, marginTop: 2 },
-  recChevron:       { fontSize: 20, color: S.faint, fontFamily: FONT.bold, marginLeft: 4 },
-  recFooter:        { fontSize: 11, color: S.faint, fontFamily: FONT.semibold, textAlign: 'center', marginTop: 12 },
-  viewAllBtn:       { alignItems: 'center', paddingVertical: 12, marginTop: 4, borderTopWidth: 1, borderTopColor: S.hair },
-  viewAllTxt:       { fontSize: 13, fontFamily: FONT.extrabold, color: PRIMARY },
+  recScore:         { fontSize: 16, fontFamily: FONT.black, color: N.ink, letterSpacing: -0.3 },
+  recPct:           { fontSize: 12.5, fontFamily: FONT.extrabold, marginTop: 2 },
+  recFooter:        { fontSize: 11, color: N.inkDim, fontFamily: FONT.semibold, textAlign: 'center', marginTop: 6 },
+
+  viewAllBtn:       { alignItems: 'center', paddingVertical: 13, marginTop: 2, borderRadius: 14, borderWidth: 1, borderColor: N.cardEdge, backgroundColor: N.cardSoft },
+  viewAllTxt:       { fontSize: 13, fontFamily: FONT.extrabold, color: N.dot },
+
+  typePill:         { borderRadius: 8, paddingVertical: 3, paddingHorizontal: 9 },
+  typePillMock:     { backgroundColor: N.violetSoft },
+  typePillQuiz:     { backgroundColor: N.greenSoft },
+  typePillTxt:      { fontSize: 9.5, fontFamily: FONT.extrabold },
+
+  // ── modals ──
   secBlock:         { marginBottom: 16 },
-  secBlockTitle:    { fontSize: 12, fontFamily: FONT.extrabold, color: S.muted, marginBottom: 10, letterSpacing: 0.3, textTransform: 'uppercase' },
+  secBlockTitle:    { fontSize: 12, fontFamily: FONT.extrabold, color: N.inkSoft, marginBottom: 10, letterSpacing: 0.3, textTransform: 'uppercase' },
   secRow:           { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 10 },
-  secName:          { fontSize: 12, fontFamily: FONT.extrabold, color: S.ink, width: 78 },
-  secBarBg:         { flex: 1, height: 6, backgroundColor: S.hair, borderRadius: 3, overflow: 'hidden' },
+  secName:          { fontSize: 12, fontFamily: FONT.extrabold, color: N.ink, width: 78 },
+  secBarBg:         { flex: 1, height: 6, backgroundColor: N.track, borderRadius: 3, overflow: 'hidden' },
   secBarFill:       { height: 6, borderRadius: 3 },
-  secStat:          { fontSize: 11, fontFamily: FONT.bold, color: S.muted, width: 42, textAlign: 'right' },
+  secStat:          { fontSize: 11, fontFamily: FONT.bold, color: N.inkSoft, width: 42, textAlign: 'right' },
   secPct:           { fontSize: 12, fontFamily: FONT.black, width: 40, textAlign: 'right' },
-  infoBlock:        { backgroundColor: S.canvas, borderRadius: 16, padding: 14, marginBottom: 18, gap: 10 },
+  infoBlock:        { backgroundColor: N.cardSoft, borderWidth: 1, borderColor: N.cardEdge, borderRadius: 16, padding: 14, marginBottom: 18, gap: 10 },
   infoLine:         { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  infoLabel:        { fontSize: 12, fontFamily: FONT.bold, color: S.muted },
-  infoVal:          { fontSize: 12, fontFamily: FONT.extrabold, color: S.ink, flexShrink: 1, textAlign: 'right', marginLeft: 12 },
-  modalBackdrop:    { flex: 1, backgroundColor: 'rgba(12,13,28,0.55)', justifyContent: 'center', padding: 24 },
-  modalCard:        { backgroundColor: '#fff', borderRadius: 24, padding: 20 },
+  infoLabel:        { fontSize: 12, fontFamily: FONT.bold, color: N.inkSoft },
+  infoVal:          { fontSize: 12, fontFamily: FONT.extrabold, color: N.ink, flexShrink: 1, textAlign: 'right', marginLeft: 12 },
+  modalBackdrop:    { flex: 1, backgroundColor: 'rgba(4,3,14,0.66)', justifyContent: 'center', padding: 24 },
+  modalCard:        { backgroundColor: '#191636', borderWidth: 1, borderColor: N.cardEdge, borderRadius: 24, padding: 20 },
   modalHead:        { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 18 },
   modalIcon:        { width: 48, height: 48, borderRadius: 14, alignItems: 'center', justifyContent: 'center' },
-  modalSubject:     { fontSize: 16, fontFamily: FONT.black, color: S.ink },
-  modalTopic:       { fontSize: 12, color: S.muted, fontFamily: FONT.semibold, marginTop: 2 },
+  modalSubject:     { fontSize: 16, fontFamily: FONT.black, color: N.ink },
+  modalTopic:       { fontSize: 12, color: N.inkSoft, fontFamily: FONT.semibold, marginTop: 2 },
   modalScoreWrap:   { alignItems: 'center', marginBottom: 18 },
-  modalScoreBig:    { fontSize: 44, fontFamily: FONT.black, color: S.ink, letterSpacing: -1 },
-  modalScoreTot:    { fontSize: 20, color: S.faint, fontFamily: FONT.extrabold },
+  modalScoreBig:    { fontSize: 44, fontFamily: FONT.black, color: N.ink, letterSpacing: -1 },
+  modalScoreTot:    { fontSize: 20, color: N.inkDim, fontFamily: FONT.extrabold },
   modalScorePct:    { fontSize: 15, fontFamily: FONT.black, marginTop: 2 },
-  modalStatsRow:    { flexDirection: 'row', backgroundColor: S.canvas, borderRadius: 16, paddingVertical: 14, marginBottom: 14 },
+  modalStatsRow:    { flexDirection: 'row', backgroundColor: N.cardSoft, borderWidth: 1, borderColor: N.cardEdge, borderRadius: 16, paddingVertical: 14, marginBottom: 14 },
   modalStat:        { flex: 1, alignItems: 'center' },
-  modalStatVal:     { fontSize: 20, fontFamily: FONT.black, color: S.ink },
-  modalStatLbl:     { fontSize: 10, fontFamily: FONT.bold, color: S.muted, marginTop: 2 },
-  modalClose:       { backgroundColor: PRIMARY, borderRadius: 14, paddingVertical: 14, alignItems: 'center', ...shadowSm },
-  modalCloseTxt:    { color: '#fff', fontSize: 14, fontFamily: FONT.black },
+  modalStatVal:     { fontSize: 20, fontFamily: FONT.black, color: N.ink },
+  modalStatLbl:     { fontSize: 10, fontFamily: FONT.bold, color: N.inkSoft, marginTop: 2 },
+  modalClose:       { backgroundColor: PRIMARY, borderRadius: 14, paddingVertical: 14, alignItems: 'center' },
+  modalCloseTxt:    { color: N.ink, fontSize: 14, fontFamily: FONT.black },
 });
