@@ -58,6 +58,19 @@ app.use('/pdfs', express.static(path.join(__dirname, '..', 'public', 'pdfs'), {
   },
 }))
 
+// ─── Static vendor JS (MathJax, mirrored locally) ─────────────────────────────
+// The Resources/NCERT WebViews render formulas with MathJax, previously loaded
+// from cdn.jsdelivr.net — external CDNs aren't reachable on every network (seen
+// on-device: the script silently never loads and raw LaTeX source shows instead
+// of the rendered formula). Serving our own copy means it only ever depends on
+// reaching this server, which every other API call already proves it can.
+app.use('/vendor', express.static(path.join(__dirname, '..', 'public', 'vendor'), {
+  setHeaders: (res) => {
+    res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin')
+    res.setHeader('Cache-Control', 'public, max-age=604800, immutable') // versionless static libs — a week is safe
+  },
+}))
+
 // ─── Routes ──────────────────────────────────────────────────────────────────
 app.use('/api', routes)
 

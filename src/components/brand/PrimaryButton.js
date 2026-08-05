@@ -10,7 +10,7 @@ import { GRADIENTS, FONT_FAMILY } from '../../theme/designSystem';
  * them, and the auth screens (Sign In / Create Account, with `loading`) — change
  * it here, not per screen.
  */
-export default function PrimaryButton({ label, onPress, loading = false, disabled = false, style }) {
+export default function PrimaryButton({ label, onPress, icon, loading = false, disabled = false, style }) {
   const inactive = disabled || loading;
   return (
     <TouchableOpacity
@@ -28,7 +28,12 @@ export default function PrimaryButton({ label, onPress, loading = false, disable
           end={{ x: 1, y: 0 }}
           style={StyleSheet.absoluteFill}
         />
-        {loading ? <ActivityIndicator color="#FFFFFF" /> : <Text style={styles.label}>{label}</Text>}
+        {loading ? <ActivityIndicator color="#FFFFFF" /> : (
+          <View style={styles.row}>
+            {icon}
+            <Text style={styles.label}>{label}</Text>
+          </View>
+        )}
       </View>
     </TouchableOpacity>
   );
@@ -55,6 +60,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   clipDisabled: { opacity: 0.5 },
+  row: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   label: {
     fontFamily: FONT_FAMILY.bold,
     fontSize: 16,

@@ -2,19 +2,38 @@
 // The Student "Sessions" tab. Now reads REAL sessions the admin publishes (GET /api/sessions,
 // class-scoped + active-only server-side). When sessions exist they render as a live schedule;
 // when there are none it falls back to the honest, premium "coming soon" (no fake list).
+//
+// Dark reskin (AILERNOVA design system) — this screen only, same opt-in-per-screen technique
+// as Profile/Practice/Resources. `D` mirrors studentTheme's `S` role names 1:1 so every call
+// site below is unchanged; only the import binding + a couple of local dark-aware components
+// (header/section-header, replacing studentUI's light ones) differ.
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { View, StyleSheet, ScrollView, StatusBar, Linking } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, StatusBar, Linking } from 'react-native';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
-import { Video, Users, MessageCircle, CirclePlay, CircleCheck, Bell, MapPin, CalendarDays, Clock3, User } from 'lucide-react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Video, Users, MessageCircle, CirclePlay, CircleCheck, Bell, MapPin, CalendarDays, Clock3 } from 'lucide-react-native';
 import { T } from './parent/ParentApp/constants';
-import {
-  S, shadow, InkSurface, StudentScreenHeader, StudentSectionHeader, StudentPrimaryButton, StudentSkeleton,
-} from '../theme/studentUI';
+import { InkSurface } from '../theme/studentUI';
+import { COLORS } from '../theme/designSystem';
+import { FONT } from '../constants/fonts';
+import PrimaryButton from '../components/brand/PrimaryButton';
 import { FadeInOnce, Breathe, Float, Pulse, Shine, PressableScale } from './parent/ParentApp/anim';
 import { getHomeState, saveHomeState } from '../utils/storage';
 import { getStudentSessions } from '../api/sessionsApi';
 
 const PAD = 18;
+
+// Dark palette — same role names as studentTheme's `S`.
+const S = {
+  canvas: COLORS.background, card: 'rgba(255,255,255,0.05)',
+  ink: COLORS.textPrimary, sub: COLORS.textSecondary, muted: COLORS.textSecondary, faint: 'rgba(255,255,255,0.38)',
+  hair: 'rgba(255,255,255,0.10)', border: 'rgba(255,255,255,0.16)', white: '#FFFFFF',
+  indigo: COLORS.primary, indigoSoft: 'rgba(124,58,237,0.16)',
+  blue: '#60A5FA', blueSoft: 'rgba(96,165,250,0.16)',
+  emerald: COLORS.success, emeraldSoft: 'rgba(16,185,129,0.16)',
+  orange: COLORS.warning, orangeSoft: 'rgba(249,115,22,0.16)',
+  purple: '#C084FC', purpleSoft: 'rgba(192,132,252,0.16)',
+};
 
 const FEATURES = [
   { Icon: Users,         tint: S.blue,    bg: S.blueSoft,    title: 'Learn from expert teachers', sub: 'Live classes with top educators for your class' },
@@ -26,6 +45,33 @@ const fmtWhen = (iso) => {
   const d = new Date(iso);
   return `${d.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' })} · ${d.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })}`;
 };
+
+function SessionsHeader() {
+  const insets = useSafeAreaInsets();
+  return (
+    <View style={[hs.header, { paddingTop: insets.top + 8 }]}>
+      <Text style={hs.headerTitle}>Live sessions</Text>
+      <Text style={hs.headerSub}>1:1 classes with real teachers</Text>
+    </View>
+  );
+}
+
+function SectionHeader({ title, accent }) {
+  return (
+    <View style={hs.secHead}>
+      <View style={[hs.secDot, { backgroundColor: accent }]} />
+      <Text style={hs.secTitle}>{title}</Text>
+    </View>
+  );
+}
+
+function Skeleton() {
+  return (
+    <View style={{ paddingTop: 8 }}>
+      {[0, 1].map((i) => <View key={i} style={{ width: '100%', height: 110, borderRadius: 18, marginBottom: 10, backgroundColor: S.card, borderWidth: 1, borderColor: S.hair }} />)}
+    </View>
+  );
+}
 
 function SessionCard({ s }) {
   const upcoming = s.status === 'scheduled';
@@ -45,7 +91,7 @@ function SessionCard({ s }) {
         </View>
       </View>
       {upcoming && s.mode === 'online' && !!s.meetingLink && (
-        <StudentPrimaryButton label="Join class" Icon={Video} tint={S.blue} onPress={() => Linking.openURL(s.meetingLink).catch(() => {})} style={{ marginTop: 12, paddingVertical: 12 }} />
+        <PrimaryButton label="Join class" icon={<Video size={16} color="#fff" strokeWidth={2.4} />} onPress={() => Linking.openURL(s.meetingLink).catch(() => {})} style={{ marginTop: 12 }} />
       )}
     </View>
   );
@@ -78,10 +124,10 @@ function RecordingCard({ s }) {
       <View style={hs.recBody}>
         <T w="xbold" s={14.5} c={S.ink} numberOfLines={2}>{s.title}</T>
         <View style={hs.recMeta}>
-          <View style={hs.recAvatar}><T w="bold" s={11} c="#6C4DE6">{initial}</T></View>
+          <View style={hs.recAvatar}><T w="bold" s={11} c="#C4B8F5">{initial}</T></View>
           <T w="semi" s={12} c={S.muted} numberOfLines={1} style={{ flex: 1 }}>{meta}</T>
           <View style={hs.recDateChip}>
-            <CalendarDays size={12} color="#8079B0" strokeWidth={2.4} />
+            <CalendarDays size={12} color={S.faint} strokeWidth={2.4} />
             <T w="bold" s={11} c={S.sub}>{fmtWhen(s.startsAt)}</T>
           </View>
         </View>
@@ -136,24 +182,24 @@ const SessionsScreen = () => {
 
   return (
     <View style={hs.safe}>
-      <StatusBar barStyle="dark-content" backgroundColor={S.canvas} translucent={false} />
-      <StudentScreenHeader title="Live sessions" subtitle="1:1 classes with real teachers" />
+      <StatusBar barStyle="light-content" backgroundColor={S.canvas} translucent={false} />
+      <SessionsHeader />
 
       <ScrollView ref={scrollRef} style={hs.body} contentContainerStyle={{ paddingBottom: 30, paddingTop: 8 }} showsVerticalScrollIndicator={false}>
         {sessions === null ? (
-          <View style={{ paddingTop: 8 }}>{[0, 1].map((i) => <StudentSkeleton key={i} w="100%" h={110} r={18} mb={10} />)}</View>
+          <Skeleton />
         ) : hasSessions ? (
           <>
             {upcoming.length > 0 && (
               <>
-                <StudentSectionHeader title="Upcoming" accent={S.blue} />
+                <SectionHeader title="Upcoming" accent={S.blue} />
                 {upcoming.map((s) => <FadeInOnce key={s.id} id={`sess-${s.id}`} delay={40} y={12}><SessionCard s={s} /></FadeInOnce>)}
               </>
             )}
             {/* Recorded Lectures — a persistent sub-section (its own replay library).
                 Always shown so students know where recordings live; empty state until
                 a completed class has a recording attached. */}
-            <StudentSectionHeader title="Recorded Lectures" accent={S.purple} />
+            <SectionHeader title="Recorded Lectures" accent={S.purple} />
             {recordings.length > 0 ? (
               recordings.map((s) => <FadeInOnce key={s.id} id={`rec-${s.id}`} delay={40} y={12}><RecordingCard s={s} /></FadeInOnce>)
             ) : (
@@ -167,7 +213,7 @@ const SessionsScreen = () => {
             )}
             {completed.length > 0 && (
               <>
-                <StudentSectionHeader title="Completed" accent={S.emerald} />
+                <SectionHeader title="Completed" accent={S.emerald} />
                 {completed.map((s) => <SessionCard key={s.id} s={s} />)}
               </>
             )}
@@ -192,7 +238,7 @@ const SessionsScreen = () => {
               </View>
             </FadeInOnce>
 
-            <StudentSectionHeader title="What to expect" accent={S.blue} />
+            <SectionHeader title="What to expect" accent={S.blue} />
             <FadeInOnce id="sess-feats" delay={60} y={14}>
               <View style={hs.featCard}>
                 {FEATURES.map((f, i) => (
@@ -209,7 +255,7 @@ const SessionsScreen = () => {
                 {notified ? (
                   <View style={hs.savedNote}><CircleCheck size={17} color={S.emerald} strokeWidth={2.6} /><T w="bold" s={13} c={S.emerald} style={{ flex: 1 }}>Reminder saved on this device — we'll surface sessions here the moment they launch.</T></View>
                 ) : (
-                  <Breathe><StudentPrimaryButton label="Remind me at launch" Icon={Bell} tint={S.blue} onPress={setReminder} style={{ marginTop: 22 }} /></Breathe>
+                  <Breathe><PrimaryButton label="Remind me at launch" icon={<Bell size={16} color="#fff" strokeWidth={2.4} />} onPress={setReminder} style={{ marginTop: 22 }} /></Breathe>
                 )}
               </FadeInOnce>
             )}
@@ -225,12 +271,20 @@ const SessionsScreen = () => {
 const hs = StyleSheet.create({
   safe: { flex: 1, backgroundColor: S.canvas },
   body: { flex: 1, paddingHorizontal: PAD },
-  card: { backgroundColor: '#fff', borderRadius: 18, borderWidth: 1, borderColor: S.hair, padding: 15, marginBottom: 10, ...shadow },
+
+  header: { paddingHorizontal: 0, paddingBottom: 12 },
+  headerTitle: { fontSize: 22, fontFamily: FONT.black, color: S.ink, letterSpacing: -0.5 },
+  headerSub: { fontSize: 12.5, fontFamily: FONT.semibold, color: S.muted, marginTop: 2 },
+
+  secHead: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 24, marginBottom: 12 },
+  secDot: { width: 8, height: 8, borderRadius: 4 },
+  secTitle: { fontSize: 16, fontFamily: FONT.black, color: S.ink, letterSpacing: -0.3 },
+
+  card: { backgroundColor: S.card, borderRadius: 18, borderWidth: 1, borderColor: S.hair, padding: 15, marginBottom: 10 },
   cardIcon: { width: 44, height: 44, borderRadius: 14, alignItems: 'center', justifyContent: 'center' },
-  recThumb: { width: 44, height: 44, borderRadius: 14, alignItems: 'center', justifyContent: 'center', backgroundColor: S.purple },
 
   // ── Aurora course-player recording card ──
-  recCard: { backgroundColor: '#FFFFFF', borderRadius: 20, borderWidth: 1, borderColor: 'rgba(108,77,230,0.12)', marginBottom: 12, overflow: 'hidden', shadowColor: '#6E50C8', shadowOpacity: 0.16, shadowRadius: 22, shadowOffset: { width: 0, height: 12 }, elevation: 5 },
+  recCard: { backgroundColor: S.card, borderRadius: 20, borderWidth: 1, borderColor: S.hair, marginBottom: 12, overflow: 'hidden' },
   recThumbLg: { width: '100%', aspectRatio: 16 / 9, alignItems: 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden' },
   recPlay: { width: 60, height: 60, borderRadius: 30, backgroundColor: 'rgba(255,255,255,0.22)', borderWidth: 1.5, borderColor: 'rgba(255,255,255,0.65)', alignItems: 'center', justifyContent: 'center' },
   recTag: { position: 'absolute', top: 10, left: 10, flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: 'rgba(20,15,40,0.4)', borderRadius: 999, paddingHorizontal: 9, paddingVertical: 4 },
@@ -238,19 +292,19 @@ const hs = StyleSheet.create({
   recDur: { position: 'absolute', bottom: 10, right: 10, backgroundColor: 'rgba(20,15,40,0.5)', borderRadius: 8, paddingHorizontal: 8, paddingVertical: 3 },
   recBody: { padding: 14 },
   recMeta: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 10 },
-  recAvatar: { width: 24, height: 24, borderRadius: 12, backgroundColor: 'rgba(108,77,230,0.12)', alignItems: 'center', justifyContent: 'center' },
+  recAvatar: { width: 24, height: 24, borderRadius: 12, backgroundColor: S.purpleSoft, alignItems: 'center', justifyContent: 'center' },
   recDateChip: { flexDirection: 'row', alignItems: 'center', gap: 4, flexShrink: 0 },
-  recEmpty: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: '#FFFFFF', borderRadius: 18, borderWidth: 1, borderColor: 'rgba(108,77,230,0.12)', padding: 14, marginBottom: 10 },
-  recEmptyIcon: { width: 42, height: 42, borderRadius: 14, backgroundColor: 'rgba(108,77,230,0.12)', alignItems: 'center', justifyContent: 'center', flexShrink: 0 },
-  heroShadow: { borderRadius: 26, backgroundColor: '#0E1E4A', marginTop: 8, shadowColor: '#0E1E4A', shadowOpacity: 0.30, shadowRadius: 24, shadowOffset: { width: 0, height: 16 }, elevation: 11 },
+  recEmpty: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: S.card, borderRadius: 18, borderWidth: 1, borderColor: S.hair, padding: 14, marginBottom: 10 },
+  recEmptyIcon: { width: 42, height: 42, borderRadius: 14, backgroundColor: S.purpleSoft, alignItems: 'center', justifyContent: 'center', flexShrink: 0 },
+  heroShadow: { borderRadius: 26, backgroundColor: '#0E1E4A', marginTop: 8 },
   hero: { borderRadius: 26, overflow: 'hidden', padding: 22 },
   heroTag: { flexDirection: 'row', alignItems: 'center', gap: 6, alignSelf: 'flex-start', backgroundColor: 'rgba(255,255,255,0.12)', borderRadius: 20, paddingHorizontal: 10, paddingVertical: 6 },
   heroIcon: { width: 60, height: 60, borderRadius: 20, backgroundColor: 'rgba(255,255,255,0.12)', alignItems: 'center', justifyContent: 'center', marginTop: 16 },
-  featCard: { backgroundColor: '#fff', borderRadius: 20, borderWidth: 1, borderColor: S.hair, padding: 16, ...shadow },
+  featCard: { backgroundColor: S.card, borderRadius: 20, borderWidth: 1, borderColor: S.hair, padding: 16 },
   featRow: { flexDirection: 'row', alignItems: 'center', gap: 14, paddingVertical: 12 },
   featDivider: { borderBottomWidth: 1, borderBottomColor: S.hair },
   featIcon: { width: 44, height: 44, borderRadius: 14, alignItems: 'center', justifyContent: 'center' },
-  savedNote: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: S.emeraldSoft, borderWidth: 1, borderColor: '#BBE9CE', borderRadius: 16, padding: 14, marginTop: 22 },
+  savedNote: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: S.emeraldSoft, borderWidth: 1, borderColor: 'rgba(16,185,129,0.3)', borderRadius: 16, padding: 14, marginTop: 22 },
   hintRow: { flexDirection: 'row', alignItems: 'center', gap: 9, backgroundColor: S.indigoSoft, borderRadius: 16, padding: 14, marginTop: 16 },
 });
 

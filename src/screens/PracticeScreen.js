@@ -32,13 +32,16 @@ import { ClassTabs, ComingSoon } from '../components/ClassPicker';
 import { S } from '../theme/studentUI';
 import { COLORS } from '../theme/designSystem';
 import { FONT } from '../constants/fonts';
-import { ListChecks, Star, Timer, ClipboardList, History, ChevronRight } from 'lucide-react-native';
+import { ListChecks, Star, Timer, ClipboardList, History, ChevronRight, ChevronLeft } from 'lucide-react-native';
 
-// Dark reskin of just the Practice LANDING page (the "practice-home-dark" reference)
-// — same opt-in-per-screen technique as Profile/KnowledgeAsk/Login/Signup. Every
-// sub-screen this file pushes into (PYQ list, Important Questions, MCQ, Mock tests,
-// Online tests) stays on the light `S`/`s.*` styles below; only the landing render
-// at the bottom of PracticeScreen and its own `d.*` styles use this palette.
+// Dark reskin of the Practice LANDING page + the PYQ / Important Questions subject
+// and chapter lists (the "practice-home-dark" / "subject-selection-dark" /
+// "chapter-tests-dark" references) — same opt-in-per-screen technique as
+// Profile/KnowledgeAsk/Login/Signup/Class11PracticeTests. The subject cards keep
+// each subject's own existing `bg` colour + emoji (already distinct per subject,
+// reads fine on dark) — only the screen chrome around them changes. MCQ practice
+// already lives in Class11PracticeTests.js (dark). Mock Tests, Online Tests and
+// the actual question WebView content (PyqWebView) are untouched for now.
 const D = {
   canvas: COLORS.background, card: 'rgba(255,255,255,0.05)',
   ink: COLORS.textPrimary, sub: COLORS.textSecondary, muted: COLORS.textSecondary,
@@ -50,6 +53,7 @@ const D = {
   rose: '#FB7185', roseSoft: 'rgba(251,113,133,0.16)',
   gold: '#F5C451', goldSoft: 'rgba(245,196,81,0.16)',
 };
+const SUBJECT_TINTS = [{ tint: '#22D3EE', soft: 'rgba(34,211,238,0.16)' }, { tint: '#C084FC', soft: 'rgba(192,132,252,0.16)' }];
 
 // Subjects with DB-backed mock tests (served by mockTestsApi). The Mock Test
 // button opens a subject -> mock list flow that runs each test through the
@@ -418,6 +422,24 @@ const BackHeader = ({ onBack }) => (
   </View>
 );
 
+// Dark header for the PYQ / Important Questions subject + chapter lists — same
+// circular back-badge + title/subtitle pattern as the Practice landing page and
+// Chapter Practice flow (Class11PracticeTests.js).
+const DarkPageHeader = ({ title, subtitle, onBack }) => {
+  const insets = useSafeAreaInsets();
+  return (
+    <View style={[d.pageHeader, { paddingTop: insets.top + 8 }]}>
+      <TouchableOpacity onPress={onBack} style={d.backBtn} activeOpacity={0.7} accessibilityLabel="Go back">
+        <ChevronLeft size={19} color={D.ink} strokeWidth={2.6} />
+      </TouchableOpacity>
+      <View style={{ flex: 1 }}>
+        <Text style={d.pageTitle} numberOfLines={1}>{title}</Text>
+        <Text style={d.pageSubtitle}>{subtitle}</Text>
+      </View>
+    </View>
+  );
+};
+
 // Renders question-cards with MathJax. If `html` is passed (e.g. Important
 // Questions, from static files) it's shown directly; otherwise the PYQ for the
 // given subject/chapter is fetched from the API.
@@ -522,28 +544,23 @@ const ChapterList = ({
   }, [subject, sectionType, localChapters, classLevel]);
 
   return (
-    <SafeAreaView style={s.safe}>
-      <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
-      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
-      <BackHeader onBack={onBack} />
-      <View style={s.pageTitleWrap}>
-        <Text style={s.pageTitle}>{subject.name}</Text>
-        <Text style={s.pageSub}>{subtitle}</Text>
-      </View>
+    <View style={d.safe}>
+      <StatusBar barStyle="light-content" backgroundColor={D.canvas} />
+      <DarkPageHeader title={subject.name} subtitle={subtitle} onBack={onBack} />
       {/* Only show chapters that actually have data for this section; hide the rest
           (no more "Coming soon" rows). `available` is null while loading. */}
       {chapters === null ? (
-        <View style={s.emptyWrap}>
-          <ActivityIndicator size="large" color={S.indigo} />
-          <Text style={[s.emptySub, { marginTop: 12 }]}>Loading…</Text>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 28 }}>
+          <ActivityIndicator size="large" color={D.cyan} />
+          <Text style={{ fontSize: 13, color: D.muted, fontFamily: FONT.semibold, textAlign: 'center', marginTop: 12 }}>Loading…</Text>
         </View>
       ) : (() => {
         const visible = chapters;
         if (visible.length === 0) {
           return (
-            <View style={s.emptyWrap}>
-              <Text style={s.emptyTitle}>Coming soon</Text>
-              <Text style={s.emptySub}>
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 28 }}>
+              <Text style={{ fontSize: 16, fontFamily: FONT.black, color: D.ink, marginBottom: 8 }}>Coming soon</Text>
+              <Text style={{ fontSize: 13, color: D.muted, fontFamily: FONT.semibold, textAlign: 'center', lineHeight: 19 }}>
                 {subject.name} content for this section hasn't been added for this class yet.
               </Text>
             </View>
@@ -551,21 +568,24 @@ const ChapterList = ({
         }
         return (
           <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
-            {visible.map((chapter, i) => (
-              <TouchableOpacity key={i} style={s.listRow} activeOpacity={0.8}
-                onPress={() => onPick(chapter)}>
-                <View style={s.listNum}><Text style={s.listNumTxt}>{i + 1}</Text></View>
-                <View style={{ flex: 1 }}>
-                  <Text style={s.listRowTitle}>{chapter}</Text>
-                  <Text style={s.listRowSub}>{availableLabel}</Text>
-                </View>
-                <Text style={s.listArrow}>→</Text>
-              </TouchableOpacity>
-            ))}
+            {visible.map((chapter, i) => {
+              const { tint, soft } = SUBJECT_TINTS[i % SUBJECT_TINTS.length];
+              return (
+                <TouchableOpacity key={i} style={d.chapterRow} activeOpacity={0.8}
+                  onPress={() => onPick(chapter)}>
+                  <View style={[d.chapterNum, { backgroundColor: soft }]}><Text style={[d.chapterNumTxt, { color: tint }]}>{i + 1}</Text></View>
+                  <View style={{ flex: 1 }}>
+                    <Text style={d.chapterName} numberOfLines={2}>{chapter}</Text>
+                    <Text style={d.chapterSub}>{availableLabel}</Text>
+                  </View>
+                  <ChevronRight size={19} color={D.faint} strokeWidth={2.2} />
+                </TouchableOpacity>
+              );
+            })}
           </ScrollView>
         );
       })()}
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -835,32 +855,27 @@ const PracticeScreen = () => {
   // ── PYQ LEVEL 1: Subject list ───────────────────────────────────────────────
   if (pyqOpen) {
     return (
-      <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
-        <BackHeader onBack={() => setPyqOpen(false)} />
-        <View style={s.pageTitleWrap}>
-          <Text style={s.pageTitle}>Previous Year Papers</Text>
-          <Text style={s.pageSub}>Select a subject  •  10 years question bank</Text>
-        </View>
+      <View style={d.safe}>
+        <StatusBar barStyle="light-content" backgroundColor={D.canvas} />
+        <DarkPageHeader title="Previous Year Papers" subtitle="Select a subject  •  10 years question bank" onBack={() => setPyqOpen(false)} />
         <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
           {pyqSubjects.map((subject, i) => (
-            <TouchableOpacity key={i} style={s.subjectRow} activeOpacity={0.8}
+            <TouchableOpacity key={i} style={d.subjectCard} activeOpacity={0.8}
               onPress={() => setPyqSubject(subject)}>
-              <View style={[s.subjectIconWrap, { backgroundColor: subject.bg }]}>
+              <View style={[d.subjectIcon, { backgroundColor: subject.bg }]}>
                 <Text style={{ fontSize: 26 }}>{subject.emoji}</Text>
               </View>
               <View style={{ flex: 1 }}>
-                <Text style={s.subjectName}>{subject.name}</Text>
-                <Text style={s.subjectSub}>
+                <Text style={d.subjectName}>{subject.name}</Text>
+                <Text style={d.subjectSub}>
                   {subject.comingSoon ? 'Coming soon' : (subject.chapters?.length ? `${subject.chapters.length} chapters` : 'View chapters')}
                 </Text>
               </View>
-              <Text style={s.listArrow}>→</Text>
+              <ChevronRight size={19} color={D.faint} strokeWidth={2.2} />
             </TouchableOpacity>
           ))}
         </ScrollView>
-      </SafeAreaView>
+      </View>
     );
   }
 
@@ -906,32 +921,27 @@ const PracticeScreen = () => {
   // ── IMPORTANT QUESTIONS LEVEL 1: Subject list ───────────────────────────────
   if (impOpen) {
     return (
-      <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
-        <BackHeader onBack={() => setImpOpen(false)} />
-        <View style={s.pageTitleWrap}>
-          <Text style={s.pageTitle}>Important Questions</Text>
-          <Text style={s.pageSub}>Select a subject  •  Hand-picked must-do questions</Text>
-        </View>
+      <View style={d.safe}>
+        <StatusBar barStyle="light-content" backgroundColor={D.canvas} />
+        <DarkPageHeader title="Important Questions" subtitle="Select a subject  •  Hand-picked must-do questions" onBack={() => setImpOpen(false)} />
         <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
           {impSubjects.map((subject, i) => (
-            <TouchableOpacity key={i} style={s.subjectRow} activeOpacity={0.8}
+            <TouchableOpacity key={i} style={d.subjectCard} activeOpacity={0.8}
               onPress={() => setImpSubject(subject)}>
-              <View style={[s.subjectIconWrap, { backgroundColor: subject.bg }]}>
+              <View style={[d.subjectIcon, { backgroundColor: subject.bg }]}>
                 <Text style={{ fontSize: 26 }}>{subject.emoji}</Text>
               </View>
               <View style={{ flex: 1 }}>
-                <Text style={s.subjectName}>{subject.name}</Text>
-                <Text style={s.subjectSub}>
+                <Text style={d.subjectName}>{subject.name}</Text>
+                <Text style={d.subjectSub}>
                   {subject.comingSoon ? 'Coming soon' : (subject.chapters?.length ? `${subject.chapters.length} chapters` : 'View chapters')}
                 </Text>
               </View>
-              <Text style={s.listArrow}>→</Text>
+              <ChevronRight size={19} color={D.faint} strokeWidth={2.2} />
             </TouchableOpacity>
           ))}
         </ScrollView>
-      </SafeAreaView>
+      </View>
     );
   }
 
@@ -1303,8 +1313,9 @@ const s = StyleSheet.create({
   retestCancel:     { color: S.muted, fontSize: 13, fontFamily: FONT.bold, marginTop: 14 },
 });
 
-// Dark styles for the Practice LANDING page only (see the `D` palette above) — the
-// sub-screens this file pushes into all stay on the light `s` StyleSheet above.
+// Dark styles for the Practice landing page + PYQ/Important-Questions subject and
+// chapter lists (see the `D` palette above). Mock Tests, Online Tests and the
+// question-content WebView stay on the light `s` StyleSheet above.
 const d = StyleSheet.create({
   safe:          { flex: 1, backgroundColor: D.canvas },
   header:        { paddingHorizontal: 18, paddingTop: 14, paddingBottom: 16 },
@@ -1318,6 +1329,24 @@ const d = StyleSheet.create({
   typeIcon:      { width: 42, height: 42, borderRadius: 13, alignItems: 'center', justifyContent: 'center' },
   typeTitle:     { fontSize: 15, fontFamily: FONT.bold, color: D.ink, letterSpacing: -0.2 },
   typeSub:       { fontSize: 12, fontFamily: FONT.semibold, color: D.muted, marginTop: 2 },
+
+  // Sub-screen header (PYQ / Important Questions subject + chapter lists) — a
+  // back-badge + title/subtitle row, distinct from the landing header above.
+  pageHeader:    { flexDirection: 'row', alignItems: 'center', gap: 12, paddingHorizontal: 18, paddingBottom: 16 },
+  backBtn:       { width: 36, height: 36, borderRadius: 18, backgroundColor: D.card, borderWidth: 1, borderColor: D.hair, alignItems: 'center', justifyContent: 'center' },
+  pageTitle:     { fontSize: 19, fontFamily: FONT.black, color: D.ink, letterSpacing: -0.4 },
+  pageSubtitle:  { fontSize: 12.5, fontFamily: FONT.semibold, color: D.sub, marginTop: 2 },
+
+  subjectCard:   { backgroundColor: D.card, borderRadius: 18, borderWidth: 1, borderColor: D.hair, flexDirection: 'row', alignItems: 'center', gap: 16, padding: 14 },
+  subjectIcon:   { width: 54, height: 54, borderRadius: 27, alignItems: 'center', justifyContent: 'center' },
+  subjectName:   { fontSize: 17, fontFamily: FONT.black, color: D.ink, letterSpacing: -0.3 },
+  subjectSub:    { fontSize: 12, color: D.muted, fontFamily: FONT.semibold, marginTop: 3 },
+
+  chapterRow:    { backgroundColor: D.card, borderRadius: 16, borderWidth: 1, borderColor: D.hair, flexDirection: 'row', alignItems: 'center', gap: 14, padding: 16 },
+  chapterNum:    { width: 32, height: 32, borderRadius: 10, alignItems: 'center', justifyContent: 'center' },
+  chapterNumTxt: { fontSize: 14, fontFamily: FONT.black },
+  chapterName:   { fontSize: 15, fontFamily: FONT.extrabold, color: D.ink, letterSpacing: -0.2 },
+  chapterSub:    { fontSize: 12, color: D.muted, fontFamily: FONT.semibold, marginTop: 3 },
 });
 
 export default PracticeScreen;
