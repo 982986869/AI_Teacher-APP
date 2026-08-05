@@ -21,8 +21,9 @@ import { validateEmail, validatePassword, validatePhone } from '../utils/validat
 // path; phone becomes a "Continue with Phone" alt-method here (not a tab like
 // the old build) that swaps the form in place, reusing the exact same OTP
 // hand-off to OTPScreen. Apple has no backend route yet — its button is a
-// straight "coming soon", same as Forgot Password (no screen exists for it
-// yet either); neither is faked into looking functional.
+// straight "coming soon", not faked into looking functional. Forgot Password
+// DOES have a screen (ForgotPasswordScreen, added alongside the OTP reset
+// endpoints), so that link navigates for real and carries the typed email over.
 const LoginScreen = ({ navigation }) => {
   const { signIn } = useAuth();
   const [mode, setMode] = useState('email'); // 'email' | 'phone'
@@ -126,7 +127,7 @@ const LoginScreen = ({ navigation }) => {
 
             <TouchableOpacity
               style={styles.forgotRow}
-              onPress={() => Alert.alert('Coming soon', 'Password reset is on its way.')}
+              onPress={() => navigation.navigate('ForgotPasswordScreen', { email })}
             >
               <Text style={styles.forgotText}>Forgot Password?</Text>
             </TouchableOpacity>

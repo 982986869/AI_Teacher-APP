@@ -109,9 +109,25 @@ export default function TestQuestionScreen({
   const answeredCount = Object.keys(answers).length;
   const grandTotal = questions.length;
 
+  // The countdown is started once, at mount. Calling handleSubmit directly from it
+  // would close over the FIRST render's `answers` (always {}), so a time-up submit
+  // graded an empty sheet and threw away everything the student answered. submitRef
+  // always points at the latest handleSubmit, so the timeout grades real answers.
+  const submitRef = useRef(null);
+  useEffect(() => { submitRef.current = handleSubmit; });
+
   useEffect(() => {
+    // The remaining count lives in a local owned by this interval, so the tick is a
+    // plain value set — no setState call inside a state updater (updaters must stay
+    // pure; React may invoke them twice).
+    let left = durationSeconds;
     timerRef.current = setInterval(() => {
-      setRemaining((r) => { if (r <= 1) { clearInterval(timerRef.current); handleSubmit(true); return 0; } return r - 1; });
+      left -= 1;
+      setRemaining(left > 0 ? left : 0);
+      if (left <= 0) {
+        clearInterval(timerRef.current);
+        if (submitRef.current) submitRef.current(true);
+      }
     }, 1000);
     return () => clearInterval(timerRef.current);
     // eslint-disable-next-line react-hooks/exhaustive-deps

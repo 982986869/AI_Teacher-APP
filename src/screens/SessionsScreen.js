@@ -90,6 +90,19 @@ function RecordingCard({ s }) {
   );
 }
 
+// DEMO — a dummy recorded lecture so the Recorded Lectures section always has something
+// to show. Video is a real Ailernova clip (ailernova.in; .com has none). Remove this and
+// the two `DUMMY_RECORDING` references below once real recordings are published.
+const DUMMY_RECORDING = {
+  id: 'demo-recording',
+  title: 'Sample Recorded Lecture',
+  subject: 'Demo',
+  teacherName: 'Ms. Nova',
+  durationMin: 12,
+  startsAt: '2026-07-20T10:00:00.000Z',
+  recordingUrl: 'https://ailernova.in/wp-content/themes/ailernova-theme/image/0_Student_Girl_1280x720.mp4',
+};
+
 const SessionsScreen = () => {
   const navigation = useNavigation();
   const scrollRef = useRef(null);
@@ -114,11 +127,12 @@ const SessionsScreen = () => {
   }, [navigation]);
 
   const upcoming = (sessions || []).filter((s) => s.status === 'scheduled');
-  // Recorded lectures = any session with a recording link (its own replay library).
-  const recordings = (sessions || []).filter((s) => !!s.recordingUrl);
+  // Recorded lectures = any session with a recording link (its own replay library),
+  // plus the DEMO dummy recording so the section always shows one to try.
+  const recordings = [...(sessions || []).filter((s) => !!s.recordingUrl), DUMMY_RECORDING];
   // Completed WITHOUT a recording — so a recorded class shows once, under Recordings.
   const completed = (sessions || []).filter((s) => s.status === 'completed' && !s.recordingUrl);
-  const hasSessions = (sessions || []).length > 0;
+  const hasSessions = (sessions || []).length > 0 || recordings.length > 0;
 
   return (
     <View style={hs.safe}>
@@ -136,11 +150,20 @@ const SessionsScreen = () => {
                 {upcoming.map((s) => <FadeInOnce key={s.id} id={`sess-${s.id}`} delay={40} y={12}><SessionCard s={s} /></FadeInOnce>)}
               </>
             )}
-            {recordings.length > 0 && (
-              <>
-                <StudentSectionHeader title="Recordings" accent={S.purple} />
-                {recordings.map((s) => <FadeInOnce key={s.id} id={`rec-${s.id}`} delay={40} y={12}><RecordingCard s={s} /></FadeInOnce>)}
-              </>
+            {/* Recorded Lectures — a persistent sub-section (its own replay library).
+                Always shown so students know where recordings live; empty state until
+                a completed class has a recording attached. */}
+            <StudentSectionHeader title="Recorded Lectures" accent={S.purple} />
+            {recordings.length > 0 ? (
+              recordings.map((s) => <FadeInOnce key={s.id} id={`rec-${s.id}`} delay={40} y={12}><RecordingCard s={s} /></FadeInOnce>)
+            ) : (
+              <View style={hs.recEmpty}>
+                <View style={hs.recEmptyIcon}><CirclePlay size={22} color={S.purple} strokeWidth={2.2} /></View>
+                <View style={{ flex: 1 }}>
+                  <T w="xbold" s={13.5} c={S.ink}>No recordings yet</T>
+                  <T w="semi" s={11.5} c={S.muted} style={{ marginTop: 2, lineHeight: 16 }}>Completed classes will appear here to rewatch anytime.</T>
+                </View>
+              </View>
             )}
             {completed.length > 0 && (
               <>
@@ -217,6 +240,8 @@ const hs = StyleSheet.create({
   recMeta: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 10 },
   recAvatar: { width: 24, height: 24, borderRadius: 12, backgroundColor: 'rgba(108,77,230,0.12)', alignItems: 'center', justifyContent: 'center' },
   recDateChip: { flexDirection: 'row', alignItems: 'center', gap: 4, flexShrink: 0 },
+  recEmpty: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: '#FFFFFF', borderRadius: 18, borderWidth: 1, borderColor: 'rgba(108,77,230,0.12)', padding: 14, marginBottom: 10 },
+  recEmptyIcon: { width: 42, height: 42, borderRadius: 14, backgroundColor: 'rgba(108,77,230,0.12)', alignItems: 'center', justifyContent: 'center', flexShrink: 0 },
   heroShadow: { borderRadius: 26, backgroundColor: '#0E1E4A', marginTop: 8, shadowColor: '#0E1E4A', shadowOpacity: 0.30, shadowRadius: 24, shadowOffset: { width: 0, height: 16 }, elevation: 11 },
   hero: { borderRadius: 26, overflow: 'hidden', padding: 22 },
   heroTag: { flexDirection: 'row', alignItems: 'center', gap: 6, alignSelf: 'flex-start', backgroundColor: 'rgba(255,255,255,0.12)', borderRadius: 20, paddingHorizontal: 10, paddingVertical: 6 },

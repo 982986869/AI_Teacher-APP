@@ -3,12 +3,33 @@
 const ApiResponse = require('../utils/ApiResponse')
 const svc = require('../services/onlineTest.service')
 const { resolveClassNum } = require('../services/personalization/enforce')
+const { isAllowedSubject } = require('../services/personalization/subjects')
 
-// Browsable across classes via the class picker: honor ?class=, fall back to the
-// student's own class. (Matches the resources / mcq-practice flow.)
-const classOf = (req) => {
-  const m = String(req.query.class || '').match(/\d{1,2}/)
-  return m ? parseInt(m[0], 10) : resolveClassNum(req)
+// Authoritative class for this request. resolveClassNum is the ONLY place allowed to
+// honour ?class=, and it does so exclusively for allowlisted tester accounts. This
+// controller used to read req.query.class directly for everyone, which let any student
+// browse another class's tests just by changing the URL.
+const classOf = (req) => resolveClassNum(req)
+
+// A student may only open a test that belongs to their own class + syllabus. Prevents
+// fetching another class's test (answer key included) by guessing its id. Mirrors
+// mockTest.controller.assertTestInScope.
+async function assertTestInScope(req, testId) {
+  const meta = await svc.getTestMeta(testId)
+  if (!meta) return null
+  if (req.scope && req.scope.role === 'student') {
+    const cls = classOf(req)
+    if (!cls || Number(meta.classLevel) !== Number(cls)) {
+      return { forbidden: 'This test is not available for your class.' }
+    }
+    // Subject gating only applies to senior classes (11/12), where streams restrict
+    // subjects. Class ≤10 has no streams — every subject with a class_level test is in
+    // the student's syllabus, and the class check above already blocks other classes.
+    if (meta.subject && Number(req.scope.classNum) > 10 && !isAllowedSubject(meta.subject, req.scope.classNum, req.scope.stream)) {
+      return { forbidden: 'This test is not part of your syllabus.' }
+    }
+  }
+  return { meta }
 }
 
 async function getChapters(req, res, next) {
@@ -27,6 +48,15 @@ async function getTests(req, res, next) {
 
 async function getTest(req, res, next) {
   try {
+    // Reject a malformed id up front — BigInt() would otherwise throw a SyntaxError
+    // that surfaces as a 500 rather than a clean 400.
+    if (svc.parseTestId(req.params.testId) == null) {
+      return ApiResponse.error(res, 'Invalid test id', 400)
+    }
+    const scoped = await assertTestInScope(req, req.params.testId)
+    if (!scoped) return ApiResponse.error(res, 'Test not found', 404)
+    if (scoped.forbidden) return ApiResponse.error(res, scoped.forbidden, 403)
+
     const data = await svc.getTest(req.params.testId)
     if (!data) return ApiResponse.error(res, 'Test not found', 404)
     return ApiResponse.success(res, data)
@@ -39,6 +69,16 @@ async function submit(req, res, next) {
     if (req.scope && req.scope.role !== 'student') {
       return ApiResponse.error(res, 'Only students can attempt this.', 403)
     }
+    // Same class/syllabus gate as the read path — without it a student could record an
+    // attempt against another class's test by guessing its id, which would then feed
+    // their mistake book and weak areas with content they were never meant to see.
+    if (svc.parseTestId(req.params.testId) == null) {
+      return ApiResponse.error(res, 'Invalid test id', 400)
+    }
+    const scoped = await assertTestInScope(req, req.params.testId)
+    if (!scoped) return ApiResponse.error(res, 'Test not found', 404)
+    if (scoped.forbidden) return ApiResponse.error(res, scoped.forbidden, 403)
+
     const answers = (req.body && typeof req.body.answers === 'object' && req.body.answers) || {}
     const data = await svc.submit({
       testId: req.params.testId,

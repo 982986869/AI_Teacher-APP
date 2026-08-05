@@ -15,6 +15,21 @@ function validateEnv() {
       'Copy server/.env.example → server/.env and fill in the values.'
     )
   }
+  // CORS cannot be wildcarded alongside credentials: true. Unset in production now means
+  // "deny cross-origin" rather than the old "*", which is a real tightening — but NOT a
+  // boot failure, because the native app and the admin portal's server-side rewrite send
+  // no Origin header and are unaffected by CORS either way. Warn loudly so a genuinely
+  // browser-based caller isn't left guessing why it is being blocked.
+  if (process.env.NODE_ENV === 'production' && !process.env.ALLOWED_ORIGINS) {
+    console.warn(
+      '[config] ALLOWED_ORIGINS is unset in production — cross-origin browser requests\n' +
+      '         will be denied. The native app and the admin portal (server-side rewrite)\n' +
+      '         send no Origin header, so they are unaffected. Set ALLOWED_ORIGINS to a\n' +
+      '         comma-separated list (e.g. https://admin.ailernova.com) if a browser needs\n' +
+      '         to call this API directly. It can no longer be "*": that is invalid\n' +
+      '         alongside credentials: true and browsers reject it.'
+    )
+  }
 }
 
 const config = {
@@ -128,10 +143,16 @@ const config = {
     maxUploadBytes: parseInt(process.env.KNOWLEDGE_MAX_UPLOAD_BYTES, 10) || 5000000,
   },
 
+  // CORS. A wildcard origin is INVALID together with credentials: true — browsers
+  // reject `Access-Control-Allow-Origin: *` on any credentialed request, which silently
+  // broke the admin portal, and leaving it wildcard in production is also wide open.
+  // So: explicit list when ALLOWED_ORIGINS is set; in dev, reflect any origin (valid
+  // with credentials, since the header echoes the caller); in production, no origin is
+  // allowed unless configured — validateEnv() below refuses to start without it.
   cors: {
     origins: process.env.ALLOWED_ORIGINS
-      ? process.env.ALLOWED_ORIGINS.split(',').map((s) => s.trim())
-      : '*',
+      ? process.env.ALLOWED_ORIGINS.split(',').map((s) => s.trim()).filter(Boolean)
+      : (process.env.NODE_ENV !== 'production' ? true : []),
   },
 
   // Feature flags. Default OFF — with every flag OFF the app behaves exactly as

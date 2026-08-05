@@ -1,18 +1,20 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-// All four auth screens are flat in src/screens/ (per your project structure)
+// The auth screens are flat in src/screens/ (per your project structure)
 import LandingScreen from '../screens/LandingScreen';
 import OnboardingIntroScreen from '../screens/OnboardingIntroScreen';
 import LoginScreen from '../screens/LoginScreen';
 import SignupScreen from '../screens/SignupScreen';
 import OTPScreen from '../screens/OTPScreen';
+import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
 
 const Stack = createNativeStackNavigator();
 
 // ── AuthNavigator: the LOGGED-OUT flow only ─────────────────────────────
 //
 //   Landing ──Sign In──► Login ─────────────► login success → signIn()
+//        │               └─"Forgot password?"─► ForgotPassword ─► back to Login
 //        │
 //        └Get Started─► OnboardingIntro (3 pages) ──► Signup ──► OTP → signIn()
 //
@@ -32,9 +34,10 @@ const AuthNavigator = () => (
   >
     <Stack.Screen name="LandingScreen"   component={LandingScreen} />
     <Stack.Screen name="OnboardingIntro" component={OnboardingIntroScreen} />
-    <Stack.Screen name="LoginScreen"   component={LoginScreen} />
-    <Stack.Screen name="SignupScreen"  component={SignupScreen} />
-    <Stack.Screen name="OTPScreen"     component={OTPScreen} />
+    <Stack.Screen name="LoginScreen"     component={LoginScreen} />
+    <Stack.Screen name="SignupScreen"    component={SignupScreen} />
+    <Stack.Screen name="OTPScreen"       component={OTPScreen} />
+    <Stack.Screen name="ForgotPasswordScreen" component={ForgotPasswordScreen} />
   </Stack.Navigator>
 );
 

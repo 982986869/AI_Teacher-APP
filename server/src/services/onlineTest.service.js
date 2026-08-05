@@ -61,10 +61,35 @@ function shapeQuestion(q) {
   }
 }
 
+// Test ids are bigints in the DB. BigInt('abc') throws a SyntaxError that is NOT an
+// AppError, so an unvalidated id surfaced as a 500 "Internal server error" instead of
+// a 400/404. Parse defensively and let callers turn null into a clean response.
+function parseTestId(raw) {
+  const s = String(raw == null ? '' : raw).trim()
+  if (!/^\d+$/.test(s)) return null
+  try { return BigInt(s) } catch (_) { return null }
+}
+
+// Lightweight class/subject lookup so the controller can enforce that a student only
+// opens a test for their own class — mirrors mockTest.service.getTestMeta. Without
+// this, /online-tests/test/:id returned ANY class's test (with its answer key) to any
+// authenticated user.
+async function getTestMeta(testId) {
+  const id = parseTestId(testId)
+  if (id == null) return null
+  const row = await db.ot_tests.findUnique({
+    where: { id },
+    select: { class_level: true, subject_name: true, subject_slug: true },
+  })
+  return row ? { classLevel: row.class_level, subject: row.subject_name, subjectSlug: row.subject_slug } : null
+}
+
 // ─── Full test (instruction + questions) ──────────────────────────────────────
 async function getTest(testId) {
+  const id = parseTestId(testId)
+  if (id == null) return null
   const test = await db.ot_tests.findUnique({
-    where: { id: BigInt(testId) },
+    where: { id },
     include: { questions: { orderBy: { position: 'asc' } } },
   })
   if (!test) return null
@@ -89,8 +114,13 @@ async function getTest(testId) {
 // (mistake book, weak areas) have to be able to trust.
 // answers = { "<questionId>": <selectedOptionId> } — absent questions count as skipped.
 async function submit({ testId, userId, answers = {}, timeTakenSec = 0 }) {
+  // Via parseTestId, not BigInt() directly: a non-numeric id would otherwise throw a
+  // SyntaxError here and surface as a 500 — the same defect that was just fixed on the
+  // read path. null lets the controller return a clean 404.
+  const id = parseTestId(testId)
+  if (id == null) return null
   const rows = await db.ot_questions.findMany({
-    where: { ot_test_id: BigInt(testId) },
+    where: { ot_test_id: id },
     select: { id: true, correct_option_id: true, marks: true },
   })
   if (!rows.length) return null
@@ -124,4 +154,4 @@ async function submit({ testId, userId, answers = {}, timeTakenSec = 0 }) {
   return { total, attempted, correct, wrong, skipped: total - attempted, score }
 }
 
-module.exports = { listChapters, listTests, getTest, submit }
+module.exports = { listChapters, listTests, getTest, submit, getTestMeta, parseTestId }
