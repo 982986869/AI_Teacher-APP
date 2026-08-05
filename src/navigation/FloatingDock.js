@@ -1,16 +1,21 @@
 // src/navigation/FloatingDock.js
 // Student bottom navigation — DOCKED to the bottom edge (mirroring the Parent app's nav):
-// a full-width white surface with rounded top corners and an upward shadow, its background
+// a full-width surface with rounded top corners and an upward shadow, its background
 // filling down through the safe-area so it covers the system-nav strip while the tabs stay
-// clear of the phone's back/home/recents buttons. A soft indigo pill glides behind the
+// clear of the phone's back/home/recents buttons. A soft violet pill glides behind the
 // active tab (native-driven translateX spring); the active icon scales up and its label
-// turns bold + indigo. Clean and professional — one accent, calm motion.
+// turns bold + violet. Clean and professional — one accent, calm motion.
+//
+// On the night palette (src/theme/nightTheme.js) so it sits under the dark Home and
+// Sessions tabs as one surface. NOTE: Practice / Resources / Results / Profile are still
+// on the light student theme, so they currently meet a dark bar — they need the same
+// migration.
 import React from 'react';
 import { View, Animated, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { House, CalendarDays, Target, BookOpen, ChartColumn, User } from 'lucide-react-native';
 
-import { S } from '../theme/studentTheme';
+import { N } from '../theme/nightTheme';
 import { T } from '../screens/parent/ParentApp/constants';
 import { PressableScale } from '../screens/parent/ParentApp/anim';
 
@@ -23,7 +28,8 @@ const TABS = {
   Results:   { Icon: ChartColumn,  label: 'Results' },
   Profile:   { Icon: User,         label: 'Profile' },
 };
-const ACCENT = S.indigo;
+const ACCENT = N.violet;
+const IDLE   = N.inkSoft;
 
 // ---- one tab cell -----------------------------------------------------------
 const NavTab = React.memo(function NavTab({ route, label, Icon, isFocused, onPress }) {
@@ -44,9 +50,9 @@ const NavTab = React.memo(function NavTab({ route, label, Icon, isFocused, onPre
         accessibilityState={isFocused ? { selected: true } : {}}
       >
         <Animated.View style={[styles.iconBox, { transform: [{ scale }] }]}>
-          <Icon size={22} color={isFocused ? ACCENT : S.muted} strokeWidth={isFocused ? 2.7 : 2.1} />
+          <Icon size={22} color={isFocused ? ACCENT : IDLE} strokeWidth={isFocused ? 2.7 : 2.1} />
         </Animated.View>
-        <T w={isFocused ? 'xbold' : 'semi'} s={9.5} c={isFocused ? ACCENT : S.muted} numberOfLines={1} style={styles.label}>
+        <T w={isFocused ? 'xbold' : 'semi'} s={9.5} c={isFocused ? ACCENT : IDLE} numberOfLines={1} style={styles.label}>
           {label}
         </T>
       </PressableScale>
@@ -119,22 +125,24 @@ const styles = StyleSheet.create({
   // Docked bar: full-width, anchored to the bottom edge, rounded top corners + an upward
   // shadow to lift it off the content.
   nav: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: N.bgBot,
     paddingTop: 10,
     paddingHorizontal: 8,
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
     borderTopWidth: 1,
-    borderColor: 'rgba(20,20,40,0.06)',
-    shadowColor: '#0B1020',
-    shadowOpacity: 0.10,
+    borderColor: N.cardEdge,
+    shadowColor: '#05030F',
+    shadowOpacity: 0.45,
     shadowRadius: 18,
     shadowOffset: { width: 0, height: -4 },
     elevation: 18,
   },
   track: { flexDirection: 'row', alignItems: 'center', position: 'relative', minHeight: 50 },
   slot: { flex: 1 },
-  pill: { position: 'absolute', top: 0, bottom: 0, left: 0, borderRadius: 16, opacity: 0.12 },
+  // Slightly stronger than the light bar's 0.12 — a 12% violet wash disappears on a dark
+  // surface, where the light theme had white to lift it.
+  pill: { position: 'absolute', top: 0, bottom: 0, left: 0, borderRadius: 16, opacity: 0.20 },
   item: { alignItems: 'center', justifyContent: 'center', gap: 5, paddingVertical: 5 },
   iconBox: { height: 24, alignItems: 'center', justifyContent: 'center' },
   label: { letterSpacing: 0, textAlign: 'center' },

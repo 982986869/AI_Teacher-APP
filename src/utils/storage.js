@@ -11,6 +11,7 @@ const KEYS = {
   PRACTICE_ATTEMPTS: '@ailernova_practice_attempts',
   HOME_STATE:    '@ailernova_home_state',
   PROFILE_EXTRAS: '@ailernova_profile_extras',
+  WATCHED_RECORDINGS: '@ailernova_watched_recordings',
 };
 
 // Legacy token returned by the still-mocked Google/OTP auth paths. It is NOT a
@@ -245,6 +246,27 @@ export const saveProfileExtras = async (patch) => {
     const raw = await AsyncStorage.getItem(KEYS.PROFILE_EXTRAS);
     const cur = raw ? JSON.parse(raw) : {};
     await AsyncStorage.setItem(KEYS.PROFILE_EXTRAS, JSON.stringify({ ...cur, ...patch }));
+  } catch (_) { /* ignore */ }
+};
+
+// Which recorded lectures this student has opened. Recordings play in the system
+// browser/player via Linking.openURL, so we cannot observe playback position — the
+// most we honestly know is "they opened it". Binary on purpose: do NOT extend this
+// into a fake percent-watched. Shape: { [sessionId]: openedAtIso }.
+export const getWatchedRecordings = async () => {
+  try {
+    const raw = await AsyncStorage.getItem(KEYS.WATCHED_RECORDINGS);
+    return raw ? JSON.parse(raw) : {};
+  } catch (_) { return {}; }
+};
+
+export const markRecordingWatched = async (id) => {
+  try {
+    if (!id) return;
+    const raw = await AsyncStorage.getItem(KEYS.WATCHED_RECORDINGS);
+    const cur = raw ? JSON.parse(raw) : {};
+    cur[id] = new Date().toISOString();
+    await AsyncStorage.setItem(KEYS.WATCHED_RECORDINGS, JSON.stringify(cur));
   } catch (_) { /* ignore */ }
 };
 
