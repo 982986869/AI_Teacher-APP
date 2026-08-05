@@ -9,7 +9,9 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ChevronLeft } from 'lucide-react-native';
 import { getAdminStudentResults, getAdminStudentAttemptDetail } from '../../../api/adminApi';
 import ResultsView from '../../results/ResultsView';
-import { S } from '../../../theme/studentUI';
+// ResultsView is on the night palette, so this header has to be too — the light
+// ink it used before is invisible against it.
+import { N } from '../../../theme/nightTheme';
 import { T } from '../../parent/ParentApp/constants';
 
 export default function StudentResultsScreen({ route, navigation }) {
@@ -24,11 +26,11 @@ export default function StudentResultsScreen({ route, navigation }) {
   const header = (
     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 12, paddingRight: 18, paddingBottom: 10, paddingTop: insets.top + 8 }}>
       <TouchableOpacity onPress={() => navigation.goBack()} hitSlop={{ top: 12, bottom: 12, left: 12, right: 12 }} style={{ padding: 4 }}>
-        <ChevronLeft size={26} color={S.ink} strokeWidth={2.5} />
+        <ChevronLeft size={26} color={N.ink} strokeWidth={2.5} />
       </TouchableOpacity>
       <View style={{ flex: 1 }}>
-        <T w="black" s={22} c={S.ink} style={{ letterSpacing: -0.5 }} numberOfLines={1}>{name || 'Student'}</T>
-        <T w="semi" s={12.5} c={S.muted} style={{ marginTop: 1 }} numberOfLines={1}>Progress · tests, scores & study time</T>
+        <T w="black" s={22} c={N.ink} style={{ letterSpacing: -0.5 }} numberOfLines={1}>{name || 'Student'}</T>
+        <T w="semi" s={12.5} c={N.inkSoft} style={{ marginTop: 1 }} numberOfLines={1}>Progress · tests, scores & study time</T>
       </View>
     </View>
   );

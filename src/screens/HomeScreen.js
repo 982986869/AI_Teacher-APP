@@ -332,7 +332,10 @@ const HomeScreen = () => {
 
       <ScrollView
         ref={scrollRef}
-        contentContainerStyle={{ paddingHorizontal: PAD, paddingTop: 8, paddingBottom: 28, gap: GAP }}
+        // The app is edge-to-edge on Android (app.json → android.edgeToEdgeEnabled), so
+        // the status bar draws OVER this content — a flat paddingTop clipped the greeting
+        // row under the clock. Pad by the real inset instead.
+        contentContainerStyle={{ paddingHorizontal: PAD, paddingTop: insets.top + 8, paddingBottom: 28, gap: GAP }}
         showsVerticalScrollIndicator={false}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={() => { setRefreshing(true); load(true); }} tintColor={N.violet} colors={[N.violet]} />
