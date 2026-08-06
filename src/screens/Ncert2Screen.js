@@ -11,21 +11,28 @@ import {
   View, Text, ScrollView, TouchableOpacity, StyleSheet,
   ActivityIndicator, Platform, StatusBar,
 } from 'react-native';
-import { S } from '../theme/studentUI';
+import { COLORS } from '../theme/designSystem';
+import PrimaryButton from '../components/brand/PrimaryButton';
 import { FONT } from '../constants/fonts';
 import { WebView } from 'react-native-webview';
 import { getNcertSolutions } from '../api/resourcesApi';
+import { API_BASE_URL } from '../constants/config';
 
-const INK = S.ink;
-const PAGE_BG = '#f4f4f5';
-const CARD_BG = '#ffffff';
-const CARD_BORDER = S.border;
-const TITLE_INK = S.ink;
-const BADGE_BG = S.hair;
-const SEP = S.muted;
-const CRUMB_LINK = S.ink;
-const CRUMB_ACTIVE = S.muted;
-const SOLUTION_BG = S.hair;
+// Dark reskin — this screen used to be its own deliberate "black & white" look;
+// now on the app's shared dark palette like the rest of Resources.
+const INK = COLORS.textPrimary;
+const PAGE_BG = COLORS.background;
+const CARD_BG = 'rgba(255,255,255,0.05)';
+const CARD_BORDER = 'rgba(255,255,255,0.10)';
+const TITLE_INK = COLORS.textPrimary;
+const BADGE_BG = 'rgba(124,58,237,0.16)';
+const SEP = COLORS.textSecondary;
+const CRUMB_LINK = COLORS.textSecondary;
+const CRUMB_ACTIVE = COLORS.textPrimary;
+const SOLUTION_BG = 'rgba(255,255,255,0.05)';
+const NAVBAR_BG = COLORS.background;
+const ACCENT = COLORS.primary;
+const HAIR = 'rgba(255,255,255,0.10)';
 const STATUS_PAD = Platform.OS === 'android' ? (StatusBar.currentHeight || 24) : 44;
 
 function UserGlyph() {
@@ -47,7 +54,7 @@ function buildDocument(fragmentHtml) {
   // (MathJax injects its own CSS, so styling mjx-container directly is
   // unreliable — a wrapper element we create cannot be overridden.)
   window.MathJax = {
-    tex: { inlineMath: [['{tex}', '{/tex}']], displayMath: [] },
+    tex: { inlineMath: [['\\\\(', '\\\\)']], displayMath: [] },
     startup: {
       ready: function () {
         window.MathJax.startup.defaultReady();
@@ -79,24 +86,30 @@ function buildDocument(fragmentHtml) {
     }
   });
 </script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="${API_BASE_URL}/vendor/mathjax-tex-mml-chtml.js"></script>
 <style>
   *{ -webkit-tap-highlight-color: transparent; box-sizing: border-box; }
   html, body{ margin:0; max-width:100%; overflow-x:hidden; }
   body{ padding:12px; background:${PAGE_BG};
         font-family:-apple-system,Roboto,"Segoe UI",sans-serif; color:${INK};
         overflow-wrap:break-word; word-break:break-word; }
-  img{ max-width:100%; height:auto; border-radius:8px; filter:grayscale(100%); }
-  .question-card{ background:#fff; border:1px solid ${CARD_BORDER}; border-radius:16px;
+  /* The solution content is server-authored HTML written for a white page — some
+     of it carries its own inline/legacy dark text colours (e.g. style="color:#333"
+     baked into old fragments). Force everything back to the dark palette's ink so
+     it's never unreadable regardless of what the fragment itself specifies. */
+  body, body *:not(.q-number):not(.q-number *) { color: ${INK} !important; }
+  a { color: ${ACCENT} !important; }
+  img{ max-width:100%; height:auto; border-radius:8px; filter:grayscale(100%); background:#fff; }
+  .question-card{ background:${CARD_BG}; border:1px solid ${CARD_BORDER}; border-radius:16px;
                   padding:16px; margin-bottom:16px; max-width:100%; overflow:hidden; }
   .question-header{ display:flex; justify-content:space-between; margin-bottom:10px; }
-  .q-number{ background:${INK}; color:#fff; padding:4px 10px; border-radius:20px;
+  .q-number{ background:${ACCENT}; color:#fff; padding:4px 10px; border-radius:20px;
              font-size:12px; font-weight:600; }
   .question-text{ font-size:16px; line-height:1.7; margin-bottom:10px; max-width:100%; }
   .answer-section{ margin-top:12px; max-width:100%; }
   .solution-block{ background:${SOLUTION_BG}; padding:10px 12px; border-radius:10px;
-                   margin-top:8px; border:1px solid #ededed; max-width:100%; }
-  .label{ font-size:12px; font-weight:600; color:#555; margin-bottom:4px; }
+                   margin-top:8px; border:1px solid ${HAIR}; max-width:100%; }
+  .label{ font-size:12px; font-weight:600; color:${SEP}; margin-bottom:4px; }
   /* Our own wrapper for over-wide equations: scrolls horizontally on its own,
      so the page never stretches past the screen edge. */
   .math-scroll{ display:block; max-width:100%; overflow-x:auto;
@@ -147,19 +160,20 @@ function SectionContent({ html, meta, comingSoon }) {
     <View style={{ flex: 1, backgroundColor: PAGE_BG }}>
       {loading && (
         <View style={styles.loadingOverlay} pointerEvents="none">
-          <ActivityIndicator size="large" color={INK} />
+          <ActivityIndicator size="large" color={ACCENT} />
           <Text style={styles.loadingTxt}>Loading {html.length} chars…</Text>
         </View>
       )}
       <WebView
         originWhitelist={['*']}
-        source={{ html: buildDocument(html) }}
+        source={{ html: buildDocument(html), baseUrl: API_BASE_URL }}
         onLoadEnd={() => setLoading(false)}
         onError={(e) => { setLoading(false); }}
         style={{ flex: 1, backgroundColor: PAGE_BG }}
         javaScriptEnabled
         domStorageEnabled
         mixedContentMode="always"
+        cacheEnabled={false}
         androidLayerType={Platform.OS === 'android' ? 'hardware' : undefined}
         renderError={(name) => (
           <View style={styles.emptyWrap}>
@@ -278,15 +292,13 @@ export default function Ncert2Screen({
 
       {loading ? (
         <View style={styles.centerFill}>
-          <ActivityIndicator size="large" color={INK} />
+          <ActivityIndicator size="large" color={ACCENT} />
           <Text style={styles.loadingTxt}>Loading solutions…</Text>
         </View>
       ) : error ? (
         <View style={styles.emptyWrap}>
           <Text style={styles.emptyText}>{error}</Text>
-          <TouchableOpacity style={styles.retryBtn} activeOpacity={0.8} onPress={() => setRetry((k) => k + 1)}>
-            <Text style={styles.retryTxt}>Retry</Text>
-          </TouchableOpacity>
+          <PrimaryButton label="Retry" onPress={() => setRetry((k) => k + 1)} style={{ marginTop: 16 }} />
         </View>
       ) : openIndex == null ? (
         <ScrollView style={{ flex: 1, backgroundColor: PAGE_BG }} contentContainerStyle={styles.scrollBody}>
@@ -325,7 +337,7 @@ export default function Ncert2Screen({
 const styles = StyleSheet.create({
   root: { flex: 1, backgroundColor: PAGE_BG },
   navbar: {
-    backgroundColor: INK, paddingTop: STATUS_PAD + 8, paddingBottom: 14,
+    backgroundColor: NAVBAR_BG, borderBottomWidth: 1, borderBottomColor: HAIR, paddingTop: STATUS_PAD + 8, paddingBottom: 14,
     shadowColor: '#000', shadowOpacity: 0.15, shadowRadius: 12,
     shadowOffset: { width: 0, height: 4 }, elevation: 6, zIndex: 10,
   },
@@ -342,26 +354,24 @@ const styles = StyleSheet.create({
   userBody: { width: 14, height: 8, borderTopLeftRadius: 7, borderTopRightRadius: 7, borderWidth: 2, borderBottomWidth: 0, borderColor: '#fff', marginTop: 1 },
   scrollBody: { width: '100%', maxWidth: 720, alignSelf: 'center', paddingHorizontal: 16, paddingTop: 14, paddingBottom: 28 },
   breadcrumb: { height: 22, marginBottom: 12, flexGrow: 0, flexShrink: 0, justifyContent: 'center' },
-  subBreadcrumbWrap: { backgroundColor: '#fff', paddingHorizontal: 16, paddingTop: 12, paddingBottom: 4, borderBottomWidth: 1, borderBottomColor: S.hair },
+  subBreadcrumbWrap: { backgroundColor: PAGE_BG, paddingHorizontal: 16, paddingTop: 12, paddingBottom: 4, borderBottomWidth: 1, borderBottomColor: HAIR },
   crumbLink: { color: CRUMB_LINK, fontSize: 14, fontFamily: FONT.semibold },
   crumbActive: { color: CRUMB_ACTIVE, fontFamily: FONT.semibold },
   crumbSep: { color: SEP, fontSize: 14, marginHorizontal: 6 },
-  card: { backgroundColor: CARD_BG, borderWidth: 1, borderColor: CARD_BORDER, borderRadius: 14, overflow: 'hidden', shadowColor: '#000', shadowOpacity: 0.04, shadowRadius: 8, shadowOffset: { width: 0, height: 2 }, elevation: 1 },
+  card: { backgroundColor: CARD_BG, borderWidth: 1, borderColor: CARD_BORDER, borderRadius: 14, overflow: 'hidden' },
   cardTitle: { fontSize: 20, fontFamily: FONT.bold, color: TITLE_INK, padding: 16 },
-  row: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 16, borderTopWidth: 1, borderTopColor: S.hair },
+  row: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 16, borderTopWidth: 1, borderTopColor: HAIR },
   badge: { width: 30, height: 30, borderRadius: 15, backgroundColor: BADGE_BG, alignItems: 'center', justifyContent: 'center', marginRight: 14 },
-  badgeText: { color: INK, fontFamily: FONT.bold, fontSize: 14 },
-  rowLabel: { fontSize: 16, color: S.ink },
-  rowArrow: { fontSize: 18, color: S.muted },
+  badgeText: { color: ACCENT, fontFamily: FONT.bold, fontSize: 14 },
+  rowLabel: { fontSize: 16, color: INK },
+  rowArrow: { fontSize: 18, color: SEP },
   loadingOverlay: { ...StyleSheet.absoluteFillObject, alignItems: 'center', justifyContent: 'center', zIndex: 2 },
-  loadingTxt: { marginTop: 10, color: '#888', fontSize: 12 },
+  loadingTxt: { marginTop: 10, color: SEP, fontSize: 12 },
   centerFill: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: PAGE_BG },
-  retryBtn: { marginTop: 16, borderWidth: 1.5, borderColor: INK, borderRadius: 10, paddingVertical: 9, paddingHorizontal: 20 },
-  retryTxt: { color: INK, fontFamily: FONT.bold, fontSize: 14 },
-  emptyInline: { color: '#888', fontSize: 14, padding: 16, paddingTop: 0 },
+  emptyInline: { color: SEP, fontSize: 14, padding: 16, paddingTop: 0 },
   emptyWrap: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 26 },
-  emptyText: { color: '#444', fontSize: 16, fontFamily: FONT.bold, textAlign: 'center', marginBottom: 14 },
-  debugBox: { backgroundColor: '#fff', borderWidth: 1, borderColor: S.border, borderRadius: 10, padding: 12, width: '100%', marginBottom: 12 },
-  debugLine: { color: S.ink, fontSize: 13, fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace', marginBottom: 2 },
-  emptyHint: { color: '#888', fontSize: 13, textAlign: 'center', lineHeight: 19 },
+  emptyText: { color: INK, fontSize: 16, fontFamily: FONT.bold, textAlign: 'center', marginBottom: 14 },
+  debugBox: { backgroundColor: CARD_BG, borderWidth: 1, borderColor: CARD_BORDER, borderRadius: 10, padding: 12, width: '100%', marginBottom: 12 },
+  debugLine: { color: INK, fontSize: 13, fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace', marginBottom: 2 },
+  emptyHint: { color: SEP, fontSize: 13, textAlign: 'center', lineHeight: 19 },
 });

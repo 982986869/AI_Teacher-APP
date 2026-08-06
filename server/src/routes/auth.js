@@ -1,11 +1,13 @@
 'use strict'
 
 const { Router } = require('express')
+const multer = require('multer')
 const { body } = require('express-validator')
-const { register, login, googleAuth, me, updateProfile } = require('../controllers/auth.controller')
+const { register, login, googleAuth, me, updateProfile, uploadPhoto } = require('../controllers/auth.controller')
 const { authenticate } = require('../middleware/auth')
 
 const router = Router()
+const photoUpload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 5 * 1024 * 1024, files: 1 } })
 
 // ─── Validation rules ────────────────────────────────────────────────────────
 
@@ -62,5 +64,6 @@ router.post('/login',    loginRules,    login)
 router.post('/google',   googleRules,   googleAuth)
 router.get('/me',        authenticate,  me)
 router.patch('/profile', authenticate,  profileRules, updateProfile)
+router.post('/photo',    authenticate,  photoUpload.single('file'), uploadPhoto)
 
 module.exports = router

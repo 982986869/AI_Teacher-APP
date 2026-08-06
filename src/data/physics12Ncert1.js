@@ -9,6 +9,7 @@
 // Chapter keys match ResourcesScreen's Class-12 Physics chaptersByClass exactly
 // (NCERT Part-I covers chapters 1–8).
 
+import { API_BASE_URL } from '../constants/config';
 import ch01 from './physics12Ncert1/01 Alternating Current.json';
 import ch02 from './physics12Ncert1/02 Current Electricity.json';
 import ch03 from './physics12Ncert1/03 Electric Charges and Fields.json';
@@ -52,7 +53,7 @@ const HEAD = `
     } }catch(e){}
   }
 </script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="${API_BASE_URL}/vendor/mathjax-tex-mml-chtml.js"></script>
 <style>
   *{ -webkit-tap-highlight-color:transparent; box-sizing:border-box; }
   html,body{ margin:0; max-width:100%; overflow-x:hidden; }

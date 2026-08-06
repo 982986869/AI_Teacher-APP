@@ -9,6 +9,7 @@
 // Chapter keys match ResourcesScreen's Class-12 Physics chaptersByClass exactly
 // (with one alias: the data file says "Ray Optics and Optical").
 
+import { API_BASE_URL } from '../constants/config';
 import ch01 from './physics12Exemplar/01 Alternating Current.json';
 import ch02 from './physics12Exemplar/02 Atoms.json';
 import ch03 from './physics12Exemplar/03 Current Electricity.json';
@@ -62,7 +63,7 @@ const HEAD = `
     } }catch(e){}
   }
 </script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="${API_BASE_URL}/vendor/mathjax-tex-mml-chtml.js"></script>
 <style>
   *{ -webkit-tap-highlight-color:transparent; box-sizing:border-box; }
   html,body{ margin:0; max-width:100%; overflow-x:hidden; }

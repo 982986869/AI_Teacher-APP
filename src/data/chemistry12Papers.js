@@ -7,6 +7,7 @@
 // (Solutions tab) — rendered in a WebView, the same local approach used for the
 // Class 12 Chemistry Exemplar / NCERT content. Mirrors src/data/physics12Papers.js.
 
+import { API_BASE_URL } from '../constants/config';
 import p000 from './chemistry12Papers/01 2019 56_1_1 set1.json';
 import p001 from './chemistry12Papers/02 2019 56_1_1 set1.json';
 import p002 from './chemistry12Papers/03 2019 56_1_2 set2.json';
@@ -155,7 +156,7 @@ const HEAD = `
       if(w>avail+1){ var b=document.createElement('span'); b.className='math-scroll';
         c.parentNode.insertBefore(b,c); b.appendChild(c); } } }catch(e){} }
 </script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="${API_BASE_URL}/vendor/mathjax-tex-mml-chtml.js"></script>
 <style>
   *{ -webkit-tap-highlight-color:transparent; box-sizing:border-box; }
   html,body{ margin:0; max-width:100%; overflow-x:hidden; }

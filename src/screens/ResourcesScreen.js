@@ -12,6 +12,8 @@ try { Print = require('expo-print'); } catch (e) { Print = null; }
 let Sharing = null;
 try { Sharing = require('expo-sharing'); } catch (e) { Sharing = null; }
 import { WebView } from 'react-native-webview';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { ChevronLeft, ChevronRight } from 'lucide-react-native';
 
 import { getExemplarSolutions, getNcertChapters, getChapters, getQuestionsByPath, getNotesByPath, getPapers, getPaper, getClassSubjects, getResourceMenu } from '../api/resourcesApi';
 import { buildFragmentFromQuestions, buildPyqDocument } from '../utils/pyqDocument';
@@ -20,8 +22,22 @@ import { useClassSubjects, toTile } from '../utils/classSubjects';
 import { useAuth } from '../context/AuthContext';
 import { API_BASE_URL } from '../constants/config';
 import { ClassTabs, ComingSoon } from '../components/ClassPicker';
-import { S, StudentScreenHeader } from '../theme/studentUI';
+import { S } from '../theme/studentUI';
+import { COLORS } from '../theme/designSystem';
+import PrimaryButton from '../components/brand/PrimaryButton';
 import { FONT } from '../constants/fonts';
+
+// Dark reskin of the Resources LEVEL-1 subject grid + LEVEL-2 resource-type list
+// (same opt-in-per-screen technique as Practice/Profile/KnowledgeAsk). Named `DK`/
+// `dk` (not `D`/`d`) purely to avoid shadowing this file's existing local `d`
+// variables elsewhere. Deeper levels (actual notes/solutions/papers content,
+// chapter lists, PDF preview) stay on the light `S`/`s` styles below for now.
+const DK = {
+  canvas: COLORS.background, card: 'rgba(255,255,255,0.05)',
+  ink: COLORS.textPrimary, sub: COLORS.textSecondary, muted: COLORS.textSecondary,
+  faint: 'rgba(255,255,255,0.38)', hair: 'rgba(255,255,255,0.10)',
+  indigo: COLORS.primary, indigoSoft: 'rgba(124,58,237,0.16)',
+};
 import { getChapterNotes } from '../notes/index';
 import Ch2Images from '../notes/images/Ch2Images';
 import ChapterNotesScreen, { buildHTML } from './ChapterNotesScreen';
@@ -1129,7 +1145,7 @@ const PAPER_HEAD = `
       if(w>avail+1){ var b=document.createElement('span'); b.className='math-scroll';
         c.parentNode.insertBefore(b,c); b.appendChild(c); } } }catch(e){} }
 </script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="${API_BASE_URL}/vendor/mathjax-tex-mml-chtml.js"></script>
 <style>
   *{ -webkit-tap-highlight-color:transparent; box-sizing:border-box; }
   html,body{ margin:0; max-width:100%; overflow-x:hidden; }
@@ -1156,6 +1172,7 @@ const buildPaperDoc = (html) =>
 
 // ── Main Screen ───────────────────────────────────────────────────────────────
 const ResourcesScreen = () => {
+  const insets = useSafeAreaInsets();
   const [activeBoard,   setActiveBoard]   = useState('CBSE');
   // Re-tapping the active Resources tab scrolls the subjects landing back to top (F8).
   const navigation = useNavigation();
@@ -1967,29 +1984,32 @@ const ResourcesScreen = () => {
     // code list with the subject name swapped in.
     const papers = isDbPapers ? phy12Papers.list : LAST_YEAR_PAPERS;
     return (
-      <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
-        <BackHeader onBack={() => setActiveResType(null)} />
-        <View style={s.pageTitleWrap}>
-          <Text style={s.pageTitle}>Last Year Papers</Text>
-          <Text style={s.pageSub}>{activeSubject.name}</Text>
+      <View style={dk.safe}>
+        <StatusBar barStyle="light-content" backgroundColor={DK.canvas} />
+        <View style={[dk.pageHeader, { paddingTop: insets.top + 8 }]}>
+          <TouchableOpacity onPress={() => setActiveResType(null)} style={dk.backBtn} activeOpacity={0.7} accessibilityLabel="Go back">
+            <ChevronLeft size={19} color={DK.ink} strokeWidth={2.6} />
+          </TouchableOpacity>
+          <View style={{ flex: 1 }}>
+            <Text style={dk.pageTitle}>Last Year Papers</Text>
+            <Text style={dk.pageSubtitle}>{activeSubject.name}</Text>
+          </View>
         </View>
         <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
           {papers.map((p, i) => (
-            <TouchableOpacity key={p.uuid || `${p.year}-${p.code}-${i}`} style={s.listRow}
+            <TouchableOpacity key={p.uuid || `${p.year}-${p.code}-${i}`} style={dk.listRow}
               onPress={() => { setPaperTab('questions'); setActivePaper(p); }}
               activeOpacity={0.8}>
-              <View style={[s.listNum, { backgroundColor: '#E8F0FE' }]}><Text style={{ fontSize: 16 }}>📄</Text></View>
+              <View style={dk.listNum}><Text style={{ fontSize: 16 }}>📄</Text></View>
               <View style={{ flex: 1 }}>
-                <Text style={s.listRowTitle}>{`Question Paper ${p.year} (${p.code})${p.variantCount ? ` — Paper ${p.variant}` : ''} - ${subjUpper} (Theory)`}</Text>
-                <Text style={s.listRowSub}>Tap to view paper</Text>
+                <Text style={dk.listRowTitle}>{`Question Paper ${p.year} (${p.code})${p.variantCount ? ` — Paper ${p.variant}` : ''} - ${subjUpper} (Theory)`}</Text>
+                <Text style={dk.listRowSub}>Tap to view paper</Text>
               </View>
-              <Text style={s.listArrow}>›</Text>
+              <ChevronRight size={19} color={DK.faint} strokeWidth={2.2} />
             </TouchableOpacity>
           ))}
         </ScrollView>
-      </SafeAreaView>
+      </View>
     );
   }
 
@@ -2047,27 +2067,30 @@ const ResourcesScreen = () => {
               ? subjectChapters.filter((c) => !!getChapterNotes(activeSubject.name, c.name))
               : subjectChapters;
     return (
-      <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
-        <BackHeader onBack={backFromChapters} />
-        <View style={s.pageTitleWrap}>
-          <Text style={s.pageTitle} numberOfLines={1}>{activeResType.name}</Text>
-          <Text style={s.pageSub}>{activeSubject.name}</Text>
+      <View style={dk.safe}>
+        <StatusBar barStyle="light-content" backgroundColor={DK.canvas} />
+        <View style={[dk.pageHeader, { paddingTop: insets.top + 8 }]}>
+          <TouchableOpacity onPress={backFromChapters} style={dk.backBtn} activeOpacity={0.7} accessibilityLabel="Go back">
+            <ChevronLeft size={19} color={DK.ink} strokeWidth={2.6} />
+          </TouchableOpacity>
+          <View style={{ flex: 1 }}>
+            <Text style={dk.pageTitle} numberOfLines={1}>{activeResType.name}</Text>
+            <Text style={dk.pageSubtitle}>{activeSubject.name}</Text>
+          </View>
         </View>
         <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
           {(isNcert2 && ncert2.loading) || notesAvail.loading || c12NcertAvail.loading || ncertAvail.loading || (isDbQList && dbQAvail.loading) ? (
             <View style={{ paddingVertical: 48, alignItems: 'center', gap: 12 }}>
-              <ActivityIndicator size="large" color={S.indigo} />
-              <Text style={{ color: '#64748b', fontSize: 13 }}>Loading chapters…</Text>
+              <ActivityIndicator size="large" color={DK.indigo} />
+              <Text style={{ color: DK.muted, fontSize: 13 }}>Loading chapters…</Text>
             </View>
           ) : (isNcert2 || isNotesList || isBundledNotesList || isC12NcertList || isMathsNcertList || isClass10NotesList || isDbQList) && chaptersToShow.length === 0 ? (
             <View style={{ paddingVertical: 48, alignItems: 'center' }}>
-              <Text style={{ color: '#94a3b8', fontSize: 14 }}>No chapters available yet.</Text>
+              <Text style={{ color: DK.muted, fontSize: 14 }}>No chapters available yet.</Text>
             </View>
           ) : (
             chaptersToShow.map((chapter, i) => (
-              <TouchableOpacity key={i} style={s.listRow}
+              <TouchableOpacity key={i} style={dk.listRow}
                 onPress={() => {
                   setActiveChapter(chapter);
                   setShowChapterEnd(false);
@@ -2078,35 +2101,34 @@ const ResourcesScreen = () => {
                   else setShowCards(true);
                 }}
                 activeOpacity={0.8}>
-                <View style={s.listNum}><Text style={s.listNumTxt}>{i + 1}</Text></View>
+                <View style={dk.listNum}><Text style={dk.listNumTxt}>{i + 1}</Text></View>
                 <View style={{ flex: 1 }}>
-                  <Text style={s.listRowTitle}>{chapter.name}</Text>
+                  <Text style={dk.listRowTitle}>{chapter.name}</Text>
                 </View>
-                <Text style={s.listArrow}>→</Text>
+                <ChevronRight size={19} color={DK.faint} strokeWidth={2.2} />
               </TouchableOpacity>
             ))
           )}
         </ScrollView>
-      </SafeAreaView>
+      </View>
     );
   }
 
   // ── LEVEL 2: Resource types ───────────────────────────────────────────────
   if (activeSubject) {
     return (
-      <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
-        <BackHeader onBack={() => setActiveSubject(null)} />
-        <View style={s.pageTitleWrap}>
-          <View style={s.pageTitleRow}>
-            <View style={[s.subjectIconLg, { backgroundColor: activeSubject.bg }]}>
-              <Text style={{ fontSize: 24 }}>{activeSubject.emoji}</Text>
-            </View>
-            <View style={{ flex: 1 }}>
-              <Text style={s.pageTitle} numberOfLines={1}>{activeSubject.name}</Text>
-              <Text style={s.pageSub}>{activeClass}</Text>
-            </View>
+      <View style={dk.safe}>
+        <StatusBar barStyle="light-content" backgroundColor={DK.canvas} />
+        <View style={[dk.pageHeader, { paddingTop: insets.top + 8 }]}>
+          <TouchableOpacity onPress={() => setActiveSubject(null)} style={dk.backBtn} activeOpacity={0.7} accessibilityLabel="Go back">
+            <ChevronLeft size={19} color={DK.ink} strokeWidth={2.6} />
+          </TouchableOpacity>
+          <View style={[dk.subjectIconLg, { backgroundColor: activeSubject.bg }]}>
+            <Text style={{ fontSize: 22 }}>{activeSubject.emoji}</Text>
+          </View>
+          <View style={{ flex: 1 }}>
+            <Text style={dk.pageTitle} numberOfLines={1}>{activeSubject.name}</Text>
+            <Text style={dk.pageSubtitle}>{activeClass}</Text>
           </View>
         </View>
         {/* Subjects with no seeded content yet (e.g. all of Class 7) land here. */}
@@ -2114,55 +2136,56 @@ const ResourcesScreen = () => {
           <ComingSoon className={activeClass} label={`${activeSubject.name} resources`} />
         ) : (activeClass === 'Class 10' && c10Menu.subject === activeSubject.name && c10Menu.error) ? (
           <View style={{ paddingVertical: 40, alignItems: 'center', gap: 12, paddingHorizontal: 24 }}>
-            <Text style={{ color: '#b91c1c', fontSize: 14, textAlign: 'center' }}>{'⚠️'}  Could not load resources. Check your connection.</Text>
-            <TouchableOpacity style={{ borderWidth: 1.5, borderColor: '#1f8a93', borderRadius: 10, paddingVertical: 9, paddingHorizontal: 18 }} activeOpacity={0.8} onPress={() => setMenuRetry((k) => k + 1)}>
-              <Text style={{ color: '#1f8a93', fontFamily: FONT.bold }}>Retry</Text>
-            </TouchableOpacity>
+            <Text style={{ color: DK.faint, fontSize: 14, textAlign: 'center' }}>{'⚠️'}  Could not load resources. Check your connection.</Text>
+            <PrimaryButton label="Retry" onPress={() => setMenuRetry((k) => k + 1)} />
           </View>
         ) : (activeClass === 'Class 10' && c10Menu.subject === activeSubject.name && c10Menu.tiles === null) ? (
           <View style={{ paddingVertical: 48, alignItems: 'center', gap: 12 }}>
-            <ActivityIndicator size="large" color={S.indigo} />
-            <Text style={{ color: '#64748b', fontSize: 13 }}>Loading resources…</Text>
+            <ActivityIndicator size="large" color={DK.indigo} />
+            <Text style={{ color: DK.muted, fontSize: 13 }}>Loading resources…</Text>
           </View>
         ) : (activeClass === 'Class 10' && resTypesFor(activeSubject.name).length === 0) ? (
           <ComingSoon className={activeClass} label={`${activeSubject.name} resources`} />
         ) : (
         <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
           {resTypesFor(activeSubject.name).map((rt, i) => (
-            <TouchableOpacity key={i} style={s.resTypeRow} onPress={() => { setActivePaper(null); setActiveChapter(null); setShowCards(false); setShowNotes(false); setActiveResType(rt); }} activeOpacity={0.8}>
-              <View style={s.resTypeIconWrap}>
+            <TouchableOpacity key={i} style={dk.resTypeRow} onPress={() => { setActivePaper(null); setActiveChapter(null); setShowCards(false); setShowNotes(false); setActiveResType(rt); }} activeOpacity={0.8}>
+              <View style={dk.resTypeIconWrap}>
                 <Text style={{ fontSize: 22 }}>{rt.icon}</Text>
               </View>
               <View style={{ flex: 1 }}>
-                <Text style={s.resTypeName}>{rt.name}</Text>
-                <Text style={s.resTypeSub}>{rt.sub}</Text>
+                <Text style={dk.resTypeName}>{rt.name}</Text>
+                <Text style={dk.resTypeSub}>{rt.sub}</Text>
               </View>
-              <Text style={s.listArrow}>→</Text>
+              <ChevronRight size={19} color={DK.faint} strokeWidth={2.2} />
             </TouchableOpacity>
           ))}
         </ScrollView>
         )}
-      </SafeAreaView>
+      </View>
     );
   }
 
   // ── LEVEL 1: Subjects list ────────────────────────────────────────────────
   return (
-    <View style={s.safe}>
-      <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
-      <StudentScreenHeader title="Resources" subtitle="Notes, solutions & papers by chapter" />
+    <View style={dk.safe}>
+      <StatusBar barStyle="light-content" backgroundColor={DK.canvas} />
+      <View style={[dk.header, { paddingTop: insets.top + 8 }]}>
+        <Text style={dk.headerTitle}>Resources</Text>
+        <Text style={dk.headerSub}>Notes, solutions & papers by chapter</Text>
+      </View>
       {/* Students are locked to their own class; the switcher only shows if no class is set yet. */}
       {!scope?.classNum && <ClassTabs value={activeClass} onChange={setActiveClass} />}
       {scope?.role === 'student' && (scope?.tester ? activeClass : scope?.className) && !isClassReady(scope?.tester ? activeClass : scope.className) ? (
         <ComingSoon label="Resources" className={scope?.tester ? activeClass : scope?.className} />
       ) : (
         <>
-          <View style={s.pageTitleWrap}>
-            <Text style={s.pageTitle}>Subjects</Text>
-            <Text style={s.boardLabel}>{activeClass}</Text>
+          <View style={dk.sectionWrap}>
+            <Text style={dk.sectionTitle}>Subjects</Text>
+            <Text style={dk.boardLabel}>{activeClass}</Text>
           </View>
           <ScrollView ref={scrollRef} contentContainerStyle={{ padding: 16, paddingBottom: 32 }}>
-            <View style={s.subjectGrid}>
+            <View style={dk.subjectGrid}>
               {(activeClass === 'Class 6' ? class6SubjectTiles : activeClass === 'Class 7' ? SUBJECTS_CLASS7 : activeClass === 'Class 8' ? SUBJECTS_CLASS8 : activeClass === 'Class 9' ? class9SubjectTiles : activeClass === 'Class 10' ? ((Array.isArray(c10Subjects) && c10Subjects.length) ? class10Grid : SUBJECTS_CLASS10) : SUBJECTS)
                 .filter((subject) => !(activeClass === 'Class 12' && subject.name === 'Biology'))
                 // Stream filter (hide Biology from PCM etc.) only applies to senior classes
@@ -2170,14 +2193,14 @@ const ResourcesScreen = () => {
                 // are already curated, so don't run them through the subject-name check.
                 .filter((subject) => (classNum >= 11 ? isAllowedSubject(subject.name, classNum, scope.stream) : true))
                 .map((subject, i) => (
-                <TouchableOpacity key={i} style={s.subjectTile} onPress={() => openSubject(subject)} activeOpacity={0.6}>
-                  <View style={s.subjectIconWrap}>
+                <TouchableOpacity key={i} style={dk.subjectTile} onPress={() => openSubject(subject)} activeOpacity={0.6}>
+                  <View style={dk.subjectIconWrap}>
                     <Text style={{ fontSize: 24 }}>{subject.emoji}</Text>
                   </View>
                   <View style={{ gap: 3 }}>
-                    <Text style={s.subjectName} numberOfLines={2}>{subject.name}</Text>
+                    <Text style={dk.subjectName} numberOfLines={2}>{subject.name}</Text>
                     {!subject.comingSoon && !!subjectSummary(subject.name) && (
-                      <Text style={s.subjectMeta} numberOfLines={1}>{subjectSummary(subject.name)}</Text>
+                      <Text style={dk.subjectMeta} numberOfLines={1}>{subjectSummary(subject.name)}</Text>
                     )}
                   </View>
                 </TouchableOpacity>
@@ -2284,6 +2307,44 @@ const s = StyleSheet.create({
   subBulletRow:           { flexDirection: 'row', alignItems: 'flex-start', gap: 8, paddingLeft: 22, marginTop: 4 },
   subBulletDot:           { fontSize: 14, color: '#555', marginTop: 3 },
   subBulletTxt:           { fontSize: 14, color: '#333', lineHeight: 21, flex: 1 },
+});
+
+// Dark styles for the Resources LEVEL-1 subject grid + LEVEL-2 resource-type list
+// (see the `DK` palette up top). Deeper levels stay on the light `s` above.
+const dk = StyleSheet.create({
+  safe:            { flex: 1, backgroundColor: DK.canvas },
+  header:          { paddingHorizontal: 18, paddingBottom: 16 },
+  headerTitle:     { fontSize: 24, fontFamily: FONT.black, color: DK.ink, letterSpacing: -0.5 },
+  headerSub:       { fontSize: 13, fontFamily: FONT.semibold, color: DK.sub, marginTop: 4 },
+
+  sectionWrap:     { paddingHorizontal: 18, paddingTop: 14, paddingBottom: 4 },
+  sectionTitle:    { fontSize: 19, fontFamily: FONT.black, color: DK.ink, letterSpacing: -0.4 },
+  boardLabel:      { fontSize: 13, fontFamily: FONT.extrabold, color: DK.sub, marginTop: 6 },
+
+  subjectGrid:     { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', rowGap: 12 },
+  subjectTile:     { width: '48%', backgroundColor: DK.card, borderRadius: 16, borderWidth: 1, borderColor: DK.hair, paddingVertical: 20, paddingHorizontal: 16, gap: 14, alignItems: 'flex-start' },
+  subjectIconWrap: { width: 48, height: 48, borderRadius: 14, backgroundColor: 'rgba(255,255,255,0.08)', alignItems: 'center', justifyContent: 'center' },
+  subjectName:     { fontSize: 15.5, fontFamily: FONT.black, color: DK.ink, letterSpacing: -0.3, lineHeight: 20 },
+  subjectMeta:     { fontSize: 11.5, fontFamily: FONT.semibold, color: DK.muted, letterSpacing: -0.1 },
+
+  // Sub-screen header (Level 2 — resource types for a chosen subject)
+  pageHeader:      { flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 18, paddingBottom: 16 },
+  backBtn:         { width: 36, height: 36, borderRadius: 18, backgroundColor: DK.card, borderWidth: 1, borderColor: DK.hair, alignItems: 'center', justifyContent: 'center' },
+  subjectIconLg:   { width: 46, height: 46, borderRadius: 23, alignItems: 'center', justifyContent: 'center' },
+  pageTitle:       { fontSize: 19, fontFamily: FONT.black, color: DK.ink, letterSpacing: -0.4 },
+  pageSubtitle:    { fontSize: 12.5, fontFamily: FONT.semibold, color: DK.sub, marginTop: 2 },
+
+  resTypeRow:      { backgroundColor: DK.card, borderRadius: 18, borderWidth: 1, borderColor: DK.hair, flexDirection: 'row', alignItems: 'center', gap: 16, padding: 16 },
+  resTypeIconWrap: { width: 52, height: 52, borderRadius: 16, backgroundColor: 'rgba(255,255,255,0.08)', alignItems: 'center', justifyContent: 'center' },
+  resTypeName:     { fontSize: 16, fontFamily: FONT.extrabold, color: DK.ink, letterSpacing: -0.2, marginBottom: 3 },
+  resTypeSub:      { fontSize: 12, color: DK.muted, fontFamily: FONT.semibold },
+
+  // Level 3 — chapter / paper lists (Revision Notes, Last Year Papers, …)
+  listRow:         { backgroundColor: DK.card, borderRadius: 16, borderWidth: 1, borderColor: DK.hair, flexDirection: 'row', alignItems: 'center', gap: 14, padding: 16 },
+  listNum:         { width: 32, height: 32, borderRadius: 10, backgroundColor: DK.indigoSoft, alignItems: 'center', justifyContent: 'center' },
+  listNumTxt:      { fontSize: 14, fontFamily: FONT.black, color: DK.indigo },
+  listRowTitle:    { fontSize: 15, fontFamily: FONT.extrabold, color: DK.ink, letterSpacing: -0.2 },
+  listRowSub:      { fontSize: 12, color: DK.muted, fontFamily: FONT.semibold, marginTop: 3 },
 });
 
 export default ResourcesScreen;

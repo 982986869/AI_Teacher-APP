@@ -6,6 +6,7 @@
 // question paper (Questions tab) and the answer key (Solutions tab) — rendered in
 // a WebView, same approach as the Exemplar / NCERT local content.
 
+import { API_BASE_URL } from '../constants/config';
 import p89  from './physics12Papers/89 2025 55_1_1 set1.json';
 import p90  from './physics12Papers/90 2025 55_1_2 set2.json';
 import p91  from './physics12Papers/91 2025 55_1_3 set3.json';
@@ -55,7 +56,7 @@ const HEAD = `
       if(w>avail+1){ var b=document.createElement('span'); b.className='math-scroll';
         c.parentNode.insertBefore(b,c); b.appendChild(c); } } }catch(e){} }
 </script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="${API_BASE_URL}/vendor/mathjax-tex-mml-chtml.js"></script>
 <style>
   *{ -webkit-tap-highlight-color:transparent; box-sizing:border-box; }
   html,body{ margin:0; max-width:100%; overflow-x:hidden; }

@@ -36,6 +36,23 @@ export const updateProfileApi = async (patch) => {
   return res.data.data; // { user, scope }
 };
 
+// Upload / change the profile photo — multipart, `file` is an RN file object
+// { uri, name, type } from expo-image-picker. Used right after signup (if a photo
+// was picked) and later from the Profile screen. → { user, scope }
+export const uploadProfilePhoto = async (file) => {
+  const form = new FormData();
+  form.append('file', {
+    uri: file.uri,
+    name: file.fileName || file.name || `avatar-${Date.now()}.jpg`,
+    type: file.mimeType || file.type || 'image/jpeg',
+  });
+  const res = await axiosInstance.post('/api/auth/photo', form, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+    timeout: 60000,
+  });
+  return res.data.data; // { user, scope }
+};
+
 // ─── Password reset ───────────────────────────────────────────────────────────
 // NOTE: the server does not implement this route yet — server/src/routes/auth.js
 // currently mounts register/login/google/me/profile only. Until it does, a request

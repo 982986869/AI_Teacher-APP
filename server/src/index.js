@@ -14,6 +14,7 @@ const { config } = require('./config/env')
 const db = require('./config/database')
 const routes = require('./routes')
 const { notFound, errorHandler } = require('./middleware/errorHandler')
+const { cleanupExpiredLessons } = require('./services/retention.service')
 
 const app = express()
 
@@ -57,6 +58,19 @@ app.use('/pdfs', express.static(path.join(__dirname, '..', 'public', 'pdfs'), {
   },
 }))
 
+// ─── Static vendor JS (MathJax, mirrored locally) ─────────────────────────────
+// The Resources/NCERT WebViews render formulas with MathJax, previously loaded
+// from cdn.jsdelivr.net — external CDNs aren't reachable on every network (seen
+// on-device: the script silently never loads and raw LaTeX source shows instead
+// of the rendered formula). Serving our own copy means it only ever depends on
+// reaching this server, which every other API call already proves it can.
+app.use('/vendor', express.static(path.join(__dirname, '..', 'public', 'vendor'), {
+  setHeaders: (res) => {
+    res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin')
+    res.setHeader('Cache-Control', 'public, max-age=604800, immutable') // versionless static libs — a week is safe
+  },
+}))
+
 // ─── Routes ──────────────────────────────────────────────────────────────────
 app.use('/api', routes)
 
@@ -75,6 +89,19 @@ async function start() {
         `✓ Server running on http://localhost:${config.port} [${config.nodeEnv}]`
       )
     })
+
+    // AI Teacher session retention: hard-delete lessons untouched for 7+ days.
+    // A daily interval is plenty for a cleanup job — no cron dependency needed.
+    // Fire once shortly after boot (not immediately, so it never competes with
+    // the startup request burst), then every 24h.
+    const DAY_MS = 24 * 60 * 60 * 1000
+    const runCleanup = () => {
+      cleanupExpiredLessons()
+        .then(({ deleted }) => { if (deleted) console.log(`[retention] deleted ${deleted} expired lesson(s)`) })
+        .catch((err) => console.error('[retention] cleanup failed:', err && err.message ? err.message : err))
+    }
+    setTimeout(runCleanup, 60 * 1000)
+    setInterval(runCleanup, DAY_MS)
   } catch (err) {
     console.error('Failed to start server:', err)
     await db.$disconnect()

@@ -5,6 +5,8 @@
 // (PYQ / Important Questions) and ResourcesScreen (Exemplar) so Class 12 content
 // served from the DB renders identically.
 
+import { API_BASE_URL } from '../constants/config';
+
 // Build the .pyq-card HTML fragment from the structured questions the API returns.
 export function buildFragmentFromQuestions(questions) {
   return (questions || [])
@@ -81,7 +83,7 @@ export function buildPyqDocument(fragmentHtml, opts = {}) {
   window.addEventListener('load', fitWideMath);
   window.addEventListener('orientationchange', function(){ setTimeout(fitWideMath, 60); });
 </script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="${API_BASE_URL}/vendor/mathjax-tex-mml-chtml.js"></script>
 <style>
   *{ -webkit-tap-highlight-color:transparent; box-sizing:border-box; }
   html,body{ margin:0; max-width:100%; overflow-x:hidden; }
