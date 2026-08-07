@@ -1,16 +1,63 @@
 // src/screens/admin/ui/kit.js
-// Shared Admin UI kit — the Admin mode's chrome, assembled ENTIRELY from the existing
-// Student/Parent design system (studentTheme `S` + shadow, Nunito `T`, the shared anim
-// primitives). No new visual language: same cards, radii, spacing rhythm, icon chips and
-// motion the Student and Parent apps use, so Admin reads as another mode of one app.
-import React from 'react';
-import { View, StyleSheet, TextInput, ScrollView } from 'react-native';
+// Shared Admin UI kit — the Admin mode's chrome. Recoloured onto the AILERNOVA dark
+// design system (src/theme/designSystem.js — COLORS), the same one the Student app's
+// migrated screens use. Every admin screen built on this kit (AdminCard, AdminHeader,
+// AdminListRow, etc.) inherits the dark look automatically; screens that render their
+// own bespoke JSX still need their own pass.
+import React, { useEffect, useRef } from 'react';
+import { View, StyleSheet, TextInput, ScrollView, Animated } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ChevronLeft, ChevronRight, Search, Inbox, CircleAlert, X, RefreshCw } from 'lucide-react-native';
-import { S, shadow, shadowSm } from '../../../theme/studentTheme';
+import { COLORS } from '../../../theme/designSystem';
 import { T } from '../../parent/ParentApp/constants';
-import { PressableScale, CountUp, Shimmer } from '../../parent/ParentApp/anim';
+import { PressableScale, CountUp } from '../../parent/ParentApp/anim';
 import { initials, colorFor } from './format';
+
+// Same key set as the old studentTheme `S` this kit used to import, so every consuming
+// screen's own `S.xxx` usage (many import S straight from this file) keeps working —
+// only the values change.
+const S = {
+  canvas: COLORS.background,
+  card: 'rgba(255,255,255,0.05)',
+  ink: COLORS.textPrimary,
+  sub: 'rgba(241,240,245,0.75)',
+  muted: COLORS.textSecondary,
+  faint: 'rgba(241,240,245,0.45)',
+  hair: 'rgba(255,255,255,0.10)',
+  border: 'rgba(255,255,255,0.14)',
+  white: '#FFFFFF',
+
+  indigo: COLORS.primary, indigoSoft: 'rgba(124,58,237,0.18)',
+  blue: '#60A5FA', blueSoft: 'rgba(96,165,250,0.16)',
+  emerald: COLORS.success, emeraldSoft: 'rgba(16,185,129,0.16)',
+  orange: COLORS.warning, orangeSoft: 'rgba(249,115,22,0.16)',
+  gold: COLORS.accent, goldSoft: 'rgba(245,158,11,0.16)',
+  purple: COLORS.primaryLight, purpleSoft: 'rgba(168,85,247,0.16)',
+  cyan: '#22D3EE', cyanSoft: 'rgba(34,211,238,0.16)',
+  red: COLORS.error, redSoft: 'rgba(239,68,68,0.16)',
+
+  heroA: '#6D4AFF', heroB: '#4C1D95', heroGlow: COLORS.primaryLight,
+};
+// Drop shadows are a light-surface cue — on a dark canvas they're invisible at best and
+// muddy at worst, so cards lean on the card/border contrast instead (same call made
+// across every other dark-reskinned screen this pass).
+const shadow = {};
+const shadowSm = {};
+
+// Simple pulsing placeholder block — the shared Shimmer (ParentApp/anim) is hardcoded
+// to light-grey fills, which read as a bright flash against this kit's dark cards.
+function Shimmer({ w, h, r = 12, style }) {
+  const op = useRef(new Animated.Value(0.5)).current;
+  useEffect(() => {
+    const loop = Animated.loop(Animated.sequence([
+      Animated.timing(op, { toValue: 1, duration: 700, useNativeDriver: true }),
+      Animated.timing(op, { toValue: 0.5, duration: 700, useNativeDriver: true }),
+    ]));
+    loop.start();
+    return () => loop.stop();
+  }, [op]);
+  return <Animated.View style={[{ width: w, height: h, borderRadius: r, backgroundColor: S.card }, style, { opacity: op }]} />;
+}
 
 export const TONE = {
   indigo: { c: S.indigo, s: S.indigoSoft },
@@ -358,7 +405,7 @@ const st = StyleSheet.create({
   statTile: { flex: 1, minWidth: 150, flexDirection: 'row', alignItems: 'center', gap: 11, backgroundColor: S.card, borderRadius: 16, borderWidth: 1, borderColor: S.hair, padding: 13, ...shadowSm },
 
   insight: { flexDirection: 'row', gap: 16, borderRadius: 22, padding: 20 },
-  insightIcon: { width: 50, height: 50, borderRadius: 15, backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center', ...shadowSm },
+  insightIcon: { width: 50, height: 50, borderRadius: 15, backgroundColor: 'rgba(255,255,255,0.12)', alignItems: 'center', justifyContent: 'center', ...shadowSm },
 
   rowBetween: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   rowCenter: { flexDirection: 'row', alignItems: 'center' },
@@ -368,11 +415,11 @@ const st = StyleSheet.create({
   searchClear: { width: 22, height: 22, borderRadius: 11, backgroundColor: S.hair, alignItems: 'center', justifyContent: 'center' },
 
   chip: { paddingHorizontal: 14, paddingVertical: 8, borderRadius: 20, borderWidth: 1.5, borderColor: S.border, backgroundColor: S.card },
-  chipOn: { backgroundColor: S.ink, borderColor: S.ink },
+  chipOn: { backgroundColor: S.indigo, borderColor: S.indigo },
 
   segment: { flexDirection: 'row', gap: 6, backgroundColor: S.card, borderWidth: 1, borderColor: S.hair, borderRadius: 13, padding: 4, alignSelf: 'flex-start' },
   segItem: { paddingHorizontal: 13, paddingVertical: 8, borderRadius: 9 },
-  segItemOn: { backgroundColor: S.ink },
+  segItemOn: { backgroundColor: S.indigo },
 
   metaGrid: { flexDirection: 'row', flexWrap: 'wrap' },
   metaItem: { width: '50%', paddingVertical: 9 },
@@ -386,4 +433,4 @@ const st = StyleSheet.create({
   ghostBtn: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7, borderWidth: 1.5, borderColor: S.border, backgroundColor: S.card, borderRadius: 13, paddingVertical: 12, paddingHorizontal: 16 },
 });
 
-export { S, shadow, shadowSm } from '../../../theme/studentTheme';
+export { S, shadow, shadowSm };

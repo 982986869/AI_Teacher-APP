@@ -216,6 +216,14 @@ const HomeScreen = () => {
   const initialLoad = useRef(true);
   useEffect(() => () => { mounted.current = false; }, []);
 
+  // AI Teacher and Brain Gym render as an in-place swap of Home's own content, not a
+  // separate route — the Tab Navigator's active route never changes, so the dock
+  // never learns to hide itself. Tell it directly whenever either immersive flow is up.
+  useEffect(() => {
+    navigation.setOptions({ tabBarStyle: (showAITeacher || showBrainGym) ? { display: 'none' } : undefined });
+    return () => navigation.setOptions({ tabBarStyle: undefined });
+  }, [showAITeacher, showBrainGym, navigation]);
+
   const load = useCallback(async (isRefresh) => {
     try {
       const [rep, active, ctx, seen] = await Promise.all([
