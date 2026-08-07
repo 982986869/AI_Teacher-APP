@@ -6,6 +6,7 @@
 import React, { useState } from 'react';
 import { Platform } from 'react-native';
 import { WebView } from 'react-native-webview';
+import { API_BASE_URL } from '../../../constants/config';
 
 const HEAD = `
 <meta charset="utf-8">
@@ -26,7 +27,7 @@ const HEAD = `
         c.parentNode.insertBefore(b,c); b.appendChild(c); } } }catch(e){} }
   window.addEventListener('load', function(){ report(); setTimeout(report, 400); });
 </script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="${API_BASE_URL}/vendor/mathjax-tex-mml-chtml.js"></script>
 <style>
   *{ -webkit-tap-highlight-color:transparent; box-sizing:border-box; }
   html,body{ margin:0; max-width:100%; overflow-x:hidden; }

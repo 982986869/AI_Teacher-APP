@@ -28,6 +28,8 @@ import { getPracticeAttempts, practiceAttemptKey } from '../utils/storage';
 import { useClassSubjects, toTile } from '../utils/classSubjects';
 import { useAuth } from '../context/AuthContext';
 import { COLORS } from '../theme/designSystem';
+import PrimaryButton from '../components/brand/PrimaryButton';
+import OutlinedButton from '../components/brand/OutlinedButton';
 
 // Dark reskin of all three levels of this flow (subject list, chapter list, test
 // list — the "subject-selection-dark" / "chapter-tests-dark" references), same
@@ -324,9 +326,11 @@ export default function PracticeTestsCards({ onBack, onStartChapter, onStartSubt
                   {done && <Text style={d.metaTxt}>{att.score}/{att.total}</Text>}
                 </View>
               )}
-              <Pressable style={[d.actionBtn, done && d.actionBtnGhost]} onPress={() => start(t)}>
-                <Text style={[d.actionTxt, done && d.actionTxtGhost]}>{done ? 'Retry' : 'Practice'}</Text>
-              </Pressable>
+              {done ? (
+                <OutlinedButton label="Retry" onPress={() => start(t)} />
+              ) : (
+                <PrimaryButton label="Practice" onPress={() => start(t)} />
+              )}
             </View>
           );
         })}
@@ -374,8 +378,4 @@ const d = StyleSheet.create({
   metaRow:        { flexDirection: 'row', alignItems: 'center', gap: 14 },
   metaItem:       { flexDirection: 'row', alignItems: 'center', gap: 6 },
   metaTxt:        { fontSize: 12, fontWeight: '700', color: D.muted },
-  actionBtn:      { backgroundColor: D.indigo, borderRadius: 13, paddingVertical: 13, alignItems: 'center' },
-  actionBtnGhost: { backgroundColor: 'transparent', borderWidth: 1.5, borderColor: D.hair },
-  actionTxt:      { color: '#fff', fontSize: 14, fontWeight: '800', letterSpacing: 0.2 },
-  actionTxtGhost: { color: D.ink },
 });

@@ -1,12 +1,24 @@
 import React, { useState } from 'react';
 import {
-  View, Text, StyleSheet, SafeAreaView,
-  TouchableOpacity, StatusBar, Platform,
+  View, Text, StyleSheet,
+  TouchableOpacity, StatusBar,
   ActivityIndicator,
 } from 'react-native';
-import { S } from '../theme/studentUI';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { ChevronLeft, Download } from 'lucide-react-native';
+import { COLORS } from '../theme/designSystem';
 import { FONT } from '../constants/fonts';
 import { WebView } from 'react-native-webview';
+import { API_BASE_URL } from '../constants/config';
+
+// Dark chrome around the WebView (see the "Chapter Notes" reference) — the note
+// body itself is HTML rendered by buildHTML() below, dark-themed via its own
+// <style> block since it's a separate document, not React Native styles.
+const DK = {
+  canvas: COLORS.background, card: 'rgba(255,255,255,0.05)',
+  ink: COLORS.textPrimary, muted: COLORS.textSecondary, hair: 'rgba(255,255,255,0.10)',
+  indigo: COLORS.primary,
+};
 
 // ── Local image assets ────────────────────────────────────────────────────────
 
@@ -33,8 +45,8 @@ const EMBEDDED_IMAGES = {
 // ── Build full HTML page with MathJax ────────────────────────────────────────
 export const buildHTML = (notes, chapterName) => {
   if (!notes) return `
-    <html><body style="font-family:sans-serif;padding:20px;text-align:center;color:#888;">
-      <h3>Content coming soon</h3>
+    <html><body style="font-family:sans-serif;padding:20px;text-align:center;background:#0C0936;color:rgba(255,255,255,0.6);">
+      <h3 style="color:#fff;">Content coming soon</h3>
       <p>Notes for this chapter are being prepared.</p>
     </body></html>`;
 
@@ -115,7 +127,7 @@ export const buildHTML = (notes, chapterName) => {
       startup: { typeset: true }
     };
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+  <script src="${API_BASE_URL}/vendor/mathjax-tex-svg.js" async></script>
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -124,11 +136,11 @@ export const buildHTML = (notes, chapterName) => {
       max-width: 100%;
       overflow-x: hidden;
     }
-    
+
     body {
       font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
-      background: #ffffff;
-      color: #1a1a1a;
+      background: #0C0936;
+      color: rgba(255,255,255,0.85);
       font-size: 15px;
       line-height: 1.6;
       word-wrap: break-word;
@@ -137,26 +149,26 @@ export const buildHTML = (notes, chapterName) => {
 
     .chapter-header {
       padding: 16px 16px 12px;
-      border-bottom: 1px solid #e0e0e0;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
     }
 
     .chapter-title {
       font-size: 20px;
       font-weight: 800;
-      color: #1a1a1a;
+      color: #ffffff;
       margin-bottom: 4px;
     }
 
     .chapter-intro {
       font-size: 13px;
-      color: #888;
+      color: rgba(255,255,255,0.55);
       font-style: italic;
     }
 
     .section {
       padding: 14px 16px;
-      border-bottom: 1px solid #f0f0f0;
-      background: #fff;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: transparent;
     }
 
     .title-row {
@@ -169,7 +181,7 @@ export const buildHTML = (notes, chapterName) => {
     .bullet {
       font-size: 18px;
       font-weight: 900;
-      color: #1a1a1a;
+      color: #C084FC;
       flex-shrink: 0;
       margin-top: -1px;
     }
@@ -177,13 +189,13 @@ export const buildHTML = (notes, chapterName) => {
     .section-title {
       font-size: 15px;
       font-weight: 700;
-      color: #1a1a1a;
+      color: #ffffff;
       line-height: 1.4;
     }
 
     .content {
       font-size: 14px;
-      color: #333;
+      color: rgba(255,255,255,0.75);
       line-height: 1.65;
       padding-left: 24px;
       margin-top: 4px;
@@ -192,14 +204,14 @@ export const buildHTML = (notes, chapterName) => {
 
     .html-content { padding-left: 0; }
     .html-content .card {
-      background: #fafafa;
-      border: 1px solid #eee;
-      border-left: 3px solid #1f8a93;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-left: 3px solid #7C3AED;
       border-radius: 10px;
       padding: 12px 14px;
       margin: 10px 0;
     }
-    .html-content .card strong { color: #1a1a1a; }
+    .html-content .card strong { color: #ffffff; }
     .html-content ul, .html-content ol { padding-left: 20px; margin: 6px 0; }
     .html-content li { margin: 3px 0; }
     .html-content p { margin: 4px 0; }
@@ -210,8 +222,8 @@ export const buildHTML = (notes, chapterName) => {
       height: auto;
       margin: 10px auto;
       padding: 6px;
-      background: #fff;
-      border: 1px solid #eee;
+      background: #ffffff;
+      border: 1px solid rgba(255,255,255,0.12);
       border-radius: 8px;
     }
 
@@ -222,7 +234,7 @@ export const buildHTML = (notes, chapterName) => {
 
     .bullet-list li {
       font-size: 14px;
-      color: #333;
+      color: rgba(255,255,255,0.75);
       line-height: 1.65;
       margin-bottom: 4px;
       list-style-type: circle;
@@ -235,7 +247,7 @@ export const buildHTML = (notes, chapterName) => {
 
     .numbered-list li {
       font-size: 14px;
-      color: #333;
+      color: rgba(255,255,255,0.75);
       line-height: 1.65;
       margin-bottom: 4px;
     }
@@ -251,13 +263,13 @@ export const buildHTML = (notes, chapterName) => {
       font-size: 13px;
       border-radius: 8px;
       overflow: hidden;
-      border: 1px solid #d0d0d0;
+      border: 1px solid rgba(255,255,255,0.15);
       table-layout: fixed;
       word-break: break-word;
     }
 
     .data-table th {
-      background: #1a1a1a;
+      background: #7C3AED;
       color: #fff;
       padding: 8px 10px;
       text-align: left;
@@ -268,13 +280,13 @@ export const buildHTML = (notes, chapterName) => {
 
     .data-table td {
       padding: 8px 10px;
-      border-bottom: 1px solid #e8e8e8;
-      color: #333;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.8);
       word-break: break-word;
     }
 
-    .data-table tr.even { background: #f9f9f9; }
-    .data-table tr.odd  { background: #ffffff; }
+    .data-table tr.even { background: rgba(255,255,255,0.03); }
+    .data-table tr.odd  { background: transparent; }
 
     /* MathJax override */
     mjx-container {
@@ -291,8 +303,8 @@ export const buildHTML = (notes, chapterName) => {
     .math-block {
       overflow-x: auto;
       padding: 8px 24px;
-      background: #f7f7f7;
-      border-left: 3px solid #1a1a1a;
+      background: rgba(255,255,255,0.05);
+      border-left: 3px solid #7C3AED;
       margin: 8px 0 8px 24px;
       border-radius: 4px;
       max-width: calc(100% - 24px);
@@ -321,14 +333,14 @@ export const buildHTML = (notes, chapterName) => {
       height: auto;
       max-height: 260px;
       border-radius: 8px;
-      border: 1px solid #e0e0e0;
-      background: #fafafa;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: #ffffff;
       object-fit: contain;
     }
 
     .img-label {
       font-size: 12px;
-      color: #555;
+      color: rgba(255,255,255,0.6);
       text-align: center;
       margin-top: 6px;
       font-style: italic;
@@ -337,7 +349,7 @@ export const buildHTML = (notes, chapterName) => {
 
     /* Scrollbar */
     ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-thumb { background: #ddd; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.25); border-radius: 4px; }
   </style>
 </head>
 <body>
@@ -353,24 +365,24 @@ export const buildHTML = (notes, chapterName) => {
 
 // ── Main Component ────────────────────────────────────────────────────────────
 const ChapterNotesScreen = ({ chapterName, notes, onBack, onDownload, downloading }) => {
+  const insets = useSafeAreaInsets();
   const [loading, setLoading] = useState(true);
   const html = buildHTML(notes, chapterName);
 
   return (
-    <SafeAreaView style={s.safe}>
-      <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
-      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
+    <View style={s.safe}>
+      <StatusBar barStyle="light-content" backgroundColor={DK.canvas} />
 
       {/* Header */}
-      <View style={s.header}>
-        <TouchableOpacity onPress={onBack} style={s.backRow}>
-          <Text style={s.backArrow}>←</Text>
-          <Text style={s.backTxt}>Back</Text>
+      <View style={[s.header, { paddingTop: insets.top + 12 }]}>
+        <TouchableOpacity onPress={onBack} style={s.backBtn} accessibilityLabel="Go back">
+          <ChevronLeft size={19} color={DK.ink} strokeWidth={2.6} />
         </TouchableOpacity>
         <Text style={s.headerTitle} numberOfLines={1}>{chapterName}</Text>
         {onDownload && (
           <TouchableOpacity onPress={onDownload} disabled={downloading} activeOpacity={0.7} style={s.dlBtn} hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}>
-            <Text style={s.dlTxt}>{downloading ? 'Saving…' : '⬇  PDF'}</Text>
+            <Download size={13} color="#fff" strokeWidth={2.6} />
+            <Text style={s.dlTxt}>{downloading ? 'Saving…' : 'PDF'}</Text>
           </TouchableOpacity>
         )}
       </View>
@@ -379,13 +391,13 @@ const ChapterNotesScreen = ({ chapterName, notes, onBack, onDownload, downloadin
       <View style={{ flex: 1 }}>
         {loading && (
           <View style={s.loadingOverlay}>
-            <ActivityIndicator size="large" color="#1C1C1E" />
+            <ActivityIndicator size="large" color={DK.indigo} />
             <Text style={s.loadingTxt}>Loading notes...</Text>
           </View>
         )}
         <WebView
           source={{ html }}
-          style={{ flex: 1, opacity: loading ? 0 : 1 }}
+          style={{ flex: 1, opacity: loading ? 0 : 1, backgroundColor: DK.canvas }}
           onLoadEnd={() => setLoading(false)}
           scrollEnabled
           showsVerticalScrollIndicator={false}
@@ -399,21 +411,19 @@ const ChapterNotesScreen = ({ chapterName, notes, onBack, onDownload, downloadin
           scalesPageToFit={false}
         />
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
 const s = StyleSheet.create({
-  safe:           { flex: 1, backgroundColor: '#fff' },
-  header:         { backgroundColor: S.canvas, flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 14, borderBottomWidth: 1, borderBottomColor: S.hair, gap: 12 },
-  backRow:        { flexDirection: 'row', alignItems: 'center', gap: 4 },
-  backArrow:      { fontSize: 18, color: S.ink, fontFamily: FONT.semibold },
-  backTxt:        { fontSize: 14, fontFamily: FONT.semibold, color: S.ink },
-  headerTitle:    { flex: 1, fontSize: 15, fontFamily: FONT.bold, color: S.ink, letterSpacing: -0.2 },
-  dlBtn:          { backgroundColor: S.ink, borderRadius: 10, paddingHorizontal: 12, paddingVertical: 7 },
+  safe:           { flex: 1, backgroundColor: DK.canvas },
+  header:         { backgroundColor: DK.canvas, flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingBottom: 14, gap: 12 },
+  backBtn:        { width: 34, height: 34, borderRadius: 17, backgroundColor: DK.card, borderWidth: 1, borderColor: DK.hair, alignItems: 'center', justifyContent: 'center' },
+  headerTitle:    { flex: 1, fontSize: 15, fontFamily: FONT.bold, color: DK.ink, letterSpacing: -0.2 },
+  dlBtn:          { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: DK.indigo, borderRadius: 10, paddingHorizontal: 12, paddingVertical: 8 },
   dlTxt:          { fontSize: 12.5, fontFamily: FONT.bold, color: '#fff', letterSpacing: -0.1 },
-  loadingOverlay: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff', zIndex: 10 },
-  loadingTxt:     { marginTop: 12, fontSize: 14, color: S.muted, fontFamily: FONT.semibold },
+  loadingOverlay: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, alignItems: 'center', justifyContent: 'center', backgroundColor: DK.canvas, zIndex: 10 },
+  loadingTxt:     { marginTop: 12, fontSize: 14, color: DK.muted, fontFamily: FONT.semibold },
 });
 
 export default ChapterNotesScreen;

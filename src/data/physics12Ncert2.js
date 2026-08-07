@@ -10,6 +10,7 @@
 // covers chapters 9–14). One alias maps the Semiconductor chapter to the UI
 // name "Electronic Devices".
 
+import { API_BASE_URL } from '../constants/config';
 import ch01 from './physics12Ncert2/01 Atoms.json';
 import ch02 from './physics12Ncert2/02 Dual Nature of Radiation and Matter.json';
 import ch03 from './physics12Ncert2/03 Nuclei.json';
@@ -50,7 +51,7 @@ const HEAD = `
     } }catch(e){}
   }
 </script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="${API_BASE_URL}/vendor/mathjax-tex-mml-chtml.js"></script>
 <style>
   *{ -webkit-tap-highlight-color:transparent; box-sizing:border-box; }
   html,body{ margin:0; max-width:100%; overflow-x:hidden; }
