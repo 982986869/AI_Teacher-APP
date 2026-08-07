@@ -34,6 +34,10 @@ import { COLORS } from '../theme/designSystem';
 import { FONT } from '../constants/fonts';
 import { ListChecks, Star, Timer, ClipboardList, History, ChevronRight, ChevronLeft } from 'lucide-react-native';
 
+// The `mcq-question-dark` canvas, shared with McqQuizScreen so the loading state
+// that precedes it doesn't flash a light screen. Same value as COLORS.background.
+const MCQ_CANVAS = COLORS.background;
+
 // Dark reskin of the Practice LANDING page + the PYQ / Important Questions subject
 // and chapter lists (the "practice-home-dark" / "subject-selection-dark" /
 // "chapter-tests-dark" references) — same opt-in-per-screen technique as
@@ -621,13 +625,18 @@ const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
   }, [subject, chapter, subtopicId, classLevel]);
 
   if (state.loading) {
+    // Dark, because this hands straight off to McqQuizScreen's dark
+    // `mcq-question-dark` frame — a light spinner in between reads as a flash.
     return (
-      <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
-        <BackHeader onBack={onExit} />
-        <View style={[s.webLoading, { flex: 1 }]}>
-          <ActivityIndicator size="large" color={S.indigo} />
+      <SafeAreaView style={{ flex: 1, backgroundColor: MCQ_CANVAS }}>
+        <StatusBar barStyle="light-content" backgroundColor={MCQ_CANVAS} />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: MCQ_CANVAS }} />}
+        {/* A way out stays on screen — the fetch can be slow on a bad connection. */}
+        <TouchableOpacity onPress={onExit} hitSlop={10} style={s.mcqLoadBack} accessibilityRole="button" accessibilityLabel="Back">
+          <ChevronLeft size={20} color="#FFFFFF" strokeWidth={2.4} />
+        </TouchableOpacity>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <ActivityIndicator size="large" color={COLORS.primaryLight} />
         </View>
       </SafeAreaView>
     );
@@ -708,13 +717,16 @@ const PracticeScreen = () => {
   const chStartRef = useRef(null);
   useEffect(() => { if (chSel && !chStartRef.current) chStartRef.current = Date.now(); }, [chSel]);
 
-  // Full-screen test: hide the bottom tab bar while a DB mock test is open.
+  // Full-screen test: hide the bottom tab bar while a test is open. This covered
+  // only the DB mock test, but the MCQ quiz needs it just as much — McqQuizScreen
+  // keeps Skip/Submit/Next at the END of its scroll rather than pinned, so with the
+  // dock up those buttons (and the explanation card above them) sat underneath it.
   const navigation = useNavigation();
+  const inTest = !!physMock || (mcqOpen && !!mcqSel);
   useEffect(() => {
-    const inTest = !!physMock;
     navigation.setOptions({ tabBarStyle: inTest ? { display: 'none' } : undefined });
     return () => navigation.setOptions({ tabBarStyle: undefined });
-  }, [physMock, navigation]);
+  }, [inTest, navigation]);
 
   // Re-tapping the active Practice tab scrolls the landing back to top (F8).
   const scrollRef = useRef(null);
@@ -966,7 +978,13 @@ const PracticeScreen = () => {
         title={`${chResult.title} - Result`}
         result={chResult.data}
         onReview={() => setChReview(true)}
-        onRetake={() => { setChReview(false); setChResult(null); }}
+        // Retake really retakes, the way the Class 6–9 runner's does
+        // (OnlineTestScreen sends its Result straight back to `running`). Dropping
+        // chResult falls through to the `chOpen && chSel` branch below, which
+        // remounts TestQuestionScreen — so answers, index and the countdown all
+        // start over. The clock this screen keeps for timeTakenSec has to be
+        // restarted by hand, since chSel doesn't change and its effect won't refire.
+        onRetake={() => { setChReview(false); setChResult(null); chStartRef.current = Date.now(); }}
         onClose={() => { setChReview(false); setChResult(null); setChSel(null); setChOpen(false); }}
       />
     );
@@ -1019,7 +1037,10 @@ const PracticeScreen = () => {
             questions: payload?.questions || chSel.questions || [],
             answers: payload?.answers || {},
           });
-          setChSel(null);
+          // chSel is deliberately KEPT: chResult is set, and the result branch is
+          // checked before the attempt branch, so the runner stays hidden — but the
+          // selection has to survive for Retake to have a test to re-open. It is
+          // cleared when the student leaves (onClose / list back / tab focus).
         }}
       />
     );
@@ -1036,7 +1057,10 @@ const PracticeScreen = () => {
     return (
       <OnlineTestsScreen
         selectedClass={selectedClass}
-        onBack={() => setChOpen(false)}
+        // chSel now outlives a submitted test (so Retake can re-open it), so it has
+        // to be dropped on the way out — otherwise reopening Online Tests would
+        // land straight back inside the last test instead of on this list.
+        onBack={() => { setChOpen(false); setChSel(null); }}
         onStartTest={(sel) => setChSel(sel)}
       />
     );
@@ -1139,7 +1163,10 @@ const PracticeScreen = () => {
     { Icon: Star,       tint: D.cyan,   soft: D.cyanSoft,   label: 'Important questions', sub: 'Hand-picked must-do questions',                 onPress: () => setImpOpen(true) },
   ];
   const TEST_GROUP = [
-    { Icon: Timer,         tint: D.purple, soft: D.purpleSoft, label: 'Online tests',         sub: 'Timed tests, one chapter at a time', onPress: () => setChOpen(true) },
+    // Online tests clears any finished attempt on the way in: chSel now outlives a
+    // submitted test so Retake can re-open it, and without this the entry point
+    // would drop straight back inside the last one.
+    { Icon: Timer,         tint: D.purple, soft: D.purpleSoft, label: 'Online tests',         sub: 'Timed tests, one chapter at a time', onPress: () => { setChSel(null); setChResult(null); setChReview(false); setChOpen(true); } },
     { Icon: ClipboardList, tint: D.rose,   soft: D.roseSoft,   label: 'Mock tests',           sub: 'Full subject-wise mock papers',       onPress: () => setMockOpen(true) },
     { Icon: History,       tint: D.gold,   soft: D.goldSoft,   label: 'Previous year papers', sub: 'Last 10 years, chapter-wise',          onPress: () => setPyqOpen(true) },
   ];
@@ -1228,6 +1255,9 @@ const s = StyleSheet.create({
   listRowTitle:     { fontSize: 15, fontFamily: FONT.extrabold, color: S.ink, letterSpacing: -0.2 },
   listRowSub:       { fontSize: 12, color: S.muted, fontFamily: FONT.semibold, marginTop: 3 },
   listArrow:        { fontSize: 18, color: S.faint, fontFamily: FONT.semibold },
+
+  // Back affordance on the dark MCQ loading state (see McqLoader).
+  mcqLoadBack:      { width: 34, height: 34, borderRadius: 12, marginTop: 6, marginLeft: 16, backgroundColor: '#141033', borderWidth: 1, borderColor: '#2B2F3A', alignItems: 'center', justifyContent: 'center' },
 
   // Question WebView + empty state
   webLoading:       { ...StyleSheet.absoluteFillObject, alignItems: 'center', justifyContent: 'center', zIndex: 2 },

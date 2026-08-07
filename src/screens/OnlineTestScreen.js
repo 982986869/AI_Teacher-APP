@@ -11,12 +11,17 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
   View, Text, Image, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity,
-  StatusBar, Platform, ActivityIndicator,
+  StatusBar, Platform, ActivityIndicator, Modal,
 } from 'react-native';
 import { S } from '../theme/studentUI';
 import { FONT } from '../constants/fonts';
 import Svg, { Circle, G, Rect, Line, Text as RNSvgText } from 'react-native-svg';
 import MathText from '../components/MathText';
+import { hasMath, htmlToPlain, firstImg, stripImages } from '../utils/mathHtml';
+import {
+  TT, TimedTestFrame, TTScrim, TTSheet, TTTitle, TTSub,
+  TTConfirmDialog, TTGrid, TTLegend,
+} from '../components/timedTestDark';
 import { useAuth } from '../context/AuthContext';
 import { getOnlineTestChapters, getOnlineTests, getOnlineTest, submitOnlineTest } from '../api/onlineTestApi';
 import { useClassSubjects, toTile } from '../utils/classSubjects';
@@ -72,39 +77,28 @@ const SUBJECTS_BY_CLASS = {
 };
 const subjectsForClass = (classLevel) => SUBJECTS_BY_CLASS[classLevel] || SUBJECTS_BY_CLASS[7];
 
-const fmt = (s) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
-
-const stripHtml = (s) =>
-  String(s == null ? '' : s)
-    .replace(/<sup[^>]*>(.*?)<\/sup>/gis, '^$1')
-    .replace(/<sub[^>]*>(.*?)<\/sub>/gis, '_$1')
-    .replace(/<li[^>]*>/gi, '\n• ').replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<\/(p|div|li)>/gi, '\n')
-    .replace(/<[^>]+>/g, '')
-    .replace(/&nbsp;/gi, ' ').replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<').replace(/&gt;/gi, '>').replace(/&#39;/g, "'")
-    .replace(/[ \t]+/g, ' ').replace(/\n\s*\n+/g, '\n').trim();
-
-// First <img src> in HTML — online-test diagrams (imported S3) that the text renderer strips.
-const firstImg = (s) => { const m = String(s || '').match(/<img[^>]+src=["']([^"']+)["']/i); return m ? m[1] : null; };
-function Rich({ value, fontSize = 15, color = C.text, imgHeight = 150 }) {
+// Renders real math via MathText and everything else as Text. Both paths run the
+// HTML through mathHtml, so <sup>/<sub> and the server-flattened caret notation
+// ([ML^(5)T^(-2)]) become real characters instead of raw markup.
+//
+// Diagrams keep a white plate: the source images are black line art, so on the
+// runner's #0C0936 canvas they would otherwise be invisible.
+function Rich({ value, fontSize = 15, lineHeight, color = C.text, family, imgHeight = 150 }) {
   if (value == null || !String(value).trim()) return null;
   const raw = String(value);
   const img = firstImg(raw);
-  if (!img) {
-    return /\{tex\}/.test(raw)
-      ? <MathText value={raw} fontSize={fontSize} color={color} />
-      : <Text style={{ fontSize, color, lineHeight: fontSize * 1.45 }}>{stripHtml(raw)}</Text>;
-  }
-  const textPart = raw.replace(/<img[^>]*>/gi, '').replace(/<p[^>]*>\s*<\/p>/gi, '');
-  const hasText = !!stripHtml(textPart) || /\{tex\}/.test(textPart);
+  const textPart = stripImages(raw);
+  const isMath = hasMath(textPart);
+  const plain = isMath ? '' : htmlToPlain(textPart);
+  const hasText = isMath ? !!textPart.trim() : plain.length > 0;
+  const lh = lineHeight || fontSize * 1.45;
+  const body = isMath
+    ? <MathText value={textPart} fontSize={fontSize} color={color} textStyle={{ fontFamily: family, lineHeight: lh }} />
+    : <Text style={{ fontSize, color, fontFamily: family, lineHeight: lh }}>{plain}</Text>;
+  if (!img) return body;
   return (
     <View>
-      {hasText ? (
-        /\{tex\}/.test(textPart)
-          ? <MathText value={textPart} fontSize={fontSize} color={color} />
-          : <Text style={{ fontSize, color, lineHeight: fontSize * 1.45 }}>{stripHtml(textPart)}</Text>
-      ) : null}
+      {hasText ? body : null}
       <Image source={{ uri: img }} style={{ width: '100%', height: imgHeight, marginTop: hasText ? 8 : 0, borderRadius: 8, backgroundColor: '#fff' }} resizeMode="contain" />
     </View>
   );
@@ -277,10 +271,14 @@ export default function OnlineTestScreen({ onExit = () => {} }) {
     return () => { alive = false; };
   }, [view, classLevel]);
 
+  // The runner is the only stage on the dark canvas, so the shared shell (and the
+  // status bar sitting on it) flips with it rather than each stage owning a page.
+  const dark = view === 'running';
+
   return (
-    <SafeAreaView style={st.safe}>
-      <StatusBar barStyle="dark-content" backgroundColor={C.white} />
-      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: C.white }} />}
+    <SafeAreaView style={[st.safe, dark && { backgroundColor: TT.canvas }]}>
+      <StatusBar barStyle={dark ? 'light-content' : 'dark-content'} backgroundColor={dark ? TT.canvas : C.white} />
+      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: dark ? TT.canvas : C.white }} />}
 
       {view === 'subjects' && (
         <>
@@ -355,7 +353,7 @@ export default function OnlineTestScreen({ onExit = () => {} }) {
       )}
 
       {view === 'running' && test && (
-        <Runner test={test} onBack={back} onFinish={onFinish} />
+        <Runner test={test} subject={subject} chapter={chapter} onBack={back} onFinish={onFinish} />
       )}
 
       {view === 'result' && result && (
@@ -405,10 +403,12 @@ function InstrStat({ num, label }) {
 }
 
 // ─── Test runner (timed, navigable, single submit) ───────────────────────────
-function Runner({ test, onBack, onFinish }) {
+function Runner({ test, subject, chapter, onBack, onFinish }) {
   const qs = test.questions || [];
   const [idx, setIdx] = useState(0);
   const [answers, setAnswers] = useState({});       // questionId -> optionId
+  const [palette, setPalette] = useState(false);    // hamburger sheet
+  const [confirm, setConfirm] = useState(false);    // header Submit guard
   const [secs, setSecs] = useState((test.durationMin || 0) * 60 || qs.length * 60);
   const times = useRef(qs.map(() => 0));             // seconds per question
   const enter = useRef(Date.now());
@@ -452,66 +452,71 @@ function Runner({ test, onBack, onFinish }) {
 
   const q = qs[idx];
   const answeredCount = Object.keys(answers).length;
-  const low = secs <= 30;
+  const low = secs <= 60;
+  const marks = q && q.marks != null ? q.marks : null;
+
+  // `context-banner` — "Physics • Units and Measurements — Test 1". The frame's
+  // trailing "• attempt the questions" is instruction copy, not data, so it is
+  // dropped rather than hard-coded under a real subject and chapter.
+  const context = [subject && subject.name, chapter && chapter.name]
+    .filter(Boolean).join(' • ') + (test.name ? ` — ${test.name}` : '');
+
+  const clear = () => setAnswers((a) => { const next = { ...a }; delete next[q.id]; return next; });
 
   return (
-    <>
-      <Header onBack={onBack} title={test.name} />
-      <View style={st.topRow}>
-        <Text style={st.counter}>Q {idx + 1} / {qs.length}</Text>
-        <View style={[st.timerPill, low && { backgroundColor: C.redBg }]}>
-          <Text style={[st.timerTxt, low && { color: C.red }]}>⏱ {fmt(secs)}</Text>
-        </View>
-      </View>
+    <TimedTestFrame
+      onClose={onBack}
+      secondsLeft={secs}
+      onSubmit={() => setConfirm(true)}
+      progressText={`${idx + 1} / ${qs.length}`}
+      // These tests carry no A/B/C sections, so the frame's `section-badge` slot
+      // takes the one per-question fact worth that space in a timed paper.
+      badgeText={marks != null ? `${marks} Mark${marks === 1 ? '' : 's'}` : null}
+      bannerText={context}
+      questionHtml={q.text}
+      options={(q.options || []).map((o) => ({ id: o.optionId, key: o.key, label: o.label }))}
+      selectedId={answers[q.id]}
+      onSelect={pick}
+      onClear={answers[q.id] != null ? clear : null}
+      onPrev={() => goto(idx - 1)}
+      prevDisabled={idx === 0}
+      onMenu={() => setPalette(true)}
+      onNext={() => goto(idx + 1)}
+      nextDisabled={idx + 1 >= qs.length}
+    >
+      {/* The hamburger's sheet — it replaces the old always-on horizontal strip. */}
+      <Modal visible={palette} transparent animationType="fade" onRequestClose={() => setPalette(false)}>
+        <TTScrim onPress={() => setPalette(false)}>
+          <TTSheet>
+            <TTTitle>Questions</TTTitle>
+            <TTSub>{answeredCount} of {qs.length} answered</TTSub>
+            <TTGrid
+              items={qs.map((qq, i) => ({
+                key: qq.id, label: i + 1, answered: answers[qq.id] != null, current: i === idx,
+              }))}
+              onPick={(i) => { goto(i); setPalette(false); }}
+            />
+            <TTLegend items={[
+              { color: TT.cyan, label: 'Answered' },
+              { color: TT.violet, label: 'Current' },
+              { color: TT.card, label: 'Not answered' },
+            ]} />
+          </TTSheet>
+        </TTScrim>
+      </Modal>
 
-      {/* Question palette */}
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={st.palette} contentContainerStyle={{ gap: 8, paddingHorizontal: 16 }}>
-        {qs.map((qq, i) => {
-          const answered = answers[qq.id] != null;
-          const cur = i === idx;
-          return (
-            <TouchableOpacity key={qq.id} onPress={() => goto(i)}
-              style={[st.palCell, answered && st.palAnswered, cur && st.palCur]}>
-              <Text style={[st.palTxt, answered && { color: C.white }, cur && { color: C.white }]}>{i + 1}</Text>
-            </TouchableOpacity>
-          );
-        })}
-      </ScrollView>
-
-      <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 24 }}>
-        <Text style={st.qNum}>Question {idx + 1}</Text>
-        <Rich value={q.text} fontSize={16} color={C.text} />
-        <View style={{ gap: 10, marginTop: 4 }}>
-          {(q.options || []).map((o) => {
-            const sel = String(answers[q.id]) === String(o.optionId);
-            return (
-              <TouchableOpacity key={o.optionId} activeOpacity={0.8} onPress={() => pick(o.optionId)}
-                style={[st.opt, sel && st.optSel]}>
-                <Text style={[st.optKey, sel && { color: C.primary }]}>{o.key}</Text>
-                <View style={{ flex: 1 }}><Rich value={o.label} fontSize={15} color={sel ? C.primary : C.text} /></View>
-                {sel && <Text style={st.selDot}>●</Text>}
-              </TouchableOpacity>
-            );
-          })}
-        </View>
-      </ScrollView>
-
-      <View style={st.footer}>
-        <TouchableOpacity style={[st.btn, st.btnGhost, idx === 0 && { opacity: 0.4 }]} disabled={idx === 0}
-          activeOpacity={0.85} onPress={() => goto(idx - 1)}>
-          <Text style={st.btnGhostTxt}>Prev</Text>
-        </TouchableOpacity>
-        {idx + 1 < qs.length ? (
-          <TouchableOpacity style={[st.btn, st.btnPrimary]} activeOpacity={0.85} onPress={() => goto(idx + 1)}>
-            <Text style={st.btnPrimaryTxt}>Next</Text>
-          </TouchableOpacity>
-        ) : (
-          <TouchableOpacity style={[st.btn, st.btnSubmit]} activeOpacity={0.85} onPress={submit}>
-            <Text style={st.btnPrimaryTxt}>Submit ({answeredCount}/{qs.length})</Text>
-          </TouchableOpacity>
-        )}
-      </View>
-    </>
+      {/* `finish-test-dialog-dark`. Submit moved into the header, where it is
+          reachable from every question — so it needs a guard the old "Submit on the
+          last question" didn't. Same wording as the offline-bank runner's. */}
+      <TTConfirmDialog
+        visible={confirm}
+        title="Finish Test?"
+        body={`You've answered ${answeredCount} of ${qs.length} questions.${answeredCount < qs.length ? ' Unanswered questions will be marked as skipped.' : ''}`}
+        confirmLabel="Finish Test"
+        onConfirm={() => { setConfirm(false); submit(); }}
+        onCancel={() => setConfirm(false)}
+      />
+    </TimedTestFrame>
   );
 }
 

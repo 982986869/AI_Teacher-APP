@@ -17,36 +17,63 @@
 // tint whatever sits beneath them, which is what keeps stacked surfaces reading as
 // one material. Don't "simplify" them to solid hexes.
 export const COLORS = {
-  // Brand
-  primary:       '#7C3AED',
-  primaryLight:  '#A855F7',
-  accent:        '#F59E0B',
+  // Brand — straight off the shared palette board.
+  primary:       '#6D4AFF',
+  primaryLight:  '#8E6BFF',   // board: "Secondary"
+  accent:        '#F7B500',
 
   // Feedback
+  // The board's Success swatch is green but its caption repeats the Accent hex
+  // (#F7B500) — a copy/paste slip on the board, so the green is unreadable. This
+  // stays on the previous emerald until someone reads the real hex off Figma.
   success:       '#10B981',
-  error:         '#EF4444',
+  error:         '#FF4D67',
   warning:       '#F97316',
 
-  // Surfaces
-  // Figma's auth-screen frame inspects as a flat #0C0936 — the same value the
-  // Splash/Onboarding/Login/Signup flow now shares as its one dark background.
+  // Surfaces (dark)
+  // The board's Dark Theme row repeats the LIGHT theme hexes under dark swatches
+  // (#F8F8FF captioned on a near-black chip), so it can't be read literally, so
+  // these come off the frames instead. Figma's auth-screen frame inspects as a
+  // flat #0C0936 — the same value the Splash/Onboarding/Login/Signup flow now
+  // shares as its one dark background.
+  //
+  // Ask the Material does NOT read from here: it sits on src/theme/nightTheme (N),
+  // because it's only reachable from AITeacherScreen and follows that screen's
+  // palette. Two dark palettes coexist on purpose; don't unify them blindly.
   background:    '#0C0936',
   surface:       '#1C1730',
   card:          '#FFFFFF0D',  // white @ 5%
   border:        '#FFFFFF14',  // white @ 8%
+  glow:          '#6D4AFF',    // board: "Purple Glow"
 
   // Text
   textPrimary:   '#F1F0F5',
   // The palette board labels this #9CA3AF, but every body node in the Figma file
   // inspects as #94A3B8 — the screens win, since that's what ships.
   textSecondary: '#94A3B8',
+  // Dark-theme secondary text, per the board.
+  textMuted:     '#B2B5C7',
+};
+
+/**
+ * Light theme surfaces + text, per the board. The legacy light screens still run
+ * on src/constants/colors.js; these are here so a NEW light screen has one place
+ * to read from instead of inventing greys.
+ */
+export const LIGHT = {
+  background:    '#F8F8FF',
+  card:          '#FFFFFF',
+  textPrimary:   '#161B26',
+  textSecondary: '#71717A',
 };
 
 /** Purple-on-dark gradients. Feed straight into <LinearGradient colors={...} />. */
 export const GRADIENTS = {
   // Primary CTA fill (left → right). Three stops, inspected off the shared
   // primary-button node — a two-stop approximation loses the dark right end.
-  primary:  ['#6D4AFF', COLORS.primary, '#4C1D95'],
+  // Now that the board's Primary IS #6D4AFF, the first stop lifts to the board's
+  // Secondary so the ramp still travels light → dark instead of flattening.
+  primary:  [COLORS.primaryLight, COLORS.primary, '#4C1D95'],
   // Progress fills.
   progress: [COLORS.primary, COLORS.primaryLight],
   // Deep violet wash behind the splash (both stops opaque).
@@ -71,6 +98,28 @@ export const FONT_FAMILY = {
   semibold:  'Manrope_600SemiBold',
   medium:    'Manrope_500Medium',
   regular:   'Manrope_400Regular',
+
+  // The board's second sanctioned pair — "Heading: Poppins Bold OR Sora Bold,
+  // Body: Inter OR Manrope". Both faces are loaded in App.js. Pick ONE pair per
+  // screen and stay on it; mixing Sora headings with Manrope body (or Poppins
+  // with Inter) reads as two different products on the same page.
+  soraBold:     'Sora_700Bold',
+  soraSemibold: 'Sora_600SemiBold',
+  interBold:     'Inter_700Bold',
+  interSemibold: 'Inter_600SemiBold',
+  interMedium:   'Inter_500Medium',
+  interRegular:  'Inter_400Regular',
+};
+
+/**
+ * The board's SIZE ladder — H1 40 / H2 32 / H3 24 / Title 20 / Body 16 / Caption 14.
+ * Sizes only: family, colour and leading come from TYPE below (or from the screen's
+ * own inspected values). The existing TYPE steps are NOT snapped to this ladder —
+ * they're inspected per Figma frame (Splash's heading really is 28px), and resizing
+ * them to match a general recommendation would break screens that already ship.
+ */
+export const TYPE_SCALE = {
+  h1: 40, h2: 32, h3: 24, title: 20, body: 16, caption: 14,
 };
 
 /**
@@ -183,4 +232,4 @@ export const MOTION = {
   cardFloat:    { duration: 2600 },                       // Card Float — loop
 };
 
-export default { COLORS, GRADIENTS, FONT_FAMILY, TYPE, SPACING, RADIUS, ELEVATION, MOTION };
+export default { COLORS, LIGHT, GRADIENTS, FONT_FAMILY, TYPE, TYPE_SCALE, SPACING, RADIUS, ELEVATION, MOTION };

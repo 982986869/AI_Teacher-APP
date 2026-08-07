@@ -129,17 +129,34 @@ function Squeeze({ onPress, style, children, ...rest }) {
 }
 
 // ── circular progress ring (hero) ────────────────────────────────────────────
+// The arc SWEEPS to its value rather than appearing at it — on a progress ring the
+// motion is the information: you see how far along you are, not just where. Stroke
+// props can't take the native driver, but this is one element on the page, and it
+// runs once after the card has settled (the delay lets Appear finish first).
+const AnimatedCircle = Animated.createAnimatedComponent(Circle);
+
 function Ring({ pct = 0, size = 62, stroke = 6, color = '#fff', track = 'rgba(255,255,255,0.26)', children }) {
   const r = (size - stroke) / 2;
   const circ = 2 * Math.PI * r;
-  const dash = Math.max(0, Math.min(1, pct)) * circ;
+  const target = Math.max(0, Math.min(1, pct));
+  const a = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.timing(a, {
+      toValue: target, duration: 900, delay: 260,
+      easing: Easing.out(Easing.cubic), useNativeDriver: false,
+    }).start();
+  }, [a, target]);
+
   return (
     <View style={{ width: size, height: size, alignItems: 'center', justifyContent: 'center' }}>
       <Svg width={size} height={size} style={{ transform: [{ rotate: '-90deg' }] }}>
         <Circle cx={size / 2} cy={size / 2} r={r} stroke={track} strokeWidth={stroke} fill="none" />
-        <Circle
+        <AnimatedCircle
           cx={size / 2} cy={size / 2} r={r} stroke={color} strokeWidth={stroke} fill="none"
-          strokeDasharray={`${dash} ${circ - dash}`} strokeLinecap="round"
+          strokeDasharray={`${circ} ${circ}`}
+          strokeDashoffset={a.interpolate({ inputRange: [0, 1], outputRange: [circ, 0] })}
+          strokeLinecap="round"
         />
       </Svg>
       <View style={{ position: 'absolute' }}>{children}</View>
@@ -147,11 +164,98 @@ function Ring({ pct = 0, size = 62, stroke = 6, color = '#fff', track = 'rgba(25
   );
 }
 
-const Chip = ({ label, tint, bg }) => (
-  <View style={[hs.chip, { backgroundColor: bg }]}>
+// The number counts up alongside the arc, so the two don't disagree mid-sweep.
+// State is set only when the ROUNDED value changes — ~pct renders of one <Text>,
+// not one per frame.
+function CountUp({ to = 0, duration = 900, delay = 260, suffix = '%', ...textProps }) {
+  const [n, setN] = useState(0);
+  const a = useRef(new Animated.Value(0)).current;
+  const last = useRef(0);
+  useEffect(() => {
+    const id = a.addListener(({ value }) => {
+      const v = Math.round(value);
+      if (v !== last.current) { last.current = v; setN(v); }
+    });
+    Animated.timing(a, { toValue: to, duration, delay, easing: Easing.out(Easing.cubic), useNativeDriver: false }).start();
+    return () => a.removeListener(id);
+  }, [a, to, duration, delay]);
+  return <T {...textProps}>{n}{suffix}</T>;
+}
+
+// Scale + fade pop, staggered by index. Used for the weekly-goal days so the week
+// fills in left-to-right instead of landing as one block.
+function Pop({ delay = 0, style, children }) {
+  const a = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    Animated.spring(a, { toValue: 1, delay, friction: 6, tension: 140, useNativeDriver: true }).start();
+  }, [a, delay]);
+  return (
+    <Animated.View style={[style, {
+      opacity: a,
+      transform: [{ scale: a.interpolate({ inputRange: [0, 1], outputRange: [0.6, 1] }) }],
+    }]}>
+      {children}
+    </Animated.View>
+  );
+}
+
+// A status chip. `live` adds a breathing dot — on an "ONLINE" badge the motion IS
+// the claim; a static dot says the same thing but looks like a print asset.
+const Chip = ({ label, tint, bg, live }) => (
+  <View style={[hs.chip, { backgroundColor: bg }, live && hs.chipLive]}>
+    {live && <Breathe style={[hs.liveDot, { backgroundColor: tint }]} from={0.35} to={1} duration={1100} />}
     <T w="bold" s={8.5} c={tint} style={{ letterSpacing: 0.9 }}>{label}</T>
   </View>
 );
+
+// Looping opacity (and optional scale) pulse. Native-driven, so it costs nothing
+// while the page scrolls. Used for the ONLINE dot and the Next-up play button.
+function Breathe({ style, from = 0.55, to = 1, scale = 0, duration = 1400, children }) {
+  const a = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    const loop = Animated.loop(Animated.sequence([
+      Animated.timing(a, { toValue: 1, duration, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
+      Animated.timing(a, { toValue: 0, duration, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
+    ]));
+    loop.start();
+    return () => loop.stop();
+  }, [a, duration]);
+  return (
+    <Animated.View style={[style, {
+      opacity: a.interpolate({ inputRange: [0, 1], outputRange: [from, to] }),
+      ...(scale ? { transform: [{ scale: a.interpolate({ inputRange: [0, 1], outputRange: [1, scale] }) }] } : null),
+    }]}>
+      {children}
+    </Animated.View>
+  );
+}
+
+// The greeting waves — three tilts, then a long rest, so it reads as a hello and
+// not as something stuck vibrating in the corner of the screen.
+function Wave() {
+  const a = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    const tilt = (to, duration) => Animated.timing(a, { toValue: to, duration, easing: Easing.inOut(Easing.quad), useNativeDriver: true });
+    const loop = Animated.loop(Animated.sequence([
+      Animated.delay(600),
+      tilt(1, 180), tilt(-1, 260), tilt(1, 260), tilt(0, 180),
+      Animated.delay(5200),
+    ]));
+    loop.start();
+    return () => loop.stop();
+  }, [a]);
+  return (
+    <Animated.Text
+      style={{
+        fontSize: 17, marginLeft: 5,
+        transformOrigin: '60% 85%', // pivot at the wrist, not the middle of the glyph
+        transform: [{ rotate: a.interpolate({ inputRange: [-1, 1], outputRange: ['-16deg', '16deg'] }) }],
+      }}
+    >
+      👋
+    </Animated.Text>
+  );
+}
 
 const Card = ({ style, children }) => <View style={[hs.card, style]}>{children}</View>;
 
@@ -179,16 +283,30 @@ function Toast({ data, top, onDone }) {
   );
 }
 
-const Skeleton = () => (
-  <View style={{ gap: GAP }}>
-    <View style={[hs.skel, { height: 190, borderRadius: 24 }]} />
-    <View style={{ flexDirection: 'row', gap: GAP }}>
-      <View style={[hs.skel, { flex: 1, height: 128 }]} />
-      <View style={[hs.skel, { flex: 1, height: 128 }]} />
+// Breathing placeholders — a still grey block reads as a broken layout, a pulsing
+// one reads as loading. One native-driven loop shared by every block.
+const Skeleton = () => {
+  const a = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    const loop = Animated.loop(Animated.sequence([
+      Animated.timing(a, { toValue: 1, duration: 750, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
+      Animated.timing(a, { toValue: 0, duration: 750, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
+    ]));
+    loop.start();
+    return () => loop.stop();
+  }, [a]);
+  const pulse = { opacity: a.interpolate({ inputRange: [0, 1], outputRange: [0.45, 1] }) };
+  return (
+    <View style={{ gap: GAP }}>
+      <Animated.View style={[hs.skel, { height: 190, borderRadius: 24 }, pulse]} />
+      <View style={{ flexDirection: 'row', gap: GAP }}>
+        <Animated.View style={[hs.skel, { flex: 1, height: 128 }, pulse]} />
+        <Animated.View style={[hs.skel, { flex: 1, height: 128 }, pulse]} />
+      </View>
+      <Animated.View style={[hs.skel, { height: 120 }, pulse]} />
     </View>
-    <View style={[hs.skel, { height: 120 }]} />
-  </View>
-);
+  );
+};
 
 const HomeScreen = () => {
   useAuroraFonts({ SpaceGrotesk_400Regular, SpaceGrotesk_500Medium, SpaceGrotesk_600SemiBold, SpaceGrotesk_700Bold });
@@ -358,7 +476,12 @@ const HomeScreen = () => {
                 : <T w="black" s={17} c={N.ink}>{initial}</T>}
             </View>
             <View style={{ flex: 1, minWidth: 0 }}>
-              <T w="black" s={17} c={N.ink} numberOfLines={1}>Hi, {firstName} 👋</T>
+              {/* The name still truncates on its own (flexShrink) — the hand is a
+                  separate node so it can rotate, and never squeezes the name out. */}
+              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <T w="black" s={17} c={N.ink} numberOfLines={1} style={{ flexShrink: 1 }}>Hi, {firstName}</T>
+                <Wave />
+              </View>
               <T w="semi" s={12} c={N.inkSoft} numberOfLines={1} style={{ marginTop: 2 }}>Ready to level up?</T>
             </View>
             <Squeeze style={hs.iconBtn} accessibilityLabel="Notifications">
@@ -401,7 +524,7 @@ const HomeScreen = () => {
                     {contTitle || 'Start your first lesson'}
                   </T>
                   <Ring pct={heroPct / 100} size={62} stroke={6}>
-                    <T w="black" s={14} c="#fff">{Math.round(heroPct)}%</T>
+                    <CountUp to={Math.round(heroPct)} w="black" s={14} c="#fff" />
                   </Ring>
                 </View>
 
@@ -424,7 +547,9 @@ const HomeScreen = () => {
                     <View style={[hs.tileIcon, { backgroundColor: N.violetSoft }]}>
                       <Sparkles size={17} color={N.violet} strokeWidth={2.4} />
                     </View>
-                    <View style={hs.playDot}><Play size={11} color="#fff" strokeWidth={3} fill="#fff" /></View>
+                    <Breathe style={hs.playDot} from={0.72} to={1} scale={1.12} duration={1300}>
+                      <Play size={11} color="#fff" strokeWidth={3} fill="#fff" />
+                    </Breathe>
                   </View>
                   <T w="bold" s={9} c={N.violet} style={{ letterSpacing: 0.9, marginTop: 12 }}>NEXT UP</T>
                   <T w="xbold" s={14} c={N.ink} numberOfLines={2} style={{ marginTop: 4, lineHeight: 19 }}>
@@ -474,16 +599,17 @@ const HomeScreen = () => {
                       {week.map((d, i) => {
                         const did = (Number(d.xp) || 0) > 0;
                         return (
-                          <View
-                            key={i}
-                            style={[hs.day, did && hs.dayDone, d.isToday && hs.dayToday]}
-                            accessibilityLabel={`${d.day || ''}${did ? ', done' : ''}${d.isToday ? ', today' : ''}`}
-                          >
-                            <T w="xbold" s={11.5} c={did || d.isToday ? '#fff' : N.inkDim}>{(d.day || '').slice(0, 1)}</T>
-                            {did
-                              ? <CircleCheck size={11} color="#fff" strokeWidth={3} style={{ marginTop: 2 }} />
-                              : <View style={[hs.dayDot, d.isToday && { backgroundColor: '#fff' }]} />}
-                          </View>
+                          <Pop key={i} delay={260 + i * 55} style={{ flex: 1 }}>
+                            <View
+                              style={[hs.day, did && hs.dayDone, d.isToday && hs.dayToday]}
+                              accessibilityLabel={`${d.day || ''}${did ? ', done' : ''}${d.isToday ? ', today' : ''}`}
+                            >
+                              <T w="xbold" s={11.5} c={did || d.isToday ? '#fff' : N.inkDim}>{(d.day || '').slice(0, 1)}</T>
+                              {did
+                                ? <CircleCheck size={11} color="#fff" strokeWidth={3} style={{ marginTop: 2 }} />
+                                : <View style={[hs.dayDot, d.isToday && { backgroundColor: '#fff' }]} />}
+                            </View>
+                          </Pop>
                         );
                       })}
                     </View>
@@ -515,7 +641,7 @@ const HomeScreen = () => {
                   <Card style={hs.tile}>
                     <View style={hs.rowBetween}>
                       <MessageCircle size={16} color={N.violet} strokeWidth={2.4} />
-                      <Chip label="ONLINE" tint={N.violet} bg={N.violetSoft} />
+                      <Chip label="ONLINE" tint={N.violet} bg={N.violetSoft} live />
                     </View>
                     <T w="bold" s={9} c={N.violet} style={{ letterSpacing: 0.9, marginTop: 12 }}>AI TEACHER</T>
                     <T w="xbold" s={14} c={N.ink} numberOfLines={2} style={{ marginTop: 4, lineHeight: 19 }}>Stuck on something?</T>
@@ -542,16 +668,20 @@ const HomeScreen = () => {
                     const cfg = ACT[a.type] || ACT.quiz;
                     const meta = [a.subject, a.chapter].filter(Boolean).join(' · ');
                     return (
-                      <View key={`${a.type}-${a.at}-${i}`} style={[hs.actRow, i < arr.length - 1 && hs.actDivider]}>
-                        <View style={[hs.actIcon, { backgroundColor: cfg.bg }]}>
-                          <cfg.Icon size={16} color={cfg.tint} strokeWidth={2.6} />
+                      // Rows arrive one after another, so the feed reads as a list
+                      // being filled rather than a block that snaps into place.
+                      <Appear key={`${a.type}-${a.at}-${i}`} delay={380 + i * 80} y={8}>
+                        <View style={[hs.actRow, i < arr.length - 1 && hs.actDivider]}>
+                          <View style={[hs.actIcon, { backgroundColor: cfg.bg }]}>
+                            <cfg.Icon size={16} color={cfg.tint} strokeWidth={2.6} />
+                          </View>
+                          <View style={{ flex: 1, minWidth: 0 }}>
+                            <T w="xbold" s={13} c={N.ink} numberOfLines={1}>{a.title}</T>
+                            {!!meta && <T w="semi" s={11} c={N.inkDim} numberOfLines={1} style={{ marginTop: 2 }}>{meta}</T>}
+                          </View>
+                          <T w="semi" s={10.5} c={N.inkDim} style={{ flexShrink: 0 }}>{timeAgo(a.at)}</T>
                         </View>
-                        <View style={{ flex: 1, minWidth: 0 }}>
-                          <T w="xbold" s={13} c={N.ink} numberOfLines={1}>{a.title}</T>
-                          {!!meta && <T w="semi" s={11} c={N.inkDim} numberOfLines={1} style={{ marginTop: 2 }}>{meta}</T>}
-                        </View>
-                        <T w="semi" s={10.5} c={N.inkDim} style={{ flexShrink: 0 }}>{timeAgo(a.at)}</T>
-                      </View>
+                      </Appear>
                     );
                   })}
                 </Card>
@@ -590,6 +720,8 @@ const hs = StyleSheet.create({
   row2: { flexDirection: 'row', gap: GAP },
   rowBetween: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   chip: { paddingVertical: 3, paddingHorizontal: 8, borderRadius: 50 },
+  chipLive: { flexDirection: 'row', alignItems: 'center', gap: 5, paddingLeft: 7 },
+  liveDot: { width: 5, height: 5, borderRadius: 3 },
   skel: { backgroundColor: N.cardSoft, borderRadius: 20 },
 
   // hero
@@ -613,8 +745,10 @@ const hs = StyleSheet.create({
 
   // weekly goal
   days: { flexDirection: 'row', gap: 7, marginTop: 14 },
+  // The Pop wrapper is the flex child now, so the tile sizes to it. `flex: 1` here
+  // would take flexBasis 0 in an auto-height column parent and could collapse.
   day: {
-    flex: 1, aspectRatio: 0.86, borderRadius: 13, backgroundColor: N.cardSoft,
+    width: '100%', aspectRatio: 0.86, borderRadius: 13, backgroundColor: N.cardSoft,
     borderWidth: 1, borderColor: N.cardEdge, alignItems: 'center', justifyContent: 'center',
   },
   dayDone: { backgroundColor: N.green, borderColor: N.green },

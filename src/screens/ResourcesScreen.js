@@ -3,7 +3,9 @@ import { useNavigation } from '@react-navigation/native';
 import {
   View, Text, StyleSheet, SafeAreaView, ScrollView,
   TouchableOpacity, StatusBar, Platform, Image, Dimensions, ActivityIndicator, Alert,
+  Animated, Easing, Pressable,
 } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 // Optional native modules (PDF export + share). Required defensively so a build
 // that lacks the native module (e.g. Expo Go) degrades gracefully instead of
 // crashing the whole app at load time. Same pattern as expo-av/expo-camera here.
@@ -1171,6 +1173,111 @@ const buildPaperDoc = (html) =>
     : '';
 
 // ── Main Screen ───────────────────────────────────────────────────────────────
+// ── subject cards ───────────────────────────────────────────────────────────
+// The subject lists carry a `bg` from the light build, and several are unusable on
+// a dark card: Class 11/12 use S.ink, '#333', '#444', '#555' — near-blacks that
+// vanish. So the accent resolves by NAME first, and a list's own colour is trusted
+// only when it is bright enough to read on the dark surface.
+const SUBJECT_TINT = {
+  physics: '#FF8A3D', chemistry: '#FF5C8A', math: '#A78BFA', maths: '#A78BFA',
+  biology: '#22D3EE', science: '#4ADE80', english: '#8B6EF0', hindi: '#F5A623',
+  social: '#5B8CFF', reasoning: '#FB923C', computer: '#5B8CFF',
+};
+const TINT_CYCLE = ['#8B6EF0', '#22D3EE', '#4ADE80', '#FF8A3D', '#FF5C8A', '#5B8CFF'];
+
+// Perceived brightness (ITU-R BT.601). Under ~90 it disappears on the dark canvas.
+const isBright = (hex) => {
+  const m = /^#([0-9a-f]{6})$/i.exec(String(hex || ''));
+  if (!m) return false;
+  const n = parseInt(m[1], 16);
+  return (((n >> 16) & 255) * 299 + ((n >> 8) & 255) * 587 + (n & 255) * 114) / 1000 > 90;
+};
+
+const tintFor = (name, bg, i = 0) => {
+  const k = String(name || '').toLowerCase();
+  const hit = Object.keys(SUBJECT_TINT).find((key) => k.includes(key));
+  if (hit) return SUBJECT_TINT[hit];
+  if (isBright(bg)) return bg;
+  return TINT_CYCLE[i % TINT_CYCLE.length];
+};
+
+// One subject as a tinted card: a wash of its own hue, its emoji drifting as a
+// large watermark behind the content, and an accent bar that wipes in on entry.
+// Entrance is staggered by index so the grid assembles rather than appearing whole.
+function SubjectCard({ subject, index, summary, onPress }) {
+  const tint = tintFor(subject.name, subject.bg, index);
+  const enter = useRef(new Animated.Value(0)).current;
+  const press = useRef(new Animated.Value(1)).current;
+  const drift = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.timing(enter, {
+      toValue: 1, duration: 460, delay: 60 + index * 55,
+      easing: Easing.out(Easing.cubic), useNativeDriver: true,
+    }).start();
+    const loop = Animated.loop(Animated.sequence([
+      Animated.timing(drift, { toValue: 1, duration: 4200, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
+      Animated.timing(drift, { toValue: 0, duration: 4200, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
+    ]));
+    loop.start();
+    return () => loop.stop();
+  }, [enter, drift, index]);
+
+  const to = (v) => Animated.spring(press, { toValue: v, friction: 7, tension: 180, useNativeDriver: true }).start();
+
+  return (
+    <Animated.View style={[dk.subjectTileWrap, {
+      opacity: enter,
+      transform: [
+        { translateY: enter.interpolate({ inputRange: [0, 1], outputRange: [16, 0] }) },
+        { scale: press },
+      ],
+    }]}>
+      <Pressable
+        onPress={onPress}
+        onPressIn={() => to(0.97)}
+        onPressOut={() => to(1)}
+        accessibilityRole="button"
+        accessibilityLabel={`${subject.name}${summary ? `. ${summary}` : ''}`}
+        style={[dk.subjectTile, { borderColor: tint + '4D' }]}
+      >
+        <LinearGradient
+          colors={[tint + '2E', 'transparent']}
+          start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}
+          style={StyleSheet.absoluteFill}
+        />
+        {/* Watermark — big, faint and drifting, so the card has depth without
+            competing with the label. */}
+        <Animated.Text
+          style={[dk.subjectWatermark, {
+            transform: [
+              { translateY: drift.interpolate({ inputRange: [0, 1], outputRange: [0, -7] }) },
+              { rotate: drift.interpolate({ inputRange: [0, 1], outputRange: ['-6deg', '6deg'] }) },
+            ],
+          }]}
+        >
+          {subject.emoji}
+        </Animated.Text>
+
+        <View style={[dk.subjectIconWrap, { backgroundColor: tint + '26', borderColor: tint + '59' }]}>
+          <Text style={{ fontSize: 22 }}>{subject.emoji}</Text>
+        </View>
+
+        <View style={{ gap: 3, marginTop: 12 }}>
+          <Text style={dk.subjectName} numberOfLines={2}>{subject.name}</Text>
+          {!subject.comingSoon && !!summary && (
+            <Text style={dk.subjectMeta} numberOfLines={1}>{summary}</Text>
+          )}
+          {!!subject.comingSoon && <Text style={[dk.subjectMeta, { color: tint }]}>Coming soon</Text>}
+        </View>
+
+        {/* Accent bar wipes in with scaleX — animating width has no native driver. */}
+        <Animated.View style={[dk.subjectBar, { backgroundColor: tint, transform: [{ scaleX: enter }] }]} />
+      </Pressable>
+    </Animated.View>
+  );
+}
+
 const ResourcesScreen = () => {
   const insets = useSafeAreaInsets();
   const [activeBoard,   setActiveBoard]   = useState('CBSE');
@@ -2193,18 +2300,14 @@ const ResourcesScreen = () => {
                 // are already curated, so don't run them through the subject-name check.
                 .filter((subject) => (classNum >= 11 ? isAllowedSubject(subject.name, classNum, scope.stream) : true))
                 .map((subject, i) => (
-                <TouchableOpacity key={i} style={dk.subjectTile} onPress={() => openSubject(subject)} activeOpacity={0.6}>
-                  <View style={dk.subjectIconWrap}>
-                    <Text style={{ fontSize: 24 }}>{subject.emoji}</Text>
-                  </View>
-                  <View style={{ gap: 3 }}>
-                    <Text style={dk.subjectName} numberOfLines={2}>{subject.name}</Text>
-                    {!subject.comingSoon && !!subjectSummary(subject.name) && (
-                      <Text style={dk.subjectMeta} numberOfLines={1}>{subjectSummary(subject.name)}</Text>
-                    )}
-                  </View>
-                </TouchableOpacity>
-              ))}
+                  <SubjectCard
+                    key={i}
+                    subject={subject}
+                    index={i}
+                    summary={subjectSummary(subject.name)}
+                    onPress={() => openSubject(subject)}
+                  />
+                ))}
             </View>
           </ScrollView>
         </>
@@ -2322,8 +2425,18 @@ const dk = StyleSheet.create({
   boardLabel:      { fontSize: 13, fontFamily: FONT.extrabold, color: DK.sub, marginTop: 6 },
 
   subjectGrid:     { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', rowGap: 12 },
-  subjectTile:     { width: '48%', backgroundColor: DK.card, borderRadius: 16, borderWidth: 1, borderColor: DK.hair, paddingVertical: 20, paddingHorizontal: 16, gap: 14, alignItems: 'flex-start' },
-  subjectIconWrap: { width: 48, height: 48, borderRadius: 14, backgroundColor: 'rgba(255,255,255,0.08)', alignItems: 'center', justifyContent: 'center' },
+  // The wrapper carries the width + entrance transform; the tile carries the look
+  // and clips the gradient wash, the watermark and the accent bar to its radius.
+  subjectTileWrap: { width: '48%' },
+  subjectTile: {
+    backgroundColor: DK.card, borderRadius: 20, borderWidth: 1,
+    paddingVertical: 18, paddingHorizontal: 16, paddingBottom: 22,
+    alignItems: 'flex-start', overflow: 'hidden', minHeight: 152,
+  },
+  subjectWatermark: { position: 'absolute', right: -12, bottom: -14, fontSize: 76, opacity: 0.10 },
+  subjectBar:      { position: 'absolute', left: 0, right: 0, bottom: 0, height: 4, transformOrigin: 'left' },
+  // backgroundColor/borderColor come from the subject's accent.
+  subjectIconWrap: { width: 46, height: 46, borderRadius: 15, borderWidth: 1, alignItems: 'center', justifyContent: 'center' },
   subjectName:     { fontSize: 15.5, fontFamily: FONT.black, color: DK.ink, letterSpacing: -0.3, lineHeight: 20 },
   subjectMeta:     { fontSize: 11.5, fontFamily: FONT.semibold, color: DK.muted, letterSpacing: -0.1 },
 
