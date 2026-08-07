@@ -3,7 +3,9 @@ import { useNavigation } from '@react-navigation/native';
 import {
   View, Text, StyleSheet, SafeAreaView, ScrollView,
   TouchableOpacity, StatusBar, Platform, Image, Dimensions, ActivityIndicator, Alert,
+  Animated, Easing, Pressable,
 } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 // Optional native modules (PDF export + share). Required defensively so a build
 // that lacks the native module (e.g. Expo Go) degrades gracefully instead of
 // crashing the whole app at load time. Same pattern as expo-av/expo-camera here.
@@ -20,7 +22,33 @@ import { useClassSubjects, toTile } from '../utils/classSubjects';
 import { useAuth } from '../context/AuthContext';
 import { API_BASE_URL } from '../constants/config';
 import { ClassTabs, ComingSoon } from '../components/ClassPicker';
-import { S, StudentScreenHeader } from '../theme/studentUI';
+import { StudentScreenHeader } from '../theme/studentUI';
+import { N } from '../theme/nightTheme';
+// Night-theme swap. Every colour in this screen already resolves through ONE
+// role-named token object, so re-pointing those roles at the night palette
+// re-skins all 2,000+ lines without editing a single call site. The role names
+// mirror studentUI's `S` 1:1, which is why nothing below had to change — only
+// what `S` refers to. Same approach the Ask-the-Material dark pass used.
+const S = {
+  canvas: N.bg,
+  card: N.card,
+  ink: N.ink,
+  sub: N.inkSoft,
+  muted: N.inkSoft,
+  faint: N.inkDim,
+  hair: N.cardEdge,
+  border: N.cardEdge,
+  white: '#FFFFFF',
+  indigo: N.violet,     indigoSoft: N.violetSoft,
+  blue: N.blue,         blueSoft: N.blueSoft,
+  emerald: N.green,     emeraldSoft: N.greenSoft,
+  green: N.green,       greenSoft: N.greenSoft,
+  orange: '#FF8A3D',    orangeSoft: N.amberSoft,
+  gold: N.amber,        goldSoft: N.amberSoft,
+  purple: N.violet,     purpleSoft: N.violetSoft,
+  cyan: '#22D3EE',      cyanSoft: 'rgba(34,211,238,0.14)',
+  red: N.red,           redSoft: N.redSoft,
+};
 import { FONT } from '../constants/fonts';
 import { getChapterNotes } from '../notes/index';
 import Ch2Images from '../notes/images/Ch2Images';
@@ -1155,6 +1183,116 @@ const buildPaperDoc = (html) =>
     : '';
 
 // ── Main Screen ───────────────────────────────────────────────────────────────
+// ── subject cards ───────────────────────────────────────────────────────────
+// The subject lists carry a `bg` from the light build, and several are unusable
+// here: Class 11/12 use S.ink, '#333', '#444', '#555' — near-blacks that vanish on
+// a dark card. So the accent is resolved by NAME first, and a list's own colour is
+// only trusted when it is bright enough to read on the night surface.
+const SUBJECT_TINT = {
+  physics: '#FF8A3D', chemistry: '#FF5C8A', math: '#A78BFA', maths: '#A78BFA',
+  biology: '#22D3EE', science: '#4ADE80', english: '#8B6EF0', hindi: '#F5A623',
+  social: '#5B8CFF', reasoning: '#FB923C', computer: '#5B8CFF',
+};
+const TINT_CYCLE = ['#8B6EF0', '#22D3EE', '#4ADE80', '#FF8A3D', '#FF5C8A', '#5B8CFF'];
+
+// Perceived brightness (ITU-R BT.601). Anything under ~90 disappears on #1C1943.
+const isBright = (hex) => {
+  const m = /^#([0-9a-f]{6})$/i.exec(String(hex || ''));
+  if (!m) return false;
+  const n = parseInt(m[1], 16);
+  return (((n >> 16) & 255) * 299 + ((n >> 8) & 255) * 587 + (n & 255) * 114) / 1000 > 90;
+};
+
+const tintFor = (name, bg, i = 0) => {
+  const k = String(name || '').toLowerCase();
+  const hit = Object.keys(SUBJECT_TINT).find((key) => k.includes(key));
+  if (hit) return SUBJECT_TINT[hit];
+  if (isBright(bg)) return bg;
+  return TINT_CYCLE[i % TINT_CYCLE.length];
+};
+
+// One subject, as a tinted card: a wash of the subject's own hue, its emoji drifting
+// as a large watermark behind the content, and an accent bar that wipes in on entry.
+// Entrance is staggered by index so the grid assembles instead of appearing at once.
+function SubjectCard({ subject, index, summary, onPress }) {
+  const tint = tintFor(subject.name, subject.bg, index);
+  const enter = useRef(new Animated.Value(0)).current;
+  const press = useRef(new Animated.Value(1)).current;
+  const drift = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.timing(enter, {
+      toValue: 1, duration: 460, delay: 60 + index * 55,
+      easing: Easing.out(Easing.cubic), useNativeDriver: true,
+    }).start();
+    const loop = Animated.loop(Animated.sequence([
+      Animated.timing(drift, { toValue: 1, duration: 4200, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
+      Animated.timing(drift, { toValue: 0, duration: 4200, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
+    ]));
+    loop.start();
+    return () => loop.stop();
+  }, [enter, drift, index]);
+
+  const to = (v) => Animated.spring(press, { toValue: v, friction: 7, tension: 180, useNativeDriver: true }).start();
+
+  return (
+    <Animated.View style={[s.subjectTileWrap, {
+      opacity: enter,
+      transform: [
+        { translateY: enter.interpolate({ inputRange: [0, 1], outputRange: [16, 0] }) },
+        { scale: press },
+      ],
+    }]}>
+      <Pressable
+        onPress={onPress}
+        onPressIn={() => to(0.97)}
+        onPressOut={() => to(1)}
+        accessibilityRole="button"
+        accessibilityLabel={`${subject.name}${summary ? `. ${summary}` : ''}`}
+        style={[s.subjectTile, { borderColor: tint + '4D' }]}
+      >
+        <LinearGradient
+          colors={[tint + '2E', 'transparent']}
+          start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}
+          style={StyleSheet.absoluteFill}
+        />
+        {/* Watermark — big, faint, and drifting, so the card has depth without
+            competing with the label. pointerEvents off so it never eats a tap. */}
+        <Animated.Text
+          style={[s.subjectWatermark, {
+            transform: [
+              { translateY: drift.interpolate({ inputRange: [0, 1], outputRange: [0, -7] }) },
+              { rotate: drift.interpolate({ inputRange: [0, 1], outputRange: ['-6deg', '6deg'] }) },
+            ],
+          }]}
+        >
+          {subject.emoji}
+        </Animated.Text>
+
+        <View style={[s.subjectIconWrap, { backgroundColor: tint + '26', borderColor: tint + '59' }]}>
+          <Text style={{ fontSize: 22 }}>{subject.emoji}</Text>
+        </View>
+
+        <View style={{ gap: 3, marginTop: 12 }}>
+          <Text style={s.subjectName} numberOfLines={2}>{subject.name}</Text>
+          {!subject.comingSoon && !!summary && (
+            <Text style={s.subjectMeta} numberOfLines={1}>{summary}</Text>
+          )}
+          {!!subject.comingSoon && <Text style={[s.subjectMeta, { color: tint }]}>Coming soon</Text>}
+        </View>
+
+        {/* Accent bar wipes in with scaleX (native-driveable; animating width is not). */}
+        <Animated.View
+          style={[s.subjectBar, {
+            backgroundColor: tint,
+            transform: [{ scaleX: enter }],
+          }]}
+        />
+      </Pressable>
+    </Animated.View>
+  );
+}
+
 const ResourcesScreen = () => {
   const [activeBoard,   setActiveBoard]   = useState('CBSE');
   // Re-tapping the active Resources tab scrolls the subjects landing back to top (F8).
@@ -1635,7 +1773,7 @@ const ResourcesScreen = () => {
     if (isPhysics12Notes && phy12Notes.loading) {
       return (
         <SafeAreaView style={s.safe}>
-          <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+          <StatusBar barStyle="light-content" backgroundColor={S.canvas} />
           {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
           <BackHeader onBack={() => { setShowNotes(false); setActiveChapter(null); }} />
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12 }}>
@@ -1675,7 +1813,7 @@ const ResourcesScreen = () => {
   if (isClass12Exemplar) {
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        <StatusBar barStyle="light-content" backgroundColor={S.canvas} />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setShowCards(false)} />
         <View style={s.pageTitleWrap}>
@@ -1721,7 +1859,7 @@ const ResourcesScreen = () => {
   if (isC12Ncert1) {
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        <StatusBar barStyle="light-content" backgroundColor={S.canvas} />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setShowCards(false)} />
         <View style={s.pageTitleWrap}>
@@ -1737,7 +1875,7 @@ const ResourcesScreen = () => {
   if (isDbQDoc) {
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        <StatusBar barStyle="light-content" backgroundColor={S.canvas} />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setShowCards(false)} />
         <View style={s.pageTitleWrap}>
@@ -1753,7 +1891,7 @@ const ResourcesScreen = () => {
   if (activeSubject && activeResType?.type === 'exemplar' && activeChapter && showCards) {
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        <StatusBar barStyle="light-content" backgroundColor={S.canvas} />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setShowCards(false)} />
         <View style={s.pageTitleWrap}>
@@ -1805,7 +1943,7 @@ const ResourcesScreen = () => {
   if (isC12Ncert2) {
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        <StatusBar barStyle="light-content" backgroundColor={S.canvas} />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setShowCards(false)} />
         <View style={s.pageTitleWrap}>
@@ -1841,7 +1979,7 @@ const ResourcesScreen = () => {
     const pdfUrl = `${API_BASE_URL}/pdfs/class6-science/${activeResType.pdfDir}/${slugify(activeChapter.name)}.pdf`;
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        <StatusBar barStyle="light-content" backgroundColor={S.canvas} />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setShowCards(false)} />
         <WebView
@@ -1867,7 +2005,7 @@ const ResourcesScreen = () => {
   if (activeSubject && activeResType && activeChapter && showCards) {
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        <StatusBar barStyle="light-content" backgroundColor={S.canvas} />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         {/* Returning to the chapter list must clear activeChapter — DB-backed lists
             (e.g. Class 10 Revision Notes / notesListActive) gate on !activeChapter to
@@ -1968,7 +2106,7 @@ const ResourcesScreen = () => {
     const papers = isDbPapers ? phy12Papers.list : LAST_YEAR_PAPERS;
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        <StatusBar barStyle="light-content" backgroundColor={S.canvas} />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setActiveResType(null)} />
         <View style={s.pageTitleWrap}>
@@ -2048,7 +2186,7 @@ const ResourcesScreen = () => {
               : subjectChapters;
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        <StatusBar barStyle="light-content" backgroundColor={S.canvas} />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={backFromChapters} />
         <View style={s.pageTitleWrap}>
@@ -2095,7 +2233,7 @@ const ResourcesScreen = () => {
   if (activeSubject) {
     return (
       <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+        <StatusBar barStyle="light-content" backgroundColor={S.canvas} />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
         <BackHeader onBack={() => setActiveSubject(null)} />
         <View style={s.pageTitleWrap}>
@@ -2149,8 +2287,8 @@ const ResourcesScreen = () => {
   // ── LEVEL 1: Subjects list ────────────────────────────────────────────────
   return (
     <View style={s.safe}>
-      <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
-      <StudentScreenHeader title="Resources" subtitle="Notes, solutions & papers by chapter" />
+      <StatusBar barStyle="light-content" backgroundColor={S.canvas} />
+      <StudentScreenHeader tone="dark" title="Resources" subtitle="Notes, solutions & papers by chapter" />
       {/* Students are locked to their own class; the switcher only shows if no class is set yet. */}
       {!scope?.classNum && <ClassTabs value={activeClass} onChange={setActiveClass} />}
       {scope?.role === 'student' && (scope?.tester ? activeClass : scope?.className) && !isClassReady(scope?.tester ? activeClass : scope.className) ? (
@@ -2170,18 +2308,14 @@ const ResourcesScreen = () => {
                 // are already curated, so don't run them through the subject-name check.
                 .filter((subject) => (classNum >= 11 ? isAllowedSubject(subject.name, classNum, scope.stream) : true))
                 .map((subject, i) => (
-                <TouchableOpacity key={i} style={s.subjectTile} onPress={() => openSubject(subject)} activeOpacity={0.6}>
-                  <View style={s.subjectIconWrap}>
-                    <Text style={{ fontSize: 24 }}>{subject.emoji}</Text>
-                  </View>
-                  <View style={{ gap: 3 }}>
-                    <Text style={s.subjectName} numberOfLines={2}>{subject.name}</Text>
-                    {!subject.comingSoon && !!subjectSummary(subject.name) && (
-                      <Text style={s.subjectMeta} numberOfLines={1}>{subjectSummary(subject.name)}</Text>
-                    )}
-                  </View>
-                </TouchableOpacity>
-              ))}
+                  <SubjectCard
+                    key={i}
+                    subject={subject}
+                    index={i}
+                    summary={subjectSummary(subject.name)}
+                    onPress={() => openSubject(subject)}
+                  />
+                ))}
             </View>
           </ScrollView>
         </>
@@ -2202,7 +2336,7 @@ const s = StyleSheet.create({
   breadPart:         { fontSize: 12, color: S.muted, fontFamily: FONT.semibold },
   breadPartActive:   { color: S.ink, fontFamily: FONT.bold },
   breadSep:          { fontSize: 12, color: S.faint },
-  filterWrap:        { backgroundColor: '#fff', paddingHorizontal: 16, paddingVertical: 12, borderBottomWidth: 1.5, borderBottomColor: S.hair },
+  filterWrap:        { backgroundColor: S.card, paddingHorizontal: 16, paddingVertical: 12, borderBottomWidth: 1.5, borderBottomColor: S.hair },
   filterRow:         { flexDirection: 'row', gap: 8, flexWrap: 'wrap' },
   filterChip:        { paddingVertical: 7, paddingHorizontal: 14, borderRadius: 18, borderWidth: 1.5, borderColor: S.border, backgroundColor: S.canvas },
   filterChipActive:  { backgroundColor: S.ink, borderColor: S.ink },
@@ -2215,16 +2349,26 @@ const s = StyleSheet.create({
   boardLabel:        { fontSize: 13, fontFamily: FONT.extrabold, color: S.ink, marginTop: 8 },
   subjectIconLg:     { width: 50, height: 50, borderRadius: 25, alignItems: 'center', justifyContent: 'center' },
   subjectGrid:       { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', rowGap: 12 },
-  subjectTile:       { width: '48%', backgroundColor: '#fff', borderRadius: 16, borderWidth: 1, borderColor: S.hair, paddingVertical: 20, paddingHorizontal: 16, gap: 14, alignItems: 'flex-start' },
-  subjectIconWrap:   { width: 48, height: 48, borderRadius: 14, backgroundColor: S.canvas, alignItems: 'center', justifyContent: 'center' },
+  // The wrapper carries the width + entrance transform; the tile carries the look,
+  // and clips the gradient wash, the watermark and the accent bar to its radius.
+  subjectTileWrap:   { width: '48%' },
+  subjectTile: {
+    backgroundColor: S.card, borderRadius: 20, borderWidth: 1,
+    paddingVertical: 18, paddingHorizontal: 16, paddingBottom: 22,
+    alignItems: 'flex-start', overflow: 'hidden', minHeight: 152,
+  },
+  subjectWatermark:  { position: 'absolute', right: -12, bottom: -14, fontSize: 76, opacity: 0.10 },
+  subjectBar:        { position: 'absolute', left: 0, right: 0, bottom: 0, height: 4, transformOrigin: 'left' },
+  // backgroundColor/borderColor are set per subject from its accent.
+  subjectIconWrap:   { width: 46, height: 46, borderRadius: 15, borderWidth: 1, alignItems: 'center', justifyContent: 'center' },
   subjectName:       { fontSize: 15.5, fontFamily: FONT.black, color: S.ink, letterSpacing: -0.3, lineHeight: 20 },
   subjectMeta:       { fontSize: 11.5, fontFamily: FONT.semibold, color: S.muted, letterSpacing: -0.1 },
   subjectSub:        { fontSize: 12, color: S.muted, fontFamily: FONT.semibold, marginTop: 3 },
-  resTypeRow:        { backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: S.hair, flexDirection: 'row', alignItems: 'center', gap: 16, padding: 16 },
+  resTypeRow:        { backgroundColor: S.card, borderRadius: 18, borderWidth: 1.5, borderColor: S.hair, flexDirection: 'row', alignItems: 'center', gap: 16, padding: 16 },
   resTypeIconWrap:   { width: 52, height: 52, borderRadius: 16, backgroundColor: S.hair, borderWidth: 1.5, borderColor: S.border, alignItems: 'center', justifyContent: 'center' },
   resTypeName:       { fontSize: 16, fontFamily: FONT.extrabold, color: S.ink, letterSpacing: -0.2, marginBottom: 3 },
   resTypeSub:        { fontSize: 12, color: S.muted, fontFamily: FONT.semibold },
-  listRow:           { backgroundColor: '#fff', borderRadius: 16, borderWidth: 1.5, borderColor: S.hair, flexDirection: 'row', alignItems: 'center', gap: 14, padding: 16 },
+  listRow:           { backgroundColor: S.card, borderRadius: 16, borderWidth: 1.5, borderColor: S.hair, flexDirection: 'row', alignItems: 'center', gap: 14, padding: 16 },
   listNum:           { width: 32, height: 32, borderRadius: 10, backgroundColor: S.hair, alignItems: 'center', justifyContent: 'center' },
   listNumTxt:        { fontSize: 14, fontFamily: FONT.black, color: S.ink },
   listRowTitle:      { fontSize: 15, fontFamily: FONT.extrabold, color: S.ink, letterSpacing: -0.2 },
@@ -2235,15 +2379,15 @@ const s = StyleSheet.create({
   paperHeader:       { backgroundColor: '#1f8a93', flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 16, paddingVertical: 14 },
   paperClose:        { fontSize: 18, color: '#fff', fontFamily: FONT.extrabold },
   paperHeaderTitle:  { flex: 1, fontSize: 15, fontFamily: FONT.extrabold, color: '#fff', letterSpacing: -0.2 },
-  paperTabsWrap:     { backgroundColor: '#fff', borderBottomWidth: 1, borderBottomColor: S.hair, paddingVertical: 10, alignItems: 'center' },
+  paperTabsWrap:     { backgroundColor: S.card, borderBottomWidth: 1, borderBottomColor: S.hair, paddingVertical: 10, alignItems: 'center' },
   paperTabs:         { flexDirection: 'row', backgroundColor: S.hair, borderRadius: 10, padding: 3 },
   paperTab:          { paddingVertical: 7, paddingHorizontal: 22, borderRadius: 8 },
-  paperTabActive:    { backgroundColor: '#fff', shadowColor: '#000', shadowOpacity: 0.08, shadowRadius: 4, shadowOffset: { width: 0, height: 1 }, elevation: 1 },
+  paperTabActive:    { backgroundColor: S.card, shadowColor: '#000', shadowOpacity: 0.08, shadowRadius: 4, shadowOffset: { width: 0, height: 1 }, elevation: 1 },
   paperTabTxt:       { fontSize: 14, fontFamily: FONT.bold, color: S.muted },
   paperTabTxtActive: { color: S.ink },
 
   // Resource card styles
-  resCard:           { backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: S.hair, padding: 14 },
+  resCard:           { backgroundColor: S.card, borderRadius: 18, borderWidth: 1.5, borderColor: S.hair, padding: 14 },
   resCardTop:        { flexDirection: 'row', gap: 12, marginBottom: 12, alignItems: 'flex-start' },
   resIconWrap:       { width: 48, height: 48, borderRadius: 14, alignItems: 'center', justifyContent: 'center', flexShrink: 0 },
   resTitle:          { fontSize: 14, fontFamily: FONT.extrabold, color: S.ink, lineHeight: 20, marginBottom: 6 },
@@ -2275,7 +2419,7 @@ const s = StyleSheet.create({
   notesChapterHdr:        { paddingHorizontal: 16, paddingTop: 8, paddingBottom: 0 },
   notesChapterTitle:      { fontSize: 18, fontFamily: FONT.bold, color: S.ink, marginBottom: 10 },
   notesChapterDivider:    { height: 1, backgroundColor: S.border, marginBottom: 0 },
-  notesSec:               { paddingHorizontal: 16, paddingVertical: 16, backgroundColor: '#fff' },
+  notesSec:               { paddingHorizontal: 16, paddingVertical: 16, backgroundColor: S.card },
   notesSecBorder:         { borderBottomWidth: 1, borderBottomColor: S.border },
   notesTitleRow:          { flexDirection: 'row', alignItems: 'flex-start', gap: 10, marginBottom: 6 },
   notesBulletBlack:       { fontSize: 16, color: S.ink, fontFamily: FONT.bold, lineHeight: 22, marginTop: 1 },
