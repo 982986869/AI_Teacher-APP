@@ -9,21 +9,23 @@
 // active-only server-side). When nothing is published it falls back to the honest
 // "coming soon" panel rather than a fake schedule.
 //
-// Two things the design asks for that the data cannot honestly supply:
 //   • There is no 'live' status — the server only stores 'scheduled' | 'completed'.
 //     LIVE is DERIVED: now is inside [startsAt, startsAt + durationMin]. A 30s tick
 //     re-evaluates it so the badge appears and clears on its own.
-//   • There is no percent-watched. Recordings open in the system player via
-//     Linking.openURL, so playback position is unobservable. The ring is therefore
-//     binary — New or Watched, from markRecordingWatched() — instead of an invented
-//     "30%". Wire a real number in only if playback moves in-app.
+//   • Percent-watched IS real. Recordings used to open in the system player via
+//     Linking.openURL, where position was unobservable and the ring could only say
+//     0% or 100%. Playback now happens in-app (WatchPage → expo-av), so the ring
+//     reads the true position, persisted per session by saveRecordingProgress().
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import {
   View, Text, StyleSheet, ScrollView, StatusBar, Linking, Pressable, Modal, Dimensions,
+  Animated, Easing, Alert,
 } from 'react-native';
+// `Video` is already taken by the lucide icon imported below, hence the alias.
+import { Video as VideoPlayer, ResizeMode } from 'expo-av';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
-import Svg, { Circle } from 'react-native-svg';
+import Svg, { Circle, Ellipse, Line, Polyline, G } from 'react-native-svg';
 import { LinearGradient } from 'expo-linear-gradient';
 import {
   Video, Users, MessageCircle, CirclePlay, CircleCheck, Bell, MapPin,
@@ -39,6 +41,7 @@ import { N, NFONT } from '../theme/nightTheme';
 import { NightBg, Appear } from '../theme/nightChrome';
 import {
   getHomeState, saveHomeState, getWatchedRecordings, markRecordingWatched,
+  getRecordingProgress, saveRecordingProgress,
 } from '../utils/storage';
 import { getStudentSessions } from '../api/sessionsApi';
 
@@ -74,6 +77,25 @@ const DUMMY_RECORDING = {
   recordingUrl: 'https://ailernova.in/wp-content/themes/ailernova-theme/image/0_Student_Girl_1280x720.mp4',
 };
 
+// PLACEHOLDER playlist for the watch page. Real recordings have exactly one video
+// (session.recordingUrl); until more are published, opening any lecture shows that
+// clip plus a second sample so the page's playlist behaviour is visible. Replace
+// this whole list with the session's real assets when they exist.
+const DEMO_CLIPS = [
+  {
+    id: 'clip-1',
+    title: 'Full session recording',
+    sub: 'Part 1  ·  the whole class',
+    uri: 'https://ailernova.in/wp-content/themes/ailernova-theme/image/0_Student_Girl_1280x720.mp4',
+  },
+  {
+    id: 'clip-2',
+    title: 'Worked examples',
+    sub: 'Part 2  ·  sample clip',
+    uri: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+  },
+];
+
 const DAY = 86400000;
 const ms = (iso) => new Date(iso).getTime();
 const fmtDay   = (iso) => new Date(iso).toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' });
@@ -86,41 +108,245 @@ function T({ w = 'reg', s = 14, c = N.inkSoft, F, style, children, ...rest }) {
   return <Text {...rest} style={[{ fontFamily: fam, fontSize: s, color: c }, style]}>{children}</Text>;
 }
 
-// ── watched ring: full green + tick once opened, empty track + play until then ──
-function WatchRing({ watched, size = 46 }) {
+// ── watched ring ────────────────────────────────────────────────────────────
+// The design's percentage, and it is a real one: `pct` is how far into the video
+// the student actually got (WatchPage reports it). It falls back to the older
+// binary signal — 100% once opened — for anything watched before progress was
+// tracked, so old rows do not suddenly read 0%.
+function WatchRing({ watched, size = 46, F, pct }) {
+  const value = typeof pct === 'number' ? Math.max(0, Math.min(100, pct)) : (watched ? 100 : 0);
   const r = (size - 5) / 2;
   const c = 2 * Math.PI * r;
+  const small = size < 34;
   return (
     <View style={{ width: size, height: size, alignItems: 'center', justifyContent: 'center' }}>
       <Svg width={size} height={size} style={StyleSheet.absoluteFill}>
         <Circle cx={size / 2} cy={size / 2} r={r} stroke={N.track} strokeWidth={4} fill="none" />
-        {watched && (
+        {value > 0 && (
           <Circle
             cx={size / 2} cy={size / 2} r={r}
             stroke={N.green} strokeWidth={4} fill="none"
-            strokeDasharray={`${c} ${c}`} strokeLinecap="round"
+            strokeDasharray={`${c} ${c}`} strokeDashoffset={c * (1 - value / 100)} strokeLinecap="round"
             transform={`rotate(-90 ${size / 2} ${size / 2})`}
           />
         )}
       </Svg>
-      {watched
-        ? <Check size={18} color={N.green} strokeWidth={3} />
-        : <Play size={16} color={N.violet} strokeWidth={2.5} fill={N.violet} />}
+      {/* Below ~34px there is no room for a legible label, so the grid tile keeps icons. */}
+      {small
+        ? (value >= 100
+            ? <Check size={14} color={N.green} strokeWidth={3} />
+            : <Play size={12} color={N.violet} strokeWidth={2.5} fill={N.violet} />)
+        : <T F={F} w="bold" s={12} c={value > 0 ? N.green : N.inkSoft}>{value}%</T>}
     </View>
   );
 }
 
-// ── aurora placeholder thumbnail (no thumbnail_url column on sessions) ──────
-function Thumb({ style, radius = 12 }) {
+// ── subject artwork ─────────────────────────────────────────────────────────
+// Sessions have no thumbnail_url, so rather than one flat placeholder each subject
+// gets a drawn motif in its own hue: a molecule for Chemistry, an atom for Physics,
+// a plotted curve for Maths, a helix for Biology. Everything is a viewBox 0..100
+// SVG so the same art fills both the 68px list thumb and the 16:10 grid tile.
+const hexPts = (cx, cy, r) => Array.from({ length: 6 }, (_, i) => {
+  const a = (Math.PI / 3) * i - Math.PI / 2;
+  return [cx + r * Math.cos(a), cy + r * Math.sin(a)];
+});
+
+const ART = {
+  chemistry: { tint: '#4ADE80', bg: ['#123227', '#0B1F1A'], draw: (c) => {
+    const p = hexPts(50, 50, 26);
+    return (
+      <G>
+        {p.map(([x, y], i) => {
+          const [nx, ny] = p[(i + 1) % 6];
+          return <Line key={`b${i}`} x1={x} y1={y} x2={nx} y2={ny} stroke={c} strokeWidth={2} opacity={0.55} />;
+        })}
+        {p.map(([x, y], i) => <Line key={`s${i}`} x1={50} y1={50} x2={x} y2={y} stroke={c} strokeWidth={1.4} opacity={0.28} />)}
+        {p.map(([x, y], i) => <Circle key={`n${i}`} cx={x} cy={y} r={6} fill={c} opacity={i % 2 ? 0.75 : 1} />)}
+        <Circle cx={50} cy={50} r={7.5} fill={c} opacity={0.9} />
+      </G>
+    );
+  } },
+  physics: { tint: '#38BDF8', bg: ['#12294A', '#0A1730'], draw: (c) => (
+    <G>
+      {[0, 60, 120].map((deg) => (
+        <Ellipse key={deg} cx={50} cy={50} rx={34} ry={13} stroke={c} strokeWidth={2} fill="none"
+          opacity={0.6} transform={`rotate(${deg} 50 50)`} />
+      ))}
+      <Circle cx={50} cy={50} r={8} fill={c} />
+      <Circle cx={84} cy={50} r={4.5} fill={c} opacity={0.95} />
+      <Circle cx={33} cy={22} r={4} fill={c} opacity={0.8} />
+    </G>
+  ) },
+  maths: { tint: '#A78BFA', bg: ['#241A4D', '#150F30'], draw: (c) => (
+    <G>
+      {[26, 50, 74].map((v) => <Line key={`h${v}`} x1={14} y1={v} x2={86} y2={v} stroke={c} strokeWidth={1} opacity={0.18} />)}
+      {[26, 50, 74].map((v) => <Line key={`v${v}`} x1={v} y1={14} x2={v} y2={86} stroke={c} strokeWidth={1} opacity={0.18} />)}
+      <Polyline points="16,76 34,58 50,66 68,32 86,22" stroke={c} strokeWidth={3} fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      {[[34, 58], [50, 66], [68, 32]].map(([x, y], i) => <Circle key={i} cx={x} cy={y} r={5} fill={c} />)}
+    </G>
+  ) },
+  biology: { tint: '#2DD4BF', bg: ['#0F3038', '#0A1D24'], draw: (c) => (
+    <G>
+      {Array.from({ length: 7 }, (_, i) => {
+        const y = 18 + i * 11;
+        const dx = Math.sin((i / 6) * Math.PI * 2) * 22;
+        return (
+          <G key={i}>
+            <Line x1={50 - dx} y1={y} x2={50 + dx} y2={y} stroke={c} strokeWidth={1.6} opacity={0.4} />
+            <Circle cx={50 - dx} cy={y} r={4.5} fill={c} />
+            <Circle cx={50 + dx} cy={y} r={4.5} fill={c} opacity={0.7} />
+          </G>
+        );
+      })}
+    </G>
+  ) },
+  default: { tint: '#8B6EF0', bg: [N.orbA, N.orbB], draw: (c) => (
+    <G>
+      {[16, 26, 36].map((r, i) => <Circle key={r} cx={50} cy={50} r={r} stroke={c} strokeWidth={2} fill="none" opacity={0.5 - i * 0.12} />)}
+      <Circle cx={50} cy={50} r={9} fill={c} opacity={0.9} />
+    </G>
+  ) },
+};
+
+const artFor = (subject) => {
+  const k = String(subject || '').toLowerCase();
+  if (k.includes('chem')) return ART.chemistry;
+  if (k.includes('phys')) return ART.physics;
+  if (k.includes('math')) return ART.maths;
+  if (k.includes('bio')) return ART.biology;
+  return ART.default;
+};
+
+// The motif drifts — a slow full rotation plus a breathing scale — so a shelf of
+// recordings feels alive without anything moving fast enough to distract. Both
+// transforms are native-driven, so the list still scrolls at 60fps, and the play
+// dot sits OUTSIDE the animated layer so it never spins.
+function SubjectThumb({ subject, style, radius = 14 }) {
+  const spin  = useRef(new Animated.Value(0)).current;
+  const pulse = useRef(new Animated.Value(0)).current;
+  const art = artFor(subject);
+
+  useEffect(() => {
+    const a = Animated.loop(Animated.timing(spin, {
+      toValue: 1, duration: 26000, easing: Easing.linear, useNativeDriver: true,
+    }));
+    const b = Animated.loop(Animated.sequence([
+      Animated.timing(pulse, { toValue: 1, duration: 2200, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
+      Animated.timing(pulse, { toValue: 0, duration: 2200, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
+    ]));
+    a.start(); b.start();
+    return () => { a.stop(); b.stop(); };
+  }, [spin, pulse]);
+
   return (
     <View style={[{ borderRadius: radius, overflow: 'hidden' }, style]}>
-      <LinearGradient
-        colors={[N.orbA, N.orbB]}
-        start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}
-        style={StyleSheet.absoluteFill}
-      />
+      <LinearGradient colors={art.bg} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={StyleSheet.absoluteFill} />
+      <Animated.View
+        pointerEvents="none"
+        style={[StyleSheet.absoluteFill, {
+          opacity: pulse.interpolate({ inputRange: [0, 1], outputRange: [0.72, 1] }),
+          transform: [
+            { rotate: spin.interpolate({ inputRange: [0, 1], outputRange: ['0deg', '360deg'] }) },
+            { scale: pulse.interpolate({ inputRange: [0, 1], outputRange: [0.94, 1.06] }) },
+          ],
+        }]}
+      >
+        <Svg width="100%" height="100%" viewBox="0 0 100 100">{art.draw(art.tint)}</Svg>
+      </Animated.View>
       <View style={hs.thumbDot} />
     </View>
+  );
+}
+
+// ── watch page ──────────────────────────────────────────────────────────────
+// A full-screen modal rather than a route: Sessions is a bare tab with no stack
+// of its own, and adding one to reach a single page would restructure the whole
+// tab navigator. It behaves as a page — own header, own back affordance.
+function WatchPage({ session, onClose, F, insetTop, onProgress }) {
+  const [clip, setClip] = useState(DEMO_CLIPS[0]);
+  const video = useRef(null);
+  const lastPct = useRef(0);
+
+  // Playback position is finally observable now that the video plays in-app, so the
+  // ring's percentage comes from here. Reported only when the whole percent changes,
+  // and only for the first clip — that is the one standing in for the real recording.
+  const onStatus = (st) => {
+    if (!st?.isLoaded || !st.durationMillis || clip.id !== DEMO_CLIPS[0].id) return;
+    const pct = Math.round((st.positionMillis / st.durationMillis) * 100);
+    if (pct === lastPct.current) return;
+    lastPct.current = pct;
+    onProgress?.(session.id, st.didJustFinish ? 100 : pct);
+  };
+
+  // Reset to the first clip each time a different lecture is opened, so the page
+  // never opens mid-playlist from the previous session.
+  useEffect(() => { if (session) setClip(DEMO_CLIPS[0]); }, [session]);
+
+  if (!session) return null;
+  return (
+    <Modal visible animationType="slide" onRequestClose={onClose} statusBarTranslucent>
+      <View style={hs.watchRoot}>
+        <StatusBar barStyle="light-content" backgroundColor={N.bgTop} />
+        <NightBg id="watch" />
+        <View style={[hs.watchHead, { paddingTop: insetTop + 10 }]}>
+          <Pressable onPress={onClose} hitSlop={10} accessibilityRole="button" accessibilityLabel="Close player" style={hs.watchBack}>
+            <ChevronDown size={22} color={N.ink} strokeWidth={2.4} />
+          </Pressable>
+          <View style={{ flex: 1, minWidth: 0 }}>
+            <T F={F} w="bold" s={16} c={N.ink} numberOfLines={1}>{session.title}</T>
+            <T F={F} s={12.5} c={N.inkSoft} numberOfLines={1} style={{ marginTop: 2 }}>
+              {[session.subject, session.teacherName].filter(Boolean).join('  ·  ')}
+            </T>
+          </View>
+        </View>
+
+        <ScrollView contentContainerStyle={{ padding: PAD, paddingBottom: 40 }} showsVerticalScrollIndicator={false}>
+          <View style={hs.playerBox}>
+            <VideoPlayer
+              ref={video}
+              source={{ uri: clip.uri }}
+              style={StyleSheet.absoluteFill}
+              useNativeControls
+              shouldPlay
+              resizeMode={ResizeMode.CONTAIN}
+              isLooping={false}
+              progressUpdateIntervalMillis={1000}
+              onPlaybackStatusUpdate={onStatus}
+            />
+          </View>
+          <T F={F} w="bold" s={17} c={N.ink} style={{ marginTop: 18, letterSpacing: -0.3 }}>{clip.title}</T>
+          <T F={F} s={13} c={N.inkSoft} style={{ marginTop: 3 }}>{clip.sub}</T>
+
+          <T F={F} w="bold" s={13} c={N.inkDim} style={{ marginTop: 26, letterSpacing: 1.2 }}>IN THIS SESSION</T>
+          {DEMO_CLIPS.map((c, i) => {
+            const on = c.id === clip.id;
+            return (
+              <Pressable
+                key={c.id}
+                onPress={() => setClip(c)}
+                accessibilityRole="button"
+                accessibilityState={{ selected: on }}
+                accessibilityLabel={`Play ${c.title}`}
+                style={({ pressed }) => [hs.clipRow, on && hs.clipRowOn, pressed && { opacity: 0.85 }]}
+              >
+                <View style={[hs.clipNum, on && { backgroundColor: N.violet }]}>
+                  {on ? <Play size={13} color={N.ink} strokeWidth={3} fill={N.ink} />
+                      : <T F={F} w="bold" s={13} c={N.inkSoft}>{i + 1}</T>}
+                </View>
+                <View style={{ flex: 1, minWidth: 0 }}>
+                  <T F={F} w="bold" s={14.5} c={N.ink} numberOfLines={1}>{c.title}</T>
+                  <T F={F} s={12.5} c={N.inkSoft} numberOfLines={1} style={{ marginTop: 2 }}>{c.sub}</T>
+                </View>
+              </Pressable>
+            );
+          })}
+
+          <T F={F} s={12} c={N.inkDim} style={{ marginTop: 18, lineHeight: 18 }}>
+            Sample clips — the real recording plays here once this session is published.
+          </T>
+        </ScrollView>
+      </View>
+    </Modal>
   );
 }
 
@@ -142,6 +368,8 @@ export default function SessionsScreen() {
   const [range, setRange]       = useState('all');
   const [view, setView]         = useState('list'); // 'list' | 'grid'
   const [rangeOpen, setRangeOpen] = useState(false);
+  const [playing, setPlaying]   = useState(null); // the session open in the watch page
+  const [progress, setProgress] = useState({});   // sessionId → percent watched
   const [now, setNow]           = useState(() => Date.now());
 
   // Re-evaluate the derived LIVE window without a refetch.
@@ -156,6 +384,7 @@ export default function SessionsScreen() {
       .catch(() => {})
       .finally(() => setLoaded(true));
     getWatchedRecordings().then(setWatched).catch(() => {});
+    getRecordingProgress().then(setProgress).catch(() => {});
   }, []);
 
   const setReminder = () => { setNotified(true); saveHomeState({ sessionsReminder: true }); };
@@ -165,6 +394,7 @@ export default function SessionsScreen() {
     let alive = true;
     getStudentSessions().then((rows) => { if (alive) setSessions(rows); }).catch(() => { if (alive) setSessions([]); });
     getWatchedRecordings().then((w) => { if (alive) setWatched(w); }).catch(() => {});
+    getRecordingProgress().then((p) => { if (alive) setProgress(p); }).catch(() => {});
     return () => { alive = false; };
   }, []));
 
@@ -175,10 +405,24 @@ export default function SessionsScreen() {
     return unsub;
   }, [navigation]);
 
-  const openRecording = async (s) => {
+  // Tapping a lecture confirms first — playback pulls video over the network and
+  // marks the session watched, so it should not happen on a mis-tap while scrolling.
+  const openRecording = (s) => {
+    Alert.alert(
+      'Watch this session?',
+      'Are you sure you want to watch this session?',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        { text: 'OK', onPress: () => playRecording(s) },
+      ],
+      { cancelable: true },
+    );
+  };
+
+  const playRecording = async (s) => {
     await markRecordingWatched(s.id);
     setWatched((w) => ({ ...w, [s.id]: new Date().toISOString() }));
-    Linking.openURL(s.recordingUrl).catch(() => {});
+    setPlaying(s);
   };
 
   const rows = useMemo(() => sessions || [], [sessions]);
@@ -297,8 +541,8 @@ export default function SessionsScreen() {
                           start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}
                           style={hs.join}
                         >
-                          <Play size={17} color={N.ink} strokeWidth={2.5} fill={N.ink} />
-                          <T F={F} w="bold" s={15} c={N.ink}>Join</T>
+                          <Play size={14} color={N.ink} strokeWidth={2.5} fill={N.ink} />
+                          <T F={F} w="bold" s={14} c={N.ink}>Join</T>
                         </LinearGradient>
                       </Pressable>
                     )}
@@ -390,7 +634,7 @@ export default function SessionsScreen() {
                       accessibilityLabel={`Watch recording: ${s.title}`}
                       style={({ pressed }) => [hs.recRow, pressed && { opacity: 0.85 }]}
                     >
-                      <Thumb style={hs.recThumb} />
+                      <SubjectThumb subject={s.subject} style={hs.recThumb} />
                       <View style={{ flex: 1, minWidth: 0 }}>
                         <View style={hs.recTopRow}>
                           <T F={F} w="bold" s={12.5} c={N.violet} style={{ letterSpacing: 0.5 }} numberOfLines={1}>
@@ -412,7 +656,7 @@ export default function SessionsScreen() {
                           <T F={F} s={13} c={N.inkDim}>{s.durationMin} min</T>
                         </View>
                       </View>
-                      <WatchRing watched={!!watched[s.id]} />
+                      <WatchRing watched={!!watched[s.id]} pct={progress[s.id]} F={F} />
                     </Pressable>
                   </Appear>
                 ))
@@ -426,7 +670,7 @@ export default function SessionsScreen() {
                         accessibilityLabel={`Watch recording: ${s.title}`}
                         style={({ pressed }) => [hs.gridCard, pressed && { opacity: 0.85 }]}
                       >
-                        <Thumb style={hs.gridThumb} radius={0} />
+                        <SubjectThumb subject={s.subject} style={hs.gridThumb} radius={0} />
                         <View style={{ padding: 12 }}>
                           <T F={F} w="bold" s={11.5} c={N.violet} style={{ letterSpacing: 0.5 }} numberOfLines={1}>
                             {(s.subject || 'Class').toUpperCase()}
@@ -436,7 +680,7 @@ export default function SessionsScreen() {
                           </T>
                           <View style={[hs.recTopRow, { marginTop: 6, justifyContent: 'space-between' }]}>
                             <T F={F} s={12} c={N.inkDim}>{s.durationMin} min</T>
-                            <WatchRing watched={!!watched[s.id]} size={26} />
+                            <WatchRing watched={!!watched[s.id]} pct={progress[s.id]} size={26} F={F} />
                           </View>
                         </View>
                       </Pressable>
@@ -622,12 +866,52 @@ export default function SessionsScreen() {
           })}
         </View>
       </Modal>
+
+      <WatchPage
+        session={playing}
+        onClose={() => setPlaying(null)}
+        onProgress={(id, pct) => {
+          setProgress((p) => ((p[id] || 0) >= pct ? p : { ...p, [id]: pct }));
+          saveRecordingProgress(id, pct);
+        }}
+        F={F}
+        insetTop={insets.top}
+      />
     </View>
   );
 }
 
 const hs = StyleSheet.create({
   root: { flex: 1, backgroundColor: N.bg },
+
+  // watch page
+  watchRoot: { flex: 1, backgroundColor: N.bg },
+  watchHead: {
+    flexDirection: 'row', alignItems: 'center', gap: 12,
+    paddingHorizontal: PAD, paddingBottom: 14,
+    borderBottomWidth: 1, borderBottomColor: N.cardEdge,
+  },
+  watchBack: {
+    width: 40, height: 40, borderRadius: 20, flexShrink: 0,
+    alignItems: 'center', justifyContent: 'center',
+    backgroundColor: N.cardSoft, borderWidth: 1, borderColor: N.cardEdge,
+  },
+  playerBox: {
+    width: '100%', aspectRatio: 16 / 9, borderRadius: 18, overflow: 'hidden',
+    backgroundColor: '#000', borderWidth: 1, borderColor: N.cardEdge,
+  },
+  clipRow: {
+    flexDirection: 'row', alignItems: 'center', gap: 14,
+    padding: 14, borderRadius: 16, marginTop: 10,
+    backgroundColor: 'rgba(255,255,255,0.045)',
+    borderWidth: 1, borderColor: N.cardEdge,
+  },
+  clipRowOn: { borderColor: N.violet, backgroundColor: N.violetSoft },
+  clipNum: {
+    width: 34, height: 34, borderRadius: 17, flexShrink: 0,
+    alignItems: 'center', justifyContent: 'center',
+    backgroundColor: 'rgba(255,255,255,0.07)',
+  },
   body: { flex: 1, paddingHorizontal: PAD },
 
   skeleton: { height: 110, borderRadius: 18, backgroundColor: N.cardSoft, marginBottom: 12 },
@@ -643,7 +927,7 @@ const hs = StyleSheet.create({
     shadowColor: N.violet, shadowOpacity: 0.45, shadowRadius: 18,
     shadowOffset: { width: 0, height: 6 }, elevation: 8,
   },
-  heroRow:    { flexDirection: 'row', alignItems: 'center', gap: 14 },
+  heroRow:    { flexDirection: 'row', alignItems: 'flex-start', gap: 12 },
   heroTagRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
   livePill: {
     flexDirection: 'row', alignItems: 'center', gap: 6,
@@ -658,14 +942,17 @@ const hs = StyleSheet.create({
   heroMeta: { flexDirection: 'row', alignItems: 'center', gap: 16, marginTop: 10, flexWrap: 'wrap' },
   metaItem: { flexDirection: 'row', alignItems: 'center', gap: 6 },
 
+  // Compact on purpose: at 54px tall it crowded the title into an ellipsis. It is
+  // pinned to the top of the row so it lines up with the first line of the title
+  // instead of drifting to the centre when the title wraps to two lines.
   joinWrap: {
-    borderRadius: 16,
-    shadowColor: N.violet, shadowOpacity: 0.5, shadowRadius: 14,
-    shadowOffset: { width: 0, height: 6 }, elevation: 8,
+    borderRadius: 12, flexShrink: 0, alignSelf: 'flex-start', marginTop: 2,
+    shadowColor: N.violet, shadowOpacity: 0.4, shadowRadius: 10,
+    shadowOffset: { width: 0, height: 4 }, elevation: 6,
   },
   join: {
-    flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8,
-    paddingHorizontal: 22, height: 54, borderRadius: 16,
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6,
+    paddingHorizontal: 15, height: 40, borderRadius: 12,
   },
 
   divider: { height: 1, backgroundColor: N.cardEdge, marginVertical: 22 },
@@ -706,14 +993,14 @@ const hs = StyleSheet.create({
     backgroundColor: 'rgba(255,255,255,0.045)',
     borderWidth: 1, borderColor: N.cardEdge,
   },
-  recThumb:  { width: 82, height: 82 },
+  recThumb:  { width: 68, height: 68 },
   recTopRow: { flexDirection: 'row', alignItems: 'center', gap: 7, marginTop: 4 },
   metaDot:   { width: 3, height: 3, borderRadius: 2, backgroundColor: N.inkDim },
 
   thumbDot: {
     position: 'absolute', top: '50%', left: '50%',
-    width: 22, height: 22, borderRadius: 11, marginTop: -11, marginLeft: -11,
-    backgroundColor: 'rgba(255,255,255,0.92)',
+    width: 20, height: 20, borderRadius: 10, marginTop: -10, marginLeft: -10,
+    backgroundColor: 'rgba(255,255,255,0.94)',
   },
 
   // grid

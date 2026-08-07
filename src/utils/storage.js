@@ -12,6 +12,7 @@ const KEYS = {
   HOME_STATE:    '@ailernova_home_state',
   PROFILE_EXTRAS: '@ailernova_profile_extras',
   WATCHED_RECORDINGS: '@ailernova_watched_recordings',
+  RECORDING_PROGRESS: '@ailernova_recording_progress',
 };
 
 // Legacy token returned by the still-mocked Google/OTP auth paths. It is NOT a
@@ -267,6 +268,29 @@ export const markRecordingWatched = async (id) => {
     const cur = raw ? JSON.parse(raw) : {};
     cur[id] = new Date().toISOString();
     await AsyncStorage.setItem(KEYS.WATCHED_RECORDINGS, JSON.stringify(cur));
+  } catch (_) { /* ignore */ }
+};
+
+// How far into a recording the student actually got, 0-100. Separate from
+// WATCHED_RECORDINGS (which records "opened", as a timestamp) so neither has to
+// change shape. Only ever moves FORWARD — replaying from the start should not wipe
+// out that you had already reached the end.
+export const getRecordingProgress = async () => {
+  try {
+    const raw = await AsyncStorage.getItem(KEYS.RECORDING_PROGRESS);
+    return raw ? JSON.parse(raw) : {};
+  } catch (_) { return {}; }
+};
+
+export const saveRecordingProgress = async (id, pct) => {
+  try {
+    if (!id || typeof pct !== 'number' || Number.isNaN(pct)) return;
+    const next = Math.max(0, Math.min(100, Math.round(pct)));
+    const raw = await AsyncStorage.getItem(KEYS.RECORDING_PROGRESS);
+    const cur = raw ? JSON.parse(raw) : {};
+    if ((cur[id] || 0) >= next) return;
+    cur[id] = next;
+    await AsyncStorage.setItem(KEYS.RECORDING_PROGRESS, JSON.stringify(cur));
   } catch (_) { /* ignore */ }
 };
 
