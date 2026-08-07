@@ -717,13 +717,16 @@ const PracticeScreen = () => {
   const chStartRef = useRef(null);
   useEffect(() => { if (chSel && !chStartRef.current) chStartRef.current = Date.now(); }, [chSel]);
 
-  // Full-screen test: hide the bottom tab bar while a DB mock test is open.
+  // Full-screen test: hide the bottom tab bar while a test is open. This covered
+  // only the DB mock test, but the MCQ quiz needs it just as much — McqQuizScreen
+  // keeps Skip/Submit/Next at the END of its scroll rather than pinned, so with the
+  // dock up those buttons (and the explanation card above them) sat underneath it.
   const navigation = useNavigation();
+  const inTest = !!physMock || (mcqOpen && !!mcqSel);
   useEffect(() => {
-    const inTest = !!physMock;
     navigation.setOptions({ tabBarStyle: inTest ? { display: 'none' } : undefined });
     return () => navigation.setOptions({ tabBarStyle: undefined });
-  }, [physMock, navigation]);
+  }, [inTest, navigation]);
 
   // Re-tapping the active Practice tab scrolls the landing back to top (F8).
   const scrollRef = useRef(null);
