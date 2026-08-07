@@ -93,35 +93,44 @@ export default function FloatingDock({ state, descriptors, navigation }) {
   if (dockHidden) return null; // immersive screen (AI Teacher lesson) — no bottom nav
 
   return (
-    <View style={[styles.nav, { paddingBottom: padBottom }]}>
-      <View style={styles.track} onLayout={(e) => setTrackW(e.nativeEvent.layout.width)}>
-        {tabWidth > 0 && (
-          <Animated.View
-            pointerEvents="none"
-            style={[styles.pill, { width: tabWidth, backgroundColor: ACCENT, transform: [{ translateX }] }]}
-          />
-        )}
-        {state.routes.map((route, index) => {
-          const cfg = TABS[route.name] || { Icon: House, label: route.name };
-          const { options } = descriptors[route.key];
-          const label = options.title || cfg.label;
-          const isFocused = state.index === index;
+    // Two layers on purpose. The inner bar keeps its rounded top corners, and the
+    // outer one paints the page colour BEHIND them — otherwise the corners cut
+    // through to React Navigation's container, which is white by default, and the
+    // dock reads as a dark bar with two white notches sitting on a violet app.
+    <View style={styles.navOuter}>
+      <View style={[styles.nav, { paddingBottom: padBottom }]}>
+        <View style={styles.track} onLayout={(e) => setTrackW(e.nativeEvent.layout.width)}>
+          {tabWidth > 0 && (
+            <Animated.View
+              pointerEvents="none"
+              style={[styles.pill, { width: tabWidth, backgroundColor: ACCENT, transform: [{ translateX }] }]}
+            />
+          )}
+          {state.routes.map((route, index) => {
+            const cfg = TABS[route.name] || { Icon: House, label: route.name };
+            const { options } = descriptors[route.key];
+            const label = options.title || cfg.label;
+            const isFocused = state.index === index;
 
-          const onPress = () => {
-            const event = navigation.emit({ type: 'tabPress', target: route.key, canPreventDefault: true });
-            if (!isFocused && !event.defaultPrevented) navigation.navigate(route.name);
-          };
+            const onPress = () => {
+              const event = navigation.emit({ type: 'tabPress', target: route.key, canPreventDefault: true });
+              if (!isFocused && !event.defaultPrevented) navigation.navigate(route.name);
+            };
 
-          return (
-            <NavTab key={route.key} route={route} label={label} Icon={cfg.Icon} isFocused={isFocused} onPress={onPress} />
-          );
-        })}
+            return (
+              <NavTab key={route.key} route={route} label={label} Icon={cfg.Icon} isFocused={isFocused} onPress={onPress} />
+            );
+          })}
+        </View>
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  // Backdrop for the rounded corners — the page colour, so the footer is violet-dark
+  // edge to edge instead of showing the navigator's white container through the notches.
+  navOuter: { backgroundColor: N.bg },
   // Docked bar: full-width, anchored to the bottom edge, rounded top corners + an upward
   // shadow to lift it off the content.
   nav: {
