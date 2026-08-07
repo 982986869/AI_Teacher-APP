@@ -4,6 +4,7 @@ import { S } from '../theme/studentUI';
 import { FONT } from '../constants/fonts';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import MathText from '../components/MathText';
+import { firstImg, stripImages } from '../utils/mathHtml';
 
 // Warm coral + teal pastel palette (Cuemath-style). coral = primary/brand,
 // teal = correct/positive, warm-red = wrong, amber = skipped.
@@ -18,15 +19,16 @@ const C = {
 
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
 
-// Question/option content may carry an image (diagram) as an embedded <img> — the text
-// renderers strip it, so we render it as a real <Image> below any text.
-const firstImg = (s) => { const m = String(s || '').match(/<img[^>]+src=["']([^"']+)["']/i); return m ? m[1] : null; };
+// Question/option content may carry an image (diagram) as an embedded <img> OR as a
+// bare URL in the text — the text renderers strip both, so we render it as a real
+// <Image> below any text. Shared with mathHtml so every runner treats them alike;
+// the local copy here only knew about <img> tags and printed bare URLs as prose.
 function Rich({ value, fontSize = 15, color = C.text, style, imgHeight = 150 }) {
   if (value == null || !String(value).trim()) return null;
   const raw = String(value);
   const img = firstImg(raw);
   if (!img) return <MathText value={raw} fontSize={fontSize} color={color} style={style} />;
-  const textPart = raw.replace(/<img[^>]*>/gi, '').replace(/<p[^>]*>\s*<\/p>/gi, '');
+  const textPart = stripImages(raw);
   const hasText = !!textPart.replace(/<[^>]+>/g, '').trim() || /\{tex\}/.test(textPart);
   return (
     <View style={style}>

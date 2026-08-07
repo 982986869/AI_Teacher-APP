@@ -21,7 +21,7 @@ import { View, Text, Image, ScrollView, Pressable, StyleSheet, Modal } from 'rea
 import { X, Clock, Menu } from 'lucide-react-native';
 import { COLORS as DS, FONT_FAMILY } from '../theme/designSystem';
 import MathText from './MathText';
-import { hasMath, htmlToPlain, firstImg } from '../utils/mathHtml';
+import { hasMath, htmlToPlain, firstImg, stripImages } from '../utils/mathHtml';
 
 // ─── Palette ──────────────────────────────────────────────────────────────────
 // Inspected off the frame. Only the canvas comes from a token — the frame's
@@ -87,7 +87,7 @@ export function Rich({ value, fontSize = 15, lineHeight, color = TT.ink, family 
   if (value == null || !String(value).trim()) return null;
   const raw = String(value);
   const img = firstImg(raw);
-  const textPart = raw.replace(/<img[^>]*>/gi, '').replace(/<p[^>]*>\s*<\/p>/gi, '');
+  const textPart = stripImages(raw);
   const isMath = hasMath(textPart);
   const plain = isMath ? '' : htmlToPlain(textPart);
   const hasText = isMath ? !!textPart.trim() : plain.length > 0;
@@ -169,7 +169,9 @@ export function TimedTestFrame({
       <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
         {/* `question-area` — 16 above and below. */}
         <View style={s.questionArea}>
-          <Rich value={questionHtml} fontSize={15} lineHeight={22} color={TT.ink} family={TTF.head} imgHeight={170} />
+          {/* Body copy, not a headline — TTF.head is Poppins 700 and set the whole
+              stem in heavy display type, which fights the options below it. */}
+          <Rich value={questionHtml} fontSize={15} lineHeight={22} color={TT.ink} family={TTF.semi} imgHeight={170} />
         </View>
 
         {/* `options-stack` — 8 between cards. */}
