@@ -4,11 +4,6 @@
 // member of that team picks it up and calls the user back. WhatsApp and email stay as
 // the alternative contact routes, not as the delivery mechanism.
 //
-// ⚠️ THE BACKEND FOR THIS IS NOT DEPLOYED YET. The service lives in a separate repo,
-// so this file is the contract the app codes against. Until those routes exist every
-// call here fails with `notDeployed`, and the chat says so plainly instead of showing
-// a message as delivered. Nothing pretends to have been sent.
-//
 // Contract (matches the app's usual `{ data: … }` envelope):
 //
 //   POST /api/support/tickets
@@ -83,5 +78,44 @@ export const getTicket = async (ticketId) => {
     return res.data.data;
   } catch (err) {
     throw tag(err);
+  }
+};
+
+export const listMyTickets = async () => {
+  try {
+    const res = await axiosInstance.get('/api/support/tickets');
+    return res.data.data.tickets || [];
+  } catch (err) {
+    throw tag(err);
+  }
+};
+
+// "Issue Resolved" — the user's confirmation is what actually closes a ticket. Staff
+// only ever propose a resolution.
+export const closeTicket = async (ticketId) => {
+  try {
+    const res = await axiosInstance.post(`/api/support/tickets/${ticketId}/close`);
+    return res.data.data;
+  } catch (err) {
+    throw tag(err);
+  }
+};
+
+// "Abhi bhi problem hai" — works after auto-close too, so a user who was away for four
+// days is never locked out of their own thread.
+export const reopenTicket = async (ticketId) => {
+  try {
+    const res = await axiosInstance.post(`/api/support/tickets/${ticketId}/reopen`);
+    return res.data.data;
+  } catch (err) {
+    throw tag(err);
+  }
+};
+
+export const markTicketRead = async (ticketId) => {
+  try {
+    await axiosInstance.post(`/api/support/tickets/${ticketId}/read`);
+  } catch (_) {
+    // A read receipt is not worth an error in the user's face.
   }
 };
