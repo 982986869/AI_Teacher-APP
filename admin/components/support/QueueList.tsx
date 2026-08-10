@@ -13,16 +13,20 @@ const TABS: { k: TicketStatus | 'all'; l: string }[] = [
   { k: 'all', l: 'All' },
 ]
 
-// A ticket waiting more than a day with nobody having looked at it is the failure this
-// console exists to prevent — with one person on support there is no colleague to
-// notice. It is marked red rather than merely sorted first.
-const STALE_MS = 24 * 60 * 60 * 1000
-function isStale(t: Ticket) {
-  if (t.status === 'closed') return false
-  return !t.staffReadAt && Date.now() - new Date(t.createdAt).getTime() > STALE_MS
-}
 const isUnread = (t: Ticket) =>
   !t.staffReadAt || new Date(t.staffReadAt) < new Date(t.updatedAt)
+
+// A ticket sitting unread for more than a day — never looked at, or looked at and then
+// updated again since — is the failure this console exists to prevent — with one person
+// on support there is no colleague to notice. It is marked red rather than merely sorted
+// first. Elapsed time is measured from the last time staff actually looked (staffReadAt),
+// falling back to creation only when they never have.
+const STALE_MS = 24 * 60 * 60 * 1000
+function isStale(t: Ticket) {
+  if (t.status === 'closed' || !isUnread(t)) return false
+  const since = t.staffReadAt ? new Date(t.staffReadAt) : new Date(t.createdAt)
+  return Date.now() - since.getTime() > STALE_MS
+}
 
 export function QueueList({
   tickets, loading, status, onStatus, team, onTeam, search, onSearch, selectedId, onSelect,
