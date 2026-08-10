@@ -38,7 +38,9 @@ async function autoCloseExpired() {
 }
 
 // Staff marking an issue done. Deliberately NOT `closed` — this is a proposal the user
-// still has to accept.
+// still has to accept. Only valid from `open`/`assigned` — a ticket already `closed` (or
+// already `pending_confirmation`) must go through reopenTicket/stay put instead, so the
+// audit trail (the reopened-event message) isn't bypassed.
 async function resolveTicket({ ticketId, summary, byName }) {
   const rows = await db.$queryRawUnsafe(
     `UPDATE "support_tickets"
@@ -49,9 +51,10 @@ async function resolveTicket({ ticketId, summary, byName }) {
             "autoCloseAt" = now() + ($5 || ' days')::interval,
             "closedAt" = NULL, "closedBy" = NULL,
             "updatedAt" = now()
-      WHERE id = $1::uuid
+      WHERE id = $1::uuid AND "status" IN ($6, $7)
       RETURNING *`,
     ticketId, STATUS.PENDING, String(summary), String(byName || 'Support'), String(AUTO_CLOSE_DAYS),
+    STATUS.OPEN, STATUS.ASSIGNED,
   )
   return rows[0] || null
 }

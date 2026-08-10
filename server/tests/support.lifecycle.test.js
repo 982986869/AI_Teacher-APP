@@ -59,6 +59,19 @@ test('the user closing a pending ticket closes it as `user`', { skip: ctx.skip }
   assert.ok(after.closedAt)
 })
 
+test('resolveTicket refuses to touch a closed ticket', { skip: ctx.skip }, async () => {
+  const t = await makeTicket('assigned')
+  await svc.resolveTicket({ ticketId: t.id, summary: 'done', byName: 'Saurabh' })
+  await svc.closeTicket({ ticketId: t.id, userId: USER })
+
+  const result = await svc.resolveTicket({ ticketId: t.id, summary: 'second attempt', byName: 'Saurabh' })
+  assert.equal(result, null, 'resolving a closed ticket is a no-op')
+
+  const after = await read(t.id)
+  assert.equal(after.status, 'closed', 'status is unchanged')
+  assert.equal(after.closedBy, 'user', 'closedBy is unchanged, not silently revived')
+})
+
 test('reopen works from pending_confirmation AND from closed', { skip: ctx.skip }, async () => {
   const a = await makeTicket('assigned')
   await svc.resolveTicket({ ticketId: a.id, summary: 'done', byName: 'S' })
