@@ -25,7 +25,7 @@ export default function TicketList({ tickets, loading, onOpen, onNew, onClose })
     <View style={[s.wrap, { paddingTop: insets.top + 12, paddingBottom: insets.bottom + 12 }]}>
       <View style={s.head}>
         <TX w="bold" s={18} c={D.ink}>Aapke tickets</TX>
-        <PressableScale onPress={onClose} hitSlop={12}>
+        <PressableScale onPress={onClose} hitSlop={12} accessibilityRole="button" accessibilityLabel="Close help">
           <TX w="semi" s={14} c={D.muted}>Band karein</TX>
         </PressableScale>
       </View>
@@ -34,7 +34,13 @@ export default function TicketList({ tickets, loading, onOpen, onNew, onClose })
         {loading && <TX s={13} c={D.muted}>Load ho raha hai…</TX>}
 
         {!loading && tickets.map((t) => (
-          <PressableScale key={t.id} onPress={() => onOpen(t)} style={s.row}>
+          <PressableScale
+            key={t.id}
+            onPress={() => onOpen(t)}
+            style={s.row}
+            accessibilityRole="button"
+            accessibilityLabel={`Ticket #${t.ref}, ${t.topicLabel || t.team}, ${LABEL[t.status] || t.status}${t.unread ? ', unread' : ''}`}
+          >
             <View style={s.rowLeft}>
               <View style={s.rowTop}>
                 {t.unread && <View style={s.dot} />}
@@ -46,7 +52,7 @@ export default function TicketList({ tickets, loading, onOpen, onNew, onClose })
           </PressableScale>
         ))}
 
-        <PressableScale onPress={onNew} style={s.newBtn}>
+        <PressableScale onPress={onNew} style={s.newBtn} accessibilityRole="button" accessibilityLabel="Naya issue raise karein">
           <Plus size={18} color={D.ink} />
           <TX w="semi" s={14} c={D.ink}>Naya issue</TX>
         </PressableScale>

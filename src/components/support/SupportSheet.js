@@ -5,13 +5,14 @@
 //
 // The two screens live in TopicSelect.js and ChatScreen.js; this file owns only the
 // modal, the step state and the per-conversation ticket ref.
-import React, { useCallback, useEffect, useState } from 'react';
-import { Modal, StatusBar } from 'react-native';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { Modal, StatusBar, View } from 'react-native';
 
 import TicketList from './TicketList';
 import TopicSelect from './TopicSelect';
 import ChatScreen from './ChatScreen';
 import ResolvedScreen from './ResolvedScreen';
+import { D } from './theme';
 import { DEFAULT_AGENT } from './supportConfig';
 import { listMyTickets, markTicketRead } from '../../api/supportApi';
 
@@ -37,21 +38,36 @@ export default function SupportSheet({
   const [picked, setPicked] = useState(null);
   const [reopened, setReopened] = useState(false);
 
-  // step governs what shows while `picked` is null: the user's existing tickets, or the
-  // topic list to raise a new one. Stays 'list' for the whole ticket-list → chat → back
-  // round trip, which is what makes plain `setPicked(null)` land back on the list.
-  const [step, setStep] = useState('list');
+  // step governs what shows while `picked` is null: null while the first ticket fetch is
+  // still in flight (nothing renders yet — an account with zero tickets should never
+  // flash "Aapke tickets" on its way to the topic list), then 'list' or 'topics'. Once
+  // set by the user or the fetch, it stays put for the whole round trip into chat and
+  // back, which is what makes plain `setPicked(null)` land back on the right screen.
+  const [step, setStep] = useState(null);
   const [tickets, setTickets] = useState([]);
   const [loadingTickets, setLoadingTickets] = useState(true);
   // The ticket opened from the list, if any — handed to ChatScreen as `existingTicket`.
   const [openTicket, setOpenTicket] = useState(null);
 
+  // Whether the user has navigated away from the list/topics choice since the sheet
+  // opened. The ticket fetch below only gets to pick the initial `step` while this is
+  // false — otherwise a late-resolving fetch can yank the user off a screen they already
+  // moved past (e.g. tapping "Naya issue" while the fetch is still in flight).
+  const navigatedRef = useRef(false);
+
   useEffect(() => {
-    if (visible) { setPicked(null); setReopened(false); setOpenTicket(null); }
+    if (visible) {
+      setPicked(null);
+      setReopened(false);
+      setOpenTicket(null);
+      setStep(null);
+      navigatedRef.current = false;
+    }
   }, [visible]);
 
   // Skip straight to the topic list when there is nothing to come back to — the extra
-  // screen only earns its place once the user actually has a ticket.
+  // screen only earns its place once the user actually has a ticket. Guarded by
+  // navigatedRef so this never overrides a step the user already chose.
   useEffect(() => {
     if (!visible) return;
     let alive = true;
@@ -61,9 +77,13 @@ export default function SupportSheet({
         if (!alive) return;
         const live = rows.filter((t) => t.status !== 'closed');
         setTickets(live);
-        setStep(live.length ? 'list' : 'topics');
+        if (!navigatedRef.current) setStep(live.length ? 'list' : 'topics');
       })
-      .catch(() => { if (alive) { setTickets([]); setStep('topics'); } })
+      .catch(() => {
+        if (!alive) return;
+        setTickets([]);
+        if (!navigatedRef.current) setStep('topics');
+      })
       .finally(() => { if (alive) setLoadingTickets(false); });
     return () => { alive = false; };
   }, [visible]);
@@ -71,22 +91,34 @@ export default function SupportSheet({
   // ChatScreen raises the ticket itself and owns the server-issued ref — this only picks
   // the department.
   const pick = useCallback((category, index) => {
+    navigatedRef.current = true;
     setReopened(false);
     setOpenTicket(null);
     setPicked({ category, index });
   }, []);
 
+  // "+ Naya issue" from the ticket list.
+  const goToTopics = useCallback(() => {
+    navigatedRef.current = true;
+    setStep('topics');
+  }, []);
+
   // Reopening an existing thread from the list: find the department it was raised under
   // (falling back to a plain synthetic one if that category no longer exists) so ChatScreen
   // renders exactly as it would mid-conversation, then hand the ticket itself through.
+  // Clearing `unread` locally (alongside the fire-and-forget `markTicketRead` call) is
+  // what makes the dot disappear the moment the user opens the ticket, not just the next
+  // time the sheet is reopened.
   const openExisting = useCallback((t) => {
+    navigatedRef.current = true;
     markTicketRead(t.id);
+    setTickets((prev) => prev.map((x) => (x.id === t.id ? { ...x, unread: false } : x)));
     const idx = categories.findIndex((c) => c.id === t.topicId);
     const category = idx >= 0
       ? categories[idx]
       : { id: t.topicId, label: t.topicLabel || t.team, team: t.team, plain: true };
     setReopened(false);
-    setOpenTicket(t);
+    setOpenTicket({ ...t, unread: false });
     setPicked({ category, index: idx >= 0 ? idx : 0 });
   }, [categories]);
 
@@ -147,10 +179,10 @@ export default function SupportSheet({
           tickets={tickets}
           loading={loadingTickets}
           onOpen={openExisting}
-          onNew={() => setStep('topics')}
+          onNew={goToTopics}
           onClose={onClose}
         />
-      ) : (
+      ) : step === 'topics' ? (
         <TopicSelect
           categories={categories}
           agent={agent}
@@ -161,6 +193,11 @@ export default function SupportSheet({
           onPick={pick}
           onClose={backFromTopics}
         />
+      ) : (
+        // step is still null: the first ticket fetch hasn't settled. Nothing applies yet
+        // — not the ticket list, not the topic list — so hold the sheet's own dark
+        // background rather than flashing a screen the user will immediately leave.
+        <View style={{ flex: 1, backgroundColor: D.bg }} />
       )}
     </Modal>
   );
