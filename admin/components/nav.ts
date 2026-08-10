@@ -1,6 +1,6 @@
 import {
   LayoutDashboard, UsersRound, BookOpen, Bot, BarChart3, Megaphone, Settings,
-  ScrollText, LineChart as LineChartIcon, GraduationCap, HeartHandshake, Video, type LucideIcon,
+  ScrollText, LineChart as LineChartIcon, GraduationCap, HeartHandshake, Video, LifeBuoy, type LucideIcon,
 } from 'lucide-react'
 import type { Permission } from '@/lib/types'
 
@@ -31,6 +31,7 @@ export const NAV: NavGroup[] = [
   {
     label: 'Operations',
     items: [
+      { label: 'Support', href: '/support', icon: LifeBuoy, perm: 'support.view' },
       { label: 'Reports', href: '/reports', icon: BarChart3, perm: 'reports.view' },
       { label: 'Analytics', href: '/analytics', icon: LineChartIcon, perm: 'reports.view' },
       { label: 'Announcements', href: '/announcements', icon: Megaphone, perm: 'announcements.view' },
@@ -55,6 +56,7 @@ export const ROUTE_META: Record<string, { title: string; parent?: string }> = {
   '/content': { title: 'Content' },
   '/ai-teacher': { title: 'AI Teacher' },
   '/sessions': { title: 'Sessions' },
+  '/support': { title: 'Support' },
   '/reports': { title: 'Reports' },
   '/analytics': { title: 'Analytics' },
   '/announcements': { title: 'Announcements' },

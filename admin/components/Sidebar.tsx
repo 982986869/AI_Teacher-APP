@@ -8,8 +8,9 @@ import { useAuth } from '@/lib/auth'
 import { initials, colorFor } from '@/lib/format'
 
 // Shared, permission-filtered nav list used by both the desktop sidebar and the mobile
-// drawer, so the two never drift.
-function NavList({ onNavigate }: { onNavigate?: () => void }) {
+// drawer, so the two never drift. `supportUnread` renders a pill beside the Support item
+// when the open-ticket queue has unseen activity — it's the only nav item with a live count.
+function NavList({ onNavigate, supportUnread = 0 }: { onNavigate?: () => void; supportUnread?: number }) {
   const pathname = usePathname()
   const { can } = useAuth()
   return (
@@ -26,6 +27,9 @@ function NavList({ onNavigate }: { onNavigate?: () => void }) {
                 <Link key={it.href} href={it.href} className={`nav-item ${active ? 'active' : ''}`} onClick={onNavigate}>
                   <it.icon size={18} strokeWidth={active ? 2.5 : 2.1} />
                   {it.label}
+                  {it.href === '/support' && supportUnread > 0 && (
+                    <span className="nav-count">{supportUnread > 99 ? '99+' : supportUnread}</span>
+                  )}
                 </Link>
               )
             })}
@@ -65,20 +69,20 @@ function Foot() {
 }
 
 // Desktop rail — sticky, quiet, always present ≥1024px.
-export function Sidebar() {
+export function Sidebar({ supportUnread = 0 }: { supportUnread?: number }) {
   const { admin } = useAuth()
   if (!admin) return null
   return (
     <aside className="sidebar">
       <Brand />
-      <NavList />
+      <NavList supportUnread={supportUnread} />
       <Foot />
     </aside>
   )
 }
 
 // Mobile drawer — same nav, slides in from the left over a scrim (<1024px).
-export function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
+export function MobileNav({ open, onClose, supportUnread = 0 }: { open: boolean; onClose: () => void; supportUnread?: number }) {
   if (!open) return null
   return (
     <>
@@ -88,7 +92,7 @@ export function MobileNav({ open, onClose }: { open: boolean; onClose: () => voi
           <Brand />
           <button className="btn btn-ghost icon-btn" onClick={onClose} aria-label="Close menu"><X size={18} /></button>
         </div>
-        <NavList onNavigate={onClose} />
+        <NavList onNavigate={onClose} supportUnread={supportUnread} />
         <Foot />
       </aside>
     </>
