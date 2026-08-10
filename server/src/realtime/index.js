@@ -6,14 +6,17 @@
 // latency and never a message.
 //
 // Rooms:
-//   ticket:<id>   the ticket's owner plus any staff who opened it
-//   staff:queue   staff only — new tickets and status changes for the console list
+//   ticket:<id>   the ticket's owner plus any support.view holder who opened it
+//   staff:queue   support.view holders only — new tickets and status changes for
+//                 the console list. Not "any admin_role" — a content_manager IS an
+//                 admin role but was deliberately not granted support.view (Task 4),
+//                 and must never see ticket payloads over the socket either.
 
 const { Server } = require('socket.io')
 const jwt = require('jsonwebtoken')
 const db = require('../config/database')
 const { config } = require('../config/env')
-const { isAdminRole } = require('../services/admin/permissions')
+const { hasPermission } = require('../services/admin/permissions')
 
 let io = null
 
@@ -32,7 +35,12 @@ async function identify(token) {
   )
   const user = rows && rows[0]
   if (!user) return null
-  return { id: user.id, name: user.name, staff: isAdminRole(user.admin_role) }
+  // `staff` here means "may see support tickets" — support.view, not merely "carries
+  // some admin_role". A content_manager IS an admin role but was deliberately NOT
+  // granted support.view (Task 4), so isAdminRole alone would let their socket join
+  // staff:queue and receive every ticket:new payload despite the console hiding the
+  // nav item from them. hasPermission is the same gate the HTTP admin routes use.
+  return { id: user.id, name: user.name, staff: hasPermission(user.admin_role, 'support.view') }
 }
 
 function attachRealtime(httpServer) {

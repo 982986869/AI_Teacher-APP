@@ -12,7 +12,7 @@ const hasDb = !!process.env.DATABASE_URL
 const db = hasDb ? require('../src/config/database') : null
 const jwt = hasDb ? require('jsonwebtoken') : null
 const { config } = hasDb ? require('../src/config/env') : { config: null }
-const { attachRealtime } = hasDb ? require('../src/realtime') : {}
+const { attachRealtime, emitToStaffQueue } = hasDb ? require('../src/realtime') : {}
 const ctrl = hasDb ? require('../src/controllers/support.controller') : null
 const { io: ioClient } = hasDb ? require('socket.io-client') : {}
 
@@ -179,6 +179,50 @@ test('typing cannot be spoofed into a room this socket never joined', { skip: ct
   otherSock.close()
 
   assert.equal(typingEvents.length, 0, 'typing must not reach a room the sender never joined')
+})
+
+test('content_manager does not receive staff:queue broadcasts; a support role does', { skip: ctx.skip }, async () => {
+  if (ctx.skip) return
+
+  // content_manager IS an admin role but was deliberately not granted support.view
+  // (Task 4) — staff:queue membership must key off that permission, not off "carries
+  // any admin_role". Promote two real users temporarily (one to each role) and always
+  // restore both, even if an assertion throws.
+  const ownerBefore = await db.$queryRawUnsafe(`SELECT "admin_role" FROM "users" WHERE id = $1::uuid`, ctx.ownerId)
+  const otherBefore = await db.$queryRawUnsafe(`SELECT "admin_role" FROM "users" WHERE id = $1::uuid`, ctx.otherId)
+  const ownerOriginalRole = ownerBefore[0] ? ownerBefore[0].admin_role : null
+  const otherOriginalRole = otherBefore[0] ? otherBefore[0].admin_role : null
+
+  await db.$executeRawUnsafe(`UPDATE "users" SET "admin_role" = 'support' WHERE id = $1::uuid`, ctx.ownerId)
+  await db.$executeRawUnsafe(`UPDATE "users" SET "admin_role" = 'content_manager' WHERE id = $1::uuid`, ctx.otherId)
+
+  try {
+    const supportToken = jwt.sign({ sub: ctx.ownerId }, config.auth.jwtSecret, { expiresIn: '5m' })
+    const cmToken = jwt.sign({ sub: ctx.otherId }, config.auth.jwtSecret, { expiresIn: '5m' })
+
+    const supportSock = connect(supportToken)
+    await new Promise((r) => supportSock.on('connect', r))
+    const cmSock = connect(cmToken)
+    await new Promise((r) => cmSock.on('connect', r))
+
+    const supportEvents = []
+    const cmEvents = []
+    supportSock.on('ticket:new', (p) => supportEvents.push(p))
+    cmSock.on('ticket:new', (p) => cmEvents.push(p))
+
+    emitToStaffQueue('ticket:new', { id: 'test-broadcast', ref: 'AL-TEST' })
+
+    await new Promise((r) => setTimeout(r, 500))
+
+    supportSock.close()
+    cmSock.close()
+
+    assert.equal(supportEvents.length, 1, 'a support.view holder must still receive the queue broadcast')
+    assert.equal(cmEvents.length, 0, 'content_manager (no support.view) must not receive it')
+  } finally {
+    await db.$executeRawUnsafe(`UPDATE "users" SET "admin_role" = $1 WHERE id = $2::uuid`, ownerOriginalRole, ctx.ownerId)
+    await db.$executeRawUnsafe(`UPDATE "users" SET "admin_role" = $1 WHERE id = $2::uuid`, otherOriginalRole, ctx.otherId)
+  }
 })
 
 test('teardown', { skip: ctx.skip }, async () => {
