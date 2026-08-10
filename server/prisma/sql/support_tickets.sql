@@ -79,3 +79,32 @@ CREATE TABLE IF NOT EXISTS "support_agents" (
 
 CREATE UNIQUE INDEX IF NOT EXISTS "support_agents_uq"      ON "support_agents" ("team", "userId");
 CREATE INDEX        IF NOT EXISTS "support_agents_team_idx" ON "support_agents" ("team", "active");
+
+-- ── v2: two-sided resolution ─────────────────────────────────────────────────
+-- A ticket now closes when the USER confirms, not when staff says so. Staff
+-- "Resolved" moves it to `pending_confirmation` and stamps `autoCloseAt`; the user
+-- either confirms (→ closed), reopens (→ open), or says nothing for three days and it
+-- closes itself. Additive and idempotent; safe to re-run.
+
+ALTER TABLE "support_tickets" ADD COLUMN IF NOT EXISTS "closedAt"    TIMESTAMPTZ;
+ALTER TABLE "support_tickets" ADD COLUMN IF NOT EXISTS "closedBy"    TEXT;         -- user | auto | admin
+ALTER TABLE "support_tickets" ADD COLUMN IF NOT EXISTS "autoCloseAt" TIMESTAMPTZ;  -- resolvedAt + 3 days
+ALTER TABLE "support_tickets" ADD COLUMN IF NOT EXISTS "userReadAt"  TIMESTAMPTZ;
+ALTER TABLE "support_tickets" ADD COLUMN IF NOT EXISTS "staffReadAt" TIMESTAMPTZ;
+
+-- Call logs and system events share the messages table rather than earning one of
+-- their own. `callOutcome` is a column and not a prefix inside `text` so no UI ever
+-- has to parse prose to draw a chip.
+ALTER TABLE "support_messages" ADD COLUMN IF NOT EXISTS "kind"        TEXT NOT NULL DEFAULT 'text'; -- text | call | event
+ALTER TABLE "support_messages" ADD COLUMN IF NOT EXISTS "authorName"  TEXT;
+ALTER TABLE "support_messages" ADD COLUMN IF NOT EXISTS "callOutcome" TEXT;        -- talked | no_answer | callback
+
+-- Old `resolved` rows predate user confirmation; treat them as finished. Idempotent —
+-- once run there are no `resolved` rows left to match.
+UPDATE "support_tickets"
+   SET "status" = 'closed', "closedAt" = COALESCE("resolvedAt", now()), "closedBy" = 'admin'
+ WHERE "status" = 'resolved';
+
+-- The console's default read: everything awaiting the team, oldest first.
+CREATE INDEX IF NOT EXISTS "support_tickets_autoclose_idx"
+  ON "support_tickets" ("status", "autoCloseAt");
