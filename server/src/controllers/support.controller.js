@@ -16,6 +16,7 @@ const db = require('../config/database')
 const ApiResponse = require('../utils/ApiResponse')
 const { uploadFile } = require('../services/storage')
 const { isAdminRole } = require('../services/admin/permissions')
+const svc = require('../services/support/support.service')
 
 const MAX_TEXT = 4000
 
@@ -54,6 +55,10 @@ function shape(t) {
     resolution: t.resolvedAt
       ? { summary: t.resolutionSummary || '', at: t.resolvedAt, by: t.resolvedByName || null }
       : null,
+    updatedAt: t.updatedAt,
+    staffReadAt: t.staffReadAt || null,
+    autoCloseAt: t.autoCloseAt || null,
+    unread: !!(t.updatedAt && (!t.userReadAt || t.userReadAt < t.updatedAt)),
   }
 }
 
@@ -66,8 +71,8 @@ async function loadOwned(req, ticketId) {
   )
   if (!rows || !rows.length) return { error: ['Ticket not found.', 404] }
   const t = rows[0]
-  const isStaff = !!req.user.admin_role
-  if (t.userId !== req.user.id && !isStaff) return { error: ['Ticket not found.', 404] }
+  const staff = isStaff(req)
+  if (t.userId !== req.user.id && !staff) return { error: ['Ticket not found.', 404] }
   return { ticket: t }
 }
 
@@ -130,20 +135,18 @@ async function addMessage(req, res, next) {
     const text = String(req.body.text || '').trim().slice(0, MAX_TEXT)
     if (!text) return ApiResponse.error(res, 'Message cannot be empty.', 422)
 
-    const authorRole = req.user.admin_role ? 'agent' : 'user'
+    const authorRole = isStaff(req) ? 'agent' : 'user'
+    const authorName = isStaff(req) ? (req.user.name || 'Support') : null
     const rows = await db.$queryRawUnsafe(
-      `INSERT INTO "support_messages" ("ticketId", "authorId", "authorRole", "text")
-       VALUES ($1::uuid, $2::uuid, $3, $4) RETURNING id, "createdAt"`,
-      ticket.id, req.user.id, authorRole, text,
+      `INSERT INTO "support_messages" ("ticketId","authorId","authorRole","authorName","text")
+       VALUES ($1::uuid, $2::uuid, $3, $4, $5) RETURNING id, "createdAt"`,
+      ticket.id, req.user.id, authorRole, authorName, text,
     )
-    // A reply reopens a resolved ticket — otherwise a follow-up disappears into a closed
-    // thread nobody is watching.
+    // A reply does NOT reopen a closed ticket. It used to, which meant a user's "thank
+    // you" pushed every just-closed ticket back into the queue. Reopening is the
+    // Reopen button's job and nothing else's.
     await db.$executeRawUnsafe(
-      `UPDATE "support_tickets"
-          SET "updatedAt" = now(),
-              "status" = CASE WHEN "status" = 'resolved' AND $2 = 'user' THEN 'open' ELSE "status" END
-        WHERE id = $1::uuid`,
-      ticket.id, authorRole,
+      `UPDATE "support_tickets" SET "updatedAt" = now() WHERE id = $1::uuid`, ticket.id,
     )
 
     return ApiResponse.created(res, { id: rows[0].id, at: rows[0].createdAt }, 'Message added')
@@ -186,20 +189,38 @@ async function addAttachment(req, res, next) {
 // ─── GET /api/support/tickets/:id ─────────────────────────────────────────────
 async function getOne(req, res, next) {
   try {
+    await svc.autoCloseExpired()
+
     const { ticket, error } = await loadOwned(req, req.params.id)
     if (error) return ApiResponse.error(res, error[0], error[1])
 
+    // Call logs are the team's own record of dialling out. The user sees the reply that
+    // came out of the call, never the internal note.
+    const staff = isStaff(req)
     const messages = await db.$queryRawUnsafe(
-      `SELECT id, "authorRole", "text", "createdAt"
-         FROM "support_messages" WHERE "ticketId" = $1::uuid ORDER BY "createdAt" ASC`,
-      ticket.id,
+      `SELECT id, "authorRole", "authorName", "kind", "callOutcome", "text", "createdAt"
+         FROM "support_messages"
+        WHERE "ticketId" = $1::uuid AND ($2::boolean OR "kind" <> 'call')
+        ORDER BY "createdAt" ASC`,
+      ticket.id, staff,
     )
     const attachments = await db.$queryRawUnsafe(
       `SELECT id, "name", "url", "mimeType" FROM "support_attachments"
         WHERE "ticketId" = $1::uuid ORDER BY "createdAt" ASC`,
       ticket.id,
     )
-    return ApiResponse.success(res, { ...shape(ticket), messages, attachments })
+    // The thread header needs the caller's name and number. Only staff get it; for the
+    // owner it is their own contact detail and simply noise.
+    let raisedBy = null
+    if (staff) {
+      const u = await db.$queryRawUnsafe(
+        `SELECT u."name", u."phone" FROM "users" u WHERE u.id = $1::uuid LIMIT 1`, ticket.userId,
+      )
+      raisedBy = { name: u[0] ? u[0].name : 'Unknown', phone: ticket.phone || (u[0] && u[0].phone) || null }
+    }
+    return ApiResponse.success(res, {
+      ...shape(ticket), messages, attachments, raisedBy, childName: ticket.childName,
+    })
   } catch (err) {
     return next(err)
   }
@@ -208,9 +229,16 @@ async function getOne(req, res, next) {
 // ─── GET /api/support/tickets — the user's own tickets ────────────────────────
 async function listMine(req, res, next) {
   try {
+    await svc.autoCloseExpired()
+
     const rows = await db.$queryRawUnsafe(
-      `SELECT * FROM "support_tickets" WHERE "userId" = $1::uuid
-        ORDER BY "createdAt" DESC LIMIT 50`,
+      `SELECT * FROM "support_tickets" t
+        WHERE t."userId" = $1::uuid
+          -- Opening a department creates the ticket so the ref on screen is real. Ones
+          -- nobody ever wrote in are not tickets; they must not fill this list either.
+          AND EXISTS (SELECT 1 FROM "support_messages" m
+                       WHERE m."ticketId" = t.id AND m."authorRole" = 'user')
+        ORDER BY t."createdAt" DESC LIMIT 50`,
       req.user.id,
     )
     return ApiResponse.success(res, { tickets: rows.map(shape) })
@@ -224,7 +252,8 @@ async function listMine(req, res, next) {
 // UI on top of it is the next step.
 async function queue(req, res, next) {
   try {
-    if (!req.user.admin_role) return ApiResponse.error(res, 'Staff access required.', 403)
+    await svc.autoCloseExpired()
+    if (!isStaff(req)) return ApiResponse.error(res, 'Staff access required.', 403)
     const team = req.query.team ? String(req.query.team) : null
     const status = req.query.status ? String(req.query.status) : 'open'
     const rows = await db.$queryRawUnsafe(
@@ -241,12 +270,14 @@ async function queue(req, res, next) {
         ORDER BY t."createdAt" ASC LIMIT 200`,
       team, status,
     )
+    const unreadCount = rows.filter((t) => !t.staffReadAt || t.staffReadAt < t.updatedAt).length
     return ApiResponse.success(res, {
       tickets: rows.map((t) => ({
         ...shape(t),
         raisedBy: { name: t.raisedByName, phone: t.phone || t.raisedByPhone },
         childName: t.childName,
       })),
+      unreadCount,
     })
   } catch (err) {
     return next(err)
@@ -256,22 +287,86 @@ async function queue(req, res, next) {
 // ─── PATCH /api/support/tickets/:id/resolve — staff only ──────────────────────
 async function resolve(req, res, next) {
   try {
-    if (!req.user.admin_role) return ApiResponse.error(res, 'Staff access required.', 403)
+    if (!isStaff(req)) return ApiResponse.error(res, 'Staff access required.', 403)
     const summary = String(req.body.summary || '').trim().slice(0, 500)
     if (!summary) return ApiResponse.error(res, 'A resolution summary is required.', 422)
 
-    const rows = await db.$queryRawUnsafe(
-      `UPDATE "support_tickets"
-          SET "status" = 'resolved', "resolutionSummary" = $2,
-              "resolvedByName" = $3, "resolvedAt" = now(), "updatedAt" = now()
-        WHERE id = $1::uuid RETURNING *`,
-      req.params.id, summary, req.user.name || 'Support',
-    )
-    if (!rows || !rows.length) return ApiResponse.error(res, 'Ticket not found.', 404)
-    return ApiResponse.success(res, shape(rows[0]), 'Ticket resolved')
+    const ticket = await svc.resolveTicket({
+      ticketId: req.params.id, summary, byName: req.user.name || 'Support',
+    })
+    if (!ticket) return ApiResponse.error(res, 'Ticket not found.', 404)
+    return ApiResponse.success(res, shape(ticket), 'Ticket resolved')
   } catch (err) {
     return next(err)
   }
 }
 
-module.exports = { create, addMessage, addAttachment, getOne, listMine, queue, resolve }
+// ─── POST /api/support/tickets/:id/close — the owner confirming ───────────────
+// Staff cannot call this. The whole point of the two-sided close is that the last word
+// is the user's; a staff-side close would put it back where it started.
+async function close(req, res, next) {
+  try {
+    const { ticket, error } = await loadOwned(req, req.params.id)
+    if (error) return ApiResponse.error(res, error[0], error[1])
+    if (ticket.userId !== req.user.id) return ApiResponse.error(res, 'Ticket not found.', 404)
+
+    const updated = await svc.closeTicket({ ticketId: ticket.id, userId: req.user.id })
+    if (!updated) return ApiResponse.error(res, 'This ticket is not awaiting your confirmation.', 409)
+    return ApiResponse.success(res, shape(updated), 'Ticket closed')
+  } catch (err) {
+    return next(err)
+  }
+}
+
+// ─── POST /api/support/tickets/:id/reopen — "abhi bhi problem hai" ────────────
+async function reopen(req, res, next) {
+  try {
+    const { ticket, error } = await loadOwned(req, req.params.id)
+    if (error) return ApiResponse.error(res, error[0], error[1])
+    if (ticket.userId !== req.user.id) return ApiResponse.error(res, 'Ticket not found.', 404)
+
+    const updated = await svc.reopenTicket({ ticketId: ticket.id, userId: req.user.id })
+    if (!updated) return ApiResponse.error(res, 'This ticket is already open.', 409)
+    return ApiResponse.success(res, shape(updated), 'Ticket reopened')
+  } catch (err) {
+    return next(err)
+  }
+}
+
+// ─── POST /api/support/tickets/:id/call-log — staff only ──────────────────────
+async function callLog(req, res, next) {
+  try {
+    if (!isStaff(req)) return ApiResponse.error(res, 'Staff access required.', 403)
+    const { outcome, note } = req.body
+    if (!svc.CALL_OUTCOMES.includes(outcome)) {
+      return ApiResponse.error(res, 'Pick a call outcome.', 422)
+    }
+    const { ticket, error } = await loadOwned(req, req.params.id)
+    if (error) return ApiResponse.error(res, error[0], error[1])
+
+    const row = await svc.logCall({
+      ticketId: ticket.id, authorId: req.user.id,
+      authorName: req.user.name || 'Support', outcome, note,
+    })
+    return ApiResponse.created(res, { id: row.id, at: row.createdAt }, 'Call logged')
+  } catch (err) {
+    return next(err)
+  }
+}
+
+// ─── POST /api/support/tickets/:id/read ───────────────────────────────────────
+async function markRead(req, res, next) {
+  try {
+    const { ticket, error } = await loadOwned(req, req.params.id)
+    if (error) return ApiResponse.error(res, error[0], error[1])
+    await svc.markRead({ ticketId: ticket.id, as: isStaff(req) ? 'staff' : 'user' })
+    return ApiResponse.success(res, { ok: true })
+  } catch (err) {
+    return next(err)
+  }
+}
+
+module.exports = {
+  create, addMessage, addAttachment, getOne, listMine, queue, resolve,
+  close, reopen, callLog, markRead,
+}

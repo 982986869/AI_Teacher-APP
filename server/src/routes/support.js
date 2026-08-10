@@ -54,4 +54,13 @@ router.patch('/tickets/:id/resolve', [
   body('summary').isString().trim().notEmpty().withMessage('A resolution summary is required.'),
 ], ctrl.resolve)
 
+router.post('/tickets/:id/close', ctrl.close)
+router.post('/tickets/:id/reopen', ctrl.reopen)
+router.post('/tickets/:id/read', ctrl.markRead)
+
+router.post('/tickets/:id/call-log', [
+  body('outcome').isString().trim().notEmpty().withMessage('Pick a call outcome.'),
+  body('note').optional({ checkFalsy: true }).isString(),
+], ctrl.callLog)
+
 module.exports = router
