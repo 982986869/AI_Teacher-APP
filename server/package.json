@@ -13,6 +13,7 @@
     "braingym:build-seed": "node scripts/build-braingym-seed.js",
     "braingym:backfill": "node scripts/braingym-backfill.js",
     "admin:setup": "node scripts/admin-setup.js",
+    "support:setup": "node scripts/support-agents-setup.js",
     "cms:setup": "node scripts/cms-setup.js",
     "sessions:setup": "node scripts/sessions-setup.js",
     "profile-photo:setup": "node scripts/profile-photo-setup.js",
