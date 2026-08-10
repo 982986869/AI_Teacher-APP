@@ -15,16 +15,18 @@ const { validationResult } = require('express-validator')
 const db = require('../config/database')
 const ApiResponse = require('../utils/ApiResponse')
 const { uploadFile } = require('../services/storage')
-const { isAdminRole } = require('../services/admin/permissions')
+const { hasPermission } = require('../services/admin/permissions')
 const svc = require('../services/support/support.service')
 const { emitToTicket, emitToStaffQueue } = require('../realtime')
 
 const MAX_TEXT = 4000
 
-// Staff = anyone carrying a portal role. `admin_role` is a free-text column, so a
-// truthy check would let a stale or misspelled value through; isAdminRole is the same
-// gate /api/admin uses.
-const isStaff = (req) => isAdminRole(req.user && req.user.admin_role)
+// Staff = "may see support tickets", not "carries any admin_role". `admin_role` answers
+// the wrong question — content_manager IS an admin role but was deliberately withheld
+// support.view (Task 4), so an isAdminRole/truthy check would let it read (and browse)
+// any family's ticket, including staff-only call logs. hasPermission is the same gate
+// the realtime layer (server/src/realtime/index.js) already uses.
+const isStaff = (req) => hasPermission(req.user && req.user.admin_role, 'support.view')
 
 // Pick the active member of this team carrying the fewest open tickets. Returns null when
 // the team has nobody registered — which is the honest default, and what the app renders
@@ -135,11 +137,19 @@ async function addMessage(req, res, next) {
     const { ticket, error } = await loadOwned(req, req.params.id)
     if (error) return ApiResponse.error(res, error[0], error[1])
 
+    // loadOwned already proved this caller is either the owner or a support.view holder.
+    // Replying as staff is a further, narrower grant — support.view lets you watch a
+    // queue, it does not by itself let you speak into someone's thread.
+    const isOwner = ticket.userId === req.user.id
+    if (!isOwner && !hasPermission(req.user.admin_role, 'support.reply')) {
+      return ApiResponse.error(res, 'You do not have permission to reply to tickets.', 403)
+    }
+
     const text = String(req.body.text || '').trim().slice(0, MAX_TEXT)
     if (!text) return ApiResponse.error(res, 'Message cannot be empty.', 422)
 
-    const authorRole = isStaff(req) ? 'agent' : 'user'
-    const authorName = isStaff(req) ? (req.user.name || 'Support') : null
+    const authorRole = isOwner ? 'user' : 'agent'
+    const authorName = isOwner ? null : (req.user.name || 'Support')
     const rows = await db.$queryRawUnsafe(
       `INSERT INTO "support_messages" ("ticketId","authorId","authorRole","authorName","text")
        VALUES ($1::uuid, $2::uuid, $3, $4, $5) RETURNING id, "createdAt"`,
@@ -296,7 +306,9 @@ async function queue(req, res, next) {
 // ─── PATCH /api/support/tickets/:id/resolve — staff only ──────────────────────
 async function resolve(req, res, next) {
   try {
-    if (!isStaff(req)) return ApiResponse.error(res, 'Staff access required.', 403)
+    if (!hasPermission(req.user && req.user.admin_role, 'support.resolve')) {
+      return ApiResponse.error(res, 'You do not have permission to resolve tickets.', 403)
+    }
     const summary = String(req.body.summary || '').trim().slice(0, 500)
     if (!summary) return ApiResponse.error(res, 'A resolution summary is required.', 422)
 
@@ -351,7 +363,12 @@ async function reopen(req, res, next) {
 // ─── POST /api/support/tickets/:id/call-log — staff only ──────────────────────
 async function callLog(req, res, next) {
   try {
-    if (!isStaff(req)) return ApiResponse.error(res, 'Staff access required.', 403)
+    // Logging a call is a reply-shaped write (it lands in support_messages, same as
+    // addMessage) — gated the same way, on support.reply rather than the broader
+    // support.view.
+    if (!hasPermission(req.user && req.user.admin_role, 'support.reply')) {
+      return ApiResponse.error(res, 'You do not have permission to reply to tickets.', 403)
+    }
     const { outcome, note } = req.body
     if (!svc.CALL_OUTCOMES.includes(outcome)) {
       return ApiResponse.error(res, 'Pick a call outcome.', 422)

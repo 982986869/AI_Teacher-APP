@@ -11,6 +11,13 @@ const assert = require('node:assert')
 const hasDb = !!process.env.DATABASE_URL
 const db = hasDb ? require('../src/config/database') : null
 const ctrl = hasDb ? require('../src/controllers/support.controller') : null
+const { ROLE_PERMISSIONS } = hasDb ? require('../src/services/admin/permissions') : { ROLE_PERMISSIONS: {} }
+
+// A synthetic role, local to this test file's process, that carries support.view but
+// deliberately withholds support.reply/support.resolve — no real role happens to be
+// shaped exactly like that today, but the controller must still gate the two narrower
+// permissions separately rather than collapsing everything into "isStaff".
+if (hasDb) ROLE_PERMISSIONS.test_support_viewer = ['support.view']
 
 const ctx = { skip: !hasDb, ids: [] }
 const OWNER = '00000000-0000-4000-8000-00000000e001'
@@ -95,6 +102,56 @@ test('a ticket with no user message shows in neither queue nor listMine', { skip
   const m = fakeRes()
   await ctrl.listMine(fakeReq({ id: OWNER, admin_role: null }), m, () => {})
   assert.ok(!m.body.data.tickets.some((x) => x.id === t.id))
+})
+
+test('a content_manager token is refused the queue', { skip: ctx.skip }, async () => {
+  const res = fakeRes()
+  await ctrl.queue(fakeReq({ id: OTHER, admin_role: 'content_manager' }), res, () => {})
+  assert.equal(res.statusCode, 403, 'content_manager IS an admin role but was never granted support.view')
+})
+
+test('a content_manager token is refused a ticket it does not own', { skip: ctx.skip }, async () => {
+  const t = await makeTicket('open')
+  const res = fakeRes()
+  await ctrl.getOne(fakeReq({ id: OTHER, admin_role: 'content_manager' }, { params: { id: t.id } }), res, () => {})
+  assert.equal(res.statusCode, 404, 'not 403 — an outsider must not learn the ticket exists')
+})
+
+test('a role holding only support.view cannot post a message on someone else’s ticket', { skip: ctx.skip }, async () => {
+  const t = await makeTicket('open')
+  const res = fakeRes()
+  await ctrl.addMessage(
+    fakeReq({ id: OTHER, admin_role: 'test_support_viewer' }, { params: { id: t.id }, body: { text: 'hi' } }),
+    res, () => {},
+  )
+  assert.equal(res.statusCode, 403, 'support.view lets you watch, support.reply lets you speak')
+  const msgs = await db.$queryRawUnsafe(
+    `SELECT COUNT(*)::int AS n FROM "support_messages" WHERE "ticketId" = $1::uuid AND "authorId" = $2::uuid`,
+    t.id, OTHER,
+  )
+  assert.equal(msgs[0].n, 0, 'no message was written')
+})
+
+test('a role holding only support.view cannot resolve a ticket', { skip: ctx.skip }, async () => {
+  const t = await makeTicket('assigned')
+  const res = fakeRes()
+  await ctrl.resolve(
+    fakeReq({ id: OTHER, admin_role: 'test_support_viewer' }, { params: { id: t.id }, body: { summary: 'done' } }),
+    res, () => {},
+  )
+  assert.equal(res.statusCode, 403)
+  const after = await db.$queryRawUnsafe(`SELECT status FROM "support_tickets" WHERE id=$1::uuid`, t.id)
+  assert.equal(after[0].status, 'assigned', 'not resolved')
+})
+
+test('a role holding support.reply CAN post a message on someone else’s ticket', { skip: ctx.skip }, async () => {
+  const t = await makeTicket('open')
+  const res = fakeRes()
+  await ctrl.addMessage(
+    fakeReq({ id: OTHER, name: 'Saurabh', admin_role: 'support' }, { params: { id: t.id }, body: { text: 'hi' } }),
+    res, () => {},
+  )
+  assert.equal(res.statusCode, 201, 'the `support` role carries support.reply')
 })
 
 test('teardown', { skip: ctx.skip }, async () => {
