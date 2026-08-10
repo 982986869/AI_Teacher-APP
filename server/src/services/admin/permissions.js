@@ -16,6 +16,7 @@ const PERMISSIONS = [
   'settings.view', 'settings.edit',
   'flags.view', 'flags.edit',
   'audit.view',
+  'support.view', 'support.reply', 'support.resolve',
 ]
 
 // '*' = every permission. Ordered from most to least privileged.
@@ -32,6 +33,7 @@ const ROLE_PERMISSIONS = {
     'settings.view', 'settings.edit',
     'flags.view', 'flags.edit',
     'audit.view',
+    'support.view', 'support.reply', 'support.resolve',
   ],
 
   // Curriculum / question-bank / AI-Teacher configuration. No user administration.
@@ -51,6 +53,7 @@ const ROLE_PERMISSIONS = {
     'reports.view',
     'announcements.view',
     'audit.view',
+    'support.view', 'support.reply', 'support.resolve',
   ],
 }
 

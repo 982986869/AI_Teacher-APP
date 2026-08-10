@@ -11,6 +11,7 @@ export type Permission =
   | 'settings.view' | 'settings.edit'
   | 'flags.view' | 'flags.edit'
   | 'audit.view'
+  | 'support.view' | 'support.reply' | 'support.resolve'
 
 export interface Admin {
   id: string
