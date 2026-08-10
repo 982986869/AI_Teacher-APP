@@ -6,6 +6,7 @@ const { validateEnv } = require('./config/env')
 validateEnv() // Fail fast — crash on missing env vars before anything else starts
 
 const path = require('path')
+const http = require('http')
 const express = require('express')
 const cors = require('cors')
 const helmet = require('helmet')
@@ -15,6 +16,7 @@ const db = require('./config/database')
 const routes = require('./routes')
 const { notFound, errorHandler } = require('./middleware/errorHandler')
 const { cleanupExpiredLessons } = require('./services/retention.service')
+const { attachRealtime } = require('./realtime')
 
 const app = express()
 
@@ -84,7 +86,10 @@ async function start() {
     await db.$connect()
     console.log('✓ Database connected')
 
-    app.listen(config.port, () => {
+    // socket.io needs the raw HTTP server, so the app no longer listens by itself.
+    const httpServer = http.createServer(app)
+    attachRealtime(httpServer)
+    httpServer.listen(config.port, () => {
       console.log(
         `✓ Server running on http://localhost:${config.port} [${config.nodeEnv}]`
       )

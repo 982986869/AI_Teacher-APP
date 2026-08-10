@@ -1,0 +1,93 @@
+'use strict'
+
+// socket.io on the same HTTP server as the API — no second service, nothing new to
+// deploy. Sockets make the thread feel live; they are NOT the source of truth. Every
+// client refetches over REST on open and on reconnect, so a dropped socket costs
+// latency and never a message.
+//
+// Rooms:
+//   ticket:<id>   the ticket's owner plus any staff who opened it
+//   staff:queue   staff only — new tickets and status changes for the console list
+
+const { Server } = require('socket.io')
+const jwt = require('jsonwebtoken')
+const db = require('../config/database')
+const { config } = require('../config/env')
+const { isAdminRole } = require('../services/admin/permissions')
+
+let io = null
+
+// Same verification the HTTP middleware does, minus the Express plumbing. An invalid
+// token never establishes a connection, so no room join can be attempted without one.
+async function identify(token) {
+  if (!token) return null
+  let decoded
+  try {
+    decoded = jwt.verify(token, config.auth.jwtSecret)
+  } catch (_) {
+    return null
+  }
+  const rows = await db.$queryRawUnsafe(
+    `SELECT id, name, admin_role FROM "users" WHERE id = $1::uuid LIMIT 1`, decoded.sub,
+  )
+  const user = rows && rows[0]
+  if (!user) return null
+  return { id: user.id, name: user.name, staff: isAdminRole(user.admin_role) }
+}
+
+function attachRealtime(httpServer) {
+  io = new Server(httpServer, {
+    path: '/socket.io',
+    cors: { origin: config.cors.origins, credentials: true },
+  })
+
+  io.use(async (socket, next) => {
+    const token = socket.handshake.auth && socket.handshake.auth.token
+    const who = await identify(token)
+    if (!who) return next(new Error('unauthorized'))
+    socket.data.user = who
+    next()
+  })
+
+  io.on('connection', (socket) => {
+    const me = socket.data.user
+    if (me.staff) socket.join('staff:queue')
+
+    // Joining is authorised exactly like loadOwned: your own ticket, or any ticket if
+    // you are staff. Without this check a ticket id — which is a UUID, but still — would
+    // be enough to eavesdrop on another family's thread.
+    socket.on('ticket:join', async (ticketId, ack) => {
+      try {
+        const rows = await db.$queryRawUnsafe(
+          `SELECT "userId" FROM "support_tickets" WHERE id = $1::uuid LIMIT 1`, ticketId,
+        )
+        const t = rows && rows[0]
+        if (!t || (t.userId !== me.id && !me.staff)) {
+          if (typeof ack === 'function') ack({ ok: false })
+          return
+        }
+        socket.join(`ticket:${ticketId}`)
+        if (typeof ack === 'function') ack({ ok: true })
+      } catch (_) {
+        if (typeof ack === 'function') ack({ ok: false })
+      }
+    })
+
+    socket.on('ticket:leave', (ticketId) => socket.leave(`ticket:${ticketId}`))
+
+    socket.on('typing', ({ ticketId }) => {
+      socket.to(`ticket:${ticketId}`).emit('typing', { from: me.staff ? 'agent' : 'user' })
+    })
+  })
+}
+
+// No-ops before attachRealtime runs (e.g. under `node --test`, which imports the
+// controller without booting the server). Calling code never has to guard.
+function emitToTicket(ticketId, event, payload) {
+  if (io) io.to(`ticket:${ticketId}`).emit(event, payload)
+}
+function emitToStaffQueue(event, payload) {
+  if (io) io.to('staff:queue').emit(event, payload)
+}
+
+module.exports = { attachRealtime, emitToTicket, emitToStaffQueue }

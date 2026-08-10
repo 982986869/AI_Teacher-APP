@@ -17,6 +17,7 @@ const ApiResponse = require('../utils/ApiResponse')
 const { uploadFile } = require('../services/storage')
 const { isAdminRole } = require('../services/admin/permissions')
 const svc = require('../services/support/support.service')
+const { emitToTicket, emitToStaffQueue } = require('../realtime')
 
 const MAX_TEXT = 4000
 
@@ -117,6 +118,8 @@ async function create(req, res, next) {
       )
     }
 
+    emitToStaffQueue('ticket:new', shape(ticket))
+
     return ApiResponse.created(res, shape(ticket), 'Ticket raised')
   } catch (err) {
     return next(err)
@@ -148,6 +151,12 @@ async function addMessage(req, res, next) {
     await db.$executeRawUnsafe(
       `UPDATE "support_tickets" SET "updatedAt" = now() WHERE id = $1::uuid`, ticket.id,
     )
+
+    emitToTicket(ticket.id, 'message', {
+      id: rows[0].id, ticketId: ticket.id, authorRole, authorName,
+      kind: 'text', text, createdAt: rows[0].createdAt,
+    })
+    emitToStaffQueue('ticket:touched', { id: ticket.id })
 
     return ApiResponse.created(res, { id: rows[0].id, at: rows[0].createdAt }, 'Message added')
   } catch (err) {
@@ -295,6 +304,8 @@ async function resolve(req, res, next) {
       ticketId: req.params.id, summary, byName: req.user.name || 'Support',
     })
     if (!ticket) return ApiResponse.error(res, 'Ticket not found.', 404)
+    emitToTicket(ticket.id, 'status', shape(ticket))
+    emitToStaffQueue('ticket:touched', { id: ticket.id })
     return ApiResponse.success(res, shape(ticket), 'Ticket resolved')
   } catch (err) {
     return next(err)
@@ -312,6 +323,8 @@ async function close(req, res, next) {
 
     const updated = await svc.closeTicket({ ticketId: ticket.id, userId: req.user.id })
     if (!updated) return ApiResponse.error(res, 'This ticket is not awaiting your confirmation.', 409)
+    emitToTicket(updated.id, 'status', shape(updated))
+    emitToStaffQueue('ticket:touched', { id: updated.id })
     return ApiResponse.success(res, shape(updated), 'Ticket closed')
   } catch (err) {
     return next(err)
@@ -327,6 +340,8 @@ async function reopen(req, res, next) {
 
     const updated = await svc.reopenTicket({ ticketId: ticket.id, userId: req.user.id })
     if (!updated) return ApiResponse.error(res, 'This ticket is already open.', 409)
+    emitToTicket(updated.id, 'status', shape(updated))
+    emitToStaffQueue('ticket:touched', { id: updated.id })
     return ApiResponse.success(res, shape(updated), 'Ticket reopened')
   } catch (err) {
     return next(err)
@@ -347,6 +362,10 @@ async function callLog(req, res, next) {
     const row = await svc.logCall({
       ticketId: ticket.id, authorId: req.user.id,
       authorName: req.user.name || 'Support', outcome, note,
+    })
+    emitToTicket(ticket.id, 'message', {
+      id: row.id, ticketId: ticket.id, authorRole: 'agent', authorName: row.authorName,
+      kind: 'call', callOutcome: row.callOutcome, text: row.text, createdAt: row.createdAt,
     })
     return ApiResponse.created(res, { id: row.id, at: row.createdAt }, 'Call logged')
   } catch (err) {
