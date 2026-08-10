@@ -30,6 +30,11 @@ export default function HelpFab({
   categories,
   agent = DEFAULT_AGENT,
   accent = ACCENT,
+  // Task 13: agent replies now actually reach the thread over a live socket (with a REST
+  // refetch backing every mount + reconnect, so a dropped connection never loses a
+  // message — see ChatScreen.js). On by default for every caller of this dock/FAB;
+  // pass false only to force the old scripted-opening screen.
+  liveChat = true,
   // Real case data per topic id — drives the receipt-card conversation. Nothing is
   // rendered without it, on purpose: see the warning above DEMO_TICKET_CONTEXT in
   // supportConfig.js. To preview that screen on a dev build, pass
@@ -87,6 +92,7 @@ export default function HelpFab({
         userPhone={userPhone}
         childName={childName}
         agent={agent}
+        liveChat={liveChat}
         ticketContexts={ticketContexts}
         onContextAction={onContextAction}
       />

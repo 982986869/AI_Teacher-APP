@@ -42,12 +42,48 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ArrowLeft, ArrowRight, Paperclip, Mic, Mail, MessageCircle, X, RotateCcw, FileText } from 'lucide-react-native';
 
 import { PressableScale } from '../../screens/parent/ParentApp/anim';
-import { createTicket, addTicketMessage, uploadTicketAttachment } from '../../api/supportApi';
+import {
+  createTicket, addTicketMessage, uploadTicketAttachment, getTicket,
+} from '../../api/supportApi';
+import { connectSupportSocket, joinTicket } from '../../realtime/supportSocket';
+import { getToken } from '../../utils/storage';
 import { D, IF, TX, fmtClock } from './theme';
 import { chooseAttachment, prettySize } from './pickAttachment';
 import {
   SUPPORT, supportLinks, agentOpening, agentTicketRaised, agentSendFailed,
 } from './supportConfig';
+
+// ── server thread → screen bubble shape ─────────────────────────────────────
+// `getTicket` and the socket's `message` event both hand back the server's row shape
+// (src/api/supportApi.js): { id, authorRole, authorName, kind, callOutcome, text,
+// createdAt }. This is the one place that turns that into what the bubbles below
+// render — so the mount fetch, the reconnect refetch and the live socket event all
+// stay in agreement.
+//
+// `kind: 'call'` is a staff-only internal note. The server already withholds it from
+// the ticket owner over REST and the socket, but a client-side drop here is the second
+// half of "belt and braces" — it must never render even if one slips through.
+function mapServerMessage(m) {
+  if (!m || m.kind === 'call') return null;
+  if (m.kind === 'event' || m.authorRole === 'system') {
+    return { id: m.id, kind: 'event', text: m.text };
+  }
+  const time = m.createdAt ? fmtClock(new Date(m.createdAt)) : undefined;
+  if (m.authorRole === 'agent') {
+    return {
+      id: m.id, kind: 'agent', text: m.text, time, authorName: m.authorName,
+    };
+  }
+  // authorRole === 'user' (or anything unrecognised defaults to the user's own bubble
+  // rather than being silently dropped).
+  return {
+    id: m.id, kind: 'user', text: m.text, files: [], time, status: 'sent',
+  };
+}
+
+function mapServerMessages(messages) {
+  return (messages || []).map(mapServerMessage).filter(Boolean);
+}
 
 // Beat timings for the scripted opening. Long enough to read as composed, short enough
 // that nobody sits watching dots.
@@ -116,13 +152,19 @@ function UserBubble({ msg, onRetry }) {
   );
 }
 
-function AgentBubble({ agent, text, time }) {
+// `authorName` is only passed for real thread rows (Step 1/2 — a live ticket can have
+// more than one agent reply on it), so the scripted bubbles below render exactly as
+// before when it's absent.
+function AgentBubble({ agent, text, time, authorName }) {
   return (
     <View style={s.agentRow}>
       <Peek agent={agent} />
-      <View style={s.agentBubble}>
-        <TX w="reg" s={14} lh={18} c={D.ink}>{text}</TX>
-        {!!time && <TX w="reg" s={10} lh={12} c={D.muted} style={{ marginTop: 4 }}>{time}</TX>}
+      <View style={s.agentCol}>
+        {!!authorName && <TX w="semi" s={11} lh={14} c={D.muted} style={s.agentName}>{authorName}</TX>}
+        <View style={s.agentBubble}>
+          <TX w="reg" s={14} lh={18} c={D.ink}>{text}</TX>
+          {!!time && <TX w="reg" s={10} lh={12} c={D.muted} style={{ marginTop: 4 }}>{time}</TX>}
+        </View>
       </View>
     </View>
   );
@@ -207,6 +249,9 @@ export default function ChatScreen({
   childName,
   liveChat = false,
   ticketContext,           // real case data → the compact-header + receipt-card variant
+  existingTicket,          // { id, ref, status, topicId, team, … } — a ticket opened from
+                            // TicketList (Task 12). Present → render its real thread
+                            // instead of the scripted opening.
   onContextAction,
   onBack,
 }) {
@@ -214,9 +259,14 @@ export default function ChatScreen({
   const scroller = useRef(null);
   const timers = useRef([]);
   const seq = useRef(0);
-  const ticketId = useRef(null);          // server id, once the ticket exists
+  // Synchronous internal bookkeeping — `ensureTicket` reads this mid-async-call to avoid
+  // racing itself, which a piece of state can't guarantee. `ticketId` (state, below) is
+  // the reactive twin the socket effect and render use.
+  const ticketIdRef = useRef(existingTicket ? existingTicket.id : null);
   const assignee = useRef(null);          // { name, team } the server routed it to, if any
-  const raised = useRef(false);           // the "team has it" message appears once
+  // An existing ticket already has a team on it — the scripted "reached the team" line
+  // (said once inside `deliver`) is only for a ticket raised fresh in this session.
+  const raised = useRef(!!existingTicket);
   const failureNoticed = useRef(false);   // the "couldn't send" explanation appears once
 
   const [draft, setDraft] = useState('');
@@ -225,8 +275,24 @@ export default function ChatScreen({
   // The ref comes from the server, so it is null until the ticket exists. The badge and
   // the "Ticket created" chip both wait for it rather than showing a number that is real
   // nowhere — which is what the old device-minted ref was.
-  const [ref, setRef] = useState(null);
+  const [ref, setRef] = useState(existingTicket ? existingTicket.ref : null);
   const [thread, setThread] = useState([]);
+
+  // Reactive id for the socket effect below (a ref wouldn't re-trigger it once the
+  // ticket exists). Mirrors `ticketIdRef` — set together, everywhere.
+  const [ticketId, setTicketId] = useState(existingTicket ? existingTicket.id : null);
+  // The full ticket row (status included) — kept in state so Task 14's
+  // pending_confirmation card can read `ticket.status` off this screen's state without
+  // another round trip. Nothing here renders off it yet.
+  const [ticket, setTicket] = useState(existingTicket || null);
+  // Same source axiosInstance uses (src/api/axiosInstance.js → src/utils/storage.js) —
+  // no second storage key invented for the socket handshake.
+  const [authToken, setAuthToken] = useState(null);
+  useEffect(() => {
+    let alive = true;
+    getToken().then((t) => { if (alive) setAuthToken(t); }).catch(() => {});
+    return () => { alive = false; };
+  }, []);
 
   const later = useCallback((fn, ms) => { timers.current.push(setTimeout(fn, ms)); }, []);
   useEffect(() => () => { timers.current.forEach(clearTimeout); timers.current = []; }, []);
@@ -235,7 +301,7 @@ export default function ChatScreen({
   // the team will see. Tickets with no message never reach the team's queue (the queue
   // query requires one), so browsing costs nobody anything.
   const ensureTicket = useCallback(async () => {
-    if (ticketId.current) return ticketId.current;
+    if (ticketIdRef.current) return ticketIdRef.current;
     const created = await createTicket({
       topicId: category.id,
       topicLabel: category.label,
@@ -244,7 +310,8 @@ export default function ChatScreen({
       phone: userPhone,
       childName,
     });
-    ticketId.current = created.id;
+    ticketIdRef.current = created.id;
+    setTicketId(created.id);
     if (created.ref) {
       setRef(created.ref);
       setThread((prev) => (prev.some((m) => m.id === 'ev-open') ? prev : [
@@ -257,13 +324,47 @@ export default function ChatScreen({
 
   // Opening the screen tries to raise it. A failure here is silent: the user hasn't asked
   // for anything yet, and the agent's opening below still invites them to describe the
-  // issue. The first send is where a failure has to be visible.
+  // issue. The first send is where a failure has to be visible. For an existing ticket
+  // this is a no-op — `ticketIdRef.current` is already set — so it never re-raises one.
   useEffect(() => { ensureTicket().catch(() => {}); }, [ensureTicket]);
 
-  // The agent opens the conversation. Scripted while `liveChat` is false; a real agent
-  // socket replaces it wholesale.
+  // Merges a fresh server read into `thread`. Used on mount (below) and on every socket
+  // reconnect (Step 2) — the two moments a dropped connection could otherwise cost a
+  // message. Server rows are authoritative; the only thing kept alongside them is a
+  // message still `sending`/`failed` locally and not yet reflected on the server, so a
+  // resync mid-send (or a send that never landed) doesn't wipe the "Not sent · Retry" row
+  // out from under the user.
+  const setThreadFromServer = useCallback((t) => {
+    setTicket(t);
+    if (t && t.ref) setRef(t.ref);
+    const serverMsgs = mapServerMessages(t && t.messages);
+    const serverIds = new Set(serverMsgs.map((m) => m.id));
+    setThread((prev) => {
+      const pendingLocal = prev.filter((m) => m.kind === 'user'
+        && (m.status === 'sending' || m.status === 'failed') && !serverIds.has(m.id));
+      return [...serverMsgs, ...pendingLocal];
+    });
+  }, []);
+
+  // Step 1: an existing ticket (opened from TicketList) renders its real history instead
+  // of the scripted opening below. This is the mount half of "refetch on mount AND on
+  // every reconnect" — a dropped socket is never the only way this thread gets loaded.
   useEffect(() => {
-    if (liveChat) return;
+    if (!existingTicket) return undefined;
+    let alive = true;
+    getTicket(existingTicket.id)
+      .then((t) => { if (alive) setThreadFromServer(t); })
+      .catch(() => {});
+    return () => { alive = false; };
+    // existingTicket is fixed for the lifetime of this screen — SupportSheet mounts a
+    // fresh ChatScreen per ticket (see its `key`-less but `picked`-gated render).
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [existingTicket]);
+
+  // The agent opens the conversation. Scripted while `liveChat` is false or a real ticket
+  // is already loaded from the server; a real agent socket replaces it wholesale.
+  useEffect(() => {
+    if (liveChat || existingTicket) return undefined;
     later(() => setTyping(true), OPEN_DELAY);
     later(() => {
       setTyping(false);
@@ -274,6 +375,30 @@ export default function ChatScreen({
     }, OPEN_DELAY + OPEN_TYPING);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // Step 2: subscribe to the live socket once a ticket id exists (fresh or existing) and
+  // we actually have a token to authenticate with. Waiting on `authToken` — rather than
+  // calling connectSupportSocket(null) immediately — matters because the socket module
+  // is a singleton that only builds one connection ever (see supportSocket.js); dialling
+  // in once with no token and letting a later render try again would find the same
+  // (never-authenticated) socket already sitting there.
+  useEffect(() => {
+    if (!liveChat || !ticketId || !authToken) return undefined;
+    connectSupportSocket(authToken);
+    return joinTicket(ticketId, {
+      onMessage: (m) => {
+        if ((m.ticketId && m.ticketId !== ticketId) || m.kind === 'call') return;
+        const mapped = mapServerMessage(m);
+        if (!mapped) return;
+        setThread((prev) => (prev.some((x) => x.id === mapped.id) ? prev : [...prev, mapped]));
+      },
+      onStatus: (t) => { setTicket(t); if (t && t.ref) setRef(t.ref); },
+      // THE SOCKET IS NOT THE SOURCE OF TRUTH. Anything that happened while the
+      // connection was down (backgrounded app, dead network, etc.) is only recoverable
+      // from REST, so every reconnect — not just the first join — refetches the thread.
+      onReconnect: () => getTicket(ticketId).then(setThreadFromServer).catch(() => {}),
+    });
+  }, [liveChat, ticketId, authToken, setThreadFromServer]);
 
   const patch = useCallback((id, next) => {
     setThread((prev) => prev.map((m) => (m.id === id ? { ...m, ...next } : m)));
@@ -495,7 +620,11 @@ export default function ChatScreen({
       >
         {thread.map((m) => {
           if (m.kind === 'event') return <EventChip key={m.id} text={m.text} />;
-          if (m.kind === 'agent') return <AgentBubble key={m.id} agent={agent} text={m.text} time={m.time} />;
+          if (m.kind === 'agent') {
+            return (
+              <AgentBubble key={m.id} agent={agent} text={m.text} time={m.time} authorName={m.authorName} />
+            );
+          }
           return <UserBubble key={m.id} msg={m} onRetry={retry} />;
         })}
         {typing && <TypingRow agent={agent} />}
@@ -693,6 +822,10 @@ const s = StyleSheet.create({
   agentRow: { flexDirection: 'row', alignItems: 'flex-end', gap: 8 },
   peek: { width: 24, height: 24, borderRadius: 12 },
   peekFallback: { backgroundColor: '#2B2560', alignItems: 'center', justifyContent: 'center' },
+  // Wraps the optional author label + the bubble, so a real thread's agent name sits
+  // above the message without disturbing the scripted bubbles that never pass one.
+  agentCol: { gap: 4, flexShrink: 1 },
+  agentName: { marginLeft: 4 },
   agentBubble: {
     maxWidth: 260, padding: 12, backgroundColor: D.card, borderWidth: 1, borderColor: D.border,
     borderTopLeftRadius: 16, borderTopRightRadius: 16, borderBottomRightRadius: 16, borderBottomLeftRadius: 4,
