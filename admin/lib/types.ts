@@ -237,6 +237,7 @@ export interface Ticket {
   updatedAt: string
   autoCloseAt: string | null
   staffReadAt: string | null
+  unread: boolean
   childName: string | null
   assignedTo: { name: string; team: string } | null
   resolution: { summary: string; at: string; by: string | null } | null
