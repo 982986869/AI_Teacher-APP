@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { QueueList } from '@/components/support/QueueList'
 import { Thread } from '@/components/support/Thread'
 import { CallLogModal } from '@/components/support/CallLogModal'
@@ -22,41 +22,58 @@ export default function SupportPage() {
   const [search, setSearch] = useState('')
   const debounced = useDebounced(search, 300)
 
-  const [tickets, setTickets] = useState<Ticket[]>([])
+  const [rawTickets, setRawTickets] = useState<Ticket[]>([])
   const [listLoading, setListLoading] = useState(true)
   const [selectedId, setSelectedId] = useState<string | null>(null)
+  // Mirrors selectedId so async responses (detail fetch, read receipt) can check — after
+  // they land — whether the user has since clicked a different ticket. State alone can't
+  // do this: a callback closes over the selectedId value from when it started, not the
+  // latest one, so a stale response has no way to know it arrived too late without a ref.
+  const selectedIdRef = useRef<string | null>(null)
+  selectedIdRef.current = selectedId
   const [detail, setDetail] = useState<TicketDetail | null>(null)
   const [detailLoading, setDetailLoading] = useState(false)
   const [callOpen, setCallOpen] = useState(false)
   const [resolveOpen, setResolveOpen] = useState(false)
 
+  // Search is filtered client-side over tickets already in hand (below) — the server
+  // takes no search param, so debounced keystrokes must not trigger a refetch here.
   const loadQueue = useCallback(async () => {
     try {
       const d = await apiRoot<{ tickets: Ticket[]; unreadCount: number }>('/support/queue', {
         params: { status, team: team || undefined },
       })
-      const q = debounced.trim().toLowerCase()
-      setTickets(!q ? d.tickets : d.tickets.filter((t) =>
-        t.ref.toLowerCase().includes(q) ||
-        (t.raisedBy?.name || '').toLowerCase().includes(q) ||
-        (t.raisedBy?.phone || '').includes(q)))
+      setRawTickets(d.tickets)
     } catch (e: any) {
       toast(e.message || 'Queue load nahi hui', 'err')
     } finally {
       setListLoading(false)
     }
-  }, [status, team, debounced, toast])
+  }, [status, team, toast])
+
+  const tickets = useMemo(() => {
+    const q = debounced.trim().toLowerCase()
+    if (!q) return rawTickets
+    return rawTickets.filter((t) =>
+      t.ref.toLowerCase().includes(q) ||
+      (t.raisedBy?.name || '').toLowerCase().includes(q) ||
+      (t.raisedBy?.phone || '').includes(q))
+  }, [rawTickets, debounced])
 
   const loadDetail = useCallback(async (id: string) => {
     setDetailLoading(true)
     try {
       const d = await apiRoot<TicketDetail>(`/support/tickets/${id}`)
+      // The user may have selected a different ticket while this was in flight. Applying
+      // a stale response here would show one customer's thread and phone number under
+      // another customer's highlighted queue row — bail out instead.
+      if (selectedIdRef.current !== id) return
       setDetail(d)
       await apiRoot(`/support/tickets/${id}/read`, { method: 'POST' })
     } catch (e: any) {
-      toast(e.message || 'Ticket load nahi hua', 'err')
+      if (selectedIdRef.current === id) toast(e.message || 'Ticket load nahi hua', 'err')
     } finally {
-      setDetailLoading(false)
+      if (selectedIdRef.current === id) setDetailLoading(false)
     }
   }, [toast])
 
