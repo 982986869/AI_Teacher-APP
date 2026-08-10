@@ -8,7 +8,13 @@ import { API_BASE_URL } from '../constants/config';
 let socket = null;
 
 export function connectSupportSocket(token) {
-  if (socket && socket.connected) return socket;
+  // Guard on the socket existing at all, not on it being connected: a previous instance
+  // mid-handshake or mid-reconnect is not `connected` yet but is alive and will connect
+  // on its own — socket.io's own reconnection logic handles that. Falling through here
+  // would build a second socket and orphan the first with no way to close it, which is
+  // exactly the transient state mobile networking produces (switch networks, background
+  // the app) rather than an edge case.
+  if (socket) return socket;
   socket = io(API_BASE_URL, {
     auth: { token },
     path: '/socket.io',
@@ -21,17 +27,22 @@ export function connectSupportSocket(token) {
 // Returns an unsubscribe function. `onReconnect` is how the caller re-syncs over REST.
 export function joinTicket(ticketId, { onMessage, onStatus, onReconnect }) {
   if (!socket) return () => {};
-  const join = () => socket.emit('ticket:join', ticketId);
+  // Capture the instance once. `connectSupportSocket()` can reassign the module-level
+  // `socket` binding later (e.g. after a full disconnect/reconnect cycle); every closure
+  // below must keep talking to the instance it actually attached its listeners to, or the
+  // cleanup silently detaches nothing and `ticket:leave` goes to the wrong socket.
+  const s = socket;
+  const join = () => s.emit('ticket:join', ticketId);
   join();
   const handleConnect = () => { join(); if (onReconnect) onReconnect(); };
-  socket.on('connect', handleConnect);
-  if (onMessage) socket.on('message', onMessage);
-  if (onStatus) socket.on('status', onStatus);
+  s.on('connect', handleConnect);
+  if (onMessage) s.on('message', onMessage);
+  if (onStatus) s.on('status', onStatus);
   return () => {
-    socket.emit('ticket:leave', ticketId);
-    socket.off('connect', handleConnect);
-    if (onMessage) socket.off('message', onMessage);
-    if (onStatus) socket.off('status', onStatus);
+    s.emit('ticket:leave', ticketId);
+    s.off('connect', handleConnect);
+    if (onMessage) s.off('message', onMessage);
+    if (onStatus) s.off('status', onStatus);
   };
 }
 
