@@ -13,9 +13,23 @@ const db = hasDb ? require('../src/config/database') : null
 const jwt = hasDb ? require('jsonwebtoken') : null
 const { config } = hasDb ? require('../src/config/env') : { config: null }
 const { attachRealtime } = hasDb ? require('../src/realtime') : {}
+const ctrl = hasDb ? require('../src/controllers/support.controller') : null
 const { io: ioClient } = hasDb ? require('socket.io-client') : {}
 
-const ctx = { skip: !hasDb, server: null, url: '', ticketId: null, ownerId: null, otherId: null }
+const ctx = {
+  skip: !hasDb, server: null, url: '', ticketId: null, ownerId: null, otherId: null,
+  otherOriginalRole: undefined,
+}
+
+// Minimal Express doubles, same pattern as support.access.test.js — the controller is
+// called directly so the real emitToTicket/emitToStaffQueue it imports run against the
+// same io instance this file already attached.
+function fakeRes() {
+  const r = { statusCode: 0, body: null }
+  r.status = (c) => { r.statusCode = c; return r }
+  r.json = (b) => { r.body = b; return r }
+  return r
+}
 
 const connect = (token) => ioClient(ctx.url, {
   auth: token ? { token } : {}, path: '/socket.io', transports: ['websocket'],
@@ -85,8 +99,94 @@ test('the owner can join their own ticket room', { skip: ctx.skip }, async () =>
   assert.equal(ack.ok, true)
 })
 
+test('a call log never reaches the ticket room, but still reaches staff:queue', { skip: ctx.skip }, async () => {
+  if (ctx.skip) return
+
+  // Promote otherId to a real staff role for this test only — a socket only ends up in
+  // staff:queue via identify()'s own DB lookup, so this is the only way to prove the
+  // fix reaches a *real* staff socket, not just that the controller intends to.
+  const before = await db.$queryRawUnsafe(`SELECT "admin_role" FROM "users" WHERE id = $1::uuid`, ctx.otherId)
+  ctx.otherOriginalRole = before[0] ? before[0].admin_role : null
+  await db.$executeRawUnsafe(`UPDATE "users" SET "admin_role" = 'support' WHERE id = $1::uuid`, ctx.otherId)
+
+  const ownerToken = jwt.sign({ sub: ctx.ownerId }, config.auth.jwtSecret, { expiresIn: '5m' })
+  const staffToken = jwt.sign({ sub: ctx.otherId }, config.auth.jwtSecret, { expiresIn: '5m' })
+
+  const ownerSock = connect(ownerToken)
+  await new Promise((r) => ownerSock.on('connect', r))
+  const joinAck = await new Promise((r) => ownerSock.emit('ticket:join', ctx.ticketId, r))
+  assert.equal(joinAck.ok, true)
+
+  const staffSock = connect(staffToken)
+  await new Promise((r) => staffSock.on('connect', r))
+
+  const ownerMessages = []
+  ownerSock.on('message', (m) => ownerMessages.push(m))
+  const staffGotMessage = new Promise((resolve) => staffSock.on('message', resolve))
+
+  const res = fakeRes()
+  const req = {
+    user: { id: ctx.otherId, name: 'Staff Test', admin_role: 'support' },
+    params: { id: ctx.ticketId },
+    body: { outcome: 'no_answer', note: 'ring hui, uthaya nahi' },
+  }
+  await ctrl.callLog(req, res, (err) => { if (err) throw err })
+  assert.equal(res.statusCode, 201, 'callLog wrote the row')
+  ctx.callMessageId = res.body && res.body.data && res.body.data.id
+
+  const staffMsg = await Promise.race([
+    staffGotMessage,
+    new Promise((r) => setTimeout(() => r(null), 1500)),
+  ])
+  // Give the owner socket the same grace window before declaring it silent.
+  await new Promise((r) => setTimeout(r, 300))
+
+  ownerSock.close()
+  staffSock.close()
+
+  await db.$executeRawUnsafe(`UPDATE "users" SET "admin_role" = $1 WHERE id = $2::uuid`, ctx.otherOriginalRole, ctx.otherId)
+
+  assert.equal(ownerMessages.length, 0, 'the ticket room (owner + staff) must never see a staff call log')
+  assert.ok(staffMsg, 'staff:queue must still receive the call log')
+  assert.equal(staffMsg.kind, 'call')
+  assert.equal(staffMsg.callOutcome, 'no_answer')
+})
+
+test('typing cannot be spoofed into a room this socket never joined', { skip: ctx.skip }, async () => {
+  if (ctx.skip) return
+
+  const ownerToken = jwt.sign({ sub: ctx.ownerId }, config.auth.jwtSecret, { expiresIn: '5m' })
+  const otherToken = jwt.sign({ sub: ctx.otherId }, config.auth.jwtSecret, { expiresIn: '5m' })
+
+  const ownerSock = connect(ownerToken)
+  await new Promise((r) => ownerSock.on('connect', r))
+  const ack = await new Promise((r) => ownerSock.emit('ticket:join', ctx.ticketId, r))
+  assert.equal(ack.ok, true)
+
+  // otherSock deliberately never calls ticket:join for ctx.ticketId — it must not be
+  // able to make its typing indicator show up there anyway.
+  const otherSock = connect(otherToken)
+  await new Promise((r) => otherSock.on('connect', r))
+
+  const typingEvents = []
+  ownerSock.on('typing', (p) => typingEvents.push(p))
+
+  otherSock.emit('typing', { ticketId: ctx.ticketId })
+
+  await new Promise((r) => setTimeout(r, 500))
+
+  ownerSock.close()
+  otherSock.close()
+
+  assert.equal(typingEvents.length, 0, 'typing must not reach a room the sender never joined')
+})
+
 test('teardown', { skip: ctx.skip }, async () => {
+  if (ctx.otherOriginalRole !== undefined) {
+    await db.$executeRawUnsafe(`UPDATE "users" SET "admin_role" = $1 WHERE id = $2::uuid`, ctx.otherOriginalRole, ctx.otherId)
+  }
   if (ctx.ticketId) {
+    await db.$executeRawUnsafe(`DELETE FROM "support_messages" WHERE "ticketId" = $1::uuid`, ctx.ticketId)
     await db.$executeRawUnsafe(`DELETE FROM "support_tickets" WHERE id = $1::uuid`, ctx.ticketId)
   }
   if (ctx.server) await new Promise((r) => ctx.server.close(r))

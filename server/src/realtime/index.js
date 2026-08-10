@@ -75,7 +75,12 @@ function attachRealtime(httpServer) {
 
     socket.on('ticket:leave', (ticketId) => socket.leave(`ticket:${ticketId}`))
 
+    // Relay only into a room this socket actually joined — ticket:join already proved
+    // ownership/staff status for that room, so re-checking membership here (instead of
+    // hitting the DB again on every keystroke) is enough to stop a spoofed indicator on
+    // a thread this socket has nothing to do with.
     socket.on('typing', ({ ticketId }) => {
+      if (!socket.rooms.has(`ticket:${ticketId}`)) return
       socket.to(`ticket:${ticketId}`).emit('typing', { from: me.staff ? 'agent' : 'user' })
     })
   })

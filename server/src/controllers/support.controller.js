@@ -363,7 +363,9 @@ async function callLog(req, res, next) {
       ticketId: ticket.id, authorId: req.user.id,
       authorName: req.user.name || 'Support', outcome, note,
     })
-    emitToTicket(ticket.id, 'message', {
+    // Staff-only, like the REST read (getOne withholds kind:'call' from the owner).
+    // ticket:<id> holds the owner too, so a call log must never go there.
+    emitToStaffQueue('message', {
       id: row.id, ticketId: ticket.id, authorRole: 'agent', authorName: row.authorName,
       kind: 'call', callOutcome: row.callOutcome, text: row.text, createdAt: row.createdAt,
     })
