@@ -22,10 +22,17 @@ const isUnread = (t: Ticket) =>
 // first. Elapsed time is measured from the last time staff actually looked (staffReadAt),
 // falling back to creation only when they never have.
 const STALE_MS = 24 * 60 * 60 * 1000
+
+// The one instant staleness is measured from, and therefore the one the row must show.
+// The row used to print `timeAgo(createdAt)` and colour it by a clock running from
+// `staffReadAt` — so a ticket raised three days ago but read 25 hours ago rendered a red
+// "3 days ago", which reads as three days ignored. The number and the colour now answer
+// the same question.
+const staleSince = (t: Ticket) => t.staffReadAt || t.createdAt
+
 function isStale(t: Ticket) {
   if (t.status === 'closed' || !isUnread(t)) return false
-  const since = t.staffReadAt ? new Date(t.staffReadAt) : new Date(t.createdAt)
-  return Date.now() - since.getTime() > STALE_MS
+  return Date.now() - new Date(staleSince(t)).getTime() > STALE_MS
 }
 
 export function QueueList({
@@ -127,8 +134,11 @@ export function QueueList({
                   <strong style={{ fontSize: 12.5, color: S.ink }}>{t.ref}</strong>
                   <Badge tone="purple" dot={false}>{t.team}</Badge>
                 </span>
-                <span style={{ fontSize: 11, color: stale ? S.red : S.faint, fontWeight: stale ? 700 : 400, flexShrink: 0 }}>
-                  {timeAgo(t.createdAt)}
+                <span
+                  title={t.staffReadAt ? `Last read ${timeAgo(t.staffReadAt)} · raised ${timeAgo(t.createdAt)}` : `Raised ${timeAgo(t.createdAt)} · never read`}
+                  style={{ fontSize: 11, color: stale ? S.red : S.faint, fontWeight: stale ? 700 : 400, flexShrink: 0 }}
+                >
+                  {timeAgo(staleSince(t))}
                 </span>
               </div>
               <div style={{ fontSize: 12, color: S.sub, marginTop: 3 }}>

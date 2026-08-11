@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { Phone, Send, CheckCircle2 } from 'lucide-react'
+import { Phone, Send, CheckCircle2, Paperclip } from 'lucide-react'
 import { Badge, EmptyState, Spinner } from '@/components/ui'
 import { S } from '@/lib/theme'
 import { fmtDateTime } from '@/lib/format'
@@ -35,7 +35,16 @@ export function Thread({
     const t = text.trim()
     if (!t) return
     setSending(true)
-    try { await onSend(t); setText('') } finally { setSending(false) }
+    try {
+      await onSend(t)
+      setText('')
+    } catch {
+      // The page has toasted the reason. The reply stays in the box so it can be sent
+      // again rather than being cleared as though it went — and without this catch the
+      // rethrow from onSend becomes an unhandled rejection, since nothing awaits send().
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -99,6 +108,44 @@ export function Thread({
             </div>
           )
         })}
+
+        {/* The user's screenshot of the broken link. The app has always uploaded these
+            and the API has always returned them, but nothing rendered them — so the one
+            piece of evidence on the ticket reached nobody who could act on it.
+            Grouped rather than interleaved: the API does not expose an attachment's
+            createdAt, so there is no honest way to slot them between messages, and a
+            made-up position would be worse than a labelled shelf. Chips, not a gallery —
+            the filename plus a click is the whole job. */}
+        {ticket.attachments.length > 0 && (
+          <div style={{ marginTop: 14, paddingTop: 12, borderTop: `1px dashed ${S.border}` }}>
+            <div style={{ fontSize: 11, color: S.muted, marginBottom: 7, letterSpacing: 0.4 }}>
+              ATTACHMENTS ({ticket.attachments.length})
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+              {ticket.attachments.map((a) => (
+                <a
+                  key={a.id}
+                  href={a.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={a.name}
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', gap: 6, maxWidth: 240,
+                    padding: '6px 10px', borderRadius: 999, fontSize: 12,
+                    border: `1px solid ${S.border}`, background: S.card,
+                    color: S.indigo, textDecoration: 'none',
+                  }}
+                >
+                  <Paperclip size={12} style={{ flexShrink: 0 }} />
+                  <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    {a.name}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
         <div ref={endRef} />
       </div>
 

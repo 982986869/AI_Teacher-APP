@@ -26,6 +26,9 @@ export function CallLogModal({ open, onClose, onSubmit }: {
       await onSubmit(outcome, note)
       setNote('')
       onClose()
+    } catch {
+      // Stays open on purpose, note intact — the page already toasted the reason. A note
+      // written straight after a call is the one thing here nobody can reconstruct.
     } finally {
       setBusy(false)
     }

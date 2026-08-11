@@ -19,6 +19,11 @@ export function ResolveModal({ open, onClose, onSubmit }: {
       await onSubmit(summary.trim())
       setSummary('')
       onClose()
+    } catch {
+      // Deliberately stays open, with the summary still in the box. The page has already
+      // shown the error as a toast; closing here would throw away what was typed and
+      // leave the ticket looking resolved when the PATCH was refused. Only the success
+      // path above clears and closes.
     } finally {
       setBusy(false)
     }

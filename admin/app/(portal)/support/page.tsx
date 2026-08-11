@@ -17,6 +17,11 @@ export default function SupportPage() {
   const { can } = useAuth()
   const toast = useToast()
 
+  // 'open' is the SERVER's word for work-not-yet-resolved — it matches both `open` and
+  // `assigned` (see queue in server/src/controllers/support.controller.js). Tickets are
+  // born `assigned` whenever their team has anyone on it, so a literal match here showed
+  // an empty console. There is deliberately no separate Assigned tab: "somebody's name is
+  // on it" is not a different pile of work, it is the same pile.
   const [status, setStatus] = useState<TicketStatus | 'all'>('open')
   const [team, setTeam] = useState('')
   const [search, setSearch] = useState('')
@@ -88,24 +93,49 @@ export default function SupportPage() {
     onTicketTouched: () => loadQueue(),
     onMessage: (p) => { if (p.ticketId === selectedId) loadDetail(p.ticketId) },
     onStatus: () => { loadQueue(); if (selectedId) loadDetail(selectedId) },
+    // A laptop that slept through twenty minutes of replies reconnects to a socket that
+    // heard none of them, and nothing will replay them. Rejoining the room was never
+    // enough on its own — without this the console sat on its pre-sleep state until
+    // somebody happened to change a filter.
+    onReconnect: () => { loadQueue(); if (selectedId) loadDetail(selectedId) },
   }, selectedId)
 
+  // Every write below surfaces its own failure and then RETHROWS. The caller (Thread's
+  // composer, the two modals) is what owns the text the user typed, so it — not this
+  // file — decides whether to keep the box open. Swallowing the error here is what left
+  // a modal sitting open and inert after a rejected PATCH, with the user's summary
+  // still in it and no explanation on screen.
   async function send(text: string) {
     if (!selectedId) return
-    await apiRoot(`/support/tickets/${selectedId}/messages`, { method: 'POST', body: { text } })
+    try {
+      await apiRoot(`/support/tickets/${selectedId}/messages`, { method: 'POST', body: { text } })
+    } catch (e: any) {
+      toast(e.message || 'Reply nahi bheja gaya', 'err')
+      throw e
+    }
     await loadDetail(selectedId)
   }
 
   async function logCall(outcome: CallOutcome, note: string) {
     if (!selectedId) return
-    await apiRoot(`/support/tickets/${selectedId}/call-log`, { method: 'POST', body: { outcome, note } })
+    try {
+      await apiRoot(`/support/tickets/${selectedId}/call-log`, { method: 'POST', body: { outcome, note } })
+    } catch (e: any) {
+      toast(e.message || 'Call log nahi hua', 'err')
+      throw e
+    }
     await loadDetail(selectedId)
     toast('Call log ho gaya', 'ok')
   }
 
   async function resolve(summary: string) {
     if (!selectedId) return
-    await apiRoot(`/support/tickets/${selectedId}/resolve`, { method: 'PATCH', body: { summary } })
+    try {
+      await apiRoot(`/support/tickets/${selectedId}/resolve`, { method: 'PATCH', body: { summary } })
+    } catch (e: any) {
+      toast(e.message || 'Resolve nahi hua', 'err')
+      throw e
+    }
     await loadDetail(selectedId)
     await loadQueue()
     toast('User ko confirmation ke liye bhej diya', 'ok')

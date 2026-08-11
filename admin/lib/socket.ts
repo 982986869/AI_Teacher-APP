@@ -9,6 +9,13 @@ export interface SupportSocketHandlers {
   onTicketTouched?: (payload: { id: string }) => void
   onMessage?: (payload: { ticketId: string }) => void
   onStatus?: (payload: { id: string }) => void
+  // THE SOCKET IS NOT THE SOURCE OF TRUTH. Everything that happened while this tab was
+  // disconnected — a sleeping laptop, a dropped VPN — arrived at a socket that was not
+  // listening, and no event will ever be re-sent. Only a REST refetch recovers it, which
+  // is why every consumer gets a reconnect hook (the app has the same one, see
+  // src/realtime/supportSocket.js). Fires on the first connect too; refetching data you
+  // already have is the cheap half of this trade.
+  onReconnect?: () => void
 }
 
 // One connection for the console. Every handler is read through a ref so a re-render
@@ -30,6 +37,9 @@ export function useSupportSocket(handlers: SupportSocketHandlers, ticketId?: str
     socket.on('ticket:touched', (p) => ref.current.onTicketTouched?.(p))
     socket.on('message', (p) => ref.current.onMessage?.(p))
     socket.on('status', (p) => ref.current.onStatus?.(p))
+    // Registered here, not in the room effect below, because a console with no ticket
+    // selected still has a queue that went stale while the connection was down.
+    socket.on('connect', () => ref.current.onReconnect?.())
 
     return () => { socket.close(); sockRef.current = null }
   }, [])

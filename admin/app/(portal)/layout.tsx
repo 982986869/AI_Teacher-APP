@@ -21,7 +21,8 @@ export default function PortalLayout({ children }: { children: React.ReactNode }
 
   // The unread count rides along with the queue response — there is no separate count
   // endpoint on purpose. Gated on the permission so a content manager never fires a 403
-  // on every page load.
+  // on every page load. `status: 'open'` is the server's work-not-yet-resolved predicate
+  // (open OR assigned), so this counts the same rows the Open tab lists.
   const refreshUnread = useCallback(() => {
     if (!can('support.view')) return
     apiRoot<{ unreadCount: number }>('/support/queue', { params: { status: 'open' } })
@@ -36,6 +37,9 @@ export default function PortalLayout({ children }: { children: React.ReactNode }
   useSupportSocket({
     onTicketNew: refreshUnread,
     onTicketTouched: refreshUnread,
+    // The badge goes as stale as anything else while the socket is down — every ticket
+    // raised during a sleep is a broadcast nobody caught. REST is the only way back.
+    onReconnect: refreshUnread,
   })
 
   if (loading || !admin) {
