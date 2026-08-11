@@ -43,7 +43,7 @@ import { ArrowLeft, ArrowRight, Paperclip, Mic, Mail, MessageCircle, X, RotateCc
 
 import { PressableScale } from '../../screens/parent/ParentApp/anim';
 import {
-  createTicket, addTicketMessage, uploadTicketAttachment, getTicket,
+  createTicket, addTicketMessage, uploadTicketAttachment, getTicket, closeTicket, reopenTicket,
 } from '../../api/supportApi';
 import { connectSupportSocket, joinTicket } from '../../realtime/supportSocket';
 import { getToken } from '../../utils/storage';
@@ -52,6 +52,8 @@ import { chooseAttachment, prettySize } from './pickAttachment';
 import {
   SUPPORT, supportLinks, agentOpening, agentTicketRaised, agentSendFailed,
 } from './supportConfig';
+import ConfirmCard from './ConfirmCard';
+import ResolvedScreen from './ResolvedScreen';
 
 // ── server thread → screen bubble shape ─────────────────────────────────────
 // `getTicket` and the socket's `message` event both hand back the server's row shape
@@ -285,6 +287,10 @@ export default function ChatScreen({
   // pending_confirmation card can read `ticket.status` off this screen's state without
   // another round trip. Nothing here renders off it yet.
   const [ticket, setTicket] = useState(existingTicket || null);
+  // Task 14: the ONLY state a confirm/reopen action carries locally is "in flight" — the
+  // resulting ticket status always comes from the server response (setTicket below), never
+  // assumed. `confirmError` is surfaced once via Alert and doesn't otherwise gate render.
+  const [confirmBusy, setConfirmBusy] = useState(false);
   // Same source axiosInstance uses (src/api/axiosInstance.js → src/utils/storage.js) —
   // no second storage key invented for the socket handshake.
   const [authToken, setAuthToken] = useState(null);
@@ -507,6 +513,42 @@ export default function ChatScreen({
 
   const retry = useCallback((msg) => { deliver(msg); }, [deliver]);
 
+  // ── Task 14: staff propose, the user closes ─────────────────────────────────
+  // Both actions only ever move the UI once the server confirms — `setTicket` here always
+  // comes from the response, never assumed locally. A failure surfaces the error and
+  // leaves the card exactly where it was; ConfirmCard's `busy` disables both buttons while
+  // the call is in flight so a slow network can't be double-tapped into two requests.
+  const confirmResolved = useCallback(async () => {
+    if (!ticket || confirmBusy) return;
+    setConfirmBusy(true);
+    try {
+      const updated = await closeTicket(ticket.id);
+      setTicket(updated);
+      if (updated && updated.ref) setRef(updated.ref);
+    } catch (err) {
+      Alert.alert('Could not confirm', 'We could not close this ticket. Please try again.');
+    } finally {
+      setConfirmBusy(false);
+    }
+  }, [ticket, confirmBusy]);
+
+  // Also used as ResolvedScreen's `onReopen` (Step 2) — `reopenTicket` is valid from both
+  // `pending_confirmation` and `closed` (auto-close can beat the user to it), so one
+  // handler covers "abhi bhi problem hai" and "Reopen This Chat" alike.
+  const stillBroken = useCallback(async () => {
+    if (!ticket || confirmBusy) return;
+    setConfirmBusy(true);
+    try {
+      const updated = await reopenTicket(ticket.id);
+      setTicket(updated);
+      if (updated && updated.ref) setRef(updated.ref);
+    } catch (err) {
+      Alert.alert('Could not reopen', 'We could not reopen this ticket. Please try again.');
+    } finally {
+      setConfirmBusy(false);
+    }
+  }, [ticket, confirmBusy]);
+
   const attach = useCallback(() => {
     chooseAttachment((f) => setFiles((prev) => (prev.some((x) => x.uri === f.uri) ? prev : [...prev, f])));
   }, []);
@@ -548,6 +590,27 @@ export default function ChatScreen({
   const canSend = draft.trim().length > 0 || files.length > 0;
   const tag = `${category.tag || category.label}${agent.online ? ' · Active' : ''}`;
   const initial = (Array.from((agent.name || 'A').trim())[0] || 'A').toUpperCase();
+
+  // Task 14: once the SERVER says this ticket is closed with a resolution attached, hand
+  // the whole screen to ResolvedScreen — driven off `ticket.status`/`ticket.resolution`
+  // exactly as it already is from SupportSheet's demo path (see TODO(chat-backend) there),
+  // just fed by the real ticket this screen loaded/subscribed to instead of a static
+  // `ticketContexts` prop. `onReopen` reuses `stillBroken`: reopenTicket is valid from
+  // `closed` too, so a ticket the server auto-closed after three days of silence is never
+  // a dead end here either.
+  if (ticket && ticket.status === 'closed' && ticket.resolution) {
+    return (
+      <ResolvedScreen
+        agent={agent}
+        ticket={ref}
+        category={category}
+        resolution={ticket.resolution}
+        transcript={thread.filter((m) => m.kind === 'user').map((m) => m.text).filter(Boolean)}
+        onNewConversation={onBack}
+        onReopen={stillBroken}
+      />
+    );
+  }
 
   return (
     <KeyboardAvoidingView
@@ -659,6 +722,19 @@ export default function ChatScreen({
               </ScrollView>
             )}
           </>
+        )}
+
+        {/* Task 14: staff mark it resolved → the ticket moves to `pending_confirmation`,
+            NOT closed. This card is what actually asks the user — it never implies the
+            decision is already made, and it stays exactly where it is (busy-disabled,
+            not swapped away) unless the server confirms one of the two actions. */}
+        {!!ticket && ticket.status === 'pending_confirmation' && (
+          <ConfirmCard
+            resolution={ticket.resolution}
+            onConfirm={confirmResolved}
+            onStillBroken={stillBroken}
+            busy={confirmBusy}
+          />
         )}
       </ScrollView>
 
