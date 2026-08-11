@@ -298,6 +298,12 @@ export default function ChatScreen({
   // nowhere — which is what the old device-minted ref was.
   const [ref, setRef] = useState(existingTicket ? existingTicket.ref : null);
   const [thread, setThread] = useState([]);
+  // Files already on the ticket, as the server has them. Kept in their own state rather
+  // than read off `ticket`, because `ticket` is also written by the socket's status event
+  // and by close/reopen — all of which hand back the bare ticket shape with no
+  // `attachments` key, and would silently blank the list. Only a full REST read
+  // (setThreadFromServer) ever touches this.
+  const [attachments, setAttachments] = useState([]);
 
   // Reactive id for the socket effect below (a ref wouldn't re-trigger it once the
   // ticket exists). Mirrors `ticketIdRef` — set together, everywhere.
@@ -362,6 +368,7 @@ export default function ChatScreen({
   const setThreadFromServer = useCallback((t) => {
     setTicket(t);
     if (t && t.ref) setRef(t.ref);
+    setAttachments((t && t.attachments) || []);
     const serverMsgs = mapServerMessages(t && t.messages);
     const serverIds = new Set(serverMsgs.map((m) => m.id));
     setThread((prev) => {
@@ -464,6 +471,15 @@ export default function ChatScreen({
     return joinTicket(ticketId, {
       onMessage: (m) => {
         if ((m.ticketId && m.ticketId !== ticketId) || m.kind === 'call') return;
+        // DO NOT "fix" this back to rendering the user's own messages. The server emits
+        // into `ticket:<id>`, and this socket is IN that room, so everything the user
+        // sends comes straight back as an echo. The id check below cannot catch it: the
+        // optimistic bubble is `u-<seq>`, minted on the device by `send`, while the echo
+        // carries the server's UUID — two ids that never match, so the user saw every
+        // message they sent twice. Their own messages are already on screen optimistically
+        // (with the delivery state the echo does not carry) and arrive authoritatively on
+        // the next setThreadFromServer, so dropping the echo loses nothing.
+        if (m.authorRole === 'user') return;
         const mapped = mapServerMessage(m);
         if (!mapped) return;
         setThread((prev) => (prev.some((x) => x.id === mapped.id) ? prev : [...prev, mapped]));
@@ -588,6 +604,22 @@ export default function ChatScreen({
   // comes from the response, never assumed locally. A failure surfaces the error and
   // leaves the card exactly where it was; ConfirmCard's `busy` disables both buttons while
   // the call is in flight so a slow network can't be double-tapped into two requests.
+  // A 409 from either action means the server's answer is "that is not this ticket's
+  // state any more" — almost always because autoCloseExpired closed it out from under a
+  // screen that has been sitting on the ConfirmCard (auto-close emits no socket event, so
+  // this screen has no other way to hear about it). Retrying cannot help, and an alert the
+  // user can dismiss and re-tap forever is a dead end. Re-read the ticket and render what
+  // is actually true — from there the closed thread offers Reopen, which does work.
+  const resyncAfterConflict = useCallback(async (id) => {
+    try {
+      const fresh = await getTicket(id);
+      setThreadFromServer(fresh);
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }, [setThreadFromServer]);
+
   const confirmResolved = useCallback(async () => {
     if (!ticket || confirmBusy) return;
     setConfirmBusy(true);
@@ -596,11 +628,14 @@ export default function ChatScreen({
       setTicket(updated);
       if (updated && updated.ref) setRef(updated.ref);
     } catch (err) {
-      Alert.alert('Could not confirm', 'We could not close this ticket. Please try again.');
+      const conflict = err && err.response && err.response.status === 409;
+      if (!conflict || !(await resyncAfterConflict(ticket.id))) {
+        Alert.alert('Could not confirm', 'We could not close this ticket. Please try again.');
+      }
     } finally {
       setConfirmBusy(false);
     }
-  }, [ticket, confirmBusy]);
+  }, [ticket, confirmBusy, resyncAfterConflict]);
 
   // Also used as ResolvedScreen's `onReopen` (Step 2) — `reopenTicket` is valid from both
   // `pending_confirmation` and `closed` (auto-close can beat the user to it), so one
@@ -613,11 +648,14 @@ export default function ChatScreen({
       setTicket(updated);
       if (updated && updated.ref) setRef(updated.ref);
     } catch (err) {
-      Alert.alert('Could not reopen', 'We could not reopen this ticket. Please try again.');
+      const conflict = err && err.response && err.response.status === 409;
+      if (!conflict || !(await resyncAfterConflict(ticket.id))) {
+        Alert.alert('Could not reopen', 'We could not reopen this ticket. Please try again.');
+      }
     } finally {
       setConfirmBusy(false);
     }
-  }, [ticket, confirmBusy]);
+  }, [ticket, confirmBusy, resyncAfterConflict]);
 
   const attach = useCallback(() => {
     chooseAttachment((f) => setFiles((prev) => (prev.some((x) => x.uri === f.uri) ? prev : [...prev, f])));
@@ -815,6 +853,36 @@ export default function ChatScreen({
           </>
         )}
 
+        {/* Files already on this ticket, as the server has them. Grouped under the thread
+            rather than slotted between messages: the API returns no createdAt on an
+            attachment, so there is no honest position for them, and a guessed one would
+            be worse than a labelled shelf. A chip that opens the file is the whole job —
+            this is not a gallery. */}
+        {!!attachments.length && (
+          <View style={s.attachGroup}>
+            <TX w="semi" s={10} lh={12} c={D.muted} style={s.eventText}>
+              {`${attachments.length} FILE${attachments.length > 1 ? 'S' : ''} IS TICKET PAR`}
+            </TX>
+            <View style={s.attachList}>
+              {attachments.map((a) => (
+                <PressableScale
+                  key={a.id}
+                  style={s.attachChip}
+                  onPress={() => open(a.url, 'Could not open', `Open ${a.name} in your browser instead.`)}
+                  scaleTo={0.96}
+                  accessibilityRole="link"
+                  accessibilityLabel={`Open attachment ${a.name}`}
+                >
+                  <FileText size={13} color={D.indigo} strokeWidth={2.2} />
+                  <TX w="med" s={11.5} lh={15} c={D.indigo} numberOfLines={1} style={{ flexShrink: 1, maxWidth: 200 }}>
+                    {a.name}
+                  </TX>
+                </PressableScale>
+              ))}
+            </View>
+          </View>
+        )}
+
         {/* Task 14: staff mark it resolved → the ticket moves to `pending_confirmation`,
             NOT closed. This card is what actually asks the user — it never implies the
             decision is already made, and it stays exactly where it is (busy-disabled,
@@ -1007,6 +1075,16 @@ const s = StyleSheet.create({
     borderTopLeftRadius: 16, borderTopRightRadius: 16, borderBottomRightRadius: 16, borderBottomLeftRadius: 4,
   },
   dot: { width: 6, height: 6, borderRadius: 3, backgroundColor: D.indigo },
+
+  // Attachments already on the ticket — a labelled shelf under the thread, styled off the
+  // staged-file chips below so the two read as the same kind of object.
+  attachGroup: { gap: 8 },
+  attachList: { gap: 8, alignItems: 'flex-start' },
+  attachChip: {
+    flexDirection: 'row', alignItems: 'center', gap: 8, alignSelf: 'flex-start',
+    paddingVertical: 7, paddingHorizontal: 10, borderRadius: 12,
+    backgroundColor: D.card, borderWidth: 1, borderColor: D.border,
+  },
 
   // receipt-card — 280×220 fixed, r16, 1.5px indigo border, space-between, pad 16
   receipt: {

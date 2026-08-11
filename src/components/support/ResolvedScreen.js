@@ -15,7 +15,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CircleCheck, Award, Mail } from 'lucide-react-native';
 
 import { PressableScale, FadeIn } from '../../screens/parent/ParentApp/anim';
-import { D, TX } from './theme';
+import { D, TX, fmtStamp } from './theme';
 import { SUPPORT } from './supportConfig';
 
 const RATING_MAX = 5;
@@ -69,8 +69,11 @@ export default function ResolvedScreen({
           </View>
 
           <TX w="bold" s={22} lh={28} c={D.success} style={s.center}>Resolved</TX>
+          {/* `resolution.at` is the server's raw timestamp — printing it straight put
+              "2026-08-11T06:31:12.345Z" under the tick. fmtStamp is the flow's own
+              format, sharing its time half with every message bubble. */}
           <TX w="reg" s={13} lh={18} c={D.muted} style={[s.center, { marginTop: 2 }]}>
-            {(resolution && resolution.at) || ''}
+            {fmtStamp(resolution && resolution.at)}
           </TX>
 
           <View style={s.summary}>

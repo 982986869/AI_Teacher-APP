@@ -46,3 +46,15 @@ export function fmtClock(d = new Date()) {
   h = h % 12 || 12;
   return `${h}:${m} ${ampm}`;
 }
+
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+// "11 Aug 2026, 12:01 PM" — for server timestamps that are shown on their own rather than
+// beside a message. Built on fmtClock so the time half matches the bubbles exactly.
+// Returns '' for anything unparseable: a blank line is honest, an "Invalid Date" is not.
+export function fmtStamp(value) {
+  if (!value) return '';
+  const d = value instanceof Date ? value : new Date(value);
+  if (Number.isNaN(d.getTime())) return '';
+  return `${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()}, ${fmtClock(d)}`;
+}

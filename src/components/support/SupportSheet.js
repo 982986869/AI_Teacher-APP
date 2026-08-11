@@ -16,6 +16,26 @@ import { D } from './theme';
 import { teamAgent } from './supportConfig';
 import { listMyTickets, markTicketRead } from '../../api/supportApi';
 
+// How long a closed ticket stays on the list. Closed used to be filtered out entirely,
+// which made a ticket the server auto-closed after three silent days vanish from the app
+// — the user who was away for a week lost the thread outright, and `reopenTicket` (which
+// works from `closed` precisely so that never happens, see src/api/supportApi.js) had no
+// button left to reach it from. A window rather than "forever" because the list is a
+// to-do, not an archive: an issue settled a month ago is not something to come back to,
+// and every real conversation is still one "Naya issue" away.
+const CLOSED_VISIBLE_DAYS = 14;
+
+function visibleTickets(rows) {
+  const cutoff = Date.now() - CLOSED_VISIBLE_DAYS * 24 * 60 * 60 * 1000;
+  return (rows || []).filter((t) => {
+    if (t.status !== 'closed') return true;
+    const at = new Date(t.updatedAt || t.createdAt).getTime();
+    // An unparseable date keeps the ticket rather than hiding it. Losing the way back
+    // into a thread is the failure this window exists to prevent.
+    return Number.isNaN(at) || at >= cutoff;
+  });
+}
+
 export default function SupportSheet({
   visible,
   onClose,
@@ -75,9 +95,9 @@ export default function SupportSheet({
     listMyTickets()
       .then((rows) => {
         if (!alive) return;
-        const live = rows.filter((t) => t.status !== 'closed');
-        setTickets(live);
-        if (!navigatedRef.current) setStep(live.length ? 'list' : 'topics');
+        const shown = visibleTickets(rows);
+        setTickets(shown);
+        if (!navigatedRef.current) setStep(shown.length ? 'list' : 'topics');
       })
       .catch(() => {
         if (!alive) return;

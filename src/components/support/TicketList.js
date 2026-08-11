@@ -33,24 +33,37 @@ export default function TicketList({ tickets, loading, onOpen, onNew, onClose })
       <ScrollView contentContainerStyle={s.list}>
         {loading && <TX s={13} c={D.muted}>Load ho raha hai…</TX>}
 
-        {!loading && tickets.map((t) => (
-          <PressableScale
-            key={t.id}
-            onPress={() => onOpen(t)}
-            style={s.row}
-            accessibilityRole="button"
-            accessibilityLabel={`Ticket #${t.ref}, ${t.topicLabel || t.team}, ${LABEL[t.status] || t.status}${t.unread ? ', unread' : ''}`}
-          >
-            <View style={s.rowLeft}>
-              <View style={s.rowTop}>
-                {t.unread && <View style={s.dot} />}
-                <TX w="semi" s={14} c={D.ink}>{t.topicLabel || t.team}</TX>
+        {/* Closed tickets are listed too — a ticket the server auto-closed after three
+            silent days must not be a dead end, and Reopen only exists if there is still a
+            way in. They are dimmed and carry a "Band" pill so the list still reads at a
+            glance as "what is live", and they never show an unread dot: there is nothing
+            waiting on the user in a thread that is already finished. */}
+        {!loading && tickets.map((t) => {
+          const closed = t.status === 'closed';
+          return (
+            <PressableScale
+              key={t.id}
+              onPress={() => onOpen(t)}
+              style={[s.row, closed && s.rowClosed]}
+              accessibilityRole="button"
+              accessibilityLabel={`Ticket #${t.ref}, ${t.topicLabel || t.team}, ${LABEL[t.status] || t.status}${t.unread && !closed ? ', unread' : ''}`}
+            >
+              <View style={s.rowLeft}>
+                <View style={s.rowTop}>
+                  {t.unread && !closed && <View style={s.dot} />}
+                  <TX w="semi" s={14} c={closed ? D.muted : D.ink}>{t.topicLabel || t.team}</TX>
+                  {closed && (
+                    <View style={s.closedPill}>
+                      <TX w="semi" s={10} lh={12} c={D.muted}>Band</TX>
+                    </View>
+                  )}
+                </View>
+                <TX s={12} c={D.muted}>#{t.ref} · {LABEL[t.status] || t.status}</TX>
               </View>
-              <TX s={12} c={D.muted}>#{t.ref} · {LABEL[t.status] || t.status}</TX>
-            </View>
-            <ChevronRight size={18} color={D.muted} />
-          </PressableScale>
-        ))}
+              <ChevronRight size={18} color={D.muted} />
+            </PressableScale>
+          );
+        })}
 
         <PressableScale onPress={onNew} style={s.newBtn} accessibilityRole="button" accessibilityLabel="Naya issue raise karein">
           <Plus size={18} color={D.ink} />
@@ -68,6 +81,13 @@ const s = StyleSheet.create({
   row: {
     flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
     padding: 14, borderRadius: 14, borderWidth: 1, borderColor: D.border, backgroundColor: D.card,
+  },
+  // Finished work, still reachable: dimmed rather than hidden, and never mistakable for
+  // something that still needs the user.
+  rowClosed: { opacity: 0.62, backgroundColor: 'transparent' },
+  closedPill: {
+    paddingVertical: 2, paddingHorizontal: 7, borderRadius: 8,
+    backgroundColor: D.ticketBg, borderWidth: 1, borderColor: D.border,
   },
   rowLeft: { flex: 1, gap: 4 },
   rowTop: { flexDirection: 'row', alignItems: 'center', gap: 7 },
