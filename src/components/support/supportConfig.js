@@ -27,17 +27,21 @@ export const SUPPORT = {
   avgReply: 'avg 4 min',
 };
 
-// The agent shown at the top of the topic-select screen.
-// TODO(support-agent): placeholder from the design. Wire this to whoever is actually on
-// shift (name, team, online flag, photo) once there's an endpoint for it — and supply a
-// real photo asset; until then the screen renders an initials avatar rather than
-// standing in a stock portrait for a support rep who doesn't exist.
-export const DEFAULT_AGENT = {
-  name: 'Rhea S.',
-  team: 'Billing team',
-  online: true,
-  photo: null,      // require('…') or a URI; null → initials avatar
-};
+// Who the user is talking to. There is no hardcoded person here on purpose — this used
+// to name a support rep, taken straight from the mockup, who does not exist at Ailernova.
+// The real name arrives on the ticket as `assignedTo`, and until a ticket exists the
+// screen shows the TEAM, which is true regardless of who picks it up.
+export const teamAgent = (category) => ({
+  name: (category && category.team) || 'Support team',
+  team: (category && category.team) || 'Support team',
+  online: false,
+  photo: null,
+});
+
+// Back-compat default for callers that render the agent placeholder before any category
+// is chosen (HelpFab.js, out of this task's scope) — same honest fallback as above, never
+// an invented person.
+export const DEFAULT_AGENT = teamAgent(null);
 
 // ── Topics ───────────────────────────────────────────────────────────────────
 // `tint` is the number-badge fill and `badgeInk` the numeral on top of it. Two of the
@@ -161,6 +165,16 @@ export const STUDENT_CATEGORIES = [
 // collides across phones and names a ticket that exists nowhere, so ChatScreen leaves the
 // badge empty until POST /api/support/tickets answers.
 
+// The `doubt` category stays in support — students do occasionally ask study questions
+// here, and the honest answer is to point them somewhere that can actually answer. It
+// is a redirect, not a wall: the chat stays open and anything they write still becomes a
+// real ticket.
+export const DOUBT_REDIRECT = {
+  text: 'Ye padhai ka sawaal lag raha hai — AI Teacher se turant jawab mil jayega. '
+      + 'Phir bhi kuch aur poochna ho to yahin likhiye, team dekh legi.',
+  cta: 'AI Teacher kholein',
+};
+
 // ── Copy ─────────────────────────────────────────────────────────────────────
 // The design's greeting names the parent and the child ("Hi Meera 👋 Aarav ki learning
 // ke baare mein kya help chahiye?"). We only interpolate names we actually have —
@@ -219,7 +233,7 @@ export const DEMO_RESOLVED_CONTEXT = {
   resolution: {
     summary: 'Duplicate August payment refunded — ₹4,800, 5–7 working days.',
     at: 'Today · 2:31 PM',
-    by: 'Rhea S.',
+    by: 'Accounts team',
   },
 };
 

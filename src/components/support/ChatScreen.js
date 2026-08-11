@@ -29,16 +29,20 @@
 // against it. A team member then picks it up and calls back — WhatsApp and email are
 // the ALTERNATIVE contact routes, not the delivery mechanism.
 //
-// ⚠️ Those API routes are not deployed yet (the service is a separate repo). Until they
-// are, every send fails with `notDeployed` and the message is marked "Not sent" with a
-// Retry — it is never shown as delivered. That failed state is also what drives the
-// prominent WhatsApp button below the thread. Nothing here fabricates delivery.
+// These routes are implemented in server/src/routes/support.js and deployed alongside
+// the rest of the API. `notDeployed` (src/api/supportApi.js) is the fallback for when a
+// request still can't reach them — a 404/405/501, a misconfigured build, a route that
+// moved — not "the backend doesn't exist yet". When it fires the message is marked
+// "Not sent" with a Retry — it is never shown as delivered — and that failed state is
+// also what drives the prominent WhatsApp button below the thread. Nothing here
+// fabricates delivery.
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   View, ScrollView, TextInput, Image, StyleSheet, Animated, Easing,
   Linking, Alert, KeyboardAvoidingView, Platform,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
 import { ArrowLeft, ArrowRight, Paperclip, Mic, Mail, MessageCircle, X, RotateCcw, FileText } from 'lucide-react-native';
 
 import { PressableScale } from '../../screens/parent/ParentApp/anim';
@@ -50,7 +54,7 @@ import { getToken } from '../../utils/storage';
 import { D, IF, TX, fmtClock } from './theme';
 import { chooseAttachment, prettySize } from './pickAttachment';
 import {
-  SUPPORT, supportLinks, agentOpening, agentTicketRaised, agentSendFailed,
+  SUPPORT, supportLinks, agentOpening, agentTicketRaised, agentSendFailed, DOUBT_REDIRECT,
 } from './supportConfig';
 import ConfirmCard from './ConfirmCard';
 import ResolvedScreen from './ResolvedScreen';
@@ -157,7 +161,10 @@ function UserBubble({ msg, onRetry }) {
 // `authorName` is only passed for real thread rows (Step 1/2 — a live ticket can have
 // more than one agent reply on it), so the scripted bubbles below render exactly as
 // before when it's absent.
-function AgentBubble({ agent, text, time, authorName }) {
+// `cta` + `onCta` back the doubt redirect (Step 3): a button under the bubble that sends
+// the student to AI Teacher without closing off the thread — the composer stays live and
+// anything they type still raises a real ticket.
+function AgentBubble({ agent, text, time, authorName, cta, onCta }) {
   return (
     <View style={s.agentRow}>
       <Peek agent={agent} />
@@ -167,6 +174,17 @@ function AgentBubble({ agent, text, time, authorName }) {
           <TX w="reg" s={14} lh={18} c={D.ink}>{text}</TX>
           {!!time && <TX w="reg" s={10} lh={12} c={D.muted} style={{ marginTop: 4 }}>{time}</TX>}
         </View>
+        {!!cta && (
+          <PressableScale
+            style={s.doubtCta}
+            onPress={onCta}
+            scaleTo={0.97}
+            accessibilityRole="button"
+            accessibilityLabel={cta}
+          >
+            <TX w="semi" s={13} c={D.indigo}>{cta}</TX>
+          </PressableScale>
+        )}
       </View>
     </View>
   );
@@ -258,6 +276,7 @@ export default function ChatScreen({
   onBack,
 }) {
   const insets = useSafeAreaInsets();
+  const navigation = useNavigation();
   const scroller = useRef(null);
   const timers = useRef([]);
   const seq = useRef(0);
@@ -369,8 +388,42 @@ export default function ChatScreen({
 
   // The agent opens the conversation. Scripted while `liveChat` is false or a real ticket
   // is already loaded from the server; a real agent socket replaces it wholesale.
+  //
+  // `doubt` gets its own opening — the AI Teacher redirect — regardless of `liveChat`,
+  // because that copy is about the category (study questions belong somewhere else),
+  // not about whether an agent is on shift.
+  //
+  // ADDITION (authorised on top of Task 15's brief, not in it): `liveChat` now defaults
+  // true everywhere this screen is actually mounted (see HelpFab.js), which made the
+  // branch below a no-op for real conversations — a brand-new ticket opened with an
+  // empty thread until either side wrote something, and read as broken. The fix is an
+  // honest opening line for that case too, but as an EVENT CHIP (`EventChip`, same style
+  // as "Ticket created"), not an agent bubble: it names no one, so nobody can mistake it
+  // for a human having already replied.
   useEffect(() => {
-    if (liveChat || existingTicket) return undefined;
+    if (existingTicket) return undefined;
+
+    if (category.id === 'doubt') {
+      later(() => setTyping(true), OPEN_DELAY);
+      later(() => {
+        setTyping(false);
+        setThread((prev) => (prev.some((m) => m.id === 'a-open') ? prev : [
+          ...prev, {
+            id: 'a-open', kind: 'agent', text: DOUBT_REDIRECT.text, time: fmtClock(), cta: DOUBT_REDIRECT.cta,
+          },
+        ]));
+      }, OPEN_DELAY + OPEN_TYPING);
+      return undefined;
+    }
+
+    if (liveChat) {
+      setThread((prev) => (prev.some((m) => m.id === 'ev-welcome') ? prev : [
+        { id: 'ev-welcome', kind: 'event', text: `Apna issue yahan likhiye — ${category.team} dekh kar aapse contact karegi.` },
+        ...prev,
+      ]));
+      return undefined;
+    }
+
     later(() => setTyping(true), OPEN_DELAY);
     later(() => {
       setTyping(false);
@@ -381,6 +434,23 @@ export default function ChatScreen({
     }, OPEN_DELAY + OPEN_TYPING);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // Doubt redirect CTA: sends the student to AI Teacher without closing the thread — the
+  // ticket keeps existing and the composer stays enabled underneath. AITeacherScreen has
+  // no route of its own (it's local state inside HomeScreen, gated by the `aiTeacher`
+  // feature flag); the nearest real, navigable thing is the Home tab it lives on, reached
+  // via the root stack's "MainApp" screen → nested "Home" tab (src/navigation/
+  // AppNavigator.js, src/navigation/MainNavigator.js). This lands the student one tap
+  // away from AI Teacher rather than guessing at a screen name that doesn't exist.
+  const goToAITeacher = useCallback(() => {
+    try {
+      navigation.navigate('MainApp', { screen: 'Home' });
+    } catch (e) {
+      // Navigation is best-effort here — the redirect copy already told the student what
+      // to do, and the composer underneath still works either way.
+    }
+    if (onBack) onBack();
+  }, [navigation, onBack]);
 
   // Step 2: subscribe to the live socket once a ticket id exists (fresh or existing) and
   // we actually have a token to authenticate with. Waiting on `authToken` — rather than
@@ -588,8 +658,21 @@ export default function ChatScreen({
   }, [thread, typing, files]);
 
   const canSend = draft.trim().length > 0 || files.length > 0;
-  const tag = `${category.tag || category.label}${agent.online ? ' · Active' : ''}`;
-  const initial = (Array.from((agent.name || 'A').trim())[0] || 'A').toUpperCase();
+
+  // The header/avatar identity. Before a ticket exists, or before anyone has picked it
+  // up, this is `agent` — the honest TEAM placeholder SupportSheet passed in (teamAgent,
+  // supportConfig.js). The moment the server hands back a real `assignedTo` — from
+  // createTicket's response, a REST refetch, or the live socket's status event — that
+  // name wins, because it is no longer a guess about who will answer; it is who did.
+  // `online` is left false either way: presence isn't something either side reports.
+  const assignedTo = (ticket && ticket.assignedTo) || assignee.current || null;
+  const displayAgent = assignedTo
+    ? {
+      name: assignedTo.name, team: assignedTo.team || category.team, online: false, photo: agent.photo || null,
+    }
+    : agent;
+  const tag = `${category.tag || category.label}${displayAgent.online ? ' · Active' : ''}`;
+  const initial = (Array.from((displayAgent.name || 'A').trim())[0] || 'A').toUpperCase();
 
   // Task 14: once the SERVER says this ticket is closed with a resolution attached, hand
   // the whole screen to ResolvedScreen — driven off `ticket.status`/`ticket.resolution`
@@ -601,7 +684,7 @@ export default function ChatScreen({
   if (ticket && ticket.status === 'closed' && ticket.resolution) {
     return (
       <ResolvedScreen
-        agent={agent}
+        agent={displayAgent}
         ticket={ref}
         category={category}
         resolution={ticket.resolution}
@@ -626,12 +709,12 @@ export default function ChatScreen({
             <PressableScale style={s.backBtn} onPress={onBack} scaleTo={0.9} accessibilityRole="button" accessibilityLabel="Back to topics">
               <ArrowLeft size={18} color={D.muted} strokeWidth={2.2} />
             </PressableScale>
-            {agent.photo ? (
-              <Image source={typeof agent.photo === 'string' ? { uri: agent.photo } : agent.photo} style={s.compactAvatar} accessibilityIgnoresInvertColors />
+            {displayAgent.photo ? (
+              <Image source={typeof displayAgent.photo === 'string' ? { uri: displayAgent.photo } : displayAgent.photo} style={s.compactAvatar} accessibilityIgnoresInvertColors />
             ) : (
               <View style={[s.compactAvatar, s.headAvatarFallback]}><TX w="bold" s={13} c={D.ink}>{initial}</TX></View>
             )}
-            <TX w="semi" s={14} lh={17} c={D.ink} numberOfLines={1}>{agent.name}</TX>
+            <TX w="semi" s={14} lh={17} c={D.ink} numberOfLines={1}>{displayAgent.name}</TX>
           </View>
           {/* Hidden until the server has actually issued a ref. */}
           {!!ref && <View style={s.ticketBadgeSm}><TX w="bold" s={10} lh={12} c={D.indigo}>{ref}</TX></View>}
@@ -642,14 +725,14 @@ export default function ChatScreen({
             <PressableScale style={s.backBtn} onPress={onBack} scaleTo={0.9} accessibilityRole="button" accessibilityLabel="Back to topics">
               <ArrowLeft size={18} color={D.muted} strokeWidth={2.2} />
             </PressableScale>
-            {agent.photo ? (
-              <Image source={typeof agent.photo === 'string' ? { uri: agent.photo } : agent.photo} style={s.headAvatar} accessibilityIgnoresInvertColors />
+            {displayAgent.photo ? (
+              <Image source={typeof displayAgent.photo === 'string' ? { uri: displayAgent.photo } : displayAgent.photo} style={s.headAvatar} accessibilityIgnoresInvertColors />
             ) : (
               <View style={[s.headAvatar, s.headAvatarFallback]}><TX w="bold" s={15} c={D.ink}>{initial}</TX></View>
             )}
             <View style={s.contextAgent}>
               <View style={s.contextAgentNames}>
-                <TX w="semi" s={14} lh={17} c={D.ink} numberOfLines={1}>{agent.name}</TX>
+                <TX w="semi" s={14} lh={17} c={D.ink} numberOfLines={1}>{displayAgent.name}</TX>
                 <TX w="reg" s={12} lh={15} c={D.muted} numberOfLines={1}>{tag}</TX>
               </View>
               {!category.plain && (
@@ -666,7 +749,7 @@ export default function ChatScreen({
                 so this shows what we can stand behind — presence + the published average
                 reply time — rather than inventing a live queue position. */}
             <View style={s.queueBadge}>
-              <View style={[s.queueDot, { backgroundColor: agent.online ? D.online : D.muted }]} />
+              <View style={[s.queueDot, { backgroundColor: displayAgent.online ? D.online : D.muted }]} />
               <TX w="reg" s={10} lh={13} c={D.muted}>{SUPPORT.avgReply}</TX>
             </View>
           </View>
@@ -685,12 +768,20 @@ export default function ChatScreen({
           if (m.kind === 'event') return <EventChip key={m.id} text={m.text} />;
           if (m.kind === 'agent') {
             return (
-              <AgentBubble key={m.id} agent={agent} text={m.text} time={m.time} authorName={m.authorName} />
+              <AgentBubble
+                key={m.id}
+                agent={displayAgent}
+                text={m.text}
+                time={m.time}
+                authorName={m.authorName}
+                cta={m.cta}
+                onCta={m.cta ? goToAITeacher : undefined}
+              />
             );
           }
           return <UserBubble key={m.id} msg={m} onRetry={retry} />;
         })}
-        {typing && <TypingRow agent={agent} />}
+        {typing && <TypingRow agent={displayAgent} />}
 
         {/* receipt-card + quick-replies land under the agent's opening, once it's said.
             Both come from real ticket context — nothing renders without it. */}
@@ -906,6 +997,9 @@ const s = StyleSheet.create({
     maxWidth: 260, padding: 12, backgroundColor: D.card, borderWidth: 1, borderColor: D.border,
     borderTopLeftRadius: 16, borderTopRightRadius: 16, borderBottomRightRadius: 16, borderBottomLeftRadius: 4,
   },
+  // The doubt-redirect CTA — a plain text button under the bubble, indigo like every
+  // other in-flow link (ContextCard's "View Invoice", the WhatsApp/email pills).
+  doubtCta: { alignSelf: 'flex-start', marginLeft: 4, paddingVertical: 4 },
   typingBubble: {
     flexDirection: 'row', alignItems: 'center', gap: 4,
     paddingVertical: 10, paddingHorizontal: 14,

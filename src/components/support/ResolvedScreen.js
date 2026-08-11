@@ -7,8 +7,8 @@
 // heading size and the two button heights against it.
 //
 // Reaching this screen is driven by data, not by anything the app decides: it renders
-// when the ticket carries a `resolution`. Nothing here can mark a ticket resolved on
-// its own — see TODO(chat-backend) in ChatScreen.js.
+// when the ticket carries a `resolution`, set by an admin closing the ticket through
+// server/src/routes/support.js. Nothing here can mark a ticket resolved on its own.
 import React, { useCallback, useState } from 'react';
 import { View, ScrollView, StyleSheet, Linking, Alert } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';

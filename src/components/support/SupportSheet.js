@@ -13,7 +13,7 @@ import TopicSelect from './TopicSelect';
 import ChatScreen from './ChatScreen';
 import ResolvedScreen from './ResolvedScreen';
 import { D } from './theme';
-import { DEFAULT_AGENT } from './supportConfig';
+import { teamAgent } from './supportConfig';
 import { listMyTickets, markTicketRead } from '../../api/supportApi';
 
 export default function SupportSheet({
@@ -24,7 +24,7 @@ export default function SupportSheet({
   userName,
   userPhone,             // the number the assigned team member calls back on
   childName,
-  agent = DEFAULT_AGENT,
+  agent = teamAgent(),
   greeting,
   liveChat = false,      // see TODO(chat-backend) in ChatScreen.js
   // Real case data for the chosen department, keyed by topic id — e.g.
@@ -132,14 +132,38 @@ export default function SupportSheet({
     else onClose();
   }, [tickets.length, onClose]);
 
-  // "Connect to the person of that department": a topic can name its own agent, and
-  // falls back to the shared one. TODO(support-agent) — this should come from an
-  // endpoint that returns whoever is actually on shift for the chosen department.
-  const activeAgent = (picked && picked.category.agent) || agent;
+  // "Connect to the person of that department": before a ticket exists there's nobody to
+  // name, so this shows the TEAM (teamAgent, supportConfig.js) — true regardless of who
+  // eventually picks it up. Reopening an existing ticket from the list already carries
+  // the server's real `assignedTo`, so that wins the moment it's known. A ticket raised
+  // fresh in this session becomes ChatScreen's own state instead (it owns the socket/
+  // refetch that keeps `assignedTo` current) — see `displayAgent` in ChatScreen.js.
+  const openAssignee = openTicket && openTicket.assignedTo;
+  const activeAgent = openAssignee
+    ? {
+      name: openAssignee.name,
+      team: openAssignee.team || (picked && picked.category.team) || 'Support team',
+      online: false,
+      photo: null,
+    }
+    : (picked && picked.category.agent) || teamAgent(picked && picked.category);
 
   // The resolved state is data, never a local decision: it shows when the ticket the
   // backend handed us carries a `resolution`. "Reopen This Chat" drops back to the
   // conversation for this session only — the ticket's real status is the server's call.
+  //
+  // ⚠️ This whole branch is a design-preview path, not a production one: `ticketContexts`
+  // (and the `DEMO_TICKET_CONTEXT`/`DEMO_RESOLVED_CONTEXT` it's meant to carry — see
+  // supportConfig.js) is never passed by any real mount site. HelpFab.js forwards a
+  // `ticketContexts` prop but neither of its two callers (src/navigation/
+  // MainNavigator.js's StudentHelpFab, src/screens/parent/ParentApp/ParentApp.js) sets
+  // one, so `ctx` is always null and `showResolved` always false in the shipped app —
+  // every real conversation falls through to ChatScreen below, whose OWN resolved check
+  // (`ticket.status === 'closed' && ticket.resolution`) is what actually fires, driven
+  // by the real ticket. Checked as part of Task 15: if a future dev build ever DOES pass
+  // `ticketContexts` for design review, this branch would render first and ChatScreen
+  // (with its real-status check) would never mount for that pick — so still don't wire
+  // `ticketContexts` into any real screen, and never enable the two DEMO_* constants.
   const ctx = (picked && ticketContexts && ticketContexts[picked.category.id]) || null;
   const showResolved = !!(ctx && ctx.resolution) && !reopened;
 
