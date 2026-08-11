@@ -30,9 +30,19 @@ async function identify(token) {
   } catch (_) {
     return null
   }
-  const rows = await db.$queryRawUnsafe(
-    `SELECT id, name, admin_role FROM "users" WHERE id = $1::uuid LIMIT 1`, decoded.sub,
-  )
+  // A pooler reset (or any transient DB blip) landing mid-handshake used to throw out of
+  // here into io.use's async callback, where nothing catches it: an unhandled rejection,
+  // and a client left hanging because `next()` was never called either way. Treat it the
+  // same as "we could not establish who this is" — return null, and the caller refuses the
+  // connection cleanly. The client's own reconnect loop then retries.
+  let rows
+  try {
+    rows = await db.$queryRawUnsafe(
+      `SELECT id, name, admin_role FROM "users" WHERE id = $1::uuid LIMIT 1`, decoded.sub,
+    )
+  } catch (_) {
+    return null
+  }
   const user = rows && rows[0]
   if (!user) return null
   // `staff` here means "may see support tickets" — support.view, not merely "carries

@@ -15,6 +15,17 @@ const ctx = { skip: !hasDb, ids: [] }
 const USER = '00000000-0000-4000-8000-00000000f001'
 const STAFF = '00000000-0000-4000-8000-00000000f002'
 
+// `autoCloseExpired()` is a TABLE-WIDE UPDATE — it closes every overdue
+// pending_confirmation ticket in the database, not only the ones this file created. Every
+// other test here scopes its writes to its own ticket ids and cleans them up; those two
+// cannot. Run against a shared staging or production DATABASE_URL (which a developer's
+// .env very often is) they would silently close real customers' tickets out from under
+// them, and there is no undo. So they are opt-in: set SUPPORT_TEST_DB=1 when DATABASE_URL
+// points at a database you are willing to have written to table-wide.
+//   SUPPORT_TEST_DB=1 npm test
+const tableWideOk = process.env.SUPPORT_TEST_DB === '1'
+const skipTableWide = ctx.skip || !tableWideOk
+
 // A ticket carrying one user message — the shape everything downstream assumes.
 async function makeTicket(status = 'open') {
   const rows = await db.$queryRawUnsafe(
@@ -97,7 +108,7 @@ test('reopen appends an event message so the thread shows why it came back', { s
   assert.equal(msgs.length, 1)
 })
 
-test('autoCloseExpired closes an overdue pending ticket and leaves a fresh one alone', { skip: ctx.skip }, async () => {
+test('autoCloseExpired closes an overdue pending ticket and leaves a fresh one alone', { skip: skipTableWide }, async () => {
   const stale = await makeTicket('assigned')
   await svc.resolveTicket({ ticketId: stale.id, summary: 'done', byName: 'S' })
   await db.$executeRawUnsafe(
@@ -115,7 +126,7 @@ test('autoCloseExpired closes an overdue pending ticket and leaves a fresh one a
   assert.equal((await read(fresh.id)).status, 'pending_confirmation', 'not yet due')
 })
 
-test('autoCloseExpired never touches an open ticket', { skip: ctx.skip }, async () => {
+test('autoCloseExpired never touches an open ticket', { skip: skipTableWide }, async () => {
   const t = await makeTicket('open')
   await db.$executeRawUnsafe(
     `UPDATE "support_tickets" SET "autoCloseAt" = now() - interval '9 days' WHERE id = $1::uuid`, t.id,

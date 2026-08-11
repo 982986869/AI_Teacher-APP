@@ -31,11 +31,20 @@ const isStaff = (req) => hasPermission(req.user && req.user.admin_role, 'support
 // Pick the active member of this team carrying the fewest open tickets. Returns null when
 // the team has nobody registered — which is the honest default, and what the app renders
 // as "team ka member aapse contact karega" rather than naming an invented agent.
+//
+// "Load" is LIVE work only. This used to read `status <> 'resolved'`, but the v2 migration
+// (prisma/sql/support_tickets.sql) rewrote every `resolved` row to `closed` and nothing
+// writes `resolved` any more — so that predicate excluded nothing and counted every ticket
+// the agent had ever been assigned, closed ones included. A lifetime counter never goes
+// down, so the moment a second member joins a team the incumbent's count stays permanently
+// higher and every new ticket routes to the newcomer forever. The three live statuses are
+// the only ones that represent work still on someone's desk.
 async function pickAgent(team) {
   const rows = await db.$queryRawUnsafe(
     `SELECT a."userId", a."name",
             (SELECT COUNT(*) FROM "support_tickets" t
-              WHERE t."assignedToId" = a."userId" AND t."status" <> 'resolved') AS "load"
+              WHERE t."assignedToId" = a."userId"
+                AND t."status" IN ('open', 'assigned', 'pending_confirmation')) AS "load"
        FROM "support_agents" a
       WHERE a."team" = $1 AND a."active" = true
       ORDER BY "load" ASC, a."createdAt" ASC
@@ -182,6 +191,15 @@ async function addAttachment(req, res, next) {
     const { ticket, error } = await loadOwned(req, req.params.id)
     if (error) return ApiResponse.error(res, error[0], error[1])
 
+    // Same gate as addMessage/callLog. Uploading a file onto someone else's thread is a
+    // write into their conversation, so support.view — which only grants watching a queue
+    // — must not be enough; without this a view-only role could push a file into any
+    // family's ticket.
+    const isOwner = ticket.userId === req.user.id
+    if (!isOwner && !hasPermission(req.user.admin_role, 'support.reply')) {
+      return ApiResponse.error(res, 'You do not have permission to reply to tickets.', 403)
+    }
+
     const url = await uploadFile(req.file.buffer, {
       contentType: req.file.mimetype,
       originalName: req.file.originalname,
@@ -275,12 +293,20 @@ async function queue(req, res, next) {
     if (!isStaff(req)) return ApiResponse.error(res, 'Staff access required.', 403)
     const team = req.query.team ? String(req.query.team) : null
     const status = req.query.status ? String(req.query.status) : 'open'
+    // `open` here means WORK NOT YET RESOLVED — 'open' OR 'assigned' — not the literal
+    // status string. A ticket is created as 'assigned' the moment pickAgent finds anyone
+    // on the team (see create, above), and support-agents-setup.js seeds all eight teams,
+    // so in practice every real ticket is born 'assigned'. Matching the literal 'open'
+    // therefore showed the console an empty queue and a zero badge for every genuine
+    // ticket, forever. 'all', 'pending_confirmation' and 'closed' still match exactly.
     const rows = await db.$queryRawUnsafe(
       `SELECT t.*, u."name" AS "raisedByName", u."phone" AS "raisedByPhone"
          FROM "support_tickets" t
          JOIN "users" u ON u.id = t."userId"
         WHERE ($1::text IS NULL OR t."team" = $1)
-          AND ($2::text = 'all' OR t."status" = $2)
+          AND ($2::text = 'all'
+               OR ($2::text = 'open' AND t."status" IN ('open', 'assigned'))
+               OR ($2::text <> 'open' AND t."status" = $2))
           -- A ticket is created the moment someone opens a department, so that the ref
           -- on their screen is real. Plenty of those are just browsing and never write
           -- anything. Only tickets carrying an actual message reach the team's queue.
@@ -289,6 +315,10 @@ async function queue(req, res, next) {
         ORDER BY t."createdAt" ASC LIMIT 200`,
       team, status,
     )
+    // Counted off the SAME rows the caller just asked for, so the sidebar badge (which
+    // fetches with status=open) counts exactly the tickets the Open tab lists — including
+    // the 'assigned' ones. Deriving it from a second, differently-filtered query is how
+    // the two drifted apart in the first place.
     const unreadCount = rows.filter((t) => !t.staffReadAt || t.staffReadAt < t.updatedAt).length
     return ApiResponse.success(res, {
       tickets: rows.map((t) => ({
@@ -407,4 +437,8 @@ async function markRead(req, res, next) {
 module.exports = {
   create, addMessage, addAttachment, getOne, listMine, queue, resolve,
   close, reopen, callLog, markRead,
+  // Not routed — exported so tests/support.access.test.js can assert the load predicate
+  // directly. Routing silently to the wrong person is invisible from the outside, which
+  // is exactly why it went unnoticed until a whole-branch read.
+  pickAgent,
 }
