@@ -23,6 +23,7 @@ import { PressableScale } from '../../parent/ParentApp/anim';
 import { apiError } from '../ui/format';
 import { CallLogSheet } from './CallLogSheet';
 import { ResolveSheet } from './ResolveSheet';
+import { notifySupportTicketRead } from './useSupportUnread';
 
 const STATUS_TONE = {
   closed: S.emerald,
@@ -102,6 +103,12 @@ export default function SupportThreadScreen({ route, navigation }) {
       // load rather than only the first — a reply that arrives while this screen is open
       // must not leave the ticket looking unread.
       await markTicketRead(id);
+      // …and the badge has to be told, because the server tells nobody: the read receipt
+      // emits no socket event, so without this ping the number on the Support tab keeps
+      // showing the ticket the agent is currently reading until something unrelated
+      // happens. markTicketRead never throws (it swallows its own failure), so a failed
+      // receipt simply refetches the same count.
+      notifySupportTicketRead();
     } catch (e) {
       setError(apiError(e, 'Ticket load nahi hua'));
     } finally {

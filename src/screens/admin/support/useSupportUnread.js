@@ -8,6 +8,22 @@ import { AppState } from 'react-native';
 import { getSupportQueue } from '../../../api/supportApi';
 import { connectSupportSocket, subscribeStaffQueue } from '../../../realtime/supportSocket';
 
+// Reading a ticket is the one thing that lowers this count, and it is the one thing the
+// hook cannot hear about. POST /tickets/:id/read only stamps staffReadAt (svc.markRead)
+// — no socket event is emitted for it by the service or the controller — so the socket,
+// mount and AppState triggers below all stay silent while the number they show goes
+// stale. The thread screen calls this the moment its read receipt lands, which is the
+// only point at which the count is known to have changed.
+//
+// A module-level set rather than context: the hook lives in AdminNavigator, several
+// stacks above the thread screen, and threading a callback down through the tab and
+// stack navigators to reach it would be far more machinery for a one-way ping.
+const readListeners = new Set();
+
+export function notifySupportTicketRead() {
+  readListeners.forEach((fn) => fn());
+}
+
 export function useSupportUnread(enabled, token) {
   const [count, setCount] = useState(0);
 
@@ -41,6 +57,15 @@ export function useSupportUnread(enabled, token) {
     if (!enabled) return undefined;
     const sub = AppState.addEventListener('change', (s) => { if (s === 'active') load(); });
     return () => sub.remove();
+  }, [enabled, load]);
+
+  // Refetch rather than decrementing locally: the server derives unreadCount from the same
+  // query the Open tab lists, and a ticket the agent read may have been touched again in
+  // the meantime. Guessing -1 here is exactly how the badge and the list start disagreeing.
+  useEffect(() => {
+    if (!enabled) return undefined;
+    readListeners.add(load);
+    return () => { readListeners.delete(load); };
   }, [enabled, load]);
 
   return enabled ? count : 0;
