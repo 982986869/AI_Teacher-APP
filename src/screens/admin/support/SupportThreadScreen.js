@@ -13,6 +13,7 @@ import {
   View, ScrollView, TextInput, AppState, Alert, Linking,
   KeyboardAvoidingView, Platform,
 } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ChevronLeft, Phone, Send, CircleCheck, Paperclip } from 'lucide-react-native';
 import { getTicket, markTicketRead, addTicketMessage, logCall, resolveTicket } from '../../../api/supportApi';
 import { joinTicket } from '../../../realtime/supportSocket';
@@ -86,6 +87,11 @@ function Bubble({ m }) {
 export default function SupportThreadScreen({ route, navigation }) {
   const { id } = route.params;
   const { can } = useAuth();
+  // This screen hides the dock (see AdminDock's HIDE_DOCK_ON), so nothing else is holding
+  // its content clear of the system bars: both edges have to be paid for here. A hardcoded
+  // number cannot do it — the gesture bar is a different height on every device, and where
+  // it overlaps a control the OS takes the touch first and the control simply looks dead.
+  const insets = useSafeAreaInsets();
   const [ticket, setTicket] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -218,7 +224,7 @@ export default function SupportThreadScreen({ route, navigation }) {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       style={{ flex: 1, backgroundColor: S.canvas }}
     >
-      <View style={{ paddingTop: 52, paddingHorizontal: 16, paddingBottom: 12, backgroundColor: '#fff', borderBottomWidth: 1, borderBottomColor: S.hair }}>
+      <View style={{ paddingTop: insets.top + 10, paddingHorizontal: 16, paddingBottom: 12, backgroundColor: '#fff', borderBottomWidth: 1, borderBottomColor: S.hair }}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
           <PressableScale onPress={() => navigation.goBack()} accessibilityLabel="Back" style={{ marginRight: 2 }}>
             <ChevronLeft size={22} color={S.ink} strokeWidth={2.4} />
@@ -246,6 +252,50 @@ export default function SupportThreadScreen({ route, navigation }) {
               <Phone size={12} color={S.indigo} strokeWidth={2.6} />
               <T w="xbold" s={12.5} c={S.indigo}>{phone}</T>
             </PressableScale>
+          ) : null}
+        </View>
+
+        {/* The two write actions sit in the header, not above the composer where they
+            started. At the bottom of the screen they shared space with the system gesture
+            area on a modern phone — visible, but the OS took the touch first — and the
+            keyboard covered them the moment anyone typed a reply. Up here neither is true,
+            and they read as "things you do to this ticket" rather than as part of the
+            composer, which is what they actually are. */}
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 12, flexWrap: 'wrap' }}>
+          <PressableScale
+            onPress={() => setCallOpen(true)}
+            disabled={!can('support.reply')}
+            style={{
+              flexDirection: 'row', alignItems: 'center', gap: 6, borderRadius: 12, borderWidth: 1,
+              borderColor: S.hair, paddingHorizontal: 12, paddingVertical: 8,
+              opacity: can('support.reply') ? 1 : 0.45,
+            }}
+            accessibilityRole="button"
+            accessibilityLabel="Log a call"
+          >
+            <Phone size={13} color={S.sub} strokeWidth={2.4} />
+            <T w="bold" s={12.5} c={S.sub}>Log a call</T>
+          </PressableScale>
+
+          {!closed && !pending && can('support.resolve') ? (
+            <PressableScale
+              onPress={() => setResolveOpen(true)}
+              style={{
+                flexDirection: 'row', alignItems: 'center', gap: 6, borderRadius: 12, borderWidth: 1,
+                borderColor: S.emerald, backgroundColor: S.emeraldSoft, paddingHorizontal: 12, paddingVertical: 8,
+              }}
+              accessibilityRole="button"
+              accessibilityLabel="Mark resolved"
+            >
+              <CircleCheck size={13} color={S.emerald} strokeWidth={2.6} />
+              <T w="xbold" s={12.5} c={S.emerald}>Mark Resolved</T>
+            </PressableScale>
+          ) : null}
+
+          {pending ? (
+            <T w="semi" s={11.5} c={S.gold} style={{ flex: 1 }}>
+              User ki confirmation ka intezaar — 3 din baad apne aap band
+            </T>
           ) : null}
         </View>
       </View>
@@ -305,7 +355,7 @@ export default function SupportThreadScreen({ route, navigation }) {
         ) : null}
       </ScrollView>
 
-      <View style={{ borderTopWidth: 1, borderTopColor: S.hair, backgroundColor: '#fff', padding: 12, paddingBottom: 16 }}>
+      <View style={{ borderTopWidth: 1, borderTopColor: S.hair, backgroundColor: '#fff', padding: 12, paddingBottom: Math.max(insets.bottom, 12) }}>
         <View style={{ flexDirection: 'row', alignItems: 'flex-end', gap: 8, marginBottom: 9 }}>
           <TextInput
             value={text}
@@ -334,43 +384,6 @@ export default function SupportThreadScreen({ route, navigation }) {
           </PressableScale>
         </View>
 
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
-          <PressableScale
-            onPress={() => setCallOpen(true)}
-            disabled={!can('support.reply')}
-            style={{
-              flexDirection: 'row', alignItems: 'center', gap: 6, borderRadius: 12, borderWidth: 1,
-              borderColor: S.hair, paddingHorizontal: 12, paddingVertical: 8,
-              opacity: can('support.reply') ? 1 : 0.45,
-            }}
-            accessibilityRole="button"
-            accessibilityLabel="Log a call"
-          >
-            <Phone size={13} color={S.sub} strokeWidth={2.4} />
-            <T w="bold" s={12.5} c={S.sub}>Log a call</T>
-          </PressableScale>
-
-          {!closed && !pending && can('support.resolve') ? (
-            <PressableScale
-              onPress={() => setResolveOpen(true)}
-              style={{
-                flexDirection: 'row', alignItems: 'center', gap: 6, borderRadius: 12, borderWidth: 1,
-                borderColor: S.emerald, backgroundColor: S.emeraldSoft, paddingHorizontal: 12, paddingVertical: 8,
-              }}
-              accessibilityRole="button"
-              accessibilityLabel="Mark resolved"
-            >
-              <CircleCheck size={13} color={S.emerald} strokeWidth={2.6} />
-              <T w="xbold" s={12.5} c={S.emerald}>Mark Resolved</T>
-            </PressableScale>
-          ) : null}
-
-          {pending ? (
-            <T w="semi" s={11.5} c={S.gold} style={{ flex: 1 }}>
-              User ki confirmation ka intezaar — 3 din baad apne aap band
-            </T>
-          ) : null}
-        </View>
       </View>
 
       <CallLogSheet visible={callOpen} onClose={() => setCallOpen(false)} onSubmit={onLogCall} />
