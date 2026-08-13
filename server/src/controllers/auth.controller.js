@@ -17,7 +17,10 @@ const { uploadImage, isConfigured: storageConfigured } = require('../services/st
 // Full personalization row (raw — these columns live outside the generated client).
 async function fetchScopeUser(id) {
   const rows = await db.$queryRawUnsafe(
-    `SELECT id, name, email, phone, grade, role::text AS role,
+    // admin_role rides along because login/register hand this whole row back as `user`
+    // and derive its `permissions` field from it — without the column here that field
+    // would silently be [] for every admin/support account, no matter their real role.
+    `SELECT id, name, email, phone, grade, role::text AS role, admin_role,
             board, stream, language, school, account_type, linked_student_id, photo_url AS "photoUrl"
        FROM "users" WHERE id = $1::uuid LIMIT 1`,
     id,
