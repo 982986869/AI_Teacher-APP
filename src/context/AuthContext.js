@@ -5,6 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { deriveScope } from '../utils/personalization';
 import { fetchMe, updateProfileApi, uploadProfilePhoto } from '../api/authApi';
 import { getContentClasses } from '../api/resourcesApi';
+import { disconnectSupportSocket } from '../realtime/supportSocket';
 
 const AuthContext = createContext(null);
 
@@ -156,7 +157,14 @@ export const AuthProvider = ({ children }) => {
     if (scope.className) setSelClass(scope.className);
   }, [scope.className]);
 
+  // Clearing storage and state is not enough to end a session: the support socket is a
+  // module-level singleton whose identity — including whether it sits in the server's
+  // `staff:queue` room — was fixed at handshake and cannot be revoked from the server
+  // side. Left open, a signed-out support agent's phone keeps receiving every new ticket
+  // and every private call note for whoever signs in on that device next. Closing it here
+  // (and on the 401 below) is the only thing that leaves that room.
   const signOut = useCallback(async () => {
+    disconnectSupportSocket();
     await clearAll();
     await AsyncStorage.removeItem('@ailernova_onboarded');
     await AsyncStorage.removeItem('@ailernova_active_view');
@@ -172,6 +180,9 @@ export const AuthProvider = ({ children }) => {
   // Keeps onboarding so a quick re-login lands straight back on Home.
   useEffect(() => {
     setUnauthorizedHandler(() => {
+      // Same reasoning as signOut: an expired/revoked token stops working over HTTP the
+      // moment it is refused, but the already-authenticated socket keeps its rooms.
+      disconnectSupportSocket();
       clearAll();
       setToken(null);
       setUser(null);
