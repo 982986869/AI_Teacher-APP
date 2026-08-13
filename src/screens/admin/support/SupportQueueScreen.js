@@ -6,7 +6,7 @@
 // The socket keeps this live; the refetches are what keep it CORRECT. Every event reloads
 // from the server rather than patching state, so an event this phone never heard — and
 // nothing is ever replayed — cannot leave the list disagreeing with the server.
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { View, FlatList, TextInput, ScrollView, RefreshControl, AppState } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { Search } from 'lucide-react-native';
@@ -19,6 +19,7 @@ import { PressableScale } from '../../parent/ParentApp/anim';
 import { apiError, timeAgo } from '../ui/format';
 import { useBottomPad } from '../../../theme/layout';
 import { STATUS_TABS, SUPPORT_TEAMS, isUnread, isStale, staleSince, matchesQuery } from './queueRules';
+import { RefreshFailedBanner } from './RefreshFailedBanner';
 
 function Chip({ label, active, onPress, tint, small }) {
   return (
@@ -88,22 +89,49 @@ export default function SupportQueueScreen({ navigation }) {
   const [error, setError] = useState(null);
   const bottomPad = useBottomPad();
 
+  // Which /queue request the screen is currently waiting on. Responses are not ordered:
+  // tap Open → Closed on a slow link and the in-flight status=open response can land
+  // after the status=closed one, leaving the Closed tab rendering open tickets with
+  // nothing on screen to say so. State cannot answer "am I still the newest request?" —
+  // a closure captures the value from when it started — which is the same reason the web
+  // console keeps selectedIdRef for its detail pane
+  // (admin/app/(portal)/support/page.tsx); the queue's version of the race is the filter
+  // rather than the selection. This also makes the several triggers that legitimately
+  // fire together (focus, socket, AppState, pull-to-refresh) settle on one answer.
+  const reqSeq = useRef(0);
+
   const load = useCallback(async () => {
+    const seq = reqSeq.current + 1;
+    reqSeq.current = seq;
     try {
       const d = await getSupportQueue({ status, team: team || undefined });
+      if (reqSeq.current !== seq) return;
       setRows(d.tickets);
       setError(null);
     } catch (e) {
+      if (reqSeq.current !== seq) return;
+      // Deliberately does NOT clear `rows`: this runs on every socket event and every
+      // return to the foreground, so one network blip must not throw away 200 rows that
+      // are already correct on screen. The render below shows the banner over the list
+      // when there is a list, and the full error state only when there is nothing to keep
+      // — the same trade the web console makes by toasting and holding its state.
       setError(apiError(e, 'Queue load nahi hui'));
     } finally {
-      setLoading(false);
+      if (reqSeq.current === seq) setLoading(false);
     }
   }, [status, team]);
 
-  useEffect(() => { setLoading(true); load(); }, [load]);
+  // Changing the filter invalidates what is on screen — those rows answer a question the
+  // agent is no longer asking. Dropping them (rather than leaving them up until the new
+  // response lands) is what stops the Closed tab from briefly, or after a failed request
+  // permanently, listing open tickets. The web console does the same by setting
+  // listLoading and rendering skeletons instead of its held rows. This effect only resets
+  // state — the fetch stays with the single focus effect below.
+  useEffect(() => { setLoading(true); setRows([]); setError(null); }, [status, team]);
 
-  // Idempotent — the module returns the existing socket if one is already alive. The badge
-  // hook connects too, because whichever of the two runs first has to be the one that does.
+  // Hands back the live socket when one already exists for THIS token, and rebuilds it
+  // when the token has changed under it (see realtime/supportSocket.js). The badge hook
+  // connects too, because whichever of the two runs first has to be the one that does.
   useEffect(() => { if (token) connectSupportSocket(token); }, [token]);
 
   useEffect(() => {
@@ -126,6 +154,12 @@ export default function SupportQueueScreen({ navigation }) {
   }, [load]);
 
   // Coming back from a thread must not leave a stale row for the ticket just answered.
+  // This is the ONLY mount/filter trigger, deliberately: useFocusEffect re-runs whenever
+  // the callback's identity changes while focused, and `load` is keyed on [status, team],
+  // so it already covers first mount and every filter tap. The separate
+  // `useEffect(…, [load])` this screen used to carry alongside it fired the identical
+  // request a second time on each of those — the sibling SessionsScreen uses
+  // useFocusEffect alone for the same reason.
   useFocusEffect(useCallback(() => { load(); }, [load]));
 
   // Filtering ≤200 rows already in hand — no debounce, because there is no request to
@@ -165,13 +199,17 @@ export default function SupportQueueScreen({ navigation }) {
         </ScrollView>
       </View>
 
-      {loading && !rows.length ? (
+      {loading ? (
         <View style={{ paddingHorizontal: 18 }}>
           {[0, 1, 2, 3].map((i) => <StudentSkeleton key={i} w="100%" h={78} r={16} mb={9} />)}
         </View>
-      ) : error ? (
+      ) : error && !rows.length ? (
         <StudentErrorState title="Queue load nahi hui" message={error} onRetry={load} />
       ) : (
+        <>
+        {/* Rows in hand, refetch failed: say so above the list instead of replacing it.
+            The list is still the last thing the server actually said. */}
+        {error ? <RefreshFailedBanner message={error} onRetry={load} /> : null}
         <FlatList
           data={tickets}
           keyExtractor={(t) => t.id}
@@ -189,6 +227,7 @@ export default function SupportQueueScreen({ navigation }) {
             </View>
           )}
         />
+        </>
       )}
     </View>
   );
