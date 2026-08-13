@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState, useCallback, useMemo, useRef } from 'react';
-import { saveToken, getToken, saveUser, getUser, clearAll } from '../utils/storage';
+import { saveToken, getToken, saveUser, getUser, savePermissions, getPermissions, clearAll } from '../utils/storage';
 import { setUnauthorizedHandler, setProfileIncompleteHandler } from '../api/axiosInstance';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { deriveScope } from '../utils/personalization';
@@ -11,6 +11,11 @@ const AuthContext = createContext(null);
 export const AuthProvider = ({ children }) => {
   const [user, setUser]                 = useState(null);
   const [token, setToken]               = useState(null);
+  // What this account may do in the admin portal, straight from the server's role map
+  // (server/src/services/admin/permissions.js) — never re-derived here, so regranting a
+  // role never needs an app release. Persisted so a cold start gates admin-only UI
+  // before /me answers; otherwise the Support tab flickers in on every launch.
+  const [permissions, setPermissions]   = useState([]);
   const [loading, setLoading]           = useState(true);
   const [hasOnboarded, setHasOnboarded] = useState(false);
   // true only for the session where the user actually logged in via the login screen.
@@ -38,9 +43,10 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     (async () => {
       try {
-        const [storedToken, storedUser, onboarded, storedClass, storedView] = await Promise.all([
+        const [storedToken, storedUser, storedPerms, onboarded, storedClass, storedView] = await Promise.all([
           getToken(),
           getUser(),
+          getPermissions(),
           AsyncStorage.getItem('@ailernova_onboarded'),
           AsyncStorage.getItem('@ailernova_class'),
           AsyncStorage.getItem('@ailernova_active_view'),
@@ -49,10 +55,14 @@ export const AuthProvider = ({ children }) => {
         if (storedToken && storedUser) {
           setToken(storedToken);
           setUser(storedUser);
+          setPermissions(storedPerms || []);
           // Best-effort refresh — but never clobber a newer authoritative write.
           const myOp = userOp.current;
           fetchMe().then((d) => {
-            if (d && d.user && userOp.current === myOp) { setUser(d.user); saveUser(d.user); }
+            if (d && d.user && userOp.current === myOp) {
+              setUser(d.user); saveUser(d.user);
+              setPermissions(d.permissions || []); savePermissions(d.permissions || []);
+            }
           }).catch(() => {});
         }
         setHasOnboarded(onboarded === 'true');
@@ -80,11 +90,15 @@ export const AuthProvider = ({ children }) => {
     } catch (_) {}
   }, []);
 
-  const signIn = useCallback(async ({ token: t, user: u }) => {
+  // `permissions` rides along on the login/register response (see auth.controller). Taking
+  // it here rather than waiting for the next /me is what lets an agent who just logged in
+  // see the Support tab on this launch instead of the next one.
+  const signIn = useCallback(async ({ token: t, user: u, permissions: p }) => {
     userOp.current += 1; // authoritative write — invalidate any in-flight fetchMe
-    await Promise.all([saveToken(t), saveUser(u)]);
+    await Promise.all([saveToken(t), saveUser(u), savePermissions(p || [])]);
     setToken(t);
     setUser(u);
+    setPermissions(p || []);
     setJustLoggedIn(true);
     // Fresh login → clear any remembered view so the Student/Parent chooser shows.
     setActiveViewState(null);
@@ -114,6 +128,14 @@ export const AuthProvider = ({ children }) => {
   // Derived scope (role, class, stream, subjects) — single source of truth for the UI.
   const scope = useMemo(() => deriveScope(user), [user]);
 
+  // Mirrors the admin console's can(). '*' is how super_admin is stored, so it must be
+  // honoured here or the most privileged account would see the least. Client-side gating
+  // is presentation only — every admin route checks the same permission server-side.
+  const can = useCallback(
+    (p) => permissions.includes('*') || permissions.includes(p),
+    [permissions],
+  );
+
   // Load (and refresh on login) the set of classes that have content in the DB.
   useEffect(() => {
     if (!token) return;
@@ -140,6 +162,7 @@ export const AuthProvider = ({ children }) => {
     await AsyncStorage.removeItem('@ailernova_active_view');
     setToken(null);
     setUser(null);
+    setPermissions([]);
     setHasOnboarded(false);
     setJustLoggedIn(false);
     setActiveViewState(null);
@@ -152,6 +175,7 @@ export const AuthProvider = ({ children }) => {
       clearAll();
       setToken(null);
       setUser(null);
+      setPermissions([]);
       setJustLoggedIn(false);
     });
     return () => setUnauthorizedHandler(null);
@@ -162,7 +186,12 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     setProfileIncompleteHandler(() => {
       const myOp = userOp.current;
-      fetchMe().then((d) => { if (d && d.user && userOp.current === myOp) { setUser(d.user); saveUser(d.user); } }).catch(() => {});
+      fetchMe().then((d) => {
+        if (d && d.user && userOp.current === myOp) {
+          setUser(d.user); saveUser(d.user);
+          setPermissions(d.permissions || []); savePermissions(d.permissions || []);
+        }
+      }).catch(() => {});
     });
     return () => setProfileIncompleteHandler(null);
   }, []);
@@ -175,6 +204,7 @@ export const AuthProvider = ({ children }) => {
       justLoggedIn,
       selectedClass, setSelectedClass,
       scope,                       // { role, classNum, className, stream, board, language, subjects, complete }
+      permissions, can,            // admin-portal RBAC, straight from the server's role map
       readyClasses, isClassReady,  // backend-driven "which classes have content" gate
       activeView, setActiveView,   // student's chosen view: 'student' | 'parent' | null (chooser)
       updateProfile, updatePhoto,

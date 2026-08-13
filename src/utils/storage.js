@@ -3,6 +3,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const KEYS = {
   AUTH_TOKEN:    '@ailernova_auth_token',
   USER:          '@ailernova_user',
+  // Admin-portal permissions for the signed-in account, as the server computed them.
+  // Persisted so a cold start can gate admin-only UI before /me has answered; listed in
+  // KEYS so clearAll() drops it on logout and the next account can never inherit it.
+  PERMISSIONS:   '@ailernova_permissions',
   ACTIVE_LESSON: '@ailernova_active_lesson',
   ACTIVE_MATCH:  '@ailernova_active_match',
   PRACTICE_STREAK: '@ailernova_practice_streak',
@@ -44,6 +48,22 @@ export const saveUser = async (user) => {
 export const getUser = async () => {
   const raw = await AsyncStorage.getItem(KEYS.USER);
   return raw ? JSON.parse(raw) : null;
+};
+
+export const savePermissions = async (perms) => {
+  await AsyncStorage.setItem(KEYS.PERMISSIONS, JSON.stringify(perms || []));
+};
+
+// Falls back to "no permissions" on anything unreadable. Failing closed is the only safe
+// direction here: a corrupted value must never hand somebody the admin console.
+export const getPermissions = async () => {
+  try {
+    const raw = await AsyncStorage.getItem(KEYS.PERMISSIONS);
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (_) {
+    return [];
+  }
 };
 
 // Active AI-Teacher lesson, so a student who closes the app mid-lesson can resume
