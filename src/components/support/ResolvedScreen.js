@@ -28,18 +28,30 @@ export default function ResolvedScreen({
   transcript = [],     // the user's own messages, for "Email this conversation"
   onNewConversation,
   onReopen,
-  onRate,              // (1-5) → send the CSAT somewhere real
+  onRate,              // (1-5) → Promise; rejects if the score did not save
+  savedRating,         // what the server already has, so a reopened thread is not blank
 }) {
   const insets = useSafeAreaInsets();
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(savedRating || 0);
+  const [saved, setSaved] = useState(!!savedRating);
 
-  const rate = useCallback((n) => {
+  // Optimistic: the icons fill on tap, because waiting on a round trip to acknowledge a
+  // tap feels broken. But a rating that failed to save must not keep claiming it did —
+  // on rejection the previous value comes back rather than the tap standing.
+  const rate = useCallback(async (n) => {
+    const previous = rating;
+    const wasSaved = saved;
     setRating(n);
-    if (onRate) onRate(n);
-    // No CSAT endpoint yet — TODO(chat-backend). Without a handler the score stays on
-    // screen as acknowledgement and goes nowhere, which is why there's no "thanks, we
-    // logged that" copy: we haven't.
-  }, [onRate]);
+    if (!onRate) return;
+    try {
+      await onRate(n);
+      setSaved(true);
+    } catch (_) {
+      setRating(previous);
+      setSaved(wasSaved);
+      Alert.alert('Rating save nahi hui', 'Network check karke dobara try karein.');
+    }
+  }, [onRate, rating, saved]);
 
   const emailThread = useCallback(() => {
     const lines = [
@@ -103,6 +115,13 @@ export default function ResolvedScreen({
               </PressableScale>
             ))}
           </View>
+          {/* Only after the server has it. The old screen deliberately said nothing here
+              because nothing was being logged; now something is, so it can say so. */}
+          {saved ? (
+            <TX w="reg" s={11} lh={16} c={D.muted} style={[s.center, { marginTop: 6 }]}>
+              Shukriya — aapki rating team tak pahunch gayi.
+            </TX>
+          ) : null}
 
           <View style={s.rule} />
 
@@ -140,8 +159,11 @@ const s = StyleSheet.create({
     backgroundColor: D.card, borderWidth: 1, borderColor: D.border,
   },
 
-  ratingRow: { flexDirection: 'row', justifyContent: 'center', gap: 8, marginTop: 12 },
-  ratingBtn: { padding: 4 },
+  ratingRow: { flexDirection: 'row', justifyContent: 'center', gap: 2, marginTop: 12 },
+  // 44×44 is the platform minimum for a touch target; a 26px icon with 4px of padding
+  // around it was 34, and the taps that missed read as the rating being broken rather
+  // than as a near miss. The icon size is unchanged — only the hit area grew.
+  ratingBtn: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center' },
 
   rule: { height: 1, backgroundColor: D.border, marginTop: 24, marginBottom: 20 },
   emailRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8 },

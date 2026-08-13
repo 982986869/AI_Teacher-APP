@@ -9,7 +9,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { View, FlatList, TextInput, ScrollView, RefreshControl, AppState } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
-import { Search } from 'lucide-react-native';
+import { Search, Award } from 'lucide-react-native';
 import { getSupportQueue } from '../../../api/supportApi';
 import { connectSupportSocket, subscribeStaffQueue } from '../../../realtime/supportSocket';
 import { useAuth } from '../../../context/AuthContext';
@@ -18,8 +18,11 @@ import { S, StudentScreenHeader, StudentErrorState, StudentSkeleton } from '../.
 import { PressableScale } from '../../parent/ParentApp/anim';
 import { apiError, timeAgo } from '../ui/format';
 import { useBottomPad } from '../../../theme/layout';
-import { STATUS_TABS, SUPPORT_TEAMS, isUnread, isStale, staleSince, matchesQuery } from './queueRules';
+import { STATUS_TABS, SUPPORT_TEAMS, isUnread, isStale, staleSince, matchesQuery, ratingBand } from './queueRules';
 import { RefreshFailedBanner } from './RefreshFailedBanner';
+
+const RATING_TONE = { good: S.emerald, ok: S.gold, bad: S.red };
+const ratingTone = (n) => RATING_TONE[ratingBand(n)];
 
 function Chip({ label, active, onPress, tint, small }) {
   return (
@@ -74,6 +77,15 @@ function TicketRow({ t, onPress }) {
       </T>
       {t.status === 'pending_confirmation' ? (
         <T w="semi" s={11} c={S.gold} style={{ marginTop: 3 }}>User ki confirmation ka intezaar</T>
+      ) : null}
+      {/* The CSAT, once the user has given one. Shown on the row rather than only inside
+          the ticket so a run of low scores is visible while scanning the queue, which is
+          the only way anybody notices a pattern. */}
+      {t.rating ? (
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: 4 }}>
+          <Award size={12} color={ratingTone(t.rating)} strokeWidth={2.6} />
+          <T w="xbold" s={11} c={ratingTone(t.rating)}>{t.rating}/5</T>
+        </View>
       ) : null}
     </PressableScale>
   );

@@ -123,6 +123,17 @@ export const reopenTicket = async (ticketId) => {
   }
 };
 
+// CSAT, 1–5. Only the owner may send it, and only once the ticket is resolved or closed —
+// the server refuses anything else with a 409.
+export const rateTicket = async (ticketId, { rating }) => {
+  try {
+    const res = await axiosInstance.post(`/api/support/tickets/${ticketId}/rating`, { rating });
+    return res.data.data;
+  } catch (err) {
+    throw tag(err);
+  }
+};
+
 export const markTicketRead = async (ticketId) => {
   try {
     await axiosInstance.post(`/api/support/tickets/${ticketId}/read`);

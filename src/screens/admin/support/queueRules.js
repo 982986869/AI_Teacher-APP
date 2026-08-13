@@ -38,6 +38,16 @@ export function isStale(t) {
   return Date.now() - new Date(staleSince(t)).getTime() > STALE_MS;
 }
 
+// Which band a CSAT score falls in. Returns a token NAME rather than a colour, because
+// this file stays free of theme imports — the screens map it to their own palette. The
+// cut is 4+ good / 3 middling / 1–2 bad: a 3 out of 5 is not a compliment, and colouring
+// it green would hide exactly the conversations worth reading.
+export function ratingBand(n) {
+  if (n >= 4) return 'good';
+  if (n >= 3) return 'ok';
+  return 'bad';
+}
+
 // Client-side: the server's /queue takes no search parameter, and it caps at 200 rows, so
 // this filters what is already in hand rather than triggering a refetch per keystroke.
 export function matchesQuery(t, q) {

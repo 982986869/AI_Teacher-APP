@@ -43,11 +43,12 @@ import {
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
-import { ArrowLeft, ArrowRight, Paperclip, Mic, Mail, MessageCircle, X, RotateCcw, FileText } from 'lucide-react-native';
+import { ArrowLeft, ArrowRight, Paperclip, Mic, Mail, MessageCircle, X, RotateCcw, FileText, Phone } from 'lucide-react-native';
 
 import { PressableScale } from '../../screens/parent/ParentApp/anim';
 import {
   createTicket, addTicketMessage, uploadTicketAttachment, getTicket, closeTicket, reopenTicket,
+  rateTicket,
 } from '../../api/supportApi';
 import { connectSupportSocket, joinTicket } from '../../realtime/supportSocket';
 import { getToken } from '../../utils/storage';
@@ -66,11 +67,18 @@ import ResolvedScreen from './ResolvedScreen';
 // render — so the mount fetch, the reconnect refetch and the live socket event all
 // stay in agreement.
 //
-// `kind: 'call'` is a staff-only internal note. The server already withholds it from
-// the ticket owner over REST and the socket, but a client-side drop here is the second
-// half of "belt and braces" — it must never render even if one slips through.
+// `kind: 'call'` now DOES reach and render for the ticket owner — a missed call with no
+// trace looks like nobody tried. What must never reach them is the agent's free-text
+// note: the server already blanks `text` to '' for a non-staff caller (both the REST
+// read in getOne and the socket payload callLog emits into the ticket room), and this
+// mapping never reads `m.text` for a call row regardless — the note's absence is
+// structural (the field is never consulted here), not merely incidental (a blank string
+// that happens not to be shown). Only `callOutcome` drives what's displayed; see CallChip.
 function mapServerMessage(m) {
-  if (!m || m.kind === 'call') return null;
+  if (!m) return null;
+  if (m.kind === 'call') {
+    return { id: m.id, kind: 'call', callOutcome: m.callOutcome };
+  }
   if (m.kind === 'event' || m.authorRole === 'system') {
     return { id: m.id, kind: 'event', text: m.text };
   }
@@ -118,6 +126,31 @@ function EventChip({ text }) {
     <View style={s.eventRow}>
       <View style={s.eventChip}>
         <TX w="semi" s={10} lh={12} c={D.muted} style={s.eventText}>{text.toUpperCase()}</TX>
+      </View>
+    </View>
+  );
+}
+
+// Copy for a `kind: 'call'` row, keyed on the closed `callOutcome` enum — never on
+// server-sent text. This is the ONLY thing a call row is allowed to say to the owner.
+const CALL_COPY = {
+  talked: '📞 Support ne aapse baat ki',
+  no_answer: '📞 Support ne call kiya — aapne uthaya nahi',
+  callback: '📞 Support aapko dobara call karegi',
+};
+
+// A call attempt, rendered as a neutral centred chip — same family as EventChip, NOT an
+// agent bubble, so it never reads as the agent having said something. Deliberately takes
+// only `callOutcome`: even if a payload somehow carried a `text` field on a call row,
+// this component has no prop for it and cannot render it — the note's absence is
+// structural here, not just something the caller happens not to pass.
+function CallChip({ callOutcome }) {
+  const text = CALL_COPY[callOutcome] || CALL_COPY.talked;
+  return (
+    <View style={s.eventRow}>
+      <View style={[s.eventChip, s.callChip]}>
+        <Phone size={11} color={D.muted} strokeWidth={2.2} />
+        <TX w="semi" s={10} lh={12} c={D.muted}>{text}</TX>
       </View>
     </View>
   );
@@ -470,7 +503,7 @@ export default function ChatScreen({
     connectSupportSocket(authToken);
     return joinTicket(ticketId, {
       onMessage: (m) => {
-        if ((m.ticketId && m.ticketId !== ticketId) || m.kind === 'call') return;
+        if (m.ticketId && m.ticketId !== ticketId) return;
         // DO NOT "fix" this back to rendering the user's own messages. The server emits
         // into `ticket:<id>`, and this socket is IN that room, so everything the user
         // sends comes straight back as an echo. The id check below cannot catch it: the
@@ -729,6 +762,10 @@ export default function ChatScreen({
         transcript={thread.filter((m) => m.kind === 'user').map((m) => m.text).filter(Boolean)}
         onNewConversation={onBack}
         onReopen={stillBroken}
+        savedRating={ticket.rating}
+        // Rethrows on purpose: ResolvedScreen rolls its icons back if the score did not
+        // save, rather than leaving them lit for a rating the server never received.
+        onRate={(n) => rateTicket(ticket.id, { rating: n })}
       />
     );
   }
@@ -804,6 +841,7 @@ export default function ChatScreen({
       >
         {thread.map((m) => {
           if (m.kind === 'event') return <EventChip key={m.id} text={m.text} />;
+          if (m.kind === 'call') return <CallChip key={m.id} callOutcome={m.callOutcome} />;
           if (m.kind === 'agent') {
             return (
               <AgentBubble
@@ -1039,6 +1077,9 @@ const s = StyleSheet.create({
   // The panel reads "50%" tracking, which at 10px would be 5px per character and blows
   // the chip well past its measured 154px. 0.5px is the value that reproduces the file.
   eventText: { letterSpacing: 0.5 },
+  // CallChip — same pill as eventChip, laid out as a row so the phone icon sits beside
+  // the outcome copy instead of stacking above it.
+  callChip: { flexDirection: 'row', alignItems: 'center', gap: 6 },
 
   userRow: { alignItems: 'flex-end', gap: 6 },
   userBubble: {

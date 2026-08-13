@@ -14,7 +14,7 @@ import {
   KeyboardAvoidingView, Platform,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { ChevronLeft, Phone, Send, CircleCheck, Paperclip } from 'lucide-react-native';
+import { ChevronLeft, Phone, Send, CircleCheck, Paperclip, Award } from 'lucide-react-native';
 import { getTicket, markTicketRead, addTicketMessage, logCall, resolveTicket } from '../../../api/supportApi';
 import { joinTicket } from '../../../realtime/supportSocket';
 import { useAuth } from '../../../context/AuthContext';
@@ -22,6 +22,7 @@ import { T } from '../../parent/ParentApp/constants';
 import { S, StudentErrorState, StudentSkeleton } from '../../../theme/studentUI';
 import { PressableScale } from '../../parent/ParentApp/anim';
 import { apiError } from '../ui/format';
+import { ratingBand } from './queueRules';
 import { CallLogSheet } from './CallLogSheet';
 import { ResolveSheet } from './ResolveSheet';
 import { RefreshFailedBanner } from './RefreshFailedBanner';
@@ -41,6 +42,9 @@ const OUTCOME_LABEL = {
   no_answer: 'Uthaya nahi',
   callback: 'Callback',
 };
+
+const RATING_TONE = { good: S.emerald, ok: S.gold, bad: S.red };
+const ratingTone = (n) => RATING_TONE[ratingBand(n)];
 
 const fmtClock = (iso) => {
   if (!iso) return '';
@@ -236,6 +240,14 @@ export default function SupportThreadScreen({ route, navigation }) {
           <View style={{ backgroundColor: (STATUS_TONE[ticket.status] || S.muted) + '1f', borderRadius: 8, paddingHorizontal: 7, paddingVertical: 2 }}>
             <T w="xbold" s={10} c={STATUS_TONE[ticket.status] || S.muted}>{ticket.status.replace('_', ' ')}</T>
           </View>
+          {/* What the user thought of this conversation, once they have said. Read-only
+              here — staff can see a score but never set or change one. */}
+          {ticket.rating ? (
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 3 }}>
+              <Award size={12} color={ratingTone(ticket.rating)} strokeWidth={2.6} />
+              <T w="xbold" s={11} c={ratingTone(ticket.rating)}>{ticket.rating}/5</T>
+            </View>
+          ) : null}
         </View>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 6, flexWrap: 'wrap' }}>
           <T w="semi" s={12.5} c={S.sub}>
