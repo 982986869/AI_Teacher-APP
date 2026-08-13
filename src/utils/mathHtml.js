@@ -238,9 +238,31 @@ export function htmlToPlain(html) {
 // First <img src> in an HTML string — some questions and options are diagrams
 // (S3 imports or admin uploads) that every text path strips, so callers render
 // them as a real <Image>.
+// A diagram reaches us one of two ways: as a real <img> tag, or as a BARE URL
+// sitting in the question text — some scraped rows store it that way. Only the tag
+// was handled, so a bare URL fell through to the prose and the student saw a line
+// of raw link text where the diagram should be.
+//
+// Extension-gated on purpose: a URL with no image extension (an API endpoint like
+// /media/get?id=5) can't be told apart from a link the question genuinely cites,
+// and turning that into an <Image> would blank the text and show a broken box.
+const IMG_URL = /https?:\/\/[^\s"'<>]+?\.(?:png|jpe?g|gif|webp|svg|bmp)(?:\?[^\s"'<>]*)?/i;
+
 export function firstImg(html) {
-  const m = String(html || '').match(/<img[^>]+src=["']([^"']+)["']/i);
-  return m ? m[1] : null;
+  const s = String(html || '');
+  const tag = s.match(/<img[^>]+src=["']([^"']+)["']/i);
+  if (tag) return tag[1];
+  const bare = s.match(IMG_URL);
+  return bare ? bare[0] : null;
 }
 
-export default { decodeEntities, segments, hasMath, mapSupSub, toMathJax, htmlToPlain, firstImg };
+// The text half of the same content: drop <img> tags AND any bare image URL, so a
+// question never prints its own diagram as a link right above the picture.
+export function stripImages(html) {
+  return String(html || '')
+    .replace(/<img[^>]*>/gi, '')
+    .replace(new RegExp(IMG_URL.source, 'gi'), '')
+    .replace(/<p[^>]*>\s*<\/p>/gi, '');
+}
+
+export default { decodeEntities, segments, hasMath, mapSupSub, toMathJax, htmlToPlain, firstImg, stripImages };

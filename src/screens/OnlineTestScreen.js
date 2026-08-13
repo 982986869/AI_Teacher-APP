@@ -18,7 +18,7 @@ import { FONT } from '../constants/fonts';
 import { Clock, CircleHelp, Award, BookOpen, ChevronDown } from 'lucide-react-native';
 import Svg, { Circle, G, Rect, Line, Text as RNSvgText, Defs, RadialGradient, Stop } from 'react-native-svg';
 import MathText from '../components/MathText';
-import { hasMath, htmlToPlain, firstImg } from '../utils/mathHtml';
+import { hasMath, htmlToPlain, firstImg, stripImages } from '../utils/mathHtml';
 import {
   TT, TimedTestFrame, TTConfirmDialog, TTPalette,
 } from '../components/timedTestDark';
@@ -87,7 +87,7 @@ function Rich({ value, fontSize = 15, lineHeight, color = C.text, family, imgHei
   if (value == null || !String(value).trim()) return null;
   const raw = String(value);
   const img = firstImg(raw);
-  const textPart = raw.replace(/<img[^>]*>/gi, '').replace(/<p[^>]*>\s*<\/p>/gi, '');
+  const textPart = stripImages(raw);
   const isMath = hasMath(textPart);
   const plain = isMath ? '' : htmlToPlain(textPart);
   const hasText = isMath ? !!textPart.trim() : plain.length > 0;

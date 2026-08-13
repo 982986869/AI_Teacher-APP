@@ -1619,7 +1619,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
         {mode !== M.COMPLETED && (
           <View style={st.actionBar}>
             <PressableScale style={st.navBtn} onPress={onPrev} disabled={idx === 0} accessibilityLabel="Previous topic">
-              <ChevronLeft size={17} color={idx === 0 ? V.textFaint : V.text} strokeWidth={2.5} />
+              <ChevronLeft size={15} color={idx === 0 ? V.textFaint : V.text} strokeWidth={2.5} />
               <View>
                 <Text style={[st.navTop, idx === 0 && st.navDim]}>Previous</Text>
                 <Text style={[st.navBot, idx === 0 && st.navDim]}>Topic</Text>
@@ -1627,7 +1627,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
             </PressableScale>
 
             <PressableScale style={st.endBtn} onPress={endSession} scaleTo={0.94} accessibilityLabel="End this session">
-              <Square size={12} color="#fff" strokeWidth={2.6} fill="#fff" />
+              <Square size={10} color="#fff" strokeWidth={2.6} fill="#fff" />
               <Text style={st.endTxt}>End Session</Text>
             </PressableScale>
 
@@ -1636,7 +1636,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
                 <Text style={[st.navTop, st.navRight]}>Next</Text>
                 <Text style={[st.navBot, st.navRight]}>Topic</Text>
               </View>
-              <ChevronRight size={17} color={V.text} strokeWidth={2.5} />
+              <ChevronRight size={15} color={V.text} strokeWidth={2.5} />
             </PressableScale>
           </View>
         )}
@@ -1877,15 +1877,15 @@ const st = StyleSheet.create({
   collapse: { alignSelf: 'center', paddingVertical: 4, paddingHorizontal: 26 },
 
   // session action bar
-  actionBar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', alignSelf: 'stretch', borderTopWidth: 1, borderTopColor: V.hairSoft, paddingTop: 12 },
-  navBtn: { flexDirection: 'row', alignItems: 'center', gap: 5, minWidth: 88 },
+  actionBar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', alignSelf: 'stretch', borderTopWidth: 1, borderTopColor: V.hairSoft, paddingTop: 8 },
+  navBtn: { flexDirection: 'row', alignItems: 'center', gap: 5, minWidth: 80 },
   navBtnR: { justifyContent: 'flex-end' },
-  navTop: { fontSize: 12.5, fontFamily: F.semi, color: V.text, letterSpacing: -0.1 },
-  navBot: { fontSize: 9.5, fontFamily: F.med, color: V.textDim, marginTop: -1 },
+  navTop: { fontSize: 11.5, fontFamily: F.semi, color: V.text, letterSpacing: -0.1 },
+  navBot: { fontSize: 9, fontFamily: F.med, color: V.textDim, marginTop: -1 },
   navDim: { color: V.textFaint },
   navRight: { textAlign: 'right' },
-  endBtn: { flexDirection: 'row', alignItems: 'center', gap: 7, backgroundColor: V.live, borderRadius: R.pill, paddingVertical: 12, paddingHorizontal: 22 },
-  endTxt: { fontSize: 13.5, fontFamily: F.bold, color: '#fff', letterSpacing: -0.1 },
+  endBtn: { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: V.live, borderRadius: R.pill, paddingVertical: 8, paddingHorizontal: 16 },
+  endTxt: { fontSize: 12, fontFamily: F.bold, color: '#fff', letterSpacing: -0.1 },
 
   // "…" overflow sheet
   menuScrim: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(4,4,10,0.6)' },

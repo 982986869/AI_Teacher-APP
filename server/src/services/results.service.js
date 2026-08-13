@@ -2,10 +2,17 @@
 
 // Composed "My Progress" dashboard for the authenticated student. All data is REAL,
 // pulled from existing attempt/study tables — no new tracking is introduced:
-//   • mock_test_attempts  → mock tests: count, subject breakdown, recent, time
-//   • brain_gym_sessions  → quizzes: count, recent, time, XP
-//   • mcq_attempts        → MCQ practice: per-subject questions answered/correct
-//   • lesson_progress     → lesson study time (hours)
+//   • mock_test_attempts     → mock tests: count, subject breakdown, recent, time
+//   • brain_gym_sessions     → quizzes: count, recent, time, XP
+//   • ot_attempts            → online tests (Class 7/8, DB): count, recent, time
+//   • offline_test_attempts  → online tests (Class 10-12, question bank): same
+//   • mcq_attempts           → MCQ practice: per-subject answered/correct, and one
+//                              "recent" row per subtopic per day (no session table)
+//   • lesson_progress        → lesson study time (hours)
+//
+// NOTE: previous-year questions are deliberately absent. PYQ is a WebView document
+// (utils/pyqDocument) that a student reads — it is never answered or graded, so it
+// has no attempt row and no score to report. Putting it here would mean inventing one.
 // Everything is scoped to the user; subject breakdown is scoped to the student's
 // own class (classLevel from req.scope, never the client).
 //
@@ -90,11 +97,30 @@ async function getResults(userId, classLevel = null, period = 'week', offset = 0
             WHERE "userId" = $1::uuid AND ($2::timestamptz IS NULL OR ("createdAt" >= $2 AND "createdAt" < $3))) AS "quizPctSum",
          (SELECT coalesce(sum("xpEarned"), 0)::int FROM brain_gym_sessions
             WHERE "userId" = $1::uuid AND ($2::timestamptz IS NULL OR ("createdAt" >= $2 AND "createdAt" < $3))) AS "xp",
+         -- Online tests count as tests taken and as time studied, same as a mock.
+         -- Without these two an online test could appear in the Recent list while
+         -- "Tests taken" and "Time studied" above it still read as if it never happened.
+         (SELECT count(*)::int FROM ot_attempts
+            WHERE user_id = $1::uuid AND ($2::timestamptz IS NULL OR (created_at >= $2 AND created_at < $3))) AS "otCount",
+         (SELECT coalesce(sum(CASE WHEN total > 0 THEN score * 100.0 / total END), 0) FROM ot_attempts
+            WHERE user_id = $1::uuid AND ($2::timestamptz IS NULL OR (created_at >= $2 AND created_at < $3))) AS "otPctSum",
+         -- graded_count > 0 mirrors the Recent list: an ungraded bank attempt has no
+         -- honest percentage, so it must not drag the average down to zero either.
+         (SELECT count(*)::int FROM offline_test_attempts
+            WHERE user_id = $1::uuid AND graded_count > 0
+              AND ($2::timestamptz IS NULL OR (created_at >= $2 AND created_at < $3))) AS "offCount",
+         (SELECT coalesce(sum(correct_count * 100.0 / graded_count), 0) FROM offline_test_attempts
+            WHERE user_id = $1::uuid AND graded_count > 0
+              AND ($2::timestamptz IS NULL OR (created_at >= $2 AND created_at < $3))) AS "offPctSum",
          (
            (SELECT coalesce(sum(time_taken_sec), 0)::int FROM mock_test_attempts
               WHERE user_id = $1::uuid AND ($2::timestamptz IS NULL OR (created_at >= $2 AND created_at < $3)))
          + (SELECT coalesce(sum("timeTakenSec"), 0)::int FROM brain_gym_sessions
               WHERE "userId" = $1::uuid AND ($2::timestamptz IS NULL OR ("createdAt" >= $2 AND "createdAt" < $3)))
+         + (SELECT coalesce(sum(time_taken_sec), 0)::int FROM ot_attempts
+              WHERE user_id = $1::uuid AND ($2::timestamptz IS NULL OR (created_at >= $2 AND created_at < $3)))
+         + (SELECT coalesce(sum(time_taken_sec), 0)::int FROM offline_test_attempts
+              WHERE user_id = $1::uuid AND ($2::timestamptz IS NULL OR (created_at >= $2 AND created_at < $3)))
          + (SELECT coalesce(sum("studyTimeSeconds"), 0)::int FROM lesson_progress
               WHERE "userId" = $1::uuid AND ($2::timestamptz IS NULL OR ("updatedAt" >= $2 AND "updatedAt" < $3)))
          ) AS "studySeconds"`,
@@ -108,6 +134,12 @@ async function getResults(userId, classLevel = null, period = 'week', offset = 0
        UNION ALL
        SELECT "createdAt"::date AS "date", "timeTakenSec" AS "secs"
          FROM brain_gym_sessions WHERE "userId" = $1::uuid AND "createdAt" >= $2::timestamptz AND "createdAt" < $3::timestamptz
+       UNION ALL
+       SELECT created_at::date AS "date", time_taken_sec AS "secs"
+         FROM ot_attempts WHERE user_id = $1::uuid AND created_at >= $2::timestamptz AND created_at < $3::timestamptz
+       UNION ALL
+       SELECT created_at::date AS "date", time_taken_sec AS "secs"
+         FROM offline_test_attempts WHERE user_id = $1::uuid AND created_at >= $2::timestamptz AND created_at < $3::timestamptz
        UNION ALL
        SELECT "updatedAt"::date AS "date", "studyTimeSeconds" AS "secs"
          FROM lesson_progress WHERE "userId" = $1::uuid AND "updatedAt" >= $2::timestamptz AND "updatedAt" < $3::timestamptz`,
@@ -140,7 +172,16 @@ async function getResults(userId, classLevel = null, period = 'week', offset = 0
       userId, start, endEx, classLevel,
     ),
 
-    // ── Recent tests — mock + quiz, unified & time-ordered (within window) ─────
+    // ── Recent tests — every graded flow, unified & time-ordered (within window) ─
+    // This used to union mock + quiz ONLY, so the three other things a student can
+    // actually sit — the DB online tests (ot_attempts), the offline-bank online
+    // tests (offline_test_attempts) and MCQ practice (mcq_attempts) — were written
+    // to their own tables and then never read back. The student saw their score at
+    // the end of the test and nothing in Progress afterwards.
+    //
+    // `id` is prefixed per source because only Mock rows can be expanded (the client
+    // calls /results/attempt/:id for type === 'Mock' and skips the fetch otherwise),
+    // so these ids are display-only and must not collide with a mock attempt id.
     db.$queryRawUnsafe(
       `SELECT * FROM (
          SELECT 'Mock' AS "type", a.id::text AS "id", t.subject AS "subject", t.name AS "topic",
@@ -164,6 +205,68 @@ async function getResults(userId, classLevel = null, period = 'week', offset = 0
                 s."createdAt"::timestamptz AS "createdAt"
            FROM brain_gym_sessions s
           WHERE s."userId" = $1::uuid AND ($2::timestamptz IS NULL OR (s."createdAt" >= $2 AND s."createdAt" < $3))
+         UNION ALL
+         -- Online tests, DB-backed (Class 7/8) — ot_attempts + its test for naming.
+         SELECT 'Online' AS "type", 'ot-' || a.id::text AS "id", t.subject_name AS "subject",
+                coalesce(nullif(t.name, ''), t.chapter_name) AS "topic",
+                a.score::int AS "score", a.total::int AS "total",
+                a.correct_count::int AS "correct", a.wrong_count::int AS "wrong",
+                a.attempted::int AS "attempted", a.time_taken_sec::int AS "timeSec",
+                0 AS "xp",
+                (SELECT count(*)::int FROM ot_attempts x WHERE x.user_id = a.user_id AND x.ot_test_id = a.ot_test_id) AS "attemptCount",
+                (SELECT count(*)::int FROM ot_attempts x WHERE x.user_id = a.user_id AND x.ot_test_id = a.ot_test_id AND x.created_at <= a.created_at) AS "attemptNumber",
+                a.created_at AS "createdAt"
+           FROM ot_attempts a JOIN ot_tests t ON t.id = a.ot_test_id
+          WHERE a.user_id = $1::uuid AND ($2::timestamptz IS NULL OR (a.created_at >= $2 AND a.created_at < $3))
+         UNION ALL
+         -- Online tests, offline-question-bank (Class 10-12). "total" is graded_count,
+         -- NOT the question count: this bank has subjects with no answer key at all
+         -- (biology), and those attempts carry correct_count = 0 over a full paper.
+         -- Reporting them as 0/40 would invent a failed test the student never sat,
+         -- so an ungraded attempt is left out of the score list entirely.
+         SELECT 'Online' AS "type", 'off-' || a.id::text AS "id",
+                coalesce(a.subject, 'Online test') AS "subject",
+                coalesce(nullif(a.chapter, ''), 'Online test') AS "topic",
+                a.correct_count::int AS "score", a.graded_count::int AS "total",
+                a.correct_count::int AS "correct", a.wrong_count::int AS "wrong",
+                a.attempted::int AS "attempted", a.time_taken_sec::int AS "timeSec",
+                0 AS "xp",
+                (SELECT count(*)::int FROM offline_test_attempts x
+                  WHERE x.user_id = a.user_id AND x.subject IS NOT DISTINCT FROM a.subject
+                    AND x.chapter IS NOT DISTINCT FROM a.chapter AND x.test_label IS NOT DISTINCT FROM a.test_label) AS "attemptCount",
+                (SELECT count(*)::int FROM offline_test_attempts x
+                  WHERE x.user_id = a.user_id AND x.subject IS NOT DISTINCT FROM a.subject
+                    AND x.chapter IS NOT DISTINCT FROM a.chapter AND x.test_label IS NOT DISTINCT FROM a.test_label
+                    AND x.created_at <= a.created_at) AS "attemptNumber",
+                a.created_at AS "createdAt"
+           FROM offline_test_attempts a
+          WHERE a.user_id = $1::uuid AND a.graded_count > 0
+            AND ($2::timestamptz IS NULL OR (a.created_at >= $2 AND a.created_at < $3))
+         UNION ALL
+         -- MCQ practice. There is no session row — mcq_attempts upserts ONE row per
+         -- (user, question) — so a "sitting" is reconstructed as one subtopic on one
+         -- day. Re-answering a question moves that row's updated_at, so a day shows
+         -- the latest state of what was practised, not an immutable history.
+         SELECT 'Practice' AS "type",
+                -- mcq_attempts has no DDL in this repo (it exists only in the deployed
+                -- DB), so updated_at's exact type is unverified here; cast so the UNION
+                -- can't fail on a timestamp/timestamptz mismatch. brain_gym_sessions
+                -- above casts for the same reason.
+                'mcq-' || st.id::text || '-' || max(a.updated_at)::date::text AS "id",
+                sub.name AS "subject", st.name AS "topic",
+                count(*) FILTER (WHERE a.is_correct)::int AS "score",
+                count(*)::int AS "total",
+                count(*) FILTER (WHERE a.is_correct)::int AS "correct",
+                count(*) FILTER (WHERE NOT a.is_correct)::int AS "wrong",
+                count(*)::int AS "attempted", 0 AS "timeSec",
+                0 AS "xp", 1 AS "attemptCount", 1 AS "attemptNumber",
+                max(a.updated_at)::timestamptz AS "createdAt"
+           FROM mcq_attempts a
+           JOIN subtopics st ON st.id = a.subtopic_id
+           JOIN chapters ch ON ch.id = st.chapter_id
+           JOIN subjects sub ON sub.id = ch.subject_id
+          WHERE a.user_id = $1::uuid AND ($2::timestamptz IS NULL OR (a.updated_at >= $2 AND a.updated_at < $3))
+          GROUP BY st.id, st.name, sub.name, a.updated_at::date
        ) u
        ORDER BY "createdAt" DESC
        LIMIT 15`,
@@ -209,8 +312,12 @@ async function getResults(userId, classLevel = null, period = 'week', offset = 0
   const o = overviewRows[0] || {}
   const mockCount = Number(o.mockCount || 0)
   const quizCount = Number(o.quizCount || 0)
-  const testsTaken = mockCount + quizCount
+  // Both online-test flows are one number to the student — they sat "an online test";
+  // which table it landed in is our plumbing, not their concept.
+  const onlineCount = Number(o.otCount || 0) + Number(o.offCount || 0)
+  const testsTaken = mockCount + quizCount + onlineCount
   const pctSum = Number(o.mockPctSum || 0) + Number(o.quizPctSum || 0)
+                 + Number(o.otPctSum || 0) + Number(o.offPctSum || 0)
   const avgScore = testsTaken > 0 ? Math.round(pctSum / testsTaken) : 0
   const studySeconds = Number(o.studySeconds || 0)
 
@@ -253,6 +360,7 @@ async function getResults(userId, classLevel = null, period = 'week', offset = 0
       testsTaken,
       mocks: mockCount,
       quizzes: quizCount,
+      online: onlineCount,
       avgScore,
       studySeconds,
       studyHours: Math.round((studySeconds / 3600) * 10) / 10,

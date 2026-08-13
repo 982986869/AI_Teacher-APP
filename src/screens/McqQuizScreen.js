@@ -25,7 +25,7 @@ import {
 import { ChevronLeft, Clock, Check, X, CircleAlert } from 'lucide-react-native';
 import { COLORS, FONT_FAMILY, TYPE_SCALE, RADIUS, SPACING } from '../theme/designSystem';
 import MathText from '../components/MathText';
-import { hasMath, htmlToPlain, firstImg } from '../utils/mathHtml';
+import { hasMath, htmlToPlain, firstImg, stripImages } from '../utils/mathHtml';
 
 const QUESTION_SECONDS = 60;
 
@@ -107,7 +107,7 @@ function Rich({ value, fontSize = 15, lineHeight, color = C.ink, family = F.reg,
   if (value == null || !String(value).trim()) return null;
   const raw = String(value);
   const img = firstImg(raw);
-  const textPart = raw.replace(/<img[^>]*>/gi, '').replace(/<p[^>]*>\s*<\/p>/gi, '');
+  const textPart = stripImages(raw);
   const isMath = hasMath(textPart);
   const plain = isMath ? '' : htmlToPlain(textPart);
   const hasText = isMath ? !!textPart.trim() : plain.length > 0;
@@ -287,9 +287,14 @@ export default function McqQuizScreen({
 
       <ScrollView contentContainerStyle={st.scroll} showsVerticalScrollIndicator={false}>
         {!!q.cat && <Text style={st.cat}>{q.cat}</Text>}
-        {/* `question-box` — 78 tall: 16 pad · 46 `question-text` · 16 pad. */}
+        {/* `question-box` — 78 tall: 16 pad · 46 `question-text` · 16 pad.
+            The question is body copy, not a headline: at 18/Poppins-Bold it matched
+            the screen title exactly and a long stem (van der Waals, 4 wrapped lines)
+            swallowed the options below it. 15.5/Inter-SemiBold still outranks the
+            14/Inter-Medium options, and the looser 22 line height makes a multi-line
+            stem read as a paragraph instead of a wall. */}
         <View style={st.questionBox}>
-          <Rich value={q.text} fontSize={18} lineHeight={23} color={C.ink} family={F.head} />
+          <Rich value={q.text} fontSize={15.5} lineHeight={22} color={C.ink} family={F.semi} />
         </View>
 
         <View style={st.opts}>

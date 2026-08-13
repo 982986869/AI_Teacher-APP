@@ -1,21 +1,21 @@
-// timedTestDark.js
+﻿// timedTestDark.js
 // The timed-test frame, as one component the whole app renders.
 //
-// Online tests reach the student down two different code paths — Class 6/7/8/9 run
+// Online tests reach the student down two different code paths â€” Class 6/7/8/9 run
 // the DB-backed testpapers inside OnlineTestScreen, every other class runs the
-// offline bank through TestQuestionScreen — and the two grade, time and submit
+// offline bank through TestQuestionScreen â€” and the two grade, time and submit
 // differently enough that merging them would be a real regression risk (per-question
 // timing, optionId vs letter answers, server submit shape). What they must NOT
 // differ on is the pixels. So the state and the grading stay in each screen and the
 // entire visual frame lives here, rendered by both.
 //
 // Frame, top to bottom:
-//   test-header (Exit · progress · timer) → section tabs → question → rule line →
-//   options → clear-action → nav-actions (Prev · palette · Next)
+//   test-header (Exit Â· progress Â· timer) â†’ section tabs â†’ question â†’ rule line â†’
+//   options â†’ clear-action â†’ nav-actions (Prev Â· palette Â· Next)
 // It draws neither the OS status bar nor the app's bottom nav; both are already real
 // on these screens (SafeAreaView and FloatingDock).
 //
-// SUBMIT: the header no longer carries it — the design's header is Exit · progress ·
+// SUBMIT: the header no longer carries it â€” the design's header is Exit Â· progress Â·
 // timer and nothing else. It moved into the question-palette sheet (TTSheetButton),
 // which the palette button in nav-actions opens from every question, so it stays as
 // reachable as it was. Dropping it outright would have stranded OnlineTestScreen,
@@ -26,9 +26,9 @@ import { View, Text, Image, ScrollView, Pressable, StyleSheet, Modal } from 'rea
 import { LayoutGrid } from 'lucide-react-native';
 import { COLORS as DS, FONT_FAMILY } from '../theme/designSystem';
 import MathText from './MathText';
-import { hasMath, htmlToPlain, firstImg } from '../utils/mathHtml';
+import { hasMath, htmlToPlain, firstImg, stripImages } from '../utils/mathHtml';
 
-// ─── Palette ──────────────────────────────────────────────────────────────────
+// â”€â”€â”€ Palette â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // Violet-forward: one accent carries the active section, the chosen option, the
 // palette's current cell and Next, so "this is where you are" reads as one idea.
 export const TT = {
@@ -71,7 +71,7 @@ export const TTF = {
   reg: FONT_FAMILY.interRegular,    // Inter_400Regular
 };
 
-// HH:MM:SS — an online test runs 60–180 minutes, so M:SS would read "97:14" and
+// HH:MM:SS â€” an online test runs 60â€“180 minutes, so M:SS would read "97:14" and
 // lose the hour at a glance.
 export const fmtClock = (s) => {
   const t = Math.max(0, Math.floor(s || 0));
@@ -80,8 +80,8 @@ export const fmtClock = (s) => {
 };
 
 /**
- * Question / option / banner content. Real math ({tex}…{/tex}, $…$, \(…\)) goes to
- * MathText; everything else renders as Text — MathJaxSvg splits a plain string into
+ * Question / option / banner content. Real math ({tex}â€¦{/tex}, $â€¦$, \(â€¦\)) goes to
+ * MathText; everything else renders as Text â€” MathJaxSvg splits a plain string into
  * one <Text> per HTML node inside a wrapping row, which costs the screen its line
  * height for no gain when there is no formula to typeset. Both paths run the HTML
  * through mathHtml, so <sup>/<sub> and the caret notation the bank stores
@@ -94,7 +94,7 @@ export function Rich({ value, fontSize = 15, lineHeight, color = TT.ink, family 
   if (value == null || !String(value).trim()) return null;
   const raw = String(value);
   const img = firstImg(raw);
-  const textPart = raw.replace(/<img[^>]*>/gi, '').replace(/<p[^>]*>\s*<\/p>/gi, '');
+  const textPart = stripImages(raw);
   const isMath = hasMath(textPart);
   const plain = isMath ? '' : htmlToPlain(textPart);
   const hasText = isMath ? !!textPart.trim() : plain.length > 0;
@@ -124,7 +124,7 @@ const isCompact = (o) => {
 /**
  * The frame itself.
  *
- * `options` are `{ id, key, label }` — `id` is whatever the caller answers by
+ * `options` are `{ id, key, label }` â€” `id` is whatever the caller answers by
  * (a letter for the offline bank, an optionId for the DB-backed tests), so this
  * component never needs to know which.
  *
@@ -143,7 +143,7 @@ export function TimedTestFrame({
   bannerText,
   questionHtml,
   options = [], selectedId, onSelect,
-  onClear,                                   // null/undefined → the row stays empty
+  onClear,                                   // null/undefined â†’ the row stays empty
   onPrev, prevDisabled = false,
   onMenu,
   onNext, nextLabel = 'Next', nextDisabled = false,
@@ -155,7 +155,7 @@ export function TimedTestFrame({
 
   return (
     <View style={s.wrap}>
-      {/* `test-header` — Exit · progress · timer, over a hairline. */}
+      {/* `test-header` â€” Exit Â· progress Â· timer, over a hairline. */}
       <View style={s.header}>
         <Pressable hitSlop={14} onPress={onClose} accessibilityRole="button" accessibilityLabel="Exit test">
           <Text style={s.exitLbl}>Exit</Text>
@@ -168,7 +168,7 @@ export function TimedTestFrame({
       </View>
 
       <View style={s.body}>
-        {/* Section tabs — one per section, or the caller's badge when there are none. */}
+        {/* Section tabs â€” one per section, or the caller's badge when there are none. */}
         {hasTabs ? (
           <ScrollView
             horizontal
@@ -197,11 +197,14 @@ export function TimedTestFrame({
           </View>
         )}
 
-        {/* flex:1 so `nav-actions` stays pinned — an unbounded ScrollView sizes to its
+        {/* flex:1 so `nav-actions` stays pinned â€” an unbounded ScrollView sizes to its
             content and would push the buttons off a long question. */}
         <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
           <View style={s.questionArea}>
-            <Rich value={questionHtml} fontSize={19} lineHeight={27} color={TT.ink} family={TTF.head} imgHeight={170} />
+            {/* Body copy, not a headline — TTF.head is Poppins 700 and set the whole
+                stem in heavy display type, which fights the options below it. Carried
+                over from origin/main's fix to the frame this replaced. */}
+            <Rich value={questionHtml} fontSize={19} lineHeight={27} color={TT.ink} family={TTF.semi} imgHeight={170} />
             {!!bannerText && <Text style={s.ruleTxt}>{bannerText}</Text>}
           </View>
 
@@ -253,7 +256,7 @@ export function TimedTestFrame({
           </View>
         </ScrollView>
 
-        {/* `nav-actions` — Prev · palette · Next. */}
+        {/* `nav-actions` â€” Prev Â· palette Â· Next. */}
         <View style={s.navActions}>
           <Pressable
             style={[s.prevBtn, prevDisabled && s.btnOff]}
@@ -262,7 +265,7 @@ export function TimedTestFrame({
             accessibilityRole="button"
             hitSlop={10}
           >
-            <Text style={s.prevLbl}>← Prev</Text>
+            <Text style={s.prevLbl}>â† Prev</Text>
           </Pressable>
 
           <Pressable style={s.paletteBtn} onPress={onMenu} accessibilityRole="button" accessibilityLabel="Question palette">
@@ -275,7 +278,7 @@ export function TimedTestFrame({
             onPress={onNext}
             accessibilityRole="button"
           >
-            <Text style={s.nextLbl}>{nextLabel} →</Text>
+            <Text style={s.nextLbl}>{nextLabel} â†’</Text>
           </Pressable>
         </View>
       </View>
@@ -285,15 +288,15 @@ export function TimedTestFrame({
   );
 }
 
-// ─── Modal furniture ──────────────────────────────────────────────────────────
-// The centred palette SHEET (TTScrim/TTSheet/TTTitle/TTSub) is gone — the palette is
+// â”€â”€â”€ Modal furniture â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// The centred palette SHEET (TTScrim/TTSheet/TTTitle/TTSub) is gone â€” the palette is
 // a full screen now, and it was the only thing those pieces dressed.
 
 /**
  * The guard Submit opens, shared so both runners ask the same question the same way.
  *
- * The backdrop is OPAQUE, not a see-through scrim — it paints the composited result
- * (canvas under #000 @50% × 60% ≈ #080625) instead of layering it. That is also what
+ * The backdrop is OPAQUE, not a see-through scrim â€” it paints the composited result
+ * (canvas under #000 @50% Ã— 60% â‰ˆ #080625) instead of layering it. That is also what
  * makes the missing backdrop blur a non-issue: with nothing showing through there is
  * nothing left to blur.
  */
@@ -323,7 +326,7 @@ export function TTConfirmDialog({
 }
 
 /**
- * The question palette — a FULL SCREEN under the same header, not a sheet.
+ * The question palette â€” a FULL SCREEN under the same header, not a sheet.
  *
  * `groups` = [{ id, title, note, items: [{ key, label, answered, current }] }]. A
  * group renders its heading only when it has one, so the single-section tests (the
@@ -333,12 +336,12 @@ export function TTConfirmDialog({
  * coordinates the caller actually navigates by.
  *
  * Cell states: current is a violet fill, answered a violet ring, untouched a plain
- * card. That is the whole legend, so the old swatch row is gone — three shapes the
+ * card. That is the whole legend, so the old swatch row is gone â€” three shapes the
  * student can read directly beat a key they have to consult.
  */
 export function TTPalette({
   visible,
-  onClose,                     // Exit — same action as the test header's
+  onClose,                     // Exit â€” same action as the test header's
   secondsLeft, progressText,
   groups = [],
   activeGroupId,
@@ -368,7 +371,7 @@ export function TTPalette({
             <View key={g.id} style={s.group}>
               {!!g.title && (
                 <Text style={[s.groupTitle, g.id === activeGroupId && { color: TT.violet }]}>
-                  {g.title}{g.note ? ` · ${g.note}` : ''}
+                  {g.title}{g.note ? ` Â· ${g.note}` : ''}
                 </Text>
               )}
               <View style={s.cellRow}>
@@ -405,7 +408,7 @@ const s = StyleSheet.create({
   wrap: { flex: 1 },
   body: { flex: 1, paddingHorizontal: 20 },
 
-  // ── header ──
+  // â”€â”€ header â”€â”€
   header: {
     flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
     paddingHorizontal: 20, paddingVertical: 16,
@@ -417,7 +420,7 @@ const s = StyleSheet.create({
   timerDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: TT.red },
   timerTxt: { fontSize: 17, lineHeight: 22, fontFamily: TTF.bold, color: TT.ink },
 
-  // ── section tabs ──
+  // â”€â”€ section tabs â”€â”€
   tabsScroll: { flexGrow: 0, marginHorizontal: -20 },
   tabsRow:    { gap: 10, paddingHorizontal: 20, paddingTop: 16, paddingBottom: 2 },
   tab: {
@@ -437,12 +440,12 @@ const s = StyleSheet.create({
   },
   badgeTxt: { fontSize: 12, lineHeight: 16, fontFamily: TTF.semi, color: TT.violet },
 
-  // ── question ──
+  // â”€â”€ question â”€â”€
   questionArea: { paddingTop: 28, paddingBottom: 32 },
   ruleTxt: { fontSize: 15, lineHeight: 21, fontFamily: TTF.reg, color: TT.sub, marginTop: 14 },
   diagram: { width: '100%', borderRadius: 8, backgroundColor: '#FFFFFF' },
 
-  // ── options ──
+  // â”€â”€ options â”€â”€
   optsGrid:  { flexDirection: 'row', flexWrap: 'wrap', gap: 12 },
   optTile: {
     width: '48%', flexGrow: 1, minHeight: 128, borderRadius: 18, borderWidth: 1.5,
@@ -459,11 +462,11 @@ const s = StyleSheet.create({
   letterBadge: { width: 30, height: 30, borderRadius: 9, backgroundColor: TT.hair, alignItems: 'center', justifyContent: 'center' },
   letterTxt:   { fontSize: 13, lineHeight: 16, fontFamily: TTF.head, color: TT.sub },
 
-  // ── clear ──
+  // â”€â”€ clear â”€â”€
   clearRow: { height: 62, alignItems: 'center', justifyContent: 'center' },
   clearTxt: { fontSize: 15, lineHeight: 20, fontFamily: TTF.semi, color: TT.sub },
 
-  // ── nav ──
+  // â”€â”€ nav â”€â”€
   navActions: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingVertical: 16 },
   prevBtn: { paddingVertical: 10, paddingRight: 16 },
   prevLbl: { fontSize: 17, lineHeight: 22, fontFamily: TTF.semi, color: TT.sub },
@@ -478,7 +481,7 @@ const s = StyleSheet.create({
   nextLbl: { fontSize: 17, lineHeight: 22, fontFamily: TTF.bold, color: TT.ink },
   btnOff:  { opacity: 0.35 },
 
-  // ── finish dialog ──
+  // â”€â”€ finish dialog â”€â”€
   dialogScrim: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 20, backgroundColor: '#080625' },
   dialogBox: {
     width: '100%', maxWidth: 362, borderRadius: 24, borderWidth: 1,
@@ -502,7 +505,7 @@ const s = StyleSheet.create({
   },
   keepLbl: { fontSize: 14, lineHeight: 18, fontFamily: TTF.bold, color: TT.sub },
 
-  // ── palette screen ──
+  // â”€â”€ palette screen â”€â”€
   paletteRoot:  { flex: 1, backgroundColor: TT.canvas },
   paletteBody:  { paddingHorizontal: 20, paddingTop: 28, paddingBottom: 24 },
   paletteTitle: { fontSize: 30, lineHeight: 38, fontFamily: TTF.head, color: TT.ink, letterSpacing: -0.4 },
