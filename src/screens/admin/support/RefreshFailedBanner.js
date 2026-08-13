@@ -30,7 +30,7 @@ export function RefreshFailedBanner({ message, onRetry }) {
       >
         <TriangleAlert size={13} color={S.orange} strokeWidth={2.4} />
         <T w="semi" s={11.5} c={S.orange} numberOfLines={2} style={{ flex: 1 }}>
-          {message || 'Refresh nahi hua'} — dikh raha data purana ho sakta hai.
+          {message || "Couldn't refresh"} — what you see may be out of date.
         </T>
         <RotateCw size={13} color={S.orange} strokeWidth={2.6} />
       </PressableScale>

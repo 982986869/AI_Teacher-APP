@@ -13,9 +13,9 @@ import { PressableScale } from '../../screens/parent/ParentApp/anim';
 import { D, TX } from './theme';
 
 const LABEL = {
-  open: 'Team dekh rahi hai',
-  assigned: 'Team dekh rahi hai',
-  pending_confirmation: 'Aapke jawab ka intezaar',
+  open: 'The team is on it',
+  assigned: 'The team is on it',
+  pending_confirmation: 'Waiting for your reply',
   closed: 'Band',
 };
 
@@ -24,14 +24,14 @@ export default function TicketList({ tickets, loading, onOpen, onNew, onClose })
   return (
     <View style={[s.wrap, { paddingTop: insets.top + 12, paddingBottom: insets.bottom + 12 }]}>
       <View style={s.head}>
-        <TX w="bold" s={18} c={D.ink}>Aapke tickets</TX>
+        <TX w="bold" s={18} c={D.ink}>Your tickets</TX>
         <PressableScale onPress={onClose} hitSlop={12} accessibilityRole="button" accessibilityLabel="Close help">
-          <TX w="semi" s={14} c={D.muted}>Band karein</TX>
+          <TX w="semi" s={14} c={D.muted}>Close</TX>
         </PressableScale>
       </View>
 
       <ScrollView contentContainerStyle={s.list}>
-        {loading && <TX s={13} c={D.muted}>Load ho raha hai…</TX>}
+        {loading && <TX s={13} c={D.muted}>Loading…</TX>}
 
         {/* Closed tickets are listed too — a ticket the server auto-closed after three
             silent days must not be a dead end, and Reopen only exists if there is still a
@@ -65,7 +65,7 @@ export default function TicketList({ tickets, loading, onOpen, onNew, onClose })
           );
         })}
 
-        <PressableScale onPress={onNew} style={s.newBtn} accessibilityRole="button" accessibilityLabel="Naya issue raise karein">
+        <PressableScale onPress={onNew} style={s.newBtn} accessibilityRole="button" accessibilityLabel="Raise a new issue">
           <Plus size={18} color={D.ink} />
           <TX w="semi" s={14} c={D.ink}>Naya issue</TX>
         </PressableScale>

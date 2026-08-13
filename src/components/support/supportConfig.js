@@ -50,7 +50,7 @@ export const DEFAULT_AGENT = teamAgent(null);
 // numeral colour is per-topic rather than always white). Topics 2 and 4 were read off
 // the mockup — worth confirming against the file if exactness matters.
 // `plain: true` renders the row as the full-width button at the bottom of the list
-// (the "Kuch aur" row) — no badge, no chevron, centred label.
+// (the "Something else" row) — no badge, no chevron, centred label.
 
 export const PARENT_CATEGORIES = [
   {
@@ -98,7 +98,7 @@ export const PARENT_CATEGORIES = [
     plain: true,
     tint: '#8B949E',
     badgeInk: '#0C0936',
-    label: 'Kuch aur',
+    label: 'Something else',
     desc: 'Something else',
     team: 'Support team',
     tag: 'General',
@@ -152,7 +152,7 @@ export const STUDENT_CATEGORIES = [
     plain: true,
     tint: '#8B949E',
     badgeInk: '#0C0936',
-    label: 'Kuch aur',
+    label: 'Something else',
     desc: 'Something else',
     team: 'Support team',
     tag: 'General',
@@ -170,22 +170,23 @@ export const STUDENT_CATEGORIES = [
 // is a redirect, not a wall: the chat stays open and anything they write still becomes a
 // real ticket.
 export const DOUBT_REDIRECT = {
-  text: 'Ye padhai ka sawaal lag raha hai — AI Teacher se turant jawab mil jayega. '
-      + 'Phir bhi kuch aur poochna ho to yahin likhiye, team dekh legi.',
-  cta: 'AI Teacher kholein',
+  text: 'This looks like a study question — AI Teacher will answer it right away. '
+      + 'If you still need something else, write here and the team will pick it up.',
+  cta: 'Open AI Teacher',
 };
 
 // ── Copy ─────────────────────────────────────────────────────────────────────
-// The design's greeting names the parent and the child ("Hi Meera 👋 Aarav ki learning
-// ke baare mein kya help chahiye?"). We only interpolate names we actually have —
-// otherwise the sentence drops that clause instead of printing an empty slot.
+// The design's greeting names the parent and the child — it was written in Hinglish
+// ("Hi Meera 👋 Aarav ki learning ke baare mein kya help chahiye?"); the app ships the
+// English equivalent. We only interpolate names we actually have — otherwise the
+// sentence drops that clause instead of printing an empty slot.
 export function buildGreeting({ role, userName, childName }) {
   const hi = userName ? `Hi ${userName} 👋` : 'Hi 👋';
   if (role === 'parent') {
-    const who = childName ? `${childName} ki` : 'aapke bacche ki';
-    return `${hi} ${who} learning ke baare mein kya help chahiye?`;
+    const who = childName ? `${childName}'s` : "your child's";
+    return `${hi} what do you need help with about ${who} learning?`;
   }
-  return `${hi} aaj kis cheez mein help chahiye?`;
+  return `${hi} what do you need help with today?`;
 }
 
 // ── Ticket context ───────────────────────────────────────────────────────────
@@ -217,13 +218,13 @@ export const DEMO_TICKET_CONTEXT = {
   // Reworded from the Figma copy ("Duplicate wala refund kar deti hoon"), which promises
   // an action the app cannot perform and carries a gendered Hindi verb ending — the
   // agent on shift can be anyone.
-  opening: 'Dekh rahe hain — 12 Aug ko do payments capture hui hain. INV-8841 duplicate lag raha hai. Confirm kar dijiye, refund request team tak chali jayegi.',
+  opening: 'We are looking into it — two payments were captured on 12 Aug. INV-8841 looks like a duplicate. Confirm and the refund request goes to the team.',
   badge: { label: 'Duplicate payment', tint: '#F5A623', ink: '#0C0936' },
   amount: '₹4,800.00',
   meta: 'INV-8841 · 12 Aug 2026 · UPI ···4471',
   primary: { label: 'Confirm Refund' },
   link: { label: 'View Invoice', url: null },   // no invoice endpoint yet → link hidden
-  replies: ['Haan, refund kar dijiye', 'Ye meri payment nahi...'],
+  replies: ['Yes, please refund it', 'This is not my payment...'],
 };
 
 // Add `resolution` to a context and the conversation becomes the `chat-v3-resolved`
@@ -248,24 +249,24 @@ export const DEMO_RESOLVED_CONTEXT = {
 const firstName = (n) => String(n || '').trim().split(/\s+/)[0] || 'Support';
 
 export function agentOpening({ category, agent }) {
-  return `Namaste! Main ${firstName(agent && agent.name)}, ${category.team} se. Aapne “${category.label}” chuna hai — ${String(category.desc || '').toLowerCase()}. Zara detail mein likhiye kya hua?`;
+  return `Hello! I'm ${firstName(agent && agent.name)} from ${category.team}. You picked “${category.label}” — ${String(category.desc || '').toLowerCase()}. Tell us what happened, in as much detail as you can.`;
 }
 
 // Said once the ticket is genuinely created on the server — so it can promise a callback,
 // because a real team member now has it in their queue.
 export function agentTicketRaised({ ticket, team, phone, assignee }) {
-  const who = assignee ? `${assignee} (${team})` : `${team} ka member`;
+  const who = assignee ? `${assignee} (${team})` : `a member of ${team}`;
   const how = phone
-    ? `aapko ${phone} par call karega`
-    : 'aapse jald contact karega';
-  return `Ticket ${ticket} ${team} tak pahunch gaya hai. ${who} ${how}. Beech mein kuch aur batana ho to yahin likh dijiye — ya WhatsApp/Email se seedha bhi baat kar sakte hain.`;
+    ? `will call you on ${phone}`
+    : 'will contact you soon';
+  return `Ticket ${ticket} has reached ${team}. ${who} ${how}. If there is anything else to add, write it here — or reach us directly on WhatsApp or email.`;
 }
 
 // Said when the ticket could NOT be raised. It does not soften what happened: the
 // message is still sitting on the phone, and the only routes that work are the two
 // below it.
 export function agentSendFailed({ category }) {
-  return `Ye message abhi ${category.team} tak nahi pahunch paaya — request bheji nahi ja saki. Neeche “Send on WhatsApp” ya “Email” use kar lijiye, aapka likha hua saath chala jayega. Ya thodi der baad dobara try kariye.`;
+  return `This message has not reached ${category.team} — the request could not be sent. Use “Send on WhatsApp” or “Email” above and what you wrote goes with it. Or try again in a little while.`;
 }
 
 // ── Message building ─────────────────────────────────────────────────────────

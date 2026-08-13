@@ -38,8 +38,8 @@ const STATUS_TONE = {
 // Staff-facing labels for a logged call — the outcome as the team recorded it, not the
 // user-facing wording the student screen shows.
 const OUTCOME_LABEL = {
-  talked: 'Baat hui',
-  no_answer: 'Uthaya nahi',
+  talked: 'Talked',
+  no_answer: 'No answer',
   callback: 'Callback',
 };
 
@@ -128,7 +128,7 @@ export default function SupportThreadScreen({ route, navigation }) {
       // with it — and the half-typed reply looks lost even though it survives in `text`.
       // The banner below reports the failure over the thread that is still on screen,
       // which is what the web console does with a toast.
-      setError(apiError(e, 'Ticket load nahi hua'));
+      setError(apiError(e, "Couldn't load this ticket"));
     } finally {
       setLoading(false);
     }
@@ -157,7 +157,7 @@ export default function SupportThreadScreen({ route, navigation }) {
     try {
       await addTicketMessage(id, { text: body });
     } catch (e) {
-      Alert.alert('Reply nahi bheja gaya', apiError(e));
+      Alert.alert('Reply not sent', apiError(e));
       throw e;
     }
     await load();
@@ -167,7 +167,7 @@ export default function SupportThreadScreen({ route, navigation }) {
     try {
       await logCall(id, { outcome, note });
     } catch (e) {
-      Alert.alert('Call log nahi hua', apiError(e));
+      Alert.alert('Call not logged', apiError(e));
       throw e;
     }
     await load();
@@ -177,11 +177,11 @@ export default function SupportThreadScreen({ route, navigation }) {
     try {
       await resolveTicket(id, { summary });
     } catch (e) {
-      Alert.alert('Resolve nahi hua', apiError(e));
+      Alert.alert('Could not resolve', apiError(e));
       throw e;
     }
     await load();
-    Alert.alert('Ho gaya', 'User ko confirmation ke liye bhej diya.');
+    Alert.alert('Done', 'Sent to the user for confirmation.');
   }
 
   async function onSend() {
@@ -213,7 +213,7 @@ export default function SupportThreadScreen({ route, navigation }) {
   if (!ticket) {
     return (
       <View style={{ flex: 1, backgroundColor: S.canvas, paddingTop: 60 }}>
-        <StudentErrorState title="Ticket load nahi hua" message={error || undefined} onRetry={load} />
+        <StudentErrorState title="Couldn't load this ticket" message={error || undefined} onRetry={load} />
       </View>
     );
   }
@@ -252,11 +252,11 @@ export default function SupportThreadScreen({ route, navigation }) {
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 6, flexWrap: 'wrap' }}>
           <T w="semi" s={12.5} c={S.sub}>
             {(ticket.raisedBy && ticket.raisedBy.name) || 'Unknown'}
-            {ticket.childName ? ` · ${ticket.childName} ke liye` : ''}
+            {ticket.childName ? ` · for ${ticket.childName}` : ''}
           </T>
           {phone ? (
             <PressableScale
-              onPress={() => Linking.openURL(`tel:${phone}`).catch(() => Alert.alert('Call nahi lag paya', phone))}
+              onPress={() => Linking.openURL(`tel:${phone}`).catch(() => Alert.alert("Couldn't start the call", phone))}
               style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}
               accessibilityRole="button"
               accessibilityLabel={`Call ${phone}`}
@@ -306,7 +306,7 @@ export default function SupportThreadScreen({ route, navigation }) {
 
           {pending ? (
             <T w="semi" s={11.5} c={S.gold} style={{ flex: 1 }}>
-              User ki confirmation ka intezaar — 3 din baad apne aap band
+              Waiting for user confirmation — closes itself after 3 days
             </T>
           ) : null}
         </View>
@@ -349,7 +349,7 @@ export default function SupportThreadScreen({ route, navigation }) {
               {ticket.attachments.map((a) => (
                 <PressableScale
                   key={a.id}
-                  onPress={() => Linking.openURL(a.url).catch(() => Alert.alert('File nahi khul payi', a.name))}
+                  onPress={() => Linking.openURL(a.url).catch(() => Alert.alert("Couldn't open the file", a.name))}
                   style={{
                     flexDirection: 'row', alignItems: 'center', gap: 6, maxWidth: 230,
                     backgroundColor: '#fff', borderRadius: 999, borderWidth: 1, borderColor: S.hair,
@@ -373,7 +373,7 @@ export default function SupportThreadScreen({ route, navigation }) {
             value={text}
             onChangeText={setText}
             editable={canReply}
-            placeholder={closed ? 'Ticket band hai' : 'Reply likhein…'}
+            placeholder={closed ? 'This ticket is closed' : 'Write a reply…'}
             placeholderTextColor={S.faint}
             multiline
             style={{

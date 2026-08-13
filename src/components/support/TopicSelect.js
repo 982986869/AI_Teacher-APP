@@ -54,7 +54,7 @@ function Avatar({ agent }) {
 }
 
 function TopicRow({ item, index, onPress }) {
-  // The last entry ("Kuch aur") is the plain full-width button: no badge, no chevron.
+  // The last entry ("Something else") is the plain full-width button: no badge, no chevron.
   if (item.plain) {
     return (
       <PressableScale

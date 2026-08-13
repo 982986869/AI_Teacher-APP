@@ -134,9 +134,9 @@ function EventChip({ text }) {
 // Copy for a `kind: 'call'` row, keyed on the closed `callOutcome` enum — never on
 // server-sent text. This is the ONLY thing a call row is allowed to say to the owner.
 const CALL_COPY = {
-  talked: '📞 Support ne aapse baat ki',
-  no_answer: '📞 Support ne call kiya — aapne uthaya nahi',
-  callback: '📞 Support aapko dobara call karegi',
+  talked: '📞 Support spoke with you',
+  no_answer: '📞 Support called — you did not pick up',
+  callback: '📞 Support will call you again',
 };
 
 // A call attempt, rendered as a neutral centred chip — same family as EventChip, NOT an
@@ -458,7 +458,7 @@ export default function ChatScreen({
 
     if (liveChat) {
       setThread((prev) => (prev.some((m) => m.id === 'ev-welcome') ? prev : [
-        { id: 'ev-welcome', kind: 'event', text: `Apna issue yahan likhiye — ${category.team} dekh kar aapse contact karegi.` },
+        { id: 'ev-welcome', kind: 'event', text: `Describe your issue here — ${category.team} will read it and get back to you.` },
         ...prev,
       ]));
       return undefined;
@@ -672,7 +672,7 @@ export default function ChatScreen({
 
   // Also used as ResolvedScreen's `onReopen` (Step 2) — `reopenTicket` is valid from both
   // `pending_confirmation` and `closed` (auto-close can beat the user to it), so one
-  // handler covers "abhi bhi problem hai" and "Reopen This Chat" alike.
+  // handler covers "Still not fixed" and "Reopen This Chat" alike.
   const stillBroken = useCallback(async () => {
     if (!ticket || confirmBusy) return;
     setConfirmBusy(true);
@@ -844,7 +844,7 @@ export default function ChatScreen({
         <TX w="reg" s={10} lh={12} c={D.muted} style={s.connectLabel}>
           {stuck.length
             ? `${stuck.length} MESSAGE${stuck.length > 1 ? 'S' : ''} NOT SENT`
-            : 'YA SEEDHA CONNECT KAREIN'}
+            : 'OR REACH US DIRECTLY'}
         </TX>
         {/* The flex:1 lives on these wrappers, NOT on the pill style. PressableScale puts
             its style on an inner view, and flex:1 there means flexBasis:0 — which beats
@@ -1006,7 +1006,7 @@ export default function ChatScreen({
             <TextInput
               value={draft}
               onChangeText={setDraft}
-              placeholder="Message type karein..."
+              placeholder="Type a message..."
               placeholderTextColor={D.placeholder}
               style={s.input}
               returnKeyType="send"

@@ -46,16 +46,16 @@ export function ResolveSheet({ visible, onClose, onSubmit }) {
             onPress={() => {}}
           >
             <View style={{ width: 40, height: 4, borderRadius: 2, backgroundColor: S.hair, alignSelf: 'center', marginVertical: 8 }} />
-            <T w="black" s={17} c={S.ink} style={{ textAlign: 'center' }}>Issue resolved mark karein</T>
+            <T w="black" s={17} c={S.ink} style={{ textAlign: 'center' }}>Mark issue resolved</T>
             <T w="semi" s={12.5} c={S.muted} style={{ textAlign: 'center', marginTop: 6, marginBottom: 14, lineHeight: 18 }}>
-              Ye summary user ko dikhegi. Ticket abhi band nahi hoga — user confirm karega,
-              ya 3 din baad apne aap band ho jayega.
+              The user will see this summary. The ticket does not close yet — they confirm
+              it, or it closes itself after 3 days.
             </T>
 
             <TextInput
               value={summary}
               onChangeText={setSummary}
-              placeholder="Kya kiya? e.g. Refund process kar diya, 3-4 din mein aa jayega."
+              placeholder="What did you do? e.g. Refund processed, it will arrive in 3-4 days."
               placeholderTextColor={S.faint}
               multiline
               numberOfLines={4}
@@ -76,7 +76,7 @@ export function ResolveSheet({ visible, onClose, onSubmit }) {
               accessibilityRole="button"
               accessibilityLabel="Mark resolved"
             >
-              <T w="xbold" s={14} c={ready ? '#fff' : S.faint}>{busy ? 'Save ho raha…' : 'Mark resolved'}</T>
+              <T w="xbold" s={14} c={ready ? '#fff' : S.faint}>{busy ? 'Saving…' : 'Mark resolved'}</T>
             </PressableScale>
           </Pressable>
         </Pressable>

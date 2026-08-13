@@ -73,10 +73,10 @@ function TicketRow({ t, onPress }) {
       </View>
       <T w="semi" s={12} c={S.sub} numberOfLines={1} style={{ marginTop: 4 }}>
         {(t.raisedBy && t.raisedBy.name) || 'Unknown'}
-        {t.childName ? ` · ${t.childName} ke liye` : ''}
+        {t.childName ? ` · for ${t.childName}` : ''}
       </T>
       {t.status === 'pending_confirmation' ? (
-        <T w="semi" s={11} c={S.gold} style={{ marginTop: 3 }}>User ki confirmation ka intezaar</T>
+        <T w="semi" s={11} c={S.gold} style={{ marginTop: 3 }}>Waiting for user confirmation</T>
       ) : null}
       {/* The CSAT, once the user has given one. Shown on the row rather than only inside
           the ticket so a run of low scores is visible while scanning the queue, which is
@@ -127,7 +127,7 @@ export default function SupportQueueScreen({ navigation }) {
       // are already correct on screen. The render below shows the banner over the list
       // when there is a list, and the full error state only when there is nothing to keep
       // — the same trade the web console makes by toasting and holding its state.
-      setError(apiError(e, 'Queue load nahi hui'));
+      setError(apiError(e, "Couldn't load the queue"));
     } finally {
       if (reqSeq.current === seq) setLoading(false);
     }
@@ -188,7 +188,7 @@ export default function SupportQueueScreen({ navigation }) {
           <TextInput
             value={search}
             onChangeText={setSearch}
-            placeholder="Ref, naam ya number"
+            placeholder="Ref, name or phone"
             placeholderTextColor={S.faint}
             style={{
               backgroundColor: '#fff', borderRadius: 12, borderWidth: 1, borderColor: S.hair,
@@ -216,7 +216,7 @@ export default function SupportQueueScreen({ navigation }) {
           {[0, 1, 2, 3].map((i) => <StudentSkeleton key={i} w="100%" h={78} r={16} mb={9} />)}
         </View>
       ) : error && !rows.length ? (
-        <StudentErrorState title="Queue load nahi hui" message={error} onRetry={load} />
+        <StudentErrorState title="Couldn't load the queue" message={error} onRetry={load} />
       ) : (
         <>
         {/* Rows in hand, refetch failed: say so above the list instead of replacing it.
@@ -234,8 +234,8 @@ export default function SupportQueueScreen({ navigation }) {
           refreshControl={<RefreshControl refreshing={false} onRefresh={load} tintColor={S.indigo} />}
           ListEmptyComponent={(
             <View style={{ alignItems: 'center', paddingTop: 48 }}>
-              <T w="xbold" s={14.5} c={S.ink}>Kuch nahi hai</T>
-              <T w="semi" s={12.5} c={S.muted} style={{ marginTop: 4 }}>Is filter mein koi ticket nahi.</T>
+              <T w="xbold" s={14.5} c={S.ink}>Nothing here</T>
+              <T w="semi" s={12.5} c={S.muted} style={{ marginTop: 4 }}>No tickets match this filter.</T>
             </View>
           )}
         />

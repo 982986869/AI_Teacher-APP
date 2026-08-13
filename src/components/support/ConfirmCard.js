@@ -17,7 +17,7 @@ export default function ConfirmCard({ resolution, onConfirm, onStillBroken, busy
     <View style={s.card}>
       <View style={s.head}>
         <CircleCheck size={18} color={D.indigo} />
-        <TX w="semi" s={14} c={D.ink}>Team ka kehna hai issue solve ho gaya</TX>
+        <TX w="semi" s={14} c={D.ink}>The team says this issue is resolved</TX>
       </View>
 
       {!!resolution?.summary && (
@@ -30,7 +30,7 @@ export default function ConfirmCard({ resolution, onConfirm, onStillBroken, busy
       </PressableScale>
 
       <PressableScale onPress={onStillBroken} disabled={busy} style={[s.btn, s.ghost]} accessibilityRole="button" accessibilityLabel="Say the issue is still there">
-        <TX w="semi" s={14} c={D.muted}>Abhi bhi problem hai</TX>
+        <TX w="semi" s={14} c={D.muted}>Still not fixed</TX>
       </PressableScale>
     </View>
   );

@@ -60,7 +60,7 @@ export default function SupportSheet({
 
   // step governs what shows while `picked` is null: null while the first ticket fetch is
   // still in flight (nothing renders yet — an account with zero tickets should never
-  // flash "Aapke tickets" on its way to the topic list), then 'list' or 'topics'. Once
+  // flash "Your tickets" on its way to the topic list), then 'list' or 'topics'. Once
   // set by the user or the fetch, it stays put for the whole round trip into chat and
   // back, which is what makes plain `setPicked(null)` land back on the right screen.
   const [step, setStep] = useState(null);

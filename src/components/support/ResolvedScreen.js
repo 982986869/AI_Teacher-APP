@@ -49,7 +49,7 @@ export default function ResolvedScreen({
     } catch (_) {
       setRating(previous);
       setSaved(wasSaved);
-      Alert.alert('Rating save nahi hui', 'Network check karke dobara try karein.');
+      Alert.alert('Rating not saved', 'Check your connection and try again.');
     }
   }, [onRate, rating, saved]);
 
@@ -95,7 +95,7 @@ export default function ResolvedScreen({
             <TX w="reg" s={11} lh={16} c={D.muted} style={[s.center, { marginTop: 8 }]}>{byline}</TX>
           </View>
 
-          <TX w="bold" s={14} lh={20} c={D.ink} style={[s.center, { marginTop: 24 }]}>Support kaisa laga?</TX>
+          <TX w="bold" s={14} lh={20} c={D.ink} style={[s.center, { marginTop: 24 }]}>How was our support?</TX>
           <View
             style={s.ratingRow}
             accessibilityRole="adjustable"
@@ -119,7 +119,7 @@ export default function ResolvedScreen({
               because nothing was being logged; now something is, so it can say so. */}
           {saved ? (
             <TX w="reg" s={11} lh={16} c={D.muted} style={[s.center, { marginTop: 6 }]}>
-              Shukriya — aapki rating team tak pahunch gayi.
+              Thank you — your rating reached the team.
             </TX>
           ) : null}
 

@@ -9,9 +9,9 @@ import { PressableScale } from '../../parent/ParentApp/anim';
 import { S } from '../../../theme/studentUI';
 
 const OUTCOMES = [
-  { k: 'talked', l: 'Baat hui' },
-  { k: 'no_answer', l: 'Uthaya nahi' },
-  { k: 'callback', l: 'Baad mein call karna hai' },
+  { k: 'talked', l: 'Talked' },
+  { k: 'no_answer', l: 'No answer' },
+  { k: 'callback', l: 'Call back later' },
 ];
 
 export function CallLogSheet({ visible, onClose, onSubmit }) {
@@ -50,7 +50,7 @@ export function CallLogSheet({ visible, onClose, onSubmit }) {
             onPress={() => {}}
           >
             <View style={{ width: 40, height: 4, borderRadius: 2, backgroundColor: S.hair, alignSelf: 'center', marginVertical: 8 }} />
-            <T w="black" s={17} c={S.ink} style={{ textAlign: 'center', marginBottom: 14 }}>Call log karein</T>
+            <T w="black" s={17} c={S.ink} style={{ textAlign: 'center', marginBottom: 14 }}>Log a call</T>
 
             <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 12 }}>
               {OUTCOMES.map((o) => {
@@ -77,7 +77,7 @@ export function CallLogSheet({ visible, onClose, onSubmit }) {
             <TextInput
               value={note}
               onChangeText={setNote}
-              placeholder="Call mein kya hua? (sirf team dekhegi)"
+              placeholder="What happened on the call? (team only)"
               placeholderTextColor={S.faint}
               multiline
               numberOfLines={4}
@@ -88,7 +88,7 @@ export function CallLogSheet({ visible, onClose, onSubmit }) {
               accessibilityLabel="Call note"
             />
             <T w="semi" s={11.5} c={S.muted} style={{ marginTop: 6, marginBottom: 12 }}>
-              Ye note user ko nahi dikhega — sirf team ke record ke liye hai.
+              This note is never shown to the user — it is for the team's record.
             </T>
 
             <PressableScale
@@ -101,7 +101,7 @@ export function CallLogSheet({ visible, onClose, onSubmit }) {
               accessibilityRole="button"
               accessibilityLabel="Save call"
             >
-              <T w="xbold" s={14} c="#fff">{busy ? 'Save ho raha…' : 'Save call'}</T>
+              <T w="xbold" s={14} c="#fff">{busy ? 'Saving…' : 'Save call'}</T>
             </PressableScale>
           </Pressable>
         </Pressable>
