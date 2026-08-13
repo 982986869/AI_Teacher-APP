@@ -56,6 +56,31 @@ test('me() withholds support permissions from content_manager', { skip: !hasDb }
   assert.ok(!perms.includes('support.resolve'))
 })
 
+// Deactivating an account (admin/users.controller.js setStatus) flips is_active and
+// deliberately leaves admin_role alone, so the role map on its own still reads "support"
+// for somebody who was locked out of the web portal weeks ago. The portal enforces the
+// switch at its own login; a phone holding an app JWT never goes through that login again,
+// so /me is where it has to be honoured for the app.
+test('me() gives a deactivated support agent no permissions at all', { skip: !hasDb }, async () => {
+  const req = fakeReq('support')
+  req.user.is_active = false
+  const res = fakeRes()
+  await ctrl.me(req, res)
+  assert.deepStrictEqual(
+    res.payload.body.data.permissions, [],
+    'a deactivated account keeps its admin_role — the permission list is what must go empty',
+  )
+})
+
+test('me() still trusts a row that carries no is_active column', { skip: !hasDb }, async () => {
+  const res = fakeRes()
+  await ctrl.me(fakeReq('support'), res) // no is_active key at all
+  assert.ok(
+    res.payload.body.data.permissions.includes('support.view'),
+    'only an explicit false revokes; a missing column must not read as deactivated',
+  )
+})
+
 test('me() gives a plain student an empty permission list', { skip: !hasDb }, async () => {
   const res = fakeRes()
   await ctrl.me(fakeReq(null), res)

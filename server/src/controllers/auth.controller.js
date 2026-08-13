@@ -10,7 +10,7 @@ const { config } = require('../config/env')
 const { AppError } = require('../middleware/errorHandler')
 const ApiResponse = require('../utils/ApiResponse')
 const { deriveScope } = require('../services/personalization/scope')
-const { permissionsFor } = require('../services/admin/permissions')
+const { permissionsForUser } = require('../services/admin/permissions')
 const { validateProfilePatch } = require('../services/personalization/validateProfile')
 const { uploadImage, isConfigured: storageConfigured } = require('../services/storage')
 
@@ -20,7 +20,10 @@ async function fetchScopeUser(id) {
     // admin_role rides along because login/register hand this whole row back as `user`
     // and derive its `permissions` field from it — without the column here that field
     // would silently be [] for every admin/support account, no matter their real role.
-    `SELECT id, name, email, phone, grade, role::text AS role, admin_role,
+    // is_active is the other half of that derivation (see permissionsForUser): a
+    // deactivated account keeps its admin_role, so the role alone would still grant a
+    // locked-out agent the Support tab on the app.
+    `SELECT id, name, email, phone, grade, role::text AS role, admin_role, is_active,
             board, stream, language, school, account_type, linked_student_id, photo_url AS "photoUrl"
        FROM "users" WHERE id = $1::uuid LIMIT 1`,
     id,
@@ -108,7 +111,7 @@ async function register(req, res, next) {
 
     return ApiResponse.created(res, {
       token: signToken(user.id), user, scope: deriveScope(user),
-      permissions: permissionsFor(user.admin_role),
+      permissions: permissionsForUser(user),
     }, 'Account created')
   } catch (err) {
     next(err)
@@ -145,7 +148,7 @@ async function login(req, res, next) {
 
     return ApiResponse.success(res, {
       token: signToken(user.id), user: full, scope: deriveScope(full),
-      permissions: permissionsFor(full.admin_role),
+      permissions: permissionsForUser(full),
     })
   } catch (err) {
     next(err)
@@ -218,7 +221,7 @@ async function googleAuth(req, res, next) {
       res,
       {
         token: signToken(user.id), user: full, scope: deriveScope(full), isNewUser,
-        permissions: permissionsFor(full.admin_role),
+        permissions: permissionsForUser(full),
       },
       isNewUser ? 'Account created' : 'Signed in',
     )
@@ -235,7 +238,7 @@ async function me(req, res) {
   // server's copy of the role map, never a second one kept in the app — a new role or a
   // regranted permission must not need an app release.
   return ApiResponse.success(res, {
-    user, scope: req.scope, permissions: permissionsFor(user.admin_role),
+    user, scope: req.scope, permissions: permissionsForUser(user),
   })
 }
 

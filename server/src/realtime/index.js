@@ -16,7 +16,7 @@ const { Server } = require('socket.io')
 const jwt = require('jsonwebtoken')
 const db = require('../config/database')
 const { config } = require('../config/env')
-const { hasPermission } = require('../services/admin/permissions')
+const { userHasPermission } = require('../services/admin/permissions')
 
 let io = null
 
@@ -38,7 +38,8 @@ async function identify(token) {
   let rows
   try {
     rows = await db.$queryRawUnsafe(
-      `SELECT id, name, admin_role FROM "users" WHERE id = $1::uuid LIMIT 1`, decoded.sub,
+      `SELECT id, name, admin_role, is_active FROM "users" WHERE id = $1::uuid LIMIT 1`,
+      decoded.sub,
     )
   } catch (_) {
     return null
@@ -49,8 +50,16 @@ async function identify(token) {
   // some admin_role". A content_manager IS an admin role but was deliberately NOT
   // granted support.view (Task 4), so isAdminRole alone would let their socket join
   // staff:queue and receive every ticket:new payload despite the console hiding the
-  // nav item from them. hasPermission is the same gate the HTTP admin routes use.
-  return { id: user.id, name: user.name, staff: hasPermission(user.admin_role, 'support.view') }
+  // nav item from them. userHasPermission is the same gate the HTTP admin routes use —
+  // and it also refuses a DEACTIVATED account, which keeps its admin_role. This room is
+  // joined once, at connection time, and never re-evaluated, so an is_active check that
+  // only lived on the HTTP side would leave a locked-out agent's socket fed with every
+  // ticket and every private call note for as long as it stayed open.
+  return {
+    id: user.id,
+    name: user.name,
+    staff: userHasPermission(user, 'support.view'),
+  }
 }
 
 function attachRealtime(httpServer) {

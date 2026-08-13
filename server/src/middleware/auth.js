@@ -34,7 +34,17 @@ async function authenticate(req, res, next) {
     // Raw select so we get the personalization columns without needing a Prisma client
     // regen; role::text avoids enum-value surprises. These feed req.scope below.
     const rows = await db.$queryRawUnsafe(
-      `SELECT id, name, email, phone, grade, role::text AS role,
+      // admin_role rides along so non-/api/admin routes can tell staff from students
+      // without a second query — /api/support uses it to expose a team's ticket queue to
+      // staff while keeping students scoped to their own tickets. It stays null for
+      // every normal account, so nothing else changes.
+      //
+      // is_active comes with it because admin_role on its own overstates access:
+      // deactivating an account leaves the role in place (admin/users.controller.js
+      // setStatus), and the web portal only enforces the switch at ITS login, which an app
+      // token never goes through. Without this column /api/support and /me would keep
+      // treating a locked-out agent as staff until their JWT expired.
+      `SELECT id, name, email, phone, grade, role::text AS role, admin_role, is_active,
               board, stream, language, school, account_type, linked_student_id, photo_url AS "photoUrl"
          FROM "users" WHERE id = $1::uuid LIMIT 1`,
       decoded.sub,

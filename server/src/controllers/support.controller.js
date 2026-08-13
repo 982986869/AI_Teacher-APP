@@ -15,7 +15,7 @@ const { validationResult } = require('express-validator')
 const db = require('../config/database')
 const ApiResponse = require('../utils/ApiResponse')
 const { uploadFile } = require('../services/storage')
-const { hasPermission } = require('../services/admin/permissions')
+const { userHasPermission } = require('../services/admin/permissions')
 const svc = require('../services/support/support.service')
 const { emitToTicket, emitToStaffQueue } = require('../realtime')
 
@@ -24,9 +24,17 @@ const MAX_TEXT = 4000
 // Staff = "may see support tickets", not "carries any admin_role". `admin_role` answers
 // the wrong question — content_manager IS an admin role but was deliberately withheld
 // support.view (Task 4), so an isAdminRole/truthy check would let it read (and browse)
-// any family's ticket, including staff-only call logs. hasPermission is the same gate
+// any family's ticket, including staff-only call logs. userHasPermission is the same gate
 // the realtime layer (server/src/realtime/index.js) already uses.
-const isStaff = (req) => hasPermission(req.user && req.user.admin_role, 'support.view')
+//
+// userHasPermission, not hasPermission(admin_role, …), because the ROLE is only half the
+// answer: deactivating an account (admin/users.controller.js setStatus) flips is_active
+// and deliberately leaves admin_role alone, and the web portal only enforces that switch
+// at its own login — which a phone already holding an app JWT never reaches again. On the
+// role alone, an agent who left the company kept reading every family's ticket, name and
+// phone number from the app until their token expired.
+const staffCan = (req, permission) => userHasPermission(req.user, permission)
+const isStaff = (req) => staffCan(req, 'support.view')
 
 // Pick the active member of this team carrying the fewest open tickets. Returns null when
 // the team has nobody registered — which is the honest default, and what the app renders
@@ -150,7 +158,7 @@ async function addMessage(req, res, next) {
     // Replying as staff is a further, narrower grant — support.view lets you watch a
     // queue, it does not by itself let you speak into someone's thread.
     const isOwner = ticket.userId === req.user.id
-    if (!isOwner && !hasPermission(req.user.admin_role, 'support.reply')) {
+    if (!isOwner && !staffCan(req, 'support.reply')) {
       return ApiResponse.error(res, 'You do not have permission to reply to tickets.', 403)
     }
 
@@ -196,7 +204,7 @@ async function addAttachment(req, res, next) {
     // — must not be enough; without this a view-only role could push a file into any
     // family's ticket.
     const isOwner = ticket.userId === req.user.id
-    if (!isOwner && !hasPermission(req.user.admin_role, 'support.reply')) {
+    if (!isOwner && !staffCan(req, 'support.reply')) {
       return ApiResponse.error(res, 'You do not have permission to reply to tickets.', 403)
     }
 
@@ -231,13 +239,19 @@ async function getOne(req, res, next) {
     const { ticket, error } = await loadOwned(req, req.params.id)
     if (error) return ApiResponse.error(res, error[0], error[1])
 
-    // Call logs are the team's own record of dialling out. The user sees the reply that
-    // came out of the call, never the internal note.
+    // Call logs now reach the owner too — a missed call with no trace looks like nobody
+    // tried — but the agent's free-text note stays staff-only. The blanking happens in
+    // SQL, not in application code after the fact, so there is no path where the note is
+    // selected into a JS object and merely forgotten before the response is sent: for a
+    // non-staff caller the "text" column of a `kind = 'call'` row is replaced with '' at
+    // the query itself, while callOutcome/authorName/kind/createdAt pass through intact.
     const staff = isStaff(req)
     const messages = await db.$queryRawUnsafe(
-      `SELECT id, "authorRole", "authorName", "kind", "callOutcome", "text", "createdAt"
+      `SELECT id, "authorRole", "authorName", "kind", "callOutcome",
+              CASE WHEN "kind" = 'call' AND NOT $2::boolean THEN '' ELSE "text" END AS "text",
+              "createdAt"
          FROM "support_messages"
-        WHERE "ticketId" = $1::uuid AND ($2::boolean OR "kind" <> 'call')
+        WHERE "ticketId" = $1::uuid
         ORDER BY "createdAt" ASC`,
       ticket.id, staff,
     )
@@ -336,7 +350,7 @@ async function queue(req, res, next) {
 // ─── PATCH /api/support/tickets/:id/resolve — staff only ──────────────────────
 async function resolve(req, res, next) {
   try {
-    if (!hasPermission(req.user && req.user.admin_role, 'support.resolve')) {
+    if (!staffCan(req, 'support.resolve')) {
       return ApiResponse.error(res, 'You do not have permission to resolve tickets.', 403)
     }
     const summary = String(req.body.summary || '').trim().slice(0, 500)
@@ -396,7 +410,7 @@ async function callLog(req, res, next) {
     // Logging a call is a reply-shaped write (it lands in support_messages, same as
     // addMessage) — gated the same way, on support.reply rather than the broader
     // support.view.
-    if (!hasPermission(req.user && req.user.admin_role, 'support.reply')) {
+    if (!staffCan(req, 'support.reply')) {
       return ApiResponse.error(res, 'You do not have permission to reply to tickets.', 403)
     }
     const { outcome, note } = req.body
@@ -410,11 +424,18 @@ async function callLog(req, res, next) {
       ticketId: ticket.id, authorId: req.user.id,
       authorName: req.user.name || 'Support', outcome, note,
     })
-    // Staff-only, like the REST read (getOne withholds kind:'call' from the owner).
-    // ticket:<id> holds the owner too, so a call log must never go there.
+    // Staff get the full note, live, exactly as before.
     emitToStaffQueue('message', {
       id: row.id, ticketId: ticket.id, authorRole: 'agent', authorName: row.authorName,
       kind: 'call', callOutcome: row.callOutcome, text: row.text, createdAt: row.createdAt,
+    })
+    // The owner's open thread also gets a live update now — but outcome only. This
+    // payload never carries `row.text`; it hardcodes '' so there is no path (a future
+    // edit to `row`, a copy-paste from the staff emit above) that lets the note leak into
+    // the ticket room, which is where the owner's socket actually listens.
+    emitToTicket(ticket.id, 'message', {
+      id: row.id, ticketId: ticket.id, authorRole: 'agent', authorName: row.authorName,
+      kind: 'call', callOutcome: row.callOutcome, text: '', createdAt: row.createdAt,
     })
     return ApiResponse.created(res, { id: row.id, at: row.createdAt }, 'Call logged')
   } catch (err) {

@@ -111,6 +111,47 @@ test('a real staff role reaches the queue', { skip: ctx.skip }, async () => {
   assert.equal(typeof res.body.data.unreadCount, 'number')
 })
 
+// Deactivation is the company's off-switch for a departing agent, and it deliberately
+// leaves admin_role in place so a reactivated account gets its access back. That makes
+// admin_role alone the wrong thing to gate on: the web portal blocks a deactivated login,
+// but a phone is still holding a valid app JWT and never goes through that login again.
+test('a deactivated support agent is refused the staff queue', { skip: ctx.skip }, async () => {
+  const res = fakeRes()
+  await ctrl.queue(fakeReq({ id: OTHER, admin_role: 'support', is_active: false }), res, () => {})
+  assert.equal(res.statusCode, 403, 'the role survives deactivation; the access must not')
+})
+
+test('a deactivated support agent cannot open someone else’s ticket', { skip: ctx.skip }, async () => {
+  const t = await makeTicket('open')
+  const res = fakeRes()
+  await ctrl.getOne(
+    fakeReq({ id: OTHER, admin_role: 'support', is_active: false }, { params: { id: t.id } }),
+    res, () => {},
+  )
+  assert.equal(res.statusCode, 404, 'not 403 — a deactivated agent is an outsider again')
+})
+
+test('a deactivated support agent cannot reply on someone else’s ticket', { skip: ctx.skip }, async () => {
+  const t = await makeTicket('open')
+  const res = fakeRes()
+  await ctrl.addMessage(
+    fakeReq({ id: OTHER, admin_role: 'support', is_active: false }, { params: { id: t.id }, body: { text: 'hi' } }),
+    res, () => {},
+  )
+  assert.equal(res.statusCode, 404, 'loadOwned refuses first — they never reach the reply gate')
+  const msgs = await db.$queryRawUnsafe(
+    `SELECT COUNT(*)::int AS n FROM "support_messages" WHERE "ticketId" = $1::uuid AND "authorId" = $2::uuid`,
+    t.id, OTHER,
+  )
+  assert.equal(msgs[0].n, 0, 'no message was written')
+})
+
+test('an ACTIVE support agent is unaffected — only an explicit false revokes', { skip: ctx.skip }, async () => {
+  const res = fakeRes()
+  await ctrl.queue(fakeReq({ id: OTHER, admin_role: 'support', is_active: true }), res, () => {})
+  assert.equal(res.statusCode, 200)
+})
+
 test('a user cannot close someone else’s ticket', { skip: ctx.skip }, async () => {
   const t = await makeTicket('pending_confirmation')
   const res = fakeRes()
