@@ -19,7 +19,8 @@
 //       quick-replies hug 39   chips hug 31 (pad 8/14) r16 1px #30363D, gap 8
 //   input-section (fill, hug 97)
 //     input-bar       hug 64    pad 12/20 gap 12
-//       paperclip 22 · text-field fill 234 h40 r20 (the spec's mic is gone — it had no
+//       paperclip 22 · text-field fill 234 r20, min-h 40 growing to 120 as you type
+//                      (the spec's h40 was fixed and its mic is gone — the mic had no
 //                      recording pipeline behind it and only offered WhatsApp instead)
 //       send-btn 40 r20 bg #6366F1
 //     home-indicator  33        → replaced by the real safe-area inset
@@ -732,6 +733,17 @@ export default function ChatScreen({
     return () => clearTimeout(id);
   }, [thread, typing, files, kbInset]);
 
+  // The composer grows as you type, and every line it gains is a line the thread loses.
+  // Scrolling on its measured height — rather than on `draft` — means this fires once per
+  // wrap, not once per keystroke, and unanimated so a growing box does not also lurch.
+  const composerH = useRef(0);
+  const onComposerLayout = useCallback((e) => {
+    const h = e.nativeEvent.layout.height;
+    if (Math.abs(h - composerH.current) < 1) return;
+    composerH.current = h;
+    setTimeout(() => scroller.current && scroller.current.scrollToEnd({ animated: false }), 0);
+  }, []);
+
   const canSend = draft.trim().length > 0 || files.length > 0;
 
   // The header/avatar identity. Before a ticket exists, or before anyone has picked it
@@ -980,7 +992,10 @@ export default function ChatScreen({
       </ScrollView>
 
       {/* ── input-section ───────────────────────────────────────────────── */}
-      <View style={[s.inputSection, { paddingBottom: Math.max(insets.bottom, 12) + kbInset }]}>
+      <View
+        style={[s.inputSection, { paddingBottom: Math.max(insets.bottom, 12) + kbInset }]}
+        onLayout={onComposerLayout}
+      >
         {/* Staged attachments sit above the composer so you can see — and drop — what
             is about to go with the message. */}
         {!!files.length && (
@@ -1010,8 +1025,7 @@ export default function ChatScreen({
               placeholder="Type a message..."
               placeholderTextColor={D.placeholder}
               style={s.input}
-              returnKeyType="send"
-              onSubmitEditing={send}
+              multiline
               accessibilityLabel="Message"
             />
           </View>
@@ -1180,14 +1194,21 @@ const s = StyleSheet.create({
     paddingVertical: 7, paddingHorizontal: 10, borderRadius: 12,
     backgroundColor: D.card, borderWidth: 1, borderColor: D.border,
   },
-  inputBar: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 12, paddingHorizontal: 20 },
+  inputBar: { flexDirection: 'row', alignItems: 'flex-end', gap: 12, paddingVertical: 12, paddingHorizontal: 20 },
   iconBtn: { width: 22, height: 22, alignItems: 'center', justifyContent: 'center' },
+  // The Figma spec pins this to h40. It grows now: a message longer than one line used
+  // to scroll sideways inside a 40px slot, so you could not read back what you had
+  // written. minHeight keeps the spec's resting size, maxHeight stops a long message from
+  // eating the thread — past that the field scrolls, which is the right thing to give up.
   textField: {
-    flex: 1, height: 40, flexDirection: 'row', alignItems: 'center', gap: 8,
-    paddingHorizontal: 16, borderRadius: 20,
+    flex: 1, minHeight: 40, maxHeight: 120, flexDirection: 'row', alignItems: 'flex-end', gap: 8,
+    paddingHorizontal: 16, paddingVertical: 8, borderRadius: 20,
     backgroundColor: D.card, borderWidth: 1, borderColor: D.border,
   },
-  input: { flex: 1, color: D.ink, fontSize: 14, fontFamily: IF.reg, padding: 0 },
+  input: {
+    flex: 1, color: D.ink, fontSize: 14, lineHeight: 19, fontFamily: IF.reg,
+    padding: 0, maxHeight: 104, textAlignVertical: 'center',
+  },
   sendBtn: { width: 40, height: 40, borderRadius: 20, backgroundColor: D.indigo, alignItems: 'center', justifyContent: 'center' },
   sendBtnOff: { opacity: 0.45 },
 });

@@ -107,6 +107,17 @@ export default function SupportThreadScreen({ route, navigation }) {
   const [resolveOpen, setResolveOpen] = useState(false);
   const scrollRef = useRef(null);
 
+  // This composer is multiline too, so every line it gains is a line the thread loses.
+  // Keyed on its measured height rather than on the draft text: once per wrap, not once
+  // per keystroke, and unanimated so a growing box does not lurch as well as grow.
+  const composerH = useRef(0);
+  const onComposerLayout = useCallback((e) => {
+    const h = e.nativeEvent.layout.height;
+    if (Math.abs(h - composerH.current) < 1) return;
+    composerH.current = h;
+    setTimeout(() => scrollRef.current && scrollRef.current.scrollToEnd({ animated: false }), 0);
+  }, []);
+
   const load = useCallback(async () => {
     try {
       const d = await getTicket(id);
@@ -373,7 +384,10 @@ export default function SupportThreadScreen({ route, navigation }) {
       {/* The keyboard inset is added to the safe-area one rather than replacing it: with
           the keyboard up the gesture bar is not what the composer has to clear, but the
           moment it closes the inset returns to zero and the safe area matters again. */}
-      <View style={{ borderTopWidth: 1, borderTopColor: S.hair, backgroundColor: '#fff', padding: 12, paddingBottom: Math.max(insets.bottom, 12) + kbInset }}>
+      <View
+        onLayout={onComposerLayout}
+        style={{ borderTopWidth: 1, borderTopColor: S.hair, backgroundColor: '#fff', padding: 12, paddingBottom: Math.max(insets.bottom, 12) + kbInset }}
+      >
         <View style={{ flexDirection: 'row', alignItems: 'flex-end', gap: 8, marginBottom: 9 }}>
           <TextInput
             value={text}
