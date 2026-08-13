@@ -43,7 +43,7 @@ import {
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
-import { ArrowLeft, ArrowRight, Paperclip, Mic, Mail, MessageCircle, X, RotateCcw, FileText, Phone } from 'lucide-react-native';
+import { ArrowLeft, ArrowRight, Paperclip, Mail, MessageCircle, X, RotateCcw, FileText, Phone } from 'lucide-react-native';
 
 import { PressableScale } from '../../screens/parent/ParentApp/anim';
 import {
@@ -695,15 +695,11 @@ export default function ChatScreen({
   }, []);
   const dropFile = useCallback((uri) => setFiles((prev) => prev.filter((f) => f.uri !== uri)), []);
 
-  // Voice notes need recording + an audio pipeline neither side has yet, so the mic
-  // points at WhatsApp rather than sitting there doing nothing.
-  const voice = useCallback(() => {
-    Alert.alert(
-      'Voice message',
-      'Voice notes aren’t supported in the app yet. Send it on WhatsApp instead?',
-      [{ text: 'Not now', style: 'cancel' }, { text: 'Open WhatsApp', onPress: openWhatsApp }],
-    );
-  }, [openWhatsApp]);
+  // The mic used to sit in the input bar and, having no recording or audio pipeline behind
+  // it, could only offer to hand the user off to WhatsApp. A control whose whole job is to
+  // apologise for not existing is worse than no control — removed rather than disabled,
+  // because a greyed-out mic still reads as "coming soon" and invites the same tap.
+  // WhatsApp is still one tap away from the row above the thread.
 
   const contextAction = useCallback(() => {
     const ctx = ticketContext;
@@ -1013,9 +1009,6 @@ export default function ChatScreen({
               onSubmitEditing={send}
               accessibilityLabel="Message"
             />
-            <PressableScale onPress={voice} scaleTo={0.88} accessibilityRole="button" accessibilityLabel="Voice message">
-              <Mic size={18} color={D.muted} strokeWidth={2} />
-            </PressableScale>
           </View>
 
           <PressableScale
