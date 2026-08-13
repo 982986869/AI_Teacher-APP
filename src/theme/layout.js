@@ -37,8 +37,16 @@ export function useBottomPad({ fab = false } = {}) {
 export function useKeyboardInset() {
   const [kbHeight, setKbHeight] = useState(0);
   const [shrink, setShrink] = useState(0);
-  const openHeightRef = useRef(0);   // container height while the keyboard was closed
-  const kbOpenRef = useRef(false);
+  // The tallest this container has been since the keyboard last went down. That IS its
+  // keyboard-closed height, because the keyboard can only ever take space away.
+  //
+  // Deliberately NOT "the height measured while a flag says the keyboard is closed": on
+  // Android the window resizes BEFORE keyboardDidShow fires, so that layout still looks
+  // like a keyboard-closed one and the already-shrunken height gets adopted as the
+  // baseline. Then shrink reads 0, the full keyboard height is added on top of a window
+  // that already made room, and the composer floats a keyboard's height above the
+  // keyboard. Taking the maximum needs no ordering to be true.
+  const maxHeightRef = useRef(0);
 
   useEffect(() => {
     // iOS fires `Will` early enough to ride the keyboard's own animation; Android only
@@ -47,27 +55,22 @@ export function useKeyboardInset() {
     const hideEvt = Platform.OS === 'ios' ? 'keyboardWillHide' : 'keyboardDidHide';
 
     const show = Keyboard.addListener(showEvt, (e) => {
-      kbOpenRef.current = true;
       setKbHeight((e && e.endCoordinates && e.endCoordinates.height) || 0);
     });
     const hide = Keyboard.addListener(hideEvt, () => {
-      kbOpenRef.current = false;
       setKbHeight(0);
       setShrink(0);
+      // Re-baseline: the next layout re-establishes the maximum. Without this a rotation
+      // into landscape would keep the taller portrait height as the baseline for good.
+      maxHeightRef.current = 0;
     });
     return () => { show.remove(); hide.remove(); };
   }, []);
 
   const onLayout = useCallback((e) => {
     const h = e.nativeEvent.layout.height;
-    // A layout while the keyboard is down is the baseline — including rotation, split
-    // screen, or anything else that changes the container for reasons of its own.
-    if (!kbOpenRef.current) {
-      openHeightRef.current = h;
-      setShrink(0);
-      return;
-    }
-    if (openHeightRef.current) setShrink(Math.max(0, openHeightRef.current - h));
+    maxHeightRef.current = Math.max(maxHeightRef.current, h);
+    setShrink(Math.max(0, maxHeightRef.current - h));
   }, []);
 
   return { inset: Math.max(0, kbHeight - shrink), onLayout };
