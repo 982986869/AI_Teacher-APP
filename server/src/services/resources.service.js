@@ -192,14 +192,23 @@ async function getChapterProgress(userId, subjectSlug, chapterSlug, sectionType,
     orderBy: [{ position: 'asc' }, { id: 'asc' }],
   })
   const ids = rows.map((r) => r.id)
-  const prog = ids.length
-    ? await db.question_progress.findMany({ where: { user_id: userId, question_id: { in: ids } } })
-    : []
+  const [prog, marks] = ids.length
+    ? await Promise.all([
+      db.question_progress.findMany({ where: { user_id: userId, question_id: { in: ids } } }),
+      db.question_bookmarks.findMany({ where: { user_id: userId, question_id: { in: ids } } }),
+    ])
+    : [[], []]
   const byId = new Map(prog.map((p) => [String(p.question_id), p]))
+  const marked = new Set(marks.map((b) => String(b.question_id)))
 
   const questions = rows.map((q) => {
     const p = byId.get(String(q.id))
-    return { ...mapQuestion(q), status: p ? p.status : null, updatedAt: p ? p.updated_at : null }
+    return {
+      ...mapQuestion(q),
+      status: p ? p.status : null,
+      updatedAt: p ? p.updated_at : null,
+      bookmarked: marked.has(String(q.id)),
+    }
   })
   const solved = questions.filter((q) => q.status === 'solved').length
   const next = questions.find((q) => q.status == null) || null
@@ -229,6 +238,45 @@ async function setQuestionProgress(userId, questionId, status) {
     update: { status, updated_at: new Date() },
   })
   return { questionId: Number(questionId), status }
+}
+
+// Bookmark / un-bookmark. `on = false` deletes rather than flagging, because the
+// bookmark IS the row — see the migration note.
+async function setQuestionBookmark(userId, questionId, on) {
+  const id = BigInt(questionId)
+  if (!on) {
+    await db.question_bookmarks.deleteMany({ where: { user_id: userId, question_id: id } })
+    return { questionId: Number(questionId), bookmarked: false }
+  }
+  await db.question_bookmarks.upsert({
+    where: { user_id_question_id: { user_id: userId, question_id: id } },
+    create: { user_id: userId, question_id: id },
+    update: {},
+  })
+  return { questionId: Number(questionId), bookmarked: true }
+}
+
+// Every question this student bookmarked, newest first, with enough context to
+// navigate back to it (subject + chapter come from the join, not a stored copy).
+async function listBookmarks(userId, limit = 100) {
+  const rows = await db.$queryRawUnsafe(
+    `SELECT q.id::text AS id, q.q_number AS "qNumber", q.question_html AS "questionHtml",
+            q.marks, q.question_type AS "questionType",
+            sec.type_key AS "sectionType",
+            c.name AS "chapterName", c.slug AS "chapterSlug", c.class_level AS "classLevel",
+            s.name AS "subjectName", s.slug AS "subjectSlug",
+            b.created_at AS "createdAt"
+       FROM question_bookmarks b
+       JOIN questions q  ON q.id = b.question_id
+       JOIN sections sec ON sec.id = q.section_id
+       JOIN chapters c   ON c.id = sec.chapter_id
+       JOIN subjects s   ON s.id = c.subject_id
+      WHERE b.user_id = $1::uuid
+      ORDER BY b.created_at DESC
+      LIMIT $2`,
+    userId, Math.min(500, Math.max(1, limit)),
+  )
+  return { bookmarks: rows }
 }
 
 // ─── Revision Notes for a chapter (notes table, by slugs) ─────────────────────
@@ -479,6 +527,8 @@ module.exports = {
   getQuestionsByPath,
   getChapterProgress,
   setQuestionProgress,
+  setQuestionBookmark,
+  listBookmarks,
   getNotesByPath,
   listPapers,
   getPaper,

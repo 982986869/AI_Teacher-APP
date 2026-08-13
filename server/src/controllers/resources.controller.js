@@ -1,4 +1,4 @@
-'use strict'
+﻿'use strict'
 
 const ApiResponse = require('../utils/ApiResponse')
 const svc = require('../services/resources.service')
@@ -63,7 +63,7 @@ async function getQuestionsByPath(req, res, next) {
 }
 
 // GET /api/resources/progress/:subjectSlug/:chapterSlug/:sectionType?class=11
-// → { total, solved, percent, recommended, questions:[{ ..., status }] }
+// â†’ { total, solved, percent, recommended, questions:[{ ..., status }] }
 async function getChapterProgress(req, res, next) {
   try {
     const { subjectSlug, chapterSlug, sectionType } = req.params
@@ -90,6 +90,27 @@ async function setQuestionProgress(req, res, next) {
   } catch (err) { next(err) }
 }
 
+// POST /api/resources/questions/:questionId/bookmark  { on: true|false }
+async function setQuestionBookmark(req, res, next) {
+  try {
+    const { questionId } = req.params
+    if (!/^\d+$/.test(String(questionId))) return ApiResponse.error(res, 'Invalid question id', 422)
+    // Default ON: the button is a "bookmark this" action, and an absent body should
+    // do the obvious thing rather than silently un-bookmarking.
+    const on = req.body && req.body.on !== undefined ? Boolean(req.body.on) : true
+    const data = await svc.setQuestionBookmark(req.user.id, questionId, on)
+    return ApiResponse.success(res, data, on ? 'Bookmarked' : 'Bookmark removed')
+  } catch (err) { next(err) }
+}
+
+// GET /api/resources/bookmarks?limit=100
+async function listBookmarks(req, res, next) {
+  try {
+    const limit = parseInt(req.query.limit, 10) || 100
+    return ApiResponse.success(res, await svc.listBookmarks(req.user.id, limit))
+  } catch (err) { next(err) }
+}
+
 async function getNotesByPath(req, res, next) {
   try {
     const { subjectSlug, chapterSlug } = req.params
@@ -108,16 +129,16 @@ async function getMcqByPath(req, res, next) {
   } catch (err) { next(err) }
 }
 
-// GET /api/resources/papers/:subjectSlug?class=12  → [{ code, year, setLabel, name }]
+// GET /api/resources/papers/:subjectSlug?class=12  â†’ [{ code, year, setLabel, name }]
 async function listPapers(req, res, next) {
   try {
     return ApiResponse.success(res, await svc.listPapers(req.params.subjectSlug, classOf(req)))
   } catch (err) { next(err) }
 }
 
-// GET /api/resources/paper/:subjectSlug?class=12&code=55/1/1&year=2020 → one paper
+// GET /api/resources/paper/:subjectSlug?class=12&code=55/1/1&year=2020 â†’ one paper
 // code is a query param so its slashes don't break route matching. `year`
-// disambiguates the code (CBSE reuses it across years); omit → latest year.
+// disambiguates the code (CBSE reuses it across years); omit â†’ latest year.
 async function getPaper(req, res, next) {
   try {
     const data = await svc.getPaper(req.params.subjectSlug, classOf(req), {
@@ -147,7 +168,7 @@ async function importPapers(req, res, next) {
 }
 
 // DELETE /api/resources/papers/:subjectSlug?class=12[&code=56/1/1&year=2019]
-// Without code → deletes ALL papers for the subject+class.
+// Without code â†’ deletes ALL papers for the subject+class.
 async function deletePapers(req, res, next) {
   try {
     const result = await svc.deletePapers(req.params.subjectSlug, classOf(req), {
@@ -160,8 +181,8 @@ async function deletePapers(req, res, next) {
   } catch (err) { next(err) }
 }
 
-// GET /api/resources/classes → { classes: ['Class 6','Class 11','Class 12'] }
-// Which classes currently have content — the app uses this instead of a hardcoded
+// GET /api/resources/classes â†’ { classes: ['Class 6','Class 11','Class 12'] }
+// Which classes currently have content â€” the app uses this instead of a hardcoded
 // list, so adding content to the DB automatically unlocks that class.
 async function getClasses(req, res, next) {
   try {
@@ -170,7 +191,7 @@ async function getClasses(req, res, next) {
   } catch (err) { next(err) }
 }
 
-// GET /api/resources/menu/:subjectSlug?class=10 → { subject, tiles:[{type,name,part?}] }.
+// GET /api/resources/menu/:subjectSlug?class=10 â†’ { subject, tiles:[{type,name,part?}] }.
 // Class 10 per-subject resource tabs (Class 9 uses listClassSubjects feature flags).
 async function getResourceMenu(req, res, next) {
   try {
@@ -178,4 +199,5 @@ async function getResourceMenu(req, res, next) {
   } catch (err) { next(err) }
 }
 
-module.exports = { getSubjects, getClassSubjects, getChapters, getSections, getQuestions, getQuestionsByPath, getChapterProgress, setQuestionProgress, getNotesByPath, listPapers, getPaper, importPapers, deletePapers, getMcqByPath, getClasses, getResourceMenu }
+module.exports = { getSubjects, getClassSubjects, getChapters, getSections, getQuestions, getQuestionsByPath, getChapterProgress, setQuestionProgress, setQuestionBookmark, listBookmarks, getNotesByPath, listPapers, getPaper, importPapers, deletePapers, getMcqByPath, getClasses, getResourceMenu }
+

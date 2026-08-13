@@ -1,5 +1,5 @@
-// src/screens/QuestionSolveScreen.js
-// One question at a time, with its options and worked explanation — where
+﻿// src/screens/QuestionSolveScreen.js
+// One question at a time, with its options and worked explanation â€” where
 // ChapterPracticeScreen's "Solve Question" and its rows land.
 //
 // Fetches the same GET /api/resources/progress/... payload the chapter screen uses,
@@ -13,7 +13,7 @@
 // options (most Important Questions are written Q&A) has nothing to pick, so its
 // solution shows straight away.
 //
-// Advancing marks the question solved — that is what fills the chapter ring.
+// Advancing marks the question solved â€” that is what fills the chapter ring.
 //
 // Props: subject, chapter -> { name, slug }; sectionType; classLevel;
 //        startQuestionId; onBack()
@@ -22,9 +22,9 @@ import {
   View, Text, ScrollView, Pressable, StyleSheet, StatusBar, ActivityIndicator,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { ChevronLeft, ArrowRight, Check, Lightbulb } from 'lucide-react-native';
+import { ChevronLeft, ArrowRight, Check, Lightbulb, Bookmark, Info } from 'lucide-react-native';
 import { TT, TTF, Rich } from '../components/timedTestDark';
-import { getChapterQuestionProgress, setQuestionProgress } from '../api/resourcesApi';
+import { getChapterQuestionProgress, setQuestionProgress, setQuestionBookmark } from '../api/resourcesApi';
 
 const C = {
   ...TT,
@@ -38,7 +38,7 @@ const C = {
   panel: '#141238',
 };
 
-// A "given" block — the configuration/formula a question is built on — is stored
+// A "given" block â€” the configuration/formula a question is built on â€” is stored
 // inside question_html as a leading <pre>/<code>/<blockquote>, because there is no
 // separate column for it. Lifting it out lets it sit in its own card the way the
 // design shows. Nothing is invented: a question without one renders as before.
@@ -80,6 +80,7 @@ export default function QuestionSolveScreen({
   const [questions, setQuestions] = useState(null); // null = loading
   const [idx, setIdx] = useState(0);
   const [picked, setPicked] = useState(null);       // option idx letter
+  const [hintFor, setHintFor] = useState(null);     // option idx whose hint is open
 
   useEffect(() => {
     let alive = true;
@@ -96,10 +97,10 @@ export default function QuestionSolveScreen({
   }, [subject.slug, chapter.slug, sectionType, classLevel, startQuestionId]);
 
   const q = questions && questions[idx];
-  // Options arrive as [{ idx:'A', html, is_correct }] — the shape the importer stores.
+  // Options arrive as [{ idx:'A', html, is_correct }] â€” the shape the importer stores.
   const options = useMemo(() => (Array.isArray(q && q.options) ? q.options : []), [q]);
   const correctKey = q ? (q.correctOption || (options.find((o) => o.is_correct) || {}).idx || null) : null;
-  // Two-up only while every label is short ("Na⁺", "K⁺"); a phrase like
+  // Two-up only while every label is short ("Naâº", "Kâº"); a phrase like
   // "Period 4, group 6" needs the full width to stay on one line.
   const twoUp = options.length === 4
     && options.every((o) => String(o.html || '').replace(/<[^>]*>/g, '').trim().length <= 14);
@@ -114,6 +115,19 @@ export default function QuestionSolveScreen({
     setIdx((i) => Math.min(i + 1, (questions || []).length - 1));
   };
 
+  // Optimistic, then persist. A bookmark that survived a failed write would claim a
+  // question is saved when the server never heard about it.
+  const toggleBookmark = async () => {
+    if (!q) return;
+    const next = !q.bookmarked;
+    setQuestions((qs) => (qs || []).map((x) => (x.id === q.id ? { ...x, bookmarked: next } : x)));
+    try {
+      await setQuestionBookmark(q.id, next);
+    } catch (_) {
+      setQuestions((qs) => (qs || []).map((x) => (x.id === q.id ? { ...x, bookmarked: !next } : x)));
+    }
+  };
+
   const isLast = questions && idx >= questions.length - 1;
 
   return (
@@ -121,10 +135,28 @@ export default function QuestionSolveScreen({
       <StatusBar barStyle="light-content" backgroundColor={C.canvas} />
       <View style={{ height: insets.top }} />
 
-      <Pressable style={st.back} onPress={onBack} hitSlop={10} accessibilityRole="button">
-        <ChevronLeft size={22} color={C.amber} strokeWidth={2.6} />
-        <Text style={st.backLbl}>Back to List</Text>
-      </Pressable>
+      <View style={st.topRow}>
+        <Pressable style={st.back} onPress={onBack} hitSlop={10} accessibilityRole="button">
+          <ChevronLeft size={22} color={C.amber} strokeWidth={2.6} />
+          <Text style={st.backLbl}>Back to List</Text>
+        </Pressable>
+        {!!q && (
+          <Pressable
+            onPress={toggleBookmark}
+            hitSlop={12}
+            accessibilityRole="button"
+            accessibilityState={{ selected: !!q.bookmarked }}
+            accessibilityLabel={q.bookmarked ? 'Remove bookmark' : 'Bookmark this question'}
+          >
+            <Bookmark
+              size={24}
+              color={q.bookmarked ? C.amber : C.sub}
+              fill={q.bookmarked ? C.amber : 'none'}
+              strokeWidth={2}
+            />
+          </Pressable>
+        )}
+      </View>
 
       {questions === null ? (
         <View style={st.loading}><ActivityIndicator color={C.violet} /></View>
@@ -139,7 +171,7 @@ export default function QuestionSolveScreen({
                 <View style={st.chip}>
                   <Text style={st.chipTxt}>
                     {options.length ? 'MCQ' : (q.questionType || 'Q&A')}
-                    {q.qNumber ? ` · ${String(q.qNumber).replace(/^Q/i, 'Q')}` : ''}
+                    {q.qNumber ? ` Â· ${String(q.qNumber).replace(/^Q/i, 'Q')}` : ''}
                   </Text>
                 </View>
                 <Text style={st.chapterTxt} numberOfLines={1}>{chapter.name || subject.name || ''}</Text>
@@ -205,6 +237,19 @@ export default function QuestionSolveScreen({
                           imgHeight={80}
                         />
                       </View>
+                      {/* Hint affordance — only on options the importer gave one.
+                          The design says "swipe left"; a tap target is discoverable
+                          and reachable, and does the same job. */}
+                      {!!o.hint && (
+                        <Pressable
+                          onPress={() => setHintFor(hintFor === o.idx ? null : o.idx)}
+                          hitSlop={10}
+                          accessibilityRole="button"
+                          accessibilityLabel={`Hint for option ${o.idx}`}
+                        >
+                          <Info size={20} color={tone === 'right' ? C.green : C.sub} strokeWidth={2.2} />
+                        </Pressable>
+                      )}
                       {tone === 'right' && <Check size={22} color={C.green} strokeWidth={3} />}
                     </Pressable>
                   );
@@ -212,7 +257,18 @@ export default function QuestionSolveScreen({
               </View>
             )}
 
-            {/* Explanation — after the pick, or straight away when there is nothing
+            {/* The open hint, and the line that says hints exist — both suppressed
+                entirely when no option carries one, so the screen never advertises
+                a feature this chapter has no data for. */}
+            {options.some((o) => !!o.hint) && (
+              <View style={st.hintWrap}>
+                {hintFor
+                  ? <Text style={st.hintTxt}>{String(options.find((o) => o.idx === hintFor)?.hint || '')}</Text>
+                  : <Text style={st.hintCue}>Tap the ⓘ on an option to reveal its hint</Text>}
+              </View>
+            )}
+
+            {/* Explanation â€” after the pick, or straight away when there is nothing
                 to pick. Hidden entirely when the chapter shipped no solution. */}
             {answered && !!q.solutionHtml && (
               <View style={st.panel}>
@@ -292,6 +348,12 @@ const st = StyleSheet.create({
   stepTitle: { fontSize: 16, lineHeight: 22, fontFamily: TTF.bold, color: C.ink, marginBottom: 4 },
 
   opts: { flexDirection: 'row', flexWrap: 'wrap', gap: 12, paddingHorizontal: 18, marginTop: 18 },
+  hintWrap: { paddingHorizontal: 18, marginTop: 14 },
+  hintCue: { fontSize: 14, lineHeight: 20, fontFamily: TTF.reg, color: C.dim, textAlign: 'center' },
+  hintTxt: {
+    fontSize: 15, lineHeight: 22, fontFamily: TTF.reg, color: C.sub,
+    backgroundColor: 'rgba(245,194,76,0.10)', borderRadius: 12, padding: 14,
+  },
   opt: {
     minHeight: 78,
     flexDirection: 'row', alignItems: 'center', gap: 14,
@@ -325,3 +387,6 @@ const st = StyleSheet.create({
   nextOff: { opacity: 0.4 },
   nextLbl: { fontSize: 17, lineHeight: 22, fontFamily: TTF.bold, color: C.ink },
 });
+
+
+

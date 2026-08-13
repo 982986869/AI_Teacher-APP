@@ -56,6 +56,16 @@ export const getChapterQuestionProgress = async (subjectSlug, chapterSlug, secti
 export const setQuestionProgress = async (questionId, status = 'solved') =>
   (await axiosInstance.post(`/api/resources/questions/${questionId}/progress`, { status })).data.data;
 
+// Bookmark / un-bookmark a question. The bookmark IS the row server-side, so `on:false`
+// deletes it. Best-effort at the call site — never block the UI on it.
+export const setQuestionBookmark = async (questionId, on = true) =>
+  (await axiosInstance.post(`/api/resources/questions/${questionId}/bookmark`, { on })).data.data;
+
+// Every bookmarked question, newest first, with the subject/chapter needed to
+// navigate back to it. → { bookmarks: [...] }
+export const getBookmarks = async (limit = 100) =>
+  (await axiosInstance.get('/api/resources/bookmarks', { params: { limit } })).data.data;
+
 // Revision Notes for a chapter (DB-backed). Returns { intro, blocks } where
 // blocks = [{ title, html }] — the flashcard-grouped notes the importer stored.
 export const getNotesByPath = async (subjectSlug, chapterSlug, classLevel) =>

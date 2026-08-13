@@ -1,4 +1,4 @@
-'use strict'
+﻿'use strict'
 
 // Admin management of the REAL resource records students read: browse subjects, manage
 // chapters (create / rename / reorder / hide-show / archive / delete-if-empty) and manage
@@ -6,7 +6,7 @@
 // status/deleted_at (gated in resources.service.listChapters), so hiding a chapter removes
 // it from the student chapter lists while its data is preserved. Authoring HTML/PDF content
 // (notes, NCERT, questions, paper bodies) needs an editor + upload service and is out of
-// scope — no fake authoring endpoints here.
+// scope â€” no fake authoring endpoints here.
 
 const db = require('../../config/database')
 const ApiResponse = require('../../utils/ApiResponse')
@@ -18,9 +18,9 @@ const int = (v) => (v === '' || v == null || Number.isNaN(Number(v)) ? null : pa
 const slugify = (s) => String(s || '').toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80) || 'chapter'
 const isUnique = (e) => String(e && e.message || '').includes('23505')
 
-// ─── GET /api/admin/resources/subjects?class=&search= ─────────────────────────
+// â”€â”€â”€ GET /api/admin/resources/subjects?class=&search= â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // Class-scoped: with ?class, only subjects that have chapters OR papers for THAT class, and
-// chapter/hidden/paper counts scoped to that class (never global). Without ?class → global.
+// chapter/hidden/paper counts scoped to that class (never global). Without ?class â†’ global.
 async function subjects(req, res, next) {
   try {
     const p = []; const bind = (v) => { p.push(v); return `$${p.length}` }
@@ -45,7 +45,7 @@ async function subjects(req, res, next) {
   } catch (e) { next(e) }
 }
 
-// ─── GET /api/admin/resources/classes — classes that actually have chapters/papers ──
+// â”€â”€â”€ GET /api/admin/resources/classes â€” classes that actually have chapters/papers â”€â”€
 async function classesList(req, res, next) {
   try {
     const rows = await db.$queryRawUnsafe(
@@ -58,7 +58,7 @@ async function classesList(req, res, next) {
   } catch (e) { next(e) }
 }
 
-// ─── PATCH /api/admin/resources/subjects/:id (rename display name) ────────────
+// â”€â”€â”€ PATCH /api/admin/resources/subjects/:id (rename display name) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function renameSubject(req, res, next) {
   try {
     const name = String(req.body.name || '').trim()
@@ -70,7 +70,7 @@ async function renameSubject(req, res, next) {
   } catch (e) { next(e) }
 }
 
-// ─── GET /api/admin/resources/subjects/:slug/chapters?class= ──────────────────
+// â”€â”€â”€ GET /api/admin/resources/subjects/:slug/chapters?class= â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function chapters(req, res, next) {
   try {
     const cls = int(req.query.class)
@@ -98,7 +98,7 @@ async function chapterHasContent(id) {
   return !!(r && r.has)
 }
 
-// ─── POST /api/admin/resources/subjects/:slug/chapters ────────────────────────
+// â”€â”€â”€ POST /api/admin/resources/subjects/:slug/chapters â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function createChapter(req, res, next) {
   try {
     const [s] = await db.$queryRawUnsafe(`SELECT id::text AS id FROM subjects WHERE slug = $1 LIMIT 1`, req.params.slug)
@@ -121,7 +121,7 @@ async function createChapter(req, res, next) {
   } catch (e) { next(e) }
 }
 
-// ─── PATCH /api/admin/resources/chapters/:id ──────────────────────────────────
+// â”€â”€â”€ PATCH /api/admin/resources/chapters/:id â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function updateChapter(req, res, next) {
   try {
     const c = await loadChapterOr404(req.params.id)
@@ -138,7 +138,7 @@ async function updateChapter(req, res, next) {
   } catch (e) { next(e) }
 }
 
-// ─── POST /api/admin/resources/chapters/:id/status  { status } ────────────────
+// â”€â”€â”€ POST /api/admin/resources/chapters/:id/status  { status } â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function chapterStatus(req, res, next) {
   try {
     const c = await loadChapterOr404(req.params.id)
@@ -150,7 +150,7 @@ async function chapterStatus(req, res, next) {
   } catch (e) { next(e) }
 }
 
-// ─── POST /api/admin/resources/chapters/reorder  { subjectSlug, classLevel, orderedIds } ──
+// â”€â”€â”€ POST /api/admin/resources/chapters/reorder  { subjectSlug, classLevel, orderedIds } â”€â”€
 async function reorderChapters(req, res, next) {
   try {
     const { orderedIds } = req.body
@@ -161,7 +161,7 @@ async function reorderChapters(req, res, next) {
   } catch (e) { next(e) }
 }
 
-// ─── DELETE /api/admin/resources/chapters/:id (soft; blocked if it has content) ─
+// â”€â”€â”€ DELETE /api/admin/resources/chapters/:id (soft; blocked if it has content) â”€
 async function deleteChapter(req, res, next) {
   try {
     const c = await loadChapterOr404(req.params.id)
@@ -174,7 +174,7 @@ async function deleteChapter(req, res, next) {
   } catch (e) { next(e) }
 }
 
-// ─── Chapter revision NOTES (the actual content students read) ─────────────────
+// â”€â”€â”€ Chapter revision NOTES (the actual content students read) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // A chapter's notes = one `sections` row (type_key='revision_notes') + one `notes` row
 // (intro + blocks[{title,content}]). Read by the student via resources.service.getNotesByPath.
 async function chapterNotes(req, res, next) {
@@ -192,7 +192,7 @@ async function saveChapterNotes(req, res, next) {
   try {
     const c = await loadChapterOr404(req.params.id)
     const intro = String(req.body.intro || '').trim()
-    // Blocks are { title, html } — the student notes renderer reads block.html (see
+    // Blocks are { title, html } â€” the student notes renderer reads block.html (see
     // ResourcesScreen). The client sends html it either preserved (unchanged block) or
     // generated from the admin's text, so existing formatting is never silently wiped.
     const blocks = (Array.isArray(req.body.blocks) ? req.body.blocks : [])
@@ -212,20 +212,20 @@ async function saveChapterNotes(req, res, next) {
   } catch (e) { next(e) }
 }
 
-// ─── Chapter QUESTION content (Important Questions / PYQ / Practice) ───────────
+// â”€â”€â”€ Chapter QUESTION content (Important Questions / PYQ / Practice) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // A question section = one `sections` row (type_key) + `questions` rows (question_html +
 // solution_html [+ mcq options]). Q&A types here store question + solution. Read by students
 // via resources.service.getQuestionsByPath.
 const QTYPES = { important_questions: 'Important Questions', pyq: 'Previous Year Questions', practice: 'Practice Questions' }
 
-// ─── marks / question_type, carried through from the source ───────────────────
-// The source papers state both inline — "(3 marks)", "Short Answer Type" — so an
+// â”€â”€â”€ marks / question_type, carried through from the source â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// The source papers state both inline â€” "(3 marks)", "Short Answer Type" â€” so an
 // import can read them instead of leaving the chapter screen with nothing to show.
 //
 // EXPLICIT ONLY. Where the source says nothing, these return null and the column
 // stays null; the screen then omits the chip. Deliberately no inference from marks
-// to type (1 mark ⇒ Very Short Answer is the usual CBSE convention but it is a
-// convention, not a fact) — a guessed "4 Marks" on a student's screen reads exactly
+// to type (1 mark â‡’ Very Short Answer is the usual CBSE convention but it is a
+// convention, not a fact) â€” a guessed "4 Marks" on a student's screen reads exactly
 // like a real one, and there is no way for them to tell it apart.
 const TYPE_PATTERNS = [
   [/very\s*short\s*answer/i, 'Very Short Answer'],
@@ -238,7 +238,7 @@ const TYPE_PATTERNS = [
 
 function deriveQuestionMeta(html) {
   const text = String(html || '').replace(/<[^>]*>/g, ' ').replace(/&nbsp;/gi, ' ')
-  // "(3 marks)" / "[2 Marks]" / "- 5 mark". Bounded to 1–20 so a stray year or a
+  // "(3 marks)" / "[2 Marks]" / "- 5 mark". Bounded to 1â€“20 so a stray year or a
   // figure reference ("2020 marks the...") can't be read as a mark value.
   const m = text.match(/(\d{1,2})\s*marks?\b/i)
   const n = m ? parseInt(m[1], 10) : null
@@ -272,23 +272,26 @@ async function saveChapterQuestions(req, res, next) {
     const c = await loadChapterOr404(req.params.id)
     const type = String(req.params.type || '')
     if (!QTYPES[type]) throw new AppError('Invalid content type', 422)
-    // Letters label MCQ options the same way imported content does (idx: 'A'|'B'|…),
+    // Letters label MCQ options the same way imported content does (idx: 'A'|'B'|â€¦),
     // so student-authored MCQs render identically to extracted ones (resources.service.toMcq).
     const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
     const items = (Array.isArray(req.body.questions) ? req.body.questions : [])
       .map((q, i) => {
-        // Normalize MCQ options → [{ idx:'A', html, is_correct }]; drop empty bodies.
+        // Normalize MCQ options â†’ [{ idx:'A', html, is_correct }]; drop empty bodies.
         const options = (Array.isArray(q && q.options) ? q.options : [])
           .map((o, j) => ({
             idx: (o && o.idx && String(o.idx).trim()) || LETTERS[j] || String(j + 1),
             html: String((o && o.html) || ''),
             is_correct: Boolean(o && (o.isCorrect || o.is_correct)),
+            // Per-option hint, carried through when the source supplies one. Never
+            // generated: an invented hint reads exactly like an authored one.
+            ...(o && (o.hint || o.hint_text) ? { hint: String(o.hint || o.hint_text).slice(0, 400) } : {}),
           }))
           .filter((o) => o.html.replace(/<[^>]*>/g, '').trim())
-        // A row is a real MCQ only with ≥2 options and exactly one marked correct.
+        // A row is a real MCQ only with â‰¥2 options and exactly one marked correct.
         const isMcq = Boolean(q && q.isMcq) && options.length >= 2 && options.filter((o) => o.is_correct).length === 1
         const correctOption = isMcq ? (options.find((o) => o.is_correct) || {}).idx || null : null
-        // An explicit value from the payload always wins — the editor's field, or an
+        // An explicit value from the payload always wins â€” the editor's field, or an
         // importer that already parsed the paper. Only fall back to reading the HTML.
         const questionHtml = String(q && q.questionHtml || '')
         const derived = deriveQuestionMeta(`${questionHtml} ${q && q.qNumber ? q.qNumber : ''}`)
@@ -327,7 +330,7 @@ async function saveChapterQuestions(req, res, next) {
   } catch (e) { next(e) }
 }
 
-// ─── Papers (self-contained table; reorder/delete reflect on the student side) ──
+// â”€â”€â”€ Papers (self-contained table; reorder/delete reflect on the student side) â”€â”€
 async function papers(req, res, next) {
   try {
     const cls = int(req.query.class)
@@ -387,7 +390,7 @@ async function paperOne(req, res, next) {
 }
 
 // Shared field extraction for create/update. Metadata + the two HTML bodies (students render
-// question_paper_html / answer_key_html in a MathJax WebView — {tex}…{/tex} → \(…\)).
+// question_paper_html / answer_key_html in a MathJax WebView â€” {tex}â€¦{/tex} â†’ \(â€¦\)).
 function paperFields(body) {
   const str = (v, n) => (v == null ? null : String(v).slice(0, n))
   const yr = body.year != null && String(body.year).trim() ? parseInt(String(body.year).replace(/\D/g, ''), 10) : null
@@ -441,3 +444,4 @@ async function createPaper(req, res, next) {
 }
 
 module.exports = { subjects, classesList, renameSubject, chapters, createChapter, updateChapter, chapterStatus, reorderChapters, deleteChapter, chapterNotes, saveChapterNotes, chapterQuestions, saveChapterQuestions, papers, paperOne, updatePaper, createPaper, reorderPapers, deletePaper }
+
