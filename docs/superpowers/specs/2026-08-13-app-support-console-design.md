@@ -95,11 +95,19 @@ code, which this work does not need.
 
 ### Theme
 
-`S` from `src/theme/studentUI`, plus `StudentScreenHeader`,
-`StudentSectionHeader`, `StudentSkeleton` and `StudentErrorState` — the same
-primitives Sessions and Tests use. **Not** the dark `D` tokens from
-`src/components/support/theme.js`: those belong to the student chat flow, and
-reaching for them here would drop one dark screen into a light admin app.
+`S` from `src/theme/studentTheme`, and components from the admin kit the other
+admin screens already use — `src/screens/admin/ui/kit.js` (`AdminScreen`,
+`AdminHeader`, `AdminSearchBar`, `AdminSegmented`, `ChipRow`, `AdminBadge`,
+`AdminEmptyState`, `AdminErrorState`) plus `timeAgo`/`apiError` from
+`src/screens/admin/ui/format.js`. The two sheets copy the container of
+`src/screens/admin/ui/ActionSheet.js`.
+
+**Not** the dark `D` tokens from `src/components/support/theme.js`: those belong
+to the student chat flow, and reaching for them here would drop one dark screen
+into a light admin app.
+
+The app has no toast system, so the web console's toasts become `Alert.alert`
+with `apiError(e)` for the message.
 
 ## Data flow
 
