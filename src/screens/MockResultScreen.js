@@ -1,12 +1,12 @@
-// MockResultScreen.js
-// Shown automatically after an online test / mock is submitted — the screen that
+﻿// MockResultScreen.js
+// Shown automatically after an online test / mock is submitted â€” the screen that
 // follows TestQuestionScreen's finish dialog.
 //
 // A violet gradient hero carries the verdict (test name, score, one line of
 // encouragement), then the dark body breaks the paper down: Correct / Wrong /
 // Skipped as labelled meters, the three derived percentages, and the section split
 // when the paper has sections. It reads as the same product as the runner it comes
-// out of — the timed-test tokens are imported from components/timedTestDark rather
+// out of â€” the timed-test tokens are imported from components/timedTestDark rather
 // than restated, so the two can't drift.
 //
 // Props:
@@ -34,21 +34,21 @@ const C = {
   track: 'rgba(255,255,255,0.08)',
 };
 
-// One line of encouragement, chosen by score band. Copy only — it never restates or
+// One line of encouragement, chosen by score band. Copy only â€” it never restates or
 // softens the numbers printed directly above it.
 const verdictLine = (pct, attempted) => {
-  if (!attempted) return 'You didn’t attempt this one. Give it a real go — you’ll surprise yourself.';
-  if (pct >= 90) return 'Outstanding. You’ve got this cold.';
-  if (pct >= 75) return 'Strong paper. A little polish and it’s full marks.';
+  if (!attempted) return 'You didnâ€™t attempt this one. Give it a real go â€” youâ€™ll surprise yourself.';
+  if (pct >= 90) return 'Outstanding. Youâ€™ve got this cold.';
+  if (pct >= 75) return 'Strong paper. A little polish and itâ€™s full marks.';
   if (pct >= 50) return 'Solid start. Review what slipped and go again.';
-  if (pct >= 25) return 'There’s a foundation here — the review is where it clicks.';
+  if (pct >= 25) return 'Thereâ€™s a foundation here â€” the review is where it clicks.';
   return 'Keep practicing! You can do better.';
 };
 
-// "Mock Test - 08 - Result" → "MOCK TEST - 08 COMPLETE". The caller appends
+// "Mock Test - 08 - Result" â†’ "MOCK TEST - 08 COMPLETE". The caller appends
 // "- Result" for the old header; strip it rather than making every caller change.
 const heroTitle = (title) => {
-  const base = String(title || '').replace(/\s*[-–]\s*results?\s*$/i, '').trim();
+  const base = String(title || '').replace(/\s*[-â€“]\s*results?\s*$/i, '').trim();
   return `${base} COMPLETE`.toUpperCase();
 };
 
@@ -93,6 +93,10 @@ function SectionRow({ s }) {
 
 export default function MockResultScreen({
   title = 'Mock Test - 01 - Result',
+  // Marks-based papers (the DB-backed Class 6-9 tests) score out of totalMarks, not
+  // out of the question count. Pass both and the hero shows marks; omit them and it
+  // falls back to correct/total, which is right for the offline bank.
+  scoreMarks, scoreTotal,
   result = {
     correct: 0, incorrect: 0, unanswered: 0, total: 0,
     sections: [
@@ -113,7 +117,7 @@ export default function MockResultScreen({
   const completion = total ? Math.round((attempted / total) * 100) : 0;
   const score = total ? Math.round((correct / total) * 100) : 0;
 
-  // Only paint a section split that carries real counts — an all-zero A/B/C block
+  // Only paint a section split that carries real counts â€” an all-zero A/B/C block
   // (the prop default, or a paper with no sections) would read as three empty bars.
   const realSections = sections.filter((s) => s && s.total > 0);
 
@@ -137,8 +141,8 @@ export default function MockResultScreen({
           <Text style={styles.heroTitle} numberOfLines={2}>{heroTitle(title)}</Text>
 
           <View style={styles.scoreRow}>
-            <Text style={styles.scoreNum}>{correct}</Text>
-            <Text style={styles.scoreOf}>/{total}</Text>
+            <Text style={styles.scoreNum}>{scoreMarks != null ? scoreMarks : correct}</Text>
+            <Text style={styles.scoreOf}>/{scoreTotal != null ? scoreTotal : total}</Text>
           </View>
 
           <Text style={styles.heroMsg}>{verdictLine(score, attempted)}</Text>
@@ -152,9 +156,9 @@ export default function MockResultScreen({
 
           <Text style={styles.statsLine}>
             Accuracy <Text style={styles.statsNum}>{accuracy}%</Text>
-            <Text style={styles.statsDot}>  ·  </Text>
+            <Text style={styles.statsDot}>  Â·  </Text>
             Completion <Text style={styles.statsNum}>{completion}%</Text>
-            <Text style={styles.statsDot}>  ·  </Text>
+            <Text style={styles.statsDot}>  Â·  </Text>
             Score <Text style={styles.statsNum}>{score}%</Text>
           </Text>
 
@@ -190,7 +194,7 @@ export default function MockResultScreen({
 const styles = StyleSheet.create({
   root: { flex: 1, backgroundColor: C.canvas },
 
-  // ── hero ──
+  // â”€â”€ hero â”€â”€
   hero: { paddingHorizontal: 24, paddingTop: 26, paddingBottom: 40 },
   brandRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   brandDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: 'rgba(255,255,255,0.45)' },
@@ -204,7 +208,7 @@ const styles = StyleSheet.create({
   scoreOf:  { fontSize: 32, lineHeight: 48, fontFamily: TTF.head, color: 'rgba(255,255,255,0.42)', marginLeft: 4 },
   heroMsg:  { fontSize: 17, lineHeight: 24, fontFamily: TTF.reg, color: 'rgba(255,255,255,0.94)', marginTop: 26 },
 
-  // ── breakdown ──
+  // â”€â”€ breakdown â”€â”€
   body: { paddingHorizontal: 24, paddingTop: 26 },
   meter: { marginBottom: 22 },
   meterHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 },
@@ -224,7 +228,7 @@ const styles = StyleSheet.create({
   secTrack: { flexDirection: 'row', height: 6, borderRadius: 3, overflow: 'hidden', backgroundColor: C.track },
   secSeg: { height: '100%' },
 
-  // ── actions ──
+  // â”€â”€ actions â”€â”€
   actions: { paddingHorizontal: 24, paddingTop: 8 },
   actionRow: { flexDirection: 'row', gap: 14 },
   ghostBtn: {
@@ -240,3 +244,4 @@ const styles = StyleSheet.create({
   retakeLink: { height: 44, alignItems: 'center', justifyContent: 'center', marginTop: 4 },
   retakeLbl: { fontSize: 15, lineHeight: 20, fontFamily: TTF.semi, color: C.sub },
 });
+
