@@ -2,95 +2,90 @@
 // Shown automatically after an online test / mock is submitted — the screen that
 // follows TestQuestionScreen's finish dialog.
 //
-// It reads as the same product as the runner it comes out of: the `timed-test-dark`
-// tokens (canvas, card, hair, violet, cyan) are imported from components/timedTestDark
-// rather than restated, so the two can't drift. Only the verdict hues — green for
-// correct, yellow for unanswered — are local, since nothing in the runner grades.
+// A violet gradient hero carries the verdict (test name, score, one line of
+// encouragement), then the dark body breaks the paper down: Correct / Wrong /
+// Skipped as labelled meters, the three derived percentages, and the section split
+// when the paper has sections. It reads as the same product as the runner it comes
+// out of — the timed-test tokens are imported from components/timedTestDark rather
+// than restated, so the two can't drift.
 //
 // Props:
-//   title        -> e.g. "Mock Test - 01 - Result"
+//   title        -> e.g. "Mock Test - 08 - Result"
 //   result       -> {
 //                     correct, incorrect, unanswered, total,
 //                     sections: [{ id:'A', correct, incorrect, unanswered, total }, ...]
 //                   }
-//   onReview()   -> Review Questions
-//   onRetake()   -> Retake Test
-//   onClose()    -> back / done
+//   onReview()   -> Review Answers
+//   onRetake()   -> Retake test
+//   onClose()    -> Back to Practice
 
 import React from 'react';
-import { View, Text, ScrollView, Pressable, StyleSheet, StatusBar, SafeAreaView, Platform } from 'react-native';
-import { X } from 'lucide-react-native';
-import Svg, { Circle, G } from 'react-native-svg';
+import { View, Text, ScrollView, Pressable, StyleSheet, StatusBar } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { LinearGradient } from 'expo-linear-gradient';
 import { TT, TTF } from '../components/timedTestDark';
 
 const C = {
   ...TT,
-  green: '#00FF88',              // correct — the runner has no graded state to borrow from
-  yellow: '#F7B500',             // unanswered
-  // The ring reads "how much of this paper is graded", so the unanswered arc is
-  // drawn at a fraction of its strength: a 24-of-25 blank paper otherwise renders
-  // as a solid yellow donut, which shouts the one thing the student can't fix.
-  yellowDim: 'rgba(247,181,0,0.22)',
-  track: 'rgba(255,255,255,0.06)',
+  heroA: '#8B5CF6',              // hero gradient, top-left
+  heroB: '#6D28D9',              // hero gradient, bottom-right
+  wrong: '#FF3B5C',
+  skipped: '#8F95B2',
+  track: 'rgba(255,255,255,0.08)',
 };
 
-function Donut({ correct, incorrect, unanswered, size = 168, stroke = 22 }) {
-  const total = Math.max(1, correct + incorrect + unanswered);
-  const r = (size - stroke) / 2;
-  const cx = size / 2, cy = size / 2;
-  const circ = 2 * Math.PI * r;
-  const segs = [
-    { val: correct, color: C.green },
-    { val: incorrect, color: C.red },
-    { val: unanswered, color: C.yellowDim },
-  ];
-  let offset = 0;
-  const pct = Math.round((correct / total) * 100);
+// One line of encouragement, chosen by score band. Copy only — it never restates or
+// softens the numbers printed directly above it.
+const verdictLine = (pct, attempted) => {
+  if (!attempted) return 'You didn’t attempt this one. Give it a real go — you’ll surprise yourself.';
+  if (pct >= 90) return 'Outstanding. You’ve got this cold.';
+  if (pct >= 75) return 'Strong paper. A little polish and it’s full marks.';
+  if (pct >= 50) return 'Solid start. Review what slipped and go again.';
+  if (pct >= 25) return 'There’s a foundation here — the review is where it clicks.';
+  return 'Keep practicing! You can do better.';
+};
+
+// "Mock Test - 08 - Result" → "MOCK TEST - 08 COMPLETE". The caller appends
+// "- Result" for the old header; strip it rather than making every caller change.
+const heroTitle = (title) => {
+  const base = String(title || '').replace(/\s*[-–]\s*results?\s*$/i, '').trim();
+  return `${base} COMPLETE`.toUpperCase();
+};
+
+function Meter({ label, value, total, color }) {
+  const pct = total > 0 ? Math.min(100, (value / total) * 100) : 0;
   return (
-    <View style={{ width: size, height: size, alignItems: 'center', justifyContent: 'center' }}>
-      <Svg width={size} height={size}>
-        <G rotation={-90} origin={`${cx}, ${cy}`}>
-          <Circle cx={cx} cy={cy} r={r} stroke={C.track} strokeWidth={stroke} fill="none" />
-          {segs.map((s, i) => {
-            const len = (s.val / total) * circ;
-            const el = (
-              <Circle
-                key={i}
-                cx={cx} cy={cy} r={r}
-                stroke={s.color}
-                strokeWidth={stroke}
-                fill="none"
-                strokeDasharray={`${len} ${circ - len}`}
-                strokeDashoffset={-offset}
-                strokeLinecap="butt"
-              />
-            );
-            offset += len;
-            return el;
-          })}
-        </G>
-      </Svg>
-      <View style={{ position: 'absolute', alignItems: 'center' }}>
-        <Text style={styles.donutPct}>{pct}%</Text>
-        <Text style={styles.donutSub}>Score</Text>
+    <View style={styles.meter}>
+      <View style={styles.meterHead}>
+        <Text style={styles.meterLabel}>{label}</Text>
+        <Text style={[styles.meterValue, { color }]}>{value}</Text>
+      </View>
+      <View
+        style={styles.meterTrack}
+        accessibilityRole="progressbar"
+        accessibilityValue={{ min: 0, max: total, now: value }}
+      >
+        {/* A non-zero count always shows a sliver, so "1 wrong out of 50" reads as
+            present rather than as an empty track. */}
+        {value > 0 && <View style={[styles.meterFill, { width: `${Math.max(1.5, pct)}%`, backgroundColor: color }]} />}
       </View>
     </View>
   );
 }
 
-function SectionBar({ s }) {
+function SectionRow({ s }) {
   const total = Math.max(1, s.total);
   const w = (n) => `${(n / total) * 100}%`;
   return (
     <View style={styles.secRow}>
-      <View style={styles.secHead}>
+      <View style={styles.meterHead}>
         <Text style={styles.secName}>Section {s.id}</Text>
         <Text style={styles.secMeta}>{s.correct}/{s.total} correct</Text>
       </View>
-      <View style={styles.barTrack}>
-        <View style={[styles.barSeg, { width: w(s.correct), backgroundColor: C.green }]} />
-        <View style={[styles.barSeg, { width: w(s.incorrect), backgroundColor: C.red }]} />
-        <View style={[styles.barSeg, { width: w(s.unanswered), backgroundColor: C.yellow }]} />
+      <View style={styles.secTrack}>
+        <View style={[styles.secSeg, { width: w(s.correct), backgroundColor: C.violet }]} />
+        <View style={[styles.secSeg, { width: w(s.incorrect), backgroundColor: C.wrong }]} />
+        <View style={[styles.secSeg, { width: w(s.unanswered), backgroundColor: C.track }]} />
       </View>
     </View>
   );
@@ -111,133 +106,137 @@ export default function MockResultScreen({
   onClose = () => {},
 }) {
   const { correct, incorrect, unanswered, total, sections = [] } = result;
+  const insets = useSafeAreaInsets();
+
   const attempted = correct + incorrect;
   const accuracy = attempted ? Math.round((correct / attempted) * 100) : 0;
+  const completion = total ? Math.round((attempted / total) * 100) : 0;
+  const score = total ? Math.round((correct / total) * 100) : 0;
+
+  // Only paint a section split that carries real counts — an all-zero A/B/C block
+  // (the prop default, or a paper with no sections) would read as three empty bars.
+  const realSections = sections.filter((s) => s && s.total > 0);
 
   return (
-    <SafeAreaView style={styles.safe}>
+    <View style={styles.root}>
       <StatusBar barStyle="light-content" backgroundColor={C.canvas} />
-      {Platform.OS === 'android' && <View style={styles.androidStatusPad} />}
+      <View style={{ height: insets.top, backgroundColor: C.canvas }} />
 
-      {/* Header — the runner's close button, and the title beside it rather than
-          centred, so a long "chapter — test — Result" isn't squeezed by a spacer. */}
-      <View style={styles.header}>
-        <Pressable style={styles.closeBtn} hitSlop={10} onPress={onClose}
-          accessibilityRole="button" accessibilityLabel="Close result">
-          <X size={16} color={C.ink} strokeWidth={2} />
-        </Pressable>
-        <Text style={styles.headerTitle} numberOfLines={2}>{title}</Text>
-      </View>
-
-      <ScrollView contentContainerStyle={styles.body} showsVerticalScrollIndicator={false}>
-
-        {/* Donut card */}
-        <View style={styles.card}>
-          <Donut correct={correct} incorrect={incorrect} unanswered={unanswered} />
-          <View style={styles.legendRow}>
-            <Legend color={C.green} label="Correct" value={correct} />
-            <Legend color={C.red} label="Incorrect" value={incorrect} />
-            <Legend color={C.yellow} label="Unanswered" value={unanswered} />
+      <ScrollView contentContainerStyle={{ paddingBottom: 8 }} showsVerticalScrollIndicator={false}>
+        {/* Hero */}
+        <LinearGradient
+          colors={[C.heroA, C.heroB]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={styles.hero}
+        >
+          <View style={styles.brandRow}>
+            <View style={styles.brandDot} />
+            <Text style={styles.brand}>AiLernova</Text>
           </View>
+          <Text style={styles.heroTitle} numberOfLines={2}>{heroTitle(title)}</Text>
+
+          <View style={styles.scoreRow}>
+            <Text style={styles.scoreNum}>{correct}</Text>
+            <Text style={styles.scoreOf}>/{total}</Text>
+          </View>
+
+          <Text style={styles.heroMsg}>{verdictLine(score, attempted)}</Text>
+        </LinearGradient>
+
+        {/* Breakdown */}
+        <View style={styles.body}>
+          <Meter label="Correct" value={correct} total={total} color={C.violet} />
+          <Meter label="Wrong" value={incorrect} total={total} color={C.wrong} />
+          <Meter label="Skipped" value={unanswered} total={total} color={C.skipped} />
+
+          <Text style={styles.statsLine}>
+            Accuracy <Text style={styles.statsNum}>{accuracy}%</Text>
+            <Text style={styles.statsDot}>  ·  </Text>
+            Completion <Text style={styles.statsNum}>{completion}%</Text>
+            <Text style={styles.statsDot}>  ·  </Text>
+            Score <Text style={styles.statsNum}>{score}%</Text>
+          </Text>
+
+          {realSections.length > 0 && (
+            <View style={styles.sections}>
+              {realSections.map((s) => <SectionRow key={s.id} s={s} />)}
+            </View>
+          )}
         </View>
-
-        {/* Stat tiles — the number carries the colour, the card stays the flat
-            #16143F every other surface uses. */}
-        <View style={styles.tiles}>
-          <Tile color={C.cyan} num={`${correct}/${total}`} label="Score" />
-          <Tile color={C.red} num={`${accuracy}%`} label="Accuracy" />
-          <Tile color={C.violet} num={`${attempted}/${total}`} label="Attempted" />
-        </View>
-
-        {/* Section breakdown. No repeat legend under the bars — the donut's sits
-            directly above and says the same thing. */}
-        <Text style={styles.sectionTitle}>Section-wise breakdown</Text>
-        <View style={styles.card}>
-          {sections.map((s) => <SectionBar key={s.id} s={s} />)}
-        </View>
-
-        {/* Actions */}
-        <Pressable style={styles.primaryBtn} onPress={onReview} accessibilityRole="button">
-          <Text style={styles.primaryTxt}>Review Questions</Text>
-        </Pressable>
-        <Pressable style={styles.secondaryBtn} onPress={onRetake} accessibilityRole="button">
-          <Text style={styles.secondaryTxt}>Retake Test</Text>
-        </Pressable>
-
-        <View style={{ height: 24 }} />
       </ScrollView>
-    </SafeAreaView>
-  );
-}
 
-function Legend({ color, label, value }) {
-  return (
-    <View style={styles.legendItem}>
-      <View style={[styles.legendDot, { backgroundColor: color }]} />
-      <Text style={styles.legendLabel}>{label}{value != null ? ` • ${value}` : ''}</Text>
-    </View>
-  );
-}
-
-function Tile({ color, num, label }) {
-  return (
-    <View style={styles.tile}>
-      <Text style={[styles.tileNum, { color }]}>{num}</Text>
-      <Text style={styles.tileLabel}>{label}</Text>
+      {/* Actions */}
+      <View style={[styles.actions, { paddingBottom: insets.bottom + 16 }]}>
+        <View style={styles.actionRow}>
+          <Pressable style={styles.ghostBtn} onPress={onReview} accessibilityRole="button">
+            <Text style={styles.ghostLbl}>Review Answers</Text>
+          </Pressable>
+          <Pressable style={styles.primaryBtn} onPress={onClose} accessibilityRole="button">
+            <Text style={styles.primaryLbl}>Back to Practice</Text>
+          </Pressable>
+        </View>
+        {/* The design shows two buttons; retake is kept as a link because the caller
+            wires a real retake (PracticeScreen remounts the runner and restarts its
+            clock), and losing it would mean leaving the result to sit it again. */}
+        <Pressable style={styles.retakeLink} onPress={onRetake} accessibilityRole="button" hitSlop={8}>
+          <Text style={styles.retakeLbl}>Retake test</Text>
+        </Pressable>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: C.canvas },
-  androidStatusPad: { height: 24, backgroundColor: C.canvas },
+  root: { flex: 1, backgroundColor: C.canvas },
 
-  header: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingHorizontal: 16, paddingVertical: 12 },
-  closeBtn: {
-    width: 36, height: 36, borderRadius: 12, borderWidth: 1, borderColor: C.hair,
-    backgroundColor: C.card, alignItems: 'center', justifyContent: 'center',
+  // ── hero ──
+  hero: { paddingHorizontal: 24, paddingTop: 26, paddingBottom: 40 },
+  brandRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  brandDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: 'rgba(255,255,255,0.45)' },
+  brand: { fontSize: 14, lineHeight: 18, fontFamily: TTF.bold, color: 'rgba(255,255,255,0.5)' },
+  heroTitle: {
+    fontSize: 16, lineHeight: 22, fontFamily: TTF.bold, color: C.ink,
+    letterSpacing: 0.4, marginTop: 8,
   },
-  headerTitle: { flex: 1, fontSize: 16, lineHeight: 22, fontFamily: TTF.head, color: C.ink },
+  scoreRow: { flexDirection: 'row', alignItems: 'flex-end', marginTop: 30 },
+  scoreNum: { fontSize: 82, lineHeight: 92, fontFamily: TTF.head, color: C.ink, letterSpacing: -2 },
+  scoreOf:  { fontSize: 32, lineHeight: 48, fontFamily: TTF.head, color: 'rgba(255,255,255,0.42)', marginLeft: 4 },
+  heroMsg:  { fontSize: 17, lineHeight: 24, fontFamily: TTF.reg, color: 'rgba(255,255,255,0.94)', marginTop: 26 },
 
-  body: { paddingHorizontal: 16, paddingTop: 4 },
+  // ── breakdown ──
+  body: { paddingHorizontal: 24, paddingTop: 26 },
+  meter: { marginBottom: 22 },
+  meterHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 },
+  meterLabel: { fontSize: 17, lineHeight: 22, fontFamily: TTF.reg, color: C.ink },
+  meterValue: { fontSize: 17, lineHeight: 22, fontFamily: TTF.bold },
+  meterTrack: { height: 6, borderRadius: 3, backgroundColor: C.track, overflow: 'hidden' },
+  meterFill: { height: '100%', borderRadius: 3 },
 
-  card: {
-    backgroundColor: C.card, borderRadius: 20, borderWidth: 1, borderColor: C.hair,
-    padding: 17, alignItems: 'center', marginBottom: 12,
+  statsLine: { fontSize: 15, lineHeight: 22, fontFamily: TTF.reg, color: C.sub, textAlign: 'center', marginTop: 8 },
+  statsNum:  { fontFamily: TTF.bold, color: C.violet },
+  statsDot:  { color: C.dim },
+
+  sections: { marginTop: 32, gap: 18 },
+  secRow: {},
+  secName: { fontSize: 14, lineHeight: 18, fontFamily: TTF.bold, color: C.ink },
+  secMeta: { fontSize: 13, lineHeight: 18, fontFamily: TTF.semi, color: C.sub },
+  secTrack: { flexDirection: 'row', height: 6, borderRadius: 3, overflow: 'hidden', backgroundColor: C.track },
+  secSeg: { height: '100%' },
+
+  // ── actions ──
+  actions: { paddingHorizontal: 24, paddingTop: 8 },
+  actionRow: { flexDirection: 'row', gap: 14 },
+  ghostBtn: {
+    flex: 1, height: 62, borderRadius: 16, borderWidth: 1.5, borderColor: C.violet,
+    alignItems: 'center', justifyContent: 'center',
   },
-
-  donutPct: { fontSize: 32, lineHeight: 40, fontFamily: TTF.head, color: C.ink },
-  donutSub: { fontSize: 12, lineHeight: 16, fontFamily: TTF.semi, color: C.sub, marginTop: 2 },
-
-  legendRow: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: 16, marginTop: 16 },
-  legendItem: { flexDirection: 'row', alignItems: 'center', gap: 6 },
-  legendDot: { width: 8, height: 8, borderRadius: 4 },
-  legendLabel: { fontSize: 12, lineHeight: 16, fontFamily: TTF.semi, color: C.ink },
-
-  tiles: { flexDirection: 'row', gap: 10, marginBottom: 16 },
-  tile: {
-    flex: 1, backgroundColor: C.card, borderRadius: 16, borderWidth: 1, borderColor: C.hair,
-    paddingVertical: 14, alignItems: 'center',
-  },
-  tileNum: { fontSize: 18, lineHeight: 24, fontFamily: TTF.head },
-  tileLabel: { fontSize: 11, lineHeight: 14, fontFamily: TTF.semi, color: C.sub, marginTop: 3 },
-
-  sectionTitle: { fontSize: 15, lineHeight: 22, fontFamily: TTF.head, color: C.ink, marginBottom: 10 },
-
-  secRow: { width: '100%' },
-  secHead: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 },
-  secName: { fontSize: 13, lineHeight: 17, fontFamily: TTF.bold, color: C.ink },
-  secMeta: { fontSize: 12, lineHeight: 16, fontFamily: TTF.semi, color: C.sub },
-  barTrack: { flexDirection: 'row', height: 10, borderRadius: 5, overflow: 'hidden', backgroundColor: C.track },
-  barSeg: { height: '100%' },
-
-  // The runner's Next button, full width — same violet, same glow.
+  ghostLbl: { fontSize: 16, lineHeight: 20, fontFamily: TTF.bold, color: C.ink },
   primaryBtn: {
-    backgroundColor: C.violet, borderRadius: 14, height: 50, alignItems: 'center', justifyContent: 'center',
-    marginBottom: 6,
-    shadowColor: C.violet, shadowOpacity: 0.1451, shadowRadius: 16, shadowOffset: { width: 0, height: 4 }, elevation: 6,
+    flex: 1, height: 62, borderRadius: 16, backgroundColor: C.violet,
+    alignItems: 'center', justifyContent: 'center',
   },
-  primaryTxt: { fontSize: 15, lineHeight: 20, fontFamily: TTF.bold, color: C.ink },
-  secondaryBtn: { height: 44, alignItems: 'center', justifyContent: 'center' },
-  secondaryTxt: { fontSize: 14, lineHeight: 18, fontFamily: TTF.bold, color: C.violet },
+  primaryLbl: { fontSize: 16, lineHeight: 20, fontFamily: TTF.bold, color: C.ink },
+  retakeLink: { height: 44, alignItems: 'center', justifyContent: 'center', marginTop: 4 },
+  retakeLbl: { fontSize: 15, lineHeight: 20, fontFamily: TTF.semi, color: C.sub },
 });

@@ -964,6 +964,9 @@ const PracticeScreen = () => {
         questions={chResult.questions}
         answers={chResult.answers}
         onBack={() => setChReview(false)}
+        // The pinned button leaves the test for the practice list, the same exit
+        // MockResultScreen's "Back to Practice" takes.
+        onExit={() => { setChReview(false); setChResult(null); setChSel(null); setChOpen(false); }}
       />
     );
   }
