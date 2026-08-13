@@ -210,9 +210,16 @@ async function googleAuth(req, res, next) {
 
     const full = await ensurePhoto((await fetchScopeUser(user.id)) || user)
 
+    // `permissions` must ride along here exactly as it does on login/register. The app
+    // stores whatever signIn() is handed and never re-fetches /me until the next cold
+    // start, so omitting it costs a support agent who taps "Continue with Google" their
+    // Support tab for the entire session.
     return ApiResponse.success(
       res,
-      { token: signToken(user.id), user: full, scope: deriveScope(full), isNewUser },
+      {
+        token: signToken(user.id), user: full, scope: deriveScope(full), isNewUser,
+        permissions: permissionsFor(full.admin_role),
+      },
       isNewUser ? 'Account created' : 'Signed in',
     )
   } catch (err) {
