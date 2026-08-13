@@ -146,7 +146,15 @@ test('a call log never reaches the ticket room, but still reaches staff:queue', 
 
   await db.$executeRawUnsafe(`UPDATE "users" SET "admin_role" = $1 WHERE id = $2::uuid`, ctx.otherOriginalRole, ctx.otherId)
 
-  assert.equal(ownerMessages.length, 0, 'the ticket room (owner + staff) must never see a staff call log')
+  // The owner DOES get the call row now — a missed call with no trace looks like nobody
+  // tried. What must never reach them is the agent's free-text note. This test used to
+  // assert the row itself never arrived; that changed deliberately (see callLog and getOne
+  // in support.controller.js), so the assertion moved to the property that actually
+  // protects the note rather than the one that happened to imply it.
+  assert.equal(ownerMessages.length, 1, 'the owner sees that a call happened')
+  assert.equal(ownerMessages[0].kind, 'call')
+  assert.equal(ownerMessages[0].callOutcome, 'no_answer', 'the outcome is the whole point')
+  assert.ok(!ownerMessages[0].text, "the agent's private note must never reach the owner")
   assert.ok(staffMsg, 'staff:queue must still receive the call log')
   assert.equal(staffMsg.kind, 'call')
   assert.equal(staffMsg.callOutcome, 'no_answer')
