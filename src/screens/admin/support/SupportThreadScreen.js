@@ -23,6 +23,7 @@ import { PressableScale } from '../../parent/ParentApp/anim';
 import { apiError } from '../ui/format';
 import { CallLogSheet } from './CallLogSheet';
 import { ResolveSheet } from './ResolveSheet';
+import { RefreshFailedBanner } from './RefreshFailedBanner';
 import { notifySupportTicketRead } from './useSupportUnread';
 
 const STATUS_TONE = {
@@ -110,6 +111,13 @@ export default function SupportThreadScreen({ route, navigation }) {
       // receipt simply refetches the same count.
       notifySupportTicketRead();
     } catch (e) {
+      // `ticket` is deliberately left alone. load() is wired to every socket message and
+      // status event, to AppState → active, and to every write, so on a mobile connection
+      // it fails routinely while the agent is mid-conversation. Blanking the thread on one
+      // of those blips takes the header, the messages, the attachments and the composer
+      // with it — and the half-typed reply looks lost even though it survives in `text`.
+      // The banner below reports the failure over the thread that is still on screen,
+      // which is what the web console does with a toast.
       setError(apiError(e, 'Ticket load nahi hua'));
     } finally {
       setLoading(false);
@@ -189,7 +197,10 @@ export default function SupportThreadScreen({ route, navigation }) {
       </View>
     );
   }
-  if (error || !ticket) {
+  // Only when there is genuinely nothing to show. `error` alone no longer qualifies — see
+  // load()'s catch: once a ticket has loaded, a failed refetch is reported over it rather
+  // than in place of it.
+  if (!ticket) {
     return (
       <View style={{ flex: 1, backgroundColor: S.canvas, paddingTop: 60 }}>
         <StudentErrorState title="Ticket load nahi hua" message={error || undefined} onRetry={load} />
@@ -238,6 +249,8 @@ export default function SupportThreadScreen({ route, navigation }) {
           ) : null}
         </View>
       </View>
+
+      {error ? <RefreshFailedBanner message={error} onRetry={load} /> : null}
 
       <ScrollView
         ref={scrollRef}
