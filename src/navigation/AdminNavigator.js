@@ -31,6 +31,10 @@ import StudentsListScreen from '../screens/admin/people/StudentsListScreen';
 import StudentResultsScreen from '../screens/admin/results/StudentResultsScreen';
 import ParentsListScreen from '../screens/admin/people/ParentsListScreen';
 import ParentProfileScreen from '../screens/admin/people/ParentProfileScreen';
+import SupportQueueScreen from '../screens/admin/support/SupportQueueScreen';
+import SupportThreadScreen from '../screens/admin/support/SupportThreadScreen';
+import { useSupportUnread } from '../screens/admin/support/useSupportUnread';
+import { useAuth } from '../context/AuthContext';
 
 const Tab = createBottomTabNavigator();
 const stackOpts = { headerShown: false, animation: 'slide_from_right' };
@@ -106,14 +110,32 @@ function ProfileStackNav() {
   );
 }
 
-export default function AdminNavigator() {
+const SupportStack = createNativeStackNavigator();
+function SupportStackNav() {
   return (
-    <Tab.Navigator screenOptions={{ headerShown: false }} tabBar={(props) => <AdminDock {...props} />}>
+    <SupportStack.Navigator screenOptions={stackOpts}>
+      <SupportStack.Screen name="SupportQueue" component={SupportQueueScreen} />
+      <SupportStack.Screen name="SupportThread" component={SupportThreadScreen} />
+    </SupportStack.Navigator>
+  );
+}
+
+export default function AdminNavigator() {
+  // Not every admin is on support: content_manager holds none of the support permissions,
+  // so the tab is absent rather than present-and-refusing. The server enforces the same
+  // rule on every /api/support route — this only decides what is worth showing.
+  const { can, token } = useAuth();
+  const showSupport = can('support.view');
+  const supportUnread = useSupportUnread(showSupport, token);
+
+  return (
+    <Tab.Navigator screenOptions={{ headerShown: false }} tabBar={(props) => <AdminDock {...props} supportUnread={supportUnread} />}>
       <Tab.Screen name="Home" component={HomeStackNav} />
       <Tab.Screen name="Sessions" component={SessionsStackNav} />
       <Tab.Screen name="Tests" component={TestsStackNav} />
       <Tab.Screen name="Resources" component={ResourcesStackNav} />
       <Tab.Screen name="Results" component={ResultsStackNav} />
+      {showSupport ? <Tab.Screen name="Support" component={SupportStackNav} /> : null}
       <Tab.Screen name="Profile" component={ProfileStackNav} />
     </Tab.Navigator>
   );
