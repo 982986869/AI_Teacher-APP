@@ -76,6 +76,10 @@ function shape(t) {
       ? { summary: t.resolutionSummary || '', at: t.resolvedAt, by: t.resolvedByName || null }
       : null,
     updatedAt: t.updatedAt,
+    // The user's CSAT, echoed back so the Resolved screen can show what they already gave
+    // instead of resetting to zero stars every time they reopen the thread.
+    rating: t.rating || null,
+    ratedAt: t.ratedAt || null,
     staffReadAt: t.staffReadAt || null,
     autoCloseAt: t.autoCloseAt || null,
     unread: !!(t.updatedAt && (!t.userReadAt || t.userReadAt < t.updatedAt)),
@@ -404,6 +408,37 @@ async function reopen(req, res, next) {
   }
 }
 
+// ─── POST /api/support/tickets/:id/rating — the owner scoring the support ─────
+// Staff cannot call this, for the same reason they cannot close a ticket: a CSAT the team
+// can write is not a CSAT. loadOwned admits staff (they must be able to READ any ticket),
+// so the ownership test below is what actually keeps them out.
+async function rate(req, res, next) {
+  try {
+    const { ticket, error } = await loadOwned(req, req.params.id)
+    if (error) return ApiResponse.error(res, error[0], error[1])
+    if (ticket.userId !== req.user.id) return ApiResponse.error(res, 'Ticket not found.', 404)
+
+    // Number() so '4' from a JSON body passes, Number.isInteger so 4.5 and NaN do not.
+    // The database carries the same 1–5 range as a CHECK constraint; this is the friendly
+    // half of that pair, not a replacement for it.
+    const rating = Number(req.body.rating)
+    if (!Number.isInteger(rating) || rating < 1 || rating > 5) {
+      return ApiResponse.error(res, 'A rating from 1 to 5 is required.', 422)
+    }
+
+    const updated = await svc.rateTicket({ ticketId: ticket.id, userId: req.user.id, rating })
+    // Null means the status predicate refused it — the ticket is still being worked on.
+    if (!updated) return ApiResponse.error(res, 'This ticket cannot be rated yet.', 409)
+
+    // The queue only; there is no ticket-room event for this. A score is for the team to
+    // see in the console, not something to drop into the conversation as if it were said.
+    emitToStaffQueue('ticket:touched', { id: updated.id })
+    return ApiResponse.success(res, shape(updated), 'Thanks for the feedback')
+  } catch (err) {
+    return next(err)
+  }
+}
+
 // ─── POST /api/support/tickets/:id/call-log — staff only ──────────────────────
 async function callLog(req, res, next) {
   try {
@@ -457,7 +492,7 @@ async function markRead(req, res, next) {
 
 module.exports = {
   create, addMessage, addAttachment, getOne, listMine, queue, resolve,
-  close, reopen, callLog, markRead,
+  close, reopen, rate, callLog, markRead,
   // Not routed — exported so tests/support.access.test.js can assert the load predicate
   // directly. Routing silently to the wrong person is invisible from the outside, which
   // is exactly why it went unnoticed until a whole-branch read.

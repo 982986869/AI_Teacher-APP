@@ -72,6 +72,24 @@ async function closeTicket({ ticketId, userId }) {
   return rows[0] || null
 }
 
+// The user's 1–5 on the Resolved screen. Only from `pending_confirmation` or `closed`:
+// a score given before anybody answered is not a score of anything, and the WHERE clause
+// is what enforces that rather than trusting the screen to only offer it at the right time.
+//
+// Re-rating overwrites deliberately. The row is one score, not a history — somebody who
+// taps 2 with their thumb and meant 4 should not be stuck with the mis-tap, and nothing
+// downstream reads more than the latest value.
+async function rateTicket({ ticketId, userId, rating }) {
+  const rows = await db.$queryRawUnsafe(
+    `UPDATE "support_tickets"
+        SET "rating" = $3, "ratedAt" = now(), "updatedAt" = now()
+      WHERE id = $1::uuid AND "userId" = $2::uuid AND "status" IN ($4, $5)
+      RETURNING *`,
+    ticketId, userId, rating, STATUS.PENDING, STATUS.CLOSED,
+  )
+  return rows[0] || null
+}
+
 // "Abhi bhi problem hai" — valid from `pending_confirmation` AND from `closed`, because
 // auto-close can beat the user to it and they must still have a way back in.
 async function reopenTicket({ ticketId, userId }) {
@@ -123,5 +141,5 @@ async function markRead({ ticketId, as }) {
 
 module.exports = {
   STATUS, CALL_OUTCOMES, AUTO_CLOSE_DAYS,
-  autoCloseExpired, resolveTicket, closeTicket, reopenTicket, logCall, markRead,
+  autoCloseExpired, resolveTicket, closeTicket, reopenTicket, rateTicket, logCall, markRead,
 }

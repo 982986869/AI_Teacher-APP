@@ -108,3 +108,17 @@ UPDATE "support_tickets"
 -- The console's default read: everything awaiting the team, oldest first.
 CREATE INDEX IF NOT EXISTS "support_tickets_autoclose_idx"
   ON "support_tickets" ("status", "autoCloseAt");
+
+-- ── v3: CSAT ─────────────────────────────────────────────────────────────────
+-- The 1–5 the user taps on the Resolved screen. Until now that score lived only in the
+-- component's own state: the icons lit up and the number went nowhere, because nothing
+-- ever asked the server to keep it. Additive and idempotent; safe to re-run.
+ALTER TABLE "support_tickets" ADD COLUMN IF NOT EXISTS "rating"  SMALLINT;
+ALTER TABLE "support_tickets" ADD COLUMN IF NOT EXISTS "ratedAt" TIMESTAMPTZ;
+
+-- The range belongs in the database, not only in the controller that happens to write it
+-- today. DO block because Postgres has no ADD CONSTRAINT IF NOT EXISTS.
+DO $$ BEGIN
+  ALTER TABLE "support_tickets"
+    ADD CONSTRAINT "support_tickets_rating_range" CHECK ("rating" BETWEEN 1 AND 5);
+EXCEPTION WHEN duplicate_object THEN NULL; END $$;

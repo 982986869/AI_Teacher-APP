@@ -56,6 +56,12 @@ router.patch('/tickets/:id/resolve', [
 
 router.post('/tickets/:id/close', ctrl.close)
 router.post('/tickets/:id/reopen', ctrl.reopen)
+
+// The owner's 1–5. Range-checked in the controller (and again by a CHECK constraint on the
+// column), so no validator here beyond "something was sent".
+router.post('/tickets/:id/rating', [
+  body('rating').exists().withMessage('A rating is required.'),
+], ctrl.rate)
 router.post('/tickets/:id/read', ctrl.markRead)
 
 router.post('/tickets/:id/call-log', [

@@ -83,6 +83,45 @@ test('resolveTicket refuses to touch a closed ticket', { skip: ctx.skip }, async
   assert.equal(after.closedBy, 'user', 'closedBy is unchanged, not silently revived')
 })
 
+test('rating is refused until the ticket is actually finished', { skip: ctx.skip }, async () => {
+  const t = await makeTicket('assigned')
+  const tooEarly = await svc.rateTicket({ ticketId: t.id, userId: USER, rating: 5 })
+  assert.equal(tooEarly, null, 'an unanswered ticket cannot be rated')
+  assert.equal((await read(t.id)).rating, null, 'and nothing was written')
+
+  await svc.resolveTicket({ ticketId: t.id, summary: 'done', byName: 'S' })
+  const rated = await svc.rateTicket({ ticketId: t.id, userId: USER, rating: 4 })
+  assert.ok(rated, 'pending_confirmation can be rated — the work is done, the user just has not confirmed')
+  const after = await read(t.id)
+  assert.equal(after.rating, 4)
+  assert.ok(after.ratedAt, 'ratedAt is stamped')
+})
+
+test('only the ticket owner can rate, and a re-rate overwrites', { skip: ctx.skip }, async () => {
+  const t = await makeTicket('assigned')
+  await svc.resolveTicket({ ticketId: t.id, summary: 'done', byName: 'S' })
+
+  const notMine = await svc.rateTicket({ ticketId: t.id, userId: STAFF, rating: 1 })
+  assert.equal(notMine, null, 'somebody else cannot score this ticket')
+  assert.equal((await read(t.id)).rating, null, 'and left no mark trying')
+
+  await svc.rateTicket({ ticketId: t.id, userId: USER, rating: 2 })
+  await svc.rateTicket({ ticketId: t.id, userId: USER, rating: 5 })
+  assert.equal((await read(t.id)).rating, 5, 'the latest score wins — a mis-tap is not permanent')
+})
+
+test('the database refuses a rating outside 1-5 even if a caller tries', { skip: ctx.skip }, async () => {
+  const t = await makeTicket('assigned')
+  await svc.resolveTicket({ ticketId: t.id, summary: 'done', byName: 'S' })
+  // The controller range-checks too, but this asserts the constraint is really on the
+  // column — so a future caller that forgets cannot quietly write a 9.
+  await assert.rejects(
+    () => svc.rateTicket({ ticketId: t.id, userId: USER, rating: 9 }),
+    'the CHECK constraint rejects it',
+  )
+  assert.equal((await read(t.id)).rating, null)
+})
+
 test('reopen works from pending_confirmation AND from closed', { skip: ctx.skip }, async () => {
   const a = await makeTicket('assigned')
   await svc.resolveTicket({ ticketId: a.id, summary: 'done', byName: 'S' })
