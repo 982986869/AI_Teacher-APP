@@ -10,6 +10,7 @@ const { config } = require('../config/env')
 const { AppError } = require('../middleware/errorHandler')
 const ApiResponse = require('../utils/ApiResponse')
 const { deriveScope } = require('../services/personalization/scope')
+const { permissionsFor } = require('../services/admin/permissions')
 const { validateProfilePatch } = require('../services/personalization/validateProfile')
 const { uploadImage, isConfigured: storageConfigured } = require('../services/storage')
 
@@ -102,7 +103,10 @@ async function register(req, res, next) {
 
     const user = await ensurePhoto(await fetchScopeUser(created.id))
 
-    return ApiResponse.created(res, { token: signToken(user.id), user, scope: deriveScope(user) }, 'Account created')
+    return ApiResponse.created(res, {
+      token: signToken(user.id), user, scope: deriveScope(user),
+      permissions: permissionsFor(user.admin_role),
+    }, 'Account created')
   } catch (err) {
     next(err)
   }
@@ -136,7 +140,10 @@ async function login(req, res, next) {
     const { passwordHash: _omit, ...safeUser } = user
     const full = await ensurePhoto((await fetchScopeUser(user.id)) || safeUser)
 
-    return ApiResponse.success(res, { token: signToken(user.id), user: full, scope: deriveScope(full) })
+    return ApiResponse.success(res, {
+      token: signToken(user.id), user: full, scope: deriveScope(full),
+      permissions: permissionsFor(full.admin_role),
+    })
   } catch (err) {
     next(err)
   }
@@ -214,7 +221,12 @@ async function googleAuth(req, res, next) {
 
 async function me(req, res) {
   const user = await ensurePhoto(req.user)
-  return ApiResponse.success(res, { user, scope: req.scope })
+  // The app gates its Support tab and its reply/resolve buttons on this list. It is the
+  // server's copy of the role map, never a second one kept in the app — a new role or a
+  // regranted permission must not need an app release.
+  return ApiResponse.success(res, {
+    user, scope: req.scope, permissions: permissionsFor(user.admin_role),
+  })
 }
 
 // ─── Update profile (migration / complete-profile) ─────────────────────────────
