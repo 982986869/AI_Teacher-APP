@@ -831,6 +831,49 @@ export default function ChatScreen({
         </View>
       )}
 
+      {/* ── alternative contact ──────────────────────────────────────────────
+          Not in the Figma file. The ticket is the delivery route; these two are how you
+          reach a person directly — and the only route left when a send fails, which is why
+          WhatsApp goes solid the moment something is stuck.
+
+          Directly under the header rather than above the composer, where it used to sit.
+          Down there it was below the fold on a full thread, and it competed with the reply
+          box for the one spot the eye goes to — so the escape hatch was hardest to find at
+          exactly the moment somebody needed it. */}
+      <View style={s.connect}>
+        <TX w="reg" s={10} lh={12} c={D.muted} style={s.connectLabel}>
+          {stuck.length
+            ? `${stuck.length} MESSAGE${stuck.length > 1 ? 'S' : ''} NOT SENT`
+            : 'YA SEEDHA CONNECT KAREIN'}
+        </TX>
+        {/* The flex:1 lives on these wrappers, NOT on the pill style. PressableScale puts
+            its style on an inner view, and flex:1 there means flexBasis:0 — which beats
+            height:38 and collapses the pill to a hairline. Same `slot` pattern the nav
+            bars use. */}
+        <View style={s.connectRow}>
+          <View style={s.slot}>
+            <PressableScale
+              style={[s.pill, stuck.length ? s.pillWaSolid : s.pillWa]}
+              onPress={openWhatsApp}
+              scaleTo={0.96}
+              accessibilityRole="button"
+              accessibilityLabel={stuck.length ? 'Send the unsent messages on WhatsApp' : 'Chat on WhatsApp'}
+            >
+              <MessageCircle size={15} color={stuck.length ? '#06281B' : D.wa} strokeWidth={2.4} />
+              <TX w="semi" s={12.5} c={stuck.length ? '#06281B' : D.wa}>
+                {stuck.length ? 'Send on WhatsApp' : 'Chat on WhatsApp'}
+              </TX>
+            </PressableScale>
+          </View>
+          <View style={s.slot}>
+            <PressableScale style={[s.pill, s.pillMail]} onPress={openEmail} scaleTo={0.96} accessibilityRole="button" accessibilityLabel="Email the team">
+              <Mail size={15} color={D.muted} strokeWidth={2.4} />
+              <TX w="semi" s={12.5} c={D.ink}>Email</TX>
+            </PressableScale>
+          </View>
+        </View>
+      </View>
+
       {/* ── messages-area / content-space ───────────────────────────────── */}
       <ScrollView
         ref={scroller}
@@ -934,44 +977,6 @@ export default function ChatScreen({
           />
         )}
       </ScrollView>
-
-      {/* ── alternative contact ──────────────────────────────────────────────
-          Not in the Figma file. The ticket is the delivery route; these two are how
-          you reach a person directly — and the only route left when a send fails,
-          which is why WhatsApp goes solid the moment something is stuck. */}
-      <View style={s.connect}>
-        <TX w="reg" s={10} lh={12} c={D.muted} style={s.connectLabel}>
-          {stuck.length
-            ? `${stuck.length} MESSAGE${stuck.length > 1 ? 'S' : ''} NOT SENT`
-            : 'YA SEEDHA CONNECT KAREIN'}
-        </TX>
-        {/* The flex:1 lives on these wrappers, NOT on the pill style. PressableScale puts
-            its style on an inner view, and flex:1 there means flexBasis:0 — which beats
-            height:38 and collapses the pill to a hairline. Same `slot` pattern the nav
-            bars use. */}
-        <View style={s.connectRow}>
-          <View style={s.slot}>
-            <PressableScale
-              style={[s.pill, stuck.length ? s.pillWaSolid : s.pillWa]}
-              onPress={openWhatsApp}
-              scaleTo={0.96}
-              accessibilityRole="button"
-              accessibilityLabel={stuck.length ? 'Send the unsent messages on WhatsApp' : 'Chat on WhatsApp'}
-            >
-              <MessageCircle size={15} color={stuck.length ? '#06281B' : D.wa} strokeWidth={2.4} />
-              <TX w="semi" s={12.5} c={stuck.length ? '#06281B' : D.wa}>
-                {stuck.length ? 'Send on WhatsApp' : 'Chat on WhatsApp'}
-              </TX>
-            </PressableScale>
-          </View>
-          <View style={s.slot}>
-            <PressableScale style={[s.pill, s.pillMail]} onPress={openEmail} scaleTo={0.96} accessibilityRole="button" accessibilityLabel="Email the team">
-              <Mail size={15} color={D.muted} strokeWidth={2.4} />
-              <TX w="semi" s={12.5} c={D.ink}>Email</TX>
-            </PressableScale>
-          </View>
-        </View>
-      </View>
 
       {/* ── input-section ───────────────────────────────────────────────── */}
       <View style={[s.inputSection, { paddingBottom: Math.max(insets.bottom, 12) }]}>
@@ -1154,7 +1159,11 @@ const s = StyleSheet.create({
   },
 
   // alternative contact
-  connect: { paddingHorizontal: 20, paddingTop: 14, paddingBottom: 2, gap: 10, borderTopWidth: 1, borderTopColor: D.border },
+  // No border of its own any more. It used to carry a top hairline to separate itself from
+  // the thread above; sitting under the header instead, that hairline landed right on the
+  // header's own bottom border and read as a double rule. Both headers are rounded cards
+  // on the page background, which already does the separating.
+  connect: { paddingHorizontal: 20, paddingTop: 14, paddingBottom: 6, gap: 10 },
   connectLabel: { letterSpacing: 0.8 },
   connectRow: { flexDirection: 'row', gap: 10 },
   slot: { flex: 1 },
