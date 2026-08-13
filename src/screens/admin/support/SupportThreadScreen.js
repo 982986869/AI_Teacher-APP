@@ -146,10 +146,14 @@ export default function SupportThreadScreen({ route, navigation }) {
     return () => sub.remove();
   }, [load]);
 
+  // `kbInset` is in here with the message count on purpose. Lifting the composer over the
+  // keyboard shortens the list's visible area, and without a scroll the newest message —
+  // the one being replied to — ends up behind the composer. Whoever opens the keyboard is
+  // about to answer the last thing said, so that is what has to stay on screen.
   const msgCount = ticket && ticket.messages ? ticket.messages.length : 0;
   useEffect(() => {
     if (msgCount) setTimeout(() => scrollRef.current && scrollRef.current.scrollToEnd({ animated: true }), 60);
-  }, [msgCount]);
+  }, [msgCount, kbInset]);
 
   // Every write below surfaces its own failure and then RETHROWS. The caller — the
   // composer, or one of the two sheets — owns the text the user typed, so it decides

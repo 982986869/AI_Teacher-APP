@@ -724,10 +724,13 @@ export default function ChatScreen({
     if (url) open(url, 'Could not open', url);
   }, [ticketContext, open]);
 
+  // `kbInset` belongs in here with the thread: raising the composer over the keyboard
+  // shortens the list, and without a scroll the newest message sits behind the composer —
+  // which is the one message somebody opening the keyboard is answering.
   useEffect(() => {
     const id = setTimeout(() => scroller.current && scroller.current.scrollToEnd({ animated: true }), 60);
     return () => clearTimeout(id);
-  }, [thread, typing, files]);
+  }, [thread, typing, files, kbInset]);
 
   const canSend = draft.trim().length > 0 || files.length > 0;
 
