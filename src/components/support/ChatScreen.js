@@ -19,7 +19,8 @@
 //       quick-replies hug 39   chips hug 31 (pad 8/14) r16 1px #30363D, gap 8
 //   input-section (fill, hug 97)
 //     input-bar       hug 64    pad 12/20 gap 12
-//       paperclip 22 · text-field fill 234 h40 r20 (mic 20 inside, right)
+//       paperclip 22 · text-field fill 234 h40 r20 (the spec's mic is gone — it had no
+//                      recording pipeline behind it and only offered WhatsApp instead)
 //       send-btn 40 r20 bg #6366F1
 //     home-indicator  33        → replaced by the real safe-area inset
 //
@@ -39,7 +40,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   View, ScrollView, TextInput, Image, StyleSheet, Animated, Easing,
-  Linking, Alert, KeyboardAvoidingView, Platform,
+  Linking, Alert,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
@@ -54,6 +55,7 @@ import { connectSupportSocket, joinTicket } from '../../realtime/supportSocket';
 import { getToken } from '../../utils/storage';
 import { D, IF, TX, fmtClock } from './theme';
 import { chooseAttachment, prettySize } from './pickAttachment';
+import { useKeyboardInset } from '../../theme/layout';
 import {
   SUPPORT, supportLinks, agentOpening, agentTicketRaised, agentSendFailed, DOUBT_REDIRECT,
 } from './supportConfig';
@@ -309,6 +311,9 @@ export default function ChatScreen({
   onBack,
 }) {
   const insets = useSafeAreaInsets();
+  // Measured, not assumed — app.json asks for both a resizing window and edge-to-edge, and
+  // which one wins depends on the phone's Android version. See useKeyboardInset.
+  const { inset: kbInset, onLayout } = useKeyboardInset();
   const navigation = useNavigation();
   const scroller = useRef(null);
   const timers = useRef([]);
@@ -767,10 +772,7 @@ export default function ChatScreen({
   }
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-      style={[s.root, { paddingTop: insets.top }]}
-    >
+    <View style={[s.root, { paddingTop: insets.top }]} onLayout={onLayout}>
       {/* ── header ──────────────────────────────────────────────────────
           The context variant trades the department badge and queue line for height:
           compact-header, hug 56, flat bottom border, just avatar + name + ticket. */}
@@ -975,7 +977,7 @@ export default function ChatScreen({
       </ScrollView>
 
       {/* ── input-section ───────────────────────────────────────────────── */}
-      <View style={[s.inputSection, { paddingBottom: Math.max(insets.bottom, 12) }]}>
+      <View style={[s.inputSection, { paddingBottom: Math.max(insets.bottom, 12) + kbInset }]}>
         {/* Staged attachments sit above the composer so you can see — and drop — what
             is about to go with the message. */}
         {!!files.length && (
@@ -1023,7 +1025,7 @@ export default function ChatScreen({
           </PressableScale>
         </View>
       </View>
-    </KeyboardAvoidingView>
+    </View>
   );
 }
 

@@ -9,10 +9,7 @@
 // opposite — the note is the whole point of having logged the call — so sharing them
 // would mean adding options that erode the property they exist to guarantee.
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import {
-  View, ScrollView, TextInput, AppState, Alert, Linking,
-  KeyboardAvoidingView, Platform,
-} from 'react-native';
+import { View, ScrollView, TextInput, AppState, Alert, Linking } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ChevronLeft, Phone, Send, CircleCheck, Paperclip, Award } from 'lucide-react-native';
 import { getTicket, markTicketRead, addTicketMessage, logCall, resolveTicket } from '../../../api/supportApi';
@@ -22,6 +19,7 @@ import { T } from '../../parent/ParentApp/constants';
 import { S, StudentErrorState, StudentSkeleton } from '../../../theme/studentUI';
 import { PressableScale } from '../../parent/ParentApp/anim';
 import { apiError } from '../ui/format';
+import { useKeyboardInset } from '../../../theme/layout';
 import { ratingBand } from './queueRules';
 import { CallLogSheet } from './CallLogSheet';
 import { ResolveSheet } from './ResolveSheet';
@@ -96,6 +94,10 @@ export default function SupportThreadScreen({ route, navigation }) {
   // number cannot do it — the gesture bar is a different height on every device, and where
   // it overlaps a control the OS takes the touch first and the control simply looks dead.
   const insets = useSafeAreaInsets();
+  // Measures rather than assumes — see useKeyboardInset. app.json asks for a resizing
+  // window AND edge-to-edge, and which of those wins depends on the phone's Android
+  // version, so a fixed KeyboardAvoidingView behavior is wrong on half the devices.
+  const { inset: kbInset, onLayout } = useKeyboardInset();
   const [ticket, setTicket] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -224,10 +226,7 @@ export default function SupportThreadScreen({ route, navigation }) {
   const phone = ticket.raisedBy && ticket.raisedBy.phone;
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-      style={{ flex: 1, backgroundColor: S.canvas }}
-    >
+    <View style={{ flex: 1, backgroundColor: S.canvas }} onLayout={onLayout}>
       <View style={{ paddingTop: insets.top + 10, paddingHorizontal: 16, paddingBottom: 12, backgroundColor: '#fff', borderBottomWidth: 1, borderBottomColor: S.hair }}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
           <PressableScale onPress={() => navigation.goBack()} accessibilityLabel="Back" style={{ marginRight: 2 }}>
@@ -367,7 +366,10 @@ export default function SupportThreadScreen({ route, navigation }) {
         ) : null}
       </ScrollView>
 
-      <View style={{ borderTopWidth: 1, borderTopColor: S.hair, backgroundColor: '#fff', padding: 12, paddingBottom: Math.max(insets.bottom, 12) }}>
+      {/* The keyboard inset is added to the safe-area one rather than replacing it: with
+          the keyboard up the gesture bar is not what the composer has to clear, but the
+          moment it closes the inset returns to zero and the safe area matters again. */}
+      <View style={{ borderTopWidth: 1, borderTopColor: S.hair, backgroundColor: '#fff', padding: 12, paddingBottom: Math.max(insets.bottom, 12) + kbInset }}>
         <View style={{ flexDirection: 'row', alignItems: 'flex-end', gap: 8, marginBottom: 9 }}>
           <TextInput
             value={text}
@@ -400,6 +402,6 @@ export default function SupportThreadScreen({ route, navigation }) {
 
       <CallLogSheet visible={callOpen} onClose={() => setCallOpen(false)} onSubmit={onLogCall} />
       <ResolveSheet visible={resolveOpen} onClose={() => setResolveOpen(false)} onSubmit={onResolve} />
-    </KeyboardAvoidingView>
+    </View>
   );
 }
