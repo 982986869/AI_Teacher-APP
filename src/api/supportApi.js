@@ -20,6 +20,17 @@
 //   GET  /api/support/tickets/:id
 //     200  { data: { ref, status, resolution: { summary, at, by } | null, messages: [] } }
 //
+//   GET  /api/support/queue?status=open&team=Sales%20team          (staff only)
+//     200  { data: { tickets: [ { id, ref, team, status, createdAt, updatedAt,
+//                                staffReadAt, childName,
+//                                raisedBy: { name, phone } } ], unreadCount } }
+//
+//   POST /api/support/tickets/:id/call-log                          (staff only)
+//     body { outcome: 'talked' | 'no_answer' | 'callback', note? }
+//
+//   PATCH /api/support/tickets/:id/resolve                          (staff only)
+//     body { summary }
+//
 // `status` is the server's word, never the app's: 'open' | 'assigned' | 'resolved'.
 import axiosInstance from './axiosInstance';
 
@@ -117,5 +128,50 @@ export const markTicketRead = async (ticketId) => {
     await axiosInstance.post(`/api/support/tickets/${ticketId}/read`);
   } catch (_) {
     // A read receipt is not worth an error in the user's face.
+  }
+};
+
+// ─── Staff side ───────────────────────────────────────────────────────────────
+// These sit on the same /api/support mount as everything above and take the same token;
+// the server decides what a caller may see from their admin_role. A student token that
+// reaches them gets a 403, never somebody else's ticket.
+
+// `status: 'open'` is the SERVER's word for work-not-yet-resolved and matches both `open`
+// and `assigned`. Tickets are born `assigned` as soon as their team has anybody on it, so
+// filtering for the literal string would return an empty queue forever.
+export const getSupportQueue = async ({ status = 'open', team } = {}) => {
+  try {
+    const res = await axiosInstance.get('/api/support/queue', {
+      params: { status, ...(team ? { team } : {}) },
+    });
+    const d = res.data.data || {};
+    return { tickets: d.tickets || [], unreadCount: d.unreadCount || 0 };
+  } catch (err) {
+    throw tag(err);
+  }
+};
+
+// The note is for the team's record only — the server blanks it for a non-staff reader.
+export const logCall = async (ticketId, { outcome, note }) => {
+  try {
+    const res = await axiosInstance.post(
+      `/api/support/tickets/${ticketId}/call-log`, { outcome, note },
+    );
+    return res.data.data;
+  } catch (err) {
+    throw tag(err);
+  }
+};
+
+// Staff only ever PROPOSE a resolution: this moves the ticket to pending_confirmation.
+// The user's own confirmation — or a 3-day timeout — is what actually closes it.
+export const resolveTicket = async (ticketId, { summary }) => {
+  try {
+    const res = await axiosInstance.patch(
+      `/api/support/tickets/${ticketId}/resolve`, { summary },
+    );
+    return res.data.data;
+  } catch (err) {
+    throw tag(err);
   }
 };

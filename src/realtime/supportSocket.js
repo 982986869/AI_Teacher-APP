@@ -46,6 +46,31 @@ export function joinTicket(ticketId, { onMessage, onStatus, onReconnect }) {
   };
 }
 
+// The staff queue. The server puts a socket into the `staff:queue` room by itself when
+// the user holds support.view (server/src/realtime/index.js), so there is no room to join
+// from here — only events to listen for.
+//
+// Every handler is expected to REFETCH over REST rather than patch local state. A phone
+// that switched networks mid-event heard nothing and nothing is ever replayed, so patching
+// would leave the queue quietly disagreeing with the server.
+export function subscribeStaffQueue({ onTicketNew, onTicketTouched, onStatus, onReconnect }) {
+  if (!socket) return () => {};
+  // Same reason as joinTicket: capture the instance rather than reading the module binding
+  // later, or cleanup detaches listeners from a socket that has since been replaced.
+  const s = socket;
+  const handleConnect = () => { if (onReconnect) onReconnect(); };
+  s.on('connect', handleConnect);
+  if (onTicketNew) s.on('ticket:new', onTicketNew);
+  if (onTicketTouched) s.on('ticket:touched', onTicketTouched);
+  if (onStatus) s.on('status', onStatus);
+  return () => {
+    s.off('connect', handleConnect);
+    if (onTicketNew) s.off('ticket:new', onTicketNew);
+    if (onTicketTouched) s.off('ticket:touched', onTicketTouched);
+    if (onStatus) s.off('status', onStatus);
+  };
+}
+
 export function disconnectSupportSocket() {
   if (socket) { socket.close(); socket = null; }
 }
