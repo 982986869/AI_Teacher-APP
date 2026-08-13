@@ -218,6 +218,39 @@ async function saveChapterNotes(req, res, next) {
 // via resources.service.getQuestionsByPath.
 const QTYPES = { important_questions: 'Important Questions', pyq: 'Previous Year Questions', practice: 'Practice Questions' }
 
+// ─── marks / question_type, carried through from the source ───────────────────
+// The source papers state both inline — "(3 marks)", "Short Answer Type" — so an
+// import can read them instead of leaving the chapter screen with nothing to show.
+//
+// EXPLICIT ONLY. Where the source says nothing, these return null and the column
+// stays null; the screen then omits the chip. Deliberately no inference from marks
+// to type (1 mark ⇒ Very Short Answer is the usual CBSE convention but it is a
+// convention, not a fact) — a guessed "4 Marks" on a student's screen reads exactly
+// like a real one, and there is no way for them to tell it apart.
+const TYPE_PATTERNS = [
+  [/very\s*short\s*answer/i, 'Very Short Answer'],
+  [/short\s*answer/i, 'Short Answer'],
+  [/long\s*answer/i, 'Long Answer'],
+  [/case[\s-]*stud(y|ies)[\s-]*based|case[\s-]*stud(y|ies)/i, 'Case Study-Based'],
+  [/assertion[\s-]*(and|&)?[\s-]*reason/i, 'Assertion-Reason'],
+  [/multiple\s*choice|^mcq\b/i, 'Multiple Choice'],
+]
+
+function deriveQuestionMeta(html) {
+  const text = String(html || '').replace(/<[^>]*>/g, ' ').replace(/&nbsp;/gi, ' ')
+  // "(3 marks)" / "[2 Marks]" / "- 5 mark". Bounded to 1–20 so a stray year or a
+  // figure reference ("2020 marks the...") can't be read as a mark value.
+  const m = text.match(/(\d{1,2})\s*marks?\b/i)
+  const n = m ? parseInt(m[1], 10) : null
+  const marks = n != null && n >= 1 && n <= 20 ? n : null
+
+  let questionType = null
+  for (const [re, label] of TYPE_PATTERNS) {
+    if (re.test(text)) { questionType = label; break }
+  }
+  return { marks, questionType }
+}
+
 async function chapterQuestions(req, res, next) {
   try {
     const c = await loadChapterOr404(req.params.id)
@@ -227,7 +260,8 @@ async function chapterQuestions(req, res, next) {
     if (!sec.length) return ApiResponse.success(res, { questions: [] })
     const qs = await db.$queryRawUnsafe(
       `SELECT q_number AS "qNumber", question_html AS "questionHtml", solution_html AS "solutionHtml",
-              is_mcq AS "isMcq", options, correct_option AS "correctOption"
+              is_mcq AS "isMcq", options, correct_option AS "correctOption",
+              marks, question_type AS "questionType"
          FROM questions WHERE section_id = $1::bigint ORDER BY position ASC, id ASC`, sec[0].id)
     return ApiResponse.success(res, { questions: qs })
   } catch (e) { next(e) }
@@ -254,13 +288,25 @@ async function saveChapterQuestions(req, res, next) {
         // A row is a real MCQ only with ≥2 options and exactly one marked correct.
         const isMcq = Boolean(q && q.isMcq) && options.length >= 2 && options.filter((o) => o.is_correct).length === 1
         const correctOption = isMcq ? (options.find((o) => o.is_correct) || {}).idx || null : null
+        // An explicit value from the payload always wins — the editor's field, or an
+        // importer that already parsed the paper. Only fall back to reading the HTML.
+        const questionHtml = String(q && q.questionHtml || '')
+        const derived = deriveQuestionMeta(`${questionHtml} ${q && q.qNumber ? q.qNumber : ''}`)
+        const rawMarks = q && (q.marks != null ? q.marks : q.mark)
+        const marks = rawMarks != null && rawMarks !== '' && Number.isFinite(Number(rawMarks))
+          ? Math.max(0, Math.min(99, Math.round(Number(rawMarks))))
+          : derived.marks
+        const rawType = q && (q.questionType || q.question_type)
+        const questionType = rawType ? String(rawType).trim().slice(0, 60) : derived.questionType
         return {
           qNumber: q && q.qNumber ? String(q.qNumber).slice(0, 40) : `Q${i + 1}`,
-          questionHtml: String(q && q.questionHtml || ''),
+          questionHtml,
           solutionHtml: String(q && q.solutionHtml || ''),
           isMcq,
           options: isMcq ? options : null,
           correctOption,
+          marks,
+          questionType: questionType || null,
         }
       })
       .filter((q) => q.questionHtml.replace(/<[^>]*>/g, '').trim())
@@ -272,9 +318,9 @@ async function saveChapterQuestions(req, res, next) {
     await db.$transaction([
       db.$executeRawUnsafe(`DELETE FROM questions WHERE section_id = $1::bigint`, secId),
       ...items.map((q, i) => db.$executeRawUnsafe(
-        `INSERT INTO questions (section_id, q_number, question_html, is_mcq, options, correct_option, solution_html, position)
-         VALUES ($1::bigint, $2, $3, $4, $5::jsonb, $6, $7, $8)`,
-        secId, q.qNumber, q.questionHtml, q.isMcq, q.options != null ? JSON.stringify(q.options) : null, q.correctOption, q.solutionHtml, i)),
+        `INSERT INTO questions (section_id, q_number, question_html, is_mcq, options, correct_option, solution_html, position, marks, question_type)
+         VALUES ($1::bigint, $2, $3, $4, $5::jsonb, $6, $7, $8, $9, $10)`,
+        secId, q.qNumber, q.questionHtml, q.isMcq, q.options != null ? JSON.stringify(q.options) : null, q.correctOption, q.solutionHtml, i, q.marks, q.questionType)),
     ])
     await audit.record(req, { module: 'resources', action: 'chapter.questions.save', targetType: 'chapter', targetId: String(c.id), targetLabel: c.name, after: { type, count: items.length } })
     return ApiResponse.success(res, { count: items.length }, 'Saved')

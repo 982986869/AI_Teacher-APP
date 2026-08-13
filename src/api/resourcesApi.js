@@ -40,6 +40,22 @@ export const getQuestionsByPath = async (subjectSlug, chapterSlug, sectionType, 
     { params: { class: classLevel } }
   )).data.data;
 
+// Per-student chapter progress — the chapter screen's real numbers.
+// → { sectionId, total, solved, percent, recommended, questions:[{ id, qNumber,
+//     questionHtml, marks, questionType, status }] }
+// `marks` / `questionType` are null when the importer had neither, and `status` is
+// null for an untouched question — render each as absent, never as 0 or a guess.
+export const getChapterQuestionProgress = async (subjectSlug, chapterSlug, sectionType, classLevel) =>
+  (await axiosInstance.get(
+    `/api/resources/progress/${subjectSlug}/${chapterSlug}/${sectionType}`,
+    { params: { class: classLevel } }
+  )).data.data;
+
+// Mark one question solved / attempted / skipped. Pass null to clear it back to
+// untouched. Best-effort at the call site — never block the UI on it.
+export const setQuestionProgress = async (questionId, status = 'solved') =>
+  (await axiosInstance.post(`/api/resources/questions/${questionId}/progress`, { status })).data.data;
+
 // Revision Notes for a chapter (DB-backed). Returns { intro, blocks } where
 // blocks = [{ title, html }] — the flashcard-grouped notes the importer stored.
 export const getNotesByPath = async (subjectSlug, chapterSlug, classLevel) =>

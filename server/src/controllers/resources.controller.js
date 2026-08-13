@@ -62,6 +62,34 @@ async function getQuestionsByPath(req, res, next) {
   } catch (err) { next(err) }
 }
 
+// GET /api/resources/progress/:subjectSlug/:chapterSlug/:sectionType?class=11
+// → { total, solved, percent, recommended, questions:[{ ..., status }] }
+async function getChapterProgress(req, res, next) {
+  try {
+    const { subjectSlug, chapterSlug, sectionType } = req.params
+    const data = await svc.getChapterProgress(req.user.id, subjectSlug, chapterSlug, sectionType, classOf(req))
+    if (!data) return ApiResponse.error(res, 'Section not found', 404)
+    return ApiResponse.success(res, data)
+  } catch (err) { next(err) }
+}
+
+// POST /api/resources/questions/:questionId/progress  { status }
+// status: 'solved' | 'attempted' | 'skipped', or null to clear it.
+const PROGRESS_STATUSES = ['solved', 'attempted', 'skipped']
+async function setQuestionProgress(req, res, next) {
+  try {
+    const { questionId } = req.params
+    if (!/^\d+$/.test(String(questionId))) return ApiResponse.error(res, 'Invalid question id', 422)
+    const raw = req.body ? req.body.status : undefined
+    const status = raw === null || raw === '' ? null : String(raw || 'solved')
+    if (status !== null && !PROGRESS_STATUSES.includes(status)) {
+      return ApiResponse.error(res, `status must be one of ${PROGRESS_STATUSES.join(', ')}, or null`, 422)
+    }
+    const data = await svc.setQuestionProgress(req.user.id, questionId, status)
+    return ApiResponse.success(res, data, 'Progress saved')
+  } catch (err) { next(err) }
+}
+
 async function getNotesByPath(req, res, next) {
   try {
     const { subjectSlug, chapterSlug } = req.params
@@ -150,4 +178,4 @@ async function getResourceMenu(req, res, next) {
   } catch (err) { next(err) }
 }
 
-module.exports = { getSubjects, getClassSubjects, getChapters, getSections, getQuestions, getQuestionsByPath, getNotesByPath, listPapers, getPaper, importPapers, deletePapers, getMcqByPath, getClasses, getResourceMenu }
+module.exports = { getSubjects, getClassSubjects, getChapters, getSections, getQuestions, getQuestionsByPath, getChapterProgress, setQuestionProgress, getNotesByPath, listPapers, getPaper, importPapers, deletePapers, getMcqByPath, getClasses, getResourceMenu }

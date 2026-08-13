@@ -62,6 +62,10 @@ function mapQuestion(q) {
     correctOption: q.correct_option,
     solutionHtml: q.solution_html,
     position: q.position,
+    // Null when the importer had neither — the client must render an absent mark
+    // or type as absent, never as "0 Marks" or a guessed category.
+    marks: q.marks == null ? null : Number(q.marks),
+    questionType: q.question_type || null,
   }
 }
 
@@ -165,6 +169,66 @@ async function getQuestionsByPath(subjectSlug, chapterSlug, sectionType, classLe
   })
   if (!section) return null
   return listQuestions(section.id)
+}
+
+// ─── Chapter progress for one student ────────────────────────────────────────
+// Everything the chapter screen needs to show true numbers: each question with its
+// status, the solved/total counts, and the next unsolved question in paper order.
+//
+// `recommended` is deliberately just "the first question with no progress row", not
+// a ranked suggestion. There is no per-question difficulty or mastery signal to rank
+// by, and inventing one would put a confident "RECOMMENDED NEXT" label on a guess.
+async function getChapterProgress(userId, subjectSlug, chapterSlug, sectionType, classLevel = null) {
+  const section = await db.sections.findFirst({
+    where: {
+      type_key: sectionType,
+      chapters: { slug: chapterSlug, class_level: classLevel, subjects: { slug: subjectSlug } },
+    },
+  })
+  if (!section) return null
+
+  const rows = await db.questions.findMany({
+    where: { section_id: section.id },
+    orderBy: [{ position: 'asc' }, { id: 'asc' }],
+  })
+  const ids = rows.map((r) => r.id)
+  const prog = ids.length
+    ? await db.question_progress.findMany({ where: { user_id: userId, question_id: { in: ids } } })
+    : []
+  const byId = new Map(prog.map((p) => [String(p.question_id), p]))
+
+  const questions = rows.map((q) => {
+    const p = byId.get(String(q.id))
+    return { ...mapQuestion(q), status: p ? p.status : null, updatedAt: p ? p.updated_at : null }
+  })
+  const solved = questions.filter((q) => q.status === 'solved').length
+  const next = questions.find((q) => q.status == null) || null
+
+  return {
+    sectionId: num(section.id),
+    total: questions.length,
+    solved,
+    // Integer percent so the client never renders 33.333333%.
+    percent: questions.length ? Math.round((solved / questions.length) * 100) : 0,
+    recommended: next,
+    questions,
+  }
+}
+
+// Upsert one question's status. `null` clears it (back to untouched) rather than
+// writing a 'pending' row, so "not started" stays the absence of a row everywhere.
+async function setQuestionProgress(userId, questionId, status) {
+  const id = BigInt(questionId)
+  if (status == null) {
+    await db.question_progress.deleteMany({ where: { user_id: userId, question_id: id } })
+    return { questionId: Number(questionId), status: null }
+  }
+  await db.question_progress.upsert({
+    where: { user_id_question_id: { user_id: userId, question_id: id } },
+    create: { user_id: userId, question_id: id, status },
+    update: { status, updated_at: new Date() },
+  })
+  return { questionId: Number(questionId), status }
 }
 
 // ─── Revision Notes for a chapter (notes table, by slugs) ─────────────────────
@@ -413,6 +477,8 @@ module.exports = {
   listSections,
   listQuestions,
   getQuestionsByPath,
+  getChapterProgress,
+  setQuestionProgress,
   getNotesByPath,
   listPapers,
   getPaper,

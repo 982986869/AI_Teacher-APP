@@ -9,6 +9,8 @@ const {
   getSections,
   getQuestions,
   getQuestionsByPath,
+  getChapterProgress,
+  setQuestionProgress,
   getNotesByPath,
   listPapers,
   getPaper,
@@ -42,6 +44,10 @@ router.get('/sections/:sectionId/questions',     getQuestions)
 router.get('/content/:subjectSlug/:chapterSlug/:sectionType', getQuestionsByPath)
 
 // ─── Revision Notes for a chapter (notes table; ?class=) ───────────────────────
+// ─── Per-student chapter progress (drives the chapter screen's real numbers) ───
+router.get('/progress/:subjectSlug/:chapterSlug/:sectionType', getChapterProgress)
+router.post('/questions/:questionId/progress',                setQuestionProgress)
+
 router.get('/notes/:subjectSlug/:chapterSlug', getNotesByPath)
 
 // ─── MCQ Practice: all MCQs for a chapter, ready for the test screen ───────────
