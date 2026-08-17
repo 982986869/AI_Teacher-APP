@@ -2,8 +2,9 @@
 
 **Date:** 2026-08-10
 **Branch:** `feat/onboarding-intro`
-**Spec:** `specs/2026-08-10-support-ticket-console-design.md`
-**Plan:** `plans/2026-08-10-support-ticket-console.md`
+**Spec / plan:** deleted 2026-08-17 — they described the web portal console, which was
+itself removed. Recover from git history if needed. The console that ships today is
+specced in `specs/2026-08-13-app-support-console-design.md`.
 
 Everything in the plan shipped and each task was reviewed. This file records what was
 consciously *not* fixed, so it is a decision rather than an oversight.
@@ -19,10 +20,12 @@ consciously *not* fixed, so it is a decision rather than an oversight.
    cd server && npx prisma db execute --file prisma/sql/support_tickets.sql --schema prisma/schema.prisma
    ```
 
-2. **Add the portal's production origin to `ALLOWED_ORIGINS`.** REST is proxied
-   same-origin by Next, but the socket connects directly to `NEXT_PUBLIC_SOCKET_URL`,
-   so it is a cross-origin WebSocket. `server/src/config/env.js` refuses to default this
-   in production. Only localhost is documented today.
+2. ~~**Add the portal's production origin to `ALLOWED_ORIGINS`.**~~ No longer needed.
+   The web portal's `/support` console was removed (2026-08-14) in favour of the in-app
+   admin console under `src/screens/admin/support/`, so nothing in a browser opens the
+   support socket any more. The native app sends no `Origin` header, so the socket's
+   `cors.origin` check does not apply to it. `ALLOWED_ORIGINS` still matters for the
+   portal's *other* REST needs, but not for support.
 
 3. **Register the real agent** (already done for `saurabh@ailernova.com`; repeat for
    anyone added):
@@ -41,7 +44,8 @@ consciously *not* fixed, so it is a decision rather than an oversight.
 
 ## Manual verification still owed
 
-None of this was possible without a device and a browser:
+Both sides now live in the app, so this needs a device signed in as a student/parent and
+a second one (or a second session) signed in as a `support.view` admin:
 
 1. Student raises a billing issue → it appears live in the console.
 2. Admin replies → it appears live in the app, with the agent's name.
@@ -67,11 +71,9 @@ Ordered by how likely they are to matter.
 - **`typing` is dead end to end.** The server relays it; no client emits or listens, and
   `joinTicket` has no `onTyping` slot. Either wire it up or delete the relay.
 - **`shape().unread` means the *user's* read state but is shipped in the staff queue
-  response.** The portal correctly ignores it and computes its own staff-side unread, but
-  the field is a trap for the next reader. Drop it from `queue`, or name the two apart.
-- **Two socket connections per admin tab on `/support`** — `layout.tsx` and `page.tsx`
-  each call `useSupportSocket`. Harmless with one admin; a shared provider would be
-  tidier.
+  response.** The in-app console correctly ignores it and computes its own staff-side
+  unread, but the field is a trap for the next reader. Drop it from `queue`, or name the
+  two apart.
 - **The doubt CTA overpromises.** It reads "AI Teacher kholein" but only switches to the
   Home tab — `AITeacherScreen` has no route, it is local state inside `HomeScreen.js`.
   Either soften the copy or give the screen a route.

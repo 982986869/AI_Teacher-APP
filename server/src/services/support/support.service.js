@@ -6,7 +6,8 @@
 //
 // The rule the whole file exists to enforce: STAFF DO NOT CLOSE TICKETS. Staff propose
 // a resolution; the ticket closes when the user confirms, or when three silent days
-// pass. See docs/superpowers/specs/2026-08-10-support-ticket-console-design.md.
+// pass. This comment is now the rule's only home — the spec that stated it was deleted
+// with the web console it was written for.
 
 const db = require('../../config/database')
 

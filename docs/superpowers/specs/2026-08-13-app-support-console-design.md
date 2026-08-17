@@ -2,7 +2,9 @@
 
 **Date:** 2026-08-13
 **Branch:** `feat/onboarding-intro`
-**Status:** approved, ready for implementation plan
+**Status:** shipped — and since 2026-08-14 this is the *only* support console. The web
+portal's `/support` was deleted, so every "web console" reference below is history, not a
+thing you can still open. Read it as the parity target this design was measured against.
 
 ## Problem
 
