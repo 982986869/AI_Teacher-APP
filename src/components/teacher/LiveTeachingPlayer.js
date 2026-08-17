@@ -118,23 +118,30 @@ const SCREEN_MARGIN = 24;
 const CAM_CARD_FRAC = 0.27;
 const BOARD_MIN_FRAC = 0.42;
 
-// TEACHER_HERO_PHOTO is a wide FULL-BODY illustration, 1123×944px (figure centred,
-// brick backdrop filling the rest of the frame) — see teacherIdentity.js. A plain
-// `cover` fit inside a portrait card just shows the whole figure small with lots of
-// backdrop, not the bust/headshot framing a real video-call teacher card needs.
+// TEACHER_HERO_PHOTO (assets/teacher-avatar.png) is a 1283×1080 bust of Tahlia on a
+// TRANSPARENT background — the violet stage behind it is what fills the frame. A
+// plain `cover` fit would centre the whole 1283×1080 canvas, which includes a lot of
+// empty space below her shoulders, so we pick an explicit crop WINDOW instead.
 //
-// Instead of a scale+translate transform (whose translate units get tangled up with
-// the scale — easy to mis-tune), we pick an explicit crop WINDOW in the source
-// photo's own fractional coordinates, then size + position the <Image> with plain
-// width/height/top/left so that window exactly fills the card. If the photo asset
-// is ever replaced, re-derive HERO_CROP_TOP/H/CX by opening the new art and reading
-// off where her head, shoulders and horizontal centre actually sit.
-const HERO_PHOTO_W = 1123;
-const HERO_PHOTO_H = 944;
+// Rather than a scale+translate transform (whose translate units get tangled with the
+// scale — easy to mis-tune), the window is expressed in the photo's own fractional
+// coordinates, then the <Image> is sized + positioned with plain width/height/top/left
+// so that window exactly fills the card.
+//
+// ⚠ THESE ARE ASSET-SPECIFIC. They were last re-derived for the Tahlia swap; the
+// previous values (1123×944, top 0.02, height 0.44) belonged to the older full-body
+// art and, left on this asset, cut her chin off at 46% and framed her far too tight.
+// If the photo is replaced again, open it and read off where the hair, chin and
+// horizontal centre actually sit.
+//
+// Measured on the current art: hair crown ≈ 6% down, chin ≈ 52%, shoulders ≈ 60%,
+// and she sits a touch right of centre at 52%.
+const HERO_PHOTO_W = 1283;
+const HERO_PHOTO_H = 1080;
 const HERO_PHOTO_AR = HERO_PHOTO_W / HERO_PHOTO_H;
-const HERO_CROP_TOP = 0.02;  // fraction down the photo where the visible window starts (a hair of headroom above her hair)
-const HERO_CROP_H = 0.44;    // fraction of the photo's height the window spans — head, hair and shoulders, stopping above her hands-on-hips
-const HERO_CROP_CX = 0.50;   // horizontal centre of the window, as a fraction of the photo's width (she's centred in the source art)
+const HERO_CROP_TOP = 0.04;  // starts just above the crown, so there is headroom but no dead space
+const HERO_CROP_H = 0.52;    // crown → past the chin into the shoulders: a video-call bust, not a tight face
+const HERO_CROP_CX = 0.52;   // her actual horizontal centre in this art
 const CAM_CARD_W = SCREEN_W - SCREEN_MARGIN * 2;   // matches sessionScroll's horizontal padding
 const CAM_CARD_H = SCREEN_H * CAM_CARD_FRAC;
 // Derive the <Image>'s full rendered size + offset: crop_W is chosen so the crop
