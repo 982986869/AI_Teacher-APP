@@ -266,7 +266,7 @@ const OTPScreen = ({ navigation, route }) => {
               style={({ pressed }) => [styles.btnWrap, pressed && { transform: [{ scale: 0.985 }] }, loading && { opacity: 0.7 }]}
             >
               <LinearGradient
-                colors={complete ? [N.violet, '#A855F7'] : [N.violetLo, N.violet]}
+                colors={complete ? [N.violet, N.violetLo] : [N.violetLo, N.violet]}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
                 style={styles.btn}
@@ -313,7 +313,7 @@ const styles = StyleSheet.create({
     width: 92, height: 92, borderRadius: 46,
     alignItems: 'center', justifyContent: 'center',
     backgroundColor: N.violetSoft,
-    borderWidth: 1, borderColor: 'rgba(255,255,255,0.10)',
+    borderWidth: 1, borderColor: N.cardEdge,
   },
 
   heading: {
@@ -332,8 +332,8 @@ const styles = StyleSheet.create({
   otpBox: {
     width: BOX_W, height: BOX_H,
     borderRadius: 14, borderWidth: 1.5,
-    borderColor: 'rgba(255,255,255,0.08)',
-    backgroundColor: 'rgba(10,8,26,0.55)',
+    borderColor: N.cardEdge,
+    backgroundColor: N.cardSoft,
     textAlign: 'center', textAlignVertical: 'center',
     fontSize: 24, color: N.ink,
     padding: 0,

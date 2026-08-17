@@ -459,14 +459,14 @@ const s = StyleSheet.create({
   avatar: {
     width: 116, height: 116, borderRadius: 58,
     alignItems: 'center', justifyContent: 'center', overflow: 'hidden',
-    backgroundColor: 'rgba(10,8,26,0.6)',
+    backgroundColor: N.cardSoft,
     borderWidth: 2, borderStyle: 'dashed', borderColor: N.violet,
   },
   avatarImg:   { width: '100%', height: '100%' },
   uploadLabel: { fontSize: 15, color: N.violet, marginTop: 12, marginBottom: 22 },
 
   card: {
-    backgroundColor: 'rgba(255,255,255,0.055)',
+    backgroundColor: N.cardSoft,
     borderRadius: 28,
     borderWidth: 1, borderColor: N.cardEdge,
     padding: 16,
@@ -475,7 +475,7 @@ const s = StyleSheet.create({
 
   segment: {
     flexDirection: 'row', gap: 6, padding: 4,
-    backgroundColor: 'rgba(10,8,26,0.55)', borderRadius: 14,
+    backgroundColor: N.cardSoft, borderRadius: 14,
   },
   segItem:    { flex: 1, height: 40, borderRadius: 11, alignItems: 'center', justifyContent: 'center' },
   segItemSel: { backgroundColor: N.violetSoft, borderWidth: 1, borderColor: N.violet },
@@ -485,7 +485,7 @@ const s = StyleSheet.create({
   row: {
     flexDirection: 'row', alignItems: 'center', gap: 14,
     height: 60, borderRadius: 14, paddingHorizontal: 16,
-    backgroundColor: 'rgba(10,8,26,0.55)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1, borderColor: 'transparent',
   },
   rowPressed:     { opacity: 0.75 },
@@ -496,7 +496,7 @@ const s = StyleSheet.create({
 
   textarea: {
     minHeight: 130, borderRadius: 14, padding: 16,
-    backgroundColor: 'rgba(10,8,26,0.55)',
+    backgroundColor: N.cardSoft,
     fontSize: 16, color: N.ink, lineHeight: 22,
   },
 
@@ -511,7 +511,7 @@ const s = StyleSheet.create({
   btn:     { height: 58, borderRadius: 30, alignItems: 'center', justifyContent: 'center' },
   btnText: { fontSize: 17, color: N.ink, letterSpacing: 0.2 },
 
-  sheetBackdrop: { flex: 1, backgroundColor: 'rgba(6,4,20,0.6)' },
+  sheetBackdrop: { flex: 1, backgroundColor: 'rgba(15,18,34,0.45)' },
   sheet: {
     backgroundColor: N.card,
     borderTopLeftRadius: 24, borderTopRightRadius: 24,
@@ -527,7 +527,7 @@ const s = StyleSheet.create({
     flexDirection: 'row', alignItems: 'center', gap: 12,
     paddingVertical: 14, paddingHorizontal: 14,
     borderRadius: 14, marginBottom: 8,
-    backgroundColor: 'rgba(255,255,255,0.035)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1, borderColor: 'transparent',
   },
   sheetItemSel:  { backgroundColor: N.violetSoft, borderColor: N.violet },

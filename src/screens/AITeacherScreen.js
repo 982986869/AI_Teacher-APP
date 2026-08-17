@@ -519,7 +519,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
                         accessibilityRole="button"
                         accessibilityLabel={`Subject ${subj}`}
                         accessibilityState={{ selected: on }}
-                        style={[ns.subjChip, on && { borderColor: m.hue, backgroundColor: 'rgba(255,255,255,0.07)' }]}
+                        style={[ns.subjChip, on && { borderColor: m.hue, backgroundColor: N.cardSoft }]}
                       >
                         <m.Icon size={16} color={on ? m.hue : N.inkSoft} strokeWidth={2} />
                         <T F={F} w="med" s={13.5} c={on ? N.ink : N.inkSoft}>{subj}</T>
@@ -554,7 +554,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
                     style={({ pressed }) => [ns.goWrap, (loading || !topic.trim()) && { opacity: 0.5 }, pressed && { transform: [{ scale: 0.96 }] }]}
                   >
                     <LinearGradient
-                      colors={[N.violet, '#A855F7']}
+                      colors={[N.violet, N.violetLo]}
                       start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}
                       style={ns.go}
                     >
@@ -637,7 +637,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
                   </View>
                   <View style={ns.resumeWrap}>
                     <LinearGradient
-                      colors={[N.violet, '#A855F7']}
+                      colors={[N.violet, N.violetLo]}
                       start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}
                       style={ns.resume}
                     >
@@ -1055,27 +1055,27 @@ const ns = StyleSheet.create({
 
   segment: {
     flexDirection: 'row', gap: 6, padding: 4, marginTop: 18,
-    backgroundColor: 'rgba(10,8,26,0.55)', borderRadius: 14,
+    backgroundColor: N.cardSoft, borderRadius: 14,
   },
   segItem:   { flex: 1, height: 42, borderRadius: 11, alignItems: 'center', justifyContent: 'center' },
   segItemOn: { backgroundColor: N.violetSoft, borderWidth: 1, borderColor: N.violet },
 
   composer: {
     marginTop: 14, padding: 14, borderRadius: 20, gap: 12,
-    backgroundColor: 'rgba(255,255,255,0.05)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1, borderColor: N.cardEdge,
   },
   subjChip: {
     flexDirection: 'row', alignItems: 'center', gap: 7,
     height: 40, paddingHorizontal: 14, borderRadius: 13,
-    backgroundColor: 'rgba(10,8,26,0.5)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1.5, borderColor: 'transparent',
   },
   searchRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
   searchBox: {
     flex: 1, flexDirection: 'row', alignItems: 'center', gap: 10,
     height: 56, paddingHorizontal: 16, borderRadius: 15,
-    backgroundColor: 'rgba(10,8,26,0.55)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1, borderColor: N.cardEdge,
   },
   searchInput: { flex: 1, fontSize: 15.5, color: N.ink, padding: 0 },
@@ -1088,7 +1088,7 @@ const ns = StyleSheet.create({
   styleChip: {
     height: 36, paddingHorizontal: 14, borderRadius: 12,
     alignItems: 'center', justifyContent: 'center',
-    backgroundColor: 'rgba(10,8,26,0.5)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1.5, borderColor: 'transparent',
   },
   styleChipOn: { borderColor: N.violet, backgroundColor: N.violetSoft },
@@ -1103,7 +1103,7 @@ const ns = StyleSheet.create({
   hero: {
     flexDirection: 'row', alignItems: 'center', gap: 14,
     marginTop: 18, borderRadius: 20, padding: 16,
-    backgroundColor: 'rgba(10,8,26,0.5)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1.5, borderColor: N.violet,
     shadowColor: N.violet, shadowOpacity: 0.4, shadowRadius: 18,
     shadowOffset: { width: 0, height: 6 }, elevation: 8,
@@ -1128,7 +1128,7 @@ const ns = StyleSheet.create({
 
   welcome: {
     marginTop: 12, padding: 16, borderRadius: 20,
-    backgroundColor: 'rgba(255,255,255,0.05)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1, borderColor: N.cardEdge,
   },
   welcomeClose: { position: 'absolute', top: 12, right: 12, padding: 6, zIndex: 2 },
@@ -1140,7 +1140,7 @@ const ns = StyleSheet.create({
   },
   welcomeGhost: {
     height: 42, paddingHorizontal: 16, borderRadius: 12, justifyContent: 'center',
-    backgroundColor: 'rgba(10,8,26,0.5)', borderWidth: 1, borderColor: N.cardEdge,
+    backgroundColor: N.cardSoft, borderWidth: 1, borderColor: N.cardEdge,
     maxWidth: '60%',
   },
 
@@ -1154,7 +1154,7 @@ const ns = StyleSheet.create({
   toggleBtn: {
     width: 42, height: 42, borderRadius: 12,
     alignItems: 'center', justifyContent: 'center',
-    backgroundColor: 'rgba(10,8,26,0.5)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1.5, borderColor: N.cardEdge,
   },
   toggleBtnOn: { borderColor: N.violet, backgroundColor: N.violetSoft },
@@ -1163,7 +1163,7 @@ const ns = StyleSheet.create({
   filterChip: {
     height: 46, paddingHorizontal: 22, borderRadius: 23,
     alignItems: 'center', justifyContent: 'center',
-    backgroundColor: 'rgba(10,8,26,0.5)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1.5, borderColor: N.cardEdge,
   },
   filterChipOn: { backgroundColor: N.violet, borderColor: N.violet },
@@ -1171,7 +1171,7 @@ const ns = StyleSheet.create({
   rangeChip: {
     flexDirection: 'row', alignItems: 'center', gap: 10, alignSelf: 'flex-start',
     height: 48, paddingHorizontal: 16, borderRadius: 14, marginTop: 14, marginBottom: 16,
-    backgroundColor: 'rgba(10,8,26,0.5)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1.5, borderColor: N.cardEdge,
   },
 
@@ -1180,7 +1180,7 @@ const ns = StyleSheet.create({
   row: {
     flexDirection: 'row', alignItems: 'center', gap: 14,
     padding: 12, borderRadius: 18, marginBottom: 12,
-    backgroundColor: 'rgba(255,255,255,0.045)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1, borderColor: N.cardEdge,
   },
   rowThumb: { width: 82, height: 82 },
@@ -1190,7 +1190,7 @@ const ns = StyleSheet.create({
   grid: { flexDirection: 'row', flexWrap: 'wrap', gap: 12 },
   gridCard: {
     borderRadius: 18, overflow: 'hidden',
-    backgroundColor: 'rgba(255,255,255,0.045)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1, borderColor: N.cardEdge,
   },
   gridThumb: { width: '100%', aspectRatio: 16 / 10 },
@@ -1198,7 +1198,7 @@ const ns = StyleSheet.create({
   emptyCard: {
     flexDirection: 'row', alignItems: 'center', gap: 12,
     padding: 16, borderRadius: 18,
-    backgroundColor: 'rgba(255,255,255,0.04)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1, borderColor: N.cardEdge,
   },
   emptyIcon: {
@@ -1209,13 +1209,13 @@ const ns = StyleSheet.create({
   insightRow: { flexDirection: 'row', gap: 12 },
   insightCard: {
     flex: 1, padding: 14, borderRadius: 18,
-    backgroundColor: 'rgba(255,255,255,0.045)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1, borderColor: N.cardEdge,
   },
   insightWide: {
     flexDirection: 'row', alignItems: 'center', gap: 12,
     padding: 14, borderRadius: 18, marginTop: 12,
-    backgroundColor: 'rgba(255,255,255,0.045)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1, borderColor: N.cardEdge,
   },
   insightIcon: {
@@ -1237,14 +1237,14 @@ const ns = StyleSheet.create({
   genSpark: {
     width: 76, height: 76, borderRadius: 38,
     alignItems: 'center', justifyContent: 'center',
-    backgroundColor: N.violetSoft, borderWidth: 1, borderColor: 'rgba(255,255,255,0.1)',
+    backgroundColor: N.violetSoft, borderWidth: 1, borderColor: N.cardEdge,
   },
   genList: { alignSelf: 'stretch', marginTop: 24, gap: 14 },
   genRow:  { flexDirection: 'row', alignItems: 'center', gap: 12 },
   genDot:  { width: 22, alignItems: 'center', justifyContent: 'center' },
   genSpin: { width: 22 },
 
-  sheetBackdrop: { flex: 1, backgroundColor: 'rgba(6,4,20,0.6)' },
+  sheetBackdrop: { flex: 1, backgroundColor: 'rgba(15,18,34,0.45)' },
   sheet: {
     backgroundColor: N.card,
     borderTopLeftRadius: 24, borderTopRightRadius: 24,
@@ -1259,7 +1259,7 @@ const ns = StyleSheet.create({
     flexDirection: 'row', alignItems: 'center', gap: 12,
     paddingVertical: 14, paddingHorizontal: 14,
     borderRadius: 14, marginBottom: 8,
-    backgroundColor: 'rgba(255,255,255,0.035)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1, borderColor: 'transparent',
   },
   sheetItemOn: { backgroundColor: N.violetSoft, borderColor: N.violet },

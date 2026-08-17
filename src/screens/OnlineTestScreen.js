@@ -48,7 +48,7 @@ const slugify = (s) => {
 
 const C = {
   bg: '#F4F5FB', white: '#fff', text: S.ink, muted: S.muted,
-  primary: '#534AB7', primaryLight: '#EEEDFE', border: S.hair,
+  primary: '#111111', primaryLight: '#F5F5F5', border: S.hair,
   green: '#22B07A', greenBg: '#E7F7EC', red: '#F0564B', redBg: '#FDECEC',
   amber: '#F5A623', amberBg: '#FFF4E0', blue: '#4AA8F0', grey: S.faint,
 };
@@ -594,7 +594,7 @@ function Instruction({ test, onBack, onStart }) {
           <Animated.View style={{
             transform: [{ scale: press }],
             shadowOpacity: glow.interpolate({ inputRange: [0, 1], outputRange: [0.35, 0.7] }),
-            shadowColor: '#8B5CF6', shadowRadius: 22, shadowOffset: { width: 0, height: 10 },
+            shadowColor: '#111111', shadowRadius: 22, shadowOffset: { width: 0, height: 10 },
           }}>
             <Pressable
               onPress={onStart}
@@ -891,9 +891,9 @@ const st = StyleSheet.create({
 
   briefFooter: { paddingHorizontal: 22, paddingTop: 8, paddingBottom: Platform.OS === 'ios' ? 30 : 20 },
   startBtn: {
-    height: 66, borderRadius: 18, backgroundColor: '#8B5CF6',
+    height: 66, borderRadius: 18, backgroundColor: '#111111',
     alignItems: 'center', justifyContent: 'center',
-    shadowColor: '#8B5CF6', shadowOpacity: 0.55, shadowRadius: 22,
+    shadowColor: '#111111', shadowOpacity: 0.18, shadowRadius: 22,
     shadowOffset: { width: 0, height: 10 }, elevation: 12,
   },
   startBtnTxt: { fontSize: 19, fontFamily: FONT.black, color: '#FFFFFF', letterSpacing: -0.3 },

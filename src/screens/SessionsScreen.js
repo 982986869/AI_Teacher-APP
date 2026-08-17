@@ -152,7 +152,7 @@ const hexPts = (cx, cy, r) => Array.from({ length: 6 }, (_, i) => {
 });
 
 const ART = {
-  chemistry: { tint: '#4ADE80', bg: ['#123227', '#0B1F1A'], draw: (c) => {
+  chemistry: { tint: '#0E9F6E', bg: ['#123227', '#0B1F1A'], draw: (c) => {
     const p = hexPts(50, 50, 26);
     return (
       <G>
@@ -177,7 +177,7 @@ const ART = {
       <Circle cx={33} cy={22} r={4} fill={c} opacity={0.8} />
     </G>
   ) },
-  maths: { tint: '#A78BFA', bg: ['#241A4D', '#150F30'], draw: (c) => (
+  maths: { tint: '#6D28D9', bg: ['#241A4D', '#150F30'], draw: (c) => (
     <G>
       {[26, 50, 74].map((v) => <Line key={`h${v}`} x1={14} y1={v} x2={86} y2={v} stroke={c} strokeWidth={1} opacity={0.18} />)}
       {[26, 50, 74].map((v) => <Line key={`v${v}`} x1={v} y1={14} x2={v} y2={86} stroke={c} strokeWidth={1} opacity={0.18} />)}
@@ -185,7 +185,7 @@ const ART = {
       {[[34, 58], [50, 66], [68, 32]].map(([x, y], i) => <Circle key={i} cx={x} cy={y} r={5} fill={c} />)}
     </G>
   ) },
-  biology: { tint: '#2DD4BF', bg: ['#0F3038', '#0A1D24'], draw: (c) => (
+  biology: { tint: '#0F766E', bg: ['#0F3038', '#0A1D24'], draw: (c) => (
     <G>
       {Array.from({ length: 7 }, (_, i) => {
         const y = 18 + i * 11;
@@ -200,7 +200,7 @@ const ART = {
       })}
     </G>
   ) },
-  default: { tint: '#8B6EF0', bg: [N.orbA, N.orbB], draw: (c) => (
+  default: { tint: '#6D28D9', bg: [N.orbA, N.orbB], draw: (c) => (
     <G>
       {[16, 26, 36].map((r, i) => <Circle key={r} cx={50} cy={50} r={r} stroke={c} strokeWidth={2} fill="none" opacity={0.5 - i * 0.12} />)}
       <Circle cx={50} cy={50} r={9} fill={c} opacity={0.9} />
@@ -537,12 +537,12 @@ export default function SessionsScreen() {
                         style={({ pressed }) => [hs.joinWrap, pressed && { transform: [{ scale: 0.97 }] }]}
                       >
                         <LinearGradient
-                          colors={[N.violet, '#A855F7']}
+                          colors={[N.btn, N.btnSoft]}
                           start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}
                           style={hs.join}
                         >
-                          <Play size={14} color={N.ink} strokeWidth={2.5} fill={N.ink} />
-                          <T F={F} w="bold" s={14} c={N.ink}>Join</T>
+                          <Play size={14} color={N.btnInk} strokeWidth={2.5} fill={N.btnInk} />
+                          <T F={F} w="bold" s={14} c={N.btnInk}>Join</T>
                         </LinearGradient>
                       </Pressable>
                     )}
@@ -823,7 +823,7 @@ export default function SessionsScreen() {
                 style={({ pressed }) => [hs.remindWrap, pressed && { transform: [{ scale: 0.99 }] }]}
               >
                 <LinearGradient
-                  colors={[N.violet, '#A855F7']}
+                  colors={[N.btn, N.btnSoft]}
                   start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
                   style={hs.remind}
                 >
@@ -903,14 +903,14 @@ const hs = StyleSheet.create({
   clipRow: {
     flexDirection: 'row', alignItems: 'center', gap: 14,
     padding: 14, borderRadius: 16, marginTop: 10,
-    backgroundColor: 'rgba(255,255,255,0.045)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1, borderColor: N.cardEdge,
   },
   clipRowOn: { borderColor: N.violet, backgroundColor: N.violetSoft },
   clipNum: {
     width: 34, height: 34, borderRadius: 17, flexShrink: 0,
     alignItems: 'center', justifyContent: 'center',
-    backgroundColor: 'rgba(255,255,255,0.07)',
+    backgroundColor: N.cardSoft,
   },
   body: { flex: 1, paddingHorizontal: PAD },
 
@@ -919,7 +919,7 @@ const hs = StyleSheet.create({
   // live / next class
   heroWrap: {
     marginTop: 18, borderRadius: 20, padding: 16,
-    backgroundColor: 'rgba(10,8,26,0.5)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1.5, borderColor: N.cardEdge,
   },
   heroWrapLive: {
@@ -965,7 +965,7 @@ const hs = StyleSheet.create({
   toggleBtn: {
     width: 42, height: 42, borderRadius: 12,
     alignItems: 'center', justifyContent: 'center',
-    backgroundColor: 'rgba(10,8,26,0.5)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1.5, borderColor: N.cardEdge,
   },
   toggleBtnOn: { borderColor: N.violet, backgroundColor: N.violetSoft },
@@ -974,7 +974,7 @@ const hs = StyleSheet.create({
   chip: {
     height: 46, paddingHorizontal: 22, borderRadius: 23,
     alignItems: 'center', justifyContent: 'center',
-    backgroundColor: 'rgba(10,8,26,0.5)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1.5, borderColor: N.cardEdge,
   },
   chipOn: { backgroundColor: N.violet, borderColor: N.violet },
@@ -982,7 +982,7 @@ const hs = StyleSheet.create({
   rangeChip: {
     flexDirection: 'row', alignItems: 'center', gap: 10, alignSelf: 'flex-start',
     height: 48, paddingHorizontal: 16, borderRadius: 14, marginTop: 14, marginBottom: 16,
-    backgroundColor: 'rgba(10,8,26,0.5)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1.5, borderColor: N.cardEdge,
   },
 
@@ -990,7 +990,7 @@ const hs = StyleSheet.create({
   recRow: {
     flexDirection: 'row', alignItems: 'center', gap: 14,
     padding: 12, borderRadius: 18, marginBottom: 12,
-    backgroundColor: 'rgba(255,255,255,0.045)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1, borderColor: N.cardEdge,
   },
   recThumb:  { width: 68, height: 68 },
@@ -1007,7 +1007,7 @@ const hs = StyleSheet.create({
   grid:      { flexDirection: 'row', flexWrap: 'wrap', gap: 12 },
   gridCard: {
     borderRadius: 18, overflow: 'hidden', marginBottom: 0,
-    backgroundColor: 'rgba(255,255,255,0.045)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1, borderColor: N.cardEdge,
   },
   gridThumb: { width: '100%', aspectRatio: 16 / 10 },
@@ -1016,7 +1016,7 @@ const hs = StyleSheet.create({
   miniRow: {
     flexDirection: 'row', alignItems: 'center', gap: 12,
     padding: 14, borderRadius: 16, marginBottom: 10,
-    backgroundColor: 'rgba(255,255,255,0.04)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1, borderColor: N.cardEdge,
   },
   miniIcon: {
@@ -1032,7 +1032,7 @@ const hs = StyleSheet.create({
   emptyCard: {
     flexDirection: 'row', alignItems: 'center', gap: 12,
     padding: 16, borderRadius: 18,
-    backgroundColor: 'rgba(255,255,255,0.04)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1, borderColor: N.cardEdge,
   },
   emptyIcon: {
@@ -1044,16 +1044,16 @@ const hs = StyleSheet.create({
   comingCard: { borderRadius: 26, overflow: 'hidden', padding: 22, marginTop: 20 },
   comingTag: {
     flexDirection: 'row', alignItems: 'center', gap: 6, alignSelf: 'flex-start',
-    backgroundColor: 'rgba(255,255,255,0.14)', borderRadius: 20,
+    backgroundColor: N.track, borderRadius: 20,
     paddingHorizontal: 10, paddingVertical: 6,
   },
   comingIcon: {
     width: 58, height: 58, borderRadius: 19, marginTop: 16,
-    alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.14)',
+    alignItems: 'center', justifyContent: 'center', backgroundColor: N.track,
   },
   featCard: {
     borderRadius: 20, padding: 16,
-    backgroundColor: 'rgba(255,255,255,0.045)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1, borderColor: N.cardEdge,
   },
   featRow:     { flexDirection: 'row', alignItems: 'center', gap: 14, paddingVertical: 12 },
@@ -1082,7 +1082,7 @@ const hs = StyleSheet.create({
     backgroundColor: N.cardSoft, borderWidth: 1, borderColor: N.cardEdge,
   },
 
-  sheetBackdrop: { flex: 1, backgroundColor: 'rgba(6,4,20,0.6)' },
+  sheetBackdrop: { flex: 1, backgroundColor: 'rgba(15,18,34,0.45)' },
   sheet: {
     backgroundColor: N.card,
     borderTopLeftRadius: 24, borderTopRightRadius: 24,
@@ -1097,7 +1097,7 @@ const hs = StyleSheet.create({
     flexDirection: 'row', alignItems: 'center', gap: 12,
     paddingVertical: 14, paddingHorizontal: 14,
     borderRadius: 14, marginBottom: 8,
-    backgroundColor: 'rgba(255,255,255,0.035)',
+    backgroundColor: N.cardSoft,
     borderWidth: 1, borderColor: 'transparent',
   },
   sheetItemOn: { backgroundColor: N.violetSoft, borderColor: N.violet },

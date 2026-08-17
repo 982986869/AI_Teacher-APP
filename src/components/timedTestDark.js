@@ -32,36 +32,34 @@ import { hasMath, htmlToPlain, firstImg, stripImages } from '../utils/mathHtml';
 // Violet-forward: one accent carries the active section, the chosen option, the
 // palette's current cell and Next, so "this is where you are" reads as one idea.
 export const TT = {
-  canvas: DS.background,                // #0C0936
-  card: '#16143F',                      // option card, palette button
-  cardSoft: 'rgba(255,255,255,0.035)',  // inactive section tab
-  hair: 'rgba(255,255,255,0.0627)',     // every resting edge
+  // ⚠ Was the dark timed-test palette; now the Cuemath light system. Keys are
+  // preserved so the runner's ~40 call sites keep working, which means two names
+  // now lie: TT.cyan is the YELLOW accent and TT.violet is the DARK button ink.
+  // TT.onBright is the ink that sits on top of a yellow fill.
+  canvas: DS.background,                // #FFFFFF
+  card: DS.surface,                     // #F5F5F5 — option card, Previous, hamburger
+  hair: DS.border,                      // every resting edge
 
-  ink: '#FFFFFF',
-  sub: '#8F95B2',                       // progress, Clear Answer, Prev
-  dim: '#6B6F8C',                       // option letters at rest
-  onBright: '#08090C',                  // a label sitting on a saturated fill
+  ink: DS.textPrimary,                  // #111111
+  sub: DS.textSecondary,                // #666666
+  onBright: '#111111',                  // a label sitting on a yellow fill
 
-  violet: '#7B61FF',                    // active section, chosen option, Next
-  violetSoft: 'rgba(123,97,255,0.14)',  // chosen option fill
-  violetEdge: 'rgba(123,97,255,0.45)',
+  // Timer badge + the picked option. Yellow is a FILL here, never text.
+  cyan: DS.primary,                     // #FFC629
+  cyanSoft: '#FFF4CC',
+  cyanPick: '#FFEBA6',
 
-  // The chosen option's letter takes the one warm accent in the frame, so the
-  // choice is legible at a glance even before the border registers.
-  pick: '#FF6B4A',
+  violet: DS.ink,                       // Next / info — dark, per the system
+  violetSoft: '#F0F0F0',
 
-  cyan: '#00F0FF',                      // kept: callers still reference it
-  cyanSoft: 'rgba(0,240,255,0.0627)',
-  cyanPick: 'rgba(0,240,255,0.1255)',
+  amber: '#8A6A00',                     // context banner text — darkened to pass
+  amberSoft: '#FFF9E6',
+  amberEdge: '#FFE9A8',
 
-  amber: '#FFE082',
-  amberSoft: 'rgba(255,242,204,0.0627)',
-  amberEdge: 'rgba(255,242,204,0.1255)',
+  red: DS.error,                        // under a minute
+  redSoft: '#FDECEA',
 
-  red: '#FF3B30',                       // the live dot, and the clock under a minute
-  redSoft: 'rgba(255,51,102,0.102)',
-
-  scrim: 'rgba(4,3,18,0.72)',
+  scrim: 'rgba(17,17,17,0.45)',
 };
 
 export const TTF = {
@@ -482,13 +480,13 @@ const s = StyleSheet.create({
   btnOff:  { opacity: 0.35 },
 
   // â”€â”€ finish dialog â”€â”€
-  dialogScrim: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 20, backgroundColor: '#080625' },
+  dialogScrim: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 20, backgroundColor: TT.canvas },
   dialogBox: {
     width: '100%', maxWidth: 362, borderRadius: 24, borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.0824)',
+    borderColor: TT.hair,
     backgroundColor: 'rgba(17,19,28,0.7529)',
     padding: 23, gap: 24,
-    shadowColor: '#000000', shadowOpacity: 0.3137, shadowRadius: 24, shadowOffset: { width: 0, height: 12 }, elevation: 12,
+    shadowColor: '#111111', shadowOpacity: 0.10, shadowRadius: 24, shadowOffset: { width: 0, height: 12 }, elevation: 12,
   },
   dialogText: { gap: 12 },
   dialogTitle: { fontSize: 22, lineHeight: 28, fontFamily: TTF.head, color: TT.ink, textAlign: 'center' },
