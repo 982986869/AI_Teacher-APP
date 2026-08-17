@@ -59,6 +59,7 @@ export default function StudentProfileScreen({ route, navigation }) {
               <Stagger base={24} step={55}>
                 <ProfileHeaderCard
                   seed={d.user.id} name={d.user.name} contact={d.user.email || d.user.phone}
+                  phone={d.user.phone} email={d.user.email}
                   badges={[
                     { toneKey: d.user.isActive ? 'emerald' : 'red', label: d.user.isActive ? 'active' : 'deactivated' },
                     ...(d.user.grade ? [{ toneKey: 'indigo', dot: false, label: d.user.grade }] : []),

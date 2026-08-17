@@ -5,7 +5,7 @@
 import React from 'react';
 import { View, Animated, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { House, CalendarDays, Target, BookOpen, ChartColumn, User } from 'lucide-react-native';
+import { House, CalendarDays, Target, BookOpen, ChartColumn, User, LifeBuoy } from 'lucide-react-native';
 import { S } from '../theme/studentTheme';
 import { T } from '../screens/parent/ParentApp/constants';
 import { PressableScale } from '../screens/parent/ParentApp/anim';
@@ -18,6 +18,9 @@ const TABS = {
   Tests:     { Icon: Target,       label: 'Tests' },
   Resources: { Icon: BookOpen,     label: 'Resources' },
   Results:   { Icon: ChartColumn,  label: 'Results' },
+  // Only present for accounts holding support.view — AdminNavigator decides, this map
+  // just knows how to draw it when it is there.
+  Support:   { Icon: LifeBuoy,     label: 'Support' },
   Profile:   { Icon: User,         label: 'Profile' },
 };
 const ACCENT = S.indigo;
@@ -26,6 +29,8 @@ const ACCENT = S.indigo;
 // form action bars (the "coloured pills with no visible text" bug) and full-screen previews.
 // Lists/detail screens keep the dock (with proper bottom clearance in the screens themselves).
 const HIDE_DOCK_ON = new Set([
+  // The thread has its own sticky composer at the bottom; the dock would sit on top of it.
+  'SupportThread',
   'TestForm', 'QuestionForm', 'TestPreview',
   'SessionForm',
   'ChapterForm',
@@ -46,7 +51,7 @@ function deepestRouteName(state) {
   return null;
 }
 
-const NavTab = React.memo(function NavTab({ label, Icon, isFocused, onPress }) {
+const NavTab = React.memo(function NavTab({ label, Icon, isFocused, onPress, badge = 0 }) {
   const v = React.useRef(new Animated.Value(isFocused ? 1 : 0)).current;
   React.useEffect(() => {
     Animated.spring(v, { toValue: isFocused ? 1 : 0, useNativeDriver: true, damping: 12, stiffness: 220, mass: 0.7 }).start();
@@ -57,6 +62,11 @@ const NavTab = React.memo(function NavTab({ label, Icon, isFocused, onPress }) {
       <PressableScale style={styles.item} onPress={onPress} scaleTo={0.9} accessibilityRole="button" accessibilityLabel={label} accessibilityState={isFocused ? { selected: true } : {}}>
         <Animated.View style={[styles.iconBox, { transform: [{ scale }] }]}>
           <Icon size={22} color={isFocused ? ACCENT : S.muted} strokeWidth={isFocused ? 2.7 : 2.1} />
+          {badge > 0 ? (
+            <View style={styles.badge} accessibilityLabel={`${badge} unread`}>
+              <T w="xbold" s={9} c="#fff">{badge > 99 ? '99+' : String(badge)}</T>
+            </View>
+          ) : null}
         </Animated.View>
         <T w={isFocused ? 'xbold' : 'semi'} s={9.5} c={isFocused ? ACCENT : S.muted} numberOfLines={1} style={styles.label}>{label}</T>
       </PressableScale>
@@ -64,7 +74,7 @@ const NavTab = React.memo(function NavTab({ label, Icon, isFocused, onPress }) {
   );
 });
 
-export default function AdminDock({ state, navigation }) {
+export default function AdminDock({ state, navigation, supportUnread = 0 }) {
   const insets = useSafeAreaInsets();
   const padBottom = Math.max(insets.bottom, 8) + 6;
   // Compute before hooks; the early return happens AFTER all hooks so hook order stays stable.
@@ -97,7 +107,12 @@ export default function AdminDock({ state, navigation }) {
             const event = navigation.emit({ type: 'tabPress', target: route.key, canPreventDefault: true });
             if (!isFocused && !event.defaultPrevented) navigation.navigate(route.name);
           };
-          return <NavTab key={route.key} label={cfg.label} Icon={cfg.Icon} isFocused={isFocused} onPress={onPress} />;
+          return (
+            <NavTab
+              key={route.key} label={cfg.label} Icon={cfg.Icon} isFocused={isFocused}
+              badge={route.name === 'Support' ? supportUnread : 0} onPress={onPress}
+            />
+          );
         })}
       </View>
     </View>
@@ -114,6 +129,11 @@ const styles = StyleSheet.create({
   slot: { flex: 1 },
   pill: { position: 'absolute', top: 0, bottom: 0, left: 0, borderRadius: 16, opacity: 0.12 },
   item: { alignItems: 'center', justifyContent: 'center', gap: 5, paddingVertical: 5 },
-  iconBox: { height: 24, alignItems: 'center', justifyContent: 'center' },
+  // relative + overflow visible so the badge can sit outside the icon's own box.
+  iconBox: { height: 24, alignItems: 'center', justifyContent: 'center', position: 'relative' },
+  badge: {
+    position: 'absolute', top: -5, right: -11, minWidth: 16, height: 16, borderRadius: 8,
+    paddingHorizontal: 4, backgroundColor: S.red, alignItems: 'center', justifyContent: 'center',
+  },
   label: { letterSpacing: 0, textAlign: 'center' },
 });

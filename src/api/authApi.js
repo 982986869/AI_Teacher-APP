@@ -27,7 +27,7 @@ export const signupWithEmail = async ({ name, email, password, grade }) => {
 // GET current user + derived scope (role, class, stream, subjects).
 export const fetchMe = async () => {
   const res = await axiosInstance.get('/api/auth/me');
-  return res.data.data; // { user, scope }
+  return res.data.data; // { user, scope, permissions }
 };
 
 // PATCH profile (complete-profile / migration): grade, board, stream, language, school, accountType.

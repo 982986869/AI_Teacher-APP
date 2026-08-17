@@ -28,6 +28,7 @@ import ErrorState from './ErrorState';
 import Skeleton from './Skeleton';
 import BottomNav from './BottomNav';
 import ProfileSheet from './ProfileSheet';
+import HelpFab from '../../../components/support/HelpFab';
 import BrainGymFlow from '../../braingym/BrainGymFlow';
 import ActivityRouter from './ActivityRouter';
 import BookTrial from './BookTrial';
@@ -160,6 +161,15 @@ export default function ParentApp() {
           {tab === 'classes' && <ClassesTab {...shared} />}
         </FadeIn>
         <BottomNav tab={tab} setTab={switchTab} />
+        {/* Floating chat bubble → the topic-select screen. Parent name + child name feed
+            the greeting ("Hi Meera 👋 Aarav ki learning ke baare mein…"). */}
+        <HelpFab
+          role="parent"
+          userName={user?.name}
+          userPhone={user?.phone}
+          childName={child?.name}
+          bottom={86}
+        />
         {!!toast && <View style={st.toast}><T w="semi" s={14} c="#fff" style={{ textAlign: 'center' }}>{toast}</T></View>}
       </View>
     );
