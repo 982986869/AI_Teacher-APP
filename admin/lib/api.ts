@@ -82,9 +82,3 @@ async function request<T>(base: string, path: string, opts: Options = {}): Promi
 export function api<T = any>(path: string, opts: Options = {}): Promise<T> {
   return request<T>('/api/admin', path, opts)
 }
-
-// Support lives at /api/support, not under /api/admin. Same token, same 401 redirect —
-// only the prefix differs, so it shares the implementation rather than copying it.
-export function apiRoot<T = any>(path: string, opts: Options = {}): Promise<T> {
-  return request<T>('/api', path, opts)
-}

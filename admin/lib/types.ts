@@ -208,43 +208,5 @@ export interface AuditEntry {
   targetId: string | null; targetLabel: string | null; before: any; after: any; ip: string | null; createdAt: string
 }
 
-export type TicketStatus = 'open' | 'assigned' | 'pending_confirmation' | 'closed'
-export type CallOutcome = 'talked' | 'no_answer' | 'callback'
-
-export const SUPPORT_TEAMS = [
-  'Sales team', 'Tutor operations', 'Accounts team', 'Class support',
-  'Support team', 'Academic team', 'Assessment team', 'Tech support',
-] as const
-
-export interface TicketMessage {
-  id: string
-  authorRole: 'user' | 'agent' | 'system'
-  authorName: string | null
-  kind: 'text' | 'call' | 'event'
-  callOutcome: CallOutcome | null
-  text: string
-  createdAt: string
-}
-
-export interface Ticket {
-  id: string
-  ref: string
-  status: TicketStatus
-  team: string
-  topicId: string
-  topicLabel: string
-  createdAt: string
-  updatedAt: string
-  autoCloseAt: string | null
-  staffReadAt: string | null
-  unread: boolean
-  childName: string | null
-  assignedTo: { name: string; team: string } | null
-  resolution: { summary: string; at: string; by: string | null } | null
-  raisedBy: { name: string; phone: string | null }
-}
-
-export interface TicketDetail extends Ticket {
-  messages: TicketMessage[]
-  attachments: { id: string; name: string; url: string; mimeType: string | null }[]
-}
+// Support tickets are worked from the in-app console (src/screens/admin/support), not
+// this portal — the ticket types that used to live here left with the /support page.
