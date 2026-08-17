@@ -42,7 +42,7 @@ export default function PrimaryButton({ label, onPress, icon, loading = false, d
 const styles = StyleSheet.create({
   shadow: {
     borderRadius: 28,
-    shadowColor: '#6D4AFF',
+    shadowColor: '#FFC629',
     shadowOpacity: 0.251,
     shadowRadius: 16,
     shadowOffset: { width: 0, height: 8 },
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     borderRadius: 28,
     paddingHorizontal: 24,
     borderWidth: 1,
-    borderColor: '#FFFFFF1F',   // white @ 12%
+    borderColor: 'rgba(17,17,17,0.10)',   // white @ 12%
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
@@ -65,6 +65,6 @@ const styles = StyleSheet.create({
     fontFamily: FONT_FAMILY.bold,
     fontSize: 16,
     lineHeight: 22,
-    color: '#FFFFFF',
+    color: '#111111',   // ink on yellow — white would be 1.7:1
   },
 });

@@ -135,7 +135,7 @@ function Squeeze({ onPress, style, children, ...rest }) {
 // runs once after the card has settled (the delay lets Appear finish first).
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
-function Ring({ pct = 0, size = 62, stroke = 6, color = '#fff', track = 'rgba(255,255,255,0.26)', children }) {
+function Ring({ pct = 0, size = 62, stroke = 6, color = N.ink, track = 'rgba(15,18,34,0.20)', children }) {
   const r = (size - stroke) / 2;
   const circ = 2 * Math.PI * r;
   const target = Math.max(0, Math.min(1, pct));
@@ -334,6 +334,14 @@ const HomeScreen = () => {
   const initialLoad = useRef(true);
   useEffect(() => () => { mounted.current = false; }, []);
 
+  // AI Teacher and Brain Gym render as an in-place swap of Home's own content, not a
+  // separate route — the Tab Navigator's active route never changes, so the dock
+  // never learns to hide itself. Tell it directly whenever either immersive flow is up.
+  useEffect(() => {
+    navigation.setOptions({ tabBarStyle: (showAITeacher || showBrainGym) ? { display: 'none' } : undefined });
+    return () => navigation.setOptions({ tabBarStyle: undefined });
+  }, [showAITeacher, showBrainGym, navigation]);
+
   const load = useCallback(async (isRefresh) => {
     try {
       const [rep, active, ctx, seen] = await Promise.all([
@@ -502,21 +510,21 @@ const HomeScreen = () => {
               <LinearGradient colors={[N.heroA, N.heroB]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={hs.hero}>
                 <View style={hs.heroTop}>
                   <View style={hs.heroChip}>
-                    <T w="bold" s={8.5} c="#fff" style={{ letterSpacing: 0.9 }}>CURRENT LESSON</T>
+                    <T w="bold" s={8.5} c={N.ink} style={{ letterSpacing: 0.9 }}>CURRENT LESSON</T>
                   </View>
                   {(!!contSubject || streak > 0) && (
-                    <T w="semi" s={11.5} c="rgba(255,255,255,0.82)" numberOfLines={1} style={{ flexShrink: 1, textAlign: 'right' }}>
+                    <T w="semi" s={11.5} c="rgba(15,18,34,0.72)" numberOfLines={1} style={{ flexShrink: 1, textAlign: 'right' }}>
                       {[contSubject, streak > 0 ? `${streak}-day streak` : null].filter(Boolean).join(' · ')}
                     </T>
                   )}
                 </View>
 
                 <View style={hs.heroBody}>
-                  <T w="black" s={20} c="#fff" numberOfLines={3} style={{ flex: 1, lineHeight: 27, letterSpacing: -0.3 }}>
+                  <T w="black" s={20} c={N.ink} numberOfLines={3} style={{ flex: 1, lineHeight: 27, letterSpacing: -0.3 }}>
                     {contTitle || 'Start your first lesson'}
                   </T>
                   <Ring pct={heroPct / 100} size={62} stroke={6}>
-                    <CountUp to={Math.round(heroPct)} w="black" s={14} c="#fff" />
+                    <CountUp to={Math.round(heroPct)} w="black" s={14} c={N.ink} />
                   </Ring>
                 </View>
 
@@ -525,8 +533,8 @@ const HomeScreen = () => {
                   onPress={() => openAITeacher(contTitle || '', contSubject || '')}
                   accessibilityLabel={contTitle ? `Resume lesson: ${contTitle}` : 'Start learning'}
                 >
-                  <T w="xbold" s={14} c={N.heroB}>{contTitle ? 'Resume lesson' : 'Start learning'}</T>
-                  <Play size={14} color={N.heroB} strokeWidth={3} fill={N.heroB} />
+                  <T w="xbold" s={14} c={N.btnInk}>{contTitle ? 'Resume lesson' : 'Start learning'}</T>
+                  <Play size={14} color={N.btnInk} strokeWidth={3} fill={N.btnInk} />
                 </Squeeze>
               </LinearGradient>
             </Appear>
@@ -596,10 +604,10 @@ const HomeScreen = () => {
                               style={[hs.day, did && hs.dayDone, d.isToday && hs.dayToday]}
                               accessibilityLabel={`${d.day || ''}${did ? ', done' : ''}${d.isToday ? ', today' : ''}`}
                             >
-                              <T w="xbold" s={11.5} c={did || d.isToday ? '#fff' : N.inkDim}>{(d.day || '').slice(0, 1)}</T>
+                              <T w="xbold" s={11.5} c={did || d.isToday ? N.ink : N.inkDim}>{(d.day || '').slice(0, 1)}</T>
                               {did
-                                ? <CircleCheck size={11} color="#fff" strokeWidth={3} style={{ marginTop: 2 }} />
-                                : <View style={[hs.dayDot, d.isToday && { backgroundColor: '#fff' }]} />}
+                                ? <CircleCheck size={11} color={N.ink} strokeWidth={3} style={{ marginTop: 2 }} />
+                                : <View style={[hs.dayDot, d.isToday && { backgroundColor: N.ink }]} />}
                             </View>
                           </Pop>
                         );
@@ -722,10 +730,10 @@ const hs = StyleSheet.create({
     shadowColor: '#5B3FD9', shadowOpacity: 0.4, shadowRadius: 20, shadowOffset: { width: 0, height: 10 }, elevation: 9,
   },
   heroTop: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10 },
-  heroChip: { backgroundColor: 'rgba(255,255,255,0.20)', paddingVertical: 4, paddingHorizontal: 10, borderRadius: 50 },
+  heroChip: { backgroundColor: 'rgba(15,18,34,0.10)', paddingVertical: 4, paddingHorizontal: 10, borderRadius: 50 },
   heroBody: { flexDirection: 'row', alignItems: 'center', gap: 14, marginTop: 16 },
   heroBtn: {
-    marginTop: 18, backgroundColor: '#fff', borderRadius: 14, paddingVertical: 14,
+    marginTop: 18, backgroundColor: N.btn, borderRadius: 14, paddingVertical: 14,
     flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7,
   },
 
@@ -748,18 +756,18 @@ const hs = StyleSheet.create({
   dayDot: { width: 4, height: 4, borderRadius: 2, backgroundColor: N.inkDim, marginTop: 4 },
 
   // ask buttons
-  askPrimary: { marginTop: 10, backgroundColor: N.violetLo, borderRadius: 11, paddingVertical: 9, alignItems: 'center' },
+  askPrimary: { marginTop: 10, backgroundColor: N.btn, borderRadius: 11, paddingVertical: 9, alignItems: 'center' },
   askGhost: {
-    marginTop: 7, backgroundColor: 'rgba(255,255,255,0.05)', borderWidth: 1, borderColor: N.cardEdge,
+    marginTop: 7, backgroundColor: N.cardSoft, borderWidth: 1, borderColor: N.cardEdge,
     borderRadius: 11, paddingVertical: 9, alignItems: 'center',
   },
 
   // recent activity
   actRow: { flexDirection: 'row', alignItems: 'center', gap: 11, paddingVertical: 11 },
-  actDivider: { borderBottomWidth: 1, borderBottomColor: 'rgba(255,255,255,0.05)' },
+  actDivider: { borderBottomWidth: 1, borderBottomColor: N.cardEdge },
   actIcon: { width: 34, height: 34, borderRadius: 12, alignItems: 'center', justifyContent: 'center' },
 
-  retryBtn: { marginTop: 4, backgroundColor: N.violetLo, borderRadius: 12, paddingVertical: 11, paddingHorizontal: 28 },
+  retryBtn: { marginTop: 4, backgroundColor: N.btn, borderRadius: 12, paddingVertical: 11, paddingHorizontal: 28 },
 
   toast: {
     position: 'absolute', left: PAD, right: PAD, flexDirection: 'row', alignItems: 'center', gap: 11,

@@ -35,7 +35,13 @@ export const TEACHER_HEADSHOT = require('../../../assets/teacher-head.png');
 //   falls back to the still photo automatically if it ever fails to load.
 //   NOTE: the loop is AMBIENT talking motion, not word-synced to the lesson TTS —
 //   for mouth shapes that match the actual words, use the 3D/GLB route below.
-export const TEACHER_VIDEO = null;
+// HeyGen avatar "Tahlia in White shirt" (look id Tahlia_public_5), downloaded from
+// that look's preview clip so the app SHIPS the file rather than calling HeyGen at
+// runtime — no API key in the client, nothing to expire, works offline.
+// To swap her for another look: GET https://api.heygen.com/v2/avatars with the key
+// (server-side / your shell, never in this repo), save the look's preview_video_url
+// as assets/teacher-tahlia.mp4, and this line does not change.
+export const TEACHER_VIDEO = require('../../../assets/teacher-tahlia.mp4');
 
 // ▶ TALKING 3D AVATAR (your image → rigged 3D head).
 //   Turn your photo into a rigged .glb on https://avaturn.me (paid) or

@@ -2,16 +2,17 @@
 // Admin bottom navigation — the SAME docked bar as the Student FloatingDock (rounded top,
 // upward shadow, a soft indigo pill gliding behind the active tab, native-driven spring),
 // just with the Admin's 5 tabs. Keeps Admin feeling like another mode of the same app.
-import React from 'react';
-import { View, Animated, StyleSheet } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Animated, StyleSheet, Platform } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import * as NavigationBar from 'expo-navigation-bar';
 import { House, CalendarDays, Target, BookOpen, ChartColumn, User, LifeBuoy } from 'lucide-react-native';
-import { S } from '../theme/studentTheme';
+import { COLORS } from '../theme/designSystem';
 import { T } from '../screens/parent/ParentApp/constants';
 import { PressableScale } from '../screens/parent/ParentApp/anim';
 
-// The Admin dock mirrors the Student dock exactly — same component, motion and icons —
-// so Admin reads as another mode of the same app.
+// The Admin dock mirrors the Student dock exactly — same component and motion — on the
+// AILERNOVA dark design system (src/theme/designSystem.js), same as the rest of Admin.
 const TABS = {
   Home:      { Icon: House,        label: 'Home' },
   Sessions:  { Icon: CalendarDays, label: 'Sessions' },
@@ -23,7 +24,8 @@ const TABS = {
   Support:   { Icon: LifeBuoy,     label: 'Support' },
   Profile:   { Icon: User,         label: 'Profile' },
 };
-const ACCENT = S.indigo;
+const ACCENT = COLORS.primary;
+const IDLE = COLORS.textSecondary;
 
 // Deep create/edit/preview routes hide the dock — otherwise the docked bar overlaps sticky
 // form action bars (the "coloured pills with no visible text" bug) and full-screen previews.
@@ -61,20 +63,29 @@ const NavTab = React.memo(function NavTab({ label, Icon, isFocused, onPress, bad
     <View style={styles.slot}>
       <PressableScale style={styles.item} onPress={onPress} scaleTo={0.9} accessibilityRole="button" accessibilityLabel={label} accessibilityState={isFocused ? { selected: true } : {}}>
         <Animated.View style={[styles.iconBox, { transform: [{ scale }] }]}>
-          <Icon size={22} color={isFocused ? ACCENT : S.muted} strokeWidth={isFocused ? 2.7 : 2.1} />
+          <Icon size={22} color={isFocused ? ACCENT : IDLE} strokeWidth={isFocused ? 2.7 : 2.1} />
           {badge > 0 ? (
             <View style={styles.badge} accessibilityLabel={`${badge} unread`}>
               <T w="xbold" s={9} c="#fff">{badge > 99 ? '99+' : String(badge)}</T>
             </View>
           ) : null}
         </Animated.View>
-        <T w={isFocused ? 'xbold' : 'semi'} s={9.5} c={isFocused ? ACCENT : S.muted} numberOfLines={1} style={styles.label}>{label}</T>
+        <T w={isFocused ? 'xbold' : 'semi'} s={9.5} c={isFocused ? ACCENT : IDLE} numberOfLines={1} style={styles.label}>{label}</T>
       </PressableScale>
     </View>
   );
 });
 
 export default function AdminDock({ state, navigation, supportUnread = 0 }) {
+  // The Android system nav bar (home/back/recents) is separate OS chrome, not part of
+  // this app's view tree — it defaults to a light strip that seams badly against the
+  // dock beneath it. Match it to the canvas for as long as Admin is mounted.
+  useEffect(() => {
+    if (Platform.OS !== 'android') return;
+    NavigationBar.setBackgroundColorAsync(COLORS.background).catch(() => {});
+    NavigationBar.setButtonStyleAsync('light').catch(() => {});
+  }, []);
+
   const insets = useSafeAreaInsets();
   const padBottom = Math.max(insets.bottom, 8) + 6;
   // Compute before hooks; the early return happens AFTER all hooks so hook order stays stable.
@@ -121,19 +132,21 @@ export default function AdminDock({ state, navigation, supportUnread = 0 }) {
 
 const styles = StyleSheet.create({
   nav: {
-    backgroundColor: '#FFFFFF', paddingTop: 10, paddingHorizontal: 8,
-    borderTopLeftRadius: 24, borderTopRightRadius: 24, borderTopWidth: 1, borderColor: 'rgba(20,20,40,0.06)',
-    shadowColor: '#0B1020', shadowOpacity: 0.10, shadowRadius: 18, shadowOffset: { width: 0, height: -4 }, elevation: 18,
+    backgroundColor: COLORS.background, paddingTop: 10, paddingHorizontal: 8,
+    borderTopLeftRadius: 24, borderTopRightRadius: 24, borderTopWidth: 1, borderColor: 'rgba(255,255,255,0.10)',
+    shadowColor: '#000000', shadowOpacity: 0.35, shadowRadius: 18, shadowOffset: { width: 0, height: -4 }, elevation: 18,
   },
   track: { flexDirection: 'row', alignItems: 'center', position: 'relative', minHeight: 50 },
   slot: { flex: 1 },
-  pill: { position: 'absolute', top: 0, bottom: 0, left: 0, borderRadius: 16, opacity: 0.12 },
+  // A 12% wash disappears on this dark surface (it worked on the light bar because white
+  // lifted off white-ish grey) — bump the opacity so the active pill actually reads.
+  pill: { position: 'absolute', top: 0, bottom: 0, left: 0, borderRadius: 16, opacity: 0.20 },
   item: { alignItems: 'center', justifyContent: 'center', gap: 5, paddingVertical: 5 },
   // relative + overflow visible so the badge can sit outside the icon's own box.
   iconBox: { height: 24, alignItems: 'center', justifyContent: 'center', position: 'relative' },
   badge: {
     position: 'absolute', top: -5, right: -11, minWidth: 16, height: 16, borderRadius: 8,
-    paddingHorizontal: 4, backgroundColor: S.red, alignItems: 'center', justifyContent: 'center',
+    paddingHorizontal: 4, backgroundColor: COLORS.error, alignItems: 'center', justifyContent: 'center',
   },
   label: { letterSpacing: 0, textAlign: 'center' },
 });

@@ -35,10 +35,12 @@ import { FONT } from '../constants/fonts';
 // variables elsewhere. Deeper levels (actual notes/solutions/papers content,
 // chapter lists, PDF preview) stay on the light `S`/`s` styles below for now.
 const DK = {
-  canvas: COLORS.background, card: 'rgba(255,255,255,0.05)',
+  // Derived from COLORS, which is now the light system — so the white-alpha fills
+  // this map used to carry (invisible on white) become the neutral surfaces.
+  canvas: COLORS.background, card: COLORS.card,
   ink: COLORS.textPrimary, sub: COLORS.textSecondary, muted: COLORS.textSecondary,
-  faint: 'rgba(255,255,255,0.38)', hair: 'rgba(255,255,255,0.10)',
-  indigo: COLORS.primary, indigoSoft: 'rgba(124,58,237,0.16)',
+  faint: COLORS.textMuted, hair: COLORS.border,
+  indigo: COLORS.ink, indigoSoft: COLORS.glow,
 };
 import { getChapterNotes } from '../notes/index';
 import Ch2Images from '../notes/images/Ch2Images';
@@ -1179,11 +1181,11 @@ const buildPaperDoc = (html) =>
 // vanish. So the accent resolves by NAME first, and a list's own colour is trusted
 // only when it is bright enough to read on the dark surface.
 const SUBJECT_TINT = {
-  physics: '#FF8A3D', chemistry: '#FF5C8A', math: '#A78BFA', maths: '#A78BFA',
-  biology: '#22D3EE', science: '#4ADE80', english: '#8B6EF0', hindi: '#F5A623',
-  social: '#5B8CFF', reasoning: '#FB923C', computer: '#5B8CFF',
+  physics: '#C2410C', chemistry: '#BE185D', math: '#6D28D9', maths: '#6D28D9',
+  biology: '#0891B2', science: '#0E9F6E', english: '#6D28D9', hindi: '#F5A623',
+  social: '#2563EB', reasoning: '#C2410C', computer: '#2563EB',
 };
-const TINT_CYCLE = ['#8B6EF0', '#22D3EE', '#4ADE80', '#FF8A3D', '#FF5C8A', '#5B8CFF'];
+const TINT_CYCLE = ['#6D28D9', '#0891B2', '#0E9F6E', '#C2410C', '#BE185D', '#2563EB'];
 
 // Perceived brightness (ITU-R BT.601). Under ~90 it disappears on the dark canvas.
 const isBright = (hex) => {
@@ -1275,6 +1277,161 @@ function SubjectCard({ subject, index, summary, onPress }) {
         <Animated.View style={[dk.subjectBar, { backgroundColor: tint, transform: [{ scaleX: enter }] }]} />
       </Pressable>
     </Animated.View>
+  );
+}
+
+// Resource types get their own hue family, keyed off what the type IS — so
+// "NCERT Solutions" is the same green on every subject's page and a student can
+// navigate by colour once they have seen the list twice.
+const RESTYPE_TINT = {
+  solution: '#0E9F6E', note: '#6D28D9', important: '#F5A623', pyq: '#2563EB',
+  previous: '#2563EB', paper: '#2563EB', mock: '#BE185D', test: '#BE185D',
+  exemplar: '#0891B2', practice: '#C2410C', formula: '#6D28D9', video: '#C2410C',
+};
+const resTint = (name, i = 0) => {
+  const k = String(name || '').toLowerCase();
+  const hit = Object.keys(RESTYPE_TINT).find((key) => k.includes(key));
+  return hit ? RESTYPE_TINT[hit] : TINT_CYCLE[i % TINT_CYCLE.length];
+};
+
+// One resource type as a shelf card: an accent rail down the leading edge, a wash
+// of the same hue, and a circular go-button that drifts right on a loop so the row
+// reads as an entry point rather than a static label. Cards slide in from the left,
+// staggered — a different entrance from the subject grid's rise, so moving one level
+// deeper feels like a step rather than a repaint.
+function ResTypeCard({ item, index, onPress }) {
+  const tint = resTint(item.name, index);
+  const enter = useRef(new Animated.Value(0)).current;
+  const press = useRef(new Animated.Value(1)).current;
+  const nudge = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.timing(enter, {
+      toValue: 1, duration: 420, delay: 70 + index * 70,
+      easing: Easing.out(Easing.cubic), useNativeDriver: true,
+    }).start();
+    const loop = Animated.loop(Animated.sequence([
+      Animated.timing(nudge, { toValue: 1, duration: 900, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
+      Animated.timing(nudge, { toValue: 0, duration: 900, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
+      Animated.delay(1200),
+    ]));
+    loop.start();
+    return () => loop.stop();
+  }, [enter, nudge, index]);
+
+  const to = (v) => Animated.spring(press, { toValue: v, friction: 7, tension: 180, useNativeDriver: true }).start();
+
+  return (
+    <Animated.View style={{
+      opacity: enter,
+      transform: [
+        { translateX: enter.interpolate({ inputRange: [0, 1], outputRange: [-22, 0] }) },
+        { scale: press },
+      ],
+    }}>
+      <Pressable
+        onPress={onPress}
+        onPressIn={() => to(0.98)}
+        onPressOut={() => to(1)}
+        accessibilityRole="button"
+        accessibilityLabel={`${item.name}. ${item.sub || ''}`}
+        style={[dk.resTypeCard, { borderColor: tint + '40' }]}
+      >
+        <LinearGradient
+          colors={[tint + '24', 'transparent']}
+          start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}
+          style={StyleSheet.absoluteFill}
+        />
+        <View style={[dk.resTypeRail, { backgroundColor: tint }]} />
+
+        <View style={[dk.resTypeIconWrap, { backgroundColor: tint + '26', borderColor: tint + '59' }]}>
+          <Text style={{ fontSize: 24 }}>{item.icon}</Text>
+        </View>
+
+        <View style={{ flex: 1, minWidth: 0 }}>
+          <Text style={dk.resTypeName} numberOfLines={1}>{item.name}</Text>
+          {!!item.sub && <Text style={dk.resTypeSub} numberOfLines={1}>{item.sub}</Text>}
+        </View>
+
+        <Animated.View
+          style={[dk.resTypeGo, {
+            backgroundColor: tint + '26', borderColor: tint + '59',
+            transform: [{ translateX: nudge.interpolate({ inputRange: [0, 1], outputRange: [0, 4] }) }],
+          }]}
+        >
+          <ChevronRight size={18} color={tint} strokeWidth={2.8} />
+        </Animated.View>
+      </Pressable>
+    </Animated.View>
+  );
+}
+
+// A chapter list is a SEQUENCE, so it is drawn as one: a spine runs down the left
+// through the numbered nodes, linking the chapters instead of leaving them as
+// interchangeable rows. The spine inherits the resource type's hue, so arriving
+// here from "NCERT Solutions" keeps its green and the level reads as continuous.
+//
+// Deliberately entrance-only — no looping animation. These lists run to 20+ rows,
+// and twenty perpetual timers to decorate a table of contents is not a trade worth
+// making. Stagger is capped so the last chapter is not still arriving a second in.
+function ChapterRow({ chapter, index, total, tint, onPress }) {
+  const enter = useRef(new Animated.Value(0)).current;
+  const press = useRef(new Animated.Value(1)).current;
+
+  useEffect(() => {
+    Animated.timing(enter, {
+      toValue: 1, duration: 420, delay: Math.min(index * 45, 500),
+      easing: Easing.out(Easing.cubic), useNativeDriver: true,
+    }).start();
+  }, [enter, index]);
+
+  const to = (v) => Animated.spring(press, { toValue: v, friction: 7, tension: 190, useNativeDriver: true }).start();
+
+  return (
+    <View style={dk.chRow}>
+      <View style={dk.chSpine}>
+        {/* Segments, not one long line: the row owns its share of the spine, so it
+            stays continuous whether a title wraps to one line or three. */}
+        <View style={[dk.chLine, { backgroundColor: tint + '33', opacity: index === 0 ? 0 : 1 }]} />
+        <Animated.View
+          style={[dk.chNode, {
+            backgroundColor: tint + '26', borderColor: tint + '59',
+            transform: [{ scale: enter.interpolate({ inputRange: [0, 1], outputRange: [0.5, 1] }) }],
+          }]}
+        >
+          <Text style={[dk.chNodeTxt, { color: tint }]}>{index + 1}</Text>
+        </Animated.View>
+        {/* Draws downward toward the next chapter as the row lands. */}
+        <Animated.View
+          style={[dk.chLine, {
+            backgroundColor: tint + '33',
+            opacity: index === total - 1 ? 0 : 1,
+            transform: [{ scaleY: enter }],
+          }]}
+        />
+      </View>
+
+      <Animated.View style={{
+        flex: 1, minWidth: 0,
+        opacity: enter,
+        transform: [
+          { translateY: enter.interpolate({ inputRange: [0, 1], outputRange: [12, 0] }) },
+          { scale: press },
+        ],
+      }}>
+        <Pressable
+          onPress={onPress}
+          onPressIn={() => to(0.985)}
+          onPressOut={() => to(1)}
+          accessibilityRole="button"
+          accessibilityLabel={`Chapter ${index + 1}. ${chapter.name}`}
+          style={[dk.chCard, { borderColor: tint + '33' }]}
+        >
+          <Text style={dk.chTitle}>{chapter.name}</Text>
+          <ChevronRight size={18} color={tint} strokeWidth={2.6} />
+        </Pressable>
+      </Animated.View>
+    </View>
   );
 }
 
@@ -2185,7 +2342,9 @@ const ResourcesScreen = () => {
             <Text style={dk.pageSubtitle}>{activeSubject.name}</Text>
           </View>
         </View>
-        <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
+        {/* No `gap` here — the spine has to run unbroken between rows, so each row
+            owns its own bottom spacing instead. */}
+        <ScrollView contentContainerStyle={{ padding: 16, paddingBottom: 32 }}>
           {(isNcert2 && ncert2.loading) || notesAvail.loading || c12NcertAvail.loading || ncertAvail.loading || (isDbQList && dbQAvail.loading) ? (
             <View style={{ paddingVertical: 48, alignItems: 'center', gap: 12 }}>
               <ActivityIndicator size="large" color={DK.indigo} />
@@ -2197,7 +2356,12 @@ const ResourcesScreen = () => {
             </View>
           ) : (
             chaptersToShow.map((chapter, i) => (
-              <TouchableOpacity key={i} style={dk.listRow}
+              <ChapterRow
+                key={i}
+                chapter={chapter}
+                index={i}
+                total={chaptersToShow.length}
+                tint={resTint(activeResType?.name, 0)}
                 onPress={() => {
                   setActiveChapter(chapter);
                   setShowChapterEnd(false);
@@ -2207,13 +2371,7 @@ const ResourcesScreen = () => {
                   if (activeResType?.type === 'notes') setShowNotes(true);
                   else setShowCards(true);
                 }}
-                activeOpacity={0.8}>
-                <View style={dk.listNum}><Text style={dk.listNumTxt}>{i + 1}</Text></View>
-                <View style={{ flex: 1 }}>
-                  <Text style={dk.listRowTitle}>{chapter.name}</Text>
-                </View>
-                <ChevronRight size={19} color={DK.faint} strokeWidth={2.2} />
-              </TouchableOpacity>
+              />
             ))
           )}
         </ScrollView>
@@ -2256,16 +2414,12 @@ const ResourcesScreen = () => {
         ) : (
         <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
           {resTypesFor(activeSubject.name).map((rt, i) => (
-            <TouchableOpacity key={i} style={dk.resTypeRow} onPress={() => { setActivePaper(null); setActiveChapter(null); setShowCards(false); setShowNotes(false); setActiveResType(rt); }} activeOpacity={0.8}>
-              <View style={dk.resTypeIconWrap}>
-                <Text style={{ fontSize: 22 }}>{rt.icon}</Text>
-              </View>
-              <View style={{ flex: 1 }}>
-                <Text style={dk.resTypeName}>{rt.name}</Text>
-                <Text style={dk.resTypeSub}>{rt.sub}</Text>
-              </View>
-              <ChevronRight size={19} color={DK.faint} strokeWidth={2.2} />
-            </TouchableOpacity>
+            <ResTypeCard
+              key={i}
+              item={rt}
+              index={i}
+              onPress={() => { setActivePaper(null); setActiveChapter(null); setShowCards(false); setShowNotes(false); setActiveResType(rt); }}
+            />
           ))}
         </ScrollView>
         )}
@@ -2447,15 +2601,39 @@ const dk = StyleSheet.create({
   pageTitle:       { fontSize: 19, fontFamily: FONT.black, color: DK.ink, letterSpacing: -0.4 },
   pageSubtitle:    { fontSize: 12.5, fontFamily: FONT.semibold, color: DK.sub, marginTop: 2 },
 
-  resTypeRow:      { backgroundColor: DK.card, borderRadius: 18, borderWidth: 1, borderColor: DK.hair, flexDirection: 'row', alignItems: 'center', gap: 16, padding: 16 },
-  resTypeIconWrap: { width: 52, height: 52, borderRadius: 16, backgroundColor: 'rgba(255,255,255,0.08)', alignItems: 'center', justifyContent: 'center' },
-  resTypeName:     { fontSize: 16, fontFamily: FONT.extrabold, color: DK.ink, letterSpacing: -0.2, marginBottom: 3 },
-  resTypeSub:      { fontSize: 12, color: DK.muted, fontFamily: FONT.semibold },
+  // Shelf card: the rail sits flush in the leading edge, so the card clips it.
+  resTypeCard: {
+    backgroundColor: DK.card, borderRadius: 20, borderWidth: 1,
+    flexDirection: 'row', alignItems: 'center', gap: 16,
+    paddingVertical: 18, paddingLeft: 22, paddingRight: 16,
+    minHeight: 96, overflow: 'hidden',
+  },
+  resTypeRail:     { position: 'absolute', left: 0, top: 0, bottom: 0, width: 5 },
+
+  // chapter timeline
+  chRow:           { flexDirection: 'row', alignItems: 'stretch' },
+  chSpine:         { width: 44, alignItems: 'center' },
+  chLine:          { width: 2, flex: 1, borderRadius: 1, transformOrigin: 'top' },
+  chNode: {
+    width: 34, height: 34, borderRadius: 17, borderWidth: 1.5,
+    alignItems: 'center', justifyContent: 'center', marginVertical: 2,
+  },
+  chNodeTxt:       { fontSize: 14, fontFamily: FONT.black, letterSpacing: -0.2 },
+  chCard: {
+    flexDirection: 'row', alignItems: 'center', gap: 12,
+    backgroundColor: DK.card, borderRadius: 16, borderWidth: 1,
+    paddingVertical: 16, paddingHorizontal: 16, marginBottom: 12, marginLeft: 2,
+  },
+  chTitle:         { flex: 1, fontSize: 15.5, fontFamily: FONT.extrabold, color: DK.ink, letterSpacing: -0.2, lineHeight: 21 },
+  resTypeGo:       { width: 38, height: 38, borderRadius: 19, borderWidth: 1, alignItems: 'center', justifyContent: 'center' },
+  // backgroundColor/borderColor come from the resource type's accent.
+  resTypeIconWrap: { width: 56, height: 56, borderRadius: 18, borderWidth: 1, alignItems: 'center', justifyContent: 'center' },
+  resTypeName:     { fontSize: 17.5, fontFamily: FONT.black, color: DK.ink, letterSpacing: -0.35, marginBottom: 4 },
+  resTypeSub:      { fontSize: 12.5, color: DK.muted, fontFamily: FONT.semibold, letterSpacing: -0.1 },
 
   // Level 3 — chapter / paper lists (Revision Notes, Last Year Papers, …)
   listRow:         { backgroundColor: DK.card, borderRadius: 16, borderWidth: 1, borderColor: DK.hair, flexDirection: 'row', alignItems: 'center', gap: 14, padding: 16 },
   listNum:         { width: 32, height: 32, borderRadius: 10, backgroundColor: DK.indigoSoft, alignItems: 'center', justifyContent: 'center' },
-  listNumTxt:      { fontSize: 14, fontFamily: FONT.black, color: DK.indigo },
   listRowTitle:    { fontSize: 15, fontFamily: FONT.extrabold, color: DK.ink, letterSpacing: -0.2 },
   listRowSub:      { fontSize: 12, color: DK.muted, fontFamily: FONT.semibold, marginTop: 3 },
 });

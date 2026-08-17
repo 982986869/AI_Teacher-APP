@@ -6,10 +6,10 @@
 // Requires react-native-webview:  npx expo install react-native-webview
 // Data import path assumes  src/screens/Ncert2Screen.js  +  src/data/...
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   View, Text, ScrollView, TouchableOpacity, StyleSheet,
-  ActivityIndicator, Platform, StatusBar,
+  ActivityIndicator, Platform, StatusBar, Animated, Easing, Pressable,
 } from 'react-native';
 import { COLORS } from '../theme/designSystem';
 import PrimaryButton from '../components/brand/PrimaryButton';
@@ -22,18 +22,78 @@ import { API_BASE_URL } from '../constants/config';
 // now on the app's shared dark palette like the rest of Resources.
 const INK = COLORS.textPrimary;
 const PAGE_BG = COLORS.background;
-const CARD_BG = 'rgba(255,255,255,0.05)';
-const CARD_BORDER = 'rgba(255,255,255,0.10)';
+const CARD_BG = COLORS.card;
+const CARD_BORDER = COLORS.border;
 const TITLE_INK = COLORS.textPrimary;
-const BADGE_BG = 'rgba(124,58,237,0.16)';
+const BADGE_BG = COLORS.glow;
 const SEP = COLORS.textSecondary;
 const CRUMB_LINK = COLORS.textSecondary;
 const CRUMB_ACTIVE = COLORS.textPrimary;
-const SOLUTION_BG = 'rgba(255,255,255,0.05)';
+const SOLUTION_BG = COLORS.surface;
 const NAVBAR_BG = COLORS.background;
-const ACCENT = COLORS.primary;
-const HAIR = 'rgba(255,255,255,0.10)';
+const ACCENT = COLORS.ink;   // buttons/rails are dark; yellow is for fills
+const HAIR = COLORS.border;
 const STATUS_PAD = Platform.OS === 'android' ? (StatusBar.currentHeight || 24) : 44;
+
+// Cross-fade + slide between the section LIST and a section's CONTENT. Re-keyed on
+// `viewKey`, so drilling in slides forward and backing out slides back — without a
+// navigator, the two views would otherwise swap with a hard cut.
+function Transition({ viewKey, back, children }) {
+  const a = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    a.setValue(0);
+    Animated.timing(a, { toValue: 1, duration: 300, easing: Easing.out(Easing.cubic), useNativeDriver: true }).start();
+  }, [a, viewKey]);
+  return (
+    <Animated.View style={{
+      flex: 1,
+      opacity: a,
+      transform: [{ translateX: a.interpolate({ inputRange: [0, 1], outputRange: [back ? -26 : 26, 0] }) }],
+    }}>
+      {children}
+    </Animated.View>
+  );
+}
+
+// A section row in the list: staggered entry, spring on press.
+function SectionRow({ label, index, onPress }) {
+  const enter = useRef(new Animated.Value(0)).current;
+  const press = useRef(new Animated.Value(1)).current;
+  useEffect(() => {
+    Animated.timing(enter, {
+      toValue: 1, duration: 400, delay: Math.min(60 + index * 55, 480),
+      easing: Easing.out(Easing.cubic), useNativeDriver: true,
+    }).start();
+  }, [enter, index]);
+  const to = (v) => Animated.spring(press, { toValue: v, friction: 7, tension: 190, useNativeDriver: true }).start();
+  return (
+    <Animated.View style={{
+      opacity: enter,
+      transform: [
+        { translateY: enter.interpolate({ inputRange: [0, 1], outputRange: [10, 0] }) },
+        { scale: press },
+      ],
+    }}>
+      <Pressable
+        onPress={onPress}
+        onPressIn={() => to(0.985)}
+        onPressOut={() => to(1)}
+        accessibilityRole="button"
+        accessibilityLabel={label}
+        style={styles.row}
+      >
+        <Animated.View style={[styles.badge, {
+          transform: [{ scale: enter.interpolate({ inputRange: [0, 1], outputRange: [0.55, 1] }) }],
+        }]}>
+          <Text style={styles.badgeText}>{index + 1}</Text>
+        </Animated.View>
+        <Text style={styles.rowLabel}>{label}</Text>
+        <View style={{ flex: 1 }} />
+        <Text style={styles.rowArrow}>→</Text>
+      </Pressable>
+    </Animated.View>
+  );
+}
 
 function UserGlyph() {
   return (
@@ -43,6 +103,20 @@ function UserGlyph() {
     </View>
   );
 }
+
+// Entrance stagger, generated rather than hand-written: the badge has to carry the
+// SAME delay as the card it sits in, and `animation-delay: inherit` would resolve
+// against .question-header (no delay set), firing every badge at once. Capped at
+// the 10th card — past that a long chapter's tail would sit blank for seconds.
+const STAGGER_CSS = (() => {
+  const rows = [];
+  for (let i = 1; i <= 9; i += 1) {
+    const d = (0.02 + (i - 1) * 0.07).toFixed(2);
+    rows.push(`  .question-card:nth-child(${i}), .question-card:nth-child(${i}) .q-number{ animation-delay:${d}s }`);
+  }
+  rows.push('  .question-card:nth-child(n+10), .question-card:nth-child(n+10) .q-number{ animation-delay:.65s }');
+  return rows.join('\n');
+})();
 
 function buildDocument(fragmentHtml) {
   return `<!DOCTYPE html><html><head>
@@ -100,16 +174,56 @@ function buildDocument(fragmentHtml) {
   body, body *:not(.q-number):not(.q-number *) { color: ${INK} !important; }
   a { color: ${ACCENT} !important; }
   img{ max-width:100%; height:auto; border-radius:8px; filter:grayscale(100%); background:#fff; }
-  .question-card{ background:${CARD_BG}; border:1px solid ${CARD_BORDER}; border-radius:16px;
-                  padding:16px; margin-bottom:16px; max-width:100%; overflow:hidden; }
-  .question-header{ display:flex; justify-content:space-between; margin-bottom:10px; }
-  .q-number{ background:${ACCENT}; color:#fff; padding:4px 10px; border-radius:20px;
-             font-size:12px; font-weight:600; }
-  .question-text{ font-size:16px; line-height:1.7; margin-bottom:10px; max-width:100%; }
-  .answer-section{ margin-top:12px; max-width:100%; }
-  .solution-block{ background:${SOLUTION_BG}; padding:10px 12px; border-radius:10px;
-                   margin-top:8px; border:1px solid ${HAIR}; max-width:100%; }
-  .label{ font-size:12px; font-weight:600; color:${SEP}; margin-bottom:4px; }
+  /* ── question card ──────────────────────────────────────────────────────
+     The number is no longer a pill floating inside the card — it is notched
+     into the top-left corner as a tab, and an accent rail runs down the
+     leading edge, so a long scroll of solutions has a visible spine and you
+     can tell at a glance where one question ends and the next begins. */
+  .question-card{ position:relative; background:${CARD_BG};
+                  border:1px solid ${CARD_BORDER}; border-radius:18px;
+                  padding:22px 18px 18px 20px; margin:0 0 18px 0;
+                  max-width:100%; overflow:hidden;
+                  background-image:linear-gradient(135deg, ${ACCENT}1F 0%, transparent 42%); }
+  .question-card::before{ content:''; position:absolute; left:0; top:0; bottom:0;
+                          width:4px; background:${ACCENT}; opacity:0.85; }
+  .question-header{ display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+  .q-number{ display:inline-flex; align-items:center; justify-content:center;
+             min-width:34px; height:34px; padding:0 11px; border-radius:11px;
+             background:${ACCENT}; color:#fff; font-size:13px; font-weight:700;
+             letter-spacing:0.2px; box-shadow:0 4px 14px ${ACCENT}59; }
+  .question-text{ font-size:16.5px; line-height:1.68; font-weight:600;
+                  margin-bottom:4px; max-width:100%; }
+
+  /* ── solution ───────────────────────────────────────────────────────────
+     Reads as a distinct answer surface rather than a slightly different grey:
+     its own inset panel, its own rail, and the label promoted to a chip. */
+  .answer-section{ margin-top:14px; max-width:100%; }
+  .solution-block{ position:relative; background:${SOLUTION_BG};
+                   padding:14px 14px 14px 16px; border-radius:14px;
+                   margin-top:10px; border:1px solid ${HAIR}; max-width:100%;
+                   font-size:15.5px; line-height:1.72; }
+  .solution-block::before{ content:''; position:absolute; left:0; top:12px; bottom:12px;
+                           width:3px; border-radius:2px; background:${ACCENT}; opacity:0.55; }
+  .label{ display:inline-block; font-size:10.5px; font-weight:700;
+          letter-spacing:1.1px; text-transform:uppercase; color:${ACCENT};
+          background:${BADGE_BG}; border:1px solid ${ACCENT}40;
+          padding:4px 10px; border-radius:999px; margin-bottom:2px; }
+
+  /* ── entrance ───────────────────────────────────────────────────────────
+     CSS, not Animated: React Native cannot drive anything inside a WebView.
+     Cards rise as the document paints, staggered by position. Capped at the
+     10th card — beyond that a chapter's tail would sit blank for seconds. */
+  @keyframes cardIn{ from{ opacity:0; transform:translateY(14px); }
+                     to  { opacity:1; transform:none; } }
+  @keyframes badgePop{ from{ opacity:0; transform:scale(0.55); }
+                       to  { opacity:1; transform:none; } }
+  .question-card{ opacity:0; animation:cardIn .46s cubic-bezier(.22,.9,.3,1) forwards; }
+  .q-number{ opacity:0; animation:badgePop .42s cubic-bezier(.34,1.56,.64,1) forwards; }
+${STAGGER_CSS}
+  /* Anyone who has asked the OS to stop animating gets a static page. */
+  @media (prefers-reduced-motion: reduce){
+    .question-card, .q-number{ animation:none !important; opacity:1 !important; transform:none !important; }
+  }
   /* Our own wrapper for over-wide equations: scrolls horizontally on its own,
      so the page never stretches past the screen edge. */
   .math-scroll{ display:block; max-width:100%; overflow-x:auto;
@@ -301,34 +415,32 @@ export default function Ncert2Screen({
           <PrimaryButton label="Retry" onPress={() => setRetry((k) => k + 1)} style={{ marginTop: 16 }} />
         </View>
       ) : openIndex == null ? (
-        <ScrollView style={{ flex: 1, backgroundColor: PAGE_BG }} contentContainerStyle={styles.scrollBody}>
-          <Breadcrumb items={breadcrumb} />
-          <View style={styles.card}>
-            <Text style={styles.cardTitle}>{chapterName}</Text>
-            {sections.length === 0 ? (
-              <Text style={styles.emptyInline}>No solutions available for this chapter yet.</Text>
-            ) : sections.map((sec, i) => (
-              <TouchableOpacity key={sec.key} style={styles.row} activeOpacity={0.6}
-                onPress={() => setOpenIndex(i)}>
-                <View style={styles.badge}><Text style={styles.badgeText}>{i + 1}</Text></View>
-                <Text style={styles.rowLabel}>{sec.label}</Text>
-                <View style={{ flex: 1 }} />
-                <Text style={styles.rowArrow}>→</Text>
-              </TouchableOpacity>
-            ))}
-          </View>
-        </ScrollView>
+        <Transition viewKey="list" back>
+          <ScrollView style={{ flex: 1, backgroundColor: PAGE_BG }} contentContainerStyle={styles.scrollBody}>
+            <Breadcrumb items={breadcrumb} />
+            <View style={styles.card}>
+              <Text style={styles.cardTitle}>{chapterName}</Text>
+              {sections.length === 0 ? (
+                <Text style={styles.emptyInline}>No solutions available for this chapter yet.</Text>
+              ) : sections.map((sec, i) => (
+                <SectionRow key={sec.key} label={sec.label} index={i} onPress={() => setOpenIndex(i)} />
+              ))}
+            </View>
+          </ScrollView>
+        </Transition>
       ) : (
-        <View style={{ flex: 1, backgroundColor: PAGE_BG }}>
-          <View style={styles.subBreadcrumbWrap}>
-            <Breadcrumb items={breadcrumb} currentLabel={active.label} onCrumbPress={() => { if (sections.length > 1) setOpenIndex(null); else if (onBack) onBack(); }} />
+        <Transition viewKey={`sec-${openIndex}`}>
+          <View style={{ flex: 1, backgroundColor: PAGE_BG }}>
+            <View style={styles.subBreadcrumbWrap}>
+              <Breadcrumb items={breadcrumb} currentLabel={active.label} onCrumbPress={() => { if (sections.length > 1) setOpenIndex(null); else if (onBack) onBack(); }} />
+            </View>
+            <SectionContent
+              html={active.html}
+              comingSoon={hasLocal}
+              meta={{ subject: subjectName, chapter: chapterName, label: active.label }}
+            />
           </View>
-          <SectionContent
-            html={active.html}
-            comingSoon={hasLocal}
-            meta={{ subject: subjectName, chapter: chapterName, label: active.label }}
-          />
-        </View>
+        </Transition>
       )}
     </View>
   );

@@ -49,9 +49,13 @@ export default function LandingScreen({ navigation }) {
       <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
       <WelcomeHero />
 
+      {/* The hero export has the old theme's dark navy scrim BAKED INTO the PNG, so
+          no palette change can reach it. The copy therefore moves off the photo and
+          into a white sheet that covers that navy — which is what the design shows,
+          and it means the art can be re-exported later without touching this. */}
       <Animated.View
         style={[
-          styles.content,
+          styles.sheet,
           { paddingBottom: insets.bottom + 20, opacity: fade, transform: [{ translateY: slide }] },
         ]}
       >
@@ -69,7 +73,10 @@ export default function LandingScreen({ navigation }) {
           style={styles.signInWrap}
           hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
         >
-          <Text style={styles.signIn}>Already have an account? Sign In</Text>
+          {/* The prompt is quiet, the action carries the accent — as drawn. */}
+          <Text style={styles.signIn}>
+            Already have an account? <Text style={styles.signInAction}>Sign In</Text>
+          </Text>
         </TouchableOpacity>
       </Animated.View>
     </View>
@@ -82,12 +89,19 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
     justifyContent: 'flex-end',
   },
-  content: {
-    // Figma's welcome-body is 390 wide with 32 padding, but sits at left: -12,
-    // which puts its content 12px left of centre. That reads as a stray nudge in
-    // the file, not intent, so we centre it — the 326px content width still matches
-    // the text-stack exactly. Flip to asymmetric padding if it turns out deliberate.
+  // White sheet over the bottom of the hero: 28px top corners, generous padding,
+  // and a soft lift so it reads as a card sitting on the photo.
+  sheet: {
+    backgroundColor: COLORS.background,
+    borderTopLeftRadius: 28,
+    borderTopRightRadius: 28,
     paddingHorizontal: SPACING.xl,
+    paddingTop: 32,
+    shadowColor: '#111111',
+    shadowOpacity: 0.10,
+    shadowRadius: 20,
+    shadowOffset: { width: 0, height: -6 },
+    elevation: 10,
   },
 
   display: {
@@ -110,7 +124,11 @@ const styles = StyleSheet.create({
     fontFamily: FONT_FAMILY.medium,
     fontSize: 14,
     lineHeight: 19,
-    color: COLORS.textPrimary,
+    color: COLORS.textSecondary,
+  },
+  signInAction: {
+    fontFamily: FONT_FAMILY.bold,
+    color: COLORS.accent,
     textDecorationLine: 'underline',
   },
 });

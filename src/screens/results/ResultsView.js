@@ -25,7 +25,7 @@ const PRIMARY = N.violet;
 // The idle bar / secondary accent. The night palette's blue is a true blue; the
 // chart wants the cyan next to it so a violet peak reads as "this one is bigger",
 // not "this one is a different metric".
-const CYAN = '#22D3EE';
+const CYAN = '#0891B2';
 
 const SUBJ_ABBR = {
   Physics: 'Ph', Chemistry: 'Ch', Mathematics: 'Ma', Maths: 'Ma', Biology: 'Bi',
@@ -38,12 +38,12 @@ const abbr = (name) => SUBJ_ABBR[name] || (name || '?').trim().slice(0, 2);
 // #16A34A sink into the violet page, so each subject gets the brighter member of
 // its own hue family instead.
 const SUBJECT_COLORS = {
-  Physics: '#FF8A3D', Chemistry: '#FF5C8A', Mathematics: '#A78BFA', Maths: '#A78BFA',
-  Biology: CYAN, English: N.amber, Hindi: N.red, 'Social Science': '#4ADE80',
-  Science: '#2DD4BF', 'Current Affairs': '#C084FC', 'Computer Applications': N.blue,
+  Physics: '#C2410C', Chemistry: '#BE185D', Mathematics: '#6D28D9', Maths: '#6D28D9',
+  Biology: CYAN, English: N.amber, Hindi: N.red, 'Social Science': '#0E9F6E',
+  Science: '#0F766E', 'Current Affairs': '#9333EA', 'Computer Applications': N.blue,
   'Information Technology': N.blue, 'Brain Gym': N.violet,
 };
-const PALETTE = [N.violet, '#4ADE80', N.blue, '#FF8A3D', N.red, CYAN, '#2DD4BF', '#C084FC'];
+const PALETTE = [N.violet, '#0E9F6E', N.blue, '#C2410C', N.red, CYAN, '#0F766E', '#9333EA'];
 const subjectColor = (name, i) => {
   if (SUBJECT_COLORS[name]) return SUBJECT_COLORS[name];
   const k = Object.keys(SUBJECT_COLORS).find((k) => (name || '').includes(k));
@@ -544,7 +544,7 @@ const s = StyleSheet.create({
 
   // period toggle — full-width track, the active half is a solid violet pill
   periodWrap:       { paddingHorizontal: 16, paddingBottom: 8 },
-  periodRow:        { flexDirection: 'row', gap: 6, backgroundColor: 'rgba(10,8,26,0.55)', borderWidth: 1, borderColor: N.cardEdge, borderRadius: 26, padding: 5 },
+  periodRow:        { flexDirection: 'row', gap: 6, backgroundColor: N.cardSoft, borderWidth: 1, borderColor: N.cardEdge, borderRadius: 26, padding: 5 },
   periodBtn:        { flex: 1, height: 44, borderRadius: 22, alignItems: 'center', justifyContent: 'center' },
   periodBtnActive:  { backgroundColor: PRIMARY },
   periodTxt:        { fontSize: 15, fontFamily: FONT.bold, color: N.inkSoft },
@@ -564,7 +564,7 @@ const s = StyleSheet.create({
   streakTitle:      { fontSize: 15, fontFamily: FONT.extrabold, color: N.ink },
   streakSub:        { fontSize: 12, color: '#F0913F', fontFamily: FONT.semibold, marginTop: 2 },
   streakDots:       { flexDirection: 'row', gap: 5, marginLeft: 'auto' },
-  streakDot:        { width: 7, height: 7, borderRadius: 4, backgroundColor: 'rgba(255,255,255,0.18)' },
+  streakDot:        { width: 7, height: 7, borderRadius: 4, backgroundColor: N.track },
   streakDotOn:      { backgroundColor: '#F97316' },
 
   // overview — a stacked list of full-width rows, each led by its ring
@@ -646,8 +646,8 @@ const s = StyleSheet.create({
   infoLine:         { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   infoLabel:        { fontSize: 12, fontFamily: FONT.bold, color: N.inkSoft },
   infoVal:          { fontSize: 12, fontFamily: FONT.extrabold, color: N.ink, flexShrink: 1, textAlign: 'right', marginLeft: 12 },
-  modalBackdrop:    { flex: 1, backgroundColor: 'rgba(4,3,14,0.66)', justifyContent: 'center', padding: 24 },
-  modalCard:        { backgroundColor: '#191636', borderWidth: 1, borderColor: N.cardEdge, borderRadius: 24, padding: 20 },
+  modalBackdrop:    { flex: 1, backgroundColor: 'rgba(15,18,34,0.45)', justifyContent: 'center', padding: 24 },
+  modalCard:        { backgroundColor: N.card, borderWidth: 1, borderColor: N.cardEdge, borderRadius: 24, padding: 20 },
   modalHead:        { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 18 },
   modalIcon:        { width: 48, height: 48, borderRadius: 14, alignItems: 'center', justifyContent: 'center' },
   modalSubject:     { fontSize: 16, fontFamily: FONT.black, color: N.ink },
@@ -660,6 +660,6 @@ const s = StyleSheet.create({
   modalStat:        { flex: 1, alignItems: 'center' },
   modalStatVal:     { fontSize: 20, fontFamily: FONT.black, color: N.ink },
   modalStatLbl:     { fontSize: 10, fontFamily: FONT.bold, color: N.inkSoft, marginTop: 2 },
-  modalClose:       { backgroundColor: PRIMARY, borderRadius: 14, paddingVertical: 14, alignItems: 'center' },
-  modalCloseTxt:    { color: N.ink, fontSize: 14, fontFamily: FONT.black },
+  modalClose:       { backgroundColor: N.btn, borderRadius: 14, paddingVertical: 14, alignItems: 'center' },
+  modalCloseTxt:    { color: N.btnInk, fontSize: 14, fontFamily: FONT.black },
 });

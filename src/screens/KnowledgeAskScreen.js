@@ -1106,13 +1106,13 @@ const st = StyleSheet.create({
   headerTitle: { flex: 1, textAlign: 'center', fontSize: 19, fontFamily: NFONT.bold, color: N.ink, letterSpacing: -0.4 },
 
   // ⋮ menu
-  menuBackdrop: { flex: 1, backgroundColor: 'rgba(6,4,20,0.55)', alignItems: 'flex-end', paddingRight: SP.lg, paddingTop: Platform.OS === 'ios' ? 96 : 78 },
+  menuBackdrop: { flex: 1, backgroundColor: 'rgba(15,18,34,0.45)', alignItems: 'flex-end', paddingRight: SP.lg, paddingTop: Platform.OS === 'ios' ? 96 : 78 },
   menuCard: { minWidth: 196, backgroundColor: N.card, borderRadius: 16, borderWidth: 1, borderColor: N.cardEdge, paddingVertical: 6, ...lift },
   menuItem: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 12, paddingHorizontal: 14 },
   menuTxt: { fontSize: 14, fontFamily: NFONT.semi, color: N.ink },
 
   // ── segmented tabs (Q&A AI · My Material) ──
-  tabs: { flexDirection: 'row', gap: 6, marginHorizontal: SP.lg, marginTop: 10, padding: 5, borderRadius: 30, backgroundColor: 'rgba(10,8,26,0.55)', borderWidth: 1, borderColor: N.cardEdge },
+  tabs: { flexDirection: 'row', gap: 6, marginHorizontal: SP.lg, marginTop: 10, padding: 5, borderRadius: 30, backgroundColor: N.cardSoft, borderWidth: 1, borderColor: N.cardEdge },
   tab: { flex: 1, height: 48, borderRadius: 26, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 8 },
   tabOn: { backgroundColor: N.violet },
   tabTxt: { fontSize: 15, fontFamily: NFONT.semi, color: N.inkSoft },
@@ -1137,7 +1137,7 @@ const st = StyleSheet.create({
   scopeHint: { fontSize: 11.5, fontFamily: NFONT.reg, color: N.inkSoft, marginTop: 8, lineHeight: 17 },
 
   // ── material picker sheet (light — see SHEET above) ──
-  sheetBackdrop: { flex: 1, backgroundColor: 'rgba(4,3,14,0.66)', justifyContent: 'flex-end' },
+  sheetBackdrop: { flex: 1, backgroundColor: 'rgba(15,18,34,0.45)', justifyContent: 'flex-end' },
   sheet: { backgroundColor: SHEET.bg, borderTopLeftRadius: 28, borderTopRightRadius: 28, paddingTop: 26, paddingBottom: Platform.OS === 'ios' ? 34 : 20, maxHeight: '82%' },
   sheetHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 22, marginBottom: 18 },
   sheetTitle: { fontSize: 25, fontFamily: NFONT.bold, color: SHEET.ink, letterSpacing: -0.7 },
@@ -1158,7 +1158,7 @@ const st = StyleSheet.create({
   sheetFoot: { flexDirection: 'row', gap: 12, paddingHorizontal: 22, paddingTop: 16, marginTop: 4 },
   sheetGhost: { height: 56, paddingHorizontal: 26, borderRadius: R.pill, backgroundColor: SHEET.field, alignItems: 'center', justifyContent: 'center' },
   sheetGhostTxt: { fontSize: 16, fontFamily: NFONT.semi, color: SHEET.ink, letterSpacing: -0.3 },
-  sheetApply: { flex: 1, height: 56, borderRadius: R.pill, backgroundColor: N.violet, alignItems: 'center', justifyContent: 'center' },
+  sheetApply: { flex: 1, height: 56, borderRadius: R.pill, backgroundColor: N.btn, alignItems: 'center', justifyContent: 'center' },
   sheetApplyTxt: { fontSize: 16, fontFamily: NFONT.bold, color: '#FFFFFF', letterSpacing: -0.3 },
   sheetEmpty: { fontSize: 14, fontFamily: NFONT.reg, color: SHEET.sub, textAlign: 'center', paddingVertical: 22 },
 
@@ -1213,13 +1213,13 @@ const st = StyleSheet.create({
   // numbered teaching steps — number badge outside its own card
   stepsWrap: { marginTop: 14, gap: 12 },
   stepRow: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  stepNum: { width: 30, height: 30, borderRadius: 15, backgroundColor: N.violet, alignItems: 'center', justifyContent: 'center' },
+  stepNum: { width: 30, height: 30, borderRadius: 15, backgroundColor: N.btn, alignItems: 'center', justifyContent: 'center' },
   stepNumTxt: { fontSize: 13, fontFamily: NFONT.bold, color: N.ink },
   stepCard: { flex: 1, backgroundColor: N.card, borderRadius: 16, borderWidth: 1, borderColor: N.cardEdge, paddingVertical: 14, paddingHorizontal: 16 },
   stepTxt: { fontSize: 14, fontFamily: NFONT.reg, color: N.ink, lineHeight: 22 },
 
   formulaCard: { marginTop: 14, backgroundColor: N.cardSoft, borderWidth: 1, borderColor: N.cardEdge, borderRadius: 16, paddingVertical: 14, paddingHorizontal: 16, alignItems: 'center' },
-  diagramCard: { marginTop: 14, backgroundColor: '#12102E', borderWidth: 1, borderColor: N.cardEdge, borderRadius: 16, paddingVertical: 12 },
+  diagramCard: { marginTop: 14, backgroundColor: N.cardSoft, borderWidth: 1, borderColor: N.cardEdge, borderRadius: 16, paddingVertical: 12 },
 
   exampleCard: { marginTop: 14, backgroundColor: N.blueSoft, borderWidth: 1, borderColor: 'rgba(91,140,255,0.34)', borderRadius: 16, padding: 15 },
   checkCard: { marginTop: 14, backgroundColor: N.violetSoft, borderWidth: 1, borderColor: 'rgba(139,110,240,0.38)', borderRadius: 16, padding: 15 },
@@ -1252,10 +1252,10 @@ const st = StyleSheet.create({
 
   // ── ask bar — one floating pill, in flow so the KeyboardAvoidingView lifts it ──
   askBar: { flexDirection: 'row', alignItems: 'flex-end', gap: 8, marginHorizontal: SP.lg, marginTop: 4, marginBottom: Platform.OS === 'ios' ? 22 : 14, padding: 7, borderRadius: 30, backgroundColor: N.card, borderWidth: 1, borderColor: N.cardEdge, ...lift },
-  askPhoto: { width: 44, height: 44, borderRadius: 22, backgroundColor: N.violet, alignItems: 'center', justifyContent: 'center' },
+  askPhoto: { width: 44, height: 44, borderRadius: 22, backgroundColor: N.btn, alignItems: 'center', justifyContent: 'center' },
   askInputWrap: { flex: 1, justifyContent: 'center', minHeight: 44, paddingHorizontal: 6 },
   askInput: { fontSize: 14.5, fontFamily: NFONT.reg, color: N.ink, paddingVertical: Platform.OS === 'ios' ? 12 : 8, maxHeight: 96 },
-  askSend: { width: 46, height: 46, borderRadius: 23, backgroundColor: N.violet, alignItems: 'center', justifyContent: 'center', shadowColor: N.violet, shadowOpacity: 0.5, shadowRadius: 12, shadowOffset: { width: 0, height: 5 }, elevation: 6 },
+  askSend: { width: 46, height: 46, borderRadius: 23, backgroundColor: N.btn, alignItems: 'center', justifyContent: 'center', shadowColor: N.btn, shadowOpacity: 0.5, shadowRadius: 12, shadowOffset: { width: 0, height: 5 }, elevation: 6 },
 
   // attached-photo preview strip above the input
   attachStrip: { flexDirection: 'row', alignItems: 'center', gap: 12, marginHorizontal: SP.lg, marginBottom: 8, backgroundColor: N.violetSoft, borderWidth: 1, borderColor: N.violet, borderRadius: 18, paddingHorizontal: 12, paddingVertical: 10 },
