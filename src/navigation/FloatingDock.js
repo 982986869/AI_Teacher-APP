@@ -18,6 +18,7 @@ import { House, CalendarDays, Target, BookOpen, ChartColumn, User } from 'lucide
 import { N } from '../theme/nightTheme';
 import { T } from '../screens/parent/ParentApp/constants';
 import { PressableScale } from '../screens/parent/ParentApp/anim';
+import { useDockVisibility } from './DockVisibility';
 
 // Per-route icon + label. One shared accent keeps the bar calm and professional.
 const TABS = {
@@ -76,6 +77,11 @@ export default function FloatingDock({ state, descriptors, navigation }) {
   // the system nav buttons.
   const padBottom = Math.max(insets.bottom, 8) + 6;
 
+  // Tell the floating Help bubble where this bar ends, and when to get out of the way.
+  const { report } = useDockVisibility();
+  const [dockH, setDockH] = React.useState(0);
+  React.useEffect(() => { report({ hidden: dockHidden, height: dockH }); }, [dockHidden, dockH, report]);
+
   const count = state.routes.length;
   const [trackW, setTrackW] = React.useState(0);
   const tabWidth = trackW ? trackW / count : 0;
@@ -97,7 +103,7 @@ export default function FloatingDock({ state, descriptors, navigation }) {
     // outer one paints the page colour BEHIND them — otherwise the corners cut
     // through to React Navigation's container, which is white by default, and the
     // dock reads as a dark bar with two white notches sitting on a violet app.
-    <View style={styles.navOuter}>
+    <View style={styles.navOuter} onLayout={(e) => setDockH(e.nativeEvent.layout.height)}>
       <View style={[styles.nav, { paddingBottom: padBottom }]}>
         <View style={styles.track} onLayout={(e) => setTrackW(e.nativeEvent.layout.width)}>
           {tabWidth > 0 && (

@@ -22,6 +22,7 @@ router.use('/arena',      require('./arena'))
 router.use('/parent',     require('./parent'))
 router.use('/learning',   require('./learning'))
 router.use('/sessions',   require('./sessions'))
+router.use('/support',    require('./support'))
 router.use('/admin',      require('./admin'))
 
 module.exports = router
