@@ -120,6 +120,19 @@ async function register(req, res, next) {
 
 // ─── Login ───────────────────────────────────────────────────────────────────
 
+// Write a 'login' row to student_events — the same log the activity dashboard reads
+// for note/solution/lesson views, so "when did they last sign in" and "what did they
+// study" come from one place and sort together on one timeline.
+//
+// Best-effort by design: swallowed errors, never awaited. A failed analytics insert
+// must not turn a valid sign-in into an error the student sees.
+function recordLogin(userId, method) {
+  db.$executeRaw`
+    INSERT INTO student_events ("userId", type, detail)
+    VALUES (${userId}::uuid, 'login', ${JSON.stringify({ method })}::jsonb)`
+    .catch(() => {})
+}
+
 async function login(req, res, next) {
   try {
     const errors = validationResult(req)
@@ -145,6 +158,12 @@ async function login(req, res, next) {
 
     const { passwordHash: _omit, ...safeUser } = user
     const full = await ensurePhoto((await fetchScopeUser(user.id)) || safeUser)
+
+    // Login history for the activity dashboard. Recorded HERE rather than from the
+    // client so it cannot be skipped, replayed or backdated by the app — the server
+    // is the only thing that knows a login actually succeeded. Fire-and-forget and
+    // deliberately not awaited: an analytics write must never fail a sign-in.
+    recordLogin(user.id, 'password')
 
     return ApiResponse.success(res, {
       token: signToken(user.id), user: full, scope: deriveScope(full),
@@ -212,6 +231,12 @@ async function googleAuth(req, res, next) {
     }
 
     const full = await ensurePhoto((await fetchScopeUser(user.id)) || user)
+
+    // Same login history as the password path — without this, every Google user
+    // shows a blank sign-in record on the activity dashboard. `isNewUser` separates
+    // a first-ever signup from a returning sign-in, which the dashboard needs to
+    // avoid counting account creation as a study session.
+    recordLogin(user.id, isNewUser ? 'google-signup' : 'google')
 
     // `permissions` must ride along here exactly as it does on login/register. The app
     // stores whatever signIn() is handed and never re-fetches /me until the next cold
