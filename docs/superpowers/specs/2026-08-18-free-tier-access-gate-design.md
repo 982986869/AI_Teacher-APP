@@ -35,6 +35,10 @@ when real payment arrives, the only thing that changes is *who* sets `full`.
 - **`supportLinks()`** — `support/supportConfig.js:295`. Already returns
   `phone: tel ? 'tel:'+tel : null`, so setting `SUPPORT.phone` makes a Call
   button appear on its own.
+- **Support ticketing** — `support_tickets` / `support_messages`, the queue
+  (`admin/support/SupportQueueScreen.js`) and the thread
+  (`admin/support/SupportThreadScreen.js`). Raising, assigning and resolving all
+  work today. The unlock request rides on this rather than growing a second queue.
 - **Feature flags** — `feature_flags` table, resolved per *environment* in
   `config.controller.js`. Global, never per-user, so they cannot express this.
   Not touched.
@@ -46,7 +50,8 @@ in the app; an admin toggle with audit.
 
 **Out:** payments of any kind. Per-feature granularity (a `user_features` grid was
 considered and rejected — see Alternatives). Parent-managed access. Trials,
-expiry dates, promo codes.
+expiry dates, promo codes. A dedicated access-request queue — the support system
+carries it (see Unlock request).
 
 ## Architecture
 
@@ -125,32 +130,49 @@ Alongside the entry-point checks, the API layer handles `403 LOCKED` centrally a
 raises the same sheet. Entry-point checks alone will miss something; this makes
 the miss harmless instead of a content leak.
 
-### Unlock CTA — open
+### Unlock request — a support ticket
 
-The lock sheet's action is **Call**. This is blocked on a phone number the app
-does not have:
+The lock sheet does not dial anyone and does not open a web form. It raises a
+**support ticket**, because that system already exists end to end and already
+routes to the right people.
 
-```js
-// supportConfig.js:19
-// TODO(support-routing): the number above is a WhatsApp line; we have not confirmed it
-// takes voice calls. Set this to a real helpline and a "Call" button appears by itself.
-phone: null,
-```
+`support_tickets` carries `topicId`, `team`, `status`, a `ref` (`AL-2291`) and a
+callback `phone`. `PARENT_CATEGORIES` already has a `sales` topic — team
+`'Sales team'`, blurb *"Plans, pricing, upgrades or starting a new course"* —
+which is this request almost word for word. The agent console, assignment,
+resolution and liveness are all built and running.
 
-`+91 89056 04773` is a WhatsApp line and the team has not confirmed it answers
-voice. Wiring `tel:` to it would send buyers to a number that may never pick up,
-so it stays unset until a real helpline is supplied. `SUPPORT.phone` is the single
-place to set it.
+Flow:
 
-Until then the sheet should fall back to a channel that demonstrably works today —
-the in-app support chat, which already raises a ticket — rather than shipping a
-dead Call button.
+1. Student taps a gated tab or a Home lesson card → `LockSheet`.
+2. "Request access" opens the existing support chat with the topic preselected.
+   Name, class and phone come from the account; the student adds a note if they want.
+3. A ticket is raised against the Sales team and appears in the admin console.
+4. An admin grants access from the ticket (below).
+
+**What is actually new**: one entry in `STUDENT_CATEGORIES` (students today get
+doubt / class / test / tech / other — no sales topic), and the grant action. Everything
+else is reuse.
+
+This also disposes of the phone-number problem the earlier draft was blocked on.
+`SUPPORT.phone` is still `null` and the one number we have is an unconfirmed
+WhatsApp line — but nothing here dials it. The ticket already captures a callback
+number, so an admin can ring the user rather than the other way round.
+
+**Tradeoff**: unlock requests land in the same queue as real support. The queue is
+already segmented by team, so they sort themselves, but the Sales team column will
+be doing double duty as a sales pipeline. If that queue gets noisy, splitting it is
+a later problem and does not change anything in this design.
 
 ### Admin control
 
 - `PATCH /api/admin/users/:id/access`, beside `setStatus`: same permission check,
-  same `audit.record` entry, same self-protection guards.
-- `StudentProfileScreen` — a toggle under Status.
+  same `audit.record` entry, same self-protection guards. One endpoint, two callers.
+- `StudentProfileScreen` — a toggle under Status. Works for any student, whether or
+  not they ever asked.
+- `SupportThreadScreen` — a **Grant access** action on an unlock ticket, so the admin
+  acts where the request is instead of navigating to People and searching for the
+  student. It calls the same endpoint and writes the same audit entry.
 - `StudentsListScreen` — show the level, so an admin can see at a glance who is
   paid without opening every profile.
 
@@ -180,6 +202,9 @@ anything else.
 - **Free accounts still cost money.** Brain Gym and the Arena hit the AI routes if
   they generate questions. If they do, either those calls need their own budget or
   the free tier needs a cap. Unverified — check before launch.
+- **Unlock requests share the support queue.** They are separated by team, not by
+  system, so a busy support day and a busy sales day land in the same place. Watch
+  whether Sales-team tickets start starving real support ones.
 - **Store policy.** The app will show a purchase path for digital content. Selling
   digital goods off-store can breach Play/App Store rules. This design keeps money
   entirely out of the app, which is the safer side of that line, but confirm the
@@ -192,6 +217,8 @@ anything else.
 - Migration: existing users end at `full`, a fresh insert defaults to `free`.
 - Admin endpoint: writes the column, records audit, honours permissions.
 - A router-table test asserting every mount is either gated or explicitly open.
+- Raising an unlock ticket routes to the Sales team and carries the account's phone.
+- Grant-from-ticket and grant-from-profile hit the same endpoint and both audit.
 
 App-side gating is UI and this repo has no UI test setup; it needs checking on a
 device — free account sees the sheet on all four tabs and on the Home cards, and a
