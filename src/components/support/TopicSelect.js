@@ -2,7 +2,9 @@
 // The `chat-v3-topic-select` screen — step 1 of the support flow. Built to the Figma
 // spec (every number below is from the properties panel):
 //
-//   chat-v3-topic-select  360 × 800, radius 24, bg #0C0936, justify space-between
+//   chat-v3-topic-select  360 × 800, radius 24, justify space-between
+//   (the spec's dark fills — bg #0C0936, cards #171440, hairlines #30363D — are no
+//    longer used: the flow runs on the day palette, see ./theme.js)
 //     main-content  (fill, hug 636)
 //       status-bar     44          → replaced by the real safe-area inset, see below
 //       welcome-hero   hug 272     pad 24/20/32/20, gap 16
@@ -151,13 +153,15 @@ const s = StyleSheet.create({
   backBtn: {
     position: 'absolute', top: 16, left: 12,
     width: 36, height: 36, borderRadius: 18, alignItems: 'center', justifyContent: 'center',
-    backgroundColor: 'rgba(255,255,255,0.05)',
+    // A 5% WHITE wash was invisible the moment the page stopped being near-black;
+    // the accent wash is the light-page equivalent of "barely there but present".
+    backgroundColor: D.ticketBg,
   },
 
   // avatar-container 72×72
   avatarWrap: { width: 72, height: 72 },
   avatarImg: { width: 72, height: 72, borderRadius: 36 },
-  avatarFallback: { backgroundColor: '#2B2560', alignItems: 'center', justifyContent: 'center' },
+  avatarFallback: { backgroundColor: D.avatarBg, alignItems: 'center', justifyContent: 'center' },
   onlineDot: {
     position: 'absolute', right: 2, bottom: 2,
     width: 16, height: 16, borderRadius: 8,
@@ -174,7 +178,15 @@ const s = StyleSheet.create({
     height: 58, paddingHorizontal: 16,
     backgroundColor: D.card, borderRadius: 16, borderWidth: 1, borderColor: D.border,
   },
-  badge: { width: 28, height: 28, borderRadius: 14, alignItems: 'center', justifyContent: 'center' },
+  // A hairline on the badge, added with the day palette. The tints are unchanged from
+  // the dark design, where every one of them stood clear of a near-black page; against
+  // white the palest of them (#E8D14D) drops to 1.54:1 and the circle all but vanishes,
+  // leaving its numeral floating. The border costs nothing on the darker tints and puts
+  // the edge back on the pale ones.
+  badge: {
+    width: 28, height: 28, borderRadius: 14, alignItems: 'center', justifyContent: 'center',
+    borderWidth: 1, borderColor: D.border,
+  },
   topicLabels: { flex: 1, gap: 2 },
   chevronBox: { width: 16, height: 16, alignItems: 'center', justifyContent: 'center' },
   plainRow: {
