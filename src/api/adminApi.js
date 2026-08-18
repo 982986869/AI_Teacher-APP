@@ -37,6 +37,10 @@ export const getAdminUsers = (params) => axiosInstance.get(`/api/admin/users${qs
 export const getAdminUsersMeta = () => axiosInstance.get('/api/admin/users/meta').then(unwrap);
 export const getAdminUser = (id) => axiosInstance.get(`/api/admin/users/${id}`).then(unwrap);
 export const setAdminUserStatus = (id, isActive) => axiosInstance.patch(`/api/admin/users/${id}/status`, { isActive }).then(unwrap);
+// Content paywall. 'full' opens lessons, practice, resources and tests; 'free' leaves
+// only Brain Gym, the Arena and the Home dashboard. Called from the student profile
+// and from an unlock ticket — one endpoint, so the two can never drift apart.
+export const setAdminUserAccess = (id, accessLevel) => axiosInstance.patch(`/api/admin/users/${id}/access`, { accessLevel }).then(unwrap);
 export const setAdminUserRole = (id, adminRole) => axiosInstance.patch(`/api/admin/users/${id}/role`, { adminRole }).then(unwrap);
 export const resetAdminUserPassword = (id) => axiosInstance.post(`/api/admin/users/${id}/reset-password`, {}).then(unwrap);
 export const deleteAdminUser = (id) => axiosInstance.delete(`/api/admin/users/${id}`).then(unwrap);

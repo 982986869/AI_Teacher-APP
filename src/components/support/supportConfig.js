@@ -108,6 +108,20 @@ export const PARENT_CATEGORIES = [
 
 export const STUDENT_CATEGORIES = [
   {
+    // The paywall's request route. Students had no sales topic — the parent list has
+    // one and they did not — so an unlock request had nowhere to land except
+    // "Something else", where it would sit in the general queue behind real support.
+    // Routed to the Sales team so it shows up as the pipeline it actually is.
+    id: 'unlock',
+    tint: '#7C3AED',
+    badgeInk: '#FFFFFF',
+    label: 'Unlock full access',
+    desc: 'Lessons, practice, resources & tests',
+    team: 'Sales team',
+    tag: 'Unlock',
+    blurb: 'Get the full plan — lessons, practice, resources and tests.',
+  },
+  {
     id: 'doubt',
     tint: '#FA4F07',
     badgeInk: '#FFFFFF',

@@ -55,7 +55,7 @@ export const isAllowedSubject = (subject, classNum, stream) => {
 };
 
 export const deriveScope = (user) => {
-  if (!user) return { role: 'student', classNum: null, className: null, stream: null, board: null, language: null, school: null, subjects: [], complete: false };
+  if (!user) return { role: 'student', classNum: null, className: null, stream: null, board: null, language: null, school: null, subjects: [], complete: false, accessLevel: 'free' };
   // The DB auth-role is authoritative for ADMIN: an admin is ALWAYS an admin, even if a
   // stale account_type ('student'/'teacher') lingers from an earlier session. Every other
   // role still honours account_type first, so the student↔parent dual-view (which flips
@@ -72,9 +72,18 @@ export const deriveScope = (user) => {
   let complete;
   if (role === 'teacher' || role === 'admin' || role === 'parent') complete = true;
   else complete = tester || (!!classNum && (!needsStream || !!stream));
+  // Content access. Mirror of the same block in server scope.js — and only a HINT:
+  // the server decides, and every gated route enforces it regardless of what this
+  // says. It exists so the app can draw a lock instead of firing a request it knows
+  // will come back 403. Unknown values fail closed.
+  const accessLevel = (role === 'admin' || role === 'teacher' || tester)
+    ? 'full'
+    : (String(user.access_level || user.accessLevel || '').toLowerCase() === 'full' ? 'full' : 'free');
+
   return {
     role,
     tester,
+    accessLevel,
     classNum,
     className: classNum ? `Class ${classNum}` : null,
     stream: needsStream ? stream : null,
