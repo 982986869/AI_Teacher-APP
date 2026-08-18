@@ -11,8 +11,9 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { View, ScrollView, TextInput, AppState, Alert, Linking } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { ChevronLeft, Phone, Send, CircleCheck, Paperclip, Award } from 'lucide-react-native';
+import { ChevronLeft, Phone, Send, CircleCheck, Paperclip, Award, Unlock } from 'lucide-react-native';
 import { getTicket, markTicketRead, addTicketMessage, logCall, resolveTicket } from '../../../api/supportApi';
+import { setAdminUserAccess } from '../../../api/adminApi';
 import { joinTicket } from '../../../realtime/supportSocket';
 import { useAuth } from '../../../context/AuthContext';
 import { T } from '../../parent/ParentApp/constants';
@@ -240,6 +241,24 @@ export default function SupportThreadScreen({ route, navigation }) {
   const canReply = can('support.reply') && !closed;
   const phone = ticket.raisedBy && ticket.raisedBy.phone;
 
+  // Unlock tickets are answered by granting access, not by typing a reply. The button
+  // only appears where it can actually do something: an unlock ticket, from someone
+  // who is still on free, for an agent who may edit users. It calls the same endpoint
+  // as the student profile's toggle, so both write the same audit entry.
+  const asker = ticket.raisedBy || {};
+  const canGrant = ticket.topicId === 'unlock' && asker.id
+    && asker.accessLevel !== 'full' && can('users.edit');
+
+  const grantAccess = () => {
+    Alert.alert('Grant full access?',
+      `${asker.name || 'This student'} gets lessons, practice, resources and tests straight away.`,
+      [{ text: 'Cancel', style: 'cancel' },
+       { text: 'Grant', onPress: async () => {
+         try { await setAdminUserAccess(asker.id, 'full'); await load(); }
+         catch (e) { Alert.alert('Could not grant access', e?.response?.data?.error || 'Please try again.'); }
+       } }]);
+  };
+
   return (
     <View style={{ flex: 1, backgroundColor: S.canvas }} onLayout={onLayout}>
       <View style={{ paddingTop: insets.top + 10, paddingHorizontal: 16, paddingBottom: 12, backgroundColor: '#fff', borderBottomWidth: 1, borderBottomColor: S.hair }}>
@@ -287,6 +306,25 @@ export default function SupportThreadScreen({ route, navigation }) {
             keyboard covered them the moment anyone typed a reply. Up here neither is true,
             and they read as "things you do to this ticket" rather than as part of the
             composer, which is what they actually are. */}
+        {/* Sits ABOVE the ordinary ticket actions, because on an unlock ticket this is
+            the answer — the reply is the follow-up, not the resolution. Disappears the
+            moment access is granted, so the queue never shows a button that would be a
+            no-op. */}
+        {canGrant ? (
+          <PressableScale
+            onPress={grantAccess}
+            accessibilityRole="button"
+            accessibilityLabel="Grant full access"
+            style={{
+              flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7,
+              marginTop: 12, height: 42, borderRadius: 12, backgroundColor: S.purple,
+            }}
+          >
+            <Unlock size={15} color="#fff" strokeWidth={2.6} />
+            <T w="xbold" s={13.5} c="#fff">Grant full access</T>
+          </PressableScale>
+        ) : null}
+
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 12, flexWrap: 'wrap' }}>
           <PressableScale
             onPress={() => setCallOpen(true)}

@@ -42,7 +42,7 @@ function roleOf(user) {
 // Returns: { role, classNum, className, stream, board, language, school, subjects, complete }
 function deriveScope(user) {
   if (!user) {
-    return { role: 'student', classNum: null, className: null, stream: null, board: null, language: null, school: null, subjects: [], complete: false }
+    return { role: 'student', classNum: null, className: null, stream: null, board: null, language: null, school: null, subjects: [], complete: false, accessLevel: 'free' }
   }
   const role = roleOf(user)
   const tester = isTester(user)
@@ -59,9 +59,18 @@ function deriveScope(user) {
   else if (role === 'parent') complete = true
   else complete = tester || (!!classNum && (!needsStream || !!stream))
 
+  // Content access. Staff and testers are never gated — an admin locked out of the
+  // content they administer, or a tester who cannot reach the thing under test, is a
+  // support ticket, not a paywall. Anyone else defaults to 'free' if the column is
+  // somehow absent, so a missing value fails closed rather than giving content away.
+  const accessLevel = (role === 'admin' || role === 'teacher' || tester)
+    ? 'full'
+    : (String(user.access_level || user.accessLevel || '').toLowerCase() === 'full' ? 'full' : 'free')
+
   return {
     role,
     tester,
+    accessLevel,
     classNum,
     className: classNum ? `Class ${classNum}` : null,
     stream: needsStream ? stream : null,

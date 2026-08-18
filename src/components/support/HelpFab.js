@@ -41,8 +41,19 @@ export default function HelpFab({
   //   ticketContexts={{ billing: DEMO_TICKET_CONTEXT }}
   ticketContexts,
   onContextAction,
+  // Bumped by something OUTSIDE the bubble that wants the support sheet open — today
+  // the paywall's "Request access". A counter rather than a boolean so two requests in
+  // a row both land; with a boolean the second would be a no-op if the user had closed
+  // the sheet in between without the flag being reset.
+  openSignal = 0,
 }) {
   const [open, setOpen] = useState(false);
+  const firstSignal = useRef(true);
+  useEffect(() => {
+    // Skip the initial render, or the sheet would open the moment the FAB mounts.
+    if (firstSignal.current) { firstSignal.current = false; return; }
+    setOpen(true);
+  }, [openSignal]);
   const isParent = role === 'parent';
   const cats = categories || (isParent ? PARENT_CATEGORIES : STUDENT_CATEGORIES);
 

@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState, useCallback, useMemo, useRef } from 'react';
 import { saveToken, getToken, saveUser, getUser, savePermissions, getPermissions, clearAll } from '../utils/storage';
-import { setUnauthorizedHandler, setProfileIncompleteHandler } from '../api/axiosInstance';
+import { setUnauthorizedHandler, setProfileIncompleteHandler, setContentLockedHandler } from '../api/axiosInstance';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { deriveScope } from '../utils/personalization';
 import { fetchMe, updateProfileApi, uploadProfilePhoto } from '../api/authApi';
@@ -17,6 +17,10 @@ export const AuthProvider = ({ children }) => {
   // role never needs an app release. Persisted so a cold start gates admin-only UI
   // before /me answers; otherwise the Support tab flickers in on every launch.
   const [permissions, setPermissions]   = useState([]);
+  // Set when the paywall is hit — from a locked entry point the app knows about, or
+  // from a 403 LOCKED the interceptor caught. One flag rather than a per-screen modal
+  // so the sheet can never appear twice on top of itself.
+  const [locked, setLocked]             = useState(false);
   const [loading, setLoading]           = useState(true);
   const [hasOnboarded, setHasOnboarded] = useState(false);
   // true only for the session where the user actually logged in via the login screen.
@@ -207,6 +211,12 @@ export const AuthProvider = ({ children }) => {
     return () => setProfileIncompleteHandler(null);
   }, []);
 
+  // Any 403 LOCKED, from anywhere, raises the unlock sheet.
+  useEffect(() => {
+    setContentLockedHandler(() => setLocked(true));
+    return () => setContentLockedHandler(null);
+  }, []);
+
   return (
     <AuthContext.Provider value={{
       user, token, loading,
@@ -215,6 +225,12 @@ export const AuthProvider = ({ children }) => {
       justLoggedIn,
       selectedClass, setSelectedClass,
       scope,                       // { role, classNum, className, stream, board, language, subjects, complete }
+      // Paywall. `isLocked` is what screens branch on; showLock() is how they raise the
+      // sheet instead of navigating into content the server would refuse anyway.
+      isLocked: scope.accessLevel !== 'full',
+      lockVisible: locked,
+      showLock: () => setLocked(true),
+      hideLock: () => setLocked(false),
       permissions, can,            // admin-portal RBAC, straight from the server's role map
       readyClasses, isClassReady,  // backend-driven "which classes have content" gate
       activeView, setActiveView,   // student's chosen view: 'student' | 'parent' | null (chooser)

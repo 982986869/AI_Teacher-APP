@@ -269,9 +269,18 @@ async function getOne(req, res, next) {
     let raisedBy = null
     if (staff) {
       const u = await db.$queryRawUnsafe(
-        `SELECT u."name", u."phone" FROM "users" u WHERE u.id = $1::uuid LIMIT 1`, ticket.userId,
+        `SELECT u."name", u."phone", u."access_level" AS "accessLevel" FROM "users" u WHERE u.id = $1::uuid LIMIT 1`,
+        ticket.userId,
       )
-      raisedBy = { name: u[0] ? u[0].name : 'Unknown', phone: ticket.phone || (u[0] && u[0].phone) || null }
+      // id and accessLevel are staff-only, like the rest of raisedBy. They let the
+      // console grant access from an unlock ticket instead of sending the agent to
+      // People to search for the same student by name.
+      raisedBy = {
+        id: ticket.userId,
+        name: u[0] ? u[0].name : 'Unknown',
+        phone: ticket.phone || (u[0] && u[0].phone) || null,
+        accessLevel: u[0] ? u[0].accessLevel : null,
+      }
     }
     return ApiResponse.success(res, {
       ...shape(ticket), messages, attachments, raisedBy, childName: ticket.childName,
