@@ -144,6 +144,22 @@ export const getResumeContext = async (subject) => {
   return res.data.data;
 };
 
+// POST /api/ai/memory/event — log one learning signal to student_events, which is
+// what the activity dashboard reads.
+//
+// 'doubt' | 'mistake' | 'quiz' move mastery. The *_view types are PASSIVE: they
+// record what the student opened and read, and move no mastery — opening a page is
+// not evidence of learning, and counting it would let anyone inflate their profile
+// by scrolling.
+//
+// FIRE AND FORGET. Never await this in a render path and never surface its failure:
+// a dropped analytics write must not break, block or interrupt reading the material.
+//   recordView('note_view', { subject, chapter, detail: { sectionType, slug } })
+export const recordMemoryEvent = ({ type, subject, chapter, detail }) =>
+  axiosInstance.post('/api/ai/memory/event', { type, subject, chapter, detail })
+    .then((r) => r.data.data)
+    .catch(() => null);
+
 // GET /api/ai/memory/summary → progress snapshot.
 // { chaptersEngaged, totalDoubts, totalMistakes, quizAccuracy, quiz,
 //   weakChapters, strongChapters, recentActivity }.
