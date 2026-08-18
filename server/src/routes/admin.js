@@ -48,6 +48,7 @@ router.get('/users/:id', requirePermission('users.view'), usersCtrl.detail)
 router.patch('/users/:id/role', requirePermission('users.role'), usersCtrl.setRole)
 router.post('/users/:id/reset-password', requirePermission('users.password'), usersCtrl.resetPassword)
 router.patch('/users/:id/status', requirePermission('users.edit'), usersCtrl.setStatus)
+router.patch('/users/:id/access', requirePermission('users.edit'), usersCtrl.setAccess)
 router.delete('/users/:id', requirePermission('users.delete'), usersCtrl.remove)
 
 // ─── Student Results (admin views any student's Results — reuses results.service) ──

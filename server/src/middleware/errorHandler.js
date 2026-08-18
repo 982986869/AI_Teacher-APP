@@ -3,10 +3,15 @@
 const { config } = require('../config/env')
 
 class AppError extends Error {
-  constructor(message, statusCode = 500) {
+  // `code` is optional and machine-readable — set it when the CLIENT has to branch on
+  // WHY, not just on the status. The paywall is the first such case: a 403 that means
+  // "locked" raises an unlock sheet, and a 403 that means anything else must not.
+  // Sniffing the message string would break the first time someone reworded it.
+  constructor(message, statusCode = 500, code = null) {
     super(message)
     this.statusCode = statusCode
     this.isOperational = true
+    if (code) this.code = code
     Error.captureStackTrace(this, this.constructor)
   }
 }
@@ -29,6 +34,9 @@ function errorHandler(err, req, res, next) {
   res.status(statusCode).json({
     success: false,
     error: isOperational ? err.message : 'Internal server error',
+    // Only for operational errors: an unexpected crash must not leak an internal
+    // code the client would then start branching on.
+    ...(isOperational && err.code && { code: err.code }),
     ...(config.isDev && !isOperational && { stack: err.stack }),
   })
 }
