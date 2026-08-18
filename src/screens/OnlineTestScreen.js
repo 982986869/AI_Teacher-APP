@@ -1,7 +1,7 @@
-// OnlineTestScreen.js
+﻿// OnlineTestScreen.js
 // Full Online-Test flow (DB-backed, class_level=7):
-//   subjects → chapters (test counts) → tests → INSTRUCTIONS → timed RUNNER →
-//   RESULT (donut + bar charts) → REVIEW (per-question solutions).
+//   subjects â†’ chapters (test counts) â†’ tests â†’ INSTRUCTIONS â†’ timed RUNNER â†’
+//   RESULT (donut + bar charts) â†’ REVIEW (per-question solutions).
 //
 // Questions come from onlineTestApi.getOnlineTest:
 //   { id, name, instructionHtml, durationMin, totalMarks, questions:[{ id, text,
@@ -11,16 +11,17 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
   View, Text, Image, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity,
-  StatusBar, Platform, ActivityIndicator, Modal,
+  StatusBar, Platform, ActivityIndicator, Animated, Easing, Pressable,
 } from 'react-native';
 import { S } from '../theme/studentUI';
 import { FONT } from '../constants/fonts';
-import Svg, { Circle, G, Rect, Line, Text as RNSvgText } from 'react-native-svg';
+import { Clock, CircleHelp, Award, BookOpen, ChevronDown } from 'lucide-react-native';
+import Svg, { Circle, G, Rect, Line, Text as RNSvgText, Defs, RadialGradient, Stop } from 'react-native-svg';
 import MathText from '../components/MathText';
 import { hasMath, htmlToPlain, firstImg, stripImages } from '../utils/mathHtml';
+import MockResultScreen from './MockResultScreen';
 import {
-  TT, TimedTestFrame, TTScrim, TTSheet, TTTitle, TTSub,
-  TTConfirmDialog, TTGrid, TTLegend,
+  TT, TimedTestFrame, TTConfirmDialog, TTPalette,
 } from '../components/timedTestDark';
 import { useAuth } from '../context/AuthContext';
 import { getOnlineTestChapters, getOnlineTests, getOnlineTest, submitOnlineTest } from '../api/onlineTestApi';
@@ -47,7 +48,7 @@ const slugify = (s) => {
 
 const C = {
   bg: '#F4F5FB', white: '#fff', text: S.ink, muted: S.muted,
-  primary: '#534AB7', primaryLight: '#EEEDFE', border: S.hair,
+  primary: '#111111', primaryLight: '#F5F5F5', border: S.hair,
   green: '#22B07A', greenBg: '#E7F7EC', red: '#F0564B', redBg: '#FDECEC',
   amber: '#F5A623', amberBg: '#FFF4E0', blue: '#4AA8F0', grey: S.faint,
 };
@@ -56,23 +57,23 @@ const C = {
 // Class 8's Science (Curiosity) has no online tests, so only the OLD subjects appear.
 const SUBJECTS_BY_CLASS = {
   7: [
-    { name: 'Science (Curiosity)', emoji: '🔬', bg: '#0F8A5F' },
-    { name: 'Old - Social Sc',     emoji: '🏛️', bg: '#8A5A2B' },
-    { name: 'Old - Maths',         emoji: '➗', bg: '#0F6E56' },
-    { name: 'Old - हिंदी',          emoji: '📚', bg: '#2F80ED' },
+    { name: 'Science (Curiosity)', emoji: 'ðŸ”¬', bg: '#0F8A5F' },
+    { name: 'Old - Social Sc',     emoji: 'ðŸ›ï¸', bg: '#8A5A2B' },
+    { name: 'Old - Maths',         emoji: 'âž—', bg: '#0F6E56' },
+    { name: 'Old - à¤¹à¤¿à¤‚à¤¦à¥€',          emoji: 'ðŸ“š', bg: '#2F80ED' },
   ],
   8: [
-    { name: 'Old - Science',   emoji: '⚗️', bg: '#5AA84F' },
-    { name: 'Old - Social Sc', emoji: '🏛️', bg: '#8A5A2B' },
-    { name: 'Old - Maths',     emoji: '➗', bg: '#0F6E56' },
+    { name: 'Old - Science',   emoji: 'âš—ï¸', bg: '#5AA84F' },
+    { name: 'Old - Social Sc', emoji: 'ðŸ›ï¸', bg: '#8A5A2B' },
+    { name: 'Old - Maths',     emoji: 'âž—', bg: '#0F6E56' },
   ],
   9: [
-    { name: 'Maths (Ganita Manjari)',     emoji: '📐', bg: '#0C8F88' },
-    { name: 'Computer Applications (165)', emoji: '💻', bg: S.ink },
-    { name: 'JSTSE Scholarship',           emoji: '🏆', bg: '#B0306B' },
-    { name: 'Old - Maths',            emoji: '➗', bg: '#0F6E56' },
-    { name: 'Old - Science',          emoji: '⚗️', bg: '#5AA84F' },
-    { name: 'Old - Social Sc',        emoji: '🏛️', bg: '#8A5A2B' },
+    { name: 'Maths (Ganita Manjari)',     emoji: 'ðŸ“', bg: '#0C8F88' },
+    { name: 'Computer Applications (165)', emoji: 'ðŸ’»', bg: S.ink },
+    { name: 'JSTSE Scholarship',           emoji: 'ðŸ†', bg: '#B0306B' },
+    { name: 'Old - Maths',            emoji: 'âž—', bg: '#0F6E56' },
+    { name: 'Old - Science',          emoji: 'âš—ï¸', bg: '#5AA84F' },
+    { name: 'Old - Social Sc',        emoji: 'ðŸ›ï¸', bg: '#8A5A2B' },
   ],
 };
 const subjectsForClass = (classLevel) => SUBJECTS_BY_CLASS[classLevel] || SUBJECTS_BY_CLASS[7];
@@ -104,7 +105,7 @@ function Rich({ value, fontSize = 15, lineHeight, color = C.text, family, imgHei
   );
 }
 
-// ─── Donut chart (segments = [{ value, color }]) ──────────────────────────────
+// â”€â”€â”€ Donut chart (segments = [{ value, color }]) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function Donut({ segments, size = 190, stroke = 30, center }) {
   const r = (size - stroke) / 2;
   const circ = 2 * Math.PI * r;
@@ -131,7 +132,7 @@ function Donut({ segments, size = 190, stroke = 30, center }) {
   );
 }
 
-// ─── Time-per-question bar chart ──────────────────────────────────────────────
+// â”€â”€â”€ Time-per-question bar chart â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function TimeBars({ data }) {
   // data = [{ time, color }]; width scrolls if many questions.
   const H = 170, barW = 16, gap = 10, padL = 30, padB = 22, padT = 10;
@@ -184,7 +185,7 @@ function LegendDot({ color, label }) {
 function Header({ onBack, title }) {
   return (
     <View style={st.header}>
-      <TouchableOpacity onPress={onBack} hitSlop={10}><Text style={st.back}>← Back</Text></TouchableOpacity>
+      <TouchableOpacity onPress={onBack} hitSlop={10}><Text style={st.back}>â† Back</Text></TouchableOpacity>
       <Text style={st.headerTitle} numberOfLines={1}>{title}</Text>
       <View style={{ width: 48 }} />
     </View>
@@ -220,10 +221,10 @@ export default function OnlineTestScreen({ onExit = () => {} }) {
     else onExit();
   };
 
-  // ── load chapters when a subject is picked ──
+  // â”€â”€ load chapters when a subject is picked â”€â”€
   // Prefer the tile's DB slug (from the class-subjects endpoint) over re-deriving
-  // it — the client slugify appends a Devanagari hash for names like 'Old - हिंदी'
-  // (→ "old-u…") that would not match the seeded slug ("old").
+  // it â€” the client slugify appends a Devanagari hash for names like 'Old - à¤¹à¤¿à¤‚à¤¦à¥€'
+  // (â†’ "old-uâ€¦") that would not match the seeded slug ("old").
   const subjSlug = (s) => (s && s.slug) || slugify(s.name);
   const openSubject = async (s) => {
     setSubject(s); setView('chapters'); setChapters(null);
@@ -331,7 +332,7 @@ export default function OnlineTestScreen({ onExit = () => {} }) {
                       key={t.id}
                       done={done}
                       title={t.name}
-                      metas={[`\u{1F4DD} ${t.questionCount} questions`, `⏱ ${t.durationMin} min`]}
+                      metas={[`\u{1F4DD} ${t.questionCount} questions`, `â± ${t.durationMin} min`]}
                       scoreText={done ? `${att.score}/${att.total}` : null}
                       scorePct={pct}
                       actionLabel={done ? 'Retake' : 'Attempt'}
@@ -368,41 +369,251 @@ export default function OnlineTestScreen({ onExit = () => {} }) {
   );
 }
 
-// ─── Instruction page ─────────────────────────────────────────────────────────
-function Instruction({ test, onBack, onStart }) {
+// â”€â”€â”€ Instruction page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// Built on TT (the timed-test dark tokens), not this file's light `C`, so the
+// briefing and the runner it launches read as one flow rather than two products.
+// The default rules below are only a fallback â€” a test that ships its own
+// instructionHtml always wins.
+const DEFAULT_RULES = [
+  'Ensure stable connectivity before launching. Once initiated, the countdown cannot be paused.',
+  'Each question has one correct answer. Save your choice to commit progress.',
+  'All questions are compulsory and carry equal marks.',
+  'You can move freely between questions until you submit.',
+  'The test submits itself automatically when the timer reaches zero.',
+];
+
+// Fade + rise, delayed. The briefing's elements arrive in reading order rather
+// than as one slab, so the eye is walked down to the CTA.
+function Rise({ delay = 0, y = 14, style, children }) {
+  const a = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    Animated.timing(a, { toValue: 1, duration: 520, delay, easing: Easing.out(Easing.cubic), useNativeDriver: true }).start();
+  }, [a, delay]);
   return (
-    <>
-      <Header onBack={onBack} title="Instructions" />
-      <ScrollView contentContainerStyle={{ padding: 16, gap: 14 }}>
-        <View style={st.instrHero}>
-          <Text style={st.instrTitle}>{test.name}</Text>
-          <Text style={st.instrSub}>{test.chapterName}</Text>
-          <View style={st.instrStats}>
-            <InstrStat num={test.questionCount} label="Questions" />
-            <InstrStat num={test.durationMin} label="Minutes" />
-            <InstrStat num={test.totalMarks} label="Marks" />
-          </View>
-        </View>
-        <View style={st.instrBox}>
-          <Text style={st.instrBoxTitle}>Instructions</Text>
-          {test.instructionHtml
-            ? <Rich value={test.instructionHtml} fontSize={14} color={C.text} />
-            : <Text style={st.instrLine}>• All questions are compulsory.{'\n'}• Each question carries equal marks.{'\n'}• There is no negative marking.{'\n'}• The timer starts once you begin.</Text>}
-        </View>
-      </ScrollView>
-      <View style={st.footer}>
-        <TouchableOpacity style={[st.btn, st.btnPrimary, { flex: 1 }]} activeOpacity={0.85} onPress={onStart}>
-          <Text style={st.btnPrimaryTxt}>Start Test</Text>
-        </TouchableOpacity>
-      </View>
-    </>
+    <Animated.View style={[style, {
+      opacity: a,
+      transform: [{ translateY: a.interpolate({ inputRange: [0, 1], outputRange: [y, 0] }) }],
+    }]}>
+      {children}
+    </Animated.View>
   );
 }
-function InstrStat({ num, label }) {
-  return <View style={st.instrStat}><Text style={st.instrStatNum}>{num}</Text><Text style={st.instrStatLbl}>{label}</Text></View>;
+
+// The orb: a saturated core inside a wide soft bloom. Two radial gradients rather
+// than a blurred image, so it stays crisp at any density and ships no asset.
+// It breathes and drifts â€” the only ambient motion on the page, which is what
+// makes it read as a light source rather than a sticker.
+function HeroOrb({ size = 190 }) {
+  const c = size / 2;
+  const breathe = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    const loop = Animated.loop(Animated.sequence([
+      Animated.timing(breathe, { toValue: 1, duration: 3200, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
+      Animated.timing(breathe, { toValue: 0, duration: 3200, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
+    ]));
+    loop.start();
+    return () => loop.stop();
+  }, [breathe]);
+
+  return (
+    <Animated.View style={{
+      opacity: breathe.interpolate({ inputRange: [0, 1], outputRange: [0.86, 1] }),
+      transform: [
+        { scale: breathe.interpolate({ inputRange: [0, 1], outputRange: [0.94, 1.05] }) },
+        { translateY: breathe.interpolate({ inputRange: [0, 1], outputRange: [0, -8] }) },
+      ],
+    }}>
+      <OrbArt size={size} c={c} />
+    </Animated.View>
+  );
 }
 
-// ─── Test runner (timed, navigable, single submit) ───────────────────────────
+function OrbArt({ size, c }) {
+  return (
+    <Svg width={size} height={size} pointerEvents="none">
+      <Defs>
+        <RadialGradient id="orbGlow" cx="50%" cy="50%" r="50%">
+          <Stop offset="0.35" stopColor="#FF7A45" stopOpacity="0.55" />
+          <Stop offset="0.62" stopColor="#8B5CF6" stopOpacity="0.30" />
+          <Stop offset="1" stopColor="#8B5CF6" stopOpacity="0" />
+        </RadialGradient>
+        <RadialGradient id="orbCore" cx="38%" cy="34%" r="72%">
+          <Stop offset="0" stopColor="#FFB27A" />
+          <Stop offset="0.55" stopColor="#F97445" />
+          <Stop offset="1" stopColor="#E2542B" />
+        </RadialGradient>
+      </Defs>
+      <Circle cx={c} cy={c} r={c} fill="url(#orbGlow)" />
+      <Circle cx={c} cy={c} r={size * 0.21} fill="url(#orbCore)" />
+      {/* the slash, as in the frame */}
+      <Line
+        x1={c - size * 0.075} y1={c + size * 0.075}
+        x2={c + size * 0.075} y2={c - size * 0.075}
+        stroke="#FFD8C2" strokeOpacity={0.85} strokeWidth={3} strokeLinecap="round"
+      />
+    </Svg>
+  );
+}
+
+// Pills pop rather than rise â€” they read as three discrete facts landing, not a
+// paragraph arriving.
+function StatPill({ Icon, label, delay = 0 }) {
+  const a = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    Animated.spring(a, { toValue: 1, delay, friction: 6, tension: 150, useNativeDriver: true }).start();
+  }, [a, delay]);
+  return (
+    <Animated.View style={[st.statPill, {
+      opacity: a,
+      transform: [{ scale: a.interpolate({ inputRange: [0, 1], outputRange: [0.72, 1] }) }],
+    }]}>
+      <Icon size={17} color={TT.violet} strokeWidth={2.3} />
+      <Text style={st.statPillTxt}>{label}</Text>
+    </Animated.View>
+  );
+}
+
+function Instruction({ test, onBack, onStart }) {
+  const [open, setOpen] = useState(true);
+  const spin = useRef(new Animated.Value(0)).current;
+  const press = useRef(new Animated.Value(1)).current;
+  const glow = useRef(new Animated.Value(0)).current;
+
+  const rules = useMemo(() => {
+    if (!test.instructionHtml) return DEFAULT_RULES;
+    // Server rules arrive as HTML; split them into lines so they can be counted
+    // and laid out like the frame instead of dumped as one block.
+    const plain = htmlToPlain(test.instructionHtml) || '';
+    const lines = plain.split(/\n+|(?:â€¢|Â·)\s*/).map((t) => t.trim()).filter((t) => t.length > 2);
+    return lines.length ? lines : DEFAULT_RULES;
+  }, [test.instructionHtml]);
+
+  // shadowOpacity cannot run on the native driver, but this is one view pulsing
+  // slowly â€” cheap enough, and the CTA is worth it.
+  useEffect(() => {
+    const loop = Animated.loop(Animated.sequence([
+      Animated.timing(glow, { toValue: 1, duration: 1500, easing: Easing.inOut(Easing.quad), useNativeDriver: false }),
+      Animated.timing(glow, { toValue: 0, duration: 1500, easing: Easing.inOut(Easing.quad), useNativeDriver: false }),
+    ]));
+    loop.start();
+    return () => loop.stop();
+  }, [glow]);
+
+  useEffect(() => {
+    Animated.timing(spin, { toValue: open ? 1 : 0, duration: 220, easing: Easing.out(Easing.quad), useNativeDriver: true }).start();
+  }, [spin, open]);
+
+  // LayoutAnimation is a no-op under the New Architecture (app.json â†’ newArchEnabled),
+  // so the reveal is driven explicitly instead: the body fades and slides in on open.
+  const body = useRef(new Animated.Value(1)).current;
+  useEffect(() => {
+    if (!open) return;
+    body.setValue(0);
+    Animated.timing(body, { toValue: 1, duration: 260, easing: Easing.out(Easing.cubic), useNativeDriver: true }).start();
+  }, [body, open]);
+
+  const toggle = () => setOpen((v) => !v);
+
+  const to = (v) => Animated.spring(press, { toValue: v, friction: 7, tension: 180, useNativeDriver: true }).start();
+  const marks = test.totalMarks != null ? test.totalMarks : test.questionCount;
+
+  return (
+    <View style={st.brief}>
+      {/* The shared Header is a white bar â€” wrong here, and the frame has no title
+          bar at all. A single dark back control keeps the exit without the chrome. */}
+      <View style={st.briefTop}>
+        <Pressable onPress={onBack} hitSlop={12} accessibilityRole="button" accessibilityLabel="Go back" style={st.briefBack}>
+          <ChevronDown size={20} color={TT.ink} strokeWidth={2.5} style={{ transform: [{ rotate: '90deg' }] }} />
+        </Pressable>
+      </View>
+      <ScrollView contentContainerStyle={st.briefBody} showsVerticalScrollIndicator={false}>
+        {/* brand */}
+        <Rise delay={0} style={st.brandRow}>
+          <View style={st.brandDot} />
+          <Text style={st.brandTxt}>AiLernova</Text>
+        </Rise>
+
+        {/* title block â€” the orb sits behind/right of it */}
+        <View style={st.titleRow}>
+          <View style={{ flex: 1, minWidth: 0 }}>
+            <Rise delay={70}><Text style={st.eyebrow}>ONLINE TEST Â· MCQ</Text></Rise>
+            <Rise delay={130} y={18}><Text style={st.briefTitle}>{test.name}</Text></Rise>
+            <Rise delay={210}>
+              <Text style={st.briefSub}>
+                {[test.subjectName, test.chapterName].filter(Boolean).join(' Â· ')}
+              </Text>
+            </Rise>
+          </View>
+          <View style={st.orbWrap} pointerEvents="none"><HeroOrb /></View>
+        </View>
+
+        {/* facts */}
+        <View style={st.statRow}>
+          <StatPill Icon={Clock} label={`${test.durationMin} Min`} delay={280} />
+          <StatPill Icon={CircleHelp} label={`${test.questionCount} Qs`} delay={350} />
+          <StatPill Icon={Award} label={`${marks} Marks`} delay={420} />
+        </View>
+
+        <Rise delay={480}>
+          <Text style={st.markingLine}>
+            Marking:  <Text style={st.markPos}>âœ“ +1 per correct</Text>
+            <Text style={st.markNeg}>   âœ— â€“0 per wrong</Text>
+          </Text>
+        </Rise>
+
+        {/* instructions */}
+        <Rise delay={540}>
+          <Pressable onPress={toggle} style={st.instrHead} accessibilityRole="button"
+            accessibilityState={{ expanded: open }} accessibilityLabel={`Instructions, ${rules.length} rules`}>
+            <BookOpen size={21} color={TT.violet} strokeWidth={2.3} />
+            <Text style={st.instrHeadTxt}>Instructions Â· {rules.length} rules</Text>
+            <Animated.View style={{
+              transform: [{ rotate: spin.interpolate({ inputRange: [0, 1], outputRange: ['-90deg', '0deg'] }) }],
+            }}>
+              <ChevronDown size={22} color={TT.sub} strokeWidth={2.2} />
+            </Animated.View>
+          </Pressable>
+          <View style={st.instrRule} />
+        </Rise>
+
+        {open && (
+          <Animated.View style={{
+            opacity: body,
+            transform: [{ translateY: body.interpolate({ inputRange: [0, 1], outputRange: [-8, 0] }) }],
+          }}>
+            {rules.map((r, i) => <Text key={i} style={st.instrPara}>{r}</Text>)}
+          </Animated.View>
+        )}
+      </ScrollView>
+
+      <View style={st.briefFooter}>
+        {/* The CTA arrives last and keeps a slow glow â€” it is the only thing on the
+            page you can act on, and the page is otherwise all reading. */}
+        <Rise delay={620} y={20}>
+          <Animated.View style={{
+            transform: [{ scale: press }],
+            shadowOpacity: glow.interpolate({ inputRange: [0, 1], outputRange: [0.35, 0.7] }),
+            shadowColor: '#111111', shadowRadius: 22, shadowOffset: { width: 0, height: 10 },
+          }}>
+            <Pressable
+              onPress={onStart}
+              onPressIn={() => to(0.98)}
+              onPressOut={() => to(1)}
+              accessibilityRole="button"
+              accessibilityLabel={`Start ${test.name}`}
+              style={st.startBtn}
+            >
+              <Text style={st.startBtnTxt}>Start Test</Text>
+            </Pressable>
+          </Animated.View>
+        </Rise>
+      </View>
+    </View>
+  );
+}
+
+// â”€â”€â”€ Test runner (timed, navigable, single submit) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function Runner({ test, subject, chapter, onBack, onFinish }) {
   const qs = test.questions || [];
   const [idx, setIdx] = useState(0);
@@ -415,7 +626,7 @@ function Runner({ test, subject, chapter, onBack, onFinish }) {
   const timerRef = useRef(null);
   const submitRef = useRef(null);                    // always points at the latest submit()
 
-  // Global countdown → auto-submit at 0. Calls submitRef so the timeout grades the
+  // Global countdown â†’ auto-submit at 0. Calls submitRef so the timeout grades the
   // latest answers (not a stale first-render closure).
   useEffect(() => {
     timerRef.current = setInterval(() => {
@@ -455,11 +666,11 @@ function Runner({ test, subject, chapter, onBack, onFinish }) {
   const low = secs <= 60;
   const marks = q && q.marks != null ? q.marks : null;
 
-  // `context-banner` — "Physics • Units and Measurements — Test 1". The frame's
-  // trailing "• attempt the questions" is instruction copy, not data, so it is
+  // `context-banner` â€” "Physics â€¢ Units and Measurements â€” Test 1". The frame's
+  // trailing "â€¢ attempt the questions" is instruction copy, not data, so it is
   // dropped rather than hard-coded under a real subject and chapter.
   const context = [subject && subject.name, chapter && chapter.name]
-    .filter(Boolean).join(' • ') + (test.name ? ` — ${test.name}` : '');
+    .filter(Boolean).join(' â€¢ ') + (test.name ? ` â€” ${test.name}` : '');
 
   const clear = () => setAnswers((a) => { const next = { ...a }; delete next[q.id]; return next; });
 
@@ -467,7 +678,6 @@ function Runner({ test, subject, chapter, onBack, onFinish }) {
     <TimedTestFrame
       onClose={onBack}
       secondsLeft={secs}
-      onSubmit={() => setConfirm(true)}
       progressText={`${idx + 1} / ${qs.length}`}
       // These tests carry no A/B/C sections, so the frame's `section-badge` slot
       // takes the one per-question fact worth that space in a timed paper.
@@ -484,29 +694,28 @@ function Runner({ test, subject, chapter, onBack, onFinish }) {
       onNext={() => goto(idx + 1)}
       nextDisabled={idx + 1 >= qs.length}
     >
-      {/* The hamburger's sheet — it replaces the old always-on horizontal strip. */}
-      <Modal visible={palette} transparent animationType="fade" onRequestClose={() => setPalette(false)}>
-        <TTScrim onPress={() => setPalette(false)}>
-          <TTSheet>
-            <TTTitle>Questions</TTTitle>
-            <TTSub>{answeredCount} of {qs.length} answered</TTSub>
-            <TTGrid
-              items={qs.map((qq, i) => ({
-                key: qq.id, label: i + 1, answered: answers[qq.id] != null, current: i === idx,
-              }))}
-              onPick={(i) => { goto(i); setPalette(false); }}
-            />
-            <TTLegend items={[
-              { color: TT.cyan, label: 'Answered' },
-              { color: TT.violet, label: 'Current' },
-              { color: TT.card, label: 'Not answered' },
-            ]} />
-          </TTSheet>
-        </TTScrim>
-      </Modal>
+      {/* The palette â€” a full screen, and where Submit lives now that the header is
+          Exit Â· progress Â· timer only. This is the ONLY submit path for these tests:
+          Next is disabled on the last question, so losing it would strand the student.
+          These papers carry no A/B/C sections, so it renders as one untitled group. */}
+      <TTPalette
+        visible={palette}
+        onClose={onBack}
+        secondsLeft={secs}
+        progressText={`${idx + 1} / ${qs.length}`}
+        groups={[{
+          id: 'all',
+          items: qs.map((qq, i) => ({
+            key: qq.id, label: i + 1, answered: answers[qq.id] != null, current: i === idx,
+          })),
+        }]}
+        onPick={(_g, i) => { goto(i); setPalette(false); }}
+        onFinish={() => { setPalette(false); setConfirm(true); }}
+        onBack={() => setPalette(false)}
+      />
 
       {/* `finish-test-dialog-dark`. Submit moved into the header, where it is
-          reachable from every question — so it needs a guard the old "Submit on the
+          reachable from every question â€” so it needs a guard the old "Submit on the
           last question" didn't. Same wording as the offline-bank runner's. */}
       <TTConfirmDialog
         visible={confirm}
@@ -520,68 +729,22 @@ function Runner({ test, subject, chapter, onBack, onFinish }) {
   );
 }
 
-// ─── Result page (donuts + performance bars) ─────────────────────────────────
+// â”€â”€â”€ Result page (donuts + performance bars) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function Result({ test, result, onBack, onReview, onRetake, onMore }) {
+  // The result screen is shared with the offline bank now, so a student sees the
+  // same verdict page whichever runner graded them. These papers score in MARKS
+  // (score / totalMarks), not by question count, so both are passed explicitly.
   const { correct, incorrect, unanswered, total, score } = result;
-  const attempted = correct + incorrect;
-  const accuracy = attempted ? Math.round((correct / attempted) * 100) : 0;
-  const barData = result.perQ.map((p) => ({
-    time: p.time,
-    color: p.status === 'correct' ? C.green : p.status === 'incorrect' ? C.red : C.amber,
-  }));
   return (
-    <>
-      <Header onBack={onBack} title="Result" />
-      <ScrollView contentContainerStyle={{ padding: 16, gap: 14, paddingBottom: 30 }}>
-        {/* Score card */}
-        <View style={st.resHero}>
-          <Text style={st.resEmoji}>{accuracy >= 80 ? '🏆' : accuracy >= 50 ? '👍' : '💪'}</Text>
-          <Text style={st.resScore}>{score} / {test.totalMarks || total}</Text>
-          <Text style={st.resSub}>{test.name} · {accuracy}% accuracy</Text>
-        </View>
-
-        {/* Action buttons */}
-        <View style={st.actionRow}>
-          <ActionBtn icon="📋" label="Review Questions" onPress={onReview} primary />
-          <ActionBtn icon="🔄" label="Retake Test" onPress={onRetake} />
-          <ActionBtn icon="📈" label="More Tests" onPress={onMore} />
-        </View>
-
-        {/* Statistics — donut 1 */}
-        <View style={st.card}>
-          <Text style={st.cardTitle}>Statistics</Text>
-          <View style={st.donutRow}>
-            <Donut size={170} stroke={28}
-              segments={[{ value: correct, color: C.green }, { value: incorrect, color: C.red }, { value: unanswered, color: C.amber }]}
-              center={<><Text style={st.donutCenterNum}>{total}</Text><Text style={st.donutCenterLbl}>Questions</Text></>} />
-            <View style={{ flex: 1, gap: 8 }}>
-              <StatChip color={C.green} bg={C.greenBg} label={`${correct} Correct`} />
-              <StatChip color={C.red} bg={C.redBg} label={`${incorrect} Incorrect`} />
-              <StatChip color={C.amber} bg={C.amberBg} label={`${unanswered} Unanswered`} />
-            </View>
-          </View>
-          {/* donut 2 — correct vs incorrect ratio */}
-          <View style={st.legendRow}><LegendDot color={C.blue} label="Correct" /><LegendDot color={C.grey} label="Incorrect" /></View>
-          <View style={{ alignItems: 'center', marginTop: 6 }}>
-            <Donut size={150} stroke={26}
-              segments={[{ value: correct, color: C.blue }, { value: incorrect, color: C.grey }]}
-              center={<><Text style={st.donutCenterNum}>{accuracy}%</Text></>} />
-          </View>
-        </View>
-
-        {/* Detailed performance — time per question */}
-        <View style={st.card}>
-          <Text style={st.cardTitle}>Detailed Performance</Text>
-          <Text style={st.cardHint}>Time taken (sec) per question</Text>
-          <TimeBars data={barData} />
-          <View style={st.legendRow}>
-            <LegendDot color={C.green} label="Correct" />
-            <LegendDot color={C.red} label="Incorrect" />
-            <LegendDot color={C.amber} label="Unanswered" />
-          </View>
-        </View>
-      </ScrollView>
-    </>
+    <MockResultScreen
+      title={test.name}
+      scoreMarks={score}
+      scoreTotal={test.totalMarks || total}
+      result={{ correct, incorrect, unanswered, total, sections: [] }}
+      onReview={onReview}
+      onRetake={onRetake}
+      onClose={onMore || onBack}
+    />
   );
 }
 function ActionBtn({ icon, label, onPress, primary }) {
@@ -601,7 +764,7 @@ function StatChip({ color, bg, label }) {
   );
 }
 
-// ─── Review (per-question solutions) ─────────────────────────────────────────
+// â”€â”€â”€ Review (per-question solutions) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function Review({ test, result, onBack }) {
   const byId = useMemo(() => Object.fromEntries(result.perQ.map((p) => [String(p.id), p])), [result]);
   return (
@@ -634,8 +797,8 @@ function Review({ test, result, onBack }) {
                     <View key={o.optionId} style={box}>
                       <Text style={[st.optKey, { color: col }]}>{o.key}</Text>
                       <View style={{ flex: 1 }}><Rich value={o.label} fontSize={14} color={col} /></View>
-                      {isCorrect && <Text style={st.tick}>✓</Text>}
-                      {isPicked && !isCorrect && <Text style={st.cross}>✕</Text>}
+                      {isCorrect && <Text style={st.tick}>âœ“</Text>}
+                      {isPicked && !isCorrect && <Text style={st.cross}>âœ•</Text>}
                     </View>
                   );
                 })}
@@ -688,16 +851,52 @@ const st = StyleSheet.create({
   startPillTxt: { color: C.white, fontFamily: FONT.extrabold, fontSize: 13 },
   loadingOverlay: { ...StyleSheet.absoluteFillObject, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.6)' },
 
-  instrHero: { backgroundColor: C.white, borderRadius: 16, padding: 20, alignItems: 'center', gap: 4, borderWidth: 1, borderColor: C.border },
-  instrTitle: { fontSize: 19, fontFamily: FONT.extrabold, color: C.text, textAlign: 'center' },
-  instrSub: { fontSize: 13, color: C.muted },
-  instrStats: { flexDirection: 'row', gap: 22, marginTop: 14 },
-  instrStat: { alignItems: 'center' },
-  instrStatNum: { fontSize: 22, fontFamily: FONT.extrabold, color: C.primary },
-  instrStatLbl: { fontSize: 12, color: C.muted, marginTop: 2 },
-  instrBox: { backgroundColor: C.white, borderRadius: 14, padding: 16, borderWidth: 1, borderColor: C.border, gap: 8 },
-  instrBoxTitle: { fontSize: 15, fontFamily: FONT.extrabold, color: C.text },
-  instrLine: { fontSize: 14, color: C.text, lineHeight: 22 },
+  // â”€â”€ test briefing (dark, on TT) â”€â”€
+  brief: { flex: 1, backgroundColor: TT.canvas },
+  briefTop: { paddingHorizontal: 18, paddingTop: 8, paddingBottom: 2 },
+  briefBack: {
+    width: 40, height: 40, borderRadius: 20,
+    alignItems: 'center', justifyContent: 'center',
+    backgroundColor: 'rgba(255,255,255,0.05)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.10)',
+  },
+  briefBody: { paddingHorizontal: 22, paddingTop: 6, paddingBottom: 28 },
+
+  brandRow: { flexDirection: 'row', alignItems: 'center', gap: 9, marginBottom: 20 },
+  brandDot: { width: 11, height: 11, borderRadius: 6, backgroundColor: '#F97445' },
+  brandTxt: { fontSize: 15.5, fontFamily: FONT.extrabold, color: TT.violet, letterSpacing: -0.2 },
+
+  titleRow: { flexDirection: 'row', alignItems: 'flex-start' },
+  eyebrow: { fontSize: 11.5, fontFamily: FONT.extrabold, color: TT.sub, letterSpacing: 1.3, marginBottom: 8 },
+  briefTitle: { fontSize: 38, lineHeight: 44, fontFamily: FONT.black, color: TT.ink, letterSpacing: -1.2 },
+  briefSub: { fontSize: 16, lineHeight: 23, color: TT.sub, fontFamily: FONT.semibold, marginTop: 12 },
+  // Pulled up and out so the bloom bleeds off the right edge, as in the frame.
+  orbWrap: { position: 'absolute', right: -46, top: -34 },
+
+  statRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 10, marginTop: 26 },
+  statPill: {
+    flexDirection: 'row', alignItems: 'center', gap: 9,
+    paddingVertical: 13, paddingHorizontal: 18, borderRadius: 999,
+    backgroundColor: 'rgba(255,255,255,0.035)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.10)',
+  },
+  statPillTxt: { fontSize: 16, fontFamily: FONT.extrabold, color: TT.ink, letterSpacing: -0.3 },
+
+  markingLine: { fontSize: 14.5, color: TT.sub, fontFamily: FONT.semibold, marginTop: 22 },
+  markPos: { color: '#F97445', fontFamily: FONT.extrabold },
+  markNeg: { color: TT.sub, fontFamily: FONT.semibold },
+
+  instrHead: { flexDirection: 'row', alignItems: 'center', gap: 12, marginTop: 34 },
+  instrHeadTxt: { flex: 1, fontSize: 19, fontFamily: FONT.extrabold, color: TT.ink, letterSpacing: -0.4 },
+  instrRule: { height: 1, backgroundColor: 'rgba(255,255,255,0.10)', marginTop: 16 },
+  instrPara: { fontSize: 15.5, lineHeight: 24, color: TT.sub, fontFamily: FONT.regular, marginTop: 18 },
+
+  briefFooter: { paddingHorizontal: 22, paddingTop: 8, paddingBottom: Platform.OS === 'ios' ? 30 : 20 },
+  startBtn: {
+    height: 66, borderRadius: 18, backgroundColor: '#111111',
+    alignItems: 'center', justifyContent: 'center',
+    shadowColor: '#111111', shadowOpacity: 0.18, shadowRadius: 22,
+    shadowOffset: { width: 0, height: 10 }, elevation: 12,
+  },
+  startBtnTxt: { fontSize: 19, fontFamily: FONT.black, color: '#FFFFFF', letterSpacing: -0.3 },
 
   topRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 16, paddingTop: 12 },
   counter: { fontSize: 13, fontFamily: FONT.bold, color: C.muted },
@@ -719,13 +918,9 @@ const st = StyleSheet.create({
   tick: { color: C.green, fontFamily: FONT.extrabold, fontSize: 16 },
   cross: { color: C.red, fontFamily: FONT.extrabold, fontSize: 16 },
 
-  footer: { flexDirection: 'row', gap: 10, padding: 14, backgroundColor: C.white, borderTopWidth: 1, borderTopColor: C.border },
-  btn: { flex: 1, paddingVertical: 13, borderRadius: 12, alignItems: 'center' },
   btnGhost: { backgroundColor: C.bg, borderWidth: 1, borderColor: C.border },
   btnGhostTxt: { fontSize: 15, fontFamily: FONT.bold, color: C.muted },
-  btnPrimary: { backgroundColor: C.primary },
   btnSubmit: { backgroundColor: C.green },
-  btnPrimaryTxt: { fontSize: 15, fontFamily: FONT.extrabold, color: C.white },
 
   resHero: { backgroundColor: C.white, borderRadius: 16, alignItems: 'center', padding: 22, gap: 4, borderWidth: 1, borderColor: C.border },
   resEmoji: { fontSize: 40 },
@@ -758,3 +953,5 @@ const st = StyleSheet.create({
   solBox: { backgroundColor: C.bg, borderRadius: 10, padding: 12, marginTop: 10, gap: 4 },
   solTitle: { fontSize: 12.5, fontFamily: FONT.extrabold, color: C.text },
 });
+
+

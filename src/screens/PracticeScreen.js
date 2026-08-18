@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+﻿import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform, ActivityIndicator, Modal } from 'react-native';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -19,6 +19,8 @@ import ChapterListScreen from './ChapterListScreen';
 import OnlineTestsScreen from './OnlineTestsScreen';
 import OnlineTestScreen from './OnlineTestScreen';
 import OnlineTestReview from './OnlineTestReview';
+import ChapterPracticeScreen from './ChapterPracticeScreen';
+import QuestionSolveScreen from './QuestionSolveScreen';
 import { submitOfflineTest } from '../api/offlineTestApi';
 import MockTestsCards from './Class11MockTests';
 import PracticeTestsCards from './Class11PracticeTests';
@@ -40,10 +42,10 @@ const MCQ_CANVAS = COLORS.background;
 
 // Dark reskin of the Practice LANDING page + the PYQ / Important Questions subject
 // and chapter lists (the "practice-home-dark" / "subject-selection-dark" /
-// "chapter-tests-dark" references) — same opt-in-per-screen technique as
+// "chapter-tests-dark" references) â€” same opt-in-per-screen technique as
 // Profile/KnowledgeAsk/Login/Signup/Class11PracticeTests. The subject cards keep
 // each subject's own existing `bg` colour + emoji (already distinct per subject,
-// reads fine on dark) — only the screen chrome around them changes. MCQ practice
+// reads fine on dark) â€” only the screen chrome around them changes. MCQ practice
 // already lives in Class11PracticeTests.js (dark). Mock Tests, Online Tests and
 // the actual question WebView content (PyqWebView) are untouched for now.
 const D = {
@@ -63,19 +65,19 @@ const SUBJECT_TINTS = [{ tint: '#22D3EE', soft: 'rgba(34,211,238,0.16)' }, { tin
 // button opens a subject -> mock list flow that runs each test through the
 // shared (sectioned) McqTestScreen.
 const DB_MOCK_SUBJECTS = ['Physics', 'Chemistry', 'Mathematics', 'Biology', 'Science', 'Social Science',
-  'हिंदी ए', 'हिंदी ब', 'Information Technology (402)', 'English Language and Literature'];
+  'à¤¹à¤¿à¤‚à¤¦à¥€ à¤', 'à¤¹à¤¿à¤‚à¤¦à¥€ à¤¬', 'Information Technology (402)', 'English Language and Literature'];
 const MOCK_QUIZ_COUNT = 10;
 
 // Class 10 mock-test subjects (DB-backed via mock_tests, class_level=10). The mock
 // section shows these instead of the Class 11/12 science list when Class 10 is active.
 const MOCK_SUBJECTS_CLASS10 = [
-  { name: 'Mathematics',                     emoji: '📐', bg: '#444' },
-  { name: 'Science',                         emoji: '🔬', bg: '#5AA84F' },
-  { name: 'Social Science',                  emoji: '🌐', bg: '#2F80ED' },
-  { name: 'हिंदी ए',                          emoji: '📚', bg: '#2F80ED' },
-  { name: 'हिंदी ब',                          emoji: '📚', bg: '#0F6E56' },
-  { name: 'Information Technology (402)',     emoji: '💻', bg: S.ink },
-  { name: 'English Language and Literature', emoji: '📖', bg: '#5A67E8' },
+  { name: 'Mathematics',                     emoji: 'ðŸ“', bg: '#444' },
+  { name: 'Science',                         emoji: 'ðŸ”¬', bg: '#5AA84F' },
+  { name: 'Social Science',                  emoji: 'ðŸŒ', bg: '#2F80ED' },
+  { name: 'à¤¹à¤¿à¤‚à¤¦à¥€ à¤',                          emoji: 'ðŸ“š', bg: '#2F80ED' },
+  { name: 'à¤¹à¤¿à¤‚à¤¦à¥€ à¤¬',                          emoji: 'ðŸ“š', bg: '#0F6E56' },
+  { name: 'Information Technology (402)',     emoji: 'ðŸ’»', bg: S.ink },
+  { name: 'English Language and Literature', emoji: 'ðŸ“–', bg: '#5A67E8' },
 ];
 
 // Compute a sectioned result from the test submission. Uses each question's
@@ -103,7 +105,7 @@ function computeMockResult(payload) {
 }
 
 // Slug must match how rows were inserted (scripts/importResources.js slugify).
-// Slug for API lookups. Non-ASCII names (e.g. Devanagari "हिंदी (मल्हार)") produce
+// Slug for API lookups. Non-ASCII names (e.g. Devanagari "à¤¹à¤¿à¤‚à¤¦à¥€ (à¤®à¤²à¥à¤¹à¤¾à¤°)") produce
 // an empty base, so fall back to a stable hash slug. MUST stay byte-identical to the
 // seed's slugify (scripts/seedClass7IQPractice.js) so client lookups match DB slugs.
 const slugify = (s) => {
@@ -119,17 +121,17 @@ const slugify = (s) => {
   return base ? base + '-' + hash : hash;
 };
 
-// 'Class 8' → 8; null when unknown (never defaults to a class — the backend uses the
+// 'Class 8' â†’ 8; null when unknown (never defaults to a class â€” the backend uses the
 // student's saved class regardless of what we send).
 const classNum = (c) => parseInt(String(c || '').replace(/\D/g, ''), 10) || null;
 
-// Subject → API slug. 'Old - हिंदी ए' and 'Old - हिंदी ब' both slugify to "old"
+// Subject â†’ API slug. 'Old - à¤¹à¤¿à¤‚à¤¦à¥€ à¤' and 'Old - à¤¹à¤¿à¤‚à¤¦à¥€ à¤¬' both slugify to "old"
 // (the ASCII "Old" prefix blocks the Devanagari hash fallback), so they need
 // explicit slugs matching the seed (scripts/seedClass9Old*.js).
-// 'Old - हिंदी' (Class 6) seeds to slug "old" (the seed's slugify returns the ASCII
-// base immediately), but the client slugify appends a hash for Devanagari names →
-// "old-u…". Pin it so navigation matches the DB. Class 9 ए/ब likewise.
-const SUBJECT_SLUG_OVERRIDES = { 'Old - हिंदी': 'old', 'Old - हिंदी ए': 'old-hindi-a', 'Old - हिंदी ब': 'old-hindi-b' };
+// 'Old - à¤¹à¤¿à¤‚à¤¦à¥€' (Class 6) seeds to slug "old" (the seed's slugify returns the ASCII
+// base immediately), but the client slugify appends a hash for Devanagari names â†’
+// "old-uâ€¦". Pin it so navigation matches the DB. Class 9 à¤/à¤¬ likewise.
+const SUBJECT_SLUG_OVERRIDES = { 'Old - à¤¹à¤¿à¤‚à¤¦à¥€': 'old', 'Old - à¤¹à¤¿à¤‚à¤¦à¥€ à¤': 'old-hindi-a', 'Old - à¤¹à¤¿à¤‚à¤¦à¥€ à¤¬': 'old-hindi-b' };
 const subjectSlug = (name) => SUBJECT_SLUG_OVERRIDES[name] || slugify(name);
 
 // Classes whose subject lists are derived from the DB (/api/resources/class-subjects)
@@ -139,18 +141,18 @@ const DYNAMIC_CLASSES = [6, 9];
 // buildFragmentFromQuestions + buildPyqDocument now live in utils/pyqDocument so
 // ResourcesScreen (Exemplar) can reuse the exact same card rendering.
 
-// Biology is not offered in Class 12 (PCM stream) — drop it from any subject list
+// Biology is not offered in Class 12 (PCM stream) â€” drop it from any subject list
 // when Class 12 is selected. Mirrors the same filter in ResourcesScreen. Works for
 // both object lists ({ name }) and plain string lists.
 const dropBioForClass = (list, cls) =>
   list.filter((sub) => !(cls === 'Class 12' && (sub.name || sub) === 'Biology'));
 
-// ── Previous Year Papers: 4 subjects, each with its chapter list ───────────────
+// â”€â”€ Previous Year Papers: 4 subjects, each with its chapter list â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // Chapter lists mirror src/screens/ResourcesScreen.js SUBJECTS so the two stay
 // consistent. Update both if the syllabus changes.
 const PYQ_SUBJECTS = [
   {
-    name: 'Physics', emoji: '⚛️', bg: S.ink,
+    name: 'Physics', emoji: 'âš›ï¸', bg: S.ink,
     chapters: [
       'Units and Measurements',
       'Motion in A Straight Line',
@@ -169,7 +171,7 @@ const PYQ_SUBJECTS = [
     ],
   },
   {
-    name: 'Chemistry', emoji: '🧪', bg: '#333',
+    name: 'Chemistry', emoji: 'ðŸ§ª', bg: '#333',
     chapters: [
       'Some Basic Concepts of Chemistry',
       'Structure of Atom',
@@ -188,7 +190,7 @@ const PYQ_SUBJECTS = [
     ],
   },
   {
-    name: 'Mathematics', emoji: '📐', bg: '#444',
+    name: 'Mathematics', emoji: 'ðŸ“', bg: '#444',
     chapters: [
       'Sets',
       'Relations and Functions',
@@ -207,7 +209,7 @@ const PYQ_SUBJECTS = [
     ],
   },
   {
-    name: 'Biology', emoji: '🧬', bg: '#555',
+    name: 'Biology', emoji: 'ðŸ§¬', bg: '#555',
     chapters: [
       'The Living World',
       'Biological Classification',
@@ -272,7 +274,7 @@ const CHEMISTRY12_CHAPTERS = [
 
 // Class 12 Mathematics PYQ / Important-Questions chapters (NCERT order). The
 // actual chapter list shown is fetched from the DB by ChapterList; this inline
-// list only drives the "N chapters" count on the subject card — same pattern as
+// list only drives the "N chapters" count on the subject card â€” same pattern as
 // PHYSICS12_IMP_CHAPTERS / CHEMISTRY12_CHAPTERS (no local data-file dependency).
 const MATHS12_CHAPTERS = [
   'Relations and Functions',
@@ -292,68 +294,68 @@ const MATHS12_CHAPTERS = [
 
 // Class 7 Important-Questions subjects (DB-backed, class_level=7, type_key=
 // 'important_questions'). Chapter lists mirror the seeded chapters; the ChapterList
-// still confirms per-chapter availability via the API. हिंदी (मल्हार) is coming-soon
+// still confirms per-chapter availability via the API. à¤¹à¤¿à¤‚à¤¦à¥€ (à¤®à¤²à¥à¤¹à¤¾à¤°) is coming-soon
 // because its Devanagari name has no ASCII slug (the API is slug-keyed).
 const CLASS7_IMP_SUBJECTS = [
-  { name: "Science (Curiosity)", emoji: "🔬", bg: "#5AA84F", chapters: ["The Ever-Evolving World of Science","Light: Shadows and Reflections","Life Processes in Plants","Life Processes in Animals","Measurement of Time and Motion","Heat Transfer in Nature","Adolescence: A Stage of Growth and Change","Changes Around Us: Physical and Chemical","The World of Metals and Non-metals","Electricity: Circuits and their Components","Exploring Substances: Acidic, Basic, and Neutral","Earth, Moon, and the Sun"] },
-  { name: "Social Science (Exploring Society)", emoji: "🌐", bg: "#2F80ED", chapters: ["Overall Map Questions","Geographical Diversity of India","From Barter to Money","The Constitution of India - An Introduction","From the Rulers to the Ruled: Types of Governments","How the Land Becomes Sacred","The Gupta Era: An Age of Tireless Creativity","The Age of Reorganisation","The Rise of Empires","New Beginnings: Cities and States","Climates of India","Understanding the Weather","Understanding Markets","The Story of Indian Farming","India and Her Neighbours","Empires and Kingdoms: 6th to 10th Centuries","Turning Tides: 11th and 12th Centuries","India, a Home to Many","The State, the Government, and You","Infrastructure: Engine of India's Development","Banks and the Magic of Finance"] },
-  { name: "हिंदी (मल्हार)", emoji: "📚", bg: "#2F80ED", chapters: ["माँ, कह एक कहानी (कविता)","चिड़िया (कविता)","बिरजू महाराज से साक्षात्कार नृत्यांगना सुधा चंद्रन","वर्षा-बहार (कविता)","गिरिधर कविराय की कुंडलिया (कविता)","नहीं होना बीमार (कहानी)","पानी रे पानी (निबंध)","फूल और काँटा (कविता)","तीन बुद्धिमान (लोककथा)","मीरा के पद (पद)","अपठित गद्यांश","अपठित काव्यांश","पत्र लेखन","अनुच्छेद लेखन","भाषा और लिपि","संज्ञा सर्वनाम और विशेषण","लिंग और वचन","क्रिया और क्रिया-विशेषण","मुहावरे और लोकोक्तियाँ","समास और विग्रह","विलोम शब्द","पर्यायवाची शब्द","संधि-विच्छेद","वर्ण-विच्छेद","उपसर्ग और प्रत्यय","अनेक के लिए एक शब्द","चित्र वर्णन","लघु कथा लेखन","संवाद लेखन","वाक्य के प्रकार","शब्द भेद","श्रुतिसम भिन्नात्मक शब्द","काल","कारक","वर्तनी","विराम चिह्नों का प्रयोग"] },
-  { name: "English (Poorvi)", emoji: "📖", bg: "#7A6FD0", chapters: ["The Day the River Spoke","My Dear Soldiers","A Homage to Our Brave Soldiers","Conquering the Summit","Travel","The Tunnel","North, South, East, West","Paper Boats","My Brother's Great Invention","Say the Right Thing","A Funny Man","Animals, Birds, and Dr. Dolittle","Three Days to See","Try Again","Rani Abbakka","Reading - Unseen Passage","Reading - Unseen Poem","Grammar - Preposition","Grammar - Adverb","Grammar - Conjunction","Grammar - Synonyms and Antonyms","Grammar - One Word Substitution","Grammar - Fill in the Blanks","Grammar - Editing & Omitting","Grammar - Gap Filling","Grammar - Jumble Words","Grammar - Helping Verbs","Grammar - Verbs","Grammar - Articles","Grammar - Adjectives","Grammar - Pronoun","Grammar - Noun","Grammar - Tenses","Grammar - Sentence Transformation","Grammar - Non-Finite Verbs","Grammar - Question Tags","Grammar - Sentence (parts and types)","Writing - Article","Writing - Letter","Writing - Short Story","Writing - Paragraph","Writing - Notice","Writing - Message","Writing - Application to Principal"] },
-  { name: "Maths (Ganita Prakash)", emoji: "📐", bg: "#E8703A", chapters: ["Large Numbers Around Us","Arithmetic Expressions","A Peek Beyond the Point","Expressions using Letter-Numbers","Parallel and Intersecting Lines","Number Play","A Tale of Three Intersecting Lines","Working with Fractions","Geometric Twins","Operations with Integers","Finding Common Ground","Another Peek Beyond the Point","Connecting the Dots","Constructions and Tilings","Finding the Unknown"] },
-  { name: "Old - Science", emoji: "🔬", bg: "#5AA84F", chapters: ["Nutrition in Plants","Nutrition in Animals","Fibre to Fabric (Deleted)","Heat","Acids Bases and Salts","Physical and Chemical Changes","Weather Climate and Adaptations of Animals to Climate (Deleted)","Winds Storms and Cyclones (Deleted)","Soil (Deleted)","Respiration in Organisms","Transportation in Animals and Plants","Reproduction in Plants","Motion and Time","Electric Current and its Effects","Light","Water A Precious Resource (Deleted)","Forests Our Lifeline","Waste water Story"] },
-  { name: "Reasoning & Mental Ability", emoji: "🧠", bg: "#E8703A", chapters: ["Non Verbal - Analytical Reasoning","Non Verbal - Dot Situation","Non Verbal - Embedded Images","Verbal - Series","Verbal - Classification","Verbal - Blood Relation Test","Verbal - Directions","Verbal - Days and Dates","Verbal - Coding-Decoding","Verbal - Puzzles","Verbal - Arithmetic Reasoning","Non Verbal - Series","Non Verbal - Classification","Non Verbal - Patterns","Non Verbal - Analogy","Non Verbal - Mirror Images","Non Verbal - Paper Cutting","Non Verbal - Figure Matrix","Non Verbal - Cubes and Dice"] },
-  { name: "Old - English", emoji: "📖", bg: "#7A6FD0", chapters: ["Three Questions","A Gift of Chappals","Gopal and The Hilsa Fish","The Ashes That Made Trees Bloom","Quality","Expert Detectives","The Invention of Vita Wonk","The Squirrel","The Rebel","The shed","Chivvy","Trees","Mystery of the Talking Fan","Dad and The Cat and The Tree","Meadow Surprise","Garden Snake","The Tiny Teacher","Bringing Up Kari","Golu Grows a Nose","Chandni","The Bear Story","A Tiger in the House","An Alien Hand","Grammar - Editing","Grammar - Gap Filling","Grammar - Jumble Words","Grammar - Helping Verbs","Grammar - Verbs","Grammar - Adjectives","Grammar - Pronoun","Grammar - Noun","Grammar - Tenses","Grammar - Articles","Grammar - Sentence Transformation","Grammar - Active Passive Voice"] },
-  { name: "Old - हिंदी", emoji: "📚", bg: "#2F80ED", chapters: ["अपठित गद्यांश","अपठित काव्यांश","पत्र लेखन","निबंध लेखन","संज्ञा सर्वनाम और विशेषण","भाषा और लिपि","लिंग और वचन","क्रिया और क्रिया-विशेषण","मुहावरे और लोकोक्तियाँ","समास और विग्रह","विलोम शब्द","पर्यायवाची शब्द","संधि-विच्छेद","वर्ण-विच्छेद","उपसर्ग और प्रत्यय","अनेक के लिए एक शब्द","हम पंछी उन्मुक्त गगन के","हिमालय की बेटियाँ","कठपुतली","मिठाईवाला","पापा खो गए","शाम-एक किसान","अपूर्व अनुभव","रहीम के दोहे","एक तिनका","खानपान की बदलती तस्वीर","नीलकंठ","भोर और बरखा","वीर कुँवरसिंह","संघर्ष के कारण धनराज","आश्रम का आनुमानित व्यय","बाल महाभारत कथा"] },
-  { name: "Old - Maths", emoji: "📐", bg: "#E8703A", chapters: ["Integers","Fractions and Decimals","Data Handling","Simple Equations","Lines and Angles","The Triangle and its Properties","Comparing Quantities","Rational Numbers","Perimeter and Area","Algebraic Expressions","Exponents and Powers","Symmetry","Visualising Solid Shapes"] },
-  { name: "Old - Social Sc", emoji: "🌐", bg: "#2F80ED", chapters: ["Tracing Changes Through a Thousand Years","Kings and Kingdoms","Delhi: 12th to 15th Century","The Mughal (16th to 17th Century)","Tribes Nomads and Settled Communities","Devotional Paths to the Divine","The Making of Regional Cultures","Eighteenth Century Political Formations","Environment","Inside our Earth","Our Changing Earth","Air","Water","Human Environment Interactions the Tropical and the Subtropical Region","Life in the Deserts","On Equality","Role of the Government in Health","How the State Government Works","Growing up as Boys and Girls","Women Change the world","Understanding Media","Market Around Us","A shirt in the market"] },
+  { name: "Science (Curiosity)", emoji: "ðŸ”¬", bg: "#5AA84F", chapters: ["The Ever-Evolving World of Science","Light: Shadows and Reflections","Life Processes in Plants","Life Processes in Animals","Measurement of Time and Motion","Heat Transfer in Nature","Adolescence: A Stage of Growth and Change","Changes Around Us: Physical and Chemical","The World of Metals and Non-metals","Electricity: Circuits and their Components","Exploring Substances: Acidic, Basic, and Neutral","Earth, Moon, and the Sun"] },
+  { name: "Social Science (Exploring Society)", emoji: "ðŸŒ", bg: "#2F80ED", chapters: ["Overall Map Questions","Geographical Diversity of India","From Barter to Money","The Constitution of India - An Introduction","From the Rulers to the Ruled: Types of Governments","How the Land Becomes Sacred","The Gupta Era: An Age of Tireless Creativity","The Age of Reorganisation","The Rise of Empires","New Beginnings: Cities and States","Climates of India","Understanding the Weather","Understanding Markets","The Story of Indian Farming","India and Her Neighbours","Empires and Kingdoms: 6th to 10th Centuries","Turning Tides: 11th and 12th Centuries","India, a Home to Many","The State, the Government, and You","Infrastructure: Engine of India's Development","Banks and the Magic of Finance"] },
+  { name: "à¤¹à¤¿à¤‚à¤¦à¥€ (à¤®à¤²à¥à¤¹à¤¾à¤°)", emoji: "ðŸ“š", bg: "#2F80ED", chapters: ["à¤®à¤¾à¤, à¤•à¤¹ à¤à¤• à¤•à¤¹à¤¾à¤¨à¥€ (à¤•à¤µà¤¿à¤¤à¤¾)","à¤šà¤¿à¤¡à¤¼à¤¿à¤¯à¤¾ (à¤•à¤µà¤¿à¤¤à¤¾)","à¤¬à¤¿à¤°à¤œà¥‚ à¤®à¤¹à¤¾à¤°à¤¾à¤œ à¤¸à¥‡ à¤¸à¤¾à¤•à¥à¤·à¤¾à¤¤à¥à¤•à¤¾à¤° à¤¨à¥ƒà¤¤à¥à¤¯à¤¾à¤‚à¤—à¤¨à¤¾ à¤¸à¥à¤§à¤¾ à¤šà¤‚à¤¦à¥à¤°à¤¨","à¤µà¤°à¥à¤·à¤¾-à¤¬à¤¹à¤¾à¤° (à¤•à¤µà¤¿à¤¤à¤¾)","à¤—à¤¿à¤°à¤¿à¤§à¤° à¤•à¤µà¤¿à¤°à¤¾à¤¯ à¤•à¥€ à¤•à¥à¤‚à¤¡à¤²à¤¿à¤¯à¤¾ (à¤•à¤µà¤¿à¤¤à¤¾)","à¤¨à¤¹à¥€à¤‚ à¤¹à¥‹à¤¨à¤¾ à¤¬à¥€à¤®à¤¾à¤° (à¤•à¤¹à¤¾à¤¨à¥€)","à¤ªà¤¾à¤¨à¥€ à¤°à¥‡ à¤ªà¤¾à¤¨à¥€ (à¤¨à¤¿à¤¬à¤‚à¤§)","à¤«à¥‚à¤² à¤”à¤° à¤•à¤¾à¤à¤Ÿà¤¾ (à¤•à¤µà¤¿à¤¤à¤¾)","à¤¤à¥€à¤¨ à¤¬à¥à¤¦à¥à¤§à¤¿à¤®à¤¾à¤¨ (à¤²à¥‹à¤•à¤•à¤¥à¤¾)","à¤®à¥€à¤°à¤¾ à¤•à¥‡ à¤ªà¤¦ (à¤ªà¤¦)","à¤…à¤ªà¤ à¤¿à¤¤ à¤—à¤¦à¥à¤¯à¤¾à¤‚à¤¶","à¤…à¤ªà¤ à¤¿à¤¤ à¤•à¤¾à¤µà¥à¤¯à¤¾à¤‚à¤¶","à¤ªà¤¤à¥à¤° à¤²à¥‡à¤–à¤¨","à¤…à¤¨à¥à¤šà¥à¤›à¥‡à¤¦ à¤²à¥‡à¤–à¤¨","à¤­à¤¾à¤·à¤¾ à¤”à¤° à¤²à¤¿à¤ªà¤¿","à¤¸à¤‚à¤œà¥à¤žà¤¾ à¤¸à¤°à¥à¤µà¤¨à¤¾à¤® à¤”à¤° à¤µà¤¿à¤¶à¥‡à¤·à¤£","à¤²à¤¿à¤‚à¤— à¤”à¤° à¤µà¤šà¤¨","à¤•à¥à¤°à¤¿à¤¯à¤¾ à¤”à¤° à¤•à¥à¤°à¤¿à¤¯à¤¾-à¤µà¤¿à¤¶à¥‡à¤·à¤£","à¤®à¥à¤¹à¤¾à¤µà¤°à¥‡ à¤”à¤° à¤²à¥‹à¤•à¥‹à¤•à¥à¤¤à¤¿à¤¯à¤¾à¤","à¤¸à¤®à¤¾à¤¸ à¤”à¤° à¤µà¤¿à¤—à¥à¤°à¤¹","à¤µà¤¿à¤²à¥‹à¤® à¤¶à¤¬à¥à¤¦","à¤ªà¤°à¥à¤¯à¤¾à¤¯à¤µà¤¾à¤šà¥€ à¤¶à¤¬à¥à¤¦","à¤¸à¤‚à¤§à¤¿-à¤µà¤¿à¤šà¥à¤›à¥‡à¤¦","à¤µà¤°à¥à¤£-à¤µà¤¿à¤šà¥à¤›à¥‡à¤¦","à¤‰à¤ªà¤¸à¤°à¥à¤— à¤”à¤° à¤ªà¥à¤°à¤¤à¥à¤¯à¤¯","à¤…à¤¨à¥‡à¤• à¤•à¥‡ à¤²à¤¿à¤ à¤à¤• à¤¶à¤¬à¥à¤¦","à¤šà¤¿à¤¤à¥à¤° à¤µà¤°à¥à¤£à¤¨","à¤²à¤˜à¥ à¤•à¤¥à¤¾ à¤²à¥‡à¤–à¤¨","à¤¸à¤‚à¤µà¤¾à¤¦ à¤²à¥‡à¤–à¤¨","à¤µà¤¾à¤•à¥à¤¯ à¤•à¥‡ à¤ªà¥à¤°à¤•à¤¾à¤°","à¤¶à¤¬à¥à¤¦ à¤­à¥‡à¤¦","à¤¶à¥à¤°à¥à¤¤à¤¿à¤¸à¤® à¤­à¤¿à¤¨à¥à¤¨à¤¾à¤¤à¥à¤®à¤• à¤¶à¤¬à¥à¤¦","à¤•à¤¾à¤²","à¤•à¤¾à¤°à¤•","à¤µà¤°à¥à¤¤à¤¨à¥€","à¤µà¤¿à¤°à¤¾à¤® à¤šà¤¿à¤¹à¥à¤¨à¥‹à¤‚ à¤•à¤¾ à¤ªà¥à¤°à¤¯à¥‹à¤—"] },
+  { name: "English (Poorvi)", emoji: "ðŸ“–", bg: "#7A6FD0", chapters: ["The Day the River Spoke","My Dear Soldiers","A Homage to Our Brave Soldiers","Conquering the Summit","Travel","The Tunnel","North, South, East, West","Paper Boats","My Brother's Great Invention","Say the Right Thing","A Funny Man","Animals, Birds, and Dr. Dolittle","Three Days to See","Try Again","Rani Abbakka","Reading - Unseen Passage","Reading - Unseen Poem","Grammar - Preposition","Grammar - Adverb","Grammar - Conjunction","Grammar - Synonyms and Antonyms","Grammar - One Word Substitution","Grammar - Fill in the Blanks","Grammar - Editing & Omitting","Grammar - Gap Filling","Grammar - Jumble Words","Grammar - Helping Verbs","Grammar - Verbs","Grammar - Articles","Grammar - Adjectives","Grammar - Pronoun","Grammar - Noun","Grammar - Tenses","Grammar - Sentence Transformation","Grammar - Non-Finite Verbs","Grammar - Question Tags","Grammar - Sentence (parts and types)","Writing - Article","Writing - Letter","Writing - Short Story","Writing - Paragraph","Writing - Notice","Writing - Message","Writing - Application to Principal"] },
+  { name: "Maths (Ganita Prakash)", emoji: "ðŸ“", bg: "#E8703A", chapters: ["Large Numbers Around Us","Arithmetic Expressions","A Peek Beyond the Point","Expressions using Letter-Numbers","Parallel and Intersecting Lines","Number Play","A Tale of Three Intersecting Lines","Working with Fractions","Geometric Twins","Operations with Integers","Finding Common Ground","Another Peek Beyond the Point","Connecting the Dots","Constructions and Tilings","Finding the Unknown"] },
+  { name: "Old - Science", emoji: "ðŸ”¬", bg: "#5AA84F", chapters: ["Nutrition in Plants","Nutrition in Animals","Fibre to Fabric (Deleted)","Heat","Acids Bases and Salts","Physical and Chemical Changes","Weather Climate and Adaptations of Animals to Climate (Deleted)","Winds Storms and Cyclones (Deleted)","Soil (Deleted)","Respiration in Organisms","Transportation in Animals and Plants","Reproduction in Plants","Motion and Time","Electric Current and its Effects","Light","Water A Precious Resource (Deleted)","Forests Our Lifeline","Waste water Story"] },
+  { name: "Reasoning & Mental Ability", emoji: "ðŸ§ ", bg: "#E8703A", chapters: ["Non Verbal - Analytical Reasoning","Non Verbal - Dot Situation","Non Verbal - Embedded Images","Verbal - Series","Verbal - Classification","Verbal - Blood Relation Test","Verbal - Directions","Verbal - Days and Dates","Verbal - Coding-Decoding","Verbal - Puzzles","Verbal - Arithmetic Reasoning","Non Verbal - Series","Non Verbal - Classification","Non Verbal - Patterns","Non Verbal - Analogy","Non Verbal - Mirror Images","Non Verbal - Paper Cutting","Non Verbal - Figure Matrix","Non Verbal - Cubes and Dice"] },
+  { name: "Old - English", emoji: "ðŸ“–", bg: "#7A6FD0", chapters: ["Three Questions","A Gift of Chappals","Gopal and The Hilsa Fish","The Ashes That Made Trees Bloom","Quality","Expert Detectives","The Invention of Vita Wonk","The Squirrel","The Rebel","The shed","Chivvy","Trees","Mystery of the Talking Fan","Dad and The Cat and The Tree","Meadow Surprise","Garden Snake","The Tiny Teacher","Bringing Up Kari","Golu Grows a Nose","Chandni","The Bear Story","A Tiger in the House","An Alien Hand","Grammar - Editing","Grammar - Gap Filling","Grammar - Jumble Words","Grammar - Helping Verbs","Grammar - Verbs","Grammar - Adjectives","Grammar - Pronoun","Grammar - Noun","Grammar - Tenses","Grammar - Articles","Grammar - Sentence Transformation","Grammar - Active Passive Voice"] },
+  { name: "Old - à¤¹à¤¿à¤‚à¤¦à¥€", emoji: "ðŸ“š", bg: "#2F80ED", chapters: ["à¤…à¤ªà¤ à¤¿à¤¤ à¤—à¤¦à¥à¤¯à¤¾à¤‚à¤¶","à¤…à¤ªà¤ à¤¿à¤¤ à¤•à¤¾à¤µà¥à¤¯à¤¾à¤‚à¤¶","à¤ªà¤¤à¥à¤° à¤²à¥‡à¤–à¤¨","à¤¨à¤¿à¤¬à¤‚à¤§ à¤²à¥‡à¤–à¤¨","à¤¸à¤‚à¤œà¥à¤žà¤¾ à¤¸à¤°à¥à¤µà¤¨à¤¾à¤® à¤”à¤° à¤µà¤¿à¤¶à¥‡à¤·à¤£","à¤­à¤¾à¤·à¤¾ à¤”à¤° à¤²à¤¿à¤ªà¤¿","à¤²à¤¿à¤‚à¤— à¤”à¤° à¤µà¤šà¤¨","à¤•à¥à¤°à¤¿à¤¯à¤¾ à¤”à¤° à¤•à¥à¤°à¤¿à¤¯à¤¾-à¤µà¤¿à¤¶à¥‡à¤·à¤£","à¤®à¥à¤¹à¤¾à¤µà¤°à¥‡ à¤”à¤° à¤²à¥‹à¤•à¥‹à¤•à¥à¤¤à¤¿à¤¯à¤¾à¤","à¤¸à¤®à¤¾à¤¸ à¤”à¤° à¤µà¤¿à¤—à¥à¤°à¤¹","à¤µà¤¿à¤²à¥‹à¤® à¤¶à¤¬à¥à¤¦","à¤ªà¤°à¥à¤¯à¤¾à¤¯à¤µà¤¾à¤šà¥€ à¤¶à¤¬à¥à¤¦","à¤¸à¤‚à¤§à¤¿-à¤µà¤¿à¤šà¥à¤›à¥‡à¤¦","à¤µà¤°à¥à¤£-à¤µà¤¿à¤šà¥à¤›à¥‡à¤¦","à¤‰à¤ªà¤¸à¤°à¥à¤— à¤”à¤° à¤ªà¥à¤°à¤¤à¥à¤¯à¤¯","à¤…à¤¨à¥‡à¤• à¤•à¥‡ à¤²à¤¿à¤ à¤à¤• à¤¶à¤¬à¥à¤¦","à¤¹à¤® à¤ªà¤‚à¤›à¥€ à¤‰à¤¨à¥à¤®à¥à¤•à¥à¤¤ à¤—à¤—à¤¨ à¤•à¥‡","à¤¹à¤¿à¤®à¤¾à¤²à¤¯ à¤•à¥€ à¤¬à¥‡à¤Ÿà¤¿à¤¯à¤¾à¤","à¤•à¤ à¤ªà¥à¤¤à¤²à¥€","à¤®à¤¿à¤ à¤¾à¤ˆà¤µà¤¾à¤²à¤¾","à¤ªà¤¾à¤ªà¤¾ à¤–à¥‹ à¤—à¤","à¤¶à¤¾à¤®-à¤à¤• à¤•à¤¿à¤¸à¤¾à¤¨","à¤…à¤ªà¥‚à¤°à¥à¤µ à¤…à¤¨à¥à¤­à¤µ","à¤°à¤¹à¥€à¤® à¤•à¥‡ à¤¦à¥‹à¤¹à¥‡","à¤à¤• à¤¤à¤¿à¤¨à¤•à¤¾","à¤–à¤¾à¤¨à¤ªà¤¾à¤¨ à¤•à¥€ à¤¬à¤¦à¤²à¤¤à¥€ à¤¤à¤¸à¥à¤µà¥€à¤°","à¤¨à¥€à¤²à¤•à¤‚à¤ ","à¤­à¥‹à¤° à¤”à¤° à¤¬à¤°à¤–à¤¾","à¤µà¥€à¤° à¤•à¥à¤à¤µà¤°à¤¸à¤¿à¤‚à¤¹","à¤¸à¤‚à¤˜à¤°à¥à¤· à¤•à¥‡ à¤•à¤¾à¤°à¤£ à¤§à¤¨à¤°à¤¾à¤œ","à¤†à¤¶à¥à¤°à¤® à¤•à¤¾ à¤†à¤¨à¥à¤®à¤¾à¤¨à¤¿à¤¤ à¤µà¥à¤¯à¤¯","à¤¬à¤¾à¤² à¤®à¤¹à¤¾à¤­à¤¾à¤°à¤¤ à¤•à¤¥à¤¾"] },
+  { name: "Old - Maths", emoji: "ðŸ“", bg: "#E8703A", chapters: ["Integers","Fractions and Decimals","Data Handling","Simple Equations","Lines and Angles","The Triangle and its Properties","Comparing Quantities","Rational Numbers","Perimeter and Area","Algebraic Expressions","Exponents and Powers","Symmetry","Visualising Solid Shapes"] },
+  { name: "Old - Social Sc", emoji: "ðŸŒ", bg: "#2F80ED", chapters: ["Tracing Changes Through a Thousand Years","Kings and Kingdoms","Delhi: 12th to 15th Century","The Mughal (16th to 17th Century)","Tribes Nomads and Settled Communities","Devotional Paths to the Divine","The Making of Regional Cultures","Eighteenth Century Political Formations","Environment","Inside our Earth","Our Changing Earth","Air","Water","Human Environment Interactions the Tropical and the Subtropical Region","Life in the Deserts","On Equality","Role of the Government in Health","How the State Government Works","Growing up as Boys and Girls","Women Change the world","Understanding Media","Market Around Us","A shirt in the market"] },
 ];
 
 // Class 8 Important-Questions subjects (chapter lists mirror the seeded chapters at
 // class_level=8; the ChapterList still confirms per-chapter availability via the API).
 const CLASS8_IMP_SUBJECTS = [
-  { name: "Science (Curiosity)", emoji: "🔬", bg: "#5AA84F", chapters: ["Exploring the Investigative World of Science","The Invisible Living World: Beyond Our Naked Eye","Health: The Ultimate Treasure","Electricity: Magnetic and Heating Effects","Exploring Forces","Pressure, Winds, Storms, and Cyclones","Particulate Nature of Matter","Nature of Matter: Elements, Compounds, and Mixtures","The Amazing World of Solutes, Solvents, and Solutions","Light: Mirrors and Lenses","Keeping Time with the Skies","How Nature Works in Harmony","Our Home: Earth, a Unique Life Sustaining Planet"] },
-  { name: "Social Science (Exploring Society)", emoji: "🌐", bg: "#2F80ED", chapters: ["Natural Resources and Their Use","Reshaping India's Political Map","The Rise of the Marathas","The Colonial Era in India","Universal Franchise and India's Electoral System","The Parliamentary System: Legislature and Executive","Factors of Production","Overall Map Questions"] },
-  { name: "हिंदी (मल्हार)", emoji: "📚", bg: "#2F80ED", chapters: ["स्वदेश (कविता)","दो गौरेया (कहानी)","एक आशीर्वाद (कविता)","हरिद्वार (पत्र)","कबीर के दोहे","एक टोकरी भर मिट्टी (कहानी)","मत बाँधो (कविता)","नए मेहमान (एकांकी)","आदमी का अनुपात (कविता)","तरुण के स्वप्न (उद्बोधन)","लिंग और वचन","संज्ञा, सर्वनाम और विशेषण","अनुच्छेद लेखन","पत्र लेखन","अपठित काव्यांश","अपठित गद्यांश","शब्द-भेद","भाषा और लिपि","वाक्य के प्रकार","अनेक के लिए एक शब्द","उपसर्ग और प्रत्यय","वर्ण-विच्छेद","संधि-विच्छेद","पर्यायवाची शब्द","विलोम शब्द","मुहावरे और लोकोक्तियाँ","चित्र वर्णन","लघु कथा लेखन","संवाद लेखन","श्रुतिसम भिन्नात्मक शब्द","क्रिया और क्रिया-विशेषण","काल","कारक","समास","वर्तनी","विराम चिह्नों का प्रयोग"] },
-  { name: "English (Poorvi)", emoji: "📖", bg: "#7A6FD0", chapters: ["Reading - Unseen Passage","Reading - Unseen Poem","The Wit that Won Hearts","A Concrete Example","Wisdom Paves the Way","A Tale of Valour: Major Somnath Sharma and the Battle of Badgam","Somebody's Mother","Verghese Kurien-I Too Had A Dream","The Case of the Fifth Word","The Magic Brush of Dreams","Spectacular Wonders","The Cherry Tree","Harvest Hymn","Waiting for the Rain","Feathered Friend","Magnifying Glass","Bibha Chowdhuri: Women in Indian Science","Grammar - Synonyms and Antonyms","Writing - Application to Principal","Grammar - Editing and Omitting","Grammar - Fill in the blanks","Grammar - Jumble Words","Grammar - Sentence Transformation","Grammar - Tenses","Grammar - Noun","Grammar - Pronoun","Grammar - Adjectives","Grammar - Verbs","Grammar - Articles","Grammar - Helping Verbs","Grammar - Preposition","Grammar - Adverb","Grammar - Conjunction","Grammar - Reported speech","Grammar - Gap Filling","Grammar - One Word Substitution","Grammar - Non-Finite Verbs","Grammar - Question Tags","Grammar - Sentence (parts and types)","Conditional Clause (If Clause)","Writing - Article","Writing - Letter","Writing - Short Story","Writing - Paragraph","Writing - Notice","Writing - Message"] },
-  { name: "Maths (Ganita Prakash)", emoji: "📐", bg: "#E8703A", chapters: ["A Square and A Cube","Power Play","A Story of Numbers","Quadrilaterals","Number Play","We Distribute Yet Things Multiply","Proportional Reasoning-1","Fractions in Disguise","The Baudhayana-Pythagoras Theorem","Proportional Reasoning-2","Exploring Some Geometric Themes","Tales by Dots and Lines","Algebra Play","Area"] },
-  { name: "Old - Science", emoji: "🔬", bg: "#5AA84F", chapters: ["Crop Production and Management","Microorganisms Friend And Foe","Synthetic Fibres and Plastics (Delete)","Materials Metals and Non Metals (Delete)","Coal and Petroleum","Combustion and Flame","Conservation of Plants and Animals","Cell Structure and Functions (Delete)","Reproduction in Animals","Reaching the Age of Adolescence","Force and Pressure","Friction","Sound","Chemical Effects of Electric Current","Some Natural Phenomena","Light","Stars and the Solar System (Delete)","Pollution of Air and Water (Delete)"] },
-  { name: "Reasoning & Mental Ability", emoji: "🧠", bg: "#E8703A", chapters: ["Verbal - Series","Verbal - Classification","Verbal - Blood Relation Test","Verbal - Directions","Verbal - Days and Dates","Verbal - Coding-Decoding","Verbal - Puzzles","Verbal - Arithmetic Reasoning","Non Verbal - Series","Non Verbal - Classification","Non Verbal - Patterns","Non Verbal - Analogy","Non Verbal - Mirror Images","Non Verbal - Paper Cutting","Non Verbal - Figure Matrix","Non Verbal - Cubes and Dice","Non Verbal - Analytical Reasoning","Non Verbal - Dot Situation","Non Verbal - Embedded Images"] },
-  { name: "Old - English", emoji: "📖", bg: "#7A6FD0", chapters: ["The Best Christmas Present in the World","The Tsunami","Glimpses of the Past","Bepin Choudhurys Lapse of Memory","The Summit Within","This is Jodys Fawn","A Visit to Cambridge","A Short Monsoon Diary","The Ant and the Cricket","Geography Lesson","The Last Bargain","The School Boy","On the Grasshopper and Cricket","How the Camel got his hump","Children at Work","The Selfish Giant","The Treasure Within","Princess September","The Fight","Jalebis","Ancient Education System of India","Grammar - Editing and Omitting","Grammar -  Fill in the blanks","Grammar - Jumble Words","Grammar - Verbs","Grammar - Adjectives","Grammar - Pronoun","Grammar - Tenses","Grammar - Articles","Grammar - Helping Verbs","Grammar - Noun","Grammar - Sentence Transformation","Grammar - Idioms Phrases and Proverbs","Writing - Article","Writing - Letter","Writing - Short Story","Writing - Paragraph","Writing - Notice","Writing - Message","Reading - Unseen Passage","Reading - Unseen Poem","Grammar - Preposition","Grammar - Adverb","Grammar - Conjunction","Grammar - Reported speech","Grammar - Other Topics"] },
-  { name: "Old - हिंदी", emoji: "📚", bg: "#2F80ED", chapters: ["वसंत लाख की चूड़ियाँ","वसंत बस की यात्रा","वसंत दीवानों की हस्ती","वसंत भगवान के डाकिये","वसंत क्या निराश हुआ जाए","वसंत यह सबसे कठिन समय नहीं","वसंत कबीर की साखियाँ","वसंत सुदामा चरित","वसंत जहाँ पहिया है","वसंत अकबरी लोटा","वसंत सूरदास के पद","वसंत पानी की कहानी","वसंत बाज और साँप","भारत की खोज अहमदनगर का किला","भारत की खोज तलाश","भारत की खोज सिंधु घाटी सभ्यता","भारत की खोज युगों का दौर","भारत की खोज नयी समस्याएँ","भारत की खोज अंतिम दौर एक","भारत की खोज अंतिम दौर दो","भारत की खोज तनाव","भारत की खोज दो पृष्ठभूमियाँ भारतीय और अंग्रेज़ी","संज्ञा, सर्वनाम और विशेषण","लिंग और वचन","विलोम शब्द","पर्यायवाची शब्द","संधि-विच्छेद","वाक्य के प्रकार","वर्ण-विच्छेद","भाषा और लिपि","उपसर्ग और प्रत्यय","अनेक के लिए एक शब्द","शब्द-भेद","मुहावरे और लोकोक्तियाँ","अपठित गद्यांश","अपठित काव्यांश","पत्र लेखन","निबंध लेखन"] },
-  { name: "Old - Maths", emoji: "📐", bg: "#E8703A", chapters: ["Rational Numbers","Linear Equations in One Variable","Understanding Quadrilaterals","Data Handling","Squares and Square Roots","Cubes and Cube Roots","Comparing Quantities","Algebraic Expressions and Identities","Visualising Solid Shapes","Mensuration","Exponents and Powers","Direct and Inverse Proportions","Factorisation","Introduction to Graphs","Playing with Numbers"] },
-  { name: "Old - Social Sc", emoji: "🌐", bg: "#2F80ED", chapters: ["How When and Where","From Trade to Territory The Company Establishes Power","Ruling the Countryside","Tribals Dikus and the Vision of a Golden Age","When People Rebel 1857 and After","Civilising the Native Educating the Nation","Women Caste and Reform","The Making of the National Movement 1870 to 1947","Resources","Land Soil Water Natural Vegetation and Wildlife Resources","Agriculture","Industries","Human Resources","The Indian Constitution","Understanding Secularism","Parliament and the Making of Laws","Judiciary","Understanding Marginalisation","Confronting Marginalisation","Public Facilities","Law and Social Justice"] },
+  { name: "Science (Curiosity)", emoji: "ðŸ”¬", bg: "#5AA84F", chapters: ["Exploring the Investigative World of Science","The Invisible Living World: Beyond Our Naked Eye","Health: The Ultimate Treasure","Electricity: Magnetic and Heating Effects","Exploring Forces","Pressure, Winds, Storms, and Cyclones","Particulate Nature of Matter","Nature of Matter: Elements, Compounds, and Mixtures","The Amazing World of Solutes, Solvents, and Solutions","Light: Mirrors and Lenses","Keeping Time with the Skies","How Nature Works in Harmony","Our Home: Earth, a Unique Life Sustaining Planet"] },
+  { name: "Social Science (Exploring Society)", emoji: "ðŸŒ", bg: "#2F80ED", chapters: ["Natural Resources and Their Use","Reshaping India's Political Map","The Rise of the Marathas","The Colonial Era in India","Universal Franchise and India's Electoral System","The Parliamentary System: Legislature and Executive","Factors of Production","Overall Map Questions"] },
+  { name: "à¤¹à¤¿à¤‚à¤¦à¥€ (à¤®à¤²à¥à¤¹à¤¾à¤°)", emoji: "ðŸ“š", bg: "#2F80ED", chapters: ["à¤¸à¥à¤µà¤¦à¥‡à¤¶ (à¤•à¤µà¤¿à¤¤à¤¾)","à¤¦à¥‹ à¤—à¥Œà¤°à¥‡à¤¯à¤¾ (à¤•à¤¹à¤¾à¤¨à¥€)","à¤à¤• à¤†à¤¶à¥€à¤°à¥à¤µà¤¾à¤¦ (à¤•à¤µà¤¿à¤¤à¤¾)","à¤¹à¤°à¤¿à¤¦à¥à¤µà¤¾à¤° (à¤ªà¤¤à¥à¤°)","à¤•à¤¬à¥€à¤° à¤•à¥‡ à¤¦à¥‹à¤¹à¥‡","à¤à¤• à¤Ÿà¥‹à¤•à¤°à¥€ à¤­à¤° à¤®à¤¿à¤Ÿà¥à¤Ÿà¥€ (à¤•à¤¹à¤¾à¤¨à¥€)","à¤®à¤¤ à¤¬à¤¾à¤à¤§à¥‹ (à¤•à¤µà¤¿à¤¤à¤¾)","à¤¨à¤ à¤®à¥‡à¤¹à¤®à¤¾à¤¨ (à¤à¤•à¤¾à¤‚à¤•à¥€)","à¤†à¤¦à¤®à¥€ à¤•à¤¾ à¤…à¤¨à¥à¤ªà¤¾à¤¤ (à¤•à¤µà¤¿à¤¤à¤¾)","à¤¤à¤°à¥à¤£ à¤•à¥‡ à¤¸à¥à¤µà¤ªà¥à¤¨ (à¤‰à¤¦à¥à¤¬à¥‹à¤§à¤¨)","à¤²à¤¿à¤‚à¤— à¤”à¤° à¤µà¤šà¤¨","à¤¸à¤‚à¤œà¥à¤žà¤¾, à¤¸à¤°à¥à¤µà¤¨à¤¾à¤® à¤”à¤° à¤µà¤¿à¤¶à¥‡à¤·à¤£","à¤…à¤¨à¥à¤šà¥à¤›à¥‡à¤¦ à¤²à¥‡à¤–à¤¨","à¤ªà¤¤à¥à¤° à¤²à¥‡à¤–à¤¨","à¤…à¤ªà¤ à¤¿à¤¤ à¤•à¤¾à¤µà¥à¤¯à¤¾à¤‚à¤¶","à¤…à¤ªà¤ à¤¿à¤¤ à¤—à¤¦à¥à¤¯à¤¾à¤‚à¤¶","à¤¶à¤¬à¥à¤¦-à¤­à¥‡à¤¦","à¤­à¤¾à¤·à¤¾ à¤”à¤° à¤²à¤¿à¤ªà¤¿","à¤µà¤¾à¤•à¥à¤¯ à¤•à¥‡ à¤ªà¥à¤°à¤•à¤¾à¤°","à¤…à¤¨à¥‡à¤• à¤•à¥‡ à¤²à¤¿à¤ à¤à¤• à¤¶à¤¬à¥à¤¦","à¤‰à¤ªà¤¸à¤°à¥à¤— à¤”à¤° à¤ªà¥à¤°à¤¤à¥à¤¯à¤¯","à¤µà¤°à¥à¤£-à¤µà¤¿à¤šà¥à¤›à¥‡à¤¦","à¤¸à¤‚à¤§à¤¿-à¤µà¤¿à¤šà¥à¤›à¥‡à¤¦","à¤ªà¤°à¥à¤¯à¤¾à¤¯à¤µà¤¾à¤šà¥€ à¤¶à¤¬à¥à¤¦","à¤µà¤¿à¤²à¥‹à¤® à¤¶à¤¬à¥à¤¦","à¤®à¥à¤¹à¤¾à¤µà¤°à¥‡ à¤”à¤° à¤²à¥‹à¤•à¥‹à¤•à¥à¤¤à¤¿à¤¯à¤¾à¤","à¤šà¤¿à¤¤à¥à¤° à¤µà¤°à¥à¤£à¤¨","à¤²à¤˜à¥ à¤•à¤¥à¤¾ à¤²à¥‡à¤–à¤¨","à¤¸à¤‚à¤µà¤¾à¤¦ à¤²à¥‡à¤–à¤¨","à¤¶à¥à¤°à¥à¤¤à¤¿à¤¸à¤® à¤­à¤¿à¤¨à¥à¤¨à¤¾à¤¤à¥à¤®à¤• à¤¶à¤¬à¥à¤¦","à¤•à¥à¤°à¤¿à¤¯à¤¾ à¤”à¤° à¤•à¥à¤°à¤¿à¤¯à¤¾-à¤µà¤¿à¤¶à¥‡à¤·à¤£","à¤•à¤¾à¤²","à¤•à¤¾à¤°à¤•","à¤¸à¤®à¤¾à¤¸","à¤µà¤°à¥à¤¤à¤¨à¥€","à¤µà¤¿à¤°à¤¾à¤® à¤šà¤¿à¤¹à¥à¤¨à¥‹à¤‚ à¤•à¤¾ à¤ªà¥à¤°à¤¯à¥‹à¤—"] },
+  { name: "English (Poorvi)", emoji: "ðŸ“–", bg: "#7A6FD0", chapters: ["Reading - Unseen Passage","Reading - Unseen Poem","The Wit that Won Hearts","A Concrete Example","Wisdom Paves the Way","A Tale of Valour: Major Somnath Sharma and the Battle of Badgam","Somebody's Mother","Verghese Kurien-I Too Had A Dream","The Case of the Fifth Word","The Magic Brush of Dreams","Spectacular Wonders","The Cherry Tree","Harvest Hymn","Waiting for the Rain","Feathered Friend","Magnifying Glass","Bibha Chowdhuri: Women in Indian Science","Grammar - Synonyms and Antonyms","Writing - Application to Principal","Grammar - Editing and Omitting","Grammar - Fill in the blanks","Grammar - Jumble Words","Grammar - Sentence Transformation","Grammar - Tenses","Grammar - Noun","Grammar - Pronoun","Grammar - Adjectives","Grammar - Verbs","Grammar - Articles","Grammar - Helping Verbs","Grammar - Preposition","Grammar - Adverb","Grammar - Conjunction","Grammar - Reported speech","Grammar - Gap Filling","Grammar - One Word Substitution","Grammar - Non-Finite Verbs","Grammar - Question Tags","Grammar - Sentence (parts and types)","Conditional Clause (If Clause)","Writing - Article","Writing - Letter","Writing - Short Story","Writing - Paragraph","Writing - Notice","Writing - Message"] },
+  { name: "Maths (Ganita Prakash)", emoji: "ðŸ“", bg: "#E8703A", chapters: ["A Square and A Cube","Power Play","A Story of Numbers","Quadrilaterals","Number Play","We Distribute Yet Things Multiply","Proportional Reasoning-1","Fractions in Disguise","The Baudhayana-Pythagoras Theorem","Proportional Reasoning-2","Exploring Some Geometric Themes","Tales by Dots and Lines","Algebra Play","Area"] },
+  { name: "Old - Science", emoji: "ðŸ”¬", bg: "#5AA84F", chapters: ["Crop Production and Management","Microorganisms Friend And Foe","Synthetic Fibres and Plastics (Delete)","Materials Metals and Non Metals (Delete)","Coal and Petroleum","Combustion and Flame","Conservation of Plants and Animals","Cell Structure and Functions (Delete)","Reproduction in Animals","Reaching the Age of Adolescence","Force and Pressure","Friction","Sound","Chemical Effects of Electric Current","Some Natural Phenomena","Light","Stars and the Solar System (Delete)","Pollution of Air and Water (Delete)"] },
+  { name: "Reasoning & Mental Ability", emoji: "ðŸ§ ", bg: "#E8703A", chapters: ["Verbal - Series","Verbal - Classification","Verbal - Blood Relation Test","Verbal - Directions","Verbal - Days and Dates","Verbal - Coding-Decoding","Verbal - Puzzles","Verbal - Arithmetic Reasoning","Non Verbal - Series","Non Verbal - Classification","Non Verbal - Patterns","Non Verbal - Analogy","Non Verbal - Mirror Images","Non Verbal - Paper Cutting","Non Verbal - Figure Matrix","Non Verbal - Cubes and Dice","Non Verbal - Analytical Reasoning","Non Verbal - Dot Situation","Non Verbal - Embedded Images"] },
+  { name: "Old - English", emoji: "ðŸ“–", bg: "#7A6FD0", chapters: ["The Best Christmas Present in the World","The Tsunami","Glimpses of the Past","Bepin Choudhurys Lapse of Memory","The Summit Within","This is Jodys Fawn","A Visit to Cambridge","A Short Monsoon Diary","The Ant and the Cricket","Geography Lesson","The Last Bargain","The School Boy","On the Grasshopper and Cricket","How the Camel got his hump","Children at Work","The Selfish Giant","The Treasure Within","Princess September","The Fight","Jalebis","Ancient Education System of India","Grammar - Editing and Omitting","Grammar -  Fill in the blanks","Grammar - Jumble Words","Grammar - Verbs","Grammar - Adjectives","Grammar - Pronoun","Grammar - Tenses","Grammar - Articles","Grammar - Helping Verbs","Grammar - Noun","Grammar - Sentence Transformation","Grammar - Idioms Phrases and Proverbs","Writing - Article","Writing - Letter","Writing - Short Story","Writing - Paragraph","Writing - Notice","Writing - Message","Reading - Unseen Passage","Reading - Unseen Poem","Grammar - Preposition","Grammar - Adverb","Grammar - Conjunction","Grammar - Reported speech","Grammar - Other Topics"] },
+  { name: "Old - à¤¹à¤¿à¤‚à¤¦à¥€", emoji: "ðŸ“š", bg: "#2F80ED", chapters: ["à¤µà¤¸à¤‚à¤¤ à¤²à¤¾à¤– à¤•à¥€ à¤šà¥‚à¤¡à¤¼à¤¿à¤¯à¤¾à¤","à¤µà¤¸à¤‚à¤¤ à¤¬à¤¸ à¤•à¥€ à¤¯à¤¾à¤¤à¥à¤°à¤¾","à¤µà¤¸à¤‚à¤¤ à¤¦à¥€à¤µà¤¾à¤¨à¥‹à¤‚ à¤•à¥€ à¤¹à¤¸à¥à¤¤à¥€","à¤µà¤¸à¤‚à¤¤ à¤­à¤—à¤µà¤¾à¤¨ à¤•à¥‡ à¤¡à¤¾à¤•à¤¿à¤¯à¥‡","à¤µà¤¸à¤‚à¤¤ à¤•à¥à¤¯à¤¾ à¤¨à¤¿à¤°à¤¾à¤¶ à¤¹à¥à¤† à¤œà¤¾à¤","à¤µà¤¸à¤‚à¤¤ à¤¯à¤¹ à¤¸à¤¬à¤¸à¥‡ à¤•à¤ à¤¿à¤¨ à¤¸à¤®à¤¯ à¤¨à¤¹à¥€à¤‚","à¤µà¤¸à¤‚à¤¤ à¤•à¤¬à¥€à¤° à¤•à¥€ à¤¸à¤¾à¤–à¤¿à¤¯à¤¾à¤","à¤µà¤¸à¤‚à¤¤ à¤¸à¥à¤¦à¤¾à¤®à¤¾ à¤šà¤°à¤¿à¤¤","à¤µà¤¸à¤‚à¤¤ à¤œà¤¹à¤¾à¤ à¤ªà¤¹à¤¿à¤¯à¤¾ à¤¹à¥ˆ","à¤µà¤¸à¤‚à¤¤ à¤…à¤•à¤¬à¤°à¥€ à¤²à¥‹à¤Ÿà¤¾","à¤µà¤¸à¤‚à¤¤ à¤¸à¥‚à¤°à¤¦à¤¾à¤¸ à¤•à¥‡ à¤ªà¤¦","à¤µà¤¸à¤‚à¤¤ à¤ªà¤¾à¤¨à¥€ à¤•à¥€ à¤•à¤¹à¤¾à¤¨à¥€","à¤µà¤¸à¤‚à¤¤ à¤¬à¤¾à¤œ à¤”à¤° à¤¸à¤¾à¤à¤ª","à¤­à¤¾à¤°à¤¤ à¤•à¥€ à¤–à¥‹à¤œ à¤…à¤¹à¤®à¤¦à¤¨à¤—à¤° à¤•à¤¾ à¤•à¤¿à¤²à¤¾","à¤­à¤¾à¤°à¤¤ à¤•à¥€ à¤–à¥‹à¤œ à¤¤à¤²à¤¾à¤¶","à¤­à¤¾à¤°à¤¤ à¤•à¥€ à¤–à¥‹à¤œ à¤¸à¤¿à¤‚à¤§à¥ à¤˜à¤¾à¤Ÿà¥€ à¤¸à¤­à¥à¤¯à¤¤à¤¾","à¤­à¤¾à¤°à¤¤ à¤•à¥€ à¤–à¥‹à¤œ à¤¯à¥à¤—à¥‹à¤‚ à¤•à¤¾ à¤¦à¥Œà¤°","à¤­à¤¾à¤°à¤¤ à¤•à¥€ à¤–à¥‹à¤œ à¤¨à¤¯à¥€ à¤¸à¤®à¤¸à¥à¤¯à¤¾à¤à¤","à¤­à¤¾à¤°à¤¤ à¤•à¥€ à¤–à¥‹à¤œ à¤…à¤‚à¤¤à¤¿à¤® à¤¦à¥Œà¤° à¤à¤•","à¤­à¤¾à¤°à¤¤ à¤•à¥€ à¤–à¥‹à¤œ à¤…à¤‚à¤¤à¤¿à¤® à¤¦à¥Œà¤° à¤¦à¥‹","à¤­à¤¾à¤°à¤¤ à¤•à¥€ à¤–à¥‹à¤œ à¤¤à¤¨à¤¾à¤µ","à¤­à¤¾à¤°à¤¤ à¤•à¥€ à¤–à¥‹à¤œ à¤¦à¥‹ à¤ªà¥ƒà¤·à¥à¤ à¤­à¥‚à¤®à¤¿à¤¯à¤¾à¤ à¤­à¤¾à¤°à¤¤à¥€à¤¯ à¤”à¤° à¤…à¤‚à¤—à¥à¤°à¥‡à¤œà¤¼à¥€","à¤¸à¤‚à¤œà¥à¤žà¤¾, à¤¸à¤°à¥à¤µà¤¨à¤¾à¤® à¤”à¤° à¤µà¤¿à¤¶à¥‡à¤·à¤£","à¤²à¤¿à¤‚à¤— à¤”à¤° à¤µà¤šà¤¨","à¤µà¤¿à¤²à¥‹à¤® à¤¶à¤¬à¥à¤¦","à¤ªà¤°à¥à¤¯à¤¾à¤¯à¤µà¤¾à¤šà¥€ à¤¶à¤¬à¥à¤¦","à¤¸à¤‚à¤§à¤¿-à¤µà¤¿à¤šà¥à¤›à¥‡à¤¦","à¤µà¤¾à¤•à¥à¤¯ à¤•à¥‡ à¤ªà¥à¤°à¤•à¤¾à¤°","à¤µà¤°à¥à¤£-à¤µà¤¿à¤šà¥à¤›à¥‡à¤¦","à¤­à¤¾à¤·à¤¾ à¤”à¤° à¤²à¤¿à¤ªà¤¿","à¤‰à¤ªà¤¸à¤°à¥à¤— à¤”à¤° à¤ªà¥à¤°à¤¤à¥à¤¯à¤¯","à¤…à¤¨à¥‡à¤• à¤•à¥‡ à¤²à¤¿à¤ à¤à¤• à¤¶à¤¬à¥à¤¦","à¤¶à¤¬à¥à¤¦-à¤­à¥‡à¤¦","à¤®à¥à¤¹à¤¾à¤µà¤°à¥‡ à¤”à¤° à¤²à¥‹à¤•à¥‹à¤•à¥à¤¤à¤¿à¤¯à¤¾à¤","à¤…à¤ªà¤ à¤¿à¤¤ à¤—à¤¦à¥à¤¯à¤¾à¤‚à¤¶","à¤…à¤ªà¤ à¤¿à¤¤ à¤•à¤¾à¤µà¥à¤¯à¤¾à¤‚à¤¶","à¤ªà¤¤à¥à¤° à¤²à¥‡à¤–à¤¨","à¤¨à¤¿à¤¬à¤‚à¤§ à¤²à¥‡à¤–à¤¨"] },
+  { name: "Old - Maths", emoji: "ðŸ“", bg: "#E8703A", chapters: ["Rational Numbers","Linear Equations in One Variable","Understanding Quadrilaterals","Data Handling","Squares and Square Roots","Cubes and Cube Roots","Comparing Quantities","Algebraic Expressions and Identities","Visualising Solid Shapes","Mensuration","Exponents and Powers","Direct and Inverse Proportions","Factorisation","Introduction to Graphs","Playing with Numbers"] },
+  { name: "Old - Social Sc", emoji: "ðŸŒ", bg: "#2F80ED", chapters: ["How When and Where","From Trade to Territory The Company Establishes Power","Ruling the Countryside","Tribals Dikus and the Vision of a Golden Age","When People Rebel 1857 and After","Civilising the Native Educating the Nation","Women Caste and Reform","The Making of the National Movement 1870 to 1947","Resources","Land Soil Water Natural Vegetation and Wildlife Resources","Agriculture","Industries","Human Resources","The Indian Constitution","Understanding Secularism","Parliament and the Making of Laws","Judiciary","Understanding Marginalisation","Confronting Marginalisation","Public Facilities","Law and Social Justice"] },
 ];
 
 // Class 9 new-syllabus Important-Questions subjects (chapter lists mirror the seeded
 // chapters at class_level=9; ChapterList confirms per-chapter availability via the API).
 const CLASS9_IMP_SUBJECTS = [
-  { name: "Science (Exploration)", emoji: "🔬", bg: "#5AA84F", chapters: ["Exploration: Entering the World of Secondary Science","Cell: The Building Block of Life","Tissues in Action","Describing Motion Around Us","Exploring Mixtures and Their Separation","How Forces Affect Motion","Work, Energy and Simple Machines","Journey Inside Atom","Atomic Foundation of Matter","Sound Waves: Characteristics and Applications","Reproduction: How Life Continues","Patterns in Life: Diversity and Classification","Earth as a System: Energy, Matter and Life"] },
-  { name: "Social Science (Understanding Society)", emoji: "🌐", bg: "#2F80ED", chapters: ["Understanding Social Science","Shaping of the Earth's Surface","Atmosphere and Climate","Early Humans and Beginning of Civilisation","State and Society upto 1000 CE","Democracy in India","Elections","Building Blocks in Economics","The Price Puzzle: What Drives the Market","Oceans and Life","Life on Earth","Resistance and Resilience","India and the World-I","Authority","From Ideas to Startups","Smart Ways to Manage Your Finances"] },
-  { name: "हिंदी (गंगा)", emoji: "📚", bg: "#2F80ED", chapters: ["दो बैलों की कथा","क्या लिखूं?","संवादहीन","ऐसी भी बातें होती हैं (लता मंगेशकर से साक्षात्कार)","आखिरी चट्टान तक","रीढ़ की हड्डी","मैं और मेरा देश","⁠रैदास के पद","राम-लक्ष्मण-परशुराम संवाद","भारति, जय, विजयकरे!","झाँसी की रानी","घर की याद","अपठित गद्यांश (R1, R2)","अपठित काव्यांश (R1)","व्याकरण - उपसर्ग और प्रत्यय (R1, R2)","लेखन - अनुच्छेद (R1, R2)","व्याकरण - अर्थ की दृष्टि से वाक्य भेद (R1)","लेखन - अनौपचारिक पत्र (R1, R2)","व्याकरण - अलंकार (अनुप्रास, यमक, श्लेष) (R1)","लेखन - संवाद (R1, R2)","व्याकरण - समानार्थी शब्द (R2)","लेखन - सूचना (R1)","व्याकरण - मुहावरे (R2)","लेखन - चित्र वर्णन (R2)","व्याकरण - संज्ञा, सर्वनाम, विशेषण, क्रिया (R1)","व्याकरण - विराम चिह्न (R2)","व्याकरण - संज्ञा, सर्वनाम, निपात (R2)"] },
-  { name: "English (Kaveri)", emoji: "📖", bg: "#7A6FD0", chapters: ["How I Taught My Grandmother to Read","The Pot Maker","Winds of Change","Vitamin-M","The World of Limitless Possibilities","Twin Melodies","Carrier of Words","Follow That Dream","Bharat Our Land","Gifts of Grace: Honouring Our Vocations","Canvas of Soil","I Cannot Remember My Mother","Nine Gold Medals","A Friend Found in Music","Words","Believe in Yourself","Reading - Case Based Passage","Reading - Discursive Passage","Writing - Diary Entry","Writing - Descriptive Paragraph","Writing - Short Story","Grammar - Gap Filling","Grammar - Editing","Grammar - Tenses","Grammar - Modals","Grammar - Subject Verb Concord","Grammar - Reported speech","Grammar - Determiners","Writing - Notice","Writing - Informal Invitation","Writing-Letter to Editor","Writing - E-Mail","Writing - Article","Writing - Factual Description","Writing - Descriptive Essay"] },
-  { name: "Maths (Ganita Manjari)", emoji: "📐", bg: "#E8703A", chapters: ["The use of Coordinates","Introduction to Linear Polynomials","The World of Numbers","Exploring Algebraic Identities","I'm Up and Down, and Round and Round","Mensuration: Area and Perimeter","Introduction to Probability","Exploring Sequences and Progressions","Triangles: Congruence Theorems","4-gons (Quadrilaterals)","Mensuration Surface Area and Volume","Statistics","Lines and Angles","Introduction to Euclid's Geometry","Linear Equations in Two Variables"] },
-  { name: "Computer Applications (165)", emoji: "💻", bg: "#1C1C1E", chapters: ["Basics of IT","Cyber safety","Office tools","Scratch"] },
-  { name: "Information Technology (402)", emoji: "💻", bg: "#0F6E56", chapters: ["Introduction to IT-ITeS","Data Entry and Keyboarding Skills","Digital Documentation","Electronic Spreadsheet","Digital Presentation","Communication Skills - I","Self Management Skills - I","Basic ICT Skills - I","Entrepreneurship Skills - I","Green Skills - I"] },
-  { name: "JSTSE Scholarship", emoji: "🏆", bg: "#B0306B", chapters: ["GK - Current Affairs (2019-20)","GK - General Awareness","Physics","Chemistry","Biology","Mathematics"] },
-  { name: "Science (Advanced)", emoji: "🧪", bg: "#0F6E56", chapters: ["Measurement – Foundation of Science","Understanding Motion through Experience","Newton's Laws of Motion","The Geometry of Power – Advanced Simple Machines","Work and Energy","Structure of Atom","Chemical Bonding","Mixtures and their Separation","Microscope and Microscopy","Engineering Life: Miracles in Biotechnology"] },
-  { name: "संस्कृत (शारदा)", emoji: "🕉️", bg: "#E8703A", chapters: ["सत्यं शिवं सुन्दरं संस्कृतम्","सुखस्य मूलं धर्म: धर्मस्य मूलम् अर्थः"] },
-  { name: "Maths (Advanced)", emoji: "📐", bg: "#0C8F88", chapters: ["Sets","Logarithms","Coordinate Geometry","Combinatorics","Exploring Some more Progressions","Relations and Functions"] },
+  { name: "Science (Exploration)", emoji: "ðŸ”¬", bg: "#5AA84F", chapters: ["Exploration: Entering the World of Secondary Science","Cell: The Building Block of Life","Tissues in Action","Describing Motion Around Us","Exploring Mixtures and Their Separation","How Forces Affect Motion","Work, Energy and Simple Machines","Journey Inside Atom","Atomic Foundation of Matter","Sound Waves: Characteristics and Applications","Reproduction: How Life Continues","Patterns in Life: Diversity and Classification","Earth as a System: Energy, Matter and Life"] },
+  { name: "Social Science (Understanding Society)", emoji: "ðŸŒ", bg: "#2F80ED", chapters: ["Understanding Social Science","Shaping of the Earth's Surface","Atmosphere and Climate","Early Humans and Beginning of Civilisation","State and Society upto 1000 CE","Democracy in India","Elections","Building Blocks in Economics","The Price Puzzle: What Drives the Market","Oceans and Life","Life on Earth","Resistance and Resilience","India and the World-I","Authority","From Ideas to Startups","Smart Ways to Manage Your Finances"] },
+  { name: "à¤¹à¤¿à¤‚à¤¦à¥€ (à¤—à¤‚à¤—à¤¾)", emoji: "ðŸ“š", bg: "#2F80ED", chapters: ["à¤¦à¥‹ à¤¬à¥ˆà¤²à¥‹à¤‚ à¤•à¥€ à¤•à¤¥à¤¾","à¤•à¥à¤¯à¤¾ à¤²à¤¿à¤–à¥‚à¤‚?","à¤¸à¤‚à¤µà¤¾à¤¦à¤¹à¥€à¤¨","à¤à¤¸à¥€ à¤­à¥€ à¤¬à¤¾à¤¤à¥‡à¤‚ à¤¹à¥‹à¤¤à¥€ à¤¹à¥ˆà¤‚ (à¤²à¤¤à¤¾ à¤®à¤‚à¤—à¥‡à¤¶à¤•à¤° à¤¸à¥‡ à¤¸à¤¾à¤•à¥à¤·à¤¾à¤¤à¥à¤•à¤¾à¤°)","à¤†à¤–à¤¿à¤°à¥€ à¤šà¤Ÿà¥à¤Ÿà¤¾à¤¨ à¤¤à¤•","à¤°à¥€à¤¢à¤¼ à¤•à¥€ à¤¹à¤¡à¥à¤¡à¥€","à¤®à¥ˆà¤‚ à¤”à¤° à¤®à¥‡à¤°à¤¾ à¤¦à¥‡à¤¶","â à¤°à¥ˆà¤¦à¤¾à¤¸ à¤•à¥‡ à¤ªà¤¦","à¤°à¤¾à¤®-à¤²à¤•à¥à¤·à¥à¤®à¤£-à¤ªà¤°à¤¶à¥à¤°à¤¾à¤® à¤¸à¤‚à¤µà¤¾à¤¦","à¤­à¤¾à¤°à¤¤à¤¿, à¤œà¤¯, à¤µà¤¿à¤œà¤¯à¤•à¤°à¥‡!","à¤à¤¾à¤à¤¸à¥€ à¤•à¥€ à¤°à¤¾à¤¨à¥€","à¤˜à¤° à¤•à¥€ à¤¯à¤¾à¤¦","à¤…à¤ªà¤ à¤¿à¤¤ à¤—à¤¦à¥à¤¯à¤¾à¤‚à¤¶ (R1, R2)","à¤…à¤ªà¤ à¤¿à¤¤ à¤•à¤¾à¤µà¥à¤¯à¤¾à¤‚à¤¶ (R1)","à¤µà¥à¤¯à¤¾à¤•à¤°à¤£ - à¤‰à¤ªà¤¸à¤°à¥à¤— à¤”à¤° à¤ªà¥à¤°à¤¤à¥à¤¯à¤¯ (R1, R2)","à¤²à¥‡à¤–à¤¨ - à¤…à¤¨à¥à¤šà¥à¤›à¥‡à¤¦ (R1, R2)","à¤µà¥à¤¯à¤¾à¤•à¤°à¤£ - à¤…à¤°à¥à¤¥ à¤•à¥€ à¤¦à¥ƒà¤·à¥à¤Ÿà¤¿ à¤¸à¥‡ à¤µà¤¾à¤•à¥à¤¯ à¤­à¥‡à¤¦ (R1)","à¤²à¥‡à¤–à¤¨ - à¤…à¤¨à¥Œà¤ªà¤šà¤¾à¤°à¤¿à¤• à¤ªà¤¤à¥à¤° (R1, R2)","à¤µà¥à¤¯à¤¾à¤•à¤°à¤£ - à¤…à¤²à¤‚à¤•à¤¾à¤° (à¤…à¤¨à¥à¤ªà¥à¤°à¤¾à¤¸, à¤¯à¤®à¤•, à¤¶à¥à¤²à¥‡à¤·) (R1)","à¤²à¥‡à¤–à¤¨ - à¤¸à¤‚à¤µà¤¾à¤¦ (R1, R2)","à¤µà¥à¤¯à¤¾à¤•à¤°à¤£ - à¤¸à¤®à¤¾à¤¨à¤¾à¤°à¥à¤¥à¥€ à¤¶à¤¬à¥à¤¦ (R2)","à¤²à¥‡à¤–à¤¨ - à¤¸à¥‚à¤šà¤¨à¤¾ (R1)","à¤µà¥à¤¯à¤¾à¤•à¤°à¤£ - à¤®à¥à¤¹à¤¾à¤µà¤°à¥‡ (R2)","à¤²à¥‡à¤–à¤¨ - à¤šà¤¿à¤¤à¥à¤° à¤µà¤°à¥à¤£à¤¨ (R2)","à¤µà¥à¤¯à¤¾à¤•à¤°à¤£ - à¤¸à¤‚à¤œà¥à¤žà¤¾, à¤¸à¤°à¥à¤µà¤¨à¤¾à¤®, à¤µà¤¿à¤¶à¥‡à¤·à¤£, à¤•à¥à¤°à¤¿à¤¯à¤¾ (R1)","à¤µà¥à¤¯à¤¾à¤•à¤°à¤£ - à¤µà¤¿à¤°à¤¾à¤® à¤šà¤¿à¤¹à¥à¤¨ (R2)","à¤µà¥à¤¯à¤¾à¤•à¤°à¤£ - à¤¸à¤‚à¤œà¥à¤žà¤¾, à¤¸à¤°à¥à¤µà¤¨à¤¾à¤®, à¤¨à¤¿à¤ªà¤¾à¤¤ (R2)"] },
+  { name: "English (Kaveri)", emoji: "ðŸ“–", bg: "#7A6FD0", chapters: ["How I Taught My Grandmother to Read","The Pot Maker","Winds of Change","Vitamin-M","The World of Limitless Possibilities","Twin Melodies","Carrier of Words","Follow That Dream","Bharat Our Land","Gifts of Grace: Honouring Our Vocations","Canvas of Soil","I Cannot Remember My Mother","Nine Gold Medals","A Friend Found in Music","Words","Believe in Yourself","Reading - Case Based Passage","Reading - Discursive Passage","Writing - Diary Entry","Writing - Descriptive Paragraph","Writing - Short Story","Grammar - Gap Filling","Grammar - Editing","Grammar - Tenses","Grammar - Modals","Grammar - Subject Verb Concord","Grammar - Reported speech","Grammar - Determiners","Writing - Notice","Writing - Informal Invitation","Writing-Letter to Editor","Writing - E-Mail","Writing - Article","Writing - Factual Description","Writing - Descriptive Essay"] },
+  { name: "Maths (Ganita Manjari)", emoji: "ðŸ“", bg: "#E8703A", chapters: ["The use of Coordinates","Introduction to Linear Polynomials","The World of Numbers","Exploring Algebraic Identities","I'm Up and Down, and Round and Round","Mensuration: Area and Perimeter","Introduction to Probability","Exploring Sequences and Progressions","Triangles: Congruence Theorems","4-gons (Quadrilaterals)","Mensuration Surface Area and Volume","Statistics","Lines and Angles","Introduction to Euclid's Geometry","Linear Equations in Two Variables"] },
+  { name: "Computer Applications (165)", emoji: "ðŸ’»", bg: "#1C1C1E", chapters: ["Basics of IT","Cyber safety","Office tools","Scratch"] },
+  { name: "Information Technology (402)", emoji: "ðŸ’»", bg: "#0F6E56", chapters: ["Introduction to IT-ITeS","Data Entry and Keyboarding Skills","Digital Documentation","Electronic Spreadsheet","Digital Presentation","Communication Skills - I","Self Management Skills - I","Basic ICT Skills - I","Entrepreneurship Skills - I","Green Skills - I"] },
+  { name: "JSTSE Scholarship", emoji: "ðŸ†", bg: "#B0306B", chapters: ["GK - Current Affairs (2019-20)","GK - General Awareness","Physics","Chemistry","Biology","Mathematics"] },
+  { name: "Science (Advanced)", emoji: "ðŸ§ª", bg: "#0F6E56", chapters: ["Measurement â€“ Foundation of Science","Understanding Motion through Experience","Newton's Laws of Motion","The Geometry of Power â€“ Advanced Simple Machines","Work and Energy","Structure of Atom","Chemical Bonding","Mixtures and their Separation","Microscope and Microscopy","Engineering Life: Miracles in Biotechnology"] },
+  { name: "à¤¸à¤‚à¤¸à¥à¤•à¥ƒà¤¤ (à¤¶à¤¾à¤°à¤¦à¤¾)", emoji: "ðŸ•‰ï¸", bg: "#E8703A", chapters: ["à¤¸à¤¤à¥à¤¯à¤‚ à¤¶à¤¿à¤µà¤‚ à¤¸à¥à¤¨à¥à¤¦à¤°à¤‚ à¤¸à¤‚à¤¸à¥à¤•à¥ƒà¤¤à¤®à¥","à¤¸à¥à¤–à¤¸à¥à¤¯ à¤®à¥‚à¤²à¤‚ à¤§à¤°à¥à¤®: à¤§à¤°à¥à¤®à¤¸à¥à¤¯ à¤®à¥‚à¤²à¤®à¥ à¤…à¤°à¥à¤¥à¤ƒ"] },
+  { name: "Maths (Advanced)", emoji: "ðŸ“", bg: "#0C8F88", chapters: ["Sets","Logarithms","Coordinate Geometry","Combinatorics","Exploring Some more Progressions","Relations and Functions"] },
 ];
 
 // Important-Questions subject list for the chosen class. Class 11 keeps the
 // API-backed PYQ_SUBJECTS. Class 12 swaps Physics for its 14 chapters (API-backed,
 // data in the DB at class_level=12) and Chemistry for its 10 chapters (bundled
 // locally); the other subjects are marked "coming soon" so they don't hit the
-// API with Class-11 chapter names. Class 7 → the 6 new-syllabus subjects above.
-// Class 10 — Resources has DB-backed Revision Notes, but no Practice content
+// API with Class-11 chapter names. Class 7 â†’ the 6 new-syllabus subjects above.
+// Class 10 â€” Resources has DB-backed Revision Notes, but no Practice content
 // (PYQ / Important Qs) is imported yet, so Practice lists the real Class-10
 // subjects as "coming soon" rather than falling back to Class-11's subjects.
 const CLASS10_PRACTICE_SUBJECTS = [
-  { name: 'Mathematics',                   emoji: '📐', bg: '#444',    chapters: [], comingSoon: true },
-  { name: 'Science',                       emoji: '🔬', bg: '#5AA84F', chapters: [], comingSoon: true },
-  { name: 'Social Science',                emoji: '🌐', bg: '#2F80ED', chapters: [], comingSoon: true },
-  { name: 'English Communicative (101)',   emoji: '📖', bg: '#7A6FD0', chapters: [], comingSoon: true },
-  { name: 'Artificial Intelligence (417)', emoji: '🤖', bg: S.ink, chapters: [], comingSoon: true },
+  { name: 'Mathematics',                   emoji: 'ðŸ“', bg: '#444',    chapters: [], comingSoon: true },
+  { name: 'Science',                       emoji: 'ðŸ”¬', bg: '#5AA84F', chapters: [], comingSoon: true },
+  { name: 'Social Science',                emoji: 'ðŸŒ', bg: '#2F80ED', chapters: [], comingSoon: true },
+  { name: 'English Communicative (101)',   emoji: 'ðŸ“–', bg: '#7A6FD0', chapters: [], comingSoon: true },
+  { name: 'Artificial Intelligence (417)', emoji: 'ðŸ¤–', bg: S.ink, chapters: [], comingSoon: true },
 ];
 
 const impSubjectsForClass = (cls) => {
@@ -374,7 +376,7 @@ const impSubjectsForClass = (cls) => {
 
 // Previous-Year-Questions subject list for the chosen class. Class 11 keeps the
 // API-backed PYQ_SUBJECTS. Class 12 swaps Physics for its 14 chapters (API-backed
-// too — chapter availability comes from the API) and Chemistry for its 10 chapters
+// too â€” chapter availability comes from the API) and Chemistry for its 10 chapters
 // (bundled locally); the other subjects are marked "coming soon" so they don't hit
 // the API with Class-11 chapter names.
 const pyqSubjectsForClass = (cls) => {
@@ -387,13 +389,13 @@ const pyqSubjectsForClass = (cls) => {
       return { ...sub, chapters: [], comingSoon: true };
     });
   }
-  // Class 9 — Previous Year Questions are DB-backed (sections type_key='pyq',
+  // Class 9 â€” Previous Year Questions are DB-backed (sections type_key='pyq',
   // class_level=9) for JSTSE Scholarship + Computer Applications. Chapter
   // availability is still confirmed via the API per chapter.
   if (cls === 'Class 9') {
     return [
-      { name: 'JSTSE Scholarship', emoji: '🏆', bg: '#B0306B', chapters: ['GK - Current Affairs (2019-20)', 'GK - General Awareness', 'Physics', 'Chemistry', 'Biology', 'Mathematics'] },
-      { name: 'Computer Applications (165)', emoji: '💻', bg: S.ink, chapters: ['Basics of IT', 'Office tools'] },
+      { name: 'JSTSE Scholarship', emoji: 'ðŸ†', bg: '#B0306B', chapters: ['GK - Current Affairs (2019-20)', 'GK - General Awareness', 'Physics', 'Chemistry', 'Biology', 'Mathematics'] },
+      { name: 'Computer Applications (165)', emoji: 'ðŸ’»', bg: S.ink, chapters: ['Basics of IT', 'Office tools'] },
     ];
   }
   return PYQ_SUBJECTS;
@@ -402,12 +404,12 @@ const pyqSubjectsForClass = (cls) => {
 // Mock-test subject list, class-aware. Class 9 has DB-backed mocks for Old - Maths
 // (examin8 resource 1234, class_level=9); other classes keep the senior PCMB list.
 const MOCK_SUBJECTS_CLASS9 = [
-  { name: 'Old - Maths',     emoji: '➗', bg: '#0F6E56', chapters: [] },
-  { name: 'Old - Science',   emoji: '⚗️', bg: '#5AA84F', chapters: [] },
-  { name: 'Old - Social Sc', emoji: '🏛️', bg: '#8A5A2B', chapters: [] },
-  { name: 'Old - Eng Lang',  emoji: '📖', bg: '#7A6FD0', chapters: [] },
-  { name: 'Old - हिंदी ए',    emoji: '📚', bg: '#2F80ED', chapters: [] },
-  { name: 'Old - हिंदी ब',    emoji: '📚', bg: '#26215C', chapters: [] },
+  { name: 'Old - Maths',     emoji: 'âž—', bg: '#0F6E56', chapters: [] },
+  { name: 'Old - Science',   emoji: 'âš—ï¸', bg: '#5AA84F', chapters: [] },
+  { name: 'Old - Social Sc', emoji: 'ðŸ›ï¸', bg: '#8A5A2B', chapters: [] },
+  { name: 'Old - Eng Lang',  emoji: 'ðŸ“–', bg: '#7A6FD0', chapters: [] },
+  { name: 'Old - à¤¹à¤¿à¤‚à¤¦à¥€ à¤',    emoji: 'ðŸ“š', bg: '#2F80ED', chapters: [] },
+  { name: 'Old - à¤¹à¤¿à¤‚à¤¦à¥€ à¤¬',    emoji: 'ðŸ“š', bg: '#26215C', chapters: [] },
 ];
 const mockSubjectsForClass = (cls) =>
   classNum(cls) === 9 ? MOCK_SUBJECTS_CLASS9
@@ -420,13 +422,13 @@ const isDbMockSubject = (subjectName, cls) =>
 const BackHeader = ({ onBack }) => (
   <View style={s.backHeader}>
     <TouchableOpacity onPress={onBack} style={s.backRow} activeOpacity={0.7}>
-      <Text style={s.backArrow}>←</Text>
+      <Text style={s.backArrow}>â†</Text>
       <Text style={s.backTxt}>Back</Text>
     </TouchableOpacity>
   </View>
 );
 
-// Dark header for the PYQ / Important Questions subject + chapter lists — same
+// Dark header for the PYQ / Important Questions subject + chapter lists â€” same
 // circular back-badge + title/subtitle pattern as the Practice landing page and
 // Chapter Practice flow (Class11PracticeTests.js).
 const DarkPageHeader = ({ title, subtitle, onBack }) => {
@@ -457,7 +459,7 @@ const PyqWebView = ({ html, subject, chapter, sectionType = 'pyq' }) => {
   );
 
   useEffect(() => {
-    // Ready HTML provided (Important Questions) — no fetch needed.
+    // Ready HTML provided (Important Questions) â€” no fetch needed.
     if (html != null) {
       setStatus({ loading: false, error: null, html });
       return;
@@ -519,19 +521,19 @@ const PyqWebView = ({ html, subject, chapter, sectionType = 'pyq' }) => {
   );
 };
 
-// Chapter list for a subject — marks which chapters actually have data for the
+// Chapter list for a subject â€” marks which chapters actually have data for the
 // given section type (from API). Reused for PYQ and Important Questions.
 const ChapterList = ({
   subject, onBack, onPick,
   sectionType = 'pyq',
   subtitle = 'Select a chapter',
   availableLabel = 'View previous year questions',
-  localChapters = null, // Set<slug> with content → skip the API (local data)
+  localChapters = null, // Set<slug> with content â†’ skip the API (local data)
 }) => {
   const { selectedClass } = useAuth();
   const classLevel = classNum(selectedClass);
-  // localChapters (Set<slug>) → bundled-data mode: filter the candidate list.
-  // Otherwise → API mode: the chapter names + order come straight from the DB, so
+  // localChapters (Set<slug>) â†’ bundled-data mode: filter the candidate list.
+  // Otherwise â†’ API mode: the chapter names + order come straight from the DB, so
   // no local chapter list is needed (the DB is the single source of truth).
   const [chapters, setChapters] = useState(
     localChapters ? subject.chapters.filter((ch) => localChapters.has(slugify(ch))) : null
@@ -556,7 +558,7 @@ const ChapterList = ({
       {chapters === null ? (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 28 }}>
           <ActivityIndicator size="large" color={D.cyan} />
-          <Text style={{ fontSize: 13, color: D.muted, fontFamily: FONT.semibold, textAlign: 'center', marginTop: 12 }}>Loading…</Text>
+          <Text style={{ fontSize: 13, color: D.muted, fontFamily: FONT.semibold, textAlign: 'center', marginTop: 12 }}>Loadingâ€¦</Text>
         </View>
       ) : (() => {
         const visible = chapters;
@@ -594,7 +596,7 @@ const ChapterList = ({
 };
 
 // Renders the MCQ test. Questions come from the DB-backed API (per chapter,
-// across its subtopics). Empty list (e.g. Physics — no MCQ data) → McqQuizScreen
+// across its subtopics). Empty list (e.g. Physics â€” no MCQ data) â†’ McqQuizScreen
 // shows its "No questions" state. No local sample fallback.
 const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
   const { selectedClass } = useAuth();
@@ -604,7 +606,7 @@ const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
   useEffect(() => {
     let alive = true;
     setState({ loading: true, questions: null });
-    // Subtopic selected → that subtopic's questions; else the whole chapter.
+    // Subtopic selected â†’ that subtopic's questions; else the whole chapter.
     const req = subtopicId != null
       ? getMcqSubtopicTest(subtopicId)
       : getMcqChapterTest(subjectSlug(subject), slugify(chapter), classLevel);
@@ -626,12 +628,12 @@ const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
 
   if (state.loading) {
     // Dark, because this hands straight off to McqQuizScreen's dark
-    // `mcq-question-dark` frame — a light spinner in between reads as a flash.
+    // `mcq-question-dark` frame â€” a light spinner in between reads as a flash.
     return (
       <SafeAreaView style={{ flex: 1, backgroundColor: MCQ_CANVAS }}>
         <StatusBar barStyle="light-content" backgroundColor={MCQ_CANVAS} />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: MCQ_CANVAS }} />}
-        {/* A way out stays on screen — the fetch can be slow on a bad connection. */}
+        {/* A way out stays on screen â€” the fetch can be slow on a bad connection. */}
         <TouchableOpacity onPress={onExit} hitSlop={10} style={s.mcqLoadBack} accessibilityRole="button" accessibilityLabel="Back">
           <ChevronLeft size={20} color="#FFFFFF" strokeWidth={2.4} />
         </TouchableOpacity>
@@ -658,7 +660,7 @@ const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
           score: correct, total, percent, date: new Date().toISOString(),
         });
         // Also persist server-side, so the attempt reaches the parent's progress
-        // view. Fire-and-forget — the local record above is what this screen reads,
+        // view. Fire-and-forget â€” the local record above is what this screen reads,
         // so a failed sync must never block or alter the result the student sees.
         if (subtopicId != null && answers && Object.keys(answers).length) {
           submitMcqTest(subtopicId, answers).catch(() => {});
@@ -672,7 +674,7 @@ const PracticeScreen = () => {
   const { selectedClass, setSelectedClass, scope, isClassReady } = useAuth();
   const insets = useSafeAreaInsets();
 
-  // Class 6 & 9 subject lists are DB-driven (no hardcoded arrays) — filter the
+  // Class 6 & 9 subject lists are DB-driven (no hardcoded arrays) â€” filter the
   // fetched list by feature. Other classes keep their existing hardcoded lists.
   const dynClass = classNum(selectedClass);
   const isDyn = DYNAMIC_CLASSES.includes(dynClass);
@@ -688,6 +690,7 @@ const PracticeScreen = () => {
   const [pyqChapter, setPyqChapter] = useState(null);    // chosen chapter (string)
 
   // Important Questions navigation (mirrors the PYQ flow)
+  const [impReader, setImpReader]   = useState(false);   // chapter screen -> question reader
   const [impOpen, setImpOpen]       = useState(false);   // showing the Important Q subject list
   const [impSubject, setImpSubject] = useState(null);    // chosen subject (object)
   const [impChapter, setImpChapter] = useState(null);    // chosen chapter (string)
@@ -712,7 +715,7 @@ const PracticeScreen = () => {
   const [chSel, setChSel]   = useState(null);   // chosen { subject, chapterId, chapterName, questions }
   const [chResult, setChResult] = useState(null);  // computed report after an online test
   const [chReview, setChReview] = useState(false); // showing the per-question review
-  // When the current online test was opened — TestQuestionScreen only counts down,
+  // When the current online test was opened â€” TestQuestionScreen only counts down,
   // it never reports elapsed time, so time-taken is measured here.
   const chStartRef = useRef(null);
   useEffect(() => { if (chSel && !chStartRef.current) chStartRef.current = Date.now(); }, [chSel]);
@@ -782,7 +785,7 @@ const PracticeScreen = () => {
     if (willOpen && isDbMockSubject(subjectName, selectedClass) && !mockData[subjectName]) loadSubjectTests(subjectName);
   };
 
-  // Launch a test — fetch the questions from the DB (all subjects/classes).
+  // Launch a test â€” fetch the questions from the DB (all subjects/classes).
   const startDbMock = (subject, test) => {
     setPhysMock({ subject, label: test.name, testId: test.id, status: 'loading' });
     getMockTestQuestions(test.id)
@@ -822,13 +825,13 @@ const PracticeScreen = () => {
   // time (fixes the bug where returning re-opened the last mock test).
   useFocusEffect(useCallback(() => () => {
     setPyqOpen(false); setPyqSubject(null); setPyqChapter(null);
-    setImpOpen(false); setImpSubject(null); setImpChapter(null);
+    setImpOpen(false); setImpSubject(null); setImpChapter(null); setImpReader(false);
     setMcqOpen(false); setMcqSel(null);
     setMockOpen(false); setMockOpenSub(null); setPhysMock(null); setRetest(null);
     setChOpen(false); setChSel(null); setChResult(null);
   }, []));
 
-  // ── PYQ LEVEL 3: Previous-year questions for a chapter (fetched from API) ────
+  // â”€â”€ PYQ LEVEL 3: Previous-year questions for a chapter (fetched from API) â”€â”€â”€â”€
   if (pyqOpen && pyqSubject && pyqChapter) {
     return (
       <SafeAreaView style={s.safe}>
@@ -837,7 +840,7 @@ const PracticeScreen = () => {
         <BackHeader onBack={() => setPyqChapter(null)} />
         <View style={s.pageTitleWrap}>
           <Text style={s.pageTitle}>{pyqChapter}</Text>
-          <Text style={s.pageSub}>{pyqSubject.name}  •  Previous Year Questions</Text>
+          <Text style={s.pageSub}>{pyqSubject.name}  â€¢  Previous Year Questions</Text>
         </View>
         <PyqWebView
           subject={pyqSubject.name}
@@ -847,7 +850,7 @@ const PracticeScreen = () => {
     );
   }
 
-  // ── PYQ LEVEL 2: Chapter list for the chosen subject ────────────────────────
+  // â”€â”€ PYQ LEVEL 2: Chapter list for the chosen subject â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   if (pyqOpen && pyqSubject) {
     // "Coming soon" subjects pass an empty set so none show as available; every
     // other subject (incl. Class 12 Physics, Chemistry & Maths) queries the API
@@ -864,12 +867,12 @@ const PracticeScreen = () => {
     );
   }
 
-  // ── PYQ LEVEL 1: Subject list ───────────────────────────────────────────────
+  // â”€â”€ PYQ LEVEL 1: Subject list â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   if (pyqOpen) {
     return (
       <View style={d.safe}>
         <StatusBar barStyle="light-content" backgroundColor={D.canvas} />
-        <DarkPageHeader title="Previous Year Papers" subtitle="Select a subject  •  10 years question bank" onBack={() => setPyqOpen(false)} />
+        <DarkPageHeader title="Previous Year Papers" subtitle="Select a subject  â€¢  10 years question bank" onBack={() => setPyqOpen(false)} />
         <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
           {pyqSubjects.map((subject, i) => (
             <TouchableOpacity key={i} style={d.subjectCard} activeOpacity={0.8}
@@ -891,27 +894,41 @@ const PracticeScreen = () => {
     );
   }
 
-  // ── IMPORTANT QUESTIONS LEVEL 3: questions for a chapter (from API) ──────────
-  if (impOpen && impSubject && impChapter) {
+  // â”€â”€ IMPORTANT QUESTIONS LEVEL 3: the chapter screen â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // The progress card, the recommended-next question and the question series, all
+  // from GET /api/resources/progress/... Opening any question hands off to the
+  // reader below, which is the same MathJax WebView as before â€” the chapter view
+  // changed, how a question is read did not.
+  if (impOpen && impSubject && impChapter && !impReader) {
     return (
-      <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
-        <BackHeader onBack={() => setImpChapter(null)} />
-        <View style={s.pageTitleWrap}>
-          <Text style={s.pageTitle}>{impChapter}</Text>
-          <Text style={s.pageSub}>{impSubject.name}  •  Important Questions</Text>
-        </View>
-        <PyqWebView
-          subject={impSubject.name}
-          chapter={impChapter}
-          sectionType="important_questions"
-        />
-      </SafeAreaView>
+      <ChapterPracticeScreen
+        subject={{ name: impSubject.name, slug: subjectSlug(impSubject.name) }}
+        chapter={{ name: impChapter, slug: slugify(impChapter) }}
+        sectionType="important_questions"
+        classLevel={classNum(selectedClass)}
+        tabs={[{ key: 'important_questions', label: 'Important Qs' }]}
+        activeTab="important_questions"
+        onOpenQuestion={(q) => setImpReader(q && q.id != null ? q.id : true)}
+        onBack={() => setImpChapter(null)}
+      />
     );
   }
 
-  // ── IMPORTANT QUESTIONS LEVEL 2: Chapter list for the chosen subject ─────────
+  // â”€â”€ IMPORTANT QUESTIONS LEVEL 3b: the question reader â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  if (impOpen && impSubject && impChapter && impReader) {
+    return (
+      <QuestionSolveScreen
+        subject={{ name: impSubject.name, slug: subjectSlug(impSubject.name) }}
+        chapter={{ name: impChapter, slug: slugify(impChapter) }}
+        sectionType="important_questions"
+        classLevel={classNum(selectedClass)}
+        startQuestionId={typeof impReader === 'number' ? impReader : null}
+        onBack={() => setImpReader(false)}
+      />
+    );
+  }
+
+  // â”€â”€ IMPORTANT QUESTIONS LEVEL 2: Chapter list for the chosen subject â”€â”€â”€â”€â”€â”€â”€â”€â”€
   if (impOpen && impSubject) {
     // "Coming soon" subjects pass an empty set so none show as available; every
     // other subject (incl. Class 12 Physics, Chemistry & Maths) queries the API
@@ -921,7 +938,7 @@ const PracticeScreen = () => {
       <ChapterList
         subject={impSubject}
         sectionType="important_questions"
-        subtitle="Select a chapter  •  Important Questions"
+        subtitle="Select a chapter  â€¢  Important Questions"
         availableLabel="View important questions"
         localChapters={localChapters}
         onBack={() => setImpSubject(null)}
@@ -930,12 +947,12 @@ const PracticeScreen = () => {
     );
   }
 
-  // ── IMPORTANT QUESTIONS LEVEL 1: Subject list ───────────────────────────────
+  // â”€â”€ IMPORTANT QUESTIONS LEVEL 1: Subject list â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   if (impOpen) {
     return (
       <View style={d.safe}>
         <StatusBar barStyle="light-content" backgroundColor={D.canvas} />
-        <DarkPageHeader title="Important Questions" subtitle="Select a subject  •  Hand-picked must-do questions" onBack={() => setImpOpen(false)} />
+        <DarkPageHeader title="Important Questions" subtitle="Select a subject  â€¢  Hand-picked must-do questions" onBack={() => setImpOpen(false)} />
         <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
           {impSubjects.map((subject, i) => (
             <TouchableOpacity key={i} style={d.subjectCard} activeOpacity={0.8}
@@ -957,31 +974,34 @@ const PracticeScreen = () => {
     );
   }
 
-  // ── ONLINE TESTS: question-by-question review ──────────────────────────────
+  // â”€â”€ ONLINE TESTS: question-by-question review â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // Driven off the raw submit payload kept on chResult, since the computed report
   // holds totals only.
   if (chOpen && chResult && chReview) {
     return (
       <OnlineTestReview
-        title={`${chResult.title} — Review`}
+        title={`${chResult.title} â€” Review`}
         questions={chResult.questions}
         answers={chResult.answers}
         onBack={() => setChReview(false)}
+        // The pinned button leaves the test for the practice list, the same exit
+        // MockResultScreen's "Back to Practice" takes.
+        onExit={() => { setChReview(false); setChResult(null); setChSel(null); setChOpen(false); }}
       />
     );
   }
 
-  // ── ONLINE TESTS: result / report screen (after submit) ────────────────────
+  // â”€â”€ ONLINE TESTS: result / report screen (after submit) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   if (chOpen && chResult) {
     return (
       <MockResultScreen
         title={`${chResult.title} - Result`}
         result={chResult.data}
         onReview={() => setChReview(true)}
-        // Retake really retakes, the way the Class 6–9 runner's does
+        // Retake really retakes, the way the Class 6â€“9 runner's does
         // (OnlineTestScreen sends its Result straight back to `running`). Dropping
         // chResult falls through to the `chOpen && chSel` branch below, which
-        // remounts TestQuestionScreen — so answers, index and the countdown all
+        // remounts TestQuestionScreen â€” so answers, index and the countdown all
         // start over. The clock this screen keeps for timeTakenSec has to be
         // restarted by hand, since chSel doesn't change and its effect won't refire.
         onRetake={() => { setChReview(false); setChResult(null); chStartRef.current = Date.now(); }}
@@ -990,11 +1010,11 @@ const PracticeScreen = () => {
     );
   }
 
-  // ── ONLINE TESTS: attempt the chosen chapter (real questions) ──────────────
+  // â”€â”€ ONLINE TESTS: attempt the chosen chapter (real questions) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   if (chOpen && chSel) {
     return (
       <TestQuestionScreen
-        bannerText={`${chSel.subject} · ${chSel.chapterName} • attempt the questions`}
+        bannerText={`${chSel.subject} Â· ${chSel.chapterName} â€¢ attempt the questions`}
         questions={chSel.questions}
         onExit={() => setChSel(null)}
         onSubmit={(payload) => {
@@ -1014,7 +1034,7 @@ const PracticeScreen = () => {
             });
           }
           // Also record it server-side so it reaches the parent's progress view.
-          // The server re-grades from offline_answer_keys — the local result above
+          // The server re-grades from offline_answer_keys â€” the local result above
           // is what this screen shows. Fire-and-forget: a failed sync must never
           // change what the student sees.
           const qs = payload?.questions || chSel.questions || [];
@@ -1029,7 +1049,7 @@ const PracticeScreen = () => {
           }).catch(() => {});
           chStartRef.current = null;
 
-          // Keep the questions + answers, not just the totals — the review screen
+          // Keep the questions + answers, not just the totals â€” the review screen
           // needs the per-question detail that computeMockResult throws away.
           setChResult({
             title: chSel.chapterName,
@@ -1038,7 +1058,7 @@ const PracticeScreen = () => {
             answers: payload?.answers || {},
           });
           // chSel is deliberately KEPT: chResult is set, and the result branch is
-          // checked before the attempt branch, so the runner stays hidden — but the
+          // checked before the attempt branch, so the runner stays hidden â€” but the
           // selection has to survive for Retake to have a test to re-open. It is
           // cleared when the student leaves (onClose / list back / tab focus).
         }}
@@ -1046,9 +1066,9 @@ const PracticeScreen = () => {
     );
   }
 
-  // ── ONLINE TESTS ────────────────────────────────────────────────────────
-  // Class 7 & 8 → DB-backed, timed testpapers from examin8 (OnlineTestScreen manages
-  // its own subjects → chapters → tests → instruction → runner → result → review).
+  // â”€â”€ ONLINE TESTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // Class 7 & 8 â†’ DB-backed, timed testpapers from examin8 (OnlineTestScreen manages
+  // its own subjects â†’ chapters â†’ tests â†’ instruction â†’ runner â†’ result â†’ review).
   // Other classes keep the offline-bank flow (OnlineTestsScreen).
   if (chOpen && [6, 7, 8, 9].includes(classNum(selectedClass))) {
     return <OnlineTestScreen onExit={() => setChOpen(false)} />;
@@ -1058,7 +1078,7 @@ const PracticeScreen = () => {
       <OnlineTestsScreen
         selectedClass={selectedClass}
         // chSel now outlives a submitted test (so Retake can re-open it), so it has
-        // to be dropped on the way out — otherwise reopening Online Tests would
+        // to be dropped on the way out â€” otherwise reopening Online Tests would
         // land straight back inside the last test instead of on this list.
         onBack={() => { setChOpen(false); setChSel(null); }}
         onStartTest={(sel) => setChSel(sel)}
@@ -1066,7 +1086,7 @@ const PracticeScreen = () => {
     );
   }
 
-  // ── MOCK TEST: the test itself (DB-backed, sectioned McqTestScreen) ──────────
+  // â”€â”€ MOCK TEST: the test itself (DB-backed, sectioned McqTestScreen) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // physMock is set the moment a test is picked; show loading / error / the test.
   if (physMock) {
     if (physMock.status === 'loading') {
@@ -1077,7 +1097,7 @@ const PracticeScreen = () => {
           <BackHeader onBack={closePhysMock} />
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12 }}>
             <ActivityIndicator size="large" color={S.indigo} />
-            <Text style={s.pageSub}>Loading {physMock.label}…</Text>
+            <Text style={s.pageSub}>Loading {physMock.label}â€¦</Text>
           </View>
         </SafeAreaView>
       );
@@ -1089,7 +1109,7 @@ const PracticeScreen = () => {
           {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: S.canvas }} />}
           <BackHeader onBack={closePhysMock} />
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12, padding: 30 }}>
-            <Text style={{ fontSize: 40 }}>⚠️</Text>
+            <Text style={{ fontSize: 40 }}>âš ï¸</Text>
             <Text style={[s.pageTitle, { textAlign: 'center' }]}>Couldn't load this test</Text>
             <Text style={[s.pageSub, { textAlign: 'center' }]}>{physMock.error}</Text>
             <TouchableOpacity
@@ -1122,7 +1142,7 @@ const PracticeScreen = () => {
     );
   }
 
-  // ── MOCK TEST: subject → that subject's mock tests as cards (all classes) ────
+  // â”€â”€ MOCK TEST: subject â†’ that subject's mock tests as cards (all classes) â”€â”€â”€â”€
   if (mockOpen) {
     return (
       <MockTestsCards
@@ -1134,7 +1154,7 @@ const PracticeScreen = () => {
     );
   }
 
-  // ── MCQ PRACTICE: the test itself (sub-topic preset, else chapter MCQs) ─────
+  // â”€â”€ MCQ PRACTICE: the test itself (sub-topic preset, else chapter MCQs) â”€â”€â”€â”€â”€
   if (mcqOpen && mcqSel) {
     return (
       <McqLoader
@@ -1146,7 +1166,7 @@ const PracticeScreen = () => {
     );
   }
 
-  // ── MCQ PRACTICE: subject → chapter → tests card UI (all classes) ───────────
+  // â”€â”€ MCQ PRACTICE: subject â†’ chapter â†’ tests card UI (all classes) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   if (mcqOpen) {
     return (
       <PracticeTestsCards
@@ -1157,7 +1177,7 @@ const PracticeScreen = () => {
     );
   }
 
-  // Real, working practice types — grouped by intent (practise vs assess). No fake data.
+  // Real, working practice types â€” grouped by intent (practise vs assess). No fake data.
   const PRACTICE_GROUP = [
     { Icon: ListChecks, tint: D.indigo, soft: D.indigoSoft, label: 'Chapter practice',    sub: 'Multiple-choice questions, chapter by chapter', onPress: () => setMcqOpen(true) },
     { Icon: Star,       tint: D.cyan,   soft: D.cyanSoft,   label: 'Important questions', sub: 'Hand-picked must-do questions',                 onPress: () => setImpOpen(true) },
@@ -1186,7 +1206,7 @@ const PracticeScreen = () => {
     </TouchableOpacity>
   );
 
-  // ── MAIN PRACTICE SCREEN ────────────────────────────────────────────────────
+  // â”€â”€ MAIN PRACTICE SCREEN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   return (
     <View style={d.safe}>
       <StatusBar barStyle="light-content" backgroundColor={D.canvas} />
@@ -1198,7 +1218,7 @@ const PracticeScreen = () => {
       {/* Students are locked to their own class; the switcher only shows if no class is set yet. */}
       {!scope?.classNum && <ClassTabs value={selectedClass} onChange={setSelectedClass} />}
 
-      {/* No content seeded for the selected class (e.g. Class 7) → premium empty
+      {/* No content seeded for the selected class (e.g. Class 7) â†’ premium empty
           state for everyone, never another class's content. selectedClass is the
           class being viewed (a tester's picked class, or a normal student's locked
           saved class), so this gates the exact class on screen. isClassReady is
@@ -1317,7 +1337,7 @@ const s = StyleSheet.create({
   scoreTxt:         { fontSize: 13, fontFamily: FONT.black, color: '#fff' },
   recentDate:       { fontSize: 10, color: S.muted, fontFamily: FONT.semibold },
 
-  // Mock Test — collapsible subject sections + DB-backed mock rows + retest modal
+  // Mock Test â€” collapsible subject sections + DB-backed mock rows + retest modal
   mcqSection:       { marginBottom: 14 },
   mcqSectionHeader: { backgroundColor: '#fff', borderRadius: 16, borderWidth: 1.5, borderColor: S.hair, flexDirection: 'row', alignItems: 'center', gap: 14, padding: 14 },
   mcqSectionIcon:   { width: 44, height: 44, borderRadius: 13, alignItems: 'center', justifyContent: 'center' },
@@ -1360,7 +1380,7 @@ const d = StyleSheet.create({
   typeTitle:     { fontSize: 15, fontFamily: FONT.bold, color: D.ink, letterSpacing: -0.2 },
   typeSub:       { fontSize: 12, fontFamily: FONT.semibold, color: D.muted, marginTop: 2 },
 
-  // Sub-screen header (PYQ / Important Questions subject + chapter lists) — a
+  // Sub-screen header (PYQ / Important Questions subject + chapter lists) â€” a
   // back-badge + title/subtitle row, distinct from the landing header above.
   pageHeader:    { flexDirection: 'row', alignItems: 'center', gap: 12, paddingHorizontal: 18, paddingBottom: 16 },
   backBtn:       { width: 36, height: 36, borderRadius: 18, backgroundColor: D.card, borderWidth: 1, borderColor: D.hair, alignItems: 'center', justifyContent: 'center' },

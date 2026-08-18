@@ -8,11 +8,8 @@
 // here is this bank's own shape: sections A/B/C, letter answers, a single duration.
 
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { View, Text, StyleSheet, StatusBar, SafeAreaView, Modal, Platform } from 'react-native';
-import {
-  TT, TTF, TimedTestFrame, TTScrim, TTSheet, TTTitle, TTSub,
-  TTConfirmDialog, TTGrid, TTLegend,
-} from '../components/timedTestDark';
+import { View, Text, StyleSheet, StatusBar, SafeAreaView, Platform } from 'react-native';
+import { TT, TTF, TimedTestFrame, TTConfirmDialog, TTPalette } from '../components/timedTestDark';
 
 const SECTION_ORDER = ['A', 'B', 'C'];
 const SECTION_RULE = {
@@ -108,6 +105,30 @@ export default function TestQuestionScreen({
     onSubmit({ answers, answeredCount, total: grandTotal, questions, autoSubmitted: !!auto });
   };
 
+  // Palette groups. The label a student sees is the paper-wide number (A 1–7, B 8–14,
+  // C 15–18), so `offset` accumulates across sections; `required` is the count out of
+  // the section rule ("Attempt any 20 questions" → "20 required"), read from the rule
+  // rather than duplicated, so the two can never disagree.
+  const paletteGroups = useMemo(() => {
+    let offset = 0;
+    return sections.map((sec) => {
+      const req = String(sec.rule || '').match(/\d+/);
+      const group = {
+        id: sec.id,
+        title: `SECTION ${sec.id}`,
+        note: req ? `${req[0]} required` : null,
+        items: sec.questions.map((q, i) => ({
+          key: q.id,
+          label: offset + i + 1,
+          answered: answers[q.id] != null,
+          current: sec.id === activeSec && i === index,
+        })),
+      };
+      offset += sec.questions.length;
+      return group;
+    });
+  }, [sections, answers, activeSec, index]);
+
   const isVeryLast = (() => {
     const pos = sections.findIndex((s) => s.id === activeSec);
     return pos === sections.length - 1 && isLastInSection;
@@ -129,12 +150,12 @@ export default function TestQuestionScreen({
       <TimedTestFrame
         onClose={onExit}
         secondsLeft={remaining}
-        onSubmit={() => setConfirmFinish(true)}
         progressText={`${index + 1} / ${total}`}
-        // The frame replaced this screen's old row of section tabs with a single
-        // read-only chip, so switching sections moved into the palette sheet — and
-        // it only appears there when a test actually has more than one.
-        badgeText={`Section ${activeSec}`}
+        // Section switching is back in the frame as a tab row, so the sheet no longer
+        // has to carry it.
+        sections={sections.map((sec) => ({ id: sec.id, label: `Section ${sec.id}` }))}
+        activeSection={activeSec}
+        onSectionChange={switchSection}
         bannerText={bannerText || section.rule}
         questionHtml={current.text}
         options={(current.options || []).map((o) => ({ id: o.key, key: o.key, label: o.label }))}
@@ -145,7 +166,7 @@ export default function TestQuestionScreen({
         prevDisabled={index === 0}
         onMenu={() => setPaletteVisible(true)}
         onNext={goNext}
-        nextLabel={isVeryLast ? 'Submit' : 'Next →'}
+        nextLabel={isVeryLast ? 'Submit' : 'Next'}
       >
         {/* `finish-test-dialog-dark` */}
         <TTConfirmDialog
@@ -157,39 +178,21 @@ export default function TestQuestionScreen({
           onCancel={() => setConfirmFinish(false)}
         />
 
-        {/* Question palette */}
-        <Modal visible={paletteVisible} transparent animationType="fade" onRequestClose={() => setPaletteVisible(false)}>
-          <TTScrim onPress={() => setPaletteVisible(false)}>
-            <TTSheet>
-              <TTTitle>Section {activeSec}</TTTitle>
-              <TTSub>{answeredCount} of {grandTotal} answered</TTSub>
-
-              {sections.length > 1 && (
-                <View style={st.secTabs}>
-                  {sections.map((sec) => {
-                    const on = sec.id === activeSec;
-                    return (
-                      <Text key={sec.id} onPress={() => switchSection(sec.id)}
-                        style={[st.secTab, on && st.secTabOn]}>Section {sec.id}</Text>
-                    );
-                  })}
-                </View>
-              )}
-
-              <TTGrid
-                items={secQuestions.map((q, i) => ({
-                  key: q.id, label: i + 1, answered: answers[q.id] != null, current: i === index,
-                }))}
-                onPick={jumpTo}
-              />
-              <TTLegend items={[
-                { color: TT.cyan, label: 'Answered' },
-                { color: TT.violet, label: 'Current' },
-                { color: TT.card, label: 'Not answered' },
-              ]} />
-            </TTSheet>
-          </TTScrim>
-        </Modal>
+        {/* Question palette — a full screen, and where Submit lives now that the
+            header is Exit · progress · timer only. Numbers run paper-wide (A 1–7,
+            B 8–14, …) so they match how a printed paper numbers its sections, while
+            jumpTo still navigates by section + local index. */}
+        <TTPalette
+          visible={paletteVisible}
+          onClose={onExit}
+          secondsLeft={remaining}
+          progressText={`${index + 1} / ${total}`}
+          groups={paletteGroups}
+          activeGroupId={activeSec}
+          onPick={(secId, i) => { if (secId !== activeSec) setActiveSec(secId); jumpTo(i); }}
+          onFinish={() => { setPaletteVisible(false); setConfirmFinish(true); }}
+          onBack={() => setPaletteVisible(false)}
+        />
       </TimedTestFrame>
     </Page>
   );
@@ -209,14 +212,6 @@ function Page({ children }) {
 const st = StyleSheet.create({
   safe: { flex: 1, backgroundColor: TT.canvas },
   androidStatusPad: { height: 24, backgroundColor: TT.canvas },
-
-  // Section switcher — sheet-only, so it isn't part of the shared frame.
-  secTabs: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, paddingTop: 12 },
-  secTab: {
-    borderRadius: 6, borderWidth: 1, borderColor: TT.hair, paddingVertical: 4, paddingHorizontal: 8,
-    fontSize: 11, lineHeight: 14, fontFamily: TTF.semi, color: TT.sub, overflow: 'hidden',
-  },
-  secTabOn: { borderColor: TT.violet, backgroundColor: TT.violetSoft, color: TT.violet },
 
   center: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 24, gap: 6 },
   emptyTitle: { fontSize: 15, lineHeight: 22, fontFamily: TTF.head, color: TT.ink },

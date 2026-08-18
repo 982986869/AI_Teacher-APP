@@ -5,6 +5,7 @@ import {
   ScrollView, Animated,
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
+import { COLORS } from '../theme/designSystem';
 
 const { width } = Dimensions.get('window');
 
@@ -233,18 +234,18 @@ const OnboardingScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  safe:            { flex: 1, backgroundColor: '#fff' },
+  safe:            { flex: 1, backgroundColor: COLORS.background },
   topBar:          { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 20, paddingTop: 10, paddingBottom: 8, gap: 12 },
   backCircle:      { width: 36, height: 36, borderRadius: 18, borderWidth: 1.5, borderColor: '#e0e0e0', alignItems: 'center', justifyContent: 'center' },
   backCircleHidden:{ opacity: 0 },
   backArrow:       { fontSize: 18, color: '#0a0a0a' },
-  progressBarBg:   { flex: 1, height: 5, backgroundColor: '#e8e8e8', borderRadius: 3, overflow: 'hidden' },
-  progressBarFill: { height: 5, backgroundColor: '#0a0a0a', borderRadius: 3 },
+  progressBarBg:   { flex: 1, height: 5, backgroundColor: COLORS.surface, borderRadius: 3, overflow: 'hidden' },
+  progressBarFill: { height: 5, backgroundColor: COLORS.primary, borderRadius: 3 },
   scroll:          { paddingHorizontal: 22, paddingTop: 16 },
   emojiBubble:     { flexDirection: 'row', alignItems: 'flex-start', gap: 12, marginBottom: 24 },
-  emojiCircle:     { width: 52, height: 52, borderRadius: 26, backgroundColor: '#f0f0f0', alignItems: 'center', justifyContent: 'center', borderWidth: 1.5, borderColor: '#e0e0e0' },
+  emojiCircle:     { width: 52, height: 52, borderRadius: 26, backgroundColor: COLORS.surface, alignItems: 'center', justifyContent: 'center', borderWidth: 1.5, borderColor: '#e0e0e0' },
   emojiText:       { fontSize: 26 },
-  bubbleCloud:     { flex: 1, backgroundColor: '#f5f5f5', borderRadius: 14, borderTopLeftRadius: 2, padding: 12 },
+  bubbleCloud:     { flex: 1, backgroundColor: COLORS.surface, borderRadius: 14, borderTopLeftRadius: 2, padding: 12 },
   bubbleText:      { fontSize: 13, color: '#555', lineHeight: 19 },
   question:        { fontSize: 22, fontWeight: '700', color: '#0a0a0a', marginBottom: 24, lineHeight: 30 },
 
