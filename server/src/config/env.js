@@ -91,17 +91,22 @@ const config = {
   },
 
   // Text-to-speech for the live teacher voice. One consistent, natural female
-  // voice for every device/user. PRIMARY = self-hosted Kokoro ("Sarah" = af_sarah),
-  // free and needs no API key (see ../../../kokoro-server). OpenAI is only used as
-  // a fallback when TTS_PROVIDER=openai or Kokoro is unreachable AND a key is set.
+  // voice for every device/user. PRIMARY = ElevenLabs, and DELIBERATELY with no
+  // fallback: the teacher has one voice, and a lesson that silently switches to a
+  // different one mid-way is worse than a lesson that reports it cannot speak.
+  //
+  // ⚠ That choice means the key is load-bearing. No ELEVENLABS_API_KEY, or a spent
+  // quota, and narration stops — the app drops to on-device TTS, which sounds like
+  // a different teacher. Kokoro (free, self-hosted) and OpenAI are still reachable
+  // by setting TTS_PROVIDER, they are just no longer automatic safety nets.
   tts: {
-    provider: process.env.TTS_PROVIDER || 'kokoro', // 'kokoro' (self-hosted, free) | 'openai'
+    provider: process.env.TTS_PROVIDER || 'elevenlabs', // 'elevenlabs' | 'kokoro' (self-hosted, free) | 'openai'
 
-    // Kokoro (self-hosted) — the teacher voice students hear.
+    // Kokoro (self-hosted) — free, no API key. Only used when TTS_PROVIDER=kokoro.
     kokoroUrl: process.env.KOKORO_URL || 'http://localhost:8880',
     kokoroVoice: process.env.KOKORO_VOICE || 'af_sarah',
 
-    // OpenAI fallback. Disabled (→ device TTS fallback) when no key is set.
+    // OpenAI — only used when TTS_PROVIDER=openai, and disabled without a key.
     // `instructions` only applies to the steerable gpt-4o-mini-tts model.
     apiKey: process.env.OPENAI_API_KEY,
     model: process.env.TTS_MODEL || 'gpt-4o-mini-tts',
@@ -110,16 +115,22 @@ const config = {
     instructions: process.env.TTS_INSTRUCTIONS
       || 'You are a warm, calm and confident female school teacher speaking to one student. Speak clearly at a relaxed classroom pace, with natural pauses at full stops. Sound encouraging and patient — never rushed, dramatic or robotic.',
     maxChars: parseInt(process.env.TTS_MAX_CHARS, 10) || 1200,
-    enabled: true, // Kokoro needs no key, so TTS is always available
+    // Reported to the admin console. On ElevenLabs there is no fallback, so this
+    // is only true with a key — the console must not claim a voice that cannot speak.
+    enabled: (process.env.TTS_PROVIDER || 'elevenlabs') === 'elevenlabs'
+      ? !!process.env.ELEVENLABS_API_KEY
+      : true,
 
-    // ── FUTURE USE — ElevenLabs (written but not wired up) ────────────────────
-    // ElevenLabsTTSProvider.js exists; nothing requires it and these keys are off,
-    // so it is dead until both are enabled. Premium/PAID: a free ElevenLabs plan
-    // cannot use the TTS API at all (402 paid_plan_required). Uncomment these
-    // together with a matching provider branch in routes/tts.js.
-    // elevenApiKey: process.env.ELEVENLABS_API_KEY,
-    // elevenVoiceId: process.env.ELEVENLABS_VOICE_ID || '21m00Tcm4TlvDq8ikWAM', // "Rachel"
-    // elevenModel: process.env.ELEVENLABS_MODEL || 'eleven_flash_v2_5', // cheap + low-latency
+    // ── ElevenLabs — the teacher's voice ──────────────────────────────────────
+    // PAID: a free ElevenLabs plan cannot use the TTS API at all (it answers 402
+    // paid_plan_required), so the key must belong to a paying account.
+    //
+    // ⚠ The voice id below is a VOICE LIBRARY voice. A library voice has to be
+    // added to the account ("Add to my voices") before the API will accept its id;
+    // until then every request comes back as a 404 for that voice.
+    elevenApiKey: process.env.ELEVENLABS_API_KEY,
+    elevenVoiceId: process.env.ELEVENLABS_VOICE_ID || 'Ghr5KCyOzBvJpcdBbJhE',
+    elevenModel: process.env.ELEVENLABS_MODEL || 'eleven_flash_v2_5', // cheap + low-latency
   },
 
   // Knowledge (RAG) layer. Validated lazily at call time so the server starts

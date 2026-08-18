@@ -77,7 +77,7 @@ export default function ResolvedScreen({
       <ScrollView style={{ flex: 1 }} contentContainerStyle={s.body} showsVerticalScrollIndicator={false}>
         <FadeIn y={12} duration={320}>
           <View style={s.tickWrap}>
-            <CircleCheck size={40} color="#0C0936" strokeWidth={2.4} />
+            <CircleCheck size={40} color={D.ink} strokeWidth={2.4} />
           </View>
 
           <TX w="bold" s={22} lh={28} c={D.success} style={s.center}>Resolved</TX>

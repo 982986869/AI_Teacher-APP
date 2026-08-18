@@ -43,6 +43,19 @@ export const TEACHER_HEADSHOT = require('../../../assets/teacher-head.png');
 // as assets/teacher-tahlia.mp4, and this line does not change.
 export const TEACHER_VIDEO = require('../../../assets/teacher-tahlia.mp4');
 
+// ▶ THE SAME CLIP, WITH THE TEACHING SCREEN'S VIOLET STAGE BAKED IN.
+//   LiveTeachingPlayer's camera card shows her on a violet gradient, and the raw
+//   HeyGen clip above carries an opaque near-white studio backdrop (H.264 has no
+//   alpha), so dropping it straight into that card whites the whole stage out.
+//   scripts/bake-teacher-clip.js keys the backdrop and composites her over the
+//   card's own gradient once, offline — a plain H.264 file that needs no runtime
+//   keying and plays on both platforms.
+//
+//   Regenerate after ANY avatar swap, and whenever CAM_GRAD in LiveTeachingPlayer
+//   changes, or the card will change colour the moment she starts talking:
+//       node scripts/bake-teacher-clip.js
+export const TEACHER_STAGE_CLIP = require('../../../assets/teacher-tahlia-stage.mp4');
+
 // ▶ TALKING 3D AVATAR (your image → rigged 3D head).
 //   Turn your photo into a rigged .glb on https://avaturn.me (paid) or
 //   https://readyplayer.me (free — gives you a hosted URL directly), then paste

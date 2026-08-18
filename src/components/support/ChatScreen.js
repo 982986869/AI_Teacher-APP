@@ -187,7 +187,7 @@ function UserBubble({ msg, onRetry }) {
       {failed && (
         <PressableScale style={s.retryRow} onPress={() => onRetry(msg)} scaleTo={0.96} accessibilityRole="button" accessibilityLabel="Retry sending this message">
           <RotateCcw size={12} color={D.amber} strokeWidth={2.4} />
-          <TX w="semi" s={11} lh={14} c={D.amber}>Not sent · Retry</TX>
+          <TX w="semi" s={11} lh={14} c={D.amberInk}>Not sent · Retry</TX>
         </PressableScale>
       )}
     </View>
@@ -263,7 +263,7 @@ function ContextCard({ ctx, onPrimary, onLink }) {
     <View style={s.receipt}>
       <View style={s.badgeRow}>
         <View style={[s.ctxBadge, { backgroundColor: ctx.badge.tint }]}>
-          <TX w="bold" s={10} lh={12} c={ctx.badge.ink || '#0C0936'} style={s.ctxBadgeText}>
+          <TX w="bold" s={10} lh={12} c={ctx.badge.ink || D.ink} style={s.ctxBadgeText}>
             {String(ctx.badge.label).toUpperCase()}
           </TX>
         </View>
@@ -1060,10 +1060,18 @@ const s = StyleSheet.create({
   contextLeft: { flexDirection: 'row', alignItems: 'center', gap: 10, flexShrink: 1 },
   backBtn: { width: 24, height: 24, alignItems: 'center', justifyContent: 'center' },
   headAvatar: { width: 40, height: 40, borderRadius: 20 },
-  headAvatarFallback: { backgroundColor: '#2B2560', alignItems: 'center', justifyContent: 'center' },
+  headAvatarFallback: { backgroundColor: D.avatarBg, alignItems: 'center', justifyContent: 'center' },
   contextAgent: { flexDirection: 'row', alignItems: 'center', gap: 12, flexShrink: 1 },
   contextAgentNames: { gap: 2, flexShrink: 1 },
-  badge: { width: 28, height: 28, borderRadius: 14, alignItems: 'center', justifyContent: 'center' },
+  // A hairline on the badge, added with the day palette. The tints are unchanged from
+  // the dark design, where every one of them stood clear of a near-black page; against
+  // white the palest of them (#E8D14D) drops to 1.54:1 and the circle all but vanishes,
+  // leaving its numeral floating. The border costs nothing on the darker tints and puts
+  // the edge back on the pale ones.
+  badge: {
+    width: 28, height: 28, borderRadius: 14, alignItems: 'center', justifyContent: 'center',
+    borderWidth: 1, borderColor: D.border,
+  },
 
   // compact-header — hug 56, pad 12/20, flat bottom hairline, avatar 32 r16, gap 10
   compactHeader: {
@@ -1114,7 +1122,7 @@ const s = StyleSheet.create({
 
   agentRow: { flexDirection: 'row', alignItems: 'flex-end', gap: 8 },
   peek: { width: 24, height: 24, borderRadius: 12 },
-  peekFallback: { backgroundColor: '#2B2560', alignItems: 'center', justifyContent: 'center' },
+  peekFallback: { backgroundColor: D.avatarBg, alignItems: 'center', justifyContent: 'center' },
   // Wraps the optional author label + the bubble, so a real thread's agent name sits
   // above the message without disturbing the scripted bubbles that never pass one.
   agentCol: { gap: 4, flexShrink: 1 },

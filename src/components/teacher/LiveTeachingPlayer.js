@@ -7,7 +7,9 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import LessonBoard from './LessonBoards';
 import TeacherAvatar from './TeacherAvatar';
 import TeacherFullBody from './TeacherFullBody';
-import { TEACHER_PHOTO as TEACHER_HERO_PHOTO, TEACHER_VIDEO as TEACHER_HERO_VIDEO, TEACHER_HEADSHOT } from './teacherIdentity';
+import { TEACHER_PHOTO as TEACHER_HERO_PHOTO, TEACHER_VIDEO as TEACHER_HERO_VIDEO, TEACHER_STAGE_CLIP, TEACHER_HEADSHOT } from './teacherIdentity';
+import { useVideoPlayer, VideoView } from 'expo-video';
+import { useEventListener } from 'expo';
 import VoicePicker from './VoicePicker';
 import { directLesson } from './teachingDirector';
 import { focusTarget } from './cameraDirector';
@@ -118,41 +120,75 @@ const SCREEN_MARGIN = 24;
 const CAM_CARD_FRAC = 0.27;
 const BOARD_MIN_FRAC = 0.42;
 
-// TEACHER_HERO_PHOTO (assets/teacher-avatar.png) is a 1283×1080 bust of Tahlia on a
-// TRANSPARENT background — the violet stage behind it is what fills the frame. A
-// plain `cover` fit would centre the whole 1283×1080 canvas, which includes a lot of
-// empty space below her shoulders, so we pick an explicit crop WINDOW instead.
+// TEACHER_HERO_PHOTO (assets/teacher-avatar.png) and the matching talking clip
+// (assets/teacher-tahlia.mp4) are a 1283×1080 BUST of Tahlia on a TRANSPARENT
+// background — the violet stage behind her is what fills the frame.
 //
-// Rather than a scale+translate transform (whose translate units get tangled with the
-// scale — easy to mis-tune), the window is expressed in the photo's own fractional
-// coordinates, then the <Image> is sized + positioned with plain width/height/top/left
-// so that window exactly fills the card.
+// She is shown WHOLE: everything the asset contains — crown, face, both shoulders,
+// collar and shirt — is inside the card, never cropped. The card is landscape and
+// she is portrait, so fitting her whole means she is scaled DOWN and the violet
+// stage shows either side of her. That empty stage is deliberate, not a gap to
+// close: cropping her to fill the width is what cut her chin off before.
 //
-// ⚠ THESE ARE ASSET-SPECIFIC. They were last re-derived for the Tahlia swap; the
-// previous values (1123×944, top 0.02, height 0.44) belonged to the older full-body
-// art and, left on this asset, cut her chin off at 46% and framed her far too tight.
-// If the photo is replaced again, open it and read off where the hair, chin and
-// horizontal centre actually sit.
+// The geometry is driven by where she ACTUALLY sits on the canvas — her opaque
+// alpha bounding box, measured off the asset rather than eyeballed:
+//   x 203–1107  (she is a touch right of centre)
+//   y  54–1079  (hair crown 5% down; the canvas ends at her chest, so the art has
+//                 no waist or legs — a talking-head export, not a full-body one)
 //
-// Measured on the current art: hair crown ≈ 6% down, chin ≈ 52%, shoulders ≈ 60%,
-// and she sits a touch right of centre at 52%.
+// ⚠ THESE ARE ASSET-SPECIFIC. If the photo/clip is replaced, re-measure the alpha
+// bbox on the new file (any image tool, or sharp's extractChannel(3)) and update
+// the four numbers below. Nothing else needs to move.
 const HERO_PHOTO_W = 1283;
 const HERO_PHOTO_H = 1080;
-const HERO_PHOTO_AR = HERO_PHOTO_W / HERO_PHOTO_H;
-const HERO_CROP_TOP = 0.04;  // starts just above the crown, so there is headroom but no dead space
-const HERO_CROP_H = 0.52;    // crown → past the chin into the shoulders: a video-call bust, not a tight face
-const HERO_CROP_CX = 0.52;   // her actual horizontal centre in this art
+const HERO_BBOX_X0 = 203;
+const HERO_BBOX_X1 = 1107;
+const HERO_BBOX_Y0 = 54;
+const HERO_BBOX_Y1 = 1079;
+// A little headroom above her crown so she is not jammed against the card's top
+// edge. Her chest runs to the bottom edge, which is where the asset itself ends.
+const HERO_HEADROOM = 0.96;
 const CAM_CARD_W = SCREEN_W - SCREEN_MARGIN * 2;   // matches sessionScroll's horizontal padding
 const CAM_CARD_H = SCREEN_H * CAM_CARD_FRAC;
-// Derive the <Image>'s full rendered size + offset: crop_W is chosen so the crop
-// window's aspect ratio matches the card's, then the full photo is scaled up so that
-// window exactly covers the card, and shifted so the window (not the photo's own
-// centre) lands inside it.
-const HERO_CROP_W_FRAC = (HERO_CROP_H * HERO_PHOTO_H * (CAM_CARD_W / CAM_CARD_H)) / HERO_PHOTO_W;
-const HERO_FULL_W = CAM_CARD_W / HERO_CROP_W_FRAC;
-const HERO_FULL_H = HERO_FULL_W / HERO_PHOTO_AR;
-const HERO_LEFT = -(HERO_FULL_W * HERO_CROP_CX - CAM_CARD_W / 2);
-const HERO_TOP = -(HERO_FULL_H * HERO_CROP_TOP);
+// Scale the whole canvas so her bbox fits INSIDE the card on both axes (a contain
+// fit, taken on the bbox rather than the canvas so the transparent margins don't
+// eat the budget). On a landscape card the height binds; the width guard keeps her
+// whole on a short, wide screen too.
+const HERO_BBOX_W = HERO_BBOX_X1 - HERO_BBOX_X0;
+const HERO_BBOX_H = HERO_BBOX_Y1 - HERO_BBOX_Y0;
+const HERO_SCALE = Math.min(
+  (CAM_CARD_H * HERO_HEADROOM) / HERO_BBOX_H,
+  (CAM_CARD_W * 0.92) / HERO_BBOX_W,
+);
+const HERO_FULL_W = HERO_PHOTO_W * HERO_SCALE;
+const HERO_FULL_H = HERO_PHOTO_H * HERO_SCALE;
+// Centre her bbox horizontally, and sit its bottom on the card's bottom edge so
+// the chest-height cut in the art reads as the frame ending, not as her floating.
+const HERO_LEFT = CAM_CARD_W / 2 - ((HERO_BBOX_X0 + HERO_BBOX_X1) / 2) * HERO_SCALE;
+const HERO_TOP = CAM_CARD_H - HERO_BBOX_Y1 * HERO_SCALE;
+
+// The talking clip is the SAME shot at a different crop — 1920×1080 where the still
+// is 1283×1080 — so it needs its own numbers rather than the still's. Fitting each
+// on its own bbox is what makes the swap invisible: she lands at x 72.9–269.1 from
+// the clip against x 74.5–267.5 from the still, under 2dp apart, so nothing shifts
+// when she starts talking. (Same caveat as above: re-measure on a new export.)
+const CLIP_W = 1920;
+const CLIP_H = 1080;
+const CLIP_BBOX_X0 = 494;
+const CLIP_BBOX_X1 = 1407;
+const CLIP_BBOX_Y0 = 61;
+const CLIP_BBOX_Y1 = 1079;
+const CLIP_SCALE = Math.min(
+  (CAM_CARD_H * HERO_HEADROOM) / (CLIP_BBOX_Y1 - CLIP_BBOX_Y0),
+  (CAM_CARD_W * 0.92) / (CLIP_BBOX_X1 - CLIP_BBOX_X0),
+);
+// The clip carries the violet stage baked in (see scripts/bake-teacher-clip.js), so
+// unlike the transparent still it covers the whole card — which is exactly what
+// keeps the background from flickering as she starts and stops speaking.
+const CLIP_FULL_W = CLIP_W * CLIP_SCALE;
+const CLIP_FULL_H = CLIP_H * CLIP_SCALE;
+const CLIP_LEFT = CAM_CARD_W / 2 - ((CLIP_BBOX_X0 + CLIP_BBOX_X1) / 2) * CLIP_SCALE;
+const CLIP_TOP = CAM_CARD_H - CLIP_BBOX_Y1 * CLIP_SCALE;
 
 const M = {
   TEACHING: 'TEACHING',     // a scene is being explained (TTS = the clock)
@@ -669,6 +705,22 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const weakConcepts = conceptResults.filter((r) => !r.correct);
   const studyMin = Math.max(1, Math.round((Date.now() - openedAtRef.current) / 60000));
   const [ttsActive, setTtsActive] = useState(false); // is audio playing right now (avatar/sync)
+
+  // ── Her talking clip on the camera card ───────────────────────────────────
+  // Mounted for the WHOLE session and parked on its first frame when she is quiet,
+  // rather than swapped in and out. The clip has the violet stage baked into it, so
+  // unmounting it between sentences would flash the card's own gradient every time
+  // she stops; parking at 0 also rests her on a closed mouth instead of freezing
+  // her mid-word. If the clip ever fails to load, the still underneath is already
+  // in place and simply becomes what you see.
+  const [heroClipFailed, setHeroClipFailed] = useState(false);
+  const heroPlayer = useVideoPlayer(TEACHER_STAGE_CLIP, (p) => { p.loop = true; p.muted = true; });
+  useEventListener(heroPlayer, 'statusChange', ({ error }) => { if (error) setHeroClipFailed(true); });
+  useEffect(() => {
+    if (!heroPlayer || heroClipFailed) return;
+    if (ttsActive) heroPlayer.play();
+    else { heroPlayer.pause(); heroPlayer.currentTime = 0; }
+  }, [ttsActive, heroPlayer, heroClipFailed]);
   const [qa, setQa] = useState(null);                // { q, a } during a doubt
   const [qaMeta, setQaMeta] = useState(null);        // retrieval signals for the doubt answer
   const [partial, setPartial] = useState('');
@@ -1426,12 +1478,32 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
         <View style={st.camCardGlow}>
         <View style={st.camCard}>
           <LinearGradient colors={CAM_GRAD} start={{ x: 0.1, y: 0 }} end={{ x: 0.9, y: 1 }} style={StyleSheet.absoluteFill} />
+          {/* She is shown WHOLE — the HERO_ and CLIP_ geometry above fits her own
+              measured bounding box inside the card instead of cropping her to fill
+              it, so the violet either side of her is the stage, not a gap. The still
+              is the base layer and the only thing left if the clip fails; the clip
+              sits exactly on top of it, matched to under 2dp, and plays while she
+              talks. contentFit="fill" is safe because the box it is given already
+              carries the clip's own 16:9 — nothing is stretched. */}
           <Image
             source={TEACHER_HERO_PHOTO}
             resizeMode="stretch"
             accessibilityLabel="Your teacher, Ms. Nova"
             style={{ position: 'absolute', width: HERO_FULL_W, height: HERO_FULL_H, left: HERO_LEFT, top: HERO_TOP }}
           />
+          {!heroClipFailed && (
+            <VideoView
+              player={heroPlayer}
+              nativeControls={false}
+              allowsFullscreen={false}
+              allowsPictureInPicture={false}
+              contentFit="fill"
+              pointerEvents="none"
+              accessibilityElementsHidden
+              importantForAccessibility="no-hide-descendants"
+              style={{ position: 'absolute', width: CLIP_FULL_W, height: CLIP_FULL_H, left: CLIP_LEFT, top: CLIP_TOP }}
+            />
+          )}
           <LinearGradient
             colors={['rgba(124,77,255,0.34)', 'rgba(91,50,196,0.10)', 'rgba(11,11,20,0.40)']}
             style={StyleSheet.absoluteFill} pointerEvents="none"

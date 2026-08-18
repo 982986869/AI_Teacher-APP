@@ -191,9 +191,10 @@ export default function SupportSheet({
 
   return (
     <Modal visible={visible} animationType="slide" onRequestClose={requestClose} statusBarTranslucent>
-      {/* The app sets dark-content status-bar icons for its light screens; on #0C0936
-          those vanish. RN's StatusBar is a stack, so this reverts on close by itself. */}
-      <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
+      {/* The flow is a light screen now, so the clock and battery have to be dark to
+          be visible at all — the old light-content was for the #0C0936 page this
+          replaced. RN's StatusBar is a stack, so this reverts on close by itself. */}
+      <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent />
       {picked && showResolved ? (
         <ResolvedScreen
           agent={activeAgent}
