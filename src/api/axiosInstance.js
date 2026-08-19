@@ -20,6 +20,14 @@ export const setUnauthorizedHandler = (fn) => { onUnauthorized = fn; };
 let onProfileIncomplete = null;
 export const setProfileIncompleteHandler = (fn) => { onProfileIncomplete = fn; };
 
+// AuthContext registers this so a 403 LOCKED (the content paywall) raises the unlock
+// sheet from wherever it happened. The screens gate their own entry points too, but
+// this is the net underneath: any request that slips through a missing check surfaces
+// as an invitation to unlock rather than a bare error toast — and, more importantly,
+// never as content.
+let onContentLocked = null;
+export const setContentLockedHandler = (fn) => { onContentLocked = fn; };
+
 // Attach JWT to every request
 axiosInstance.interceptors.request.use(
   async (config) => {
@@ -71,6 +79,10 @@ axiosInstance.interceptors.response.use(
     if (status === 422 && error.response?.data?.code === 'PROFILE_INCOMPLETE' && onProfileIncomplete) {
       console.warn('[AXIOS] PROFILE_INCOMPLETE on', url, '— re-syncing profile.');
       onProfileIncomplete();
+    }
+    // Backend says this content is behind the paywall → raise the unlock sheet.
+    if (status === 403 && error.response?.data?.code === 'LOCKED' && onContentLocked) {
+      onContentLocked();
     }
     return Promise.reject(error);
   }

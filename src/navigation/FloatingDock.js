@@ -2,34 +2,43 @@
 // Student bottom navigation — DOCKED to the bottom edge (mirroring the Parent app's nav):
 // a full-width surface with rounded top corners and an upward shadow, its background
 // filling down through the safe-area so it covers the system-nav strip while the tabs stay
-// clear of the phone's back/home/recents buttons. A soft violet pill glides behind the
-// active tab (native-driven translateX spring); the active icon scales up and its label
-// turns bold + violet. Clean and professional — one accent, calm motion.
+// clear of the phone's back/home/recents buttons. The selected tab is a filled white
+// icon with a bold white label; the other five are outlined greys. The active icon
+// scales up on selection — that spring is the only motion left in the bar.
 //
-// On the night palette (src/theme/nightTheme.js) so it sits under the dark Home and
-// Sessions tabs as one surface. NOTE: Practice / Resources / Results / Profile are still
-// on the light student theme, so they currently meet a dark bar — they need the same
-// migration.
+// On the DAY palette (src/theme/dayTheme.js), matching the design: a BLACK bar with a
+// white selected tab and grey unselected ones, square corners, no top border.
+//
+// The bar staying dark while Home went light is the design's choice, not an oversight
+// — it anchors the bottom of a white page. It also means this bar is the one part of
+// the re-skin that still sits happily under the five tabs that have NOT been migrated
+// (Sessions is still on the night palette; Practice / Profile still set a light-content
+// status bar). Whatever those tabs become, they meet the same black bar Home does.
 import React from 'react';
 import { View, Animated, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { House, CalendarDays, Target, BookOpen, ChartColumn, User } from 'lucide-react-native';
+import { House, Video, Target, BookOpen, ChartColumn, User } from 'lucide-react-native';
 
-import { N } from '../theme/nightTheme';
+import { DAY as N } from '../theme/dayTheme';
 import { T } from '../screens/parent/ParentApp/constants';
 import { PressableScale } from '../screens/parent/ParentApp/anim';
+import { useDockVisibility } from './DockVisibility';
 
 // Per-route icon + label. One shared accent keeps the bar calm and professional.
 const TABS = {
-  Home:      { Icon: House,        label: 'Home' },
-  Sessions:  { Icon: CalendarDays, label: 'Sessions' },
-  Practice:  { Icon: Target,       label: 'Practice' },
-  Resources: { Icon: BookOpen,     label: 'Resources' },
-  Results:   { Icon: ChartColumn,  label: 'Results' },
-  Profile:   { Icon: User,         label: 'Profile' },
+  Home:      { Icon: House,       label: 'Home' },
+  // A video camera, not a calendar — the design draws sessions as the thing you join,
+  // not the day it sits on.
+  Sessions:  { Icon: Video,       label: 'Sessions' },
+  Practice:  { Icon: Target,      label: 'Practice' },
+  Resources: { Icon: BookOpen,    label: 'Resources' },
+  Results:   { Icon: ChartColumn, label: 'Results' },
+  Profile:   { Icon: User,        label: 'Profile' },
 };
-const ACCENT = N.violet;
-const IDLE   = N.inkSoft;
+// White on black for the selected tab, grey for the rest — the design's render, where
+// "Home" is white and the other five sit back.
+const ACCENT = N.dockFg;
+const IDLE   = N.dockIdle;
 
 // ---- one tab cell -----------------------------------------------------------
 const NavTab = React.memo(function NavTab({ route, label, Icon, isFocused, onPress }) {
@@ -49,10 +58,18 @@ const NavTab = React.memo(function NavTab({ route, label, Icon, isFocused, onPre
         accessibilityLabel={label}
         accessibilityState={isFocused ? { selected: true } : {}}
       >
+        {/* The selected icon is FILLED, not just recoloured — in the design "Home" reads
+            as a solid white silhouette against the five outlined greys, which is most of
+            what makes the selection obvious now that the pill behind it is gone. */}
         <Animated.View style={[styles.iconBox, { transform: [{ scale }] }]}>
-          <Icon size={22} color={isFocused ? ACCENT : IDLE} strokeWidth={isFocused ? 2.7 : 2.1} />
+          <Icon
+            size={22}
+            color={isFocused ? ACCENT : IDLE}
+            fill={isFocused ? ACCENT : 'none'}
+            strokeWidth={isFocused ? 2 : 2.1}
+          />
         </Animated.View>
-        <T w={isFocused ? 'xbold' : 'semi'} s={9.5} c={isFocused ? ACCENT : IDLE} numberOfLines={1} style={styles.label}>
+        <T w={isFocused ? 'xbold' : 'semi'} s={11} c={isFocused ? ACCENT : IDLE} numberOfLines={1} style={styles.label}>
           {label}
         </T>
       </PressableScale>
@@ -76,36 +93,25 @@ export default function FloatingDock({ state, descriptors, navigation }) {
   // the system nav buttons.
   const padBottom = Math.max(insets.bottom, 8) + 6;
 
-  const count = state.routes.length;
-  const [trackW, setTrackW] = React.useState(0);
-  const tabWidth = trackW ? trackW / count : 0;
-
-  // Tinted pill glides beneath the focused tab.
-  const slide = React.useRef(new Animated.Value(state.index)).current;
-  React.useEffect(() => {
-    Animated.spring(slide, { toValue: state.index, useNativeDriver: true, damping: 16, stiffness: 170, mass: 0.9 }).start();
-  }, [state.index, slide]);
-  const translateX = slide.interpolate({
-    inputRange: state.routes.map((_, i) => i),
-    outputRange: state.routes.map((_, i) => i * tabWidth || 0),
-  });
+  // Tell the floating Help bubble where this bar ends, and when to get out of the way.
+  const { report } = useDockVisibility();
+  const [dockH, setDockH] = React.useState(0);
+  React.useEffect(() => { report({ hidden: dockHidden, height: dockH }); }, [dockHidden, dockH, report]);
 
   if (dockHidden) return null; // immersive screen (AI Teacher lesson) — no bottom nav
 
   return (
-    // Two layers on purpose. The inner bar keeps its rounded top corners, and the
-    // outer one paints the page colour BEHIND them — otherwise the corners cut
-    // through to React Navigation's container, which is white by default, and the
-    // dock reads as a dark bar with two white notches sitting on a violet app.
-    <View style={styles.navOuter}>
+    // Two layers on purpose. The outer one paints the bar colour BEHIND the inner one,
+    // so the strip below the tabs — the safe area over the system nav — is the same
+    // black rather than showing React Navigation's white container through it.
+    <View style={styles.navOuter} onLayout={(e) => setDockH(e.nativeEvent.layout.height)}>
       <View style={[styles.nav, { paddingBottom: padBottom }]}>
-        <View style={styles.track} onLayout={(e) => setTrackW(e.nativeEvent.layout.width)}>
-          {tabWidth > 0 && (
-            <Animated.View
-              pointerEvents="none"
-              style={[styles.pill, { width: tabWidth, backgroundColor: ACCENT, transform: [{ translateX }] }]}
-            />
-          )}
+        {/* No sliding pill behind the active tab: the design shows nothing there, just a
+            white icon and label against the bar. Its whole apparatus went with it — the
+            track width measurement, the per-tab width, and the spring that drove the
+            translate. What survives is the per-icon scale spring inside NavTab, which
+            never depended on any of it. */}
+        <View style={styles.track}>
           {state.routes.map((route, index) => {
             const cfg = TABS[route.name] || { Icon: House, label: route.name };
             const { options } = descriptors[route.key];
@@ -128,30 +134,37 @@ export default function FloatingDock({ state, descriptors, navigation }) {
 }
 
 const styles = StyleSheet.create({
-  // Backdrop for the rounded corners — the page colour, so the footer is violet-dark
-  // edge to edge instead of showing the navigator's white container through the notches.
-  navOuter: { backgroundColor: N.bg },
-  // Docked bar: full-width, anchored to the bottom edge, rounded top corners + an upward
-  // shadow to lift it off the content.
+  // Backdrop below the bar — the same white, so the safe-area strip under the tabs reads
+  // as part of the bar rather than showing the navigator's own container through it.
+  navOuter: { backgroundColor: N.dockBg },
+  // Figma: 85px tall, #FFFFFF, a 1px #000000 border on the TOP SIDE ONLY, 22.28 left /
+  // 20.83 right padding, 12px gap. The night version's 24px rounded top corners and its
+  // upward shadow are both gone — the design draws a plain hairline instead, and a
+  // shadow tuned to lift a dark bar off a dark page only smudges a white one.
   nav: {
-    backgroundColor: N.bgBot,
+    backgroundColor: N.dockBg,
     paddingTop: 10,
-    paddingHorizontal: 8,
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
-    borderTopWidth: 1,
-    borderColor: N.cardEdge,
-    shadowColor: '#05030F',
-    shadowOpacity: 0.45,
-    shadowRadius: 18,
-    shadowOffset: { width: 0, height: -4 },
-    elevation: 18,
+    paddingLeft: 22.28,
+    paddingRight: 20.83,
+    // Figma (Bottom Navigation Bar:shadow): X0 Y4, blur 6, spread -4, #000000.
+    //
+    // Two things do not survive the trip. React Native has no shadow SPREAD, and -4 is
+    // most of what makes this shadow tight — dropping it and keeping #000000 at full
+    // strength would paint a heavy black halo instead of a hairline lift, so the opacity
+    // carries the difference at 0.12.
+    //
+    // The offset also points DOWN (+4), away from the content, and this bar is pinned to
+    // the bottom edge. On iOS almost none of it will be visible; on Android `elevation`
+    // spreads all round, so there it reads as a faint lift under the whole bar. That is
+    // the design's geometry, not a mistake in translating it.
+    shadowColor: N.dockShadow,
+    shadowOpacity: 0.12,
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 8,
   },
-  track: { flexDirection: 'row', alignItems: 'center', position: 'relative', minHeight: 50 },
+  track: { flexDirection: 'row', alignItems: 'center', position: 'relative', minHeight: 50, gap: 12 },
   slot: { flex: 1 },
-  // Slightly stronger than the light bar's 0.12 — a 12% violet wash disappears on a dark
-  // surface, where the light theme had white to lift it.
-  pill: { position: 'absolute', top: 0, bottom: 0, left: 0, borderRadius: 16, opacity: 0.20 },
   item: { alignItems: 'center', justifyContent: 'center', gap: 5, paddingVertical: 5 },
   iconBox: { height: 24, alignItems: 'center', justifyContent: 'center' },
   label: { letterSpacing: 0, textAlign: 'center' },

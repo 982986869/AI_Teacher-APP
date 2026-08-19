@@ -53,4 +53,45 @@ async function uploadImage(buffer, { contentType, originalName, folder = 'questi
   return data.publicUrl
 }
 
-module.exports = { uploadImage, isConfigured, BUCKET }
+// Support-ticket attachments are not only images — a parent disputing a charge attaches
+// the invoice PDF as often as a screenshot. `safeExt` above deliberately falls back to
+// 'jpg' for anything it doesn't recognise (right for a question diagram, wrong for a
+// PDF, which would then be stored and served as .jpg), so file uploads get their own
+// extension whitelist and content type.
+const FILE_EXTS = ['jpg', 'jpeg', 'png', 'webp', 'gif', 'heic', 'pdf', 'txt', 'csv', 'doc', 'docx', 'xls', 'xlsx']
+const EXT_BY_FILE_MIME = {
+  'application/pdf': 'pdf',
+  'text/plain': 'txt',
+  'text/csv': 'csv',
+  'application/msword': 'doc',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document': 'docx',
+  'application/vnd.ms-excel': 'xls',
+  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': 'xlsx',
+  'image/heic': 'heic',
+}
+function fileExt(originalName, mime) {
+  const fromName = String(originalName || '').split('.').pop()
+  const e = String(fromName || '').toLowerCase().replace(/[^a-z0-9]/g, '')
+  if (FILE_EXTS.includes(e)) return e === 'jpeg' ? 'jpg' : e
+  const m = String(mime || '').toLowerCase()
+  return EXT_BY_FILE_MIME[m] || EXT_BY_MIME[m] || 'bin'
+}
+
+// Upload any allowed attachment Buffer → public URL. Same bucket, own folder.
+async function uploadFile(buffer, { contentType, originalName, folder = 'uploads' } = {}) {
+  const sb = client()
+  if (!sb) throw new Error('File storage is not configured on the server (set SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY).')
+  const ext = fileExt(originalName, contentType)
+  const path = `${folder}/${crypto.randomBytes(16).toString('hex')}.${ext}`
+  const { error } = await sb.storage.from(BUCKET).upload(path, buffer, {
+    contentType: contentType || 'application/octet-stream',
+    upsert: false,
+    cacheControl: '31536000',
+  })
+  if (error) throw new Error(error.message || 'Storage upload failed')
+  const { data } = sb.storage.from(BUCKET).getPublicUrl(path)
+  if (!data || !data.publicUrl) throw new Error('Upload succeeded but no public URL was returned (is the bucket public?).')
+  return data.publicUrl
+}
+
+module.exports = { uploadImage, uploadFile, isConfigured, BUCKET }

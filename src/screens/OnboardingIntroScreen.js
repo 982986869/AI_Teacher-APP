@@ -47,10 +47,6 @@ const SLIDES = [
   },
 ];
 
-// The scrim ships as its own layer on this page (unlike the welcome screen, where
-// it is baked into the hero export), so it is composited here.
-const SCRIM = require('../../assets/brand/welcome-scrim.png');
-
 export default function OnboardingIntroScreen({ navigation }) {
   const insets = useSafeAreaInsets();
   const [index, setIndex] = useState(0);
@@ -74,8 +70,11 @@ export default function OnboardingIntroScreen({ navigation }) {
   const shineScale = shine.interpolate({ inputRange: [0, 1], outputRange: [0.5, 2.6] });
   const shineOpacity = shine.interpolate({ inputRange: [0, 0.7, 1], outputRange: [0.7, 0.15, 0] });
 
-  // shineAt is calibrated against the ORIGINAL (uncropped) image; re-derive it
-  // against the cropped, content-only frame the box actually renders now.
+  // The onboarding-3 export has a dead transparent margin baked into its right
+  // edge (~13% of its width, see graphicRightCrop) — the real graph content only
+  // fills the left ~87%. shineAt is calibrated against the ORIGINAL (uncropped)
+  // image, so both the frame ratio and the shine position are re-derived here
+  // against the cropped, content-only frame the box actually renders.
   const cropFrac = slide.graphicRightCrop || 0;
   const adjustedShineAt = slide.shineAt
     ? { top: slide.shineAt.top, left: `${parseFloat(slide.shineAt.left) / (1 - cropFrac)}%` }
@@ -83,34 +82,42 @@ export default function OnboardingIntroScreen({ navigation }) {
 
   return (
     <View style={styles.root}>
-      <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
+      {/* Every slide is light at the top now — the photos are unscrimmed (their upper
+          half is bright lavender) and slide 3 is a white page. Light icons would
+          disappear on all three. */}
+      <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent />
 
       {slide.graphic ? (
         <View style={styles.graphicWrap}>
-          <View style={{ width: '100%', aspectRatio: slide.graphicRatio * (1 - cropFrac), overflow: 'hidden' }}>
-            <Image
-              source={slide.graphic}
-              style={{ position: 'absolute', top: 0, left: 0, height: '100%', width: `${100 / (1 - cropFrac)}%` }}
-              resizeMode="contain"
-            />
-            {!!slide.shineAt && (
-              <Animated.View
-                pointerEvents="none"
-                style={[
-                  styles.shine,
-                  adjustedShineAt,
-                  { opacity: shineOpacity, transform: [{ scale: shineScale }] },
-                ]}
+          {/* The art is dark by construction and the page is white, so it needs a
+              deliberate home rather than floating: a soft-yellow accent panel with
+              the graphic clipped into a rounded, shadowed frame inside it. Reads as
+              a framed illustration instead of an orphaned dark rectangle. */}
+          <View style={styles.graphicPanel}>
+            <View style={[styles.graphicFrame, { aspectRatio: slide.graphicRatio * (1 - cropFrac) }]}>
+              <Image
+                source={slide.graphic}
+                style={{ position: 'absolute', top: 0, left: 0, height: '100%', width: `${100 / (1 - cropFrac)}%` }}
+                resizeMode="cover"
               />
-            )}
+              {!!slide.shineAt && (
+                <Animated.View
+                  pointerEvents="none"
+                  style={[
+                    styles.shine,
+                    adjustedShineAt,
+                    { opacity: shineOpacity, transform: [{ scale: shineScale }] },
+                  ]}
+                />
+              )}
+            </View>
           </View>
         </View>
       ) : (
-        <>
-          {/* The export is already cropped to the 390x844 frame, so it drops straight in. */}
-          <Image source={slide.image} style={StyleSheet.absoluteFill} resizeMode="cover" />
-          <Image source={SCRIM} style={StyleSheet.absoluteFill} resizeMode="stretch" />
-        </>
+        // No SCRIM any more. That overlay existed to darken the photo so WHITE
+        // copy could sit on it; the copy now lives in a white sheet instead, so the
+        // scrim would only dim the art for nothing.
+        <Image source={slide.image} style={StyleSheet.absoluteFill} resizeMode="cover" />
       )}
 
       <View style={[styles.body, { paddingBottom: insets.bottom + 20 }]}>
@@ -144,6 +151,25 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: SPACING.xl,
   },
+  // Soft-yellow accent panel — the brand tint doing the work of separating the
+  // dark art from the white page.
+  graphicPanel: {
+    width: '100%',
+    backgroundColor: COLORS.glow,
+    borderRadius: 28,
+    padding: 14,
+  },
+  graphicFrame: {
+    width: '100%',
+    borderRadius: 18,
+    overflow: 'hidden',
+    backgroundColor: '#1A1140',
+    shadowColor: '#111111',
+    shadowOpacity: 0.12,
+    shadowRadius: 16,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 4,
+  },
   // Centered on slide.shineAt via marginLeft/Top so the anchor point (not the
   // circle's own top-left corner) sits exactly on the peak dot.
   shine: {
@@ -153,12 +179,22 @@ const styles = StyleSheet.create({
     marginLeft: -7,
     marginTop: -7,
     borderRadius: 7,
-    backgroundColor: '#C084FC',
+    backgroundColor: COLORS.primary,
   },
-  // onboarding-body: 32px sides, 20px bottom, 28px between each child.
-  // Hugs at 237 = 97 (text-stack) + 28 + 8 (dots) + 28 + 56 (button) + 20.
+  // The copy sits in a white sheet over the art — the headline is ink now, and ink
+  // on a photograph is unreadable no matter how the photo is scrimmed. Matches the
+  // welcome screen, so the two read as one flow.
   body: {
+    backgroundColor: COLORS.background,
+    borderTopLeftRadius: 28,
+    borderTopRightRadius: 28,
     paddingHorizontal: SPACING.xl,
+    paddingTop: 32,
+    shadowColor: '#111111',
+    shadowOpacity: 0.10,
+    shadowRadius: 20,
+    shadowOffset: { width: 0, height: -6 },
+    elevation: 10,
   },
 
   title: {
@@ -193,6 +229,6 @@ const styles = StyleSheet.create({
     width: 24,
     height: 8,
     borderRadius: 4,
-    backgroundColor: '#C084FC',
+    backgroundColor: COLORS.primary,
   },
 });

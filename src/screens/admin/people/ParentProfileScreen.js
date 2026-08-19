@@ -59,6 +59,7 @@ export default function ParentProfileScreen({ route, navigation }) {
               <Stagger base={24} step={55}>
                 <ProfileHeaderCard
                   seed={parent.id} name={parent.name} contact={parent.email || parent.phone}
+                  phone={parent.phone} email={parent.email}
                   badges={[
                     { toneKey: parent.isActive ? 'emerald' : 'red', label: parent.isActive ? 'active' : 'deactivated' },
                     { toneKey: child ? 'emerald' : 'gold', dot: false, label: child ? 'linked' : 'not linked' },

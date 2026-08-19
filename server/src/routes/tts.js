@@ -30,6 +30,18 @@ function ttsCacheSet(key, buf, mime) {
   if (TTS_CACHE.size > TTS_CACHE_MAX) TTS_CACHE.delete(TTS_CACHE.keys().next().value)
 }
 
+// ── TTS providers ─────────────────────────────────────────────────────────────
+// The teacher voice is ElevenLabs, selected by TTS_PROVIDER (see config/env.js).
+// The other two stay reachable by env, for development and for switching back:
+//
+//   • ElevenLabs — premium/paid, and what students hear. A FREE ElevenLabs plan
+//                  cannot use the API at all (returns 402 paid_plan_required).
+//                  Buffers the whole clip, then caches it on disk in the provider.
+//   • Kokoro     — self-hosted, free, no API key. Needs the Python server running
+//                  at http://localhost:8880 (see /kokoro-server). Also buffered.
+//   • OpenAI     — returns a stream, so playback can start before the line is
+//                  fully synthesized: the lowest first-audio latency of the three.
+
 const router = Router()
 
 // Lightweight auth: the streaming <Audio> client can't set an Authorization
@@ -47,29 +59,18 @@ function verifyToken(req, res, next) {
   }
 }
 
-// Routes by TTS_PROVIDER. ElevenLabs is premium/paid and can fail (quota, bad
-// voice id) — fall back to free self-hosted Kokoro, then OpenAI, so a provider
-// hiccup never leaves the student in silence.
+// ── Provider dispatch ─────────────────────────────────────────────────────────
+// Routes by TTS_PROVIDER and does NOT chain. The earlier design fell through to
+// Kokoro and then OpenAI whenever ElevenLabs failed; that was dropped on purpose,
+// because the teacher swapping voice mid-lesson on a quota error reads as a bug to
+// the student. A failure here surfaces as a non-2xx, the client drops to on-device
+// TTS, and the server log says which provider actually failed.
 async function synthesize(text, opts) {
   const provider = config.tts.provider
 
-  if (provider === 'openai') {
-    return openaiSynthesize(text, opts)
-  }
-
-  if (provider === 'elevenlabs') {
-    const eleven = await elevenSynthesize(text, opts)
-    if (eleven.ok) return eleven
-    console.error('[tts] ElevenLabs failed, falling back:', eleven.status || '-', eleven.error || '')
-    const kok = await kokoroSynthesize(text, opts)
-    if (kok.ok || !config.tts.apiKey) return kok
-    return openaiSynthesize(text, opts)
-  }
-
-  const kokoro = await kokoroSynthesize(text, opts)
-  if (kokoro.ok || !config.tts.apiKey) return kokoro
-  // Kokoro down but OpenAI is configured → don't leave the student in silence.
-  return openaiSynthesize(text, opts)
+  if (provider === 'kokoro') return kokoroSynthesize(text, opts)
+  if (provider === 'openai') return openaiSynthesize(text, opts)
+  return elevenSynthesize(text, opts)
 }
 
 // GET /api/tts?text=...&voice=...&token=...  → streams audio/mpeg
@@ -95,10 +96,10 @@ async function handleTts(req, res) {
 
   const result = await synthesize(text, { voice })
   if (!result.ok) {
-    // Log the provider detail server-side; never relay the upstream error body
-    // to the client — it can carry org/quota/model internals. The client only
-    // needs a non-2xx to fall back to on-device TTS.
-    console.error('[tts] synthesis failed:', result.status || '-', result.error || '')
+    // Log the provider detail server-side; never relay the upstream error body to
+    // the client — it can carry org/quota/model internals. The client only needs a
+    // non-2xx to fall back to on-device TTS.
+    console.error(`[tts] ${config.tts.provider} synthesis failed:`, result.status || '-', result.error || '')
     return res.status(result.status || 502).json({ success: false, message: 'Voice narration is temporarily unavailable.' })
   }
 

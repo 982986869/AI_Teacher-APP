@@ -2,6 +2,8 @@
 // One shared bottom-clearance helper for Admin list screens, so scroll content always clears
 // the floating dock (and, when present, the FAB). Use this instead of ad-hoc paddingBottom
 // magic numbers — the last card must remain fully visible above both the dock and the FAB.
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { Keyboard, Platform } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 // Rough heights of the shared chrome (kept here so every screen agrees).
@@ -12,4 +14,64 @@ export function useBottomPad({ fab = false } = {}) {
   const insets = useSafeAreaInsets();
   const base = Math.max(insets.bottom, 8) + DOCK_HEIGHT;
   return fab ? base + FAB_CLEARANCE : base;
+}
+
+// ── Keeping a composer above the keyboard ────────────────────────────────────
+// `KeyboardAvoidingView` cannot be configured correctly here without knowing something
+// the app cannot know at build time. app.json asks for softwareKeyboardLayoutMode
+// "resize", which on its own puts the composer above the keyboard and makes any extra
+// padding a double-count — which is exactly why every screen in this app passes
+// `behavior={undefined}` on Android. But app.json ALSO sets edgeToEdgeEnabled, and from
+// Android 15 edge-to-edge stops the window resizing at all, so that same `undefined`
+// leaves the composer under the keyboard. One config, two opposite correct answers,
+// decided by the OS version on the phone in someone's hand.
+//
+// So this measures instead of guessing. It asks for two numbers — how tall the keyboard
+// is, and how much the container ACTUALLY shrank — and pads by the difference. A window
+// that fully resized shrinks by the keyboard's height and gets no padding; one that did
+// not resize shrinks by nothing and gets all of it; a partial resize gets the remainder.
+// No platform check, and nothing to revisit when the next Android changes its mind.
+//
+// Usage: spread `onLayout` onto the container whose height is being contested, and add
+// `inset` to that container's own paddingBottom.
+export function useKeyboardInset() {
+  const [kbHeight, setKbHeight] = useState(0);
+  const [shrink, setShrink] = useState(0);
+  // The tallest this container has been since the keyboard last went down. That IS its
+  // keyboard-closed height, because the keyboard can only ever take space away.
+  //
+  // Deliberately NOT "the height measured while a flag says the keyboard is closed": on
+  // Android the window resizes BEFORE keyboardDidShow fires, so that layout still looks
+  // like a keyboard-closed one and the already-shrunken height gets adopted as the
+  // baseline. Then shrink reads 0, the full keyboard height is added on top of a window
+  // that already made room, and the composer floats a keyboard's height above the
+  // keyboard. Taking the maximum needs no ordering to be true.
+  const maxHeightRef = useRef(0);
+
+  useEffect(() => {
+    // iOS fires `Will` early enough to ride the keyboard's own animation; Android only
+    // reports a usable height on `Did`.
+    const showEvt = Platform.OS === 'ios' ? 'keyboardWillShow' : 'keyboardDidShow';
+    const hideEvt = Platform.OS === 'ios' ? 'keyboardWillHide' : 'keyboardDidHide';
+
+    const show = Keyboard.addListener(showEvt, (e) => {
+      setKbHeight((e && e.endCoordinates && e.endCoordinates.height) || 0);
+    });
+    const hide = Keyboard.addListener(hideEvt, () => {
+      setKbHeight(0);
+      setShrink(0);
+      // Re-baseline: the next layout re-establishes the maximum. Without this a rotation
+      // into landscape would keep the taller portrait height as the baseline for good.
+      maxHeightRef.current = 0;
+    });
+    return () => { show.remove(); hide.remove(); };
+  }, []);
+
+  const onLayout = useCallback((e) => {
+    const h = e.nativeEvent.layout.height;
+    maxHeightRef.current = Math.max(maxHeightRef.current, h);
+    setShrink(Math.max(0, maxHeightRef.current - h));
+  }, []);
+
+  return { inset: Math.max(0, kbHeight - shrink), onLayout };
 }

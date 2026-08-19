@@ -17,42 +17,44 @@
 // tint whatever sits beneath them, which is what keeps stacked surfaces reading as
 // one material. Don't "simplify" them to solid hexes.
 export const COLORS = {
-  // Brand — straight off the shared palette board.
-  primary:       '#6D4AFF',
-  primaryLight:  '#8E6BFF',   // board: "Secondary"
-  accent:        '#F7B500',
-
-  // Feedback
-  // The board's Success swatch is green but its caption repeats the Accent hex
-  // (#F7B500) — a copy/paste slip on the board, so the green is unreadable. This
-  // stays on the previous emerald until someone reads the real hex off Figma.
-  success:       '#10B981',
-  error:         '#FF4D67',
-  warning:       '#F97316',
-
-  // Surfaces (dark)
-  // The board's Dark Theme row repeats the LIGHT theme hexes under dark swatches
-  // (#F8F8FF captioned on a near-black chip), so it can't be read literally, so
-  // these come off the frames instead. Figma's auth-screen frame inspects as a
-  // flat #0C0936 — the same value the Splash/Onboarding/Login/Signup flow now
-  // shares as its one dark background.
+  // ⚠ CUEMATH-INSPIRED LIGHT SYSTEM. This was the dark purple palette; every KEY is
+  // preserved so the screens reading it keep working, but the values are now the
+  // light system. Names that no longer describe their value:
+  //   primary   is the YELLOW accent (#FFC629), not a purple.
+  //   glow      is the soft-yellow tint — on a white page a glow is a wash.
+  //   surface   is the secondary background (#F5F5F5), not a raised dark panel.
   //
-  // Ask the Material does NOT read from here: it sits on src/theme/nightTheme (N),
-  // because it's only reachable from AITeacherScreen and follows that screen's
-  // palette. Two dark palettes coexist on purpose; don't unify them blindly.
-  background:    '#0C0936',
-  surface:       '#1C1730',
-  card:          '#FFFFFF0D',  // white @ 5%
-  border:        '#FFFFFF14',  // white @ 8%
-  glow:          '#6D4AFF',    // board: "Purple Glow"
+  // ⚠ YELLOW IS A FILL, NOT A TEXT COLOUR: #FFC629 on white is 1.7:1. Put ink on
+  // top of it; for accent-coloured TEXT or icons use COLORS.accent (#8A6A00) —
+  // the same hue darkened until it passes.
+  // ⚠ PRIMARY CTA IS YELLOW with an INK label (see GRADIENTS.primary) — that is
+  // what every mockup shows. COLORS.ink/onInk remain for dark secondary buttons.
+
+  // Brand
+  primary:       '#FFC629',   // yellow — fills, highlights, rings
+  primaryLight:  '#FFD75E',   // lighter yellow
+  accent:        '#8A6A00',   // yellow as TEXT/ICON — passes on white
+
+  // Primary button (dark, per the system)
+  ink:           '#111111',
+  onInk:         '#FFFFFF',
+
+  // Feedback — darkened to hold contrast against white
+  success:       '#0E9F6E',
+  error:         '#D92D20',
+  warning:       '#B54708',
+
+  // Surfaces
+  background:    '#FFFFFF',   // page
+  surface:       '#F5F5F5',   // secondary background
+  card:          '#FFFFFF',   // white card; elevation via ELEVATION, not fill
+  border:        'rgba(17,17,17,0.08)',
+  glow:          '#FFF4CC',   // soft-yellow wash
 
   // Text
-  textPrimary:   '#F1F0F5',
-  // The palette board labels this #9CA3AF, but every body node in the Figma file
-  // inspects as #94A3B8 — the screens win, since that's what ships.
-  textSecondary: '#94A3B8',
-  // Dark-theme secondary text, per the board.
-  textMuted:     '#B2B5C7',
+  textPrimary:   '#111111',
+  textSecondary: '#666666',
+  textMuted:     '#9B9B9B',
 };
 
 /**
@@ -73,16 +75,16 @@ export const GRADIENTS = {
   // primary-button node — a two-stop approximation loses the dark right end.
   // Now that the board's Primary IS #6D4AFF, the first stop lifts to the board's
   // Secondary so the ramp still travels light → dark instead of flattening.
-  primary:  [COLORS.primaryLight, COLORS.primary, '#4C1D95'],
+  primary:  [COLORS.primaryLight, COLORS.primary, COLORS.primary],   // yellow CTA, ink label
   // Progress fills.
-  progress: [COLORS.primary, COLORS.primaryLight],
+  progress: [COLORS.primary, COLORS.primaryLight],  // yellow — a fill, so it stays
   // Deep violet wash behind the splash (both stops opaque).
-  splash:   ['#2A0569', '#08033B'],
+  splash:   ['#FFFFFF', '#FFFDF5'],   // white, with the faintest yellow settle
   // Full-bleed scrim that drops a photo/hero into the background so text stays
   // legible. Inspected from Figma: two stops, transparent #0E0B3C → solid #030124,
   // spanning the whole 390×844 frame. Note the deep navy is intentionally darker
   // than COLORS.background — don't "correct" it to the background token.
-  scrim:    ['#0E0B3C00', '#030124'],
+  scrim:    ['#FFFFFF00', '#FFFFFF'],   // scrim now lifts INTO white, not into navy
 };
 
 // ---------------------------------------------------------------------------
@@ -137,7 +139,7 @@ export const TYPE = {
     fontSize: 28,
     lineHeight: 42,          // 150%
     letterSpacing: 0,
-    color: '#FFFFFF',
+    color: COLORS.textPrimary,
   },
   // Inspected on the onboarding page: 26px Poppins 700 on a single line measures
   // exactly 39px tall — 1.5em, Poppins' own default leading. That is what "line
@@ -148,7 +150,7 @@ export const TYPE = {
     fontSize: 26,
     lineHeight: 39,          // 150%
     letterSpacing: 0,
-    color: '#FFFFFF',
+    color: COLORS.textPrimary,
   },
   title: {
     fontFamily: FONT_FAMILY.bold,
@@ -160,7 +162,7 @@ export const TYPE = {
     fontFamily: FONT_FAMILY.medium,
     fontSize: 16,
     lineHeight: 24,          // 150%
-    color: COLORS.primaryLight,   // the board shows this step in purple
+    color: COLORS.accent,   // accent as TEXT must be the darkened hue
   },
   body: {
     fontFamily: FONT_FAMILY.regular,

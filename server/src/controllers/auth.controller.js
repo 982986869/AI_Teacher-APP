@@ -10,13 +10,20 @@ const { config } = require('../config/env')
 const { AppError } = require('../middleware/errorHandler')
 const ApiResponse = require('../utils/ApiResponse')
 const { deriveScope } = require('../services/personalization/scope')
+const { permissionsForUser } = require('../services/admin/permissions')
 const { validateProfilePatch } = require('../services/personalization/validateProfile')
 const { uploadImage, isConfigured: storageConfigured } = require('../services/storage')
 
 // Full personalization row (raw — these columns live outside the generated client).
 async function fetchScopeUser(id) {
   const rows = await db.$queryRawUnsafe(
-    `SELECT id, name, email, phone, grade, role::text AS role,
+    // admin_role rides along because login/register hand this whole row back as `user`
+    // and derive its `permissions` field from it — without the column here that field
+    // would silently be [] for every admin/support account, no matter their real role.
+    // is_active is the other half of that derivation (see permissionsForUser): a
+    // deactivated account keeps its admin_role, so the role alone would still grant a
+    // locked-out agent the Support tab on the app.
+    `SELECT id, name, email, phone, grade, role::text AS role, admin_role, is_active,
             board, stream, language, school, account_type, linked_student_id, photo_url AS "photoUrl"
        FROM "users" WHERE id = $1::uuid LIMIT 1`,
     id,
@@ -102,13 +109,29 @@ async function register(req, res, next) {
 
     const user = await ensurePhoto(await fetchScopeUser(created.id))
 
-    return ApiResponse.created(res, { token: signToken(user.id), user, scope: deriveScope(user) }, 'Account created')
+    return ApiResponse.created(res, {
+      token: signToken(user.id), user, scope: deriveScope(user),
+      permissions: permissionsForUser(user),
+    }, 'Account created')
   } catch (err) {
     next(err)
   }
 }
 
 // ─── Login ───────────────────────────────────────────────────────────────────
+
+// Write a 'login' row to student_events — the same log the activity dashboard reads
+// for note/solution/lesson views, so "when did they last sign in" and "what did they
+// study" come from one place and sort together on one timeline.
+//
+// Best-effort by design: swallowed errors, never awaited. A failed analytics insert
+// must not turn a valid sign-in into an error the student sees.
+function recordLogin(userId, method) {
+  db.$executeRaw`
+    INSERT INTO student_events ("userId", type, detail)
+    VALUES (${userId}::uuid, 'login', ${JSON.stringify({ method })}::jsonb)`
+    .catch(() => {})
+}
 
 async function login(req, res, next) {
   try {
@@ -136,7 +159,16 @@ async function login(req, res, next) {
     const { passwordHash: _omit, ...safeUser } = user
     const full = await ensurePhoto((await fetchScopeUser(user.id)) || safeUser)
 
-    return ApiResponse.success(res, { token: signToken(user.id), user: full, scope: deriveScope(full) })
+    // Login history for the activity dashboard. Recorded HERE rather than from the
+    // client so it cannot be skipped, replayed or backdated by the app — the server
+    // is the only thing that knows a login actually succeeded. Fire-and-forget and
+    // deliberately not awaited: an analytics write must never fail a sign-in.
+    recordLogin(user.id, 'password')
+
+    return ApiResponse.success(res, {
+      token: signToken(user.id), user: full, scope: deriveScope(full),
+      permissions: permissionsForUser(full),
+    })
   } catch (err) {
     next(err)
   }
@@ -200,9 +232,22 @@ async function googleAuth(req, res, next) {
 
     const full = await ensurePhoto((await fetchScopeUser(user.id)) || user)
 
+    // Same login history as the password path — without this, every Google user
+    // shows a blank sign-in record on the activity dashboard. `isNewUser` separates
+    // a first-ever signup from a returning sign-in, which the dashboard needs to
+    // avoid counting account creation as a study session.
+    recordLogin(user.id, isNewUser ? 'google-signup' : 'google')
+
+    // `permissions` must ride along here exactly as it does on login/register. The app
+    // stores whatever signIn() is handed and never re-fetches /me until the next cold
+    // start, so omitting it costs a support agent who taps "Continue with Google" their
+    // Support tab for the entire session.
     return ApiResponse.success(
       res,
-      { token: signToken(user.id), user: full, scope: deriveScope(full), isNewUser },
+      {
+        token: signToken(user.id), user: full, scope: deriveScope(full), isNewUser,
+        permissions: permissionsForUser(full),
+      },
       isNewUser ? 'Account created' : 'Signed in',
     )
   } catch (err) {
@@ -214,7 +259,12 @@ async function googleAuth(req, res, next) {
 
 async function me(req, res) {
   const user = await ensurePhoto(req.user)
-  return ApiResponse.success(res, { user, scope: req.scope })
+  // The app gates its Support tab and its reply/resolve buttons on this list. It is the
+  // server's copy of the role map, never a second one kept in the app — a new role or a
+  // regranted permission must not need an app release.
+  return ApiResponse.success(res, {
+    user, scope: req.scope, permissions: permissionsForUser(user),
+  })
 }
 
 // ─── Update profile (migration / complete-profile) ─────────────────────────────

@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { GRADIENTS, FONT_FAMILY, MOTION } from '../theme/designSystem';
+import { COLORS, GRADIENTS, FONT_FAMILY, MOTION } from '../theme/designSystem';
 
 const LOGO = require('../../assets/brand/logo.png');
 
@@ -75,7 +75,7 @@ export default function SplashScreen({ onFinish }) {
 
   return (
     <View style={styles.root}>
-      <StatusBar barStyle="light-content" backgroundColor={GRADIENTS.splash[0]} translucent={false} />
+      <StatusBar barStyle="dark-content" backgroundColor={GRADIENTS.splash[0]} translucent={false} />
       <LinearGradient colors={GRADIENTS.splash} style={StyleSheet.absoluteFill} />
 
       {/* Frame 2147224117 — logo + tagline, 22px apart. Its 187px box sits at
@@ -108,7 +108,7 @@ export default function SplashScreen({ onFinish }) {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: '#08033B',
+    backgroundColor: COLORS.background,
   },
   center: {
     flex: 1,
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     // Figma reads 50% tracking = 8px. That is very wide for 16px text, so it is
     // pulled out here as an obvious dial rather than buried in the style.
     letterSpacing: 8,
-    color: '#FFFFFF',
+    color: COLORS.textSecondary,
     textAlign: 'center',
     marginTop: 22,          // Frame 2147224117 gap
   },
@@ -137,12 +137,12 @@ const styles = StyleSheet.create({
     width: BAR_WIDTH,
     height: 4,
     borderRadius: 2,
-    backgroundColor: '#1E1B4B',
+    backgroundColor: COLORS.surface,
     overflow: 'hidden',
   },
   barFill: {
     height: '100%',
     borderRadius: 2,
-    backgroundColor: '#C084FC',
+    backgroundColor: COLORS.primary,
   },
 });

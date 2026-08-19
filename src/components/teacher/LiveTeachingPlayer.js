@@ -7,7 +7,9 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import LessonBoard from './LessonBoards';
 import TeacherAvatar from './TeacherAvatar';
 import TeacherFullBody from './TeacherFullBody';
-import { TEACHER_PHOTO as TEACHER_HERO_PHOTO, TEACHER_VIDEO as TEACHER_HERO_VIDEO, TEACHER_HEADSHOT } from './teacherIdentity';
+import { TEACHER_PHOTO as TEACHER_HERO_PHOTO, TEACHER_VIDEO as TEACHER_HERO_VIDEO, TEACHER_STAGE_CLIP, TEACHER_HEADSHOT } from './teacherIdentity';
+import { useVideoPlayer, VideoView } from 'expo-video';
+import { useEventListener } from 'expo';
 import VoicePicker from './VoicePicker';
 import { directLesson } from './teachingDirector';
 import { focusTarget } from './cameraDirector';
@@ -63,16 +65,16 @@ const BAR_HIT = { top: 8, bottom: 8, left: 8, right: 8 };
 
 // The room backdrop — the exact deep navy-indigo the user supplied as a swatch, not
 // an approximation. Matches V.ground/V.ground2 below.
-const ROOM_GRAD = ['#14103F', '#0C0936', '#07051F'];
-const ACCENT = '#7C3AED';      // Figma "Primary" violet-600 — matches V.violet/LessonBoards' ACCENT
-const ACCENT_DIM = '#5B32C4';  // Figma "Primary Dark" for smaller labels
+const ROOM_GRAD = ['#FFFFFF', '#FFFFFF', '#FFFFFF'];   // white page, per the design
+const ACCENT = '#FFC629';      // yellow — send button, active tool, highlights
+const ACCENT_DIM = '#8A6A00';  // accent as TEXT — raw yellow fails on white
 // premiumTheme's C.ink2/C.dim are a pale "chalk on dark slate" set — correct for a
 // dark board, but the wbCard below is a WHITE surface, so that pale chalk renders as
 // near-invisible icons/labels on it. Same override values as LessonBoards/subjectBoards.
 const INK2 = '#5B6472';
 const INK_DIM = '#7A8592';
-const GLASS_PANEL = 'rgba(34,38,48,0.72)';   // graphite frosted glass (teacher / caption / dock)
-const GLASS_HAIR = 'rgba(255,255,255,0.16)';  // bright top hairline on the glass
+const GLASS_PANEL = 'rgba(255,255,255,0.86)';   // light frosted glass over the video
+const GLASS_HAIR = 'rgba(17,17,17,0.08)';  // hairline on the light glass
 
 // ── SESSION CHROME (approved mockup, Jul 2026) ────────────────────────────────
 // The live lesson is framed like a video class: a dark app ground, a violet
@@ -80,27 +82,27 @@ const GLASS_HAIR = 'rgba(255,255,255,0.16)';  // bright top hairline on the glas
 // action bar. These tokens own that chrome only — the BOARD ITSELF still renders
 // from the light `C` tokens in LessonBoards, so no SVG board changes.
 const V = {
-  ground: '#0C0936',        // app background — exact hex the user supplied
-  ground2: '#161240',       // elevated surface (ask bar, action bar) — a touch lighter
-  hair: 'rgba(255,255,255,0.08)',
-  hairSoft: 'rgba(255,255,255,0.05)',
-  text: '#FFFFFF',
-  textDim: '#9A9AB4',
-  textFaint: '#6B6B85',
-  violet: '#7C3AED',        // exact Design System "Primary" — send button, active tool, name chip
-  violetDeep: '#5B32C4',
-  violetSoft: 'rgba(124,58,237,0.16)',
-  live: '#EF4444',          // the "Live" pill + End Session
-  liveSoft: 'rgba(239,68,68,0.16)',
-  paper: '#FFFFFF',         // whiteboard card
-  paperEdge: 'rgba(15,23,42,0.07)',
-  paperDim: '#F1F1F6',      // tool-rail / Full Screen chip fill
+  ground: '#FFFFFF',        // page
+  ground2: '#FFFFFF',       // ask bar / action bar sit on the page, separated by a hairline
+  hair: 'rgba(17,17,17,0.10)',
+  hairSoft: 'rgba(17,17,17,0.06)',
+  text: '#111111',
+  textDim: '#666666',
+  textFaint: '#9B9B9B',
+  violet: '#FFC629',        // ACCENT — send button, active tool, highlights (name kept)
+  violetDeep: '#E8B01F',
+  violetSoft: '#FFF4CC',
+  live: '#EF4444',          // the Live pill + End Session stay red, as drawn
+  liveSoft: 'rgba(239,68,68,0.12)',
+  paper: '#F1F1F3',         // whiteboard card — light grey, as drawn
+  paperEdge: 'rgba(17,17,17,0.08)',
+  paperDim: '#FFFFFF',      // tool rail sits WHITE on the grey board
 };
 // The teacher card's violet stage — Figma's exact Primary Light → Primary, deepening
 // to the existing violetDeep token. Previously three invented hex values with no
 // relationship to the design system; now every stop is either a Figma-specified
 // color or a token already used elsewhere in this file.
-const CAM_GRAD = ['#A855F7', V.violet, V.violetDeep];
+const CAM_GRAD = ['#A855F7', '#7C3AED', '#5B32C4'];   // the video stage stays violet
 const CARD_R = 26;
 // Figma's spacing grid is 4/8/12/16/24/32/48/64 — SP.lg (20, from the shared theme)
 // is not one of those steps, so it can't be reused here without inheriting an
@@ -118,34 +120,75 @@ const SCREEN_MARGIN = 24;
 const CAM_CARD_FRAC = 0.27;
 const BOARD_MIN_FRAC = 0.42;
 
-// TEACHER_HERO_PHOTO is a wide FULL-BODY illustration, 1123×944px (figure centred,
-// brick backdrop filling the rest of the frame) — see teacherIdentity.js. A plain
-// `cover` fit inside a portrait card just shows the whole figure small with lots of
-// backdrop, not the bust/headshot framing a real video-call teacher card needs.
+// TEACHER_HERO_PHOTO (assets/teacher-avatar.png) and the matching talking clip
+// (assets/teacher-tahlia.mp4) are a 1283×1080 BUST of Tahlia on a TRANSPARENT
+// background — the violet stage behind her is what fills the frame.
 //
-// Instead of a scale+translate transform (whose translate units get tangled up with
-// the scale — easy to mis-tune), we pick an explicit crop WINDOW in the source
-// photo's own fractional coordinates, then size + position the <Image> with plain
-// width/height/top/left so that window exactly fills the card. If the photo asset
-// is ever replaced, re-derive HERO_CROP_TOP/H/CX by opening the new art and reading
-// off where her head, shoulders and horizontal centre actually sit.
-const HERO_PHOTO_W = 1123;
-const HERO_PHOTO_H = 944;
-const HERO_PHOTO_AR = HERO_PHOTO_W / HERO_PHOTO_H;
-const HERO_CROP_TOP = 0.02;  // fraction down the photo where the visible window starts (a hair of headroom above her hair)
-const HERO_CROP_H = 0.44;    // fraction of the photo's height the window spans — head, hair and shoulders, stopping above her hands-on-hips
-const HERO_CROP_CX = 0.50;   // horizontal centre of the window, as a fraction of the photo's width (she's centred in the source art)
+// She is shown WHOLE: everything the asset contains — crown, face, both shoulders,
+// collar and shirt — is inside the card, never cropped. The card is landscape and
+// she is portrait, so fitting her whole means she is scaled DOWN and the violet
+// stage shows either side of her. That empty stage is deliberate, not a gap to
+// close: cropping her to fill the width is what cut her chin off before.
+//
+// The geometry is driven by where she ACTUALLY sits on the canvas — her opaque
+// alpha bounding box, measured off the asset rather than eyeballed:
+//   x 203–1107  (she is a touch right of centre)
+//   y  54–1079  (hair crown 5% down; the canvas ends at her chest, so the art has
+//                 no waist or legs — a talking-head export, not a full-body one)
+//
+// ⚠ THESE ARE ASSET-SPECIFIC. If the photo/clip is replaced, re-measure the alpha
+// bbox on the new file (any image tool, or sharp's extractChannel(3)) and update
+// the four numbers below. Nothing else needs to move.
+const HERO_PHOTO_W = 1283;
+const HERO_PHOTO_H = 1080;
+const HERO_BBOX_X0 = 203;
+const HERO_BBOX_X1 = 1107;
+const HERO_BBOX_Y0 = 54;
+const HERO_BBOX_Y1 = 1079;
+// A little headroom above her crown so she is not jammed against the card's top
+// edge. Her chest runs to the bottom edge, which is where the asset itself ends.
+const HERO_HEADROOM = 0.96;
 const CAM_CARD_W = SCREEN_W - SCREEN_MARGIN * 2;   // matches sessionScroll's horizontal padding
 const CAM_CARD_H = SCREEN_H * CAM_CARD_FRAC;
-// Derive the <Image>'s full rendered size + offset: crop_W is chosen so the crop
-// window's aspect ratio matches the card's, then the full photo is scaled up so that
-// window exactly covers the card, and shifted so the window (not the photo's own
-// centre) lands inside it.
-const HERO_CROP_W_FRAC = (HERO_CROP_H * HERO_PHOTO_H * (CAM_CARD_W / CAM_CARD_H)) / HERO_PHOTO_W;
-const HERO_FULL_W = CAM_CARD_W / HERO_CROP_W_FRAC;
-const HERO_FULL_H = HERO_FULL_W / HERO_PHOTO_AR;
-const HERO_LEFT = -(HERO_FULL_W * HERO_CROP_CX - CAM_CARD_W / 2);
-const HERO_TOP = -(HERO_FULL_H * HERO_CROP_TOP);
+// Scale the whole canvas so her bbox fits INSIDE the card on both axes (a contain
+// fit, taken on the bbox rather than the canvas so the transparent margins don't
+// eat the budget). On a landscape card the height binds; the width guard keeps her
+// whole on a short, wide screen too.
+const HERO_BBOX_W = HERO_BBOX_X1 - HERO_BBOX_X0;
+const HERO_BBOX_H = HERO_BBOX_Y1 - HERO_BBOX_Y0;
+const HERO_SCALE = Math.min(
+  (CAM_CARD_H * HERO_HEADROOM) / HERO_BBOX_H,
+  (CAM_CARD_W * 0.92) / HERO_BBOX_W,
+);
+const HERO_FULL_W = HERO_PHOTO_W * HERO_SCALE;
+const HERO_FULL_H = HERO_PHOTO_H * HERO_SCALE;
+// Centre her bbox horizontally, and sit its bottom on the card's bottom edge so
+// the chest-height cut in the art reads as the frame ending, not as her floating.
+const HERO_LEFT = CAM_CARD_W / 2 - ((HERO_BBOX_X0 + HERO_BBOX_X1) / 2) * HERO_SCALE;
+const HERO_TOP = CAM_CARD_H - HERO_BBOX_Y1 * HERO_SCALE;
+
+// The talking clip is the SAME shot at a different crop — 1920×1080 where the still
+// is 1283×1080 — so it needs its own numbers rather than the still's. Fitting each
+// on its own bbox is what makes the swap invisible: she lands at x 72.9–269.1 from
+// the clip against x 74.5–267.5 from the still, under 2dp apart, so nothing shifts
+// when she starts talking. (Same caveat as above: re-measure on a new export.)
+const CLIP_W = 1920;
+const CLIP_H = 1080;
+const CLIP_BBOX_X0 = 494;
+const CLIP_BBOX_X1 = 1407;
+const CLIP_BBOX_Y0 = 61;
+const CLIP_BBOX_Y1 = 1079;
+const CLIP_SCALE = Math.min(
+  (CAM_CARD_H * HERO_HEADROOM) / (CLIP_BBOX_Y1 - CLIP_BBOX_Y0),
+  (CAM_CARD_W * 0.92) / (CLIP_BBOX_X1 - CLIP_BBOX_X0),
+);
+// The clip carries the violet stage baked in (see scripts/bake-teacher-clip.js), so
+// unlike the transparent still it covers the whole card — which is exactly what
+// keeps the background from flickering as she starts and stops speaking.
+const CLIP_FULL_W = CLIP_W * CLIP_SCALE;
+const CLIP_FULL_H = CLIP_H * CLIP_SCALE;
+const CLIP_LEFT = CAM_CARD_W / 2 - ((CLIP_BBOX_X0 + CLIP_BBOX_X1) / 2) * CLIP_SCALE;
+const CLIP_TOP = CAM_CARD_H - CLIP_BBOX_Y1 * CLIP_SCALE;
 
 const M = {
   TEACHING: 'TEACHING',     // a scene is being explained (TTS = the clock)
@@ -662,6 +705,22 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const weakConcepts = conceptResults.filter((r) => !r.correct);
   const studyMin = Math.max(1, Math.round((Date.now() - openedAtRef.current) / 60000));
   const [ttsActive, setTtsActive] = useState(false); // is audio playing right now (avatar/sync)
+
+  // ── Her talking clip on the camera card ───────────────────────────────────
+  // Mounted for the WHOLE session and parked on its first frame when she is quiet,
+  // rather than swapped in and out. The clip has the violet stage baked into it, so
+  // unmounting it between sentences would flash the card's own gradient every time
+  // she stops; parking at 0 also rests her on a closed mouth instead of freezing
+  // her mid-word. If the clip ever fails to load, the still underneath is already
+  // in place and simply becomes what you see.
+  const [heroClipFailed, setHeroClipFailed] = useState(false);
+  const heroPlayer = useVideoPlayer(TEACHER_STAGE_CLIP, (p) => { p.loop = true; p.muted = true; });
+  useEventListener(heroPlayer, 'statusChange', ({ error }) => { if (error) setHeroClipFailed(true); });
+  useEffect(() => {
+    if (!heroPlayer || heroClipFailed) return;
+    if (ttsActive) heroPlayer.play();
+    else { heroPlayer.pause(); heroPlayer.currentTime = 0; }
+  }, [ttsActive, heroPlayer, heroClipFailed]);
   const [qa, setQa] = useState(null);                // { q, a } during a doubt
   const [qaMeta, setQaMeta] = useState(null);        // retrieval signals for the doubt answer
   const [partial, setPartial] = useState('');
@@ -1251,8 +1310,13 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     : mode === M.PAUSED ? 'paused' : 'Ms. Nova';
 
   const hasPoints = !!(scene.diagram && (scene.diagram.points || []).length);
-  const sceneHasContent = scene.boardType === 'intro' ? false
-    : (scene.boardType === 'summary' || scene.boardType === 'mistake') ? hasPoints
+  // The intro used to hide the board, so a session opened with the teacher alone and
+  // the whiteboard only appeared at the second scene — which read as "the board is
+  // missing". It now shows from the first beat carrying the lesson title, the way a
+  // real class starts with the topic already on the board. Summary/mistake scenes
+  // still need real points to be worth a board.
+  const sceneHasContent = (scene.boardType === 'summary' || scene.boardType === 'mistake')
+    ? hasPoints
     : true;
   const showBoard = sceneHasContent && !inDoubt; // board hides while a doubt is handled
   // Distinct colour + label per live state — a professional, legible presence.
@@ -1414,12 +1478,32 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
         <View style={st.camCardGlow}>
         <View style={st.camCard}>
           <LinearGradient colors={CAM_GRAD} start={{ x: 0.1, y: 0 }} end={{ x: 0.9, y: 1 }} style={StyleSheet.absoluteFill} />
+          {/* She is shown WHOLE — the HERO_ and CLIP_ geometry above fits her own
+              measured bounding box inside the card instead of cropping her to fill
+              it, so the violet either side of her is the stage, not a gap. The still
+              is the base layer and the only thing left if the clip fails; the clip
+              sits exactly on top of it, matched to under 2dp, and plays while she
+              talks. contentFit="fill" is safe because the box it is given already
+              carries the clip's own 16:9 — nothing is stretched. */}
           <Image
             source={TEACHER_HERO_PHOTO}
             resizeMode="stretch"
             accessibilityLabel="Your teacher, Ms. Nova"
             style={{ position: 'absolute', width: HERO_FULL_W, height: HERO_FULL_H, left: HERO_LEFT, top: HERO_TOP }}
           />
+          {!heroClipFailed && (
+            <VideoView
+              player={heroPlayer}
+              nativeControls={false}
+              allowsFullscreen={false}
+              allowsPictureInPicture={false}
+              contentFit="fill"
+              pointerEvents="none"
+              accessibilityElementsHidden
+              importantForAccessibility="no-hide-descendants"
+              style={{ position: 'absolute', width: CLIP_FULL_W, height: CLIP_FULL_H, left: CLIP_LEFT, top: CLIP_TOP }}
+            />
+          )}
           <LinearGradient
             colors={['rgba(124,77,255,0.34)', 'rgba(91,50,196,0.10)', 'rgba(11,11,20,0.40)']}
             style={StyleSheet.absoluteFill} pointerEvents="none"
@@ -1601,7 +1685,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
             />
             <PressableScale style={[st.askSendBtn, !qInput.trim() && st.askSendDim]} onPress={() => sendDoubt()}
               disabled={!qInput.trim()} accessibilityLabel="Send question">
-              <ArrowUp size={18} color="#fff" strokeWidth={2.8} />
+              <ArrowUp size={18} color="#111111" strokeWidth={2.8} />
             </PressableScale>
           </View>
         )}
@@ -1819,7 +1903,7 @@ const st = StyleSheet.create({
   hdrSub: { fontSize: 12, fontFamily: F.med, color: V.textDim, marginTop: 1 },
   hdrClock: { fontSize: 13, fontFamily: F.semi, color: V.text, letterSpacing: 0.2, fontVariant: ['tabular-nums'] },
   hdrMore: { width: 32, height: 32, alignItems: 'center', justifyContent: 'center', marginRight: -5 },
-  hdrProgress: { height: 2, marginHorizontal: SCREEN_MARGIN, backgroundColor: 'rgba(255,255,255,0.07)', borderRadius: 2, overflow: 'hidden' },
+  hdrProgress: { height: 2, marginHorizontal: SCREEN_MARGIN, backgroundColor: 'rgba(17,17,17,0.08)', borderRadius: 2, overflow: 'hidden' },
   hdrProgressFill: { height: '100%', backgroundColor: V.violet, borderRadius: 2 },
 
   livePill: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: V.liveSoft, borderRadius: R.pill, paddingVertical: 4, paddingHorizontal: 9 },
@@ -1841,14 +1925,14 @@ const st = StyleSheet.create({
   // in this screen uses (rail buttons, name chip) — so the card itself reads as part
   // of the same material, not a flat rectangle of colour.
   camCardHighlight: { position: 'absolute', top: 0, left: 0, right: 0, height: 1, backgroundColor: 'rgba(255,255,255,0.22)' },
-  nameChip: { position: 'absolute', top: 12, left: 12, flexDirection: 'row', alignItems: 'center', gap: 7, maxWidth: '72%', backgroundColor: 'rgba(10,10,26,0.62)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.16)', borderRadius: R.pill, paddingVertical: 5, paddingHorizontal: 8, paddingRight: 12 },
+  nameChip: { position: 'absolute', top: 12, left: 12, flexDirection: 'row', alignItems: 'center', gap: 7, maxWidth: '72%', backgroundColor: 'rgba(255,255,255,0.92)', borderWidth: 1, borderColor: 'rgba(17,17,17,0.06)', borderRadius: R.pill, paddingVertical: 5, paddingHorizontal: 8, paddingRight: 12 },
   nameTxt: { fontSize: 12, fontFamily: F.bold, color: V.text, letterSpacing: -0.1 },
   roleRow: { flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: 1 },
   roleTxt: { fontSize: 9, fontFamily: F.semi, color: V.textDim, letterSpacing: 0.2 },
   camWave: { position: 'absolute', top: 62, left: 18 },
   rail: { position: 'absolute', top: 14, right: 12, gap: 10 },
-  railBtn: { width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(11,11,20,0.45)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.16)' },
-  railBtnOff: { backgroundColor: 'rgba(11,11,20,0.72)', borderColor: 'rgba(255,255,255,0.10)' },
+  railBtn: { width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.28)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.45)' },
+  railBtnOff: { backgroundColor: 'rgba(17,17,17,0.40)', borderColor: 'rgba(255,255,255,0.22)' },
   railBtnLive: { backgroundColor: 'rgba(16,185,129,0.20)', borderColor: 'rgba(16,185,129,0.55)' },
   selfView: { position: 'absolute', right: 12, bottom: 12, width: 78, height: 100, borderRadius: 14, overflow: 'hidden', borderWidth: 1.5, borderColor: 'rgba(255,255,255,0.28)', backgroundColor: '#11151D' },
 
@@ -1862,8 +1946,8 @@ const st = StyleSheet.create({
   wbHeadTitles: { flex: 1, minWidth: 0 },
   wbKicker: { fontSize: 9, fontFamily: F.bold, color: INK_DIM, letterSpacing: 1.8, textTransform: 'uppercase', marginBottom: 3 },
   wbTitle: { fontSize: 21, fontFamily: F.bold, color: V.violet, letterSpacing: -0.3, lineHeight: 27 },
-  fsBtn: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: V.paperDim, borderRadius: R.sm, paddingVertical: 6, paddingHorizontal: 10 },
-  fsTxt: { fontSize: 10.5, fontFamily: F.semi, color: INK2 },
+  fsBtn: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: V.violetSoft, borderRadius: R.sm, paddingVertical: 6, paddingHorizontal: 10 },
+  fsTxt: { fontSize: 10.5, fontFamily: F.semi, color: ACCENT_DIM },
   undoBtn: { position: 'absolute', left: 0, bottom: 8, width: 32, height: 32, alignItems: 'center', justifyContent: 'center' },
 
   // ask bar + collapse handle
@@ -1890,7 +1974,7 @@ const st = StyleSheet.create({
   // "…" overflow sheet
   menuScrim: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(4,4,10,0.6)' },
   menuCard: { position: 'absolute', left: 0, right: 0, bottom: 0, backgroundColor: V.ground2, borderTopLeftRadius: 26, borderTopRightRadius: 26, borderTopWidth: 1, borderColor: V.hair, paddingTop: 10, paddingBottom: Platform.OS === 'ios' ? 34 : 20, paddingHorizontal: 10 },
-  menuGrip: { alignSelf: 'center', width: 38, height: 4, borderRadius: 2, backgroundColor: 'rgba(255,255,255,0.16)', marginBottom: 10 },
+  menuGrip: { alignSelf: 'center', width: 38, height: 4, borderRadius: 2, backgroundColor: 'rgba(17,17,17,0.16)', marginBottom: 10 },
   menuRow: { flexDirection: 'row', alignItems: 'center', gap: 14, paddingVertical: 15, paddingHorizontal: 14, borderRadius: R.md },
   menuTxt: { flex: 1, fontSize: 14.5, fontFamily: F.med, color: V.text, letterSpacing: -0.1 },
   menuTxtOn: { color: V.violet, fontFamily: F.semi },
@@ -1902,7 +1986,7 @@ const st = StyleSheet.create({
   barIconNote: { backgroundColor: 'rgba(124,58,237,0.16)', borderColor: 'rgba(124,58,237,0.5)' },
   barIconTxt: { fontSize: 22, color: D.text, marginTop: -3 },
   barIconTxt2: { fontSize: 14, color: D.text },
-  progressTrack: { flex: 1, height: 4, backgroundColor: 'rgba(255,255,255,0.14)', borderRadius: 8, overflow: 'hidden' },
+  progressTrack: { flex: 1, height: 4, backgroundColor: 'rgba(17,17,17,0.12)', borderRadius: 8, overflow: 'hidden' },
   progressFill: { height: '100%', backgroundColor: ACCENT, borderRadius: 8 },
   progressTick: { position: 'absolute', top: 0, bottom: 0, width: 1.5, backgroundColor: 'rgba(8,9,12,0.55)' },
   counter: { fontSize: 11, fontFamily: F.semi, color: D.textFaint, minWidth: 30, textAlign: 'right', letterSpacing: 0.5 },
@@ -1927,7 +2011,7 @@ const st = StyleSheet.create({
   statNum: { fontSize: 30, fontFamily: SERIF, fontWeight: '600', color: ACCENT, letterSpacing: 0 },
   statLbl: { fontSize: 10, fontFamily: F.semi, color: D.textDim, letterSpacing: 1, textTransform: 'uppercase', marginTop: 2 },
   recoTxt: { fontSize: 12.5, fontFamily: F.med, color: D.textDim, textAlign: 'center', marginTop: SP.lg },
-  masteryPanel: { alignSelf: 'stretch', marginTop: SP.lg, backgroundColor: 'rgba(255,255,255,0.04)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.08)', borderRadius: R.lg, padding: SP.md },
+  masteryPanel: { alignSelf: 'stretch', marginTop: SP.lg, backgroundColor: '#F5F5F5', borderWidth: 1, borderColor: V.hair, borderRadius: R.lg, padding: SP.md },
   masteryTop: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   masteryLabel: { fontSize: 10.5, fontFamily: F.bold, color: D.textDim, letterSpacing: 1.4, textTransform: 'uppercase' },
   masteryScore: { fontSize: 14, fontFamily: F.bold, color: ACCENT },
@@ -1966,7 +2050,7 @@ const st = StyleSheet.create({
   metaWrap: { marginTop: 14, gap: 8, alignSelf: 'stretch', backgroundColor: 'rgba(34,38,48,0.6)', borderRadius: R.md, borderWidth: 1, borderColor: D.edge, borderLeftWidth: 2.5, borderLeftColor: ACCENT_DIM, padding: 12 },
   metaHeader: { fontSize: 9.5, fontFamily: F.bold, color: ACCENT_DIM, letterSpacing: 1.6, textTransform: 'uppercase' },
   metaRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 6 },
-  metaPill: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: 'rgba(255,255,255,0.06)', borderWidth: 1, borderColor: D.edge, borderRadius: 10, paddingHorizontal: 9, paddingVertical: 4 },
+  metaPill: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: '#F5F5F5', borderWidth: 1, borderColor: D.edge, borderRadius: 10, paddingHorizontal: 9, paddingVertical: 4 },
   metaPillOn: { backgroundColor: 'rgba(16,185,129,0.14)', borderColor: 'rgba(16,185,129,0.45)' },
   metaPillTxt: { fontSize: 10, fontFamily: F.bold, color: D.textDim, letterSpacing: 0.3 },
   metaPillTxtOn: { color: C.green },
@@ -2038,7 +2122,7 @@ const st = StyleSheet.create({
   askRow: { flexDirection: 'row', gap: 8, alignItems: 'center', alignSelf: 'stretch' },
   askInput: { flex: 1, backgroundColor: D.panel2, borderWidth: 1, borderColor: D.edge, borderRadius: R.pill, paddingVertical: 13, paddingHorizontal: 20, color: D.text, fontSize: 14, fontFamily: F.med },
   askSend: { width: 48, height: 48, borderRadius: 24, backgroundColor: ACCENT, alignItems: 'center', justifyContent: 'center' },
-  askSendTxt: { color: '#fff', fontSize: 18 },
+  askSendTxt: { color: '#111111', fontSize: 18 },
 
   // floating dock — Ask (mic) is the raised gradient primary; transport is quiet
   dock: {
