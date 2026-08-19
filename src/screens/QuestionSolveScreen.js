@@ -1,5 +1,5 @@
 ﻿// src/screens/QuestionSolveScreen.js
-// One question at a time, with its options and worked explanation â€” where
+// One question at a time, with its options and worked explanation — where
 // ChapterPracticeScreen's "Solve Question" and its rows land.
 //
 // Fetches the same GET /api/resources/progress/... payload the chapter screen uses,
@@ -13,7 +13,7 @@
 // options (most Important Questions are written Q&A) has nothing to pick, so its
 // solution shows straight away.
 //
-// Advancing marks the question solved â€” that is what fills the chapter ring.
+// Advancing marks the question solved — that is what fills the chapter ring.
 //
 // Props: subject, chapter -> { name, slug }; sectionType; classLevel;
 //        startQuestionId; onBack()
@@ -27,18 +27,20 @@ import { TT, TTF, Rich } from '../components/timedTestDark';
 import { getChapterQuestionProgress, setQuestionProgress, setQuestionBookmark } from '../api/resourcesApi';
 
 const C = {
+  // Spreads TT (light). The locals below were picked against the old dark canvas —
+  // C.panel in particular was a near-black card, i.e. invisible content on white.
   ...TT,
-  amber: '#F5C24C',
-  green: '#12B981',
-  greenFill: '#E8F8F1',
-  greenEdge: '#12B981',
-  slate: '#6E6E8F',
-  wrong: '#FF3B5C',
-  wrongFill: 'rgba(255,59,92,0.14)',
-  panel: '#141238',
+  amber: '#FFC629',
+  green: '#0E9F6E',
+  greenFill: '#D6F5E7',
+  greenEdge: '#0E9F6E',
+  slate: '#666666',
+  wrong: '#E5484D',
+  wrongFill: '#FDECEA',
+  panel: '#F7F7F8',
 };
 
-// A "given" block â€” the configuration/formula a question is built on â€” is stored
+// A "given" block — the configuration/formula a question is built on — is stored
 // inside question_html as a leading <pre>/<code>/<blockquote>, because there is no
 // separate column for it. Lifting it out lets it sit in its own card the way the
 // design shows. Nothing is invented: a question without one renders as before.
@@ -97,10 +99,10 @@ export default function QuestionSolveScreen({
   }, [subject.slug, chapter.slug, sectionType, classLevel, startQuestionId]);
 
   const q = questions && questions[idx];
-  // Options arrive as [{ idx:'A', html, is_correct }] â€” the shape the importer stores.
+  // Options arrive as [{ idx:'A', html, is_correct }] — the shape the importer stores.
   const options = useMemo(() => (Array.isArray(q && q.options) ? q.options : []), [q]);
   const correctKey = q ? (q.correctOption || (options.find((o) => o.is_correct) || {}).idx || null) : null;
-  // Two-up only while every label is short ("Naâº", "Kâº"); a phrase like
+  // Two-up only while every label is short ("Na⁺", "K⁺"); a phrase like
   // "Period 4, group 6" needs the full width to stay on one line.
   const twoUp = options.length === 4
     && options.every((o) => String(o.html || '').replace(/<[^>]*>/g, '').trim().length <= 14);
@@ -132,12 +134,12 @@ export default function QuestionSolveScreen({
 
   return (
     <View style={st.root}>
-      <StatusBar barStyle="light-content" backgroundColor={C.canvas} />
+      <StatusBar barStyle="dark-content" backgroundColor={C.canvas} />
       <View style={{ height: insets.top }} />
 
       <View style={st.topRow}>
         <Pressable style={st.back} onPress={onBack} hitSlop={10} accessibilityRole="button">
-          <ChevronLeft size={22} color={C.amber} strokeWidth={2.6} />
+          <ChevronLeft size={22} color={C.ink} strokeWidth={2.6} />
           <Text style={st.backLbl}>Back to List</Text>
         </Pressable>
         {!!q && (
@@ -150,8 +152,8 @@ export default function QuestionSolveScreen({
           >
             <Bookmark
               size={24}
-              color={q.bookmarked ? C.amber : C.sub}
-              fill={q.bookmarked ? C.amber : 'none'}
+              color={q.bookmarked ? '#8A6A00' : C.sub}
+              fill={q.bookmarked ? '#8A6A00' : 'none'}
               strokeWidth={2}
             />
           </Pressable>
@@ -159,7 +161,7 @@ export default function QuestionSolveScreen({
       </View>
 
       {questions === null ? (
-        <View style={st.loading}><ActivityIndicator color={C.violet} /></View>
+        <View style={st.loading}><ActivityIndicator color={C.ink} /></View>
       ) : !q ? (
         <Text style={st.empty}>No questions in this chapter yet.</Text>
       ) : (
@@ -171,7 +173,7 @@ export default function QuestionSolveScreen({
                 <View style={st.chip}>
                   <Text style={st.chipTxt}>
                     {options.length ? 'MCQ' : (q.questionType || 'Q&A')}
-                    {q.qNumber ? ` Â· ${String(q.qNumber).replace(/^Q/i, 'Q')}` : ''}
+                    {q.qNumber ? ` · ${String(q.qNumber).replace(/^Q/i, 'Q')}` : ''}
                   </Text>
                 </View>
                 <Text style={st.chapterTxt} numberOfLines={1}>{chapter.name || subject.name || ''}</Text>
@@ -268,7 +270,7 @@ export default function QuestionSolveScreen({
               </View>
             )}
 
-            {/* Explanation â€” after the pick, or straight away when there is nothing
+            {/* Explanation — after the pick, or straight away when there is nothing
                 to pick. Hidden entirely when the chapter shipped no solution. */}
             {answered && !!q.solutionHtml && (
               <View style={st.panel}>
@@ -317,7 +319,7 @@ const st = StyleSheet.create({
   root: { flex: 1, backgroundColor: C.canvas },
 
   back: { flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 18, paddingVertical: 16 },
-  backLbl: { fontSize: 19, lineHeight: 24, fontFamily: TTF.semi, color: C.amber },
+  backLbl: { fontSize: 19, lineHeight: 24, fontFamily: TTF.semi, color: C.ink },
 
   loading: { paddingVertical: 60, alignItems: 'center' },
   empty: { textAlign: 'center', fontSize: 15, fontFamily: TTF.reg, color: C.sub, marginTop: 48 },
@@ -327,10 +329,10 @@ const st = StyleSheet.create({
     backgroundColor: C.card, borderWidth: 1, borderColor: C.hair,
   },
   qTop: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
-  chip: { backgroundColor: 'rgba(245,194,76,0.14)', borderRadius: 8, paddingVertical: 7, paddingHorizontal: 12 },
-  chipTxt: { fontSize: 13, lineHeight: 16, fontFamily: TTF.bold, color: C.amber, letterSpacing: 0.6 },
+  chip: { backgroundColor: '#FFF4CC', borderRadius: 10, paddingVertical: 7, paddingHorizontal: 12 },
+  chipTxt: { fontSize: 13, lineHeight: 16, fontFamily: TTF.bold, color: '#8A6A00', letterSpacing: 0.6 },
   chapterTxt: { flexShrink: 1, fontSize: 15, lineHeight: 20, fontFamily: TTF.semi, color: C.sub, letterSpacing: 0.4 },
-  marks: { fontSize: 14, lineHeight: 20, fontFamily: TTF.semi, color: C.amber, marginTop: 12 },
+  marks: { fontSize: 14, lineHeight: 20, fontFamily: TTF.semi, color: '#8A6A00', marginTop: 12 },
 
   stemCard: {
     marginTop: 16, padding: 16, borderRadius: 14,

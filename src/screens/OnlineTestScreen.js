@@ -1,7 +1,7 @@
 ﻿// OnlineTestScreen.js
 // Full Online-Test flow (DB-backed, class_level=7):
-//   subjects â†’ chapters (test counts) â†’ tests â†’ INSTRUCTIONS â†’ timed RUNNER â†’
-//   RESULT (donut + bar charts) â†’ REVIEW (per-question solutions).
+//   subjects → chapters (test counts) → tests → INSTRUCTIONS → timed RUNNER →
+//   RESULT (donut + bar charts) → REVIEW (per-question solutions).
 //
 // Questions come from onlineTestApi.getOnlineTest:
 //   { id, name, instructionHtml, durationMin, totalMarks, questions:[{ id, text,
@@ -57,23 +57,23 @@ const C = {
 // Class 8's Science (Curiosity) has no online tests, so only the OLD subjects appear.
 const SUBJECTS_BY_CLASS = {
   7: [
-    { name: 'Science (Curiosity)', emoji: 'ðŸ”¬', bg: '#0F8A5F' },
-    { name: 'Old - Social Sc',     emoji: 'ðŸ›ï¸', bg: '#8A5A2B' },
-    { name: 'Old - Maths',         emoji: 'âž—', bg: '#0F6E56' },
-    { name: 'Old - à¤¹à¤¿à¤‚à¤¦à¥€',          emoji: 'ðŸ“š', bg: '#2F80ED' },
+    { name: 'Science (Curiosity)', emoji: '🔬', bg: '#0F8A5F' },
+    { name: 'Old - Social Sc',     emoji: '🏛️', bg: '#8A5A2B' },
+    { name: 'Old - Maths',         emoji: '➗', bg: '#0F6E56' },
+    { name: 'Old - हिंदी',          emoji: '📚', bg: '#2F80ED' },
   ],
   8: [
-    { name: 'Old - Science',   emoji: 'âš—ï¸', bg: '#5AA84F' },
-    { name: 'Old - Social Sc', emoji: 'ðŸ›ï¸', bg: '#8A5A2B' },
-    { name: 'Old - Maths',     emoji: 'âž—', bg: '#0F6E56' },
+    { name: 'Old - Science',   emoji: '⚗️', bg: '#5AA84F' },
+    { name: 'Old - Social Sc', emoji: '🏛️', bg: '#8A5A2B' },
+    { name: 'Old - Maths',     emoji: '➗', bg: '#0F6E56' },
   ],
   9: [
-    { name: 'Maths (Ganita Manjari)',     emoji: 'ðŸ“', bg: '#0C8F88' },
-    { name: 'Computer Applications (165)', emoji: 'ðŸ’»', bg: S.ink },
-    { name: 'JSTSE Scholarship',           emoji: 'ðŸ†', bg: '#B0306B' },
-    { name: 'Old - Maths',            emoji: 'âž—', bg: '#0F6E56' },
-    { name: 'Old - Science',          emoji: 'âš—ï¸', bg: '#5AA84F' },
-    { name: 'Old - Social Sc',        emoji: 'ðŸ›ï¸', bg: '#8A5A2B' },
+    { name: 'Maths (Ganita Manjari)',     emoji: '📐', bg: '#0C8F88' },
+    { name: 'Computer Applications (165)', emoji: '💻', bg: S.ink },
+    { name: 'JSTSE Scholarship',           emoji: '🏆', bg: '#B0306B' },
+    { name: 'Old - Maths',            emoji: '➗', bg: '#0F6E56' },
+    { name: 'Old - Science',          emoji: '⚗️', bg: '#5AA84F' },
+    { name: 'Old - Social Sc',        emoji: '🏛️', bg: '#8A5A2B' },
   ],
 };
 const subjectsForClass = (classLevel) => SUBJECTS_BY_CLASS[classLevel] || SUBJECTS_BY_CLASS[7];
@@ -105,7 +105,7 @@ function Rich({ value, fontSize = 15, lineHeight, color = C.text, family, imgHei
   );
 }
 
-// â”€â”€â”€ Donut chart (segments = [{ value, color }]) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Donut chart (segments = [{ value, color }]) ──────────────────────────────
 function Donut({ segments, size = 190, stroke = 30, center }) {
   const r = (size - stroke) / 2;
   const circ = 2 * Math.PI * r;
@@ -132,7 +132,7 @@ function Donut({ segments, size = 190, stroke = 30, center }) {
   );
 }
 
-// â”€â”€â”€ Time-per-question bar chart â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Time-per-question bar chart ──────────────────────────────────────────────
 function TimeBars({ data }) {
   // data = [{ time, color }]; width scrolls if many questions.
   const H = 170, barW = 16, gap = 10, padL = 30, padB = 22, padT = 10;
@@ -185,7 +185,7 @@ function LegendDot({ color, label }) {
 function Header({ onBack, title }) {
   return (
     <View style={st.header}>
-      <TouchableOpacity onPress={onBack} hitSlop={10}><Text style={st.back}>â† Back</Text></TouchableOpacity>
+      <TouchableOpacity onPress={onBack} hitSlop={10}><Text style={st.back}>← Back</Text></TouchableOpacity>
       <Text style={st.headerTitle} numberOfLines={1}>{title}</Text>
       <View style={{ width: 48 }} />
     </View>
@@ -221,10 +221,10 @@ export default function OnlineTestScreen({ onExit = () => {} }) {
     else onExit();
   };
 
-  // â”€â”€ load chapters when a subject is picked â”€â”€
+  // ── load chapters when a subject is picked ──
   // Prefer the tile's DB slug (from the class-subjects endpoint) over re-deriving
-  // it â€” the client slugify appends a Devanagari hash for names like 'Old - à¤¹à¤¿à¤‚à¤¦à¥€'
-  // (â†’ "old-uâ€¦") that would not match the seeded slug ("old").
+  // it — the client slugify appends a Devanagari hash for names like 'Old - हिंदी'
+  // (→ "old-u…") that would not match the seeded slug ("old").
   const subjSlug = (s) => (s && s.slug) || slugify(s.name);
   const openSubject = async (s) => {
     setSubject(s); setView('chapters'); setChapters(null);
@@ -332,7 +332,7 @@ export default function OnlineTestScreen({ onExit = () => {} }) {
                       key={t.id}
                       done={done}
                       title={t.name}
-                      metas={[`\u{1F4DD} ${t.questionCount} questions`, `â± ${t.durationMin} min`]}
+                      metas={[`\u{1F4DD} ${t.questionCount} questions`, `⏱ ${t.durationMin} min`]}
                       scoreText={done ? `${att.score}/${att.total}` : null}
                       scorePct={pct}
                       actionLabel={done ? 'Retake' : 'Attempt'}
@@ -369,10 +369,10 @@ export default function OnlineTestScreen({ onExit = () => {} }) {
   );
 }
 
-// â”€â”€â”€ Instruction page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Instruction page ─────────────────────────────────────────────────────────
 // Built on TT (the timed-test dark tokens), not this file's light `C`, so the
 // briefing and the runner it launches read as one flow rather than two products.
-// The default rules below are only a fallback â€” a test that ships its own
+// The default rules below are only a fallback — a test that ships its own
 // instructionHtml always wins.
 const DEFAULT_RULES = [
   'Ensure stable connectivity before launching. Once initiated, the countdown cannot be paused.',
@@ -401,7 +401,7 @@ function Rise({ delay = 0, y = 14, style, children }) {
 
 // The orb: a saturated core inside a wide soft bloom. Two radial gradients rather
 // than a blurred image, so it stays crisp at any density and ships no asset.
-// It breathes and drifts â€” the only ambient motion on the page, which is what
+// It breathes and drifts — the only ambient motion on the page, which is what
 // makes it read as a light source rather than a sticker.
 function HeroOrb({ size = 190 }) {
   const c = size / 2;
@@ -456,7 +456,7 @@ function OrbArt({ size, c }) {
   );
 }
 
-// Pills pop rather than rise â€” they read as three discrete facts landing, not a
+// Pills pop rather than rise — they read as three discrete facts landing, not a
 // paragraph arriving.
 function StatPill({ Icon, label, delay = 0 }) {
   const a = useRef(new Animated.Value(0)).current;
@@ -485,12 +485,12 @@ function Instruction({ test, onBack, onStart }) {
     // Server rules arrive as HTML; split them into lines so they can be counted
     // and laid out like the frame instead of dumped as one block.
     const plain = htmlToPlain(test.instructionHtml) || '';
-    const lines = plain.split(/\n+|(?:â€¢|Â·)\s*/).map((t) => t.trim()).filter((t) => t.length > 2);
+    const lines = plain.split(/\n+|(?:•|·)\s*/).map((t) => t.trim()).filter((t) => t.length > 2);
     return lines.length ? lines : DEFAULT_RULES;
   }, [test.instructionHtml]);
 
   // shadowOpacity cannot run on the native driver, but this is one view pulsing
-  // slowly â€” cheap enough, and the CTA is worth it.
+  // slowly — cheap enough, and the CTA is worth it.
   useEffect(() => {
     const loop = Animated.loop(Animated.sequence([
       Animated.timing(glow, { toValue: 1, duration: 1500, easing: Easing.inOut(Easing.quad), useNativeDriver: false }),
@@ -504,7 +504,7 @@ function Instruction({ test, onBack, onStart }) {
     Animated.timing(spin, { toValue: open ? 1 : 0, duration: 220, easing: Easing.out(Easing.quad), useNativeDriver: true }).start();
   }, [spin, open]);
 
-  // LayoutAnimation is a no-op under the New Architecture (app.json â†’ newArchEnabled),
+  // LayoutAnimation is a no-op under the New Architecture (app.json → newArchEnabled),
   // so the reveal is driven explicitly instead: the body fades and slides in on open.
   const body = useRef(new Animated.Value(1)).current;
   useEffect(() => {
@@ -520,7 +520,7 @@ function Instruction({ test, onBack, onStart }) {
 
   return (
     <View style={st.brief}>
-      {/* The shared Header is a white bar â€” wrong here, and the frame has no title
+      {/* The shared Header is a white bar — wrong here, and the frame has no title
           bar at all. A single dark back control keeps the exit without the chrome. */}
       <View style={st.briefTop}>
         <Pressable onPress={onBack} hitSlop={12} accessibilityRole="button" accessibilityLabel="Go back" style={st.briefBack}>
@@ -534,14 +534,14 @@ function Instruction({ test, onBack, onStart }) {
           <Text style={st.brandTxt}>AiLernova</Text>
         </Rise>
 
-        {/* title block â€” the orb sits behind/right of it */}
+        {/* title block — the orb sits behind/right of it */}
         <View style={st.titleRow}>
           <View style={{ flex: 1, minWidth: 0 }}>
-            <Rise delay={70}><Text style={st.eyebrow}>ONLINE TEST Â· MCQ</Text></Rise>
+            <Rise delay={70}><Text style={st.eyebrow}>ONLINE TEST · MCQ</Text></Rise>
             <Rise delay={130} y={18}><Text style={st.briefTitle}>{test.name}</Text></Rise>
             <Rise delay={210}>
               <Text style={st.briefSub}>
-                {[test.subjectName, test.chapterName].filter(Boolean).join(' Â· ')}
+                {[test.subjectName, test.chapterName].filter(Boolean).join(' · ')}
               </Text>
             </Rise>
           </View>
@@ -557,8 +557,8 @@ function Instruction({ test, onBack, onStart }) {
 
         <Rise delay={480}>
           <Text style={st.markingLine}>
-            Marking:  <Text style={st.markPos}>âœ“ +1 per correct</Text>
-            <Text style={st.markNeg}>   âœ— â€“0 per wrong</Text>
+            Marking:  <Text style={st.markPos}>✓ +1 per correct</Text>
+            <Text style={st.markNeg}>   ✗ –0 per wrong</Text>
           </Text>
         </Rise>
 
@@ -567,7 +567,7 @@ function Instruction({ test, onBack, onStart }) {
           <Pressable onPress={toggle} style={st.instrHead} accessibilityRole="button"
             accessibilityState={{ expanded: open }} accessibilityLabel={`Instructions, ${rules.length} rules`}>
             <BookOpen size={21} color={TT.violet} strokeWidth={2.3} />
-            <Text style={st.instrHeadTxt}>Instructions Â· {rules.length} rules</Text>
+            <Text style={st.instrHeadTxt}>Instructions · {rules.length} rules</Text>
             <Animated.View style={{
               transform: [{ rotate: spin.interpolate({ inputRange: [0, 1], outputRange: ['-90deg', '0deg'] }) }],
             }}>
@@ -588,7 +588,7 @@ function Instruction({ test, onBack, onStart }) {
       </ScrollView>
 
       <View style={st.briefFooter}>
-        {/* The CTA arrives last and keeps a slow glow â€” it is the only thing on the
+        {/* The CTA arrives last and keeps a slow glow — it is the only thing on the
             page you can act on, and the page is otherwise all reading. */}
         <Rise delay={620} y={20}>
           <Animated.View style={{
@@ -613,7 +613,7 @@ function Instruction({ test, onBack, onStart }) {
   );
 }
 
-// â”€â”€â”€ Test runner (timed, navigable, single submit) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Test runner (timed, navigable, single submit) ───────────────────────────
 function Runner({ test, subject, chapter, onBack, onFinish }) {
   const qs = test.questions || [];
   const [idx, setIdx] = useState(0);
@@ -626,7 +626,7 @@ function Runner({ test, subject, chapter, onBack, onFinish }) {
   const timerRef = useRef(null);
   const submitRef = useRef(null);                    // always points at the latest submit()
 
-  // Global countdown â†’ auto-submit at 0. Calls submitRef so the timeout grades the
+  // Global countdown → auto-submit at 0. Calls submitRef so the timeout grades the
   // latest answers (not a stale first-render closure).
   useEffect(() => {
     timerRef.current = setInterval(() => {
@@ -666,11 +666,11 @@ function Runner({ test, subject, chapter, onBack, onFinish }) {
   const low = secs <= 60;
   const marks = q && q.marks != null ? q.marks : null;
 
-  // `context-banner` â€” "Physics â€¢ Units and Measurements â€” Test 1". The frame's
-  // trailing "â€¢ attempt the questions" is instruction copy, not data, so it is
+  // `context-banner` — "Physics • Units and Measurements — Test 1". The frame's
+  // trailing "• attempt the questions" is instruction copy, not data, so it is
   // dropped rather than hard-coded under a real subject and chapter.
   const context = [subject && subject.name, chapter && chapter.name]
-    .filter(Boolean).join(' â€¢ ') + (test.name ? ` â€” ${test.name}` : '');
+    .filter(Boolean).join(' • ') + (test.name ? ` — ${test.name}` : '');
 
   const clear = () => setAnswers((a) => { const next = { ...a }; delete next[q.id]; return next; });
 
@@ -694,8 +694,8 @@ function Runner({ test, subject, chapter, onBack, onFinish }) {
       onNext={() => goto(idx + 1)}
       nextDisabled={idx + 1 >= qs.length}
     >
-      {/* The palette â€” a full screen, and where Submit lives now that the header is
-          Exit Â· progress Â· timer only. This is the ONLY submit path for these tests:
+      {/* The palette — a full screen, and where Submit lives now that the header is
+          Exit · progress · timer only. This is the ONLY submit path for these tests:
           Next is disabled on the last question, so losing it would strand the student.
           These papers carry no A/B/C sections, so it renders as one untitled group. */}
       <TTPalette
@@ -715,7 +715,7 @@ function Runner({ test, subject, chapter, onBack, onFinish }) {
       />
 
       {/* `finish-test-dialog-dark`. Submit moved into the header, where it is
-          reachable from every question â€” so it needs a guard the old "Submit on the
+          reachable from every question — so it needs a guard the old "Submit on the
           last question" didn't. Same wording as the offline-bank runner's. */}
       <TTConfirmDialog
         visible={confirm}
@@ -729,7 +729,7 @@ function Runner({ test, subject, chapter, onBack, onFinish }) {
   );
 }
 
-// â”€â”€â”€ Result page (donuts + performance bars) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Result page (donuts + performance bars) ─────────────────────────────────
 function Result({ test, result, onBack, onReview, onRetake, onMore }) {
   // The result screen is shared with the offline bank now, so a student sees the
   // same verdict page whichever runner graded them. These papers score in MARKS
@@ -764,7 +764,7 @@ function StatChip({ color, bg, label }) {
   );
 }
 
-// â”€â”€â”€ Review (per-question solutions) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Review (per-question solutions) ─────────────────────────────────────────
 function Review({ test, result, onBack }) {
   const byId = useMemo(() => Object.fromEntries(result.perQ.map((p) => [String(p.id), p])), [result]);
   return (
@@ -797,8 +797,8 @@ function Review({ test, result, onBack }) {
                     <View key={o.optionId} style={box}>
                       <Text style={[st.optKey, { color: col }]}>{o.key}</Text>
                       <View style={{ flex: 1 }}><Rich value={o.label} fontSize={14} color={col} /></View>
-                      {isCorrect && <Text style={st.tick}>âœ“</Text>}
-                      {isPicked && !isCorrect && <Text style={st.cross}>âœ•</Text>}
+                      {isCorrect && <Text style={st.tick}>✓</Text>}
+                      {isPicked && !isCorrect && <Text style={st.cross}>✕</Text>}
                     </View>
                   );
                 })}
@@ -851,7 +851,7 @@ const st = StyleSheet.create({
   startPillTxt: { color: C.white, fontFamily: FONT.extrabold, fontSize: 13 },
   loadingOverlay: { ...StyleSheet.absoluteFillObject, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.6)' },
 
-  // â”€â”€ test briefing (dark, on TT) â”€â”€
+  // ── test briefing (dark, on TT) ──
   brief: { flex: 1, backgroundColor: TT.canvas },
   briefTop: { paddingHorizontal: 18, paddingTop: 8, paddingBottom: 2 },
   briefBack: {

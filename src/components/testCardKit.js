@@ -8,16 +8,45 @@
 
 import React from 'react';
 import { View, Text, Pressable, StyleSheet, TextInput, ScrollView } from 'react-native';
+import { Atom, FlaskConical, Binary, Dna, BookOpen, Globe, Landmark, Divide, Laptop, Trophy, Microscope, Brain, Search as SearchIcon } from 'lucide-react-native';
+
+// Subject artwork. These rows used to render an EMOJI, which is why the list showed
+// mojibake whenever a source file's encoding got mangled — an emoji is data in the
+// file, a line icon is not. Icon + tint are keyed off the subject name, so every
+// screen that lists subjects agrees without passing colours around.
+const SUBJECT_ICON = [
+  [/phys/i,                 Atom,          '#0E9F6E'],
+  [/chem/i,                 FlaskConical,  '#7C3AED'],
+  [/math|ganita/i,          Binary,        '#2563EB'],
+  [/bio/i,                  Dna,           '#EA580C'],
+  [/science|curiosity/i,    Microscope,    '#0891B2'],
+  [/social|exploring/i,     Landmark,      '#B45309'],
+  [/english|poorvi|hindi|हिंदी|मल्हार/i, BookOpen, '#BE185D'],
+  [/comput|information/i,   Laptop,        '#2563EB'],
+  [/reason|brain/i,         Brain,         '#C2410C'],
+  [/scholar|jstse/i,        Trophy,        '#B45309'],
+  [/divide|arith/i,         Divide,        '#0E9F6E'],
+];
+
+export function subjectArt(name) {
+  const hit = SUBJECT_ICON.find(([re]) => re.test(String(name || '')));
+  const [, Icon, tint] = hit || [null, Globe, '#6B6B70'];
+  return { Icon, tint };
+}
 
 export const TK = {
-  bg: '#F7F7F7',
+  // Cuemath system. `mint` was the old teal brand accent; the key is kept so the
+  // ~30 call sites below need no edit, but it is the YELLOW accent now — and
+  // because yellow fails as text on white, mintInk is the darkened hue.
+  bg: '#FFFFFF',
   card: '#FFFFFF',
-  border: '#E8E8E8',
-  text: '#1C1C1E',
-  textMuted: '#6B6B70',
-  mint: '#0FA39A',      // brand accent (teal)
-  mintInk: '#0A7D75',   // darker teal for text on tints
-  mintSoft: '#E1F5F3',  // accent tint
+  border: 'rgba(17,17,17,0.10)',
+  text: '#111111',
+  textMuted: '#666666',
+  mint: '#FFC629',      // accent FILL (Practice button, selected row)
+  mintInk: '#8A6A00',   // accent as TEXT
+  mintSoft: '#FFF4CC',  // accent tint
+  ok: '#0E9F6E', okSoft: '#D6F5E7',   // the green 'Available' pill
 };
 
 // Colour a completion percentage: green (strong) · amber (mid) · red (weak).
@@ -52,7 +81,7 @@ export function SearchBox({ value, onChangeText, placeholder }) {
   return (
     <View style={k.searchWrap}>
       <View style={k.search}>
-        <Text style={k.searchIcon}>{'\u{1F50D}'}</Text>
+        <SearchIcon size={20} color={TK.textMuted} strokeWidth={2.4} />
         <TextInput
           style={k.searchInput}
           placeholder={placeholder}
@@ -93,10 +122,13 @@ export function FilterTabs({ tab, onChange, tabs, style }) {
 // Admin-only (optional): `onMenu` adds a trailing "⋯" for secondary actions; `dim` fades an
 // archived row. No-ops for existing student callers.
 export function SubjectRow({ emoji, tile, name, sub, onPress, onMenu, dim }) {
+  // `emoji` and `tile` are still accepted so no caller has to change, but neither
+  // is rendered any more — the icon and its tint are derived from the subject name.
+  const { Icon, tint } = subjectArt(name);
   return (
     <Pressable style={[k.subjectCard, dim && { opacity: 0.55 }]} onPress={onPress}>
-      <View style={[k.subjectIcon, { backgroundColor: tile || TK.mintSoft }]}>
-        <Text style={k.subjectEmoji}>{emoji}</Text>
+      <View style={[k.subjectIcon, { backgroundColor: tint + '14', borderColor: tint + '3D' }]}>
+        <Icon size={26} color={tint} strokeWidth={2} />
       </View>
       <View style={{ flex: 1 }}>
         <Text style={k.subjectName}>{name}</Text>
@@ -184,23 +216,23 @@ export const kitStyles = () => k;
 const k = StyleSheet.create({
   header: { backgroundColor: TK.card, paddingTop: 48, paddingHorizontal: 20, paddingBottom: 16, borderBottomWidth: 1.5, borderBottomColor: TK.border },
   headRow: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  backRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 12 },
-  backArrow: { fontSize: 20, color: TK.text, marginRight: 8, fontWeight: '700' },
-  backText: { fontSize: 16, color: TK.text, fontWeight: '700' },
+  backRow: { alignSelf: 'flex-start', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: 44, height: 44, borderRadius: 14, backgroundColor: '#F2F2F4', marginBottom: 14 },
+  backArrow: { fontSize: 20, color: TK.text, fontWeight: '700' },
+  backText: { display: 'none' },
   title: { fontSize: 24, fontWeight: '900', color: TK.text, letterSpacing: -0.5 },
   subtitle: { fontSize: 13.5, color: TK.textMuted, marginTop: 4, fontWeight: '600' },
 
   searchWrap: { paddingHorizontal: 16, paddingTop: 14 },
-  search: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: TK.card, borderWidth: 1, borderColor: TK.border, borderRadius: 15, paddingHorizontal: 14, height: 44 },
+  search: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: '#F2F2F4', borderRadius: 999, paddingHorizontal: 18, height: 52 },
   searchIcon: { fontSize: 14, color: TK.textMuted },
-  searchInput: { flex: 1, fontSize: 14, color: TK.text, fontWeight: '600', padding: 0 },
+  searchInput: { flex: 1, fontSize: 15.5, color: TK.text, fontWeight: '600', padding: 0 },
 
   // Horizontal ScrollView content: NO flexDirection/flex here — that would constrain the chips
   // to the viewport width and squeeze their labels into vertical strips. Just spacing + padding.
   tabsContent: { gap: 10, paddingHorizontal: 16, paddingTop: 14, paddingBottom: 2, alignItems: 'center' },
-  tab: { flexShrink: 0, flexDirection: 'row', alignItems: 'center', gap: 7, backgroundColor: TK.card, borderWidth: 1, borderColor: TK.border, borderRadius: 13, paddingVertical: 9, paddingHorizontal: 15 },
+  tab: { flexShrink: 0, flexDirection: 'row', alignItems: 'center', gap: 7, backgroundColor: '#F7F7F8', borderWidth: 1, borderColor: TK.border, borderRadius: 999, paddingVertical: 12, paddingHorizontal: 20 },
   tabOn: { backgroundColor: TK.text, borderColor: TK.text },
-  tabTxt: { flexShrink: 0, fontSize: 13.5, fontWeight: '800', color: TK.textMuted },
+  tabTxt: { flexShrink: 0, fontSize: 14.5, fontWeight: '800', color: TK.textMuted },
   tabTxtOn: { color: '#fff' },
   tabCountBadge: { minWidth: 18, paddingHorizontal: 5, paddingVertical: 1, borderRadius: 9, backgroundColor: '#EEEEEF', alignItems: 'center', justifyContent: 'center' },
   tabCountBadgeOn: { backgroundColor: 'rgba(255,255,255,0.22)' },
@@ -208,38 +240,37 @@ const k = StyleSheet.create({
   tabCountOn: { color: '#fff' },
 
   subjectCard: { flexDirection: 'row', alignItems: 'center', backgroundColor: TK.card, borderRadius: 18, borderWidth: 1, borderColor: TK.border, padding: 14, marginBottom: 12 },
-  subjectIcon: { width: 52, height: 52, borderRadius: 14, alignItems: 'center', justifyContent: 'center', marginRight: 14 },
-  subjectEmoji: { fontSize: 26 },
+  subjectIcon: { width: 54, height: 54, borderRadius: 16, borderWidth: 1, alignItems: 'center', justifyContent: 'center', marginRight: 14 },
   subjectName: { fontSize: 17, fontWeight: '800', color: TK.text },
   subjectSub: { fontSize: 12.5, color: TK.textMuted, marginTop: 2, fontWeight: '600' },
 
-  chapterRow: { flexDirection: 'row', alignItems: 'center', backgroundColor: TK.card, borderRadius: 14, borderWidth: 1, borderColor: TK.border, padding: 14, marginBottom: 10 },
-  chapterNum: { width: 30, height: 30, borderRadius: 9, backgroundColor: TK.mintSoft, alignItems: 'center', justifyContent: 'center', marginRight: 12 },
-  chapterNumTxt: { fontSize: 13, fontWeight: '800', color: TK.mintInk },
+  chapterRow: { flexDirection: 'row', alignItems: 'center', backgroundColor: TK.card, borderRadius: 16, borderWidth: 1, borderColor: TK.border, padding: 16, marginBottom: 12 },
+  chapterNum: { width: 38, height: 38, borderRadius: 12, backgroundColor: '#F4F4F6', alignItems: 'center', justifyContent: 'center', marginRight: 14 },
+  chapterNumTxt: { fontSize: 14.5, fontWeight: '800', color: TK.text },
   chapterName: { fontSize: 14.5, fontWeight: '700', color: TK.text },
   chapterSub: { fontSize: 12, color: TK.textMuted, marginTop: 2, fontWeight: '600' },
 
-  card: { flexDirection: 'row', alignItems: 'center', gap: 14, backgroundColor: TK.card, borderWidth: 1, borderColor: TK.border, borderRadius: 18, padding: 16, marginBottom: 12 },
-  cardMain: { flex: 1, gap: 9 },
+  card: { flexDirection: 'column', alignItems: 'stretch', gap: 16, backgroundColor: TK.card, borderWidth: 1, borderColor: TK.border, borderRadius: 18, padding: 18, marginBottom: 14 },
+  cardMain: { gap: 10 },
   cardHeadRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
-  status: { flexDirection: 'row', alignItems: 'center', gap: 6, paddingVertical: 4, paddingHorizontal: 9, borderRadius: 8 },
-  statusOpen: { backgroundColor: TK.mintSoft },
+  status: { alignSelf: 'flex-start', flexDirection: 'row', alignItems: 'center', gap: 7, paddingVertical: 6, paddingHorizontal: 12, borderRadius: 999 },
+  statusOpen: { backgroundColor: TK.okSoft },
   statusDone: { backgroundColor: '#F0F0F0' },
   statusDot: { width: 7, height: 7, borderRadius: 4 },
-  statusTxt: { fontSize: 11, fontWeight: '800', letterSpacing: 0.2 },
+  statusTxt: { fontSize: 12.5, fontWeight: '800', letterSpacing: 0.2 },
 
-  cardTitle: { fontSize: 16, fontWeight: '800', color: TK.text, letterSpacing: -0.2 },
+  cardTitle: { fontSize: 18.5, fontWeight: '800', color: TK.text, letterSpacing: -0.4 },
   metaRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 14 },
-  meta: { fontSize: 12, fontWeight: '700', color: TK.textMuted },
+  meta: { fontSize: 13.5, fontWeight: '700', color: TK.textMuted },
 
   score: { flexDirection: 'row', alignItems: 'baseline', gap: 6 },
   scoreVal: { fontSize: 15, fontWeight: '800', color: TK.text, letterSpacing: -0.3 },
   menuBtn: { marginLeft: 'auto', width: 30, height: 26, alignItems: 'center', justifyContent: 'center' },
   menuDots: { fontSize: 22, lineHeight: 22, color: TK.textMuted, fontWeight: '800' },
 
-  btn: { paddingVertical: 10, paddingHorizontal: 18, borderRadius: 12 },
+  btn: { paddingVertical: 15, paddingHorizontal: 18, borderRadius: 14, alignItems: 'center' },
   btnAttempt: { backgroundColor: TK.mint },
-  btnAttemptTxt: { color: '#fff', fontSize: 13, fontWeight: '800', letterSpacing: 0.2 },
+  btnAttemptTxt: { color: TK.text, fontSize: 15.5, fontWeight: '800', letterSpacing: 0.2 },   // ink on yellow
   btnGhost: { backgroundColor: 'transparent', borderWidth: 1.5, borderColor: TK.border },
   btnGhostTxt: { color: TK.text, fontSize: 13, fontWeight: '800', letterSpacing: 0.2 },
 
