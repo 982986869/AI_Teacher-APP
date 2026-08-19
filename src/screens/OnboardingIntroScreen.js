@@ -33,10 +33,14 @@ const SLIDES = [
   {
     graphic: require('../../assets/brand/onboarding-3-graph.png'),
     graphicRatio: 390 / 304,
-    // The peak dot's pixel position in the 390x304 crop (found by scanning for
-    // the brightest pixel) — since the Image renders at this exact aspect
-    // ratio with resizeMode="contain", there's no letterboxing, so these
-    // percentages line up with the glow overlay 1:1.
+    // The export itself has a dead transparent margin baked into its right edge
+    // (~13% of the 390px width) — the real graph content only fills the left
+    // ~87%, which reads as visibly off-centre on screen. Cropped out below so
+    // the content, not the raw canvas, is what gets centred.
+    graphicRightCrop: 0.13,
+    // The peak dot's pixel position in the ORIGINAL 390x304 crop (found by
+    // scanning for the brightest pixel) — left is re-derived at render time
+    // against the cropped frame; top is untouched since only width is cropped.
     shineAt: { left: '77.4%', top: '8.9%' },
     title: 'Track Your Progress',
     body: 'Complete lessons, earn achievements, and improve every day. Your math & science superpower.',
@@ -70,20 +74,31 @@ export default function OnboardingIntroScreen({ navigation }) {
   const shineScale = shine.interpolate({ inputRange: [0, 1], outputRange: [0.5, 2.6] });
   const shineOpacity = shine.interpolate({ inputRange: [0, 0.7, 1], outputRange: [0.7, 0.15, 0] });
 
+  // shineAt is calibrated against the ORIGINAL (uncropped) image; re-derive it
+  // against the cropped, content-only frame the box actually renders now.
+  const cropFrac = slide.graphicRightCrop || 0;
+  const adjustedShineAt = slide.shineAt
+    ? { top: slide.shineAt.top, left: `${parseFloat(slide.shineAt.left) / (1 - cropFrac)}%` }
+    : null;
+
   return (
     <View style={styles.root}>
       <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
 
       {slide.graphic ? (
         <View style={styles.graphicWrap}>
-          <View style={{ width: '100%', aspectRatio: slide.graphicRatio }}>
-            <Image source={slide.graphic} style={StyleSheet.absoluteFill} resizeMode="contain" />
+          <View style={{ width: '100%', aspectRatio: slide.graphicRatio * (1 - cropFrac), overflow: 'hidden' }}>
+            <Image
+              source={slide.graphic}
+              style={{ position: 'absolute', top: 0, left: 0, height: '100%', width: `${100 / (1 - cropFrac)}%` }}
+              resizeMode="contain"
+            />
             {!!slide.shineAt && (
               <Animated.View
                 pointerEvents="none"
                 style={[
                   styles.shine,
-                  slide.shineAt,
+                  adjustedShineAt,
                   { opacity: shineOpacity, transform: [{ scale: shineScale }] },
                 ]}
               />
