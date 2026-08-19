@@ -5,7 +5,9 @@ const { Readable } = require('stream')
 const crypto = require('crypto')
 const jwt = require('jsonwebtoken')
 const { config } = require('../config/env')
-const { synthesizeSpeech } = require('../providers/ai/OpenAITTSProvider')
+const { synthesizeSpeech: openaiSynthesize } = require('../providers/ai/OpenAITTSProvider')
+const { synthesizeSpeech: elevenSynthesize } = require('../providers/ai/ElevenLabsTTSProvider')
+const { synthesizeSpeech: kokoroSynthesize } = require('../providers/ai/KokoroTTSProvider')
 
 // ── AUDIO CACHE ───────────────────────────────────────────────────────────────
 // Slide narration is deterministic: the same (text, voice) always synthesizes to
@@ -28,21 +30,17 @@ function ttsCacheSet(key, buf, mime) {
   if (TTS_CACHE.size > TTS_CACHE_MAX) TTS_CACHE.delete(TTS_CACHE.keys().next().value)
 }
 
-// ── FUTURE USE — alternative TTS providers (currently disabled) ───────────────
-// The teacher voice is OpenAI TTS (gpt-4o-mini-tts, "coral"): it returns a stream,
-// so playback starts before the whole line is synthesized — the lowest latency of
-// the three. Kokoro and ElevenLabs stay here, commented, to switch back to later:
+// ── TTS providers ─────────────────────────────────────────────────────────────
+// The teacher voice is ElevenLabs, selected by TTS_PROVIDER (see config/env.js).
+// The other two stay reachable by env, for development and for switching back:
 //
-//   • Kokoro    — self-hosted, free, no API key. Needs the Python server running
-//                 at http://localhost:8880 (see /kokoro-server). Buffers the whole
-//                 clip before responding, so first-audio is slower than OpenAI.
-//   • ElevenLabs — premium/paid. A FREE ElevenLabs plan cannot use the API at all
-//                 (returns 402 paid_plan_required), so a paid plan is required.
-//
-// To re-enable: uncomment the require below and the matching branch in synthesize().
-//
-// const { synthesizeSpeech: kokoroSynthesize } = require('../providers/ai/KokoroTTSProvider')
-// const { synthesizeSpeech: elevenSynthesize } = require('../providers/ai/ElevenLabsTTSProvider')
+//   • ElevenLabs — premium/paid, and what students hear. A FREE ElevenLabs plan
+//                  cannot use the API at all (returns 402 paid_plan_required).
+//                  Buffers the whole clip, then caches it on disk in the provider.
+//   • Kokoro     — self-hosted, free, no API key. Needs the Python server running
+//                  at http://localhost:8880 (see /kokoro-server). Also buffered.
+//   • OpenAI     — returns a stream, so playback can start before the line is
+//                  fully synthesized: the lowest first-audio latency of the three.
 
 const router = Router()
 
@@ -61,31 +59,19 @@ function verifyToken(req, res, next) {
   }
 }
 
-// ── FUTURE USE — multi-provider dispatcher (currently disabled) ───────────────
-// Uncomment this (and the requires above) to route by TTS_PROVIDER again:
-//
-// async function synthesize(text, opts) {
-//   const provider = config.tts.provider
-//
-//   if (provider === 'openai') {
-//     return synthesizeSpeech(text, opts)
-//   }
-//
-//   if (provider === 'elevenlabs') {
-//     const eleven = await elevenSynthesize(text, opts)
-//     if (eleven.ok) return eleven
-//     // ElevenLabs failed (e.g. free plan / quota) → don't leave the student silent:
-//     // fall back to the free self-hosted Kokoro, then OpenAI if configured.
-//     const kok = await kokoroSynthesize(text, opts)
-//     if (kok.ok || !config.tts.apiKey) return kok
-//     return synthesizeSpeech(text, opts)
-//   }
-//
-//   const kokoro = await kokoroSynthesize(text, opts)
-//   if (kokoro.ok || !config.tts.apiKey) return kokoro
-//   // Kokoro down but OpenAI is configured → don't leave the student in silence.
-//   return synthesizeSpeech(text, opts)
-// }
+// ── Provider dispatch ─────────────────────────────────────────────────────────
+// Routes by TTS_PROVIDER and does NOT chain. The earlier design fell through to
+// Kokoro and then OpenAI whenever ElevenLabs failed; that was dropped on purpose,
+// because the teacher swapping voice mid-lesson on a quota error reads as a bug to
+// the student. A failure here surfaces as a non-2xx, the client drops to on-device
+// TTS, and the server log says which provider actually failed.
+async function synthesize(text, opts) {
+  const provider = config.tts.provider
+
+  if (provider === 'kokoro') return kokoroSynthesize(text, opts)
+  if (provider === 'openai') return openaiSynthesize(text, opts)
+  return elevenSynthesize(text, opts)
+}
 
 // GET /api/tts?text=...&voice=...&token=...  → streams audio/mpeg
 // (GET so the mobile audio player can stream straight from the URL.)
@@ -108,12 +94,12 @@ async function handleTts(req, res) {
     return res.send(hit.buf)
   }
 
-  const result = await synthesizeSpeech(text, { voice })
+  const result = await synthesize(text, { voice })
   if (!result.ok) {
-    // Log the provider detail server-side; never relay the upstream (OpenAI) error
-    // body to the client — it can carry org/quota/model internals. The client only
-    // needs a non-2xx to fall back to on-device TTS.
-    console.error('[tts] synthesis failed:', result.status || '-', result.error || '')
+    // Log the provider detail server-side; never relay the upstream error body to
+    // the client — it can carry org/quota/model internals. The client only needs a
+    // non-2xx to fall back to on-device TTS.
+    console.error(`[tts] ${config.tts.provider} synthesis failed:`, result.status || '-', result.error || '')
     return res.status(result.status || 502).json({ success: false, message: 'Voice narration is temporarily unavailable.' })
   }
 
@@ -122,9 +108,8 @@ async function handleTts(req, res) {
   res.setHeader('Cache-Control', 'private, max-age=86400')
   res.setHeader('X-TTS-Cache', 'miss')
 
-  // OpenAI returns a web ReadableStream. (A buffered provider — e.g. Kokoro, if it
-  // is ever re-enabled above — would return `result.buffer` instead; this guard
-  // keeps that path working without changing anything else.)
+  // ElevenLabs/Kokoro return a buffered clip (result.buffer); OpenAI streams a
+  // web ReadableStream instead — this guard routes each provider correctly.
   if (result.buffer) {
     ttsCacheSet(key, result.buffer, result.mime)
     return res.send(result.buffer)

@@ -53,7 +53,7 @@ async function list(req, res, next) {
     const rows = await db.$queryRawUnsafe(
       `SELECT id::text AS id, name, email, phone, grade, board, stream,
               COALESCE(account_type,'student') AS "accountType", role::text AS role,
-              admin_role AS "adminRole", is_active AS "isActive",
+              admin_role AS "adminRole", is_active AS "isActive", access_level AS "accessLevel",
               linked_student_id::text AS "linkedStudentId", "createdAt"
          FROM "users" ${whereSql}
         ORDER BY ${orderCol} ${orderDir} NULLS LAST
@@ -79,6 +79,7 @@ async function detail(req, res, next) {
       `SELECT id::text AS id, name, email, phone, grade, board, stream, language, school,
               COALESCE(account_type,'student') AS "accountType", role::text AS role,
               admin_role AS "adminRole", is_active AS "isActive", deactivated_at AS "deactivatedAt",
+              access_level AS "accessLevel",
               linked_student_id::text AS "linkedStudentId", provider::text AS provider, "createdAt"
          FROM "users" WHERE id = $1::uuid LIMIT 1`,
       id,
@@ -94,7 +95,8 @@ async function detail(req, res, next) {
 
 async function loadUserOr404(id) {
   const rows = await db.$queryRawUnsafe(
-    `SELECT id::text AS id, name, email, role::text AS role, admin_role AS "adminRole", is_active AS "isActive"
+    `SELECT id::text AS id, name, email, role::text AS role, admin_role AS "adminRole", is_active AS "isActive",
+            access_level AS "accessLevel"
        FROM "users" WHERE id = $1::uuid LIMIT 1`, id)
   const user = rows && rows[0]
   if (!user) throw new AppError('User not found', 404)
@@ -192,6 +194,43 @@ async function remove(req, res, next) {
   } catch (err) { next(err) }
 }
 
+// PATCH /api/admin/users/:id/access  (users.edit)
+//
+// The content paywall's only write. 'free' sees Brain Gym, the Arena and the Home
+// dashboard; 'full' sees everything (middleware/auth.js requireFullAccess).
+//
+// Called from two places — the student's profile and an unlock ticket in the support
+// console — deliberately the same endpoint, so granting from a ticket cannot drift
+// from granting from a profile, and both land in the audit log identically.
+async function setAccess(req, res, next) {
+  try {
+    const target = await loadUserOr404(req.params.id)
+    const level = String(req.body.accessLevel || '').toLowerCase()
+    if (level !== 'free' && level !== 'full') {
+      throw new AppError("accessLevel must be 'free' or 'full'", 422)
+    }
+
+    // Staff resolve to 'full' in deriveScope regardless of this column, so writing it
+    // for them would record a change that has no effect — and read back later as if
+    // an admin had been restricted when they never were.
+    if (target.adminRole) {
+      throw new AppError('Staff accounts are not content-gated', 422)
+    }
+
+    const before = String(target.accessLevel || target.access_level || 'free').toLowerCase()
+    await db.$executeRawUnsafe(
+      `UPDATE "users" SET access_level = $2 WHERE id = $1::uuid`,
+      target.id, level,
+    )
+    await audit.record(req, {
+      module: 'users', action: level === 'full' ? 'grant_access' : 'revoke_access', targetType: 'user',
+      targetId: target.id, targetLabel: target.email, before: { accessLevel: before }, after: { accessLevel: level },
+    })
+    return ApiResponse.success(res, { id: target.id, accessLevel: level },
+      level === 'full' ? 'Full access granted' : 'Access set to free')
+  } catch (err) { next(err) }
+}
+
 // GET /api/admin/users/meta — filter facets (classes, roles) for the UI.
 async function meta(req, res, next) {
   try {
@@ -211,4 +250,4 @@ async function meta(req, res, next) {
   } catch (err) { next(err) }
 }
 
-module.exports = { list, detail, setRole, resetPassword, setStatus, remove, meta }
+module.exports = { list, detail, setRole, resetPassword, setStatus, setAccess, remove, meta }

@@ -11,6 +11,7 @@ export type Permission =
   | 'settings.view' | 'settings.edit'
   | 'flags.view' | 'flags.edit'
   | 'audit.view'
+  | 'support.view' | 'support.reply' | 'support.resolve'
 
 export interface Admin {
   id: string
@@ -206,3 +207,6 @@ export interface AuditEntry {
   actorRole: string | null; module: string; action: string; targetType: string | null
   targetId: string | null; targetLabel: string | null; before: any; after: any; ip: string | null; createdAt: string
 }
+
+// Support tickets are worked from the in-app console (src/screens/admin/support), not
+// this portal — the ticket types that used to live here left with the /support page.

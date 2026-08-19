@@ -16,6 +16,7 @@ const PERMISSIONS = [
   'settings.view', 'settings.edit',
   'flags.view', 'flags.edit',
   'audit.view',
+  'support.view', 'support.reply', 'support.resolve',
 ]
 
 // '*' = every permission. Ordered from most to least privileged.
@@ -32,6 +33,7 @@ const ROLE_PERMISSIONS = {
     'settings.view', 'settings.edit',
     'flags.view', 'flags.edit',
     'audit.view',
+    'support.view', 'support.reply', 'support.resolve',
   ],
 
   // Curriculum / question-bank / AI-Teacher configuration. No user administration.
@@ -51,6 +53,7 @@ const ROLE_PERMISSIONS = {
     'reports.view',
     'announcements.view',
     'audit.view',
+    'support.view', 'support.reply', 'support.resolve',
   ],
 }
 
@@ -80,6 +83,37 @@ function permissionsFor(role) {
   return grants.includes('*') ? [...PERMISSIONS] : [...grants]
 }
 
+// Deactivation is the OTHER half of the answer, and it lives on the user row rather than
+// in the role map: admin/users.controller.js `setStatus` flips is_active and deliberately
+// leaves admin_role intact, so that a reactivated account gets its old access back. That
+// means the role map alone still says "support" for somebody who was locked out weeks
+// ago. The web portal enforces this at its own login (admin/auth.controller.js) — which a
+// phone already holding a valid app JWT never passes through again — so anything deriving
+// access from a user row has to check the switch itself.
+//
+// Both spellings are accepted because both exist in this codebase: the raw selects that
+// feed req.user use the column name (`is_active`), while the admin controllers alias it to
+// `isActive` for the portal. Only an explicit `false` revokes — a row selected without the
+// column at all must not silently read as deactivated.
+function isDeactivated(user) {
+  return !!user && (user.is_active === false || user.isActive === false)
+}
+
+// What a user (not merely a role) may do. This is what /me, login, register and googleAuth
+// hand the app.
+function permissionsForUser(user) {
+  if (!user || isDeactivated(user)) return []
+  return permissionsFor(user.admin_role)
+}
+
+// Does this user hold `permission` right now? The server-side gate that matches the list
+// above — use this, not hasPermission(user.admin_role, …), wherever a whole user row is
+// in hand.
+function userHasPermission(user, permission) {
+  if (!user || isDeactivated(user)) return false
+  return hasPermission(user.admin_role, permission)
+}
+
 module.exports = {
   PERMISSIONS,
   ROLES,
@@ -88,4 +122,7 @@ module.exports = {
   isAdminRole,
   hasPermission,
   permissionsFor,
+  isDeactivated,
+  permissionsForUser,
+  userHasPermission,
 }

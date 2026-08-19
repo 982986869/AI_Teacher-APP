@@ -105,3 +105,22 @@ export function withImage(baseHtml, imageUrl) {
 export function apiError(e, fallback = 'Something went wrong. Please try again.') {
   return e?.response?.data?.error || e?.response?.data?.message || e?.message || fallback;
 }
+
+// wa.me wants digits only, country code included, no '+' and no spaces. Numbers reach us
+// however the person typed them at signup — '+91 98765 43210', '098765 43210', or a bare
+// ten digits — so the normalising happens here rather than at each call site.
+//
+// A bare ten-digit number is assumed Indian. That is the only country this app operates in
+// today, but it IS a guess: prefixing 91 to a foreign ten-digit number opens a chat with
+// whichever stranger owns that number in India. If Ailernova ever takes non-Indian numbers,
+// this needs a stored country code rather than a smarter guess here.
+export function waNumber(phone) {
+  const digits = String(phone || '').replace(/\D/g, '');
+  if (!digits) return null;
+  // Leading zeros are a domestic-dialling prefix, never part of the international number.
+  // Stripped BEFORE the ten-digit test, or '09876543210' fails every branch and the button
+  // disappears for a number that is perfectly reachable.
+  const trimmed = digits.replace(/^0+/, '');
+  if (trimmed.length === 10) return `91${trimmed}`;
+  return trimmed.length >= 11 ? trimmed : null;
+}

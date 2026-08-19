@@ -2,12 +2,12 @@
 // Reusable composite sections shared across Admin screens — extracted from the profile
 // and home screens so each screen stays short and the rhythm stays identical.
 import React from 'react';
-import { View } from 'react-native';
-import { UserPlus, BookOpen, ClipboardCheck, Sparkles, Settings as SettingsIcon, Activity } from 'lucide-react-native';
+import { View, Linking, Alert } from 'react-native';
+import { UserPlus, BookOpen, ClipboardCheck, Sparkles, Settings as SettingsIcon, Activity, MessageCircle, Mail } from 'lucide-react-native';
 import { AdminCard, Avatar, AdminBadge, IconChip, GhostButton, S } from './kit';
 import { T } from '../../parent/ParentApp/constants';
-import { Shimmer } from '../../parent/ParentApp/anim';
-import { timeAgo } from './format';
+import { PressableScale, Shimmer } from '../../parent/ParentApp/anim';
+import { timeAgo, waNumber } from './format';
 
 // ── Layout-matching skeletons (so content arrives in place, no jump) ──────────────
 function TilesSkeleton({ n = 3 }) {
@@ -56,19 +56,72 @@ export function ProfileSkeleton() {
 }
 
 // ── Profile identity card (avatar + name + contact + status badges) ───────────────
-export function ProfileHeaderCard({ seed, name, contact, badges = [] }) {
+// WhatsApp's brand green. Not a design token because it is not ours to re-tone — it has to
+// stay recognisably WhatsApp or the button stops reading as one.
+const WA_GREEN = '#25D366';
+
+function ContactButton({ icon: Icon, label, tint, onPress, accessibilityLabel }) {
   return (
-    <AdminCard style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
-      <Avatar seed={seed} name={name} size={58} />
-      <View style={{ flex: 1, minWidth: 0 }}>
-        <T w="black" s={19} c={S.ink} numberOfLines={1} accessibilityRole="header">{name}</T>
-        <T w="semi" s={12.5} c={S.muted} numberOfLines={1} style={{ marginTop: 2 }}>{contact || '—'}</T>
-        {badges.length ? (
-          <View style={{ marginTop: 8, flexDirection: 'row', gap: 8, flexWrap: 'wrap' }}>
-            {badges.map((b, i) => <AdminBadge key={i} toneKey={b.toneKey} dot={b.dot !== false}>{b.label}</AdminBadge>)}
-          </View>
-        ) : null}
+    <PressableScale
+      onPress={onPress}
+      style={{
+        flexDirection: 'row', alignItems: 'center', gap: 6, borderRadius: 12, borderWidth: 1,
+        borderColor: tint + '55', backgroundColor: tint + '14',
+        paddingHorizontal: 12, paddingVertical: 8,
+      }}
+      accessibilityRole="button"
+      accessibilityLabel={accessibilityLabel || label}
+    >
+      <Icon size={14} color={tint} strokeWidth={2.5} />
+      <T w="xbold" s={12.5} c={tint}>{label}</T>
+    </PressableScale>
+  );
+}
+
+// `phone` and `email` are what the buttons ACT on; `contact` is only what the card prints.
+// They are separate props on purpose — the screens pass `email || phone` as the display
+// line, so reusing that string here would have given a parent with both an email a
+// WhatsApp button pointed at their email address.
+export function ProfileHeaderCard({ seed, name, contact, badges = [], phone, email }) {
+  const wa = waNumber(phone);
+  const open = (url, failMsg) => Linking.openURL(url).catch(() => Alert.alert("Couldn't open", failMsg));
+  return (
+    <AdminCard>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+        <Avatar seed={seed} name={name} size={58} />
+        <View style={{ flex: 1, minWidth: 0 }}>
+          <T w="black" s={19} c={S.ink} numberOfLines={1} accessibilityRole="header">{name}</T>
+          <T w="semi" s={12.5} c={S.muted} numberOfLines={1} style={{ marginTop: 2 }}>{contact || '—'}</T>
+          {badges.length ? (
+            <View style={{ marginTop: 8, flexDirection: 'row', gap: 8, flexWrap: 'wrap' }}>
+              {badges.map((b, i) => <AdminBadge key={i} toneKey={b.toneKey} dot={b.dot !== false}>{b.label}</AdminBadge>)}
+            </View>
+          ) : null}
+        </View>
       </View>
+
+      {/* Shown only for the routes this person actually has. A WhatsApp button on a record
+          with no number would open a chat with nobody, which is worse than no button. */}
+      {wa || email ? (
+        <View style={{ flexDirection: 'row', gap: 8, marginTop: 14, flexWrap: 'wrap' }}>
+          {wa ? (
+            <ContactButton
+              icon={MessageCircle} label="WhatsApp" tint={WA_GREEN}
+              accessibilityLabel={`Chat with ${name} on WhatsApp`}
+              // The https form, not whatsapp://— if the app is not installed this lands on
+              // web.whatsapp.com instead of failing, and it is the link WhatsApp documents.
+              onPress={() => open(`https://wa.me/${wa}`, 'WhatsApp is not available on this device.')}
+            />
+          ) : null}
+          {email ? (
+            <ContactButton
+              icon={Mail} label="Email" tint={S.indigo}
+              accessibilityLabel={`Email ${name}`}
+              onPress={() => open(`mailto:${email}`, `No mail app is set up. Address: ${email}`)}
+            />
+          ) : null}
+        </View>
+      ) : null}
     </AdminCard>
   );
 }

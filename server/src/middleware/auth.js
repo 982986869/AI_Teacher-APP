@@ -12,6 +12,12 @@ const { deriveScope } = require('../services/personalization/scope')
  * Returns 401 for missing/invalid/expired tokens.
  */
 async function authenticate(req, res, next) {
+  // Idempotent. Most routers call this themselves, but the paywall has to run AFTER
+  // it and is mounted a level up in routes/index.js — so on a gated route this runs
+  // twice. Without this guard that would be two identical user lookups on every
+  // single content request.
+  if (req.user) return next()
+
   const authHeader = req.headers.authorization
   if (!authHeader?.startsWith('Bearer ')) {
     return next(new AppError('Authentication required', 401))
@@ -34,7 +40,20 @@ async function authenticate(req, res, next) {
     // Raw select so we get the personalization columns without needing a Prisma client
     // regen; role::text avoids enum-value surprises. These feed req.scope below.
     const rows = await db.$queryRawUnsafe(
-      `SELECT id, name, email, phone, grade, role::text AS role,
+      // admin_role rides along so non-/api/admin routes can tell staff from students
+      // without a second query — /api/support uses it to expose a team's ticket queue to
+      // staff while keeping students scoped to their own tickets. It stays null for
+      // every normal account, so nothing else changes.
+      //
+      // is_active comes with it because admin_role on its own overstates access:
+      // deactivating an account leaves the role in place (admin/users.controller.js
+      // setStatus), and the web portal only enforces the switch at ITS login, which an app
+      // token never goes through. Without this column /api/support and /me would keep
+      // treating a locked-out agent as staff until their JWT expired.
+      // access_level rides along for the same reason as is_active: it is read on
+      // essentially every request (requireFullAccess below), and a second query per
+      // request to fetch one text column would be a poor trade.
+      `SELECT id, name, email, phone, grade, role::text AS role, admin_role, is_active, access_level,
               board, stream, language, school, account_type, linked_student_id, photo_url AS "photoUrl"
          FROM "users" WHERE id = $1::uuid LIMIT 1`,
       decoded.sub,
@@ -68,4 +87,26 @@ function requireAdmin(req, res, next) {
   next()
 }
 
-module.exports = { authenticate, requireAdmin }
+/**
+ * Gate a route to accounts with FULL content access. Must run after `authenticate`.
+ *
+ * This is the paywall. The app draws locks and a request sheet, but the app is not
+ * the enforcement — a token plus curl would otherwise pull the entire syllabus. Every
+ * content router goes through here; Brain Gym, the Arena, support, auth and config
+ * deliberately do not (see routes/index.js).
+ *
+ * The 403 carries `code: 'LOCKED'` because the app has to tell this apart from an
+ * expired session: one raises the unlock sheet, the other logs the student out. A
+ * bare 403 cannot say which, and guessing from the message text would break the
+ * first time someone reworded it.
+ *
+ * Staff and testers never reach the failure branch — deriveScope already resolves
+ * them to 'full'.
+ */
+function requireFullAccess(req, res, next) {
+  if (!req.user) return next(new AppError('Authentication required', 401))
+  if (req.scope && req.scope.accessLevel === 'full') return next()
+  return next(new AppError('This content is locked', 403, 'LOCKED'))
+}
+
+module.exports = { authenticate, requireAdmin, requireFullAccess }

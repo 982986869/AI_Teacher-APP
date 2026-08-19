@@ -1,0 +1,463 @@
+// src/screens/admin/support/SupportThreadScreen.js
+// One ticket, from the team's side. The right pane of the web console
+// (admin/components/support/Thread.tsx), as its own screen.
+//
+// This deliberately does NOT reuse the student ChatScreen's message mapper or its
+// EventChip/CallChip. Those are shaped around keeping the agent's private call note away
+// from the person who raised the ticket: the mapper structurally never reads `text` on a
+// call row, and the chip has fixed copy addressed TO the user. The team needs the
+// opposite — the note is the whole point of having logged the call — so sharing them
+// would mean adding options that erode the property they exist to guarantee.
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { View, ScrollView, TextInput, AppState, Alert, Linking } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { ChevronLeft, Phone, Send, CircleCheck, Paperclip, Award, Unlock } from 'lucide-react-native';
+import { getTicket, markTicketRead, addTicketMessage, logCall, resolveTicket } from '../../../api/supportApi';
+import { setAdminUserAccess } from '../../../api/adminApi';
+import { joinTicket } from '../../../realtime/supportSocket';
+import { useAuth } from '../../../context/AuthContext';
+import { T } from '../../parent/ParentApp/constants';
+import { S, StudentErrorState, StudentSkeleton } from '../../../theme/studentUI';
+import { PressableScale } from '../../parent/ParentApp/anim';
+import { apiError } from '../ui/format';
+import { useKeyboardInset } from '../../../theme/layout';
+import { ratingBand } from './queueRules';
+import { CallLogSheet } from './CallLogSheet';
+import { ResolveSheet } from './ResolveSheet';
+import { RefreshFailedBanner } from './RefreshFailedBanner';
+import { notifySupportTicketRead } from './useSupportUnread';
+
+const STATUS_TONE = {
+  closed: S.emerald,
+  pending_confirmation: S.gold,
+  open: S.orange,
+  assigned: S.orange,
+};
+
+// Staff-facing labels for a logged call — the outcome as the team recorded it, not the
+// user-facing wording the student screen shows.
+const OUTCOME_LABEL = {
+  talked: 'Talked',
+  no_answer: 'No answer',
+  callback: 'Callback',
+};
+
+const RATING_TONE = { good: S.emerald, ok: S.gold, bad: S.red };
+const ratingTone = (n) => RATING_TONE[ratingBand(n)];
+
+const fmtClock = (iso) => {
+  if (!iso) return '';
+  const d = new Date(iso);
+  return d.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+};
+
+function CentreChip({ children, tone = S.muted, bg = '#fff', icon: Icon }) {
+  return (
+    <View style={{ alignItems: 'center', marginVertical: 9 }}>
+      <View style={{
+        flexDirection: 'row', alignItems: 'center', gap: 6, maxWidth: '88%',
+        backgroundColor: bg, borderRadius: 999, borderWidth: 1, borderColor: S.hair,
+        paddingHorizontal: 12, paddingVertical: 6,
+      }}>
+        {Icon ? <Icon size={11} color={tone} strokeWidth={2.4} /> : null}
+        <T w="semi" s={11} c={tone} style={{ flexShrink: 1 }}>{children}</T>
+      </View>
+    </View>
+  );
+}
+
+function Bubble({ m }) {
+  const mine = m.authorRole === 'agent';
+  return (
+    <View style={{ flexDirection: 'row', justifyContent: mine ? 'flex-end' : 'flex-start', marginBottom: 10 }}>
+      <View style={{
+        maxWidth: '78%', borderRadius: 16, paddingHorizontal: 12, paddingVertical: 9,
+        backgroundColor: mine ? S.indigo : '#fff',
+        borderWidth: mine ? 0 : 1, borderColor: S.hair,
+      }}>
+        {!mine && m.authorName ? (
+          <T w="xbold" s={10.5} c={S.muted} style={{ marginBottom: 2 }}>{m.authorName}</T>
+        ) : null}
+        <T w="reg" s={13.5} lh={18} c={mine ? '#fff' : S.ink}>{m.text}</T>
+        <T w="semi" s={9.5} c={mine ? 'rgba(255,255,255,0.75)' : S.faint} style={{ marginTop: 3 }}>
+          {fmtClock(m.createdAt)}
+        </T>
+      </View>
+    </View>
+  );
+}
+
+export default function SupportThreadScreen({ route, navigation }) {
+  const { id } = route.params;
+  const { can } = useAuth();
+  // This screen hides the dock (see AdminDock's HIDE_DOCK_ON), so nothing else is holding
+  // its content clear of the system bars: both edges have to be paid for here. A hardcoded
+  // number cannot do it — the gesture bar is a different height on every device, and where
+  // it overlaps a control the OS takes the touch first and the control simply looks dead.
+  const insets = useSafeAreaInsets();
+  // Measures rather than assumes — see useKeyboardInset. app.json asks for a resizing
+  // window AND edge-to-edge, and which of those wins depends on the phone's Android
+  // version, so a fixed KeyboardAvoidingView behavior is wrong on half the devices.
+  const { inset: kbInset, onLayout } = useKeyboardInset();
+  const [ticket, setTicket] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [text, setText] = useState('');
+  const [sending, setSending] = useState(false);
+  const [callOpen, setCallOpen] = useState(false);
+  const [resolveOpen, setResolveOpen] = useState(false);
+  const scrollRef = useRef(null);
+
+  // This composer is multiline too, so every line it gains is a line the thread loses.
+  // Keyed on its measured height rather than on the draft text: once per wrap, not once
+  // per keystroke, and unanimated so a growing box does not lurch as well as grow.
+  const composerH = useRef(0);
+  const onComposerLayout = useCallback((e) => {
+    const h = e.nativeEvent.layout.height;
+    if (Math.abs(h - composerH.current) < 1) return;
+    composerH.current = h;
+    setTimeout(() => scrollRef.current && scrollRef.current.scrollToEnd({ animated: false }), 0);
+  }, []);
+
+  const load = useCallback(async () => {
+    try {
+      const d = await getTicket(id);
+      setTicket(d);
+      setError(null);
+      // Clearing the unread mark is what decrements the tab badge, so it runs on every
+      // load rather than only the first — a reply that arrives while this screen is open
+      // must not leave the ticket looking unread.
+      await markTicketRead(id);
+      // …and the badge has to be told, because the server tells nobody: the read receipt
+      // emits no socket event, so without this ping the number on the Support tab keeps
+      // showing the ticket the agent is currently reading until something unrelated
+      // happens. markTicketRead never throws (it swallows its own failure), so a failed
+      // receipt simply refetches the same count.
+      notifySupportTicketRead();
+    } catch (e) {
+      // `ticket` is deliberately left alone. load() is wired to every socket message and
+      // status event, to AppState → active, and to every write, so on a mobile connection
+      // it fails routinely while the agent is mid-conversation. Blanking the thread on one
+      // of those blips takes the header, the messages, the attachments and the composer
+      // with it — and the half-typed reply looks lost even though it survives in `text`.
+      // The banner below reports the failure over the thread that is still on screen,
+      // which is what the web console does with a toast.
+      setError(apiError(e, "Couldn't load this ticket"));
+    } finally {
+      setLoading(false);
+    }
+  }, [id]);
+
+  useEffect(() => { load(); }, [load]);
+
+  useEffect(() => joinTicket(id, { onMessage: load, onStatus: load, onReconnect: load }), [id, load]);
+
+  // A backgrounded phone can hold a socket that is dead but never fires 'connect' again.
+  useEffect(() => {
+    const sub = AppState.addEventListener('change', (s) => { if (s === 'active') load(); });
+    return () => sub.remove();
+  }, [load]);
+
+  // `kbInset` is in here with the message count on purpose. Lifting the composer over the
+  // keyboard shortens the list's visible area, and without a scroll the newest message —
+  // the one being replied to — ends up behind the composer. Whoever opens the keyboard is
+  // about to answer the last thing said, so that is what has to stay on screen.
+  const msgCount = ticket && ticket.messages ? ticket.messages.length : 0;
+  useEffect(() => {
+    if (msgCount) setTimeout(() => scrollRef.current && scrollRef.current.scrollToEnd({ animated: true }), 60);
+  }, [msgCount, kbInset]);
+
+  // Every write below surfaces its own failure and then RETHROWS. The caller — the
+  // composer, or one of the two sheets — owns the text the user typed, so it decides
+  // whether to stay open. Swallowing here is what leaves a sheet sitting inert after a
+  // rejected write with the summary still in it and no explanation on screen.
+  async function send(body) {
+    try {
+      await addTicketMessage(id, { text: body });
+    } catch (e) {
+      Alert.alert('Reply not sent', apiError(e));
+      throw e;
+    }
+    await load();
+  }
+
+  async function onLogCall(outcome, note) {
+    try {
+      await logCall(id, { outcome, note });
+    } catch (e) {
+      Alert.alert('Call not logged', apiError(e));
+      throw e;
+    }
+    await load();
+  }
+
+  async function onResolve(summary) {
+    try {
+      await resolveTicket(id, { summary });
+    } catch (e) {
+      Alert.alert('Could not resolve', apiError(e));
+      throw e;
+    }
+    await load();
+    Alert.alert('Done', 'Sent to the user for confirmation.');
+  }
+
+  async function onSend() {
+    const t = text.trim();
+    if (!t) return;
+    setSending(true);
+    try {
+      await send(t);
+      setText('');
+    } catch (_) {
+      // send() has already shown the reason. The reply stays in the box so it can be sent
+      // again rather than being cleared as though it went — and without this catch the
+      // rethrow becomes an unhandled rejection, since nothing awaits onSend().
+    } finally {
+      setSending(false);
+    }
+  }
+
+  if (loading) {
+    return (
+      <View style={{ flex: 1, backgroundColor: S.canvas, padding: 18, paddingTop: 60 }}>
+        {[0, 1, 2].map((i) => <StudentSkeleton key={i} w="100%" h={64} r={16} mb={10} />)}
+      </View>
+    );
+  }
+  // Only when there is genuinely nothing to show. `error` alone no longer qualifies — see
+  // load()'s catch: once a ticket has loaded, a failed refetch is reported over it rather
+  // than in place of it.
+  if (!ticket) {
+    return (
+      <View style={{ flex: 1, backgroundColor: S.canvas, paddingTop: 60 }}>
+        <StudentErrorState title="Couldn't load this ticket" message={error || undefined} onRetry={load} />
+      </View>
+    );
+  }
+
+  const closed = ticket.status === 'closed';
+  const pending = ticket.status === 'pending_confirmation';
+  const canReply = can('support.reply') && !closed;
+  const phone = ticket.raisedBy && ticket.raisedBy.phone;
+
+  // Unlock tickets are answered by granting access, not by typing a reply. The button
+  // only appears where it can actually do something: an unlock ticket, from someone
+  // who is still on free, for an agent who may edit users. It calls the same endpoint
+  // as the student profile's toggle, so both write the same audit entry.
+  const asker = ticket.raisedBy || {};
+  const canGrant = ticket.topicId === 'unlock' && asker.id
+    && asker.accessLevel !== 'full' && can('users.edit');
+
+  const grantAccess = () => {
+    Alert.alert('Grant full access?',
+      `${asker.name || 'This student'} gets lessons, practice, resources and tests straight away.`,
+      [{ text: 'Cancel', style: 'cancel' },
+       { text: 'Grant', onPress: async () => {
+         try { await setAdminUserAccess(asker.id, 'full'); await load(); }
+         catch (e) { Alert.alert('Could not grant access', e?.response?.data?.error || 'Please try again.'); }
+       } }]);
+  };
+
+  return (
+    <View style={{ flex: 1, backgroundColor: S.canvas }} onLayout={onLayout}>
+      <View style={{ paddingTop: insets.top + 10, paddingHorizontal: 16, paddingBottom: 12, backgroundColor: '#fff', borderBottomWidth: 1, borderBottomColor: S.hair }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+          <PressableScale onPress={() => navigation.goBack()} accessibilityLabel="Back" style={{ marginRight: 2 }}>
+            <ChevronLeft size={22} color={S.ink} strokeWidth={2.4} />
+          </PressableScale>
+          <T w="black" s={15} c={S.ink}>{ticket.ref}</T>
+          <View style={{ backgroundColor: S.purpleSoft, borderRadius: 8, paddingHorizontal: 7, paddingVertical: 2 }}>
+            <T w="xbold" s={10} c={S.purple}>{ticket.team}</T>
+          </View>
+          <View style={{ backgroundColor: (STATUS_TONE[ticket.status] || S.muted) + '1f', borderRadius: 8, paddingHorizontal: 7, paddingVertical: 2 }}>
+            <T w="xbold" s={10} c={STATUS_TONE[ticket.status] || S.muted}>{ticket.status.replace('_', ' ')}</T>
+          </View>
+          {/* What the user thought of this conversation, once they have said. Read-only
+              here — staff can see a score but never set or change one. */}
+          {ticket.rating ? (
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 3 }}>
+              <Award size={12} color={ratingTone(ticket.rating)} strokeWidth={2.6} />
+              <T w="xbold" s={11} c={ratingTone(ticket.rating)}>{ticket.rating}/5</T>
+            </View>
+          ) : null}
+        </View>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 6, flexWrap: 'wrap' }}>
+          <T w="semi" s={12.5} c={S.sub}>
+            {(ticket.raisedBy && ticket.raisedBy.name) || 'Unknown'}
+            {ticket.childName ? ` · for ${ticket.childName}` : ''}
+          </T>
+          {phone ? (
+            <PressableScale
+              onPress={() => Linking.openURL(`tel:${phone}`).catch(() => Alert.alert("Couldn't start the call", phone))}
+              style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}
+              accessibilityRole="button"
+              accessibilityLabel={`Call ${phone}`}
+            >
+              <Phone size={12} color={S.indigo} strokeWidth={2.6} />
+              <T w="xbold" s={12.5} c={S.indigo}>{phone}</T>
+            </PressableScale>
+          ) : null}
+        </View>
+
+        {/* The two write actions sit in the header, not above the composer where they
+            started. At the bottom of the screen they shared space with the system gesture
+            area on a modern phone — visible, but the OS took the touch first — and the
+            keyboard covered them the moment anyone typed a reply. Up here neither is true,
+            and they read as "things you do to this ticket" rather than as part of the
+            composer, which is what they actually are. */}
+        {/* Sits ABOVE the ordinary ticket actions, because on an unlock ticket this is
+            the answer — the reply is the follow-up, not the resolution. Disappears the
+            moment access is granted, so the queue never shows a button that would be a
+            no-op. */}
+        {canGrant ? (
+          <PressableScale
+            onPress={grantAccess}
+            accessibilityRole="button"
+            accessibilityLabel="Grant full access"
+            style={{
+              flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7,
+              marginTop: 12, height: 42, borderRadius: 12, backgroundColor: S.purple,
+            }}
+          >
+            <Unlock size={15} color="#fff" strokeWidth={2.6} />
+            <T w="xbold" s={13.5} c="#fff">Grant full access</T>
+          </PressableScale>
+        ) : null}
+
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 12, flexWrap: 'wrap' }}>
+          <PressableScale
+            onPress={() => setCallOpen(true)}
+            disabled={!can('support.reply')}
+            style={{
+              flexDirection: 'row', alignItems: 'center', gap: 6, borderRadius: 12, borderWidth: 1,
+              borderColor: S.hair, paddingHorizontal: 12, paddingVertical: 8,
+              opacity: can('support.reply') ? 1 : 0.45,
+            }}
+            accessibilityRole="button"
+            accessibilityLabel="Log a call"
+          >
+            <Phone size={13} color={S.sub} strokeWidth={2.4} />
+            <T w="bold" s={12.5} c={S.sub}>Log a call</T>
+          </PressableScale>
+
+          {!closed && !pending && can('support.resolve') ? (
+            <PressableScale
+              onPress={() => setResolveOpen(true)}
+              style={{
+                flexDirection: 'row', alignItems: 'center', gap: 6, borderRadius: 12, borderWidth: 1,
+                borderColor: S.emerald, backgroundColor: S.emeraldSoft, paddingHorizontal: 12, paddingVertical: 8,
+              }}
+              accessibilityRole="button"
+              accessibilityLabel="Mark resolved"
+            >
+              <CircleCheck size={13} color={S.emerald} strokeWidth={2.6} />
+              <T w="xbold" s={12.5} c={S.emerald}>Mark Resolved</T>
+            </PressableScale>
+          ) : null}
+
+          {pending ? (
+            <T w="semi" s={11.5} c={S.gold} style={{ flex: 1 }}>
+              Waiting for user confirmation — closes itself after 3 days
+            </T>
+          ) : null}
+        </View>
+      </View>
+
+      {error ? <RefreshFailedBanner message={error} onRetry={load} /> : null}
+
+      <ScrollView
+        ref={scrollRef}
+        style={{ flex: 1 }}
+        contentContainerStyle={{ padding: 16 }}
+        showsVerticalScrollIndicator={false}
+      >
+        {(ticket.messages || []).map((m) => {
+          if (m.kind === 'event' || m.authorRole === 'system') {
+            return <CentreChip key={m.id}>{(m.text || '').toUpperCase()}</CentreChip>;
+          }
+          if (m.kind === 'call') {
+            // The note IS shown here — this is the staff side, and a call with no record
+            // of what was said is the reason call logging exists.
+            const label = OUTCOME_LABEL[m.callOutcome] || 'Call';
+            return (
+              <CentreChip key={m.id} tone={S.orange} bg={S.orangeSoft} icon={Phone}>
+                {m.text ? `${label} — ${m.text}` : label}
+              </CentreChip>
+            );
+          }
+          return <Bubble key={m.id} m={m} />;
+        })}
+
+        {/* Grouped rather than slotted between messages: the API does not expose an
+            attachment's createdAt, so there is no honest position for them in the
+            timeline, and a made-up one would be worse than a labelled shelf. */}
+        {ticket.attachments && ticket.attachments.length ? (
+          <View style={{ marginTop: 14, paddingTop: 12, borderTopWidth: 1, borderTopColor: S.hair }}>
+            <T w="xbold" s={10.5} c={S.muted} style={{ letterSpacing: 0.4, marginBottom: 8 }}>
+              ATTACHMENTS ({ticket.attachments.length})
+            </T>
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+              {ticket.attachments.map((a) => (
+                <PressableScale
+                  key={a.id}
+                  onPress={() => Linking.openURL(a.url).catch(() => Alert.alert("Couldn't open the file", a.name))}
+                  style={{
+                    flexDirection: 'row', alignItems: 'center', gap: 6, maxWidth: 230,
+                    backgroundColor: '#fff', borderRadius: 999, borderWidth: 1, borderColor: S.hair,
+                    paddingHorizontal: 11, paddingVertical: 7,
+                  }}
+                  accessibilityRole="button"
+                  accessibilityLabel={a.name}
+                >
+                  <Paperclip size={12} color={S.indigo} strokeWidth={2.4} />
+                  <T w="semi" s={12} c={S.indigo} numberOfLines={1} style={{ flexShrink: 1 }}>{a.name}</T>
+                </PressableScale>
+              ))}
+            </View>
+          </View>
+        ) : null}
+      </ScrollView>
+
+      {/* The keyboard inset is added to the safe-area one rather than replacing it: with
+          the keyboard up the gesture bar is not what the composer has to clear, but the
+          moment it closes the inset returns to zero and the safe area matters again. */}
+      <View
+        onLayout={onComposerLayout}
+        style={{ borderTopWidth: 1, borderTopColor: S.hair, backgroundColor: '#fff', padding: 12, paddingBottom: Math.max(insets.bottom, 12) + kbInset }}
+      >
+        <View style={{ flexDirection: 'row', alignItems: 'flex-end', gap: 8, marginBottom: 9 }}>
+          <TextInput
+            value={text}
+            onChangeText={setText}
+            editable={canReply}
+            placeholder={closed ? 'This ticket is closed' : 'Write a reply…'}
+            placeholderTextColor={S.faint}
+            multiline
+            style={{
+              flex: 1, backgroundColor: S.canvas, borderRadius: 14, borderWidth: 1, borderColor: S.hair,
+              paddingHorizontal: 13, paddingVertical: 10, fontSize: 13.5, color: S.ink, maxHeight: 110,
+            }}
+            accessibilityLabel="Reply"
+          />
+          <PressableScale
+            onPress={onSend}
+            disabled={!canReply || sending || !text.trim()}
+            style={{
+              width: 44, height: 44, borderRadius: 14, alignItems: 'center', justifyContent: 'center',
+              backgroundColor: S.indigo, opacity: (!canReply || sending || !text.trim()) ? 0.45 : 1,
+            }}
+            accessibilityRole="button"
+            accessibilityLabel="Send reply"
+          >
+            <Send size={17} color="#fff" strokeWidth={2.4} />
+          </PressableScale>
+        </View>
+
+      </View>
+
+      <CallLogSheet visible={callOpen} onClose={() => setCallOpen(false)} onSubmit={onLogCall} />
+      <ResolveSheet visible={resolveOpen} onClose={() => setResolveOpen(false)} onSubmit={onResolve} />
+    </View>
+  );
+}

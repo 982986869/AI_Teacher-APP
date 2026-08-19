@@ -5,8 +5,8 @@
 import React, { useCallback, useState } from 'react';
 import { ScrollView, RefreshControl, Alert, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Flame, Target, BookOpen, TriangleAlert, UserRound, KeyRound, Ban, CircleCheck, Trash2 } from 'lucide-react-native';
-import { getAdminUser, setAdminUserStatus, resetAdminUserPassword, deleteAdminUser } from '../../../api/adminApi';
+import { Flame, Target, BookOpen, TriangleAlert, UserRound, KeyRound, Ban, CircleCheck, Trash2, Lock, Unlock } from 'lucide-react-native';
+import { getAdminUser, setAdminUserStatus, setAdminUserAccess, resetAdminUserPassword, deleteAdminUser } from '../../../api/adminApi';
 import { useAdminResource } from '../../../hooks/useAdminResource';
 import { AdminScreen, AdminHeader, AdminCard, Section, MetricGrid, ResourceView, AdminMetaGrid, IconChip, S } from '../ui/kit';
 import { ProfileHeaderCard, PersonMiniRow, ActivityFeed, ActionGroup, ProfileSkeleton } from '../ui/sections';
@@ -35,6 +35,16 @@ export default function StudentProfileScreen({ route, navigation }) {
       off ? `${u.name} will no longer be able to sign in.` : `${u.name} will be able to sign in again.`,
       [{ text: 'Cancel', style: 'cancel' }, { text: off ? 'Deactivate' : 'Reactivate', style: off ? 'destructive' : 'default', onPress: () => run(() => setAdminUserStatus(id, !off), reload) }]);
   };
+  const toggleAccess = () => {
+    const paid = u.accessLevel === 'full';
+    Alert.alert(paid ? 'Remove full access?' : 'Grant full access?',
+      paid
+        ? `${u.name} will keep Brain Gym and the games, but lessons, practice, resources and tests will lock.`
+        : `${u.name} gets lessons, practice, resources and tests straight away.`,
+      [{ text: 'Cancel', style: 'cancel' },
+       { text: paid ? 'Remove' : 'Grant', style: paid ? 'destructive' : 'default',
+         onPress: () => run(() => setAdminUserAccess(id, paid ? 'free' : 'full'), reload) }]);
+  };
   const resetPassword = () => {
     Alert.alert('Reset password?', `A new temporary password will be generated for ${u.name}.`,
       [{ text: 'Cancel', style: 'cancel' }, { text: 'Reset', onPress: () => run(() => resetAdminUserPassword(id), (r) => Alert.alert('Temporary password', r?.temporaryPassword ? `Share this securely:\n\n${r.temporaryPassword}` : 'Password was reset.')) }]);
@@ -59,8 +69,10 @@ export default function StudentProfileScreen({ route, navigation }) {
               <Stagger base={24} step={55}>
                 <ProfileHeaderCard
                   seed={d.user.id} name={d.user.name} contact={d.user.email || d.user.phone}
+                  phone={d.user.phone} email={d.user.email}
                   badges={[
                     { toneKey: d.user.isActive ? 'emerald' : 'red', label: d.user.isActive ? 'active' : 'deactivated' },
+                    ...(d.user.adminRole ? [] : [{ toneKey: d.user.accessLevel === 'full' ? 'indigo' : 'amber', dot: false, label: d.user.accessLevel === 'full' ? 'full access' : 'free' }]),
                     ...(d.user.grade ? [{ toneKey: 'indigo', dot: false, label: d.user.grade }] : []),
                   ]}
                 />
@@ -104,6 +116,9 @@ export default function StudentProfileScreen({ route, navigation }) {
 
                 <Section label="Actions">
                   <ActionGroup actions={[
+                    { label: d.user.accessLevel === 'full' ? 'Remove full access' : 'Grant full access',
+                      icon: d.user.accessLevel === 'full' ? Lock : Unlock,
+                      onPress: toggleAccess, disabled: busy, hidden: !!d.user.adminRole },
                     { label: 'Reset password', icon: KeyRound, onPress: resetPassword, disabled: busy },
                     { label: d.user.isActive ? 'Deactivate account' : 'Reactivate account', icon: d.user.isActive ? Ban : CircleCheck, danger: d.user.isActive, onPress: toggleStatus, disabled: busy },
                     { label: 'Delete account', icon: Trash2, danger: true, onPress: removeUser, disabled: busy, hidden: d.user.adminRole === 'super_admin' },

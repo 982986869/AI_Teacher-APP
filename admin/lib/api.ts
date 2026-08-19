@@ -33,9 +33,9 @@ type Options = {
 let onUnauthorized: (() => void) | null = null
 export function setUnauthorizedHandler(fn: () => void) { onUnauthorized = fn }
 
-export async function api<T = any>(path: string, opts: Options = {}): Promise<T> {
+async function request<T>(base: string, path: string, opts: Options = {}): Promise<T> {
   const { method = 'GET', body, params } = opts
-  let url = `/api/admin${path}`
+  let url = `${base}${path}`
   if (params) {
     const qs = new URLSearchParams()
     for (const [k, v] of Object.entries(params)) {
@@ -77,4 +77,8 @@ export async function api<T = any>(path: string, opts: Options = {}): Promise<T>
     throw new ApiError(msg, res.status)
   }
   return (json ? json.data : null) as T
+}
+
+export function api<T = any>(path: string, opts: Options = {}): Promise<T> {
+  return request<T>('/api/admin', path, opts)
 }
