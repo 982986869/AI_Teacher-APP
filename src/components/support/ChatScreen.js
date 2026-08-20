@@ -167,19 +167,19 @@ function UserBubble({ msg, onRetry }) {
   return (
     <View style={s.userRow}>
       <View style={s.userBubble}>
-        {!!msg.text && <TX w="reg" s={14} lh={18} c="#FFFFFF">{msg.text}</TX>}
+        {!!msg.text && <TX w="reg" s={14} lh={18} c={D.onAccent}>{msg.text}</TX>}
         {!!(msg.files && msg.files.length) && (
           <View style={s.bubbleFiles}>
             {msg.files.map((f) => (
               <View key={f.uri} style={s.bubbleFile}>
-                <FileText size={13} color="#FFFFFF" strokeWidth={2.2} />
-                <TX w="med" s={11.5} lh={15} c="#FFFFFF" numberOfLines={1} style={{ flexShrink: 1 }}>{f.name}</TX>
+                <FileText size={13} color={D.onAccent} strokeWidth={2.2} />
+                <TX w="med" s={11.5} lh={15} c={D.onAccent} numberOfLines={1} style={{ flexShrink: 1 }}>{f.name}</TX>
               </View>
             ))}
           </View>
         )}
         <View style={s.userMeta}>
-          <TX w="reg" s={10} lh={12} c="#FFFFFF" style={s.userTime}>
+          <TX w="reg" s={10} lh={12} c={D.onAccent} style={s.userTime}>
             {msg.status === 'sending' ? 'Sending…' : msg.time}
           </TX>
         </View>
@@ -187,7 +187,7 @@ function UserBubble({ msg, onRetry }) {
       {failed && (
         <PressableScale style={s.retryRow} onPress={() => onRetry(msg)} scaleTo={0.96} accessibilityRole="button" accessibilityLabel="Retry sending this message">
           <RotateCcw size={12} color={D.amber} strokeWidth={2.4} />
-          <TX w="semi" s={11} lh={14} c={D.amberInk}>Not sent · Retry</TX>
+          <TX w="semi" s={11} lh={14} c={D.accentInk}>Not sent · Retry</TX>
         </PressableScale>
       )}
     </View>
@@ -218,7 +218,7 @@ function AgentBubble({ agent, text, time, authorName, cta, onCta }) {
             accessibilityRole="button"
             accessibilityLabel={cta}
           >
-            <TX w="semi" s={13} c={D.indigo}>{cta}</TX>
+            <TX w="semi" s={13} c={D.accentInk}>{cta}</TX>
           </PressableScale>
         )}
       </View>
@@ -226,7 +226,7 @@ function AgentBubble({ agent, text, time, authorName, cta, onCta }) {
   );
 }
 
-// agent-typing-bubble — three 6px indigo dots, staggered fade.
+// agent-typing-bubble — three 6px amber dots, staggered fade.
 function TypingRow({ agent }) {
   const a = useRef(new Animated.Value(0.3)).current;
   const b = useRef(new Animated.Value(0.3)).current;
@@ -281,13 +281,13 @@ function ContextCard({ ctx, onPrimary, onLink }) {
         accessibilityRole="button"
         accessibilityLabel={`${ctx.primary.label}. ${ctx.amount}. ${ctx.meta}`}
       >
-        <TX w="bold" s={14.5} c="#06281B">{ctx.primary.label}</TX>
+        <TX w="bold" s={14.5} c={D.onAccent}>{ctx.primary.label}</TX>
       </PressableScale>
 
       {/* No dead links: the row only exists once there's a real URL to open. */}
       {!!(ctx.link && ctx.link.url) && (
         <PressableScale style={s.ctxLink} onPress={onLink} scaleTo={0.96} accessibilityRole="link" accessibilityLabel={ctx.link.label}>
-          <TX w="med" s={12} c={D.indigo} style={s.underline}>{ctx.link.label}</TX>
+          <TX w="med" s={12} c={D.accentInk} style={s.underline}>{ctx.link.label}</TX>
         </PressableScale>
       )}
     </View>
@@ -805,7 +805,7 @@ export default function ChatScreen({
             <TX w="semi" s={14} lh={17} c={D.ink} numberOfLines={1}>{displayAgent.name}</TX>
           </View>
           {/* Hidden until the server has actually issued a ref. */}
-          {!!ref && <View style={s.ticketBadgeSm}><TX w="bold" s={10} lh={12} c={D.indigo}>{ref}</TX></View>}
+          {!!ref && <View style={s.ticketBadgeSm}><TX w="bold" s={10} lh={12} c={D.onAccent}>{ref}</TX></View>}
         </View>
       ) : (
         <View style={s.contextPanel}>
@@ -832,7 +832,7 @@ export default function ChatScreen({
           </View>
 
           <View style={s.contextRight}>
-            {!!ref && <View style={s.ticketBadge}><TX w="bold" s={11} lh={13} c={D.indigo}>{ref}</TX></View>}
+            {!!ref && <View style={s.ticketBadge}><TX w="bold" s={11} lh={13} c={D.onAccent}>{ref}</TX></View>}
             {/* queue-badge: the file gives its box (87×13, gap 4) but not its children,
                 so this shows what we can stand behind — presence + the published average
                 reply time — rather than inventing a live queue position. */}
@@ -955,7 +955,7 @@ export default function ChatScreen({
         {!!attachments.length && (
           <View style={s.attachGroup}>
             <TX w="semi" s={10} lh={12} c={D.muted} style={s.eventText}>
-              {`${attachments.length} FILE${attachments.length > 1 ? 'S' : ''} IS TICKET PAR`}
+              {`${attachments.length} FILE${attachments.length > 1 ? 'S' : ''} ON THIS TICKET`}
             </TX>
             <View style={s.attachList}>
               {attachments.map((a) => (
@@ -967,8 +967,8 @@ export default function ChatScreen({
                   accessibilityRole="link"
                   accessibilityLabel={`Open attachment ${a.name}`}
                 >
-                  <FileText size={13} color={D.indigo} strokeWidth={2.2} />
-                  <TX w="med" s={11.5} lh={15} c={D.indigo} numberOfLines={1} style={{ flexShrink: 1, maxWidth: 200 }}>
+                  <FileText size={13} color={D.accentInk} strokeWidth={2.2} />
+                  <TX w="med" s={11.5} lh={15} c={D.accentInk} numberOfLines={1} style={{ flexShrink: 1, maxWidth: 200 }}>
                     {a.name}
                   </TX>
                 </PressableScale>
@@ -1015,7 +1015,7 @@ export default function ChatScreen({
 
         <View style={s.inputBar}>
           <PressableScale style={s.iconBtn} onPress={attach} scaleTo={0.88} accessibilityRole="button" accessibilityLabel="Attach a photo or file">
-            <Paperclip size={20} color={files.length ? D.indigo : D.muted} strokeWidth={2} />
+            <Paperclip size={20} color={files.length ? D.accentInk : D.muted} strokeWidth={2} />
           </PressableScale>
 
           <View style={s.textField}>
@@ -1038,7 +1038,7 @@ export default function ChatScreen({
             accessibilityRole="button"
             accessibilityLabel="Send"
           >
-            <ArrowRight size={18} color="#FFFFFF" strokeWidth={2} />
+            <ArrowRight size={18} color={D.onAccent} strokeWidth={2} />
           </PressableScale>
         </View>
       </View>
@@ -1063,11 +1063,9 @@ const s = StyleSheet.create({
   headAvatarFallback: { backgroundColor: D.avatarBg, alignItems: 'center', justifyContent: 'center' },
   contextAgent: { flexDirection: 'row', alignItems: 'center', gap: 12, flexShrink: 1 },
   contextAgentNames: { gap: 2, flexShrink: 1 },
-  // A hairline on the badge, added with the day palette. The tints are unchanged from
-  // the dark design, where every one of them stood clear of a near-black page; against
-  // white the palest of them (#E8D14D) drops to 1.54:1 and the circle all but vanishes,
-  // leaving its numeral floating. The border costs nothing on the darker tints and puts
-  // the edge back on the pale ones.
+  // A hairline on the badge. The pale swatches (the Figma lavender #D8C7F5 measures
+  // 1.35:1 on white) would otherwise have no edge at all and leave their numeral
+  // floating. It costs nothing on the darker swatches, so it is unconditional.
   badge: {
     width: 28, height: 28, borderRadius: 14, alignItems: 'center', justifyContent: 'center',
     borderWidth: 1, borderColor: D.border,
@@ -1108,7 +1106,7 @@ const s = StyleSheet.create({
 
   userRow: { alignItems: 'flex-end', gap: 6 },
   userBubble: {
-    maxWidth: 260, padding: 12, backgroundColor: D.indigo,
+    maxWidth: 260, padding: 12, backgroundColor: D.accent,
     borderTopLeftRadius: 16, borderTopRightRadius: 16, borderBottomRightRadius: 4, borderBottomLeftRadius: 16,
   },
   bubbleFiles: { marginTop: 8, gap: 6 },
@@ -1140,7 +1138,7 @@ const s = StyleSheet.create({
     backgroundColor: D.card, borderWidth: 1, borderColor: D.border,
     borderTopLeftRadius: 16, borderTopRightRadius: 16, borderBottomRightRadius: 16, borderBottomLeftRadius: 4,
   },
-  dot: { width: 6, height: 6, borderRadius: 3, backgroundColor: D.indigo },
+  dot: { width: 6, height: 6, borderRadius: 3, backgroundColor: D.amber },
 
   // Attachments already on the ticket — a labelled shelf under the thread, styled off the
   // staged-file chips below so the two read as the same kind of object.
@@ -1152,12 +1150,12 @@ const s = StyleSheet.create({
     backgroundColor: D.card, borderWidth: 1, borderColor: D.border,
   },
 
-  // receipt-card — 280×220 fixed, r16, 1.5px indigo border, space-between, pad 16
+  // receipt-card — 280×220 fixed, r16, hairline border, space-between, pad 16
   receipt: {
     width: 280, height: 220, alignSelf: 'flex-start',
-    padding: 16, borderRadius: 16, borderWidth: 1.5, borderColor: D.indigo,
+    padding: 16, borderRadius: 16, borderWidth: 1, borderColor: D.border,
     backgroundColor: D.card, justifyContent: 'space-between',
-    shadowColor: D.indigo, shadowOpacity: 0.302, shadowRadius: 16, shadowOffset: { width: 0, height: 4 }, elevation: 10,
+    shadowColor: '#000000', shadowOpacity: 0.08, shadowRadius: 16, shadowOffset: { width: 0, height: 4 }, elevation: 6,
   },
   badgeRow: { flexDirection: 'row' },
   ctxBadge: { paddingVertical: 3, paddingHorizontal: 9, borderRadius: 9 },
@@ -1165,7 +1163,7 @@ const s = StyleSheet.create({
   amountRow: { gap: 4 },
   ctxPrimary: {
     alignSelf: 'stretch', height: 44, borderRadius: 22,
-    alignItems: 'center', justifyContent: 'center', backgroundColor: D.success,
+    alignItems: 'center', justifyContent: 'center', backgroundColor: D.accent,
   },
   ctxLink: { alignSelf: 'center' },
   underline: { textDecorationLine: 'underline' },
@@ -1217,6 +1215,6 @@ const s = StyleSheet.create({
     flex: 1, color: D.ink, fontSize: 14, lineHeight: 19, fontFamily: IF.reg,
     padding: 0, maxHeight: 104, textAlignVertical: 'center',
   },
-  sendBtn: { width: 40, height: 40, borderRadius: 20, backgroundColor: D.indigo, alignItems: 'center', justifyContent: 'center' },
+  sendBtn: { width: 40, height: 40, borderRadius: 20, backgroundColor: D.accent, alignItems: 'center', justifyContent: 'center' },
   sendBtnOff: { opacity: 0.45 },
 });

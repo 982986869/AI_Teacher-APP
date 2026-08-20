@@ -16,7 +16,7 @@ export default function ConfirmCard({ resolution, onConfirm, onStillBroken, busy
   return (
     <View style={s.card}>
       <View style={s.head}>
-        <CircleCheck size={18} color={D.indigo} />
+        <CircleCheck size={18} color={D.accentInk} />
         <TX w="semi" s={14} c={D.ink}>The team says this issue is resolved</TX>
       </View>
 
@@ -26,7 +26,7 @@ export default function ConfirmCard({ resolution, onConfirm, onStillBroken, busy
       {!!resolution?.by && <TX s={12} c={D.muted}>— {resolution.by}</TX>}
 
       <PressableScale onPress={onConfirm} disabled={busy} style={[s.btn, s.primary]} accessibilityRole="button" accessibilityLabel="Confirm the issue is resolved">
-        <TX w="bold" s={14} c={D.ink}>{busy ? 'Ek second…' : 'Issue Resolved'}</TX>
+        <TX w="bold" s={14} c={D.onAccent}>{busy ? 'One moment…' : 'Issue Resolved'}</TX>
       </PressableScale>
 
       <PressableScale onPress={onStillBroken} disabled={busy} style={[s.btn, s.ghost]} accessibilityRole="button" accessibilityLabel="Say the issue is still there">
@@ -38,12 +38,12 @@ export default function ConfirmCard({ resolution, onConfirm, onStillBroken, busy
 
 const s = StyleSheet.create({
   card: {
-    borderRadius: 16, borderWidth: 1.5, borderColor: D.indigo,
+    borderRadius: 16, borderWidth: 1, borderColor: D.border,
     padding: 16, gap: 8, marginVertical: 12,
   },
   head: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   summary: { marginTop: 2 },
   btn: { paddingVertical: 12, borderRadius: 12, alignItems: 'center', marginTop: 6 },
-  primary: { backgroundColor: D.indigo },
+  primary: { backgroundColor: D.accent },
   ghost: { borderWidth: 1, borderColor: D.border },
 });
