@@ -77,6 +77,23 @@ export const N = {
 
   pendingEdge: 'rgba(17,17,17,0.18)',
 
+  // The page sits a shade off pure white so white cards read as raised without
+  // needing a heavy shadow. `card` stays #FFFFFF.
+  page: '#F7F7F8',
+
+  // Pastel family, for things that need to be told APART rather than ranked:
+  // sequence steps, category tiles, upload types. Each has a matching ink that
+  // passes on its own fill, so a label can sit inside one.
+  tintSun:   '#FFF4CC', tintSunInk:   '#8A6A00',
+  tintMint:  '#DCF6E8', tintMintInk:  '#0E9F6E',
+  tintLilac: '#EDE7FB', tintLilacInk: '#6D28D9',
+  tintSky:   '#DCEBFB', tintSkyInk:   '#2563EB',
+  tintPeach: '#FBE3D2', tintPeachInk: '#C2410C',
+
+  // Saturated versions of the same family, for small solid discs (step numbers)
+  // where a pale tint would disappear against the card behind it.
+  stepTints: ['#A7E9C5', '#FBC9A6', '#D5C7F5', '#AFD6F5'],
+
   // Cards: white, 16px radius, SUBTLE shadow — spread it, don't deepen it.
   radius: 16,
 };
