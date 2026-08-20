@@ -21,7 +21,7 @@
       },
       "env": {
         "NODE_OPTIONS": "--max-old-space-size=8192",
-        "EXPO_PUBLIC_API_URL": "https://ai-teacher-app-jgzx.onrender.com"
+        "EXPO_PUBLIC_API_URL": "https://ailernova-api.onrender.com"
       }
     },
     "production": {
@@ -31,7 +31,7 @@
       },
       "env": {
         "NODE_OPTIONS": "--max-old-space-size=8192",
-        "EXPO_PUBLIC_API_URL": "https://ai-teacher-app-jgzx.onrender.com"
+        "EXPO_PUBLIC_API_URL": "https://ailernova-api.onrender.com"
       }
     }
   },
