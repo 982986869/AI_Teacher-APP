@@ -249,11 +249,16 @@ export const saveHomeState = async (patch) => {
   } catch (_) { /* ignore */ }
 };
 
-// Profile fields the CompleteProfile form collects that PATCH /api/auth/profile does
-// NOT accept yet — it takes grade/board/stream/language/school/accountType only. Kept
-// on-device so the answers aren't thrown away, and so the form can repopulate.
+// Profile fields the CompleteProfile form collects, kept on-device so the answers aren't
+// thrown away and so the form can repopulate.
 // Shape: { photoUri:string, displayName:string, favouriteSubject:string, goal:string }.
-// Move these to the server when the profile route grows the columns.
+//
+// PARTLY SUPERSEDED. The profile route has since grown columns for most of this:
+// `name` (displayName), and — via the Edit Profile / Learning Preferences screens —
+// date_of_birth, parent_email and learning_prefs, whose `subjects` and `goals` cover
+// favouriteSubject and goal. See prisma/sql/user_profile_fields.sql. CompleteProfile
+// still writes here; migrating it to send `name` and `learningPrefs` instead is the
+// remaining piece, after which only photoUri (a local URI) belongs on the device.
 export const getProfileExtras = async () => {
   try {
     const raw = await AsyncStorage.getItem(KEYS.PROFILE_EXTRAS);

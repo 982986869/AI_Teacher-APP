@@ -10,6 +10,7 @@ import ResultsScreen   from '../screens/ResultsScreen';
 import ProfileScreen   from '../screens/ProfileScreen';
 import FloatingDock     from './FloatingDock';
 import { DockVisibilityProvider, useDockVisibility } from './DockVisibility';
+import { SupportLauncherProvider, useSupportLauncher } from './SupportLauncher';
 import HelpFab from '../components/support/HelpFab';
 import { useRuntimeConfig } from '../context/RuntimeConfigContext';
 import { useAuth } from '../context/AuthContext';
@@ -75,25 +76,34 @@ const StudentTabs = () => {
   );
 };
 
-const MainNavigator = () => {
+// Split out of MainNavigator so it can sit INSIDE SupportLauncherProvider and read the
+// signal — a provider cannot be consumed by the component that renders it.
+const StudentShell = () => {
   const { lockVisible, hideLock } = useAuth();
   // Bumping this opens the support sheet the Help bubble already owns, so there is one
-  // support sheet in the tree rather than a second copy behind the lock.
-  const [supportSignal, setSupportSignal] = React.useState(0);
+  // support sheet in the tree rather than a second copy behind the lock. The Profile
+  // screen's "Help & Support" row bumps the same signal, through the same provider.
+  const { openSupport, signal } = useSupportLauncher();
 
   return (
-    <DockVisibilityProvider>
-      <View style={{ flex: 1 }}>
-        <StudentTabs />
-        <StudentHelpFab openSignal={supportSignal} />
-        <LockSheet
-          visible={lockVisible}
-          onClose={hideLock}
-          onRequestAccess={() => { hideLock(); setSupportSignal((n) => n + 1); }}
-        />
-      </View>
-    </DockVisibilityProvider>
+    <View style={{ flex: 1 }}>
+      <StudentTabs />
+      <StudentHelpFab openSignal={signal} />
+      <LockSheet
+        visible={lockVisible}
+        onClose={hideLock}
+        onRequestAccess={() => { hideLock(); openSupport(); }}
+      />
+    </View>
   );
 };
+
+const MainNavigator = () => (
+  <DockVisibilityProvider>
+    <SupportLauncherProvider>
+      <StudentShell />
+    </SupportLauncherProvider>
+  </DockVisibilityProvider>
+);
 
 export default MainNavigator;
