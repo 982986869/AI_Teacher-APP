@@ -1,12 +1,12 @@
 ﻿// MockResultScreen.js
-// Shown automatically after an online test / mock is submitted â€” the screen that
+// Shown automatically after an online test / mock is submitted — the screen that
 // follows TestQuestionScreen's finish dialog.
 //
 // A violet gradient hero carries the verdict (test name, score, one line of
 // encouragement), then the dark body breaks the paper down: Correct / Wrong /
 // Skipped as labelled meters, the three derived percentages, and the section split
 // when the paper has sections. It reads as the same product as the runner it comes
-// out of â€” the timed-test tokens are imported from components/timedTestDark rather
+// out of — the timed-test tokens are imported from components/timedTestDark rather
 // than restated, so the two can't drift.
 //
 // Props:
@@ -26,29 +26,32 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { TT, TTF } from '../components/timedTestDark';
 
 const C = {
+  // Spreads TT, which is now the light system. The three locals below were picked
+  // against the old dark canvas: the violet hero and a white-alpha track are both
+  // wrong on white, so they follow the frame instead — a neutral card and a grey ring.
   ...TT,
-  heroA: '#8B5CF6',              // hero gradient, top-left
-  heroB: '#6D28D9',              // hero gradient, bottom-right
-  wrong: '#FF3B5C',
-  skipped: '#8F95B2',
-  track: 'rgba(255,255,255,0.08)',
+  heroA: '#F7F7F8',              // result card — a soft neutral panel, not a violet hero
+  heroB: '#F2F2F4',
+  wrong: '#E5484D',
+  skipped: '#C7C7CC',
+  track: 'rgba(17,17,17,0.09)',  // the donut's unfilled ring
 };
 
-// One line of encouragement, chosen by score band. Copy only â€” it never restates or
+// One line of encouragement, chosen by score band. Copy only — it never restates or
 // softens the numbers printed directly above it.
 const verdictLine = (pct, attempted) => {
-  if (!attempted) return 'You didnâ€™t attempt this one. Give it a real go â€” youâ€™ll surprise yourself.';
-  if (pct >= 90) return 'Outstanding. Youâ€™ve got this cold.';
-  if (pct >= 75) return 'Strong paper. A little polish and itâ€™s full marks.';
+  if (!attempted) return 'You didn’t attempt this one. Give it a real go — you’ll surprise yourself.';
+  if (pct >= 90) return 'Outstanding. You’ve got this cold.';
+  if (pct >= 75) return 'Strong paper. A little polish and it’s full marks.';
   if (pct >= 50) return 'Solid start. Review what slipped and go again.';
-  if (pct >= 25) return 'Thereâ€™s a foundation here â€” the review is where it clicks.';
+  if (pct >= 25) return 'There’s a foundation here — the review is where it clicks.';
   return 'Keep practicing! You can do better.';
 };
 
-// "Mock Test - 08 - Result" â†’ "MOCK TEST - 08 COMPLETE". The caller appends
+// "Mock Test - 08 - Result" → "MOCK TEST - 08 COMPLETE". The caller appends
 // "- Result" for the old header; strip it rather than making every caller change.
 const heroTitle = (title) => {
-  const base = String(title || '').replace(/\s*[-â€“]\s*results?\s*$/i, '').trim();
+  const base = String(title || '').replace(/\s*[-–]\s*results?\s*$/i, '').trim();
   return `${base} COMPLETE`.toUpperCase();
 };
 
@@ -117,13 +120,13 @@ export default function MockResultScreen({
   const completion = total ? Math.round((attempted / total) * 100) : 0;
   const score = total ? Math.round((correct / total) * 100) : 0;
 
-  // Only paint a section split that carries real counts â€” an all-zero A/B/C block
+  // Only paint a section split that carries real counts — an all-zero A/B/C block
   // (the prop default, or a paper with no sections) would read as three empty bars.
   const realSections = sections.filter((s) => s && s.total > 0);
 
   return (
     <View style={styles.root}>
-      <StatusBar barStyle="light-content" backgroundColor={C.canvas} />
+      <StatusBar barStyle="dark-content" backgroundColor={C.canvas} />
       <View style={{ height: insets.top, backgroundColor: C.canvas }} />
 
       <ScrollView contentContainerStyle={{ paddingBottom: 8 }} showsVerticalScrollIndicator={false}>
@@ -150,15 +153,15 @@ export default function MockResultScreen({
 
         {/* Breakdown */}
         <View style={styles.body}>
-          <Meter label="Correct" value={correct} total={total} color={C.violet} />
+          <Meter label="Correct" value={correct} total={total} color={C.green} />
           <Meter label="Wrong" value={incorrect} total={total} color={C.wrong} />
           <Meter label="Skipped" value={unanswered} total={total} color={C.skipped} />
 
           <Text style={styles.statsLine}>
             Accuracy <Text style={styles.statsNum}>{accuracy}%</Text>
-            <Text style={styles.statsDot}>  Â·  </Text>
+            <Text style={styles.statsDot}>  ·  </Text>
             Completion <Text style={styles.statsNum}>{completion}%</Text>
-            <Text style={styles.statsDot}>  Â·  </Text>
+            <Text style={styles.statsDot}>  ·  </Text>
             Score <Text style={styles.statsNum}>{score}%</Text>
           </Text>
 
@@ -194,21 +197,21 @@ export default function MockResultScreen({
 const styles = StyleSheet.create({
   root: { flex: 1, backgroundColor: C.canvas },
 
-  // â”€â”€ hero â”€â”€
+  // ── hero ──
   hero: { paddingHorizontal: 24, paddingTop: 26, paddingBottom: 40 },
   brandRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  brandDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: 'rgba(255,255,255,0.45)' },
-  brand: { fontSize: 14, lineHeight: 18, fontFamily: TTF.bold, color: 'rgba(255,255,255,0.5)' },
+  brandDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: C.skipped },
+  brand: { fontSize: 14, lineHeight: 18, fontFamily: TTF.bold, color: C.sub },
   heroTitle: {
     fontSize: 16, lineHeight: 22, fontFamily: TTF.bold, color: C.ink,
     letterSpacing: 0.4, marginTop: 8,
   },
   scoreRow: { flexDirection: 'row', alignItems: 'flex-end', marginTop: 30 },
   scoreNum: { fontSize: 82, lineHeight: 92, fontFamily: TTF.head, color: C.ink, letterSpacing: -2 },
-  scoreOf:  { fontSize: 32, lineHeight: 48, fontFamily: TTF.head, color: 'rgba(255,255,255,0.42)', marginLeft: 4 },
-  heroMsg:  { fontSize: 17, lineHeight: 24, fontFamily: TTF.reg, color: 'rgba(255,255,255,0.94)', marginTop: 26 },
+  scoreOf:  { fontSize: 32, lineHeight: 48, fontFamily: TTF.head, color: C.sub, marginLeft: 4 },
+  heroMsg:  { fontSize: 17, lineHeight: 24, fontFamily: TTF.reg, color: C.ink, marginTop: 26 },
 
-  // â”€â”€ breakdown â”€â”€
+  // ── breakdown ──
   body: { paddingHorizontal: 24, paddingTop: 26 },
   meter: { marginBottom: 22 },
   meterHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 },
@@ -218,7 +221,7 @@ const styles = StyleSheet.create({
   meterFill: { height: '100%', borderRadius: 3 },
 
   statsLine: { fontSize: 15, lineHeight: 22, fontFamily: TTF.reg, color: C.sub, textAlign: 'center', marginTop: 8 },
-  statsNum:  { fontFamily: TTF.bold, color: C.violet },
+  statsNum:  { fontFamily: TTF.bold, color: C.ink },
   statsDot:  { color: C.dim },
 
   sections: { marginTop: 32, gap: 18 },
@@ -228,7 +231,7 @@ const styles = StyleSheet.create({
   secTrack: { flexDirection: 'row', height: 6, borderRadius: 3, overflow: 'hidden', backgroundColor: C.track },
   secSeg: { height: '100%' },
 
-  // â”€â”€ actions â”€â”€
+  // ── actions ──
   actions: { paddingHorizontal: 24, paddingTop: 8 },
   actionRow: { flexDirection: 'row', gap: 14 },
   ghostBtn: {

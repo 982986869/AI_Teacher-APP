@@ -79,7 +79,7 @@ const NavTab = React.memo(function NavTab({ label, Icon, isFocused, onPress, bad
 export default function AdminDock({ state, navigation, supportUnread = 0 }) {
   // The Android system nav bar (home/back/recents) is separate OS chrome, not part of
   // this app's view tree — it defaults to a light strip that seams badly against the
-  // dark dock beneath it. Match it to the dark canvas for as long as Admin is mounted.
+  // dock beneath it. Match it to the canvas for as long as Admin is mounted.
   useEffect(() => {
     if (Platform.OS !== 'android') return;
     NavigationBar.setBackgroundColorAsync(COLORS.background).catch(() => {});

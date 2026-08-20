@@ -448,9 +448,12 @@ const KnowledgeAskScreen = ({ onBack }) => {
               )}
 
               {asking && (messages.length === 0 || messages[messages.length - 1].role === 'user') && (
-                <View style={st.thinkRow}>
-                  <ActivityIndicator color={N.violet} size="small" />
-                  <Text style={st.thinkTxt}>Searching the material…</Text>
+                <View style={st.thinkCard}>
+                  <View style={st.thinkSpinner}><ActivityIndicator color={N.ink} size="small" /></View>
+                  <Text style={st.thinkTitle}>Searching the material…</Text>
+                  <Text style={st.thinkTxt}>
+                    {selectedTitles.length === 1 ? `Looking deep inside ${selectedTitles[0]}` : 'Looking deep inside your files'}
+                  </Text>
                 </View>
               )}
 
@@ -712,9 +715,14 @@ const TeachingView = ({ t, checkHdr = 'Check yourself' }) => (
         as a block instead of text hanging off a bullet. */}
     {Array.isArray(t.steps) && t.steps.length > 0 && (
       <View style={st.stepsWrap}>
+        <Text style={st.stepsHead}>Key Takeaways</Text>
         {t.steps.map((s, i) => (
           <View key={i} style={st.stepRow}>
-            <View style={st.stepNum}><Text style={st.stepNumTxt}>{i + 1}</Text></View>
+            {/* Each step gets the next pastel in the cycle, so a long derivation
+                reads as distinct stages rather than one repeated bullet. */}
+            <View style={[st.stepNum, { backgroundColor: N.stepTints[i % N.stepTints.length] }]}>
+              <Text style={st.stepNumTxt}>{i + 1}</Text>
+            </View>
             <View style={st.stepCard}><Text style={st.stepTxt}>{s}</Text></View>
           </View>
         ))}
@@ -989,18 +997,29 @@ const ManagePanel = () => {
       <Text style={st.hint}>Upload a PDF or a photo of your notes / textbook page — or paste text. It’s read, indexed, and made searchable so you can ask questions about it.</Text>
 
       {/* ── Quick upload: PDF / photo / camera ── */}
+      {/* Three white tiles, each carrying its own tint on the icon square only —
+          a fully tinted tile would compete with the yellow CTA below. */}
       <View style={st.uploadRow}>
         <PressableScale style={[st.upBtn, saving && { opacity: 0.5 }]} onPress={pickPdf} disabled={saving} accessibilityLabel="Upload a PDF">
-          <FileUp size={20} color={N.violet} strokeWidth={2.3} />
+          <View style={[st.upIcon, { backgroundColor: N.tintSun }]}>
+            <FileUp size={22} color={N.tintSunInk} strokeWidth={2.2} />
+          </View>
           <Text style={st.upTxt}>PDF</Text>
+          <Text style={st.upSub}>Upload documents</Text>
         </PressableScale>
         <PressableScale style={[st.upBtn, saving && { opacity: 0.5 }]} onPress={pickPhoto} disabled={saving} accessibilityLabel="Upload a photo">
-          <ImagePlus size={20} color={N.violet} strokeWidth={2.3} />
+          <View style={[st.upIcon, { backgroundColor: N.tintMint }]}>
+            <ImagePlus size={22} color={N.tintMintInk} strokeWidth={2.2} />
+          </View>
           <Text style={st.upTxt}>Photo</Text>
+          <Text style={st.upSub}>From gallery</Text>
         </PressableScale>
         <PressableScale style={[st.upBtn, saving && { opacity: 0.5 }]} onPress={takePhoto} disabled={saving} accessibilityLabel="Take a photo">
-          <Camera size={20} color={N.violet} strokeWidth={2.3} />
+          <View style={[st.upIcon, { backgroundColor: N.tintLilac }]}>
+            <Camera size={22} color={N.tintLilacInk} strokeWidth={2.2} />
+          </View>
           <Text style={st.upTxt}>Camera</Text>
+          <Text style={st.upSub}>Scan pages</Text>
         </PressableScale>
       </View>
 
@@ -1082,23 +1101,28 @@ const ManagePanel = () => {
 
 // Cards float off the night background with a soft black drop, not a coloured one —
 // a violet shadow on a violet page just reads as blur.
-const lift = { shadowColor: '#05030F', shadowOpacity: 0.38, shadowRadius: 18, shadowOffset: { width: 0, height: 10 }, elevation: 7 };
+// Cards lift with a soft neutral drop. The step-number pastels live in the theme
+// (N.stepTints) rather than here, so the same family is available to any screen
+// that needs to tell items apart rather than rank them.
+const lift = { shadowColor: N.ink, shadowOpacity: 0.06, shadowRadius: 12, shadowOffset: { width: 0, height: 4 }, elevation: 2 };
 
 // The material picker is the ONE light surface in this screen. That is deliberate:
 // it is a decision sheet lifted off a dimmed page, and white makes the file list —
 // the thing being chosen — the brightest object on screen. Its own small palette,
 // so nothing here leaks into the night styles below.
+// Now that the app itself is light, this is no longer its own palette — it just
+// names which shared tokens the sheet uses, so it can never drift from them.
 const SHEET = {
-  bg:    '#FFFFFF',
-  ink:   '#0B0A1F',
-  sub:   '#8A8A96',
-  field: '#E8E8EC',
-  row:   '#F2F2F5',
-  edge:  '#DCDCE3',
+  bg:    N.card,
+  ink:   N.ink,
+  sub:   N.inkDim,
+  field: N.cardSoft,
+  row:   N.page,
+  edge:  N.cardEdge,
 };
 
 const st = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: N.bg },
+  safe: { flex: 1, backgroundColor: N.page },
 
   // ── chrome: back · ⋮ ──
   header: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: SP.lg, paddingTop: 6, paddingBottom: 4 },
@@ -1152,19 +1176,19 @@ const st = StyleSheet.create({
   checkBox: { width: 30, height: 30, borderRadius: 9, borderWidth: 1.6, borderColor: SHEET.edge, backgroundColor: SHEET.bg, alignItems: 'center', justifyContent: 'center' },
   checkBoxOn: { borderColor: SHEET.bg },
   pickTitle: { fontSize: 16.5, fontFamily: NFONT.bold, color: SHEET.ink, letterSpacing: -0.3 },
-  pickTitleOn: { color: '#FFFFFF' },
+  pickTitleOn: { color: N.btnInk },
   pickMeta: { fontSize: 13, fontFamily: NFONT.semi, color: SHEET.sub, marginTop: 2 },
   pickMetaOn: { color: 'rgba(255,255,255,0.92)' },
   sheetFoot: { flexDirection: 'row', gap: 12, paddingHorizontal: 22, paddingTop: 16, marginTop: 4 },
   sheetGhost: { height: 56, paddingHorizontal: 26, borderRadius: R.pill, backgroundColor: SHEET.field, alignItems: 'center', justifyContent: 'center' },
   sheetGhostTxt: { fontSize: 16, fontFamily: NFONT.semi, color: SHEET.ink, letterSpacing: -0.3 },
   sheetApply: { flex: 1, height: 56, borderRadius: R.pill, backgroundColor: N.btn, alignItems: 'center', justifyContent: 'center' },
-  sheetApplyTxt: { fontSize: 16, fontFamily: NFONT.bold, color: '#FFFFFF', letterSpacing: -0.3 },
+  sheetApplyTxt: { fontSize: 16, fontFamily: NFONT.bold, color: N.btnInk, letterSpacing: -0.3 },
   sheetEmpty: { fontSize: 14, fontFamily: NFONT.reg, color: SHEET.sub, textAlign: 'center', paddingVertical: 22 },
 
   // ── empty state ──
   empty: { alignItems: 'center', paddingVertical: 44, paddingHorizontal: SP.lg },
-  emptyIcon: { width: 64, height: 64, borderRadius: 22, backgroundColor: N.violetSoft, borderWidth: 1, borderColor: N.cardEdge, alignItems: 'center', justifyContent: 'center', marginBottom: SP.md },
+  emptyIcon: { width: 118, height: 118, borderRadius: 59, backgroundColor: N.violet, alignItems: 'center', justifyContent: 'center', marginBottom: 26 },
   emptyTitle: { fontSize: 17, fontFamily: NFONT.bold, color: N.ink },
   emptyHint: { fontSize: 13, fontFamily: NFONT.reg, color: N.inkSoft, textAlign: 'center', lineHeight: 20, marginTop: 6, maxWidth: 290 },
 
@@ -1176,8 +1200,16 @@ const st = StyleSheet.create({
   userPhoto: { width: 190, height: 150, borderRadius: 13, backgroundColor: N.cardSoft },
   userPhotoCap: { color: N.ink, fontSize: 12, fontFamily: NFONT.semi, textAlign: 'center', paddingVertical: 7 },
 
-  thinkRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 18 },
-  thinkTxt: { fontSize: 13, fontFamily: NFONT.semi, color: N.inkSoft },
+  thinkCard: {
+    marginTop: 18, backgroundColor: N.violetSoft, borderRadius: 20,
+    paddingVertical: 26, paddingHorizontal: 20, alignItems: 'center', gap: 10,
+  },
+  thinkSpinner: {
+    width: 52, height: 52, borderRadius: 26, backgroundColor: N.violet,
+    alignItems: 'center', justifyContent: 'center', marginBottom: 4,
+  },
+  thinkTitle: { fontSize: 16.5, fontFamily: NFONT.bold, color: N.ink, letterSpacing: -0.3 },
+  thinkTxt: { fontSize: 13.5, fontFamily: NFONT.reg, color: N.inkSoft, textAlign: 'center' },
 
   // one-tap follow-up chips under the latest answer
   followRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: 12 },
@@ -1196,7 +1228,7 @@ const st = StyleSheet.create({
   // Solid green reads as "matched" at a glance; the label goes near-black because
   // 10px white on #35BE7C does not clear AA.
   confPill: { backgroundColor: N.green, borderRadius: 10, paddingVertical: 5, paddingHorizontal: 10 },
-  confTxt: { fontSize: 11, fontFamily: NFONT.bold, color: '#06281A' },
+  confTxt: { fontSize: 11, fontFamily: NFONT.bold, color: N.ink },
 
   answerCard: { marginTop: 12, backgroundColor: N.card, borderRadius: 20, borderWidth: 1, borderColor: N.cardEdge, padding: 18 },
   answerCardEmpty: { borderColor: N.amber },
@@ -1211,10 +1243,13 @@ const st = StyleSheet.create({
   photoBadgeTxt: { fontSize: 11, fontFamily: NFONT.semi, color: N.dot, letterSpacing: 0.1 },
 
   // numbered teaching steps — number badge outside its own card
-  stepsWrap: { marginTop: 14, gap: 12 },
+  stepsWrap: { marginTop: 10, gap: 12 },
+  stepsHead: { fontSize: 18, fontFamily: NFONT.bold, color: N.ink, letterSpacing: -0.4, marginTop: 20 },
   stepRow: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  stepNum: { width: 30, height: 30, borderRadius: 15, backgroundColor: N.btn, alignItems: 'center', justifyContent: 'center' },
-  stepNumTxt: { fontSize: 13, fontFamily: NFONT.bold, color: N.ink },
+  // backgroundColor comes from STEP_TINTS per index. It used to be N.btn (#111111)
+  // with N.ink (#111111) on top — black on black, so the numbers were invisible.
+  stepNum: { width: 32, height: 32, borderRadius: 16, alignItems: 'center', justifyContent: 'center' },
+  stepNumTxt: { fontSize: 13.5, fontFamily: NFONT.bold, color: N.ink },
   stepCard: { flex: 1, backgroundColor: N.card, borderRadius: 16, borderWidth: 1, borderColor: N.cardEdge, paddingVertical: 14, paddingHorizontal: 16 },
   stepTxt: { fontSize: 14, fontFamily: NFONT.reg, color: N.ink, lineHeight: 22 },
 
@@ -1243,7 +1278,7 @@ const st = StyleSheet.create({
   sourceIcon: { width: 30, height: 30, borderRadius: 10, backgroundColor: N.blueSoft, alignItems: 'center', justifyContent: 'center' },
   sourceTitle: { flex: 1, fontSize: 12.5, fontFamily: NFONT.semi, color: N.ink },
   simPill: { backgroundColor: N.green, borderRadius: 9, paddingHorizontal: 8, paddingVertical: 4 },
-  simTxt: { fontSize: 10, fontFamily: NFONT.bold, color: '#06281A' },
+  simTxt: { fontSize: 10, fontFamily: NFONT.bold, color: N.ink },
   // the exact passage the answer was grounded on, revealed on tap
   snippetCard: { marginTop: -2, marginHorizontal: 6, backgroundColor: N.blueSoft, borderBottomLeftRadius: 14, borderBottomRightRadius: 14, paddingHorizontal: 12, paddingVertical: 12 },
   snippetHead: { flexDirection: 'row', alignItems: 'center', gap: 6, marginBottom: 6 },
@@ -1273,8 +1308,10 @@ const st = StyleSheet.create({
 
   // ── manage panel ──
   uploadRow: { flexDirection: 'row', gap: 10, marginBottom: 4 },
-  upBtn: { flex: 1, alignItems: 'center', justifyContent: 'center', gap: 7, paddingVertical: 18, backgroundColor: N.violetSoft, borderWidth: 1, borderColor: N.violet, borderRadius: 18 },
-  upTxt: { fontSize: 12.5, fontFamily: NFONT.bold, color: N.dot },
+  upBtn: { flex: 1, alignItems: 'center', justifyContent: 'center', gap: 8, paddingVertical: 20, backgroundColor: N.card, borderWidth: 1, borderColor: N.cardEdge, borderRadius: 18 },
+  upIcon: { width: 46, height: 46, borderRadius: 14, alignItems: 'center', justifyContent: 'center', marginBottom: 2 },
+  upTxt: { fontSize: 14, fontFamily: NFONT.bold, color: N.ink },
+  upSub: { fontSize: 11.5, fontFamily: NFONT.reg, color: N.inkSoft, textAlign: 'center' },
   busyRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 14 },
   busyTxt: { fontSize: 12.5, fontFamily: NFONT.semi, color: N.inkSoft, flex: 1 },
   orLbl: { fontSize: 10, fontFamily: NFONT.bold, color: N.inkDim, letterSpacing: 1.2, textTransform: 'uppercase', textAlign: 'center', marginTop: 22, marginBottom: 14 },

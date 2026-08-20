@@ -9,12 +9,15 @@ import { firstImg, stripImages } from '../utils/mathHtml';
 // Warm coral + teal pastel palette (Cuemath-style). coral = primary/brand,
 // teal = correct/positive, warm-red = wrong, amber = skipped.
 const C = {
-  primary: '#0FA39A', primaryLight: '#E1F5F3',   // coral
-  accent: '#E25563', accentLight: '#FCE9EC',      // wrong (warm red)
-  green: '#0FA39A', greenLight: '#E1F5F3',        // correct (teal)
-  yellow: '#F5A623', yellowLight: '#FFF6E6',
-  bg: S.hair, white: '#fff',                   // warm white
-  text: '#2A2D3A', muted: S.muted, border: '#F0E8E3',
+  // Cuemath system. C.primary was teal; it is the yellow accent now, and yellow is
+  // a FILL — the label on top is ink. Correct/wrong keep their own semantic hues.
+  primary: '#FFC629', primaryLight: '#FFF4CC',
+  accent: '#E5484D', accentLight: '#FDECEA',      // wrong
+  green: '#0E9F6E', greenLight: '#D6F5E7',        // correct
+  yellow: '#FFC629', yellowLight: '#FFF4CC',
+  bg: '#FFFFFF', white: '#FFFFFF',
+  text: '#111111', muted: '#666666', border: 'rgba(17,17,17,0.10)',
+  ink: '#111111',                                  // label on a yellow fill
 };
 
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
@@ -450,7 +453,7 @@ export default function McqTestScreen({
                   <TouchableOpacity key={i} style={[mt.opt, isSel && mt.optSel]} activeOpacity={0.85} onPress={() => selectSectioned(i)}>
                     <Text style={[mt.optLtr, isSel && mt.optLtrSel]}>{LETTERS[i]}</Text>
                     <View style={{ flex: 1 }}>
-                      <Rich value={opt} fontSize={15} color={isSel ? '#0B5E5A' : S.ink} imgHeight={90} />
+                      <Rich value={opt} fontSize={15} color={isSel ? '#111111' : C.text} imgHeight={90} />
                     </View>
                   </TouchableOpacity>
                 );
@@ -796,8 +799,8 @@ const s = StyleSheet.create({
 });
 
 // ── Sectioned mock-test (teal reference) styles ───────────────────────────────
-const TEAL = '#0E9A93';
-const TEAL_DARK = '#0B7E78';
+const TEAL = '#FFC629';        // accent FILL (was teal)
+const TEAL_DARK = '#8A6A00';   // accent as TEXT — yellow fails on white
 const CORAL = '#0FA39A';   // primary action (matches instructions/CTA)
 const mt = StyleSheet.create({
   safe: { flex: 1, backgroundColor: S.hair },
@@ -821,14 +824,14 @@ const mt = StyleSheet.create({
   tabTxt: { fontSize: 13, fontFamily: FONT.bold, color: S.muted },
   tabTxtOn: { color: '#fff' },
   instr: { backgroundColor: '#E1F5F3', borderRadius: 10, paddingVertical: 12, paddingHorizontal: 14, marginBottom: 16, borderWidth: 1, borderColor: '#C7E9E5' },
-  instrTxt: { fontSize: 14, fontFamily: FONT.bold, color: '#0B7E78' },
+  instrTxt: { fontSize: 14, fontFamily: FONT.bold, color: '#8A6A00' },
   qText: { fontSize: 16, fontFamily: FONT.semibold, color: S.ink, lineHeight: 24, marginBottom: 14 },
   opt: { flexDirection: 'row', alignItems: 'center', gap: 12, borderWidth: 1.5, borderColor: '#E2E8E8', borderRadius: 12, paddingVertical: 14, paddingHorizontal: 16, backgroundColor: '#fff' },
   optSel: { borderColor: TEAL, backgroundColor: '#E6F4F3' },
   optLtr: { fontSize: 15, fontFamily: FONT.extrabold, color: S.muted, minWidth: 18 },
   optLtrSel: { color: TEAL },
   optTxt: { flex: 1, fontSize: 15, fontFamily: FONT.semibold, color: S.ink },
-  optTxtSel: { color: '#0B5E5A' },
+  optTxtSel: { color: '#111111' },
   clearWrap: { alignSelf: 'flex-end', marginTop: 16 },
   clearTxt: { fontSize: 14, fontFamily: FONT.bold, color: TEAL },
 

@@ -133,6 +133,20 @@ const config = {
     elevenModel: process.env.ELEVENLABS_MODEL || 'eleven_flash_v2_5', // cheap + low-latency
   },
 
+  // HeyGen real-time streaming avatar (WebRTC/LiveKit) for the live teacher video.
+  // Real per-minute cost (~$0.20/min), so this is OFF by default and gated per-request
+  // to req.scope.tester (TESTER_EMAILS) on top of `enabled` — see routes/avatar.js.
+  // Still being iterated on (see docs/plan) — not wired into the client yet.
+  avatar: {
+    heygenApiKey: process.env.HEYGEN_API_KEY,
+    heygenAvatarId: process.env.HEYGEN_AVATAR_ID,
+    sessionDurationSec: parseInt(process.env.HEYGEN_SESSION_DURATION_SEC, 10) || 600,
+    idleTimeoutSec: parseInt(process.env.HEYGEN_IDLE_TIMEOUT_SEC, 10) || 300,
+    quality: process.env.HEYGEN_QUALITY || 'medium',
+    enabled: process.env.HEYGEN_ENABLED === 'true',
+    maxConcurrentSessions: parseInt(process.env.HEYGEN_MAX_CONCURRENT, 10) || 4,
+  },
+
   // Knowledge (RAG) layer. Validated lazily at call time so the server starts
   // without embedding credentials configured.
   embeddings: {

@@ -44,6 +44,9 @@ router.use('/learning',   require('./learning'))
 router.use('/ai',           paid(require('./ai')))
 router.use('/knowledge',    paid(require('./knowledge')))
 router.use('/tts',          paid(require('./tts')))
+// Real per-minute cost (HeyGen streaming avatar) — paid tier on top of the
+// tester-allowlist + enabled flag already gating it inside routes/avatar.js.
+router.use('/avatar',       paid(require('./avatar')))
 router.use('/resources',    paid(require('./resources')))
 router.use('/mcq-practice', paid(require('./mcqPractice')))
 router.use('/online-tests', paid(require('./onlineTest')))

@@ -5,7 +5,9 @@ const { Readable } = require('stream')
 const crypto = require('crypto')
 const jwt = require('jsonwebtoken')
 const { config } = require('../config/env')
-const { synthesizeSpeech } = require('../providers/ai/OpenAITTSProvider')
+const { synthesizeSpeech: openaiSynthesize } = require('../providers/ai/OpenAITTSProvider')
+const { synthesizeSpeech: elevenSynthesize } = require('../providers/ai/ElevenLabsTTSProvider')
+const { synthesizeSpeech: kokoroSynthesize } = require('../providers/ai/KokoroTTSProvider')
 
 // ── AUDIO CACHE ───────────────────────────────────────────────────────────────
 // Slide narration is deterministic: the same (text, voice) always synthesizes to
@@ -39,8 +41,6 @@ function ttsCacheSet(key, buf, mime) {
 //                  at http://localhost:8880 (see /kokoro-server). Also buffered.
 //   • OpenAI     — returns a stream, so playback can start before the line is
 //                  fully synthesized: the lowest first-audio latency of the three.
-const { synthesizeSpeech: kokoroSynthesize } = require('../providers/ai/KokoroTTSProvider')
-const { synthesizeSpeech: elevenSynthesize } = require('../providers/ai/ElevenLabsTTSProvider')
 
 const router = Router()
 
@@ -69,7 +69,7 @@ async function synthesize(text, opts) {
   const provider = config.tts.provider
 
   if (provider === 'kokoro') return kokoroSynthesize(text, opts)
-  if (provider === 'openai') return synthesizeSpeech(text, opts)
+  if (provider === 'openai') return openaiSynthesize(text, opts)
   return elevenSynthesize(text, opts)
 }
 
@@ -108,9 +108,8 @@ async function handleTts(req, res) {
   res.setHeader('Cache-Control', 'private, max-age=86400')
   res.setHeader('X-TTS-Cache', 'miss')
 
-  // OpenAI returns a web ReadableStream. (A buffered provider — e.g. Kokoro, if it
-  // is ever re-enabled above — would return `result.buffer` instead; this guard
-  // keeps that path working without changing anything else.)
+  // ElevenLabs/Kokoro return a buffered clip (result.buffer); OpenAI streams a
+  // web ReadableStream instead — this guard routes each provider correctly.
   if (result.buffer) {
     ttsCacheSet(key, result.buffer, result.mime)
     return res.send(result.buffer)

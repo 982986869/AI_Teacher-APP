@@ -40,34 +40,38 @@ const QUESTION_SECONDS = 60;
 // brighter and more saturated than COLORS.success / COLORS.error, which were
 // picked for the light screens and go muddy on this canvas.
 const C = {
-  canvas: COLORS.background,   // #0C0936
-  card: '#16143F',             // stats panel, resting option card, back button
-  hair: '#FFFFFF10',           // white @ 6.27% — the back button's edge
-  chip: 'rgba(255,255,255,0.0627)', // letter badge + percent chip fill
+  // ⚠ Light system. This was the dark quiz palette; keys are unchanged so the ~60
+  // call sites below keep working, but every value moved. The old map had
+  // ink: #FFFFFF over canvas: COLORS.background — once the base went white that
+  // rendered every question and option as white-on-white, i.e. blank.
+  canvas: COLORS.background,   // #FFFFFF
+  card: '#F5F5F5',             // stats panel, resting option card, back button
+  hair: 'rgba(17,17,17,0.10)',
+  chip: 'rgba(17,17,17,0.06)', // letter badge + percent chip fill
 
-  ink: '#FFFFFF',
-  sub: '#8F95B2',              // every muted label on both frames
-  onBright: '#08090C',         // letter sitting on a saturated badge
+  ink: '#111111',
+  sub: '#666666',              // every muted label on both frames
+  onBright: '#111111',         // letter sitting on a saturated badge — ink, not white
 
-  violet: '#9D4EDD',           // timer badge + the Next/Submit button
-  violetSoft: 'rgba(157,78,221,0.1255)',
-  violetGlow: 'rgba(157,78,221,0.1451)',
+  // Timer badge + Next/Submit. Yellow is a FILL; onBright rides on top of it.
+  violet: '#FFC629',
+  violetSoft: '#FFF4CC',
+  violetGlow: '#FFF9E6',
 
   // Pre-submit pick. Distinct from the reveal hues on purpose, so "chosen" never
   // reads as "graded".
-  cyan: '#00F0FF',
-  cyanSoft: 'rgba(0,240,255,0.1255)',
+  cyan: '#FFC629',        // the chosen-but-not-yet-graded option — yellow, per the frame
+  cyanSoft: '#FFF4CC',
 
-  green: '#00FF88',
-  greenSoft: 'rgba(0,255,136,0.102)',
-  red: '#FF3366',
-  redSoft: 'rgba(255,51,102,0.102)',
-  redEdge: 'rgba(255,51,102,0.1255)',   // explanation box — a dimmer edge than the cards'
-  // Skipped has no frame of its own; it borrows the accent token so it can't be
-  // mistaken for either graded state.
-  amber: COLORS.accent,        // #F7B500
-  amberSoft: 'rgba(247,181,0,0.102)',
-  amberEdge: 'rgba(247,181,0,0.1255)',
+  green: '#0E9F6E',
+  greenSoft: '#E6F6F0',
+  red: '#D92D20',
+  redSoft: '#FDECEA',
+  redEdge: 'rgba(217,45,32,0.22)',
+  // Skipped borrows the accent token so it cannot be mistaken for either graded state.
+  amber: COLORS.accent,        // #8A6A00 — the darkened hue, legible on white
+  amberSoft: '#FFF9E6',
+  amberEdge: 'rgba(138,106,0,0.22)',
 };
 
 // The frames are drawn in two faces that are on neither of the board's sanctioned
@@ -496,7 +500,7 @@ const st = StyleSheet.create({
   // own padding, so a gap here would double-space them.
   // `mcq-actions` carries the 24 under the buttons, so the scroll adds none.
   scroll: { paddingHorizontal: PAD },
-  cat: { fontSize: 12, lineHeight: 16, fontFamily: F.semi, color: C.violet, letterSpacing: 0.4, marginTop: 16 },
+  cat: { fontSize: 12, lineHeight: 16, fontFamily: F.semi, color: '#8A6A00', letterSpacing: 0.4, marginTop: 16 },
   questionBox: { paddingTop: 16, paddingBottom: 16, gap: 12 },
   diagram: { width: '100%', borderRadius: RADIUS.sm, backgroundColor: '#FFFFFF' },
 

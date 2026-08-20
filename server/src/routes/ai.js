@@ -97,7 +97,17 @@ const checkRules = [
 // ─── Routes ───────────────────────────────────────────────────────────────────
 
 const memoryRules = [
-  body('type').isIn(['doubt', 'mistake', 'quiz']).withMessage('type must be doubt|mistake|quiz'),
+  // 'doubt' | 'mistake' | 'quiz' carry a mastery delta in recordEvent. The rest are
+  // PASSIVE consumption — what the student opened and read — and deliberately move no
+  // mastery: opening a page is not evidence of learning, and letting it raise mastery
+  // would let a student inflate their profile by scrolling. They are logged so the
+  // activity dashboard can show what was actually studied.
+  //   note_view     — revision notes / chapter notes
+  //   solution_view — NCERT or exemplar solutions
+  //   lesson_view   — an AI-Teacher lesson opened
+  //   question_view — a single question opened in the reader
+  body('type').isIn(['doubt', 'mistake', 'quiz', 'note_view', 'solution_view', 'lesson_view', 'question_view'])
+    .withMessage('type must be doubt|mistake|quiz|note_view|solution_view|lesson_view|question_view'),
   body('subject').optional().isLength({ max: 100 }),
   body('chapter').optional().isLength({ max: 200 }),
   body('detail').optional().isObject(),
