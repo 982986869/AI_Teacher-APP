@@ -222,11 +222,11 @@ export default function QuestionSolveScreen({
                       <View style={{ flex: 1 }}>
                         <Rich
                           value={o.html}
-                          fontSize={15}
-                          lineHeight={20}
+                          fontSize={14.5}
+                          lineHeight={19}
                           color={tone === 'right' ? '#0B3B2C' : C.ink}
                           family={TTF.semi}
-                          imgHeight={80}
+                          imgHeight={72}
                         />
                       </View>
                       {/* Hint affordance — only on options the importer gave one.
@@ -351,7 +351,7 @@ const st = StyleSheet.create({
   stepNumTxt: { fontSize: 13, lineHeight: 17, fontFamily: TTF.bold, color: C.ink },
   stepTitle: { fontSize: 15, lineHeight: 21, fontFamily: TTF.bold, color: C.ink, marginBottom: 3 },
 
-  opts: { flexDirection: 'row', flexWrap: 'wrap', gap: 10, paddingHorizontal: 16, marginTop: 14 },
+  opts: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, paddingHorizontal: 16, marginTop: 12 },
   hintWrap: { paddingHorizontal: 16, marginTop: 12 },
   hintCue: { fontSize: 14, lineHeight: 20, fontFamily: TTF.reg, color: C.dim, textAlign: 'center' },
   hintTxt: {
@@ -361,21 +361,25 @@ const st = StyleSheet.create({
   // An unpicked option is a WHITE row on a hairline. It used to be a solid #666
   // slab — a fill chosen when the page behind it was near-black, which on white
   // read as four heavy grey bars competing with the question itself.
+  //
+  // 48 is the floor, not a preference: it is the minimum touch target, and these
+  // rows are the only way to answer. A single-line option sits exactly on it and
+  // a wrapping one grows past it, so shrinking further would cost taps, not pixels.
   opt: {
-    minHeight: 56,
-    flexDirection: 'row', alignItems: 'center', gap: 12,
-    borderRadius: 14, borderWidth: 1.5, borderColor: C.hair,
-    backgroundColor: C.canvas, paddingHorizontal: 12, paddingVertical: 11,
+    minHeight: 48,
+    flexDirection: 'row', alignItems: 'center', gap: 10,
+    borderRadius: 12, borderWidth: 1.25, borderColor: C.hair,
+    backgroundColor: C.canvas, paddingHorizontal: 11, paddingVertical: 9,
   },
   optHalf: { width: '48%', flexGrow: 1 },
   optFull: { width: '100%' },
   optRight: { backgroundColor: C.greenFill, borderColor: C.greenEdge },
   optWrong: { backgroundColor: C.wrongFill, borderColor: C.wrongEdge },
   letter: {
-    width: 30, height: 30, borderRadius: 9, alignItems: 'center', justifyContent: 'center',
+    width: 26, height: 26, borderRadius: 8, alignItems: 'center', justifyContent: 'center',
     backgroundColor: '#F2F2F4',
   },
-  letterTxt: { fontSize: 14, lineHeight: 18, fontFamily: TTF.bold, color: C.sub },
+  letterTxt: { fontSize: 13, lineHeight: 17, fontFamily: TTF.bold, color: C.sub },
 
   // The verdict card. It was a rounded bottom-sheet with a grab handle, which
   // promised a drag that never existed and pinned the explanation to the bottom of
