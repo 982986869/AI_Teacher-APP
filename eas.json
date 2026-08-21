@@ -12,7 +12,8 @@
       },
       "env": {
         "NODE_OPTIONS": "--max-old-space-size=8192"
-      }
+      },
+      "channel": "development"
     },
     "preview": {
       "distribution": "internal",
@@ -22,7 +23,8 @@
       "env": {
         "NODE_OPTIONS": "--max-old-space-size=8192",
         "EXPO_PUBLIC_API_URL": "https://ailernova-api.onrender.com"
-      }
+      },
+      "channel": "preview"
     },
     "production": {
       "autoIncrement": true,
@@ -32,7 +34,8 @@
       "env": {
         "NODE_OPTIONS": "--max-old-space-size=8192",
         "EXPO_PUBLIC_API_URL": "https://ailernova-api.onrender.com"
-      }
+      },
+      "channel": "production"
     }
   },
   "submit": {
