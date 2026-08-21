@@ -179,7 +179,7 @@ export default function QuestionSolveScreen({
                       </View>
                     )}
                     <View style={st.qBody}>
-                      <Rich value={body} fontSize={17} lineHeight={27} color={C.ink} family={TTF.reg} imgHeight={180} />
+                      <Rich value={body} fontSize={19} lineHeight={28} color={C.ink} family={TTF.reg} imgHeight={180} />
                     </View>
                   </>
                 );
