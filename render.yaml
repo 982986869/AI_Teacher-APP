@@ -36,8 +36,14 @@ services:
         sync: false
 
       # ── Google sign-in (server verifies Google ID tokens against this) ────
+      # Not a secret — an OAuth *client id* is a public identifier and already ships
+      # inside the app bundle (app.json → expo.extra.google.webClientId). It is
+      # inlined here rather than sync:false because it is not in server/.env, so
+      # there is nothing to copy from and a dashboard prompt would just be guessed
+      # wrong. It MUST stay identical to the app's value or Google ID-token
+      # verification fails on audience mismatch.
       - key: GOOGLE_WEB_CLIENT_ID
-        sync: false
+        value: 87773466841-e4mu2gmd5evup3gg6vf58hqs0ogumvas.apps.googleusercontent.com
 
       # ── Supabase (storage for uploaded content images) ────────────────────
       - key: SUPABASE_URL
@@ -61,7 +67,21 @@ services:
       - key: MOCK_AI
         value: "false"
 
-      # ── Teacher voice. Unset ⇒ the app falls back to on-device TTS ────────
+      # ── Teacher voice ─────────────────────────────────────────────────────
+      # PRIMARY is ElevenLabs (config/env.js defaults TTS_PROVIDER to elevenlabs)
+      # and there is DELIBERATELY no fallback chain: without ELEVENLABS_API_KEY the
+      # server reports TTS disabled and the app drops to on-device TTS, which sounds
+      # like a different teacher. The key must belong to a PAYING ElevenLabs account
+      # — free plans answer 402 on the TTS API. ELEVENLABS_VOICE_ID has a code
+      # default, so it is only needed here to override it.
+      - key: TTS_PROVIDER
+        value: elevenlabs
+      - key: ELEVENLABS_API_KEY
+        sync: false
+      - key: ELEVENLABS_VOICE_ID
+        sync: false
+      # Only read when TTS_PROVIDER=openai. Left here so switching provider is a
+      # one-value change in the dashboard rather than a redeploy of this file.
       - key: OPENAI_API_KEY
         sync: false
 

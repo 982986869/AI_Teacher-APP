@@ -11,6 +11,7 @@
 // ► TODO(support-routing): when a team gets its own WhatsApp number or inbox, add
 //   `whatsapp` / `email` to that topic below and it overrides the shared route.
 //   Do NOT invent numbers or inboxes here — a dead contact is worse than a slow one.
+import { D, BADGE } from './theme';
 
 // The shared, verified company channels.
 export const SUPPORT = {
@@ -44,19 +45,22 @@ export const teamAgent = (category) => ({
 export const DEFAULT_AGENT = teamAgent(null);
 
 // ── Topics ───────────────────────────────────────────────────────────────────
-// `tint` is the number-badge fill and `badgeInk` the numeral on top of it. Two of the
-// four are specified in the Figma panels — topic 1 #FA4F07, and topic 3 #E8D14D with a
-// #0C0936 numeral (a white "3" on that yellow would fail contrast, which is why the
-// numeral colour is per-topic rather than always white). Topics 2 and 4 were read off
-// the mockup — worth confirming against the file if exactness matters.
+// Each row spreads one entry from BADGE (./theme), which carries both the number-badge
+// fill and the numeral colour that clears contrast on it. The hexes that used to be
+// written out here came from the dark comps and were re-checked against white one by
+// one; naming a swatch instead means the check lives in one place and the two lists
+// below cannot drift apart.
+//
+// The ORDER is the light comps': yellow, green, violet, blue. Both lists follow the
+// same sequence by position, so parent and student support read as one system even
+// though they route to different teams.
 // `plain: true` renders the row as the full-width button at the bottom of the list
 // (the "Something else" row) — no badge, no chevron, centred label.
 
 export const PARENT_CATEGORIES = [
   {
     id: 'sales',
-    tint: '#FA4F07',
-    badgeInk: '#FFFFFF',
+    ...BADGE.accent,
     label: 'Sales',
     desc: 'Course plans & pricing',
     team: 'Sales team',
@@ -65,8 +69,7 @@ export const PARENT_CATEGORIES = [
   },
   {
     id: 'tutor',
-    tint: '#2EA043',
-    badgeInk: '#FFFFFF',
+    ...BADGE.green,
     label: 'Tutor',
     desc: 'Schedule or tutor changes',
     team: 'Tutor operations',
@@ -75,8 +78,7 @@ export const PARENT_CATEGORIES = [
   },
   {
     id: 'billing',
-    tint: '#E8D14D',
-    badgeInk: '#0C0936',
+    ...BADGE.violet,
     label: 'Billing',
     desc: 'Refunds, invoice & double charge',
     team: 'Accounts team',
@@ -85,8 +87,7 @@ export const PARENT_CATEGORIES = [
   },
   {
     id: 'class',
-    tint: '#A371F7',
-    badgeInk: '#FFFFFF',
+    ...BADGE.blue,
     label: 'Class related',
     desc: 'Zoom links & curriculum',
     team: 'Class support',
@@ -96,8 +97,7 @@ export const PARENT_CATEGORIES = [
   {
     id: 'other',
     plain: true,
-    tint: '#8B949E',
-    badgeInk: '#0C0936',
+    ...BADGE.grey,
     label: 'Something else',
     desc: 'Something else',
     team: 'Support team',
@@ -113,8 +113,7 @@ export const STUDENT_CATEGORIES = [
     // "Something else", where it would sit in the general queue behind real support.
     // Routed to the Sales team so it shows up as the pipeline it actually is.
     id: 'unlock',
-    tint: '#7C3AED',
-    badgeInk: '#FFFFFF',
+    ...BADGE.accent,
     label: 'Unlock full access',
     desc: 'Lessons, practice, resources & tests',
     team: 'Sales team',
@@ -123,8 +122,7 @@ export const STUDENT_CATEGORIES = [
   },
   {
     id: 'doubt',
-    tint: '#FA4F07',
-    badgeInk: '#FFFFFF',
+    ...BADGE.green,
     label: 'Doubt',
     desc: 'A topic or question you’re stuck on',
     team: 'Academic team',
@@ -133,8 +131,7 @@ export const STUDENT_CATEGORIES = [
   },
   {
     id: 'class',
-    tint: '#2EA043',
-    badgeInk: '#FFFFFF',
+    ...BADGE.violet,
     label: 'Class related',
     desc: 'Zoom links, timings & tutor',
     team: 'Class support',
@@ -143,8 +140,7 @@ export const STUDENT_CATEGORIES = [
   },
   {
     id: 'test',
-    tint: '#E8D14D',
-    badgeInk: '#0C0936',
+    ...BADGE.blue,
     label: 'Test & results',
     desc: 'Answer keys, scores & submissions',
     team: 'Assessment team',
@@ -153,8 +149,7 @@ export const STUDENT_CATEGORIES = [
   },
   {
     id: 'tech',
-    tint: '#A371F7',
-    badgeInk: '#FFFFFF',
+    ...BADGE.red,
     label: 'App not working',
     desc: 'Login, video, audio or crashes',
     team: 'Tech support',
@@ -164,8 +159,7 @@ export const STUDENT_CATEGORIES = [
   {
     id: 'other',
     plain: true,
-    tint: '#8B949E',
-    badgeInk: '#0C0936',
+    ...BADGE.grey,
     label: 'Something else',
     desc: 'Something else',
     team: 'Support team',
@@ -233,7 +227,7 @@ export const DEMO_TICKET_CONTEXT = {
   // an action the app cannot perform and carries a gendered Hindi verb ending — the
   // agent on shift can be anyone.
   opening: 'We are looking into it — two payments were captured on 12 Aug. INV-8841 looks like a duplicate. Confirm and the refund request goes to the team.',
-  badge: { label: 'Duplicate payment', tint: '#F5A623', ink: '#0C0936' },
+  badge: { label: 'Duplicate payment', tint: D.accent, ink: D.onAccent },
   amount: '₹4,800.00',
   meta: 'INV-8841 · 12 Aug 2026 · UPI ···4471',
   primary: { label: 'Confirm Refund' },

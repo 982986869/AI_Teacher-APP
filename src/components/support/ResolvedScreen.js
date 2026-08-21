@@ -126,15 +126,15 @@ export default function ResolvedScreen({
           <View style={s.rule} />
 
           <PressableScale style={s.emailRow} onPress={emailThread} scaleTo={0.97} accessibilityRole="button" accessibilityLabel="Email this conversation">
-            <Mail size={16} color={D.indigo} strokeWidth={2.2} />
-            <TX w="semi" s={13} c={D.indigo}>Email this conversation</TX>
+            <Mail size={16} color={D.accentInk} strokeWidth={2.2} />
+            <TX w="semi" s={13} c={D.accentInk}>Email this conversation</TX>
           </PressableScale>
         </FadeIn>
       </ScrollView>
 
       <View style={[s.actions, { paddingBottom: Math.max(insets.bottom, 12) }]}>
         <PressableScale style={s.primaryBtn} onPress={onNewConversation} scaleTo={0.97} accessibilityRole="button" accessibilityLabel="Start a new conversation">
-          <TX w="bold" s={14.5} c="#FFFFFF">Start New Conversation</TX>
+          <TX w="bold" s={14.5} c={D.onAccent}>Start New Conversation</TX>
         </PressableScale>
         <PressableScale style={s.ghostBtn} onPress={onReopen} scaleTo={0.97} accessibilityRole="button" accessibilityLabel="Reopen this chat">
           <TX w="semi" s={14.5} c={D.ink}>Reopen This Chat</TX>
@@ -171,7 +171,7 @@ const s = StyleSheet.create({
   actions: { paddingHorizontal: 20, paddingTop: 12, gap: 12 },
   primaryBtn: {
     alignSelf: 'stretch', height: 50, borderRadius: 25,
-    alignItems: 'center', justifyContent: 'center', backgroundColor: D.indigo,
+    alignItems: 'center', justifyContent: 'center', backgroundColor: D.accent,
   },
   ghostBtn: {
     alignSelf: 'stretch', height: 50, borderRadius: 25,

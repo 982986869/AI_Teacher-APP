@@ -16,7 +16,7 @@ const LABEL = {
   open: 'The team is on it',
   assigned: 'The team is on it',
   pending_confirmation: 'Waiting for your reply',
-  closed: 'Band',
+  closed: 'Closed',
 };
 
 export default function TicketList({ tickets, loading, onOpen, onNew, onClose }) {
@@ -35,7 +35,7 @@ export default function TicketList({ tickets, loading, onOpen, onNew, onClose })
 
         {/* Closed tickets are listed too — a ticket the server auto-closed after three
             silent days must not be a dead end, and Reopen only exists if there is still a
-            way in. They are dimmed and carry a "Band" pill so the list still reads at a
+            way in. They are dimmed and carry a "Closed" pill so the list still reads at a
             glance as "what is live", and they never show an unread dot: there is nothing
             waiting on the user in a thread that is already finished. */}
         {!loading && tickets.map((t) => {
@@ -54,7 +54,7 @@ export default function TicketList({ tickets, loading, onOpen, onNew, onClose })
                   <TX w="semi" s={14} c={closed ? D.muted : D.ink}>{t.topicLabel || t.team}</TX>
                   {closed && (
                     <View style={s.closedPill}>
-                      <TX w="semi" s={10} lh={12} c={D.muted}>Band</TX>
+                      <TX w="semi" s={10} lh={12} c={D.muted}>Closed</TX>
                     </View>
                   )}
                 </View>
@@ -67,7 +67,7 @@ export default function TicketList({ tickets, loading, onOpen, onNew, onClose })
 
         <PressableScale onPress={onNew} style={s.newBtn} accessibilityRole="button" accessibilityLabel="Raise a new issue">
           <Plus size={18} color={D.ink} />
-          <TX w="semi" s={14} c={D.ink}>Naya issue</TX>
+          <TX w="semi" s={14} c={D.ink}>New issue</TX>
         </PressableScale>
       </ScrollView>
     </View>
@@ -85,13 +85,16 @@ const s = StyleSheet.create({
   // Finished work, still reachable: dimmed rather than hidden, and never mistakable for
   // something that still needs the user.
   rowClosed: { opacity: 0.62, backgroundColor: 'transparent' },
+  // Inert, not accent: this pill sits on a deliberately dimmed row, so the one thing it
+  // must not do is draw the eye. On the accent fill it also put D.muted type on yellow,
+  // which is 2.5:1 — unreadable on the row the user is least likely to look closely at.
   closedPill: {
     paddingVertical: 2, paddingHorizontal: 7, borderRadius: 8,
-    backgroundColor: D.ticketBg, borderWidth: 1, borderColor: D.border,
+    backgroundColor: D.inert, borderWidth: 1, borderColor: D.border,
   },
   rowLeft: { flex: 1, gap: 4 },
   rowTop: { flexDirection: 'row', alignItems: 'center', gap: 7 },
-  dot: { width: 7, height: 7, borderRadius: 4, backgroundColor: D.indigo },
+  dot: { width: 7, height: 7, borderRadius: 4, backgroundColor: D.amber },
   newBtn: {
     flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8,
     paddingVertical: 14, borderRadius: 14, borderWidth: 1, borderColor: D.border, marginTop: 6,

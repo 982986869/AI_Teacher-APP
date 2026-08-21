@@ -23,8 +23,13 @@ async function fetchScopeUser(id) {
     // is_active is the other half of that derivation (see permissionsForUser): a
     // deactivated account keeps its admin_role, so the role alone would still grant a
     // locked-out agent the Support tab on the app.
+    // date_of_birth / parent_email / learning_prefs (prisma/sql/user_profile_fields.sql)
+    // ride along so Edit Profile and Learning Preferences can prefill from `user` on
+    // the very first render, without a second round trip of their own.
     `SELECT id, name, email, phone, grade, role::text AS role, admin_role, is_active,
-            board, stream, language, school, account_type, linked_student_id, photo_url AS "photoUrl"
+            board, stream, language, school, account_type, linked_student_id, photo_url AS "photoUrl",
+            to_char("date_of_birth", 'YYYY-MM-DD') AS "dateOfBirth",
+            parent_email AS "parentEmail", learning_prefs AS "learningPrefs"
        FROM "users" WHERE id = $1::uuid LIMIT 1`,
     id,
   )
@@ -274,7 +279,7 @@ async function updateProfile(req, res, next) {
     const errors = validationResult(req)
     if (!errors.isEmpty()) return ApiResponse.error(res, errors.array()[0].msg, 422)
 
-    const { grade, board, stream, language, school } = req.body
+    const { name, grade, board, stream, language, school, dateOfBirth, parentEmail, learningPrefs } = req.body
 
     // Role/class/stream validation — the backend is the authority, not the client.
     const v = validateProfilePatch(req.body, req.user)
@@ -283,12 +288,30 @@ async function updateProfile(req, res, next) {
 
     const sets = []
     const vals = []
-    const add = (col, val) => { sets.push(`"${col}" = $${sets.length + 1}`); vals.push(val) }
+    // `cast` matters for the two non-text columns. Every value crosses the wire as a
+    // string, and Postgres will not put text into a DATE or a JSONB on its own — the
+    // update fails with "column is of type date but expression is of type text" unless
+    // the placeholder says what it is. The TEXT columns pass no cast and are unchanged.
+    const add = (col, val, cast = '') => {
+      sets.push(`"${col}" = $${sets.length + 1}${cast}`)
+      vals.push(val)
+    }
+    // `name` is NOT NULL on the table, so an empty string here would be a way to erase
+    // a display name into a blank row — the validator's min:1 already rejects that, and
+    // this skips it a second time rather than writing '' if the rule ever loosens.
+    if (name !== undefined && String(name).trim()) add('name', String(name).trim())
     if (grade !== undefined) add('grade', grade || null)
     if (board !== undefined) add('board', board || null)
     if (stream !== undefined) add('stream', stream || null)
     if (language !== undefined) add('language', language || null)
     if (school !== undefined) add('school', school || null)
+    if (dateOfBirth !== undefined) add('date_of_birth', dateOfBirth || null, '::date')
+    if (parentEmail !== undefined) add('parent_email', parentEmail || null)
+    // Written whole: the Learning Preferences screen always sends the complete sheet,
+    // so a partial merge here would only be able to disagree with what the user sees.
+    if (learningPrefs !== undefined) {
+      add('learning_prefs', learningPrefs === null ? null : JSON.stringify(learningPrefs), '::jsonb')
+    }
     if (normalizedAccount !== undefined) add('account_type', normalizedAccount)
     if (!sets.length) return ApiResponse.error(res, 'Nothing to update', 400)
 

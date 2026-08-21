@@ -56,7 +56,10 @@ export const scoreColor = (pct) =>
 // White header with a bottom border, back link, title + subtitle.
 // `onBack` optional (omit for a root screen — the back link is hidden); `right` optional
 // slot for a trailing control (e.g. an admin "+ Add") kept level with the title.
-export function ScreenHeader({ title, subtitle, onBack, right }) {
+// `titleLines` defaults to 1, which suits the short titles most callers pass ("Mock
+// Tests", a subject name). A chapter name — "Principle of Mathematical Induction
+// (Deleted)" — needs two, and truncating it would hide which chapter you are in.
+export function ScreenHeader({ title, subtitle, onBack, right, titleLines = 1 }) {
   return (
     <View style={k.header}>
       {onBack ? (
@@ -67,7 +70,7 @@ export function ScreenHeader({ title, subtitle, onBack, right }) {
       ) : null}
       <View style={k.headRow}>
         <View style={{ flex: 1, minWidth: 0 }}>
-          <Text style={k.title} numberOfLines={1}>{title}</Text>
+          <Text style={k.title} numberOfLines={titleLines}>{title}</Text>
           {!!subtitle && <Text style={k.subtitle}>{subtitle}</Text>}
         </View>
         {right}
@@ -219,7 +222,7 @@ const k = StyleSheet.create({
   backRow: { alignSelf: 'flex-start', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: 44, height: 44, borderRadius: 14, backgroundColor: '#F2F2F4', marginBottom: 14 },
   backArrow: { fontSize: 20, color: TK.text, fontWeight: '700' },
   backText: { display: 'none' },
-  title: { fontSize: 24, fontWeight: '900', color: TK.text, letterSpacing: -0.5 },
+  title: { fontSize: 24, lineHeight: 30, fontWeight: '900', color: TK.text, letterSpacing: -0.5 },
   subtitle: { fontSize: 13.5, color: TK.textMuted, marginTop: 4, fontWeight: '600' },
 
   searchWrap: { paddingHorizontal: 16, paddingTop: 14 },

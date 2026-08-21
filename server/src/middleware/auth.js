@@ -53,8 +53,15 @@ async function authenticate(req, res, next) {
       // access_level rides along for the same reason as is_active: it is read on
       // essentially every request (requireFullAccess below), and a second query per
       // request to fetch one text column would be a poor trade.
+      // date_of_birth / parent_email / learning_prefs are here rather than in a second
+      // query because GET /api/auth/me answers straight from req.user — the app calls it
+      // on every launch, and without these three the Edit Profile and Learning
+      // Preferences forms would open blank until the student's next save. Three more
+      // columns off a row this query already fetches costs nothing extra.
       `SELECT id, name, email, phone, grade, role::text AS role, admin_role, is_active, access_level,
-              board, stream, language, school, account_type, linked_student_id, photo_url AS "photoUrl"
+              board, stream, language, school, account_type, linked_student_id, photo_url AS "photoUrl",
+              to_char("date_of_birth", 'YYYY-MM-DD') AS "dateOfBirth",
+              parent_email AS "parentEmail", learning_prefs AS "learningPrefs"
          FROM "users" WHERE id = $1::uuid LIMIT 1`,
       decoded.sub,
     )

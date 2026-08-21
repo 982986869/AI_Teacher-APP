@@ -22,7 +22,7 @@ import { listMyTickets, markTicketRead } from '../../api/supportApi';
 // works from `closed` precisely so that never happens, see src/api/supportApi.js) had no
 // button left to reach it from. A window rather than "forever" because the list is a
 // to-do, not an archive: an issue settled a month ago is not something to come back to,
-// and every real conversation is still one "Naya issue" away.
+// and every real conversation is still one "New issue" away.
 const CLOSED_VISIBLE_DAYS = 14;
 
 function visibleTickets(rows) {
@@ -72,7 +72,7 @@ export default function SupportSheet({
   // Whether the user has navigated away from the list/topics choice since the sheet
   // opened. The ticket fetch below only gets to pick the initial `step` while this is
   // false — otherwise a late-resolving fetch can yank the user off a screen they already
-  // moved past (e.g. tapping "Naya issue" while the fetch is still in flight).
+  // moved past (e.g. tapping "New issue" while the fetch is still in flight).
   const navigatedRef = useRef(false);
 
   useEffect(() => {
@@ -117,7 +117,7 @@ export default function SupportSheet({
     setPicked({ category, index });
   }, []);
 
-  // "+ Naya issue" from the ticket list.
+  // "+ New issue" from the ticket list.
   const goToTopics = useCallback(() => {
     navigatedRef.current = true;
     setStep('topics');
@@ -145,7 +145,7 @@ export default function SupportSheet({
   // Back on the conversation returns to wherever `step` says — the topic list when this
   // chat was raised fresh, the ticket list when it was opened from there, since `step`
   // never changes for that round trip. Back on the topic list closes the sheet, unless it
-  // was reached via "Naya issue" from the ticket list, in which case it returns there.
+  // was reached via "New issue" from the ticket list, in which case it returns there.
   const back = useCallback(() => { setPicked(null); setOpenTicket(null); }, []);
   const backFromTopics = useCallback(() => {
     if (tickets.length) setStep('list');

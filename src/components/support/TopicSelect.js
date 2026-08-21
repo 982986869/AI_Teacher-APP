@@ -103,15 +103,23 @@ export default function TopicSelect({ categories, agent, role, userName, childNa
         <FadeIn y={10} duration={280}>
           {/* ── welcome-hero ───────────────────────────────────────────── */}
           <View style={s.hero}>
-            <PressableScale
-              style={s.backBtn}
-              onPress={onClose}
-              scaleTo={0.9}
-              accessibilityRole="button"
-              accessibilityLabel="Close help"
-            >
-              <ArrowLeft size={18} color={D.muted} strokeWidth={2.2} />
-            </PressableScale>
+            {/* The absolute placement lives on this plain View, NOT on the PressableScale.
+                PressableScale forwards only flex keys to its outer Pressable and keeps
+                everything else on an inner Animated.View — so `position/top/left` given
+                straight to it positions that inner view relative to a collapsed,
+                centre-aligned Pressable, which parked this button on top of the agent's
+                avatar instead of in the corner. */}
+            <View style={s.backSlot}>
+              <PressableScale
+                style={s.backBtn}
+                onPress={onClose}
+                scaleTo={0.9}
+                accessibilityRole="button"
+                accessibilityLabel="Close help"
+              >
+                <ArrowLeft size={18} color={D.muted} strokeWidth={2.2} />
+              </PressableScale>
+            </View>
 
             <Avatar agent={agent} />
             <View style={s.agentInfo}>
@@ -150,12 +158,12 @@ const s = StyleSheet.create({
 
   // welcome-hero — 24/20/32/20, gap 16, contents centred
   hero: { paddingTop: 24, paddingHorizontal: 20, paddingBottom: 32, gap: 16, alignItems: 'center' },
+  backSlot: { position: 'absolute', top: 16, left: 12, zIndex: 2 },
   backBtn: {
-    position: 'absolute', top: 16, left: 12,
     width: 36, height: 36, borderRadius: 18, alignItems: 'center', justifyContent: 'center',
     // A 5% WHITE wash was invisible the moment the page stopped being near-black;
     // the accent wash is the light-page equivalent of "barely there but present".
-    backgroundColor: D.ticketBg,
+    backgroundColor: D.accentSoft,
   },
 
   // avatar-container 72×72
@@ -178,11 +186,9 @@ const s = StyleSheet.create({
     height: 58, paddingHorizontal: 16,
     backgroundColor: D.card, borderRadius: 16, borderWidth: 1, borderColor: D.border,
   },
-  // A hairline on the badge, added with the day palette. The tints are unchanged from
-  // the dark design, where every one of them stood clear of a near-black page; against
-  // white the palest of them (#E8D14D) drops to 1.54:1 and the circle all but vanishes,
-  // leaving its numeral floating. The border costs nothing on the darker tints and puts
-  // the edge back on the pale ones.
+  // A hairline on the badge. The pale swatches (the Figma lavender #D8C7F5 measures
+  // 1.35:1 on white) would otherwise have no edge at all and leave their numeral
+  // floating. It costs nothing on the darker swatches, so it is unconditional.
   badge: {
     width: 28, height: 28, borderRadius: 14, alignItems: 'center', justifyContent: 'center',
     borderWidth: 1, borderColor: D.border,
