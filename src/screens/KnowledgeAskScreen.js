@@ -352,7 +352,7 @@ const KnowledgeAskScreen = ({ onBack }) => {
         {['ask', 'manage'].map((t) => (
           <PressableScale key={t} style={[st.tab, tab === t && st.tabOn]} onPress={() => setTab(t)}
             accessibilityLabel={t === 'ask' ? 'Q and A' : 'My material'} accessibilityState={{ selected: tab === t }}>
-            <Text style={[st.tabTxt, tab === t && st.tabTxtOn]}>{t === 'ask' ? 'Q&A AI' : (isTeacher ? 'Manage Content' : 'My Material')}</Text>
+            <Text style={[st.tabTxt, tab === t && st.tabTxtOn]} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.8}>{t === 'ask' ? 'Q&A AI' : (isTeacher ? 'Manage Content' : 'My Material')}</Text>
           </PressableScale>
         ))}
       </View>
@@ -385,8 +385,7 @@ const KnowledgeAskScreen = ({ onBack }) => {
               {/* Ask-from scope — one tap opens a searchable, multi-select sheet.
                   A chip row does not survive a student with 15 uploads, so the list
                   lives in a sheet and only the current scope shows inline. */}
-              {docs.length >= 1 && (
-                <>
+              <>
                   {/* Scope reads as one sentence — "ASK FROM · <material>" — with the
                       material itself as the tappable chip that opens the picker. */}
                   <View style={st.scopeRow}>
@@ -402,13 +401,12 @@ const KnowledgeAskScreen = ({ onBack }) => {
                       Sirf in files me se dhoonda jayega — {selectedTitles.join(' · ')}
                     </Text>
                   )}
-                </>
-              )}
+              </>
 
               {/* Empty state — what this screen is */}
               {messages.length === 0 && !asking && !askErr && (
                 <View style={st.empty}>
-                  <View style={st.emptyIcon}><BookOpen size={30} color={N.violet} strokeWidth={2} /></View>
+                  <View style={st.emptyIcon}><BookOpen size={44} color={N.btnInk} strokeWidth={2} /></View>
                   <Text style={st.emptyTitle}>Ask about your material</Text>
                   <Text style={st.emptyHint}>Upload a PDF or photo in “My Material”, then ask here. It answers only from your uploaded material, and can ask you a quick question back if something’s unclear.</Text>
                 </View>
@@ -486,7 +484,7 @@ const KnowledgeAskScreen = ({ onBack }) => {
                 disabled={asking || !!attachedPhoto}
                 accessibilityLabel="Attach a photo of the question"
               >
-                <Camera size={19} color={N.ink} strokeWidth={2.3} />
+                <Camera size={20} color={N.ink} strokeWidth={2.3} />
               </PressableScale>
               <View style={st.askInputWrap}>
                 <TextInput
@@ -508,7 +506,7 @@ const KnowledgeAskScreen = ({ onBack }) => {
                 disabled={asking || (!question.trim() && !attachedPhoto)}
                 accessibilityLabel={attachedPhoto ? 'Solve photo' : 'Ask'}
               >
-                {asking ? <ActivityIndicator color="#fff" size="small" /> : <Sparkles size={19} color="#fff" strokeWidth={2.4} />}
+                {asking ? <ActivityIndicator color={N.ink} size="small" /> : <Sparkles size={20} color={N.ink} strokeWidth={2.4} />}
               </PressableScale>
             </View>
           </>
@@ -1104,6 +1102,11 @@ const ManagePanel = () => {
 // Cards lift with a soft neutral drop. The step-number pastels live in the theme
 // (N.stepTints) rather than here, so the same family is available to any screen
 // that needs to tell items apart rather than rank them.
+// The support Help bubble (components/support/HelpFab) floats over every student
+// tab, anchored above the dock. Anything this screen pins to the bottom has to clear
+// it or the bubble lands on top — which is what happened to the send button.
+const HELP_FAB_CLEARANCE = 74;
+
 const lift = { shadowColor: N.ink, shadowOpacity: 0.06, shadowRadius: 12, shadowOffset: { width: 0, height: 4 }, elevation: 2 };
 
 // The material picker is the ONE light surface in this screen. That is deliberate:
@@ -1137,7 +1140,7 @@ const st = StyleSheet.create({
 
   // ── segmented tabs (Q&A AI · My Material) ──
   tabs: { flexDirection: 'row', gap: 6, marginHorizontal: SP.lg, marginTop: 10, padding: 5, borderRadius: 30, backgroundColor: N.cardSoft, borderWidth: 1, borderColor: N.cardEdge },
-  tab: { flex: 1, height: 48, borderRadius: 26, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 8 },
+  tab: { flex: 1, height: 48, borderRadius: 26, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 6 },
   tabOn: { backgroundColor: N.violet },
   tabTxt: { fontSize: 15, fontFamily: NFONT.semi, color: N.inkSoft },
   tabTxtOn: { color: N.ink, fontFamily: NFONT.bold },
@@ -1189,8 +1192,8 @@ const st = StyleSheet.create({
   // ── empty state ──
   empty: { alignItems: 'center', paddingVertical: 44, paddingHorizontal: SP.lg },
   emptyIcon: { width: 118, height: 118, borderRadius: 59, backgroundColor: N.violet, alignItems: 'center', justifyContent: 'center', marginBottom: 26 },
-  emptyTitle: { fontSize: 17, fontFamily: NFONT.bold, color: N.ink },
-  emptyHint: { fontSize: 13, fontFamily: NFONT.reg, color: N.inkSoft, textAlign: 'center', lineHeight: 20, marginTop: 6, maxWidth: 290 },
+  emptyTitle: { fontSize: 21, fontFamily: NFONT.bold, color: N.ink, textAlign: 'center', letterSpacing: -0.4 },
+  emptyHint: { fontSize: 14.5, fontFamily: NFONT.reg, color: N.inkSoft, textAlign: 'center', lineHeight: 20, marginTop: 6, maxWidth: 290 },
 
   // ── the student's turn: a full-width card, same surface as the answer ──
   userRow: { marginTop: 18 },
@@ -1286,11 +1289,11 @@ const st = StyleSheet.create({
   snippetTxt: { fontSize: 12.5, fontFamily: NFONT.reg, color: N.ink, lineHeight: 20, fontStyle: 'italic' },
 
   // ── ask bar — one floating pill, in flow so the KeyboardAvoidingView lifts it ──
-  askBar: { flexDirection: 'row', alignItems: 'flex-end', gap: 8, marginHorizontal: SP.lg, marginTop: 4, marginBottom: Platform.OS === 'ios' ? 22 : 14, padding: 7, borderRadius: 30, backgroundColor: N.card, borderWidth: 1, borderColor: N.cardEdge, ...lift },
-  askPhoto: { width: 44, height: 44, borderRadius: 22, backgroundColor: N.btn, alignItems: 'center', justifyContent: 'center' },
+  askBar: { flexDirection: 'row', alignItems: 'flex-end', gap: 8, marginHorizontal: SP.lg, marginTop: 4, marginBottom: (Platform.OS === 'ios' ? 22 : 14) + HELP_FAB_CLEARANCE, padding: 7, borderRadius: 30, backgroundColor: N.card, borderWidth: 1, borderColor: N.cardEdge, ...lift },
+  askPhoto: { width: 44, height: 44, borderRadius: 22, backgroundColor: N.violet, alignItems: 'center', justifyContent: 'center' },
   askInputWrap: { flex: 1, justifyContent: 'center', minHeight: 44, paddingHorizontal: 6 },
   askInput: { fontSize: 14.5, fontFamily: NFONT.reg, color: N.ink, paddingVertical: Platform.OS === 'ios' ? 12 : 8, maxHeight: 96 },
-  askSend: { width: 46, height: 46, borderRadius: 23, backgroundColor: N.btn, alignItems: 'center', justifyContent: 'center', shadowColor: N.btn, shadowOpacity: 0.5, shadowRadius: 12, shadowOffset: { width: 0, height: 5 }, elevation: 6 },
+  askSend: { width: 46, height: 46, borderRadius: 23, backgroundColor: N.violet, alignItems: 'center', justifyContent: 'center', shadowColor: N.violet, shadowOpacity: 0.5, shadowRadius: 12, shadowOffset: { width: 0, height: 5 }, elevation: 6 },
 
   // attached-photo preview strip above the input
   attachStrip: { flexDirection: 'row', alignItems: 'center', gap: 12, marginHorizontal: SP.lg, marginBottom: 8, backgroundColor: N.violetSoft, borderWidth: 1, borderColor: N.violet, borderRadius: 18, paddingHorizontal: 12, paddingVertical: 10 },

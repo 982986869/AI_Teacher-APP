@@ -1,4 +1,13 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+const TAB_ACCENT = {
+  // All three stay inside the brand family — yellow, ink and neutrals — and are told
+  // apart by WEIGHT rather than by hue, since the system has one accent, not three.
+  //   Revise is the active flow, so it carries the solid brand yellow with ink on top.
+  //   What next? is the same hue at tint strength.
+  //   Progress is neutral, which also keeps its own green/red status colours legible.
+  next:     { ink: S.indigo, soft: S.indigoSoft },   // darkened amber on soft yellow
+  revise:   { ink: S.ink,    soft: S.gold },         // ink on the brand yellow
+  progress: { ink: S.sub,    soft: S.hair },         // neutral
+};import React, { useState, useEffect, useCallback, useRef } from 'react';
 import {
   View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity,
   StatusBar, Platform, ActivityIndicator, TextInput,
@@ -40,7 +49,7 @@ const StudyInsightsScreen = ({ initialSubject = 'Physics', initialTab = 'next', 
 
   return (
     <SafeAreaView style={st.safe}>
-      <StatusBar barStyle="light-content" backgroundColor={S.heroB} />
+      <StatusBar barStyle="dark-content" backgroundColor={S.heroB} />
 
       {/* ── hero header: back · title · pill tabs. Same InkSurface as the AI Teacher
           hero, so arriving here reads as the same product, not a second one. ── */}
@@ -59,7 +68,7 @@ const StudyInsightsScreen = ({ initialSubject = 'Physics', initialTab = 'next', 
             return (
               <PressableScale key={t.key} style={[st.tab, on && st.tabOn]} onPress={() => setTab(t.key)}
                 accessibilityLabel={t.label} accessibilityState={{ selected: on }}>
-                <t.Icon size={14} color={on ? S.indigo : 'rgba(255,255,255,0.85)'} strokeWidth={2.4} />
+                <t.Icon size={14} color={on ? S.indigo : S.ink} strokeWidth={2.4} />
                 <Text style={[st.tabTxt, on && st.tabTxtOn]} numberOfLines={1}>{t.label}</Text>
               </PressableScale>
             );
@@ -150,7 +159,7 @@ const NextTab = ({ subject }) => {
 
       {Array.isArray(plan.weakConcepts) && plan.weakConcepts.length > 0 && (
         <View style={st.card}>
-          <CardHdr Icon={Brain}>CONCEPTS TO STRENGTHEN</CardHdr>
+          <CardHdr Icon={Brain} accent={TAB_ACCENT.next}>CONCEPTS TO STRENGTHEN</CardHdr>
           {plan.weakConcepts.slice(0, 6).map((c, i) => (
             <ConceptRow key={`${c.concept}-${i}`} c={c} />
           ))}
@@ -159,7 +168,7 @@ const NextTab = ({ subject }) => {
 
       {Array.isArray(plan.weakChapters) && plan.weakChapters.length > 0 && (
         <View style={st.card}>
-          <CardHdr Icon={Bandage}>WEAKEST CHAPTERS</CardHdr>
+          <CardHdr Icon={Bandage} accent={TAB_ACCENT.next}>WEAKEST CHAPTERS</CardHdr>
           {plan.weakChapters.slice(0, 5).map((w, i) => (
             <WeakRow key={`${w.subject}-${w.chapter}-${i}`} w={w} />
           ))}
@@ -254,7 +263,7 @@ const ReviseTab = ({ subject, grade }) => {
   return (
     <>
       <View style={st.card}>
-        <CardHdr Icon={Target}>FOCUS</CardHdr>
+        <CardHdr Icon={Target} accent={TAB_ACCENT.revise}>FOCUS</CardHdr>
         <Text style={st.recTitle}>{rev.focus?.concept || rev.focus?.chapter || rev.focus?.subject || 'Revision'}</Text>
         {!!rev.focus?.concept && !!rev.focus?.chapter && <Text style={st.recSub}>{rev.focus.chapter} · {rev.focus.subject}</Text>}
         {typeof rev.focus?.masteryPct === 'number' && <MasteryBar pct={rev.focus.masteryPct} />}
@@ -262,13 +271,13 @@ const ReviseTab = ({ subject, grade }) => {
       </View>
 
       <View style={st.card}>
-        <CardHdr Icon={BookOpen}>QUICK RECAP</CardHdr>
+        <CardHdr Icon={BookOpen} accent={TAB_ACCENT.revise}>QUICK RECAP</CardHdr>
         <Text style={st.recapTxt}>{rev.recap || rev.answer}</Text>
       </View>
 
       {rev.pending?.question && (
         <View style={st.card}>
-          <CardHdr Icon={Target}>QUICK CHECK</CardHdr>
+          <CardHdr Icon={Target} accent={TAB_ACCENT.revise}>QUICK CHECK</CardHdr>
           <Text style={st.qText}>{rev.pending.question}</Text>
 
           {!graded ? (
@@ -376,7 +385,7 @@ const ProgressTab = ({ subject }) => {
 
       {chapters.length > 0 && (
         <View style={st.card}>
-          <CardHdr Icon={BookOpen}>CHAPTER PROGRESS</CardHdr>
+          <CardHdr Icon={BookOpen} accent={TAB_ACCENT.progress}>CHAPTER PROGRESS</CardHdr>
           {chapters.slice(0, 12).map((c, i) => (
             <ChapterRow key={`${c.chapter}-${i}`} c={c} />
           ))}
@@ -384,7 +393,7 @@ const ProgressTab = ({ subject }) => {
       )}
 
       <View style={st.card}>
-        <CardHdr Icon={Dumbbell}>STRONG CHAPTERS</CardHdr>
+        <CardHdr Icon={Dumbbell} accent={TAB_ACCENT.progress}>STRONG CHAPTERS</CardHdr>
         {Array.isArray(sum.strongChapters) && sum.strongChapters.length > 0 ? (
           sum.strongChapters.map((c, i) => (
             <View key={`${c.chapter}-${i}`} style={st.lineRow}>
@@ -400,7 +409,7 @@ const ProgressTab = ({ subject }) => {
       </View>
 
       <View style={st.card}>
-        <CardHdr Icon={Bandage}>WEAK CHAPTERS</CardHdr>
+        <CardHdr Icon={Bandage} accent={TAB_ACCENT.progress}>WEAK CHAPTERS</CardHdr>
         {Array.isArray(sum.weakChapters) && sum.weakChapters.length > 0 ? (
           sum.weakChapters.map((w, i) => <WeakRow key={`${w.chapter}-${i}`} w={w} />)
         ) : (
@@ -409,7 +418,7 @@ const ProgressTab = ({ subject }) => {
       </View>
 
       <View style={st.card}>
-        <CardHdr Icon={Clock}>RECENT ACTIVITY</CardHdr>
+        <CardHdr Icon={Clock} accent={TAB_ACCENT.progress}>RECENT ACTIVITY</CardHdr>
         {Array.isArray(sum.recentActivity) && sum.recentActivity.length > 0 ? (
           sum.recentActivity.map((e, i) => <ActivityRow key={i} e={e} />)
         ) : (
@@ -556,13 +565,13 @@ const st = StyleSheet.create({
     backgroundColor: S.heroB, ...shadow,
   },
   headerTop: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: SP.lg },
-  hIcon: { width: 38, height: 38, borderRadius: 19, backgroundColor: 'rgba(255,255,255,0.16)', alignItems: 'center', justifyContent: 'center' },
-  headerTitle: { fontSize: 16, fontFamily: F.xbold, color: '#fff', letterSpacing: 0.2 },
+  hIcon: { width: 38, height: 38, borderRadius: 19, backgroundColor: 'rgba(17,17,17,0.10)', alignItems: 'center', justifyContent: 'center' },
+  headerTitle: { fontSize: 16, fontFamily: F.xbold, color: S.ink, letterSpacing: 0.2 },
 
-  tabs: { flexDirection: 'row', gap: 4, backgroundColor: 'rgba(0,0,0,0.24)', borderRadius: R.pill, padding: 5 },
+  tabs: { flexDirection: 'row', gap: 4, backgroundColor: 'rgba(17,17,17,0.10)', borderRadius: R.pill, padding: 5 },
   tab: { flex: 1, flexDirection: 'row', gap: 5, paddingVertical: 9, borderRadius: R.pill, alignItems: 'center', justifyContent: 'center' },
   tabOn: { backgroundColor: '#fff', ...shadowSm },
-  tabTxt: { fontSize: 11.5, fontFamily: F.bold, color: 'rgba(255,255,255,0.85)' },
+  tabTxt: { fontSize: 11.5, fontFamily: F.bold, color: S.ink },
   tabTxtOn: { color: S.indigo, fontFamily: F.xbold },
 
   subjRow: { paddingHorizontal: SP.md, paddingTop: SP.md },
@@ -576,6 +585,7 @@ const st = StyleSheet.create({
   // ── cards ──
   card: { backgroundColor: S.card, borderWidth: 1, borderColor: S.hair, borderRadius: R.xl, padding: 18, gap: 4, ...shadowSm },
   cardHdrRow: { flexDirection: 'row', alignItems: 'center', gap: 7, marginBottom: 8 },
+  cardHdrIcon: { width: 24, height: 24, borderRadius: 8, backgroundColor: S.hair, alignItems: 'center', justifyContent: 'center' },
   cardHdr: { fontSize: 10, fontFamily: F.xbold, color: S.muted, letterSpacing: 1, textTransform: 'uppercase' },
 
   recTagRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 4 },
