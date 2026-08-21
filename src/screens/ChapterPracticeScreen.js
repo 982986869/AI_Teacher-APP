@@ -34,11 +34,17 @@ import { htmlToPlain } from '../utils/mathHtml';
 import { getChapterQuestionProgress, setQuestionProgress } from '../api/resourcesApi';
 
 const C = {
+  // Spreads TT, which is now the Cuemath LIGHT system. Everything below was picked
+  // against the old dark canvas and had to be restated: C.panel was a near-black
+  // navy that swallowed the whole question series on a white page, the mint green
+  // failed contrast on white, and TT carries no `dim`, so every row that reached for
+  // it drew with an undefined colour. TT.amber (#8A6A00) is already the readable
+  // gold, so it is no longer overridden here.
   ...TT,
-  green: '#22D39A',
-  greenSoft: 'rgba(34,211,154,0.12)',
-  amber: '#F5C24C',
-  panel: '#141238',
+  green: '#0E9F6E',
+  greenSoft: '#D6F5E7',
+  dim: '#9A9A9A',
+  panel: '#F7F7F8',
 };
 
 const FILTERS = [
@@ -55,7 +61,7 @@ function Ring({ percent = 0, size = 92, stroke = 9 }) {
   return (
     <View style={{ width: size, height: size, alignItems: 'center', justifyContent: 'center' }}>
       <Svg width={size} height={size} style={StyleSheet.absoluteFill}>
-        <Circle cx={size / 2} cy={size / 2} r={r} stroke="rgba(255,255,255,0.08)" strokeWidth={stroke} fill="none" />
+        <Circle cx={size / 2} cy={size / 2} r={r} stroke={C.hair} strokeWidth={stroke} fill="none" />
         {pct > 0 && (
           <Circle
             cx={size / 2} cy={size / 2} r={r}
@@ -130,7 +136,7 @@ export default function ChapterPracticeScreen({
 
   return (
     <View style={st.root}>
-      <StatusBar barStyle="light-content" backgroundColor={C.canvas} />
+      <StatusBar barStyle="dark-content" backgroundColor={C.canvas} />
       <View style={{ height: insets.top }} />
 
       <ScrollView contentContainerStyle={{ paddingBottom: insets.bottom + 28 }} showsVerticalScrollIndicator={false}>
@@ -280,7 +286,7 @@ export default function ChapterPracticeScreen({
               >
                 <Text style={[st.sheetItemTxt, on && { color: C.ink }]}>{f.label}</Text>
                 <Text style={st.sheetCount}>{count}</Text>
-                {on && <Check size={18} color={C.violet} strokeWidth={2.5} />}
+                {on && <Check size={18} color={C.ink} strokeWidth={2.5} />}
               </Pressable>
             );
           })}
@@ -309,7 +315,7 @@ const st = StyleSheet.create({
   loading: { paddingVertical: 60, alignItems: 'center' },
   errCard: {
     flexDirection: 'row', alignItems: 'center', gap: 10, marginHorizontal: 20, marginTop: 20,
-    padding: 14, borderRadius: 14, backgroundColor: 'rgba(245,194,76,0.1)', borderWidth: 1, borderColor: 'rgba(245,194,76,0.4)',
+    padding: 14, borderRadius: 14, backgroundColor: C.amberSoft, borderWidth: 1, borderColor: C.amberEdge,
   },
   errTxt: { flex: 1, fontSize: 13, lineHeight: 18, fontFamily: TTF.semi, color: C.amber },
 
@@ -341,7 +347,7 @@ const st = StyleSheet.create({
     marginTop: 24, paddingTop: 12, paddingBottom: 16,
     borderTopLeftRadius: 28, borderTopRightRadius: 28, backgroundColor: C.panel,
   },
-  grab: { width: 46, height: 4, borderRadius: 2, backgroundColor: 'rgba(255,255,255,0.16)', alignSelf: 'center' },
+  grab: { width: 46, height: 4, borderRadius: 2, backgroundColor: 'rgba(17,17,17,0.14)', alignSelf: 'center' },
   panelHead: {
     flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
     paddingHorizontal: 20, paddingTop: 20, paddingBottom: 16,
@@ -352,13 +358,13 @@ const st = StyleSheet.create({
   row: {
     flexDirection: 'row', alignItems: 'center', gap: 14,
     marginHorizontal: 20, marginBottom: 12, padding: 16, borderRadius: 16,
-    backgroundColor: 'rgba(255,255,255,0.045)',
+    backgroundColor: C.canvas, borderWidth: 1, borderColor: C.hair,
   },
   dot: {
     width: 34, height: 34, borderRadius: 17, alignItems: 'center', justifyContent: 'center',
-    backgroundColor: 'rgba(255,255,255,0.06)',
+    backgroundColor: C.card, borderWidth: 1, borderColor: C.hair,
   },
-  dotOn: { backgroundColor: C.greenSoft },
+  dotOn: { backgroundColor: C.greenSoft, borderColor: C.green },
   dotInner: { width: 9, height: 9, borderRadius: 5, backgroundColor: C.dim },
   rowHead: { marginBottom: 5 },
   rowQ: { fontSize: 15, lineHeight: 20, fontFamily: TTF.bold, color: C.ink },
@@ -367,7 +373,7 @@ const st = StyleSheet.create({
 
   empty: { textAlign: 'center', fontSize: 15, fontFamily: TTF.reg, color: C.sub, paddingVertical: 32 },
 
-  scrim: { flex: 1, backgroundColor: 'rgba(4,3,18,0.6)' },
+  scrim: { flex: 1, backgroundColor: C.scrim },
   sheet: {
     backgroundColor: C.card, borderTopLeftRadius: 24, borderTopRightRadius: 24,
     borderTopWidth: 1, borderColor: C.hair, paddingHorizontal: 16, paddingTop: 10,
@@ -377,9 +383,9 @@ const st = StyleSheet.create({
   sheetItem: {
     flexDirection: 'row', alignItems: 'center', gap: 12,
     paddingVertical: 14, paddingHorizontal: 14, borderRadius: 14, marginBottom: 8,
-    backgroundColor: 'rgba(255,255,255,0.035)', borderWidth: 1, borderColor: 'transparent',
+    backgroundColor: C.canvas, borderWidth: 1, borderColor: C.hair,
   },
-  sheetItemOn: { backgroundColor: 'rgba(123,97,255,0.14)', borderColor: C.violet },
+  sheetItemOn: { backgroundColor: C.violetSoft, borderColor: C.violet },
   sheetItemTxt: { flex: 1, fontSize: 15.5, lineHeight: 20, fontFamily: TTF.semi, color: C.sub },
   sheetCount: { fontSize: 14, lineHeight: 20, fontFamily: TTF.semi, color: C.dim },
 });
