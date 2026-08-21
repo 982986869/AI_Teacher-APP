@@ -31,7 +31,14 @@ const CRUMB_LINK = COLORS.textSecondary;
 const CRUMB_ACTIVE = COLORS.textPrimary;
 const SOLUTION_BG = COLORS.surface;
 const NAVBAR_BG = COLORS.background;
-const ACCENT = COLORS.ink;   // buttons/rails are dark; yellow is for fills
+const ACCENT = COLORS.ink;          // the number pill — a dark chip, white numeral
+// The rail, the wash and links were all ACCENT (ink) too, which is what made this
+// page read grey: a 12%-black gradient over every card and a black spine down its
+// edge. Highlights are the brand yellow; only link TEXT uses the darkened hue,
+// since #FFC629 on white is 1.7:1 and unreadable as type.
+const RAIL = COLORS.primary;        // #FFC629 — card spine, solution rail
+const WASH = COLORS.glow;           // #FFF4CC — the card's corner tint
+const LINK = COLORS.accent;         // #8A6A00 — yellow darkened until it passes
 const HAIR = COLORS.border;
 const STATUS_PAD = Platform.OS === 'android' ? (StatusBar.currentHeight || 24) : 44;
 
@@ -172,8 +179,8 @@ function buildDocument(fragmentHtml) {
      baked into old fragments). Force everything back to the dark palette's ink so
      it's never unreadable regardless of what the fragment itself specifies. */
   body, body *:not(.q-number):not(.q-number *) { color: ${INK} !important; }
-  a { color: ${ACCENT} !important; }
-  img{ max-width:100%; height:auto; border-radius:8px; filter:grayscale(100%); background:#fff; }
+  a { color: ${LINK} !important; }
+  img{ max-width:100%; height:auto; border-radius:8px; background:#fff; }
   /* ── question card ──────────────────────────────────────────────────────
      The number is no longer a pill floating inside the card — it is notched
      into the top-left corner as a tab, and an accent rail runs down the
@@ -183,14 +190,14 @@ function buildDocument(fragmentHtml) {
                   border:1px solid ${CARD_BORDER}; border-radius:18px;
                   padding:22px 18px 18px 20px; margin:0 0 18px 0;
                   max-width:100%; overflow:hidden;
-                  background-image:linear-gradient(135deg, ${ACCENT}1F 0%, transparent 42%); }
+                  background-image:linear-gradient(135deg, ${WASH} 0%, transparent 46%); }
   .question-card::before{ content:''; position:absolute; left:0; top:0; bottom:0;
-                          width:4px; background:${ACCENT}; opacity:0.85; }
+                          width:4px; background:${RAIL}; }
   .question-header{ display:flex; align-items:center; gap:10px; margin-bottom:12px; }
   .q-number{ display:inline-flex; align-items:center; justify-content:center;
              min-width:34px; height:34px; padding:0 11px; border-radius:11px;
              background:${ACCENT}; color:#fff; font-size:13px; font-weight:700;
-             letter-spacing:0.2px; box-shadow:0 4px 14px ${ACCENT}59; }
+             letter-spacing:0.2px; box-shadow:0 2px 8px rgba(17,17,17,0.16); }
   .question-text{ font-size:16.5px; line-height:1.68; font-weight:600;
                   margin-bottom:4px; max-width:100%; }
 
@@ -203,10 +210,10 @@ function buildDocument(fragmentHtml) {
                    margin-top:10px; border:1px solid ${HAIR}; max-width:100%;
                    font-size:15.5px; line-height:1.72; }
   .solution-block::before{ content:''; position:absolute; left:0; top:12px; bottom:12px;
-                           width:3px; border-radius:2px; background:${ACCENT}; opacity:0.55; }
+                           width:3px; border-radius:2px; background:${RAIL}; }
   .label{ display:inline-block; font-size:10.5px; font-weight:700;
           letter-spacing:1.1px; text-transform:uppercase; color:${ACCENT};
-          background:${BADGE_BG}; border:1px solid ${ACCENT}40;
+          background:${BADGE_BG}; border:1px solid ${RAIL};
           padding:4px 10px; border-radius:999px; margin-bottom:2px; }
 
   /* ── entrance ───────────────────────────────────────────────────────────

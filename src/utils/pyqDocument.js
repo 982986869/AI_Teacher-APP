@@ -6,6 +6,17 @@
 // served from the DB renders identically.
 
 import { API_BASE_URL } from '../constants/config';
+import { COLORS } from '../theme/designSystem';
+
+// This document had its own hardcoded palette — #f4f4f5 page, #1C1C1E ink, a
+// scatter of #555/#6b7280/#e3e3e6 greys and a Tailwind green — written before the
+// app had one. The roles are unchanged; the values now come from the theme, so
+// PYQ and Exemplar read as the same product as the screens around them.
+const T = {
+  page: COLORS.surface, card: COLORS.card, ink: COLORS.textPrimary,
+  sub: COLORS.textSecondary, muted: COLORS.textMuted, hair: COLORS.border,
+  rail: COLORS.primary, ok: COLORS.success, okSoft: '#E6F6F0',
+};
 
 // Build the .pyq-card HTML fragment from the structured questions the API returns.
 export function buildFragmentFromQuestions(questions) {
@@ -87,28 +98,28 @@ export function buildPyqDocument(fragmentHtml, opts = {}) {
 <style>
   *{ -webkit-tap-highlight-color:transparent; box-sizing:border-box; }
   html,body{ margin:0; max-width:100%; overflow-x:hidden; }
-  body{ padding:12px; background:#f4f4f5; font-family:-apple-system,Roboto,"Segoe UI",sans-serif;
-        color:#1C1C1E; overflow-wrap:break-word; word-break:break-word; }
-  img{ max-width:100%; height:auto; border-radius:8px; filter:grayscale(100%); }
-  .pyq-card,.question-card{ background:#fff; border:1px solid #e3e3e6; border-radius:16px;
+  body{ padding:12px; background:${T.page}; font-family:-apple-system,Roboto,"Segoe UI",sans-serif;
+        color:${T.ink}; overflow-wrap:break-word; word-break:break-word; }
+  img{ max-width:100%; height:auto; border-radius:8px; }
+  .pyq-card,.question-card{ background:${T.card}; border:1px solid ${T.hair}; border-radius:16px;
                   padding:16px; margin-bottom:16px; max-width:100%; overflow:hidden; }
   .pyq-header,.question-header{ display:flex; justify-content:space-between; align-items:center;
                     gap:8px; margin-bottom:10px; }
-  .q-number{ background:#1C1C1E; color:#fff; padding:4px 10px; border-radius:20px;
+  .q-number{ background:${T.ink}; color:#fff; padding:4px 10px; border-radius:20px;
              font-size:12px; font-weight:600; white-space:nowrap; }
-  .pyq-year,.years{ font-size:11px; font-weight:600; color:#6b7280; text-align:right; }
+  .pyq-year,.years{ font-size:11px; font-weight:600; color:${T.muted}; text-align:right; }
   .pyq-question,.question-text{ font-size:16px; line-height:1.7; margin-bottom:10px; max-width:100%; }
   .answer-section{ margin-top:12px; max-width:100%; }
-  .label{ font-size:12px; font-weight:600; color:#555; margin-bottom:4px; }
-  .solution-box,.solution-block{ background:#f5f5f6; padding:10px 12px; border-radius:10px; margin-top:12px;
-                   border:1px solid #ededed; max-width:100%; }
-  .solution-title{ font-size:12px; font-weight:600; color:#555; margin-bottom:4px; }
+  .label{ font-size:12px; font-weight:600; color:${T.sub}; margin-bottom:4px; }
+  .solution-box,.solution-block{ background:${T.page}; padding:10px 12px; border-radius:10px; margin-top:12px;
+                   border:1px solid ${T.hair}; max-width:100%; }
+  .solution-title{ font-size:12px; font-weight:600; color:${T.sub}; margin-bottom:4px; }
   .solution-box p{ margin:4px 0; }
   .pyq-options,.options{ display:flex; flex-direction:column; gap:6px; margin-top:12px; }
   .option{ display:flex; gap:10px; align-items:flex-start;
-           border:1px solid #e3e3e6; border-radius:10px; padding:8px 12px; font-size:15px; }
-  .option.correct{ border-color:#16a34a; background:#e7f7ec; color:#15803d; font-weight:600; }
-  .option.correct .option-index, .option.correct .option-text, .option.correct p{ color:#15803d; }
+           border:1px solid ${T.hair}; border-radius:10px; padding:8px 12px; font-size:15px; }
+  .option.correct{ border-color:${T.ok}; background:${T.okSoft}; color:${T.ok}; font-weight:600; }
+  .option.correct .option-index, .option.correct .option-text, .option.correct p{ color:${T.ok}; }
   .option-index{ font-weight:700; min-width:18px; }
   .option-text{ flex:1; max-width:100%; overflow:hidden; }
   .option-text p{ margin:0; }
@@ -133,7 +144,7 @@ export function buildPyqDocument(fragmentHtml, opts = {}) {
   .pq-card{ overflow:hidden; }
   .pq-question,.pq-expl,.pq-solution-body{ max-width:100%; overflow-wrap:break-word; word-break:break-word; }
   table{ display:block; max-width:100%; overflow-x:auto; border-collapse:collapse; margin:8px 0; }
-  th,td{ border:1px solid #e3e3e6; padding:4px 8px; font-size:14px; text-align:left; }
+  th,td{ border:1px solid ${T.hair}; padding:4px 8px; font-size:14px; text-align:left; }
   ol,ul{ margin:8px 0; padding-left:22px; }
   li{ margin:3px 0; line-height:1.6; }
   strong,b{ font-weight:700; }
@@ -160,13 +171,13 @@ export function buildPyqDocument(fragmentHtml, opts = {}) {
   body.iq .pyq-card:not(.open) .pyq-question *,
   body.iq .question-card:not(.open) .question-text *{ margin:0 !important; display:inline !important; }
   /* MCQ correct-answer highlight only once opened (options are hidden collapsed). */
-  body.iq .option.correct{ border-color:#e3e3e6; background:#fff; color:#1C1C1E; font-weight:400; }
-  body.iq .option.correct .option-index,body.iq .option.correct .option-text,body.iq .option.correct p{ color:#1C1C1E; }
-  body.iq .open .option.correct{ border-color:#16a34a; background:#e7f7ec; color:#15803d; font-weight:600; }
-  body.iq .open .option.correct .option-index,body.iq .open .option.correct .option-text,body.iq .open .option.correct p{ color:#15803d; }
+  body.iq .option.correct{ border-color:${T.hair}; background:${T.card}; color:${T.ink}; font-weight:400; }
+  body.iq .option.correct .option-index,body.iq .option.correct .option-text,body.iq .option.correct p{ color:${T.ink}; }
+  body.iq .open .option.correct{ border-color:${T.ok}; background:${T.okSoft}; color:${T.ok}; font-weight:600; }
+  body.iq .open .option.correct .option-index,body.iq .open .option.correct .option-text,body.iq .open .option.correct p{ color:${T.ok}; }
   /* Tap affordance shown inside every box. */
   body.iq .pyq-card::after,body.iq .question-card::after{ content:"View answer  \\25BE";
-    display:block; margin-top:10px; font-size:12px; font-weight:800; color:#15803d; letter-spacing:0.2px; }
+    display:block; margin-top:10px; font-size:12px; font-weight:800; color:${T.ok}; letter-spacing:0.2px; }
   body.iq .pyq-card.open::after,body.iq .question-card.open::after{ content:"Hide  \\25B4"; margin-top:12px; font-weight:700; color:#9ca3af; }
 </style></head>
 <body class="${collapsible ? 'iq' : ''}">${html}
