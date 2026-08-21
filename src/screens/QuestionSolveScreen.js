@@ -15,6 +15,13 @@
 //
 // Advancing marks the question solved — that is what fills the chapter ring.
 //
+// There is no bookmark control. It used to sit here, in a row whose style was never
+// written (`st.topRow` did not exist), so it fell below the back link against the
+// left edge. Removing it rather than styling it was the right call: nothing in the
+// app calls getBookmarks, so there is no screen that lists what was saved — it was a
+// button that led nowhere. setQuestionBookmark and its endpoint are untouched and
+// still work, for whenever a bookmarks screen exists to justify the control.
+//
 // Props: subject, chapter -> { name, slug }; sectionType; classLevel;
 //        startQuestionId; onBack()
 import React, { useEffect, useMemo, useState } from 'react';
@@ -22,10 +29,10 @@ import {
   View, Text, ScrollView, Pressable, StyleSheet, StatusBar, ActivityIndicator,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { ChevronLeft, Check, X, Lightbulb, Bookmark, Info } from 'lucide-react-native';
+import { ChevronLeft, Check, X, Lightbulb, Info } from 'lucide-react-native';
 import { TT, TTF, Rich } from '../components/timedTestDark';
 import { htmlToPlain, hasMath } from '../utils/mathHtml';
-import { getChapterQuestionProgress, setQuestionProgress, setQuestionBookmark } from '../api/resourcesApi';
+import { getChapterQuestionProgress, setQuestionProgress } from '../api/resourcesApi';
 
 const C = {
   // Spreads TT (light). The locals below were picked against the old dark canvas —
@@ -131,19 +138,6 @@ export default function QuestionSolveScreen({
     setIdx((i) => Math.min(i + 1, (questions || []).length - 1));
   };
 
-  // Optimistic, then persist. A bookmark that survived a failed write would claim a
-  // question is saved when the server never heard about it.
-  const toggleBookmark = async () => {
-    if (!q) return;
-    const next = !q.bookmarked;
-    setQuestions((qs) => (qs || []).map((x) => (x.id === q.id ? { ...x, bookmarked: next } : x)));
-    try {
-      await setQuestionBookmark(q.id, next);
-    } catch (_) {
-      setQuestions((qs) => (qs || []).map((x) => (x.id === q.id ? { ...x, bookmarked: !next } : x)));
-    }
-  };
-
   const isLast = questions && idx >= questions.length - 1;
 
   return (
@@ -151,28 +145,10 @@ export default function QuestionSolveScreen({
       <StatusBar barStyle="dark-content" backgroundColor={C.canvas} />
       <View style={{ height: insets.top }} />
 
-      <View style={st.topRow}>
-        <Pressable style={st.back} onPress={onBack} hitSlop={10} accessibilityRole="button">
-          <ChevronLeft size={22} color={C.ink} strokeWidth={2.6} />
-          <Text style={st.backLbl}>Back to List</Text>
-        </Pressable>
-        {!!q && (
-          <Pressable
-            onPress={toggleBookmark}
-            hitSlop={12}
-            accessibilityRole="button"
-            accessibilityState={{ selected: !!q.bookmarked }}
-            accessibilityLabel={q.bookmarked ? 'Remove bookmark' : 'Bookmark this question'}
-          >
-            <Bookmark
-              size={24}
-              color={q.bookmarked ? '#8A6A00' : C.sub}
-              fill={q.bookmarked ? '#8A6A00' : 'none'}
-              strokeWidth={2}
-            />
-          </Pressable>
-        )}
-      </View>
+      <Pressable style={st.back} onPress={onBack} hitSlop={10} accessibilityRole="button">
+        <ChevronLeft size={22} color={C.ink} strokeWidth={2.6} />
+        <Text style={st.backLbl}>Back to List</Text>
+      </Pressable>
 
       {questions === null ? (
         <View style={st.loading}><ActivityIndicator color={C.ink} /></View>
