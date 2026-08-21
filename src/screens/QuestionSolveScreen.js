@@ -24,6 +24,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ChevronLeft, Check, X, Lightbulb, Bookmark, Info } from 'lucide-react-native';
 import { TT, TTF, Rich } from '../components/timedTestDark';
+import { htmlToPlain, hasMath } from '../utils/mathHtml';
 import { getChapterQuestionProgress, setQuestionProgress, setQuestionBookmark } from '../api/resourcesApi';
 
 const C = {
@@ -49,13 +50,25 @@ function splitStem(html) {
   const raw = String(html || '');
   const m = raw.match(STEM_RE);
   if (!m) return { stem: null, body: raw };
-  const stem = m[2].replace(/<[^>]*>/g, '').trim();
+  const stem = htmlToPlain(m[2]).trim();
   return stem ? { stem, body: raw.slice(m[0].length) } : { stem: null, body: raw };
 }
 
 // Solutions that were written as an ordered list become numbered steps; anything
 // else stays one block. A step's leading "<b>Title</b>" becomes its heading.
+//
+// HEAD_RE is fussy for two reasons, both of which this screen got wrong and both of
+// which put raw {tex}…{/tex} on screen:
+//   · `<(?:b|strong)[^>]*>` matches "<br>" — `<b` then `[^>]*` eats the "r". A step
+//     with a line break before any bold had everything up to the next </strong>
+//     lifted out as its "title", where it rendered as plain text with its LaTeX
+//     delimiters showing. A \b after the tag name stops that, and the backreference
+//     makes the closing tag match the opening one.
+//   · it is anchored to the start of the item. A <strong>OR</strong> in the MIDDLE
+//     of a step is not a heading — treating it as one silently dropped everything
+//     before it from the body.
 const LI_RE = /<li[^>]*>([\s\S]*?)<\/li>/gi;
+const HEAD_RE = /^\s*<(b|strong)\b[^>]*>([\s\S]*?)<\/\1>/i;
 function splitSteps(html) {
   const raw = String(html || '');
   if (!/<ol[\s>]/i.test(raw)) return null;
@@ -63,8 +76,8 @@ function splitSteps(html) {
   let m;
   while ((m = LI_RE.exec(raw)) !== null) {
     const item = m[1];
-    const head = item.match(/<(?:b|strong)[^>]*>([\s\S]*?)<\/(?:b|strong)>/i);
-    const title = head ? head[1].replace(/<[^>]*>/g, '').trim() : null;
+    const head = item.match(HEAD_RE);
+    const title = head ? htmlToPlain(head[2]).trim() : null;
     const rest = head ? item.slice(item.indexOf(head[0]) + head[0].length) : item;
     out.push({ title, body: rest });
   }
@@ -105,7 +118,7 @@ export default function QuestionSolveScreen({
   // Two-up only while every label is short ("Na⁺", "K⁺"); a phrase like
   // "Period 4, group 6" needs the full width to stay on one line.
   const twoUp = options.length === 4
-    && options.every((o) => String(o.html || '').replace(/<[^>]*>/g, '').trim().length <= 14);
+    && options.every((o) => !hasMath(String(o.html || '')) && htmlToPlain(o.html || '').trim().length <= 14);
   const answered = picked != null || options.length === 0;
   const pickedRight = picked != null && correctKey != null && String(picked) === String(correctKey);
 
