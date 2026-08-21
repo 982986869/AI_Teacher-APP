@@ -22,7 +22,7 @@ import {
   View, Text, ScrollView, Pressable, StyleSheet, StatusBar, ActivityIndicator,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { ChevronLeft, ArrowRight, Check, Lightbulb, Bookmark, Info } from 'lucide-react-native';
+import { ChevronLeft, Check, X, Lightbulb, Bookmark, Info } from 'lucide-react-native';
 import { TT, TTF, Rich } from '../components/timedTestDark';
 import { getChapterQuestionProgress, setQuestionProgress, setQuestionBookmark } from '../api/resourcesApi';
 
@@ -30,14 +30,14 @@ const C = {
   // Spreads TT (light). The locals below were picked against the old dark canvas —
   // C.panel in particular was a near-black card, i.e. invisible content on white.
   ...TT,
-  amber: '#FFC629',
   green: '#0E9F6E',
   greenFill: '#D6F5E7',
   greenEdge: '#0E9F6E',
-  slate: '#666666',
   wrong: '#E5484D',
   wrongFill: '#FDECEA',
+  wrongEdge: '#E5484D',
   panel: '#F7F7F8',
+  dim: '#9A9A9A',      // TT carries no `dim`; without it these rows drew undefined
 };
 
 // A "given" block — the configuration/formula a question is built on — is stored
@@ -107,6 +107,7 @@ export default function QuestionSolveScreen({
   const twoUp = options.length === 4
     && options.every((o) => String(o.html || '').replace(/<[^>]*>/g, '').trim().length <= 14);
   const answered = picked != null || options.length === 0;
+  const pickedRight = picked != null && correctKey != null && String(picked) === String(correctKey);
 
   const advance = async () => {
     if (!q) return;
@@ -189,7 +190,7 @@ export default function QuestionSolveScreen({
                       </View>
                     )}
                     <View style={{ marginTop: 16 }}>
-                      <Rich value={body} fontSize={21} lineHeight={29} color={C.ink} family={TTF.head} imgHeight={180} />
+                      <Rich value={body} fontSize={18} lineHeight={26} color={C.ink} family={TTF.head} imgHeight={180} />
                     </View>
                   </>
                 );
@@ -232,8 +233,8 @@ export default function QuestionSolveScreen({
                       <View style={{ flex: 1 }}>
                         <Rich
                           value={o.html}
-                          fontSize={17}
-                          lineHeight={23}
+                          fontSize={15}
+                          lineHeight={20}
                           color={tone === 'right' ? '#0B3B2C' : C.ink}
                           family={TTF.bold}
                           imgHeight={80}
@@ -252,7 +253,8 @@ export default function QuestionSolveScreen({
                           <Info size={20} color={tone === 'right' ? C.green : C.sub} strokeWidth={2.2} />
                         </Pressable>
                       )}
-                      {tone === 'right' && <Check size={22} color={C.green} strokeWidth={3} />}
+                      {tone === 'right' && <Check size={20} color={C.green} strokeWidth={3} />}
+                      {tone === 'wrong' && <X size={20} color={C.wrong} strokeWidth={3} />}
                     </Pressable>
                   );
                 })}
@@ -272,26 +274,38 @@ export default function QuestionSolveScreen({
 
             {/* Explanation — after the pick, or straight away when there is nothing
                 to pick. Hidden entirely when the chapter shipped no solution. */}
-            {answered && !!q.solutionHtml && (
-              <View style={st.panel}>
-                <View style={st.grab} />
-                <View style={st.panelHead}>
-                  <Lightbulb size={20} color={C.ink} strokeWidth={2.2} />
-                  <Text style={st.panelTitle}>{splitSteps(q.solutionHtml) ? 'MATHEMATICAL PROOF' : 'EXPLANATION'}</Text>
-                </View>
-                {splitSteps(q.solutionHtml)
-                  ? splitSteps(q.solutionHtml).map((s, i) => (
-                    <View key={i} style={st.step}>
-                      <View style={st.stepNum}><Text style={st.stepNumTxt}>{i + 1}</Text></View>
-                      <View style={{ flex: 1 }}>
-                        {!!s.title && <Text style={st.stepTitle}>{s.title}</Text>}
-                        <Rich value={s.body} fontSize={16} lineHeight={24} color={C.sub} family={TTF.reg} imgHeight={160} />
+            {answered && !!q.solutionHtml && (() => {
+              // One card, three tones. After a pick it leads with the verdict and the
+              // key ("Incorrect · Answer: A") because that is the first thing a student
+              // looks for; a question with nothing to pick keeps the plain heading.
+              const steps = splitSteps(q.solutionHtml);
+              const tone = picked == null ? 'plain' : pickedRight ? 'right' : 'wrong';
+              const heading = tone === 'plain'
+                ? (steps ? 'Mathematical proof' : 'Explanation')
+                : `${tone === 'right' ? 'Correct' : 'Incorrect'}${correctKey ? ` · Answer: ${correctKey}` : ''}`;
+              const accent = tone === 'right' ? C.green : tone === 'wrong' ? C.wrong : C.ink;
+              return (
+                <View style={[st.panel, tone === 'right' && st.panelRight, tone === 'wrong' && st.panelWrong]}>
+                  <View style={st.panelHead}>
+                    {tone === 'plain' && <Lightbulb size={18} color={accent} strokeWidth={2.2} />}
+                    {tone === 'right' && <Check size={18} color={accent} strokeWidth={3} />}
+                    {tone === 'wrong' && <X size={18} color={accent} strokeWidth={3} />}
+                    <Text style={[st.panelTitle, { color: accent }]}>{heading}</Text>
+                  </View>
+                  {steps
+                    ? steps.map((s, i) => (
+                      <View key={i} style={st.step}>
+                        <View style={st.stepNum}><Text style={st.stepNumTxt}>{i + 1}</Text></View>
+                        <View style={{ flex: 1 }}>
+                          {!!s.title && <Text style={st.stepTitle}>{s.title}</Text>}
+                          <Rich value={s.body} fontSize={15} lineHeight={23} color={C.sub} family={TTF.reg} imgHeight={160} />
+                        </View>
                       </View>
-                    </View>
-                  ))
-                  : <Rich value={q.solutionHtml} fontSize={17} lineHeight={26} color={C.sub} family={TTF.reg} imgHeight={200} />}
-              </View>
-            )}
+                    ))
+                    : <Rich value={q.solutionHtml} fontSize={15.5} lineHeight={24} color={C.sub} family={TTF.reg} imgHeight={200} />}
+                </View>
+              );
+            })()}
 
             {answered && !q.solutionHtml && (
               <Text style={st.noSol}>No explanation was published for this question.</Text>
@@ -305,8 +319,7 @@ export default function QuestionSolveScreen({
               onPress={isLast ? onBack : advance}
               accessibilityRole="button"
             >
-              <Text style={st.nextLbl}>{isLast ? 'Finish' : 'Next Question'}</Text>
-              <ArrowRight size={20} color={C.ink} strokeWidth={2.6} />
+              <Text style={st.nextLbl}>{isLast ? 'Finish' : 'Next'}</Text>
             </Pressable>
           </View>
         </>
@@ -318,14 +331,14 @@ export default function QuestionSolveScreen({
 const st = StyleSheet.create({
   root: { flex: 1, backgroundColor: C.canvas },
 
-  back: { flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 18, paddingVertical: 16 },
-  backLbl: { fontSize: 19, lineHeight: 24, fontFamily: TTF.semi, color: C.ink },
+  back: { flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 16, paddingVertical: 14 },
+  backLbl: { fontSize: 17, lineHeight: 22, fontFamily: TTF.semi, color: C.ink },
 
   loading: { paddingVertical: 60, alignItems: 'center' },
   empty: { textAlign: 'center', fontSize: 15, fontFamily: TTF.reg, color: C.sub, marginTop: 48 },
 
   qCard: {
-    marginHorizontal: 18, padding: 20, borderRadius: 20,
+    marginHorizontal: 16, padding: 18, borderRadius: 18,
     backgroundColor: C.card, borderWidth: 1, borderColor: C.hair,
   },
   qTop: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
@@ -335,59 +348,69 @@ const st = StyleSheet.create({
   marks: { fontSize: 14, lineHeight: 20, fontFamily: TTF.semi, color: '#8A6A00', marginTop: 12 },
 
   stemCard: {
-    marginTop: 16, padding: 16, borderRadius: 14,
-    backgroundColor: 'rgba(255,255,255,0.05)', borderWidth: 1, borderColor: C.hair,
+    marginTop: 14, padding: 14, borderRadius: 12,
+    backgroundColor: '#FFFFFF', borderWidth: 1, borderColor: C.hair,
   },
-  stemLbl: { fontSize: 13, lineHeight: 17, fontFamily: TTF.semi, color: C.sub, letterSpacing: 1.6 },
-  stemTxt: { fontSize: 21, lineHeight: 30, fontFamily: TTF.bold, color: C.ink, marginTop: 10, letterSpacing: 0.5 },
+  stemLbl: { fontSize: 12, lineHeight: 16, fontFamily: TTF.semi, color: C.sub, letterSpacing: 1.4 },
+  stemTxt: { fontSize: 18, lineHeight: 26, fontFamily: TTF.bold, color: C.ink, marginTop: 8, letterSpacing: 0.4 },
 
-  step: { flexDirection: 'row', gap: 14, marginBottom: 18 },
+  step: { flexDirection: 'row', gap: 12, marginBottom: 14 },
   stepNum: {
-    width: 32, height: 32, borderRadius: 16, borderWidth: 1.5, borderColor: C.hair,
+    width: 28, height: 28, borderRadius: 9, backgroundColor: 'rgba(17,17,17,0.05)',
     alignItems: 'center', justifyContent: 'center',
   },
-  stepNumTxt: { fontSize: 14, lineHeight: 18, fontFamily: TTF.semi, color: C.ink },
-  stepTitle: { fontSize: 16, lineHeight: 22, fontFamily: TTF.bold, color: C.ink, marginBottom: 4 },
+  stepNumTxt: { fontSize: 13, lineHeight: 17, fontFamily: TTF.bold, color: C.ink },
+  stepTitle: { fontSize: 15, lineHeight: 21, fontFamily: TTF.bold, color: C.ink, marginBottom: 3 },
 
-  opts: { flexDirection: 'row', flexWrap: 'wrap', gap: 12, paddingHorizontal: 18, marginTop: 18 },
-  hintWrap: { paddingHorizontal: 18, marginTop: 14 },
+  opts: { flexDirection: 'row', flexWrap: 'wrap', gap: 10, paddingHorizontal: 16, marginTop: 14 },
+  hintWrap: { paddingHorizontal: 16, marginTop: 12 },
   hintCue: { fontSize: 14, lineHeight: 20, fontFamily: TTF.reg, color: C.dim, textAlign: 'center' },
   hintTxt: {
     fontSize: 15, lineHeight: 22, fontFamily: TTF.reg, color: C.sub,
     backgroundColor: 'rgba(245,194,76,0.10)', borderRadius: 12, padding: 14,
   },
+  // An unpicked option is a WHITE row on a hairline. It used to be a solid #666
+  // slab — a fill chosen when the page behind it was near-black, which on white
+  // read as four heavy grey bars competing with the question itself.
   opt: {
-    minHeight: 78,
-    flexDirection: 'row', alignItems: 'center', gap: 14,
-    borderRadius: 16, borderWidth: 2, borderColor: 'transparent',
-    backgroundColor: C.slate, paddingHorizontal: 14, paddingVertical: 16,
+    minHeight: 56,
+    flexDirection: 'row', alignItems: 'center', gap: 12,
+    borderRadius: 14, borderWidth: 1.5, borderColor: C.hair,
+    backgroundColor: C.canvas, paddingHorizontal: 12, paddingVertical: 11,
   },
-  optHalf: { width: '48%', flexGrow: 1, minHeight: 88 },
+  optHalf: { width: '48%', flexGrow: 1 },
   optFull: { width: '100%' },
   optRight: { backgroundColor: C.greenFill, borderColor: C.greenEdge },
-  optWrong: { backgroundColor: C.wrongFill, borderColor: C.wrong },
+  optWrong: { backgroundColor: C.wrongFill, borderColor: C.wrongEdge },
   letter: {
-    width: 34, height: 34, borderRadius: 17, alignItems: 'center', justifyContent: 'center',
-    backgroundColor: 'rgba(255,255,255,0.18)',
+    width: 30, height: 30, borderRadius: 9, alignItems: 'center', justifyContent: 'center',
+    backgroundColor: '#F2F2F4',
   },
-  letterTxt: { fontSize: 15, lineHeight: 19, fontFamily: TTF.bold, color: 'rgba(255,255,255,0.75)' },
+  letterTxt: { fontSize: 14, lineHeight: 18, fontFamily: TTF.bold, color: C.sub },
 
+  // The verdict card. It was a rounded bottom-sheet with a grab handle, which
+  // promised a drag that never existed and pinned the explanation to the bottom of
+  // the page; it is a card in the column now, tinted by whether the pick was right.
   panel: {
-    marginTop: 24, paddingHorizontal: 20, paddingTop: 12, paddingBottom: 24,
-    borderTopLeftRadius: 28, borderTopRightRadius: 28, backgroundColor: C.panel,
+    marginHorizontal: 16, marginTop: 16, padding: 16, borderRadius: 16,
+    backgroundColor: C.panel, borderWidth: 1.5, borderColor: C.hair,
   },
-  grab: { width: 46, height: 4, borderRadius: 2, backgroundColor: 'rgba(255,255,255,0.16)', alignSelf: 'center' },
-  panelHead: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 18, marginBottom: 16 },
-  panelTitle: { fontSize: 17, lineHeight: 22, fontFamily: TTF.bold, color: C.ink, letterSpacing: 1 },
-  noSol: { textAlign: 'center', fontSize: 14, fontFamily: TTF.reg, color: C.dim, marginTop: 28, paddingHorizontal: 24 },
+  panelRight: { backgroundColor: C.greenFill, borderColor: C.greenEdge },
+  panelWrong: { backgroundColor: C.wrongFill, borderColor: C.wrongEdge },
+  panelHead: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 12 },
+  panelTitle: { flex: 1, fontSize: 15, lineHeight: 20, fontFamily: TTF.bold, color: C.ink, letterSpacing: 0.2 },
+  noSol: { textAlign: 'center', fontSize: 14, fontFamily: TTF.reg, color: C.dim, marginTop: 24, paddingHorizontal: 24 },
 
-  foot: { paddingHorizontal: 18, paddingTop: 10, alignItems: 'flex-end' },
-  nextBtn: {
-    flexDirection: 'row', alignItems: 'center', gap: 10,
-    height: 60, borderRadius: 30, paddingHorizontal: 28, backgroundColor: C.violet,
+  foot: {
+    paddingHorizontal: 16, paddingTop: 12,
+    backgroundColor: C.canvas, borderTopWidth: 1, borderTopColor: C.hair,
   },
-  nextOff: { opacity: 0.4 },
-  nextLbl: { fontSize: 17, lineHeight: 22, fontFamily: TTF.bold, color: C.ink },
+  nextBtn: {
+    height: 54, borderRadius: 14, alignItems: 'center', justifyContent: 'center',
+    backgroundColor: C.ink,
+  },
+  nextOff: { opacity: 0.35 },
+  nextLbl: { fontSize: 16, lineHeight: 21, fontFamily: TTF.bold, color: '#FFFFFF', letterSpacing: 0.2 },
 });
 
 
