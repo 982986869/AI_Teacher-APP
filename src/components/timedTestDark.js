@@ -119,6 +119,25 @@ const isCompact = (o) => {
   return htmlToPlain(raw).trim().length <= 14;
 };
 
+// The 2-up tile used to render every label at a flat 26px. That size was chosen
+// for the answers it was designed around — "3", "12 m/s", "True" — but isCompact
+// admits anything up to 14 characters, and 26px only fits about 8 of them across
+// a 48%-wide tile. "Evaporation" came out as "Evaporat / ion": a word broken
+// mid-syllable, which is harder to read than the same word one step smaller.
+//
+// So the size follows the content. It is derived from the LONGEST label of the
+// four, not per tile, because four answers set at four different sizes would
+// read as a ranking — the biggest one looking like the important one.
+const tileFont = (options) => {
+  const longest = options.reduce(
+    (n, o) => Math.max(n, htmlToPlain(String(o.label ?? '')).trim().length), 0,
+  );
+  if (longest <= 4)  return { size: 26, lh: 32 };   // "3", "True"
+  if (longest <= 8)  return { size: 21, lh: 27 };   // "12 m/s", "Nitrogen"
+  if (longest <= 11) return { size: 18, lh: 24 };   // "Evaporation"
+  return { size: 16, lh: 22 };                      // up to isCompact's 14
+};
+
 /**
  * The frame itself.
  *
@@ -149,6 +168,7 @@ export function TimedTestFrame({
 }) {
   const low = secondsLeft != null && secondsLeft <= 60;
   const twoUp = options.length === 4 && options.every(isCompact);
+  const tile = twoUp ? tileFont(options) : null;
   const hasTabs = sections.length > 1;
 
   return (
@@ -202,7 +222,7 @@ export function TimedTestFrame({
             {/* Body copy, not a headline — TTF.head is Poppins 700 and set the whole
                 stem in heavy display type, which fights the options below it. Carried
                 over from origin/main's fix to the frame this replaced. */}
-            <Rich value={questionHtml} fontSize={19} lineHeight={27} color={TT.ink} family={TTF.semi} imgHeight={170} />
+            <Rich value={questionHtml} fontSize={17.5} lineHeight={25} color={TT.ink} family={TTF.semi} imgHeight={170} />
             {!!bannerText && <Text style={s.ruleTxt}>{bannerText}</Text>}
           </View>
 
@@ -225,7 +245,7 @@ export function TimedTestFrame({
                     <>
                       <Text style={[s.tileLetter, active && { color: TT.pick }]}>{o.key}</Text>
                       <View style={s.tileValue}>
-                        <Rich value={o.label} fontSize={26} lineHeight={32} color={TT.ink} family={TTF.head} align="center" imgHeight={60} />
+                        <Rich value={o.label} fontSize={tile.size} lineHeight={tile.lh} color={TT.ink} family={TTF.head} align="center" imgHeight={60} />
                       </View>
                     </>
                   ) : (
@@ -412,11 +432,11 @@ const s = StyleSheet.create({
     paddingHorizontal: 20, paddingVertical: 16,
     borderBottomWidth: 1, borderBottomColor: TT.hair,
   },
-  exitLbl:  { fontSize: 16, lineHeight: 20, fontFamily: TTF.semi, color: TT.sub },
+  exitLbl:  { fontSize: 15, lineHeight: 20, fontFamily: TTF.semi, color: TT.sub },
   progress: { fontSize: 15, lineHeight: 20, fontFamily: TTF.bold, color: TT.violet },
   timer:    { flexDirection: 'row', alignItems: 'center', gap: 8 },
   timerDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: TT.red },
-  timerTxt: { fontSize: 17, lineHeight: 22, fontFamily: TTF.bold, color: TT.ink },
+  timerTxt: { fontSize: 16, lineHeight: 21, fontFamily: TTF.bold, color: TT.ink },
 
   // ── section tabs ──
   tabsScroll: { flexGrow: 0, marginHorizontal: -20 },
@@ -427,7 +447,7 @@ const s = StyleSheet.create({
     backgroundColor: TT.cardSoft, borderWidth: 1, borderColor: TT.hair,
   },
   tabOn:    { backgroundColor: TT.violet, borderColor: TT.violet },
-  tabTxt:   { fontSize: 16, lineHeight: 20, fontFamily: TTF.semi, color: TT.sub },
+  tabTxt:   { fontSize: 15, lineHeight: 20, fontFamily: TTF.semi, color: TT.sub },
   tabTxtOn: { color: TT.ink, fontFamily: TTF.bold },
 
   badgeRow: { paddingTop: 16 },
@@ -440,7 +460,7 @@ const s = StyleSheet.create({
 
   // ── question ──
   questionArea: { paddingTop: 28, paddingBottom: 32 },
-  ruleTxt: { fontSize: 15, lineHeight: 21, fontFamily: TTF.reg, color: TT.sub, marginTop: 14 },
+  ruleTxt: { fontSize: 13.5, lineHeight: 19, fontFamily: TTF.reg, color: TT.sub, marginTop: 14 },
   diagram: { width: '100%', borderRadius: 8, backgroundColor: '#FFFFFF' },
 
   // ── options ──
@@ -467,7 +487,7 @@ const s = StyleSheet.create({
   // ── nav ──
   navActions: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingVertical: 16 },
   prevBtn: { paddingVertical: 10, paddingRight: 16 },
-  prevLbl: { fontSize: 17, lineHeight: 22, fontFamily: TTF.semi, color: TT.sub },
+  prevLbl: { fontSize: 16, lineHeight: 21, fontFamily: TTF.semi, color: TT.sub },
   paletteBtn: {
     width: 56, height: 56, borderRadius: 28, borderWidth: 1, borderColor: TT.hair,
     backgroundColor: TT.cardSoft, alignItems: 'center', justifyContent: 'center',
@@ -476,7 +496,7 @@ const s = StyleSheet.create({
     minWidth: 168, height: 56, borderRadius: 28, backgroundColor: TT.violet,
     alignItems: 'center', justifyContent: 'center', paddingHorizontal: 26,
   },
-  nextLbl: { fontSize: 17, lineHeight: 22, fontFamily: TTF.bold, color: TT.ink },
+  nextLbl: { fontSize: 16, lineHeight: 21, fontFamily: TTF.bold, color: TT.ink },
   btnOff:  { opacity: 0.35 },
 
   // ── finish dialog ──
@@ -489,7 +509,7 @@ const s = StyleSheet.create({
     shadowColor: '#111111', shadowOpacity: 0.10, shadowRadius: 24, shadowOffset: { width: 0, height: 12 }, elevation: 12,
   },
   dialogText: { gap: 12 },
-  dialogTitle: { fontSize: 22, lineHeight: 28, fontFamily: TTF.head, color: TT.ink, textAlign: 'center' },
+  dialogTitle: { fontSize: 20, lineHeight: 26, fontFamily: TTF.head, color: TT.ink, textAlign: 'center' },
   dialogBody: { fontSize: 14, lineHeight: 20, fontFamily: TTF.reg, color: TT.sub, textAlign: 'center' },
   dialogButtons: { gap: 10 },
   finishBtn: {
@@ -506,7 +526,7 @@ const s = StyleSheet.create({
   // ── palette screen ──
   paletteRoot:  { flex: 1, backgroundColor: TT.canvas },
   paletteBody:  { paddingHorizontal: 20, paddingTop: 28, paddingBottom: 24 },
-  paletteTitle: { fontSize: 30, lineHeight: 38, fontFamily: TTF.head, color: TT.ink, letterSpacing: -0.4 },
+  paletteTitle: { fontSize: 26, lineHeight: 33, fontFamily: TTF.head, color: TT.ink, letterSpacing: -0.4 },
   group:        { marginTop: 30 },
   groupTitle:   { fontSize: 14, lineHeight: 18, fontFamily: TTF.bold, color: TT.sub, letterSpacing: 0.8, marginBottom: 14 },
   cellRow:      { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
