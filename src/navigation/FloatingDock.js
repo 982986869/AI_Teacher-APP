@@ -2,9 +2,9 @@
 // Student bottom navigation — DOCKED to the bottom edge (mirroring the Parent app's nav):
 // a full-width surface with rounded top corners and an upward shadow, its background
 // filling down through the safe-area so it covers the system-nav strip while the tabs stay
-// clear of the phone's back/home/recents buttons. The selected tab is a filled white
-// icon with a bold white label; the other five are outlined greys. The active icon
-// scales up on selection — that spring is the only motion left in the bar.
+// clear of the phone's back/home/recents buttons. The selected tab is a white outlined
+// icon on a heavier stroke with a bold white label; the other five are lighter greys.
+// The active icon scales up on selection — that spring is the only motion left in the bar.
 //
 // On the DAY palette (src/theme/dayTheme.js), matching the design: a BLACK bar with a
 // white selected tab and grey unselected ones, square corners, no top border.
@@ -58,15 +58,17 @@ const NavTab = React.memo(function NavTab({ route, label, Icon, isFocused, onPre
         accessibilityLabel={label}
         accessibilityState={isFocused ? { selected: true } : {}}
       >
-        {/* The selected icon is FILLED, not just recoloured — in the design "Home" reads
-            as a solid white silhouette against the five outlined greys, which is most of
-            what makes the selection obvious now that the pill behind it is gone. */}
+        {/* The selected icon stays an OUTLINE and is highlighted instead: white, a
+            heavier stroke, the scale spring and the xbold label carry the selection.
+            Filling it turned every glyph into a solid white blob — Target in particular
+            read as a plain white disc with no icon left in it — so the tab you were on
+            was the one you could no longer identify. */}
         <Animated.View style={[styles.iconBox, { transform: [{ scale }] }]}>
           <Icon
             size={22}
             color={isFocused ? ACCENT : IDLE}
-            fill={isFocused ? ACCENT : 'none'}
-            strokeWidth={isFocused ? 2 : 2.1}
+            fill="none"
+            strokeWidth={isFocused ? 2.6 : 2.1}
           />
         </Animated.View>
         <T w={isFocused ? 'xbold' : 'semi'} s={11} c={isFocused ? ACCENT : IDLE} numberOfLines={1} style={styles.label}>
