@@ -30,19 +30,28 @@ import { useAuth } from '../context/AuthContext';
 import { COLORS } from '../theme/designSystem';
 import PrimaryButton from '../components/brand/PrimaryButton';
 import OutlinedButton from '../components/brand/OutlinedButton';
+import { N } from '../theme/nightTheme';
 
-// Dark reskin of all three levels of this flow (subject list, chapter list, test
-// list — the "subject-selection-dark" / "chapter-tests-dark" references), same
-// opt-in-per-screen technique as the Practice landing page. This screen no longer
-// uses testCardKit at all — that shared kit (Mock Tests, Online Tests, admin
-// browse) is left exactly as-is; every level here renders its own local dark UI.
+// All three levels of this flow (subject list, chapter list, test list) render
+// their own local UI rather than testCardKit, which is left as it is for Mock
+// Tests, Online Tests and admin browse. It was written as a DARK reskin against
+// the "subject-selection-dark" references, and only half of it ever moved: canvas,
+// ink and sub went light while the rest stayed white-alpha, which only works over
+// a dark base. On the white page `card` and `hair` were pure white at 5% and 10%
+// — invisible cards on invisible borders — and `faint` was white at 38%, so the
+// search placeholder and every chevron rendered as a ghost.
+//
+// cyan and purple went the same way: neon picked against a near-black canvas,
+// both well under 2:1 on white. The two subject tints now come from the shared
+// pastel family, each with the ink that passes on its own fill. Cards are white
+// on white separated by a hairline, which is testCardKit's own convention.
 const D = {
-  canvas: COLORS.background, card: 'rgba(255,255,255,0.05)',
+  canvas: COLORS.background, card: COLORS.background,
   ink: COLORS.textPrimary, sub: COLORS.textSecondary, muted: COLORS.textSecondary,
-  faint: 'rgba(255,255,255,0.38)', hair: 'rgba(255,255,255,0.10)',
-  cyan: '#22D3EE', cyanSoft: 'rgba(34,211,238,0.16)',
-  purple: '#C084FC', purpleSoft: 'rgba(192,132,252,0.16)',
-  emerald: COLORS.success, indigo: COLORS.primary,
+  faint: COLORS.textMuted, hair: COLORS.border,
+  cyan: N.tintSkyInk, cyanSoft: N.tintSky,
+  purple: N.tintLilacInk, purpleSoft: N.tintLilac,
+  emerald: COLORS.success, indigo: COLORS.accent,
 };
 // Vector icon + accent per known subject; anything else (Class 6-9's longer,
 // varied subject lists) falls back to a generic book icon, alternating the two
@@ -163,7 +172,7 @@ export default function PracticeTestsCards({ onBack, onStartChapter, onStartSubt
     const loadingSubs = isDyn && dynSubs === null;
     return (
       <View style={d.safe}>
-        <StatusBar barStyle="light-content" backgroundColor={D.canvas} />
+        <StatusBar barStyle="dark-content" backgroundColor={D.canvas} />
         <View style={[d.header, { paddingTop: insets.top + 8 }]}>
           <Pressable onPress={onBack} style={d.backBtn} hitSlop={8} accessibilityLabel="Go back">
             <ChevronLeft size={19} color={D.ink} strokeWidth={2.6} />
@@ -208,7 +217,7 @@ export default function PracticeTestsCards({ onBack, onStartChapter, onStartSubt
     const loading = chapState.loading || avail.loading;
     return (
       <View style={d.safe}>
-        <StatusBar barStyle="light-content" backgroundColor={D.canvas} />
+        <StatusBar barStyle="dark-content" backgroundColor={D.canvas} />
         <View style={[d.header, { paddingTop: insets.top + 8 }]}>
           <Pressable onPress={() => setSubject(null)} style={d.backBtn} hitSlop={8} accessibilityLabel="Go back">
             <ChevronLeft size={19} color={D.ink} strokeWidth={2.6} />
@@ -274,7 +283,7 @@ export default function PracticeTestsCards({ onBack, onStartChapter, onStartSubt
 
   return (
     <View style={d.safe}>
-      <StatusBar barStyle="light-content" backgroundColor={D.canvas} />
+      <StatusBar barStyle="dark-content" backgroundColor={D.canvas} />
       <View style={[d.header, { paddingTop: insets.top + 8 }]}>
         <Pressable onPress={() => setChapter(null)} style={d.backBtn} hitSlop={8} accessibilityLabel="Go back">
           <ChevronLeft size={19} color={D.ink} strokeWidth={2.6} />
@@ -364,14 +373,17 @@ const d = StyleSheet.create({
 
   tabRow:      { flexDirection: 'row', gap: 8, paddingHorizontal: 16, marginTop: 4, marginBottom: 4 },
   tab:         { paddingVertical: 9, paddingHorizontal: 16, borderRadius: 12, backgroundColor: D.card, borderWidth: 1, borderColor: D.hair },
-  tabOn:       { backgroundColor: D.cyan, borderColor: D.cyan },
+  // Matches testCardKit's FilterTabs — ink fill, white label — so the tabs here
+  // read the same as the ones on Mock Tests. The old pair was a neon-cyan fill
+  // under near-black text, which was the dark palette's contrast, not this one's.
+  tabOn:       { backgroundColor: COLORS.ink, borderColor: COLORS.ink },
   tabTxt:      { fontSize: 12.5, fontWeight: '800', color: D.muted },
-  tabTxtOn:    { color: '#08181C' },
+  tabTxtOn:    { color: COLORS.onInk },
 
   testCard:       { backgroundColor: D.card, borderWidth: 1, borderColor: D.hair, borderRadius: 18, padding: 16, marginBottom: 12, gap: 10 },
   statusPill:     { flexDirection: 'row', alignItems: 'center', gap: 6, alignSelf: 'flex-start', paddingVertical: 4, paddingHorizontal: 9, borderRadius: 8 },
   statusPillOpen: { backgroundColor: 'rgba(16,185,129,0.14)' },
-  statusPillDone: { backgroundColor: 'rgba(255,255,255,0.06)' },
+  statusPillDone: { backgroundColor: COLORS.surface },
   statusDot:      { width: 6, height: 6, borderRadius: 3 },
   statusTxt:      { fontSize: 11, fontWeight: '800', letterSpacing: 0.2 },
   testTitle:      { fontSize: 16, fontWeight: '800', color: D.ink, letterSpacing: -0.2 },

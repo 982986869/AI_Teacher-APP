@@ -255,7 +255,7 @@ export default function TestsHomeScreen({ navigation }) {
     const showFab = ready && cls != null && subjects.list.length > 0;
     return (
       <SafeAreaView style={{ flex: 1, backgroundColor: DK.canvas }}>
-        <StatusBar barStyle="light-content" backgroundColor={DK.canvas} />
+        <StatusBar barStyle="dark-content" backgroundColor={DK.canvas} />
         <AdminHeader title="Tests" subtitle="Pick a class, then a subject" />
         <View style={{ paddingHorizontal: 16, marginTop: 2 }}>
           <AdminSegmented value={mode} onChange={setMode} options={[{ value: 'mock', label: 'Mock Tests' }, { value: 'online', label: 'Online Tests' }]} />
@@ -309,7 +309,7 @@ export default function TestsHomeScreen({ navigation }) {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: DK.canvas }}>
-      <StatusBar barStyle="light-content" backgroundColor={DK.canvas} />
+      <StatusBar barStyle="dark-content" backgroundColor={DK.canvas} />
       <AdminHeader title={subject.name} subtitle={`Class ${cls} · Mock Tests`} onBack={() => setSubject(null)} />
       <View style={{ paddingHorizontal: 16, paddingTop: 6, paddingBottom: 4 }}>
         <ChipRow

@@ -27,15 +27,22 @@ import { View, Text, ScrollView, Pressable, StyleSheet, StatusBar, Modal } from 
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ArrowLeft, Check, X, ChevronDown } from 'lucide-react-native';
 import { TT, TTF, Rich } from '../components/timedTestDark';
+import { N } from '../theme/nightTheme';
 import { htmlToPlain, hasMath, firstImg } from '../utils/mathHtml';
 
+// TT is the light system; these locals were not. The greens and reds were neon
+// values picked against a near-black canvas — #22D39A is 1.9:1 on white — and
+// `chip` was white at 6%, i.e. an invisible fill behind the SKIPPED and NOT
+// GRADED badges. `dim` was never defined on TT at all, so the three styles
+// reading it were passing `undefined` as a colour.
 const C = {
   ...TT,
-  green: '#22D39A',
-  greenSoft: 'rgba(34,211,154,0.10)',
-  redSoft: 'rgba(255,59,92,0.10)',
-  wrong: '#FF3B5C',
-  chip: 'rgba(255,255,255,0.06)',
+  green: N.green,
+  greenSoft: N.greenSoft,
+  redSoft: N.redSoft,
+  wrong: N.red,
+  chip: N.cardSoft,
+  dim: N.inkDim,
 };
 
 // A question with no answer key cannot be marked right or wrong — say so rather
@@ -50,7 +57,7 @@ function statusOf(q, picked) {
 // A wrong answer is the one verdict a student must not scroll past, so it is the
 // only chip that carries a full-strength edge; the rest sit on a soft fill alone.
 const BADGE = {
-  correct:    { label: 'CORRECT', fg: C.green, bg: C.greenSoft, edge: 'rgba(34,211,154,0.45)' },
+  correct:    { label: 'CORRECT', fg: C.green, bg: C.greenSoft, edge: N.green },
   incorrect:  { label: 'WRONG',   fg: C.wrong, bg: C.redSoft,   edge: C.wrong },
   unanswered: { label: 'SKIPPED', fg: C.sub,   bg: C.chip,      edge: 'transparent' },
   unknown:    { label: 'NOT GRADED', fg: C.dim, bg: C.chip,     edge: 'transparent' },
@@ -97,7 +104,9 @@ export default function OnlineTestReview({
 
   return (
     <View style={st.root}>
-      <StatusBar barStyle="light-content" backgroundColor={C.canvas} />
+      {/* C.canvas is white now, so light-content painted white icons onto a white
+          bar — the clock and battery simply vanished. */}
+      <StatusBar barStyle="dark-content" backgroundColor={C.canvas} />
       <View style={{ height: insets.top }} />
 
       <View style={st.header}>
@@ -282,7 +291,7 @@ const st = StyleSheet.create({
 
   detail: {
     paddingHorizontal: 20, paddingTop: 4, paddingBottom: 20, gap: 12,
-    backgroundColor: 'rgba(255,255,255,0.02)',
+    backgroundColor: N.page,
     borderBottomWidth: 1, borderBottomColor: C.hair,
   },
   opts: { gap: 8 },
@@ -304,7 +313,7 @@ const st = StyleSheet.create({
   },
   exitLbl: { fontSize: 17, lineHeight: 22, fontFamily: TTF.bold, color: C.ink },
 
-  scrim: { flex: 1, backgroundColor: 'rgba(4,3,18,0.6)' },
+  scrim: { flex: 1, backgroundColor: C.scrim },
   sheet: {
     backgroundColor: C.card, borderTopLeftRadius: 24, borderTopRightRadius: 24,
     borderTopWidth: 1, borderColor: C.hair, paddingHorizontal: 16, paddingTop: 10,
@@ -314,9 +323,9 @@ const st = StyleSheet.create({
   sheetItem: {
     flexDirection: 'row', alignItems: 'center', gap: 12,
     paddingVertical: 14, paddingHorizontal: 14, borderRadius: 14, marginBottom: 8,
-    backgroundColor: 'rgba(255,255,255,0.035)', borderWidth: 1, borderColor: 'transparent',
+    backgroundColor: N.cardSoft, borderWidth: 1, borderColor: 'transparent',
   },
-  sheetItemOn: { backgroundColor: 'rgba(123,97,255,0.14)', borderColor: C.violet },
+  sheetItemOn: { backgroundColor: N.violetSoft, borderColor: N.violet },
   sheetItemTxt: { flex: 1, fontSize: 15.5, lineHeight: 20, fontFamily: TTF.semi, color: C.sub },
   sheetCount: { fontSize: 14, lineHeight: 20, fontFamily: TTF.semi, color: C.dim },
 });

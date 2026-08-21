@@ -202,7 +202,7 @@ export default function TestQuestionScreen({
 function Page({ children }) {
   return (
     <SafeAreaView style={st.safe}>
-      <StatusBar barStyle="light-content" backgroundColor={TT.canvas} />
+      <StatusBar barStyle="dark-content" backgroundColor={TT.canvas} />
       {Platform.OS === 'android' && <View style={st.androidStatusPad} />}
       {children}
     </SafeAreaView>

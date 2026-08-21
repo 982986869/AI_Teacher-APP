@@ -393,7 +393,7 @@ export default function McqQuizScreen({
 function Page({ children }) {
   return (
     <SafeAreaView style={st.safe}>
-      <StatusBar barStyle="light-content" backgroundColor={C.canvas} />
+      <StatusBar barStyle="dark-content" backgroundColor={C.canvas} />
       {Platform.OS === 'android' && <View style={st.androidStatusPad} />}
       {children}
     </SafeAreaView>
