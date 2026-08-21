@@ -29,7 +29,7 @@ import {
   View, Text, ScrollView, Pressable, StyleSheet, StatusBar, ActivityIndicator,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { ChevronLeft, Check, X, Lightbulb, Info } from 'lucide-react-native';
+import { ChevronLeft, Lightbulb, Info } from 'lucide-react-native';
 import { TT, TTF, Rich } from '../components/timedTestDark';
 import { htmlToPlain, hasMath } from '../utils/mathHtml';
 import { getChapterQuestionProgress, setQuestionProgress } from '../api/resourcesApi';
@@ -178,8 +178,8 @@ export default function QuestionSolveScreen({
                         <Text style={st.stemTxt}>{stem}</Text>
                       </View>
                     )}
-                    <View style={{ marginTop: 16 }}>
-                      <Rich value={body} fontSize={18} lineHeight={26} color={C.ink} family={TTF.head} imgHeight={180} />
+                    <View style={st.qBody}>
+                      <Rich value={body} fontSize={17} lineHeight={27} color={C.ink} family={TTF.reg} imgHeight={180} />
                     </View>
                   </>
                 );
@@ -225,7 +225,7 @@ export default function QuestionSolveScreen({
                           fontSize={15}
                           lineHeight={20}
                           color={tone === 'right' ? '#0B3B2C' : C.ink}
-                          family={TTF.bold}
+                          family={TTF.semi}
                           imgHeight={80}
                         />
                       </View>
@@ -242,8 +242,6 @@ export default function QuestionSolveScreen({
                           <Info size={20} color={tone === 'right' ? C.green : C.sub} strokeWidth={2.2} />
                         </Pressable>
                       )}
-                      {tone === 'right' && <Check size={20} color={C.green} strokeWidth={3} />}
-                      {tone === 'wrong' && <X size={20} color={C.wrong} strokeWidth={3} />}
                     </Pressable>
                   );
                 })}
@@ -277,8 +275,6 @@ export default function QuestionSolveScreen({
                 <View style={[st.panel, tone === 'right' && st.panelRight, tone === 'wrong' && st.panelWrong]}>
                   <View style={st.panelHead}>
                     {tone === 'plain' && <Lightbulb size={18} color={accent} strokeWidth={2.2} />}
-                    {tone === 'right' && <Check size={18} color={accent} strokeWidth={3} />}
-                    {tone === 'wrong' && <X size={18} color={accent} strokeWidth={3} />}
                     <Text style={[st.panelTitle, { color: accent }]}>{heading}</Text>
                   </View>
                   {steps
@@ -330,7 +326,11 @@ const st = StyleSheet.create({
     marginHorizontal: 16, padding: 18, borderRadius: 18,
     backgroundColor: C.card, borderWidth: 1, borderColor: C.hair,
   },
-  qTop: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
+  qTop: {
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12,
+    paddingBottom: 14, borderBottomWidth: 1, borderBottomColor: C.hair,
+  },
+  qBody: { marginTop: 14 },
   chip: { backgroundColor: '#FFF4CC', borderRadius: 10, paddingVertical: 7, paddingHorizontal: 12 },
   chipTxt: { fontSize: 13, lineHeight: 16, fontFamily: TTF.bold, color: '#8A6A00', letterSpacing: 0.6 },
   chapterTxt: { flexShrink: 1, fontSize: 15, lineHeight: 20, fontFamily: TTF.semi, color: C.sub, letterSpacing: 0.4 },
@@ -341,7 +341,7 @@ const st = StyleSheet.create({
     backgroundColor: '#FFFFFF', borderWidth: 1, borderColor: C.hair,
   },
   stemLbl: { fontSize: 12, lineHeight: 16, fontFamily: TTF.semi, color: C.sub, letterSpacing: 1.4 },
-  stemTxt: { fontSize: 18, lineHeight: 26, fontFamily: TTF.bold, color: C.ink, marginTop: 8, letterSpacing: 0.4 },
+  stemTxt: { fontSize: 17, lineHeight: 26, fontFamily: TTF.semi, color: C.ink, marginTop: 8, letterSpacing: 0.4 },
 
   step: { flexDirection: 'row', gap: 12, marginBottom: 14 },
   stepNum: {

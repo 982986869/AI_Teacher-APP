@@ -297,7 +297,7 @@ const s = StyleSheet.create({
     alignItems: 'center', justifyContent: 'center', marginRight: 14,
   },
   qNumTxt: { fontSize: 14.5, fontWeight: '800', color: TK.text },
-  qName: { fontSize: 14.5, lineHeight: 20, fontWeight: '700', color: TK.text },
+  qName: { fontSize: 15, lineHeight: 21, fontWeight: '600', color: TK.text },
   qNameDone: { color: TK.textMuted },
   qSub: { fontSize: 12, fontWeight: '700', color: TK.textMuted, marginTop: 3 },
 
