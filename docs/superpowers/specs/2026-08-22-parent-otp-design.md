@@ -1,8 +1,9 @@
 # Parent-side OTP verification — design
 
 **Date:** 2026-08-22
-**Status:** approved, ready for implementation plan
-**Scope:** SMS (MSG91) only. Email is designed for but deliberately not built.
+**Status:** design agreed; awaiting Resend account + DNS records before implementation
+**Scope:** email (Resend) first, for the free-trial booking flow. SMS is designed
+for and deliberately deferred — see Non-goals.
 
 ## Problem
 
@@ -23,8 +24,8 @@ verify none of them:
 
 Additionally, a trial booking is never persisted anywhere. `BookTrial.js` says
 so directly: *"No backend/persistence yet — the booking lives in the parent's
-state."* Verifying a phone number and then losing the lead is pointless, so
-booking persistence is part of this work.
+state."* Verifying a contact and then losing the lead is pointless, so booking
+persistence is part of this work.
 
 ## What already exists
 
@@ -32,27 +33,80 @@ booking persistence is part of this work.
   expiresAt, attempts, consumedAt`) — right shape, wrong dimensions (see below).
   No `.sql` file for it in `prisma/sql/`, so it probably does not exist in the
   live database.
-- MSG91 config block in `src/config/env.js` (`sms.authKey`, `templateId`,
-  `senderId`, `otpExpiryMinutes`, `enabled`), with credentials filled in the
-  local `.env`.
+- MSG91 config block in `src/config/env.js`. **The credentials in the local
+  `.env` are placeholders** — `MSG91_TEMPLATE_ID` is the literal string
+  `YOUR_TEMPLATE_ID` and `MSG91_SENDER_ID` is `YOUR_SENDER_ID`. The auth key is
+  a 46-character string with dashes, which does not match MSG91's ~25-character
+  alphanumeric format either.
 - `users.phone` is `String? @unique` and `passwordHash` is nullable, so a
   phone-only account is already representable.
 - Both OTP entry UIs (auth and trial booking).
+- No mail library, no mail config, no mail environment variable anywhere in
+  `server/`. Email is being built from zero.
 
-Missing: the service layer, the routes, the SMS provider call, and persistence
-for bookings.
+### Bug to fix along the way
+
+`env.js:64` reads:
+
+```js
+enabled: !!(process.env.MSG91_AUTH_KEY && process.env.MSG91_TEMPLATE_ID)
+```
+
+A placeholder is a non-empty string, so `enabled` is currently **true**. Any
+provider gate written this way reports "configured" for an unconfigured system,
+disables the dev fallback, and sends every message into a provider that rejects
+it — silently. The mail gate must validate the shape of the values (key prefix,
+a from-address that parses), not merely their presence, and the same fix applies
+to the SMS gate when it is next touched.
 
 ## Non-goals
 
-- Email OTP. The schema carries a `channel` column so adding it later is a new
-  sender function, not a redesign. It is not built now because the server has no
-  mail library, no provider account, and no SPF/DKIM records — that is a
-  separate 1–2 day setup with its own deliverability risk.
+- **SMS OTP — deferred, not cancelled.** India requires DLT registration before
+  any transactional SMS is deliverable: Principal Entity registration on an
+  operator portal (~₹5,000 + GST, 1–3 days), a 6-character header approval, and
+  a content-template approval. Four to seven working days of process that has
+  not been started. Email needs none of it and can ship this week. `otp_codes`
+  carries a `channel` column so SMS later is a new sender function against an
+  unchanged service.
 - Parent–child link consent. `purpose = 'link_child'` is reserved; the screen
   and flow are a later change.
 - `BookDemo.js`. A second, parallel booking screen with no OTP and no
-  persistence. Out of scope here; it must later be either wired up or removed.
+  persistence — and, unlike `BookTrial.js`, it *does* collect an email. Out of
+  scope here; it must later be either wired up or removed.
 - Admin-portal listing of trial bookings.
+
+## Domain and mail infrastructure
+
+Verified from public DNS on 2026-08-22:
+
+| Fact | Value |
+|---|---|
+| Registrar / DNS host | **Hostinger** — `ns1/ns2.dns-parking.com`, SOA responsible `dns.hostinger.com`, confirmed against the `.com` registry |
+| Business mail | **Microsoft 365** — MX `ailernova-com.mail.protection.outlook.com` (a Google MX sits at priority 1 and looks like a leftover) |
+| SPF | `v=spf1 include:spf.protection.outlook.com -all` |
+| DMARC | **absent** — no `_dmarc.ailernova.com` record |
+
+Two consequences drive the design:
+
+**The SPF record ends in `-all`, a hard fail.** Any sender not covered by
+Outlook's SPF is rejected outright, not filed as spam. Adding Resend without
+touching this record would mean zero delivered mail.
+
+**Therefore transactional mail is sent from a subdomain, `send.ailernova.com`,
+not the root domain.** The record carrying live business email is never edited —
+a typo there takes down company mail — and the OTP sender's reputation is
+isolated from `@ailernova.com`. The cost is a visible `no-reply@send.ailernova.com`
+in the From line, which is normal for transactional mail and worth the safety.
+
+Note for whoever adds the records: Hostinger's DNS editor takes the *prefix* in
+its Name field, not the full hostname. `send.ailernova.com` is entered as
+`send`. Entering the full name produces `send.ailernova.com.ailernova.com` and
+verification never passes.
+
+**No mailbox needs to be created.** A From address requires no inbox once the
+domain is verified at the provider. Reply-To points at `saurabh@ailernova.com`,
+which exists. A `support@` alias or shared mailbox (both free on Microsoft 365)
+is a later convenience, and only changes an environment variable.
 
 ## Data layer
 
@@ -61,9 +115,9 @@ A new table replaces `phone_otps`:
 ```sql
 CREATE TABLE otp_codes (
   id           uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-  destination  text        NOT NULL,   -- '+919876543210' or 'a@b.com'
-  channel      text        NOT NULL,   -- 'sms' | 'email'
-  purpose      text        NOT NULL,   -- 'login'|'signup'|'trial_booking'|'link_child'
+  destination  text        NOT NULL,   -- 'a@b.com' or '+919876543210'
+  channel      text        NOT NULL,   -- 'email' | 'sms'
+  purpose      text        NOT NULL,   -- 'trial_booking'|'login'|'signup'|'link_child'
   code_hash    text        NOT NULL,   -- bcrypt; the code is never stored in clear
   expires_at   timestamptz NOT NULL,
   attempts     int         NOT NULL DEFAULT 0,
@@ -76,11 +130,11 @@ CREATE INDEX otp_codes_ip     ON otp_codes (ip, created_at DESC);
 ```
 
 `phone_otps` is dropped from `schema.prisma`. It hardcodes `phone`, its
-`OtpPurpose` enum has only `LOGIN` and `SIGNUP` (so trial booking needs a
-migration regardless), and it is probably not in the live database — there is
-nothing to preserve.
+`OtpPurpose` enum has only `LOGIN` and `SIGNUP`, and it is probably not in the
+live database — there is nothing to preserve. The `DROP` is written as
+`DROP TABLE IF EXISTS` so it is a no-op either way.
 
-`purpose` and `channel` are `text`, not Postgres enums, so adding a purpose is a
+`purpose` and `channel` are `text`, not Postgres enums, so adding a value is a
 code change rather than a hand-run `ALTER TYPE` on a database whose migrations
 are applied by hand.
 
@@ -91,7 +145,8 @@ CREATE TABLE trial_bookings (
   id            uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id       uuid REFERENCES users(id),   -- nullable: logged-out parents book too
   parent_name   text NOT NULL,
-  phone         text NOT NULL,
+  email         text NOT NULL,               -- the verified address
+  phone         text,                        -- collected, NOT verified (see below)
   country_iso   text,
   child_name    text,
   board         text,
@@ -103,11 +158,16 @@ CREATE TABLE trial_bookings (
   status        text NOT NULL DEFAULT 'booked',  -- booked|cancelled|done
   created_at    timestamptz NOT NULL DEFAULT now()
 );
-CREATE INDEX trial_bookings_phone ON trial_bookings (phone, created_at DESC);
+CREATE INDEX trial_bookings_email ON trial_bookings (email, created_at DESC);
 ```
 
-Both live in one hand-run file, `prisma/sql/otp_and_trial_bookings.sql`, with
-matching models in `schema.prisma`.
+`phone` stays on the booking and stays unverified. The sales team calls that
+number, and email OTP says nothing about whether it is real. This is a known,
+accepted gap that closes when SMS lands — it is recorded here so nobody later
+reads a verified booking as a verified phone number.
+
+Both tables live in one hand-run file, `prisma/sql/otp_and_trial_bookings.sql`,
+with matching models in `schema.prisma`.
 
 ## Service layer
 
@@ -126,7 +186,7 @@ matching models in `schema.prisma`.
 | Sends per destination | 5 / hour |
 | Sends per IP | 20 / hour |
 | Wrong attempts per code | 5, then the code is dead |
-| Expiry | `MSG91_OTP_EXPIRY_MIN`, default 5 min |
+| Expiry | `OTP_EXPIRY_MIN`, default 5 min |
 | Re-use | single-use via `consumed_at` |
 
 Limits are counted with `SELECT count(*)` over `otp_codes`. No new dependency
@@ -134,39 +194,37 @@ Limits are counted with `SELECT count(*)` over `otp_codes`. No new dependency
 runs as a single Render instance so an in-process counter would buy nothing.
 
 Verification failures return one generic message. Distinguishing "expired" from
-"wrong" from "no such code" tells an attacker which numbers are in the system.
+"wrong" from "no such code" tells an attacker which addresses are in the system.
 
-### SMS provider
+### Email provider
 
-`server/src/providers/sms/msg91.js` exposes `send(destination, code)`.
+`server/src/providers/email/resend.js` exposes `send(destination, code)`, built
+on the `resend` package — the first mail dependency in `server/`.
 
-We generate the code and ask MSG91 only to deliver it, rather than using MSG91's
-own send-and-verify OTP API. Verification state stays in our database, which
-means the email channel later reuses this exact code path instead of needing a
-second, provider-shaped verification flow.
+The message carries **both** an HTML part and a plain-text part. HTML-only mail
+scores worse with spam filters, and the plain-text part is what a screen reader
+or a text client shows.
 
-When `env.sms.enabled` is false the sender is skipped. In development the route
-returns the code as `devOtp` so local work costs no SMS credits — as the comment
-at `env.js:56-58` already anticipates. `devOtp` is never returned when
-`NODE_ENV === 'production'`, regardless of `enabled`.
+Configuration, in `server/.env` and on Render:
+
+```
+RESEND_API_KEY=re_...
+MAIL_FROM=no-reply@send.ailernova.com
+MAIL_FROM_NAME=AILERNOVA
+MAIL_REPLY_TO=saurabh@ailernova.com
+OTP_EXPIRY_MIN=5
+```
+
+`env.js` gains a `mail` block whose `enabled` **validates the values**, not just
+their presence (see the bug above): the key must carry Resend's `re_` prefix and
+`MAIL_FROM` must parse as an address.
+
+When mail is not configured the sender is skipped and, in development only, the
+route returns the code as `devOtp` — so the whole flow is buildable and testable
+before the DNS records exist. `devOtp` is never returned when
+`NODE_ENV === 'production'`, regardless of configuration.
 
 ## Routes
-
-Auth — these three names are what `src/api/authApi.js` already calls, so no
-frontend change is needed and `OTPScreen` starts working as-is:
-
-```
-POST /api/auth/send-otp               { phone }               -> { sent, resendIn }
-POST /api/auth/verify-otp             { phone, otp }          -> { token, isNewUser }
-POST /api/auth/complete-phone-signup  { phone, name, grade }  -> { token, user }
-```
-
-`verify-otp` looks the phone up in `users`. Found -> `isNewUser: false` and a
-normal session token from `signToken`. Not found -> `isNewUser: true` and a
-short-lived token that authorises only `complete-phone-signup`, which creates
-the user with `provider = PHONE` and no password.
-
-General-purpose OTP, for flows that are not authentication:
 
 ```
 POST /api/otp/send        { destination, purpose }        -> { sent, resendIn }
@@ -184,15 +242,31 @@ booking directly, and a server-side pending-verification store would add state
 for no benefit. The token also stops one verification from creating unlimited
 bookings, because `POST /api/trial-bookings` consumes it.
 
+The three auth routes the app already calls (`/api/auth/send-otp`,
+`/verify-otp`, `/complete-phone-signup`) are **not** built here — they are the
+SMS login path, deferred with SMS. See Open items for what to do about the
+button that currently calls them.
+
 ## Frontend
 
-- `BookTrial.js` — delete `DEV_OTP` and the "no SMS is sent" hint block
-  (lines ~419-424). `sendOtp`/`resendOtp` call `POST /api/otp/send`; `verifyOtp`
-  calls `POST /api/otp/verify` and holds the returned `otpToken`; the confirm
-  step POSTs the booking with it. The resend cooldown follows the server's
-  `resendIn` rather than the local `RESEND_SECONDS` constant. Layout unchanged.
-- `LoginScreen.js` / `OTPScreen.js` — no changes. They begin working once the
-  routes exist.
+`BookTrial.js`:
+
+- Add an **email field** to the form. The screen currently collects name, board,
+  grade, country and mobile only; the booking object has an `email` slot
+  (line ~180) with no input behind it. Validate with the same regex
+  `BookDemo.js` already uses.
+- Delete `DEV_OTP` and the "no SMS is sent" hint block (lines ~419-424).
+- `sendOtp`/`resendOtp` call `POST /api/otp/send`; `verifyOtp` calls
+  `POST /api/otp/verify` and holds the returned `otpToken`; the confirm step
+  POSTs the booking with it.
+- The OTP step's copy changes from "Verify your number" to the email wording,
+  and shows the address the code went to.
+- The resend cooldown follows the server's `resendIn` rather than the local
+  `RESEND_SECONDS` constant.
+
+Layout, styling and step machine are otherwise unchanged.
+
+`LoginScreen.js` / `OTPScreen.js` — untouched in this change.
 
 ## Error handling
 
@@ -200,7 +274,7 @@ bookings, because `POST /api/trial-bookings` consumes it.
   the remaining attempts, never the reason.
 - A rate-limited send returns 429 with `resendIn`; the client shows the timer it
   already renders instead of an error.
-- If MSG91 fails, the row is deleted so the attempt does not consume the user's
+- If Resend fails, the row is deleted so the attempt does not consume the user's
   hourly budget, and the client is told to retry.
 - `POST /api/trial-bookings` with an expired `otpToken` returns 401 and the
   client sends the parent back to the OTP step with their form intact.
@@ -212,7 +286,7 @@ with `npm test`, hitting a real database and skipping itself when
 `DATABASE_URL` is unset (see `tests/auth.permissions.test.js`).
 
 Cases: expiry, attempt exhaustion, single-use, resend cooldown, per-destination
-and per-IP caps, and that a wrong code never consumes a valid one. The MSG91
+and per-IP caps, and that a wrong code never consumes a valid one. The Resend
 provider is stubbed.
 
 Route tests: one happy path per endpoint, a rate-limit rejection, an expired
@@ -221,27 +295,32 @@ allow-list.
 
 ## Rollout
 
-Ordered, because the last two are manual and the code is inert without them.
+Implementation can start immediately — the `devOtp` path makes every step
+testable without a provider. Steps 2–4 are manual and gate production only.
 
 1. Run `prisma/sql/otp_and_trial_bookings.sql` **by hand** against the Render
    database. Migrations in this repo are not automatic; skipping this produces
    "column does not exist" 500s at runtime.
-2. Set `MSG91_AUTH_KEY`, `MSG91_TEMPLATE_ID`, `MSG91_SENDER_ID` and
-   `MSG91_OTP_EXPIRY_MIN` in the Render dashboard. They are currently in the
-   local `.env` only, so production would run with `sms.enabled === false` and
-   silently send nothing.
-3. Confirm on the MSG91 dashboard, before implementation starts:
-   - the DLT **Sender ID** is approved — the value in `.env` is 14 characters
-     and a DLT header is 6, so it may be in the wrong field;
-   - the OTP **template** is approved, and its exact body and variable token
-     (`##OTP##` vs `{{otp}}`) — the request must match it or MSG91 rejects the
-     send;
-   - the wallet has balance.
-4. End-to-end test against a real handset before release.
+2. Create a Resend account and add the domain **`send.ailernova.com`**.
+3. Add the records Resend generates to **Hostinger hPanel** → Domains →
+   `ailernova.com` → DNS records — MX, SPF, DKIM, plus a `_dmarc` TXT the domain
+   is currently missing. Prefix-only in the Name field. The existing root-domain
+   SPF is not edited.
+4. Set `RESEND_API_KEY`, `MAIL_FROM`, `MAIL_FROM_NAME`, `MAIL_REPLY_TO` and
+   `OTP_EXPIRY_MIN` in the Render dashboard as well as locally.
+5. Send a real test mail to a Gmail address and confirm it lands in the inbox,
+   not spam, with SPF and DKIM passing in the message headers.
+6. Warm up gently — tens of messages a day for the first few days. A new
+   subdomain that suddenly sends thousands gets filtered.
 
 ## Open items
 
-- The MSG91 sender ID length discrepancy in item 3 above.
-- Whether `phone_otps` exists in the live database. If it does, the migration
-  drops it; if not, the `DROP` is a no-op. Written as `DROP TABLE IF EXISTS`
-  either way.
+- **`LoginScreen`'s phone-OTP tab 404s in production today.** It is unrelated to
+  this change but ships in the same app. Recommendation: hide the phone tab
+  until the SMS path exists, rather than leaving a button that fails. Needs a
+  decision.
+- DLT registration for SMS has not been started. Starting it in parallel is
+  cheap and removes 4–7 days from whenever SMS is scheduled.
+- The `MSG91_AUTH_KEY` in `.env` is an unidentified 46-character credential. It
+  is not MSG91-shaped. Worth finding out what it belongs to before it is assumed
+  dead — and rotating it if it is a live key for something else.
