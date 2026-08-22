@@ -25,7 +25,11 @@ const STORE_IMG = [`${B}/img-stu03.jpg`, `${B}/img-stu05.jpg`, `${B}/img-stu07.j
 const GALLERY_IMG = [`${B}/parents-img2.jpg`, `${B}/parents-img11.jpg`, `${B}/testimonial-03-screenshot.jpg`, `${B}/testimonial-04-screenshot.jpg`, `${B2}/teachers/mentor-1.png`, `${B2}/teachers/mentor-2.png`, `${B2}/teachers/mentor-3.png`, `${B}/img-stu13.png`]
 
 const EVENTS = [
-  { title: 'MathFit™ Summer Adventure ’26', duration: '2-Hour Workshop', grades: 'Grades K–5', city: 'New Delhi', date: 'Sat, 2 Aug', time: '3:15 – 4:45 PM IST' },
+  // No ™ here. See the note in src/screens/parent/ParentApp/constants.js: the
+  // client-side copy deliberately avoids "MathFit™" because it is Cuemath's
+  // trademark; this seed predated that decision and put it straight into the DB,
+  // which is where the Events carousel actually reads its titles from.
+  { title: 'Math Summer Adventure ’26', duration: '2-Hour Workshop', grades: 'Grades K–5', city: 'New Delhi', date: 'Sat, 2 Aug', time: '3:15 – 4:45 PM IST' },
   { title: 'Logic League Championship',      duration: '90-Min Contest',  grades: 'Grades 3–8', city: 'Mumbai',    date: 'Sun, 3 Aug', time: '10:00 – 11:30 AM IST' },
   { title: 'Vedic Math Bootcamp',            duration: 'Half-Day Camp',   grades: 'Grades 4–9', city: 'Bengaluru', date: 'Sat, 9 Aug', time: '9:30 AM – 1:00 PM IST' },
   { title: 'Puzzle & Reasoning Carnival',    duration: '2-Hour Workshop', grades: 'Grades 1–6', city: 'Hyderabad', date: 'Sun, 10 Aug', time: '4:00 – 6:00 PM IST' },
