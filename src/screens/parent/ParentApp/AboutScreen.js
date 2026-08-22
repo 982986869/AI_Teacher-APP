@@ -1028,7 +1028,7 @@ function Timeline({ title, items }) {
                   rails' stub (0.28 white, not #C4CAD6) so it recedes on black instead of
                   glowing — the milestone's year and text stay the thing you read. */}
               {m.image ? (
-                <Image source={{ uri: m.image }} style={s.tlImg} resizeMode="cover" />
+                <Image source={{ uri: m.image }} style={s.tlImg} resizeMode="contain" />
               ) : (
                 <View style={[s.tlImg, s.tlStub]}>
                   <ImageIcon size={30} color="rgba(255,255,255,0.28)" />
@@ -1037,7 +1037,7 @@ function Timeline({ title, items }) {
               {!!m.caption && <T w="med" s={12} c="rgba(255,255,255,0.5)" style={{ marginTop: 10 }}>{m.caption}</T>}
               <View style={s.tlRule} />
               <T w="xbold" s={22} c="#fff" style={{ marginTop: 12 }}>{m.year}</T>
-              <T w="med" s={13.5} c="rgba(255,255,255,0.72)" style={{ marginTop: 6, lineHeight: 20, minHeight: 60 }}>{m.body}</T>
+              <T w="med" s={13.5} c="rgba(255,255,255,0.72)" style={{ marginTop: 6, lineHeight: 20 }}>{m.body}</T>
             </Animated.View>
           );
         })}
@@ -3133,7 +3133,16 @@ const s = StyleSheet.create({
   globeWrap: { width: '100%', aspectRatio: 1, marginTop: 24 },
 
   dark: { backgroundColor: '#0E0E10', paddingVertical: 30 },
-  tlImg: { width: '100%', height: 220, backgroundColor: '#1C1C20' },
+  // The sources are 1023x1538 portraits (0.665). This box used to be a flat 220
+  // tall — roughly 1.05 at this card width — so `cover` threw away well over half
+  // the picture vertically and left a band across the middle: in the "Today" card
+  // that band cut the girl's head off. The box carries the source ratio now, so
+  // the whole frame is visible and nothing is cropped.
+  //
+  // Paired with resizeMode="contain" at the call site: with the ratio matched the
+  // two are equivalent, but contain means an image of a DIFFERENT ratio letterboxes
+  // onto the dark card instead of silently cropping again.
+  tlImg: { width: '100%', aspectRatio: 1023 / 1538, backgroundColor: '#1C1C20' },
   tlStub: { alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: 'rgba(255,255,255,0.10)' },
   tlRule: { height: 1, backgroundColor: 'rgba(255,255,255,0.16)', marginTop: 14 },
   // Reach globe furniture: pulsing halo under each named pin, the pin's name tag,

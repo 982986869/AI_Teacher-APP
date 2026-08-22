@@ -631,9 +631,15 @@ CONTENT.about = {
   // ############################################################################
   //
   // Images are hotlinked from ailernova.in, same as the tutor photos above. Each
-  // source file has a caption bar baked into the bottom of the image; the card
-  // renders with resizeMode="cover" at an aspect ratio that crops it away. If you
-  // swap in portrait images, check that crop still holds.
+  // source file is a 1023x1538 portrait with a mint caption bar baked into the
+  // bottom quarter ("Grade 5 Student Grew Confident in Every Session" and the
+  // like). The card used to crop that bar off with resizeMode="cover" in a 220-tall
+  // box, but that box is landscape and the images are not, so it threw away most of
+  // the photo with it and cut faces in half. The tile carries the source's own
+  // ratio now and renders the file whole, baked caption included.
+  //
+  // So: if you swap these, keep them 1023x1538 or update tlImg's aspectRatio to
+  // match, and remember the bottom quarter of each file is legible text.
   timelineTitle: 'Shaping Confident\nMinds Since Day One',
   timeline: [
     { year: '2021', caption: 'Where it started',
