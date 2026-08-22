@@ -41,7 +41,7 @@ export const CONTENT = {
     regions: [],
     skillsTitle: "Skills You'll Discover",
     skillsIntro: 'The activities and quizzes build the core skills behind confident learning — across every subject.',
-    participantsTitle: 'Hear From Our Participants',
+    participantsTitle: 'Hear From Our Parents',
     participantsIntro: 'Real AILERNOVA learners, and what changed for them.',
     community: {
       title: 'Join our community of\nAilernova parents', body: 'Get updates, learning resources, and celebrate every win ❤️',

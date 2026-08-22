@@ -706,19 +706,26 @@ function SkillsPage({ skills, E }) {
   );
 }
 
-/* 5 ── Hear From Our Participants — photo grid ────────────────────────────── */
-function ParticipantsPage({ gallery, E }) {
-  const col = (arr) => (
-    <View style={{ flex: 1, gap: 8 }}>
-      {arr.map((g, i) => <FadeImage key={g.id} source={{ uri: g.image }} style={[s.gPhoto, { height: i % 2 ? 150 : 110 }]} radius={12} />)}
-    </View>
-  );
+/* 5 ── Hear From Our Parents — photo grid ─────────────────────────────────── */
+// A 2x2 of EQUAL tiles. It used to be a two-column masonry that alternated 110
+// and 150 tall, so no two neighbours matched and portraits were cropped by
+// whatever height their index happened to land on.
+//
+// Each tile is square (aspectRatio 1) and the source images are near-square
+// headshots — 150x152, 157x157, 135x135 — so `cover` trims only a few pixels of
+// background and never the face. Capped at four: the grid is a fixed 2x2, and a
+// fifth would start a lopsided third row.
+function ParentsPage({ gallery, E }) {
+  const four = gallery.slice(0, 4);
   return (
     <View style={[s.card, s.pad, s.light]}>
       <T w="xbold" s={19} c={C.ink} style={{ textAlign: 'center', marginBottom: 12 }}>{E.participantsTitle}</T>
-      <View style={{ flexDirection: 'row', gap: 8 }}>
-        {col(gallery.filter((_, i) => i % 2 === 0))}
-        {col(gallery.filter((_, i) => i % 2 === 1))}
+      <View style={s.gGrid}>
+        {four.map((g) => (
+          <View key={g.id} style={s.gCell}>
+            <FadeImage source={{ uri: g.image }} style={s.gPhoto} radius={12} />
+          </View>
+        ))}
       </View>
     </View>
   );
@@ -1795,7 +1802,7 @@ export default function EventsStack({ events = [], store = [], skills = [], gall
         </View>
         {!!store.length && <FadeIn delay={120}><StorePage slides={store} E={E} /></FadeIn>}
         {!!skills.length && <FadeIn delay={160}><SkillsPage skills={skills} E={E} /></FadeIn>}
-        {!!gallery.length && <FadeIn delay={160}><ParticipantsPage gallery={gallery} E={E} /></FadeIn>}
+        {!!gallery.length && <FadeIn delay={160}><ParentsPage gallery={gallery} E={E} /></FadeIn>}
         <FadeIn delay={160}><CommunityPage gallery={gallery} E={E} /></FadeIn>
         <FadeIn delay={160}><BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onContact={onContact} onRefund={onRefund} onReferral={onReferral} onOpenProgram={onOpenProgram} /></FadeIn>
       </View>
@@ -1881,7 +1888,11 @@ const s = StyleSheet.create({
   skillRow: { flexDirection: 'row', alignItems: 'center', gap: 12, borderWidth: 1.5, borderColor: C.border, borderRadius: 16, padding: 12 },
   skillIcon: { width: 52, height: 52, borderRadius: 12, borderWidth: 1, alignItems: 'center', justifyContent: 'center' },
 
-  gPhoto: { width: '100%', borderRadius: 12, backgroundColor: C.border },
+  // 2x2 grid of equal square tiles. The cell carries the width (half the row,
+  // minus half the gap) and the square ratio; gPhoto just fills it.
+  gGrid:  { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
+  gCell:  { width: '48.5%', flexGrow: 1, aspectRatio: 1 },
+  gPhoto: { width: '100%', height: '100%', borderRadius: 12, backgroundColor: C.border },
 
   social: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, borderRadius: 12, paddingVertical: 13 },
 
