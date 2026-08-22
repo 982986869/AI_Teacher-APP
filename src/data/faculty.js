@@ -12,8 +12,10 @@
 //   photo        static require() — Metro resolves these at build time, so a variable
 //                path will NOT work. null falls back to an initials monogram.
 //
-// Photos live in assets/faculty/ as p1..p10.jpg.
-// p8–p10 are on the team but haven't sent names/bios yet — they render photo-only.
+// Photos live in assets/faculty/ as p1..p10.jpg. The FILENAME NUMBER MEANS NOTHING
+// — do not assume the nth teacher owns pN. Danika and Mili were both filed against
+// the wrong photograph until each sent her own picture (see the note at the bottom).
+// Before attaching a name to a photo here, have that teacher confirm the picture.
 
 export const FACULTY = [
   {
@@ -24,7 +26,9 @@ export const FACULTY = [
     qualification: 'B.A. (Hons.) English Literature',
     experience: '3+ years',
     bio: 'I specialize in teaching English language, literature, spoken English, and communication skills with a focus on clarity, confidence, and practical learning. My teaching approach is interactive, student-friendly, and designed to help learners improve both academic performance and real-life communication.',
-    photo: require('../../assets/faculty/p1.jpg'),
+    // p10, not p1. Danika confirmed her own photo and it is the one filed as p10;
+    // p1 is a different person entirely.
+    photo: require('../../assets/faculty/p10.jpg'),
   },
   {
     id: 'mili',
@@ -34,7 +38,8 @@ export const FACULTY = [
     qualification: 'B.Sc. Clinical Psychology',
     experience: '10 years',
     bio: 'I have been teaching students from Class 1–5 since 2015, then senior students (6–12) from 2018. Since 2020 I have taken both online and offline classes in Dehradun, plus special classes for NEET.',
-    photo: require('../../assets/faculty/p2.jpg'),
+    // p9, not p2 — confirmed by Mili's own photo. p2 is a different person.
+    photo: require('../../assets/faculty/p9.jpg'),
   },
   {
     id: 'niveditha',
@@ -87,10 +92,23 @@ export const FACULTY = [
     photo: require('../../assets/faculty/p7.jpg'),
   },
 
-  // Awaiting name / qualification / bio — photo-only until they send their details.
+  // UNIDENTIFIED — photo-only until someone confirms who they are.
+  //
+  // p1 and p2 are here because they USED to carry Danika's and Mili's details.
+  // Both teachers have since sent their own photographs, and neither matched:
+  // Danika is the file saved as p10, Mili is p9. So p1 and p2 are two real people
+  // whose names we do not currently know, and captioning them with somebody else's
+  // name and qualifications is worse than leaving them unlabelled.
+  //
+  // ⚠ The two corrections were 1->10 and 2->9, which is what a REVERSED list looks
+  // like. If that is what happened, then p3..p7 are wrong too and every remaining
+  // teacher below is captioned with another colleague's face. Two confirmations is
+  // not enough to rewrite five more people's attributions, so nothing else has been
+  // touched — get one more photo confirmed (niveditha should be p8 if the reversal
+  // theory holds) and the rest can be fixed in one pass.
+  { id: 'p1', photo: require('../../assets/faculty/p1.jpg') },
+  { id: 'p2', photo: require('../../assets/faculty/p2.jpg') },
   { id: 'p8', photo: require('../../assets/faculty/p8.jpg') },
-  { id: 'p9', photo: require('../../assets/faculty/p9.jpg') },
-  { id: 'p10', photo: require('../../assets/faculty/p10.jpg') },
 ];
 
 // Initials for the monogram fallback ("Anita Sharma" → "AS").
