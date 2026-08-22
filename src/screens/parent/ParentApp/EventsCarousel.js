@@ -721,10 +721,12 @@ function ParentsPage({ gallery, E }) {
     <View style={[s.card, s.pad, s.light]}>
       <T w="xbold" s={19} c={C.ink} style={{ textAlign: 'center', marginBottom: 12 }}>{E.participantsTitle}</T>
       <View style={s.gGrid}>
-        {four.map((g) => (
-          <View key={g.id} style={s.gCell}>
+        {/* Reading order, 90ms apart, so the 2x2 fills in rather than landing all
+            at once. PopIn is what the rest of the Parent app uses for tiles. */}
+        {four.map((g, i) => (
+          <PopIn key={g.id} delay={i * 90} from={0.86} style={s.gCell}>
             <FadeImage source={{ uri: g.image }} style={s.gPhoto} radius={12} />
-          </View>
+          </PopIn>
         ))}
       </View>
     </View>
@@ -762,9 +764,12 @@ function SocialButton({ item, url }) {
   );
 }
 
-function CommunityPage({ gallery, E }) {
+// No photo strip. It ran three of the parent headshots along the bottom edge at
+// 140 tall and full-bleed, which cropped them to a band across the eyes — and it
+// repeated the same faces the parents grid had just shown two cards earlier. The
+// card ends on its social buttons now.
+function CommunityPage({ E }) {
   const cm = E.community;
-  const strip = gallery.slice(0, 3);
   const live = SOCIALS.filter((x) => cm[x.key]);
   const rows = [live.slice(0, 2), live.slice(2, 4)].filter((r) => r.length);
   return (
@@ -775,17 +780,16 @@ function CommunityPage({ gallery, E }) {
         <View style={{ marginTop: 16, gap: 10 }}>
           {rows.map((row, i) => (
             <View key={i} style={{ flexDirection: 'row', gap: 10 }}>
-              {row.map((x) => <SocialButton key={x.key} item={x} url={cm[x.key]} />)}
+              {row.map((x, j) => (
+                <FadeIn key={x.key} delay={120 + (i * 2 + j) * 70} y={10} style={{ flex: 1 }}>
+                  <SocialButton item={x} url={cm[x.key]} />
+                </FadeIn>
+              ))}
               {row.length === 1 && <View style={{ flex: 1 }} />}
             </View>
           ))}
         </View>
       </View>
-      {!!strip.length && (
-        <View style={{ flexDirection: 'row', gap: 4 }}>
-          {strip.map((g) => <FadeImage key={g.id} source={{ uri: g.image }} style={{ flex: 1, height: 140 }} />)}
-        </View>
-      )}
     </View>
   );
 }
@@ -1803,7 +1807,7 @@ export default function EventsStack({ events = [], store = [], skills = [], gall
         {!!store.length && <FadeIn delay={120}><StorePage slides={store} E={E} /></FadeIn>}
         {!!skills.length && <FadeIn delay={160}><SkillsPage skills={skills} E={E} /></FadeIn>}
         {!!gallery.length && <FadeIn delay={160}><ParentsPage gallery={gallery} E={E} /></FadeIn>}
-        <FadeIn delay={160}><CommunityPage gallery={gallery} E={E} /></FadeIn>
+        <FadeIn delay={160}><CommunityPage E={E} /></FadeIn>
         <FadeIn delay={160}><BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onContact={onContact} onRefund={onRefund} onReferral={onReferral} onOpenProgram={onOpenProgram} /></FadeIn>
       </View>
     </ScrollView>

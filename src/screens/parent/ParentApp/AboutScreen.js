@@ -7,7 +7,7 @@
 // Sections whose data is empty in CONTENT.about (video / founder / timeline /
 // investors / reach.image) render NOTHING — they light up the moment real data is
 // put in constants.js. Nothing here invents a figure, a face or a backer.
-import React, { useState, useRef, useEffect, useContext } from 'react';
+import React, { useState, useRef, useEffect, useMemo, useContext } from 'react';
 import {
   View, ScrollView, Animated, Easing, StyleSheet, Modal, SafeAreaView,
   Linking, LayoutAnimation, Platform, UIManager, Image, Dimensions,
@@ -207,9 +207,41 @@ function Globe() {
       .filter((p) => p.z > 0.16)
       .sort((a, b) => a.z - b.z)
     : [];
-  // Only the pins facing us square-on get a name. Labelling all of them turns the
-  // rim into a pile of overlapping text.
-  const labelled = pins.filter((p) => p.z > 0.62);
+  // Only the pins facing us square-on are CANDIDATES for a name — but facing us is
+  // not enough. Eleven of these sixteen are in South Asia and the Gulf, so they all
+  // clear any z threshold and land within a few pixels of each other: the previous
+  // build drew every one of them and produced a stack of overlapping tags with
+  // "Kuala Lumpur" hanging off the right edge.
+  //
+  // So labels are placed greedily, nearest first, and a tag is only kept if its box
+  // clears every box already placed. A pin that loses is still drawn and still
+  // pulses — it just goes unnamed here, and the chip row underneath names all
+  // sixteen anyway, so nothing is actually hidden from the reader.
+  // Each candidate gets four tries — right-above, left-above, right-below,
+  // left-below — and takes the first that is inside the frame and clear of every
+  // tag already placed. Four corners rather than one fixed offset is what lifts
+  // the Gulf/South-Asia cluster from 5 names to 9 without a single collision.
+  const labelled = useMemo(() => {
+    const LH = 18;                          // tag height incl. padding
+    const wOf = (t) => t.length * 5.9 + 16; // 10.5px semi + the tag's side padding
+    const box = w || 0;
+    const placed = [];
+    for (const p of pins.filter((q) => q.z > 0.62).sort((a, b) => b.z - a.z)) {
+      const lw = wOf(p.city);
+      const cx = R + 8 + p.x;
+      const cy = R + 8 + p.y;
+      for (let [L, Tp] of [[cx + 11, cy - 22], [cx - 11 - lw, cy - 22], [cx + 11, cy + 4], [cx - 11 - lw, cy + 4]]) {
+        if (L < 2 || L + lw > box - 2) continue;
+        Tp = Math.max(2, Math.min(Tp, box - LH - 2));
+        const hit = placed.some((q) => L < q.left + q.lw + 3 && L + lw + 3 > q.left
+                                    && Tp < q.top + LH + 2 && Tp + LH + 2 > q.top);
+        if (hit) continue;
+        placed.push({ ...p, left: L, top: Tp, lw });
+        break;
+      }
+    }
+    return placed;
+  }, [pins, R, w]);
 
   return (
     <View>
@@ -245,7 +277,8 @@ function Globe() {
             ))}
 
             {labelled.map((p) => (
-              <View key={`lbl-${p.city}`} pointerEvents="none" style={[s.gLabel, { left: R + 8 + p.x + 10, top: R + 8 + p.y - 24 }]}>
+              // left/top were resolved by the de-collision pass above.
+              <View key={`lbl-${p.city}`} pointerEvents="none" style={[s.gLabel, { left: p.left, top: p.top }]}>
                 <T w="semi" s={10.5} c={C.ink}>{p.city}</T>
               </View>
             ))}
@@ -632,24 +665,20 @@ function Research({ R }) {
   );
 }
 
-/* ── Founder letter (hidden until CONTENT.about.founder is filled) ────────── */
+/* ── The belief (hidden until CONTENT.about.founder is filled) ───────────── */
+// Byline and portrait removed. The photo was a 340-tall placeholder reading
+// "Founder photo" — a grey box promising a picture nobody had supplied — and the
+// name above it was the literal string "Founder Name", so the card attributed the
+// letter to no one while looking as though it did. What carries the section is
+// the belief itself, so that is all it shows.
+//
+// f.name is still read elsewhere (Movement, TrialStrip), so nothing here deletes
+// it from the content; this block just stops rendering it.
 function Founder({ f }) {
   return (
     <View style={s.founderCard}>
-      {f.photo ? (
-        <Image source={{ uri: f.photo }} style={s.founderImg} resizeMode="cover" />
-      ) : (
-        // Holds the portrait's space until a real photo URL exists — so the card
-        // reads the same now as it will then, instead of collapsing.
-        <View style={[s.founderImg, s.founderStub]}>
-          <UserRound size={54} color="#C4CAD6" />
-          <T w="med" s={12} c={C.faint} style={{ marginTop: 10 }}>Founder photo</T>
-        </View>
-      )}
       <View style={{ padding: 18 }}>
-        <T w="xbold" s={14} c={C.orange} style={{ letterSpacing: 1 }}>{f.name.toUpperCase()}</T>
-        <T w="bold" s={13} c={C.ink} style={{ marginTop: 3 }}>{f.role}</T>
-        <T w="xbold" s={26} c={C.ink} style={{ marginTop: 20, lineHeight: 32 }}>{f.title}</T>
+        <T w="xbold" s={26} c={C.ink} style={{ lineHeight: 32 }}>{f.title}</T>
         {f.letter.map((p, i) => (
           <T key={i} w="med" s={14} c={C.ink} style={{ marginTop: 16, lineHeight: 23, opacity: 0.85 }}>{p}</T>
         ))}
