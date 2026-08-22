@@ -12,10 +12,32 @@
 //   photo        static require() — Metro resolves these at build time, so a variable
 //                path will NOT work. null falls back to an initials monogram.
 //
-// Photos live in assets/faculty/ as p1..p10.jpg. The FILENAME NUMBER MEANS NOTHING
-// — do not assume the nth teacher owns pN. Danika and Mili were both filed against
-// the wrong photograph until each sent her own picture (see the note at the bottom).
-// Before attaching a name to a photo here, have that teacher confirm the picture.
+// ─── THE PHOTO NUMBERS ARE NOT THE ROSTER ORDER ──────────────────────────────
+// Every teacher here was previously attached to the wrong photograph. The files
+// p1..p10 had been filed in REVERSE of the order the roster lists people in, so
+// the first teacher owned p10, the second p9, and so on — which meant nine of the
+// ten cards showed one colleague's face above another colleague's name,
+// qualification and years of experience.
+//
+// The mapping below is not a guess. Danika and Mili each confirmed their own
+// photograph, Niveditha's was matched by eye against the site, and the rest were
+// resolved by exact pixel dimensions against the NAMED files published at
+//   ailernova.in/wp-content/themes/ailernova-theme/images/teachers/<name>.jpg
+// Each of the ten has a distinct size, so the match is unambiguous:
+//
+//   p1  969x1280   Yogita Solanki        p6  460x610    Gagana V
+//   p2  1242x1280  Dr. Pooja Pandey      p7  1166x1280  Kirti Sharma
+//   p3  494x629    Jayapriya K           p8  413x591    Niveditha Krishnan
+//   p4  1280x1052  Simran                p9  1056x1280  Mili Verma
+//   p5  413x531    Simarpreet Kour       p10 960x1280   Danika Shringi
+//
+// Before attaching a name to a photo here, verify it the same way. Do not assume
+// the nth teacher owns pN — that assumption is what caused this.
+//
+// Where a teacher sent us her own introduction, those words are kept verbatim in
+// preference to the shorter marketing line on the website: it is her description of
+// her own teaching. The three added last (Pooja, Jayapriya, Yogita) had no such
+// submission, so their details are the website's, unchanged.
 
 export const FACULTY = [
   {
@@ -26,8 +48,6 @@ export const FACULTY = [
     qualification: 'B.A. (Hons.) English Literature',
     experience: '3+ years',
     bio: 'I specialize in teaching English language, literature, spoken English, and communication skills with a focus on clarity, confidence, and practical learning. My teaching approach is interactive, student-friendly, and designed to help learners improve both academic performance and real-life communication.',
-    // p10, not p1. Danika confirmed her own photo and it is the one filed as p10;
-    // p1 is a different person entirely.
     photo: require('../../assets/faculty/p10.jpg'),
   },
   {
@@ -38,7 +58,6 @@ export const FACULTY = [
     qualification: 'B.Sc. Clinical Psychology',
     experience: '10 years',
     bio: 'I have been teaching students from Class 1–5 since 2015, then senior students (6–12) from 2018. Since 2020 I have taken both online and offline classes in Dehradun, plus special classes for NEET.',
-    // p9, not p2 — confirmed by Mili's own photo. p2 is a different person.
     photo: require('../../assets/faculty/p9.jpg'),
   },
   {
@@ -49,7 +68,7 @@ export const FACULTY = [
     qualification: 'M.Sc. (Physics), M.Phil, M.Ed.',
     experience: '5+ years offline · 2 years online',
     bio: 'I have the patience to deal with any sort of student, solving their doubts and making them confident to learn the subject with ease. I teach in a fun way, so students never feel bored.',
-    photo: require('../../assets/faculty/p3.jpg'),
+    photo: require('../../assets/faculty/p8.jpg'),
   },
   {
     id: 'kirti',
@@ -59,7 +78,7 @@ export const FACULTY = [
     qualification: 'M.Sc. Mathematics',
     experience: '3 years',
     bio: 'I specialize in teaching Maths and Science to students of classes 8–12. My engaging, interactive and easy-to-understand approach helps learners build strong concepts and develop confidence.',
-    photo: require('../../assets/faculty/p4.jpg'),
+    photo: require('../../assets/faculty/p7.jpg'),
   },
   {
     id: 'gagana',
@@ -69,7 +88,7 @@ export const FACULTY = [
     qualification: 'M.Sc. Chemistry',
     experience: '2 years',
     bio: 'I have 2 years of online tutoring experience. My classes are engaging and student-friendly.',
-    photo: require('../../assets/faculty/p5.jpg'),
+    photo: require('../../assets/faculty/p6.jpg'),
   },
   {
     id: 'simarpreet',
@@ -79,7 +98,7 @@ export const FACULTY = [
     qualification: 'M.Sc. Mathematics, B.Ed., CTET Qualified',
     experience: '9 years offline · 3 years online',
     bio: 'Passionate Mathematics educator and World Record Holder with expertise in teaching Grades 3–12. I focus on concept-based learning, problem-solving, and making Mathematics simple, engaging, and enjoyable for every student.',
-    photo: require('../../assets/faculty/p6.jpg'),
+    photo: require('../../assets/faculty/p5.jpg'),
   },
   {
     id: 'simran',
@@ -89,26 +108,41 @@ export const FACULTY = [
     qualification: 'Graduation, D.El.Ed, CTET',
     experience: '5 years',
     bio: "I've been teaching online for the last 5 years, and am experienced in the Indian as well as USA, Australian and European curricula.",
-    photo: require('../../assets/faculty/p7.jpg'),
+    photo: require('../../assets/faculty/p4.jpg'),
   },
 
-  // UNIDENTIFIED — photo-only until someone confirms who they are.
-  //
-  // p1 and p2 are here because they USED to carry Danika's and Mili's details.
-  // Both teachers have since sent their own photographs, and neither matched:
-  // Danika is the file saved as p10, Mili is p9. So p1 and p2 are two real people
-  // whose names we do not currently know, and captioning them with somebody else's
-  // name and qualifications is worse than leaving them unlabelled.
-  //
-  // ⚠ The two corrections were 1->10 and 2->9, which is what a REVERSED list looks
-  // like. If that is what happened, then p3..p7 are wrong too and every remaining
-  // teacher below is captioned with another colleague's face. Two confirmations is
-  // not enough to rewrite five more people's attributions, so nothing else has been
-  // touched — get one more photo confirmed (niveditha should be p8 if the reversal
-  // theory holds) and the rest can be fixed in one pass.
-  { id: 'p1', photo: require('../../assets/faculty/p1.jpg') },
-  { id: 'p2', photo: require('../../assets/faculty/p2.jpg') },
-  { id: 'p8', photo: require('../../assets/faculty/p8.jpg') },
+  // The three who were rendering as blank photo-only cards. Identified by the
+  // dimension match above; details are the website's own copy, verbatim.
+  {
+    id: 'pooja',
+    name: 'Dr. Pooja Pandey',
+    subject: 'Science & Maths',
+    subjects: 'Science, Mathematics',
+    qualification: 'BHMS',
+    experience: '6+ years',
+    bio: 'Helping students build strong fundamentals through engaging and interactive learning.',
+    photo: require('../../assets/faculty/p2.jpg'),
+  },
+  {
+    id: 'jayapriya',
+    name: 'Jayapriya K',
+    subject: 'Science & Maths',
+    subjects: 'Science, Mathematics',
+    qualification: 'B.Tech Chemical Engineering, BBA',
+    experience: '7+ years',
+    bio: 'Adaptable educator creating personalized study plans and stress-free learning.',
+    photo: require('../../assets/faculty/p3.jpg'),
+  },
+  {
+    id: 'yogita',
+    name: 'Yogita Solanki',
+    subject: 'Computer Science',
+    subjects: 'Computer Science, Python, C++',
+    qualification: 'M.Tech Computer Science',
+    experience: '6+ years',
+    bio: 'Experienced coding mentor for school students and competitive learners.',
+    photo: require('../../assets/faculty/p1.jpg'),
+  },
 ];
 
 // Initials for the monogram fallback ("Anita Sharma" → "AS").
