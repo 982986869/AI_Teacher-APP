@@ -1270,20 +1270,26 @@ export default function AboutStack({ onGetStarted, onImpact, onTutors, onReviews
           <View style={{ marginTop: 34 }}><Timeline title={A.timelineTitle} items={A.timeline} /></View>
         )}
 
-        {!!A.investors.length && (
+        {/* Gated on the TITLE, not the list. The section is a one-line credibility
+            statement now — "Backed By IITians" with no logo wall beneath it — so
+            an empty `investors` must still render the heading. The grid returns
+            on its own the moment a real backer with a sign-off is added. */}
+        {!!A.investorsTitle && (
           <View style={[s.pad, { marginTop: 34 }]}>
             <T w="xbold" s={24} c={C.ink} style={{ textAlign: 'center', lineHeight: 31 }}>{A.investorsTitle}</T>
-            <View style={[s.grid, { marginTop: 18 }]}>
-              {A.investors.map((iv, i) => (
-                <View key={`${iv.name}-${i}`} style={s.tileWrap}>
-                  <View style={s.logoBox}>
-                    {iv.logo
-                      ? <Image source={{ uri: iv.logo }} style={{ width: '70%', height: 40 }} resizeMode="contain" />
-                      : <T w="semi" s={12.5} c={C.faint}>{iv.name}</T>}
+            {!!A.investors.length && (
+              <View style={[s.grid, { marginTop: 18 }]}>
+                {A.investors.map((iv, i) => (
+                  <View key={`${iv.name}-${i}`} style={s.tileWrap}>
+                    <View style={s.logoBox}>
+                      {iv.logo
+                        ? <Image source={{ uri: iv.logo }} style={{ width: '70%', height: 40 }} resizeMode="contain" />
+                        : <T w="semi" s={12.5} c={C.faint}>{iv.name}</T>}
+                    </View>
                   </View>
-                </View>
-              ))}
-            </View>
+                ))}
+              </View>
+            )}
           </View>
         )}
 

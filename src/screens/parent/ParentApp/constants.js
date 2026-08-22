@@ -649,27 +649,23 @@ CONTENT.about = {
       body: 'Math and science for grades 1–12, across India and beyond — with an AI teacher that never runs out of patience.',
       image: 'https://ailernova.in/wp-content/themes/ailernova-theme/image/img_12.jpg' },
   ],
+  // The four placeholder funds are gone. They were invented names — "Placeholder
+  // Ventures", "Example Capital", "Sample Growth Fund", "Demo Partners" — kept
+  // deliberately generic so that if they ever reached production they would read
+  // as unfinished rather than as a lie about a real fund.
+  //
+  // The section is a credibility statement now, not a logo wall, so it is a title
+  // with no tiles: `investors` stays empty and AboutScreen renders the heading on
+  // its own.
+  //
   // ############################################################################
-  // # TODO(saurabh): THESE INVESTORS ARE INVENTED PLACEHOLDERS. Nobody in this  #
-  // # list has funded Ailernova.                                               #
-  // #                                                                          #
-  // # Read this before shipping: a fake year on the timeline is sloppy, but a   #
-  // # fake BACKER is a different class of problem — "Backed By <firm>" is a     #
-  // # statement about a real third party's business, and naming a real fund     #
-  // # that never invested is a false claim both to parents and about that fund. #
-  // # That is why the names below are deliberately generic and obviously not    #
-  // # real VCs: if this slips to production it reads as placeholder, not as a   #
-  // # lie about Sequoia. DO NOT swap them for real firms' names or logos to     #
-  // # "make the demo look better" — only list a fund that actually invested,    #
-  // # with their sign-off. Otherwise set `investors: []` and the section hides.  #
+  // # STILL TRUE FOR ANY LOGO ADDED HERE: "Backed By <firm>" is a statement     #
+  // # about a real third party's business. Only list an organisation that       #
+  // # actually backed Ailernova, with their sign-off. Never add a real firm's   #
+  // # name or logo to make the page look stronger.                              #
   // ############################################################################
-  investorsTitle: 'Backed By',
-  investors: [
-    { name: 'Placeholder Ventures', logo: null },
-    { name: 'Example Capital', logo: null },
-    { name: 'Sample Growth Fund', logo: null },
-    { name: 'Demo Partners', logo: null },
-  ],
+  investorsTitle: 'Backed By IITians',
+  investors: [],
   // Know More — the same {key,title,body,bg,tint} card shape the Contact page's
   // "Helpful Links" uses, so the two read as one system. `action` routes to the
   // in-app page where one exists (no reason to throw a parent out to the website
