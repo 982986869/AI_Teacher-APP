@@ -1,6 +1,7 @@
 // src/screens/braingym/PracticeDartboard.js
-// Cuemath-style PRACTICE landing — a 1–20 numbered dartboard with a rainbow ∞
-// hub. Tap the centre → a brief loading spinner → the math-tile game.
+// PRACTICE landing — a 1–20 numbered dartboard with a hexagonal ∞ hub in the
+// shared Brain Gym accent. Tap the centre → a brief loading spinner → the
+// math-tile game.
 import React, { useEffect, useRef, useState } from 'react';
 import {
   View, Text, StyleSheet, SafeAreaView, StatusBar, Platform,
@@ -9,6 +10,7 @@ import {
 import Svg, { Path, Circle, Text as SvgText, Defs, LinearGradient, Stop, G } from 'react-native-svg';
 import ArcTabs from './ArcTabs';
 import { pressSpring, PRESS_SCALE } from './motion';
+import { BG } from './palette';
 
 const { width: SCREEN_W, height: SCREEN_H } = Dimensions.get('window');
 const SIZE = Math.round(Math.min(SCREEN_W - 56, SCREEN_H * 0.42, 320));
@@ -33,6 +35,14 @@ const wedge = (a0, a1, rOut, rIn) => {
 };
 
 const RADAR = [30, 46, 62, 78, 156, 172];
+
+// The hub is a HEXAGON, not a circle. Flat-top — vertices at 0/60/…/300 measured
+// from the +x axis — which is what puts the points at left and right and leaves the
+// top and bottom edges horizontal, the way the reference has it.
+const hexPath = (cx, cy, r) => Array.from({ length: 6 }, (_, i) => {
+  const a = (i * 60) * Math.PI / 180;
+  return `${i ? 'L' : 'M'} ${cx + r * Math.cos(a)} ${cy + r * Math.sin(a)}`;
+}).join(' ') + ' Z';
 
 // A tappable that springs down on press (tactile feedback for the back button).
 const PressBtn = ({ style, wrapStyle, onPress, activeOpacity = 0.9, accessibilityLabel, accessibilityRole, children }) => {
@@ -116,12 +126,19 @@ export default function PracticeDartboard({ activeTab = 'practice', onTabPress, 
         <Animated.View style={{ transform: [{ scale: enterScale }], opacity: enter, width: SIZE, height: SIZE }}>
           <Svg width={SIZE} height={SIZE} viewBox={`0 0 ${VB} ${VB}`}>
             <Defs>
-              <LinearGradient id="rainbow" x1="0" y1="0" x2="1" y2="1">
-                <Stop offset="0%" stopColor="#8B5CF6" />
-                <Stop offset="30%" stopColor="#3C9DF0" />
-                <Stop offset="55%" stopColor="#39D98A" />
-                <Stop offset="78%" stopColor="#FFD75E" />
-                <Stop offset="100%" stopColor="#EE6F96" />
+              {/* The hub was a five-stop rainbow — violet, blue, green, yellow, pink
+                  — the one surface in Brain Gym still carrying colours the rest of
+                  the feature had dropped. Two stops now, both from the shared accent,
+                  so the centre reads as this product's colour. */}
+              <LinearGradient id="hub" x1="0" y1="0" x2="1" y2="1">
+                <Stop offset="0%" stopColor={BG.accent2} />
+                <Stop offset="100%" stopColor={BG.accent} />
+              </LinearGradient>
+              {/* The ring's edge light: blue on one diagonal, violet on the other, so
+                  the outline shifts hue around the board instead of sitting flat. */}
+              <LinearGradient id="edge" x1="0" y1="1" x2="1" y2="0">
+                <Stop offset="0%" stopColor={BG.accent2} />
+                <Stop offset="100%" stopColor={BG.accentLit} />
               </LinearGradient>
             </Defs>
 
@@ -133,21 +150,25 @@ export default function PracticeDartboard({ activeTab = 'practice', onTabPress, 
             {Array.from({ length: N }).map((_, i) => {
               const a0 = i * STEP - STEP / 2;
               const a1 = i * STEP + STEP / 2;
-              return <Path key={`w${i}`} d={wedge(a0, a1, R_OUT, R_IN)} fill={i % 2 ? '#17171C' : '#101014'} stroke="#26262C" strokeWidth={1} />;
+              return <Path key={`w${i}`} d={wedge(a0, a1, R_OUT, R_IN)} fill={i % 2 ? '#17171C' : '#101014'} stroke="url(#edge)" strokeWidth={1.4} strokeOpacity={0.85} />;
             })}
             {Array.from({ length: N }).map((_, i) => {
               const p = polar(R_NUM, i * STEP);
               return (
-                <SvgText key={`n${i}`} x={p.x} y={p.y + 4} fill="#C9C9D2" fontSize={13} fontWeight="800" textAnchor="middle">
+                <SvgText key={`n${i}`} x={p.x} y={p.y + 5} fill={BG.ink} fontSize={15} fontWeight="800" textAnchor="middle">
                   {i + 1}
                 </SvgText>
               );
             })}
 
-            {/* rainbow hub + infinity */}
-            <Circle cx={C} cy={C} r={R_HUB} fill="url(#rainbow)" />
-            <Circle cx={C} cy={C} r={R_HUB} fill="none" stroke="#0B0B0D" strokeWidth={4} />
-            <SvgText x={C} y={C + 12} fill="#FFFFFF" fontSize={34} fontWeight="900" textAnchor="middle">∞</SvgText>
+            {/* hex hub + infinity */}
+            {/* A soft halo first, then the hex, then a light inner edge for the
+                bevel. The dark stroke keeps the hex off the inner wedges. */}
+            <Path d={hexPath(C, C, R_HUB + 9)} fill={BG.accent} opacity={0.14} />
+            <Path d={hexPath(C, C, R_HUB)} fill="url(#hub)" />
+            <Path d={hexPath(C, C, R_HUB)} fill="none" stroke={BG.bg} strokeWidth={3.5} />
+            <Path d={hexPath(C, C, R_HUB - 3)} fill="none" stroke={BG.ink} strokeWidth={1} strokeOpacity={0.32} />
+            <SvgText x={C} y={C + 13} fill={BG.ink} fontSize={36} fontWeight="900" textAnchor="middle">∞</SvgText>
           </Svg>
 
           {/* pulsing tap ring + transparent tap target over the hub */}
