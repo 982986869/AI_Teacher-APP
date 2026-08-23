@@ -6,6 +6,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import {
   View, Text, StyleSheet, SafeAreaView, StatusBar, Platform, TouchableOpacity, Dimensions, Animated, Easing,
 } from 'react-native';
+import { BG } from './palette';
 import Svg, { Path, Circle, Rect, Line, Polygon, G, Text as SvgText, TextPath, Defs } from 'react-native-svg';
 import { useAuth } from '../../context/AuthContext';
 import { play } from '../../utils/sound';
@@ -29,9 +30,12 @@ const ringArc = (a0, a1, r) => {
 
 // STRATEGY top-left · LOGIC top-right · SPEED RUSH bottom (matches the screenshot)
 const SEGS = [
-  { key: 'strategy', label: 'STRATEGY GAME', a0: 240, a1: 360, mid: 300, base: '#1C7A45' },
-  { key: 'logic',    label: 'LOGIC PUZZLE',  a0: 0,   a1: 120, mid: 60,  base: '#16161A' },
-  { key: 'sticks',   label: 'MATCHSTICKS',   a0: 120, a1: 240, mid: 180, base: '#16161A' },
+  // `base` is the fill of the segment that is currently selected. It was a green
+  // (#1C7A45) that belonged to no other Brain Gym surface; it is the shared accent
+  // now, so Arena stops being the one tab that changes the product's colour.
+  { key: 'strategy', label: 'STRATEGY GAME', a0: 240, a1: 360, mid: 300, base: BG.accentDeep },
+  { key: 'logic',    label: 'LOGIC PUZZLE',  a0: 0,   a1: 120, mid: 60,  base: BG.ring },
+  { key: 'sticks',   label: 'MATCHSTICKS',   a0: 120, a1: 240, mid: 180, base: BG.ring },
 ];
 const GAME_NAME = { sticks: 'Matchstick Move', strategy: 'Rectangle It', logic: 'Logic Puzzle' };
 const RADAR = [22, 38, 54, 70, 150, 168, 186];
@@ -170,7 +174,8 @@ export default function ArenaWheel({ onStartGame, onTabPress, onBack }) {
             {/* labels */}
             {SEGS.map((s) => {
               const sel = s.key === selected;
-              const color = sel ? '#1A1A1F' : s.base === '#1C7A45' ? '#DFF7EA' : '#8A8A92';
+              // The unselected label lifts on whichever segment carries the accent.
+              const color = sel ? BG.accentInk : s.base === BG.accentDeep ? BG.accentLit : BG.sub;
               if (s.mid === 180) {
                 const p = polar(RTEXT, 180);
                 return <SvgText key={'lbl-' + s.key} x={p.x} y={p.y + 4} fill={color} fontSize={11} fontWeight="800" letterSpacing={2} textAnchor="middle">{s.label}</SvgText>;
@@ -214,10 +219,10 @@ const st = StyleSheet.create({
   userRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
   back: { width: 34, height: 34, borderRadius: 17, backgroundColor: '#16161A', borderWidth: 1.5, borderColor: '#2C2C30', alignItems: 'center', justifyContent: 'center' },
   backTxt: { color: '#fff', fontSize: 22, fontWeight: '900', marginTop: -3 },
-  avatar: { width: 40, height: 40, borderRadius: 20, backgroundColor: '#39D98A', alignItems: 'center', justifyContent: 'center' },
+  avatar: { width: 40, height: 40, borderRadius: 20, backgroundColor: BG.accent, alignItems: 'center', justifyContent: 'center' },
   name: { color: '#fff', fontSize: 16, fontWeight: '900', letterSpacing: -0.2 },
   grade: { color: '#8E8E93', fontSize: 9, fontWeight: '800' },
-  xp: { color: '#39D98A', fontSize: 12, fontWeight: '800', marginTop: 1 },
+  xp: { color: BG.accentLit, fontSize: 12, fontWeight: '800', marginTop: 1 },
   stats: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   boltPill: { borderWidth: 1.5, borderColor: '#5A4A12', backgroundColor: '#231D08', borderRadius: 14, paddingHorizontal: 10, paddingVertical: 5 },
   badge: { width: 32, height: 32, borderRadius: 16, backgroundColor: '#16161A', borderWidth: 1.5, borderColor: '#2C2C30', alignItems: 'center', justifyContent: 'center' },

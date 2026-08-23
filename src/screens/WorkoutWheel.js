@@ -12,6 +12,7 @@ import { initSounds, playLoop, playSound, stopSound, startLoop, stopLoop } from 
 import { peekPracticeStreak } from '../utils/storage';
 import { pressSpring, PRESS_SCALE } from './braingym/motion';
 import ArcTabs from './braingym/ArcTabs';
+import { BG } from './braingym/palette';
 
 const { width: SCREEN_W } = Dimensions.get('window');
 const WHEEL_SIZE = Math.min(SCREEN_W - 40, 330);
@@ -133,11 +134,16 @@ const skillIcon = (cx, cy, key, color, v) => {
   );
 };
 
+// A view onto the shared Brain Gym palette rather than its own copy of it — the
+// keys stay, so the wheel's call sites are untouched. `green` and `red` are the
+// SEMANTIC pair (progress met / missed) and keep their own hues; the accent is what
+// unifies the three hubs, not the semantics.
 const COL = {
-  bg: '#0B0B0D', radar: '#16161A', radar2: '#1E1E24',
-  seg: '#141418', segLit: '#202026', segStroke: '#2C2C33',
-  white: '#FFFFFF', label: '#6E6E77', labelLit: '#FFFFFF',
-  green: '#39D98A', orange: '#E07B39', red: '#E0322E', sub: '#8A8A93',
+  bg: BG.bg, radar: BG.ring, radar2: BG.ring2,
+  seg: BG.surface, segLit: '#202026', segStroke: '#2C2C33',
+  white: BG.ink, label: BG.dim, labelLit: BG.ink,
+  green: BG.win, orange: BG.gold, red: BG.lose, sub: BG.sub,
+  accent: BG.accent, accentLit: BG.accentLit,
 };
 
 // Faint radar rings behind the wheel.
