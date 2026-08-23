@@ -17,8 +17,14 @@ import { FACULTY, initialsOf } from '../data/faculty';
 
 const SCREEN_W = Dimensions.get('window').width;
 const CARD_W = Math.min(300, SCREEN_W - 84);
-const PHOTO_H = 250;             // portrait box, so cover fills it while keeping faces
-const CARD_H = 436;              // fixed → every card is identical in size
+// The reference card is wider than it is tall in the photo area, but the real
+// faculty photographs are PORTRAITS (960x1280, 1056x1280, 1242x1280 …). Cropping a
+// 0.75 portrait into a 1.5 landscape box keeps only the middle ~half of the frame
+// and takes the top of the head with it. So the box sits at roughly 1.15 — wider
+// than the old 1.1, close to the reference's proportions, and still shallow enough
+// a crop that faces survive it.
+const PHOTO_H = 218;
+const CARD_H = 470;              // fixed → every card is identical in size
 const PEEK_TY = 16;              // each card behind sits this much lower…
 const PEEK_SCALE = 0.06;         // …and this much smaller, for the stacked look
 const DECK_H = CARD_H + PEEK_TY * 2 + 8;
@@ -51,21 +57,21 @@ function CardFace({ person, accent, dark }) {
           member hasn't sent their description yet (the space is simply left blank). */}
       <View style={fc.meta}>
         {!!person.name && (
-          <T w="xbold" s={15.5} c={ink} numberOfLines={1} style={{ letterSpacing: -0.2 }}>{person.name}</T>
+          <T w="xbold" s={19} c={ink} numberOfLines={1} style={{ letterSpacing: -0.35 }}>{person.name}</T>
         )}
         {!!person.subject && (
           <View style={[fc.pill, { backgroundColor: accent + (dark ? '2E' : '1A') }]}>
-            <T w="bold" s={10.5} c={accent} style={{ letterSpacing: 0.3 }}>{person.subject.toUpperCase()}</T>
+            <T w="bold" s={11} c={accent} style={{ letterSpacing: 0.5 }}>{person.subject.toUpperCase()}</T>
           </View>
         )}
         {!!person.qualification && (
-          <T w="semi" s={11} c={muted} numberOfLines={2} style={{ lineHeight: 15 }}>{person.qualification}</T>
+          <T w="semi" s={13} c={muted} numberOfLines={2} style={{ lineHeight: 18 }}>{person.qualification}</T>
         )}
         {!!person.experience && (
-          <T w="bold" s={11} c={accent}>{person.experience}</T>
+          <T w="bold" s={13.5} c={accent}>{person.experience}</T>
         )}
         {!!person.bio && (
-          <T w="med" s={12} c={muted} numberOfLines={3} style={{ lineHeight: 16.5 }}>{person.bio}</T>
+          <T w="med" s={13} c={muted} numberOfLines={3} style={{ lineHeight: 18.5 }}>{person.bio}</T>
         )}
       </View>
     </View>
@@ -180,15 +186,15 @@ const fc = StyleSheet.create({
   deck: { alignItems: 'center', justifyContent: 'flex-start' },
   layer: { position: 'absolute', top: 0 },
 
-  card: { width: CARD_W, height: CARD_H, borderRadius: 22, borderWidth: 1, padding: 12, gap: 12 },
-  photoWrap: { height: PHOTO_H, borderRadius: 16, overflow: 'hidden' },
+  card: { width: CARD_W, height: CARD_H, borderRadius: 22, borderWidth: 1, padding: 14, gap: 14 },
+  photoWrap: { height: PHOTO_H, borderRadius: 18, overflow: 'hidden' },
   photo: { width: '100%', height: '100%' },
   monogram: { flex: 1, alignItems: 'center', justifyContent: 'center' },
 
   // flex:1 keeps the card height fixed regardless of how much text a member provided,
   // so the block below the photo is always the same size (blank when no bio).
-  meta: { flex: 1, gap: 6, paddingHorizontal: 2 },
-  pill: { alignSelf: 'flex-start', borderRadius: 7, paddingHorizontal: 9, paddingVertical: 3 },
+  meta: { flex: 1, gap: 9, paddingHorizontal: 2 },
+  pill: { alignSelf: 'flex-start', borderRadius: 8, paddingHorizontal: 11, paddingVertical: 5 },
 
   dots: { flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 6, marginTop: 16, flexWrap: 'wrap' },
   dotTick: { width: 7, height: 7, borderRadius: 4 },
