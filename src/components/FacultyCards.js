@@ -17,12 +17,12 @@ import { FACULTY, initialsOf } from '../data/faculty';
 
 const SCREEN_W = Dimensions.get('window').width;
 const CARD_W = Math.min(300, SCREEN_W - 84);
-// The reference card is wider than it is tall in the photo area, but the real
-// faculty photographs are PORTRAITS (960x1280, 1056x1280, 1242x1280 …). Cropping a
-// 0.75 portrait into a 1.5 landscape box keeps only the middle ~half of the frame
-// and takes the top of the head with it. So the box sits at roughly 1.15 — wider
-// than the old 1.1, close to the reference's proportions, and still shallow enough
-// a crop that faces survive it.
+// The reference card's photo area is LANDSCAPE (300x218, ratio 1.38) while every
+// faculty photograph is a PORTRAIT — 0.70 to 0.97. Filling that box means
+// discarding between 91 and 211px of height, and a CENTRED crop takes half of that
+// off the top, which is exactly where the head is. Widening the box does not fix
+// it; only moving the crop does, so the image is anchored to the top instead —
+// see the `photo` style.
 const PHOTO_H = 218;
 const CARD_H = 470;              // fixed → every card is identical in size
 const PEEK_TY = 16;              // each card behind sits this much lower…
@@ -31,6 +31,13 @@ const DECK_H = CARD_H + PEEK_TY * 2 + 8;
 const INTERVAL = 3200;           // ms each card stays in front
 const SLIDE = 540;               // ms of the slide-over transition
 const EASE = Easing.bezier(0.22, 1, 0.36, 1);
+
+// Each photograph's own width/height, so the top-anchored crop behaves whatever
+// shape the file is. Falls back to a typical portrait if an asset cannot resolve.
+const photoRatio = (src) => {
+  const a = Image.resolveAssetSource(src);
+  return a && a.width && a.height ? a.width / a.height : 0.78;
+};
 
 // One fixed-size face. Purely presentational — the deck positions and animates it.
 function CardFace({ person, accent, dark }) {
@@ -43,9 +50,15 @@ function CardFace({ person, accent, dark }) {
     <View style={[fc.card, { backgroundColor: surface, borderColor: border }, !dark && shadow]}>
       <View style={[fc.photoWrap, { backgroundColor: dark ? '#141419' : S.canvas }]}>
         {person.photo ? (
-          // cover fills the box edge-to-edge (no side gaps). The box is portrait-shaped,
-          // so cover trims the sides — not the top/bottom where faces are.
-          <Image source={person.photo} style={fc.photo} resizeMode="cover" />
+          // Fills the width and hangs off the BOTTOM of the box, so the whole of the
+          // discarded height comes out of shoulders and background instead of being
+          // split with the top of the head. aspectRatio comes from the asset itself,
+          // because these photographs are not all the same shape.
+          <Image
+            source={person.photo}
+            style={[fc.photo, { aspectRatio: photoRatio(person.photo) }]}
+            resizeMode="cover"
+          />
         ) : (
           <View style={[fc.monogram, { backgroundColor: accent + '22' }]}>
             <T w="black" s={40} c={accent}>{initialsOf(person.name)}</T>
@@ -188,7 +201,10 @@ const fc = StyleSheet.create({
 
   card: { width: CARD_W, height: CARD_H, borderRadius: 22, borderWidth: 1, padding: 14, gap: 14 },
   photoWrap: { height: PHOTO_H, borderRadius: 18, overflow: 'hidden' },
-  photo: { width: '100%', height: '100%' },
+  // Absolute + top:0 is what anchors the crop. With width:'100%' and the asset's
+  // own aspectRatio the rendered height overflows PHOTO_H, and photoWrap's
+  // overflow:'hidden' clips the surplus off the bottom.
+  photo: { position: 'absolute', top: 0, left: 0, width: '100%' },
   monogram: { flex: 1, alignItems: 'center', justifyContent: 'center' },
 
   // flex:1 keeps the card height fixed regardless of how much text a member provided,
