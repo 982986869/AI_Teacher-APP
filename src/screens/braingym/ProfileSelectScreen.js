@@ -9,17 +9,18 @@
 // half for Student, a bear and a wink emoji in circles) that predated the light
 // theme and was the last near-black full-page surface outside Brain Gym's games.
 //
-// ⚠ THE ILLUSTRATIONS ARE NOT IN THE REPO. The reference shows two drawn
-// characters — a student with a backpack, a parent with folded arms — and there is
-// no such art in assets/. Rather than ship a wrong picture or an empty box, each
-// card renders its `art` if one is supplied and falls back to the emoji in a
-// tinted panel of the same size and position. Dropping the real art in later is
-// one line per card:
+// The illustrations live in assets/brand/profile-{student,parent}.png — 312x485
+// and 252x397, both with a real alpha channel, so the characters sit ON the white
+// card rather than in a grey box.
 //
-//     art: require('../../../assets/brand/profile-student.png'),
+// Each card still falls back to an emoji in a tinted panel of the same size and
+// position if `art` is ever null. That path is unreachable while both files are
+// present; it is kept because it is what let the layout be built and reviewed
+// before the art existed, and it will do the same for any third role added later.
 //
-// and the fallback disappears on its own. Keep them roughly 4:5 portrait with a
-// transparent background so they sit on the card rather than in a box.
+// Replacements should keep roughly a 0.64 portrait ratio and a transparent
+// background, and be cropped at the waist — the card has no bottom padding, so the
+// figure is meant to run off its lower edge.
 //
 // Usage:
 //   <ProfileSelectScreen onSelect={(role) => {/* 'parent' | 'student' */}} />
@@ -59,7 +60,7 @@ const ROLES = [
     name: 'Student',
     blurb: 'Complete the daily workout',
     emoji: '🎒',
-    art: null,          // ← drop the illustration here
+    art: require('../../../assets/brand/profile-student.png'),
     lit: true,          // the recommended path, so it carries the accent
   },
   {
@@ -67,7 +68,7 @@ const ROLES = [
     name: 'Parent',
     blurb: 'Track progress and more',
     emoji: '👩',
-    art: null,
+    art: require('../../../assets/brand/profile-parent.png'),
     lit: false,
   },
 ];
