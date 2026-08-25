@@ -9,7 +9,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import {
   View, ScrollView, Image, ImageBackground, Dimensions, StyleSheet,
-  Linking, LayoutAnimation, Platform, UIManager, Modal, SafeAreaView, Animated, Easing, ActivityIndicator, TextInput,
+  Linking, LayoutAnimation, Platform, Modal, SafeAreaView, Animated, Easing, ActivityIndicator, TextInput,
 } from 'react-native';
 import { Star, Plus, Minus, Play, Globe, MapPin, Smartphone, Calendar, Clock, Ticket, ExternalLink, ChevronLeft, ChevronDown, Check, Users, TrendingUp, Video, BookOpen, Award } from 'lucide-react-native';
 import { FontAwesome6 } from '@expo/vector-icons';
@@ -21,9 +21,6 @@ import { Video as AVVideo, ResizeMode } from 'expo-av';   // `Video` is taken by
 import { C, T, CONTENT, Wordmark } from './constants';
 import { PressableScale, FadeIn, PopIn, CountUp } from './anim';
 
-if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
-  UIManager.setLayoutAnimationEnabledExperimental(true);
-}
 const { width: SCREEN_W } = Dimensions.get('window');
 const STORE_W = SCREEN_W - 72;   // inner store-slider width (screen − modal pad − card pad)
 
@@ -540,6 +537,12 @@ const Stars = ({ score = 5, size = 12 }) => {
     </View>
   );
 };
+// ⚠ INERT under the New Architecture, which this app runs with. LayoutAnimation
+// is a no-op there, so every spring() call below expands or collapses its section
+// INSTANTLY — the eased transition it names has not happened for some time. The
+// call is kept rather than deleted so the intent stays visible at all 6 call
+// sites; converting them means giving each section a measured height and an
+// Animated.Value, which is a deliberate piece of work, not a find-and-replace.
 const spring = () => LayoutAnimation.configureNext(LayoutAnimation.create(260, LayoutAnimation.Types.easeInEaseOut, LayoutAnimation.Properties.opacity));
 
 // Network image that fades in on load (over a soft placeholder) — no jarring pop-in.

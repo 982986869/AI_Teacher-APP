@@ -10,7 +10,7 @@
 import React, { useState, useRef, useEffect, useMemo, useContext } from 'react';
 import {
   View, ScrollView, Animated, Easing, StyleSheet, Modal, SafeAreaView,
-  Linking, LayoutAnimation, Platform, UIManager, Image, Dimensions,
+  Linking, LayoutAnimation, Platform, Image, Dimensions,
 } from 'react-native';
 import Svg, { Line, Circle, Path, G, Polyline, Polygon, Defs, RadialGradient, Stop } from 'react-native-svg';
 import { Star, Plus, X, Check, Play, Sparkles, ArrowUpRight, UserRound, Medal, ChevronDown, Image as ImageIcon, HelpCircle, Wallet, Users, FileText, ArrowDown, CalendarDays, Mail, MessageCircle } from 'lucide-react-native';
@@ -18,12 +18,15 @@ import { C, T, CONTENT, Wordmark } from './constants';
 import { PressableScale, FadeIn, PopIn } from './anim';
 import { BecomePage } from './EventsCarousel';
 
-if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
-  UIManager.setLayoutAnimationEnabledExperimental(true);
-}
 
 const { width: SCREEN_W } = Dimensions.get('window');
 const open = (u) => { if (u) Linking.openURL(u).catch(() => {}); };
+// ⚠ INERT under the New Architecture, which this app runs with. LayoutAnimation
+// is a no-op there, so every spring() call below expands or collapses its section
+// INSTANTLY — the eased transition it names has not happened for some time. The
+// call is kept rather than deleted so the intent stays visible at all 8 call
+// sites; converting them means giving each section a measured height and an
+// Animated.Value, which is a deliberate piece of work, not a find-and-replace.
 const spring = () => LayoutAnimation.configureNext(
   LayoutAnimation.create(240, LayoutAnimation.Types.easeInEaseOut, LayoutAnimation.Properties.opacity),
 );
@@ -250,22 +253,48 @@ function Globe() {
     for (const c of CITIES) {
       if (c.city === hub.city) continue;
       const e = vec(c.lat, c.lon);
-      let d = '';
-      let open = false;
+      // Kept as POINTS, not a path string, so the draw-in can render a prefix of
+      // the route. A pre-baked string can only be shown or hidden.
+      const pts = [];
       for (let i = 0; i <= 48; i++) {
         const v = slerp(h, e, i / 48);
-        // Drop the run at the limb so a route to the far side does not draw a
-        // chord straight across the disc.
-        if (v.z <= 0.03) { open = false; continue; }
-        const x = R + 8 + R * v.x;
-        const y = R + 8 + R * v.y;
-        d += `${open ? 'L' : 'M'} ${x.toFixed(1)} ${y.toFixed(1)} `;
-        open = true;
+        // Stop at the limb, so a route to the far side does not draw a chord
+        // straight across the disc. `null` marks the break.
+        if (v.z <= 0.03) { pts.push(null); continue; }
+        pts.push({ x: R + 8 + R * v.x, y: R + 8 + R * v.y });
       }
-      if (d) out.push(d.trim());
+      if (pts.some(Boolean)) out.push({ city: c.city, pts });
     }
     return out;
   }, [R]);
+
+  // ── Choreography ──────────────────────────────────────────────────────────
+  // One integer, stepped on a timer, drives the whole sequence: the pins land one
+  // at a time, then the routes draw out of the hub. It is a counter rather than an
+  // Animated.Value because everything it feeds is an SVG prop, and react-native-svg
+  // cannot be driven natively — so an Animated.Value would need a JS listener
+  // writing to state on every frame, which is the same work with more machinery.
+  const PIN_TICKS = 3;      // ticks between one pin landing and the next
+  const ROUTE_LEAD = 2;     // ticks between one route starting and the next
+  const ROUTE_TICKS = 7;    // ticks a single route takes to draw
+  const TICK_MS = 45;
+  const pinPhase = CITIES.length * PIN_TICKS;
+  const totalTicks = pinPhase + routes.length * ROUTE_LEAD + ROUTE_TICKS;
+
+  const [step, setStep] = useState(0);
+  useEffect(() => {
+    if (R <= 0) return undefined;
+    setStep(0);
+    const id = setInterval(() => {
+      setStep((v) => {
+        if (v >= totalTicks) { clearInterval(id); return v; }
+        return v + 1;
+      });
+    }, TICK_MS);
+    return () => clearInterval(id);
+  }, [R, totalTicks]);
+
+  const pinsShown = Math.min(CITIES.length, Math.floor(step / PIN_TICKS));
 
   const dots = [];
   if (R > 0) {
@@ -280,9 +309,12 @@ function Globe() {
     }
   }
   // Farthest pins first, so nearer ones overlap them correctly.
+  // `order` is the city's place in CITIES and drives the reveal; the sort is by z
+  // so nearer pins paint over farther ones. The two must stay separate — revealing
+  // in paint order would make the sequence look arbitrary.
   const pins = R > 0
-    ? CITIES.map((c) => ({ ...project(c.lat, c.lon, R), ...c }))
-      .filter((p) => p.z > 0.16)
+    ? CITIES.map((c, i) => ({ ...project(c.lat, c.lon, R), ...c, order: i }))
+      .filter((p) => p.z > 0.16 && p.order < pinsShown)
       .sort((a, b) => a.z - b.z)
     : [];
   // Only the pins facing us square-on are CANDIDATES for a name — but facing us is
@@ -350,18 +382,35 @@ function Globe() {
               ))}
 
               {/* Routes sit ABOVE the land dots and BELOW the pins, so a line never
-                  crosses a marker it is supposed to arrive at. */}
-              {routes.map((d, i) => (
-                <Path
-                  key={`r${i}`}
-                  d={d}
-                  fill="none"
-                  stroke={C.gold}
-                  strokeWidth={1.1}
-                  strokeLinecap="round"
-                  opacity={0.75}
-                />
-              ))}
+                  crosses a marker it is supposed to arrive at. Each draws out of the
+                  hub once every pin has landed, staggered so they fan out rather
+                  than appearing together. */}
+              {routes.map((rt, i) => {
+                const t = Math.max(0, Math.min(1,
+                  (step - pinPhase - i * ROUTE_LEAD) / ROUTE_TICKS));
+                if (t <= 0) return null;
+                const upTo = Math.ceil(rt.pts.length * t);
+                let d = '';
+                let open = false;
+                for (let k = 0; k < upTo; k++) {
+                  const q = rt.pts[k];
+                  if (!q) { open = false; continue; }
+                  d += `${open ? 'L' : 'M'} ${q.x.toFixed(1)} ${q.y.toFixed(1)} `;
+                  open = true;
+                }
+                if (!d) return null;
+                return (
+                  <Path
+                    key={`r${rt.city}`}
+                    d={d.trim()}
+                    fill="none"
+                    stroke={C.gold}
+                    strokeWidth={1.1}
+                    strokeLinecap="round"
+                    opacity={0.75}
+                  />
+                );
+              })}
               {pins.map((p) => (
                 // lucide's MapPin path, hand-placed so the pin's TIP sits on the coordinate.
                 <G key={p.city} transform={`translate(${R + 8 + p.x - 9}, ${R + 8 + p.y - 16.5}) scale(0.75)`}>
