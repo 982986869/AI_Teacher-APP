@@ -40,6 +40,13 @@ const SEGS = [
 const GAME_NAME = { sticks: 'Matchstick Move', strategy: 'Rectangle It', logic: 'Logic Puzzle' };
 const RADAR = [22, 38, 54, 70, 150, 168, 186];
 
+// The START hub is a HEXAGON, as in the reference — the same flat-top helper the
+// practice and workout hubs use, so all three centres are the same object.
+const hexPath = (cx, cy, r) => Array.from({ length: 6 }, (_, i) => {
+  const a = (i * 60) * Math.PI / 180;
+  return `${i ? 'L' : 'M'} ${cx + r * Math.cos(a)} ${cy + r * Math.sin(a)}`;
+}).join(' ') + ' Z';
+
 function Icon({ k, x, y, selected }) {
   if (k === 'sticks') {                            // two crossed matchsticks (amber)
     const col = selected ? '#1A1A1F' : '#F2A93B';
@@ -166,7 +173,10 @@ export default function ArenaWheel({ onStartGame, onTabPress, onBack }) {
               );
             })}
 
-            <Circle cx={C} cy={C} r={RC + 6} fill="#0B0B0D" />
+            <Circle cx={C} cy={C} r={RC + 6} fill={BG.bg} />
+            {/* The hub itself: a soft ring of the accent, then the white plate. */}
+            <Path d={hexPath(C, C, RC + 4)} fill={BG.accent} opacity={0.22} />
+            <Path d={hexPath(C, C, RC)} fill="#FFFFFF" />
 
             {/* icons */}
             {SEGS.map((s) => { const p = polar(RICON, s.mid); return <Icon key={'ic' + s.key} k={s.key} x={p.x} y={p.y} selected={s.key === selected} />; })}
@@ -175,7 +185,10 @@ export default function ArenaWheel({ onStartGame, onTabPress, onBack }) {
             {SEGS.map((s) => {
               const sel = s.key === selected;
               // The unselected label lifts on whichever segment carries the accent.
-              const color = sel ? BG.accentInk : s.base === BG.accentDeep ? BG.accentLit : BG.sub;
+              // White when selected. This used to take accentInk, which is
+              // near-black — fine over a light fill, invisible over the dark
+              // segments that Logic and Matchsticks actually have.
+              const color = sel ? BG.ink : s.base === BG.accentDeep ? BG.accentLit : BG.sub;
               if (s.mid === 180) {
                 const p = polar(RTEXT, 180);
                 return <SvgText key={'lbl-' + s.key} x={p.x} y={p.y + 4} fill={color} fontSize={11} fontWeight="800" letterSpacing={2} textAnchor="middle">{s.label}</SvgText>;
@@ -191,7 +204,7 @@ export default function ArenaWheel({ onStartGame, onTabPress, onBack }) {
           {/* START hub */}
           <Animated.View style={[st.start, {
             left: WHEEL / 2, top: WHEEL / 2, width: (WHEEL * 2 * RC) / VB, height: (WHEEL * 2 * RC) / VB,
-            borderRadius: (WHEEL * RC) / VB, marginLeft: -(WHEEL * RC) / VB, marginTop: -(WHEEL * RC) / VB,
+            marginLeft: -(WHEEL * RC) / VB, marginTop: -(WHEEL * RC) / VB,
             transform: [{ scale: Animated.multiply(pulseScale, pressStart) }],
           }]}>
             <TouchableOpacity activeOpacity={0.9} onPress={startGame}
@@ -203,7 +216,15 @@ export default function ArenaWheel({ onStartGame, onTabPress, onBack }) {
           </Animated.View>
         </Animated.View>
 
-        <Animated.Text style={[st.subtitle, { opacity: enter, transform: [{ translateY: subRise }, { scale: subPop }] }]}>{GAME_NAME[selected]}</Animated.Text>
+        {/* Two-tone, per the reference: the game's first word takes the accent and
+            the rest stays white, so the name reads as a title rather than a label.
+            Split on the first space; a single-word name simply stays all accent. */}
+        <Animated.Text style={[st.subtitle, { opacity: enter, transform: [{ translateY: subRise }, { scale: subPop }] }]}>
+          <Text style={{ color: BG.accent }}>{(GAME_NAME[selected] || '').split(' ')[0]}</Text>
+          {(GAME_NAME[selected] || '').includes(' ') && (
+            <Text>{' ' + (GAME_NAME[selected] || '').split(' ').slice(1).join(' ')}</Text>
+          )}
+        </Animated.Text>
         <Animated.Text style={[st.hintTap, { opacity: enter }]}>tap a segment to switch game</Animated.Text>
       </View>
 
@@ -234,7 +255,9 @@ const st = StyleSheet.create({
   infoTxt: { color: '#8E8E93', fontSize: 13, fontWeight: '900', fontStyle: 'italic' },
 
   wheelWrap: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-  start: { position: 'absolute', backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center', shadowColor: '#fff', shadowOpacity: 0.18, shadowRadius: 16, elevation: 6 },
+  // Transparent: the white hexagon is drawn in the SVG behind, so this is only
+  // the touch target and the label.
+  start: { position: 'absolute', alignItems: 'center', justifyContent: 'center' },
   startInner: { width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center' },
   startTxt: { color: '#0B0B0D', fontSize: 18, fontWeight: '900', letterSpacing: 0.5 },
   subtitle: { color: '#fff', fontSize: 19, fontWeight: '900', marginTop: 22, letterSpacing: -0.2 },
