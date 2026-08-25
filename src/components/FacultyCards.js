@@ -17,27 +17,23 @@ import { FACULTY, initialsOf } from '../data/faculty';
 
 const SCREEN_W = Dimensions.get('window').width;
 const CARD_W = Math.min(300, SCREEN_W - 84);
-// The reference card's photo area is LANDSCAPE (300x218, ratio 1.38) while every
-// faculty photograph is a PORTRAIT — 0.70 to 0.97. Filling that box means
-// discarding between 91 and 211px of height, and a CENTRED crop takes half of that
-// off the top, which is exactly where the head is. Widening the box does not fix
-// it; only moving the crop does, so the image is anchored to the top instead —
-// see the `photo` style.
-const PHOTO_H = 218;
-const CARD_H = 470;              // fixed → every card is identical in size
+// Every faculty photograph is a PORTRAIT — 0.70 to 0.97 — and the reference card's
+// photo area was LANDSCAPE (272x218). Filling that with resizeMode="cover" has to
+// throw away 91 to 211px of height, and there is no way to choose which part
+// survives: centred it cut the top of the head, top-anchored it cut everything
+// below the eyes. Neither is acceptable for a photograph of a real colleague.
+//
+// So the box is portrait-shaped now and the image is CONTAINED: the whole frame is
+// always visible, and the cost is a narrow bar down each side (0 to 35px depending
+// on the file), which photoWrap's own background fills. Nothing is cropped.
+const PHOTO_H = 290;             // portrait-ish, so a contained portrait is not tiny
+const CARD_H = 540;              // fixed → every card is identical in size
 const PEEK_TY = 16;              // each card behind sits this much lower…
 const PEEK_SCALE = 0.06;         // …and this much smaller, for the stacked look
 const DECK_H = CARD_H + PEEK_TY * 2 + 8;
 const INTERVAL = 3200;           // ms each card stays in front
 const SLIDE = 540;               // ms of the slide-over transition
 const EASE = Easing.bezier(0.22, 1, 0.36, 1);
-
-// Each photograph's own width/height, so the top-anchored crop behaves whatever
-// shape the file is. Falls back to a typical portrait if an asset cannot resolve.
-const photoRatio = (src) => {
-  const a = Image.resolveAssetSource(src);
-  return a && a.width && a.height ? a.width / a.height : 0.78;
-};
 
 // One fixed-size face. Purely presentational — the deck positions and animates it.
 function CardFace({ person, accent, dark }) {
@@ -50,15 +46,9 @@ function CardFace({ person, accent, dark }) {
     <View style={[fc.card, { backgroundColor: surface, borderColor: border }, !dark && shadow]}>
       <View style={[fc.photoWrap, { backgroundColor: dark ? '#141419' : S.canvas }]}>
         {person.photo ? (
-          // Fills the width and hangs off the BOTTOM of the box, so the whole of the
-          // discarded height comes out of shoulders and background instead of being
-          // split with the top of the head. aspectRatio comes from the asset itself,
-          // because these photographs are not all the same shape.
-          <Image
-            source={person.photo}
-            style={[fc.photo, { aspectRatio: photoRatio(person.photo) }]}
-            resizeMode="cover"
-          />
+          // contain, not cover: these are photographs of real people and no crop of
+          // a landscape-into-portrait fit leaves a face intact.
+          <Image source={person.photo} style={fc.photo} resizeMode="contain" />
         ) : (
           <View style={[fc.monogram, { backgroundColor: accent + '22' }]}>
             <T w="black" s={40} c={accent}>{initialsOf(person.name)}</T>
@@ -201,10 +191,7 @@ const fc = StyleSheet.create({
 
   card: { width: CARD_W, height: CARD_H, borderRadius: 22, borderWidth: 1, padding: 14, gap: 14 },
   photoWrap: { height: PHOTO_H, borderRadius: 18, overflow: 'hidden' },
-  // Absolute + top:0 is what anchors the crop. With width:'100%' and the asset's
-  // own aspectRatio the rendered height overflows PHOTO_H, and photoWrap's
-  // overflow:'hidden' clips the surplus off the bottom.
-  photo: { position: 'absolute', top: 0, left: 0, width: '100%' },
+  photo: { width: '100%', height: '100%' },
   monogram: { flex: 1, alignItems: 'center', justifyContent: 'center' },
 
   // flex:1 keeps the card height fixed regardless of how much text a member provided,

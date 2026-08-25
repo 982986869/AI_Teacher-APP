@@ -8,14 +8,14 @@
 // app's own dock and help button. Three tabs of one product should not look like
 // three products.
 //
-// Violet is the accent, because two of the three hubs already led with it and it
-// is the one Practice's centre gradient starts from. Brain Gym deliberately keeps
+// Green is the accent — Arena's colour, kept because it is the one that was
+// wanted once all three were seen together. Brain Gym deliberately keeps
 // its dark arcade surface rather than the app's light Cuemath theme — that was a
 // design decision, not an oversight, so only the ACCENT is unified here.
 //
-// ⚠ SEMANTIC COLOURS ARE NOT ACCENTS. `win` stays green and `lose` stays red
-// whatever the accent is: a won match must not render violet because violet is
-// this season's colour. Never substitute `accent` for either.
+// ⚠ SEMANTIC COLOURS ARE NOT ACCENTS. `lose` stays red and `warn` stays amber
+// whatever the accent happens to be — a lost match must never take the accent
+// just because the accent moved. Never substitute `accent` for either of them.
 export const BG = {
   // ── surfaces (all three hubs already agreed on these) ──
   bg:        '#0B0B0D',
@@ -31,13 +31,23 @@ export const BG = {
   dim:  '#6E6E77',
 
   // ── the one accent family ──
-  accent:     '#8B5CF6',   // violet — selected segment, active tab, centre glow
-  accentLit:  '#A78BFA',   // hover/lit edge
-  accentDeep: '#3B1E78',   // the filled segment behind a white label
-  accent2:    '#3C9DF0',   // blue — second stop on sweeps and gradients
-  accentInk:  '#1A1A1F',   // text sitting ON an accent fill
+  // GREEN, which is Arena's own colour. The first pass at unifying these screens
+  // made everything violet because Arena was the odd one out; the call afterwards
+  // was that Arena's green was the look worth keeping, so the family moved to it
+  // rather than the other way round. Changing these five values is the whole
+  // change — every hub reads them, which is what this file is for.
+  accent:     '#39D98A',   // selected segment, active tab, centre glow
+  accentLit:  '#5FE39A',   // hover/lit edge
+  accentDeep: '#1C7A45',   // the filled segment behind a white label
+  accent2:    '#2FB98C',   // deeper emerald — second stop on sweeps and gradients
+  accentInk:  '#06210F',   // text sitting ON an accent fill
 
-  // ── semantics — never swapped for the accent ──
+  // ── semantics ──
+  // `win` and `accent` are now the SAME green, which the violet version kept
+  // apart. That is tolerable because the pair a student actually reads is
+  // win-versus-LOSE, and lose is untouched: a won match is still green against a
+  // lost one in red. What must not happen is `lose` or `warn` drifting toward the
+  // accent — those two carry the meaning, not the green.
   win:  '#39D98A',
   lose: '#E0322E',
   warn: '#FFD75E',
