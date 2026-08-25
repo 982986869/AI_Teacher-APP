@@ -5,7 +5,15 @@ import { getToken } from '../utils/storage';
 
 const axiosInstance = axios.create({
   baseURL: API_BASE_URL,
-  timeout: 15000,
+  // 60s, NOT the old 15s. The deployed API cold-starts when it has been idle
+  // (measured 22.6s to first byte; render.yaml documents up to ~50s on the free
+  // plan). The retry interceptor below only covers GET, so a GET survived a cold
+  // start by accident — attempt 2 landed inside the wake-up window. POST had no
+  // such luck: login got a single 15s shot against a 22s cold start and ALWAYS
+  // failed, which is why a logged-out launch looked like the app was broken.
+  // Anything above the worst-case cold start fixes that without retrying POSTs
+  // (which would double-submit mock attempts and MCQ answers).
+  timeout: 60000,
   headers: { 'Content-Type': 'application/json' },
 });
 
