@@ -5,7 +5,8 @@ import {
   View, Text, StyleSheet, SafeAreaView, StatusBar, Platform,
   TouchableOpacity, Animated, Dimensions, Easing, PanResponder,
 } from 'react-native';
-import Svg, { Path, Circle, G, Rect, Line, Defs, TextPath, Text as SvgText } from 'react-native-svg';
+import Svg, { Path, Circle, G, Rect, Line, Defs, TextPath, LinearGradient, Stop, Text as SvgText } from 'react-native-svg';
+import { Brain, Target, BookOpen, Zap } from 'lucide-react-native';
 import { useAuth } from '../context/AuthContext';
 import { FONT } from '../constants/fonts';
 import { initSounds, playLoop, playSound, stopSound, startLoop, stopLoop } from '../utils/sound';
@@ -148,6 +149,32 @@ const COL = {
 
 // Faint radar rings behind the wheel.
 const RADAR_RINGS = [30, 46, 62, 78, 150, 166];
+
+// ── The hub ─────────────────────────────────────────────────────────────────
+// Square canvas; tiles sit N/E/S/W of a centre hexagon. HVB is its own viewBox
+// so the geometry below reads in round numbers regardless of screen width.
+const HUB = Math.min(SCREEN_W - 28, 360);
+const HVB = 300;
+const HC = HVB / 2;
+const TILE = { w: 0.30, h: 0.28 };            // as a FRACTION of HUB, so it scales
+
+// Flat-top hexagon — the same helper and orientation as the practice hub, so the
+// two centres read as the same object.
+const hexPath = (cx, cy, r) => Array.from({ length: 6 }, (_, i) => {
+  const a = (i * 60) * Math.PI / 180;
+  return `${i ? 'L' : 'M'} ${cx + r * Math.cos(a)} ${cy + r * Math.sin(a)}`;
+}).join(' ') + ' Z';
+
+// Each skill keeps its OWN hue. This is the one place in Brain Gym where colour
+// is not the single accent, and deliberately so: these four are peers to be told
+// APART, not ranked, and the reference gives each its own. The shared accent
+// still owns the centre, which is what ties the screen together.
+const HUB_META = {
+  application:   { Icon: Target,   tint: '#A855F7', arcAt: 300, pos: 'top' },
+  understanding: { Icon: BookOpen, tint: '#2DD4BF', arcAt: 30,  pos: 'right' },
+  fluency:       { Icon: Zap,      tint: '#FACC15', arcAt: 120, pos: 'bottom' },
+  reasoning:     { Icon: Brain,    tint: '#3B82F6', arcAt: 210, pos: 'left' },
+};
 
 // First-run coach mark shown once per app session.
 let coachSeen = false;
@@ -388,6 +415,15 @@ const WorkoutWheel = ({
   // The category currently under the pointer (updates live as the wheel turns) —
   // shown big below the wheel, Cuemath-style.
   const cur = data[lit] || data[0] || { label: '', key: '' };
+  const selected = cur.key;
+  // Tapping a tile only SELECTS it; START is what opens the quiz. Two steps, so a
+  // mis-tap while browsing cannot drop the student into a timed question.
+  const pickSkill = (key) => {
+    const i = ORDER.indexOf(key);
+    // No sound here: 'tick' is registered in LOOP_SOUNDS, so firing it as a
+    // one-shot would start a loop nothing stops.
+    if (i >= 0) setLit(i);
+  };
 
   // Each skill's current on-screen mid angle (local wedge angle + how far the wheel
   // has turned to rest). Drives the upright label/icon layer.
@@ -461,76 +497,90 @@ const WorkoutWheel = ({
         </View>
       )}
 
-      <View style={s.wheelWrap}>
-        <Animated.View style={{ transform: [{ scale: enterScale }], opacity: enter }}>
-          <View ref={wheelRef} onLayout={measureCenter} style={{ width: WHEEL_SIZE, height: WHEEL_SIZE }}>
-            {/* Rotating wheel — drag it to rotate manually, or tap START to spin */}
-            <Animated.View
-              style={{ width: WHEEL_SIZE, height: WHEEL_SIZE, transform: [{ rotate: spin }] }}>
-            <Svg width={WHEEL_SIZE} height={WHEEL_SIZE} viewBox={`0 0 ${VB} ${VB}`}>
-              {/* Radar rings */}
-              {RADAR_RINGS.map((r, i) => (
-                <Circle key={i} cx={C} cy={C} r={r} fill="none"
-                  stroke={i % 3 === 0 ? COL.radar2 : COL.radar} strokeWidth={1} />
-              ))}
+      {/* ── The hub ──────────────────────────────────────────────────────────
+          Four skills around a START hexagon, per the reference. This replaced a
+          wheel you dragged to rotate: skills sat on curved TextPaths, the whole
+          disc spun on a fling, and START span it for you. The reference has no
+          wheel, so the spin, the drag gesture, the curved labels and the spin
+          sound went with it — selection is now a tap on the tile you want.
 
-              {/* Skill wedges */}
-              {data.map((skill, i) => {
-                const seg = SEG[skill.key];
-                if (!seg) return null;
-                const isLit = i === lit;
-                return (
-                  <G key={skill.key} onPress={() => selectSkill(i)}>
-                    <Path d={wedge(seg.a0, seg.a1, R_OUTER, R_INNER)}
-                      fill={isLit ? COL.white : COL.seg}
-                      stroke={isLit ? COL.white : COL.segStroke}
-                      strokeWidth={isLit ? 1.5 : 1} />
-                  </G>
-                );
-              })}
+          Layout is absolute inside a square: the tiles sit N/S/E/W of centre and
+          the SVG behind them draws the radar rings and each skill's arc. */}
+      <View style={s.hubWrap}>
+        <Animated.View style={{ width: HUB, height: HUB, transform: [{ scale: enterScale }], opacity: enter }}>
+          <Svg width={HUB} height={HUB} viewBox={`0 0 ${HVB} ${HVB}`} style={StyleSheet.absoluteFill}>
+            <Defs>
+              {/* The START edge runs violet to blue, the two ends of the Brain Gym
+                  accent, so the centre belongs to the same system as Practice. */}
+              <LinearGradient id="startEdge" x1="0" y1="1" x2="1" y2="0">
+                <Stop offset="0%" stopColor={BG.accent} />
+                <Stop offset="100%" stopColor={BG.accent2} />
+              </LinearGradient>
+            </Defs>
 
-              {/* Thin radial dividers from the START circle out to the ring */}
-              {DIVIDERS.map((a, idx) => {
-                const p1 = polar(52, a), p2 = polar(R_OUTER, a);
-                return <Line key={'div' + idx} x1={p1.x} y1={p1.y} x2={p2.x} y2={p2.y} stroke="#3A3A44" strokeWidth={1} />;
-              })}
-            </Svg>
-            </Animated.View>
+            {[104, 116, 128].map((r, i) => (
+              <Circle key={`ring${i}`} cx={HC} cy={HC} r={r} fill="none" stroke={BG.ring2} strokeWidth={1} />
+            ))}
+            {data.map((sk) => {
+              const meta = HUB_META[sk.key]; if (!meta) return null;
+              const c = 2 * Math.PI * 122;
+              return (
+                <Circle
+                  key={`arc-${sk.key}`}
+                  cx={HC} cy={HC} r={122} fill="none"
+                  stroke={meta.tint} strokeWidth={2.5} strokeLinecap="round"
+                  strokeDasharray={`${c * 0.14} ${c}`}
+                  strokeDashoffset={-c * (meta.arcAt / 360)}
+                  opacity={selected === sk.key ? 0.95 : 0.35}
+                />
+              );
+            })}
 
-            {/* Upright layer — labels + icons stay the right way up while the wheel turns
-                underneath. pointerEvents none so wedge taps fall through to the wheel.
-                Labels are the memoised layer; icons are separate so the ticker can flip
-                them without touching the label <Defs>. */}
-            <Animated.View pointerEvents="none"
-              style={{ position: 'absolute', left: 0, top: 0, width: WHEEL_SIZE, height: WHEEL_SIZE, opacity: labelOpacity }}>
-              {labelLayer}
-              <Svg width={WHEEL_SIZE} height={WHEEL_SIZE} viewBox={`0 0 ${VB} ${VB}`}
-                style={{ position: 'absolute', left: 0, top: 0 }}>
-                {data.map((skill, i) => {
-                  if (!SEG[skill.key]) return null;
-                  const p = polar(R_EMOJI, screenMidOf(skill));
-                  return <G key={skill.key}>{skillIcon(p.x, p.y, skill.key, i === lit ? COL.white : COL.label, iconStep % 2)}</G>;
-                })}
-              </Svg>
-            </Animated.View>
+            <Path d={hexPath(HC, HC, 50)} fill={BG.accent} opacity={0.16} />
+            <Path d={hexPath(HC, HC, 44)} fill="#141420" />
+            <Path d={hexPath(HC, HC, 44)} fill="none" stroke="url(#startEdge)" strokeWidth={2.6} />
+          </Svg>
 
-            {/* START / GO button (fixed center, does not rotate) */}
-            <Animated.View style={[s.startWrap, {
-              width: btnPx, height: btnPx, borderRadius: btnPx / 2,
-              marginLeft: -btnPx / 2, marginTop: -btnPx / 2,
-              transform: [{ scale: Animated.multiply(pulseScale, pressStart) }],
-            }]}>
-              <TouchableOpacity activeOpacity={0.85} onPress={onCenter} disabled={spinning}
-                onPressIn={() => !spinning && pressSpring(pressStart, PRESS_SCALE).start()}
-                onPressOut={() => pressSpring(pressStart, 1).start()}
-                style={[s.startBtn, { borderRadius: btnPx / 2 }]}>
-                <Text style={s.startTxt}>{spinning ? '✦' : 'START'}</Text>
+          {data.map((sk) => {
+            const meta = HUB_META[sk.key]; if (!meta) return null;
+            const on = selected === sk.key;
+            const Icon = meta.Icon;
+            return (
+              <TouchableOpacity
+                key={sk.key}
+                activeOpacity={0.85}
+                onPress={() => pickSkill(sk.key)}
+                style={[s.tile, s[`tile_${meta.pos}`], on && { borderColor: meta.tint, backgroundColor: '#16162A' }]}
+                accessibilityRole="button"
+                accessibilityState={{ selected: on }}
+                accessibilityLabel={sk.label}
+              >
+                <Icon size={26} strokeWidth={2} color={meta.tint} />
+                <Text style={[s.tileLbl, on && { color: COL.white }]}>{sk.label}</Text>
+                <View style={[s.tileRule, { backgroundColor: meta.tint, opacity: on ? 1 : 0.5 }]} />
               </TouchableOpacity>
-            </Animated.View>
-          </View>
+            );
+          })}
+
+          <Animated.View style={[s.startWrap, {
+            transform: [{ scale: Animated.multiply(pulseScale, pressStart) }],
+          }]}>
+            <TouchableOpacity
+              activeOpacity={0.85}
+              onPress={onCenter}
+              onPressIn={() => pressSpring(pressStart, PRESS_SCALE).start()}
+              onPressOut={() => pressSpring(pressStart, 1).start()}
+              style={s.startBtn}
+              accessibilityRole="button"
+              accessibilityLabel={`Start ${cur.label || 'workout'}`}
+            >
+              <Text style={s.startTxt}>START</Text>
+            </TouchableOpacity>
+          </Animated.View>
         </Animated.View>
 
         <View style={s.confirmWrap}>
+          <BookOpen size={17} strokeWidth={2.2} color={BG.accentLit} />
           <Text style={s.catSub} numberOfLines={1}>{cur.topic || cur.sub || topic}</Text>
         </View>
       </View>
@@ -583,12 +633,37 @@ const s = StyleSheet.create({
   streakBtnTxt: { color: '#7A3D14', fontSize: 13, fontFamily: FONT.extrabold },
 
   wheelWrap: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingBottom: 16 },
-  startWrap: { position: 'absolute', left: '50%', top: '50%' },
-  startBtn: {
-    flex: 1, backgroundColor: '#FFFFFF', alignItems: 'center', justifyContent: 'center',
-    shadowColor: '#FFFFFF', shadowOpacity: 0.35, shadowRadius: 18, shadowOffset: { width: 0, height: 0 }, elevation: 10,
+  // ── hub ──
+  hubWrap: { flex: 1, alignItems: 'center', justifyContent: 'center' },
+  tile: {
+    position: 'absolute',
+    width: HUB * TILE.w, height: HUB * TILE.h,
+    borderRadius: 22, borderWidth: 1, borderColor: '#24243A',
+    backgroundColor: '#101018',
+    alignItems: 'center', justifyContent: 'center', gap: 7,
   },
-  startTxt: { color: '#0B0B0D', fontSize: 19, fontFamily: FONT.black, letterSpacing: 0.5 },
+  // N/E/S/W. The left and right tiles are pulled in a little so their inner edge
+  // clears the hexagon's points, which stick out further than its flat top does.
+  tile_top:    { top: 0,    left: HUB / 2 - (HUB * TILE.w) / 2 },
+  tile_bottom: { bottom: 0, left: HUB / 2 - (HUB * TILE.w) / 2 },
+  tile_left:   { left: 0,   top: HUB / 2 - (HUB * TILE.h) / 2 },
+  tile_right:  { right: 0,  top: HUB / 2 - (HUB * TILE.h) / 2 },
+  tileLbl: {
+    color: COL.label, fontSize: 11.5, fontFamily: FONT.black,
+    letterSpacing: 1.1, textAlign: 'center', paddingHorizontal: 6,
+  },
+  tileRule: { width: 26, height: 2, borderRadius: 1 },
+
+  startWrap: {
+    position: 'absolute',
+    left: HUB / 2 - (HUB * 0.30) / 2, top: HUB / 2 - (HUB * 0.30) / 2,
+    width: HUB * 0.30, height: HUB * 0.30,
+    alignItems: 'center', justifyContent: 'center',
+  },
+  // The plate and its gradient edge are drawn in the SVG behind; this is only the
+  // touch target and the label, so it is transparent.
+  startBtn: { width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center' },
+  startTxt: { color: COL.white, fontSize: 21, fontFamily: FONT.black, letterSpacing: 0.6 },
 
   topic: { color: COL.white, fontSize: 17, fontFamily: FONT.bold, marginTop: 26, letterSpacing: -0.2, textAlign: 'center' },
   selected: { color: COL.green, fontSize: 17, fontFamily: FONT.black, textAlign: 'center', letterSpacing: 0.2 },
@@ -607,7 +682,7 @@ const s = StyleSheet.create({
   coachBtn: { backgroundColor: '#fff', borderRadius: 26, paddingVertical: 14, paddingHorizontal: 40 },
   coachBtnTxt: { color: '#0B0B0D', fontSize: 15, fontFamily: FONT.black, letterSpacing: 0.3 },
   catName: { color: COL.white, fontSize: 24, fontFamily: FONT.black, letterSpacing: 0.5, textAlign: 'center', marginTop: 22 },
-  catSub: { color: COL.sub, fontSize: 13, fontFamily: FONT.bold, textAlign: 'center', marginTop: 5, letterSpacing: 0.2 },
+  catSub: { color: COL.white, fontSize: 14.5, fontFamily: FONT.bold, letterSpacing: 0.1 },
 
   // Top pointer (downward triangle) marking the landed segment
   pointer: {
@@ -618,7 +693,11 @@ const s = StyleSheet.create({
   },
 
   // Confirm-after-spin UI
-  confirmWrap: { alignItems: 'center', marginTop: 22, gap: 14 },
+  confirmWrap: {
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10,
+    alignSelf: 'center', marginTop: 26, paddingVertical: 13, paddingHorizontal: 20,
+    borderRadius: 16, borderWidth: 1, borderColor: '#24243A', backgroundColor: '#101018',
+  },
   confirmRow: { flexDirection: 'row', gap: 10 },
   confirmBtn: { backgroundColor: COL.green, borderRadius: 14, paddingVertical: 11, paddingHorizontal: 26 },
   confirmTxt: { color: '#06210F', fontSize: 14, fontFamily: FONT.black, letterSpacing: 0.3 },
