@@ -103,10 +103,23 @@ its Name field, not the full hostname. `send.ailernova.com` is entered as
 `send`. Entering the full name produces `send.ailernova.com.ailernova.com` and
 verification never passes.
 
-**No mailbox needs to be created.** A From address requires no inbox once the
-domain is verified at the provider. Reply-To points at `saurabh@ailernova.com`,
-which exists. A `support@` alias or shared mailbox (both free on Microsoft 365)
-is a later convenience, and only changes an environment variable.
+**The From address needs no mailbox** — once the domain is verified at the
+provider, any address on it can send, and nobody has to own an inbox for it.
+
+**Reply-To is `support@ailernova.com`.** Not a person's address: replies to an
+automated OTP mail must not land in an individual's inbox. This address is not a
+new decision — the app already publishes it in eight places, including the
+parent Support screen, the FAQ, the admin help link, and the account-deletion
+flow, and `src/components/support/supportConfig.js` calls it one of the two
+sanctioned contact routes.
+
+That makes it a prerequisite to confirm rather than to choose: if the mailbox
+does not exist, users following the in-app instructions — including users trying
+to delete their account — are already mailing a dead address. A shared mailbox
+on Microsoft 365 costs nothing and needs no license.
+
+The DMARC `rua=` reporting address must likewise not be a personal inbox. Point
+it at `support@`, or omit `rua=` entirely; the reports are optional.
 
 ## Data layer
 
@@ -211,7 +224,7 @@ Configuration, in `server/.env` and on Render:
 RESEND_API_KEY=re_...
 MAIL_FROM=no-reply@send.ailernova.com
 MAIL_FROM_NAME=AILERNOVA
-MAIL_REPLY_TO=saurabh@ailernova.com
+MAIL_REPLY_TO=support@ailernova.com
 OTP_EXPIRY_MIN=5
 ```
 
