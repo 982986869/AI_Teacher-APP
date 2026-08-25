@@ -1857,7 +1857,7 @@ export function EventsModal({ visible, onClose, events, store, skills, gallery, 
               <PressableScale onPress={close} style={s.mBack}><T s={26} c={C.ink}>‹</T></PressableScale>
               <T w="bold" s={16} c={C.ink}>Events</T><View style={{ width: 40 }} />
             </View>
-            <EventsStack events={events} store={store} skills={skills} gallery={gallery} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onContact={onContact} onRefund={onRefund} onReferral={onReferral} onOpenProgram={setProgram} />
+            <EventsStack events={events} store={store} skills={skills} gallery={gallery} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onContact={onContact} onRefund={onRefund} onReferral={onReferral} onOpenProgram={setProgram} onGym={onGym} />
           </>
         )}
       </SafeAreaView>

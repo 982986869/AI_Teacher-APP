@@ -3083,7 +3083,7 @@ function ReferralTerms({ P }) {
   );
 }
 
-export function ReferralModal({ visible, onClose, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund }) {
+export function ReferralModal({ visible, onClose, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onGym }) {
   return (
     <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
       <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
@@ -3113,7 +3113,7 @@ export function RefundModal({ visible, onClose, onAbout, onImpact, onTutors, onR
   );
 }
 
-export function ContactModal({ visible, onClose, onGetStarted, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onRefund, onReferral }) {
+export function ContactModal({ visible, onClose, onGetStarted, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onRefund, onReferral, onGym }) {
   return (
     <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
       <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
@@ -3136,7 +3136,7 @@ export function PricingModal({ visible, onClose, onGetStarted, onAbout, onImpact
           <PressableScale onPress={onClose} style={s.back}><T s={26} c={C.ink}>‹</T></PressableScale>
           <T w="bold" s={16} c={C.ink}>Pricing</T><View style={{ width: 40 }} />
         </View>
-        <PricingStack onGetStarted={onGetStarted} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+        <PricingStack onGetStarted={onGetStarted} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
       </SafeAreaView>
     </Modal>
   );
@@ -3150,7 +3150,7 @@ export function FaqsModal({ visible, onClose, onGetStarted, onAbout, onImpact, o
           <PressableScale onPress={onClose} style={s.back}><T s={26} c={C.ink}>‹</T></PressableScale>
           <T w="bold" s={16} c={C.ink}>FAQs</T><View style={{ width: 40 }} />
         </View>
-        <FaqsStack onGetStarted={onGetStarted} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+        <FaqsStack onGetStarted={onGetStarted} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
       </SafeAreaView>
     </Modal>
   );
@@ -3164,7 +3164,7 @@ export function ReviewsModal({ visible, onClose, onGetStarted, onAbout, onImpact
           <PressableScale onPress={onClose} style={s.back}><T s={26} c={C.ink}>‹</T></PressableScale>
           <T w="bold" s={16} c={C.ink}>Parent Reviews</T><View style={{ width: 40 }} />
         </View>
-        <ReviewsStack onGetStarted={onGetStarted} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+        <ReviewsStack onGetStarted={onGetStarted} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
       </SafeAreaView>
     </Modal>
   );
@@ -3193,7 +3193,7 @@ export function ImpactModal({ visible, onClose, onGetStarted, onAbout, onTutors,
           <PressableScale onPress={onClose} style={s.back}><T s={26} c={C.ink}>‹</T></PressableScale>
           <T w="bold" s={16} c={C.ink}>Our Impact</T><View style={{ width: 40 }} />
         </View>
-        <ImpactStack onGetStarted={onGetStarted} onAbout={onAbout} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+        <ImpactStack onGetStarted={onGetStarted} onAbout={onAbout} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
       </SafeAreaView>
     </Modal>
   );
@@ -3207,7 +3207,7 @@ export function TutorsModal({ visible, onClose, onGetStarted, onAbout, onImpact,
           <PressableScale onPress={onClose} style={s.back}><T s={26} c={C.ink}>‹</T></PressableScale>
           <T w="bold" s={16} c={C.ink}>Our Tutors</T><View style={{ width: 40 }} />
         </View>
-        <TutorsStack onGetStarted={onGetStarted} onAbout={onAbout} onImpact={onImpact} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+        <TutorsStack onGetStarted={onGetStarted} onAbout={onAbout} onImpact={onImpact} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
       </SafeAreaView>
     </Modal>
   );
