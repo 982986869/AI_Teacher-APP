@@ -220,6 +220,53 @@ function Globe() {
     return out;
   }, [R]);
 
+  // Routes between the cities. These are GREAT CIRCLES — the shortest path over a
+  // sphere — interpolated by slerp between the two points' unit vectors, then run
+  // through the same projection as everything else. A straight line between two
+  // projected points would cut through the globe instead of lying on it, which is
+  // obvious the moment a route spans more than a few degrees.
+  //
+  // Spokes from Delhi rather than every pair: sixteen cities is 120 pairs, which
+  // reads as a ball of wool. One hub says the thing the map is actually for.
+  const routes = useMemo(() => {
+    if (R <= 0) return [];
+    const hub = CITIES.find((c) => c.city === 'Delhi') || CITIES[0];
+    const vec = (lat, lon) => {
+      const a = lat * RAD;
+      const b = (lon - CENTER_LON) * RAD;
+      return { x: Math.cos(a) * Math.sin(b), y: -Math.sin(a), z: Math.cos(a) * Math.cos(b) };
+    };
+    const slerp = (p, q, t) => {
+      const d = Math.max(-1, Math.min(1, p.x * q.x + p.y * q.y + p.z * q.z));
+      const o = Math.acos(d);
+      if (o < 1e-6) return p;
+      const si = Math.sin(o);
+      const A = Math.sin((1 - t) * o) / si;
+      const B = Math.sin(t * o) / si;
+      return { x: A * p.x + B * q.x, y: A * p.y + B * q.y, z: A * p.z + B * q.z };
+    };
+    const out = [];
+    const h = vec(hub.lat, hub.lon);
+    for (const c of CITIES) {
+      if (c.city === hub.city) continue;
+      const e = vec(c.lat, c.lon);
+      let d = '';
+      let open = false;
+      for (let i = 0; i <= 48; i++) {
+        const v = slerp(h, e, i / 48);
+        // Drop the run at the limb so a route to the far side does not draw a
+        // chord straight across the disc.
+        if (v.z <= 0.03) { open = false; continue; }
+        const x = R + 8 + R * v.x;
+        const y = R + 8 + R * v.y;
+        d += `${open ? 'L' : 'M'} ${x.toFixed(1)} ${y.toFixed(1)} `;
+        open = true;
+      }
+      if (d) out.push(d.trim());
+    }
+    return out;
+  }, [R]);
+
   const dots = [];
   if (R > 0) {
     for (let lat = -84; lat <= 84; lat += 8) {
@@ -300,6 +347,20 @@ function Globe() {
 
               {dots.map((d, i) => (
                 <Circle key={i} cx={d.cx} cy={d.cy} r={d.r} fill="#5FA777" opacity={d.o * 0.9} />
+              ))}
+
+              {/* Routes sit ABOVE the land dots and BELOW the pins, so a line never
+                  crosses a marker it is supposed to arrive at. */}
+              {routes.map((d, i) => (
+                <Path
+                  key={`r${i}`}
+                  d={d}
+                  fill="none"
+                  stroke={C.gold}
+                  strokeWidth={1.1}
+                  strokeLinecap="round"
+                  opacity={0.75}
+                />
               ))}
               {pins.map((p) => (
                 // lucide's MapPin path, hand-placed so the pin's TIP sits on the coordinate.
