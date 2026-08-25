@@ -1335,7 +1335,7 @@ function TrialStrip({ TS, M, name, onGo }) {
 }
 
 /* ── FAQ accordion ────────────────────────────────────────────────────────── */
-function Faq({ A }) {
+function Faq({ A, onGym }) {
   const [openIdx, setOpenIdx] = useState(0);
   const toggle = (i) => { spring(); setOpenIdx((o) => (o === i ? -1 : i)); };
   return (
@@ -1367,7 +1367,7 @@ function Faq({ A }) {
 }
 
 /* ── The page ─────────────────────────────────────────────────────────────── */
-export default function AboutStack({ onGetStarted, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral }) {
+export default function AboutStack({ onGetStarted, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onGym }) {
   const A = CONTENT.about;
   const E = CONTENT.event;
   const go = () => (onGetStarted ? onGetStarted() : open(E.become.appUrl));
@@ -1483,14 +1483,14 @@ export default function AboutStack({ onGetStarted, onImpact, onTutors, onReviews
           </View>
         </View>
 
-        <View style={{ marginTop: 34 }}><Faq A={A} /></View>
+        <View style={{ marginTop: 34 }}><Faq A={A} onGym={onGym} /></View>
 
         <Movement M={A.movement} name={A.founder?.name} onGo={go} />
 
         {/* Closes with the same BECOME AILERNOVA™ + footer accordions + offices block as
             the Events page, so About Us and the other sections stay reachable from here. */}
         <View style={[s.pad, { marginTop: 20 }]}>
-          <BecomePage E={E} onAbout={toTop} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+          <BecomePage E={E} onAbout={toTop} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
         </View>
       </ScrollView>
 
@@ -1510,7 +1510,7 @@ export default function AboutStack({ onGetStarted, onImpact, onTutors, onReviews
 // story, this page is the evidence: the wall of children · the numbers · the research ·
 // how we teach · their stories · their parents · the score · the awards · the questions.
 // Every section is data-driven and hides itself when its data in CONTENT.about is empty.
-export function ImpactStack({ onGetStarted, onAbout, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral }) {
+export function ImpactStack({ onGetStarted, onAbout, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onGym }) {
   const A = CONTENT.about;
   const E = CONTENT.event;
   const go = () => (onGetStarted ? onGetStarted() : open(E.become.appUrl));
@@ -1544,7 +1544,7 @@ export function ImpactStack({ onGetStarted, onAbout, onTutors, onReviews, onPric
         {!!A.trusted && <Trusted TR={A.trusted} />}
         {!!A.awards?.items?.length && <Awards AW={A.awards} />}
 
-        <View style={{ marginTop: 34 }}><Faq A={A} /></View>
+        <View style={{ marginTop: 34 }}><Faq A={A} onGym={onGym} /></View>
 
         {/* Closes exactly like About Us does — the trial letter, then the movement note. */}
         {!!A.trialStrip && (
@@ -1554,7 +1554,7 @@ export function ImpactStack({ onGetStarted, onAbout, onTutors, onReviews, onPric
 
         <View style={[s.pad, { marginTop: 20 }]}>
           {/* "Our Impact" in the footer is this page — rewind instead of stacking a copy. */}
-          <BecomePage E={E} onAbout={onAbout} onImpact={toTop} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+          <BecomePage E={E} onAbout={onAbout} onImpact={toTop} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
         </View>
       </Animated.ScrollView>
       </RevealCtx.Provider>
@@ -1911,7 +1911,7 @@ function Match({ M }) {
   );
 }
 
-export function TutorsStack({ onGetStarted, onAbout, onImpact, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral }) {
+export function TutorsStack({ onGetStarted, onAbout, onImpact, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onGym }) {
   const TU = CONTENT.tutors;
   const A = CONTENT.about;
   const E = CONTENT.event;
@@ -1934,7 +1934,7 @@ export function TutorsStack({ onGetStarted, onAbout, onImpact, onReviews, onPric
 
         {/* Tutor FAQ — falls back to the shared About FAQ set if none are written. */}
         <View style={{ marginTop: 34 }}>
-          <Faq A={{ faqTitle: TU.faqTitle, faqs: TU.faqs?.length ? TU.faqs : A.faqs, seeMoreUrl: A.seeMoreUrl }} />
+          <Faq A={{ faqTitle: TU.faqTitle, faqs: TU.faqs?.length ? TU.faqs : A.faqs, seeMoreUrl: A.seeMoreUrl }} onGym={onGym} />
         </View>
 
         {/* Still removed from Our Tutors per request: "What Every Ailernova Tutor Brings"
@@ -1945,7 +1945,7 @@ export function TutorsStack({ onGetStarted, onAbout, onImpact, onReviews, onPric
 
         <View style={[s.pad, { marginTop: 20 }]}>
           {/* "Our Tutors" in the footer is this page — rewind instead of stacking a copy. */}
-          <BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={toTop} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+          <BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={toTop} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
         </View>
       </ScrollView>
 
@@ -2136,7 +2136,7 @@ function ReviewsBadges({ items }) {
   );
 }
 
-export function ReviewsStack({ onGetStarted, onAbout, onImpact, onTutors, onPricing, onFaqs, onContact, onRefund, onReferral }) {
+export function ReviewsStack({ onGetStarted, onAbout, onImpact, onTutors, onPricing, onFaqs, onContact, onRefund, onReferral, onGym }) {
   const R = CONTENT.reviews;
   const A = CONTENT.about;
   const E = CONTENT.event;
@@ -2219,13 +2219,13 @@ export function ReviewsStack({ onGetStarted, onAbout, onImpact, onTutors, onPric
         {/* The questions a parent is left holding after reading the reviews. Same accordion
             as About Us and Our Tutors, on its own review-specific set. */}
         <View style={{ marginTop: 34 }}>
-          <Faq A={{ faqTitle: R.faqTitle, faqs: R.faqs, seeMoreUrl: R.seeMoreUrl }} />
+          <Faq A={{ faqTitle: R.faqTitle, faqs: R.faqs, seeMoreUrl: R.seeMoreUrl }} onGym={onGym} />
         </View>
 
         <Movement M={A.movement} name={A.founder?.name} onGo={go} />
 
         <View style={[s.pad, { marginTop: 20 }]}>
-          <BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={toTop} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+          <BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={toTop} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
         </View>
       </ScrollView>
 
@@ -2324,7 +2324,7 @@ function GradePicker({ label, values, value, onPick }) {
   );
 }
 
-export function PricingStack({ onGetStarted, onAbout, onImpact, onTutors, onReviews, onFaqs, onContact, onRefund, onReferral }) {
+export function PricingStack({ onGetStarted, onAbout, onImpact, onTutors, onReviews, onFaqs, onContact, onRefund, onReferral, onGym }) {
   const P = CONTENT.pricing;
   const A = CONTENT.about;
   const E = CONTENT.event;
@@ -2448,13 +2448,13 @@ export function PricingStack({ onGetStarted, onAbout, onImpact, onTutors, onRevi
         ))}
 
         <View style={{ marginTop: 34 }}>
-          <Faq A={{ faqTitle: A.faqTitle, faqs: A.faqs, seeMoreUrl: A.seeMoreUrl }} />
+          <Faq A={{ faqTitle: A.faqTitle, faqs: A.faqs, seeMoreUrl: A.seeMoreUrl }} onGym={onGym} />
         </View>
 
         <Movement M={A.movement} name={A.founder?.name} onGo={go} />
 
         <View style={[s.pad, { marginTop: 20 }]}>
-          <BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={toTop} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+          <BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={toTop} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
         </View>
       </ScrollView>
 
@@ -2468,7 +2468,7 @@ export function PricingStack({ onGetStarted, onAbout, onImpact, onTutors, onRevi
 }
 
 /* ── FAQs — the whole shared question set on its own page (see CONTENT.faqs) ─── */
-export function FaqsStack({ onGetStarted, onAbout, onImpact, onTutors, onReviews, onPricing, onContact, onRefund, onReferral }) {
+export function FaqsStack({ onGetStarted, onAbout, onImpact, onTutors, onReviews, onPricing, onContact, onRefund, onReferral, onGym }) {
   const F = CONTENT.faqs;
   const A = CONTENT.about;
   const E = CONTENT.event;
@@ -2490,7 +2490,7 @@ export function FaqsStack({ onGetStarted, onAbout, onImpact, onTutors, onReviews
         </Paper>
 
         <View style={{ marginTop: 4 }}>
-          <Faq A={{ faqTitle: F.faqTitle, faqs: F.faqs, seeMoreUrl: F.seeMoreUrl }} />
+          <Faq A={{ faqTitle: F.faqTitle, faqs: F.faqs, seeMoreUrl: F.seeMoreUrl }} onGym={onGym} />
         </View>
 
         {/* A FAQ page's real job is to hand off the question it could not answer. */}
@@ -2507,7 +2507,7 @@ export function FaqsStack({ onGetStarted, onAbout, onImpact, onTutors, onReviews
         <Movement M={A.movement} name={A.founder?.name} onGo={go} />
 
         <View style={[s.pad, { marginTop: 20 }]}>
-          <BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={toTop} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+          <BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={toTop} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
         </View>
       </ScrollView>
 
@@ -2546,7 +2546,7 @@ function OfficeCard({ o }) {
   );
 }
 
-export function ContactStack({ onGetStarted, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onRefund, onReferral }) {
+export function ContactStack({ onGetStarted, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onRefund, onReferral, onGym }) {
   const K = CONTENT.contact;
   const E = CONTENT.event;
   const go = () => (onGetStarted ? onGetStarted() : open(E.become.appUrl));
@@ -2634,7 +2634,7 @@ export function ContactStack({ onGetStarted, onAbout, onImpact, onTutors, onRevi
 
           <View style={{ marginTop: 30 }}>
             <BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors}
-              onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={toTop} />
+              onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={toTop} onGym={onGym} />
           </View>
         </Paper>
       </ScrollView>
@@ -2654,7 +2654,7 @@ export function ContactStack({ onGetStarted, onAbout, onImpact, onTutors, onRevi
    rather than a placeholder, because a refund term a parent can read is a term we
    are held to. The page can therefore be shipped half-filled without ever stating
    something untrue — it simply shows less. */
-export function RefundStack({ onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onReferral }) {
+export function RefundStack({ onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onReferral, onGym }) {
   const P = CONTENT.refund;
   const E = CONTENT.event;
   const scrollRef = useRef(null);
@@ -2769,7 +2769,7 @@ export function RefundStack({ onAbout, onImpact, onTutors, onReviews, onPricing,
 
         {!!P.faqs.length && (
           <View style={{ marginTop: 34 }}>
-            <Faq A={{ faqTitle: P.faqTitle, faqs: P.faqs }} />
+            <Faq A={{ faqTitle: P.faqTitle, faqs: P.faqs }} onGym={onGym} />
           </View>
         )}
 
@@ -2821,7 +2821,7 @@ export function RefundStack({ onAbout, onImpact, onTutors, onReviews, onPricing,
 
         <View style={[s.pad, { marginTop: 30 }]}>
           <BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors}
-            onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={toTop} onReferral={onReferral} onContact={onContact} />
+            onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={toTop} onReferral={onReferral} onContact={onContact} onGym={onGym} />
         </View>
       </ScrollView>
 
@@ -2839,7 +2839,7 @@ export function RefundStack({ onAbout, onImpact, onTutors, onReviews, onPricing,
    follows the refund page's rules exactly: every block is guarded, and the Draft
    strip stays up until CONTENT.referral.draft is false. An unconfirmed reward
    renders as nothing, never as a number a parent could try to claim. */
-export function ReferralStack({ onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund }) {
+export function ReferralStack({ onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onGym }) {
   const P = CONTENT.referral;
   const E = CONTENT.event;
   const scrollRef = useRef(null);
@@ -3006,7 +3006,7 @@ export function ReferralStack({ onAbout, onImpact, onTutors, onReviews, onPricin
             <View style={s.pad}>
               <T w="xbold" s={11.5} c={C.muted} style={s.label}>{P.faqLabel}</T>
             </View>
-            <Faq A={{ faqTitle: P.faqTitle, faqs: P.faqs }} />
+            <Faq A={{ faqTitle: P.faqTitle, faqs: P.faqs }} onGym={onGym} />
           </View>
         )}
 
@@ -3025,7 +3025,7 @@ export function ReferralStack({ onAbout, onImpact, onTutors, onReviews, onPricin
         <View style={[s.pad, { marginTop: 30 }]}>
           <BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors}
             onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund}
-            onContact={onContact} onReferral={toTop} />
+            onContact={onContact} onReferral={toTop} onGym={onGym} />
         </View>
       </ScrollView>
 
@@ -3092,13 +3092,13 @@ export function ReferralModal({ visible, onClose, onAbout, onImpact, onTutors, o
           <T w="bold" s={16} c={C.ink}>Refer a Friend</T><View style={{ width: 40 }} />
         </View>
         <ReferralStack onAbout={onAbout} onImpact={onImpact} onTutors={onTutors}
-          onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onContact={onContact} />
+          onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onContact={onContact} onGym={onGym} />
       </SafeAreaView>
     </Modal>
   );
 }
 
-export function RefundModal({ visible, onClose, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral }) {
+export function RefundModal({ visible, onClose, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onGym }) {
   return (
     <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
       <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
@@ -3107,7 +3107,7 @@ export function RefundModal({ visible, onClose, onAbout, onImpact, onTutors, onR
           <T w="bold" s={16} c={C.ink}>Refund Policy</T><View style={{ width: 40 }} />
         </View>
         <RefundStack onAbout={onAbout} onImpact={onImpact} onTutors={onTutors}
-          onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+          onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
       </SafeAreaView>
     </Modal>
   );
@@ -3122,13 +3122,13 @@ export function ContactModal({ visible, onClose, onGetStarted, onAbout, onImpact
           <T w="bold" s={16} c={C.ink}>Contact Us</T><View style={{ width: 40 }} />
         </View>
         <ContactStack onGetStarted={onGetStarted} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors}
-          onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} />
+          onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onGym={onGym} />
       </SafeAreaView>
     </Modal>
   );
 }
 
-export function PricingModal({ visible, onClose, onGetStarted, onAbout, onImpact, onTutors, onReviews, onFaqs, onContact, onRefund, onReferral }) {
+export function PricingModal({ visible, onClose, onGetStarted, onAbout, onImpact, onTutors, onReviews, onFaqs, onContact, onRefund, onReferral, onGym }) {
   return (
     <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
       <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
@@ -3142,7 +3142,7 @@ export function PricingModal({ visible, onClose, onGetStarted, onAbout, onImpact
   );
 }
 
-export function FaqsModal({ visible, onClose, onGetStarted, onAbout, onImpact, onTutors, onReviews, onPricing, onContact, onRefund, onReferral }) {
+export function FaqsModal({ visible, onClose, onGetStarted, onAbout, onImpact, onTutors, onReviews, onPricing, onContact, onRefund, onReferral, onGym }) {
   return (
     <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
       <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
@@ -3156,7 +3156,7 @@ export function FaqsModal({ visible, onClose, onGetStarted, onAbout, onImpact, o
   );
 }
 
-export function ReviewsModal({ visible, onClose, onGetStarted, onAbout, onImpact, onTutors, onPricing, onFaqs, onContact, onRefund, onReferral }) {
+export function ReviewsModal({ visible, onClose, onGetStarted, onAbout, onImpact, onTutors, onPricing, onFaqs, onContact, onRefund, onReferral, onGym }) {
   return (
     <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
       <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
@@ -3171,7 +3171,7 @@ export function ReviewsModal({ visible, onClose, onGetStarted, onAbout, onImpact
 }
 
 /* ── Full-screen modal wrappers ───────────────────────────────────────────── */
-export function AboutModal({ visible, onClose, onGetStarted, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral }) {
+export function AboutModal({ visible, onClose, onGetStarted, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onGym }) {
   return (
     <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
       <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
@@ -3179,13 +3179,13 @@ export function AboutModal({ visible, onClose, onGetStarted, onImpact, onTutors,
           <PressableScale onPress={onClose} style={s.back}><T s={26} c={C.ink}>‹</T></PressableScale>
           <T w="bold" s={16} c={C.ink}>About Us</T><View style={{ width: 40 }} />
         </View>
-        <AboutStack onGetStarted={onGetStarted} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+        <AboutStack onGetStarted={onGetStarted} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
       </SafeAreaView>
     </Modal>
   );
 }
 
-export function ImpactModal({ visible, onClose, onGetStarted, onAbout, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral }) {
+export function ImpactModal({ visible, onClose, onGetStarted, onAbout, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onGym }) {
   return (
     <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
       <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
@@ -3199,7 +3199,7 @@ export function ImpactModal({ visible, onClose, onGetStarted, onAbout, onTutors,
   );
 }
 
-export function TutorsModal({ visible, onClose, onGetStarted, onAbout, onImpact, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral }) {
+export function TutorsModal({ visible, onClose, onGetStarted, onAbout, onImpact, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onGym }) {
   return (
     <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
       <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>

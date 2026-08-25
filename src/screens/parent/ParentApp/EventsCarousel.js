@@ -803,7 +803,7 @@ function CommunityPage({ E }) {
 // Tutors (onTutors); everything else opens its url.
 // Exported: the About, Impact and Tutors pages close with this exact block too, so the
 // footer sections are reachable from there as well.
-export function BecomePage({ E, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onOpenProgram }) {
+export function BecomePage({ E, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onOpenProgram, onGym }) {
   const bc = E.become;
   const ft = E.footer;
   const [openIdx, setOpenIdx] = useState(-1);
@@ -827,6 +827,8 @@ export function BecomePage({ E, onAbout, onImpact, onTutors, onReviews, onPricin
     if (it.action === 'blogs') return setBlogsOpen(true);
     if (it.action === 'subjects') return setSubjOpen(true);
     if (it.action === 'becometutor') return setTutorOpen(true);
+    // Brain Gym opens the REAL in-app gym, not the marketing page.
+    if (it.action === 'braingym') return onGym ? onGym() : open(it.url);
     return open(it.url);
   };
   return (
@@ -1791,7 +1793,7 @@ export function ProgramDetail({ programId, onBack }) {
 }
 
 /* ── All sections stacked vertically (default export) ─────────────────────── */
-export default function EventsStack({ events = [], store = [], skills = [], gallery = [], onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onOpenProgram }) {
+export default function EventsStack({ events = [], store = [], skills = [], gallery = [], onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onOpenProgram, onGym }) {
   const E = CONTENT.event;
   const scrollRef = useRef(null);
   const regionY = useRef(0);
@@ -1811,7 +1813,7 @@ export default function EventsStack({ events = [], store = [], skills = [], gall
         {!!skills.length && <FadeIn delay={160}><SkillsPage skills={skills} E={E} /></FadeIn>}
         {!!gallery.length && <FadeIn delay={160}><ParentsPage gallery={gallery} E={E} /></FadeIn>}
         <FadeIn delay={160}><CommunityPage E={E} /></FadeIn>
-        <FadeIn delay={160}><BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onContact={onContact} onRefund={onRefund} onReferral={onReferral} onOpenProgram={onOpenProgram} /></FadeIn>
+        <FadeIn delay={160}><BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onContact={onContact} onRefund={onRefund} onReferral={onReferral} onOpenProgram={onOpenProgram} onGym={onGym} /></FadeIn>
       </View>
     </ScrollView>
   );
@@ -1840,7 +1842,7 @@ export function EventTeaser({ event, onOpen }) {
 }
 
 /* ── Full-screen modal — the whole stacked page ───────────────────────────── */
-export function EventsModal({ visible, onClose, events, store, skills, gallery, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral }) {
+export function EventsModal({ visible, onClose, events, store, skills, gallery, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onGym }) {
   const [program, setProgram] = useState(null);
   const close = () => { setProgram(null); onClose && onClose(); };
   return (

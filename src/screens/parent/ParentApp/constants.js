@@ -338,7 +338,9 @@ export const CONTENT = {
         // (action 'subjects'). Brain Gym sits right under Free Online Games.
         { q: 'Resources', items: [
           { label: 'Free Online Games', url: 'https://ailernova.in/#about' },
-          { label: 'Brain Gym', url: 'https://ailernova.in/#about' },
+          // Opens the in-app Brain Gym. The url stays as the fallback for any host
+          // that does not pass onGym, per the pattern the other actions use.
+          { label: 'Brain Gym', action: 'braingym', url: 'https://ailernova.in/#about' },
           { label: 'Blogs', action: 'blogs' },
           { label: 'Study by Subject', action: 'subjects' },
         ] },
