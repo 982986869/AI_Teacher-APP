@@ -12,7 +12,7 @@ import {
   View, ScrollView, Animated, Easing, StyleSheet, Modal, SafeAreaView,
   Linking, LayoutAnimation, Platform, UIManager, Image, Dimensions,
 } from 'react-native';
-import Svg, { Line, Circle, Path, G, Polyline, Polygon } from 'react-native-svg';
+import Svg, { Line, Circle, Path, G, Polyline, Polygon, Defs, RadialGradient, Stop } from 'react-native-svg';
 import { Star, Plus, X, Check, Play, Sparkles, ArrowUpRight, UserRound, Medal, ChevronDown, Image as ImageIcon, HelpCircle, Wallet, Users, FileText, ArrowDown, CalendarDays, Mail, MessageCircle } from 'lucide-react-native';
 import { C, T, CONTENT, Wordmark } from './constants';
 import { PressableScale, FadeIn, PopIn } from './anim';
@@ -189,6 +189,37 @@ function Globe() {
     return () => a.stop();
   }, [pulse]);
 
+  // Meridians and parallels, projected the same way the pins are — so the grid is
+  // the sphere's own geometry rather than ellipses drawn to look like it. Only the
+  // front hemisphere is emitted; a run breaks whenever a point rounds the limb.
+  const graticule = useMemo(() => {
+    if (R <= 0) return [];
+    const out = [];
+    const run = (pts) => {
+      let d = '';
+      let open = false;
+      for (const q of pts) {
+        if (q.z <= 0.02) { open = false; continue; }
+        const x = R + 8 + q.x;
+        const y = R + 8 + q.y;
+        d += `${open ? 'L' : 'M'} ${x.toFixed(1)} ${y.toFixed(1)} `;
+        open = true;
+      }
+      if (d) out.push(d.trim());
+    };
+    for (let lon = -180; lon < 180; lon += 30) {
+      const pts = [];
+      for (let lat = -90; lat <= 90; lat += 3) pts.push(project(lat, lon, R));
+      run(pts);
+    }
+    for (let lat = -60; lat <= 60; lat += 30) {
+      const pts = [];
+      for (let lon = -180; lon <= 180; lon += 3) pts.push(project(lat, lon, R));
+      run(pts);
+    }
+    return out;
+  }, [R]);
+
   const dots = [];
   if (R > 0) {
     for (let lat = -84; lat <= 84; lat += 8) {
@@ -249,14 +280,31 @@ function Globe() {
         {R > 0 && (
           <>
             <Svg width={w} height={w}>
-              <Circle cx={R + 8} cy={R + 8} r={R} fill="#FAFAF9" />
+              <Defs>
+                {/* Lit from the upper left, so the sphere reads as a ball rather than
+                    a flat disc — the shading the reference's globe has and the old
+                    off-white circle did not. */}
+                <RadialGradient id="ocean" cx="34%" cy="28%" r="78%">
+                  <Stop offset="0%" stopColor="#DCEEFB" />
+                  <Stop offset="62%" stopColor="#BFE0F5" />
+                  <Stop offset="100%" stopColor="#9BC9E8" />
+                </RadialGradient>
+              </Defs>
+              <Circle cx={R + 8} cy={R + 8} r={R} fill="url(#ocean)" />
+
+              {/* Real graticule — built from the same projection as the pins, so the
+                  grid curves the way the sphere actually does. */}
+              {graticule.map((d, i) => (
+                <Path key={`g${i}`} d={d} fill="none" stroke="#8FBEDC" strokeWidth={0.7} opacity={0.55} />
+              ))}
+
               {dots.map((d, i) => (
-                <Circle key={i} cx={d.cx} cy={d.cy} r={d.r} fill="#B9BCC2" opacity={d.o} />
+                <Circle key={i} cx={d.cx} cy={d.cy} r={d.r} fill="#5FA777" opacity={d.o * 0.9} />
               ))}
               {pins.map((p) => (
                 // lucide's MapPin path, hand-placed so the pin's TIP sits on the coordinate.
                 <G key={p.city} transform={`translate(${R + 8 + p.x - 9}, ${R + 8 + p.y - 16.5}) scale(0.75)`}>
-                  <Path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" fill={C.blue} />
+                  <Path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" fill={C.gold} />
                   <Circle cx={12} cy={10} r={3} fill="#fff" />
                 </G>
               ))}
@@ -279,7 +327,8 @@ function Globe() {
             {labelled.map((p) => (
               // left/top were resolved by the de-collision pass above.
               <View key={`lbl-${p.city}`} pointerEvents="none" style={[s.gLabel, { left: p.left, top: p.top }]}>
-                <T w="semi" s={10.5} c={C.ink}>{p.city}</T>
+                <View style={s.gLabelDot} />
+                <T w="bold" s={10.5} c={C.ink}>{p.city}</T>
               </View>
             ))}
           </>
@@ -3147,12 +3196,21 @@ const s = StyleSheet.create({
   tlRule: { height: 1, backgroundColor: 'rgba(255,255,255,0.16)', marginTop: 14 },
   // Reach globe furniture: pulsing halo under each named pin, the pin's name tag,
   // the derived counts row, and the all-cities chip rail.
-  gHalo: { position: 'absolute', width: 30, height: 30, borderRadius: 15, backgroundColor: C.blue },
-  gLabel: { position: 'absolute', backgroundColor: 'rgba(255,255,255,0.94)', paddingHorizontal: 6, paddingVertical: 3, borderRadius: 4, borderWidth: 1, borderColor: C.border },
+  gHalo: { position: 'absolute', width: 30, height: 30, borderRadius: 15, backgroundColor: C.gold },
+  // A pill with a dot, floating over the sphere — the reference's treatment. The
+  // shadow is what lifts it off the ocean; a border alone disappeared against the
+  // graticule.
+  gLabel: {
+    position: 'absolute', flexDirection: 'row', alignItems: 'center', gap: 5,
+    backgroundColor: '#FFFFFF', paddingHorizontal: 8, paddingVertical: 4, borderRadius: 999,
+    shadowColor: '#0B1B2B', shadowOpacity: 0.16, shadowRadius: 6,
+    shadowOffset: { width: 0, height: 2 }, elevation: 3,
+  },
+  gLabelDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: C.gold },
   gStats: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 22, marginTop: 20 },
   gStatRule: { width: 1, height: 30, backgroundColor: C.border },
   gChip: { flexDirection: 'row', alignItems: 'center', gap: 7, paddingHorizontal: 12, paddingVertical: 8, borderRadius: 20, borderWidth: 1, borderColor: C.border, backgroundColor: '#FCFCFD' },
-  gChipDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: C.blue },
+  gChipDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: C.gold },
 
   kmRow: { flexDirection: 'row', alignItems: 'center', gap: 14, borderWidth: 1, borderColor: C.border, padding: 16 },
   kmIcon: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center' },
