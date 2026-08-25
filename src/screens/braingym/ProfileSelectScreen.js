@@ -108,8 +108,14 @@ function RoleCard({ role, index, onPress, float }) {
           <Text style={s.eyebrow}>I&apos;m a</Text>
           <Text style={s.name}>{role.name}</Text>
           <Text style={s.blurb}>{role.blurb}</Text>
+          {/* Both arrows are WHITE in the reference, including the one on yellow.
+              White on #FFC629 is about 1.9:1, which no text would be allowed to
+              use — it passes here only because this is a thick-stroked glyph
+              paired with a 56px target and a label right above it, not something
+              anyone has to read. Swap `C.onPrimary` back in if it looks weak on a
+              dim screen. */}
           <View style={[s.go, role.lit ? s.goLit : s.goDark]}>
-            <ArrowRight size={20} strokeWidth={2.6} color={role.lit ? C.onPrimary : C.onDark} />
+            <ArrowRight size={24} strokeWidth={2.8} color={C.onDark} />
           </View>
         </View>
 
@@ -207,8 +213,8 @@ const s = StyleSheet.create({
     flexDirection: 'row', alignItems: 'stretch',
     backgroundColor: C.card, borderRadius: 20,
     borderWidth: 1, borderColor: C.hair,
-    paddingLeft: 20, paddingVertical: 20, paddingRight: 0,
-    overflow: 'hidden', minHeight: 172,
+    paddingLeft: 22, paddingTop: 22, paddingBottom: 0, paddingRight: 0,
+    overflow: 'hidden', minHeight: 208,
     // Cards are white on a warm ground, so the lift comes from a soft shadow
     // rather than a heavier border.
     shadowColor: '#111111', shadowOpacity: 0.07, shadowRadius: 14,
@@ -218,19 +224,19 @@ const s = StyleSheet.create({
   // white so the copy on it keeps full contrast.
   cardLit: { borderWidth: 2, borderColor: C.primary },
 
-  copy: { flex: 1, justifyContent: 'center', paddingRight: 8 },
-  eyebrow: { fontSize: 13.5, lineHeight: 18, fontFamily: FONT_FAMILY.medium, color: C.sub },
+  copy: { flex: 1, justifyContent: 'flex-start', paddingRight: 8, paddingBottom: 22 },
+  eyebrow: { fontSize: 15, lineHeight: 20, fontFamily: FONT_FAMILY.medium, color: C.sub },
   name: {
-    marginTop: 2, fontSize: 27, lineHeight: 34,
+    marginTop: 4, fontSize: 33, lineHeight: 40,
     fontFamily: FONT_FAMILY.display, color: C.ink, letterSpacing: -0.5,
   },
-  blurb: { marginTop: 8, fontSize: 13, lineHeight: 18, fontFamily: FONT_FAMILY.medium, color: C.sub },
+  blurb: { marginTop: 10, fontSize: 15, lineHeight: 21, fontFamily: FONT_FAMILY.medium, color: C.sub },
   go: {
-    width: 44, height: 44, borderRadius: 22, marginTop: 16,
+    width: 56, height: 56, borderRadius: 28, marginTop: 18,
     alignItems: 'center', justifyContent: 'center',
   },
   goLit: { backgroundColor: C.primary },
-  goDark: { backgroundColor: '#2E3A4A' },
+  goDark: { backgroundColor: '#5C6B84' },   // the reference's muted slate, not black
 
   artWrap: { width: '42%', alignItems: 'center', justifyContent: 'flex-end' },
   art: { width: '100%', height: '100%' },
