@@ -4,7 +4,7 @@
 //   offline_events     — the in-person event cards (page 1)
 //   event_store_slides — "What's in store for you?" image slider
 //   event_skills       — "AILERNOVA Skills You'll Discover" grid
-//   event_gallery      — "Hear From Our Participants" / community photos
+//   event_gallery      — "Hear From Our Parents" / community photos
 // Images are pulled from the live AILERNOVA site (ailernova.in). Idempotent.
 //   node server/scripts/seed-offline-events.js
 
@@ -22,10 +22,18 @@ const B = 'https://ailernova.in/wp-content/themes/ailernova-theme/image'
 const B2 = 'https://ailernova.in/wp-content/themes/ailernova-theme/images'
 const EV_IMG = [`${B}/img-stu01.jpg`, `${B}/img-stu02.jpg`, `${B}/img-stu03.jpg`, `${B}/img-stu04.jpg`, `${B}/img-stu05.jpg`, `${B}/img-stu06.jpg`, `${B}/img-stu07.jpg`, `${B}/img-stu08.jpg`, `${B}/img-stu13.png`]
 const STORE_IMG = [`${B}/img-stu03.jpg`, `${B}/img-stu05.jpg`, `${B}/img-stu07.jpg`, `${B}/parents-img2.jpg`]
-const GALLERY_IMG = [`${B}/parents-img2.jpg`, `${B}/parents-img11.jpg`, `${B}/testimonial-03-screenshot.jpg`, `${B}/testimonial-04-screenshot.jpg`, `${B2}/teachers/mentor-1.png`, `${B2}/teachers/mentor-2.png`, `${B2}/teachers/mentor-3.png`, `${B}/img-stu13.png`]
+// The parents grid is a fixed 2x2, so exactly FOUR images — the four parent
+// headshots ailernova.in publishes. It previously mixed two of these with two
+// review screenshots and three mentor/stock portraits ("Rajesh Kumar",
+// "Anjali Tripathi", "Arvind Sharma"), which are not parents at all.
+const GALLERY_IMG = [`${B}/parents-img2.jpg`, `${B}/parents-img11.jpg`, `${B}/parents-img12.png`, `${B}/parents-img13.png`]
 
 const EVENTS = [
-  { title: 'MathFit™ Summer Adventure ’26', duration: '2-Hour Workshop', grades: 'Grades K–5', city: 'New Delhi', date: 'Sat, 2 Aug', time: '3:15 – 4:45 PM IST' },
+  // No ™ here. See the note in src/screens/parent/ParentApp/constants.js: the
+  // client-side copy deliberately avoids "MathFit™" because it is Cuemath's
+  // trademark; this seed predated that decision and put it straight into the DB,
+  // which is where the Events carousel actually reads its titles from.
+  { title: 'Math Summer Adventure ’26', duration: '2-Hour Workshop', grades: 'Grades K–5', city: 'New Delhi', date: 'Sat, 2 Aug', time: '3:15 – 4:45 PM IST' },
   { title: 'Logic League Championship',      duration: '90-Min Contest',  grades: 'Grades 3–8', city: 'Mumbai',    date: 'Sun, 3 Aug', time: '10:00 – 11:30 AM IST' },
   { title: 'Vedic Math Bootcamp',            duration: 'Half-Day Camp',   grades: 'Grades 4–9', city: 'Bengaluru', date: 'Sat, 9 Aug', time: '9:30 AM – 1:00 PM IST' },
   { title: 'Puzzle & Reasoning Carnival',    duration: '2-Hour Workshop', grades: 'Grades 1–6', city: 'Hyderabad', date: 'Sun, 10 Aug', time: '4:00 – 6:00 PM IST' },

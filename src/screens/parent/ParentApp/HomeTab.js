@@ -165,14 +165,22 @@ function HomeTab({ meta, childName, onAvatar, onGym, onActivity, onBookTrial, re
     contact: setContactOpen, refund: setRefundOpen, referral: setReferralOpen,
   };
   const closeOf = { events: setEventsOpen, ...PAGES };
-  const nav = (from) => Object.fromEntries(
-    Object.entries(PAGES)
-      .filter(([name]) => name !== from)
-      .map(([name, openIt]) => [
-        `on${name[0].toUpperCase()}${name.slice(1)}`,
-        () => { closeOf[from](false); openIt(true); },
-      ]),
-  );
+  const nav = (from) => ({
+    ...Object.fromEntries(
+      Object.entries(PAGES)
+        .filter(([name]) => name !== from)
+        .map(([name, openIt]) => [
+          `on${name[0].toUpperCase()}${name.slice(1)}`,
+          () => { closeOf[from](false); openIt(true); },
+        ]),
+    ),
+    // The footer's Resources > Brain Gym row. Not one of PAGES — those are all
+    // marketing pages that open each other, whereas this leaves the story
+    // entirely and drops into the real gym, so it closes `from` and calls the
+    // handler ParentApp already owns. Riding on nav() means every modal gets it
+    // without threading the prop through ten BecomePage call sites.
+    onGym: () => { closeOf[from](false); onGym && onGym(); },
+  });
   const goTrial = (from) => () => { closeOf[from](false); onBookTrial && onBookTrial(); };
   const events = report.events || [];
   const hour = new Date().getHours();

@@ -7,23 +7,26 @@
 // Sections whose data is empty in CONTENT.about (video / founder / timeline /
 // investors / reach.image) render NOTHING — they light up the moment real data is
 // put in constants.js. Nothing here invents a figure, a face or a backer.
-import React, { useState, useRef, useEffect, useContext } from 'react';
+import React, { useState, useRef, useEffect, useMemo, useContext } from 'react';
 import {
   View, ScrollView, Animated, Easing, StyleSheet, Modal, SafeAreaView,
-  Linking, LayoutAnimation, Platform, UIManager, Image, Dimensions,
+  Linking, LayoutAnimation, Platform, Image, Dimensions,
 } from 'react-native';
-import Svg, { Line, Circle, Path, G, Polyline, Polygon } from 'react-native-svg';
+import Svg, { Line, Circle, Path, G, Polyline, Polygon, Defs, RadialGradient, Stop } from 'react-native-svg';
 import { Star, Plus, X, Check, Play, Sparkles, ArrowUpRight, UserRound, Medal, ChevronDown, Image as ImageIcon, HelpCircle, Wallet, Users, FileText, ArrowDown, CalendarDays, Mail, MessageCircle } from 'lucide-react-native';
 import { C, T, CONTENT, Wordmark } from './constants';
 import { PressableScale, FadeIn, PopIn } from './anim';
 import { BecomePage } from './EventsCarousel';
 
-if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
-  UIManager.setLayoutAnimationEnabledExperimental(true);
-}
 
 const { width: SCREEN_W } = Dimensions.get('window');
 const open = (u) => { if (u) Linking.openURL(u).catch(() => {}); };
+// ⚠ INERT under the New Architecture, which this app runs with. LayoutAnimation
+// is a no-op there, so every spring() call below expands or collapses its section
+// INSTANTLY — the eased transition it names has not happened for some time. The
+// call is kept rather than deleted so the intent stays visible at all 8 call
+// sites; converting them means giving each section a measured height and an
+// Animated.Value, which is a deliberate piece of work, not a find-and-replace.
 const spring = () => LayoutAnimation.configureNext(
   LayoutAnimation.create(240, LayoutAnimation.Types.easeInEaseOut, LayoutAnimation.Properties.opacity),
 );
@@ -189,6 +192,110 @@ function Globe() {
     return () => a.stop();
   }, [pulse]);
 
+  // Meridians and parallels, projected the same way the pins are — so the grid is
+  // the sphere's own geometry rather than ellipses drawn to look like it. Only the
+  // front hemisphere is emitted; a run breaks whenever a point rounds the limb.
+  const graticule = useMemo(() => {
+    if (R <= 0) return [];
+    const out = [];
+    const run = (pts) => {
+      let d = '';
+      let open = false;
+      for (const q of pts) {
+        if (q.z <= 0.02) { open = false; continue; }
+        const x = R + 8 + q.x;
+        const y = R + 8 + q.y;
+        d += `${open ? 'L' : 'M'} ${x.toFixed(1)} ${y.toFixed(1)} `;
+        open = true;
+      }
+      if (d) out.push(d.trim());
+    };
+    for (let lon = -180; lon < 180; lon += 30) {
+      const pts = [];
+      for (let lat = -90; lat <= 90; lat += 3) pts.push(project(lat, lon, R));
+      run(pts);
+    }
+    for (let lat = -60; lat <= 60; lat += 30) {
+      const pts = [];
+      for (let lon = -180; lon <= 180; lon += 3) pts.push(project(lat, lon, R));
+      run(pts);
+    }
+    return out;
+  }, [R]);
+
+  // Routes between the cities. These are GREAT CIRCLES — the shortest path over a
+  // sphere — interpolated by slerp between the two points' unit vectors, then run
+  // through the same projection as everything else. A straight line between two
+  // projected points would cut through the globe instead of lying on it, which is
+  // obvious the moment a route spans more than a few degrees.
+  //
+  // Spokes from Delhi rather than every pair: sixteen cities is 120 pairs, which
+  // reads as a ball of wool. One hub says the thing the map is actually for.
+  const routes = useMemo(() => {
+    if (R <= 0) return [];
+    const hub = CITIES.find((c) => c.city === 'Delhi') || CITIES[0];
+    const vec = (lat, lon) => {
+      const a = lat * RAD;
+      const b = (lon - CENTER_LON) * RAD;
+      return { x: Math.cos(a) * Math.sin(b), y: -Math.sin(a), z: Math.cos(a) * Math.cos(b) };
+    };
+    const slerp = (p, q, t) => {
+      const d = Math.max(-1, Math.min(1, p.x * q.x + p.y * q.y + p.z * q.z));
+      const o = Math.acos(d);
+      if (o < 1e-6) return p;
+      const si = Math.sin(o);
+      const A = Math.sin((1 - t) * o) / si;
+      const B = Math.sin(t * o) / si;
+      return { x: A * p.x + B * q.x, y: A * p.y + B * q.y, z: A * p.z + B * q.z };
+    };
+    const out = [];
+    const h = vec(hub.lat, hub.lon);
+    for (const c of CITIES) {
+      if (c.city === hub.city) continue;
+      const e = vec(c.lat, c.lon);
+      // Kept as POINTS, not a path string, so the draw-in can render a prefix of
+      // the route. A pre-baked string can only be shown or hidden.
+      const pts = [];
+      for (let i = 0; i <= 48; i++) {
+        const v = slerp(h, e, i / 48);
+        // Stop at the limb, so a route to the far side does not draw a chord
+        // straight across the disc. `null` marks the break.
+        if (v.z <= 0.03) { pts.push(null); continue; }
+        pts.push({ x: R + 8 + R * v.x, y: R + 8 + R * v.y });
+      }
+      if (pts.some(Boolean)) out.push({ city: c.city, pts });
+    }
+    return out;
+  }, [R]);
+
+  // ── Choreography ──────────────────────────────────────────────────────────
+  // One integer, stepped on a timer, drives the whole sequence: the pins land one
+  // at a time, then the routes draw out of the hub. It is a counter rather than an
+  // Animated.Value because everything it feeds is an SVG prop, and react-native-svg
+  // cannot be driven natively — so an Animated.Value would need a JS listener
+  // writing to state on every frame, which is the same work with more machinery.
+  const PIN_TICKS = 3;      // ticks between one pin landing and the next
+  const ROUTE_LEAD = 2;     // ticks between one route starting and the next
+  const ROUTE_TICKS = 7;    // ticks a single route takes to draw
+  const TICK_MS = 45;
+  const pinPhase = CITIES.length * PIN_TICKS;
+  const totalTicks = pinPhase + routes.length * ROUTE_LEAD + ROUTE_TICKS;
+
+  const [step, setStep] = useState(0);
+  useEffect(() => {
+    if (R <= 0) return undefined;
+    setStep(0);
+    const id = setInterval(() => {
+      setStep((v) => {
+        if (v >= totalTicks) { clearInterval(id); return v; }
+        return v + 1;
+      });
+    }, TICK_MS);
+    return () => clearInterval(id);
+  }, [R, totalTicks]);
+
+  const pinsShown = Math.min(CITIES.length, Math.floor(step / PIN_TICKS));
+
   const dots = [];
   if (R > 0) {
     for (let lat = -84; lat <= 84; lat += 8) {
@@ -202,14 +309,49 @@ function Globe() {
     }
   }
   // Farthest pins first, so nearer ones overlap them correctly.
+  // `order` is the city's place in CITIES and drives the reveal; the sort is by z
+  // so nearer pins paint over farther ones. The two must stay separate — revealing
+  // in paint order would make the sequence look arbitrary.
   const pins = R > 0
-    ? CITIES.map((c) => ({ ...project(c.lat, c.lon, R), ...c }))
-      .filter((p) => p.z > 0.16)
+    ? CITIES.map((c, i) => ({ ...project(c.lat, c.lon, R), ...c, order: i }))
+      .filter((p) => p.z > 0.16 && p.order < pinsShown)
       .sort((a, b) => a.z - b.z)
     : [];
-  // Only the pins facing us square-on get a name. Labelling all of them turns the
-  // rim into a pile of overlapping text.
-  const labelled = pins.filter((p) => p.z > 0.62);
+  // Only the pins facing us square-on are CANDIDATES for a name — but facing us is
+  // not enough. Eleven of these sixteen are in South Asia and the Gulf, so they all
+  // clear any z threshold and land within a few pixels of each other: the previous
+  // build drew every one of them and produced a stack of overlapping tags with
+  // "Kuala Lumpur" hanging off the right edge.
+  //
+  // So labels are placed greedily, nearest first, and a tag is only kept if its box
+  // clears every box already placed. A pin that loses is still drawn and still
+  // pulses — it just goes unnamed here, and the chip row underneath names all
+  // sixteen anyway, so nothing is actually hidden from the reader.
+  // Each candidate gets four tries — right-above, left-above, right-below,
+  // left-below — and takes the first that is inside the frame and clear of every
+  // tag already placed. Four corners rather than one fixed offset is what lifts
+  // the Gulf/South-Asia cluster from 5 names to 9 without a single collision.
+  const labelled = useMemo(() => {
+    const LH = 18;                          // tag height incl. padding
+    const wOf = (t) => t.length * 5.9 + 16; // 10.5px semi + the tag's side padding
+    const box = w || 0;
+    const placed = [];
+    for (const p of pins.filter((q) => q.z > 0.62).sort((a, b) => b.z - a.z)) {
+      const lw = wOf(p.city);
+      const cx = R + 8 + p.x;
+      const cy = R + 8 + p.y;
+      for (let [L, Tp] of [[cx + 11, cy - 22], [cx - 11 - lw, cy - 22], [cx + 11, cy + 4], [cx - 11 - lw, cy + 4]]) {
+        if (L < 2 || L + lw > box - 2) continue;
+        Tp = Math.max(2, Math.min(Tp, box - LH - 2));
+        const hit = placed.some((q) => L < q.left + q.lw + 3 && L + lw + 3 > q.left
+                                    && Tp < q.top + LH + 2 && Tp + LH + 2 > q.top);
+        if (hit) continue;
+        placed.push({ ...p, left: L, top: Tp, lw });
+        break;
+      }
+    }
+    return placed;
+  }, [pins, R, w]);
 
   return (
     <View>
@@ -217,14 +359,62 @@ function Globe() {
         {R > 0 && (
           <>
             <Svg width={w} height={w}>
-              <Circle cx={R + 8} cy={R + 8} r={R} fill="#FAFAF9" />
-              {dots.map((d, i) => (
-                <Circle key={i} cx={d.cx} cy={d.cy} r={d.r} fill="#B9BCC2" opacity={d.o} />
+              <Defs>
+                {/* Lit from the upper left, so the sphere reads as a ball rather than
+                    a flat disc — the shading the reference's globe has and the old
+                    off-white circle did not. */}
+                <RadialGradient id="ocean" cx="34%" cy="28%" r="78%">
+                  <Stop offset="0%" stopColor="#DCEEFB" />
+                  <Stop offset="62%" stopColor="#BFE0F5" />
+                  <Stop offset="100%" stopColor="#9BC9E8" />
+                </RadialGradient>
+              </Defs>
+              <Circle cx={R + 8} cy={R + 8} r={R} fill="url(#ocean)" />
+
+              {/* Real graticule — built from the same projection as the pins, so the
+                  grid curves the way the sphere actually does. */}
+              {graticule.map((d, i) => (
+                <Path key={`g${i}`} d={d} fill="none" stroke="#8FBEDC" strokeWidth={0.7} opacity={0.55} />
               ))}
+
+              {dots.map((d, i) => (
+                <Circle key={i} cx={d.cx} cy={d.cy} r={d.r} fill="#5FA777" opacity={d.o * 0.9} />
+              ))}
+
+              {/* Routes sit ABOVE the land dots and BELOW the pins, so a line never
+                  crosses a marker it is supposed to arrive at. Each draws out of the
+                  hub once every pin has landed, staggered so they fan out rather
+                  than appearing together. */}
+              {routes.map((rt, i) => {
+                const t = Math.max(0, Math.min(1,
+                  (step - pinPhase - i * ROUTE_LEAD) / ROUTE_TICKS));
+                if (t <= 0) return null;
+                const upTo = Math.ceil(rt.pts.length * t);
+                let d = '';
+                let open = false;
+                for (let k = 0; k < upTo; k++) {
+                  const q = rt.pts[k];
+                  if (!q) { open = false; continue; }
+                  d += `${open ? 'L' : 'M'} ${q.x.toFixed(1)} ${q.y.toFixed(1)} `;
+                  open = true;
+                }
+                if (!d) return null;
+                return (
+                  <Path
+                    key={`r${rt.city}`}
+                    d={d.trim()}
+                    fill="none"
+                    stroke={C.gold}
+                    strokeWidth={1.1}
+                    strokeLinecap="round"
+                    opacity={0.75}
+                  />
+                );
+              })}
               {pins.map((p) => (
                 // lucide's MapPin path, hand-placed so the pin's TIP sits on the coordinate.
                 <G key={p.city} transform={`translate(${R + 8 + p.x - 9}, ${R + 8 + p.y - 16.5}) scale(0.75)`}>
-                  <Path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" fill={C.blue} />
+                  <Path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" fill={C.gold} />
                   <Circle cx={12} cy={10} r={3} fill="#fff" />
                 </G>
               ))}
@@ -245,8 +435,10 @@ function Globe() {
             ))}
 
             {labelled.map((p) => (
-              <View key={`lbl-${p.city}`} pointerEvents="none" style={[s.gLabel, { left: R + 8 + p.x + 10, top: R + 8 + p.y - 24 }]}>
-                <T w="semi" s={10.5} c={C.ink}>{p.city}</T>
+              // left/top were resolved by the de-collision pass above.
+              <View key={`lbl-${p.city}`} pointerEvents="none" style={[s.gLabel, { left: p.left, top: p.top }]}>
+                <View style={s.gLabelDot} />
+                <T w="bold" s={10.5} c={C.ink}>{p.city}</T>
               </View>
             ))}
           </>
@@ -632,24 +824,20 @@ function Research({ R }) {
   );
 }
 
-/* ── Founder letter (hidden until CONTENT.about.founder is filled) ────────── */
+/* ── The belief (hidden until CONTENT.about.founder is filled) ───────────── */
+// Byline and portrait removed. The photo was a 340-tall placeholder reading
+// "Founder photo" — a grey box promising a picture nobody had supplied — and the
+// name above it was the literal string "Founder Name", so the card attributed the
+// letter to no one while looking as though it did. What carries the section is
+// the belief itself, so that is all it shows.
+//
+// f.name is still read elsewhere (Movement, TrialStrip), so nothing here deletes
+// it from the content; this block just stops rendering it.
 function Founder({ f }) {
   return (
     <View style={s.founderCard}>
-      {f.photo ? (
-        <Image source={{ uri: f.photo }} style={s.founderImg} resizeMode="cover" />
-      ) : (
-        // Holds the portrait's space until a real photo URL exists — so the card
-        // reads the same now as it will then, instead of collapsing.
-        <View style={[s.founderImg, s.founderStub]}>
-          <UserRound size={54} color="#C4CAD6" />
-          <T w="med" s={12} c={C.faint} style={{ marginTop: 10 }}>Founder photo</T>
-        </View>
-      )}
       <View style={{ padding: 18 }}>
-        <T w="xbold" s={14} c={C.orange} style={{ letterSpacing: 1 }}>{f.name.toUpperCase()}</T>
-        <T w="bold" s={13} c={C.ink} style={{ marginTop: 3 }}>{f.role}</T>
-        <T w="xbold" s={26} c={C.ink} style={{ marginTop: 20, lineHeight: 32 }}>{f.title}</T>
+        <T w="xbold" s={26} c={C.ink} style={{ lineHeight: 32 }}>{f.title}</T>
         {f.letter.map((p, i) => (
           <T key={i} w="med" s={14} c={C.ink} style={{ marginTop: 16, lineHeight: 23, opacity: 0.85 }}>{p}</T>
         ))}
@@ -999,7 +1187,7 @@ function Timeline({ title, items }) {
                   rails' stub (0.28 white, not #C4CAD6) so it recedes on black instead of
                   glowing — the milestone's year and text stay the thing you read. */}
               {m.image ? (
-                <Image source={{ uri: m.image }} style={s.tlImg} resizeMode="cover" />
+                <Image source={{ uri: m.image }} style={s.tlImg} resizeMode="contain" />
               ) : (
                 <View style={[s.tlImg, s.tlStub]}>
                   <ImageIcon size={30} color="rgba(255,255,255,0.28)" />
@@ -1008,7 +1196,7 @@ function Timeline({ title, items }) {
               {!!m.caption && <T w="med" s={12} c="rgba(255,255,255,0.5)" style={{ marginTop: 10 }}>{m.caption}</T>}
               <View style={s.tlRule} />
               <T w="xbold" s={22} c="#fff" style={{ marginTop: 12 }}>{m.year}</T>
-              <T w="med" s={13.5} c="rgba(255,255,255,0.72)" style={{ marginTop: 6, lineHeight: 20, minHeight: 60 }}>{m.body}</T>
+              <T w="med" s={13.5} c="rgba(255,255,255,0.72)" style={{ marginTop: 6, lineHeight: 20 }}>{m.body}</T>
             </Animated.View>
           );
         })}
@@ -1147,7 +1335,7 @@ function TrialStrip({ TS, M, name, onGo }) {
 }
 
 /* ── FAQ accordion ────────────────────────────────────────────────────────── */
-function Faq({ A }) {
+function Faq({ A, onGym }) {
   const [openIdx, setOpenIdx] = useState(0);
   const toggle = (i) => { spring(); setOpenIdx((o) => (o === i ? -1 : i)); };
   return (
@@ -1179,7 +1367,7 @@ function Faq({ A }) {
 }
 
 /* ── The page ─────────────────────────────────────────────────────────────── */
-export default function AboutStack({ onGetStarted, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral }) {
+export default function AboutStack({ onGetStarted, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onGym }) {
   const A = CONTENT.about;
   const E = CONTENT.event;
   const go = () => (onGetStarted ? onGetStarted() : open(E.become.appUrl));
@@ -1241,20 +1429,26 @@ export default function AboutStack({ onGetStarted, onImpact, onTutors, onReviews
           <View style={{ marginTop: 34 }}><Timeline title={A.timelineTitle} items={A.timeline} /></View>
         )}
 
-        {!!A.investors.length && (
+        {/* Gated on the TITLE, not the list. The section is a one-line credibility
+            statement now — "Backed By IITians" with no logo wall beneath it — so
+            an empty `investors` must still render the heading. The grid returns
+            on its own the moment a real backer with a sign-off is added. */}
+        {!!A.investorsTitle && (
           <View style={[s.pad, { marginTop: 34 }]}>
             <T w="xbold" s={24} c={C.ink} style={{ textAlign: 'center', lineHeight: 31 }}>{A.investorsTitle}</T>
-            <View style={[s.grid, { marginTop: 18 }]}>
-              {A.investors.map((iv, i) => (
-                <View key={`${iv.name}-${i}`} style={s.tileWrap}>
-                  <View style={s.logoBox}>
-                    {iv.logo
-                      ? <Image source={{ uri: iv.logo }} style={{ width: '70%', height: 40 }} resizeMode="contain" />
-                      : <T w="semi" s={12.5} c={C.faint}>{iv.name}</T>}
+            {!!A.investors.length && (
+              <View style={[s.grid, { marginTop: 18 }]}>
+                {A.investors.map((iv, i) => (
+                  <View key={`${iv.name}-${i}`} style={s.tileWrap}>
+                    <View style={s.logoBox}>
+                      {iv.logo
+                        ? <Image source={{ uri: iv.logo }} style={{ width: '70%', height: 40 }} resizeMode="contain" />
+                        : <T w="semi" s={12.5} c={C.faint}>{iv.name}</T>}
+                    </View>
                   </View>
-                </View>
-              ))}
-            </View>
+                ))}
+              </View>
+            )}
           </View>
         )}
 
@@ -1289,14 +1483,14 @@ export default function AboutStack({ onGetStarted, onImpact, onTutors, onReviews
           </View>
         </View>
 
-        <View style={{ marginTop: 34 }}><Faq A={A} /></View>
+        <View style={{ marginTop: 34 }}><Faq A={A} onGym={onGym} /></View>
 
         <Movement M={A.movement} name={A.founder?.name} onGo={go} />
 
         {/* Closes with the same BECOME AILERNOVA™ + footer accordions + offices block as
             the Events page, so About Us and the other sections stay reachable from here. */}
         <View style={[s.pad, { marginTop: 20 }]}>
-          <BecomePage E={E} onAbout={toTop} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+          <BecomePage E={E} onAbout={toTop} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
         </View>
       </ScrollView>
 
@@ -1316,7 +1510,7 @@ export default function AboutStack({ onGetStarted, onImpact, onTutors, onReviews
 // story, this page is the evidence: the wall of children · the numbers · the research ·
 // how we teach · their stories · their parents · the score · the awards · the questions.
 // Every section is data-driven and hides itself when its data in CONTENT.about is empty.
-export function ImpactStack({ onGetStarted, onAbout, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral }) {
+export function ImpactStack({ onGetStarted, onAbout, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onGym }) {
   const A = CONTENT.about;
   const E = CONTENT.event;
   const go = () => (onGetStarted ? onGetStarted() : open(E.become.appUrl));
@@ -1350,7 +1544,7 @@ export function ImpactStack({ onGetStarted, onAbout, onTutors, onReviews, onPric
         {!!A.trusted && <Trusted TR={A.trusted} />}
         {!!A.awards?.items?.length && <Awards AW={A.awards} />}
 
-        <View style={{ marginTop: 34 }}><Faq A={A} /></View>
+        <View style={{ marginTop: 34 }}><Faq A={A} onGym={onGym} /></View>
 
         {/* Closes exactly like About Us does — the trial letter, then the movement note. */}
         {!!A.trialStrip && (
@@ -1360,7 +1554,7 @@ export function ImpactStack({ onGetStarted, onAbout, onTutors, onReviews, onPric
 
         <View style={[s.pad, { marginTop: 20 }]}>
           {/* "Our Impact" in the footer is this page — rewind instead of stacking a copy. */}
-          <BecomePage E={E} onAbout={onAbout} onImpact={toTop} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+          <BecomePage E={E} onAbout={onAbout} onImpact={toTop} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
         </View>
       </Animated.ScrollView>
       </RevealCtx.Provider>
@@ -1717,7 +1911,7 @@ function Match({ M }) {
   );
 }
 
-export function TutorsStack({ onGetStarted, onAbout, onImpact, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral }) {
+export function TutorsStack({ onGetStarted, onAbout, onImpact, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onGym }) {
   const TU = CONTENT.tutors;
   const A = CONTENT.about;
   const E = CONTENT.event;
@@ -1740,7 +1934,7 @@ export function TutorsStack({ onGetStarted, onAbout, onImpact, onReviews, onPric
 
         {/* Tutor FAQ — falls back to the shared About FAQ set if none are written. */}
         <View style={{ marginTop: 34 }}>
-          <Faq A={{ faqTitle: TU.faqTitle, faqs: TU.faqs?.length ? TU.faqs : A.faqs, seeMoreUrl: A.seeMoreUrl }} />
+          <Faq A={{ faqTitle: TU.faqTitle, faqs: TU.faqs?.length ? TU.faqs : A.faqs, seeMoreUrl: A.seeMoreUrl }} onGym={onGym} />
         </View>
 
         {/* Still removed from Our Tutors per request: "What Every Ailernova Tutor Brings"
@@ -1751,7 +1945,7 @@ export function TutorsStack({ onGetStarted, onAbout, onImpact, onReviews, onPric
 
         <View style={[s.pad, { marginTop: 20 }]}>
           {/* "Our Tutors" in the footer is this page — rewind instead of stacking a copy. */}
-          <BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={toTop} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+          <BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={toTop} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
         </View>
       </ScrollView>
 
@@ -1942,7 +2136,7 @@ function ReviewsBadges({ items }) {
   );
 }
 
-export function ReviewsStack({ onGetStarted, onAbout, onImpact, onTutors, onPricing, onFaqs, onContact, onRefund, onReferral }) {
+export function ReviewsStack({ onGetStarted, onAbout, onImpact, onTutors, onPricing, onFaqs, onContact, onRefund, onReferral, onGym }) {
   const R = CONTENT.reviews;
   const A = CONTENT.about;
   const E = CONTENT.event;
@@ -2025,13 +2219,13 @@ export function ReviewsStack({ onGetStarted, onAbout, onImpact, onTutors, onPric
         {/* The questions a parent is left holding after reading the reviews. Same accordion
             as About Us and Our Tutors, on its own review-specific set. */}
         <View style={{ marginTop: 34 }}>
-          <Faq A={{ faqTitle: R.faqTitle, faqs: R.faqs, seeMoreUrl: R.seeMoreUrl }} />
+          <Faq A={{ faqTitle: R.faqTitle, faqs: R.faqs, seeMoreUrl: R.seeMoreUrl }} onGym={onGym} />
         </View>
 
         <Movement M={A.movement} name={A.founder?.name} onGo={go} />
 
         <View style={[s.pad, { marginTop: 20 }]}>
-          <BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={toTop} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+          <BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={toTop} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
         </View>
       </ScrollView>
 
@@ -2130,7 +2324,7 @@ function GradePicker({ label, values, value, onPick }) {
   );
 }
 
-export function PricingStack({ onGetStarted, onAbout, onImpact, onTutors, onReviews, onFaqs, onContact, onRefund, onReferral }) {
+export function PricingStack({ onGetStarted, onAbout, onImpact, onTutors, onReviews, onFaqs, onContact, onRefund, onReferral, onGym }) {
   const P = CONTENT.pricing;
   const A = CONTENT.about;
   const E = CONTENT.event;
@@ -2254,13 +2448,13 @@ export function PricingStack({ onGetStarted, onAbout, onImpact, onTutors, onRevi
         ))}
 
         <View style={{ marginTop: 34 }}>
-          <Faq A={{ faqTitle: A.faqTitle, faqs: A.faqs, seeMoreUrl: A.seeMoreUrl }} />
+          <Faq A={{ faqTitle: A.faqTitle, faqs: A.faqs, seeMoreUrl: A.seeMoreUrl }} onGym={onGym} />
         </View>
 
         <Movement M={A.movement} name={A.founder?.name} onGo={go} />
 
         <View style={[s.pad, { marginTop: 20 }]}>
-          <BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={toTop} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+          <BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={toTop} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
         </View>
       </ScrollView>
 
@@ -2274,7 +2468,7 @@ export function PricingStack({ onGetStarted, onAbout, onImpact, onTutors, onRevi
 }
 
 /* ── FAQs — the whole shared question set on its own page (see CONTENT.faqs) ─── */
-export function FaqsStack({ onGetStarted, onAbout, onImpact, onTutors, onReviews, onPricing, onContact, onRefund, onReferral }) {
+export function FaqsStack({ onGetStarted, onAbout, onImpact, onTutors, onReviews, onPricing, onContact, onRefund, onReferral, onGym }) {
   const F = CONTENT.faqs;
   const A = CONTENT.about;
   const E = CONTENT.event;
@@ -2296,7 +2490,7 @@ export function FaqsStack({ onGetStarted, onAbout, onImpact, onTutors, onReviews
         </Paper>
 
         <View style={{ marginTop: 4 }}>
-          <Faq A={{ faqTitle: F.faqTitle, faqs: F.faqs, seeMoreUrl: F.seeMoreUrl }} />
+          <Faq A={{ faqTitle: F.faqTitle, faqs: F.faqs, seeMoreUrl: F.seeMoreUrl }} onGym={onGym} />
         </View>
 
         {/* A FAQ page's real job is to hand off the question it could not answer. */}
@@ -2313,7 +2507,7 @@ export function FaqsStack({ onGetStarted, onAbout, onImpact, onTutors, onReviews
         <Movement M={A.movement} name={A.founder?.name} onGo={go} />
 
         <View style={[s.pad, { marginTop: 20 }]}>
-          <BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={toTop} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+          <BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={toTop} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
         </View>
       </ScrollView>
 
@@ -2352,7 +2546,7 @@ function OfficeCard({ o }) {
   );
 }
 
-export function ContactStack({ onGetStarted, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onRefund, onReferral }) {
+export function ContactStack({ onGetStarted, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onRefund, onReferral, onGym }) {
   const K = CONTENT.contact;
   const E = CONTENT.event;
   const go = () => (onGetStarted ? onGetStarted() : open(E.become.appUrl));
@@ -2440,7 +2634,7 @@ export function ContactStack({ onGetStarted, onAbout, onImpact, onTutors, onRevi
 
           <View style={{ marginTop: 30 }}>
             <BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors}
-              onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={toTop} />
+              onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={toTop} onGym={onGym} />
           </View>
         </Paper>
       </ScrollView>
@@ -2460,7 +2654,7 @@ export function ContactStack({ onGetStarted, onAbout, onImpact, onTutors, onRevi
    rather than a placeholder, because a refund term a parent can read is a term we
    are held to. The page can therefore be shipped half-filled without ever stating
    something untrue — it simply shows less. */
-export function RefundStack({ onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onReferral }) {
+export function RefundStack({ onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onReferral, onGym }) {
   const P = CONTENT.refund;
   const E = CONTENT.event;
   const scrollRef = useRef(null);
@@ -2575,7 +2769,7 @@ export function RefundStack({ onAbout, onImpact, onTutors, onReviews, onPricing,
 
         {!!P.faqs.length && (
           <View style={{ marginTop: 34 }}>
-            <Faq A={{ faqTitle: P.faqTitle, faqs: P.faqs }} />
+            <Faq A={{ faqTitle: P.faqTitle, faqs: P.faqs }} onGym={onGym} />
           </View>
         )}
 
@@ -2627,7 +2821,7 @@ export function RefundStack({ onAbout, onImpact, onTutors, onReviews, onPricing,
 
         <View style={[s.pad, { marginTop: 30 }]}>
           <BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors}
-            onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={toTop} onReferral={onReferral} onContact={onContact} />
+            onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={toTop} onReferral={onReferral} onContact={onContact} onGym={onGym} />
         </View>
       </ScrollView>
 
@@ -2645,7 +2839,7 @@ export function RefundStack({ onAbout, onImpact, onTutors, onReviews, onPricing,
    follows the refund page's rules exactly: every block is guarded, and the Draft
    strip stays up until CONTENT.referral.draft is false. An unconfirmed reward
    renders as nothing, never as a number a parent could try to claim. */
-export function ReferralStack({ onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund }) {
+export function ReferralStack({ onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onGym }) {
   const P = CONTENT.referral;
   const E = CONTENT.event;
   const scrollRef = useRef(null);
@@ -2812,7 +3006,7 @@ export function ReferralStack({ onAbout, onImpact, onTutors, onReviews, onPricin
             <View style={s.pad}>
               <T w="xbold" s={11.5} c={C.muted} style={s.label}>{P.faqLabel}</T>
             </View>
-            <Faq A={{ faqTitle: P.faqTitle, faqs: P.faqs }} />
+            <Faq A={{ faqTitle: P.faqTitle, faqs: P.faqs }} onGym={onGym} />
           </View>
         )}
 
@@ -2831,7 +3025,7 @@ export function ReferralStack({ onAbout, onImpact, onTutors, onReviews, onPricin
         <View style={[s.pad, { marginTop: 30 }]}>
           <BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors}
             onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund}
-            onContact={onContact} onReferral={toTop} />
+            onContact={onContact} onReferral={toTop} onGym={onGym} />
         </View>
       </ScrollView>
 
@@ -2889,7 +3083,7 @@ function ReferralTerms({ P }) {
   );
 }
 
-export function ReferralModal({ visible, onClose, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund }) {
+export function ReferralModal({ visible, onClose, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onGym }) {
   return (
     <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
       <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
@@ -2898,13 +3092,13 @@ export function ReferralModal({ visible, onClose, onAbout, onImpact, onTutors, o
           <T w="bold" s={16} c={C.ink}>Refer a Friend</T><View style={{ width: 40 }} />
         </View>
         <ReferralStack onAbout={onAbout} onImpact={onImpact} onTutors={onTutors}
-          onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onContact={onContact} />
+          onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onContact={onContact} onGym={onGym} />
       </SafeAreaView>
     </Modal>
   );
 }
 
-export function RefundModal({ visible, onClose, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral }) {
+export function RefundModal({ visible, onClose, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onGym }) {
   return (
     <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
       <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
@@ -2913,13 +3107,13 @@ export function RefundModal({ visible, onClose, onAbout, onImpact, onTutors, onR
           <T w="bold" s={16} c={C.ink}>Refund Policy</T><View style={{ width: 40 }} />
         </View>
         <RefundStack onAbout={onAbout} onImpact={onImpact} onTutors={onTutors}
-          onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+          onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
       </SafeAreaView>
     </Modal>
   );
 }
 
-export function ContactModal({ visible, onClose, onGetStarted, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onRefund, onReferral }) {
+export function ContactModal({ visible, onClose, onGetStarted, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onRefund, onReferral, onGym }) {
   return (
     <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
       <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
@@ -2928,13 +3122,13 @@ export function ContactModal({ visible, onClose, onGetStarted, onAbout, onImpact
           <T w="bold" s={16} c={C.ink}>Contact Us</T><View style={{ width: 40 }} />
         </View>
         <ContactStack onGetStarted={onGetStarted} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors}
-          onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} />
+          onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onGym={onGym} />
       </SafeAreaView>
     </Modal>
   );
 }
 
-export function PricingModal({ visible, onClose, onGetStarted, onAbout, onImpact, onTutors, onReviews, onFaqs, onContact, onRefund, onReferral }) {
+export function PricingModal({ visible, onClose, onGetStarted, onAbout, onImpact, onTutors, onReviews, onFaqs, onContact, onRefund, onReferral, onGym }) {
   return (
     <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
       <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
@@ -2942,13 +3136,13 @@ export function PricingModal({ visible, onClose, onGetStarted, onAbout, onImpact
           <PressableScale onPress={onClose} style={s.back}><T s={26} c={C.ink}>‹</T></PressableScale>
           <T w="bold" s={16} c={C.ink}>Pricing</T><View style={{ width: 40 }} />
         </View>
-        <PricingStack onGetStarted={onGetStarted} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+        <PricingStack onGetStarted={onGetStarted} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
       </SafeAreaView>
     </Modal>
   );
 }
 
-export function FaqsModal({ visible, onClose, onGetStarted, onAbout, onImpact, onTutors, onReviews, onPricing, onContact, onRefund, onReferral }) {
+export function FaqsModal({ visible, onClose, onGetStarted, onAbout, onImpact, onTutors, onReviews, onPricing, onContact, onRefund, onReferral, onGym }) {
   return (
     <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
       <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
@@ -2956,13 +3150,13 @@ export function FaqsModal({ visible, onClose, onGetStarted, onAbout, onImpact, o
           <PressableScale onPress={onClose} style={s.back}><T s={26} c={C.ink}>‹</T></PressableScale>
           <T w="bold" s={16} c={C.ink}>FAQs</T><View style={{ width: 40 }} />
         </View>
-        <FaqsStack onGetStarted={onGetStarted} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+        <FaqsStack onGetStarted={onGetStarted} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
       </SafeAreaView>
     </Modal>
   );
 }
 
-export function ReviewsModal({ visible, onClose, onGetStarted, onAbout, onImpact, onTutors, onPricing, onFaqs, onContact, onRefund, onReferral }) {
+export function ReviewsModal({ visible, onClose, onGetStarted, onAbout, onImpact, onTutors, onPricing, onFaqs, onContact, onRefund, onReferral, onGym }) {
   return (
     <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
       <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
@@ -2970,14 +3164,14 @@ export function ReviewsModal({ visible, onClose, onGetStarted, onAbout, onImpact
           <PressableScale onPress={onClose} style={s.back}><T s={26} c={C.ink}>‹</T></PressableScale>
           <T w="bold" s={16} c={C.ink}>Parent Reviews</T><View style={{ width: 40 }} />
         </View>
-        <ReviewsStack onGetStarted={onGetStarted} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+        <ReviewsStack onGetStarted={onGetStarted} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
       </SafeAreaView>
     </Modal>
   );
 }
 
 /* ── Full-screen modal wrappers ───────────────────────────────────────────── */
-export function AboutModal({ visible, onClose, onGetStarted, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral }) {
+export function AboutModal({ visible, onClose, onGetStarted, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onGym }) {
   return (
     <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
       <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
@@ -2985,13 +3179,13 @@ export function AboutModal({ visible, onClose, onGetStarted, onImpact, onTutors,
           <PressableScale onPress={onClose} style={s.back}><T s={26} c={C.ink}>‹</T></PressableScale>
           <T w="bold" s={16} c={C.ink}>About Us</T><View style={{ width: 40 }} />
         </View>
-        <AboutStack onGetStarted={onGetStarted} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+        <AboutStack onGetStarted={onGetStarted} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
       </SafeAreaView>
     </Modal>
   );
 }
 
-export function ImpactModal({ visible, onClose, onGetStarted, onAbout, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral }) {
+export function ImpactModal({ visible, onClose, onGetStarted, onAbout, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onGym }) {
   return (
     <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
       <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
@@ -2999,13 +3193,13 @@ export function ImpactModal({ visible, onClose, onGetStarted, onAbout, onTutors,
           <PressableScale onPress={onClose} style={s.back}><T s={26} c={C.ink}>‹</T></PressableScale>
           <T w="bold" s={16} c={C.ink}>Our Impact</T><View style={{ width: 40 }} />
         </View>
-        <ImpactStack onGetStarted={onGetStarted} onAbout={onAbout} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+        <ImpactStack onGetStarted={onGetStarted} onAbout={onAbout} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
       </SafeAreaView>
     </Modal>
   );
 }
 
-export function TutorsModal({ visible, onClose, onGetStarted, onAbout, onImpact, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral }) {
+export function TutorsModal({ visible, onClose, onGetStarted, onAbout, onImpact, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onGym }) {
   return (
     <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
       <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
@@ -3013,7 +3207,7 @@ export function TutorsModal({ visible, onClose, onGetStarted, onAbout, onImpact,
           <PressableScale onPress={onClose} style={s.back}><T s={26} c={C.ink}>‹</T></PressableScale>
           <T w="bold" s={16} c={C.ink}>Our Tutors</T><View style={{ width: 40 }} />
         </View>
-        <TutorsStack onGetStarted={onGetStarted} onAbout={onAbout} onImpact={onImpact} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} />
+        <TutorsStack onGetStarted={onGetStarted} onAbout={onAbout} onImpact={onImpact} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onRefund={onRefund} onReferral={onReferral} onContact={onContact} onGym={onGym} />
       </SafeAreaView>
     </Modal>
   );
@@ -3098,17 +3292,35 @@ const s = StyleSheet.create({
   globeWrap: { width: '100%', aspectRatio: 1, marginTop: 24 },
 
   dark: { backgroundColor: '#0E0E10', paddingVertical: 30 },
-  tlImg: { width: '100%', height: 220, backgroundColor: '#1C1C20' },
+  // The sources are 1023x1538 portraits (0.665). This box used to be a flat 220
+  // tall — roughly 1.05 at this card width — so `cover` threw away well over half
+  // the picture vertically and left a band across the middle: in the "Today" card
+  // that band cut the girl's head off. The box carries the source ratio now, so
+  // the whole frame is visible and nothing is cropped.
+  //
+  // Paired with resizeMode="contain" at the call site: with the ratio matched the
+  // two are equivalent, but contain means an image of a DIFFERENT ratio letterboxes
+  // onto the dark card instead of silently cropping again.
+  tlImg: { width: '100%', aspectRatio: 1023 / 1538, backgroundColor: '#1C1C20' },
   tlStub: { alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: 'rgba(255,255,255,0.10)' },
   tlRule: { height: 1, backgroundColor: 'rgba(255,255,255,0.16)', marginTop: 14 },
   // Reach globe furniture: pulsing halo under each named pin, the pin's name tag,
   // the derived counts row, and the all-cities chip rail.
-  gHalo: { position: 'absolute', width: 30, height: 30, borderRadius: 15, backgroundColor: C.blue },
-  gLabel: { position: 'absolute', backgroundColor: 'rgba(255,255,255,0.94)', paddingHorizontal: 6, paddingVertical: 3, borderRadius: 4, borderWidth: 1, borderColor: C.border },
+  gHalo: { position: 'absolute', width: 30, height: 30, borderRadius: 15, backgroundColor: C.gold },
+  // A pill with a dot, floating over the sphere — the reference's treatment. The
+  // shadow is what lifts it off the ocean; a border alone disappeared against the
+  // graticule.
+  gLabel: {
+    position: 'absolute', flexDirection: 'row', alignItems: 'center', gap: 5,
+    backgroundColor: '#FFFFFF', paddingHorizontal: 8, paddingVertical: 4, borderRadius: 999,
+    shadowColor: '#0B1B2B', shadowOpacity: 0.16, shadowRadius: 6,
+    shadowOffset: { width: 0, height: 2 }, elevation: 3,
+  },
+  gLabelDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: C.gold },
   gStats: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 22, marginTop: 20 },
   gStatRule: { width: 1, height: 30, backgroundColor: C.border },
   gChip: { flexDirection: 'row', alignItems: 'center', gap: 7, paddingHorizontal: 12, paddingVertical: 8, borderRadius: 20, borderWidth: 1, borderColor: C.border, backgroundColor: '#FCFCFD' },
-  gChipDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: C.blue },
+  gChipDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: C.gold },
 
   kmRow: { flexDirection: 'row', alignItems: 'center', gap: 14, borderWidth: 1, borderColor: C.border, padding: 16 },
   kmIcon: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center' },

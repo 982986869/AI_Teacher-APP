@@ -41,7 +41,7 @@ export const CONTENT = {
     regions: [],
     skillsTitle: "Skills You'll Discover",
     skillsIntro: 'The activities and quizzes build the core skills behind confident learning — across every subject.',
-    participantsTitle: 'Hear From Our Participants',
+    participantsTitle: 'Hear From Our Parents',
     participantsIntro: 'Real AILERNOVA learners, and what changed for them.',
     community: {
       title: 'Join our community of\nAilernova parents', body: 'Get updates, learning resources, and celebrate every win ❤️',
@@ -338,7 +338,9 @@ export const CONTENT = {
         // (action 'subjects'). Brain Gym sits right under Free Online Games.
         { q: 'Resources', items: [
           { label: 'Free Online Games', url: 'https://ailernova.in/#about' },
-          { label: 'Brain Gym', url: 'https://ailernova.in/#about' },
+          // Opens the in-app Brain Gym. The url stays as the fallback for any host
+          // that does not pass onGym, per the pattern the other actions use.
+          { label: 'Brain Gym', action: 'braingym', url: 'https://ailernova.in/#about' },
           { label: 'Blogs', action: 'blogs' },
           { label: 'Study by Subject', action: 'subjects' },
         ] },
@@ -631,9 +633,15 @@ CONTENT.about = {
   // ############################################################################
   //
   // Images are hotlinked from ailernova.in, same as the tutor photos above. Each
-  // source file has a caption bar baked into the bottom of the image; the card
-  // renders with resizeMode="cover" at an aspect ratio that crops it away. If you
-  // swap in portrait images, check that crop still holds.
+  // source file is a 1023x1538 portrait with a mint caption bar baked into the
+  // bottom quarter ("Grade 5 Student Grew Confident in Every Session" and the
+  // like). The card used to crop that bar off with resizeMode="cover" in a 220-tall
+  // box, but that box is landscape and the images are not, so it threw away most of
+  // the photo with it and cut faces in half. The tile carries the source's own
+  // ratio now and renders the file whole, baked caption included.
+  //
+  // So: if you swap these, keep them 1023x1538 or update tlImg's aspectRatio to
+  // match, and remember the bottom quarter of each file is legible text.
   timelineTitle: 'Shaping Confident\nMinds Since Day One',
   timeline: [
     { year: '2021', caption: 'Where it started',
@@ -649,27 +657,23 @@ CONTENT.about = {
       body: 'Math and science for grades 1–12, across India and beyond — with an AI teacher that never runs out of patience.',
       image: 'https://ailernova.in/wp-content/themes/ailernova-theme/image/img_12.jpg' },
   ],
+  // The four placeholder funds are gone. They were invented names — "Placeholder
+  // Ventures", "Example Capital", "Sample Growth Fund", "Demo Partners" — kept
+  // deliberately generic so that if they ever reached production they would read
+  // as unfinished rather than as a lie about a real fund.
+  //
+  // The section is a credibility statement now, not a logo wall, so it is a title
+  // with no tiles: `investors` stays empty and AboutScreen renders the heading on
+  // its own.
+  //
   // ############################################################################
-  // # TODO(saurabh): THESE INVESTORS ARE INVENTED PLACEHOLDERS. Nobody in this  #
-  // # list has funded Ailernova.                                               #
-  // #                                                                          #
-  // # Read this before shipping: a fake year on the timeline is sloppy, but a   #
-  // # fake BACKER is a different class of problem — "Backed By <firm>" is a     #
-  // # statement about a real third party's business, and naming a real fund     #
-  // # that never invested is a false claim both to parents and about that fund. #
-  // # That is why the names below are deliberately generic and obviously not    #
-  // # real VCs: if this slips to production it reads as placeholder, not as a   #
-  // # lie about Sequoia. DO NOT swap them for real firms' names or logos to     #
-  // # "make the demo look better" — only list a fund that actually invested,    #
-  // # with their sign-off. Otherwise set `investors: []` and the section hides.  #
+  // # STILL TRUE FOR ANY LOGO ADDED HERE: "Backed By <firm>" is a statement     #
+  // # about a real third party's business. Only list an organisation that       #
+  // # actually backed Ailernova, with their sign-off. Never add a real firm's   #
+  // # name or logo to make the page look stronger.                              #
   // ############################################################################
-  investorsTitle: 'Backed By',
-  investors: [
-    { name: 'Placeholder Ventures', logo: null },
-    { name: 'Example Capital', logo: null },
-    { name: 'Sample Growth Fund', logo: null },
-    { name: 'Demo Partners', logo: null },
-  ],
+  investorsTitle: 'Backed By IITians',
+  investors: [],
   // Know More — the same {key,title,body,bg,tint} card shape the Contact page's
   // "Helpful Links" uses, so the two read as one system. `action` routes to the
   // in-app page where one exists (no reason to throw a parent out to the website

@@ -17,8 +17,17 @@ import { FACULTY, initialsOf } from '../data/faculty';
 
 const SCREEN_W = Dimensions.get('window').width;
 const CARD_W = Math.min(300, SCREEN_W - 84);
-const PHOTO_H = 250;             // portrait box, so cover fills it while keeping faces
-const CARD_H = 436;              // fixed → every card is identical in size
+// Every faculty photograph is a PORTRAIT — 0.70 to 0.97 — and the reference card's
+// photo area was LANDSCAPE (272x218). Filling that with resizeMode="cover" has to
+// throw away 91 to 211px of height, and there is no way to choose which part
+// survives: centred it cut the top of the head, top-anchored it cut everything
+// below the eyes. Neither is acceptable for a photograph of a real colleague.
+//
+// So the box is portrait-shaped now and the image is CONTAINED: the whole frame is
+// always visible, and the cost is a narrow bar down each side (0 to 35px depending
+// on the file), which photoWrap's own background fills. Nothing is cropped.
+const PHOTO_H = 290;             // portrait-ish, so a contained portrait is not tiny
+const CARD_H = 540;              // fixed → every card is identical in size
 const PEEK_TY = 16;              // each card behind sits this much lower…
 const PEEK_SCALE = 0.06;         // …and this much smaller, for the stacked look
 const DECK_H = CARD_H + PEEK_TY * 2 + 8;
@@ -37,9 +46,9 @@ function CardFace({ person, accent, dark }) {
     <View style={[fc.card, { backgroundColor: surface, borderColor: border }, !dark && shadow]}>
       <View style={[fc.photoWrap, { backgroundColor: dark ? '#141419' : S.canvas }]}>
         {person.photo ? (
-          // cover fills the box edge-to-edge (no side gaps). The box is portrait-shaped,
-          // so cover trims the sides — not the top/bottom where faces are.
-          <Image source={person.photo} style={fc.photo} resizeMode="cover" />
+          // contain, not cover: these are photographs of real people and no crop of
+          // a landscape-into-portrait fit leaves a face intact.
+          <Image source={person.photo} style={fc.photo} resizeMode="contain" />
         ) : (
           <View style={[fc.monogram, { backgroundColor: accent + '22' }]}>
             <T w="black" s={40} c={accent}>{initialsOf(person.name)}</T>
@@ -51,21 +60,21 @@ function CardFace({ person, accent, dark }) {
           member hasn't sent their description yet (the space is simply left blank). */}
       <View style={fc.meta}>
         {!!person.name && (
-          <T w="xbold" s={15.5} c={ink} numberOfLines={1} style={{ letterSpacing: -0.2 }}>{person.name}</T>
+          <T w="xbold" s={19} c={ink} numberOfLines={1} style={{ letterSpacing: -0.35 }}>{person.name}</T>
         )}
         {!!person.subject && (
           <View style={[fc.pill, { backgroundColor: accent + (dark ? '2E' : '1A') }]}>
-            <T w="bold" s={10.5} c={accent} style={{ letterSpacing: 0.3 }}>{person.subject.toUpperCase()}</T>
+            <T w="bold" s={11} c={accent} style={{ letterSpacing: 0.5 }}>{person.subject.toUpperCase()}</T>
           </View>
         )}
         {!!person.qualification && (
-          <T w="semi" s={11} c={muted} numberOfLines={2} style={{ lineHeight: 15 }}>{person.qualification}</T>
+          <T w="semi" s={13} c={muted} numberOfLines={2} style={{ lineHeight: 18 }}>{person.qualification}</T>
         )}
         {!!person.experience && (
-          <T w="bold" s={11} c={accent}>{person.experience}</T>
+          <T w="bold" s={13.5} c={accent}>{person.experience}</T>
         )}
         {!!person.bio && (
-          <T w="med" s={12} c={muted} numberOfLines={3} style={{ lineHeight: 16.5 }}>{person.bio}</T>
+          <T w="med" s={13} c={muted} numberOfLines={3} style={{ lineHeight: 18.5 }}>{person.bio}</T>
         )}
       </View>
     </View>
@@ -180,15 +189,15 @@ const fc = StyleSheet.create({
   deck: { alignItems: 'center', justifyContent: 'flex-start' },
   layer: { position: 'absolute', top: 0 },
 
-  card: { width: CARD_W, height: CARD_H, borderRadius: 22, borderWidth: 1, padding: 12, gap: 12 },
-  photoWrap: { height: PHOTO_H, borderRadius: 16, overflow: 'hidden' },
+  card: { width: CARD_W, height: CARD_H, borderRadius: 22, borderWidth: 1, padding: 14, gap: 14 },
+  photoWrap: { height: PHOTO_H, borderRadius: 18, overflow: 'hidden' },
   photo: { width: '100%', height: '100%' },
   monogram: { flex: 1, alignItems: 'center', justifyContent: 'center' },
 
   // flex:1 keeps the card height fixed regardless of how much text a member provided,
   // so the block below the photo is always the same size (blank when no bio).
-  meta: { flex: 1, gap: 6, paddingHorizontal: 2 },
-  pill: { alignSelf: 'flex-start', borderRadius: 7, paddingHorizontal: 9, paddingVertical: 3 },
+  meta: { flex: 1, gap: 9, paddingHorizontal: 2 },
+  pill: { alignSelf: 'flex-start', borderRadius: 8, paddingHorizontal: 11, paddingVertical: 5 },
 
   dots: { flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 6, marginTop: 16, flexWrap: 'wrap' },
   dotTick: { width: 7, height: 7, borderRadius: 4 },

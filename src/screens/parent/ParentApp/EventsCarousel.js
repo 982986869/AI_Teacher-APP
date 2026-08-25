@@ -9,7 +9,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import {
   View, ScrollView, Image, ImageBackground, Dimensions, StyleSheet,
-  Linking, LayoutAnimation, Platform, UIManager, Modal, SafeAreaView, Animated, Easing, ActivityIndicator, TextInput,
+  Linking, LayoutAnimation, Platform, Modal, SafeAreaView, Animated, Easing, ActivityIndicator, TextInput,
 } from 'react-native';
 import { Star, Plus, Minus, Play, Globe, MapPin, Smartphone, Calendar, Clock, Ticket, ExternalLink, ChevronLeft, ChevronDown, Check, Users, TrendingUp, Video, BookOpen, Award } from 'lucide-react-native';
 import { FontAwesome6 } from '@expo/vector-icons';
@@ -21,9 +21,6 @@ import { Video as AVVideo, ResizeMode } from 'expo-av';   // `Video` is taken by
 import { C, T, CONTENT, Wordmark } from './constants';
 import { PressableScale, FadeIn, PopIn, CountUp } from './anim';
 
-if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
-  UIManager.setLayoutAnimationEnabledExperimental(true);
-}
 const { width: SCREEN_W } = Dimensions.get('window');
 const STORE_W = SCREEN_W - 72;   // inner store-slider width (screen − modal pad − card pad)
 
@@ -540,6 +537,12 @@ const Stars = ({ score = 5, size = 12 }) => {
     </View>
   );
 };
+// ⚠ INERT under the New Architecture, which this app runs with. LayoutAnimation
+// is a no-op there, so every spring() call below expands or collapses its section
+// INSTANTLY — the eased transition it names has not happened for some time. The
+// call is kept rather than deleted so the intent stays visible at all 6 call
+// sites; converting them means giving each section a measured height and an
+// Animated.Value, which is a deliberate piece of work, not a find-and-replace.
 const spring = () => LayoutAnimation.configureNext(LayoutAnimation.create(260, LayoutAnimation.Types.easeInEaseOut, LayoutAnimation.Properties.opacity));
 
 // Network image that fades in on load (over a soft placeholder) — no jarring pop-in.
@@ -706,19 +709,28 @@ function SkillsPage({ skills, E }) {
   );
 }
 
-/* 5 ── Hear From Our Participants — photo grid ────────────────────────────── */
-function ParticipantsPage({ gallery, E }) {
-  const col = (arr) => (
-    <View style={{ flex: 1, gap: 8 }}>
-      {arr.map((g, i) => <FadeImage key={g.id} source={{ uri: g.image }} style={[s.gPhoto, { height: i % 2 ? 150 : 110 }]} radius={12} />)}
-    </View>
-  );
+/* 5 ── Hear From Our Parents — photo grid ─────────────────────────────────── */
+// A 2x2 of EQUAL tiles. It used to be a two-column masonry that alternated 110
+// and 150 tall, so no two neighbours matched and portraits were cropped by
+// whatever height their index happened to land on.
+//
+// Each tile is square (aspectRatio 1) and the source images are near-square
+// headshots — 150x152, 157x157, 135x135 — so `cover` trims only a few pixels of
+// background and never the face. Capped at four: the grid is a fixed 2x2, and a
+// fifth would start a lopsided third row.
+function ParentsPage({ gallery, E }) {
+  const four = gallery.slice(0, 4);
   return (
     <View style={[s.card, s.pad, s.light]}>
       <T w="xbold" s={19} c={C.ink} style={{ textAlign: 'center', marginBottom: 12 }}>{E.participantsTitle}</T>
-      <View style={{ flexDirection: 'row', gap: 8 }}>
-        {col(gallery.filter((_, i) => i % 2 === 0))}
-        {col(gallery.filter((_, i) => i % 2 === 1))}
+      <View style={s.gGrid}>
+        {/* Reading order, 90ms apart, so the 2x2 fills in rather than landing all
+            at once. PopIn is what the rest of the Parent app uses for tiles. */}
+        {four.map((g, i) => (
+          <PopIn key={g.id} delay={i * 90} from={0.86} style={s.gCell}>
+            <FadeImage source={{ uri: g.image }} style={s.gPhoto} radius={12} />
+          </PopIn>
+        ))}
       </View>
     </View>
   );
@@ -755,9 +767,12 @@ function SocialButton({ item, url }) {
   );
 }
 
-function CommunityPage({ gallery, E }) {
+// No photo strip. It ran three of the parent headshots along the bottom edge at
+// 140 tall and full-bleed, which cropped them to a band across the eyes — and it
+// repeated the same faces the parents grid had just shown two cards earlier. The
+// card ends on its social buttons now.
+function CommunityPage({ E }) {
   const cm = E.community;
-  const strip = gallery.slice(0, 3);
   const live = SOCIALS.filter((x) => cm[x.key]);
   const rows = [live.slice(0, 2), live.slice(2, 4)].filter((r) => r.length);
   return (
@@ -768,17 +783,16 @@ function CommunityPage({ gallery, E }) {
         <View style={{ marginTop: 16, gap: 10 }}>
           {rows.map((row, i) => (
             <View key={i} style={{ flexDirection: 'row', gap: 10 }}>
-              {row.map((x) => <SocialButton key={x.key} item={x} url={cm[x.key]} />)}
+              {row.map((x, j) => (
+                <FadeIn key={x.key} delay={120 + (i * 2 + j) * 70} y={10} style={{ flex: 1 }}>
+                  <SocialButton item={x} url={cm[x.key]} />
+                </FadeIn>
+              ))}
               {row.length === 1 && <View style={{ flex: 1 }} />}
             </View>
           ))}
         </View>
       </View>
-      {!!strip.length && (
-        <View style={{ flexDirection: 'row', gap: 4 }}>
-          {strip.map((g) => <FadeImage key={g.id} source={{ uri: g.image }} style={{ flex: 1, height: 140 }} />)}
-        </View>
-      )}
     </View>
   );
 }
@@ -789,7 +803,7 @@ function CommunityPage({ gallery, E }) {
 // Tutors (onTutors); everything else opens its url.
 // Exported: the About, Impact and Tutors pages close with this exact block too, so the
 // footer sections are reachable from there as well.
-export function BecomePage({ E, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onOpenProgram }) {
+export function BecomePage({ E, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onOpenProgram, onGym }) {
   const bc = E.become;
   const ft = E.footer;
   const [openIdx, setOpenIdx] = useState(-1);
@@ -813,6 +827,8 @@ export function BecomePage({ E, onAbout, onImpact, onTutors, onReviews, onPricin
     if (it.action === 'blogs') return setBlogsOpen(true);
     if (it.action === 'subjects') return setSubjOpen(true);
     if (it.action === 'becometutor') return setTutorOpen(true);
+    // Brain Gym opens the REAL in-app gym, not the marketing page.
+    if (it.action === 'braingym') return onGym ? onGym() : open(it.url);
     return open(it.url);
   };
   return (
@@ -1777,7 +1793,7 @@ export function ProgramDetail({ programId, onBack }) {
 }
 
 /* ── All sections stacked vertically (default export) ─────────────────────── */
-export default function EventsStack({ events = [], store = [], skills = [], gallery = [], onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onOpenProgram }) {
+export default function EventsStack({ events = [], store = [], skills = [], gallery = [], onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onOpenProgram, onGym }) {
   const E = CONTENT.event;
   const scrollRef = useRef(null);
   const regionY = useRef(0);
@@ -1795,9 +1811,9 @@ export default function EventsStack({ events = [], store = [], skills = [], gall
         </View>
         {!!store.length && <FadeIn delay={120}><StorePage slides={store} E={E} /></FadeIn>}
         {!!skills.length && <FadeIn delay={160}><SkillsPage skills={skills} E={E} /></FadeIn>}
-        {!!gallery.length && <FadeIn delay={160}><ParticipantsPage gallery={gallery} E={E} /></FadeIn>}
-        <FadeIn delay={160}><CommunityPage gallery={gallery} E={E} /></FadeIn>
-        <FadeIn delay={160}><BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onContact={onContact} onRefund={onRefund} onReferral={onReferral} onOpenProgram={onOpenProgram} /></FadeIn>
+        {!!gallery.length && <FadeIn delay={160}><ParentsPage gallery={gallery} E={E} /></FadeIn>}
+        <FadeIn delay={160}><CommunityPage E={E} /></FadeIn>
+        <FadeIn delay={160}><BecomePage E={E} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onContact={onContact} onRefund={onRefund} onReferral={onReferral} onOpenProgram={onOpenProgram} onGym={onGym} /></FadeIn>
       </View>
     </ScrollView>
   );
@@ -1826,7 +1842,7 @@ export function EventTeaser({ event, onOpen }) {
 }
 
 /* ── Full-screen modal — the whole stacked page ───────────────────────────── */
-export function EventsModal({ visible, onClose, events, store, skills, gallery, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral }) {
+export function EventsModal({ visible, onClose, events, store, skills, gallery, onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onGym }) {
   const [program, setProgram] = useState(null);
   const close = () => { setProgram(null); onClose && onClose(); };
   return (
@@ -1841,7 +1857,7 @@ export function EventsModal({ visible, onClose, events, store, skills, gallery, 
               <PressableScale onPress={close} style={s.mBack}><T s={26} c={C.ink}>‹</T></PressableScale>
               <T w="bold" s={16} c={C.ink}>Events</T><View style={{ width: 40 }} />
             </View>
-            <EventsStack events={events} store={store} skills={skills} gallery={gallery} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onContact={onContact} onRefund={onRefund} onReferral={onReferral} onOpenProgram={setProgram} />
+            <EventsStack events={events} store={store} skills={skills} gallery={gallery} onAbout={onAbout} onImpact={onImpact} onTutors={onTutors} onReviews={onReviews} onPricing={onPricing} onFaqs={onFaqs} onContact={onContact} onRefund={onRefund} onReferral={onReferral} onOpenProgram={setProgram} onGym={onGym} />
           </>
         )}
       </SafeAreaView>
@@ -1881,7 +1897,11 @@ const s = StyleSheet.create({
   skillRow: { flexDirection: 'row', alignItems: 'center', gap: 12, borderWidth: 1.5, borderColor: C.border, borderRadius: 16, padding: 12 },
   skillIcon: { width: 52, height: 52, borderRadius: 12, borderWidth: 1, alignItems: 'center', justifyContent: 'center' },
 
-  gPhoto: { width: '100%', borderRadius: 12, backgroundColor: C.border },
+  // 2x2 grid of equal square tiles. The cell carries the width (half the row,
+  // minus half the gap) and the square ratio; gPhoto just fills it.
+  gGrid:  { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
+  gCell:  { width: '48.5%', flexGrow: 1, aspectRatio: 1 },
+  gPhoto: { width: '100%', height: '100%', borderRadius: 12, backgroundColor: C.border },
 
   social: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, borderRadius: 12, paddingVertical: 13 },
 

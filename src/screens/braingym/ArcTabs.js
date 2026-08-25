@@ -7,6 +7,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Pressable, Animated } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { pressSpring, PRESS_SCALE } from './motion';
+import { BG } from './palette';
 
 const ORDER = ['workout', 'arena', 'practice'];
 const META = {
@@ -62,10 +63,10 @@ export default function ArcTabs({ active = 'workout', onTabPress }) {
 }
 
 const st = StyleSheet.create({
-  wrap: { paddingHorizontal: 18, paddingTop: 4, backgroundColor: '#0B0B0D' },
+  wrap: { paddingHorizontal: 18, paddingTop: 4, backgroundColor: BG.bg },
   bar: {
     flexDirection: 'row', height: 62, borderRadius: 20, padding: 5,
-    backgroundColor: '#141418', borderWidth: 1.5, borderColor: '#26262E',
+    backgroundColor: BG.surface, borderWidth: 1.5, borderColor: '#26262E',
   },
   pill: {
     position: 'absolute', top: 5, bottom: 5, left: 5, borderRadius: 15,
@@ -76,5 +77,5 @@ const st = StyleSheet.create({
   icon: { fontSize: 15, opacity: 0.5 },
   iconOn: { opacity: 1 },
   txt: { color: '#83838D', fontSize: 11, fontWeight: '900', letterSpacing: 1 },
-  txtOn: { color: '#0B0B0D' },
+  txtOn: { color: BG.bg },
 });
