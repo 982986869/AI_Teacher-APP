@@ -1414,19 +1414,21 @@ function Title({ eyebrow, children }) {
     </>
   );
 }
-function Field({ label, value, onChangeText, keyboardType, autoFocus }) {
+// No `autoFocus` here, deliberately. Inside a Modal it makes the field impossible to
+// type into: on Android it requests focus while the modal is still sliding
+// in, so the keyboard opens and is immediately taken away again; on web it races
+// react-native-web's Modal focus trap, which pulls focus to the modal's first focusable
+// child — the back button, not the input. Different mechanisms, same dead field.
+//
+// This was isolated on a real build: the teacher-apply form below uses this exact
+// component inside a Modal WITHOUT autoFocus and types fine, while every field that
+// passed autoFocus was unusable. So the prop is gone from here and from every call
+// site; the cost is one tap to open the keyboard, against a field that took nothing.
+function Field({ label, value, onChangeText, keyboardType }) {
   return (
     <View style={s.tbField}>
       <T w="bold" s={10} c={C.faint} style={{ letterSpacing: 0.3 }}>{label}</T>
-      {/* autoFocus is dropped on web: react-native-web's Modal installs a document-level
-          capture listener for `focus` and, whenever it thinks focus sits outside the modal,
-          pulls it to the modal's FIRST focusable child — here the back button, not this
-          input. autoFocus sets focus during mount, exactly while that trap runs its first
-          pass, so the trap wins and the field silently accepts nothing. The teacher-apply
-          form below uses this same component inside the same Modal without autoFocus and
-          types fine, which is what isolated it. Native has no focus trap, so keep it there. */}
       <TextInput value={value} onChangeText={onChangeText} keyboardType={keyboardType}
-        autoFocus={Platform.OS === 'web' ? false : autoFocus}
         style={s.tbInput} placeholder="" cursorColor={C.gold} selectionColor="#F9B23455" />
     </View>
   );
@@ -1495,13 +1497,13 @@ function TrialBooking({ visible, onClose, cls }) {
       case 2: return (
         <>
           <Title eyebrow="EVERY CHILD IS UNIQUE, AND WE PERSONALIZE THE JOURNEY FOR YOUR CHILD!">What's your <T w="xbold" s={20} c={C.ink}>child's name</T>?</Title>
-          <Field label="YOUR CHILD'S NAME" value={a.child} onChangeText={(t) => set({ child: t })} autoFocus />
+          <Field label="YOUR CHILD'S NAME" value={a.child} onChangeText={(t) => set({ child: t })} />
         </>
       );
       case 3: return (
         <>
           <Title eyebrow="JOIN OUR COMMUNITY OF 4,00,000+ SATISFIED PARENTS GLOBALLY!">What's <T w="xbold" s={20} c={C.ink}>your name</T>?</Title>
-          <Field label="YOUR NAME" value={a.parent} onChangeText={(t) => set({ parent: t })} autoFocus />
+          <Field label="YOUR NAME" value={a.parent} onChangeText={(t) => set({ parent: t })} />
         </>
       );
       case 4: return (
@@ -1541,7 +1543,7 @@ function TrialBooking({ visible, onClose, cls }) {
       case 6: return (
         <>
           <Title eyebrow="WE'LL SEND THE CLASS LINK AND REMINDERS HERE.">What's your <T w="xbold" s={20} c={C.ink}>mobile number</T>?</Title>
-          <Field label="YOUR MOBILE NUMBER" value={a.mobile} onChangeText={(t) => set({ mobile: t })} keyboardType="phone-pad" autoFocus />
+          <Field label="YOUR MOBILE NUMBER" value={a.mobile} onChangeText={(t) => set({ mobile: t })} keyboardType="phone-pad" />
         </>
       );
       default: return (
