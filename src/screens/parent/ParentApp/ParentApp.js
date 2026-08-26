@@ -31,7 +31,10 @@ import ProfileSheet from './ProfileSheet';
 import HelpFab from '../../../components/support/HelpFab';
 import BrainGymFlow from '../../braingym/BrainGymFlow';
 import ActivityRouter from './ActivityRouter';
-import BookTrial from './BookTrial';
+// Booking runs through Calendly now. BookTrial.js is deliberately left in the tree,
+// unrouted: it is the fallback if Calendly does not work out, and switching back is
+// this one import plus the block at the bottom of this file.
+import TrialBookingEmbed from './TrialBookingEmbed';
 import { removeDemoFromCalendar } from './calendar';
 import { FadeIn } from './anim';
 
@@ -197,15 +200,16 @@ export default function ParentApp() {
         <BrainGymFlow onFinish={() => setGymOpen(false)} />
       </Modal>
       <ActivityRouter visible={activityOpen} onClose={() => setActivityOpen(false)} childName={childName} items={report?.recentActivity} />
-      {/* "Book a FREE trial" → in-app booking flow with real device-calendar sync. */}
-      <BookTrial
+      {/* "Book a FREE trial" → Calendly's booking page, embedded.
+          Calendly owns the booking end to end from here: real availability, the Google
+          Meet link, the confirmation email and rescheduling (through the link in that
+          email). Nothing comes back to the app, so `booking` now stays null and the
+          dashboard's upcoming-demo card simply does not appear — its reschedule and
+          cancel buttons live on that card and so never render either. Wiring bookings
+          back into our own state needs Calendly's paid API. */}
+      <TrialBookingEmbed
         visible={trialOpen}
-        childName={childName}
-        childList={child ? [child] : []}
-        parentName={user?.name}
-        initialBooking={rescheduleMode ? booking : null}
         onClose={() => { setTrialOpen(false); setRescheduleMode(false); }}
-        onChange={handleDemoChange}
       />
     </SafeAreaView>
   );

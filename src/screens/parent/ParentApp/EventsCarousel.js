@@ -20,6 +20,7 @@ import * as Sharing from 'expo-sharing';
 import { Video as AVVideo, ResizeMode } from 'expo-av';   // `Video` is taken by the lucide icon
 import { C, T, CONTENT, Wordmark } from './constants';
 import { PressableScale, FadeIn, PopIn, CountUp } from './anim';
+import TrialBookingEmbed from './TrialBookingEmbed';
 
 const { width: SCREEN_W } = Dimensions.get('window');
 const STORE_W = SCREEN_W - 72;   // inner store-slider width (screen − modal pad − card pad)
@@ -1417,7 +1418,15 @@ function Field({ label, value, onChangeText, keyboardType, autoFocus }) {
   return (
     <View style={s.tbField}>
       <T w="bold" s={10} c={C.faint} style={{ letterSpacing: 0.3 }}>{label}</T>
-      <TextInput value={value} onChangeText={onChangeText} keyboardType={keyboardType} autoFocus={autoFocus}
+      {/* autoFocus is dropped on web: react-native-web's Modal installs a document-level
+          capture listener for `focus` and, whenever it thinks focus sits outside the modal,
+          pulls it to the modal's FIRST focusable child — here the back button, not this
+          input. autoFocus sets focus during mount, exactly while that trap runs its first
+          pass, so the trap wins and the field silently accepts nothing. The teacher-apply
+          form below uses this same component inside the same Modal without autoFocus and
+          types fine, which is what isolated it. Native has no focus trap, so keep it there. */}
+      <TextInput value={value} onChangeText={onChangeText} keyboardType={keyboardType}
+        autoFocus={Platform.OS === 'web' ? false : autoFocus}
         style={s.tbInput} placeholder="" cursorColor={C.gold} selectionColor="#F9B23455" />
     </View>
   );
@@ -1787,7 +1796,12 @@ export function ProgramDetail({ programId, onBack }) {
         </View>
       </View>
 
-      <TrialBooking visible={booking} onClose={() => setBooking(false)} cls={cls} />
+      {/* Different buttons, one booking form. This entry point and the dashboard's
+          "Book a free demo" both open the same Calendly page, so every trial lands on
+          one calendar with one set of availability. The eight-step TrialBooking wizard
+          above is left defined but unrouted — the fallback if Calendly does not stick.
+          Note `cls` is dropped: Calendly asks for the child's grade on its own form. */}
+      <TrialBookingEmbed visible={booking} onClose={() => setBooking(false)} />
     </View>
   );
 }
