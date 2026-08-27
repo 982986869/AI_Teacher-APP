@@ -1389,38 +1389,14 @@ function ProgramFaq({ title, faqs }) {
   );
 }
 
-/* ── Trial-booking wizard (opens from "Find the right teacher") ─────────────── */
-const TB_GRADES = ['1', '2', '3', '4', '5', '6', '7', '8'];
-const TB_BOARDS = ['CBSE', 'ICSE', 'IB', 'IGCSE', 'State Board', 'Other'];
-const TB_SLOTS = { Afternoon: ['12 – 1 PM', '2 – 3 PM', '3 – 4 PM'], Evening: ['4 – 5 PM', '5 – 6 PM', '6 – 7 PM'] };
-const TB_DAY = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-const TB_MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-function tbNextDates(n) {
-  const out = [], base = new Date();
-  for (let i = 1; i <= n; i++) {
-    const d = new Date(base.getFullYear(), base.getMonth(), base.getDate() + i);
-    out.push({ key: `${d.getMonth()}-${d.getDate()}`, label: `${TB_DAY[d.getDay()]}, ${TB_MON[d.getMonth()]} ${d.getDate()}` });
-  }
-  return out;
-}
-
-// Defined at module scope (not inside TrialBooking) so their component type is stable —
-// otherwise the text inputs would remount and lose focus on every keystroke.
-function Title({ eyebrow, children }) {
-  return (
-    <>
-      {!!eyebrow && <T w="bold" s={11} c={C.faint} style={{ letterSpacing: 0.6, marginBottom: 10, lineHeight: 16 }}>{eyebrow}</T>}
-      <T w="med" s={20} c={C.ink} style={{ lineHeight: 27 }}>{children}</T>
-    </>
-  );
-}
+/* ── Shared text field — used by the teacher-apply form above ──────────────── */
 // No `autoFocus` here, deliberately. Inside a Modal it makes the field impossible to
 // type into: on Android it requests focus while the modal is still sliding
 // in, so the keyboard opens and is immediately taken away again; on web it races
 // react-native-web's Modal focus trap, which pulls focus to the modal's first focusable
 // child — the back button, not the input. Different mechanisms, same dead field.
 //
-// This was isolated on a real build: the teacher-apply form below uses this exact
+// This was isolated on a real build: the teacher-apply form above uses this exact
 // component inside a Modal WITHOUT autoFocus and types fine, while every field that
 // passed autoFocus was unusable. So the prop is gone from here and from every call
 // site; the cost is one tap to open the keyboard, against a field that took nothing.
@@ -1431,175 +1407,6 @@ function Field({ label, value, onChangeText, keyboardType }) {
       <TextInput value={value} onChangeText={onChangeText} keyboardType={keyboardType}
         style={s.tbInput} placeholder="" cursorColor={C.gold} selectionColor="#F9B23455" />
     </View>
-  );
-}
-
-// Eight questions; the rocket "booster" rides forward one notch per answered step.
-function TrialBooking({ visible, onClose, cls }) {
-  const TOTAL = 8;
-  const DATES = useRef(tbNextDates(7)).current;
-  const [step, setStep] = useState(0);
-  const [booked, setBooked] = useState(false);
-  const [a, setA] = useState({ grade: null, board: null, child: '', parent: '', date: null, period: 'Afternoon', slot: null, mobile: '' });
-  const prog = useRef(new Animated.Value(0)).current;
-  useEffect(() => {
-    Animated.timing(prog, { toValue: booked ? 1 : step / (TOTAL - 1), duration: 480, easing: Easing.out(Easing.cubic), useNativeDriver: false }).start();
-  }, [step, booked, prog]);
-
-  const set = (patch) => setA((p) => ({ ...p, ...patch }));
-  const next = () => setStep((s) => Math.min(TOTAL - 1, s + 1));
-  const back = () => { if (booked) return; step === 0 ? close() : setStep((s) => s - 1); };
-  const close = () => { onClose && onClose(); setTimeout(() => { setStep(0); setBooked(false); setA({ grade: null, board: null, child: '', parent: '', date: null, period: 'Afternoon', slot: null, mobile: '' }); }, 250); };
-  // Selection steps advance on tap; text steps use the Next button.
-  const pick = (patch) => { set(patch); setTimeout(next, 160); };
-
-  const valid = [a.grade != null, a.board != null, !!a.child.trim(), !!a.parent.trim(), a.date != null, a.slot != null, a.mobile.replace(/\D/g, '').length >= 10, true][step];
-  const hasBtn = booked ? false : [false, false, true, true, false, false, true, true][step];
-  const btnLabel = step === TOTAL - 1 ? 'Confirm' : 'Next';
-  const trailW = prog.interpolate({ inputRange: [0, 1], outputRange: ['5%', '95%'] });
-  const rocketL = prog.interpolate({ inputRange: [0, 1], outputRange: ['5%', '95%'] });
-
-  const body = () => {
-    if (booked) return (
-      <View style={{ alignItems: 'center', paddingTop: 30 }}>
-        <View style={s.tbTick}><FontAwesome6 name="check" size={30} color="#fff" /></View>
-        <T w="xbold" s={22} c={C.ink} style={{ marginTop: 22, textAlign: 'center' }}>You're all set!</T>
-        <T w="med" s={13.5} c={C.muted} style={{ marginTop: 10, textAlign: 'center', lineHeight: 20, paddingHorizontal: 10 }}>
-          {a.parent ? `Thanks, ${a.parent}. ` : ''}We've booked {a.child || 'your child'}'s free 1-on-1 trial for {a.date?.label}, {a.slot}. Our team will call {a.mobile} to confirm.
-        </T>
-      </View>
-    );
-    switch (step) {
-      case 0: return (
-        <>
-          <Title eyebrow="TAKE THE FIRST STEP TOWARDS A PERSONALISED MATH PLAN FOR YOUR CHILD.">Which <T w="xbold" s={20} c={C.ink}>grade</T> is your child in?</Title>
-          <View style={s.tbChipWrap}>
-            {TB_GRADES.map((g) => (
-              <PressableScale key={g} onPress={() => pick({ grade: g })} style={[s.tbGradeChip, a.grade === g && s.tbChipOn]}>
-                <T w="bold" s={15} c={a.grade === g ? '#fff' : C.ink}>{g}</T>
-              </PressableScale>
-            ))}
-          </View>
-        </>
-      );
-      case 1: return (
-        <>
-          <Title eyebrow="OUR CURRICULUM IS PERSONALISED BASED ON THE SCHOOL BOARD AND SYLLABUS.">Please select your child's <T w="xbold" s={20} c={C.ink}>school board</T></Title>
-          <View style={{ gap: 12, marginTop: 6 }}>
-            {TB_BOARDS.map((b) => (
-              <PressableScale key={b} onPress={() => pick({ board: b })} style={[s.tbRow, a.board === b && s.tbRowOn]}>
-                <T w="semi" s={14.5} c={a.board === b ? C.ink : C.muted}>{b}</T>
-              </PressableScale>
-            ))}
-          </View>
-        </>
-      );
-      case 2: return (
-        <>
-          <Title eyebrow="EVERY CHILD IS UNIQUE, AND WE PERSONALIZE THE JOURNEY FOR YOUR CHILD!">What's your <T w="xbold" s={20} c={C.ink}>child's name</T>?</Title>
-          <Field label="YOUR CHILD'S NAME" value={a.child} onChangeText={(t) => set({ child: t })} />
-        </>
-      );
-      case 3: return (
-        <>
-          <Title eyebrow="JOIN OUR COMMUNITY OF 4,00,000+ SATISFIED PARENTS GLOBALLY!">What's <T w="xbold" s={20} c={C.ink}>your name</T>?</Title>
-          <Field label="YOUR NAME" value={a.parent} onChangeText={(t) => set({ parent: t })} />
-        </>
-      );
-      case 4: return (
-        <>
-          <Title>Pick a <T w="xbold" s={20} c={C.ink}>date</T> for a 1-on-1 trial class with an expert tutor</Title>
-          <T w="bold" s={11} c={C.faint} style={{ letterSpacing: 0.5, marginTop: 16, marginBottom: 10 }}>SELECT A DATE</T>
-          <View style={s.tbChipWrap}>
-            {DATES.map((d) => (
-              <PressableScale key={d.key} onPress={() => pick({ date: d })} style={[s.tbDateChip, a.date?.key === d.key && s.tbDateOn]}>
-                <T w="semi" s={13} c={a.date?.key === d.key ? '#fff' : C.ink}>{d.label}</T>
-              </PressableScale>
-            ))}
-          </View>
-        </>
-      );
-      case 5: return (
-        <>
-          <Title>Pick a <T w="xbold" s={20} c={C.ink}>time</T> for your trial class on {a.date?.label}</Title>
-          <View style={s.tbTabRow}>
-            {['Afternoon', 'Evening'].map((p) => (
-              <PressableScale key={p} onPress={() => set({ period: p, slot: null })} style={s.tbTab}>
-                <T w={a.period === p ? 'xbold' : 'semi'} s={14} c={a.period === p ? C.ink : C.faint}>{p}</T>
-                <View style={[s.tbTabRule, { backgroundColor: a.period === p ? C.gold : 'transparent' }]} />
-              </PressableScale>
-            ))}
-          </View>
-          <View style={s.tbChipWrap}>
-            {TB_SLOTS[a.period].map((sl) => (
-              <PressableScale key={sl} onPress={() => pick({ slot: sl })} style={[s.tbDateChip, a.slot === sl && s.tbDateOn]}>
-                <T w="semi" s={13} c={a.slot === sl ? '#fff' : C.ink}>{sl}</T>
-              </PressableScale>
-            ))}
-          </View>
-          <T w="med" s={12} c={C.muted} style={{ marginTop: 16 }}>Timezone: <T w="bold" s={12} c={C.ink}>Asia/Calcutta</T></T>
-        </>
-      );
-      case 6: return (
-        <>
-          <Title eyebrow="WE'LL SEND THE CLASS LINK AND REMINDERS HERE.">What's your <T w="xbold" s={20} c={C.ink}>mobile number</T>?</Title>
-          <Field label="YOUR MOBILE NUMBER" value={a.mobile} onChangeText={(t) => set({ mobile: t })} keyboardType="phone-pad" />
-        </>
-      );
-      default: return (
-        <>
-          <Title>Confirm your <T w="xbold" s={20} c={C.ink}>free trial class</T></Title>
-          <View style={s.tbSummary}>
-            {[['Child', a.child], ['Grade', `Grade ${a.grade}`], ['Board', a.board], ['Parent', a.parent], ['Mobile', a.mobile], ['When', `${a.date?.label} · ${a.slot}`]].map(([k, v]) => (
-              <View key={k} style={s.tbSumRow}>
-                <T w="semi" s={12.5} c={C.faint}>{k}</T>
-                <T w="bold" s={13.5} c={C.ink} style={{ flex: 1, textAlign: 'right' }}>{v || '—'}</T>
-              </View>
-            ))}
-          </View>
-        </>
-      );
-    }
-  };
-
-  return (
-    <Modal visible={visible} animationType="slide" onRequestClose={back} transparent={false}>
-      <SafeAreaView style={s.tbWrap}>
-        <View style={s.tbTopRow}>
-          <PressableScale onPress={back} hitSlop={10}><ChevronLeft size={24} color={C.ink} /></PressableScale>
-          <T w="bold" s={16} c={C.ink} style={{ marginLeft: 8 }}>Event</T>
-        </View>
-
-        {/* Booster progress header. */}
-        <View style={s.tbBanner}>
-          <View style={s.tbNavy} />
-          <View style={s.tbYellow} />
-          <View style={s.tbTrack}>
-            <View style={s.tbTrackBase} />
-            <Animated.View style={[s.tbTrail, { width: trailW }]} />
-            <Animated.View style={[s.tbRocket, { left: rocketL }]}>
-              <FontAwesome6 name="rocket" size={15} color="#14151B" style={{ transform: [{ rotate: '45deg' }] }} />
-            </Animated.View>
-          </View>
-          <View style={s.tbGalleryBtn}><FontAwesome6 name="image" size={13} color="#F0501E" /></View>
-        </View>
-
-        <ScrollView contentContainerStyle={s.tbBody} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
-          {body()}
-        </ScrollView>
-
-        <View style={s.tbFooter}>
-          {booked ? (
-            <PressableScale style={s.tbBtnOn} onPress={close}><T w="bold" s={15.5} c={C.ink}>Done</T></PressableScale>
-          ) : hasBtn ? (
-            <PressableScale disabled={!valid} style={valid ? s.tbBtnOn : s.tbBtnOff} onPress={() => (step === TOTAL - 1 ? setBooked(true) : next())}>
-              <T w="bold" s={15.5} c={valid ? C.ink : '#9AA0AA'}>{btnLabel}</T>
-            </PressableScale>
-          ) : null}
-          {!booked && <T w="bold" s={12.5} c={C.faint} style={{ textAlign: 'center', marginTop: 12 }}>{step + 1} of {TOTAL}</T>}
-        </View>
-      </SafeAreaView>
-    </Modal>
   );
 }
 
@@ -1800,8 +1607,7 @@ export function ProgramDetail({ programId, onBack }) {
 
       {/* Different buttons, one booking form. This entry point and the dashboard's
           "Book a free demo" both open the same Calendly page, so every trial lands on
-          one calendar with one set of availability. The eight-step TrialBooking wizard
-          above is left defined but unrouted — the fallback if Calendly does not stick.
+          one calendar with one set of availability.
           Note `cls` is dropped: Calendly asks for the child's grade on its own form. */}
       <TrialBookingEmbed visible={booking} onClose={() => setBooking(false)} />
     </View>
@@ -2037,34 +1843,10 @@ const s = StyleSheet.create({
   pPagerOn: { width: 18, backgroundColor: C.gold },
 
   // Trial-booking wizard
-  tbWrap: { flex: 1, backgroundColor: '#F4F5F6' },
-  tbTopRow: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingTop: Platform.OS === 'android' ? 8 : 0, paddingBottom: 10 },
-  tbBanner: { height: 96, position: 'relative' },
-  tbNavy: { position: 'absolute', top: 0, left: 0, right: 0, height: 54, backgroundColor: '#33506B' },
-  tbYellow: { position: 'absolute', top: 40, left: 0, right: 0, height: 56, backgroundColor: '#F6B01E', borderTopLeftRadius: 20, borderTopRightRadius: 20 },
-  tbTrack: { position: 'absolute', top: 41, left: 0, right: 0, height: 3, justifyContent: 'center' },
-  tbTrackBase: { position: 'absolute', left: '5%', right: '5%', height: 3, borderRadius: 2, backgroundColor: 'rgba(255,255,255,0.4)' },
-  tbTrail: { position: 'absolute', left: 0, height: 3, borderRadius: 2, backgroundColor: '#F0501E' },
-  tbRocket: { position: 'absolute', top: -10, marginLeft: -11, width: 22, height: 22, alignItems: 'center', justifyContent: 'center' },
-  tbGalleryBtn: { position: 'absolute', top: 40, right: 18, width: 26, height: 26, borderRadius: 8, backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center', shadowColor: '#00000030', shadowOpacity: 0.4, shadowRadius: 4, shadowOffset: { width: 0, height: 2 }, elevation: 3 },
 
-  tbBody: { paddingHorizontal: 22, paddingTop: 24, paddingBottom: 30 },
-  tbChipWrap: { flexDirection: 'row', flexWrap: 'wrap', gap: 12, marginTop: 20 },
-  tbGradeChip: { width: 66, height: 52, borderRadius: 10, borderWidth: 1, borderColor: C.border, backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center' },
-  tbChipOn: { backgroundColor: '#14151B', borderColor: '#14151B' },
-  tbDateChip: { minWidth: 96, paddingHorizontal: 16, height: 44, borderRadius: 22, borderWidth: 1, borderColor: C.border, backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center' },
-  tbDateOn: { backgroundColor: '#14151B', borderColor: '#14151B' },
-  tbRow: { paddingHorizontal: 16, height: 50, borderRadius: 10, borderWidth: 1, borderColor: C.border, backgroundColor: '#fff', justifyContent: 'center' },
-  tbRowOn: { borderColor: C.gold, borderWidth: 1.6, backgroundColor: '#FFF9EC' },
   tbField: { marginTop: 26, borderWidth: 1, borderColor: '#C9CDD6', borderRadius: 10, paddingHorizontal: 12, paddingTop: 8, paddingBottom: 4, backgroundColor: '#fff' },
   tbInput: { fontSize: 16, color: C.ink, paddingVertical: 6, paddingHorizontal: 0, fontFamily: Platform.select({ ios: undefined, android: undefined }) },
-  tbTabRow: { flexDirection: 'row', gap: 26, marginTop: 20, borderBottomWidth: 1, borderBottomColor: C.border },
-  tbTab: { paddingBottom: 0, alignItems: 'center' },
-  tbTabRule: { height: 3, borderRadius: 2, alignSelf: 'stretch', marginTop: 10 },
-  tbSummary: { marginTop: 22, backgroundColor: '#fff', borderRadius: 14, borderWidth: 1, borderColor: C.border, paddingHorizontal: 16, paddingVertical: 6 },
-  tbSumRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 16, paddingVertical: 12, borderBottomWidth: 1, borderBottomColor: '#F0F1F3' },
   tbTick: { width: 72, height: 72, borderRadius: 36, backgroundColor: '#22B573', alignItems: 'center', justifyContent: 'center' },
-  tbFooter: { paddingHorizontal: 22, paddingTop: 8, paddingBottom: 20 },
   tbBtnOn: { backgroundColor: '#F9B234', borderRadius: 30, paddingVertical: 16, alignItems: 'center', shadowColor: '#C98A12', shadowOpacity: 0.3, shadowRadius: 10, shadowOffset: { width: 0, height: 5 }, elevation: 4 },
   tbBtnOff: { backgroundColor: '#D7DAE0', borderRadius: 30, paddingVertical: 16, alignItems: 'center' },
 

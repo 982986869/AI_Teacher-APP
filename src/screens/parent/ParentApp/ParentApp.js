@@ -31,9 +31,7 @@ import ProfileSheet from './ProfileSheet';
 import HelpFab from '../../../components/support/HelpFab';
 import BrainGymFlow from '../../braingym/BrainGymFlow';
 import ActivityRouter from './ActivityRouter';
-// Booking runs through Calendly now. BookTrial.js is deliberately left in the tree,
-// unrouted: it is the fallback if Calendly does not work out, and switching back is
-// this one import plus the block at the bottom of this file.
+// Booking runs through Calendly.
 import TrialBookingEmbed from './TrialBookingEmbed';
 import { removeDemoFromCalendar } from './calendar';
 import { FadeIn } from './anim';
@@ -123,7 +121,7 @@ export default function ParentApp() {
   const onAvatar = useCallback(() => setSheetOpen(true), []);
   const onGym = useCallback(() => setGymOpen(true), []);            // AI Gym → the real BrainGym
   const onActivity = useCallback(() => setActivityOpen(true), []);  // Recent activity detail
-  const onBookTrial = useCallback(() => { setRescheduleMode(false); setTrialOpen(true); }, []); // "Book a FREE demo" → in-app flow
+  const onBookTrial = useCallback(() => { setRescheduleMode(false); setTrialOpen(true); }, []); // "Book a FREE demo" → Calendly
   const relink = useCallback(() => setRelinking(true), []); // keep report; show link screen without discarding data
   const confirmDelete = useCallback(() => {
     Alert.alert(

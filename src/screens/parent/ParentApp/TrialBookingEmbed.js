@@ -1,12 +1,12 @@
 // src/screens/parent/ParentApp/TrialBookingEmbed.js
 // "Book a free class" — Calendly's own booking page, shown inside the app.
 //
-// Why an embed rather than our own form: BookTrial.js collects everything and then
-// drops it (no persistence), and its time slots are hardcoded decoration with no
-// teacher behind them. Calendly brings a real calendar, real availability, a Google
-// Meet link and a confirmation email for free. What it does NOT bring is the lead
-// landing in our database — that needs Calendly's paid API, so for now the booking
-// lives only in Calendly.
+// Why an embed rather than our own form: the in-app booking wizard we used to have
+// collected everything and then dropped it (no persistence), and its time slots were
+// hardcoded decoration with no teacher behind them. Calendly brings a real calendar,
+// real availability, a Google Meet link and a confirmation email for free. What it
+// does NOT bring is the lead landing in our database — that needs Calendly's paid
+// API, so for now the booking lives only in Calendly.
 //
 // Nothing here is a secret. An embed is just the public booking URL in a frame, which
 // is exactly why it needs no API key and works on the free plan.
