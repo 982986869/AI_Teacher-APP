@@ -18,13 +18,26 @@ import { useAuth } from '../context/AuthContext';
 import { validateEmail, validatePassword, validateName, validatePhone } from '../utils/validators';
 
 // The policy the tick-box commits the student to. Signup is BLOCKED until they
-// agree, so this has to be readable before they agree — it was styled as a link
+// agree, so it has to be readable before they agree — it was styled as a link
 // with no handler, which asked for consent to something that could not be opened.
 const PRIVACY_URL = 'https://ailernova.in/privacy-policy/';
-// No Terms page exists yet: /terms/, /terms-and-conditions/, /terms-of-use/,
-// /tnc/ and /terms-conditions/ all return 404. So "Terms" is deliberately NOT
-// styled as a link — pointing it at a 404 would be worse than the bug being
-// fixed. Publish the page, put its URL here, and restore the link markup below.
+
+// TERMS IS NOT REFERENCED HERE, ON PURPOSE.
+//
+// The row used to read "I agree to Terms & Privacy Policy". There is no terms
+// document: ailernova.in publishes eleven pages (about-us, contact, review,
+// pricing, homenew-page, teacher-daily-sop, landing-page-new, thank-you, landing,
+// reviews, privacy-policy) and none of them is one, and /terms/,
+// /terms-and-conditions/, /terms-of-use/, /tnc/ and /terms-conditions/ all 404.
+//
+// So the sentence was collecting agreement to a document that does not exist.
+// Linking it anywhere would have hidden that rather than fixed it, and naming it
+// with no destination is what caused the original bug. The wording now covers
+// only what a student can actually read.
+//
+// When a terms page is published: set TERMS_URL, and restore the "Terms &" half
+// of the label plus its <Text> link — the sheet already takes a title and url,
+// so nothing else has to change.
 const TERMS_URL = null;
 
 
@@ -88,7 +101,9 @@ const SignupScreen = ({ navigation }) => {
     const pwErr = validatePassword(password);
     if (pwErr) return setError(pwErr);
     if (password !== confirmPassword) return setError('Passwords do not match.');
-    if (!agreed) return setError('Please agree to the Terms & Privacy Policy to continue.');
+    // Names exactly what the checkbox names — an error that asks a student to
+    // accept "Terms" they were never shown is the same defect in another place.
+    if (!agreed) return setError('Please agree to the Privacy Policy to continue.');
 
     try {
       setLoading(true);
@@ -174,11 +189,15 @@ const SignupScreen = ({ navigation }) => {
         />
 
         <AuthCheckbox checked={agreed} onToggle={() => setAgreed((a) => !a)}>
-          I agree to{' '}
-          {TERMS_URL
-            ? <Text style={styles.link} onPress={() => setPolicy('terms')} accessibilityRole="link">Terms</Text>
-            : <Text>Terms</Text>}
-          {' '}&{' '}
+          I agree to the{' '}
+          {/* Every named document here is one the student can open. "Terms &"
+              returns to this line, with its own link, when TERMS_URL is set. */}
+          {TERMS_URL && (
+            <>
+              <Text style={styles.link} onPress={() => setPolicy('terms')} accessibilityRole="link">Terms</Text>
+              {' '}&{' '}
+            </>
+          )}
           <Text
             style={styles.link}
             onPress={() => setPolicy('privacy')}
