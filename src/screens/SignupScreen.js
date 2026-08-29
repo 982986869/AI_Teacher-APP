@@ -9,12 +9,25 @@ import * as ImagePicker from 'expo-image-picker';
 import AuthInput     from '../components/brand/AuthInput';
 import AuthError     from '../components/brand/AuthError';
 import AuthCheckbox  from '../components/brand/AuthCheckbox';
+import PolicyModal   from '../components/brand/PolicyModal';
 import PrimaryButton from '../components/brand/PrimaryButton';
 import { COLORS, TYPE, FONT_FAMILY, SPACING } from '../theme/designSystem';
 
 import { signupWithEmail } from '../api/authApi';
 import { useAuth } from '../context/AuthContext';
 import { validateEmail, validatePassword, validateName, validatePhone } from '../utils/validators';
+
+// The policy the tick-box commits the student to. Signup is BLOCKED until they
+// agree, so this has to be readable before they agree — it was styled as a link
+// with no handler, which asked for consent to something that could not be opened.
+const PRIVACY_URL = 'https://ailernova.in/privacy-policy/';
+// No Terms page exists yet: /terms/, /terms-and-conditions/, /terms-of-use/,
+// /tnc/ and /terms-conditions/ all return 404. So "Terms" is deliberately NOT
+// styled as a link — pointing it at a 404 would be worse than the bug being
+// fixed. Publish the page, put its URL here, and restore the link markup below.
+const TERMS_URL = null;
+
+
 
 // "Create Account" — the design's sign-up screen: one unified form (name,
 // email, phone, password, confirm), not the old Email/Phone tab split, and no
@@ -39,6 +52,8 @@ const SignupScreen = ({ navigation }) => {
   const [showPw, setShowPw]         = useState(false);
   const [showConfirmPw, setShowConfirmPw] = useState(false);
   const [agreed, setAgreed]     = useState(false);
+  // Which policy sheet is open, if any: 'privacy' | 'terms' | null.
+  const [policy, setPolicy]     = useState(null);
   const [photo, setPhoto]       = useState(null); // RN asset { uri, ... } or null
 
   const [loading, setLoading] = useState(false);
@@ -159,7 +174,16 @@ const SignupScreen = ({ navigation }) => {
         />
 
         <AuthCheckbox checked={agreed} onToggle={() => setAgreed((a) => !a)}>
-          I agree to <Text style={styles.link}>Terms</Text> & <Text style={styles.link}>Privacy Policy</Text>
+          I agree to{' '}
+          {TERMS_URL
+            ? <Text style={styles.link} onPress={() => setPolicy('terms')} accessibilityRole="link">Terms</Text>
+            : <Text>Terms</Text>}
+          {' '}&{' '}
+          <Text
+            style={styles.link}
+            onPress={() => setPolicy('privacy')}
+            accessibilityRole="link"
+          >Privacy Policy</Text>
         </AuthCheckbox>
 
         <PrimaryButton label="Create Account" onPress={handleCreateAccount} loading={loading} style={styles.mainBtn} />
@@ -171,6 +195,15 @@ const SignupScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </ScrollView>
+
+      {/* Outside the ScrollView: a Modal nested in a scroller inherits its
+          scroll state on Android and can open scrolled to the middle. */}
+      <PolicyModal
+        visible={policy !== null}
+        onClose={() => setPolicy(null)}
+        url={policy === 'terms' ? TERMS_URL : PRIVACY_URL}
+        title={policy === 'terms' ? 'Terms' : 'Privacy Policy'}
+      />
     </SafeAreaView>
   );
 };
