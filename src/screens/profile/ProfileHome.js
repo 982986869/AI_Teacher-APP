@@ -87,6 +87,7 @@ export default function ProfileHome({
   onHelp,
   onSwitchToParent,
   onLogout,
+  onPrivacy,
   onPlaceholder,
   bottomInset = 0,
 }) {
@@ -141,7 +142,10 @@ export default function ProfileHome({
 
           <Band title="Account">
             {/* TODO: no privacy/data screen yet. */}
-            <Row emoji="🔒" label="Privacy & Security" onPress={() => onPlaceholder('Privacy & Security')} />
+            {/* Opens the policy in-app. It used to call onPlaceholder, which told
+                the student the feature "isn't part of the app yet" — on the one row
+                a Play reviewer opens to find the privacy policy. */}
+            <Row emoji="🔒" label="Privacy & Security" onPress={onPrivacy} />
             <Row emoji="⚙️" label="App Settings" right={<Switch on={soundOn} onPress={onToggleSound} />} />
             <Row emoji="❓" label="Help & Support" onPress={onHelp} />
             {/* NOT in the design. It is the only route a student has back to the parent

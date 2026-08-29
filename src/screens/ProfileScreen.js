@@ -16,6 +16,7 @@
 // end in their own sticky footer, and two bars stacked would be one too many).
 import React, { useCallback, useEffect, useState } from 'react';
 import { View, Alert } from 'react-native';
+import PolicyModal from '../components/brand/PolicyModal';
 import { useNavigation } from '@react-navigation/native';
 import Constants from 'expo-constants';
 import * as ImagePicker from 'expo-image-picker';
@@ -117,6 +118,11 @@ const ProfileScreen = () => {
   };
   // The rows the design draws that have no screen behind them yet. Saying so is the
   // honest answer; silently doing nothing reads as a broken row.
+  // The same sheet the sign-up screen uses, so the policy reads identically
+  // wherever it is opened from and there is one component to keep correct.
+  const PRIVACY_URL = 'https://ailernova.in/privacy-policy/';
+  const [privacyOpen, setPrivacyOpen] = useState(false);
+
   const handlePlaceholder = (label) => {
     Alert.alert(label, 'This is on the way — it isn’t part of the app yet.');
   };
@@ -151,22 +157,31 @@ const ProfileScreen = () => {
   }
 
   return (
-    <ProfileHome
-      user={user}
-      profileLine={profileLine}
-      version={APP_VERSION}
-      soundOn={soundOn}
-      onToggleSound={toggleSound}
-      onEditProfile={() => setView('edit')}
-      onLearningPreferences={() => setView('prefs')}
-      onLearningProgress={handleLearningProgress}
-      onHelp={handleHelp}
-      onSwitchToParent={() => setActiveView('parent')}
-      onLogout={handleLogout}
-      onPlaceholder={handlePlaceholder}
-      // The dock floats over the tab content, so the list has to end above it.
-      bottomInset={(dockHeight || 66) + 8}
-    />
+    <>
+      <ProfileHome
+        user={user}
+        profileLine={profileLine}
+        version={APP_VERSION}
+        soundOn={soundOn}
+        onToggleSound={toggleSound}
+        onEditProfile={() => setView('edit')}
+        onLearningPreferences={() => setView('prefs')}
+        onLearningProgress={handleLearningProgress}
+        onHelp={handleHelp}
+        onSwitchToParent={() => setActiveView('parent')}
+        onLogout={handleLogout}
+        onPrivacy={() => setPrivacyOpen(true)}
+        onPlaceholder={handlePlaceholder}
+        // The dock floats over the tab content, so the list has to end above it.
+        bottomInset={(dockHeight || 66) + 8}
+      />
+      <PolicyModal
+        visible={privacyOpen}
+        onClose={() => setPrivacyOpen(false)}
+        url={PRIVACY_URL}
+        title="Privacy Policy"
+      />
+    </>
   );
 };
 
