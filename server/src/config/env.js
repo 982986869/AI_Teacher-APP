@@ -97,14 +97,10 @@ const config = {
   //
   // ⚠ That choice means the key is load-bearing. No ELEVENLABS_API_KEY, or a spent
   // quota, and narration stops — the app drops to on-device TTS, which sounds like
-  // a different teacher. Kokoro (free, self-hosted) and OpenAI are still reachable
-  // by setting TTS_PROVIDER, they are just no longer automatic safety nets.
+  // a different teacher. OpenAI is still reachable by setting TTS_PROVIDER, it is
+  // just no longer an automatic safety net.
   tts: {
-    provider: process.env.TTS_PROVIDER || 'elevenlabs', // 'elevenlabs' | 'kokoro' (self-hosted, free) | 'openai'
-
-    // Kokoro (self-hosted) — free, no API key. Only used when TTS_PROVIDER=kokoro.
-    kokoroUrl: process.env.KOKORO_URL || 'http://localhost:8880',
-    kokoroVoice: process.env.KOKORO_VOICE || 'af_sarah',
+    provider: process.env.TTS_PROVIDER || 'elevenlabs', // 'elevenlabs' | 'openai'
 
     // OpenAI — only used when TTS_PROVIDER=openai, and disabled without a key.
     // `instructions` only applies to the steerable gpt-4o-mini-tts model.

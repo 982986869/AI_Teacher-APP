@@ -15,7 +15,7 @@ const { mimeFor } = require('./OpenAITTSProvider')
 const CACHE_DIR = path.join(__dirname, '..', '..', '..', 'tts-cache')
 try { fs.mkdirSync(CACHE_DIR, { recursive: true }) } catch (e) { /* best-effort */ }
 
-// `el:` prefix keeps ElevenLabs clips distinct from Kokoro/OpenAI in the shared cache.
+// `el:` prefix keeps ElevenLabs clips distinct from OpenAI's in the shared cache.
 const keyFor = (text, voice, format) =>
   crypto.createHash('sha1').update(`el:${voice}:${format}:${text}`).digest('hex')
 

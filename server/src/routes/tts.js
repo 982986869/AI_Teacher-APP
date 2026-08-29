@@ -7,7 +7,6 @@ const jwt = require('jsonwebtoken')
 const { config } = require('../config/env')
 const { synthesizeSpeech: openaiSynthesize } = require('../providers/ai/OpenAITTSProvider')
 const { synthesizeSpeech: elevenSynthesize } = require('../providers/ai/ElevenLabsTTSProvider')
-const { synthesizeSpeech: kokoroSynthesize } = require('../providers/ai/KokoroTTSProvider')
 
 // ── AUDIO CACHE ───────────────────────────────────────────────────────────────
 // Slide narration is deterministic: the same (text, voice) always synthesizes to
@@ -32,15 +31,13 @@ function ttsCacheSet(key, buf, mime) {
 
 // ── TTS providers ─────────────────────────────────────────────────────────────
 // The teacher voice is ElevenLabs, selected by TTS_PROVIDER (see config/env.js).
-// The other two stay reachable by env, for development and for switching back:
+// OpenAI stays reachable by env, for development and for switching back:
 //
 //   • ElevenLabs — premium/paid, and what students hear. A FREE ElevenLabs plan
 //                  cannot use the API at all (returns 402 paid_plan_required).
 //                  Buffers the whole clip, then caches it on disk in the provider.
-//   • Kokoro     — self-hosted, free, no API key. Needs the Python server running
-//                  at http://localhost:8880 (see /kokoro-server). Also buffered.
 //   • OpenAI     — returns a stream, so playback can start before the line is
-//                  fully synthesized: the lowest first-audio latency of the three.
+//                  fully synthesized: the lower first-audio latency of the two.
 
 const router = Router()
 
@@ -61,14 +58,13 @@ function verifyToken(req, res, next) {
 
 // ── Provider dispatch ─────────────────────────────────────────────────────────
 // Routes by TTS_PROVIDER and does NOT chain. The earlier design fell through to
-// Kokoro and then OpenAI whenever ElevenLabs failed; that was dropped on purpose,
+// another provider whenever ElevenLabs failed; that was dropped on purpose,
 // because the teacher swapping voice mid-lesson on a quota error reads as a bug to
 // the student. A failure here surfaces as a non-2xx, the client drops to on-device
 // TTS, and the server log says which provider actually failed.
 async function synthesize(text, opts) {
   const provider = config.tts.provider
 
-  if (provider === 'kokoro') return kokoroSynthesize(text, opts)
   if (provider === 'openai') return openaiSynthesize(text, opts)
   return elevenSynthesize(text, opts)
 }
@@ -108,7 +104,7 @@ async function handleTts(req, res) {
   res.setHeader('Cache-Control', 'private, max-age=86400')
   res.setHeader('X-TTS-Cache', 'miss')
 
-  // ElevenLabs/Kokoro return a buffered clip (result.buffer); OpenAI streams a
+  // ElevenLabs returns a buffered clip (result.buffer); OpenAI streams a
   // web ReadableStream instead — this guard routes each provider correctly.
   if (result.buffer) {
     ttsCacheSet(key, result.buffer, result.mime)

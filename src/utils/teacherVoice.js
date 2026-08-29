@@ -361,9 +361,9 @@ async function speakViaOpenAI(text, opts = {}) {
 }
 
 // NOTE: a `warmTeacherTTS()` used to live here — a throwaway /api/tts request at
-// app start to pay Kokoro's lazy model load (~6-10s cold) up front. OpenAI TTS has
-// no cold start, so warming buys nothing and just costs an extra API call on every
-// app open. Removed along with the Kokoro provider.
+// app start to pay a self-hosted model's lazy load (~6-10s cold) up front. The
+// hosted providers have no such cold start, so warming bought nothing and just
+// cost an extra API call on every app open.
 
 // Speak `text` as the teacher. Always stops any current utterance first, so there
 // is never more than one voice. Tries OpenAI TTS first, falls back to device
