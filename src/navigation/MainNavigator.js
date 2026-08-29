@@ -2,12 +2,6 @@ import React from 'react';
 import { View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import HomeScreen      from '../screens/HomeScreen';
-import SessionsScreen  from '../screens/SessionsScreen';
-import PracticeScreen  from '../screens/PracticeScreen';
-import ResourcesScreen from '../screens/ResourcesScreen';
-import ResultsScreen   from '../screens/ResultsScreen';
-import ProfileScreen   from '../screens/ProfileScreen';
 import FloatingDock     from './FloatingDock';
 import { DockVisibilityProvider, useDockVisibility } from './DockVisibility';
 import { SupportLauncherProvider, useSupportLauncher } from './SupportLauncher';
@@ -18,6 +12,28 @@ import LockSheet from '../components/LockSheet';
 
 
 const Tab = createBottomTabNavigator();
+
+// Tab screens are handed over as `getComponent` rather than imported at the top of this
+// file, because a top-level import is evaluated while the BUNDLE loads — long before the
+// navigator mounts, and before the very first frame can paint.
+//
+// That mattered enormously here: Practice / Resources / Sessions reach the bundled
+// question banks (src/data), which are ~55 MB of JSON that Hermes has to turn into live
+// objects, and whose barrels (data/questionBank.js and friends) normalize every question
+// through htmlToText at module scope. All of it ran on the JS thread on every cold start,
+// including for a user who never opened those tabs.
+//
+// react-navigation calls getComponent() inside SceneView, i.e. when the scene actually
+// renders (@react-navigation/core SceneView.js). Combined with the navigator's default
+// `lazy: true`, an unvisited tab is never required at all.
+const SCREENS = {
+  Home:      () => require('../screens/HomeScreen').default,
+  Sessions:  () => require('../screens/SessionsScreen').default,
+  Practice:  () => require('../screens/PracticeScreen').default,
+  Resources: () => require('../screens/ResourcesScreen').default,
+  Results:   () => require('../screens/ResultsScreen').default,
+  Profile:   () => require('../screens/ProfileScreen').default,
+};
 
 // The Help bubble floats over every student tab, just above the dock — so it has to sit
 // outside the navigator and take its offset from the dock's measured height.
@@ -65,13 +81,13 @@ const StudentTabs = () => {
       screenOptions={{ headerShown: false, animation: 'fade' }}
       tabBar={(props) => <FloatingDock {...props} />}
     >
-      <Tab.Screen name="Home"      component={HomeScreen} />
-      <Tab.Screen name="Sessions"  component={SessionsScreen}  listeners={gate('Sessions')} />
+      <Tab.Screen name="Home"      getComponent={SCREENS.Home} />
+      <Tab.Screen name="Sessions"  getComponent={SCREENS.Sessions}  listeners={gate('Sessions')} />
       {/* Practice / Resources tabs are hidden when their feature flag is off. */}
-      {isFeatureEnabled('practice')  && <Tab.Screen name="Practice"  component={PracticeScreen}  listeners={gate('Practice')} />}
-      {isFeatureEnabled('resources') && <Tab.Screen name="Resources" component={ResourcesScreen} listeners={gate('Resources')} />}
-      <Tab.Screen name="Results"   component={ResultsScreen}   listeners={gate('Results')} />
-      <Tab.Screen name="Profile"   component={ProfileScreen} />
+      {isFeatureEnabled('practice')  && <Tab.Screen name="Practice"  getComponent={SCREENS.Practice}  listeners={gate('Practice')} />}
+      {isFeatureEnabled('resources') && <Tab.Screen name="Resources" getComponent={SCREENS.Resources} listeners={gate('Resources')} />}
+      <Tab.Screen name="Results"   getComponent={SCREENS.Results}   listeners={gate('Results')} />
+      <Tab.Screen name="Profile"   getComponent={SCREENS.Profile} />
     </Tab.Navigator>
   );
 };

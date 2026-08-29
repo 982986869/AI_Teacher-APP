@@ -9,18 +9,27 @@ import { COLORS, GRADIENTS, FONT_FAMILY, MOTION } from '../theme/designSystem';
 const LOGO = require('../../assets/brand/logo.png');
 
 const TAGLINE = 'Learn Smarter with AI';
-const HOLD_AFTER_FILL = 250;    // beat after the progress bar tops out
-const PROGRESS_DURATION = 2200; // full sweep of the loader
+
+// The bar used to sweep 0 -> 1 over a fixed 2200ms and only then release the app, so
+// every launch — including one where the session was restored in 200ms — sat here for
+// 2.45s doing nothing. It now sweeps to SWEEP_TO while the app boots and covers the last
+// stretch the moment AppNavigator reports `ready`, so the loader describes the launch
+// rather than setting its pace.
+const SWEEP_DURATION = 600;     // initial sweep; mirrors AppNavigator's SPLASH_MIN_MS
+const SWEEP_TO = 0.9;           // stop short, so there is something left to complete
+const FINISH_DURATION = 180;    // the last 10%, once the app is actually ready
+const HOLD_AFTER_FILL = 120;    // beat after the progress bar tops out
 
 // The design frame is 390 wide; the bar is a 326px fill inside 32px padding.
 const { width: SCREEN_W } = Dimensions.get('window');
 const BAR_WIDTH = Math.min(SCREEN_W - 32 * 2, 326);
 
-// AppNavigator renders this as <SplashScreen onFinish={...} /> with NO navigation
-// prop, so we must NOT call navigation.replace here. When the intro finishes we
-// call onFinish() (optional) to let AppNavigator move on. AppNavigator also has
-// its own timer, so onFinish is just a nicety.
-export default function SplashScreen({ onFinish }) {
+// AppNavigator renders this as <SplashScreen ready={...} onFinish={...} /> with NO
+// navigation prop, so we must NOT call navigation.replace here. `ready` is AppNavigator
+// telling us the app can be shown; when it goes true we top the bar out and call
+// onFinish() to let AppNavigator move on. AppNavigator also keeps a hard fallback timer,
+// so a `ready` that somehow never arrives cannot strand the user here.
+export default function SplashScreen({ ready = false, onFinish }) {
   const insets = useSafeAreaInsets();
 
   const logoOpacity = useRef(new Animated.Value(0)).current;
@@ -54,24 +63,46 @@ export default function SplashScreen({ onFinish }) {
 
     // Progress Fill runs on its own value: it animates `width`, which the native
     // driver can't handle, so it must stay off the native-driven parallel above.
-    const fill = Animated.timing(progress, {
-      toValue: 1,
-      duration: PROGRESS_DURATION,
+    // This only sweeps to SWEEP_TO — the `ready` effect below covers the rest.
+    const sweep = Animated.timing(progress, {
+      toValue: SWEEP_TO,
+      duration: SWEEP_DURATION,
       easing: Easing.out(Easing.ease),
       useNativeDriver: false,
     });
 
     intro.start();
-    fill.start(({ finished }) => {
-      if (!finished) return;
-      setTimeout(() => onFinish && onFinish(), HOLD_AFTER_FILL);
-    });
+    sweep.start();
 
     return () => {
       intro.stop();
-      fill.stop();
+      sweep.stop();
     };
   }, []);
+
+  // Top the bar out and release the app the moment it is ready. Starting a second
+  // timing on `progress` supersedes the sweep above if it is still running, so an app
+  // that boots faster than SWEEP_DURATION finishes the bar early rather than waiting.
+  useEffect(() => {
+    if (!ready) return undefined;
+
+    let hold;
+    const finish = Animated.timing(progress, {
+      toValue: 1,
+      duration: FINISH_DURATION,
+      easing: Easing.out(Easing.ease),
+      useNativeDriver: false,
+    });
+    finish.start(({ finished }) => {
+      if (!finished) return;
+      hold = setTimeout(() => onFinish && onFinish(), HOLD_AFTER_FILL);
+    });
+
+    return () => {
+      finish.stop();
+      if (hold) clearTimeout(hold);
+    };
+  }, [ready]);
 
   return (
     <View style={styles.root}>
