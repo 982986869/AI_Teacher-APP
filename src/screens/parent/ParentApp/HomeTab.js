@@ -138,7 +138,7 @@ function DemoCard({ onBookTrial }) {
   );
 }
 
-function HomeTab({ meta, childName, onAvatar, onGym, onActivity, onBookTrial, report, refreshing, onRefresh, booking, onJoinDemo, onRescheduleDemo, onCancelDemo }) {
+function HomeTab({ meta, childName, parentPhoto, parentName, onAvatar, onGym, onActivity, onBookTrial, report, refreshing, onRefresh, booking, onJoinDemo, onRescheduleDemo, onCancelDemo }) {
   const bg = report.brainGym || {};
   const streak = Number(bg.currentStreak) || 0;
   const quizzes = Number(bg.quizzesCompleted) || 0;
@@ -188,7 +188,7 @@ function HomeTab({ meta, childName, onAvatar, onGym, onActivity, onBookTrial, re
 
   return (
     <View style={st.screen}>
-      <Header meta={meta} childName={childName} onAvatar={onAvatar} onGym={onGym} />
+      <Header meta={meta} childName={childName} parentPhoto={parentPhoto} parentName={parentName} onAvatar={onAvatar} onGym={onGym} />
       <ScrollView style={st.body} contentContainerStyle={{ paddingBottom: 28 }} showsVerticalScrollIndicator={false}
         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={C.blue} />}>
 

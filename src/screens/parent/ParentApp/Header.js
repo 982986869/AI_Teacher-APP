@@ -1,19 +1,28 @@
-// src/screens/parent/ParentApp/Header.js — top bar shown on every tab: an animated
-// mascot avatar (gently bobs), the tab title + child's name, and the AI Gym pill.
+// src/screens/parent/ParentApp/Header.js — top bar shown on every tab: the parent's
+// profile photo, the tab title + child's name, and the AI Gym pill.
 import React, { memo } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
 import { Dumbbell } from 'lucide-react-native';
 import { C, st, T } from './constants';
-import { PressableScale, FadeInOnce, Float } from './anim';
+import { PressableScale, FadeInOnce } from './anim';
 
-function Header({ meta, childName, onAvatar, onGym }) {
+function Header({ meta, childName, parentPhoto, parentName, onAvatar, onGym }) {
+  // No photo on the account → the parent's initial, the same fallback the student
+  // Profile screen and ProfileSheet already draw. Never a stand-in face: a stock
+  // portrait would read as this parent, which it is not. An initial reads as a real
+  // person whose picture we simply do not have yet.
+  const initial = (Array.from((parentName || 'P').trim())[0] || 'P').toUpperCase();
   return (
     <View style={st.header}>
       {/* Content settles in the first time the app opens, then stays calm. */}
       <FadeInOnce id="parent-hdr-l" y={10}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
           <PressableScale style={hd.avatar} onPress={onAvatar} accessibilityLabel="Account options">
-            <Float distance={5} duration={2600}><T s={32}>🦊</T></Float>
+            {/* cover, not contain: profile photos are rarely square, and the disc must
+                stay filled rather than letterbox the face inside a white ring. */}
+            {parentPhoto
+              ? <Image source={{ uri: parentPhoto }} style={hd.photo} resizeMode="cover" />
+              : <T w="xbold" s={19} c={C.orange}>{initial}</T>}
           </PressableScale>
           <View style={{ flexShrink: 1 }}>
             <T w="bold" s={23} c={C.ink} numberOfLines={1}>{meta?.title || 'Ailernova'}</T>
@@ -34,8 +43,9 @@ function Header({ meta, childName, onAvatar, onGym }) {
 }
 
 const hd = StyleSheet.create({
-  // Mascot avatar — clean white disc with a branded ring; the face bobs gently inside.
+  // Clean white disc with a branded ring; the photo is clipped to the circle by overflow.
   avatar: { width: 46, height: 46, borderRadius: 23, backgroundColor: '#FFFFFF', borderWidth: 2, borderColor: C.orange, alignItems: 'center', justifyContent: 'center', overflow: 'hidden' },
+  photo: { width: '100%', height: '100%' },
 });
 
 export default memo(Header);

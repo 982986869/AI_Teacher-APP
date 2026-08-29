@@ -149,6 +149,7 @@ export default function ParentApp() {
   } else {
     const shared = {
       meta, childName, onAvatar, onGym, onActivity, onBookTrial, flash,
+      parentPhoto: user?.photoUrl, parentName: user?.name,
       booking, onJoinDemo: handleJoinDemo, onRescheduleDemo: handleRescheduleDemo, onCancelDemo: handleCancelDemo,
     };
     content = (
@@ -184,6 +185,7 @@ export default function ParentApp() {
         visible={sheetOpen}
         onClose={() => setSheetOpen(false)}
         parentName={user?.name}
+        parentPhoto={user?.photoUrl}
         parentEmail={user?.email}
         childName={child?.name}
         childClass={child?.className}

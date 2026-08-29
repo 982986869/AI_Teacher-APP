@@ -113,7 +113,7 @@ function DayCard({ Icon, tint, tintBg, title, children }) {
 // Everything on this tab is scoped to the selected date and comes from
 // /api/parent/progress/day — `report` is no longer read here, since its figures are
 // all-time and sat confusingly next to a day's worth of activity.
-function ProgressTab({ meta, childName, onAvatar, onGym, refreshing, onRefresh }) {
+function ProgressTab({ meta, childName, parentPhoto, parentName, onAvatar, onGym, refreshing, onRefresh }) {
   // Date navigation. Collapsed shows the Mon→Sun week around the selected day;
   // expanded shows a whole month, picked with the month chips. Keys are plain
   // YYYY-MM-DD in the device's local calendar, which is what the API buckets by.
@@ -245,7 +245,7 @@ function ProgressTab({ meta, childName, onAvatar, onGym, refreshing, onRefresh }
 
   return (
     <View style={st.screen}>
-      <Header meta={meta} childName={childName} onAvatar={onAvatar} onGym={onGym} />
+      <Header meta={meta} childName={childName} parentPhoto={parentPhoto} parentName={parentName} onAvatar={onAvatar} onGym={onGym} />
       <ScrollView style={{ paddingHorizontal: 18 }} contentContainerStyle={{ paddingBottom: 28 }} showsVerticalScrollIndicator={false}
         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={C.blue} />}>
         {/* The selected date, and a chevron that swaps the week strip for a month grid. */}

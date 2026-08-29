@@ -4,7 +4,7 @@
 // rubber-band when pulled up. Config-driven menu (data array + one dispatcher), so new
 // rows are a one-line addition. Pure UI — actions come in via props. Native-driven.
 import React, { useEffect, useRef } from 'react';
-import { View, Modal, Animated, Pressable, StyleSheet, PanResponder } from 'react-native';
+import { View, Image, Modal, Animated, Pressable, StyleSheet, PanResponder } from 'react-native';
 import Svg, { Defs, LinearGradient as LG, Stop, Rect } from 'react-native-svg';
 import { Bell, Settings, UserPlus, LogOut, Trash2, GraduationCap, Pencil, ArrowLeftRight } from 'lucide-react-native';
 import { C, T, card } from './constants';
@@ -24,7 +24,7 @@ const MENU = [
 ];
 
 export default function ProfileSheet({
-  visible, onClose, parentName, parentEmail, childName, childClass,
+  visible, onClose, parentName, parentPhoto, parentEmail, childName, childClass,
   onLinkAnother, onLogout, onDeleteAccount, onComingSoon, onSwitchToStudent,
 }) {
   // A student viewing the parent dashboard (same login) can flip back to the student
@@ -128,7 +128,11 @@ export default function ProfileSheet({
                   </Defs>
                   <Rect x="0" y="0" width="100%" height="100%" fill="url(#pavg)" />
                 </Svg>
-                <T w="xbold" s={25} c="#fff">{initial}</T>
+                {/* The gradient disc stays underneath: it is what shows while a remote
+                    photo loads, and the whole avatar when the account has no picture. */}
+                {parentPhoto
+                  ? <Image source={{ uri: parentPhoto }} style={StyleSheet.absoluteFill} resizeMode="cover" />
+                  : <T w="xbold" s={25} c="#fff">{initial}</T>}
               </Animated.View>
               <View style={{ flex: 1 }}>
                 <View style={s.nameRow}>

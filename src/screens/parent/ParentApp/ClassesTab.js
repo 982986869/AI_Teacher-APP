@@ -88,12 +88,12 @@ function ClassCalendar() {
   );
 }
 
-export default function ClassesTab({ meta, childName, onAvatar, onGym, onBookTrial, booking }) {
+export default function ClassesTab({ meta, childName, parentPhoto, parentName, onAvatar, onGym, onBookTrial, booking }) {
   const valid = booking && Number.isFinite(new Date(booking.date).getTime());
   const short = valid ? fmtDateShort(booking.date) : null;
   return (
     <View style={st.screen}>
-      <Header meta={meta} childName={childName} onAvatar={onAvatar} onGym={onGym} />
+      <Header meta={meta} childName={childName} parentPhoto={parentPhoto} parentName={parentName} onAvatar={onAvatar} onGym={onGym} />
       <View style={cs.green}>
         <FadeIn style={cs.center} y={10}>
           <ClassCalendar />

@@ -79,12 +79,12 @@ function TypingDots() {
   return <View style={cs.dotsRow}><Dot delay={0} /><Dot delay={130} /><Dot delay={260} /></View>;
 }
 
-export default function ChatTab({ meta, childName, onAvatar, onGym, onBookTrial, booking }) {
+export default function ChatTab({ meta, childName, parentPhoto, parentName, onAvatar, onGym, onBookTrial, booking }) {
   const valid = booking && Number.isFinite(new Date(booking.date).getTime());
   const short = valid ? fmtDateShort(booking.date) : null;
   return (
     <View style={st.screen}>
-      <Header meta={meta} childName={childName} onAvatar={onAvatar} onGym={onGym} />
+      <Header meta={meta} childName={childName} parentPhoto={parentPhoto} parentName={parentName} onAvatar={onAvatar} onGym={onGym} />
       <View style={cs.blue}>
         <FadeIn style={cs.center} y={10}>
           {/* compact looping live chat: wave → (typing → message) → reply */}

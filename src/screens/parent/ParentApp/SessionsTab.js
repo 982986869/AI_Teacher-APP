@@ -104,10 +104,10 @@ function EmptyCard({ iconEl, tintBg, title, body }) {
   );
 }
 
-export default function SessionsTab({ meta, childName, onAvatar, onGym, booking, onBookTrial, onJoinDemo, onRescheduleDemo, onCancelDemo }) {
+export default function SessionsTab({ meta, childName, parentPhoto, parentName, onAvatar, onGym, booking, onBookTrial, onJoinDemo, onRescheduleDemo, onCancelDemo }) {
   return (
     <View style={st.screen}>
-      <Header meta={meta} childName={childName} onAvatar={onAvatar} onGym={onGym} />
+      <Header meta={meta} childName={childName} parentPhoto={parentPhoto} parentName={parentName} onAvatar={onAvatar} onGym={onGym} />
       <ScrollView style={st.body} contentContainerStyle={{ paddingBottom: 28 }} showsVerticalScrollIndicator={false}>
         {booking ? (
           <>
