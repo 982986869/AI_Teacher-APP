@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import {
   View, Text, StyleSheet, ScrollView, Animated, Easing, Dimensions, Platform, TextInput, Image, Modal,
+  AccessibilityInfo,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -225,6 +226,65 @@ function Appear({ children, style, from = 'up', delay = 0 }) {
     ? [{ scale: a.interpolate({ inputRange: [0, 1], outputRange: [0.94, 1] }) }]
     : [{ translateY: a.interpolate({ inputRange: [0, 1], outputRange: [12, 0] }) }];
   return <Animated.View style={[style, { opacity: a, transform: tf }]}>{children}</Animated.View>;
+}
+
+// Stickers thrown across the finish card. Emoji rather than images: they need no
+// asset, scale on every density, and already carry the tone.
+//
+// Each one is a fixed, hand-chosen vector — angle, distance, spin, delay — not
+// Math.random(). A burst re-rolled on every render jitters when the card
+// re-renders mid-flight, and a fixed set is also the same celebration for every
+// student, which is easier to judge than one that differs each run.
+const STICKERS = [
+  { e: '🎉', x: -128, y: -96,  r: -28, d: 0,   s: 1.15 },
+  { e: '⭐', x: 118,  y: -84,  r: 24,  d: 90,  s: 1.0 },
+  { e: '✨', x: -92,  y: 74,   r: 14,  d: 170, s: 0.9 },
+  { e: '🏆', x: 104,  y: 88,   r: -18, d: 250, s: 1.05 },
+  { e: '👏', x: -18,  y: -132, r: 8,   d: 330, s: 0.95 },
+  { e: '🌟', x: 36,   y: 122,  r: -12, d: 410, s: 0.85 },
+];
+
+function Stickers() {
+  const a = useRef(new Animated.Value(0)).current;
+  const reduce = useRef(false);
+  useEffect(() => {
+    let alive = true;
+    // A burst is exactly the kind of motion that makes some people ill, and the
+    // card reads fine without it.
+    AccessibilityInfo.isReduceMotionEnabled().then((on) => {
+      if (!alive) return;
+      reduce.current = on;
+      if (on) { a.setValue(1); return; }
+      Animated.timing(a, {
+        toValue: 1, duration: 900, easing: Easing.out(Easing.back(1.6)), useNativeDriver: true,
+      }).start();
+    }).catch(() => {
+      Animated.timing(a, { toValue: 1, duration: 900, easing: Easing.out(Easing.back(1.6)), useNativeDriver: true }).start();
+    });
+    return () => { alive = false; };
+  }, [a]);
+
+  return (
+    <View style={st.stickerLayer} pointerEvents="none" accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
+      {STICKERS.map((s, i) => (
+        <Animated.Text
+          key={i}
+          style={[
+            st.sticker,
+            {
+              opacity: a.interpolate({ inputRange: [0, 0.25, 0.85, 1], outputRange: [0, 1, 1, 0.9] }),
+              transform: [
+                { translateX: a.interpolate({ inputRange: [0, 1], outputRange: [0, s.x] }) },
+                { translateY: a.interpolate({ inputRange: [0, 1], outputRange: [0, s.y] }) },
+                { rotate: a.interpolate({ inputRange: [0, 1], outputRange: ['0deg', `${s.r}deg`] }) },
+                { scale: a.interpolate({ inputRange: [0, 1], outputRange: [0.2, s.s] }) },
+              ],
+            },
+          ]}
+        >{s.e}</Animated.Text>
+      ))}
+    </View>
+  );
 }
 
 // A number that counts up to its target — used on the completion card so the
@@ -1215,7 +1275,19 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     if (!CAMERA_OK) { setHint('Your camera isn’t available in this build — you can still talk and type.'); return; }
     setSelfView((v) => !v);
   };
-  const endSession = () => { stopTeacher(); if (onExit) onExit(); };
+  // Leaving mid-lesson used to exit on the first tap. It asks now — not to trap
+  // anyone, but because the most common reason a student leaves is a distraction,
+  // and the position they are about to abandon is already saved. The sheet says
+  // where they are and that it will be waiting; "Leave for now" is one tap away
+  // and never disabled.
+  const [leaveOpen, setLeaveOpen] = useState(false);
+  const endSession = () => {
+    // Already finished, or nothing taught yet — nothing to come back to, so go.
+    if (mode === M.COMPLETED || idx <= 0) { stopTeacher(); if (onExit) onExit(); return; }
+    stopTeacher();          // stop the voice while they decide
+    setLeaveOpen(true);
+  };
+  const leaveNow = () => { setLeaveOpen(false); stopTeacher(); if (onExit) onExit(); };
   // "Math Tutor" / "Science Tutor" — falls back to a neutral label when the lesson
   // carries no subject. `sessionLabel` names the class in the header ("Math Session")
   // so the header stays stable while the whiteboard title carries the live concept.
@@ -1779,12 +1851,42 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
         </View>
       </Modal>
 
+      {/* ── LEAVING PART-WAY ──────────────────────────────────────────────────
+          Not a "are you sure?" guard. The position is already saved, so the
+          honest thing to say is where they are and that it will keep — then get
+          out of the way. Leaving is one tap and is never the harder option. */}
+      <Modal visible={leaveOpen} transparent animationType="fade" onRequestClose={() => setLeaveOpen(false)}>
+        <View style={st.leaveWrap}>
+          <Appear from="scale" style={st.leaveCard}>
+            <View style={st.leaveIcon}><Text style={st.leaveIconTxt}>🌱</Text></View>
+            <Text style={st.leaveTitle} accessibilityRole="header">Come back to this</Text>
+            <Text style={st.leaveSub}>
+              You’re {Math.min(idx + 1, N)} of {N} through {lessonTopic}.
+              I’ll keep your place — finish it whenever you have time.
+            </Text>
+
+            <View style={st.leaveBarTrack}>
+              <View style={[st.leaveBarFill, { width: `${Math.round((Math.min(idx + 1, N) / Math.max(1, N)) * 100)}%` }]} />
+            </View>
+
+            <PressableScale style={[st.leaveBtn, st.leaveStay]} onPress={() => setLeaveOpen(false)} accessibilityLabel="Keep learning">
+              <Text style={st.leaveStayTxt}>Keep learning</Text>
+            </PressableScale>
+            <PressableScale style={st.leaveGo} onPress={leaveNow} accessibilityLabel="Leave for now">
+              <Text style={st.leaveGoTxt}>Leave for now</Text>
+            </PressableScale>
+          </Appear>
+        </View>
+      </Modal>
+
       {/* ── COMPLETED ── */}
       {mode === M.COMPLETED && (
         <View style={st.doneOverlay} pointerEvents="box-none">
           <Appear from="scale" style={st.doneCard}>
+            {/* Behind the trophy, so the stickers read as thrown from it. */}
+            <Stickers />
             <Appear from="scale" delay={220} duration={420} style={st.doneEmoji}><Trophy size={40} color="#F59E0B" strokeWidth={1.9} /></Appear>
-            <Text style={st.doneTitle} accessibilityRole="header">Well done today</Text>
+            <Text style={st.doneTitle} accessibilityRole="header">Thank you for attending — well done!</Text>
             <Text style={st.doneSub}>{memoryRecap || doneMsg || 'Great focus today. Take it again whenever you like.'}</Text>
 
             {learned.length > 0 && (
@@ -2144,6 +2246,32 @@ const st = StyleSheet.create({
   // Hands-free "Live" dock control — a calm teal ring that reads as "listening now".
   dLive: { width: 56, height: 56, borderRadius: 28, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(16,185,129,0.16)', borderWidth: 1.5, borderColor: C.teal },
   dLblLive: { color: C.teal, fontFamily: F.bold },
+
+  // leaving part-way — a small sheet, not a full takeover
+  leaveWrap: { flex: 1, backgroundColor: 'rgba(17,17,17,0.5)', alignItems: 'center', justifyContent: 'center', padding: 28 },
+  leaveCard: {
+    width: '100%', maxWidth: 380, backgroundColor: '#FFFFFF', borderRadius: R.xxl,
+    padding: 26, alignItems: 'center',
+    shadowColor: '#000', shadowOpacity: 0.18, shadowRadius: 30, shadowOffset: { width: 0, height: 14 }, elevation: 14,
+  },
+  leaveIcon: {
+    width: 58, height: 58, borderRadius: 29, backgroundColor: 'rgba(16,185,129,0.12)',
+    alignItems: 'center', justifyContent: 'center', marginBottom: SP.sm,
+  },
+  leaveIconTxt: { fontSize: 28 },
+  leaveTitle: { fontSize: 21, fontFamily: SERIF, fontWeight: '600', color: '#111111', marginTop: 4, textAlign: 'center' },
+  leaveSub: { fontSize: 13.5, fontFamily: F.med, color: '#666666', textAlign: 'center', marginTop: 8, lineHeight: 20 },
+  leaveBarTrack: { alignSelf: 'stretch', height: 6, borderRadius: 3, backgroundColor: '#EDEDED', marginTop: SP.md, overflow: 'hidden' },
+  leaveBarFill: { height: '100%', borderRadius: 3, backgroundColor: C.green },
+  leaveBtn: { alignSelf: 'stretch', paddingVertical: 15, borderRadius: R.md, alignItems: 'center', marginTop: SP.md },
+  leaveStay: { backgroundColor: ACCENT },
+  leaveStayTxt: { fontSize: 14.5, fontFamily: F.bold, color: '#111111' },
+  leaveGo: { alignSelf: 'stretch', paddingVertical: 12, alignItems: 'center', marginTop: 4 },
+  leaveGoTxt: { fontSize: 13.5, fontFamily: F.semi, color: '#666666' },
+
+  // finish-card stickers — centred on the card, thrown outward from the trophy
+  stickerLayer: { ...StyleSheet.absoluteFillObject, alignItems: 'center', justifyContent: 'center' },
+  sticker: { position: 'absolute', fontSize: 26 },
 
   // completed — a dark sheet over the darkened room
   doneOverlay: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(17,17,17,0.45)', alignItems: 'center', justifyContent: 'center', padding: 26 },
