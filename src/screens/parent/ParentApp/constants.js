@@ -355,7 +355,7 @@ export const CONTENT = {
       // (URLs come from CONTENT.event.community). Only real, reachable pages are linked.
       tagline: 'Learning that actually sticks',
       legal: [
-        { label: 'Privacy Policy', url: 'https://ailernova.in/privacy-policy/' },
+        { label: 'Privacy Policy', url: 'https://ailernova.in/privacy-policy/', action: 'privacy' },
         { label: 'Contact Us', url: 'https://wa.me/918905604773' },
       ],
       copyright: '© Ailernova · All rights reserved.',

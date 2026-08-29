@@ -21,6 +21,7 @@ import { Video as AVVideo, ResizeMode } from 'expo-av';   // `Video` is taken by
 import { C, T, CONTENT, Wordmark } from './constants';
 import { PressableScale, FadeIn, PopIn, CountUp } from './anim';
 import TrialBookingEmbed from './TrialBookingEmbed';
+import PolicyModal from '../../../components/brand/PolicyModal';
 
 const { width: SCREEN_W } = Dimensions.get('window');
 const STORE_W = SCREEN_W - 72;   // inner store-slider width (screen − modal pad − card pad)
@@ -811,6 +812,9 @@ export function BecomePage({ E, onAbout, onImpact, onTutors, onReviews, onPricin
   const [blogsOpen, setBlogsOpen] = useState(false);
   const [subjOpen, setSubjOpen] = useState(false);
   const [tutorOpen, setTutorOpen] = useState(false);
+  // The privacy policy opens in-app, like it does on sign-up and in Profile.
+  const [privacyOpen, setPrivacyOpen] = useState(false);
+  const [privacyUrl, setPrivacyUrl] = useState(null);
   const toggle = (i) => { spring(); setOpenIdx((o) => (o === i ? -1 : i)); };
   const tapItem = (it) => {
     if (it.program) return onOpenProgram && onOpenProgram(it.program);
@@ -899,7 +903,17 @@ export function BecomePage({ E, onAbout, onImpact, onTutors, onReviews, onPricin
           </View>
           <View style={{ alignItems: 'flex-end', gap: 6 }}>
             {(ft.legal || []).map((lg) => (
-              <PressableScale key={lg.label} onPress={() => open(lg.url)} accessibilityRole="link">
+              <PressableScale
+                key={lg.label}
+                onPress={() => {
+                  // Privacy reads in a sheet — consistent with the other two entry
+                  // points, and it still works when ailernova.in is unreachable.
+                  // Contact Us is a wa.me link and has to leave the app.
+                  if (lg.action === 'privacy') { setPrivacyUrl(lg.url); setPrivacyOpen(true); return; }
+                  open(lg.url);
+                }}
+                accessibilityRole="link"
+              >
                 <T w="semi" s={11.5} c={C.muted}>{lg.label}</T>
               </PressableScale>
             ))}
@@ -909,6 +923,7 @@ export function BecomePage({ E, onAbout, onImpact, onTutors, onReviews, onPricin
         {!!ft.copyright && <T w="med" s={10.5} c={C.faint} style={{ textAlign: 'center', marginTop: 18 }}>{ft.copyright}</T>}
       </View>
     </View>
+    <PolicyModal visible={privacyOpen} onClose={() => setPrivacyOpen(false)} url={privacyUrl} title="Privacy Policy" />
     <BlogsScreen visible={blogsOpen} onClose={() => setBlogsOpen(false)} data={E.blogs} />
     <SubjectPicker visible={subjOpen} onClose={() => setSubjOpen(false)} data={E.subjects} />
     <BecomeTutorScreen visible={tutorOpen} onClose={() => setTutorOpen(false)} data={E.becomeTutor} />
