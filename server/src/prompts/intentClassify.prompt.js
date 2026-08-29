@@ -8,6 +8,7 @@ const INTENTS = [
   'quiz_request',
   'revision',
   'greeting',
+  'stop_lesson',
   'off_topic',
   'unclear',
 ]
@@ -32,6 +33,16 @@ function quickIntent(rawText) {
   }
   if (/\b(example|examples|ek example|koi example|for example|e\.?g\.?)\b/.test(t) && /\b(give|show|do|bata|de|chahiye|want)\b/.test(t)) {
     return { intent: 'example_request', language }
+  }
+  // Wanting to stop. Checked BEFORE greeting, because "ok bye", "no thanks" and
+  // "bas" all read as acknowledgements on their own — and getting this wrong means
+  // carrying on teaching someone who has asked you to stop, which is the worse
+  // error of the two. Deliberately narrow: it must be an explicit wish to stop,
+  // not mere reluctance ("this is hard", "I'm tired") which deserves encouragement.
+  if (/\b(i (don'?t|do not|dont) want to (study|learn|read)|not in the mood|no more (study|lesson|class)|stop the (lesson|class)|end the (lesson|class)|stop teaching|i'?m done|im done|that'?s enough|thats enough|enough for (today|now)|leave it for (today|now)|no more questions|close the lesson|exit the lesson)\b/.test(t)
+      || /\b(padhna nahi|nahi padhna|padhai band|band karo|bas karo|bas ho gaya|ab bas|mood nahi|aaj nahi|rehne do|chhod do|nahi chahiye padhai)\b/.test(t)
+      || /(पढ़ाई बंद|नहीं पढ़ना|बस करो|बंद करो|अभी नहीं)/.test(text)) {
+    return { intent: 'stop_lesson', language }
   }
   // Greetings & acknowledgements get a WARM, continuity-aware reply (not the
   // dismissive "stay on topic" line) — that first hello is where the teacher must
@@ -70,6 +81,7 @@ INTENTS:
 - quiz_request: wants to be tested or asked questions.
 - revision: wants a quick recap / summary of a topic.
 - greeting: a greeting, thanks, or acknowledgement ("hi", "hello", "namaste", "thanks", "ok", "bye").
+- stop_lesson: the student explicitly wants to STOP studying now ("I don't want to study", "that's enough for today", "stop the lesson", "padhna nahi hai", "bas karo"). Reluctance or fatigue alone ("this is hard", "I'm tired", "I don't get it") is NOT stop_lesson — those are doubt or concept_explanation.
 - off_topic: not about studies (games, food, chit-chat) — but NOT greetings.
 - unclear: too vague, empty, or garbled to classify.
 

@@ -236,6 +236,21 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
 
   const handleBack = () => { stopTeacher(); onBack && onBack(); };
 
+  // The agent returns action:'end_lesson' when the student has said they want to
+  // stop. Closing the screen the instant that arrives would cut the teacher off
+  // mid-goodbye and read as a crash, so the sign-off is allowed to finish first.
+  //
+  // The timer is cleared on the next question, so a student who changes their mind
+  // and asks something else stays in the lesson — the exit is a consequence of
+  // silence, not an irreversible decision taken on one sentence.
+  const endTimerRef = useRef(null);
+  useEffect(() => () => clearTimeout(endTimerRef.current), []);
+  const maybeEndLesson = (res) => {
+    clearTimeout(endTimerRef.current);
+    if (!res || res.action !== 'end_lesson') return;
+    endTimerRef.current = setTimeout(handleBack, 4500);
+  };
+
   const handleGenerate = async () => {
     const t = topic.trim();
     if (!t || loading) return;
@@ -513,6 +528,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
             { role: 'USER', content: q },
             { role: 'ASSISTANT', content: res.answer },
           ].slice(-12);
+          maybeEndLesson(res);
           // Return the full response so the player can surface retrieval metadata
           // (concept, prerequisites, confidence) alongside the answer text.
           return res;
@@ -534,6 +550,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
             { role: 'USER', content: q },
             { role: 'ASSISTANT', content: res.answer || '' },
           ].slice(-12);
+          maybeEndLesson(res);
           return res;
         }}
         onExit={handleBack}

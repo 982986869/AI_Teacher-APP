@@ -42,8 +42,60 @@ const LINES = {
     hi: 'कोई बात नहीं — इसे बाद में देखेंगे। और कुछ पूछो।',
     hinglish: 'Koi baat nahi — ye baad me dekhte hain. Aur kuch poochho.',
   },
+  // Signing off. Warm and without guilt: a student who says they have had enough
+  // should not be argued with or made to feel they failed, or they learn not to
+  // say it. No question at the end either — this reply is meant to close the
+  // conversation, and inviting another turn would undo it.
+  stop_lesson: {
+    en: "Sure — we'll stop here. You did well today. Come back whenever you're ready.",
+    hi: 'ठीक है — आज यहीं रोकते हैं। तुमने अच्छा किया। जब मन हो, फिर आ जाना।',
+    hinglish: 'Theek hai — aaj yahin rokte hain. Aaj achha kiya tumne. Jab mann ho, phir aa jaana.',
+  },
 }
 const line = (key, language) => (LINES[key] && (LINES[key][language] || LINES[key].en)) || ''
+
+// ─── Finishing one thing before starting another ─────────────────────────────
+// A student mid-way through Physics who asks for Chemistry gets told to wait, and
+// the request is remembered rather than dropped.
+//
+// The trigger is deliberately narrow: the message must NAME a different subject
+// while a lesson is running. Anything looser — say, deferring whenever retrieval
+// drifts off the lesson's chapter — would start refusing ordinary follow-up
+// doubts, which is the opposite of what a teacher should do. Asking "why does
+// this work?" must always be answered on the spot.
+const SUBJECT_WORDS = {
+  physics: /\b(physics|bhautiki)\b|भौतिक/i,
+  chemistry: /\b(chemistry|rasayan)\b|रसायन/i,
+  biology: /\b(biology|jeev vigyan)\b|जीव\s*विज्ञान/i,
+  mathematics: /\b(math|maths|mathematics|ganit)\b|गणित/i,
+}
+
+function namedSubject(text) {
+  for (const [subject, re] of Object.entries(SUBJECT_WORDS)) {
+    if (re.test(String(text || ''))) return subject
+  }
+  return null
+}
+
+// "Let me finish X first, then I'll take Y." Built per language rather than by
+// string-concatenating an English frame, so Hindi and Hinglish read naturally.
+function deferLine(currentSubject, askedSubject, language) {
+  const cur = currentSubject || 'this'
+  if (language === 'hi') {
+    return `पहले ${cur} का यह हिस्सा पूरा कर लें — फिर ${askedSubject} पढ़ाती हूँ। याद है मुझे।`
+  }
+  if (language === 'hinglish') {
+    return `Pehle ${cur} ka ye topic complete kar lete hain — uske baad ${askedSubject} padhaungi. Yaad hai mujhe.`
+  }
+  return `Let's finish this ${cur} topic first — then I'll take ${askedSubject}. I've noted it down.`
+}
+
+// What the teacher says when the deferred topic's turn comes.
+function deferredNowLine(askedSubject, language) {
+  if (language === 'hi') return `अब ${askedSubject} पर आते हैं, जैसा तुमने पूछा था।`
+  if (language === 'hinglish') return `Ab ${askedSubject} pe aate hain, jaisa tumne poochha tha.`
+  return `Now let's come to ${askedSubject}, as you asked.`
+}
 
 // Warm greetings — what a real teacher says when you walk in, in the student's
 // language. Continuity copy uses the chapter name (a proper noun) inside a
@@ -405,6 +457,23 @@ async function ask(params) {
   }
 
   // Continuation turns first (carry state via `pending`).
+  // A topic that was deferred earlier: if the student now says go ahead, teach the
+  // thing they originally asked for instead of treating "ok" as a greeting. If they
+  // say anything else, the deferral is dropped and their new message is handled
+  // normally — the queue must never trap them.
+  if (pending && pending.kind === 'deferred_topic') {
+    if (/^(ok(ay)?|yes|yeah|haan|ha|sure|go on|carry on|continue|ab batao|theek hai|thik hai|done|finished|ho gaya)\b/i.test(question)) {
+      const dl = deferredNowLine(pending.askedSubject, pending.language || 'en')
+      const taught = await ask({
+        ...params,
+        text: pending.question,
+        subject: pending.askedSubject,
+        pending: null,
+      })
+      return { ...taught, answer: `${dl}\n\n${taught.answer}`, resumedFrom: 'deferred_topic' }
+    }
+    // fall through: a different question wins over the queued one.
+  }
   if (pending && pending.kind === 'quiz') {
     return handleQuizAnswer({ userId, studentAnswer: question, pending, lessonId, slideIndex })
   }
@@ -427,6 +496,45 @@ async function ask(params) {
   // A "hi" / "thanks" deserves a warm human reply, not a dismissal — handle it
   // before any retrieval / mastery work.
   if (intent === 'greeting') return greetingReply({ userId, language, lessonId, slideIndex, subject })
+
+  // The student has asked to stop. Answer before any retrieval or mastery work —
+  // none of it is wanted — and carry `action: 'end_lesson'` so the client can close
+  // the player rather than leaving them sitting in a lesson they just left.
+  // No resumeCue: every other early return offers one, and "let's continue" is the
+  // one thing this reply must not say.
+  if (intent === 'stop_lesson') {
+    return {
+      intent: 'stop_lesson', language, intentVia: via, mode: 'canned',
+      grounded: false, source: 'none', confidence: 0.9, sources: [],
+      answer: line('stop_lesson', language),
+      expecting: null, pending: null, resumeCue: null, resumeSlideIndex: null,
+      action: 'end_lesson',
+    }
+  }
+
+  // Mid-lesson, and the student has named a DIFFERENT subject: hold the request
+  // rather than abandoning the topic in progress. Only on the teaching intents —
+  // a quiz request or a greeting that happens to mention "physics" is not a
+  // switch — and only when a lesson is actually running, since outside one there
+  // is nothing to finish first.
+  const askedSubject = namedSubject(question)
+  const lessonSubject = canonicalSubject(lesson && lesson.subject) || canonicalSubject(subject)
+  if (
+    lessonId && lesson && askedSubject && lessonSubject
+    && askedSubject.toLowerCase() !== String(lessonSubject).toLowerCase()
+    && (intent === 'concept_explanation' || intent === 'doubt' || intent === 'formula' || intent === 'example_request')
+  ) {
+    return {
+      intent: 'defer_topic', language, intentVia: via, mode: 'canned',
+      grounded: false, source: 'none', confidence: 0.9, sources: [],
+      answer: deferLine(lessonSubject, askedSubject, language),
+      expecting: null,
+      // Remembered, so it can be taught when this topic ends — the promise in the
+      // reply is only honest if the request actually survives the turn.
+      pending: { kind: 'deferred_topic', question, askedSubject, language },
+      resumeCue: line('resume', language), resumeSlideIndex: slideIndex ?? null,
+    }
+  }
 
   // The teacher remembers this student on this concept — drives explanation depth
   // AND the natural "I remember you struggled here" reference in the reply.
@@ -476,7 +584,9 @@ async function askStream(params, { onMeta, onDelta } = {}) {
   const emit = (res) => { if (onMeta) onMeta({ intent: res.intent, mode: res.mode, grounded: res.grounded }); if (onDelta) onDelta(res.answer); return res }
 
   // Non-streamable branches (empty, continuation) → produce via ask(), emit once.
-  if (!question || (pending && (pending.kind === 'quiz' || pending.kind === 'understanding'))) {
+  // `deferred_topic` is here too: resuming it re-enters ask() to teach the held
+  // question, and that nested call is not something this function can stream.
+  if (!question || (pending && (pending.kind === 'quiz' || pending.kind === 'understanding' || pending.kind === 'deferred_topic'))) {
     return emit(await ask(params))
   }
 
@@ -491,6 +601,38 @@ async function askStream(params, { onMeta, onDelta } = {}) {
 
   // Greetings get a warm human reply before any retrieval / mastery work.
   if (intent === 'greeting') return emit(await greetingReply({ userId, language, lessonId, slideIndex, subject }))
+
+  // Wanting to stop, and switching subject mid-lesson. Both are canned replies with
+  // nothing to stream, and both MUST be repeated here: askStream is a parallel
+  // implementation of ask() with its own early returns, so a branch added only to
+  // ask() would work on the non-streaming path and silently do nothing on this one.
+  if (intent === 'stop_lesson') {
+    return emit({
+      intent: 'stop_lesson', language, intentVia: via, mode: 'canned',
+      grounded: false, source: 'none', confidence: 0.9, sources: [],
+      answer: line('stop_lesson', language),
+      expecting: null, pending: null, resumeCue: null, resumeSlideIndex: null,
+      action: 'end_lesson',
+    })
+  }
+  {
+    const askedSubject = namedSubject(question)
+    const lessonSubject = canonicalSubject(lesson && lesson.subject) || canonicalSubject(subject)
+    if (
+      lessonId && lesson && askedSubject && lessonSubject
+      && askedSubject.toLowerCase() !== String(lessonSubject).toLowerCase()
+      && (intent === 'concept_explanation' || intent === 'doubt' || intent === 'formula' || intent === 'example_request')
+    ) {
+      return emit({
+        intent: 'defer_topic', language, intentVia: via, mode: 'canned',
+        grounded: false, source: 'none', confidence: 0.9, sources: [],
+        answer: deferLine(lessonSubject, askedSubject, language),
+        expecting: null,
+        pending: { kind: 'deferred_topic', question, askedSubject, language },
+        resumeCue: line('resume', language), resumeSlideIndex: slideIndex ?? null,
+      })
+    }
+  }
 
   // The teacher remembers this student (see ask()).
   // conceptMemory + memoryCues are independent reads — overlap them (see ask()).
