@@ -126,3 +126,11 @@ supabase/.branches/
 # Loose UI reference pages dropped at the repo root while prototyping. The real
 # screens live under src/screens/ — these are scratch, not part of the app.
 /*.html
+
+# Dev QR codes for Expo Go. Each one encodes the LAN IP of whichever machine and
+# session generated it — this one has changed eight times in a week — so a
+# committed QR is a picture of a host that no longer exists. Regenerate instead:
+#   npx qrcode -o expo-qr.png "exp://<ip>:8081"
+expo-qr*.png
+expo-qr*.svg
+server/expo-qr*.png
