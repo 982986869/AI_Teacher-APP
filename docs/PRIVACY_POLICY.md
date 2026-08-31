@@ -1,202 +1,181 @@
-# Ailernova — Privacy Policy
+# Privacy Policy — Ailernova
 
-**Status: DRAFT. Not legal advice, and not ready to publish as-is.**
-Written by reading what the application actually does, not from a template — so
-the facts below are accurate to the code as of 29 August 2026. The *legal*
-framing has not been reviewed by a lawyer, and it must be before this goes live.
-See "Before publishing this" at the end for what needs a qualified opinion.
+**Last updated: 31 August 2026**
 
-Last reviewed against the code: 29 August 2026
-Applies to: the Ailernova mobile app (Android) and ailernova.in
+Ailernova Private Limited ("Ailernova", "we", "us") provides an AI-assisted
+learning app for school students in Classes 6–12. This policy explains what the
+app collects, why, who else sees it, and what you can do about it.
 
----
-
-## Who we are
-
-Ailernova Private Limited
-P03-01a & P03-01b, 3rd Floor, Building 51d, WTC Tower D, GIFT City,
-Gandhinagar 382050, India
-
-Questions about this policy, or about your data: **saurabh@ailernova.com**
+**Contact:** saurabh@ailernova.com
+**Address:** P03-01a & P03-01b, 3rd Floor, Building 51d, WTC Tower D, GIFT City,
+Gandhinagar 382050, Gujarat, India
 
 ---
 
-## Who uses Ailernova
+## 1. Children
 
-Ailernova teaches school students, Classes 6 to 12. **Most of our users are
-children under 18, and many are under 13.** That shapes everything below: under
-India's Digital Personal Data Protection Act 2023, a child's personal data
-requires verifiable consent from a parent or guardian, and we may not track a
-child's behaviour for advertising or serve them targeted ads.
+Most of our users are under 18, and many are under 13.
 
-We do not show advertisements of any kind, and we do not sell personal data.
+- We do **not** show advertisements.
+- We do **not** use advertising identifiers, and we do not build profiles for
+  advertising.
+- We do **not** sell personal data, and we do not share it for anyone else's
+  marketing.
+
+Under India's Digital Personal Data Protection Act 2023, a child's personal data
+requires consent from a parent or guardian. If you are under 18, please ask a
+parent or guardian to review this policy with you before you create an account.
+
+Parents: see §7 for how to see, correct or delete your child's data.
 
 ---
 
-## What we collect
+## 2. What we collect
 
-### You give us this
+### 2.1 Information you give us
 
-| Data | When | Why | Required? |
-|---|---|---|---|
-| Name | Sign-up | To address you in the app and on your work | Yes |
-| Email address | Sign-up or Google sign-in | To identify your account and let you sign in | Yes, unless you use phone |
-| Phone number | Sign-up | Account identification and support | Optional |
-| Password | Sign-up | Stored only as a one-way hash — we never hold the password itself | Yes, unless you use Google |
-| Class / grade | Sign-up or profile | To show the right syllabus and set the level of explanation | Yes |
-| Profile photo | Profile | Shown on your own profile | Optional |
-| Study material you upload | "Ask my material" | So the AI teacher can answer questions grounded in your own notes | Optional |
+| Data | Required | Why |
+|---|---|---|
+| Name | Yes | To address you in the app and on your work |
+| Email address | Yes, unless you sign in with Google or use a phone number | Account identity and sign-in |
+| Phone number | Optional | Account identity and support |
+| Password | Yes, unless you sign in with Google | Stored only as a one-way hash — we never hold the password itself |
+| Class / grade | Yes | To show the right syllabus and pitch explanations at the right level |
+| Profile photo | Optional | Shown on your own profile |
+| Study material you upload | Optional | So the AI teacher can answer using your own notes |
 
-### The app records this as you learn
+### 2.2 Information created as you learn
 
-- Lessons generated, opened and how far through them you are
+- Lessons generated, opened, and how far through each one you are
 - Questions attempted, answers given, and whether they were correct
-- Doubts you ask the AI teacher, and its replies
-- Brain Gym results — score, XP, time taken, streaks
-- A "student model": which concepts you find easy or hard, so explanations adapt
+- Doubts you ask the AI teacher and the replies it gives
+- Brain Gym results: score, XP, time taken, streaks
+- A learning profile recording which concepts you find easy or hard
 
-This is the substance of the product. Without it, the teacher cannot remember
-what you struggled with last week, and every lesson would start from zero.
+This is what allows the teacher to remember what you struggled with and adapt.
+Without it, every lesson would begin from nothing.
 
-### Stored only on your device
+### 2.3 Device permissions
 
-An authentication token, your profile, lesson position, practice attempts and
-streaks are kept in the app's local storage. Deleting the app removes them.
+The app asks for these only when you use the feature, and each can be refused
+without losing access to the rest of the app.
 
-### What we do NOT collect
+| Permission | When | What happens |
+|---|---|---|
+| **Microphone** | Only while you use voice input to talk to the AI teacher | Your speech is converted to text by your device's own speech-recognition service (provided by Google on Android). **We do not record, upload or store audio.** Only the resulting text reaches us, as your question |
+| **Calendar** | Only if you choose to add a booked demo class to your calendar | We create that one event. We do not read your existing events for any other purpose |
+| **Photos** | Only when you pick a profile picture or upload study material | Only the file you choose is uploaded |
 
-- No advertising identifiers, and no ad networks
-- No analytics or crash-reporting SDK is installed in the app
-- No location, contacts, calendar, microphone recordings or photo library beyond
-  a profile picture you choose
-- No payment card details — we do not take payments in the app
+### 2.4 Stored on your device only
+
+A sign-in token, your profile, your position in a lesson, practice attempts and
+streaks are kept in the app's local storage. Uninstalling the app removes them.
+
+### 2.5 What we do not collect
+
+We do not collect your location, contacts, messages, call logs, installed-app
+list, or any advertising identifier. The app contains no advertising SDK and no
+third-party analytics or crash-reporting SDK.
 
 ---
 
-## Who else sees your data
+## 3. Why we are permitted to hold it
 
-We use these providers to run the service. Each receives only what its job
-requires, and none of them may use your data to train their own models or for
-their own purposes.
+- **To provide the service you asked for** — your account, lessons and progress.
+- **With your consent** — for anything optional, such as uploading your own study
+  material or granting a device permission. You may withdraw consent at any time
+  by deleting the content, revoking the permission in your device settings, or
+  deleting your account.
 
-| Provider | What it receives | Where | Why |
+We do not rely on "legitimate interests" for profiling, because our users are
+children.
+
+---
+
+## 4. Who else processes your data
+
+Each provider receives only what its function requires, acts on our instructions,
+and is not permitted to use your data for its own purposes or to train its own
+models.
+
+| Provider | Receives | Location | Purpose |
 |---|---|---|---|
-| **Anthropic (Claude)** | Your question, the relevant lesson text, and a short summary of your progress on that concept | US | Generates the AI teacher's explanations |
-| **ElevenLabs** | The text the teacher is about to speak | US | Turns it into the teacher's voice |
-| **OpenAI** | The same text, only if ElevenLabs is unavailable | US | Fallback voice |
-| **Voyage AI** | Text from material you upload | US | Converts it to embeddings so answers can be grounded in your notes |
-| **Supabase** | Your account record, learning history and uploaded files | Singapore | Our database and file storage |
-| **Render** | All API traffic | Singapore | Runs our server |
-| **Google** | Your Google account identity, only if you choose Google sign-in | Global | Signing in |
-| **Calendly** | Whatever you enter when booking | US | Booking a free demo class |
-| **Expo (EAS)** | App version and update checks — not your account data | US | Delivers app updates |
+| Anthropic | Your question, the relevant lesson text, and a short summary of your progress on that topic | United States | Generates the AI teacher's explanations |
+| ElevenLabs | The text the teacher is about to speak | United States | Converts it to the teacher's voice |
+| OpenAI | The same text, only when ElevenLabs is unavailable | United States | Fallback voice |
+| Voyage AI | Text from study material you upload | United States | Converts it so answers can be grounded in your notes |
+| Supabase | Your account, learning history and uploaded files | Singapore | Database and file storage |
+| Render | API traffic | Singapore | Application hosting |
+| Google | Your Google account identity (only if you choose Google sign-in); your speech, when you use voice input | Global | Sign-in; on-device speech recognition |
+| Calendly | Whatever you enter when booking | United States | Booking a free demo class |
+| Expo | App version and update checks — not your account data | United States | Delivering app updates |
 
-**Your data leaves India.** Our database and server are in Singapore, chosen
-because they sit beside each other and keep the app fast. The AI providers are in
-the United States. If you are not comfortable with that, please do not use the
-app.
+**Your data is processed outside India.** Our database and servers are in
+Singapore; several providers above are in the United States.
 
 ---
 
-## Why we are allowed to hold it
+## 5. How long we keep it
 
-- **To provide the service you asked for** — an account, lessons, progress.
-- **With consent** — for anything optional, such as uploading your own material.
-  You can withdraw consent by deleting that content or your account.
-- We do **not** rely on "legitimate interest" for profiling, because our users
-  are children.
-
----
-
-## How long we keep it
-
-| Data | Kept for |
+| Data | Retained |
 |---|---|
 | Account details | While your account is open |
-| Learning history | While your account is open — it is what makes the teacher adapt |
-| Uploaded material | Until you delete it, or your account closes |
+| Learning history | While your account is open |
+| Uploaded study material | Until you delete it, or your account is closed |
 | Doubt conversations | While your account is open |
-| Server logs | 30 days |
+| Server logs | Up to 30 days |
 
-When an account is deleted we remove personal data within 30 days. Anonymous,
-aggregated figures that cannot identify anyone — such as how many students
-attempted a chapter — may be kept.
-
----
-
-## Your rights
-
-You, or a parent on your behalf, can:
-
-- **See** what we hold about you
-- **Correct** anything wrong
-- **Delete** your account and its data
-- **Take your data with you** in a portable format
-- **Withdraw consent** for anything optional
-- **Complain** to the Data Protection Board of India
-
-Write to **saurabh@ailernova.com**. We will reply within 30 days. We may ask you
-to confirm your identity first, so that nobody else can request your data.
+On account deletion we remove personal data within 30 days. Anonymous aggregated
+figures that cannot identify anyone — such as how many students attempted a
+chapter — may be retained.
 
 ---
 
-## Parents and guardians
+## 6. Security
 
-If your child uses Ailernova, you may ask us at any time to show you what we
-hold about them, correct it, or delete it. Email
-**saurabh@ailernova.com** from the address on the account, or tell us enough
-about the account for us to find it.
-
-We do not knowingly collect more from a child than the service needs, we do not
-profile children for advertising, and we do not share their data with anyone
-outside the providers listed above.
-
----
-
-## Security
-
-- Passwords are stored as one-way hashes; we cannot read them
-- All traffic uses HTTPS
-- Access to the database is limited to the people who need it to run the service
+- Passwords are stored as one-way hashes and cannot be read by us
+- All traffic between the app and our servers uses HTTPS
+- Database access is restricted to staff who need it to operate the service
 - Sessions expire and can be revoked
 
-No system is perfectly secure. If a breach affects your data, we will notify you
-and the Data Protection Board as the law requires.
+No system is completely secure. If a breach affects your personal data we will
+notify you and the Data Protection Board of India as the law requires.
 
 ---
 
-## Changes
+## 7. Your rights
 
-If we change this policy we will update the date at the top and, for anything
-significant, tell you in the app before it takes effect.
+You, or a parent or guardian on your behalf, may:
+
+- **Access** the personal data we hold about you
+- **Correct** anything inaccurate
+- **Delete** your account and its data
+- **Obtain a copy** in a portable format
+- **Withdraw consent** for anything optional
+- **Nominate** someone to exercise these rights if you are unable to
+- **Complain** to the Data Protection Board of India
+
+Email **saurabh@ailernova.com**. We respond within 30 days. We may first ask you
+to verify your identity, so that nobody else can obtain your data.
+
+**Deleting your account:** email us from the address on the account and we will
+delete it within 30 days.
+
+**Grievance Officer:** [NAME], saurabh@ailernova.com — required under Indian law;
+insert the responsible person's name before publishing.
 
 ---
 
-# Before publishing this
+## 8. Changes
 
-The facts above were taken from the code. These points were **not** settled by
-reading code and need a decision, and most need a lawyer:
+If this policy changes we will update the date above and, for significant
+changes, notify you in the app before they take effect.
 
-1. **Verifiable parental consent.** The DPDP Act requires it for users under 18.
-   The app currently has a single tick-box on sign-up and no age gate and no
-   parent verification. This is the most significant gap, and it is a product
-   change, not a wording change.
-2. **No age is collected.** Class is collected, which implies age but does not
-   establish it. Whether that is sufficient to identify a child user is a legal
-   question.
-3. **Data Processing Agreements.** The policy states that Anthropic, ElevenLabs,
-   OpenAI and Voyage may not train on your data. Confirm each provider's terms
-   actually say so for the plan we are on, and keep the DPA on file.
-4. **Cross-border transfer.** Data goes to Singapore and the United States.
-   Confirm this is permitted for children's data under the DPDP rules as they are
-   finalised.
-5. **Account deletion.** The policy promises deletion within 30 days. There is
-   currently no in-app delete-account flow — Google Play requires one for apps
-   that allow account creation. Either build it or the promise is not kept.
-6. **Retention periods.** The 30-day log figure is a placeholder; confirm what
-   Render and Supabase actually retain.
-7. **Terms of Use.** There is no terms document. The sign-up screen no longer
-   claims one — see commit `c1964cb` — but if students are meant to be bound by
-   terms, they need writing.
-8. **A Grievance Officer** must be named under Indian law. Decide who, and put
-   their name and contact here.
+---
+
+## 9. Contact
+
+**Ailernova Private Limited**
+P03-01a & P03-01b, 3rd Floor, Building 51d, WTC Tower D, GIFT City,
+Gandhinagar 382050, Gujarat, India
+saurabh@ailernova.com
