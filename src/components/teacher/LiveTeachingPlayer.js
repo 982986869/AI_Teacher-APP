@@ -1653,12 +1653,27 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
                     </View>
                     <PressableScale onPress={() => setFocusMode((f) => !f)} style={st.fsBtn} hitSlop={BAR_HIT}
                       accessibilityLabel={focusMode ? 'Exit full screen' : 'Full screen board'} accessibilityState={{ selected: focusMode }}>
-                      {focusMode ? <Minimize2 size={12} color={INK2} strokeWidth={2.4} /> : <Maximize2 size={12} color={INK2} strokeWidth={2.4} />}
-                      <Text style={st.fsTxt}>{focusMode ? 'Exit' : 'Full Screen'}</Text>
+                      {focusMode ? <Minimize2 size={15} color={INK2} strokeWidth={2.4} /> : <Maximize2 size={15} color={INK2} strokeWidth={2.4} />}
                     </PressableScale>
                   </View>
 
-                  <LessonBoard scene={scene} paused={!teaching} skip={false} resetKey={sceneKey} step={curBeat ? curBeat.boardStep : null} highlight={(curBeat && curBeat.highlight && curBeat.highlight.length) ? curBeat.highlight : keyTerms} action={curBeat && curBeat.boardAction} onQuizContinue={onNextStable} onQuizResult={onQuizResultStable} onReexplain={onReexplainStable} quizFb={quizFb} reteach={reteach} />
+                  {/* The board SCROLLS. wbCard clips (overflow:'hidden') and the point
+                      boards render every point with no cap, so a scene with five
+                      two-line points ran past the bottom of the card on a small screen
+                      and the last ones could not be read at all.
+
+                      flexGrow:1 on the content keeps the boards that depend on a flex
+                      parent — the triangle diagram, the charts — filling the space as
+                      before when content is short; it scrolls only once the content is
+                      genuinely taller than the card. */}
+                  <ScrollView
+                    style={st.wbScroll}
+                    contentContainerStyle={st.wbScrollBody}
+                    showsVerticalScrollIndicator={false}
+                    nestedScrollEnabled
+                  >
+                    <LessonBoard scene={scene} paused={!teaching} skip={false} resetKey={sceneKey} step={curBeat ? curBeat.boardStep : null} highlight={(curBeat && curBeat.highlight && curBeat.highlight.length) ? curBeat.highlight : keyTerms} action={curBeat && curBeat.boardAction} onQuizContinue={onNextStable} onQuizResult={onQuizResultStable} onReexplain={onReexplainStable} quizFb={quizFb} reteach={reteach} />
+                  </ScrollView>
                   <EraserWipe enabled={idx > 0} />
 
                   <PressableScale onPress={onRefresh} style={st.undoBtn} hitSlop={BAR_HIT} accessibilityLabel="Replay this step from the start">
@@ -2044,12 +2059,18 @@ const st = StyleSheet.create({
   wbTool: { width: 30, height: 30, borderRadius: R.sm, alignItems: 'center', justifyContent: 'center' },
   wbToolOn: { backgroundColor: V.violetSoft },
   wbMain: { flex: 1, minWidth: 0, paddingTop: 14, paddingBottom: 40, paddingHorizontal: 14 },
+  // The scroller fills what is left under the title; the 40 of paddingBottom on
+  // wbMain is what keeps its last line clear of the undo button pinned below.
+  wbScroll: { flex: 1, alignSelf: 'stretch' },
+  wbScrollBody: { flexGrow: 1, paddingBottom: 4 },
   wbHead: { flexDirection: 'row', alignItems: 'flex-start', gap: 10, marginBottom: 14 },
   wbHeadTitles: { flex: 1, minWidth: 0 },
   wbKicker: { fontSize: 9, fontFamily: F.bold, color: INK_DIM, letterSpacing: 1.8, textTransform: 'uppercase', marginBottom: 3 },
   wbTitle: { fontSize: 21, fontFamily: F.bold, color: V.violet, letterSpacing: -0.3, lineHeight: 27 },
-  fsBtn: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: V.violetSoft, borderRadius: R.sm, paddingVertical: 6, paddingHorizontal: 10 },
-  fsTxt: { fontSize: 10.5, fontFamily: F.semi, color: ACCENT_DIM },
+  // Icon-only. This was the widest control on the board header — an icon plus the
+  // words "Full Screen" — and it sat directly beside the scene title, which is the
+  // thing that actually needs the width. The label lives on accessibilityLabel.
+  fsBtn: { width: 28, height: 28, alignItems: 'center', justifyContent: 'center', backgroundColor: V.violetSoft, borderRadius: R.sm },
   undoBtn: { position: 'absolute', left: 0, bottom: 8, width: 32, height: 32, alignItems: 'center', justifyContent: 'center' },
 
   // ask bar + collapse handle
