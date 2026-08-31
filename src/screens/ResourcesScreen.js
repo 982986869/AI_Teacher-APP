@@ -1718,8 +1718,12 @@ const ResourcesScreen = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isDbQDoc, activeSubject?.name, activeChapter?.name, activeResType?.type, classNum, docRetry]);
 
+  // Every class, not only Class 10. getChapters(slug, type, class) returns just the
+  // chapters that actually have that section, so fetching it everywhere is what lets
+  // the list stop offering chapters whose content does not exist. pyq covers 18% of
+  // chapters and practice 14%, so outside Class 10 the static list was mostly dead ends.
   const dbQListActive = !!(
-    activeSubject && activeClass === 'Class 10' && !showCards && DBQ_TYPES.includes(activeResType?.type)
+    activeSubject && !showCards && DBQ_TYPES.includes(activeResType?.type)
   );
   const [dbQAvail, setDbQAvail] = useState({ loading: false, chapters: null });
   useEffect(() => {
@@ -1844,9 +1848,8 @@ const ResourcesScreen = () => {
   const [notesAvail, setNotesAvail] = useState({ loading: false, chapters: null });
   const notesListActive = !!(
     activeSubject && activeResType?.type === 'notes' && !activeChapter &&
-    ((activeClass === 'Class 12' &&
-      (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry' || activeSubject?.name === 'Mathematics')) ||
-     activeClass === 'Class 10') // Class 10 Revision Notes are DB-backed for every subject
+    true // every class and subject — only 133 of 1,582 chapters carry revision_notes,
+         // so the static list offered notes that do not exist far more often than not
   );
   useEffect(() => {
     if (!notesListActive) { setNotesAvail({ loading: false, chapters: null }); return undefined; }
@@ -1857,7 +1860,9 @@ const ResourcesScreen = () => {
       .catch(() => { if (alive) setNotesAvail({ loading: false, chapters: [] }); });
     return () => { alive = false; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [notesListActive, activeSubject?.name]);
+    // activeClass belongs here: the fetch passes classNum, so without it a student
+    // switching class kept the previous class's chapter list.
+  }, [notesListActive, activeSubject?.name, activeClass]);
 
   // Class 12 Maths NCERT Part-I / Part-II are DB-backed (questions table,
   // type_key='ncert1'/'ncert2'). Part-I covers chapters 1–6 and Part-II 7–13, so
@@ -2310,10 +2315,18 @@ const ResourcesScreen = () => {
     // Class 10 Revision Notes: the chapter list comes straight from the DB
     // (getChapters(slug,'revision_notes',10) → notesAvail), so only chapters that
     // actually have revision_notes show — no static/hardcoded Class 10 chapter list.
-    const isClass10NotesList = activeResType?.type === 'notes' && activeClass === 'Class 10' && Array.isArray(notesAvail.chapters);
+    // The DB list is authoritative for EVERY class, not just Class 10. It comes from
+    // getChapters(slug, 'revision_notes', class), which already returns only chapters
+    // that have that section — so when it has loaded, showing anything else means
+    // listing chapters whose notes do not exist and answering "coming soon" once the
+    // student is inside. Only 133 of 1,582 chapters have revision_notes, so on the
+    // static list that was the common case, not the edge case.
+    const isClass10NotesList = activeResType?.type === 'notes' && Array.isArray(notesAvail.chapters) && notesAvail.chapters.length > 0;
     // Class 10 question banks (Important Qs / PYQ / Practice): DB-only chapter list
     // from getChapters(slug, type, 10) → dbQAvail — only chapters with that section.
-    const isDbQList = DBQ_TYPES.includes(activeResType?.type) && activeClass === 'Class 10' && Array.isArray(dbQAvail.chapters);
+    // Same for the question banks. important_questions covers 98% of chapters so this
+    // changes little there; pyq (18%) and practice (14%) are where it matters.
+    const isDbQList = DBQ_TYPES.includes(activeResType?.type) && Array.isArray(dbQAvail.chapters) && dbQAvail.chapters.length > 0;
     const chaptersToShow =
       isC12NcertList
         ? subjectChapters.filter((c) => c12NcertAvail.chapters.some((n) => slugify(n) === slugify(c.name)))
