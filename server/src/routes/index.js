@@ -40,6 +40,11 @@ router.use('/parent',     require('./parent'))
 // a product choice about what to show, not a leak this router could cause.
 router.use('/learning',   require('./learning'))
 
+// Free. Which teacher to render, matched to the voice the student is actually
+// hearing. Not gated: the lesson screen needs it before it knows whether the
+// student is paid, and it returns no lesson content — only a name and asset URLs.
+router.use('/teacher',    require('./teacherIdentity'))
+
 // Paid.
 router.use('/ai',           paid(require('./ai')))
 router.use('/knowledge',    paid(require('./knowledge')))

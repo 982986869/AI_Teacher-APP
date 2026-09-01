@@ -124,6 +124,28 @@ const MALE = {
 // change that would not be visible.
 export const MALE_ASSETS_READY = MALE.photo !== FEMALE.photo;
 
-export function teacherFor(gender) {
-  return gender === 'm' ? MALE : FEMALE;
+export function teacherFor(gender, remote) {
+  const base = gender === 'm' ? MALE : FEMALE;
+  return applyRemote(base, remote && remote[gender === 'm' ? 'male' : 'female']);
+}
+
+// Overlay the server's override onto a bundled identity.
+//
+// The bundled assets are require()d module numbers and the server's are URL
+// strings, but every consumer passes these straight to <Image source> / <Video
+// source>, which accept either — a string only has to be wrapped as { uri }.
+//
+// Per FIELD, not per identity: an override that sets only a headshot keeps the
+// bundled photo and clip, so a partial upload degrades to a partial swap instead
+// of a broken screen. stageClip has no override because it is not interchangeable
+// — it has the lesson card's own gradient baked in by scripts/bake-teacher-clip.js,
+// so a raw hosted clip in its place would white the stage out.
+function applyRemote(base, o) {
+  if (!o) return base;
+  const out = { ...base };
+  if (typeof o.name === 'string' && o.name.trim()) out.name = o.name.trim();
+  for (const f of ['photo', 'headshot', 'video']) {
+    if (typeof o[f] === 'string' && o[f]) out[f] = { uri: o[f] };
+  }
+  return out;
 }
