@@ -101,7 +101,10 @@ export const TEACHER_GLB_URL =
 // else changes — every call site already goes through teacherFor().
 const FEMALE = {
   gender: 'f',
-  name: 'Tahlia',
+  // The STUDENT-FACING name. "Tahlia" is HeyGen's name for the source avatar and
+  // is an asset detail; the lesson has always shown "Ms. Nova". That string was
+  // hardcoded in LiveTeachingPlayer, which is why it could not follow the voice.
+  name: 'Ms. Nova',
   photo: TEACHER_PHOTO,
   headshot: TEACHER_HEADSHOT,
   video: TEACHER_VIDEO,
@@ -110,7 +113,7 @@ const FEMALE = {
 
 const MALE = {
   gender: 'm',
-  name: 'Tahlia',                 // rename when the male assets land
+  name: 'Mr. Iker',
   photo: TEACHER_PHOTO,           // → require('../../../assets/teacher-male.png')
   headshot: TEACHER_HEADSHOT,     // → require('../../../assets/teacher-male-head.png')
   video: TEACHER_VIDEO,           // → require('../../../assets/teacher-male.mp4')

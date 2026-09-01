@@ -9,6 +9,7 @@ import LessonBoard from './LessonBoards';
 import TeacherAvatar from './TeacherAvatar';
 import TeacherFullBody from './TeacherFullBody';
 import { TEACHER_PHOTO as TEACHER_HERO_PHOTO, TEACHER_VIDEO as TEACHER_HERO_VIDEO, TEACHER_STAGE_CLIP, TEACHER_HEADSHOT } from './teacherIdentity';
+import useTeacherIdentity from './useTeacherIdentity';
 import { useVideoPlayer, VideoView } from 'expo-video';
 import { useEventListener } from 'expo';
 import VoicePicker from './VoicePicker';
@@ -690,6 +691,9 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   // without this the End Session action row sits directly under the phone's own
   // back/home/recent buttons instead of clearing them.
   const insets = useSafeAreaInsets();
+  // The teacher matching the voice the student is actually hearing — the name
+  // follows the fallback, so a male device voice is not introduced as Ms. Nova.
+  const teacher = useTeacherIdentity();
   // The Teaching Director choreographs the lesson into scenes-of-beats. The player
   // just executes that timeline (speak this line ↔ draw this board step ↔ this face).
   const scenes = useMemo(() => directLesson(lesson || {}), [lesson]);
@@ -1586,7 +1590,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
           <View style={st.nameChip}>
             <TeacherAvatar theme="dark" video={TEACHER_VIDEO} photo={TEACHER_HEADSHOT} state={teacherState} expression={expression} size={28} />
             <View>
-              <Text style={st.nameTxt} numberOfLines={1}>Ms. Nova</Text>
+              <Text style={st.nameTxt} numberOfLines={1}>{teacher.name}</Text>
               <View style={st.roleRow}>
                 <GraduationCap size={9} color={V.textDim} strokeWidth={2.6} />
                 <Text style={st.roleTxt} numberOfLines={1}>{tutorLabel}</Text>
