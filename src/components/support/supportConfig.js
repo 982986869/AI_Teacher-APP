@@ -22,10 +22,16 @@ export const SUPPORT = {
   // takes voice calls. Set this to a real helpline and a "Call" button appears by itself.
   phone: null,
   hours: 'Mon–Sat 9AM–9PM',
-  // ⚠️ TODO(support-sla): "avg 4 min" comes from the design, not from measured data.
-  // It reads as a response-time promise to the customer — confirm it against real
-  // first-response times (or drop it) before this ships.
-  avgReply: 'avg 4 min',
+  // What the header line under the chat name says. It used to read "avg 4 min", which
+  // came from the design and not from measured data — a response-time promise nobody
+  // could stand behind, next to an avatar and a name, which together read as a person
+  // waiting on the other end. Until first-response times are actually measured, the
+  // line states what the thread IS rather than how fast it answers: the replies here
+  // are scripted (see agentOpening below), and the ticket is what reaches a person,
+  // inside `hours`.
+  // ► TODO(support-sla): once real first-response times exist, an honest "typically
+  //   replies in N" can go back — as a second line, not in place of this one.
+  chatMode: 'Auto-reply',
 };
 
 // Who the user is talking to. There is no hardcoded person here on purpose — this used
@@ -254,10 +260,14 @@ export const DEMO_RESOLVED_CONTEXT = {
 // — a line like "team is looking into it" would be false today.
 // Phrasing also avoids gendered Hindi verb endings, since the agent on shift can be
 // anyone; only the name changes.
-const firstName = (n) => String(n || '').trim().split(/\s+/)[0] || 'Support';
+//
+// The opening used to be written in the first person — "Hello! I'm Support from the
+// Academic team" — which read as an introduction from a named human, and the name it
+// used was just the first word of the team placeholder. The script says what it is
+// instead; everything after that (the topic, the detail request) is unchanged.
 
-export function agentOpening({ category, agent }) {
-  return `Hello! I'm ${firstName(agent && agent.name)} from ${category.team}. You picked “${category.label}” — ${String(category.desc || '').toLowerCase()}. Tell us what happened, in as much detail as you can.`;
+export function agentOpening({ category }) {
+  return `This is an automated reply. You picked “${category.label}” — ${String(category.desc || '').toLowerCase()}. Tell us what happened, in as much detail as you can, and it goes to ${category.team} as a ticket.`;
 }
 
 // Said once the ticket is genuinely created on the server — so it can promise a callback,

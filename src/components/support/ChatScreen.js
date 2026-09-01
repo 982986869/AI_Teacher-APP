@@ -834,11 +834,12 @@ export default function ChatScreen({
           <View style={s.contextRight}>
             {!!ref && <View style={s.ticketBadge}><TX w="bold" s={11} lh={13} c={D.onAccent}>{ref}</TX></View>}
             {/* queue-badge: the file gives its box (87×13, gap 4) but not its children,
-                so this shows what we can stand behind — presence + the published average
-                reply time — rather than inventing a live queue position. */}
+                so this shows what we can stand behind — presence, and what the thread
+                actually is — rather than inventing a live queue position or an average
+                reply time nobody measures (see SUPPORT.chatMode in supportConfig). */}
             <View style={s.queueBadge}>
               <View style={[s.queueDot, { backgroundColor: displayAgent.online ? D.online : D.muted }]} />
-              <TX w="reg" s={10} lh={13} c={D.muted}>{SUPPORT.avgReply}</TX>
+              <TX w="reg" s={10} lh={13} c={D.muted}>{SUPPORT.chatMode}</TX>
             </View>
           </View>
         </View>

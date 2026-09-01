@@ -144,7 +144,7 @@ export default function TopicSelect({ categories, agent, role, userName, childNa
       <View style={[s.bottom, { paddingBottom: Math.max(insets.bottom, 12) }]}>
         <View style={s.teamInfo}>
           <TX w="reg" s={11} lh={13} c={D.muted} style={s.center}>
-            {`Team ${agent.online ? 'online' : 'offline'} · ${SUPPORT.hours} · ${SUPPORT.avgReply}`}
+            {`Team ${agent.online ? 'online' : 'offline'} · ${SUPPORT.hours} · ${SUPPORT.chatMode}`}
           </TX>
         </View>
       </View>
