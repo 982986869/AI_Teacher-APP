@@ -137,6 +137,30 @@ function voiceGender(v) {
 }
 
 // Cached chosen voice: `undefined` = not primed yet, `null` = use system default.
+// ── Who the teacher currently SOUNDS like ───────────────────────────────────
+// The server voice (ElevenLabs) is female. When it is unavailable the app falls
+// back to the device's own engine, and on many Android builds the only English
+// voice is male — the lesson then has a woman on screen and a man speaking,
+// which reads as a bug rather than as a fallback.
+//
+// This publishes the current apparent gender so the UI can follow it. It is
+// deliberately NOT "did TTS fail": a device fallback that finds a female voice
+// should keep the female teacher, and only a genuinely male voice should change
+// the face. Unknown gender ('?') is treated as female — the server voice is the
+// normal case, and changing the teacher on a guess is worse than not changing.
+let teacherVoiceGender = 'f';                 // 'f' | 'm'
+const genderSubs = new Set();
+function setTeacherVoiceGender(g) {
+  if (g === teacherVoiceGender) return;
+  teacherVoiceGender = g;
+  genderSubs.forEach((fn) => { try { fn(g); } catch (_) {} });
+}
+export function getTeacherVoiceGender() { return teacherVoiceGender; }
+export function onTeacherVoiceGenderChange(fn) {
+  genderSubs.add(fn);
+  return () => genderSubs.delete(fn);
+}
+
 let chosenVoice = undefined;
 let chosenFemale = false;   // did we confidently pick a FEMALE voice?
 let userPicked = false;     // did the user hand-pick this voice?
@@ -305,6 +329,12 @@ async function speakViaOpenAI(text, opts = {}) {
     ttsFailStreak += 1;
     if (ttsFailStreak >= 2) { ttsDisabled = true; if (__DEV__) console.log('[TTS] OpenAI disabled for session after repeated failures'); }
     if (__DEV__) console.log('[TTS] → falling back to device speech', reason ? `(${reason})` : '');
+    // Publish who the student is about to hear. Prime first so chosenVoice is
+    // resolved — before priming it is `undefined`, which would read as female and
+    // leave the face wrong for the first line.
+    Promise.resolve(primeTeacherVoice())
+      .then((v) => setTeacherVoiceGender(v && voiceGender(v) === 'm' ? 'm' : 'f'))
+      .catch(() => {});
     speakViaDevice(text, opts);
   };
 
@@ -332,6 +362,7 @@ async function speakViaOpenAI(text, opts = {}) {
       }
       if (status.isPlaying && !started) {
         started = true; ttsFailStreak = 0; clearTimeout(guard);
+        setTeacherVoiceGender('f');   // server voice is the female teacher
         speechMode = 'openai'; speechProgress01 = 0;
         if (__DEV__) console.log(`[TTS] OpenAI first-audio in ${Date.now() - t0}ms`);
         if (opts.onStart) opts.onStart();

@@ -73,3 +73,54 @@ export const TEACHER_STAGE_CLIP = require('../../../assets/teacher-tahlia-stage.
 //   validated / exported / optimized by the tooling in blender/ and scripts/.
 export const TEACHER_GLB_URL =
   'https://models.readyplayer.me/64bfa15f0e72c63d7c3934a6.glb?morphTargets=ARKit,Oculus%20Visemes';
+
+// ── VOICE-MATCHED IDENTITY ───────────────────────────────────────────────────
+// The teacher above is female, and so is the server voice (ElevenLabs). When that
+// voice is unreachable the app falls back to the device's own engine, and on many
+// Android builds the only English voice is male — leaving a woman on screen and a
+// man speaking. That reads as a bug, not as a fallback.
+//
+// `teacherFor(gender)` returns the identity to render for the voice the student
+// is actually hearing. teacherVoice.js publishes that gender: subscribe with
+// onTeacherVoiceGenderChange, or read getTeacherVoiceGender().
+//
+// ⚠ THE MALE ASSETS DO NOT EXIST YET, so the male entry currently returns the
+// female ones and nothing changes on screen. This is deliberate: a require() of a
+// missing file does not fall back, it fails the bundle, so the switch is wired and
+// inert rather than wired and broken.
+//
+// To finish it, generate these three from HeyGen avatar 214e2370f8464f83a3d3fe9bcf412c64
+// — the same way assets/teacher-tahlia.mp4 was produced from Tahlia_public_5 —
+// and save them beside the existing files:
+//
+//     assets/teacher-male.png         full-body still, figure centred
+//     assets/teacher-male-head.png    square head-and-shoulders crop for the badge
+//     assets/teacher-male.mp4         2–6 s muted talking loop, H.264
+//
+// then replace the three `require` lines in MALE below with those paths. Nothing
+// else changes — every call site already goes through teacherFor().
+const FEMALE = {
+  gender: 'f',
+  name: 'Tahlia',
+  photo: TEACHER_PHOTO,
+  headshot: TEACHER_HEADSHOT,
+  video: TEACHER_VIDEO,
+  stageClip: TEACHER_STAGE_CLIP,
+};
+
+const MALE = {
+  gender: 'm',
+  name: 'Tahlia',                 // rename when the male assets land
+  photo: TEACHER_PHOTO,           // → require('../../../assets/teacher-male.png')
+  headshot: TEACHER_HEADSHOT,     // → require('../../../assets/teacher-male-head.png')
+  video: TEACHER_VIDEO,           // → require('../../../assets/teacher-male.mp4')
+  stageClip: TEACHER_STAGE_CLIP,
+};
+
+// True once the male identity is genuinely distinct — used to avoid announcing a
+// change that would not be visible.
+export const MALE_ASSETS_READY = MALE.photo !== FEMALE.photo;
+
+export function teacherFor(gender) {
+  return gender === 'm' ? MALE : FEMALE;
+}
