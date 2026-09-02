@@ -26,7 +26,10 @@ const LIVE = process.argv.includes('--live')
 const VERIFY_ONLY = process.argv.includes('--verify')
 const CLASS_DIR = process.env.CLASS_DIR || 'class10'
 const NORM = path.join(ROOT, 'data', 'examin8', CLASS_DIR, 'normalized')
-const CLASS_LEVEL = 10
+// Class 10 by default — the class this was written for. Overridable because the
+// normalized shape is class-agnostic, and the class-12 practice banks in
+// src/data are imported through this same path (convertBundledPractice.js).
+const CLASS_LEVEL = parseInt(process.env.CLASS_LEVEL, 10) || 10
 
 // Canonical chapter slug — recomputed from the chapter NAME with the app's
 // slugify (NOT the chapter_slug baked into the JSON, which may predate a slugify
@@ -53,7 +56,7 @@ const SECTION_META = {
 const SECTION = (process.env.SECTION || 'important_questions').toLowerCase()
 if (!SECTION_META[SECTION]) { console.error(`SECTION must be: ${Object.keys(SECTION_META).join(', ')}`); process.exit(1) }
 
-const VERIFY_TARGETS = [
+let VERIFY_TARGETS = [
   { slug: 'mathematics',    name: 'Mathematics',    chapter: 'real-numbers' },
   { slug: 'science',        name: 'Science',        chapter: null },
   { slug: 'social-science', name: 'Social Science', chapter: null },
@@ -104,6 +107,12 @@ async function main() {
   const outPath = path.join(NORM, `${SECTION}.json`)
   const data = fs.existsSync(outPath) ? JSON.parse(fs.readFileSync(outPath, 'utf8')) : []
 
+  // The defaults above are the class-10 syllabus (Science / Social Science do not
+  // exist in class 12), so for any other class verify whatever was actually
+  // imported instead of reporting three guaranteed misses.
+  if (CLASS_LEVEL !== 10 && data.length) {
+    VERIFY_TARGETS = data.map((s) => ({ slug: s.subject_slug, name: s.subject, chapter: null })) // retargeted
+  }
   if (VERIFY_ONLY) {
     const { Client } = require('pg')
     const client = new Client({ connectionString: getDbUrl(), ssl: { rejectUnauthorized: false } })
@@ -111,6 +120,7 @@ async function main() {
     try { await runVerify(client) } finally { await client.end() }
     return
   }
+
 
   let totCh = 0, totQ = 0
   for (const s of data) for (const ch of s.chapters) { totCh++; totQ += ch.questions.length }
@@ -199,7 +209,7 @@ async function main() {
     await runVerify(client)
   } finally { await client.end() }
 
-  console.log(`\n✓ ${SECTION} imported into sections + questions (Class 10).`)
+  console.log(`\n✓ ${SECTION} imported into sections + questions (class_level=${CLASS_LEVEL}).`)
 }
 
 main().catch((e) => { console.error('FAILED:', e.message); process.exit(1) })

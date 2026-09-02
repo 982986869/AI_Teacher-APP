@@ -738,10 +738,23 @@ const buildPaperFrontMatter = (SUBJ, paper) => {
 // Exception: Class 12 Mathematics NCERT IS split into Part-I / Part-II (DB-backed,
 // rendered as MathJax cards like Physics), so it keeps both entries.
 const getResourceTypes = (subjectName, classLevel, parts = null) => {
+  // Class 12 chapter-level question banks — DB-backed (sections + questions),
+  // the same getQuestionsByPath flow Class 10 uses. Physics, Chemistry and
+  // Mathematics have all three sections for every chapter that exists; no other
+  // Class 12 subject does, so the tiles are listed per subject rather than added
+  // to RESOURCE_TYPES, which every class shares.
+  const C12_DBQ_SUBJECTS = ['Physics', 'Chemistry', 'Mathematics'];
+  const c12Questions = classLevel === 'Class 12' && C12_DBQ_SUBJECTS.includes(subjectName)
+    ? [
+      { icon: '⭐', name: 'Important Questions',     sub: 'Chapter-wise',    type: 'important_questions' },
+      { icon: '🗂️', name: 'Previous Year Questions', sub: 'Chapter-wise PYQ', type: 'pyq' },
+      { icon: '✍️', name: 'Practice Questions',      sub: 'Chapter-wise MCQs', type: 'practice' },
+    ]
+    : [];
   // Last Year Papers are DB-backed for Class 12 only — they don't exist for any
   // other class, so hide the tile there (avoids showing empty/placeholder papers).
   const base = classLevel === 'Class 12'
-    ? RESOURCE_TYPES
+    ? [...RESOURCE_TYPES, ...c12Questions]
     : RESOURCE_TYPES.filter((rt) => rt.type !== 'papers');
   // Class 10 — Revision Notes are DB-backed (sections type_key='revision_notes',
   // class_level=10; chapter list fetched per subject via isClass10NotesList). Last
@@ -1696,8 +1709,14 @@ const ResourcesScreen = () => {
   // in a DocWebView. The chapter list comes from getChapters (only chapters that
   // actually have that section) — nothing hardcoded.
   const DBQ_TYPES = ['important_questions', 'pyq', 'practice'];
+  // Every class, like the chapter list below it. The Class 10 gate here was the
+  // other half of the "coming soon" bug: the list already offered chapters for
+  // any class, but the document they opened only ever loaded for Class 10, so a
+  // Class 12 chapter listed its name and then rendered nothing. getQuestionsByPath
+  // is class-scoped and a 404 falls through to the empty state, so there is
+  // nothing class-specific left to gate on.
   const isDbQDoc = !!(
-    activeSubject && activeChapter && showCards && activeClass === 'Class 10' &&
+    activeSubject && activeChapter && showCards &&
     DBQ_TYPES.includes(activeResType?.type)
   );
   const [dbQDoc, setDbQDoc] = useState({ loading: false, error: null, html: '' });
