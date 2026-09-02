@@ -81,7 +81,7 @@ function wireIdentity() {
   const cEnd = block.indexOf("when it is false.")
   if (cStart >= 0 && cEnd > cStart) {
     block = block.slice(0, cStart)
-      + "  // Downloaded from HeyGen by scripts/fetch-heygen-avatar.js."
+      + "  // Wired by scripts/fetch-heygen-avatar.js."
       + block.slice(cEnd + "when it is false.".length)
   }
   if (hasVideo) {
@@ -96,7 +96,37 @@ function wireIdentity() {
   fs.writeFileSync(IDENTITY, src.slice(0, from) + block + src.slice(to))
   return true
 }
+// Use a LOCAL image instead of calling HeyGen. No API key is involved: if you
+// can see the avatar on heygen.com you can save its preview straight from the
+// browser, and any male portrait works just as well. Same pipeline from the
+// download onward — crop, wire, done.
+async function fromFile(file) {
+  if (!fs.existsSync(file)) { console.error(`\n  no such file: ${file}\n`); process.exit(1) }
+  const sharp = require('sharp')
+  fs.mkdirSync(ASSETS, { recursive: true })
+
+  const meta = await sharp(file).metadata()
+  console.log(`\n  source ${path.basename(file)}  ${meta.width}x${meta.height}`)
+
+  const still = path.join(ASSETS, 'teacher-male.png')
+  await sharp(file).png().toFile(still)
+  console.log(`  ✓ still        ${(fs.statSync(still).size / 1024).toFixed(0)} KB`)
+
+  // The badge is a 28px circle: the full still inside it is just his torso, so
+  // crop to the most salient region, which on a portrait is the face.
+  const head = path.join(ASSETS, 'teacher-male-head.png')
+  await sharp(still).resize(512, 512, { fit: 'cover', position: sharp.strategy.attention }).png().toFile(head)
+  console.log(`  ✓ headshot     ${(fs.statSync(head).size / 1024).toFixed(0)} KB`)
+
+  console.log(wireIdentity() ? '  ✓ teacherIdentity.js now points at the male assets'
+    : '  · teacherIdentity.js unchanged')
+  console.log('\n  Done. Restart Metro so the new assets are bundled.\n')
+}
+
 async function main() {
+  const fromIdx = argv.indexOf('--from')
+  if (fromIdx >= 0 && argv[fromIdx + 1]) return fromFile(path.resolve(argv[fromIdx + 1]))
+
   const key = keyFromEnv()
   if (!key) {
     console.error('\n  HEYGEN_API_KEY is not set.')
