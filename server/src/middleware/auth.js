@@ -58,7 +58,7 @@ async function authenticate(req, res, next) {
       // on every launch, and without these three the Edit Profile and Learning
       // Preferences forms would open blank until the student's next save. Three more
       // columns off a row this query already fetches costs nothing extra.
-      `SELECT id, name, email, phone, grade, role::text AS role, admin_role, is_active, access_level,
+      `SELECT id, name, email, phone, grade, role::text AS role, admin_role, is_active, is_deleted, access_level,
               board, stream, language, school, account_type, linked_student_id, photo_url AS "photoUrl",
               to_char("date_of_birth", 'YYYY-MM-DD') AS "dateOfBirth",
               parent_email AS "parentEmail", learning_prefs AS "learningPrefs"
@@ -74,6 +74,14 @@ async function authenticate(req, res, next) {
 
   if (!user) {
     return next(new AppError('User no longer exists', 401))
+  }
+
+  // A deleted account must not keep working on the strength of a token issued before
+  // it was deleted. The archived email already stops a fresh sign-in, but tokens
+  // outlive that, so the check has to be here — this is the point every authenticated
+  // request passes through.
+  if (user.is_deleted) {
+    return next(new AppError('This account has been deleted', 401))
   }
 
   req.user = user

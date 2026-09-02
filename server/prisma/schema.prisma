@@ -27,6 +27,11 @@ model User {
   // not in the app — the app only decides what to draw.
   accessLevel       String              @default("free") @map("access_level")
   deactivatedAt     DateTime?           @map("deactivated_at") @db.Timestamptz(6)
+  // Self-deletion by the account holder (prisma/sql/account_deletion.sql). Separate
+  // from isActive/deactivatedAt above, which mean "staff suspended this person".
+  // Written and read with raw SQL, so the generated client need not be regenerated.
+  isDeleted         Boolean             @default(false) @map("is_deleted")
+  deletedAt         DateTime?           @map("deleted_at") @db.Timestamptz(6)
   brainGymSessions  BrainGymSession[]
   doubtSessions     DoubtSession[]
   knowledge_sources knowledge_sources[]

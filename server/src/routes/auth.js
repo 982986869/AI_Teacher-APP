@@ -3,7 +3,7 @@
 const { Router } = require('express')
 const multer = require('multer')
 const { body } = require('express-validator')
-const { register, login, googleAuth, me, updateProfile, uploadPhoto } = require('../controllers/auth.controller')
+const { register, login, googleAuth, me, updateProfile, uploadPhoto, deleteAccount } = require('../controllers/auth.controller')
 const { authenticate } = require('../middleware/auth')
 
 const router = Router()
@@ -96,5 +96,8 @@ router.post('/google',   googleRules,   googleAuth)
 router.get('/me',        authenticate,  me)
 router.patch('/profile', authenticate,  profileRules, updateProfile)
 router.post('/photo',    authenticate,  photoUpload.single('file'), uploadPhoto)
+// Account deletion. DELETE on /me because it acts on the caller and nobody else —
+// there is no :id form, so one student can never delete another's account.
+router.delete('/me',     authenticate,  deleteAccount)
 
 module.exports = router

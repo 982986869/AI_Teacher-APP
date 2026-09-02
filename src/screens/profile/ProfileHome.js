@@ -87,6 +87,7 @@ export default function ProfileHome({
   onHelp,
   onSwitchToParent,
   onLogout,
+  onDeleteAccount,
   onPrivacy,
   onPlaceholder,
   bottomInset = 0,
@@ -163,6 +164,17 @@ export default function ProfileHome({
             accessibilityLabel="Log out"
           >
             <T w="semi" s={16} c={P.danger}>Log Out</T>
+          </Pressable>
+          {/* Play requires account deletion to be reachable from inside the app.
+              Below Log Out and in the quieter faint colour: it must be findable
+              without being a neighbour that Log Out can be mistaken for. */}
+          <Pressable
+            onPress={onDeleteAccount}
+            style={({ pressed }) => [{ alignItems: 'center' }, pressed && { opacity: 0.6 }]}
+            accessibilityRole="button"
+            accessibilityLabel="Delete account"
+          >
+            <T w="reg" s={13} c={P.inkFaint}>Delete account</T>
           </Pressable>
           <T w="reg" s={12} c={P.inkFaint} style={{ textAlign: 'center' }}>Ailernova v{version}</T>
         </View>

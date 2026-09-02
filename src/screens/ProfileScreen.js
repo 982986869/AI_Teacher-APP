@@ -22,6 +22,7 @@ import Constants from 'expo-constants';
 import * as ImagePicker from 'expo-image-picker';
 
 import { useAuth } from '../context/AuthContext';
+import { deleteAccountApi } from '../api/authApi';
 import { useDockVisibility } from '../navigation/DockVisibility';
 import { useSupportLauncher } from '../navigation/SupportLauncher';
 import { getSoundEnabledAsync, setSoundEnabled } from '../utils/sound';
@@ -116,6 +117,44 @@ const ProfileScreen = () => {
       { text: 'Log out', style: 'destructive', onPress: () => signOut() },
     ]);
   };
+  // Two steps on purpose. The outcome here is unusual enough that a single generic
+  // "Are you sure?" would mislead: the student is not just signed out, they can never
+  // sign in to this account again and have to build a new one. The first alert says
+  // that in full; the second is the last chance to back out.
+  const handleDeleteAccount = () => {
+    Alert.alert(
+      'Delete account',
+      'You will be logged out and will not be able to log in to this account again. '
+      + 'To use Ailernova later you will need to create a new account.',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        { text: 'Delete account', style: 'destructive', onPress: confirmDeleteAccount },
+      ],
+    );
+  };
+
+  const confirmDeleteAccount = () => {
+    Alert.alert('This cannot be undone', 'Delete your account?', [
+      { text: 'Cancel', style: 'cancel' },
+      {
+        text: 'Delete',
+        style: 'destructive',
+        onPress: async () => {
+          try {
+            await deleteAccountApi();
+          } catch (e) {
+            // Nothing was deleted, so say so and stay put rather than signing out —
+            // signing out here would look like it worked.
+            Alert.alert('Could not delete account', 'Please check your connection and try again.');
+            return;
+          }
+          // Every later request would 401 anyway; signOut also closes the support socket.
+          signOut();
+        },
+      },
+    ]);
+  };
+
   // The rows the design draws that have no screen behind them yet. Saying so is the
   // honest answer; silently doing nothing reads as a broken row.
   // The same sheet the sign-up screen uses, so the policy reads identically
@@ -170,6 +209,7 @@ const ProfileScreen = () => {
         onHelp={handleHelp}
         onSwitchToParent={() => setActiveView('parent')}
         onLogout={handleLogout}
+        onDeleteAccount={handleDeleteAccount}
         onPrivacy={() => setPrivacyOpen(true)}
         onPlaceholder={handlePlaceholder}
         // The dock floats over the tab content, so the list has to end above it.
