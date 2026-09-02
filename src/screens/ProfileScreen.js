@@ -124,7 +124,8 @@ const ProfileScreen = () => {
   const handleDeleteAccount = () => {
     Alert.alert(
       'Delete account',
-      'You will be logged out and will not be able to log in to this account again. '
+      'Are you sure you want to delete this account?\n\n'
+      + 'You will be logged out and will not be able to log in to this account again. '
       + 'To use Ailernova later you will need to create a new account.',
       [
         { text: 'Cancel', style: 'cancel' },
