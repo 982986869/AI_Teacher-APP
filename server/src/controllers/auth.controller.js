@@ -13,6 +13,7 @@ const { deriveScope } = require('../services/personalization/scope')
 const { permissionsForUser } = require('../services/admin/permissions')
 const { validateProfilePatch } = require('../services/personalization/validateProfile')
 const { uploadImage, isConfigured: storageConfigured } = require('../services/storage')
+const { archiveEmail, archivePhone } = require('../services/accountDeletion')
 
 // Full personalization row (raw — these columns live outside the generated client).
 async function fetchScopeUser(id) {
@@ -349,4 +350,40 @@ async function uploadPhoto(req, res, next) {
   }
 }
 
-module.exports = { register, login, googleAuth, me, updateProfile, uploadPhoto }
+/**
+ * DELETE /api/auth/me — the account holder deletes their own account.
+ *
+ * This is a SOFT delete: the row and everything hanging off it stay in the database.
+ * What changes is that the person can never sign in to it again. Removing the data
+ * for good is a separate, staff-triggered action from the admin console.
+ *
+ * The email and phone are archived rather than left in place because both columns are
+ * UNIQUE. Left alone they would block the same person from ever registering again —
+ * and registering again is exactly what they are told to do. See services/accountDeletion.
+ *
+ * is_active is deliberately NOT touched: that column means "staff suspended this
+ * person", and a student deleting their own account is not that.
+ */
+async function deleteAccount(req, res, next) {
+  try {
+    const rows = await db.$queryRawUnsafe(
+      'SELECT id::text AS id, email, phone, is_deleted FROM "users" WHERE id = $1::uuid LIMIT 1',
+      req.user.id,
+    )
+    const user = rows && rows[0]
+    if (!user) return next(new AppError('User no longer exists', 401))
+    if (user.is_deleted) return next(new AppError('This account is already deleted', 409))
+
+    await db.$executeRawUnsafe(
+      'UPDATE "users" SET is_deleted = true, deleted_at = now(), email = $2, phone = $3 WHERE id = $1::uuid',
+      user.id, archiveEmail(user.email, user.id), archivePhone(user.phone, user.id),
+    )
+
+    // 200 with no body: the app signs out on success, so there is nothing to render.
+    return ApiResponse.success(res, null, 'Account deleted')
+  } catch (err) {
+    next(err)
+  }
+}
+
+module.exports = { register, login, googleAuth, me, updateProfile, uploadPhoto, deleteAccount }

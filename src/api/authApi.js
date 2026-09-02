@@ -36,6 +36,14 @@ export const updateProfileApi = async (patch) => {
   return res.data.data; // { user, scope }
 };
 
+// Delete the signed-in account. Soft delete on the server: the person is signed out
+// and can never sign in to this account again, and must create a new one to return.
+// The caller MUST sign out on success — every later request would 401 anyway.
+export const deleteAccountApi = async () => {
+  const res = await axiosInstance.delete('/api/auth/me');
+  return res.data;
+};
+
 // Upload / change the profile photo — multipart, `file` is an RN file object
 // { uri, name, type } from expo-image-picker. Used right after signup (if a photo
 // was picked) and later from the Profile screen. → { user, scope }
