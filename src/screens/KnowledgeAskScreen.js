@@ -10,7 +10,7 @@ import {
 } from '@expo-google-fonts/space-grotesk';
 import { useAuth } from '../context/AuthContext';
 import TeacherAvatar from '../components/teacher/TeacherAvatar';
-import { TEACHER_HEADSHOT } from '../components/teacher/teacherIdentity';
+import useTeacherIdentity from '../components/teacher/useTeacherIdentity';
 import { SP, R } from '../components/teacher/premiumTheme';
 // Night palette — the same one AITeacherScreen (this screen's parent) and the
 // Student Home are built on, so "Ask the Material" reads as part of that flow
@@ -648,18 +648,22 @@ const MaterialPicker = ({ visible, docs, selected, onApply, onClose }) => {
   );
 };
 
-// Ms. Nova's byline — a violet bar that sits ABOVE the answer card, so who is
+// The teacher's byline — a violet bar that sits ABOVE the answer card, so who is
 // speaking and how well the material matched read in one glance, separate from
-// the answer itself.
-const NovaHead = ({ label = 'Ms. Nova', role = 'AI Instructor Partner' }) => (
+// the answer itself. `label` defaults to whoever is currently speaking rather than
+// to a fixed name, so it follows the voice like the lesson screen does.
+const NovaHead = ({ label, role = 'AI Instructor Partner' }) => {
+  const teacher = useTeacherIdentity();
+  return (
   <View style={st.novaHead}>
-    <TeacherAvatar theme="dark" photo={TEACHER_HEADSHOT} state="idle" expression="smile" size={38} />
+    <TeacherAvatar theme="dark" photo={teacher.headshot} state="idle" expression="smile" size={38} />
     <View style={{ flex: 1, minWidth: 0 }}>
-      <Text style={st.novaName} numberOfLines={1}>{label}</Text>
+      <Text style={st.novaName} numberOfLines={1}>{label || teacher.name}</Text>
       <Text style={st.novaRole} numberOfLines={1}>{role}</Text>
     </View>
   </View>
-);
+  );
+};
 
 // One cited upload. Tapping it reveals the EXACT passage from that file the answer
 // was grounded on — the file's title alone doesn't let a student check the AI.
@@ -791,7 +795,7 @@ const AssistantMessage = ({ m, onExtend }) => {
           material, amber when the material simply doesn't cover the question. */}
       <View style={[st.answerHead, !grounded && st.answerHeadEmpty, beyond && st.answerHeadBeyond]}>
         <NovaHead
-          label={grounded ? 'Ms. Nova' : 'Not found'}
+          label={grounded ? undefined : 'Not found'}
           role={grounded ? 'AI Instructor Partner' : 'Not in your material'}
         />
         {grounded && !beyond && typeof m.confidence === 'number' && (

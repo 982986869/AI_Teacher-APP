@@ -34,7 +34,7 @@ import AITeacherHome from './aiteacher/AITeacherHome';
 import GeneratingOverlay from './aiteacher/sections/GeneratingOverlay';
 import RangeSheet from './aiteacher/sections/RangeSheet';
 import LiveTeachingPlayer from '../components/teacher/LiveTeachingPlayer';
-import { TEACHER_HEADSHOT } from '../components/teacher/teacherIdentity';
+import useTeacherIdentity from '../components/teacher/useTeacherIdentity';
 import { greeting, preparingBeats, preparingHint, resumeTag, emptyState } from '../components/teacher/teacherMoments';
 import { stopTeacher, primeTeacherVoice, SPEECH_OK } from '../utils/teacherVoice';
 import YourLearning from '../components/teacher/YourLearning';
@@ -57,6 +57,7 @@ const fmtDay   = (iso) => new Date(iso).toLocaleDateString('en-IN', { weekday: '
 const fmtShort = (d)   => d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
 
 const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack }) => {
+  const teacher = useTeacherIdentity();
   const { user, scope } = useAuth();
   const firstName = user?.name?.split(' ')[0] || 'Student';
   const subjects = SUBJECTS;
@@ -433,7 +434,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
 
           // the teacher. One coach exists today; the section renders a list so a second
           // one needs no layout change.
-          instructors={[{ id: 'nova', name: 'Ms. Nova', role: 'Your AI Teacher', photo: TEACHER_HEADSHOT }]}
+          instructors={[{ id: 'nova', name: teacher.name, role: 'Your AI Teacher', photo: teacher.headshot }]}
           onCustomizeCoach={() => setLearningOpen(true)}
 
           // continuity

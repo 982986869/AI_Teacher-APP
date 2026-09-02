@@ -8,7 +8,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import LessonBoard from './LessonBoards';
 import TeacherAvatar from './TeacherAvatar';
 import TeacherFullBody from './TeacherFullBody';
-import { TEACHER_PHOTO as TEACHER_HERO_PHOTO, TEACHER_VIDEO as TEACHER_HERO_VIDEO, TEACHER_STAGE_CLIP, TEACHER_HEADSHOT } from './teacherIdentity';
+import { TEACHER_STAGE_CLIP } from './teacherIdentity';
 import useTeacherIdentity from './useTeacherIdentity';
 import { useVideoPlayer, VideoView } from 'expo-video';
 import { useEventListener } from 'expo';
@@ -339,7 +339,7 @@ function Underline() {
 // ── speaking waveform (purple/blue audio bars) shown ABOVE the teacher ────────
 // Kept light (fewer bars) so it never janks on mid-range phones.
 // Three softly pulsing dots — a professional "she's thinking" indicator.
-function ThinkingDots() {
+function ThinkingDots({ name }) {
   const vals = useRef([0, 1, 2].map(() => new Animated.Value(0.3))).current;
   useEffect(() => {
     const loops = vals.map((v, i) => Animated.loop(Animated.sequence([
@@ -355,7 +355,7 @@ function ThinkingDots() {
       {vals.map((v, i) => (
         <Animated.View key={i} style={[st.thinkDot, { opacity: v, transform: [{ scale: v.interpolate({ inputRange: [0.3, 1], outputRange: [0.8, 1.15] }) }] }]} />
       ))}
-      <Text style={st.thinkTxt}>Ms. Nova is thinking</Text>
+      <Text style={st.thinkTxt}>{name} is thinking</Text>
     </View>
   );
 }
@@ -434,6 +434,7 @@ function LivePill({ active }) {
 }
 
 function CornerTeacher({ state, expression, cam }) {
+  const teacher = useTeacherIdentity();
   const enter = useRef(new Animated.Value(0)).current;
   useEffect(() => {
     const a = Animated.spring(enter, { toValue: 1, friction: 7, tension: 60, useNativeDriver: true });
@@ -451,7 +452,7 @@ function CornerTeacher({ state, expression, cam }) {
       ],
     }]}>
       <Animated.View style={{ opacity: camOpacity, transform: [{ scale: camScale }] }}>
-        <TeacherAvatar theme="dark" video={TEACHER_VIDEO} photo={TEACHER_HEADSHOT} state={state} expression={expression} size={AV_CORNER} />
+        <TeacherAvatar theme="dark" video={TEACHER_VIDEO} photo={teacher.headshot} state={state} expression={expression} size={AV_CORNER} />
       </Animated.View>
     </Animated.View>
   );
@@ -780,11 +781,19 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const [heroClipFailed, setHeroClipFailed] = useState(false);
   const heroPlayer = useVideoPlayer(TEACHER_STAGE_CLIP, (p) => { p.loop = true; p.muted = true; });
   useEventListener(heroPlayer, 'statusChange', ({ error }) => { if (error) setHeroClipFailed(true); });
+  // The stage clip is the FEMALE teacher composited onto this card's gradient by
+  // scripts/bake-teacher-clip.js — it is her specifically, not a generic backdrop.
+  // So it must not play under a male identity: it would put her face back on the
+  // stage the moment the voice went male, which is the exact mismatch this switch
+  // exists to remove. The still underneath is already the right teacher, and for
+  // him it is all there is until a male clip is baked the same way.
+  const stageClipOk = !heroClipFailed && teacher.gender === 'f';
   useEffect(() => {
-    if (!heroPlayer || heroClipFailed) return;
+    if (!heroPlayer) return;
+    if (!stageClipOk) { heroPlayer.pause(); return; }
     if (ttsActive) heroPlayer.play();
     else { heroPlayer.pause(); heroPlayer.currentTime = 0; }
-  }, [ttsActive, heroPlayer, heroClipFailed]);
+  }, [ttsActive, heroPlayer, stageClipOk]);
   const [qa, setQa] = useState(null);                // { q, a } during a doubt
   const [qaMeta, setQaMeta] = useState(null);        // retrieval signals for the doubt answer
   const [partial, setPartial] = useState('');
@@ -1383,7 +1392,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const stateLabel = mode === M.LISTENING ? 'listening…'
     : mode === M.THINKING ? 'thinking…'
     : ttsActive ? 'teaching…'
-    : mode === M.PAUSED ? 'paused' : 'Ms. Nova';
+    : mode === M.PAUSED ? 'paused' : teacher.name;
 
   const hasPoints = !!(scene.diagram && (scene.diagram.points || []).length);
   // The intro used to hide the board, so a session opened with the teacher alone and
@@ -1562,12 +1571,12 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
               talks. contentFit="fill" is safe because the box it is given already
               carries the clip's own 16:9 — nothing is stretched. */}
           <Image
-            source={TEACHER_HERO_PHOTO}
+            source={teacher.photo}
             resizeMode="stretch"
-            accessibilityLabel="Your teacher, Ms. Nova"
+            accessibilityLabel={`Your teacher, ${teacher.name}`}
             style={{ position: 'absolute', width: HERO_FULL_W, height: HERO_FULL_H, left: HERO_LEFT, top: HERO_TOP }}
           />
-          {!heroClipFailed && (
+          {stageClipOk && (
             <VideoView
               player={heroPlayer}
               nativeControls={false}
@@ -1588,7 +1597,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
 
           {/* identity chip */}
           <View style={st.nameChip}>
-            <TeacherAvatar theme="dark" video={TEACHER_VIDEO} photo={TEACHER_HEADSHOT} state={teacherState} expression={expression} size={28} />
+            <TeacherAvatar theme="dark" video={TEACHER_VIDEO} photo={teacher.headshot} state={teacherState} expression={expression} size={28} />
             <View>
               <Text style={st.nameTxt} numberOfLines={1}>{teacher.name}</Text>
               <View style={st.roleRow}>
@@ -1696,7 +1705,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
           session actions (Previous / End Session / Next). ── */}
       <View style={[st.bottom, { paddingBottom: st.bottom.paddingBottom + insets.bottom }]}>
         {mode === M.LISTENING && VOICE_OK && <Text style={st.listenTxt} numberOfLines={2} accessibilityLiveRegion="polite">{partial || 'I’m listening — go ahead.'}</Text>}
-        {mode === M.THINKING && <Appear><ThinkingDots /></Appear>}
+        {mode === M.THINKING && <Appear><ThinkingDots name={teacher.name} /></Appear>}
 
         {mode === M.LISTENING && !VOICE_OK && !qInput && (
           <View style={st.starterRow}>

@@ -144,8 +144,11 @@ function applyRemote(base, o) {
   if (!o) return base;
   const out = { ...base };
   if (typeof o.name === 'string' && o.name.trim()) out.name = o.name.trim();
+  // https only, re-checked here rather than trusted from the response: this is
+  // the layer that hands the value to <Image>/<Video>, and on Android a cleartext
+  // URL fails silently — a blank teacher with nothing in the logs to explain it.
   for (const f of ['photo', 'headshot', 'video']) {
-    if (typeof o[f] === 'string' && o[f]) out[f] = { uri: o[f] };
+    if (typeof o[f] === 'string' && o[f].slice(0, 8).toLowerCase() === 'https://') out[f] = { uri: o[f] };
   }
   return out;
 }
