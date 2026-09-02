@@ -434,7 +434,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
 
           // the teacher. One coach exists today; the section renders a list so a second
           // one needs no layout change.
-          instructors={[{ id: 'nova', name: teacher.name, role: 'Your AI Teacher', photo: teacher.headshot }]}
+          instructors={[{ id: 'nova', name: teacher.name, role: 'Your AI Teacher', photo: teacher.hasOwnArt ? teacher.headshot : null }]}
           onCustomizeCoach={() => setLearningOpen(true)}
 
           // continuity

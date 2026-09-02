@@ -656,7 +656,7 @@ const NovaHead = ({ label, role = 'AI Instructor Partner' }) => {
   const teacher = useTeacherIdentity();
   return (
   <View style={st.novaHead}>
-    <TeacherAvatar theme="dark" photo={teacher.headshot} state="idle" expression="smile" size={38} />
+    <TeacherAvatar theme="dark" gender={teacher.gender} photo={teacher.hasOwnArt ? teacher.headshot : undefined} state="idle" expression="smile" size={38} />
     <View style={{ flex: 1, minWidth: 0 }}>
       <Text style={st.novaName} numberOfLines={1}>{label || teacher.name}</Text>
       <Text style={st.novaRole} numberOfLines={1}>{role}</Text>

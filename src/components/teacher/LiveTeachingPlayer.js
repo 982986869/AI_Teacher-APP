@@ -452,7 +452,7 @@ function CornerTeacher({ state, expression, cam }) {
       ],
     }]}>
       <Animated.View style={{ opacity: camOpacity, transform: [{ scale: camScale }] }}>
-        <TeacherAvatar theme="dark" video={TEACHER_VIDEO} photo={teacher.headshot} state={state} expression={expression} size={AV_CORNER} />
+        <TeacherAvatar theme="dark" video={TEACHER_VIDEO} gender={teacher.gender} photo={teacher.hasOwnArt ? teacher.headshot : undefined} state={state} expression={expression} size={AV_CORNER} />
       </Animated.View>
     </Animated.View>
   );
@@ -1570,12 +1570,30 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
               sits exactly on top of it, matched to under 2dp, and plays while she
               talks. contentFit="fill" is safe because the box it is given already
               carries the clip's own 16:9 — nothing is stretched. */}
-          <Image
-            source={teacher.photo}
-            resizeMode="stretch"
-            accessibilityLabel={`Your teacher, ${teacher.name}`}
-            style={{ position: 'absolute', width: HERO_FULL_W, height: HERO_FULL_H, left: HERO_LEFT, top: HERO_TOP }}
-          />
+          {teacher.hasOwnArt ? (
+            <Image
+              source={teacher.photo}
+              resizeMode="stretch"
+              accessibilityLabel={`Your teacher, ${teacher.name}`}
+              style={{ position: 'absolute', width: HERO_FULL_W, height: HERO_FULL_H, left: HERO_LEFT, top: HERO_TOP }}
+            />
+          ) : (
+            /* No photo of this teacher exists — draw the illustrated one instead of
+               showing the other teacher's face. Centred in the same box the photo
+               would have filled, so the stage composition does not move. */
+            <View
+              accessibilityLabel={`Your teacher, ${teacher.name}`}
+              style={{ position: 'absolute', width: HERO_FULL_W, height: HERO_FULL_H, left: HERO_LEFT, top: HERO_TOP, alignItems: 'center', justifyContent: 'flex-end' }}
+            >
+              <TeacherAvatar
+                theme="dark"
+                gender={teacher.gender}
+                state={teacherState}
+                expression={expression}
+                size={Math.min(HERO_FULL_W, HERO_FULL_H) * 0.82}
+              />
+            </View>
+          )}
           {stageClipOk && (
             <VideoView
               player={heroPlayer}
@@ -1597,7 +1615,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
 
           {/* identity chip */}
           <View style={st.nameChip}>
-            <TeacherAvatar theme="dark" video={TEACHER_VIDEO} photo={teacher.headshot} state={teacherState} expression={expression} size={28} />
+            <TeacherAvatar theme="dark" video={TEACHER_VIDEO} gender={teacher.gender} photo={teacher.hasOwnArt ? teacher.headshot : undefined} state={teacherState} expression={expression} size={28} />
             <View>
               <Text style={st.nameTxt} numberOfLines={1}>{teacher.name}</Text>
               <View style={st.roleRow}>

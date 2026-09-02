@@ -101,6 +101,7 @@ export const TEACHER_GLB_URL =
 // else changes — every call site already goes through teacherFor().
 const FEMALE = {
   gender: 'f',
+  hasOwnArt: true,
   // The STUDENT-FACING name. "Tahlia" is HeyGen's name for the source avatar and
   // is an asset detail; the lesson has always shown "Ms. Nova". That string was
   // hardcoded in LiveTeachingPlayer, which is why it could not follow the voice.
@@ -114,6 +115,11 @@ const FEMALE = {
 const MALE = {
   gender: 'm',
   name: 'Mr. Iker',
+  // False until a male photo actually exists. The fields below still point at
+  // HER files, because a require() of a missing asset fails the bundle rather
+  // than falling back — so consumers must ask this before showing `photo` or
+  // `headshot`, and draw the illustrated male avatar instead when it is false.
+  hasOwnArt: false,
   photo: TEACHER_PHOTO,           // → require('../../../assets/teacher-male.png')
   headshot: TEACHER_HEADSHOT,     // → require('../../../assets/teacher-male-head.png')
   video: TEACHER_VIDEO,           // → require('../../../assets/teacher-male.mp4')
@@ -148,7 +154,10 @@ function applyRemote(base, o) {
   // the layer that hands the value to <Image>/<Video>, and on Android a cleartext
   // URL fails silently — a blank teacher with nothing in the logs to explain it.
   for (const f of ['photo', 'headshot', 'video']) {
-    if (typeof o[f] === 'string' && o[f].slice(0, 8).toLowerCase() === 'https://') out[f] = { uri: o[f] };
+    if (typeof o[f] === 'string' && o[f].slice(0, 8).toLowerCase() === 'https://') {
+      out[f] = { uri: o[f] };
+      out.hasOwnArt = true;   // a real asset of its own, so consumers may show it
+    }
   }
   return out;
 }

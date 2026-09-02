@@ -74,7 +74,7 @@ function Ripple({ color, size, delay }) {
 // Warm accents for the cream classroom theme.
 const CREAM_ACCENT = { speaking: '#FF8A3D', listening: '#3B82F6', thinking: '#E0A23C', idle: '#FF8A3D' };
 
-function TeacherAvatar({ state = 'idle', expression, size = 160, theme = 'dark', photo, video, style }) {
+function TeacherAvatar({ state = 'idle', expression, size = 160, theme = 'dark', photo, video, style, gender = 'f' }) {
   const [imgError, setImgError] = useState(false);
   const useVid = !!video && VIDEO_OK;                 // real talking video (best: lip-sync + blink)
   const useImg = !useVid && !!photo && !imgError;     // real static photo (no lip movement)
@@ -302,8 +302,14 @@ function TeacherAvatar({ state = 'idle', expression, size = 160, theme = 'dark',
           <Circle cx="100" cy="100" r="100" fill="url(#bg)" />
           <Ellipse cx="100" cy="46" rx="58" ry="22" fill="#FFFFFF" opacity={0.05} />
 
-          {/* hair behind — long, framing the face */}
-          <Path d="M46 104 C40 44 70 24 100 24 C130 24 160 44 154 104 C158 150 150 184 140 198 L126 198 C134 162 130 122 120 106 L80 106 C70 122 66 162 74 198 L60 198 C50 184 42 150 46 104 Z" fill="url(#hair)" />
+          {/* hair — long and framing the face, or a short crop for the male
+              identity. This is the strongest gender read in the drawing: the
+              male crown stops at the jaw instead of falling to the shoulders. */}
+          {gender === 'm' ? (
+            <Path d="M50 104 C44 48 72 26 100 26 C128 26 156 48 150 104 C150 84 138 60 100 60 C62 60 50 84 50 104 Z" fill="url(#hair)" />
+          ) : (
+            <Path d="M46 104 C40 44 70 24 100 24 C130 24 160 44 154 104 C158 150 150 184 140 198 L126 198 C134 162 130 122 120 106 L80 106 C70 122 66 162 74 198 L60 198 C50 184 42 150 46 104 Z" fill="url(#hair)" />
+          )}
 
           {/* shoulders / blazer + a crisp collar */}
           <Path d="M34 200 C38 166 60 154 84 148 L116 148 C140 154 162 166 166 200 Z" fill="url(#top)" />
@@ -319,15 +325,19 @@ function TeacherAvatar({ state = 'idle', expression, size = 160, theme = 'dark',
           {/* ears (same skin) + tiny gold studs */}
           <Ellipse cx="60" cy="97" rx="6" ry="9.5" fill="#ECB892" />
           <Ellipse cx="140" cy="97" rx="6" ry="9.5" fill="#ECB892" />
-          <Circle cx="60" cy="106" r="1.5" fill="#FFE08A" />
-          <Circle cx="140" cy="106" r="1.5" fill="#FFE08A" />
+          {gender !== 'm' && (
+            <G>
+              <Circle cx="60" cy="106" r="1.5" fill="#FFE08A" />
+              <Circle cx="140" cy="106" r="1.5" fill="#FFE08A" />
+            </G>
+          )}
 
           {/* hair front — soft side-parting */}
           <Path d="M59 86 C57 50 79 40 100 40 C121 40 143 50 141 86 C137 67 125 56 116 58 C109 50 100 51 100 51 C100 51 91 50 84 58 C75 56 63 67 59 86 Z" fill="url(#hair)" />
 
           {/* eyebrows (expression-driven) */}
-          <Path d={shp.browL} fill="none" stroke="#46301E" strokeWidth="3.4" strokeLinecap="round" />
-          <Path d={shp.browR} fill="none" stroke="#46301E" strokeWidth="3.4" strokeLinecap="round" />
+          <Path d={shp.browL} fill="none" stroke="#46301E" strokeWidth={gender === 'm' ? 4.4 : 3.4} strokeLinecap="round" />
+          <Path d={shp.browR} fill="none" stroke="#46301E" strokeWidth={gender === 'm' ? 4.4 : 3.4} strokeLinecap="round" />
 
           {/* eyes — clean almond, simple iris */}
           <G>
