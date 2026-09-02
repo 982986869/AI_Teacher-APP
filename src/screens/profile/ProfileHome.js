@@ -28,7 +28,7 @@ import { T } from './ui';
 // style FUNCTION here, which only Pressable understands — it would drop the row's
 // styling entirely. The App Settings row is exactly that case (its switch is the
 // pressable part, the row itself is not).
-function Row({ emoji, label, onPress, right, last }) {
+function Row({ emoji, label, onPress, right, last, danger }) {
   return (
     <Pressable
       onPress={onPress}
@@ -38,7 +38,7 @@ function Row({ emoji, label, onPress, right, last }) {
       accessibilityLabel={onPress ? label : undefined}
     >
       <T w="reg" s={18} style={s.rowEmoji}>{emoji}</T>
-      <T w="semi" s={15} style={{ flex: 1 }}>{label}</T>
+      <T w="semi" s={15} c={danger ? P.danger : undefined} style={{ flex: 1 }}>{label}</T>
       {right !== undefined ? right : <ChevronRight size={18} color={P.inkFaint} strokeWidth={2.2} />}
     </Pressable>
   );
@@ -151,7 +151,14 @@ export default function ProfileHome({
             <Row emoji="❓" label="Help & Support" onPress={onHelp} />
             {/* NOT in the design. It is the only route a student has back to the parent
                 view — without it the way out is to log out and back in. */}
-            <Row emoji="👨‍👩‍👦" label="Switch to Parent view" onPress={onSwitchToParent} last />
+            <Row emoji="👨‍👩‍👦" label="Switch to Parent view" onPress={onSwitchToParent} />
+            {/* Play requires account deletion to be reachable from inside the app, and
+                "reachable" means findable. This first shipped as faint grey text under
+                Log Out and the person it was built for could not find it on the screen
+                it was on — so it is a normal Account row now, red for what it does. The
+                two-step confirmation is what protects against a mistaken tap, not
+                hiding the control. */}
+            <Row emoji="🗑️" label="Delete account" onPress={onDeleteAccount} danger last />
           </Band>
         </View>
 
@@ -164,17 +171,6 @@ export default function ProfileHome({
             accessibilityLabel="Log out"
           >
             <T w="semi" s={16} c={P.danger}>Log Out</T>
-          </Pressable>
-          {/* Play requires account deletion to be reachable from inside the app.
-              Below Log Out and in the quieter faint colour: it must be findable
-              without being a neighbour that Log Out can be mistaken for. */}
-          <Pressable
-            onPress={onDeleteAccount}
-            style={({ pressed }) => [{ alignItems: 'center' }, pressed && { opacity: 0.6 }]}
-            accessibilityRole="button"
-            accessibilityLabel="Delete account"
-          >
-            <T w="reg" s={13} c={P.inkFaint}>Delete account</T>
           </Pressable>
           <T w="reg" s={12} c={P.inkFaint} style={{ textAlign: 'center' }}>Ailernova v{version}</T>
         </View>
