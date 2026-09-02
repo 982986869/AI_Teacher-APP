@@ -155,6 +155,39 @@ function setTeacherVoiceGender(g) {
   teacherVoiceGender = g;
   genderSubs.forEach((fn) => { try { fn(g); } catch (_) {} });
 }
+// What the device is about to sound like.
+//
+// The previous rule asked `voiceGender(chosen) === 'm'` and treated everything
+// else as female. That almost never fired: scoreVoice() returns -Infinity for
+// any voice it can identify as male, so a male voice is only ever used when it
+// could NOT be identified — an untagged '?' voice, or the system default when
+// chosenVoice is null. Both of those read as 'not male' and kept the female
+// face on screen while a man was speaking, which is the whole bug.
+//
+// So the question is inverted: female only when a female voice was actually
+// secured. Anything else means the picker could not find one and the device is
+// speaking with whatever it defaults to — commonly male on Android.
+function apparentDeviceGender() {
+  const g = chosenVoice ? voiceGender(chosenVoice) : '?';
+  if (g === 'f') return 'f';
+  if (g === 'm') return 'm';
+  // '?' — fall back to whether a female voice was confidently chosen. This is
+  // also what keeps a hand-picked voice on the face the student picked.
+  return chosenFemale ? 'f' : 'm';
+}
+
+// Publish who the student is about to hear. Called from the ONE place that
+// actually speaks with a device voice, so every route in is covered: the server
+// fallback, the disabled-for-this-session shortcut in speakTeacher, and a build
+// where expo-av is missing entirely and the device path is all there ever was.
+function publishDeviceGender() {
+  Promise.resolve(primeTeacherVoice())
+    // chosenVoice stays undefined when the device returned an empty voice list
+    // and priming will retry — we do not know yet, so do not switch on a guess.
+    .then(() => { if (chosenVoice !== undefined) setTeacherVoiceGender(apparentDeviceGender()); })
+    .catch(() => {});
+}
+
 export function getTeacherVoiceGender() { return teacherVoiceGender; }
 export function onTeacherVoiceGenderChange(fn) {
   genderSubs.add(fn);
@@ -281,6 +314,9 @@ export async function setPreferredVoice(identifier) {
     primingPromise = null;
   }
   try { if (Storage) await Storage.setItem(PREF_KEY, identifier || ''); } catch (e) { /* no-op */ }
+  // Reflect the change on the face straight away rather than at the next spoken
+  // line — the picker is open, so the student is looking right at it.
+  publishDeviceGender();
 }
 
 export function stopTeacher() {
@@ -294,6 +330,7 @@ export function stopTeacher() {
 function speakViaDevice(text, opts = {}) {
   if (!DEVICE_OK) { if (opts.onError) opts.onError(new Error('No TTS available')); return; }
   if (chosenVoice === undefined) primeTeacherVoice();
+  publishDeviceGender();
   const voice = chosenVoice && chosenVoice.identifier ? chosenVoice.identifier : undefined;
   const autoPitch = chosenFemale ? FEMALE_PITCH : FEMININE_PITCH;
   // Estimate-based caption progress for the device path.
@@ -329,13 +366,7 @@ async function speakViaOpenAI(text, opts = {}) {
     ttsFailStreak += 1;
     if (ttsFailStreak >= 2) { ttsDisabled = true; if (__DEV__) console.log('[TTS] OpenAI disabled for session after repeated failures'); }
     if (__DEV__) console.log('[TTS] → falling back to device speech', reason ? `(${reason})` : '');
-    // Publish who the student is about to hear. Prime first so chosenVoice is
-    // resolved — before priming it is `undefined`, which would read as female and
-    // leave the face wrong for the first line.
-    Promise.resolve(primeTeacherVoice())
-      .then((v) => setTeacherVoiceGender(v && voiceGender(v) === 'm' ? 'm' : 'f'))
-      .catch(() => {});
-    speakViaDevice(text, opts);
+    speakViaDevice(text, opts);   // publishes the voice gender itself
   };
 
   try {
