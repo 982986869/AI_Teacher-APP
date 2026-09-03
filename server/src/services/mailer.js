@@ -1,27 +1,56 @@
 'use strict'
 
-// Transactional email. One provider (Resend), called over plain fetch so nothing
-// new is installed — the SDK is a thin wrapper over this same endpoint.
+// Transactional email. One message type today (the password reset), so this is a
+// sender and not a mail framework — no queue, no templates, no retries.
 //
-// Deliberately NOT a general mail library: the app sends exactly one kind of mail
-// today, and a queue, templates and retries would all be scaffolding around a
-// single message.
+// Three transports, tried in this order:
+//
+//   1. SMTP     — set SMTP_HOST. Works with Mailtrap, Gmail, Brevo, Office 365,
+//                 anything. Mailtrap's SANDBOX is the useful one while a domain is
+//                 unverified: it accepts every message and shows it in a web inbox
+//                 instead of delivering, so the whole flow is testable with no DNS.
+//   2. Resend   — set RESEND_API_KEY. HTTP, no dependency, but sending to anyone
+//                 other than your own signup address needs a verified domain.
+//   3. Log only — neither configured. Outside production the message is printed so
+//                 the reset link is still clickable in development.
 //
 // Env:
-//   RESEND_API_KEY   required to actually send; without it nothing is sent
-//   MAIL_FROM        e.g. "Ailernova <noreply@ailernova.com>" — must be a domain
-//                    verified in Resend, or every send is rejected
-//   APP_PUBLIC_URL   base URL the reset link points at (defaults to the API's own
-//                    origin, which serves the reset page)
+//   SMTP_HOST / SMTP_PORT / SMTP_USER / SMTP_PASS   (SMTP_SECURE=true forces TLS)
+//   RESEND_API_KEY
+//   MAIL_FROM        "Ailernova <noreply@ailernova.com>"
+//   APP_PUBLIC_URL   base URL the reset link points at
 
 const { config } = require('../config/env')
 
 const RESEND_ENDPOINT = 'https://api.resend.com/emails'
 
+const smtpHost = process.env.SMTP_HOST
+const smtpPort = parseInt(process.env.SMTP_PORT, 10) || 587
+
 const mail = {
-  apiKey: process.env.RESEND_API_KEY,
   from: process.env.MAIL_FROM || 'Ailernova <onboarding@resend.dev>',
-  enabled: !!process.env.RESEND_API_KEY,
+  transport: smtpHost ? 'smtp' : (process.env.RESEND_API_KEY ? 'resend' : 'none'),
+  enabled: !!(smtpHost || process.env.RESEND_API_KEY),
+}
+
+// Built once and reused: a transport per message would open a new TCP+TLS
+// connection every time, which is what makes naive SMTP senders slow.
+let _tx = null
+function transporter() {
+  if (_tx) return _tx
+  const nodemailer = require('nodemailer')
+  _tx = nodemailer.createTransport({
+    host: smtpHost,
+    port: smtpPort,
+    // 465 is implicit TLS; 587 and 2525 start plaintext and STARTTLS up, which is
+    // what Mailtrap and most providers expect. Overridable for the rare host that
+    // wants TLS on a non-standard port.
+    secure: process.env.SMTP_SECURE ? process.env.SMTP_SECURE === 'true' : smtpPort === 465,
+    auth: (process.env.SMTP_USER || process.env.SMTP_PASS)
+      ? { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS }
+      : undefined,
+  })
+  return _tx
 }
 
 // Send one message. Returns { ok, id } or { ok: false, error }.
@@ -30,38 +59,60 @@ const mail = {
 // same way whether or not the address exists, and letting a provider outage change
 // that answer would leak which addresses are real. The caller logs and moves on.
 async function sendMail({ to, subject, html, text }) {
-  if (!mail.enabled) {
-    // Development, and any deploy where the key was not set. The link is printed so
-    // the flow is testable end to end without a provider account — never in
-    // production, where config.env is not 'development'.
-    if (config.env !== 'production') {
-      console.log(`\n[mail] RESEND_API_KEY not set — not sending.\n[mail] to: ${to}\n[mail] ${subject}\n[mail] ${text}\n`)
-    } else {
-      console.error('[mail] RESEND_API_KEY not set — password reset mail was NOT sent')
+  if (mail.transport === 'smtp') {
+    try {
+      const info = await transporter().sendMail({ from: mail.from, to, subject, html, text })
+      return { ok: true, id: info.messageId }
+    } catch (err) {
+      console.error(`[mail] smtp send failed: ${err.message}`)
+      return { ok: false, error: err.message }
     }
-    return { ok: false, error: 'mailer not configured' }
   }
 
-  try {
-    const r = await fetch(RESEND_ENDPOINT, {
-      method: 'POST',
-      headers: {
-        authorization: `Bearer ${mail.apiKey}`,
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({ from: mail.from, to: [to], subject, html, text }),
-    })
-    if (!r.ok) {
-      const detail = await r.text()
-      console.error(`[mail] send failed: ${r.status} ${detail.slice(0, 200)}`)
-      return { ok: false, error: `provider ${r.status}` }
+  if (mail.transport === 'resend') {
+    try {
+      const r = await fetch(RESEND_ENDPOINT, {
+        method: 'POST',
+        headers: { authorization: `Bearer ${process.env.RESEND_API_KEY}`, 'content-type': 'application/json' },
+        body: JSON.stringify({ from: mail.from, to: [to], subject, html, text }),
+      })
+      if (!r.ok) {
+        const detail = await r.text()
+        console.error(`[mail] resend failed: ${r.status} ${detail.slice(0, 200)}`)
+        return { ok: false, error: `provider ${r.status}` }
+      }
+      const body = await r.json().catch(() => ({}))
+      return { ok: true, id: body.id }
+    } catch (err) {
+      console.error('[mail] resend threw:', err.message)
+      return { ok: false, error: err.message }
     }
-    const body = await r.json().catch(() => ({}))
-    return { ok: true, id: body.id }
-  } catch (err) {
-    console.error('[mail] send threw:', err.message)
-    return { ok: false, error: err.message }
   }
+
+  if (config.env !== 'production') {
+    console.log(`\n[mail] no transport configured — not sending.\n[mail] to: ${to}\n[mail] ${subject}\n[mail] ${text}\n`)
+  } else {
+    console.error('[mail] no transport configured — password reset mail was NOT sent')
+  }
+  return { ok: false, error: 'mailer not configured' }
+}
+
+// Prove the transport works without sending anything. SMTP can actually be checked
+// (connect + authenticate); Resend has no such endpoint, so it answers honestly
+// rather than pretending.
+async function verifyTransport() {
+  if (mail.transport === 'smtp') {
+    try {
+      await transporter().verify()
+      return { ok: true, transport: 'smtp', detail: `${smtpHost}:${smtpPort}` }
+    } catch (err) {
+      return { ok: false, transport: 'smtp', detail: err.message }
+    }
+  }
+  if (mail.transport === 'resend') {
+    return { ok: true, transport: 'resend', detail: 'key present (not verifiable without sending)' }
+  }
+  return { ok: false, transport: 'none', detail: 'set SMTP_HOST or RESEND_API_KEY' }
 }
 
 // The reset message. Plain and short on purpose: a long marketing-styled mail with
@@ -104,4 +155,4 @@ function resetPasswordEmail({ name, link, minutes }) {
   return { subject: 'Reset your Ailernova password', html, text }
 }
 
-module.exports = { sendMail, resetPasswordEmail, mail }
+module.exports = { sendMail, resetPasswordEmail, verifyTransport, mail }
