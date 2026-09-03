@@ -2467,10 +2467,15 @@ const ResourcesScreen = () => {
         <Text style={dk.headerTitle}>Resources</Text>
         <Text style={dk.headerSub}>Notes, solutions & papers by chapter</Text>
       </View>
-      {/* Students are locked to their own class; the switcher only shows if no class is set yet. */}
-      {!scope?.classNum && <ClassTabs value={activeClass} onChange={setActiveClass} />}
-      {scope?.role === 'student' && (scope?.tester ? activeClass : scope?.className) && !isClassReady(scope?.tester ? activeClass : scope.className) ? (
-        <ComingSoon label="Resources" className={scope?.tester ? activeClass : scope?.className} />
+      {/* Any student may look at any class — see PracticeScreen for the reasoning. */}
+      <ClassTabs value={activeClass} onChange={setActiveClass} />
+      {/* Gated on the class being VIEWED, not the saved one — the tester special
+          case is gone now that everyone can browse. In practice this never fires:
+          the backend reports all of Class 6–12 ready. It is kept as the honest
+          state for a class that genuinely has nothing, which beats an empty tab,
+          and isClassReady stays optimistic while its list loads. */}
+      {scope?.role === 'student' && activeClass && !isClassReady(activeClass) ? (
+        <ComingSoon label="Resources" className={activeClass} />
       ) : (
         <>
           <View style={dk.sectionWrap}>
