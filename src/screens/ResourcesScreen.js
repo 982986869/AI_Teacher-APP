@@ -737,7 +737,7 @@ const buildPaperFrontMatter = (SUBJ, paper) => {
 //
 // Exception: Class 12 Mathematics NCERT IS split into Part-I / Part-II (DB-backed,
 // rendered as MathJax cards like Physics), so it keeps both entries.
-const getResourceTypes = (subjectName, classLevel, parts = null) => {
+const baseResourceTypes = (subjectName, classLevel, parts = null) => {
   // Class 12 chapter-level question banks — DB-backed (sections + questions),
   // the same getQuestionsByPath flow Class 10 uses. Physics, Chemistry and
   // Mathematics have all three sections for every chapter that exists; no other
@@ -953,6 +953,26 @@ const getResourceTypes = (subjectName, classLevel, parts = null) => {
         : rt));
   }
   return base;
+};
+
+
+// Chapter-wise practice, DB-backed (sections type_key='practice' + questions), read
+// through the same getQuestionsByPath flow Class 10 uses.
+//
+// Appended here rather than inside baseResourceTypes because that function returns
+// from a dozen places — one per class, and several per class for multi-book subjects —
+// and a tile added to only some of them is how Class 12 ended up with 19,407 practice
+// questions nothing could reach.
+//
+// A subject with no practice shows an empty chapter list rather than a dead end:
+// getChapters returns only chapters that actually carry the section, which is the
+// same way the Class 9 textbook tiles already behave.
+const PRACTICE_CLASSES = ['Class 7', 'Class 8', 'Class 9'];
+const getResourceTypes = (subjectName, classLevel, parts = null) => {
+  const tiles = baseResourceTypes(subjectName, classLevel, parts);
+  if (!PRACTICE_CLASSES.includes(classLevel)) return tiles;
+  if (tiles.some((t) => t.type === 'practice')) return tiles;
+  return [...tiles, { icon: '✍️', name: 'Practice Questions', sub: 'Chapter-wise MCQs', type: 'practice' }];
 };
 
 // ── Full chapter notes data ───────────────────────────────────────────────────
