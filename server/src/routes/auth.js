@@ -1,9 +1,12 @@
 'use strict'
 
+const express = require('express')
 const { Router } = require('express')
 const multer = require('multer')
 const { body } = require('express-validator')
 const { register, login, googleAuth, me, updateProfile, uploadPhoto, deleteAccount } = require('../controllers/auth.controller')
+const { forgotPassword } = require('../controllers/passwordReset.controller')
+const { showResetPage, submitReset } = require('../controllers/resetPage.controller')
 const { authenticate } = require('../middleware/auth')
 
 const router = Router()
@@ -93,6 +96,19 @@ const googleRules = [
 router.post('/register', registerRules, register)
 router.post('/login',    loginRules,    login)
 router.post('/google',   googleRules,   googleAuth)
+
+// Password reset. All three are PUBLIC by necessity — someone who cannot sign in
+// is exactly who needs them. The protection is in the controller: one-time hashed
+// tokens, a 30-minute expiry, a per-account hourly cap, and an identical response
+// whether or not the address exists.
+router.post('/forgot-password', forgotPassword)
+
+// The link in the email lands here. It renders the "new password / confirm"
+// form itself, so the mail works from a desktop browser or a webmail preview,
+// with or without the app installed. urlencoded is parsed here rather than
+// globally because this is the only form post the API accepts.
+router.get('/reset-password', showResetPage)
+router.post('/reset-password', express.urlencoded({ extended: false }), submitReset)
 router.get('/me',        authenticate,  me)
 router.patch('/profile', authenticate,  profileRules, updateProfile)
 router.post('/photo',    authenticate,  photoUpload.single('file'), uploadPhoto)
