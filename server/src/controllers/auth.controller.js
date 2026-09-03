@@ -27,7 +27,13 @@ async function fetchScopeUser(id) {
     // date_of_birth / parent_email / learning_prefs (prisma/sql/user_profile_fields.sql)
     // ride along so Edit Profile and Learning Preferences can prefill from `user` on
     // the very first render, without a second round trip of their own.
-    `SELECT id, name, email, phone, grade, role::text AS role, admin_role, is_active,
+    // access_level is here because this row IS the `user` the app stores at sign-in,
+    // and both deriveScope()s read it to decide whether to draw the paywall. Without
+    // the column the value is undefined, which fails closed to 'free' — so a student
+    // with full access signed in and saw every lesson locked for the whole session,
+    // until a cold start replaced this row with /me's (which selects it, hence the
+    // two disagreeing). Keep in step with the select in middleware/auth.js.
+    `SELECT id, name, email, phone, grade, role::text AS role, admin_role, is_active, access_level,
             board, stream, language, school, account_type, linked_student_id, photo_url AS "photoUrl",
             to_char("date_of_birth", 'YYYY-MM-DD') AS "dateOfBirth",
             parent_email AS "parentEmail", learning_prefs AS "learningPrefs"
