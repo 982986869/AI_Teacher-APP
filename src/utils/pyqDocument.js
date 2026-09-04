@@ -16,6 +16,10 @@ const T = {
   page: COLORS.surface, card: COLORS.card, ink: COLORS.textPrimary,
   sub: COLORS.textSecondary, muted: COLORS.textMuted, hair: COLORS.border,
   rail: COLORS.primary, ok: COLORS.success, okSoft: '#E6F6F0',
+  // The brand pair: a #FFC629 fill with an INK label. Yellow is a FILL and never
+  // text here — #FFC629 on white is 1.7:1, which designSystem.js calls out. Where
+  // the accent has to be TEXT it uses `accent`: the same hue darkened until it passes.
+  brand: COLORS.primary, onBrand: COLORS.ink, accent: COLORS.accent,
 };
 
 // Build the .pyq-card HTML fragment from the structured questions the API returns.
@@ -105,15 +109,17 @@ export function buildPyqDocument(fragmentHtml, opts = {}) {
                   padding:16px; margin-bottom:16px; max-width:100%; overflow:hidden; }
   .pyq-header,.question-header{ display:flex; justify-content:space-between; align-items:center;
                     gap:8px; margin-bottom:10px; }
-  .q-number{ background:${T.ink}; color:#fff; padding:4px 10px; border-radius:20px;
-             font-size:12px; font-weight:600; white-space:nowrap; }
-  .pyq-year,.years{ font-size:11px; font-weight:600; color:${T.muted}; text-align:right; }
+  .q-number{ background:${T.brand}; color:${T.onBrand}; padding:4px 10px; border-radius:20px;
+             font-size:12px; font-weight:700; white-space:nowrap; }
+  .pyq-year,.years{ font-size:11px; font-weight:600; color:${T.sub}; text-align:right; }
   .pyq-question,.question-text{ font-size:16px; line-height:1.7; margin-bottom:10px; max-width:100%; }
   .answer-section{ margin-top:12px; max-width:100%; }
-  .label{ font-size:12px; font-weight:600; color:${T.sub}; margin-bottom:4px; }
+  .label{ font-size:12px; font-weight:700; color:${T.accent}; margin-bottom:4px;
+          text-transform:uppercase; letter-spacing:0.4px; }
   .solution-box,.solution-block{ background:${T.page}; padding:10px 12px; border-radius:10px; margin-top:12px;
                    border:1px solid ${T.hair}; max-width:100%; }
-  .solution-title{ font-size:12px; font-weight:600; color:${T.sub}; margin-bottom:4px; }
+  .solution-title{ font-size:12px; font-weight:700; color:${T.accent}; margin-bottom:4px;
+                   text-transform:uppercase; letter-spacing:0.4px; }
   .solution-box p{ margin:4px 0; }
   .pyq-options,.options{ display:flex; flex-direction:column; gap:6px; margin-top:12px; }
   .option{ display:flex; gap:10px; align-items:flex-start;
@@ -177,8 +183,8 @@ export function buildPyqDocument(fragmentHtml, opts = {}) {
   body.iq .open .option.correct .option-index,body.iq .open .option.correct .option-text,body.iq .open .option.correct p{ color:${T.ok}; }
   /* Tap affordance shown inside every box. */
   body.iq .pyq-card::after,body.iq .question-card::after{ content:"View answer  \\25BE";
-    display:block; margin-top:10px; font-size:12px; font-weight:800; color:${T.ok}; letter-spacing:0.2px; }
-  body.iq .pyq-card.open::after,body.iq .question-card.open::after{ content:"Hide  \\25B4"; margin-top:12px; font-weight:700; color:#9ca3af; }
+    display:block; margin-top:10px; font-size:12px; font-weight:800; color:${T.accent}; letter-spacing:0.2px; }
+  body.iq .pyq-card.open::after,body.iq .question-card.open::after{ content:"Hide  \\25B4"; margin-top:12px; font-weight:700; color:${T.sub}; }
 </style></head>
 <body class="${collapsible ? 'iq' : ''}">${html}
 ${collapsible ? `<script>(function(){
