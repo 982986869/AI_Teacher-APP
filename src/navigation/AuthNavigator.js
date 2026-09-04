@@ -8,6 +8,7 @@ import LoginScreen from '../screens/LoginScreen';
 import SignupScreen from '../screens/SignupScreen';
 import OTPScreen from '../screens/OTPScreen';
 import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
+import ReactivateAccountScreen from '../screens/ReactivateAccountScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -38,6 +39,9 @@ const AuthNavigator = () => (
     <Stack.Screen name="SignupScreen"    component={SignupScreen} />
     <Stack.Screen name="OTPScreen"       component={OTPScreen} />
     <Stack.Screen name="ForgotPasswordScreen" component={ForgotPasswordScreen} />
+    {/* Reached only from Login/Signup, when the server answers ACCOUNT_DEACTIVATED.
+        Never an entry point of its own: it needs the address that was just rejected. */}
+    <Stack.Screen name="ReactivateAccountScreen" component={ReactivateAccountScreen} />
   </Stack.Navigator>
 );
 

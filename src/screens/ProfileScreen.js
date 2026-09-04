@@ -23,6 +23,7 @@ import * as ImagePicker from 'expo-image-picker';
 
 import { useAuth } from '../context/AuthContext';
 import { deleteAccountApi } from '../api/authApi';
+import { flow, flowErr } from '../utils/flowLog';
 import { useDockVisibility } from '../navigation/DockVisibility';
 import { useSupportLauncher } from '../navigation/SupportLauncher';
 import { getSoundEnabledAsync, setSoundEnabled } from '../utils/sound';
@@ -125,8 +126,9 @@ const ProfileScreen = () => {
     Alert.alert(
       'Delete account',
       'Are you sure you want to delete this account?\n\n'
-      + 'You will be logged out and will not be able to log in to this account again. '
-      + 'To use Ailernova later you will need to create a new account.',
+      + 'You will be logged out and will not be able to log in again.\n\n'
+      + 'For the next 30 days you can restore it — just try to sign in with this email '
+      + 'and we will send you a link. After 30 days it is deleted for good.',
       [
         { text: 'Cancel', style: 'cancel' },
         { text: 'Delete account', style: 'destructive', onPress: confirmDeleteAccount },
@@ -135,15 +137,21 @@ const ProfileScreen = () => {
   };
 
   const confirmDeleteAccount = () => {
-    Alert.alert('This cannot be undone', 'Delete your account?', [
+    Alert.alert(
+      'Delete your account?',
+      'You have 30 days to change your mind. After that it cannot be undone.',
+      [
       { text: 'Cancel', style: 'cancel' },
       {
         text: 'Delete',
         style: 'destructive',
         onPress: async () => {
           try {
+            flow('1. delete account  —  requesting');
             await deleteAccountApi();
+            flow('2. delete account  —  server accepted; signing out');
           } catch (e) {
+            flowErr('2. delete account  —  FAILED', e);
             // Nothing was deleted, so say so and stay put rather than signing out —
             // signing out here would look like it worked.
             Alert.alert('Could not delete account', 'Please check your connection and try again.');

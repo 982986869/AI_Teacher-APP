@@ -32,6 +32,15 @@ function resolveApiUrl() {
 
 export const API_BASE_URL = resolveApiUrl();
 
+// Printed on every start, deliberately. Pointing at the wrong backend is invisible from
+// inside the app — every screen still works, it is just a different database — and it
+// has already cost one debugging session: the deployed API was running the previous
+// release, so a deleted account behaved by the old rules while the new ones were being
+// tested. One line at boot makes that impossible to miss again.
+if (process.env.NODE_ENV !== 'production') {
+  console.log(`[FLOW] API base URL  —  ${API_BASE_URL}`);
+}
+
 // Google OAuth client IDs. app.json → expo.extra.google is the primary source: unlike
 // process.env it is present in standalone builds, which is where the old env-only
 // lookup silently fell through to the placeholder. These are public identifiers, not

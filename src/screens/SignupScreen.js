@@ -14,6 +14,7 @@ import PrimaryButton from '../components/brand/PrimaryButton';
 import { COLORS, TYPE, FONT_FAMILY, SPACING } from '../theme/designSystem';
 
 import { signupWithEmail } from '../api/authApi';
+import { flow, flowErr } from '../utils/flowLog';
 import { useAuth } from '../context/AuthContext';
 import { validateEmail, validatePassword, validateName, validatePhone } from '../utils/validators';
 
@@ -107,13 +108,22 @@ const SignupScreen = ({ navigation }) => {
 
     try {
       setLoading(true);
+      flow('S1. sign up  —  trying', email.trim());
       const data = await signupWithEmail({ name, email, password });
+      flow('S2. sign up  —  a NEW account was created');
       await signIn(data);
       // Best-effort — a photo-upload hiccup should never block a just-created
       // account from signing in. No photo picked → the backend's own default
       // avatar (already on the account from signup) stands as-is.
       if (photo) { try { await updatePhoto(photo); } catch (_) {} }
     } catch (e) {
+      // Signing up with an address that already has a DELETED account. A bare "that
+      // email is taken" would strand exactly the person the recovery window is for —
+      // told the address is unavailable, and not told it is their own account holding it.
+      if (e?.response?.data?.code === 'ACCOUNT_DEACTIVATED') {
+        flow('S2. sign up  —  this address has a DELETED account; opening restore screen');
+        return navigation.navigate('ReactivateAccountScreen', { email: email.trim() });
+      }
       setError(e?.response?.data?.error || e?.response?.data?.message || 'Signup failed. Please try again.');
     } finally {
       setLoading(false);

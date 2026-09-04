@@ -14,6 +14,7 @@ import PrimaryButton from '../components/brand/PrimaryButton';
 import { COLORS, TYPE, FONT_FAMILY, SPACING } from '../theme/designSystem';
 
 import { loginWithEmail, loginWithGoogle, sendOTP } from '../api/authApi';
+import { flow, flowErr } from '../utils/flowLog';
 import { useAuth } from '../context/AuthContext';
 import { validateEmail, validatePassword, validatePhone } from '../utils/validators';
 
@@ -47,9 +48,20 @@ const LoginScreen = ({ navigation }) => {
 
     try {
       setLoading(true);
+      flow('3. sign in  —  trying', email.trim());
       const data = await loginWithEmail({ email, password });
+      flow('4. sign in  —  OK, account is live');
       await signIn(data);
     } catch (e) {
+      flowErr('4. sign in  —  refused', e);
+      // The account is deleted but still inside its recovery window. The server only
+      // answers this once the PASSWORD has checked out, so whoever is here owns the
+      // account — offer them the way back instead of a dead end. (The finally below
+      // still runs on this return, so the spinner is cleared either way.)
+      if (e?.response?.data?.code === 'ACCOUNT_DEACTIVATED') {
+        flow('5. sign in  —  account is DELETED but restorable; opening restore screen');
+        return navigation.navigate('ReactivateAccountScreen', { email: email.trim() });
+      }
       setError(e?.response?.data?.error || e?.response?.data?.message || 'Login failed. Please try again.');
     } finally {
       setLoading(false);
@@ -58,13 +70,31 @@ const LoginScreen = ({ navigation }) => {
 
   const handleGoogleLogin = async () => {
     setError('');
+    // Hoisted out of the try so the catch below can still name the address. Someone who
+    // taps "Continue with Google" never types into the email field, so the email state
+    // above is empty — without this the restore screen would open with no address on it
+    // and nothing to send a link to.
+    let googleEmail = '';
     try {
       setLoading(true);
-      const { idToken } = await signInWithGoogle();
+      const { idToken, profile } = await signInWithGoogle();
+      googleEmail = (profile && profile.email) || '';
       const data = await loginWithGoogle({ idToken });
       await signIn(data);
     } catch (e) {
       if (e instanceof GoogleSignInCancelled) return;
+      // Same branch as the password path. Google has vouched for the address, which is
+      // the proof of ownership the server requires before naming a deleted account.
+      if (e?.response?.data?.code === 'ACCOUNT_DEACTIVATED') {
+        const known = (googleEmail || email || '').trim();
+        // Older versions of the Google module hand back no profile at all. Rather than
+        // open a restore screen with no address — which could not do anything — say
+        // plainly what to do instead.
+        if (!known) {
+          return setError('This account was deleted. Sign in with your email and password to restore it.');
+        }
+        return navigation.navigate('ReactivateAccountScreen', { email: known });
+      }
       setError(e?.response?.data?.error || e?.response?.data?.message || e?.message || 'Google sign-in failed. Please try again.');
     } finally {
       setLoading(false);
