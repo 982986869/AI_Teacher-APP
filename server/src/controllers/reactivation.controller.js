@@ -4,7 +4,8 @@ const { validationResult } = require('express-validator')
 const db = require('../config/database')
 const { config } = require('../config/env')
 const ApiResponse = require('../utils/ApiResponse')
-const mail = require('../services/mail')
+const { sendMail } = require('../services/mailer')
+const mailTemplates = require('../services/mailTemplates')
 const {
   TOKEN_TTL_HOURS, MAX_CODE_ATTEMPTS, hashSecret, secretMatches, issue, isExpired,
 } = require('../services/accountReactivation')
@@ -95,12 +96,14 @@ async function request(req, res, next) {
       // waiting for SMTP would make this endpoint answer measurably slower for an
       // address that has an account than for one that does not — exactly the
       // difference the generic reply above exists to hide.
-      mail.sendReactivation({
+      sendMail({
         to: user.email,
-        name: user.name,
-        link: `${config.publicUrl}/api/auth/reactivate?token=${t.token}`,
-        code: t.code,
-        expiresInHours: TOKEN_TTL_HOURS,
+        ...mailTemplates.reactivate({
+          name: user.name,
+          link: `${config.publicUrl}/api/auth/reactivate?token=${t.token}`,
+          code: t.code,
+          expiresInHours: TOKEN_TTL_HOURS,
+        }),
       })
     }
 

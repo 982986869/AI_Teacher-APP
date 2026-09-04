@@ -37,10 +37,18 @@ const config = {
   nodeEnv: process.env.NODE_ENV || 'development',
   isDev: process.env.NODE_ENV !== 'production',
 
-  // Where this API is reachable from the public internet. Needed because links in
-  // outgoing email have to be absolute — a request's own Host header cannot be
-  // trusted for that, since an attacker controls it and the link ends up in an inbox.
-  publicUrl: (process.env.PUBLIC_API_URL || 'http://localhost:5000').replace(/[/]+$/, ''),
+  // Where this API is reachable from the public internet. Links in outgoing mail have
+  // to be absolute, and a request's own Host header cannot be trusted to build one:
+  // the caller controls it and the result ends up in somebody's inbox.
+  //
+  // APP_PUBLIC_URL is the same variable the password-reset link is built from
+  // (controllers/passwordReset), deliberately — one address for every link this server
+  // mails, so a deploy cannot get one of them right and the other wrong.
+  publicUrl: (process.env.APP_PUBLIC_URL || 'http://localhost:5000').replace(/[/]+$/, ''),
+
+  // Where the daily "these accounts are ready to delete" digest goes. Staff, not a
+  // student, so the address is configuration rather than a row in the database.
+  adminAlertEmail: process.env.ADMIN_ALERT_EMAIL,
 
   // Shared secret for the scheduled-job endpoints (routes/jobs.js), which an external
   // cron service calls because nothing in this process can reliably schedule itself on
@@ -72,28 +80,6 @@ const config = {
     senderId: process.env.MSG91_SENDER_ID,
     otpExpiryMinutes: parseInt(process.env.MSG91_OTP_EXPIRY_MIN, 10) || 5,
     enabled: !!(process.env.MSG91_AUTH_KEY && process.env.MSG91_TEMPLATE_ID),
-  },
-
-  // Transactional email. Mailtrap's sandbox, a corporate relay and a transactional
-  // provider are all just SMTP, so moving between them is these values and nothing
-  // else — no code change, no redeploy of anything but the environment.
-  //
-  // With no credentials set, mail is written to the log instead of being sent (see
-  // services/mail). That is the local development path, and it means a missing
-  // credential in production degrades to a visible log line rather than a crash in
-  // the middle of someone deleting their account.
-  mail: {
-    host: process.env.MAIL_HOST,
-    port: parseInt(process.env.MAIL_PORT, 10) || 587,
-    // Mailtrap's sandbox and most relays are STARTTLS on 587/2525 (secure:false);
-    // implicit TLS on 465 needs secure:true, which is what this derives.
-    secure: process.env.MAIL_SECURE === 'true' || parseInt(process.env.MAIL_PORT, 10) === 465,
-    user: process.env.MAIL_USER,
-    pass: process.env.MAIL_PASS,
-    from: process.env.MAIL_FROM || 'Ailernova <no-reply@ailernova.com>',
-    // Where the daily "these accounts are ready to delete" digest is sent.
-    adminTo: process.env.ADMIN_ALERT_EMAIL,
-    enabled: !!(process.env.MAIL_HOST && process.env.MAIL_USER && process.env.MAIL_PASS),
   },
 
   ai: {

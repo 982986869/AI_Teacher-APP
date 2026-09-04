@@ -1,15 +1,19 @@
 'use strict'
 
-// The wording of every message this server sends.
+// The wording of the account-deletion messages.
 //
-// Kept apart from the transport so the copy can be read, reviewed and tested without
-// touching SMTP — tests/mail.test.js renders each one and asserts on what it says.
+// Kept apart from services/mailer, which sends them, so the copy can be read, reviewed
+// and tested without touching SMTP — tests/mail.test.js renders each one and asserts on
+// what it says. Each returns { subject, text, html }, which is exactly the shape
+// mailer.sendMail takes, so a caller is: sendMail({ to, ...accountDeleted({ … }) }).
 //
-// Every template returns { subject, text, html }. The text part is not a fallback to
-// be neglected: plenty of people read mail as plain text, and a message that only
-// makes sense in HTML reads to them as an empty envelope.
+// (mailer.js carries resetPasswordEmail inline, from when there was one message. These
+// live out here because there are now several and they have real copy to review.)
+//
+// The text part is not a fallback to be neglected: plenty of people read mail as plain
+// text, and a message that only makes sense in HTML reads to them as an empty envelope.
 
-const { GRACE_PERIOD_DAYS } = require('../accountDeletion')
+const { GRACE_PERIOD_DAYS } = require('./accountDeletion')
 
 // Inline styles only, a table-free single column, and no external images. Mail clients
 // strip <style> blocks, block remote content by default, and render floats unevenly —

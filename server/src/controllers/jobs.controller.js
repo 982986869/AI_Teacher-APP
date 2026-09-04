@@ -4,7 +4,8 @@ const crypto = require('crypto')
 const db = require('../config/database')
 const { config } = require('../config/env')
 const ApiResponse = require('../utils/ApiResponse')
-const mail = require('../services/mail')
+const { sendMail } = require('../services/mailer')
+const mailTemplates = require('../services/mailTemplates')
 const { GRACE_PERIOD_DAYS } = require('../services/accountDeletion')
 
 // Work that runs on a clock rather than on a person.
@@ -59,11 +60,14 @@ async function deletionDigest(req, res, next) {
 
     // Awaited, unlike the student-facing mail: the caller here is a cron service, and
     // whether the send worked is the only thing it can usefully be told.
-    const result = await mail.sendAdminDigest({ rows })
+    const result = await sendMail({
+      to: config.adminAlertEmail,
+      ...mailTemplates.adminDigest({ rows }),
+    })
 
     return ApiResponse.success(
       res,
-      { due: rows.length, emailed: result.sent, reason: result.reason },
+      { due: rows.length, emailed: result.ok, reason: result.error },
       `${rows.length} account${rows.length === 1 ? '' : 's'} due for deletion.`,
     )
   } catch (err) {

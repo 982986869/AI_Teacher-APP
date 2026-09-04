@@ -248,6 +248,14 @@ export default function SupportThreadScreen({ route, navigation }) {
   const asker = ticket.raisedBy || {};
   const canGrant = ticket.topicId === 'unlock' && asker.id
     && asker.accessLevel !== 'full' && can('users.edit');
+  // Why there is no button, when the ticket is one that would normally have it.
+  // Hiding it alone is ambiguous: an agent cannot tell "already granted" from
+  // "this build is missing the feature" or "my role cannot do this", and every
+  // unlock ticket in the queue eventually reaches the already-granted state.
+  const grantNote = (ticket.topicId !== 'unlock' || !asker.id || canGrant) ? null
+    : asker.accessLevel === 'full' ? 'This student already has full access.'
+    : !can('users.edit') ? 'Your role cannot change access.'
+    : null;
 
   const grantAccess = () => {
     Alert.alert('Grant full access?',
@@ -323,6 +331,15 @@ export default function SupportThreadScreen({ route, navigation }) {
             <Unlock size={15} color="#fff" strokeWidth={2.6} />
             <T w="xbold" s={13.5} c="#fff">Grant full access</T>
           </PressableScale>
+        ) : grantNote ? (
+          <View style={{
+            flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7,
+            marginTop: 12, height: 42, borderRadius: 12,
+            backgroundColor: S.canvas, borderWidth: 1, borderColor: S.hair,
+          }}>
+            <Unlock size={14} color={S.muted} strokeWidth={2.4} />
+            <T w="bold" s={12.5} c={S.muted}>{grantNote}</T>
+          </View>
         ) : null}
 
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 12, flexWrap: 'wrap' }}>

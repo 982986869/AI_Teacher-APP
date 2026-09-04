@@ -14,7 +14,8 @@ const { permissionsForUser } = require('../services/admin/permissions')
 const { validateProfilePatch } = require('../services/personalization/validateProfile')
 const { uploadImage, isConfigured: storageConfigured } = require('../services/storage')
 const { GRACE_PERIOD_DAYS, purgeDueAt } = require('../services/accountDeletion')
-const mail = require('../services/mail')
+const { sendMail } = require('../services/mailer')
+const mailTemplates = require('../services/mailTemplates')
 
 // Full personalization row (raw — these columns live outside the generated client).
 async function fetchScopeUser(id) {
@@ -28,7 +29,13 @@ async function fetchScopeUser(id) {
     // date_of_birth / parent_email / learning_prefs (prisma/sql/user_profile_fields.sql)
     // ride along so Edit Profile and Learning Preferences can prefill from `user` on
     // the very first render, without a second round trip of their own.
-    `SELECT id, name, email, phone, grade, role::text AS role, admin_role, is_active,
+    // access_level is here because this row IS the `user` the app stores at sign-in,
+    // and both deriveScope()s read it to decide whether to draw the paywall. Without
+    // the column the value is undefined, which fails closed to 'free' — so a student
+    // with full access signed in and saw every lesson locked for the whole session,
+    // until a cold start replaced this row with /me's (which selects it, hence the
+    // two disagreeing). Keep in step with the select in middleware/auth.js.
+    `SELECT id, name, email, phone, grade, role::text AS role, admin_role, is_active, access_level,
             board, stream, language, school, account_type, linked_student_id, photo_url AS "photoUrl",
             to_char("date_of_birth", 'YYYY-MM-DD') AS "dateOfBirth",
             parent_email AS "parentEmail", learning_prefs AS "learningPrefs"
@@ -421,11 +428,17 @@ async function deleteAccount(req, res, next) {
     // and the app is waiting on this response to sign the student out — a slow or
     // unreachable SMTP server must not hold that up. send() logs its own failures and
     // never rejects, so there is nothing here to catch.
-    mail.sendAccountDeleted({
-      to: user.email,
-      name: user.name,
-      purgeDueAt: purgeDueAt(updated[0].deleted_at),
-    })
+    // sendMail resolves rather than throwing, so there is nothing here to catch. An
+    // account with no address (the phone signup path) simply has nothing to send to.
+    if (user.email) {
+      sendMail({
+        to: user.email,
+        ...mailTemplates.accountDeleted({
+          name: user.name,
+          purgeDueAt: purgeDueAt(updated[0].deleted_at),
+        }),
+      })
+    }
 
     // 200 with no body: the app signs out on success, so there is nothing to render.
     return ApiResponse.success(res, null, 'Account deleted')

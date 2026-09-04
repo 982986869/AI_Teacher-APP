@@ -116,7 +116,19 @@ import { ch22BioExemplarQuestions } from '../data/ch22BioExemplarQuestions';
 
 // Exemplar Chapter-end question sets, scoped by subject then chapter name.
 // Add more subjects/chapters here as you extract them.
-const EXEMPLAR_QUESTIONS = {
+// Built on FIRST READ, not at module load.
+//
+// The values are 83 imported question banks totalling ~4 MB. As a plain object
+// literal, constructing it read every one of those bindings the moment this module
+// was imported — so opening the Resources tab parsed 4 MB of Class 11/12 exemplar
+// data on the JS thread before the tab could paint. That is the freeze.
+//
+// Behind a function, and with inlineRequires on (metro.config.js), each bank is
+// required when this builder first runs: when a student actually opens an exemplar
+// chapter. Most sessions never open one, and a session that does needs a handful.
+//
+// Memoised below, so the cost is paid at most once per app launch.
+const buildExemplarQuestions = () => ({
   Physics: {
     'Units and Measurements': ch1ExemplarQuestions,
     'Motion in A Straight Line': ch2ExemplarQuestions,
@@ -242,14 +254,17 @@ const EXEMPLAR_QUESTIONS = {
     'Chemical Coordination and Integration': ch22BioExemplarQuestions,
     // ...add chapters as extracted
   },
-};
+});
+
+let _exemplarCache = null;
+const exemplarQuestions = () => (_exemplarCache || (_exemplarCache = buildExemplarQuestions()));
 
 // Returns the tappable rows for a chapter's Exemplar page.
 //  • flat question array (Physics/Chemistry)        -> one "Chapter-end" row
 //  • array of { label, questions } (e.g. Maths)     -> one row per section
 //  • no data                                        -> one empty "Chapter-end" row
 const getExemplarSections = (subjectName, chapterName) => {
-  const data = (EXEMPLAR_QUESTIONS[subjectName] || {})[chapterName];
+  const data = (exemplarQuestions()[subjectName] || {})[chapterName];
   if (Array.isArray(data) && data.length > 0 && data[0] && data[0].questions !== undefined) {
     return data;
   }
@@ -737,7 +752,7 @@ const buildPaperFrontMatter = (SUBJ, paper) => {
 //
 // Exception: Class 12 Mathematics NCERT IS split into Part-I / Part-II (DB-backed,
 // rendered as MathJax cards like Physics), so it keeps both entries.
-const getResourceTypes = (subjectName, classLevel, parts = null) => {
+const baseResourceTypes = (subjectName, classLevel, parts = null) => {
   // Class 12 chapter-level question banks — DB-backed (sections + questions),
   // the same getQuestionsByPath flow Class 10 uses. Physics, Chemistry and
   // Mathematics have all three sections for every chapter that exists; no other
@@ -953,6 +968,26 @@ const getResourceTypes = (subjectName, classLevel, parts = null) => {
         : rt));
   }
   return base;
+};
+
+
+// Chapter-wise practice, DB-backed (sections type_key='practice' + questions), read
+// through the same getQuestionsByPath flow Class 10 uses.
+//
+// Appended here rather than inside baseResourceTypes because that function returns
+// from a dozen places — one per class, and several per class for multi-book subjects —
+// and a tile added to only some of them is how Class 12 ended up with 19,407 practice
+// questions nothing could reach.
+//
+// A subject with no practice shows an empty chapter list rather than a dead end:
+// getChapters returns only chapters that actually carry the section, which is the
+// same way the Class 9 textbook tiles already behave.
+const PRACTICE_CLASSES = ['Class 7', 'Class 8', 'Class 9'];
+const getResourceTypes = (subjectName, classLevel, parts = null) => {
+  const tiles = baseResourceTypes(subjectName, classLevel, parts);
+  if (!PRACTICE_CLASSES.includes(classLevel)) return tiles;
+  if (tiles.some((t) => t.type === 'practice')) return tiles;
+  return [...tiles, { icon: '✍️', name: 'Practice Questions', sub: 'Chapter-wise MCQs', type: 'practice' }];
 };
 
 // ── Full chapter notes data ───────────────────────────────────────────────────
@@ -2467,10 +2502,15 @@ const ResourcesScreen = () => {
         <Text style={dk.headerTitle}>Resources</Text>
         <Text style={dk.headerSub}>Notes, solutions & papers by chapter</Text>
       </View>
-      {/* Students are locked to their own class; the switcher only shows if no class is set yet. */}
-      {!scope?.classNum && <ClassTabs value={activeClass} onChange={setActiveClass} />}
-      {scope?.role === 'student' && (scope?.tester ? activeClass : scope?.className) && !isClassReady(scope?.tester ? activeClass : scope.className) ? (
-        <ComingSoon label="Resources" className={scope?.tester ? activeClass : scope?.className} />
+      {/* Any student may look at any class — see PracticeScreen for the reasoning. */}
+      <ClassTabs value={activeClass} onChange={setActiveClass} />
+      {/* Gated on the class being VIEWED, not the saved one — the tester special
+          case is gone now that everyone can browse. In practice this never fires:
+          the backend reports all of Class 6–12 ready. It is kept as the honest
+          state for a class that genuinely has nothing, which beats an empty tab,
+          and isClassReady stays optimistic while its list loads. */}
+      {scope?.role === 'student' && activeClass && !isClassReady(activeClass) ? (
+        <ComingSoon label="Resources" className={activeClass} />
       ) : (
         <>
           <View style={dk.sectionWrap}>

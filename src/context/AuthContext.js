@@ -156,9 +156,15 @@ export const AuthProvider = ({ children }) => {
     [readyClasses],
   );
 
-  // Keep the legacy selectedClass aligned to the user's real class.
+  // Seed the browsing class from the student's own class, but only when nothing
+  // has chosen one yet. This used to assign unconditionally on every scope
+  // change, which is why a picked class never survived: any profile refresh —
+  // and the boot fetchMe() is one — snapped it straight back. The functional
+  // form is what makes it a seed, deferring to the class restored from storage
+  // above and to anything the student picks later.
   useEffect(() => {
-    if (scope.className) setSelClass(scope.className);
+    if (!scope.className) return;
+    setSelClass((cur) => cur || scope.className);
   }, [scope.className]);
 
   // Clearing storage and state is not enough to end a session: the support socket is a
@@ -172,6 +178,11 @@ export const AuthProvider = ({ children }) => {
     await clearAll();
     await AsyncStorage.removeItem('@ailernova_onboarded');
     await AsyncStorage.removeItem('@ailernova_active_view');
+    // The browsing class is now persisted and no longer re-seeded on every scope
+    // change, so without this the next account signing in on this device would
+    // inherit the previous student's class until they picked another.
+    await AsyncStorage.removeItem('@ailernova_class');
+    setSelClass(null);
     setToken(null);
     setUser(null);
     setPermissions([]);

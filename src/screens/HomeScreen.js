@@ -43,6 +43,7 @@ import {
 } from '@expo-google-fonts/plus-jakarta-sans';
 // The BRAIN chip is the one node the design sets in Inter rather than Plus Jakarta Sans.
 import { Inter_700Bold } from '@expo-google-fonts/inter';
+import { ClassPicker } from '../components/ClassPicker';
 import { useAuth } from '../context/AuthContext';
 import { useRuntimeConfig } from '../context/RuntimeConfigContext';
 // Imported statically ON PURPOSE — do NOT React.lazy() these. On native, `import()` makes
@@ -321,7 +322,7 @@ const HomeScreen = () => {
     PlusJakartaSans_400Regular, PlusJakartaSans_500Medium, PlusJakartaSans_600SemiBold,
     PlusJakartaSans_700Bold, PlusJakartaSans_800ExtraBold, Inter_700Bold,
   });
-  const { user } = useAuth();
+  const { user, selectedClass, setSelectedClass } = useAuth();
   const { isFeatureEnabled } = useRuntimeConfig();
   const insets = useSafeAreaInsets();
   const navigation = useNavigation();
@@ -487,6 +488,11 @@ const HomeScreen = () => {
               </View>
               <T w="semi" s={12} c={DAY.inkSoft} numberOfLines={1} style={{ marginTop: 2 }}>Ready to level up?</T>
             </View>
+            {/* Which class the student is browsing. It seeds from their own and
+                is theirs to change: the server honours ?class= for every student
+                now, so looking ahead at another year is a chip, not a support
+                request. Sits before the icons so it reads as content, not chrome. */}
+            <ClassPicker value={selectedClass} onChange={setSelectedClass} />
             <Squeeze style={hs.iconBtn} accessibilityLabel="Notifications">
               <Bell size={19} color={DAY.inkSoft} strokeWidth={2.2} />
             </Squeeze>

@@ -3,7 +3,7 @@
 const test = require('node:test')
 const assert = require('node:assert')
 
-const { accountDeleted, reactivate, adminDigest } = require('../src/services/mail/templates')
+const { accountDeleted, reactivate, adminDigest } = require('../src/services/mailTemplates')
 const { GRACE_PERIOD_DAYS } = require('../src/services/accountDeletion')
 
 const DUE = new Date('2026-10-03T10:00:00Z')

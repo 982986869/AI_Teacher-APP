@@ -66,19 +66,30 @@ test('deriveScope for the test personas', () => {
   assert.equal(legacyRoleEnum.role, 'teacher')
 })
 
-test('enforce: only the saved class is used — never the client ?class= param', () => {
+test('enforce: a student may browse another class, but only by asking for it', () => {
+  // The param is honoured now — this is the any-class browsing contract.
   const req = { scope: deriveScope({ grade: 'Class 8', account_type: 'student' }), query: { class: '11' } }
-  assert.equal(resolveClassNum(req), 8) // ignores the client param
+  assert.equal(resolveClassNum(req), 11)
 
-  // No saved class → null (NOT a fallback to 11 and NOT the client param). This is
-  // what stops "all classes see Class 11 content": null → empty query result.
-  const noClass = { scope: deriveScope({ grade: null, account_type: 'student' }), query: { class: '10' } }
+  // No param → still their own class. Browsing is opt-in, never the default.
+  const noParam = { scope: deriveScope({ grade: 'Class 8', account_type: 'student' }), query: {} }
+  assert.equal(resolveClassNum(noParam), 8)
+
+  // The original bug this file was written against: no saved class must NOT
+  // fall back to a fixed class. Without a param the answer is still null, so an
+  // unfilled profile gets an empty result rather than somebody else's syllabus.
+  const noClass = { scope: deriveScope({ grade: null, account_type: 'student' }), query: {} }
   assert.equal(resolveClassNum(noClass), null)
 
-  // Parents/teachers get no content class either.
+  // Garbage in the param does not become a class either.
+  const junk = { scope: deriveScope({ grade: 'Class 8', account_type: 'student' }), query: { class: 'Class 99' } }
+  assert.equal(resolveClassNum(junk), 8)
+
+  // Parents/teachers get no content class, param or not.
   const parent = { scope: deriveScope({ account_type: 'parent' }), query: { class: '11' } }
   assert.equal(resolveClassNum(parent), null)
 })
+
 
 test('AI lesson prompt carries the student profile (board/stream/language) automatically', () => {
   const p = buildLessonUserPrompt('Kinematics', 'Physics', '11', { board: 'CBSE', stream: 'pcm', language: 'Hindi' })
@@ -156,11 +167,32 @@ test('validateProfilePatch: complete-profile rules (never trust the client)', ()
   err(validateProfilePatch({ language: 'Hindi' }, { account_type: 'student', grade: 'Class 12' }), /Stream is required/)
 })
 
-test('enforce: subject + role guards throw 403', () => {
+test('enforce: the stream check applies to your own class, not one you are browsing', () => {
+  // Own class: the stream still means what it always meant.
   const pcm = { scope: deriveScope({ grade: '11', stream: 'PCM', account_type: 'student' }), query: {} }
   assert.throws(() => assertSubjectAllowed(pcm, 'Biology'), (e) => e.status === 403)
   assert.doesNotThrow(() => assertSubjectAllowed(pcm, 'Physics'))
 
+  // Browsing another class: no stream check. A Class 9 student has no stream at
+  // all, and subjectsFor(11, null) answers with the science union — so enforcing
+  // it would 403 every Commerce and Arts subject in the class being browsed.
+  const c9 = deriveScope({ grade: 'Class 9', account_type: 'student' })
+  assert.doesNotThrow(() => assertSubjectAllowed({ scope: c9, query: { class: '11' } }, 'Physics'))
+  assert.doesNotThrow(() => assertSubjectAllowed({ scope: c9, query: { class: '11' } }, 'Accountancy'))
+
+  // A PCM student browsing Class 12 Commerce is browsing, not enrolling.
+  assert.doesNotThrow(() => assertSubjectAllowed(
+    { scope: deriveScope({ grade: '11', stream: 'PCM', account_type: 'student' }), query: { class: '12' } },
+    'Business Studies',
+  ))
+
+  // ...but the same subject on their OWN class is still refused.
+  assert.throws(() => assertSubjectAllowed(
+    { scope: deriveScope({ grade: '11', stream: 'PCM', account_type: 'student' }), query: { class: '11' } },
+    'Business Studies',
+  ), (e) => e.status === 403)
+})
+test('enforce: non-students are blocked from student-only actions', () => {
   const parent = { scope: deriveScope({ account_type: 'parent' }), query: {} }
   assert.throws(() => assertStudent(parent), (e) => e.status === 403)
 })
