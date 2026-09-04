@@ -116,7 +116,19 @@ import { ch22BioExemplarQuestions } from '../data/ch22BioExemplarQuestions';
 
 // Exemplar Chapter-end question sets, scoped by subject then chapter name.
 // Add more subjects/chapters here as you extract them.
-const EXEMPLAR_QUESTIONS = {
+// Built on FIRST READ, not at module load.
+//
+// The values are 83 imported question banks totalling ~4 MB. As a plain object
+// literal, constructing it read every one of those bindings the moment this module
+// was imported — so opening the Resources tab parsed 4 MB of Class 11/12 exemplar
+// data on the JS thread before the tab could paint. That is the freeze.
+//
+// Behind a function, and with inlineRequires on (metro.config.js), each bank is
+// required when this builder first runs: when a student actually opens an exemplar
+// chapter. Most sessions never open one, and a session that does needs a handful.
+//
+// Memoised below, so the cost is paid at most once per app launch.
+const buildExemplarQuestions = () => ({
   Physics: {
     'Units and Measurements': ch1ExemplarQuestions,
     'Motion in A Straight Line': ch2ExemplarQuestions,
@@ -242,14 +254,17 @@ const EXEMPLAR_QUESTIONS = {
     'Chemical Coordination and Integration': ch22BioExemplarQuestions,
     // ...add chapters as extracted
   },
-};
+});
+
+let _exemplarCache = null;
+const exemplarQuestions = () => (_exemplarCache || (_exemplarCache = buildExemplarQuestions()));
 
 // Returns the tappable rows for a chapter's Exemplar page.
 //  • flat question array (Physics/Chemistry)        -> one "Chapter-end" row
 //  • array of { label, questions } (e.g. Maths)     -> one row per section
 //  • no data                                        -> one empty "Chapter-end" row
 const getExemplarSections = (subjectName, chapterName) => {
-  const data = (EXEMPLAR_QUESTIONS[subjectName] || {})[chapterName];
+  const data = (exemplarQuestions()[subjectName] || {})[chapterName];
   if (Array.isArray(data) && data.length > 0 && data[0] && data[0].questions !== undefined) {
     return data;
   }
