@@ -37,10 +37,33 @@ export const updateProfileApi = async (patch) => {
 };
 
 // Delete the signed-in account. Soft delete on the server: the person is signed out
-// and can never sign in to this account again, and must create a new one to return.
-// The caller MUST sign out on success — every later request would 401 anyway.
+// and cannot sign in again — but for 30 days they can restore the account themselves
+// from the address they deleted it with (see requestReactivation below). The server
+// emails them that deadline. The caller MUST sign out on success — every later
+// request would 401 anyway.
 export const deleteAccountApi = async () => {
   const res = await axiosInstance.delete('/api/auth/me');
+  return res.data;
+};
+
+// ─── Restoring a deleted account ────────────────────────────────────────────────
+// Both of these are called while signed OUT — that is the whole situation they exist
+// for — so neither carries a token.
+
+// Ask for the restore email (a link and a six-digit code). Deliberately resolves the
+// same way whether or not the address has a deactivated account: the server refuses to
+// say, so that nobody can use this to discover who has an account. The screen must not
+// claim otherwise either.
+export const requestReactivation = async ({ email }) => {
+  const res = await axiosInstance.post('/api/auth/reactivate/request', { email });
+  return res.data;
+};
+
+// Spend the six-digit code from that email. On success the account is live again — but
+// the caller is NOT signed in: a six-digit code is a weaker secret than the password,
+// so the server will not mint a session from one. Send them back to sign in normally.
+export const confirmReactivation = async ({ email, code }) => {
+  const res = await axiosInstance.post('/api/auth/reactivate/confirm', { email, code });
   return res.data;
 };
 

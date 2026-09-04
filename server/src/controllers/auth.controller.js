@@ -13,7 +13,9 @@ const { deriveScope } = require('../services/personalization/scope')
 const { permissionsForUser } = require('../services/admin/permissions')
 const { validateProfilePatch } = require('../services/personalization/validateProfile')
 const { uploadImage, isConfigured: storageConfigured } = require('../services/storage')
-const { archiveEmail, archivePhone } = require('../services/accountDeletion')
+const { GRACE_PERIOD_DAYS, purgeDueAt } = require('../services/accountDeletion')
+const { sendMail } = require('../services/mailer')
+const mailTemplates = require('../services/mailTemplates')
 
 // Full personalization row (raw — these columns live outside the generated client).
 async function fetchScopeUser(id) {
@@ -80,6 +82,23 @@ const USER_SELECT = {
   createdAt: true,
 }
 
+// is_deleted / deleted_at live outside the generated Prisma client (see schema.prisma),
+// so they are read the raw way middleware/auth.js and deleteAccount already read them.
+// Called only after the caller has proved they own the address, never before.
+async function isSoftDeleted(userId) {
+  const rows = await db.$queryRawUnsafe(
+    'SELECT is_deleted FROM "users" WHERE id = $1::uuid LIMIT 1', userId,
+  )
+  return !!(rows && rows[0] && rows[0].is_deleted)
+}
+
+// One error, one code, three entry points (password, Google, register). The app
+// branches on `code`, never on the wording — see AppError's note on why.
+const deactivated = () => new AppError(
+  `This account was deleted. You can restore it within ${GRACE_PERIOD_DAYS} days.`,
+  403, 'ACCOUNT_DEACTIVATED',
+)
+
 // ─── Register ────────────────────────────────────────────────────────────────
 
 async function register(req, res, next) {
@@ -102,6 +121,10 @@ async function register(req, res, next) {
 
     const existing = await db.user.findFirst({ where: { OR: orConditions } })
     if (existing) {
+      // A deleted account still holds its email, so the generic "already exists" would
+      // strand the very person the grace period is for: told the address is taken, and
+      // not told it is taken by their own deactivated account.
+      if (await isSoftDeleted(existing.id)) throw deactivated()
       throw new AppError('An account with this email or phone already exists', 409)
     }
 
@@ -168,6 +191,14 @@ async function login(req, res, next) {
     const valid = await bcrypt.compare(password, user.passwordHash)
     if (!valid) return next(invalid)
 
+    // A soft-deleted account is recognised, not hidden: the student is told it is
+    // deactivated and offered the way back (POST /api/auth/reactivate/request).
+    //
+    // Deliberately AFTER the password check. Before it, anyone could feed in a list
+    // of addresses and learn which ones have accounts here — which is exactly what
+    // the unified `invalid` message above exists to prevent.
+    if (await isSoftDeleted(user.id)) return next(deactivated())
+
     const { passwordHash: _omit, ...safeUser } = user
     const full = await ensurePhoto((await fetchScopeUser(user.id)) || safeUser)
 
@@ -229,6 +260,10 @@ async function googleAuth(req, res, next) {
     const email = normalizeEmail(payload.email) || payload.email.toLowerCase()
     let user = await db.user.findUnique({ where: { email }, select: USER_SELECT })
     let isNewUser = false
+
+    // Google has just vouched for this address, which is the same proof of ownership
+    // the password check gives on the other path — so the deleted account may be named.
+    if (user && (await isSoftDeleted(user.id))) throw deactivated()
 
     if (!user) {
       isNewUser = true
@@ -360,12 +395,14 @@ async function uploadPhoto(req, res, next) {
  * DELETE /api/auth/me — the account holder deletes their own account.
  *
  * This is a SOFT delete: the row and everything hanging off it stay in the database.
- * What changes is that the person can never sign in to it again. Removing the data
- * for good is a separate, staff-triggered action from the admin console.
+ * The person is signed out and cannot sign in again — but for the next 30 days they
+ * can bring the account back themselves, from the address they deleted it with.
+ * Removing the data for good stays a separate, staff-triggered action from the
+ * admin console. See services/accountDeletion for the grace period.
  *
- * The email and phone are archived rather than left in place because both columns are
- * UNIQUE. Left alone they would block the same person from ever registering again —
- * and registering again is exactly what they are told to do. See services/accountDeletion.
+ * The email and phone are left exactly as they are. They still belong to this person,
+ * and recognising the address is the whole mechanism by which they come back — an
+ * earlier release rewrote them here, which is precisely what made returning impossible.
  *
  * is_active is deliberately NOT touched: that column means "staff suspended this
  * person", and a student deleting their own account is not that.
@@ -373,17 +410,35 @@ async function uploadPhoto(req, res, next) {
 async function deleteAccount(req, res, next) {
   try {
     const rows = await db.$queryRawUnsafe(
-      'SELECT id::text AS id, email, phone, is_deleted FROM "users" WHERE id = $1::uuid LIMIT 1',
+      'SELECT id::text AS id, name, email, phone, is_deleted FROM "users" WHERE id = $1::uuid LIMIT 1',
       req.user.id,
     )
     const user = rows && rows[0]
     if (!user) return next(new AppError('User no longer exists', 401))
     if (user.is_deleted) return next(new AppError('This account is already deleted', 409))
 
-    await db.$executeRawUnsafe(
-      'UPDATE "users" SET is_deleted = true, deleted_at = now(), email = $2, phone = $3 WHERE id = $1::uuid',
-      user.id, archiveEmail(user.email, user.id), archivePhone(user.phone, user.id),
+    // RETURNING rather than a second read: the deadline in the email below has to be
+    // the one the database actually recorded, not one recomputed from a clock here.
+    const updated = await db.$queryRawUnsafe(
+      'UPDATE "users" SET is_deleted = true, deleted_at = now() WHERE id = $1::uuid RETURNING deleted_at',
+      user.id,
     )
+
+    // Fire-and-forget, exactly like recordLogin above. The account is already deleted
+    // and the app is waiting on this response to sign the student out — a slow or
+    // unreachable SMTP server must not hold that up. send() logs its own failures and
+    // never rejects, so there is nothing here to catch.
+    // sendMail resolves rather than throwing, so there is nothing here to catch. An
+    // account with no address (the phone signup path) simply has nothing to send to.
+    if (user.email) {
+      sendMail({
+        to: user.email,
+        ...mailTemplates.accountDeleted({
+          name: user.name,
+          purgeDueAt: purgeDueAt(updated[0].deleted_at),
+        }),
+      })
+    }
 
     // 200 with no body: the app signs out on success, so there is nothing to render.
     return ApiResponse.success(res, null, 'Account deleted')

@@ -89,7 +89,10 @@ async function sendMail({ to, subject, html, text }) {
     }
   }
 
-  if (config.env !== 'production') {
+  // config.nodeEnv, not config.env — there is no 'env' key, so this read was always
+  // undefined and the branch always took the development path. In production that printed
+  // the whole message, reset link included, into the logs.
+  if (config.nodeEnv !== 'production') {
     console.log(`\n[mail] no transport configured — not sending.\n[mail] to: ${to}\n[mail] ${subject}\n[mail] ${text}\n`)
   } else {
     console.error('[mail] no transport configured — password reset mail was NOT sent')

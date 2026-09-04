@@ -18,10 +18,12 @@ import { focusTarget } from './cameraDirector';
 import { freshLearner, observe, assess } from './emotionEngine';
 import { ACTIONS, freshPedagogy, observePedagogy, decideNextAction, personalizedRecap, continuationHint, openingBridge } from './pedagogyEngine';
 import { postCheckOutcome } from '../../api/aiApi';
+import { useImmersiveScreen } from '../../navigation/DockVisibility';
 import { C, D, F, SP, GLASS, GRAD, R, SERIF } from './premiumTheme';
 import { PressableScale, Gradient } from './uiKit';
 import { FollowUpChips, ContentsSheet, FlashcardDeck, TestSheet, loadNotes, saveNotes, loadNoteText, saveNoteText, buildFlashcards, buildTest, buildFormulas, buildRecap } from './lessonExtras';
 import BoardSurface, { surfaceFor } from './boardSurfaces';
+import { BoardSizeProvider } from './boardSize';
 import { EraserWipe } from './boardGestures';
 import { AmbientStage, VoiceAura } from './ambientStage';
 import { expressionForScene, praiseLine, reassureLine, listeningLine, completeLine, resumeBridge } from './teacherPersona';
@@ -30,7 +32,7 @@ import { speakTeacher, stopTeacher, primeTeacherVoice, getSpeechProgress, SPEECH
 import {
   Mic, Square, RotateCcw, SkipForward, SkipBack, Play, Pause, ArrowUp, ChevronLeft, AudioLines,
   Volume2, VolumeX, RefreshCw, GraduationCap, BookOpen, Globe, Check, Trophy, Radio, ListTree, Layers, Maximize2, Minimize2,
-  Ellipsis, Camera, Pencil, Eraser, Type, ChevronDown, ChevronRight, Undo2, FileText,
+  Ellipsis, Camera, Pencil, Eraser, Type, ChevronDown, ChevronRight, Undo2, FileText, RotateCw,
 } from 'lucide-react-native';
 
 // Optional student camera — degrades to a friendly placeholder.
@@ -695,6 +697,10 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   // The teacher matching the voice the student is actually hearing — the name
   // follows the fallback, so a male device voice is not introduced as Ms. Nova.
   const teacher = useTeacherIdentity();
+  // The classroom opens inside the Home tab, so the dock — and the floating Help bubble
+  // that offsets itself from it — stay mounted. The bubble sat right on top of the
+  // "Next Topic" button in this footer, so claim the screen while the lesson is live.
+  useImmersiveScreen();
   // The Teaching Director choreographs the lesson into scenes-of-beats. The player
   // just executes that timeline (speak this line ↔ draw this board step ↔ this face).
   const scenes = useMemo(() => directLesson(lesson || {}), [lesson]);
@@ -734,6 +740,14 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const [contentsTab, setContentsTab] = useState('contents');
   const openContents = (tab) => { setContentsTab(tab); setContentsOpen(true); };
   const [focusMode, setFocusMode] = useState(false); // distraction-free reading
+  // Landscape board WITHOUT rotating the phone: the app is orientation-locked to
+  // portrait (app.json), and the wide boards — reaction chains, timelines, graphs — are
+  // drawn on a 300×150 canvas that a portrait card squeezes to about a third of the
+  // width they want. A quarter turn of the card itself hands them the screen's long
+  // side instead. `stageH` is the scroll area's measured height, i.e. how tall the
+  // board is allowed to be once the camera card steps out of the way in focus mode.
+  const [boardRot, setBoardRot] = useState(false);
+  const [stageH, setStageH] = useState(0);
   // Session-chrome state (see the mockup): whiteboard tool rail, student self-view,
   // the "…" overflow menu, and whether the ask bar is collapsed.
   const [tool, setTool] = useState('pen');
@@ -1517,6 +1531,37 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     return () => anim.stop();
   }, [mountFade]);
 
+  // ── FULL-SCREEN BOARD GEOMETRY ──────────────────────────────────────────────
+  // Focus mode used to only hide the camera card; the board kept its 42%-of-screen
+  // floor and left the rest of the page empty. It now takes the whole scroll area, and
+  // `rotated` additionally lays the card out with its sides SWAPPED and turns it a
+  // quarter turn — the portrait screen becomes a landscape canvas.
+  const boardBoxW = SCREEN_W - SCREEN_MARGIN * 2;
+  const boardBoxH = Math.max(Math.round(SCREEN_H * BOARD_MIN_FRAC), stageH ? stageH - 16 : 0);
+  const rotated = focusMode && boardRot;
+  // How tall the card ends up on screen — a rotated card is only as tall as the screen
+  // is wide. The boards size their own drawing off it (they draw at their real pixel
+  // size rather than being scaled by a parent transform, which would blur every line).
+  const cardH = rotated ? boardBoxW : (focusMode ? boardBoxH : Math.round(SCREEN_H * BOARD_MIN_FRAC));
+  // ~108 units of the card go to the title row and the card's own padding; 176 is the
+  // height the subject boards are drawn at by default. Capped so a very tall card can't
+  // grow a board past the width it has to fit into anyway.
+  // Only in focus mode. The stacked card carries a 42%-of-screen floor with slack in
+  // it, and growing the drawing into that slack would push the tallest boards past
+  // the card's own height, where wbCard's overflow:hidden would cut them off.
+  const boardDrawScale = focusMode ? Math.max(1, Math.min(2.4, (cardH - 108) / 176)) : 1;
+
+  const toggleFocus = useCallback(() => {
+    // Leaving full screen — or entering it — always lands on the upright board; the
+    // rotated view is a deliberate choice you make once you are already full-bleed.
+    setBoardRot(false);
+    setFocusMode((f) => !f);
+  }, []);
+  const toggleBoardRotation = useCallback(() => {
+    setBoardRot((r) => !r);
+    setFocusMode(true); // a quarter-turned board inside the stacked card would be tiny
+  }, []);
+
   return (
     <Animated.View style={[st.container, { opacity: mountFade }]}>
       {/* The room: a near-black ground with a faint violet cast, so the teacher card
@@ -1555,7 +1600,8 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
       {/* ── THE LESSON — the teacher's camera card on top, the whiteboard under it,
           her words below. The camera card is persistent (never remounts); only the
           material inside the whiteboard transitions per scene. */}
-      <ScrollView ref={sessionScrollRef} style={st.scroll} contentContainerStyle={st.sessionScroll} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
+      <ScrollView ref={sessionScrollRef} style={st.scroll} contentContainerStyle={st.sessionScroll} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled"
+        onLayout={(e) => setStageH(Math.round(e.nativeEvent.layout.height))}>
         {/* ── TEACHER ON CAMERA — a violet "video call" stage. The photo fills the
             frame like a live feed; the violet wash keeps her tied to the brand and
             keeps the name chip / control rail legible over any backdrop. ── */}
@@ -1658,8 +1704,15 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
             // node as the `transform` (Animated.View below) measurably failed to apply
             // on this device/architecture; isolating the two concerns onto separate
             // nodes is what actually holds the floor.
-            <View style={st.boardOuter}>
-            <Animated.View style={{ width: '100%', flex: 1, transform: [{ scale: focusZoom }] }}>
+            <View style={[st.boardOuter, focusMode && { height: boardBoxH, justifyContent: 'center' }]}>
+            {/* Rotated, the card is laid out at (height × width) and turned 90° about its
+                own centre, so it comes back down inside the box it overflowed. Nothing
+                between here and the ScrollView clips, and RN hit-tests through the
+                transform, so the pen, the tool rail and Undo all still land. */}
+            <Animated.View style={[
+              rotated ? { width: boardBoxH, height: boardBoxW } : { width: '100%', flex: 1 },
+              { transform: rotated ? [{ scale: focusZoom }, { rotate: '90deg' }] : [{ scale: focusZoom }] },
+            ]}>
               {/* ── WHITEBOARD CARD — tool rail on the left, board title + Full
                   Screen on top, the live board below, undo pinned bottom-left. ── */}
               <View style={st.wbCard}>
@@ -1682,7 +1735,12 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
                       {!!scene.kicker && kickerDistinct && <Text style={st.wbKicker} numberOfLines={1}>{scene.kicker}</Text>}
                       {!!scene.title && <Text style={st.wbTitle} numberOfLines={2}>{scene.title}</Text>}
                     </View>
-                    <PressableScale onPress={() => setFocusMode((f) => !f)} style={st.fsBtn} hitSlop={BAR_HIT}
+                    <PressableScale onPress={toggleBoardRotation} style={[st.fsBtn, st.rotBtn, rotated && st.rotBtnOn]} hitSlop={BAR_HIT}
+                      accessibilityLabel={rotated ? 'Upright board view' : 'Sideways board view — more width for the drawing'}
+                      accessibilityState={{ selected: rotated }}>
+                      <RotateCw size={13} color={rotated ? V.violet : INK2} strokeWidth={2.4} />
+                    </PressableScale>
+                    <PressableScale onPress={toggleFocus} style={st.fsBtn} hitSlop={BAR_HIT}
                       accessibilityLabel={focusMode ? 'Exit full screen' : 'Full screen board'} accessibilityState={{ selected: focusMode }}>
                       {focusMode ? <Minimize2 size={15} color={INK2} strokeWidth={2.4} /> : <Maximize2 size={15} color={INK2} strokeWidth={2.4} />}
                     </PressableScale>
@@ -1696,14 +1754,22 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
                       flexGrow:1 on the content keeps the boards that depend on a flex
                       parent — the triangle diagram, the charts — filling the space as
                       before when content is short; it scrolls only once the content is
-                      genuinely taller than the card. */}
+                      genuinely taller than the card.
+
+                      BoardSizeProvider sits INSIDE the scroller, not around it: it makes
+                      the drawing bigger in focus mode, which is exactly the case that can
+                      push the content past the card — so the scroller has to be the one
+                      that measures the scaled result. Wrapping the other way round would
+                      give the boards a fixed viewport again and undo the fix above. */}
                   <ScrollView
                     style={st.wbScroll}
                     contentContainerStyle={st.wbScrollBody}
                     showsVerticalScrollIndicator={false}
                     nestedScrollEnabled
                   >
-                    <LessonBoard scene={scene} paused={!teaching} skip={false} resetKey={sceneKey} step={curBeat ? curBeat.boardStep : null} highlight={(curBeat && curBeat.highlight && curBeat.highlight.length) ? curBeat.highlight : keyTerms} action={curBeat && curBeat.boardAction} onQuizContinue={onNextStable} onQuizResult={onQuizResultStable} onReexplain={onReexplainStable} quizFb={quizFb} reteach={reteach} />
+                    <BoardSizeProvider value={boardDrawScale}>
+                      <LessonBoard scene={scene} paused={!teaching} skip={false} resetKey={sceneKey} step={curBeat ? curBeat.boardStep : null} highlight={(curBeat && curBeat.highlight && curBeat.highlight.length) ? curBeat.highlight : keyTerms} action={curBeat && curBeat.boardAction} onQuizContinue={onNextStable} onQuizResult={onQuizResultStable} onReexplain={onReexplainStable} quizFb={quizFb} reteach={reteach} />
+                    </BoardSizeProvider>
                   </ScrollView>
                   <EraserWipe enabled={idx > 0} />
 
@@ -2102,6 +2168,12 @@ const st = StyleSheet.create({
   // words "Full Screen" — and it sat directly beside the scene title, which is the
   // thing that actually needs the width. The label lives on accessibilityLabel.
   fsBtn: { width: 28, height: 28, alignItems: 'center', justifyContent: 'center', backgroundColor: V.violetSoft, borderRadius: R.sm },
+  // The rotate button is the same 28×28 box, so it needs no width of its own; only the
+  // "on" tint distinguishes it. (`fsTxt` came with the rotate work back when fsBtn still
+  // carried a label — the icon-only button above has no text to style, so it is dropped
+  // rather than left behind as a style nothing references.)
+  rotBtn: {},
+  rotBtnOn: { backgroundColor: 'rgba(124,58,237,0.20)' },
   undoBtn: { position: 'absolute', left: 0, bottom: 8, width: 32, height: 32, alignItems: 'center', justifyContent: 'center' },
 
   // ask bar + collapse handle

@@ -37,6 +37,24 @@ const config = {
   nodeEnv: process.env.NODE_ENV || 'development',
   isDev: process.env.NODE_ENV !== 'production',
 
+  // Where this API is reachable from the public internet. Links in outgoing mail have
+  // to be absolute, and a request's own Host header cannot be trusted to build one:
+  // the caller controls it and the result ends up in somebody's inbox.
+  //
+  // APP_PUBLIC_URL is the same variable the password-reset link is built from
+  // (controllers/passwordReset), deliberately — one address for every link this server
+  // mails, so a deploy cannot get one of them right and the other wrong.
+  publicUrl: (process.env.APP_PUBLIC_URL || 'http://localhost:5000').replace(/[/]+$/, ''),
+
+  // Where the daily "these accounts are ready to delete" digest goes. Staff, not a
+  // student, so the address is configuration rather than a row in the database.
+  adminAlertEmail: process.env.ADMIN_ALERT_EMAIL,
+
+  // Shared secret for the scheduled-job endpoints (routes/jobs.js), which an external
+  // cron service calls because nothing in this process can reliably schedule itself on
+  // a host that sleeps. Unset means those endpoints refuse outright rather than run open.
+  jobsSecret: process.env.JOBS_SECRET,
+
   auth: {
     jwtSecret: process.env.JWT_SECRET,
     jwtExpiresIn: process.env.JWT_EXPIRES_IN || '7d',

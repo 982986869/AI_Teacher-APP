@@ -7,9 +7,12 @@ const { AppError } = require('../../middleware/errorHandler')
 const audit = require('../../services/admin/audit.service')
 const { ROLES, ROLE_LABELS, hasPermission } = require('../../services/admin/permissions')
 const { studentSnapshot } = require('../../services/admin/studentSnapshot')
+const { GRACE_PERIOD_DAYS, daysLeft } = require('../../services/accountDeletion')
 
 const num = (v) => Number(v) || 0
-const SORTABLE = { createdAt: '"createdAt"', name: 'name', email: 'email', grade: 'grade' }
+// deleted_at is here so the Deleted filter can be ordered by it: the queue is worked
+// oldest-first, and "how long has this one been waiting" is the only useful sort for it.
+const SORTABLE = { createdAt: '"createdAt"', name: 'name', email: 'email', grade: 'grade', deletedAt: 'deleted_at' }
 
 // GET /api/admin/users?search=&role=&class=&status=&page=&pageSize=&sort=&dir=
 async function list(req, res, next) {
@@ -39,8 +42,18 @@ async function list(req, res, next) {
       if (Number.isFinite(n)) conds.push(`substring(grade from '\\d{1,2}')::int = ${bind(n)}`)
       else conds.push(`grade = ${bind(String(klass))}`)
     }
-    if (status === 'active') conds.push('is_active = true')
-    else if (status === 'deactivated') conds.push('is_active = false')
+    // A self-deleted account deliberately keeps is_active = true — that column means
+    // "staff suspended this person", which is a different thing. So without the filter
+    // below it would sit in the Active list looking exactly like a live student. It used
+    // to be spottable by its mangled email address; now that deletion leaves the address
+    // intact, nothing gives it away. Deleted accounts are their own filter and appear
+    // under no other.
+    if (status === 'deleted') conds.push('is_deleted = true')
+    else {
+      conds.push('is_deleted = false')
+      if (status === 'active') conds.push('is_active = true')
+      else if (status === 'deactivated') conds.push('is_active = false')
+    }
 
     const whereSql = conds.length ? 'WHERE ' + conds.join(' AND ') : ''
     const orderCol = SORTABLE[sort] || '"createdAt"'
@@ -54,7 +67,8 @@ async function list(req, res, next) {
       `SELECT id::text AS id, name, email, phone, grade, board, stream,
               COALESCE(account_type,'student') AS "accountType", role::text AS role,
               admin_role AS "adminRole", is_active AS "isActive", access_level AS "accessLevel",
-              linked_student_id::text AS "linkedStudentId", "createdAt"
+              linked_student_id::text AS "linkedStudentId", "createdAt",
+              is_deleted AS "isDeleted", deleted_at AS "deletedAt"
          FROM "users" ${whereSql}
         ORDER BY ${orderCol} ${orderDir} NULLS LAST
         LIMIT ${pageSize} OFFSET ${offset}`,
@@ -62,7 +76,9 @@ async function list(req, res, next) {
     )
 
     return ApiResponse.success(res, {
-      rows,
+      // The countdown is derived here rather than in SQL so the console and the digest
+      // email cannot drift apart — both read it from services/accountDeletion.
+      rows: rows.map((r) => (r.isDeleted ? { ...r, daysLeft: daysLeft(r.deletedAt) } : r)),
       total,
       page,
       pageSize,
@@ -183,6 +199,24 @@ async function remove(req, res, next) {
     const target = await loadUserOr404(req.params.id)
     if (target.id === req.admin.id) throw new AppError('You cannot delete your own account', 422)
     if (target.adminRole === 'super_admin') throw new AppError('A Super Admin account cannot be deleted', 403)
+
+    // A student who deleted their own account was told by email, to the day, when their
+    // data would be removed — and until that day the account is still theirs to reclaim.
+    // Nothing may take it before then, staff included, or the promise is only a habit.
+    //
+    // Read raw because is_deleted/deleted_at sit outside the generated Prisma client.
+    // Accounts that were never self-deleted have is_deleted = false and fall straight
+    // through, which is what keeps the ordinary "remove a spam signup" use working.
+    const state = await db.$queryRawUnsafe(
+      'SELECT is_deleted, deleted_at FROM "users" WHERE id = $1::uuid LIMIT 1', target.id,
+    )
+    const left = state && state[0] && state[0].is_deleted ? daysLeft(state[0].deleted_at) : 0
+    if (left > 0) {
+      throw new AppError(
+        `This account is inside its ${GRACE_PERIOD_DAYS}-day recovery window. It can be removed in ${left} day${left === 1 ? '' : 's'}.`,
+        409,
+      )
+    }
 
     // FK cascades (lessons, brain_gym_sessions, …) remove owned learner data.
     await db.$executeRawUnsafe(`DELETE FROM "users" WHERE id = $1::uuid`, target.id)

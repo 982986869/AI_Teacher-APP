@@ -24,7 +24,13 @@ export default function StudentsPage() {
   useEffect(() => { setPage(1) }, [debounced, status, klass])
 
   const meta = useApi<{ classes: string[] }>('/users/meta')
-  const params = useMemo(() => ({ search: debounced, role: 'student', status, class: klass, page, pageSize: 20 }), [debounced, status, klass, page])
+  // The Deleted view is a work queue rather than a list: oldest first, because those
+  // are the accounts whose recovery window ran out longest ago. Every other view keeps
+  // the default newest-first.
+  const params = useMemo(() => ({
+    search: debounced, role: 'student', status, class: klass, page, pageSize: 20,
+    ...(status === 'deleted' ? { sort: 'deletedAt', dir: 'asc' } : {}),
+  }), [debounced, status, klass, page])
   const { data, loading, error, reload } = useApi<Paged<UserRow>>('/users', params)
   const rows = data?.rows || []
 
@@ -41,7 +47,10 @@ export default function StudentsPage() {
           <option value="">All classes</option>
           {(meta.data?.classes || []).map((c) => <option key={c} value={c}>{c}</option>)}
         </select>
-        <Segmented value={status} onChange={setStatus} options={[{ value: '', label: 'All' }, { value: 'active', label: 'Active' }, { value: 'deactivated', label: 'Deactivated' }]} />
+        {/* Deleted is its own filter and appears under no other — a self-deleted account
+            keeps isActive true, so it would otherwise sit in Active looking like a live
+            student. Picking it turns this list into the deletion queue. */}
+        <Segmented value={status} onChange={setStatus} options={[{ value: '', label: 'All' }, { value: 'active', label: 'Active' }, { value: 'deactivated', label: 'Deactivated' }, { value: 'deleted', label: 'Deleted' }]} />
       </div>
 
       <div className="people-list">
@@ -58,11 +67,17 @@ export default function StudentsPage() {
             seed={u.id}
             name={u.name}
             sub={u.email || u.phone || '—'}
-            when={timeAgo(u.createdAt)}
+            when={timeAgo(u.isDeleted && u.deletedAt ? u.deletedAt : u.createdAt)}
             right={
               <span className="row gap-8">
                 {u.grade ? <Badge tone="indigo" dot={false}>{u.grade}</Badge> : null}
-                <Badge tone={u.isActive ? 'emerald' : 'red'}>{u.isActive ? 'active' : 'deactivated'}</Badge>
+                {u.isDeleted ? (
+                  // Amber while the student can still take the account back, red once
+                  // the window has closed and it is waiting on someone here to remove it.
+                  <Badge tone={u.daysLeft ? 'gold' : 'red'}>{u.daysLeft ? `${u.daysLeft}d left` : 'ready to delete'}</Badge>
+                ) : (
+                  <Badge tone={u.isActive ? 'emerald' : 'red'}>{u.isActive ? 'active' : 'deactivated'}</Badge>
+                )}
               </span>
             }
           />

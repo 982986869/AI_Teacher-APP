@@ -95,6 +95,78 @@ function T(x, y, text, color, size = 12, anchor = 'middle', weight = 'bold') {
   return <SvgText x={x} y={y} fill={color} fontSize={size} fontWeight={weight} textAnchor={anchor}>{text}</SvgText>;
 }
 
+// ── LABELS THAT ALWAYS FIT THEIR BOX ──────────────────────────────────────────
+// Every board below draws MODEL-AUTHORED text into a fixed 300-wide viewBox at fixed
+// coordinates, and SvgText has no measurement API to lay out against. Two labels drawn
+// at fixed x therefore collide the moment the lesson supplies long ones — which is
+// exactly what "Reaction class" and "Decomposition:" did on the chemistry board, on top
+// of each other AND over the arrow between them. A hard character slice didn't save it:
+// 14 characters at 20px is ~155 units in a viewBox only 300 wide.
+//
+// So a label is given a BOX instead of a point: shrink the type until it fits, wrap it
+// over a couple of lines, and only truncate when even the floor size can't hold it.
+//
+// 0.56 em per character is a deliberately generous estimate of this bold sans's average
+// advance — erring wide means a label lands slightly inside its box rather than spilling
+// out of it, which is the failure that matters here.
+const EM_W = 0.56;
+const textW = (str, size) => String(str).length * size * EM_W;
+
+// Greedy word wrap. Returns null when `text` cannot be laid out in `maxLines` lines of
+// at most `maxW` units at this size — the caller's shrink loop reads that as "smaller".
+function wrapToWidth(text, size, maxW, maxLines) {
+  const words = String(text).trim().split(/\s+/).filter(Boolean);
+  if (!words.length) return null;
+  const lines = [];
+  let cur = '';
+  for (let i = 0; i < words.length; i += 1) {
+    const next = cur ? `${cur} ${words[i]}` : words[i];
+    if (!cur || textW(next, size) <= maxW) { cur = next; continue; }
+    lines.push(cur);
+    cur = words[i];
+    if (lines.length >= maxLines) return null;
+  }
+  lines.push(cur);
+  if (lines.length > maxLines) return null;
+  // A single word wider than the box survives the loop above (it has to start its own
+  // line); this is where it gets rejected so the type shrinks instead.
+  if (lines.some((l) => textW(l, size) > maxW)) return null;
+  return lines;
+}
+
+// `y` is the vertical CENTRE of the label, not a baseline — a wrapped label has to stay
+// centred on the thing it names however many lines it ends up taking.
+function FitText({ x, y, text, color, size, maxW, maxLines = 2, min = 9, anchor = 'middle', weight = 'bold' }) {
+  const str = String(text == null ? '' : text).replace(/\s+/g, ' ').trim();
+  if (!str) return null;
+  let s = size;
+  let lines = null;
+  while (s >= min) {
+    lines = wrapToWidth(str, s, maxW, maxLines);
+    if (lines) break;
+    s -= 1;
+  }
+  if (!lines) {
+    // Nothing fits even at the floor — cut to the width we actually have. An ellipsis is
+    // honest here; silently drawing past the edge is not.
+    s = min;
+    const per = Math.max(1, Math.floor(maxW / (s * EM_W)));
+    lines = [];
+    for (let i = 0; i < maxLines; i += 1) lines.push(str.slice(i * per, (i + 1) * per));
+    lines = lines.filter(Boolean);
+    if (str.length > per * lines.length) lines[lines.length - 1] = `${lines[lines.length - 1].slice(0, -1)}…`;
+  }
+  const lh = s * 1.18;
+  const first = y - ((lines.length - 1) * lh) / 2 + s * 0.35;
+  return (
+    <G>
+      {lines.map((l, i) => (
+        <SvgText key={i} x={x} y={first + i * lh} fill={color} fontSize={s} fontWeight={weight} textAnchor={anchor}>{l}</SvgText>
+      ))}
+    </G>
+  );
+}
+
 const COLORS = [C.orange, C.blue, C.green, C.pink];
 const wrapStyle = { width: '100%', alignItems: 'center' };
 
@@ -113,11 +185,13 @@ export function FreeBodyBoard({ scene, paused, skip, resetKey, step }) {
   const labels = itemsOf(scene, ['Weight', 'Normal', 'Applied', 'Friction']);
   const cxb = 150; const cyb = 92; const hs = 20;
   // weight ↓ · normal ↑ · applied → · friction ←
+  // `w` is the label's box, not decoration: the up/down labels have the full width to
+  // play with, the side ones only the room left between the block and the viewBox edge.
   const forces = [
-    { x1: cxb, y1: cyb + hs, x2: cxb, y2: cyb + 56, color: C.orange, lx: cxb, ly: cyb + 70, label: labels[0] || 'Weight' },
-    { x1: cxb, y1: cyb - hs, x2: cxb, y2: cyb - 52, color: C.blue, lx: cxb, ly: cyb - 58, label: labels[1] || 'Normal' },
-    { x1: cxb + hs, y1: cyb, x2: cxb + 78, y2: cyb, color: C.green, lx: cxb + 92, ly: cyb + 4, label: labels[2] || 'Applied' },
-    { x1: cxb - hs, y1: cyb, x2: cxb - 74, y2: cyb, color: C.pink, lx: cxb - 74, ly: cyb - 8, label: labels[3] || 'Friction' },
+    { x1: cxb, y1: cyb + hs, x2: cxb, y2: cyb + 56, color: C.orange, lx: cxb, ly: cyb + 70, w: 150, label: labels[0] || 'Weight' },
+    { x1: cxb, y1: cyb - hs, x2: cxb, y2: cyb - 52, color: C.blue, lx: cxb, ly: cyb - 58, w: 150, label: labels[1] || 'Normal' },
+    { x1: cxb + hs, y1: cyb, x2: cxb + 78, y2: cyb, color: C.green, lx: cxb + 92, ly: cyb + 4, w: 108, label: labels[2] || 'Applied' },
+    { x1: cxb - hs, y1: cyb, x2: cxb - 74, y2: cyb, color: C.pink, lx: cxb - 74, ly: cyb - 8, w: 108, label: labels[3] || 'Friction' },
   ];
   const n = useReveal(4, 900, { paused, skip, resetKey, step });
   const tip = forces[Math.min(n, 4) - 1];
@@ -139,7 +213,7 @@ export function FreeBodyBoard({ scene, paused, skip, resetKey, step }) {
         {forces.map((f, i) => (i < n ? (
           <G key={i}>
             <Arrow x1={f.x1} y1={f.y1} x2={f.x2} y2={f.y2} color={f.color} width={3.5} duration={520} skip={skip} />
-            {T(f.lx, f.ly, f.label, f.color, 12)}
+            <FitText x={f.lx} y={f.ly} text={f.label} color={f.color} size={12} maxW={f.w} maxLines={2} min={8} />
           </G>
         ) : null))}
         {n > 0 && tip && <LaserPointer x={tip.x2} y={tip.y2} />}
@@ -158,19 +232,27 @@ export function ReactionBoard({ scene, paused, skip, resetKey, step }) {
   const left = (split[0] && split[0].trim()) || items[0] || 'A + B';
   const right = (split[1] && split[1].trim()) || items[1] || 'AB';
   const n = useReveal(4, 950, { paused, skip, resetKey, step });
-  const anchors = [{ x: 74, y: 78 }, { x: 150, y: 78 }, { x: 232, y: 78 }, { x: 150, y: 78 }];
+  // Three lanes across the 300-unit viewBox: reactant · arrow · product. The two term
+  // boxes are sized here and honoured by FitText, so however long the lesson's terms are
+  // they shrink and wrap inside their own lane instead of running into each other and
+  // over the arrow (which is what "Reaction class"/"Decomposition:" used to do).
+  const LANE_W = 108;
+  const leftX = 62; const rightX = 238; const midY = 74;
+  const anchors = [{ x: leftX, y: midY }, { x: 150, y: midY }, { x: rightX, y: midY }, { x: 150, y: midY }];
   const tip = anchors[Math.min(n, 4) - 1];
   return (
     <View style={wrapStyle}>
       <Svg width="100%" height={h(150)} viewBox="0 0 300 150">
-        {n >= 1 && <G>{T(74, 84, left.slice(0, 14), C.blue, 20)}</G>}
-        {n >= 2 && <Arrow x1={116} y1={78} x2={186} y2={78} color={INK} width={3} duration={420} skip={skip} />}
-        {n >= 3 && <G>{T(232, 84, right.slice(0, 14), C.green, 20)}</G>}
+        {n >= 1 && <FitText x={leftX} y={midY} text={left} color={C.blue} size={20} maxW={LANE_W} maxLines={2} />}
+        {/* The arrow starts and ends INSIDE the gap between the two boxes, so a
+            two-line term can never be crossed out by it. */}
+        {n >= 2 && <Arrow x1={122} y1={midY} x2={178} y2={midY} color={INK} width={3} duration={420} skip={skip} />}
+        {n >= 3 && <FitText x={rightX} y={midY} text={right} color={C.green} size={20} maxW={LANE_W} maxLines={2} />}
         {n >= 4 && <G>
-          <Rect x={40} y={58} width={220} height={40} rx={10} fill="none" stroke={ACCENT} strokeWidth={2} opacity={0.7} />
-          {T(150, 122, 'balanced ✓', ACCENT, 12)}
+          <Rect x={4} y={44} width={292} height={60} rx={12} fill="none" stroke={ACCENT} strokeWidth={2} opacity={0.7} />
+          {T(150, 126, 'balanced ✓', ACCENT, 12)}
         </G>}
-        {n > 0 && tip && <LaserPointer x={tip.x} y={tip.y - 24} />}
+        {n > 0 && tip && <LaserPointer x={tip.x} y={tip.y - 30} />}
       </Svg>
     </View>
   );
@@ -313,12 +395,16 @@ export function TimelineBoard({ scene, paused, skip, resetKey, step }) {
           const x = xi(i);
           const up = i % 2 === 0;
           const col = COLORS[i % COLORS.length];
-          const label = String(it).replace(/\s+/g, ' ').slice(0, 16);
+          // Labels alternate above/below the axis, so the room a label really has is the
+          // distance to the NEXT SAME-SIDE event — two gaps — capped so a lone event
+          // doesn't sprawl, and kept off the viewBox edges for the first and last.
+          const boxW = Math.max(48, Math.min(104, gap * 1.8 || 104));
+          const lx = Math.max(boxW / 2 + 2, Math.min(298 - boxW / 2, x));
           return (
             <G key={i}>
               <Line x1={x} y1={y} x2={x} y2={up ? y - 26 : y + 26} stroke={col} strokeWidth={2} />
               <Circle cx={x} cy={y} r={5} fill={col} />
-              {T(x, up ? y - 32 : y + 40, label, INK, 9.5)}
+              <FitText x={lx} y={up ? y - 38 : y + 40} text={it} color={INK} size={9.5} maxW={boxW} maxLines={2} min={7} />
             </G>
           );
         })}

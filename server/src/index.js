@@ -20,6 +20,17 @@ const { attachRealtime } = require('./realtime')
 
 const app = express()
 
+// Render (and any other host worth deploying to) terminates TLS in front of this
+// process, so every request arrives from the proxy's address. Without this, req.ip is
+// that one address for the entire internet — which would put every caller in the world
+// into a single rate-limit bucket, so five strangers asking to restore their accounts
+// would lock out the sixth.
+//
+// 1, not true: trusting every hop would let a caller forge X-Forwarded-For and hand
+// themselves a fresh bucket per request, which is worse than not limiting at all.
+// Locally, with no proxy and no such header, this changes nothing.
+app.set('trust proxy', 1)
+
 // ─── Security ────────────────────────────────────────────────────────────────
 app.use(helmet())
 

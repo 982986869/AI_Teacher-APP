@@ -38,14 +38,17 @@ const SCREENS = {
 // The Help bubble floats over every student tab, just above the dock — so it has to sit
 // outside the navigator and take its offset from the dock's measured height.
 const StudentHelpFab = ({ openSignal }) => {
-  const { hidden, height } = useDockVisibility();
+  const { hidden, height, immersive } = useDockVisibility();
   const { user } = useAuth();
   return (
     <HelpFab
       role="student"
       userName={user?.name}
       userPhone={user?.phone}
-      hidden={hidden}
+      // `immersive` covers the full-screen flows that open INSIDE a tab (the AI Teacher
+      // classroom), where the dock keeps rendering but the screen owns the bottom of the
+      // display — the bubble was landing on top of the lesson's "Next Topic" button.
+      hidden={hidden || immersive}
       bottom={(height || 66) + 14}
       openSignal={openSignal}
     />
