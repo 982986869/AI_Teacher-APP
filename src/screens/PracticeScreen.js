@@ -26,7 +26,6 @@ import MockTestsCards from './Class11MockTests';
 import PracticeTestsCards from './Class11PracticeTests';
 import { getQuestions, allQuestions } from '../data/questionBank';
 import { getMcqQuestions } from '../data/mcqQuestions';
-import { getSubtopicTest } from '../data/subtopicBank';
 import { listMockTests, getMockTestQuestions, listMockAttempts, submitMockTest } from '../api/mockTestsApi';
 import { useAuth } from '../context/AuthContext';
 import { saveOnlineTestAttempt, savePracticeAttempt, practiceAttemptKey } from '../utils/storage';

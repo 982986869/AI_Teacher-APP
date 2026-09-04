@@ -98,12 +98,23 @@ const buildSubjects = (selectedClass, c12, c6Maths) => {
 // top: "All" and "Attempted". Attempts are read from local storage (persisted by
 // PracticeScreen when a test is submitted); an attempted chapter shows its best
 // score + a Retake action, otherwise Attempt.
-const C11_SUBJECTS = [
+// Built on FIRST RENDER of the Class 11 view, not at module load.
+//
+// chapterList is a named export of four question banks weighing ~45 MB together
+// (chemistry 13.7, physics 12.2, biology 10.8, maths 8.2). As a module-level array
+// this read all four the moment PracticeScreen imported this screen, so opening
+// Practice parsed 45 MB on the JS thread before anything could paint — for every
+// student, whether or not they are in Class 11.
+//
+// Behind a function, with inlineRequires on (metro.config.js), each bank loads when
+// the Class 11 subject list is first rendered. Memoised, so at most once per launch.
+let _c11Cache = null;
+const c11Subjects = () => (_c11Cache || (_c11Cache = [
   { key: 'physics',   name: 'Physics',   color: '#0FA39A', emoji: '⚛️', tile: '#E1F5F3', chapters: physicsChapters, getQuestions: getPhysics },
   { key: 'chemistry', name: 'Chemistry', color: '#E8703A', emoji: '\u{1F9EA}',    tile: '#FCEBDD', chapters: chemChapters,    getQuestions: getChem },
   { key: 'maths',     name: 'Maths',     color: '#5A67E8', emoji: '\u{1F4D0}',    tile: '#E9EBFB', chapters: mathsChapters,   getQuestions: getMaths },
   { key: 'biology',   name: 'Biology',   color: '#5AA84F', emoji: '\u{1F9EC}',    tile: '#E7F3E4', chapters: bioChapters,     getQuestions: getBio },
-];
+]));
 
 // Colour a completion percentage: green (strong) · amber (mid) · red (weak).
 // Matches the app's result-screen semantics.
@@ -148,7 +159,7 @@ function Class11OnlineTests({ onBack, onStartTest }) {
           <Text style={s.subtitle}>Pick a subject, then a chapter</Text>
         </View>
         <ScrollView contentContainerStyle={s.body} showsVerticalScrollIndicator={false}>
-          {C11_SUBJECTS.map((subj) => {
+          {c11Subjects().map((subj) => {
             const done = subjectAttempts(subj.name);
             return (
               <Pressable key={subj.key} style={s.subjectCard} onPress={() => setSubject(subj)}>
