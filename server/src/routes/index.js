@@ -26,6 +26,11 @@ router.use('/config',    require('./config'))
 router.use('/cms',       require('./cms'))
 router.use('/auth',      require('./auth'))
 
+// Work triggered by an external scheduler, gated by a shared secret rather than by a
+// session. Mounted here, outside the admin router, because that one gates everything
+// past its login on an admin JWT and a cron service has none.
+router.use('/jobs',      require('./jobs'))
+
 // Free: the whole point of the free tier. Brain Gym, the Arena and the games are
 // what a new account can do before paying, and support is how they ask to pay.
 router.use('/brain-gym',  require('./brainGym'))

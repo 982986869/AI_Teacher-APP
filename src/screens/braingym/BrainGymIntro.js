@@ -4,7 +4,8 @@
 // Change BRAND / FIT below to rename the feature anywhere.
 //
 // Usage:
-//   <BrainGymIntro onDone={() => {/* go to wheel */}} onBack={() => {/* back to profile */}} />
+//   <BrainGymIntro onDone={() => {/* go to wheel */}} />   // onBack optional: omitted when
+//   there is no previous screen, in which case back on the first slide does nothing.
 
 import React, { useState, useRef, useEffect } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, StatusBar, Platform, Pressable, Animated, Easing } from 'react-native';

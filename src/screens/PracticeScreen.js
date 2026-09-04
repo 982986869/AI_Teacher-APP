@@ -1219,8 +1219,10 @@ const PracticeScreen = () => {
         <Text style={d.headerSub}>Test yourself, chapter by chapter</Text>
       </View>
 
-      {/* Students are locked to their own class; the switcher only shows if no class is set yet. */}
-      {!scope?.classNum && <ClassTabs value={selectedClass} onChange={setSelectedClass} />}
+      {/* Any student may look at any class. The server honours ?class= for all of
+          them now, so the switcher is no longer hidden once a class is saved —
+          selectedClass seeds from their own class and is theirs to change. */}
+      <ClassTabs value={selectedClass} onChange={setSelectedClass} />
 
       {/* No content seeded for the selected class (e.g. Class 7) → premium empty
           state for everyone, never another class's content. selectedClass is the

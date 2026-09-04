@@ -169,11 +169,18 @@ function setTeacherVoiceGender(g) {
 // speaking with whatever it defaults to — commonly male on Android.
 function apparentDeviceGender() {
   const g = chosenVoice ? voiceGender(chosenVoice) : '?';
-  if (g === 'f') return 'f';
-  if (g === 'm') return 'm';
-  // '?' — fall back to whether a female voice was confidently chosen. This is
-  // also what keeps a hand-picked voice on the face the student picked.
-  return chosenFemale ? 'f' : 'm';
+  // Only a voice we can actually IDENTIFY as male changes the teacher. An
+  // unidentified voice stays female, for two reasons: she is the teacher the
+  // app is built around, and when no female voice was found speakViaDevice
+  // raises the pitch to FEMININE_PITCH specifically to make whatever is
+  // speaking sound like her — so showing a man would contradict what the app
+  // is doing with the audio.
+  //
+  // This costs the switch some reach: a device whose only voice is male but
+  // untagged keeps her face. That is the safer half of the trade, because the
+  // untagged case is common and being wrong there changes the teacher on every
+  // lesson, whereas being wrong the other way changes nothing that was right.
+  return g === 'm' ? 'm' : 'f';
 }
 
 // Publish who the student is about to hear. Called from the ONE place that

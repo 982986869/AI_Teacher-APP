@@ -110,6 +110,18 @@ async function create(req, res, next) {
     const role = req.scope && req.scope.role === 'parent' ? 'parent' : 'student'
     const text = String(message || '').trim().slice(0, MAX_TEXT)
 
+    // "Unlock full access" is a request in itself: the student taps it from the lock
+    // sheet and there is nothing left to describe, so most never type anything. A
+    // ticket with no user message is created but never reaches the team queue — see
+    // `queue` below, which requires one — so the request lands nowhere and the agent
+    // never sees a Grant button. Seed the line they would otherwise have had to write.
+    //
+    // Only for this topic. Everywhere else the rule is right: a stray tap through the
+    // topic list should not put work in front of somebody.
+    const firstMessage = text || (String(topicId) === 'unlock'
+      ? 'Requested full access.'
+      : '')
+
     const agent = await pickAgent(team)
 
     const rows = await db.$queryRawUnsafe(
@@ -133,11 +145,11 @@ async function create(req, res, next) {
     )
     const ticket = rows[0]
 
-    if (text) {
+    if (firstMessage) {
       await db.$executeRawUnsafe(
         `INSERT INTO "support_messages" ("ticketId", "authorId", "authorRole", "text")
          VALUES ($1::uuid, $2::uuid, 'user', $3)`,
-        ticket.id, req.user.id, text,
+        ticket.id, req.user.id, firstMessage,
       )
     }
 

@@ -1,10 +1,16 @@
 'use strict'
 
+const express = require('express')
 const { Router } = require('express')
 const multer = require('multer')
 const { body } = require('express-validator')
 const { register, login, googleAuth, me, updateProfile, uploadPhoto, deleteAccount } = require('../controllers/auth.controller')
+const { forgotPassword } = require('../controllers/passwordReset.controller')
+const { showResetPage, submitReset } = require('../controllers/resetPage.controller')
 const { authenticate } = require('../middleware/auth')
+const rateLimit = require('express-rate-limit')
+const ApiResponse = require('../utils/ApiResponse')
+const reactivation = require('../controllers/reactivation.controller')
 
 const router = Router()
 const photoUpload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 5 * 1024 * 1024, files: 1 } })
@@ -90,14 +96,86 @@ const googleRules = [
     .notEmpty().withMessage('Google idToken is required'),
 ]
 
+// normalizeEmail() on both, matching registerRules and loginRules above. Without it a
+// student who signed up as "First.Last@gmail.com" — stored dot-stripped — would type
+// the address they remember and never be found by the lookup here.
+const reactivateRequestRules = [
+  body('email')
+    .trim()
+    .isEmail().withMessage('Valid email is required')
+    .normalizeEmail(),
+]
+
+const reactivateConfirmRules = [
+  body('email')
+    .trim()
+    .isEmail().withMessage('Valid email is required')
+    .normalizeEmail(),
+  body('code')
+    .trim()
+    .matches(/^[0-9]{6}$/).withMessage('Enter the 6-digit code from your email'),
+]
+
+// ─── Rate limits ─────────────────────────────────────────────────────────────
+//
+// These two endpoints are unauthenticated and both cost something real: one sends mail
+// to an address the caller chose, the other guesses at a six-digit code. Nothing else
+// on this server is limited yet, so these limiters are deliberately local to the two
+// routes rather than global — this is not the place to start rate-limiting sign-in.
+
+const limited = (windowMs, limit, message) => rateLimit({
+  windowMs,
+  limit,
+  standardHeaders: true,
+  legacyHeaders: false,
+  // The default handler answers in plain text, which every other error on this server
+  // does not — the app parses JSON and would show a blank message.
+  handler: (req, res) => ApiResponse.error(res, message, 429),
+})
+
+// Five an hour per address is far more than a real person needs (the mail arrives on
+// the first) and far too few to flood someone's inbox with.
+const requestLimit = limited(
+  60 * 60 * 1000, 5,
+  'Too many restore emails requested. Please try again in an hour.',
+)
+
+// The per-token attempt counter is the real bound on guessing a code; this only stops
+// someone burning through freshly issued tokens quickly.
+const confirmLimit = limited(
+  15 * 60 * 1000, 10,
+  'Too many attempts. Please try again in a few minutes.',
+)
+
 router.post('/register', registerRules, register)
 router.post('/login',    loginRules,    login)
 router.post('/google',   googleRules,   googleAuth)
+
+// Password reset. All three are PUBLIC by necessity — someone who cannot sign in
+// is exactly who needs them. The protection is in the controller: one-time hashed
+// tokens, a 30-minute expiry, a per-account hourly cap, and an identical response
+// whether or not the address exists.
+router.post('/forgot-password', forgotPassword)
+
+// The link in the email lands here. It renders the "new password / confirm"
+// form itself, so the mail works from a desktop browser or a webmail preview,
+// with or without the app installed. urlencoded is parsed here rather than
+// globally because this is the only form post the API accepts.
+router.get('/reset-password', showResetPage)
+router.post('/reset-password', express.urlencoded({ extended: false }), submitReset)
 router.get('/me',        authenticate,  me)
 router.patch('/profile', authenticate,  profileRules, updateProfile)
 router.post('/photo',    authenticate,  photoUpload.single('file'), uploadPhoto)
 // Account deletion. DELETE on /me because it acts on the caller and nobody else —
 // there is no :id form, so one student can never delete another's account.
 router.delete('/me',     authenticate,  deleteAccount)
+
+// Undoing that deletion, within the grace period. All three are deliberately public:
+// the whole point is that the caller cannot sign in, so requiring a token would make
+// them unreachable.
+router.post('/reactivate/request', requestLimit, reactivateRequestRules, reactivation.request)
+router.post('/reactivate/confirm', confirmLimit, reactivateConfirmRules, reactivation.confirmByCode)
+// GET, because this one is opened from a link in an email. It answers with a page.
+router.get('/reactivate',          confirmLimit, reactivation.confirmByLink)
 
 module.exports = router
