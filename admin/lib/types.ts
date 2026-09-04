@@ -44,6 +44,12 @@ export interface UserRow {
   isActive: boolean
   linkedStudentId: string | null
   createdAt: string
+  // Self-deletion by the student. Separate from isActive, which means staff suspended
+  // them. daysLeft counts down the recovery window and is 0 once it has run out —
+  // computed by the server so the console and the digest email cannot disagree.
+  isDeleted?: boolean
+  deletedAt?: string | null
+  daysLeft?: number
 }
 
 export interface SubjectStat { subject: string; attempts: number; avgScore: number }
