@@ -18,6 +18,7 @@
 // no-ops (the app NEVER breaks without assets). App background auto-stops all audio.
 import { AppState } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { reportWarn } from './errorLog';
 
 let Audio = null;
 try {
@@ -65,7 +66,7 @@ let enabled = true;
 let initPromise = null;
 let appSub = null;
 
-const notify = () => { listeners.forEach((fn) => { try { fn(enabled); } catch (_) {} }); };
+const notify = () => { listeners.forEach((fn) => { try { fn(enabled); } catch (e) { reportWarn('utils/sound.js:notify', e); } }); };
 
 async function readSetting() {
   try { const v = await AsyncStorage.getItem(SETTING_KEY); return v === null ? true : v === '1'; }
@@ -78,7 +79,8 @@ export function initSounds() {
   initPromise = (async () => {
     enabled = await readSetting();
     if (!Audio) return;
-    try { await Audio.setAudioModeAsync({ playsInSilentModeIOS: true, shouldDuckAndroid: true }); } catch (_) {}
+    try { await Audio.setAudioModeAsync({ playsInSilentModeIOS: true, shouldDuckAndroid: true }); }
+    catch (e) { reportWarn('utils/sound.js:setAudioMode', e); }
     await Promise.all(Object.keys(SOURCES).map(async (name) => {
       const src = SOURCES[name];
       if (!src || players[name]) return; // no file → skip; already loaded → keep
@@ -102,7 +104,8 @@ export async function setSoundEnabled(on) {
   enabled = !!on;
   notify();
   if (!enabled) stopAll();
-  try { await AsyncStorage.setItem(SETTING_KEY, enabled ? '1' : '0'); } catch (_) {}
+  try { await AsyncStorage.setItem(SETTING_KEY, enabled ? '1' : '0'); }
+  catch (e) { reportWarn('utils/sound.js:persistSetting', e); }
 }
 
 // One-shot. Restarts from 0 (never stacks) and throttles rapid duplicates.
@@ -113,20 +116,22 @@ export async function playSound(name) {
   const now = Date.now();
   if (now - (lastPlayed[name] || 0) < THROTTLE_MS) return;
   lastPlayed[name] = now;
-  try { await s.setIsLoopingAsync(false); await s.replayAsync(); } catch (_) {}
+  try { await s.setIsLoopingAsync(false); await s.replayAsync(); }
+  catch (e) { reportWarn('utils/sound.js:playSound', e, { name }); }
 }
 
 export async function playLoop(name) {
   if (!enabled) return;
   const s = players[name];
   if (!s) return;
-  try { await s.setIsLoopingAsync(true); await s.setPositionAsync(0); await s.playAsync(); } catch (_) {}
+  try { await s.setIsLoopingAsync(true); await s.setPositionAsync(0); await s.playAsync(); }
+  catch (e) { reportWarn('utils/sound.js:playLoop', e, { name }); }
 }
 
 export async function stopSound(name) {
   const s = players[name];
   if (!s) return;
-  try { await s.stopAsync(); } catch (_) {}
+  try { await s.stopAsync(); } catch (e) { reportWarn('utils/sound.js:stopSound', e, { name }); }
 }
 
 export async function stopAll() {
@@ -134,7 +139,7 @@ export async function stopAll() {
 }
 
 export async function unloadSounds() {
-  await Promise.all(Object.values(players).map(async (s) => { try { await s.unloadAsync(); } catch (_) {} }));
+  await Promise.all(Object.values(players).map(async (s) => { try { await s.unloadAsync(); } catch (e) { reportWarn('utils/sound.js:unloadSounds', e); } }));
   for (const k of Object.keys(players)) delete players[k];
   initPromise = null;
   if (appSub) { appSub.remove(); appSub = null; }

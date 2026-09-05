@@ -1,6 +1,7 @@
 'use strict'
 
 const { config } = require('../config/env')
+const errorLog = require('../services/errorLog.service')
 
 class AppError extends Error {
   // `code` is optional and machine-readable — set it when the CLIENT has to branch on
@@ -29,6 +30,25 @@ function errorHandler(err, req, res, next) {
     console.error(`[${statusCode}] ${err.message}`, err.stack)
   } else if (statusCode >= 500) {
     console.error(`[${statusCode}] ${err.message}`)
+  }
+
+  // Persist the 5xx to error_logs so it outlives the Render log buffer (which the
+  // free plan rotates, and which nobody reads until something is already reported).
+  // 4xx is deliberately excluded: a wrong password or an expired token is the API
+  // working, and logging it would bury the real faults under thousands of rows we
+  // have no disk budget for. Not awaited and never able to reject — the response
+  // must not wait on a log write, and a failed log must not replace the real error.
+  if (statusCode >= 500) {
+    errorLog.record({
+      source: 'server',
+      level: 'error',
+      site: `${req.method} ${req.route?.path || req.originalUrl || ''}`.trim(),
+      message: err.message,
+      stack: err.stack,
+      context: { statusCode, url: req.originalUrl, operational: isOperational },
+      userId: req.user?.id || req.admin?.id || null,
+      userRole: req.admin?.role || req.user?.role || null,
+    })
   }
 
   res.status(statusCode).json({

@@ -16,6 +16,10 @@ const PERMISSIONS = [
   'settings.view', 'settings.edit',
   'flags.view', 'flags.edit',
   'audit.view',
+  // Error logs. Deliberately not folded into audit.view: an audit entry says which
+  // admin changed what, which support staff legitimately need; an error log is a
+  // stack trace naming internal files and routes, which they do not.
+  'logs.view', 'logs.manage',
   'support.view', 'support.reply', 'support.resolve',
 ]
 
@@ -33,6 +37,7 @@ const ROLE_PERMISSIONS = {
     'settings.view', 'settings.edit',
     'flags.view', 'flags.edit',
     'audit.view',
+    'logs.view', 'logs.manage',
     'support.view', 'support.reply', 'support.resolve',
   ],
 

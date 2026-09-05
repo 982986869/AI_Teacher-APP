@@ -26,6 +26,7 @@ import { Inter_700Bold } from '@expo-google-fonts/inter/700Bold';
 import { AuthProvider } from './src/context/AuthContext';
 import { RuntimeConfigProvider } from './src/context/RuntimeConfigContext';
 import AppNavigator from './src/navigation/AppNavigator';
+import { startErrorLogFlusher } from './src/utils/errorLog';
 
 // Google Sign-In configures itself lazily on first use (see utils/googleSignin).
 // Doing it here at module scope would run native code during app startup, which
@@ -48,6 +49,11 @@ export default function App() {
     Sora_600SemiBold, Sora_700Bold,
     Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold,
   });
+
+  // Drain the swallowed-error buffer whenever the app leaves the foreground — the
+  // last moment a device that is about to be backgrounded still has a network stack.
+  // (Buffered reports also flush on a 30s timer and when the buffer fills.)
+  React.useEffect(() => startErrorLogFlusher(), []);
 
   return (
     <SafeAreaProvider>

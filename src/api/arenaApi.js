@@ -1,4 +1,5 @@
 import axiosInstance from './axiosInstance';
+import { reportError, reportWarn } from '../utils/errorLog';
 
 // Arena battles — asynchronous matchmaking (vs bot/ghost), authoritative scoring.
 // Network-robust: transient failures (network/timeout/5xx) are retried with backoff;
@@ -34,7 +35,8 @@ export const matchmakeArena = async (game = 'no_attack') => {
     const res = await withRetry(() => axiosInstance.post('/api/arena/matchmake', { game }));
     return res.data?.data;
   } catch (err) {
-    console.log('[Arena] matchmake failed — using local match', err.response?.status || err.message);
+    // Warn, not error: the local match is a real fallback and the student plays on.
+    reportWarn('api/arenaApi.js:matchmakeArena', err, { game, fallback: 'local match' });
     return null;
   }
 };
@@ -45,6 +47,10 @@ export const fetchActiveMatch = async () => {
     const res = await withRetry(() => axiosInstance.get('/api/arena/active'), { retries: 1 });
     return res.data?.data?.active || null;
   } catch (err) {
+    // Warn: the student simply starts a new match rather than resuming. Worth seeing
+    // all the same — if this fails often, in-progress matches are being abandoned and
+    // nothing else in the app would ever say so.
+    reportWarn('api/arenaApi.js:fetchActiveMatch', err);
     return null;
   }
 };
@@ -62,7 +68,9 @@ export const submitArenaResult = async ({ matchId, placements, moves, rounds, ti
     const res = await withRetry(() => axiosInstance.post('/api/arena/result', body));
     return res.data?.data;
   } catch (err) {
-    console.log('[Arena] result submit failed — scoring locally', err.response?.status || err.message);
+    // Error, not warn: the student sees a score but the server has no record of the
+    // match, so their rating and XP silently diverge from what they were shown.
+    reportError('api/arenaApi.js:submitArenaResult', err, { matchId });
     return null;
   }
 };

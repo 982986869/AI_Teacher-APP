@@ -23,6 +23,7 @@ const resCtrl = require('../controllers/admin/resources.controller')
 const parentsCtrl = require('../controllers/admin/parents.controller')
 const analyticsCtrl = require('../controllers/admin/analytics.controller')
 const auditCtrl = require('../controllers/admin/audit.controller')
+const errorLogsCtrl = require('../controllers/admin/errorLogs.controller')
 const aiCtrl = require('../controllers/admin/aiTeacher.controller')
 const uploadsCtrl = require('../controllers/admin/uploads.controller')
 
@@ -175,5 +176,13 @@ router.delete('/resources/chapters/:id', requirePermission('content.edit'), resC
 // ─── Audit Logs ────────────────────────────────────────────────────────────────
 router.get('/audit/facets', requirePermission('audit.view'), auditCtrl.facets)
 router.get('/audit', requirePermission('audit.view'), auditCtrl.list)
+
+// ─── Error Logs ────────────────────────────────────────────────────────────────
+// Separate permission from audit.view: an audit entry is a record of what staff did,
+// which support needs; an error log is a stack trace naming internal files, which it
+// does not. Purging is narrower still.
+router.get('/error-logs/facets', requirePermission('logs.view'), errorLogsCtrl.facets)
+router.get('/error-logs', requirePermission('logs.view'), errorLogsCtrl.list)
+router.delete('/error-logs', requirePermission('logs.manage'), errorLogsCtrl.purge)
 
 module.exports = router

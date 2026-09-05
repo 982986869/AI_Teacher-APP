@@ -31,6 +31,8 @@ import StudentsListScreen from '../screens/admin/people/StudentsListScreen';
 import StudentResultsScreen from '../screens/admin/results/StudentResultsScreen';
 import ParentsListScreen from '../screens/admin/people/ParentsListScreen';
 import ParentProfileScreen from '../screens/admin/people/ParentProfileScreen';
+import ErrorLogsScreen from '../screens/admin/logs/ErrorLogsScreen';
+import ErrorLogDetailScreen from '../screens/admin/logs/ErrorLogDetailScreen';
 import SupportQueueScreen from '../screens/admin/support/SupportQueueScreen';
 import SupportThreadScreen from '../screens/admin/support/SupportThreadScreen';
 import { useSupportUnread } from '../screens/admin/support/useSupportUnread';
@@ -106,6 +108,8 @@ function ProfileStackNav() {
       <ProfileStack.Screen name="AdminProfile" component={AdminProfileScreen} />
       <ProfileStack.Screen name="ParentsList" component={ParentsListScreen} />
       <ProfileStack.Screen name="ParentProfile" component={ParentProfileScreen} />
+      <ProfileStack.Screen name="ErrorLogs" component={ErrorLogsScreen} />
+      <ProfileStack.Screen name="ErrorLogDetail" component={ErrorLogDetailScreen} />
     </ProfileStack.Navigator>
   );
 }

@@ -846,3 +846,28 @@ model feature_flags {
   updated_at      DateTime @default(now()) @db.Timestamptz(6)
   created_at      DateTime @default(now()) @db.Timestamptz(6)
 }
+
+// Swallowed-error trail. Written best-effort by services/errorLog.service.js — from
+// the server's 5xx handler and from the app's reportError() batches — and read only
+// through /api/admin/error-logs. Capped and trimmed by that service, not by Postgres:
+// see prisma/sql/error_logs.sql for the size budget.
+model error_logs {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  source      String
+  level       String   @default("error")
+  site        String
+  message     String?
+  stack       String?
+  context     Json?
+  user_id     String?  @db.Uuid
+  user_role   String?
+  app_version String?
+  platform    String?
+  os_version  String?
+  fingerprint String?
+  created_at  DateTime @default(now()) @db.Timestamptz(6)
+
+  @@index([created_at(sort: Desc)], map: "error_logs_created_idx")
+  @@index([source, created_at(sort: Desc)], map: "error_logs_source_idx")
+  @@index([fingerprint, created_at(sort: Desc)], map: "error_logs_fingerprint_idx")
+}

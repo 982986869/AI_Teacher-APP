@@ -10,6 +10,7 @@ import {
 import { tokensFor, buildRun } from './stickLogic';
 import PracticeReward from './PracticeReward';
 import { pressSpring, PRESS_SCALE } from './motion';
+import { reportWarn } from '../../utils/errorLog';
 
 const AMBER = '#F2A93B';      // lit matchstick
 const AMBER_TIP = '#E5532B';  // stick head
@@ -230,7 +231,7 @@ function StickGame({ onExit, onGameOver }) {
     } else {
       const nl = lives - 1;
       setLives(nl);
-      try { Vibration.vibrate(35); } catch (e) {}
+      try { Vibration.vibrate(35); } catch (e) { reportWarn('braingym/ArenaStickBattle.js:vibrate', e); }
       Animated.sequence([
         Animated.timing(shake, { toValue: 1, duration: 60, useNativeDriver: true }),
         Animated.timing(shake, { toValue: -1, duration: 60, useNativeDriver: true }),

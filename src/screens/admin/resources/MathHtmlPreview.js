@@ -13,7 +13,7 @@ const HEAD = `
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <script>
   function report(){ try{ var h = Math.ceil(document.body.scrollHeight);
-    window.ReactNativeWebView && window.ReactNativeWebView.postMessage(String(h)); }catch(e){} }
+    window.ReactNativeWebView && window.ReactNativeWebView.postMessage(String(h)); }catch(e){ /* WebView context — no reportError here; see src/utils/errorLog.js header */ } }
   window.MathJax = { startup: { ready: function () {
     window.MathJax.startup.defaultReady();
     window.MathJax.startup.promise.then(function(){ fitWideMath(); report(); setTimeout(report, 200); });
@@ -24,7 +24,7 @@ const HEAD = `
       if(c.parentNode && c.parentNode.className==='math-scroll') continue;
       var w=c.scrollWidth||c.getBoundingClientRect().width;
       if(w>avail+1){ var b=document.createElement('span'); b.className='math-scroll';
-        c.parentNode.insertBefore(b,c); b.appendChild(c); } } }catch(e){} }
+        c.parentNode.insertBefore(b,c); b.appendChild(c); } } }catch(e){ /* WebView context — no reportError here; see src/utils/errorLog.js header */ } }
   window.addEventListener('load', function(){ report(); setTimeout(report, 400); });
 </script>
 <script src="${API_BASE_URL}/vendor/mathjax-tex-mml-chtml.js"></script>

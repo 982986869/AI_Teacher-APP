@@ -134,3 +134,10 @@ export const getAdminParents = (params) => axiosInstance.get(`/api/admin/parents
 export const getAdminParent = (id) => axiosInstance.get(`/api/admin/parents/${id}`).then(unwrap);
 export const linkAdminParent = (id, body) => axiosInstance.post(`/api/admin/parents/${id}/link`, body).then(unwrap);
 export const unlinkAdminParent = (id) => axiosInstance.post(`/api/admin/parents/${id}/unlink`, {}).then(unwrap);
+
+// ── Error Logs (bug list item 15 — what the app's `catch {}` blocks used to eat) ──
+// Gated on `logs.view`, which only super_admin and admin hold: these rows carry stack
+// traces naming internal files and routes.
+export const getAdminErrorLogs = (params) => axiosInstance.get(`/api/admin/error-logs${qs(params)}`).then(unwrap);
+export const getAdminErrorLogFacets = () => axiosInstance.get('/api/admin/error-logs/facets').then(unwrap);
+export const purgeAdminErrorLogs = () => axiosInstance.delete('/api/admin/error-logs').then(unwrap);

@@ -17,6 +17,7 @@ import { COLORS, TYPE, FONT_FAMILY, SPACING } from '../theme/designSystem';
 import { signupWithEmail } from '../api/authApi';
 import { flow, flowErr } from '../utils/flowLog';
 import { useAuth } from '../context/AuthContext';
+import { reportError } from '../utils/errorLog';
 import { validateEmail, validatePassword, validateName, validatePhone } from '../utils/validators';
 
 // The policy the tick-box commits the student to. Signup is BLOCKED until they
@@ -110,7 +111,7 @@ const SignupScreen = ({ navigation }) => {
       // Best-effort — a photo-upload hiccup should never block a just-created
       // account from signing in. No photo picked → the backend's own default
       // avatar (already on the account from signup) stands as-is.
-      if (photo) { try { await updatePhoto(photo); } catch (_) {} }
+      if (photo) { try { await updatePhoto(photo); } catch (e) { reportError('screens/SignupScreen.js:updatePhoto', e); } }
     } catch (e) {
       // Signing up with an address that already has a DELETED account. A bare "that
       // email is taken" would strand exactly the person the recovery window is for —

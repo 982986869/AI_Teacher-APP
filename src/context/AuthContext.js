@@ -6,6 +6,7 @@ import { deriveScope } from '../utils/personalization';
 import { fetchMe, updateProfileApi, uploadProfilePhoto } from '../api/authApi';
 import { getContentClasses } from '../api/resourcesApi';
 import { disconnectSupportSocket } from '../realtime/supportSocket';
+import { reportError } from '../utils/errorLog';
 
 const AuthContext = createContext(null);
 
@@ -81,7 +82,8 @@ export const AuthProvider = ({ children }) => {
 
   const setSelectedClass = useCallback(async (cls) => {
     setSelClass(cls);
-    try { await AsyncStorage.setItem('@ailernova_class', cls); } catch (_) {}
+    try { await AsyncStorage.setItem('@ailernova_class', cls); }
+    catch (e) { reportError('context/AuthContext.js:setSelectedClass', e, { cls }); }
   }, []);
 
   // Flip a student between the student app and the parent dashboard (same login).
@@ -92,7 +94,7 @@ export const AuthProvider = ({ children }) => {
     try {
       if (v) await AsyncStorage.setItem('@ailernova_active_view', v);
       else await AsyncStorage.removeItem('@ailernova_active_view');
-    } catch (_) {}
+    } catch (e) { reportError('context/AuthContext.js:setActiveView', e, { view: v }); }
   }, []);
 
   // `permissions` rides along on the login/register response (see auth.controller). Taking
@@ -107,7 +109,8 @@ export const AuthProvider = ({ children }) => {
     setJustLoggedIn(true);
     // Fresh login → clear any remembered view so the Student/Parent chooser shows.
     setActiveViewState(null);
-    try { await AsyncStorage.removeItem('@ailernova_active_view'); } catch (_) {}
+    try { await AsyncStorage.removeItem('@ailernova_active_view'); }
+    catch (e) { reportError('context/AuthContext.js:signIn', e); }
   }, []);
 
   const completeOnboarding = useCallback(async () => {

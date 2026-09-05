@@ -1195,7 +1195,7 @@ const PAPER_HEAD = `
       if(c.parentNode && c.parentNode.className==='math-scroll') continue;
       var w=c.scrollWidth||c.getBoundingClientRect().width;
       if(w>avail+1){ var b=document.createElement('span'); b.className='math-scroll';
-        c.parentNode.insertBefore(b,c); b.appendChild(c); } } }catch(e){} }
+        c.parentNode.insertBefore(b,c); b.appendChild(c); } } }catch(e){ /* WebView context — no reportError here; see src/utils/errorLog.js header */ } }
 </script>
 <script src="${API_BASE_URL}/vendor/mathjax-tex-mml-chtml.js"></script>
 <style>
