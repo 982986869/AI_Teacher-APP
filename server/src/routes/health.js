@@ -45,7 +45,11 @@ router.get('/', async (req, res) => {
       // reading the sending mailbox over IMAP to prove the message never came.
       // A boolean here answers it in one request. No host, user or secret is
       // exposed; "configured" only means SMTP_HOST is set.
-      mail: mail.enabled ? 'configured' : 'not configured',
+      // 'incomplete' is the state that cost a debugging session: SMTP_HOST present
+      // from render.yaml, credentials never entered, so the transport is selected
+      // and every send fails authentication silently.
+      mail: !mail.enabled ? 'not configured'
+        : (mail.missing.length ? `incomplete (missing ${mail.missing.join(', ')})` : 'configured'),
     },
   })
 })

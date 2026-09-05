@@ -29,6 +29,13 @@ const mail = {
   from: process.env.MAIL_FROM || 'Ailernova <noreply@ailernova.com>',
   transport: smtpHost ? 'smtp' : 'none',
   enabled: !!smtpHost,
+  // Which of the four are actually present. `enabled` asks only whether a host
+  // is set, which is not the same question: SMTP_HOST has a value in render.yaml
+  // and deploys on its own, while SMTP_USER and SMTP_PASS are sync:false and have
+  // to be typed into the dashboard. A host with no credentials looks enabled,
+  // selects the smtp transport, and then fails authentication on every send —
+  // which is exactly the state production was found in.
+  missing: ['SMTP_HOST', 'SMTP_USER', 'SMTP_PASS'].filter((k) => !process.env[k]),
 }
 
 // Built once and reused: a transport per message would open a new TCP+TLS
