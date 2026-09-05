@@ -103,6 +103,35 @@ services:
       # Deliberately omitted: nothing in server/src reads config.sms yet — there
       # is no OTP route. Add these keys when phone login is actually built.
 
+      # ── Transactional mail ────────────────────────────────────────────────
+      # Password reset is the only mail the app sends, and SMTP is the only
+      # transport (a Resend-over-HTTP path was removed — it could not deliver to
+      # anyone but the account owner until a sending domain was verified).
+      #
+      # Without SMTP_HOST nothing is sent, and NOTHING SAYS SO: /forgot-password
+      # answers "a reset link is on its way" either way, deliberately, so it cannot
+      # be used to discover which addresses are registered. That safety property is
+      # also what makes a missing value here invisible. `node scripts/check-mail.js`
+      # is the only thing that will tell you.
+      #
+      # ailernova.in receives on mx1/mx2.hostinger.com, so smtp.hostinger.com is the
+      # sending host and 465 is its implicit-TLS port. Sending as an address on a
+      # domain we already receive on means SPF and DKIM are in place already.
+      - key: SMTP_HOST
+        value: smtp.hostinger.com
+      - key: SMTP_PORT
+        value: "465"
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: MAIL_FROM
+        value: Ailernova <support@ailernova.in>
+      # The reset link is built from this. Unset, the emailed link points at
+      # localhost and every reset dead-ends.
+      - key: APP_PUBLIC_URL
+        value: https://ailernova-api.onrender.com
+
       # ── Misc ──────────────────────────────────────────────────────────────
       - key: JWT_EXPIRES_IN
         sync: false
