@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { KeyRound, ShieldCheck, Ban, Trash2, CircleCheck, Copy, Dumbbell, BookOpen, Target, Activity } from 'lucide-react'
+import { KeyRound, ShieldCheck, Ban, Trash2, CircleCheck, Copy, Dumbbell, BookOpen, Target, Activity, Lock, LockOpen } from 'lucide-react'
 import { useApi } from '@/components/useApi'
 import { Badge, Skel, ErrorState, IconChip } from '@/components/ui'
 import { ConfirmDialog, Modal } from '@/components/Modal'
@@ -31,7 +31,7 @@ export function UserDetail({ id, onChanged, onClose }: { id: string; onChanged: 
   const { can, admin } = useAuth()
   const toast = useToast()
   const { data, loading, error, reload } = useApi<DetailData>(`/users/${id}`)
-  const [confirm, setConfirm] = useState<null | 'deactivate' | 'reactivate' | 'delete'>(null)
+  const [confirm, setConfirm] = useState<null | 'deactivate' | 'reactivate' | 'delete' | 'grant' | 'revoke'>(null)
   const [roleModal, setRoleModal] = useState(false)
   const [pwModal, setPwModal] = useState(false)
   const [busy, setBusy] = useState(false)
@@ -56,6 +56,16 @@ export function UserDetail({ id, onChanged, onClose }: { id: string; onChanged: 
     await act(() => api(`/users/${id}/role`, { method: 'PATCH', body: { adminRole: newRole || null } }), 'Role updated')
     setRoleModal(false)
   }
+  // Content access. The endpoint and its audit entry have existed since the
+  // paywall shipped; only this button was missing, so granting outside a support
+  // ticket meant opening the phone app or writing to the database by hand.
+  async function setAccess(level: 'free' | 'full') {
+    await act(
+      () => api(`/users/${id}/access`, { method: 'PATCH', body: { accessLevel: level } }),
+      level === 'full' ? 'Full access granted' : 'Access set to free',
+    )
+  }
+
   async function resetPw() {
     setBusy(true)
     try {
@@ -75,6 +85,7 @@ export function UserDetail({ id, onChanged, onClose }: { id: string; onChanged: 
           <div style={{ fontWeight: 900, fontSize: 17 }}>{u.name}</div>
           <div className="faint" style={{ fontSize: 12.5, fontWeight: 600 }}>{u.email || u.phone || '—'}</div>
         </div>
+        {!u.adminRole && <Badge tone={u.accessLevel === 'full' ? 'emerald' : 'gold'}>{u.accessLevel === 'full' ? 'full access' : 'free'}</Badge>}
         <Badge tone={u.isActive ? 'emerald' : 'red'}>{u.isActive ? 'active' : 'deactivated'}</Badge>
       </div>
 
@@ -134,6 +145,9 @@ export function UserDetail({ id, onChanged, onClose }: { id: string; onChanged: 
           {can('users.edit') && (u.isActive
             ? <button className="btn btn-ghost sm" onClick={() => setConfirm('deactivate')}><Ban size={14} /> Deactivate</button>
             : <button className="btn btn-ghost sm" onClick={() => setConfirm('reactivate')}><CircleCheck size={14} /> Reactivate</button>)}
+          {can('users.edit') && !u.adminRole && (u.accessLevel === 'full'
+            ? <button className="btn btn-ghost sm" onClick={() => setConfirm('revoke')}><Lock size={14} /> Set to free</button>
+            : <button className="btn btn-soft sm" onClick={() => setConfirm('grant')}><LockOpen size={14} /> Grant full access</button>)}
           {can('users.delete') && u.adminRole !== 'super_admin' && <button className="btn btn-danger sm" onClick={() => setConfirm('delete')}><Trash2 size={14} /> Delete</button>}
         </div>
       </div>
@@ -148,6 +162,13 @@ export function UserDetail({ id, onChanged, onClose }: { id: string; onChanged: 
       <ConfirmDialog open={confirm === 'delete'} onClose={() => setConfirm(null)} busy={busy} danger confirmLabel="Delete permanently"
         onConfirm={() => act(async () => { await api(`/users/${id}`, { method: 'DELETE' }); onClose() }, 'User deleted')}
         title="Delete user" message={<>Permanently delete <b>{u.name}</b> and all their learning data? This cannot be undone.</>} />
+
+      <ConfirmDialog open={confirm === 'grant'} onClose={() => setConfirm(null)} busy={busy} confirmLabel="Grant full access"
+        onConfirm={() => setAccess('full')}
+        title="Grant full access" message={<>Give <b>{u.name}</b> lessons, practice, resources and tests? It applies on their next request — they may need to reopen the app for the change to show.</>} />
+      <ConfirmDialog open={confirm === 'revoke'} onClose={() => setConfirm(null)} busy={busy} danger confirmLabel="Set to free"
+        onConfirm={() => setAccess('free')}
+        title="Set access to free" message={<>Restrict <b>{u.name}</b> to Brain Gym, the Arena and the Home dashboard? Their progress is kept.</>} />
 
       {/* Role modal */}
       <Modal open={roleModal} onClose={() => setRoleModal(false)} title="Manage admin role" width={420}
