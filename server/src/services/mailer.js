@@ -3,34 +3,32 @@
 // Transactional email. One message type today (the password reset), so this is a
 // sender and not a mail framework — no queue, no templates, no retries.
 //
-// Three transports, tried in this order:
+// SMTP only, over nodemailer. Works with Mailtrap, Brevo, Gmail, Office 365 or any
+// other provider — the four env values below are the whole configuration.
 //
-//   1. SMTP     — set SMTP_HOST. Works with Mailtrap, Gmail, Brevo, Office 365,
-//                 anything. Mailtrap's SANDBOX is the useful one while a domain is
-//                 unverified: it accepts every message and shows it in a web inbox
-//                 instead of delivering, so the whole flow is testable with no DNS.
-//   2. Resend   — set RESEND_API_KEY. HTTP, no dependency, but sending to anyone
-//                 other than your own signup address needs a verified domain.
-//   3. Log only — neither configured. Outside production the message is printed so
-//                 the reset link is still clickable in development.
+// A Resend-over-HTTP path used to sit alongside this. It was removed: two transports
+// meant two code paths to keep correct for one message type, and the one that could
+// not send to real students without a verified sending domain was the one that looked
+// configured. SMTP has no such gate, so there is nothing the second path bought.
+//
+// Without SMTP_HOST nothing is sent. Outside production the message is logged so the
+// reset link is still usable in development.
 //
 // Env:
 //   SMTP_HOST / SMTP_PORT / SMTP_USER / SMTP_PASS   (SMTP_SECURE=true forces TLS)
-//   RESEND_API_KEY
 //   MAIL_FROM        "Ailernova <noreply@ailernova.com>"
 //   APP_PUBLIC_URL   base URL the reset link points at
-
 const { config } = require('../config/env')
-
-const RESEND_ENDPOINT = 'https://api.resend.com/emails'
 
 const smtpHost = process.env.SMTP_HOST
 const smtpPort = parseInt(process.env.SMTP_PORT, 10) || 587
 
 const mail = {
-  from: process.env.MAIL_FROM || 'Ailernova <onboarding@resend.dev>',
-  transport: smtpHost ? 'smtp' : (process.env.RESEND_API_KEY ? 'resend' : 'none'),
-  enabled: !!(smtpHost || process.env.RESEND_API_KEY),
+  // No default sender: a made-up From is rejected by every provider, and a silent
+  // rejection is worse than an obvious missing value.
+  from: process.env.MAIL_FROM || 'Ailernova <noreply@ailernova.com>',
+  transport: smtpHost ? 'smtp' : 'none',
+  enabled: !!smtpHost,
 }
 
 // Built once and reused: a transport per message would open a new TCP+TLS
@@ -69,26 +67,6 @@ async function sendMail({ to, subject, html, text }) {
     }
   }
 
-  if (mail.transport === 'resend') {
-    try {
-      const r = await fetch(RESEND_ENDPOINT, {
-        method: 'POST',
-        headers: { authorization: `Bearer ${process.env.RESEND_API_KEY}`, 'content-type': 'application/json' },
-        body: JSON.stringify({ from: mail.from, to: [to], subject, html, text }),
-      })
-      if (!r.ok) {
-        const detail = await r.text()
-        console.error(`[mail] resend failed: ${r.status} ${detail.slice(0, 200)}`)
-        return { ok: false, error: `provider ${r.status}` }
-      }
-      const body = await r.json().catch(() => ({}))
-      return { ok: true, id: body.id }
-    } catch (err) {
-      console.error('[mail] resend threw:', err.message)
-      return { ok: false, error: err.message }
-    }
-  }
-
   // config.nodeEnv, not config.env — there is no 'env' key, so this read was always
   // undefined and the branch always took the development path. In production that printed
   // the whole message, reset link included, into the logs.
@@ -100,9 +78,9 @@ async function sendMail({ to, subject, html, text }) {
   return { ok: false, error: 'mailer not configured' }
 }
 
-// Prove the transport works without sending anything. SMTP can actually be checked
-// (connect + authenticate); Resend has no such endpoint, so it answers honestly
-// rather than pretending.
+// Prove the transport works without sending anything: connect and authenticate, the
+// two things that fail silently once /forgot-password starts answering the same way
+// whether or not the mail went out.
 async function verifyTransport() {
   if (mail.transport === 'smtp') {
     try {
@@ -112,10 +90,7 @@ async function verifyTransport() {
       return { ok: false, transport: 'smtp', detail: err.message }
     }
   }
-  if (mail.transport === 'resend') {
-    return { ok: true, transport: 'resend', detail: 'key present (not verifiable without sending)' }
-  }
-  return { ok: false, transport: 'none', detail: 'set SMTP_HOST or RESEND_API_KEY' }
+  return { ok: false, transport: 'none', detail: 'set SMTP_HOST' }
 }
 
 // The reset message. Plain and short on purpose: a long marketing-styled mail with

@@ -43,12 +43,20 @@ async function main() {
 
   if (mail.transport === 'none') {
     no('no transport configured')
-    console.log('\n  Set ONE of these in server/.env:\n')
-    console.log('    SMTP_HOST=sandbox.smtp.mailtrap.io   # Mailtrap sandbox: no DNS needed')
+    console.log('')
+    console.log('  Set these in server/.env:')
+    console.log('')
+    console.log('    SMTP_HOST=sandbox.smtp.mailtrap.io')
     console.log('    SMTP_PORT=2525')
     console.log('    SMTP_USER=...')
     console.log('    SMTP_PASS=...')
-    console.log('\n    RESEND_API_KEY=re_...                # or Resend over HTTP\n')
+    console.log('    MAIL_FROM=Ailernova <noreply@ailernova.com>')
+    console.log('')
+    console.log("  Mailtrap's sandbox is the quickest: it accepts every message and")
+    console.log('  shows it in a web inbox instead of delivering, so nothing reaches a')
+    console.log('  student by accident while you are testing. Copy the values from')
+    console.log('  Inboxes > your inbox > SMTP Settings > Nodemailer.')
+    console.log('')
     process.exit(1)
   }
 
