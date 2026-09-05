@@ -2,6 +2,7 @@
 
 const { Router } = require('express')
 const db = require('../config/database')
+const { mail } = require('../services/mailer')
 
 const router = Router()
 
@@ -33,6 +34,18 @@ router.get('/', async (req, res) => {
       // Uptime doubles as a deploy clock: a few seconds means it has just
       // restarted, which on the free plan is either a deploy or a cold start.
       uptimeSec: Math.round(process.uptime()),
+      // WHETHER THIS SERVER CAN SEND MAIL. Not a detail — /forgot-password
+      // answers "a reset link is on its way" whether or not the send worked,
+      // deliberately, so it cannot be used to discover which addresses are
+      // registered. That safety property also means an unset SMTP_HOST is
+      // invisible from outside: tokens are written, students are told to check
+      // their email, and nothing is ever sent.
+      //
+      // It cost a full debugging session to establish that from the outside —
+      // reading the sending mailbox over IMAP to prove the message never came.
+      // A boolean here answers it in one request. No host, user or secret is
+      // exposed; "configured" only means SMTP_HOST is set.
+      mail: mail.enabled ? 'configured' : 'not configured',
     },
   })
 })
