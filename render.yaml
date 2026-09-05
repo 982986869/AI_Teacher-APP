@@ -119,8 +119,13 @@ services:
       # domain we already receive on means SPF and DKIM are in place already.
       - key: SMTP_HOST
         value: smtp.hostinger.com
+      # 587, not 465. Render's egress cannot open 465 — the connection times out
+      # rather than being refused, so it looks like a hung mail server rather than a
+      # blocked port. 587 is the submission port and starts plaintext, upgrading via
+      # STARTTLS, which mailer.js selects automatically because secure defaults to
+      # (port === 465). Hostinger accepts both; only one of them leaves this host.
       - key: SMTP_PORT
-        value: "465"
+        value: "587"
       - key: SMTP_USER
         sync: false
       - key: SMTP_PASS
