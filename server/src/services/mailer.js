@@ -20,13 +20,21 @@
 //   APP_PUBLIC_URL   base URL the reset link points at
 const { config } = require('../config/env')
 
-const smtpHost = process.env.SMTP_HOST
-const smtpPort = parseInt(process.env.SMTP_PORT, 10) || 587
+// Trimmed, every one of them. A value pasted into a dashboard field can carry a
+// trailing newline or space, and the failure that produces is genuinely hard to
+// read: production answered ENOTFOUND for a hostname that reads correctly both in
+// the error and in the dashboard, because the value carried a trailing newline.
+// Credentials fail the same way: an authentication error that looks like a wrong
+// password rather than a stray character.
+const env = (k) => (process.env[k] || '').trim()
+
+const smtpHost = env('SMTP_HOST')
+const smtpPort = parseInt(env('SMTP_PORT'), 10) || 587
 
 const mail = {
   // No default sender: a made-up From is rejected by every provider, and a silent
   // rejection is worse than an obvious missing value.
-  from: process.env.MAIL_FROM || 'Ailernova <noreply@ailernova.com>',
+  from: env('MAIL_FROM') || 'Ailernova <noreply@ailernova.com>',
   transport: smtpHost ? 'smtp' : 'none',
   enabled: !!smtpHost,
   // Which of the four are actually present. `enabled` asks only whether a host
@@ -35,7 +43,7 @@ const mail = {
   // to be typed into the dashboard. A host with no credentials looks enabled,
   // selects the smtp transport, and then fails authentication on every send —
   // which is exactly the state production was found in.
-  missing: ['SMTP_HOST', 'SMTP_USER', 'SMTP_PASS'].filter((k) => !process.env[k]),
+  missing: ['SMTP_HOST', 'SMTP_USER', 'SMTP_PASS'].filter((k) => !env(k)),
 }
 
 // Built once and reused: a transport per message would open a new TCP+TLS
@@ -50,9 +58,9 @@ function transporter() {
     // 465 is implicit TLS; 587 and 2525 start plaintext and STARTTLS up, which is
     // what Mailtrap and most providers expect. Overridable for the rare host that
     // wants TLS on a non-standard port.
-    secure: process.env.SMTP_SECURE ? process.env.SMTP_SECURE === 'true' : smtpPort === 465,
-    auth: (process.env.SMTP_USER || process.env.SMTP_PASS)
-      ? { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS }
+    secure: env('SMTP_SECURE') ? env('SMTP_SECURE') === 'true' : smtpPort === 465,
+    auth: (env('SMTP_USER') || env('SMTP_PASS'))
+      ? { user: env('SMTP_USER'), pass: env('SMTP_PASS') }
       : undefined,
   })
   return _tx
