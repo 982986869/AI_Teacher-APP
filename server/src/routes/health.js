@@ -2,9 +2,29 @@
 
 const { Router } = require('express')
 const db = require('../config/database')
-const { mail } = require('../services/mailer')
+const { mail, verifyTransport } = require('../services/mailer')
 
 const router = Router()
+
+// GET /api/health?check=mail — actually open the SMTP connection and report what
+// happens. Separate from the plain health read because it costs a TCP and TLS
+// round trip to another host, which a liveness probe should never do.
+//
+// Needed because the send path swallows its own errors on purpose: a failure must
+// not change what /forgot-password answers, or the endpoint becomes a way to ask
+// which addresses are registered. The error therefore only ever reached a log
+// nobody could read. This returns it.
+//
+// Safe to expose: nodemailer reports the failure MODE — timeout, refused,
+// invalid login — never the credential. The host and port are already in
+// render.yaml.
+router.get('/', async (req, res, next) => {
+  if (req.query.check === 'mail') {
+    const v = await verifyTransport()
+    return res.json({ success: true, data: { transport: v.transport, ok: v.ok, detail: v.detail } })
+  }
+  return next()
+})
 
 router.get('/', async (req, res) => {
   let dbStatus = 'connected'
