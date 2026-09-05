@@ -17,6 +17,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { View, Alert } from 'react-native';
 import PolicyModal from '../components/brand/PolicyModal';
+import { TERMS_HTML } from '../constants/termsOfUse';
 import { useNavigation } from '@react-navigation/native';
 import Constants from 'expo-constants';
 import * as ImagePicker from 'expo-image-picker';
@@ -170,6 +171,7 @@ const ProfileScreen = () => {
   // wherever it is opened from and there is one component to keep correct.
   const PRIVACY_URL = 'https://ailernova.in/privacy-policy/';
   const [privacyOpen, setPrivacyOpen] = useState(false);
+  const [termsOpen, setTermsOpen] = useState(false);
 
   const handlePlaceholder = (label) => {
     Alert.alert(label, 'This is on the way — it isn’t part of the app yet.');
@@ -220,6 +222,7 @@ const ProfileScreen = () => {
         onLogout={handleLogout}
         onDeleteAccount={handleDeleteAccount}
         onPrivacy={() => setPrivacyOpen(true)}
+        onTerms={() => setTermsOpen(true)}
         onPlaceholder={handlePlaceholder}
         // The dock floats over the tab content, so the list has to end above it.
         bottomInset={(dockHeight || 66) + 8}
@@ -229,6 +232,12 @@ const ProfileScreen = () => {
         onClose={() => setPrivacyOpen(false)}
         url={PRIVACY_URL}
         title="Privacy Policy"
+      />
+      <PolicyModal
+        visible={termsOpen}
+        onClose={() => setTermsOpen(false)}
+        html={TERMS_HTML}
+        title="Terms of Use"
       />
     </>
   );

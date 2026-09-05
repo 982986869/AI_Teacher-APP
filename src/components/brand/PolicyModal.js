@@ -23,13 +23,19 @@ import { WebView } from 'react-native-webview';
 import { X } from 'lucide-react-native';
 import { COLORS, FONT_FAMILY, SPACING } from '../../theme/designSystem';
 
-export default function PolicyModal({ visible, onClose, url, title = 'Privacy Policy' }) {
-  const [loading, setLoading] = useState(true);
+// `url` for a document that lives on the website, `html` for one that ships with
+// the app. The privacy policy is a URL because that page exists and is the source
+// of truth; the terms are html because no such page exists, and shipping the text
+// at least means the version a student agreed to is the version in their build.
+//
+// Local html cannot fail to load, so the offline path below only applies to `url`.
+export default function PolicyModal({ visible, onClose, url, html, title = 'Privacy Policy' }) {
+  const [loading, setLoading] = useState(!html);
   const [failed, setFailed] = useState(false);
 
   // Re-arm on each open: a student who hits a dead network once should not see the
   // error state forever after the connection comes back.
-  const handleShow = () => { setLoading(true); setFailed(false); };
+  const handleShow = () => { setLoading(!html); setFailed(false); };
 
   return (
     <Modal
@@ -56,10 +62,10 @@ export default function PolicyModal({ visible, onClose, url, title = 'Privacy Po
         <View style={s.body}>
           {!failed && (
             <WebView
-              source={{ uri: url }}
+              source={html ? { html } : { uri: url }}
               onLoadEnd={() => setLoading(false)}
-              onError={() => { setLoading(false); setFailed(true); }}
-              onHttpError={() => { setLoading(false); setFailed(true); }}
+              onError={() => { setLoading(false); if (!html) setFailed(true); }}
+              onHttpError={() => { setLoading(false); if (!html) setFailed(true); }}
               startInLoadingState={false}
               style={s.web}
             />

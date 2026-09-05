@@ -89,6 +89,7 @@ export default function ProfileHome({
   onLogout,
   onDeleteAccount,
   onPrivacy,
+  onTerms,
   onPlaceholder,
   bottomInset = 0,
 }) {
@@ -147,6 +148,10 @@ export default function ProfileHome({
                 the student the feature "isn't part of the app yet" — on the one row
                 a Play reviewer opens to find the privacy policy. */}
             <Row emoji="🔒" label="Privacy & Security" onPress={onPrivacy} />
+            {/* Both consent documents stay reachable AFTER sign-up, not only at it.
+                Agreeing once to something you can never re-read is the same defect the
+                unopenable link was. */}
+            <Row emoji="📄" label="Terms of Use" onPress={onTerms} />
             <Row emoji="⚙️" label="App Settings" right={<Switch on={soundOn} onPress={onToggleSound} />} />
             <Row emoji="❓" label="Help & Support" onPress={onHelp} />
             {/* NOT in the design. It is the only route a student has back to the parent

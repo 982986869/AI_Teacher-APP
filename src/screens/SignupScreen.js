@@ -10,6 +10,7 @@ import AuthInput     from '../components/brand/AuthInput';
 import AuthError     from '../components/brand/AuthError';
 import AuthCheckbox  from '../components/brand/AuthCheckbox';
 import PolicyModal   from '../components/brand/PolicyModal';
+import { TERMS_HTML } from '../constants/termsOfUse';
 import PrimaryButton from '../components/brand/PrimaryButton';
 import { COLORS, TYPE, FONT_FAMILY, SPACING } from '../theme/designSystem';
 
@@ -23,23 +24,17 @@ import { validateEmail, validatePassword, validateName, validatePhone } from '..
 // with no handler, which asked for consent to something that could not be opened.
 const PRIVACY_URL = 'https://ailernova.in/privacy-policy/';
 
-// TERMS IS NOT REFERENCED HERE, ON PURPOSE.
+// The checkbox names two documents and both can be opened.
 //
-// The row used to read "I agree to Terms & Privacy Policy". There is no terms
-// document: ailernova.in publishes eleven pages (about-us, contact, review,
-// pricing, homenew-page, teacher-daily-sop, landing-page-new, thank-you, landing,
-// reviews, privacy-policy) and none of them is one, and /terms/,
+// It used to name only the Privacy Policy, because there was no terms document:
+// ailernova.in publishes eleven pages and none of them is one, and /terms/,
 // /terms-and-conditions/, /terms-of-use/, /tnc/ and /terms-conditions/ all 404.
+// A sentence collecting agreement to a document nobody can read is the one thing
+// a consent control must not do.
 //
-// So the sentence was collecting agreement to a document that does not exist.
-// Linking it anywhere would have hidden that rather than fixed it, and naming it
-// with no destination is what caused the original bug. The wording now covers
-// only what a student can actually read.
-//
-// When a terms page is published: set TERMS_URL, and restore the "Terms &" half
-// of the label plus its <Text> link — the sheet already takes a title and url,
-// so nothing else has to change.
-const TERMS_URL = null;
+// The terms now SHIP WITH THE APP (constants/termsOfUse.js) rather than living on
+// the site, so the version a student agreed to is the version in their build. The
+// privacy policy stays a URL, because that page exists and is the source of truth.
 
 
 
@@ -104,7 +99,7 @@ const SignupScreen = ({ navigation }) => {
     if (password !== confirmPassword) return setError('Passwords do not match.');
     // Names exactly what the checkbox names — an error that asks a student to
     // accept "Terms" they were never shown is the same defect in another place.
-    if (!agreed) return setError('Please agree to the Privacy Policy to continue.');
+    if (!agreed) return setError('Please agree to the Terms and Privacy Policy to continue.');
 
     try {
       setLoading(true);
@@ -200,14 +195,9 @@ const SignupScreen = ({ navigation }) => {
 
         <AuthCheckbox checked={agreed} onToggle={() => setAgreed((a) => !a)}>
           I agree to the{' '}
-          {/* Every named document here is one the student can open. "Terms &"
-              returns to this line, with its own link, when TERMS_URL is set. */}
-          {TERMS_URL && (
-            <>
-              <Text style={styles.link} onPress={() => setPolicy('terms')} accessibilityRole="link">Terms</Text>
-              {' '}&{' '}
-            </>
-          )}
+          {/* Every named document here is one the student can open. */}
+          <Text style={styles.link} onPress={() => setPolicy('terms')} accessibilityRole="link">Terms</Text>
+          {' '}&{' '}
           <Text
             style={styles.link}
             onPress={() => setPolicy('privacy')}
@@ -230,8 +220,9 @@ const SignupScreen = ({ navigation }) => {
       <PolicyModal
         visible={policy !== null}
         onClose={() => setPolicy(null)}
-        url={policy === 'terms' ? TERMS_URL : PRIVACY_URL}
-        title={policy === 'terms' ? 'Terms' : 'Privacy Policy'}
+        url={policy === 'terms' ? undefined : PRIVACY_URL}
+        html={policy === 'terms' ? TERMS_HTML : undefined}
+        title={policy === 'terms' ? 'Terms of Use' : 'Privacy Policy'}
       />
     </SafeAreaView>
   );
