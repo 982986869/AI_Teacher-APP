@@ -54,6 +54,12 @@ function transporter() {
   const nodemailer = require('nodemailer')
   _tx = nodemailer.createTransport({
     host: smtpHost,
+    // IPv4 only. smtp.hostinger.com publishes an AAAA record, Node prefers it, and
+    // Render has no IPv6 route — so production answered
+    // "connect ENETUNREACH 2606:4700:...:587" while the same host and port worked
+    // from anywhere with IPv6. Pinning the family removes the difference between
+    // where this is tested and where it runs.
+    family: 4,
     port: smtpPort,
     // 465 is implicit TLS; 587 and 2525 start plaintext and STARTTLS up, which is
     // what Mailtrap and most providers expect. Overridable for the rare host that
