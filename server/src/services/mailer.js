@@ -28,6 +28,13 @@ const { config } = require('../config/env')
 // password rather than a stray character.
 const env = (k) => (process.env[k] || '').trim()
 
+// The relay wins when it is configured. Render cannot open SMTP at all — 465 and
+// 587 both time out while the same credentials work from anywhere else — so on
+// that host SMTP_HOST is present and useless. Preferring the relay means one set
+// of variables can serve both places: SMTP locally, relay in production.
+const relayUrl = env('MAIL_RELAY_URL')
+const relaySecret = env('MAIL_RELAY_SECRET')
+
 const smtpHost = env('SMTP_HOST')
 const smtpPort = parseInt(env('SMTP_PORT'), 10) || 587
 
@@ -35,15 +42,17 @@ const mail = {
   // No default sender: a made-up From is rejected by every provider, and a silent
   // rejection is worse than an obvious missing value.
   from: env('MAIL_FROM') || 'Ailernova <noreply@ailernova.com>',
-  transport: smtpHost ? 'smtp' : 'none',
-  enabled: !!smtpHost,
+  transport: (relayUrl && relaySecret) ? 'relay' : (smtpHost ? 'smtp' : 'none'),
+  enabled: !!((relayUrl && relaySecret) || smtpHost),
   // Which of the four are actually present. `enabled` asks only whether a host
   // is set, which is not the same question: SMTP_HOST has a value in render.yaml
   // and deploys on its own, while SMTP_USER and SMTP_PASS are sync:false and have
   // to be typed into the dashboard. A host with no credentials looks enabled,
   // selects the smtp transport, and then fails authentication on every send —
   // which is exactly the state production was found in.
-  missing: ['SMTP_HOST', 'SMTP_USER', 'SMTP_PASS'].filter((k) => !env(k)),
+  missing: (relayUrl || relaySecret)
+    ? ['MAIL_RELAY_URL', 'MAIL_RELAY_SECRET'].filter((k) => !env(k))
+    : ['SMTP_HOST', 'SMTP_USER', 'SMTP_PASS'].filter((k) => !env(k)),
 }
 
 // Built once and reused: a transport per message would open a new TCP+TLS
@@ -78,6 +87,25 @@ function transporter() {
 // same way whether or not the address exists, and letting a provider outage change
 // that answer would leak which addresses are real. The caller logs and moves on.
 async function sendMail({ to, subject, html, text }) {
+  if (mail.transport === 'relay') {
+    try {
+      const r = await fetch(relayUrl, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-relay-key': relaySecret },
+        body: JSON.stringify({ to, subject, html, text }),
+      })
+      const body = await r.json().catch(() => ({}))
+      if (!r.ok || !body.ok) {
+        console.error(`[mail] relay failed: ${r.status} ${body.error || mail.transport}`)
+        return { ok: false, error: body.error || `relay ${r.status}` }
+      }
+      return { ok: true, id: body.id }
+    } catch (err) {
+      console.error('[mail] relay threw:', err.message)
+      return { ok: false, error: err.message }
+    }
+  }
+
   if (mail.transport === 'smtp') {
     try {
       const info = await transporter().sendMail({ from: mail.from, to, subject, html, text })
@@ -103,6 +131,17 @@ async function sendMail({ to, subject, html, text }) {
 // two things that fail silently once /forgot-password starts answering the same way
 // whether or not the mail went out.
 async function verifyTransport() {
+  if (mail.transport === 'relay') {
+    try {
+      // A GET reaches the same file and is refused with 405, which proves the URL
+      // resolves and the script is running without sending anything.
+      const r = await fetch(relayUrl, { method: 'GET' })
+      const ok = r.status === 405 || r.status === 401
+      return { ok, transport: 'relay', detail: ok ? `${relayUrl} responding` : `unexpected ${r.status} from ${relayUrl}` }
+    } catch (err) {
+      return { ok: false, transport: 'relay', detail: err.message }
+    }
+  }
   if (mail.transport === 'smtp') {
     try {
       await transporter().verify()
