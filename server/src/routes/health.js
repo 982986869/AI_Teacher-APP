@@ -61,9 +61,19 @@ router.get('/', async (req, res, next) => {
     })))
     const smtp = results.filter((r) => r.port !== 443)
     return res.json({ success: true, data: {
-      verdict: smtp.every((r) => r.result !== 'open')
-        ? 'every SMTP port blocked here — the block is this host, not the mail server'
-        : 'some SMTP reachable — where it fails, the destination is refusing us',
+      // Grouped by PORT. The first version of this compared hosts and reported
+      // "the destination is refusing us" the moment any one connected, which read
+      // exactly backwards: 465 and 587 fail to EVERY destination while 2525
+      // succeeds, so the block is the port and not the mail server.
+      verdict: (() => {
+        const byPort = {}
+        for (const r of smtp) (byPort[r.port] = byPort[r.port] || []).push(r.result)
+        const open = Object.keys(byPort).filter((p) => byPort[p].some((x) => x === 'open'))
+        const shut = Object.keys(byPort).filter((p) => byPort[p].every((x) => x !== 'open'))
+        if (!open.length) return `every SMTP port blocked from this host (${shut.join(", ")})`
+        if (!shut.length) return 'all SMTP ports reachable'
+        return `this host blocks ${shut.join(", ")} but allows ${open.join(", ")} — use a provider on an allowed port`
+      })(),
       results,
     } })
   }
