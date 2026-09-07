@@ -3,6 +3,7 @@ import { AppState, Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from 'expo-constants';
 import { fetchConfig } from '../api/configApi';
+import { reportError } from '../utils/errorLog';
 
 // ─── Runtime configuration ──────────────────────────────────────────────────
 // A SINGLE provider owns config for the whole app. It:
@@ -92,7 +93,8 @@ export function RuntimeConfigProvider({ children }) {
           const next = { ...DEFAULTS, ...res.data };
           etag.current = res.etag || etag.current;
           safeSet(() => { setConfig(next); setLoaded(true); setError(null); setLastUpdatedAt(new Date()); });
-          try { await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify({ config: next, etag: etag.current, savedAt: Date.now() })); } catch (_) {}
+          try { await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify({ config: next, etag: etag.current, savedAt: Date.now() })); }
+          catch (e) { reportError('context/RuntimeConfigContext.js:cacheConfig', e); }
         } else if (res.data != null) {
           // Got a response, but it failed validation — keep the last valid config.
           if (__DEV__) console.warn('[RuntimeConfig] invalid config response ignored — keeping last valid config');

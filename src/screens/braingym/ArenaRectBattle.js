@@ -13,6 +13,7 @@ import { matchmakeArena, submitArenaResult, abandonMatch } from '../../api/arena
 import ArenaRectBoard from './ArenaRectBoard';
 import PracticeReward from './PracticeReward';
 import { pressSpring, PRESS_SCALE } from './motion';
+import { reportWarn } from '../../utils/errorLog';
 
 const { width: SCREEN_W, height: SCREEN_H } = Dimensions.get('window');
 const RAD = Math.round(Math.min(SCREEN_W, SCREEN_H * 0.5));
@@ -130,7 +131,7 @@ function GameOver({ winner, oppName, meName }) {
     if (winner === 'user') {
       Animated.timing(glow, { toValue: 1, duration: 950, easing: Easing.out(Easing.quad), useNativeDriver: true }).start();
     } else if (winner === 'opp') {
-      try { Vibration.vibrate(45); } catch (e) {}
+      try { Vibration.vibrate(45); } catch (e) { reportWarn('braingym/ArenaRectBattle.js:vibrate', e); }
       Animated.sequence([
         Animated.timing(shake, { toValue: 1, duration: 55, useNativeDriver: true }),
         Animated.timing(shake, { toValue: -1, duration: 55, useNativeDriver: true }),

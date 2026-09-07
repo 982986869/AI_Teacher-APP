@@ -7,7 +7,7 @@ import { View, ScrollView, Alert, Share, Linking } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
 import Constants from 'expo-constants';
-import { ChartColumn, Users, MessageCircle, Share2, LogOut, ChevronRight, ShieldCheck } from 'lucide-react-native';
+import { ChartColumn, Users, MessageCircle, Share2, LogOut, ChevronRight, ShieldCheck, Bug } from 'lucide-react-native';
 import { useAuth } from '../../context/AuthContext';
 import { getAdminMe } from '../../api/adminApi';
 import { T } from '../parent/ParentApp/constants';
@@ -30,6 +30,7 @@ const DK = {
   blue: '#60A5FA', blueSoft: 'rgba(96,165,250,0.16)',
   emerald: COLORS.success, emeraldSoft: 'rgba(16,185,129,0.16)',
   purple: COLORS.primaryLight, purpleSoft: 'rgba(168,85,247,0.16)',
+  orange: COLORS.warning, orangeSoft: 'rgba(249,115,22,0.16)',
   red: COLORS.error, redSoft: 'rgba(239,68,68,0.14)', redBorder: 'rgba(239,68,68,0.35)',
 };
 
@@ -62,9 +63,14 @@ function Row({ icon: Icon, bg, tint, label, sub, onPress, last }) {
 }
 
 export default function AdminProfileScreen({ navigation }) {
-  const { user, signOut } = useAuth();
+  const { user, signOut, permissions } = useAuth();
   const [admin, setAdmin] = useState(null);
   useFocusEffect(useCallback(() => { getAdminMe().then((d) => setAdmin(d?.admin || null)).catch(() => {}); }, []));
+
+  // Prefer the permission list /admin/auth/me just returned over the one cached at
+  // login: a role change should hide this row on the next focus, not the next launch.
+  const grants = admin?.permissions || permissions || [];
+  const canViewLogs = grants.includes('logs.view') || grants.includes('*');
 
   const name = admin?.name || user?.name || 'Admin';
   const roleLabel = admin?.roleLabel || 'Administrator';
@@ -98,7 +104,13 @@ export default function AdminProfileScreen({ navigation }) {
         <FadeInOnce id="ap-manage" delay={30} y={14}>
           <View style={{ backgroundColor: DK.card, borderRadius: 20, borderWidth: 1, borderColor: DK.hair, overflow: 'hidden' }}>
             <Row icon={ChartColumn} bg={DK.blueSoft} tint={DK.blue} label="Student results" sub="Search any student's progress" onPress={() => navigation.navigate('Results')} />
-            <Row icon={Users} bg={DK.emeraldSoft} tint={DK.emerald} label="Parents" sub="Linked guardians" onPress={() => navigation.navigate('ParentsList')} last />
+            <Row icon={Users} bg={DK.emeraldSoft} tint={DK.emerald} label="Parents" sub="Linked guardians" onPress={() => navigation.navigate('ParentsList')} last={!canViewLogs} />
+            {/* Stack traces name internal files and routes, so this is behind its own
+                permission — super_admin and admin hold it, support and content_manager
+                deliberately do not. */}
+            {canViewLogs ? (
+              <Row icon={Bug} bg={DK.orangeSoft} tint={DK.orange} label="Error logs" sub="Failures the app and API swallowed" onPress={() => navigation.navigate('ErrorLogs')} last />
+            ) : null}
           </View>
         </FadeInOnce>
 

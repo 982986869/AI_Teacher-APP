@@ -20,6 +20,7 @@ import {
 
 import { PressableScale, Appear } from './uiKit';
 import { D, C, F, SP, R, SERIF } from './premiumTheme';
+import { reportError, reportWarn } from '../../utils/errorLog';
 
 // PDF export + share for the study sheet — optional native modules, required
 // defensively so a build that lacks them degrades to the plain text Share.share
@@ -50,7 +51,8 @@ export async function loadNotes(lessonKey) {
   } catch { return []; }
 }
 export async function saveNotes(lessonKey, indices) {
-  try { await AsyncStorage.setItem(notesKeyFor(lessonKey), JSON.stringify(indices || [])); } catch {}
+  try { await AsyncStorage.setItem(notesKeyFor(lessonKey), JSON.stringify(indices || [])); }
+  catch (e) { reportError('teacher/lessonExtras.js:saveNotes', e, { lessonKey }); }
 }
 
 // The student's own free-text note for a lesson (separate from the bookmarks above).
@@ -59,7 +61,8 @@ export async function loadNoteText(lessonKey) {
   try { return (await AsyncStorage.getItem(noteTextKeyFor(lessonKey))) || ''; } catch { return ''; }
 }
 export async function saveNoteText(lessonKey, text) {
-  try { await AsyncStorage.setItem(noteTextKeyFor(lessonKey), String(text || '')); } catch {}
+  try { await AsyncStorage.setItem(noteTextKeyFor(lessonKey), String(text || '')); }
+  catch (e) { reportError('teacher/lessonExtras.js:saveNoteText', e, { lessonKey }); }
 }
 
 // Flashcard mastery, remembered across sessions (the fronts you've marked "Easy").
@@ -68,7 +71,8 @@ export async function loadFlashMastered(lessonKey) {
   try { const r = await AsyncStorage.getItem(flashKeyFor(lessonKey)); const a = r ? JSON.parse(r) : []; return Array.isArray(a) ? a : []; } catch { return []; }
 }
 export async function saveFlashMastered(lessonKey, fronts) {
-  try { await AsyncStorage.setItem(flashKeyFor(lessonKey), JSON.stringify(fronts || [])); } catch {}
+  try { await AsyncStorage.setItem(flashKeyFor(lessonKey), JSON.stringify(fronts || [])); }
+  catch (e) { reportError('teacher/lessonExtras.js:saveFlashMastered', e, { lessonKey }); }
 }
 
 // ── data builders (called by the player over its `scenes`) ────────────────────
@@ -239,7 +243,8 @@ export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave
   const shareNotes = async () => {
     const body = noteItems.map((c, n) => `${n + 1}. ${c.title}\n   ${c.line || ''}`).join('\n\n');
     const mine = noteText && noteText.trim() ? `\n\nMy note:\n${noteText.trim()}` : '';
-    try { await Share.share({ message: `My notes — ${lessonTitle || 'lesson'}\n\n${body}${mine}` }); } catch {}
+    try { await Share.share({ message: `My notes — ${lessonTitle || 'lesson'}\n\n${body}${mine}` }); }
+    catch (e) { reportWarn('teacher/lessonExtras.js:shareNotes', e); }
   };
   // PDF when the device supports it (a real, savable file — "download the
   // slides"); a plain text share if Print/Sharing aren't available.
@@ -258,7 +263,8 @@ export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave
     const fx = (formulas || []).map((f) => `• ${f.formula}`).join('\n');
     const ideas = (recap || []).map((p, k) => `${k + 1}. ${p.title}${p.point ? `\n   ${p.point}` : ''}`).join('\n\n');
     const sheet = `${lessonTitle || 'Lesson'} — study sheet\n\n${fx ? `FORMULAS\n${fx}\n\n` : ''}KEY IDEAS\n${ideas}`;
-    try { await Share.share({ message: sheet }); } catch {}
+    try { await Share.share({ message: sheet }); }
+    catch (e) { reportWarn('teacher/lessonExtras.js:shareReview', e); }
   };
 
   return (

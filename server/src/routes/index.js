@@ -37,6 +37,9 @@ router.use('/brain-gym',  require('./brainGym'))
 router.use('/arena',      require('./arena'))
 router.use('/support',    require('./support'))
 router.use('/parent',     require('./parent'))
+// Free: the app reports its own swallowed errors here. Paywalling the error reporter
+// would hide exactly the bugs a free account hits on its way to paying.
+router.use('/logs',       require('./logs'))
 
 // Free. Every endpoint here is a derived view of the student's OWN history —
 // mastery, weak concepts, revision due, results, mistake book. None of them return

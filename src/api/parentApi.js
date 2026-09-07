@@ -1,4 +1,5 @@
 import axiosInstance from './axiosInstance';
+import { reportWarn } from '../utils/errorLog';
 
 // Parent (read-only) — link to a child and fetch the child's progress report.
 export const linkChild = async ({ email, phone }) => {
@@ -24,7 +25,7 @@ export const getProgressCalendar = async (from, to) => {
     const d = res.data.data || {};
     return { days: d.days || [], firstActivity: d.firstActivity || null };
   } catch (err) {
-    console.log('[Parent] calendar fetch failed', err.response?.status || err.message);
+    reportWarn('api/parentApi.js:getProgressCalendar', err, { from, to });
     return { days: [], firstActivity: null };
   }
 };
@@ -34,7 +35,7 @@ export const getProgressDay = async (date) => {
     const res = await axiosInstance.get('/api/parent/progress/day', { params: { date } });
     return res.data.data;
   } catch (err) {
-    console.log('[Parent] day fetch failed', err.response?.status || err.message);
+    reportWarn('api/parentApi.js:getProgressDay', err, { date });
     return null;
   }
 };

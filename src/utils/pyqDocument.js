@@ -93,7 +93,7 @@ export function buildPyqDocument(fragmentHtml, opts = {}) {
       }
       var w=c.scrollWidth||c.getBoundingClientRect().width;
       if(w>availWidth(p)+1){ var b=document.createElement('span'); b.className='math-scroll';
-        p.insertBefore(b,c); b.appendChild(c); } } }catch(e){} }
+        p.insertBefore(b,c); b.appendChild(c); } } }catch(e){ /* WebView context — no reportError here; see src/utils/errorLog.js header */ } }
   window.addEventListener('resize', fitWideMath);
   window.addEventListener('load', fitWideMath);
   window.addEventListener('orientationchange', function(){ setTimeout(fitWideMath, 60); });

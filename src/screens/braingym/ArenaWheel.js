@@ -12,6 +12,7 @@ import { useAuth } from '../../context/AuthContext';
 import { play } from '../../utils/sound';
 import { pressSpring, PRESS_SCALE } from './motion';
 import ArcTabs from './ArcTabs';
+import { reportWarn } from '../../utils/errorLog';
 
 const { width: SCREEN_W } = Dimensions.get('window');
 const WHEEL = Math.min(SCREEN_W - 56, 300);
@@ -106,7 +107,7 @@ export default function ArenaWheel({ onStartGame, onTabPress, onBack }) {
   const selectSeg = (key) => {
     if (key === selected) return;
     setSelected(key);
-    try { play('tick'); } catch (_) {}
+    try { play('tick'); } catch (e) { reportWarn('braingym/ArenaWheel.js:selectSeg', e); }
     selScale.setValue(1);
     Animated.sequence([
       Animated.timing(selScale, { toValue: 1.04, duration: 90, easing: Easing.out(Easing.quad), useNativeDriver: true }),
@@ -116,7 +117,7 @@ export default function ArenaWheel({ onStartGame, onTabPress, onBack }) {
     Animated.spring(subPop, { toValue: 1, useNativeDriver: true, damping: 10, stiffness: 200, mass: 0.7 }).start();
   };
 
-  const startGame = () => { try { play('whoosh'); } catch (_) {} onStartGame && onStartGame(selected); };
+  const startGame = () => { try { play('whoosh'); } catch (e) { reportWarn('braingym/ArenaWheel.js:startGame', e); } onStartGame && onStartGame(selected); };
 
   const enterScale = enter.interpolate({ inputRange: [0, 1], outputRange: [0.88, 1] });
   const pulseScale = pulse.interpolate({ inputRange: [0, 1], outputRange: [1, 1.05] });

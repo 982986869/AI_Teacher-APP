@@ -158,7 +158,7 @@ function buildDocument(fragmentHtml) {
           box.appendChild(c);
         }
       }
-    } catch (e) {}
+    } catch (e) { /* WebView context — no reportError here; see src/utils/errorLog.js header */ }
   }
   // Re-run if MathJax re-typesets later.
   document.addEventListener('DOMContentLoaded', function () {

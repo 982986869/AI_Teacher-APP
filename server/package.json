@@ -17,6 +17,7 @@
     "cms:setup": "node scripts/cms-setup.js",
     "sessions:setup": "node scripts/sessions-setup.js",
     "profile-photo:setup": "node scripts/profile-photo-setup.js",
+    "logs:setup": "node scripts/error-logs-setup.js",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
     "db:mock:setup": "node scripts/seed-physics-mock-tests.js",

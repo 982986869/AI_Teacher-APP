@@ -15,6 +15,7 @@ import { initSounds, playSound } from '../../utils/sound';
 import QuitConfirm from './QuitConfirm';
 import GoalTip from './GoalTip';
 import { pressSpring, PRESS_SCALE } from './motion';
+import { reportWarn } from '../../utils/errorLog';
 
 const { width: SCREEN_W } = Dimensions.get('window');
 const CARD_H = 104;
@@ -187,7 +188,7 @@ export default function PracticeTileGame({ skill = 'fluency', level = 2, onExit,
     } else {
       setPhase('wrong');
       playSound('wrong');
-      try { Vibration.vibrate(35); } catch (e) {}
+      try { Vibration.vibrate(35); } catch (e) { reportWarn('braingym/PracticeTileGame.js:vibrate', e); }
       shake.setValue(0);
       Animated.sequence([
         Animated.timing(shake, { toValue: 1, duration: 50, useNativeDriver: true }),

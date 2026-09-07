@@ -60,7 +60,7 @@ export function buildAvatarHtml({ glbUrl, bg = '#11151D' } = {}) {
 <canvas id="c"></canvas>
 <script type="module">
 const CFG = ${cfg};
-const post = (o) => { try { window.ReactNativeWebView && window.ReactNativeWebView.postMessage(JSON.stringify(o)); } catch (e) {} };
+const post = (o) => { try { window.ReactNativeWebView && window.ReactNativeWebView.postMessage(JSON.stringify(o)); } catch (e) { /* the bridge itself is what failed — nothing can be reported through it */ } };
 const fail = (m) => post({ type: 'error', message: String(m || 'load failed') });
 
 if (!CFG.glbUrl) { fail('no glb url'); }
@@ -406,7 +406,7 @@ if (CFG.glbUrl && THREE) {
     window.__setMode = (m) => {
       mode = m || 'idle';
       const st = CFG.stateFor[mode] || 'idle';
-      try { runtime.setState(st); } catch (e) {}
+      try { runtime.setState(st); } catch (e) { /* WebView context — no reportError here; see src/utils/errorLog.js header */ }
     };
 
     // Procedural lip-sync: expo-speech gives no phoneme timing, so while she's

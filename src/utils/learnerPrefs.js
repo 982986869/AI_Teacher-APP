@@ -4,6 +4,7 @@
 // (server/src/prompts/lessonGeneration.prompt.js → preferenceLine). No PII; all
 // optional. Kept client-owned so no DB migration is needed to start adapting.
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { reportWarn } from './errorLog';
 
 const KEY = '@ailernova_learner_prefs';
 
@@ -31,7 +32,8 @@ export async function loadLearnerPrefs() {
 }
 
 export async function saveLearnerPrefs(prefs) {
-  try { await AsyncStorage.setItem(KEY, JSON.stringify({ ...DEFAULT_PREFS, ...(prefs || {}) })); } catch {}
+  try { await AsyncStorage.setItem(KEY, JSON.stringify({ ...DEFAULT_PREFS, ...(prefs || {}) })); }
+  catch (e) { reportWarn('utils/learnerPrefs.js:saveLearnerPrefs', e); }
 }
 
 // Only the fields worth sending (drop the neutral defaults so the prompt stays clean).
