@@ -18,7 +18,55 @@ const router = Router()
 // Safe to expose: nodemailer reports the failure MODE — timeout, refused,
 // invalid login — never the credential. The host and port are already in
 // render.yaml.
+const net = require('net')
+
+// GET /api/health?check=egress — can this host open an SMTP port AT ALL?
+//
+// A timeout talking to our own mail server has two possible causes and they look
+// identical from here: this host blocking outbound SMTP, or that mail server
+// refusing connections from cloud IPs. Trying several INDEPENDENT mail servers
+// separates them. If every one times out the block is here; if some connect, the
+// block is at the destination.
+//
+// The targets are a fixed list, not a parameter — an endpoint that connects to a
+// host of the caller's choosing is a port scanner. It only opens a TCP socket and
+// closes it: no TLS, no credentials, nothing sent.
+const EGRESS_TARGETS = [
+  { host: 'smtp.hostinger.com', port: 587, note: 'our mail server' },
+  { host: 'smtp.hostinger.com', port: 465, note: 'our mail server, implicit TLS' },
+  { host: 'smtp.gmail.com', port: 587, note: 'unrelated mail server' },
+  { host: 'smtp.office365.com', port: 587, note: 'unrelated mail server' },
+  { host: 'live.smtp.mailtrap.io', port: 2525, note: 'non-standard SMTP port' },
+  { host: 'api.render.com', port: 443, note: 'HTTPS control — must succeed' },
+]
+
+const tcpProbe = ({ host, port }, timeout = 8000) => new Promise((resolve) => {
+  const started = Date.now()
+  const sock = new net.Socket()
+  const done = (result) => {
+    sock.destroy()
+    resolve({ host, port, result, ms: Date.now() - started })
+  }
+  sock.setTimeout(timeout)
+  sock.once('connect', () => done('open'))
+  sock.once('timeout', () => done('timeout'))
+  sock.once('error', (e) => done(e.code || 'error'))
+  sock.connect({ host, port, family: 4 })
+})
+
 router.get('/', async (req, res, next) => {
+  if (req.query.check === 'egress') {
+    const results = await Promise.all(EGRESS_TARGETS.map(async (t) => ({
+      ...(await tcpProbe(t)), note: t.note,
+    })))
+    const smtp = results.filter((r) => r.port !== 443)
+    return res.json({ success: true, data: {
+      verdict: smtp.every((r) => r.result !== 'open')
+        ? 'every SMTP port blocked here — the block is this host, not the mail server'
+        : 'some SMTP reachable — where it fails, the destination is refusing us',
+      results,
+    } })
+  }
   if (req.query.check === 'mail') {
     const v = await verifyTransport()
     return res.json({ success: true, data: { transport: v.transport, ok: v.ok, detail: v.detail } })
