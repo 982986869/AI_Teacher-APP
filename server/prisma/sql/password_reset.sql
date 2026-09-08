@@ -39,3 +39,23 @@ BEGIN
       FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE CASCADE;
   END IF;
 END $$;
+
+-- ── Code-based reset (in-app, no browser) ────────────────────────────────────
+-- Additive & idempotent.
+--
+-- The emailed link opens a page; a 6-digit code is typed into the app instead,
+-- so the student never leaves it. Both are stored for the same request: the link
+-- still works from a desktop, and the code works on the phone.
+--
+-- A code is ENORMOUSLY weaker than the token beside it — a million combinations
+-- against 2^256 — so it needs a limit the token does not. `attempts` provides it:
+-- the row is spent after a handful of wrong guesses, which is what keeps a
+-- six-digit secret honest. Without it, a million guesses is minutes of scripting.
+ALTER TABLE "password_reset_tokens"
+  ADD COLUMN IF NOT EXISTS "codeHash" TEXT,
+  ADD COLUMN IF NOT EXISTS "attempts" INTEGER NOT NULL DEFAULT 0;
+
+-- Verification looks the row up by user, since the student types a code and an
+-- email rather than presenting a token.
+CREATE INDEX IF NOT EXISTS "password_reset_tokens_code_idx"
+  ON "password_reset_tokens" ("userId", "usedAt", "expiresAt");

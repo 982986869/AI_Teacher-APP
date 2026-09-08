@@ -52,10 +52,11 @@ async function main() {
     console.log('    SMTP_PASS=...')
     console.log('    MAIL_FROM=Ailernova <noreply@ailernova.com>')
     console.log('')
-    console.log("  Mailtrap's sandbox is the quickest: it accepts every message and")
-    console.log('  shows it in a web inbox instead of delivering, so nothing reaches a')
-    console.log('  student by accident while you are testing. Copy the values from')
-    console.log('  Inboxes > your inbox > SMTP Settings > Nodemailer.')
+    console.log('  We send through Brevo on port 2525 — not because 2525 is better, but')
+    console.log('  because Render\'s free plan drops outbound 465 and 587 to every')
+    console.log('  host, and 2525 is the one SMTP port it lets out. Brevo shows 587 in its')
+    console.log('  own dashboard; it answers on both, so use the one that also works in')
+    console.log('  production. Values: app.brevo.com/settings/keys/smtp')
     console.log('')
     process.exit(1)
   }
@@ -63,8 +64,10 @@ async function main() {
   const v = await verifyTransport()
   ;(v.ok ? ok : no)(`${v.transport}: ${v.detail}`)
   if (!v.ok) {
-    console.log('\n  The credentials were rejected. For Mailtrap, copy them from')
-    console.log('  Sandbox > Inboxes > your inbox > SMTP Settings (Node.js shows them directly).\n')
+    console.log('\n  Reaching AUTH at all means the port, TLS and host are fine — only the')
+    console.log('  credentials are wrong. SMTP_PASS must be the Brevo SMTP KEY (it starts')
+    console.log('  xsmtpsib-), not the Brevo account password and not the old mail password.')
+    console.log('  Generate one at app.brevo.com/settings/keys/smtp.\n')
     process.exit(1)
   }
 
@@ -81,7 +84,7 @@ async function main() {
   if (r.ok) {
     ok(`sent to ${to}${r.id ? ` (id ${r.id})` : ''}`)
     console.log(mail.transport === 'smtp'
-      ? '\n  If this is a Mailtrap SANDBOX inbox the message is captured there, not delivered.\n'
+      ? '\n  Brevo delivers for real — check the spam folder too. SPF on ailernova.com\n  ends in -all and does not list Brevo, so the message is unauthenticated.\n  DMARC is p=none, so it is not rejected for that.\n'
       : '\n  Check the inbox.\n')
   } else {
     no(`send failed: ${r.error}`)

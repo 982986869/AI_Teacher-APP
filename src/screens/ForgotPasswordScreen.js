@@ -6,10 +6,13 @@
 // After a successful request the same layout swaps to a "check your email" state
 // rather than pushing a new screen — the user has nothing else to do here.
 //
-// NOTE: this calls POST /api/auth/forgot-password, which does NOT exist on the
-// server yet (server/src/routes/auth.js has register/login/google/me/profile only).
-// requestPasswordReset() surfaces a clear "not available yet" message on a 404 so
-// the screen degrades honestly instead of claiming a mail was sent.
+// POST /api/auth/forgot-password answers identically whether or not the address
+// is registered — that is what stops the screen being used to discover who has an
+// account, and it also means success here is NOT proof a mail went out.
+//
+// On success it hands off to ResetPasswordScreen, where the 6-digit code from the
+// email is typed. It used to stop at "check your email", which was a dead end: the
+// only way on was the link, and the link opens a browser.
 import React, { useState, useRef } from 'react';
 import {
   View, Text, TextInput, Pressable, StyleSheet, StatusBar,
@@ -18,7 +21,7 @@ import {
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
-import { ChevronLeft, LockOpen, Mail, MailCheck } from 'lucide-react-native';
+import { ChevronLeft, LockOpen, Mail } from 'lucide-react-native';
 import {
   useFonts as useAuroraFonts,
   SpaceGrotesk_400Regular, SpaceGrotesk_500Medium,
@@ -43,7 +46,6 @@ const ForgotPasswordScreen = ({ navigation, route }) => {
   const [email, setEmail]     = useState(route?.params?.email || '');
   const [loading, setLoading] = useState(false);
   const [error, setError]     = useState('');
-  const [sent, setSent]       = useState(false);
   const [focused, setFocused] = useState(false);
 
   const shake = useRef(new Animated.Value(0)).current;
@@ -69,13 +71,13 @@ const ForgotPasswordScreen = ({ navigation, route }) => {
     try {
       setLoading(true);
       await requestPasswordReset({ email: value });
-      setSent(true);
+      navigation.navigate('ResetPasswordScreen', { email: value });
     } catch (e) {
       setError(
         e?.response?.data?.error
           || e?.response?.data?.message
           || e?.message
-          || 'Could not send the reset link. Please try again.'
+          || 'Could not send the code. Please try again.'
       );
       runShake();
     } finally {
@@ -114,22 +116,16 @@ const ForgotPasswordScreen = ({ navigation, route }) => {
           <Appear delay={40} style={styles.center}>
             <View style={styles.badgeGlow}>
               <View style={styles.badge}>
-                {sent
-                  ? <MailCheck size={34} color={N.green} strokeWidth={1.6} />
-                  : <LockOpen size={34} color={N.violet} strokeWidth={1.6} />}
+                <LockOpen size={34} color={N.dot} strokeWidth={1.6} />
               </View>
             </View>
           </Appear>
 
           {/* Heading */}
           <Appear delay={110} style={styles.center}>
-            <Text style={[styles.heading, { fontFamily: F.bold }]}>
-              {sent ? 'Check Your Email' : 'Forgot Password?'}
-            </Text>
+            <Text style={[styles.heading, { fontFamily: F.bold }]}>Forgot Password?</Text>
             <Text style={[styles.sub, { fontFamily: F.reg }]}>
-              {sent
-                ? <>We&apos;ve sent a reset link to{'\n'}<Text style={{ color: N.ink, fontFamily: F.med }}>{email.trim()}</Text></>
-                : "Enter your email and we'll send you a reset link."}
+              Enter your email and we&apos;ll send you a 6-digit code.
             </Text>
           </Appear>
 
@@ -144,13 +140,12 @@ const ForgotPasswordScreen = ({ navigation, route }) => {
                 styles.field,
                 focused && styles.fieldActive,
                 !!error && styles.fieldError,
-                sent && styles.fieldDone,
               ]}>
                 <Mail size={20} color={focused || email ? N.violet : N.inkDim} strokeWidth={1.8} />
                 <TextInput
                   style={[styles.input, { fontFamily: F.reg }]}
                   value={email}
-                  onChangeText={(t) => { setEmail(t); setError(''); if (sent) setSent(false); }}
+                  onChangeText={(t) => { setEmail(t); setError(''); }}
                   onFocus={() => setFocused(true)}
                   onBlur={() => setFocused(false)}
                   placeholder="Enter your registered email"
@@ -171,18 +166,14 @@ const ForgotPasswordScreen = ({ navigation, route }) => {
             </Animated.View>
 
             {!!error && <Text style={[styles.error, { fontFamily: F.med }]}>{error}</Text>}
-            {sent && !error && (
-              <Text style={[styles.ok, { fontFamily: F.med }]}>
-                Link sent. It expires in a few minutes — check spam if it hasn&apos;t arrived.
-              </Text>
-            )}
+
 
             {/* CTA */}
             <Pressable
               onPress={handleSend}
               disabled={loading}
               accessibilityRole="button"
-              accessibilityLabel={sent ? 'Resend reset link' : 'Send reset link'}
+              accessibilityLabel="Send reset code"
               style={({ pressed }) => [
                 styles.btnWrap,
                 pressed && { transform: [{ scale: 0.985 }] },
@@ -190,17 +181,32 @@ const ForgotPasswordScreen = ({ navigation, route }) => {
               ]}
             >
               <LinearGradient
-                colors={validateEmail(email.trim()) ? [N.violet, '#A855F7'] : [N.violetLo, N.violet]}
+                colors={validateEmail(email.trim()) ? [N.violet, N.violetLo] : [N.violetLo, N.violet]}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
                 style={styles.btn}
               >
                 {loading
                   ? <ActivityIndicator color={N.ink} size="small" />
-                  : <Text style={[styles.btnText, { fontFamily: F.bold }]}>
-                      {sent ? 'Resend Link' : 'Send Reset Link'}
-                    </Text>}
+                  : <Text style={[styles.btnText, { fontFamily: F.bold }]}>Send Code</Text>}
               </LinearGradient>
+            </Pressable>
+
+            <Pressable
+              onPress={() => navigation.navigate('ResetPasswordScreen', { email: email.trim() })}
+              disabled={!validateEmail(email.trim())}
+              hitSlop={10}
+              style={styles.center}
+              accessibilityRole="button"
+              accessibilityLabel="I already have a code"
+            >
+              <Text style={[
+                styles.haveCode,
+                { fontFamily: F.med },
+                !validateEmail(email.trim()) && styles.haveCodeOff,
+              ]}>
+                Already have a code?
+              </Text>
             </Pressable>
           </Appear>
 
@@ -262,13 +268,11 @@ const styles = StyleSheet.create({
   },
   fieldActive: { borderColor: N.violet, backgroundColor: 'rgba(139,110,240,0.10)' },
   fieldError:  { borderColor: '#F0566E' },
-  fieldDone:   { borderColor: 'rgba(53,190,124,0.55)' },
   input: {
     flex: 1, fontSize: 16, color: N.ink, padding: 0,
   },
 
   error: { fontSize: 13, color: '#F0566E', marginTop: 12, textAlign: 'center' },
-  ok:    { fontSize: 13, color: N.green, marginTop: 12, textAlign: 'center', lineHeight: 19 },
 
   btnWrap: {
     marginTop: 22,
@@ -284,6 +288,9 @@ const styles = StyleSheet.create({
     alignItems: 'center', justifyContent: 'center',
   },
   btnText: { fontSize: 17, color: N.ink, letterSpacing: 0.2 },
+
+  haveCode:    { fontSize: 14, color: N.dot, marginTop: 18 },
+  haveCodeOff: { color: N.inkDim },
 
   backLink: {
     fontSize: 15, color: N.dot, textDecorationLine: 'underline', marginTop: 4,

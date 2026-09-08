@@ -155,20 +155,49 @@ async function verifyTransport() {
 
 // The reset message. Plain and short on purpose: a long marketing-styled mail with
 // a bare link is exactly what a phishing filter — and a cautious student — distrusts.
-function resetPasswordEmail({ name, link, minutes }) {
+// The same reset, two ways out of one email.
+//
+// The code is what a student on a phone uses: they read six digits and type them
+// back into the app they already have open. The link is for mail opened on a
+// desktop, where there is no app to type them into. Both address the same row, so
+// whichever is used first spends the other.
+//
+// The code leads because the phone is the common case. Putting the button first
+// would send a student to a browser for a reset the app can finish itself.
+function resetPasswordEmail({ name, link, code, minutes }) {
   const who = name ? `Hi ${name},` : 'Hi,'
+  // 483920 is unreadable at a glance; 483 920 is. The app strips the space.
+  const spaced = code ? `${String(code).slice(0, 3)} ${String(code).slice(3)}` : ''
+
   const text = [
     who,
     '',
     'Someone asked to reset the password for your Ailernova account.',
-    `Open this link to choose a new one. It works once and expires in ${minutes} minutes:`,
     '',
-    link,
-    '',
+    ...(code ? [`Your code is ${code}`, '', `Type it into the app. It works once and expires in ${minutes} minutes.`, ''] : []),
+    ...(link ? ['Not on your phone? Open this link instead:', '', link, ''] : []),
     'If this was not you, you can ignore this email — your password stays as it is.',
     '',
     'Ailernova',
   ].join('\n')
+
+  // Table layout and inline styles throughout: Gmail strips <style> blocks and
+  // Outlook ignores most of flexbox, so anything structural has to be attributes
+  // on a table. letter-spacing on the digits is the one thing that degrades
+  // gracefully if a client drops it.
+  const codeBlock = code ? `
+    <div style="margin:22px 0;padding:18px 20px;background:#F4F1FF;border:1px solid #E3DAFF;border-radius:12px;text-align:center">
+      <div style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#6B5BA8;margin:0 0 8px">Your reset code</div>
+      <div style="font-size:32px;font-weight:700;letter-spacing:0.14em;color:#3B2E6B;font-family:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace">${spaced}</div>
+      <div style="font-size:13px;color:#6B5BA8;margin:10px 0 0">Type this into the app. Expires in ${minutes} minutes.</div>
+    </div>` : ''
+
+  const linkBlock = link ? `
+    <p style="margin:0 0 6px;font-size:13px;color:#666">Reading this on a computer? Use this instead:</p>
+    <p style="margin:0 0 20px">
+      <a href="${link}" style="display:inline-block;background:#7C4DFF;color:#fff;text-decoration:none;
+         padding:11px 20px;border-radius:10px;font-weight:700;font-size:14px">Choose a new password</a>
+    </p>` : ''
 
   const html = `<!doctype html>
 <html><body style="margin:0;padding:24px;background:#F7F7F8;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#111">
@@ -176,21 +205,18 @@ function resetPasswordEmail({ name, link, minutes }) {
     <p style="margin:0 0 16px;font-size:15px">${who}</p>
     <p style="margin:0 0 16px;font-size:15px;line-height:1.55">
       Someone asked to reset the password for your Ailernova account.
-      Choose a new one below. The link works <b>once</b> and expires in <b>${minutes} minutes</b>.
-    </p>
-    <p style="margin:24px 0">
-      <a href="${link}" style="display:inline-block;background:#7C4DFF;color:#fff;text-decoration:none;
-         padding:13px 22px;border-radius:10px;font-weight:700;font-size:15px">Choose a new password</a>
-    </p>
-    <p style="margin:0 0 8px;font-size:13px;color:#666">Or paste this into your browser:</p>
-    <p style="margin:0 0 20px;font-size:13px;color:#666;word-break:break-all">${link}</p>
+    </p>${codeBlock}${linkBlock}
     <p style="margin:0;font-size:13px;color:#666;line-height:1.55">
       If this was not you, ignore this email — your password stays as it is.
+      Nobody can change it without the code above.
     </p>
   </div>
 </body></html>`
 
-  return { subject: 'Reset your Ailernova password', html, text }
+  // The subject carries the code too: on a lock screen that is often the whole
+  // interaction — read the notification, type the digits, never open the mail.
+  const subject = code ? `${code} is your Ailernova reset code` : 'Reset your Ailernova password'
+  return { subject, html, text }
 }
 
 module.exports = { sendMail, resetPasswordEmail, verifyTransport, mail }

@@ -32,11 +32,13 @@ const net = require('net')
 // host of the caller's choosing is a port scanner. It only opens a TCP socket and
 // closes it: no TLS, no credentials, nothing sent.
 const EGRESS_TARGETS = [
-  { host: 'smtp.hostinger.com', port: 587, note: 'our mail server' },
-  { host: 'smtp.hostinger.com', port: 465, note: 'our mail server, implicit TLS' },
+  { host: 'smtp.hostinger.com', port: 587, note: 'former mail server — kept as the blocked-port baseline' },
+  { host: 'smtp.hostinger.com', port: 465, note: 'former mail server, implicit TLS' },
   { host: 'smtp.gmail.com', port: 587, note: 'unrelated mail server' },
   { host: 'smtp.office365.com', port: 587, note: 'unrelated mail server' },
-  { host: 'live.smtp.mailtrap.io', port: 2525, note: 'non-standard SMTP port' },
+  { host: 'smtp-relay.brevo.com', port: 2525, note: 'our relay — this is the one that must be open' },
+  { host: 'smtp-relay.brevo.com', port: 587, note: 'our relay on the blocked port, for contrast' },
+  { host: 'live.smtp.mailtrap.io', port: 2525, note: 'a second host on 2525 — tells a port rule from a host rule' },
   { host: 'api.render.com', port: 443, note: 'HTTPS control — must succeed' },
 ]
 

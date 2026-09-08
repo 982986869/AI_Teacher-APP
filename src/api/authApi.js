@@ -85,20 +85,26 @@ export const uploadProfilePhoto = async (file) => {
 };
 
 // ─── Password reset ───────────────────────────────────────────────────────────
-// NOTE: the server does not implement this route yet — server/src/routes/auth.js
-// currently mounts register/login/google/me/profile only. Until it does, a request
-// 404s; translate that into a message the user can act on rather than a bare
-// "Request failed with status code 404".
+// The server answers this identically whether or not the address is registered,
+// so a caller cannot use it to discover who has an account. That means a success
+// here is NOT evidence an email was sent — only that the request was accepted.
 export const requestPasswordReset = async ({ email }) => {
-  try {
-    const res = await axiosInstance.post('/api/auth/forgot-password', { email });
-    return res.data?.data ?? res.data;
-  } catch (e) {
-    if (e?.response?.status === 404) {
-      throw new Error('Password reset isn’t available yet. Please sign in with a phone OTP or contact support.');
-    }
-    throw e;
-  }
+  const res = await axiosInstance.post('/api/auth/forgot-password', { email });
+  return res.data?.data ?? res.data;
+};
+
+// The six digits from that email, typed in the app. The email also carries a
+// link for anyone reading it on a desktop; both point at the same one-time row,
+// so whichever is used first ends the other.
+//
+// A wrong code comes back 400 with a message that deliberately does not say
+// which part was wrong. Pass it through as-is: guessing on the user's behalf
+// ("wrong code" vs "expired") would be inventing detail the server withheld.
+export const resetPasswordWithCode = async ({ email, code, password }) => {
+  const res = await axiosInstance.post('/api/auth/reset-password/code', {
+    email, code, password,
+  });
+  return res.data?.data ?? res.data;
 };
 
 // ─── Google Auth ──────────────────────────────────────────────────────────────

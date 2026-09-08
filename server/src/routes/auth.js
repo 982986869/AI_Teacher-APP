@@ -5,7 +5,7 @@ const { Router } = require('express')
 const multer = require('multer')
 const { body } = require('express-validator')
 const { register, login, googleAuth, me, updateProfile, uploadPhoto, deleteAccount } = require('../controllers/auth.controller')
-const { forgotPassword } = require('../controllers/passwordReset.controller')
+const { forgotPassword, resetWithCode } = require('../controllers/passwordReset.controller')
 const { showResetPage, submitReset } = require('../controllers/resetPage.controller')
 const { authenticate } = require('../middleware/auth')
 const rateLimit = require('express-rate-limit')
@@ -147,6 +147,16 @@ const confirmLimit = limited(
   'Too many attempts. Please try again in a few minutes.',
 )
 
+
+// The in-app half. The row itself allows 5 wrong codes before it is spent, but
+// that is per row — nothing stops an attacker requesting a fresh code and
+// spending 5 more. This caps the whole activity per IP: 20 tries a quarter hour
+// against a million combinations is not a search anyone finishes.
+const codeLimit = limited(
+  15 * 60 * 1000, 20,
+  'Too many attempts. Please wait a few minutes and try again.',
+)
+
 router.post('/register', registerRules, register)
 router.post('/login',    loginRules,    login)
 router.post('/google',   googleRules,   googleAuth)
@@ -163,6 +173,10 @@ router.post('/forgot-password', forgotPassword)
 // globally because this is the only form post the API accepts.
 router.get('/reset-password', showResetPage)
 router.post('/reset-password', express.urlencoded({ extended: false }), submitReset)
+
+// The app posts the six digits from the email here and never opens a browser.
+// Same row, same expiry as the link above — whichever arrives first spends it.
+router.post('/reset-password/code', codeLimit, resetWithCode)
 router.get('/me',        authenticate,  me)
 router.patch('/profile', authenticate,  profileRules, updateProfile)
 router.post('/photo',    authenticate,  photoUpload.single('file'), uploadPhoto)

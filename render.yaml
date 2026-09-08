@@ -114,36 +114,50 @@ services:
       # also what makes a missing value here invisible. `node scripts/check-mail.js`
       # is the only thing that will tell you.
       #
-      # ailernova.in receives on mx1/mx2.hostinger.com, so smtp.hostinger.com is the
-      # sending host and 465 is its implicit-TLS port. Sending as an address on a
-      # domain we already receive on means SPF and DKIM are in place already.
+      # NOT smtp.hostinger.com, and this is the whole story of why mail never sent.
+      #
+      # Measured from this host with /api/health?check=egress:
+      #   smtp.hostinger.com:465   timeout      smtp.gmail.com:587      timeout
+      #   smtp.hostinger.com:587   timeout      smtp.office365.com:587  timeout
+      #   live.smtp.mailtrap.io:2525  OPEN, 226ms      api.render.com:443  OPEN
+      #
+      # Gmail and Office 365 failing identically is the part that settles it: this
+      # is not Hostinger refusing us and not a credential problem. Render's free
+      # plan drops outbound TCP on 465 and 587 to EVERY destination. An earlier
+      # 465 → 587 change here was made believing only 465 was blocked; it was a
+      # move between two closed doors, and it is why this comment now carries the
+      # measurement rather than the conclusion.
+      #
+      # And measured from an unblocked network, smtp.hostinger.com answers on 465
+      # and 587 ONLY — 25, 2525, 2465 and 2587 are all actively refused. So the
+      # set of ports Render permits and the set Hostinger serves do not intersect.
+      # No value here could have fixed that; the far end had to change.
+      #
+      # Brevo answers on 2525, the one SMTP port Render allows. It is still plain
+      # SMTP — nodemailer and mailer.js are untouched, only these values move.
       - key: SMTP_HOST
-        value: smtp.hostinger.com
-      # 587, not 465. Render's egress cannot open 465 — the connection times out
-      # rather than being refused, so it looks like a hung mail server rather than a
-      # blocked port. 587 is the submission port and starts plaintext, upgrading via
-      # STARTTLS, which mailer.js selects automatically because secure defaults to
-      # (port === 465). Hostinger accepts both; only one of them leaves this host.
+        value: smtp-relay.brevo.com
+      # 2525 starts plaintext and upgrades via STARTTLS. mailer.js picks that
+      # automatically, because `secure` defaults to (port === 465).
       - key: SMTP_PORT
-        value: "587"
+        value: "2525"
       - key: SMTP_USER
         sync: false
       - key: SMTP_PASS
         sync: false
+      # Must be an address verified in Brevo (Senders → Add a sender, then click
+      # the link it emails). Brevo rejects anything else with 550, so a wrong value
+      # here fails every send while /forgot-password still answers "on its way".
       - key: MAIL_FROM
-        value: Ailernova <support@ailernova.in>
+        sync: false
       # The reset link is built from this. Unset, the emailed link points at
       # localhost and every reset dead-ends.
-      # Render cannot open SMTP — 465 and 587 both time out, while the same
-      # credentials work from anywhere else. These point at a small PHP file on the
-      # ailernova.in hosting (server/relay/mail-relay.php), which sits beside the
-      # mailbox and sends locally. Port 443 is not blocked, so the hop that fails
-      # is simply not made. When both are set the mailer prefers this over SMTP,
-      # which lets one config serve both places: SMTP locally, relay in production.
-      - key: MAIL_RELAY_URL
-        sync: false
-      - key: MAIL_RELAY_SECRET
-        sync: false
+      # MAIL_RELAY_URL / MAIL_RELAY_SECRET used to be here, routing mail through a
+      # PHP file on the ailernova.in hosting because 443 was open when SMTP was not.
+      # Dropped: 2525 makes the detour unnecessary, and the hosting it depended on
+      # is no longer part of the sending path. mailer.js still reads those two keys
+      # and prefers them over SMTP when both are set — so leave them UNSET, or mail
+      # silently goes back through a relay nobody maintains.
       - key: APP_PUBLIC_URL
         value: https://ailernova-api.onrender.com
 
