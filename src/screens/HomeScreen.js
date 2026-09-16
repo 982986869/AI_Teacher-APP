@@ -33,7 +33,7 @@ import Svg, { Circle } from 'react-native-svg';
 import { LinearGradient } from 'expo-linear-gradient';
 import {
   Bell, Settings, Play, Sparkles, CircleCheck, MessageCircle, Swords,
-  CircleAlert, TrendingUp, Target, Clock, Brain, Video, ArrowRight,
+  CircleAlert, TrendingUp, Target, Clock, Brain, Video, ArrowRight, Users,
 } from 'lucide-react-native';
 import {
   useFonts as useAuroraFonts,
@@ -53,6 +53,9 @@ import { useRuntimeConfig } from '../context/RuntimeConfigContext';
 // only duplicated it. Static import = instant open.
 import AITeacherScreen from './AITeacherScreen';
 import BrainGymFlow from './braingym/BrainGymFlow';
+// Same pattern as the two above: opens INSIDE Home, no route, so the dock's paid
+// gate and the Help bubble's offset both keep working without knowing about it.
+import ActivitiesScreen from './ActivitiesScreen';
 import OptionalUpdateBanner from '../components/OptionalUpdateBanner';
 import { getParentReport } from '../api/parentApi';
 import { getResumeContext } from '../api/aiApi';
@@ -322,7 +325,7 @@ const HomeScreen = () => {
     PlusJakartaSans_400Regular, PlusJakartaSans_500Medium, PlusJakartaSans_600SemiBold,
     PlusJakartaSans_700Bold, PlusJakartaSans_800ExtraBold, Inter_700Bold,
   });
-  const { user, selectedClass, setSelectedClass } = useAuth();
+  const { user, selectedClass, setSelectedClass, isLocked, showLock } = useAuth();
   const { isFeatureEnabled } = useRuntimeConfig();
   const insets = useSafeAreaInsets();
   const navigation = useNavigation();
@@ -332,6 +335,7 @@ const HomeScreen = () => {
   const [seedTopic, setSeedTopic] = useState('');
   const [seedSubject, setSeedSubject] = useState('');
   const [showBrainGym, setShowBrainGym] = useState(false);
+  const [showActivities, setShowActivities] = useState(false);
 
   const [report, setReport] = useState(null);
   const [resume, setResume] = useState({ active: null, ctx: null });
@@ -405,6 +409,9 @@ const HomeScreen = () => {
     setShowAITeacher(true);
   };
   const openBrainGym = () => { if (!brainGymOn) return; setShowBrainGym(true); };
+  // Activities draw on the same paid question banks as Practice, so the same gate:
+  // a free account sees the lock sheet, exactly as it would tapping the Practice tab.
+  const openActivities = () => { if (isLocked) { showLock(); return; } setShowActivities(true); };
 
   // ── real signals ──
   const bg          = report?.brainGym || {};
@@ -451,6 +458,7 @@ const HomeScreen = () => {
     );
   }
   if (showBrainGym) return <BrainGymFlow onFinish={() => { setShowBrainGym(false); load(true); }} />;
+  if (showActivities) return <ActivitiesScreen onBack={() => { setShowActivities(false); load(true); }} />;
 
   const avatarUri = user?.photo || user?.avatar || null;
   const initial = String(firstName || 'S').trim().charAt(0).toUpperCase();
@@ -597,6 +605,21 @@ const HomeScreen = () => {
                 </Appear>
               )}
             </View>
+
+            {/* ── 2b. activities — class game or solo missions for any chapter ── */}
+            <Appear delay={180}>
+              <Squeeze style={[hs.card, hs.activityTile]} onPress={openActivities} accessibilityLabel="Open activities">
+                <View style={hs.activityIcon}>
+                  <Users size={22} color={DAY.violet} strokeWidth={2} />
+                </View>
+                <View style={{ flex: 1 }}>
+                  <T w="bold" s={11} c={DAY.violet} style={hs.eyebrow}>ACTIVITIES</T>
+                  <T w="xbold" s={15} c={DAY.ink} numberOfLines={1} style={{ marginTop: 4, lineHeight: 19.5 }}>Play a chapter</T>
+                  <T w="reg" s={11} c={DAY.inkSoft} numberOfLines={1} style={{ marginTop: 4 }}>Team game for the class, or solo missions</T>
+                </View>
+                <ArrowRight size={18} color={DAY.inkDim} strokeWidth={2} />
+              </Squeeze>
+            </Appear>
 
             {/* ── 3. weekly goal ── */}
             {(goal || week.length > 0) && (
@@ -815,6 +838,8 @@ const hs = StyleSheet.create({
 
   // tiles
   tile: { minHeight: 134 },   // Figma: Bento-Row-1 height 134
+  activityTile: { flexDirection: 'row', alignItems: 'center', gap: 14, marginTop: 16 },
+  activityIcon: { width: 44, height: 44, borderRadius: 12, backgroundColor: DAY.violetSoft, alignItems: 'center', justifyContent: 'center' },
   // Figma: 40x15 hug, 4px radius, 1px #FCD34D, 2/6 padding, Inter 700 9px #D97706.
   brainChip: {
     backgroundColor: DAY.chipBrainBg, borderWidth: 1, borderColor: DAY.chipBrainEdge,
