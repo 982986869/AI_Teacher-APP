@@ -769,14 +769,30 @@ const BIN_STYLE = {
 // One chip. It cannot actually be dragged (tap-tap is the phone interaction), but it
 // lifts when picked and shakes when refused.
 // Long labels (fact-check pairs) become full-width cards; short ones stay pills.
-function Chip({ label, picked, locked, onPress, shakeKey }) {
+//   picked  — lifts and glows while it waits for a bin
+//   locked  — sits inside a bin; arrives with a spring so the drop reads as landing
+//   delay   — staggers the pool's entrance
+function Chip({ label, picked, locked, onPress, shakeKey, delay = 0 }) {
   const wide = label.length > 48;
   const [shakeStyle, shake] = useShake();
   const lift = useRef(new Animated.Value(0)).current;
+  const enter = useRef(new Animated.Value(0)).current;
   useEffect(() => { Animated.spring(lift, { toValue: picked ? 1 : 0, useNativeDriver: true, speed: 30, bounciness: 10 }).start(); }, [picked, lift]);
   useEffect(() => { if (shakeKey) shake(); }, [shakeKey, shake]);
+  useEffect(() => {
+    // A pool chip fades up in the cascade; a placed chip springs from small, like a
+    // thing dropped that settles.
+    Animated.spring(enter, { toValue: 1, delay, useNativeDriver: true, speed: locked ? 14 : 22, bounciness: locked ? 14 : 4 }).start();
+  }, [enter, delay, locked]);
   return (
-    <Animated.View style={[wide && st.chipWideWrap, { transform: [...shakeStyle.transform, { scale: lift.interpolate({ inputRange: [0, 1], outputRange: [1, 1.08] }) }, { translateY: lift.interpolate({ inputRange: [0, 1], outputRange: [0, -3] }) }] }]}>
+    <Animated.View style={[wide && st.chipWideWrap, {
+      opacity: enter.interpolate({ inputRange: [0, 0.3, 1], outputRange: [0, 1, 1] }),
+      transform: [
+        ...shakeStyle.transform,
+        { scale: Animated.multiply(enter.interpolate({ inputRange: [0, 1], outputRange: [locked ? 0.5 : 0.9, 1] }), lift.interpolate({ inputRange: [0, 1], outputRange: [1, 1.08] })) },
+        { translateY: Animated.add(enter.interpolate({ inputRange: [0, 1], outputRange: [locked ? -10 : 10, 0] }), lift.interpolate({ inputRange: [0, 1], outputRange: [0, -3] })) },
+      ],
+    }]}>
       <Squeeze onPress={onPress} disabled={locked} accessibilityRole="button" accessibilityLabel={label}
         style={[st.chip, wide && st.chipWide, picked && st.chipPicked, locked && st.chipLocked]}>
         <T w="semi" s={13} c={locked ? DAY.green : DAY.ink}>{label}</T>
@@ -794,6 +810,11 @@ function SortRound({ round, index, onPlace, onMistake }) {
   const [wrongTried, setWrongTried] = useState({});
   const remaining = items.filter((it) => placed[it.id] == null);
   const complete = remaining.length === 0;
+  // Fact-check pairs are sentences; two side-by-side bins cannot hold them without
+  // one shoving the other off the screen. Stack the bins for those rounds.
+  const stacked = items.some((it) => it.label.length > 48);
+  const [shakeA, shakeBinA] = useShake();
+  const [shakeB, shakeBinB] = useShake();
 
   const drop = (bin) => {
     if (picked == null) return;
@@ -803,7 +824,10 @@ function SortRound({ round, index, onPlace, onMistake }) {
       setPicked(null);
       onPlace(!wrongTried[it.id]);
     } else {
+      // Both the chip and the refusing bin shake — the bin says "not here", the
+      // chip says "bounced back".
       setShakes((s) => ({ ...s, [it.id]: (s[it.id] || 0) + 1 }));
+      (bin === 'A' ? shakeBinA : shakeBinB)();
       setWrongTried((w) => ({ ...w, [it.id]: true }));
       onMistake();
     }
@@ -819,32 +843,38 @@ function SortRound({ round, index, onPlace, onMistake }) {
         <View style={[st.pool, complete && st.poolEmpty]}>
           {remaining.length === 0
             ? <T w="med" s={12} c={DAY.inkDim}>All sorted</T>
-            : remaining.map((it) => (
-              <Chip key={it.id} label={it.label} picked={picked === it.id} shakeKey={shakes[it.id]}
+            : remaining.map((it, i) => (
+              <Chip key={it.id} label={it.label} picked={picked === it.id} shakeKey={shakes[it.id]} delay={i * 40}
                 onPress={() => setPicked((p) => (p === it.id ? null : it.id))} />
             ))}
         </View>
 
         {/* Bins */}
-        <View style={st.bins}>
+        <View style={[st.bins, stacked && st.binsStacked]}>
           {['A', 'B'].map((bin) => {
             const c = BIN_STYLE[bin];
             const inBin = items.filter((it) => placed[it.id] === bin);
             return (
-              <Squeeze key={bin} onPress={() => drop(bin)} disabled={picked == null} to={0.97} accessibilityRole="button"
-                accessibilityLabel={`${bin === 'A' ? round.binA : round.binB}${picked != null ? ', drop here' : ''}`}
-                style={[st.bin, { borderColor: c.edge, backgroundColor: c.tint }, picked != null && st.binHot]}>
-                <T w="bold" s={12} c={c.ink} style={{ textAlign: 'center' }} numberOfLines={2}>{bin === 'A' ? round.binA : round.binB}</T>
-                <View style={st.binDrop}>
-                  {inBin.map((it) => (
-                    <Appear key={it.id} y={-8}><Chip label={it.label} locked /></Appear>
-                  ))}
-                </View>
-              </Squeeze>
+              <Animated.View key={bin} style={[st.binCell, stacked && st.binCellStacked, bin === 'A' ? shakeA : shakeB]}>
+                <Breathe active={picked != null}>
+                  <Squeeze onPress={() => drop(bin)} disabled={picked == null} to={0.97} accessibilityRole="button"
+                    accessibilityLabel={`${bin === 'A' ? round.binA : round.binB}${picked != null ? ', drop here' : ''}`}
+                    style={[st.bin, { borderColor: c.edge, backgroundColor: c.tint }, picked != null && st.binHot]}>
+                    <T w="bold" s={12} c={c.ink} style={{ textAlign: 'center' }} numberOfLines={2}>{bin === 'A' ? round.binA : round.binB}</T>
+                    <View style={st.binDrop}>
+                      {inBin.map((it) => <Chip key={it.id} label={it.label} locked />)}
+                    </View>
+                  </Squeeze>
+                </Breathe>
+              </Animated.View>
             );
           })}
         </View>
-        {complete && <Appear y={6}><T w="bold" s={13} c={DAY.green} style={{ marginTop: 10 }}>✅ Round complete — great sorting!</T></Appear>}
+        {complete && (
+          <Pop value="done" amount={1.15}>
+            <Appear y={6}><T w="bold" s={13} c={DAY.green} style={{ marginTop: 10 }}>✅ Round complete — great sorting!</T></Appear>
+          </Pop>
+        )}
       </Card>
     </Appear>
   );
@@ -996,10 +1026,16 @@ const st = StyleSheet.create({
   chip: { backgroundColor: DAY.card, borderWidth: 1.5, borderColor: DAY.cardEdge, borderRadius: 999, paddingVertical: 7, paddingHorizontal: 13 },
   chipPicked: { borderColor: DAY.heroA, backgroundColor: DAY.amberSoft, shadowColor: DAY.heroA, shadowOpacity: 0.45, shadowRadius: 8, shadowOffset: { width: 0, height: 0 }, elevation: 4 },
   chipLocked: { backgroundColor: DAY.greenSoft, borderColor: DAY.green },
-  chipWideWrap: { alignSelf: 'stretch', width: '100%' },
+  chipWideWrap: { alignSelf: 'stretch', width: '100%', flexShrink: 1 },
   chipWide: { borderRadius: 12, paddingVertical: 9 },
   bins: { flexDirection: 'row', gap: 10 },
-  bin: { flex: 1, minHeight: 112, borderRadius: 14, borderWidth: 2, padding: 10 },
+  binsStacked: { flexDirection: 'column' },
+  // minWidth: 0 is the whole fix for a bin swallowing the row: a flex child's minimum
+  // width defaults to its content, and a sentence-length chip made one bin as wide
+  // as the screen. With it, each bin shrinks to its share and wraps inside.
+  binCell: { flex: 1, minWidth: 0 },
+  binCellStacked: { flex: 0, alignSelf: 'stretch' },
+  bin: { minHeight: 112, borderRadius: 14, borderWidth: 2, padding: 10 },
   binHot: { shadowColor: DAY.ink, shadowOpacity: 0.18, shadowRadius: 10, shadowOffset: { width: 0, height: 0 }, elevation: 4 },
   binDrop: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 8, minHeight: 40 },
 });
