@@ -355,10 +355,12 @@ function PlayView({ chapter, mode, onExit, onFinished }) {
       </View>
     );
   }
-  const props = { key: run, activity: state.activity, onExit, onReplay: load, onFinished };
-  if (mode === 'board') return <BoardGame {...props} />;
-  if (mode === 'sort') return <SortLab {...props} />;
-  return <Missions {...props} />;
+  // `key` goes on the element, never inside a spread — React reserves it, and a
+  // fresh key per draw is what remounts the game with clean state on Play Again.
+  const props = { activity: state.activity, onExit, onReplay: load, onFinished };
+  if (mode === 'board') return <BoardGame key={run} {...props} />;
+  if (mode === 'sort') return <SortLab key={run} {...props} />;
+  return <Missions key={run} {...props} />;
 }
 
 // ─── Class Game (board) ──────────────────────────────────────────────────────
