@@ -14,7 +14,7 @@ const router = Router()
 
 router.get('/subjects', subjects)
 router.get('/:subjectSlug/chapters', chapters)
-// ?mode=board | missions (default)
+// ?mode=board | missions (default) | sort
 router.get('/chapter/:chapterId', activity)
 router.post('/chapter/:chapterId/result', result)
 

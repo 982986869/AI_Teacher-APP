@@ -7,6 +7,9 @@
 //             the teacher reveals the answer and marks the team right or wrong.
 //               { cats: [4 names], tiles: [ [ {p, q, o?, a} ×4 ] ×4 ] }   (tiles[col][row])
 //
+//   sort      SOLO sorting game: rounds of items dropped into one of two bins.
+//               { rounds: [ { title, note, binA, binB, items: [ [label, 'A'|'B'] ] } ] }
+//
 //   missions  SOLO practice a student plays alone, auto-graded, five kinds of item:
 //               mcq     { q, o: [text], a: index, x }          — tap the right pill
 //               tf      { q, a: boolean, x }                   — true or false
@@ -31,6 +34,12 @@ const MATCH_COUNT = 5
 const BOARD_CATS = 4
 const BOARD_ROWS = 4
 const BOARD_POINTS = [10, 20, 30, 40]
+const SORT_ROUNDS = 3
+const SORT_ITEMS = 6      // per round; the reference game uses 4–6
+const SORT_MIN_ROUNDS = 2
+// A fact chip is a stem plus an answer. Class 10 stems run long (board-exam style),
+// so the cap is generous; the app renders anything past ~48 chars as a full-width card.
+const SORT_FACT_MAX = 150
 // Below this many usable MCQs an assembled activity is too thin to be worth opening —
 // a board is 16 tiles, and the same three questions recycled across missions is not a
 // game.
@@ -202,6 +211,83 @@ function assembleBoard(pool) {
   return { cats, tiles }
 }
 
+// ─── Sort (solo) ─────────────────────────────────────────────────────────────
+
+// A sorting round needs two CATEGORIES and items that belong to exactly one. A
+// question bank knows "one question, one answer" and nothing about categories, so
+// two derivations are used, in order of how good the game is:
+//
+//   topic rounds   bins are two of the chapter's subtopics; items are the short
+//                  answers (key terms) of questions filed under each. "Which topic
+//                  does Bakelite belong to?" — a real classification exercise.
+//   fact rounds    bins are ✅ Correct / ❌ Incorrect; items are "question → answer"
+//                  pairs, half of them with a distractor swapped in. Available
+//                  almost everywhere, so it fills whatever topic rounds cannot.
+//
+// Curated rounds (Natural vs Synthetic, Blue bin vs Green bin) are what a bank
+// cannot produce; they arrive through the `activities` table like everything else.
+const trimLabel = (t, max) => (t.length > max ? t.slice(0, max - 1).replace(/\s+\S*$/, '') + '…' : t)
+
+function assembleSort(pool) {
+  const rounds = []
+  const usedStems = new Set()
+
+  // ── topic rounds ──
+  const byTopic = new Map()
+  for (const it of pool) {
+    const a = it.options[it.correct]
+    // "All of these" is a correct answer, not a term anyone can file under a topic.
+    if (!it.topic || !typeable(a) || /^(all|none|both|neither|any)( of (these|the above|them|those))?$|^all the above$/i.test(a.trim())) continue
+    const m = byTopic.get(it.topic) || byTopic.set(it.topic, new Map()).get(it.topic)
+    // One chip per distinct answer; remember a stem so the item can be excluded later.
+    if (!m.has(a.toLowerCase())) m.set(a.toLowerCase(), { label: a, stem: it.stem })
+  }
+  // A term that appears under two topics belongs to neither bin cleanly — drop it.
+  const owners = new Map()
+  for (const [t, m] of byTopic) for (const k of m.keys()) owners.set(k, (owners.get(k) || 0) + 1)
+  const topics = [...byTopic.entries()]
+    .map(([t, m]) => [t, [...m.entries()].filter(([k]) => owners.get(k) === 1).map(([, v]) => v)])
+    .filter(([, v]) => v.length >= 3)
+    .sort((a, b) => b[1].length - a[1].length)
+  for (let i = 0; i + 1 < topics.length && rounds.length < SORT_ROUNDS - 1; i += 2) {
+    const [ta, ia] = topics[i], [tb, ib] = topics[i + 1]
+    const half = Math.ceil(SORT_ITEMS / 2)
+    const pick = (arr) => shuffle(arr).slice(0, half)
+    const items = [...pick(ia).map((v) => [v.label, 'A', v.stem]), ...pick(ib).map((v) => [v.label, 'B', v.stem])]
+    items.forEach(([, , stem]) => usedStems.add(stem))
+    rounds.push({
+      title: `Round ${rounds.length + 1}: Which topic? 🧭`,
+      note: 'Sort each term under the topic it belongs to.',
+      binA: '📘 ' + trimLabel(ta, 30), binB: '📗 ' + trimLabel(tb, 30),
+      items: shuffle(items).map(([label, bin]) => [label, bin]),
+    })
+  }
+
+  // ── fact rounds ──
+  const facts = shuffle(pool.filter((it) => !usedStems.has(it.stem) && it.stem.length + it.options[it.correct].length <= SORT_FACT_MAX))
+  let cursor = 0
+  while (rounds.length < SORT_ROUNDS && facts.length - cursor >= 4) {
+    const batch = facts.slice(cursor, cursor + SORT_ITEMS); cursor += batch.length
+    const items = batch.map((it, i) => {
+      const wrong = it.options.filter((_, k) => k !== it.correct)
+      // Alternate so every round is close to half and half, whatever the pool order.
+      const truth = i % 2 === 0 || !wrong.length
+      const shown = truth ? it.options[it.correct] : wrong[Math.floor(Math.random() * wrong.length)]
+      return [`${it.stem} → ${shown}`, truth ? 'A' : 'B']
+    })
+    rounds.push({
+      title: `Round ${rounds.length + 1}: Fact check ✅❌`,
+      note: 'Is the answer shown the right one? Sort each pair.',
+      binA: '✅ Correct', binB: '❌ Incorrect',
+      items: shuffle(items),
+    })
+  }
+
+  return rounds.length >= SORT_MIN_ROUNDS ? { rounds } : null
+}
+
+const sortTotal = (sort) => (sort && sort.rounds ? sort.rounds.reduce((n, r) => n + r.items.length, 0) : 0)
+
 // ─── Missions (solo) ─────────────────────────────────────────────────────────
 
 // A type-in answer has to be something a student can plausibly spell from the clue:
@@ -274,7 +360,7 @@ const missionsTotal = (missions) => (missions || []).reduce((n, m) => n + (m.typ
 function validateSpec(spec) {
   const fail = (m) => { throw new Error(`activity spec: ${m}`) }
   if (!spec || typeof spec !== 'object') fail('not an object')
-  if (!spec.board && !spec.missions) fail('needs board and/or missions')
+  if (!spec.board && !spec.missions && !spec.sort) fail('needs board, missions and/or sort')
 
   if (spec.board) {
     const b = spec.board
@@ -287,6 +373,18 @@ function validateSpec(spec) {
         if (!Number.isFinite(t.p) || t.p <= 0) fail(`${p}.p must be positive points`)
         if (typeof t.q !== 'string' || !t.q.trim()) fail(`${p}.q required`)
         if (typeof t.a !== 'string' || !t.a.trim()) fail(`${p}.a required`)
+      })
+    })
+  }
+  if (spec.sort) {
+    const r = spec.sort.rounds
+    if (!Array.isArray(r) || !r.length) fail('sort.rounds[] required')
+    r.forEach((rd, i) => {
+      const p = `sort.rounds[${i}]`
+      for (const k of ['title', 'binA', 'binB']) if (typeof rd[k] !== 'string' || !rd[k].trim()) fail(`${p}.${k} required`)
+      if (!Array.isArray(rd.items) || rd.items.length < 2) fail(`${p}.items needs ≥2`)
+      rd.items.forEach((it, j) => {
+        if (!Array.isArray(it) || typeof it[0] !== 'string' || !it[0].trim() || !['A', 'B'].includes(it[1])) fail(`${p}.items[${j}] must be [label, 'A'|'B']`)
       })
     })
   }
@@ -385,7 +483,7 @@ async function listChapters(subjectSlug, classLevel, userId) {
   }))
 }
 
-// mode: 'board' | 'missions'
+// mode: 'board' | 'missions' | 'sort'
 async function getActivity(chapterId, mode = 'missions') {
   const chapter = await chapterMeta(chapterId)
   if (!chapter) return null
@@ -404,6 +502,7 @@ async function getActivity(chapterId, mode = 'missions') {
     if (spec.emoji) out.emoji = spec.emoji
     if (spec.sub) out.sub = spec.sub
     if (mode === 'board') out.board = spec.board
+    else if (mode === 'sort') { out.sort = spec.sort; out.total = sortTotal(spec.sort) }
     else { out.missions = spec.missions; out.total = missionsTotal(spec.missions) }
     return out
   }
@@ -413,6 +512,10 @@ async function getActivity(chapterId, mode = 'missions') {
   if (mode === 'board') {
     const board = assembleBoard(pool)
     return board ? { ...base, source: 'assembled', mode, board } : { ...base, source: 'assembled', mode, unavailable: true }
+  }
+  if (mode === 'sort') {
+    const sort = assembleSort(pool)
+    return sort ? { ...base, source: 'assembled', mode, sort, total: sortTotal(sort) } : { ...base, source: 'assembled', mode, unavailable: true }
   }
   const missions = assembleMissions(pool)
   return { ...base, source: 'assembled', mode, missions, total: missionsTotal(missions) }
@@ -454,5 +557,5 @@ async function upsertCurated(chapterId, spec, { status = 'published', source = '
 
 module.exports = {
   listSubjects, listChapters, getActivity, saveResult, upsertCurated, validateSpec,
-  loadPool, assembleBoard, assembleMissions, toText, MIN_USABLE,
+  loadPool, assembleBoard, assembleMissions, assembleSort, toText, MIN_USABLE,
 }

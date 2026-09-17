@@ -13,9 +13,24 @@ const db = require('../src/config/database')
 const { upsertCurated } = require('../src/services/activities.service')
 
 // Class 8 · Old - Science · Ch 3 "Synthetic Fibres and Plastics"
+const FIBRE_SORT = {
+  rounds: [
+    { title: 'Round 1: Natural or Synthetic? 🧵', note: 'Where does each fibre come from — nature, or a chemical factory?',
+      binA: '🌿 Natural Fibre', binB: '🏭 Synthetic Fibre',
+      items: [['Cotton', 'A'], ['Nylon', 'B'], ['Wool', 'A'], ['Polyester', 'B'], ['Silk', 'A'], ['Acrylic', 'B']] },
+    { title: 'Round 2: Thermoplastic or Thermosetting? 🔥', note: 'Soft again on heating → Thermoplastic. Moulded once, set forever → Thermosetting.',
+      binA: '♻️ Thermoplastic', binB: '🔒 Thermosetting',
+      items: [['Polythene', 'A'], ['Bakelite', 'B'], ['PVC', 'A'], ['Melamine', 'B'], ['Electrical switch', 'B']] },
+    { title: 'Round 3: Which Garbage Bin? 🗑️', note: 'Blue bin = reusable / non-biodegradable. Green bin = decomposes naturally.',
+      binA: '🔵 Blue Bin (non-biodegradable)', binB: '🟢 Green Bin (biodegradable)',
+      items: [['Polythene bag', 'A'], ['Banana peel', 'B'], ['Broken glass', 'A'], ['Leftover food', 'B']] },
+  ],
+}
+
 const FIBRE_BOARD = {
   title: '🧵 Fibre & Plastic Challenge 🧪',
   sub: 'A team game for the whole class — project this on the screen!',
+  sort: FIBRE_SORT,
   board: {
     cats: ['🧵 Fibre Facts', '🧪 Plastic Power', '🔍 Guess the Material', '🌍 Save the Earth'],
     tiles: [
@@ -118,7 +133,7 @@ async function chapterId(classLevel, subject, nameLike) {
   if (!fibre || !sky) { console.error('chapters not found', { fibre, sky }); process.exit(1) }
 
   await upsertCurated(fibre.id, FIBRE_BOARD)
-  console.log(`✓ board    → ${fibre.name} (id ${fibre.id})`)
+  console.log(`✓ board + sort → ${fibre.name} (id ${fibre.id})`)
   await upsertCurated(sky.id, SKY_MISSIONS)
   console.log(`✓ missions → ${sky.name} (id ${sky.id})`)
 

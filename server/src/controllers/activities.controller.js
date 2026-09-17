@@ -26,7 +26,7 @@ async function chapters(req, res, next) {
 async function activity(req, res, next) {
   try {
     if (!/^\d+$/.test(String(req.params.chapterId))) return ApiResponse.error(res, 'Invalid chapter', 400)
-    const mode = req.query.mode === 'board' ? 'board' : 'missions'
+    const mode = ['board', 'missions', 'sort'].includes(req.query.mode) ? req.query.mode : 'missions'
     const a = await svc.getActivity(req.params.chapterId, mode)
     if (!a) return ApiResponse.error(res, 'Chapter not found', 404)
     return ApiResponse.success(res, a)
