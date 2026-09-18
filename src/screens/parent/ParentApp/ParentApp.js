@@ -4,7 +4,7 @@
 // loads Poppins, uses AuthContext, real getParentReport() + linkChild() gate, with
 // skeleton/error/empty states. Sessions/tutor is a UI-only preview (no backend yet).
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { View, SafeAreaView, Alert, Modal, Linking } from 'react-native';
+import { View, SafeAreaView, Alert, Modal, Linking, Platform } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import {
   useFonts,
@@ -100,22 +100,25 @@ export default function ParentApp() {
     else flash('Your join link will be shared before the class');
   }, [flash]);
   const handleCancelDemo = useCallback((b) => {
+    const doCancel = async () => {
+      const ok = await cancelTrialBooking(b.id);
+      if (!mounted.current) return;
+      if (!ok) { flash("Couldn't cancel — check your connection"); return; }
+      if (b.calendarEventId) await removeDemoFromCalendar(b.calendarEventId);
+      if (mounted.current) { setBooking(null); flash('Demo cancelled'); }
+    };
+    // react-native-web's Alert.alert is an empty stub, so on web the button would
+    // silently do nothing. The deployed build is the web one.
+    if (Platform.OS === 'web') {
+      if (typeof window !== 'undefined' && window.confirm('Cancel your demo class? This frees up the slot — you can book another anytime.')) doCancel();
+      return;
+    }
     Alert.alert(
       'Cancel demo class?',
       'This frees up your slot. You can book another free demo anytime.',
       [
         { text: 'Keep it', style: 'cancel' },
-        {
-          text: 'Cancel demo',
-          style: 'destructive',
-          onPress: async () => {
-            const ok = await cancelTrialBooking(b.id);
-            if (!mounted.current) return;
-            if (!ok) { flash("Couldn't cancel — check your connection"); return; }
-            if (b.calendarEventId) await removeDemoFromCalendar(b.calendarEventId);
-            if (mounted.current) { setBooking(null); flash('Demo cancelled'); }
-          },
-        },
+        { text: 'Cancel demo', style: 'destructive', onPress: doCancel },
       ],
     );
   }, [flash]);
