@@ -39,3 +39,55 @@ export const getProgressDay = async (date) => {
     return null;
   }
 };
+
+// ── Free demo-class booking ──────────────────────────────────────────────────
+// The server row is snake_case-free already (toApi), but the dashboard card, the
+// countdown helpers and the device-calendar sync all read `date` / `durationMin` /
+// `meetingUrl`, so the API shape is adapted once here rather than at each reader.
+export const toAppBooking = (b) => (b ? {
+  id: b.id,
+  date: b.slotAt,
+  durationMin: b.durationMin,
+  meetingUrl: b.meetLink,
+  subject: b.subject,
+  childName: b.childName,
+  childClass: b.childClass,
+  parentEmail: b.parentEmail,
+  mailStatus: b.mailStatus,
+} : null);
+
+// POST /api/parent/trial-bookings. Throws on failure with `status` and the server's
+// own message, so the flow can say "already booked" / "not set up yet" verbatim.
+export const createTrialBooking = async (input) => {
+  try {
+    const res = await axiosInstance.post('/api/parent/trial-bookings', input);
+    const d = res.data.data || {};
+    return { booking: toAppBooking(d.booking), mailSent: d.mailSent !== false };
+  } catch (err) {
+    const status = err.response?.status;
+    const message = err.response?.data?.error || "Couldn't book the slot — please try again.";
+    const e = new Error(message);
+    e.status = status;
+    throw e;
+  }
+};
+
+export const getUpcomingTrialBooking = async () => {
+  try {
+    const res = await axiosInstance.get('/api/parent/trial-bookings/upcoming');
+    return toAppBooking(res.data.data?.booking || null);
+  } catch (err) {
+    reportWarn('api/parentApi.js:getUpcomingTrialBooking', err);
+    return null;
+  }
+};
+
+export const cancelTrialBooking = async (id) => {
+  try {
+    await axiosInstance.post(`/api/parent/trial-bookings/${encodeURIComponent(id)}/cancel`);
+    return true;
+  } catch (err) {
+    reportWarn('api/parentApi.js:cancelTrialBooking', err, { id });
+    return false;
+  }
+};
