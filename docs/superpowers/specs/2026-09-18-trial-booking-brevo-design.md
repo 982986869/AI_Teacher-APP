@@ -1,7 +1,7 @@
 # Trial booking in-house, confirmed by Brevo email
 
 **Date:** 2026-09-18
-**Status:** draft, awaiting review
+**Status:** implemented on feat/trial-booking (2026-09-18). Pending for production: run `prisma/sql/trial_bookings.sql` on Render's DB, set `TRIAL_MEET_LINK` on Render, verify `kids@ailernova.com` as a sender in Brevo (or set `TRIAL_MAIL_FROM` to the verified address). Also: Cancel on web uses `window.confirm` because react-native-web's `Alert.alert` is a stub.
 **Replaces:** the Calendly embed (`TrialBookingEmbed.js`, commits aafba62 / 066295d)
 
 ## Goal
