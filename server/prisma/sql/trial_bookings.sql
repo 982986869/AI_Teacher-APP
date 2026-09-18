@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS "trial_bookings" (
   "parent_phone"  TEXT NOT NULL,
   "child_name"    TEXT,
   "child_class"   TEXT NOT NULL,                      -- 'Class 8'
+  "board"         TEXT NOT NULL DEFAULT '',           -- 'CBSE' | 'ICSE' | 'State Board' | 'IGCSE' | 'IB'
   "subject"       TEXT NOT NULL,                      -- 'Maths'
   "slot_at"       TIMESTAMPTZ NOT NULL,               -- class start
   "duration_min"  INTEGER NOT NULL DEFAULT 45,
@@ -23,6 +24,9 @@ CREATE TABLE IF NOT EXISTS "trial_bookings" (
   "cancelled_at"  TIMESTAMPTZ,
   CONSTRAINT "trial_bookings_pkey" PRIMARY KEY ("id")
 );
+
+-- Added after the first cut; a no-op where the CREATE above already carried it.
+ALTER TABLE "trial_bookings" ADD COLUMN IF NOT EXISTS "board" TEXT NOT NULL DEFAULT '';
 
 -- "Does this user already have a demo coming up?" is the query on every booking and
 -- every dashboard load.

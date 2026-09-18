@@ -18,7 +18,7 @@ const OTHER = '00000000-0000-4000-8000-00000000f102'
 const inThreeHours = () => new Date(Date.now() + 3 * 3600000).toISOString()
 const body = (over = {}) => ({
   parentName: 'Meera', parentEmail: 'meera@example.com', parentPhone: '9876543210',
-  childName: 'Aarav', childClass: 'Class 8', subject: 'Maths', slotAt: inThreeHours(), ...over,
+  childName: 'Aarav', childClass: 'Class 8', board: 'CBSE', subject: 'Maths', slotAt: inThreeHours(), ...over,
 })
 
 // A minimal res that records what the controller answered.
@@ -60,6 +60,7 @@ test('booking stores the row, emails parent and team, and answers 201', { skip: 
   assert.equal(res.code, 201, JSON.stringify(res.body))
   const b = res.body.data.booking
   assert.equal(b.status, 'booked')
+  assert.equal(b.board, 'CBSE')
   assert.equal(b.meetLink, 'https://meet.google.com/test-link-xyz')
   assert.equal(b.mailStatus, 'sent')
   assert.equal(res.body.data.mailSent, true)
@@ -140,8 +141,8 @@ test('cancelling somebody else\'s booking is 404', { skip: !hasDb }, async () =>
 
 test('a booking whose class has ended no longer counts as upcoming', { skip: !hasDb }, async () => {
   await db.$executeRawUnsafe(
-    `INSERT INTO "trial_bookings" (user_id, parent_name, parent_email, parent_phone, child_class, subject, slot_at, meet_link, mail_status)
-     VALUES ($1::uuid, 'M', 'm@x.com', '9876543210', 'Class 8', 'Maths', now() - interval '2 hours', 'https://meet.google.com/x', 'sent')`,
+    `INSERT INTO "trial_bookings" (user_id, parent_name, parent_email, parent_phone, child_class, board, subject, slot_at, meet_link, mail_status)
+     VALUES ($1::uuid, 'M', 'm@x.com', '9876543210', 'Class 8', 'CBSE', 'Maths', now() - interval '2 hours', 'https://meet.google.com/x', 'sent')`,
     USER,
   )
   const res = await call(ctrl.upcomingTrialBooking)

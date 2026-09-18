@@ -41,18 +41,18 @@ async function createTrialBooking(req, res, next) {
       return ApiResponse.error(res, 'You already have a demo booked. Cancel it first to pick another slot.', 409)
     }
 
-    const { parentName, parentEmail, parentPhone, childName, childClass, subject, slotAt } = v.value
+    const { parentName, parentEmail, parentPhone, childName, childClass, board, subject, slotAt } = v.value
     const inserted = await db.$queryRawUnsafe(
       `INSERT INTO "trial_bookings"
-         (user_id, parent_name, parent_email, parent_phone, child_name, child_class, subject, slot_at, duration_min, meet_link)
-       VALUES ($1::uuid, $2, $3, $4, $5, $6, $7, $8::timestamptz, $9::int, $10)
+         (user_id, parent_name, parent_email, parent_phone, child_name, child_class, board, subject, slot_at, duration_min, meet_link)
+       VALUES ($1::uuid, $2, $3, $4, $5, $6, $7, $8, $9::timestamptz, $10::int, $11)
        RETURNING *`,
-      req.user.id, parentName, parentEmail, parentPhone, childName, childClass, subject,
+      req.user.id, parentName, parentEmail, parentPhone, childName, childClass, board, subject,
       slotAt.toISOString(), DURATION_MIN, meetLink,
     )
     let row = inserted[0]
 
-    const facts = { parentName, parentEmail, parentPhone, childName, childClass, subject, slotAt, durationMin: DURATION_MIN, meetLink, bookingId: row.id }
+    const facts = { parentName, parentEmail, parentPhone, childName, childClass, board, subject, slotAt, durationMin: DURATION_MIN, meetLink, bookingId: row.id }
     // No `from` unless TRIAL_MAIL_FROM is set: sendMail then uses MAIL_FROM, the one
     // sender Brevo already accepts (the forgot-password mails go out from it).
     const from = config.trial.mailFrom || undefined

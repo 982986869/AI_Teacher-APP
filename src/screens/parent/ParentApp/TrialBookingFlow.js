@@ -4,8 +4,9 @@
 // Replaces the Calendly embed. What Calendly gave us (a calendar, a Meet link, a
 // confirmation email) the server now gives us: the slot list is generated here from
 // demoConfig, the Meet link is a standing room the server knows, and the email goes
-// out from kids@ailernova.com through Brevo. What we gain is the booking itself — a
-// row we can see, a card on the dashboard, a cancel that means something.
+// out through Brevo (the parent's confirmation, plus a copy to kids@ailernova.com).
+// What we gain is the booking itself — a row we can see, a card on the dashboard, a
+// cancel that means something.
 import React, { useEffect, useMemo, useState } from 'react';
 import { View, Modal, ScrollView, TextInput, ActivityIndicator, Platform, StyleSheet, Linking } from 'react-native';
 import { ArrowLeft, Video, Check, Mail, Copy } from 'lucide-react-native';
@@ -13,7 +14,7 @@ import { C, T } from './constants';
 import { PressableScale, FadeIn } from './anim';
 import { useAuth } from '../../../context/AuthContext';
 import { createTrialBooking } from '../../../api/parentApi';
-import { buildDays, buildSlots, PERIODS, CLASSES, SUBJECTS, DEMO_DURATION_MIN, fmtDateLong, fmtTime } from './demoConfig';
+import { buildDays, buildSlots, PERIODS, CLASSES, BOARDS, SUBJECTS, DEMO_DURATION_MIN, fmtDateLong, fmtTime } from './demoConfig';
 
 const DAYS_SHOWN = 7;
 
@@ -47,7 +48,7 @@ export default function TrialBookingFlow({ visible, onClose, onBooked, childName
   const [day, setDay] = useState(null);
   const [period, setPeriod] = useState(PERIODS[1].key);
   const [slot, setSlot] = useState(null);
-  const [f, setF] = useState({ parentName: '', parentEmail: '', parentPhone: '', childName: '', childClass: null, subject: null });
+  const [f, setF] = useState({ parentName: '', parentEmail: '', parentPhone: '', childName: '', childClass: null, board: null, subject: null });
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const [result, setResult] = useState(null); // { booking, mailSent }
@@ -59,7 +60,9 @@ export default function TrialBookingFlow({ visible, onClose, onBooked, childName
     setStep(0); setDay(null); setSlot(null); setPeriod(PERIODS[1].key); setBusy(false); setError(''); setResult(null);
     setF({
       parentName: user?.name || '', parentEmail: user?.email || '', parentPhone: user?.phone || '',
-      childName: childName || '', childClass: null, subject: SUBJECTS.includes(presetSubject) ? presetSubject : null,
+      childName: childName || '', childClass: null,
+      board: BOARDS.includes(user?.board) ? user.board : null,
+      subject: SUBJECTS.includes(presetSubject) ? presetSubject : null,
     });
   }, [visible, user, childName, presetSubject]);
 
@@ -68,7 +71,7 @@ export default function TrialBookingFlow({ visible, onClose, onBooked, childName
 
   const slotOk = !!(day && slot);
   const detailsOk = !!(f.parentName.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.parentEmail.trim())
-    && f.parentPhone.replace(/\D/g, '').length >= 10 && f.childClass && f.subject);
+    && f.parentPhone.replace(/\D/g, '').length >= 10 && f.childClass && f.board && f.subject);
 
   const back = () => {
     if (busy) return;
@@ -82,7 +85,7 @@ export default function TrialBookingFlow({ visible, onClose, onBooked, childName
     try {
       const r = await createTrialBooking({
         parentName: f.parentName.trim(), parentEmail: f.parentEmail.trim(), parentPhone: f.parentPhone.trim(),
-        childName: f.childName.trim() || undefined, childClass: f.childClass, subject: f.subject, slotAt: slot.iso,
+        childName: f.childName.trim() || undefined, childClass: f.childClass, board: f.board, subject: f.subject, slotAt: slot.iso,
       });
       setResult(r); setStep(2);
       onBooked && onBooked(r.booking);
@@ -156,6 +159,10 @@ export default function TrialBookingFlow({ visible, onClose, onBooked, childName
               <View style={s.wrap}>
                 {CLASSES.map((c) => <Chip key={c} small label={c} on={f.childClass === c} onPress={() => set({ childClass: c })} />)}
               </View>
+              <Eyebrow>BOARD</Eyebrow>
+              <View style={s.wrap}>
+                {BOARDS.map((b) => <Chip key={b} small label={b} on={f.board === b} onPress={() => set({ board: b })} />)}
+              </View>
               <Eyebrow>SUBJECT</Eyebrow>
               <View style={s.wrap}>
                 {SUBJECTS.map((sub) => <Chip key={sub} small label={sub} on={f.subject === sub} onPress={() => set({ subject: sub })} />)}
@@ -169,7 +176,7 @@ export default function TrialBookingFlow({ visible, onClose, onBooked, childName
               <View style={s.tick}><Check size={30} color="#fff" strokeWidth={3} /></View>
               <T w="xbold" s={22} c={C.ink} style={{ marginTop: 20, textAlign: 'center' }}>Your free class is booked</T>
               <T w="semi" s={15} c={C.ink} style={{ marginTop: 14, textAlign: 'center' }}>{fmtDateLong(result.booking.date)} · {fmtTime(result.booking.date)}</T>
-              <T w="med" s={13} c={C.muted} style={{ marginTop: 4, textAlign: 'center' }}>{result.booking.subject} · {DEMO_DURATION_MIN} min · Google Meet</T>
+              <T w="med" s={13} c={C.muted} style={{ marginTop: 4, textAlign: 'center' }}>{result.booking.subject} · {result.booking.childClass}{result.booking.board ? ` (${result.booking.board})` : ''} · {DEMO_DURATION_MIN} min · Google Meet</T>
 
               <PressableScale style={s.meetRow} onPress={openMeet} accessibilityLabel="Open Google Meet link">
                 <Video size={18} color={C.blue} />

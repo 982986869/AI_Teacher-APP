@@ -10,6 +10,7 @@
 
 const CLASSES = ['Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10', 'Class 11', 'Class 12']
 const SUBJECTS = ['Maths', 'Physics', 'Chemistry', 'Biology', 'Science', 'English']
+const BOARDS = ['CBSE', 'ICSE', 'State Board', 'IGCSE', 'IB']
 const DURATION_MIN = 45
 // Same lead time the app's slot picker enforces (demoConfig.slotIsFuture). Enforced
 // again here because the picker is only a suggestion once the request is on the wire.
@@ -25,6 +26,7 @@ function validateBookingInput(body = {}, now = new Date()) {
   const parentPhone = str(body.parentPhone)
   const childNameRaw = str(body.childName)
   const childClass = str(body.childClass)
+  const board = str(body.board)
   const subject = str(body.subject)
   const slotAt = body.slotAt ? new Date(body.slotAt) : null
 
@@ -32,6 +34,7 @@ function validateBookingInput(body = {}, now = new Date()) {
   if (!EMAIL_RE.test(parentEmail)) return { ok: false, error: 'That email address does not look right.' }
   if (parentPhone.replace(/\D/g, '').length < 10) return { ok: false, error: 'Please enter a 10-digit phone number.' }
   if (!CLASSES.includes(childClass)) return { ok: false, error: "Please pick your child's class." }
+  if (!BOARDS.includes(board)) return { ok: false, error: "Please pick your child's board." }
   if (!SUBJECTS.includes(subject)) return { ok: false, error: 'Please pick a subject.' }
   if (!slotAt || !Number.isFinite(slotAt.getTime())) return { ok: false, error: 'Please pick a time slot.' }
   if (slotAt.getTime() < now.getTime() + LEAD_TIME_MS) {
@@ -40,7 +43,7 @@ function validateBookingInput(body = {}, now = new Date()) {
 
   return {
     ok: true,
-    value: { parentName, parentEmail, parentPhone, childName: childNameRaw || null, childClass, subject, slotAt },
+    value: { parentName, parentEmail, parentPhone, childName: childNameRaw || null, childClass, board, subject, slotAt },
   }
 }
 
@@ -83,6 +86,7 @@ function toApi(row) {
     parentPhone: row.parent_phone,
     childName: row.child_name,
     childClass: row.child_class,
+    board: row.board,
     subject: row.subject,
     slotAt: new Date(row.slot_at).toISOString(),
     durationMin: row.duration_min,
@@ -94,6 +98,6 @@ function toApi(row) {
 }
 
 module.exports = {
-  CLASSES, SUBJECTS, DURATION_MIN, LEAD_TIME_MS, IST,
+  CLASSES, SUBJECTS, BOARDS, DURATION_MIN, LEAD_TIME_MS, IST,
   validateBookingInput, istDate, istTime, istRange, bookingEndsAt, toApi,
 }

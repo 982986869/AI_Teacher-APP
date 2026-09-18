@@ -105,7 +105,7 @@ const SLOT = new Date('2026-09-19T10:30:00Z') // Sat 19 Sep 2026, 4:00 PM IST
 const MEET = 'https://meet.google.com/abc-defg-hij'
 const booking = {
   parentName: 'Meera', parentEmail: 'meera@example.com', parentPhone: '9876543210',
-  childName: 'Aarav', childClass: 'Class 8', subject: 'Maths',
+  childName: 'Aarav', childClass: 'Class 8', board: 'CBSE', subject: 'Maths',
   slotAt: SLOT, durationMin: 45, meetLink: MEET, bookingId: 'b1',
 }
 
@@ -124,11 +124,10 @@ test('the parent email says the day and the time in IST, not UTC', () => {
   assert.ok(!bothParts(m).includes('10:30'))
 })
 
-test('the parent email names the child, class and subject', () => {
+test('the parent email names the child, class, board and subject', () => {
   const m = trialBooked(booking)
-  assert.match(m.text, /Maths/)
-  assert.match(m.text, /Aarav/)
-  assert.match(m.text, /Class 8/)
+  assert.match(m.text, /Maths for Aarav, Class 8 \(CBSE\)/)
+  assert.match(trialBookedTeam(booking).text, /Class 8 \(CBSE\)/)
 })
 
 test('the parent email works without a child name', () => {

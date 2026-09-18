@@ -52,6 +52,7 @@ export const toAppBooking = (b) => (b ? {
   subject: b.subject,
   childName: b.childName,
   childClass: b.childClass,
+  board: b.board,
   parentEmail: b.parentEmail,
   mailStatus: b.mailStatus,
 } : null);

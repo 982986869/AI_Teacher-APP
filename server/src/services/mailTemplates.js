@@ -159,13 +159,15 @@ function adminDigest({ rows }) {
 const shortDay = (d) =>
   new Date(d).toLocaleDateString('en-IN', { timeZone: 'Asia/Kolkata', weekday: 'short', day: 'numeric', month: 'short' })
 
-function classLine({ childName, childClass, subject }) {
-  return childName ? `${subject} for ${childName}, ${childClass}` : `${subject}, ${childClass}`
+// "Maths for Aarav, Class 8 (CBSE)" — the board in brackets, dropped when unknown.
+function classLine({ childName, childClass, board, subject }) {
+  const cls = board ? `${childClass} (${board})` : childClass
+  return childName ? `${subject} for ${childName}, ${cls}` : `${subject}, ${cls}`
 }
 
-function trialBooked({ parentName, childName, childClass, subject, slotAt, durationMin = DURATION_MIN, meetLink }) {
+function trialBooked({ parentName, childName, childClass, board, subject, slotAt, durationMin = DURATION_MIN, meetLink }) {
   const when = `${istDate(slotAt)}, ${istRange(slotAt, durationMin)} (IST)`
-  const what = classLine({ childName, childClass, subject })
+  const what = classLine({ childName, childClass, board, subject })
   const text = [
     hello(parentName),
     '',
@@ -204,10 +206,10 @@ function trialBooked({ parentName, childName, childClass, subject, slotAt, durat
 // Whoever is staffing the Meet room needs to know who is coming and how to reach them
 // if they do not show. Compact on purpose: it is read on a phone between classes.
 
-function trialBookedTeam({ parentName, parentEmail, parentPhone, childName, childClass, subject, slotAt, durationMin = DURATION_MIN, meetLink, bookingId }) {
+function trialBookedTeam({ parentName, parentEmail, parentPhone, childName, childClass, board, subject, slotAt, durationMin = DURATION_MIN, meetLink, bookingId }) {
   const rows = [
     ['When', `${istDate(slotAt)}, ${istRange(slotAt, durationMin)} (IST)`],
-    ['Class', classLine({ childName, childClass, subject })],
+    ['Class', classLine({ childName, childClass, board, subject })],
     ['Parent', parentName],
     ['Email', parentEmail],
     ['Phone', parentPhone],
