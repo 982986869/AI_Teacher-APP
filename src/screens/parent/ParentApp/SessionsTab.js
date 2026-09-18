@@ -104,7 +104,7 @@ function EmptyCard({ iconEl, tintBg, title, body }) {
   );
 }
 
-export default function SessionsTab({ meta, childName, parentPhoto, parentName, onAvatar, onGym, booking, onBookTrial, onJoinDemo, onRescheduleDemo, onCancelDemo }) {
+export default function SessionsTab({ meta, childName, parentPhoto, parentName, onAvatar, onGym, booking, onBookTrial, onJoinDemo, onCancelDemo }) {
   return (
     <View style={st.screen}>
       <Header meta={meta} childName={childName} parentPhoto={parentPhoto} parentName={parentName} onAvatar={onAvatar} onGym={onGym} />
@@ -113,7 +113,7 @@ export default function SessionsTab({ meta, childName, parentPhoto, parentName, 
           <>
             <FadeInOnce id="sess-upcoming" delay={20}>
               <Label>Upcoming session</Label>
-              <UpcomingDemoCard booking={booking} onJoin={onJoinDemo} onReschedule={onRescheduleDemo} onCancel={onCancelDemo} />
+              <UpcomingDemoCard booking={booking} onJoin={onJoinDemo} onCancel={onCancelDemo} />
             </FadeInOnce>
             <FadeInOnce id="sess-past-b" delay={120}>
               <Label>Past sessions</Label>

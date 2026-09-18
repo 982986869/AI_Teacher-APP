@@ -88,7 +88,7 @@ function ClassCalendar() {
   );
 }
 
-export default function ClassesTab({ meta, childName, parentPhoto, parentName, onAvatar, onGym, onBookTrial, booking }) {
+export default function ClassesTab({ meta, childName, parentPhoto, parentName, onAvatar, onGym, booking }) {
   const valid = booking && Number.isFinite(new Date(booking.date).getTime());
   const short = valid ? fmtDateShort(booking.date) : null;
   return (

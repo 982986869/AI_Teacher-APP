@@ -3,12 +3,12 @@
 // A premium dark gradient surface that stands out against the light canvas — the
 // first thing a parent notices. Live countdown, pulsing LIVE state, tutor-assigning
 // shimmer, calendar-synced badge, and a Join button that only unlocks inside the
-// class window. Reschedule / Cancel inline. Pure presentation — persistence + calendar
-// changes happen in the parent via onJoin / onReschedule / onCancel.
+// class window. Cancel inline. Pure presentation — persistence + calendar
+// changes happen in the parent via onJoin / onCancel.
 import React, { memo, useEffect, useRef, useState } from 'react';
 import { View, StyleSheet, Animated, Easing } from 'react-native';
 import Svg, { Defs, LinearGradient as SvgGrad, RadialGradient, Stop, Rect } from 'react-native-svg';
-import { Video, RefreshCw, X, CheckCircle2, Bell, Radio, UserRound, Clock3 } from 'lucide-react-native';
+import { Video, X, CheckCircle2, Bell, Radio, UserRound, Clock3 } from 'lucide-react-native';
 import { C, T } from './constants';
 import { PressableScale, Shimmer, FadeIn, Breathe, PulseRing } from './anim';
 import { countdown, joinWindow, fmtTime, fmtDateLong, fmtDateShort } from './demoConfig';
@@ -66,7 +66,7 @@ function HeroSurface() {
   );
 }
 
-function UpcomingDemoCard({ booking, onJoin, onReschedule, onCancel }) {
+function UpcomingDemoCard({ booking, onJoin, onCancel }) {
   const [now, setNow] = useState(() => new Date());
   // Keep the countdown + join window live: 1s precision near the class (so the 10-min
   // join gate is exact), a cheap 30s otherwise. Self-reschedules as time passes.
@@ -166,13 +166,9 @@ function UpcomingDemoCard({ booking, onJoin, onReschedule, onCancel }) {
         </View>
       )}
 
-      {/* Reschedule / Cancel */}
+      {/* Cancel — rebooking is cancel + book again; there is no reschedule on the server. */}
       {!ended && (
         <View style={st.actions}>
-          <PressableScale style={st.ghost} onPress={() => onReschedule && onReschedule(booking)} accessibilityLabel="Reschedule demo">
-            <RefreshCw size={15} color={W} />
-            <T w="bold" s={13.5} c={W}>Reschedule</T>
-          </PressableScale>
           <PressableScale style={st.ghost} onPress={() => onCancel && onCancel(booking)} accessibilityLabel="Cancel demo">
             <X size={15} color="#FF8B8B" />
             <T w="bold" s={13.5} c="#FF8B8B">Cancel</T>

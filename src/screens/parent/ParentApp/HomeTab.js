@@ -9,6 +9,7 @@ import { PressableScale, FadeInOnce, Breathe, Odometer, Pulse, Float, PopIn, Wav
 import { EventTeaser, EventsModal } from './EventsCarousel';
 import { AboutModal, ImpactModal, TutorsModal, ReviewsModal, PricingModal, FaqsModal, ContactModal, RefundModal, ReferralModal } from './AboutScreen';
 import UpcomingDemoCard from './UpcomingDemoCard';
+import { DEMO_DURATION_MIN } from './demoConfig';
 import FacultyCards from '../../../components/FacultyCards';
 
 // Stat carousel card width + gap — wide rectangles that overflow the screen so the row
@@ -102,7 +103,7 @@ function DemoChip({ Icon, label }) {
 function DemoCard({ onBookTrial }) {
   const chips = [
     { Icon: Users, label: '1:1 Live' },
-    { Icon: Clock3, label: '60 min' },
+    { Icon: Clock3, label: `${DEMO_DURATION_MIN} min` },
     { Icon: Sparkles, label: 'Free' },
   ];
   return (
@@ -138,7 +139,7 @@ function DemoCard({ onBookTrial }) {
   );
 }
 
-function HomeTab({ meta, childName, parentPhoto, parentName, onAvatar, onGym, onActivity, onBookTrial, report, refreshing, onRefresh, booking, onJoinDemo, onRescheduleDemo, onCancelDemo }) {
+function HomeTab({ meta, childName, parentPhoto, parentName, onAvatar, onGym, onActivity, onBookTrial, report, refreshing, onRefresh, booking, onJoinDemo, onCancelDemo }) {
   const bg = report.brainGym || {};
   const streak = Number(bg.currentStreak) || 0;
   const quizzes = Number(bg.quizzesCompleted) || 0;
@@ -227,7 +228,7 @@ function HomeTab({ meta, childName, parentPhoto, parentName, onAvatar, onGym, on
         {booking ? (
           <FadeInOnce id="home-hero" delay={260}>
             <Label>Upcoming demo</Label>
-            <UpcomingDemoCard booking={booking} onJoin={onJoinDemo} onReschedule={onRescheduleDemo} onCancel={onCancelDemo} />
+            <UpcomingDemoCard booking={booking} onJoin={onJoinDemo} onCancel={onCancelDemo} />
           </FadeInOnce>
         ) : (
           <FadeInOnce id="home-booking" delay={260} y={20}>

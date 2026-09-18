@@ -4,7 +4,7 @@
 // loads Poppins, uses AuthContext, real getParentReport() + linkChild() gate, with
 // skeleton/error/empty states. Sessions/tutor is a UI-only preview (no backend yet).
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { View, SafeAreaView, Alert, Modal } from 'react-native';
+import { View, SafeAreaView, Alert, Modal, Linking } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import {
   useFonts,
@@ -16,7 +16,7 @@ import {
   Nunito_700Bold, Nunito_800ExtraBold, Nunito_900Black,
 } from '@expo-google-fonts/nunito';
 import { useAuth } from '../../../context/AuthContext';
-import { getParentReport } from '../../../api/parentApi';
+import { getParentReport, getUpcomingTrialBooking, cancelTrialBooking } from '../../../api/parentApi';
 import { st, T, TABS } from './constants';
 import HomeTab from './HomeTab';
 import ProgressTab from './ProgressTab';
@@ -31,9 +31,8 @@ import ProfileSheet from './ProfileSheet';
 import HelpFab from '../../../components/support/HelpFab';
 import BrainGymFlow from '../../braingym/BrainGymFlow';
 import ActivityRouter from './ActivityRouter';
-// Booking runs through Calendly.
-import TrialBookingEmbed from './TrialBookingEmbed';
-import { removeDemoFromCalendar } from './calendar';
+import TrialBookingFlow from './TrialBookingFlow';
+import { addDemoToCalendar, removeDemoFromCalendar } from './calendar';
 import { FadeIn } from './anim';
 
 export default function ParentApp() {
@@ -60,8 +59,7 @@ export default function ParentApp() {
   const [activityOpen, setActivityOpen] = useState(false);
   const [trialOpen, setTrialOpen] = useState(false);
   const [relinking, setRelinking] = useState(false); // "Link another child" without discarding the loaded report
-  const [rescheduleMode, setRescheduleMode] = useState(false);
-  const [booking, setBooking] = useState(null); // the parent's active free-demo booking
+  const [booking, setBooking] = useState(null); // the parent's upcoming free-demo booking, from the server
 
   const mounted = useRef(true);
   const toastRef = useRef(null);
@@ -75,9 +73,9 @@ export default function ParentApp() {
 
   const load = useCallback(async (isRefresh = false) => {
     try {
-      const d = await getParentReport();
+      const [d, b] = await Promise.all([getParentReport(), getUpcomingTrialBooking()]);
       if (!mounted.current) return;
-      setReport(d); setErr(false);
+      setReport(d); setBooking(b); setErr(false);
     } catch (_) {
       if (!mounted.current) return;
       if (isRefresh) flash("Couldn't refresh — check your connection"); else setErr(true);
@@ -88,12 +86,19 @@ export default function ParentApp() {
   useEffect(() => { load(false); }, [load]);
 
   // ── Free trial/demo booking ──────────────────────────────────────────────────
-  // Booking lives in component state (persistence/backend arrive later). The flow
-  // owns real calendar sync (add / reschedule-update / cancel-delete) and lifts every
-  // change here via onChange — a booking object, or null when cancelled in-flow.
-  const handleDemoChange = useCallback((b) => { if (mounted.current) setBooking(b); }, []);
-  const handleRescheduleDemo = useCallback(() => { setRescheduleMode(true); setTrialOpen(true); }, []);
-  const handleJoinDemo = useCallback(() => flash('Your join link will be shared before the class'), [flash]);
+  // The server owns the booking (trial_bookings); this state mirrors the one
+  // upcoming row. Cancel goes to the server first, then the device calendar.
+  const handleBooked = useCallback(async (b) => {
+    if (!mounted.current) return;
+    setBooking(b);
+    // Best effort — web has no calendar, a denied permission is fine.
+    const r = await addDemoToCalendar(b);
+    if (r.ok && mounted.current) setBooking((prev) => (prev && prev.id === b.id ? { ...prev, calendarEventId: r.eventId } : prev));
+  }, []);
+  const handleJoinDemo = useCallback((b) => {
+    if (b && b.meetingUrl) Linking.openURL(b.meetingUrl);
+    else flash('Your join link will be shared before the class');
+  }, [flash]);
   const handleCancelDemo = useCallback((b) => {
     Alert.alert(
       'Cancel demo class?',
@@ -104,9 +109,11 @@ export default function ParentApp() {
           text: 'Cancel demo',
           style: 'destructive',
           onPress: async () => {
-            if (b && b.calendarEventId) await removeDemoFromCalendar(b.calendarEventId);
-            if (mounted.current) setBooking(null);
-            flash('Demo cancelled');
+            const ok = await cancelTrialBooking(b.id);
+            if (!mounted.current) return;
+            if (!ok) { flash("Couldn't cancel — check your connection"); return; }
+            if (b.calendarEventId) await removeDemoFromCalendar(b.calendarEventId);
+            if (mounted.current) { setBooking(null); flash('Demo cancelled'); }
           },
         },
       ],
@@ -121,7 +128,7 @@ export default function ParentApp() {
   const onAvatar = useCallback(() => setSheetOpen(true), []);
   const onGym = useCallback(() => setGymOpen(true), []);            // AI Gym → the real BrainGym
   const onActivity = useCallback(() => setActivityOpen(true), []);  // Recent activity detail
-  const onBookTrial = useCallback(() => { setRescheduleMode(false); setTrialOpen(true); }, []); // "Book a FREE demo" → Calendly
+  const onBookTrial = useCallback(() => setTrialOpen(true), []); // "Book a FREE demo" → in-app flow
   const relink = useCallback(() => setRelinking(true), []); // keep report; show link screen without discarding data
   const confirmDelete = useCallback(() => {
     Alert.alert(
@@ -150,7 +157,7 @@ export default function ParentApp() {
     const shared = {
       meta, childName, onAvatar, onGym, onActivity, onBookTrial, flash,
       parentPhoto: user?.photoUrl, parentName: user?.name,
-      booking, onJoinDemo: handleJoinDemo, onRescheduleDemo: handleRescheduleDemo, onCancelDemo: handleCancelDemo,
+      booking, onJoinDemo: handleJoinDemo, onCancelDemo: handleCancelDemo,
     };
     content = (
       <View style={st.screen}>
@@ -200,16 +207,14 @@ export default function ParentApp() {
         <BrainGymFlow onFinish={() => setGymOpen(false)} />
       </Modal>
       <ActivityRouter visible={activityOpen} onClose={() => setActivityOpen(false)} childName={childName} items={report?.recentActivity} />
-      {/* "Book a FREE trial" → Calendly's booking page, embedded.
-          Calendly owns the booking end to end from here: real availability, the Google
-          Meet link, the confirmation email and rescheduling (through the link in that
-          email). Nothing comes back to the app, so `booking` now stays null and the
-          dashboard's upcoming-demo card simply does not appear — its reschedule and
-          cancel buttons live on that card and so never render either. Wiring bookings
-          back into our own state needs Calendly's paid API. */}
-      <TrialBookingEmbed
+      {/* "Book a FREE trial" → slot, details, done. The server stores the row and
+          emails the Meet link from kids@; `booking` mirrors it so the upcoming-demo
+          card renders on Home and Sessions. */}
+      <TrialBookingFlow
         visible={trialOpen}
-        onClose={() => { setTrialOpen(false); setRescheduleMode(false); }}
+        onClose={() => setTrialOpen(false)}
+        onBooked={handleBooked}
+        childName={child?.name}
       />
     </SafeAreaView>
   );
