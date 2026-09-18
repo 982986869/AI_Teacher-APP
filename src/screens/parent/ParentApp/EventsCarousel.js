@@ -20,7 +20,7 @@ import * as Sharing from 'expo-sharing';
 import { Video as AVVideo, ResizeMode } from 'expo-av';   // `Video` is taken by the lucide icon
 import { C, T, CONTENT, Wordmark } from './constants';
 import { PressableScale, FadeIn, PopIn, CountUp } from './anim';
-import TrialBookingEmbed from './TrialBookingEmbed';
+import TrialBookingFlow from './TrialBookingFlow';
 import PolicyModal from '../../../components/brand/PolicyModal';
 
 const { width: SCREEN_W } = Dimensions.get('window');
@@ -1620,11 +1620,11 @@ export function ProgramDetail({ programId, onBack }) {
         </View>
       </View>
 
-      {/* Different buttons, one booking form. This entry point and the dashboard's
-          "Book a free demo" both open the same Calendly page, so every trial lands on
-          one calendar with one set of availability.
-          Note `cls` is dropped: Calendly asks for the child's grade on its own form. */}
-      <TrialBookingEmbed visible={booking} onClose={() => setBooking(false)} />
+      {/* Different buttons, one booking flow. This entry point and the dashboard's
+          "Book a free demo" both post to the same server endpoint, so every trial
+          lands in one table. The program pages are the Maths curriculum (see
+          downloadCurriculum: "<tab> · Maths Curriculum"), so Maths is preselected. */}
+      <TrialBookingFlow visible={booking} onClose={() => setBooking(false)} presetSubject="Maths" />
     </View>
   );
 }
