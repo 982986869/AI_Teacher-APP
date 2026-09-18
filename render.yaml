@@ -150,6 +150,17 @@ services:
       # here fails every send while /forgot-password still answers "on its way".
       - key: MAIL_FROM
         sync: false
+      # Free demo-class booking. The standing Google Meet room every demo uses; the
+      # booking endpoint answers 503 until this is set, so nothing is emailed blank.
+      - key: TRIAL_MEET_LINK
+        sync: false
+      # Sender for the booking emails. Verified in Brevo like MAIL_FROM (Senders →
+      # Add a sender). Defaults to "Ailernova Kids <kids@ailernova.com>" when unset.
+      - key: TRIAL_MAIL_FROM
+        sync: false
+      # Team copy of every booking. Defaults to kids@ailernova.com when unset.
+      - key: TRIAL_NOTIFY_EMAIL
+        sync: false
       # The reset link is built from this. Unset, the emailed link points at
       # localhost and every reset dead-ends.
       # MAIL_RELAY_URL / MAIL_RELAY_SECRET used to be here, routing mail through a
