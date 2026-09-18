@@ -86,17 +86,26 @@ function transporter() {
 // A failure here must NEVER fail the caller's request: /forgot-password answers the
 // same way whether or not the address exists, and letting a provider outage change
 // that answer would leak which addresses are real. The caller logs and moves on.
+// The bare address inside "Name <addr>", or the string itself when there is no name.
+const bareAddress = (s) => { const m = /<([^>]+)>/.exec(s || ''); return m ? m[1].trim() : String(s || '').trim() }
+
 // `from` is optional: the default is MAIL_FROM. A message type that speaks for a
-// different desk (the demo-class booking writes from kids@) passes its own, which
-// must be a verified sender at the provider exactly like MAIL_FROM.
-async function sendMail({ to, subject, html, text, from }) {
-  const sender = (from || '').trim() || mail.from
+// different desk passes its own, which must be a verified sender at the provider
+// exactly like MAIL_FROM.
+//
+// `fromName` + `replyTo` are for mail that is really from a person we are relaying
+// (a parent's demo booking landing in the team inbox). The provider will not send as
+// an address it has not verified, so the envelope stays MAIL_FROM; the display name
+// says who it is from, and Reply-To makes "Reply" go to them and not to us.
+async function sendMail({ to, subject, html, text, from, fromName, replyTo }) {
+  const sender = (from || '').trim()
+    || (fromName ? `"${String(fromName).replace(/["<>]/g, '')}" <${bareAddress(mail.from)}>` : mail.from)
   if (mail.transport === 'relay') {
     try {
       const r = await fetch(relayUrl, {
         method: 'POST',
         headers: { 'content-type': 'application/json', 'x-relay-key': relaySecret },
-        body: JSON.stringify({ to, subject, html, text, from: sender }),
+        body: JSON.stringify({ to, subject, html, text, from: sender, replyTo }),
       })
       const body = await r.json().catch(() => ({}))
       if (!r.ok || !body.ok) {
@@ -112,7 +121,7 @@ async function sendMail({ to, subject, html, text, from }) {
 
   if (mail.transport === 'smtp') {
     try {
-      const info = await transporter().sendMail({ from: sender, to, subject, html, text })
+      const info = await transporter().sendMail({ from: sender, to, subject, html, text, replyTo: replyTo || undefined })
       return { ok: true, id: info.messageId }
     } catch (err) {
       console.error(`[mail] smtp send failed: ${err.message}`)
@@ -223,4 +232,4 @@ function resetPasswordEmail({ name, link, code, minutes }) {
   return { subject, html, text }
 }
 
-module.exports = { sendMail, resetPasswordEmail, verifyTransport, mail }
+module.exports = { sendMail, resetPasswordEmail, verifyTransport, mail, bareAddress }

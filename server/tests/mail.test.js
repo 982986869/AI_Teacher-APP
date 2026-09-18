@@ -152,3 +152,12 @@ test('the team copy has the contact details the parent email does not', () => {
   assert.ok(m.text.includes(MEET))
   assert.ok(m.text.includes('b1'))
 })
+
+// ─── Sender line construction (mailer) ───────────────────────────────────────
+
+test('the bare address is pulled out of a "Name <addr>" sender, or taken as is', () => {
+  const { bareAddress } = require('../src/services/mailer')
+  assert.equal(bareAddress('Ailernova <noreply@ailernova.com>'), 'noreply@ailernova.com')
+  assert.equal(bareAddress('saurabh@ailernova.com'), 'saurabh@ailernova.com')
+  assert.equal(bareAddress(''), '')
+})

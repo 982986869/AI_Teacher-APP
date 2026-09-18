@@ -70,6 +70,9 @@ test('booking stores the row, emails parent and team, and answers 201', { skip: 
   // No sender override by default — sendMail falls back to MAIL_FROM, the verified one.
   assert.equal(toParent.from, config.trial.mailFrom || undefined)
   assert.ok(toParent.text.includes('https://meet.google.com/test-link-xyz'))
+  // The team copy reads as from the parent, and replying reaches the parent.
+  assert.equal(toTeam.fromName, 'Meera via Ailernova')
+  assert.equal(toTeam.replyTo, 'Meera <meera@example.com>')
 })
 
 test('a second active booking is refused with 409', { skip: !hasDb }, async () => {

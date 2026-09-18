@@ -58,7 +58,13 @@ async function createTrialBooking(req, res, next) {
     const from = config.trial.mailFrom || undefined
     const [toParent, toTeam] = await Promise.all([
       _deps.sendMail({ to: parentEmail, from, ...trialBooked(facts) }),
-      _deps.sendMail({ to: config.trial.notifyEmail, from, ...trialBookedTeam(facts) }),
+      // The team copy reads as coming from the parent: their name in From, and
+      // Reply-To set so answering it from the kids@ inbox goes to them.
+      _deps.sendMail({
+        to: config.trial.notifyEmail, from,
+        fromName: `${parentName} via Ailernova`, replyTo: `${parentName} <${parentEmail}>`,
+        ...trialBookedTeam(facts),
+      }),
     ])
     // The parent's copy is the one that matters for status; a lost team copy is a
     // nuisance, a lost parent copy is a no-show.
