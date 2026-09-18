@@ -14,6 +14,7 @@
 // text, and a message that only makes sense in HTML reads to them as an empty envelope.
 
 const { GRACE_PERIOD_DAYS } = require('./accountDeletion')
+const { istDate, istRange, istTime, DURATION_MIN } = require('./trialBooking')
 
 // Inline styles only, a table-free single column, and no external images. Mail clients
 // strip <style> blocks, block remote content by default, and render floats unevenly —
@@ -149,4 +150,77 @@ function adminDigest({ rows }) {
   return { subject, text, html }
 }
 
-module.exports = { accountDeleted, reactivate, adminDigest }
+// ─── 4. Your free demo class is booked ───────────────────────────────────────
+//
+// The one email a parent must be able to find on the day: when, and the link. The link
+// appears twice on purpose — as a button and as bare text — because some clients strip
+// the button styling and a link a person cannot copy is not a link.
+
+const shortDay = (d) =>
+  new Date(d).toLocaleDateString('en-IN', { timeZone: 'Asia/Kolkata', weekday: 'short', day: 'numeric', month: 'short' })
+
+function classLine({ childName, childClass, subject }) {
+  return childName ? `${subject} for ${childName}, ${childClass}` : `${subject}, ${childClass}`
+}
+
+function trialBooked({ parentName, childName, childClass, subject, slotAt, durationMin = DURATION_MIN, meetLink }) {
+  const when = `${istDate(slotAt)}, ${istRange(slotAt, durationMin)} (IST)`
+  const what = classLine({ childName, childClass, subject })
+  const text = [
+    hello(parentName),
+    '',
+    'Your free demo class is booked.',
+    '',
+    `Class: ${what}`,
+    `When: ${when}`,
+    `Join on Google Meet: ${meetLink}`,
+    '',
+    'Please join about 10 minutes early so the mentor can say hello and check the audio.',
+    'If the time no longer works, you can cancel from the app and book another slot, or write to kids@ailernova.com.',
+    '',
+    'See you there,',
+    'Ailernova Kids',
+  ].join('\n')
+
+  const html = layout([
+    p(hello(parentName)),
+    p('Your free demo class is booked.'),
+    `    <div style="background:#f6f6f9;border-radius:10px;padding:16px 18px;margin:0 0 20px;font-size:15px;line-height:1.7;">
+      <div><strong>Class:</strong> ${what}</div>
+      <div><strong>When:</strong> ${when}</div>
+    </div>`,
+    `    <p style="margin:0 0 20px;"><a href="${meetLink}" style="display:inline-block;background:#5b3df5;color:#ffffff;text-decoration:none;font-weight:700;font-size:15px;padding:14px 22px;border-radius:10px;">Join on Google Meet</a></p>`,
+    p(`Or copy this link: <a href="${meetLink}">${meetLink}</a>`),
+    p('Please join about 10 minutes early so the mentor can say hello and check the audio.'),
+    p('If the time no longer works, you can cancel from the app and book another slot, or write to <a href="mailto:kids@ailernova.com">kids@ailernova.com</a>.'),
+    p('See you there,<br>Ailernova Kids'),
+  ].join('\n'))
+
+  return { subject: `Your free demo class is booked — ${shortDay(slotAt)} at ${istTime(slotAt)}`, text, html }
+}
+
+// ─── 5. Team copy ────────────────────────────────────────────────────────────
+//
+// Whoever is staffing the Meet room needs to know who is coming and how to reach them
+// if they do not show. Compact on purpose: it is read on a phone between classes.
+
+function trialBookedTeam({ parentName, parentEmail, parentPhone, childName, childClass, subject, slotAt, durationMin = DURATION_MIN, meetLink, bookingId }) {
+  const rows = [
+    ['When', `${istDate(slotAt)}, ${istRange(slotAt, durationMin)} (IST)`],
+    ['Class', classLine({ childName, childClass, subject })],
+    ['Parent', parentName],
+    ['Email', parentEmail],
+    ['Phone', parentPhone],
+    ['Meet', meetLink],
+    ['Booking', bookingId],
+  ]
+  const text = ['New demo booking', '', ...rows.map(([k, v]) => `${k}: ${v}`)].join('\n')
+  const html = layout([
+    p('<strong>New demo booking</strong>'),
+    `    <table style="border-collapse:collapse;font-size:14px;line-height:1.6;">${rows.map(([k, v]) =>
+      `<tr><td style="padding:2px 14px 2px 0;color:#8a8a94;vertical-align:top;">${k}</td><td style="padding:2px 0;">${v}</td></tr>`).join('')}</table>`,
+  ].join('\n'))
+  return { subject: `New demo booking: ${subject} · ${shortDay(slotAt)}, ${istTime(slotAt)} · ${parentName}`, text, html }
+}
+
+module.exports = { accountDeleted, reactivate, adminDigest, trialBooked, trialBookedTeam }

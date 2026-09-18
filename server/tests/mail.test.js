@@ -96,3 +96,59 @@ test('an account with no email is still identifiable in the digest', () => {
   assert.ok(m.text.includes('Asha'))
   assert.ok(!m.text.includes('undefined'))
 })
+
+// ─── Free demo class booked ──────────────────────────────────────────────────
+
+const { trialBooked, trialBookedTeam } = require('../src/services/mailTemplates')
+
+const SLOT = new Date('2026-09-19T10:30:00Z') // Sat 19 Sep 2026, 4:00 PM IST
+const MEET = 'https://meet.google.com/abc-defg-hij'
+const booking = {
+  parentName: 'Meera', parentEmail: 'meera@example.com', parentPhone: '9876543210',
+  childName: 'Aarav', childClass: 'Class 8', subject: 'Maths',
+  slotAt: SLOT, durationMin: 45, meetLink: MEET, bookingId: 'b1',
+}
+
+test('the parent email carries the Meet link in both parts', () => {
+  const m = trialBooked(booking)
+  assert.ok(m.text.includes(MEET))
+  assert.ok(m.html.includes(`href="${MEET}"`))
+})
+
+test('the parent email says the day and the time in IST, not UTC', () => {
+  const m = trialBooked(booking)
+  assert.match(m.subject, /19 Sep/)
+  assert.match(m.subject, /4:00 PM/)
+  assert.match(m.text, /Saturday, 19 September 2026/)
+  assert.match(m.text, /4:00 – 4:45 PM/)
+  assert.ok(!bothParts(m).includes('10:30'))
+})
+
+test('the parent email names the child, class and subject', () => {
+  const m = trialBooked(booking)
+  assert.match(m.text, /Maths/)
+  assert.match(m.text, /Aarav/)
+  assert.match(m.text, /Class 8/)
+})
+
+test('the parent email works without a child name', () => {
+  const m = trialBooked({ ...booking, childName: null })
+  assert.match(m.text, /^Hi Meera,/)
+  assert.ok(!bothParts(m).includes('null'))
+  assert.ok(!bothParts(m).includes('undefined'))
+})
+
+test('the parent email tells them where to write back', () => {
+  assert.match(trialBooked(booking).text, /kids@ailernova\.com/)
+})
+
+test('the team copy has the contact details the parent email does not', () => {
+  const m = trialBookedTeam(booking)
+  assert.match(m.subject, /^New demo booking: Maths/)
+  assert.match(m.subject, /Meera/)
+  assert.match(m.text, /meera@example\.com/)
+  assert.match(m.text, /9876543210/)
+  assert.match(m.text, /Sat/)
+  assert.ok(m.text.includes(MEET))
+  assert.ok(m.text.includes('b1'))
+})
