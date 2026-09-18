@@ -154,8 +154,9 @@ services:
       # booking endpoint answers 503 until this is set, so nothing is emailed blank.
       - key: TRIAL_MEET_LINK
         sync: false
-      # Sender for the booking emails. Verified in Brevo like MAIL_FROM (Senders →
-      # Add a sender). Defaults to "Ailernova Kids <kids@ailernova.com>" when unset.
+      # Optional separate sender for the booking emails. Leave UNSET to send from
+      # MAIL_FROM (already Brevo-verified; the forgot-password sender). Set only to an
+      # address that has itself been verified in Brevo.
       - key: TRIAL_MAIL_FROM
         sync: false
       # Team copy of every booking. Defaults to kids@ailernova.com when unset.

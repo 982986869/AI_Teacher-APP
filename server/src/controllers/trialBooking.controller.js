@@ -53,9 +53,12 @@ async function createTrialBooking(req, res, next) {
     let row = inserted[0]
 
     const facts = { parentName, parentEmail, parentPhone, childName, childClass, subject, slotAt, durationMin: DURATION_MIN, meetLink, bookingId: row.id }
+    // No `from` unless TRIAL_MAIL_FROM is set: sendMail then uses MAIL_FROM, the one
+    // sender Brevo already accepts (the forgot-password mails go out from it).
+    const from = config.trial.mailFrom || undefined
     const [toParent, toTeam] = await Promise.all([
-      _deps.sendMail({ to: parentEmail, from: config.trial.mailFrom, ...trialBooked(facts) }),
-      _deps.sendMail({ to: config.trial.notifyEmail, from: config.trial.mailFrom, ...trialBookedTeam(facts) }),
+      _deps.sendMail({ to: parentEmail, from, ...trialBooked(facts) }),
+      _deps.sendMail({ to: config.trial.notifyEmail, from, ...trialBookedTeam(facts) }),
     ])
     // The parent's copy is the one that matters for status; a lost team copy is a
     // nuisance, a lost parent copy is a no-show.

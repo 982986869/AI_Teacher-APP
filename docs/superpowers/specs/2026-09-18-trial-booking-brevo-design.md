@@ -1,7 +1,7 @@
 # Trial booking in-house, confirmed by Brevo email
 
 **Date:** 2026-09-18
-**Status:** implemented on feat/trial-booking (2026-09-18). Pending for production: run `prisma/sql/trial_bookings.sql` on Render's DB, set `TRIAL_MEET_LINK` on Render, verify `kids@ailernova.com` as a sender in Brevo (or set `TRIAL_MAIL_FROM` to the verified address). Also: Cancel on web uses `window.confirm` because react-native-web's `Alert.alert` is a stub.
+**Status:** implemented on feat/trial-booking (2026-09-18). Pending for production: run `prisma/sql/trial_bookings.sql` on Render's DB, set `TRIAL_MEET_LINK` on Render. Sender = `MAIL_FROM` (the already-verified forgot-password sender); `TRIAL_MAIL_FROM` is an optional override. Also: Cancel on web uses `window.confirm` because react-native-web's `Alert.alert` is a stub.
 **Replaces:** the Calendly embed (`TrialBookingEmbed.js`, commits aafba62 / 066295d)
 
 ## Goal
@@ -85,9 +85,9 @@ so the Prisma client need not be regenerated on Render.
 - `TRIAL_MEET_LINK` — the standing Google Meet room. **Required for booking**:
   without it the POST answers 503 "Demo booking is not set up yet" rather than
   emailing a blank link. Added to `render.yaml` as `sync: false`.
-- `TRIAL_MAIL_FROM` — default `Ailernova Kids <kids@ailernova.com>`. Passed as a
-  per-message `from` override to `sendMail` (new optional field; existing callers
-  keep `MAIL_FROM`). Must be a verified sender in Brevo.
+- `TRIAL_MAIL_FROM` — optional. Unset (the default), booking mails go out from
+  `MAIL_FROM`, the sender Brevo already accepts for forgot-password. Set only to a
+  separately verified address; passed as a per-message `from` to `sendMail`.
 - `TRIAL_NOTIFY_EMAIL` — default `kids@ailernova.com`; gets the team copy.
 
 ### Email (`services/mailTemplates.js`)

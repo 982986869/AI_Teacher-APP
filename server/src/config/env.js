@@ -60,8 +60,10 @@ const config = {
   // account. Unset, booking refuses (503) rather than mail an empty link.
   trial: {
     meetLink: (process.env.TRIAL_MEET_LINK || '').trim(),
-    // The sender parents see. Must be a verified sender in Brevo, like MAIL_FROM.
-    mailFrom: (process.env.TRIAL_MAIL_FROM || 'Ailernova Kids <kids@ailernova.com>').trim(),
+    // The sender parents see. Empty means "same as MAIL_FROM" — the address that is
+    // already verified in Brevo and that forgot-password mails go out from. Set only
+    // if a separate (verified) desk address is wanted.
+    mailFrom: (process.env.TRIAL_MAIL_FROM || '').trim(),
     // Where the team copy of every booking goes.
     notifyEmail: (process.env.TRIAL_NOTIFY_EMAIL || 'kids@ailernova.com').trim(),
   },

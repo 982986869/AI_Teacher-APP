@@ -67,7 +67,8 @@ test('booking stores the row, emails parent and team, and answers 201', { skip: 
   const toParent = sent.find((m) => m.to === 'meera@example.com')
   const toTeam = sent.find((m) => m.to === config.trial.notifyEmail)
   assert.ok(toParent && toTeam)
-  assert.equal(toParent.from, config.trial.mailFrom)
+  // No sender override by default — sendMail falls back to MAIL_FROM, the verified one.
+  assert.equal(toParent.from, config.trial.mailFrom || undefined)
   assert.ok(toParent.text.includes('https://meet.google.com/test-link-xyz'))
 })
 
