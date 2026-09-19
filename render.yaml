@@ -150,8 +150,10 @@ services:
       # here fails every send while /forgot-password still answers "on its way".
       - key: MAIL_FROM
         sync: false
-      # Free demo-class booking. The standing Google Meet room every demo uses; the
-      # booking endpoint answers 503 until this is set, so nothing is emailed blank.
+      # Free demo-class booking. The standing Google Meet room every demo uses. Unset,
+      # config/env.js falls back to https://meet.google.com/new — a placeholder that
+      # opens a fresh meeting per click, so parent and mentor would NOT share a room.
+      # Set this to the real room (meet.google.com/xxx-xxxx-xxx) as soon as one exists.
       - key: TRIAL_MEET_LINK
         sync: false
       # Optional separate sender for the booking emails. Leave UNSET to send from

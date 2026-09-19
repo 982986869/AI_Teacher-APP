@@ -57,9 +57,15 @@ const config = {
 
   // Free demo-class booking (controllers/trialBooking). One standing Google Meet room
   // for every demo — a link per booking would need the Calendar API and a service
-  // account. Unset, booking refuses (503) rather than mail an empty link.
+  // account.
+  //
+  // PLACEHOLDER DEFAULT (2026-09-19, "kuch bhi daal do abhi ke liye"): until the team
+  // creates a standing room and sets TRIAL_MEET_LINK on Render, the emailed link is
+  // Google's "new meeting" URL. It works — it opens a fresh meeting for whoever clicks
+  // it — but the parent and the mentor would land in DIFFERENT meetings, so the mentor
+  // must send the real room link before the class. Replace as soon as a room exists.
   trial: {
-    meetLink: (process.env.TRIAL_MEET_LINK || '').trim(),
+    meetLink: (process.env.TRIAL_MEET_LINK || 'https://meet.google.com/new').trim(),
     // The sender parents see. Empty means "same as MAIL_FROM" — the address that is
     // already verified in Brevo and that forgot-password mails go out from. Set only
     // if a separate (verified) desk address is wanted.

@@ -1,7 +1,7 @@
 # Trial booking in-house, confirmed by Brevo email
 
 **Date:** 2026-09-18
-**Status:** implemented on feat/trial-booking (2026-09-18). Pending for production: run `prisma/sql/trial_bookings.sql` on Render's DB, set `TRIAL_MEET_LINK` on Render. Sender = `MAIL_FROM` (the already-verified forgot-password sender); `TRIAL_MAIL_FROM` is an optional override. Also: Cancel on web uses `window.confirm` because react-native-web's `Alert.alert` is a stub.
+**Status:** implemented on feat/trial-booking (2026-09-18). Pending for production: run `prisma/sql/trial_bookings.sql` on Render's DB. `TRIAL_MEET_LINK` defaults to the placeholder `https://meet.google.com/new` (2026-09-19) until a real room is set on Render. Sender = `MAIL_FROM` (the already-verified forgot-password sender); `TRIAL_MAIL_FROM` is an optional override. Also: Cancel on web uses `window.confirm` because react-native-web's `Alert.alert` is a stub.
 **Replaces:** the Calendly embed (`TrialBookingEmbed.js`, commits aafba62 / 066295d)
 
 ## Goal
