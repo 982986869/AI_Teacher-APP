@@ -32,7 +32,7 @@ import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import Svg, { Circle } from 'react-native-svg';
 import { LinearGradient } from 'expo-linear-gradient';
 import {
-  Bell, Settings, Play, Sparkles, CircleCheck, MessageCircle, Swords,
+  Bell, Settings, Play, Sparkles, CircleCheck, MessageCircle, Swords, Megaphone, X,
   CircleAlert, TrendingUp, Target, Clock, Brain, Video, ArrowRight, Users,
 } from 'lucide-react-native';
 import {
@@ -56,6 +56,8 @@ import BrainGymFlow from './braingym/BrainGymFlow';
 // Same pattern as the two above: opens INSIDE Home, no route, so the dock's paid
 // gate and the Help bubble's offset both keep working without knowing about it.
 import ActivitiesScreen from './ActivitiesScreen';
+import { getAnnouncements } from '../api/announcementsApi';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import OptionalUpdateBanner from '../components/OptionalUpdateBanner';
 import { getParentReport } from '../api/parentApi';
 import { getResumeContext } from '../api/aiApi';
@@ -336,6 +338,10 @@ const HomeScreen = () => {
   const [seedSubject, setSeedSubject] = useState('');
   const [showBrainGym, setShowBrainGym] = useState(false);
   const [showActivities, setShowActivities] = useState(false);
+  // Announcements an admin published. Server-filtered by audience, class and
+  // schedule; the app only decides which ones this person has already dismissed.
+  const [announcements, setAnnouncements] = useState([]);
+  const [dismissed, setDismissed] = useState(null);   // null until read from storage
 
   const [report, setReport] = useState(null);
   const [resume, setResume] = useState({ active: null, ctx: null });
@@ -409,6 +415,29 @@ const HomeScreen = () => {
     setShowAITeacher(true);
   };
   const openBrainGym = () => { if (!brainGymOn) return; setShowBrainGym(true); };
+
+  // Dismissals live on the device, not the server: which banners someone has read
+  // is a per-phone convenience, not a fact worth a table and a round trip.
+  useEffect(() => {
+    let alive = true;
+    AsyncStorage.getItem('@ailernova_seen_announcements')
+      .then((raw) => { if (alive) setDismissed(JSON.parse(raw || "[]")); })
+      .catch(() => alive && setDismissed([]));
+    getAnnouncements().then((list) => alive && setAnnouncements(list));
+    return () => { alive = false; };
+  }, []);
+
+  const dismiss = (id) => {
+    const next = [...(dismissed || []), id];
+    setDismissed(next);
+    // Keep the list bounded — an id dropped off the end can only ever cause a
+    // banner to reappear, never the reverse.
+    AsyncStorage.setItem('@ailernova_seen_announcements', JSON.stringify(next.slice(-60))).catch(() => {});
+  };
+
+  // Show one at a time. Two stacked banners is a notification centre, and this is
+  // a home screen; the rest wait their turn as each is dismissed.
+  const banner = dismissed === null ? null : announcements.find((a) => !dismissed.includes(a.id));
   // Activities draw on the same paid question banks as Practice, so the same gate:
   // a free account sees the lock sheet, exactly as it would tapping the Practice tab.
   const openActivities = () => { if (isLocked) { showLock(); return; } setShowActivities(true); };
@@ -522,6 +551,25 @@ const HomeScreen = () => {
           </Card>
         ) : (
           <>
+            {/* ── 0. announcement, when an admin has published one ── */}
+            {!!banner && (
+              <Appear delay={40} y={12}>
+                <View style={hs.annBanner}>
+                  <View style={hs.annIcon}><Megaphone size={16} color={DAY.bannerFg} strokeWidth={2} /></View>
+                  <View style={{ flex: 1 }}>
+                    <T w="bold" s={13} c={DAY.bannerFg} numberOfLines={2}>{banner.title}</T>
+                    {!!banner.body && (
+                      <T w="reg" s={12} c={DAY.inkSoft} numberOfLines={3} style={{ marginTop: 3, lineHeight: 17 }}>{banner.body}</T>
+                    )}
+                  </View>
+                  <Squeeze onPress={() => dismiss(banner.id)} hitSlop={10} style={hs.annClose}
+                    accessibilityRole="button" accessibilityLabel="Dismiss announcement">
+                    <X size={15} color={DAY.inkDim} strokeWidth={2.4} />
+                  </Squeeze>
+                </View>
+              </Appear>
+            )}
+
             {/* ── 1. current lesson ── */}
             <Appear delay={60} y={16}>
               <LinearGradient colors={[DAY.heroA, DAY.heroB]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={hs.hero}>
@@ -839,6 +887,16 @@ const hs = StyleSheet.create({
   // tiles
   tile: { minHeight: 134 },   // Figma: Bento-Row-1 height 134
   activityTile: { flexDirection: 'row', alignItems: 'center', gap: 14, marginTop: 16 },
+  annBanner: {
+    flexDirection: 'row', alignItems: 'flex-start', gap: 12,
+    backgroundColor: DAY.bannerBg, borderLeftWidth: 4, borderLeftColor: DAY.bannerEdge,
+    borderRadius: 14, padding: 14, marginBottom: 16,
+  },
+  annIcon: {
+    width: 30, height: 30, borderRadius: 9, alignItems: 'center', justifyContent: 'center',
+    backgroundColor: DAY.card,
+  },
+  annClose: { padding: 2 },
   activityIcon: { width: 44, height: 44, borderRadius: 12, backgroundColor: DAY.violetSoft, alignItems: 'center', justifyContent: 'center' },
   // Figma: 40x15 hug, 4px radius, 1px #FCD34D, 2/6 padding, Inter 700 9px #D97706.
   brainChip: {

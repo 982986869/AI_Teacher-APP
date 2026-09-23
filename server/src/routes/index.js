@@ -47,6 +47,7 @@ router.use('/logs',       require('./logs'))
 // account they are all empty anyway. The Results SCREEN is gated in the app; that is
 // a product choice about what to show, not a leak this router could cause.
 router.use('/learning',   require('./learning'))
+router.use('/announcements', authenticate, require('./announcements'))
 
 // Free. Which teacher to render, matched to the voice the student is actually
 // hearing. Not gated: the lesson screen needs it before it knows whether the
