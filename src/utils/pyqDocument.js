@@ -66,9 +66,22 @@ export function buildPyqDocument(fragmentHtml, opts = {}) {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <script>
+  // Until MathJax has typeset, every formula on the page reads as literal
+  // backslashes and braces. The script is 1.2 MB from our own host, so on a cold
+  // instance that window is seconds long and a student sees \(\frac{1}{C}\) as text.
+  // Hold the body hidden until typesetting finishes — and reveal regardless after
+  // REVEAL_MS, because a script that never arrives must not blank the page: raw
+  // math is bad, no math at all is worse.
+  var REVEAL_MS = 9000;
+  var revealed = false;
+  function reveal(){ if (revealed) return; revealed = true;
+    try { document.documentElement.classList.add('mj-ready'); } catch (e) {} }
+  setTimeout(reveal, REVEAL_MS);
+
   window.MathJax = { tex: { inlineMath: [['\\\\(', '\\\\)']], displayMath: [] },
     startup: { ready: function () { window.MathJax.startup.defaultReady();
-      window.MathJax.startup.promise.then(fitWideMath); } } };
+      window.MathJax.startup.promise.then(function () { fitWideMath(); reveal(); })
+        .catch(reveal); } } };
   // Wrap any formula wider than the space actually available to it (its parent's
   // content box — not the full page) in a horizontally scrollable span, so wide
   // math inside a narrow column (e.g. an MCQ option) scrolls instead of pushing
@@ -98,8 +111,13 @@ export function buildPyqDocument(fragmentHtml, opts = {}) {
   window.addEventListener('load', fitWideMath);
   window.addEventListener('orientationchange', function(){ setTimeout(fitWideMath, 60); });
 </script>
-<script src="${API_BASE_URL}/vendor/mathjax-tex-mml-chtml.js"></script>
+<link rel="preload" as="script" href="${API_BASE_URL}/vendor/mathjax-tex-mml-chtml.js">
+<script src="${API_BASE_URL}/vendor/mathjax-tex-mml-chtml.js" onerror="reveal()"></script>
 <style>
+  /* Held until MathJax typesets (or REVEAL_MS passes) — see reveal() above. */
+  html:not(.mj-ready) body{ opacity:0; }
+  html.mj-ready body{ opacity:1; transition:opacity .18s ease-out; }
+  @media (prefers-reduced-motion: reduce){ html.mj-ready body{ transition:none; } }
   *{ -webkit-tap-highlight-color:transparent; box-sizing:border-box; }
   html,body{ margin:0; max-width:100%; overflow-x:hidden; }
   body{ padding:12px; background:${T.page}; font-family:-apple-system,Roboto,"Segoe UI",sans-serif;
