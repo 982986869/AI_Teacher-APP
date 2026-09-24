@@ -1,30 +1,26 @@
 'use strict'
 
-// Uploads content images (question / option diagrams authored in the admin app) to
-// Supabase Storage and returns a public URL that gets embedded as <img src> in the
-// question/option HTML — students already render that HTML, so no student-side change.
-//
-// Config (server .env):
-//   SUPABASE_URL              e.g. https://<project-ref>.supabase.co
-//   SUPABASE_SERVICE_ROLE_KEY service-role key (server-only; never ship to the client)
-//   SUPABASE_STORAGE_BUCKET   public bucket name (default: content-images)
-// If the keys are absent the upload endpoint reports a clear "not configured" error
-// instead of crashing — every other feature keeps working.
+// Stores uploads — question/option diagrams from the admin app, profile photos,
+// support-ticket attachments — on this server's disk under server/uploads/, which
+// index.js serves at /uploads. Returns an absolute URL (APP_PUBLIC_URL based)
+// because the URL is embedded in question HTML and read by the mobile app.
+// Names are random and never reused, so /uploads is cached for a year.
 
 const crypto = require('crypto')
-const { createClient } = require('@supabase/supabase-js')
+const fs = require('fs/promises')
+const path = require('path')
+const { config } = require('../config/env')
 
-const URL = process.env.SUPABASE_URL || ''
-const KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || ''
-const BUCKET = process.env.SUPABASE_STORAGE_BUCKET || 'content-images'
+const UPLOAD_DIR = path.join(__dirname, '..', '..', 'uploads')
 
-const isConfigured = () => !!(URL && KEY)
+// Local disk is always available. Kept so the callers' guard needs no change.
+const isConfigured = () => true
 
-let _client = null
-function client() {
-  if (!isConfigured()) return null
-  if (!_client) _client = createClient(URL, KEY, { auth: { persistSession: false } })
-  return _client
+async function save(buffer, folder, ext) {
+  const rel = `${folder}/${crypto.randomBytes(16).toString('hex')}.${ext}`
+  await fs.mkdir(path.join(UPLOAD_DIR, folder), { recursive: true })
+  await fs.writeFile(path.join(UPLOAD_DIR, rel), buffer, { flag: 'wx' })
+  return `${config.publicUrl}/uploads/${rel}`
 }
 
 const EXT_BY_MIME = { 'image/jpeg': 'jpg', 'image/jpg': 'jpg', 'image/png': 'png', 'image/webp': 'webp', 'image/gif': 'gif' }
@@ -35,22 +31,10 @@ const safeExt = (originalName, mime) => {
   return EXT_BY_MIME[String(mime || '').toLowerCase()] || 'jpg'
 }
 
-// Upload a Buffer → returns the public URL. Throws with a readable message on failure.
-// `folder` groups uploads by feature within the one bucket (questions/, avatars/, …).
-async function uploadImage(buffer, { contentType, originalName, folder = 'questions' } = {}) {
-  const sb = client()
-  if (!sb) throw new Error('Image storage is not configured on the server (set SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY).')
-  const ext = safeExt(originalName, contentType)
-  const path = `${folder}/${crypto.randomBytes(16).toString('hex')}.${ext}`
-  const { error } = await sb.storage.from(BUCKET).upload(path, buffer, {
-    contentType: contentType || 'image/jpeg',
-    upsert: false,
-    cacheControl: '31536000',
-  })
-  if (error) throw new Error(error.message || 'Storage upload failed')
-  const { data } = sb.storage.from(BUCKET).getPublicUrl(path)
-  if (!data || !data.publicUrl) throw new Error('Upload succeeded but no public URL was returned (is the bucket public?).')
-  return data.publicUrl
+// Save an image Buffer → returns its public URL.
+// `folder` groups uploads by feature (questions/, avatars/, …).
+async function uploadImage(buffer, { originalName, contentType, folder = 'questions' } = {}) {
+  return save(buffer, folder, safeExt(originalName, contentType))
 }
 
 // Support-ticket attachments are not only images — a parent disputing a charge attaches
@@ -77,21 +61,9 @@ function fileExt(originalName, mime) {
   return EXT_BY_FILE_MIME[m] || EXT_BY_MIME[m] || 'bin'
 }
 
-// Upload any allowed attachment Buffer → public URL. Same bucket, own folder.
-async function uploadFile(buffer, { contentType, originalName, folder = 'uploads' } = {}) {
-  const sb = client()
-  if (!sb) throw new Error('File storage is not configured on the server (set SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY).')
-  const ext = fileExt(originalName, contentType)
-  const path = `${folder}/${crypto.randomBytes(16).toString('hex')}.${ext}`
-  const { error } = await sb.storage.from(BUCKET).upload(path, buffer, {
-    contentType: contentType || 'application/octet-stream',
-    upsert: false,
-    cacheControl: '31536000',
-  })
-  if (error) throw new Error(error.message || 'Storage upload failed')
-  const { data } = sb.storage.from(BUCKET).getPublicUrl(path)
-  if (!data || !data.publicUrl) throw new Error('Upload succeeded but no public URL was returned (is the bucket public?).')
-  return data.publicUrl
+// Save any allowed attachment Buffer → public URL. Own folder.
+async function uploadFile(buffer, { originalName, contentType, folder = 'uploads' } = {}) {
+  return save(buffer, folder, fileExt(originalName, contentType))
 }
 
-module.exports = { uploadImage, uploadFile, isConfigured, BUCKET }
+module.exports = { uploadImage, uploadFile, isConfigured, UPLOAD_DIR }

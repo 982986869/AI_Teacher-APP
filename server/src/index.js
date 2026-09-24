@@ -84,6 +84,16 @@ app.use('/vendor', express.static(path.join(__dirname, '..', 'public', 'vendor')
   },
 }))
 
+// ─── Uploaded images / attachments (services/storage.js) ─────────────────────
+// Random names that are never overwritten, so a year-long immutable cache is safe.
+app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads'), {
+  immutable: true,
+  maxAge: '1y',
+  setHeaders: (res) => {
+    res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin')
+  },
+}))
+
 // ─── Routes ──────────────────────────────────────────────────────────────────
 app.use('/api', routes)
 
