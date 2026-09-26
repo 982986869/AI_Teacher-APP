@@ -665,8 +665,11 @@ const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
         // Also persist server-side, so the attempt reaches the parent's progress
         // view. Fire-and-forget — the local record above is what this screen reads,
         // so a failed sync must never block or alter the result the student sees.
+        // The quiz reports { questionId: optionId }; the endpoint takes
+        // [{ questionId, optionId }].
         if (subtopicId != null && answers && Object.keys(answers).length) {
-          submitMcqTest(subtopicId, answers).catch(() => {});
+          const list = Object.entries(answers).map(([questionId, optionId]) => ({ questionId, optionId }));
+          submitMcqTest(subtopicId, list).catch(() => {});
         }
       }}
     />

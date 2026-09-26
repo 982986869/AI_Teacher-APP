@@ -87,8 +87,22 @@ async function getSubtopicTest(subtopicId) {
   }
 }
 
+// Accepts [{ questionId, optionId }] or the { questionId: optionId } map the app's
+// quiz reports, and returns one entry per question (last answer wins). Anything
+// else is treated as no answers rather than crashing the submit.
+function normalizeAnswers(answers) {
+  let pairs = []
+  if (Array.isArray(answers)) pairs = answers.filter((a) => a && typeof a === 'object').map((a) => [a.questionId, a.optionId])
+  else if (answers && typeof answers === 'object') pairs = Object.entries(answers)
+  const byQuestion = new Map()
+  for (const [questionId, optionId] of pairs) {
+    if (questionId != null) byQuestion.set(String(questionId), optionId)
+  }
+  return [...byQuestion].map(([questionId, optionId]) => ({ questionId, optionId }))
+}
+
 // ─── Submit: grade answers → accuracy / completion / score ────────────────────
-// answers = [{ questionId, optionId }]
+// answers = [{ questionId, optionId }] or { questionId: optionId }
 async function gradeSubmission(subtopicId, answers) {
   const rows = await db.mcq_questions.findMany({
     where: { subtopic_id: BigInt(subtopicId) },
@@ -101,7 +115,10 @@ async function gradeSubmission(subtopicId, answers) {
   const total = rows.length
   let attempted = 0
   let correct = 0
-  const results = (answers || []).map((a) => {
+  // Only this subtopic's questions are graded — ids from elsewhere would otherwise
+  // be saved to mcq_attempts under the wrong subtopic.
+  const own = normalizeAnswers(answers).filter((a) => correctMap.has(String(a.questionId)))
+  const results = own.map((a) => {
     const qid = String(a.questionId)
     const sel = a.optionId != null ? String(a.optionId) : null
     if (sel != null) attempted++
