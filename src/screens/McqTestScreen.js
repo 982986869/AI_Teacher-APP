@@ -5,6 +5,7 @@ import { FONT } from '../constants/fonts';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import MathText from '../components/MathText';
 import { firstImg, stripImages } from '../utils/mathHtml';
+import { scoreMcqTest, answersById, counts } from '../utils/mcqTestScoring';
 
 // Warm coral + teal pastel palette (Cuemath-style). coral = primary/brand,
 // teal = correct/positive, warm-red = wrong, amber = skipped.
@@ -141,6 +142,11 @@ export default function McqTestScreen({
 
   const selectOption = (optIdx) => {
     setAnswers((a) => ({ ...a, [current]: optIdx }));
+    // Picking an option on a skipped question un-skips it, so the pick is scored.
+    setStatus((st) => {
+      if (st[current] !== 'skipped') return st;
+      const n = { ...st }; delete n[current]; return n;
+    });
   };
 
   const goNext = () => {
@@ -179,10 +185,7 @@ export default function McqTestScreen({
     if (submittedRef.current) return;
     submittedRef.current = true;
     if (!onSubmit) return;
-    const ansById = {};
-    qs.forEach((q, i) => {
-      if (status[i] === 'answered' && answers[i] != null && q && q.id != null) ansById[q.id] = answers[i];
-    });
+    const ansById = answersById(qs, answers, status);
     const timeTakenSec = Math.max(0, durationMin * 60 - secs);
     try { onSubmit({ answers: ansById, timeTakenSec, results: computeResults() }); } catch (e) { /* non-fatal */ }
   };
@@ -206,21 +209,7 @@ export default function McqTestScreen({
   };
 
   // Results computation
-  const computeResults = () => {
-    let correct = 0, wrong = 0;
-    qs.forEach((q, i) => {
-      if (answers[i] != null && status[i] === 'answered') {
-        if (answers[i] === q.correct) correct++;
-        else wrong++;
-      }
-    });
-    const skipped = total - correct - wrong;
-    const score = correct * pointsPerCorrect - wrong * negative;
-    const accuracy = (correct + wrong) ? Math.round((correct / (correct + wrong)) * 100) : 0;
-    const completion = total ? Math.round(((correct + wrong) / total) * 100) : 0;
-    const scorePct = totalMarks ? Math.round((Math.max(0, score) / totalMarks) * 100) : 0;
-    return { correct, wrong, skipped, score, accuracy, completion, scorePct };
-  };
+  const computeResults = () => scoreMcqTest(qs, answers, status, { pointsPerCorrect, negative });
 
   const Header = () => (
     <View style={s.header}>
@@ -362,7 +351,7 @@ export default function McqTestScreen({
             <View style={s.secTitleRow}><View style={s.secBar} /><Text style={s.secTitle}>Answer Review</Text></View>
             {qs.map((q, i) => {
               const ans = answers[i];
-              const isAnswered = status[i] === 'answered' && ans != null;
+              const isAnswered = counts(answers, status, i);
               const isCorrect = isAnswered && ans === q.correct;
               const tagBg = !isAnswered ? C.yellowLight : isCorrect ? C.greenLight : C.accentLight;
               const tagColor = !isAnswered ? C.yellow : isCorrect ? C.green : C.accent;
