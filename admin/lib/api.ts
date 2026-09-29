@@ -79,6 +79,40 @@ async function request<T>(base: string, path: string, opts: Options = {}): Promi
   return (json ? json.data : null) as T
 }
 
+// Multipart upload with progress. Kept separate from api() rather than folded into
+// it: fetch cannot report upload progress at all, so a large PDF would sit at 0%
+// with no way to tell a stalled connection from a slow one. XHR can.
+export function upload<T = any>(
+  path: string,
+  form: FormData,
+  onProgress?: (pct: number) => void,
+): Promise<T> {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest()
+    xhr.open('POST', `/api/admin${path}`)
+    const token = getToken()
+    if (token) xhr.setRequestHeader('Authorization', `Bearer ${token}`)
+    // Content-Type is deliberately NOT set — the browser must add the multipart
+    // boundary itself, and setting it by hand strips that and breaks the parse.
+    xhr.upload.onprogress = (e) => {
+      if (e.lengthComputable && onProgress) onProgress(Math.round((e.loaded / e.total) * 100))
+    }
+    xhr.onload = () => {
+      let json: any = null
+      try { json = JSON.parse(xhr.responseText) } catch { /* empty or non-JSON body */ }
+      if (xhr.status === 401) { clearToken(); if (onUnauthorized) onUnauthorized() }
+      if (xhr.status >= 200 && xhr.status < 300 && !(json && json.success === false)) {
+        resolve((json ? json.data : null) as T)
+      } else {
+        reject(new ApiError((json && (json.error || json.message)) || `Upload failed (${xhr.status})`, xhr.status))
+      }
+    }
+    xhr.onerror = () => reject(new ApiError('Network error during upload.', 0))
+    xhr.ontimeout = () => reject(new ApiError('The upload timed out.', 0))
+    xhr.send(form)
+  })
+}
+
 export function api<T = any>(path: string, opts: Options = {}): Promise<T> {
   return request<T>('/api/admin', path, opts)
 }

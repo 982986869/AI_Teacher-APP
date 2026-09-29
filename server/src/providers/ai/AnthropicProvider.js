@@ -332,6 +332,27 @@ class AnthropicProvider extends AIProvider {
 
   // Structured "animated mini-lesson" grounded answer. Returns a validated
   // teaching object, or throws so the caller can fall back to the plain answer.
+  // Generic single-shot completion. Every other method here owns a prompt built
+  // from a prompts/ module; this one takes the prompt whole, for callers that
+  // compose their own (book content generation) and want JSON back rather than a
+  // teacher-voiced reply. Returns { text, model } so the caller can record which
+  // model produced content a human will later review.
+  async complete({ prompt, maxTokens = 4000, system = null } = {}) {
+    const client = this._getClient()
+    let message
+    try {
+      message = await client.messages.create({
+        model: this.knowledgeModel,
+        max_tokens: maxTokens,
+        ...(system ? { system } : {}),
+        messages: [{ role: 'user', content: String(prompt || '') }],
+      })
+    } catch (err) {
+      throw translateProviderError(err, 'completion')
+    }
+    return { text: extractText(message), model: message && message.model }
+  }
+
   async answerFromKnowledgeStructured(question, contexts = [], history = []) {
     const client = this._getClient()
     let message

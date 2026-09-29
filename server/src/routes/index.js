@@ -48,6 +48,7 @@ router.use('/logs',       require('./logs'))
 // a product choice about what to show, not a leak this router could cause.
 router.use('/learning',   require('./learning'))
 router.use('/announcements', authenticate, require('./announcements'))
+router.use('/books',        authenticate, require('./books'))
 
 // Free. Which teacher to render, matched to the voice the student is actually
 // hearing. Not gated: the lesson screen needs it before it knows whether the
