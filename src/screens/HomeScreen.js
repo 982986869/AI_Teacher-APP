@@ -33,7 +33,7 @@ import Svg, { Circle } from 'react-native-svg';
 import { LinearGradient } from 'expo-linear-gradient';
 import {
   Bell, Settings, Play, Sparkles, CircleCheck, MessageCircle, Swords, Megaphone, X,
-  CircleAlert, TrendingUp, Target, Clock, Brain, Video, ArrowRight, Users,
+  CircleAlert, TrendingUp, Target, Clock, Brain, Video, ArrowRight, Users, BookOpen,
 } from 'lucide-react-native';
 import {
   useFonts as useAuroraFonts,
@@ -56,6 +56,8 @@ import BrainGymFlow from './braingym/BrainGymFlow';
 // Same pattern as the two above: opens INSIDE Home, no route, so the dock's paid
 // gate and the Help bubble's offset both keep working without knowing about it.
 import ActivitiesScreen from './ActivitiesScreen';
+import MyBooksScreen from './MyBooksScreen';
+import { getBooks } from '../api/booksApi';
 import { getAnnouncements } from '../api/announcementsApi';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import OptionalUpdateBanner from '../components/OptionalUpdateBanner';
@@ -338,6 +340,10 @@ const HomeScreen = () => {
   const [seedSubject, setSeedSubject] = useState('');
   const [showBrainGym, setShowBrainGym] = useState(false);
   const [showActivities, setShowActivities] = useState(false);
+  const [showBooks, setShowBooks] = useState(false);
+  // Books a teacher has shared with this class. The tile is hidden when there are
+  // none — an empty section on Home teaches a student to ignore that space.
+  const [books, setBooks] = useState([]);
   // Announcements an admin published. Server-filtered by audience, class and
   // schedule; the app only decides which ones this person has already dismissed.
   const [announcements, setAnnouncements] = useState([]);
@@ -441,6 +447,15 @@ const HomeScreen = () => {
   // Activities draw on the same paid question banks as Practice, so the same gate:
   // a free account sees the lock sheet, exactly as it would tapping the Practice tab.
   const openActivities = () => { if (isLocked) { showLock(); return; } setShowActivities(true); };
+  const openBooks = () => { if (isLocked) { showLock(); return; } setShowBooks(true); };
+
+  // getBooks never throws — a failure is an empty shelf, and the tile simply
+  // does not appear. A shared book is not worth breaking Home over.
+  useEffect(() => {
+    let alive = true;
+    getBooks(selectedClass).then((list) => alive && setBooks(list));
+    return () => { alive = false; };
+  }, [selectedClass]);
 
   // ── real signals ──
   const bg          = report?.brainGym || {};
@@ -488,6 +503,7 @@ const HomeScreen = () => {
   }
   if (showBrainGym) return <BrainGymFlow onFinish={() => { setShowBrainGym(false); load(true); }} />;
   if (showActivities) return <ActivitiesScreen onBack={() => { setShowActivities(false); load(true); }} />;
+  if (showBooks) return <MyBooksScreen onBack={() => { setShowBooks(false); load(true); }} />;
 
   const avatarUri = user?.photo || user?.avatar || null;
   const initial = String(firstName || 'S').trim().charAt(0).toUpperCase();
@@ -653,6 +669,27 @@ const HomeScreen = () => {
                 </Appear>
               )}
             </View>
+
+            {/* ── 2a. for you — books a teacher has shared with this class ── */}
+            {books.length > 0 && (
+              <Appear delay={160}>
+                <Squeeze style={[hs.card, hs.forYouTile]} onPress={openBooks} accessibilityLabel="Open books shared with you">
+                  <View style={hs.forYouIcon}>
+                    <BookOpen size={22} color={DAY.violet} strokeWidth={2} />
+                  </View>
+                  <View style={{ flex: 1 }}>
+                    <T w="bold" s={11} c={DAY.violet} style={hs.eyebrow}>FOR YOU</T>
+                    <T w="xbold" s={15} c={DAY.ink} numberOfLines={1} style={{ marginTop: 4, lineHeight: 19.5 }}>
+                      {books.length === 1 ? books[0].title : `${books.length} books shared`}
+                    </T>
+                    <T w="reg" s={11} c={DAY.inkSoft} numberOfLines={1} style={{ marginTop: 4 }}>
+                      Notes, resources, practice and quizzes
+                    </T>
+                  </View>
+                  <ArrowRight size={18} color={DAY.inkDim} strokeWidth={2} />
+                </Squeeze>
+              </Appear>
+            )}
 
             {/* ── 2b. activities — class game or solo missions for any chapter ── */}
             <Appear delay={180}>
@@ -887,6 +924,8 @@ const hs = StyleSheet.create({
   // tiles
   tile: { minHeight: 134 },   // Figma: Bento-Row-1 height 134
   activityTile: { flexDirection: 'row', alignItems: 'center', gap: 14, marginTop: 16 },
+  forYouTile: { flexDirection: 'row', alignItems: 'center', gap: 14, marginTop: 16, borderLeftWidth: 4, borderLeftColor: DAY.violet },
+  forYouIcon: { width: 44, height: 44, borderRadius: 12, backgroundColor: DAY.violetSoft, alignItems: 'center', justifyContent: 'center' },
   annBanner: {
     flexDirection: 'row', alignItems: 'flex-start', gap: 12,
     backgroundColor: DAY.bannerBg, borderLeftWidth: 4, borderLeftColor: DAY.bannerEdge,
