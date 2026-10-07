@@ -26,6 +26,7 @@
 import { buildScenes } from './teachingScenes';
 import { cameraForBeat } from './cameraDirector';
 import { openerFor } from './teacherPersona';
+import { chartSeries, CELL_PARTS } from './boardLayout';
 
 // ── the nine reusable choreography templates ──────────────────────────────────
 export const TEMPLATES = [
@@ -122,10 +123,13 @@ function boardTotalFor(scene) {
     // has (the variable rows) or a single beat — never fabricate 3 empty reveals
     // that make the voice "advance steps" over a blank board.
     case 'formula': return (scene.formulaParts || []).length || ((d.variables) || []).length || 1;
-    case 'chart': return ((d.chart && d.chart.values) || []).length || 1; // one bar per beat
+    case 'chart': return chartSeries(d.chart).values.length; // one bar per beat (capped like the board)
     // An annotated figure carries its own part count on the scene, so this one
     // cannot drift from the board — unlike the hand-mirrored numbers below.
     case 'annotated': return d.figureTotal || 0;
+    // Model-drawn board: the step count travels on the scene (set by buildScene from
+    // the same layout the board renders), so the two cannot drift.
+    case 'shapes': return d.shapesTotal || 1;
     // Subject illustrations — step counts MIRROR each board's own reveal total in
     // subjectBoards.js (kept in sync by hand; both files are additive/pure here).
     case 'freeBody': return 4;                 // weight · normal · applied · friction
@@ -133,7 +137,7 @@ function boardTotalFor(scene) {
     case 'graphFn': return 3;                  // axes · curve · point
     case 'numberLine': { const nums = (d.items || []).map((x) => parseFloat(x)).filter((x) => Number.isFinite(x)); return 1 + (nums.length ? Math.min(3, nums.length) : 3); }
     case 'molecule': { const it = (d.items || []); const labels = it.length ? it : ['O', 'H', 'H']; const outer = [labels[1], labels[2], labels[3]].filter(Boolean).length; return Math.max(2, Math.min(4, 1 + outer)); }
-    case 'cell': { const it = (d.items || []); return Math.max(3, Math.min(5, it.length || 4)); }
+    case 'cell': { const it = (d.items || []); return Math.max(3, Math.min(CELL_PARTS, it.length || 4)); }
     case 'timeline': { const it = (d.items || []); return Math.min(5, it.length || 3); }
     case 'quickCheck': return 0;               // interactive, nothing auto-reveals
     case 'concept':

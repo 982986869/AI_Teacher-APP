@@ -880,7 +880,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   // ── Equation/diagram focus-zoom: on each beat of a board that BUILDS (formulas,
   // proofs, graphs, charts), the shot leans in a touch as the new line lands, then
   // settles — the auto-zoom-to-the-equation-and-return feel, never a static frame.
-  const ZOOM_BOARDS = ['formula', 'proof', 'chart', 'graphFn', 'numberLine', 'triangle'];
+  const ZOOM_BOARDS = ['formula', 'proof', 'chart', 'graphFn', 'numberLine', 'triangle', 'shapes'];
   useEffect(() => {
     // Explicit 'zoom'/'focus' action from the transcript overrides — the board leans
     // in harder on command; otherwise auto-zoom on any board that BUILDS.

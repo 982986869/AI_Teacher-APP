@@ -15,6 +15,7 @@ const INK_DIM = '#7A8592';
 // Every board's pixel height runs through h() so the immersive full-bleed stage can
 // draw the same illustration larger without blurring it. h(x) === x in card mode.
 import { useBoardSize } from './boardSize';
+import { fitLabel, LINE_H, cellLayout, CELL_PARTS, moleculeLayout, numberLineRange, freeBodyLayout, FREE_BODY_SLIDE } from './boardLayout';
 
 // ── SUBJECT ILLUSTRATION ENGINE ───────────────────────────────────────────────
 // Reusable, self-drawing board illustrations so a lesson NEVER falls back to
@@ -32,7 +33,7 @@ const ARect = Animated.createAnimatedComponent(Rect);
 
 // Director-controlled reveal (mirror of LessonBoards.useReveal — kept local to
 // avoid a circular import). step != null → show exactly that many; else self-pace.
-function useReveal(total, stepMs, { paused, skip, resetKey, step }) {
+export function useReveal(total, stepMs, { paused, skip, resetKey, step }) {
   const directed = step != null;
   const [n, setN] = useState(skip ? total : (total > 0 ? 1 : 0));
   const pausedRef = useRef(paused);
@@ -56,7 +57,8 @@ function useReveal(total, stepMs, { paused, skip, resetKey, step }) {
 // the teacher is pointing at right now (a label, a bar, an arrow tip, a reaction
 // term). Movement eases (cubic) so it feels like a hand, not a jump. Cheap: three
 // small SVG circles + one looping value.
-function LaserPointer({ x, y, color = '#E0322E', show = true }) {
+// `size` scales the dot for boards whose viewBox is not the usual 300 wide.
+export function LaserPointer({ x, y, color = '#E0322E', show = true, size = 1 }) {
   const cx = useRef(new Animated.Value(x)).current;
   const cy = useRef(new Animated.Value(y)).current;
   const pulse = useRef(new Animated.Value(0)).current;
@@ -80,13 +82,13 @@ function LaserPointer({ x, y, color = '#E0322E', show = true }) {
     return () => loop.stop();
   }, [pulse]);
   if (!show || x == null || y == null) return null;
-  const haloR = pulse.interpolate({ inputRange: [0, 1], outputRange: [5, 18] });
+  const haloR = pulse.interpolate({ inputRange: [0, 1], outputRange: [5 * size, 18 * size] });
   const haloO = pulse.interpolate({ inputRange: [0, 1], outputRange: [0.4, 0] });
   return (
     <G>
       <ACircle cx={cx} cy={cy} r={haloR} fill={color} opacity={haloO} />
-      <ACircle cx={cx} cy={cy} r={5} fill={color} />
-      <ACircle cx={cx} cy={cy} r={2} fill="#fff" opacity={0.95} />
+      <ACircle cx={cx} cy={cy} r={5 * size} fill={color} />
+      <ACircle cx={cx} cy={cy} r={2 * size} fill="#fff" opacity={0.95} />
     </G>
   );
 }
@@ -105,66 +107,29 @@ function T(x, y, text, color, size = 12, anchor = 'middle', weight = 'bold') {
 //
 // So a label is given a BOX instead of a point: shrink the type until it fits, wrap it
 // over a couple of lines, and only truncate when even the floor size can't hold it.
-//
-// 0.56 em per character is a deliberately generous estimate of this bold sans's average
-// advance — erring wide means a label lands slightly inside its box rather than spilling
-// out of it, which is the failure that matters here.
-const EM_W = 0.56;
-const textW = (str, size) => String(str).length * size * EM_W;
+// The maths lives in boardLayout.js (fitLabel) so it is unit-tested without a device.
 
-// Greedy word wrap. Returns null when `text` cannot be laid out in `maxLines` lines of
-// at most `maxW` units at this size — the caller's shrink loop reads that as "smaller".
-function wrapToWidth(text, size, maxW, maxLines) {
-  const words = String(text).trim().split(/\s+/).filter(Boolean);
-  if (!words.length) return null;
-  const lines = [];
-  let cur = '';
-  for (let i = 0; i < words.length; i += 1) {
-    const next = cur ? `${cur} ${words[i]}` : words[i];
-    if (!cur || textW(next, size) <= maxW) { cur = next; continue; }
-    lines.push(cur);
-    cur = words[i];
-    if (lines.length >= maxLines) return null;
-  }
-  lines.push(cur);
-  if (lines.length > maxLines) return null;
-  // A single word wider than the box survives the loop above (it has to start its own
-  // line); this is where it gets rejected so the type shrinks instead.
-  if (lines.some((l) => textW(l, size) > maxW)) return null;
-  return lines;
+// Draws a label that has already been placed ({ x, y, size, lines, anchor }); `y` is
+// the vertical CENTRE of the block.
+export function SvgLines({ label, color, weight = 'bold' }) {
+  if (!label || !label.lines || !label.lines.length) return null;
+  const s = label.size;
+  const lh = s * LINE_H;
+  const first = label.y - ((label.lines.length - 1) * lh) / 2 + s * 0.35;
+  return (
+    <G>
+      {label.lines.map((l, i) => (
+        <SvgText key={i} x={label.x} y={first + i * lh} fill={color} fontSize={s} fontWeight={weight} textAnchor={label.anchor || 'middle'}>{l}</SvgText>
+      ))}
+    </G>
+  );
 }
 
 // `y` is the vertical CENTRE of the label, not a baseline — a wrapped label has to stay
 // centred on the thing it names however many lines it ends up taking.
-function FitText({ x, y, text, color, size, maxW, maxLines = 2, min = 9, anchor = 'middle', weight = 'bold' }) {
-  const str = String(text == null ? '' : text).replace(/\s+/g, ' ').trim();
-  if (!str) return null;
-  let s = size;
-  let lines = null;
-  while (s >= min) {
-    lines = wrapToWidth(str, s, maxW, maxLines);
-    if (lines) break;
-    s -= 1;
-  }
-  if (!lines) {
-    // Nothing fits even at the floor — cut to the width we actually have. An ellipsis is
-    // honest here; silently drawing past the edge is not.
-    s = min;
-    const per = Math.max(1, Math.floor(maxW / (s * EM_W)));
-    lines = [];
-    for (let i = 0; i < maxLines; i += 1) lines.push(str.slice(i * per, (i + 1) * per));
-    lines = lines.filter(Boolean);
-    if (str.length > per * lines.length) lines[lines.length - 1] = `${lines[lines.length - 1].slice(0, -1)}…`;
-  }
-  const lh = s * 1.18;
-  const first = y - ((lines.length - 1) * lh) / 2 + s * 0.35;
-  return (
-    <G>
-      {lines.map((l, i) => (
-        <SvgText key={i} x={x} y={first + i * lh} fill={color} fontSize={s} fontWeight={weight} textAnchor={anchor}>{l}</SvgText>
-      ))}
-    </G>
-  );
+export function FitText({ x, y, text, color, size, maxW, maxLines = 2, min = 9, anchor = 'middle', weight = 'bold' }) {
+  const fit = fitLabel(text, { size, maxW, maxLines, min });
+  return <SvgLines label={{ x, y, anchor, ...fit }} color={color} weight={weight} />;
 }
 
 const COLORS = [C.orange, C.blue, C.green, C.pink];
@@ -180,19 +145,14 @@ function itemsOf(scene, fallback) {
 }
 
 // ── PHYSICS · free-body diagram ───────────────────────────────────────────────
+// Geometry comes from boardLayout.freeBodyLayout: side labels sit under their arrow,
+// not on its tip, and the tests prove none of them touches an arrow or the block.
 export function FreeBodyBoard({ scene, paused, skip, resetKey, step }) {
   const { h } = useBoardSize();
-  const labels = itemsOf(scene, ['Weight', 'Normal', 'Applied', 'Friction']);
-  const cxb = 150; const cyb = 92; const hs = 20;
-  // weight ↓ · normal ↑ · applied → · friction ←
-  // `w` is the label's box, not decoration: the up/down labels have the full width to
-  // play with, the side ones only the room left between the block and the viewBox edge.
-  const forces = [
-    { x1: cxb, y1: cyb + hs, x2: cxb, y2: cyb + 56, color: C.orange, lx: cxb, ly: cyb + 70, w: 150, label: labels[0] || 'Weight' },
-    { x1: cxb, y1: cyb - hs, x2: cxb, y2: cyb - 52, color: C.blue, lx: cxb, ly: cyb - 58, w: 150, label: labels[1] || 'Normal' },
-    { x1: cxb + hs, y1: cyb, x2: cxb + 78, y2: cyb, color: C.green, lx: cxb + 92, ly: cyb + 4, w: 108, label: labels[2] || 'Applied' },
-    { x1: cxb - hs, y1: cyb, x2: cxb - 74, y2: cyb, color: C.pink, lx: cxb - 74, ly: cyb - 8, w: 108, label: labels[3] || 'Friction' },
-  ];
+  const { block, forces } = freeBodyLayout(itemsOf(scene, ['Weight', 'Normal', 'Applied', 'Friction']));
+  const { cx: cxb, hs } = block;
+  const cyb = block.cy;
+  const colors = [C.orange, C.blue, C.green, C.pink];
   const n = useReveal(4, 900, { paused, skip, resetKey, step });
   const tip = forces[Math.min(n, 4) - 1];
   // MOVING OBJECT — once the applied force is on the board (step 3), the block is
@@ -200,7 +160,7 @@ export function FreeBodyBoard({ scene, paused, skip, resetKey, step }) {
   // responds to the force instead of sitting still like a label.
   const blockX = useRef(new Animated.Value(cxb - hs)).current;
   useEffect(() => {
-    const to = (n >= 3 && !skip) ? cxb - hs + 14 : cxb - hs;
+    const to = (n >= 3 && !skip) ? cxb - hs + FREE_BODY_SLIDE : cxb - hs;
     const a = Animated.spring(blockX, { toValue: to, useNativeDriver: false, friction: 6, tension: 42 });
     a.start();
     return () => a.stop();
@@ -211,9 +171,9 @@ export function FreeBodyBoard({ scene, paused, skip, resetKey, step }) {
         {/* ground + the body (slides when pushed) */}
         <ARect x={blockX} y={cyb - hs} width={hs * 2} height={hs * 2} rx={4} fill="rgba(44,48,67,0.06)" stroke={INK} strokeWidth={2} />
         {forces.map((f, i) => (i < n ? (
-          <G key={i}>
-            <Arrow x1={f.x1} y1={f.y1} x2={f.x2} y2={f.y2} color={f.color} width={3.5} duration={520} skip={skip} />
-            <FitText x={f.lx} y={f.ly} text={f.label} color={f.color} size={12} maxW={f.w} maxLines={2} min={8} />
+          <G key={f.kind}>
+            <Arrow x1={f.x1} y1={f.y1} x2={f.x2} y2={f.y2} color={colors[i]} width={3.5} duration={520} skip={skip} />
+            <SvgLines label={f.label} color={colors[i]} />
           </G>
         ) : null))}
         {n > 0 && tip && <LaserPointer x={tip.x2} y={tip.y2} />}
@@ -259,19 +219,17 @@ export function ReactionBoard({ scene, paused, skip, resetKey, step }) {
 }
 
 // ── CHEMISTRY · molecule (central atom + bonded atoms) ────────────────────────
+// Geometry comes from boardLayout.moleculeLayout: atoms spread across the board, a
+// symbol inside its atom, a full name ("Hydrogen") outside it in its own slot.
 export function MoleculeBoard({ scene, paused, skip, resetKey, step }) {
   const { h } = useBoardSize();
-  const labels = itemsOf(scene, ['O', 'H', 'H']);
-  const centre = { x: 150, y: 92, r: 18, c: C.pink, label: labels[0] || 'O' };
-  const outer = [
-    { x: 104, y: 122, r: 12, c: C.blue, label: labels[1] || 'H' },
-    { x: 196, y: 122, r: 12, c: C.blue, label: labels[2] || 'H' },
-    { x: 150, y: 44, r: 12, c: C.green, label: labels[3] || '' },
-  ].filter((a) => a.label);
-  const total = Math.max(2, Math.min(4, 1 + outer.length));
+  const { atoms } = moleculeLayout(itemsOf(scene, ['O', 'H', 'H']));
+  const tints = [C.pink, C.blue, C.blue, C.green];
+  const centre = atoms[0];
+  const outer = atoms.slice(1);
+  const total = Math.max(2, Math.min(4, atoms.length));
   const n = useReveal(total, 850, { paused, skip, resetKey, step });
-  const seq = [centre, ...outer];
-  const tip = seq[Math.min(n, seq.length) - 1];
+  const tip = atoms[Math.min(n, atoms.length) - 1];
   return (
     <View style={wrapStyle}>
       <Svg width="100%" height={h(176)} viewBox="0 0 300 180">
@@ -279,10 +237,10 @@ export function MoleculeBoard({ scene, paused, skip, resetKey, step }) {
         {outer.map((a, i) => (i + 1 < n ? (
           <Line key={`b${i}`} x1={centre.x} y1={centre.y} x2={a.x} y2={a.y} stroke={INK} strokeWidth={3} opacity={0.55} />
         ) : null))}
-        {seq.map((a, i) => (i < n ? (
-          <G key={i}>
-            <Circle cx={a.x} cy={a.y} r={a.r} fill={a.c} opacity={0.9} />
-            {T(a.x, a.y + 4, a.label, '#fff', a.r * 0.8)}
+        {atoms.map((a, i) => (i < n ? (
+          <G key={a.id}>
+            <Circle cx={a.x} cy={a.y} r={a.r} fill={tints[a.slot]} opacity={0.9} />
+            <SvgLines label={a.label} color={a.inside ? '#fff' : INK} />
           </G>
         ) : null))}
         {n > 0 && tip && <LaserPointer x={tip.x} y={tip.y - (tip.r + 6)} />}
@@ -292,26 +250,23 @@ export function MoleculeBoard({ scene, paused, skip, resetKey, step }) {
 }
 
 // ── BIOLOGY · labelled cell (membrane, nucleus, organelles) ───────────────────
+// Geometry comes from boardLayout.cellLayout, whose tests prove no label sits on
+// another label or an organelle and the inner ones stay inside the membrane.
 export function CellBoard({ scene, paused, skip, resetKey, step }) {
   const { h } = useBoardSize();
   const labels = itemsOf(scene, ['Cell membrane', 'Nucleus', 'Mitochondria', 'Cytoplasm']);
-  const parts = [
-    { kind: 'membrane', lx: 150, ly: 26, label: labels[0] || 'Cell membrane', anchor: { x: 150, y: 30 } },
-    { kind: 'nucleus', lx: 150, ly: 96, label: labels[1] || 'Nucleus', anchor: { x: 150, y: 92 } },
-    { kind: 'mito', lx: 214, ly: 128, label: labels[2] || 'Mitochondria', anchor: { x: 196, y: 118 } },
-    { kind: 'cyto', lx: 74, ly: 128, label: labels[3] || 'Cytoplasm', anchor: { x: 96, y: 120 } },
-  ];
-  const total = Math.max(3, Math.min(5, labels.length));
+  const { membrane: m, nucleus: nu, mito, cyto, parts } = cellLayout(labels);
+  const total = Math.max(3, Math.min(CELL_PARTS, labels.length));
   const n = useReveal(total, 850, { paused, skip, resetKey, step });
   const tip = parts[Math.min(n, parts.length) - 1];
   return (
     <View style={wrapStyle}>
       <Svg width="100%" height={h(188)} viewBox="0 0 300 180">
-        {n >= 1 && <Ellipse cx={150} cy={95} rx={122} ry={64} fill="rgba(15,163,154,0.08)" stroke={C.green} strokeWidth={2.5} />}
-        {n >= 2 && <G><Circle cx={150} cy={92} r={30} fill="rgba(60,157,240,0.16)" stroke={C.blue} strokeWidth={2.5} />{T(150, 96, 'N', C.blue, 16)}</G>}
-        {n >= 3 && <Ellipse cx={196} cy={118} rx={20} ry={11} fill="rgba(239,138,67,0.18)" stroke={C.orange} strokeWidth={2} />}
-        {n >= 4 && <Circle cx={96} cy={120} r={9} fill="rgba(238,111,150,0.16)" stroke={C.pink} strokeWidth={2} />}
-        {parts.map((p, i) => (i < n ? T(p.lx, p.ly, p.label, INK, 10.5) : null))}
+        {n >= 1 && <Ellipse cx={m.cx} cy={m.cy} rx={m.rx} ry={m.ry} fill="rgba(15,163,154,0.08)" stroke={C.green} strokeWidth={2.5} />}
+        {n >= 2 && <Circle cx={nu.cx} cy={nu.cy} r={nu.r} fill="rgba(60,157,240,0.16)" stroke={C.blue} strokeWidth={2.5} />}
+        {n >= 3 && <Ellipse cx={mito.cx} cy={mito.cy} rx={mito.rx} ry={mito.ry} fill="rgba(239,138,67,0.18)" stroke={C.orange} strokeWidth={2} />}
+        {n >= 4 && <Circle cx={cyto.cx} cy={cyto.cy} r={cyto.r} fill="rgba(238,111,150,0.16)" stroke={C.pink} strokeWidth={2} />}
+        {parts.map((p, i) => (i < n ? <SvgLines key={p.kind} label={p.label} color={INK} /> : null))}
         {n > 0 && tip && <LaserPointer x={tip.anchor.x} y={tip.anchor.y} />}
       </Svg>
     </View>
@@ -323,7 +278,9 @@ export function NumberLineBoard({ scene, paused, skip, resetKey, step }) {
   const { h } = useBoardSize();
   const nums = itemsOf(scene, []).map((x) => parseFloat(x)).filter((x) => Number.isFinite(x));
   const marks = nums.length ? nums.slice(0, 3) : [-2, 1, 3];
-  const lo = -5; const hi = 5; const y = 96; const x0 = 26; const x1 = 274;
+  // widened (coarser ticks) when a mark falls outside -5..5, instead of off the board
+  const { lo, hi, step: tick } = numberLineRange(marks);
+  const y = 96; const x0 = 26; const x1 = 274;
   const px = (v) => x0 + ((v - lo) / (hi - lo)) * (x1 - x0);
   const n = useReveal(1 + marks.length, 800, { paused, skip, resetKey, step });
   const tip = n >= 2 ? marks[Math.min(n - 1, marks.length) - 1] : null;
@@ -332,15 +289,15 @@ export function NumberLineBoard({ scene, paused, skip, resetKey, step }) {
       <Svg width="100%" height={h(140)} viewBox="0 0 300 130">
         {n >= 1 && <G>
           <Arrow x1={x0 - 4} y1={y} x2={x1 + 4} y2={y} color={INK} width={2.5} duration={600} skip={skip} />
-          {Array.from({ length: hi - lo + 1 }, (_, i) => lo + i).map((v) => (
+          {Array.from({ length: Math.round((hi - lo) / tick) + 1 }, (_, i) => lo + i * tick).map((v) => (
             <G key={v}>
               <Line x1={px(v)} y1={y - 5} x2={px(v)} y2={y + 5} stroke={INK_DIM} strokeWidth={1.5} />
-              {T(px(v), y + 20, String(v), INK_DIM, 10)}
+              {T(px(v), y + 22, String(v), INK_DIM, 12)}
             </G>
           ))}
         </G>}
         {marks.map((v, i) => (i + 1 < n ? (
-          <G key={i}><Circle cx={px(v)} cy={y} r={6} fill={COLORS[i % COLORS.length]} />{T(px(v), y - 12, String(v), COLORS[i % COLORS.length], 12)}</G>
+          <G key={i}><Circle cx={px(v)} cy={y} r={6} fill={COLORS[i % COLORS.length]} />{T(px(v), y - 14, String(v), COLORS[i % COLORS.length], 14)}</G>
         ) : null))}
         {tip != null && <LaserPointer x={px(tip)} y={y - 12} />}
       </Svg>
@@ -438,7 +395,7 @@ const FIGURES = {
         {n >= 1 && (
           <G>
             <Rect x={78} y={16} width={130} height={130} fill="none" stroke={INK} strokeWidth={2} />
-            {T(143, 10, labels[0], C.teal, 11)}
+            <FitText x={143} y={8} text={labels[0]} color={C.teal} size={12} maxW={130} maxLines={1} min={8} />
           </G>
         )}
         {n >= 2 && (
@@ -454,21 +411,21 @@ const FIGURES = {
         {n >= 3 && (
           <G>
             <Rect x={78} y={16} width={84} height={84} fill={C.orange} opacity={0.16} />
-            {T(120, 63, labels[2], C.orange, 20)}
+            <FitText x={120} y={58} text={labels[2]} color={C.orange} size={20} maxW={76} maxLines={2} min={10} />
           </G>
         )}
         {n >= 4 && (
           <G>
             <Rect x={162} y={16} width={46} height={84} fill={C.blue} opacity={0.18} />
             <Rect x={78} y={100} width={84} height={46} fill={C.blue} opacity={0.18} />
-            {T(185, 62, labels[3], C.blue, 14)}
-            {T(120, 128, labels[3], C.blue, 14)}
+            <FitText x={185} y={58} text={labels[3]} color={C.blue} size={14} maxW={42} maxLines={2} min={8} />
+            <FitText x={120} y={123} text={labels[3]} color={C.blue} size={14} maxW={76} maxLines={2} min={8} />
           </G>
         )}
         {n >= 5 && (
           <G>
             <Rect x={162} y={100} width={46} height={46} fill={C.green} opacity={0.18} />
-            {T(185, 128, labels[4], C.green, 14)}
+            <FitText x={185} y={123} text={labels[4]} color={C.green} size={14} maxW={42} maxLines={2} min={8} />
           </G>
         )}
       </G>
@@ -489,13 +446,13 @@ const FIGURES = {
             <Rect x={44} y={78} width={30} height={20} rx={2} fill={C.pink} />
             {T(29, 93, 'S', C.cream, 12)}
             {T(59, 93, 'N', C.cream, 12)}
-            {T(12, 118, labels[0], INK2, 11, 'start')}
+            <FitText x={12} y={116} text={labels[0]} color={INK2} size={11} maxW={64} maxLines={2} min={8} anchor="start" />
           </G>
         )}
         {n >= 2 && (
           <G>
             <Arrow x1={20} y1={62} x2={68} y2={62} color={C.teal} width={2} duration={420} skip={skip} />
-            {T(22, 54, labels[1], C.teal, 10, 'start')}
+            <FitText x={22} y={50} text={labels[1]} color={C.teal} size={10} maxW={70} maxLines={1} min={8} anchor="start" />
           </G>
         )}
         {n >= 3 && (
@@ -503,7 +460,7 @@ const FIGURES = {
             <Path d="M78,82 C104,54 130,52 150,70" stroke={C.brass} strokeWidth={1.6} fill="none" />
             <Path d="M78,88 C108,84 128,84 150,87" stroke={C.brass} strokeWidth={1.6} fill="none" />
             <Path d="M78,94 C104,122 130,124 150,106" stroke={C.brass} strokeWidth={1.6} fill="none" />
-            {T(104, 148, labels[2], C.brass, 11)}
+            <FitText x={104} y={144} text={labels[2]} color={C.brass} size={11} maxW={100} maxLines={1} min={8} />
           </G>
         )}
         {n >= 4 && (
@@ -511,7 +468,7 @@ const FIGURES = {
             <Ellipse cx={162} cy={88} rx={9} ry={34} fill="none" stroke={C.orange} strokeWidth={2.2} />
             <Ellipse cx={178} cy={88} rx={9} ry={34} fill="none" stroke={C.orange} strokeWidth={2.2} />
             <Ellipse cx={194} cy={88} rx={9} ry={34} fill="none" stroke={C.orange} strokeWidth={2.2} />
-            {T(178, 136, labels[3], C.orange, 11)}
+            <FitText x={178} y={135} text={labels[3]} color={C.orange} size={11} maxW={46} maxLines={2} min={8} />
           </G>
         )}
         {n >= 5 && (
@@ -521,7 +478,7 @@ const FIGURES = {
             <Circle cx={249} cy={38} r={13} fill={C.orange} opacity={0.22} />
             <Circle cx={249} cy={38} r={13} fill="none" stroke={C.orange} strokeWidth={1.8} />
             <Path d="M243,44 L246,32 L249,44 L252,32 L255,44" stroke={C.orange} strokeWidth={1.4} fill="none" />
-            {T(249, 16, labels[4], C.orange, 11)}
+            <FitText x={249} y={12} text={labels[4]} color={C.orange} size={11} maxW={90} maxLines={1} min={8} />
           </G>
         )}
       </G>

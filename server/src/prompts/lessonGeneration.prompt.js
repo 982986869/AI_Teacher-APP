@@ -106,7 +106,13 @@ OUTPUT CONTRACT (critical):
 }
 
 visualData SHAPE BY visualType (use EXACTLY these keys, and ALWAYS add "keyPoints": string[] with 2 short takeaways):
-- DIAGRAM: { "description": string, "label": string, "components": string[], "keyPoints": string[] }   // name the parts you will teach
+- DIAGRAM: { "description": string, "label": string, "components": string[], "keyPoints": string[], "shapes"?: Shape[] }   // name the parts you will teach
+  "shapes" = the drawing itself, chalked onto the board step by step as you speak. ADD IT whenever the slide's object is something you can SEE — a circuit, apparatus, setup, cycle, graph, figure, map of parts.
+  Canvas 100 wide × 60 tall, x to the right, y DOWN; a point is [x, y].
+  Shape kinds: circle {at, r} · ellipse {at, rx, ry} · rect {at = top-left, w, h} · polygon {points} · curve {points — a smooth line through them} · arc {at, r, start, end — degrees, counter-clockwise from +x} · line / arrow {from, to — a point OR another shape's id} · axes {at = origin (bottom-left), w, h, x, y — axis names} · dot {at} · text {at, text}.
+  Optional on any shape: id, label (≤18 chars; the board positions it so it never overlaps), color (orange|blue|green|pink|violet|ink), fill (true = soft tint), dashed, step (1-6 — what appears together, in the order you name it).
+  Rules: at most 14 shapes; name a part with its "label", never with a text placed beside it; leave clear space between parts; connect parts with arrows by id.
+  Example (cell with internal resistance): [{"id":"cell","kind":"rect","at":[12,22],"w":8,"h":16,"label":"Cell ε","color":"orange","step":1},{"id":"r","kind":"rect","at":[30,26],"w":14,"h":8,"label":"r","color":"pink","step":2},{"id":"R","kind":"rect","at":[72,26],"w":14,"h":8,"label":"Load R","color":"blue","step":3},{"kind":"line","from":"cell","to":"r","step":2},{"kind":"arrow","from":"r","to":"R","label":"current I","color":"green","step":3}]
 - CHART:   { "chartType": string, "data": { "labels": string[], "values": number[] }, "xAxis": string, "yAxis": string, "keyPoints": string[] }
 - EXAMPLE: { "scenario": string, "steps": string[], "keyPoints": string[] }
 - ANALOGY: { "realWorldObject": string, "comparison": string, "keyPoints": string[] }

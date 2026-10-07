@@ -5,7 +5,10 @@ import { ChalkLine, ChalkStroke } from './WhiteboardCanvas';
 import { C, F } from './premiumTheme';
 import { PressableScale } from './uiKit';
 import { selfCheckLine } from './teacherPersona';
-import { SubjectBoard, SUBJECT_BOARD_TYPES } from './subjectBoards';
+import { SubjectBoard, SUBJECT_BOARD_TYPES, FitText } from './subjectBoards';
+import { chartSeries } from './boardLayout';
+import ShapesBoard from './ShapesBoard';
+import { useBoardSize } from './boardSize';
 import { CircleAround, Highlighter } from './boardGestures';
 import { TriangleAlert, Ruler, BookOpen, RotateCcw } from 'lucide-react-native';
 
@@ -153,6 +156,7 @@ function svgLabel(x, y, text, color, size = 12, rotate) {
 
 // ── TRIANGLE: base → height → hypotenuse, labels after each, legend ───────────
 function TriangleBoard({ scene, paused, skip, resetKey, step }) {
+  const { h } = useBoardSize();
   const n = useReveal(4, 900, { paused, skip, resetKey, step });
   const A = { x: 58, y: 150 };   // right angle
   const B = { x: 250, y: 150 };  // base end
@@ -160,7 +164,7 @@ function TriangleBoard({ scene, paused, skip, resetKey, step }) {
   return (
     <View style={s.triRow}>
       <View style={s.triDiagram}>
-        <Svg width="100%" height={156} viewBox="0 0 290 178">
+        <Svg width="100%" height={h(178)} viewBox="0 0 290 178">
           {/* base (orange) */}
           {n >= 1 && <ChalkLine x1={A.x} y1={A.y} x2={B.x} y2={B.y} color={C.orange} width={5} duration={900} skip={skip} />}
           {n >= 1 && <FadeG show>{svgLabel((A.x + B.x) / 2, A.y + 25, 'b', C.orange, 20)}</FadeG>}
@@ -354,9 +358,10 @@ function ConceptBoard({ scene, paused, skip, resetKey, step, highlight }) {
 
 // ── CHART: axes drawn, then bars grow in one per beat (directed) ──────────────
 function ChartBoard({ scene, paused, skip, resetKey, step }) {
+  const { h: hs } = useBoardSize();
   const chart = (scene.diagram && scene.diagram.chart) || {};
-  const values = Array.isArray(chart.values) && chart.values.length ? chart.values : [40, 70, 55, 90];
-  const labels = Array.isArray(chart.labels) ? chart.labels : [];
+  // capped at CHART_MAX_BARS — past that the value and axis labels sit on each other
+  const { values, labels } = chartSeries(chart);
   const n = useReveal(values.length, 700, { paused, skip, resetKey, step });
   const max = Math.max(...values, 1);
   const colors = [C.orange, C.blue, C.green, C.pink];
@@ -366,7 +371,7 @@ function ChartBoard({ scene, paused, skip, resetKey, step }) {
   const bw = Math.min(38, slot * 0.6);
   return (
     <View style={s.boardWrap}>
-      <Svg width="100%" height={176} viewBox="0 0 300 176">
+      <Svg width="100%" height={hs(176)} viewBox="0 0 300 176">
         {/* axes */}
         <Line x1={leftX} y1={baseY} x2={leftX + plotW} y2={baseY} stroke={INK_DIM} strokeWidth={2} />
         <Line x1={leftX} y1={baseY} x2={leftX} y2={baseY - plotH - 8} stroke={INK_DIM} strokeWidth={2} />
@@ -378,8 +383,8 @@ function ChartBoard({ scene, paused, skip, resetKey, step }) {
           return (
             <G key={i}>
               <GrowBar x={x} baseY={baseY} h={h} bw={bw} col={col} />
-              {svgLabel(x + bw / 2, baseY - h - 5, String(v), col, 11)}
-              {!!labels[i] && svgLabel(x + bw / 2, baseY + 14, String(labels[i]).slice(0, 8), INK_DIM, 10)}
+              {svgLabel(x + bw / 2, baseY - h - 5, String(v), col, 13)}
+              {!!labels[i] && <FitText x={x + bw / 2} y={baseY + 17} text={labels[i]} color={INK_DIM} size={12} maxW={slot - 4} maxLines={2} min={8} />}
             </G>
           );
         })}
@@ -534,6 +539,8 @@ function LessonBoard({ scene, paused = false, skip = false, resetKey, step, high
     case 'intro': return <PointsBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} step={step} intro highlight={highlight} />;
     case 'mistake': return <PointsBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} step={step} warn highlight={highlight} />;
     case 'summary': return <PointsBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} step={step} memory={false} highlight={highlight} />;
+    case 'shapes': return <ShapesBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} step={step}
+      fallback={<ConceptBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} step={step} highlight={highlight} />} />;
     case 'concept':
     default: return <ConceptBoard scene={scene} paused={paused} skip={skip} resetKey={resetKey} step={step} highlight={highlight} />;
   }
@@ -551,11 +558,13 @@ const s = StyleSheet.create({
   legendDot: { width: 10, height: 10, borderRadius: 3 },
   legendTxt: { fontSize: 11, fontFamily: F.bold, fontWeight: '700', color: INK2 },
 
-  // two-column triangle: diagram (left) + legend with descriptions (right)
-  triRow: { flexDirection: 'row', width: '100%', alignItems: 'center', gap: 8 },
-  triDiagram: { flex: 1.05 },
-  triLegend: { flex: 1, gap: 12 },
-  legRow: { flexDirection: 'row', gap: 8, alignItems: 'flex-start' },
+  // triangle: diagram on top at the board's FULL width, legend underneath. Side by
+  // side, the diagram only got ~40% of a phone-width card and drew tiny.
+  triRow: { width: '100%', alignItems: 'stretch', gap: 10 },
+  triDiagram: { width: '100%' },
+  // three short columns, so the legend costs one row of height under the diagram
+  triLegend: { flexDirection: 'row', gap: 10 },
+  legRow: { flex: 1, flexDirection: 'row', gap: 6, alignItems: 'flex-start' },
   legDot: { width: 9, height: 9, borderRadius: 3, marginTop: 4 },
   legTerm: { fontSize: 13, fontFamily: F.black, fontWeight: '900' },
   legDesc: { fontSize: 11.5, fontFamily: F.semi, fontWeight: '600', color: INK_DIM, lineHeight: 16, marginTop: 1 },

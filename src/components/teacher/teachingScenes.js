@@ -1,3 +1,5 @@
+import { shapesStepCount } from './shapeLayout.js';
+
 // Converts a backend-generated lesson (slides) into short, focused TEACHING
 // SCENES the live player animates one idea at a time (Bloom/Cuemath style).
 //
@@ -158,6 +160,7 @@ function kickerFor(boardType, idx) {
     case 'formula': return `${idx} · THE RULE`;
     case 'proof': return `${idx} · THE PROOF, VISUALLY`;
     case 'annotated': return `${idx} · SEE IT DRAWN`;
+    case 'shapes': return `${idx} · SEE IT DRAWN`;
     case 'mistake': return 'COMMON MISTAKE';
     case 'summary': return 'RECAP';
     case 'quickCheck': return 'QUICK CHECK';
@@ -177,11 +180,18 @@ const SUBJECT_RES = [
   ['freeBody', /free[- ]?body|net force|force diagram|forces? acting|normal force|\btension\b|\bfriction\b|newton'?s (?:first|second|third)|weight.*(?:force|gravity)|\binertia\b|law of motion|object (?:at rest|in motion|stays|remains)|\bacceleration\b|\bmomentum\b|applied force|external force/i],
   ['reaction', /\breaction\b|reactants?|\bproducts?\b|combustion|→|->|balance the equation|chemical equation|\byields\b|react(?:s|ing)? with|\bcatalyst\b|precipitat|acid.*base|displacement reaction/i],
   ['molecule', /\bmolecule\b|covalent|\bbond(?:ing|ed|s)?\b|\bH2O\b|\bCO2\b|structural formula|atoms? (?:join|share|bond)|\bvalenc(?:y|e)\b|electron.*shar|lewis structure/i],
-  ['cell', /\bcell\b|nucleus|\bmembrane\b|mitochondri|organelle|cytoplasm|chloroplast|\bribosome|cell (?:wall|division)|\bneuron\b/i],
+  // No bare "cell": physics has electric cells (EMF, internal resistance), and that
+  // drew a biology cell with "Mitochondria" on an electricity slide.
+  ['cell', /(?:plant|animal|living|human|eukaryotic|prokaryotic|bacterial|blood|nerve) cells?\b|nucleus|\bmembrane\b|mitochondri|organelle|cytoplasm|chloroplast|\bribosome|cell (?:wall|division|theory|organelles?)|\bneuron\b/i],
   ['timeline', /\btimeline\b|\bcentury\b|\bdynasty\b|\bera\b|\bBCE?\b|\bAD\b|revolution|\bin \d{3,4}\b|\b\d{3,4}\s?(?:BC|BCE|CE)\b|world war|freedom (?:struggle|movement)|\bempire\b|independence in/i],
   ['numberLine', /number line|\bintegers?\b|on a (?:number )?line|negative numbers?|positive and negative/i],
   ['graphFn', /graph of|plot the (?:function|line|curve)|straight[- ]line graph|\bparabola\b|quadratic (?:graph|curve)|\bslope\b|y ?= ?[^=]|coordinate (?:plane|axis|geometry)|\bx-?axis\b|\by-?axis\b|linear equation|plot(?:ting)? (?:a )?point/i],
 ];
+const PART_BOARDS = new Set(['freeBody', 'molecule', 'cell']);
+const hasComponents = (slide) => {
+  const c = slide && slide.visualData && slide.visualData.components;
+  return Array.isArray(c) && c.some((x) => String(x || '').trim());
+};
 function detectSubjectBoard(blob) {
   for (const [type, re] of SUBJECT_RES) if (re.test(blob)) return type;
   return null;
@@ -210,6 +220,13 @@ const FIGURE_TOTALS = { magnetCoil: 5, squareExpansion: 5 };
 // there, and the rule still lands in the caption she speaks.
 const PROOFY_RE = /\bproof\b|\bprove\b|\bderive|\bderivation\b|show that|why (?:this|it) works|equating|expand(?:ing)? (?:the )?(?:brackets|square)/i;
 
+// The model drew this slide itself (visualData.shapes). It is the actual object the
+// slide names, so it outranks the keyword-matched subject boards — but not a curated
+// figure or the triangle board, which are proven drawings of exactly that thing.
+const hasShapes = (slide) => slide.visualType === 'DIAGRAM'
+  && Array.isArray(slide.visualData && slide.visualData.shapes)
+  && shapesStepCount(slide.visualData.shapes) > 0;
+
 function boardTypeFor(slide, i, total, triangleLesson) {
   const blob = `${slide.slideTitle || ''} ${slide.explanation || ''} ${slide.narrationText || ''}`;
   if (i === 0) return 'intro';
@@ -227,8 +244,13 @@ function boardTypeFor(slide, i, total, triangleLesson) {
   // A named figure is the most specific thing we can draw, so it outranks the
   // per-subject boards, which only key off a loose keyword.
   if (figure) return 'annotated';
+  if (hasShapes(slide)) return 'shapes';
   // Draw it if we can (physics/chem/bio/maths/history), else a generic concept board.
   const subj = detectSubjectBoard(blob);
+  // These boards label the parts of ONE drawing. With no named parts they fell back to
+  // the keyPoint sentences, writing paragraphs across the picture — a text board and a
+  // diagram on top of each other. Without parts, the points board is the honest one.
+  if (subj && PART_BOARDS.has(subj) && !hasComponents(slide)) return 'concept';
   if (subj) return subj;
   return 'concept';
 }
@@ -293,6 +315,17 @@ function buildScene(slide, i, total, triangleLesson) {
       label: prettyMath(v.label || v.scenario || v.description || v.formula || v.comparison || ''),
       steps: (Array.isArray(v.steps) ? v.steps : []).map(prettyMath),
       points: keyPoints,
+    };
+  } else if (boardType === 'shapes') {
+    // concept fields ride along so the board can fall back to them if layout fails
+    const comps = (Array.isArray(v.components) ? v.components : []).map(prettyMath).filter(Boolean);
+    scene.diagram = {
+      shapes: v.shapes,
+      shapesTotal: shapesStepCount(v.shapes),
+      shape: comps.length ? 'flow' : 'points',
+      steps: comps,
+      points: keyPoints,
+      label: prettyMath(v.label || ''),
     };
   } else if (boardType === 'concept') {
     scene.diagram = {

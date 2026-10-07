@@ -34,6 +34,7 @@ const {
   buildKnowledgeMessages,
 } = require('../../prompts/knowledgeAnswer.prompt')
 const { normalizeAnimation } = require('../../utils/slideAnimation')
+const { normalizeShapes } = require('../../utils/lessonShapes')
 
 const VISUAL_TYPES = ['DIAGRAM', 'CHART', 'EXAMPLE', 'ANALOGY', 'FORMULA', 'NONE']
 
@@ -578,10 +579,14 @@ function parseAndValidateLesson(raw) {
       throw invalid(`slide ${i + 1} has invalid visualType "${slide.visualType}"`)
     }
 
-    const visualData =
+    const rawVisual =
       slide.visualData && typeof slide.visualData === 'object' && !Array.isArray(slide.visualData)
         ? slide.visualData
         : {}
+    // The board drawing is only drawn on DIAGRAM slides; validated, never fatal.
+    const { shapes: rawShapes, ...visualRest } = rawVisual
+    const shapes = slide.visualType === 'DIAGRAM' ? normalizeShapes(rawShapes) : undefined
+    const visualData = shapes ? { ...visualRest, shapes } : visualRest
 
     const check = normalizeCheck(slide.check)
     const reteach = normalizeReteach(slide.reteach)
@@ -729,3 +734,4 @@ function translateProviderError(err, context) {
 }
 
 module.exports = AnthropicProvider
+module.exports.parseAndValidateLesson = parseAndValidateLesson
