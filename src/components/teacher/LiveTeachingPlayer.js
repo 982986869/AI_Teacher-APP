@@ -1781,7 +1781,8 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
             </Animated.View>
             </View>
           )}
-          {!focusMode && <Animated.View style={[st.captionWrap, { opacity: capFade }]}>{captionEl}</Animated.View>}
+          {/* The Quick Check card already shows the question — don't echo it below (doubt answers still show). */}
+          {!focusMode && (scene.boardType !== 'quickCheck' || qa) && <Animated.View style={[st.captionWrap, { opacity: capFade }]}>{captionEl}</Animated.View>}
         </Stage>
       </ScrollView>
 
@@ -2288,9 +2289,9 @@ const st = StyleSheet.create({
   metaChip: { backgroundColor: 'rgba(79,70,229,0.18)', borderWidth: 1, borderColor: 'rgba(129,140,248,0.4)', borderRadius: 9, paddingHorizontal: 8, paddingVertical: 3 },
   metaChipTxt: { fontSize: 10.5, fontFamily: F.semi, color: '#C7D2FE' },
 
-  captionTxt: { fontSize: 16, fontFamily: F.med, color: D.text, textAlign: 'left', lineHeight: 25, letterSpacing: 0.1 }, // PRIMARY — spoken words (bright)
-  capDim: { color: 'rgba(248,250,252,0.35)' },   // not-yet-spoken words; brighten as she speaks
-  capHot: { color: ACCENT, fontFamily: F.semi }, // keyword emphasised (warm champagne) the moment it's spoken
+  captionTxt: { fontSize: 16, fontFamily: F.med, color: V.text, textAlign: 'left', lineHeight: 25, letterSpacing: 0.1 }, // PRIMARY — spoken words (dark on the white caption card)
+  capDim: { color: 'rgba(17,17,17,0.3)' },       // not-yet-spoken words; darken as she speaks
+  capHot: { color: '#B45309', fontFamily: F.semi, backgroundColor: 'rgba(255,198,41,0.28)' }, // keyword: deep amber on a yellow marker, readable on white
   capTerm: { textDecorationLine: 'underline', textDecorationStyle: 'dotted', textDecorationColor: 'rgba(124,58,237,0.6)' }, // tappable key term → tap to define
 
   cornerWrap: { position: 'absolute', top: 56, right: 12, zIndex: 20 },
