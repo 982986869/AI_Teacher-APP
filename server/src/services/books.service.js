@@ -166,17 +166,49 @@ async function list({ search, status } = {}) {
        ${where} ORDER BY b.created_at DESC LIMIT 100`, ...params)
 }
 
+// Each section carries its own size, because "Notes · Live" tells an admin nothing
+// about whether the model wrote four usable paragraphs or forty. The counts come
+// straight out of the payload in SQL rather than from a stored column, so they can
+// never drift from the content they describe.
+//
+//   notes     → number of sections
+//   quiz      → number of questions
+//   practice  → number of questions
+//   resource  → number of items
+const CONTENT_UNITS = `
+  CASE bc.kind
+    WHEN 'notes'    THEN jsonb_array_length(COALESCE(bc.payload->'sections',  '[]'::jsonb))
+    WHEN 'quiz'     THEN jsonb_array_length(COALESCE(bc.payload->'questions', '[]'::jsonb))
+    WHEN 'practice' THEN jsonb_array_length(COALESCE(bc.payload->'questions', '[]'::jsonb))
+    WHEN 'resource' THEN jsonb_array_length(COALESCE(bc.payload->'items',     '[]'::jsonb))
+    ELSE 0
+  END`
+
 async function chapters(bookId) {
   return db.$queryRawUnsafe(
     `SELECT c.id::text AS id, c.position, c.title, c.page_from, c.page_to, c.char_count,
+            c.visible,
             COALESCE(json_agg(json_build_object(
               'id', bc.id::text, 'kind', bc.kind, 'title', bc.title,
-              'status', bc.status, 'source', bc.source
+              'status', bc.status, 'source', bc.source, 'model', bc.model,
+              'units', ${CONTENT_UNITS},
+              'chars', length(bc.payload::text),
+              'updated_at', bc.updated_at
             ) ORDER BY bc.kind) FILTER (WHERE bc.id IS NOT NULL), '[]') AS content
        FROM "book_chapters" c
        LEFT JOIN "book_content" bc ON bc.chapter_id = c.id
       WHERE c.book_id = $1::uuid
       GROUP BY c.id ORDER BY c.position`, bookId)
+}
+
+// Releasing a chapter is one decision, so it is one write. It does NOT touch the
+// section switches: an admin who published notes and held the quiz back keeps that
+// arrangement when the chapter goes live.
+async function setChapterVisible(chapterId, visible) {
+  const n = await db.$executeRawUnsafe(
+    `UPDATE "book_chapters" SET visible = $2::boolean WHERE id = $1::uuid`,
+    chapterId, !!visible)
+  return n > 0
 }
 
 const chapterText = async (chapterId) => {
@@ -238,31 +270,34 @@ const visibleBooks = (classLevel) => db.$queryRawUnsafe(
     WHERE b.published = true AND b.status = 'ready'
       AND (b.class_level IS NULL OR b.class_level = $1::int)
       AND EXISTS (SELECT 1 FROM "book_content" bc JOIN "book_chapters" c2 ON c2.id = bc.chapter_id
-                   WHERE c2.book_id = b.id AND bc.status = 'published')
+                   WHERE c2.book_id = b.id AND c2.visible = true AND bc.status = 'published')
     ORDER BY b.created_at DESC`, classLevel)
 
-// Only chapters that actually have something published — a chapter whose notes are
-// still in draft is not worth a row a student can tap into an empty screen.
+// Only chapters an admin has released AND that have something published — a chapter
+// whose notes are still in draft is not worth a row a student can tap into an empty
+// screen, and one nobody has released is not theirs to see yet.
 const visibleChapters = (bookId) => db.$queryRawUnsafe(
   `SELECT c.id::text AS id, c.position, c.title,
           array_agg(bc.kind ORDER BY bc.kind) AS kinds
      FROM "book_chapters" c JOIN "book_content" bc ON bc.chapter_id = c.id
-    WHERE c.book_id = $1::uuid AND bc.status = 'published'
+    WHERE c.book_id = $1::uuid AND c.visible = true AND bc.status = 'published'
     GROUP BY c.id ORDER BY c.position`, bookId)
 
+// All three gates checked in one query. This is the only route by which a student
+// reads generated content, so a gate missing here is a gate that does not exist.
 const visibleContent = async (chapterId, kind) => {
   const r = await db.$queryRawUnsafe(
     `SELECT bc.id::text AS id, bc.kind, bc.title, bc.payload
        FROM "book_content" bc JOIN "book_chapters" c ON c.id = bc.chapter_id
        JOIN "books" b ON b.id = c.book_id
       WHERE bc.chapter_id = $1::uuid AND bc.kind = $2
-        AND bc.status = 'published' AND b.published = true`, chapterId, kind)
+        AND bc.status = 'published' AND c.visible = true AND b.published = true`, chapterId, kind)
   return r[0] || null
 }
 
 module.exports = {
   KINDS, MAX_PAGES, sha256, findByHash, ingest, detectChapters,
   list, chapters, chapterText, getContent,
-  saveContent, setContentStatus, setBookPublished, updateBook, remove,
+  saveContent, setContentStatus, setBookPublished, setChapterVisible, updateBook, remove,
   visibleBooks, visibleChapters, visibleContent,
 }

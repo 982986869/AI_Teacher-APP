@@ -85,3 +85,22 @@ CREATE INDEX IF NOT EXISTS "books_created_idx" ON "books" ("created_at" DESC);
 
 -- Chapter → its generated pieces, which is every read on the student side.
 CREATE INDEX IF NOT EXISTS "book_content_chapter_idx" ON "book_content" ("chapter_id", "kind");
+
+-- ── Chapter-level visibility ─────────────────────────────────────────────────
+-- A third gate, between the book switch and the per-section switch. An admin
+-- works chapter by chapter: generate everything for chapter 1, review it, release
+-- that chapter, and leave the rest of the book dark. Without this, releasing one
+-- chapter meant toggling each of its four sections and nothing told a student
+-- which chapters were actually ready.
+--
+-- Default false, like the other two gates — a chapter that nobody has decided
+-- about is not a chapter students should see.
+ALTER TABLE "book_chapters" ADD COLUMN IF NOT EXISTS "visible" boolean NOT NULL DEFAULT false;
+
+-- Existing chapters that already had published content stay visible: this column
+-- is new, so the decision was previously carried by the section switches alone and
+-- turning them all dark would be a silent regression for anything already live.
+UPDATE "book_chapters" c SET "visible" = true
+ WHERE "visible" = false
+   AND EXISTS (SELECT 1 FROM "book_content" bc
+                WHERE bc.chapter_id = c.id AND bc.status = 'published');

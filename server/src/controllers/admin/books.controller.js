@@ -90,6 +90,21 @@ async function setStatus(req, res, next) {
   } catch (e) { return next(e) }
 }
 
+// Release (or withdraw) one chapter. Audited like the other two gates, because
+// "who made this visible to students, and when" is the question asked after
+// something wrong reaches a class.
+async function setChapterVisible(req, res, next) {
+  try {
+    if (!isUuid(req.params.chapterId)) throw new AppError('Invalid chapter', 400)
+    const visible = req.body.visible === true || req.body.visible === 'true'
+    const ok = await books.setChapterVisible(req.params.chapterId, visible)
+    if (!ok) throw new AppError('Chapter not found', 404)
+    audit.record(req, { module: 'content', action: 'book.chapter.visible', targetType: 'book', after: { chapterId: req.params.chapterId, visible } }).catch(() => {})
+    return ApiResponse.success(res, { id: req.params.chapterId, visible },
+      visible ? 'Chapter is visible to students' : 'Chapter hidden from students')
+  } catch (e) { return next(e) }
+}
+
 async function publish(req, res, next) {
   try {
     if (!isUuid(req.params.id)) throw new AppError('Invalid book', 400)
@@ -122,4 +137,4 @@ async function remove(req, res, next) {
   } catch (e) { return next(e) }
 }
 
-module.exports = { list, upload, chapters, generate, content, setStatus, publish, update, remove }
+module.exports = { list, upload, chapters, generate, content, setStatus, setChapterVisible, publish, update, remove }
