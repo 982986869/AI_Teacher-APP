@@ -159,11 +159,30 @@ async function overview(req, res, next) {
 
     // "Resources" = downloadable/solution assets. All three tables exist in the real
     // schema; a failure is logged by one() rather than silently swallowed.
-    const [papers, ncert, exemplar] = await Promise.all([
+    const [papers, ncert, exemplar, split, study] = await Promise.all([
       one(`SELECT COUNT(*)::int AS n FROM "papers"`),
       one(`SELECT COUNT(*)::int AS n FROM "ncert_solutions"`),
       one(`SELECT COUNT(*)::int AS n FROM "exemplar_solutions"`),
+      // Where every started lesson stands. "Not started" means a progress row
+      // exists but no slide has been watched — a lesson nobody ever opened has no
+      // row at all, so this counts abandoned starts rather than the whole catalog.
+      one(`SELECT COUNT(*) FILTER (WHERE "completedAt" IS NOT NULL)::int AS completed,
+                  COUNT(*) FILTER (WHERE "completedAt" IS NULL AND COALESCE("slidesCompleted",0) > 0)::int AS in_progress,
+                  COUNT(*) FILTER (WHERE "completedAt" IS NULL AND COALESCE("slidesCompleted",0) = 0)::int AS not_started
+             FROM "lesson_progress"`),
+      // Time actually spent in lessons this week, per learner who studied. Divided
+      // by the learners who showed up, not by every enrolled student — otherwise
+      // the number measures enrolment, not engagement.
+      one(`SELECT COALESCE(SUM("studyTimeSeconds"),0)::bigint AS total_sec,
+                  COUNT(DISTINCT "userId")::int AS learners
+             FROM "lesson_progress" WHERE "updatedAt" >= now() - interval '7 days'`),
     ])
+
+    const studySec = Number(study.total_sec || 0)
+    const studyLearners = num(study.learners)
+    const avgStudyHoursWeek = studyLearners > 0
+      ? Math.round((studySec / studyLearners / 3600) * 10) / 10
+      : null
 
     const bgTotal = num(gym.total)
     const bgAccuracy = bgTotal > 0 ? Math.round((num(gym.correct) / bgTotal) * 100) : null
@@ -198,6 +217,16 @@ async function overview(req, res, next) {
         aiFailures: num(lessonsAgg.failed),
         avgGenerationMs: num(lessonsAgg.avg_gen_ms),
         pendingReview: num(lessonsAgg.failed),
+        // Where every lesson a student has opened currently stands.
+        progressSplit: {
+          completed: num(split.completed),
+          inProgress: num(split.in_progress),
+          notStarted: num(split.not_started),
+        },
+        // Hours in lessons per learner who studied this week. null when nobody did,
+        // so the tile can say "no data" instead of a confident 0.0h.
+        avgStudyHoursWeek,
+        studyLearnersWeek: studyLearners,
       },
 
       brainGym: {
