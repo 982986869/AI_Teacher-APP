@@ -8,3 +8,8 @@ node_modules/
 *.log
 dist/
 .DS_Store
+
+# Textbook pipeline: the NCERT PDFs and the raw extraction are rebuilt by
+# scripts/textbooks/*; only the final chNN.json is committed.
+data/textbooks/pdf/
+data/textbooks/**/*.raw.json
