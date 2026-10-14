@@ -29,21 +29,39 @@ function sliceChapter(raw, outline) {
   boundaries.push(end)
   const nextBoundaryAfter = (i) => Math.min(...boundaries.filter((b) => b > i), end)
 
+  // Lines [from, to) as topic text, with in-text question blocks cut to the next boundary.
+  const sliceRange = (from, to, keep = () => true) => {
+    const lines = []
+    for (let i = from; i < to; i++) {
+      const text = flat[i].text
+      if (EXERCISE_RE.test(text)) { i = nextBoundaryAfter(i) - 1; continue } // skip to the boundary
+      if (keep(text)) lines.push(text)
+    }
+    return lines.join('\n').replace(/\n{3,}/g, '\n\n').trim()
+  }
+  const topicOut = (number, title, text) => ({ number, title, slug: slugify(`${number} ${title}`), text, charCount: text.length })
+
   const out = []
+
+  // NCERT Science opens every chapter with un-numbered text (and Activities) before
+  // "N.1"; Maths puts an "N.1 Introduction" there instead. Keep the un-numbered opening
+  // as an "N.0 Introduction" topic when it is real text, not just the title lines.
+  if (topics.length) {
+    const firstStart = indexOf(flat, topics[0])
+    if (firstStart > 0) {
+      const title = String(raw.chapterTitle || '').toLowerCase()
+      const isTitleLine = (text) => /^chapter\s*\d*$/i.test(text.trim()) || (title && title.includes(text.trim().toLowerCase()))
+      const intro = sliceRange(0, Math.min(firstStart, end), (text) => !isTitleLine(text))
+      if (intro.length >= MIN_INTRO_CHARS) out.push(topicOut(`${raw.chapterNumber}.0`, 'Introduction', intro))
+    }
+  }
+
   topics.forEach((t, ti) => {
     const start = indexOf(flat, t)
     if (start < 0) throw new Error(`topic ${t.number} "${t.title}": start line not found at page ${t.page} line ${t.line}`)
     const next = topics[ti + 1] ? indexOf(flat, topics[ti + 1]) : end
     const stop = Math.min(next, end)
-
-    const lines = []
-    for (let i = start + 1; i < stop; i++) {
-      const text = flat[i].text
-      if (EXERCISE_RE.test(text)) { i = nextBoundaryAfter(i) - 1; continue } // skip to the boundary
-      lines.push(text)
-    }
-    const text = lines.join('\n').replace(/\n{3,}/g, '\n\n').trim()
-    out.push({ number: t.number, title: t.title, slug: slugify(`${t.number} ${t.title}`), text, charCount: text.length })
+    out.push(topicOut(t.number, t.title, sliceRange(start + 1, stop)))
   })
 
   const kept = out.filter((t) => {

@@ -237,7 +237,7 @@ function preferenceLine(profile = {}) {
 
 // Bump whenever the SOURCE wording below (or anything that changes what a cached book
 // lesson would say) changes — it is part of the book_lessons cache key.
-const PROMPT_VERSION = 2
+const PROMPT_VERSION = 3
 
 // The student's own textbook text, as one block. Sent by the provider as its OWN
 // content block with cache_control (the same chapter is hit by many students), so it
@@ -254,12 +254,17 @@ const SOURCE_RULES = `TEACH FROM THE SOURCE (the SOURCE MATERIAL block above): u
 const SUMMARY_RULES = `LESSON KIND — CHAPTER SUMMARY: this is a spoken overview of the WHOLE chapter in 8 to 10 slides: one slide per major section (merge small ones), each stating the section's key idea, its one must-know formula or definition, and one line on why it matters for the exam. End with a "what to revise" slide listing the sections by number. Do not go deep on any one section.`
 
 function buildLessonUserPrompt(topic, subject, gradeLevel, profile = {}, source = null) {
-  const pl = profileLine(profile)
-  const lg = levelGuidance(gradeLevel, profile)
-  // Book lessons are shared across students (cached), so the per-learner mastery line
-  // is left out of them; mode and preferences still apply and are in the cache key.
+  // Book lessons are shared across students: the cache key is (chapter, topics, grade,
+  // teaching mode, explanation style) and NOTHING else may shape the prompt, or the
+  // first student's language / board / stream / pace / goal / exam date / mastery would
+  // be served to everyone after them. The free-topic path keeps the full profile.
+  const shared = source
+    ? { mode: profile.mode, prefs: profile.prefs && profile.prefs.explanationStyle ? { explanationStyle: profile.prefs.explanationStyle } : null }
+    : profile
+  const pl = source ? '' : profileLine(profile)
+  const lg = levelGuidance(gradeLevel, shared)
   const ll = source ? '' : learnerLine(profile)
-  const pref = preferenceLine(profile)
+  const pref = preferenceLine(shared)
   const md = modePrompt(profile.mode)
   const src = source ? `\n${SOURCE_RULES}${source.kind === 'summary' ? `\n${SUMMARY_RULES}` : ''}` : ''
   return `Create a classroom lesson. Return ONLY the JSON object defined in the system prompt — no markdown, no extra text.

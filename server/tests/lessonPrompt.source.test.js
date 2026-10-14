@@ -59,3 +59,25 @@ test('a summary source adds the chapter-summary guidance', () => {
 test('the system prompt tells the model a SOURCE MATERIAL block is authoritative', () => {
   assert.ok(buildLessonSystemPrompt().includes('SOURCE MATERIAL'))
 })
+
+// Review finding: the book-lesson cache key is (chapter, topics, grade, mode, explanation
+// style). Anything else that reaches the prompt would leak the FIRST student's choice to
+// every student who hits the cache — so a source prompt may carry only those inputs.
+test('a source prompt carries no per-student language/board/pace/goal/exam text, only the explanation style', () => {
+  const profile = {
+    board: 'ICSE', stream: 'PCM', language: 'Hindi',
+    prefs: { explanationStyle: 'visual', pace: 'slow', goal: 'crack JEE', examDate: 'March 2027' },
+    learner: { weak: ['sets'] },
+  }
+  const p = buildLessonUserPrompt('Binomial Theorem: 7.2 …', 'Mathematics', '10', profile, source)
+  assert.ok(p.includes('VISUALLY'), 'explanation style is in the key, so it stays')
+  for (const leak of ['Hindi', 'ICSE', 'SLOWER pace', 'crack JEE', 'March 2027', 'struggled before']) {
+    assert.ok(!p.includes(leak), `source prompt must not contain "${leak}"`)
+  }
+})
+
+test('without a source the same profile still shapes the prompt (free-topic path unchanged)', () => {
+  const profile = { language: 'Hindi', prefs: { pace: 'slow', goal: 'crack JEE' } }
+  const p = buildLessonUserPrompt('Sets', 'Maths', '10', profile)
+  assert.ok(p.includes('Hindi') && p.includes('SLOWER pace') && p.includes('crack JEE'))
+})

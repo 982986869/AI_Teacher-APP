@@ -437,8 +437,10 @@ player plays a cached lesson identically to a fresh one.
 
 No Python on the server; no new env vars.
 
-Checklist for the AWS deploy (tick when done):
-- [ ] `prisma/sql/textbooks.sql` run on the production DB (`npx prisma db execute --file prisma/sql/textbooks.sql --schema prisma/schema.prisma`)
+Checklist for the AWS deploy (tick when done — **in this order**; `createLesson` now
+writes `lessons.book_topic_ids` on EVERY lesson, so code deployed before the SQL 500s on
+all lesson generation, not just textbook ones):
+- [ ] `prisma/sql/textbooks.sql` run on the production DB FIRST (`npx prisma db execute --file prisma/sql/textbooks.sql --schema prisma/schema.prisma`)
 - [ ] `CREATE EXTENSION IF NOT EXISTS vector` confirmed on that DB
 - [ ] server deployed from feat/textbook-lessons (or main after merge) and `npx prisma generate` ran as part of the build
 - [ ] `node scripts/textbooks/seed-textbooks.js` run on the server (reads the committed `data/textbooks/class10/**`)

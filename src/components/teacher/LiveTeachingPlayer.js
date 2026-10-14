@@ -1320,7 +1320,12 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   // so the header stays stable while the whiteboard title carries the live concept.
   const subjectName = subject ? `${String(subject).charAt(0).toUpperCase()}${String(subject).slice(1)}` : '';
   const tutorLabel = subjectName ? `${subjectName} Tutor` : 'Your Tutor';
-  const sessionLabel = subjectName ? `${subjectName} Session` : 'Live Session';
+  // A textbook lesson names its book and chapter instead ("Maths · NCERT Ch. 7"), so the
+  // student can see which book the teacher is reading from.
+  const bookSource = lesson && lesson.source && lesson.source.chapter ? lesson.source : null;
+  const sessionLabel = bookSource
+    ? `${subjectName || 'NCERT'} · NCERT Ch. ${bookSource.chapter.number}${bookSource.kind === 'topics' && bookSource.topicLabel ? ` · ${bookSource.topicLabel}` : ''}`
+    : (subjectName ? `${subjectName} Session` : 'Live Session');
 
   const toggleHandsFree = () => {
     setHandsFree((v) => {

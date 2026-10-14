@@ -140,6 +140,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   const [bookBusy, setBookBusy] = useState(false);
   const [bookErr, setBookErr] = useState('');
   const [sourceLabel, setSourceLabel] = useState(''); // "Ch. 7 · 7.2, 7.3" while generating
+  const [lessonSource, setLessonSource] = useState(null); // the server's lesson.source, for the player header
 
   const loadBooks = async () => {
     setBooksErr('');
@@ -233,6 +234,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
       setLessonTitle(lesson.lessonTitle || title || '');
       setSlides(lesson.slides);
       setKeyTerms(lesson.keyTerms || []);
+      setLessonSource(lesson.source || null); // GET /lesson/:id carries no source today → plain header
       historyRef.current = [];
       pendingRef.current = null;
       return true;
@@ -320,6 +322,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
       setLessonTitle(shownTitle);
       setSlides(lesson.slides || []);
       setKeyTerms(lesson.keyTerms || []);
+      setLessonSource(lesson.source || null);
       // Persist so this lesson can be resumed if the app is closed mid-way.
       setStartIndex(0);
       posRef.current = { slideIndex: 0, total: 0 };
@@ -334,7 +337,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
     }
   };
 
-  const newLesson = () => { clearingRef.current = true; stopTeacher(); setSlides([]); setLessonId(null); historyRef.current = []; pendingRef.current = null; clearActiveLesson(); setSavedLesson(null); setSourceLabel(''); };
+  const newLesson = () => { clearingRef.current = true; stopTeacher(); setSlides([]); setLessonId(null); historyRef.current = []; pendingRef.current = null; clearActiveLesson(); setSavedLesson(null); setSourceLabel(''); setLessonSource(null); };
 
   // From ChapterTopics: label the wait ("Ch. 7 · 7.2, 7.3") and generate from the book.
   const teachFromBook = (source) => {
@@ -348,7 +351,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
 
   // Stable lesson object so the player's buildScenes() memo isn't invalidated on
   // every re-render of this screen.
-  const lessonObj = useMemo(() => ({ lessonTitle, slides, keyTerms, grade: scope?.classNum || user?.grade || null }), [lessonTitle, slides, keyTerms, scope?.classNum, user?.grade]);
+  const lessonObj = useMemo(() => ({ lessonTitle, slides, keyTerms, grade: scope?.classNum || user?.grade || null, source: lessonSource }), [lessonTitle, slides, keyTerms, scope?.classNum, user?.grade, lessonSource]);
 
   // ── Human moments around the lesson (presentation copy — Ms. Nova's warmth on
   // the landing + while she prepares). Frames the REAL continuity data (resume /

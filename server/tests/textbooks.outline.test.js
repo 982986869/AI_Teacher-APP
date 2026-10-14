@@ -93,3 +93,27 @@ test('a topic whose start line is missing is an error naming the topic', () => {
   const o = outline(); o.topics[2].line = 99
   assert.throws(() => sliceChapter(raw(), o), /7\.3 .*start line not found/)
 })
+
+// Review finding: NCERT Science chapters open with un-numbered text (and Activities)
+// before "N.1"; that text must not be dropped.
+test('un-numbered text before the first section becomes an "N.0 Introduction" topic', () => {
+  const r = raw()
+  r.pages[0].lines.unshift(L('Chapter opening'), ...fill(10, 'opening'))
+  const o = outline()
+  o.topics = o.topics.map((t) => (t.page === 0 ? { ...t, line: t.line + 11 } : t))
+  o.subsections = o.subsections.map((t) => (t.page === 0 ? { ...t, line: t.line + 11 } : t))
+  const ch = sliceChapter(r, o)
+  assert.deepEqual(ch.topics.map((t) => t.number), ['7.0', '7.1', '7.2', '7.3'])
+  assert.equal(ch.topics[0].title, 'Introduction')
+  assert.ok(ch.topics[0].text.includes('opening sentence number 9'))
+  assert.ok(!ch.topics[0].text.includes('7.1 Introduction'))
+})
+
+test('a short un-numbered opening (title lines, epigraph) is ignored', () => {
+  const r = raw()
+  r.pages[0].lines.unshift(L('Chapter 7'), L('BINOMIAL THEOREM'))
+  const o = outline()
+  o.topics = o.topics.map((t) => (t.page === 0 ? { ...t, line: t.line + 2 } : t))
+  o.subsections = o.subsections.map((t) => (t.page === 0 ? { ...t, line: t.line + 2 } : t))
+  assert.deepEqual(sliceChapter(r, o).topics.map((t) => t.number), ['7.1', '7.2', '7.3'])
+})
