@@ -10,7 +10,8 @@ function TypeLine({ text, speed = 1, paused, style, onGrow }) {
   useEffect(() => { setN(0); }, [text]);
   useEffect(() => {
     if (paused || n >= text.length) return undefined;
-    const t = setTimeout(() => { setN((x) => Math.min(text.length, x + Math.max(1, Math.round(speed * 1.4)))); if (onGrow && n % 16 === 0) onGrow(); }, 30);
+    // Handwriting pace: notes are short, so she writes them as she says them.
+    const t = setTimeout(() => { setN((x) => Math.min(text.length, x + 1)); if (onGrow && n % 16 === 0) onGrow(); }, 55 / speed);
     return () => clearTimeout(t);
   }, [n, text, speed, paused, onGrow]);
   const [blink, setBlink] = useState(true);
@@ -40,7 +41,7 @@ function LineView({ line, typing, speed, paused, onGrow }) {
 
 // The notebook page: every line taught so far stays on the board; the newest one is
 // written live. `doubt` swaps the page for the student's question and her answer.
-export default function BoardPage({ lines, revealed, sceneKey, speed = 1, paused = false, doubt = null, children, style }) {
+export default function BoardPage({ lines, revealed, sceneKey, speed = 1, paused = false, doubt = null, children, style, bottomPad = 130 }) {
   const scrollRef = useRef(null);
   // Follow the pen down the page only once the writing actually runs past the visible
   // board (the bottom padding keeps the newest line clear of the caption bar).
@@ -51,7 +52,7 @@ export default function BoardPage({ lines, revealed, sceneKey, speed = 1, paused
 
   if (doubt) {
     return (
-      <ScrollView ref={scrollRef} style={style} contentContainerStyle={s.body} showsVerticalScrollIndicator={false} {...measure}>
+      <ScrollView ref={scrollRef} style={style} contentContainerStyle={[s.body, { paddingBottom: bottomPad }]} showsVerticalScrollIndicator={false} {...measure}>
         <Text style={[s.line, s.title]}>Your question</Text>
         <Text style={[s.line, s.pt, s.question]}>“{doubt.q}”</Text>
         {doubt.a ? <Text style={[s.line, s.answer]}>{doubt.a}</Text> : <Text style={[s.line, s.thinking]}>Thinking…</Text>}
@@ -62,7 +63,7 @@ export default function BoardPage({ lines, revealed, sceneKey, speed = 1, paused
 
   const shown = lines.slice(0, revealed);
   return (
-    <ScrollView ref={scrollRef} style={style} contentContainerStyle={s.body} showsVerticalScrollIndicator={false} nestedScrollEnabled {...measure}>
+    <ScrollView ref={scrollRef} style={style} contentContainerStyle={[s.body, { paddingBottom: bottomPad }]} showsVerticalScrollIndicator={false} nestedScrollEnabled {...measure}>
       {shown.map((ln, i) => (
         <LineView key={`${sceneKey}-${i}`} line={ln} typing={i === shown.length - 1} speed={speed} paused={paused} onGrow={i === shown.length - 1 ? toEnd : undefined} />
       ))}

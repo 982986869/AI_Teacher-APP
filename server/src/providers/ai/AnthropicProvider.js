@@ -588,10 +588,16 @@ function parseAndValidateLesson(raw) {
       throw invalid(`slide ${i + 1} has invalid visualType "${slide.visualType}"`)
     }
 
-    const visualData =
+    let visualData =
       slide.visualData && typeof slide.visualData === 'object' && !Array.isArray(slide.visualData)
         ? slide.visualData
         : {}
+    // What she WRITES on the board while she speaks (short notes, not the narration).
+    // Kept inside visualData so it is stored with the slide without a new column.
+    const boardNotes = Array.isArray(slide.boardNotes)
+      ? slide.boardNotes.filter((n) => typeof n === 'string').map((n) => n.trim()).filter(Boolean).slice(0, 5)
+      : []
+    if (boardNotes.length) visualData = { ...visualData, boardNotes }
 
     const check = normalizeCheck(slide.check)
     const reteach = normalizeReteach(slide.reteach)
@@ -754,3 +760,4 @@ function buildLessonRequestParts({ systemText, sourceBlock, userText }) {
 
 module.exports = AnthropicProvider
 module.exports.buildLessonRequestParts = buildLessonRequestParts
+module.exports.parseAndValidateLesson = parseAndValidateLesson

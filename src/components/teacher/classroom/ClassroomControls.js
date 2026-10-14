@@ -90,7 +90,7 @@ const s = StyleSheet.create({
   speedTxt: { color: '#fff', fontFamily: FONT_SEMI, fontSize: 16 },
   pill: { height: 40, borderRadius: 20, paddingHorizontal: 15, flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: GLASS },
   pillTxt: { color: '#fff', fontFamily: FONT_SEMI, fontSize: 14 },
-  chip: { height: 36, borderRadius: 18, paddingHorizontal: 14, flexDirection: 'row', alignItems: 'center', gap: 9, backgroundColor: GLASS, maxWidth: 420 },
+  chip: { height: 36, borderRadius: 18, paddingHorizontal: 14, flexDirection: 'row', alignItems: 'center', gap: 9, backgroundColor: GLASS, maxWidth: 420, flexShrink: 1 },
   dot: { width: 8, height: 8, borderRadius: 4, backgroundColor: '#C9CDD2' },
   dotLive: { backgroundColor: '#F87171' },
   chipTxt: { color: '#fff', fontFamily: FONT_SEMI, fontSize: 13, flexShrink: 1 },

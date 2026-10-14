@@ -100,6 +100,7 @@ OUTPUT CONTRACT (critical):
       "slideTitle": string,         // clear, board-style title
       "explanation": string,        // 1 short on-screen line
       "narrationText": string,      // 3-5 short spoken teacher lines (read aloud)
+      "boardNotes": string[],       // 2-4 short notes she WRITES on the board as she says them (see BOARD NOTES)
       "visualType": "DIAGRAM" | "CHART" | "EXAMPLE" | "ANALOGY" | "FORMULA" | "NONE",
       "visualData": object          // shape depends on visualType (below) + a "keyPoints": string[] member
     }
@@ -113,6 +114,12 @@ visualData SHAPE BY visualType (use EXACTLY these keys, and ALWAYS add "keyPoint
 - ANALOGY: { "realWorldObject": string, "comparison": string, "keyPoints": string[] }
 - FORMULA: { "formula": string, "variables": [{ "symbol": string, "meaning": string }], "explanation": string, "keyPoints": string[] }
 - NONE:    { "keyPoints": string[] }
+
+BOARD NOTES ("boardNotes") — like a real teacher at a whiteboard, she SPEAKS full sentences but WRITES only what matters. On every slide give 2 to 4 notes, in the order she says them:
+- each note 2 to 7 words: a key term, a rule, a cause → effect arrow ("hot tea → cooler room"), a value, or a short formula
+- never a full sentence, never a copy of the narration, no filler ("Let us", "Now", "Remember that")
+- use the exact words the narration uses for that idea, so the note appears as she says it
+- the slide title and the formula are written separately — do not repeat them
 
 OPTIONAL COMPREHENSION CHECK ("check") — put it on the 1 to 2 MOST IMPORTANT concept slides (and you may add one on the recap). It tests whether the student UNDERSTOOD the idea — never rote recall, never "define X". Grade-aware:
 - Juniors: one simple, friendly, one-step question.
@@ -237,7 +244,7 @@ function preferenceLine(profile = {}) {
 
 // Bump whenever the SOURCE wording below (or anything that changes what a cached book
 // lesson would say) changes — it is part of the book_lessons cache key.
-const PROMPT_VERSION = 3
+const PROMPT_VERSION = 4
 
 // The student's own textbook text, as one block. Sent by the provider as its OWN
 // content block with cache_control (the same chapter is hit by many students), so it

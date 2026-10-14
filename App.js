@@ -27,7 +27,7 @@ import { AuthProvider } from './src/context/AuthContext';
 import { RuntimeConfigProvider } from './src/context/RuntimeConfigContext';
 import AppNavigator from './src/navigation/AppNavigator';
 import { startErrorLogFlusher } from './src/utils/errorLog';
-import { lockPortrait } from './src/components/teacher/classroom/useLandscape';
+import { lockPortrait } from './src/components/teacher/classroom/useLessonOrientation';
 
 // Google Sign-In configures itself lazily on first use (see utils/googleSignin).
 // Doing it here at module scope would run native code during app startup, which

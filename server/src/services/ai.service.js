@@ -104,6 +104,7 @@ function buildMockLesson(topic, subject, gradeLevel) {
         visualType: 'ANALOGY',
         visualData: {
           realWorldObject: 'A building foundation',
+          boardNotes: ['foundation → building', 'basics → everything else'],
           comparison: `Just like a foundation supports a building, ${t} supports our understanding of ${s}. Without it, the other concepts would have nothing to stand on.`,
         },
       },
@@ -115,6 +116,7 @@ function buildMockLesson(topic, subject, gradeLevel) {
         visualType: 'EXAMPLE',
         visualData: {
           scenario: `Breaking down ${t} step by step`,
+          boardNotes: ['definition', 'when it applies', 'what it predicts', 'its limits'],
           steps: [
             `Define ${t} clearly`,
             `Identify the conditions where it applies`,
@@ -131,6 +133,7 @@ function buildMockLesson(topic, subject, gradeLevel) {
         visualType: 'DIAGRAM',
         visualData: {
           description: `Input-process-output flow for ${t}`,
+          boardNotes: ['cause → mechanism → effect', 'trace input to output'],
           label: t,
           components: ['Input / Cause', `${t} in action`, 'Output / Effect'],
         },
@@ -143,6 +146,7 @@ function buildMockLesson(topic, subject, gradeLevel) {
         visualType: 'EXAMPLE',
         visualData: {
           scenario: `Where ${t} appears in the real world`,
+          boardNotes: ['everyday life', 'technology', 'science & engineering'],
           steps: [
             `Everyday life: observable in daily activities`,
             `Technology: powers modern devices and systems`,
@@ -157,7 +161,7 @@ function buildMockLesson(topic, subject, gradeLevel) {
         explanation: `We covered: what ${t} is, its core principles, how the mechanism works, and where it appears in real life.`,
         narrationText: `Excellent work making it to the end! Let us recap the most important points from today's lesson on ${t}. Keep these in mind — they will help you in future topics.`,
         visualType: 'NONE',
-        visualData: {},
+        visualData: { boardNotes: ['what it is', 'how it works', 'where it is used'] },
       },
     ].map((sl) => {
       const hints = buildMockAnimation(sl)

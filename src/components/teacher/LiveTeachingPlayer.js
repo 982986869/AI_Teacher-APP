@@ -31,8 +31,8 @@ import { buildReteach } from './reteach';
 import { speakTeacher, stopTeacher, primeTeacherVoice, getSpeechProgress, SPEECH_OK, speakTeacherQueued, resetTeacherQueue, isTeacherQueueActive, setListeningMode, setTeacherSpeed } from '../../utils/teacherVoice';
 import GridPaper from './classroom/GridPaper';
 import BoardPage from './classroom/BoardPage';
-import useLandscape from './classroom/useLandscape';
-import { pageLinesFor, revealCount, hasSideVisual } from './classroom/pageLines';
+import useLessonOrientation from './classroom/useLessonOrientation';
+import { pageLinesFor, planLineBeats, revealAt, hasSideVisual } from './classroom/pageLines';
 import { CallControls, SpeedPill, ControlsToggle, SessionChip, CaptionBar, captionStyles, chipClockStyle } from './classroom/ClassroomControls';
 import { AskSheet, MoreSheet } from './classroom/ClassroomSheets';
 import { PAPER, FONT_HEAD, LINE_COLOR } from './classroom/theme';
@@ -796,8 +796,11 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   // The lesson is a full-screen landscape whiteboard. Its controls float over the
   // board and tuck themselves away after a few quiet seconds so the board gets the
   // whole screen; any touch brings them back.
-  useLandscape(true);
-  const { width: winW } = useWindowDimensions();
+  // The board follows the phone: upright → portrait board, sideways → landscape.
+  // ⋮ › Rotate board locks it the other way for phones with auto-rotate switched off.
+  const rotateBoard = useLessonOrientation();
+  const { width: winW, height: winH } = useWindowDimensions();
+  const portrait = winH > winW;
   const SPEEDS = [0.75, 1, 1.25, 1.5];
   const [speedIdx, setSpeedIdx] = useState(1);
   const speed = SPEEDS[speedIdx];
@@ -1591,12 +1594,17 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const slideOf = (sc) => (lesson && Array.isArray(lesson.slides) && sc && sc.slideIndex != null ? lesson.slides[sc.slideIndex] : null);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const pageLines = useMemo(() => pageLinesFor(scene, slideOf(scene)), [scene, lesson]);
-  const revealed = mode === M.COMPLETED ? pageLines.length : revealCount(pageLines.length, beat, beats.length);
+  // Each note goes up on the beat where she says it (she speaks, then writes).
+  const linePlan = useMemo(() => planLineBeats(pageLines, beats.map((b) => b && b.say)), [pageLines, scene]); // eslint-disable-line react-hooks/exhaustive-deps
+  const revealed = mode === M.COMPLETED ? pageLines.length : revealAt(linePlan, beat);
   const isQuiz = scene.boardType === 'quickCheck';
   const showSide = !qa && !isQuiz && hasSideVisual(scene);
   const boardHighlight = (curBeat && curBeat.highlight && curBeat.highlight.length) ? curBeat.highlight : keyTerms;
   const sideW = Math.round(Math.min(380, winW * 0.4));
-  const capBottom = (controlsOn ? 82 : 14) + insets.bottom;
+  // Portrait stacks the speed pill above the call row, so the caption sits higher.
+  const ctlTop = portrait ? 16 + 50 + 12 + 50 : 16 + 50;
+  const capBottom = (controlsOn ? ctlTop + 16 : 14) + insets.bottom;
+  const pagePad = (portrait ? ctlTop + 90 : 130);
   const [hintShown, setHintShown] = useState(false);
   useEffect(() => {
     if (!hint) { setHintShown(false); return undefined; }
@@ -1632,6 +1640,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     ...(testQs.length > 0 ? [{ key: 'test', Icon: GraduationCap, label: 'Test yourself', run: () => setTestOpen(true) }] : []),
     { key: 'captions', Icon: Captions, label: captionsOn ? 'Captions · on' : 'Captions · off', on: captionsOn, run: () => setCaptionsOn((c) => !c) },
     ...(VOICE_OK && onAsk ? [{ key: 'live', Icon: Radio, label: handsFree ? 'Live talk · on' : 'Live talk · off', on: handsFree, run: toggleHandsFree }] : []),
+    { key: 'rotate', Icon: RotateCw, label: portrait ? 'Turn board sideways' : 'Turn board upright', run: () => rotateBoard(portrait) },
     { key: 'voice', Icon: AudioLines, label: 'Teacher voice', run: () => { stopTeacher(); setVoiceOpen(true); } },
     ...(onNewLesson ? [{ key: 'new', Icon: RefreshCw, label: 'New lesson', run: onNewLesson }] : []),
   ];
@@ -1646,16 +1655,22 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
       {VOICE_OK && handsFree && <HandsFreeListener onBargeIn={handleBargeIn} isEcho={isLikelyEcho} onUnavailable={handleVoiceUnavailable} />}
 
       {/* ── THE BOARD — the page she writes on the left, her drawing on the right ── */}
-      <View style={[cs.board, { paddingLeft: insets.left + 36, paddingRight: insets.right + 28 }]}>
+      <View style={[cs.board, portrait ? { paddingLeft: insets.left + 20, paddingRight: insets.right + 20 } : { paddingLeft: insets.left + 36, paddingRight: insets.right + 28 }]}>
         <Stage key={qa ? 'doubt' : sceneKey} style={cs.boardRow}>
           <View style={cs.pageCol}>
             {isQuiz && !qa ? (
-              <ScrollView style={cs.fill} contentContainerStyle={cs.quizBody} showsVerticalScrollIndicator={false}>
+              <ScrollView style={cs.fill} contentContainerStyle={[cs.quizBody, { paddingBottom: pagePad }]} showsVerticalScrollIndicator={false}>
                 <Text style={cs.quizTitle}>{scene.title || 'Quick check'}</Text>
                 <LessonBoard scene={scene} paused={!teaching} skip={false} resetKey={sceneKey} step={curBeat ? curBeat.boardStep : null} highlight={boardHighlight} action={curBeat && curBeat.boardAction} onQuizContinue={onNextStable} onQuizResult={onQuizResultStable} onReexplain={onReexplainStable} quizFb={quizFb} reteach={reteach} />
               </ScrollView>
             ) : (
-              <BoardPage lines={pageLines} revealed={revealed} sceneKey={sceneKey} speed={speed} paused={!teaching} doubt={qa} style={cs.fill}>
+              <BoardPage lines={pageLines} revealed={revealed} sceneKey={sceneKey} speed={speed} paused={!teaching} doubt={qa} style={cs.fill} bottomPad={pagePad}>
+                {/* upright, the drawing sits under the notes instead of beside them */}
+                {portrait && showSide && (
+                  <View style={cs.sideCardPortrait}>
+                    <LessonBoard scene={scene} paused={!teaching} skip={false} resetKey={sceneKey} step={curBeat ? curBeat.boardStep : null} highlight={boardHighlight} action={curBeat && curBeat.boardAction} onQuizContinue={onNextStable} onQuizResult={onQuizResultStable} onReexplain={onReexplainStable} quizFb={quizFb} reteach={reteach} />
+                  </View>
+                )}
                 {qa && mode === M.ANSWERING && (
                   <View style={cs.doubtActions}>
                     {doubtDone && <DoubtMeta meta={qaMeta} onLearnPrereq={(p) => sendDoubt(`Explain "${p}" briefly — I want to understand the idea this builds on.`)} />}
@@ -1669,7 +1684,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
               </BoardPage>
             )}
           </View>
-          {showSide && (
+          {showSide && !portrait && (
             <View style={[cs.sideCol, { width: sideW }]}>
               <ScrollView style={cs.sideCard} contentContainerStyle={cs.sideBody} showsVerticalScrollIndicator={false} nestedScrollEnabled>
                 <LessonBoard scene={scene} paused={!teaching} skip={false} resetKey={sceneKey} step={curBeat ? curBeat.boardStep : null} highlight={boardHighlight} action={curBeat && curBeat.boardAction} onQuizContinue={onNextStable} onQuizResult={onQuizResultStable} onReexplain={onReexplainStable} quizFb={quizFb} reteach={reteach} />
@@ -1714,7 +1729,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
       {/* ── controls: speed · mic · speaker · + · ⋮ · end ── */}
       {controlsOn && mode !== M.COMPLETED && (
         <>
-          <View style={[cs.speedWrap, { left: insets.left + 16, bottom: 16 + insets.bottom }]}>
+          <View style={[cs.speedWrap, { left: insets.left + 16, bottom: (portrait ? 16 + 50 + 12 : 16) + insets.bottom }]}>
             <SpeedPill speed={speed} onPress={cycleSpeed} />
           </View>
           <View style={[cs.callWrap, { bottom: 16 + insets.bottom }]} pointerEvents="box-none">
@@ -2204,6 +2219,7 @@ const cs = StyleSheet.create({
   sideCol: { paddingBottom: 92 },
   sideCard: { flexGrow: 0, borderRadius: 14, backgroundColor: 'rgba(255,255,255,0.92)', borderWidth: 1, borderColor: '#E7E7E3' },
   sideBody: { padding: 10 },
+  sideCardPortrait: { marginTop: 14, borderRadius: 14, backgroundColor: 'rgba(255,255,255,0.92)', borderWidth: 1, borderColor: '#E7E7E3', padding: 10 },
   quizBody: { paddingBottom: 130, gap: 10, maxWidth: 680 },
   quizTitle: { fontFamily: FONT_HEAD, fontSize: 24, color: LINE_COLOR.title },
   topBar: { position: 'absolute', top: 12, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
