@@ -55,6 +55,7 @@ router.use('/teacher',    require('./teacherIdentity'))
 
 // Paid.
 router.use('/ai',           paid(require('./ai')))
+router.use('/books',        paid(require('./books')))   // textbook browsing for the AI Teacher
 router.use('/knowledge',    paid(require('./knowledge')))
 router.use('/tts',          paid(require('./tts')))
 // Real per-minute cost (HeyGen streaming avatar) — paid tier on top of the
