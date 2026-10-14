@@ -114,6 +114,11 @@ async function unloadCurrentSound() {
 // Slow, clear classroom pace — never rushed. Natural pauses come from the
 // sentence punctuation in the (short) teacher lines, stretched by this slow rate.
 const DEFAULT_RATE = 0.86;
+// The student's playback speed (the board's "1x" pill): scales the device voice's
+// rate and the server audio's playback rate (pitch-corrected). 1 = normal.
+let teacherSpeed = 1;
+export function setTeacherSpeed(x) { const n = Number(x); teacherSpeed = Number.isFinite(n) && n > 0 ? n : 1; }
+export function getTeacherSpeed() { return teacherSpeed; }
 // When we DID find a real female voice, keep the pitch natural (close to 1.0).
 const FEMALE_PITCH = 1.06;
 // When the device gives us a neutral / unknown-gender voice (common on Android,
@@ -346,7 +351,7 @@ function speakViaDevice(text, opts = {}) {
     Speech.speak(text, {
       language: 'en-US',
       voice,
-      rate: opts.rate != null ? opts.rate : DEFAULT_RATE,
+      rate: (opts.rate != null ? opts.rate : DEFAULT_RATE) * teacherSpeed,
       pitch: opts.pitch != null ? opts.pitch : autoPitch,
       onStart: () => { speechStartTs = Date.now(); if (opts.onStart) opts.onStart(); },
       onDone: opts.onDone,
@@ -419,7 +424,7 @@ async function speakViaOpenAI(text, opts = {}) {
 
     const { sound } = await ExpoAudio.Sound.createAsync(
       { uri, headers: authHeaders },
-      { shouldPlay: true, progressUpdateIntervalMillis: 120 },
+      { shouldPlay: true, progressUpdateIntervalMillis: 120, rate: teacherSpeed, shouldCorrectPitch: true },
       onStatus,
     );
     if (myToken !== playToken) { try { await sound.unloadAsync(); } catch (e) { /* no-op */ } return; }
