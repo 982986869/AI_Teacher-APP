@@ -13,6 +13,8 @@ class AIProvider {
    * @param {string} gradeLevel
    * @returns {Promise<import('../../types').LessonPayload>}
    */
+  // (topic, subject, gradeLevel, profile?, source?) — `source` is a textbook scope the
+  // lesson must be grounded in (see books.service.loadSource).
   async generateLesson(topic, subject, gradeLevel) {
     throw new Error(`${this.constructor.name} must implement generateLesson()`)
   }
@@ -25,6 +27,8 @@ class AIProvider {
    * @param {number} [slideIndex]   – 0-based slide the question is about, if any
    * @returns {Promise<string>}
    */
+  // (question, lessonContext, history, slideIndex, sourceText?) — `sourceText` is the
+  // textbook text behind a book lesson, when there is one.
   async answerDoubt(question, lessonContext, history, slideIndex) {
     throw new Error(`${this.constructor.name} must implement answerDoubt()`)
   }

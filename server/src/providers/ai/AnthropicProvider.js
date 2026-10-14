@@ -7,6 +7,7 @@ const { AppError } = require('../../middleware/errorHandler')
 const {
   buildLessonSystemPrompt,
   buildLessonUserPrompt,
+  buildSourceBlock,
 } = require('../../prompts/lessonGeneration.prompt')
 const {
   buildDoubtSystemPrompt,
@@ -105,10 +106,15 @@ class AnthropicProvider extends AIProvider {
     return this._client
   }
 
-  async generateLesson(topic, subject, gradeLevel, profile = {}) {
+  // `source` (optional) is a textbook scope from books.service.loadSource: its text goes
+  // in as its own prompt-cached block ahead of the per-student instructions.
+  async generateLesson(topic, subject, gradeLevel, profile = {}, source = null) {
     const client = this._getClient()
-    const system = buildLessonSystemPrompt()
-    const messages = [{ role: 'user', content: buildLessonUserPrompt(topic, subject, gradeLevel, profile) }]
+    const { system, messages } = buildLessonRequestParts({
+      systemText: buildLessonSystemPrompt(),
+      sourceBlock: source ? buildSourceBlock(source) : null,
+      userText: buildLessonUserPrompt(topic, subject, gradeLevel, profile, source),
+    })
 
     const message = await this._createLessonMessage(client, system, messages)
     const raw = extractText(message)
@@ -166,7 +172,8 @@ class AnthropicProvider extends AIProvider {
     return msg
   }
 
-  async answerDoubt(question, lessonContext, history = [], slideIndex) {
+  // `sourceText` (optional): the textbook passages a book lesson was built from.
+  async answerDoubt(question, lessonContext, history = [], slideIndex, sourceText = null) {
     const client = this._getClient()
 
     let message
@@ -174,7 +181,7 @@ class AnthropicProvider extends AIProvider {
       message = await client.messages.create({
         model: this.doubtModel,
         max_tokens: DOUBT_MAX_TOKENS,
-        system: buildDoubtSystemPrompt(lessonContext),
+        system: buildDoubtSystemPrompt(lessonContext, sourceText),
         messages: buildDoubtMessages(history, question, slideIndex),
       })
     } catch (err) {
@@ -728,4 +735,19 @@ function translateProviderError(err, context) {
   return new AppError(`AI provider request failed during ${context}. Please try again.`, 502)
 }
 
+// The lesson request, laid out for prompt caching: the system prompt is one cached
+// block; a textbook SOURCE block (shared by every student on that chapter) is its own
+// cached block ahead of the per-student text. Order matters — caching is a prefix match.
+function buildLessonRequestParts({ systemText, sourceBlock, userText }) {
+  const ephemeral = { type: 'ephemeral' }
+  const content = []
+  if (sourceBlock) content.push({ type: 'text', text: sourceBlock, cache_control: ephemeral })
+  content.push({ type: 'text', text: userText })
+  return {
+    system: [{ type: 'text', text: systemText, cache_control: ephemeral }],
+    messages: [{ role: 'user', content }],
+  }
+}
+
 module.exports = AnthropicProvider
+module.exports.buildLessonRequestParts = buildLessonRequestParts
