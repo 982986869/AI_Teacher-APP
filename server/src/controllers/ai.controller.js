@@ -12,6 +12,7 @@ const plannerService = require('../services/planner.service')
 const sessionService = require('../services/session.service')
 const progressService = require('../services/progress.service')
 const lessonService = require('../services/lesson.service')
+const { parseSourceBody } = require('../services/lessonSource')
 const ApiResponse = require('../utils/ApiResponse')
 const { AppError } = require('../middleware/errorHandler')
 
@@ -31,7 +32,12 @@ async function generateLesson(req, res, next) {
     const errors = validationResult(req)
     if (!errors.isEmpty()) return ApiResponse.error(res, errors.array()[0].msg, 422)
 
-    const { topic, subject } = req.body
+    // Optional textbook scope: { chapterId, kind: 'summary' | 'topics', topicIds }.
+    // With it, topic/subject come from the book; the service derives them.
+    const { source, error: sourceError } = parseSourceBody(req.body)
+    if (sourceError) return ApiResponse.error(res, sourceError, 422)
+    const topic = req.body.topic ? String(req.body.topic).trim() : ''
+    const subject = req.body.subject ? String(req.body.subject).trim() : ''
     // The AI always teaches at the student's OWN class — never asks, never higher,
     // never a client-supplied grade.
     const grade = scopeGrade(req)
@@ -52,6 +58,7 @@ async function generateLesson(req, res, next) {
       language: req.scope && req.scope.language,
       mode,
       prefs: req.body.prefs, // learner preferences (sanitised in the service)
+      source,
     })
 
     return ApiResponse.created(
