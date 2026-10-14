@@ -237,7 +237,7 @@ function preferenceLine(profile = {}) {
 
 // Bump whenever the SOURCE wording below (or anything that changes what a cached book
 // lesson would say) changes — it is part of the book_lessons cache key.
-const PROMPT_VERSION = 1
+const PROMPT_VERSION = 2
 
 // The student's own textbook text, as one block. Sent by the provider as its OWN
 // content block with cache_control (the same chapter is hit by many students), so it
@@ -249,7 +249,7 @@ function buildSourceBlock(source) {
   return `SOURCE MATERIAL — NCERT ${classLabel} ${source.book.title}, Chapter ${source.chapter.number} "${source.chapter.title}"${scope} (this is the student's own textbook; it is authoritative):\n<<<\n${body}\n>>>`
 }
 
-const SOURCE_RULES = `TEACH FROM THE SOURCE (the SOURCE MATERIAL block above): use its definitions, notation, worked examples and numbering; when you add an analogy or an extra example of your own, say so briefly ("here's one more…"); do not introduce results the source does not contain; refer to sections by number ("as 7.3 says…") so the student can follow in the book. If the source text is garbled by PDF extraction (lost superscripts, joined words, stray symbols, fractions split across lines), read through it — never repeat the garbling.`
+const SOURCE_RULES = `TEACH FROM THE SOURCE (the SOURCE MATERIAL block above): use its definitions, notation, worked examples and numbering; when you add an analogy or an extra example of your own, say so briefly ("here's one more…"); do not introduce results the source does not contain; refer to sections by number ("as 7.3 says…") so the student can follow in the book. To the student it is always "your textbook" or "the book" — never "the source" or "the source material" in any slide title or narration. If the source text is garbled by PDF extraction (lost superscripts, joined words, stray symbols, fractions split across lines), read through it — never repeat the garbling.`
 
 const SUMMARY_RULES = `LESSON KIND — CHAPTER SUMMARY: this is a spoken overview of the WHOLE chapter in 8 to 10 slides: one slide per major section (merge small ones), each stating the section's key idea, its one must-know formula or definition, and one line on why it matters for the exam. End with a "what to revise" slide listing the sections by number. Do not go deep on any one section.`
 

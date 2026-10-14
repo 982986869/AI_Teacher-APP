@@ -139,6 +139,7 @@ class AnthropicProvider extends AIProvider {
           messages,
         })
         const msg = await stream.finalMessage()
+        if (process.env.LESSON_USAGE_LOG === '1') console.log('[lesson usage]', JSON.stringify(msg && msg.usage))
         // If thinking ate the budget and the JSON was cut off, don't return partial
         // JSON (it would fail parsing with a misleading "invalid format" error) —
         // fall through to the plain path, where the whole budget goes to the lesson.
@@ -165,6 +166,7 @@ class AnthropicProvider extends AIProvider {
     } catch (err) {
       throw translateProviderError(err, 'lesson generation')
     }
+    if (process.env.LESSON_USAGE_LOG === '1') console.log('[lesson usage]', JSON.stringify(msg && msg.usage))
     // Distinct, actionable error instead of the downstream "invalid JSON" 502.
     if (msg && msg.stop_reason === 'max_tokens') {
       throw new AppError('The lesson was too long to fit — please try a more specific topic.', 502)
@@ -506,6 +508,7 @@ function parseJsonObject(text, context) {
   try {
     return JSON.parse(cleaned)
   } catch (err) {
+    if (process.env.LESSON_USAGE_LOG === '1') console.error(`[${context} json] ${err.message} | len=${cleaned.length} | head=${JSON.stringify(cleaned.slice(0, 200))} | tail=${JSON.stringify(cleaned.slice(-300))}`)
     throw new AppError(`The AI returned an invalid ${context} format. Please try again.`, 502)
   }
 }

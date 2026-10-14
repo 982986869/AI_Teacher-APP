@@ -12,6 +12,9 @@ const lib = require('./lib')
   const args = lib.parseArgs()
   const summary = process.argv.includes('--summary')
   const topicsArg = process.argv.includes('--topics') ? process.argv[process.argv.indexOf('--topics') + 1] : null
+  // --mode <key> picks the teaching mode (default intermediate); a different mode is a
+  // DB-cache miss on purpose, which is how the Anthropic prompt-cache read is verified.
+  const mode = process.argv.includes('--mode') ? process.argv[process.argv.indexOf('--mode') + 1] : 'intermediate'
   const user = await db.user.findFirst({ where: { grade: { contains: '10' }, accessLevel: 'full' }, select: { id: true, grade: true } })
   if (!user) throw new Error('no Class 10 user in the local DB — set a dev account\'s grade to "Class 10"')
   const book = await db.books.findUnique({ where: { code: args.book || 'jemh1' } })
@@ -22,7 +25,7 @@ const lib = require('./lib')
 
   for (const pass of [1, 2]) {
     const t0 = Date.now()
-    const lesson = await aiService.generateLesson({ userId: user.id, topic: '', subject: '', gradeLevel: '10', mode: 'intermediate', prefs: { explanationStyle: 'visual' }, source })
+    const lesson = await aiService.generateLesson({ userId: user.id, topic: '', subject: '', gradeLevel: '10', mode, prefs: { explanationStyle: 'visual' }, source })
     console.log(`pass ${pass}: ${lesson.lessonTitle} | ${lesson.slides.length} slides | model=${lesson.generationModel} | ${Date.now() - t0} ms | source=${lesson.source.kind === 'summary' ? 'summary' : lesson.source.topicLabel} | lesson ${lesson.id}`)
     if (pass === 2 && !String(lesson.generationModel).startsWith('cache:')) throw new Error('second call did not hit the cache')
     if (pass === 1 && process.argv.includes('--dump')) {

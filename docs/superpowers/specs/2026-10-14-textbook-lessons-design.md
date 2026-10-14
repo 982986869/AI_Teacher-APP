@@ -1,6 +1,6 @@
 # Textbook lessons: the AI Teacher teaches from the NCERT book
 
-**Date:** 2026-10-14 · **Branch:** `feat/textbook-lessons` · **Status:** design, awaiting review
+**Date:** 2026-10-14 · **Branch:** `feat/textbook-lessons` · **Status:** implemented locally on feat/textbook-lessons (plan: `docs/superpowers/plans/2026-10-14-textbook-lessons.md`); AWS steps in §12 pending
 
 ## 1. Goal
 
@@ -436,6 +436,39 @@ player plays a cached lesson identically to a fresh one.
    takes 30–90 s and the app waits 120 s. Cached lessons return in about a second.
 
 No Python on the server; no new env vars.
+
+Checklist for the AWS deploy (tick when done):
+- [ ] `prisma/sql/textbooks.sql` run on the production DB (`npx prisma db execute --file prisma/sql/textbooks.sql --schema prisma/schema.prisma`)
+- [ ] `CREATE EXTENSION IF NOT EXISTS vector` confirmed on that DB
+- [ ] server deployed from feat/textbook-lessons (or main after merge) and `npx prisma generate` ran as part of the build
+- [ ] `node scripts/textbooks/seed-textbooks.js` run on the server (reads the committed `data/textbooks/class10/**`)
+- [ ] `node scripts/textbooks/embed-textbooks.js` run on the server (needs `VOYAGE_API_KEY`)
+- [ ] reverse proxy / ALB idle timeout ≥ 180 s (a first-time lesson takes 30–90 s; the app waits 120 s)
+- [ ] `ALLOWED_ORIGINS` includes any web origin that will call the API (native builds are unaffected)
+- [ ] `GET /api/books` from a Class 10 account returns 2 books; one real lesson generated and played on a device
+
+## 14. Fidelity review (2026-10-14, local, `AI_LESSON_MODEL=claude-haiku-4-5`)
+
+Six real lessons generated through `scripts/textbooks/e2e-book-lesson.js` and read against
+the chapter PDFs. Every one re-requested → served from `book_lessons` in ≈100 ms.
+
+| Lesson | Verdict |
+|---|---|
+| Maths Ch. 7, §7.2 + 7.3 | Faithful: the book's A(4,0)/B(6,0), P(4,6)/Q(6,8), Example 1 P(3,2)/Q(−2,−3) → √50, similar-triangle derivation with m₁:m₂, Example 6 → (7,3), midpoint case. |
+| Maths Ch. 1, summary | Faithful: Theorem 1.1/1.2 and Examples 1–7 cited by number; "what to revise" slide lists the sections. |
+| Maths Ch. 4, §4.2 | Faithful: marbles (x²−45x+324=0) and toys (55−x, 750) examples, Example 2 (x+2)³ = x³−4. One slide title said "Examples from the Source" → prompt now forbids the word "source" to students; `PROMPT_VERSION` 1 → 2. |
+| Science Ch. 1, §1.1 + 1.2 | First attempt: model returned malformed JSON (one-off; the app shows "try again"). Retry: faithful — writing, balancing, state symbols, the five reaction types. |
+| Science Ch. 10, summary | Faithful: all six sections covered; 10.4/10.5 merged into one slide, as the summary rules allow. |
+| Science Ch. 6, §6.3 | Faithful: hormones, adrenaline/thyroxine/growth hormone/insulin, feedback. |
+
+Prompt caching verified from `usage`: first call on a chapter `cache_creation_input_tokens`
+= system + source (4.7k–9.2k); a repeat within 5 min with a different teaching mode
+`cache_read_input_tokens` = the same number, `cache_creation` 0. Haiku's minimum cacheable
+prefix is 2048 tokens, so on that model the system prompt alone does not cache across
+chapters; Opus/Sonnet (1024) do.
+
+Known limitation: a malformed-JSON response is not retried automatically; the student sees
+the error card and taps Retry (a second attempt costs no DB-cache state).
 
 ## 13. Decisions log
 
