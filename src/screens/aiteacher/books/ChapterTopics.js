@@ -5,7 +5,9 @@
 import React, { useState } from 'react';
 import { View, ScrollView, Pressable, StyleSheet, ActivityIndicator } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Play, Square, CheckSquare } from 'lucide-react-native';
+// SquareCheck, not the CheckSquare alias: the Expo babel plugin rewrites lucide imports
+// to per-icon files, and only the canonical names have one.
+import { Play, Square, SquareCheck } from 'lucide-react-native';
 
 import { AIT } from '../../../theme/aiTeacherTheme';
 import { T, PAD, cardSurface, Eyebrow } from '../sections/ui';
@@ -71,7 +73,7 @@ export default function ChapterTopics({ data, loading, error, generating, onTeac
             <Eyebrow style={{ marginTop: 22, marginBottom: 10 }}>Or pick what to learn (up to {MAX_TOPICS})</Eyebrow>
             {topics.map((t) => {
               const on = picked.includes(t.id);
-              const Icon = on ? CheckSquare : Square;
+              const Icon = on ? SquareCheck : Square;
               return (
                 <Pressable
                   key={t.id}

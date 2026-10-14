@@ -38,6 +38,10 @@ import useTeacherIdentity from '../components/teacher/useTeacherIdentity';
 import { greeting, preparingBeats, preparingHint, resumeTag, emptyState } from '../components/teacher/teacherMoments';
 import { stopTeacher, primeTeacherVoice, SPEECH_OK } from '../utils/teacherVoice';
 import YourLearning from '../components/teacher/YourLearning';
+import { getBooks, getBookChapters, getBookChapter } from '../api/booksApi';
+import BookGrid from './aiteacher/books/BookGrid';
+import ChapterList from './aiteacher/books/ChapterList';
+import ChapterTopics from './aiteacher/books/ChapterTopics';
 
 // AI Teacher answers EVERY academic question, so it offers all subjects. Only the
 // explanation depth adapts to the student's class (enforced server-side from scope);
@@ -124,6 +128,33 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   const [lessonTitle, setLessonTitle] = useState('');
   const [slides, setSlides] = useState([]);
   const [keyTerms, setKeyTerms] = useState([]);
+
+  // ── Textbook flow (books → chapters → chapter topics), all inside this screen ──
+  // 'home' | 'books' | 'chapters' | 'chapter'. Books load once per screen; the card on
+  // the home hides itself while the list is empty or unknown.
+  const [bookView, setBookView] = useState('home');
+  const [books, setBooks] = useState(null);           // null = not loaded yet
+  const [booksErr, setBooksErr] = useState('');
+  const [bookSel, setBookSel] = useState(null);       // { book, chapters } for the chapter list
+  const [chapterSel, setChapterSel] = useState(null); // getBookChapter() result
+  const [bookBusy, setBookBusy] = useState(false);
+  const [bookErr, setBookErr] = useState('');
+  const [sourceLabel, setSourceLabel] = useState(''); // "Ch. 7 · 7.2, 7.3" while generating
+
+  const loadBooks = async () => {
+    setBooksErr('');
+    try { setBooks(await getBooks()); } catch (e) { setBooks([]); setBooksErr(e?.response?.data?.error || e?.message || 'Could not load your books.'); }
+  };
+  useEffect(() => { loadBooks(); }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const openBook = async (book) => {
+    setBookBusy(true); setBookErr(''); setBookView('chapters'); setBookSel({ book, chapters: [] });
+    try { setBookSel(await getBookChapters(book.id)); } catch (e) { setBookErr(e?.response?.data?.error || e?.message || 'Could not load chapters.'); } finally { setBookBusy(false); }
+  };
+  const openChapter = async (chapter) => {
+    setBookBusy(true); setBookErr(''); setBookView('chapter'); setChapterSel(null);
+    try { setChapterSel(await getBookChapter(chapter.id)); } catch (e) { setBookErr(e?.response?.data?.error || e?.message || 'Could not load this chapter.'); } finally { setBookBusy(false); }
+  };
 
   // Rolling doubt history for the agent (multi-turn context), capped to keep it light.
   const historyRef = useRef([]);
@@ -252,9 +283,11 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
     endTimerRef.current = setTimeout(handleBack, 4500);
   };
 
-  const handleGenerate = async () => {
+  // `source` (optional) is a textbook scope from ChapterTopics — then the typed topic
+  // is ignored and the server derives topic/subject from the book.
+  const handleGenerate = async (source = null) => {
     const t = topic.trim();
-    if (!t || loading) return;
+    if ((!t && !source) || loading) return;
     setLoading(true);
     setError('');
     historyRef.current = [];
@@ -265,19 +298,35 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
       // Read the latest saved learning preferences (edited in "Your learning") and
       // send them along so the lesson matches how this student likes to learn.
       const prefs = prefsForRequest(await loadLearnerPrefs());
-      const payload = { topic: t, subject: activeSubject, gradeLevel: scope?.classNum ? String(scope.classNum) : (user?.grade || ''), mode: teachMode, prefs };
+      const gradeLevel = scope?.classNum ? String(scope.classNum) : (user?.grade || '');
+      const payload = source
+        ? { gradeLevel, mode: teachMode, prefs, source }
+        : { topic: t, subject: activeSubject, gradeLevel, mode: teachMode, prefs };
       const { lessonId: id, lesson } = await generateLesson(payload);
       if (!mountedRef.current) return;
+      // A textbook lesson's subject comes from the book ("Mathematics", "Science"); map
+      // it onto this screen's subject names where one matches so the player's header
+      // and the library tile agree ("Maths"), else keep the book's own name.
+      const appSubjectFor = (s) => {
+        const name = String(s || '');
+        return SUBJECTS.find((x) => x.toLowerCase() === name.toLowerCase())
+          || (/^math/i.test(name) && SUBJECTS.find((x) => /^math/i.test(x)))
+          || name;
+      };
+      const shownSubject = lesson.subject ? appSubjectFor(lesson.subject) : activeSubject;
+      const shownTitle = lesson.lessonTitle || t || lesson.topic || 'Lesson';
+      if (source && lesson.subject) setActiveSubject(shownSubject);
       setLessonId(id);
-      setLessonTitle(lesson.lessonTitle || t);
+      setLessonTitle(shownTitle);
       setSlides(lesson.slides || []);
       setKeyTerms(lesson.keyTerms || []);
       // Persist so this lesson can be resumed if the app is closed mid-way.
       setStartIndex(0);
       posRef.current = { slideIndex: 0, total: 0 };
       clearingRef.current = false;
-      saveActiveLesson({ lessonId: id, title: lesson.lessonTitle || t, subject: activeSubject, slideIndex: 0 });
+      saveActiveLesson({ lessonId: id, title: shownTitle, subject: shownSubject, slideIndex: 0 });
       setSavedLesson(null);
+      setBookView('home');
     } catch (e) {
       if (mountedRef.current) setError(e?.response?.data?.error || e?.response?.data?.message || e?.message || 'I couldn’t put that lesson together just now — let’s try again.');
     } finally {
@@ -285,7 +334,17 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
     }
   };
 
-  const newLesson = () => { clearingRef.current = true; stopTeacher(); setSlides([]); setLessonId(null); historyRef.current = []; pendingRef.current = null; clearActiveLesson(); setSavedLesson(null); };
+  const newLesson = () => { clearingRef.current = true; stopTeacher(); setSlides([]); setLessonId(null); historyRef.current = []; pendingRef.current = null; clearActiveLesson(); setSavedLesson(null); setSourceLabel(''); };
+
+  // From ChapterTopics: label the wait ("Ch. 7 · 7.2, 7.3") and generate from the book.
+  const teachFromBook = (source) => {
+    const ch = chapterSel?.chapter;
+    const picked = source.kind === 'topics'
+      ? (chapterSel?.topics || []).filter((x) => source.topicIds.includes(x.id)).map((x) => x.number).join(', ')
+      : 'summary';
+    setSourceLabel(ch ? `Ch. ${ch.number} · ${picked}` : '');
+    return handleGenerate(source);
+  };
 
   // Stable lesson object so the player's buildScenes() memo isn't invalidated on
   // every re-render of this screen.
@@ -296,7 +355,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   // saved lesson); never fabricates it. See teacherMoments.js. ──
   const greet = useMemo(() => greeting({ name: firstName, returning: !!resume, hasSaved: !!savedLesson }), [firstName, resume, savedLesson]);
   const isNewStudent = !resume && !savedLesson;
-  const prepStages = useMemo(() => preparingBeats(topic), [topic]);
+  const prepStages = useMemo(() => preparingBeats(sourceLabel || topic), [topic, sourceLabel]);
   // The long tail of generation (30–90s) used to sit on one static reassurance line —
   // a minute of the same line reads as hung. Rotate it on a calm cadence (distinct from
   // the stage ticker) so the wait stays alive and honest.
@@ -375,6 +434,57 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   // only maps this screen's state onto that layout's props, so the landing can be
   // re-designed without any of the logic above moving.
   if (slides.length === 0) {
+    // ── Textbook sub-views (books → chapters → topics). The generating overlay rides
+    // on each so a lesson started from a chapter page shows the same wait as the home.
+    if (bookView === 'books') {
+      return (
+        <View style={{ flex: 1 }}>
+          <BookGrid
+            books={books || []}
+            loading={books === null}
+            error={booksErr}
+            classLabel={scope?.className || ''}
+            onOpenBook={openBook}
+            onBack={() => setBookView('home')}
+            onRetry={loadBooks}
+          />
+          <GeneratingOverlay visible={loading} opacity={genFade} stages={prepStages} stage={genStage} hint={prepHint} />
+        </View>
+      );
+    }
+    if (bookView === 'chapters') {
+      return (
+        <View style={{ flex: 1 }}>
+          <ChapterList
+            book={bookSel?.book}
+            chapters={bookSel?.chapters || []}
+            loading={bookBusy}
+            error={bookErr}
+            onOpenChapter={openChapter}
+            onBack={() => setBookView('books')}
+            onRetry={() => bookSel?.book && openBook(bookSel.book)}
+          />
+          <GeneratingOverlay visible={loading} opacity={genFade} stages={prepStages} stage={genStage} hint={prepHint} />
+        </View>
+      );
+    }
+    if (bookView === 'chapter') {
+      return (
+        <View style={{ flex: 1 }}>
+          <ChapterTopics
+            data={chapterSel}
+            loading={bookBusy}
+            error={bookErr || error}
+            generating={loading}
+            onTeach={teachFromBook}
+            onBack={() => { setError(''); setBookView('chapters'); }}
+            onRetry={() => { setError(''); if (chapterSel?.chapter) openChapter(chapterSel.chapter); else setBookView('chapters'); }}
+          />
+          <GeneratingOverlay visible={loading} opacity={genFade} stages={prepStages} stage={genStage} hint={prepHint} />
+        </View>
+      );
+    }
+
     // The library rows, flattened to what the section renders. `startAt` rides along so
     // opening a lesson still resumes at the stored slide.
     const libraryRows = library.map((l) => ({
@@ -420,7 +530,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
           // topic composer
           topic={topic}
           onChangeTopic={setTopic}
-          onGenerate={handleGenerate}
+          onGenerate={() => handleGenerate()}
           generating={loading}
           error={error}
 
@@ -472,6 +582,10 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
           onBack={handleBack}
           onSettings={() => setLearningOpen(true)}
           onAskMaterial={() => setMode('ask')}
+
+          // the textbooks (card hidden until the class's books are known and non-empty)
+          textbookCount={Array.isArray(books) ? books.length : 0}
+          onOpenTextbooks={() => setBookView('books')}
         />
 
         <GeneratingOverlay

@@ -84,6 +84,16 @@ app.use('/vendor', express.static(path.join(__dirname, '..', 'public', 'vendor')
   },
 }))
 
+// ─── Static textbook covers (rendered by scripts/textbooks/extract.py) ─────────
+// Same permissive CORP as the other static mounts, or the app's web build (and any
+// cross-origin <Image>) gets ERR_BLOCKED_BY_RESPONSE from helmet's default.
+app.use('/books', express.static(path.join(__dirname, '..', 'public', 'books'), {
+  setHeaders: (res) => {
+    res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin')
+    res.setHeader('Cache-Control', 'public, max-age=86400')
+  },
+}))
+
 // ─── Routes ──────────────────────────────────────────────────────────────────
 app.use('/api', routes)
 
