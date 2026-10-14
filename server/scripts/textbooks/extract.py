@@ -26,6 +26,7 @@ END_MARKERS = ("summary", "what you have learnt", "exercises", "points to ponder
 INLINE_EXERCISE_RE = re.compile(r"^(EXERCISE\s+\d+\.\d+|Q\s*U\s*E\s*S\s*T\s*I\s*O\s*N\s*S)\s*$", re.I)
 # Maths numbers its end-of-chapter summary ("1.4 Summary"); it is an end marker, not a topic.
 NUMBERED_SUMMARY_RE = re.compile(r"^\d{1,2}\.\d{1,2}\s+Summary\s*$", re.I)
+REPRINT_RE = re.compile(r"^Reprint\s+\d{4}-\d{2}\s*$", re.I)
 
 
 def load_manifest():
@@ -80,6 +81,9 @@ def clean_lines(lines, body):
         if sz >= 40 and len(t) <= 2:
             i += 1
             continue
+        if REPRINT_RE.match(t):  # page footer
+            i += 1
+            continue
         if len(t) == 1 and t.isalpha() and t.islower() and sz < body - 1:
             i += 1
             continue
@@ -110,6 +114,12 @@ def clean_lines(lines, body):
                 lines[i + 1]["text"] = t + lines[i + 1]["text"]
                 i += 1
                 continue
+        # a section number alone on its line ("13.2") with the title on the next line
+        if re.fullmatch(r"\d{1,2}\.\d{1,2}(\.\d{1,2})?", t) and sz >= body + 2 and i + 1 < n and lines[i + 1]["size"] == sz:
+            if not lines[i + 1]["text"].startswith(t):  # else it is a stacked fragment of the next line
+                lines[i + 1]["text"] = t + " " + lines[i + 1]["text"]
+            i += 1
+            continue
         # stacked heading fragments
         if sz >= body + 2 and len(t) >= 3:
             acc = t
@@ -158,16 +168,26 @@ def chapter_title_of(first_page_lines, body):
 def strip_running_header(lines, book_title, chapter_title):
     """Drop page numbers / 'PHYSICS' / chapter-name running heads in the first 3 lines."""
     caps = {book_title.upper(), (chapter_title or "").upper()}
-    keep, dropped = [], 0
-    for i, ln in enumerate(lines):
-        t = ln["text"]
-        if i < 3 and dropped < 2 and (
+    n = len(lines)
+
+    def is_head(t):
+        return bool(
             re.fullmatch(r"\d{1,3}", t)
             or re.fullmatch(r"\d{1,3}\s+[A-Z ]{3,40}", t)
             or re.fullmatch(r"[A-Z ]{3,40}\s+\d{1,3}", t)
             or t.upper() in caps
-        ):
-            dropped += 1
+        )
+
+    keep, dropped_top, dropped_bottom = [], 0, 0
+    for i, ln in enumerate(lines):
+        t = ln["text"]
+        # Running heads sit in the first lines of a page (even pages) or the last
+        # lines (odd pages: chapter name, then the page number).
+        if i < 3 and dropped_top < 2 and is_head(t):
+            dropped_top += 1
+            continue
+        if i >= n - 3 and dropped_bottom < 2 and is_head(t):
+            dropped_bottom += 1
             continue
         keep.append(ln)
     return keep
