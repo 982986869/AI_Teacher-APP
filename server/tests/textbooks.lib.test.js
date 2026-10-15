@@ -24,9 +24,16 @@ test('paths land under server/data/textbooks and server/public/books', () => {
   assert.ok(lib.coverPngPath('jemh1').endsWith(path.join('public', 'books', 'jemh1.png')))
 })
 
-test('loadManifest returns the two Class 10 books with their chapter counts', () => {
+test('loadManifest returns every book with its class and chapter count', () => {
   const books = lib.loadManifest()
-  assert.deepEqual(books.map((b) => [b.code, b.chapters]), [['jesc1', 13], ['jemh1', 14]])
+  assert.deepEqual(books.map((b) => [b.code, b.classLevel, b.chapters]), [
+    ['jesc1', 10, 13], ['jemh1', 10, 14],
+    ['iesc1', 9, 13], ['iemh1', 9, 8], ['iemh2', 9, 6],
+  ])
+  // Part 2 continues Part 1's chapter numbering (its first chapter is chapter 9)
+  assert.equal(books.find((b) => b.code === 'iemh2').chapterOffset, 8)
+  // every book has what seed/embed/UI read off it
+  for (const bk of books) for (const k of ['subject', 'subjectSlug', 'title', 'publisher', 'edition', 'language', 'position']) assert.ok(bk[k] != null, `${bk.code}.${k}`)
 })
 
 test('parseArgs reads --book, --chapter and --force', () => {

@@ -23,9 +23,11 @@ async function seedBook(b) {
     if (bad) throw new Error(`${b.code} ch${n} topic ${bad.number} has no usable text — refusing the chapter`)
     const charCount = ch.topics.reduce((s, t) => s + t.charCount, 0)
     const chData = { title: ch.title, slug: ch.slug, page_count: ch.pageCount, source_url: ch.sourceUrl, char_count: charCount }
+    // The chapter's number as the book prints it (a part 2 continues part 1's count).
+    const number = ch.chapterNumber || n
     const chapter = await db.book_chapters.upsert({
-      where: { book_id_number: { book_id: book.id, number: n } },
-      create: { book_id: book.id, number: n, ...chData },
+      where: { book_id_number: { book_id: book.id, number } },
+      create: { book_id: book.id, number, ...chData },
       update: chData,
     })
     for (let i = 0; i < ch.topics.length; i++) {

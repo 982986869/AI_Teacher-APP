@@ -23,7 +23,12 @@ function sliceChapter(raw, outline) {
   const flat = flatten(raw)
   const topics = [...outline.topics].sort((a, b) => a.page - b.page || a.line - b.line)
   const subs = Array.isArray(outline.subsections) ? outline.subsections : []
-  const endIdx = outline.bodyEnd ? indexOf(flat, outline.bodyEnd) : -1
+  let endIdx = outline.bodyEnd ? indexOf(flat, outline.bodyEnd) : -1
+  // A chapter with no "Summary" block (the 2026-27 books end on a "Conclusion"
+  // section) tempts the verifier to put bodyEnd at the last heading, which would
+  // empty that section. The body cannot end before its last section starts.
+  const lastStart = topics.length ? indexOf(flat, topics[topics.length - 1]) : -1
+  if (endIdx >= 0 && endIdx <= lastStart) endIdx = -1
   const end = endIdx >= 0 ? endIdx : flat.length
   const boundaries = [...topics, ...subs].map((t) => indexOf(flat, t)).filter((i) => i >= 0)
   boundaries.push(end)
@@ -54,6 +59,14 @@ function sliceChapter(raw, outline) {
       const intro = sliceRange(0, Math.min(firstStart, end), (text) => !isTitleLine(text))
       if (intro.length >= MIN_INTRO_CHARS) out.push(topicOut(`${raw.chapterNumber}.0`, 'Introduction', intro))
     }
+  }
+
+  // A chapter with no numbered sections at all (the new books open with a short
+  // narrative "Exploration" chapter) is one topic: the whole body under the chapter title.
+  if (!topics.length) {
+    const title = String(raw.chapterTitle || '').toLowerCase()
+    const isTitleLine = (text) => /^chapter\s*\d*$/i.test(text.trim()) || /^\d{1,2}$/.test(text.trim()) || (title && title.includes(text.trim().toLowerCase()))
+    out.push(topicOut(`${raw.chapterNumber}.1`, raw.chapterTitle, sliceRange(0, end, (text) => !isTitleLine(text))))
   }
 
   topics.forEach((t, ti) => {

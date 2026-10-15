@@ -21,7 +21,9 @@ SERVER = os.path.abspath(os.path.join(HERE, "..", ".."))
 PDF_DIR = os.path.join(SERVER, "data", "textbooks", "pdf")
 COVER_DIR = os.path.join(SERVER, "public", "books")
 
-HEADING_RE = re.compile(r"^\d{1,2}\.\d{1,2}(\.\d{1,2})?\s+[A-Za-z(]")
+# "7.2 Distance Formula", "2.4. Linear growth" (trailing dot, 2026-27 Maths), "6.3 π Is
+# Irrational" (any letter, not just A-Z). Formulas ("3.4 = …") are kept out downstream.
+HEADING_RE = re.compile(r"^\d{1,2}\.\d{1,2}(\.\d{1,2})?\.?\s+(?:[^\W\d_]|\()")
 END_MARKERS = ("summary", "what you have learnt", "exercises", "points to ponder", "historical note")
 INLINE_EXERCISE_RE = re.compile(r"^(EXERCISE\s+\d+\.\d+|Q\s*U\s*E\s*S\s*T\s*I\s*O\s*N\s*S)\s*$", re.I)
 # Maths numbers its end-of-chapter summary ("1.4 Summary"); it is an end marker, not a topic.
@@ -44,7 +46,10 @@ def page_lines(page):
             if not spans:
                 continue
             text = "".join(s["text"] for s in l["spans"]).strip()
-            text = re.sub(r"\s+", " ", text)
+            # The 2026-27 books carry stray control characters inside headings
+            # ("4.3 \x07Factorisation") — a tab-like glyph in the heading font.
+            text = re.sub(r"[\x00-\x1f\x7f]+", " ", text)
+            text = re.sub(r"\s+", " ", text).strip()
             out.append({
                 "text": text,
                 "size": round(max(s["size"] for s in spans), 1),
@@ -220,7 +225,9 @@ def extract_chapter(book, n):
                 ends.append({"page": pi, "line": li, "text": t})
 
     return {
-        "code": code, "chapterNumber": n, "pageCount": len(doc), "chapterTitle": chapter_title,
+        # A part-2 book continues part 1's numbering (Class 9 Maths Part 2 is chapters
+        # 9–14), so its section numbers read "12.1": chapterOffset keeps them in step.
+        "code": code, "chapterNumber": n + int(book.get("chapterOffset", 0)), "pageCount": len(doc), "chapterTitle": chapter_title,
         "bodySize": body,
         "pages": [{"index": i, "lines": pl} for i, pl in enumerate(pages)],
         "headingCandidates": cands, "endMarkers": ends,

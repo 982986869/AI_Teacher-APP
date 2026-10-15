@@ -117,3 +117,26 @@ test('a short un-numbered opening (title lines, epigraph) is ignored', () => {
   o.subsections = o.subsections.map((t) => (t.page === 0 ? { ...t, line: t.line + 2 } : t))
   assert.deepEqual(sliceChapter(r, o).topics.map((t) => t.number), ['7.1', '7.2', '7.3'])
 })
+
+test('a chapter with no numbered sections becomes one topic carrying the whole body', () => {
+  const r = raw()
+  r.chapterTitle = 'Exploration: Entering the World of Secondary Science'
+  r.pages = [
+    { index: 0, lines: [L('Chapter'), L('1'), L('Exploration: Entering the World of Secondary Science'), ...fill(14, 'open')] },
+    { index: 1, lines: [...fill(10, 'more'), L('Summary'), L('1. Science is a way of ...')] },
+  ]
+  const ch = sliceChapter(r, { title: r.chapterTitle, topics: [], subsections: [], bodyEnd: { page: 1, line: 10 } })
+  assert.equal(ch.topics.length, 1)
+  assert.equal(ch.topics[0].number, '7.1')
+  assert.equal(ch.topics[0].title, r.chapterTitle)
+  assert.ok(ch.topics[0].text.startsWith('open sentence number 0'), 'title lines are not part of the text')
+  assert.ok(ch.topics[0].text.endsWith('more sentence number 9 with enough words to count.'), 'stops at bodyEnd')
+})
+
+test('a bodyEnd at or before the last topic start is ignored (the last section is not empty)', () => {
+  const o = outline()
+  o.bodyEnd = { page: 1, line: 9 } // exactly where "7.3 General Term" starts
+  const ch = sliceChapter(raw(), o)
+  assert.equal(ch.topics.length, 3)
+  assert.ok(ch.topics[2].text.includes('gen sentence number 8'), 'the last section keeps its text')
+})

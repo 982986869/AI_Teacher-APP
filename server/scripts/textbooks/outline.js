@@ -23,7 +23,7 @@ Return ONLY a JSON object:
   "title": string,                                        // the chapter title, Title Case
   "topics":      [{ "number": "N.N",   "title": string, "page": int, "line": int }],   // the real top-level sections, in order
   "subsections": [{ "number": "N.N.M", "title": string, "page": int, "line": int }],   // real sub-sections (kept separate so question blocks can be cut up to them)
-  "bodyEnd": { "page": int, "line": int }                 // the FIRST end-of-chapter marker: "Summary" / "N.N Summary" / "What you have learnt" / "Exercises" — NOT an in-text "EXERCISE N.N" or "QUESTIONS"
+  "bodyEnd": { "page": int, "line": int } | null          // the FIRST end-of-chapter marker: "Summary" / "N.N Summary" / "What you have learnt" / "Exercises" — NOT an in-text "EXERCISE N.N" or "QUESTIONS". It always comes AFTER the last section starts; null when the chapter has no such marker (a closing "Conclusion" section is a topic, not the end)
 }
 Rules: a candidate is a section only if its text is a heading (a number followed by a title in words), NOT a formula, a measurement ("1.2 g cm-3"), or an exercise question ("1.14 The unit of length ..."). A numbered "N.N Summary" is the bodyEnd, not a topic. Use page/line EXACTLY as given. Titles: convert ALL CAPS to Title Case, keep question marks, drop trailing punctuation otherwise. Every real section N.N in the chapter must appear once.`
 
@@ -61,10 +61,11 @@ async function verifyOutline(raw) {
       const outPath = lib.chapterJsonPath(b.code, n, b.classLevel)
       if (fs.existsSync(outPath) && !args.force) { console.log(`skip ${b.code} ch${lib.pad2(n)} (exists)`); continue }
       const raw = JSON.parse(fs.readFileSync(lib.rawJsonPath(b.code, n, b.classLevel), 'utf8'))
+      let outline = null
       try {
-        const outline = await verifyOutline(raw)
+        outline = await verifyOutline(raw)
         const ch = sliceChapter(raw, outline)
-        const json = { code: b.code, classLevel: b.classLevel, chapterNumber: n, title: ch.title, slug: ch.slug, pageCount: raw.pageCount, sourceUrl: lib.pdfUrl(b.code, n), topics: ch.topics }
+        const json = { code: b.code, classLevel: b.classLevel, chapterNumber: raw.chapterNumber, title: ch.title, slug: ch.slug, pageCount: raw.pageCount, sourceUrl: lib.pdfUrl(b.code, n), topics: ch.topics }
         fs.writeFileSync(outPath, JSON.stringify(json, null, 1) + '\n', 'utf8')
         review.push(`\n${b.code} ch${lib.pad2(n)} ${ch.title}`)
         for (const t of ch.topics) review.push(`   ${t.number.padEnd(6)} ${t.title.padEnd(60).slice(0, 60)} ${String(t.charCount).padStart(6)} chars`)
@@ -72,6 +73,7 @@ async function verifyOutline(raw) {
       } catch (e) {
         failed.push(`${b.code} ch${lib.pad2(n)}: ${e.message}`)
         console.log(`FAIL ${b.code} ch${lib.pad2(n)}: ${e.message}`)
+        if (outline) console.log(`     outline was: ${JSON.stringify(outline)}`)
       }
     }
   }
