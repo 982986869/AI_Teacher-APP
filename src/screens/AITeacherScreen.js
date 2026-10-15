@@ -146,7 +146,10 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
     setBooksErr('');
     try { setBooks(await getBooks()); } catch (e) { setBooks([]); setBooksErr(e?.response?.data?.error || e?.message || 'Could not load your books.'); }
   };
-  useEffect(() => { loadBooks(); }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  // Reloaded whenever the student's class changes (Profile → Edit Profile), not just on
+  // mount: this screen stays mounted inside the Home tab, so a one-time load left the
+  // old class's books — and an open chapter list from them — on screen after the change.
+  useEffect(() => { setBookView('home'); setBookSel(null); setChapterSel(null); loadBooks(); }, [scope?.classNum]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const openBook = async (book) => {
     setBookBusy(true); setBookErr(''); setBookView('chapters'); setBookSel({ book, chapters: [] });
