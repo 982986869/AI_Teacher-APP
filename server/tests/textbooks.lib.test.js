@@ -26,10 +26,13 @@ test('paths land under server/data/textbooks and server/public/books', () => {
 
 test('loadManifest returns every book with its class and chapter count', () => {
   const books = lib.loadManifest()
-  assert.deepEqual(books.map((b) => [b.code, b.classLevel, b.chapters]), [
-    ['jesc1', 10, 13], ['jemh1', 10, 14],
-    ['iesc1', 9, 13], ['iemh1', 9, 8], ['iemh2', 9, 6],
-  ])
+  const by = Object.fromEntries(books.map((b) => [b.code, b]))
+  assert.deepEqual([by.jesc1.classLevel, by.jesc1.chapters, by.jemh1.chapters], [10, 13, 14])
+  assert.deepEqual([by.iesc1.chapters, by.iemh1.chapters, by.iemh2.chapters], [13, 8, 6])
+  // one entry per class 6–12, codes unique, part 2s numbered after their part 1
+  assert.deepEqual([...new Set(books.map((b) => b.classLevel))].sort((a, b) => a - b), [6, 7, 8, 9, 10, 11, 12])
+  assert.equal(new Set(books.map((b) => b.code)).size, books.length)
+  for (const bk of books) if (/2$/.test(bk.code)) assert.equal(bk.chapterOffset, by[bk.code.replace(/2$/, '1')].chapters, `${bk.code} offset`)
   // Part 2 continues Part 1's chapter numbering (its first chapter is chapter 9)
   assert.equal(books.find((b) => b.code === 'iemh2').chapterOffset, 8)
   // every book has what seed/embed/UI read off it

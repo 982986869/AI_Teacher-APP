@@ -20,7 +20,7 @@ const SYSTEM = `You verify the section outline of one NCERT textbook chapter fro
 You are given numbered heading CANDIDATES (page, line, text, bold, font size, and the two lines that follow) and END MARKERS (Summary / What you have learnt / Exercises / in-text EXERCISE N.N / QUESTIONS boxes).
 Return ONLY a JSON object:
 {
-  "title": string,                                        // the chapter title, Title Case
+  "title": string,                                        // the chapter's FULL title as printed on its first page (see FIRST PAGE: the extracted title may be cut short, glued to the chapter number, or polluted by a decorative glyph), Title Case
   "topics":      [{ "number": "N.N",   "title": string, "page": int, "line": int }],   // the real top-level sections, in order
   "subsections": [{ "number": "N.N.M", "title": string, "page": int, "line": int }],   // real sub-sections (kept separate so question blocks can be cut up to them)
   "bodyEnd": { "page": int, "line": int } | null          // the FIRST end-of-chapter marker: "Summary" / "N.N Summary" / "What you have learnt" / "Exercises" — NOT an in-text "EXERCISE N.N" or "QUESTIONS". It always comes AFTER the last section starts; null when the chapter has no such marker (a closing "Conclusion" section is a topic, not the end)
@@ -36,7 +36,8 @@ function candidateBlock(raw) {
   }
   const cands = raw.headingCandidates.map((c) => `p${c.page} l${c.line} ${c.bold ? 'BOLD' : 'reg '} ${c.size} | ${c.text} || next: ${ctx(c)}`)
   const ends = raw.endMarkers.map((e) => `p${e.page} l${e.line} | ${e.text}`)
-  return `CHAPTER ${raw.chapterNumber} (extracted title: "${raw.chapterTitle}", ${raw.pageCount} pages)\n\nCANDIDATES:\n${cands.join('\n')}\n\nEND MARKERS:\n${ends.join('\n')}`
+  const first = (raw.firstPage || []).map((l) => `${l.size} | ${l.text}`)
+  return `CHAPTER ${raw.chapterNumber} (extracted title: "${raw.chapterTitle}", ${raw.pageCount} pages)\n\nFIRST PAGE (font size | text):\n${first.join('\n')}\n\nCANDIDATES:\n${cands.join('\n')}\n\nEND MARKERS:\n${ends.join('\n')}`
 }
 
 async function verifyOutline(raw) {

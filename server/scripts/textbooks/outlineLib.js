@@ -77,11 +77,22 @@ function sliceChapter(raw, outline) {
     out.push(topicOut(t.number, t.title, sliceRange(start + 1, stop)))
   })
 
-  const kept = out.filter((t) => {
-    if (/^introduction$/i.test(t.title) && t.charCount < MIN_INTRO_CHARS) return false
-    if (t.charCount < MIN_TOPIC_CHARS) throw new Error(`topic ${t.number} "${t.title}" has only ${t.charCount} chars (< ${MIN_TOPIC_CHARS}) — extraction or outline is wrong`)
-    return true
-  })
+  const kept = []
+  for (const t of out) {
+    if (/^introduction$/i.test(t.title) && t.charCount < MIN_INTRO_CHARS) continue
+    if (t.charCount < MIN_TOPIC_CHARS) {
+      // A tiny section is not worth a lesson of its own; the books do print them (a
+      // closing "Parallel Illusions" aside). Fold it, heading and all, into the topic
+      // before it. A short FIRST section has nothing to fold into and means the
+      // outline (or the extraction) is wrong, so refuse.
+      const prev = kept[kept.length - 1]
+      if (!prev) throw new Error(`topic ${t.number} "${t.title}" has only ${t.charCount} chars (< ${MIN_TOPIC_CHARS}) — extraction or outline is wrong`)
+      prev.text = `${prev.text}\n\n${t.number} ${t.title}\n${t.text}`.trim()
+      prev.charCount = prev.text.length
+      continue
+    }
+    kept.push(t)
+  }
   if (!kept.length) throw new Error('no topics survived slicing')
 
   const title = outline.title || raw.chapterTitle

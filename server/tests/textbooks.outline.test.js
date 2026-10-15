@@ -68,10 +68,21 @@ test('the heading line itself is not repeated inside the topic text', () => {
   assert.ok(!ch.topics[0].text.startsWith('7.1 Introduction'))
 })
 
-test('a topic shorter than MIN_TOPIC_CHARS makes the chapter refuse', () => {
+test('a short later section folds into the topic before it (a tiny closing aside is not its own topic)', () => {
   const r = raw()
-  r.pages[1].lines.splice(10, 8) // gut 7.3
-  assert.throws(() => sliceChapter(r, outline()), new RegExp(`7\\.3 .*${MIN_TOPIC_CHARS}`))
+  for (let i = 11; i < 19; i++) r.pages[1].lines[i].text = '' // gut 7.3 down to one line (positions kept)
+  const ch = sliceChapter(r, outline())
+  assert.deepEqual(ch.topics.map((t) => t.number), ['7.1', '7.2'])
+  assert.ok(ch.topics[1].text.includes('General Term'), 'the short section\'s heading lives on inside 7.2')
+  assert.ok(ch.topics[1].text.includes('gen sentence number 0'), 'and so does its text')
+})
+
+test('a short FIRST section still makes the chapter refuse (the outline is wrong, not the book)', () => {
+  const r = raw()
+  for (let i = 2; i < 13; i++) r.pages[0].lines[i].text = '' // gut 7.1 (positions kept)
+  const o = outline()
+  o.topics[0].title = 'Overview' // a short "Introduction" is dropped on purpose; any other short first section is an error
+  assert.throws(() => sliceChapter(r, o), new RegExp(`7\\.1 .*${MIN_TOPIC_CHARS}`))
 })
 
 test('a short Introduction is dropped instead of refusing', () => {

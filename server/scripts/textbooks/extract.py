@@ -11,6 +11,7 @@ import argparse
 import json
 import os
 import re
+import unicodedata
 import sys
 from collections import Counter
 
@@ -29,6 +30,7 @@ INLINE_EXERCISE_RE = re.compile(r"^(EXERCISE\s+\d+\.\d+|Q\s*U\s*E\s*S\s*T\s*I\s*
 # Maths numbers its end-of-chapter summary ("1.4 Summary"); it is an end marker, not a topic.
 NUMBERED_SUMMARY_RE = re.compile(r"^\d{1,2}\.\d{1,2}\s+Summary\s*$", re.I)
 REPRINT_RE = re.compile(r"^Reprint\s+\d{4}-\d{2}\s*$", re.I)
+BOLD_FACE_RE = re.compile(r"bold|demi|black|heavy|semibold|extrabold|ultra", re.I)
 
 
 def load_manifest():
@@ -49,11 +51,17 @@ def page_lines(page):
             # The 2026-27 books carry stray control characters inside headings
             # ("4.3 \x07Factorisation") — a tab-like glyph in the heading font.
             text = re.sub(r"[\x00-\x1f\x7f]+", " ", text)
+            # Ligature glyphs arrive followed by a stray space ("Reﬂ ections"): close
+            # the gap, then spell the ligature out (NFKC: ﬂ → fl).
+            text = re.sub(r"([ﬀ-ﬆ]) (?=[a-z])", r"\1", text)
+            text = unicodedata.normalize("NFKC", text)
             text = re.sub(r"\s+", " ", text).strip()
             out.append({
                 "text": text,
                 "size": round(max(s["size"] for s in spans), 1),
-                "bold": any("bold" in s["font"].lower() or (s["flags"] & 16) for s in spans),
+                # Bold by flag or by face name: the senior books set headings in
+                # Bookman-Demi / Helvetica-Black etc., which carry no bold flag.
+                "bold": any(BOLD_FACE_RE.search(s["font"]) or (s["flags"] & 16) for s in spans),
             })
     return out
 
@@ -228,6 +236,10 @@ def extract_chapter(book, n):
         # A part-2 book continues part 1's numbering (Class 9 Maths Part 2 is chapters
         # 9–14), so its section numbers read "12.1": chapterOffset keeps them in step.
         "code": code, "chapterNumber": n + int(book.get("chapterOffset", 0)), "pageCount": len(doc), "chapterTitle": chapter_title,
+        # The opening lines as printed, for the outline step to confirm the title: the
+        # younger classes' books wrap it across lines of different sizes and decorate
+        # the page with giant glyphs, which defeats the largest-font heuristic above.
+        "firstPage": [{"text": ln["text"], "size": ln["size"]} for ln in pages[0][:14] if ln["text"]],
         "bodySize": body,
         "pages": [{"index": i, "lines": pl} for i, pl in enumerate(pages)],
         "headingCandidates": cands, "endMarkers": ends,
