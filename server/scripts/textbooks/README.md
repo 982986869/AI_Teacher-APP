@@ -21,17 +21,17 @@ Manifest fields beyond the obvious: `chapters` is how many chapter PDFs the site
 numbered sections (the 2026-27 books open with a narrative "Exploration" chapter) becomes
 one topic under the chapter title. A student only ever sees the books of their own class.
 
-Books so far: Class 10 Science + Mathematics (2026-27 reprints); Class 9 Science,
-Mathematics Part 1 and Part 2 (the new 2026-27 syllabus books).
+What the extractor has learnt from the books so far (extract.py): headings may carry a
+trailing dot ("2.4."), start with a symbol ("6.3 π Is Irrational"), hide a control
+character after the number, or sit as a bold bare number with the title on the next
+line ("3.1" / "WHY DO WE NEED TO CLASSIFY…"); "bold" includes demi/black faces that carry
+no bold flag; ligatures arrive with a stray space ("Reﬂ ections"). The outline step gets
+the first page's lines so Claude can return the full printed title where the largest-font
+heuristic fails (titles wrapped across sizes, "Chapter 3", decorative glyphs).
 
-Manifest fields beyond the obvious:  is how many chapter PDFs the site serves
-(probe  until a 404);  numbers a part-2 book after part 1
-(Class 9 Maths Part 2 is chapters 9–14, so its sections read 12.1). Chapters with no
-numbered sections (the 2026-27 books open with a narrative Exploration chapter) become
-one topic under the chapter title. Books live in the app under the class in
-; a student only ever sees their own class's books.
-
-Books so far: Class 10 Science + Mathematics (2026-27 reprints); Class 9 Science,
-Mathematics Part 1 and Part 2 (the new 2026-27 syllabus books).
+Books so far (all English, 2026-27): Class 6–8 Curiosity + Ganita Prakash (Maths in two
+parts for 7 and 8); Class 9 Science + Mathematics Part 1/2 (new syllabus); Class 10 Science +
+Mathematics; Class 11 Physics 1/2, Chemistry 1/2, Biology, Mathematics; Class 12 Physics
+1/2, Chemistry 1/2, Biology, Mathematics 1/2.
 
 Design: `docs/superpowers/specs/2026-10-14-textbook-lessons-design.md`.

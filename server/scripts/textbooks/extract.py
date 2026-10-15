@@ -128,7 +128,8 @@ def clean_lines(lines, body):
                 i += 1
                 continue
         # a section number alone on its line ("13.2") with the title on the next line
-        if re.fullmatch(r"\d{1,2}\.\d{1,2}(\.\d{1,2})?", t) and sz >= body + 2 and i + 1 < n and lines[i + 1]["size"] == sz:
+        # (Class 11-12 set it bold at body size: "3.1" / "WHY DO WE NEED TO CLASSIFY…")
+        if re.fullmatch(r"\d{1,2}\.\d{1,2}(\.\d{1,2})?", t) and (sz >= body + 2 or ln["bold"]) and i + 1 < n and lines[i + 1]["size"] == sz:
             if not lines[i + 1]["text"].startswith(t):  # else it is a stacked fragment of the next line
                 lines[i + 1]["text"] = t + " " + lines[i + 1]["text"]
             i += 1
