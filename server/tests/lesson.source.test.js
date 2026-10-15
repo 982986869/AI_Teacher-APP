@@ -66,6 +66,14 @@ test('the same request again is served from the cache', { skip: ctx.skip }, asyn
   assert.equal(hits[0].hits, 1)
 })
 
+test('a book lesson is taught at the BOOK\'s class, whatever the student\'s own class is', { skip: ctx.skip }, async () => {
+  if (ctx.skip) return
+  const lesson = await gen({ gradeLevel: '12', mode: 'beginner', prefs: { explanationStyle: 'visual' } }) // its own mode, so it is its own cache row
+  assert.equal(String(lesson.gradeLevel), '10')
+  const row = await ctx.db.$queryRaw`SELECT book_lesson_id FROM lessons WHERE id = ${lesson.id}::uuid`
+  ctx.cacheKeys.push(row[0].book_lesson_id)
+})
+
 test('a different teaching mode is a miss, a different goal is not (goal is not in the key)', { skip: ctx.skip }, async () => {
   if (ctx.skip) return
   const other = await gen({ mode: 'exam' })

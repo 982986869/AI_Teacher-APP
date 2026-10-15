@@ -201,8 +201,10 @@ async function generateLesson({ userId, topic, subject, gradeLevel, board, strea
   // fails before any lesson row exists. `topic` is derived when the client sent none.
   let src = null
   if (source) {
-    src = await booksService.loadSource({ chapterId: source.chapterId, kind: source.kind, topicIds: source.topicIds, classLevel: gradeLevel })
-    src.classLevel = Number(gradeLevel)
+    src = await booksService.loadSource({ chapterId: source.chapterId, kind: source.kind, topicIds: source.topicIds })
+    // Taught at the book's class, whatever the student's own class is (they may be
+    // browsing another year from the home page).
+    gradeLevel = String(src.classLevel)
     if (!topic) topic = src.derivedTopic
     if (!subject) subject = src.book.subject
   }
@@ -345,7 +347,7 @@ async function answerDoubt({ userId, lessonId, question, slideIndex }) {
     if (lesson.bookChapterId) {
       try {
         const ids = (lesson.bookTopicIds || []).map(Number)
-        const s = await booksService.loadSource({ chapterId: Number(lesson.bookChapterId), kind: ids.length ? 'topics' : 'summary', topicIds: ids, classLevel: lesson.gradeLevel })
+        const s = await booksService.loadSource({ chapterId: Number(lesson.bookChapterId), kind: ids.length ? 'topics' : 'summary', topicIds: ids })
         sourceText = s.topics.map((t) => `[${t.number} ${t.title}]\n${t.text}`).join('\n\n')
       } catch (e) { console.error('[ai.service] doubt source load failed (answering without the book):', e?.message || e) }
     }

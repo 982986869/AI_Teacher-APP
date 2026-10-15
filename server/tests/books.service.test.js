@@ -68,8 +68,8 @@ test('listChapters returns number/title/topicCount', async () => {
   assert.equal(out.book.title, 'Mathematics')
 })
 
-test('listChapters for a book outside the class is a 404', async () => {
-  await assert.rejects(svc.listChapters({ bookId: 1, classLevel: 11 }), (e) => e.statusCode === 404)
+test('listChapters for an unknown book is a 404', async () => {
+  await assert.rejects(svc.listChapters({ bookId: 99 }), (e) => e.statusCode === 404)
 })
 
 test('getChapter returns topic titles and sizes but never the text', async () => {
@@ -80,8 +80,21 @@ test('getChapter returns topic titles and sizes but never the text', async () =>
   assert.equal(out.topics[0].charCount, 10)
 })
 
-test('getChapter refuses a chapter from another class with OUT_OF_SCOPE', async () => {
-  await assert.rejects(svc.getChapter({ chapterId: 10, classLevel: 11 }), (e) => e.statusCode === 403 && e.code === 'OUT_OF_SCOPE')
+test('getChapter opens a chapter of any class (a student may browse another year) and names the class', async () => {
+  const out = await svc.getChapter({ chapterId: 10 })
+  assert.equal(out.chapter.title, 'Binomial Theorem')
+  assert.equal(out.book.classLevel, 10)
+})
+
+test('listChapters needs only the book id', async () => {
+  const out = await svc.listChapters({ bookId: 1 })
+  assert.equal(out.chapters.length, 2)
+  assert.equal(out.book.classLevel, 10)
+})
+
+test('loadSource reports the BOOK\'s class so the lesson is taught at that level', async () => {
+  const s = await svc.loadSource({ chapterId: 10, kind: 'summary' })
+  assert.equal(s.classLevel, 10)
 })
 
 test('loadSource(topics) returns the chosen topics in book order and a derived topic string', async () => {

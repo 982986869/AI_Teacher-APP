@@ -4,8 +4,11 @@ import { API_BASE_URL } from '../constants/config';
 // Textbooks for the student's class (the server reads the class from the JWT scope).
 // Backend wraps responses as { success, message, data }; we unwrap to `data`.
 
-// GET /api/books → [{ id, code, title, subject, subjectSlug, edition, coverUrl, chapterCount }]
-export const getBooks = async () => (await axiosInstance.get('/api/books')).data.data;
+// GET /api/books?class=9 → [{ id, code, title, subject, subjectSlug, edition, coverUrl, chapterCount }]
+// `classLevel` is the class being browsed (the home page's chip); without it the
+// server uses the profile class.
+export const getBooks = async (classLevel) =>
+  (await axiosInstance.get('/api/books', { params: classLevel ? { class: classLevel } : {} })).data.data;
 
 // GET /api/books/:bookId/chapters → { book, chapters:[{ id, number, title, topicCount }] }
 export const getBookChapters = async (bookId) => (await axiosInstance.get(`/api/books/${bookId}/chapters`)).data.data;

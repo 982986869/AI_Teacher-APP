@@ -2,8 +2,10 @@
 
 const { booksService } = require('../services/books.service')
 const ApiResponse = require('../utils/ApiResponse')
+const { browsingClass } = require('../services/browsingClass')
 
-const classOf = (req) => (req.scope && req.scope.classNum) || null
+// The class being browsed (?class= from the home page's chip, else the profile class).
+const classOf = browsingClass
 
 // GET /api/books?subject=   → the student's class's books; [] when the class has none
 // (the app hides its textbook card on an empty list — this is never a 404).
@@ -24,18 +26,14 @@ async function listBooks(req, res, next) {
 // GET /api/books/:bookId/chapters
 async function listChapters(req, res, next) {
   try {
-    const classLevel = classOf(req)
-    if (!classLevel) return ApiResponse.error(res, 'Complete your class profile to open textbooks.', 422, 'PROFILE_INCOMPLETE')
-    return ApiResponse.success(res, await booksService.listChapters({ bookId: Number(req.params.bookId), classLevel }))
+    return ApiResponse.success(res, await booksService.listChapters({ bookId: Number(req.params.bookId) }))
   } catch (err) { next(err) }
 }
 
 // GET /api/books/chapters/:chapterId → topics (titles only)
 async function getChapter(req, res, next) {
   try {
-    const classLevel = classOf(req)
-    if (!classLevel) return ApiResponse.error(res, 'Complete your class profile to open textbooks.', 422, 'PROFILE_INCOMPLETE')
-    return ApiResponse.success(res, await booksService.getChapter({ chapterId: Number(req.params.chapterId), classLevel }))
+    return ApiResponse.success(res, await booksService.getChapter({ chapterId: Number(req.params.chapterId) }))
   } catch (err) { next(err) }
 }
 

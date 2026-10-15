@@ -40,8 +40,10 @@ async function generateLesson(req, res, next) {
     const subject = req.body.subject ? String(req.body.subject).trim() : ''
     // The AI always teaches at the student's OWN class — never asks, never higher,
     // never a client-supplied grade.
+    // A textbook lesson is taught at the BOOK's class (the service takes it from the
+    // chapter), so it needs no profile class.
     const grade = scopeGrade(req)
-    if (!grade) return ApiResponse.error(res, 'Complete your class profile to start lessons.', 422, 'PROFILE_INCOMPLETE')
+    if (!grade && !source) return ApiResponse.error(res, 'Complete your class profile to start lessons.', 422, 'PROFILE_INCOMPLETE')
 
     // Optional teaching mode (the "how"): honour a valid explicit choice, else null so
     // the service auto-selects from the learner's mastery. Invalid values are ignored

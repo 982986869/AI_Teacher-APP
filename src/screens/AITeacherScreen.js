@@ -62,7 +62,14 @@ const fmtShort = (d)   => d.toLocaleDateString('en-IN', { day: 'numeric', month:
 
 const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack }) => {
   const teacher = useTeacherIdentity();
-  const { user, scope } = useAuth();
+  const { user, scope, selectedClass } = useAuth();
+  // The class being browsed: the home page's class chip when set, else the profile class.
+  // The textbooks follow it (a Class 10 student can open the Class 9 books), and a book
+  // lesson is taught at the book's class by the server.
+  const browseClass = useMemo(() => {
+    const m = String(selectedClass || '').match(/\d{1,2}/);
+    return m ? parseInt(m[0], 10) : (scope?.classNum || null);
+  }, [selectedClass, scope?.classNum]);
   const firstName = user?.name?.split(' ')[0] || 'Student';
   const subjects = SUBJECTS;
 
@@ -144,12 +151,12 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
 
   const loadBooks = async () => {
     setBooksErr('');
-    try { setBooks(await getBooks()); } catch (e) { setBooks([]); setBooksErr(e?.response?.data?.error || e?.message || 'Could not load your books.'); }
+    try { setBooks(await getBooks(browseClass)); } catch (e) { setBooks([]); setBooksErr(e?.response?.data?.error || e?.message || 'Could not load your books.'); }
   };
   // Reloaded whenever the student's class changes (Profile → Edit Profile), not just on
   // mount: this screen stays mounted inside the Home tab, so a one-time load left the
   // old class's books — and an open chapter list from them — on screen after the change.
-  useEffect(() => { setBookView('home'); setBookSel(null); setChapterSel(null); loadBooks(); }, [scope?.classNum]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { setBookView('home'); setBookSel(null); setChapterSel(null); loadBooks(); }, [browseClass]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const openBook = async (book) => {
     setBookBusy(true); setBookErr(''); setBookView('chapters'); setBookSel({ book, chapters: [] });
@@ -449,7 +456,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
             books={books || []}
             loading={books === null}
             error={booksErr}
-            classLabel={scope?.className || ''}
+            classLabel={browseClass ? `Class ${browseClass}` : (scope?.className || '')}
             onOpenBook={openBook}
             onBack={() => setBookView('home')}
             onRetry={loadBooks}

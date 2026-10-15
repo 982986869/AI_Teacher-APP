@@ -9,7 +9,7 @@ const MAX_TOPICS = 3
 const num = (v) => (typeof v === 'bigint' ? Number(v) : v)
 
 function createBooksService(db) {
-  const bookOut = (b) => ({ id: num(b.id), code: b.code, title: b.title, subject: b.subject, subjectSlug: b.subject_slug })
+  const bookOut = (b) => ({ id: num(b.id), code: b.code, title: b.title, subject: b.subject, subjectSlug: b.subject_slug, classLevel: b.class_level })
 
   async function listBooks({ classLevel, subject } = {}) {
     if (!classLevel) return []
@@ -24,29 +24,30 @@ function createBooksService(db) {
     }))
   }
 
-  async function listChapters({ bookId, classLevel }) {
+  // Any book is browsable (the home page lets a student look at another year), so the
+  // book id alone names it; the response carries the book's class.
+  async function listChapters({ bookId }) {
     const rows = await db.book_chapters.findMany({
-      where: { book_id: BigInt(bookId), book: { class_level: Number(classLevel) } },
+      where: { book_id: BigInt(bookId) },
       orderBy: { number: 'asc' },
       include: { book: true, _count: { select: { topics: true } } },
     })
-    if (!rows.length) throw new AppError('Book not found for your class.', 404)
+    if (!rows.length) throw new AppError('Book not found.', 404)
     return {
       book: bookOut(rows[0].book),
       chapters: rows.map((c) => ({ id: num(c.id), number: c.number, title: c.title, slug: c.slug, topicCount: c._count ? c._count.topics : 0 })),
     }
   }
 
-  // The chapter row with its book, scope-checked against the student's class.
-  async function chapterInScope(chapterId, classLevel) {
+  // The chapter row with its book.
+  async function chapterOf(chapterId) {
     const c = await db.book_chapters.findFirst({ where: { id: BigInt(chapterId) }, include: { book: true } })
     if (!c) throw new AppError('Chapter not found.', 404)
-    if (c.book.class_level !== Number(classLevel)) throw new AppError("This book isn't part of your class.", 403, 'OUT_OF_SCOPE')
     return c
   }
 
-  async function getChapter({ chapterId, classLevel }) {
-    const c = await chapterInScope(chapterId, classLevel)
+  async function getChapter({ chapterId }) {
+    const c = await chapterOf(chapterId)
     const topics = await db.book_topics.findMany({ where: { chapter_id: c.id }, orderBy: { position: 'asc' } })
     return {
       book: bookOut(c.book),
@@ -57,8 +58,10 @@ function createBooksService(db) {
 
   // What the lesson generator teaches from. kind 'summary' = whole chapter; 'topics' =
   // 1..MAX_TOPICS ids that must all belong to the chapter. Topics come back in book order.
-  async function loadSource({ chapterId, kind, topicIds, classLevel }) {
-    const c = await chapterInScope(chapterId, classLevel)
+  // Carries the book's class: a lesson from a Class 9 chapter is taught at Class 9
+  // whatever the student's own class is.
+  async function loadSource({ chapterId, kind, topicIds }) {
+    const c = await chapterOf(chapterId)
     let rows
     if (kind === 'summary') {
       rows = await db.book_topics.findMany({ where: { chapter_id: c.id }, orderBy: { position: 'asc' } })
@@ -79,7 +82,7 @@ function createBooksService(db) {
     const derivedTopic = kind === 'summary'
       ? `Chapter ${c.number}: ${c.title} (summary)`
       : `${c.title}: ${topics.map((t) => `${t.number} ${t.title}`).join('; ')}`
-    return { book: bookOut(c.book), chapter: { id: num(c.id), number: c.number, title: c.title }, kind, topics, topicLabel, derivedTopic }
+    return { book: bookOut(c.book), classLevel: c.book.class_level, chapter: { id: num(c.id), number: c.number, title: c.title }, kind, topics, topicLabel, derivedTopic }
   }
 
   return { listBooks, listChapters, getChapter, loadSource }
