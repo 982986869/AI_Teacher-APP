@@ -6,6 +6,8 @@ import {
 import { LinearGradient } from 'expo-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import LessonBoard from './LessonBoards';
+import DoubtBoard from './DoubtBoard';
+import { createBoardSync } from './doubtBoardLayout';
 import TeacherAvatar from './TeacherAvatar';
 import TeacherFullBody from './TeacherFullBody';
 import { TEACHER_STAGE_CLIP } from './teacherIdentity';
@@ -834,6 +836,13 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const [partial, setPartial] = useState('');
   const [qInput, setQInput] = useState('');
   const [doubtDone, setDoubtDone] = useState(false); // answer fully spoken
+  // What the teacher has drawn for the current doubt (validated elements from the
+  // `board` stream events, in drawing order). Elements are HELD in boardSyncRef until
+  // the sentence that introduces them starts playing, so the drawing keeps pace with
+  // her voice instead of racing ahead of it.
+  const [boardEls, setBoardEls] = useState([]);
+  const boardSyncRef = useRef(createBoardSync());
+  const clearBoard = () => { boardSyncRef.current.reset(); setBoardEls([]); };
   const [hint, setHint] = useState('');
   const [voiceOpen, setVoiceOpen] = useState(false); // voice-picker sheet
   const [reactExpr, setReactExpr] = useState(null);  // transient face after a quick-check (celebrate / encouraging)
@@ -1181,7 +1190,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   }, [mode, idx, beat, animKey]);
 
   // ── transport ──
-  const goTeach = (next) => { doubtTurnRef.current += 1; stopTeacher(); setQa(null); setQaMeta(null); setDoubtDone(false); setHint(''); setQuizFb(null); setReteach(null); setReactExpr(null); setBeat(0); setIdx(next); setMode(M.TEACHING); setAnimKey((k) => k + 1); };
+  const goTeach = (next) => { doubtTurnRef.current += 1; stopTeacher(); clearBoard(); setQa(null); setQaMeta(null); setDoubtDone(false); setHint(''); setQuizFb(null); setReteach(null); setReactExpr(null); setBeat(0); setIdx(next); setMode(M.TEACHING); setAnimKey((k) => k + 1); };
   const pause = () => { stopTeacher(); setTtsActive(false); setMode(M.PAUSED); };
   const resume = () => { setMode(M.TEACHING); setAnimKey((k) => k + 1); };
   const togglePlay = () => { if (teaching) pause(); else if (mode === M.PAUSED) resume(); };
@@ -1193,7 +1202,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const toggleMute = () => { setMuted((m) => !m); if (teaching) setAnimKey((k) => k + 1); };
 
   // ── doubt flow (lesson fully frozen the whole time) ──
-  const beginListen = () => { doubtTurnRef.current += 1; stopTeacher(); clearDoubtTick(); setTtsActive(false); setPartial(''); setQInput(''); setQa(null); setQaMeta(null); setDoubtDone(false); setHint(''); setMode(M.LISTENING); };
+  const beginListen = () => { doubtTurnRef.current += 1; stopTeacher(); clearDoubtTick(); clearBoard(); setTtsActive(false); setPartial(''); setQInput(''); setQa(null); setQaMeta(null); setDoubtDone(false); setHint(''); setMode(M.LISTENING); };
   const sendDoubt = (override) => {
     const q = (typeof override === 'string' ? override : qInput).trim();
     if (!q || !onAsk) { if (!q) setMode(M.PAUSED); return; }
@@ -1211,8 +1220,22 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     // (only when a streaming handler is provided AND voice is on).
     if (onAskStream && voiceOnRef.current) {
       resetTeacherQueue();
+      clearBoard();
       let acc = '';
       let buf = '';
+      // Drawing keeps pace with speech: each board element arrives right after the
+      // sentence it illustrates, so it is held until THAT sentence (the `queued`-th)
+      // starts playing. `release` appends to the board; a stale turn never draws.
+      let queued = 0;
+      const release = (els) => { if (els.length && fresh()) setBoardEls((p) => [...p, ...els]); };
+      const speakSentence = (s, opts = {}) => {
+        queued += 1;
+        const ord = queued;
+        speakTeacherQueued(s, {
+          ...opts,
+          onStart: () => { setTtsActive(true); if (turn === doubtTurnRef.current) release(boardSyncRef.current.sentenceStarted(ord)); },
+        });
+      };
       // Stay in THINKING during the answer latency (so "she's thinking" shows, not a
       // waveform over silence). We flip to ANSWERING when the first token actually
       // arrives, and ttsActive lights up only when real audio starts (queue onStart) —
@@ -1222,12 +1245,13 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
         // emit each completed sentence to the voice queue as soon as it's whole
         while ((m = buf.match(/[\s\S]*?[.!?\n।]/))) {
           const s = m[0]; buf = buf.slice(s.length);
-          if (s.trim()) speakTeacherQueued(s.trim(), { onStart: () => setTtsActive(true) });
+          if (s.trim()) speakSentence(s.trim());
         }
-        if (force && buf.trim()) { speakTeacherQueued(buf.trim()); buf = ''; }
+        if (force && buf.trim()) { speakSentence(buf.trim()); buf = ''; }
       };
       onAskStream(q, askPosRef.current, {
         onDelta: (t) => { if (turn !== doubtTurnRef.current) return; if (!acc) setMode(M.ANSWERING); acc += t; buf += t; setQa({ q, a: acc }); flush(false); },
+        onBoard: (el) => { if (turn !== doubtTurnRef.current) return; boardSyncRef.current.hold(el, queued); },
       })
         .then((res) => {
           if (!fresh()) return;
@@ -1243,6 +1267,9 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
             polls += 1;
             if (!isTeacherQueueActive() || polls > 66) {
               clearDoubtTick();
+              // Anything still held (audio never started, or a sentence never fired
+              // onStart) lands on the board now rather than never.
+              release(boardSyncRef.current.flush());
               if (mountedRef.current) { setTtsActive(false); setDoubtDone(true); }
             }
           }, 300);
@@ -1250,6 +1277,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
         .catch((e) => {
           if (turn !== doubtTurnRef.current) return; // a newer doubt owns the queue now
           resetTeacherQueue();
+          clearBoard();
           if (!mountedRef.current) return;
           setMode(M.ANSWERING); // leave THINKING so the error + Resume button surface
           setQa({ q, a: e?.message || 'Sorry, I couldn’t get an answer just now. Please try asking again.' });
@@ -1280,7 +1308,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
       })
       .catch((e) => { clearTimeout(to); if (!fresh()) return; setQa({ q, a: e?.response?.data?.error || e?.message || 'Sorry, I couldn’t get an answer just now. Please try asking again.' }); setMode(M.ANSWERING); setDoubtDone(true); });
   };
-  const resumeFromDoubt = () => { doubtTurnRef.current += 1; stopTeacher(); clearDoubtTick(); setQa(null); setQaMeta(null); setDoubtDone(false); resumeBridgeRef.current = true; setMode(M.TEACHING); setAnimKey((k) => k + 1); };
+  const resumeFromDoubt = () => { doubtTurnRef.current += 1; stopTeacher(); clearDoubtTick(); clearBoard(); setQa(null); setQaMeta(null); setDoubtDone(false); resumeBridgeRef.current = true; setMode(M.TEACHING); setAnimKey((k) => k + 1); };
 
   // ── HANDS-FREE "Live conversation": echo suppression + barge-in ──
   const _norm = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9\s]+/g, ' ').split(/\s+/).filter(Boolean);
@@ -1599,6 +1627,9 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const revealed = mode === M.COMPLETED ? pageLines.length : revealAt(linePlan, beat);
   const isQuiz = scene.boardType === 'quickCheck';
   const showSide = !qa && !isQuiz && hasSideVisual(scene);
+  // During a doubt the lesson's side drawing is hidden; the teacher's own drawing for
+  // the doubt takes that slot, and only once she has actually drawn something.
+  const showDoubtSide = !!qa && boardEls.length > 0;
   const boardHighlight = (curBeat && curBeat.highlight && curBeat.highlight.length) ? curBeat.highlight : keyTerms;
   const sideW = Math.round(Math.min(380, winW * 0.4));
   // Portrait stacks the speed pill above the call row, so the caption sits higher.
@@ -1671,6 +1702,11 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
                     <LessonBoard scene={scene} paused={!teaching} skip={false} resetKey={sceneKey} step={curBeat ? curBeat.boardStep : null} highlight={boardHighlight} action={curBeat && curBeat.boardAction} onQuizContinue={onNextStable} onQuizResult={onQuizResultStable} onReexplain={onReexplainStable} quizFb={quizFb} reteach={reteach} />
                   </View>
                 )}
+                {portrait && showDoubtSide && (
+                  <View style={cs.sideCardPortrait}>
+                    <DoubtBoard elements={boardEls} height={200} />
+                  </View>
+                )}
                 {qa && mode === M.ANSWERING && (
                   <View style={cs.doubtActions}>
                     {doubtDone && <DoubtMeta meta={qaMeta} onLearnPrereq={(p) => sendDoubt(`Explain "${p}" briefly — I want to understand the idea this builds on.`)} />}
@@ -1689,6 +1725,13 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
               <ScrollView style={cs.sideCard} contentContainerStyle={cs.sideBody} showsVerticalScrollIndicator={false} nestedScrollEnabled>
                 <LessonBoard scene={scene} paused={!teaching} skip={false} resetKey={sceneKey} step={curBeat ? curBeat.boardStep : null} highlight={boardHighlight} action={curBeat && curBeat.boardAction} onQuizContinue={onNextStable} onQuizResult={onQuizResultStable} onReexplain={onReexplainStable} quizFb={quizFb} reteach={reteach} />
               </ScrollView>
+            </View>
+          )}
+          {showDoubtSide && !portrait && (
+            <View style={[cs.sideCol, { width: sideW }]}>
+              <View style={cs.sideCard}>
+                <DoubtBoard elements={boardEls} height={Math.round(sideW * 0.6) + 20} />
+              </View>
             </View>
           )}
         </Stage>

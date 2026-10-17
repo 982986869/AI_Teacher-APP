@@ -661,8 +661,9 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
           // (concept, prerequisites, confidence) alongside the answer text.
           return res;
         }}
-        onAskStream={async (q, i, { onDelta }) => {
-          // Streaming variant — the player speaks sentences as they arrive.
+        onAskStream={async (q, i, { onDelta, onBoard }) => {
+          // Streaming variant — the player speaks sentences as they arrive, and with
+          // `board` the teacher may also draw: `onBoard` receives each shape in order.
           const res = await askAgentStream({
             text: q,
             subject: activeSubject,
@@ -671,7 +672,8 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
             slideIndex: i,
             history: historyRef.current,
             pending: pendingRef.current,
-          }, { onDelta });
+            board: true,
+          }, { onDelta, onBoard });
           pendingRef.current = res.pending || null;
           historyRef.current = [
             ...historyRef.current,
