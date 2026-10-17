@@ -2226,7 +2226,9 @@ const cs = StyleSheet.create({
   hintWrap: { position: 'absolute', top: 58, left: 0, right: 0, alignItems: 'center' },
   hintTxt: { maxWidth: 520, fontSize: 13, lineHeight: 18, color: '#3F4650', textAlign: 'center', backgroundColor: 'rgba(255,255,255,0.96)', borderRadius: 10, borderWidth: 1, borderColor: '#E7E7E3', paddingHorizontal: 14, paddingVertical: 8, overflow: 'hidden' },
   captionWrap: { position: 'absolute', left: 0, right: 0, alignItems: 'center' },
-  capDim: { color: 'rgba(255,255,255,0.55)' },
+  // Words she has not reached yet: only a shade softer than the spoken ones — a faint
+  // grey was unreadable on a phone in daylight.
+  capDim: { color: 'rgba(255,255,255,0.86)' },
   capHot: { color: '#5EEAD4' },
   speedWrap: { position: 'absolute' },
   callWrap: { position: 'absolute', left: 0, right: 0, alignItems: 'center' },

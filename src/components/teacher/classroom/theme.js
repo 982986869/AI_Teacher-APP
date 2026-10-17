@@ -13,7 +13,7 @@ export const LINE_COLOR = {
   answer: INK,
 };
 export const GLASS = 'rgba(66,66,66,0.70)';      // control buttons / pills
-export const GLASS_DARK = 'rgba(48,48,48,0.88)'; // caption bar
+export const GLASS_DARK = 'rgba(32,32,32,0.94)'; // caption bar
 export const END_RED = '#E53935';
 export const LIVE_TEAL = '#0F766E';
 export const FONT_HEAD = 'Sora_600SemiBold';

@@ -99,6 +99,6 @@ const s = StyleSheet.create({
 });
 
 export const captionStyles = StyleSheet.create({
-  txt: { color: '#fff', fontFamily: FONT_BODY, fontSize: 15, lineHeight: 21, textAlign: 'center' },
+  txt: { color: '#fff', fontFamily: FONT_MED, fontSize: 16, lineHeight: 22, textAlign: 'center' },
   asked: { color: '#D4D4D0', fontFamily: FONT_MED, fontSize: 12, textAlign: 'center', marginBottom: 2 },
 });
