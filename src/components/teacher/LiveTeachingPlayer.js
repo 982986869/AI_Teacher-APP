@@ -1214,13 +1214,14 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     feelLearner('doubt'); observeTeach({ type: 'doubt' }); // asking for help eases her pace a little
     setQInput(''); setPartial(''); setHint('');
     setQa({ q, a: null }); setQaMeta(null); setDoubtDone(false); setMode(M.THINKING);
-    stopTeacher(); clearDoubtTick();
+    // The previous doubt's drawing goes with its answer — on EVERY path, so a muted
+    // follow-up (non-streaming, no board) never sits beside the last doubt's shapes.
+    stopTeacher(); clearDoubtTick(); clearBoard();
 
     // ── STREAMING path: speak sentence-by-sentence as the answer arrives ──
     // (only when a streaming handler is provided AND voice is on).
     if (onAskStream && voiceOnRef.current) {
       resetTeacherQueue();
-      clearBoard();
       let acc = '';
       let buf = '';
       // Drawing keeps pace with speech: each board element arrives right after the
@@ -1251,7 +1252,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
       };
       onAskStream(q, askPosRef.current, {
         onDelta: (t) => { if (turn !== doubtTurnRef.current) return; if (!acc) setMode(M.ANSWERING); acc += t; buf += t; setQa({ q, a: acc }); flush(false); },
-        onBoard: (el) => { if (turn !== doubtTurnRef.current) return; boardSyncRef.current.hold(el, queued); },
+        onBoard: (el) => { if (turn !== doubtTurnRef.current) return; release(boardSyncRef.current.hold(el, queued)); },
       })
         .then((res) => {
           if (!fresh()) return;

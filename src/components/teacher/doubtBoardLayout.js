@@ -53,12 +53,21 @@ export function boardColor(name, palette) {
 // sentence is number `queued`, and the element is released when it starts.
 export function createBoardSync() {
   let held = [];
+  let lastStarted = 0; // highest sentence ordinal whose audio has begun
   return {
+    // Returns the elements to draw NOW: the element itself when its sentence has
+    // already begun (the board event arrived after the audio did), else nothing —
+    // it waits for sentenceStarted. `queued` of 0 means "before any sentence": it
+    // waits for the first one.
     hold(el, queued) {
-      held.push({ el, after: Number.isFinite(queued) ? queued : 0 });
+      const after = Number.isFinite(queued) ? queued : 0;
+      if (after >= 1 && after <= lastStarted) return [el];
+      held.push({ el, after });
+      return [];
     },
     // 1-based ordinal of the sentence that just started speaking.
     sentenceStarted(ordinal) {
+      if (ordinal > lastStarted) lastStarted = ordinal;
       const out = [];
       const keep = [];
       for (const h of held) (h.after <= ordinal ? out : keep).push(h);
@@ -70,6 +79,6 @@ export function createBoardSync() {
       held = [];
       return out;
     },
-    reset() { held = []; },
+    reset() { held = []; lastStarted = 0; },
   };
 }

@@ -50,3 +50,25 @@ test('sync: reset drops held elements', () => {
   assert.deepEqual(s.sentenceStarted(9), [])
   assert.deepEqual(s.flush(), [])
 })
+
+// Review fix: an element whose sentence has ALREADY started must not wait for the next
+// sentence (or, worse, for the end-of-answer flush) — it is released at once.
+test('sync: hold releases immediately when its sentence already started', () => {
+  const s = createBoardSync()
+  assert.deepEqual(s.sentenceStarted(2), [])
+  assert.deepEqual(s.hold({ op: 'rect' }, 1), [{ op: 'rect' }])
+  assert.deepEqual(s.hold({ op: 'line' }, 2), [{ op: 'line' }])
+  assert.deepEqual(s.hold({ op: 'text' }, 3), [])
+  assert.deepEqual(s.sentenceStarted(3), [{ op: 'text' }])
+})
+test('sync: an element before any sentence still waits for the first sentence', () => {
+  const s = createBoardSync()
+  assert.deepEqual(s.hold({ op: 'clear' }, 0), [])
+  assert.deepEqual(s.sentenceStarted(1), [{ op: 'clear' }])
+})
+test('sync: reset forgets which sentences started', () => {
+  const s = createBoardSync()
+  s.sentenceStarted(5)
+  s.reset()
+  assert.deepEqual(s.hold({ op: 'rect' }, 1), [])
+})

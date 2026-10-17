@@ -51,6 +51,9 @@ const DOUBT_MAX_TOKENS = 1024
 const INTENT_MAX_TOKENS = 60
 // Teacher replies are at most ~5 short lines; a tight ceiling keeps generation fast.
 const TEACHER_MAX_TOKENS = 450
+// With a board, up to 6 [[board:]] markers (~30 tokens each) share the budget with the
+// spoken lines; without the headroom the last sentence gets cut off mid-word.
+const TEACHER_MAX_TOKENS_BOARD = 700
 // A grounded knowledge answer is capped at ~180 words (plain) or a small JSON lesson.
 const KNOWLEDGE_MAX_TOKENS = 900
 // Transcribing an uploaded page (PDF/photo) can be dense — allow room for a full page.
@@ -245,7 +248,7 @@ class AnthropicProvider extends AIProvider {
     const client = this._getClient()
     const stream = client.messages.stream({
       model: this.doubtModel,
-      max_tokens: TEACHER_MAX_TOKENS,
+      max_tokens: board ? TEACHER_MAX_TOKENS_BOARD : TEACHER_MAX_TOKENS,
       system: buildTeacherSystemPrompt({ intent, language, contexts, lesson, level, mode, strategy, studentContext, gradeLevel, board }),
       messages: buildTeacherMessages(history, question, slideIndex),
     })

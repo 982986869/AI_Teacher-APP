@@ -14,6 +14,9 @@ const { validateElement, MAX_ELEMENTS } = require('./boardElements')
 
 const MARK_OPEN = '[[board:'
 const MARK_CLOSE = ']]'
+// A marker is one line of JSON. One that has not closed by its newline — or that runs
+// past this many characters — is malformed; it is dropped alone, never the text after it.
+const MAX_MARKER = 600
 
 // Length of the longest suffix of `s` that is a proper prefix of MARK_OPEN — the part
 // that might be the start of a marker whose rest has not arrived yet.
@@ -54,7 +57,13 @@ function createBoardStreamParser({ onText, onElement, maxElements = MAX_ELEMENTS
       buf = buf.slice(i)
       const j = buf.indexOf(MARK_CLOSE, MARK_OPEN.length)
       if (j < 0) {
-        // Marker open, not yet closed: hold it. At end of stream it is garbage — drop it.
+        // Open, not yet closed. A newline before the close means the model never
+        // closed this marker (e.g. a single `]`): drop just that line and carry on,
+        // so one typo cannot swallow the rest of the answer. Same if it runs away.
+        const nl = buf.indexOf('\n', MARK_OPEN.length)
+        if (nl >= 0) { buf = buf.slice(nl + 1); continue }
+        if (buf.length > MAX_MARKER) { buf = ''; return }
+        // Otherwise hold it for the next chunk. At end of stream it is garbage — drop it.
         if (final) buf = ''
         return
       }

@@ -17,9 +17,54 @@ const MAX_TEXT = 40
 const MAX_PATH = 400
 const COLORS = ['chalk', 'yellow', 'blue', 'green', 'pink', 'orange']
 
-const PATH_RE = /^[MLQCZmlqcz0-9 ,.\-]+$/
+const PATH_RE = /^[MLQCZ0-9 ,.\-]+$/
+// Numbers per command. Repeats are allowed (L10,10 20,20) in whole multiples.
+const PATH_ARGS = { M: 2, L: 2, Q: 4, C: 6, Z: 0 }
 
 const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v))
+
+// react-native-svg's Android PathParser THROWS (uncaught, in a native prop setter) on a
+// malformed `d`: a path not starting with M, a command with too few numbers, a number
+// after Z. A character allow-list cannot catch those, so the path is tokenised, checked
+// command by command, every coordinate clamped to the board, and re-emitted in one
+// canonical spelling ("M10,10 L20,20 Q30,30 40,40 Z"). Absolute commands only — relative
+// ones (m l q c) cannot be clamped meaningfully and are refused.
+function normalizePath(d) {
+  if (typeof d !== 'string') return null
+  const s = d.trim()
+  if (!s || s.length > MAX_PATH || !PATH_RE.test(s)) return null
+  const tokens = s.match(/[MLQCZ]|-?\d*\.?\d+/g) || []
+  if (!tokens.length || tokens[0] !== 'M') return null
+  const out = []
+  let i = 0
+  while (i < tokens.length) {
+    const cmd = tokens[i]
+    if (!(cmd in PATH_ARGS)) return null // a number where a command should be
+    i += 1
+    const nums = []
+    while (i < tokens.length && !(tokens[i] in PATH_ARGS)) {
+      const n = Number(tokens[i])
+      if (!Number.isFinite(n)) return null
+      nums.push(n)
+      i += 1
+    }
+    const need = PATH_ARGS[cmd]
+    if (need === 0) {
+      if (nums.length) return null
+      out.push('Z')
+      continue
+    }
+    if (!nums.length || nums.length % need !== 0) return null
+    for (let k = 0; k < nums.length; k += need) {
+      const pairs = []
+      for (let j = 0; j < need; j += 2) {
+        pairs.push(`${clamp(nums[k + j], 0, BOARD_W)},${clamp(nums[k + j + 1], 0, BOARD_H)}`)
+      }
+      out.push(`${cmd}${pairs.join(' ')}`)
+    }
+  }
+  return out.join(' ')
+}
 
 // Number() of anything that is not already a finite number → NaN → reject. Strings
 // like "12" are accepted because the model sometimes quotes numbers.
@@ -72,12 +117,13 @@ function validateElement(raw) {
   }
 
   if (op === 'path') {
-    const d = typeof raw.d === 'string' ? raw.d.trim() : ''
-    if (!d || d.length > MAX_PATH || !PATH_RE.test(d)) return null
+    const d = normalizePath(raw.d)
+    if (!d) return null
     out.d = d
   }
 
-  out.color = color(raw.color)
+  // A highlight is the translucent marker swipe behind text — yellow unless told otherwise.
+  out.color = raw.color === undefined && op === 'highlight' ? 'yellow' : color(raw.color)
   return out
 }
 
@@ -88,4 +134,4 @@ const MOCK_BOARD_SAMPLE = [
   { op: 'text', x: 70, y: 30, text: 'Rectangle', size: 14, color: 'chalk' },
 ]
 
-module.exports = { BOARD_W, BOARD_H, MAX_ELEMENTS, MAX_TEXT, MAX_PATH, COLORS, validateElement, MOCK_BOARD_SAMPLE }
+module.exports = { BOARD_W, BOARD_H, MAX_ELEMENTS, MAX_TEXT, MAX_PATH, COLORS, validateElement, normalizePath, MOCK_BOARD_SAMPLE }

@@ -27,7 +27,7 @@ function renderElement(el, key) {
     case 'arrow':
       return <Arrow key={key} x1={el.x1} y1={el.y1} x2={el.x2} y2={el.y2} color={color} width={STROKE} />;
     case 'highlight':
-      return <Highlight key={key} x={el.x} y={el.y} width={el.w} height={el.h} color={el.color ? color : BOARD.yellow} />;
+      return <Highlight key={key} x={el.x} y={el.y} width={el.w} height={el.h} color={color} />;
     case 'path':
       return <ChalkStroke key={key} d={el.d} length={pathLength(el.d)} color={color} width={STROKE} />;
     case 'text':

@@ -66,3 +66,16 @@ test('clear passes through as an element', () => {
   assert.deepEqual(r.els, [{ op: 'clear' }])
   assert.equal(r.text, 'Hi')
 })
+
+// ── Review fix: one bad marker must not swallow the rest of the answer ────────
+test('a marker that never closes ends at its line; later sentences are still spoken', () => {
+  const r = run(['A triangle has three sides.\n[[board:{"op":"rect","x":1,"y":1,"w":5,"h":5}]\nThe angles add to 180 degrees.\nClear?'])
+  assert.equal(r.text, 'A triangle has three sides.\nThe angles add to 180 degrees.\nClear?')
+  assert.equal(r.els.length, 0)
+})
+test('a runaway marker with no newline is cut off after 600 characters', () => {
+  const r = run(['Start.\n[[board:{"op":"text","text":"' + 'x'.repeat(700), ' End.'])
+  assert.equal(r.text.startsWith('Start.\n'), true)
+  assert.equal(r.text.includes('[[board:'), false)
+  assert.equal(r.els.length, 0)
+})

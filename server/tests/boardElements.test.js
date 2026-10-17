@@ -45,3 +45,22 @@ test('clear has no fields', () => { assert.deepEqual(validateElement({ op: 'clea
 test('non-objects are null', () => { assert.equal(validateElement(null), null); assert.equal(validateElement('rect'), null) })
 
 test('mock sample is valid', () => { for (const el of MOCK_BOARD_SAMPLE) assert.deepEqual(validateElement(el), el) })
+
+// ── Review fixes ──────────────────────────────────────────────────────────────
+// react-native-svg's Android PathParser throws on a malformed `d` (first command not
+// M, too few numbers for a command, a number after Z). Character-class checking is
+// not enough: the server must tokenise, verify, clamp and re-emit the path.
+test('path: rejects malformed paths the Android parser would throw on', () => {
+  for (const d of ['L10,10 L20,20', 'M10', 'M10,10 Q20,20', 'M10,10 C1,2 3,4', 'M10,10 Z 5,5', 'm10,10 l5,5']) {
+    assert.equal(validateElement({ op: 'path', d }), null, d)
+  }
+})
+test('path: clamps every coordinate and re-emits a canonical path', () => {
+  assert.equal(validateElement({ op: 'path', d: 'M99999,99999 L5,5' }).d, 'M300,180 L5,5')
+  assert.equal(validateElement({ op: 'path', d: 'M10 10L50 50 Q 60,70 80,80Z' }).d, 'M10,10 L50,50 Q60,70 80,80 Z')
+  assert.equal(validateElement({ op: 'path', d: 'M0,0 L10,10 20,20 30,30' }).d, 'M0,0 L10,10 L20,20 L30,30')
+})
+test('highlight defaults to yellow, the translucent marker colour', () => {
+  assert.equal(validateElement({ op: 'highlight', x: 1, y: 1, w: 5, h: 5 }).color, 'yellow')
+  assert.equal(validateElement({ op: 'highlight', x: 1, y: 1, w: 5, h: 5, color: 'blue' }).color, 'blue')
+})
