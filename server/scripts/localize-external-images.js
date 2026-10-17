@@ -36,7 +36,18 @@ const URL_CHARS = `[^\\s"'<>)\\\\&]+`
 const SRC_RE = new RegExp(`src=(?:\\\\?"|&quot;|')(https?://${URL_CHARS})`, 'g')
 const ANY_RE = new RegExp(`https?://${URL_CHARS}`, 'g')
 const IMAGE_COL = /(image|photo|avatar|logo|icon|thumb|banner|cover|attachment)|^url$/i
-const EXT_BY_TYPE = { 'image/png': 'png', 'image/jpeg': 'jpg', 'image/gif': 'gif', 'image/webp': 'webp', 'image/svg+xml': 'svg', 'image/bmp': 'bmp', 'image/x-icon': 'ico', 'application/pdf': 'pdf' }
+const EXT_BY_TYPE = { 'image/png': 'png', 'image/jpeg': 'jpg', 'image/jpg': 'jpg', 'image/pjpeg': 'jpg', 'image/gif': 'gif', 'image/webp': 'webp', 'image/svg+xml': 'svg', 'image/bmp': 'bmp', 'image/x-icon': 'ico', 'application/pdf': 'pdf' }
+const IMAGE_EXTS = ['png', 'jpg', 'jpeg', 'gif', 'webp', 'svg', 'bmp', 'pdf']
+
+// File extension for a response, or null if it isn't an image. S3 buckets often send
+// non-standard types (image/jpg) or a generic octet-stream for a .png key.
+function extFor(type, u) {
+  if (EXT_BY_TYPE[type]) return EXT_BY_TYPE[type]
+  if (type.startsWith('image/')) return type.slice(6).replace(/[^a-z0-9]/g, '') || null
+  const fromPath = path.extname(new URL(u).pathname).slice(1).toLowerCase()
+  if (/octet-stream$/.test(type) && IMAGE_EXTS.includes(fromPath)) return fromPath === 'jpeg' ? 'jpg' : fromPath
+  return null
+}
 
 const db = new PrismaClient()
 const q = (id) => `"${id.replace(/"/g, '""')}"`
@@ -60,11 +71,10 @@ function imageUrls(col, v) {
 }
 
 // Saved file path (relative to uploads/) for a URL + its content type.
-function localPath(u, type) {
+function localPath(u, ext) {
   const { host, pathname, search } = new URL(u)
   let p = pathname.replace(/[^A-Za-z0-9._/-]/g, '_').replace(/\.\.+/g, '.').replace(/^\/+|\/+$/g, '') || 'index'
   if (search) p += '_' + crypto.createHash('sha1').update(search).digest('hex').slice(0, 10)
-  const ext = EXT_BY_TYPE[type]
   if (path.extname(p).slice(1).toLowerCase() !== ext && !(ext === 'jpg' && /\.jpe?g$/i.test(p))) p += '.' + ext
   return `ext/${host.replace(/[^A-Za-z0-9.-]/g, '_')}/${p}`
 }
@@ -73,8 +83,9 @@ async function fetchOne(u, manifest) {
   const res = await fetch(u, { signal: AbortSignal.timeout(20000), redirect: 'follow' })
   if (!res.ok) throw new Error(`HTTP ${res.status}`)
   const type = (res.headers.get('content-type') || '').split(';')[0].trim().toLowerCase()
-  if (!EXT_BY_TYPE[type]) throw new Error(`not an image (${type || 'no content-type'})`)
-  const rel = localPath(u, type)
+  const ext = extFor(type, u)
+  if (!ext) throw new Error(`not an image (${type || 'no content-type'})`)
+  const rel = localPath(u, ext)
   const dest = path.resolve(UPLOAD_DIR, rel)
   if (!dest.startsWith(EXT_DIR + path.sep)) throw new Error('bad path')
   fs.mkdirSync(path.dirname(dest), { recursive: true })
@@ -114,21 +125,24 @@ async function main() {
   fs.mkdirSync(EXT_DIR, { recursive: true })
   const manifest = fs.existsSync(MANIFEST) ? JSON.parse(fs.readFileSync(MANIFEST, 'utf8')) : {}
   const todo = [...urls.keys()].filter((u) => !manifest[u])
-  const failed = []
+  const FAILED = path.join(EXT_DIR, 'failed.txt')
+  fs.writeFileSync(FAILED, '')
+  let failed = 0
   let done = 0
   const save = () => fs.writeFileSync(MANIFEST, JSON.stringify(manifest))
   async function worker() {
     while (todo.length) {
       const u = todo.shift()
-      try { await fetchOne(u, manifest) } catch (e) { failed.push(`${u}\t${e.message}`) }
-      if (++done % 500 === 0) { save(); console.log(`  ${done} downloaded, ${failed.length} failed`) }
+      try { await fetchOne(u, manifest) } catch (e) { failed++; fs.appendFileSync(FAILED, `${u}\t${e.message}\n`) }
+      if (++done % 100 === 0) save()
+      if (done % 1000 === 0) console.log(`  ${done}/${urls.size - n0} tried, ${failed} failed`)
     }
   }
+  const n0 = urls.size - todo.length
   console.log(`\ndownloading ${todo.length} (${urls.size - todo.length} already on disk)…`)
   await Promise.all(Array.from({ length: CONCURRENCY }, worker))
   save()
-  fs.writeFileSync(path.join(EXT_DIR, 'failed.txt'), failed.join('\n') + '\n')
-  console.log(`done. ${Object.keys(manifest).length} on disk, ${failed.length} failed → uploads/ext/failed.txt`)
+  console.log(`done. ${Object.keys(manifest).length} on disk, ${failed} failed → uploads/ext/failed.txt`)
   if (!APPLY) return console.log('\nDatabase NOT changed. Re-run with --apply to rewrite URLs.')
 
   // 3. Rewrite every saved URL, anywhere in the hit columns, in one transaction.
