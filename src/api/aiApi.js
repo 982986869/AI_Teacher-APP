@@ -159,7 +159,10 @@ export const getMemorySummary = async () => {
 // Streaming agent call (SSE over XHR — RN-compatible, no extra library). Calls
 // onMeta/onDelta as events arrive and resolves with the final `done` payload
 // (same shape as askAgent). Lets the teacher start speaking sentence-by-sentence.
-export const askAgentStream = ({ text, subject, gradeLevel, lessonId, slideIndex, history, level, pending }, { onMeta, onDelta } = {}) =>
+// `board: true` asks the server to let the teacher draw: it answers with extra `board`
+// events (one validated element each — see server/src/utils/boardElements.js) that
+// arrive interleaved with the text, in the order the teacher wants them drawn.
+export const askAgentStream = ({ text, subject, gradeLevel, lessonId, slideIndex, history, level, pending, board }, { onMeta, onDelta, onBoard } = {}) =>
   new Promise((resolve, reject) => {
     (async () => {
       const token = await getToken().catch(() => null);
@@ -171,6 +174,7 @@ export const askAgentStream = ({ text, subject, gradeLevel, lessonId, slideIndex
       if (Array.isArray(history) && history.length) body.history = history;
       if (level) body.level = level;
       if (pending) body.pending = pending;
+      if (board) body.board = true;
 
       const xhr = new XMLHttpRequest();
       xhr.open('POST', `${STREAM_BASE}/api/ai/ask/stream`);
@@ -195,6 +199,7 @@ export const askAgentStream = ({ text, subject, gradeLevel, lessonId, slideIndex
           const { event, data } = parseSSE(raw);
           if (event === 'meta') { if (onMeta) onMeta(data); }
           else if (event === 'delta') { if (onDelta && data && data.t) onDelta(data.t); }
+          else if (event === 'board') { if (onBoard && data && typeof data.op === 'string') onBoard(data); }
           else if (event === 'done') { final = data; }
           else if (event === 'error') { failed = new Error(data.error || 'stream error'); }
         }
