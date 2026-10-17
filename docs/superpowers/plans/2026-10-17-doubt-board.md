@@ -26,7 +26,7 @@
 2. A marker with `NaN`, strings in place of numbers, an unknown op, or coordinates like 99999 must be dropped or clamped, never passed to the SVG. → Task 2 tests `drops unknown op`, `drops non-finite numbers`, `clamps coordinates`.
 3. The model puts a marker mid-sentence instead of on its own line: the words before and after must still both be spoken and the element must still appear (one sentence early at worst). → Task 3 test `marker mid-sentence keeps both halves`.
 4. A second doubt starts while the first still has held elements: none of the first doubt's shapes may appear on the second doubt's board. → Task 7 test `reset drops held elements`; Task 9 guards with `turn`.
-5. The teacher's audio never starts (TTS failed, device muted): held elements would wait forever. → Task 7 test `flush releases everything held`; Task 9 releases on the done poller.
+5. The teacher's audio never starts while voice is ON (TTS request failed): held elements would wait forever. (Muted students take the non-streaming path and get no board — spec out-of-scope.) → Task 7 test `flush releases everything held`; Task 9 releases on the done poller.
 
 ---
 
@@ -64,7 +64,7 @@ git commit -m "docs: doubt board design and implementation plan"
 
 Normalisation rules (the spec's table): each numeric field goes through `Number()` and must be finite, else the element is `null`. x-type fields clamp to [0, 300], y-type to [0, 180]; `w`, `h` clamp to [1, 300]; `r` to [1, 150]; `size` defaults to 14 and clamps to [10, 24]. `text` is trimmed, empty → `null`, then sliced to 40. `path.d` is trimmed, must match `/^[MLQCZmlqcz0-9 ,.\-]+$/` and be ≤ 400 chars, else `null`. `color` defaults to `'chalk'`; an unknown colour becomes `'chalk'`. `clear` carries no fields and no colour.
 
-- [ ] **Step 1: Write the failing tests**
+- [x] **Step 1: Write the failing tests**
 
 ```js
 'use strict'
@@ -104,19 +104,19 @@ test('non-objects are null', () => { assert.equal(validateElement(null), null); 
 test('mock sample is valid', () => { for (const el of MOCK_BOARD_SAMPLE) assert.deepEqual(validateElement(el), el) })
 ```
 
-- [ ] **Step 2: Run to verify failure**
+- [x] **Step 2: Run to verify failure**
 
 Run: `cd server && node --test tests/boardElements.test.js`
 Expected: FAIL, `Cannot find module '../src/utils/boardElements'`
 
-- [ ] **Step 3: Implement `server/src/utils/boardElements.js`** with the constants, `validateElement`, and `MOCK_BOARD_SAMPLE` as specified above.
+- [x] **Step 3: Implement `server/src/utils/boardElements.js`** with the constants, `validateElement`, and `MOCK_BOARD_SAMPLE` as specified above.
 
-- [ ] **Step 4: Run to verify pass**
+- [x] **Step 4: Run to verify pass**
 
 Run: `cd server && node --test tests/boardElements.test.js`
 Expected: all 9 tests PASS
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add server/src/utils/boardElements.js server/tests/boardElements.test.js
@@ -139,7 +139,7 @@ git commit -m "feat(board): validate board elements from the model"
 
 Behaviour: `push` appends to an internal buffer, then repeatedly: if the buffer has no `MARK_OPEN`, emit everything except the longest trailing suffix that is a prefix of `MARK_OPEN` (held for the next chunk). If it has one, emit the text before it; if no `MARK_CLOSE` follows yet, hold from the marker on. Otherwise `JSON.parse` the inner text; a parse error or `validateElement` returning `null` drops the marker; an accepted element is appended and `onElement` is called unless `elements.length >= maxElements`. After a marker is removed, one leading `\n` of the following text is swallowed (so a marker on its own line leaves no blank line). `end()` emits any held text up to an unclosed marker and discards the marker remainder.
 
-- [ ] **Step 1: Write the failing tests**
+- [x] **Step 1: Write the failing tests**
 
 ```js
 'use strict'
@@ -198,19 +198,19 @@ test('clear passes through as an element', () => {
 })
 ```
 
-- [ ] **Step 2: Run to verify failure**
+- [x] **Step 2: Run to verify failure**
 
 Run: `cd server && node --test tests/boardStream.test.js`
 Expected: FAIL, `Cannot find module '../src/utils/boardStream'`
 
-- [ ] **Step 3: Implement `server/src/utils/boardStream.js`** per the behaviour above.
+- [x] **Step 3: Implement `server/src/utils/boardStream.js`** per the behaviour above.
 
-- [ ] **Step 4: Run to verify pass**
+- [x] **Step 4: Run to verify pass**
 
 Run: `cd server && node --test tests/boardStream.test.js`
 Expected: all 8 tests PASS
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add server/src/utils/boardStream.js server/tests/boardStream.test.js
@@ -238,7 +238,7 @@ Ops: clear | rect{x,y,w,h} | circle{cx,cy,r} | line{x1,y1,x2,y2} | arrow{x1,y1,x
 Rules: start with a clear marker. At most 6 markers. Labels are 1–3 words, under 40 characters. Keep shapes inside the board with space between them. Markers are NOT spoken text: they do not count toward the 5-line limit, and the spoken lines stay exactly as described above.
 ```
 
-- [ ] **Step 1: Write the failing tests**
+- [x] **Step 1: Write the failing tests**
 
 ```js
 'use strict'
@@ -260,19 +260,19 @@ test('board on: appends the BOARD block once, at the end', () => {
 })
 ```
 
-- [ ] **Step 2: Run to verify failure**
+- [x] **Step 2: Run to verify failure**
 
 Run: `cd server && node --test tests/teacherPrompt.board.test.js`
 Expected: FAIL on `p.endsWith(BOARD_BLOCK)` (BOARD_BLOCK undefined)
 
-- [ ] **Step 3: Add `BOARD_BLOCK` and the `board` parameter** in `buildTeacherSystemPrompt`; add `BOARD_BLOCK` to `module.exports`.
+- [x] **Step 3: Add `BOARD_BLOCK` and the `board` parameter** in `buildTeacherSystemPrompt`; add `BOARD_BLOCK` to `module.exports`.
 
-- [ ] **Step 4: Run to verify pass**
+- [x] **Step 4: Run to verify pass**
 
 Run: `cd server && node --test tests/teacherPrompt.board.test.js`
 Expected: 2 PASS
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add server/src/prompts/teacherResponse.prompt.js server/tests/teacherPrompt.board.test.js
@@ -296,18 +296,18 @@ git commit -m "feat(board): teach the model the [[board:]] marker syntax when as
   - `agentService.askStream(params, { onMeta, onDelta, onBoard })` with `params.board: boolean`. When `board` is true, `onDelta` receives marker-free text, `onBoard(el)` receives each accepted element, and the guard/`done.answer` are built from the parser's clean text. When false, behaviour is unchanged.
   - SSE: `event: board` with `data: <element JSON>`.
 
-- [ ] **Step 1: Provider** — add `board` to the destructured params of `streamTeacherResponse` and pass `board` into `buildTeacherSystemPrompt(...)`. Leave `generateTeacherResponse` untouched.
+- [x] **Step 1: Provider** — add `board` to the destructured params of `streamTeacherResponse` and pass `board` into `buildTeacherSystemPrompt(...)`. Leave `generateTeacherResponse` untouched.
 
-- [ ] **Step 2: Service** — in `askStream`, read `const board = params.board === true`. Just before the `if (config.ai.mockMode)` branch, create `parser = board ? createBoardStreamParser({ onText: (t) => onDelta && onDelta(t), onElement: (el) => onBoard && onBoard(el) }) : null` and `sink = parser ? (t) => parser.push(t) : (t) => { if (onDelta) onDelta(t) }`. Pass `sink` as the provider's `onText` and add `board` to the provider params. After the provider resolves, when `parser` exists call `parser.end()` and set `raw = parser.text`. In the mock branch, when `board` is true, call `onBoard(el)` for each `MOCK_BOARD_SAMPLE` element after `onDelta(raw)`. Canned early returns stay as they are (they never draw).
+- [x] **Step 2: Service** — in `askStream`, read `const board = params.board === true`. Just before the `if (config.ai.mockMode)` branch, create `parser = board ? createBoardStreamParser({ onText: (t) => onDelta && onDelta(t), onElement: (el) => onBoard && onBoard(el) }) : null` and `sink = parser ? (t) => parser.push(t) : (t) => { if (onDelta) onDelta(t) }`. Pass `sink` as the provider's `onText` and add `board` to the provider params. After the provider resolves, when `parser` exists call `parser.end()` and set `raw = parser.text`. In the mock branch, when `board` is true, call `onBoard(el)` for each `MOCK_BOARD_SAMPLE` element after `onDelta(raw)`. Canned early returns stay as they are (they never draw).
 
-- [ ] **Step 3: Controller and route** — in `askStream`, pass `board: req.body.board === true` in the params object and `onBoard: (el) => send('board', el)` in the callbacks. In `routes/ai.js` add `body('board').optional().isBoolean()` to `askRules` (match the existing rule style in that file).
+- [x] **Step 3: Controller and route** — in `askStream`, pass `board: req.body.board === true` in the params object and `onBoard: (el) => send('board', el)` in the callbacks. In `routes/ai.js` add `body('board').optional().isBoolean()` to `askRules` (match the existing rule style in that file).
 
-- [ ] **Step 4: Run the whole server suite**
+- [x] **Step 4: Run the whole server suite**
 
 Run: `cd server && npm test`
 Expected: every test PASSES, including the three new files
 
-- [ ] **Step 5: Verify the SSE contract against a running server in mock mode**
+- [x] **Step 5: Verify the SSE contract against a running server in mock mode**
 
 Run (first terminal): `cd server && MOCK_AI=true PORT=5050 node src/index.js` (PowerShell: `$env:MOCK_AI='true'; $env:PORT='5050'; node src/index.js`)
 Run (second terminal), with a valid student JWT in `$TOKEN` (log in via `POST /api/auth/login` against the same server first):
@@ -316,7 +316,7 @@ curl -N -s -X POST http://localhost:5050/api/ai/ask/stream -H "Content-Type: app
 ```
 Expected: three `event: board` blocks whose data are the `MOCK_BOARD_SAMPLE` elements, `event: delta` data contains no `[[board:`, then `event: done`. Repeat without `"board":true`: no `event: board` block.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add server/src/providers/ai/AnthropicProvider.js server/src/services/agent.service.js server/src/controllers/ai.controller.js server/src/routes/ai.js
@@ -333,14 +333,14 @@ git commit -m "feat(board): stream board elements as SSE events on /api/ai/ask/s
 **Interfaces:**
 - Produces: `askAgentStream({ ..., board }, { onMeta, onDelta, onBoard })` — sends `body.board = true` when `board` is truthy; on an SSE `board` event with `data.op` a string, calls `onBoard(data)`.
 
-- [ ] **Step 1: Implement** — add `board` to the first argument's destructuring and `onBoard` to the second; `if (board) body.board = true;`; add `else if (event === 'board') { if (onBoard && data && typeof data.op === 'string') onBoard(data); }` to the drain switch.
+- [x] **Step 1: Implement** — add `board` to the first argument's destructuring and `onBoard` to the second; `if (board) body.board = true;`; add `else if (event === 'board') { if (onBoard && data && typeof data.op === 'string') onBoard(data); }` to the drain switch.
 
-- [ ] **Step 2: Verify nothing else broke**
+- [x] **Step 2: Verify nothing else broke**
 
 Run: `node -e "require('@babel/core').transformFileSync('src/api/aiApi.js',{presets:['babel-preset-expo']}); console.log('ok')"`
 Expected: `ok`
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add src/api/aiApi.js
@@ -364,7 +364,7 @@ git commit -m "feat(board): receive board SSE events in askAgentStream"
   - `boardColor(name: string, palette: object) -> string` — `palette[name]` if present, else `palette.chalk`.
   - `createBoardSync() -> { hold(el, queued: number), sentenceStarted(ordinal: number) -> object[], flush() -> object[], reset() }` — `queued` is how many sentences had been queued for speech when the element arrived; `sentenceStarted(n)` (1-based) returns and removes, in arrival order, every held element with `queued <= n`; `flush` returns and removes everything; `reset` discards everything.
 
-- [ ] **Step 1: Write the failing tests**
+- [x] **Step 1: Write the failing tests**
 
 ```js
 import test from 'node:test'
@@ -412,19 +412,19 @@ test('sync: reset drops held elements', () => {
 })
 ```
 
-- [ ] **Step 2: Run to verify failure**
+- [x] **Step 2: Run to verify failure**
 
 Run: `npm run test:doubt-board` (after adding the script)
 Expected: FAIL, cannot find `../doubtBoardLayout.js`
 
-- [ ] **Step 3: Implement `src/components/teacher/doubtBoardLayout.js`** with the four exports and two constants.
+- [x] **Step 3: Implement `src/components/teacher/doubtBoardLayout.js`** with the four exports and two constants.
 
-- [ ] **Step 4: Run to verify pass**
+- [x] **Step 4: Run to verify pass**
 
 Run: `npm run test:doubt-board`
 Expected: 6 PASS
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add src/components/teacher/doubtBoardLayout.js src/components/teacher/__tests__/doubtBoardLayout.test.mjs package.json
@@ -444,14 +444,14 @@ git commit -m "feat(board): pure helpers for the doubt board (visibility, path l
 
 Rendering: a `View` frame styled like the lesson board (background `BOARD.bg`, 1px border `BOARD.frame`, radius 18, overflow hidden, the given `height`) containing `<Svg width="100%" height="100%" viewBox={`0 0 ${BOARD_W} ${BOARD_H}`} preserveAspectRatio="xMidYMid meet">`. Map `visibleElements(elements)` to: `rect` → `Box`; `circle` → `Circle`; `line` → `ChalkLine`; `arrow` → `Arrow`; `highlight` → `Highlight` (`color` via `boardColor`, default `BOARD.yellow`); `path` → `ChalkStroke d={el.d} length={pathLength(el.d)}`; `text` → `react-native-svg` `Text` with `x`, `y`, `fontSize={el.size}`, `fontWeight="700"`, `fill={boardColor(el.color, BOARD)}`. Every element's `key` is the `key` from `visibleElements` so already-drawn shapes never re-animate when a new one arrives. Stroke width 2.5, `color={boardColor(el.color, BOARD)}`.
 
-- [ ] **Step 1: Implement the component** as specified.
+- [x] **Step 1: Implement the component** as specified.
 
-- [ ] **Step 2: Verify it compiles**
+- [x] **Step 2: Verify it compiles**
 
 Run: `node -e "require('@babel/core').transformFileSync('src/components/teacher/DoubtBoard.js',{presets:['babel-preset-expo']}); console.log('ok')"`
 Expected: `ok`
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add src/components/teacher/DoubtBoard.js
@@ -470,25 +470,25 @@ git commit -m "feat(board): DoubtBoard renders streamed elements with chalk prim
 - Consumes: `DoubtBoard` (Task 8), `createBoardSync` (Task 7), `askAgentStream` `board`/`onBoard` (Task 6).
 - Produces: `onAskStream(q, i, { onDelta, onBoard })` prop contract between the two files.
 
-- [ ] **Step 1: AITeacherScreen** — the `onAskStream` handler destructures `{ onDelta, onBoard }`, passes `board: true` in the request object and `{ onDelta, onBoard }` as callbacks.
+- [x] **Step 1: AITeacherScreen** — the `onAskStream` handler destructures `{ onDelta, onBoard }`, passes `board: true` in the request object and `{ onDelta, onBoard }` as callbacks.
 
-- [ ] **Step 2: LiveTeachingPlayer state** — import `DoubtBoard` and `createBoardSync`; add `const [boardEls, setBoardEls] = useState([])` and `const boardSyncRef = useRef(createBoardSync())`; add `const clearBoard = () => { boardSyncRef.current.reset(); setBoardEls([]); }` and call it inside `goTeach`, `beginListen`, and `resumeFromDoubt`.
+- [x] **Step 2: LiveTeachingPlayer state** — import `DoubtBoard` and `createBoardSync`; add `const [boardEls, setBoardEls] = useState([])` and `const boardSyncRef = useRef(createBoardSync())`; add `const clearBoard = () => { boardSyncRef.current.reset(); setBoardEls([]); }` and call it inside `goTeach`, `beginListen`, and `resumeFromDoubt`.
 
-- [ ] **Step 3: sendDoubt streaming path** — at the start of the `if (onAskStream && voiceOnRef.current)` block call `clearBoard()` and declare `let queued = 0` and `const release = (els) => { if (els.length && fresh()) setBoardEls((p) => [...p, ...els]); }`. In `flush`, every `speakTeacherQueued` call (both the loop and the forced tail) first does `queued += 1; const ord = queued;` and passes `onStart: () => { setTtsActive(true); if (turn === doubtTurnRef.current) release(boardSyncRef.current.sentenceStarted(ord)); }`. Pass `onBoard: (el) => { if (turn !== doubtTurnRef.current) return; boardSyncRef.current.hold(el, queued); }` next to `onDelta`. In the done poller, when it decides the doubt is done, also `release(boardSyncRef.current.flush())`. In `.catch`, call `clearBoard()`.
+- [x] **Step 3: sendDoubt streaming path** — at the start of the `if (onAskStream && voiceOnRef.current)` block call `clearBoard()` and declare `let queued = 0` and `const release = (els) => { if (els.length && fresh()) setBoardEls((p) => [...p, ...els]); }`. In `flush`, every `speakTeacherQueued` call (both the loop and the forced tail) first does `queued += 1; const ord = queued;` and passes `onStart: () => { setTtsActive(true); if (turn === doubtTurnRef.current) release(boardSyncRef.current.sentenceStarted(ord)); }`. Pass `onBoard: (el) => { if (turn !== doubtTurnRef.current) return; boardSyncRef.current.hold(el, queued); }` next to `onDelta`. In the done poller, when it decides the doubt is done, also `release(boardSyncRef.current.flush())`. In `.catch`, call `clearBoard()`.
 
-- [ ] **Step 4: Render** — inside `<Stage key={sceneKey} style={st.workArea}>`, directly before the `{showBoard && (` block, add:
+- [x] **Step 4: Render** — inside `<Stage key={sceneKey} style={st.workArea}>`, directly before the `{showBoard && (` block, add:
 ```jsx
 {inDoubt && boardEls.length > 0 && (
   <View style={st.boardOuter}><DoubtBoard elements={boardEls} height={focusMode ? boardBoxH : 200} /></View>
 )}
 ```
 
-- [ ] **Step 5: Verify compile and existing helper tests**
+- [x] **Step 5: Verify compile and existing helper tests**
 
 Run: `node -e "require('@babel/core').transformFileSync('src/components/teacher/LiveTeachingPlayer.js',{presets:['babel-preset-expo']}); console.log('ok')"` and `npm run test:doubt-board`
 Expected: `ok`; 6 PASS
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add src/components/teacher/LiveTeachingPlayer.js src/screens/AITeacherScreen.js
@@ -500,6 +500,8 @@ git commit -m "feat(board): draw doubt answers on the board in step with speech"
 ### Task 10: End-to-end verification on a device/emulator
 
 **Files:** none (verification only; fix-ups commit to the same branch)
+
+> Status 2026-10-17: Tasks 2–9 committed on feat/landscape-board and reviewed (one Critical and five Important findings fixed with tests, see .superpowers ledger summary in the commit "fix(board): review fixes"). Task 10 is the owner's device pass; nothing else is pending.
 
 - [ ] **Step 1: Mock run** — start the server with `MOCK_AI=true`, point the app at it (`EXPO_PUBLIC_API_URL`), open a lesson, ask any doubt with voice on.
 Expected: the lesson board hides, the answer streams, and the mock rectangle plus the label "Rectangle" draw themselves as the first sentence starts speaking. Tap Resume: the board disappears and the lesson board returns.
