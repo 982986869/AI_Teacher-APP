@@ -204,8 +204,9 @@ async function askStream(req, res, next) {
         userId: req.user.id, text, subject, gradeLevel: grade, lessonId,
         slideIndex: slideIndex !== undefined && slideIndex !== null ? Number(slideIndex) : undefined,
         history, level, mode, pending,
+        board: req.body.board === true,
       },
-      { onMeta: (m) => send('meta', m), onDelta: (t) => send('delta', { t }) }
+      { onMeta: (m) => send('meta', m), onDelta: (t) => send('delta', { t }), onBoard: (el) => send('board', el) }
     )
     send('done', final)
   } catch (err) {

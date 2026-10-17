@@ -239,12 +239,14 @@ class AnthropicProvider extends AIProvider {
   }
 
   // Streaming variant — calls onText(delta) per chunk, resolves with the full text.
-  async streamTeacherResponse({ intent, language, contexts, lesson, history, question, slideIndex, level, mode, strategy, studentContext, gradeLevel }, onText) {
+  // `board` adds the drawing instructions (teacherResponse.prompt BOARD_BLOCK); the raw
+  // text returned here still contains the [[board:]] markers — the caller strips them.
+  async streamTeacherResponse({ intent, language, contexts, lesson, history, question, slideIndex, level, mode, strategy, studentContext, gradeLevel, board = false }, onText) {
     const client = this._getClient()
     const stream = client.messages.stream({
       model: this.doubtModel,
       max_tokens: TEACHER_MAX_TOKENS,
-      system: buildTeacherSystemPrompt({ intent, language, contexts, lesson, level, mode, strategy, studentContext, gradeLevel }),
+      system: buildTeacherSystemPrompt({ intent, language, contexts, lesson, level, mode, strategy, studentContext, gradeLevel, board }),
       messages: buildTeacherMessages(history, question, slideIndex),
     })
     stream.on('text', (t) => { try { if (typeof onText === 'function') onText(t) } catch (e) { /* ignore sink errors */ } })

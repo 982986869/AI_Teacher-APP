@@ -74,6 +74,7 @@ const askRules = [
   body('level').optional().isIn(['beginner', 'intermediate', 'advanced']).withMessage('invalid level'),
   body('mode').optional().isString().isLength({ max: 40 }),
   body('pending').optional().isObject(),
+  body('board').optional().isBoolean(),
 ]
 
 const progressRules = [
