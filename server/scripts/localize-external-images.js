@@ -80,7 +80,8 @@ function localPath(u, ext) {
 }
 
 async function fetchOne(u, manifest) {
-  const res = await fetch(u, { signal: AbortSignal.timeout(20000), redirect: 'follow' })
+  // Some hosts (Wikimedia) reject requests that don't identify themselves.
+  const res = await fetch(u, { signal: AbortSignal.timeout(20000), redirect: 'follow', headers: { 'User-Agent': 'AilernovaImageCopy/1.0 (+https://ailernova.in)' } })
   if (!res.ok) throw new Error(`HTTP ${res.status}`)
   const type = (res.headers.get('content-type') || '').split(';')[0].trim().toLowerCase()
   const ext = extFor(type, u)
