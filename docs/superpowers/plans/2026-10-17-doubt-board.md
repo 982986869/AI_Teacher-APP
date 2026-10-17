@@ -538,7 +538,7 @@ Replace the "refer to sections by number…" clause in `SOURCE_RULES` with exact
 `Mention a section number at most ONCE per lesson — only in the opening slide ("this is from 7.3 in your book") so the student can find the place; never repeat it in later narration, and never say "as the section says" or "the book says in 7.3" mid-explanation. Teach the idea, not the page.`
 In `SUMMARY_RULES` replace `listing the sections by number` with `naming the topics to revise in plain words (section numbers only if the student needs them to find the page, at most one list)`.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 ```js
 'use strict'
@@ -560,24 +560,27 @@ test('prompt version bumped so cached book lessons regenerate', () => {
 })
 ```
 
-- [ ] **Step 2: Run to verify failure**
+- [x] **Step 2: Run to verify failure**
 
 Run: `cd server && node --test tests/lessonPrompt.sections.test.js`
 Expected: FAIL (`SOURCE_RULES` undefined / version 4)
 
-- [ ] **Step 3: Edit the two rule strings, bump `PROMPT_VERSION` to 5, export the two constants.**
+- [x] **Step 3: Edit the two rule strings, bump `PROMPT_VERSION` to 5, export the two constants.**
 
-- [ ] **Step 4: Run to verify pass, then the whole suite**
+- [x] **Step 4: Run to verify pass, then the whole suite**
 
 Run: `cd server && node --test tests/lessonPrompt.sections.test.js && npm test`
 Expected: 3 PASS; full suite PASS
 
-- [ ] **Step 5: Verify on a real lesson** — with the real key, generate one textbook lesson for a 2-section topic (e.g. Class 10 Science, Light, 10.1–10.2) and read the narration.
+- [ ] **Step 5: Verify on a real lesson** (PENDING — needs the real key; owner to check on device) — with the real key, generate one textbook lesson for a 2-section topic (e.g. Class 10 Science, Light, 10.1–10.2) and read the narration.
 Expected: the section number appears in the opening slide only; no later slide says "as 10.2 says" or similar.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add server/src/prompts/lessonGeneration.prompt.js server/tests/lessonPrompt.sections.test.js
 git commit -m "fix(textbook): mention the section number once, then just teach"
 ```
+
+
+**Done 2026-10-17** (commit on feat/landscape-board). Full server suite: 274 pass, 2 pre-existing failures unrelated to this change — `personalization.test.js` "NEVER refuse" assertion already failed on the committed prompt, and `support.lifecycle.test.js` teardown needs a live database.
