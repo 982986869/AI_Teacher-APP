@@ -23,7 +23,9 @@ export default function BookGrid({ books, loading, error, classLabel, onOpenBook
     <View style={[s.root, { paddingTop: insets.top + 8 }]}>
       <BookHeader title="Your textbooks" subtitle={classLabel ? `NCERT · ${classLabel}` : 'NCERT'} onBack={onBack} />
 
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={s.chips} style={{ flexGrow: 0 }}>
+      {/* Fixed height: a horizontal ScrollView inside a flex column has no height of its
+          own on Android and shrank to a sliver, clipping the chip labels in half. */}
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={s.chips} style={s.chipRow}>
         {subjects.map((name) => {
           const on = name === subject;
           return (
@@ -80,8 +82,9 @@ export default function BookGrid({ books, loading, error, classLabel, onOpenBook
 
 const s = StyleSheet.create({
   root: { flex: 1, backgroundColor: AIT.bg },
-  chips: { flexDirection: 'row', gap: 8, paddingHorizontal: PAD, paddingVertical: 8 },
-  chip: { paddingHorizontal: 14, paddingVertical: 8, borderRadius: 999, borderWidth: 1, borderColor: AIT.edge, backgroundColor: AIT.field },
+  chipRow: { flexGrow: 0, flexShrink: 0, height: 52 },
+  chips: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingHorizontal: PAD, paddingRight: PAD + 8 },
+  chip: { height: 36, paddingHorizontal: 14, justifyContent: 'center', borderRadius: 999, borderWidth: 1, borderColor: AIT.edge, backgroundColor: AIT.field },
   chipOn: { backgroundColor: AIT.ink, borderColor: AIT.ink },
   grid: { flexDirection: 'row', flexWrap: 'wrap', gap: GAP, paddingHorizontal: PAD, paddingTop: 8 },
   card: { ...cardSurface, padding: 10, gap: 4 },
