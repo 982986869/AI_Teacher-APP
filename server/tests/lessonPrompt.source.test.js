@@ -44,7 +44,7 @@ test('without a source the user prompt is unchanged in spirit: no SOURCE instruc
 test('with a source the user prompt instructs to teach from it and drops the learner line', () => {
   const p = buildLessonUserPrompt('Binomial Theorem: 7.2 …', 'Mathematics', '10', learner, source)
   assert.ok(p.includes('TEACH FROM THE SOURCE'))
-  assert.ok(p.includes('refer to sections by number'))
+  assert.ok(p.includes('Mention a section number at most ONCE per lesson'))
   assert.ok(!p.includes('struggled before with'))
   assert.ok(!p.includes('LESSON KIND — CHAPTER SUMMARY'))
   assert.ok(!p.includes('Let us expand'), 'the source text itself is NOT embedded (it goes in its own cached block)')

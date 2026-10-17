@@ -244,7 +244,7 @@ function preferenceLine(profile = {}) {
 
 // Bump whenever the SOURCE wording below (or anything that changes what a cached book
 // lesson would say) changes — it is part of the book_lessons cache key.
-const PROMPT_VERSION = 4
+const PROMPT_VERSION = 5
 
 // The student's own textbook text, as one block. Sent by the provider as its OWN
 // content block with cache_control (the same chapter is hit by many students), so it
@@ -256,9 +256,9 @@ function buildSourceBlock(source) {
   return `SOURCE MATERIAL — NCERT ${classLabel} ${source.book.title}, Chapter ${source.chapter.number} "${source.chapter.title}"${scope} (this is the student's own textbook; it is authoritative):\n<<<\n${body}\n>>>`
 }
 
-const SOURCE_RULES = `TEACH FROM THE SOURCE (the SOURCE MATERIAL block above): use its definitions, notation, worked examples and numbering; when you add an analogy or an extra example of your own, say so briefly ("here's one more…"); do not introduce results the source does not contain; refer to sections by number ("as 7.3 says…") so the student can follow in the book. To the student it is always "your textbook" or "the book" — never "the source" or "the source material" in any slide title or narration. If the source text is garbled by PDF extraction (lost superscripts, joined words, stray symbols, fractions split across lines), read through it — never repeat the garbling.`
+const SOURCE_RULES = `TEACH FROM THE SOURCE (the SOURCE MATERIAL block above): use its definitions, notation, worked examples and numbering; when you add an analogy or an extra example of your own, say so briefly ("here's one more…"); do not introduce results the source does not contain. Mention a section number at most ONCE per lesson — only in the opening slide ("this is from 7.3 in your book") so the student can find the place; never repeat it in later narration, and never say "as the section says" or "the book says in 7.3" mid-explanation. Teach the idea, not the page. To the student it is always "your textbook" or "the book" — never "the source" or "the source material" in any slide title or narration. If the source text is garbled by PDF extraction (lost superscripts, joined words, stray symbols, fractions split across lines), read through it — never repeat the garbling.`
 
-const SUMMARY_RULES = `LESSON KIND — CHAPTER SUMMARY: this is a spoken overview of the WHOLE chapter in 8 to 10 slides: one slide per major section (merge small ones), each stating the section's key idea, its one must-know formula or definition, and one line on why it matters for the exam. End with a "what to revise" slide listing the sections by number. Do not go deep on any one section.`
+const SUMMARY_RULES = `LESSON KIND — CHAPTER SUMMARY: this is a spoken overview of the WHOLE chapter in 8 to 10 slides: one slide per major section (merge small ones), each stating the section's key idea, its one must-know formula or definition, and one line on why it matters for the exam. End with a "what to revise" slide naming the topics to revise in plain words (section numbers only if the student needs them to find the page, at most one list). Do not go deep on any one section.`
 
 function buildLessonUserPrompt(topic, subject, gradeLevel, profile = {}, source = null) {
   // Book lessons are shared across students: the cache key is (chapter, topics, grade,
@@ -285,4 +285,4 @@ PLAN it first like a teacher (privately): the learning objective for a Class ${g
 Then teach 7 to 10 slides that build logically toward that objective, at the DEPTH in the LEVEL line above — a senior lesson must be conceptually deep with reasoning and a short derivation, NOT a middle-school introduction. Every slide title must match its visual. Teach by REASONING (guiding question, "notice this", derive the key result), not by reading facts. Sound like a real Class ${gradeLevel} teacher, not a chatbot.`
 }
 
-module.exports = { buildLessonSystemPrompt, buildLessonUserPrompt, buildSourceBlock, profileLine, levelGuidance, learnerLine, preferenceLine, LESSON_JSON_SCHEMA, PROMPT_VERSION }
+module.exports = { buildLessonSystemPrompt, buildLessonUserPrompt, buildSourceBlock, profileLine, levelGuidance, learnerLine, preferenceLine, LESSON_JSON_SCHEMA, PROMPT_VERSION, SOURCE_RULES, SUMMARY_RULES }
