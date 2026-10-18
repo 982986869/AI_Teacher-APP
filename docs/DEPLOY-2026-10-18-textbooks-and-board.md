@@ -50,5 +50,5 @@ The NCERT textbooks use `/api/textbooks` and the tables `textbooks`, `textbook_c
 
 ## Not done yet
 
-- Not yet checked on a real phone end to end. Tested locally: server tests pass except 2 failures that already existed on main.
+- Tested on a real phone by the owner on 2026-10-18 (Expo Go against a local server). Server tests pass except 2 failures that already existed on main.
 - Komal's whiteboard zoom buttons do not appear in the new classroom board yet.
