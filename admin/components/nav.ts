@@ -1,6 +1,7 @@
 import {
   LayoutDashboard, UsersRound, BookOpen, Bot, BarChart3, Megaphone, Settings,
-  ScrollText, LineChart as LineChartIcon, GraduationCap, HeartHandshake, Video, type LucideIcon,
+  ScrollText, LineChart as LineChartIcon, GraduationCap, HeartHandshake, Video, BookUp,
+  type LucideIcon,
 } from 'lucide-react'
 import type { Permission } from '@/lib/types'
 
@@ -25,6 +26,7 @@ export const NAV: NavGroup[] = [
     items: [
       { label: 'Content', href: '/cms', icon: BookOpen, perm: 'content.view' },
       { label: 'AI Teacher', href: '/ai-teacher', icon: Bot, perm: 'aiteacher.view' },
+      { label: 'Books', href: '/books', icon: BookUp, perm: 'content.view' },
       { label: 'Sessions', href: '/sessions', icon: Video, perm: 'content.view' },
     ],
   },

@@ -77,6 +77,16 @@ app.use('/pdfs', express.static(path.join(__dirname, '..', 'public', 'pdfs'), {
 // on-device: the script silently never loads and raw LaTeX source shows instead
 // of the rendered formula). Serving our own copy means it only ever depends on
 // reaching this server, which every other API call already proves it can.
+// Question diagrams served from our own host. ~22,000 of them are currently hotlinked
+// to media-mycbseguide.s3.amazonaws.com — someone else's bucket, which can disappear
+// or block us at any time. Images migrated here are referenced by absolute URL in the
+// question HTML, so nothing on the student side has to change.
+app.use('/question-images', express.static(path.join(__dirname, '..', 'public', 'question-images'), {
+  setHeaders: (res) => {
+    res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin')
+    res.setHeader('Cache-Control', 'public, max-age=31536000, immutable')
+  },
+}))
 app.use('/vendor', express.static(path.join(__dirname, '..', 'public', 'vendor'), {
   setHeaders: (res) => {
     res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin')

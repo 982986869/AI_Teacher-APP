@@ -17,9 +17,9 @@ const lib = require('./lib')
   const mode = process.argv.includes('--mode') ? process.argv[process.argv.indexOf('--mode') + 1] : 'intermediate'
   const user = await db.user.findFirst({ where: { grade: { contains: '10' }, accessLevel: 'full' }, select: { id: true, grade: true } })
   if (!user) throw new Error('no Class 10 user in the local DB — set a dev account\'s grade to "Class 10"')
-  const book = await db.books.findUnique({ where: { code: args.book || 'jemh1' } })
-  const chapter = await db.book_chapters.findFirst({ where: { book_id: book.id, number: args.chapter || 1 } })
-  const topics = await db.book_topics.findMany({ where: { chapter_id: chapter.id }, orderBy: { position: 'asc' } })
+  const book = await db.textbooks.findUnique({ where: { code: args.book || 'jemh1' } })
+  const chapter = await db.textbook_chapters.findFirst({ where: { book_id: book.id, number: args.chapter || 1 } })
+  const topics = await db.textbook_topics.findMany({ where: { chapter_id: chapter.id }, orderBy: { position: 'asc' } })
   const picks = summary ? [] : (topicsArg ? topicsArg.split(',').map((i) => topics[Number(i) - 1]) : [topics[1] || topics[0]])
   const source = summary ? { chapterId: Number(chapter.id), kind: 'summary' } : { chapterId: Number(chapter.id), kind: 'topics', topicIds: picks.map((t) => Number(t.id)) }
 

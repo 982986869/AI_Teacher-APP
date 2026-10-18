@@ -73,7 +73,7 @@ model Lesson {
   generationModel   String?
   generationTimeMs  Int?
   // Textbook lessons (prisma/sql/textbooks.sql): which chapter/topics this lesson was
-  // built from, and the shared book_lessons row it was copied from (null = fresh).
+  // built from, and the shared textbook_lessons row it was copied from (null = fresh).
   bookChapterId     BigInt?        @map("book_chapter_id")
   bookTopicIds      BigInt[]       @map("book_topic_ids")
   bookLessonId      String?        @map("book_lesson_id") @db.Uuid
@@ -878,7 +878,7 @@ model error_logs {
 }
 
 // ─── Textbook lessons (prisma/sql/textbooks.sql) ─────────────────────────────
-model books {
+model textbooks {
   id           BigInt          @id @default(autoincrement())
   code         String          @unique
   class_level  Int
@@ -891,12 +891,12 @@ model books {
   cover_url    String?
   position     Int             @default(0)
   created_at   DateTime        @default(now()) @db.Timestamptz(6)
-  chapters     book_chapters[]
+  chapters     textbook_chapters[]
 
   @@index([class_level, position])
 }
 
-model book_chapters {
+model textbook_chapters {
   id         BigInt         @id @default(autoincrement())
   book_id    BigInt
   number     Int
@@ -905,14 +905,14 @@ model book_chapters {
   page_count Int?
   source_url String?
   char_count Int            @default(0)
-  book       books          @relation(fields: [book_id], references: [id], onDelete: Cascade)
-  topics     book_topics[]
-  lessons    book_lessons[]
+  book       textbooks          @relation(fields: [book_id], references: [id], onDelete: Cascade)
+  topics     textbook_topics[]
+  lessons    textbook_lessons[]
 
   @@unique([book_id, number])
 }
 
-model book_topics {
+model textbook_topics {
   id         BigInt        @id @default(autoincrement())
   chapter_id BigInt
   number     String
@@ -921,12 +921,12 @@ model book_topics {
   position   Int
   text       String
   char_count Int
-  chapter    book_chapters @relation(fields: [chapter_id], references: [id], onDelete: Cascade)
+  chapter    textbook_chapters @relation(fields: [chapter_id], references: [id], onDelete: Cascade)
 
   @@unique([chapter_id, number])
 }
 
-model book_lessons {
+model textbook_lessons {
   id                 String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   cache_key          String        @unique
   chapter_id         BigInt
@@ -941,5 +941,5 @@ model book_lessons {
   generation_time_ms Int?
   hits               Int           @default(0)
   created_at         DateTime      @default(now()) @db.Timestamptz(6)
-  chapter            book_chapters @relation(fields: [chapter_id], references: [id], onDelete: Cascade)
+  chapter            textbook_chapters @relation(fields: [chapter_id], references: [id], onDelete: Cascade)
 }

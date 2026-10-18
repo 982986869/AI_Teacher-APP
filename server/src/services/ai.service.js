@@ -9,7 +9,7 @@ const { getAIProvider } = require('../providers')
 const { retrieve } = require('./retriever.service')
 const { AppError } = require('../middleware/errorHandler')
 const { normalizeAnimation } = require('../utils/slideAnimation')
-const { booksService } = require('./books.service')
+const { booksService } = require('./textbooks.service')
 const { bookLessonCache } = require('./bookLessonCache')
 const { PROMPT_VERSION } = require('../prompts/lessonGeneration.prompt')
 

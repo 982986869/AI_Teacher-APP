@@ -47,6 +47,8 @@ router.use('/logs',       require('./logs'))
 // account they are all empty anyway. The Results SCREEN is gated in the app; that is
 // a product choice about what to show, not a leak this router could cause.
 router.use('/learning',   require('./learning'))
+router.use('/announcements', authenticate, require('./announcements'))
+router.use('/books',        authenticate, require('./books'))
 
 // Free. Which teacher to render, matched to the voice the student is actually
 // hearing. Not gated: the lesson screen needs it before it knows whether the
@@ -55,7 +57,7 @@ router.use('/teacher',    require('./teacherIdentity'))
 
 // Paid.
 router.use('/ai',           paid(require('./ai')))
-router.use('/books',        paid(require('./books')))   // textbook browsing for the AI Teacher
+router.use('/textbooks', paid(require('./textbooks')))   // textbook browsing for the AI Teacher
 router.use('/knowledge',    paid(require('./knowledge')))
 router.use('/tts',          paid(require('./tts')))
 // Real per-minute cost (HeyGen streaming avatar) — paid tier on top of the
@@ -63,6 +65,7 @@ router.use('/tts',          paid(require('./tts')))
 router.use('/avatar',       paid(require('./avatar')))
 router.use('/resources',    paid(require('./resources')))
 router.use('/mcq-practice', paid(require('./mcqPractice')))
+router.use('/activities',   paid(require('./activities')))
 router.use('/online-tests', paid(require('./onlineTest')))
 router.use('/offline-tests', paid(require('./offlineTest')))
 router.use('/mock-tests',   paid(require('./mockTests')))

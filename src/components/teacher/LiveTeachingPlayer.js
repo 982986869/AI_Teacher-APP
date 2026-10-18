@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import {
   View, Text, StyleSheet, ScrollView, Animated, Easing, Dimensions, Platform, TextInput, Image, Modal,
-  AccessibilityInfo, useWindowDimensions,
+  AccessibilityInfo, useWindowDimensions, PanResponder,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -40,7 +40,7 @@ import { AskSheet, MoreSheet } from './classroom/ClassroomSheets';
 import { PAPER, FONT_HEAD, LINE_COLOR } from './classroom/theme';
 import {
   Mic, Square, RotateCcw, SkipForward, SkipBack, Play, Pause, ArrowUp, ChevronLeft, AudioLines,
-  Volume2, VolumeX, RefreshCw, GraduationCap, BookOpen, Globe, Check, Trophy, Radio, ListTree, Layers, Maximize2, Minimize2,
+  Volume2, VolumeX, RefreshCw, GraduationCap, BookOpen, Globe, Check, Trophy, Radio, ListTree, Layers, Maximize2, Minimize2, ZoomIn, ZoomOut,
   Ellipsis, Camera, Pencil, Eraser, Type, ChevronDown, ChevronRight, Undo2, FileText, RotateCw, Captions,
 } from 'lucide-react-native';
 
@@ -749,6 +749,51 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const [contentsTab, setContentsTab] = useState('contents');
   const openContents = (tab) => { setContentsTab(tab); setContentsOpen(true); };
   const [focusMode, setFocusMode] = useState(false); // distraction-free reading
+
+  // ── BOARD ZOOM ──────────────────────────────────────────────────────────────
+  // A student reading a labelled diagram on a 5" phone needs to get closer to it,
+  // the way they would lean into a real board. Two ways in, because one is not
+  // enough: pinch (what a phone user reaches for first) and the ± buttons (which
+  // work one-handed, with a stylus, or for anyone who cannot do a two-finger
+  // gesture). Both drive the same number.
+  const [zoom, setZoom] = useState(1);
+  const zoomRef = useRef(1);
+  useEffect(() => { zoomRef.current = zoom; }, [zoom]);
+
+  const ZOOM_MIN = 1;
+  const ZOOM_MAX = 3;
+  const clampZoom = (z) => Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, Math.round(z * 100) / 100));
+  const zoomBy = useCallback((d) => setZoom((z) => clampZoom(z + d)), []);
+  const resetZoom = useCallback(() => setZoom(1), []);
+
+  // Pinch, hand-rolled on PanResponder. The app has no gesture-handler dependency,
+  // and adding one for a single gesture would cost a native rebuild — PanResponder
+  // sees both touches and the distance ratio between them is all a pinch is.
+  const pinchStart = useRef(null);
+  const boardPinch = useMemo(() => PanResponder.create({
+    // Claim the gesture ONLY for two fingers, so one-finger scrolling of a tall
+    // board still belongs to the ScrollView underneath.
+    onStartShouldSetPanResponder: (e) => e.nativeEvent.touches.length === 2,
+    onMoveShouldSetPanResponder: (e) => e.nativeEvent.touches.length === 2,
+    onPanResponderGrant: (e) => {
+      const t = e.nativeEvent.touches;
+      if (t.length === 2) {
+        pinchStart.current = {
+          d: Math.hypot(t[0].pageX - t[1].pageX, t[0].pageY - t[1].pageY) || 1,
+          z: zoomRef.current,
+        };
+      }
+    },
+    onPanResponderMove: (e) => {
+      const t = e.nativeEvent.touches;
+      const s = pinchStart.current;
+      if (!s || t.length !== 2) return;
+      const d = Math.hypot(t[0].pageX - t[1].pageX, t[0].pageY - t[1].pageY);
+      if (d > 0) setZoom(clampZoom(s.z * (d / s.d)));
+    },
+    onPanResponderRelease: () => { pinchStart.current = null; },
+    onPanResponderTerminate: () => { pinchStart.current = null; },
+  }), []);
   // Landscape board WITHOUT rotating the phone: the app is orientation-locked to
   // portrait (app.json), and the wide boards — reaction chains, timelines, graphs — are
   // drawn on a 300×150 canvas that a portrait card squeezes to about a third of the
@@ -1604,7 +1649,13 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   // Only in focus mode. The stacked card carries a 42%-of-screen floor with slack in
   // it, and growing the drawing into that slack would push the tallest boards past
   // the card's own height, where wbCard's overflow:hidden would cut them off.
-  const boardDrawScale = focusMode ? Math.max(1, Math.min(2.4, (cardH - 108) / 176)) : 1;
+  const autoDrawScale = focusMode ? Math.max(1, Math.min(2.4, (cardH - 108) / 176)) : 1;
+  // The student's own zoom, multiplied on top of the automatic one. It goes through
+  // BoardSizeProvider rather than a parent transform for the same reason the auto
+  // scale does: react-native-svg renders each board into a native layer, so scaling
+  // THAT blurs every line, while growing the board's own pixel height and type keeps
+  // it sharp at any magnification. A diagram zoomed to read is worthless blurred.
+  const boardDrawScale = autoDrawScale * zoom;
 
   const toggleFocus = useCallback(() => {
     // Leaving full screen — or entering it — always lands on the upright board; the
@@ -2005,6 +2056,9 @@ const st = StyleSheet.create({
   // words "Full Screen" — and it sat directly beside the scene title, which is the
   // thing that actually needs the width. The label lives on accessibilityLabel.
   fsBtn: { width: 28, height: 28, alignItems: 'center', justifyContent: 'center', backgroundColor: V.violetSoft, borderRadius: R.sm },
+  // The level readout sits between the two zoom buttons and doubles as "reset".
+  zoomPill: { minWidth: 36, height: 28, paddingHorizontal: 6, alignItems: 'center', justifyContent: 'center', backgroundColor: V.violetSoft, borderRadius: R.sm },
+  zoomTxt: { fontSize: 11, fontWeight: '800', color: V.violet, fontVariant: ['tabular-nums'] },
   // The rotate button is the same 28×28 box, so it needs no width of its own; only the
   // "on" tint distinguishes it. (`fsTxt` came with the rotate work back when fsBtn still
   // carried a label — the icon-only button above has no text to style, so it is dropped

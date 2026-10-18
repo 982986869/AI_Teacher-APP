@@ -1,7 +1,7 @@
 'use strict'
 // Shape-checks the optional `source` of POST /api/ai/lesson/generate. Pure, so the
 // rules are unit-tested; ownership/scope checks happen later in books.service.
-const { MAX_TOPICS } = require('./books.service')
+const { MAX_TOPICS } = require('./textbooks.service')
 
 const KINDS = ['summary', 'topics']
 const toInt = (v) => (Number.isInteger(Number(v)) && Number(v) > 0 ? Number(v) : null)

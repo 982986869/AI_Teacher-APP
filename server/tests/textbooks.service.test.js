@@ -3,7 +3,7 @@
 const test = require('node:test')
 const assert = require('node:assert/strict')
 
-const { createBooksService } = require('../src/services/books.service')
+const { createBooksService } = require('../src/services/textbooks.service')
 
 // A tiny Prisma stand-in with only the query shapes the service uses.
 function fakeDb() {
@@ -23,14 +23,14 @@ function fakeDb() {
   ]
   const withBook = (c) => ({ ...c, book: books.find((b) => b.id === c.book_id) })
   return {
-    books: {
+    textbooks: {
       async findMany({ where = {} }) {
         return books
           .filter((b) => (where.class_level == null || b.class_level === where.class_level) && (!where.subject || b.subject === where.subject))
           .sort((a, b) => a.position - b.position)
       },
     },
-    book_chapters: {
+    textbook_chapters: {
       async findMany({ where }) {
         return chapters
           .filter((c) => c.book_id === where.book_id && (!where.book || where.book.class_level === withBook(c).book.class_level))
@@ -38,7 +38,7 @@ function fakeDb() {
       },
       async findFirst({ where }) { const c = chapters.find((c) => c.id === where.id); return c ? withBook(c) : null },
     },
-    book_topics: {
+    textbook_topics: {
       async findMany({ where }) {
         return topics
           .filter((t) => t.chapter_id === where.chapter_id && (!where.id || where.id.in.includes(t.id)))

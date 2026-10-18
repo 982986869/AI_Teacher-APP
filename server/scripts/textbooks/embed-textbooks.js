@@ -27,7 +27,7 @@ async function ownerId() {
 async function embedBook(book, uploadedById) {
   const title = `NCERT Class ${book.class_level} ${book.title}`
   await db.knowledge_sources.deleteMany({ where: { title } })
-  const chapters = await db.book_chapters.findMany({ where: { book_id: book.id }, orderBy: { number: 'asc' }, include: { topics: { orderBy: { position: 'asc' } } } })
+  const chapters = await db.textbook_chapters.findMany({ where: { book_id: book.id }, orderBy: { number: 'asc' }, include: { topics: { orderBy: { position: 'asc' } } } })
   const docs = []
   for (const ch of chapters) {
     for (const t of ch.topics) {
@@ -61,7 +61,7 @@ async function embedBook(book, uploadedById) {
 ;(async () => {
   const args = lib.parseArgs()
   const owner = await ownerId()
-  const books = await db.books.findMany({ where: args.book ? { code: args.book } : {}, orderBy: { position: 'asc' } })
+  const books = await db.textbooks.findMany({ where: args.book ? { code: args.book } : {}, orderBy: { position: 'asc' } })
   for (const b of books) await embedBook(b, owner)
   await db.$disconnect()
 })().catch(async (e) => { console.error('EMBED ERROR:', e.message); await db.$disconnect(); process.exit(1) })

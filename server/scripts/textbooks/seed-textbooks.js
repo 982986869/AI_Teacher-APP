@@ -13,7 +13,7 @@ const db = new PrismaClient()
 
 async function seedBook(b) {
   const data = { class_level: b.classLevel, subject: b.subject, subject_slug: b.subjectSlug, title: b.title, publisher: b.publisher, edition: b.edition, language: b.language, cover_url: `/books/${b.code}.png`, position: b.position || 0 }
-  const book = await db.books.upsert({ where: { code: b.code }, create: { code: b.code, ...data }, update: data })
+  const book = await db.textbooks.upsert({ where: { code: b.code }, create: { code: b.code, ...data }, update: data })
   let topicsTotal = 0
   for (let n = 1; n <= b.chapters; n++) {
     const file = lib.chapterJsonPath(b.code, n, b.classLevel)
@@ -25,7 +25,7 @@ async function seedBook(b) {
     const chData = { title: ch.title, slug: ch.slug, page_count: ch.pageCount, source_url: ch.sourceUrl, char_count: charCount }
     // The chapter's number as the book prints it (a part 2 continues part 1's count).
     const number = ch.chapterNumber || n
-    const chapter = await db.book_chapters.upsert({
+    const chapter = await db.textbook_chapters.upsert({
       where: { book_id_number: { book_id: book.id, number } },
       create: { book_id: book.id, number, ...chData },
       update: chData,
@@ -33,13 +33,13 @@ async function seedBook(b) {
     for (let i = 0; i < ch.topics.length; i++) {
       const t = ch.topics[i]
       const tData = { title: t.title, slug: t.slug, position: i + 1, text: t.text, char_count: t.charCount }
-      await db.book_topics.upsert({
+      await db.textbook_topics.upsert({
         where: { chapter_id_number: { chapter_id: chapter.id, number: t.number } },
         create: { chapter_id: chapter.id, number: t.number, ...tData },
         update: tData,
       })
     }
-    await db.book_topics.deleteMany({ where: { chapter_id: chapter.id, number: { notIn: ch.topics.map((t) => t.number) } } })
+    await db.textbook_topics.deleteMany({ where: { chapter_id: chapter.id, number: { notIn: ch.topics.map((t) => t.number) } } })
     topicsTotal += ch.topics.length
     console.log(`  ch${lib.pad2(n)} ${ch.title} — ${ch.topics.length} topics`)
   }

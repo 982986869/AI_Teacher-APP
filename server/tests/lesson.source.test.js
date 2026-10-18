@@ -22,7 +22,7 @@ const aiService = hasDb ? require('../src/services/ai.service') : null
 
 test('setup: a Class 10 student and a seeded chapter', { skip: ctx.skip }, async () => {
   const user = await ctx.db.user.findFirst({ where: { grade: { contains: '10' }, accessLevel: 'full', isDeleted: false }, select: { id: true } }).catch(() => null)
-  const chapter = await ctx.db.book_chapters.findFirst({ where: { book: { class_level: 10 } }, include: { topics: { orderBy: { position: 'asc' }, take: 2 } } }).catch(() => null)
+  const chapter = await ctx.db.textbook_chapters.findFirst({ where: { book: { class_level: 10 } }, include: { topics: { orderBy: { position: 'asc' }, take: 2 } } }).catch(() => null)
   if (!user || !chapter || chapter.topics.length < 2) { ctx.skip = true; return }
   ctx.userId = user.id
   ctx.chapterId = Number(chapter.id)
@@ -54,7 +54,7 @@ test('a fresh request generates and stores a shared lesson; the lesson rows carr
   assert.equal(row[0].chapter, ctx.chapterTitle)
   assert.equal(row[0].cid, String(ctx.chapterId))
   assert.equal(row[0].tids, `{${ctx.topicIds.join(',')}}`)
-  assert.ok(row[0].book_lesson_id, 'points at the shared book_lessons row')
+  assert.ok(row[0].book_lesson_id, 'points at the shared textbook_lessons row')
   ctx.cacheKeys.push(row[0].book_lesson_id)
 })
 
@@ -62,7 +62,7 @@ test('the same request again is served from the cache', { skip: ctx.skip }, asyn
   if (ctx.skip) return
   const lesson = await gen()
   assert.equal(lesson.generationModel, 'cache:mock-v1')
-  const hits = await ctx.db.$queryRaw`SELECT hits FROM book_lessons WHERE id = ${ctx.cacheKeys[0]}::uuid`
+  const hits = await ctx.db.$queryRaw`SELECT hits FROM textbook_lessons WHERE id = ${ctx.cacheKeys[0]}::uuid`
   assert.equal(hits[0].hits, 1)
 })
 
@@ -87,6 +87,6 @@ test('a different teaching mode is a miss, a different goal is not (goal is not 
 test('teardown: delete every row this file created', { skip: ctx.skip }, async () => {
   if (ctx.skip) return
   for (const id of ctx.lessonIds) await ctx.db.lesson.delete({ where: { id } }).catch(() => {})
-  for (const id of ctx.cacheKeys) await ctx.db.$executeRaw`DELETE FROM book_lessons WHERE id = ${id}::uuid`
+  for (const id of ctx.cacheKeys) await ctx.db.$executeRaw`DELETE FROM textbook_lessons WHERE id = ${id}::uuid`
   await ctx.db.$disconnect()
 })

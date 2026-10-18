@@ -32,8 +32,8 @@ import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import Svg, { Circle } from 'react-native-svg';
 import { LinearGradient } from 'expo-linear-gradient';
 import {
-  Bell, Settings, Play, Sparkles, CircleCheck, MessageCircle, Swords,
-  CircleAlert, TrendingUp, Target, Clock, Brain, Video, ArrowRight,
+  Bell, Settings, Play, Sparkles, CircleCheck, MessageCircle, Swords, Megaphone, X,
+  CircleAlert, TrendingUp, Target, Clock, Brain, Video, ArrowRight, Users, BookOpen,
 } from 'lucide-react-native';
 import {
   useFonts as useAuroraFonts,
@@ -53,6 +53,13 @@ import { useRuntimeConfig } from '../context/RuntimeConfigContext';
 // only duplicated it. Static import = instant open.
 import AITeacherScreen from './AITeacherScreen';
 import BrainGymFlow from './braingym/BrainGymFlow';
+// Same pattern as the two above: opens INSIDE Home, no route, so the dock's paid
+// gate and the Help bubble's offset both keep working without knowing about it.
+import ActivitiesScreen from './ActivitiesScreen';
+import MyBooksScreen from './MyBooksScreen';
+import { getBooks } from '../api/booksApi';
+import { getAnnouncements } from '../api/announcementsApi';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import OptionalUpdateBanner from '../components/OptionalUpdateBanner';
 import { getParentReport } from '../api/parentApi';
 import { getResumeContext } from '../api/aiApi';
@@ -322,7 +329,7 @@ const HomeScreen = () => {
     PlusJakartaSans_400Regular, PlusJakartaSans_500Medium, PlusJakartaSans_600SemiBold,
     PlusJakartaSans_700Bold, PlusJakartaSans_800ExtraBold, Inter_700Bold,
   });
-  const { user, selectedClass, setSelectedClass } = useAuth();
+  const { user, selectedClass, setSelectedClass, isLocked, showLock } = useAuth();
   const { isFeatureEnabled } = useRuntimeConfig();
   const insets = useSafeAreaInsets();
   const navigation = useNavigation();
@@ -332,6 +339,15 @@ const HomeScreen = () => {
   const [seedTopic, setSeedTopic] = useState('');
   const [seedSubject, setSeedSubject] = useState('');
   const [showBrainGym, setShowBrainGym] = useState(false);
+  const [showActivities, setShowActivities] = useState(false);
+  const [showBooks, setShowBooks] = useState(false);
+  // Books a teacher has shared with this class. The tile is hidden when there are
+  // none — an empty section on Home teaches a student to ignore that space.
+  const [books, setBooks] = useState([]);
+  // Announcements an admin published. Server-filtered by audience, class and
+  // schedule; the app only decides which ones this person has already dismissed.
+  const [announcements, setAnnouncements] = useState([]);
+  const [dismissed, setDismissed] = useState(null);   // null until read from storage
 
   const [report, setReport] = useState(null);
   const [resume, setResume] = useState({ active: null, ctx: null });
@@ -406,6 +422,41 @@ const HomeScreen = () => {
   };
   const openBrainGym = () => { if (!brainGymOn) return; setShowBrainGym(true); };
 
+  // Dismissals live on the device, not the server: which banners someone has read
+  // is a per-phone convenience, not a fact worth a table and a round trip.
+  useEffect(() => {
+    let alive = true;
+    AsyncStorage.getItem('@ailernova_seen_announcements')
+      .then((raw) => { if (alive) setDismissed(JSON.parse(raw || "[]")); })
+      .catch(() => alive && setDismissed([]));
+    getAnnouncements().then((list) => alive && setAnnouncements(list));
+    return () => { alive = false; };
+  }, []);
+
+  const dismiss = (id) => {
+    const next = [...(dismissed || []), id];
+    setDismissed(next);
+    // Keep the list bounded — an id dropped off the end can only ever cause a
+    // banner to reappear, never the reverse.
+    AsyncStorage.setItem('@ailernova_seen_announcements', JSON.stringify(next.slice(-60))).catch(() => {});
+  };
+
+  // Show one at a time. Two stacked banners is a notification centre, and this is
+  // a home screen; the rest wait their turn as each is dismissed.
+  const banner = dismissed === null ? null : announcements.find((a) => !dismissed.includes(a.id));
+  // Activities draw on the same paid question banks as Practice, so the same gate:
+  // a free account sees the lock sheet, exactly as it would tapping the Practice tab.
+  const openActivities = () => { if (isLocked) { showLock(); return; } setShowActivities(true); };
+  const openBooks = () => { if (isLocked) { showLock(); return; } setShowBooks(true); };
+
+  // getBooks never throws — a failure is an empty shelf, and the tile simply
+  // does not appear. A shared book is not worth breaking Home over.
+  useEffect(() => {
+    let alive = true;
+    getBooks(selectedClass).then((list) => alive && setBooks(list));
+    return () => { alive = false; };
+  }, [selectedClass]);
+
   // ── real signals ──
   const bg          = report?.brainGym || {};
   const streak      = Number(bg.currentStreak) || 0;
@@ -451,6 +502,8 @@ const HomeScreen = () => {
     );
   }
   if (showBrainGym) return <BrainGymFlow onFinish={() => { setShowBrainGym(false); load(true); }} />;
+  if (showActivities) return <ActivitiesScreen onBack={() => { setShowActivities(false); load(true); }} />;
+  if (showBooks) return <MyBooksScreen onBack={() => { setShowBooks(false); load(true); }} />;
 
   const avatarUri = user?.photo || user?.avatar || null;
   const initial = String(firstName || 'S').trim().charAt(0).toUpperCase();
@@ -514,6 +567,25 @@ const HomeScreen = () => {
           </Card>
         ) : (
           <>
+            {/* ── 0. announcement, when an admin has published one ── */}
+            {!!banner && (
+              <Appear delay={40} y={12}>
+                <View style={hs.annBanner}>
+                  <View style={hs.annIcon}><Megaphone size={16} color={DAY.bannerFg} strokeWidth={2} /></View>
+                  <View style={{ flex: 1 }}>
+                    <T w="bold" s={13} c={DAY.bannerFg} numberOfLines={2}>{banner.title}</T>
+                    {!!banner.body && (
+                      <T w="reg" s={12} c={DAY.inkSoft} numberOfLines={3} style={{ marginTop: 3, lineHeight: 17 }}>{banner.body}</T>
+                    )}
+                  </View>
+                  <Squeeze onPress={() => dismiss(banner.id)} hitSlop={10} style={hs.annClose}
+                    accessibilityRole="button" accessibilityLabel="Dismiss announcement">
+                    <X size={15} color={DAY.inkDim} strokeWidth={2.4} />
+                  </Squeeze>
+                </View>
+              </Appear>
+            )}
+
             {/* ── 1. current lesson ── */}
             <Appear delay={60} y={16}>
               <LinearGradient colors={[DAY.heroA, DAY.heroB]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={hs.hero}>
@@ -597,6 +669,42 @@ const HomeScreen = () => {
                 </Appear>
               )}
             </View>
+
+            {/* ── 2a. for you — books a teacher has shared with this class ── */}
+            {books.length > 0 && (
+              <Appear delay={160}>
+                <Squeeze style={[hs.card, hs.forYouTile]} onPress={openBooks} accessibilityLabel="Open books shared with you">
+                  <View style={hs.forYouIcon}>
+                    <BookOpen size={22} color={DAY.violet} strokeWidth={2} />
+                  </View>
+                  <View style={{ flex: 1 }}>
+                    <T w="bold" s={11} c={DAY.violet} style={hs.eyebrow}>FOR YOU</T>
+                    <T w="xbold" s={15} c={DAY.ink} numberOfLines={1} style={{ marginTop: 4, lineHeight: 19.5 }}>
+                      {books.length === 1 ? books[0].title : `${books.length} books shared`}
+                    </T>
+                    <T w="reg" s={11} c={DAY.inkSoft} numberOfLines={1} style={{ marginTop: 4 }}>
+                      Notes, resources, practice and quizzes
+                    </T>
+                  </View>
+                  <ArrowRight size={18} color={DAY.inkDim} strokeWidth={2} />
+                </Squeeze>
+              </Appear>
+            )}
+
+            {/* ── 2b. activities — class game or solo missions for any chapter ── */}
+            <Appear delay={180}>
+              <Squeeze style={[hs.card, hs.activityTile]} onPress={openActivities} accessibilityLabel="Open activities">
+                <View style={hs.activityIcon}>
+                  <Users size={22} color={DAY.violet} strokeWidth={2} />
+                </View>
+                <View style={{ flex: 1 }}>
+                  <T w="bold" s={11} c={DAY.violet} style={hs.eyebrow}>ACTIVITIES</T>
+                  <T w="xbold" s={15} c={DAY.ink} numberOfLines={1} style={{ marginTop: 4, lineHeight: 19.5 }}>Play a chapter</T>
+                  <T w="reg" s={11} c={DAY.inkSoft} numberOfLines={1} style={{ marginTop: 4 }}>Team game for the class, or solo missions</T>
+                </View>
+                <ArrowRight size={18} color={DAY.inkDim} strokeWidth={2} />
+              </Squeeze>
+            </Appear>
 
             {/* ── 3. weekly goal ── */}
             {(goal || week.length > 0) && (
@@ -815,6 +923,20 @@ const hs = StyleSheet.create({
 
   // tiles
   tile: { minHeight: 134 },   // Figma: Bento-Row-1 height 134
+  activityTile: { flexDirection: 'row', alignItems: 'center', gap: 14, marginTop: 16 },
+  forYouTile: { flexDirection: 'row', alignItems: 'center', gap: 14, marginTop: 16, borderLeftWidth: 4, borderLeftColor: DAY.violet },
+  forYouIcon: { width: 44, height: 44, borderRadius: 12, backgroundColor: DAY.violetSoft, alignItems: 'center', justifyContent: 'center' },
+  annBanner: {
+    flexDirection: 'row', alignItems: 'flex-start', gap: 12,
+    backgroundColor: DAY.bannerBg, borderLeftWidth: 4, borderLeftColor: DAY.bannerEdge,
+    borderRadius: 14, padding: 14, marginBottom: 16,
+  },
+  annIcon: {
+    width: 30, height: 30, borderRadius: 9, alignItems: 'center', justifyContent: 'center',
+    backgroundColor: DAY.card,
+  },
+  annClose: { padding: 2 },
+  activityIcon: { width: 44, height: 44, borderRadius: 12, backgroundColor: DAY.violetSoft, alignItems: 'center', justifyContent: 'center' },
   // Figma: 40x15 hug, 4px radius, 1px #FCD34D, 2/6 padding, Inter 700 9px #D97706.
   brainChip: {
     backgroundColor: DAY.chipBrainBg, borderWidth: 1, borderColor: DAY.chipBrainEdge,

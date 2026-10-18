@@ -9,7 +9,7 @@ function fakeDb() {
   const rows = []
   return {
     _rows: rows,
-    book_lessons: {
+    textbook_lessons: {
       async findUnique({ where }) { return rows.find((r) => r.cache_key === where.cache_key) || null },
       async update({ where, data }) { const r = rows.find((r) => r.id === where.id); r.hits += data.hits.increment; return r },
     },

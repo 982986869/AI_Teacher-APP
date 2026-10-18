@@ -13,9 +13,9 @@ function createBookLessonCache(db) {
   }
 
   async function find(key) {
-    const row = await db.book_lessons.findUnique({ where: { cache_key: key } })
+    const row = await db.textbook_lessons.findUnique({ where: { cache_key: key } })
     if (!row) return null
-    return db.book_lessons.update({ where: { id: row.id }, data: { hits: { increment: 1 } } })
+    return db.textbook_lessons.update({ where: { id: row.id }, data: { hits: { increment: 1 } } })
   }
 
   // Insert-if-absent, then read back: when two students generate the same lesson at
@@ -23,10 +23,10 @@ function createBookLessonCache(db) {
   async function store({ key, parts, payload, generationModel, generationTimeMs }) {
     const ids = [...(parts.topicIds || [])].map(Number)
     await db.$executeRaw`
-      INSERT INTO book_lessons (cache_key, chapter_id, kind, topic_ids, grade_level, teaching_mode, explanation_style, prompt_version, payload, generation_model, generation_time_ms)
+      INSERT INTO textbook_lessons (cache_key, chapter_id, kind, topic_ids, grade_level, teaching_mode, explanation_style, prompt_version, payload, generation_model, generation_time_ms)
       VALUES (${key}, ${Number(parts.chapterId)}, ${parts.kind}, ${ids}::bigint[], ${String(parts.gradeLevel)}, ${String(parts.teachingMode)}, ${String(parts.explanationStyle || 'balanced')}, ${Number(parts.promptVersion)}, ${JSON.stringify(payload)}::jsonb, ${generationModel || null}, ${generationTimeMs == null ? null : Math.round(generationTimeMs)})
       ON CONFLICT (cache_key) DO NOTHING`
-    return db.book_lessons.findUnique({ where: { cache_key: key } })
+    return db.textbook_lessons.findUnique({ where: { cache_key: key } })
   }
 
   return { cacheKey, find, store }

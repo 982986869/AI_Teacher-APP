@@ -6,7 +6,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { AIT } from '../../../theme/aiTeacherTheme';
 import { T, PAD, cardSurface } from '../sections/ui';
-import { coverUri } from '../../../api/booksApi';
+import { coverUri } from '../../../api/textbooksApi';
 import BookHeader from './BookHeader';
 
 const GAP = 12;

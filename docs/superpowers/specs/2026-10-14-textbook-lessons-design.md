@@ -78,16 +78,16 @@ ncert.nic.in ──download.js──▶ server/data/textbooks/pdf/*.pdf   (git-i
                                       ▼
                      server/data/textbooks/class10/<code>/chNN.json   (committed)
                                       │
-                 seed-textbooks.js ──▶ books / book_chapters / book_topics   (Postgres)
+                 seed-textbooks.js ──▶ books / textbook_chapters / textbook_topics   (Postgres)
                  embed-textbooks.js ─▶ knowledge_sources / knowledge_chunks (pgvector)
 
 App: AI Teacher home ─▶ Books grid ─▶ Chapter list ─▶ Chapter page
       (Summary | tick 1–3 topics) ─▶ POST /api/ai/lesson/generate {source}
                                           │
-                     ai.service.generateLesson: load topic text ─▶ book_lessons cache?
+                     ai.service.generateLesson: load topic text ─▶ textbook_lessons cache?
                        hit  → copy cached JSON into the student's lessons/slides
                        miss → Anthropic (prompt-cached system + SOURCE block) → validate
-                              → store in book_lessons → copy to student's lessons/slides
+                              → store in textbook_lessons → copy to student's lessons/slides
                                           │
                                  LiveTeachingPlayer (unchanged)
 ```
@@ -172,8 +172,8 @@ the topic text (they are teaching content in Science).
 
 ### 5.5 `seed-textbooks.js` and `embed-textbooks.js` (Node)
 
-- `seed-textbooks.js [--book jemh1]`: upserts `books` (by `code`), `book_chapters`
-  (by `book_id, number`), `book_topics` (by `chapter_id, number`). Topics removed from a
+- `seed-textbooks.js [--book jemh1]`: upserts `books` (by `code`), `textbook_chapters`
+  (by `book_id, number`), `textbook_topics` (by `chapter_id, number`). Topics removed from a
   JSON are deleted. Re-runnable.
 - `embed-textbooks.js [--book jemh1]`: one `knowledge_sources` row per book
   (`title: "NCERT Class 10 Mathematics"`, `type: 'textbook'`, `subject`, `gradeLevel:
@@ -204,7 +204,7 @@ CREATE TABLE IF NOT EXISTS books (
   position     INT  NOT NULL DEFAULT 0,
   created_at   TIMESTAMPTZ NOT NULL DEFAULT now()
 );
-CREATE TABLE IF NOT EXISTS book_chapters (
+CREATE TABLE IF NOT EXISTS textbook_chapters (
   id          BIGSERIAL PRIMARY KEY,
   book_id     BIGINT NOT NULL REFERENCES books(id) ON DELETE CASCADE,
   number      INT  NOT NULL,
@@ -215,9 +215,9 @@ CREATE TABLE IF NOT EXISTS book_chapters (
   char_count  INT  NOT NULL DEFAULT 0,
   UNIQUE (book_id, number)
 );
-CREATE TABLE IF NOT EXISTS book_topics (
+CREATE TABLE IF NOT EXISTS textbook_topics (
   id          BIGSERIAL PRIMARY KEY,
-  chapter_id  BIGINT NOT NULL REFERENCES book_chapters(id) ON DELETE CASCADE,
+  chapter_id  BIGINT NOT NULL REFERENCES textbook_chapters(id) ON DELETE CASCADE,
   number      TEXT NOT NULL,                    -- "7.3"
   title       TEXT NOT NULL,
   slug        TEXT NOT NULL,
@@ -227,10 +227,10 @@ CREATE TABLE IF NOT EXISTS book_topics (
   UNIQUE (chapter_id, number)
 );
 -- Generated lessons shared across students. One row per distinct request shape.
-CREATE TABLE IF NOT EXISTS book_lessons (
+CREATE TABLE IF NOT EXISTS textbook_lessons (
   id               UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   cache_key        TEXT NOT NULL UNIQUE,        -- sha1 of the key fields below
-  chapter_id       BIGINT NOT NULL REFERENCES book_chapters(id) ON DELETE CASCADE,
+  chapter_id       BIGINT NOT NULL REFERENCES textbook_chapters(id) ON DELETE CASCADE,
   kind             TEXT NOT NULL,               -- 'summary' | 'topics'
   topic_ids        BIGINT[] NOT NULL DEFAULT '{}',
   grade_level      TEXT NOT NULL,
@@ -243,9 +243,9 @@ CREATE TABLE IF NOT EXISTS book_lessons (
   hits             INT  NOT NULL DEFAULT 0,
   created_at       TIMESTAMPTZ NOT NULL DEFAULT now()
 );
-ALTER TABLE lessons ADD COLUMN IF NOT EXISTS book_chapter_id BIGINT REFERENCES book_chapters(id) ON DELETE SET NULL;
+ALTER TABLE lessons ADD COLUMN IF NOT EXISTS book_chapter_id BIGINT REFERENCES textbook_chapters(id) ON DELETE SET NULL;
 ALTER TABLE lessons ADD COLUMN IF NOT EXISTS book_topic_ids  BIGINT[] NOT NULL DEFAULT '{}';
-ALTER TABLE lessons ADD COLUMN IF NOT EXISTS book_lesson_id  UUID REFERENCES book_lessons(id) ON DELETE SET NULL;
+ALTER TABLE lessons ADD COLUMN IF NOT EXISTS book_lesson_id  UUID REFERENCES textbook_lessons(id) ON DELETE SET NULL;
 ```
 
 `lessons.chapter` (text, used by progress roll-ups) is set to the book chapter's title for
@@ -258,9 +258,9 @@ sends it. Responses use `ApiResponse.success`.
 
 | Route | Returns |
 |---|---|
-| `GET /api/books?subject=` | `[{id, code, title, subject, subjectSlug, coverUrl, edition, chapterCount}]` for the student's class, ordered by `position`. Empty array (not 404) when the class has no books → the app hides the card. |
-| `GET /api/books/:bookId/chapters` | `{book, chapters:[{id, number, title, topicCount}]}` |
-| `GET /api/books/chapters/:chapterId` | `{book:{…}, chapter:{id, number, title}, topics:[{id, number, title, charCount}]}` — titles only, never the text. |
+| `GET /api/textbooks?subject=` | `[{id, code, title, subject, subjectSlug, coverUrl, edition, chapterCount}]` for the student's class, ordered by `position`. Empty array (not 404) when the class has no books → the app hides the card. |
+| `GET /api/textbooks/:bookId/chapters` | `{book, chapters:[{id, number, title, topicCount}]}` |
+| `GET /api/textbooks/chapters/:chapterId` | `{book:{…}, chapter:{id, number, title}, topics:[{id, number, title, charCount}]}` — titles only, never the text. |
 | `POST /api/ai/lesson/generate` (existing) | body gains optional `source: { chapterId: number, kind: 'summary' } \| { chapterId, kind: 'topics', topicIds: number[] (1–3) }`. `topic` becomes optional when `source` is present (the server derives it: chapter title, or "7.3 General and Middle Terms"). |
 
 Validation (express-validator, in `routes/ai.js`): `source.kind` ∈ {summary, topics};
@@ -322,7 +322,7 @@ system (~3k) + source (≤ ~12k for a whole chapter) + ~0.5k — well inside lim
    | explanationStyle | PROMPT_VERSION)`.
 3. **Hit:** `payload = row.payload`, increment `hits`, `generationModel = 'cache:' +
    row.generation_model`, `generationTimeMs ≈ 0`.
-4. **Miss:** call the provider with `source`; validate as today; insert the `book_lessons`
+4. **Miss:** call the provider with `source`; validate as today; insert the `textbook_lessons`
    row (`ON CONFLICT (cache_key) DO NOTHING`, then re-select, so two students generating
    the same lesson at once end up sharing one row).
 5. Either way: `updateLessonWithContent` into the student's own `lessons`/`slides`
@@ -354,7 +354,7 @@ free-form "Ask" screen (they are in the same `knowledge_chunks` table with subje
 
 ```
 AITeacherHome
-  └─ new card "Learn from your textbook" (hidden when GET /api/books is empty)
+  └─ new card "Learn from your textbook" (hidden when GET /api/textbooks is empty)
         ▼ view: 'books'
 BookGrid            grade label from scope · subject chips (All / Science / Maths)
                     2-column cover cards "Mathematics · 14 chapters"
@@ -398,7 +398,7 @@ Loading, empty and error states on each sub-view use the same primitives as `MyL
 | Provider failure on a miss | existing `markLessonFailed` + rethrow; no cache row written |
 | Cache row has stale `prompt_version` | treated as a miss (key includes the version) |
 | Topic text empty (bad extraction) | seed script refuses the chapter; API never exposes an empty topic |
-| Books table missing in an environment (SQL not run) | `GET /api/books` returns `[]` and logs once; home card hidden — no 500 |
+| Books table missing in an environment (SQL not run) | `GET /api/textbooks` returns `[]` and logs once; home card hidden — no 500 |
 
 ## 11. Testing
 
@@ -447,12 +447,12 @@ all lesson generation, not just textbook ones):
 - [ ] `node scripts/textbooks/embed-textbooks.js` run on the server (needs `VOYAGE_API_KEY`)
 - [ ] reverse proxy / ALB idle timeout ≥ 180 s (a first-time lesson takes 30–90 s; the app waits 120 s)
 - [ ] `ALLOWED_ORIGINS` includes any web origin that will call the API (native builds are unaffected)
-- [ ] `GET /api/books` from a Class 10 account returns 2 books; one real lesson generated and played on a device
+- [ ] `GET /api/textbooks` from a Class 10 account returns 2 books; one real lesson generated and played on a device
 
 ## 14. Fidelity review (2026-10-14, local, `AI_LESSON_MODEL=claude-haiku-4-5`)
 
 Six real lessons generated through `scripts/textbooks/e2e-book-lesson.js` and read against
-the chapter PDFs. Every one re-requested → served from `book_lessons` in ≈100 ms.
+the chapter PDFs. Every one re-requested → served from `textbook_lessons` in ≈100 ms.
 
 | Lesson | Verdict |
 |---|---|
@@ -480,7 +480,7 @@ the error card and taps Retry (a second attempt costs no DB-cache state).
 | 2 | Topics = NCERT numbered sections; `N.N.M` folded into `N.N`; exercises/summary excluded from topic text. |
 | 3 | 1–3 topics per lesson; whole chapter = summary lesson. |
 | 4 | Ground by injecting full topic text (no retrieval); vector chunks only for doubts/Ask. |
-| 5 | Shared `book_lessons` cache; mastery personalisation dropped for cached book lessons. |
+| 5 | Shared `textbook_lessons` cache; mastery personalisation dropped for cached book lessons. |
 | 6 | Python + PyMuPDF offline for extraction; JSON committed; Node for everything else. |
 | 7 | Sonnet verifies outlines; a human reviews every topic list before seeding. |
 | 8 | Covers rendered from the prelims PDF page 1. |
@@ -488,3 +488,7 @@ the error card and taps Retry (a second attempt costs no DB-cache state).
 | 10 | Anthropic prompt caching on system + source block. |
 | 11 | Worktree `textbook-lessons-wt`, branch `feat/textbook-lessons` from `main`. |
 | 12 | Hand-run `prisma/sql/textbooks.sql` + `schema.prisma` models. |
+
+## Rename on merging main (2026-10-18)
+
+main gained a separate "books" feature (admin-uploaded PDFs, `/api/books`, tables `books` / `book_chapters` / `book_content` with UUID ids). To stop the two colliding, the NCERT textbook feature now uses `/api/textbooks` and the tables `textbooks`, `textbook_chapters`, `textbook_topics`, `textbook_lessons`. The `lessons.book_*` columns keep their names. Cover images are still served from `/books/<code>.png`. A database that ran the old `textbooks.sql` must have its tables renamed before running the new one; production never ran it.

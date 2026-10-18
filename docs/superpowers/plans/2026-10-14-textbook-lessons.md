@@ -4,7 +4,7 @@
 
 **Goal:** A Class 10 student picks an NCERT book → chapter → "Summary" or 1–3 topics, and the AI Teacher speaks a lesson built from that chapter's real text, cached across students.
 
-**Architecture:** Offline pipeline (Node download → Python/PyMuPDF extract → Claude Sonnet outline → committed JSON) seeds three new Postgres tables; the existing `generateLesson` gains a `source` that injects topic text into the prompt (with Anthropic prompt caching) and a shared `book_lessons` cache; the app adds a book/chapter/topic picker as sub-views of `AITeacherScreen` and plays the result in the untouched `LiveTeachingPlayer`.
+**Architecture:** Offline pipeline (Node download → Python/PyMuPDF extract → Claude Sonnet outline → committed JSON) seeds three new Postgres tables; the existing `generateLesson` gains a `source` that injects topic text into the prompt (with Anthropic prompt caching) and a shared `textbook_lessons` cache; the app adds a book/chapter/topic picker as sub-views of `AITeacherScreen` and plays the result in the untouched `LiveTeachingPlayer`.
 
 **Tech Stack:** Node 20 (CommonJS, Express, Prisma 5, `node --test`), Python 3.12 + PyMuPDF (offline only), `@anthropic-ai/sdk`, Voyage embeddings + pgvector, React Native/Expo app.
 
@@ -25,8 +25,8 @@
 
 ## Review Focus
 
-1. **A student whose class has no books (e.g. Class 11)** → `GET /api/books` returns `[]`, the home card is hidden, no 500. Test in Task 6.
-2. **Same chapter/topics requested by two students at the same time** → one `book_lessons` row (unique `cache_key`, `ON CONFLICT DO NOTHING`), both get a lesson. Test in Task 9.
+1. **A student whose class has no books (e.g. Class 11)** → `GET /api/textbooks` returns `[]`, the home card is hidden, no 500. Test in Task 6.
+2. **Same chapter/topics requested by two students at the same time** → one `textbook_lessons` row (unique `cache_key`, `ON CONFLICT DO NOTHING`), both get a lesson. Test in Task 9.
 3. **Topic ids from a different chapter, or 4 ids** → 422, nothing generated. Test in Task 6 and Task 10.
 4. **Chapter whose extraction produced an empty/too-short topic** → seed refuses the whole chapter and names it; the API never serves an empty topic. Test in Task 3.
 5. **A cached lesson with an old `prompt_version`** → treated as a miss (the version is in the key). Test in Task 9.
@@ -420,7 +420,7 @@ Expected: 2 cover lines + 27 chapter lines, every `headings` ≥ 2 and `chars` �
 
 `server/scripts/textbooks/README.md`:
 ```markdown
-# Textbook pipeline (NCERT → book_topics)
+# Textbook pipeline (NCERT → textbook_topics)
 
 One-time, per book. Everything before `seed` runs on a developer machine; the server
 only ever reads the committed `data/textbooks/class10/<code>/chNN.json`.
@@ -428,7 +428,7 @@ only ever reads the committed `data/textbooks/class10/<code>/chNN.json`.
     node   scripts/textbooks/download.js            # PDFs → data/textbooks/pdf/ (ignored)
     python -I -X utf8 scripts/textbooks/extract.py  # raw text/headings → chNN.raw.json (ignored), covers → public/books/
     node   scripts/textbooks/outline.js             # Claude verifies the outline → chNN.json (committed); prints a review table
-    node   scripts/textbooks/seed-textbooks.js      # chNN.json → books / book_chapters / book_topics
+    node   scripts/textbooks/seed-textbooks.js      # chNN.json → books / textbook_chapters / textbook_topics
     node   scripts/textbooks/embed-textbooks.js     # topics → knowledge_chunks (needs VOYAGE_API_KEY)
 
 All take `--book <code>` and (except seed/embed) `--chapter <n>`; `outline.js` takes `--force`
@@ -748,7 +748,7 @@ git commit -m "Textbook content: Class 10 NCERT Science and Mathematics outlines
 - Create: `server/scripts/textbooks/seed-textbooks.js`
 
 **Interfaces:**
-- Produces: Prisma models `books`, `book_chapters`, `book_topics`, `book_lessons`; `Lesson` gains `bookChapterId Int?`, `bookTopicIds Int[]`, `bookLessonId String?`. Tasks 6, 9, 11 use `db.books`, `db.book_chapters`, `db.book_topics`, `db.book_lessons`.
+- Produces: Prisma models `books`, `textbook_chapters`, `textbook_topics`, `textbook_lessons`; `Lesson` gains `bookChapterId Int?`, `bookTopicIds Int[]`, `bookLessonId String?`. Tasks 6, 9, 11 use `db.books`, `db.textbook_chapters`, `db.textbook_topics`, `db.textbook_lessons`.
 
 - [ ] **Step 1: Write the SQL**
 
@@ -779,7 +779,7 @@ CREATE TABLE IF NOT EXISTS books (
 );
 CREATE INDEX IF NOT EXISTS books_class_level_idx ON books (class_level, position);
 
-CREATE TABLE IF NOT EXISTS book_chapters (
+CREATE TABLE IF NOT EXISTS textbook_chapters (
   id          BIGSERIAL PRIMARY KEY,
   book_id     BIGINT NOT NULL REFERENCES books(id) ON DELETE CASCADE,
   number      INT  NOT NULL,
@@ -791,9 +791,9 @@ CREATE TABLE IF NOT EXISTS book_chapters (
   UNIQUE (book_id, number)
 );
 
-CREATE TABLE IF NOT EXISTS book_topics (
+CREATE TABLE IF NOT EXISTS textbook_topics (
   id          BIGSERIAL PRIMARY KEY,
-  chapter_id  BIGINT NOT NULL REFERENCES book_chapters(id) ON DELETE CASCADE,
+  chapter_id  BIGINT NOT NULL REFERENCES textbook_chapters(id) ON DELETE CASCADE,
   number      TEXT NOT NULL,
   title       TEXT NOT NULL,
   slug        TEXT NOT NULL,
@@ -803,10 +803,10 @@ CREATE TABLE IF NOT EXISTS book_topics (
   UNIQUE (chapter_id, number)
 );
 
-CREATE TABLE IF NOT EXISTS book_lessons (
+CREATE TABLE IF NOT EXISTS textbook_lessons (
   id                 UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   cache_key          TEXT NOT NULL UNIQUE,
-  chapter_id         BIGINT NOT NULL REFERENCES book_chapters(id) ON DELETE CASCADE,
+  chapter_id         BIGINT NOT NULL REFERENCES textbook_chapters(id) ON DELETE CASCADE,
   kind               TEXT NOT NULL,
   topic_ids          BIGINT[] NOT NULL DEFAULT '{}',
   grade_level        TEXT NOT NULL,
@@ -820,9 +820,9 @@ CREATE TABLE IF NOT EXISTS book_lessons (
   created_at         TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
-ALTER TABLE lessons ADD COLUMN IF NOT EXISTS book_chapter_id BIGINT REFERENCES book_chapters(id) ON DELETE SET NULL;
+ALTER TABLE lessons ADD COLUMN IF NOT EXISTS book_chapter_id BIGINT REFERENCES textbook_chapters(id) ON DELETE SET NULL;
 ALTER TABLE lessons ADD COLUMN IF NOT EXISTS book_topic_ids  BIGINT[] NOT NULL DEFAULT '{}';
-ALTER TABLE lessons ADD COLUMN IF NOT EXISTS book_lesson_id  UUID REFERENCES book_lessons(id) ON DELETE SET NULL;
+ALTER TABLE lessons ADD COLUMN IF NOT EXISTS book_lesson_id  UUID REFERENCES textbook_lessons(id) ON DELETE SET NULL;
 ```
 
 - [ ] **Step 2: Add the Prisma models**
@@ -830,7 +830,7 @@ ALTER TABLE lessons ADD COLUMN IF NOT EXISTS book_lesson_id  UUID REFERENCES boo
 In `server/prisma/schema.prisma`, inside `model Lesson` after `generationTimeMs  Int?` add:
 ```prisma
   // Textbook lessons (prisma/sql/textbooks.sql): which chapter/topics this lesson was
-  // built from, and the shared book_lessons row it was copied from (null = fresh).
+  // built from, and the shared textbook_lessons row it was copied from (null = fresh).
   bookChapterId     BigInt?        @map("book_chapter_id")
   bookTopicIds      BigInt[]       @map("book_topic_ids")
   bookLessonId      String?        @map("book_lesson_id") @db.Uuid
@@ -851,12 +851,12 @@ model books {
   cover_url    String?
   position     Int             @default(0)
   created_at   DateTime        @default(now()) @db.Timestamptz(6)
-  chapters     book_chapters[]
+  chapters     textbook_chapters[]
 
   @@index([class_level, position])
 }
 
-model book_chapters {
+model textbook_chapters {
   id         BigInt         @id @default(autoincrement())
   book_id    BigInt
   number     Int
@@ -866,13 +866,13 @@ model book_chapters {
   source_url String?
   char_count Int            @default(0)
   book       books          @relation(fields: [book_id], references: [id], onDelete: Cascade)
-  topics     book_topics[]
-  lessons    book_lessons[]
+  topics     textbook_topics[]
+  lessons    textbook_lessons[]
 
   @@unique([book_id, number])
 }
 
-model book_topics {
+model textbook_topics {
   id         BigInt        @id @default(autoincrement())
   chapter_id BigInt
   number     String
@@ -881,12 +881,12 @@ model book_topics {
   position   Int
   text       String
   char_count Int
-  chapter    book_chapters @relation(fields: [chapter_id], references: [id], onDelete: Cascade)
+  chapter    textbook_chapters @relation(fields: [chapter_id], references: [id], onDelete: Cascade)
 
   @@unique([chapter_id, number])
 }
 
-model book_lessons {
+model textbook_lessons {
   id                 String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   cache_key          String        @unique
   chapter_id         BigInt
@@ -901,7 +901,7 @@ model book_lessons {
   generation_time_ms Int?
   hits               Int           @default(0)
   created_at         DateTime      @default(now()) @db.Timestamptz(6)
-  chapter            book_chapters @relation(fields: [chapter_id], references: [id], onDelete: Cascade)
+  chapter            textbook_chapters @relation(fields: [chapter_id], references: [id], onDelete: Cascade)
 }
 ```
 
@@ -915,9 +915,9 @@ Expected: both succeed. Then `npx prisma validate` → "The schema is valid".
 `server/scripts/textbooks/seed-textbooks.js`:
 ```js
 'use strict'
-// Upserts books / book_chapters / book_topics from the committed chNN.json files.
+// Upserts books / textbook_chapters / textbook_topics from the committed chNN.json files.
 // Re-runnable: topics missing from a JSON are deleted, everything else is updated in
-// place so ids (and therefore cached book_lessons) survive a re-seed.
+// place so ids (and therefore cached textbook_lessons) survive a re-seed.
 //
 //   node scripts/textbooks/seed-textbooks.js [--book jemh1]
 require('dotenv').config({ path: require('path').join(__dirname, '..', '..', '.env') })
@@ -941,20 +941,20 @@ async function seedBook(b) {
     const bad = ch.topics.find((t) => !t.text || t.text.length < 200)
     if (bad) throw new Error(`${b.code} ch${n} topic ${bad.number} has no usable text — refusing the chapter`)
     const charCount = ch.topics.reduce((s, t) => s + t.charCount, 0)
-    const chapter = await db.book_chapters.upsert({
+    const chapter = await db.textbook_chapters.upsert({
       where: { book_id_number: { book_id: book.id, number: n } },
       create: { book_id: book.id, number: n, title: ch.title, slug: ch.slug, page_count: ch.pageCount, source_url: ch.sourceUrl, char_count: charCount },
       update: { title: ch.title, slug: ch.slug, page_count: ch.pageCount, source_url: ch.sourceUrl, char_count: charCount },
     })
     for (let i = 0; i < ch.topics.length; i++) {
       const t = ch.topics[i]
-      await db.book_topics.upsert({
+      await db.textbook_topics.upsert({
         where: { chapter_id_number: { chapter_id: chapter.id, number: t.number } },
         create: { chapter_id: chapter.id, number: t.number, title: t.title, slug: t.slug, position: i + 1, text: t.text, char_count: t.charCount },
         update: { title: t.title, slug: t.slug, position: i + 1, text: t.text, char_count: t.charCount },
       })
     }
-    await db.book_topics.deleteMany({ where: { chapter_id: chapter.id, number: { notIn: ch.topics.map((t) => t.number) } } })
+    await db.textbook_topics.deleteMany({ where: { chapter_id: chapter.id, number: { notIn: ch.topics.map((t) => t.number) } } })
     topicsTotal += ch.topics.length
     console.log(`  ch${lib.pad2(n)} ${ch.title} — ${ch.topics.length} topics`)
   }
@@ -975,7 +975,7 @@ async function seedBook(b) {
 
 Run: `cd server && node scripts/textbooks/seed-textbooks.js`
 Expected: 27 chapter lines, two book totals. Then:
-`node -e "require('dotenv').config();const {PrismaClient}=require('@prisma/client');const d=new PrismaClient();(async()=>{console.log(await d.books.count(),await d.book_chapters.count(),await d.book_topics.count());const t=await d.book_topics.findFirst({where:{number:'7.2'},select:{title:true,char_count:true}});console.log(t);await d.$disconnect()})()"`
+`node -e "require('dotenv').config();const {PrismaClient}=require('@prisma/client');const d=new PrismaClient();(async()=>{console.log(await d.books.count(),await d.textbook_chapters.count(),await d.textbook_topics.count());const t=await d.textbook_topics.findFirst({where:{number:'7.2'},select:{title:true,char_count:true}});console.log(t);await d.$disconnect()})()"`
 Expected: `2 27 <N>` with N ≥ 80, and a sensible 7.2 topic. Run the seed a second time: same counts (idempotent).
 
 - [ ] **Step 6: Run the full test suite, commit**
@@ -1035,11 +1035,11 @@ function fakeDb() {
           .sort((a, b) => a.position - b.position)
       },
     },
-    book_chapters: {
+    textbook_chapters: {
       async findMany({ where }) { return chapters.filter((c) => c.book_id === where.book_id && (!where.book || where.book.class_level === withBook(c).book.class_level)).map(withBook) },
       async findFirst({ where }) { const c = chapters.find((c) => c.id === where.id); return c ? withBook(c) : null },
     },
-    book_topics: {
+    textbook_topics: {
       async findMany({ where, orderBy }) {
         return topics.filter((t) => t.chapter_id === where.chapter_id && (!where.id || where.id.in.includes(t.id))).sort((a, b) => a.position - b.position)
       },
@@ -1138,7 +1138,7 @@ function createBooksService(db) {
   const bookOut = (b) => ({ id: num(b.id), code: b.code, title: b.title, subject: b.subject, subjectSlug: b.subject_slug })
 
   async function listChapters({ bookId, classLevel }) {
-    const rows = await db.book_chapters.findMany({
+    const rows = await db.textbook_chapters.findMany({
       where: { book_id: BigInt(bookId), book: { class_level: Number(classLevel) } },
       orderBy: { number: 'asc' },
       include: { book: true, _count: { select: { topics: true } } },
@@ -1152,7 +1152,7 @@ function createBooksService(db) {
 
   // The chapter row with its book, scope-checked against the student's class.
   async function chapterInScope(chapterId, classLevel) {
-    const c = await db.book_chapters.findFirst({ where: { id: BigInt(chapterId) }, include: { book: true } })
+    const c = await db.textbook_chapters.findFirst({ where: { id: BigInt(chapterId) }, include: { book: true } })
     if (!c) throw new AppError('Chapter not found.', 404)
     if (c.book.class_level !== Number(classLevel)) throw new AppError("This book isn't part of your class.", 403, 'OUT_OF_SCOPE')
     return c
@@ -1160,7 +1160,7 @@ function createBooksService(db) {
 
   async function getChapter({ chapterId, classLevel }) {
     const c = await chapterInScope(chapterId, classLevel)
-    const topics = await db.book_topics.findMany({ where: { chapter_id: c.id }, orderBy: { position: 'asc' } })
+    const topics = await db.textbook_topics.findMany({ where: { chapter_id: c.id }, orderBy: { position: 'asc' } })
     return {
       book: bookOut(c.book),
       chapter: { id: num(c.id), number: c.number, title: c.title },
@@ -1174,13 +1174,13 @@ function createBooksService(db) {
     const c = await chapterInScope(chapterId, classLevel)
     let rows
     if (kind === 'summary') {
-      rows = await db.book_topics.findMany({ where: { chapter_id: c.id }, orderBy: { position: 'asc' } })
+      rows = await db.textbook_topics.findMany({ where: { chapter_id: c.id }, orderBy: { position: 'asc' } })
     } else if (kind === 'topics') {
       const ids = Array.from(new Set((topicIds || []).map(Number)))
       if (!ids.length || ids.length > MAX_TOPICS || ids.length !== (topicIds || []).length) {
         throw new AppError(`Pick 1 to ${MAX_TOPICS} topics.`, 422)
       }
-      rows = await db.book_topics.findMany({ where: { chapter_id: c.id, id: { in: ids.map((i) => BigInt(i)) } }, orderBy: { position: 'asc' } })
+      rows = await db.textbook_topics.findMany({ where: { chapter_id: c.id, id: { in: ids.map((i) => BigInt(i)) } }, orderBy: { position: 'asc' } })
       if (rows.length !== ids.length) throw new AppError('Those topics are not in this chapter.', 422)
     } else {
       throw new AppError('source.kind must be "summary" or "topics".', 422)
@@ -1217,7 +1217,7 @@ const ApiResponse = require('../utils/ApiResponse')
 
 const classOf = (req) => (req.scope && req.scope.classNum) || null
 
-// GET /api/books?subject=   → the student's class's books; [] when the class has none
+// GET /api/textbooks?subject=   → the student's class's books; [] when the class has none
 // (the app hides its textbook card on an empty list — this is never a 404).
 async function listBooks(req, res, next) {
   try {
@@ -1233,7 +1233,7 @@ async function listBooks(req, res, next) {
   }
 }
 
-// GET /api/books/:bookId/chapters
+// GET /api/textbooks/:bookId/chapters
 async function listChapters(req, res, next) {
   try {
     const classLevel = classOf(req)
@@ -1242,7 +1242,7 @@ async function listChapters(req, res, next) {
   } catch (err) { next(err) }
 }
 
-// GET /api/books/chapters/:chapterId → topics (titles only)
+// GET /api/textbooks/chapters/:chapterId → topics (titles only)
 async function getChapter(req, res, next) {
   try {
     const classLevel = classOf(req)
@@ -1281,10 +1281,10 @@ router.use('/books',        paid(require('./books')))   // textbook browsing for
 - [ ] **Step 6: Smoke the routes against the local DB**
 
 Start the server (`cd server && npm run dev`), log in as a Class 10 student account with full access (any existing dev account; set its `grade` to `Class 10` in the DB if needed), then:
-`curl -s -H "Authorization: Bearer $TOKEN" http://localhost:5000/api/books | head -c 400`
+`curl -s -H "Authorization: Bearer $TOKEN" http://localhost:5000/api/textbooks | head -c 400`
 Expected: `{"success":true,...,"data":[{"id":..,"code":"jesc1",...,"chapterCount":13},{...jemh1...,"chapterCount":14}]}`.
-`curl -s -H "Authorization: Bearer $TOKEN" http://localhost:5000/api/books/<jemh1 id>/chapters | head -c 300` → 14 chapters.
-`curl -s -H "Authorization: Bearer $TOKEN" http://localhost:5000/api/books/chapters/<ch id>` → topics with no `text` field.
+`curl -s -H "Authorization: Bearer $TOKEN" http://localhost:5000/api/textbooks/<jemh1 id>/chapters | head -c 300` → 14 chapters.
+`curl -s -H "Authorization: Bearer $TOKEN" http://localhost:5000/api/textbooks/chapters/<ch id>` → topics with no `text` field.
 Stop the server.
 
 - [ ] **Step 7: Commit**
@@ -1376,7 +1376,7 @@ Expected: FAIL — `buildSourceBlock is not a function` / `PROMPT_VERSION` undef
 In `server/src/prompts/lessonGeneration.prompt.js`, replace the `buildLessonUserPrompt` function (currently starting at `function buildLessonUserPrompt(topic, subject, gradeLevel, profile = {}) {`) with:
 ```js
 // Bump whenever the SOURCE wording below (or anything that changes what a cached book
-// lesson would say) changes — it is part of the book_lessons cache key.
+// lesson would say) changes — it is part of the textbook_lessons cache key.
 const PROMPT_VERSION = 1
 
 // The student's own textbook text, as one block. Sent by the provider as its OWN
@@ -1593,7 +1593,7 @@ function fakeDb() {
   const rows = []
   return {
     _rows: rows,
-    book_lessons: {
+    textbook_lessons: {
       async findUnique({ where }) { return rows.find((r) => r.cache_key === where.cache_key) || null },
       async update({ where, data }) { const r = rows.find((r) => r.id === where.id); r.hits += data.hits.increment; return r },
     },
@@ -1666,9 +1666,9 @@ function createBookLessonCache(db) {
   }
 
   async function find(key) {
-    const row = await db.book_lessons.findUnique({ where: { cache_key: key } })
+    const row = await db.textbook_lessons.findUnique({ where: { cache_key: key } })
     if (!row) return null
-    return db.book_lessons.update({ where: { id: row.id }, data: { hits: { increment: 1 } } })
+    return db.textbook_lessons.update({ where: { id: row.id }, data: { hits: { increment: 1 } } })
   }
 
   // Insert-if-absent, then read back: when two students generate the same lesson at
@@ -1676,10 +1676,10 @@ function createBookLessonCache(db) {
   async function store({ key, parts, payload, generationModel, generationTimeMs }) {
     const ids = [...(parts.topicIds || [])].map(Number)
     await db.$executeRaw`
-      INSERT INTO book_lessons (cache_key, chapter_id, kind, topic_ids, grade_level, teaching_mode, explanation_style, prompt_version, payload, generation_model, generation_time_ms)
+      INSERT INTO textbook_lessons (cache_key, chapter_id, kind, topic_ids, grade_level, teaching_mode, explanation_style, prompt_version, payload, generation_model, generation_time_ms)
       VALUES (${key}, ${Number(parts.chapterId)}, ${parts.kind}, ${ids}::bigint[], ${String(parts.gradeLevel)}, ${String(parts.teachingMode)}, ${String(parts.explanationStyle || 'balanced')}, ${Number(parts.promptVersion)}, ${JSON.stringify(payload)}::jsonb, ${generationModel || null}, ${generationTimeMs == null ? null : Math.round(generationTimeMs)})
       ON CONFLICT (cache_key) DO NOTHING`
-    return db.book_lessons.findUnique({ where: { cache_key: key } })
+    return db.textbook_lessons.findUnique({ where: { cache_key: key } })
   }
 
   return { cacheKey, find, store }
@@ -1811,8 +1811,8 @@ const lib = require('./lib')
   const user = await db.user.findFirst({ where: { grade: { contains: '10' } }, select: { id: true, grade: true } })
   if (!user) throw new Error('no Class 10 user in the local DB — set a dev account\'s grade to "Class 10"')
   const book = await db.books.findUnique({ where: { code: args.book || 'jemh1' } })
-  const chapter = await db.book_chapters.findFirst({ where: { book_id: book.id, number: args.chapter || 1 } })
-  const topics = await db.book_topics.findMany({ where: { chapter_id: chapter.id }, orderBy: { position: 'asc' } })
+  const chapter = await db.textbook_chapters.findFirst({ where: { book_id: book.id, number: args.chapter || 1 } })
+  const topics = await db.textbook_topics.findMany({ where: { chapter_id: chapter.id }, orderBy: { position: 'asc' } })
   const picks = summary ? [] : (topicsArg ? topicsArg.split(',').map((i) => topics[Number(i) - 1]) : [topics[1] || topics[0]])
   const source = summary ? { chapterId: Number(chapter.id), kind: 'summary' } : { chapterId: Number(chapter.id), kind: 'topics', topicIds: picks.map((t) => Number(t.id)) }
 
@@ -1828,7 +1828,7 @@ const lib = require('./lib')
 ```
 
 Run: `cd server && MOCK_AI=true node scripts/textbooks/e2e-book-lesson.js --book jemh1 --chapter 7` (PowerShell: `$env:MOCK_AI='true'; node …`)
-Expected: `pass 1 … model=mock-v1 …` then `pass 2 … model=cache:mock-v1 …` and a much smaller ms. Then `--summary` → same shape, `source=summary`. Query: `SELECT kind, topic_ids, hits FROM book_lessons;` → 2 rows, each `hits = 1`. `SELECT chapter, book_chapter_id, book_lesson_id FROM lessons ORDER BY "createdAt" DESC LIMIT 2;` → chapter title + ids populated.
+Expected: `pass 1 … model=mock-v1 …` then `pass 2 … model=cache:mock-v1 …` and a much smaller ms. Then `--summary` → same shape, `source=summary`. Query: `SELECT kind, topic_ids, hits FROM textbook_lessons;` → 2 rows, each `hits = 1`. `SELECT chapter, book_chapter_id, book_lesson_id FROM lessons ORDER BY "createdAt" DESC LIMIT 2;` → chapter title + ids populated.
 
 - [ ] **Step 6: Full suite and commit**
 
@@ -1976,7 +1976,7 @@ git commit -m "Lesson generate API: optional textbook source, topic derived serv
 - Create: `server/scripts/textbooks/embed-textbooks.js`
 
 **Interfaces:**
-- Consumes: `book_topics` rows, `chunkText` (`src/utils/chunkText.js`), `getEmbeddingProvider()` (`src/providers/embeddings`).
+- Consumes: `textbook_topics` rows, `chunkText` (`src/utils/chunkText.js`), `getEmbeddingProvider()` (`src/providers/embeddings`).
 - Produces: one `knowledge_sources` row per book (`title: "NCERT Class 10 Mathematics"`, `type: 'textbook'`, `subject`, `gradeLevel: 'Class 10'`, `status: READY`) and `knowledge_chunks` with `metadata {type:'textbook', book, chapterNumber, chapterTitle, topicNumber, topicTitle, topicId}`.
 
 - [ ] **Step 1: Write the script (modelled on `scripts/ingest-curriculum.js`)**
@@ -1984,7 +1984,7 @@ git commit -m "Lesson generate API: optional textbook source, topic derived serv
 `server/scripts/textbooks/embed-textbooks.js`:
 ```js
 'use strict'
-// Embeds book_topics into knowledge_chunks (one knowledge_source per book) so the
+// Embeds textbook_topics into knowledge_chunks (one knowledge_source per book) so the
 // Ask screen and in-lesson doubts can retrieve textbook passages. Rebuilds the
 // book's source from scratch each run.
 //   node scripts/textbooks/embed-textbooks.js [--book jemh1]
@@ -2010,7 +2010,7 @@ async function ownerId() {
 async function embedBook(book, uploadedById) {
   const title = `NCERT Class ${book.class_level} ${book.title}`
   await db.knowledge_sources.deleteMany({ where: { title } })
-  const chapters = await db.book_chapters.findMany({ where: { book_id: book.id }, orderBy: { number: 'asc' }, include: { topics: { orderBy: { position: 'asc' } } } })
+  const chapters = await db.textbook_chapters.findMany({ where: { book_id: book.id }, orderBy: { number: 'asc' }, include: { topics: { orderBy: { position: 'asc' } } } })
   const docs = []
   for (const ch of chapters) {
     for (const t of ch.topics) {
@@ -2083,14 +2083,14 @@ import { API_BASE_URL } from '../constants/config';
 // Textbooks for the student's class (the server reads the class from the JWT scope).
 // Backend wraps responses as { success, message, data }; we unwrap to `data`.
 
-// GET /api/books → [{ id, code, title, subject, subjectSlug, edition, coverUrl, chapterCount }]
-export const getBooks = async () => (await axiosInstance.get('/api/books')).data.data;
+// GET /api/textbooks → [{ id, code, title, subject, subjectSlug, edition, coverUrl, chapterCount }]
+export const getBooks = async () => (await axiosInstance.get('/api/textbooks')).data.data;
 
-// GET /api/books/:bookId/chapters → { book, chapters:[{ id, number, title, topicCount }] }
-export const getBookChapters = async (bookId) => (await axiosInstance.get(`/api/books/${bookId}/chapters`)).data.data;
+// GET /api/textbooks/:bookId/chapters → { book, chapters:[{ id, number, title, topicCount }] }
+export const getBookChapters = async (bookId) => (await axiosInstance.get(`/api/textbooks/${bookId}/chapters`)).data.data;
 
-// GET /api/books/chapters/:chapterId → { book, chapter:{id,number,title}, topics:[{ id, number, title, charCount }] }
-export const getBookChapter = async (chapterId) => (await axiosInstance.get(`/api/books/chapters/${chapterId}`)).data.data;
+// GET /api/textbooks/chapters/:chapterId → { book, chapter:{id,number,title}, topics:[{ id, number, title, charCount }] }
+export const getBookChapter = async (chapterId) => (await axiosInstance.get(`/api/textbooks/chapters/${chapterId}`)).data.data;
 
 // Cover images are served statically from the API host (server/public/books).
 const HOST = String(API_BASE_URL || '').replace(/\/+$/, '').replace(/\/api$/i, '');
@@ -2588,7 +2588,7 @@ Checklist for the AWS deploy (tick when done):
 - [ ] `node scripts/textbooks/seed-textbooks.js` run on the server
 - [ ] `node scripts/textbooks/embed-textbooks.js` run on the server (VOYAGE_API_KEY set)
 - [ ] reverse proxy / ALB idle timeout ≥ 180 s
-- [ ] `GET /api/books` from a Class 10 account returns 2 books; one real lesson generated and played
+- [ ] `GET /api/textbooks` from a Class 10 account returns 2 books; one real lesson generated and played
 ```
 
 - [ ] **Step 5: Full suite, commit**

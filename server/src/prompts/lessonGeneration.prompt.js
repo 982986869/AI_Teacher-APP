@@ -243,7 +243,7 @@ function preferenceLine(profile = {}) {
 }
 
 // Bump whenever the SOURCE wording below (or anything that changes what a cached book
-// lesson would say) changes — it is part of the book_lessons cache key.
+// lesson would say) changes — it is part of the textbook_lessons cache key.
 const PROMPT_VERSION = 5
 
 // The student's own textbook text, as one block. Sent by the provider as its OWN

@@ -38,7 +38,7 @@ import useTeacherIdentity from '../components/teacher/useTeacherIdentity';
 import { greeting, preparingBeats, preparingHint, resumeTag, emptyState } from '../components/teacher/teacherMoments';
 import { stopTeacher, primeTeacherVoice, SPEECH_OK } from '../utils/teacherVoice';
 import YourLearning from '../components/teacher/YourLearning';
-import { getBooks, getBookChapters, getBookChapter } from '../api/booksApi';
+import { getBooks, getBookChapters, getBookChapter } from '../api/textbooksApi';
 import BookGrid from './aiteacher/books/BookGrid';
 import ChapterList from './aiteacher/books/ChapterList';
 import ChapterTopics from './aiteacher/books/ChapterTopics';

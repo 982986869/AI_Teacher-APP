@@ -1,6 +1,6 @@
 'use strict'
 
-const { booksService } = require('../services/books.service')
+const { booksService } = require('../services/textbooks.service')
 const ApiResponse = require('../utils/ApiResponse')
 const { browsingClass } = require('../services/browsingClass')
 

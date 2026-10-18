@@ -1,4 +1,4 @@
-# Textbook pipeline (NCERT → book_topics)
+# Textbook pipeline (NCERT → textbook_topics)
 
 One-time, per book. Everything before `seed` runs on a developer machine; the server
 only ever reads the committed `data/textbooks/class<N>/<code>/chNN.json`.
@@ -6,7 +6,7 @@ only ever reads the committed `data/textbooks/class<N>/<code>/chNN.json`.
     node   scripts/textbooks/download.js            # PDFs → data/textbooks/pdf/ (ignored)
     python -I -X utf8 scripts/textbooks/extract.py  # raw text/headings → chNN.raw.json (ignored), covers → public/books/
     node   scripts/textbooks/outline.js             # Claude verifies the outline → chNN.json (committed); prints a review table
-    node   scripts/textbooks/seed-textbooks.js      # chNN.json → books / book_chapters / book_topics
+    node   scripts/textbooks/seed-textbooks.js      # chNN.json → books / textbook_chapters / textbook_topics
     node   scripts/textbooks/embed-textbooks.js     # topics → knowledge_chunks (needs VOYAGE_API_KEY)
 
 All take `--book <code>` and (except seed/embed) `--chapter <n>`; `outline.js` takes `--force`

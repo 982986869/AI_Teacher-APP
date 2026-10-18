@@ -7,7 +7,7 @@
 --   psql "$DATABASE_URL" -f prisma/sql/textbooks.sql
 -- then `npx prisma generate` so the client knows the new models.
 
-CREATE TABLE IF NOT EXISTS books (
+CREATE TABLE IF NOT EXISTS textbooks (
   id           BIGSERIAL PRIMARY KEY,
   code         TEXT NOT NULL UNIQUE,
   class_level  INT  NOT NULL,
@@ -21,11 +21,11 @@ CREATE TABLE IF NOT EXISTS books (
   position     INT  NOT NULL DEFAULT 0,
   created_at   TIMESTAMPTZ NOT NULL DEFAULT now()
 );
-CREATE INDEX IF NOT EXISTS books_class_level_idx ON books (class_level, position);
+CREATE INDEX IF NOT EXISTS textbooks_class_level_idx ON textbooks (class_level, position);
 
-CREATE TABLE IF NOT EXISTS book_chapters (
+CREATE TABLE IF NOT EXISTS textbook_chapters (
   id          BIGSERIAL PRIMARY KEY,
-  book_id     BIGINT NOT NULL REFERENCES books(id) ON DELETE CASCADE,
+  book_id     BIGINT NOT NULL REFERENCES textbooks(id) ON DELETE CASCADE,
   number      INT  NOT NULL,
   title       TEXT NOT NULL,
   slug        TEXT NOT NULL,
@@ -35,9 +35,9 @@ CREATE TABLE IF NOT EXISTS book_chapters (
   UNIQUE (book_id, number)
 );
 
-CREATE TABLE IF NOT EXISTS book_topics (
+CREATE TABLE IF NOT EXISTS textbook_topics (
   id          BIGSERIAL PRIMARY KEY,
-  chapter_id  BIGINT NOT NULL REFERENCES book_chapters(id) ON DELETE CASCADE,
+  chapter_id  BIGINT NOT NULL REFERENCES textbook_chapters(id) ON DELETE CASCADE,
   number      TEXT NOT NULL,
   title       TEXT NOT NULL,
   slug        TEXT NOT NULL,
@@ -47,10 +47,10 @@ CREATE TABLE IF NOT EXISTS book_topics (
   UNIQUE (chapter_id, number)
 );
 
-CREATE TABLE IF NOT EXISTS book_lessons (
+CREATE TABLE IF NOT EXISTS textbook_lessons (
   id                 UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   cache_key          TEXT NOT NULL UNIQUE,
-  chapter_id         BIGINT NOT NULL REFERENCES book_chapters(id) ON DELETE CASCADE,
+  chapter_id         BIGINT NOT NULL REFERENCES textbook_chapters(id) ON DELETE CASCADE,
   kind               TEXT NOT NULL,
   topic_ids          BIGINT[] NOT NULL DEFAULT '{}',
   grade_level        TEXT NOT NULL,
@@ -64,6 +64,6 @@ CREATE TABLE IF NOT EXISTS book_lessons (
   created_at         TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
-ALTER TABLE lessons ADD COLUMN IF NOT EXISTS book_chapter_id BIGINT REFERENCES book_chapters(id) ON DELETE SET NULL;
+ALTER TABLE lessons ADD COLUMN IF NOT EXISTS book_chapter_id BIGINT REFERENCES textbook_chapters(id) ON DELETE SET NULL;
 ALTER TABLE lessons ADD COLUMN IF NOT EXISTS book_topic_ids  BIGINT[] NOT NULL DEFAULT '{}';
-ALTER TABLE lessons ADD COLUMN IF NOT EXISTS book_lesson_id  UUID REFERENCES book_lessons(id) ON DELETE SET NULL;
+ALTER TABLE lessons ADD COLUMN IF NOT EXISTS book_lesson_id  UUID REFERENCES textbook_lessons(id) ON DELETE SET NULL;

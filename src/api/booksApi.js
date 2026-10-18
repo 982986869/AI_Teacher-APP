@@ -1,21 +1,33 @@
+// src/api/booksApi.js
+// Books an admin uploaded and published for this student's class.
+//
+// Read-only by construction: there is no upload or edit endpoint here because the
+// server has none for students. Authoring lives entirely under /api/admin/books.
 import axiosInstance from './axiosInstance';
-import { API_BASE_URL } from '../constants/config';
 
-// Textbooks for the student's class (the server reads the class from the JWT scope).
-// Backend wraps responses as { success, message, data }; we unwrap to `data`.
+const unwrap = (res) => res.data?.data ?? res.data;
+const classParam = (classLevel) => {
+  const n = parseInt(String(classLevel || '').replace(/\D/g, ''), 10);
+  return n ? { class: n } : {};
+};
 
-// GET /api/books?class=9 → [{ id, code, title, subject, subjectSlug, edition, coverUrl, chapterCount }]
-// `classLevel` is the class being browsed (the home page's chip); without it the
-// server uses the profile class.
-export const getBooks = async (classLevel) =>
-  (await axiosInstance.get('/api/books', { params: classLevel ? { class: classLevel } : {} })).data.data;
+// [{ id, title, subject, page_count, chapters }] — already filtered to published
+// books for the class. A failure is an empty shelf, never a thrown error: a book
+// list is the last thing that should break Home.
+export const getBooks = async (classLevel) => {
+  try {
+    const list = unwrap(await axiosInstance.get('/api/books', { params: classParam(classLevel) }));
+    return Array.isArray(list) ? list : [];
+  } catch {
+    return [];
+  }
+};
 
-// GET /api/books/:bookId/chapters → { book, chapters:[{ id, number, title, topicCount }] }
-export const getBookChapters = async (bookId) => (await axiosInstance.get(`/api/books/${bookId}/chapters`)).data.data;
+// [{ id, position, title, kinds: ['notes','quiz',…] }] — only chapters with at
+// least one published section, so no row leads to an empty screen.
+export const getBookChapters = async (bookId) =>
+  unwrap(await axiosInstance.get(`/api/books/${bookId}/chapters`));
 
-// GET /api/books/chapters/:chapterId → { book, chapter:{id,number,title}, topics:[{ id, number, title, charCount }] }
-export const getBookChapter = async (chapterId) => (await axiosInstance.get(`/api/books/chapters/${chapterId}`)).data.data;
-
-// Cover images are served statically from the API host (server/public/books).
-const HOST = String(API_BASE_URL || '').replace(/\/+$/, '').replace(/\/api$/i, '');
-export const coverUri = (coverUrl) => (coverUrl ? `${HOST}${coverUrl}` : null);
+// kind: 'notes' | 'resource' | 'practice' | 'quiz'
+export const getBookContent = async (chapterId, kind) =>
+  unwrap(await axiosInstance.get(`/api/books/chapter/${chapterId}/${kind}`));
