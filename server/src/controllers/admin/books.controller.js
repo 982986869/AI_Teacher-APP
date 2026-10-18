@@ -10,6 +10,7 @@
 const ApiResponse = require('../../utils/ApiResponse')
 const { AppError } = require('../../middleware/errorHandler')
 const books = require('../../services/books.service')
+const bookConcepts = require('../../services/bookConcepts.service')
 const generator = require('../../services/bookGenerate.service')
 const audit = require('../../services/admin/audit.service')
 
@@ -105,6 +106,25 @@ async function setChapterVisible(req, res, next) {
   } catch (e) { return next(e) }
 }
 
+// What a chapter was matched to, and a way to redo it. Inspectable on purpose:
+// the links drive what students are shown first, so an admin has to be able to
+// see them and correct a bad match rather than wonder why an odd chapter leads.
+async function concepts(req, res, next) {
+  try {
+    if (!isUuid(req.params.chapterId)) throw new AppError('Invalid chapter', 400)
+    return ApiResponse.success(res, await bookConcepts.chapterConcepts(req.params.chapterId))
+  } catch (e) { return next(e) }
+}
+
+async function relinkConcepts(req, res, next) {
+  try {
+    if (!isUuid(req.params.chapterId)) throw new AppError('Invalid chapter', 400)
+    const out = await bookConcepts.linkChapter(req.params.chapterId, { force: true })
+    audit.record(req, { module: 'content', action: 'book.chapter.relink', targetType: 'book', after: { chapterId: req.params.chapterId, ...out } }).catch(() => {})
+    return ApiResponse.success(res, out, out.linked ? `Matched ${out.linked} concept${out.linked === 1 ? '' : 's'}` : 'No concept matched closely enough')
+  } catch (e) { return next(e) }
+}
+
 async function publish(req, res, next) {
   try {
     if (!isUuid(req.params.id)) throw new AppError('Invalid book', 400)
@@ -137,4 +157,4 @@ async function remove(req, res, next) {
   } catch (e) { return next(e) }
 }
 
-module.exports = { list, upload, chapters, generate, content, setStatus, setChapterVisible, publish, update, remove }
+module.exports = { list, upload, chapters, generate, content, setStatus, setChapterVisible, concepts, relinkConcepts, publish, update, remove }

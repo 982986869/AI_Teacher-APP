@@ -104,3 +104,25 @@ UPDATE "book_chapters" c SET "visible" = true
  WHERE "visible" = false
    AND EXISTS (SELECT 1 FROM "book_content" bc
                 WHERE bc.chapter_id = c.id AND bc.status = 'published');
+
+-- ── Chapter → concept links ──────────────────────────────────────────────────
+-- What a chapter actually teaches, expressed in the same vocabulary the rest of
+-- the app already reasons about (concepts, student_concepts, concept_prereqs).
+--
+-- Matched by embedding rather than by asking a model to name concepts: the
+-- catalog already carries a vector per concept, so the nearest neighbours of the
+-- chapter text ARE the concepts it covers. A model asked to name them invents
+-- plausible ones that match nothing in the table.
+--
+-- `similarity` is kept so the student query can weight a strong match above a
+-- marginal one, and so a bad threshold can be re-tuned without re-embedding.
+CREATE TABLE IF NOT EXISTS "book_chapter_concepts" (
+  "chapter_id" uuid NOT NULL REFERENCES "book_chapters"("id") ON DELETE CASCADE,
+  "concept_id" uuid NOT NULL REFERENCES "concepts"("id") ON DELETE CASCADE,
+  "similarity" real NOT NULL,
+  "created_at" timestamptz NOT NULL DEFAULT now(),
+  PRIMARY KEY ("chapter_id", "concept_id")
+);
+
+-- The student read: "which of this book's chapters touch concepts I am weak on".
+CREATE INDEX IF NOT EXISTS "bcc_concept_idx" ON "book_chapter_concepts" ("concept_id");

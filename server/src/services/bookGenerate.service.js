@@ -13,6 +13,7 @@
 
 const { getAIProvider } = require('../providers')
 const books = require('./books.service')
+const bookConcepts = require('./bookConcepts.service')
 
 // Enough text to teach from, short enough to stay well inside a context window and
 // a sane per-call cost. Chapters run long; the opening pages carry the substance.
@@ -108,6 +109,13 @@ async function generate(chapterId, kind) {
     source: 'ai',
     model: (raw && raw.model) || null,
   })
+
+  // Work out which catalog concepts this chapter teaches, so a student's shelf
+  // can lead with the chapters covering what they are weakest on. Idempotent and
+  // deliberately not awaited: it costs one embedding call, it never throws, and
+  // generation must not get slower or fail because the mapping did.
+  bookConcepts.linkChapter(chapterId).catch(() => {})
+
   return { id, kind, chapterId }
 }
 

@@ -188,6 +188,8 @@ router.post('/books/:id/publish', requirePermission('content.edit'), booksCtrl.p
 router.delete('/books/:id', requirePermission('content.edit'), booksCtrl.remove)
 router.post('/books/chapter/:chapterId/generate', requirePermission('content.edit'), booksCtrl.generate)
 router.post('/books/chapter/:chapterId/visible', requirePermission('content.edit'), booksCtrl.setChapterVisible)
+router.get('/books/chapter/:chapterId/concepts', requirePermission('content.view'), booksCtrl.concepts)
+router.post('/books/chapter/:chapterId/concepts/relink', requirePermission('content.edit'), booksCtrl.relinkConcepts)
 router.get('/books/content/:id', requirePermission('content.view'), booksCtrl.content)
 router.post('/books/content/:id/status', requirePermission('content.edit'), booksCtrl.setStatus)
 router.delete('/resources/chapters/:id', requirePermission('content.edit'), resCtrl.deleteChapter)

@@ -87,6 +87,24 @@ function useShake() {
 
 // ─── Chrome ──────────────────────────────────────────────────────────────────
 
+/**
+ * Why this is near the top of your list.
+ *
+ * Named gently on purpose. The server hands over the concept this student is
+ * measurably weakest on among the ones the chapter covers; "practise" frames that
+ * as the next thing to do rather than as a verdict on them.
+ */
+function WhyChip({ concept }) {
+  return (
+    <View style={st.whyChip}>
+      <Sparkles size={11} color={DAY.violet} strokeWidth={2.4} />
+      <T w="semi" s={10.5} c={DAY.violet} numberOfLines={1} style={{ flex: 1 }}>
+        Good to practise: {concept}
+      </T>
+    </View>
+  );
+}
+
 function Header({ onBack, kicker, title, sub }) {
   const insets = useSafeAreaInsets();
   return (
@@ -141,6 +159,10 @@ function Shelf({ classLevel, onPick, onBack }) {
                       {[b.subject, b.chapters ? `${b.chapters} chapter${b.chapters === 1 ? '' : 's'}` : null,
                         b.page_count ? `${b.page_count} pages` : null].filter(Boolean).join(' · ')}
                     </T>
+                    {/* The shelf is ordered by what this student is weakest on, so it
+                        says why. A list that silently reshuffles reads as a bug; one
+                        that explains itself reads as help. */}
+                    {!!b.weakest_concept && <WhyChip concept={b.weakest_concept} />}
                   </View>
                 </Squeeze>
               </Appear>
@@ -175,6 +197,7 @@ function Chapters({ book, onOpen, onBack }) {
               <Appear key={c.id} delay={Math.min(i, 10) * 40} y={10}>
                 <Card style={{ marginBottom: 12 }}>
                   <T w="semi" s={14} c={DAY.ink} numberOfLines={2}>{c.position}. {c.title}</T>
+                  {!!c.concept && <WhyChip concept={c.concept} />}
                   <View style={st.kinds}>
                     {(c.kinds || []).map((kind) => {
                       const s = sectionFor(kind);
@@ -436,6 +459,11 @@ const st = StyleSheet.create({
 
   bookRow: { flexDirection: 'row', alignItems: 'center', gap: 14, marginBottom: 12 },
   bookSpine: { width: 46, height: 46, borderRadius: 12, backgroundColor: DAY.violetSoft, alignItems: 'center', justifyContent: 'center' },
+  whyChip: {
+    flexDirection: 'row', alignItems: 'center', gap: 5, alignSelf: 'flex-start',
+    marginTop: 7, paddingVertical: 4, paddingHorizontal: 8,
+    borderRadius: 99, backgroundColor: DAY.violetSoft, maxWidth: '100%',
+  },
 
   kinds: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: 12 },
   kindBtn: { flexDirection: 'row', alignItems: 'center', gap: 6, borderRadius: 999, paddingVertical: 8, paddingHorizontal: 13 },

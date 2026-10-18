@@ -276,12 +276,60 @@ const visibleBooks = (classLevel) => db.$queryRawUnsafe(
 // Only chapters an admin has released AND that have something published — a chapter
 // whose notes are still in draft is not worth a row a student can tap into an empty
 // screen, and one nobody has released is not theirs to see yet.
-const visibleChapters = (bookId) => db.$queryRawUnsafe(
+//
+// Ordered by what THIS student is weakest on. `book_chapter_concepts` says what a
+// chapter teaches; `student_concepts.weakness` says how they are doing on it. A
+// chapter covering a concept they keep getting wrong leads the list, and carries
+// the concept's name so the screen can say why rather than silently reordering —
+// an unexplained reshuffle reads as a bug, not as help.
+//
+// Everything is LEFT JOINed: a student with no history, or a book whose chapters
+// were never linked, falls back to plain chapter order rather than vanishing.
+const visibleChapters = (bookId, userId = null) => db.$queryRawUnsafe(
   `SELECT c.id::text AS id, c.position, c.title,
-          array_agg(bc.kind ORDER BY bc.kind) AS kinds
-     FROM "book_chapters" c JOIN "book_content" bc ON bc.chapter_id = c.id
+          array_agg(DISTINCT bc.kind) AS kinds,
+          w.weakness, w.concept
+     FROM "book_chapters" c
+     JOIN "book_content" bc ON bc.chapter_id = c.id
+     LEFT JOIN LATERAL (
+       SELECT sc.weakness::float AS weakness, con.name AS concept
+         FROM "book_chapter_concepts" bcc
+         JOIN "concepts" con ON con.id = bcc.concept_id
+         JOIN "student_concepts" sc
+           ON sc.concept_id = bcc.concept_id AND sc."userId" = $2::uuid
+        WHERE bcc.chapter_id = c.id AND sc.weakness IS NOT NULL
+        ORDER BY sc.weakness DESC
+        LIMIT 1
+     ) w ON $2::uuid IS NOT NULL
     WHERE c.book_id = $1::uuid AND c.visible = true AND bc.status = 'published'
-    GROUP BY c.id ORDER BY c.position`, bookId)
+    GROUP BY c.id, w.weakness, w.concept
+    ORDER BY w.weakness DESC NULLS LAST, c.position`, bookId, userId)
+
+// The shelf, ordered the same way: a book holding the chapter a student is
+// weakest on comes first. `weakest_concept` is what the card explains itself
+// with. Same LEFT JOIN discipline — no history means plain recency order.
+const visibleBooksFor = (classLevel, userId = null) => db.$queryRawUnsafe(
+  `SELECT b.id::text AS id, b.title, s.name AS subject, b.page_count,
+          (SELECT count(*) FROM "book_chapters" c WHERE c.book_id = b.id)::int AS chapters,
+          w.weakness, w.concept AS weakest_concept
+     FROM "books" b
+     LEFT JOIN "subjects" s ON s.id = b.subject_id
+     LEFT JOIN LATERAL (
+       SELECT sc.weakness::float AS weakness, con.name AS concept
+         FROM "book_chapters" c2
+         JOIN "book_chapter_concepts" bcc ON bcc.chapter_id = c2.id
+         JOIN "concepts" con ON con.id = bcc.concept_id
+         JOIN "student_concepts" sc
+           ON sc.concept_id = bcc.concept_id AND sc."userId" = $2::uuid
+        WHERE c2.book_id = b.id AND c2.visible = true AND sc.weakness IS NOT NULL
+        ORDER BY sc.weakness DESC
+        LIMIT 1
+     ) w ON $2::uuid IS NOT NULL
+    WHERE b.published = true AND b.status = 'ready'
+      AND (b.class_level IS NULL OR b.class_level = $1::int)
+      AND EXISTS (SELECT 1 FROM "book_content" bc JOIN "book_chapters" c3 ON c3.id = bc.chapter_id
+                   WHERE c3.book_id = b.id AND c3.visible = true AND bc.status = 'published')
+    ORDER BY w.weakness DESC NULLS LAST, b.created_at DESC`, classLevel, userId)
 
 // All three gates checked in one query. This is the only route by which a student
 // reads generated content, so a gate missing here is a gate that does not exist.
@@ -299,5 +347,5 @@ module.exports = {
   KINDS, MAX_PAGES, sha256, findByHash, ingest, detectChapters,
   list, chapters, chapterText, getContent,
   saveContent, setContentStatus, setBookPublished, setChapterVisible, updateBook, remove,
-  visibleBooks, visibleChapters, visibleContent,
+  visibleBooks, visibleBooksFor, visibleChapters, visibleContent,
 }

@@ -21,9 +21,15 @@ const classOf = (req) => {
   return m ? parseInt(m[0], 10) : resolveClassNum(req)
 }
 
-// Books published for this student's class.
+// Books published for this student's class, ordered by what THEY are weakest on.
+// The user id is taken from the verified token, never from a query param — the
+// ordering is derived from one student's mastery, so another student's id must
+// not be requestable.
 router.get('/', async (req, res, next) => {
-  try { return ApiResponse.success(res, await books.visibleBooks(classOf(req))) } catch (e) { next(e) }
+  try {
+    const uid = req.user && req.user.id
+    return ApiResponse.success(res, await books.visibleBooksFor(classOf(req), uid || null))
+  } catch (e) { next(e) }
 })
 
 // Chapters that actually have something published — a chapter whose notes are still
@@ -31,7 +37,8 @@ router.get('/', async (req, res, next) => {
 router.get('/:id/chapters', async (req, res, next) => {
   try {
     if (!isUuid(req.params.id)) return ApiResponse.error(res, 'Invalid book', 400)
-    return ApiResponse.success(res, await books.visibleChapters(req.params.id))
+    const uid = req.user && req.user.id
+    return ApiResponse.success(res, await books.visibleChapters(req.params.id, uid || null))
   } catch (e) { next(e) }
 })
 
