@@ -19,7 +19,7 @@ import {
 import { useDashboard } from '@/components/dashboard/useDashboard'
 import { ActivityFeed } from '@/components/dashboard/ActivityFeed'
 import { QuickActions } from '@/components/dashboard/QuickActions'
-import { AreaChart, SegmentDonut, MetricBar, PROGRESS_RAMP, METRIC_HUES } from '@/components/dashboardCharts'
+import { AreaChart, SegmentDonut, MetricBar, Num, PROGRESS_RAMP, METRIC_HUES } from '@/components/dashboardCharts'
 import { PageHero, SectionLabel, Card, SectionHead, Skel, ErrorState, EmptyState } from '@/components/ui'
 import { useAuth } from '@/lib/auth'
 import { fmtDate } from '@/lib/format'
@@ -35,21 +35,23 @@ function greeting() {
  * a trend arrow with nothing behind it is the most quietly misleading thing a
  * dashboard can show.
  */
-function Stat({ icon: Icon, tint, label, value, suffix, note, delta }: {
+function Stat({ icon: Icon, tint, label, value, suffix, note, decimals = 0, index = 0, delta }: {
   icon: any; tint: string; label: string
-  value: number | string | null; suffix?: string; note?: string
+  value: number | null; suffix?: string; note?: string; decimals?: number; index?: number
   delta?: { pct: number; label: string } | null
 }) {
   const empty = value === null || value === undefined
   const up = delta ? delta.pct >= 0 : false
   return (
-    <div className="dash-stat">
+    <div className="dash-stat" style={{ animationDelay: index * 70 + 'ms' }}>
       <span className="dash-stat-ic" style={{ background: tint + '1a', color: tint }}>
         <Icon size={18} strokeWidth={2.2} />
       </span>
       <div style={{ minWidth: 0, flex: 1 }}>
         <div className="row" style={{ alignItems: 'baseline', gap: 7, flexWrap: 'wrap' }}>
-          <span className="dash-stat-val tnum">{empty ? '—' : value}{!empty && suffix ? suffix : ''}</span>
+          <span className="dash-stat-val">
+            {empty ? '—' : <><Num value={value as number} decimals={decimals} />{suffix || ''}</>}
+          </span>
           {delta && (
             <span className={'dash-delta' + (up ? ' up' : ' down')}>
               {up ? <TrendingUp size={11} /> : <TrendingDown size={11} />}
@@ -150,7 +152,9 @@ export default function DashboardPage() {
             {primary ? 'Needs attention' : 'All clear'}
           </span>
           <div className="row" style={{ alignItems: 'baseline', gap: 12, marginTop: 6 }}>
-            <span className="dash-hero-num tnum">{primary ? primary.count : '✓'}</span>
+            <span className="dash-hero-num tnum">
+              {primary ? <Num value={primary.count} duration={1100} /> : '✓'}
+            </span>
             <span className="dash-hero-title">
               {primary ? primary.title : 'Nothing needs your attention'}
             </span>
@@ -174,13 +178,16 @@ export default function DashboardPage() {
 
       {/* ── headline numbers ─────────────────────────────────────────────────── */}
       <div className="dash-stats">
-        <Stat icon={GraduationCap} tint="#2a78d6" label="Total students" value={overview.totalStudents}
+        <Stat index={0} icon={GraduationCap} tint="#2a78d6" label="Total students" value={overview.totalStudents}
           note={overview.newRegistrationsWeek + ' new this week'} />
-        <Stat icon={Users} tint="#1baf7a" label="Active this week" value={overview.activeThisWeek}
+        <Stat index={1} icon={Users} tint="#1baf7a" label="Active this week" value={overview.activeThisWeek}
           note={'out of ' + overview.totalStudents} />
-        <Stat icon={BookOpenCheck} tint="#8B5CF6" label="Lessons completed" value={aiTeacher.lessonsCompleted}
+        <Stat index={2} icon={BookOpenCheck} tint="#8B5CF6" label="Lessons completed" value={aiTeacher.lessonsCompleted}
           note={aiTeacher.lessonsCompletedToday + ' today'} />
-        <Stat icon={Clock} tint="#eda100" label="Avg. learning time" value={aiTeacher.avgStudyHoursWeek} suffix="h"
+        {/* One decimal: average study time is a fraction of an hour at this scale,
+            and rounding it prints a confident "0" for a number that is not zero. */}
+        <Stat index={3} icon={Clock} tint="#eda100" label="Avg. learning time"
+          value={aiTeacher.avgStudyHoursWeek} suffix="h" decimals={1}
           note={'per learner · ' + aiTeacher.studyLearnersWeek + ' studied this week'} />
       </div>
 
@@ -227,9 +234,9 @@ export default function DashboardPage() {
         <div className="col gap-16">
           <Card>
             <SectionHead title="Learning progress" tone="emerald" />
-            <MetricBar label="Lesson completion" value={aiTeacher.averageCompletion} color={METRIC_HUES[0]} />
-            <MetricBar label="Brain Gym accuracy" value={brainGym.averageAccuracy} color={METRIC_HUES[1]} />
-            <MetricBar label="Practice average score" value={practice.averageScore} color={METRIC_HUES[2]} />
+            <MetricBar index={0} label="Lesson completion" value={aiTeacher.averageCompletion} color={METRIC_HUES[0]} />
+            <MetricBar index={1} label="Brain Gym accuracy" value={brainGym.averageAccuracy} color={METRIC_HUES[1]} />
+            <MetricBar index={2} label="Practice average score" value={practice.averageScore} color={METRIC_HUES[2]} />
           </Card>
 
           <Card>
@@ -276,15 +283,28 @@ export default function DashboardPage() {
       <Card><QuickActions /></Card>
 
       <style jsx global>{`
-        @keyframes dash-rise { from { opacity: 0; transform: translateY(12px); } }
+        /* Everything enters the same way — up and in, decelerating — so the page
+           assembles as one movement rather than several competing ones. */
+        @keyframes dash-rise  { from { opacity: 0; transform: translateY(14px); } }
+        @keyframes dash-sheen { to   { transform: translateX(260%); } }
 
         /* ── hero ─────────────────────────────────────────────────────────── */
         .dash-hero {
+          position: relative; overflow: hidden;
           display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
           padding: 20px 24px; border-radius: 18px; margin-bottom: 18px;
           border: 1px solid var(--line);
           background: linear-gradient(118deg, rgba(42,120,214,.10), rgba(139,92,246,.07) 62%, transparent);
-          animation: dash-rise .34s cubic-bezier(.22,1,.36,1) both;
+          animation: dash-rise .42s cubic-bezier(.22,1,.36,1) both;
+        }
+        /* A single light sweep as the page arrives, then never again. It reads as
+           the surface catching the light once, not as something still loading. */
+        .dash-hero::after {
+          content: ''; position: absolute; inset: 0 auto 0 -38%; width: 38%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,.26), transparent);
+          transform: translateX(0);
+          animation: dash-sheen 1.5s cubic-bezier(.22,1,.36,1) .25s 1 both;
+          pointer-events: none;
         }
         .dash-hero-eyebrow {
           font-size: 11px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--muted);
@@ -299,14 +319,15 @@ export default function DashboardPage() {
         .dash-stat {
           display: flex; align-items: flex-start; gap: 13px; padding: 16px;
           border: 1px solid var(--line); border-radius: 15px; background: var(--card);
-          animation: dash-rise .34s cubic-bezier(.22,1,.36,1) both;
-          transition: transform .2s cubic-bezier(.22,1,.36,1), box-shadow .2s, border-color .2s;
+          animation: dash-rise .42s cubic-bezier(.22,1,.36,1) both;
+          transition: transform .24s cubic-bezier(.22,1,.36,1), box-shadow .24s, border-color .24s;
         }
-        .dash-stat:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); border-color: var(--accent); }
-        .dash-stat:nth-child(2) { animation-delay: 60ms; }
-        .dash-stat:nth-child(3) { animation-delay: 120ms; }
-        .dash-stat:nth-child(4) { animation-delay: 180ms; }
-        .dash-stat-ic { width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center; flex: 0 0 auto; }
+        .dash-stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-md, var(--shadow-sm)); border-color: var(--accent); }
+        .dash-stat:hover .dash-stat-ic { transform: scale(1.08) rotate(-4deg); }
+        .dash-stat-ic {
+          width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center; flex: 0 0 auto;
+          transition: transform .28s cubic-bezier(.34,1.56,.64,1);
+        }
         .dash-stat-val { font-size: 25px; font-weight: 900; letter-spacing: -.025em; color: var(--ink); line-height: 1.1; }
         .dash-stat-label { font-size: 12.5px; font-weight: 650; color: var(--sub, var(--muted)); margin-top: 3px; }
         .dash-stat-note { font-size: 11.5px; color: var(--muted); margin-top: 3px; }
@@ -333,6 +354,22 @@ export default function DashboardPage() {
           transition: transform .18s cubic-bezier(.22,1,.36,1);
         }
         .dash-face:first-child { margin-left: 0; }
+        .dash-legend { transition: opacity .2s cubic-bezier(.22,1,.36,1); }
+
+        /* The two content rows arrive after the stats, in order, so the eye is
+           led down the page instead of everything landing at once. */
+        .dash-row > * { animation: dash-rise .44s cubic-bezier(.22,1,.36,1) both; }
+        .dash-row > *:nth-child(1) { animation-delay: 240ms; }
+        .dash-row > *:nth-child(2) { animation-delay: 320ms; }
+        .dash-row.wide > *:nth-child(1) { animation-delay: 300ms; }
+        .dash-row.wide > *:nth-child(2) { animation-delay: 380ms; }
+
+        /* The refresh icon spins while a reload is in flight. */
+        .spin { animation: dash-spin .9s linear infinite; }
+        @keyframes dash-spin { to { transform: rotate(360deg); } }
+
+        .attn-row { transition: background .2s, transform .2s cubic-bezier(.22,1,.36,1); }
+        .attn-row:hover { transform: translateX(3px); }
         .dash-face:nth-child(2) { background: #1baf7a; }
         .dash-face:nth-child(3) { background: #8B5CF6; }
         .dash-face:nth-child(4) { background: #eda100; }
@@ -340,9 +377,13 @@ export default function DashboardPage() {
         .dash-face:nth-child(6) { background: #4a3aa7; }
         .dash-face:hover { transform: translateY(-3px) scale(1.06); z-index: 2; }
 
+        /* One switch turns all of it off. The charts check the same setting in JS
+           and render their finished state directly rather than animating to it. */
         @media (prefers-reduced-motion: reduce) {
-          .dash-hero, .dash-stat { animation: none !important; }
-          .dash-stat:hover, .dash-face:hover { transform: none; }
+          .dash-hero, .dash-stat, .dash-row > * { animation: none !important; }
+          .dash-hero::after, .spin { animation: none !important; }
+          .dash-stat:hover, .dash-face:hover, .attn-row:hover { transform: none; }
+          .dash-stat:hover .dash-stat-ic { transform: none; }
         }
       `}</style>
     </>
