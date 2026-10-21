@@ -50,6 +50,10 @@ router.get('/chapter/:chapterId/:kind', async (req, res, next) => {
     if (!books.KINDS.includes(req.params.kind)) return ApiResponse.error(res, 'Unknown section', 400)
     const row = await books.visibleContent(req.params.chapterId, req.params.kind)
     if (!row) return ApiResponse.error(res, 'Not available', 404)
+    // Count the open so an admin can tell generated content that gets read from
+    // content nobody has ever opened. Fire-and-forget on purpose: a student must
+    // never lose their notes because a counter failed to increment.
+    if (req.user && req.user.id) books.recordRead(row.id, req.user.id).catch(() => {})
     return ApiResponse.success(res, row)
   } catch (e) { next(e) }
 })

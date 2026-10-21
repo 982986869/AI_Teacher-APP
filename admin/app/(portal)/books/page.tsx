@@ -24,7 +24,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import {
   BookUp, FileText, Sparkles, Eye, EyeOff, Trash2, RefreshCw,
   CheckCircle2, CircleDashed, AlertTriangle, ChevronRight, Loader2, Copy, Check,
-  NotebookPen, ListChecks, PencilRuler, Library, MoreVertical, Clock, Zap,
+  NotebookPen, ListChecks, PencilRuler, Library, MoreVertical, Clock, Zap, Tags, Pencil, Scissors, Merge, BarChart3,
 } from 'lucide-react'
 import { useApi } from '@/components/useApi'
 import { Modal } from '@/components/Modal'
@@ -46,6 +46,9 @@ interface ContentRow {
 }
 /** What GET /books/content/:id returns — the row plus the generated payload. */
 interface FullContent extends ContentRow { chapter_id: string; payload: any }
+interface SubjectOption { id: string; name: string; concepts: number }
+interface ReadStat { content_id: string; readers: number; opens: number; last_at: string | null }
+interface ConceptLink { id: string; name: string; subject: string; similarity: number }
 interface Chapter {
   id: string; position: number; title: string
   page_from: number | null; page_to: number | null; char_count: number | null
@@ -267,6 +270,44 @@ export default function BooksPage() {
         .bk-ch-title { font-size: 14.5px; font-weight: 650; }
         .bk-ch-body { animation: bk-expand .26s cubic-bezier(.22,1,.36,1) both; padding: 0 18px 16px; }
 
+        /* ── concept links ───────────────────────────────────────────────── */
+        .bk-concepts {
+          display: flex; align-items: center; gap: 7px; flex-wrap: wrap;
+          padding: 10px 12px; margin-top: 10px; border-radius: 11px;
+          background: var(--surface-2); border: 1px solid var(--line);
+        }
+        .bk-con-label {
+          display: inline-flex; align-items: center; gap: 5px;
+          font-size: 11px; font-weight: 800; letter-spacing: .05em;
+          text-transform: uppercase; color: var(--muted);
+        }
+        .bk-con-chip {
+          display: inline-flex; align-items: center; gap: 5px;
+          padding: 3px 9px; border-radius: 99px; font-size: 11.5px; font-weight: 650;
+          background: rgba(79,109,245,.1); color: var(--accent-ink);
+          border: 1px solid rgba(79,109,245,.28);
+        }
+        .bk-con-chip i { font-style: normal; opacity: .62; font-size: 10px; font-variant-numeric: tabular-nums; }
+
+        .bk-readers { display: inline-flex; align-items: center; gap: 4px; }
+        .bk-readers.has { color: #0E8A5B; font-weight: 650; }
+
+        /* ── split preview ───────────────────────────────────────────────── */
+        .bk-split-preview {
+          margin-top: 12px; padding: 12px 14px; border-radius: 11px;
+          background: var(--surface-2); border: 1px solid var(--line);
+          font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+          font-size: 11.5px; line-height: 1.65; white-space: pre-wrap; word-break: break-word;
+          max-height: 220px; overflow-y: auto;
+        }
+        .bk-split-preview .before { color: var(--muted); }
+        .bk-split-preview .after  { color: var(--ink); }
+        .bk-split-preview .cut {
+          display: inline-block; margin: 0 2px; padding: 1px 7px; border-radius: 5px;
+          background: #DC2626; color: #fff; font-weight: 800; font-size: 10px;
+          font-family: var(--font-sans, system-ui); letter-spacing: .05em;
+        }
+
         /* ── section rows ────────────────────────────────────────────────── */
         .bk-sec {
           display: flex; align-items: center; gap: 13px;
@@ -378,16 +419,23 @@ function UploadPanel({ onDone }: { onDone: () => void }) {
   const [pct, setPct] = useState(0)
   const [stage, setStage] = useState('')
   const [title, setTitle] = useState('')
+  // '' means "not chosen yet" and 'all' means "deliberately every class". The two
+  // used to be the same value, which is how a book nobody had thought about
+  // reached every student from Class 6 to 12.
   const [klass, setKlass] = useState('')
+  const [subject, setSubject] = useState('')
+  const { data: meta } = useApi<{ subjects: SubjectOption[] }>('/books/meta')
 
   const send = useCallback(async (file: File) => {
     if (!/\.pdf$/i.test(file.name)) { toast('Only PDF files can be uploaded.', 'err'); return }
     if (file.size > 40 * 1024 * 1024) { toast('That PDF is over 40 MB. Split it or compress it first.', 'err'); return }
+    if (!klass) { toast('Choose a class first — "All classes" is a choice, not a default.', 'err'); return }
 
     const form = new FormData()
     form.append('file', file)
     form.append('title', (title || file.name.replace(/\.pdf$/i, '')).trim())
-    if (klass) form.append('classLevel', klass)
+    if (klass && klass !== 'all') form.append('classLevel', klass)
+    if (subject) form.append('subjectId', subject)
 
     setBusy(true); setPct(0); setStage('Uploading…')
     try {
@@ -402,7 +450,7 @@ function UploadPanel({ onDone }: { onDone: () => void }) {
       } else {
         toast(`Extracted ${out.pages} pages into ${out.chapters} chapter${out.chapters === 1 ? '' : 's'}.`, 'ok')
       }
-      setTitle(''); setKlass('')
+      setTitle(''); setKlass(''); setSubject('')
       onDone()
     } catch (e) {
       toast(e instanceof ApiError ? e.message : 'Upload failed.', 'err')
@@ -419,11 +467,34 @@ function UploadPanel({ onDone }: { onDone: () => void }) {
           value={title} onChange={(e) => setTitle(e.target.value)} disabled={busy}
           style={{ flex: '1 1 240px' }}
         />
-        <select className="select" value={klass} onChange={(e) => setKlass(e.target.value)} disabled={busy} style={{ width: 'auto' }}>
-          <option value="">All classes</option>
+        <select className="select" value={klass} onChange={(e) => setKlass(e.target.value)} disabled={busy}
+          style={{ width: 'auto', borderColor: klass ? undefined : 'var(--accent)' }} aria-label="Class">
+          <option value="">Class… (required)</option>
           {[6, 7, 8, 9, 10, 11, 12].map((c) => <option key={c} value={c}>Class {c}</option>)}
+          <option value="all">All classes</option>
+        </select>
+
+        {/* The subject is not a label: it is the filter the concept matcher
+            searches within. Filed under nothing, a chapter is matched against
+            every concept in every subject, which is how a maths chapter picks up
+            trigonometry it never mentions. The counts say which choices help. */}
+        <select className="select" value={subject} onChange={(e) => setSubject(e.target.value)} disabled={busy}
+          style={{ width: 'auto' }} aria-label="Subject">
+          <option value="">Subject… (recommended)</option>
+          {(meta?.subjects || []).map((s) => (
+            <option key={s.id} value={s.id}>
+              {s.name}{s.concepts ? ` · ${s.concepts} concepts` : ''}
+            </option>
+          ))}
         </select>
       </div>
+
+      {!subject && (
+        <div className="faint" style={{ fontSize: 11.5, marginBottom: 10, display: 'flex', alignItems: 'center', gap: 6 }}>
+          <AlertTriangle size={12} style={{ color: '#D97706' }} />
+          Without a subject, chapters are matched against every concept in every subject — matching will be noticeably worse.
+        </div>
+      )}
 
       <div
         className={`bk-drop${over ? ' over' : ''}${busy ? ' busy' : ''}`}
@@ -471,8 +542,12 @@ function BookCard({ book, index, editable, onChanged }: {
   const [busy, setBusy] = useState(false)
   const [copied, setCopied] = useState(false)
   const { data: chapters, loading, reload } = useApi<Chapter[]>(`/books/${book.id}/chapters`)
+  const { data: reads, reload: reloadReads } = useApi<ReadStat[]>(`/books/${book.id}/reads`)
 
-  const refresh = () => { reload(); onChanged() }
+  // content id -> readers, so each section row can say whether anyone opened it
+  const readBy = new Map((reads || []).map((r) => [r.content_id, r]))
+
+  const refresh = () => { reload(); reloadReads(); onChanged() }
 
   const setPublished = async (published: boolean) => {
     // The master gate. Releasing a book whose sections are all still draft would
@@ -555,7 +630,7 @@ function BookCard({ book, index, editable, onChanged }: {
             ? <div style={{ padding: 16 }} className="faint">No chapters were detected in this PDF.</div>
             : chapters.map((c, i) => (
               <ChapterBlock key={c.id} chapter={c} index={i} editable={editable}
-                defaultOpen={i === 0} onChanged={refresh} />
+                defaultOpen={i === 0} onChanged={refresh} readBy={readBy} />
             ))}
       </div>
     </div>
@@ -564,8 +639,148 @@ function BookCard({ book, index, editable, onChanged }: {
 
 /* ═══════════════════════════ chapter ═══════════════════════════ */
 
-function ChapterBlock({ chapter, index, editable, defaultOpen, onChanged }: {
-  chapter: Chapter; index: number; editable: boolean; defaultOpen: boolean; onChanged: () => void
+/**
+ * What this chapter was matched to, and a way to redo it.
+ *
+ * Visible on purpose. These links decide which chapters a student sees first and
+ * what the app tells them they should practise, so a wrong one has to be
+ * findable and correctable rather than an unexplained reordering.
+ *
+ * Similarity is shown because it is the whole story: anything under ~0.58 is
+ * rejected as noise, and a set clustered just above it means the catalog has
+ * nothing that really covers this chapter.
+ */
+function ConceptStrip({ chapterId, editable, loadKey }: {
+  chapterId: string; editable: boolean; loadKey: number
+}) {
+  const toast = useToast()
+  const [links, setLinks] = useState<ConceptLink[] | null>(null)
+  const [busy, setBusy] = useState(false)
+
+  useEffect(() => {
+    let alive = true
+    api<ConceptLink[]>(`/books/chapter/${chapterId}/concepts`)
+      .then((d) => { if (alive) setLinks(d) })
+      .catch(() => { if (alive) setLinks([]) })
+    return () => { alive = false }
+  }, [chapterId, loadKey])
+
+  const relink = async () => {
+    setBusy(true)
+    try {
+      const out = await api<{ linked?: number }>(`/books/chapter/${chapterId}/concepts/relink`, { method: 'POST' })
+      const fresh = await api<ConceptLink[]>(`/books/chapter/${chapterId}/concepts`)
+      setLinks(fresh)
+      toast(out?.linked ? `Matched ${out.linked} concept${out.linked === 1 ? '' : 's'}` : 'No concept matched closely enough', out?.linked ? 'ok' : 'err')
+    } catch (e) { toast(e instanceof ApiError ? e.message : 'Could not re-match', 'err') } finally { setBusy(false) }
+  }
+
+  if (links === null) return <div className="bk-concepts"><Skel h={22} w={190} /></div>
+
+  return (
+    <div className="bk-concepts">
+      <span className="bk-con-label">
+        <Tags size={13} /> Teaches
+      </span>
+      {links.length ? links.map((c) => (
+        <span key={c.id} className="bk-con-chip" title={`${c.subject} · similarity ${c.similarity.toFixed(3)}`}>
+          {c.name}
+          <i>{c.similarity.toFixed(2)}</i>
+        </span>
+      )) : (
+        <span className="faint" style={{ fontSize: 11.5 }}>
+          No concept matched closely enough — students get no “practise this” hint for this chapter.
+        </span>
+      )}
+      {editable && (
+        <button className="btn-ghost sm" onClick={relink} disabled={busy} style={{ marginLeft: 'auto' }}>
+          {busy ? <Loader2 size={13} className="bk-spin" /> : <RefreshCw size={13} />} Re-match
+        </button>
+      )}
+    </div>
+  )
+}
+
+/**
+ * Cut a chapter in two.
+ *
+ * The text is shown because only a person can see where the next real chapter
+ * actually begins — detection already failed at exactly that job. The offset is
+ * a character position into the extracted text, and the preview around the cut
+ * is what makes it checkable before committing.
+ */
+function SplitDialog({ chapter, open, onClose, onDone }: {
+  chapter: Chapter; open: boolean; onClose: () => void; onDone: () => void
+}) {
+  const toast = useToast()
+  const [text, setText] = useState<{ text: string; length: number; truncated: boolean } | null>(null)
+  const [offset, setOffset] = useState(0)
+  const [title, setTitle] = useState('')
+  const [busy, setBusy] = useState(false)
+
+  useEffect(() => {
+    if (!open) { setText(null); return }
+    let alive = true
+    api<{ text: string; length: number; truncated: boolean }>(`/books/chapter/${chapter.id}/text`)
+      .then((d) => { if (alive) { setText(d); setOffset(Math.floor(d.length / 2)); setTitle(`${chapter.title} (part 2)`) } })
+      .catch(() => { if (alive) toast('Could not load the chapter text', 'err') })
+    return () => { alive = false }
+  }, [open, chapter.id, chapter.title, toast])
+
+  const run = async () => {
+    setBusy(true)
+    try {
+      await api(`/books/chapter/${chapter.id}`, { method: 'PATCH', body: { op: 'split', offset, title } })
+      toast('Chapter split — concepts are being re-matched', 'ok')
+      onDone(); onClose()
+    } catch (e) { toast(e instanceof ApiError ? e.message : 'Could not split', 'err') } finally { setBusy(false) }
+  }
+
+  const around = text ? text.text.slice(Math.max(0, offset - 220), offset + 220) : ''
+  const cutAt = text ? Math.min(220, offset) : 0
+
+  return (
+    <Modal open={open} onClose={onClose} width={720} title={`Split “${chapter.title}”`}
+      footer={
+        <>
+          <span className="faint" style={{ marginRight: 'auto', fontSize: 12 }}>
+            {text ? `${offset.toLocaleString()} / ${text.length.toLocaleString()} characters` : ''}
+          </span>
+          <button className="btn btn-ghost" onClick={onClose}>Cancel</button>
+          <button className="btn btn-primary" onClick={run} disabled={busy || !text}>
+            {busy ? <Loader2 size={15} className="bk-spin" /> : <Scissors size={15} />} Split here
+          </button>
+        </>
+      }>
+      {!text ? <><Skel h={16} /><Skel h={120} style={{ marginTop: 10 }} /></> : (
+        <>
+          <div className="faint" style={{ fontSize: 12.5, marginBottom: 10 }}>
+            Drag to where the next chapter starts. Everything after the cut becomes a new chapter;
+            existing generated content stays with the first half.
+            {text.truncated && ' (Showing the first 20,000 characters.)'}
+          </div>
+
+          <input type="range" min={200} max={Math.max(400, text.length - 200)} value={offset}
+            onChange={(e) => setOffset(parseInt(e.target.value, 10))}
+            style={{ width: '100%' }} aria-label="Split position" />
+
+          <input className="input" value={title} onChange={(e) => setTitle(e.target.value)}
+            placeholder="Title for the second half" style={{ width: '100%', marginTop: 10 }} />
+
+          <div className="bk-split-preview">
+            <span className="before">{around.slice(0, cutAt)}</span>
+            <span className="cut">✂ SPLIT HERE</span>
+            <span className="after">{around.slice(cutAt)}</span>
+          </div>
+        </>
+      )}
+    </Modal>
+  )
+}
+
+function ChapterBlock({ chapter, index, editable, defaultOpen, onChanged, readBy }: {
+  chapter: Chapter; index: number; editable: boolean; defaultOpen: boolean
+  onChanged: () => void; readBy: Map<string, ReadStat>
 }) {
   const toast = useToast()
   const [open, setOpen] = useState(defaultOpen)
@@ -577,6 +792,18 @@ function ChapterBlock({ chapter, index, editable, defaultOpen, onChanged }: {
   const [errs, setErrs] = useState<Partial<Record<Kind, string>>>({})
   const [running, setRunning] = useState(false)
   const [preview, setPreview] = useState<ContentRow | null>(null)
+  const [splitting, setSplitting] = useState(false)
+  const [renaming, setRenaming] = useState(false)
+  const [newTitle, setNewTitle] = useState(chapter.title)
+
+  // rename / merge — the two repairs that need no extra screen
+  const chapterOp = async (body: any, okMsg: string) => {
+    setBusy(true)
+    try {
+      await api(`/books/chapter/${chapter.id}`, { method: 'PATCH', body })
+      toast(okMsg, 'ok'); setRenaming(false); onChanged()
+    } catch (e) { toast(e instanceof ApiError ? e.message : 'Could not update the chapter', 'err') } finally { setBusy(false) }
+  }
 
   const byKind = (k: Kind) => chapter.content.find((c) => c.kind === k)
   const mark = (kind: Kind, s: SecState) => setState((p) => ({ ...p, [kind]: s }))
@@ -653,11 +880,40 @@ function ChapterBlock({ chapter, index, editable, defaultOpen, onChanged }: {
         onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setOpen((o) => !o) } }}>
         <ChevronRight size={17} className={`bk-chev${open ? ' open' : ''}`} />
 
-        <div style={{ minWidth: 0, flex: '1 1 220px' }}>
-          <span className="bk-ch-title">{chapter.position}. {chapter.title}</span>
-          <span className="faint" style={{ fontSize: 12, marginLeft: 9 }}>
-            {[pages, chars].filter(Boolean).join(' · ')}
-          </span>
+        <div style={{ minWidth: 0, flex: '1 1 220px' }} onClick={(e) => renaming && e.stopPropagation()}>
+          {renaming ? (
+            <div className="row gap-8" style={{ alignItems: 'center' }}>
+              <input className="input" value={newTitle} autoFocus
+                onChange={(e) => setNewTitle(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') chapterOp({ op: 'rename', title: newTitle }, 'Chapter renamed')
+                  if (e.key === 'Escape') { setRenaming(false); setNewTitle(chapter.title) }
+                }}
+                style={{ flex: '1 1 200px' }} />
+              <button className="btn btn-primary sm" disabled={busy}
+                onClick={() => chapterOp({ op: 'rename', title: newTitle }, 'Chapter renamed')}>
+                <Check size={14} />
+              </button>
+              <button className="btn btn-ghost sm" onClick={() => { setRenaming(false); setNewTitle(chapter.title) }}>
+                Cancel
+              </button>
+            </div>
+          ) : (
+            <>
+              <span className="bk-ch-title">{chapter.position}. {chapter.title}</span>
+              <span className="faint" style={{ fontSize: 12, marginLeft: 9 }}>
+                {[pages, chars].filter(Boolean).join(' · ')}
+              </span>
+              {/* Generation only ever reads the first 14,000 characters, so a
+                  chapter far past that is mostly invisible to the model. Saying
+                  so is how an admin knows to split it. */}
+              {(chapter.char_count || 0) > 20000 && (
+                <span className="bk-chip draft" style={{ marginLeft: 8 }}>
+                  <AlertTriangle size={11} /> only first 14k used
+                </span>
+              )}
+            </>
+          )}
         </div>
 
         <div className="row gap-8" style={{ alignItems: 'center' }} onClick={(e) => e.stopPropagation()}>
@@ -683,6 +939,9 @@ function ChapterBlock({ chapter, index, editable, defaultOpen, onChanged }: {
 
         <div onClick={(e) => e.stopPropagation()}>
           <Kebab items={editable ? [
+            { label: 'Rename chapter', icon: Pencil, onClick: () => { setNewTitle(chapter.title); setRenaming(true) }, disabled: busy },
+            { label: 'Split into two…', icon: Scissors, onClick: () => setSplitting(true), disabled: busy },
+            { label: 'Merge into previous', icon: Merge, onClick: () => chapterOp({ op: 'merge-up' }, 'Merged into the chapter above'), disabled: busy || index === 0 },
             { label: 'Regenerate all content', icon: RefreshCw, onClick: () => generateAll(true), disabled: running || !filled },
             { label: chapter.visible ? 'Hide from students' : 'Show to students', icon: chapter.visible ? EyeOff : Eye, onClick: () => setVisible(!chapter.visible), disabled: busy },
           ] : []} />
@@ -699,6 +958,7 @@ function ChapterBlock({ chapter, index, editable, defaultOpen, onChanged }: {
 
       {open && (
         <div className="bk-ch-body">
+          <ConceptStrip chapterId={chapter.id} editable={editable} loadKey={index} />
           {SECTIONS.map((meta, i) => (
             <SectionRow
               key={meta.kind}
@@ -712,6 +972,7 @@ function ChapterBlock({ chapter, index, editable, defaultOpen, onChanged }: {
               onGenerate={() => generateOne(meta.kind)}
               onPreview={(r) => setPreview(r)}
               onChanged={onChanged}
+              read={byKind(meta.kind) ? readBy.get(byKind(meta.kind)!.id) : undefined}
             />
           ))}
         </div>
@@ -719,13 +980,14 @@ function ChapterBlock({ chapter, index, editable, defaultOpen, onChanged }: {
 
       <ContentPreview row={preview} open={!!preview} onClose={() => setPreview(null)}
         editable={editable} onChanged={onChanged} />
+      <SplitDialog chapter={chapter} open={splitting} onClose={() => setSplitting(false)} onDone={onChanged} />
     </div>
   )
 }
 
 /* ═══════════════════════════ one sub-section ═══════════════════════════ */
 
-function SectionRow({ meta, row, state, err, index, editable, chapterVisible, onGenerate, onPreview, onChanged }: {
+function SectionRow({ meta, row, state, err, index, editable, chapterVisible, onGenerate, onPreview, onChanged, read }: {
   meta: typeof SECTIONS[number]
   row?: ContentRow
   state: SecState
@@ -736,6 +998,7 @@ function SectionRow({ meta, row, state, err, index, editable, chapterVisible, on
   onGenerate: () => void
   onPreview: (r: ContentRow) => void
   onChanged: () => void
+  read?: ReadStat
 }) {
   const toast = useToast()
   const [busy, setBusy] = useState(false)
@@ -775,6 +1038,18 @@ function SectionRow({ meta, row, state, err, index, editable, chapterVisible, on
 
       <StatusChip row={row} busy={state === 'idle' ? undefined : state} />
       <span className="bk-sec-stat">· {stat}</span>
+
+      {/* Readers. Only meaningful once something is live — before that, "0 readers"
+          would read as a failure when it only means nobody could see it yet. */}
+      {row && live && (
+        <span className={'bk-sec-stat bk-readers' + (read && read.readers ? ' has' : '')}
+          title={read && read.last_at ? `Last opened ${timeAgo(read.last_at)}` : 'Nobody has opened this yet'}>
+          <BarChart3 size={12} />
+          {read && read.readers
+            ? `${read.readers} reader${read.readers === 1 ? '' : 's'}`
+            : 'no readers yet'}
+        </span>
+      )}
 
       <span className="bk-vline" />
 
@@ -826,6 +1101,28 @@ function ContentPreview({ row, open, onClose, editable, onChanged }: {
   const [loading, setLoading] = useState(false)
   const [err, setErr] = useState<string | null>(null)
   const [saving, setSaving] = useState(false)
+  const [editing, setEditing] = useState(false)
+  const [draft, setDraft] = useState('')
+
+  useEffect(() => { setEditing(false); setDraft('') }, [open, row])
+
+  // Save a hand-corrected version. The server re-validates the shape and forces
+  // the row back to draft — a correction is a change students should not receive
+  // until someone has re-read it.
+  const save = async () => {
+    if (!row) return
+    let parsed: any
+    try { parsed = JSON.parse(draft) }
+    catch { toast('That is not valid JSON — check for a missing comma or quote.', 'err'); return }
+    setSaving(true)
+    try {
+      await api(`/books/content/${row.id}`, { method: 'PATCH', body: { payload: parsed } })
+      const fresh = await api<FullContent>(`/books/content/${row.id}`)
+      setData(fresh); setEditing(false)
+      toast('Saved as draft — publish it when you are happy', 'ok')
+      onChanged()
+    } catch (e) { toast(e instanceof ApiError ? e.message : 'Could not save', 'err') } finally { setSaving(false) }
+  }
 
   useEffect(() => {
     if (!open || !row) { setData(null); setErr(null); return }
@@ -861,17 +1158,46 @@ function ContentPreview({ row, open, onClose, editable, onChanged }: {
             {live ? 'Live for students' : 'Draft — not visible to students'}
             {data?.model ? ` · ${data.model}` : ''}
           </span>
-          <button className="btn btn-ghost" onClick={onClose}>Close</button>
-          {editable && (live
-            ? <button className="btn" onClick={() => setStatus('draft')} disabled={saving}><EyeOff size={15} /> Unpublish</button>
-            : <button className="btn btn-primary" onClick={() => setStatus('published')} disabled={saving || loading || !!err}><Eye size={15} /> Publish to students</button>
+          {editing ? (
+            <>
+              <button className="btn btn-ghost" onClick={() => setEditing(false)} disabled={saving}>Cancel</button>
+              <button className="btn btn-primary" onClick={save} disabled={saving}>
+                {saving ? <Loader2 size={15} className="bk-spin" /> : <Check size={15} />} Save correction
+              </button>
+            </>
+          ) : (
+            <>
+              <button className="btn btn-ghost" onClick={onClose}>Close</button>
+              {editable && data && (
+                <button className="btn btn-ghost" onClick={() => { setDraft(JSON.stringify(data.payload, null, 2)); setEditing(true) }}>
+                  <Pencil size={15} /> Edit
+                </button>
+              )}
+              {editable && (live
+                ? <button className="btn" onClick={() => setStatus('draft')} disabled={saving}><EyeOff size={15} /> Unpublish</button>
+                : <button className="btn btn-primary" onClick={() => setStatus('published')} disabled={saving || loading || !!err}><Eye size={15} /> Publish to students</button>
+              )}
+            </>
           )}
         </>
       }
     >
       {loading && <><Skel h={18} /><Skel h={14} style={{ marginTop: 10 }} /><Skel h={14} style={{ marginTop: 6 }} /></>}
       {err && <ErrorState message={err} />}
-      {data && !loading && !err && <PayloadView kind={data.kind} payload={data.payload} />}
+      {data && !loading && !err && (editing ? (
+        <>
+          <div className="faint" style={{ fontSize: 12, marginBottom: 8 }}>
+            Correct the content below. The shape is checked on save, and the piece returns to draft so
+            nobody receives the change before it is re-read.
+            {data.source === 'manual' && ' This piece has already been edited by hand.'}
+          </div>
+          <textarea
+            className="input" value={draft} onChange={(e) => setDraft(e.target.value)}
+            spellCheck={false}
+            style={{ width: '100%', minHeight: 360, fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace', fontSize: 12.5, lineHeight: 1.55 }}
+          />
+        </>
+      ) : <PayloadView kind={data.kind} payload={data.payload} />)}
     </Modal>
   )
 }

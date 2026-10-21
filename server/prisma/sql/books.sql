@@ -126,3 +126,23 @@ CREATE TABLE IF NOT EXISTS "book_chapter_concepts" (
 
 -- The student read: "which of this book's chapters touch concepts I am weak on".
 CREATE INDEX IF NOT EXISTS "bcc_concept_idx" ON "book_chapter_concepts" ("concept_id");
+
+-- ── Who read what ────────────────────────────────────────────────────────────
+-- Generation costs model spend per chapter per kind. Without this there is no
+-- way to answer "did anyone open it", so there is no way to tell good generated
+-- content from content nobody has ever seen.
+--
+-- One row per (student, content), counting opens rather than appending events:
+-- a feed of every open would grow without bound for a question nobody needs
+-- answered at that resolution.
+CREATE TABLE IF NOT EXISTS "book_reads" (
+  "content_id" uuid NOT NULL REFERENCES "book_content"("id") ON DELETE CASCADE,
+  "user_id"    uuid NOT NULL REFERENCES "users"("id") ON DELETE CASCADE,
+  "opens"      integer NOT NULL DEFAULT 1,
+  "first_at"   timestamptz NOT NULL DEFAULT now(),
+  "last_at"    timestamptz NOT NULL DEFAULT now(),
+  PRIMARY KEY ("content_id", "user_id")
+);
+
+-- "How many distinct students opened this piece" — the admin read.
+CREATE INDEX IF NOT EXISTS "book_reads_content_idx" ON "book_reads" ("content_id");

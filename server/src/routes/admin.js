@@ -181,17 +181,22 @@ router.post('/resources/upload-image', requirePermission('content.edit'), imageU
 // and decide what students see. Every verb here is a write except the two lists,
 // and all of them are behind content permissions — the student side is read-only.
 router.get('/books', requirePermission('content.view'), booksCtrl.list)
+router.get('/books/meta', requirePermission('content.view'), booksCtrl.meta)   // before /books/:id
 router.post('/books', requirePermission('content.edit'), pdfUpload.single('file'), booksCtrl.upload)
 router.get('/books/:id/chapters', requirePermission('content.view'), booksCtrl.chapters)
+router.get('/books/:id/reads', requirePermission('content.view'), booksCtrl.reads)
 router.patch('/books/:id', requirePermission('content.edit'), booksCtrl.update)
 router.post('/books/:id/publish', requirePermission('content.edit'), booksCtrl.publish)
 router.delete('/books/:id', requirePermission('content.edit'), booksCtrl.remove)
 router.post('/books/chapter/:chapterId/generate', requirePermission('content.edit'), booksCtrl.generate)
 router.post('/books/chapter/:chapterId/visible', requirePermission('content.edit'), booksCtrl.setChapterVisible)
+router.get('/books/chapter/:chapterId/text', requirePermission('content.view'), booksCtrl.chapterText)
+router.patch('/books/chapter/:chapterId', requirePermission('content.edit'), booksCtrl.editChapter)
 router.get('/books/chapter/:chapterId/concepts', requirePermission('content.view'), booksCtrl.concepts)
 router.post('/books/chapter/:chapterId/concepts/relink', requirePermission('content.edit'), booksCtrl.relinkConcepts)
 router.get('/books/content/:id', requirePermission('content.view'), booksCtrl.content)
 router.post('/books/content/:id/status', requirePermission('content.edit'), booksCtrl.setStatus)
+router.patch('/books/content/:id', requirePermission('content.edit'), booksCtrl.updateContent)
 router.delete('/resources/chapters/:id', requirePermission('content.edit'), resCtrl.deleteChapter)
 
 // ─── Audit Logs ────────────────────────────────────────────────────────────────

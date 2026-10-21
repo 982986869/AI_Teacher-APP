@@ -146,6 +146,142 @@ async function ingest(buffer, meta) {
 
 // ─── Reads ───────────────────────────────────────────────────────────────────
 
+/**
+ * Subjects an uploaded book can be filed under.
+ *
+ * `concepts` counts how many catalog concepts that subject has, because the
+ * subject is not a label — it is the filter the concept matcher searches within.
+ * A book filed under a subject with no concepts gets matched against all 1,400+
+ * across every subject, which is how a maths chapter ends up tagged with
+ * trigonometry it never mentions. The admin should be able to see which choices
+ * actually buy them accurate matching.
+ */
+/**
+ * Replace a piece of content with a hand-corrected version.
+ *
+ * Marks the row `manual`, which is what the `source` column was added for: a
+ * later "regenerate everything the AI made" must not silently overwrite a
+ * sentence a person fixed. Until now nothing ever wrote that value, so the only
+ * remedy for a wrong quiz answer was regenerating the whole section and losing
+ * every other correction with it.
+ */
+/**
+ * Chapter surgery — what makes bad auto-detection recoverable.
+ *
+ * Detection finds boundaries from heading patterns and gets them wrong: a book
+ * here produced one "chapter" spanning pages 39–150, holding 146k of its 212k
+ * characters. Generation reads the first 14k, so roughly 90% of that book was
+ * invisible to the model and no amount of regenerating would help. The PDF is
+ * deleted after extraction, so re-detecting is not an option either — the text
+ * in these rows is the only copy. Editing it is therefore the only repair.
+ */
+async function renameChapter(id, title) {
+  const t = String(title || '').trim()
+  if (!t) throw new Error('A chapter needs a title')
+  const n = await db.$executeRawUnsafe(
+    `UPDATE "book_chapters" SET title = $2 WHERE id = $1::uuid`, id, t.slice(0, 300))
+  return n > 0
+}
+
+/**
+ * Fold a chapter into the one before it: text joined, page range widened, and
+ * the absorbed row deleted (its content and concept links cascade away with it).
+ * Used when detection split one real chapter across two rows.
+ */
+async function mergeChapterUp(id) {
+  const [me] = await db.$queryRawUnsafe(
+    `SELECT id::text AS id, book_id::text AS book_id, position, title, page_from, page_to, text
+       FROM "book_chapters" WHERE id = $1::uuid`, id)
+  if (!me) throw new Error('Chapter not found')
+  const [prev] = await db.$queryRawUnsafe(
+    `SELECT id::text AS id, page_from, page_to, text FROM "book_chapters"
+      WHERE book_id = $1::uuid AND position < $2 ORDER BY position DESC LIMIT 1`, me.book_id, me.position)
+  if (!prev) throw new Error('This is the first chapter — there is nothing above it')
+
+  const joined = `${prev.text || ''}\n\n${me.text || ''}`
+  await db.$executeRawUnsafe(
+    `UPDATE "book_chapters"
+        SET text = $2, char_count = $3::int,
+            page_to = GREATEST(COALESCE(page_to, 0), COALESCE($4::int, 0))
+      WHERE id = $1::uuid`, prev.id, joined, joined.length, me.page_to)
+  await db.$executeRawUnsafe(`DELETE FROM "book_chapters" WHERE id = $1::uuid`, me.id)
+  await resequence(me.book_id)
+  return { mergedInto: prev.id }
+}
+
+/**
+ * Cut a chapter in two at a character offset. The offset comes from the admin
+ * reading the text, because only a person can see where the real chapter starts.
+ *
+ * Positions are made room for rather than renumbered blindly, so every later
+ * chapter keeps its order and the UNIQUE(book_id, position) constraint holds
+ * throughout. The split runs in a transaction: a half-applied split would leave
+ * the book with a duplicate position and no way back.
+ */
+async function splitChapter(id, offset, newTitle) {
+  const [me] = await db.$queryRawUnsafe(
+    `SELECT id::text AS id, book_id::text AS book_id, position, title, page_from, page_to, text
+       FROM "book_chapters" WHERE id = $1::uuid`, id)
+  if (!me) throw new Error('Chapter not found')
+  const text = String(me.text || '')
+  const at = Math.max(200, Math.min(text.length - 200, parseInt(offset, 10) || 0))
+  if (text.length < 500) throw new Error('This chapter is too short to split')
+
+  const head = text.slice(0, at)
+  const tail = text.slice(at)
+  // Page numbers are an estimate once a chapter is cut mid-page; splitting the
+  // range proportionally is closer to the truth than leaving both halves
+  // claiming the whole span.
+  const span = (me.page_to || 0) - (me.page_from || 0)
+  const mid = me.page_from != null && span > 0
+    ? Math.round((me.page_from || 0) + span * (at / text.length))
+    : me.page_to
+
+  await db.$transaction(async (tx) => {
+    await tx.$executeRawUnsafe(
+      `UPDATE "book_chapters" SET position = position + 1000 WHERE book_id = $1::uuid AND position > $2`,
+      me.book_id, me.position)
+    await tx.$executeRawUnsafe(
+      `UPDATE "book_chapters" SET text = $2, char_count = $3::int, page_to = $4::int WHERE id = $1::uuid`,
+      me.id, head, head.length, mid)
+    await tx.$executeRawUnsafe(
+      `INSERT INTO "book_chapters" (book_id, position, title, page_from, page_to, text, char_count)
+       VALUES ($1::uuid, $2::int, $3, $4::int, $5::int, $6, $7::int)`,
+      me.book_id, me.position + 1, String(newTitle || `${me.title} (part 2)`).slice(0, 300),
+      mid, me.page_to, tail, tail.length)
+    await tx.$executeRawUnsafe(
+      `UPDATE "book_chapters" SET position = position - 999 WHERE book_id = $1::uuid AND position > 1000`,
+      me.book_id)
+  })
+  return { ok: true }
+}
+
+/** Close gaps left by a delete or merge so positions stay 1..n. */
+async function resequence(bookId) {
+  await db.$executeRawUnsafe(
+    `WITH ordered AS (
+       SELECT id, row_number() OVER (ORDER BY position) AS rn
+         FROM "book_chapters" WHERE book_id = $1::uuid)
+     UPDATE "book_chapters" c SET position = o.rn + 1000
+       FROM ordered o WHERE c.id = o.id`, bookId)
+  await db.$executeRawUnsafe(
+    `UPDATE "book_chapters" SET position = position - 1000 WHERE book_id = $1::uuid AND position > 1000`, bookId)
+}
+
+async function updateContentPayload(id, payload) {
+  const n = await db.$executeRawUnsafe(
+    `UPDATE "book_content"
+        SET payload = $2::jsonb, source = 'manual', updated_at = now()
+      WHERE id = $1::uuid`, id, JSON.stringify(payload))
+  return n > 0
+}
+
+const subjectOptions = () => db.$queryRawUnsafe(
+  `SELECT s.id::text AS id, s.name,
+          (SELECT count(*) FROM "concepts" c WHERE c.subject = s.name)::int AS concepts
+     FROM "subjects" s
+    ORDER BY (SELECT count(*) FROM "concepts" c2 WHERE c2.subject = s.name) DESC, s.name`)
+
 async function list({ search, status } = {}) {
   const conds = []
   const params = []
@@ -333,6 +469,31 @@ const visibleBooksFor = (classLevel, userId = null) => db.$queryRawUnsafe(
 
 // All three gates checked in one query. This is the only route by which a student
 // reads generated content, so a gate missing here is a gate that does not exist.
+/**
+ * Record that a student opened a piece of content.
+ *
+ * Upsert rather than append: the question is "how many distinct students opened
+ * this", and an event row per open would grow without bound to answer it at a
+ * resolution nobody needs. Called fire-and-forget from the read path — a failure
+ * here must never cost a student their content.
+ */
+const recordRead = (contentId, userId) => db.$executeRawUnsafe(
+  `INSERT INTO "book_reads" (content_id, user_id) VALUES ($1::uuid, $2::uuid)
+   ON CONFLICT (content_id, user_id)
+   DO UPDATE SET opens = "book_reads".opens + 1, last_at = now()`, contentId, userId)
+
+/** Reader counts per piece, for the admin. */
+const readStats = (bookId) => db.$queryRawUnsafe(
+  `SELECT bc.id::text AS content_id,
+          count(DISTINCT r.user_id)::int AS readers,
+          COALESCE(sum(r.opens), 0)::int AS opens,
+          max(r.last_at) AS last_at
+     FROM "book_content" bc
+     JOIN "book_chapters" c ON c.id = bc.chapter_id
+     LEFT JOIN "book_reads" r ON r.content_id = bc.id
+    WHERE c.book_id = $1::uuid
+    GROUP BY bc.id`, bookId)
+
 const visibleContent = async (chapterId, kind) => {
   const r = await db.$queryRawUnsafe(
     `SELECT bc.id::text AS id, bc.kind, bc.title, bc.payload
@@ -345,7 +506,8 @@ const visibleContent = async (chapterId, kind) => {
 
 module.exports = {
   KINDS, MAX_PAGES, sha256, findByHash, ingest, detectChapters,
-  list, chapters, chapterText, getContent,
-  saveContent, setContentStatus, setBookPublished, setChapterVisible, updateBook, remove,
-  visibleBooks, visibleBooksFor, visibleChapters, visibleContent,
+  list, subjectOptions, chapters, chapterText, getContent,
+  saveContent, updateContentPayload, setContentStatus, setBookPublished, setChapterVisible, updateBook, remove,
+  renameChapter, mergeChapterUp, splitChapter,
+  visibleBooks, visibleBooksFor, visibleChapters, visibleContent, recordRead, readStats,
 }
