@@ -13,3 +13,12 @@ dist/
 # scripts/textbooks/*; only the final chNN.json is committed.
 data/textbooks/pdf/
 data/textbooks/**/*.raw.json
+
+# Question images served by express.static (src/index.js). These are runtime
+# assets written per environment, not source — the real ones live in Supabase
+# storage and anything here is a local copy.
+#
+# Paths in a .gitignore are relative to the file's OWN directory, so this must
+# NOT be prefixed with `server/`: that would resolve to server/server/public/…
+# and silently match nothing, which is exactly what the earlier rule did.
+public/question-images/
