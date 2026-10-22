@@ -82,6 +82,7 @@ SLIDE TITLES: specific, board-style — what a teacher writes on the board. NEVE
 LANGUAGE: clear ENGLISH (slideTitle, explanation, narrationText, labels). (Language changes only when a STUDENT asks a doubt — handled separately.)
 
 OUTPUT CONTRACT (critical):
+- If the user message contains a SOURCE MATERIAL block, it is the student's own textbook and is authoritative for content, order and terminology.
 - Respond with ONE valid JSON object and NOTHING else — no markdown, no code fences, no commentary.
 - 7 to 10 slides, each teaching EXACTLY ONE idea, in a logical build. Keep it COMPACT so the JSON is always complete and valid.
 - Per slide output these keys: slideNumber, slideTitle, explanation, narrationText, visualType, visualData — plus OPTIONALLY "check" AND its paired "reteach" (see below) on 1 to 2 key concept slides. The app fills in everything else automatically.
@@ -99,6 +100,7 @@ OUTPUT CONTRACT (critical):
       "slideTitle": string,         // clear, board-style title
       "explanation": string,        // 1 short on-screen line
       "narrationText": string,      // 3-5 short spoken teacher lines (read aloud)
+      "boardNotes": string[],       // 2-4 short notes she WRITES on the board as she says them (see BOARD NOTES)
       "visualType": "DIAGRAM" | "CHART" | "EXAMPLE" | "ANALOGY" | "FORMULA" | "NONE",
       "visualData": object          // shape depends on visualType (below) + a "keyPoints": string[] member
     }
@@ -112,6 +114,12 @@ visualData SHAPE BY visualType (use EXACTLY these keys, and ALWAYS add "keyPoint
 - ANALOGY: { "realWorldObject": string, "comparison": string, "keyPoints": string[] }
 - FORMULA: { "formula": string, "variables": [{ "symbol": string, "meaning": string }], "explanation": string, "keyPoints": string[] }
 - NONE:    { "keyPoints": string[] }
+
+BOARD NOTES ("boardNotes") — like a real teacher at a whiteboard, she SPEAKS full sentences but WRITES only what matters. On every slide give 2 to 4 notes, in the order she says them:
+- each note 2 to 7 words: a key term, a rule, a cause → effect arrow ("hot tea → cooler room"), a value, or a short formula
+- never a full sentence, never a copy of the narration, no filler ("Let us", "Now", "Remember that")
+- use the exact words the narration uses for that idea, so the note appears as she says it
+- the slide title and the formula are written separately — do not repeat them
 
 OPTIONAL COMPREHENSION CHECK ("check") — put it on the 1 to 2 MOST IMPORTANT concept slides (and you may add one on the recap). It tests whether the student UNDERSTOOD the idea — never rote recall, never "define X". Grade-aware:
 - Juniors: one simple, friendly, one-step question.
@@ -234,21 +242,47 @@ function preferenceLine(profile = {}) {
   return parts.join(' ')
 }
 
-function buildLessonUserPrompt(topic, subject, gradeLevel, profile = {}) {
-  const pl = profileLine(profile)
-  const lg = levelGuidance(gradeLevel, profile)
-  const ll = learnerLine(profile)
-  const pref = preferenceLine(profile)
+// Bump whenever the SOURCE wording below (or anything that changes what a cached book
+// lesson would say) changes — it is part of the textbook_lessons cache key.
+const PROMPT_VERSION = 5
+
+// The student's own textbook text, as one block. Sent by the provider as its OWN
+// content block with cache_control (the same chapter is hit by many students), so it
+// is deliberately NOT embedded in buildLessonUserPrompt.
+function buildSourceBlock(source) {
+  const classLabel = source.classLevel ? `Class ${source.classLevel}` : 'Class 10'
+  const scope = source.kind === 'summary' ? ' (whole chapter)' : `, section(s) ${source.topicLabel}`
+  const body = source.topics.map((t) => `[${t.number} ${t.title}]\n${t.text}`).join('\n\n')
+  return `SOURCE MATERIAL — NCERT ${classLabel} ${source.book.title}, Chapter ${source.chapter.number} "${source.chapter.title}"${scope} (this is the student's own textbook; it is authoritative):\n<<<\n${body}\n>>>`
+}
+
+const SOURCE_RULES = `TEACH FROM THE SOURCE (the SOURCE MATERIAL block above): use its definitions, notation, worked examples and numbering; when you add an analogy or an extra example of your own, say so briefly ("here's one more…"); do not introduce results the source does not contain. Mention a section number at most ONCE per lesson — only in the opening slide ("this is from 7.3 in your book") so the student can find the place; never repeat it in later narration, and never say "as the section says" or "the book says in 7.3" mid-explanation. Teach the idea, not the page. To the student it is always "your textbook" or "the book" — never "the source" or "the source material" in any slide title or narration. If the source text is garbled by PDF extraction (lost superscripts, joined words, stray symbols, fractions split across lines), read through it — never repeat the garbling.`
+
+const SUMMARY_RULES = `LESSON KIND — CHAPTER SUMMARY: this is a spoken overview of the WHOLE chapter in 8 to 10 slides: one slide per major section (merge small ones), each stating the section's key idea, its one must-know formula or definition, and one line on why it matters for the exam. End with a "what to revise" slide naming the topics to revise in plain words (section numbers only if the student needs them to find the page, at most one list). Do not go deep on any one section.`
+
+function buildLessonUserPrompt(topic, subject, gradeLevel, profile = {}, source = null) {
+  // Book lessons are shared across students: the cache key is (chapter, topics, grade,
+  // teaching mode, explanation style) and NOTHING else may shape the prompt, or the
+  // first student's language / board / stream / pace / goal / exam date / mastery would
+  // be served to everyone after them. The free-topic path keeps the full profile.
+  const shared = source
+    ? { mode: profile.mode, prefs: profile.prefs && profile.prefs.explanationStyle ? { explanationStyle: profile.prefs.explanationStyle } : null }
+    : profile
+  const pl = source ? '' : profileLine(profile)
+  const lg = levelGuidance(gradeLevel, shared)
+  const ll = source ? '' : learnerLine(profile)
+  const pref = preferenceLine(shared)
   const md = modePrompt(profile.mode)
+  const src = source ? `\n${SOURCE_RULES}${source.kind === 'summary' ? `\n${SUMMARY_RULES}` : ''}` : ''
   return `Create a classroom lesson. Return ONLY the JSON object defined in the system prompt — no markdown, no extra text.
 
 Topic: ${topic}
 Subject: ${subject}
-Grade level: ${gradeLevel}${pl ? `\n${pl}` : ''}${lg ? `\n${lg}` : ''}${md ? `\n${md}` : ''}${pref ? `\nHOW THIS STUDENT LIKES TO LEARN: ${pref}` : ''}${ll ? `\nWHAT I REMEMBER ABOUT THIS STUDENT (adapt the lesson to them, but keep it implicit): ${ll}` : ''}
+Grade level: ${gradeLevel}${pl ? `\n${pl}` : ''}${lg ? `\n${lg}` : ''}${md ? `\n${md}` : ''}${pref ? `\nHOW THIS STUDENT LIKES TO LEARN: ${pref}` : ''}${ll ? `\nWHAT I REMEMBER ABOUT THIS STUDENT (adapt the lesson to them, but keep it implicit): ${ll}` : ''}${src}
 
 ALWAYS teach ${topic} — never refuse it and never say it is "outside your syllabus".
 PLAN it first like a teacher (privately): the learning objective for a Class ${gradeLevel} student; the concepts this topic requires at this class; the prerequisites (review them in at most one short slide — for Class 11–12 assume them); if the topic is broad, the single best focus for this class and duration; then the logical slide-by-slide progression toward the objective.
 Then teach 7 to 10 slides that build logically toward that objective, at the DEPTH in the LEVEL line above — a senior lesson must be conceptually deep with reasoning and a short derivation, NOT a middle-school introduction. Every slide title must match its visual. Teach by REASONING (guiding question, "notice this", derive the key result), not by reading facts. Sound like a real Class ${gradeLevel} teacher, not a chatbot.`
 }
 
-module.exports = { buildLessonSystemPrompt, buildLessonUserPrompt, profileLine, levelGuidance, learnerLine, preferenceLine, LESSON_JSON_SCHEMA }
+module.exports = { buildLessonSystemPrompt, buildLessonUserPrompt, buildSourceBlock, profileLine, levelGuidance, learnerLine, preferenceLine, LESSON_JSON_SCHEMA, PROMPT_VERSION, SOURCE_RULES, SUMMARY_RULES }

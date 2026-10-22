@@ -38,18 +38,16 @@ router.use(authenticate)
 // ─── Validation rules ─────────────────────────────────────────────────────────
 
 const generateRules = [
-  body('topic')
-    .trim()
-    .notEmpty().withMessage('topic is required')
-    .isLength({ max: 200 }).withMessage('topic must be 200 characters or fewer'),
-  body('subject')
-    .trim()
-    .notEmpty().withMessage('subject is required')
-    .isLength({ max: 100 }).withMessage('subject must be 100 characters or fewer'),
-  body('gradeLevel')
-    .trim()
-    .notEmpty().withMessage('gradeLevel is required')
-    .isLength({ max: 20 }).withMessage('gradeLevel must be 20 characters or fewer'),
+  // With a textbook `source` the topic/subject are derived server-side, so they are
+  // optional; the free-topic path still requires a topic.
+  body('topic').optional({ values: 'falsy' }).trim().isLength({ max: 200 }).withMessage('topic must be 200 characters or fewer'),
+  body('subject').optional({ values: 'falsy' }).trim().isLength({ max: 100 }).withMessage('subject must be 100 characters or fewer'),
+  body('gradeLevel').optional({ values: 'falsy' }).trim().isLength({ max: 20 }).withMessage('gradeLevel must be 20 characters or fewer'),
+  body('source').optional().isObject().withMessage('source must be an object'),
+  body('topic').custom((v, { req }) => {
+    if (!req.body.source && !(v && String(v).trim())) throw new Error('topic is required')
+    return true
+  }),
 ]
 
 const doubtRules = [
@@ -76,6 +74,7 @@ const askRules = [
   body('level').optional().isIn(['beginner', 'intermediate', 'advanced']).withMessage('invalid level'),
   body('mode').optional().isString().isLength({ max: 40 }),
   body('pending').optional().isObject(),
+  body('board').optional().isBoolean(),
 ]
 
 const progressRules = [

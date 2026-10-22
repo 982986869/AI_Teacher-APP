@@ -11,7 +11,7 @@
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 
 const DockVisibilityContext = createContext({
-  hidden: false, height: 0, immersive: false, report: () => {}, pushImmersive: () => () => {},
+  hidden: false, height: 0, immersive: false, hideDock: false, report: () => {}, pushImmersive: () => () => {},
 });
 
 export function DockVisibilityProvider({ children }) {
@@ -22,6 +22,9 @@ export function DockVisibilityProvider({ children }) {
   // be mounted at once (a quiz opened from a lesson), and the inner one unmounting must
   // not un-hide the bubble while the outer one is still up.
   const [claims, setClaims] = useState(0);
+  // A screen that needs the WHOLE display (the landscape lesson board) also asks for
+  // the dock itself to go; ordinary immersive screens only move the Help bubble.
+  const [dockClaims, setDockClaims] = useState(0);
 
   const report = useCallback((next) => setState((prev) => (
     (prev.hidden === next.hidden && prev.height === next.height) ? prev : { ...prev, ...next }
@@ -29,19 +32,21 @@ export function DockVisibilityProvider({ children }) {
 
   // Returns its own release function so a caller can only ever give back its own claim,
   // even if it releases twice (StrictMode double-invokes effect cleanups).
-  const pushImmersive = useCallback(() => {
+  const pushImmersive = useCallback((hideDock = false) => {
     setClaims((n) => n + 1);
+    if (hideDock) setDockClaims((n) => n + 1);
     let released = false;
     return () => {
       if (released) return;
       released = true;
       setClaims((n) => Math.max(0, n - 1));
+      if (hideDock) setDockClaims((n) => Math.max(0, n - 1));
     };
   }, []);
 
   const value = useMemo(
-    () => ({ ...state, immersive: claims > 0, report, pushImmersive }),
-    [state, claims, report, pushImmersive],
+    () => ({ ...state, immersive: claims > 0, hideDock: dockClaims > 0, report, pushImmersive }),
+    [state, claims, dockClaims, report, pushImmersive],
   );
   return <DockVisibilityContext.Provider value={value}>{children}</DockVisibilityContext.Provider>;
 }
@@ -53,12 +58,12 @@ export function useDockVisibility() {
 // Call from a full-screen experience that owns the bottom of the screen (its own action
 // bar, composer, or timer) so the floating Help bubble gets out of the way for as long
 // as it is mounted. Safe outside the provider — the default context no-ops.
-export function useImmersiveScreen(active = true) {
+export function useImmersiveScreen(active = true, { hideDock = false } = {}) {
   const { pushImmersive } = useContext(DockVisibilityContext);
   useEffect(() => {
     if (!active) return undefined;
-    return pushImmersive();
-  }, [active, pushImmersive]);
+    return pushImmersive(hideDock);
+  }, [active, hideDock, pushImmersive]);
 }
 
 export default DockVisibilityContext;

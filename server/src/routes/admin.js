@@ -26,11 +26,15 @@ const auditCtrl = require('../controllers/admin/audit.controller')
 const errorLogsCtrl = require('../controllers/admin/errorLogs.controller')
 const aiCtrl = require('../controllers/admin/aiTeacher.controller')
 const uploadsCtrl = require('../controllers/admin/uploads.controller')
+const booksCtrl = require('../controllers/admin/books.controller')
 
 const router = Router()
 
 // In-memory image upload for authored question/option diagrams (max 5 MB, one file).
 const imageUpload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 5 * 1024 * 1024, files: 1 } })
+// Textbook PDFs run to tens of megabytes; 40 MB covers a scanned NCERT volume
+// without inviting someone to post a gigabyte at a free-tier instance.
+const pdfUpload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 40 * 1024 * 1024, files: 1 } })
 
 // ─── Auth (public login, then everything below requires an admin session) ──────
 router.post('/auth/login', authCtrl.login)
@@ -171,6 +175,28 @@ router.put('/resources/chapters/:id/notes', requirePermission('content.edit'), r
 router.get('/resources/chapters/:id/questions/:type', requirePermission('content.view'), resCtrl.chapterQuestions)
 router.put('/resources/chapters/:id/questions/:type', requirePermission('content.edit'), resCtrl.saveChapterQuestions)
 router.post('/resources/upload-image', requirePermission('content.edit'), imageUpload.single('file'), uploadsCtrl.uploadContentImage)
+
+// ── Uploaded books ──────────────────────────────────────────────────────────
+// Upload a PDF, generate notes / quiz / practice / resources per chapter, review,
+// and decide what students see. Every verb here is a write except the two lists,
+// and all of them are behind content permissions — the student side is read-only.
+router.get('/books', requirePermission('content.view'), booksCtrl.list)
+router.get('/books/meta', requirePermission('content.view'), booksCtrl.meta)   // before /books/:id
+router.post('/books', requirePermission('content.edit'), pdfUpload.single('file'), booksCtrl.upload)
+router.get('/books/:id/chapters', requirePermission('content.view'), booksCtrl.chapters)
+router.get('/books/:id/reads', requirePermission('content.view'), booksCtrl.reads)
+router.patch('/books/:id', requirePermission('content.edit'), booksCtrl.update)
+router.post('/books/:id/publish', requirePermission('content.edit'), booksCtrl.publish)
+router.delete('/books/:id', requirePermission('content.edit'), booksCtrl.remove)
+router.post('/books/chapter/:chapterId/generate', requirePermission('content.edit'), booksCtrl.generate)
+router.post('/books/chapter/:chapterId/visible', requirePermission('content.edit'), booksCtrl.setChapterVisible)
+router.get('/books/chapter/:chapterId/text', requirePermission('content.view'), booksCtrl.chapterText)
+router.patch('/books/chapter/:chapterId', requirePermission('content.edit'), booksCtrl.editChapter)
+router.get('/books/chapter/:chapterId/concepts', requirePermission('content.view'), booksCtrl.concepts)
+router.post('/books/chapter/:chapterId/concepts/relink', requirePermission('content.edit'), booksCtrl.relinkConcepts)
+router.get('/books/content/:id', requirePermission('content.view'), booksCtrl.content)
+router.post('/books/content/:id/status', requirePermission('content.edit'), booksCtrl.setStatus)
+router.patch('/books/content/:id', requirePermission('content.edit'), booksCtrl.updateContent)
 router.delete('/resources/chapters/:id', requirePermission('content.edit'), resCtrl.deleteChapter)
 
 // ─── Audit Logs ────────────────────────────────────────────────────────────────

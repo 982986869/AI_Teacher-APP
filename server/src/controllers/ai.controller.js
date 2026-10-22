@@ -12,6 +12,7 @@ const plannerService = require('../services/planner.service')
 const sessionService = require('../services/session.service')
 const progressService = require('../services/progress.service')
 const lessonService = require('../services/lesson.service')
+const { parseSourceBody } = require('../services/lessonSource')
 const ApiResponse = require('../utils/ApiResponse')
 const { AppError } = require('../middleware/errorHandler')
 
@@ -31,11 +32,18 @@ async function generateLesson(req, res, next) {
     const errors = validationResult(req)
     if (!errors.isEmpty()) return ApiResponse.error(res, errors.array()[0].msg, 422)
 
-    const { topic, subject } = req.body
+    // Optional textbook scope: { chapterId, kind: 'summary' | 'topics', topicIds }.
+    // With it, topic/subject come from the book; the service derives them.
+    const { source, error: sourceError } = parseSourceBody(req.body)
+    if (sourceError) return ApiResponse.error(res, sourceError, 422)
+    const topic = req.body.topic ? String(req.body.topic).trim() : ''
+    const subject = req.body.subject ? String(req.body.subject).trim() : ''
     // The AI always teaches at the student's OWN class — never asks, never higher,
     // never a client-supplied grade.
+    // A textbook lesson is taught at the BOOK's class (the service takes it from the
+    // chapter), so it needs no profile class.
     const grade = scopeGrade(req)
-    if (!grade) return ApiResponse.error(res, 'Complete your class profile to start lessons.', 422, 'PROFILE_INCOMPLETE')
+    if (!grade && !source) return ApiResponse.error(res, 'Complete your class profile to start lessons.', 422, 'PROFILE_INCOMPLETE')
 
     // Optional teaching mode (the "how"): honour a valid explicit choice, else null so
     // the service auto-selects from the learner's mastery. Invalid values are ignored
@@ -52,6 +60,7 @@ async function generateLesson(req, res, next) {
       language: req.scope && req.scope.language,
       mode,
       prefs: req.body.prefs, // learner preferences (sanitised in the service)
+      source,
     })
 
     return ApiResponse.created(
@@ -195,8 +204,9 @@ async function askStream(req, res, next) {
         userId: req.user.id, text, subject, gradeLevel: grade, lessonId,
         slideIndex: slideIndex !== undefined && slideIndex !== null ? Number(slideIndex) : undefined,
         history, level, mode, pending,
+        board: req.body.board === true,
       },
-      { onMeta: (m) => send('meta', m), onDelta: (t) => send('delta', { t }) }
+      { onMeta: (m) => send('meta', m), onDelta: (t) => send('delta', { t }), onBoard: (el) => send('board', el) }
     )
     send('done', final)
   } catch (err) {

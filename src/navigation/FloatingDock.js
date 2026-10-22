@@ -96,11 +96,11 @@ export default function FloatingDock({ state, descriptors, navigation }) {
   const padBottom = Math.max(insets.bottom, 8) + 6;
 
   // Tell the floating Help bubble where this bar ends, and when to get out of the way.
-  const { report } = useDockVisibility();
+  const { report, hideDock } = useDockVisibility();
   const [dockH, setDockH] = React.useState(0);
   React.useEffect(() => { report({ hidden: dockHidden, height: dockH }); }, [dockHidden, dockH, report]);
 
-  if (dockHidden) return null; // immersive screen (AI Teacher lesson) — no bottom nav
+  if (dockHidden || hideDock) return null; // immersive screen (AI Teacher lesson) — no bottom nav
 
   return (
     // Two layers on purpose. The outer one paints the bar colour BEHIND the inner one,

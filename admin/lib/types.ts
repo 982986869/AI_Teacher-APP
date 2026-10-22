@@ -75,6 +75,11 @@ export interface DashboardData {
     lessonsGeneratedToday: number; lessonsCompleted: number; lessonsCompletedToday: number
     averageCompletion: number | null; doubtsAsked: number; doubtsToday: number
     aiFailures: number; avgGenerationMs: number; pendingReview: number
+    /** Where every lesson a student has opened currently stands. */
+    progressSplit: { completed: number; inProgress: number; notStarted: number }
+    /** Hours in lessons per learner who actually studied this week; null if none did. */
+    avgStudyHoursWeek: number | null
+    studyLearnersWeek: number
   }
   brainGym: {
     sessionsToday: number; questionsGenerated: number; questionsGeneratedToday: number

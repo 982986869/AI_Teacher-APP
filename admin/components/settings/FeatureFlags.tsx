@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from 'react'
 import {
-  Bot, Dumbbell, Swords, Target, BookOpen, Users, Bell, FlaskConical, type LucideIcon,
+  Bot, Dumbbell, Swords, Target, BookOpen, Users, Bell, FlaskConical, Layers, type LucideIcon,
 } from 'lucide-react'
 import { useApi } from '@/components/useApi'
-import { Card, SectionHead, Toggle, Badge, Skel, ErrorState, IconChip } from '@/components/ui'
+import { Toggle, Skel, ErrorState } from '@/components/ui'
 import { useAuth } from '@/lib/auth'
 import { useToast } from '@/lib/toast'
 import { api, ApiError } from '@/lib/api'
@@ -24,6 +24,12 @@ const ICONS: Record<string, { icon: LucideIcon; tone: AccentKey }> = {
   experimental: { icon: FlaskConical, tone: 'red' },
 }
 const ENVS: FeatureFlag['environment'][] = ['all', 'production', 'development']
+
+/** Hex per tone, so a flag's colour survives outside the Card/IconChip system. */
+const TINT: Record<string, string> = {
+  purple: '#8B5CF6', orange: '#e8833a', cyan: '#19a0b8', blue: '#2a78d6',
+  emerald: '#1baf7a', indigo: '#4F6DF5', gold: '#eda100', red: '#e8699b',
+}
 
 export function FeatureFlags() {
   const { can } = useAuth()
@@ -59,46 +65,65 @@ export function FeatureFlags() {
   }
 
   return (
-    <Card>
-      <SectionHead title="Feature Flags" tone="indigo" right={<Badge tone="indigo" dot={false}>{loading ? '…' : `${flags.length} flags`}</Badge>} />
+    <section className="set-section">
+      <div className="set-section-head">
+        <div>
+          <h2 className="set-section-title">Feature Flags</h2>
+          <div className="set-section-sub">Enable or disable features across the platform.</div>
+        </div>
+        <span className="set-count"><Layers size={14} /> {loading ? '…' : `${flags.length} Flags`}</span>
+      </div>
+
       {loading ? (
-        <div className="grid cols-2">{[0, 1, 2, 3].map((i) => <Skel key={i} h={92} r={16} />)}</div>
+        <div className="set-flags">{[0, 1, 2, 3].map((i) => <Skel key={i} h={132} r={15} />)}</div>
       ) : error ? (
         <ErrorState message={error} onRetry={reload} />
       ) : (
-        <div className="grid cols-2">
-          {flags.map((f) => {
+        <div className="set-flags">
+          {flags.map((f, i) => {
             const meta = ICONS[f.key] || { icon: FlaskConical, tone: 'indigo' as AccentKey }
             const isBusy = busy.has(f.key)
+            const Icon = meta.icon
             return (
-              <div key={f.key} className="row gap-12" style={{ alignItems: 'flex-start', background: 'var(--canvas)', borderRadius: 14, padding: 14 }}>
-                <IconChip icon={meta.icon} tone={meta.tone} size={40} />
-                <div className="grow" style={{ minWidth: 0 }}>
-                  <div className="row between gap-8">
-                    <span style={{ fontWeight: 900, fontSize: 14.5 }}>{f.label}</span>
-                    <Toggle on={f.enabled} disabled={!editable || isBusy} onChange={() => patch(f, { enabled: !f.enabled }, { enabled: !f.enabled }, `${f.label} ${!f.enabled ? 'enabled' : 'disabled'}`)} />
+              <div key={f.key} className={'set-flag' + (f.enabled ? ' on' : '')} style={{ animationDelay: Math.min(i, 8) * 45 + 'ms' }}>
+                <div className="row gap-11" style={{ alignItems: 'flex-start' }}>
+                  <span className="set-flag-ic" style={{ background: TINT[meta.tone] + '1a', color: TINT[meta.tone] }}>
+                    <Icon size={19} strokeWidth={2.1} />
+                  </span>
+                  <div style={{ minWidth: 0, flex: 1 }}>
+                    <div className="row between gap-8" style={{ alignItems: 'flex-start' }}>
+                      <span className="set-flag-name">{f.label}</span>
+                      <Toggle
+                        on={f.enabled}
+                        disabled={!editable || isBusy}
+                        onChange={() => patch(f, { enabled: !f.enabled }, { enabled: !f.enabled }, `${f.label} ${!f.enabled ? 'enabled' : 'disabled'}`)}
+                      />
+                    </div>
+                    {f.description && <div className="set-flag-desc">{f.description}</div>}
                   </div>
-                  {f.description && <div className="faint" style={{ fontSize: 12, fontWeight: 600, marginTop: 2, lineHeight: 1.4 }}>{f.description}</div>}
-                  <div className="row gap-8 wrap" style={{ marginTop: 10, alignItems: 'center' }}>
-                    <label className="row gap-6" style={{ fontSize: 11, fontWeight: 800, color: 'var(--muted)' }}>
-                      env
-                      <select className="select" style={{ width: 'auto', padding: '3px 6px', fontSize: 11.5 }} value={f.environment} disabled={!editable || isBusy}
-                        onChange={(e) => patch(f, { environment: e.target.value }, { environment: e.target.value as FeatureFlag['environment'] }, `${f.label} environment updated`)}
-                        aria-label={`${f.label} environment`}>
-                        {ENVS.map((v) => <option key={v} value={v}>{v}</option>)}
-                      </select>
-                    </label>
-                    <Badge tone="cyan" dot={false}>{f.rolloutScope}</Badge>
-                    <span className="ml-auto faint" style={{ fontSize: 10.5, fontWeight: 700 }} title={new Date(f.updatedAt).toLocaleString()}>
-                      {f.updatedByName ? `${f.updatedByName} · ${timeAgo(f.updatedAt)}` : `${timeAgo(f.updatedAt)}`}
-                    </span>
-                  </div>
+                </div>
+
+                <div className="set-flag-foot">
+                  {/* Scope and environment stay editable — a flag that can only be
+                      flipped on or off cannot be rolled out to production alone,
+                      which is most of what flags are for. */}
+                  <span className="set-scope">{f.rolloutScope}</span>
+                  <select
+                    className="set-env" value={f.environment} disabled={!editable || isBusy}
+                    onChange={(e) => patch(f, { environment: e.target.value }, { environment: e.target.value as FeatureFlag['environment'] }, `${f.label} environment updated`)}
+                    aria-label={`${f.label} environment`}
+                  >
+                    {ENVS.map((v) => <option key={v} value={v}>{v}</option>)}
+                  </select>
+                  <span className="set-flag-when" title={new Date(f.updatedAt).toLocaleString()}>
+                    {f.updatedByName ? `${f.updatedByName} · ${timeAgo(f.updatedAt)}` : timeAgo(f.updatedAt)}
+                  </span>
                 </div>
               </div>
             )
           })}
         </div>
       )}
-    </Card>
+    </section>
   )
 }

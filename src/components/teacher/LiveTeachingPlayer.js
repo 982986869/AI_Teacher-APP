@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import {
   View, Text, StyleSheet, ScrollView, Animated, Easing, Dimensions, Platform, TextInput, Image, Modal,
-  AccessibilityInfo,
+  AccessibilityInfo, useWindowDimensions, PanResponder,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import LessonBoard from './LessonBoards';
+import DoubtBoard from './DoubtBoard';
+import { createBoardSync } from './doubtBoardLayout';
 import TeacherAvatar from './TeacherAvatar';
 import TeacherFullBody from './TeacherFullBody';
 import { TEACHER_STAGE_CLIP } from './teacherIdentity';
@@ -28,11 +30,18 @@ import { EraserWipe } from './boardGestures';
 import { AmbientStage, VoiceAura } from './ambientStage';
 import { expressionForScene, praiseLine, reassureLine, listeningLine, completeLine, resumeBridge } from './teacherPersona';
 import { buildReteach } from './reteach';
-import { speakTeacher, stopTeacher, primeTeacherVoice, getSpeechProgress, SPEECH_OK, speakTeacherQueued, resetTeacherQueue, isTeacherQueueActive, setListeningMode } from '../../utils/teacherVoice';
+import { speakTeacher, stopTeacher, primeTeacherVoice, getSpeechProgress, SPEECH_OK, speakTeacherQueued, resetTeacherQueue, isTeacherQueueActive, setListeningMode, setTeacherSpeed } from '../../utils/teacherVoice';
+import GridPaper from './classroom/GridPaper';
+import BoardPage from './classroom/BoardPage';
+import useLessonOrientation from './classroom/useLessonOrientation';
+import { pageLinesFor, planLineBeats, revealAt, hasSideVisual } from './classroom/pageLines';
+import { CallControls, SpeedPill, ControlsToggle, SessionChip, CaptionBar, captionStyles, chipClockStyle } from './classroom/ClassroomControls';
+import { AskSheet, MoreSheet } from './classroom/ClassroomSheets';
+import { PAPER, FONT_HEAD, LINE_COLOR } from './classroom/theme';
 import {
   Mic, Square, RotateCcw, SkipForward, SkipBack, Play, Pause, ArrowUp, ChevronLeft, AudioLines,
-  Volume2, VolumeX, RefreshCw, GraduationCap, BookOpen, Globe, Check, Trophy, Radio, ListTree, Layers, Maximize2, Minimize2,
-  Ellipsis, Camera, Pencil, Eraser, Type, ChevronDown, ChevronRight, Undo2, FileText, RotateCw,
+  Volume2, VolumeX, RefreshCw, GraduationCap, BookOpen, Globe, Check, Trophy, Radio, ListTree, Layers, Maximize2, Minimize2, ZoomIn, ZoomOut,
+  Ellipsis, Camera, Pencil, Eraser, Type, ChevronDown, ChevronRight, Undo2, FileText, RotateCw, Captions,
 } from 'lucide-react-native';
 
 // Optional student camera — degrades to a friendly placeholder.
@@ -465,7 +474,7 @@ function CornerTeacher({ state, expression, cam }) {
 // so the highlight never races ahead of her voice. Freezes when she's not
 // speaking (paused) and resets per line (resetKey). Light on the JS thread: it
 // only re-renders when the bright-word count actually changes.
-function SpokenCaption({ text, speaking, karaoke, resetKey, style, highlight, onTermTap }) {
+function SpokenCaption({ text, speaking, karaoke, resetKey, style, highlight, onTermTap, dimStyle = st.capDim, hotStyle = st.capHot }) {
   const words = useMemo(() => String(text || '').split(/\s+/).filter(Boolean), [text]);
   // Keywords to emphasise the instant they're spoken (from the beat's `highlight`).
   const hot = useMemo(() => new Set((highlight || [])
@@ -504,11 +513,11 @@ function SpokenCaption({ text, speaking, karaoke, resetKey, style, highlight, on
         const sep = i < words.length - 1 ? ' ' : '';
         if (isTerm) {
           return (
-            <Text key={i} onPress={() => onTermTap(w.replace(/[^a-z0-9]/gi, ''))} style={[spokenNow ? st.capHot : st.capDim, st.capTerm]}>{w}{sep}</Text>
+            <Text key={i} onPress={() => onTermTap(w.replace(/[^a-z0-9]/gi, ''))} style={[spokenNow ? hotStyle : dimStyle, st.capTerm]}>{w}{sep}</Text>
           );
         }
         return (
-          <Text key={i} style={!spokenNow ? st.capDim : (isHot ? st.capHot : null)}>{w}{sep}</Text>
+          <Text key={i} style={!spokenNow ? dimStyle : (isHot ? hotStyle : null)}>{w}{sep}</Text>
         );
       })}
     </Animated.Text>
@@ -700,7 +709,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   // The classroom opens inside the Home tab, so the dock — and the floating Help bubble
   // that offsets itself from it — stay mounted. The bubble sat right on top of the
   // "Next Topic" button in this footer, so claim the screen while the lesson is live.
-  useImmersiveScreen();
+  useImmersiveScreen(true, { hideDock: true });
   // The Teaching Director choreographs the lesson into scenes-of-beats. The player
   // just executes that timeline (speak this line ↔ draw this board step ↔ this face).
   const scenes = useMemo(() => directLesson(lesson || {}), [lesson]);
@@ -740,6 +749,51 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const [contentsTab, setContentsTab] = useState('contents');
   const openContents = (tab) => { setContentsTab(tab); setContentsOpen(true); };
   const [focusMode, setFocusMode] = useState(false); // distraction-free reading
+
+  // ── BOARD ZOOM ──────────────────────────────────────────────────────────────
+  // A student reading a labelled diagram on a 5" phone needs to get closer to it,
+  // the way they would lean into a real board. Two ways in, because one is not
+  // enough: pinch (what a phone user reaches for first) and the ± buttons (which
+  // work one-handed, with a stylus, or for anyone who cannot do a two-finger
+  // gesture). Both drive the same number.
+  const [zoom, setZoom] = useState(1);
+  const zoomRef = useRef(1);
+  useEffect(() => { zoomRef.current = zoom; }, [zoom]);
+
+  const ZOOM_MIN = 1;
+  const ZOOM_MAX = 3;
+  const clampZoom = (z) => Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, Math.round(z * 100) / 100));
+  const zoomBy = useCallback((d) => setZoom((z) => clampZoom(z + d)), []);
+  const resetZoom = useCallback(() => setZoom(1), []);
+
+  // Pinch, hand-rolled on PanResponder. The app has no gesture-handler dependency,
+  // and adding one for a single gesture would cost a native rebuild — PanResponder
+  // sees both touches and the distance ratio between them is all a pinch is.
+  const pinchStart = useRef(null);
+  const boardPinch = useMemo(() => PanResponder.create({
+    // Claim the gesture ONLY for two fingers, so one-finger scrolling of a tall
+    // board still belongs to the ScrollView underneath.
+    onStartShouldSetPanResponder: (e) => e.nativeEvent.touches.length === 2,
+    onMoveShouldSetPanResponder: (e) => e.nativeEvent.touches.length === 2,
+    onPanResponderGrant: (e) => {
+      const t = e.nativeEvent.touches;
+      if (t.length === 2) {
+        pinchStart.current = {
+          d: Math.hypot(t[0].pageX - t[1].pageX, t[0].pageY - t[1].pageY) || 1,
+          z: zoomRef.current,
+        };
+      }
+    },
+    onPanResponderMove: (e) => {
+      const t = e.nativeEvent.touches;
+      const s = pinchStart.current;
+      if (!s || t.length !== 2) return;
+      const d = Math.hypot(t[0].pageX - t[1].pageX, t[0].pageY - t[1].pageY);
+      if (d > 0) setZoom(clampZoom(s.z * (d / s.d)));
+    },
+    onPanResponderRelease: () => { pinchStart.current = null; },
+    onPanResponderTerminate: () => { pinchStart.current = null; },
+  }), []);
   // Landscape board WITHOUT rotating the phone: the app is orientation-locked to
   // portrait (app.json), and the wide boards — reaction chains, timelines, graphs — are
   // drawn on a 300×150 canvas that a portrait card squeezes to about a third of the
@@ -785,34 +839,55 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const studyMin = Math.max(1, Math.round((Date.now() - openedAtRef.current) / 60000));
   const [ttsActive, setTtsActive] = useState(false); // is audio playing right now (avatar/sync)
 
-  // ── Her talking clip on the camera card ───────────────────────────────────
-  // Mounted for the WHOLE session and parked on its first frame when she is quiet,
-  // rather than swapped in and out. The clip has the violet stage baked into it, so
-  // unmounting it between sentences would flash the card's own gradient every time
-  // she stops; parking at 0 also rests her on a closed mouth instead of freezing
-  // her mid-word. If the clip ever fails to load, the still underneath is already
-  // in place and simply becomes what you see.
-  const [heroClipFailed, setHeroClipFailed] = useState(false);
-  const heroPlayer = useVideoPlayer(TEACHER_STAGE_CLIP, (p) => { p.loop = true; p.muted = true; });
-  useEventListener(heroPlayer, 'statusChange', ({ error }) => { if (error) setHeroClipFailed(true); });
-  // The stage clip is the FEMALE teacher composited onto this card's gradient by
-  // scripts/bake-teacher-clip.js — it is her specifically, not a generic backdrop.
-  // So it must not play under a male identity: it would put her face back on the
-  // stage the moment the voice went male, which is the exact mismatch this switch
-  // exists to remove. The still underneath is already the right teacher, and for
-  // him it is all there is until a male clip is baked the same way.
-  const stageClipOk = !heroClipFailed && teacher.gender === 'f';
+  // ── LANDSCAPE BOARD chrome ──────────────────────────────────────────────────
+  // The lesson is a full-screen landscape whiteboard. Its controls float over the
+  // board and tuck themselves away after a few quiet seconds so the board gets the
+  // whole screen; any touch brings them back.
+  // The board follows the phone: upright → portrait board, sideways → landscape.
+  // ⋮ › Rotate board locks it the other way for phones with auto-rotate switched off.
+  const rotateBoard = useLessonOrientation();
+  const { width: winW, height: winH } = useWindowDimensions();
+  const portrait = winH > winW;
+  const SPEEDS = [0.75, 1, 1.25, 1.5];
+  const [speedIdx, setSpeedIdx] = useState(1);
+  const speed = SPEEDS[speedIdx];
+  // Read by the beat executor: a faster lesson also shortens the silences.
+  const speedRef = useRef(1); speedRef.current = speed;
+  useEffect(() => { setTeacherSpeed(speed); }, [speed]);
+  useEffect(() => () => setTeacherSpeed(1), []);
+  const [controlsOn, setControlsOn] = useState(true);
+  const [sheet, setSheet] = useState(null);            // 'ask' | 'more' | null
+  const sheetRef = useRef(null); sheetRef.current = sheet;
+  const [captionsOn, setCaptionsOn] = useState(true);
+  const lastTouchRef = useRef(Date.now());
+  // What the controls looked like when this touch began — the Show/Hide pill flips
+  // from THAT, because the touch itself already brought hidden controls back.
+  const controlsAtTouchRef = useRef(true);
+  const pausedForSheetRef = useRef(false);
+  const poke = () => {
+    lastTouchRef.current = Date.now();
+    controlsAtTouchRef.current = controlsOn;
+    if (!controlsOn) setControlsOn(true);
+  };
   useEffect(() => {
-    if (!heroPlayer) return;
-    if (!stageClipOk) { heroPlayer.pause(); return; }
-    if (ttsActive) heroPlayer.play();
-    else { heroPlayer.pause(); heroPlayer.currentTime = 0; }
-  }, [ttsActive, heroPlayer, stageClipOk]);
+    const id = setInterval(() => {
+      if (!sheetRef.current && Date.now() - lastTouchRef.current > 4000) setControlsOn(false);
+    }, 1000);
+    return () => clearInterval(id);
+  }, []);
+
   const [qa, setQa] = useState(null);                // { q, a } during a doubt
   const [qaMeta, setQaMeta] = useState(null);        // retrieval signals for the doubt answer
   const [partial, setPartial] = useState('');
   const [qInput, setQInput] = useState('');
   const [doubtDone, setDoubtDone] = useState(false); // answer fully spoken
+  // What the teacher has drawn for the current doubt (validated elements from the
+  // `board` stream events, in drawing order). Elements are HELD in boardSyncRef until
+  // the sentence that introduces them starts playing, so the drawing keeps pace with
+  // her voice instead of racing ahead of it.
+  const [boardEls, setBoardEls] = useState([]);
+  const boardSyncRef = useRef(createBoardSync());
+  const clearBoard = () => { boardSyncRef.current.reset(); setBoardEls([]); };
   const [hint, setHint] = useState('');
   const [voiceOpen, setVoiceOpen] = useState(false); // voice-picker sheet
   const [reactExpr, setReactExpr] = useState(null);  // transient face after a quick-check (celebrate / encouraging)
@@ -1133,7 +1208,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     const mult = paceMultRef.current || 1;
     // A touch of human irregularity so the pacing never sounds metronomic — the
     // silences breathe by a few percent each beat instead of being pixel-identical.
-    const pauseMs = ((b && b.pause) || 0) * mult * (0.92 + Math.random() * 0.22);
+    const pauseMs = (((b && b.pause) || 0) * mult * (0.92 + Math.random() * 0.22)) / speedRef.current;
 
     if (voiceOn && line) {
       speakTeacher(sayLine, {
@@ -1153,14 +1228,14 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
       const base = line
         ? Math.max(1600, String(line).split(/\s+/).filter(Boolean).length * 300)
         : (b && b.hold) || 1200;
-      at(advance, base * mult + pauseMs);
+      at(advance, (base * mult) / speedRef.current + pauseMs);
     }
     return () => { cancelled = true; timers.forEach(clearTimeout); stopTeacher(); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mode, idx, beat, animKey]);
 
   // ── transport ──
-  const goTeach = (next) => { doubtTurnRef.current += 1; stopTeacher(); setQa(null); setQaMeta(null); setDoubtDone(false); setHint(''); setQuizFb(null); setReteach(null); setReactExpr(null); setBeat(0); setIdx(next); setMode(M.TEACHING); setAnimKey((k) => k + 1); };
+  const goTeach = (next) => { doubtTurnRef.current += 1; stopTeacher(); clearBoard(); setQa(null); setQaMeta(null); setDoubtDone(false); setHint(''); setQuizFb(null); setReteach(null); setReactExpr(null); setBeat(0); setIdx(next); setMode(M.TEACHING); setAnimKey((k) => k + 1); };
   const pause = () => { stopTeacher(); setTtsActive(false); setMode(M.PAUSED); };
   const resume = () => { setMode(M.TEACHING); setAnimKey((k) => k + 1); };
   const togglePlay = () => { if (teaching) pause(); else if (mode === M.PAUSED) resume(); };
@@ -1172,7 +1247,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   const toggleMute = () => { setMuted((m) => !m); if (teaching) setAnimKey((k) => k + 1); };
 
   // ── doubt flow (lesson fully frozen the whole time) ──
-  const beginListen = () => { doubtTurnRef.current += 1; stopTeacher(); clearDoubtTick(); setTtsActive(false); setPartial(''); setQInput(''); setQa(null); setQaMeta(null); setDoubtDone(false); setHint(''); setMode(M.LISTENING); };
+  const beginListen = () => { doubtTurnRef.current += 1; stopTeacher(); clearDoubtTick(); clearBoard(); setTtsActive(false); setPartial(''); setQInput(''); setQa(null); setQaMeta(null); setDoubtDone(false); setHint(''); setMode(M.LISTENING); };
   const sendDoubt = (override) => {
     const q = (typeof override === 'string' ? override : qInput).trim();
     if (!q || !onAsk) { if (!q) setMode(M.PAUSED); return; }
@@ -1184,7 +1259,9 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     feelLearner('doubt'); observeTeach({ type: 'doubt' }); // asking for help eases her pace a little
     setQInput(''); setPartial(''); setHint('');
     setQa({ q, a: null }); setQaMeta(null); setDoubtDone(false); setMode(M.THINKING);
-    stopTeacher(); clearDoubtTick();
+    // The previous doubt's drawing goes with its answer — on EVERY path, so a muted
+    // follow-up (non-streaming, no board) never sits beside the last doubt's shapes.
+    stopTeacher(); clearDoubtTick(); clearBoard();
 
     // ── STREAMING path: speak sentence-by-sentence as the answer arrives ──
     // (only when a streaming handler is provided AND voice is on).
@@ -1192,6 +1269,19 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
       resetTeacherQueue();
       let acc = '';
       let buf = '';
+      // Drawing keeps pace with speech: each board element arrives right after the
+      // sentence it illustrates, so it is held until THAT sentence (the `queued`-th)
+      // starts playing. `release` appends to the board; a stale turn never draws.
+      let queued = 0;
+      const release = (els) => { if (els.length && fresh()) setBoardEls((p) => [...p, ...els]); };
+      const speakSentence = (s, opts = {}) => {
+        queued += 1;
+        const ord = queued;
+        speakTeacherQueued(s, {
+          ...opts,
+          onStart: () => { setTtsActive(true); if (turn === doubtTurnRef.current) release(boardSyncRef.current.sentenceStarted(ord)); },
+        });
+      };
       // Stay in THINKING during the answer latency (so "she's thinking" shows, not a
       // waveform over silence). We flip to ANSWERING when the first token actually
       // arrives, and ttsActive lights up only when real audio starts (queue onStart) —
@@ -1201,12 +1291,13 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
         // emit each completed sentence to the voice queue as soon as it's whole
         while ((m = buf.match(/[\s\S]*?[.!?\n।]/))) {
           const s = m[0]; buf = buf.slice(s.length);
-          if (s.trim()) speakTeacherQueued(s.trim(), { onStart: () => setTtsActive(true) });
+          if (s.trim()) speakSentence(s.trim());
         }
-        if (force && buf.trim()) { speakTeacherQueued(buf.trim()); buf = ''; }
+        if (force && buf.trim()) { speakSentence(buf.trim()); buf = ''; }
       };
       onAskStream(q, askPosRef.current, {
         onDelta: (t) => { if (turn !== doubtTurnRef.current) return; if (!acc) setMode(M.ANSWERING); acc += t; buf += t; setQa({ q, a: acc }); flush(false); },
+        onBoard: (el) => { if (turn !== doubtTurnRef.current) return; release(boardSyncRef.current.hold(el, queued)); },
       })
         .then((res) => {
           if (!fresh()) return;
@@ -1222,6 +1313,9 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
             polls += 1;
             if (!isTeacherQueueActive() || polls > 66) {
               clearDoubtTick();
+              // Anything still held (audio never started, or a sentence never fired
+              // onStart) lands on the board now rather than never.
+              release(boardSyncRef.current.flush());
               if (mountedRef.current) { setTtsActive(false); setDoubtDone(true); }
             }
           }, 300);
@@ -1229,6 +1323,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
         .catch((e) => {
           if (turn !== doubtTurnRef.current) return; // a newer doubt owns the queue now
           resetTeacherQueue();
+          clearBoard();
           if (!mountedRef.current) return;
           setMode(M.ANSWERING); // leave THINKING so the error + Resume button surface
           setQa({ q, a: e?.message || 'Sorry, I couldn’t get an answer just now. Please try asking again.' });
@@ -1259,7 +1354,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
       })
       .catch((e) => { clearTimeout(to); if (!fresh()) return; setQa({ q, a: e?.response?.data?.error || e?.message || 'Sorry, I couldn’t get an answer just now. Please try asking again.' }); setMode(M.ANSWERING); setDoubtDone(true); });
   };
-  const resumeFromDoubt = () => { doubtTurnRef.current += 1; stopTeacher(); clearDoubtTick(); setQa(null); setQaMeta(null); setDoubtDone(false); resumeBridgeRef.current = true; setMode(M.TEACHING); setAnimKey((k) => k + 1); };
+  const resumeFromDoubt = () => { doubtTurnRef.current += 1; stopTeacher(); clearDoubtTick(); clearBoard(); setQa(null); setQaMeta(null); setDoubtDone(false); resumeBridgeRef.current = true; setMode(M.TEACHING); setAnimKey((k) => k + 1); };
 
   // ── HANDS-FREE "Live conversation": echo suppression + barge-in ──
   const _norm = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9\s]+/g, ' ').split(/\s+/).filter(Boolean);
@@ -1320,7 +1415,12 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   // so the header stays stable while the whiteboard title carries the live concept.
   const subjectName = subject ? `${String(subject).charAt(0).toUpperCase()}${String(subject).slice(1)}` : '';
   const tutorLabel = subjectName ? `${subjectName} Tutor` : 'Your Tutor';
-  const sessionLabel = subjectName ? `${subjectName} Session` : 'Live Session';
+  // A textbook lesson names its book and chapter instead ("Maths · NCERT Ch. 7"), so the
+  // student can see which book the teacher is reading from.
+  const bookSource = lesson && lesson.source && lesson.source.chapter ? lesson.source : null;
+  const sessionLabel = bookSource
+    ? `${subjectName || 'NCERT'} · NCERT Ch. ${bookSource.chapter.number}${bookSource.kind === 'topics' && bookSource.topicLabel ? ` · ${bookSource.topicLabel}` : ''}`
+    : (subjectName ? `${subjectName} Session` : 'Live Session');
 
   const toggleHandsFree = () => {
     setHandsFree((v) => {
@@ -1549,7 +1649,13 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
   // Only in focus mode. The stacked card carries a 42%-of-screen floor with slack in
   // it, and growing the drawing into that slack would push the tallest boards past
   // the card's own height, where wbCard's overflow:hidden would cut them off.
-  const boardDrawScale = focusMode ? Math.max(1, Math.min(2.4, (cardH - 108) / 176)) : 1;
+  const autoDrawScale = focusMode ? Math.max(1, Math.min(2.4, (cardH - 108) / 176)) : 1;
+  // The student's own zoom, multiplied on top of the automatic one. It goes through
+  // BoardSizeProvider rather than a parent transform for the same reason the auto
+  // scale does: react-native-svg renders each board into a native layer, so scaling
+  // THAT blurs every line, while growing the board's own pixel height and type keeps
+  // it sharp at any magnification. A diagram zoomed to read is worthless blurred.
+  const boardDrawScale = autoDrawScale * zoom;
 
   const toggleFocus = useCallback(() => {
     // Leaving full screen — or entering it — always lands on the upright board; the
@@ -1562,412 +1668,192 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
     setFocusMode(true); // a quarter-turned board inside the stacked card would be tiny
   }, []);
 
-  return (
-    <Animated.View style={[st.container, { opacity: mountFade }]}>
-      {/* The room: a near-black ground with a faint violet cast, so the teacher card
-          and the white whiteboard are the only lit surfaces. */}
-      <LinearGradient colors={ROOM_GRAD} locations={[0, 0.55, 1]} style={StyleSheet.absoluteFill} pointerEvents="none" />
+  // ── LANDSCAPE BOARD (render side) ───────────────────────────────────────────
+  // Each scene becomes a notebook page the teacher writes as she talks; a scene with
+  // a real drawing (graph, figure, reaction…) keeps it in the right-hand column.
+  const slideOf = (sc) => (lesson && Array.isArray(lesson.slides) && sc && sc.slideIndex != null ? lesson.slides[sc.slideIndex] : null);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const pageLines = useMemo(() => pageLinesFor(scene, slideOf(scene)), [scene, lesson]);
+  // Each note goes up on the beat where she says it (she speaks, then writes).
+  const linePlan = useMemo(() => planLineBeats(pageLines, beats.map((b) => b && b.say)), [pageLines, scene]); // eslint-disable-line react-hooks/exhaustive-deps
+  const revealed = mode === M.COMPLETED ? pageLines.length : revealAt(linePlan, beat);
+  const isQuiz = scene.boardType === 'quickCheck';
+  const showSide = !qa && !isQuiz && hasSideVisual(scene);
+  // During a doubt the lesson's side drawing is hidden; the teacher's own drawing for
+  // the doubt takes that slot, and only once she has actually drawn something.
+  const showDoubtSide = !!qa && boardEls.length > 0;
+  const boardHighlight = (curBeat && curBeat.highlight && curBeat.highlight.length) ? curBeat.highlight : keyTerms;
+  const sideW = Math.round(Math.min(380, winW * 0.4));
+  // Portrait stacks the speed pill above the call row, so the caption sits higher.
+  const ctlTop = portrait ? 16 + 50 + 12 + 50 : 16 + 50;
+  const capBottom = (controlsOn ? ctlTop + 16 : 14) + insets.bottom;
+  const pagePad = (portrait ? ctlTop + 90 : 130);
+  const [hintShown, setHintShown] = useState(false);
+  useEffect(() => {
+    if (!hint) { setHintShown(false); return undefined; }
+    setHintShown(true);
+    const t = setTimeout(() => setHintShown(false), 6000);
+    return () => clearTimeout(t);
+  }, [hint]);
 
-      {/* ── HEADER — back · session title/concept · Live · clock · overflow ── */}
-      <View style={st.hdr}>
-        <PressableScale onPress={() => { stopTeacher(); onExit && onExit(); }} style={st.hdrBack} hitSlop={BAR_HIT} accessibilityLabel="Exit lesson">
-          <ChevronLeft size={26} color={V.text} strokeWidth={2.4} />
-        </PressableScale>
-        <View style={st.hdrTitles}>
-          <Text style={st.hdrTitle} numberOfLines={1}>{sessionLabel}</Text>
-          <Text style={st.hdrSub} numberOfLines={1}>{lessonTopic}</Text>
-        </View>
-        <LivePill active={ttsActive} />
-        <SessionClock since={openedAtRef.current} style={st.hdrClock} />
-        <PressableScale onPress={() => setMenuOpen(true)} style={st.hdrMore} hitSlop={BAR_HIT} accessibilityLabel="Session options">
-          <Ellipsis size={20} color={V.text} strokeWidth={2.4} />
-        </PressableScale>
-      </View>
-      {/* Hairline lesson progress — kept from the old header bar so the student can
-          still see how far along the lesson is without a counter competing with the
-          title row. */}
-      <View style={st.hdrProgress} accessibilityRole="progressbar" accessibilityValue={{ now: Math.min(idx + 1, N), min: 0, max: N }}>
-        <Animated.View style={[st.hdrProgressFill, { width: progressA.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]} />
-      </View>
+  // "+" pauses her while the student types; closing the sheet without asking picks
+  // the lesson back up where it stopped.
+  const openAsk = () => { if (teaching) { pausedForSheetRef.current = true; pause(); } setSheet('ask'); };
+  const closeSheet = () => {
+    setSheet(null);
+    if (pausedForSheetRef.current) { pausedForSheetRef.current = false; if (modeRef.current === M.PAUSED) resume(); }
+  };
+  const sendFromSheet = (override) => { pausedForSheetRef.current = false; setSheet(null); sendDoubt(override); };
+  const onMicButton = () => { if (VOICE_OK) toggleHandsFree(); else openAsk(); };
+  const toggleControls = () => { lastTouchRef.current = Date.now(); setControlsOn(!controlsAtTouchRef.current); };
+  const cycleSpeed = () => setSpeedIdx((i) => (i + 1) % SPEEDS.length);
+  const starters = [
+    `Why is "${(scene.title || 'this').replace(/["“”]/g, '')}" true?`,
+    'Can you show a worked example?',
+    'Where is this used in real life?',
+  ];
+  const moreItems = [
+    { key: 'play', Icon: teaching ? Pause : Play, label: teaching ? 'Pause' : 'Play', run: togglePlay },
+    { key: 'replay', Icon: RotateCcw, label: 'Replay concept', run: onRefresh },
+    { key: 'prev', Icon: ChevronLeft, label: 'Previous topic', run: onPrev, disabled: idx === 0 },
+    { key: 'next', Icon: ChevronRight, label: 'Next topic', run: onNext },
+    { key: 'notes', Icon: ListTree, label: savedNotes.length ? `Notes · ${savedNotes.length}` : 'Notes', run: () => openContents('contents') },
+    ...((formulas.length > 0 || recap.length > 0) ? [{ key: 'slides', Icon: FileText, label: 'Slides', run: () => openContents('review') }] : []),
+    ...(flashcards.length > 0 ? [{ key: 'cards', Icon: Layers, label: 'Flashcards', run: () => setDeckOpen(true) }] : []),
+    ...(testQs.length > 0 ? [{ key: 'test', Icon: GraduationCap, label: 'Test yourself', run: () => setTestOpen(true) }] : []),
+    { key: 'captions', Icon: Captions, label: captionsOn ? 'Captions · on' : 'Captions · off', on: captionsOn, run: () => setCaptionsOn((c) => !c) },
+    ...(VOICE_OK && onAsk ? [{ key: 'live', Icon: Radio, label: handsFree ? 'Live talk · on' : 'Live talk · off', on: handsFree, run: toggleHandsFree }] : []),
+    { key: 'rotate', Icon: RotateCw, label: portrait ? 'Turn board sideways' : 'Turn board upright', run: () => rotateBoard(portrait) },
+    { key: 'voice', Icon: AudioLines, label: 'Teacher voice', run: () => { stopTeacher(); setVoiceOpen(true); } },
+    ...(onNewLesson ? [{ key: 'new', Icon: RefreshCw, label: 'New lesson', run: onNewLesson }] : []),
+  ];
+
+  return (
+    <Animated.View style={[st.container, cs.room, { opacity: mountFade }]} onStartShouldSetResponderCapture={() => { poke(); return false; }}>
+      <GridPaper />
 
       <VoicePicker visible={voiceOpen} onClose={() => setVoiceOpen(false)} />
 
-      {/* Continuous listener for hands-free "Live conversation". Mounted independent
-          of the mode so recognition runs uninterrupted; mounted only when on so it
-          never contends with the tap-to-talk VoiceMic for the single mic session. */}
+      {/* Continuous listener for hands-free "Live conversation" (see HandsFreeListener). */}
       {VOICE_OK && handsFree && <HandsFreeListener onBargeIn={handleBargeIn} isEcho={isLikelyEcho} onUnavailable={handleVoiceUnavailable} />}
 
-      {/* ── THE LESSON — the teacher's camera card on top, the whiteboard under it,
-          her words below. The camera card is persistent (never remounts); only the
-          material inside the whiteboard transitions per scene. */}
-      <ScrollView ref={sessionScrollRef} style={st.scroll} contentContainerStyle={st.sessionScroll} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled"
-        onLayout={(e) => setStageH(Math.round(e.nativeEvent.layout.height))}>
-        {/* ── TEACHER ON CAMERA — a violet "video call" stage. The photo fills the
-            frame like a live feed; the violet wash keeps her tied to the brand and
-            keeps the name chip / control rail legible over any backdrop. ── */}
-        {!focusMode && (
-        <View style={st.camCardGlow}>
-        <View style={st.camCard}>
-          <LinearGradient colors={CAM_GRAD} start={{ x: 0.1, y: 0 }} end={{ x: 0.9, y: 1 }} style={StyleSheet.absoluteFill} />
-          {/* She is shown WHOLE — the HERO_ and CLIP_ geometry above fits her own
-              measured bounding box inside the card instead of cropping her to fill
-              it, so the violet either side of her is the stage, not a gap. The still
-              is the base layer and the only thing left if the clip fails; the clip
-              sits exactly on top of it, matched to under 2dp, and plays while she
-              talks. contentFit="fill" is safe because the box it is given already
-              carries the clip's own 16:9 — nothing is stretched. */}
-          {teacher.hasOwnArt ? (
-            <Image
-              source={teacher.photo}
-              resizeMode="stretch"
-              accessibilityLabel={`Your teacher, ${teacher.name}`}
-              style={{ position: 'absolute', width: HERO_FULL_W, height: HERO_FULL_H, left: HERO_LEFT, top: HERO_TOP }}
-            />
-          ) : (
-            /* No photo of this teacher exists — draw the illustrated one instead of
-               showing the other teacher's face. Centred in the same box the photo
-               would have filled, so the stage composition does not move. */
-            <View
-              accessibilityLabel={`Your teacher, ${teacher.name}`}
-              style={{ position: 'absolute', width: HERO_FULL_W, height: HERO_FULL_H, left: HERO_LEFT, top: HERO_TOP, alignItems: 'center', justifyContent: 'flex-end' }}
-            >
-              <TeacherAvatar
-                theme="dark"
-                gender={teacher.gender}
-                state={teacherState}
-                expression={expression}
-                size={Math.min(HERO_FULL_W, HERO_FULL_H) * 0.82}
-              />
-            </View>
-          )}
-          {stageClipOk && (
-            <VideoView
-              player={heroPlayer}
-              nativeControls={false}
-              allowsFullscreen={false}
-              allowsPictureInPicture={false}
-              contentFit="fill"
-              pointerEvents="none"
-              accessibilityElementsHidden
-              importantForAccessibility="no-hide-descendants"
-              style={{ position: 'absolute', width: CLIP_FULL_W, height: CLIP_FULL_H, left: CLIP_LEFT, top: CLIP_TOP }}
-            />
-          )}
-          <LinearGradient
-            colors={['rgba(124,77,255,0.34)', 'rgba(91,50,196,0.10)', 'rgba(11,11,20,0.40)']}
-            style={StyleSheet.absoluteFill} pointerEvents="none"
-          />
-          <View style={st.camCardHighlight} pointerEvents="none" />
-
-          {/* identity chip */}
-          <View style={st.nameChip}>
-            <TeacherAvatar theme="dark" video={TEACHER_VIDEO} gender={teacher.gender} photo={teacher.hasOwnArt ? teacher.headshot : undefined} state={teacherState} expression={expression} size={28} />
-            <View>
-              <Text style={st.nameTxt} numberOfLines={1}>{teacher.name}</Text>
-              <View style={st.roleRow}>
-                <GraduationCap size={9} color={V.textDim} strokeWidth={2.6} />
-                <Text style={st.roleTxt} numberOfLines={1}>{tutorLabel}</Text>
-              </View>
-            </View>
-          </View>
-
-          {/* she's talking — a live waveform sitting under the chip */}
-          {ttsActive && <View style={st.camWave}><Waveform active compact /></View>}
-
-          {/* control rail — narration · voice · self-view */}
-          <View style={st.rail}>
-            <PressableScale onPress={toggleMute} style={[st.railBtn, muted && st.railBtnOff]} hitSlop={BAR_HIT}
-              accessibilityLabel={muted ? 'Unmute narration' : 'Mute narration'} accessibilityState={{ selected: !muted }}>
-              {muted ? <VolumeX size={19} color={V.text} strokeWidth={2.2} /> : <Volume2 size={19} color={V.text} strokeWidth={2.2} />}
-            </PressableScale>
-            <PressableScale onPress={onMicPress} style={[st.railBtn, VOICE_OK && handsFree && st.railBtnLive]} hitSlop={BAR_HIT}
-              accessibilityLabel={VOICE_OK ? (handsFree ? 'Live conversation is on — tap to turn off' : 'Turn on live conversation — speak anytime') : 'Ask a question'}
-              accessibilityState={{ selected: VOICE_OK && handsFree }}>
-              <Mic size={19} color={VOICE_OK && handsFree ? C.teal : V.text} strokeWidth={2.2} />
-            </PressableScale>
-            <PressableScale onPress={onCameraPress} style={st.railBtn} hitSlop={BAR_HIT}
-              accessibilityLabel={CAMERA_OK ? (selfView ? 'Turn off your camera' : 'Turn on your camera') : 'Camera is not available in this build'}
-              accessibilityState={{ selected: selfView, disabled: !CAMERA_OK }}>
-              <Camera size={19} color={V.text} strokeWidth={2.2} />
-            </PressableScale>
-          </View>
-
-          {/* student self-view, only when a camera module is actually present */}
-          {CAMERA_OK && selfView && <View style={st.selfView}><CamInner /></View>}
-        </View>
-        </View>
-        )}
-
-        <Stage key={sceneKey} style={st.workArea}>
-          {showBoard && (
-            // minHeight lives on this plain, non-animated View — putting it on the SAME
-            // node as the `transform` (Animated.View below) measurably failed to apply
-            // on this device/architecture; isolating the two concerns onto separate
-            // nodes is what actually holds the floor.
-            <View style={[st.boardOuter, focusMode && { height: boardBoxH, justifyContent: 'center' }]}>
-            {/* Rotated, the card is laid out at (height × width) and turned 90° about its
-                own centre, so it comes back down inside the box it overflowed. Nothing
-                between here and the ScrollView clips, and RN hit-tests through the
-                transform, so the pen, the tool rail and Undo all still land. */}
-            <Animated.View style={[
-              rotated ? { width: boardBoxH, height: boardBoxW } : { width: '100%', flex: 1 },
-              { transform: rotated ? [{ scale: focusZoom }, { rotate: '90deg' }] : [{ scale: focusZoom }] },
-            ]}>
-              {/* ── WHITEBOARD CARD — tool rail on the left, board title + Full
-                  Screen on top, the live board below, undo pinned bottom-left. ── */}
-              <View style={st.wbCard}>
-                <View style={st.wbRail}>
-                  {[
-                    { k: 'pen', Icon: Pencil, label: 'Pen' },
-                    { k: 'eraser', Icon: Eraser, label: 'Eraser' },
-                    { k: 'text', Icon: Type, label: 'Text' },
-                  ].map(({ k, Icon, label }) => (
-                    <PressableScale key={k} onPress={() => setTool(k)} style={[st.wbTool, tool === k && st.wbToolOn]} hitSlop={BAR_HIT}
-                      accessibilityLabel={`${label} tool`} accessibilityState={{ selected: tool === k }}>
-                      <Icon size={16} color={tool === k ? V.violet : INK_DIM} strokeWidth={2.2} />
-                    </PressableScale>
-                  ))}
-                </View>
-
-                <View style={st.wbMain}>
-                  <View style={st.wbHead}>
-                    <View style={st.wbHeadTitles}>
-                      {!!scene.kicker && kickerDistinct && <Text style={st.wbKicker} numberOfLines={1}>{scene.kicker}</Text>}
-                      {!!scene.title && <Text style={st.wbTitle} numberOfLines={2}>{scene.title}</Text>}
-                    </View>
-                    <PressableScale onPress={toggleBoardRotation} style={[st.fsBtn, st.rotBtn, rotated && st.rotBtnOn]} hitSlop={BAR_HIT}
-                      accessibilityLabel={rotated ? 'Upright board view' : 'Sideways board view — more width for the drawing'}
-                      accessibilityState={{ selected: rotated }}>
-                      <RotateCw size={13} color={rotated ? V.violet : INK2} strokeWidth={2.4} />
-                    </PressableScale>
-                    <PressableScale onPress={toggleFocus} style={st.fsBtn} hitSlop={BAR_HIT}
-                      accessibilityLabel={focusMode ? 'Exit full screen' : 'Full screen board'} accessibilityState={{ selected: focusMode }}>
-                      {focusMode ? <Minimize2 size={15} color={INK2} strokeWidth={2.4} /> : <Maximize2 size={15} color={INK2} strokeWidth={2.4} />}
+      {/* ── THE BOARD — the page she writes on the left, her drawing on the right ── */}
+      <View style={[cs.board, portrait ? { paddingLeft: insets.left + 20, paddingRight: insets.right + 20 } : { paddingLeft: insets.left + 36, paddingRight: insets.right + 28 }]}>
+        <Stage key={qa ? 'doubt' : sceneKey} style={cs.boardRow}>
+          <View style={cs.pageCol}>
+            {isQuiz && !qa ? (
+              <ScrollView style={cs.fill} contentContainerStyle={[cs.quizBody, { paddingBottom: pagePad }]} showsVerticalScrollIndicator={false}>
+                <Text style={cs.quizTitle}>{scene.title || 'Quick check'}</Text>
+                <LessonBoard scene={scene} paused={!teaching} skip={false} resetKey={sceneKey} step={curBeat ? curBeat.boardStep : null} highlight={boardHighlight} action={curBeat && curBeat.boardAction} onQuizContinue={onNextStable} onQuizResult={onQuizResultStable} onReexplain={onReexplainStable} quizFb={quizFb} reteach={reteach} />
+              </ScrollView>
+            ) : (
+              <BoardPage lines={pageLines} revealed={revealed} sceneKey={sceneKey} speed={speed} paused={!teaching} doubt={qa} style={cs.fill} bottomPad={pagePad}>
+                {/* upright, the drawing sits under the notes instead of beside them */}
+                {portrait && showSide && (
+                  <View style={cs.sideCardPortrait}>
+                    <LessonBoard scene={scene} paused={!teaching} skip={false} resetKey={sceneKey} step={curBeat ? curBeat.boardStep : null} highlight={boardHighlight} action={curBeat && curBeat.boardAction} onQuizContinue={onNextStable} onQuizResult={onQuizResultStable} onReexplain={onReexplainStable} quizFb={quizFb} reteach={reteach} />
+                  </View>
+                )}
+                {portrait && showDoubtSide && (
+                  <View style={cs.sideCardPortrait}>
+                    <DoubtBoard elements={boardEls} height={200} />
+                  </View>
+                )}
+                {qa && mode === M.ANSWERING && (
+                  <View style={cs.doubtActions}>
+                    {doubtDone && <DoubtMeta meta={qaMeta} onLearnPrereq={(p) => sendDoubt(`Explain "${p}" briefly — I want to understand the idea this builds on.`)} />}
+                    {doubtDone && !!onAsk && <FollowUpChips question={qa.q} onPick={(q) => sendDoubt(q)} />}
+                    <PressableScale style={cs.resumeBtn} onPress={resumeFromDoubt} accessibilityLabel="Resume the lesson">
+                      <Play size={15} color="#fff" strokeWidth={2.4} fill="#fff" />
+                      <Text style={cs.resumeTxt}>Resume lesson</Text>
                     </PressableScale>
                   </View>
-
-                  {/* The board SCROLLS. wbCard clips (overflow:'hidden') and the point
-                      boards render every point with no cap, so a scene with five
-                      two-line points ran past the bottom of the card on a small screen
-                      and the last ones could not be read at all.
-
-                      flexGrow:1 on the content keeps the boards that depend on a flex
-                      parent — the triangle diagram, the charts — filling the space as
-                      before when content is short; it scrolls only once the content is
-                      genuinely taller than the card.
-
-                      BoardSizeProvider sits INSIDE the scroller, not around it: it makes
-                      the drawing bigger in focus mode, which is exactly the case that can
-                      push the content past the card — so the scroller has to be the one
-                      that measures the scaled result. Wrapping the other way round would
-                      give the boards a fixed viewport again and undo the fix above. */}
-                  <ScrollView
-                    style={st.wbScroll}
-                    contentContainerStyle={st.wbScrollBody}
-                    showsVerticalScrollIndicator={false}
-                    nestedScrollEnabled
-                  >
-                    <BoardSizeProvider value={boardDrawScale}>
-                      <LessonBoard scene={scene} paused={!teaching} skip={false} resetKey={sceneKey} step={curBeat ? curBeat.boardStep : null} highlight={(curBeat && curBeat.highlight && curBeat.highlight.length) ? curBeat.highlight : keyTerms} action={curBeat && curBeat.boardAction} onQuizContinue={onNextStable} onQuizResult={onQuizResultStable} onReexplain={onReexplainStable} quizFb={quizFb} reteach={reteach} />
-                    </BoardSizeProvider>
-                  </ScrollView>
-                  <EraserWipe enabled={idx > 0} />
-
-                  <PressableScale onPress={onRefresh} style={st.undoBtn} hitSlop={BAR_HIT} accessibilityLabel="Replay this step from the start">
-                    <Undo2 size={16} color={INK_DIM} strokeWidth={2.2} />
-                  </PressableScale>
-                </View>
-              </View>
-            </Animated.View>
+                )}
+              </BoardPage>
+            )}
+          </View>
+          {showSide && !portrait && (
+            <View style={[cs.sideCol, { width: sideW }]}>
+              <ScrollView style={cs.sideCard} contentContainerStyle={cs.sideBody} showsVerticalScrollIndicator={false} nestedScrollEnabled>
+                <LessonBoard scene={scene} paused={!teaching} skip={false} resetKey={sceneKey} step={curBeat ? curBeat.boardStep : null} highlight={boardHighlight} action={curBeat && curBeat.boardAction} onQuizContinue={onNextStable} onQuizResult={onQuizResultStable} onReexplain={onReexplainStable} quizFb={quizFb} reteach={reteach} />
+              </ScrollView>
             </View>
           )}
-          {!focusMode && <Animated.View style={[st.captionWrap, { opacity: capFade }]}>{captionEl}</Animated.View>}
+          {showDoubtSide && !portrait && (
+            <View style={[cs.sideCol, { width: sideW }]}>
+              <View style={cs.sideCard}>
+                <DoubtBoard elements={boardEls} height={Math.round(sideW * 0.6) + 20} />
+              </View>
+            </View>
+          )}
         </Stage>
-      </ScrollView>
-
-      {/* ── FIXED FOOTER — transient teaching state, then the ask bar, then the
-          session actions (Previous / End Session / Next). ── */}
-      <View style={[st.bottom, { paddingBottom: st.bottom.paddingBottom + insets.bottom }]}>
-        {mode === M.LISTENING && VOICE_OK && <Text style={st.listenTxt} numberOfLines={2} accessibilityLiveRegion="polite">{partial || 'I’m listening — go ahead.'}</Text>}
-        {mode === M.THINKING && <Appear><ThinkingDots name={teacher.name} /></Appear>}
-
-        {mode === M.LISTENING && !VOICE_OK && !qInput && (
-          <View style={st.starterRow}>
-            {[
-              `Why is "${(scene.title || 'this').replace(/["“”]/g, '')}" true?`,
-              'Can you show a worked example?',
-              'Where is this used in real life?',
-            ].map((sq) => (
-              <PressableScale key={sq} style={st.starterChip} onPress={() => sendDoubt(sq)} accessibilityRole="button" accessibilityLabel={sq}>
-                <Text style={st.starterTxt} numberOfLines={1}>{sq}</Text>
-              </PressableScale>
-            ))}
-          </View>
-        )}
-        {mode === M.ANSWERING && (
-          <>
-            {doubtDone && !!onAsk && <FollowUpChips question={qa && qa.q} onPick={(q) => sendDoubt(q)} />}
-            <PressableScale style={st.resumeBtn} onPress={resumeFromDoubt} accessibilityLabel="Resume the lesson">
-              <Play size={15} color="#fff" strokeWidth={2.4} fill="#fff" />
-              <Text style={st.resumeTxt}>Resume lesson</Text>
-            </PressableScale>
-          </>
-        )}
-
-        {!!hint && (teaching || mode === M.PAUSED) && <Text style={st.hint}>{hint}</Text>}
-
-        {/* Quick access to the lesson's Contents/Notes, and — once there's at least one
-            concept behind them — Flashcards/Test-yourself on what's been covered SO FAR
-            (not the whole lesson: flashcards/testQs are sliced to idx below, so this
-            never spoils a concept she hasn't taught yet). Was previously only reachable
-            via the "…" menu (Notes) or after the whole lesson finished (Flashcards/Test).
-            The explain-differently chips that used to live here (Simpler / Break it down /
-            Hindi / Practice) were removed: each was a full doubt round-trip, so they read
-            as instant taps but actually broke the student's pace, and "Practice" only
-            ever posed a question without solving it, so it looked half-built. Flashcards/
-            Test are pure client-side lookups (no round-trip), so they don't have that
-            problem — safe to offer any time. */}
-        {!askCollapsed && !qInput && mode !== M.COMPLETED && mode !== M.ANSWERING && (
-          <View style={st.quickChipRow}>
-            <PressableScale style={st.notesChip} onPress={() => openContents('contents')} accessibilityRole="button"
-              accessibilityLabel={savedNotes.length > 0 ? `Notes, ${savedNotes.length} saved` : 'Notes'}>
-              <ListTree size={14} color={ACCENT} strokeWidth={2.3} />
-              <Text style={st.notesChipTxt}>{savedNotes.length > 0 ? `Notes · ${savedNotes.length}` : 'Notes'}</Text>
-            </PressableScale>
-            {(formulas.length > 0 || recap.length > 0) && (
-              <PressableScale style={st.notesChip} onPress={() => openContents('review')} accessibilityRole="button" accessibilityLabel="Slides">
-                <FileText size={14} color={ACCENT} strokeWidth={2.3} />
-                <Text style={st.notesChipTxt}>Slides</Text>
-              </PressableScale>
-            )}
-            {flashcards.length > 0 && (
-              <PressableScale style={st.notesChip} onPress={() => setDeckOpen(true)} accessibilityRole="button" accessibilityLabel="Review flashcards">
-                <Layers size={14} color={ACCENT} strokeWidth={2.3} />
-                <Text style={st.notesChipTxt}>Flashcards</Text>
-              </PressableScale>
-            )}
-            {testQs.length > 0 && (
-              <PressableScale style={st.notesChip} onPress={() => setTestOpen(true)} accessibilityRole="button" accessibilityLabel="Test yourself">
-                <GraduationCap size={14} color={ACCENT} strokeWidth={2.3} />
-                <Text style={st.notesChipTxt}>Test yourself</Text>
-              </PressableScale>
-            )}
-          </View>
-        )}
-
-        {/* ── ASK BAR — always reachable, so a doubt is one tap away at any point
-            of the lesson (the mockup's primary input). ── */}
-        {!askCollapsed && mode !== M.COMPLETED && !!onAsk && (
-          <View style={st.askBar}>
-            <TextInput
-              style={st.askField}
-              placeholder="Ask a question..."
-              placeholderTextColor={V.textFaint}
-              value={qInput} onChangeText={setQInput}
-              onSubmitEditing={() => sendDoubt()} returnKeyType="send"
-              accessibilityLabel="Ask your teacher a question"
-            />
-            <PressableScale style={[st.askSendBtn, !qInput.trim() && st.askSendDim]} onPress={() => sendDoubt()}
-              disabled={!qInput.trim()} accessibilityLabel="Send question">
-              <ArrowUp size={18} color="#111111" strokeWidth={2.8} />
-            </PressableScale>
-          </View>
-        )}
-
-        {/* collapse handle — hides the ask bar to give the board more room */}
-        {mode !== M.COMPLETED && !!onAsk && (
-          <PressableScale onPress={() => setAskCollapsed((v) => !v)} style={st.collapse} hitSlop={BAR_HIT}
-            accessibilityLabel={askCollapsed ? 'Show the question box' : 'Hide the question box'}>
-            <ChevronDown size={18} color={V.textFaint} strokeWidth={2.4}
-              style={askCollapsed ? { transform: [{ rotate: '180deg' }] } : null} />
-          </PressableScale>
-        )}
-
-        {/* ── SESSION ACTIONS — move between concepts, or end the class ── */}
-        {mode !== M.COMPLETED && (
-          <View style={st.actionBar}>
-            <PressableScale style={st.navBtn} onPress={onPrev} disabled={idx === 0} accessibilityLabel="Previous topic">
-              <ChevronLeft size={15} color={idx === 0 ? V.textFaint : V.text} strokeWidth={2.5} />
-              <View>
-                <Text style={[st.navTop, idx === 0 && st.navDim]}>Previous</Text>
-                <Text style={[st.navBot, idx === 0 && st.navDim]}>Topic</Text>
-              </View>
-            </PressableScale>
-
-            <PressableScale style={st.endBtn} onPress={endSession} scaleTo={0.94} accessibilityLabel="End this session">
-              <Square size={10} color="#fff" strokeWidth={2.6} fill="#fff" />
-              <Text style={st.endTxt}>End Session</Text>
-            </PressableScale>
-
-            <PressableScale style={[st.navBtn, st.navBtnR]} onPress={onNext} accessibilityLabel="Next topic">
-              <View>
-                <Text style={[st.navTop, st.navRight]}>Next</Text>
-                <Text style={[st.navBot, st.navRight]}>Topic</Text>
-              </View>
-              <ChevronRight size={15} color={V.text} strokeWidth={2.5} />
-            </PressableScale>
-          </View>
-        )}
       </View>
 
-      {/* ── "…" OVERFLOW — everything the mockup's header doesn't show but the
-          lesson still needs: transport, live conversation, voice, contents. ── */}
-      <Modal visible={menuOpen} transparent animationType="fade" onRequestClose={() => setMenuOpen(false)}>
-        <PressableScale style={st.menuScrim} onPress={() => setMenuOpen(false)} scaleTo={1} accessibilityLabel="Close options">
-          <View />
-        </PressableScale>
-        <View style={st.menuCard}>
-          <View style={st.menuGrip} />
-          {[
-            {
-              key: 'play',
-              Icon: teaching ? Pause : Play,
-              label: teaching ? 'Pause lesson' : 'Play lesson',
-              on: false,
-              run: togglePlay,
-            },
-            {
-              key: 'replay',
-              Icon: RotateCcw,
-              label: 'Replay this concept',
-              on: false,
-              run: onRefresh,
-            },
-            ...(VOICE_OK && onAsk ? [{
-              key: 'live',
-              Icon: Radio,
-              label: handsFree ? 'Live conversation · on' : 'Live conversation · off',
-              on: handsFree,
-              run: toggleHandsFree,
-            }] : []),
-            {
-              key: 'voice',
-              Icon: AudioLines,
-              label: 'Teacher voice',
-              on: false,
-              run: () => { stopTeacher(); setVoiceOpen(true); },
-            },
-            ...(onNewLesson ? [{
-              key: 'new',
-              Icon: RefreshCw,
-              label: 'Start a new lesson',
-              on: false,
-              run: onNewLesson,
-            }] : []),
-          ].map(({ key, Icon, label, on, run }) => (
-            <PressableScale key={key} style={st.menuRow} onPress={() => { setMenuOpen(false); run(); }} accessibilityLabel={label}>
-              <Icon size={18} color={on ? V.violet : V.textDim} strokeWidth={2.2} />
-              <Text style={[st.menuTxt, on && st.menuTxtOn]}>{label}</Text>
-            </PressableScale>
-          ))}
+      {/* ── top: what class this is · Hide/Show controls ── */}
+      <View style={[cs.topBar, { left: insets.left + 16, right: insets.right + 16 }]} pointerEvents="box-none">
+        <SessionChip label={sessionLabel} live={ttsActive} right={<SessionClock since={openedAtRef.current} style={chipClockStyle} />} />
+        <ControlsToggle shown={controlsOn} onPress={toggleControls} />
+      </View>
+      {hintShown && !!hint && (
+        <View style={cs.hintWrap} pointerEvents="none">
+          <Text style={cs.hintTxt}>{hint}</Text>
         </View>
-      </Modal>
+      )}
+
+      {/* ── caption bar — her current sentence ── */}
+      {/* A quick check already shows its question on the board, and the bar would
+          sit over its answer buttons — so it steps aside there. */}
+      {captionsOn && mode !== M.COMPLETED && !(isQuiz && !qa) && (
+        <View style={[cs.captionWrap, { bottom: capBottom }]} pointerEvents="box-none">
+          <Animated.View style={{ opacity: capFade }}>
+            <CaptionBar maxWidth={Math.min(720, winW - 64)}>
+              {mode === M.THINKING ? (
+                <Text style={captionStyles.txt}>{teacher.name} is thinking…</Text>
+              ) : mode === M.LISTENING ? (
+                <Text style={captionStyles.txt}>{partial || listenPrompt}</Text>
+              ) : qa ? (
+                <Text style={captionStyles.txt} numberOfLines={1}>You asked · “{qa.q}”</Text>
+              ) : (
+                <SpokenCaption key={`s-${idx}-${captionText}`} text={captionText} speaking={ttsActive} karaoke={voiceOn} resetKey={`${idx}-${captionText}`} style={captionStyles.txt} dimStyle={cs.capDim} hotStyle={cs.capHot} highlight={boardHighlight} onTermTap={onAsk ? (term) => sendDoubt(`In one line, what does "${term}" mean here?`) : undefined} />
+              )}
+            </CaptionBar>
+          </Animated.View>
+        </View>
+      )}
+
+      {/* ── controls: speed · mic · speaker · + · ⋮ · end ── */}
+      {controlsOn && mode !== M.COMPLETED && (
+        <>
+          <View style={[cs.speedWrap, { left: insets.left + 16, bottom: (portrait ? 16 + 50 + 12 : 16) + insets.bottom }]}>
+            <SpeedPill speed={speed} onPress={cycleSpeed} />
+          </View>
+          <View style={[cs.callWrap, { bottom: 16 + insets.bottom }]} pointerEvents="box-none">
+            <CallControls
+              micOn={VOICE_OK && handsFree}
+              micLabel={VOICE_OK ? (handsFree ? 'Live conversation is on — tap to turn off' : 'Turn on live conversation — speak anytime') : 'Ask a question'}
+              onMic={onMicButton}
+              muted={muted}
+              onMute={toggleMute}
+              onAsk={openAsk}
+              onMore={() => setSheet('more')}
+              onEnd={endSession}
+            />
+          </View>
+        </>
+      )}
+
+      {/* student self-view (homework to the camera), only with a camera module */}
+      {CAMERA_OK && selfView && <View style={[cs.selfView, { right: insets.right + 16 }]}><CamInner /></View>}
+
+      <AskSheet visible={sheet === 'ask'} onClose={closeSheet} value={qInput} onChange={setQInput} onSend={sendFromSheet}
+        starters={onAsk ? starters : []} onCamera={() => { closeSheet(); onCameraPress(); }} cameraOk={CAMERA_OK} />
+      <MoreSheet visible={sheet === 'more'} onClose={() => setSheet(null)} items={moreItems} />
 
       {/* ── LEAVING PART-WAY ──────────────────────────────────────────────────
           Not a "are you sure?" guard. The position is already saved, so the
           honest thing to say is where they are and that it will keep — then get
           out of the way. Leaving is one tap and is never the harder option. */}
-      <Modal visible={leaveOpen} transparent animationType="fade" onRequestClose={() => setLeaveOpen(false)}>
+      <Modal visible={leaveOpen} transparent animationType="fade" supportedOrientations={['landscape', 'landscape-left', 'landscape-right', 'portrait']} onRequestClose={() => setLeaveOpen(false)}>
         <View style={st.leaveWrap}>
           <Appear from="scale" style={st.leaveCard}>
             <View style={st.leaveIcon}><Text style={st.leaveIconTxt}>🌱</Text></View>
@@ -1994,7 +1880,8 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
       {/* ── COMPLETED ── */}
       {mode === M.COMPLETED && (
         <View style={st.doneOverlay} pointerEvents="box-none">
-          <Appear from="scale" style={st.doneCard}>
+          <ScrollView style={cs.fill} contentContainerStyle={{ alignItems: 'center', paddingVertical: 8 }} showsVerticalScrollIndicator={false}>
+          <Appear from="scale" style={[st.doneCard, { maxWidth: 560 }]}>
             {/* Behind the trophy, so the stickers read as thrown from it. */}
             <Stickers />
             <Appear from="scale" delay={220} duration={420} style={st.doneEmoji}><Trophy size={40} color="#F59E0B" strokeWidth={1.9} /></Appear>
@@ -2067,6 +1954,7 @@ export default function LiveTeachingPlayer({ lesson, subject, ttsOk = true, star
               <PressableScale onPress={onNewLesson} style={st.doneNew} accessibilityLabel="Start a new topic"><Text style={st.doneNewTxt}>Learn a new topic</Text></PressableScale>
             )}
           </Appear>
+          </ScrollView>
         </View>
       )}
 
@@ -2168,6 +2056,9 @@ const st = StyleSheet.create({
   // words "Full Screen" — and it sat directly beside the scene title, which is the
   // thing that actually needs the width. The label lives on accessibilityLabel.
   fsBtn: { width: 28, height: 28, alignItems: 'center', justifyContent: 'center', backgroundColor: V.violetSoft, borderRadius: R.sm },
+  // The level readout sits between the two zoom buttons and doubles as "reset".
+  zoomPill: { minWidth: 36, height: 28, paddingHorizontal: 6, alignItems: 'center', justifyContent: 'center', backgroundColor: V.violetSoft, borderRadius: R.sm },
+  zoomTxt: { fontSize: 11, fontWeight: '800', color: V.violet, fontVariant: ['tabular-nums'] },
   // The rotate button is the same 28×28 box, so it needs no width of its own; only the
   // "on" tint distinguishes it. (`fsTxt` came with the rotate work back when fsBtn still
   // carried a label — the icon-only button above has no text to style, so it is dropped
@@ -2412,4 +2303,35 @@ const st = StyleSheet.create({
   donePrimaryTxt: { color: '#111111', fontSize: 14, fontFamily: F.bold },
   doneGhost: { backgroundColor: '#F5F5F5', borderWidth: 1, borderColor: 'rgba(17,17,17,0.08)' },
   doneGhostTxt: { color: '#111111', fontSize: 14, fontFamily: F.semi },
+});
+
+// ── LANDSCAPE BOARD ───────────────────────────────────────────────────────────
+// The whole screen is graph paper (GridPaper); the page column takes what the
+// drawing column leaves. Controls/captions float over it (classroom/*).
+const cs = StyleSheet.create({
+  room: { backgroundColor: PAPER },
+  fill: { flex: 1 },
+  board: { ...StyleSheet.absoluteFillObject, paddingTop: 62 },
+  boardRow: { flex: 1, flexDirection: 'row', gap: 24 },
+  pageCol: { flex: 1, minWidth: 0 },
+  sideCol: { paddingBottom: 92 },
+  sideCard: { flexGrow: 0, borderRadius: 14, backgroundColor: 'rgba(255,255,255,0.92)', borderWidth: 1, borderColor: '#E7E7E3' },
+  sideBody: { padding: 10 },
+  sideCardPortrait: { marginTop: 14, borderRadius: 14, backgroundColor: 'rgba(255,255,255,0.92)', borderWidth: 1, borderColor: '#E7E7E3', padding: 10 },
+  quizBody: { paddingBottom: 130, gap: 10, maxWidth: 680 },
+  quizTitle: { fontFamily: FONT_HEAD, fontSize: 24, color: LINE_COLOR.title },
+  topBar: { position: 'absolute', top: 12, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
+  hintWrap: { position: 'absolute', top: 58, left: 0, right: 0, alignItems: 'center' },
+  hintTxt: { maxWidth: 520, fontSize: 13, lineHeight: 18, color: '#3F4650', textAlign: 'center', backgroundColor: 'rgba(255,255,255,0.96)', borderRadius: 10, borderWidth: 1, borderColor: '#E7E7E3', paddingHorizontal: 14, paddingVertical: 8, overflow: 'hidden' },
+  captionWrap: { position: 'absolute', left: 0, right: 0, alignItems: 'center' },
+  // Words she has not reached yet: only a shade softer than the spoken ones — a faint
+  // grey was unreadable on a phone in daylight.
+  capDim: { color: 'rgba(255,255,255,0.86)' },
+  capHot: { color: '#5EEAD4' },
+  speedWrap: { position: 'absolute' },
+  callWrap: { position: 'absolute', left: 0, right: 0, alignItems: 'center' },
+  doubtActions: { marginTop: 14, gap: 10, alignItems: 'flex-start' },
+  resumeBtn: { flexDirection: 'row', alignItems: 'center', gap: 8, height: 44, paddingHorizontal: 18, borderRadius: 22, backgroundColor: '#0F766E' },
+  resumeTxt: { color: '#fff', fontSize: 14, fontWeight: '700' },
+  selfView: { position: 'absolute', bottom: 90, width: 150, height: 112, borderRadius: 14, overflow: 'hidden', backgroundColor: '#222' },
 });
