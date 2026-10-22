@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Save, Wrench, CalendarDays, Mail, GraduationCap, Flag, Settings as Cog, type LucideIcon } from 'lucide-react'
-import { Card, SectionHead, Toggle, IconChip } from '@/components/ui'
+import { Save, Wrench, CalendarDays, Mail, GraduationCap, Flag, Settings as Cog, Clock, Smartphone, ShieldCheck, Layers, type LucideIcon } from 'lucide-react'
+import { Toggle } from '@/components/ui'
 import { ConfirmDialog } from '@/components/Modal'
 import { useToast } from '@/lib/toast'
 import { api, ApiError } from '@/lib/api'
@@ -16,8 +16,15 @@ const META: Record<string, { icon: LucideIcon; tone: AccentKey }> = {
   supported_classes: { icon: GraduationCap, tone: 'indigo' },
   contact_email: { icon: Mail, tone: 'cyan' },
   default_student_experience: { icon: Flag, tone: 'purple' },
-  app_version: { icon: Cog, tone: 'emerald' },
-  platform_config: { icon: Cog, tone: 'gold' },
+  app_version: { icon: Smartphone, tone: 'emerald' },
+  platform_config: { icon: ShieldCheck, tone: 'blue' },
+  mobile_release: { icon: Smartphone, tone: 'indigo' },
+}
+
+/** Hex per tone, so a card's colour survives outside the Card/IconChip system. */
+const TINT: Record<string, string> = {
+  purple: '#8B5CF6', orange: '#e8833a', cyan: '#19a0b8', blue: '#2a78d6',
+  emerald: '#1baf7a', indigo: '#4F6DF5', gold: '#eda100', red: '#e8699b',
 }
 const EXPERIENCES = ['standard', 'guided', 'exam']
 const CLASS_RANGE = [6, 7, 8, 9, 10, 11, 12]
@@ -54,28 +61,37 @@ export function SettingCard({ setting, editable, onConflict }: { setting: Settin
     doSave()
   }
 
+  const Icon = meta.icon
   return (
-    <Card className="col" style={{ gap: 12 }}>
-      <div className="row gap-10">
-        <IconChip icon={meta.icon} tone={meta.tone} size={38} />
-        <div className="grow">
-          <div style={{ fontWeight: 900, fontSize: 15 }}>{setting.label || setting.key}</div>
-          {setting.description && <div className="faint" style={{ fontSize: 12, fontWeight: 600 }}>{setting.description}</div>}
+    <div className={'set-card' + (dirty ? ' dirty' : '')}>
+      <div className="row gap-11" style={{ alignItems: 'flex-start' }}>
+        <span className="set-card-ic" style={{ background: TINT[meta.tone] + '1a', color: TINT[meta.tone] }}>
+          <Icon size={19} strokeWidth={2.1} />
+        </span>
+        <div style={{ minWidth: 0, flex: 1 }}>
+          <div className="set-card-title">{setting.label || setting.key}</div>
+          {setting.description && <div className="set-card-sub">{setting.description}</div>}
         </div>
       </div>
 
-      <div className="col gap-10">{renderEditor(setting.key, value, set, editable)}</div>
+      <div className="col gap-10 set-card-body">{renderEditor(setting.key, value, set, editable)}</div>
 
       {editable && (
-        <div className="row" style={{ borderTop: '1px solid var(--hair)', paddingTop: 10 }}>
-          <span className="faint" style={{ fontSize: 11.5, fontWeight: 700 }}>v{version} · updated {fmtDateTime(setting.updatedAt)}</span>
-          <button className="btn btn-primary sm ml-auto" onClick={save} disabled={!dirty || busy}><Save size={13} /> {busy ? 'Saving…' : 'Save'}</button>
+        <div className="set-card-foot">
+          <span className="set-when" title={`version ${version}`}>
+            <Clock size={12} /> Updated {fmtDateTime(setting.updatedAt)}
+          </span>
+          {/* The button only lights up once something has actually changed, so a
+              card that looks saveable always is. */}
+          <button className="btn btn-primary sm" onClick={save} disabled={!dirty || busy}>
+            <Save size={13} /> {busy ? 'Saving…' : 'Save'}
+          </button>
         </div>
       )}
 
       <ConfirmDialog open={confirmMaint} onClose={() => setConfirmMaint(false)} onConfirm={doSave} busy={busy} danger confirmLabel="Enable maintenance"
         title="Enable maintenance mode" message="This shows a maintenance banner to users. Enable it now?" />
-    </Card>
+    </div>
   )
 }
 
@@ -88,8 +104,7 @@ function renderEditor(key: string, value: any, set: (p: Record<string, any>) => 
         {CLASS_RANGE.map((c) => {
           const on = active.includes(c)
           return (
-            <button key={c} className="tab" aria-pressed={on} disabled={!editable}
-              style={{ background: on ? 'var(--indigo)' : 'var(--canvas)', color: on ? '#fff' : 'var(--muted)', border: '1px solid var(--hair)' }}
+            <button key={c} className={'set-chip' + (on ? ' on' : '')} aria-pressed={on} disabled={!editable}
               onClick={() => set({ classes: on ? active.filter((x) => x !== c) : [...active, c].sort((a, b) => a - b) })}>
               Class {c}
             </button>
