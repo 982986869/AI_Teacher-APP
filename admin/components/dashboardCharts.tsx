@@ -109,9 +109,15 @@ export function Num({ value, decimals = 0, duration = 900 }: {
  * stops. Hovering gives a crosshair and the exact value, because an area chart
  * without one makes the reader estimate off a grid line.
  */
-export function AreaChart({ series, height = 230, color = '#2a78d6', suffix = '', ariaLabel }: {
+export function AreaChart({ series, height = 230, color = '#2a78d6', suffix = '', ariaLabel, variant = 'area' }: {
   series: { label: string; value: number | null }[]
   height?: number; color?: string; suffix?: string; ariaLabel?: string
+  /**
+   * 'area' fills under the line; 'line' keeps a faint wash and marks every point.
+   * A spiky daily series reads better as a line with its points visible — a heavy
+   * fill under it turns the peaks into a silhouette and hides the shape.
+   */
+  variant?: 'area' | 'line'
 }) {
   const id = useId()
   const reduced = useReducedMotion()
@@ -157,7 +163,7 @@ export function AreaChart({ series, height = 230, color = '#2a78d6', suffix = ''
       >
         <defs>
           <linearGradient id={'ar' + id} x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor={color} stopOpacity="0.24" />
+            <stop offset="0%" stopColor={color} stopOpacity={variant === 'line' ? 0.08 : 0.24} />
             <stop offset="100%" stopColor={color} stopOpacity="0" />
           </linearGradient>
           {/* The fill is revealed by a wipe that travels with the line, so the two
@@ -193,6 +199,17 @@ export function AreaChart({ series, height = 230, color = '#2a78d6', suffix = ''
             <path d={line} fill="none" stroke={color} strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
           </g>
         )}
+
+        {/* A line chart marks each reading, so a single day can be picked out
+            without hovering. Suppressed on long windows, where ninety dots on one
+            line is noise rather than information. */}
+        {variant === 'line' && series.length <= 45 && series.map((s2, i) => (
+          s2.value == null ? null : (
+            <circle key={i} cx={x(i)} cy={y(s2.value)} r="3" fill={S.card} stroke={color} strokeWidth="2"
+              opacity={drawn ? 1 : 0}
+              style={{ transition: reduced ? 'none' : 'opacity 260ms ' + EASE + ' ' + (260 + i * 22) + 'ms' }} />
+          )
+        ))}
 
         {/* the endpoint is emphasised — "where we are now" is read first. It fades
             in once the line has reached it, not before. */}
