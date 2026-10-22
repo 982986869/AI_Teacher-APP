@@ -7,6 +7,7 @@ const { AppError } = require('../../middleware/errorHandler')
 const {
   buildLessonSystemPrompt,
   buildLessonUserPrompt,
+  buildSourceBlock,
 } = require('../../prompts/lessonGeneration.prompt')
 const {
   buildDoubtSystemPrompt,
@@ -50,6 +51,9 @@ const DOUBT_MAX_TOKENS = 1024
 const INTENT_MAX_TOKENS = 60
 // Teacher replies are at most ~5 short lines; a tight ceiling keeps generation fast.
 const TEACHER_MAX_TOKENS = 450
+// With a board, up to 6 [[board:]] markers (~30 tokens each) share the budget with the
+// spoken lines; without the headroom the last sentence gets cut off mid-word.
+const TEACHER_MAX_TOKENS_BOARD = 700
 // A grounded knowledge answer is capped at ~180 words (plain) or a small JSON lesson.
 const KNOWLEDGE_MAX_TOKENS = 900
 // Transcribing an uploaded page (PDF/photo) can be dense — allow room for a full page.
@@ -105,10 +109,15 @@ class AnthropicProvider extends AIProvider {
     return this._client
   }
 
-  async generateLesson(topic, subject, gradeLevel, profile = {}) {
+  // `source` (optional) is a textbook scope from books.service.loadSource: its text goes
+  // in as its own prompt-cached block ahead of the per-student instructions.
+  async generateLesson(topic, subject, gradeLevel, profile = {}, source = null) {
     const client = this._getClient()
-    const system = buildLessonSystemPrompt()
-    const messages = [{ role: 'user', content: buildLessonUserPrompt(topic, subject, gradeLevel, profile) }]
+    const { system, messages } = buildLessonRequestParts({
+      systemText: buildLessonSystemPrompt(),
+      sourceBlock: source ? buildSourceBlock(source) : null,
+      userText: buildLessonUserPrompt(topic, subject, gradeLevel, profile, source),
+    })
 
     const message = await this._createLessonMessage(client, system, messages)
     const raw = extractText(message)
@@ -133,6 +142,7 @@ class AnthropicProvider extends AIProvider {
           messages,
         })
         const msg = await stream.finalMessage()
+        if (process.env.LESSON_USAGE_LOG === '1') console.log('[lesson usage]', JSON.stringify(msg && msg.usage))
         // If thinking ate the budget and the JSON was cut off, don't return partial
         // JSON (it would fail parsing with a misleading "invalid format" error) —
         // fall through to the plain path, where the whole budget goes to the lesson.
@@ -159,6 +169,7 @@ class AnthropicProvider extends AIProvider {
     } catch (err) {
       throw translateProviderError(err, 'lesson generation')
     }
+    if (process.env.LESSON_USAGE_LOG === '1') console.log('[lesson usage]', JSON.stringify(msg && msg.usage))
     // Distinct, actionable error instead of the downstream "invalid JSON" 502.
     if (msg && msg.stop_reason === 'max_tokens') {
       throw new AppError('The lesson was too long to fit — please try a more specific topic.', 502)
@@ -166,7 +177,8 @@ class AnthropicProvider extends AIProvider {
     return msg
   }
 
-  async answerDoubt(question, lessonContext, history = [], slideIndex) {
+  // `sourceText` (optional): the textbook passages a book lesson was built from.
+  async answerDoubt(question, lessonContext, history = [], slideIndex, sourceText = null) {
     const client = this._getClient()
 
     let message
@@ -174,7 +186,7 @@ class AnthropicProvider extends AIProvider {
       message = await client.messages.create({
         model: this.doubtModel,
         max_tokens: DOUBT_MAX_TOKENS,
-        system: buildDoubtSystemPrompt(lessonContext),
+        system: buildDoubtSystemPrompt(lessonContext, sourceText),
         messages: buildDoubtMessages(history, question, slideIndex),
       })
     } catch (err) {
@@ -230,12 +242,14 @@ class AnthropicProvider extends AIProvider {
   }
 
   // Streaming variant — calls onText(delta) per chunk, resolves with the full text.
-  async streamTeacherResponse({ intent, language, contexts, lesson, history, question, slideIndex, level, mode, strategy, studentContext, gradeLevel }, onText) {
+  // `board` adds the drawing instructions (teacherResponse.prompt BOARD_BLOCK); the raw
+  // text returned here still contains the [[board:]] markers — the caller strips them.
+  async streamTeacherResponse({ intent, language, contexts, lesson, history, question, slideIndex, level, mode, strategy, studentContext, gradeLevel, board = false }, onText) {
     const client = this._getClient()
     const stream = client.messages.stream({
       model: this.doubtModel,
-      max_tokens: TEACHER_MAX_TOKENS,
-      system: buildTeacherSystemPrompt({ intent, language, contexts, lesson, level, mode, strategy, studentContext, gradeLevel }),
+      max_tokens: board ? TEACHER_MAX_TOKENS_BOARD : TEACHER_MAX_TOKENS,
+      system: buildTeacherSystemPrompt({ intent, language, contexts, lesson, level, mode, strategy, studentContext, gradeLevel, board }),
       messages: buildTeacherMessages(history, question, slideIndex),
     })
     stream.on('text', (t) => { try { if (typeof onText === 'function') onText(t) } catch (e) { /* ignore sink errors */ } })
@@ -332,6 +346,27 @@ class AnthropicProvider extends AIProvider {
 
   // Structured "animated mini-lesson" grounded answer. Returns a validated
   // teaching object, or throws so the caller can fall back to the plain answer.
+  // Generic single-shot completion. Every other method here owns a prompt built
+  // from a prompts/ module; this one takes the prompt whole, for callers that
+  // compose their own (book content generation) and want JSON back rather than a
+  // teacher-voiced reply. Returns { text, model } so the caller can record which
+  // model produced content a human will later review.
+  async complete({ prompt, maxTokens = 4000, system = null } = {}) {
+    const client = this._getClient()
+    let message
+    try {
+      message = await client.messages.create({
+        model: this.knowledgeModel,
+        max_tokens: maxTokens,
+        ...(system ? { system } : {}),
+        messages: [{ role: 'user', content: String(prompt || '') }],
+      })
+    } catch (err) {
+      throw translateProviderError(err, 'completion')
+    }
+    return { text: extractText(message), model: message && message.model }
+  }
+
   async answerFromKnowledgeStructured(question, contexts = [], history = []) {
     const client = this._getClient()
     let message
@@ -499,6 +534,7 @@ function parseJsonObject(text, context) {
   try {
     return JSON.parse(cleaned)
   } catch (err) {
+    if (process.env.LESSON_USAGE_LOG === '1') console.error(`[${context} json] ${err.message} | len=${cleaned.length} | head=${JSON.stringify(cleaned.slice(0, 200))} | tail=${JSON.stringify(cleaned.slice(-300))}`)
     throw new AppError(`The AI returned an invalid ${context} format. Please try again.`, 502)
   }
 }
@@ -578,10 +614,16 @@ function parseAndValidateLesson(raw) {
       throw invalid(`slide ${i + 1} has invalid visualType "${slide.visualType}"`)
     }
 
-    const visualData =
+    let visualData =
       slide.visualData && typeof slide.visualData === 'object' && !Array.isArray(slide.visualData)
         ? slide.visualData
         : {}
+    // What she WRITES on the board while she speaks (short notes, not the narration).
+    // Kept inside visualData so it is stored with the slide without a new column.
+    const boardNotes = Array.isArray(slide.boardNotes)
+      ? slide.boardNotes.filter((n) => typeof n === 'string').map((n) => n.trim()).filter(Boolean).slice(0, 5)
+      : []
+    if (boardNotes.length) visualData = { ...visualData, boardNotes }
 
     const check = normalizeCheck(slide.check)
     const reteach = normalizeReteach(slide.reteach)
@@ -728,4 +770,20 @@ function translateProviderError(err, context) {
   return new AppError(`AI provider request failed during ${context}. Please try again.`, 502)
 }
 
+// The lesson request, laid out for prompt caching: the system prompt is one cached
+// block; a textbook SOURCE block (shared by every student on that chapter) is its own
+// cached block ahead of the per-student text. Order matters — caching is a prefix match.
+function buildLessonRequestParts({ systemText, sourceBlock, userText }) {
+  const ephemeral = { type: 'ephemeral' }
+  const content = []
+  if (sourceBlock) content.push({ type: 'text', text: sourceBlock, cache_control: ephemeral })
+  content.push({ type: 'text', text: userText })
+  return {
+    system: [{ type: 'text', text: systemText, cache_control: ephemeral }],
+    messages: [{ role: 'user', content }],
+  }
+}
+
 module.exports = AnthropicProvider
+module.exports.buildLessonRequestParts = buildLessonRequestParts
+module.exports.parseAndValidateLesson = parseAndValidateLesson

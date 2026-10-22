@@ -5,13 +5,17 @@ const { config } = require('../config/env')
 
 // ─── Lesson lifecycle ─────────────────────────────────────────────────────────
 
-async function createLesson({ userId, topic, subject, gradeLevel }) {
+// `chapter` / `bookChapterId` / `bookTopicIds` are set for textbook lessons only.
+async function createLesson({ userId, topic, subject, gradeLevel, chapter, bookChapterId, bookTopicIds }) {
   return db.lesson.create({
     data: {
       userId,
       topic,
       subject,
       gradeLevel,
+      ...(chapter ? { chapter } : {}),
+      ...(bookChapterId ? { bookChapterId: BigInt(bookChapterId) } : {}),
+      bookTopicIds: Array.isArray(bookTopicIds) ? bookTopicIds.map((n) => BigInt(n)) : [],
       lessonTitle: '',
       estimatedDuration: '',
       summary: '',
@@ -177,6 +181,8 @@ async function getLessonById(lessonId, userId) {
       gradeLevel: true,
       lessonTitle: true,
       status: true,
+      bookChapterId: true,
+      bookTopicIds: true,
     },
   })
 }

@@ -47,6 +47,7 @@ import WelcomeBack from './sections/WelcomeBack';
 import JumpBackIn from './sections/JumpBackIn';
 import MyLessons from './sections/MyLessons';
 import PersonalizedList from './sections/PersonalizedList';
+import TextbookCard from './books/TextbookCard';
 
 // ── header ───────────────────────────────────────────────────────────────────
 // The title is centred in the FRAME, not between its two neighbours: the back arrow is
@@ -182,6 +183,10 @@ export default function AITeacherHome({
   onBack = () => {},
   onSettings = () => {},
   onAskMaterial = () => {},
+
+  // the textbooks — the card renders only when the class has books
+  textbookCount = 0,
+  onOpenTextbooks = () => {},
 }) {
   useInterFonts({
     Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold, Inter_800ExtraBold,
@@ -277,6 +282,8 @@ export default function AITeacherHome({
               onPress={onAskMaterial}
             />
           </View>
+
+          <TextbookCard visible={textbookCount > 0} bookCount={textbookCount} onPress={onOpenTextbooks} />
 
           <TeachingStyle
             styles={teachingStyles}

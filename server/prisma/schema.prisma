@@ -72,6 +72,11 @@ model Lesson {
   status            LessonStatus   @default(GENERATING)
   generationModel   String?
   generationTimeMs  Int?
+  // Textbook lessons (prisma/sql/textbooks.sql): which chapter/topics this lesson was
+  // built from, and the shared textbook_lessons row it was copied from (null = fresh).
+  bookChapterId     BigInt?        @map("book_chapter_id")
+  bookTopicIds      BigInt[]       @map("book_topic_ids")
+  bookLessonId      String?        @map("book_lesson_id") @db.Uuid
   createdAt         DateTime       @default(now())
   updatedAt         DateTime       @updatedAt
   doubtSessions     DoubtSession[]
@@ -870,4 +875,71 @@ model error_logs {
   @@index([created_at(sort: Desc)], map: "error_logs_created_idx")
   @@index([source, created_at(sort: Desc)], map: "error_logs_source_idx")
   @@index([fingerprint, created_at(sort: Desc)], map: "error_logs_fingerprint_idx")
+}
+
+// ─── Textbook lessons (prisma/sql/textbooks.sql) ─────────────────────────────
+model textbooks {
+  id           BigInt          @id @default(autoincrement())
+  code         String          @unique
+  class_level  Int
+  subject      String
+  subject_slug String
+  title        String
+  publisher    String          @default("NCERT")
+  edition      String
+  language     String          @default("en")
+  cover_url    String?
+  position     Int             @default(0)
+  created_at   DateTime        @default(now()) @db.Timestamptz(6)
+  chapters     textbook_chapters[]
+
+  @@index([class_level, position])
+}
+
+model textbook_chapters {
+  id         BigInt         @id @default(autoincrement())
+  book_id    BigInt
+  number     Int
+  title      String
+  slug       String
+  page_count Int?
+  source_url String?
+  char_count Int            @default(0)
+  book       textbooks          @relation(fields: [book_id], references: [id], onDelete: Cascade)
+  topics     textbook_topics[]
+  lessons    textbook_lessons[]
+
+  @@unique([book_id, number])
+}
+
+model textbook_topics {
+  id         BigInt        @id @default(autoincrement())
+  chapter_id BigInt
+  number     String
+  title      String
+  slug       String
+  position   Int
+  text       String
+  char_count Int
+  chapter    textbook_chapters @relation(fields: [chapter_id], references: [id], onDelete: Cascade)
+
+  @@unique([chapter_id, number])
+}
+
+model textbook_lessons {
+  id                 String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  cache_key          String        @unique
+  chapter_id         BigInt
+  kind               String
+  topic_ids          BigInt[]
+  grade_level        String
+  teaching_mode      String
+  explanation_style  String        @default("balanced")
+  prompt_version     Int
+  payload            Json
+  generation_model   String?
+  generation_time_ms Int?
+  hits               Int           @default(0)
+  created_at         DateTime      @default(now()) @db.Timestamptz(6)
+  chapter            textbook_chapters @relation(fields: [chapter_id], references: [id], onDelete: Cascade)
 }

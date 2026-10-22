@@ -60,6 +60,28 @@ const ROLE_PERMISSIONS = {
     'audit.view',
     'support.view', 'support.reply', 'support.resolve',
   ],
+
+  // Read-only across the whole portal: every section opens, nothing can be changed.
+  // Built by taking the permission list and keeping only the `.view` grants — so a
+  // permission added later is NOT silently handed to a viewer; it has to be listed
+  // here deliberately, the same as for every other role.
+  //
+  // This role still reads students' and parents' names and email addresses through
+  // `users.view`, so it is an account for staff already trusted with that data, not
+  // a link to hand out. The portal has no anonymous access by design.
+  viewer: [
+    'dashboard.view',
+    'users.view',
+    'content.view',
+    'reports.view',
+    'aiteacher.view',
+    'announcements.view',
+    'settings.view',
+    'flags.view',
+    'audit.view',
+    'logs.view',
+    'support.view',
+  ],
 }
 
 const ROLES = Object.keys(ROLE_PERMISSIONS)
@@ -69,6 +91,7 @@ const ROLE_LABELS = {
   admin: 'Admin',
   content_manager: 'Content Manager',
   support: 'Support',
+  viewer: 'Viewer (read-only)',
 }
 
 function isAdminRole(role) {

@@ -138,7 +138,18 @@ function studentMemoryBlock(sc) {
     + 'Just speak like a teacher who genuinely remembers them.\n'
 }
 
-function buildTeacherSystemPrompt({ intent, language, contexts = [], lesson = null, level = 'intermediate', mode = null, strategy = null, studentContext = null, gradeLevel = null }) {
+// Drawing while speaking. Appended ONLY when the app asked for a board (`board: true` on
+// /api/ai/ask/stream) — without it the prompt is byte-identical to before, so older app
+// builds never see a marker. The markers themselves are stripped server-side
+// (utils/boardStream.js) and travel as `board` SSE events, so the spoken text, the
+// quality guard and the chat history only ever see clean sentences.
+const BOARD_BLOCK = `BOARD (you can draw while you speak) — A 300 by 180 whiteboard is visible to the student. Draw ONLY when a picture genuinely helps: a figure (triangle, circle, axes, a graph), labelled parts, a flow of steps, or one line of a derivation. Never for plain definitions or facts.
+To draw, put a marker on ITS OWN LINE right after the sentence it illustrates:
+[[board:{"op":"rect","x":60,"y":40,"w":180,"h":90,"color":"blue"}]]
+Ops: clear | rect{x,y,w,h} | circle{cx,cy,r} | line{x1,y1,x2,y2} | arrow{x1,y1,x2,y2} | text{x,y,text,size} | path{d} (SVG path, commands M L Q C Z only) | highlight{x,y,w,h}. Optional "color": chalk, yellow, blue, green, pink, orange. x runs 0–300 left to right, y runs 0–180 top to bottom.
+Rules: start with a clear marker. At most 6 markers. Labels are 1–3 words, under 40 characters. Keep shapes inside the board with space between them. Markers are NOT spoken text: they do not count toward the 5-line limit, and the spoken lines stay exactly as described above.`
+
+function buildTeacherSystemPrompt({ intent, language, contexts = [], lesson = null, level = 'intermediate', mode = null, strategy = null, studentContext = null, gradeLevel = null, board = false }) {
   const shape = INTENT_SHAPE[intent] || INTENT_SHAPE.concept_explanation
   const strategyBlock = strategy && STRATEGY_LINE[strategy] ? `\n${STRATEGY_LINE[strategy]}\n` : ''
   // Optional teaching register (the "how"). Only when the student explicitly chose a
@@ -175,7 +186,7 @@ HOW A REAL TEACHER ANSWERS (follow exactly):
 - EMPATHY: if the student sounds confused or frustrated ("I still don't get it", "why is this so hard", "still confused"), first reassure in ONE short human line ("No stress — this trips a lot of people up."), THEN re-teach it a genuinely DIFFERENT way (a concrete example or analogy) — never just repeat your previous phrasing.
 - Plain conversational text only — no markdown, bullets, code fences, or LaTeX. Spell ALL math in spoken words ("x squared", "the square root of", "3 times 4") since every reply is read aloud — never symbols, exponents, or LaTeX.
 
-${languageBlock(language)} Mirror the student; never switch language mid-answer.`
+${languageBlock(language)} Mirror the student; never switch language mid-answer.${board ? `\n\n${BOARD_BLOCK}` : ''}`
 }
 
 function buildTeacherMessages(history = [], question, slideIndex) {
@@ -190,4 +201,4 @@ function buildTeacherMessages(history = [], question, slideIndex) {
   return messages
 }
 
-module.exports = { buildTeacherSystemPrompt, buildTeacherMessages, INTENT_SHAPE }
+module.exports = { buildTeacherSystemPrompt, buildTeacherMessages, INTENT_SHAPE, BOARD_BLOCK }

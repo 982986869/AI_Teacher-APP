@@ -23,7 +23,8 @@ export default function StudentsPage() {
 
   useEffect(() => { setPage(1) }, [debounced, status, klass])
 
-  const meta = useApi<{ classes: string[] }>('/users/meta')
+  // /users/meta returns classes as [{ value, label }] — see admin/users.controller.js.
+  const meta = useApi<{ classes: { value: number; label: string }[] }>('/users/meta')
   // The Deleted view is a work queue rather than a list: oldest first, because those
   // are the accounts whose recovery window ran out longest ago. Every other view keeps
   // the default newest-first.
@@ -45,7 +46,7 @@ export default function StudentsPage() {
         </div>
         <select className="select" style={{ width: 'auto' }} value={klass} onChange={(e) => setKlass(e.target.value)} aria-label="Filter by class">
           <option value="">All classes</option>
-          {(meta.data?.classes || []).map((c) => <option key={c} value={c}>{c}</option>)}
+          {(meta.data?.classes || []).map((c) => <option key={c.value} value={c.value}>{c.label}</option>)}
         </select>
         {/* Deleted is its own filter and appears under no other — a self-deleted account
             keeps isActive true, so it would otherwise sit in Active looking like a live

@@ -1,6 +1,8 @@
 'use strict'
 
-function buildDoubtSystemPrompt(lesson) {
+// `sourceText` (optional): the NCERT passages a textbook lesson was built from, so the
+// answer can quote the student's own book. Capped so a whole chapter still fits.
+function buildDoubtSystemPrompt(lesson, sourceText = null) {
   const slidesSummary = Array.isArray(lesson.slides) && lesson.slides.length
     ? lesson.slides
         .map((s) => `  Slide ${s.slideNumber} — "${s.slideTitle}": ${String(s.explanation || '').slice(0, 200)}`)
@@ -24,7 +26,7 @@ LESSON CONTEXT
 SLIDES IN THIS LESSON
 ${slidesSummary}
 
-HOW TO ANSWER
+${sourceText ? `THE STUDENT'S TEXTBOOK SAYS (NCERT — authoritative; quote it when it answers the doubt):\n<<<\n${String(sourceText).slice(0, 48000)}\n>>>\n\n` : ''}HOW TO ANSWER
 - ANSWER DIRECTLY. NO preamble — no "Good question", no "Great question", no "Let me explain", no "Sure". Your FIRST line must directly answer the doubt.
 - Sound like a warm person talking, not an AI: casual, simple, everyday words. Never use stiff/robotic phrasing like "Certainly", "In conclusion", "A simple mental model".
 - Answer the student's question directly and clearly, using this lesson's concepts and subject.

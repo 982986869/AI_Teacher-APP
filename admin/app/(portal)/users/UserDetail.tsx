@@ -19,8 +19,11 @@ interface DetailData {
   recentActivity: { type: string; subject: string | null; chapter: string | null; at: string }[]
 }
 
+// Kept in step with ROLE_PERMISSIONS in server/src/services/admin/permissions.js.
+// Ordered least to most privileged, so the safest choice is the one nearest the top.
 const ROLE_OPTIONS: { value: string; label: string }[] = [
   { value: '', label: 'No admin access' },
+  { value: 'viewer', label: 'Viewer (read-only)' },
   { value: 'support', label: 'Support' },
   { value: 'content_manager', label: 'Content Manager' },
   { value: 'admin', label: 'Admin' },

@@ -9,6 +9,9 @@ const { getAIProvider } = require('../providers')
 const { retrieve } = require('./retriever.service')
 const { AppError } = require('../middleware/errorHandler')
 const { normalizeAnimation } = require('../utils/slideAnimation')
+const { booksService } = require('./textbooks.service')
+const { bookLessonCache } = require('./bookLessonCache')
+const { PROMPT_VERSION } = require('../prompts/lessonGeneration.prompt')
 
 // Best-effort: resolve the lesson's chapter from its topic so progress can roll up
 // by chapter. Reuses the 99.6%-accurate concept resolver; never blocks generation.
@@ -101,6 +104,7 @@ function buildMockLesson(topic, subject, gradeLevel) {
         visualType: 'ANALOGY',
         visualData: {
           realWorldObject: 'A building foundation',
+          boardNotes: ['foundation → building', 'basics → everything else'],
           comparison: `Just like a foundation supports a building, ${t} supports our understanding of ${s}. Without it, the other concepts would have nothing to stand on.`,
         },
       },
@@ -112,6 +116,7 @@ function buildMockLesson(topic, subject, gradeLevel) {
         visualType: 'EXAMPLE',
         visualData: {
           scenario: `Breaking down ${t} step by step`,
+          boardNotes: ['definition', 'when it applies', 'what it predicts', 'its limits'],
           steps: [
             `Define ${t} clearly`,
             `Identify the conditions where it applies`,
@@ -128,6 +133,7 @@ function buildMockLesson(topic, subject, gradeLevel) {
         visualType: 'DIAGRAM',
         visualData: {
           description: `Input-process-output flow for ${t}`,
+          boardNotes: ['cause → mechanism → effect', 'trace input to output'],
           label: t,
           components: ['Input / Cause', `${t} in action`, 'Output / Effect'],
         },
@@ -140,6 +146,7 @@ function buildMockLesson(topic, subject, gradeLevel) {
         visualType: 'EXAMPLE',
         visualData: {
           scenario: `Where ${t} appears in the real world`,
+          boardNotes: ['everyday life', 'technology', 'science & engineering'],
           steps: [
             `Everyday life: observable in daily activities`,
             `Technology: powers modern devices and systems`,
@@ -154,7 +161,7 @@ function buildMockLesson(topic, subject, gradeLevel) {
         explanation: `We covered: what ${t} is, its core principles, how the mechanism works, and where it appears in real life.`,
         narrationText: `Excellent work making it to the end! Let us recap the most important points from today's lesson on ${t}. Keep these in mind — they will help you in future topics.`,
         visualType: 'NONE',
-        visualData: {},
+        visualData: { boardNotes: ['what it is', 'how it works', 'where it is used'] },
       },
     ].map((sl) => {
       const hints = buildMockAnimation(sl)
@@ -189,9 +196,26 @@ function sanitizePrefs(prefs) {
   return Object.keys(out).length ? out : null
 }
 
-async function generateLesson({ userId, topic, subject, gradeLevel, board, stream, language, mode, prefs }) {
+async function generateLesson({ userId, topic, subject, gradeLevel, board, stream, language, mode, prefs, source }) {
+  // Textbook lesson: resolve chapter/topics first so an out-of-scope or bad request
+  // fails before any lesson row exists. `topic` is derived when the client sent none.
+  let src = null
+  if (source) {
+    src = await booksService.loadSource({ chapterId: source.chapterId, kind: source.kind, topicIds: source.topicIds })
+    // Taught at the book's class, whatever the student's own class is (they may be
+    // browsing another year from the home page).
+    gradeLevel = String(src.classLevel)
+    if (!topic) topic = src.derivedTopic
+    if (!subject) subject = src.book.subject
+  }
+
   // Create a GENERATING placeholder — this ID is returned immediately in case of failure.
-  const { id: lessonId } = await lessonService.createLesson({ userId, topic, subject, gradeLevel })
+  const { id: lessonId } = await lessonService.createLesson({
+    userId, topic, subject, gradeLevel,
+    chapter: src ? src.chapter.title : undefined,
+    bookChapterId: src ? src.chapter.id : undefined,
+    bookTopicIds: src && src.kind === 'topics' ? src.topics.map((t) => t.id) : [],
+  })
   const profile = { board, stream, language } // student's syllabus → AI never asks
   const cleanPrefs = sanitizePrefs(prefs)
   if (cleanPrefs) profile.prefs = cleanPrefs // how the student likes to learn (visual/story/pace/goal/exam)
@@ -227,24 +251,47 @@ async function generateLesson({ userId, topic, subject, gradeLevel, board, strea
 
     let payload
     let generationModel
-    if (config.ai.mockMode) {
+    let bookLessonId = null
+    // Textbook lessons are shared: the same chapter/topics/mode/style for the same
+    // class is generated once and copied to every student who asks for it after.
+    const cacheParts = src ? {
+      chapterId: src.chapter.id, kind: src.kind, topicIds: src.kind === 'topics' ? src.topics.map((t) => t.id) : [],
+      gradeLevel, teachingMode: resolvedMode, explanationStyle: (cleanPrefs && cleanPrefs.explanationStyle) || 'balanced', promptVersion: PROMPT_VERSION,
+    } : null
+    const cacheKey = cacheParts ? bookLessonCache.cacheKey(cacheParts) : null
+    const cached = cacheKey ? await bookLessonCache.find(cacheKey) : null
+
+    if (cached) {
+      payload = cached.payload
+      generationModel = `cache:${cached.generation_model || 'unknown'}`
+      bookLessonId = cached.id
+    } else if (config.ai.mockMode) {
       payload = buildMockLesson(topic, subject, gradeLevel)
       generationModel = MOCK_MODEL
     } else {
-      payload = await getAIProvider().generateLesson(topic, subject, gradeLevel, profile)
+      payload = await getAIProvider().generateLesson(topic, subject, gradeLevel, profile, src)
       generationModel = config.ai.lessonModel
     }
 
     const generationTimeMs = Date.now() - startTime
+
+    if (cacheKey && !cached) {
+      const row = await bookLessonCache.store({ key: cacheKey, parts: cacheParts, payload, generationModel, generationTimeMs })
+      bookLessonId = row ? row.id : null
+    }
 
     await lessonService.updateLessonWithContent(lessonId, {
       ...payload,
       generationModel,
       generationTimeMs,
     })
+    if (bookLessonId) {
+      await db.$executeRaw`UPDATE lessons SET book_lesson_id = ${bookLessonId}::uuid WHERE id = ${lessonId}::uuid`
+    }
 
-    // Resolve + store the chapter in the background (doesn't delay the response).
-    tagLessonChapter(lessonId, topic, subject)
+    // Resolve + store the chapter in the background (doesn't delay the response). A
+    // textbook lesson already knows its chapter.
+    if (!src) tagLessonChapter(lessonId, topic, subject)
 
     const saved = await lessonService.getLessonWithSlides(lessonId, userId)
     // The Slide table doesn't have columns for the LLM-authored comprehension `check`
@@ -264,6 +311,8 @@ async function generateLesson({ userId, topic, subject, gradeLevel, board, strea
     // Tell the client which teaching mode this lesson was actually taught in (so it can
     // show "taught in Beginner mode" and reflect an auto-selected register back).
     if (saved) saved.teachingMode = { key: resolvedMode, label: teachingModes.modeLabel(resolvedMode), auto: !teachingModes.isMode(mode) }
+    // Which book/chapter/sections this lesson teaches from, for the player's header.
+    if (saved && src) saved.source = { book: src.book, chapter: src.chapter, kind: src.kind, topics: src.topics.map((t) => ({ id: t.id, number: t.number, title: t.title })), topicLabel: src.topicLabel }
     return saved
   } catch (err) {
     // Best-effort status write — never let a failing DB update mask the real
@@ -292,9 +341,20 @@ async function answerDoubt({ userId, lessonId, question, slideIndex }) {
     const lessonWithSlides = await lessonService.getLessonWithSlides(lessonId, userId)
     const history = await lessonService.getSessionMessages(session.id)
 
+    // A textbook lesson answers doubts from the book it was taught from. Best-effort:
+    // if the topics can't be loaded the doubt is still answered, just without them.
+    let sourceText = null
+    if (lesson.bookChapterId) {
+      try {
+        const ids = (lesson.bookTopicIds || []).map(Number)
+        const s = await booksService.loadSource({ chapterId: Number(lesson.bookChapterId), kind: ids.length ? 'topics' : 'summary', topicIds: ids })
+        sourceText = s.topics.map((t) => `[${t.number} ${t.title}]\n${t.text}`).join('\n\n')
+      } catch (e) { console.error('[ai.service] doubt source load failed (answering without the book):', e?.message || e) }
+    }
+
     await lessonService.addMessage(session.id, { role: 'USER', content: question, slideIndex })
 
-    answer = await getAIProvider().answerDoubt(question, lessonWithSlides, history, slideIndex)
+    answer = await getAIProvider().answerDoubt(question, lessonWithSlides, history, slideIndex, sourceText)
   }
 
   const assistantMessage = await lessonService.addMessage(session.id, {

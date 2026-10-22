@@ -6,7 +6,8 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "test:doubt-board": "node --no-warnings --test src/components/teacher/__tests__/doubtBoardLayout.test.mjs"
   },
   "dependencies": {
     "@expo-google-fonts/inter": "^0.4.2",
@@ -45,6 +46,7 @@
     "expo-linear-gradient": "~15.0.8",
     "expo-navigation-bar": "~5.0.10",
     "expo-print": "~15.0.8",
+    "expo-screen-orientation": "~9.0.9",
     "expo-sharing": "~14.0.8",
     "expo-speech": "~14.0.8",
     "expo-speech-recognition": "^56.0.1",

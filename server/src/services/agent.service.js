@@ -13,6 +13,8 @@ const teacherBridge = require('./braingym/teacherBridge')
 const mistakeBook = require('./mistakeBook.service')
 const db = require('../config/database')
 const { applyGuard } = require('../utils/responseGuard')
+const { createBoardStreamParser } = require('../utils/boardStream')
+const { MOCK_BOARD_SAMPLE } = require('../utils/boardElements')
 const { quickIntent } = require('../prompts/intentClassify.prompt')
 
 // Grounding floor (config default 0.2 is too low). Below this we answer from
@@ -576,9 +578,12 @@ async function ask(params) {
 }
 
 // ── Streaming entry — streams the teaching answer token-by-token ──────────────
-async function askStream(params, { onMeta, onDelta } = {}) {
+async function askStream(params, { onMeta, onDelta, onBoard } = {}) {
   const { userId, text, lessonId, slideIndex, history = [], pending = null } = params
   const pinnedLevel = params.level
+  // Opt-in drawing. Only an app that sent `board: true` gets the BOARD prompt block and
+  // `board` events; everyone else's stream is byte-for-byte what it was.
+  const board = params.board === true
   const mode = params.mode || null // optional teaching register (the "how"); null = default
   const question = String(text || '').trim()
   const emit = (res) => { if (onMeta) onMeta({ intent: res.intent, mode: res.mode, grounded: res.grounded }); if (onDelta) onDelta(res.answer); return res }
@@ -658,11 +663,20 @@ async function askStream(params, { onMeta, onDelta } = {}) {
   if (config.ai.mockMode) {
     raw = contexts.length ? `Here is the key idea. Clear?` : "This isn't in your material yet. Clear?"
     if (onDelta) onDelta(raw)
+    if (board && onBoard) for (const el of MOCK_BOARD_SAMPLE) onBoard(el)
   } else {
+    // With a board, the model's text carries [[board:{...}]] markers. The parser hands
+    // onDelta clean sentences and onBoard validated elements, and its `text` is what the
+    // guard, the `done` payload and therefore the chat history see — never a marker.
+    const parser = board
+      ? createBoardStreamParser({ onText: (t) => { if (onDelta) onDelta(t) }, onElement: (el) => { if (onBoard) onBoard(el) } })
+      : null
+    const sink = parser ? (t) => parser.push(t) : (t) => { if (onDelta) onDelta(t) }
     raw = await getAIProvider().streamTeacherResponse(
-      { intent, language, contexts, lesson, history: history.slice(-8), question, slideIndex, level, mode, studentContext, gradeLevel },
-      (t) => { if (onDelta) onDelta(t) }
+      { intent, language, contexts, lesson, history: history.slice(-8), question, slideIndex, level, mode, studentContext, gradeLevel, board },
+      sink
     )
+    if (parser) { parser.end(); raw = parser.text }
   }
   const guarded = applyGuard(raw, { language })
   logEngagement({ userId, subject, intent, contexts })

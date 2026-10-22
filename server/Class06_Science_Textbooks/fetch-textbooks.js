@@ -18,8 +18,11 @@
 const fs = require('fs')
 const path = require('path')
 
-const CSRF = 'I1WHfIyginu5nUjoZAngXs2gsE9TKtq4'
-const COOKIE = `msessionid=axfqdgsru6qra95tlnvhcaqb5xuavl4l; mcsrftoken=${CSRF}`
+// Session credentials come from the environment — never commit an examin8 session.
+//   EXAMIN8_CSRF=<mcsrftoken> EXAMIN8_SESSION=<msessionid> node fetch-textbooks.js
+const CSRF = process.env.EXAMIN8_CSRF || ''
+const COOKIE = `msessionid=${process.env.EXAMIN8_SESSION || ''}; mcsrftoken=${CSRF}`
+if (!CSRF || !process.env.EXAMIN8_SESSION) { console.error('Set EXAMIN8_CSRF and EXAMIN8_SESSION in the environment first.'); process.exit(1) }
 const BASE = 'https://web.examin8.com'
 const DIR = __dirname
 const DELAY = 300
