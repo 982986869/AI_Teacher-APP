@@ -22,7 +22,7 @@
       },
       "env": {
         "NODE_OPTIONS": "--max-old-space-size=8192",
-        "EXPO_PUBLIC_API_URL": "https://ailernova-api.onrender.com"
+        "EXPO_PUBLIC_API_URL": "https://api.ailernova.in"
       },
       "channel": "preview"
     },
@@ -33,7 +33,7 @@
       },
       "env": {
         "NODE_OPTIONS": "--max-old-space-size=8192",
-        "EXPO_PUBLIC_API_URL": "https://ailernova-api.onrender.com"
+        "EXPO_PUBLIC_API_URL": "https://api.ailernova.in"
       },
       "channel": "production"
     }
