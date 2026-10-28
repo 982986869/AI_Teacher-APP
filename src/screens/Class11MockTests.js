@@ -64,6 +64,11 @@ export default function MockTestsCards({ subjects = [], classLevel = 11, onBack,
         <StatusBar barStyle="dark-content" backgroundColor={TK.card} />
         <ScreenHeader title="Mock Tests" subtitle="Pick a subject, then a mock test" onBack={onBack} />
         <ScrollView contentContainerStyle={{ padding: 16 }} showsVerticalScrollIndicator={false}>
+          {/* No mock subjects for this class (e.g. Class 6 has none in the DB) — say so
+              instead of leaving the page blank under the header. */}
+          {subjects.length === 0 && (
+            <EmptyMsg text={classLevel ? `No mock tests for Class ${classLevel} yet.` : 'No mock tests for this class yet.'} />
+          )}
           {subjects.map((subj) => (
             <SubjectRow
               key={subj.name}

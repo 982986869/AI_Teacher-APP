@@ -25,7 +25,10 @@ async function assertTestInScope(req, testId) {
     // Subject gating only applies to senior classes (11/12), where streams restrict
     // subjects. Class ≤10 has no streams — every subject with a class_level test is in
     // the student's syllabus, and the class check above already blocks other classes.
-    if (meta.subject && Number(req.scope.classNum) > 10 && !isAllowedSubject(meta.subject, req.scope.classNum, req.scope.stream)) {
+    // Only on their OWN class: browsing another one (?class=) is not enrolling, so a
+    // Class 11 stream says nothing about a Class 6 test (same rule as assertSubjectAllowed).
+    const ownClass = Number(cls) === Number(req.scope.classNum)
+    if (meta.subject && ownClass && Number(req.scope.classNum) > 10 && !isAllowedSubject(meta.subject, req.scope.classNum, req.scope.stream)) {
       return { forbidden: 'This test is not part of your syllabus.' }
     }
   }

@@ -12,7 +12,8 @@ function parseId(raw) {
   return id
 }
 
-// Authoritative class — the student's own saved class (from JWT). Never a ?class= param.
+// Class for this request — the class the student is viewing (?class=), else their
+// saved class (resolveClassNum).
 const classOf = (req) => resolveClassNum(req)
 
 // A student may only open/attempt a test that belongs to their own class + syllabus.
@@ -30,7 +31,10 @@ async function assertTestInScope(req, id) {
     // subjects. Class ≤10 has no streams — every subject with a class_level test is
     // in the student's syllabus (incl. electives/languages like IT, हिंदी, Sanskrit),
     // and the class_level check above already blocks other classes' tests.
-    if (meta.subject && Number(req.scope.classNum) > 10 && !isAllowedSubject(meta.subject, req.scope.classNum, req.scope.stream)) {
+    // Only on their OWN class: browsing another one (?class=) is not enrolling, so a
+    // Class 11 stream says nothing about a Class 9 test (same rule as assertSubjectAllowed).
+    const ownClass = Number(cls) === Number(req.scope.classNum)
+    if (meta.subject && ownClass && Number(req.scope.classNum) > 10 && !isAllowedSubject(meta.subject, req.scope.classNum, req.scope.stream)) {
       throw new AppError('This test is not part of your syllabus.', 403)
     }
   }

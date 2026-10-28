@@ -17,14 +17,18 @@ export const getOnlineTests = async (subjectSlug, chapterSlug, classLevel = 7) =
 // Full test: { id, name, instructionHtml, durationMin, totalMarks, questionCount,
 //   questions:[{ id, text, options:[{key,label,optionId}], correctAnswer, correctOptionId,
 //   explanation, marks }] }. The answer travels with the payload; grading + review are
-// done client-side, like MCQ Practice.
-export const getOnlineTest = async (testId) =>
-  (await axiosInstance.get(`/api/online-tests/test/${testId}`)).data.data;
+// done client-side, like MCQ Practice. classLevel is the class being viewed: without
+// it the server checks the test against the student's saved class, so opening a test
+// while browsing another class was refused.
+export const getOnlineTest = async (testId, classLevel) =>
+  (await axiosInstance.get(`/api/online-tests/test/${testId}`,
+    { params: classLevel ? { class: classLevel } : undefined })).data.data;
 
 // Record an attempt. answers = { "<questionId>": <selectedOptionId> } — skipped
 // questions are simply absent. The server re-grades from its own answer key, so the
 // score it returns is the one that gets stored (and shown to the parent); the local
 // client-side grade above is only what the review screen renders immediately.
-export const submitOnlineTest = async (testId, { answers, timeTakenSec } = {}) =>
+export const submitOnlineTest = async (testId, { answers, timeTakenSec } = {}, classLevel) =>
   (await axiosInstance.post(`/api/online-tests/test/${testId}/submit`,
-    { answers, timeTakenSec })).data.data;
+    { answers, timeTakenSec },
+    { params: classLevel ? { class: classLevel } : undefined })).data.data;
