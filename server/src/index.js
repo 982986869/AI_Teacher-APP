@@ -94,6 +94,16 @@ app.use('/vendor', express.static(path.join(__dirname, '..', 'public', 'vendor')
   },
 }))
 
+// ─── Uploaded images / attachments (services/storage.js) ─────────────────────
+// Random names that are never overwritten, so a year-long immutable cache is safe.
+app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads'), {
+  immutable: true,
+  maxAge: '1y',
+  setHeaders: (res) => {
+    res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin')
+  },
+}))
+
 // ─── Static textbook covers (rendered by scripts/textbooks/extract.py) ─────────
 // Same permissive CORP as the other static mounts, or the app's web build (and any
 // cross-origin <Image>) gets ERR_BLOCKED_BY_RESPONSE from helmet's default.

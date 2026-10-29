@@ -239,7 +239,7 @@ export default function OnlineTestScreen({ onExit = () => {} }) {
   const openTest = async (t) => {
     setLoading(true);
     try {
-      const data = await getOnlineTest(t.id);
+      const data = await getOnlineTest(t.id, classLevel);
       setTest(data); setView('instruction');
     } catch { setTest(null); } finally { setLoading(false); }
   };
@@ -259,7 +259,7 @@ export default function OnlineTestScreen({ onExit = () => {} }) {
     // re-grades from its own answer key. Fire-and-forget: the local record above is
     // what this screen reads, so a failed sync must never change what the student sees.
     if (test && res.answers && Object.keys(res.answers).length) {
-      submitOnlineTest(test.id, { answers: res.answers, timeTakenSec: res.timeTakenSec || 0 })
+      submitOnlineTest(test.id, { answers: res.answers, timeTakenSec: res.timeTakenSec || 0 }, classLevel)
         .catch(() => {});
     }
   };

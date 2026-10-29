@@ -140,6 +140,13 @@ const subjectSlug = (name) => SUBJECT_SLUG_OVERRIDES[name] || slugify(name);
 // Classes whose subject lists are derived from the DB (/api/resources/class-subjects)
 // instead of hardcoded arrays. Class 6 & 9 "Old -" subjects live here.
 const DYNAMIC_CLASSES = [6, 9];
+// Classes whose MOCK and PYQ subject lists (only) come from the DB — see PracticeScreen.
+const DYNAMIC_MOCK_PYQ_CLASSES = [7, 8];
+// Classes whose IMPORTANT QUESTIONS and PYQ subject lists (only) come from the DB — see PracticeScreen.
+const DYNAMIC_IMP_PYQ_CLASSES = [10];
+// Classes whose Practice landing hides a practice type the DB has no content for.
+// Every class here must also fetch class-subjects (DYNAMIC_* above cover 6–10).
+const HIDE_EMPTY_CLASSES = [6, 7, 8, 9, 10];
 
 // buildFragmentFromQuestions + buildPyqDocument now live in utils/pyqDocument so
 // ResourcesScreen (Exemplar) can reuse the exact same card rendering.
@@ -681,11 +688,19 @@ const PracticeScreen = () => {
   // fetched list by feature. Other classes keep their existing hardcoded lists.
   const dynClass = classNum(selectedClass);
   const isDyn = DYNAMIC_CLASSES.includes(dynClass);
-  const dynSubjects = useClassSubjects(dynClass, isDyn);
+  // Class 7 & 8 take their MOCK and PYQ subjects from the DB: the hardcoded fallbacks
+  // in mockSubjectsForClass / pyqSubjectsForClass are the senior PCMB list, which
+  // offered Physics/Chemistry/Biology to a Class 7 student, each ending in "Coming
+  // soon". With nothing seeded the lists are empty and the screens say so.
+  const isDynTests = isDyn || DYNAMIC_MOCK_PYQ_CLASSES.includes(dynClass);
+  // Class 10 Important Questions + PYQ: the hardcoded CLASS10_PRACTICE_SUBJECTS marks
+  // every subject comingSoon, which pre-dates the Class 10 seed (16 IQ / 10 PYQ subjects).
+  const isDynImpPyq = isDyn || DYNAMIC_IMP_PYQ_CLASSES.includes(dynClass);
+  const dynSubjects = useClassSubjects(dynClass, isDynTests || isDynImpPyq);
   const dynBy = (flag) => (dynSubjects || []).filter((s) => s[flag]).map((s) => toTile(s, { chapters: [] }));
-  const impSubjects = isDyn ? dynBy('importantQuestions') : impSubjectsForClass(selectedClass);
-  const pyqSubjects = isDyn ? dynBy('pyq') : pyqSubjectsForClass(selectedClass);
-  const mockSubjects = isDyn ? dynBy('mock') : mockSubjectsForClass(selectedClass);
+  const impSubjects = isDynImpPyq ? dynBy('importantQuestions') : impSubjectsForClass(selectedClass);
+  const pyqSubjects = (isDynTests || isDynImpPyq) ? dynBy('pyq') : pyqSubjectsForClass(selectedClass);
+  const mockSubjects = isDynTests ? dynBy('mock') : mockSubjectsForClass(selectedClass);
 
   // Previous Year Papers navigation
   const [pyqOpen, setPyqOpen]       = useState(false);   // showing the PYQ subject list
@@ -791,7 +806,7 @@ const PracticeScreen = () => {
   // Launch a test — fetch the questions from the DB (all subjects/classes).
   const startDbMock = (subject, test) => {
     setPhysMock({ subject, label: test.name, testId: test.id, status: 'loading' });
-    getMockTestQuestions(test.id)
+    getMockTestQuestions(test.id, classNum(selectedClass))
       .then((data) => setPhysMock({
         subject, label: test.name, testId: test.id, status: 'ready',
         questions: (data && data.questions) || [],
@@ -877,6 +892,14 @@ const PracticeScreen = () => {
         <StatusBar barStyle="dark-content" backgroundColor={D.canvas} />
         <DarkPageHeader title="Previous Year Papers" subtitle="Select a subject  •  10 years question bank" onBack={() => setPyqOpen(false)} />
         <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
+          {/* No PYQ subjects for this class (e.g. Class 7) — say so instead of a blank page. */}
+          {pyqSubjects.length === 0 && (
+            <View style={{ alignItems: 'center', paddingVertical: 48, paddingHorizontal: 12 }}>
+              <Text style={{ fontSize: 13, color: D.muted, fontFamily: FONT.semibold, textAlign: 'center', lineHeight: 19 }}>
+                {dynClass ? `No previous year papers for Class ${dynClass} yet.` : 'No previous year papers for this class yet.'}
+              </Text>
+            </View>
+          )}
           {pyqSubjects.map((subject, i) => (
             <TouchableOpacity key={i} style={d.subjectCard} activeOpacity={0.8}
               onPress={() => setPyqSubject(subject)}>
@@ -1138,7 +1161,7 @@ const PracticeScreen = () => {
         onSubmit={(payload) => {
           // Persist the attempt to the DB (scored authoritatively server-side).
           if (physMock.testId != null) {
-            submitMockTest(physMock.testId, payload).catch(() => {});
+            submitMockTest(physMock.testId, payload, classNum(selectedClass)).catch(() => {});
           }
         }}
       />
@@ -1180,19 +1203,28 @@ const PracticeScreen = () => {
     );
   }
 
+  // Classes 6–10: hide a practice type the DB has nothing for (class-subjects flags),
+  // instead of opening an empty screen — e.g. Class 7 Mock tests, Class 10 Online tests
+  // (which otherwise fell back to the Class 11 offline banks). Shown while the list
+  // loads, and always for 11/12, whose content partly lives in bundled banks. An empty
+  // list means the fetch failed (useClassSubjects turns errors into []; every class
+  // here has subjects), so show everything rather than blank the whole tab.
+  const hasContent = (flag) =>
+    !HIDE_EMPTY_CLASSES.includes(dynClass) || !dynSubjects || dynSubjects.length === 0 || dynSubjects.some((s) => s[flag]);
+
   // Real, working practice types — grouped by intent (practise vs assess). No fake data.
   const PRACTICE_GROUP = [
-    { Icon: ListChecks, tint: D.indigo, soft: D.indigoSoft, label: 'Chapter practice',    sub: 'Multiple-choice questions, chapter by chapter', onPress: () => setMcqOpen(true) },
-    { Icon: Star,       tint: D.cyan,   soft: D.cyanSoft,   label: 'Important questions', sub: 'Hand-picked must-do questions',                 onPress: () => setImpOpen(true) },
-  ];
+    { Icon: ListChecks, tint: D.indigo, soft: D.indigoSoft, label: 'Chapter practice',    sub: 'Multiple-choice questions, chapter by chapter', flag: 'practice',           onPress: () => setMcqOpen(true) },
+    { Icon: Star,       tint: D.cyan,   soft: D.cyanSoft,   label: 'Important questions', sub: 'Hand-picked must-do questions',                 flag: 'importantQuestions', onPress: () => setImpOpen(true) },
+  ].filter((t) => hasContent(t.flag));
   const TEST_GROUP = [
     // Online tests clears any finished attempt on the way in: chSel now outlives a
     // submitted test so Retake can re-open it, and without this the entry point
     // would drop straight back inside the last one.
-    { Icon: Timer,         tint: D.purple, soft: D.purpleSoft, label: 'Online tests',         sub: 'Timed tests, one chapter at a time', onPress: () => { setChSel(null); setChResult(null); setChReview(false); setChOpen(true); } },
-    { Icon: ClipboardList, tint: D.rose,   soft: D.roseSoft,   label: 'Mock tests',           sub: 'Full subject-wise mock papers',       onPress: () => setMockOpen(true) },
-    { Icon: History,       tint: D.gold,   soft: D.goldSoft,   label: 'Previous year papers', sub: 'Last 10 years, chapter-wise',          onPress: () => setPyqOpen(true) },
-  ];
+    { Icon: Timer,         tint: D.purple, soft: D.purpleSoft, label: 'Online tests',         sub: 'Timed tests, one chapter at a time', flag: 'online', onPress: () => { setChSel(null); setChResult(null); setChReview(false); setChOpen(true); } },
+    { Icon: ClipboardList, tint: D.rose,   soft: D.roseSoft,   label: 'Mock tests',           sub: 'Full subject-wise mock papers',       flag: 'mock',   onPress: () => setMockOpen(true) },
+    { Icon: History,       tint: D.gold,   soft: D.goldSoft,   label: 'Previous year papers', sub: 'Last 10 years, chapter-wise',          flag: 'pyq',    onPress: () => setPyqOpen(true) },
+  ].filter((t) => hasContent(t.flag));
   const renderType = (t, i, arr) => (
     <TouchableOpacity
       key={t.label}
@@ -1232,10 +1264,18 @@ const PracticeScreen = () => {
         <ComingSoon label="Practice" className={selectedClass} />
       ) : (
       <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 32 }}>
-        <Text style={d.listLabel}>Practise</Text>
-        <View style={d.typeList}>{PRACTICE_GROUP.map(renderType)}</View>
-        <Text style={d.listLabel}>Tests</Text>
-        <View style={d.typeList}>{TEST_GROUP.map(renderType)}</View>
+        {PRACTICE_GROUP.length > 0 && (
+          <>
+            <Text style={d.listLabel}>Practise</Text>
+            <View style={d.typeList}>{PRACTICE_GROUP.map(renderType)}</View>
+          </>
+        )}
+        {TEST_GROUP.length > 0 && (
+          <>
+            <Text style={d.listLabel}>Tests</Text>
+            <View style={d.typeList}>{TEST_GROUP.map(renderType)}</View>
+          </>
+        )}
       </ScrollView>
       )}
     </View>

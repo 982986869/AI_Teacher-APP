@@ -128,14 +128,18 @@ const isCompact = (o) => {
 // So the size follows the content. It is derived from the LONGEST label of the
 // four, not per tile, because four answers set at four different sizes would
 // read as a ranking — the biggest one looking like the important one.
+//
+// Set in the body face (semibold), not the Poppins display face, and one step under
+// the old sizes: at 21–26px heavy display type the answers shouted louder than the
+// question above them ("Karl Marx" / "Louis Blanc" read as headlines).
 const tileFont = (options) => {
   const longest = options.reduce(
     (n, o) => Math.max(n, htmlToPlain(String(o.label ?? '')).trim().length), 0,
   );
-  if (longest <= 4)  return { size: 26, lh: 32 };   // "3", "True"
-  if (longest <= 8)  return { size: 21, lh: 27 };   // "12 m/s", "Nitrogen"
-  if (longest <= 11) return { size: 18, lh: 24 };   // "Evaporation"
-  return { size: 16, lh: 22 };                      // up to isCompact's 14
+  if (longest <= 4)  return { size: 17, lh: 22 };   // "3", "True"
+  if (longest <= 8)  return { size: 15, lh: 20 };   // "12 m/s", "Nitrogen"
+  if (longest <= 11) return { size: 14, lh: 19 };   // "Evaporation"
+  return { size: 13.5, lh: 18 };                    // up to isCompact's 14
 };
 
 /**
@@ -243,9 +247,13 @@ export function TimedTestFrame({
                 >
                   {twoUp ? (
                     <>
-                      <Text style={[s.tileLetter, active && { color: TT.pick }]}>{o.key}</Text>
+                      {/* Same letter badge as the full-width rows, so the two layouts
+                          read as one control rather than two designs. */}
+                      <View style={[s.letterBadge, active && { backgroundColor: TT.violet }]}>
+                        <Text style={[s.letterTxt, active && { color: TT.ink }]}>{o.key}</Text>
+                      </View>
                       <View style={s.tileValue}>
-                        <Rich value={o.label} fontSize={tile.size} lineHeight={tile.lh} color={TT.ink} family={TTF.head} align="center" imgHeight={60} />
+                        <Rich value={o.label} fontSize={tile.size} lineHeight={tile.lh} color={TT.ink} family={TTF.semi} imgHeight={60} />
                       </View>
                     </>
                   ) : (
@@ -254,7 +262,7 @@ export function TimedTestFrame({
                         <Text style={[s.letterTxt, active && { color: TT.ink }]}>{o.key}</Text>
                       </View>
                       <View style={{ flex: 1 }}>
-                        <Rich value={o.label} fontSize={15} lineHeight={20} color={TT.ink} family={TTF.reg} imgHeight={92} />
+                        <Rich value={o.label} fontSize={14} lineHeight={19} color={TT.ink} family={TTF.reg} imgHeight={92} />
                       </View>
                     </>
                   )}
@@ -464,21 +472,22 @@ const s = StyleSheet.create({
   diagram: { width: '100%', borderRadius: 8, backgroundColor: '#FFFFFF' },
 
   // ── options ──
-  optsGrid:  { flexDirection: 'row', flexWrap: 'wrap', gap: 12 },
+  optsGrid:  { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
+  // Badge on top, answer left-aligned under it. minHeight keeps a row of two tiles
+  // level when one answer wraps to a second line and the other does not.
   optTile: {
-    width: '48%', flexGrow: 1, minHeight: 128, borderRadius: 18, borderWidth: 1.5,
-    borderColor: TT.hair, backgroundColor: TT.card, paddingTop: 12, paddingBottom: 16, paddingHorizontal: 14,
+    width: '48%', flexGrow: 1, minHeight: 74, borderRadius: 14, borderWidth: 1.5,
+    borderColor: TT.hair, backgroundColor: TT.card, padding: 11, gap: 7,
   },
-  tileLetter: { fontSize: 14, lineHeight: 18, fontFamily: TTF.semi, color: TT.dim },
-  tileValue:  { flex: 1, alignItems: 'center', justifyContent: 'center', paddingTop: 4 },
+  tileValue:  { flex: 1, justifyContent: 'center' },
 
-  optsStack: { gap: 10 },
+  optsStack: { gap: 8 },
   optRow: {
-    flexDirection: 'row', alignItems: 'center', gap: 12, borderRadius: 16, borderWidth: 1.5,
-    borderColor: TT.hair, backgroundColor: TT.card, padding: 14,
+    flexDirection: 'row', alignItems: 'center', gap: 10, borderRadius: 14, borderWidth: 1.5,
+    borderColor: TT.hair, backgroundColor: TT.card, paddingVertical: 10, paddingHorizontal: 12,
   },
-  letterBadge: { width: 30, height: 30, borderRadius: 9, backgroundColor: TT.hair, alignItems: 'center', justifyContent: 'center' },
-  letterTxt:   { fontSize: 13, lineHeight: 16, fontFamily: TTF.head, color: TT.sub },
+  letterBadge: { width: 26, height: 26, borderRadius: 8, backgroundColor: TT.hair, alignItems: 'center', justifyContent: 'center' },
+  letterTxt:   { fontSize: 12, lineHeight: 15, fontFamily: TTF.head, color: TT.sub },
 
   // ── clear ──
   clearRow: { height: 62, alignItems: 'center', justifyContent: 'center' },

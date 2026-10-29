@@ -47,16 +47,24 @@ async function fetchScopeUser(id) {
 
 // A student who never picks a profile photo still gets a real, distinct-looking
 // avatar instead of a bare initial — a free deterministic avatar image, seeded by
-// the user's own id (stable forever, no account lookup needed to regenerate it).
+// the user's own id. Fetched once and saved to our own uploads, so the app never
+// depends on dicebear.com at runtime.
 const defaultAvatarUrl = (userId) => `https://api.dicebear.com/9.x/adventurer/png?seed=${userId}`
 
 // Backfill a missing photoUrl (new account, or an older account from before this
 // feature existed) once, in place, so every response from here on already has one.
+// If dicebear is unreachable the user simply has no photo yet; the next request retries.
 async function ensurePhoto(user) {
   if (user && !user.photoUrl) {
-    const url = defaultAvatarUrl(user.id)
-    await db.$executeRawUnsafe(`UPDATE "users" SET "photo_url" = $1 WHERE id = $2::uuid`, url, user.id)
-    user.photoUrl = url
+    try {
+      const res = await fetch(defaultAvatarUrl(user.id), { signal: AbortSignal.timeout(3000) })
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      const url = await uploadImage(Buffer.from(await res.arrayBuffer()), { contentType: 'image/png', folder: 'avatars' })
+      await db.$executeRawUnsafe(`UPDATE "users" SET "photo_url" = $1 WHERE id = $2::uuid`, url, user.id)
+      user.photoUrl = url
+    } catch (e) {
+      console.warn(`[auth] default avatar for ${user.id} failed: ${e.message}`)
+    }
   }
   return user
 }

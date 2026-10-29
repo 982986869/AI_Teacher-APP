@@ -11,7 +11,7 @@
 // player wires them via small props: onPick(question) → its existing doubt flow,
 // onJump(index) → goTeach, and card/question arrays it derives from `scenes`.
 import React, { useState, useEffect, useMemo } from 'react';
-import { View, Text, StyleSheet, Modal, ScrollView, Pressable, Share, ActivityIndicator, TextInput } from 'react-native';
+import { View, Text, StyleSheet, Modal, ScrollView, Pressable, Share, ActivityIndicator, TextInput, StatusBar } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   X, Check, Bookmark, BookmarkCheck, ListTree, RotateCcw, ChevronRight,
@@ -38,6 +38,17 @@ const PAPER = '#FAF7F0';
 // premiumTheme's C.ink is a pale "chalk on dark slate" colour — invisible on this
 // file's light PAPER cards. Same override value as LessonBoards/subjectBoards.
 const INK = '#2C3043';
+// Light surface for every study sheet (contents/notes, flashcards, test, recap…).
+// These used to sit on graphite (#14161C / #0E1014) with premiumTheme's D.* chalk
+// text; the app is light now, so they get their own light tokens here instead.
+const L = {
+  bg: '#FFFFFF',
+  surface: '#F6F6F9',
+  line: 'rgba(17,17,17,0.08)',
+  text: INK,
+  dim: '#6B7080',
+  faint: '#9AA0AE',
+};
 const NOTES_KEY = '@ailernova_lesson_notes';
 
 // ── notes persistence (per lesson) ───────────────────────────────────────────
@@ -274,7 +285,7 @@ export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave
         <View style={s.grip} />
         <View style={s.sheetHead}>
           <Text style={s.sheetTitle}>Lesson</Text>
-          <PressableScale onPress={onClose} style={s.sheetX} accessibilityLabel="Close"><X size={20} color={D.textDim} strokeWidth={2.3} /></PressableScale>
+          <PressableScale onPress={onClose} style={s.sheetX} accessibilityLabel="Close"><X size={20} color={L.dim} strokeWidth={2.3} /></PressableScale>
         </View>
 
         <View style={s.segRow}>
@@ -283,7 +294,7 @@ export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave
             const count = t.key === 'notes' && noteItems.length ? ` · ${noteItems.length}` : '';
             return (
               <PressableScale key={t.key} style={[s.seg, on && s.segOn]} onPress={() => setTab(t.key)} accessibilityRole="button" accessibilityLabel={t.label}>
-                <t.Icon size={14} color={on ? '#12141A' : D.textDim} strokeWidth={2.3} />
+                <t.Icon size={14} color={on ? '#FFFFFF' : L.dim} strokeWidth={2.3} />
                 <Text style={[s.segTxt, on && s.segTxtOn]} numberOfLines={1}>{t.label}{count}</Text>
               </PressableScale>
             );
@@ -307,7 +318,7 @@ export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave
                     value={noteText}
                     onChangeText={onChangeNoteText}
                     placeholder="Write your own note for this lesson…"
-                    placeholderTextColor={D.textFaint}
+                    placeholderTextColor={L.faint}
                     multiline
                     textAlignVertical="top"
                     accessibilityLabel="Your personal note for this lesson"
@@ -331,9 +342,9 @@ export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave
                     <PressableScale style={s.rowMain} onPress={() => { onJump(c.i); onClose(); }} accessibilityRole="button" accessibilityLabel={`Go to ${c.title}`}>
                       {tab === 'contents' ? (
                         <View style={[s.stDot, s[`st_${statusOf(c.i)}`]]}>
-                          {statusOf(c.i) === 'correct' ? <Check size={11} color="#12141A" strokeWidth={3.5} />
-                            : statusOf(c.i) === 'missed' ? <X size={11} color="#12141A" strokeWidth={3.5} />
-                            : <Text style={[s.stNum, (statusOf(c.i) === 'now') && { color: '#12141A' }]}>{n + 1}</Text>}
+                          {statusOf(c.i) === 'correct' ? <Check size={11} color="#FFFFFF" strokeWidth={3.5} />
+                            : statusOf(c.i) === 'missed' ? <X size={11} color="#FFFFFF" strokeWidth={3.5} />
+                            : <Text style={[s.stNum, (statusOf(c.i) === 'now') && { color: '#FFFFFF' }]}>{n + 1}</Text>}
                         </View>
                       ) : <Text style={s.rowNum}>{c.isCheck ? '✓' : ''}</Text>}
                       <View style={{ flex: 1 }}>
@@ -341,10 +352,10 @@ export function ContentsSheet({ visible, scenes, currentIdx, saved, onToggleSave
                         {tab === 'notes' && !!c.line && <Text style={s.rowNote} numberOfLines={3}>{c.line}</Text>}
                         {isNow && <Text style={s.rowHere}>Playing now</Text>}
                       </View>
-                      <ChevronRight size={17} color={D.textFaint} strokeWidth={2.2} />
+                      <ChevronRight size={17} color={L.faint} strokeWidth={2.2} />
                     </PressableScale>
                     <PressableScale style={s.bmk} onPress={() => onToggleSave(c.i)} accessibilityRole="button" accessibilityLabel={isSaved ? 'Remove bookmark' : 'Save to notes'}>
-                      {isSaved ? <BookmarkCheck size={19} color={GOLD} strokeWidth={2.3} /> : <Bookmark size={19} color={D.textFaint} strokeWidth={2.2} />}
+                      {isSaved ? <BookmarkCheck size={19} color={GOLD} strokeWidth={2.3} /> : <Bookmark size={19} color={L.faint} strokeWidth={2.2} />}
                     </PressableScale>
                   </View>
                 );
@@ -455,9 +466,12 @@ export function FlashcardDeck({ visible, cards, onClose, lessonKey }) {
   return (
     <Modal visible={visible} animationType="fade" transparent onRequestClose={onClose}>
       <View style={s.deckWrap}>
+        {/* The player sets light status-bar icons; on this white full-screen deck they
+            would vanish. Unmounting on close restores the player's style. */}
+        {visible && <StatusBar barStyle="dark-content" />}
         <View style={s.deckHead}>
           <View style={s.deckTitleRow}><Layers size={17} color={GOLD} strokeWidth={2.3} /><Text style={s.deckTitle}>Flashcards</Text></View>
-          <PressableScale onPress={onClose} style={s.sheetX} accessibilityLabel="Close flashcards"><X size={20} color={D.textDim} strokeWidth={2.3} /></PressableScale>
+          <PressableScale onPress={onClose} style={s.sheetX} accessibilityLabel="Close flashcards"><X size={20} color={L.dim} strokeWidth={2.3} /></PressableScale>
         </View>
         {!n && <Text style={s.empty}>No cards for this lesson.</Text>}
 
@@ -489,7 +503,7 @@ export function FlashcardDeck({ visible, cards, onClose, lessonKey }) {
             <Text style={s.scoreMsg}>{mastered.size >= n ? 'Every card mastered — remembered for next time.' : 'The ones you found hard are saved to review next session.'}</Text>
             <View style={s.deckNav}>
               <PressableScale style={[s.deckBtn]} onPress={() => start(mastered)} accessibilityLabel="Go again"><Text style={s.deckBtnTxt}>↻ Again</Text></PressableScale>
-              <PressableScale style={[s.deckBtn, s.deckBtnGold]} onPress={onClose} accessibilityLabel="Done"><Text style={[s.deckBtnTxt, { color: '#12141A' }]}>Done</Text></PressableScale>
+              <PressableScale style={[s.deckBtn, s.deckBtnGold]} onPress={onClose} accessibilityLabel="Done"><Text style={[s.deckBtnTxt, { color: '#FFFFFF' }]}>Done</Text></PressableScale>
             </View>
           </Appear>
         )}
@@ -525,9 +539,10 @@ export function TestSheet({ visible, questions, onClose, onScore }) {
   return (
     <Modal visible={visible} animationType="slide" transparent onRequestClose={onClose}>
       <View style={s.deckWrap}>
+        {visible && <StatusBar barStyle="dark-content" />}
         <View style={s.deckHead}>
           <View style={s.deckTitleRow}><GraduationCap size={18} color={GOLD} strokeWidth={2.3} /><Text style={s.deckTitle}>Test yourself</Text></View>
-          <PressableScale onPress={onClose} style={s.sheetX} accessibilityLabel="Close test"><X size={20} color={D.textDim} strokeWidth={2.3} /></PressableScale>
+          <PressableScale onPress={onClose} style={s.sheetX} accessibilityLabel="Close test"><X size={20} color={L.dim} strokeWidth={2.3} /></PressableScale>
         </View>
 
         {!n && <Text style={s.empty}>No quiz questions for this lesson.</Text>}
@@ -591,7 +606,7 @@ export function TestSheet({ visible, questions, onClose, onScore }) {
               {missed.length > 0 && (
                 <PressableScale style={[s.deckBtn]} onPress={() => reset(missed)} accessibilityLabel="Retry the ones I missed"><Text style={s.deckBtnTxt}>↻ Retry {missed.length} missed</Text></PressableScale>
               )}
-              <PressableScale style={[s.deckBtn, s.deckBtnGold]} onPress={onClose} accessibilityLabel="Done"><Text style={[s.deckBtnTxt, { color: '#12141A' }]}>Done</Text></PressableScale>
+              <PressableScale style={[s.deckBtn, s.deckBtnGold]} onPress={onClose} accessibilityLabel="Done"><Text style={[s.deckBtnTxt, { color: '#FFFFFF' }]}>Done</Text></PressableScale>
             </View>
           </ScrollView>
         )}
@@ -612,66 +627,66 @@ const s = StyleSheet.create({
   myNoteLbl: { fontSize: 10.5, fontFamily: F.bold, color: GOLD_DIM, letterSpacing: 1.2, textTransform: 'uppercase' },
   savedPill: { flexDirection: 'row', alignItems: 'center', gap: 4, backgroundColor: 'rgba(45,187,120,0.14)', borderRadius: R.pill, paddingHorizontal: 9, paddingVertical: 3 },
   savedTxt: { fontSize: 10.5, fontFamily: F.bold, color: '#2DBB78', letterSpacing: 0.3 },
-  myNoteInput: { minHeight: 76, backgroundColor: 'rgba(255,255,255,0.05)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.10)', borderRadius: R.md, padding: 12, color: D.text, fontSize: 14, fontFamily: F.reg, lineHeight: 20 },
-  myNoteMeta: { fontSize: 10.5, fontFamily: F.med, color: D.textFaint, marginTop: 6, letterSpacing: 0.2 },
+  myNoteInput: { minHeight: 76, backgroundColor: L.surface, borderWidth: 1, borderColor: L.line, borderRadius: R.md, padding: 12, color: L.text, fontSize: 14, fontFamily: F.reg, lineHeight: 20 },
+  myNoteMeta: { fontSize: 10.5, fontFamily: F.med, color: L.faint, marginTop: 6, letterSpacing: 0.2 },
 
   // Q&A recap
-  qaCard: { alignSelf: 'stretch', backgroundColor: 'rgba(255,255,255,0.035)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.06)', borderRadius: R.lg, padding: 15, marginBottom: 9 },
+  qaCard: { alignSelf: 'stretch', backgroundColor: L.surface, borderWidth: 1, borderColor: L.line, borderRadius: R.lg, padding: 15, marginBottom: 9 },
   qaQ: { fontSize: 14.5, fontFamily: F.bold, color: GOLD, lineHeight: 20 },
-  qaA: { fontSize: 13.5, fontFamily: F.reg, color: D.text, lineHeight: 21, marginTop: 7 },
+  qaA: { fontSize: 13.5, fontFamily: F.reg, color: L.text, lineHeight: 21, marginTop: 7 },
 
   // shared sheet chrome
-  scrim: { flex: 1, backgroundColor: 'rgba(4,5,8,0.6)' },
-  sheet: { backgroundColor: '#14161C', borderTopLeftRadius: R.xxl, borderTopRightRadius: R.xxl, borderTopWidth: 1, borderColor: 'rgba(255,255,255,0.10)', paddingHorizontal: SP.lg, paddingTop: SP.sm, paddingBottom: SP.md, maxHeight: '82%' },
-  grip: { alignSelf: 'center', width: 40, height: 4, borderRadius: 2, backgroundColor: 'rgba(255,255,255,0.18)', marginBottom: SP.sm },
+  scrim: { flex: 1, backgroundColor: 'rgba(17,17,17,0.35)' },
+  sheet: { backgroundColor: L.bg, borderTopLeftRadius: R.xxl, borderTopRightRadius: R.xxl, borderTopWidth: 1, borderColor: L.line, paddingHorizontal: SP.lg, paddingTop: SP.sm, paddingBottom: SP.md, maxHeight: '82%' },
+  grip: { alignSelf: 'center', width: 40, height: 4, borderRadius: 2, backgroundColor: 'rgba(17,17,17,0.15)', marginBottom: SP.sm },
   sheetHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: SP.sm },
-  sheetTitle: { fontSize: 21, fontFamily: SERIF, fontWeight: '600', color: D.text, letterSpacing: 0.2 },
-  sheetX: { width: 34, height: 34, borderRadius: 17, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.06)' },
+  sheetTitle: { fontSize: 21, fontFamily: SERIF, fontWeight: '600', color: L.text, letterSpacing: 0.2 },
+  sheetX: { width: 34, height: 34, borderRadius: 17, alignItems: 'center', justifyContent: 'center', backgroundColor: L.surface },
   sheetScroll: { alignSelf: 'stretch' },
-  empty: { fontSize: 13.5, fontFamily: F.med, color: D.textDim, textAlign: 'center', lineHeight: 21, paddingVertical: SP.xl, paddingHorizontal: SP.md },
+  empty: { fontSize: 13.5, fontFamily: F.med, color: L.dim, textAlign: 'center', lineHeight: 21, paddingVertical: SP.xl, paddingHorizontal: SP.md },
 
   // 2/3 · segmented + rows
-  segRow: { flexDirection: 'row', gap: 3, backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: R.pill, padding: 4, marginBottom: SP.md },
+  segRow: { flexDirection: 'row', gap: 3, backgroundColor: L.surface, borderRadius: R.pill, padding: 4, marginBottom: SP.md },
   seg: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 4, paddingVertical: 9, paddingHorizontal: 2, borderRadius: R.pill },
   segOn: { backgroundColor: GOLD },
-  segTxt: { fontSize: 11, fontFamily: F.semi, color: D.textDim, letterSpacing: 0 },
-  segTxtOn: { color: '#12141A', fontFamily: F.bold },
-  row: { flexDirection: 'row', alignItems: 'center', backgroundColor: 'rgba(255,255,255,0.035)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.06)', borderRadius: R.lg, marginBottom: 8 },
+  segTxt: { fontSize: 11, fontFamily: F.semi, color: L.dim, letterSpacing: 0 },
+  segTxtOn: { color: '#FFFFFF', fontFamily: F.bold },
+  row: { flexDirection: 'row', alignItems: 'center', backgroundColor: L.surface, borderWidth: 1, borderColor: L.line, borderRadius: R.lg, marginBottom: 8 },
   rowNow: { borderColor: 'rgba(124,58,237,0.5)', backgroundColor: 'rgba(124,58,237,0.08)' },
   rowMain: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 13, paddingLeft: 14, paddingRight: 6 },
-  rowNum: { fontSize: 12, fontFamily: F.bold, color: D.textFaint, minWidth: 22, letterSpacing: 0.5 },
+  rowNum: { fontSize: 12, fontFamily: F.bold, color: L.faint, minWidth: 22, letterSpacing: 0.5 },
   rowNumNow: { color: GOLD },
   // progress-map status dot
   stDot: { width: 26, height: 26, borderRadius: 13, alignItems: 'center', justifyContent: 'center', borderWidth: 1.5 },
-  stNum: { fontSize: 11.5, fontFamily: F.bold, color: D.textDim },
+  stNum: { fontSize: 11.5, fontFamily: F.bold, color: L.dim },
   st_now: { backgroundColor: GOLD, borderColor: GOLD },
   st_correct: { backgroundColor: '#2DBB78', borderColor: '#2DBB78' },
   st_missed: { backgroundColor: '#E9A23B', borderColor: '#E9A23B' },
-  st_seen: { backgroundColor: 'rgba(255,255,255,0.10)', borderColor: 'rgba(255,255,255,0.22)' },
-  st_todo: { backgroundColor: 'transparent', borderColor: 'rgba(255,255,255,0.14)' },
-  rowTitle: { fontSize: 14.5, fontFamily: F.semi, color: D.text, lineHeight: 20 },
-  rowTitleNow: { color: '#fff' },
-  rowNote: { fontSize: 12.5, fontFamily: F.reg, color: D.textDim, lineHeight: 18, marginTop: 4 },
+  st_seen: { backgroundColor: 'rgba(17,17,17,0.06)', borderColor: 'rgba(17,17,17,0.18)' },
+  st_todo: { backgroundColor: 'transparent', borderColor: 'rgba(17,17,17,0.16)' },
+  rowTitle: { fontSize: 14.5, fontFamily: F.semi, color: L.text, lineHeight: 20 },
+  rowTitleNow: { color: L.text },
+  rowNote: { fontSize: 12.5, fontFamily: F.reg, color: L.dim, lineHeight: 18, marginTop: 4 },
   rowHere: { fontSize: 10, fontFamily: F.bold, color: GOLD, letterSpacing: 1, textTransform: 'uppercase', marginTop: 4 },
   bmk: { width: 46, height: 46, alignItems: 'center', justifyContent: 'center', marginRight: 4 },
 
   // 4/5 · full-screen graphite surface for deck + test
-  deckWrap: { flex: 1, backgroundColor: '#0E1014', paddingHorizontal: SP.lg, paddingTop: 54, paddingBottom: SP.xl },
+  deckWrap: { flex: 1, backgroundColor: L.bg, paddingHorizontal: SP.lg, paddingTop: 54, paddingBottom: SP.xl },
   deckHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: SP.md },
   deckTitleRow: { flexDirection: 'row', alignItems: 'center', gap: 9 },
-  deckTitle: { fontSize: 22, fontFamily: SERIF, fontWeight: '600', color: D.text, letterSpacing: 0.2 },
+  deckTitle: { fontSize: 22, fontFamily: SERIF, fontWeight: '600', color: L.text, letterSpacing: 0.2 },
   deckCount: { fontSize: 11, fontFamily: F.semi, color: GOLD_DIM, letterSpacing: 1.5, textTransform: 'uppercase', textAlign: 'center', marginBottom: SP.md },
 
-  card: { flex: 1, backgroundColor: PAPER, borderRadius: R.xxl, padding: SP.xl, alignItems: 'center', justifyContent: 'center', shadowColor: '#000', shadowOpacity: 0.5, shadowRadius: 30, shadowOffset: { width: 0, height: 16 }, elevation: 14, maxHeight: 460 },
+  card: { flex: 1, backgroundColor: PAPER, borderRadius: R.xxl, padding: SP.xl, alignItems: 'center', justifyContent: 'center', shadowColor: '#000', shadowOpacity: 0.12, shadowRadius: 24, shadowOffset: { width: 0, height: 16 }, elevation: 14, maxHeight: 460 },
   cardTag: { fontSize: 10, fontFamily: F.bold, color: GOLD_DIM, letterSpacing: 2, textTransform: 'uppercase', marginBottom: SP.md },
   cardTxt: { fontSize: 21, fontFamily: SERIF, fontWeight: '600', color: INK, textAlign: 'center', lineHeight: 30 },
   cardHint: { position: 'absolute', bottom: SP.lg, fontSize: 11.5, fontFamily: F.med, color: '#9A8F79' },
-  deckTapHint: { fontSize: 12.5, fontFamily: F.med, color: D.textDim, textAlign: 'center', marginTop: SP.lg },
+  deckTapHint: { fontSize: 12.5, fontFamily: F.med, color: L.dim, textAlign: 'center', marginTop: SP.lg },
   deckNav: { flexDirection: 'row', gap: 12, marginTop: SP.lg },
-  deckBtn: { flex: 1, alignItems: 'center', paddingVertical: 15, borderRadius: R.md, backgroundColor: 'rgba(255,255,255,0.07)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.10)' },
+  deckBtn: { flex: 1, alignItems: 'center', paddingVertical: 15, borderRadius: R.md, backgroundColor: L.surface, borderWidth: 1, borderColor: L.line },
   deckBtnDim: { opacity: 0.35 },
   deckBtnGold: { backgroundColor: GOLD, borderColor: GOLD },
-  deckBtnTxt: { fontSize: 14, fontFamily: F.bold, color: D.text },
+  deckBtnTxt: { fontSize: 14, fontFamily: F.bold, color: L.text },
   // self-grade buttons
   gradeBtn: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, paddingVertical: 15, borderRadius: R.md, borderWidth: 1.5 },
   gradeAgain: { backgroundColor: 'rgba(224,82,75,0.10)', borderColor: 'rgba(224,82,75,0.5)' },
@@ -694,36 +709,36 @@ const s = StyleSheet.create({
   optTxt: { flex: 1, fontSize: 14.5, fontFamily: F.semi, color: INK },
   optTxtOn: { fontFamily: F.bold },
   testNext: { alignSelf: 'center', backgroundColor: GOLD, borderRadius: R.pill, paddingVertical: 14, paddingHorizontal: 40, marginTop: SP.sm },
-  testNextTxt: { fontSize: 15, fontFamily: F.bold, color: '#12141A', letterSpacing: 0.3 },
+  testNextTxt: { fontSize: 15, fontFamily: F.bold, color: '#FFFFFF', letterSpacing: 0.3 },
 
   scoreCard: { flex: 1, alignItems: 'center', justifyContent: 'center', gap: 6 },
   scoreHead: { alignItems: 'center', gap: 4, marginBottom: SP.md },
   scoreNum: { fontSize: 60, fontFamily: SERIF, fontWeight: '600', color: GOLD, letterSpacing: 0, marginTop: SP.sm },
-  scoreLbl: { fontSize: 14, fontFamily: F.semi, color: D.text },
-  scoreMsg: { fontSize: 13.5, fontFamily: F.med, color: D.textDim, textAlign: 'center', lineHeight: 20, marginTop: SP.sm, marginBottom: SP.lg, paddingHorizontal: SP.xl },
+  scoreLbl: { fontSize: 14, fontFamily: F.semi, color: L.text },
+  scoreMsg: { fontSize: 13.5, fontFamily: F.med, color: L.dim, textAlign: 'center', lineHeight: 20, marginTop: SP.sm, marginBottom: SP.lg, paddingHorizontal: SP.xl },
   // per-question review
   reviewHead: { fontSize: 11, fontFamily: F.bold, color: GOLD_DIM, letterSpacing: 2, textTransform: 'uppercase', marginBottom: SP.sm, marginTop: SP.sm },
   reviewCard: { alignSelf: 'stretch', borderRadius: R.md, borderWidth: 1, padding: 14, marginBottom: 8 },
   reviewOk: { backgroundColor: 'rgba(30,158,99,0.08)', borderColor: 'rgba(30,158,99,0.35)' },
   reviewBad: { backgroundColor: 'rgba(224,82,75,0.08)', borderColor: 'rgba(224,82,75,0.4)' },
-  reviewQ: { fontSize: 14, fontFamily: F.semi, color: D.text, lineHeight: 20 },
+  reviewQ: { fontSize: 14, fontFamily: F.semi, color: L.text, lineHeight: 20 },
   reviewYou: { fontSize: 12.5, fontFamily: F.med, color: '#E0524B', marginTop: 6 },
   reviewAns: { fontSize: 12.5, fontFamily: F.bold, color: '#1E9E63', marginTop: 4 },
-  reviewWhy: { fontSize: 12.5, fontFamily: F.reg, color: D.textDim, lineHeight: 18, marginTop: 6, fontStyle: 'italic' },
+  reviewWhy: { fontSize: 12.5, fontFamily: F.reg, color: L.dim, lineHeight: 18, marginTop: 6, fontStyle: 'italic' },
   // the "why" surfaced live on a miss
   whyCard: { backgroundColor: 'rgba(224,82,75,0.10)', borderWidth: 1, borderColor: 'rgba(224,82,75,0.4)', borderRadius: R.md, padding: 13, marginBottom: SP.md },
   whyLbl: { fontSize: 10, fontFamily: F.bold, color: '#E0524B', letterSpacing: 1.6, marginBottom: 5 },
-  whyTxt: { fontSize: 13.5, fontFamily: F.med, color: D.text, lineHeight: 20 },
+  whyTxt: { fontSize: 13.5, fontFamily: F.med, color: L.text, lineHeight: 20 },
   // exam verdict badge
   verdict: { marginTop: SP.sm, paddingVertical: 5, paddingHorizontal: 16, borderRadius: R.pill, borderWidth: 1 },
   verdictReady: { backgroundColor: 'rgba(30,158,99,0.14)', borderColor: 'rgba(30,158,99,0.6)' },
   verdictAlmost: { backgroundColor: 'rgba(199,155,66,0.16)', borderColor: 'rgba(199,155,66,0.6)' },
   verdictRevise: { backgroundColor: 'rgba(224,82,75,0.12)', borderColor: 'rgba(224,82,75,0.55)' },
-  verdictTxt: { fontSize: 11, fontFamily: F.bold, color: D.text, letterSpacing: 1.5 },
+  verdictTxt: { fontSize: 11, fontFamily: F.bold, color: L.text, letterSpacing: 1.5 },
 
   // 6 · practice sheet
   practiceLoad: { alignItems: 'center', gap: 12, paddingVertical: SP.xxl },
-  practiceLoadTxt: { fontSize: 13, fontFamily: F.med, color: D.textDim },
+  practiceLoadTxt: { fontSize: 13, fontFamily: F.med, color: L.dim },
   practiceTxt: { fontSize: 16, fontFamily: F.med, color: INK, lineHeight: 25 },
   practiceAgain: { alignSelf: 'center', flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: SP.lg, paddingVertical: 11, paddingHorizontal: 20, borderRadius: R.pill, borderWidth: 1, borderColor: 'rgba(124,58,237,0.4)' },
   practiceAgainTxt: { fontSize: 13, fontFamily: F.bold, color: GOLD },
@@ -734,23 +749,23 @@ const s = StyleSheet.create({
 
   // review tab
   reviewSection: { fontSize: 10.5, fontFamily: F.bold, color: GOLD_DIM, letterSpacing: 1.6, textTransform: 'uppercase', marginTop: SP.sm, marginBottom: SP.sm },
-  scriptRow: { alignSelf: 'stretch', backgroundColor: 'rgba(255,255,255,0.035)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.06)', borderRadius: R.lg, padding: 14, marginBottom: 8 },
+  scriptRow: { alignSelf: 'stretch', backgroundColor: L.surface, borderWidth: 1, borderColor: L.line, borderRadius: R.lg, padding: 14, marginBottom: 8 },
   scriptTitle: { fontSize: 11, fontFamily: F.bold, color: GOLD_DIM, letterSpacing: 0.5, textTransform: 'uppercase', marginBottom: 5 },
-  scriptTxt: { fontSize: 14.5, fontFamily: F.reg, color: D.text, lineHeight: 22 },
+  scriptTxt: { fontSize: 14.5, fontFamily: F.reg, color: L.text, lineHeight: 22 },
 
   // formulas tab
   formulaRow: { alignSelf: 'stretch', backgroundColor: PAPER, borderRadius: R.lg, paddingVertical: 15, paddingHorizontal: 16, marginBottom: 10, borderLeftWidth: 3, borderLeftColor: GOLD_DIM },
-  formulaCore: { borderLeftColor: GOLD, borderLeftWidth: 4, shadowColor: '#000', shadowOpacity: 0.35, shadowRadius: 16, shadowOffset: { width: 0, height: 8 }, elevation: 6 },
+  formulaCore: { borderLeftColor: GOLD, borderLeftWidth: 4, shadowColor: '#000', shadowOpacity: 0.10, shadowRadius: 12, shadowOffset: { width: 0, height: 8 }, elevation: 6 },
   formulaHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 6 },
   formulaLbl: { fontSize: 11, fontFamily: F.bold, color: GOLD_DIM, letterSpacing: 0.4, textTransform: 'uppercase' },
   formulaTxt: { fontSize: 18, fontFamily: SERIF, fontWeight: '600', color: INK, lineHeight: 26 },
   formulaTap: { fontSize: 11, fontFamily: F.med, color: '#9A8F79', marginTop: 8 },
 
   // 7 · recap
-  recapRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 12, alignSelf: 'stretch', backgroundColor: 'rgba(255,255,255,0.035)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.06)', borderRadius: R.lg, padding: 15, marginBottom: 9 },
+  recapRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 12, alignSelf: 'stretch', backgroundColor: L.surface, borderWidth: 1, borderColor: L.line, borderRadius: R.lg, padding: 15, marginBottom: 9 },
   recapDot: { width: 24, height: 24, borderRadius: 12, backgroundColor: 'rgba(124,58,237,0.16)', alignItems: 'center', justifyContent: 'center', marginTop: 1 },
   recapDotTxt: { fontSize: 12, fontFamily: F.bold, color: GOLD },
-  recapTitle: { fontSize: 15, fontFamily: F.bold, color: D.text, lineHeight: 20 },
-  recapPoint: { fontSize: 13.5, fontFamily: F.reg, color: D.textDim, lineHeight: 20, marginTop: 4 },
+  recapTitle: { fontSize: 15, fontFamily: F.bold, color: L.text, lineHeight: 20 },
+  recapPoint: { fontSize: 13.5, fontFamily: F.reg, color: L.dim, lineHeight: 20, marginTop: 4 },
   recapFormula: { fontSize: 15, fontFamily: SERIF, fontWeight: '600', color: GOLD, marginTop: 7, letterSpacing: 0.2 },
 });

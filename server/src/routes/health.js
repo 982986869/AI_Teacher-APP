@@ -107,7 +107,7 @@ router.get('/', async (req, res) => {
       // change go out?" — the question that matters after every push. Render
       // injects RENDER_GIT_COMMIT; locally there is none, hence 'local'.
       //
-      //   curl -s https://ailernova-api.onrender.com/api/health | jq -r .data.commit
+      //   curl -s https://api.ailernova.in/api/health | jq -r .data.commit
       //   git log --oneline -1 <that sha>
       commit: (process.env.RENDER_GIT_COMMIT || 'local').slice(0, 7),
       branch: process.env.RENDER_GIT_BRANCH || null,

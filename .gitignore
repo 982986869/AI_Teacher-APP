@@ -134,3 +134,6 @@ supabase/.branches/
 expo-qr*.png
 expo-qr*.svg
 server/expo-qr*.png
+
+# user uploads (services/storage.js) — live on the server disk, backed up to S3
+server/uploads/

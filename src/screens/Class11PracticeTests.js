@@ -6,7 +6,7 @@
 //   "Attempted" filter.
 //
 // Subject/chapter sourcing mirrors McqPracticeScreen so behaviour matches:
-//   • Class 6 & 9  → subjects are DB-driven (class-subjects endpoint)
+//   • Class 6, 9, 10 → subjects are DB-driven (class-subjects endpoint)
 //   • Class 6–9,12 → chapters from the API (getChapters)
 //   • Class 10/11  → chapters from the static MCQ bank (MCQ_DATA)
 //   • sub-topics + availability always come from the API.
@@ -77,7 +77,11 @@ const slugify = (s) => {
 const SUBJECT_SLUG_OVERRIDES = { 'Old - हिंदी': 'old', 'Old - हिंदी ए': 'old-hindi-a', 'Old - हिंदी ब': 'old-hindi-b' };
 const subjectSlugOf = (subj) => subj.slug || SUBJECT_SLUG_OVERRIDES[subj.name] || slugify(subj.name);
 
-const DYNAMIC_CLASSES = [6, 9];
+// Class 10 is here too: its fallback was the senior PCMB list with Class 11 chapters.
+// Class 10 has no gradable MCQs yet (its practice bank has no answer keys — see
+// docs/KNOWN-ISSUE-class10-chapter-practice.md), so the DB list is empty and the
+// screen says so.
+const DYNAMIC_CLASSES = [6, 9, 10];
 
 // Per-class subject lists (mirror McqPracticeScreen).
 const S = (name, emoji) => ({ name, emoji });

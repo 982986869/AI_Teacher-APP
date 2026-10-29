@@ -16,15 +16,20 @@ export const listMockAttempts = async (subject, classLevel) => {
   return res.data.data;
 };
 
-// GET /api/mock-tests/:id/questions
+// GET /api/mock-tests/:id/questions?class=9
 //   → { test, questions:[{ id, question, options:[strings], correct, cat, explanation }], total }
-export const getMockTestQuestions = async (id) => {
-  const res = await axiosInstance.get(`/api/mock-tests/${id}/questions`);
+// classLevel is the class being viewed: without it the server checks the test against
+// the student's saved class, so opening a mock while browsing another class was refused.
+export const getMockTestQuestions = async (id, classLevel) => {
+  const res = await axiosInstance.get(`/api/mock-tests/${id}/questions`,
+    { params: classLevel ? { class: classLevel } : undefined });
   return res.data.data;
 };
 
-// POST /api/mock-tests/:id/submit  body { answers:{ [questionId]: selectedIndex }, timeTakenSec }
-export const submitMockTest = async (id, { answers, timeTakenSec } = {}) => {
-  const res = await axiosInstance.post(`/api/mock-tests/${id}/submit`, { answers: answers || {}, timeTakenSec: timeTakenSec || 0 });
+// POST /api/mock-tests/:id/submit?class=9  body { answers:{ [questionId]: selectedIndex }, timeTakenSec }
+export const submitMockTest = async (id, { answers, timeTakenSec } = {}, classLevel) => {
+  const res = await axiosInstance.post(`/api/mock-tests/${id}/submit`,
+    { answers: answers || {}, timeTakenSec: timeTakenSec || 0 },
+    { params: classLevel ? { class: classLevel } : undefined });
   return res.data.data;
 };
