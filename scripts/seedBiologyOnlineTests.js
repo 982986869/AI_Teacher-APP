@@ -40,10 +40,21 @@ const fs = require('fs')
 const path = require('path')
 
 const ROOT = path.join(__dirname, '..')
-const COOKIE = process.env.EXAMIN8_COOKIE
-const CSRF = process.env.EXAMIN8_CSRF
+// Falls back to server/.env.examin8 (gitignored). Read here rather than `source`d in a
+// shell: the cookie value contains `;`, which a shell treats as the end of the
+// assignment — msessionid was silently dropped and every request ran logged-out.
+const e8File = (() => {
+  try {
+    return Object.fromEntries(fs.readFileSync(path.join(ROOT, 'server', '.env.examin8'), 'utf8')
+      .split(/\r?\n/).filter((l) => /^EXAMIN8_[A-Z]+=/.test(l))
+      .map((l) => [l.slice(0, l.indexOf('=')), l.slice(l.indexOf('=') + 1).trim()]))
+  } catch (_) { return {} }
+})()
+const COOKIE = process.env.EXAMIN8_COOKIE || e8File.EXAMIN8_COOKIE
+const CSRF = process.env.EXAMIN8_CSRF || e8File.EXAMIN8_CSRF
 const LIVE = process.argv.includes('--live')
 const SEED_ONLY = process.argv.includes('--seed')
+const DROP_DELETED = process.argv.includes('--drop-deleted')
 const B = 'https://web.examin8.com/v1'
 const CLASS_LEVEL = parseInt(process.env.CLASS || '11', 10)
 const DELAY = 130
@@ -51,8 +62,31 @@ const DELAY = 130
 // `res` = examin8 content/category (subject) id, per class. Verified against
 // /v1/category/:id/ → full_name. Class 10 is Science because CBSE Class 10 has no
 // separate Biology paper — the bio chapters sit inside Science.
+//
+// Class 10 lists every subject with chapters in data/examin8/class10/normalized/
+// chapters.json (subject_category_id → `res`). `slug` MUST be the subjects.slug already
+// in the DB: /api/resources/class-subjects keeps that slug and OnlineTestScreen then
+// queries ot_tests by it, so a different slug here would list the subject and show
+// no chapters. Devanagari names use the importer's hash slugs (u15xjuvc …).
 const BY_CLASS = {
-  10: [{ name: 'Science', slug: 'science', res: '1176' }],
+  10: [
+    { name: 'Mathematics',                     slug: 'mathematics',                     res: '1202' },
+    { name: 'Science',                         slug: 'science',                         res: '1176' },
+    { name: 'Social Science',                  slug: 'social-science',                  res: '1896' },
+    { name: 'English Communicative (101)',     slug: 'english-communicative-101',       res: '1901' },
+    { name: 'English Language and Literature', slug: 'english-language-and-literature', res: '1903' },
+    { name: 'हिंदी ए',                          slug: 'u15xjuvc',                        res: '1905' },
+    { name: 'हिंदी ब',                          slug: 'u15xjuwb',                        res: '1907' },
+    { name: 'Information Technology (402)',    slug: 'information-technology-402',      res: '7595' },
+    { name: 'Artificial Intelligence (417)',   slug: 'artificial-intelligence-417',     res: '21489' },
+    { name: 'Computer Applications (165)',     slug: 'computer-applications-165',       res: '1909' },
+    { name: 'Reasoning & Mental Ability',      slug: 'reasoning-mental-ability',        res: '10020' },
+    { name: 'NTSE Scholarship',                slug: 'ntse-scholarship',                res: '1836' },
+    { name: 'गणित',                             slug: 'uzmczai',                         res: '10231' },
+    { name: 'विज्ञान',                          slug: 'u1qjtws6',                        res: '3498' },
+    { name: 'सामाजिक विज्ञान',                   slug: 'us1q786',                         res: '2969' },
+    { name: 'संस्कृत (शेमुषी)',                   slug: 'ujggs40',                         res: '4538' },
+  ],
   11: [{ name: 'Biology', slug: 'biology', res: '1388' }],
 }
 
@@ -76,8 +110,24 @@ const slugify = (s) => {
   return 'u' + h.toString(36)
 }
 
+// examin8 rotates msessionid (and sometimes mcsrftoken) on nearly every response, so
+// a copied cookie goes stale within minutes. Keep a jar seeded from EXAMIN8_COOKIE and
+// fold every Set-Cookie back into it, so a long run keeps a live session.
+const jar = new Map(String(COOKIE || '').split(/;\s*/).filter(Boolean).map((p) => [p.split('=')[0], p.slice(p.indexOf('=') + 1)]))
+const cookieHeader = () => [...jar].map(([k, v]) => `${k}=${v}`).join('; ')
+function absorb(r) {
+  const set = r.headers.getSetCookie ? r.headers.getSetCookie() : []
+  for (const sc of set) {
+    const kv = sc.split(';')[0]
+    const k = kv.split('=')[0]
+    const v = kv.slice(kv.indexOf('=') + 1)
+    // A logout answer sets msessionid="" — never let that overwrite a live value.
+    if ((k === 'msessionid' || k === 'mcsrftoken') && v && v !== '""') jar.set(k, v)
+  }
+}
+
 function headers(json) {
-  const h = { Accept: 'application/json, text/plain, */*', 'X-CSRFToken': CSRF, Cookie: COOKIE, Origin: 'https://web.examin8.com', Referer: 'https://web.examin8.com/' }
+  const h = { Accept: 'application/json, text/plain, */*', 'X-CSRFToken': jar.get('mcsrftoken') || CSRF, Cookie: cookieHeader(), Origin: 'https://web.examin8.com', Referer: 'https://web.examin8.com/' }
   if (json) h['Content-Type'] = 'application/json'
   return h
 }
@@ -86,6 +136,7 @@ async function apiGet(url, tries = 4) {
   for (let a = 1; a <= tries; a++) {
     try {
       const r = await fetch(url, { headers: headers(false) })
+      absorb(r)
       if (r.status === 401 || r.status === 403) throw Object.assign(new Error('AUTH ' + r.status), { fatal: true })
       if (!r.ok) throw new Error('HTTP ' + r.status)
       return await r.json()
@@ -104,8 +155,8 @@ async function apiGet(url, tries = 4) {
 // history. Don't go back to that; this endpoint returns strictly more, for less.
 //
 // → Map of questionID → { correctIds:[optionID], explanation, typeBase }.
-async function fetchAttempt(testpaperId) {
-  const j = await apiGet(`${B}/quiz/testpaper/attempt/${testpaperId}/`)
+async function fetchAttempt(testpaperId, tries = 4) {
+  const j = await apiGet(`${B}/quiz/testpaper/attempt/${testpaperId}/`, tries)
   const byQ = new Map()
   for (const sec of (j.sections || [])) {
     for (const q of (sec.questions || [])) {
@@ -122,10 +173,33 @@ async function fetchAttempt(testpaperId) {
 // One testpaper → { extTestId, name, instructionHtml, durationMin, totalMarks, isPaid, questions:[…] }.
 // Two GETs, merged on questionID: the plain view carries duration / instruction / marks,
 // the attempt view carries the answer key and the solutions.
+// The attempt view only answers for a testpaper this login has already submitted —
+// for a fresh one examin8 returns 500 "Application Error" (found on Class 10,
+// 2026-10-29; Class 11 Biology had prior attempts). So: try it, and only if it fails,
+// submit the testpaper ONCE exactly as the web app does — POST the testpaper JSON
+// back unchanged (nothing selected) to /quiz/testpaper/submit/ with the CSRF header —
+// then read the attempt view again. One recorded, empty attempt per testpaper; the
+// owner asked for this (2026-10-29) to get Class 10 answers.
+async function apiPostJson(url, body) {
+  const r = await fetch(url, { method: 'POST', headers: headers(true), body: JSON.stringify(body) })
+  absorb(r)
+  if (r.status === 401 || r.status === 403) throw Object.assign(new Error('AUTH ' + r.status), { fatal: true })
+  if (!r.ok) throw new Error('HTTP ' + r.status)
+  return r.json()
+}
+
 async function fetchTestpaper(tp, chapterId, isPaid, warn) {
   const j = await apiGet(`${B}/quiz/testpaper/${tp.id}/`)
   await sleep(DELAY)
-  const key = await fetchAttempt(tp.id)
+  let key
+  try {
+    key = await fetchAttempt(tp.id, 1) // a fresh testpaper 500s every time; no point retrying
+  } catch (e) {
+    if (e.fatal) throw e
+    await apiPostJson(`${B}/quiz/testpaper/submit/`, j)
+    await sleep(DELAY)
+    key = await fetchAttempt(tp.id)
+  }
   const questions = []
   let totalMarks = 0
   let pos = 0
@@ -193,11 +267,21 @@ async function fetchSubject(s, cacheFile) {
     const paid = (listing.testpapers_paid || []).map((t) => ({ t, paid: true }))
     const warn = (msg) => process.stdout.write(`      ? ${msg}\n`)
     const tests = []
+    let authFails = 0
     for (const { t, paid: isPaid } of [...free, ...paid]) {
       try {
         const tp = await fetchTestpaper(t, chId, isPaid, warn)
         if (tp.questions.length) { tests.push(tp); tp.position = tests.length - 1 }
-      } catch (e) { process.stdout.write(`      ! test ${t.id} failed: ${e.message}\n`); if (e.fatal) throw e }
+        authFails = 0
+      } catch (e) {
+        // Three refusals in a row on a SUBSCRIBED subject = the session died (the browser
+        // using the same login rotates it away). Stop, rather than skip everything left.
+        if (e.fatal && subj.has_subscription !== false && ++authFails >= 3) throw e
+        // A 403 on ONE testpaper is a paid test this account is not subscribed to —
+        // skip it. The subject's own /category/ GET above already proved the session
+        // is live; a dead session fails there, before any testpaper is tried.
+        process.stdout.write(`      ! test ${t.id} ${isPaid ? '(paid) ' : ''}skipped: ${e.message}\n`)
+      }
       await sleep(DELAY)
     }
     const qn = tests.reduce((n, t) => n + t.questions.length, 0)
@@ -272,7 +356,10 @@ async function insertQuestions(client, testId, questions) {
 
 async function seed(docs) {
   const { Client } = require('pg')
-  const client = new Client({ connectionString: getDbUrl(), ssl: { rejectUnauthorized: false } })
+  const url = getDbUrl()
+  // The local Docker Postgres has no SSL; hosted ones (Supabase/AWS) need it.
+  const local = /@(localhost|127\.0\.0\.1)[:/]/.test(url)
+  const client = new Client({ connectionString: url, ssl: local ? false : { rejectUnauthorized: false } })
   await client.connect(); console.log('\n✓ Connected. Ensuring schema…')
   try {
     await client.query(SCHEMA)
@@ -281,6 +368,9 @@ async function seed(docs) {
       await client.query('delete from ot_tests where subject_slug = $1 and class_level = $2', [doc.slug, CLASS_LEVEL])
       let nTests = 0, nQ = 0, nSol = 0
       for (const ch of doc.chapters) {
+        // --drop-deleted: examin8 keeps chapters CBSE removed, named "… (Deleted)" /
+        // "… Deleted". The owner chose (2026-10-29) to keep them out of the app.
+        if (DROP_DELETED && /\bdeleted\b/i.test(ch.name)) { console.log(`  - skipped ${ch.name} (${ch.tests.length} tests)`); continue }
         for (const t of ch.tests) {
           const r = await client.query(
             `insert into ot_tests (subject_slug, subject_name, class_level, chapter_name, chapter_slug, chapter_pos, ext_test_id, name, instruction_html, duration_min, total_marks, is_paid, position)
