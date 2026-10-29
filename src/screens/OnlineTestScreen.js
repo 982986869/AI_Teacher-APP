@@ -195,8 +195,8 @@ function Header({ onBack, title }) {
 export default function OnlineTestScreen({ onExit = () => {} }) {
   const { selectedClass } = useAuth();
   const classLevel = classNum(selectedClass) || 7;
-  // Class 6, 9 & 10 online-test subjects are DB-driven (online flag); other classes keep theirs.
-  const isDyn = [6, 9, 10].includes(classLevel);
+  // Class 6 & 9 online-test subjects are DB-driven (online flag); other classes keep theirs.
+  const isDyn = [6, 9].includes(classLevel);
   const dynSubs = useClassSubjects(classLevel, isDyn);
   const subjectList = isDyn ? (dynSubs || []).filter((s) => s.online).map((s) => toTile(s)) : subjectsForClass(classLevel);
 

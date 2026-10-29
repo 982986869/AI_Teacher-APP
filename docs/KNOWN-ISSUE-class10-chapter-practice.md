@@ -1,27 +1,6 @@
 # Known issue: Class 10 Chapter practice has no questions
 
-Status: **fixed locally 2026-10-29, not yet on AWS.** Found 2026-10-28.
-
-## Resolution (2026-10-29)
-
-The owner chose to collect the answers by submitting each question once on the
-examin8 account (batch 21885). `scripts/seedClass10McqPractice.js` fetched 9,100
-practice MCQs across 15 subjects, every one with an answer, and seeded them into
-`subtopics` + `mcq_questions` (class_level 10) on the local `ailernova_aws` copy.
-Subjects the account is not subscribed to (Hindi A/B, IT, AI, Computer
-Applications, NTSE, Reasoning, the Hindi-medium ones) only gave their 10 free
-questions per chapter.
-
-Class 10 online tests were seeded the same day by `scripts/seedBiologyOnlineTests.js`
-(`CLASS=10 … --seed --live --drop-deleted`): 246 tests, 3,735 questions, chapters
-examin8 marks "(Deleted)" left out. Fresh testpapers only expose answers after one
-submit, so the script submits each once.
-
-To put both on AWS: point `server/.env` `DATABASE_URL` at the AWS database and run the
-two `--seed --live` commands from the saved checkpoints in `src/data/class10Practice/`
-and `src/data/class10OnlineTests/`. No examin8 login is needed for that step.
-
-The rest of this note is the original analysis.
+Status: open. Found 2026-10-28.
 
 ## What the student sees
 

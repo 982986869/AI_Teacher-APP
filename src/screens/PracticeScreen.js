@@ -1093,11 +1093,10 @@ const PracticeScreen = () => {
   }
 
   // ── ONLINE TESTS ────────────────────────────────────────────────────────
-  // Class 6–10 → DB-backed, timed testpapers from examin8 (OnlineTestScreen manages
+  // Class 7 & 8 → DB-backed, timed testpapers from examin8 (OnlineTestScreen manages
   // its own subjects → chapters → tests → instruction → runner → result → review).
-  // Class 10 joined once its testpapers were seeded (2026-10-29); before that it fell
-  // through to the Class 11 offline banks below. 11/12 keep OnlineTestsScreen.
-  if (chOpen && [6, 7, 8, 9, 10].includes(classNum(selectedClass))) {
+  // Other classes keep the offline-bank flow (OnlineTestsScreen).
+  if (chOpen && [6, 7, 8, 9].includes(classNum(selectedClass))) {
     return <OnlineTestScreen onExit={() => setChOpen(false)} />;
   }
   if (chOpen) {
