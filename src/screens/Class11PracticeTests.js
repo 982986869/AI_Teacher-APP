@@ -7,8 +7,8 @@
 //
 // Subject/chapter sourcing mirrors McqPracticeScreen so behaviour matches:
 //   • Class 6, 9, 10 → subjects are DB-driven (class-subjects endpoint)
-//   • Class 6–9,12 → chapters from the API (getChapters)
-//   • Class 10/11  → chapters from the static MCQ bank (MCQ_DATA)
+//   • Class 6–10,12 → chapters from the API (getChapters)
+//   • Class 11     → chapters from the static MCQ bank (MCQ_DATA)
 //   • sub-topics + availability always come from the API.
 //
 // Props:
@@ -122,7 +122,7 @@ export default function PracticeTestsCards({ onBack, onStartChapter, onStartSubt
 
   // A subject uses the DB chapter list (else the static MCQ bank).
   const usesApiChapters = (subj) =>
-    [6, 7, 8, 9].includes(classLevel) ||
+    [6, 7, 8, 9, 10].includes(classLevel) ||
     (classLevel === 12 && ['Physics', 'Chemistry', 'Mathematics'].includes(subj.name));
 
   useEffect(() => {
