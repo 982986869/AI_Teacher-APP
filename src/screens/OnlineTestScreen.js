@@ -249,11 +249,21 @@ export default function OnlineTestScreen({ onExit = () => {} }) {
   const onFinish = (res) => {
     setResult(res); setView('result');
     // Record the attempt locally so the tests list can show "Completed" + score.
+    // The list is also updated in memory right away: the storage write is async and
+    // the tests view re-reads storage on entry, so going straight back from the
+    // result could read before the write landed and show "Attempted 0".
     if (subject && chapter && test) {
       const total = (test.totalMarks != null ? test.totalMarks : res.total) || res.total || 0;
       const score = res.score != null ? res.score : res.correct;
       const percent = total ? Math.round((score / total) * 100) : 0;
-      saveOnlineTestAttempt(attemptKey(test), { score, total, percent, date: new Date().toISOString() });
+      const key = attemptKey(test);
+      const date = new Date().toISOString();
+      setAttempts((prev) => {
+        const old = prev[key];
+        const best = !old || percent >= (old.percent ?? 0) ? { score, total, percent } : old;
+        return { ...prev, [key]: { ...best, attempts: ((old && old.attempts) || 0) + 1, lastDate: date } };
+      });
+      saveOnlineTestAttempt(key, { score, total, percent, date });
     }
     // Also record it server-side so it reaches the parent's progress view. The server
     // re-grades from its own answer key. Fire-and-forget: the local record above is
@@ -268,7 +278,8 @@ export default function OnlineTestScreen({ onExit = () => {} }) {
   useEffect(() => {
     if (view !== 'tests') return undefined;
     let alive = true;
-    getOnlineTestAttempts(classLevel).then((a) => { if (alive) setAttempts(a || {}); }).catch(() => {});
+    // Merge, in-memory wins: an attempt finished moments ago may not be in storage yet.
+    getOnlineTestAttempts(classLevel).then((a) => { if (alive) setAttempts((prev) => ({ ...(a || {}), ...prev })); }).catch(() => {});
     return () => { alive = false; };
   }, [view, classLevel]);
 
@@ -296,7 +307,7 @@ export default function OnlineTestScreen({ onExit = () => {} }) {
 
       {view === 'chapters' && (
         <>
-          <ScreenHeader title={subject?.name || 'Chapters'} subtitle="Pick a chapter to see its tests" onBack={back} />
+          <ScreenHeader title={subject?.name || 'Chapters'} subtitle="Pick a chapter to see its tests" onBack={back} titleLines={2} />
           {chapters == null ? <Center><ActivityIndicator color={TK.mint} /></Center> : (
             <ScrollView contentContainerStyle={{ padding: 16 }} showsVerticalScrollIndicator={false}>
               {chapters.length === 0 && <Empty title="No online tests" sub="No tests have been added for this subject yet." />}
@@ -316,7 +327,7 @@ export default function OnlineTestScreen({ onExit = () => {} }) {
         const shown = list.filter((t) => tab !== 'attempted' || attemptFor(t));
         return (
           <>
-            <ScreenHeader title={chapter?.name || 'Tests'} subtitle={subject?.name} onBack={back} />
+            <ScreenHeader title={chapter?.name || 'Tests'} subtitle={subject?.name} onBack={back} titleLines={2} />
             {tests != null && (
               <FilterTabs tab={tab} onChange={setTab} tabs={[{ id: 'all', label: 'All', count: list.length }, { id: 'attempted', label: 'Attempted', count: attemptedCount }]} />
             )}

@@ -545,7 +545,9 @@ const s = StyleSheet.create({
     borderColor: TT.hair, backgroundColor: TT.cardSoft,
     alignItems: 'center', justifyContent: 'center',
   },
-  cellDone: { borderColor: TT.violet, backgroundColor: 'transparent' },
+  // Answered = filled soft yellow, so it reads apart from an unanswered grey ring at
+  // a glance (a yellow outline alone looked the same as "not done" to testers).
+  cellDone: { borderColor: TT.violet, backgroundColor: TT.violetSoft },
   cellCur:  { backgroundColor: TT.violet, borderColor: TT.violet },
   cellTxt:  { fontSize: 16, lineHeight: 20, fontFamily: TTF.semi, color: TT.sub },
 

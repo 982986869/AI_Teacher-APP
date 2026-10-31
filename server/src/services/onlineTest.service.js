@@ -8,7 +8,9 @@ const LETTERS = 'ABCDEFGHIJ'.split('')
 // ─── Chapters of a subject that have online tests (with test counts) ──────────
 async function listChapters(subjectSlug, classLevel = 7) {
   const rows = await db.ot_tests.findMany({
-    where: { subject_slug: subjectSlug, class_level: classLevel },
+    // examin8 keeps chapters CBSE dropped, named "… (Deleted)"; students should not see
+    // them (testing doc 2026-10-31, item 9). Their tests stay in the table, unlisted.
+    where: { subject_slug: subjectSlug, class_level: classLevel, NOT: { chapter_name: { contains: 'deleted', mode: 'insensitive' } } },
     orderBy: [{ chapter_pos: 'asc' }, { position: 'asc' }],
     select: { chapter_name: true, chapter_slug: true, chapter_pos: true },
   })
