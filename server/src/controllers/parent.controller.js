@@ -34,6 +34,58 @@ function setCachedReport(childId, payload) {
   if (REPORT_CACHE.size > REPORT_CACHE_MAX) REPORT_CACHE.delete(REPORT_CACHE.keys().next().value)
 }
 
+/**
+ * GET /api/parent/link-notices — the CHILD asks "has a parent been added?"
+ *
+ * On the child's side, not the parent's: a parent linking is something that
+ * happens TO a student, and until now they only found out by email. An email is
+ * not a notification for a teenager who reads the app and not their inbox.
+ *
+ * Returns only links the child has not been shown yet, so the answer is empty
+ * almost every time it is asked — which is what makes it cheap to ask on launch.
+ */
+async function pendingLinkNotices(req, res, next) {
+  try {
+    const rows = await db.$queryRawUnsafe(
+      `SELECT pc.id::text AS id, u.name AS "parentName", u.email AS "parentEmail", pc."linkedAt"
+         FROM "parent_children" pc
+         JOIN "users" u ON u.id = pc."parentId"
+        WHERE pc."childId" = $1::uuid AND pc."childNotifiedAt" IS NULL
+        ORDER BY pc."linkedAt" ASC`,
+      req.user.id,
+    )
+    return ApiResponse.success(res, { notices: rows || [] })
+  } catch (err) { return next(err) }
+}
+
+/**
+ * POST /api/parent/link-notices/ack — the child has seen it.
+ *
+ * Acknowledging is a separate call rather than a side effect of the read, so a
+ * notice is never lost to a request that arrived but whose response never did.
+ * Shown-but-unacknowledged costs a repeat; marked-but-never-shown costs the
+ * student the only notice they get.
+ */
+async function ackLinkNotices(req, res, next) {
+  try {
+    const ids = Array.isArray(req.body.ids) ? req.body.ids.filter((x) => typeof x === 'string') : null
+    if (ids && ids.length) {
+      await db.$executeRawUnsafe(
+        `UPDATE "parent_children" SET "childNotifiedAt" = now()
+          WHERE "childId" = $1::uuid AND id = ANY($2::uuid[]) AND "childNotifiedAt" IS NULL`,
+        req.user.id, ids,
+      )
+    } else {
+      await db.$executeRawUnsafe(
+        `UPDATE "parent_children" SET "childNotifiedAt" = now()
+          WHERE "childId" = $1::uuid AND "childNotifiedAt" IS NULL`,
+        req.user.id,
+      )
+    }
+    return ApiResponse.success(res, { ok: true })
+  } catch (err) { return next(err) }
+}
+
 // POST /api/parent/link-child  { email? , phone? }
 async function linkChild(req, res, next) {
   try {
@@ -873,4 +925,5 @@ async function progressCalendar(req, res, next) {
   } catch (err) { next(err) }
 }
 
-module.exports = { linkChild, children, setActiveChild, unlinkChild, report, progressDay, progressCalendar }
+module.exports = {
+  pendingLinkNotices, ackLinkNotices, linkChild, children, setActiveChild, unlinkChild, report, progressDay, progressCalendar }

@@ -23,7 +23,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import {
   View, Text, StyleSheet, ScrollView, StatusBar, Animated,
-  Easing, RefreshControl, Pressable, Image,
+  Easing, RefreshControl, Pressable, Image, Alert,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
@@ -58,6 +58,7 @@ import BrainGymFlow from './braingym/BrainGymFlow';
 import ActivitiesScreen from './ActivitiesScreen';
 import MyBooksScreen from './MyBooksScreen';
 import { getBooks } from '../api/booksApi';
+import { getLinkNotices, ackLinkNotices } from '../api/parentApi';
 import { getAnnouncements } from '../api/announcementsApi';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import OptionalUpdateBanner from '../components/OptionalUpdateBanner';
@@ -456,6 +457,32 @@ const HomeScreen = () => {
     getBooks(selectedClass).then((list) => alive && setBooks(list));
     return () => { alive = false; };
   }, [selectedClass]);
+
+  // A parent linking is something that happens TO a student, and an email is not
+  // a notification for someone who reads the app and not their inbox. Tell them
+  // here, once, the next time they open Home.
+  //
+  // Acknowledged only after the alert is dismissed, so a notice closed by the app
+  // being killed mid-popup comes back rather than being lost. Both calls swallow
+  // their errors — nobody loses their Home screen over this.
+  useEffect(() => {
+    let alive = true;
+    getLinkNotices().then((notices) => {
+      if (!alive || !notices.length) return;
+      const names = notices.map((n) => n.parentName).filter(Boolean);
+      const who = names.length === 1 ? names[0] : `${names.length} parents`;
+      Alert.alert(
+        'A parent was added',
+        names.length
+          ? `${who} can now see your progress, streaks and the areas you're working on.
+
+They cannot change anything or see your messages.`
+          : 'A parent can now see your progress, streaks and the areas you are working on.',
+        [{ text: 'Got it', onPress: () => ackLinkNotices(notices.map((n) => n.id)) }],
+      );
+    });
+    return () => { alive = false; };
+  }, []);
 
   // ── real signals ──
   const bg          = report?.brainGym || {};

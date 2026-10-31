@@ -5,6 +5,7 @@ const { body } = require('express-validator')
 const { authenticate } = require('../middleware/auth')
 const {
   linkChild, children, setActiveChild, unlinkChild,
+  pendingLinkNotices, ackLinkNotices,
   report, progressDay, progressCalendar,
 } = require('../controllers/parent.controller')
 const { createTrialBooking, upcomingTrialBooking, cancelTrialBooking } = require('../controllers/trialBooking.controller')
@@ -23,6 +24,11 @@ router.post('/active-child', [body('childId').isUUID()], setActiveChild)
 router.delete('/children/:childId', unlinkChild)
 
 router.get('/report', report)
+// The CHILD's side of linking — these two are the only routes here a student
+// calls. `authenticate` above covers them; no parent check, deliberately.
+router.get('/link-notices', pendingLinkNotices)
+router.post('/link-notices/ack', ackLinkNotices)
+
 router.get('/progress/day', progressDay)
 router.get('/progress/calendar', progressCalendar)
 

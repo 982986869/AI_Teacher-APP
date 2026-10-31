@@ -111,3 +111,24 @@ export const cancelTrialBooking = async (id) => {
     return false;
   }
 };
+
+// ── The CHILD's side of linking ──────────────────────────────────────────────
+// A parent linking is something that happens TO a student: until now they only
+// found out by email, which is not a notification for someone who reads the app
+// and not their inbox. These two let the student app say so, once.
+//
+// Neither throws: a missed notice must never cost a student their Home screen.
+export const getLinkNotices = async () => {
+  try {
+    const res = await axiosInstance.get('/api/parent/link-notices');
+    const d = res.data?.data ?? res.data;
+    return Array.isArray(d?.notices) ? d.notices : [];
+  } catch { return []; }
+};
+
+// Acknowledged separately from the read, so a notice is never lost to a request
+// that arrived while the response did not — a repeat costs a second popup, a
+// premature mark costs the student the only notice they get.
+export const ackLinkNotices = async (ids) => {
+  try { await axiosInstance.post('/api/parent/link-notices/ack', { ids }); } catch { /* retried next launch */ }
+};
