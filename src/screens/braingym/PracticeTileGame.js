@@ -18,7 +18,13 @@ import { pressSpring, PRESS_SCALE } from './motion';
 import { reportWarn } from '../../utils/errorLog';
 
 const { width: SCREEN_W } = Dimensions.get('window');
-const CARD_H = 104;
+// Tall enough for the equation AND the four answer tiles beneath it. At 104 the
+// content came to ~87px against ~80px of usable space, so the tiles were pushed
+// past the card's rounded-corner clip: the boxes showed as thin coloured slivers
+// with the number cut off below them, and there was nothing to read or aim at.
+//
+//   padding 10+10 · border 2+2 · equation ~37 · tiles ~50  =>  111 minimum
+const CARD_H = 126;
 const GAP = 8;
 const SLOT = CARD_H + GAP;
 const CARD_W = Math.min(SCREEN_W - 32, 360);
@@ -77,7 +83,7 @@ function AnswerTile({ opt, i, pal, wrong, picked, onPick }) {
       onPressIn={() => to(PRESS_SCALE)} onPressOut={() => to(1)} onPress={() => onPick(opt, i)}
       accessibilityRole="button" accessibilityLabel={`Answer ${opt}`}>
       <Animated.View style={[st.tile, { backgroundColor: pal.tile, borderColor: pal.tBorder }, wrong && picked === i && st.tileRed, { transform: [{ scale: sc }] }]}>
-        <Text style={st.tileTxt}>{opt}</Text>
+        <Text style={st.tileTxt} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.6}>{opt}</Text>
       </Animated.View>
     </TouchableOpacity>
   );
@@ -294,7 +300,7 @@ const st = StyleSheet.create({
   card: { position: 'absolute', top: 0, alignSelf: 'center', width: CARD_W, height: CARD_H, borderRadius: 16, borderWidth: 2, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 12, paddingVertical: 10 },
   eq: { color: '#fff', fontSize: 22, fontWeight: '900', letterSpacing: 1, textAlign: 'center', marginBottom: 8 },
   tiles: { flexDirection: 'row', alignSelf: 'stretch', justifyContent: 'space-between', gap: 8 },
-  tile: { flex: 1, borderWidth: 1.5, borderRadius: 11, paddingVertical: 11, alignItems: 'center', justifyContent: 'center' },
+  tile: { flex: 1, minHeight: 44, borderWidth: 1.5, borderRadius: 11, paddingVertical: 9, alignItems: 'center', justifyContent: 'center' },
   tileRed: { backgroundColor: '#C0392B', borderColor: '#FF7A6B' },
   tileTxt: { color: '#fff', fontSize: 19, fontWeight: '900' },
 
