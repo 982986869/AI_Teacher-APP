@@ -98,6 +98,9 @@ src/data/class6Practice/
 src/data/class6OnlineTests/
 src/data/class6OldTextbooks/
 src/data/class6OldNotes/
+# Class 10 examin8 checkpoints (scripts/seedClass10McqPractice.js --seed reads them; data lives in DB)
+src/data/class10Practice/
+src/data/class10OnlineTests/
 
 # Generated TTS audio cache (server-side, regenerates on demand)
 server/tts-cache/
