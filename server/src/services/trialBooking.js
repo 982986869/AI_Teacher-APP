@@ -33,6 +33,7 @@ function validateBookingInput(body = {}, now = new Date()) {
   if (!parentName) return { ok: false, error: 'Please tell us your name.' }
   if (!EMAIL_RE.test(parentEmail)) return { ok: false, error: 'That email address does not look right.' }
   if (parentPhone.replace(/\D/g, '').length < 10) return { ok: false, error: 'Please enter a 10-digit phone number.' }
+  if (!childNameRaw) return { ok: false, error: "Please enter your child's name." }
   if (!CLASSES.includes(childClass)) return { ok: false, error: "Please pick your child's class." }
   if (!BOARDS.includes(board)) return { ok: false, error: "Please pick your child's board." }
   if (!SUBJECTS.includes(subject)) return { ok: false, error: 'Please pick a subject.' }
@@ -43,7 +44,7 @@ function validateBookingInput(body = {}, now = new Date()) {
 
   return {
     ok: true,
-    value: { parentName, parentEmail, parentPhone, childName: childNameRaw || null, childClass, board, subject, slotAt },
+    value: { parentName, parentEmail, parentPhone, childName: childNameRaw, childClass, board, subject, slotAt },
   }
 }
 

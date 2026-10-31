@@ -27,22 +27,29 @@ function Chip({ label, on, disabled, onPress, small }) {
   );
 }
 
-function Field({ label, value, onChangeText, keyboardType, placeholder }) {
+// `error` shows under the box once the field has something wrong in it, so a parent
+// sees WHY "Book" is still disabled instead of a grey button and no reason.
+function Field({ label, value, onChangeText, keyboardType, placeholder, error }) {
   return (
-    <View style={s.field}>
-      <T w="bold" s={10.5} c={C.faint} style={{ letterSpacing: 0.4 }}>{label}</T>
-      {/* No autoFocus: react-native-web's Modal focus trap steals it on web (see aafba62). */}
-      <TextInput value={value} onChangeText={onChangeText} keyboardType={keyboardType} placeholder={placeholder}
-        placeholderTextColor={C.faint} style={s.input} autoCapitalize={keyboardType === 'email-address' ? 'none' : 'words'} />
+    <View>
+      <View style={[s.field, !!error && { borderColor: C.red }]}>
+        <T w="bold" s={10.5} c={C.faint} style={{ letterSpacing: 0.4 }}>{label}</T>
+        {/* No autoFocus: react-native-web's Modal focus trap steals it on web (see aafba62). */}
+        <TextInput value={value} onChangeText={onChangeText} keyboardType={keyboardType} placeholder={placeholder}
+          placeholderTextColor={C.faint} style={s.input} autoCapitalize={keyboardType === 'email-address' ? 'none' : 'words'} />
+      </View>
+      {!!error && <T w="semi" s={12} c={C.red} style={{ marginTop: 6, marginLeft: 4 }}>{error}</T>}
     </View>
   );
 }
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function Eyebrow({ children }) {
   return <T w="bold" s={11} c={C.faint} style={{ letterSpacing: 0.6, marginTop: 18, marginBottom: 10 }}>{children}</T>;
 }
 
-export default function TrialBookingFlow({ visible, onClose, onBooked, childName, presetSubject }) {
+export default function TrialBookingFlow({ visible, onClose, onDone, onBooked, childName, childClass, childBoard, presetSubject }) {
   const { user } = useAuth();
   const [step, setStep] = useState(0); // 0 slot, 1 details, 2 done
   const [day, setDay] = useState(null);
@@ -60,18 +67,32 @@ export default function TrialBookingFlow({ visible, onClose, onBooked, childName
     setStep(0); setDay(null); setSlot(null); setPeriod(PERIODS[1].key); setBusy(false); setError(''); setResult(null);
     setF({
       parentName: user?.name || '', parentEmail: user?.email || '', parentPhone: user?.phone || '',
-      childName: childName || '', childClass: null,
-      board: BOARDS.includes(user?.board) ? user.board : null,
+      // The linked child's class is known, so start with it picked (still changeable).
+      childName: childName || '', childClass: CLASSES.includes(childClass) ? childClass : null,
+      board: BOARDS.includes(childBoard) ? childBoard : BOARDS.includes(user?.board) ? user.board : null,
       subject: SUBJECTS.includes(presetSubject) ? presetSubject : null,
     });
-  }, [visible, user, childName, presetSubject]);
+  }, [visible, user, childName, childClass, childBoard, presetSubject]);
 
   const slots = useMemo(() => (day ? buildSlots(day, period) : []), [day, period]);
   const set = (patch) => setF((p) => ({ ...p, ...patch }));
 
   const slotOk = !!(day && slot);
-  const detailsOk = !!(f.parentName.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.parentEmail.trim())
-    && f.parentPhone.replace(/\D/g, '').length >= 10 && f.childClass && f.board && f.subject);
+  // Every reason the details are not ready, in form order. The first one is shown
+  // under the disabled button; field-level ones also show under their box.
+  const phoneDigits = f.parentPhone.replace(/\D/g, '');
+  const emailBad = !!f.parentEmail.trim() && !EMAIL_RE.test(f.parentEmail.trim());
+  const phoneBad = !!phoneDigits && phoneDigits.length < 10;
+  const missing = [
+    !f.parentName.trim() && 'your name',
+    !EMAIL_RE.test(f.parentEmail.trim()) && 'a valid email',
+    phoneDigits.length < 10 && 'a 10-digit mobile number',
+    !f.childName.trim() && "your child's name",
+    !f.childClass && "your child's class",
+    !f.board && 'the board',
+    !f.subject && 'a subject',
+  ].filter(Boolean);
+  const detailsOk = missing.length === 0;
 
   const back = () => {
     if (busy) return;
@@ -85,7 +106,7 @@ export default function TrialBookingFlow({ visible, onClose, onBooked, childName
     try {
       const r = await createTrialBooking({
         parentName: f.parentName.trim(), parentEmail: f.parentEmail.trim(), parentPhone: f.parentPhone.trim(),
-        childName: f.childName.trim() || undefined, childClass: f.childClass, board: f.board, subject: f.subject, slotAt: slot.iso,
+        childName: f.childName.trim(), childClass: f.childClass, board: f.board, subject: f.subject, slotAt: slot.iso,
       });
       setResult(r); setStep(2);
       onBooked && onBooked(r.booking);
@@ -152,9 +173,11 @@ export default function TrialBookingFlow({ visible, onClose, onBooked, childName
               </T>
               <T w="semi" s={13} c={C.muted} style={{ marginTop: 6 }}>{fmtDateLong(slot.iso)} · {slot.label}</T>
               <Field label="YOUR NAME" value={f.parentName} onChangeText={(t) => set({ parentName: t })} />
-              <Field label="EMAIL — THE MEET LINK GOES HERE" value={f.parentEmail} onChangeText={(t) => set({ parentEmail: t })} keyboardType="email-address" />
-              <Field label="MOBILE NUMBER" value={f.parentPhone} onChangeText={(t) => set({ parentPhone: t })} keyboardType="phone-pad" />
-              <Field label="CHILD'S NAME (OPTIONAL)" value={f.childName} onChangeText={(t) => set({ childName: t })} />
+              <Field label="EMAIL — THE MEET LINK GOES HERE" value={f.parentEmail} onChangeText={(t) => set({ parentEmail: t })} keyboardType="email-address"
+                error={emailBad ? 'Enter a valid email, like name@gmail.com' : ''} />
+              <Field label="MOBILE NUMBER" value={f.parentPhone} onChangeText={(t) => set({ parentPhone: t })} keyboardType="phone-pad"
+                placeholder="10-digit mobile number" error={phoneBad ? 'Enter all 10 digits of your mobile number' : ''} />
+              <Field label="CHILD'S NAME" value={f.childName} onChangeText={(t) => set({ childName: t })} />
               <Eyebrow>CHILD'S CLASS</Eyebrow>
               <View style={s.wrap}>
                 {CLASSES.map((c) => <Chip key={c} small label={c} on={f.childClass === c} onPress={() => set({ childClass: c })} />)}
@@ -207,12 +230,20 @@ export default function TrialBookingFlow({ visible, onClose, onBooked, childName
             </PressableScale>
           )}
           {step === 1 && (
-            <PressableScale disabled={!detailsOk || busy} style={detailsOk && !busy ? s.btnOn : s.btnOff} onPress={submit}>
-              {busy ? <ActivityIndicator color={C.ink} /> : <T w="bold" s={15.5} c={detailsOk ? C.ink : '#9AA0AA'}>Book my free class</T>}
-            </PressableScale>
+            <>
+              {!detailsOk && (
+                <T w="semi" s={12.5} c={C.muted} style={{ textAlign: 'center', marginBottom: 10 }}>
+                  To book, add {missing.join(', ')}
+                </T>
+              )}
+              <PressableScale disabled={!detailsOk || busy} style={detailsOk && !busy ? s.btnOn : s.btnOff} onPress={submit}>
+                {busy ? <ActivityIndicator color={C.ink} /> : <T w="bold" s={15.5} c={detailsOk ? C.ink : '#9AA0AA'}>Book my free class</T>}
+              </PressableScale>
+            </>
           )}
           {step === 2 && (
-            <PressableScale style={s.btnOn} onPress={onClose}><T w="bold" s={15.5} c={C.ink}>Back to dashboard</T></PressableScale>
+            // onDone takes the parent to Home, where the new booking card is waiting.
+            <PressableScale style={s.btnOn} onPress={onDone || onClose}><T w="bold" s={15.5} c={C.ink}>Back to dashboard</T></PressableScale>
           )}
           {step < 2 && <T w="bold" s={12.5} c={C.faint} style={{ textAlign: 'center', marginTop: 12 }}>{step + 1} of 2</T>}
         </View>

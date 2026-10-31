@@ -18,8 +18,8 @@ export const loginWithEmail = async ({ email, password }) => {
   return res.data.data;
 };
 
-export const signupWithEmail = async ({ name, email, password, grade }) => {
-  const res = await axiosInstance.post('/api/auth/register', { name, email, password, grade });
+export const signupWithEmail = async ({ name, email, phone, password, grade }) => {
+  const res = await axiosInstance.post('/api/auth/register', { name, email, phone, password, grade });
   return res.data.data;
 };
 

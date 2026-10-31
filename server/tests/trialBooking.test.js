@@ -32,10 +32,12 @@ test('a complete booking is accepted and normalised', () => {
   assert.equal(r.value.slotAt.toISOString(), inThreeHours)
 })
 
-test('child name is optional and comes back as null when blank', () => {
+// Required since the testing doc (2026-10-31, item 6): the mentor needs to know who
+// they are teaching, and a blank name left the team copy saying "your child".
+test('child name is required', () => {
   const r = validateBookingInput({ ...good(), childName: '   ' }, NOW)
-  assert.equal(r.ok, true)
-  assert.equal(r.value.childName, null)
+  assert.equal(r.ok, false)
+  assert.match(r.error, /child's name/i)
 })
 
 test('a phone with fewer than 10 digits is rejected', () => {

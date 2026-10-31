@@ -41,11 +41,10 @@ const PRIVACY_URL = 'https://ailernova.in/privacy-policy/';
 
 // "Create Account" — the design's sign-up screen: one unified form (name,
 // email, phone, password, confirm), not the old Email/Phone tab split, and no
-// social buttons (those live on Login now, matching the reference). The Phone
-// field is UI-only for now: POST /api/auth/register (signupWithEmail) takes
-// { name, email, password, grade } — no phone column — so it's collected but
-// deliberately not sent rather than silently pretending it's saved. Wire it
-// through once the backend accepts it.
+// social buttons (those live on Login now, matching the reference). Phone is
+// REQUIRED (owner, 2026-10-31): the parent "Book a free demo class" form and the
+// support chat prefill it from the account, and an account without one left those
+// fields empty. POST /api/auth/register stores it (users.phone, unique).
 //
 // Profile photo is optional here — pick one and it uploads right after the
 // account is created; skip it and the backend assigns a default avatar
@@ -94,7 +93,7 @@ const SignupScreen = ({ navigation }) => {
     const nameErr = validateName(name);
     if (nameErr) return setError(nameErr);
     if (!validateEmail(email)) return setError('Enter a valid email address.');
-    if (phone && !validatePhone(phone)) return setError('Enter a valid 10-digit phone number, or leave it blank.');
+    if (!validatePhone(phone)) return setError('Enter your 10-digit mobile number.');
     const pwErr = validatePassword(password);
     if (pwErr) return setError(pwErr);
     if (password !== confirmPassword) return setError('Passwords do not match.');
@@ -105,7 +104,7 @@ const SignupScreen = ({ navigation }) => {
     try {
       setLoading(true);
       flow('S1. sign up  —  trying', email.trim());
-      const data = await signupWithEmail({ name, email, password });
+      const data = await signupWithEmail({ name, email, phone, password });
       flow('S2. sign up  —  a NEW account was created');
       await signIn(data);
       // Best-effort — a photo-upload hiccup should never block a just-created
@@ -163,7 +162,7 @@ const SignupScreen = ({ navigation }) => {
         />
         <AuthInput
           icon={<PhoneIcon size={18} color={COLORS.textSecondary} strokeWidth={2} />}
-          placeholder="Phone Number"
+          placeholder="Mobile Number (10 digits)"
           value={phone}
           onChangeText={(t) => setPhone(t.replace(/\D/g, ''))}
           keyboardType="phone-pad"

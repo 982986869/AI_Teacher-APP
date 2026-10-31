@@ -247,8 +247,13 @@ export default function ParentApp() {
       <TrialBookingFlow
         visible={trialOpen}
         onClose={() => setTrialOpen(false)}
+        // "Back to dashboard" after booking: close, land on Home (the flow may have been
+        // opened from Sessions/Classes), and re-read the server's booking so the card shows.
+        onDone={() => { setTrialOpen(false); setTab('home'); load(true); }}
         onBooked={handleBooked}
         childName={child?.name}
+        childClass={child?.className}
+        childBoard={child?.board}
       />
     </SafeAreaView>
   );
