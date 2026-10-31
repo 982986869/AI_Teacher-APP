@@ -16,7 +16,10 @@ import {
   Nunito_700Bold, Nunito_800ExtraBold, Nunito_900Black,
 } from '@expo-google-fonts/nunito';
 import { useAuth } from '../../../context/AuthContext';
-import { getParentReport, getUpcomingTrialBooking, cancelTrialBooking } from '../../../api/parentApi';
+import {
+  getParentReport, getUpcomingTrialBooking, cancelTrialBooking,
+  getChildren, setActiveChild,
+} from '../../../api/parentApi';
 import { st, T, TABS } from './constants';
 import HomeTab from './HomeTab';
 import ProgressTab from './ProgressTab';
@@ -60,6 +63,9 @@ export default function ParentApp() {
   const [trialOpen, setTrialOpen] = useState(false);
   const [relinking, setRelinking] = useState(false); // "Link another child" without discarding the loaded report
   const [booking, setBooking] = useState(null); // the parent's upcoming free-demo booking, from the server
+  // Every child on this account. Only the switcher needs it, so it loads alongside
+  // the report rather than blocking it — a failure here must not cost the dashboard.
+  const [kids, setKids] = useState({ children: [], activeChildId: null });
 
   const mounted = useRef(true);
   const toastRef = useRef(null);
@@ -126,7 +132,29 @@ export default function ParentApp() {
   const onRefresh = useCallback(() => { setRefreshing(true); load(true); }, [load]);
   const retry = useCallback(() => { setLoading(true); setErr(false); load(false); }, [load]);
   const switchTab = useCallback((id) => { setTab((prev) => (id === prev ? prev : id)); }, []);
-  const onLinked = useCallback(() => { setRelinking(false); setLoading(true); load(false); }, [load]);
+  const loadKids = useCallback(async () => {
+    try {
+      const d = await getChildren();
+      if (mounted.current) setKids(d);
+    } catch { /* switcher stays on whatever it had; the dashboard is unaffected */ }
+  }, []);
+  useEffect(() => { loadKids(); }, [loadKids]);
+
+  const onLinked = useCallback(() => { setRelinking(false); setLoading(true); load(false); loadKids(); }, [load, loadKids]);
+
+  // Switching child repoints the account, then reloads the report for the new one.
+  const onSwitchChild = useCallback(async (childId) => {
+    try {
+      await setActiveChild(childId);
+      if (!mounted.current) return;
+      setKids((k) => ({ ...k, activeChildId: childId }));
+      setLoading(true);
+      load(false);
+      loadKids();
+    } catch {
+      flash('Could not switch child — please try again.');
+    }
+  }, [load, loadKids, flash]);
   // Header avatar opens the premium account bottom sheet (replaces the old Alert popup).
   const onAvatar = useCallback(() => setSheetOpen(true), []);
   const onGym = useCallback(() => setGymOpen(true), []);            // AI Gym → the real BrainGym
@@ -199,6 +227,9 @@ export default function ParentApp() {
         parentEmail={user?.email}
         childName={child?.name}
         childClass={child?.className}
+        linkedChildren={kids.children}
+        activeChildId={kids.activeChildId}
+        onSwitchChild={onSwitchChild}
         onLinkAnother={relink}
         onLogout={signOut}
         onDeleteAccount={confirmDelete}

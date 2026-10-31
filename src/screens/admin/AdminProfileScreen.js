@@ -20,18 +20,18 @@ const APP_VERSION = Constants.expoConfig?.version || '1.0.0';
 // Same local dark palette as AdminHomeScreen.js — kept local rather than shared so the
 // light `studentUI` kit other un-migrated screens still use stays untouched.
 const DK = {
-  canvas: COLORS.background,
-  card: 'rgba(255,255,255,0.05)',
-  hair: 'rgba(255,255,255,0.10)',
-  ink: COLORS.textPrimary,
-  muted: COLORS.textSecondary,
-  faint: 'rgba(241,240,245,0.45)',
-  indigo: COLORS.primary,
-  blue: '#60A5FA', blueSoft: 'rgba(96,165,250,0.16)',
-  emerald: COLORS.success, emeraldSoft: 'rgba(16,185,129,0.16)',
-  purple: COLORS.primaryLight, purpleSoft: 'rgba(168,85,247,0.16)',
-  orange: COLORS.warning, orangeSoft: 'rgba(249,115,22,0.16)',
-  red: COLORS.error, redSoft: 'rgba(239,68,68,0.14)', redBorder: 'rgba(239,68,68,0.35)',
+  canvas: '#F4F5FB',
+  card: '#FFFFFF',
+  hair: '#ECEEF6',
+  ink: '#151829',
+  muted: '#6A7086',
+  faint: '#A6ABBE',
+  indigo: '#4F46E5',
+  blue: '#2563EB', blueSoft: '#E5EDFF',
+  emerald: '#0DA96B', emeraldSoft: '#DFF6EC',
+  purple: '#8B5CF6', purpleSoft: '#F0EAFE',
+  orange: '#F97316', orangeSoft: '#FFEEE2',
+  red: '#EF4444', redSoft: 'rgba(239,68,68,0.14)', redBorder: 'rgba(239,68,68,0.35)',
 };
 
 function Header({ title }) {

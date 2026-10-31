@@ -35,18 +35,18 @@ import { PressableScale } from '../../parent/ParentApp/anim';
 // the shared light `testCardKit`) since that kit is still what the un-migrated light student
 // Mock Tests screens render with.
 const DK = {
-  canvas: COLORS.background,
-  card: 'rgba(255,255,255,0.05)',
-  hair: 'rgba(255,255,255,0.10)',
-  ink: COLORS.textPrimary,
-  muted: COLORS.textSecondary,
-  faint: 'rgba(241,240,245,0.45)',
-  indigo: COLORS.primary, indigoSoft: 'rgba(124,58,237,0.18)',
-  blue: '#60A5FA', blueSoft: 'rgba(96,165,250,0.16)',
-  emerald: COLORS.success, emeraldSoft: 'rgba(16,185,129,0.16)',
-  gold: COLORS.accent, goldSoft: 'rgba(245,158,11,0.16)',
-  orange: COLORS.warning, orangeSoft: 'rgba(249,115,22,0.16)',
-  purple: COLORS.primaryLight, purpleSoft: 'rgba(168,85,247,0.16)',
+  canvas: '#F4F5FB',
+  card: '#FFFFFF',
+  hair: '#ECEEF6',
+  ink: '#151829',
+  muted: '#6A7086',
+  faint: '#A6ABBE',
+  indigo: '#4F46E5', indigoSoft: '#ECEBFE',
+  blue: '#2563EB', blueSoft: '#E5EDFF',
+  emerald: '#0DA96B', emeraldSoft: '#DFF6EC',
+  gold: '#F5A623', goldSoft: '#FFF3DA',
+  orange: '#F97316', orangeSoft: '#FFEEE2',
+  purple: '#8B5CF6', purpleSoft: '#F0EAFE',
 };
 
 // Stable subject tints (DK soft tones) + emoji (match the student Mock Tests screen's icons).
@@ -127,7 +127,7 @@ function ClassChips({ classes = [], value, onChange }) {
 const TONE = {
   published: { soft: DK.emeraldSoft, ink: DK.emerald },
   draft: { soft: DK.goldSoft, ink: DK.gold },
-  archived: { soft: 'rgba(255,255,255,0.08)', ink: DK.faint },
+  archived: { soft: '#ECEEF6', ink: DK.muted },
 };
 function TestCard({ status, title, metas = [], onPress, onMenu }) {
   const tone = TONE[status] || TONE.draft;

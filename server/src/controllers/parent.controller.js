@@ -11,6 +11,8 @@ const arena = require('../services/arena/arena.service')
 const memory = require('../services/memory.service')
 const { buildIntelligence } = require('../services/parent/insights')
 const { deriveScope } = require('../services/personalization/scope')
+const { sendMail } = require('../services/mailer')
+const mailTemplates = require('../services/mailTemplates')
 
 const onlyParent = (req) => req.scope && req.scope.role === 'parent'
 
@@ -41,7 +43,7 @@ async function linkChild(req, res, next) {
     if (!email && !phone) return ApiResponse.error(res, 'Child email or phone is required.', 422)
 
     const rows = await db.$queryRawUnsafe(
-      `SELECT id, name, grade, stream, account_type FROM "users"
+      `SELECT id, name, email, grade, stream, account_type FROM "users"
         WHERE ($1::text IS NOT NULL AND lower(email) = $1) OR ($2::text IS NOT NULL AND phone = $2)
         LIMIT 1`,
       email, phone,
@@ -51,8 +53,117 @@ async function linkChild(req, res, next) {
     if (String(child.account_type || 'student') !== 'student') return ApiResponse.error(res, 'That account is not a student.', 422)
     if (child.id === req.user.id) return ApiResponse.error(res, 'You cannot link yourself.', 422)
 
+    // Already linked? Make it the active child and say so, rather than failing — a
+    // parent re-entering an email they have already added has not made a mistake.
+    const existing = await db.$queryRawUnsafe(
+      `SELECT 1 FROM "parent_children" WHERE "parentId" = $1::uuid AND "childId" = $2::uuid LIMIT 1`,
+      req.user.id, child.id,
+    )
+    const alreadyLinked = !!(existing && existing.length)
+
+    // The row is the source of truth for WHICH children a parent has; the column
+    // narrows to "the one being viewed". Both move together.
+    await db.$executeRawUnsafe(
+      `INSERT INTO "parent_children" ("parentId", "childId") VALUES ($1::uuid, $2::uuid)
+       ON CONFLICT ("parentId", "childId") DO NOTHING`,
+      req.user.id, child.id,
+    )
     await db.$executeRawUnsafe(`UPDATE "users" SET "linked_student_id" = $1::uuid WHERE id = $2::uuid`, child.id, req.user.id)
-    return ApiResponse.success(res, { child: { id: child.id, name: child.name, grade: child.grade } }, 'Child linked')
+
+    // Tell BOTH sides, but only on a link that is actually new — re-selecting an
+    // existing child must not re-send, or switching children becomes a mail loop.
+    // Fire-and-forget, like the deletion mail in auth.controller: sendMail logs its
+    // own failures and never rejects, and the app is waiting on this response.
+    if (!alreadyLinked) {
+      if (req.user.email) {
+        sendMail({
+          to: req.user.email,
+          ...mailTemplates.childLinked({ parentName: req.user.name, childName: child.name, childEmail: child.email }),
+        })
+      }
+      if (child.email) {
+        sendMail({
+          to: child.email,
+          ...mailTemplates.parentLinked({ childName: child.name, parentName: req.user.name, parentEmail: req.user.email }),
+        })
+      }
+    }
+
+    return ApiResponse.success(
+      res,
+      { child: { id: child.id, name: child.name, grade: child.grade }, alreadyLinked, notified: !alreadyLinked },
+      alreadyLinked ? 'Child already linked' : 'Child linked',
+    )
+  } catch (err) { next(err) }
+}
+
+// GET /api/parent/children — every child on this account, active one flagged.
+async function children(req, res, next) {
+  try {
+    if (!onlyParent(req)) return ApiResponse.error(res, 'Only a parent account can view linked children.', 403)
+    const rows = await db.$queryRawUnsafe(
+      `SELECT c.id::text AS id, c.name, c.email, c.grade, c.stream, pc."linkedAt"
+         FROM "parent_children" pc
+         JOIN "users" c ON c.id = pc."childId"
+        WHERE pc."parentId" = $1::uuid AND COALESCE(c.is_deleted, false) = false
+        ORDER BY pc."linkedAt" ASC`,
+      req.user.id,
+    )
+    const activeId = req.user.linked_student_id ? String(req.user.linked_student_id) : null
+    return ApiResponse.success(res, {
+      children: (rows || []).map((r) => ({ ...r, active: r.id === activeId })),
+      activeChildId: activeId,
+    })
+  } catch (err) { next(err) }
+}
+
+// POST /api/parent/active-child { childId } — switch which child the app shows.
+async function setActiveChild(req, res, next) {
+  try {
+    if (!onlyParent(req)) return ApiResponse.error(res, 'Only a parent account can switch child.', 403)
+    const childId = req.body.childId ? String(req.body.childId).trim() : null
+    if (!childId) return ApiResponse.error(res, 'childId is required.', 422)
+
+    // Must already be one of THIS parent's children — otherwise the column becomes a
+    // way to point at any student in the database and read their report.
+    const owned = await db.$queryRawUnsafe(
+      `SELECT 1 FROM "parent_children" WHERE "parentId" = $1::uuid AND "childId" = $2::uuid LIMIT 1`,
+      req.user.id, childId,
+    )
+    if (!owned || !owned.length) return ApiResponse.error(res, 'That child is not linked to this account.', 404)
+
+    await db.$executeRawUnsafe(`UPDATE "users" SET "linked_student_id" = $1::uuid WHERE id = $2::uuid`, childId, req.user.id)
+    return ApiResponse.success(res, { activeChildId: childId }, 'Switched child')
+  } catch (err) { next(err) }
+}
+
+// DELETE /api/parent/children/:childId — unlink one child.
+async function unlinkChild(req, res, next) {
+  try {
+    if (!onlyParent(req)) return ApiResponse.error(res, 'Only a parent account can unlink a child.', 403)
+    const childId = String(req.params.childId || '').trim()
+    if (!childId) return ApiResponse.error(res, 'childId is required.', 422)
+
+    const removed = await db.$executeRawUnsafe(
+      `DELETE FROM "parent_children" WHERE "parentId" = $1::uuid AND "childId" = $2::uuid`,
+      req.user.id, childId,
+    )
+    if (!removed) return ApiResponse.error(res, 'That child is not linked to this account.', 404)
+
+    // If the removed child was the one on screen, fall back to any remaining child
+    // rather than leaving the column pointing at a link that no longer exists.
+    if (String(req.user.linked_student_id || '') === childId) {
+      const rest = await db.$queryRawUnsafe(
+        `SELECT "childId"::text AS id FROM "parent_children" WHERE "parentId" = $1::uuid ORDER BY "linkedAt" ASC LIMIT 1`,
+        req.user.id,
+      )
+      // Deliberately not named `next` — that is the Express error callback this
+      // function closes over, and shadowing it here is a trap for the next edit.
+      const fallbackId = rest && rest[0] ? rest[0].id : null
+      await db.$executeRawUnsafe(`UPDATE "users" SET "linked_student_id" = $1::uuid WHERE id = $2::uuid`, fallbackId, req.user.id)
+      return ApiResponse.success(res, { activeChildId: fallbackId }, 'Child unlinked')
+    }
+    return ApiResponse.success(res, { activeChildId: String(req.user.linked_student_id || '') || null }, 'Child unlinked')
   } catch (err) { next(err) }
 }
 
@@ -762,4 +873,4 @@ async function progressCalendar(req, res, next) {
   } catch (err) { next(err) }
 }
 
-module.exports = { linkChild, report, progressDay, progressCalendar }
+module.exports = { linkChild, children, setActiveChild, unlinkChild, report, progressDay, progressCalendar }

@@ -72,12 +72,12 @@ interface Book {
  */
 const SECTIONS: {
   kind: Kind; label: string; icon: typeof NotebookPen; blurb: string
-  unit: string; tint: string
+  unit: string; tint: string; tone: string
 }[] = [
-  { kind: 'notes', label: 'Notes', icon: NotebookPen, blurb: 'Summary, sections and key terms', unit: 'sections', tint: '#4F6DF5' },
-  { kind: 'resource', label: 'Resources', icon: Library, blurb: 'Formulae, diagrams, definitions', unit: 'items', tint: '#12A06A' },
-  { kind: 'practice', label: 'Practice Questions', icon: PencilRuler, blurb: 'Written questions with answers', unit: 'questions', tint: '#E8833A' },
-  { kind: 'quiz', label: 'Quiz', icon: ListChecks, blurb: 'Multiple choice, auto-graded', unit: 'questions', tint: '#8B5CF6' },
+  { kind: 'notes', label: 'Notes', icon: NotebookPen, blurb: 'Summary, sections and key terms', unit: 'sections', tint: 'var(--indigo)', tone: 'indigo' },
+  { kind: 'resource', label: 'Resources', icon: Library, blurb: 'Formulae, diagrams, definitions', unit: 'items', tint: 'var(--emerald)', tone: 'emerald' },
+  { kind: 'practice', label: 'Practice Questions', icon: PencilRuler, blurb: 'Written questions with answers', unit: 'questions', tint: 'var(--orange)', tone: 'orange' },
+  { kind: 'quiz', label: 'Quiz', icon: ListChecks, blurb: 'Multiple choice, auto-graded', unit: 'questions', tint: 'var(--purple)', tone: 'purple' },
 ]
 
 const kChars = (n?: number | null) =>
@@ -211,13 +211,13 @@ export default function BooksPage() {
         /* ── upload ──────────────────────────────────────────────────────── */
         .bk-drop {
           display: flex; align-items: center; gap: 18px;
-          border: 1.5px dashed var(--line); border-radius: 15px;
+          border: 1.5px dashed var(--border); border-radius: 15px;
           padding: 18px 22px; cursor: pointer; position: relative; overflow: hidden;
-          background: var(--surface-2);
+          background: var(--canvas);
           transition: border-color .2s, background .2s, transform .2s cubic-bezier(.22,1,.36,1);
         }
-        .bk-drop:hover { border-color: var(--accent); transform: translateY(-1px); }
-        .bk-drop.over  { border-color: var(--accent); background: rgba(79,109,245,.07); transform: scale(1.005); }
+        .bk-drop:hover { border-color: var(--indigo); transform: translateY(-1px); }
+        .bk-drop.over  { border-color: var(--indigo); background: rgba(79,109,245,.07); transform: scale(1.005); }
         .bk-drop.busy  { cursor: progress; }
         /* A sweep across the panel while the server parses — the one stretch with
            no progress events to report, and silence there reads as a hang. */
@@ -229,14 +229,14 @@ export default function BooksPage() {
         .bk-drop-icon {
           width: 62px; height: 62px; border-radius: 13px; flex: 0 0 auto;
           display: grid; place-items: center;
-          background: var(--card); border: 1.5px dashed var(--line);
+          background: var(--card); border: 1.5px dashed var(--border);
         }
-        .bk-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--line); }
-        .bk-bar > i { display: block; height: 100%; background: var(--accent); transition: width .22s; }
+        .bk-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--border); }
+        .bk-bar > i { display: block; height: 100%; background: var(--indigo); transition: width .22s; }
 
         /* ── book card ───────────────────────────────────────────────────── */
         .bk-book {
-          border: 1px solid var(--line); border-radius: 16px; background: var(--card);
+          border: 1px solid var(--border); border-radius: 16px; background: var(--card);
           animation: bk-rise .34s cubic-bezier(.22,1,.36,1) both; overflow: hidden;
         }
         .bk-book-head { display: flex; align-items: center; gap: 14px; padding: 16px 18px; flex-wrap: wrap; }
@@ -251,7 +251,7 @@ export default function BooksPage() {
         /* the book-level gate, given its own tinted field so it reads as the master */
         .bk-gate {
           display: flex; align-items: center; gap: 10px; padding: 8px 14px; border-radius: 11px;
-          border: 1px solid var(--line); background: var(--surface-2);
+          border: 1px solid var(--border); background: var(--canvas);
           transition: background .25s, border-color .25s;
         }
         .bk-gate.on { border-color: rgba(18,160,106,.45); background: rgba(18,160,106,.08); }
@@ -264,7 +264,7 @@ export default function BooksPage() {
           display: flex; align-items: center; gap: 12px; padding: 14px 18px; cursor: pointer;
           flex-wrap: wrap; transition: background .18s;
         }
-        .bk-ch-head:hover { background: var(--surface-2); }
+        .bk-ch-head:hover { background: var(--canvas); }
         .bk-chev { transition: transform .24s cubic-bezier(.22,1,.36,1); flex: 0 0 auto; color: var(--muted); }
         .bk-chev.open { transform: rotate(90deg); }
         .bk-ch-title { font-size: 14.5px; font-weight: 650; }
@@ -274,7 +274,7 @@ export default function BooksPage() {
         .bk-concepts {
           display: flex; align-items: center; gap: 7px; flex-wrap: wrap;
           padding: 10px 12px; margin-top: 10px; border-radius: 11px;
-          background: var(--surface-2); border: 1px solid var(--line);
+          background: var(--canvas); border: 1px solid var(--border);
         }
         .bk-con-label {
           display: inline-flex; align-items: center; gap: 5px;
@@ -295,7 +295,7 @@ export default function BooksPage() {
         /* ── split preview ───────────────────────────────────────────────── */
         .bk-split-preview {
           margin-top: 12px; padding: 12px 14px; border-radius: 11px;
-          background: var(--surface-2); border: 1px solid var(--line);
+          background: var(--canvas); border: 1px solid var(--border);
           font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
           font-size: 11.5px; line-height: 1.65; white-space: pre-wrap; word-break: break-word;
           max-height: 220px; overflow-y: auto;
@@ -311,16 +311,16 @@ export default function BooksPage() {
         /* ── section rows ────────────────────────────────────────────────── */
         .bk-sec {
           display: flex; align-items: center; gap: 13px;
-          padding: 12px 14px; border: 1px solid var(--line); border-radius: 13px;
+          padding: 12px 14px; border: 1px solid var(--border); border-radius: 13px;
           background: var(--card); margin-top: 9px;
           animation: bk-rise .3s cubic-bezier(.22,1,.36,1) both;
           transition: border-color .2s, box-shadow .2s, transform .2s cubic-bezier(.22,1,.36,1);
         }
-        .bk-sec:hover { border-color: var(--accent); transform: translateY(-1px); box-shadow: var(--shadow-sm); }
-        .bk-sec.working { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(79,109,245,.14); }
+        .bk-sec:hover { border-color: var(--indigo); transform: translateY(-1px); box-shadow: var(--shadow-sm); }
+        .bk-sec.working { border-color: var(--indigo); box-shadow: 0 0 0 3px rgba(79,109,245,.14); }
         .bk-sec.queued  { opacity: .55; }
         .bk-sec.done    { animation: bk-landed .5s cubic-bezier(.22,1,.36,1) both; }
-        .bk-sec.failed  { border-color: #DC2626; background: rgba(220,38,38,.05); }
+        .bk-sec.failed  { border-color: var(--red); background: rgba(220,38,38,.05); }
         .bk-sec-ic { width: 38px; height: 38px; border-radius: 11px; flex: 0 0 auto; display: grid; place-items: center; }
         .bk-sec-name { font-size: 13.5px; font-weight: 650; }
         .bk-sec-blurb { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
@@ -331,16 +331,16 @@ export default function BooksPage() {
         .bk-chip {
           display: inline-flex; align-items: center; gap: 5px; white-space: nowrap;
           padding: 4px 10px; border-radius: 99px; font-size: 11.5px; font-weight: 600;
-          border: 1px solid var(--line); background: var(--surface-2); color: var(--muted);
+          border: 1px solid var(--border); background: var(--canvas); color: var(--muted);
         }
         .bk-chip.live    { border-color: rgba(18,160,106,.4);  background: rgba(18,160,106,.1);  color: #0E8A5B; }
         .bk-chip.draft   { border-color: rgba(217,119,6,.4);   background: rgba(217,119,6,.1);   color: #B45309; }
-        .bk-chip.failed  { border-color: rgba(220,38,38,.4);   background: rgba(220,38,38,.1);   color: #DC2626; }
+        .bk-chip.failed  { border-color: rgba(220,38,38,.4);   background: rgba(220,38,38,.1);   color: var(--red); }
         .bk-chip.working { border-color: rgba(79,109,245,.4);  background: rgba(79,109,245,.1);  color: #4F6DF5; }
 
         .bk-sw {
           width: 42px; height: 24px; border-radius: 99px; border: 0; padding: 3px; flex: 0 0 auto;
-          background: var(--line); cursor: pointer; position: relative;
+          background: var(--border); cursor: pointer; position: relative;
           transition: background .24s cubic-bezier(.22,1,.36,1);
         }
         .bk-sw > i {
@@ -351,7 +351,7 @@ export default function BooksPage() {
         .bk-sw.on { background: #12A06A; }
         .bk-sw.on > i { transform: translateX(18px); }
         .bk-sw:disabled { opacity: .5; cursor: not-allowed; }
-        .bk-sw:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+        .bk-sw:focus-visible { outline: 2px solid var(--indigo); outline-offset: 2px; }
 
         .bk-live { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); white-space: nowrap; }
         .bk-live .bk-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); }
@@ -361,14 +361,14 @@ export default function BooksPage() {
         /* ── buttons & menus ─────────────────────────────────────────────── */
         .bk-icon-btn {
           width: 32px; height: 32px; border-radius: 9px; display: grid; place-items: center; flex: 0 0 auto;
-          border: 1px solid var(--line); background: var(--card); color: var(--muted); cursor: pointer;
+          border: 1px solid var(--border); background: var(--card); color: var(--muted); cursor: pointer;
           transition: background .18s, color .18s, border-color .18s;
         }
-        .bk-icon-btn:hover { background: var(--surface-2); color: var(--ink); border-color: var(--accent); }
+        .bk-icon-btn:hover { background: var(--canvas); color: var(--ink); border-color: var(--indigo); }
         .bk-kebab-wrap { position: relative; flex: 0 0 auto; }
         .bk-menu {
           position: absolute; right: 0; top: calc(100% + 6px); z-index: 30; min-width: 196px;
-          background: var(--card); border: 1px solid var(--line); border-radius: 11px;
+          background: var(--card); border: 1px solid var(--border); border-radius: 11px;
           box-shadow: var(--shadow-lg); padding: 5px; display: flex; flex-direction: column;
           animation: bk-menu .16s cubic-bezier(.22,1,.36,1) both;
         }
@@ -376,23 +376,73 @@ export default function BooksPage() {
           display: flex; align-items: center; gap: 9px; padding: 8px 10px; border: 0; border-radius: 8px;
           background: transparent; cursor: pointer; font-size: 13px; text-align: left; color: var(--ink);
         }
-        .bk-menu button:hover:not(:disabled) { background: var(--surface-2); }
-        .bk-menu button.danger { color: #DC2626; }
+        .bk-menu button:hover:not(:disabled) { background: var(--canvas); }
+        .bk-menu button.danger { color: var(--red); }
         .bk-menu button:disabled { opacity: .45; cursor: not-allowed; }
 
-        .bk-prog { height: 4px; border-radius: 99px; background: var(--line); overflow: hidden; margin-top: 11px; }
-        .bk-prog > i { display: block; height: 100%; background: var(--accent); border-radius: 99px; transition: width .4s cubic-bezier(.22,1,.36,1); }
+        .bk-prog { height: 4px; border-radius: 99px; background: var(--border); overflow: hidden; margin-top: 11px; }
+        .bk-prog > i { display: block; height: 100%; background: var(--indigo); border-radius: 99px; transition: width .4s cubic-bezier(.22,1,.36,1); }
         .bk-spin { animation: bk-spin .9s linear infinite; }
 
-        /* ── review window ───────────────────────────────────────────────── */
-        .bk-rv { display: flex; flex-direction: column; gap: 14px; font-size: 13.5px; line-height: 1.55; }
-        .bk-rv-sum { margin: 0; padding: 11px 13px; border-radius: 10px; background: var(--surface-2); border-left: 3px solid var(--accent); }
-        .bk-rv-block { padding-bottom: 12px; border-bottom: 1px solid var(--hair); }
-        .bk-rv-block:last-child { border-bottom: 0; padding-bottom: 0; }
-        .bk-rv-block ul { margin: 6px 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; }
-        .bk-rv-opts { list-style: none; padding-left: 0 !important; }
-        .bk-rv-opts li { display: flex; align-items: center; gap: 7px; padding: 5px 9px; border-radius: 8px; background: var(--surface-2); }
-        .bk-rv-opts li.right { background: rgba(18,160,106,.1); font-weight: 600; }
+        /* ── review window ───────────────────────────────────────────────────
+           A port of the in-app admin's content screen (AdminCard: 20px radius,
+           1px hair border, 16px padding, soft elevation) so the same generated
+           piece reads identically on a phone and in the portal. Sizes and weights
+           below are the RN values — Nunito semi=600, bold=700, xbold=800. */
+        /* Bleed past the modal body's padding and lay the app's canvas down, so the
+           white cards separate from the ground the way they do on the phone —
+           on a plain white modal they would simply vanish. */
+        .bk-rv {
+          display: flex; flex-direction: column; gap: 10px;
+          margin: -20px; padding: 20px; background: var(--canvas);
+        }
+
+        .bk-rv-card {
+          background: var(--card); border: 1px solid var(--hair); border-radius: var(--r-card);
+          box-shadow: var(--shadow-sm); padding: 16px;
+        }
+
+        /* The summary leads, with the accent rule the app gives it. */
+        .bk-rv-sum {
+          margin: 0 0 2px; padding: 16px; border-radius: var(--r-card);
+          background: var(--card); border: 1px solid var(--hair);
+          border-left: 3px solid var(--indigo); box-shadow: var(--shadow-sm);
+          font-size: 13.5px; font-weight: 600; line-height: 21px; color: var(--ink);
+        }
+
+        .bk-rv-h { font-size: 14px; font-weight: 800; color: var(--ink); margin-bottom: 6px; }
+        .bk-rv-titlerow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .bk-rv-body { margin: 6px 0 0; font-size: 13px; font-weight: 600; line-height: 20px; color: var(--sub); }
+
+        /* Bulleted point: the bullet carries the accent, the text stays readable. */
+        .bk-rv-pt { display: flex; gap: 8px; margin-top: 7px; }
+        .bk-rv-pt > i { font-style: normal; font-weight: 700; font-size: 13px; color: var(--indigo); flex: 0 0 auto; }
+        .bk-rv-pt > span { font-size: 13px; font-weight: 600; line-height: 20px; color: var(--sub); min-width: 0; }
+
+        .bk-rv-term { margin-top: 7px; }
+        .bk-rv-term > b { display: block; font-size: 12.5px; font-weight: 800; color: var(--indigo); }
+        .bk-rv-term > span { font-size: 12.5px; font-weight: 600; line-height: 19px; color: var(--sub); }
+
+        .bk-rv-q { font-size: 13.5px; font-weight: 800; line-height: 20px; color: var(--ink); }
+        .bk-rv-meta { margin-top: 3px; font-size: 11px; font-weight: 600; color: var(--faint); }
+        .bk-rv-hair { height: 1px; background: var(--hair); margin: 9px 0; }
+        .bk-rv-label { font-size: 11.5px; font-weight: 800; letter-spacing: .3px; color: var(--emerald); }
+        .bk-rv-expl { margin: 0; font-size: 12px; font-weight: 600; line-height: 18px; color: var(--muted); }
+
+        /* Quiz options are filled rows, and the key is a tinted row — not a
+           colour on the words, which is how the app marks it too. */
+        .bk-rv-opt {
+          display: flex; align-items: center; gap: 8px;
+          margin-top: 7px; padding: 10px; border-radius: 11px;
+          background: var(--canvas);
+          font-size: 12.5px; font-weight: 600; line-height: 18px; color: var(--sub);
+        }
+        .bk-rv-opt > svg { flex: 0 0 auto; color: var(--emerald); }
+        .bk-rv-opt.right { background: var(--emerald-soft); font-weight: 800; color: var(--emerald); }
+        .bk-rv-radio {
+          width: 15px; height: 15px; border-radius: 99px;
+          border: 1.5px solid var(--border); flex: 0 0 auto;
+        }
 
         @media (max-width: 860px) {
           .bk-sec { flex-wrap: wrap; }
@@ -468,7 +518,7 @@ function UploadPanel({ onDone }: { onDone: () => void }) {
           style={{ flex: '1 1 240px' }}
         />
         <select className="select" value={klass} onChange={(e) => setKlass(e.target.value)} disabled={busy}
-          style={{ width: 'auto', borderColor: klass ? undefined : 'var(--accent)' }} aria-label="Class">
+          style={{ width: 'auto', borderColor: klass ? undefined : 'var(--indigo)' }} aria-label="Class">
           <option value="">Class… (required)</option>
           {[6, 7, 8, 9, 10, 11, 12].map((c) => <option key={c} value={c}>Class {c}</option>)}
           <option value="all">All classes</option>
@@ -1021,7 +1071,7 @@ function SectionRow({ meta, row, state, err, index, editable, chapterVisible, on
 
   return (
     <div className={`bk-sec${state === 'idle' ? '' : ' ' + state}`} style={{ animationDelay: `${index * 45}ms` }}>
-      <span className="bk-sec-ic" style={{ background: `${meta.tint}1A`, color: meta.tint }}>
+      <span className="bk-sec-ic" style={{ background: `var(--${meta.tone}-soft)`, color: meta.tint }}>
         {state === 'working' ? <Loader2 size={17} className="bk-spin" /> : <Icon size={17} />}
       </span>
 
@@ -1202,23 +1252,38 @@ function ContentPreview({ row, open, onClose, editable, onChanged }: {
   )
 }
 
-/** Renders each kind in the shape the student app will show it. */
+/**
+ * Renders each kind in the shape the student app will show it — deliberately a
+ * port of the in-app admin's `Payload` (src/screens/admin/books/BookContentScreen.js),
+ * card for card and tone for tone, so a reviewer sees the same thing on a laptop
+ * as on a phone. Colour comes from the shared tokens, never from literals, so the
+ * preview follows dark mode like the rest of the portal.
+ */
 function PayloadView({ kind, payload }: { kind: Kind; payload: any }) {
   if (!payload) return <span className="faint">This section is empty.</span>
 
   if (kind === 'notes') return (
     <div className="bk-rv">
       {payload.summary && <p className="bk-rv-sum">{payload.summary}</p>}
+
       {(payload.sections || []).map((s: any, i: number) => (
-        <div key={i} className="bk-rv-block">
-          <span className="strong">{s.heading}</span>
-          <ul>{(s.points || []).map((p: string, j: number) => <li key={j}>{p}</li>)}</ul>
+        <div key={i} className="bk-rv-card">
+          <div className="bk-rv-h">{s.heading}</div>
+          {(s.points || []).map((pt: string, j: number) => (
+            <div key={j} className="bk-rv-pt"><i>•</i><span>{pt}</span></div>
+          ))}
         </div>
       ))}
+
       {!!(payload.keyTerms || []).length && (
-        <div className="bk-rv-block">
-          <span className="strong">Key terms</span>
-          <ul>{payload.keyTerms.map((t: any, i: number) => <li key={i}><b>{t.term}</b> — {t.meaning}</li>)}</ul>
+        <div className="bk-rv-card">
+          <div className="bk-rv-h">Key terms</div>
+          {payload.keyTerms.map((t: any, i: number) => (
+            <div key={i} className="bk-rv-term">
+              <b>{t.term}</b>
+              <span>{t.meaning}</span>
+            </div>
+          ))}
         </div>
       )}
     </div>
@@ -1227,12 +1292,12 @@ function PayloadView({ kind, payload }: { kind: Kind; payload: any }) {
   if (kind === 'resource') return (
     <div className="bk-rv">
       {(payload.items || []).map((it: any, i: number) => (
-        <div key={i} className="bk-rv-block">
-          <span className="row gap-8" style={{ alignItems: 'center' }}>
-            <span className="strong">{it.title}</span>
+        <div key={i} className="bk-rv-card">
+          <div className="bk-rv-titlerow">
+            <span className="bk-rv-h" style={{ marginBottom: 0 }}>{it.title}</span>
             {it.type && <Badge tone="emerald" dot={false}>{it.type}</Badge>}
-          </span>
-          <p style={{ margin: '4px 0 0' }}>{it.body}</p>
+          </div>
+          <p className="bk-rv-body">{it.body}</p>
         </div>
       ))}
     </div>
@@ -1241,12 +1306,16 @@ function PayloadView({ kind, payload }: { kind: Kind; payload: any }) {
   if (kind === 'practice') return (
     <div className="bk-rv">
       {(payload.questions || []).map((q: any, i: number) => (
-        <div key={i} className="bk-rv-block">
-          <span className="strong">{i + 1}. {q.q}</span>
-          <div className="faint" style={{ fontSize: 12, marginTop: 3 }}>
-            {q.marks ? `${q.marks} marks` : ''}{q.marks && q.difficulty ? ' · ' : ''}{q.difficulty || ''}
-          </div>
-          <p style={{ margin: '6px 0 0' }}><b>Answer:</b> {q.answer}</p>
+        <div key={i} className="bk-rv-card">
+          <div className="bk-rv-q">{i + 1}. {q.q}</div>
+          {(q.marks || q.difficulty) && (
+            <div className="bk-rv-meta">
+              {[q.marks ? `${q.marks} marks` : null, q.difficulty].filter(Boolean).join(' · ')}
+            </div>
+          )}
+          <div className="bk-rv-hair" />
+          <div className="bk-rv-label">ANSWER</div>
+          <p className="bk-rv-body">{q.answer}</p>
         </div>
       ))}
     </div>
@@ -1257,17 +1326,25 @@ function PayloadView({ kind, payload }: { kind: Kind; payload: any }) {
   return (
     <div className="bk-rv">
       {(payload.questions || []).map((q: any, i: number) => (
-        <div key={i} className="bk-rv-block">
-          <span className="strong">{i + 1}. {q.q}</span>
-          <ul className="bk-rv-opts">
-            {(q.options || []).map((o: string, j: number) => (
-              <li key={j} className={j === q.answer ? 'right' : ''}>
-                {j === q.answer && <CheckCircle2 size={13} style={{ color: '#12A06A', flex: '0 0 auto' }} />}
+        <div key={i} className="bk-rv-card">
+          <div className="bk-rv-q">{i + 1}. {q.q}</div>
+          {(q.options || []).map((o: string, j: number) => {
+            const right = j === q.answer
+            return (
+              <div key={j} className={`bk-rv-opt${right ? ' right' : ''}`}>
+                {right
+                  ? <CheckCircle2 size={15} strokeWidth={2.4} />
+                  : <span className="bk-rv-radio" />}
                 <span>{o}</span>
-              </li>
-            ))}
-          </ul>
-          {q.explanation && <p className="faint" style={{ margin: '6px 0 0', fontSize: 12.5 }}>{q.explanation}</p>}
+              </div>
+            )
+          })}
+          {q.explanation && (
+            <>
+              <div className="bk-rv-hair" />
+              <p className="bk-rv-expl">{q.explanation}</p>
+            </>
+          )}
         </div>
       ))}
     </div>

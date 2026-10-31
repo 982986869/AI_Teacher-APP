@@ -105,6 +105,9 @@ input, select, textarea { font-family: inherit; }
 .eyebrow { font-size: 11px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); }
 .muted { color: var(--muted); }
 .faint { color: var(--faint); }
+/* Used as a global utility in eight pages but historically only defined under
+   .tbl, so every `strong` outside a table silently rendered at normal weight. */
+.strong { color: var(--ink); font-weight: 800; }
 .tnum { font-variant-numeric: tabular-nums; }
 
 /* ============================================================================

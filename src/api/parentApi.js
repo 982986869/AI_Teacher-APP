@@ -7,6 +7,25 @@ export const linkChild = async ({ email, phone }) => {
   return res.data.data;
 };
 
+// A parent account may hold more than one child. `children` lists them (with the
+// active one flagged), `setActiveChild` chooses which one the app shows, and
+// `unlinkChild` removes one — the server picks a remaining child as the new active
+// if the removed one was on screen.
+export const getChildren = async () => {
+  const res = await axiosInstance.get('/api/parent/children');
+  return res.data.data || { children: [], activeChildId: null };
+};
+
+export const setActiveChild = async (childId) => {
+  const res = await axiosInstance.post('/api/parent/active-child', { childId });
+  return res.data.data;
+};
+
+export const unlinkChild = async (childId) => {
+  const res = await axiosInstance.delete(`/api/parent/children/${childId}`);
+  return res.data.data;
+};
+
 // `fresh` (pull-to-refresh) bypasses the server's short-lived report cache.
 export const getParentReport = async (fresh = false) => {
   const res = await axiosInstance.get('/api/parent/report', fresh ? { params: { fresh: 1 } } : undefined);

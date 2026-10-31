@@ -17,7 +17,22 @@ export default function LinkChild({ parentName, onLinked, onLogout }) {
   const doLink = async () => {
     if (!valid || linking) return;
     setLinking(true);
-    try { await linkChild({ email: email.trim() }); if (mnt.current) onLinked(); }
+    try {
+      const res = await linkChild({ email: email.trim() });
+      if (!mnt.current) return;
+      // Linking used to succeed in silence — the screen simply swapped for the
+      // dashboard, so nothing confirmed WHO had been linked, and a typo that
+      // matched a real account looked identical to the right one. Name the child,
+      // and say that they were told.
+      const who = res?.child?.name || email.trim();
+      Alert.alert(
+        res?.alreadyLinked ? 'Already linked' : 'Child linked',
+        res?.alreadyLinked
+          ? `${who} is already on your account — switching to them now.`
+          : `You're now following ${who}'s progress.\n\nWe've emailed you both to confirm the link.`,
+        [{ text: 'OK', onPress: () => { if (mnt.current) onLinked(); } }],
+      );
+    }
     catch (err) {
       if (!mnt.current) return;
       const msg = err?.response?.data?.error

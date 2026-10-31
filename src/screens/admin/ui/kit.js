@@ -5,7 +5,7 @@
 // AdminListRow, etc.) inherits the dark look automatically; screens that render their
 // own bespoke JSX still need their own pass.
 import React, { useEffect, useRef } from 'react';
-import { View, StyleSheet, TextInput, ScrollView, Animated } from 'react-native';
+import { View, StyleSheet, TextInput, ScrollView, Animated, StatusBar } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ChevronLeft, ChevronRight, Search, Inbox, CircleAlert, X, RefreshCw } from 'lucide-react-native';
 import { COLORS } from '../../../theme/designSystem';
@@ -16,36 +16,49 @@ import { initials, colorFor } from './format';
 // Same key set as the old studentTheme `S` this kit used to import, so every consuming
 // screen's own `S.xxx` usage (many import S straight from this file) keeps working —
 // only the values change.
+// Matched to the WEB admin portal (admin/app/globals.css :root) value for value, so
+// the same console looks like itself on a phone and on a laptop. An admin who uses
+// both should not have to re-learn which colour means "published" on each.
+//
+// The key set is unchanged from the dark theme this replaces, so every screen that
+// imports `S` from here keeps working — only the values moved.
 const S = {
-  canvas: COLORS.background,
-  card: 'rgba(255,255,255,0.05)',
-  ink: COLORS.textPrimary,
-  sub: 'rgba(241,240,245,0.75)',
-  muted: COLORS.textSecondary,
-  faint: 'rgba(241,240,245,0.45)',
-  hair: 'rgba(255,255,255,0.10)',
-  border: 'rgba(255,255,255,0.14)',
+  canvas: '#F4F5FB',
+  card: '#FFFFFF',
+  ink: '#151829',
+  sub: '#454B63',
+  muted: '#6A7086',
+  faint: '#A6ABBE',
+  hair: '#ECEEF6',
+  border: '#E4E7F1',
   white: '#FFFFFF',
 
-  indigo: COLORS.primary, indigoSoft: 'rgba(124,58,237,0.18)',
-  blue: '#60A5FA', blueSoft: 'rgba(96,165,250,0.16)',
-  emerald: COLORS.success, emeraldSoft: 'rgba(16,185,129,0.16)',
-  orange: COLORS.warning, orangeSoft: 'rgba(249,115,22,0.16)',
-  gold: COLORS.accent, goldSoft: 'rgba(245,158,11,0.16)',
-  purple: COLORS.primaryLight, purpleSoft: 'rgba(168,85,247,0.16)',
-  cyan: '#22D3EE', cyanSoft: 'rgba(34,211,238,0.16)',
-  red: COLORS.error, redSoft: 'rgba(239,68,68,0.16)',
+  indigo: '#4F46E5', indigoSoft: '#ECEBFE',
+  blue: '#2563EB', blueSoft: '#E5EDFF',
+  emerald: '#0DA96B', emeraldSoft: '#DFF6EC',
+  orange: '#F97316', orangeSoft: '#FFEEE2',
+  gold: '#F5A623', goldSoft: '#FFF3DA',
+  purple: '#8B5CF6', purpleSoft: '#F0EAFE',
+  cyan: '#06B6D4', cyanSoft: '#DBF5FA',
+  red: '#EF4444', redSoft: '#FDE7E7',
 
-  heroA: '#6D4AFF', heroB: '#4C1D95', heroGlow: COLORS.primaryLight,
+  heroA: '#4F46E5', heroB: '#8B5CF6', heroGlow: '#A78BFA',
 };
-// Drop shadows are a light-surface cue — on a dark canvas they're invisible at best and
-// muddy at worst, so cards lean on the card/border contrast instead (same call made
-// across every other dark-reskinned screen this pass).
-const shadow = {};
-const shadowSm = {};
 
-// Simple pulsing placeholder block — the shared Shimmer (ParentApp/anim) is hardcoded
-// to light-grey fills, which read as a bright flash against this kit's dark cards.
+// Back on a light canvas, elevation is what separates a card from the page — the
+// dark theme dropped shadows because they read as mud on a dark ground, and
+// without them here every card dissolves into the background.
+const shadow = {
+  shadowColor: '#1A1B45', shadowOpacity: 0.10, shadowRadius: 14,
+  shadowOffset: { width: 0, height: 6 }, elevation: 3,
+};
+const shadowSm = {
+  shadowColor: '#1A1B45', shadowOpacity: 0.07, shadowRadius: 8,
+  shadowOffset: { width: 0, height: 3 }, elevation: 2,
+};
+
+// Simple pulsing placeholder block. Kept local rather than reusing the shared
+// Shimmer so its fill tracks this kit's own surface tokens.
 function Shimmer({ w, h, r = 12, style }) {
   const op = useRef(new Animated.Value(0.5)).current;
   useEffect(() => {
@@ -56,7 +69,7 @@ function Shimmer({ w, h, r = 12, style }) {
     loop.start();
     return () => loop.stop();
   }, [op]);
-  return <Animated.View style={[{ width: w, height: h, borderRadius: r, backgroundColor: S.card }, style, { opacity: op }]} />;
+  return <Animated.View style={[{ width: w, height: h, borderRadius: r, backgroundColor: S.hair }, style, { opacity: op }]} />;
 }
 
 export const TONE = {
@@ -79,7 +92,14 @@ const STATUS_TONE = {
 
 // ── Screen frame ────────────────────────────────────────────────────────────────
 export function AdminScreen({ children, style }) {
-  return <View style={[st.screen, style]}>{children}</View>;
+  return (
+    <View style={[st.screen, style]}>
+      {/* The canvas is light now, so the clock and battery must be dark or they
+          vanish into it. This was white for the dark theme. */}
+      <StatusBar barStyle="dark-content" backgroundColor={S.canvas} />
+      {children}
+    </View>
+  );
 }
 
 // ── Header (title + optional back + optional right slot), safe-area padded ────────
@@ -162,7 +182,7 @@ export function AdminListRow({ seed, name, sub, right, when, onPress, last }) {
       </View>
       <View style={st.rowMeta}>
         {right}
-        {!!when && <T w="bold" s={11.5} c={S.faint}>{when}</T>}
+        {!!when && <T w="bold" s={11.5} c={S.faint} numberOfLines={1}>{when}</T>}
         <ChevronRight size={16} color={S.faint} strokeWidth={2.2} />
       </View>
     </PressableScale>
@@ -193,9 +213,9 @@ export function AdminInsight({ icon: Icon, toneKey = 'gold', value, title, note,
     <View style={[st.insight, { backgroundColor: t.s }]}>
       {Icon ? <View style={st.insightIcon}><Icon size={24} color={t.c} strokeWidth={2.3} /></View> : null}
       <View style={{ flex: 1, minWidth: 0 }}>
-        <T w="black" s={30} c={t.c} style={{ letterSpacing: -0.8 }}>{value}</T>
-        <T w="xbold" s={14.5} c={S.ink} style={{ marginTop: 3 }}>{title}</T>
-        {!!note && <T w="semi" s={12.5} c={S.muted} style={{ marginTop: 2, lineHeight: 18 }}>{note}</T>}
+        <T w="black" s={30} c={t.c} style={{ letterSpacing: -0.8 }} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>{value}</T>
+        <T w="xbold" s={14.5} c={S.ink} style={{ marginTop: 3 }} numberOfLines={2}>{title}</T>
+        {!!note && <T w="semi" s={12.5} c={S.muted} style={{ marginTop: 2, lineHeight: 18 }} numberOfLines={3}>{note}</T>}
         {action ? <View style={{ marginTop: 12 }}>{action}</View> : null}
       </View>
     </View>
@@ -208,11 +228,11 @@ export function AdminModuleCard({ icon, toneKey = 'indigo', name, blurb, count, 
     <AdminCard style={st.moduleCard} onPress={onPress} accessibilityLabel={name}>
       <View style={st.rowBetween}>
         <IconChip icon={icon} toneKey={toneKey} size={44} />
-        {count != null && !soon ? <T w="black" s={22} c={S.ink}>{count}</T> : null}
+        {count != null && !soon ? <T w="black" s={22} c={S.ink} numberOfLines={1}>{count}</T> : null}
         {soon ? <AdminBadge toneKey="gold" dot={false}>Soon</AdminBadge> : null}
       </View>
-      <T w="black" s={15.5} c={S.ink} style={{ marginTop: 12 }}>{name}</T>
-      <T w="semi" s={12} c={S.muted} style={{ marginTop: 3, lineHeight: 17 }}>{blurb}</T>
+      <T w="black" s={15.5} c={S.ink} style={{ marginTop: 12 }} numberOfLines={1}>{name}</T>
+      <T w="semi" s={12} c={S.muted} style={{ marginTop: 3, lineHeight: 17 }} numberOfLines={2}>{blurb}</T>
       {!soon && (
         <View style={[st.rowCenter, { marginTop: 10, gap: 4 }]}>
           <T w="xbold" s={12.5} c={tone(toneKey).c}>Open</T>
@@ -400,14 +420,16 @@ const st = StyleSheet.create({
 
   row: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 13, paddingHorizontal: 14, borderBottomWidth: 1, borderBottomColor: S.hair },
   rowMain: { flex: 1, minWidth: 0 },
-  rowMeta: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  // flexShrink:0 keeps the chevron and timestamp on screen when a name is long;
+  // maxWidth stops a long badge doing the same thing in reverse.
+  rowMeta: { flexDirection: 'row', alignItems: 'center', gap: 10, flexShrink: 0, maxWidth: '46%' },
 
-  statTile: { flex: 1, minWidth: 150, flexDirection: 'row', alignItems: 'center', gap: 11, backgroundColor: S.card, borderRadius: 16, borderWidth: 1, borderColor: S.hair, padding: 13, ...shadowSm },
+  statTile: { flex: 1, minWidth: 136, flexBasis: '46%', flexDirection: 'row', alignItems: 'center', gap: 11, backgroundColor: S.card, borderRadius: 16, borderWidth: 1, borderColor: S.hair, padding: 13, ...shadowSm },
 
-  insight: { flexDirection: 'row', gap: 16, borderRadius: 22, padding: 20 },
+  insight: { flexDirection: 'row', gap: 16, borderRadius: 22, padding: 20, alignItems: 'flex-start' },
   insightIcon: { width: 50, height: 50, borderRadius: 15, backgroundColor: 'rgba(255,255,255,0.12)', alignItems: 'center', justifyContent: 'center', ...shadowSm },
 
-  rowBetween: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  rowBetween: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10 },
   rowCenter: { flexDirection: 'row', alignItems: 'center' },
 
   search: { flexDirection: 'row', alignItems: 'center', gap: 9, backgroundColor: S.card, borderWidth: 1, borderColor: S.border, borderRadius: 14, paddingHorizontal: 13, paddingVertical: 2 },

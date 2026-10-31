@@ -11,7 +11,7 @@ import {
   View, ScrollView, Image, ImageBackground, Dimensions, StyleSheet,
   Linking, LayoutAnimation, Platform, Modal, SafeAreaView, Animated, Easing, ActivityIndicator, TextInput,
 } from 'react-native';
-import { Star, Plus, Minus, Play, Globe, MapPin, Smartphone, Calendar, Clock, Ticket, ExternalLink, ChevronLeft, ChevronDown, Check, Users, TrendingUp, Video, BookOpen, Award } from 'lucide-react-native';
+import { Star, Plus, Minus, Play, Smartphone, Clock, ChevronLeft, ChevronDown, Check, Users, TrendingUp, Video, BookOpen, Award } from 'lucide-react-native';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import Svg, { Defs, Pattern, Path, Rect as SvgRect, Circle, Polygon, G } from 'react-native-svg';
@@ -602,57 +602,6 @@ function EventPage({ ev, E, onRegister }) {
           <T w="xbold" s={13} c={C.ink}>{E.rating.score}</T><Stars score={E.rating.score} /><T w="med" s={11} c={C.muted}>· {E.rating.count}</T>
         </View>
       </View>
-    </View>
-  );
-}
-
-/* 2 ── Explore events by region ───────────────────────────────────────────── */
-function RegionPage({ events, E }) {
-  const [region, setRegion] = useState(null);
-  const [openList, setOpenList] = useState(false);
-  const matches = region ? events.filter((e) => e.city === region) : [];
-  return (
-    <View style={[s.card, s.pad, s.light]}>
-      <T w="xbold" s={19} c={C.ink} style={{ textAlign: 'center', marginTop: 2 }}>{E.exploreTitle}</T>
-      <PressableScale style={s.regionPill} onPress={() => { spring(); setOpenList((o) => !o); }}>
-        <Globe size={15} color={C.ink} />
-        <T w="semi" s={13} c={C.ink} style={{ flex: 1, textAlign: 'center' }}>{region || E.regionCta}</T>
-        <T w="bold" s={12} c={C.muted}>{openList ? '▲' : '▼'}</T>
-      </PressableScale>
-      {openList && (
-        <View style={s.regionList}>
-          {E.regions.map((c) => (
-            <PressableScale key={c} style={s.regionItem} onPress={() => { spring(); setRegion(c); setOpenList(false); }}>
-              <MapPin size={13} color={C.blue} /><T w="med" s={13} c={C.ink}>{c}</T>
-            </PressableScale>
-          ))}
-        </View>
-      )}
-      {!region ? (
-        <View style={{ alignItems: 'center', gap: 12, paddingVertical: 28 }}>
-          <View style={s.globe}><Globe size={34} color={C.blue} /></View>
-          <T w="med" s={13} c={C.muted} style={{ textAlign: 'center', maxWidth: 220, lineHeight: 20 }}>{E.exploreHint}</T>
-        </View>
-      ) : (
-        <View style={{ marginTop: 16, gap: 12 }}>
-          {matches.map((e, idx) => (
-            <PressableScale key={e.id} onPress={() => open(e.ctaUrl)}
-              style={[s.regCard, { backgroundColor: idx % 2 ? '#FBE3D2' : '#FCEFC7', borderLeftColor: idx % 2 ? C.orange : C.gold }]}>
-              <View style={{ flex: 1, paddingRight: 8 }}>
-                <T w="xbold" s={10.5} c="#8A5A2B" style={{ letterSpacing: 0.5 }}>AILERNOVA · {e.city}</T>
-                <T w="bold" s={14} c={C.ink} numberOfLines={2} style={{ marginTop: 3, lineHeight: 18 }}>{e.title}</T>
-              </View>
-              <View style={{ gap: 6 }}>
-                <View style={s.regMeta}><Ticket size={12} color={C.ink} /><T w="semi" s={11} c={C.ink}>{e.free ? 'Free' : 'Paid'}</T></View>
-                {!!e.date && <View style={s.regMeta}><Calendar size={12} color={C.ink} /><T w="med" s={11} c={C.ink}>{e.date}</T></View>}
-                {!!e.time && <View style={s.regMeta}><Clock size={12} color={C.ink} /><T w="med" s={11} c={C.ink}>{e.time}</T></View>}
-              </View>
-              <View style={s.regLink}><ExternalLink size={13} color={C.ink} /></View>
-            </PressableScale>
-          ))}
-          {!matches.length && <T w="med" s={13} c={C.muted} style={{ textAlign: 'center', marginTop: 12 }}>No events in {region} yet.</T>}
-        </View>
-      )}
     </View>
   );
 }
@@ -1633,19 +1582,14 @@ export function ProgramDetail({ programId, onBack }) {
 export default function EventsStack({ events = [], store = [], skills = [], gallery = [], onAbout, onImpact, onTutors, onReviews, onPricing, onFaqs, onContact, onRefund, onReferral, onOpenProgram, onGym }) {
   const E = CONTENT.event;
   const scrollRef = useRef(null);
-  const regionY = useRef(0);
-  // The event card's "Register Now" (the SECOND one, inside the page) scrolls down to
-  // the region selector so the parent can pick a location for that event.
-  const toRegion = () => { const r = scrollRef.current; if (r) r.scrollTo({ y: Math.max(0, regionY.current), animated: true }); };
   return (
     <ScrollView ref={scrollRef} scrollEventThrottle={16} contentContainerStyle={{ paddingHorizontal: 18, paddingTop: 8, paddingBottom: 32 }} showsVerticalScrollIndicator={false}>
       <View style={{ gap: 14 }}>
-        {!!events.length && <FadeIn delay={0}><EventPage ev={events[0]} E={E} onRegister={toRegion} /></FadeIn>}
-        {/* onLayout stays on the outer View — FadeIn's translateY doesn't shift layout,
-            so regionY stays accurate for the "Register Now" scroll-to. */}
-        <View onLayout={(e) => { regionY.current = e.nativeEvent.layout.y + 8; }}>
-          <FadeIn delay={60}><RegionPage events={events} E={E} /></FadeIn>
-        </View>
+        {/* "Register Now" opens the event's own registration link. It used to
+            scroll to a region picker, which only ever showed an empty globe and
+            a "please select a region" line — a dead end in the middle of the
+            page. */}
+        {!!events.length && <FadeIn delay={0}><EventPage ev={events[0]} E={E} /></FadeIn>}
         {!!store.length && <FadeIn delay={120}><StorePage slides={store} E={E} /></FadeIn>}
         {!!skills.length && <FadeIn delay={160}><SkillsPage skills={skills} E={E} /></FadeIn>}
         {!!gallery.length && <FadeIn delay={160}><ParentsPage gallery={gallery} E={E} /></FadeIn>}
@@ -1714,17 +1658,7 @@ const s = StyleSheet.create({
   footer: { backgroundColor: '#fff', paddingHorizontal: 16, paddingVertical: 12 },
   statsRow: { flexDirection: 'row', justifyContent: 'space-around' },
   ratingRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6, borderTopWidth: 1, borderTopColor: C.border, marginTop: 10, paddingTop: 10 },
-
-  regionPill: { flexDirection: 'row', alignItems: 'center', gap: 8, borderWidth: 1.5, borderColor: C.border, borderRadius: 24, paddingHorizontal: 16, paddingVertical: 11, marginTop: 16 },
-  regionList: { borderWidth: 1, borderColor: C.border, borderRadius: 14, marginTop: 8, overflow: 'hidden' },
-  regionItem: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingHorizontal: 14, paddingVertical: 11, borderBottomWidth: 1, borderBottomColor: C.border },
-  globe: { width: 68, height: 68, borderRadius: 34, backgroundColor: C.blueSoft, alignItems: 'center', justifyContent: 'center' },
-  regionEvt: { flexDirection: 'row', alignItems: 'center', gap: 12, borderWidth: 1, borderColor: C.border, borderRadius: 14, padding: 10 },
   regionThumb: { width: 54, height: 54, borderRadius: 10, backgroundColor: C.border },
-  regCard: { flexDirection: 'row', borderRadius: 14, borderLeftWidth: 4, paddingVertical: 14, paddingLeft: 14, paddingRight: 12 },
-  regMeta: { flexDirection: 'row', alignItems: 'center', gap: 5, justifyContent: 'flex-end' },
-  regLink: { position: 'absolute', top: 8, right: 8, width: 22, height: 22, alignItems: 'center', justifyContent: 'center' },
-
   storeSlide: { borderRadius: 20, borderWidth: 1.5, padding: 14, marginHorizontal: 3 },
   storeImg: { width: '100%', height: 190, borderRadius: 12, backgroundColor: 'rgba(0,0,0,0.05)' },
   dots: { flexDirection: 'row', justifyContent: 'center', gap: 6, marginTop: 14 },

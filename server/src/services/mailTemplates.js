@@ -225,4 +225,63 @@ function trialBookedTeam({ parentName, parentEmail, parentPhone, childName, chil
   return { subject: `New demo booking: ${subject} · ${shortDay(slotAt)}, ${istTime(slotAt)} · ${parentName}`, text, html }
 }
 
-module.exports = { accountDeleted, reactivate, adminDigest, trialBooked, trialBookedTeam }
+// ─── 6. A parent linked your account / you linked a child ────────────────────
+//
+// Linking is the moment a second person gains sight of a learner's progress, and
+// until now it happened in complete silence — nobody was told, on either side. Two
+// messages go out, and they are deliberately NOT the same message: the parent gets
+// a confirmation, the child gets a disclosure. The child's is the important one —
+// it is the only way they find out, and it names who it was.
+
+function childLinked({ parentName, childName, childEmail }) {
+  const who = childName || childEmail || 'your child'
+  const subject = `You're now following ${who}'s progress`
+  const text = [
+    hello(parentName),
+    '',
+    `${who} is now linked to your Ailernova parent account. You'll see their real progress,`,
+    'streaks and the areas they need to focus on, updated as they learn.',
+    '',
+    'We have let them know that you are following their progress.',
+    '',
+    'You can link another child at any time from the parent app, and switch between them.',
+  ].join('\n')
+
+  const html = layout([
+    p(hello(parentName)),
+    p(`<strong>${who}</strong> is now linked to your Ailernova parent account. You'll see their real progress, streaks and the areas they need to focus on, updated as they learn.`),
+    p('We have let them know that you are following their progress.'),
+    p('You can link another child at any time from the parent app, and switch between them.'),
+  ].join('\n'))
+
+  return { subject, text, html }
+}
+
+function parentLinked({ childName, parentName, parentEmail }) {
+  const who = parentName || parentEmail || 'A parent'
+  const subject = `${who} is now following your Ailernova progress`
+  const text = [
+    hello(childName),
+    '',
+    `${who}${parentEmail && parentName ? ` (${parentEmail})` : ''} has linked a parent account to yours.`,
+    '',
+    'They can now see your progress, your streaks and the topics you are working on.',
+    'They cannot see your messages, and they cannot answer anything as you.',
+    '',
+    'If you do not recognise this person, tell us at support@ailernova.com and we will remove the link.',
+  ].join('\n')
+
+  const html = layout([
+    p(hello(childName)),
+    p(`<strong>${who}</strong>${parentEmail && parentName ? ` (${parentEmail})` : ''} has linked a parent account to yours.`),
+    p('They can now see your progress, your streaks and the topics you are working on. They cannot see your messages, and they cannot answer anything as you.'),
+    p('If you do not recognise this person, tell us at <a href="mailto:support@ailernova.com" style="color:#5b3df5;">support@ailernova.com</a> and we will remove the link.'),
+  ].join('\n'))
+
+  return { subject, text, html }
+}
+
+module.exports = {
+  accountDeleted, reactivate, adminDigest, trialBooked, trialBookedTeam,
+  childLinked, parentLinked,
+}

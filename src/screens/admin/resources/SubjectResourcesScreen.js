@@ -30,15 +30,15 @@ const ST_TONE = { published: 'emerald', hidden: 'gold', archived: 'purple' };
 // Local dark palette — same recipe as AdminHomeScreen.js's DK, kept local since the
 // light `studentUI` kit is still what other un-migrated admin/student screens render with.
 const DK = {
-  canvas: COLORS.background,
-  card: 'rgba(255,255,255,0.05)',
-  hair: 'rgba(255,255,255,0.10)',
-  ink: COLORS.textPrimary,
-  sub: 'rgba(241,240,245,0.75)',
-  muted: COLORS.textSecondary,
-  faint: 'rgba(241,240,245,0.45)',
-  indigo: COLORS.primary, indigoSoft: 'rgba(124,58,237,0.18)',
-  orange: COLORS.warning, orangeSoft: 'rgba(249,115,22,0.16)',
+  canvas: '#F4F5FB',
+  card: '#FFFFFF',
+  hair: '#ECEEF6',
+  ink: '#151829',
+  sub: '#454B63',
+  muted: '#6A7086',
+  faint: '#A6ABBE',
+  indigo: '#4F46E5', indigoSoft: '#ECEBFE',
+  orange: '#F97316', orangeSoft: '#FFEEE2',
 };
 
 function Header({ title, subtitle }) {

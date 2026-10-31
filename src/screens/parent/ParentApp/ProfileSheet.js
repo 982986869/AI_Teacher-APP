@@ -6,10 +6,10 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Image, Modal, Animated, Pressable, StyleSheet, PanResponder } from 'react-native';
 import Svg, { Defs, LinearGradient as LG, Stop, Rect } from 'react-native-svg';
-import { Bell, Settings, UserPlus, LogOut, Trash2, GraduationCap, Pencil, ArrowLeftRight } from 'lucide-react-native';
+import { Bell, Settings, UserPlus, LogOut, Trash2, GraduationCap, Pencil, ArrowLeftRight, Check } from 'lucide-react-native';
 import { C, T, card } from './constants';
 import SheetRow from './SheetRow';
-import { FadeIn } from './anim';
+import { FadeIn, PressableScale } from './anim';
 
 const TRAVEL = 700; // off-screen distance for open/close/dismiss
 
@@ -25,6 +25,7 @@ const MENU = [
 
 export default function ProfileSheet({
   visible, onClose, parentName, parentPhoto, parentEmail, childName, childClass,
+  linkedChildren: kids = [], activeChildId, onSwitchChild,
   onLinkAnother, onLogout, onDeleteAccount, onComingSoon, onSwitchToStudent,
 }) {
   // A student viewing the parent dashboard (same login) can flip back to the student
@@ -144,7 +145,43 @@ export default function ProfileSheet({
             </View>
           </FadeIn>
 
-          {!!childName && (
+          {/* One child reads as a label; two or more read as a choice. The same card
+              therefore does both jobs — with a single child it states who is linked,
+              and with several it becomes the switcher, because a parent with two
+              children otherwise has no way to reach the second one. */}
+          {kids.length > 1 ? (
+            <FadeIn delay={80} y={8}>
+              <T w="bold" s={11} c={C.faint} style={{ letterSpacing: 0.6, marginBottom: 8, marginLeft: 4 }}>
+                LINKED CHILDREN
+              </T>
+              <View style={{ gap: 8 }}>
+                {kids.map((k) => {
+                  const on = k.id === activeChildId;
+                  return (
+                    <PressableScale
+                      key={k.id}
+                      style={[s.childCard, on && s.childCardOn]}
+                      onPress={() => { if (!on) runClose(() => onSwitchChild && onSwitchChild(k.id)); }}
+                      accessibilityRole="button"
+                      accessibilityState={{ selected: on }}
+                      accessibilityLabel={`${k.name}${on ? ', currently showing' : ', switch to this child'}`}
+                    >
+                      <View style={s.childIcon}><GraduationCap size={20} color="#fff" strokeWidth={2.3} /></View>
+                      <View style={{ flex: 1 }}>
+                        <T w="bold" s={15.5} c={C.ink} numberOfLines={1}>
+                          {k.name}{k.grade ? ` · Class ${String(k.grade).replace(/\D/g, '')}` : ''}
+                        </T>
+                        <T w="med" s={12} c={C.muted} numberOfLines={1}>
+                          {on ? 'Showing now' : 'Tap to switch'}
+                        </T>
+                      </View>
+                      {on && <Check size={18} color={C.blue} strokeWidth={2.6} />}
+                    </PressableScale>
+                  );
+                })}
+              </View>
+            </FadeIn>
+          ) : !!childName && (
             <FadeIn delay={80} y={8}>
               <View style={s.childCard}>
                 <View style={s.childIcon}><GraduationCap size={20} color="#fff" strokeWidth={2.3} /></View>
@@ -197,6 +234,7 @@ const s = StyleSheet.create({
   nameRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   badge: { backgroundColor: C.blueSoft, borderRadius: 8, paddingHorizontal: 8, paddingVertical: 3 },
   childCard: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: '#fff', borderRadius: 16, padding: 14, borderWidth: 1, borderColor: C.hair, ...card },
+  childCardOn: { borderColor: C.blue, borderWidth: 1.5 },
   childIcon: { width: 40, height: 40, borderRadius: 12, backgroundColor: C.blue, alignItems: 'center', justifyContent: 'center' },
   group: { backgroundColor: '#fff', borderRadius: 18, paddingHorizontal: 14, borderWidth: 1, borderColor: C.hair, ...card },
   rowDivider: { height: 1, backgroundColor: C.hair, marginLeft: 52 },

@@ -25,19 +25,19 @@ import { useBottomPad } from '../../../theme/layout';
 // local (not added to the shared light `studentUI` kit) since that kit is still what
 // every un-migrated light admin/student screen renders with.
 const DK = {
-  canvas: COLORS.background,
-  card: 'rgba(255,255,255,0.05)',
-  hair: 'rgba(255,255,255,0.10)',
-  ink: COLORS.textPrimary,
-  muted: COLORS.textSecondary,
-  faint: 'rgba(241,240,245,0.45)',
-  indigo: COLORS.primary, indigoSoft: 'rgba(124,58,237,0.18)',
-  blue: '#60A5FA', blueSoft: 'rgba(96,165,250,0.16)',
-  emerald: COLORS.success, emeraldSoft: 'rgba(16,185,129,0.16)',
-  gold: COLORS.accent, goldSoft: 'rgba(245,158,11,0.16)',
-  orange: COLORS.warning, orangeSoft: 'rgba(249,115,22,0.16)',
-  purple: COLORS.primaryLight, purpleSoft: 'rgba(168,85,247,0.16)',
-  red: COLORS.error, redSoft: 'rgba(239,68,68,0.16)',
+  canvas: '#F4F5FB',
+  card: '#FFFFFF',
+  hair: '#ECEEF6',
+  ink: '#151829',
+  muted: '#6A7086',
+  faint: '#A6ABBE',
+  indigo: '#4F46E5', indigoSoft: '#ECEBFE',
+  blue: '#2563EB', blueSoft: '#E5EDFF',
+  emerald: '#0DA96B', emeraldSoft: '#DFF6EC',
+  gold: '#F5A623', goldSoft: '#FFF3DA',
+  orange: '#F97316', orangeSoft: '#FFEEE2',
+  purple: '#8B5CF6', purpleSoft: '#F0EAFE',
+  red: '#EF4444', redSoft: '#FDE7E7',
 };
 
 function Header({ title, subtitle }) {

@@ -20,6 +20,10 @@ import TestFormScreen from '../screens/admin/tests/TestFormScreen';
 import QuestionFormScreen from '../screens/admin/tests/QuestionFormScreen';
 import TestPreviewScreen from '../screens/admin/tests/TestPreviewScreen';
 import ResourcesHomeScreen from '../screens/admin/resources/ResourcesHomeScreen';
+import BooksHomeScreen from '../screens/admin/books/BooksHomeScreen';
+import BookChaptersScreen from '../screens/admin/books/BookChaptersScreen';
+import BookContentScreen from '../screens/admin/books/BookContentScreen';
+import AutoGenerateScreen from '../screens/admin/books/AutoGenerateScreen';
 import SubjectResourcesScreen from '../screens/admin/resources/SubjectResourcesScreen';
 import ChapterFormScreen from '../screens/admin/resources/ChapterFormScreen';
 import ChapterNotesEditor from '../screens/admin/resources/ChapterNotesEditor';
@@ -85,6 +89,12 @@ function ResourcesStackNav() {
       <ResourcesStack.Screen name="ChapterQuestionsEditor" component={ChapterQuestionsEditor} />
       <ResourcesStack.Screen name="ChapterMcqEditor" component={ChapterMcqEditor} />
       <ResourcesStack.Screen name="PaperEditor" component={PaperEditorScreen} />
+      {/* Reached from Admin Home and from the Resources hub — same stack, so the
+          back gesture lands where the admin came from. */}
+      <ResourcesStack.Screen name="BooksHome" component={BooksHomeScreen} />
+      <ResourcesStack.Screen name="BookChapters" component={BookChaptersScreen} />
+      <ResourcesStack.Screen name="BookContent" component={BookContentScreen} />
+      <ResourcesStack.Screen name="BookAutoGenerate" component={AutoGenerateScreen} />
     </ResourcesStack.Navigator>
   );
 }

@@ -8,7 +8,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
 import {
   CalendarPlus, ChartColumn, Users, CalendarDays, FileClock, BookOpenCheck,
-  TriangleAlert, ChevronRight, UserPlus, Sparkles, ClipboardCheck, Settings as SettingsIcon,
+  TriangleAlert, ChevronRight, UserPlus, Sparkles, ClipboardCheck, Settings as SettingsIcon, BookUp,
   Target, CircleAlert,
 } from 'lucide-react-native';
 import { useAuth } from '../../context/AuthContext';
@@ -23,18 +23,18 @@ import { greeting, timeAgo, fmtDate } from './ui/format';
 // COLORS tokens. Kept local (not added to the shared light `studentUI` kit) since
 // that kit is still what every un-migrated light admin/student screen renders with.
 const DK = {
-  canvas: COLORS.background,
-  card: 'rgba(255,255,255,0.05)',
-  hair: 'rgba(255,255,255,0.10)',
-  ink: COLORS.textPrimary,
-  muted: COLORS.textSecondary,
-  faint: 'rgba(241,240,245,0.45)',
-  indigo: COLORS.primary, indigoSoft: 'rgba(124,58,237,0.18)',
-  blue: '#60A5FA', blueSoft: 'rgba(96,165,250,0.16)',
-  emerald: COLORS.success, emeraldSoft: 'rgba(16,185,129,0.16)',
-  gold: COLORS.accent, goldSoft: 'rgba(245,158,11,0.16)',
-  orange: COLORS.warning, orangeSoft: 'rgba(249,115,22,0.16)',
-  purple: COLORS.primaryLight, purpleSoft: 'rgba(168,85,247,0.16)',
+  canvas: '#F4F5FB',
+  card: '#FFFFFF',
+  hair: '#ECEEF6',
+  ink: '#151829',
+  muted: '#6A7086',
+  faint: '#A6ABBE',
+  indigo: '#4F46E5', indigoSoft: '#ECEBFE',
+  blue: '#2563EB', blueSoft: '#E5EDFF',
+  emerald: '#0DA96B', emeraldSoft: '#DFF6EC',
+  gold: '#F5A623', goldSoft: '#FFF3DA',
+  orange: '#F97316', orangeSoft: '#FFEEE2',
+  purple: '#8B5CF6', purpleSoft: '#F0EAFE',
 };
 
 const isSameDay = (iso) => { const d = new Date(iso); const n = new Date(); return d.getFullYear() === n.getFullYear() && d.getMonth() === n.getMonth() && d.getDate() === n.getDate(); };
@@ -213,6 +213,36 @@ export default function AdminHomeScreen({ navigation }) {
               </View>
             </FadeInOnce>
 
+            {/* Personalized section. Not a dock tab — the dock already carries seven
+                and an eighth would squeeze every label past legibility — so its
+                entry point lives here, where the other content work starts. */}
+            <SectionHeader title="Personalized" accent={DK.purple} />
+            <FadeInOnce id="ah-books" delay={40} y={14}>
+              <PressableScale
+                onPress={() => navigation.navigate('Resources', { screen: 'BooksHome' })}
+                accessibilityRole="button"
+                accessibilityLabel="Open the personalized section"
+                style={{
+                  flexDirection: 'row', alignItems: 'center', gap: 13, padding: 15,
+                  backgroundColor: DK.card, borderRadius: 20, borderWidth: 1, borderColor: DK.hair,
+                }}
+              >
+                <View style={{
+                  width: 44, height: 44, borderRadius: 13, flexShrink: 0,
+                  alignItems: 'center', justifyContent: 'center', backgroundColor: DK.purpleSoft,
+                }}>
+                  <BookUp size={21} color={DK.purple} strokeWidth={2.2} />
+                </View>
+                <View style={{ flex: 1, minWidth: 0 }}>
+                  <T w="xbold" s={14.5} c={DK.ink} numberOfLines={1}>Books for students</T>
+                  <T w="semi" s={11.5} c={DK.muted} numberOfLines={2} style={{ marginTop: 2, lineHeight: 16 }}>
+                    Generate notes, resources, practice and quizzes — then choose what students see.
+                  </T>
+                </View>
+                <ChevronRight size={18} color={DK.faint} strokeWidth={2.3} />
+              </PressableScale>
+            </FadeInOnce>
+
             {/* Needs attention */}
             {(noTeacher > 0 || drafts > 0) && (
               <>
@@ -245,7 +275,7 @@ export default function AdminHomeScreen({ navigation }) {
                   const cfg = ACT[a.type] || ACT.admin_action;
                   return (
                     <View key={a.id || i} style={{ flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 11, paddingHorizontal: 10, borderBottomWidth: i < arr.length - 1 ? 1 : 0, borderBottomColor: DK.hair }}>
-                      <View style={{ width: 36, height: 36, borderRadius: 11, backgroundColor: 'rgba(255,255,255,0.06)', alignItems: 'center', justifyContent: 'center' }}><cfg.icon size={17} color={cfg.tint} strokeWidth={2.4} /></View>
+                      <View style={{ width: 36, height: 36, borderRadius: 11, backgroundColor: '#F4F5FB', alignItems: 'center', justifyContent: 'center' }}><cfg.icon size={17} color={cfg.tint} strokeWidth={2.4} /></View>
                       <View style={{ flex: 1, minWidth: 0 }}><T w="xbold" s={13} c={DK.ink} numberOfLines={1}>{activityLine(a)}</T>{!!a.subtitle ? <T w="semi" s={11.5} c={DK.muted} numberOfLines={1}>{a.subtitle}</T> : null}</View>
                       <T w="bold" s={11} c={DK.faint}>{timeAgo(a.at)}</T>
                     </View>
