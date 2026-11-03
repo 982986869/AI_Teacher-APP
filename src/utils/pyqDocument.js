@@ -53,15 +53,35 @@ export function buildFragmentFromQuestions(questions) {
 // {tex}...{/tex}) and the black-&-white card styling used elsewhere in the app.
 // opts.collapsible (Important Questions): hide each card's answer (solution +
 // MCQ correct highlight) until the user taps the card to expand it.
+// A {tex} body that contains no LaTeX at all — no backslash command, no ^ _ { } —
+// is not a formula. The imported papers are full of these: every cell of a grouped
+// frequency table arrives as {tex}3000-4000{/tex}, and a class interval is just
+// text someone typed into a math box on the source site.
+//
+// Handing those to MathJax is what broke the tables. Each became an inline-block
+// mjx-container, which cannot wrap, so a four-column table forced itself wider
+// than the screen; and until MathJax typeset (or when it never did) the cell read
+// "\(3000-4000\)", which then broke across lines at the backslash — the stray "\"
+// above "(3000" and "-4000" in a table that no longer lined up.
+//
+// So unwrap them to plain text and leave real formulas for MathJax, which is the
+// only thing that should be rendering math here.
+const isPlainTex = (body) => !/[\\^_{}]/.test(body);
+
+export function normalizeTex(src) {
+  return String(src || '').replace(
+    /\{tex\}([\s\S]*?)\{\/tex\}/gi,
+    (m, body) => (isPlainTex(body) ? body : ` \\(${body}\\) `),
+  );
+}
+
 export function buildPyqDocument(fragmentHtml, opts = {}) {
   const collapsible = !!opts.collapsible;
   // The scraped data wraps math in {tex}…{/tex}, but MathJax renders the standard
   // \( … \) inline delimiters far more reliably than custom-string delimiters
   // (same conversion MathText.js does). Convert before injecting so every formula
   // typesets. Spaces keep math from fusing with adjacent words.
-  const html = String(fragmentHtml || '')
-    .replace(/\{tex\}/g, ' \\(')
-    .replace(/\{\/tex\}/g, '\\) ');
+  const html = normalizeTex(String(fragmentHtml || ''));
   return `<!DOCTYPE html><html><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -77,6 +97,35 @@ export function buildPyqDocument(fragmentHtml, opts = {}) {
   function reveal(){ if (revealed) return; revealed = true;
     try { document.documentElement.classList.add('mj-ready'); } catch (e) {} }
   setTimeout(reveal, REVEAL_MS);
+
+  // Last resort: both MathJax sources failed. Rewrite every \\( … \\) run into
+  // readable characters (× ÷ ≤ √ α …) rather than revealing the raw LaTeX.
+  // A formula shown as "3 × 11" is worth reading; "3 \\(\\times\\) 11" is not.
+  function texToReadable(){
+    try{
+      var MAP={times:' × ',cdot:' · ',div:' ÷ ',pm:' ± ',neq:' ≠ ',leq:' ≤ ',geq:' ≥ ',
+        le:' ≤ ',ge:' ≥ ',approx:' ≈ ',equiv:' ≡ ',infty:'∞',Rightarrow:' ⇒ ',
+        rightarrow:' → ',leftarrow:' ← ',to:' → ',therefore:' ∴ ',because:' ∵ ',
+        circ:'°',degree:'°',propto:' ∝ ',angle:'∠',perp:'⊥',sum:'∑',int:'∫',
+        alpha:'α',beta:'β',gamma:'γ',delta:'δ',theta:'θ',pi:'π',lambda:'λ',mu:'μ',
+        sigma:'σ',omega:'ω',phi:'φ',Delta:'Δ',Sigma:'Σ',Omega:'Ω',Pi:'Π'};
+      function tex(s){
+        return s
+          .replace(/\\\\d?frac\\s*\\{([^{}]*)\\}\\s*\\{([^{}]*)\\}/g, function(m,a,b){ return a+'/'+b; })
+          .replace(/\\\\sqrt\\s*\\{([^{}]*)\\}/g, function(m,a){ return '√'+a; })
+          .replace(/\\\\([a-zA-Z]+)/g, function(m,n){ return MAP[n]!=null?MAP[n]:''; })
+          .replace(/[{}]/g,'')
+          .replace(/\\s+/g,' ');
+      }
+      var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null,false);
+      var n, list=[];
+      while((n=w.nextNode())){ if(n.nodeValue && n.nodeValue.indexOf('\\\\(')>=0) list.push(n); }
+      for(var i=0;i<list.length;i++){
+        list[i].nodeValue = list[i].nodeValue.replace(/\\\\\\(([\\s\\S]*?)\\\\\\)/g, function(m,b){ return tex(b); });
+      }
+    }catch(e){ /* WebView context — see src/utils/errorLog.js header */ }
+    reveal();
+  }
 
   window.MathJax = { tex: { inlineMath: [['\\\\(', '\\\\)']], displayMath: [] },
     startup: { ready: function () { window.MathJax.startup.defaultReady();
@@ -112,7 +161,22 @@ export function buildPyqDocument(fragmentHtml, opts = {}) {
   window.addEventListener('orientationchange', function(){ setTimeout(fitWideMath, 60); });
 </script>
 <link rel="preload" as="script" href="${API_BASE_URL}/vendor/mathjax-tex-mml-chtml.js">
-<script src="${API_BASE_URL}/vendor/mathjax-tex-mml-chtml.js" onerror="reveal()"></script>
+<script>
+  // MathJax is self-hosted (1.2 MB). When that request fails — the API host
+  // unreachable from the phone's current network, a dev build pointed at a LAN
+  // address the device has since left — the old code simply called reveal() and
+  // the student read "3 \\(\\times\\) 11" as prose. One source of a 1.2 MB file is
+  // one point of failure for every formula in the app, so fall back to the CDN
+  // before giving up, and only then degrade to readable text.
+  function loadMathJax(src, onFail){
+    var s = document.createElement('script');
+    s.src = src; s.async = true; s.onerror = onFail;
+    document.head.appendChild(s);
+  }
+  loadMathJax('${API_BASE_URL}/vendor/mathjax-tex-mml-chtml.js', function(){
+    loadMathJax('https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js', texToReadable);
+  });
+</script>
 <style>
   /* Held until MathJax typesets (or REVEAL_MS passes) — see reveal() above. */
   html:not(.mj-ready) body{ opacity:0; }
@@ -167,7 +231,16 @@ export function buildPyqDocument(fragmentHtml, opts = {}) {
   .option-text,.pq-opt-text{ min-width:0; overflow:hidden; }
   .pq-card{ overflow:hidden; }
   .pq-question,.pq-expl,.pq-solution-body{ max-width:100%; overflow-wrap:break-word; word-break:break-word; }
-  table{ display:block; max-width:100%; overflow-x:auto; border-collapse:collapse; margin:8px 0; }
+  table{ display:block; max-width:100%; overflow-x:auto; border-collapse:collapse; margin:8px 0;
+         -webkit-overflow-scrolling:touch; width:auto !important; }
+  /* Data tables are class intervals and counts. The page-wide break-word rule
+     (needed so a long URL cannot widen a card) was splitting "3000-4000" across
+     three lines and destroying the column alignment — a frequency table that does
+     not line up is unreadable. Keep cell contents on one line and let the table
+     scroll sideways instead; that is the one place horizontal scrolling is right. */
+  table td, table th{ white-space:nowrap; word-break:normal; overflow-wrap:normal;
+                      padding:6px 10px; border:1px solid ${T.hair}; text-align:center; }
+  table td:first-child, table th:first-child{ text-align:left; }
   th,td{ border:1px solid ${T.hair}; padding:4px 8px; font-size:14px; text-align:left; }
   ol,ul{ margin:8px 0; padding-left:22px; }
   li{ margin:3px 0; line-height:1.6; }

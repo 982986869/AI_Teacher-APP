@@ -19,6 +19,8 @@ import { ChevronLeft, ChevronRight } from 'lucide-react-native';
 
 import { getExemplarSolutions, getNcertChapters, getChapters, getQuestionsByPath, getNotesByPath, getPapers, getPaper, getClassSubjects, getResourceMenu } from '../api/resourcesApi';
 import { buildFragmentFromQuestions, buildPyqDocument } from '../utils/pyqDocument';
+import PracticeRunnerScreen from './PracticeRunnerScreen';
+import { chapterTitle, isOffSyllabus, OFF_SYLLABUS_LABEL } from '../utils/syllabus';
 import { isAllowedSubject } from '../utils/personalization';
 import { useClassSubjects, toTile } from '../utils/classSubjects';
 import { useAuth } from '../context/AuthContext';
@@ -1472,10 +1474,11 @@ function ChapterRow({ chapter, index, total, tint, onPress }) {
           onPressIn={() => to(0.985)}
           onPressOut={() => to(1)}
           accessibilityRole="button"
-          accessibilityLabel={`Chapter ${index + 1}. ${chapter.name}`}
+          accessibilityLabel={`Chapter ${index + 1}. ${chapterTitle(chapter.name)}`}
           style={[dk.chCard, { borderColor: tint + '33' }]}
         >
-          <Text style={dk.chTitle}>{chapter.name}</Text>
+          <Text style={dk.chTitle}>{chapterTitle(chapter.name)}</Text>
+          {isOffSyllabus(chapter.name) && <Text style={dk.chOffSyllabus}>{OFF_SYLLABUS_LABEL}</Text>}
           <ChevronRight size={18} color={tint} strokeWidth={2.6} />
         </Pressable>
       </Animated.View>
@@ -1750,9 +1753,17 @@ const ResourcesScreen = () => {
   // Class 12 chapter listed its name and then rendered nothing. getQuestionsByPath
   // is class-scoped and a 404 falls through to the empty state, so there is
   // nothing class-specific left to gate on.
+  // Practice is the one DBQ tab a student ANSWERS rather than reads, so it opens
+  // the interactive runner instead of the document (PracticeRunnerScreen). Important
+  // Questions and PYQ stay documents: they are largely subjective/long-form and have
+  // nothing to tap. Practice stays in DBQ_TYPES because the chapter list below still
+  // filters on it — only the viewer differs.
+  const isPracticeRunner = !!(
+    activeSubject && activeChapter && showCards && activeResType?.type === 'practice'
+  );
   const isDbQDoc = !!(
     activeSubject && activeChapter && showCards &&
-    DBQ_TYPES.includes(activeResType?.type)
+    DBQ_TYPES.includes(activeResType?.type) && !isPracticeRunner
   );
   const [dbQDoc, setDbQDoc] = useState({ loading: false, error: null, html: '' });
   useEffect(() => {
@@ -2074,6 +2085,20 @@ const ResourcesScreen = () => {
   }
 
   // ── LEVEL 4 (DB): Class 10 question banks — Important Qs / PYQ / Practice ──
+  // ── Practice: answer one question at a time, graded on submit ──────────────
+  if (isPracticeRunner) {
+    return (
+      <PracticeRunnerScreen
+        subjectSlug={slugify(activeSubject.name)}
+        chapterSlug={slugify(activeChapter.name)}
+        chapterName={activeChapter.name}
+        subjectName={activeSubject.name}
+        classLevel={classNum}
+        onBack={() => setShowCards(false)}
+      />
+    );
+  }
+
   if (isDbQDoc) {
     return (
       <SafeAreaView style={s.safe}>
@@ -2697,6 +2722,9 @@ const dk = StyleSheet.create({
     paddingVertical: 16, paddingHorizontal: 16, marginBottom: 12, marginLeft: 2,
   },
   chTitle:         { flex: 1, fontSize: 15.5, fontFamily: FONT.extrabold, color: DK.ink, letterSpacing: -0.2, lineHeight: 21 },
+  // Said quietly: the chapter is still worth revising, it just will not be in the
+  // board exam. Muted so it informs without competing with the chapter name.
+  chOffSyllabus:   { fontSize: 11, fontFamily: FONT.bold, color: DK.muted, marginTop: 3 },
   resTypeGo:       { width: 38, height: 38, borderRadius: 19, borderWidth: 1, alignItems: 'center', justifyContent: 'center' },
   // backgroundColor/borderColor come from the resource type's accent.
   resTypeIconWrap: { width: 56, height: 56, borderRadius: 18, borderWidth: 1, alignItems: 'center', justifyContent: 'center' },
