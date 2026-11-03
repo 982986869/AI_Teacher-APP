@@ -80,7 +80,17 @@ async function listSubjects() {
 // (ncert_solutions), important_questions / pyq (structured sections), practice
 // (mcq), online (ot_tests) and mock (mock_tests). Returns:
 //   [{ name, slug, parts:[2,4,5,8], importantQuestions, pyq, practice, online, mock }]
-const simpleSlug = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || null
+// Same algorithm as the app's slugify (src/screens/*.js): Devanagari names (e.g.
+// समाजशास्त्र) get a hash slug instead of null.
+const simpleSlug = (s) => {
+  const str = String(s).replace(/[–—­‑]/g, '-').replace(/[‘’]/g, "'").replace(/[“”]/g, '"')
+  const base = str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
+  if (base && !/[^\x00-\x7F]/.test(str)) return base
+  let h = 5381
+  for (let i = 0; i < str.length; i++) h = ((h * 33) ^ str.charCodeAt(i)) >>> 0
+  const hash = 'u' + h.toString(36)
+  return base ? base + '-' + hash : hash
+}
 async function listClassSubjects(classInput) {
   const m = String(classInput || '').match(/\d{1,2}/)
   const cl = m ? parseInt(m[0], 10) : null
@@ -108,7 +118,8 @@ async function listClassSubjects(classInput) {
   mk.forEach((r) => { const e = get(r.name); e.mock = true })
   // Display order for resource tiles: NCERT books (2,6,7,9…) → Exemplar (3) →
   // Revision Notes (4) → Important Questions (5) → PYQ (8).
-  const RANK = { 2: 1, 6: 2, 7: 3, 9: 4, 10: 5, 11: 6, 12: 7, 3: 10, 4: 11, 5: 12, 8: 13 }
+  // 13–16 = Class 11 PDF resources: Sample / Test Papers, Case Studies, Last Year Papers.
+  const RANK = { 2: 1, 6: 2, 7: 3, 9: 4, 10: 5, 11: 6, 12: 7, 3: 10, 4: 11, 5: 12, 8: 13, 13: 14, 14: 15, 15: 16, 16: 17 }
   return [...map.values()].map((e) => ({
     ...e,
     slug: e.slug || simpleSlug(e.name),

@@ -7,6 +7,7 @@ import { WebView } from 'react-native-webview';
 import { getQuestionsByPath, getChapters } from '../api/resourcesApi';
 import { buildFragmentFromQuestions, buildPyqDocument } from '../utils/pyqDocument';
 import { useClassSubjects, toTile } from '../utils/classSubjects';
+import { isAllowedSubject } from '../utils/personalization';
 import { getMcqChapterTest, getMcqSubtopicTest, submitMcqTest } from '../api/mcqPracticeApi';
 // Class 12 Chemistry & Mathematics are DB/API-backed. We only keep the bundled
 // chapter-name lists (their slugs match the DB) to drive the menus; all PYQ /
@@ -141,9 +142,12 @@ const subjectSlug = (name) => SUBJECT_SLUG_OVERRIDES[name] || slugify(name);
 // instead of hardcoded arrays. Class 6 & 9 "Old -" subjects live here.
 const DYNAMIC_CLASSES = [6, 9];
 // Classes whose MOCK and PYQ subject lists (only) come from the DB — see PracticeScreen.
-const DYNAMIC_MOCK_PYQ_CLASSES = [7, 8];
+// Class 11 joined 2026-11-01: mock_tests now has Applied Maths/Accountancy/Economics/
+// Business Studies/English Core/हिंदी कोर alongside PCMB.
+const DYNAMIC_MOCK_PYQ_CLASSES = [7, 8, 11];
 // Classes whose IMPORTANT QUESTIONS and PYQ subject lists (only) come from the DB — see PracticeScreen.
-const DYNAMIC_IMP_PYQ_CLASSES = [10];
+// Class 11 joined 2026-11-01: the examin8 seed added IQ + PYQ for ~35 subjects.
+const DYNAMIC_IMP_PYQ_CLASSES = [10, 11];
 // Classes whose Practice landing hides a practice type the DB has no content for.
 // Every class here must also fetch class-subjects (DYNAMIC_* above cover 6–10).
 const HIDE_EMPTY_CLASSES = [6, 7, 8, 9, 10];
@@ -697,7 +701,10 @@ const PracticeScreen = () => {
   // every subject comingSoon, which pre-dates the Class 10 seed (16 IQ / 10 PYQ subjects).
   const isDynImpPyq = isDyn || DYNAMIC_IMP_PYQ_CLASSES.includes(dynClass);
   const dynSubjects = useClassSubjects(dynClass, isDynTests || isDynImpPyq);
-  const dynBy = (flag) => (dynSubjects || []).filter((s) => s[flag]).map((s) => toTile(s, { chapters: [] }));
+  // Senior classes: same stream filter as the Resources grid (and the server's
+  // assertSubjectAllowed), so a PCM student isn't offered Accountancy only to get a 403.
+  const streamOk = (name) => (dynClass >= 11 ? isAllowedSubject(name, dynClass, scope?.stream) : true);
+  const dynBy = (flag) => (dynSubjects || []).filter((s) => s[flag] && streamOk(s.name)).map((s) => toTile(s, { chapters: [] }));
   const impSubjects = isDynImpPyq ? dynBy('importantQuestions') : impSubjectsForClass(selectedClass);
   const pyqSubjects = (isDynTests || isDynImpPyq) ? dynBy('pyq') : pyqSubjectsForClass(selectedClass);
   const mockSubjects = isDynTests ? dynBy('mock') : mockSubjectsForClass(selectedClass);
@@ -1097,7 +1104,9 @@ const PracticeScreen = () => {
   // its own subjects → chapters → tests → instruction → runner → result → review).
   // Class 10 joined once its testpapers were seeded (2026-10-29); before that it fell
   // through to the Class 11 offline banks below. 11/12 keep OnlineTestsScreen.
-  if (chOpen && [6, 7, 8, 9, 10].includes(classNum(selectedClass))) {
+  // Class 11 joined 2026-11-01: PCM copied from the legacy online_tests table into
+  // ot_tests (scripts/convertClass11LegacyOnlineTests.js), Biology + commerce from examin8.
+  if (chOpen && [6, 7, 8, 9, 10, 11].includes(classNum(selectedClass))) {
     return <OnlineTestScreen onExit={() => setChOpen(false)} />;
   }
   if (chOpen) {

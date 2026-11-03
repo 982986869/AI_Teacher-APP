@@ -27,6 +27,7 @@ import { getChapters } from '../api/resourcesApi';
 import { getPracticeAttempts, practiceAttemptKey } from '../utils/storage';
 import { useClassSubjects, toTile } from '../utils/classSubjects';
 import { useAuth } from '../context/AuthContext';
+import { isAllowedSubject } from '../utils/personalization';
 import { COLORS } from '../theme/designSystem';
 import PrimaryButton from '../components/brand/PrimaryButton';
 import OutlinedButton from '../components/brand/OutlinedButton';
@@ -81,7 +82,8 @@ const subjectSlugOf = (subj) => subj.slug || SUBJECT_SLUG_OVERRIDES[subj.name] |
 // Class 10 has no gradable MCQs yet (its practice bank has no answer keys — see
 // docs/KNOWN-ISSUE-class10-chapter-practice.md), so the DB list is empty and the
 // screen says so.
-const DYNAMIC_CLASSES = [6, 9, 10];
+// Class 11 joined 2026-11-01 (examin8 batch 24889: ~15 more subjects with practice).
+const DYNAMIC_CLASSES = [6, 9, 10, 11];
 
 // Per-class subject lists (mirror McqPracticeScreen).
 const S = (name, emoji) => ({ name, emoji });
@@ -102,13 +104,13 @@ const subjectsForClass = (cl) =>
   cl === 7 ? SUBJECTS_CLASS7 : cl === 8 ? SUBJECTS_CLASS8 : SUBJECTS_SENIOR;
 
 export default function PracticeTestsCards({ onBack, onStartChapter, onStartSubtopic }) {
-  const { selectedClass } = useAuth();
+  const { selectedClass, scope } = useAuth();
   const insets = useSafeAreaInsets();
   const classLevel = classNum(selectedClass) || 11;
   const isDyn = DYNAMIC_CLASSES.includes(classLevel);
   const dynSubs = useClassSubjects(classLevel, isDyn);
   const subjects = isDyn
-    ? (dynSubs || []).filter((x) => x.practice).map((x) => toTile(x))
+    ? (dynSubs || []).filter((x) => x.practice && (classLevel >= 11 ? isAllowedSubject(x.name, classLevel, scope?.stream) : true)).map((x) => toTile(x))
     : subjectsForClass(classLevel).filter((x) => !(classLevel === 12 && x.name === 'Biology'));
 
   const [subject, setSubject] = useState(null);
@@ -122,7 +124,7 @@ export default function PracticeTestsCards({ onBack, onStartChapter, onStartSubt
 
   // A subject uses the DB chapter list (else the static MCQ bank).
   const usesApiChapters = (subj) =>
-    [6, 7, 8, 9, 10].includes(classLevel) ||
+    [6, 7, 8, 9, 10, 11].includes(classLevel) ||
     (classLevel === 12 && ['Physics', 'Chemistry', 'Mathematics'].includes(subj.name));
 
   useEffect(() => {

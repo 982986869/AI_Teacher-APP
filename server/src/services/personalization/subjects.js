@@ -15,6 +15,7 @@ const STREAMS = {
 }
 // senior class with no stream chosen yet → show the science union (safe default)
 const SENIOR_DEFAULT = ['Physics', 'Chemistry', 'Mathematics', 'Biology']
+const STREAM_CORE = new Set(Object.values(STREAMS).flat().map((s) => s.toLowerCase()))
 
 function normalizeStream(s) {
   if (!s) return null
@@ -40,7 +41,12 @@ function isAllowedSubject(subject, classNum, stream) {
   if (!classNum) return true // unknown class → don't block (migration pending)
   if (!subject) return true
   const allowed = subjectsFor(classNum, stream).map((s) => s.toLowerCase())
-  return allowed.includes(String(subject).trim().toLowerCase())
+  const name = String(subject).trim().toLowerCase()
+  if (allowed.includes(name)) return true
+  // Class 11/12: a subject that is no stream's core subject (English Core, Computer
+  // Science, हिंदी कोर, Psychology…) is an elective every senior student may see.
+  // Other streams' core subjects (Physics for commerce, Accountancy for PCM) stay hidden.
+  return classNum >= 11 && !STREAM_CORE.has(name)
 }
 
 module.exports = { subjectsFor, isAllowedSubject, normalizeStream, STREAMS }

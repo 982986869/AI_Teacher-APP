@@ -846,11 +846,12 @@ const baseResourceTypes = (subjectName, classLevel, parts = null) => {
   // Class 9 — new-syllabus books aren't "NCERT", so ALL subjects show the textbook
   // tile as "Textbook Solutions" (part=2) + Revision Notes (part=4). DB-backed via
   // ncert2; empty tiles just show nothing (handled by the chapter-list fetch).
-  if (classLevel === 'Class 9') {
+  if (classLevel === 'Class 9' || (classLevel === 'Class 11' && parts && parts.length)) {
     // `parts` = [{ part, label }] from the class-subjects endpoint (DB-derived; each
     // textbook book carries its own label). No hardcoded per-subject part lists.
-    const ICON = { 3: '🧩', 4: '📝' }; // Exemplar / Notes; NCERT books default 📗
-    const SUB = { 3: 'Exemplar Solutions', 4: 'Chapter Notes' };
+    // 13–16 = Class 11 PDF resources (scripts/seedClass11Papers.js).
+    const ICON = { 3: '🧩', 4: '📝', 13: '📄', 14: '🗒️', 15: '🔍', 16: '📜' }; // NCERT books default 📗
+    const SUB = { 3: 'Exemplar Solutions', 4: 'Chapter Notes', 13: 'Question paper + solutions', 14: 'Chapter-wise test papers', 15: 'Chapter-wise case studies', 16: 'Previous year papers' };
     if (parts && parts.length) {
       return parts
         .filter((p) => p && p.label)
@@ -1503,7 +1504,9 @@ const ResourcesScreen = () => {
   // Class 6 & 9 subject lists are DB-driven: subjects that have any ncert_solutions
   // content (parts), each carrying its parts for getResourceTypes.
   const resClassNum = parseInt(String(activeClass || '').replace(/\D/g, ''), 10) || null;
-  const isDynRes = [6, 9].includes(resClassNum);
+  // Class 11 joined 2026-11-01 (examin8 seed: every subject's NCERT books, Exemplar
+  // and Revision Notes live in ncert_solutions with a part_label per book).
+  const isDynRes = [6, 9, 11].includes(resClassNum);
   const dynRes = useClassSubjects(resClassNum, isDynRes);
   // Resources tab shows textbook/notes parts only; Important Questions (5) + PYQ (8)
   // live in the Practice tab. `parts` are { part, label } objects from the API.
@@ -1517,6 +1520,7 @@ const ResourcesScreen = () => {
   // already filtered out above and appear in the Practice tab instead.
   const class9SubjectTiles = dynResTiles;
   const class6SubjectTiles = dynResTiles;
+  const class11SubjectTiles = dynResTiles;
   // Numeric grade parsed from 'Class 12' → 12 for the ?class= API param. No fallback:
   // the backend uses the student's saved class regardless of what we send.
   const classNum = parseInt(String(activeClass || '').replace(/\D/g, ''), 10) || null;
@@ -2544,7 +2548,7 @@ const ResourcesScreen = () => {
           </View>
           <ScrollView ref={scrollRef} contentContainerStyle={{ padding: 16, paddingBottom: 32 }}>
             <View style={dk.subjectGrid}>
-              {(activeClass === 'Class 6' ? class6SubjectTiles : activeClass === 'Class 7' ? SUBJECTS_CLASS7 : activeClass === 'Class 8' ? SUBJECTS_CLASS8 : activeClass === 'Class 9' ? class9SubjectTiles : activeClass === 'Class 10' ? ((Array.isArray(c10Subjects) && c10Subjects.length) ? class10Grid : SUBJECTS_CLASS10) : SUBJECTS)
+              {(activeClass === 'Class 6' ? class6SubjectTiles : activeClass === 'Class 7' ? SUBJECTS_CLASS7 : activeClass === 'Class 8' ? SUBJECTS_CLASS8 : activeClass === 'Class 9' ? class9SubjectTiles : activeClass === 'Class 11' ? class11SubjectTiles : activeClass === 'Class 10' ? ((Array.isArray(c10Subjects) && c10Subjects.length) ? class10Grid : SUBJECTS_CLASS10) : SUBJECTS)
                 .filter((subject) => !(activeClass === 'Class 12' && subject.name === 'Biology'))
                 // Stream filter (hide Biology from PCM etc.) only applies to senior classes
                 // (11/12). Junior lists (e.g. Class 6's "Maths (OLD)", "English (Poorvi)")
