@@ -46,11 +46,44 @@ function readJson(file) {
   return JSON.parse(fs.readFileSync(p, 'utf8'))
 }
 
+// Which database to seed. DATABASE_URL in the environment wins, so the same import
+// can target production (or any other host) without editing a file:
+//   DATABASE_URL='postgres://…' node scripts/examin8/importClass10RevisionNotes.js --live
+// It falls back to server/.env, which is the local Docker container in development.
+// Reading only that file is what silently confined an earlier run to local Postgres.
 function getDbUrl() {
-  let u = fs.readFileSync(path.join(ROOT, 'server', '.env'), 'utf8')
-    .match(/^DATABASE_URL=(.*)$/m)[1].trim().replace(/^["']|["']$/g, '')
+  let u = (process.env.DATABASE_URL || '').trim().replace(/^["']|["']$/g, '')
+  if (!u) {
+    const envPath = path.join(ROOT, 'server', '.env')
+    if (!fs.existsSync(envPath)) {
+      throw new Error('No database: set DATABASE_URL, or create server/.env with DATABASE_URL=…')
+    }
+    const m = fs.readFileSync(envPath, 'utf8').match(/^DATABASE_URL=(.*)$/m)
+    if (!m) throw new Error('server/.env has no DATABASE_URL — set DATABASE_URL in the environment instead.')
+    u = m[1].trim().replace(/^["']|["']$/g, '')
+  }
   try { const x = new URL(u); x.searchParams.delete('sslmode'); u = x.toString() } catch (_) {}
   return u
+}
+
+// Local Postgres (the Docker container this project moved to on 2026-10-29) is not
+// built with SSL, so a hardcoded ssl option fails every connect with
+// "The server does not support SSL connections". Remote hosts (Supabase/AWS) still
+// require it, so decide from the host instead of dropping it everywhere.
+function dbSsl() {
+  try {
+    const h = new URL(getDbUrl()).hostname
+    if (h === 'localhost' || h === '127.0.0.1' || h === '::1') return false
+  } catch (_) { /* fall through to the safe default */ }
+  return { rejectUnauthorized: false }
+}
+
+// host:port/database — never the password.
+function dbLabel() {
+  try {
+    const x = new URL(getDbUrl())
+    return x.hostname + (x.port ? ':' + x.port : '') + x.pathname
+  } catch (_) { return '(unparseable DATABASE_URL)' }
 }
 
 // One topic → one notes block. block.html = each card's text (verbatim HTML/math),
@@ -116,8 +149,9 @@ async function main() {
 
   if (VERIFY_ONLY) {
     const { Client } = require('pg')
-    const client = new Client({ connectionString: getDbUrl(), ssl: { rejectUnauthorized: false } })
+    const client = new Client({ connectionString: getDbUrl(), ssl: dbSsl() })
     await client.connect()
+    console.log('\n✓ Connected → ' + dbLabel())
     try { await runVerify(client, CLASS_LEVEL_DEFAULT) } finally { await client.end() }
     return
   }
@@ -130,8 +164,11 @@ async function main() {
   if (!LIVE) { console.log('\n[DRY] add --live to write to the DB.'); return }
 
   const { Client } = require('pg')
-  const client = new Client({ connectionString: getDbUrl(), ssl: { rejectUnauthorized: false } })
-  await client.connect(); console.log('\n✓ Connected.')
+  const client = new Client({ connectionString: getDbUrl(), ssl: dbSsl() })
+  await client.connect()
+  // Name the target. A run that says only "Connected" cannot be told apart from one
+  // that seeded the wrong database — which is how these notes reached local Docker only.
+  console.log('\n✓ Connected → ' + dbLabel())
 
   const stat = { chaptersScanned: 0, notesInserted: 0, notesUpdated: 0, topics: 0, cards: 0, skippedEmpty: 0, errors: [] }
   try {
