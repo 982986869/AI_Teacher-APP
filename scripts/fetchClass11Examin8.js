@@ -18,10 +18,13 @@ const fs = require('fs')
 const path = require('path')
 
 const ROOT = path.join(__dirname, '..')
-const OUT = path.join(ROOT, 'src', 'data', 'class11Examin8')
+// CLASS=9 → category 1217, cache src/data/class9Examin8 (default Class 11).
+const CLASS = process.env.CLASS || '11'
+const CLASS_CATS = { 6: 1445, 7: 1444, 9: 1217, 11: 1339 }
+const OUT = path.join(ROOT, 'src', 'data', `class${CLASS}Examin8`)
 const B = 'https://web.examin8.com/v1'
 const DELAY = 150
-const CLASS_CAT = 1339
+const CLASS_CAT = CLASS_CATS[CLASS]
 
 const env = fs.readFileSync(path.join(ROOT, 'server', '.env.examin8'), 'utf8')
 const COOKIE = process.env.EXAMIN8_COOKIE || env.match(/^EXAMIN8_COOKIE=(.*)$/m)[1].trim()
@@ -30,7 +33,7 @@ const ONLY = (process.env.ONLY || '').split(',').filter(Boolean)
 const KINDS = (process.env.KINDS || 'meta,notes,books,iq,pyq,online,mock').split(',')
 
 // PCMB first, then the rest in examin8 order.
-const PRIORITY = ['1340', '1356', '1371', '1388']
+const PRIORITY = CLASS === '11' ? ['1340', '1356', '1371', '1388'] : []
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 let nReq = 0, nCached = 0, nErr = 0

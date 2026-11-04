@@ -21,10 +21,14 @@ const fs = require('fs')
 const path = require('path')
 
 const ROOT = path.join(__dirname, '..')
-const OUT = path.join(ROOT, 'src', 'data', 'class11Papers')
+// CLASS=9 → Class 9 manifest + "className" (default Class 11).
+const CLASS = process.env.CLASS || '11'
+const OUT = path.join(ROOT, 'src', 'data', `class${CLASS}Papers`)
 const LIVE = process.argv.includes('--live')
-const CLASS_NAME = 'Class 11'
-const PART = { sample: [13, 'Sample Papers'], test: [14, 'Test Papers'], case: [15, 'Case Study Questions'], lyp: [16, 'Last Year Papers'] }
+const CLASS_NAME = `Class ${CLASS}`
+const PART = { sample: [13, 'Sample Papers'], test: [14, 'Test Papers'], case: [15, 'Case Study Questions'], lyp: [16, 'Last Year Papers'], syllabus: [17, 'Syllabus'] }
+// examin8 name → subjects.name where they differ (Class 6 old subjects).
+const DB_NAME = CLASS === '6' ? { 'Maths (OLD)': 'Old - Maths', 'Science (OLD)': 'Old - Science', 'Social (OLD)': 'Old - Social Sc', 'English (OLD)': 'Old - English', 'हिंदी (OLD)': 'Old - हिंदी' } : {}
 
 const esc = (s) => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 const keySlug = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'x'
@@ -43,11 +47,15 @@ function main() {
   const man = JSON.parse(fs.readFileSync(path.join(OUT, 'manifest.json'), 'utf8'))
   for (const res of Object.keys(man)) {
     const m = man[res]
-    const subject = m.subject
+    const subject = DB_NAME[m.subject] || m.subject
     // Sample papers: one "chapter" per paper.
     ;(m.sample || []).forEach((it, i) => {
       const h = pdfCard(it, i)
       if (h) add(subject, PART.sample[0], PART.sample[1], it.title || `Sample Paper ${i + 1}`, i, 'Sample Paper', h, 0)
+    })
+    ;(m.syllabus || []).forEach((it, i) => {
+      const h = pdfCard(it, i)
+      if (h) add(subject, PART.syllabus[0], PART.syllabus[1], it.title || `Syllabus ${i + 1}`, i, 'Syllabus', h, 0)
     })
     // Test papers + case studies: grouped by syllabus chapter.
     for (const kind of ['test', 'case']) {
@@ -99,7 +107,7 @@ function getDbUrl() {
   await c.connect()
   try {
     await c.query('BEGIN')
-    await c.query('delete from ncert_solutions where "className" = $1 and part = any($2)', [CLASS_NAME, [13, 14, 15, 16]])
+    await c.query('delete from ncert_solutions where "className" = $1 and part = any($2)', [CLASS_NAME, [13, 14, 15, 16, 17]])
     for (const r of data) {
       await c.query(
         `insert into ncert_solutions (id, part, subject, "className", chapter, "sectionKey", "sectionLabel", html, "chapterPos", position, part_label)

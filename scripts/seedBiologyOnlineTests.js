@@ -69,6 +69,10 @@ const DELAY = 130
 // queries ot_tests by it, so a different slug here would list the subject and show
 // no chapters. Devanagari names use the importer's hash slugs (u15xjuvc …).
 const BY_CLASS = {
+  // Only Old - Science: the other Class 7 subjects were seeded by seedClass7OnlineTests.js.
+  7: [
+    { name: 'Old - Science', slug: 'old-science', res: '1525' },
+  ],
   10: [
     { name: 'Mathematics',                     slug: 'mathematics',                     res: '1202' },
     { name: 'Science',                         slug: 'science',                         res: '1176' },
@@ -265,6 +269,8 @@ async function fetchSubject(s, cacheFile) {
   for (const cc of chapterCats) {
     const chId = cc.id
     const chName = normApos(cc.name || cc.text)
+    // --drop-deleted at fetch time too, so no attempt is recorded for a dropped chapter.
+    if (DROP_DELETED && /\bdeleted\b/i.test(chName)) continue
     // Reuse checkpoint if this chapter is already fully fetched (all questions answered).
     const cached = prevByChapter[chId]
     if (chapterComplete(cached)) {

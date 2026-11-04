@@ -20,9 +20,11 @@ const fs = require('fs')
 const path = require('path')
 
 const ROOT = path.join(__dirname, '..')
-const RAW = path.join(ROOT, 'src', 'data', 'class11Examin8')
-const OUT = path.join(ROOT, 'src', 'data', 'class11Papers')
-const PDF = path.join(ROOT, 'server', 'public', 'pdfs', 'class11')
+// CLASS=9 → Class 9 cache/manifest/PDF folder (default Class 11).
+const CLASS = process.env.CLASS || '11'
+const RAW = path.join(ROOT, 'src', 'data', `class${CLASS}Examin8`)
+const OUT = path.join(ROOT, 'src', 'data', `class${CLASS}Papers`)
+const PDF = path.join(ROOT, 'server', 'public', 'pdfs', `class${CLASS}`)
 const B = 'https://web.examin8.com/v1'
 const DELAY = 150
 const ONLY = (process.env.ONLY || '').split(',').filter(Boolean)
@@ -74,8 +76,8 @@ async function download(url, file) {
 
 const rel = (f) => (f ? path.relative(path.join(ROOT, 'server', 'public', 'pdfs'), f).replace(/\\/g, '/') : null)
 
-async function items(res, subject, kind, chapter) {
-  const url = `${B}/content/category/${chapter ? chapter.id : res}/type/${TYPE[kind]}/`
+async function items(res, subject, kind, chapter, type = TYPE[kind]) {
+  const url = `${B}/content/category/${chapter ? chapter.id : res}/type/${type}/`
   const j = await api(url)
   const list = [...(j.content || []), ...(j.content_paid || [])]
   const out = []
@@ -105,6 +107,17 @@ async function main() {
       test: (d.test_papers_item_free_count || 0) + (d.test_papers_item_paid_count || 0),
       case: (d.case_study_questions_item_free_count || 0) + (d.case_study_questions_item_paid_count || 0),
       lyp: (d.last_year_paper_item_free_count || 0) + (d.last_year_paper_item_paid_count || 0),
+      syllabus: (d.syllabus_item_free_count || 0) + (d.syllabus_item_paid_count || 0),
+    }
+    // The content type differs per subject (Class 9: new-syllabus "CBSE Worksheets"
+    // are type 11, Hindi/Sanskrit sample papers 23, last-year papers 24) — use the
+    // subject's own *_content_id, falling back to the Class 11 defaults.
+    const type = {
+      sample: d.sample_papers_content_id || TYPE.sample,
+      test: d.test_papers_content_id || TYPE.test,
+      case: d.case_study_questions_content_id || TYPE.case,
+      lyp: d.last_year_paper_content_id || TYPE.lyp,
+      syllabus: d.syllabus_content_id,
     }
     if (!KINDS.some((k) => want[k])) continue
     const name = s.name.trim()
@@ -114,10 +127,12 @@ async function main() {
       if (!want[kind]) continue
       try {
         if (kind === 'sample') {
-          const r = await items(res, name, 'sample', null)
+          const r = await items(res, name, 'sample', null, type.sample)
           manifest[res].sample = r.list
+        } else if (kind === 'syllabus') {
+          manifest[res].syllabus = (await items(res, name, 'syllabus', null, type.syllabus)).list
         } else if (kind === 'lyp') {
-          const j = await api(`${B}/content/category/${res}/type/3/`)
+          const j = await api(`${B}/content/category/${res}/type/${type.lyp}/`)
           const papers = []
           for (const p of (j.previous_year_papers || [])) {
             stats.items++
@@ -138,11 +153,11 @@ async function main() {
           }
           manifest[res].lyp = { html: papers, pdf: pdfs }
         } else {
-          const top = await api(`${B}/content/category/${res}/type/${TYPE[kind]}/`)
+          const top = await api(`${B}/content/category/${res}/type/${type[kind]}/`)
           const all = []
           for (const ch of (top.categories || [])) {
             if (/\(deleted\)/i.test(ch.name)) continue
-            const r = await items(res, name, kind, ch)
+            const r = await items(res, name, kind, ch, type[kind])
             all.push(...r.list)
           }
           manifest[res][kind] = all

@@ -112,14 +112,16 @@ async function listClassSubjects(classInput) {
   }
   const PART_LABEL = { 2: 'NCERT Solutions', 3: 'Exemplar Solutions', 4: 'Revision Notes', 5: 'Important Questions', 8: 'Previous Year Questions' }
   ns.forEach((r) => { const e = get(r.subject); e.parts.push({ part: Number(r.part), label: r.label || PART_LABEL[Number(r.part)] || `Part ${r.part}` }) })
-  sec.forEach((r) => { const e = get(r.name); e.slug = e.slug || r.slug; const t = r.types || []; if (t.includes('important_questions')) e.importantQuestions = true; if (t.includes('pyq')) e.pyq = true })
+  // Two subject rows can share a name (Class 7 Old - हिंदी: "old" holds the content, "old-hindi"
+  // only legacy 'practice' sections), so only a row with IQ/PYQ may supply the slug.
+  sec.forEach((r) => { const e = get(r.name); const t = r.types || []; if (t.includes('important_questions')) e.importantQuestions = true; if (t.includes('pyq')) e.pyq = true; if (t.includes('important_questions') || t.includes('pyq')) e.slug = e.slug || r.slug })
   mcq.forEach((r) => { const e = get(r.name); e.slug = e.slug || r.slug; e.practice = true })
   ot.forEach((r) => { const e = get(r.name); e.slug = e.slug || r.slug; e.online = true })
   mk.forEach((r) => { const e = get(r.name); e.mock = true })
   // Display order for resource tiles: NCERT books (2,6,7,9…) → Exemplar (3) →
   // Revision Notes (4) → Important Questions (5) → PYQ (8).
   // 13–16 = Class 11 PDF resources: Sample / Test Papers, Case Studies, Last Year Papers.
-  const RANK = { 2: 1, 6: 2, 7: 3, 9: 4, 10: 5, 11: 6, 12: 7, 3: 10, 4: 11, 5: 12, 8: 13, 13: 14, 14: 15, 15: 16, 16: 17 }
+  const RANK = { 2: 1, 6: 2, 7: 3, 9: 4, 10: 5, 11: 6, 12: 7, 3: 10, 4: 11, 5: 12, 8: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18 }
   return [...map.values()].map((e) => ({
     ...e,
     slug: e.slug || simpleSlug(e.name),
@@ -139,7 +141,8 @@ async function listChapters(subjectSlug, sectionType, classLevel = null) {
   let sql = `SELECT c.id, c.name, c.slug, c.position
                FROM chapters c JOIN subjects s ON s.id = c.subject_id
               WHERE s.slug = $1 AND ${classLevel == null ? 'c.class_level IS NULL' : `c.class_level = ${bind(classLevel)}`}
-                AND c.status = 'published' AND c.deleted_at IS NULL`
+                AND c.status = 'published' AND c.deleted_at IS NULL
+                AND c.name NOT ILIKE '%(deleted)%'` // chapters CBSE dropped, as examin8 labels them
   if (sectionType) sql += ` AND EXISTS (SELECT 1 FROM sections sec WHERE sec.chapter_id = c.id AND sec.type_key = ${bind(sectionType)})`
   sql += ` ORDER BY c.position ASC`
   const rows = await db.$queryRawUnsafe(sql, ...p)

@@ -16,6 +16,8 @@ async function listChaptersWithContent(subjectSlug, classLevel = 11) {
       subject_id: subject.id,
       class_level: classLevel,
       subtopics: { some: { mcq_questions: { some: {} } } },
+      // examin8 keeps chapters CBSE dropped, named "… (Deleted)"; students should not see them.
+      NOT: { name: { contains: '(deleted)', mode: 'insensitive' } },
     },
     orderBy: { position: 'asc' },
   })

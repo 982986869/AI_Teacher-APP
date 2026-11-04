@@ -196,8 +196,8 @@ function Header({ onBack, title }) {
 export default function OnlineTestScreen({ onExit = () => {} }) {
   const { selectedClass, scope } = useAuth();
   const classLevel = classNum(selectedClass) || 7;
-  // Class 6, 9 & 10 online-test subjects are DB-driven (online flag); other classes keep theirs.
-  const isDyn = [6, 9, 10, 11].includes(classLevel);
+  // Class 6, 7, 9 & 10 online-test subjects are DB-driven (online flag); other classes keep theirs.
+  const isDyn = [6, 7, 9, 10, 11].includes(classLevel);
   const dynSubs = useClassSubjects(classLevel, isDyn);
   // Senior classes: same stream filter as the Resources grid / server assertSubjectAllowed.
   const subjectList = isDyn

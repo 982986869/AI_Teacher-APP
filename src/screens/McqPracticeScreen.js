@@ -45,7 +45,7 @@ const SUBJECT_SLUG_OVERRIDES = { 'Old - हिंदी': 'old', 'Old - हि�
 const subjectSlug = (name) => SUBJECT_SLUG_OVERRIDES[name] || slugify(name);
 
 // Classes whose subject lists are DB-derived (/api/resources/class-subjects).
-const DYNAMIC_CLASSES = [6, 9];
+const DYNAMIC_CLASSES = [6, 7, 9];
 
 const C = {
   purple: '#0C8F88', purpleDeep: '#26215C', purpleLight: '#EEEDFE',
@@ -66,21 +66,6 @@ const SUBJECTS_CLASS6 = [
   { name: 'Science (OLD)', emoji: '🔬', bg: '#5AA84F' },
 ];
 
-// Class 7 MCQ Practice — all DB-backed (class_level=7). Names must slugify to the
-// same slugs the seed (scripts/seedClass7McqPractice.js) used.
-const SUBJECTS_CLASS7 = [
-  { name: 'Science (Curiosity)',                emoji: '🔬', bg: '#0F8A5F' },
-  { name: 'Social Science (Exploring Society)', emoji: '🌍', bg: '#B0306B' },
-  { name: 'हिंदी (मल्हार)',                      emoji: '📖', bg: '#D9822B' },
-  { name: 'English (Poorvi)',                   emoji: '✍️', bg: '#26215C' },
-  { name: 'Maths (Ganita Prakash)',             emoji: '📐', bg: '#0C8F88' },
-  { name: 'Old - Science',                      emoji: '⚗️', bg: '#5AA84F' },
-  { name: 'Reasoning & Mental Ability',         emoji: '🧠', bg: S.ink },
-  { name: 'Old - Maths',                        emoji: '➗', bg: '#0F6E56' },
-  { name: 'Old - Social Sc',                    emoji: '🏛️', bg: '#8A5A2B' },
-  { name: 'Old - हिंदी',                         emoji: '📚', bg: '#2F80ED' },
-  { name: 'Old - English',                      emoji: '📖', bg: '#7A6FD0' },
-];
 
 // Class 8 MCQ Practice — DB-backed (class_level=8). Names must slugify to the
 // slugs the seed (scripts/seedClass8McqPractice.js) used.
@@ -122,7 +107,6 @@ const SUBJECTS_CLASS9 = [
 
 const subjectsForClass = (classLevel) =>
   classLevel === 6 ? SUBJECTS_CLASS6
-    : classLevel === 7 ? SUBJECTS_CLASS7
     : classLevel === 8 ? SUBJECTS_CLASS8
     : classLevel === 9 ? SUBJECTS_CLASS9
     : SUBJECTS;

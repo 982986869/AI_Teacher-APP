@@ -18,21 +18,32 @@
 //   node scripts/seedClass11Examin8.js            # DRY report
 //   node scripts/seedClass11Examin8.js --live     # write
 //   ONLY=1340,1871 KINDS=notes,books,iq,pyq …
+//
+// CLASS=9 reads src/data/class9Examin8 and runs in GAP mode: Class 9 already holds
+// most of this content (with student progress), so only chapters that are missing
+// from the DB, or hold fewer questions than examin8, are (re)written. The DRY run
+// prints that per-chapter diff.
 // ───────────────────────────────────────────────────────────────────────────
 
 const fs = require('fs')
 const path = require('path')
 
 const ROOT = path.join(__dirname, '..')
-const RAW = path.join(ROOT, 'src', 'data', 'class11Examin8')
+const CLASS = process.env.CLASS || '11'
+const RAW = path.join(ROOT, 'src', 'data', `class${CLASS}Examin8`)
 const LIVE = process.argv.includes('--live')
-const CLASS_LEVEL = 11
-const CLASS_NAME = 'Class 11'
+const CLASS_LEVEL = Number(CLASS)
+const CLASS_NAME = `Class ${CLASS}`
+// REBUILD=1 → replace each listed part wholesale instead of GAP mode (Class 7 books, whose
+// rows lack MCQ options). Only safe with KINDS=books: other kinds delete question sections.
+const REBUILD = process.env.REBUILD === '1'
+const GAP = CLASS !== '11' && !REBUILD
 const NCERT_POOL = [2, 6, 7, 9, 10, 11, 12]
 const PCMB = ['1340', '1356', '1371', '1388']
 const ONLY = (process.env.ONLY || '').split(',').filter(Boolean)
 const KINDS = (process.env.KINDS || 'notes,books,iq,pyq').split(',')
-const SKIP = ['2539'] // "Other Subjects" — a container, not a subject
+if (REBUILD && KINDS.join() !== 'books') throw new Error('REBUILD=1 requires KINDS=books')
+const SKIP = ['2539', '2537', '2559'] // "Other Subjects" (Class 11 / Class 9 / Class 7) — a container, not a subject
 
 const trim = (s) => (s == null ? '' : String(s)).trim()
 const normApos = (s) => trim(s).replace(/[‘’]/g, "'").replace(/[“”]/g, '"')
@@ -210,6 +221,7 @@ async function main() {
     console.log(`${s.id.padStart(5)} ${s.name.padEnd(28)} IQ ${String(n(p.iq)).padStart(5)}  PYQ ${String(n(p.pyq)).padStart(4)}  ${partStr}`)
     plan.push(p)
   }
+  if (GAP) return seedGaps(plan)
   if (!LIVE) { console.log('\n[DRY] add --live to seed.'); return }
 
   const { Client } = require('pg')
@@ -289,6 +301,171 @@ async function main() {
       console.log(`✓ ${s.name}: ${s.parts.length} resource parts`)
     }
   } catch (e) { await client.query('ROLLBACK').catch(() => {}); throw e } finally { await client.end() }
+}
+
+// ── GAP mode ─────────────────────────────────────────────────────────────────
+// Unicode-aware (keySlug drops Devanagari entirely, so Hindi chapters would collide).
+const chKey = (s) => normApos(s).normalize('NFC').toLowerCase().replace(/[^\p{L}\p{N}\p{M}]+/gu, '-').replace(/^-|-$/g, '').replace(/^(chapter|ch)-?\d+-?/, '')
+const cardsIn = (html) => (String(html).match(/class="question-card"/g) || []).length
+const textKey = (h) => String(h || '').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase().slice(0, 80)
+const cardTexts = (html) => [...String(html).matchAll(/<div class="question-text">([\s\S]*?)<\/div>/g)].map((m) => textKey(m[1])).filter(Boolean)
+const isDeleted = (name) => /\(deleted\)/i.test(name)
+// examin8 renames chapters between syllabus updates ("Democracy in India" →
+// "Democracy"). A chapter with no name match is paired with the unmatched DB
+// chapter sharing the most question texts (≥ 40% of the smaller side).
+function pairByContent(wanted, dbOnly) {
+  const pairs = new Map()
+  for (const w of wanted) {
+    let best = null, bestScore = 0
+    for (const d of dbOnly) {
+      if ([...pairs.values()].includes(d)) continue
+      const hit = w.texts.filter((t) => d.texts.has(t)).length
+      const score = hit / Math.max(1, Math.min(w.texts.length, d.texts.size))
+      if (score > bestScore) { best = d; bestScore = score }
+    }
+    if (best && bestScore >= 0.4) pairs.set(w, best)
+  }
+  return pairs
+}
+
+async function insertQuestions(client, sectionId, questions) {
+  for (let i = 0; i < questions.length; i += 200) {
+    const chunk = questions.slice(i, i + 200)
+    const params = []; const tuples = []
+    chunk.forEach((q) => {
+      const b = params.length
+      tuples.push(`($${b + 1},$${b + 2},$${b + 3},$${b + 4},$${b + 5},$${b + 6},$${b + 7},$${b + 8},$${b + 9})`)
+      params.push(sectionId, q.q_number, q.year, q.question_html, q.is_mcq, q.options ? JSON.stringify(q.options) : null, q.correct_option, q.solution_html, q.position)
+    })
+    await client.query(`insert into questions (section_id, q_number, year, question_html, is_mcq, options, correct_option, solution_html, position) values ${tuples.join(',')}`, params)
+  }
+}
+
+// Which DB part an examin8 book/notes part corresponds to: same part_label, else
+// the unlabeled rows the team seeded (part 2 = the one NCERT book, 3 = Exemplar,
+// 4 = notes), else a free part number.
+function matchPart(p, dbParts, nNcert) {
+  const byLabel = dbParts.find((d) => d.label && normApos(d.label) === p.label)
+  if (byLabel) return { part: byLabel.part, label: byLabel.label }
+  const unl = (n) => dbParts.find((d) => d.part === n && !d.label)
+  if (p.part === 4 && (unl(4) || !dbParts.some((d) => d.part === 4))) return { part: 4, label: unl(4) ? null : p.label }
+  if (p.part === 3 && (unl(3) || !dbParts.some((d) => d.part === 3))) return { part: 3, label: unl(3) ? null : p.label }
+  if (p.part !== 3 && p.part !== 4 && nNcert === 1 && unl(2)) return { part: 2, label: null }
+  const used = new Set(dbParts.map((d) => d.part))
+  // "Class 09 > Social Science (…)" is examin8's breadcrumb, not a book name →
+  // leave it unlabeled so the tile reads "NCERT Solutions" like the team's rows.
+  const label = /^class\s*\d+\s*[->]/i.test(p.label) ? null : p.label
+  return { part: [p.part, ...NCERT_POOL].find((n) => !used.has(n) && n !== 3 && n !== 4), label, fresh: true }
+}
+
+async function seedGaps(plan) {
+  const { Client } = require('pg')
+  const client = new Client({ connectionString: getDbUrl() })
+  await client.connect()
+  const rawQuery = client.query.bind(client)
+  client.query = (sql, params) => rawQuery(sql, params && params.map((v) => (typeof v === 'string' ? v.replace(/\u0000/g, '').replace(/\\u0000/g, '') : v)))
+  let nWrites = 0
+  try {
+    await client.query('alter table ncert_solutions add column if not exists part_label text')
+    for (const s of plan) {
+      if (LIVE) await client.query('BEGIN')
+      const sub = (await client.query('select id from subjects where name = $1 order by id limit 1', [s.name])).rows[0]
+      console.log(`\n=== ${s.name}${sub ? '' : '  (NEW subject)'}`)
+
+      // ncert_solutions parts, compared chapter by chapter on question-card count.
+      const rows = (await client.query('select part, part_label, chapter, html from ncert_solutions where subject=$1 and "className"=$2', [s.name, CLASS_NAME])).rows
+      const dbParts = []
+      for (const r of rows) {
+        let d = dbParts.find((x) => x.part === r.part)
+        if (!d) dbParts.push(d = { part: r.part, label: r.part_label, chapters: new Map() })
+        const k = chKey(r.chapter)
+        if (!d.chapters.has(k)) d.chapters.set(k, { name: r.chapter, cards: 0, texts: new Set() })
+        const h = d.chapters.get(k)
+        h.cards += cardsIn(r.html); cardTexts(r.html).forEach((t) => h.texts.add(t))
+      }
+      const nNcert = s.parts.filter((p) => p.part !== 3 && p.part !== 4).length
+      for (const p of s.parts) {
+        const m = matchPart(p, dbParts, nNcert)
+        const have = (dbParts.find((d) => d.part === m.part) || { chapters: new Map() }).chapters
+        const items = p.chapters.filter((c) => !isDeleted(c.chapter)).map((c, ci) => ({
+          c, ci, h: have.get(chKey(c.chapter)), want: c.sections.reduce((a, x) => a + cardsIn(x.html), 0),
+          texts: c.sections.flatMap((x) => cardTexts(x.html)),
+        }))
+        const matched = new Set(items.map((i) => i.h).filter(Boolean))
+        for (const [i, d] of pairByContent(items.filter((i) => !i.h), [...have.values()].filter((h) => !matched.has(h)))) { i.h = d; i.renamed = true; matched.add(d) }
+        const todo = items.filter((i) => !i.h || i.h.cards < i.want || i.renamed)
+        const extra = [...have.values()].filter((h) => !matched.has(h))
+        console.log(`  part ${m.part} "${m.label || p.label}"${m.fresh ? ' (new tile)' : ''}: ${items.length} ch on examin8, ${have.size} in DB → ${todo.length ? todo.map((t) => (t.renamed ? `"${t.h.name}" renamed → ` : '') + `${t.c.chapter} ${t.h ? t.h.cards : 0}→${t.want}`).join('; ') : 'up to date'}`)
+        if (extra.length) console.log(`     DB-only chapters kept: ${extra.map((h) => h.name).join('; ')}`)
+        if (!LIVE || !todo.length) continue
+        for (const { c, ci, h, want } of todo) {
+          if (h && h.cards >= want) { // renamed only
+            await client.query('update ncert_solutions set chapter=$1 where part=$2 and subject=$3 and "className"=$4 and chapter=$5', [c.chapter, m.part, s.name, CLASS_NAME, h.name])
+            continue
+          }
+          if (h) await client.query('delete from ncert_solutions where part=$1 and subject=$2 and "className"=$3 and chapter=$4', [m.part, s.name, CLASS_NAME, h.name])
+          let si = 0
+          for (const sec of c.sections) {
+            await client.query(
+              `insert into ncert_solutions (id, part, subject, "className", chapter, "sectionKey", "sectionLabel", html, "chapterPos", position, part_label)
+               values (gen_random_uuid(),$1,$2,$3,$4,$5,$6,$7,$8,$9,$10)`,
+              [m.part, s.name, CLASS_NAME, c.chapter, keySlug(sec.label) + '-' + si, sec.label, sec.html, ci, si, m.label])
+            si++; nWrites++
+          }
+        }
+        // Keep examin8's chapter order across old and newly added chapters
+        // (DB-only chapters go after them).
+        for (const { c, ci, h } of items) {
+          await client.query('update ncert_solutions set "chapterPos"=$1 where part=$2 and subject=$3 and "className"=$4 and chapter=$5', [ci, m.part, s.name, CLASS_NAME, todo.some((t) => t.c === c) || !h ? c.chapter : h.name])
+        }
+        for (const [k, h] of extra.entries()) {
+          await client.query('update ncert_solutions set "chapterPos"=$1 where part=$2 and subject=$3 and "className"=$4 and chapter=$5', [items.length + k, m.part, s.name, CLASS_NAME, h.name])
+        }
+      }
+
+      // Important Questions / PYQ, chapter by chapter. Only a chapter with fewer
+      // questions than examin8 is rewritten (its question_progress goes with it).
+      let subjectId = sub && sub.id
+      for (const [kind, typeKey, pos] of [['iq', 'important_questions', 6], ['pyq', 'pyq', 8]]) {
+        const bank = s[kind].filter((c) => !isDeleted(c.chapter))
+        if (!bank.length) continue
+        const dbCh = subjectId ? (await client.query(
+          `select c.id, c.name, c.slug, count(q.id)::int n, coalesce(array_agg(q.question_html) filter (where q.id is not null), '{}') qs from chapters c
+           left join sections sec on sec.chapter_id=c.id and sec.type_key=$3 left join questions q on q.section_id=sec.id
+           where c.subject_id=$1 and c.class_level=$2 and c.deleted_at is null group by 1,2,3`, [subjectId, CLASS_LEVEL, typeKey])).rows : []
+        dbCh.forEach((d) => { d.texts = new Set(d.qs.map(textKey)) })
+        const items = bank.map((c) => ({
+          c, h: dbCh.find((d) => d.slug === slugify(c.chapter) || chKey(d.name) === chKey(c.chapter)),
+          texts: c.questions.map((q) => textKey(q.question_html)),
+        }))
+        const matched = new Set(items.map((i) => i.h).filter(Boolean))
+        for (const [i, d] of pairByContent(items.filter((i) => !i.h), dbCh.filter((d) => d.n && !matched.has(d)))) { i.h = d; i.renamed = true }
+        const todo = items.filter((i) => !i.h || i.h.n < i.c.questions.length || i.renamed)
+        const have = dbCh.reduce((a, d) => a + d.n, 0), want = bank.reduce((a, c) => a + c.questions.length, 0)
+        console.log(`  ${typeKey}: examin8 ${bank.length} ch/${want} q, DB ${have} q → ${todo.length ? todo.map((t) => (t.renamed ? `"${t.h.name}" renamed → ` : '') + `${t.c.chapter} ${t.h ? t.h.n : 0}→${t.c.questions.length}`).join('; ') : 'up to date'}`)
+        if (!LIVE || !todo.length) continue
+        if (!subjectId) {
+          subjectId = (await client.query('insert into subjects (name, slug) values ($1,$2) on conflict (slug) do update set name = subjects.name returning id', [s.name, slugify(s.name)])).rows[0].id
+        }
+        for (const { c, h, renamed } of todo) {
+          if (renamed) await client.query('update chapters set name=$1, slug=$2 where id=$3', [c.chapter, slugify(c.chapter), h.id])
+          if (h && h.n >= c.questions.length) continue // renamed only
+          const chapterId = h ? h.id : (await client.query(
+            `insert into chapters (subject_id, name, slug, class_level, position) values ($1,$2,$3,$4,$5)
+             on conflict (subject_id, class_level, slug) do update set name = excluded.name returning id`,
+            [subjectId, c.chapter, slugify(c.chapter), CLASS_LEVEL, c.pos])).rows[0].id
+          const sectionId = (await client.query(
+            `insert into sections (chapter_id, type_key, position) values ($1,$2,$3) on conflict (chapter_id, type_key) do update set position = excluded.position returning id`,
+            [chapterId, typeKey, pos])).rows[0].id
+          await client.query('delete from questions where section_id=$1', [sectionId])
+          await insertQuestions(client, sectionId, c.questions)
+          nWrites += c.questions.length
+        }
+      }
+      if (LIVE) await client.query('COMMIT')
+    }
+  } catch (e) { if (LIVE) await client.query('ROLLBACK').catch(() => {}); throw e } finally { await client.end() }
+  console.log(LIVE ? `\n✓ GAP seed done (${nWrites} rows written).` : '\n[DRY] add --live to seed the gaps above.')
 }
 
 main().catch((e) => { console.error('FAILED:', e.message); process.exit(1) })

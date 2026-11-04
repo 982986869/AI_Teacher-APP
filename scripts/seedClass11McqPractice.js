@@ -46,9 +46,10 @@ const CSRF = process.env.EXAMIN8_CSRF || e8File.EXAMIN8_CSRF
 const LIVE = process.argv.includes('--live')
 const SEED_ONLY = process.argv.includes('--seed') // skip fetching; seed from existing checkpoints
 const B = 'https://web.examin8.com/v1'
-const CLASS_LEVEL = 11
+// CLASS=9 → the Class 9 gap subjects below (2026-11-03, owner OK'd recording attempts).
+const CLASS_LEVEL = Number(process.env.CLASS || 11)
 const DELAY = 130
-const CACHE = path.join(ROOT, 'src', 'data', 'class11Practice')
+const CACHE = path.join(ROOT, 'src', 'data', `class${CLASS_LEVEL}Practice`)
 
 // `res` = examin8 subject category id (data/examin8/class10/normalized/chapters.json),
 // used by /practice/topics-q-attempt-data/:res/. `slug` = the subjects.slug already in
@@ -82,7 +83,15 @@ const OTHER_SUBJECTS = [
   { name: "Informatics Practices", slug: "informatics-practices", res: '1874' },
   { name: "हिंदी ऐच्छिक", slug: "u5i9tw1", res: '1868' },
 ]
-const SUBJECTS = PCMB ? PCMB_SUBJECTS : OTHER_SUBJECTS
+// Class 9 subjects whose examin8 practice bank the DB lacked (or held only part of)
+// on 2026-11-03. Slugs = the subjects rows the Class 9 gap seed already created.
+const CLASS9_SUBJECTS = [
+  { name: 'Old - Maths', slug: 'old-maths', res: '1234' },
+  { name: 'गणित', slug: 'uzmczai', res: '10218' },
+  { name: 'Reasoning & Mental Ability', slug: 'reasoning-mental-ability', res: '10019' },
+  { name: 'Artificial Intelligence (417)', slug: 'artificial-intelligence-417', res: '23199' },
+]
+const SUBJECTS = CLASS_LEVEL === 9 ? CLASS9_SUBJECTS : PCMB ? PCMB_SUBJECTS : OTHER_SUBJECTS
 
 async function loadKnownAnswers() {
   const { Client } = require('pg')
@@ -94,7 +103,7 @@ async function loadKnownAnswers() {
          join subtopics st on st.id = m.subtopic_id join chapters c on c.id = st.chapter_id
          join subjects su on su.id = c.subject_id
         where c.class_level = $1 and su.slug = any($2) and m.source_id is not null and m.correct_option_id is not null`,
-      [CLASS_LEVEL, PCMB_SUBJECTS.map((s) => s.slug)])
+      [CLASS_LEVEL, SUBJECTS.map((s) => s.slug)])
     for (const row of r.rows) KNOWN.set(Number(row.source_id), { correctOptionId: Number(row.correct_option_id), explanation: row.explanation_html || '' })
   } finally { await client.end() }
   console.log(`  reusing ${KNOWN.size} answers already in the DB`)
@@ -388,7 +397,7 @@ async function main() {
     }
   } else {
     if (!COOKIE || !CSRF) { console.error('Set EXAMIN8_COOKIE and EXAMIN8_CSRF.'); process.exit(1) }
-    if (PCMB) await loadKnownAnswers()
+    if (PCMB || CLASS_LEVEL === 9) await loadKnownAnswers()
     for (const s of subjects) {
       console.log(`\n=== ${s.name} (res ${s.res}) ===`)
       const f = path.join(CACHE, s.slug + '.json')
