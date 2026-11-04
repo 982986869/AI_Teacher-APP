@@ -601,19 +601,46 @@ const SUBJECTS_CLASS7 = [
 
 // Class 8 mirrors Class 7: NCERT Solutions (part 2) + Revision Notes (part 4),
 // seeded into ncert_solutions under className='Class 8'. Chapter lists are DB-driven.
+// Class 12 — the subjects examin8 lists for this class, in its order.
+//
+// Class 11 and 12 used to share one four-subject SUBJECTS list (Physics, Chemistry,
+// Maths, Biology) with Biology filtered back out for Class 12, so a Class 12 student
+// saw three. Everything else the batch offers — the commerce group, the languages,
+// Applied Maths, Computer Science, Entrepreneurship — had no tile at all.
+//
+// Class 12 now has its own list, which leaves Class 11's untouched.
+const SUBJECTS_CLASS12 = [
+  { name: 'Physics',               emoji: '⚛️', bg: S.ink,    chapters: [] },
+  { name: 'Chemistry',             emoji: '🧪', bg: '#0F8A5F', chapters: [] },
+  { name: 'Biology',               emoji: '🧬', bg: '#5AA84F', chapters: [] },
+  { name: 'Mathematics',           emoji: '📐', bg: '#E8703A', chapters: [] },
+  { name: 'Accountancy',           emoji: '📒', bg: '#8A5A2B', chapters: [] },
+  { name: 'Economics',             emoji: '📊', bg: '#2F80ED', chapters: [] },
+  { name: 'Applied Maths',         emoji: '🧮', bg: '#0C8F88', chapters: [] },
+  { name: 'Business Studies',      emoji: '💼', bg: '#0F6E56', chapters: [] },
+  { name: 'English Core',          emoji: '📖', bg: '#7A6FD0', chapters: [] },
+  { name: 'हिंदी कोर',              emoji: '📚', bg: '#2F80ED', chapters: [] },
+  { name: 'Entrepreneurship',      emoji: '🚀', bg: '#B0306B', chapters: [] },
+  { name: 'Computer Science',      emoji: '💻', bg: S.ink,    chapters: [] },
+];
+
+// Class 8 — exactly the six subjects examin8 lists for this class, in its order.
+//
+// The list used to carry five more: Old - Science, Old - English, Old - Social Sc,
+// Old - हिंदी and Old - Maths. Those are the pre-rationalisation books, and the
+// source batch no longer offers them at this class, so a student saw subjects their
+// syllabus does not contain — and two ways to reach Hindi, one of which held the
+// older book. All Hindi now lives under हिंदी (मल्हार).
+//
+// Their content is NOT deleted; it is simply not listed here. The DB keeps it, so
+// restoring a subject is a one-line change rather than a re-import.
 const SUBJECTS_CLASS8 = [
-  { name: 'Science (Curiosity)',                emoji: '🔬', bg: '#5AA84F', chapters: [] },
-  { name: 'Social Science (Exploring Society)', emoji: '🌐', bg: '#2F80ED', chapters: [] },
-  { name: 'हिंदी (मल्हार)',                     emoji: '📚', bg: '#2F80ED', chapters: [] },
-  { name: 'English (Poorvi)',                   emoji: '📖', bg: '#7A6FD0', chapters: [] },
-  { name: 'Maths (Ganita Prakash)',             emoji: '📐', bg: '#E8703A', chapters: [] },
-  { name: 'Old - Science',                      emoji: '🔬', bg: '#5AA84F', chapters: [] },
-  // IQ-only (no NCERT/flash) — keep the "coming soon" empty state in Resources.
   { name: 'Reasoning & Mental Ability',         emoji: '🧠', bg: '#E8703A', chapters: [], comingSoon: true },
-  { name: 'Old - English',                      emoji: '📖', bg: '#7A6FD0', chapters: [] },
-  { name: 'Old - Social Sc',                    emoji: '🌐', bg: '#2F80ED', chapters: [] },
-  { name: 'Old - हिंदी',                        emoji: '📚', bg: '#2F80ED', chapters: [] },
-  { name: 'Old - Maths',                        emoji: '📐', bg: '#E8703A', chapters: [] },
+  { name: 'Maths (Ganita Prakash)',             emoji: '📐', bg: '#E8703A', chapters: [] },
+  { name: 'Science (Curiosity)',                emoji: '🔬', bg: '#5AA84F', chapters: [] },
+  { name: 'English (Poorvi)',                   emoji: '📖', bg: '#7A6FD0', chapters: [] },
+  { name: 'हिंदी (मल्हार)',                     emoji: '📚', bg: '#2F80ED', chapters: [] },
+  { name: 'Social Science (Exploring Society)', emoji: '🌐', bg: '#2F80ED', chapters: [] },
 ];
 
 // Class 9 — the full 19-subject batch list (order mirrors examin8). The four NEW
@@ -2544,12 +2571,14 @@ const ResourcesScreen = () => {
           </View>
           <ScrollView ref={scrollRef} contentContainerStyle={{ padding: 16, paddingBottom: 32 }}>
             <View style={dk.subjectGrid}>
-              {(activeClass === 'Class 6' ? class6SubjectTiles : activeClass === 'Class 7' ? SUBJECTS_CLASS7 : activeClass === 'Class 8' ? SUBJECTS_CLASS8 : activeClass === 'Class 9' ? class9SubjectTiles : activeClass === 'Class 10' ? ((Array.isArray(c10Subjects) && c10Subjects.length) ? class10Grid : SUBJECTS_CLASS10) : SUBJECTS)
-                .filter((subject) => !(activeClass === 'Class 12' && subject.name === 'Biology'))
-                // Stream filter (hide Biology from PCM etc.) only applies to senior classes
-                // (11/12). Junior lists (e.g. Class 6's "Maths (OLD)", "English (Poorvi)")
-                // are already curated, so don't run them through the subject-name check.
-                .filter((subject) => (classNum >= 11 ? isAllowedSubject(subject.name, classNum, scope.stream) : true))
+              {(activeClass === 'Class 6' ? class6SubjectTiles : activeClass === 'Class 7' ? SUBJECTS_CLASS7 : activeClass === 'Class 8' ? SUBJECTS_CLASS8 : activeClass === 'Class 9' ? class9SubjectTiles : activeClass === 'Class 10' ? ((Array.isArray(c10Subjects) && c10Subjects.length) ? class10Grid : SUBJECTS_CLASS10) : activeClass === 'Class 12' ? SUBJECTS_CLASS12 : SUBJECTS)
+                // Stream filter (hide Biology from PCM etc.) applies to Class 11 only.
+                // Junior lists are already curated, and Class 12's list is now the batch's
+                // own subject list — running it through a four-name stream map would hide
+                // the commerce group, both languages and Computer Science, which is what
+                // made them invisible before. The BACKEND still enforces what a student
+                // may open, so this widens what is listed, not what is permitted.
+                .filter((subject) => (classNum === 11 ? isAllowedSubject(subject.name, classNum, scope.stream) : true))
                 .map((subject, i) => (
                   <SubjectCard
                     key={i}
