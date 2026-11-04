@@ -69,6 +69,10 @@ const DELAY = 130
 // queries ot_tests by it, so a different slug here would list the subject and show
 // no chapters. Devanagari names use the importer's hash slugs (u15xjuvc …).
 const BY_CLASS = {
+  // Only Old - Science: the other Class 7 subjects were seeded by seedClass7OnlineTests.js.
+  7: [
+    { name: 'Old - Science', slug: 'old-science', res: '1525' },
+  ],
   10: [
     { name: 'Mathematics',                     slug: 'mathematics',                     res: '1202' },
     { name: 'Science',                         slug: 'science',                         res: '1176' },
@@ -87,7 +91,17 @@ const BY_CLASS = {
     { name: 'सामाजिक विज्ञान',                   slug: 'us1q786',                         res: '2969' },
     { name: 'संस्कृत (शेमुषी)',                   slug: 'ujggs40',                         res: '4538' },
   ],
-  11: [{ name: 'Biology', slug: 'biology', res: '1388' }],
+  // Accountancy/Economics/Business Studies added 2026-11-01 (batch 24889); slugs match
+  // the subjects rows written by scripts/seedClass11Examin8.js.
+  11: [
+    { name: 'Physics',          slug: 'physics',          res: '1340' },
+    { name: 'Chemistry',        slug: 'chemistry',        res: '1356' },
+    { name: 'Mathematics',      slug: 'mathematics',      res: '1371' },
+    { name: 'Biology',          slug: 'biology',          res: '1388' },
+    { name: 'Accountancy',      slug: 'accountancy',      res: '1411' },
+    { name: 'Economics',        slug: 'economics',        res: '1423' },
+    { name: 'Business Studies', slug: 'business-studies', res: '1740' },
+  ],
 }
 
 const SUBJECTS = BY_CLASS[CLASS_LEVEL]
@@ -255,6 +269,8 @@ async function fetchSubject(s, cacheFile) {
   for (const cc of chapterCats) {
     const chId = cc.id
     const chName = normApos(cc.name || cc.text)
+    // --drop-deleted at fetch time too, so no attempt is recorded for a dropped chapter.
+    if (DROP_DELETED && /\bdeleted\b/i.test(chName)) continue
     // Reuse checkpoint if this chapter is already fully fetched (all questions answered).
     const cached = prevByChapter[chId]
     if (chapterComplete(cached)) {

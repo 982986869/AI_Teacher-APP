@@ -577,27 +577,6 @@ const SUBJECTS_CLASS6 = [
   { name: 'Maths (Ganita Prakash)', emoji: '📐', bg: '#E8703A', chapters: CLASS6_GANITA_CHAPTERS },
 ];
 
-// Class 7 (CBSE) subjects — new-syllabus books (Curiosity / Ganita Prakash /
-// Poorvi / Malhar / Exploring Society) plus the OLD NCERT books and Reasoning.
-// Content isn't seeded yet, so every entry is `comingSoon: true`: the list shows
-// so the syllabus is visible, but tapping any subject lands on the ComingSoon
-// state (in both the Resources and Practice tabs).
-const SUBJECTS_CLASS7 = [
-  // Seeded (className='Class 7'): NCERT Solutions (part 2) + Revision Notes (part 4);
-  // Science (Curiosity) also has Important Questions (part 5). Chapter lists are DB-driven.
-  { name: 'Science (Curiosity)',              emoji: '🔬', bg: '#5AA84F', chapters: [] },
-  { name: 'Social Science (Exploring Society)', emoji: '🌐', bg: '#2F80ED', chapters: [] },
-  { name: 'हिंदी (मल्हार)',                     emoji: '📚', bg: '#2F80ED', chapters: [] },
-  { name: 'English (Poorvi)',                 emoji: '📖', bg: '#7A6FD0', chapters: [] },
-  { name: 'Maths (Ganita Prakash)',           emoji: '📐', bg: '#E8703A', chapters: [] },
-  { name: 'Old - Science',                    emoji: '🔬', bg: '#5AA84F', chapters: [] },
-  // Not seeded yet — keep the "coming soon" empty state.
-  { name: 'Reasoning & Mental Ability',       emoji: '🧠', bg: '#E8703A', chapters: [], comingSoon: true },
-  { name: 'Old - English',                    emoji: '📖', bg: '#7A6FD0', chapters: [] },
-  { name: 'Old - Social Sc',                  emoji: '🌐', bg: '#2F80ED', chapters: [] },
-  { name: 'Old - हिंदी',                       emoji: '📚', bg: '#2F80ED', chapters: [] },
-  { name: 'Old - Maths',                      emoji: '📐', bg: '#E8703A', chapters: [] },
-];
 
 // Class 8 mirrors Class 7: NCERT Solutions (part 2) + Revision Notes (part 4),
 // seeded into ncert_solutions under className='Class 8'. Chapter lists are DB-driven.
@@ -842,42 +821,15 @@ const baseResourceTypes = (subjectName, classLevel, parts = null) => {
     }
     return c10;
   }
-  // Class 7 — all subjects are DB-backed via ncert_solutions: NCERT Solutions
-  // (part=2, textbook sections) + Revision Notes (part=4, flash cards). Both use the
-  // ncert2 WebView flow; each chapter list is fetched from the DB for its own part.
-  if (classLevel === 'Class 7') {
-    // Old - English is the two OLD NCERT books, seeded into ncert_solutions under the
-    // SAME subject but distinct `part`s so each is its own tile: Honeycomb=part 2,
-    // An Alien Hand=part 6. (Last Year Papers pending — see seed notes.)
-    if (subjectName === 'Old - English') {
-      return [
-        { icon: '📗', name: 'NCERT Solutions - An Alien Hand (OLD BOOK)', sub: 'Textbook Solutions', type: 'ncert2', part: 6 },
-        { icon: '📗', name: 'NCERT Solutions - Honeycomb (OLD BOOK)',     sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
-      ];
-    }
-    // Old - हिंदी: two old books seeded into ncert_solutions under the same subject,
-    // Vasant Bhag-2 = part 2, Bal Mahabharat Katha = part 6.
-    if (subjectName === 'Old - हिंदी') {
-      return [
-        { icon: '📗', name: 'NCERT Solutions - वसंत भाग-२ (OLD BOOK)',        sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
-        { icon: '📗', name: 'NCERT Solutions - बाल महाभारत कथा (OLD BOOK)',   sub: 'Textbook Solutions', type: 'ncert2', part: 6 },
-      ];
-    }
-    // Two tiles per subject — NCERT Solutions (part=2) + Revision Notes (part=4),
-    // both DB-backed via ncert2; chapter lists fetched from the DB per part.
-    return [
-      { icon: '📗', name: 'NCERT Solutions', sub: 'Textbook Solutions', type: 'ncert2', part: 2 },
-      { icon: '📝', name: 'Revision Notes',  sub: 'Chapter Notes',      type: 'ncert2', part: 4 },
-    ];
-  }
   // Class 9 — new-syllabus books aren't "NCERT", so ALL subjects show the textbook
   // tile as "Textbook Solutions" (part=2) + Revision Notes (part=4). DB-backed via
   // ncert2; empty tiles just show nothing (handled by the chapter-list fetch).
-  if (classLevel === 'Class 9') {
+  if (classLevel === 'Class 9' || ((classLevel === 'Class 7' || classLevel === 'Class 11') && parts && parts.length)) {
     // `parts` = [{ part, label }] from the class-subjects endpoint (DB-derived; each
     // textbook book carries its own label). No hardcoded per-subject part lists.
-    const ICON = { 3: '🧩', 4: '📝' }; // Exemplar / Notes; NCERT books default 📗
-    const SUB = { 3: 'Exemplar Solutions', 4: 'Chapter Notes' };
+    // 13–17 = PDF resources (scripts/seedClass11Papers.js).
+    const ICON = { 3: '🧩', 4: '📝', 13: '📄', 14: '🗒️', 15: '🔍', 16: '📜', 17: '📋' }; // NCERT books default 📗
+    const SUB = { 3: 'Exemplar Solutions', 4: 'Chapter Notes', 13: 'Question paper + solutions', 14: 'Chapter-wise test papers', 15: 'Chapter-wise case studies', 16: 'Previous year papers', 17: 'CBSE syllabus' };
     if (parts && parts.length) {
       return parts
         .filter((p) => p && p.label)
@@ -935,8 +887,9 @@ const baseResourceTypes = (subjectName, classLevel, parts = null) => {
     // class-subjects endpoint (each textbook book / Exemplar / Notes its own tile).
     // Mirrors the Class 9 path. New-syllabus subjects carry no `parts` → fall through.
     if (parts && parts.length) {
-      const ICON = { 3: '🧩', 4: '📝' }; // Exemplar / Notes; NCERT books default 📗
-      const SUB = { 3: 'Exemplar Solutions', 4: 'Chapter Notes' };
+      // 13–17 = PDF resources (scripts/seedClass11Papers.js with CLASS=6).
+      const ICON = { 3: '🧩', 4: '📝', 13: '📄', 14: '🗒️', 15: '🔍', 16: '📜', 17: '📋' }; // Exemplar / Notes; NCERT books default 📗
+      const SUB = { 3: 'Exemplar Solutions', 4: 'Chapter Notes', 13: 'Question paper + solutions', 14: 'Chapter-wise test papers', 15: 'Chapter-wise case studies', 16: 'Previous year papers', 17: 'CBSE syllabus' };
       return parts
         .filter((p) => p && p.label)
         .map((p) => ({ icon: ICON[p.part] || '📗', name: p.label, sub: SUB[p.part] || 'Textbook Solutions', type: 'ncert2', part: p.part }));
@@ -1530,7 +1483,9 @@ const ResourcesScreen = () => {
   // Class 6 & 9 subject lists are DB-driven: subjects that have any ncert_solutions
   // content (parts), each carrying its parts for getResourceTypes.
   const resClassNum = parseInt(String(activeClass || '').replace(/\D/g, ''), 10) || null;
-  const isDynRes = [6, 9].includes(resClassNum);
+  // Class 11 joined 2026-11-01 (examin8 seed: every subject's NCERT books, Exemplar
+  // and Revision Notes live in ncert_solutions with a part_label per book).
+  const isDynRes = [6, 7, 9, 11].includes(resClassNum);
   const dynRes = useClassSubjects(resClassNum, isDynRes);
   // Resources tab shows textbook/notes parts only; Important Questions (5) + PYQ (8)
   // live in the Practice tab. `parts` are { part, label } objects from the API.
@@ -1544,6 +1499,8 @@ const ResourcesScreen = () => {
   // already filtered out above and appear in the Practice tab instead.
   const class9SubjectTiles = dynResTiles;
   const class6SubjectTiles = dynResTiles;
+  const class11SubjectTiles = dynResTiles;
+  const class7SubjectTiles = dynResTiles;
   // Numeric grade parsed from 'Class 12' → 12 for the ?class= API param. No fallback:
   // the backend uses the student's saved class regardless of what we send.
   const classNum = parseInt(String(activeClass || '').replace(/\D/g, ''), 10) || null;
@@ -2571,12 +2528,14 @@ const ResourcesScreen = () => {
           </View>
           <ScrollView ref={scrollRef} contentContainerStyle={{ padding: 16, paddingBottom: 32 }}>
             <View style={dk.subjectGrid}>
-              {(activeClass === 'Class 6' ? class6SubjectTiles : activeClass === 'Class 7' ? SUBJECTS_CLASS7 : activeClass === 'Class 8' ? SUBJECTS_CLASS8 : activeClass === 'Class 9' ? class9SubjectTiles : activeClass === 'Class 10' ? ((Array.isArray(c10Subjects) && c10Subjects.length) ? class10Grid : SUBJECTS_CLASS10) : activeClass === 'Class 12' ? SUBJECTS_CLASS12 : SUBJECTS)
+              {(activeClass === 'Class 6' ? class6SubjectTiles : activeClass === 'Class 7' ? class7SubjectTiles : activeClass === 'Class 8' ? SUBJECTS_CLASS8 : activeClass === 'Class 9' ? class9SubjectTiles : activeClass === 'Class 11' ? class11SubjectTiles : activeClass === 'Class 10' ? ((Array.isArray(c10Subjects) && c10Subjects.length) ? class10Grid : SUBJECTS_CLASS10) : activeClass === 'Class 12' ? SUBJECTS_CLASS12 : SUBJECTS)
                 // Stream filter (hide Biology from PCM etc.) applies to Class 11 only.
                 // Junior lists are already curated, and Class 12's list is now the batch's
                 // own subject list — running it through a four-name stream map would hide
                 // the commerce group, both languages and Computer Science, which is what
-                // made them invisible before. The BACKEND still enforces what a student
+                // made them invisible before. Biology no longer needs filtering out of
+                // Class 12 either: it is a real subject in that list now, not a leftover
+                // from the shared Class 11 one. The BACKEND still enforces what a student
                 // may open, so this widens what is listed, not what is permitted.
                 .filter((subject) => (classNum === 11 ? isAllowedSubject(subject.name, classNum, scope.stream) : true))
                 .map((subject, i) => (

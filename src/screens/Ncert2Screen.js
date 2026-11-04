@@ -9,7 +9,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
   View, Text, ScrollView, TouchableOpacity, StyleSheet,
-  ActivityIndicator, Platform, StatusBar, Animated, Easing, Pressable,
+  ActivityIndicator, Platform, StatusBar, Animated, Easing, Pressable, Linking,
 } from 'react-native';
 import { COLORS } from '../theme/designSystem';
 import PrimaryButton from '../components/brand/PrimaryButton';
@@ -288,6 +288,17 @@ function SectionContent({ html, meta, comingSoon }) {
       <WebView
         originWhitelist={['*']}
         source={{ html: buildDocument(html), baseUrl: API_BASE_URL }}
+        // PDF links (Class 11 sample/test papers, case studies — served by the API at
+        // /pdfs/…) open in the phone's own PDF viewer: an Android WebView cannot
+        // render a PDF inline, it would just show a blank page.
+        onShouldStartLoadWithRequest={(req) => {
+          const url = req && req.url ? String(req.url) : '';
+          if (/\.pdf(\?|#|$)/i.test(url) && /\/pdfs\//.test(url)) {
+            Linking.openURL(url).catch(() => {});
+            return false;
+          }
+          return true;
+        }}
         onLoadEnd={() => setLoading(false)}
         onError={(e) => { setLoading(false); }}
         style={{ flex: 1, backgroundColor: PAGE_BG }}
@@ -464,13 +475,13 @@ const styles = StyleSheet.create({
     width: '100%', maxWidth: 720, alignSelf: 'center', paddingHorizontal: 16,
     flexDirection: 'row', alignItems: 'center', gap: 10,
   },
-  navTitle: { color: '#fff', fontFamily: FONT.semibold, fontSize: 20, marginLeft: 6, flexShrink: 1 },
-  btnIcon: { width: 36, height: 36, borderRadius: 18, backgroundColor: 'rgba(255,255,255,0.16)', alignItems: 'center', justifyContent: 'center' },
-  backArrow: { color: '#fff', fontSize: 20, lineHeight: 22, marginTop: -1 },
-  profileBtn: { width: 38, height: 38, borderRadius: 19, backgroundColor: 'rgba(255,255,255,0.16)', alignItems: 'center', justifyContent: 'center' },
+  navTitle: { color: COLORS.ink, fontFamily: FONT.semibold, fontSize: 20, marginLeft: 6, flexShrink: 1 },
+  btnIcon: { width: 36, height: 36, borderRadius: 18, backgroundColor: COLORS.surface, alignItems: 'center', justifyContent: 'center' },
+  backArrow: { color: COLORS.ink, fontSize: 20, lineHeight: 22, marginTop: -1 },
+  profileBtn: { width: 38, height: 38, borderRadius: 19, backgroundColor: COLORS.surface, alignItems: 'center', justifyContent: 'center' },
   userGlyph: { width: 18, height: 18, alignItems: 'center' },
-  userHead: { width: 7, height: 7, borderRadius: 3.5, borderWidth: 2, borderColor: '#fff' },
-  userBody: { width: 14, height: 8, borderTopLeftRadius: 7, borderTopRightRadius: 7, borderWidth: 2, borderBottomWidth: 0, borderColor: '#fff', marginTop: 1 },
+  userHead: { width: 7, height: 7, borderRadius: 3.5, borderWidth: 2, borderColor: COLORS.ink },
+  userBody: { width: 14, height: 8, borderTopLeftRadius: 7, borderTopRightRadius: 7, borderWidth: 2, borderBottomWidth: 0, borderColor: COLORS.ink, marginTop: 1 },
   scrollBody: { width: '100%', maxWidth: 720, alignSelf: 'center', paddingHorizontal: 16, paddingTop: 14, paddingBottom: 28 },
   breadcrumb: { height: 22, marginBottom: 12, flexGrow: 0, flexShrink: 0, justifyContent: 'center' },
   subBreadcrumbWrap: { backgroundColor: PAGE_BG, paddingHorizontal: 16, paddingTop: 12, paddingBottom: 4, borderBottomWidth: 1, borderBottomColor: HAIR },

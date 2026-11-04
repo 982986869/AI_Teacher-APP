@@ -24,6 +24,7 @@ import {
   TT, TimedTestFrame, TTConfirmDialog, TTPalette,
 } from '../components/timedTestDark';
 import { useAuth } from '../context/AuthContext';
+import { isAllowedSubject } from '../utils/personalization';
 import { getOnlineTestChapters, getOnlineTests, getOnlineTest, submitOnlineTest } from '../api/onlineTestApi';
 import { useClassSubjects, toTile } from '../utils/classSubjects';
 import { getOnlineTestAttempts, saveOnlineTestAttempt } from '../utils/storage';
@@ -193,12 +194,15 @@ function Header({ onBack, title }) {
 }
 
 export default function OnlineTestScreen({ onExit = () => {} }) {
-  const { selectedClass } = useAuth();
+  const { selectedClass, scope } = useAuth();
   const classLevel = classNum(selectedClass) || 7;
-  // Class 6, 9 & 10 online-test subjects are DB-driven (online flag); other classes keep theirs.
-  const isDyn = [6, 9, 10].includes(classLevel);
+  // Class 6, 7, 9 & 10 online-test subjects are DB-driven (online flag); other classes keep theirs.
+  const isDyn = [6, 7, 9, 10, 11].includes(classLevel);
   const dynSubs = useClassSubjects(classLevel, isDyn);
-  const subjectList = isDyn ? (dynSubs || []).filter((s) => s.online).map((s) => toTile(s)) : subjectsForClass(classLevel);
+  // Senior classes: same stream filter as the Resources grid / server assertSubjectAllowed.
+  const subjectList = isDyn
+    ? (dynSubs || []).filter((s) => s.online && (classLevel >= 11 ? isAllowedSubject(s.name, classLevel, scope?.stream) : true)).map((s) => toTile(s))
+    : subjectsForClass(classLevel);
 
   const [view, setView] = useState('subjects'); // subjects|chapters|tests|instruction|running|result|review
   const [subject, setSubject] = useState(null);

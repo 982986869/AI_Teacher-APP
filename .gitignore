@@ -140,3 +140,22 @@ server/expo-qr*.png
 
 # user uploads (services/storage.js) — live on the server disk, backed up to S3
 server/uploads/
+# Class 11 examin8 raw cache, checkpoints and downloaded PDFs (data lives in DB / server disk, not pushed)
+src/data/class11Examin8/
+src/data/class11Practice/
+src/data/class11OnlineTests/
+src/data/class11Mock/
+src/data/class11Papers/
+server/public/pdfs/class11/
+server/public/pdfs/class9/
+
+server/public/pdfs/class6/
+src/data/class6Examin8/
+src/data/class6Papers/
+server/public/pdfs/class7/
+src/data/class7Examin8/
+src/data/class7Papers/
+src/data/class7Practice/
+src/data/class9Examin8/
+src/data/class9Papers/
+src/data/class9Practice/

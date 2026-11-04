@@ -63,6 +63,7 @@ async function getNcertChapters(req, res, next) {
       SELECT chapter
       FROM ncert_solutions
       WHERE part = ${part} AND subject = ${subject} AND "className" = ${className}
+        AND chapter NOT ILIKE '%(deleted)%'
       GROUP BY chapter
       ORDER BY MIN("chapterPos") ASC`
 

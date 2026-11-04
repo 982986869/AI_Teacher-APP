@@ -7,6 +7,7 @@ import { WebView } from 'react-native-webview';
 import { getQuestionsByPath, getChapters } from '../api/resourcesApi';
 import { buildFragmentFromQuestions, buildPyqDocument } from '../utils/pyqDocument';
 import { useClassSubjects, toTile } from '../utils/classSubjects';
+import { isAllowedSubject } from '../utils/personalization';
 import { getMcqChapterTest, getMcqSubtopicTest, submitMcqTest } from '../api/mcqPracticeApi';
 // Class 12 Chemistry & Mathematics are DB/API-backed. We only keep the bundled
 // chapter-name lists (their slugs match the DB) to drive the menus; all PYQ /
@@ -138,12 +139,15 @@ const SUBJECT_SLUG_OVERRIDES = { 'Old - हिंदी': 'old', 'Old - हि�
 const subjectSlug = (name) => SUBJECT_SLUG_OVERRIDES[name] || slugify(name);
 
 // Classes whose subject lists are derived from the DB (/api/resources/class-subjects)
-// instead of hardcoded arrays. Class 6 & 9 "Old -" subjects live here.
-const DYNAMIC_CLASSES = [6, 9];
+// instead of hardcoded arrays. Class 6, 7 & 9 "Old -" subjects live here.
+const DYNAMIC_CLASSES = [6, 7, 9];
 // Classes whose MOCK and PYQ subject lists (only) come from the DB — see PracticeScreen.
-const DYNAMIC_MOCK_PYQ_CLASSES = [7, 8];
+// Class 11 joined 2026-11-01: mock_tests now has Applied Maths/Accountancy/Economics/
+// Business Studies/English Core/हिंदी कोर alongside PCMB.
+const DYNAMIC_MOCK_PYQ_CLASSES = [7, 8, 11];
 // Classes whose IMPORTANT QUESTIONS and PYQ subject lists (only) come from the DB — see PracticeScreen.
-const DYNAMIC_IMP_PYQ_CLASSES = [10];
+// Class 11 joined 2026-11-01: the examin8 seed added IQ + PYQ for ~35 subjects.
+const DYNAMIC_IMP_PYQ_CLASSES = [10, 11];
 // Classes whose Practice landing hides a practice type the DB has no content for.
 // Every class here must also fetch class-subjects (DYNAMIC_* above cover 6–10).
 const HIDE_EMPTY_CLASSES = [6, 7, 8, 9, 10];
@@ -302,23 +306,6 @@ const MATHS12_CHAPTERS = [
   'Probability',
 ];
 
-// Class 7 Important-Questions subjects (DB-backed, class_level=7, type_key=
-// 'important_questions'). Chapter lists mirror the seeded chapters; the ChapterList
-// still confirms per-chapter availability via the API. हिंदी (मल्हार) is coming-soon
-// because its Devanagari name has no ASCII slug (the API is slug-keyed).
-const CLASS7_IMP_SUBJECTS = [
-  { name: "Science (Curiosity)", emoji: "🔬", bg: "#5AA84F", chapters: ["The Ever-Evolving World of Science","Light: Shadows and Reflections","Life Processes in Plants","Life Processes in Animals","Measurement of Time and Motion","Heat Transfer in Nature","Adolescence: A Stage of Growth and Change","Changes Around Us: Physical and Chemical","The World of Metals and Non-metals","Electricity: Circuits and their Components","Exploring Substances: Acidic, Basic, and Neutral","Earth, Moon, and the Sun"] },
-  { name: "Social Science (Exploring Society)", emoji: "🌐", bg: "#2F80ED", chapters: ["Overall Map Questions","Geographical Diversity of India","From Barter to Money","The Constitution of India - An Introduction","From the Rulers to the Ruled: Types of Governments","How the Land Becomes Sacred","The Gupta Era: An Age of Tireless Creativity","The Age of Reorganisation","The Rise of Empires","New Beginnings: Cities and States","Climates of India","Understanding the Weather","Understanding Markets","The Story of Indian Farming","India and Her Neighbours","Empires and Kingdoms: 6th to 10th Centuries","Turning Tides: 11th and 12th Centuries","India, a Home to Many","The State, the Government, and You","Infrastructure: Engine of India's Development","Banks and the Magic of Finance"] },
-  { name: "हिंदी (मल्हार)", emoji: "📚", bg: "#2F80ED", chapters: ["माँ, कह एक कहानी (कविता)","चिड़िया (कविता)","बिरजू महाराज से साक्षात्कार नृत्यांगना सुधा चंद्रन","वर्षा-बहार (कविता)","गिरिधर कविराय की कुंडलिया (कविता)","नहीं होना बीमार (कहानी)","पानी रे पानी (निबंध)","फूल और काँटा (कविता)","तीन बुद्धिमान (लोककथा)","मीरा के पद (पद)","अपठित गद्यांश","अपठित काव्यांश","पत्र लेखन","अनुच्छेद लेखन","भाषा और लिपि","संज्ञा सर्वनाम और विशेषण","लिंग और वचन","क्रिया और क्रिया-विशेषण","मुहावरे और लोकोक्तियाँ","समास और विग्रह","विलोम शब्द","पर्यायवाची शब्द","संधि-विच्छेद","वर्ण-विच्छेद","उपसर्ग और प्रत्यय","अनेक के लिए एक शब्द","चित्र वर्णन","लघु कथा लेखन","संवाद लेखन","वाक्य के प्रकार","शब्द भेद","श्रुतिसम भिन्नात्मक शब्द","काल","कारक","वर्तनी","विराम चिह्नों का प्रयोग"] },
-  { name: "English (Poorvi)", emoji: "📖", bg: "#7A6FD0", chapters: ["The Day the River Spoke","My Dear Soldiers","A Homage to Our Brave Soldiers","Conquering the Summit","Travel","The Tunnel","North, South, East, West","Paper Boats","My Brother's Great Invention","Say the Right Thing","A Funny Man","Animals, Birds, and Dr. Dolittle","Three Days to See","Try Again","Rani Abbakka","Reading - Unseen Passage","Reading - Unseen Poem","Grammar - Preposition","Grammar - Adverb","Grammar - Conjunction","Grammar - Synonyms and Antonyms","Grammar - One Word Substitution","Grammar - Fill in the Blanks","Grammar - Editing & Omitting","Grammar - Gap Filling","Grammar - Jumble Words","Grammar - Helping Verbs","Grammar - Verbs","Grammar - Articles","Grammar - Adjectives","Grammar - Pronoun","Grammar - Noun","Grammar - Tenses","Grammar - Sentence Transformation","Grammar - Non-Finite Verbs","Grammar - Question Tags","Grammar - Sentence (parts and types)","Writing - Article","Writing - Letter","Writing - Short Story","Writing - Paragraph","Writing - Notice","Writing - Message","Writing - Application to Principal"] },
-  { name: "Maths (Ganita Prakash)", emoji: "📐", bg: "#E8703A", chapters: ["Large Numbers Around Us","Arithmetic Expressions","A Peek Beyond the Point","Expressions using Letter-Numbers","Parallel and Intersecting Lines","Number Play","A Tale of Three Intersecting Lines","Working with Fractions","Geometric Twins","Operations with Integers","Finding Common Ground","Another Peek Beyond the Point","Connecting the Dots","Constructions and Tilings","Finding the Unknown"] },
-  { name: "Old - Science", emoji: "🔬", bg: "#5AA84F", chapters: ["Nutrition in Plants","Nutrition in Animals","Fibre to Fabric (Deleted)","Heat","Acids Bases and Salts","Physical and Chemical Changes","Weather Climate and Adaptations of Animals to Climate (Deleted)","Winds Storms and Cyclones (Deleted)","Soil (Deleted)","Respiration in Organisms","Transportation in Animals and Plants","Reproduction in Plants","Motion and Time","Electric Current and its Effects","Light","Water A Precious Resource (Deleted)","Forests Our Lifeline","Waste water Story"] },
-  { name: "Reasoning & Mental Ability", emoji: "🧠", bg: "#E8703A", chapters: ["Non Verbal - Analytical Reasoning","Non Verbal - Dot Situation","Non Verbal - Embedded Images","Verbal - Series","Verbal - Classification","Verbal - Blood Relation Test","Verbal - Directions","Verbal - Days and Dates","Verbal - Coding-Decoding","Verbal - Puzzles","Verbal - Arithmetic Reasoning","Non Verbal - Series","Non Verbal - Classification","Non Verbal - Patterns","Non Verbal - Analogy","Non Verbal - Mirror Images","Non Verbal - Paper Cutting","Non Verbal - Figure Matrix","Non Verbal - Cubes and Dice"] },
-  { name: "Old - English", emoji: "📖", bg: "#7A6FD0", chapters: ["Three Questions","A Gift of Chappals","Gopal and The Hilsa Fish","The Ashes That Made Trees Bloom","Quality","Expert Detectives","The Invention of Vita Wonk","The Squirrel","The Rebel","The shed","Chivvy","Trees","Mystery of the Talking Fan","Dad and The Cat and The Tree","Meadow Surprise","Garden Snake","The Tiny Teacher","Bringing Up Kari","Golu Grows a Nose","Chandni","The Bear Story","A Tiger in the House","An Alien Hand","Grammar - Editing","Grammar - Gap Filling","Grammar - Jumble Words","Grammar - Helping Verbs","Grammar - Verbs","Grammar - Adjectives","Grammar - Pronoun","Grammar - Noun","Grammar - Tenses","Grammar - Articles","Grammar - Sentence Transformation","Grammar - Active Passive Voice"] },
-  { name: "Old - हिंदी", emoji: "📚", bg: "#2F80ED", chapters: ["अपठित गद्यांश","अपठित काव्यांश","पत्र लेखन","निबंध लेखन","संज्ञा सर्वनाम और विशेषण","भाषा और लिपि","लिंग और वचन","क्रिया और क्रिया-विशेषण","मुहावरे और लोकोक्तियाँ","समास और विग्रह","विलोम शब्द","पर्यायवाची शब्द","संधि-विच्छेद","वर्ण-विच्छेद","उपसर्ग और प्रत्यय","अनेक के लिए एक शब्द","हम पंछी उन्मुक्त गगन के","हिमालय की बेटियाँ","कठपुतली","मिठाईवाला","पापा खो गए","शाम-एक किसान","अपूर्व अनुभव","रहीम के दोहे","एक तिनका","खानपान की बदलती तस्वीर","नीलकंठ","भोर और बरखा","वीर कुँवरसिंह","संघर्ष के कारण धनराज","आश्रम का आनुमानित व्यय","बाल महाभारत कथा"] },
-  { name: "Old - Maths", emoji: "📐", bg: "#E8703A", chapters: ["Integers","Fractions and Decimals","Data Handling","Simple Equations","Lines and Angles","The Triangle and its Properties","Comparing Quantities","Rational Numbers","Perimeter and Area","Algebraic Expressions","Exponents and Powers","Symmetry","Visualising Solid Shapes"] },
-  { name: "Old - Social Sc", emoji: "🌐", bg: "#2F80ED", chapters: ["Tracing Changes Through a Thousand Years","Kings and Kingdoms","Delhi: 12th to 15th Century","The Mughal (16th to 17th Century)","Tribes Nomads and Settled Communities","Devotional Paths to the Divine","The Making of Regional Cultures","Eighteenth Century Political Formations","Environment","Inside our Earth","Our Changing Earth","Air","Water","Human Environment Interactions the Tropical and the Subtropical Region","Life in the Deserts","On Equality","Role of the Government in Health","How the State Government Works","Growing up as Boys and Girls","Women Change the world","Understanding Media","Market Around Us","A shirt in the market"] },
-];
 
 // Class 8 Important-Questions subjects (chapter lists mirror the seeded chapters at
 // class_level=8; the ChapterList still confirms per-chapter availability via the API).
@@ -378,7 +365,6 @@ const impSubjectsForClass = (cls) => {
       return { ...sub, chapters: [], comingSoon: true };
     });
   }
-  if (cls === 'Class 7') return CLASS7_IMP_SUBJECTS;
   if (cls === 'Class 8') return CLASS8_IMP_SUBJECTS;
   if (cls === 'Class 9') return CLASS9_IMP_SUBJECTS;
   return PYQ_SUBJECTS;
@@ -697,7 +683,10 @@ const PracticeScreen = () => {
   // every subject comingSoon, which pre-dates the Class 10 seed (16 IQ / 10 PYQ subjects).
   const isDynImpPyq = isDyn || DYNAMIC_IMP_PYQ_CLASSES.includes(dynClass);
   const dynSubjects = useClassSubjects(dynClass, isDynTests || isDynImpPyq);
-  const dynBy = (flag) => (dynSubjects || []).filter((s) => s[flag]).map((s) => toTile(s, { chapters: [] }));
+  // Senior classes: same stream filter as the Resources grid (and the server's
+  // assertSubjectAllowed), so a PCM student isn't offered Accountancy only to get a 403.
+  const streamOk = (name) => (dynClass >= 11 ? isAllowedSubject(name, dynClass, scope?.stream) : true);
+  const dynBy = (flag) => (dynSubjects || []).filter((s) => s[flag] && streamOk(s.name)).map((s) => toTile(s, { chapters: [] }));
   const impSubjects = isDynImpPyq ? dynBy('importantQuestions') : impSubjectsForClass(selectedClass);
   const pyqSubjects = (isDynTests || isDynImpPyq) ? dynBy('pyq') : pyqSubjectsForClass(selectedClass);
   const mockSubjects = isDynTests ? dynBy('mock') : mockSubjectsForClass(selectedClass);
@@ -1097,7 +1086,9 @@ const PracticeScreen = () => {
   // its own subjects → chapters → tests → instruction → runner → result → review).
   // Class 10 joined once its testpapers were seeded (2026-10-29); before that it fell
   // through to the Class 11 offline banks below. 11/12 keep OnlineTestsScreen.
-  if (chOpen && [6, 7, 8, 9, 10].includes(classNum(selectedClass))) {
+  // Class 11 joined 2026-11-01: PCM copied from the legacy online_tests table into
+  // ot_tests (scripts/convertClass11LegacyOnlineTests.js), Biology + commerce from examin8.
+  if (chOpen && [6, 7, 8, 9, 10, 11].includes(classNum(selectedClass))) {
     return <OnlineTestScreen onExit={() => setChOpen(false)} />;
   }
   if (chOpen) {

@@ -13,6 +13,7 @@ const STREAMS = {
   arts: ['History', 'Political Science', 'Geography', 'Economics', 'English'],
 };
 const SENIOR_DEFAULT = ['Physics', 'Chemistry', 'Mathematics', 'Biology'];
+const STREAM_CORE = new Set(Object.values(STREAMS).flat().map((s) => s.toLowerCase()));
 const ROLES = new Set(['student', 'parent', 'teacher', 'admin']);
 
 // QA/tester accounts can browse every class from one login (mirror of the server list
@@ -51,7 +52,11 @@ export const subjectsFor = (classNum, stream) => {
 
 export const isAllowedSubject = (subject, classNum, stream) => {
   if (!classNum || !subject) return true;
-  return subjectsFor(classNum, stream).map((s) => s.toLowerCase()).includes(String(subject).trim().toLowerCase());
+  const name = String(subject).trim().toLowerCase();
+  if (subjectsFor(classNum, stream).map((s) => s.toLowerCase()).includes(name)) return true;
+  // Class 11/12 electives (no stream's core subject) are visible to every senior
+  // student. Mirror of server/src/services/personalization/subjects.js.
+  return classNum >= 11 && !STREAM_CORE.has(name);
 };
 
 export const deriveScope = (user) => {

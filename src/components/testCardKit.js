@@ -106,17 +106,26 @@ export function FilterTabs({ tab, onChange, tabs, style }) {
   const offs = React.useRef({});
   const scrollTo = (id) => { const x = offs.current[id]; if (x != null && ref.current) ref.current.scrollTo({ x: Math.max(0, x - 16), animated: true }); };
   React.useEffect(() => { const t = setTimeout(() => scrollTo(tab), 60); return () => clearTimeout(t); }, [tab]);
+  const pills = tabs.map((t) => {
+    const on = tab === t.id;
+    return (
+      <Pressable key={t.id} onLayout={(e) => { offs.current[t.id] = e.nativeEvent.layout.x; }} onPress={() => onChange(t.id)} style={[k.tab, on && k.tabOn]}>
+        {/* No numberOfLines / flexShrink here: on some Android phones a one-line
+            Text inside a horizontal ScrollView measured at width 0, so the pills
+            rendered empty (only the count badge showed, as a grey dash). */}
+        <Text style={[k.tabTxt, on && k.tabTxtOn]}>{t.label}</Text>
+        {t.count != null && <View style={[k.tabCountBadge, on && k.tabCountBadgeOn]}><Text style={[k.tabCount, on && k.tabCountOn]}>{String(t.count)}</Text></View>}
+      </Pressable>
+    );
+  });
+  // Up to 3 tabs (All / Attempted, All / Solved / Unsolved) always fit: a plain
+  // row, no ScrollView. Longer lists keep the horizontal scroll.
+  if (tabs.length <= 3) {
+    return <View style={[k.tabsRow, style]}>{pills}</View>;
+  }
   return (
     <ScrollView ref={ref} horizontal showsHorizontalScrollIndicator={false} style={style} contentContainerStyle={k.tabsContent} keyboardShouldPersistTaps="handled">
-      {tabs.map((t) => {
-        const on = tab === t.id;
-        return (
-          <Pressable key={t.id} onLayout={(e) => { offs.current[t.id] = e.nativeEvent.layout.x; }} onPress={() => onChange(t.id)} style={[k.tab, on && k.tabOn]}>
-            <Text numberOfLines={1} style={[k.tabTxt, on && k.tabTxtOn]}>{t.label}</Text>
-            {t.count != null && <View style={[k.tabCountBadge, on && k.tabCountBadgeOn]}><Text style={[k.tabCount, on && k.tabCountOn]}>{t.count}</Text></View>}
-          </Pressable>
-        );
-      })}
+      {pills}
     </ScrollView>
   );
 }
@@ -235,7 +244,8 @@ const k = StyleSheet.create({
   tabsContent: { gap: 10, paddingHorizontal: 16, paddingTop: 14, paddingBottom: 2, alignItems: 'center' },
   tab: { flexShrink: 0, flexDirection: 'row', alignItems: 'center', gap: 7, backgroundColor: '#F7F7F8', borderWidth: 1, borderColor: TK.border, borderRadius: 999, paddingVertical: 12, paddingHorizontal: 20 },
   tabOn: { backgroundColor: TK.text, borderColor: TK.text },
-  tabTxt: { flexShrink: 0, fontSize: 14.5, fontWeight: '800', color: TK.textMuted },
+  tabsRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 10, paddingHorizontal: 16, paddingTop: 14, paddingBottom: 2, alignItems: 'center' },
+  tabTxt: { fontSize: 14.5, fontWeight: '800', color: TK.textMuted },
   tabTxtOn: { color: '#fff' },
   tabCountBadge: { minWidth: 18, paddingHorizontal: 5, paddingVertical: 1, borderRadius: 9, backgroundColor: '#EEEEEF', alignItems: 'center', justifyContent: 'center' },
   tabCountBadgeOn: { backgroundColor: 'rgba(255,255,255,0.22)' },
