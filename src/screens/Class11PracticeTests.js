@@ -83,7 +83,7 @@ const subjectSlugOf = (subj) => subj.slug || SUBJECT_SLUG_OVERRIDES[subj.name] |
 // docs/KNOWN-ISSUE-class10-chapter-practice.md), so the DB list is empty and the
 // screen says so.
 // Class 11 joined 2026-11-01 (examin8 batch 24889: ~15 more subjects with practice).
-const DYNAMIC_CLASSES = [3, 6, 7, 9, 10, 11];
+const DYNAMIC_CLASSES = [3, 4, 6, 7, 9, 10, 11];
 
 // Per-class subject lists (mirror McqPracticeScreen).
 const S = (name, emoji) => ({ name, emoji });
@@ -118,7 +118,7 @@ export default function PracticeTestsCards({ onBack, onStartChapter, onStartSubt
 
   // A subject uses the DB chapter list (else the static MCQ bank).
   const usesApiChapters = (subj) =>
-    [3, 6, 7, 8, 9, 10, 11].includes(classLevel) ||
+    [3, 4, 6, 7, 8, 9, 10, 11].includes(classLevel) ||
     (classLevel === 12 && ['Physics', 'Chemistry', 'Mathematics'].includes(subj.name));
 
   useEffect(() => {

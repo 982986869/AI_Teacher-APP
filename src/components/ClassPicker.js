@@ -1,5 +1,5 @@
 // ClassPicker.js
-// Global class selector (Class 3, 6–12) + a "coming soon" gate. The picker chip
+// Global class selector (Class 3, 4, 6–12) + a "coming soon" gate. The picker chip
 // lives in the Home top bar; the chosen class is stored app-wide in AuthContext
 // and decides which content the user sees. Only classes in READY have content.
 
@@ -8,10 +8,10 @@ import { View, Text, Pressable, Modal, ScrollView, StyleSheet } from 'react-nati
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../context/AuthContext';
 
-export const CLASSES = ['Class 3', 'Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10', 'Class 11', 'Class 12'];
+export const CLASSES = ['Class 3', 'Class 4', 'Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10', 'Class 11', 'Class 12'];
 // Classes that currently have seeded content in the DB. Anything else shows the
 // premium "coming soon" empty state instead of falling back to another class.
-export const READY = { 'Class 3': true, 'Class 6': true, 'Class 7': true, 'Class 8': true, 'Class 9': true, 'Class 10': true, 'Class 11': true, 'Class 12': true };
+export const READY = { 'Class 3': true, 'Class 4': true, 'Class 6': true, 'Class 7': true, 'Class 8': true, 'Class 9': true, 'Class 10': true, 'Class 11': true, 'Class 12': true };
 export const isClassReady = (c) => !!READY[c];
 
 const TEAL = '#0FA39A';
@@ -53,7 +53,7 @@ export function ClassPicker({ value, onChange }) {
   );
 }
 
-// Side-by-side class chips (3, 6–12) for quick switching — black & white theme.
+// Side-by-side class chips (3, 4, 6–12) for quick switching — black & white theme.
 // Used at the top of the Practice and Resources tabs.
 export function ClassTabs({ value, onChange }) {
   return (

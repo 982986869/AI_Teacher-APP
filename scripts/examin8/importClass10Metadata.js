@@ -36,11 +36,30 @@ function readJson(file) {
   return JSON.parse(fs.readFileSync(p, 'utf8'))
 }
 
+// DATABASE_URL in the environment wins, so the same import can target production
+// without editing a file; server/.env is the development fallback.
 function getDbUrl() {
-  let u = fs.readFileSync(path.join(ROOT, 'server', '.env'), 'utf8')
-    .match(/^DATABASE_URL=(.*)$/m)[1].trim().replace(/^["']|["']$/g, '')
+  let u = (process.env.DATABASE_URL || '').trim().replace(/^["']|["']$/g, '')
+  if (!u) {
+    const envPath = path.join(ROOT, 'server', '.env')
+    if (!fs.existsSync(envPath)) throw new Error('No database: set DATABASE_URL, or create server/.env')
+    const m = fs.readFileSync(envPath, 'utf8').match(/^DATABASE_URL=(.*)$/m)
+    if (!m) throw new Error('server/.env has no DATABASE_URL — set DATABASE_URL in the environment instead.')
+    u = m[1].trim().replace(/^["']|["']$/g, '')
+  }
   try { const x = new URL(u); x.searchParams.delete('sslmode'); u = x.toString() } catch (_) {}
   return u
+}
+
+// Local Postgres (the Docker container this project moved to) is built without
+// SSL, so a hardcoded ssl option fails every connect with "The server does not
+// support SSL connections". Remote hosts still require it — decide by host.
+function dbSsl() {
+  try {
+    const h = new URL(getDbUrl()).hostname
+    if (h === 'localhost' || h === '127.0.0.1' || h === '::1') return false
+  } catch (_) { /* fall through to the safe default */ }
+  return { rejectUnauthorized: false }
 }
 
 async function main() {
@@ -60,7 +79,7 @@ async function main() {
   if (!LIVE) { console.log('\n[DRY] add --live to write to the DB.'); return }
 
   const { Client } = require('pg')
-  const client = new Client({ connectionString: getDbUrl(), ssl: { rejectUnauthorized: false } })
+  const client = new Client({ connectionString: getDbUrl(), ssl: dbSsl() })
   await client.connect(); console.log('\n✓ Connected.')
 
   const stat = { subjectsInserted: 0, subjectsSkipped: 0, chaptersInserted: 0, chaptersSkipped: 0, noChapters: 0, errors: [] }
