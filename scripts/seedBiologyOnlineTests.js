@@ -69,6 +69,13 @@ const DELAY = 130
 // queries ot_tests by it, so a different slug here would list the subject and show
 // no chapters. Devanagari names use the importer's hash slugs (u15xjuvc …).
 const BY_CLASS = {
+  3: [
+    { name: 'Mathematics',    slug: 'mathematics',    res: '1655' },
+    { name: 'Science',        slug: 'science',        res: '4532' },
+    { name: 'Social Science', slug: 'social-science', res: '4533' },
+    { name: 'English',        slug: 'english',        res: '1927' },
+    { name: 'Maths Olympiad', slug: 'maths-olympiad', res: '21467' },
+  ],
   // Only Old - Science: the other Class 7 subjects were seeded by seedClass7OnlineTests.js.
   7: [
     { name: 'Old - Science', slug: 'old-science', res: '1525' },

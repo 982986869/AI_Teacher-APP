@@ -25,16 +25,18 @@ const fs = require('fs')
 const path = require('path')
 
 const ROOT = path.join(__dirname, '..')
-const RAW = path.join(ROOT, 'src', 'data', 'class11Examin8')
-const CACHE = path.join(ROOT, 'src', 'data', 'class11Mock')
+// CLASS=3 → Class 3 cache, subjects and id ranges (default Class 11).
+const CLASS = process.env.CLASS || '11'
+const RAW = path.join(ROOT, 'src', 'data', `class${CLASS}Examin8`)
+const CACHE = path.join(ROOT, 'src', 'data', `class${CLASS}Mock`)
 const B = 'https://web.examin8.com/v1'
 const LIVE = process.argv.includes('--live')
 const SEED_ONLY = process.argv.includes('--seed')
-const CLASS_LEVEL = 11
-const TEST_ID_OFFSET = 200000000
-const Q_ID_BASE = 1950000000
+const CLASS_LEVEL = Number(CLASS)
+const TEST_ID_OFFSET = CLASS === '3' ? 300000000 : 200000000
+const Q_ID_BASE = CLASS === '3' ? 1960000000 : 1950000000
 const DELAY = 200
-const SUBJECTS = [
+const SUBJECTS = CLASS === '3' ? [{ res: '21467', name: 'Maths Olympiad' }] : [
   { res: '4787', name: 'Applied Maths' },
   { res: '1411', name: 'Accountancy' },
   { res: '1423', name: 'Economics' },
@@ -144,7 +146,8 @@ async function main() {
     let qid = Q_ID_BASE
     // Clear this script's id range first so re-runs are idempotent.
     await client.query('BEGIN')
-    await client.query('delete from mock_test_questions where id >= $1', [Q_ID_BASE])
+    // Upper bound: other classes hold ranges above and below this one.
+    await client.query('delete from mock_test_questions where id >= $1 and id < $2', [Q_ID_BASE, Q_ID_BASE + 10000000])
     for (const s of plan) {
       await client.query('delete from mock_test_questions where test_id in (select id from mock_tests where subject=$1 and class_level=$2)', [s.name, CLASS_LEVEL])
       await client.query('delete from mock_tests where subject=$1 and class_level=$2', [s.name, CLASS_LEVEL])

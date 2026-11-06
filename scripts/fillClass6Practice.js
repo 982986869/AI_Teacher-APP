@@ -35,6 +35,18 @@ const BY_CLASS = {
     { name: 'Reasoning & Mental Ability', slug: 'reasoning-mental-ability', res: '10015' },
     { name: 'सामाजिक विज्ञान', slug: 'us1q786', res: '10916' },
   ],
+  // Slugs are the subjects rows written by CLASS=3 seedClass11Examin8.js.
+  3: [
+    { name: 'Mathematics', slug: 'mathematics', res: '1655' },
+    { name: 'EVS - Our Wondrous World', slug: 'evs-our-wondrous-world', res: '26852' },
+    { name: 'Science', slug: 'science', res: '4532' },
+    { name: 'Social Science', slug: 'social-science', res: '4533' },
+    { name: 'English', slug: 'english', res: '1927' },
+    { name: 'हिंदी', slug: 'u12is5yf', res: '1924' },
+    { name: 'Maths Olympiad', slug: 'maths-olympiad', res: '21467' },
+    { name: 'EVS', slug: 'evs', res: '1702' },
+    { name: 'Reasoning & Mental Ability', slug: 'reasoning-mental-ability', res: '10018' },
+  ],
   7: [
     { name: 'English (Poorvi)', slug: 'english-poorvi', res: '24715' },
     { name: 'Reasoning & Mental Ability', slug: 'reasoning-mental-ability', res: '10014' },
@@ -138,7 +150,12 @@ function topicNames(ch, count) {
 async function fetchSubject(s, db) {
   const file = path.join(CACHE, `${s.slug}-gap.json`)
   const doc = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : { name: s.name, slug: s.slug, res: s.res, chapters: {} }
-  const save = () => { fs.writeFileSync(file + '.tmp', JSON.stringify(doc)); fs.renameSync(file + '.tmp', file) }
+  // fsync before the rename: a power cut once left a checkpoint of nothing but NUL bytes.
+  const save = () => {
+    const fd = fs.openSync(file + '.tmp', 'w')
+    fs.writeSync(fd, JSON.stringify(doc)); fs.fsyncSync(fd); fs.closeSync(fd)
+    fs.renameSync(file + '.tmp', file)
+  }
   const rows = (await db.query(
     `select c.name, m.source_id from subjects su join chapters c on c.subject_id = su.id and c.class_level = $2
        join subtopics st on st.chapter_id = c.id join mcq_questions m on m.subtopic_id = st.id where su.slug = $1`, [s.slug, CLASS_LEVEL])).rows

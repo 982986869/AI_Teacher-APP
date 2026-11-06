@@ -45,7 +45,7 @@ const SUBJECT_SLUG_OVERRIDES = { 'Old - हिंदी': 'old', 'Old - हि�
 const subjectSlug = (name) => SUBJECT_SLUG_OVERRIDES[name] || slugify(name);
 
 // Classes whose subject lists are DB-derived (/api/resources/class-subjects).
-const DYNAMIC_CLASSES = [6, 7, 9];
+const DYNAMIC_CLASSES = [3, 6, 7, 9];
 
 const C = {
   purple: '#0C8F88', purpleDeep: '#26215C', purpleLight: '#EEEDFE',
@@ -210,6 +210,7 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
   // MCQ_DATA bank.
   const isDbApi =
     (classLevel === 12 && (subject === 'Physics' || subject === 'Chemistry' || subject === 'Mathematics')) ||
+    classLevel === 3 ||
     classLevel === 6 ||
     classLevel === 7 ||
     classLevel === 8 ||

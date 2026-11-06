@@ -140,7 +140,7 @@ const subjectSlug = (name) => SUBJECT_SLUG_OVERRIDES[name] || slugify(name);
 
 // Classes whose subject lists are derived from the DB (/api/resources/class-subjects)
 // instead of hardcoded arrays. Class 6, 7 & 9 "Old -" subjects live here.
-const DYNAMIC_CLASSES = [6, 7, 9];
+const DYNAMIC_CLASSES = [3, 6, 7, 9];
 // Classes whose MOCK and PYQ subject lists (only) come from the DB — see PracticeScreen.
 // Class 11 joined 2026-11-01: mock_tests now has Applied Maths/Accountancy/Economics/
 // Business Studies/English Core/हिंदी कोर alongside PCMB.
@@ -150,7 +150,7 @@ const DYNAMIC_MOCK_PYQ_CLASSES = [7, 8, 11];
 const DYNAMIC_IMP_PYQ_CLASSES = [10, 11];
 // Classes whose Practice landing hides a practice type the DB has no content for.
 // Every class here must also fetch class-subjects (DYNAMIC_* above cover 6–10).
-const HIDE_EMPTY_CLASSES = [6, 7, 8, 9, 10];
+const HIDE_EMPTY_CLASSES = [3, 6, 7, 8, 9, 10];
 
 // buildFragmentFromQuestions + buildPyqDocument now live in utils/pyqDocument so
 // ResourcesScreen (Exemplar) can reuse the exact same card rendering.
@@ -1088,7 +1088,7 @@ const PracticeScreen = () => {
   // through to the Class 11 offline banks below. 11/12 keep OnlineTestsScreen.
   // Class 11 joined 2026-11-01: PCM copied from the legacy online_tests table into
   // ot_tests (scripts/convertClass11LegacyOnlineTests.js), Biology + commerce from examin8.
-  if (chOpen && [6, 7, 8, 9, 10, 11].includes(classNum(selectedClass))) {
+  if (chOpen && [3, 6, 7, 8, 9, 10, 11].includes(classNum(selectedClass))) {
     return <OnlineTestScreen onExit={() => setChOpen(false)} />;
   }
   if (chOpen) {

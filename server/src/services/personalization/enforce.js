@@ -53,6 +53,9 @@ function assertSubjectAllowed(req, subject) {
   if (!sc || sc.role !== 'student' || !sc.classNum) return // only enforce for known students
   if (sc.tester) return // testers roam all classes → their saved stream doesn't apply
   if (resolveClassNum(req) !== sc.classNum) return // browsing another class, not enrolling
+  // Only streams restrict subjects. Classes up to 10 take theirs from the DB, whose names
+  // ("Old - Science", "Maths Olympiad") are not in the band lists; mock/online skip it too.
+  if (sc.classNum <= 10) return
   if (!isAllowedSubject(subject, sc.classNum, sc.stream)) {
     throw err('This subject is not part of your syllabus.', 403)
   }
