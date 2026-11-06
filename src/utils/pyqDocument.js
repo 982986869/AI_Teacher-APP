@@ -75,24 +75,44 @@ export function normalizeTex(src) {
   );
 }
 
+// Cards put in the page up front, and added each time the student nears the end.
+// Laying out every card of a 300-question chapter is itself seconds on a phone.
+const CARD_BATCH = 12;
+const CARD_RE = /(?=<div class="pyq-card">)/;
+
+// Only buildFragmentFromQuestions' output is safe to split: there every card is a
+// top-level element. Any other fragment may wrap its cards, so it stays whole.
+function splitCards(html) {
+  if (!html.trimStart().startsWith('<div class="pyq-card">')) return [html];
+  return html.split(CARD_RE);
+}
+// Safe inside a <script>: nothing in the JSON can close the tag or open a comment.
+const scriptJson = (v) => JSON.stringify(v).replace(/<\//g, '<\\/').replace(/<!--/g, '<\\!--');
+
 export function buildPyqDocument(fragmentHtml, opts = {}) {
   const collapsible = !!opts.collapsible;
   // The scraped data wraps math in {tex}…{/tex}, but MathJax renders the standard
   // \( … \) inline delimiters far more reliably than custom-string delimiters
   // (same conversion MathText.js does). Convert before injecting so every formula
   // typesets. Spaces keep math from fusing with adjacent words.
-  const html = normalizeTex(String(fragmentHtml || ''));
+  // Images load as they near the screen, like the formulas.
+  const html = normalizeTex(String(fragmentHtml || '')).replace(/<img(?![^>]*\bloading=)/gi, '<img loading="lazy"');
+  const parts = splitCards(html);
+  const first = parts.slice(0, CARD_BATCH).join('');
+  const rest = parts.slice(CARD_BATCH);
   return `<!DOCTYPE html><html><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <script>
-  // Until MathJax has typeset, every formula on the page reads as literal
-  // backslashes and braces. The script is 1.2 MB from our own host, so on a cold
-  // instance that window is seconds long and a student sees \(\frac{1}{C}\) as text.
-  // Hold the body hidden until typesetting finishes — and reveal regardless after
-  // REVEAL_MS, because a script that never arrives must not blank the page: raw
-  // math is bad, no math at all is worse.
-  var REVEAL_MS = 9000;
+  // Until MathJax has typeset, a formula reads as literal backslashes and braces.
+  // A big chapter is hundreds of questions and thousands of formulas: typesetting
+  // them in one pass took over a minute on a phone, so the page sat blank and then
+  // showed raw LaTeX. So a card's body stays hidden until that card is typeset, and
+  // only cards near the screen are typeset (see the script at the end of <body>).
+  // The page itself appears at once; REVEAL_MS only guards a broken script.
+  var REVEAL_MS = 4000;
+  // A MathJax request that hangs fires no onerror, so stop waiting after this long.
+  var MATHJAX_WAIT_MS = 15000;
   var revealed = false;
   function reveal(){ if (revealed) return; revealed = true;
     try { document.documentElement.classList.add('mj-ready'); } catch (e) {} }
@@ -124,13 +144,30 @@ export function buildPyqDocument(fragmentHtml, opts = {}) {
         list[i].nodeValue = list[i].nodeValue.replace(/\\\\\\(([\\s\\S]*?)\\\\\\)/g, function(m,b){ return tex(b); });
       }
     }catch(e){ /* WebView context — see src/utils/errorLog.js header */ }
+    showAllCards();
     reveal();
   }
+  function showAllCards(){ var c=document.querySelectorAll('.pyq-card,.question-card');
+    for(var i=0;i<c.length;i++) c[i].classList.add('mj-done'); }
+  setTimeout(function(){ if(!mjReady) texToReadable(); }, MATHJAX_WAIT_MS);
+
+  // Cards waiting to be typeset, and the single typeset running. One at a time, with
+  // a yield between, so scrolling and taps stay responsive during the work.
+  var mjReady=false, mjBusy=false, mjQueue=[];
+  function nextCard(){ var h=window.innerHeight;
+    for(var i=0;i<mjQueue.length;i++){ var r=mjQueue[i].getBoundingClientRect();
+      if(r.bottom>0 && r.top<h) return mjQueue.splice(i,1)[0]; }
+    return mjQueue.shift(); }
+  function pump(){ if(!mjReady||mjBusy) return; var c=nextCard(); if(!c) return; mjBusy=true;
+    function finish(){ c.classList.add('mj-done'); if(c!==document.body) fitWideMath(c); else reveal();
+      mjBusy=false; setTimeout(pump,0); }
+    window.MathJax.typesetPromise([c]).then(finish,finish); }
 
   window.MathJax = { tex: { inlineMath: [['\\\\(', '\\\\)']], displayMath: [] },
-    startup: { ready: function () { window.MathJax.startup.defaultReady();
-      window.MathJax.startup.promise.then(function () { fitWideMath(); reveal(); })
-        .catch(reveal); } } };
+    options: { enableMenu: false },
+    startup: { typeset: false, ready: function () { window.MathJax.startup.defaultReady();
+      window.MathJax.startup.promise.then(function () { mjReady = true; pump(); })
+        .catch(texToReadable); } } };
   // Wrap any formula wider than the space actually available to it (its parent's
   // content box — not the full page) in a horizontally scrollable span, so wide
   // math inside a narrow column (e.g. an MCQ option) scrolls instead of pushing
@@ -140,8 +177,9 @@ export function buildPyqDocument(fragmentHtml, opts = {}) {
   function availWidth(node){ var b=node;
     while(b && b!==document.body){ if(b.clientWidth>0) return b.clientWidth; b=b.parentNode; }
     return document.body.clientWidth; }
-  function fitWideMath(){ try{
-    var nodes=document.querySelectorAll('mjx-container');
+  function fitWideMath(root){ try{
+    var scope=root && root.querySelectorAll ? root : document; // listeners pass an Event
+    var nodes=scope.querySelectorAll('mjx-container');
     for(var i=0;i<nodes.length;i++){ var c=nodes[i];
       var p=c.parentNode; if(!p) continue;
       // Formulas inside a .math-tex wrapper already scroll via CSS — leave them.
@@ -182,6 +220,9 @@ export function buildPyqDocument(fragmentHtml, opts = {}) {
   html:not(.mj-ready) body{ opacity:0; }
   html.mj-ready body{ opacity:1; transition:opacity .18s ease-out; }
   @media (prefers-reduced-motion: reduce){ html.mj-ready body{ transition:none; } }
+  /* A card shows only its header until its formulas are typeset: never raw LaTeX. */
+  .pyq-card:not(.mj-done) > :not(.pyq-header),
+  .question-card:not(.mj-done) > :not(.question-header){ visibility:hidden; }
   *{ -webkit-tap-highlight-color:transparent; box-sizing:border-box; }
   html,body{ margin:0; max-width:100%; overflow-x:hidden; }
   body{ padding:12px; background:${T.page}; font-family:-apple-system,Roboto,"Segoe UI",sans-serif;
@@ -277,7 +318,36 @@ export function buildPyqDocument(fragmentHtml, opts = {}) {
     display:block; margin-top:10px; font-size:12px; font-weight:800; color:${T.accent}; letter-spacing:0.2px; }
   body.iq .pyq-card.open::after,body.iq .question-card.open::after{ content:"Hide  \\25B4"; margin-top:12px; font-weight:700; color:${T.sub}; }
 </style></head>
-<body class="${collapsible ? 'iq' : ''}">${html}
+<body class="${collapsible ? 'iq' : ''}">${first}<div id="more-cards"></div>
+<script>(function(){
+  var rest=${scriptJson(rest)};
+  var more=document.getElementById('more-cards');
+  var cards=document.querySelectorAll('.pyq-card,.question-card');
+  // A fragment without cards can't be typeset piecemeal: do it whole, as before.
+  if(!cards.length){ mjQueue.push(document.body); pump(); return; }
+  var io=window.IntersectionObserver ? new IntersectionObserver(function(entries){
+    for(var i=0;i<entries.length;i++){ if(!entries[i].isIntersecting) continue;
+      io.unobserve(entries[i].target); mjQueue.push(entries[i].target); }
+    pump();
+  },{ rootMargin:'800px 0px' }) : null;
+  function watch(list){ for(var i=0;i<list.length;i++){ var c=list[i];
+    if((c.textContent||'').indexOf('\\(')<0){ c.classList.add('mj-done'); continue; }
+    if(io) io.observe(c); else mjQueue.push(c); } }
+  function addBatch(){ if(!rest.length) return;
+    var box=document.createElement('div'); box.innerHTML=rest.splice(0,${CARD_BATCH}).join('');
+    var added=box.querySelectorAll('.pyq-card');
+    while(box.firstChild) more.parentNode.insertBefore(box.firstChild,more);
+    watch(added); pump(); }
+  watch(cards);
+  if(window.IntersectionObserver){
+    new IntersectionObserver(function(e){ if(e[0].isIntersecting){ addBatch();
+      // Still near the end after adding (short cards): the observer won't re-fire.
+      var self=this; self.unobserve(more); if(rest.length) self.observe(more); } },
+      { rootMargin:'1500px 0px' }).observe(more);
+  } else { while(rest.length) addBatch(); }
+  pump();
+  reveal();
+})();</script>
 ${collapsible ? `<script>(function(){
   document.addEventListener('click', function(e){
     var t = e.target;
@@ -285,7 +355,7 @@ ${collapsible ? `<script>(function(){
     if(!card) return;
     card.classList.toggle('open');
     // Re-flow wide math now that the solution is visible (hidden nodes measure 0).
-    if(typeof fitWideMath==='function') setTimeout(fitWideMath, 0);
+    if(typeof fitWideMath==='function') setTimeout(function(){ fitWideMath(card); }, 0);
   });
 })();</script>` : ''}
 </body></html>`;
