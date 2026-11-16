@@ -22,6 +22,7 @@ import { useAuth } from '../context/AuthContext';
 import {
   generateLesson, askAgent, askAgentStream, getResumeContext, getLesson,
   updateLessonProgress, getLessonsProgress, TEACHING_MODES,
+  newProgressId, getLessonBuild,
 } from '../api/aiApi';
 import { saveActiveLesson, getActiveLesson, clearActiveLesson, getStudentModel, saveStudentModel } from '../utils/storage';
 import { loadLearnerPrefs, prefsForRequest } from '../utils/learnerPrefs';
@@ -127,6 +128,13 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   // Generator
   const [topic, setTopic] = useState(initialTopic);
   const [loading, setLoading] = useState(false);
+  // Live build progress from the server while a lesson generates:
+  // { percent, phase, slide, slidesExpected } | null (none yet / older server).
+  const [genProgress, setGenProgress] = useState(null);
+  const genProgressRef = useRef(null); // read by the checklist timer (see below)
+  const buildPollRef = useRef(null);
+  const stopBuildPoll = () => { clearInterval(buildPollRef.current); buildPollRef.current = null; };
+  useEffect(() => stopBuildPoll, []);
   const [genStage, setGenStage] = useState(0);
   const [error, setError] = useState('');
 
@@ -273,7 +281,9 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
 
   useEffect(() => {
     if (!loading) { setGenStage(0); return undefined; }
-    const id = setInterval(() => setGenStage((s) => Math.min(prepStages.length - 1, s + 1)), 2600);
+    // Timer-driven checklist — only until the server reports real progress (below
+    // takes over then), so an older server without the endpoint still animates.
+    const id = setInterval(() => setGenStage((s) => (genProgressRef.current ? s : Math.min(prepStages.length - 1, s + 1))), 2600);
     return () => clearInterval(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading]);
@@ -302,8 +312,18 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
     if ((!t && !source) || loading) return;
     setLoading(true);
     setError('');
+    setGenProgress(null);
     historyRef.current = [];
     pendingRef.current = null;
+    // Poll the server for how far along the lesson is while the generate request
+    // runs. Percent only moves forward on screen, even if a poll answers late.
+    const progressId = newProgressId();
+    stopBuildPoll();
+    buildPollRef.current = setInterval(async () => {
+      const p = await getLessonBuild(progressId);
+      if (!p || !mountedRef.current || !buildPollRef.current) return;
+      setGenProgress((prev) => (prev && prev.percent > p.percent ? { ...p, percent: prev.percent } : p));
+    }, 1500);
     try {
       // The backend is authoritative on grade (from the student's profile); we send
       // the saved class for clarity but it cannot be used to request another class.
@@ -312,8 +332,8 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
       const prefs = prefsForRequest(await loadLearnerPrefs());
       const gradeLevel = scope?.classNum ? String(scope.classNum) : (user?.grade || '');
       const payload = source
-        ? { gradeLevel, mode: teachMode, prefs, source }
-        : { topic: t, subject: activeSubject, gradeLevel, mode: teachMode, prefs };
+        ? { gradeLevel, mode: teachMode, prefs, source, progressId }
+        : { topic: t, subject: activeSubject, gradeLevel, mode: teachMode, prefs, progressId };
       const { lessonId: id, lesson } = await generateLesson(payload);
       if (!mountedRef.current) return;
       // A textbook lesson's subject comes from the book ("Mathematics", "Science"); map
@@ -343,7 +363,8 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
     } catch (e) {
       if (mountedRef.current) setError(e?.response?.data?.error || e?.response?.data?.message || e?.message || 'I couldn’t put that lesson together just now — let’s try again.');
     } finally {
-      if (mountedRef.current) setLoading(false);
+      stopBuildPoll();
+      if (mountedRef.current) { setLoading(false); setGenProgress(null); }
     }
   };
 
@@ -369,6 +390,22 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   const greet = useMemo(() => greeting({ name: firstName, returning: !!resume, hasSaved: !!savedLesson }), [firstName, resume, savedLesson]);
   const isNewStudent = !resume && !savedLesson;
   const prepStages = useMemo(() => preparingBeats(sourceLabel || topic), [topic, sourceLabel]);
+
+  // With real progress, the checklist follows the percentage instead of the clock:
+  // the last beat ("Almost ready — polishing it") lights up only once the lesson
+  // is actually being saved.
+  // ⚠ Must stay BELOW `prepStages`: its dependency list reads prepStages.length
+  // during render, and reading a `const` before its line throws — that was the
+  // black screen on opening the AI Teacher.
+  useEffect(() => {
+    genProgressRef.current = genProgress;
+    if (!genProgress || !prepStages.length) return;
+    const last = prepStages.length - 1;
+    const stage = genProgress.phase === 'saving' || genProgress.phase === 'done'
+      ? last
+      : Math.min(last - 1, Math.floor((genProgress.percent / 92) * last));
+    setGenStage((s) => Math.max(s, stage));
+  }, [genProgress, prepStages.length]);
   // The long tail of generation (30–90s) used to sit on one static reassurance line —
   // a minute of the same line reads as hung. Rotate it on a calm cadence (distinct from
   // the stage ticker) so the wait stays alive and honest.
@@ -461,7 +498,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
             onBack={() => setBookView('home')}
             onRetry={loadBooks}
           />
-          <GeneratingOverlay visible={loading} opacity={genFade} stages={prepStages} stage={genStage} hint={prepHint} />
+          <GeneratingOverlay visible={loading} opacity={genFade} stages={prepStages} stage={genStage} hint={prepHint} progress={genProgress} />
         </View>
       );
     }
@@ -477,7 +514,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
             onBack={() => setBookView('books')}
             onRetry={() => bookSel?.book && openBook(bookSel.book)}
           />
-          <GeneratingOverlay visible={loading} opacity={genFade} stages={prepStages} stage={genStage} hint={prepHint} />
+          <GeneratingOverlay visible={loading} opacity={genFade} stages={prepStages} stage={genStage} hint={prepHint} progress={genProgress} />
         </View>
       );
     }
@@ -493,7 +530,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
             onBack={() => { setError(''); setBookView('chapters'); }}
             onRetry={() => { setError(''); if (chapterSel?.chapter) openChapter(chapterSel.chapter); else setBookView('chapters'); }}
           />
-          <GeneratingOverlay visible={loading} opacity={genFade} stages={prepStages} stage={genStage} hint={prepHint} />
+          <GeneratingOverlay visible={loading} opacity={genFade} stages={prepStages} stage={genStage} hint={prepHint} progress={genProgress} />
         </View>
       );
     }
@@ -607,6 +644,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
           stages={prepStages}
           stage={genStage}
           hint={prepHint}
+          progress={genProgress}
         />
 
         <RangeSheet

@@ -196,7 +196,10 @@ function sanitizePrefs(prefs) {
   return Object.keys(out).length ? out : null
 }
 
-async function generateLesson({ userId, topic, subject, gradeLevel, board, stream, language, mode, prefs, source }) {
+// `onProgress(event, data)` (optional): live build milestones for the client's
+// progress bar — see services/lessonBuildProgress.js. Never affects the result.
+async function generateLesson({ userId, topic, subject, gradeLevel, board, stream, language, mode, prefs, source, onProgress }) {
+  const progress = typeof onProgress === 'function' ? onProgress : () => {}
   // Textbook lesson: resolve chapter/topics first so an out-of-scope or bad request
   // fails before any lesson row exists. `topic` is derived when the client sent none.
   let src = null
@@ -245,6 +248,7 @@ async function generateLesson({ userId, topic, subject, gradeLevel, board, strea
   // beginner, high → advanced, concepts fading → revision). Threaded into the prompt.
   const resolvedMode = teachingModes.isMode(mode) ? mode : teachingModes.autoSelectMode(profile.learner)
   profile.mode = resolvedMode
+  progress('context')
 
   try {
     const startTime = Date.now()
@@ -265,13 +269,15 @@ async function generateLesson({ userId, topic, subject, gradeLevel, board, strea
       payload = cached.payload
       generationModel = `cache:${cached.generation_model || 'unknown'}`
       bookLessonId = cached.id
+      progress('cached')
     } else if (config.ai.mockMode) {
       payload = buildMockLesson(topic, subject, gradeLevel)
       generationModel = MOCK_MODEL
     } else {
-      payload = await getAIProvider().generateLesson(topic, subject, gradeLevel, profile, src)
+      payload = await getAIProvider().generateLesson(topic, subject, gradeLevel, profile, src, { onProgress: progress })
       generationModel = config.ai.lessonModel
     }
+    progress('saving')
 
     const generationTimeMs = Date.now() - startTime
 
@@ -313,8 +319,10 @@ async function generateLesson({ userId, topic, subject, gradeLevel, board, strea
     if (saved) saved.teachingMode = { key: resolvedMode, label: teachingModes.modeLabel(resolvedMode), auto: !teachingModes.isMode(mode) }
     // Which book/chapter/sections this lesson teaches from, for the player's header.
     if (saved && src) saved.source = { book: src.book, chapter: src.chapter, kind: src.kind, topics: src.topics.map((t) => ({ id: t.id, number: t.number, title: t.title })), topicLabel: src.topicLabel }
+    progress('done')
     return saved
   } catch (err) {
+    progress('failed')
     // Best-effort status write — never let a failing DB update mask the real
     // generation error that we're about to re-throw.
     try { await lessonService.markLessonFailed(lessonId) } catch (markErr) { console.error('[ai.service] markLessonFailed failed:', markErr?.message || markErr) }

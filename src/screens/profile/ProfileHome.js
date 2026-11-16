@@ -135,7 +135,9 @@ export default function ProfileHome({
 
         <View style={s.body}>
           <Band title="My Learning">
-            <Row emoji="📊" label="Learning Progress" onPress={onLearningProgress} last />
+            {/* Results lives here now — it was taken off the bottom bar to make room
+                for the AI Teacher button. Same screen, same paywall check. */}
+            <Row emoji="📊" label="Results" onPress={onLearningProgress} last />
           </Band>
 
           <Band title="Settings">

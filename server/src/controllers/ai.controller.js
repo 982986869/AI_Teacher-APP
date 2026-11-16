@@ -12,6 +12,7 @@ const plannerService = require('../services/planner.service')
 const sessionService = require('../services/session.service')
 const progressService = require('../services/progress.service')
 const lessonService = require('../services/lesson.service')
+const lessonBuildProgress = require('../services/lessonBuildProgress')
 const { parseSourceBody } = require('../services/lessonSource')
 const ApiResponse = require('../utils/ApiResponse')
 const { AppError } = require('../middleware/errorHandler')
@@ -61,6 +62,11 @@ async function generateLesson(req, res, next) {
       mode,
       prefs: req.body.prefs, // learner preferences (sanitised in the service)
       source,
+      // Optional client-chosen id: the app polls GET /api/ai/lesson-build/:id with it
+      // to show a live percentage. Malformed / absent → no tracking, nothing else changes.
+      onProgress: lessonBuildProgress.isProgressId(req.body.progressId)
+        ? lessonBuildProgress.start(req.user.id, req.body.progressId)
+        : undefined,
     })
 
     return ApiResponse.created(
@@ -71,6 +77,20 @@ async function generateLesson(req, res, next) {
   } catch (err) {
     next(err)
   }
+}
+
+// ─── GET /api/ai/lesson-build/:progressId ─────────────────────────────────────
+// Live progress of a lesson being generated → { percent, phase, slide, slidesExpected }.
+// Scoped to the caller: one student can never read another's build. 404 until the
+// generate request has started tracking it (or after it is forgotten) — the client
+// treats that as "no live progress yet" and keeps polling briefly.
+
+function getLessonBuild(req, res) {
+  const { progressId } = req.params
+  if (!lessonBuildProgress.isProgressId(progressId)) return ApiResponse.error(res, 'Invalid progress id', 422)
+  const data = lessonBuildProgress.get(req.user.id, progressId)
+  if (!data) return ApiResponse.error(res, 'No lesson build in progress', 404)
+  return ApiResponse.success(res, data)
 }
 
 // ─── GET /api/ai/lesson/:lessonId ─────────────────────────────────────────────
@@ -413,7 +433,7 @@ async function getResume(req, res, next) {
 }
 
 module.exports = {
-  generateLesson, getLesson, getLessons, deleteLesson, askDoubt, getDoubts,
+  generateLesson, getLessonBuild, getLesson, getLessons, deleteLesson, askDoubt, getDoubts,
   ask, askStream, startRevision, updateProgress, getProgress, getLessonsProgress,
   getChaptersProgress, recordMemory, recordCheck, getMemorySummary, getPlan, getResume,
 }

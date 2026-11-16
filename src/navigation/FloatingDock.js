@@ -17,12 +17,14 @@
 import React from 'react';
 import { View, Animated, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { House, Video, Target, BookOpen, ChartColumn, User } from 'lucide-react-native';
+import { House, Video, Target, BookOpen, ChartColumn, User, Sparkles } from 'lucide-react-native';
 
 import { DAY as N } from '../theme/dayTheme';
 import { T } from '../screens/parent/ParentApp/constants';
 import { PressableScale } from '../screens/parent/ParentApp/anim';
 import { useDockVisibility } from './DockVisibility';
+import { useRuntimeConfig } from '../context/RuntimeConfigContext';
+import { requestAITeacher } from './aiTeacherLauncher';
 
 // Per-route icon + label. One shared accent keeps the bar calm and professional.
 const TABS = {
@@ -79,6 +81,32 @@ const NavTab = React.memo(function NavTab({ route, label, Icon, isFocused, onPre
   );
 });
 
+// Routes that stay registered (so they can be navigated to) but get no dock slot.
+// Results opens from Profile → "Results"; while it is open, Profile shows as active.
+const HIDDEN_FROM_DOCK = ['Results'];
+const DOCK_PARENT = { Results: 'Profile' };
+
+// ---- AI Teacher button ------------------------------------------------------
+// Not a route: the AI Teacher opens inside Home. The bar's centrepiece, per the
+// design: a raised yellow disc that breaks the bar's top edge, the label, and a
+// yellow underline beneath. (The design's "shine" rays were dropped on request.)
+const AiTab = React.memo(function AiTab({ onPress }) {
+  return (
+    <View style={[styles.slot, styles.aiSlot]}>
+      <PressableScale style={styles.aiItem} onPress={onPress} scaleTo={0.92}
+        accessibilityRole="button" accessibilityLabel="Open AI Teacher">
+        <View style={styles.aiDisc}>
+          <Sparkles size={20} color={N.ctaFg} strokeWidth={2.3} />
+        </View>
+        <T w="xbold" s={11} c={ACCENT} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.8} style={styles.label}>
+          AI Teacher
+        </T>
+        <View style={styles.aiUnderline} />
+      </PressableScale>
+    </View>
+  );
+});
+
 // ---- the docked bar ---------------------------------------------------------
 export default function FloatingDock({ state, descriptors, navigation }) {
   // Let a screen hide the dock for an immersive full-screen mode (e.g. an AI Teacher
@@ -100,6 +128,20 @@ export default function FloatingDock({ state, descriptors, navigation }) {
   const [dockH, setDockH] = React.useState(0);
   React.useEffect(() => { report({ hidden: dockHidden, height: dockH }); }, [dockHidden, dockH, report]);
 
+  // AI Teacher button: sits in the middle of the bar, hidden when the feature is off.
+  const { isFeatureEnabled } = useRuntimeConfig();
+  const aiOn = isFeatureEnabled('aiTeacher');
+  const docked = state.routes.filter((r) => !HIDDEN_FROM_DOCK.includes(r.name));
+  // Third slot, as in the design: Home, Sessions, [AI Teacher], … — i.e. right after
+  // Sessions. If Sessions is ever missing, fall back to the middle of the bar.
+  const afterRoute = docked.find((r) => r.name === 'Sessions') || docked[Math.ceil(docked.length / 2) - 1];
+  const aiAfterKey = afterRoute ? afterRoute.key : null;
+  // Same screen as Home's "Start learning": switch to Home, then ask it to open the
+  // AI Teacher (see aiTeacherLauncher.js for why this is a signal, not a param).
+  const openAI = () => { navigation.navigate('Home'); requestAITeacher(); };
+  const focusedName = state.routes[state.index] && state.routes[state.index].name;
+  const activeName = DOCK_PARENT[focusedName] || focusedName;
+
   if (dockHidden || hideDock) return null; // immersive screen (AI Teacher lesson) — no bottom nav
 
   return (
@@ -113,21 +155,25 @@ export default function FloatingDock({ state, descriptors, navigation }) {
             track width measurement, the per-tab width, and the spring that drove the
             translate. What survives is the per-icon scale spring inside NavTab, which
             never depended on any of it. */}
-        <View style={styles.track}>
-          {state.routes.map((route, index) => {
+        <View style={[styles.track, aiOn && styles.trackTight]}>
+          {docked.map((route) => {
             const cfg = TABS[route.name] || { Icon: House, label: route.name };
             const { options } = descriptors[route.key];
             const label = options.title || cfg.label;
-            const isFocused = state.index === index;
+            const isFocused = route.name === activeName;
 
+            // "Focused" here can be the parent of the open screen (Profile while Results
+            // is open), so compare with the actual route before skipping navigation.
+            const onScreen = route.name === focusedName;
             const onPress = () => {
               const event = navigation.emit({ type: 'tabPress', target: route.key, canPreventDefault: true });
-              if (!isFocused && !event.defaultPrevented) navigation.navigate(route.name);
+              if (!onScreen && !event.defaultPrevented) navigation.navigate(route.name);
             };
 
-            return (
-              <NavTab key={route.key} route={route} label={label} Icon={cfg.Icon} isFocused={isFocused} onPress={onPress} />
-            );
+            const tab = <NavTab key={route.key} route={route} label={label} Icon={cfg.Icon} isFocused={isFocused} onPress={onPress} />;
+            return aiOn && route.key === aiAfterKey
+              ? [tab, <AiTab key="ai-teacher" onPress={openAI} />]
+              : tab;
           })}
         </View>
       </View>
@@ -166,6 +212,22 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   track: { flexDirection: 'row', alignItems: 'center', position: 'relative', minHeight: 50, gap: 12 },
+  // A narrower gap so six slots + the wider AI Teacher button fit without truncating.
+  trackTight: { gap: 4 },
+
+  // AI Teacher centrepiece. The disc sits INSIDE the bar on purpose. An earlier
+  // version pulled it up through the bar's top edge, and on Android a child's area
+  // outside its parent's bounds receives no touches — so tapping the disc did
+  // nothing — and the part sticking up covered text on the screen above.
+  aiSlot: { flex: 1.15 },
+  aiItem: { alignItems: 'center', justifyContent: 'center', gap: 3, paddingVertical: 2 },
+  aiDisc: {
+    width: 42, height: 42, borderRadius: 21,
+    backgroundColor: N.ctaBg, alignItems: 'center', justifyContent: 'center',
+    shadowColor: N.ctaBg, shadowOpacity: 0.45, shadowRadius: 8,
+    shadowOffset: { width: 0, height: 2 }, elevation: 4,
+  },
+  aiUnderline: { width: 30, height: 3, borderRadius: 2, backgroundColor: N.ctaBg, marginTop: 1 },
   slot: { flex: 1 },
   item: { alignItems: 'center', justifyContent: 'center', gap: 5, paddingVertical: 5 },
   iconBox: { height: 24, alignItems: 'center', justifyContent: 'center' },

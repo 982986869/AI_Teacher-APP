@@ -30,7 +30,9 @@ function parseSSE(raw) {
 // `source` (optional): a textbook scope { chapterId, kind:'summary' } or
 // { chapterId, kind:'topics', topicIds:[…] } — the server derives topic/subject from it,
 // so they may be omitted; the lesson comes back with `lesson.source` describing the book.
-export const generateLesson = async ({ topic, subject, gradeLevel, mode, prefs, source }) => {
+// `progressId` (optional): a random id the caller then polls with getLessonBuild()
+// to show a live percentage while this request is still running.
+export const generateLesson = async ({ topic, subject, gradeLevel, mode, prefs, source, progressId }) => {
   // Full lesson generation by Opus can take 30–90s — allow up to 2 minutes.
   const res = await axiosInstance.post('/api/ai/lesson/generate', {
     ...(topic ? { topic } : {}),
@@ -39,8 +41,24 @@ export const generateLesson = async ({ topic, subject, gradeLevel, mode, prefs, 
     ...(mode && mode !== 'auto' ? { mode } : {}),
     ...(prefs ? { prefs } : {}),
     ...(source ? { source } : {}),
+    ...(progressId ? { progressId } : {}),
   }, { timeout: 120000 });
   return res.data.data;
+};
+
+// A fresh id for one lesson build (server accepts [A-Za-z0-9_-]{8,64}).
+export const newProgressId = () =>
+  `${Date.now().toString(36)}${Math.random().toString(36).slice(2, 12)}`;
+
+// Live build progress → { percent, phase, slide, slidesExpected } or null when the
+// server has none yet (404 before the build registers, or an older server).
+export const getLessonBuild = async (progressId) => {
+  try {
+    const res = await axiosInstance.get(`/api/ai/lesson-build/${progressId}`, { timeout: 5000 });
+    return res.data.data;
+  } catch (_) {
+    return null;
+  }
 };
 
 // The teaching-mode catalog (client-side; mirrors server/src/services/teachingModes.js).

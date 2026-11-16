@@ -11,6 +11,7 @@ const {
 } = require('../controllers/knowledge.controller')
 const {
   generateLesson,
+  getLessonBuild,
   getLesson,
   getLessons,
   deleteLesson,
@@ -147,6 +148,9 @@ router.get('/plan',                                  getPlan)
 router.get('/chapters/progress',                     getChaptersProgress)
 router.get('/session/resume',                        getResume)
 router.post('/lesson/generate',        generateRules, generateLesson)
+// Live % for a lesson being generated (client polls with the progressId it sent).
+// Its own prefix so it can never collide with /lesson/:lessonId/progress.
+router.get('/lesson-build/:progressId',              getLessonBuild)
 router.post('/lesson/:lessonId/progress', progressRules, updateProgress)
 router.post('/lesson/:lessonId/check',    checkRules,   recordCheck)
 router.get('/lesson/:lessonId/progress',               getProgress)

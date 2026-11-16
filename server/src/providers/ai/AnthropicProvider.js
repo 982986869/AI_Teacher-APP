@@ -46,6 +46,30 @@ const LESSON_MAX_TOKENS = 8000
 // HTTP timeout on a plain create(), so the thinking path streams and collects the
 // final message (see _createLessonMessage).
 const LESSON_MAX_TOKENS_THINKING = 32000
+
+// Report live lesson-build milestones from a MessageStream: a thinking block opening,
+// and each new slide as its "slideNumber" key is written into the JSON. Only
+// observes — the caller still awaits stream.finalMessage(). A throwing reporter must
+// not break generation, so every call is guarded.
+const SLIDE_KEY = '"slideNumber"'
+function watchLessonStream(stream, onProgress) {
+  if (typeof onProgress !== 'function') return
+  const report = (event, data) => { try { onProgress(event, data) } catch (_) { /* best-effort */ } }
+  let slides = 0
+  let tail = '' // last few chars of the previous delta, so a key split across deltas still counts
+  stream.on('streamEvent', (ev) => {
+    if (ev && ev.type === 'content_block_start' && ev.content_block && ev.content_block.type === 'thinking') report('thinking')
+  })
+  stream.on('text', (delta) => {
+    const chunk = tail + delta
+    let i = chunk.indexOf(SLIDE_KEY)
+    let found = 0
+    while (i !== -1) { found += 1; i = chunk.indexOf(SLIDE_KEY, i + SLIDE_KEY.length) }
+    // Keep a tail shorter than the key, so a match is never counted twice.
+    tail = chunk.slice(-(SLIDE_KEY.length - 1))
+    if (found) { slides += found; report('slide', { n: slides }) }
+  })
+}
 const EFFORT_LEVELS = ['low', 'medium', 'high', 'xhigh', 'max']
 const DOUBT_MAX_TOKENS = 1024
 const INTENT_MAX_TOKENS = 60
@@ -111,7 +135,9 @@ class AnthropicProvider extends AIProvider {
 
   // `source` (optional) is a textbook scope from books.service.loadSource: its text goes
   // in as its own prompt-cached block ahead of the per-student instructions.
-  async generateLesson(topic, subject, gradeLevel, profile = {}, source = null) {
+  // `onProgress(event, data)` (optional) receives live milestones while the model
+  // streams — see services/lessonBuildProgress.js. It must never throw into here.
+  async generateLesson(topic, subject, gradeLevel, profile = {}, source = null, { onProgress } = {}) {
     const client = this._getClient()
     const { system, messages } = buildLessonRequestParts({
       systemText: buildLessonSystemPrompt(),
@@ -119,7 +145,7 @@ class AnthropicProvider extends AIProvider {
       userText: buildLessonUserPrompt(topic, subject, gradeLevel, profile, source),
     })
 
-    const message = await this._createLessonMessage(client, system, messages)
+    const message = await this._createLessonMessage(client, system, messages, onProgress)
     const raw = extractText(message)
     return parseAndValidateLesson(raw)
   }
@@ -130,7 +156,7 @@ class AnthropicProvider extends AIProvider {
   // blocks and keeps only the JSON text. If the configured model rejects the
   // thinking/effort params (older tier → 400), we fall back once to a plain
   // non-streaming request so a lesson is never lost to a config mismatch.
-  async _createLessonMessage(client, system, messages) {
+  async _createLessonMessage(client, system, messages, onProgress) {
     if (this.lessonThinking) {
       try {
         const stream = client.messages.stream({
@@ -141,6 +167,7 @@ class AnthropicProvider extends AIProvider {
           system,
           messages,
         })
+        watchLessonStream(stream, onProgress)
         const msg = await stream.finalMessage()
         if (process.env.LESSON_USAGE_LOG === '1') console.log('[lesson usage]', JSON.stringify(msg && msg.usage))
         // If thinking ate the budget and the JSON was cut off, don't return partial
@@ -158,14 +185,19 @@ class AnthropicProvider extends AIProvider {
       }
     }
 
+    // Streamed (rather than create()) only so the live progress bar keeps moving on
+    // this fallback path too; finalMessage() resolves to the same Message, and
+    // rejects with the same typed API errors, as create() did.
     let msg
     try {
-      msg = await client.messages.create({
+      const stream = client.messages.stream({
         model: this.lessonModel,
         max_tokens: LESSON_MAX_TOKENS,
         system,
         messages,
       })
+      watchLessonStream(stream, onProgress)
+      msg = await stream.finalMessage()
     } catch (err) {
       throw translateProviderError(err, 'lesson generation')
     }
@@ -787,3 +819,4 @@ function buildLessonRequestParts({ systemText, sourceBlock, userText }) {
 module.exports = AnthropicProvider
 module.exports.buildLessonRequestParts = buildLessonRequestParts
 module.exports.parseAndValidateLesson = parseAndValidateLesson
+module.exports.watchLessonStream = watchLessonStream

@@ -16,8 +16,10 @@ import McqTestScreen from './McqTestScreen';
 import McqQuizScreen from './McqQuizScreen';
 import TestQuestionScreen from './TestQuestionScreen';
 import MockResultScreen from './MockResultScreen';
-import ChapterListScreen from './ChapterListScreen';
-import OnlineTestsScreen from './OnlineTestsScreen';
+// OnlineTestsScreen is required where it renders, not imported here: it pulls in the
+// bundled Class 11/12 question banks (~35 MB of JS), and a top-level import loads
+// all of it the moment the Practice tab is tapped. metro's inlineRequires does not
+// defer default imports in the production bundle, so this has to be explicit.
 import OnlineTestScreen from './OnlineTestScreen';
 import OnlineTestReview from './OnlineTestReview';
 import ChapterPracticeScreen from './ChapterPracticeScreen';
@@ -25,8 +27,6 @@ import QuestionSolveScreen from './QuestionSolveScreen';
 import { submitOfflineTest } from '../api/offlineTestApi';
 import MockTestsCards from './Class11MockTests';
 import PracticeTestsCards from './Class11PracticeTests';
-import { getQuestions, allQuestions } from '../data/questionBank';
-import { getMcqQuestions } from '../data/mcqQuestions';
 import { listMockTests, getMockTestQuestions, listMockAttempts, submitMockTest } from '../api/mockTestsApi';
 import { useAuth } from '../context/AuthContext';
 import { saveOnlineTestAttempt, savePracticeAttempt, practiceAttemptKey } from '../utils/storage';
@@ -1092,6 +1092,7 @@ const PracticeScreen = () => {
     return <OnlineTestScreen onExit={() => setChOpen(false)} />;
   }
   if (chOpen) {
+    const OnlineTestsScreen = require('./OnlineTestsScreen').default;
     return (
       <OnlineTestsScreen
         selectedClass={selectedClass}

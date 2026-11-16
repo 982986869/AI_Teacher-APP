@@ -27,6 +27,7 @@ import {
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import { onAITeacherRequest } from '../navigation/aiTeacherLauncher';
 // Only the ring needs Svg now — the page background's radial blooms went with the
 // dark skin, and Defs/RadialGradient/Stop/Rect went with them.
 import Svg, { Circle } from 'react-native-svg';
@@ -35,6 +36,11 @@ import {
   Bell, Settings, Play, Sparkles, CircleCheck, MessageCircle, Swords, Megaphone, X,
   CircleAlert, TrendingUp, Target, Clock, Brain, Video, ArrowRight, Users, BookOpen,
 } from 'lucide-react-native';
+// The illustrated AI Teacher on the lesson card (2026-11 home mock). Pixabay image
+// 8602325 ("Customer service agent with laptop", AI-generated, Pixabay Content
+// License: free use, no attribution required), cropped to the figure with the
+// laptop/chair removed. It is the female identity's art only — see heroArt below.
+const TEACHER_HERO = require('../../assets/teacher-hero.png');
 import {
   useFonts as useAuroraFonts,
   PlusJakartaSans_400Regular, PlusJakartaSans_500Medium,
@@ -53,6 +59,7 @@ import { useRuntimeConfig } from '../context/RuntimeConfigContext';
 // only duplicated it. Static import = instant open.
 import AITeacherScreen from './AITeacherScreen';
 import BrainGymFlow from './braingym/BrainGymFlow';
+import useTeacherIdentity from '../components/teacher/useTeacherIdentity';
 // Same pattern as the two above: opens INSIDE Home, no route, so the dock's paid
 // gate and the Help bubble's offset both keep working without knowing about it.
 import ActivitiesScreen from './ActivitiesScreen';
@@ -332,6 +339,7 @@ const HomeScreen = () => {
   });
   const { user, selectedClass, setSelectedClass, isLocked, showLock } = useAuth();
   const { isFeatureEnabled } = useRuntimeConfig();
+  const teacher = useTeacherIdentity();   // name + face for the AI Teacher card
   const insets = useSafeAreaInsets();
   const navigation = useNavigation();
   const scrollRef = useRef(null);
@@ -415,6 +423,9 @@ const HomeScreen = () => {
   // and its card is hidden. Fail-open (missing flag = on).
   const aiTeacherOn = isFeatureEnabled('aiTeacher');
   const brainGymOn = isFeatureEnabled('brainGym');
+  // The lesson card's illustration is a woman; with the male teacher chosen it would
+  // contradict the name on the card, so it is shown for the female identity only.
+  const heroArt = aiTeacherOn && teacher.gender !== 'm';
   const openAITeacher = (topic = '', subject = '') => {
     if (!aiTeacherOn) return;
     setSeedTopic(topic);
@@ -422,6 +433,13 @@ const HomeScreen = () => {
     setShowAITeacher(true);
   };
   const openBrainGym = () => { if (!brainGymOn) return; setShowBrainGym(true); };
+
+  // The dock's AI Teacher button switches to Home and signals here; it opens exactly
+  // what "Start learning" opens. "Start learning" passes the current lesson's topic
+  // so the teacher picks it up; the dock button does the same, so both land on the
+  // same AI Teacher page. The ref keeps the subscription on the latest values.
+  const openFromDockRef = useRef(null); // set below, once contTitle/contSubject exist
+  useEffect(() => onAITeacherRequest(() => openFromDockRef.current && openFromDockRef.current()), []);
 
   // Dismissals live on the device, not the server: which banners someone has read
   // is a per-phone convenience, not a fact worth a table and a round trip.
@@ -499,6 +517,8 @@ They cannot change anything or see your messages.`
 
   const contTitle   = active?.title || ctx?.focusConcept?.concept || ctx?.last?.chapter || null;
   const contSubject = active?.subject || ctx?.focusConcept?.subject || ctx?.last?.subject || null;
+  // The dock's AI Teacher button opens exactly what "Start learning" opens.
+  openFromDockRef.current = () => openAITeacher(contTitle || '', contSubject || '');
   // Ring %: concept mastery when we know it, else this week's overall goal progress.
   const heroPct = Number.isFinite(ctx?.focusConcept?.masteryPct)
     ? ctx.focusConcept.masteryPct
@@ -616,29 +636,49 @@ They cannot change anything or see your messages.`
             {/* ── 1. current lesson ── */}
             <Appear delay={60} y={16}>
               <LinearGradient colors={[DAY.heroA, DAY.heroB]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={hs.hero}>
-                <View style={hs.heroTop}>
-                  {/* Badge: 100px radius, 4/10 padding, #FFFFFF at 12.55%. Its label is
-                      10px Bold, and pure black like everything else on this card. */}
-                  <View style={hs.heroChip}>
-                    <T w="bold" s={10} c={DAY.onHero} style={hs.heroChipText}>CURRENT LESSON</T>
-                  </View>
-                  {(!!contSubject || streak > 0) && (
-                    <T w="semi" s={11} c={DAY.onHeroSoft} numberOfLines={1} style={{ flexShrink: 1, textAlign: 'right' }}>
-                      {[contSubject, streak > 0 ? `${streak}-day streak` : null].filter(Boolean).join(' · ')}
+                {/* 2026-11 home mock: text + teacher panel on the left, the illustrated
+                    AI Teacher standing on the right with a lit bulb beside her, and the
+                    % ring in the top-right corner. The art is the female identity's;
+                    with Mr. Iker selected the stage just has no figure. */}
+                {/* Copy on the left, figure on the right, in a ROW — each has its own
+                    box, so the title, the teacher panel, the figure and the % ring can
+                    never draw over one another (owner's rule: no overlap). The card
+                    shows exactly the mock's words: "Start your first lesson", the
+                    teacher panel, "Start learning". The CTA still resumes the student's
+                    current lesson when there is one. */}
+                <View style={hs.heroStage}>
+                  <View style={hs.heroCopy}>
+                    <T w="black" s={21} c={DAY.onHero} numberOfLines={3} style={{ lineHeight: 26 }}>
+                      Start your first lesson
                     </T>
-                  )}
-                </View>
 
-                {/* Card-Body: 16px gap, and a 64px progress container. Figma sets the
-                    title in 800 at 20px/135% — 27px of line height, which is what the
-                    two-line 54px title node measures. */}
-                <View style={hs.heroBody}>
-                  <T w="black" s={20} c={DAY.onHero} numberOfLines={3} style={{ flex: 1, lineHeight: 27 }}>
-                    {contTitle || 'Start your first lesson'}
-                  </T>
-                  <Ring pct={heroPct / 100} size={64} stroke={6}>
-                    <CountUp to={Math.round(heroPct)} w="black" s={14} c={DAY.onHero} />
-                  </Ring>
+                    {/* The AI Teacher's face + name; the CTA below opens her. */}
+                    {aiTeacherOn && (
+                      <View style={hs.heroTeacher}>
+                        <View style={hs.heroFace}>
+                          {teacher.hasOwnArt && teacher.headshot
+                            ? <Image source={typeof teacher.headshot === 'string' ? { uri: teacher.headshot } : teacher.headshot} style={hs.heroFaceImg} />
+                            : <Sparkles size={18} color={DAY.onHero} strokeWidth={2.2} />}
+                          <View style={hs.heroOnlineDot} />
+                        </View>
+                        <View style={{ flex: 1, minWidth: 0 }}>
+                          <T w="xbold" s={14} c={DAY.onHero} numberOfLines={1}>{teacher.name}</T>
+                          <T w="semi" s={11} c={DAY.onHeroSoft} numberOfLines={2} style={{ marginTop: 2, lineHeight: 15 }}>
+                            Your AI Teacher · <T w="bold" s={11} c={DAY.green}>online</T>
+                          </T>
+                        </View>
+                      </View>
+                    )}
+                  </View>
+
+                  {/* Right column: the figure. (The % ring that sat in its corner was
+                      removed at the owner's request — it did not sit well there.) */}
+                  <View style={hs.heroSide}>
+                    {heroArt && (
+                      <Image source={TEACHER_HERO} style={hs.heroArt} resizeMode="contain"
+                        accessibilityIgnoresInvertColors accessible={false} />
+                    )}
+                  </View>
                 </View>
 
                 <Squeeze
@@ -646,7 +686,9 @@ They cannot change anything or see your messages.`
                   onPress={() => openAITeacher(contTitle || '', contSubject || '')}
                   accessibilityLabel={contTitle ? `Resume lesson: ${contTitle}` : 'Start learning'}
                 >
-                  <T w="xbold" s={14} c={DAY.heroBtnFg}>{contTitle ? 'Resume lesson' : 'Start learning'}</T>
+                  {/* Fixed label, per the mock. A student with a lesson in progress is
+                      still taken back into it (onPress above). */}
+                  <T w="xbold" s={14} c={DAY.heroBtnFg}>Start learning</T>
                   {/* Figma: an 8x9 vector inside the 12px box, 2px stroke, #FFFFFF, and
                       NO fill — an outlined triangle, not a solid one. */}
                   <Play size={12} color={DAY.heroBtnFg} strokeWidth={2} fill="none" />
@@ -804,25 +846,7 @@ They cannot change anything or see your messages.`
                   </T>
                 </Card>
               </Appear>
-
-              {aiTeacherOn && (
-                <Appear delay={280} style={{ flex: 1 }}>
-                  <Card style={hs.tile}>
-                    <View style={hs.rowBetween}>
-                      <MessageCircle size={16} color={DAY.violet} strokeWidth={2.4} />
-                      <Chip label="ONLINE" tint={DAY.violet} bg={DAY.violetSoft} live />
-                    </View>
-                    <T w="bold" s={9} c={DAY.violet} style={{ letterSpacing: 0.9, marginTop: 12 }}>AI TEACHER</T>
-                    <T w="xbold" s={14} c={DAY.ink} numberOfLines={2} style={{ marginTop: 4, lineHeight: 19 }}>Stuck on something?</T>
-                    <Squeeze style={hs.askPrimary} onPress={() => openAITeacher()} accessibilityLabel="Ask a doubt">
-                      <T w="xbold" s={11.5} c={DAY.ctaFg}>Ask a doubt</T>
-                    </Squeeze>
-                    <Squeeze style={hs.askGhost} onPress={() => openAITeacher()} accessibilityLabel="Ask a question">
-                      <T w="xbold" s={11.5} c={DAY.inkSoft}>Ask a question</T>
-                    </Squeeze>
-                  </Card>
-                </Appear>
-              )}
+              {/* The AI Teacher tile that sat here moved to the top of the page (0a). */}
             </View>
 
             {/* ── 5. recent activity ── */}
@@ -931,7 +955,8 @@ const hs = StyleSheet.create({
   // than two lines pushes further. Fixing the height would clip the title — the one
   // thing on the card that has to be readable.
   hero: {
-    borderRadius: 24, padding: 20, gap: 16, minHeight: 200,
+    // Made ~20% shorter on request (padding 20→16, gap 16→12, no 200px floor).
+    borderRadius: 24, padding: 16, gap: 12,
     borderWidth: 1, borderColor: DAY.heroEdge,
     shadowColor: DAY.heroShadow, shadowOpacity: 0.20, shadowRadius: 24,
     shadowOffset: { width: 0, height: 8 }, elevation: 8,
@@ -944,8 +969,36 @@ const hs = StyleSheet.create({
   heroChipText: { letterSpacing: 1, textTransform: 'uppercase' },
   heroBody: { flexDirection: 'row', alignItems: 'center', gap: 16 },
   heroBtn: {
-    height: 44, backgroundColor: DAY.heroBtnBg, borderRadius: 12,
+    height: 40, backgroundColor: DAY.heroBtnBg, borderRadius: 12,
     flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6,
+  },
+  // Lesson-card stage (2026-11 home mock). The copy column sits on the left; the
+  // illustration is absolutely placed on the right and drops 16px (the card's gap)
+  // so she stands on the CTA's top edge — the CTA, a later sibling, draws over her.
+  // Two side-by-side boxes, so nothing overlaps: copy (flex) | side column (100).
+  // On a 360dp phone the card's inner width is 296 → 188 for the copy.
+  heroStage: { flexDirection: 'row', gap: 8 },
+  heroCopy: { flex: 1, minWidth: 0 },
+  // The side column reserves the figure's space; she is bottom-aligned in it.
+  heroSide: { width: 100, minHeight: 140, justifyContent: 'flex-end', alignItems: 'center' },
+  // 94×140 keeps teacher-hero.png's 439×651 ratio and fits the 100×140 column.
+  heroArt: { width: 94, height: 140 },
+  // AI Teacher on the lesson card: face + name row above the CTA.
+  // A soft white panel, same 12px radius as the CTA below it.
+  heroTeacher: {
+    flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 10,
+    backgroundColor: 'rgba(255,255,255,0.45)', borderRadius: 14, padding: 8,
+  },
+  heroFace: {
+    width: 38, height: 38, borderRadius: 19, backgroundColor: '#FFFFFF',
+    borderWidth: 2, borderColor: '#FFFFFF', alignItems: 'center', justifyContent: 'center',
+    shadowColor: '#000000', shadowOpacity: 0.12, shadowRadius: 4,
+    shadowOffset: { width: 0, height: 2 }, elevation: 2,
+  },
+  heroFaceImg: { width: 34, height: 34, borderRadius: 17 },
+  heroOnlineDot: {
+    position: 'absolute', right: -1, bottom: -1, width: 12, height: 12, borderRadius: 6,
+    backgroundColor: DAY.green, borderWidth: 2, borderColor: '#FFFFFF',
   },
 
   // tiles

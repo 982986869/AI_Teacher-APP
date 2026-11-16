@@ -15,13 +15,37 @@ import { Sparkles, Check, Circle } from 'lucide-react-native';
 import { AIT } from '../../../theme/aiTeacherTheme';
 import { T, PAD } from './ui';
 
+// The line under the bar, from the server's phase: says what is happening right now.
+function progressDetail(p) {
+  if (!p) return '';
+  switch (p.phase) {
+    case 'thinking': return 'Planning the lesson…';
+    case 'writing':  return p.slide ? `Writing slide ${p.slide} of about ${p.slidesExpected || 9}…` : 'Writing the slides…';
+    case 'saving':   return 'Putting it all together…';
+    case 'done':     return 'Ready!';
+    default:         return 'Getting started…';
+  }
+}
+
 export default function GeneratingOverlay({
   visible,
   opacity,        // Animated.Value from the caller, so the fade-in is owned with the state
   stages = [],
   stage = 0,
   hint = '',
+  // Live server progress { percent, phase, slide, slidesExpected } — REAL, not a
+  // timer. null until the server reports (or on an older server): the bar is then
+  // simply not shown and the screen is exactly as before.
+  progress = null,
 }) {
+  // Ease the bar between polls (they land ~1.5 s apart) instead of jumping.
+  const width = React.useRef(new Animated.Value(0)).current;
+  const pct = progress ? Math.max(0, Math.min(100, Math.round(progress.percent || 0))) : 0;
+  React.useEffect(() => {
+    if (!visible) { width.setValue(0); return; }
+    Animated.timing(width, { toValue: pct, duration: 700, useNativeDriver: false }).start();
+  }, [pct, visible, width]);
+
   if (!visible) return null;
 
   return (
@@ -33,6 +57,21 @@ export default function GeneratingOverlay({
       <T w="bold" s={18} style={s.title} accessibilityLiveRegion="polite">
         Ms. Nova is preparing your lesson…
       </T>
+
+      {!!progress && (
+        <View style={s.progressWrap}
+          accessible accessibilityRole="progressbar"
+          accessibilityValue={{ min: 0, max: 100, now: pct }}
+          accessibilityLabel={`Lesson ${pct} percent ready`}>
+          <View style={s.progressHead}>
+            <T w="semi" s={13} c={AIT.inkSoft} numberOfLines={1} style={{ flex: 1 }}>{progressDetail(progress)}</T>
+            <T w="bold" s={15} c={AIT.ink}>{pct}%</T>
+          </View>
+          <View style={s.track}>
+            <Animated.View style={[s.fill, { width: width.interpolate({ inputRange: [0, 100], outputRange: ['0%', '100%'] }) }]} />
+          </View>
+        </View>
+      )}
 
       <View style={s.list}>
         {stages.map((label, i) => {
@@ -84,4 +123,9 @@ const s = StyleSheet.create({
   // A fixed box so the rows do not jog sideways when a spinner swaps for a tick.
   marker: { width: 22, height: 22, alignItems: 'center', justifyContent: 'center' },
   hint: { marginTop: 20, textAlign: 'center', lineHeight: 19 },
+  // Live progress bar: 8px track in the screen's hairline grey, amber fill (accent).
+  progressWrap: { alignSelf: 'stretch', marginTop: 20, gap: 8 },
+  progressHead: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  track: { height: 8, borderRadius: 4, backgroundColor: AIT.edge, overflow: 'hidden' },
+  fill: { height: 8, borderRadius: 4, backgroundColor: AIT.accent },
 });

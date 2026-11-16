@@ -125,7 +125,6 @@ export const DAY = {
   bannerFg: '#7C3AED',
 
   divider: '#F0F0F5',                   // list hairline inside a card
-
   // Bottom navigation bar — a BLACK bar, the one surface on this page that is not light.
   // The "Bottom Navigation Bar" panel reports #FFFFFF under Colors and #000000 under a
   // top border, which reads as a white bar; the rendered design is the opposite, and the
@@ -133,6 +132,9 @@ export const DAY = {
   //
   // There is no top border token: the base panel's 1px #000000 would be a black hairline
   // on a black bar, which draws nothing.
+  //
+  // (A white bar from the 2026-11 home mock was tried and reverted at the owner's
+  // request — the tabs did not read well. Keep the black bar.)
   dockBg: '#000000',
   dockFg: '#FFFFFF',                    // active tab — icon and label
   dockIdle: '#9CA3AF',                  // inactive. Not specified; #6B7280 (the page's
