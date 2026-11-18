@@ -23,7 +23,9 @@ const FILLER_PHRASES = [
   /\ba simple mental model (of|is)\b/gi,
 ]
 
-const MAX_LINES = 5
+// A safety ceiling only — answer LENGTH is the prompt's job (about 5 lines, up to 8
+// for a worked numerical). Raised from 5, which cut worked steps.
+const MAX_LINES = 12
 
 function stripFiller(text) {
   let s = String(text || '').trim()
@@ -65,9 +67,21 @@ function capLines(text) {
     .map((l) => l.trim())
     .filter((l) => l.length > 0)
   if (lines.length <= MAX_LINES) return { text: lines.join('\n'), truncated: false }
-  // Keep the first (MAX_LINES-1) lines and the last line (usually the check).
-  const kept = lines.slice(0, MAX_LINES - 1).concat(lines[lines.length - 1])
-  return { text: kept.join('\n'), truncated: true }
+  // Keep the FIRST lines, in order. Never "first few + last": that silently deleted
+  // the middle steps of a worked answer.
+  return { text: lines.slice(0, MAX_LINES).join('\n'), truncated: true }
+}
+
+// A reply that hit max_tokens stops mid-sentence. End it at the last full sentence
+// (., !, ? or the Hindi danda) that is followed by whitespace or the end of the
+// text, so "3.14" is not mistaken for a sentence end. No full sentence → unchanged.
+function trimToLastSentence(text) {
+  const s = String(text || '')
+  let end = -1
+  const re = /[.!?।](?=\s|$)/g
+  let m
+  while ((m = re.exec(s)) !== null) end = m.index
+  return end >= 0 ? s.slice(0, end + 1).trim() : s
 }
 
 // Heuristic language-mismatch flag (does NOT rewrite — the prompt owns language).
@@ -95,4 +109,4 @@ function applyGuard(rawAnswer, { language = 'en' } = {}) {
   }
 }
 
-module.exports = { applyGuard, stripFiller, capLines, MAX_LINES }
+module.exports = { applyGuard, stripFiller, capLines, trimToLastSentence, MAX_LINES }

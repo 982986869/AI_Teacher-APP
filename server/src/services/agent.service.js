@@ -1,7 +1,8 @@
 'use strict'
 
 const { config } = require('../config/env')
-const { getAIProvider } = require('../providers')
+// Called through the module object (providers.getAIProvider) so tests can stub it.
+const providers = require('../providers')
 // Called through the module object (retriever.retrieve) so tests can stub it.
 const retriever = require('./retriever.service')
 const { canonicalSubject } = retriever
@@ -16,7 +17,7 @@ const lifecycle = require('./masteryLifecycle')
 const teacherBridge = require('./braingym/teacherBridge')
 const mistakeBook = require('./mistakeBook.service')
 const db = require('../config/database')
-const { applyGuard } = require('../utils/responseGuard')
+const { applyGuard, trimToLastSentence } = require('../utils/responseGuard')
 const { createBoardStreamParser } = require('../utils/boardStream')
 const { MOCK_BOARD_SAMPLE } = require('../utils/boardElements')
 const { quickIntent } = require('../prompts/intentClassify.prompt')
@@ -218,7 +219,7 @@ async function prepareTurn({ userId, question, subject, gradeLevel, lessonId, sl
     ? Promise.resolve({ intent: quick.intent, language: quick.language, confidence: 0.9, via: 'rules' })
     : config.ai.mockMode
       ? Promise.resolve({ intent: 'concept_explanation', language: 'en', confidence: 0.5, via: 'mock' })
-      : getAIProvider().classifyIntent(question).then((r) => ({ ...r, via: 'llm' }))
+      : providers.getAIProvider().classifyIntent(question).then((r) => ({ ...r, via: 'llm' }))
 
   let lesson = null
   let slides = []
@@ -303,7 +304,7 @@ async function startQuiz({ userId, subject, retrieval, level, language, lessonId
   const concept = retrieval.concept || null
   let quiz
   if (config.ai.mockMode) quiz = { question: `Quick question on ${subject}: state one key idea you remember.`, answer: '(any reasonable key idea)' }
-  else quiz = await getAIProvider().generateQuiz({ subject, chapter, contexts, level: quizLevel, language })
+  else quiz = await providers.getAIProvider().generateQuiz({ subject, chapter, contexts, level: quizLevel, language })
   const guarded = applyGuard(quiz.question, { language })
   return {
     intent: 'quiz_request', language, level, quizLevel, mode: 'quiz',
@@ -334,7 +335,7 @@ async function handleQuizAnswer({ userId, studentAnswer, pending, lessonId, slid
         studentMemory = `This student has found ${area} hard before, so be extra warm. If their answer is close, gently acknowledge the progress (e.g. "similar to a small slip earlier, but you're much closer now"). Never discourage.`
       }
     }
-    const g = await getAIProvider().gradeAnswer({ question: pending.question, expectedAnswer: pending.answer, studentAnswer, language, studentMemory })
+    const g = await providers.getAIProvider().gradeAnswer({ question: pending.question, expectedAnswer: pending.answer, studentAnswer, language, studentMemory })
     verdict = g.verdict; feedback = g.feedback
   }
   if (userId && pending.subject) {
@@ -403,7 +404,7 @@ async function reExplain({ userId, pending, level, lessonId, slideIndex, history
   const studentContext = buildStudentContext(concept, cm, retrieval, memoryCues)
   let raw
   if (config.ai.mockMode) raw = `Let me try another way (${strategy}). ${pending.topic}. Clear now?`
-  else raw = await getAIProvider().generateTeacherResponse({
+  else raw = await providers.getAIProvider().generateTeacherResponse({
     intent: 'concept_explanation', language, contexts, lesson, history: (Array.isArray(history) ? history : []).slice(-8),
     question: pending.topic, slideIndex, level, strategy, studentContext, gradeLevel: prep.gradeLevel, lessonContext,
   })
@@ -620,7 +621,7 @@ async function ask(params) {
       ? `Here is the key idea. ${String(contexts[0].content).split('\n').slice(1).join(' ').slice(0, 160)} Clear?`
       : "This isn't in your material yet. Ask me about your topic and I'll explain it. Clear?"
   } else {
-    rawAnswer = await getAIProvider().generateTeacherResponse({ intent, language, contexts, lesson, history: trimmedHistory, question, slideIndex, level, mode, studentContext, gradeLevel, lessonContext })
+    rawAnswer = await providers.getAIProvider().generateTeacherResponse({ intent, language, contexts, lesson, history: trimmedHistory, question, slideIndex, level, mode, studentContext, gradeLevel, lessonContext })
   }
   const guarded = applyGuard(rawAnswer, { language })
   logEngagement({ userId, subject, intent, contexts })
@@ -726,11 +727,16 @@ async function askStream(params, { onMeta, onDelta, onBoard } = {}) {
       ? createBoardStreamParser({ onText: (t) => { if (onDelta) onDelta(t) }, onElement: (el) => { if (onBoard) onBoard(el) } })
       : null
     const sink = parser ? (t) => parser.push(t) : (t) => { if (onDelta) onDelta(t) }
-    raw = await getAIProvider().streamTeacherResponse(
+    const streamMeta = {}
+    raw = await providers.getAIProvider().streamTeacherResponse(
       { intent, language, contexts, lesson, history: history.slice(-8), question, slideIndex, level, mode, studentContext, gradeLevel, board, lessonContext },
-      sink
+      sink,
+      streamMeta
     )
-    if (parser) { parser.end(); raw = parser.text }
+    // The parser's text (built from the streamed pieces) replaces the provider's return
+    // value, so a reply cut by max_tokens is trimmed here as well. What was already
+    // spoken stays spoken; what is shown and saved ends at a full sentence.
+    if (parser) { parser.end(); raw = streamMeta.stopReason === 'max_tokens' ? trimToLastSentence(parser.text) : parser.text }
   }
   const guarded = applyGuard(raw, { language })
   logEngagement({ userId, subject, intent, contexts })
@@ -760,11 +766,11 @@ async function startRevision({ userId, subject }) {
     recap = `Quick revision of ${focusChapter || focusSubject}. Remember the key ideas.`
     quiz = { question: `What is one key point of ${focusChapter || focusSubject}?`, answer: '(any key point)' }
   } else {
-    recap = await getAIProvider().generateTeacherResponse({
+    recap = await providers.getAIProvider().generateTeacherResponse({
       intent: 'revision', language, contexts, lesson: null, history: [],
       question: `Revise ${focusChapter || focusSubject} — only the key points`, level,
     })
-    quiz = await getAIProvider().generateQuiz({ subject: focusSubject, chapter: focusChapter, contexts, level, language })
+    quiz = await providers.getAIProvider().generateQuiz({ subject: focusSubject, chapter: focusChapter, contexts, level, language })
   }
   const gRecap = applyGuard(recap, { language })
   const gQuiz = applyGuard(quiz.question, { language })

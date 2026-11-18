@@ -35,6 +35,7 @@ const {
   buildKnowledgeMessages,
 } = require('../../prompts/knowledgeAnswer.prompt')
 const { normalizeAnimation } = require('../../utils/slideAnimation')
+const { trimToLastSentence } = require('../../utils/responseGuard')
 
 const VISUAL_TYPES = ['DIAGRAM', 'CHART', 'EXAMPLE', 'ANALOGY', 'FORMULA', 'NONE']
 
@@ -73,11 +74,12 @@ function watchLessonStream(stream, onProgress) {
 const EFFORT_LEVELS = ['low', 'medium', 'high', 'xhigh', 'max']
 const DOUBT_MAX_TOKENS = 1024
 const INTENT_MAX_TOKENS = 60
-// Teacher replies are at most ~5 short lines; a tight ceiling keeps generation fast.
-const TEACHER_MAX_TOKENS = 450
+// Teacher replies are about 5 short lines, up to 8 for a worked numerical. 450 cut
+// worked steps; the prompt, not this ceiling, keeps answers short.
+const TEACHER_MAX_TOKENS = 700
 // With a board, up to 6 [[board:]] markers (~30 tokens each) share the budget with the
 // spoken lines; without the headroom the last sentence gets cut off mid-word.
-const TEACHER_MAX_TOKENS_BOARD = 700
+const TEACHER_MAX_TOKENS_BOARD = 900
 // A grounded knowledge answer is capped at ~180 words (plain) or a small JSON lesson.
 const KNOWLEDGE_MAX_TOKENS = 900
 // Transcribing an uploaded page (PDF/photo) can be dense — allow room for a full page.
@@ -268,15 +270,19 @@ class AnthropicProvider extends AIProvider {
     } catch (err) {
       throw translateProviderError(err, 'teacher response')
     }
-    const answer = extractText(message).trim()
+    let answer = extractText(message).trim()
+    // Out of tokens mid-reply → end at the last full sentence, never mid-word.
+    if (message && message.stop_reason === 'max_tokens') answer = trimToLastSentence(answer)
     if (!answer) throw new AppError('The AI returned an empty answer. Please try again.', 502)
     return answer
   }
 
   // Streaming variant — calls onText(delta) per chunk, resolves with the full text.
+  // `meta` (optional) is filled with { stopReason } so a caller that rebuilds the text
+  // from the streamed pieces (the board parser) can apply the same max_tokens trim.
   // `board` adds the drawing instructions (teacherResponse.prompt BOARD_BLOCK); the raw
   // text returned here still contains the [[board:]] markers — the caller strips them.
-  async streamTeacherResponse({ intent, language, contexts, lesson, history, question, slideIndex, level, mode, strategy, studentContext, gradeLevel, board = false, lessonContext = '' }, onText) {
+  async streamTeacherResponse({ intent, language, contexts, lesson, history, question, slideIndex, level, mode, strategy, studentContext, gradeLevel, board = false, lessonContext = '' }, onText, meta = null) {
     const client = this._getClient()
     const stream = client.messages.stream({
       model: this.doubtModel,
@@ -291,7 +297,11 @@ class AnthropicProvider extends AIProvider {
     } catch (err) {
       throw translateProviderError(err, 'teacher response (stream)')
     }
-    const answer = extractText(final).trim()
+    if (meta && final) meta.stopReason = final.stop_reason
+    let answer = extractText(final).trim()
+    // Text already streamed (and spoken) stays as it was; only the returned — shown
+    // and saved — text is trimmed to the last full sentence on a max_tokens cut.
+    if (final && final.stop_reason === 'max_tokens') answer = trimToLastSentence(answer)
     if (!answer) throw new AppError('The AI returned an empty answer. Please try again.', 502)
     return answer
   }
