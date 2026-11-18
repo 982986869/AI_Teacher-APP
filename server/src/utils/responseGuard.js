@@ -79,14 +79,41 @@ function capLines(text) {
 
 // A reply that hit max_tokens stops mid-sentence. End it at the last full sentence
 // (., !, ? or the Hindi danda) that is followed by whitespace or the end of the
-// text, so "3.14" is not mistaken for a sentence end. No full sentence → unchanged.
+// text, so "3.14" is not mistaken for a sentence end — or at the last line break,
+// since a worked numerical is often written one step per line with no full stop.
+// No boundary at all → unchanged.
 function trimToLastSentence(text) {
   const s = String(text || '')
   let end = -1
-  const re = /[.!?।](?=\s|$)/g
+  const re = /[.!?।](?=\s|$)|\n/g
   let m
-  while ((m = re.exec(s)) !== null) end = m.index
-  return end >= 0 ? s.slice(0, end + 1).trim() : s
+  while ((m = re.exec(s)) !== null) end = m[0] === '\n' ? m.index : m.index + 1
+  return end >= 0 ? s.slice(0, end).trim() : s
+}
+
+// The SPOKEN side of the same rule, for a streamed reply. Text is passed on to
+// `emit` only up to the last sentence end (as trimToLastSentence) or line break; the
+// unfinished tail is held. end(cut): flush the tail, unless the reply was cut by
+// max_tokens — then the tail is dropped, so the student never hears "…splits wa".
+// Concatenating everything emitted reproduces the text exactly (when not cut).
+function createSpokenGate(emit) {
+  let held = ''
+  const BOUNDARY = /[.!?।](?=\s)|\n/g
+  return {
+    push(t) {
+      held += String(t || '')
+      let cut = -1
+      let m
+      BOUNDARY.lastIndex = 0
+      while ((m = BOUNDARY.exec(held)) !== null) cut = m.index + 1
+      if (cut > 0) { const out = held.slice(0, cut); held = held.slice(cut); emit(out) }
+    },
+    end(wasCut) {
+      const rest = held
+      held = ''
+      if (rest && !wasCut) emit(rest)
+    },
+  }
 }
 
 // Heuristic language-mismatch flag (does NOT rewrite — the prompt owns language).
@@ -114,4 +141,4 @@ function applyGuard(rawAnswer, { language = 'en' } = {}) {
   }
 }
 
-module.exports = { applyGuard, stripFiller, capLines, trimToLastSentence, MAX_LINES }
+module.exports = { applyGuard, stripFiller, capLines, trimToLastSentence, createSpokenGate, MAX_LINES }

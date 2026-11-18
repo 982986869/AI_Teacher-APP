@@ -16,6 +16,9 @@ test('classifyUnderstanding: only short replies are understanding signals', () =
   const cases = {
     haan: 'understood', 'samajh gaya': 'understood', ok: 'understood', 'got it': 'understood',
     'nahi samjha': 'not_understood', 'phir se': 'not_understood', 'not clear': 'not_understood', 'samajh nahi aaya': 'not_understood',
+    "I don't understand": 'not_understood', 'i dont get it': 'not_understood', "I didn't get it": 'not_understood',
+    "didn't understand": 'not_understood', "I'm confused": 'not_understood', 'kuch samajh nahi aaya': 'not_understood',
+    'haan samajh gaya': 'understood', 'yes, clear': 'understood', 'ok got it': 'understood',
     'ok but why is it green?': 'other',
     'right angle kyun hota hai': 'other',
     'why is it not zero?': 'other',

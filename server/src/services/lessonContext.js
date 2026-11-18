@@ -19,7 +19,9 @@ function replyLanguageFor(subject) {
   return subject && HINDI_SUBJECT.test(String(subject)) ? 'hi' : 'en'
 }
 
-const words = (s) => String(s || '').toLowerCase().split(/[^\p{L}\p{N}]+/u).filter((w) => w.length >= 3)
+// \p{M} keeps Devanagari vowel signs (matras) inside the word, so Hindi words
+// are matched whole rather than as fragments.
+const words = (s) => String(s || '').toLowerCase().split(/[^\p{L}\p{M}\p{N}]+/u).filter((w) => w.length >= 3)
 
 // Book passages most relevant to the question, whole passages first, up to `cap`.
 function pickBookPassages(topics, query, cap = BOOK_CAP) {

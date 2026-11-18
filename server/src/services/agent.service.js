@@ -17,7 +17,7 @@ const lifecycle = require('./masteryLifecycle')
 const teacherBridge = require('./braingym/teacherBridge')
 const mistakeBook = require('./mistakeBook.service')
 const db = require('../config/database')
-const { applyGuard, trimToLastSentence } = require('../utils/responseGuard')
+const { applyGuard, trimToLastSentence, createSpokenGate } = require('../utils/responseGuard')
 const { createBoardStreamParser } = require('../utils/boardStream')
 const { MOCK_BOARD_SAMPLE } = require('../utils/boardElements')
 const { quickIntent } = require('../prompts/intentClassify.prompt')
@@ -187,13 +187,19 @@ function buildSources(chunks) {
 // zero?"), is a new question — reading it as a signal used to drop the real question.
 // Negations are checked FIRST so "nahi samajh aaya" is not read as "samajh aaya".
 const QUESTION_WORD = /\b(why|how|what|which|when|where|kyun|kyu|kyon|kaise|kya|kaun|kab|kahan)\b/
-const NOT_UNDERSTOOD = /^(no|nope|nah|nahi|nhi|nai|repeat|again|phir se|still confused|confused|not clear|not understood|don'?t (get it|understand)|dont (get it|understand)|(main |mujhe )?(samajh|samjh|samjha|samjhi) (nahi|nhi)( aaya| aya)?|(nahi|nhi) (samajh|samjha|samjhi)( aaya| aya)?|samajh nahi aaya( kuch)?|still (don'?t|not) (get it|clear))( (please|pls|yaar|ma'?am|sir))?$/
+const NOT_UNDERSTOOD = /^(no|nope|nah|nahi|nhi|nai|repeat|again|phir se|still confused|confused|not clear|not understood|don'?t (get it|understand)|dont (get it|understand)|didn'?t (get it|understand)|didnt (get it|understand)|do not understand|(main |mujhe )?(samajh|samjh|samjha|samjhi) (nahi|nhi)( aaya| aya)?|(nahi|nhi) (samajh|samjha|samjhi)( aaya| aya)?|samajh nahi aaya( kuch)?|still (don'?t|not) (get it|clear))( (please|pls|yaar|ma'?am|sir))?$/
 const UNDERSTOOD = /^(yes|yeah|yep|yup|ok|okay|k|kk|got ?it|clear|cleared|understood|haan|haa|ha|hmm|theek|thik|theek hai|thik hai|done|next|continue|aage|aage chalo|right|good|great|makes sense|clear hai|samajh (gaya|gyi|gayi|gya|aaya|aa gaya|liya)|samjh (gaya|gya|aaya)|ho gaya)( (thanks|thank you|ma'?am|sir|yaar))?$/
+// A leading subject ("I don't understand", "I'm confused", "kuch samajh nahi aaya")
+// and a leading yes-word before the signal ("haan samajh gaya", "yes, clear") are
+// allowed — they are still only the signal.
+const SUBJECT_PREFIX = /^(i|i'?m|im|main|mujhe|kuch|abhi bhi)\s+/
+const YES_PREFIX = /^(haan|haa|yes|yeah|ok|okay|ji)\s+/
 function classifyUnderstanding(text) {
-  const t = String(text || '').trim().toLowerCase().replace(/[.!,]+$/g, '').replace(/\s+/g, ' ')
+  let t = String(text || '').trim().toLowerCase().replace(/[.!]+$/g, '').replace(/,/g, ' ').replace(/\s+/g, ' ').trim()
   if (!t || t.split(' ').length > 5 || t.includes('?') || QUESTION_WORD.test(t)) return 'other'
+  t = t.replace(SUBJECT_PREFIX, '').replace(SUBJECT_PREFIX, '')
   if (NOT_UNDERSTOOD.test(t)) return 'not_understood'
-  if (UNDERSTOOD.test(t)) return 'understood'
+  if (UNDERSTOOD.test(t) || UNDERSTOOD.test(t.replace(YES_PREFIX, ''))) return 'understood'
   return 'other'
 }
 
@@ -731,20 +737,28 @@ async function askStream(params, { onMeta, onDelta, onBoard } = {}) {
     // With a board, the model's text carries [[board:{...}]] markers. The parser hands
     // onDelta clean sentences and onBoard validated elements, and its `text` is what the
     // guard, the `done` payload and therefore the chat history see — never a marker.
+    //
+    // Spoken text goes through a gate that holds the unfinished tail until the stream
+    // ends; on a max_tokens cut that tail is dropped, so the student never HEARS a
+    // half word. The wire format is unchanged — the deltas are only re-chunked.
+    const spoken = createSpokenGate((t) => { if (onDelta) onDelta(t) })
     const parser = board
-      ? createBoardStreamParser({ onText: (t) => { if (onDelta) onDelta(t) }, onElement: (el) => { if (onBoard) onBoard(el) } })
+      ? createBoardStreamParser({ onText: (t) => spoken.push(t), onElement: (el) => { if (onBoard) onBoard(el) } })
       : null
-    const sink = parser ? (t) => parser.push(t) : (t) => { if (onDelta) onDelta(t) }
+    const sink = parser ? (t) => parser.push(t) : (t) => spoken.push(t)
     const streamMeta = {}
     raw = await providers.getAIProvider().streamTeacherResponse(
       { intent, language, contexts, lesson, history: history.slice(-8), question, slideIndex, level, mode, studentContext, gradeLevel, board, lessonContext },
       sink,
       streamMeta
     )
+    const wasCut = streamMeta.stopReason === 'max_tokens'
+    if (parser) parser.end()
+    spoken.end(wasCut)
     // The parser's text (built from the streamed pieces) replaces the provider's return
-    // value, so a reply cut by max_tokens is trimmed here as well. What was already
-    // spoken stays spoken; what is shown and saved ends at a full sentence.
-    if (parser) { parser.end(); raw = streamMeta.stopReason === 'max_tokens' ? trimToLastSentence(parser.text) : parser.text }
+    // value, so a reply cut by max_tokens is trimmed here as well: what is shown and
+    // saved ends at a full sentence, matching what was spoken.
+    if (parser) raw = wasCut ? trimToLastSentence(parser.text) : parser.text
   }
   const guarded = applyGuard(raw, { language })
   logEngagement({ userId, subject, intent, contexts })

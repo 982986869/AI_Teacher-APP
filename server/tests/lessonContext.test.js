@@ -66,3 +66,12 @@ test('pickBookPassages: most relevant passage first, within the cap', () => {
   assert.ok(pickBookPassages(topics, 'chlorophyll', 120).length <= 120)
   assert.equal(pickBookPassages([], 'x'), '')
 })
+
+test('pickBookPassages: Hindi words with matras are matched whole', () => {
+  const topics = [
+    { number: '2.1', title: 'सर्वनाम', text: 'सर्वनाम संज्ञा के स्थान पर आते हैं' },
+    { number: '2.2', title: 'व्यक्तिवाचक संज्ञा', text: 'व्यक्तिवाचक संज्ञा किसी विशेष व्यक्ति का नाम है' },
+  ]
+  // "व्यक्तिवाचक" only appears in 2.2; a split on vowel signs would score both alike.
+  assert.ok(pickBookPassages(topics, 'व्यक्तिवाचक क्या है').startsWith('[2.2 '))
+})

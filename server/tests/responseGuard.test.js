@@ -35,3 +35,7 @@ test('trimToLastSentence ends at the last full sentence', () => {
   assert.equal(trimToLastSentence('no stop here'), 'no stop here')
   assert.equal(trimToLastSentence('pi is 3.14 and then'), 'pi is 3.14 and then')
 })
+
+test('trimToLastSentence: a line break also ends a step (numericals written line by line)', () => {
+  assert.equal(trimToLastSentence('Step 1: 264 / 44 = 6 mol\nStep 2: 6 mol CO2 gives 1 mol glu'), 'Step 1: 264 / 44 = 6 mol')
+})
