@@ -21,6 +21,13 @@ test('capLines over the ceiling keeps the FIRST lines, never first-plus-last', (
   assert.equal(r.truncated, true)
 })
 
+test('stripping a filler opener never leaves a lowercase sentence start', () => {
+  const { applyGuard } = require('../src/utils/responseGuard')
+  assert.equal(applyGuard('Great question — this is exactly it.', { language: 'en' }).text, 'This is exactly it.')
+  assert.equal(applyGuard('Sure, oxygen comes from water.', { language: 'en' }).text, 'Oxygen comes from water.')
+  assert.equal(applyGuard('pH is 7.', { language: 'en' }).text, 'pH is 7.') // no opener stripped → untouched
+})
+
 test('trimToLastSentence ends at the last full sentence', () => {
   assert.equal(trimToLastSentence('One. Two is cut mi'), 'One.')
   assert.equal(trimToLastSentence('Is it? Yes! And then the'), 'Is it? Yes!')

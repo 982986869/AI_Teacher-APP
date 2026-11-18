@@ -32,6 +32,7 @@ function stripFiller(text) {
 
   // Remove a leading filler opener (optionally followed by punctuation/comma).
   let changed = true
+  let stripped = false
   while (changed) {
     changed = false
     const lower = s.toLowerCase()
@@ -39,10 +40,14 @@ function stripFiller(text) {
       if (lower.startsWith(opener)) {
         s = s.slice(opener.length).replace(/^[\s,.!:—-]+/, '')
         changed = true
+        stripped = true
         break
       }
     }
   }
+  // "Great question — this is…" leaves "this is…": restore the sentence's capital.
+  // Only after a strip, so a reply that legitimately starts lowercase ("pH is 7") stays.
+  if (stripped) s = s.replace(/^[a-z]/, (c) => c.toUpperCase())
 
   // Remove mid-text AI-tone phrases anywhere.
   for (const re of FILLER_PHRASES) s = s.replace(re, '')

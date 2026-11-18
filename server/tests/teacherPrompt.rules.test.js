@@ -39,10 +39,17 @@ test('the invented-progress example line is gone', () => {
   assert.doesNotMatch(p, /Your reasoning has really been improving/)
 })
 
+test('English reply is explicit even for a Hindi/Hinglish question, and no "look at the slide"', () => {
+  const p = buildTeacherSystemPrompt({ ...base, language: 'en', lessonContext: 'LESSON: X' })
+  assert.match(p, /even when the student writes in Hindi/i)
+  assert.match(p, /look at the slide/i) // named as forbidden phrasing
+})
+
 test('language: English for anything but Hindi', () => {
   const hinglish = buildTeacherSystemPrompt({ ...base, language: 'hinglish' })
-  assert.match(hinglish, /LANGUAGE — Reply in clear, simple English/)
-  assert.doesNotMatch(hinglish, /Hinglish/)
+  assert.match(hinglish, /LANGUAGE — Reply ONLY in clear, simple English/)
+  assert.doesNotMatch(hinglish, /Reply in natural spoken Hinglish/) // the Hinglish block is not used
   const hi = buildTeacherSystemPrompt({ ...base, language: 'hi' })
   assert.match(hi, /Hindi \(Devanagari\)/)
+  assert.match(hi, /समझ आया\?/) // neutral check phrase, not "समझ गया/गई?"
 })

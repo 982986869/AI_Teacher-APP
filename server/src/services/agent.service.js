@@ -545,7 +545,11 @@ async function ask(params) {
   const prep = await prepareTurn({ userId, question, subject, gradeLevel, lessonId, slideIndex })
   subject = prep.subject; gradeLevel = prep.gradeLevel
   const { lesson, intentRes, retrieval, lessonContext } = prep
-  const { intent, language, via } = intentRes
+  const { language, via } = intentRes
+  // A bare follow-up ("why?", "aur?") right after an answer is a doubt ABOUT that
+  // answer: with chat history the model can resolve it, so teach it instead of the
+  // "I didn't catch that" line. Without history it stays unclear.
+  const intent = intentRes.intent === 'unclear' && Array.isArray(history) && history.length ? 'doubt' : intentRes.intent
 
   // Remember the language the student uses (rolling) so we can address them in it.
   if (userId) memory.recordLanguage(userId, intentRes.detectedLanguage || language).catch(() => {})
@@ -654,7 +658,11 @@ async function askStream(params, { onMeta, onDelta, onBoard } = {}) {
   const prep = await prepareTurn({ userId, question, subject, gradeLevel, lessonId, slideIndex })
   subject = prep.subject; gradeLevel = prep.gradeLevel
   const { lesson, intentRes, retrieval, lessonContext } = prep
-  const { intent, language, via } = intentRes
+  const { language, via } = intentRes
+  // A bare follow-up ("why?", "aur?") right after an answer is a doubt ABOUT that
+  // answer: with chat history the model can resolve it, so teach it instead of the
+  // "I didn't catch that" line. Without history it stays unclear.
+  const intent = intentRes.intent === 'unclear' && Array.isArray(history) && history.length ? 'doubt' : intentRes.intent
 
   // Remember the language the student uses (rolling).
   if (userId) memory.recordLanguage(userId, intentRes.detectedLanguage || language).catch(() => {})

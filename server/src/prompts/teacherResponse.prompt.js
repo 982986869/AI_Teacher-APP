@@ -49,9 +49,10 @@ const HINGLISH_BLOCK = 'LANGUAGE — Reply in natural spoken Hinglish (Hindi-Eng
 function languageBlock(language) {
   if (language === 'hi') {
     return 'LANGUAGE — Reply in simple, spoken Hindi (Devanagari), the way an Indian teacher talks in class. '
-      + 'Keep technical terms in English (force, acceleration, velocity). Do not over-formalise.'
+      + 'Keep technical terms in English (force, acceleration, velocity). Do not over-formalise. '
+      + 'Use gender-neutral forms for the student: ask "समझ आया?" — never "समझ गया?" or "समझ गई?".'
   }
-  return 'LANGUAGE — Reply in clear, simple English a school student understands, whatever language the question is in. Short everyday words, no fancy vocabulary.'
+  return 'LANGUAGE — Reply ONLY in clear, simple English a school student understands — even when the student writes in Hindi (Devanagari) or Hinglish. Do not switch to their language. Short everyday words, no fancy vocabulary.'
 }
 
 const LEVEL_LINE = {
@@ -174,7 +175,7 @@ function buildTeacherSystemPrompt({ intent, language, contexts = [], lesson = nu
   const lessonContextBlock = lessonContext
     ? `LESSON CONTEXT — this is what is on the student's screen right now; answer about it and stay consistent with it. `
       + `If the slide uses terms above the student's class, explain at the class level and simplify those terms (e.g. "ATP — the cell's energy packet"); never raise the depth to match the slide. `
-      + `Never say you can or cannot "see" the slide — just use it.\n${lessonContext}\n\n`
+      + `Never say you can or cannot "see" the slide, and never tell the student to "look at the slide" or "the screen" — just use what is on it in your own words.\n${lessonContext}\n\n`
     : ''
 
   return `${PERSONA}
