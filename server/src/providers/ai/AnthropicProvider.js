@@ -255,14 +255,14 @@ class AnthropicProvider extends AIProvider {
   }
 
   // Generate the grounded, teacher-style answer for a classified turn.
-  async generateTeacherResponse({ intent, language, contexts, lesson, history, question, slideIndex, level, mode, strategy, studentContext, gradeLevel }) {
+  async generateTeacherResponse({ intent, language, contexts, lesson, history, question, slideIndex, level, mode, strategy, studentContext, gradeLevel, lessonContext = '' }) {
     const client = this._getClient()
     let message
     try {
       message = await client.messages.create({
         model: this.doubtModel,
         max_tokens: TEACHER_MAX_TOKENS,
-        system: buildTeacherSystemPrompt({ intent, language, contexts, lesson, level, mode, strategy, studentContext, gradeLevel }),
+        system: buildTeacherSystemPrompt({ intent, language, contexts, lesson, level, mode, strategy, studentContext, gradeLevel, lessonContext }),
         messages: buildTeacherMessages(history, question, slideIndex),
       })
     } catch (err) {
@@ -276,12 +276,12 @@ class AnthropicProvider extends AIProvider {
   // Streaming variant — calls onText(delta) per chunk, resolves with the full text.
   // `board` adds the drawing instructions (teacherResponse.prompt BOARD_BLOCK); the raw
   // text returned here still contains the [[board:]] markers — the caller strips them.
-  async streamTeacherResponse({ intent, language, contexts, lesson, history, question, slideIndex, level, mode, strategy, studentContext, gradeLevel, board = false }, onText) {
+  async streamTeacherResponse({ intent, language, contexts, lesson, history, question, slideIndex, level, mode, strategy, studentContext, gradeLevel, board = false, lessonContext = '' }, onText) {
     const client = this._getClient()
     const stream = client.messages.stream({
       model: this.doubtModel,
       max_tokens: board ? TEACHER_MAX_TOKENS_BOARD : TEACHER_MAX_TOKENS,
-      system: buildTeacherSystemPrompt({ intent, language, contexts, lesson, level, mode, strategy, studentContext, gradeLevel, board }),
+      system: buildTeacherSystemPrompt({ intent, language, contexts, lesson, level, mode, strategy, studentContext, gradeLevel, board, lessonContext }),
       messages: buildTeacherMessages(history, question, slideIndex),
     })
     stream.on('text', (t) => { try { if (typeof onText === 'function') onText(t) } catch (e) { /* ignore sink errors */ } })

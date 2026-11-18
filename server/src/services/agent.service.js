@@ -2,7 +2,11 @@
 
 const { config } = require('../config/env')
 const { getAIProvider } = require('../providers')
-const { retrieve, canonicalSubject } = require('./retriever.service')
+// Called through the module object (retriever.retrieve) so tests can stub it.
+const retriever = require('./retriever.service')
+const { canonicalSubject } = retriever
+const { booksService } = require('./textbooks.service')
+const { buildLessonContext, pickBookPassages, replyLanguageFor } = require('./lessonContext')
 const memory = require('./memory.service')
 const mastery = require('./mastery.service')
 const planner = require('./planner.service')
@@ -54,7 +58,12 @@ const LINES = {
     hinglish: 'Theek hai — aaj yahin rokte hain. Aaj achha kiya tumne. Jab mann ho, phir aa jaana.',
   },
 }
-const line = (key, language) => (LINES[key] && (LINES[key][language] || LINES[key].en)) || ''
+// Reply language, owner decision 2026-11-18 (1a): English, except Hindi/Sanskrit
+// lessons ('hi'). Everything that is not 'hi' — including a 'hinglish' carried in an
+// older client's `pending` — is answered in English. The hinglish copy below stays
+// in place so mirroring can be switched back on.
+const langOf = (language) => (language === 'hi' ? 'hi' : 'en')
+const line = (key, language) => (LINES[key] && (LINES[key][langOf(language)] || LINES[key].en)) || ''
 
 // ─── Finishing one thing before starting another ─────────────────────────────
 // A student mid-way through Physics who asks for Chemistry gets told to wait, and
@@ -81,7 +90,8 @@ function namedSubject(text) {
 
 // "Let me finish X first, then I'll take Y." Built per language rather than by
 // string-concatenating an English frame, so Hindi and Hinglish read naturally.
-function deferLine(currentSubject, askedSubject, language) {
+function deferLine(currentSubject, askedSubject, rawLanguage) {
+  const language = langOf(rawLanguage)
   const cur = currentSubject || 'this'
   if (language === 'hi') {
     return `पहले ${cur} का यह हिस्सा पूरा कर लें — फिर ${askedSubject} पढ़ाती हूँ। याद है मुझे।`
@@ -93,7 +103,8 @@ function deferLine(currentSubject, askedSubject, language) {
 }
 
 // What the teacher says when the deferred topic's turn comes.
-function deferredNowLine(askedSubject, language) {
+function deferredNowLine(askedSubject, rawLanguage) {
+  const language = langOf(rawLanguage)
   if (language === 'hi') return `अब ${askedSubject} पर आते हैं, जैसा तुमने पूछा था।`
   if (language === 'hinglish') return `Ab ${askedSubject} pe aate hain, jaisa tumne poochha tha.`
   return `Now let's come to ${askedSubject}, as you asked.`
@@ -124,10 +135,10 @@ const CONTINUE = {
 // A greeting or acknowledgement → respond like a teacher, not a gatekeeper. In a
 // lesson it's a brief warm nod; on the home turn it greets and offers continuity.
 async function greetingReply({ userId, language, lessonId, slideIndex, subject }) {
-  // A one-word greeting ("hi") is a weak language signal — prefer the language the
-  // student usually speaks, so a Hinglish learner gets a Hinglish welcome.
-  const pref = userId ? await memory.getPreferredLanguage(userId).catch(() => null) : null
-  const lang = pref || language
+  // The reply language is decided by the lesson's subject (prepareTurn), not by the
+  // language the student usually speaks — owner decision 2026-11-18 (English, except
+  // Hindi/Sanskrit lessons). memory.getPreferredLanguage is no longer consulted here.
+  const lang = langOf(language)
   let answer
   if (lessonId) {
     answer = line('understood', lang) // "Good. Let's continue." — brief, warm, in-lesson
@@ -170,15 +181,18 @@ function buildSources(chunks) {
 }
 
 // Rule-based understanding signal: did the student get it, not get it, or move on?
-// Negations are checked FIRST so "nahi samajh aaya" (didn't understand) is not
-// mis-read as "samajh aaya" (understood).
+// Only a SHORT reply that is nothing but the signal counts ("haan", "nahi samjha").
+// Anything longer, any question ("ok but why…?", "right angle kyun…", "why is it not
+// zero?"), is a new question — reading it as a signal used to drop the real question.
+// Negations are checked FIRST so "nahi samajh aaya" is not read as "samajh aaya".
+const QUESTION_WORD = /\b(why|how|what|which|when|where|kyun|kyu|kyon|kaise|kya|kaun|kab|kahan)\b/
+const NOT_UNDERSTOOD = /^(no|nope|nah|nahi|nhi|nai|repeat|again|phir se|still confused|confused|not clear|not understood|don'?t (get it|understand)|dont (get it|understand)|(main |mujhe )?(samajh|samjh|samjha|samjhi) (nahi|nhi)( aaya| aya)?|(nahi|nhi) (samajh|samjha|samjhi)( aaya| aya)?|samajh nahi aaya( kuch)?|still (don'?t|not) (get it|clear))( (please|pls|yaar|ma'?am|sir))?$/
+const UNDERSTOOD = /^(yes|yeah|yep|yup|ok|okay|k|kk|got ?it|clear|cleared|understood|haan|haa|ha|hmm|theek|thik|theek hai|thik hai|done|next|continue|aage|aage chalo|right|good|great|makes sense|clear hai|samajh (gaya|gyi|gayi|gya|aaya|aa gaya|liya)|samjh (gaya|gya|aaya)|ho gaya)( (thanks|thank you|ma'?am|sir|yaar))?$/
 function classifyUnderstanding(text) {
-  const t = String(text || '').trim().toLowerCase()
-  if (/\b(nahi|nhi|nai|not|don'?t|dont|confus(ed|ing)?|samjha nahi)\b/.test(t)
-    || /^(no|nope|nah|repeat|again|phir se|still)\b/.test(t)
-    || /(nahi (aaya|samjha|samajh)|samajh nahi|not (clear|understood)|don'?t (get|understand)|still confus)/.test(t)) return 'not_understood'
-  if (/^(yes|yeah|yep|yup|ok|okay|k|got ?it|clear|cleared|understood|haan|haa|ha|theek|thik|done|next|continue|aage|right|good|great|samajh)\b/.test(t)
-    || /\b(samajh (gaya|gya|aaya|liya)|got it|understood|makes sense|clear hai)\b/.test(t)) return 'understood'
+  const t = String(text || '').trim().toLowerCase().replace(/[.!,]+$/g, '').replace(/\s+/g, ' ')
+  if (!t || t.split(' ').length > 5 || t.includes('?') || QUESTION_WORD.test(t)) return 'other'
+  if (NOT_UNDERSTOOD.test(t)) return 'not_understood'
+  if (UNDERSTOOD.test(t)) return 'understood'
   return 'other'
 }
 
@@ -190,23 +204,59 @@ function logEngagement({ userId, subject, intent, contexts }) {
 }
 
 // Lesson context + concurrent intent/retrieval.
-async function prepareTurn({ userId, question, subject, gradeLevel, lessonId }) {
-  let lesson = null
-  if (lessonId) {
-    lesson = await lessonService.getLessonById(lessonId, userId).catch(() => null)
-    if (lesson && !subject) subject = lesson.subject
-    if (lesson && !gradeLevel) gradeLevel = lesson.gradeLevel
-  }
+//
+// Also loads what is on the student's screen (the slides around `slideIndex` and,
+// for a textbook lesson, the most relevant book passages) into `lessonContext`, so
+// the teacher answers about THIS slide instead of from general knowledge. Every
+// load is best-effort: a failure is logged and the turn continues without it.
+// Intent classification runs in parallel with all of it.
+const softly = (what) => (e) => { console.error(`[agent] ${what} failed (continuing without it):`, e && e.message ? e.message : e); return null }
+
+async function prepareTurn({ userId, question, subject, gradeLevel, lessonId, slideIndex }) {
   const quick = quickIntent(question)
   const intentP = quick
     ? Promise.resolve({ intent: quick.intent, language: quick.language, confidence: 0.9, via: 'rules' })
     : config.ai.mockMode
       ? Promise.resolve({ intent: 'concept_explanation', language: 'en', confidence: 0.5, via: 'mock' })
       : getAIProvider().classifyIntent(question).then((r) => ({ ...r, via: 'llm' }))
-  const retrieveP = retrieve({ query: question, subject, gradeLevel, minSimilarity: GROUND_FLOOR })
+
+  let lesson = null
+  let slides = []
+  if (lessonId) {
+    const [byId, withSlides] = await Promise.all([
+      lessonService.getLessonById(lessonId, userId).catch(softly('lesson read')),
+      lessonService.getLessonWithSlides(lessonId, userId).catch(softly('slides read')),
+    ])
+    lesson = byId
+    slides = (lesson && withSlides && Array.isArray(withSlides.slides)) ? withSlides.slides : []
+    if (lesson && !subject) subject = lesson.subject
+    // A textbook lesson is taught at the BOOK's class (as when it was generated), so
+    // its doubts — and their retrieval — use that class, not the profile's.
+    if (lesson && lesson.bookChapterId && lesson.gradeLevel) gradeLevel = lesson.gradeLevel
+    else if (lesson && !gradeLevel) gradeLevel = lesson.gradeLevel
+  }
+
+  // Book passages, only for a textbook lesson.
+  let bookP = Promise.resolve('')
+  if (lesson && lesson.bookChapterId) {
+    const ids = (lesson.bookTopicIds || []).map(Number)
+    const cur = slides[Number.isInteger(slideIndex) ? slideIndex : -1]
+    bookP = Promise.resolve()
+      .then(() => booksService.loadSource({ chapterId: Number(lesson.bookChapterId), kind: ids.length ? 'topics' : 'summary', topicIds: ids }))
+      .then((src) => pickBookPassages((src && src.topics) || [], `${question} ${cur ? cur.slideTitle || '' : ''}`))
+      .catch(softly('book passages'))
+  }
+
+  const retrieveP = Promise.resolve()
+    .then(() => retriever.retrieve({ query: question, subject, gradeLevel, minSimilarity: GROUND_FLOOR }))
     .catch(() => ({ chunks: [], grounded: false, topSimilarity: 0 }))
-  const [intentRes, retrieval] = await Promise.all([intentP, retrieveP])
-  return { lesson, subject, gradeLevel, intentRes, retrieval }
+  const [intentRaw, retrieval, bookText] = await Promise.all([intentP, retrieveP, bookP])
+
+  // The reply language comes from the lesson's subject (owner decision 1a), not
+  // from the language the question happens to be in.
+  const intentRes = { ...intentRaw, detectedLanguage: intentRaw.language, language: replyLanguageFor((lesson && lesson.subject) || subject) }
+  const lessonContext = buildLessonContext({ lesson, slides, slideIndex, bookText: bookText || '' })
+  return { lesson, subject, gradeLevel, intentRes, retrieval, lessonContext }
 }
 
 function teachingResponse({ intent, language, level, via, retrieval, contexts, guarded, lessonId, slideIndex, question, subject }) {
@@ -322,8 +372,11 @@ function understoodReply(pending, { userId, lessonId, slideIndex }) {
   }
 }
 
-async function reExplain({ userId, pending, level, lessonId, slideIndex }) {
-  const language = pending.language || 'en'
+// Re-explains the SAME thing in a new way. It keeps the lesson on screen, the chat
+// so far and the class (it used to send lesson: null, history: [] and no grade, so
+// "samajh nahi aaya" drifted to a different topic).
+async function reExplain({ userId, pending, level, lessonId, slideIndex, history = [], gradeLevel = null, subject = null }) {
+  const language = langOf(pending.language)
   const attempts = (pending.attempts || 0) + 1
   // Learning loop: the first "I didn't get it" lowers concept mastery (once).
   if (userId && pending.conceptId && attempts === 1) {
@@ -338,8 +391,8 @@ async function reExplain({ userId, pending, level, lessonId, slideIndex }) {
     }
   }
   const strategy = STRATEGY_ORDER[attempts - 1]
-  const retrieval = await retrieve({ query: pending.topic, subject: pending.subject, minSimilarity: GROUND_FLOOR })
-    .catch(() => ({ chunks: [], grounded: false, topSimilarity: 0 }))
+  const prep = await prepareTurn({ userId, question: pending.topic, subject: subject || pending.subject, gradeLevel, lessonId, slideIndex })
+  const { retrieval, lesson, lessonContext } = prep
   const contexts = retrieval.grounded ? retrieval.chunks : []
   // Re-explanation remembers the student too — same signals as the normal flow, so
   // a stuck student hears "this was tricky last time too, let's try another way",
@@ -351,7 +404,8 @@ async function reExplain({ userId, pending, level, lessonId, slideIndex }) {
   let raw
   if (config.ai.mockMode) raw = `Let me try another way (${strategy}). ${pending.topic}. Clear now?`
   else raw = await getAIProvider().generateTeacherResponse({
-    intent: 'concept_explanation', language, contexts, lesson: null, history: [], question: pending.topic, level, strategy, studentContext,
+    intent: 'concept_explanation', language, contexts, lesson, history: (Array.isArray(history) ? history : []).slice(-8),
+    question: pending.topic, slideIndex, level, strategy, studentContext, gradeLevel: prep.gradeLevel, lessonContext,
   })
   const guarded = applyGuard(raw, { language })
   return {
@@ -482,18 +536,18 @@ async function ask(params) {
   if (pending && pending.kind === 'understanding') {
     const u = classifyUnderstanding(question)
     if (u === 'understood') return understoodReply(pending, { userId, lessonId, slideIndex })
-    if (u === 'not_understood') return reExplain({ userId, pending, level: pinnedLevel || 'intermediate', lessonId, slideIndex })
+    if (u === 'not_understood') return reExplain({ userId, pending, level: pinnedLevel || 'intermediate', lessonId, slideIndex, history, gradeLevel: params.gradeLevel, subject: params.subject })
     // 'other' → a new question; fall through and drop the understanding loop.
   }
 
   let { subject, gradeLevel } = params
-  const prep = await prepareTurn({ userId, question, subject, gradeLevel, lessonId })
+  const prep = await prepareTurn({ userId, question, subject, gradeLevel, lessonId, slideIndex })
   subject = prep.subject; gradeLevel = prep.gradeLevel
-  const { lesson, intentRes, retrieval } = prep
+  const { lesson, intentRes, retrieval, lessonContext } = prep
   const { intent, language, via } = intentRes
 
   // Remember the language the student uses (rolling) so we can address them in it.
-  if (userId) memory.recordLanguage(userId, language).catch(() => {})
+  if (userId) memory.recordLanguage(userId, intentRes.detectedLanguage || language).catch(() => {})
 
   // A "hi" / "thanks" deserves a warm human reply, not a dismissal — handle it
   // before any retrieval / mastery work.
@@ -566,7 +620,7 @@ async function ask(params) {
       ? `Here is the key idea. ${String(contexts[0].content).split('\n').slice(1).join(' ').slice(0, 160)} Clear?`
       : "This isn't in your material yet. Ask me about your topic and I'll explain it. Clear?"
   } else {
-    rawAnswer = await getAIProvider().generateTeacherResponse({ intent, language, contexts, lesson, history: trimmedHistory, question, slideIndex, level, mode, studentContext, gradeLevel })
+    rawAnswer = await getAIProvider().generateTeacherResponse({ intent, language, contexts, lesson, history: trimmedHistory, question, slideIndex, level, mode, studentContext, gradeLevel, lessonContext })
   }
   const guarded = applyGuard(rawAnswer, { language })
   logEngagement({ userId, subject, intent, contexts })
@@ -596,13 +650,13 @@ async function askStream(params, { onMeta, onDelta, onBoard } = {}) {
   }
 
   let { subject, gradeLevel } = params
-  const prep = await prepareTurn({ userId, question, subject, gradeLevel, lessonId })
+  const prep = await prepareTurn({ userId, question, subject, gradeLevel, lessonId, slideIndex })
   subject = prep.subject; gradeLevel = prep.gradeLevel
-  const { lesson, intentRes, retrieval } = prep
+  const { lesson, intentRes, retrieval, lessonContext } = prep
   const { intent, language, via } = intentRes
 
   // Remember the language the student uses (rolling).
-  if (userId) memory.recordLanguage(userId, language).catch(() => {})
+  if (userId) memory.recordLanguage(userId, intentRes.detectedLanguage || language).catch(() => {})
 
   // Greetings get a warm human reply before any retrieval / mastery work.
   if (intent === 'greeting') return emit(await greetingReply({ userId, language, lessonId, slideIndex, subject }))
@@ -673,7 +727,7 @@ async function askStream(params, { onMeta, onDelta, onBoard } = {}) {
       : null
     const sink = parser ? (t) => parser.push(t) : (t) => { if (onDelta) onDelta(t) }
     raw = await getAIProvider().streamTeacherResponse(
-      { intent, language, contexts, lesson, history: history.slice(-8), question, slideIndex, level, mode, studentContext, gradeLevel, board },
+      { intent, language, contexts, lesson, history: history.slice(-8), question, slideIndex, level, mode, studentContext, gradeLevel, board, lessonContext },
       sink
     )
     if (parser) { parser.end(); raw = parser.text }
@@ -696,7 +750,7 @@ async function startRevision({ userId, subject }) {
 
   // Target the specific weak concept when the planner found one, else the chapter.
   const query = `${focusConcept || focusChapter || focusSubject || ''} key concepts to revise`.trim()
-  const retrieval = await retrieve({ query, subject: focusSubject, minSimilarity: GROUND_FLOOR })
+  const retrieval = await retriever.retrieve({ query, subject: focusSubject, minSimilarity: GROUND_FLOOR })
     .catch(() => ({ chunks: [], grounded: false, topSimilarity: 0 }))
   const contexts = retrieval.grounded ? retrieval.chunks : []
 
@@ -730,3 +784,5 @@ async function startRevision({ userId, subject }) {
 }
 
 module.exports = { ask, askStream, startRevision, classifyUnderstanding, gatherMemoryCues, buildStudentContext, conceptMemory, GROUND_FLOOR }
+// Internals exposed for unit tests only.
+module.exports._test = { prepareTurn }
