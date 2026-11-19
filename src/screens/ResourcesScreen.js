@@ -1560,7 +1560,10 @@ const ResourcesScreen = () => {
     if (!usesDbMenu || !activeSubject) { setC10Menu({ subject: null, tiles: null, error: false }); return undefined; }
     let alive = true;
     setC10Menu({ subject: activeSubject.name, tiles: null, error: false });
-    getResourceMenu(slugify(activeSubject.name), parseInt(String(activeClass).replace(/D/g, ''), 10))
+    // `\D` — strip NON-DIGITS. It read /D/g (a literal capital D), which matches
+    // nothing in "Class 4", so parseInt("Class 4") was NaN and every DB-menu class
+    // asked the server for class=NaN and got an empty tile list back.
+    getResourceMenu(slugify(activeSubject.name), parseInt(String(activeClass).replace(/\D/g, ''), 10))
       .then((d) => { if (alive) setC10Menu({ subject: activeSubject.name, tiles: (d && d.tiles) || [], error: false }); })
       .catch(() => { if (alive) setC10Menu({ subject: activeSubject.name, tiles: null, error: true }); });
     return () => { alive = false; };

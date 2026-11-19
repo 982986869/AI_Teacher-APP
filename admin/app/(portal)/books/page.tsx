@@ -520,7 +520,12 @@ function UploadPanel({ onDone }: { onDone: () => void }) {
         <select className="select" value={klass} onChange={(e) => setKlass(e.target.value)} disabled={busy}
           style={{ width: 'auto', borderColor: klass ? undefined : 'var(--indigo)' }} aria-label="Class">
           <option value="">Class… (required)</option>
-          {[6, 7, 8, 9, 10, 11, 12].map((c) => <option key={c} value={c}>Class {c}</option>)}
+          {/* Primary classes are here because content now exists for them (Class 3
+              and 4 were seeded from the examin8 batch). Without them the only way to
+              reach a Class 4 student was "All classes", which also handed the book to
+              every senior. Keep in step with CLASSES in the in-app admin's
+              src/screens/admin/books/UploadBookSheet.js. */}
+          {[3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((c) => <option key={c} value={c}>Class {c}</option>)}
           <option value="all">All classes</option>
         </select>
 

@@ -593,6 +593,17 @@ They cannot change anything or see your messages.`
                 now, so looking ahead at another year is a chip, not a support
                 request. Sits before the icons so it reads as content, not chrome. */}
             <ClassPicker value={selectedClass} onChange={setSelectedClass} />
+            {/* Brain Gym is reachable from the tile further down, but that sits below
+                the current lesson and is the first thing a long Home pushes off the
+                screen. Up here it is always one tap away. Before the bell and the gear
+                for the same reason the class picker is: it is somewhere to GO, not
+                chrome. Same `brainGymOn` gate as the tile, so one flag still hides
+                every route into it. */}
+            {brainGymOn && (
+              <Squeeze style={hs.iconBtn} onPress={openBrainGym} accessibilityLabel="Open Brain Gym">
+                <Brain size={19} color={DAY.inkSoft} strokeWidth={2.2} />
+              </Squeeze>
+            )}
             <Squeeze style={hs.iconBtn} accessibilityLabel="Notifications">
               <Bell size={19} color={DAY.inkSoft} strokeWidth={2.2} />
             </Squeeze>

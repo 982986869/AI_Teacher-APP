@@ -18,7 +18,10 @@ import { S } from '../ui/kit';
 import * as api from '../../../api/adminBooksApi';
 
 const MAX_BYTES = 40 * 1024 * 1024;
-const CLASSES = [6, 7, 8, 9, 10, 11, 12];
+// Primary classes are here because content now exists for them (Class 3 and 4 were
+// seeded from the examin8 batch). Without them the only way to reach a Class 4
+// student was "All classes", which also handed the book to every senior.
+const CLASSES = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 // expo-document-picker is a native module. Required lazily so the lookup happens
 // when an admin actually taps "Choose PDF" — the same reason pickAndUploadImage
