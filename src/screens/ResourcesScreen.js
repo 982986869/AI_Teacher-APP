@@ -983,7 +983,11 @@ const baseResourceTypes = (subjectName, classLevel, parts = null) => {
 // A subject with no practice shows an empty chapter list rather than a dead end:
 // getChapters returns only chapters that actually carry the section, which is the
 // same way the Class 9 textbook tiles already behave.
-const PRACTICE_CLASSES = ['Class 3', 'Class 7', 'Class 8', 'Class 9'];
+//
+// Class 3 is NOT here (owner, 2026-11-20): its practice MCQs live in the Practice
+// tab's bank (mcq_questions), not in `practice` sections, so for every Class 3
+// subject this tile only ever opened an empty list.
+const PRACTICE_CLASSES = ['Class 7', 'Class 8', 'Class 9'];
 const getResourceTypes = (subjectName, classLevel, parts = null) => {
   const tiles = baseResourceTypes(subjectName, classLevel, parts);
   if (!PRACTICE_CLASSES.includes(classLevel)) return tiles;
