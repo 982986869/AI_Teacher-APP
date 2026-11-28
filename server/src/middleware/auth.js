@@ -124,4 +124,18 @@ function requireFullAccess(req, res, next) {
   return next(new AppError('This content is locked', 403, 'LOCKED'))
 }
 
-module.exports = { authenticate, requireAdmin, requireFullAccess }
+/**
+ * Gate a route to TEACHER accounts (the teacher dashboard). Must run after `authenticate`.
+ *
+ * A teacher is `account_type = 'teacher'`, which since fix/teacher-role-escalation only an
+ * admin can set (PATCH /api/admin/users/:id/account-type) — so this check means "an admin
+ * made this person a teacher". A deactivated teacher is refused even with a live token.
+ */
+function requireTeacher(req, res, next) {
+  if (!req.user) return next(new AppError('Authentication required', 401))
+  if (!req.scope || req.scope.role !== 'teacher') return next(new AppError('Teacher access required', 403))
+  if (req.user.is_active === false) return next(new AppError('This account is deactivated', 403))
+  next()
+}
+
+module.exports = { authenticate, requireAdmin, requireFullAccess, requireTeacher }

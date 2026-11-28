@@ -159,7 +159,11 @@ test('validateProfilePatch: complete-profile rules (never trust the client)', ()
 
   // Parent and teacher need neither class nor stream.
   ok(validateProfilePatch({ accountType: 'parent' }, {}))
-  ok(validateProfilePatch({ accountType: 'teacher' }, {}))
+  // A teacher is made by an admin, never self-assigned (fix/teacher-role-escalation)…
+  err(validateProfilePatch({ accountType: 'teacher' }, {}), /administrator/)
+  err(validateProfilePatch({ accountType: 'teacher' }, { account_type: 'student', grade: 'Class 10' }), /administrator/)
+  // …but an existing teacher echoing their own type while changing something else is fine.
+  ok(validateProfilePatch({ accountType: 'teacher', language: 'Hindi' }, { account_type: 'teacher' }))
 
   // Partial update validates against the stored row: senior student changing only
   // language keeps their already-saved stream.

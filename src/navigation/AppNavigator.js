@@ -22,6 +22,7 @@ const SCREENS = {
   CompleteProfile: () => require('../screens/CompleteProfileScreen').default,
   ParentApp:       () => require('../screens/parent/ParentApp/ParentApp').default,
   AdminApp:        () => require('./AdminNavigator').default,
+  TeacherApp:      () => require('../screens/teacher/TeacherDashboardScreen').default,
 };
 
 const Stack = createNativeStackNavigator();
@@ -117,16 +118,10 @@ const AppNavigator = () => {
     // and Parent) — same design system, real /api/admin data. No WebView, no web portal.
     screen = <Stack.Screen name="AdminApp" getComponent={SCREENS.AdminApp} />;
   } else if (scope.role === 'teacher') {
-    // Teacher dashboard isn't built yet — a role-ready placeholder (never leaks into the
-    // student app). Kept separate from the admin path above.
-    screen = (
-      <Stack.Screen name="RoleApp">
-        {props => {
-          const RoleHomeScreen = require('../screens/RoleHomeScreen').default;
-          return <RoleHomeScreen {...props} role="teacher" />;
-        }}
-      </Stack.Screen>
-    );
+    // The teacher dashboard (next lesson + Join, today, my students, this week). Only an
+    // admin can make an account a teacher, so reaching this means an admin granted it.
+    // Never leaks into the student app; kept separate from the admin path above.
+    screen = <Stack.Screen name="TeacherApp" getComponent={SCREENS.TeacherApp} />;
   } else if (activeView == null) {
     // Student hasn't picked a view this login → the "Select your profile" picker
     // (same reusable Parent/Student chooser used before Home). Choice sets activeView.

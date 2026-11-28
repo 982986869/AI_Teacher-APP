@@ -55,6 +55,13 @@ router.use('/books',        authenticate, require('./books'))
 // student is paid, and it returns no lesson content — only a name and asset URLs.
 router.use('/teacher',    require('./teacherIdentity'))
 
+// The human teacher's dashboard (teachers only — routes/teaching.js), and a student's
+// homework (routes/homework.js) and classes with their room links (routes/myClasses.js). Not paywalled: these are the live
+// classes, not app content.
+router.use('/teaching',   require('./teaching'))
+router.use('/homework',   require('./homework'))
+router.use('/my-classes', require('./myClasses'))
+
 // Paid.
 router.use('/ai',           paid(require('./ai')))
 router.use('/textbooks', paid(require('./textbooks')))   // textbook browsing for the AI Teacher

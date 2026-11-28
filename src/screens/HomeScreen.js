@@ -69,6 +69,8 @@ import { getLinkNotices, ackLinkNotices } from '../api/parentApi';
 import { getAnnouncements } from '../api/announcementsApi';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import OptionalUpdateBanner from '../components/OptionalUpdateBanner';
+import HomeworkCard from '../components/HomeworkCard';
+import MyClassesCard from '../components/MyClassesCard';
 import { getParentReport } from '../api/parentApi';
 import { getResumeContext } from '../api/aiApi';
 import { getActiveLesson, getHomeState, saveHomeState } from '../utils/storage';
@@ -749,6 +751,16 @@ They cannot change anything or see your messages.`
                 </Appear>
               )}
             </View>
+
+            {/* ── 2·cls. live classes with the student's teacher: next class + Join (hidden without one) ── */}
+            <Appear delay={140}>
+              <MyClassesCard />
+            </Appear>
+
+            {/* ── 2·hw. homework from the student's teacher (hidden when there is none) ── */}
+            <Appear delay={150}>
+              <HomeworkCard />
+            </Appear>
 
             {/* ── 2a. for you — books a teacher has shared with this class ── */}
             {books.length > 0 && (

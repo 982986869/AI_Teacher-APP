@@ -429,11 +429,15 @@ export default function SessionsScreen() {
   const isLive = (s) =>
     s.status === 'scheduled' && now >= ms(s.startsAt) && now <= ms(s.startsAt) + (s.durationMin || 0) * 60000;
 
-  const scheduled = rows.filter((s) => s.status === 'scheduled').sort((a, b) => ms(a.startsAt) - ms(b.startsAt));
+  // A 'scheduled' session whose end has passed is over, even if nobody marked it
+  // completed — otherwise a class from this morning would sit in the "next class" card
+  // above the real next one (a student's own lesson with their teacher included).
+  const ended = (s) => now > ms(s.startsAt) + (s.durationMin || 0) * 60000;
+  const scheduled = rows.filter((s) => s.status === 'scheduled' && !ended(s)).sort((a, b) => ms(a.startsAt) - ms(b.startsAt));
   const hero = scheduled.find(isLive) || scheduled[0] || null;
   const restUpcoming = scheduled.filter((s) => s !== hero);
   const allRecordings = useMemo(() => [...rows.filter((s) => !!s.recordingUrl), DUMMY_RECORDING], [rows]);
-  const past = rows.filter((s) => s.status === 'completed' && !s.recordingUrl);
+  const past = rows.filter((s) => (s.status === 'completed' || (s.status === 'scheduled' && ended(s))) && !s.recordingUrl);
 
   const subjects = useMemo(() => {
     const set = [];
