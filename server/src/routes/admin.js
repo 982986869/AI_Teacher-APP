@@ -51,6 +51,10 @@ router.get('/users/meta', requirePermission('users.view'), usersCtrl.meta)
 router.get('/users', requirePermission('users.view'), usersCtrl.list)
 router.get('/users/:id', requirePermission('users.view'), usersCtrl.detail)
 router.patch('/users/:id/role', requirePermission('users.role'), usersCtrl.setRole)
+// The only route that can make someone a teacher. Self-service was removed: 'teacher'
+// grants full content access, so it is a privilege to be granted, not a preference to
+// be picked. Same permission as admin roles, for the same reason.
+router.patch('/users/:id/account-type', requirePermission('users.role'), usersCtrl.setAccountType)
 router.post('/users/:id/reset-password', requirePermission('users.password'), usersCtrl.resetPassword)
 router.patch('/users/:id/status', requirePermission('users.edit'), usersCtrl.setStatus)
 router.patch('/users/:id/access', requirePermission('users.edit'), usersCtrl.setAccess)

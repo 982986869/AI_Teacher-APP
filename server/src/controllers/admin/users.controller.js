@@ -8,6 +8,7 @@ const audit = require('../../services/admin/audit.service')
 const { ROLES, ROLE_LABELS, hasPermission } = require('../../services/admin/permissions')
 const { studentSnapshot } = require('../../services/admin/studentSnapshot')
 const { GRACE_PERIOD_DAYS, daysLeft } = require('../../services/accountDeletion')
+const { ACCOUNT_TYPES } = require('../../services/personalization/validateProfile')
 
 const num = (v) => Number(v) || 0
 // deleted_at is here so the Deleted filter can be ordered by it: the queue is worked
@@ -151,6 +152,59 @@ async function setRole(req, res, next) {
   } catch (err) { next(err) }
 }
 
+// PATCH /api/admin/users/:id/account-type  { accountType }  (users.role)
+//
+// The ONLY way to make someone a teacher.
+//
+// It used to be self-service: the profile patch accepted accountType from the client
+// and 'teacher' was in the allowed set, so anyone could grant it to themselves. That is
+// not a preference, it is a privilege — deriveScope gives a teacher accessLevel 'full',
+// which is every paid lesson for nothing, plus the teacherOnly routes and, with the
+// teacher dashboard, other people's children's names and the links to their lessons.
+//
+// Gated on users.role rather than users.edit: granting teaching staff access is the
+// same KIND of act as granting an admin role, and should need the same permission.
+async function setAccountType(req, res, next) {
+  try {
+    const target = await loadUserOr404(req.params.id)
+    const accountType = String(req.body.accountType || '').toLowerCase()
+    if (!ACCOUNT_TYPES.has(accountType)) {
+      throw new AppError(`accountType must be one of ${[...ACCOUNT_TYPES].join(', ')}`, 422)
+    }
+
+    // Demoting a teacher who still has lessons in the diary would leave those lessons
+    // pointing at someone who can no longer open them. Say so rather than discovering
+    // it when a child sits in an empty room.
+    if (target.accountType === 'teacher' && accountType !== 'teacher') {
+      const [{ n }] = await db.$queryRawUnsafe(
+        `SELECT count(*)::int AS n FROM "sessions"
+          WHERE teacher_id = $1::uuid AND deleted_at IS NULL
+            AND status = 'scheduled' AND starts_at > now()`, target.id)
+      if (n > 0) {
+        throw new AppError(
+          `${target.email} still has ${n} upcoming lesson(s). Reassign or cancel them before removing the teacher role.`, 409)
+      }
+    }
+
+    await db.$executeRawUnsafe(
+      `UPDATE "users" SET account_type = $2 WHERE id = $1::uuid`, target.id, accountType)
+
+    await audit.record(req, {
+      module: 'users', action: 'account-type.change', targetType: 'user', targetId: target.id,
+      targetLabel: target.email,
+      before: { accountType: target.accountType }, after: { accountType },
+    })
+
+    // Named explicitly in the message, because granting 'teacher' also silently grants
+    // full content access, and an operator clicking "Make teacher" to let someone set
+    // homework should know they have also just given away the paid plan.
+    const note = accountType === 'teacher'
+      ? ' This also gives them full content access, as staff.'
+      : ''
+    return ApiResponse.success(res, { id: target.id, accountType }, `Account type set to ${accountType}.${note}`)
+  } catch (err) { next(err) }
+}
+
 // POST /api/admin/users/:id/reset-password  { password? }  (users.password)
 async function resetPassword(req, res, next) {
   try {
@@ -284,4 +338,4 @@ async function meta(req, res, next) {
   } catch (err) { next(err) }
 }
 
-module.exports = { list, detail, setRole, resetPassword, setStatus, setAccess, remove, meta }
+module.exports = { list, detail, setRole, setAccountType, resetPassword, setStatus, setAccess, remove, meta }

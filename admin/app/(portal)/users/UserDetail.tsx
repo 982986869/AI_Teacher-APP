@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { KeyRound, ShieldCheck, Ban, Trash2, CircleCheck, Copy, Dumbbell, BookOpen, Target, Activity, Lock, LockOpen } from 'lucide-react'
+import { KeyRound, ShieldCheck, Ban, Trash2, CircleCheck, Copy, Dumbbell, BookOpen, Target, Activity, Lock, LockOpen, GraduationCap } from 'lucide-react'
 import { useApi } from '@/components/useApi'
 import { Badge, Skel, ErrorState, IconChip } from '@/components/ui'
 import { ConfirmDialog, Modal } from '@/components/Modal'
@@ -34,7 +34,7 @@ export function UserDetail({ id, onChanged, onClose }: { id: string; onChanged: 
   const { can, admin } = useAuth()
   const toast = useToast()
   const { data, loading, error, reload } = useApi<DetailData>(`/users/${id}`)
-  const [confirm, setConfirm] = useState<null | 'deactivate' | 'reactivate' | 'delete' | 'grant' | 'revoke'>(null)
+  const [confirm, setConfirm] = useState<null | 'deactivate' | 'reactivate' | 'delete' | 'grant' | 'revoke' | 'teach' | 'unteach'>(null)
   const [roleModal, setRoleModal] = useState(false)
   const [pwModal, setPwModal] = useState(false)
   const [busy, setBusy] = useState(false)
@@ -66,6 +66,17 @@ export function UserDetail({ id, onChanged, onClose }: { id: string; onChanged: 
     await act(
       () => api(`/users/${id}/access`, { method: 'PATCH', body: { accessLevel: level } }),
       level === 'full' ? 'Full access granted' : 'Access set to free',
+    )
+  }
+
+  // The ONLY way to make someone a teacher. Self-service was removed from the profile
+  // patch: 'teacher' grants full content access and opens the teacher routes, so it is
+  // a privilege to be granted deliberately and audited, not a box a person ticks about
+  // themselves during signup.
+  async function setAccountType(accountType: 'student' | 'parent' | 'teacher') {
+    await act(
+      () => api(`/users/${id}/account-type`, { method: 'PATCH', body: { accountType } }),
+      accountType === 'teacher' ? 'Made a teacher' : `Account type set to ${accountType}`,
     )
   }
 
@@ -151,6 +162,11 @@ export function UserDetail({ id, onChanged, onClose }: { id: string; onChanged: 
           {can('users.edit') && !u.adminRole && (u.accessLevel === 'full'
             ? <button className="btn btn-ghost sm" onClick={() => setConfirm('revoke')}><Lock size={14} /> Set to free</button>
             : <button className="btn btn-soft sm" onClick={() => setConfirm('grant')}><LockOpen size={14} /> Grant full access</button>)}
+          {/* Teaching staff. Same permission as admin roles, because it is the same
+              kind of act: it grants full content access and the teacher routes. */}
+          {can('users.role') && !u.adminRole && (u.accountType === 'teacher'
+            ? <button className="btn btn-ghost sm" onClick={() => setConfirm('unteach')}><GraduationCap size={14} /> Remove teacher</button>
+            : <button className="btn btn-soft sm" onClick={() => setConfirm('teach')}><GraduationCap size={14} /> Make teacher</button>)}
           {can('users.delete') && u.adminRole !== 'super_admin' && <button className="btn btn-danger sm" onClick={() => setConfirm('delete')}><Trash2 size={14} /> Delete</button>}
         </div>
       </div>
@@ -172,6 +188,21 @@ export function UserDetail({ id, onChanged, onClose }: { id: string; onChanged: 
       <ConfirmDialog open={confirm === 'revoke'} onClose={() => setConfirm(null)} busy={busy} danger confirmLabel="Set to free"
         onConfirm={() => setAccess('free')}
         title="Set access to free" message={<>Restrict <b>{u.name}</b> to Brain Gym, the Arena and the Home dashboard? Their progress is kept.</>} />
+
+      <ConfirmDialog
+        open={confirm === 'teach'} onClose={() => setConfirm(null)} busy={busy}
+        title="Make this person a teacher?"
+        message={`${u?.name || u?.email} will be able to open the teacher screens, see the students allocated to them, and set homework. It also gives them FULL content access, as staff — every paid lesson, without a subscription.`}
+        confirmLabel="Make teacher"
+        onConfirm={() => setAccountType('teacher')}
+      />
+      <ConfirmDialog
+        open={confirm === 'unteach'} onClose={() => setConfirm(null)} busy={busy} danger
+        title="Remove the teacher role?"
+        message={`${u?.name || u?.email} will lose the teacher screens and the staff content access that comes with them. If they still have lessons booked, this is refused until those are reassigned or cancelled.`}
+        confirmLabel="Remove teacher"
+        onConfirm={() => setAccountType('student')}
+      />
 
       {/* Role modal */}
       <Modal open={roleModal} onClose={() => setRoleModal(false)} title="Manage admin role" width={420}
